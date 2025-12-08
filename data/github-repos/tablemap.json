@@ -16,6 +16,192 @@
     "CoffeeScript": 1558
   },
   "diskUsage": 728,
+  "fileTree": {
+    "files": [
+      {
+        "path": "README.md",
+        "size": 184
+      },
+      {
+        "path": "index.html",
+        "size": 3172
+      },
+      {
+        "path": "js/d3.v2.min.js",
+        "size": 111440
+      },
+      {
+        "path": "js/gmaps.js",
+        "size": 45302
+      },
+      {
+        "path": "js/images/marker-icon.png",
+        "size": 1537
+      },
+      {
+        "path": "js/images/marker-shadow.png",
+        "size": 797
+      },
+      {
+        "path": "js/jquery-1.7.1.min.js",
+        "size": 93868
+      },
+      {
+        "path": "js/jquery.lettering.js",
+        "size": 1715
+      },
+      {
+        "path": "js/jquery.scrollorama.js",
+        "size": 15753
+      },
+      {
+        "path": "js/leaflet.js",
+        "size": 106308
+      },
+      {
+        "path": "js/retina.js",
+        "size": 1326
+      },
+      {
+        "path": "js/tablemap.js",
+        "size": 607
+      },
+      {
+        "path": "js/tabletop.js",
+        "size": 9537
+      },
+      {
+        "path": "js/underscore-min.js",
+        "size": 10260
+      },
+      {
+        "path": "leaflet.css",
+        "size": 8275
+      },
+      {
+        "path": "style.css",
+        "size": 12386
+      },
+      {
+        "path": "style.less",
+        "size": 18629
+      },
+      {
+        "path": "tablemap.coffee",
+        "size": 495
+      }
+    ],
+    "tree": {
+      "name": "tablemap",
+      "children": [
+        {
+          "name": "js",
+          "children": [
+            {
+              "name": "images",
+              "children": [
+                {
+                  "name": "marker-icon.png",
+                  "size": 1537,
+                  "path": "js/images/marker-icon.png"
+                },
+                {
+                  "name": "marker-shadow.png",
+                  "size": 797,
+                  "path": "js/images/marker-shadow.png"
+                }
+              ],
+              "path": "js/images"
+            },
+            {
+              "name": "d3.v2.min.js",
+              "size": 111440,
+              "path": "js/d3.v2.min.js"
+            },
+            {
+              "name": "gmaps.js",
+              "size": 45302,
+              "path": "js/gmaps.js"
+            },
+            {
+              "name": "jquery-1.7.1.min.js",
+              "size": 93868,
+              "path": "js/jquery-1.7.1.min.js"
+            },
+            {
+              "name": "jquery.lettering.js",
+              "size": 1715,
+              "path": "js/jquery.lettering.js"
+            },
+            {
+              "name": "jquery.scrollorama.js",
+              "size": 15753,
+              "path": "js/jquery.scrollorama.js"
+            },
+            {
+              "name": "leaflet.js",
+              "size": 106308,
+              "path": "js/leaflet.js"
+            },
+            {
+              "name": "retina.js",
+              "size": 1326,
+              "path": "js/retina.js"
+            },
+            {
+              "name": "tablemap.js",
+              "size": 607,
+              "path": "js/tablemap.js"
+            },
+            {
+              "name": "tabletop.js",
+              "size": 9537,
+              "path": "js/tabletop.js"
+            },
+            {
+              "name": "underscore-min.js",
+              "size": 10260,
+              "path": "js/underscore-min.js"
+            }
+          ],
+          "path": "js"
+        },
+        {
+          "name": "README.md",
+          "size": 184,
+          "path": "README.md"
+        },
+        {
+          "name": "index.html",
+          "size": 3172,
+          "path": "index.html"
+        },
+        {
+          "name": "leaflet.css",
+          "size": 8275,
+          "path": "leaflet.css"
+        },
+        {
+          "name": "style.css",
+          "size": 12386,
+          "path": "style.css"
+        },
+        {
+          "name": "style.less",
+          "size": 18629,
+          "path": "style.less"
+        },
+        {
+          "name": "tablemap.coffee",
+          "size": 495,
+          "path": "tablemap.coffee"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 18,
+    "totalSize": 441591
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"tablemap\">Tablemap</h1>\n<p>Google docs / Tabletop based mapping using javascript</p>\n<p>Example doc: <a href=\"https://docs.google.com/spreadsheet/pub?key=0ApAkxBfw1JT4dHNKX0FNclJoVnVvVUZybkZqYjEzYVE&amp;output=html\">https://docs.google.com/spreadsheet/pub?key=0ApAkxBfw1JT4dHNKX0FNclJoVnVvVUZybkZqYjEzYVE&amp;output=html</a></p>",

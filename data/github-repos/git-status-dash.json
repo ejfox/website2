@@ -17,6 +17,249 @@
     "JavaScript": 10833
   },
   "diskUsage": 101,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".claude/settings.local.json",
+        "size": 311
+      },
+      {
+        "path": ".eslintrc.json",
+        "size": 512
+      },
+      {
+        "path": ".github/workflows/production_release.yml",
+        "size": 9188
+      },
+      {
+        "path": ".github/workflows/test_build.yml",
+        "size": 2774
+      },
+      {
+        "path": ".github/workflows/test_release.yml",
+        "size": 7016
+      },
+      {
+        "path": ".gitignore",
+        "size": 75
+      },
+      {
+        "path": ".status-monitor.json",
+        "size": 2
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "README.md",
+        "size": 6684
+      },
+      {
+        "path": "animations.go",
+        "size": 6334
+      },
+      {
+        "path": "benchmark.sh",
+        "size": 4138
+      },
+      {
+        "path": "config.go",
+        "size": 15606
+      },
+      {
+        "path": "fair_benchmark.sh",
+        "size": 1417
+      },
+      {
+        "path": "go.mod",
+        "size": 1547
+      },
+      {
+        "path": "go.sum",
+        "size": 6398
+      },
+      {
+        "path": "hacker_effects.go",
+        "size": 8726
+      },
+      {
+        "path": "index.mjs",
+        "size": 10833
+      },
+      {
+        "path": "main.go",
+        "size": 17282
+      },
+      {
+        "path": "package.json",
+        "size": 1275
+      },
+      {
+        "path": "performance.go",
+        "size": 7418
+      },
+      {
+        "path": "test-release.sh",
+        "size": 14743
+      },
+      {
+        "path": "themes.go",
+        "size": 15991
+      },
+      {
+        "path": "yarn.lock",
+        "size": 47109
+      }
+    ],
+    "tree": {
+      "name": "git-status-dash",
+      "children": [
+        {
+          "name": ".claude",
+          "children": [
+            {
+              "name": "settings.local.json",
+              "size": 311,
+              "path": ".claude/settings.local.json"
+            }
+          ],
+          "path": ".claude"
+        },
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "production_release.yml",
+                  "size": 9188,
+                  "path": ".github/workflows/production_release.yml"
+                },
+                {
+                  "name": "test_build.yml",
+                  "size": 2774,
+                  "path": ".github/workflows/test_build.yml"
+                },
+                {
+                  "name": "test_release.yml",
+                  "size": 7016,
+                  "path": ".github/workflows/test_release.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": ".eslintrc.json",
+          "size": 512,
+          "path": ".eslintrc.json"
+        },
+        {
+          "name": ".gitignore",
+          "size": 75,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".status-monitor.json",
+          "size": 2,
+          "path": ".status-monitor.json"
+        },
+        {
+          "name": "README.md",
+          "size": 6684,
+          "path": "README.md"
+        },
+        {
+          "name": "animations.go",
+          "size": 6334,
+          "path": "animations.go"
+        },
+        {
+          "name": "benchmark.sh",
+          "size": 4138,
+          "path": "benchmark.sh"
+        },
+        {
+          "name": "config.go",
+          "size": 15606,
+          "path": "config.go"
+        },
+        {
+          "name": "fair_benchmark.sh",
+          "size": 1417,
+          "path": "fair_benchmark.sh"
+        },
+        {
+          "name": "go.mod",
+          "size": 1547,
+          "path": "go.mod"
+        },
+        {
+          "name": "go.sum",
+          "size": 6398,
+          "path": "go.sum"
+        },
+        {
+          "name": "hacker_effects.go",
+          "size": 8726,
+          "path": "hacker_effects.go"
+        },
+        {
+          "name": "index.mjs",
+          "size": 10833,
+          "path": "index.mjs"
+        },
+        {
+          "name": "main.go",
+          "size": 17282,
+          "path": "main.go"
+        },
+        {
+          "name": "package.json",
+          "size": 1275,
+          "path": "package.json"
+        },
+        {
+          "name": "performance.go",
+          "size": 7418,
+          "path": "performance.go"
+        },
+        {
+          "name": "test-release.sh",
+          "size": 14743,
+          "path": "test-release.sh"
+        },
+        {
+          "name": "themes.go",
+          "size": 15991,
+          "path": "themes.go"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 47109,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 23,
+    "totalSize": 185646
+  },
   "topics": [
     "cli",
     "dashboard",

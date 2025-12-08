@@ -17,6 +17,192 @@
     "JavaScript": 785
   },
   "diskUsage": 122,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 193
+      },
+      {
+        "path": "DEPLOY.md",
+        "size": 1488
+      },
+      {
+        "path": "README.md",
+        "size": 822
+      },
+      {
+        "path": "app/app.vue",
+        "size": 651
+      },
+      {
+        "path": "components/AudioPlayer.vue",
+        "size": 4907
+      },
+      {
+        "path": "components/MusicPlayer.vue",
+        "size": 5833
+      },
+      {
+        "path": "ecosystem.config.js",
+        "size": 308
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 616
+      },
+      {
+        "path": "package-lock.json",
+        "size": 513395
+      },
+      {
+        "path": "package.json",
+        "size": 858
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "public/robots.txt",
+        "size": 24
+      },
+      {
+        "path": "public/tracks.json",
+        "size": 6911
+      },
+      {
+        "path": "server/api/tracks.get.ts",
+        "size": 1488
+      },
+      {
+        "path": "tailwind.config.js",
+        "size": 477
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 320
+      }
+    ],
+    "tree": {
+      "name": "music-player",
+      "children": [
+        {
+          "name": "app",
+          "children": [
+            {
+              "name": "app.vue",
+              "size": 651,
+              "path": "app/app.vue"
+            }
+          ],
+          "path": "app"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "AudioPlayer.vue",
+              "size": 4907,
+              "path": "components/AudioPlayer.vue"
+            },
+            {
+              "name": "MusicPlayer.vue",
+              "size": 5833,
+              "path": "components/MusicPlayer.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "favicon.ico",
+              "size": 4286,
+              "path": "public/favicon.ico"
+            },
+            {
+              "name": "robots.txt",
+              "size": 24,
+              "path": "public/robots.txt"
+            },
+            {
+              "name": "tracks.json",
+              "size": 6911,
+              "path": "public/tracks.json"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "server",
+          "children": [
+            {
+              "name": "api",
+              "children": [
+                {
+                  "name": "tracks.get.ts",
+                  "size": 1488,
+                  "path": "server/api/tracks.get.ts"
+                }
+              ],
+              "path": "server/api"
+            }
+          ],
+          "path": "server"
+        },
+        {
+          "name": ".gitignore",
+          "size": 193,
+          "path": ".gitignore"
+        },
+        {
+          "name": "DEPLOY.md",
+          "size": 1488,
+          "path": "DEPLOY.md"
+        },
+        {
+          "name": "README.md",
+          "size": 822,
+          "path": "README.md"
+        },
+        {
+          "name": "ecosystem.config.js",
+          "size": 308,
+          "path": "ecosystem.config.js"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 616,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 513395,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 858,
+          "path": "package.json"
+        },
+        {
+          "name": "tailwind.config.js",
+          "size": 477,
+          "path": "tailwind.config.js"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 320,
+          "path": "tsconfig.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 16,
+    "totalSize": 542577
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"nuxt-minimal-starter\">Nuxt Minimal Starter</h1>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install dependencies:</p>\n<pre><code class=\"language-bash\"># npm\nnpm install\n\n# pnpm\npnpm install\n\n# yarn\nyarn install\n\n# bun\nbun install\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <code>http://localhost:3000</code>:</p>\n<pre><code class=\"language-bash\"># npm\nnpm run dev\n\n# pnpm\npnpm dev\n\n# yarn\nyarn dev\n\n# bun\nbun run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\"># npm\nnpm run build\n\n# pnpm\npnpm build\n\n# yarn\nyarn build\n\n# bun\nbun run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\"># npm\nnpm run preview\n\n# pnpm\npnpm preview\n\n# yarn\nyarn preview\n\n# bun\nbun run preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>",

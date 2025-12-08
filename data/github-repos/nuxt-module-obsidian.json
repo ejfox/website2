@@ -16,6 +16,273 @@
     "Vue": 85
   },
   "diskUsage": 148,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".editorconfig",
+        "size": 188
+      },
+      {
+        "path": ".eslintignore",
+        "size": 18
+      },
+      {
+        "path": ".eslintrc",
+        "size": 57
+      },
+      {
+        "path": ".gitignore",
+        "size": 543
+      },
+      {
+        "path": ".npmrc",
+        "size": 53
+      },
+      {
+        "path": ".nuxtrc",
+        "size": 58
+      },
+      {
+        "path": "README.md",
+        "size": 1117
+      },
+      {
+        "path": "package.json",
+        "size": 1246
+      },
+      {
+        "path": "playground/app.vue",
+        "size": 85
+      },
+      {
+        "path": "playground/content/index.md",
+        "size": 2167
+      },
+      {
+        "path": "playground/nuxt.config.ts",
+        "size": 133
+      },
+      {
+        "path": "playground/package.json",
+        "size": 282
+      },
+      {
+        "path": "playground/server/tsconfig.json",
+        "size": 49
+      },
+      {
+        "path": "playground/tsconfig.json",
+        "size": 41
+      },
+      {
+        "path": "playground/yarn.lock",
+        "size": 322788
+      },
+      {
+        "path": "src/module.ts",
+        "size": 580
+      },
+      {
+        "path": "src/runtime/plugin.ts",
+        "size": 138
+      },
+      {
+        "path": "test/basic.test.ts",
+        "size": 459
+      },
+      {
+        "path": "test/fixtures/basic/app.vue",
+        "size": 68
+      },
+      {
+        "path": "test/fixtures/basic/nuxt.config.ts",
+        "size": 111
+      },
+      {
+        "path": "test/fixtures/basic/package.json",
+        "size": 61
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 41
+      },
+      {
+        "path": "yarn.lock",
+        "size": 287707
+      }
+    ],
+    "tree": {
+      "name": "nuxt-module-obsidian",
+      "children": [
+        {
+          "name": "playground",
+          "children": [
+            {
+              "name": "content",
+              "children": [
+                {
+                  "name": "index.md",
+                  "size": 2167,
+                  "path": "playground/content/index.md"
+                }
+              ],
+              "path": "playground/content"
+            },
+            {
+              "name": "server",
+              "children": [
+                {
+                  "name": "tsconfig.json",
+                  "size": 49,
+                  "path": "playground/server/tsconfig.json"
+                }
+              ],
+              "path": "playground/server"
+            },
+            {
+              "name": "app.vue",
+              "size": 85,
+              "path": "playground/app.vue"
+            },
+            {
+              "name": "nuxt.config.ts",
+              "size": 133,
+              "path": "playground/nuxt.config.ts"
+            },
+            {
+              "name": "package.json",
+              "size": 282,
+              "path": "playground/package.json"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 41,
+              "path": "playground/tsconfig.json"
+            },
+            {
+              "name": "yarn.lock",
+              "size": 322788,
+              "path": "playground/yarn.lock"
+            }
+          ],
+          "path": "playground"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "runtime",
+              "children": [
+                {
+                  "name": "plugin.ts",
+                  "size": 138,
+                  "path": "src/runtime/plugin.ts"
+                }
+              ],
+              "path": "src/runtime"
+            },
+            {
+              "name": "module.ts",
+              "size": 580,
+              "path": "src/module.ts"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "test",
+          "children": [
+            {
+              "name": "fixtures",
+              "children": [
+                {
+                  "name": "basic",
+                  "children": [
+                    {
+                      "name": "app.vue",
+                      "size": 68,
+                      "path": "test/fixtures/basic/app.vue"
+                    },
+                    {
+                      "name": "nuxt.config.ts",
+                      "size": 111,
+                      "path": "test/fixtures/basic/nuxt.config.ts"
+                    },
+                    {
+                      "name": "package.json",
+                      "size": 61,
+                      "path": "test/fixtures/basic/package.json"
+                    }
+                  ],
+                  "path": "test/fixtures/basic"
+                }
+              ],
+              "path": "test/fixtures"
+            },
+            {
+              "name": "basic.test.ts",
+              "size": 459,
+              "path": "test/basic.test.ts"
+            }
+          ],
+          "path": "test"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 188,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".eslintignore",
+          "size": 18,
+          "path": ".eslintignore"
+        },
+        {
+          "name": ".eslintrc",
+          "size": 57,
+          "path": ".eslintrc"
+        },
+        {
+          "name": ".gitignore",
+          "size": 543,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 53,
+          "path": ".npmrc"
+        },
+        {
+          "name": ".nuxtrc",
+          "size": 58,
+          "path": ".nuxtrc"
+        },
+        {
+          "name": "README.md",
+          "size": 1117,
+          "path": "README.md"
+        },
+        {
+          "name": "package.json",
+          "size": 1246,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 41,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 287707,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 23,
+    "totalSize": 617990
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"nuxt-content-obsidian\">Nuxt Content: Obsidian</h1>\n<p>Bringing the magic of Obsidian to publishing with Nuxt Content. Contains a number of helpers and convenience composables to make it easier to pulish Markdown files from Obsidian without losing any functionality.</p>\n<h2 id=\"interactive-graph\">Interactive Graph</h2>\n<h2 id=\"footnotes-backlinks-and-wikilinks\">Footnotes, backlinks, and wikilinks</h2>\n<h2 id=\"canvas-support\">Canvas Support</h2>\n<h2 id=\"frontmatter--properties\">Frontmatter / Properties</h2>\n<h2 id=\"table-of-contents\">Table of Contents</h2>\n<h2 id=\"obsidian-plugin-support\">Obsidian Plugin Support</h2>\n<h3 id=\"kindle-highlights\">Kindle Highlights</h3>\n<h2 id=\"quick-setup\">Quick Setup</h2>\n<ol>\n<li>Add <code>obsidian</code> dependency to your project</li>\n</ol>\n<pre><code class=\"language-bash\"># Using pnpm\npnpm add -D obsidian\n\n# Using yarn\nyarn add --dev obsidian\n\n# Using npm\nnpm install --save-dev obsidian\n</code></pre>\n<ol>\n<li>Add <code>obsidian</code> to the <code>modules</code> section of <code>nuxt.config.ts</code></li>\n</ol>\n<pre><code class=\"language-js\">export default defineNuxtConfig({\n  modules: [\n    'obsidian'\n  ]\n})\n</code></pre>\n<p>That's it! You can now use Obsidian in your Nuxt app ✨</p>\n<h1 id=\"development\">Development</h1>\n<pre><code class=\"language-bash\"># Install dependencies\nnpm install\n\n# Generate type stubs\nnpm run dev:prepare\n\n# Develop with the playground\nnpm run dev\n\n# Build the playground\nnpm run dev:build\n\n# Run ESLint\nnpm run lint\n\n# Run Vitest\nnpm run test\nnpm run test:watch\n\n# Release new version\nnpm run release\n</code></pre>",

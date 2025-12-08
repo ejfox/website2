@@ -19,6 +19,1074 @@
     "JavaScript": 532
   },
   "diskUsage": 8549,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".github/renovate.json",
+        "size": 852
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "size": 1406
+      },
+      {
+        "path": ".gitignore",
+        "size": 185
+      },
+      {
+        "path": ".npmrc",
+        "size": 75
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 1129
+      },
+      {
+        "path": "LICENSE",
+        "size": 1067
+      },
+      {
+        "path": "README.md",
+        "size": 1535
+      },
+      {
+        "path": "electron/build/icon.icns",
+        "size": 298157
+      },
+      {
+        "path": "electron/build/icon.png",
+        "size": 37797
+      },
+      {
+        "path": "electron/electron-builder.json5",
+        "size": 742
+      },
+      {
+        "path": "electron/eslint.config.js",
+        "size": 192
+      },
+      {
+        "path": "electron/package.json",
+        "size": 958
+      },
+      {
+        "path": "electron/src/main/index.ts",
+        "size": 1689
+      },
+      {
+        "path": "electron/src/renderer/index.js",
+        "size": 0
+      },
+      {
+        "path": "eslint.config.js",
+        "size": 340
+      },
+      {
+        "path": "index.html",
+        "size": 583
+      },
+      {
+        "path": "netlify.toml",
+        "size": 152
+      },
+      {
+        "path": "package.json",
+        "size": 2171
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "size": 339754
+      },
+      {
+        "path": "pnpm-workspace.yaml",
+        "size": 23
+      },
+      {
+        "path": "public/android-chrome-192x192.png",
+        "size": 10069
+      },
+      {
+        "path": "public/android-chrome-512x512.png",
+        "size": 29585
+      },
+      {
+        "path": "public/apple-touch-icon.png",
+        "size": 5327
+      },
+      {
+        "path": "public/favicon.svg",
+        "size": 855
+      },
+      {
+        "path": "public/search.xml",
+        "size": 626
+      },
+      {
+        "path": "screenshots/1.png",
+        "size": 525042
+      },
+      {
+        "path": "screenshots/2.png",
+        "size": 540204
+      },
+      {
+        "path": "screenshots/3.png",
+        "size": 469039
+      },
+      {
+        "path": "screenshots/4.png",
+        "size": 557085
+      },
+      {
+        "path": "screenshots/5.png",
+        "size": 482868
+      },
+      {
+        "path": "screenshots/6.png",
+        "size": 325413
+      },
+      {
+        "path": "scripts/postbuild.ts",
+        "size": 388
+      },
+      {
+        "path": "scripts/prebuild.ts",
+        "size": 212
+      },
+      {
+        "path": "scripts/prepare.ts",
+        "size": 2860
+      },
+      {
+        "path": "src/App.vue",
+        "size": 322
+      },
+      {
+        "path": "src/auto-imports.d.ts",
+        "size": 19372
+      },
+      {
+        "path": "src/components.d.ts",
+        "size": 2383
+      },
+      {
+        "path": "src/components/ActionsMenu.vue",
+        "size": 6505
+      },
+      {
+        "path": "src/components/Bag.vue",
+        "size": 3296
+      },
+      {
+        "path": "src/components/CollectionEntries.vue",
+        "size": 495
+      },
+      {
+        "path": "src/components/CollectionEntry.vue",
+        "size": 2270
+      },
+      {
+        "path": "src/components/ColorPicker.vue",
+        "size": 459
+      },
+      {
+        "path": "src/components/CustomSelect.vue",
+        "size": 1362
+      },
+      {
+        "path": "src/components/DarkSwitcher.vue",
+        "size": 1333
+      },
+      {
+        "path": "src/components/Drawer.vue",
+        "size": 2447
+      },
+      {
+        "path": "src/components/FAB.vue",
+        "size": 739
+      },
+      {
+        "path": "src/components/Footer.vue",
+        "size": 642
+      },
+      {
+        "path": "src/components/HelpPage.vue",
+        "size": 1785
+      },
+      {
+        "path": "src/components/Icon.vue",
+        "size": 1402
+      },
+      {
+        "path": "src/components/IconButton.vue",
+        "size": 758
+      },
+      {
+        "path": "src/components/IconDetail.vue",
+        "size": 11711
+      },
+      {
+        "path": "src/components/IconSet.vue",
+        "size": 10718
+      },
+      {
+        "path": "src/components/Icons.vue",
+        "size": 2417
+      },
+      {
+        "path": "src/components/InstallIconSet.vue",
+        "size": 2523
+      },
+      {
+        "path": "src/components/Modal.vue",
+        "size": 1568
+      },
+      {
+        "path": "src/components/ModalDialog.vue",
+        "size": 828
+      },
+      {
+        "path": "src/components/Navbar.vue",
+        "size": 1833
+      },
+      {
+        "path": "src/components/Notification.vue",
+        "size": 604
+      },
+      {
+        "path": "src/components/Progress.vue",
+        "size": 807
+      },
+      {
+        "path": "src/components/SearchBar.vue",
+        "size": 1652
+      },
+      {
+        "path": "src/components/SettingsCollectionsList.vue",
+        "size": 1487
+      },
+      {
+        "path": "src/components/WithNavbar.vue",
+        "size": 180
+      },
+      {
+        "path": "src/components/electron/NavElectron.vue",
+        "size": 584
+      },
+      {
+        "path": "src/components/electron/NavPlaceholder.vue",
+        "size": 186
+      },
+      {
+        "path": "src/components/electron/SearchElectron.vue",
+        "size": 1019
+      },
+      {
+        "path": "src/data/index.ts",
+        "size": 5247
+      },
+      {
+        "path": "src/data/search-alias.ts",
+        "size": 1817
+      },
+      {
+        "path": "src/data/variant-category.ts",
+        "size": 2530
+      },
+      {
+        "path": "src/env.ts",
+        "size": 359
+      },
+      {
+        "path": "src/hooks/color.ts",
+        "size": 186
+      },
+      {
+        "path": "src/hooks/index.ts",
+        "size": 49
+      },
+      {
+        "path": "src/hooks/search.ts",
+        "size": 4323
+      },
+      {
+        "path": "src/html.d.ts",
+        "size": 339
+      },
+      {
+        "path": "src/main.css",
+        "size": 2136
+      },
+      {
+        "path": "src/main.ts",
+        "size": 955
+      },
+      {
+        "path": "src/pages/[...all].vue",
+        "size": 54
+      },
+      {
+        "path": "src/pages/collection/[id].vue",
+        "size": 607
+      },
+      {
+        "path": "src/pages/index.vue",
+        "size": 3636
+      },
+      {
+        "path": "src/pages/settings.vue",
+        "size": 1790
+      },
+      {
+        "path": "src/shims.d.ts",
+        "size": 395
+      },
+      {
+        "path": "src/store/collection.ts",
+        "size": 2113
+      },
+      {
+        "path": "src/store/dark.ts",
+        "size": 66
+      },
+      {
+        "path": "src/store/dialog.ts",
+        "size": 76
+      },
+      {
+        "path": "src/store/index.ts",
+        "size": 161
+      },
+      {
+        "path": "src/store/indexedDB.ts",
+        "size": 437
+      },
+      {
+        "path": "src/store/localstorage.ts",
+        "size": 3997
+      },
+      {
+        "path": "src/store/packing.ts",
+        "size": 74
+      },
+      {
+        "path": "src/store/progress.ts",
+        "size": 107
+      },
+      {
+        "path": "src/sw.ts",
+        "size": 3187
+      },
+      {
+        "path": "src/utils/base64.ts",
+        "size": 1707
+      },
+      {
+        "path": "src/utils/bufferToString.ts",
+        "size": 129
+      },
+      {
+        "path": "src/utils/case.ts",
+        "size": 1062
+      },
+      {
+        "path": "src/utils/dataUrlToBlob.ts",
+        "size": 325
+      },
+      {
+        "path": "src/utils/electron.ts",
+        "size": 242
+      },
+      {
+        "path": "src/utils/htmlToJsx.ts",
+        "size": 772
+      },
+      {
+        "path": "src/utils/icons.ts",
+        "size": 9629
+      },
+      {
+        "path": "src/utils/pack.ts",
+        "size": 3690
+      },
+      {
+        "path": "src/utils/prettier.ts",
+        "size": 399
+      },
+      {
+        "path": "src/utils/query.ts",
+        "size": 189
+      },
+      {
+        "path": "src/utils/sample.ts",
+        "size": 141
+      },
+      {
+        "path": "src/utils/svgToPng.ts",
+        "size": 1570
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 515
+      },
+      {
+        "path": "unocss.config.ts",
+        "size": 944
+      },
+      {
+        "path": "vite.config.ts",
+        "size": 3091
+      }
+    ],
+    "tree": {
+      "name": "icones",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "ci.yml",
+                  "size": 1406,
+                  "path": ".github/workflows/ci.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            },
+            {
+              "name": "renovate.json",
+              "size": 852,
+              "path": ".github/renovate.json"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 1129,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "electron",
+          "children": [
+            {
+              "name": "build",
+              "children": [
+                {
+                  "name": "icon.icns",
+                  "size": 298157,
+                  "path": "electron/build/icon.icns"
+                },
+                {
+                  "name": "icon.png",
+                  "size": 37797,
+                  "path": "electron/build/icon.png"
+                }
+              ],
+              "path": "electron/build"
+            },
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "main",
+                  "children": [
+                    {
+                      "name": "index.ts",
+                      "size": 1689,
+                      "path": "electron/src/main/index.ts"
+                    }
+                  ],
+                  "path": "electron/src/main"
+                },
+                {
+                  "name": "renderer",
+                  "children": [
+                    {
+                      "name": "index.js",
+                      "size": 0,
+                      "path": "electron/src/renderer/index.js"
+                    }
+                  ],
+                  "path": "electron/src/renderer"
+                }
+              ],
+              "path": "electron/src"
+            },
+            {
+              "name": "electron-builder.json5",
+              "size": 742,
+              "path": "electron/electron-builder.json5"
+            },
+            {
+              "name": "eslint.config.js",
+              "size": 192,
+              "path": "electron/eslint.config.js"
+            },
+            {
+              "name": "package.json",
+              "size": 958,
+              "path": "electron/package.json"
+            }
+          ],
+          "path": "electron"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "android-chrome-192x192.png",
+              "size": 10069,
+              "path": "public/android-chrome-192x192.png"
+            },
+            {
+              "name": "android-chrome-512x512.png",
+              "size": 29585,
+              "path": "public/android-chrome-512x512.png"
+            },
+            {
+              "name": "apple-touch-icon.png",
+              "size": 5327,
+              "path": "public/apple-touch-icon.png"
+            },
+            {
+              "name": "favicon.svg",
+              "size": 855,
+              "path": "public/favicon.svg"
+            },
+            {
+              "name": "search.xml",
+              "size": 626,
+              "path": "public/search.xml"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "screenshots",
+          "children": [
+            {
+              "name": "1.png",
+              "size": 525042,
+              "path": "screenshots/1.png"
+            },
+            {
+              "name": "2.png",
+              "size": 540204,
+              "path": "screenshots/2.png"
+            },
+            {
+              "name": "3.png",
+              "size": 469039,
+              "path": "screenshots/3.png"
+            },
+            {
+              "name": "4.png",
+              "size": 557085,
+              "path": "screenshots/4.png"
+            },
+            {
+              "name": "5.png",
+              "size": 482868,
+              "path": "screenshots/5.png"
+            },
+            {
+              "name": "6.png",
+              "size": 325413,
+              "path": "screenshots/6.png"
+            }
+          ],
+          "path": "screenshots"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "postbuild.ts",
+              "size": 388,
+              "path": "scripts/postbuild.ts"
+            },
+            {
+              "name": "prebuild.ts",
+              "size": 212,
+              "path": "scripts/prebuild.ts"
+            },
+            {
+              "name": "prepare.ts",
+              "size": 2860,
+              "path": "scripts/prepare.ts"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "electron",
+                  "children": [
+                    {
+                      "name": "NavElectron.vue",
+                      "size": 584,
+                      "path": "src/components/electron/NavElectron.vue"
+                    },
+                    {
+                      "name": "NavPlaceholder.vue",
+                      "size": 186,
+                      "path": "src/components/electron/NavPlaceholder.vue"
+                    },
+                    {
+                      "name": "SearchElectron.vue",
+                      "size": 1019,
+                      "path": "src/components/electron/SearchElectron.vue"
+                    }
+                  ],
+                  "path": "src/components/electron"
+                },
+                {
+                  "name": "ActionsMenu.vue",
+                  "size": 6505,
+                  "path": "src/components/ActionsMenu.vue"
+                },
+                {
+                  "name": "Bag.vue",
+                  "size": 3296,
+                  "path": "src/components/Bag.vue"
+                },
+                {
+                  "name": "CollectionEntries.vue",
+                  "size": 495,
+                  "path": "src/components/CollectionEntries.vue"
+                },
+                {
+                  "name": "CollectionEntry.vue",
+                  "size": 2270,
+                  "path": "src/components/CollectionEntry.vue"
+                },
+                {
+                  "name": "ColorPicker.vue",
+                  "size": 459,
+                  "path": "src/components/ColorPicker.vue"
+                },
+                {
+                  "name": "CustomSelect.vue",
+                  "size": 1362,
+                  "path": "src/components/CustomSelect.vue"
+                },
+                {
+                  "name": "DarkSwitcher.vue",
+                  "size": 1333,
+                  "path": "src/components/DarkSwitcher.vue"
+                },
+                {
+                  "name": "Drawer.vue",
+                  "size": 2447,
+                  "path": "src/components/Drawer.vue"
+                },
+                {
+                  "name": "FAB.vue",
+                  "size": 739,
+                  "path": "src/components/FAB.vue"
+                },
+                {
+                  "name": "Footer.vue",
+                  "size": 642,
+                  "path": "src/components/Footer.vue"
+                },
+                {
+                  "name": "HelpPage.vue",
+                  "size": 1785,
+                  "path": "src/components/HelpPage.vue"
+                },
+                {
+                  "name": "Icon.vue",
+                  "size": 1402,
+                  "path": "src/components/Icon.vue"
+                },
+                {
+                  "name": "IconButton.vue",
+                  "size": 758,
+                  "path": "src/components/IconButton.vue"
+                },
+                {
+                  "name": "IconDetail.vue",
+                  "size": 11711,
+                  "path": "src/components/IconDetail.vue"
+                },
+                {
+                  "name": "IconSet.vue",
+                  "size": 10718,
+                  "path": "src/components/IconSet.vue"
+                },
+                {
+                  "name": "Icons.vue",
+                  "size": 2417,
+                  "path": "src/components/Icons.vue"
+                },
+                {
+                  "name": "InstallIconSet.vue",
+                  "size": 2523,
+                  "path": "src/components/InstallIconSet.vue"
+                },
+                {
+                  "name": "Modal.vue",
+                  "size": 1568,
+                  "path": "src/components/Modal.vue"
+                },
+                {
+                  "name": "ModalDialog.vue",
+                  "size": 828,
+                  "path": "src/components/ModalDialog.vue"
+                },
+                {
+                  "name": "Navbar.vue",
+                  "size": 1833,
+                  "path": "src/components/Navbar.vue"
+                },
+                {
+                  "name": "Notification.vue",
+                  "size": 604,
+                  "path": "src/components/Notification.vue"
+                },
+                {
+                  "name": "Progress.vue",
+                  "size": 807,
+                  "path": "src/components/Progress.vue"
+                },
+                {
+                  "name": "SearchBar.vue",
+                  "size": 1652,
+                  "path": "src/components/SearchBar.vue"
+                },
+                {
+                  "name": "SettingsCollectionsList.vue",
+                  "size": 1487,
+                  "path": "src/components/SettingsCollectionsList.vue"
+                },
+                {
+                  "name": "WithNavbar.vue",
+                  "size": 180,
+                  "path": "src/components/WithNavbar.vue"
+                }
+              ],
+              "path": "src/components"
+            },
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 5247,
+                  "path": "src/data/index.ts"
+                },
+                {
+                  "name": "search-alias.ts",
+                  "size": 1817,
+                  "path": "src/data/search-alias.ts"
+                },
+                {
+                  "name": "variant-category.ts",
+                  "size": 2530,
+                  "path": "src/data/variant-category.ts"
+                }
+              ],
+              "path": "src/data"
+            },
+            {
+              "name": "hooks",
+              "children": [
+                {
+                  "name": "color.ts",
+                  "size": 186,
+                  "path": "src/hooks/color.ts"
+                },
+                {
+                  "name": "index.ts",
+                  "size": 49,
+                  "path": "src/hooks/index.ts"
+                },
+                {
+                  "name": "search.ts",
+                  "size": 4323,
+                  "path": "src/hooks/search.ts"
+                }
+              ],
+              "path": "src/hooks"
+            },
+            {
+              "name": "pages",
+              "children": [
+                {
+                  "name": "collection",
+                  "children": [
+                    {
+                      "name": "[id].vue",
+                      "size": 607,
+                      "path": "src/pages/collection/[id].vue"
+                    }
+                  ],
+                  "path": "src/pages/collection"
+                },
+                {
+                  "name": "[...all].vue",
+                  "size": 54,
+                  "path": "src/pages/[...all].vue"
+                },
+                {
+                  "name": "index.vue",
+                  "size": 3636,
+                  "path": "src/pages/index.vue"
+                },
+                {
+                  "name": "settings.vue",
+                  "size": 1790,
+                  "path": "src/pages/settings.vue"
+                }
+              ],
+              "path": "src/pages"
+            },
+            {
+              "name": "store",
+              "children": [
+                {
+                  "name": "collection.ts",
+                  "size": 2113,
+                  "path": "src/store/collection.ts"
+                },
+                {
+                  "name": "dark.ts",
+                  "size": 66,
+                  "path": "src/store/dark.ts"
+                },
+                {
+                  "name": "dialog.ts",
+                  "size": 76,
+                  "path": "src/store/dialog.ts"
+                },
+                {
+                  "name": "index.ts",
+                  "size": 161,
+                  "path": "src/store/index.ts"
+                },
+                {
+                  "name": "indexedDB.ts",
+                  "size": 437,
+                  "path": "src/store/indexedDB.ts"
+                },
+                {
+                  "name": "localstorage.ts",
+                  "size": 3997,
+                  "path": "src/store/localstorage.ts"
+                },
+                {
+                  "name": "packing.ts",
+                  "size": 74,
+                  "path": "src/store/packing.ts"
+                },
+                {
+                  "name": "progress.ts",
+                  "size": 107,
+                  "path": "src/store/progress.ts"
+                }
+              ],
+              "path": "src/store"
+            },
+            {
+              "name": "utils",
+              "children": [
+                {
+                  "name": "base64.ts",
+                  "size": 1707,
+                  "path": "src/utils/base64.ts"
+                },
+                {
+                  "name": "bufferToString.ts",
+                  "size": 129,
+                  "path": "src/utils/bufferToString.ts"
+                },
+                {
+                  "name": "case.ts",
+                  "size": 1062,
+                  "path": "src/utils/case.ts"
+                },
+                {
+                  "name": "dataUrlToBlob.ts",
+                  "size": 325,
+                  "path": "src/utils/dataUrlToBlob.ts"
+                },
+                {
+                  "name": "electron.ts",
+                  "size": 242,
+                  "path": "src/utils/electron.ts"
+                },
+                {
+                  "name": "htmlToJsx.ts",
+                  "size": 772,
+                  "path": "src/utils/htmlToJsx.ts"
+                },
+                {
+                  "name": "icons.ts",
+                  "size": 9629,
+                  "path": "src/utils/icons.ts"
+                },
+                {
+                  "name": "pack.ts",
+                  "size": 3690,
+                  "path": "src/utils/pack.ts"
+                },
+                {
+                  "name": "prettier.ts",
+                  "size": 399,
+                  "path": "src/utils/prettier.ts"
+                },
+                {
+                  "name": "query.ts",
+                  "size": 189,
+                  "path": "src/utils/query.ts"
+                },
+                {
+                  "name": "sample.ts",
+                  "size": 141,
+                  "path": "src/utils/sample.ts"
+                },
+                {
+                  "name": "svgToPng.ts",
+                  "size": 1570,
+                  "path": "src/utils/svgToPng.ts"
+                }
+              ],
+              "path": "src/utils"
+            },
+            {
+              "name": "App.vue",
+              "size": 322,
+              "path": "src/App.vue"
+            },
+            {
+              "name": "auto-imports.d.ts",
+              "size": 19372,
+              "path": "src/auto-imports.d.ts"
+            },
+            {
+              "name": "components.d.ts",
+              "size": 2383,
+              "path": "src/components.d.ts"
+            },
+            {
+              "name": "env.ts",
+              "size": 359,
+              "path": "src/env.ts"
+            },
+            {
+              "name": "html.d.ts",
+              "size": 339,
+              "path": "src/html.d.ts"
+            },
+            {
+              "name": "main.css",
+              "size": 2136,
+              "path": "src/main.css"
+            },
+            {
+              "name": "main.ts",
+              "size": 955,
+              "path": "src/main.ts"
+            },
+            {
+              "name": "shims.d.ts",
+              "size": 395,
+              "path": "src/shims.d.ts"
+            },
+            {
+              "name": "sw.ts",
+              "size": 3187,
+              "path": "src/sw.ts"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".gitignore",
+          "size": 185,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 75,
+          "path": ".npmrc"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1067,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 1535,
+          "path": "README.md"
+        },
+        {
+          "name": "eslint.config.js",
+          "size": 340,
+          "path": "eslint.config.js"
+        },
+        {
+          "name": "index.html",
+          "size": 583,
+          "path": "index.html"
+        },
+        {
+          "name": "netlify.toml",
+          "size": 152,
+          "path": "netlify.toml"
+        },
+        {
+          "name": "package.json",
+          "size": 2171,
+          "path": "package.json"
+        },
+        {
+          "name": "pnpm-lock.yaml",
+          "size": 339754,
+          "path": "pnpm-lock.yaml"
+        },
+        {
+          "name": "pnpm-workspace.yaml",
+          "size": 23,
+          "path": "pnpm-workspace.yaml"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 515,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "unocss.config.ts",
+          "size": 944,
+          "path": "unocss.config.ts"
+        },
+        {
+          "name": "vite.config.ts",
+          "size": 3091,
+          "path": "vite.config.ts"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 104,
+    "totalSize": 3781113
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"icônes\">\nIcônes\n</h1>\n<p>Icon Explorer with <b>Instant</b> searching, powered by <a href=\"https://github.com/iconify/iconify\" target=\"_blank\">Iconify</a> </p>\n<p>\n<a href=\"https://icones.js.org\">Go to App</a>\n</p>\n<p>\n<sub><em>Electron is coming...</em></sub>\n</p>\n<p><img src=\"./screenshots/1.png\" alt=\"\" />\n<img src=\"./screenshots/2.png\" alt=\"\" />\n<img src=\"./screenshots/3.png\" alt=\"\" />\n<img src=\"./screenshots/4.png\" alt=\"\" />\n<img src=\"./screenshots/5.png\" alt=\"\" /></p>\n<p>\n<sub><em>Dark Mode is now Live!</em></sub>\n</p>\n<p><img src=\"./screenshots/6.png\" alt=\"\" /></p>\n<p>\n  <a href=\"https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg\">\n    <img src=\"https://cdn.jsdelivr.net/gh/antfu/static/sponsors.svg\" />\n  </a>\n</p>\n<h3 id=\"features\">Features</h3>\n<ul>\n<li><strong>Instant Fuzzy Searching</strong> <em>- all are done locally, no web queries!</em></li>\n<li>The <strong>Bag</strong> <em>- select your icons and pack them into a ready-to-use icon font!</em>\n<ul>\n<li><em><a href=\"https://github.com/antfu/svg-packer\">svg-packer</a> was born from this XD</em></li>\n</ul>\n</li>\n<li>Copy the usage scripts</li>\n<li>SVGs direct download</li>\n<li>Mobile friendly</li>\n<li>Collection bookmarks</li>\n<li>Categories filters</li>\n<li>Dark mode</li>\n<li>Built with <a href=\"https://github.com/vitejs/vite\">Vite</a> and Vue 3\n<ul>\n<li>If you like how it's built - try <a href=\"https://github.com/antfu/vitesse\">🏕 Vitesse</a>, an opinionated starter template made from Icônes</li>\n</ul>\n</li>\n</ul>\n<h3 id=\"community\">Community</h3>\n<ul>\n<li><a href=\"https://github.com/afzalsayed96/vscode-icones\">VS Code Extension</a> by <a href=\"https://github.com/afzalsayed96\">@afzalsayed96</a></li>\n</ul>\n<h3 id=\"todos\">TODOs</h3>\n<ul>\n<li>Electron client (Coming!)</li>\n<li>Full-offline mode - pack all the icons</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT - Anthony Fu 2020</p>",

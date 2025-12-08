@@ -1,18 +1,43 @@
 <script setup>
-const { formatLongDate, formatRelativeDate } = useDateFormat()
+const { formatLongDate, formatRelativeTime } = useDateFormat()
 const route = useRoute()
 const slug = route.params.slug
 const { tocTarget } = useTOC()
 
-// Fetch repository data
+// Fetch repository data - await is needed for SSR
 const { data: repo, error } = await useAsyncData(`repo-${slug}`, async () => {
-  try {
-    const response = await $fetch(`/api/repos/${slug}`)
-    return response
-  } catch (error) {
-    console.error('Error fetching repository:', error)
-    throw error
-  }
+  const response = await $fetch(`/api/repos/${slug}`)
+  return response
+})
+
+// Fetch all repos for related repos feature
+const { data: allReposData } = await useFetch('/api/github-repos-list')
+const allRepos = computed(() => allReposData.value || [])
+
+// Related repos: same topics/language, excluding current repo
+const relatedRepos = computed(() => {
+  if (!repo.value) return []
+
+  const currentTopics = repo.value.topics || []
+  const currentLanguage = repo.value.language
+
+  return allRepos.value
+    .filter((r) => r.name !== repo.value.name) // Exclude current repo
+    .filter((r) => !r.fork) // Exclude forks
+    .map((r) => {
+      // Calculate relevance score
+      const topicMatches = (r.topics || []).filter((t) =>
+        currentTopics.includes(t)
+      ).length
+      const languageMatch = r.language === currentLanguage ? 1 : 0
+      return {
+        ...r,
+        relevance: topicMatches + languageMatch,
+      }
+    })
+    .filter((r) => r.relevance > 0) // Must have at least one match
+    .sort((a, b) => b.relevance - a.relevance) // Sort by relevance
+    .slice(0, 5) // Top 5
 })
 
 // If error, show 404
@@ -84,84 +109,92 @@ useHead(() => ({
 </script>
 
 <template>
-  <div class="container-main" style="max-width: 65ch">
-    <article v-if="repo" class="py-8 md:py-16">
-      <!-- Header -->
-      <header class="repo-header">
-        <h1 class="repo-title">{{ repo.name }}</h1>
-        <p class="repo-description">
+  <div class="container-main">
+    <article v-if="repo" class="pt-8 pb-8 space-y-8">
+      <!-- Title + Description -->
+      <header class="space-y-3">
+        <h1
+          class="font-mono text-2xl font-bold text-zinc-900 dark:text-zinc-100"
+        >
+          {{ repo.name }}
+        </h1>
+        <p
+          v-if="repo.description"
+          class="text-sm text-zinc-600 dark:text-zinc-400 max-w-prose leading-relaxed"
+        >
           {{ repo.description }}
         </p>
-
-        <!-- Stats Row -->
-        <div class="repo-stats">
-          <span class="repo-stat">
-            <span>⭐</span>
-            {{ repo.stats.stars }}
-          </span>
-          <span class="repo-stat">
-            <span>🔀</span>
-            {{ repo.stats.forks }}
-          </span>
-          <span v-if="repo.language" class="repo-stat">
-            <span
-              class="language-indicator"
-              :style="{ backgroundColor: repo.languageColor }"
-            ></span>
-            {{ repo.language }}
-          </span>
-        </div>
       </header>
 
-      <!-- README Content -->
-      <div
-        v-if="repo.readme?.html"
-        class="prose prose-zinc dark:prose-invert max-w-none"
-        v-html="repo.readme.html"
-      ></div>
+      <!-- File size distribution (small multiple) -->
+      <div v-if="repo.fileTree?.files" class="max-w-md">
+        <div class="font-mono text-[9px] text-zinc-500 mb-2">File sizes</div>
+        <FileSizeDistribution :files="repo.fileTree.files" :buckets="10" />
+      </div>
 
-      <!-- Back link -->
-      <div class="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-        <NuxtLink to="/github" class="interactive-link back-link">
-          ← Back to Repositories
+      <!-- Related repos -->
+      <div v-if="relatedRepos.length > 0" class="space-y-2">
+        <div class="font-mono text-[9px] text-zinc-500 uppercase tracking-wide">
+          Related repositories
+        </div>
+        <div class="space-y-0 border-l border-zinc-800 pl-3">
+          <NuxtLink
+            v-for="related in relatedRepos"
+            :key="related.name"
+            :to="`/github/${related.name}`"
+            class="block font-mono text-xs text-zinc-400 hover:text-zinc-100 py-1"
+          >
+            {{ related.name }}
+            <span class="text-zinc-600 text-[10px] ml-2">
+              {{ related.language }}
+            </span>
+          </NuxtLink>
+        </div>
+      </div>
+
+      <!-- README -->
+      <div v-if="repo.readme?.html" class="pt-6 border-t border-zinc-800">
+        <div
+          class="prose prose-zinc dark:prose-invert prose-sm max-w-prose"
+          v-html="repo.readme.html"
+        ></div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="pt-6 border-t border-zinc-800">
+        <NuxtLink
+          to="/github"
+          class="font-mono text-xs text-zinc-500 hover:text-zinc-100"
+        >
+          ← Repositories
         </NuxtLink>
       </div>
     </article>
 
-    <!-- Sidebar Metadata -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="sidebar-container">
-          <!-- Repository Info -->
+        <div class="sidebar-container pt-8">
           <div class="sidebar-section">
-            <h3 class="label-uppercase-mono text-xs mb-3">Repository</h3>
-
-            <!-- Language -->
             <div v-if="repo.language" class="sidebar-item">
-              <div class="metadata-label">Language</div>
               <div class="language-display">
                 <span
                   class="language-indicator"
                   :style="{ backgroundColor: repo.languageColor }"
                 ></span>
-                <span class="sidebar-value">
+                <span class="sidebar-value text-[10px]">
                   {{ repo.language }}
                 </span>
               </div>
             </div>
 
-            <!-- Metrics Grid - Feltron style -->
             <div class="sidebar-item">
-              <div class="metadata-label">Metrics</div>
-              <RepoMetrics :repo="repo" />
+              <RepoMetrics :repo="repo" compact />
             </div>
 
-            <!-- Language Breakdown -->
             <div
               v-if="repo.languages && Object.keys(repo.languages).length > 0"
               class="sidebar-item"
             >
-              <div class="metadata-label">Languages</div>
               <LanguageBar
                 :languages="repo.languages"
                 :height="4"
@@ -169,9 +202,7 @@ useHead(() => ({
               />
             </div>
 
-            <!-- Topics -->
             <div v-if="repo.topics?.length" class="sidebar-item">
-              <div class="metadata-label">Topics</div>
               <div class="topics-display">
                 <span
                   v-for="topic in repo.topics"
@@ -183,22 +214,18 @@ useHead(() => ({
               </div>
             </div>
 
-            <!-- Dates -->
             <div class="sidebar-item">
-              <div class="metadata-label">Created</div>
               <time class="sidebar-time">
                 {{ formatLongDate(repo.createdAt) }}
               </time>
             </div>
 
             <div class="sidebar-item">
-              <div class="metadata-label">Last Updated</div>
               <time class="sidebar-time">
-                {{ formatRelativeDate(repo.pushedAt) }}
+                {{ formatRelativeTime(repo.pushedAt) }}
               </time>
             </div>
 
-            <!-- Links -->
             <div class="sidebar-links">
               <a :href="repo.url" target="_blank" class="github-link">
                 View on GitHub ↗
@@ -220,84 +247,87 @@ useHead(() => ({
 </template>
 
 <style scoped>
-.repo-header {
-  @apply mb-8;
+/* Prose content - README */
+.prose {
+  @apply leading-relaxed font-serif;
+  line-height: 1.75rem; /* 28px = 3.5 * 8px */
 }
 
-.repo-title {
-  @apply font-serif text-3xl mb-2;
+.prose :where(p):not(:where([class~='not-prose'] *)) {
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
-.repo-description {
-  @apply text-zinc-600 dark:text-zinc-400 mb-4;
+.prose :where(h2):not(:where([class~='not-prose'] *)) {
+  font-size: 1.125rem;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
-.repo-stats {
-  @apply flex items-center gap-4 text-sm font-mono;
-  @apply text-zinc-500 dark:text-zinc-500;
+.prose :where(h3):not(:where([class~='not-prose'] *)) {
+  font-size: 1rem;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  font-weight: 600;
 }
 
-.repo-stat {
-  @apply flex items-center gap-1;
+.prose :where(h4):not(:where([class~='not-prose'] *)) {
+  font-size: 0.875rem;
+  margin-top: 16px;
+  margin-bottom: 4px;
+  font-weight: 600;
 }
 
-.language-indicator {
-  @apply inline-block w-3 h-3 rounded-full;
-}
-
+/* Sidebar - brutalist minimal */
 .sidebar-container {
-  @apply space-y-6;
+  @apply space-y-2;
 }
 
 .sidebar-section {
-  @apply space-y-3 pb-6;
-  @apply border-b border-zinc-200 dark:border-zinc-800;
+  @apply space-y-1 pb-3;
+  @apply border-b border-zinc-800;
 }
 
 .sidebar-item {
-  @apply text-sm;
+  @apply text-[10px] font-mono;
 }
 
 .language-display {
-  @apply flex items-center gap-2;
+  @apply flex items-center gap-0.5;
 }
 
 .sidebar-value {
-  @apply text-zinc-900 dark:text-zinc-100;
-}
-
-.stats-display {
-  @apply flex gap-3 text-zinc-700 dark:text-zinc-300;
+  @apply text-zinc-100;
 }
 
 .topics-display {
-  @apply flex flex-wrap gap-1;
+  @apply flex flex-wrap gap-0.5;
 }
 
 .sidebar-time {
-  @apply tabular-nums text-zinc-900 dark:text-zinc-100;
+  @apply tabular-nums text-zinc-500;
 }
 
 .sidebar-links {
-  @apply flex flex-col gap-2 pt-2;
-}
-
-.back-link {
-  @apply text-sm text-zinc-600 dark:text-zinc-400;
-}
-
-.metadata-label {
-  @apply text-zinc-500 dark:text-zinc-500 text-xs uppercase tracking-wider mb-1;
+  @apply flex flex-col gap-0.5 pt-2;
 }
 
 .tech-badge {
-  @apply font-mono text-xs px-2 py-1 rounded;
-  @apply bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300;
+  @apply font-mono text-[9px] text-zinc-500;
+}
+
+.tech-badge:not(:last-child)::after {
+  content: ' · ';
+  @apply text-zinc-600;
 }
 
 .github-link {
-  @apply text-sm text-zinc-900 dark:text-zinc-100;
-  @apply hover:text-zinc-600 dark:hover:text-zinc-400;
-  @apply transition-colors duration-150;
+  @apply text-[10px] font-mono text-zinc-500;
+  @apply hover:text-zinc-100;
+}
+
+.language-indicator {
+  @apply inline-block w-1.5 h-1.5;
 }
 </style>

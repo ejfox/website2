@@ -16,6 +16,438 @@
     "Mermaid": 28135
   },
   "diskUsage": 202,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".eslintrc.js",
+        "size": 1194
+      },
+      {
+        "path": ".gitignore",
+        "size": 36
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 1116
+      },
+      {
+        "path": "README.md",
+        "size": 9174
+      },
+      {
+        "path": "clean_test_edges.csv",
+        "size": 474
+      },
+      {
+        "path": "clean_test_nodes.csv",
+        "size": 575
+      },
+      {
+        "path": "demo_example.mmd",
+        "size": 1025
+      },
+      {
+        "path": "deps_test.mmd",
+        "size": 3867
+      },
+      {
+        "path": "deps_test_edges.csv",
+        "size": 1242
+      },
+      {
+        "path": "deps_test_nodes.csv",
+        "size": 1321
+      },
+      {
+        "path": "example.mmd",
+        "size": 2361
+      },
+      {
+        "path": "index.js",
+        "size": 30442
+      },
+      {
+        "path": "my_code_network_edges.csv",
+        "size": 572
+      },
+      {
+        "path": "my_code_network_nodes.csv",
+        "size": 621
+      },
+      {
+        "path": "package-lock.json",
+        "size": 64892
+      },
+      {
+        "path": "package.json",
+        "size": 1817
+      },
+      {
+        "path": "real_deps_test_edges.csv",
+        "size": 1029
+      },
+      {
+        "path": "real_deps_test_nodes.csv",
+        "size": 1131
+      },
+      {
+        "path": "scrapbook_cli_edges.csv",
+        "size": 659
+      },
+      {
+        "path": "scrapbook_cli_nodes.csv",
+        "size": 783
+      },
+      {
+        "path": "scrapbook_real_deps.mmd",
+        "size": 3588
+      },
+      {
+        "path": "scrapbook_real_deps_edges.csv",
+        "size": 1173
+      },
+      {
+        "path": "scrapbook_real_deps_nodes.csv",
+        "size": 1253
+      },
+      {
+        "path": "scrapbook_with_deps_edges.csv",
+        "size": 1351
+      },
+      {
+        "path": "scrapbook_with_deps_nodes.csv",
+        "size": 1447
+      },
+      {
+        "path": "sstory_example.mmd",
+        "size": 3234
+      },
+      {
+        "path": "test.js",
+        "size": 70
+      },
+      {
+        "path": "test_analysis_edges.csv",
+        "size": 474
+      },
+      {
+        "path": "test_analysis_nodes.csv",
+        "size": 575
+      },
+      {
+        "path": "test_anime.mmd",
+        "size": 5175
+      },
+      {
+        "path": "test_archive.graphml",
+        "size": 742501
+      },
+      {
+        "path": "test_connectology.gexf",
+        "size": 101403
+      },
+      {
+        "path": "test_dot.dot",
+        "size": 1973
+      },
+      {
+        "path": "test_fixed_edges.csv",
+        "size": 474
+      },
+      {
+        "path": "test_fixed_nodes.csv",
+        "size": 575
+      },
+      {
+        "path": "test_gexf.gexf",
+        "size": 4798
+      },
+      {
+        "path": "test_graphml.graphml",
+        "size": 3786
+      },
+      {
+        "path": "test_mermaid.mmd",
+        "size": 2090
+      },
+      {
+        "path": "test_obsidian_edges.csv",
+        "size": 4109
+      },
+      {
+        "path": "test_obsidian_nodes.csv",
+        "size": 2839
+      },
+      {
+        "path": "test_zack.mmd",
+        "size": 5566
+      },
+      {
+        "path": "testdir/simple_test.js",
+        "size": 163
+      },
+      {
+        "path": "testdir_works_edges.csv",
+        "size": 190
+      },
+      {
+        "path": "testdir_works_nodes.csv",
+        "size": 181
+      },
+      {
+        "path": "website2_composables_fixed.mmd",
+        "size": 1229
+      },
+      {
+        "path": "yarn.lock",
+        "size": 40391
+      }
+    ],
+    "tree": {
+      "name": "code-network-gen",
+      "children": [
+        {
+          "name": "testdir",
+          "children": [
+            {
+              "name": "simple_test.js",
+              "size": 163,
+              "path": "testdir/simple_test.js"
+            }
+          ],
+          "path": "testdir"
+        },
+        {
+          "name": ".eslintrc.js",
+          "size": 1194,
+          "path": ".eslintrc.js"
+        },
+        {
+          "name": ".gitignore",
+          "size": 36,
+          "path": ".gitignore"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 1116,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "README.md",
+          "size": 9174,
+          "path": "README.md"
+        },
+        {
+          "name": "clean_test_edges.csv",
+          "size": 474,
+          "path": "clean_test_edges.csv"
+        },
+        {
+          "name": "clean_test_nodes.csv",
+          "size": 575,
+          "path": "clean_test_nodes.csv"
+        },
+        {
+          "name": "demo_example.mmd",
+          "size": 1025,
+          "path": "demo_example.mmd"
+        },
+        {
+          "name": "deps_test.mmd",
+          "size": 3867,
+          "path": "deps_test.mmd"
+        },
+        {
+          "name": "deps_test_edges.csv",
+          "size": 1242,
+          "path": "deps_test_edges.csv"
+        },
+        {
+          "name": "deps_test_nodes.csv",
+          "size": 1321,
+          "path": "deps_test_nodes.csv"
+        },
+        {
+          "name": "example.mmd",
+          "size": 2361,
+          "path": "example.mmd"
+        },
+        {
+          "name": "index.js",
+          "size": 30442,
+          "path": "index.js"
+        },
+        {
+          "name": "my_code_network_edges.csv",
+          "size": 572,
+          "path": "my_code_network_edges.csv"
+        },
+        {
+          "name": "my_code_network_nodes.csv",
+          "size": 621,
+          "path": "my_code_network_nodes.csv"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 64892,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1817,
+          "path": "package.json"
+        },
+        {
+          "name": "real_deps_test_edges.csv",
+          "size": 1029,
+          "path": "real_deps_test_edges.csv"
+        },
+        {
+          "name": "real_deps_test_nodes.csv",
+          "size": 1131,
+          "path": "real_deps_test_nodes.csv"
+        },
+        {
+          "name": "scrapbook_cli_edges.csv",
+          "size": 659,
+          "path": "scrapbook_cli_edges.csv"
+        },
+        {
+          "name": "scrapbook_cli_nodes.csv",
+          "size": 783,
+          "path": "scrapbook_cli_nodes.csv"
+        },
+        {
+          "name": "scrapbook_real_deps.mmd",
+          "size": 3588,
+          "path": "scrapbook_real_deps.mmd"
+        },
+        {
+          "name": "scrapbook_real_deps_edges.csv",
+          "size": 1173,
+          "path": "scrapbook_real_deps_edges.csv"
+        },
+        {
+          "name": "scrapbook_real_deps_nodes.csv",
+          "size": 1253,
+          "path": "scrapbook_real_deps_nodes.csv"
+        },
+        {
+          "name": "scrapbook_with_deps_edges.csv",
+          "size": 1351,
+          "path": "scrapbook_with_deps_edges.csv"
+        },
+        {
+          "name": "scrapbook_with_deps_nodes.csv",
+          "size": 1447,
+          "path": "scrapbook_with_deps_nodes.csv"
+        },
+        {
+          "name": "sstory_example.mmd",
+          "size": 3234,
+          "path": "sstory_example.mmd"
+        },
+        {
+          "name": "test.js",
+          "size": 70,
+          "path": "test.js"
+        },
+        {
+          "name": "test_analysis_edges.csv",
+          "size": 474,
+          "path": "test_analysis_edges.csv"
+        },
+        {
+          "name": "test_analysis_nodes.csv",
+          "size": 575,
+          "path": "test_analysis_nodes.csv"
+        },
+        {
+          "name": "test_anime.mmd",
+          "size": 5175,
+          "path": "test_anime.mmd"
+        },
+        {
+          "name": "test_archive.graphml",
+          "size": 742501,
+          "path": "test_archive.graphml"
+        },
+        {
+          "name": "test_connectology.gexf",
+          "size": 101403,
+          "path": "test_connectology.gexf"
+        },
+        {
+          "name": "test_dot.dot",
+          "size": 1973,
+          "path": "test_dot.dot"
+        },
+        {
+          "name": "test_fixed_edges.csv",
+          "size": 474,
+          "path": "test_fixed_edges.csv"
+        },
+        {
+          "name": "test_fixed_nodes.csv",
+          "size": 575,
+          "path": "test_fixed_nodes.csv"
+        },
+        {
+          "name": "test_gexf.gexf",
+          "size": 4798,
+          "path": "test_gexf.gexf"
+        },
+        {
+          "name": "test_graphml.graphml",
+          "size": 3786,
+          "path": "test_graphml.graphml"
+        },
+        {
+          "name": "test_mermaid.mmd",
+          "size": 2090,
+          "path": "test_mermaid.mmd"
+        },
+        {
+          "name": "test_obsidian_edges.csv",
+          "size": 4109,
+          "path": "test_obsidian_edges.csv"
+        },
+        {
+          "name": "test_obsidian_nodes.csv",
+          "size": 2839,
+          "path": "test_obsidian_nodes.csv"
+        },
+        {
+          "name": "test_zack.mmd",
+          "size": 5566,
+          "path": "test_zack.mmd"
+        },
+        {
+          "name": "testdir_works_edges.csv",
+          "size": 190,
+          "path": "testdir_works_edges.csv"
+        },
+        {
+          "name": "testdir_works_nodes.csv",
+          "size": 181,
+          "path": "testdir_works_nodes.csv"
+        },
+        {
+          "name": "website2_composables_fixed.mmd",
+          "size": 1229,
+          "path": "website2_composables_fixed.mmd"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 40391,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 46,
+    "totalSize": 1054939
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"code-network-gen\">code-network-gen</h1>\n<p>parses js/vue codebases and outputs function call networks as csv or gexf files. useful for understanding code structure, dependencies, and architectural patterns.</p>\n<h2 id=\"quick-start\">quick start</h2>\n<p>analyze any codebase in one command:</p>\n<pre><code class=\"language-bash\">npx code-network-gen --path . -o my_code_network\n</code></pre>\n<p>that's it. creates <code>my_code_network_nodes.csv</code> and <code>my_code_network_edges.csv</code> in seconds.</p>\n<h2 id=\"example-output\">example output</h2>\n<p>here's what the tool finds when analyzing a simple CLI app with 12 functions across 4 files:</p>\n<p><strong>nodes.csv</strong> (functions and methods):</p>\n<pre><code class=\"language-csv\">\"id\",\"label\",\"type\",\"lines\"\n\"data.js:loadBookmarks\",\"loadBookmarks\",\"function\",\"[14-31]\"\n\"data.js:formatTableData\",\"formatTableData\",\"function\",\"[37-54]\"\n\"data.js:reloadBookmarks\",\"reloadBookmarks\",\"function\",\"[56-62]\"\n\"data.js:searchBookmarks\",\"searchBookmarks\",\"function\",\"[64-84]\"\n\"index.mjs:showLoadingScreen\",\"showLoadingScreen\",\"function\",\"[13-85]\"\n\"index.mjs:main\",\"main\",\"function\",\"[88-156]\"\n\"ui.js:viewSummary\",\"viewSummary\",\"function\",\"[21-65]\"\n\"ui.js:updateSummary\",\"updateSummary\",\"function\",\"[67-90]\"\n</code></pre>\n<p><strong>edges.csv</strong> (function call relationships):</p>\n<pre><code class=\"language-csv\">\"source\",\"target\",\"type\"\n\"data.js:global\",\"data.js:loadBookmarks\",\"calls\"\n\"index.mjs:global\",\"index.mjs:showLoadingScreen\",\"calls\"\n\"index.mjs:global\",\"data.js:loadBookmarks\",\"calls\"\n\"index.mjs:global\",\"index.mjs:main\",\"calls\"\n\"ui.js:global\",\"ui.js:viewSummary\",\"calls\"\n\"ui.js:global\",\"data.js:formatTableData\",\"calls\"\n\"ui.js:global\",\"ui.js:updateDisplay\",\"calls\"\n\"ui.js:global\",\"data.js:reloadBookmarks\",\"calls\"\n</code></pre>\n<p>shows clear separation between data handling (<code>data.js</code>), user interface (<code>ui.js</code>), and application entry point (<code>index.mjs</code>). perfect for understanding code architecture at a glance.</p>\n<p><strong>mermaid diagram</strong> (renders directly on GitHub):</p>\n<pre><code class=\"language-mermaid\">flowchart TD\n    %% Code Network Analysis - Generated by code-network-gen\n    %% Total nodes: 15, Total edges: 13\n\n    data_js_loadBookmarks[\"loadBookmarks [14-31] (function)\"]\n    data_js_formatTableData[\"formatTableData [37-54] (function)\"]\n    data_js_reloadBookmarks[\"reloadBookmarks [56-62] (function)\"]\n    data_js_searchBookmarks[\"searchBookmarks [64-84] (function)\"]\n    data_js_displayScrapJson[\"displayScrapJson [86-105] (function)\"]\n    index_mjs_showLoadingScreen[\"showLoadingScreen [13-85] (function)\"]\n    index_mjs_main[\"main [88-156] (function)\"]\n    ui_js_stopCurrentAnimation[\"stopCurrentAnimation [14-19] (function)\"]\n    ui_js_viewSummary[\"viewSummary [21-65] (function)\"]\n    ui_js_updateSummary[\"updateSummary [67-90] (function)\"]\n    ui_js_updateDisplay[\"updateDisplay [123-139] (function)\"]\n    ui_js_showBookmarkInfo[\"showBookmarkInfo [719-727] (function)\"]\n    data_js_global&gt;\"data.js (global) (global)\"]\n    index_mjs_global&gt;\"index.mjs (global) (global)\"]\n    ui_js_global&gt;\"ui.js (global) (global)\"]\n\n    %% Connections\n    data_js_global --&gt; data_js_loadBookmarks\n    index_mjs_global --&gt; index_mjs_showLoadingScreen\n    index_mjs_global --&gt; data_js_loadBookmarks\n    index_mjs_global --&gt; index_mjs_main\n    index_mjs_global --&gt; data_js_displayScrapJson\n    ui_js_global --&gt; ui_js_stopCurrentAnimation\n    ui_js_global --&gt; ui_js_viewSummary\n    ui_js_global --&gt; data_js_formatTableData\n    ui_js_global --&gt; ui_js_updateDisplay\n    ui_js_global --&gt; data_js_reloadBookmarks\n    ui_js_global --&gt; ui_js_updateSummary\n    ui_js_global --&gt; data_js_searchBookmarks\n    ui_js_global --&gt; ui_js_showBookmarkInfo\n\n    %% Styling\n    classDef functionClass fill:#e1f5fe,stroke:#01579b,stroke-width:2px\n    classDef methodClass fill:#f3e5f5,stroke:#4a148c,stroke-width:2px\n    classDef classClass fill:#fff3e0,stroke:#e65100,stroke-width:2px\n    classDef vueMethodClass fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px\n    classDef globalClass fill:#ffebee,stroke:#c62828,stroke-width:2px\n    class data_js_loadBookmarks,data_js_formatTableData,data_js_reloadBookmarks,data_js_searchBookmarks,data_js_displayScrapJson,index_mjs_showLoadingScreen,index_mjs_main,ui_js_stopCurrentAnimation,ui_js_viewSummary,ui_js_updateSummary,ui_js_updateDisplay,ui_js_showBookmarkInfo functionClass\n    class data_js_global,index_mjs_global,ui_js_global globalClass\n</code></pre>\n<p>the diagram clearly shows the three-tier architecture: data layer (blue functions), UI layer (blue functions), and main entry point, with the red global nodes showing module boundaries.</p>\n<h2 id=\"usage\">usage</h2>\n<pre><code class=\"language-bash\">npx code-network-gen --path &lt;directory&gt; [-o output_name] [-f format]\n# or locally: node index.js --path &lt;directory&gt; [-o output_name] [-f format]\n</code></pre>\n<h3 id=\"options\">options</h3>\n<ul>\n<li><code>--path</code> - directory to analyze (required)</li>\n<li><code>-o</code> - output file prefix (optional, outputs to console if omitted)</li>\n<li><code>-f, --format</code> - output format: <code>csv</code> (default), <code>gexf</code> (for Gephi), <code>graphml</code> (for yEd, Cytoscape), <code>dot</code> (for Graphviz), or <code>mermaid</code> (for GitHub, Notion, etc.)</li>\n<li><code>--include-deps</code> - parse import/require statements to track actual dependency usage</li>\n</ul>\n<h3 id=\"examples\">examples</h3>\n<p>analyze current directory:</p>\n<pre><code class=\"language-bash\">npx code-network-gen --path .\n</code></pre>\n<p>analyze with csv output:</p>\n<pre><code class=\"language-bash\">npx code-network-gen --path ./src -o my_project\n# creates: my_project_nodes.csv, my_project_edges.csv\n</code></pre>\n<p>analyze with gexf output for gephi:</p>\n<pre><code class=\"language-bash\">npx code-network-gen --path ./src -o my_project --format gexf\n# creates: my_project.gexf (ready to open in Gephi)\n</code></pre>\n<p>analyze with graphml output for yed/cytoscape:</p>\n<pre><code class=\"language-bash\">npx code-network-gen --path ./src -o my_project --format graphml\n# creates: my_project.graphml (ready to open in yEd, Cytoscape, etc.)\n</code></pre>\n<p>analyze with dot output for graphviz:</p>\n<pre><code class=\"language-bash\">npx code-network-gen --path ./src -o my_project --format dot\n# creates: my_project.dot (ready for Graphviz tools)\n</code></pre>\n<p>analyze with mermaid output for documentation:</p>\n<pre><code class=\"language-bash\">npx code-network-gen --path ./src -o my_project --format mermaid\n# creates: my_project.mmd (ready to paste into GitHub, Notion, Obsidian, etc.)\n</code></pre>\n<p>include package.json dependencies in analysis:</p>\n<pre><code class=\"language-bash\">npx code-network-gen --path . --include-deps -o my_project\n# tracks actual import/require statements to show real dependency usage\n# creates edges like: data.js:global -&gt; package.json:axios (imports)\n</code></pre>\n<h2 id=\"what-it-finds\">what it finds</h2>\n<ul>\n<li>function declarations</li>\n<li>arrow functions</li>\n<li>class methods</li>\n<li>vue component methods</li>\n<li>function calls and their relationships</li>\n</ul>\n<p>supports: <code>.js</code>, <code>.jsx</code>, <code>.ts</code>, <code>.tsx</code>, <code>.vue</code></p>\n<h2 id=\"output-formats\">output formats</h2>\n<h3 id=\"csv-format-default\">csv format (default)</h3>\n<p><strong>nodes.csv</strong>: functions and methods</p>\n<pre><code class=\"language-csv\">id,label,type,lines\nsrc/utils.js:formatDate,formatDate,function,[15-22]\n</code></pre>\n<p><strong>edges.csv</strong>: function call relationships</p>\n<pre><code class=\"language-csv\">source,target,type\nsrc/app.js:global,src/utils.js:formatDate,calls\n</code></pre>\n<h3 id=\"gexf-format-for-gephi\">gexf format (for gephi)</h3>\n<p><strong>output.gexf</strong>: complete network in xml format</p>\n<ul>\n<li>nodes with id, label, type, and lines attributes</li>\n<li>edges with source, target, and type attributes</li>\n<li>ready to import directly into gephi</li>\n<li>includes proper xml schema and metadata</li>\n</ul>\n<h3 id=\"graphml-format-for-yed-cytoscape\">graphml format (for yed, cytoscape)</h3>\n<p><strong>output.graphml</strong>: universal graph format in xml</p>\n<ul>\n<li>nodes with id, label, type, and lines attributes</li>\n<li>edges with source, target, and type attributes</li>\n<li>compatible with yEd, Cytoscape, and other graph tools</li>\n<li>follows GraphML specification with proper key definitions</li>\n</ul>\n<h3 id=\"dot-format-for-graphviz\">dot format (for graphviz)</h3>\n<p><strong>output.dot</strong>: graphviz dot format</p>\n<ul>\n<li>nodes with labels, types, and color coding</li>\n<li>edges with different styles based on relationship types</li>\n<li>compatible with dot, neato, fdp, circo, twopi, sfdp</li>\n<li>ready for rendering with Graphviz tools</li>\n</ul>\n<h3 id=\"mermaid-format-for-documentation\">mermaid format (for documentation)</h3>\n<p><strong>output.mmd</strong>: mermaid flowchart format</p>\n<ul>\n<li>intelligent filtering to keep diagrams readable (max 50 nodes)</li>\n<li>different node shapes for functions, methods, classes, vue-methods</li>\n<li>color-coded styling for different node types</li>\n<li>ready to paste into GitHub markdown, Notion, Obsidian, etc.</li>\n<li>renders natively in many documentation platforms</li>\n</ul>\n<h2 id=\"development\">development</h2>\n<pre><code class=\"language-bash\">git clone &lt;repo&gt;\nnpm install\nnpm test  # runs meta-analysis (tool analyzes itself)\nnpm run lint\n</code></pre>\n<h2 id=\"import-into-tools\">import into tools</h2>\n<p><strong>gephi</strong>:</p>\n<ul>\n<li>gexf: file → open → select the .gexf file (recommended)</li>\n<li>csv: file → import → choose nodes csv, then edges csv</li>\n</ul>\n<p><strong>yed</strong>: file → open → select the .graphml file (recommended)</p>\n<p><strong>cytoscape</strong>:</p>\n<ul>\n<li>graphml: file → import → network from file → select .graphml file</li>\n<li>csv: file → import → network from table → select both csv files<br />\n<strong>d3/observable</strong>: <code>d3.csv()</code> both csv files, standard network format<br />\n<strong>python networkx</strong>:</li>\n<li>gexf: <code>nx.read_gexf('file.gexf')</code></li>\n<li>graphml: <code>nx.read_graphml('file.graphml')</code></li>\n<li>csv: <code>pandas.read_csv()</code> then <code>nx.from_pandas_edgelist()</code></li>\n</ul>\n<p><strong>r igraph</strong>:</p>\n<ul>\n<li>gexf: <code>read_graph('file.gexf', format='gexf')</code></li>\n<li>graphml: <code>read_graph('file.graphml', format='graphml')</code></li>\n<li>csv: <code>read.csv()</code> then <code>graph_from_data_frame()</code></li>\n</ul>\n<p><strong>mermaid/documentation platforms</strong>:</p>\n<ul>\n<li>github: paste <code>.mmd</code> content into markdown files with <code>```mermaid</code> blocks</li>\n<li>notion: paste as mermaid diagram block</li>\n<li>obsidian: paste with <code>```mermaid</code> code block</li>\n<li>gitbook: paste as mermaid diagram</li>\n<li>confluence: use mermaid macro with <code>.mmd</code> content</li>\n</ul>\n<h2 id=\"how-it-works\">how it works</h2>\n<ol>\n<li>walks directory tree</li>\n<li>parses ast with acorn</li>\n<li>extracts function definitions and calls</li>\n<li>outputs network graph as csv</li>\n</ol>\n<p>that's it.</p>",

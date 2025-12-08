@@ -1,7 +1,7 @@
 <template>
   <div v-if="hasData" class="space-y-8 font-mono">
     <!-- Primary Stats -->
-    <div class="text-center py-4">
+    <div class="text-center py-2">
       <div class="text-2xl font-bold">
         <AnimatedNumber
           :value="stats.totalGists"
@@ -10,7 +10,7 @@
           priority="primary"
         />
       </div>
-      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-1">
+      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
         CODE SNIPPETS
       </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
@@ -33,7 +33,7 @@
     </div>
 
     <!-- Language Distribution -->
-    <div class="space-y-4">
+    <div class="space-y-2">
       <StatsSectionHeader title="LANGUAGES" />
       <div class="grid grid-cols-2 gap-x-8 gap-y-2 text-xs">
         <div
@@ -57,9 +57,9 @@
     </div>
 
     <!-- Recent Gists -->
-    <div v-if="recentGists.length" class="space-y-4">
+    <div v-if="recentGists.length" class="space-y-2">
       <StatsSectionHeader title="RECENT GISTS" />
-      <div class="space-y-1.5">
+      <div class="space-y-2">
         <div
           v-for="gist in recentGists.slice(0, 5)"
           :key="gist.id"
@@ -128,8 +128,6 @@ interface GistStats {
 const props = defineProps<{
   gistStats?: GistStats | null
 }>()
-
-// DELETED: const { timing } = // DELETED: useAnimations() - BROKEN IMPORT
 
 const hasData = computed(() => {
   return !!props.gistStats?.stats && props.gistStats.stats.totalGists > 0

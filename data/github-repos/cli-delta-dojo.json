@@ -15,6 +15,78 @@
     "JavaScript": 5177
   },
   "diskUsage": 2451,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 23
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "README.md",
+        "size": 1471
+      },
+      {
+        "path": "index.mjs",
+        "size": 5177
+      },
+      {
+        "path": "package-lock.json",
+        "size": 9299
+      },
+      {
+        "path": "package.json",
+        "size": 498
+      }
+    ],
+    "tree": {
+      "name": "cli-delta-dojo",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": ".gitignore",
+          "size": 23,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 1471,
+          "path": "README.md"
+        },
+        {
+          "name": "index.mjs",
+          "size": 5177,
+          "path": "index.mjs"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 9299,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 498,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 6,
+    "totalSize": 16735
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"short-descriptions\">Short Descriptions</h1>\n<ol>\n<li>\n<p>CLI-DELTA-DOJO: Test your JSON diff skills in this hacker-inspired terminal game.</p>\n</li>\n<li>\n<p>Spot the difference in JSON snippets against the clock with CLI-DELTA-DOJO.</p>\n</li>\n<li>\n<p>Sharpen your code review skills with CLI-DELTA-DOJO, the terminal-based JSON comparison game.</p>\n</li>\n</ol>\n<h1 id=\"cli-delta-dojo\">CLI-DELTA-DOJO</h1>\n<p>CLI-DELTA-DOJO is a terminal-based game that challenges users to spot differences in JSON snippets. It simulates real-world scenarios of code reviews and data comparison.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>JSON difference spotting game</li>\n<li>Terminal-based interface</li>\n<li>Dynamic difficulty levels</li>\n<li>Time-based challenges</li>\n<li>Score tracking</li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li>Node.js (v12.0.0 or higher)</li>\n<li>npm</li>\n</ul>\n<h2 id=\"installation\">Installation</h2>\n<ol>\n<li>\n<p>Clone the repository:</p>\n<pre><code>git clone https://github.com/yourusername/cli-delta-dojo.git\n</code></pre>\n</li>\n<li>\n<p>Navigate to the project directory:</p>\n<pre><code>cd cli-delta-dojo\n</code></pre>\n</li>\n<li>\n<p>Install dependencies:</p>\n<pre><code>npm install\n</code></pre>\n</li>\n<li>\n<p>Make the script executable:</p>\n<pre><code>chmod +x index.js\n</code></pre>\n</li>\n</ol>\n<h2 id=\"usage\">Usage</h2>\n<p>Run the game:</p>\n<pre><code>./index.js\n</code></pre>\n<p>Follow on-screen instructions:</p>\n<ul>\n<li>Press SPACE if JSON snippets are the same</li>\n<li>Press ENTER if JSON snippets are different</li>\n</ul>\n<h2 id=\"difficulty-levels\">Difficulty Levels</h2>\n<ul>\n<li>NOVICE: 1-2 changes, 30 seconds</li>\n<li>ADEPT: 2-3 changes, 25 seconds</li>\n<li>EXPERT: 3-4 changes, 20 seconds</li>\n<li>MASTER: 4-5 changes, 15 seconds</li>\n<li>CYBERPUNK LEGEND: 5-6 changes, 10 seconds</li>\n</ul>\n<p>Difficulty increases with consecutive correct answers.</p>\n<h2 id=\"license\">License</h2>\n<p>This project is licensed under the MIT License.</p>",

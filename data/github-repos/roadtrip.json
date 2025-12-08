@@ -18,6 +18,444 @@
     "Ruby": 2044
   },
   "diskUsage": 1714,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 140
+      },
+      {
+        "path": ".tweet-cache/02b591d77a446cb7531ab71b75d3d2bc.cache",
+        "size": 727
+      },
+      {
+        "path": ".tweet-cache/1418d960d70f5ba75c06560d3d0b8954.cache",
+        "size": 87
+      },
+      {
+        "path": ".tweet-cache/339987b746155341418401492192e67f.cache",
+        "size": 68
+      },
+      {
+        "path": ".tweet-cache/6770601377e6373618452fea494c7944.cache",
+        "size": 89
+      },
+      {
+        "path": ".tweet-cache/7a8fff817de4a1101ecbf065a3a62a09.cache",
+        "size": 74
+      },
+      {
+        "path": ".tweet-cache/7bc6dabfd4877ecc1746ec36f0f34cc0.cache",
+        "size": 85
+      },
+      {
+        "path": ".tweet-cache/83bc798e5dabf929a9dd99fffda5852a.cache",
+        "size": 699
+      },
+      {
+        "path": ".tweet-cache/c3c9ee204c56c7f9c84f6ed6c68d918e.cache",
+        "size": 78
+      },
+      {
+        "path": "Gemfile",
+        "size": 842
+      },
+      {
+        "path": "Gemfile.lock",
+        "size": 1202
+      },
+      {
+        "path": "README",
+        "size": 25
+      },
+      {
+        "path": "_config.yml",
+        "size": 1258
+      },
+      {
+        "path": "_data/stops.csv",
+        "size": 1803
+      },
+      {
+        "path": "_layouts/.DS_Store",
+        "size": 6148
+      },
+      {
+        "path": "_layouts/default.html",
+        "size": 4100
+      },
+      {
+        "path": "_layouts/post.html",
+        "size": 4716
+      },
+      {
+        "path": "_posts/ TEMPLATE.markdown",
+        "size": 2129
+      },
+      {
+        "path": "_posts/2017-01-19-nyc.markdown",
+        "size": 6376
+      },
+      {
+        "path": "_posts/2017-01-20-washingtondc.markdown",
+        "size": 4489
+      },
+      {
+        "path": "about.md",
+        "size": 524
+      },
+      {
+        "path": "css/style.css",
+        "size": 6140
+      },
+      {
+        "path": "css/toolkit.css",
+        "size": 21314
+      },
+      {
+        "path": "fonts/.DS_Store",
+        "size": 6148
+      },
+      {
+        "path": "fonts/font/.DS_Store",
+        "size": 6148
+      },
+      {
+        "path": "fonts/font/StateFace-Regular.otf",
+        "size": 20944
+      },
+      {
+        "path": "fonts/font/stateface.glyphs",
+        "size": 134163
+      },
+      {
+        "path": "fonts/stateface/stateface-regular-webfont.eot",
+        "size": 18384
+      },
+      {
+        "path": "fonts/stateface/stateface-regular-webfont.svg",
+        "size": 45868
+      },
+      {
+        "path": "fonts/stateface/stateface-regular-webfont.ttf",
+        "size": 27096
+      },
+      {
+        "path": "fonts/stateface/stateface-regular-webfont.woff",
+        "size": 19940
+      },
+      {
+        "path": "images/.DS_Store",
+        "size": 6148
+      },
+      {
+        "path": "images/01_ny/Screenshot 2016-11-21 20.01.01.png",
+        "size": 227102
+      },
+      {
+        "path": "images/01_ny/orangecounty-2012to2016.png",
+        "size": 217144
+      },
+      {
+        "path": "images/01_nyc.png",
+        "size": 1150247
+      },
+      {
+        "path": "index.md",
+        "size": 213
+      },
+      {
+        "path": "js/homepage.js",
+        "size": 2607
+      },
+      {
+        "path": "js/jquery.sparkline.min.js",
+        "size": 43247
+      },
+      {
+        "path": "js/roadtrip.js",
+        "size": 1873
+      },
+      {
+        "path": "js/toolkit.js",
+        "size": 7646
+      }
+    ],
+    "tree": {
+      "name": "roadtrip",
+      "children": [
+        {
+          "name": ".tweet-cache",
+          "children": [
+            {
+              "name": "02b591d77a446cb7531ab71b75d3d2bc.cache",
+              "size": 727,
+              "path": ".tweet-cache/02b591d77a446cb7531ab71b75d3d2bc.cache"
+            },
+            {
+              "name": "1418d960d70f5ba75c06560d3d0b8954.cache",
+              "size": 87,
+              "path": ".tweet-cache/1418d960d70f5ba75c06560d3d0b8954.cache"
+            },
+            {
+              "name": "339987b746155341418401492192e67f.cache",
+              "size": 68,
+              "path": ".tweet-cache/339987b746155341418401492192e67f.cache"
+            },
+            {
+              "name": "6770601377e6373618452fea494c7944.cache",
+              "size": 89,
+              "path": ".tweet-cache/6770601377e6373618452fea494c7944.cache"
+            },
+            {
+              "name": "7a8fff817de4a1101ecbf065a3a62a09.cache",
+              "size": 74,
+              "path": ".tweet-cache/7a8fff817de4a1101ecbf065a3a62a09.cache"
+            },
+            {
+              "name": "7bc6dabfd4877ecc1746ec36f0f34cc0.cache",
+              "size": 85,
+              "path": ".tweet-cache/7bc6dabfd4877ecc1746ec36f0f34cc0.cache"
+            },
+            {
+              "name": "83bc798e5dabf929a9dd99fffda5852a.cache",
+              "size": 699,
+              "path": ".tweet-cache/83bc798e5dabf929a9dd99fffda5852a.cache"
+            },
+            {
+              "name": "c3c9ee204c56c7f9c84f6ed6c68d918e.cache",
+              "size": 78,
+              "path": ".tweet-cache/c3c9ee204c56c7f9c84f6ed6c68d918e.cache"
+            }
+          ],
+          "path": ".tweet-cache"
+        },
+        {
+          "name": "_data",
+          "children": [
+            {
+              "name": "stops.csv",
+              "size": 1803,
+              "path": "_data/stops.csv"
+            }
+          ],
+          "path": "_data"
+        },
+        {
+          "name": "_layouts",
+          "children": [
+            {
+              "name": ".DS_Store",
+              "size": 6148,
+              "path": "_layouts/.DS_Store"
+            },
+            {
+              "name": "default.html",
+              "size": 4100,
+              "path": "_layouts/default.html"
+            },
+            {
+              "name": "post.html",
+              "size": 4716,
+              "path": "_layouts/post.html"
+            }
+          ],
+          "path": "_layouts"
+        },
+        {
+          "name": "_posts",
+          "children": [
+            {
+              "name": " TEMPLATE.markdown",
+              "size": 2129,
+              "path": "_posts/ TEMPLATE.markdown"
+            },
+            {
+              "name": "2017-01-19-nyc.markdown",
+              "size": 6376,
+              "path": "_posts/2017-01-19-nyc.markdown"
+            },
+            {
+              "name": "2017-01-20-washingtondc.markdown",
+              "size": 4489,
+              "path": "_posts/2017-01-20-washingtondc.markdown"
+            }
+          ],
+          "path": "_posts"
+        },
+        {
+          "name": "css",
+          "children": [
+            {
+              "name": "style.css",
+              "size": 6140,
+              "path": "css/style.css"
+            },
+            {
+              "name": "toolkit.css",
+              "size": 21314,
+              "path": "css/toolkit.css"
+            }
+          ],
+          "path": "css"
+        },
+        {
+          "name": "fonts",
+          "children": [
+            {
+              "name": "font",
+              "children": [
+                {
+                  "name": ".DS_Store",
+                  "size": 6148,
+                  "path": "fonts/font/.DS_Store"
+                },
+                {
+                  "name": "StateFace-Regular.otf",
+                  "size": 20944,
+                  "path": "fonts/font/StateFace-Regular.otf"
+                },
+                {
+                  "name": "stateface.glyphs",
+                  "size": 134163,
+                  "path": "fonts/font/stateface.glyphs"
+                }
+              ],
+              "path": "fonts/font"
+            },
+            {
+              "name": "stateface",
+              "children": [
+                {
+                  "name": "stateface-regular-webfont.eot",
+                  "size": 18384,
+                  "path": "fonts/stateface/stateface-regular-webfont.eot"
+                },
+                {
+                  "name": "stateface-regular-webfont.svg",
+                  "size": 45868,
+                  "path": "fonts/stateface/stateface-regular-webfont.svg"
+                },
+                {
+                  "name": "stateface-regular-webfont.ttf",
+                  "size": 27096,
+                  "path": "fonts/stateface/stateface-regular-webfont.ttf"
+                },
+                {
+                  "name": "stateface-regular-webfont.woff",
+                  "size": 19940,
+                  "path": "fonts/stateface/stateface-regular-webfont.woff"
+                }
+              ],
+              "path": "fonts/stateface"
+            },
+            {
+              "name": ".DS_Store",
+              "size": 6148,
+              "path": "fonts/.DS_Store"
+            }
+          ],
+          "path": "fonts"
+        },
+        {
+          "name": "images",
+          "children": [
+            {
+              "name": "01_ny",
+              "children": [
+                {
+                  "name": "Screenshot 2016-11-21 20.01.01.png",
+                  "size": 227102,
+                  "path": "images/01_ny/Screenshot 2016-11-21 20.01.01.png"
+                },
+                {
+                  "name": "orangecounty-2012to2016.png",
+                  "size": 217144,
+                  "path": "images/01_ny/orangecounty-2012to2016.png"
+                }
+              ],
+              "path": "images/01_ny"
+            },
+            {
+              "name": ".DS_Store",
+              "size": 6148,
+              "path": "images/.DS_Store"
+            },
+            {
+              "name": "01_nyc.png",
+              "size": 1150247,
+              "path": "images/01_nyc.png"
+            }
+          ],
+          "path": "images"
+        },
+        {
+          "name": "js",
+          "children": [
+            {
+              "name": "homepage.js",
+              "size": 2607,
+              "path": "js/homepage.js"
+            },
+            {
+              "name": "jquery.sparkline.min.js",
+              "size": 43247,
+              "path": "js/jquery.sparkline.min.js"
+            },
+            {
+              "name": "roadtrip.js",
+              "size": 1873,
+              "path": "js/roadtrip.js"
+            },
+            {
+              "name": "toolkit.js",
+              "size": 7646,
+              "path": "js/toolkit.js"
+            }
+          ],
+          "path": "js"
+        },
+        {
+          "name": ".gitignore",
+          "size": 140,
+          "path": ".gitignore"
+        },
+        {
+          "name": "Gemfile",
+          "size": 842,
+          "path": "Gemfile"
+        },
+        {
+          "name": "Gemfile.lock",
+          "size": 1202,
+          "path": "Gemfile.lock"
+        },
+        {
+          "name": "README",
+          "size": 25,
+          "path": "README"
+        },
+        {
+          "name": "_config.yml",
+          "size": 1258,
+          "path": "_config.yml"
+        },
+        {
+          "name": "about.md",
+          "size": 524,
+          "path": "about.md"
+        },
+        {
+          "name": "index.md",
+          "size": 213,
+          "path": "index.md"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 40,
+    "totalSize": 1998031
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

@@ -21,6 +21,2250 @@
     "Mako": 494
   },
   "diskUsage": 10864,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".dockerignore",
+        "size": 24
+      },
+      {
+        "path": ".flake8",
+        "size": 77
+      },
+      {
+        "path": ".gitignore",
+        "size": 1065
+      },
+      {
+        "path": ".travis.yml",
+        "size": 583
+      },
+      {
+        "path": "CODE_OF_CONDUCT.md",
+        "size": 3221
+      },
+      {
+        "path": "CONTRIB.md",
+        "size": 5328
+      },
+      {
+        "path": "DEPLOY.md",
+        "size": 6255
+      },
+      {
+        "path": "LICENSE",
+        "size": 35141
+      },
+      {
+        "path": "Makefile",
+        "size": 1873
+      },
+      {
+        "path": "OpenOversight/__init__.py",
+        "size": 0
+      },
+      {
+        "path": "OpenOversight/app/__init__.py",
+        "size": 2973
+      },
+      {
+        "path": "OpenOversight/app/auth/__init__.py",
+        "size": 101
+      },
+      {
+        "path": "OpenOversight/app/auth/forms.py",
+        "size": 4324
+      },
+      {
+        "path": "OpenOversight/app/auth/utils.py",
+        "size": 742
+      },
+      {
+        "path": "OpenOversight/app/auth/views.py",
+        "size": 8785
+      },
+      {
+        "path": "OpenOversight/app/commands.py",
+        "size": 2429
+      },
+      {
+        "path": "OpenOversight/app/config.py",
+        "size": 2119
+      },
+      {
+        "path": "OpenOversight/app/email.py",
+        "size": 661
+      },
+      {
+        "path": "OpenOversight/app/formfields.py",
+        "size": 1315
+      },
+      {
+        "path": "OpenOversight/app/main/__init__.py",
+        "size": 101
+      },
+      {
+        "path": "OpenOversight/app/main/choices.py",
+        "size": 1285
+      },
+      {
+        "path": "OpenOversight/app/main/forms.py",
+        "size": 16046
+      },
+      {
+        "path": "OpenOversight/app/main/model_view.py",
+        "size": 5811
+      },
+      {
+        "path": "OpenOversight/app/main/views.py",
+        "size": 37071
+      },
+      {
+        "path": "OpenOversight/app/models.py",
+        "size": 16701
+      },
+      {
+        "path": "OpenOversight/app/static/css/bootstrap.css",
+        "size": 148790
+      },
+      {
+        "path": "OpenOversight/app/static/css/bootstrap.min.css",
+        "size": 47707
+      },
+      {
+        "path": "OpenOversight/app/static/css/cropper.css",
+        "size": 4949
+      },
+      {
+        "path": "OpenOversight/app/static/css/cropper.min.css",
+        "size": 3938
+      },
+      {
+        "path": "OpenOversight/app/static/css/dropzone-override.css",
+        "size": 623
+      },
+      {
+        "path": "OpenOversight/app/static/css/dropzone.css",
+        "size": 12587
+      },
+      {
+        "path": "OpenOversight/app/static/css/font-awesome.min.css",
+        "size": 29063
+      },
+      {
+        "path": "OpenOversight/app/static/css/openoversight.css",
+        "size": 7095
+      },
+      {
+        "path": "OpenOversight/app/static/css/qunit.css",
+        "size": 7456
+      },
+      {
+        "path": "OpenOversight/app/static/css/responsive_embed.css",
+        "size": 263
+      },
+      {
+        "path": "OpenOversight/app/static/css/tagger.css",
+        "size": 4262
+      },
+      {
+        "path": "OpenOversight/app/static/fonts/FontAwesome.otf",
+        "size": 124988
+      },
+      {
+        "path": "OpenOversight/app/static/fonts/fontawesome-webfont.eot",
+        "size": 76518
+      },
+      {
+        "path": "OpenOversight/app/static/fonts/fontawesome-webfont.svg",
+        "size": 391622
+      },
+      {
+        "path": "OpenOversight/app/static/fonts/fontawesome-webfont.ttf",
+        "size": 152796
+      },
+      {
+        "path": "OpenOversight/app/static/fonts/fontawesome-webfont.woff",
+        "size": 90412
+      },
+      {
+        "path": "OpenOversight/app/static/fonts/fontawesome-webfont.woff2",
+        "size": 71896
+      },
+      {
+        "path": "OpenOversight/app/static/fonts/glyphicons-halflings-regular.eot",
+        "size": 20127
+      },
+      {
+        "path": "OpenOversight/app/static/fonts/glyphicons-halflings-regular.svg",
+        "size": 108738
+      },
+      {
+        "path": "OpenOversight/app/static/fonts/glyphicons-halflings-regular.ttf",
+        "size": 45404
+      },
+      {
+        "path": "OpenOversight/app/static/fonts/glyphicons-halflings-regular.woff",
+        "size": 23424
+      },
+      {
+        "path": "OpenOversight/app/static/fonts/glyphicons-halflings-regular.woff2",
+        "size": 18028
+      },
+      {
+        "path": "OpenOversight/app/static/images/OfficerRank.png",
+        "size": 131887
+      },
+      {
+        "path": "OpenOversight/app/static/images/add_face.png",
+        "size": 8646
+      },
+      {
+        "path": "OpenOversight/app/static/images/done.png",
+        "size": 4797
+      },
+      {
+        "path": "OpenOversight/app/static/images/github.ico",
+        "size": 6518
+      },
+      {
+        "path": "OpenOversight/app/static/images/lplfavicon.png",
+        "size": 469
+      },
+      {
+        "path": "OpenOversight/app/static/images/officer_found.png",
+        "size": 151278
+      },
+      {
+        "path": "OpenOversight/app/static/images/page-loader.gif",
+        "size": 23899
+      },
+      {
+        "path": "OpenOversight/app/static/images/pick_face.png",
+        "size": 184704
+      },
+      {
+        "path": "OpenOversight/app/static/images/pick_task.png",
+        "size": 19735
+      },
+      {
+        "path": "OpenOversight/app/static/images/placeholder.png",
+        "size": 9109
+      },
+      {
+        "path": "OpenOversight/app/static/images/securedrop.png",
+        "size": 1948
+      },
+      {
+        "path": "OpenOversight/app/static/images/shuttleworth.jpg",
+        "size": 173945
+      },
+      {
+        "path": "OpenOversight/app/static/images/sort.png",
+        "size": 61570
+      },
+      {
+        "path": "OpenOversight/app/static/images/tag_search.png",
+        "size": 50849
+      },
+      {
+        "path": "OpenOversight/app/static/images/test_cop1.png",
+        "size": 121790
+      },
+      {
+        "path": "OpenOversight/app/static/images/test_cop2.png",
+        "size": 20277
+      },
+      {
+        "path": "OpenOversight/app/static/images/test_cop3.png",
+        "size": 65937
+      },
+      {
+        "path": "OpenOversight/app/static/images/test_cop4.png",
+        "size": 22315
+      },
+      {
+        "path": "OpenOversight/app/static/images/test_cop5.jpg",
+        "size": 46928
+      },
+      {
+        "path": "OpenOversight/app/static/images/twitterfavicon.ico",
+        "size": 6518
+      },
+      {
+        "path": "OpenOversight/app/static/js/bootstrap.js",
+        "size": 69707
+      },
+      {
+        "path": "OpenOversight/app/static/js/bootstrap.min.js",
+        "size": 37045
+      },
+      {
+        "path": "OpenOversight/app/static/js/complaint.js",
+        "size": 1603
+      },
+      {
+        "path": "OpenOversight/app/static/js/cropper.js",
+        "size": 80147
+      },
+      {
+        "path": "OpenOversight/app/static/js/cropper.min.js",
+        "size": 28079
+      },
+      {
+        "path": "OpenOversight/app/static/js/dropzone.js",
+        "size": 64383
+      },
+      {
+        "path": "OpenOversight/app/static/js/html5shiv.min.js",
+        "size": 2636
+      },
+      {
+        "path": "OpenOversight/app/static/js/incidentAddButtons.js",
+        "size": 3947
+      },
+      {
+        "path": "OpenOversight/app/static/js/jquery.hotkeys.js",
+        "size": 5019
+      },
+      {
+        "path": "OpenOversight/app/static/js/jquery.min.js",
+        "size": 86351
+      },
+      {
+        "path": "OpenOversight/app/static/js/npm.js",
+        "size": 484
+      },
+      {
+        "path": "OpenOversight/app/static/js/password.js",
+        "size": 2827
+      },
+      {
+        "path": "OpenOversight/app/static/js/qunit.js",
+        "size": 117821
+      },
+      {
+        "path": "OpenOversight/app/static/js/respond.min.js",
+        "size": 4377
+      },
+      {
+        "path": "OpenOversight/app/static/js/tagger.js",
+        "size": 5853
+      },
+      {
+        "path": "OpenOversight/app/static/js/zxcvbn.js",
+        "size": 821711
+      },
+      {
+        "path": "OpenOversight/app/templates/403.html",
+        "size": 299
+      },
+      {
+        "path": "OpenOversight/app/templates/404.html",
+        "size": 309
+      },
+      {
+        "path": "OpenOversight/app/templates/429.html",
+        "size": 331
+      },
+      {
+        "path": "OpenOversight/app/templates/500.html",
+        "size": 304
+      },
+      {
+        "path": "OpenOversight/app/templates/about.html",
+        "size": 7805
+      },
+      {
+        "path": "OpenOversight/app/templates/add_edit_department.html",
+        "size": 767
+      },
+      {
+        "path": "OpenOversight/app/templates/add_officer.html",
+        "size": 2090
+      },
+      {
+        "path": "OpenOversight/app/templates/add_unit.html",
+        "size": 669
+      },
+      {
+        "path": "OpenOversight/app/templates/all_depts.html",
+        "size": 564
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/change_dept_pref.html",
+        "size": 433
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/change_email.html",
+        "size": 407
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/change_password.html",
+        "size": 1741
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/email/change_email.html",
+        "size": 446
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/email/change_email.txt",
+        "size": 247
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/email/confirm.html",
+        "size": 473
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/email/confirm.txt",
+        "size": 266
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/email/reset_password.html",
+        "size": 517
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/email/reset_password.txt",
+        "size": 310
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/login.html",
+        "size": 913
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/register.html",
+        "size": 1825
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/reset_password.html",
+        "size": 395
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/unconfirmed.html",
+        "size": 680
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/user.html",
+        "size": 534
+      },
+      {
+        "path": "OpenOversight/app/templates/auth/users.html",
+        "size": 2167
+      },
+      {
+        "path": "OpenOversight/app/templates/base.html",
+        "size": 5758
+      },
+      {
+        "path": "OpenOversight/app/templates/browse.html",
+        "size": 1122
+      },
+      {
+        "path": "OpenOversight/app/templates/complaint.html",
+        "size": 1575
+      },
+      {
+        "path": "OpenOversight/app/templates/cop_face.html",
+        "size": 5744
+      },
+      {
+        "path": "OpenOversight/app/templates/description_delete.html",
+        "size": 613
+      },
+      {
+        "path": "OpenOversight/app/templates/description_edit.html",
+        "size": 531
+      },
+      {
+        "path": "OpenOversight/app/templates/description_new.html",
+        "size": 354
+      },
+      {
+        "path": "OpenOversight/app/templates/edit_assignment.html",
+        "size": 847
+      },
+      {
+        "path": "OpenOversight/app/templates/edit_officer.html",
+        "size": 1233
+      },
+      {
+        "path": "OpenOversight/app/templates/form.html",
+        "size": 525
+      },
+      {
+        "path": "OpenOversight/app/templates/gallery.html",
+        "size": 3006
+      },
+      {
+        "path": "OpenOversight/app/templates/image.html",
+        "size": 3366
+      },
+      {
+        "path": "OpenOversight/app/templates/incident_delete.html",
+        "size": 519
+      },
+      {
+        "path": "OpenOversight/app/templates/incident_detail.html",
+        "size": 1473
+      },
+      {
+        "path": "OpenOversight/app/templates/incident_edit.html",
+        "size": 562
+      },
+      {
+        "path": "OpenOversight/app/templates/incident_list.html",
+        "size": 1047
+      },
+      {
+        "path": "OpenOversight/app/templates/incident_new.html",
+        "size": 297
+      },
+      {
+        "path": "OpenOversight/app/templates/index.html",
+        "size": 3371
+      },
+      {
+        "path": "OpenOversight/app/templates/input_find_officer.html",
+        "size": 6703
+      },
+      {
+        "path": "OpenOversight/app/templates/input_find_ooid.html",
+        "size": 1707
+      },
+      {
+        "path": "OpenOversight/app/templates/label_data.html",
+        "size": 6283
+      },
+      {
+        "path": "OpenOversight/app/templates/leaderboard.html",
+        "size": 961
+      },
+      {
+        "path": "OpenOversight/app/templates/list.html",
+        "size": 580
+      },
+      {
+        "path": "OpenOversight/app/templates/list_officer.html",
+        "size": 4219
+      },
+      {
+        "path": "OpenOversight/app/templates/note_delete.html",
+        "size": 585
+      },
+      {
+        "path": "OpenOversight/app/templates/note_edit.html",
+        "size": 510
+      },
+      {
+        "path": "OpenOversight/app/templates/note_new.html",
+        "size": 347
+      },
+      {
+        "path": "OpenOversight/app/templates/officer.html",
+        "size": 10938
+      },
+      {
+        "path": "OpenOversight/app/templates/partials/incident_fields.html",
+        "size": 2308
+      },
+      {
+        "path": "OpenOversight/app/templates/partials/incident_form.html",
+        "size": 1647
+      },
+      {
+        "path": "OpenOversight/app/templates/partials/links_and_videos_row.html",
+        "size": 2248
+      },
+      {
+        "path": "OpenOversight/app/templates/partials/links_subform.html",
+        "size": 231
+      },
+      {
+        "path": "OpenOversight/app/templates/partials/officer_form_fields_hidden.html",
+        "size": 288
+      },
+      {
+        "path": "OpenOversight/app/templates/partials/officer_name.html",
+        "size": 256
+      },
+      {
+        "path": "OpenOversight/app/templates/partials/paginate.html",
+        "size": 728
+      },
+      {
+        "path": "OpenOversight/app/templates/partials/paginate_nav.html",
+        "size": 774
+      },
+      {
+        "path": "OpenOversight/app/templates/partials/roster_form_fields.html",
+        "size": 120
+      },
+      {
+        "path": "OpenOversight/app/templates/partials/roster_paginate.html",
+        "size": 701
+      },
+      {
+        "path": "OpenOversight/app/templates/partials/subform.html",
+        "size": 696
+      },
+      {
+        "path": "OpenOversight/app/templates/privacy.html",
+        "size": 3863
+      },
+      {
+        "path": "OpenOversight/app/templates/profile.html",
+        "size": 3359
+      },
+      {
+        "path": "OpenOversight/app/templates/sort.html",
+        "size": 2948
+      },
+      {
+        "path": "OpenOversight/app/templates/submit_image.html",
+        "size": 4164
+      },
+      {
+        "path": "OpenOversight/app/templates/tag.html",
+        "size": 2475
+      },
+      {
+        "path": "OpenOversight/app/templates/tagger_gallery.html",
+        "size": 2648
+      },
+      {
+        "path": "OpenOversight/app/templates/tutorial.html",
+        "size": 4282
+      },
+      {
+        "path": "OpenOversight/app/utils.py",
+        "size": 16725
+      },
+      {
+        "path": "OpenOversight/app/validators.py",
+        "size": 211
+      },
+      {
+        "path": "OpenOversight/app/widgets.py",
+        "size": 1695
+      },
+      {
+        "path": "OpenOversight/db_backup.py",
+        "size": 206
+      },
+      {
+        "path": "OpenOversight/migrations/README",
+        "size": 38
+      },
+      {
+        "path": "OpenOversight/migrations/alembic.ini",
+        "size": 770
+      },
+      {
+        "path": "OpenOversight/migrations/env.py",
+        "size": 2934
+      },
+      {
+        "path": "OpenOversight/migrations/script.py.mako",
+        "size": 494
+      },
+      {
+        "path": "OpenOversight/migrations/versions/0acbb0f0b1ef_.py",
+        "size": 1709
+      },
+      {
+        "path": "OpenOversight/migrations/versions/0ed957db0058_add_description_to_officers.py",
+        "size": 1454
+      },
+      {
+        "path": "OpenOversight/migrations/versions/114919b27a9f_.py",
+        "size": 1779
+      },
+      {
+        "path": "OpenOversight/migrations/versions/2040f0c804b0_.py",
+        "size": 1133
+      },
+      {
+        "path": "OpenOversight/migrations/versions/2c27bfebe66e_add_unique_internal_identifier_to_.py",
+        "size": 953
+      },
+      {
+        "path": "OpenOversight/migrations/versions/42233d18ac7b_.py",
+        "size": 909
+      },
+      {
+        "path": "OpenOversight/migrations/versions/4a490771dda1_add_original_image_fk.py",
+        "size": 1287
+      },
+      {
+        "path": "OpenOversight/migrations/versions/59e9993c169c_change_faces_to_thumbnails.py",
+        "size": 1680
+      },
+      {
+        "path": "OpenOversight/migrations/versions/6065d7cdcbf8_.py",
+        "size": 1737
+      },
+      {
+        "path": "OpenOversight/migrations/versions/7bb53dee8ac9_add_suffix_column_to_officers.py",
+        "size": 836
+      },
+      {
+        "path": "OpenOversight/migrations/versions/8ce7926aa132_.py",
+        "size": 1166
+      },
+      {
+        "path": "OpenOversight/migrations/versions/9e2827dae28c_.py",
+        "size": 912
+      },
+      {
+        "path": "OpenOversight/migrations/versions/af933dc1ef93_.py",
+        "size": 793
+      },
+      {
+        "path": "OpenOversight/migrations/versions/bd0398fe4aab_.py",
+        "size": 1340
+      },
+      {
+        "path": "OpenOversight/migrations/versions/ca95c047bf42_.py",
+        "size": 821
+      },
+      {
+        "path": "OpenOversight/migrations/versions/cfc5f3fd5efe_.py",
+        "size": 1091
+      },
+      {
+        "path": "OpenOversight/migrations/versions/d86feb8fa5d1_.py",
+        "size": 5366
+      },
+      {
+        "path": "OpenOversight/migrations/versions/e14a1aa4b58f_.py",
+        "size": 955
+      },
+      {
+        "path": "OpenOversight/migrations/versions/f4a41e328a06_.py",
+        "size": 1551
+      },
+      {
+        "path": "OpenOversight/tests/__init__.py",
+        "size": 0
+      },
+      {
+        "path": "OpenOversight/tests/conftest.py",
+        "size": 10812
+      },
+      {
+        "path": "OpenOversight/tests/routes/__init__.py",
+        "size": 0
+      },
+      {
+        "path": "OpenOversight/tests/routes/route_helpers.py",
+        "size": 2040
+      },
+      {
+        "path": "OpenOversight/tests/routes/test_auth.py",
+        "size": 11663
+      },
+      {
+        "path": "OpenOversight/tests/routes/test_descriptions.py",
+        "size": 15599
+      },
+      {
+        "path": "OpenOversight/tests/routes/test_image_tagging.py",
+        "size": 8319
+      },
+      {
+        "path": "OpenOversight/tests/routes/test_incidents.py",
+        "size": 21886
+      },
+      {
+        "path": "OpenOversight/tests/routes/test_notes.py",
+        "size": 14576
+      },
+      {
+        "path": "OpenOversight/tests/routes/test_officer_and_department.py",
+        "size": 39135
+      },
+      {
+        "path": "OpenOversight/tests/routes/test_other.py",
+        "size": 2424
+      },
+      {
+        "path": "OpenOversight/tests/routes/test_user_api.py",
+        "size": 3539
+      },
+      {
+        "path": "OpenOversight/tests/test_functional.py",
+        "size": 5017
+      },
+      {
+        "path": "OpenOversight/tests/test_models.py",
+        "size": 9147
+      },
+      {
+        "path": "OpenOversight/tests/test_utils.py",
+        "size": 7734
+      },
+      {
+        "path": "PULL_REQUEST_TEMPLATE.md",
+        "size": 369
+      },
+      {
+        "path": "README.md",
+        "size": 3885
+      },
+      {
+        "path": "UX-Docs/UX-Docs/OO Architechture-SS-Jul0817.jpg",
+        "size": 260592
+      },
+      {
+        "path": "UX-Docs/UX-Docs/OOLandingPageWireframe-SS-JUL0817.jpg",
+        "size": 844644
+      },
+      {
+        "path": "UX-Docs/UX-Docs/OOTutorial-SS-JUL2517.jpg",
+        "size": 907829
+      },
+      {
+        "path": "UX-Docs/UX-Docs/OOVolunteerRegisterpopover-SS-JUL2517.jpg",
+        "size": 395648
+      },
+      {
+        "path": "UX-Docs/UX-Docs/OOVolunteerSignIn-SS-JUL2517.jpg",
+        "size": 391193
+      },
+      {
+        "path": "UX-Docs/UX-Docs/Volunteer-Tutorial-SS-June1517.jpg",
+        "size": 354024
+      },
+      {
+        "path": "UX-Docs/UX-Docs/readme.md",
+        "size": 205
+      },
+      {
+        "path": "create_db.py",
+        "size": 161
+      },
+      {
+        "path": "database/README.md",
+        "size": 265
+      },
+      {
+        "path": "database/relationships.real.large.png",
+        "size": 256475
+      },
+      {
+        "path": "dev-requirements.txt",
+        "size": 197
+      },
+      {
+        "path": "docker-compose.yml",
+        "size": 866
+      },
+      {
+        "path": "dockerfiles/web/Dockerfile",
+        "size": 997
+      },
+      {
+        "path": "docs/Makefile",
+        "size": 647
+      },
+      {
+        "path": "docs/area_coordinator.rst",
+        "size": 607
+      },
+      {
+        "path": "docs/conf.py",
+        "size": 4799
+      },
+      {
+        "path": "docs/img/complaint_form.png",
+        "size": 254906
+      },
+      {
+        "path": "docs/img/lpl-logo.png",
+        "size": 23631
+      },
+      {
+        "path": "docs/img/updated_gallery.png",
+        "size": 972154
+      },
+      {
+        "path": "docs/index.rst",
+        "size": 892
+      },
+      {
+        "path": "docs/make.bat",
+        "size": 817
+      },
+      {
+        "path": "fabfile.py",
+        "size": 3336
+      },
+      {
+        "path": "flickrscraper/flickrgroup.py",
+        "size": 2788
+      },
+      {
+        "path": "flickrscraper/readme.md",
+        "size": 1259
+      },
+      {
+        "path": "flickrscraper/resize.and.detect.py",
+        "size": 4385
+      },
+      {
+        "path": "proposals/1_DesignDocument.md",
+        "size": 8934
+      },
+      {
+        "path": "proposals/2_UserStories.md",
+        "size": 1153
+      },
+      {
+        "path": "requirements.txt",
+        "size": 321
+      },
+      {
+        "path": "setup.py",
+        "size": 284
+      },
+      {
+        "path": "socmint/README.md",
+        "size": 1549
+      },
+      {
+        "path": "socmint/chicago.txt",
+        "size": 358
+      },
+      {
+        "path": "socmint/grab_socmint.py",
+        "size": 526
+      },
+      {
+        "path": "test_data.py",
+        "size": 6217
+      }
+    ],
+    "tree": {
+      "name": "OpenOversight",
+      "children": [
+        {
+          "name": "OpenOversight",
+          "children": [
+            {
+              "name": "app",
+              "children": [
+                {
+                  "name": "auth",
+                  "children": [
+                    {
+                      "name": "__init__.py",
+                      "size": 101,
+                      "path": "OpenOversight/app/auth/__init__.py"
+                    },
+                    {
+                      "name": "forms.py",
+                      "size": 4324,
+                      "path": "OpenOversight/app/auth/forms.py"
+                    },
+                    {
+                      "name": "utils.py",
+                      "size": 742,
+                      "path": "OpenOversight/app/auth/utils.py"
+                    },
+                    {
+                      "name": "views.py",
+                      "size": 8785,
+                      "path": "OpenOversight/app/auth/views.py"
+                    }
+                  ],
+                  "path": "OpenOversight/app/auth"
+                },
+                {
+                  "name": "main",
+                  "children": [
+                    {
+                      "name": "__init__.py",
+                      "size": 101,
+                      "path": "OpenOversight/app/main/__init__.py"
+                    },
+                    {
+                      "name": "choices.py",
+                      "size": 1285,
+                      "path": "OpenOversight/app/main/choices.py"
+                    },
+                    {
+                      "name": "forms.py",
+                      "size": 16046,
+                      "path": "OpenOversight/app/main/forms.py"
+                    },
+                    {
+                      "name": "model_view.py",
+                      "size": 5811,
+                      "path": "OpenOversight/app/main/model_view.py"
+                    },
+                    {
+                      "name": "views.py",
+                      "size": 37071,
+                      "path": "OpenOversight/app/main/views.py"
+                    }
+                  ],
+                  "path": "OpenOversight/app/main"
+                },
+                {
+                  "name": "static",
+                  "children": [
+                    {
+                      "name": "css",
+                      "children": [
+                        {
+                          "name": "bootstrap.css",
+                          "size": 148790,
+                          "path": "OpenOversight/app/static/css/bootstrap.css"
+                        },
+                        {
+                          "name": "bootstrap.min.css",
+                          "size": 47707,
+                          "path": "OpenOversight/app/static/css/bootstrap.min.css"
+                        },
+                        {
+                          "name": "cropper.css",
+                          "size": 4949,
+                          "path": "OpenOversight/app/static/css/cropper.css"
+                        },
+                        {
+                          "name": "cropper.min.css",
+                          "size": 3938,
+                          "path": "OpenOversight/app/static/css/cropper.min.css"
+                        },
+                        {
+                          "name": "dropzone-override.css",
+                          "size": 623,
+                          "path": "OpenOversight/app/static/css/dropzone-override.css"
+                        },
+                        {
+                          "name": "dropzone.css",
+                          "size": 12587,
+                          "path": "OpenOversight/app/static/css/dropzone.css"
+                        },
+                        {
+                          "name": "font-awesome.min.css",
+                          "size": 29063,
+                          "path": "OpenOversight/app/static/css/font-awesome.min.css"
+                        },
+                        {
+                          "name": "openoversight.css",
+                          "size": 7095,
+                          "path": "OpenOversight/app/static/css/openoversight.css"
+                        },
+                        {
+                          "name": "qunit.css",
+                          "size": 7456,
+                          "path": "OpenOversight/app/static/css/qunit.css"
+                        },
+                        {
+                          "name": "responsive_embed.css",
+                          "size": 263,
+                          "path": "OpenOversight/app/static/css/responsive_embed.css"
+                        },
+                        {
+                          "name": "tagger.css",
+                          "size": 4262,
+                          "path": "OpenOversight/app/static/css/tagger.css"
+                        }
+                      ],
+                      "path": "OpenOversight/app/static/css"
+                    },
+                    {
+                      "name": "fonts",
+                      "children": [
+                        {
+                          "name": "FontAwesome.otf",
+                          "size": 124988,
+                          "path": "OpenOversight/app/static/fonts/FontAwesome.otf"
+                        },
+                        {
+                          "name": "fontawesome-webfont.eot",
+                          "size": 76518,
+                          "path": "OpenOversight/app/static/fonts/fontawesome-webfont.eot"
+                        },
+                        {
+                          "name": "fontawesome-webfont.svg",
+                          "size": 391622,
+                          "path": "OpenOversight/app/static/fonts/fontawesome-webfont.svg"
+                        },
+                        {
+                          "name": "fontawesome-webfont.ttf",
+                          "size": 152796,
+                          "path": "OpenOversight/app/static/fonts/fontawesome-webfont.ttf"
+                        },
+                        {
+                          "name": "fontawesome-webfont.woff",
+                          "size": 90412,
+                          "path": "OpenOversight/app/static/fonts/fontawesome-webfont.woff"
+                        },
+                        {
+                          "name": "fontawesome-webfont.woff2",
+                          "size": 71896,
+                          "path": "OpenOversight/app/static/fonts/fontawesome-webfont.woff2"
+                        },
+                        {
+                          "name": "glyphicons-halflings-regular.eot",
+                          "size": 20127,
+                          "path": "OpenOversight/app/static/fonts/glyphicons-halflings-regular.eot"
+                        },
+                        {
+                          "name": "glyphicons-halflings-regular.svg",
+                          "size": 108738,
+                          "path": "OpenOversight/app/static/fonts/glyphicons-halflings-regular.svg"
+                        },
+                        {
+                          "name": "glyphicons-halflings-regular.ttf",
+                          "size": 45404,
+                          "path": "OpenOversight/app/static/fonts/glyphicons-halflings-regular.ttf"
+                        },
+                        {
+                          "name": "glyphicons-halflings-regular.woff",
+                          "size": 23424,
+                          "path": "OpenOversight/app/static/fonts/glyphicons-halflings-regular.woff"
+                        },
+                        {
+                          "name": "glyphicons-halflings-regular.woff2",
+                          "size": 18028,
+                          "path": "OpenOversight/app/static/fonts/glyphicons-halflings-regular.woff2"
+                        }
+                      ],
+                      "path": "OpenOversight/app/static/fonts"
+                    },
+                    {
+                      "name": "images",
+                      "children": [
+                        {
+                          "name": "OfficerRank.png",
+                          "size": 131887,
+                          "path": "OpenOversight/app/static/images/OfficerRank.png"
+                        },
+                        {
+                          "name": "add_face.png",
+                          "size": 8646,
+                          "path": "OpenOversight/app/static/images/add_face.png"
+                        },
+                        {
+                          "name": "done.png",
+                          "size": 4797,
+                          "path": "OpenOversight/app/static/images/done.png"
+                        },
+                        {
+                          "name": "github.ico",
+                          "size": 6518,
+                          "path": "OpenOversight/app/static/images/github.ico"
+                        },
+                        {
+                          "name": "lplfavicon.png",
+                          "size": 469,
+                          "path": "OpenOversight/app/static/images/lplfavicon.png"
+                        },
+                        {
+                          "name": "officer_found.png",
+                          "size": 151278,
+                          "path": "OpenOversight/app/static/images/officer_found.png"
+                        },
+                        {
+                          "name": "page-loader.gif",
+                          "size": 23899,
+                          "path": "OpenOversight/app/static/images/page-loader.gif"
+                        },
+                        {
+                          "name": "pick_face.png",
+                          "size": 184704,
+                          "path": "OpenOversight/app/static/images/pick_face.png"
+                        },
+                        {
+                          "name": "pick_task.png",
+                          "size": 19735,
+                          "path": "OpenOversight/app/static/images/pick_task.png"
+                        },
+                        {
+                          "name": "placeholder.png",
+                          "size": 9109,
+                          "path": "OpenOversight/app/static/images/placeholder.png"
+                        },
+                        {
+                          "name": "securedrop.png",
+                          "size": 1948,
+                          "path": "OpenOversight/app/static/images/securedrop.png"
+                        },
+                        {
+                          "name": "shuttleworth.jpg",
+                          "size": 173945,
+                          "path": "OpenOversight/app/static/images/shuttleworth.jpg"
+                        },
+                        {
+                          "name": "sort.png",
+                          "size": 61570,
+                          "path": "OpenOversight/app/static/images/sort.png"
+                        },
+                        {
+                          "name": "tag_search.png",
+                          "size": 50849,
+                          "path": "OpenOversight/app/static/images/tag_search.png"
+                        },
+                        {
+                          "name": "test_cop1.png",
+                          "size": 121790,
+                          "path": "OpenOversight/app/static/images/test_cop1.png"
+                        },
+                        {
+                          "name": "test_cop2.png",
+                          "size": 20277,
+                          "path": "OpenOversight/app/static/images/test_cop2.png"
+                        },
+                        {
+                          "name": "test_cop3.png",
+                          "size": 65937,
+                          "path": "OpenOversight/app/static/images/test_cop3.png"
+                        },
+                        {
+                          "name": "test_cop4.png",
+                          "size": 22315,
+                          "path": "OpenOversight/app/static/images/test_cop4.png"
+                        },
+                        {
+                          "name": "test_cop5.jpg",
+                          "size": 46928,
+                          "path": "OpenOversight/app/static/images/test_cop5.jpg"
+                        },
+                        {
+                          "name": "twitterfavicon.ico",
+                          "size": 6518,
+                          "path": "OpenOversight/app/static/images/twitterfavicon.ico"
+                        }
+                      ],
+                      "path": "OpenOversight/app/static/images"
+                    },
+                    {
+                      "name": "js",
+                      "children": [
+                        {
+                          "name": "bootstrap.js",
+                          "size": 69707,
+                          "path": "OpenOversight/app/static/js/bootstrap.js"
+                        },
+                        {
+                          "name": "bootstrap.min.js",
+                          "size": 37045,
+                          "path": "OpenOversight/app/static/js/bootstrap.min.js"
+                        },
+                        {
+                          "name": "complaint.js",
+                          "size": 1603,
+                          "path": "OpenOversight/app/static/js/complaint.js"
+                        },
+                        {
+                          "name": "cropper.js",
+                          "size": 80147,
+                          "path": "OpenOversight/app/static/js/cropper.js"
+                        },
+                        {
+                          "name": "cropper.min.js",
+                          "size": 28079,
+                          "path": "OpenOversight/app/static/js/cropper.min.js"
+                        },
+                        {
+                          "name": "dropzone.js",
+                          "size": 64383,
+                          "path": "OpenOversight/app/static/js/dropzone.js"
+                        },
+                        {
+                          "name": "html5shiv.min.js",
+                          "size": 2636,
+                          "path": "OpenOversight/app/static/js/html5shiv.min.js"
+                        },
+                        {
+                          "name": "incidentAddButtons.js",
+                          "size": 3947,
+                          "path": "OpenOversight/app/static/js/incidentAddButtons.js"
+                        },
+                        {
+                          "name": "jquery.hotkeys.js",
+                          "size": 5019,
+                          "path": "OpenOversight/app/static/js/jquery.hotkeys.js"
+                        },
+                        {
+                          "name": "jquery.min.js",
+                          "size": 86351,
+                          "path": "OpenOversight/app/static/js/jquery.min.js"
+                        },
+                        {
+                          "name": "npm.js",
+                          "size": 484,
+                          "path": "OpenOversight/app/static/js/npm.js"
+                        },
+                        {
+                          "name": "password.js",
+                          "size": 2827,
+                          "path": "OpenOversight/app/static/js/password.js"
+                        },
+                        {
+                          "name": "qunit.js",
+                          "size": 117821,
+                          "path": "OpenOversight/app/static/js/qunit.js"
+                        },
+                        {
+                          "name": "respond.min.js",
+                          "size": 4377,
+                          "path": "OpenOversight/app/static/js/respond.min.js"
+                        },
+                        {
+                          "name": "tagger.js",
+                          "size": 5853,
+                          "path": "OpenOversight/app/static/js/tagger.js"
+                        },
+                        {
+                          "name": "zxcvbn.js",
+                          "size": 821711,
+                          "path": "OpenOversight/app/static/js/zxcvbn.js"
+                        }
+                      ],
+                      "path": "OpenOversight/app/static/js"
+                    }
+                  ],
+                  "path": "OpenOversight/app/static"
+                },
+                {
+                  "name": "templates",
+                  "children": [
+                    {
+                      "name": "auth",
+                      "children": [
+                        {
+                          "name": "email",
+                          "children": [
+                            {
+                              "name": "change_email.html",
+                              "size": 446,
+                              "path": "OpenOversight/app/templates/auth/email/change_email.html"
+                            },
+                            {
+                              "name": "change_email.txt",
+                              "size": 247,
+                              "path": "OpenOversight/app/templates/auth/email/change_email.txt"
+                            },
+                            {
+                              "name": "confirm.html",
+                              "size": 473,
+                              "path": "OpenOversight/app/templates/auth/email/confirm.html"
+                            },
+                            {
+                              "name": "confirm.txt",
+                              "size": 266,
+                              "path": "OpenOversight/app/templates/auth/email/confirm.txt"
+                            },
+                            {
+                              "name": "reset_password.html",
+                              "size": 517,
+                              "path": "OpenOversight/app/templates/auth/email/reset_password.html"
+                            },
+                            {
+                              "name": "reset_password.txt",
+                              "size": 310,
+                              "path": "OpenOversight/app/templates/auth/email/reset_password.txt"
+                            }
+                          ],
+                          "path": "OpenOversight/app/templates/auth/email"
+                        },
+                        {
+                          "name": "change_dept_pref.html",
+                          "size": 433,
+                          "path": "OpenOversight/app/templates/auth/change_dept_pref.html"
+                        },
+                        {
+                          "name": "change_email.html",
+                          "size": 407,
+                          "path": "OpenOversight/app/templates/auth/change_email.html"
+                        },
+                        {
+                          "name": "change_password.html",
+                          "size": 1741,
+                          "path": "OpenOversight/app/templates/auth/change_password.html"
+                        },
+                        {
+                          "name": "login.html",
+                          "size": 913,
+                          "path": "OpenOversight/app/templates/auth/login.html"
+                        },
+                        {
+                          "name": "register.html",
+                          "size": 1825,
+                          "path": "OpenOversight/app/templates/auth/register.html"
+                        },
+                        {
+                          "name": "reset_password.html",
+                          "size": 395,
+                          "path": "OpenOversight/app/templates/auth/reset_password.html"
+                        },
+                        {
+                          "name": "unconfirmed.html",
+                          "size": 680,
+                          "path": "OpenOversight/app/templates/auth/unconfirmed.html"
+                        },
+                        {
+                          "name": "user.html",
+                          "size": 534,
+                          "path": "OpenOversight/app/templates/auth/user.html"
+                        },
+                        {
+                          "name": "users.html",
+                          "size": 2167,
+                          "path": "OpenOversight/app/templates/auth/users.html"
+                        }
+                      ],
+                      "path": "OpenOversight/app/templates/auth"
+                    },
+                    {
+                      "name": "partials",
+                      "children": [
+                        {
+                          "name": "incident_fields.html",
+                          "size": 2308,
+                          "path": "OpenOversight/app/templates/partials/incident_fields.html"
+                        },
+                        {
+                          "name": "incident_form.html",
+                          "size": 1647,
+                          "path": "OpenOversight/app/templates/partials/incident_form.html"
+                        },
+                        {
+                          "name": "links_and_videos_row.html",
+                          "size": 2248,
+                          "path": "OpenOversight/app/templates/partials/links_and_videos_row.html"
+                        },
+                        {
+                          "name": "links_subform.html",
+                          "size": 231,
+                          "path": "OpenOversight/app/templates/partials/links_subform.html"
+                        },
+                        {
+                          "name": "officer_form_fields_hidden.html",
+                          "size": 288,
+                          "path": "OpenOversight/app/templates/partials/officer_form_fields_hidden.html"
+                        },
+                        {
+                          "name": "officer_name.html",
+                          "size": 256,
+                          "path": "OpenOversight/app/templates/partials/officer_name.html"
+                        },
+                        {
+                          "name": "paginate.html",
+                          "size": 728,
+                          "path": "OpenOversight/app/templates/partials/paginate.html"
+                        },
+                        {
+                          "name": "paginate_nav.html",
+                          "size": 774,
+                          "path": "OpenOversight/app/templates/partials/paginate_nav.html"
+                        },
+                        {
+                          "name": "roster_form_fields.html",
+                          "size": 120,
+                          "path": "OpenOversight/app/templates/partials/roster_form_fields.html"
+                        },
+                        {
+                          "name": "roster_paginate.html",
+                          "size": 701,
+                          "path": "OpenOversight/app/templates/partials/roster_paginate.html"
+                        },
+                        {
+                          "name": "subform.html",
+                          "size": 696,
+                          "path": "OpenOversight/app/templates/partials/subform.html"
+                        }
+                      ],
+                      "path": "OpenOversight/app/templates/partials"
+                    },
+                    {
+                      "name": "403.html",
+                      "size": 299,
+                      "path": "OpenOversight/app/templates/403.html"
+                    },
+                    {
+                      "name": "404.html",
+                      "size": 309,
+                      "path": "OpenOversight/app/templates/404.html"
+                    },
+                    {
+                      "name": "429.html",
+                      "size": 331,
+                      "path": "OpenOversight/app/templates/429.html"
+                    },
+                    {
+                      "name": "500.html",
+                      "size": 304,
+                      "path": "OpenOversight/app/templates/500.html"
+                    },
+                    {
+                      "name": "about.html",
+                      "size": 7805,
+                      "path": "OpenOversight/app/templates/about.html"
+                    },
+                    {
+                      "name": "add_edit_department.html",
+                      "size": 767,
+                      "path": "OpenOversight/app/templates/add_edit_department.html"
+                    },
+                    {
+                      "name": "add_officer.html",
+                      "size": 2090,
+                      "path": "OpenOversight/app/templates/add_officer.html"
+                    },
+                    {
+                      "name": "add_unit.html",
+                      "size": 669,
+                      "path": "OpenOversight/app/templates/add_unit.html"
+                    },
+                    {
+                      "name": "all_depts.html",
+                      "size": 564,
+                      "path": "OpenOversight/app/templates/all_depts.html"
+                    },
+                    {
+                      "name": "base.html",
+                      "size": 5758,
+                      "path": "OpenOversight/app/templates/base.html"
+                    },
+                    {
+                      "name": "browse.html",
+                      "size": 1122,
+                      "path": "OpenOversight/app/templates/browse.html"
+                    },
+                    {
+                      "name": "complaint.html",
+                      "size": 1575,
+                      "path": "OpenOversight/app/templates/complaint.html"
+                    },
+                    {
+                      "name": "cop_face.html",
+                      "size": 5744,
+                      "path": "OpenOversight/app/templates/cop_face.html"
+                    },
+                    {
+                      "name": "description_delete.html",
+                      "size": 613,
+                      "path": "OpenOversight/app/templates/description_delete.html"
+                    },
+                    {
+                      "name": "description_edit.html",
+                      "size": 531,
+                      "path": "OpenOversight/app/templates/description_edit.html"
+                    },
+                    {
+                      "name": "description_new.html",
+                      "size": 354,
+                      "path": "OpenOversight/app/templates/description_new.html"
+                    },
+                    {
+                      "name": "edit_assignment.html",
+                      "size": 847,
+                      "path": "OpenOversight/app/templates/edit_assignment.html"
+                    },
+                    {
+                      "name": "edit_officer.html",
+                      "size": 1233,
+                      "path": "OpenOversight/app/templates/edit_officer.html"
+                    },
+                    {
+                      "name": "form.html",
+                      "size": 525,
+                      "path": "OpenOversight/app/templates/form.html"
+                    },
+                    {
+                      "name": "gallery.html",
+                      "size": 3006,
+                      "path": "OpenOversight/app/templates/gallery.html"
+                    },
+                    {
+                      "name": "image.html",
+                      "size": 3366,
+                      "path": "OpenOversight/app/templates/image.html"
+                    },
+                    {
+                      "name": "incident_delete.html",
+                      "size": 519,
+                      "path": "OpenOversight/app/templates/incident_delete.html"
+                    },
+                    {
+                      "name": "incident_detail.html",
+                      "size": 1473,
+                      "path": "OpenOversight/app/templates/incident_detail.html"
+                    },
+                    {
+                      "name": "incident_edit.html",
+                      "size": 562,
+                      "path": "OpenOversight/app/templates/incident_edit.html"
+                    },
+                    {
+                      "name": "incident_list.html",
+                      "size": 1047,
+                      "path": "OpenOversight/app/templates/incident_list.html"
+                    },
+                    {
+                      "name": "incident_new.html",
+                      "size": 297,
+                      "path": "OpenOversight/app/templates/incident_new.html"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 3371,
+                      "path": "OpenOversight/app/templates/index.html"
+                    },
+                    {
+                      "name": "input_find_officer.html",
+                      "size": 6703,
+                      "path": "OpenOversight/app/templates/input_find_officer.html"
+                    },
+                    {
+                      "name": "input_find_ooid.html",
+                      "size": 1707,
+                      "path": "OpenOversight/app/templates/input_find_ooid.html"
+                    },
+                    {
+                      "name": "label_data.html",
+                      "size": 6283,
+                      "path": "OpenOversight/app/templates/label_data.html"
+                    },
+                    {
+                      "name": "leaderboard.html",
+                      "size": 961,
+                      "path": "OpenOversight/app/templates/leaderboard.html"
+                    },
+                    {
+                      "name": "list.html",
+                      "size": 580,
+                      "path": "OpenOversight/app/templates/list.html"
+                    },
+                    {
+                      "name": "list_officer.html",
+                      "size": 4219,
+                      "path": "OpenOversight/app/templates/list_officer.html"
+                    },
+                    {
+                      "name": "note_delete.html",
+                      "size": 585,
+                      "path": "OpenOversight/app/templates/note_delete.html"
+                    },
+                    {
+                      "name": "note_edit.html",
+                      "size": 510,
+                      "path": "OpenOversight/app/templates/note_edit.html"
+                    },
+                    {
+                      "name": "note_new.html",
+                      "size": 347,
+                      "path": "OpenOversight/app/templates/note_new.html"
+                    },
+                    {
+                      "name": "officer.html",
+                      "size": 10938,
+                      "path": "OpenOversight/app/templates/officer.html"
+                    },
+                    {
+                      "name": "privacy.html",
+                      "size": 3863,
+                      "path": "OpenOversight/app/templates/privacy.html"
+                    },
+                    {
+                      "name": "profile.html",
+                      "size": 3359,
+                      "path": "OpenOversight/app/templates/profile.html"
+                    },
+                    {
+                      "name": "sort.html",
+                      "size": 2948,
+                      "path": "OpenOversight/app/templates/sort.html"
+                    },
+                    {
+                      "name": "submit_image.html",
+                      "size": 4164,
+                      "path": "OpenOversight/app/templates/submit_image.html"
+                    },
+                    {
+                      "name": "tag.html",
+                      "size": 2475,
+                      "path": "OpenOversight/app/templates/tag.html"
+                    },
+                    {
+                      "name": "tagger_gallery.html",
+                      "size": 2648,
+                      "path": "OpenOversight/app/templates/tagger_gallery.html"
+                    },
+                    {
+                      "name": "tutorial.html",
+                      "size": 4282,
+                      "path": "OpenOversight/app/templates/tutorial.html"
+                    }
+                  ],
+                  "path": "OpenOversight/app/templates"
+                },
+                {
+                  "name": "__init__.py",
+                  "size": 2973,
+                  "path": "OpenOversight/app/__init__.py"
+                },
+                {
+                  "name": "commands.py",
+                  "size": 2429,
+                  "path": "OpenOversight/app/commands.py"
+                },
+                {
+                  "name": "config.py",
+                  "size": 2119,
+                  "path": "OpenOversight/app/config.py"
+                },
+                {
+                  "name": "email.py",
+                  "size": 661,
+                  "path": "OpenOversight/app/email.py"
+                },
+                {
+                  "name": "formfields.py",
+                  "size": 1315,
+                  "path": "OpenOversight/app/formfields.py"
+                },
+                {
+                  "name": "models.py",
+                  "size": 16701,
+                  "path": "OpenOversight/app/models.py"
+                },
+                {
+                  "name": "utils.py",
+                  "size": 16725,
+                  "path": "OpenOversight/app/utils.py"
+                },
+                {
+                  "name": "validators.py",
+                  "size": 211,
+                  "path": "OpenOversight/app/validators.py"
+                },
+                {
+                  "name": "widgets.py",
+                  "size": 1695,
+                  "path": "OpenOversight/app/widgets.py"
+                }
+              ],
+              "path": "OpenOversight/app"
+            },
+            {
+              "name": "migrations",
+              "children": [
+                {
+                  "name": "versions",
+                  "children": [
+                    {
+                      "name": "0acbb0f0b1ef_.py",
+                      "size": 1709,
+                      "path": "OpenOversight/migrations/versions/0acbb0f0b1ef_.py"
+                    },
+                    {
+                      "name": "0ed957db0058_add_description_to_officers.py",
+                      "size": 1454,
+                      "path": "OpenOversight/migrations/versions/0ed957db0058_add_description_to_officers.py"
+                    },
+                    {
+                      "name": "114919b27a9f_.py",
+                      "size": 1779,
+                      "path": "OpenOversight/migrations/versions/114919b27a9f_.py"
+                    },
+                    {
+                      "name": "2040f0c804b0_.py",
+                      "size": 1133,
+                      "path": "OpenOversight/migrations/versions/2040f0c804b0_.py"
+                    },
+                    {
+                      "name": "2c27bfebe66e_add_unique_internal_identifier_to_.py",
+                      "size": 953,
+                      "path": "OpenOversight/migrations/versions/2c27bfebe66e_add_unique_internal_identifier_to_.py"
+                    },
+                    {
+                      "name": "42233d18ac7b_.py",
+                      "size": 909,
+                      "path": "OpenOversight/migrations/versions/42233d18ac7b_.py"
+                    },
+                    {
+                      "name": "4a490771dda1_add_original_image_fk.py",
+                      "size": 1287,
+                      "path": "OpenOversight/migrations/versions/4a490771dda1_add_original_image_fk.py"
+                    },
+                    {
+                      "name": "59e9993c169c_change_faces_to_thumbnails.py",
+                      "size": 1680,
+                      "path": "OpenOversight/migrations/versions/59e9993c169c_change_faces_to_thumbnails.py"
+                    },
+                    {
+                      "name": "6065d7cdcbf8_.py",
+                      "size": 1737,
+                      "path": "OpenOversight/migrations/versions/6065d7cdcbf8_.py"
+                    },
+                    {
+                      "name": "7bb53dee8ac9_add_suffix_column_to_officers.py",
+                      "size": 836,
+                      "path": "OpenOversight/migrations/versions/7bb53dee8ac9_add_suffix_column_to_officers.py"
+                    },
+                    {
+                      "name": "8ce7926aa132_.py",
+                      "size": 1166,
+                      "path": "OpenOversight/migrations/versions/8ce7926aa132_.py"
+                    },
+                    {
+                      "name": "9e2827dae28c_.py",
+                      "size": 912,
+                      "path": "OpenOversight/migrations/versions/9e2827dae28c_.py"
+                    },
+                    {
+                      "name": "af933dc1ef93_.py",
+                      "size": 793,
+                      "path": "OpenOversight/migrations/versions/af933dc1ef93_.py"
+                    },
+                    {
+                      "name": "bd0398fe4aab_.py",
+                      "size": 1340,
+                      "path": "OpenOversight/migrations/versions/bd0398fe4aab_.py"
+                    },
+                    {
+                      "name": "ca95c047bf42_.py",
+                      "size": 821,
+                      "path": "OpenOversight/migrations/versions/ca95c047bf42_.py"
+                    },
+                    {
+                      "name": "cfc5f3fd5efe_.py",
+                      "size": 1091,
+                      "path": "OpenOversight/migrations/versions/cfc5f3fd5efe_.py"
+                    },
+                    {
+                      "name": "d86feb8fa5d1_.py",
+                      "size": 5366,
+                      "path": "OpenOversight/migrations/versions/d86feb8fa5d1_.py"
+                    },
+                    {
+                      "name": "e14a1aa4b58f_.py",
+                      "size": 955,
+                      "path": "OpenOversight/migrations/versions/e14a1aa4b58f_.py"
+                    },
+                    {
+                      "name": "f4a41e328a06_.py",
+                      "size": 1551,
+                      "path": "OpenOversight/migrations/versions/f4a41e328a06_.py"
+                    }
+                  ],
+                  "path": "OpenOversight/migrations/versions"
+                },
+                {
+                  "name": "README",
+                  "size": 38,
+                  "path": "OpenOversight/migrations/README"
+                },
+                {
+                  "name": "alembic.ini",
+                  "size": 770,
+                  "path": "OpenOversight/migrations/alembic.ini"
+                },
+                {
+                  "name": "env.py",
+                  "size": 2934,
+                  "path": "OpenOversight/migrations/env.py"
+                },
+                {
+                  "name": "script.py.mako",
+                  "size": 494,
+                  "path": "OpenOversight/migrations/script.py.mako"
+                }
+              ],
+              "path": "OpenOversight/migrations"
+            },
+            {
+              "name": "tests",
+              "children": [
+                {
+                  "name": "routes",
+                  "children": [
+                    {
+                      "name": "__init__.py",
+                      "size": 0,
+                      "path": "OpenOversight/tests/routes/__init__.py"
+                    },
+                    {
+                      "name": "route_helpers.py",
+                      "size": 2040,
+                      "path": "OpenOversight/tests/routes/route_helpers.py"
+                    },
+                    {
+                      "name": "test_auth.py",
+                      "size": 11663,
+                      "path": "OpenOversight/tests/routes/test_auth.py"
+                    },
+                    {
+                      "name": "test_descriptions.py",
+                      "size": 15599,
+                      "path": "OpenOversight/tests/routes/test_descriptions.py"
+                    },
+                    {
+                      "name": "test_image_tagging.py",
+                      "size": 8319,
+                      "path": "OpenOversight/tests/routes/test_image_tagging.py"
+                    },
+                    {
+                      "name": "test_incidents.py",
+                      "size": 21886,
+                      "path": "OpenOversight/tests/routes/test_incidents.py"
+                    },
+                    {
+                      "name": "test_notes.py",
+                      "size": 14576,
+                      "path": "OpenOversight/tests/routes/test_notes.py"
+                    },
+                    {
+                      "name": "test_officer_and_department.py",
+                      "size": 39135,
+                      "path": "OpenOversight/tests/routes/test_officer_and_department.py"
+                    },
+                    {
+                      "name": "test_other.py",
+                      "size": 2424,
+                      "path": "OpenOversight/tests/routes/test_other.py"
+                    },
+                    {
+                      "name": "test_user_api.py",
+                      "size": 3539,
+                      "path": "OpenOversight/tests/routes/test_user_api.py"
+                    }
+                  ],
+                  "path": "OpenOversight/tests/routes"
+                },
+                {
+                  "name": "__init__.py",
+                  "size": 0,
+                  "path": "OpenOversight/tests/__init__.py"
+                },
+                {
+                  "name": "conftest.py",
+                  "size": 10812,
+                  "path": "OpenOversight/tests/conftest.py"
+                },
+                {
+                  "name": "test_functional.py",
+                  "size": 5017,
+                  "path": "OpenOversight/tests/test_functional.py"
+                },
+                {
+                  "name": "test_models.py",
+                  "size": 9147,
+                  "path": "OpenOversight/tests/test_models.py"
+                },
+                {
+                  "name": "test_utils.py",
+                  "size": 7734,
+                  "path": "OpenOversight/tests/test_utils.py"
+                }
+              ],
+              "path": "OpenOversight/tests"
+            },
+            {
+              "name": "__init__.py",
+              "size": 0,
+              "path": "OpenOversight/__init__.py"
+            },
+            {
+              "name": "db_backup.py",
+              "size": 206,
+              "path": "OpenOversight/db_backup.py"
+            }
+          ],
+          "path": "OpenOversight"
+        },
+        {
+          "name": "UX-Docs",
+          "children": [
+            {
+              "name": "UX-Docs",
+              "children": [
+                {
+                  "name": "OO Architechture-SS-Jul0817.jpg",
+                  "size": 260592,
+                  "path": "UX-Docs/UX-Docs/OO Architechture-SS-Jul0817.jpg"
+                },
+                {
+                  "name": "OOLandingPageWireframe-SS-JUL0817.jpg",
+                  "size": 844644,
+                  "path": "UX-Docs/UX-Docs/OOLandingPageWireframe-SS-JUL0817.jpg"
+                },
+                {
+                  "name": "OOTutorial-SS-JUL2517.jpg",
+                  "size": 907829,
+                  "path": "UX-Docs/UX-Docs/OOTutorial-SS-JUL2517.jpg"
+                },
+                {
+                  "name": "OOVolunteerRegisterpopover-SS-JUL2517.jpg",
+                  "size": 395648,
+                  "path": "UX-Docs/UX-Docs/OOVolunteerRegisterpopover-SS-JUL2517.jpg"
+                },
+                {
+                  "name": "OOVolunteerSignIn-SS-JUL2517.jpg",
+                  "size": 391193,
+                  "path": "UX-Docs/UX-Docs/OOVolunteerSignIn-SS-JUL2517.jpg"
+                },
+                {
+                  "name": "Volunteer-Tutorial-SS-June1517.jpg",
+                  "size": 354024,
+                  "path": "UX-Docs/UX-Docs/Volunteer-Tutorial-SS-June1517.jpg"
+                },
+                {
+                  "name": "readme.md",
+                  "size": 205,
+                  "path": "UX-Docs/UX-Docs/readme.md"
+                }
+              ],
+              "path": "UX-Docs/UX-Docs"
+            }
+          ],
+          "path": "UX-Docs"
+        },
+        {
+          "name": "database",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 265,
+              "path": "database/README.md"
+            },
+            {
+              "name": "relationships.real.large.png",
+              "size": 256475,
+              "path": "database/relationships.real.large.png"
+            }
+          ],
+          "path": "database"
+        },
+        {
+          "name": "dockerfiles",
+          "children": [
+            {
+              "name": "web",
+              "children": [
+                {
+                  "name": "Dockerfile",
+                  "size": 997,
+                  "path": "dockerfiles/web/Dockerfile"
+                }
+              ],
+              "path": "dockerfiles/web"
+            }
+          ],
+          "path": "dockerfiles"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "img",
+              "children": [
+                {
+                  "name": "complaint_form.png",
+                  "size": 254906,
+                  "path": "docs/img/complaint_form.png"
+                },
+                {
+                  "name": "lpl-logo.png",
+                  "size": 23631,
+                  "path": "docs/img/lpl-logo.png"
+                },
+                {
+                  "name": "updated_gallery.png",
+                  "size": 972154,
+                  "path": "docs/img/updated_gallery.png"
+                }
+              ],
+              "path": "docs/img"
+            },
+            {
+              "name": "Makefile",
+              "size": 647,
+              "path": "docs/Makefile"
+            },
+            {
+              "name": "area_coordinator.rst",
+              "size": 607,
+              "path": "docs/area_coordinator.rst"
+            },
+            {
+              "name": "conf.py",
+              "size": 4799,
+              "path": "docs/conf.py"
+            },
+            {
+              "name": "index.rst",
+              "size": 892,
+              "path": "docs/index.rst"
+            },
+            {
+              "name": "make.bat",
+              "size": 817,
+              "path": "docs/make.bat"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "flickrscraper",
+          "children": [
+            {
+              "name": "flickrgroup.py",
+              "size": 2788,
+              "path": "flickrscraper/flickrgroup.py"
+            },
+            {
+              "name": "readme.md",
+              "size": 1259,
+              "path": "flickrscraper/readme.md"
+            },
+            {
+              "name": "resize.and.detect.py",
+              "size": 4385,
+              "path": "flickrscraper/resize.and.detect.py"
+            }
+          ],
+          "path": "flickrscraper"
+        },
+        {
+          "name": "proposals",
+          "children": [
+            {
+              "name": "1_DesignDocument.md",
+              "size": 8934,
+              "path": "proposals/1_DesignDocument.md"
+            },
+            {
+              "name": "2_UserStories.md",
+              "size": 1153,
+              "path": "proposals/2_UserStories.md"
+            }
+          ],
+          "path": "proposals"
+        },
+        {
+          "name": "socmint",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 1549,
+              "path": "socmint/README.md"
+            },
+            {
+              "name": "chicago.txt",
+              "size": 358,
+              "path": "socmint/chicago.txt"
+            },
+            {
+              "name": "grab_socmint.py",
+              "size": 526,
+              "path": "socmint/grab_socmint.py"
+            }
+          ],
+          "path": "socmint"
+        },
+        {
+          "name": ".dockerignore",
+          "size": 24,
+          "path": ".dockerignore"
+        },
+        {
+          "name": ".flake8",
+          "size": 77,
+          "path": ".flake8"
+        },
+        {
+          "name": ".gitignore",
+          "size": 1065,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".travis.yml",
+          "size": 583,
+          "path": ".travis.yml"
+        },
+        {
+          "name": "CODE_OF_CONDUCT.md",
+          "size": 3221,
+          "path": "CODE_OF_CONDUCT.md"
+        },
+        {
+          "name": "CONTRIB.md",
+          "size": 5328,
+          "path": "CONTRIB.md"
+        },
+        {
+          "name": "DEPLOY.md",
+          "size": 6255,
+          "path": "DEPLOY.md"
+        },
+        {
+          "name": "LICENSE",
+          "size": 35141,
+          "path": "LICENSE"
+        },
+        {
+          "name": "Makefile",
+          "size": 1873,
+          "path": "Makefile"
+        },
+        {
+          "name": "PULL_REQUEST_TEMPLATE.md",
+          "size": 369,
+          "path": "PULL_REQUEST_TEMPLATE.md"
+        },
+        {
+          "name": "README.md",
+          "size": 3885,
+          "path": "README.md"
+        },
+        {
+          "name": "create_db.py",
+          "size": 161,
+          "path": "create_db.py"
+        },
+        {
+          "name": "dev-requirements.txt",
+          "size": 197,
+          "path": "dev-requirements.txt"
+        },
+        {
+          "name": "docker-compose.yml",
+          "size": 866,
+          "path": "docker-compose.yml"
+        },
+        {
+          "name": "fabfile.py",
+          "size": 3336,
+          "path": "fabfile.py"
+        },
+        {
+          "name": "requirements.txt",
+          "size": 321,
+          "path": "requirements.txt"
+        },
+        {
+          "name": "setup.py",
+          "size": 284,
+          "path": "setup.py"
+        },
+        {
+          "name": "test_data.py",
+          "size": 6217,
+          "path": "test_data.py"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 230,
+    "totalSize": 9022179
+  },
   "topics": [],
   "readme": {
     "html": "<p><img src=\"docs/img/lpl-logo.png\" alt=\"\" /></p>\n<h1 id=\"openoversight----\">OpenOversight <a href=\"https://travis-ci.org/lucyparsons/OpenOversight\"><img src=\"https://travis-ci.org/lucyparsons/OpenOversight.svg?branch=develop\" alt=\"Build Status\" /></a> <a href=\"https://coveralls.io/github/lucyparsons/OpenOversight?branch=develop\"><img src=\"https://coveralls.io/repos/github/lucyparsons/OpenOversight/badge.svg?branch=develop\" alt=\"Coverage Status\" /></a> <a href=\"https://openoversight.readthedocs.io/en/latest/?badge=latest\"><img src=\"https://readthedocs.org/projects/openoversight/badge/?version=latest\" alt=\"Documentation Status\" /></a> <a href=\"https://gitter.im/OpenOversight/Lobby?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge\"><img src=\"https://badges.gitter.im/OpenOversight/Lobby.svg\" alt=\"Join the chat at https://gitter.im/OpenOversight/Lobby\" /></a></h1>\n<p>OpenOversight is a Lucy Parsons Labs project to improve law enforcement accountability through public and crowdsourced data. We maintain a database of officer demographic information and provide digital galleries of photographs. This is done to help people identify law enforcement officers for filing complaints and in order for the public to see work-related information about law enforcement officers that interact with the public.</p>\n<p>This project is written and maintained by <a href=\"https://twitter.com/lucyparsonslabs\">@lucyparsonslabs</a> with collaboration, partnerships, and contributions welcome. If you would like to contribute code or documentation, please see our <a href=\"/CONTRIB.md\">contributing guide</a> and <a href=\"/CODE_OF_CONDUCT.md\">code of conduct</a>. You can get a <a href=\"#tips\">tip</a> for implementing important issues. If you prefer to contribute in other ways, please submit images to our platform or talk to us about how to help sort and tag images. This project is in public beta, and we are currently soliciting photographs to add to the database.</p>\n<h2 id=\"note-to-law-enforcement\">Note to Law Enforcement</h2>\n<p>Please contact our legal representation with requests, questions, or concerns of a legal nature by emailing <a href=\"mailto:legal@lucyparsonslabs.com\">legal@lucyparsonslabs.com</a>.</p>\n<h2 id=\"issues\">Issues</h2>\n<p>Please use <a href=\"https://github.com/lucyparsons/OpenOversight//issues/new\">our issue tracker</a> to submit issues or suggestions.</p>\n<h2 id=\"tips\">Tips</h2>\n<p>We offer financial tips as a thank you for certain issues being implemented. Please view <a href=\"https://github.com/lucyparsons/OpenOversight/issues?q=is%3Aissue+is%3Aopen+label%3Atip\">issues labeled tip</a> to see which contributions are eligible for tips. If you do not want a tip for that\ncontribution, just include \"#notip\" in your PR description. The amount of the tip depends on the size of the ticket: S ($20), M ($50), and L ($100). Tips are provided once your contribution is merged in (i.e. contributions must have the appropriate unit tests).</p>\n<h2 id=\"developer-quickstart\">Developer Quickstart</h2>\n<p>Make sure you have Docker installed and then:</p>\n<pre><code>git clone https://github.com/lucyparsons/OpenOversight.git\ncd OpenOversight\nmake dev\n</code></pre>\n<p>And open <code>http://localhost:3000</code> in your favorite browser!</p>\n<p>If you need to log in, use the auto-generated test account\ncredentials:</p>\n<pre><code>Email: test@example.org\nPassword: testtest\n</code></pre>\n<p>Please see <a href=\"/CONTRIB.md\">CONTRIB.md</a> for the full developer setup instructions.</p>\n<h2 id=\"documentation-quickstart\">Documentation Quickstart</h2>\n<pre><code>pip install -r dev-requirements.txt\nmake docs\n</code></pre>\n<h2 id=\"deployment\">Deployment</h2>\n<p>Please see the <a href=\"/DEPLOY.md\">DEPLOY.md</a> file for deployment instructions.</p>\n<h2 id=\"what-data-do-i-need-to-set-up-openoversight-in-my-city\">What data do I need to set up OpenOversight in my city?</h2>\n<ul>\n<li><em>Officer roster/assignment/demographic information</em>: You can often acquire a huge amount of information through FOIA:\n<ul>\n<li>Roster of all police officers (names, badge numbers)</li>\n<li>Badge/star number history (if badge/star numbers change upon promotion)</li>\n<li>Demographic information - race, gender, etc.</li>\n<li>Assignments - what bureau, precinct/division and/or beat are they assigned to? When has this changed?</li>\n</ul>\n</li>\n<li><em>Clear images of officers with badge numbers and/or names displayed</em>: Scrape through social media (as we have done) and/or solicit submissions.</li>\n</ul>",

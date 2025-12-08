@@ -18,6 +18,951 @@
     "CSS": 11780
   },
   "diskUsage": 48591,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".babelrc",
+        "size": 23
+      },
+      {
+        "path": ".gitattributes",
+        "size": 65
+      },
+      {
+        "path": ".gitignore",
+        "size": 97
+      },
+      {
+        "path": "417.html",
+        "size": 13396
+      },
+      {
+        "path": "README.md",
+        "size": 363
+      },
+      {
+        "path": "build/10-3-2.js",
+        "size": 3473
+      },
+      {
+        "path": "build/10-7-2.js",
+        "size": 3372
+      },
+      {
+        "path": "build/10-8-4.js",
+        "size": 2570
+      },
+      {
+        "path": "build/GenArt.js",
+        "size": 2783
+      },
+      {
+        "path": "build/app.bundle.js",
+        "size": 2108166
+      },
+      {
+        "path": "build/app.js",
+        "size": 1217
+      },
+      {
+        "path": "build/img/splinescroller/10@0.1x.jpg",
+        "size": 2970
+      },
+      {
+        "path": "build/img/splinescroller/10@1x.png",
+        "size": 3019152
+      },
+      {
+        "path": "build/img/splinescroller/11@0.1x.jpg",
+        "size": 2299
+      },
+      {
+        "path": "build/img/splinescroller/11@1x.png",
+        "size": 1901637
+      },
+      {
+        "path": "build/img/splinescroller/12@0.1x.jpg",
+        "size": 4479
+      },
+      {
+        "path": "build/img/splinescroller/12@1x.png",
+        "size": 5360303
+      },
+      {
+        "path": "build/img/splinescroller/13@0.1x.jpg",
+        "size": 3229
+      },
+      {
+        "path": "build/img/splinescroller/13@1x.png",
+        "size": 2416802
+      },
+      {
+        "path": "build/img/splinescroller/14@0.1x.jpg",
+        "size": 2214
+      },
+      {
+        "path": "build/img/splinescroller/14@1x.png",
+        "size": 2334628
+      },
+      {
+        "path": "build/img/splinescroller/15@0.1x.jpg",
+        "size": 3281
+      },
+      {
+        "path": "build/img/splinescroller/15@1x.png",
+        "size": 3677394
+      },
+      {
+        "path": "build/img/splinescroller/1@0.1x.jpg",
+        "size": 3936
+      },
+      {
+        "path": "build/img/splinescroller/1@1x.png",
+        "size": 1385576
+      },
+      {
+        "path": "build/img/splinescroller/2@0.1x.jpg",
+        "size": 4166
+      },
+      {
+        "path": "build/img/splinescroller/2@1x.png",
+        "size": 2321452
+      },
+      {
+        "path": "build/img/splinescroller/3@0.1x.jpg",
+        "size": 3040
+      },
+      {
+        "path": "build/img/splinescroller/3@1x.png",
+        "size": 1913758
+      },
+      {
+        "path": "build/img/splinescroller/4@0.1x.jpg",
+        "size": 3877
+      },
+      {
+        "path": "build/img/splinescroller/4@1x.png",
+        "size": 1564619
+      },
+      {
+        "path": "build/img/splinescroller/5@0.1x.jpg",
+        "size": 3462
+      },
+      {
+        "path": "build/img/splinescroller/5@1x.png",
+        "size": 3051910
+      },
+      {
+        "path": "build/img/splinescroller/6@0.1x.jpg",
+        "size": 5362
+      },
+      {
+        "path": "build/img/splinescroller/6@1x.png",
+        "size": 5535967
+      },
+      {
+        "path": "build/img/splinescroller/7@0.1x.jpg",
+        "size": 3920
+      },
+      {
+        "path": "build/img/splinescroller/7@1x.png",
+        "size": 4214203
+      },
+      {
+        "path": "build/img/splinescroller/8@0.1x.jpg",
+        "size": 4824
+      },
+      {
+        "path": "build/img/splinescroller/8@1x.png",
+        "size": 4466817
+      },
+      {
+        "path": "build/img/splinescroller/9@0.1x.jpg",
+        "size": 5274
+      },
+      {
+        "path": "build/img/splinescroller/9@1x.png",
+        "size": 5970434
+      },
+      {
+        "path": "build/index.html",
+        "size": 15142
+      },
+      {
+        "path": "build/splinescroller.html",
+        "size": 3408
+      },
+      {
+        "path": "build/style.css",
+        "size": 4952
+      },
+      {
+        "path": "coffeelint.json",
+        "size": 2218
+      },
+      {
+        "path": "gulpfile.coffee",
+        "size": 4076
+      },
+      {
+        "path": "gulpfile.js",
+        "size": 164
+      },
+      {
+        "path": "options.json",
+        "size": 217
+      },
+      {
+        "path": "package-lock.json",
+        "size": 341545
+      },
+      {
+        "path": "package.json",
+        "size": 1854
+      },
+      {
+        "path": "src/coffee/10-3-2.coffee",
+        "size": 6420
+      },
+      {
+        "path": "src/coffee/10-7-2.coffee",
+        "size": 6967
+      },
+      {
+        "path": "src/coffee/10-8-4.coffee",
+        "size": 4703
+      },
+      {
+        "path": "src/coffee/GenArt.coffee",
+        "size": 3786
+      },
+      {
+        "path": "src/coffee/app.coffee",
+        "size": 2242
+      },
+      {
+        "path": "src/img/.keep",
+        "size": 0
+      },
+      {
+        "path": "src/img/splinescroller/10@0.1x.jpg",
+        "size": 2970
+      },
+      {
+        "path": "src/img/splinescroller/10@1x.png",
+        "size": 3019152
+      },
+      {
+        "path": "src/img/splinescroller/11@0.1x.jpg",
+        "size": 2299
+      },
+      {
+        "path": "src/img/splinescroller/11@1x.png",
+        "size": 1901637
+      },
+      {
+        "path": "src/img/splinescroller/12@0.1x.jpg",
+        "size": 4479
+      },
+      {
+        "path": "src/img/splinescroller/12@1x.png",
+        "size": 5360303
+      },
+      {
+        "path": "src/img/splinescroller/13@0.1x.jpg",
+        "size": 3229
+      },
+      {
+        "path": "src/img/splinescroller/13@1x.png",
+        "size": 2416802
+      },
+      {
+        "path": "src/img/splinescroller/14@0.1x.jpg",
+        "size": 2214
+      },
+      {
+        "path": "src/img/splinescroller/14@1x.png",
+        "size": 2334628
+      },
+      {
+        "path": "src/img/splinescroller/15@0.1x.jpg",
+        "size": 3281
+      },
+      {
+        "path": "src/img/splinescroller/15@1x.png",
+        "size": 3677394
+      },
+      {
+        "path": "src/img/splinescroller/1@0.1x.jpg",
+        "size": 3936
+      },
+      {
+        "path": "src/img/splinescroller/1@1x.png",
+        "size": 1385576
+      },
+      {
+        "path": "src/img/splinescroller/2@0.1x.jpg",
+        "size": 4166
+      },
+      {
+        "path": "src/img/splinescroller/2@1x.png",
+        "size": 2321452
+      },
+      {
+        "path": "src/img/splinescroller/3@0.1x.jpg",
+        "size": 3040
+      },
+      {
+        "path": "src/img/splinescroller/3@1x.png",
+        "size": 1913758
+      },
+      {
+        "path": "src/img/splinescroller/4@0.1x.jpg",
+        "size": 3877
+      },
+      {
+        "path": "src/img/splinescroller/4@1x.png",
+        "size": 1564619
+      },
+      {
+        "path": "src/img/splinescroller/5@0.1x.jpg",
+        "size": 3462
+      },
+      {
+        "path": "src/img/splinescroller/5@1x.png",
+        "size": 3051910
+      },
+      {
+        "path": "src/img/splinescroller/6@0.1x.jpg",
+        "size": 5362
+      },
+      {
+        "path": "src/img/splinescroller/6@1x.png",
+        "size": 5535967
+      },
+      {
+        "path": "src/img/splinescroller/7@0.1x.jpg",
+        "size": 3920
+      },
+      {
+        "path": "src/img/splinescroller/7@1x.png",
+        "size": 4214203
+      },
+      {
+        "path": "src/img/splinescroller/8@0.1x.jpg",
+        "size": 4824
+      },
+      {
+        "path": "src/img/splinescroller/8@1x.png",
+        "size": 4466817
+      },
+      {
+        "path": "src/img/splinescroller/9@0.1x.jpg",
+        "size": 5274
+      },
+      {
+        "path": "src/img/splinescroller/9@1x.png",
+        "size": 5970434
+      },
+      {
+        "path": "src/styl/colors.styl",
+        "size": 241
+      },
+      {
+        "path": "src/styl/d3-tip.styl",
+        "size": 767
+      },
+      {
+        "path": "src/styl/grid.styl",
+        "size": 2203
+      },
+      {
+        "path": "src/styl/reset.styl",
+        "size": 1065
+      },
+      {
+        "path": "src/styl/style.styl",
+        "size": 1180
+      },
+      {
+        "path": "src/styl/typography.styl",
+        "size": 1372
+      },
+      {
+        "path": "src/tmpl/index.mustache",
+        "size": 14132
+      },
+      {
+        "path": "src/tmpl/partials/footer.mustache",
+        "size": 309
+      },
+      {
+        "path": "src/tmpl/partials/header.mustache",
+        "size": 1558
+      },
+      {
+        "path": "src/tmpl/splinescroller.mustache",
+        "size": 2279
+      },
+      {
+        "path": "webpack.config.js",
+        "size": 353
+      }
+    ],
+    "tree": {
+      "name": "417am",
+      "children": [
+        {
+          "name": "build",
+          "children": [
+            {
+              "name": "img",
+              "children": [
+                {
+                  "name": "splinescroller",
+                  "children": [
+                    {
+                      "name": "10@0.1x.jpg",
+                      "size": 2970,
+                      "path": "build/img/splinescroller/10@0.1x.jpg"
+                    },
+                    {
+                      "name": "10@1x.png",
+                      "size": 3019152,
+                      "path": "build/img/splinescroller/10@1x.png"
+                    },
+                    {
+                      "name": "11@0.1x.jpg",
+                      "size": 2299,
+                      "path": "build/img/splinescroller/11@0.1x.jpg"
+                    },
+                    {
+                      "name": "11@1x.png",
+                      "size": 1901637,
+                      "path": "build/img/splinescroller/11@1x.png"
+                    },
+                    {
+                      "name": "12@0.1x.jpg",
+                      "size": 4479,
+                      "path": "build/img/splinescroller/12@0.1x.jpg"
+                    },
+                    {
+                      "name": "12@1x.png",
+                      "size": 5360303,
+                      "path": "build/img/splinescroller/12@1x.png"
+                    },
+                    {
+                      "name": "13@0.1x.jpg",
+                      "size": 3229,
+                      "path": "build/img/splinescroller/13@0.1x.jpg"
+                    },
+                    {
+                      "name": "13@1x.png",
+                      "size": 2416802,
+                      "path": "build/img/splinescroller/13@1x.png"
+                    },
+                    {
+                      "name": "14@0.1x.jpg",
+                      "size": 2214,
+                      "path": "build/img/splinescroller/14@0.1x.jpg"
+                    },
+                    {
+                      "name": "14@1x.png",
+                      "size": 2334628,
+                      "path": "build/img/splinescroller/14@1x.png"
+                    },
+                    {
+                      "name": "15@0.1x.jpg",
+                      "size": 3281,
+                      "path": "build/img/splinescroller/15@0.1x.jpg"
+                    },
+                    {
+                      "name": "15@1x.png",
+                      "size": 3677394,
+                      "path": "build/img/splinescroller/15@1x.png"
+                    },
+                    {
+                      "name": "1@0.1x.jpg",
+                      "size": 3936,
+                      "path": "build/img/splinescroller/1@0.1x.jpg"
+                    },
+                    {
+                      "name": "1@1x.png",
+                      "size": 1385576,
+                      "path": "build/img/splinescroller/1@1x.png"
+                    },
+                    {
+                      "name": "2@0.1x.jpg",
+                      "size": 4166,
+                      "path": "build/img/splinescroller/2@0.1x.jpg"
+                    },
+                    {
+                      "name": "2@1x.png",
+                      "size": 2321452,
+                      "path": "build/img/splinescroller/2@1x.png"
+                    },
+                    {
+                      "name": "3@0.1x.jpg",
+                      "size": 3040,
+                      "path": "build/img/splinescroller/3@0.1x.jpg"
+                    },
+                    {
+                      "name": "3@1x.png",
+                      "size": 1913758,
+                      "path": "build/img/splinescroller/3@1x.png"
+                    },
+                    {
+                      "name": "4@0.1x.jpg",
+                      "size": 3877,
+                      "path": "build/img/splinescroller/4@0.1x.jpg"
+                    },
+                    {
+                      "name": "4@1x.png",
+                      "size": 1564619,
+                      "path": "build/img/splinescroller/4@1x.png"
+                    },
+                    {
+                      "name": "5@0.1x.jpg",
+                      "size": 3462,
+                      "path": "build/img/splinescroller/5@0.1x.jpg"
+                    },
+                    {
+                      "name": "5@1x.png",
+                      "size": 3051910,
+                      "path": "build/img/splinescroller/5@1x.png"
+                    },
+                    {
+                      "name": "6@0.1x.jpg",
+                      "size": 5362,
+                      "path": "build/img/splinescroller/6@0.1x.jpg"
+                    },
+                    {
+                      "name": "6@1x.png",
+                      "size": 5535967,
+                      "path": "build/img/splinescroller/6@1x.png"
+                    },
+                    {
+                      "name": "7@0.1x.jpg",
+                      "size": 3920,
+                      "path": "build/img/splinescroller/7@0.1x.jpg"
+                    },
+                    {
+                      "name": "7@1x.png",
+                      "size": 4214203,
+                      "path": "build/img/splinescroller/7@1x.png"
+                    },
+                    {
+                      "name": "8@0.1x.jpg",
+                      "size": 4824,
+                      "path": "build/img/splinescroller/8@0.1x.jpg"
+                    },
+                    {
+                      "name": "8@1x.png",
+                      "size": 4466817,
+                      "path": "build/img/splinescroller/8@1x.png"
+                    },
+                    {
+                      "name": "9@0.1x.jpg",
+                      "size": 5274,
+                      "path": "build/img/splinescroller/9@0.1x.jpg"
+                    },
+                    {
+                      "name": "9@1x.png",
+                      "size": 5970434,
+                      "path": "build/img/splinescroller/9@1x.png"
+                    }
+                  ],
+                  "path": "build/img/splinescroller"
+                }
+              ],
+              "path": "build/img"
+            },
+            {
+              "name": "10-3-2.js",
+              "size": 3473,
+              "path": "build/10-3-2.js"
+            },
+            {
+              "name": "10-7-2.js",
+              "size": 3372,
+              "path": "build/10-7-2.js"
+            },
+            {
+              "name": "10-8-4.js",
+              "size": 2570,
+              "path": "build/10-8-4.js"
+            },
+            {
+              "name": "GenArt.js",
+              "size": 2783,
+              "path": "build/GenArt.js"
+            },
+            {
+              "name": "app.bundle.js",
+              "size": 2108166,
+              "path": "build/app.bundle.js"
+            },
+            {
+              "name": "app.js",
+              "size": 1217,
+              "path": "build/app.js"
+            },
+            {
+              "name": "index.html",
+              "size": 15142,
+              "path": "build/index.html"
+            },
+            {
+              "name": "splinescroller.html",
+              "size": 3408,
+              "path": "build/splinescroller.html"
+            },
+            {
+              "name": "style.css",
+              "size": 4952,
+              "path": "build/style.css"
+            }
+          ],
+          "path": "build"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "coffee",
+              "children": [
+                {
+                  "name": "10-3-2.coffee",
+                  "size": 6420,
+                  "path": "src/coffee/10-3-2.coffee"
+                },
+                {
+                  "name": "10-7-2.coffee",
+                  "size": 6967,
+                  "path": "src/coffee/10-7-2.coffee"
+                },
+                {
+                  "name": "10-8-4.coffee",
+                  "size": 4703,
+                  "path": "src/coffee/10-8-4.coffee"
+                },
+                {
+                  "name": "GenArt.coffee",
+                  "size": 3786,
+                  "path": "src/coffee/GenArt.coffee"
+                },
+                {
+                  "name": "app.coffee",
+                  "size": 2242,
+                  "path": "src/coffee/app.coffee"
+                }
+              ],
+              "path": "src/coffee"
+            },
+            {
+              "name": "img",
+              "children": [
+                {
+                  "name": "splinescroller",
+                  "children": [
+                    {
+                      "name": "10@0.1x.jpg",
+                      "size": 2970,
+                      "path": "src/img/splinescroller/10@0.1x.jpg"
+                    },
+                    {
+                      "name": "10@1x.png",
+                      "size": 3019152,
+                      "path": "src/img/splinescroller/10@1x.png"
+                    },
+                    {
+                      "name": "11@0.1x.jpg",
+                      "size": 2299,
+                      "path": "src/img/splinescroller/11@0.1x.jpg"
+                    },
+                    {
+                      "name": "11@1x.png",
+                      "size": 1901637,
+                      "path": "src/img/splinescroller/11@1x.png"
+                    },
+                    {
+                      "name": "12@0.1x.jpg",
+                      "size": 4479,
+                      "path": "src/img/splinescroller/12@0.1x.jpg"
+                    },
+                    {
+                      "name": "12@1x.png",
+                      "size": 5360303,
+                      "path": "src/img/splinescroller/12@1x.png"
+                    },
+                    {
+                      "name": "13@0.1x.jpg",
+                      "size": 3229,
+                      "path": "src/img/splinescroller/13@0.1x.jpg"
+                    },
+                    {
+                      "name": "13@1x.png",
+                      "size": 2416802,
+                      "path": "src/img/splinescroller/13@1x.png"
+                    },
+                    {
+                      "name": "14@0.1x.jpg",
+                      "size": 2214,
+                      "path": "src/img/splinescroller/14@0.1x.jpg"
+                    },
+                    {
+                      "name": "14@1x.png",
+                      "size": 2334628,
+                      "path": "src/img/splinescroller/14@1x.png"
+                    },
+                    {
+                      "name": "15@0.1x.jpg",
+                      "size": 3281,
+                      "path": "src/img/splinescroller/15@0.1x.jpg"
+                    },
+                    {
+                      "name": "15@1x.png",
+                      "size": 3677394,
+                      "path": "src/img/splinescroller/15@1x.png"
+                    },
+                    {
+                      "name": "1@0.1x.jpg",
+                      "size": 3936,
+                      "path": "src/img/splinescroller/1@0.1x.jpg"
+                    },
+                    {
+                      "name": "1@1x.png",
+                      "size": 1385576,
+                      "path": "src/img/splinescroller/1@1x.png"
+                    },
+                    {
+                      "name": "2@0.1x.jpg",
+                      "size": 4166,
+                      "path": "src/img/splinescroller/2@0.1x.jpg"
+                    },
+                    {
+                      "name": "2@1x.png",
+                      "size": 2321452,
+                      "path": "src/img/splinescroller/2@1x.png"
+                    },
+                    {
+                      "name": "3@0.1x.jpg",
+                      "size": 3040,
+                      "path": "src/img/splinescroller/3@0.1x.jpg"
+                    },
+                    {
+                      "name": "3@1x.png",
+                      "size": 1913758,
+                      "path": "src/img/splinescroller/3@1x.png"
+                    },
+                    {
+                      "name": "4@0.1x.jpg",
+                      "size": 3877,
+                      "path": "src/img/splinescroller/4@0.1x.jpg"
+                    },
+                    {
+                      "name": "4@1x.png",
+                      "size": 1564619,
+                      "path": "src/img/splinescroller/4@1x.png"
+                    },
+                    {
+                      "name": "5@0.1x.jpg",
+                      "size": 3462,
+                      "path": "src/img/splinescroller/5@0.1x.jpg"
+                    },
+                    {
+                      "name": "5@1x.png",
+                      "size": 3051910,
+                      "path": "src/img/splinescroller/5@1x.png"
+                    },
+                    {
+                      "name": "6@0.1x.jpg",
+                      "size": 5362,
+                      "path": "src/img/splinescroller/6@0.1x.jpg"
+                    },
+                    {
+                      "name": "6@1x.png",
+                      "size": 5535967,
+                      "path": "src/img/splinescroller/6@1x.png"
+                    },
+                    {
+                      "name": "7@0.1x.jpg",
+                      "size": 3920,
+                      "path": "src/img/splinescroller/7@0.1x.jpg"
+                    },
+                    {
+                      "name": "7@1x.png",
+                      "size": 4214203,
+                      "path": "src/img/splinescroller/7@1x.png"
+                    },
+                    {
+                      "name": "8@0.1x.jpg",
+                      "size": 4824,
+                      "path": "src/img/splinescroller/8@0.1x.jpg"
+                    },
+                    {
+                      "name": "8@1x.png",
+                      "size": 4466817,
+                      "path": "src/img/splinescroller/8@1x.png"
+                    },
+                    {
+                      "name": "9@0.1x.jpg",
+                      "size": 5274,
+                      "path": "src/img/splinescroller/9@0.1x.jpg"
+                    },
+                    {
+                      "name": "9@1x.png",
+                      "size": 5970434,
+                      "path": "src/img/splinescroller/9@1x.png"
+                    }
+                  ],
+                  "path": "src/img/splinescroller"
+                },
+                {
+                  "name": ".keep",
+                  "size": 0,
+                  "path": "src/img/.keep"
+                }
+              ],
+              "path": "src/img"
+            },
+            {
+              "name": "styl",
+              "children": [
+                {
+                  "name": "colors.styl",
+                  "size": 241,
+                  "path": "src/styl/colors.styl"
+                },
+                {
+                  "name": "d3-tip.styl",
+                  "size": 767,
+                  "path": "src/styl/d3-tip.styl"
+                },
+                {
+                  "name": "grid.styl",
+                  "size": 2203,
+                  "path": "src/styl/grid.styl"
+                },
+                {
+                  "name": "reset.styl",
+                  "size": 1065,
+                  "path": "src/styl/reset.styl"
+                },
+                {
+                  "name": "style.styl",
+                  "size": 1180,
+                  "path": "src/styl/style.styl"
+                },
+                {
+                  "name": "typography.styl",
+                  "size": 1372,
+                  "path": "src/styl/typography.styl"
+                }
+              ],
+              "path": "src/styl"
+            },
+            {
+              "name": "tmpl",
+              "children": [
+                {
+                  "name": "partials",
+                  "children": [
+                    {
+                      "name": "footer.mustache",
+                      "size": 309,
+                      "path": "src/tmpl/partials/footer.mustache"
+                    },
+                    {
+                      "name": "header.mustache",
+                      "size": 1558,
+                      "path": "src/tmpl/partials/header.mustache"
+                    }
+                  ],
+                  "path": "src/tmpl/partials"
+                },
+                {
+                  "name": "index.mustache",
+                  "size": 14132,
+                  "path": "src/tmpl/index.mustache"
+                },
+                {
+                  "name": "splinescroller.mustache",
+                  "size": 2279,
+                  "path": "src/tmpl/splinescroller.mustache"
+                }
+              ],
+              "path": "src/tmpl"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".babelrc",
+          "size": 23,
+          "path": ".babelrc"
+        },
+        {
+          "name": ".gitattributes",
+          "size": 65,
+          "path": ".gitattributes"
+        },
+        {
+          "name": ".gitignore",
+          "size": 97,
+          "path": ".gitignore"
+        },
+        {
+          "name": "417.html",
+          "size": 13396,
+          "path": "417.html"
+        },
+        {
+          "name": "README.md",
+          "size": 363,
+          "path": "README.md"
+        },
+        {
+          "name": "coffeelint.json",
+          "size": 2218,
+          "path": "coffeelint.json"
+        },
+        {
+          "name": "gulpfile.coffee",
+          "size": 4076,
+          "path": "gulpfile.coffee"
+        },
+        {
+          "name": "gulpfile.js",
+          "size": 164,
+          "path": "gulpfile.js"
+        },
+        {
+          "name": "options.json",
+          "size": 217,
+          "path": "options.json"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 341545,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1854,
+          "path": "package.json"
+        },
+        {
+          "name": "webpack.config.js",
+          "size": 353,
+          "path": "webpack.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 97,
+    "totalSize": 100940648
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"starter-template\">Starter Template</h1>\n<p>This is a basic but opinionated starting point for prototyping apps, with an emphasis on data handling and visualization.</p>\n<h1 id=\"getting-started\">Getting started</h1>\n<p>Edit project configuration in <code>options.json</code>.</p>\n<p><code>npm start</code> to start gulp</p>\n<p>Edit coffeescript in <code>src/coffee/app.coffee</code></p>\n<p>Edit HTML in <code>src/tmpl/index.mustache</code></p>\n<p>Edit Stylus (CSS) in <code>src/styl/style.styl</code></p>",

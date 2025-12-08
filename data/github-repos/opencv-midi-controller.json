@@ -15,6 +15,99 @@
     "Python": 13560
   },
   "diskUsage": 9571,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 21
+      },
+      {
+        "path": "README.md",
+        "size": 102
+      },
+      {
+        "path": "audio.py",
+        "size": 398
+      },
+      {
+        "path": "clips.txt",
+        "size": 67
+      },
+      {
+        "path": "coco.names",
+        "size": 625
+      },
+      {
+        "path": "example.jpg",
+        "size": 9803693
+      },
+      {
+        "path": "main.py",
+        "size": 444
+      },
+      {
+        "path": "object_to_midi.py",
+        "size": 6676
+      },
+      {
+        "path": "webcam_to_midi.py",
+        "size": 6042
+      }
+    ],
+    "tree": {
+      "name": "opencv-midi-controller",
+      "children": [
+        {
+          "name": ".gitignore",
+          "size": 21,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 102,
+          "path": "README.md"
+        },
+        {
+          "name": "audio.py",
+          "size": 398,
+          "path": "audio.py"
+        },
+        {
+          "name": "clips.txt",
+          "size": 67,
+          "path": "clips.txt"
+        },
+        {
+          "name": "coco.names",
+          "size": 625,
+          "path": "coco.names"
+        },
+        {
+          "name": "example.jpg",
+          "size": 9803693,
+          "path": "example.jpg"
+        },
+        {
+          "name": "main.py",
+          "size": 444,
+          "path": "main.py"
+        },
+        {
+          "name": "object_to_midi.py",
+          "size": 6676,
+          "path": "object_to_midi.py"
+        },
+        {
+          "name": "webcam_to_midi.py",
+          "size": 6042,
+          "path": "webcam_to_midi.py"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 9,
+    "totalSize": 9818068
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"opencv-midi-controller\">opencv-midi-controller</h1>\n<p><a href=\"https://www.youtube.com/watch?v=k2u--wFhcS4&amp;lc=UgxpNxJFzriD9RNPo5p4AaABAg\">https://www.youtube.com/watch?v=k2u--wFhcS4&amp;lc=UgxpNxJFzriD9RNPo5p4AaABAg</a></p>",

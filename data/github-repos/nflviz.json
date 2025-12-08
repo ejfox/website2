@@ -18,6 +18,249 @@
     "JavaScript": 428
   },
   "diskUsage": 2044,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 124
+      },
+      {
+        "path": "README.md",
+        "size": 112
+      },
+      {
+        "path": "coffeelint.json",
+        "size": 2218
+      },
+      {
+        "path": "gulpfile.coffee",
+        "size": 3957
+      },
+      {
+        "path": "gulpfile.js",
+        "size": 164
+      },
+      {
+        "path": "options.json",
+        "size": 229
+      },
+      {
+        "path": "package.json",
+        "size": 1747
+      },
+      {
+        "path": "src/coffee/app.coffee",
+        "size": 4942
+      },
+      {
+        "path": "src/data/oak_2016.game1.nested.json",
+        "size": 429665
+      },
+      {
+        "path": "src/data/pbp-2016.csv",
+        "size": 10509809
+      },
+      {
+        "path": "src/img/.keep",
+        "size": 0
+      },
+      {
+        "path": "src/styl/colors.styl",
+        "size": 241
+      },
+      {
+        "path": "src/styl/d3-tip.styl",
+        "size": 767
+      },
+      {
+        "path": "src/styl/grid.styl",
+        "size": 2203
+      },
+      {
+        "path": "src/styl/reset.styl",
+        "size": 1065
+      },
+      {
+        "path": "src/styl/style.styl",
+        "size": 387
+      },
+      {
+        "path": "src/styl/typography.styl",
+        "size": 1671
+      },
+      {
+        "path": "src/tmpl/index.mustache",
+        "size": 169
+      },
+      {
+        "path": "src/tmpl/partials/footer.mustache",
+        "size": 162
+      },
+      {
+        "path": "src/tmpl/partials/header.mustache",
+        "size": 1693
+      },
+      {
+        "path": "webpack.config.js",
+        "size": 264
+      }
+    ],
+    "tree": {
+      "name": "nflviz",
+      "children": [
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "coffee",
+              "children": [
+                {
+                  "name": "app.coffee",
+                  "size": 4942,
+                  "path": "src/coffee/app.coffee"
+                }
+              ],
+              "path": "src/coffee"
+            },
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": "oak_2016.game1.nested.json",
+                  "size": 429665,
+                  "path": "src/data/oak_2016.game1.nested.json"
+                },
+                {
+                  "name": "pbp-2016.csv",
+                  "size": 10509809,
+                  "path": "src/data/pbp-2016.csv"
+                }
+              ],
+              "path": "src/data"
+            },
+            {
+              "name": "img",
+              "children": [
+                {
+                  "name": ".keep",
+                  "size": 0,
+                  "path": "src/img/.keep"
+                }
+              ],
+              "path": "src/img"
+            },
+            {
+              "name": "styl",
+              "children": [
+                {
+                  "name": "colors.styl",
+                  "size": 241,
+                  "path": "src/styl/colors.styl"
+                },
+                {
+                  "name": "d3-tip.styl",
+                  "size": 767,
+                  "path": "src/styl/d3-tip.styl"
+                },
+                {
+                  "name": "grid.styl",
+                  "size": 2203,
+                  "path": "src/styl/grid.styl"
+                },
+                {
+                  "name": "reset.styl",
+                  "size": 1065,
+                  "path": "src/styl/reset.styl"
+                },
+                {
+                  "name": "style.styl",
+                  "size": 387,
+                  "path": "src/styl/style.styl"
+                },
+                {
+                  "name": "typography.styl",
+                  "size": 1671,
+                  "path": "src/styl/typography.styl"
+                }
+              ],
+              "path": "src/styl"
+            },
+            {
+              "name": "tmpl",
+              "children": [
+                {
+                  "name": "partials",
+                  "children": [
+                    {
+                      "name": "footer.mustache",
+                      "size": 162,
+                      "path": "src/tmpl/partials/footer.mustache"
+                    },
+                    {
+                      "name": "header.mustache",
+                      "size": 1693,
+                      "path": "src/tmpl/partials/header.mustache"
+                    }
+                  ],
+                  "path": "src/tmpl/partials"
+                },
+                {
+                  "name": "index.mustache",
+                  "size": 169,
+                  "path": "src/tmpl/index.mustache"
+                }
+              ],
+              "path": "src/tmpl"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".gitignore",
+          "size": 124,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 112,
+          "path": "README.md"
+        },
+        {
+          "name": "coffeelint.json",
+          "size": 2218,
+          "path": "coffeelint.json"
+        },
+        {
+          "name": "gulpfile.coffee",
+          "size": 3957,
+          "path": "gulpfile.coffee"
+        },
+        {
+          "name": "gulpfile.js",
+          "size": 164,
+          "path": "gulpfile.js"
+        },
+        {
+          "name": "options.json",
+          "size": 229,
+          "path": "options.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1747,
+          "path": "package.json"
+        },
+        {
+          "name": "webpack.config.js",
+          "size": 264,
+          "path": "webpack.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 21,
+    "totalSize": 10961589
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"nfl-viz\">NFL Viz</h1>\n<p>Visualizing NFL data</p>\n<h1 id=\"data\">Data</h1>\n<p>Play-by-play data from <a href=\"http://www.nflsavant.com/about.php\">NFL Savant</a></p>",

@@ -16,6 +16,297 @@
     "Vue": 448
   },
   "diskUsage": 150,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".editorconfig",
+        "size": 188
+      },
+      {
+        "path": ".eslintignore",
+        "size": 18
+      },
+      {
+        "path": ".eslintrc",
+        "size": 57
+      },
+      {
+        "path": ".gitignore",
+        "size": 543
+      },
+      {
+        "path": ".npmrc",
+        "size": 53
+      },
+      {
+        "path": ".nuxtrc",
+        "size": 58
+      },
+      {
+        "path": "README.md",
+        "size": 7578
+      },
+      {
+        "path": "package.json",
+        "size": 1246
+      },
+      {
+        "path": "playground/app.vue",
+        "size": 351
+      },
+      {
+        "path": "playground/content/edges.csv",
+        "size": 29
+      },
+      {
+        "path": "playground/content/nodes.csv",
+        "size": 36
+      },
+      {
+        "path": "playground/nuxt.config.ts",
+        "size": 134
+      },
+      {
+        "path": "playground/package.json",
+        "size": 282
+      },
+      {
+        "path": "playground/server/tsconfig.json",
+        "size": 49
+      },
+      {
+        "path": "playground/tsconfig.json",
+        "size": 41
+      },
+      {
+        "path": "playground/yarn.lock",
+        "size": 322788
+      },
+      {
+        "path": "src/module.ts",
+        "size": 641
+      },
+      {
+        "path": "src/runtime/components/ForceLayout.vue",
+        "size": 97
+      },
+      {
+        "path": "src/runtime/plugin.ts",
+        "size": 138
+      },
+      {
+        "path": "test/basic.test.ts",
+        "size": 459
+      },
+      {
+        "path": "test/fixtures/basic/app.vue",
+        "size": 68
+      },
+      {
+        "path": "test/fixtures/basic/nuxt.config.ts",
+        "size": 111
+      },
+      {
+        "path": "test/fixtures/basic/package.json",
+        "size": 61
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 41
+      },
+      {
+        "path": "yarn.lock",
+        "size": 287707
+      }
+    ],
+    "tree": {
+      "name": "nuxt-force-layout",
+      "children": [
+        {
+          "name": "playground",
+          "children": [
+            {
+              "name": "content",
+              "children": [
+                {
+                  "name": "edges.csv",
+                  "size": 29,
+                  "path": "playground/content/edges.csv"
+                },
+                {
+                  "name": "nodes.csv",
+                  "size": 36,
+                  "path": "playground/content/nodes.csv"
+                }
+              ],
+              "path": "playground/content"
+            },
+            {
+              "name": "server",
+              "children": [
+                {
+                  "name": "tsconfig.json",
+                  "size": 49,
+                  "path": "playground/server/tsconfig.json"
+                }
+              ],
+              "path": "playground/server"
+            },
+            {
+              "name": "app.vue",
+              "size": 351,
+              "path": "playground/app.vue"
+            },
+            {
+              "name": "nuxt.config.ts",
+              "size": 134,
+              "path": "playground/nuxt.config.ts"
+            },
+            {
+              "name": "package.json",
+              "size": 282,
+              "path": "playground/package.json"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 41,
+              "path": "playground/tsconfig.json"
+            },
+            {
+              "name": "yarn.lock",
+              "size": 322788,
+              "path": "playground/yarn.lock"
+            }
+          ],
+          "path": "playground"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "runtime",
+              "children": [
+                {
+                  "name": "components",
+                  "children": [
+                    {
+                      "name": "ForceLayout.vue",
+                      "size": 97,
+                      "path": "src/runtime/components/ForceLayout.vue"
+                    }
+                  ],
+                  "path": "src/runtime/components"
+                },
+                {
+                  "name": "plugin.ts",
+                  "size": 138,
+                  "path": "src/runtime/plugin.ts"
+                }
+              ],
+              "path": "src/runtime"
+            },
+            {
+              "name": "module.ts",
+              "size": 641,
+              "path": "src/module.ts"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "test",
+          "children": [
+            {
+              "name": "fixtures",
+              "children": [
+                {
+                  "name": "basic",
+                  "children": [
+                    {
+                      "name": "app.vue",
+                      "size": 68,
+                      "path": "test/fixtures/basic/app.vue"
+                    },
+                    {
+                      "name": "nuxt.config.ts",
+                      "size": 111,
+                      "path": "test/fixtures/basic/nuxt.config.ts"
+                    },
+                    {
+                      "name": "package.json",
+                      "size": 61,
+                      "path": "test/fixtures/basic/package.json"
+                    }
+                  ],
+                  "path": "test/fixtures/basic"
+                }
+              ],
+              "path": "test/fixtures"
+            },
+            {
+              "name": "basic.test.ts",
+              "size": 459,
+              "path": "test/basic.test.ts"
+            }
+          ],
+          "path": "test"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 188,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".eslintignore",
+          "size": 18,
+          "path": ".eslintignore"
+        },
+        {
+          "name": ".eslintrc",
+          "size": 57,
+          "path": ".eslintrc"
+        },
+        {
+          "name": ".gitignore",
+          "size": 543,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 53,
+          "path": ".npmrc"
+        },
+        {
+          "name": ".nuxtrc",
+          "size": 58,
+          "path": ".nuxtrc"
+        },
+        {
+          "name": "README.md",
+          "size": 7578,
+          "path": "README.md"
+        },
+        {
+          "name": "package.json",
+          "size": 1246,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 41,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 287707,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 25,
+    "totalSize": 622774
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"-forcelayout-d3-force-layouts-made-easy-in-nuxt-\">🌠 ForceLayout: D3 Force Layouts Made Easy in Nuxt 🌌</h1>\n<p><strong>ForceLayout</strong> simplifies the process of creating mesmerizing D3 force layouts with nodes and edges. Perfect for visualizing everything from social networks to complex systems, right in your Nuxt app! 🎉</p>\n<h2 id=\"-features\">🌈 Features</h2>\n<ul>\n<li>📊 Easy-to-use API for D3 force layouts.</li>\n<li>🔄 Built-in data importers for Neo4j and Gephi.</li>\n<li>🎛️ Real-time manipulation of force properties.</li>\n<li>🎨 SVG and Canvas rendering modes.</li>\n<li>🔌 Vue-friendly, using a directive-driven approach similar to VUE-USE.</li>\n</ul>\n<h2 id=\"-data-importers-\">📚 Data Importers 🌐</h2>\n<p>Before diving into your Nuxt app, you may need to prepare your data into node/edge CSVs with our Node.js-based importers.</p>\n<h3 id=\"-neo4j-to-forcelayout-\">🌳 Neo4j to ForceLayout 🚀</h3>\n<ol>\n<li><strong>Install the Neo4j Importer Globally</strong>:\n<pre><code class=\"language-bash\">npm install -g @force-layout/neo4j-importer\n</code></pre>\n</li>\n<li><strong>Run the Script</strong>:\n<pre><code class=\"language-bash\">force-layout-neo4j-importer --input neo4j_output.json --nodes nodes.csv --edges edges.csv\n</code></pre>\n</li>\n<li>🎨 <strong>Import the CSVs</strong>: Your Neo4j data is ready!</li>\n</ol>\n<h3 id=\"-gephi-to-forcelayout-\">🌀 Gephi to ForceLayout 🎡</h3>\n<ol>\n<li><strong>Install the Gephi Importer Globally</strong>:\n<pre><code class=\"language-bash\">npm install -g @force-layout/gephi-importer\n</code></pre>\n</li>\n<li><strong>Run the Script</strong>:\n<pre><code class=\"language-bash\">force-layout-gephi-importer --input graph.gexf --nodes nodes.csv --edges edges.csv\n</code></pre>\n</li>\n<li>🌌 <strong>You're Set!</strong>: Your Gephi data is ready!</li>\n</ol>\n<h2 id=\"️-installation\">🛠️ Installation</h2>\n<p>Install ForceLayout in your Nuxt project:</p>\n<pre><code class=\"language-bash\">npm install nuxt-force-layout\n</code></pre>\n<h2 id=\"-usage\">🚀 Usage</h2>\n<p>Add the module to your <code>nuxt.config.js</code>:</p>\n<pre><code class=\"language-javascript\">export default {\n  modules: [\n    'nuxt-force-layout'\n  ]\n}\n</code></pre>\n<p>In your Vue component, use the <code>v-force-layout</code> directive and destructure its properties to customize your force layout:</p>\n<pre><code class=\"language-vue\">&lt;template&gt;\n  &lt;div ref=\"forceLayoutCanvas\"&gt;\n    &lt;!-- Your force layout will be rendered here --&gt;\n  &lt;/div&gt;\n&lt;/template&gt;\n\n&lt;script&gt;\nexport default {\n  directives: {\n    forceLayout: {\n      bind(el, binding) {\n        const { initForce, updateForce, width, height } = binding.value;\n        // Initialize and manipulate your force layout\n      }\n    }\n  }\n}\n&lt;/script&gt;\n</code></pre>\n<h2 id=\"️-real-time-manipulation\">🎛️ Real-Time Manipulation</h2>\n<p>You can easily tweak the force layout's properties such as <code>forceX</code>, <code>forceY</code>, <code>collision</code>, etc., in real-time!</p>\n<pre><code class=\"language-javascript\">updateForce({ forceX: 0.5, forceY: 0.8 });\n</code></pre>\n<h2 id=\"-rendering-modes\">🎨 Rendering Modes</h2>\n<p>ForceLayout supports two modes:</p>\n<ul>\n<li><strong>SVG Mode</strong>: For high-quality, scalable graphics.</li>\n<li><strong>Canvas Mode</strong>: For performance optimization.</li>\n</ul>\n<p>Switch between them easily:</p>\n<pre><code class=\"language-javascript\">initForce({ mode: 'svg' }); // or 'canvas'\n</code></pre>\n<h2 id=\"-starter-scripts-for-data-conversion-\">📚 Starter Scripts for Data Conversion 🔄</h2>\n<p>If your data is in JSON, XML, SQL, or other formats, check out our conversion scripts to get you started.</p>\n<h2 id=\"-contributing\">🤝 Contributing</h2>\n<p>We welcome contributions! Please check out our <a href=\"./CONTRIBUTING.md\">CONTRIBUTING.md</a> for guidelines.</p>\n<h2 id=\"quick-setup\">Quick Setup</h2>\n<ol>\n<li>Add <code>nuxt-force-layout</code> dependency to your project</li>\n</ol>\n<pre><code class=\"language-bash\"># Using pnpm\npnpm add -D nuxt-force-layout\n\n# Using yarn\nyarn add --dev nuxt-force-layout\n\n# Using npm\nnpm install --save-dev nuxt-force-layout\n</code></pre>\n<ol>\n<li>Add <code>nuxt-force-layout</code> to the <code>modules</code> section of <code>nuxt.config.ts</code></li>\n</ol>\n<pre><code class=\"language-js\">export default defineNuxtConfig({\n  modules: [\n    'nuxt-force-layout'\n  ]\n})\n</code></pre>\n<p>That's it! You can now use My Module in your Nuxt app ✨</p>\n<h2 id=\"development\">Development</h2>\n<pre><code class=\"language-bash\"># Install dependencies\nnpm install\n\n# Generate type stubs\nnpm run dev:prepare\n\n# Develop with the playground\nnpm run dev\n\n# Build the playground\nnpm run dev:build\n\n# Run ESLint\nnpm run lint\n\n# Run Vitest\nnpm run test\nnpm run test:watch\n\n# Release new version\nnpm run release\n</code></pre>\n<h2 id=\"️-frequently-asked-questions-faqs-\">🙋‍♀️ Frequently Asked Questions (FAQs) 🤔</h2>\n<h3 id=\"q-how-do-i-import-my-custom-data-formats\">Q: How do I import my custom data formats?</h3>\n<p>A: Our built-in Node.js importers currently support Neo4j and Gephi. For other data formats, you can use our starter scripts to help you convert them to the required CSV format.</p>\n<h3 id=\"q-can-i-use-forcelayout-on-multiple-pages-or-components\">Q: Can I use ForceLayout on multiple pages or components?</h3>\n<p>A: Absolutely! You can use the <code>v-force-layout</code> directive in as many components or pages as you like. Just make sure to initialize it separately for each instance.</p>\n<h3 id=\"q-what-about-touch-events-for-mobile-support\">Q: What about touch events for mobile support?</h3>\n<p>A: ForceLayout is designed to be responsive and mobile-friendly. It handles touch events just like mouse events out of the box.</p>\n<h3 id=\"q-how-do-i-optimize-performance-for-large-datasets\">Q: How do I optimize performance for large datasets?</h3>\n<p>A: Switch to Canvas rendering mode by setting the <code>mode</code> to 'canvas' in the <code>initForce</code> method. This offers better performance for larger datasets.</p>\n<h3 id=\"q-can-i-integrate-forcelayout-with-vuex\">Q: Can I integrate ForceLayout with Vuex?</h3>\n<p>A: Yes, you can easily dispatch actions or commit mutations from within the directive to store your layout's state in a Vuex store.</p>\n<h3 id=\"q-how-do-i-uninstall-the-module\">Q: How do I uninstall the module?</h3>\n<p>A: To uninstall, simply run <code>npm uninstall @force-layout/nuxt-module</code> and remove the related code from your <code>nuxt.config.js</code>.</p>\n<h3 id=\"q-is-forcelayout-compatible-with-nuxt-2\">Q: Is ForceLayout compatible with Nuxt 2?</h3>\n<p>No, it is intended for use with Nuxt 3.</p>\n<p>Certainly! Here are some more FAQs that cover a wider range of topics:</p>\n<h3 id=\"q-can-i-use-forcelayout-with-typescript\">Q: Can I use ForceLayout with TypeScript?</h3>\n<p>A: Yes! ForceLayout is TypeScript-friendly. We provide type definitions out of the box to make your development experience smooth.</p>\n<h3 id=\"q-does-forcelayout-support-3d-layouts\">Q: Does ForceLayout support 3D layouts?</h3>\n<p>A: Currently, ForceLayout focuses on 2D force layouts. However, we're intrigued by the idea of 3D and may consider it for future releases.</p>\n<h3 id=\"q-can-i-change-the-color-theme-dynamically\">Q: Can I change the color theme dynamically?</h3>\n<p>A: Absolutely! You can update the color properties in real-time just like you would with force properties.</p>\n<h3 id=\"q-how-does-forcelayout-handle-accessibility\">Q: How does ForceLayout handle accessibility?</h3>\n<p>A: Accessibility is important to us. We're working on features like ARIA labels and keyboard navigation for future releases.</p>\n<h3 id=\"q-what-happens-if-i-have-a-cyclic-graph-will-forcelayout-get-stuck-in-an-infinite-loop\">Q: What happens if I have a cyclic graph? Will ForceLayout get stuck in an infinite loop?</h3>\n<p>A: Don't worry, ForceLayout is designed to handle cyclic graphs gracefully without getting stuck.</p>\n<h3 id=\"q-can-i-export-the-layout-to-different-formats-like-png-or-pdf\">Q: Can I export the layout to different formats like PNG or PDF?</h3>\n<p>A: While ForceLayout doesn't natively support this feature yet, you can easily implement it using external libraries.</p>\n<h3 id=\"q-is-there-a-way-to-pause-and-resume-the-force-simulation\">Q: Is there a way to pause and resume the force simulation?</h3>\n<p>A: Yes, you can pause and resume the force simulation by using the <code>pause</code> and <code>resume</code> methods exposed by the directive.</p>\n<h3 id=\"q-do-i-need-d3-installed-to-use-forcelayout\">Q: Do I need D3 installed to use ForceLayout?</h3>\n<p>A: No, ForceLayout comes with all the necessary D3 components bundled in. You don't need a separate D3 installation.</p>\n<h3 id=\"q-my-pet-parrot-loves-watching-the-nodes-move-is-that-normal\">Q: My pet parrot loves watching the nodes move. Is that normal?</h3>\n<p>A: Absolutely! ForceLayout aims to create engaging and aesthetically pleasing visualizations that can captivate audiences of all species! 🦜</p>\n<h3 id=\"q-im-a-time-traveler-from-the-year-2050-will-this-still-work\">Q: I'm a time traveler from the year 2050. Will this still work?</h3>\n<p>A: While we can't guarantee compatibility with future versions of technology, we do strive to make ForceLayout as future-proof as possible!</p>\n<hr />\n<p>Feel free to suggest additional questions or modifications! 📝</p>\n",

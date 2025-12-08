@@ -20,6 +20,4668 @@
     "CSS": 1116
   },
   "diskUsage": 14734,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".browserslistrc",
+        "size": 27
+      },
+      {
+        "path": ".circleci/config.yml",
+        "size": 838
+      },
+      {
+        "path": ".eslintrc.js",
+        "size": 2751
+      },
+      {
+        "path": ".github/FUNDING.yml",
+        "size": 15
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+        "size": 3391
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/config.yml",
+        "size": 669
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+        "size": 1145
+      },
+      {
+        "path": ".github/PULL_REQUEST_TEMPLATE.md",
+        "size": 1162
+      },
+      {
+        "path": ".github/commit-convention.md",
+        "size": 2902
+      },
+      {
+        "path": ".github/workflows/create-release.yml",
+        "size": 477
+      },
+      {
+        "path": ".gitignore",
+        "size": 171
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 54
+      },
+      {
+        "path": "LICENSE",
+        "size": 1083
+      },
+      {
+        "path": "README.md",
+        "size": 1674
+      },
+      {
+        "path": "babel.config.js",
+        "size": 121
+      },
+      {
+        "path": "cypress.json",
+        "size": 83
+      },
+      {
+        "path": "cypress/.eslintrc.js",
+        "size": 149
+      },
+      {
+        "path": "cypress/.gitignore",
+        "size": 21
+      },
+      {
+        "path": "cypress/fixtures/example.json",
+        "size": 154
+      },
+      {
+        "path": "cypress/integration/component-data-edit.js",
+        "size": 4345
+      },
+      {
+        "path": "cypress/integration/components-tab.js",
+        "size": 5294
+      },
+      {
+        "path": "cypress/integration/events-tab.js",
+        "size": 1383
+      },
+      {
+        "path": "cypress/integration/vuex-edit.js",
+        "size": 3426
+      },
+      {
+        "path": "cypress/integration/vuex-tab.js",
+        "size": 8721
+      },
+      {
+        "path": "cypress/plugins/index.js",
+        "size": 836
+      },
+      {
+        "path": "cypress/support/commands.js",
+        "size": 1662
+      },
+      {
+        "path": "cypress/support/index.js",
+        "size": 670
+      },
+      {
+        "path": "cypress/utils/suite.js",
+        "size": 166
+      },
+      {
+        "path": "dist/.gitkeep",
+        "size": 0
+      },
+      {
+        "path": "extension-zips.js",
+        "size": 4221
+      },
+      {
+        "path": "lerna.json",
+        "size": 158
+      },
+      {
+        "path": "media/chrome-webstore/screenshot1-size.png",
+        "size": 129791
+      },
+      {
+        "path": "media/chrome-webstore/screenshot1.png",
+        "size": 120080
+      },
+      {
+        "path": "media/chrome-webstore/screenshot2-size.png",
+        "size": 70583
+      },
+      {
+        "path": "media/chrome-webstore/screenshot2.png",
+        "size": 62299
+      },
+      {
+        "path": "media/chrome-webstore/screenshot3-size.png",
+        "size": 90040
+      },
+      {
+        "path": "media/chrome-webstore/screenshot3.png",
+        "size": 81485
+      },
+      {
+        "path": "media/chrome-webstore/screenshot4-size.png",
+        "size": 56391
+      },
+      {
+        "path": "media/chrome-webstore/screenshot4.png",
+        "size": 49221
+      },
+      {
+        "path": "media/screenshot-rounded.png",
+        "size": 159951
+      },
+      {
+        "path": "media/screenshot-shadow.png",
+        "size": 165677
+      },
+      {
+        "path": "media/screenshot.png",
+        "size": 152023
+      },
+      {
+        "path": "package.json",
+        "size": 3390
+      },
+      {
+        "path": "packages/api/package.json",
+        "size": 971
+      },
+      {
+        "path": "packages/api/src/api/api.ts",
+        "size": 3284
+      },
+      {
+        "path": "packages/api/src/api/app.ts",
+        "size": 31
+      },
+      {
+        "path": "packages/api/src/api/component.ts",
+        "size": 1953
+      },
+      {
+        "path": "packages/api/src/api/context.ts",
+        "size": 123
+      },
+      {
+        "path": "packages/api/src/api/hooks.ts",
+        "size": 6677
+      },
+      {
+        "path": "packages/api/src/api/index.ts",
+        "size": 163
+      },
+      {
+        "path": "packages/api/src/api/util.ts",
+        "size": 71
+      },
+      {
+        "path": "packages/api/src/const.ts",
+        "size": 112
+      },
+      {
+        "path": "packages/api/src/env.ts",
+        "size": 740
+      },
+      {
+        "path": "packages/api/src/index.ts",
+        "size": 2056
+      },
+      {
+        "path": "packages/api/src/plugin.ts",
+        "size": 1179
+      },
+      {
+        "path": "packages/api/src/proxy.ts",
+        "size": 3296
+      },
+      {
+        "path": "packages/api/src/time.ts",
+        "size": 566
+      },
+      {
+        "path": "packages/api/tsconfig.json",
+        "size": 612
+      },
+      {
+        "path": "packages/app-backend-api/package.json",
+        "size": 500
+      },
+      {
+        "path": "packages/app-backend-api/src/api.ts",
+        "size": 10858
+      },
+      {
+        "path": "packages/app-backend-api/src/app-record.ts",
+        "size": 744
+      },
+      {
+        "path": "packages/app-backend-api/src/backend-context.ts",
+        "size": 1847
+      },
+      {
+        "path": "packages/app-backend-api/src/backend.ts",
+        "size": 873
+      },
+      {
+        "path": "packages/app-backend-api/src/global-hook.ts",
+        "size": 415
+      },
+      {
+        "path": "packages/app-backend-api/src/hooks.ts",
+        "size": 6071
+      },
+      {
+        "path": "packages/app-backend-api/src/index.ts",
+        "size": 190
+      },
+      {
+        "path": "packages/app-backend-api/src/plugin.ts",
+        "size": 168
+      },
+      {
+        "path": "packages/app-backend-api/tsconfig.json",
+        "size": 590
+      },
+      {
+        "path": "packages/app-backend-core/package.json",
+        "size": 748
+      },
+      {
+        "path": "packages/app-backend-core/src/app.ts",
+        "size": 7481
+      },
+      {
+        "path": "packages/app-backend-core/src/backend.ts",
+        "size": 997
+      },
+      {
+        "path": "packages/app-backend-core/src/component-pick.ts",
+        "size": 3422
+      },
+      {
+        "path": "packages/app-backend-core/src/component.ts",
+        "size": 5118
+      },
+      {
+        "path": "packages/app-backend-core/src/flash.ts",
+        "size": 1408
+      },
+      {
+        "path": "packages/app-backend-core/src/global-hook.ts",
+        "size": 240
+      },
+      {
+        "path": "packages/app-backend-core/src/highlighter.ts",
+        "size": 5476
+      },
+      {
+        "path": "packages/app-backend-core/src/hook.ts",
+        "size": 19141
+      },
+      {
+        "path": "packages/app-backend-core/src/index.ts",
+        "size": 21507
+      },
+      {
+        "path": "packages/app-backend-core/src/inspector.ts",
+        "size": 2871
+      },
+      {
+        "path": "packages/app-backend-core/src/legacy/scan.ts",
+        "size": 2475
+      },
+      {
+        "path": "packages/app-backend-core/src/page-config.ts",
+        "size": 651
+      },
+      {
+        "path": "packages/app-backend-core/src/perf.ts",
+        "size": 4924
+      },
+      {
+        "path": "packages/app-backend-core/src/plugin.ts",
+        "size": 2529
+      },
+      {
+        "path": "packages/app-backend-core/src/timeline-builtins.ts",
+        "size": 3357
+      },
+      {
+        "path": "packages/app-backend-core/src/timeline-marker.ts",
+        "size": 1520
+      },
+      {
+        "path": "packages/app-backend-core/src/timeline-screenshot.ts",
+        "size": 3438
+      },
+      {
+        "path": "packages/app-backend-core/src/timeline.ts",
+        "size": 6738
+      },
+      {
+        "path": "packages/app-backend-core/src/toast.ts",
+        "size": 47
+      },
+      {
+        "path": "packages/app-backend-core/src/util/queue.ts",
+        "size": 808
+      },
+      {
+        "path": "packages/app-backend-core/src/util/subscriptions.ts",
+        "size": 1041
+      },
+      {
+        "path": "packages/app-backend-core/tsconfig.json",
+        "size": 590
+      },
+      {
+        "path": "packages/app-backend-vue1/package.json",
+        "size": 506
+      },
+      {
+        "path": "packages/app-backend-vue1/src/index.ts",
+        "size": 178
+      },
+      {
+        "path": "packages/app-backend-vue1/tsconfig.json",
+        "size": 590
+      },
+      {
+        "path": "packages/app-backend-vue2/package.json",
+        "size": 628
+      },
+      {
+        "path": "packages/app-backend-vue2/src/components/data.ts",
+        "size": 11999
+      },
+      {
+        "path": "packages/app-backend-vue2/src/components/el.ts",
+        "size": 3057
+      },
+      {
+        "path": "packages/app-backend-vue2/src/components/perf.ts",
+        "size": 1581
+      },
+      {
+        "path": "packages/app-backend-vue2/src/components/tree.ts",
+        "size": 10936
+      },
+      {
+        "path": "packages/app-backend-vue2/src/components/update-tracking.ts",
+        "size": 1427
+      },
+      {
+        "path": "packages/app-backend-vue2/src/components/util.ts",
+        "size": 1240
+      },
+      {
+        "path": "packages/app-backend-vue2/src/events.ts",
+        "size": 1116
+      },
+      {
+        "path": "packages/app-backend-vue2/src/index.ts",
+        "size": 3687
+      },
+      {
+        "path": "packages/app-backend-vue2/src/plugin.ts",
+        "size": 14459
+      },
+      {
+        "path": "packages/app-backend-vue2/tsconfig.json",
+        "size": 590
+      },
+      {
+        "path": "packages/app-backend-vue3/package.json",
+        "size": 548
+      },
+      {
+        "path": "packages/app-backend-vue3/src/components/data.ts",
+        "size": 12910
+      },
+      {
+        "path": "packages/app-backend-vue3/src/components/el.ts",
+        "size": 3519
+      },
+      {
+        "path": "packages/app-backend-vue3/src/components/filter.ts",
+        "size": 543
+      },
+      {
+        "path": "packages/app-backend-vue3/src/components/tree.ts",
+        "size": 8267
+      },
+      {
+        "path": "packages/app-backend-vue3/src/components/util.ts",
+        "size": 2754
+      },
+      {
+        "path": "packages/app-backend-vue3/src/index.ts",
+        "size": 3596
+      },
+      {
+        "path": "packages/app-backend-vue3/src/util.ts",
+        "size": 569
+      },
+      {
+        "path": "packages/app-backend-vue3/tsconfig.json",
+        "size": 590
+      },
+      {
+        "path": "packages/app-frontend/package.json",
+        "size": 728
+      },
+      {
+        "path": "packages/app-frontend/src/app.ts",
+        "size": 2657
+      },
+      {
+        "path": "packages/app-frontend/src/assets/MaterialIcons-Regular.woff2",
+        "size": 44300
+      },
+      {
+        "path": "packages/app-frontend/src/assets/Roboto-Mono.ttf",
+        "size": 182172
+      },
+      {
+        "path": "packages/app-frontend/src/assets/Roboto-Regular.woff2",
+        "size": 64632
+      },
+      {
+        "path": "packages/app-frontend/src/assets/breadcrumb-separator.svg",
+        "size": 144
+      },
+      {
+        "path": "packages/app-frontend/src/assets/devtools-logo.svg",
+        "size": 1286
+      },
+      {
+        "path": "packages/app-frontend/src/assets/github-theme/dark.json",
+        "size": 15171
+      },
+      {
+        "path": "packages/app-frontend/src/assets/github-theme/light.json",
+        "size": 14958
+      },
+      {
+        "path": "packages/app-frontend/src/assets/style/imports.styl",
+        "size": 57
+      },
+      {
+        "path": "packages/app-frontend/src/assets/style/index.postcss",
+        "size": 264
+      },
+      {
+        "path": "packages/app-frontend/src/assets/style/index.styl",
+        "size": 3090
+      },
+      {
+        "path": "packages/app-frontend/src/assets/style/transitions.styl",
+        "size": 372
+      },
+      {
+        "path": "packages/app-frontend/src/assets/style/variables.styl",
+        "size": 1739
+      },
+      {
+        "path": "packages/app-frontend/src/assets/undraw_Gift_box.svg",
+        "size": 7388
+      },
+      {
+        "path": "packages/app-frontend/src/assets/vue-logo-beta.svg",
+        "size": 3752
+      },
+      {
+        "path": "packages/app-frontend/src/assets/vue-logo.svg",
+        "size": 2325
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/app-selector.png",
+        "size": 60537
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/components-menu.png",
+        "size": 51404
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/components-pinia.png",
+        "size": 69074
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/components.png",
+        "size": 86510
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/inspector-pinia.png",
+        "size": 32196
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/inspector-pinia2.png",
+        "size": 34779
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/main-tabs.png",
+        "size": 11335
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/settings-pinia.png",
+        "size": 48700
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/timeline-perf.png",
+        "size": 47390
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/timeline-perf2.png",
+        "size": 94804
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/timeline-pinia.png",
+        "size": 71481
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/timeline-router.png",
+        "size": 64842
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/timeline.png",
+        "size": 35754
+      },
+      {
+        "path": "packages/app-frontend/src/assets/welcome/version-check.png",
+        "size": 19681
+      },
+      {
+        "path": "packages/app-frontend/src/features/App.vue",
+        "size": 3312
+      },
+      {
+        "path": "packages/app-frontend/src/features/apps/AppSelect.vue",
+        "size": 3517
+      },
+      {
+        "path": "packages/app-frontend/src/features/apps/AppSelectItem.vue",
+        "size": 1809
+      },
+      {
+        "path": "packages/app-frontend/src/features/apps/AppSelectPane.vue",
+        "size": 2787
+      },
+      {
+        "path": "packages/app-frontend/src/features/apps/AppSelectPaneItem.vue",
+        "size": 2139
+      },
+      {
+        "path": "packages/app-frontend/src/features/apps/index.ts",
+        "size": 2459
+      },
+      {
+        "path": "packages/app-frontend/src/features/apps/vue-version-check.ts",
+        "size": 859
+      },
+      {
+        "path": "packages/app-frontend/src/features/bridge/index.ts",
+        "size": 1056
+      },
+      {
+        "path": "packages/app-frontend/src/features/chrome/index.ts",
+        "size": 34
+      },
+      {
+        "path": "packages/app-frontend/src/features/chrome/pane-visibility.ts",
+        "size": 633
+      },
+      {
+        "path": "packages/app-frontend/src/features/code/CodeEditor.vue",
+        "size": 3599
+      },
+      {
+        "path": "packages/app-frontend/src/features/components/ComponentTreeNode.vue",
+        "size": 9310
+      },
+      {
+        "path": "packages/app-frontend/src/features/components/ComponentsInspector.vue",
+        "size": 6375
+      },
+      {
+        "path": "packages/app-frontend/src/features/components/RenderCode.vue",
+        "size": 1655
+      },
+      {
+        "path": "packages/app-frontend/src/features/components/SelectedComponentPane.vue",
+        "size": 4304
+      },
+      {
+        "path": "packages/app-frontend/src/features/components/composable/components.ts",
+        "size": 11603
+      },
+      {
+        "path": "packages/app-frontend/src/features/components/composable/highlight.ts",
+        "size": 615
+      },
+      {
+        "path": "packages/app-frontend/src/features/components/composable/index.ts",
+        "size": 104
+      },
+      {
+        "path": "packages/app-frontend/src/features/components/composable/pick.ts",
+        "size": 1168
+      },
+      {
+        "path": "packages/app-frontend/src/features/components/composable/setup.ts",
+        "size": 2463
+      },
+      {
+        "path": "packages/app-frontend/src/features/connection/AppConnecting.vue",
+        "size": 982
+      },
+      {
+        "path": "packages/app-frontend/src/features/connection/AppDisconnected.vue",
+        "size": 194
+      },
+      {
+        "path": "packages/app-frontend/src/features/connection/index.ts",
+        "size": 354
+      },
+      {
+        "path": "packages/app-frontend/src/features/error/ErrorOverlay.vue",
+        "size": 799
+      },
+      {
+        "path": "packages/app-frontend/src/features/error/index.ts",
+        "size": 542
+      },
+      {
+        "path": "packages/app-frontend/src/features/header/AppHeader.vue",
+        "size": 6031
+      },
+      {
+        "path": "packages/app-frontend/src/features/header/AppHeaderSelect.vue",
+        "size": 5864
+      },
+      {
+        "path": "packages/app-frontend/src/features/header/AppHistoryNav.vue",
+        "size": 284
+      },
+      {
+        "path": "packages/app-frontend/src/features/header/header.ts",
+        "size": 69
+      },
+      {
+        "path": "packages/app-frontend/src/features/header/tabs.ts",
+        "size": 386
+      },
+      {
+        "path": "packages/app-frontend/src/features/inspector/DataField.vue",
+        "size": 19506
+      },
+      {
+        "path": "packages/app-frontend/src/features/inspector/StateFields.vue",
+        "size": 3290
+      },
+      {
+        "path": "packages/app-frontend/src/features/inspector/StateInspector.vue",
+        "size": 2785
+      },
+      {
+        "path": "packages/app-frontend/src/features/inspector/StateType.vue",
+        "size": 3714
+      },
+      {
+        "path": "packages/app-frontend/src/features/inspector/custom/CustomInspector.vue",
+        "size": 4376
+      },
+      {
+        "path": "packages/app-frontend/src/features/inspector/custom/CustomInspectorNode.vue",
+        "size": 5377
+      },
+      {
+        "path": "packages/app-frontend/src/features/inspector/custom/CustomInspectorSelectedNodePane.vue",
+        "size": 2557
+      },
+      {
+        "path": "packages/app-frontend/src/features/inspector/custom/composable.ts",
+        "size": 5714
+      },
+      {
+        "path": "packages/app-frontend/src/features/layout/EmptyPane.vue",
+        "size": 454
+      },
+      {
+        "path": "packages/app-frontend/src/features/layout/SplitPane.vue",
+        "size": 7980
+      },
+      {
+        "path": "packages/app-frontend/src/features/layout/orientation.ts",
+        "size": 390
+      },
+      {
+        "path": "packages/app-frontend/src/features/plugin/PluginDetails.vue",
+        "size": 3437
+      },
+      {
+        "path": "packages/app-frontend/src/features/plugin/PluginHome.vue",
+        "size": 1030
+      },
+      {
+        "path": "packages/app-frontend/src/features/plugin/PluginListItem.vue",
+        "size": 1143
+      },
+      {
+        "path": "packages/app-frontend/src/features/plugin/PluginPermission.vue",
+        "size": 922
+      },
+      {
+        "path": "packages/app-frontend/src/features/plugin/PluginSettings.vue",
+        "size": 1883
+      },
+      {
+        "path": "packages/app-frontend/src/features/plugin/PluginSettingsItem.vue",
+        "size": 2333
+      },
+      {
+        "path": "packages/app-frontend/src/features/plugin/PluginSourceDescription.vue",
+        "size": 1296
+      },
+      {
+        "path": "packages/app-frontend/src/features/plugin/PluginSourceIcon.vue",
+        "size": 904
+      },
+      {
+        "path": "packages/app-frontend/src/features/plugin/Plugins.vue",
+        "size": 2024
+      },
+      {
+        "path": "packages/app-frontend/src/features/plugin/index.ts",
+        "size": 1958
+      },
+      {
+        "path": "packages/app-frontend/src/features/settings/GlobalSettings.vue",
+        "size": 2062
+      },
+      {
+        "path": "packages/app-frontend/src/features/settings/NewTag.vue",
+        "size": 580
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/AskScreenshotPermission.vue",
+        "size": 1486
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/LayerItem.vue",
+        "size": 4801
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/Timeline.vue",
+        "size": 14531
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/TimelineEventInspector.vue",
+        "size": 3896
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/TimelineEventList.vue",
+        "size": 6829
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/TimelineEventListItem.vue",
+        "size": 2482
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/TimelineScrollbar.vue",
+        "size": 5063
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/TimelineView.vue",
+        "size": 40852
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/composable/events.ts",
+        "size": 4052
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/composable/index.ts",
+        "size": 200
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/composable/layers.ts",
+        "size": 4077
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/composable/markers.ts",
+        "size": 666
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/composable/reset.ts",
+        "size": 1431
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/composable/screenshot.ts",
+        "size": 2579
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/composable/setup.ts",
+        "size": 4225
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/composable/store.ts",
+        "size": 2660
+      },
+      {
+        "path": "packages/app-frontend/src/features/timeline/composable/time.ts",
+        "size": 252
+      },
+      {
+        "path": "packages/app-frontend/src/features/welcome/WelcomeSlideshow.vue",
+        "size": 6922
+      },
+      {
+        "path": "packages/app-frontend/src/index.ts",
+        "size": 737
+      },
+      {
+        "path": "packages/app-frontend/src/locales/en.js",
+        "size": 2915
+      },
+      {
+        "path": "packages/app-frontend/src/mixins/data-field-edit.js",
+        "size": 6428
+      },
+      {
+        "path": "packages/app-frontend/src/mixins/entry-list.ts",
+        "size": 1552
+      },
+      {
+        "path": "packages/app-frontend/src/mixins/keyboard.ts",
+        "size": 1373
+      },
+      {
+        "path": "packages/app-frontend/src/plugins/global-refs.ts",
+        "size": 346
+      },
+      {
+        "path": "packages/app-frontend/src/plugins/i18n.ts",
+        "size": 997
+      },
+      {
+        "path": "packages/app-frontend/src/plugins/index.ts",
+        "size": 1644
+      },
+      {
+        "path": "packages/app-frontend/src/plugins/responsive.ts",
+        "size": 738
+      },
+      {
+        "path": "packages/app-frontend/src/router.ts",
+        "size": 2639
+      },
+      {
+        "path": "packages/app-frontend/src/shims-global.d.ts",
+        "size": 43
+      },
+      {
+        "path": "packages/app-frontend/src/shims-vue.d.ts",
+        "size": 119
+      },
+      {
+        "path": "packages/app-frontend/src/util/color.ts",
+        "size": 582
+      },
+      {
+        "path": "packages/app-frontend/src/util/defer.ts",
+        "size": 485
+      },
+      {
+        "path": "packages/app-frontend/src/util/fonts.ts",
+        "size": 810
+      },
+      {
+        "path": "packages/app-frontend/src/util/format/index.ts",
+        "size": 47
+      },
+      {
+        "path": "packages/app-frontend/src/util/format/time.ts",
+        "size": 302
+      },
+      {
+        "path": "packages/app-frontend/src/util/format/value.ts",
+        "size": 2267
+      },
+      {
+        "path": "packages/app-frontend/src/util/keyboard.ts",
+        "size": 957
+      },
+      {
+        "path": "packages/app-frontend/src/util/queue.ts",
+        "size": 972
+      },
+      {
+        "path": "packages/app-frontend/src/util/reactivity.ts",
+        "size": 796
+      },
+      {
+        "path": "packages/app-frontend/src/util/router.ts",
+        "size": 237
+      },
+      {
+        "path": "packages/app-frontend/src/util/shared-data.ts",
+        "size": 234
+      },
+      {
+        "path": "packages/app-frontend/src/util/theme.ts",
+        "size": 169
+      },
+      {
+        "path": "packages/app-frontend/src/util/time.ts",
+        "size": 349
+      },
+      {
+        "path": "packages/build-tools/package.json",
+        "size": 824
+      },
+      {
+        "path": "packages/build-tools/src/createConfig.js",
+        "size": 5399
+      },
+      {
+        "path": "packages/build-tools/src/index.js",
+        "size": 67
+      },
+      {
+        "path": "packages/docs/package.json",
+        "size": 133
+      },
+      {
+        "path": "packages/docs/postcss.config.js",
+        "size": 264
+      },
+      {
+        "path": "packages/docs/src/.vitepress/.gitignore",
+        "size": 6
+      },
+      {
+        "path": "packages/docs/src/.vitepress/config.js",
+        "size": 1748
+      },
+      {
+        "path": "packages/docs/src/.vitepress/theme/custom.css",
+        "size": 179
+      },
+      {
+        "path": "packages/docs/src/.vitepress/theme/index.js",
+        "size": 94
+      },
+      {
+        "path": "packages/docs/src/assets/chrome-settings1.png",
+        "size": 34227
+      },
+      {
+        "path": "packages/docs/src/assets/chrome-settings2.png",
+        "size": 29730
+      },
+      {
+        "path": "packages/docs/src/assets/dev-shell-profile-export.png",
+        "size": 69219
+      },
+      {
+        "path": "packages/docs/src/assets/dev-shell-profile-start.png",
+        "size": 47742
+      },
+      {
+        "path": "packages/docs/src/assets/dev-shell-profile-stop.png",
+        "size": 31098
+      },
+      {
+        "path": "packages/docs/src/assets/dev-shell-url.png",
+        "size": 105737
+      },
+      {
+        "path": "packages/docs/src/assets/devtools-version.png",
+        "size": 18261
+      },
+      {
+        "path": "packages/docs/src/assets/edge-settings1.png",
+        "size": 124760
+      },
+      {
+        "path": "packages/docs/src/assets/edge-settings2.png",
+        "size": 34998
+      },
+      {
+        "path": "packages/docs/src/assets/firefox-settings1.png",
+        "size": 39657
+      },
+      {
+        "path": "packages/docs/src/assets/firefox-settings2.png",
+        "size": 28508
+      },
+      {
+        "path": "packages/docs/src/assets/firefox-settings3.png",
+        "size": 17194
+      },
+      {
+        "path": "packages/docs/src/assets/open-in-editor.png",
+        "size": 13335
+      },
+      {
+        "path": "packages/docs/src/assets/plugin-components-tags.png",
+        "size": 13675
+      },
+      {
+        "path": "packages/docs/src/assets/plugin-custom-inspector-menu.png",
+        "size": 19555
+      },
+      {
+        "path": "packages/docs/src/assets/plugin-custom-inspector-state.png",
+        "size": 13081
+      },
+      {
+        "path": "packages/docs/src/assets/plugin-custom-inspector-tree.png",
+        "size": 8171
+      },
+      {
+        "path": "packages/docs/src/assets/plugin-settings.png",
+        "size": 50463
+      },
+      {
+        "path": "packages/docs/src/assets/plugin-timeline-example1.png",
+        "size": 17720
+      },
+      {
+        "path": "packages/docs/src/assets/plugin-timeline-example2.png",
+        "size": 21835
+      },
+      {
+        "path": "packages/docs/src/assets/plugin-timeline-group-state.png",
+        "size": 21558
+      },
+      {
+        "path": "packages/docs/src/assets/plugin-timeline-group.png",
+        "size": 13725
+      },
+      {
+        "path": "packages/docs/src/assets/plugin-timeline-layer.png",
+        "size": 13890
+      },
+      {
+        "path": "packages/docs/src/assets/pluygin-components-state.png",
+        "size": 31516
+      },
+      {
+        "path": "packages/docs/src/assets/vue-devtools-architecture.drawio",
+        "size": 2901
+      },
+      {
+        "path": "packages/docs/src/assets/vue-devtools-architecture.png",
+        "size": 65800
+      },
+      {
+        "path": "packages/docs/src/assets/vue-devtools-architecture.svg",
+        "size": 60939
+      },
+      {
+        "path": "packages/docs/src/components/InstallButton.vue",
+        "size": 485
+      },
+      {
+        "path": "packages/docs/src/components/InstallButtons.vue",
+        "size": 1031
+      },
+      {
+        "path": "packages/docs/src/devtools-vue3.md",
+        "size": 432
+      },
+      {
+        "path": "packages/docs/src/guide/contributing.md",
+        "size": 4867
+      },
+      {
+        "path": "packages/docs/src/guide/custom-vue2-app-scan-selector.md",
+        "size": 430
+      },
+      {
+        "path": "packages/docs/src/guide/devtools-perf.md",
+        "size": 2894
+      },
+      {
+        "path": "packages/docs/src/guide/faq.md",
+        "size": 3206
+      },
+      {
+        "path": "packages/docs/src/guide/installation.md",
+        "size": 6153
+      },
+      {
+        "path": "packages/docs/src/guide/open-in-editor.md",
+        "size": 1826
+      },
+      {
+        "path": "packages/docs/src/index.md",
+        "size": 420
+      },
+      {
+        "path": "packages/docs/src/plugin/api-reference.md",
+        "size": 20846
+      },
+      {
+        "path": "packages/docs/src/plugin/plugins-guide.md",
+        "size": 31839
+      },
+      {
+        "path": "packages/docs/src/public/favicon.png",
+        "size": 18305
+      },
+      {
+        "path": "packages/docs/src/public/favicon.svg",
+        "size": 1164
+      },
+      {
+        "path": "packages/docs/src/public/logo-chrome.svg",
+        "size": 4521
+      },
+      {
+        "path": "packages/docs/src/public/logo-edge.png",
+        "size": 144710
+      },
+      {
+        "path": "packages/docs/src/public/logo-electron.svg",
+        "size": 2440
+      },
+      {
+        "path": "packages/docs/src/public/logo-firefox.svg",
+        "size": 11910
+      },
+      {
+        "path": "packages/docs/src/public/logo-header.svg",
+        "size": 688
+      },
+      {
+        "path": "packages/docs/src/public/logo.png",
+        "size": 15242
+      },
+      {
+        "path": "packages/docs/src/public/logo.svg",
+        "size": 1171
+      },
+      {
+        "path": "packages/docs/src/release.md",
+        "size": 1806
+      },
+      {
+        "path": "packages/docs/tailwind.config.cjs",
+        "size": 291
+      },
+      {
+        "path": "packages/shared-utils/package.json",
+        "size": 495
+      },
+      {
+        "path": "packages/shared-utils/src/backend.ts",
+        "size": 1755
+      },
+      {
+        "path": "packages/shared-utils/src/bridge.ts",
+        "size": 2526
+      },
+      {
+        "path": "packages/shared-utils/src/consts.ts",
+        "size": 5357
+      },
+      {
+        "path": "packages/shared-utils/src/edit.ts",
+        "size": 2138
+      },
+      {
+        "path": "packages/shared-utils/src/env.ts",
+        "size": 1267
+      },
+      {
+        "path": "packages/shared-utils/src/index.ts",
+        "size": 344
+      },
+      {
+        "path": "packages/shared-utils/src/plugin-permissions.ts",
+        "size": 637
+      },
+      {
+        "path": "packages/shared-utils/src/plugin-settings.ts",
+        "size": 897
+      },
+      {
+        "path": "packages/shared-utils/src/raf.ts",
+        "size": 590
+      },
+      {
+        "path": "packages/shared-utils/src/shared-data.ts",
+        "size": 6450
+      },
+      {
+        "path": "packages/shared-utils/src/shell.ts",
+        "size": 185
+      },
+      {
+        "path": "packages/shared-utils/src/storage.ts",
+        "size": 1845
+      },
+      {
+        "path": "packages/shared-utils/src/transfer.ts",
+        "size": 3236
+      },
+      {
+        "path": "packages/shared-utils/src/util.ts",
+        "size": 20646
+      },
+      {
+        "path": "packages/shared-utils/tsconfig.json",
+        "size": 590
+      },
+      {
+        "path": "packages/shell-chrome/devtools-background.html",
+        "size": 78
+      },
+      {
+        "path": "packages/shell-chrome/devtools.html",
+        "size": 384
+      },
+      {
+        "path": "packages/shell-chrome/icons/128-beta.png",
+        "size": 4620
+      },
+      {
+        "path": "packages/shell-chrome/icons/128-gray.png",
+        "size": 4012
+      },
+      {
+        "path": "packages/shell-chrome/icons/128.nuxt.png",
+        "size": 2264
+      },
+      {
+        "path": "packages/shell-chrome/icons/128.png",
+        "size": 5269
+      },
+      {
+        "path": "packages/shell-chrome/icons/16-beta.png",
+        "size": 644
+      },
+      {
+        "path": "packages/shell-chrome/icons/16-gray.png",
+        "size": 1500
+      },
+      {
+        "path": "packages/shell-chrome/icons/16.nuxt.png",
+        "size": 441
+      },
+      {
+        "path": "packages/shell-chrome/icons/16.png",
+        "size": 1603
+      },
+      {
+        "path": "packages/shell-chrome/icons/48-beta.png",
+        "size": 1747
+      },
+      {
+        "path": "packages/shell-chrome/icons/48-gray.png",
+        "size": 2253
+      },
+      {
+        "path": "packages/shell-chrome/icons/48.nuxt.png",
+        "size": 968
+      },
+      {
+        "path": "packages/shell-chrome/icons/48.png",
+        "size": 2752
+      },
+      {
+        "path": "packages/shell-chrome/manifest.json",
+        "size": 1219
+      },
+      {
+        "path": "packages/shell-chrome/package.json",
+        "size": 476
+      },
+      {
+        "path": "packages/shell-chrome/popups/devtools-screenshot.png",
+        "size": 11306
+      },
+      {
+        "path": "packages/shell-chrome/popups/disabled.html",
+        "size": 260
+      },
+      {
+        "path": "packages/shell-chrome/popups/disabled.nuxt.html",
+        "size": 267
+      },
+      {
+        "path": "packages/shell-chrome/popups/enabled.html",
+        "size": 495
+      },
+      {
+        "path": "packages/shell-chrome/popups/enabled.nuxt.html",
+        "size": 502
+      },
+      {
+        "path": "packages/shell-chrome/popups/not-found.html",
+        "size": 155
+      },
+      {
+        "path": "packages/shell-chrome/popups/popup.css",
+        "size": 673
+      },
+      {
+        "path": "packages/shell-chrome/src/backend.js",
+        "size": 1393
+      },
+      {
+        "path": "packages/shell-chrome/src/background.js",
+        "size": 3290
+      },
+      {
+        "path": "packages/shell-chrome/src/detector.js",
+        "size": 2401
+      },
+      {
+        "path": "packages/shell-chrome/src/devtools-background.js",
+        "size": 1333
+      },
+      {
+        "path": "packages/shell-chrome/src/devtools.js",
+        "size": 2797
+      },
+      {
+        "path": "packages/shell-chrome/src/hook.js",
+        "size": 589
+      },
+      {
+        "path": "packages/shell-chrome/src/proxy.js",
+        "size": 1079
+      },
+      {
+        "path": "packages/shell-chrome/webpack.config.js",
+        "size": 573
+      },
+      {
+        "path": "packages/shell-dev-vue2/package.json",
+        "size": 455
+      },
+      {
+        "path": "packages/shell-dev-vue2/public/target-electron.html",
+        "size": 274
+      },
+      {
+        "path": "packages/shell-dev-vue2/public/target-iframe.html",
+        "size": 279
+      },
+      {
+        "path": "packages/shell-dev-vue2/public/target.html",
+        "size": 354
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/Child.vue",
+        "size": 196
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/Counter.vue",
+        "size": 5553
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/EventChild.vue",
+        "size": 1392
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/EventChild1.vue",
+        "size": 254
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/EventChildCond.vue",
+        "size": 552
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/Events.vue",
+        "size": 752
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/Functional.vue",
+        "size": 91
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/Hidden.vue",
+        "size": 137
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/Init.vue",
+        "size": 292
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/MyClass.js",
+        "size": 76
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/NativeTypes.vue",
+        "size": 4421
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/NoProp.vue",
+        "size": 152
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/Other.vue",
+        "size": 1236
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/RefTester.vue",
+        "size": 365
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/Target.vue",
+        "size": 2327
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/TransitionExample.vue",
+        "size": 1159
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/VuexObject.vue",
+        "size": 255
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/dynamic-module.js",
+        "size": 879
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/iframe-app.js",
+        "size": 116
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/index.js",
+        "size": 1996
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/router.js",
+        "size": 1893
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/router/ChildRoute.vue",
+        "size": 86
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/router/NamedRoute.vue",
+        "size": 108
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/router/ParentRoute.vue",
+        "size": 149
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/router/RouteOne.vue",
+        "size": 110
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/router/RouteTwo.vue",
+        "size": 110
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/router/RouteWithAlias.vue",
+        "size": 118
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/router/RouteWithBeforeEnter.vue",
+        "size": 120
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/router/RouteWithParams.vue",
+        "size": 188
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/router/RouteWithProps.vue",
+        "size": 294
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/router/RouteWithQuery.vue",
+        "size": 138
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/router/Router.vue",
+        "size": 1896
+      },
+      {
+        "path": "packages/shell-dev-vue2/src/store.js",
+        "size": 2574
+      },
+      {
+        "path": "packages/shell-dev-vue2/webpack.config.js",
+        "size": 947
+      },
+      {
+        "path": "packages/shell-dev-vue3/package.json",
+        "size": 683
+      },
+      {
+        "path": "packages/shell-dev-vue3/public/target-iframe.html",
+        "size": 279
+      },
+      {
+        "path": "packages/shell-dev-vue3/public/target.html",
+        "size": 609
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/Animation.vue",
+        "size": 796
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/App.vue",
+        "size": 3521
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/App3.vue",
+        "size": 331
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/AsyncComponent.vue",
+        "size": 435
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/AsyncSetup.vue",
+        "size": 480
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/Child.vue",
+        "size": 1510
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/Condition.vue",
+        "size": 542
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/DomOrder.vue",
+        "size": 522
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/EventEmit.vue",
+        "size": 235
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/EventNesting.vue",
+        "size": 435
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/Form.vue",
+        "size": 473
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/FormSection.vue",
+        "size": 215
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/Functional.vue",
+        "size": 213
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/Ghost.vue",
+        "size": 164
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/Heavy.vue",
+        "size": 621
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/Hello.vue",
+        "size": 40
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/IframeApp.vue",
+        "size": 328
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/Mixins.vue",
+        "size": 1862
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/NativeTypes.vue",
+        "size": 3531
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/Nested.vue",
+        "size": 616
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/NestedMore.vue",
+        "size": 377
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/Other.vue",
+        "size": 1262
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/Provide.vue",
+        "size": 1139
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/SetupDataLike.vue",
+        "size": 204
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/SetupRender.js",
+        "size": 248
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/SetupScript.vue",
+        "size": 705
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/SetupTSScriptProps.vue",
+        "size": 169
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/SuspenseExample.vue",
+        "size": 327
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/VModelExample.vue",
+        "size": 193
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/devtools-plugin/index.js",
+        "size": 9848
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/devtools-plugin/simple.js",
+        "size": 442
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/iframe-app.js",
+        "size": 108
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/main.js",
+        "size": 1392
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/router/Page1.vue",
+        "size": 32
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/router/Page2.vue",
+        "size": 32
+      },
+      {
+        "path": "packages/shell-dev-vue3/src/store.js",
+        "size": 1039
+      },
+      {
+        "path": "packages/shell-dev-vue3/webpack.config.js",
+        "size": 1308
+      },
+      {
+        "path": "packages/shell-electron/README.md",
+        "size": 4308
+      },
+      {
+        "path": "packages/shell-electron/app.html",
+        "size": 2440
+      },
+      {
+        "path": "packages/shell-electron/app.js",
+        "size": 824
+      },
+      {
+        "path": "packages/shell-electron/bin.js",
+        "size": 266
+      },
+      {
+        "path": "packages/shell-electron/icons/128.png",
+        "size": 5269
+      },
+      {
+        "path": "packages/shell-electron/index.js",
+        "size": 816
+      },
+      {
+        "path": "packages/shell-electron/package.json",
+        "size": 1520
+      },
+      {
+        "path": "packages/shell-electron/server.js",
+        "size": 1219
+      },
+      {
+        "path": "packages/shell-electron/src/backend.js",
+        "size": 1572
+      },
+      {
+        "path": "packages/shell-electron/src/devtools.js",
+        "size": 1243
+      },
+      {
+        "path": "packages/shell-electron/src/hook.js",
+        "size": 114
+      },
+      {
+        "path": "packages/shell-electron/types/index.d.ts",
+        "size": 67
+      },
+      {
+        "path": "packages/shell-electron/webpack.config.js",
+        "size": 431
+      },
+      {
+        "path": "packages/shell-electron/webpack.node.config.js",
+        "size": 609
+      },
+      {
+        "path": "packages/shell-host/package.json",
+        "size": 476
+      },
+      {
+        "path": "packages/shell-host/public/favicon.svg",
+        "size": 1164
+      },
+      {
+        "path": "packages/shell-host/public/index.html",
+        "size": 872
+      },
+      {
+        "path": "packages/shell-host/src/DevIframe.vue",
+        "size": 5693
+      },
+      {
+        "path": "packages/shell-host/src/backend.js",
+        "size": 403
+      },
+      {
+        "path": "packages/shell-host/src/devtools.js",
+        "size": 123
+      },
+      {
+        "path": "packages/shell-host/src/hook.js",
+        "size": 62
+      },
+      {
+        "path": "packages/shell-host/webpack.config.js",
+        "size": 482
+      },
+      {
+        "path": "postcss.config.js",
+        "size": 263
+      },
+      {
+        "path": "release.js",
+        "size": 2245
+      },
+      {
+        "path": "sign-firefox.js",
+        "size": 898
+      },
+      {
+        "path": "tailwind.config.js",
+        "size": 2713
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 830
+      },
+      {
+        "path": "vue1-test.html",
+        "size": 1892
+      },
+      {
+        "path": "yarn.lock",
+        "size": 539081
+      }
+    ],
+    "tree": {
+      "name": "devtools",
+      "children": [
+        {
+          "name": ".circleci",
+          "children": [
+            {
+              "name": "config.yml",
+              "size": 838,
+              "path": ".circleci/config.yml"
+            }
+          ],
+          "path": ".circleci"
+        },
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "ISSUE_TEMPLATE",
+              "children": [
+                {
+                  "name": "bug_report.yml",
+                  "size": 3391,
+                  "path": ".github/ISSUE_TEMPLATE/bug_report.yml"
+                },
+                {
+                  "name": "config.yml",
+                  "size": 669,
+                  "path": ".github/ISSUE_TEMPLATE/config.yml"
+                },
+                {
+                  "name": "feature_request.yml",
+                  "size": 1145,
+                  "path": ".github/ISSUE_TEMPLATE/feature_request.yml"
+                }
+              ],
+              "path": ".github/ISSUE_TEMPLATE"
+            },
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "create-release.yml",
+                  "size": 477,
+                  "path": ".github/workflows/create-release.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            },
+            {
+              "name": "FUNDING.yml",
+              "size": 15,
+              "path": ".github/FUNDING.yml"
+            },
+            {
+              "name": "PULL_REQUEST_TEMPLATE.md",
+              "size": 1162,
+              "path": ".github/PULL_REQUEST_TEMPLATE.md"
+            },
+            {
+              "name": "commit-convention.md",
+              "size": 2902,
+              "path": ".github/commit-convention.md"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 54,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "cypress",
+          "children": [
+            {
+              "name": "fixtures",
+              "children": [
+                {
+                  "name": "example.json",
+                  "size": 154,
+                  "path": "cypress/fixtures/example.json"
+                }
+              ],
+              "path": "cypress/fixtures"
+            },
+            {
+              "name": "integration",
+              "children": [
+                {
+                  "name": "component-data-edit.js",
+                  "size": 4345,
+                  "path": "cypress/integration/component-data-edit.js"
+                },
+                {
+                  "name": "components-tab.js",
+                  "size": 5294,
+                  "path": "cypress/integration/components-tab.js"
+                },
+                {
+                  "name": "events-tab.js",
+                  "size": 1383,
+                  "path": "cypress/integration/events-tab.js"
+                },
+                {
+                  "name": "vuex-edit.js",
+                  "size": 3426,
+                  "path": "cypress/integration/vuex-edit.js"
+                },
+                {
+                  "name": "vuex-tab.js",
+                  "size": 8721,
+                  "path": "cypress/integration/vuex-tab.js"
+                }
+              ],
+              "path": "cypress/integration"
+            },
+            {
+              "name": "plugins",
+              "children": [
+                {
+                  "name": "index.js",
+                  "size": 836,
+                  "path": "cypress/plugins/index.js"
+                }
+              ],
+              "path": "cypress/plugins"
+            },
+            {
+              "name": "support",
+              "children": [
+                {
+                  "name": "commands.js",
+                  "size": 1662,
+                  "path": "cypress/support/commands.js"
+                },
+                {
+                  "name": "index.js",
+                  "size": 670,
+                  "path": "cypress/support/index.js"
+                }
+              ],
+              "path": "cypress/support"
+            },
+            {
+              "name": "utils",
+              "children": [
+                {
+                  "name": "suite.js",
+                  "size": 166,
+                  "path": "cypress/utils/suite.js"
+                }
+              ],
+              "path": "cypress/utils"
+            },
+            {
+              "name": ".eslintrc.js",
+              "size": 149,
+              "path": "cypress/.eslintrc.js"
+            },
+            {
+              "name": ".gitignore",
+              "size": 21,
+              "path": "cypress/.gitignore"
+            }
+          ],
+          "path": "cypress"
+        },
+        {
+          "name": "dist",
+          "children": [
+            {
+              "name": ".gitkeep",
+              "size": 0,
+              "path": "dist/.gitkeep"
+            }
+          ],
+          "path": "dist"
+        },
+        {
+          "name": "media",
+          "children": [
+            {
+              "name": "chrome-webstore",
+              "children": [
+                {
+                  "name": "screenshot1-size.png",
+                  "size": 129791,
+                  "path": "media/chrome-webstore/screenshot1-size.png"
+                },
+                {
+                  "name": "screenshot1.png",
+                  "size": 120080,
+                  "path": "media/chrome-webstore/screenshot1.png"
+                },
+                {
+                  "name": "screenshot2-size.png",
+                  "size": 70583,
+                  "path": "media/chrome-webstore/screenshot2-size.png"
+                },
+                {
+                  "name": "screenshot2.png",
+                  "size": 62299,
+                  "path": "media/chrome-webstore/screenshot2.png"
+                },
+                {
+                  "name": "screenshot3-size.png",
+                  "size": 90040,
+                  "path": "media/chrome-webstore/screenshot3-size.png"
+                },
+                {
+                  "name": "screenshot3.png",
+                  "size": 81485,
+                  "path": "media/chrome-webstore/screenshot3.png"
+                },
+                {
+                  "name": "screenshot4-size.png",
+                  "size": 56391,
+                  "path": "media/chrome-webstore/screenshot4-size.png"
+                },
+                {
+                  "name": "screenshot4.png",
+                  "size": 49221,
+                  "path": "media/chrome-webstore/screenshot4.png"
+                }
+              ],
+              "path": "media/chrome-webstore"
+            },
+            {
+              "name": "screenshot-rounded.png",
+              "size": 159951,
+              "path": "media/screenshot-rounded.png"
+            },
+            {
+              "name": "screenshot-shadow.png",
+              "size": 165677,
+              "path": "media/screenshot-shadow.png"
+            },
+            {
+              "name": "screenshot.png",
+              "size": 152023,
+              "path": "media/screenshot.png"
+            }
+          ],
+          "path": "media"
+        },
+        {
+          "name": "packages",
+          "children": [
+            {
+              "name": "api",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "api",
+                      "children": [
+                        {
+                          "name": "api.ts",
+                          "size": 3284,
+                          "path": "packages/api/src/api/api.ts"
+                        },
+                        {
+                          "name": "app.ts",
+                          "size": 31,
+                          "path": "packages/api/src/api/app.ts"
+                        },
+                        {
+                          "name": "component.ts",
+                          "size": 1953,
+                          "path": "packages/api/src/api/component.ts"
+                        },
+                        {
+                          "name": "context.ts",
+                          "size": 123,
+                          "path": "packages/api/src/api/context.ts"
+                        },
+                        {
+                          "name": "hooks.ts",
+                          "size": 6677,
+                          "path": "packages/api/src/api/hooks.ts"
+                        },
+                        {
+                          "name": "index.ts",
+                          "size": 163,
+                          "path": "packages/api/src/api/index.ts"
+                        },
+                        {
+                          "name": "util.ts",
+                          "size": 71,
+                          "path": "packages/api/src/api/util.ts"
+                        }
+                      ],
+                      "path": "packages/api/src/api"
+                    },
+                    {
+                      "name": "const.ts",
+                      "size": 112,
+                      "path": "packages/api/src/const.ts"
+                    },
+                    {
+                      "name": "env.ts",
+                      "size": 740,
+                      "path": "packages/api/src/env.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 2056,
+                      "path": "packages/api/src/index.ts"
+                    },
+                    {
+                      "name": "plugin.ts",
+                      "size": 1179,
+                      "path": "packages/api/src/plugin.ts"
+                    },
+                    {
+                      "name": "proxy.ts",
+                      "size": 3296,
+                      "path": "packages/api/src/proxy.ts"
+                    },
+                    {
+                      "name": "time.ts",
+                      "size": 566,
+                      "path": "packages/api/src/time.ts"
+                    }
+                  ],
+                  "path": "packages/api/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 971,
+                  "path": "packages/api/package.json"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "size": 612,
+                  "path": "packages/api/tsconfig.json"
+                }
+              ],
+              "path": "packages/api"
+            },
+            {
+              "name": "app-backend-api",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "api.ts",
+                      "size": 10858,
+                      "path": "packages/app-backend-api/src/api.ts"
+                    },
+                    {
+                      "name": "app-record.ts",
+                      "size": 744,
+                      "path": "packages/app-backend-api/src/app-record.ts"
+                    },
+                    {
+                      "name": "backend-context.ts",
+                      "size": 1847,
+                      "path": "packages/app-backend-api/src/backend-context.ts"
+                    },
+                    {
+                      "name": "backend.ts",
+                      "size": 873,
+                      "path": "packages/app-backend-api/src/backend.ts"
+                    },
+                    {
+                      "name": "global-hook.ts",
+                      "size": 415,
+                      "path": "packages/app-backend-api/src/global-hook.ts"
+                    },
+                    {
+                      "name": "hooks.ts",
+                      "size": 6071,
+                      "path": "packages/app-backend-api/src/hooks.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 190,
+                      "path": "packages/app-backend-api/src/index.ts"
+                    },
+                    {
+                      "name": "plugin.ts",
+                      "size": 168,
+                      "path": "packages/app-backend-api/src/plugin.ts"
+                    }
+                  ],
+                  "path": "packages/app-backend-api/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 500,
+                  "path": "packages/app-backend-api/package.json"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "size": 590,
+                  "path": "packages/app-backend-api/tsconfig.json"
+                }
+              ],
+              "path": "packages/app-backend-api"
+            },
+            {
+              "name": "app-backend-core",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "legacy",
+                      "children": [
+                        {
+                          "name": "scan.ts",
+                          "size": 2475,
+                          "path": "packages/app-backend-core/src/legacy/scan.ts"
+                        }
+                      ],
+                      "path": "packages/app-backend-core/src/legacy"
+                    },
+                    {
+                      "name": "util",
+                      "children": [
+                        {
+                          "name": "queue.ts",
+                          "size": 808,
+                          "path": "packages/app-backend-core/src/util/queue.ts"
+                        },
+                        {
+                          "name": "subscriptions.ts",
+                          "size": 1041,
+                          "path": "packages/app-backend-core/src/util/subscriptions.ts"
+                        }
+                      ],
+                      "path": "packages/app-backend-core/src/util"
+                    },
+                    {
+                      "name": "app.ts",
+                      "size": 7481,
+                      "path": "packages/app-backend-core/src/app.ts"
+                    },
+                    {
+                      "name": "backend.ts",
+                      "size": 997,
+                      "path": "packages/app-backend-core/src/backend.ts"
+                    },
+                    {
+                      "name": "component-pick.ts",
+                      "size": 3422,
+                      "path": "packages/app-backend-core/src/component-pick.ts"
+                    },
+                    {
+                      "name": "component.ts",
+                      "size": 5118,
+                      "path": "packages/app-backend-core/src/component.ts"
+                    },
+                    {
+                      "name": "flash.ts",
+                      "size": 1408,
+                      "path": "packages/app-backend-core/src/flash.ts"
+                    },
+                    {
+                      "name": "global-hook.ts",
+                      "size": 240,
+                      "path": "packages/app-backend-core/src/global-hook.ts"
+                    },
+                    {
+                      "name": "highlighter.ts",
+                      "size": 5476,
+                      "path": "packages/app-backend-core/src/highlighter.ts"
+                    },
+                    {
+                      "name": "hook.ts",
+                      "size": 19141,
+                      "path": "packages/app-backend-core/src/hook.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 21507,
+                      "path": "packages/app-backend-core/src/index.ts"
+                    },
+                    {
+                      "name": "inspector.ts",
+                      "size": 2871,
+                      "path": "packages/app-backend-core/src/inspector.ts"
+                    },
+                    {
+                      "name": "page-config.ts",
+                      "size": 651,
+                      "path": "packages/app-backend-core/src/page-config.ts"
+                    },
+                    {
+                      "name": "perf.ts",
+                      "size": 4924,
+                      "path": "packages/app-backend-core/src/perf.ts"
+                    },
+                    {
+                      "name": "plugin.ts",
+                      "size": 2529,
+                      "path": "packages/app-backend-core/src/plugin.ts"
+                    },
+                    {
+                      "name": "timeline-builtins.ts",
+                      "size": 3357,
+                      "path": "packages/app-backend-core/src/timeline-builtins.ts"
+                    },
+                    {
+                      "name": "timeline-marker.ts",
+                      "size": 1520,
+                      "path": "packages/app-backend-core/src/timeline-marker.ts"
+                    },
+                    {
+                      "name": "timeline-screenshot.ts",
+                      "size": 3438,
+                      "path": "packages/app-backend-core/src/timeline-screenshot.ts"
+                    },
+                    {
+                      "name": "timeline.ts",
+                      "size": 6738,
+                      "path": "packages/app-backend-core/src/timeline.ts"
+                    },
+                    {
+                      "name": "toast.ts",
+                      "size": 47,
+                      "path": "packages/app-backend-core/src/toast.ts"
+                    }
+                  ],
+                  "path": "packages/app-backend-core/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 748,
+                  "path": "packages/app-backend-core/package.json"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "size": 590,
+                  "path": "packages/app-backend-core/tsconfig.json"
+                }
+              ],
+              "path": "packages/app-backend-core"
+            },
+            {
+              "name": "app-backend-vue1",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "index.ts",
+                      "size": 178,
+                      "path": "packages/app-backend-vue1/src/index.ts"
+                    }
+                  ],
+                  "path": "packages/app-backend-vue1/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 506,
+                  "path": "packages/app-backend-vue1/package.json"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "size": 590,
+                  "path": "packages/app-backend-vue1/tsconfig.json"
+                }
+              ],
+              "path": "packages/app-backend-vue1"
+            },
+            {
+              "name": "app-backend-vue2",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "components",
+                      "children": [
+                        {
+                          "name": "data.ts",
+                          "size": 11999,
+                          "path": "packages/app-backend-vue2/src/components/data.ts"
+                        },
+                        {
+                          "name": "el.ts",
+                          "size": 3057,
+                          "path": "packages/app-backend-vue2/src/components/el.ts"
+                        },
+                        {
+                          "name": "perf.ts",
+                          "size": 1581,
+                          "path": "packages/app-backend-vue2/src/components/perf.ts"
+                        },
+                        {
+                          "name": "tree.ts",
+                          "size": 10936,
+                          "path": "packages/app-backend-vue2/src/components/tree.ts"
+                        },
+                        {
+                          "name": "update-tracking.ts",
+                          "size": 1427,
+                          "path": "packages/app-backend-vue2/src/components/update-tracking.ts"
+                        },
+                        {
+                          "name": "util.ts",
+                          "size": 1240,
+                          "path": "packages/app-backend-vue2/src/components/util.ts"
+                        }
+                      ],
+                      "path": "packages/app-backend-vue2/src/components"
+                    },
+                    {
+                      "name": "events.ts",
+                      "size": 1116,
+                      "path": "packages/app-backend-vue2/src/events.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 3687,
+                      "path": "packages/app-backend-vue2/src/index.ts"
+                    },
+                    {
+                      "name": "plugin.ts",
+                      "size": 14459,
+                      "path": "packages/app-backend-vue2/src/plugin.ts"
+                    }
+                  ],
+                  "path": "packages/app-backend-vue2/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 628,
+                  "path": "packages/app-backend-vue2/package.json"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "size": 590,
+                  "path": "packages/app-backend-vue2/tsconfig.json"
+                }
+              ],
+              "path": "packages/app-backend-vue2"
+            },
+            {
+              "name": "app-backend-vue3",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "components",
+                      "children": [
+                        {
+                          "name": "data.ts",
+                          "size": 12910,
+                          "path": "packages/app-backend-vue3/src/components/data.ts"
+                        },
+                        {
+                          "name": "el.ts",
+                          "size": 3519,
+                          "path": "packages/app-backend-vue3/src/components/el.ts"
+                        },
+                        {
+                          "name": "filter.ts",
+                          "size": 543,
+                          "path": "packages/app-backend-vue3/src/components/filter.ts"
+                        },
+                        {
+                          "name": "tree.ts",
+                          "size": 8267,
+                          "path": "packages/app-backend-vue3/src/components/tree.ts"
+                        },
+                        {
+                          "name": "util.ts",
+                          "size": 2754,
+                          "path": "packages/app-backend-vue3/src/components/util.ts"
+                        }
+                      ],
+                      "path": "packages/app-backend-vue3/src/components"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 3596,
+                      "path": "packages/app-backend-vue3/src/index.ts"
+                    },
+                    {
+                      "name": "util.ts",
+                      "size": 569,
+                      "path": "packages/app-backend-vue3/src/util.ts"
+                    }
+                  ],
+                  "path": "packages/app-backend-vue3/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 548,
+                  "path": "packages/app-backend-vue3/package.json"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "size": 590,
+                  "path": "packages/app-backend-vue3/tsconfig.json"
+                }
+              ],
+              "path": "packages/app-backend-vue3"
+            },
+            {
+              "name": "app-frontend",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "assets",
+                      "children": [
+                        {
+                          "name": "github-theme",
+                          "children": [
+                            {
+                              "name": "dark.json",
+                              "size": 15171,
+                              "path": "packages/app-frontend/src/assets/github-theme/dark.json"
+                            },
+                            {
+                              "name": "light.json",
+                              "size": 14958,
+                              "path": "packages/app-frontend/src/assets/github-theme/light.json"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/assets/github-theme"
+                        },
+                        {
+                          "name": "style",
+                          "children": [
+                            {
+                              "name": "imports.styl",
+                              "size": 57,
+                              "path": "packages/app-frontend/src/assets/style/imports.styl"
+                            },
+                            {
+                              "name": "index.postcss",
+                              "size": 264,
+                              "path": "packages/app-frontend/src/assets/style/index.postcss"
+                            },
+                            {
+                              "name": "index.styl",
+                              "size": 3090,
+                              "path": "packages/app-frontend/src/assets/style/index.styl"
+                            },
+                            {
+                              "name": "transitions.styl",
+                              "size": 372,
+                              "path": "packages/app-frontend/src/assets/style/transitions.styl"
+                            },
+                            {
+                              "name": "variables.styl",
+                              "size": 1739,
+                              "path": "packages/app-frontend/src/assets/style/variables.styl"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/assets/style"
+                        },
+                        {
+                          "name": "welcome",
+                          "children": [
+                            {
+                              "name": "app-selector.png",
+                              "size": 60537,
+                              "path": "packages/app-frontend/src/assets/welcome/app-selector.png"
+                            },
+                            {
+                              "name": "components-menu.png",
+                              "size": 51404,
+                              "path": "packages/app-frontend/src/assets/welcome/components-menu.png"
+                            },
+                            {
+                              "name": "components-pinia.png",
+                              "size": 69074,
+                              "path": "packages/app-frontend/src/assets/welcome/components-pinia.png"
+                            },
+                            {
+                              "name": "components.png",
+                              "size": 86510,
+                              "path": "packages/app-frontend/src/assets/welcome/components.png"
+                            },
+                            {
+                              "name": "inspector-pinia.png",
+                              "size": 32196,
+                              "path": "packages/app-frontend/src/assets/welcome/inspector-pinia.png"
+                            },
+                            {
+                              "name": "inspector-pinia2.png",
+                              "size": 34779,
+                              "path": "packages/app-frontend/src/assets/welcome/inspector-pinia2.png"
+                            },
+                            {
+                              "name": "main-tabs.png",
+                              "size": 11335,
+                              "path": "packages/app-frontend/src/assets/welcome/main-tabs.png"
+                            },
+                            {
+                              "name": "settings-pinia.png",
+                              "size": 48700,
+                              "path": "packages/app-frontend/src/assets/welcome/settings-pinia.png"
+                            },
+                            {
+                              "name": "timeline-perf.png",
+                              "size": 47390,
+                              "path": "packages/app-frontend/src/assets/welcome/timeline-perf.png"
+                            },
+                            {
+                              "name": "timeline-perf2.png",
+                              "size": 94804,
+                              "path": "packages/app-frontend/src/assets/welcome/timeline-perf2.png"
+                            },
+                            {
+                              "name": "timeline-pinia.png",
+                              "size": 71481,
+                              "path": "packages/app-frontend/src/assets/welcome/timeline-pinia.png"
+                            },
+                            {
+                              "name": "timeline-router.png",
+                              "size": 64842,
+                              "path": "packages/app-frontend/src/assets/welcome/timeline-router.png"
+                            },
+                            {
+                              "name": "timeline.png",
+                              "size": 35754,
+                              "path": "packages/app-frontend/src/assets/welcome/timeline.png"
+                            },
+                            {
+                              "name": "version-check.png",
+                              "size": 19681,
+                              "path": "packages/app-frontend/src/assets/welcome/version-check.png"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/assets/welcome"
+                        },
+                        {
+                          "name": "MaterialIcons-Regular.woff2",
+                          "size": 44300,
+                          "path": "packages/app-frontend/src/assets/MaterialIcons-Regular.woff2"
+                        },
+                        {
+                          "name": "Roboto-Mono.ttf",
+                          "size": 182172,
+                          "path": "packages/app-frontend/src/assets/Roboto-Mono.ttf"
+                        },
+                        {
+                          "name": "Roboto-Regular.woff2",
+                          "size": 64632,
+                          "path": "packages/app-frontend/src/assets/Roboto-Regular.woff2"
+                        },
+                        {
+                          "name": "breadcrumb-separator.svg",
+                          "size": 144,
+                          "path": "packages/app-frontend/src/assets/breadcrumb-separator.svg"
+                        },
+                        {
+                          "name": "devtools-logo.svg",
+                          "size": 1286,
+                          "path": "packages/app-frontend/src/assets/devtools-logo.svg"
+                        },
+                        {
+                          "name": "undraw_Gift_box.svg",
+                          "size": 7388,
+                          "path": "packages/app-frontend/src/assets/undraw_Gift_box.svg"
+                        },
+                        {
+                          "name": "vue-logo-beta.svg",
+                          "size": 3752,
+                          "path": "packages/app-frontend/src/assets/vue-logo-beta.svg"
+                        },
+                        {
+                          "name": "vue-logo.svg",
+                          "size": 2325,
+                          "path": "packages/app-frontend/src/assets/vue-logo.svg"
+                        }
+                      ],
+                      "path": "packages/app-frontend/src/assets"
+                    },
+                    {
+                      "name": "features",
+                      "children": [
+                        {
+                          "name": "apps",
+                          "children": [
+                            {
+                              "name": "AppSelect.vue",
+                              "size": 3517,
+                              "path": "packages/app-frontend/src/features/apps/AppSelect.vue"
+                            },
+                            {
+                              "name": "AppSelectItem.vue",
+                              "size": 1809,
+                              "path": "packages/app-frontend/src/features/apps/AppSelectItem.vue"
+                            },
+                            {
+                              "name": "AppSelectPane.vue",
+                              "size": 2787,
+                              "path": "packages/app-frontend/src/features/apps/AppSelectPane.vue"
+                            },
+                            {
+                              "name": "AppSelectPaneItem.vue",
+                              "size": 2139,
+                              "path": "packages/app-frontend/src/features/apps/AppSelectPaneItem.vue"
+                            },
+                            {
+                              "name": "index.ts",
+                              "size": 2459,
+                              "path": "packages/app-frontend/src/features/apps/index.ts"
+                            },
+                            {
+                              "name": "vue-version-check.ts",
+                              "size": 859,
+                              "path": "packages/app-frontend/src/features/apps/vue-version-check.ts"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/apps"
+                        },
+                        {
+                          "name": "bridge",
+                          "children": [
+                            {
+                              "name": "index.ts",
+                              "size": 1056,
+                              "path": "packages/app-frontend/src/features/bridge/index.ts"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/bridge"
+                        },
+                        {
+                          "name": "chrome",
+                          "children": [
+                            {
+                              "name": "index.ts",
+                              "size": 34,
+                              "path": "packages/app-frontend/src/features/chrome/index.ts"
+                            },
+                            {
+                              "name": "pane-visibility.ts",
+                              "size": 633,
+                              "path": "packages/app-frontend/src/features/chrome/pane-visibility.ts"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/chrome"
+                        },
+                        {
+                          "name": "code",
+                          "children": [
+                            {
+                              "name": "CodeEditor.vue",
+                              "size": 3599,
+                              "path": "packages/app-frontend/src/features/code/CodeEditor.vue"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/code"
+                        },
+                        {
+                          "name": "components",
+                          "children": [
+                            {
+                              "name": "composable",
+                              "children": [
+                                {
+                                  "name": "components.ts",
+                                  "size": 11603,
+                                  "path": "packages/app-frontend/src/features/components/composable/components.ts"
+                                },
+                                {
+                                  "name": "highlight.ts",
+                                  "size": 615,
+                                  "path": "packages/app-frontend/src/features/components/composable/highlight.ts"
+                                },
+                                {
+                                  "name": "index.ts",
+                                  "size": 104,
+                                  "path": "packages/app-frontend/src/features/components/composable/index.ts"
+                                },
+                                {
+                                  "name": "pick.ts",
+                                  "size": 1168,
+                                  "path": "packages/app-frontend/src/features/components/composable/pick.ts"
+                                },
+                                {
+                                  "name": "setup.ts",
+                                  "size": 2463,
+                                  "path": "packages/app-frontend/src/features/components/composable/setup.ts"
+                                }
+                              ],
+                              "path": "packages/app-frontend/src/features/components/composable"
+                            },
+                            {
+                              "name": "ComponentTreeNode.vue",
+                              "size": 9310,
+                              "path": "packages/app-frontend/src/features/components/ComponentTreeNode.vue"
+                            },
+                            {
+                              "name": "ComponentsInspector.vue",
+                              "size": 6375,
+                              "path": "packages/app-frontend/src/features/components/ComponentsInspector.vue"
+                            },
+                            {
+                              "name": "RenderCode.vue",
+                              "size": 1655,
+                              "path": "packages/app-frontend/src/features/components/RenderCode.vue"
+                            },
+                            {
+                              "name": "SelectedComponentPane.vue",
+                              "size": 4304,
+                              "path": "packages/app-frontend/src/features/components/SelectedComponentPane.vue"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/components"
+                        },
+                        {
+                          "name": "connection",
+                          "children": [
+                            {
+                              "name": "AppConnecting.vue",
+                              "size": 982,
+                              "path": "packages/app-frontend/src/features/connection/AppConnecting.vue"
+                            },
+                            {
+                              "name": "AppDisconnected.vue",
+                              "size": 194,
+                              "path": "packages/app-frontend/src/features/connection/AppDisconnected.vue"
+                            },
+                            {
+                              "name": "index.ts",
+                              "size": 354,
+                              "path": "packages/app-frontend/src/features/connection/index.ts"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/connection"
+                        },
+                        {
+                          "name": "error",
+                          "children": [
+                            {
+                              "name": "ErrorOverlay.vue",
+                              "size": 799,
+                              "path": "packages/app-frontend/src/features/error/ErrorOverlay.vue"
+                            },
+                            {
+                              "name": "index.ts",
+                              "size": 542,
+                              "path": "packages/app-frontend/src/features/error/index.ts"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/error"
+                        },
+                        {
+                          "name": "header",
+                          "children": [
+                            {
+                              "name": "AppHeader.vue",
+                              "size": 6031,
+                              "path": "packages/app-frontend/src/features/header/AppHeader.vue"
+                            },
+                            {
+                              "name": "AppHeaderSelect.vue",
+                              "size": 5864,
+                              "path": "packages/app-frontend/src/features/header/AppHeaderSelect.vue"
+                            },
+                            {
+                              "name": "AppHistoryNav.vue",
+                              "size": 284,
+                              "path": "packages/app-frontend/src/features/header/AppHistoryNav.vue"
+                            },
+                            {
+                              "name": "header.ts",
+                              "size": 69,
+                              "path": "packages/app-frontend/src/features/header/header.ts"
+                            },
+                            {
+                              "name": "tabs.ts",
+                              "size": 386,
+                              "path": "packages/app-frontend/src/features/header/tabs.ts"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/header"
+                        },
+                        {
+                          "name": "inspector",
+                          "children": [
+                            {
+                              "name": "custom",
+                              "children": [
+                                {
+                                  "name": "CustomInspector.vue",
+                                  "size": 4376,
+                                  "path": "packages/app-frontend/src/features/inspector/custom/CustomInspector.vue"
+                                },
+                                {
+                                  "name": "CustomInspectorNode.vue",
+                                  "size": 5377,
+                                  "path": "packages/app-frontend/src/features/inspector/custom/CustomInspectorNode.vue"
+                                },
+                                {
+                                  "name": "CustomInspectorSelectedNodePane.vue",
+                                  "size": 2557,
+                                  "path": "packages/app-frontend/src/features/inspector/custom/CustomInspectorSelectedNodePane.vue"
+                                },
+                                {
+                                  "name": "composable.ts",
+                                  "size": 5714,
+                                  "path": "packages/app-frontend/src/features/inspector/custom/composable.ts"
+                                }
+                              ],
+                              "path": "packages/app-frontend/src/features/inspector/custom"
+                            },
+                            {
+                              "name": "DataField.vue",
+                              "size": 19506,
+                              "path": "packages/app-frontend/src/features/inspector/DataField.vue"
+                            },
+                            {
+                              "name": "StateFields.vue",
+                              "size": 3290,
+                              "path": "packages/app-frontend/src/features/inspector/StateFields.vue"
+                            },
+                            {
+                              "name": "StateInspector.vue",
+                              "size": 2785,
+                              "path": "packages/app-frontend/src/features/inspector/StateInspector.vue"
+                            },
+                            {
+                              "name": "StateType.vue",
+                              "size": 3714,
+                              "path": "packages/app-frontend/src/features/inspector/StateType.vue"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/inspector"
+                        },
+                        {
+                          "name": "layout",
+                          "children": [
+                            {
+                              "name": "EmptyPane.vue",
+                              "size": 454,
+                              "path": "packages/app-frontend/src/features/layout/EmptyPane.vue"
+                            },
+                            {
+                              "name": "SplitPane.vue",
+                              "size": 7980,
+                              "path": "packages/app-frontend/src/features/layout/SplitPane.vue"
+                            },
+                            {
+                              "name": "orientation.ts",
+                              "size": 390,
+                              "path": "packages/app-frontend/src/features/layout/orientation.ts"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/layout"
+                        },
+                        {
+                          "name": "plugin",
+                          "children": [
+                            {
+                              "name": "PluginDetails.vue",
+                              "size": 3437,
+                              "path": "packages/app-frontend/src/features/plugin/PluginDetails.vue"
+                            },
+                            {
+                              "name": "PluginHome.vue",
+                              "size": 1030,
+                              "path": "packages/app-frontend/src/features/plugin/PluginHome.vue"
+                            },
+                            {
+                              "name": "PluginListItem.vue",
+                              "size": 1143,
+                              "path": "packages/app-frontend/src/features/plugin/PluginListItem.vue"
+                            },
+                            {
+                              "name": "PluginPermission.vue",
+                              "size": 922,
+                              "path": "packages/app-frontend/src/features/plugin/PluginPermission.vue"
+                            },
+                            {
+                              "name": "PluginSettings.vue",
+                              "size": 1883,
+                              "path": "packages/app-frontend/src/features/plugin/PluginSettings.vue"
+                            },
+                            {
+                              "name": "PluginSettingsItem.vue",
+                              "size": 2333,
+                              "path": "packages/app-frontend/src/features/plugin/PluginSettingsItem.vue"
+                            },
+                            {
+                              "name": "PluginSourceDescription.vue",
+                              "size": 1296,
+                              "path": "packages/app-frontend/src/features/plugin/PluginSourceDescription.vue"
+                            },
+                            {
+                              "name": "PluginSourceIcon.vue",
+                              "size": 904,
+                              "path": "packages/app-frontend/src/features/plugin/PluginSourceIcon.vue"
+                            },
+                            {
+                              "name": "Plugins.vue",
+                              "size": 2024,
+                              "path": "packages/app-frontend/src/features/plugin/Plugins.vue"
+                            },
+                            {
+                              "name": "index.ts",
+                              "size": 1958,
+                              "path": "packages/app-frontend/src/features/plugin/index.ts"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/plugin"
+                        },
+                        {
+                          "name": "settings",
+                          "children": [
+                            {
+                              "name": "GlobalSettings.vue",
+                              "size": 2062,
+                              "path": "packages/app-frontend/src/features/settings/GlobalSettings.vue"
+                            },
+                            {
+                              "name": "NewTag.vue",
+                              "size": 580,
+                              "path": "packages/app-frontend/src/features/settings/NewTag.vue"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/settings"
+                        },
+                        {
+                          "name": "timeline",
+                          "children": [
+                            {
+                              "name": "composable",
+                              "children": [
+                                {
+                                  "name": "events.ts",
+                                  "size": 4052,
+                                  "path": "packages/app-frontend/src/features/timeline/composable/events.ts"
+                                },
+                                {
+                                  "name": "index.ts",
+                                  "size": 200,
+                                  "path": "packages/app-frontend/src/features/timeline/composable/index.ts"
+                                },
+                                {
+                                  "name": "layers.ts",
+                                  "size": 4077,
+                                  "path": "packages/app-frontend/src/features/timeline/composable/layers.ts"
+                                },
+                                {
+                                  "name": "markers.ts",
+                                  "size": 666,
+                                  "path": "packages/app-frontend/src/features/timeline/composable/markers.ts"
+                                },
+                                {
+                                  "name": "reset.ts",
+                                  "size": 1431,
+                                  "path": "packages/app-frontend/src/features/timeline/composable/reset.ts"
+                                },
+                                {
+                                  "name": "screenshot.ts",
+                                  "size": 2579,
+                                  "path": "packages/app-frontend/src/features/timeline/composable/screenshot.ts"
+                                },
+                                {
+                                  "name": "setup.ts",
+                                  "size": 4225,
+                                  "path": "packages/app-frontend/src/features/timeline/composable/setup.ts"
+                                },
+                                {
+                                  "name": "store.ts",
+                                  "size": 2660,
+                                  "path": "packages/app-frontend/src/features/timeline/composable/store.ts"
+                                },
+                                {
+                                  "name": "time.ts",
+                                  "size": 252,
+                                  "path": "packages/app-frontend/src/features/timeline/composable/time.ts"
+                                }
+                              ],
+                              "path": "packages/app-frontend/src/features/timeline/composable"
+                            },
+                            {
+                              "name": "AskScreenshotPermission.vue",
+                              "size": 1486,
+                              "path": "packages/app-frontend/src/features/timeline/AskScreenshotPermission.vue"
+                            },
+                            {
+                              "name": "LayerItem.vue",
+                              "size": 4801,
+                              "path": "packages/app-frontend/src/features/timeline/LayerItem.vue"
+                            },
+                            {
+                              "name": "Timeline.vue",
+                              "size": 14531,
+                              "path": "packages/app-frontend/src/features/timeline/Timeline.vue"
+                            },
+                            {
+                              "name": "TimelineEventInspector.vue",
+                              "size": 3896,
+                              "path": "packages/app-frontend/src/features/timeline/TimelineEventInspector.vue"
+                            },
+                            {
+                              "name": "TimelineEventList.vue",
+                              "size": 6829,
+                              "path": "packages/app-frontend/src/features/timeline/TimelineEventList.vue"
+                            },
+                            {
+                              "name": "TimelineEventListItem.vue",
+                              "size": 2482,
+                              "path": "packages/app-frontend/src/features/timeline/TimelineEventListItem.vue"
+                            },
+                            {
+                              "name": "TimelineScrollbar.vue",
+                              "size": 5063,
+                              "path": "packages/app-frontend/src/features/timeline/TimelineScrollbar.vue"
+                            },
+                            {
+                              "name": "TimelineView.vue",
+                              "size": 40852,
+                              "path": "packages/app-frontend/src/features/timeline/TimelineView.vue"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/timeline"
+                        },
+                        {
+                          "name": "welcome",
+                          "children": [
+                            {
+                              "name": "WelcomeSlideshow.vue",
+                              "size": 6922,
+                              "path": "packages/app-frontend/src/features/welcome/WelcomeSlideshow.vue"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/features/welcome"
+                        },
+                        {
+                          "name": "App.vue",
+                          "size": 3312,
+                          "path": "packages/app-frontend/src/features/App.vue"
+                        }
+                      ],
+                      "path": "packages/app-frontend/src/features"
+                    },
+                    {
+                      "name": "locales",
+                      "children": [
+                        {
+                          "name": "en.js",
+                          "size": 2915,
+                          "path": "packages/app-frontend/src/locales/en.js"
+                        }
+                      ],
+                      "path": "packages/app-frontend/src/locales"
+                    },
+                    {
+                      "name": "mixins",
+                      "children": [
+                        {
+                          "name": "data-field-edit.js",
+                          "size": 6428,
+                          "path": "packages/app-frontend/src/mixins/data-field-edit.js"
+                        },
+                        {
+                          "name": "entry-list.ts",
+                          "size": 1552,
+                          "path": "packages/app-frontend/src/mixins/entry-list.ts"
+                        },
+                        {
+                          "name": "keyboard.ts",
+                          "size": 1373,
+                          "path": "packages/app-frontend/src/mixins/keyboard.ts"
+                        }
+                      ],
+                      "path": "packages/app-frontend/src/mixins"
+                    },
+                    {
+                      "name": "plugins",
+                      "children": [
+                        {
+                          "name": "global-refs.ts",
+                          "size": 346,
+                          "path": "packages/app-frontend/src/plugins/global-refs.ts"
+                        },
+                        {
+                          "name": "i18n.ts",
+                          "size": 997,
+                          "path": "packages/app-frontend/src/plugins/i18n.ts"
+                        },
+                        {
+                          "name": "index.ts",
+                          "size": 1644,
+                          "path": "packages/app-frontend/src/plugins/index.ts"
+                        },
+                        {
+                          "name": "responsive.ts",
+                          "size": 738,
+                          "path": "packages/app-frontend/src/plugins/responsive.ts"
+                        }
+                      ],
+                      "path": "packages/app-frontend/src/plugins"
+                    },
+                    {
+                      "name": "util",
+                      "children": [
+                        {
+                          "name": "format",
+                          "children": [
+                            {
+                              "name": "index.ts",
+                              "size": 47,
+                              "path": "packages/app-frontend/src/util/format/index.ts"
+                            },
+                            {
+                              "name": "time.ts",
+                              "size": 302,
+                              "path": "packages/app-frontend/src/util/format/time.ts"
+                            },
+                            {
+                              "name": "value.ts",
+                              "size": 2267,
+                              "path": "packages/app-frontend/src/util/format/value.ts"
+                            }
+                          ],
+                          "path": "packages/app-frontend/src/util/format"
+                        },
+                        {
+                          "name": "color.ts",
+                          "size": 582,
+                          "path": "packages/app-frontend/src/util/color.ts"
+                        },
+                        {
+                          "name": "defer.ts",
+                          "size": 485,
+                          "path": "packages/app-frontend/src/util/defer.ts"
+                        },
+                        {
+                          "name": "fonts.ts",
+                          "size": 810,
+                          "path": "packages/app-frontend/src/util/fonts.ts"
+                        },
+                        {
+                          "name": "keyboard.ts",
+                          "size": 957,
+                          "path": "packages/app-frontend/src/util/keyboard.ts"
+                        },
+                        {
+                          "name": "queue.ts",
+                          "size": 972,
+                          "path": "packages/app-frontend/src/util/queue.ts"
+                        },
+                        {
+                          "name": "reactivity.ts",
+                          "size": 796,
+                          "path": "packages/app-frontend/src/util/reactivity.ts"
+                        },
+                        {
+                          "name": "router.ts",
+                          "size": 237,
+                          "path": "packages/app-frontend/src/util/router.ts"
+                        },
+                        {
+                          "name": "shared-data.ts",
+                          "size": 234,
+                          "path": "packages/app-frontend/src/util/shared-data.ts"
+                        },
+                        {
+                          "name": "theme.ts",
+                          "size": 169,
+                          "path": "packages/app-frontend/src/util/theme.ts"
+                        },
+                        {
+                          "name": "time.ts",
+                          "size": 349,
+                          "path": "packages/app-frontend/src/util/time.ts"
+                        }
+                      ],
+                      "path": "packages/app-frontend/src/util"
+                    },
+                    {
+                      "name": "app.ts",
+                      "size": 2657,
+                      "path": "packages/app-frontend/src/app.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 737,
+                      "path": "packages/app-frontend/src/index.ts"
+                    },
+                    {
+                      "name": "router.ts",
+                      "size": 2639,
+                      "path": "packages/app-frontend/src/router.ts"
+                    },
+                    {
+                      "name": "shims-global.d.ts",
+                      "size": 43,
+                      "path": "packages/app-frontend/src/shims-global.d.ts"
+                    },
+                    {
+                      "name": "shims-vue.d.ts",
+                      "size": 119,
+                      "path": "packages/app-frontend/src/shims-vue.d.ts"
+                    }
+                  ],
+                  "path": "packages/app-frontend/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 728,
+                  "path": "packages/app-frontend/package.json"
+                }
+              ],
+              "path": "packages/app-frontend"
+            },
+            {
+              "name": "build-tools",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "createConfig.js",
+                      "size": 5399,
+                      "path": "packages/build-tools/src/createConfig.js"
+                    },
+                    {
+                      "name": "index.js",
+                      "size": 67,
+                      "path": "packages/build-tools/src/index.js"
+                    }
+                  ],
+                  "path": "packages/build-tools/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 824,
+                  "path": "packages/build-tools/package.json"
+                }
+              ],
+              "path": "packages/build-tools"
+            },
+            {
+              "name": "docs",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": ".vitepress",
+                      "children": [
+                        {
+                          "name": "theme",
+                          "children": [
+                            {
+                              "name": "custom.css",
+                              "size": 179,
+                              "path": "packages/docs/src/.vitepress/theme/custom.css"
+                            },
+                            {
+                              "name": "index.js",
+                              "size": 94,
+                              "path": "packages/docs/src/.vitepress/theme/index.js"
+                            }
+                          ],
+                          "path": "packages/docs/src/.vitepress/theme"
+                        },
+                        {
+                          "name": ".gitignore",
+                          "size": 6,
+                          "path": "packages/docs/src/.vitepress/.gitignore"
+                        },
+                        {
+                          "name": "config.js",
+                          "size": 1748,
+                          "path": "packages/docs/src/.vitepress/config.js"
+                        }
+                      ],
+                      "path": "packages/docs/src/.vitepress"
+                    },
+                    {
+                      "name": "assets",
+                      "children": [
+                        {
+                          "name": "chrome-settings1.png",
+                          "size": 34227,
+                          "path": "packages/docs/src/assets/chrome-settings1.png"
+                        },
+                        {
+                          "name": "chrome-settings2.png",
+                          "size": 29730,
+                          "path": "packages/docs/src/assets/chrome-settings2.png"
+                        },
+                        {
+                          "name": "dev-shell-profile-export.png",
+                          "size": 69219,
+                          "path": "packages/docs/src/assets/dev-shell-profile-export.png"
+                        },
+                        {
+                          "name": "dev-shell-profile-start.png",
+                          "size": 47742,
+                          "path": "packages/docs/src/assets/dev-shell-profile-start.png"
+                        },
+                        {
+                          "name": "dev-shell-profile-stop.png",
+                          "size": 31098,
+                          "path": "packages/docs/src/assets/dev-shell-profile-stop.png"
+                        },
+                        {
+                          "name": "dev-shell-url.png",
+                          "size": 105737,
+                          "path": "packages/docs/src/assets/dev-shell-url.png"
+                        },
+                        {
+                          "name": "devtools-version.png",
+                          "size": 18261,
+                          "path": "packages/docs/src/assets/devtools-version.png"
+                        },
+                        {
+                          "name": "edge-settings1.png",
+                          "size": 124760,
+                          "path": "packages/docs/src/assets/edge-settings1.png"
+                        },
+                        {
+                          "name": "edge-settings2.png",
+                          "size": 34998,
+                          "path": "packages/docs/src/assets/edge-settings2.png"
+                        },
+                        {
+                          "name": "firefox-settings1.png",
+                          "size": 39657,
+                          "path": "packages/docs/src/assets/firefox-settings1.png"
+                        },
+                        {
+                          "name": "firefox-settings2.png",
+                          "size": 28508,
+                          "path": "packages/docs/src/assets/firefox-settings2.png"
+                        },
+                        {
+                          "name": "firefox-settings3.png",
+                          "size": 17194,
+                          "path": "packages/docs/src/assets/firefox-settings3.png"
+                        },
+                        {
+                          "name": "open-in-editor.png",
+                          "size": 13335,
+                          "path": "packages/docs/src/assets/open-in-editor.png"
+                        },
+                        {
+                          "name": "plugin-components-tags.png",
+                          "size": 13675,
+                          "path": "packages/docs/src/assets/plugin-components-tags.png"
+                        },
+                        {
+                          "name": "plugin-custom-inspector-menu.png",
+                          "size": 19555,
+                          "path": "packages/docs/src/assets/plugin-custom-inspector-menu.png"
+                        },
+                        {
+                          "name": "plugin-custom-inspector-state.png",
+                          "size": 13081,
+                          "path": "packages/docs/src/assets/plugin-custom-inspector-state.png"
+                        },
+                        {
+                          "name": "plugin-custom-inspector-tree.png",
+                          "size": 8171,
+                          "path": "packages/docs/src/assets/plugin-custom-inspector-tree.png"
+                        },
+                        {
+                          "name": "plugin-settings.png",
+                          "size": 50463,
+                          "path": "packages/docs/src/assets/plugin-settings.png"
+                        },
+                        {
+                          "name": "plugin-timeline-example1.png",
+                          "size": 17720,
+                          "path": "packages/docs/src/assets/plugin-timeline-example1.png"
+                        },
+                        {
+                          "name": "plugin-timeline-example2.png",
+                          "size": 21835,
+                          "path": "packages/docs/src/assets/plugin-timeline-example2.png"
+                        },
+                        {
+                          "name": "plugin-timeline-group-state.png",
+                          "size": 21558,
+                          "path": "packages/docs/src/assets/plugin-timeline-group-state.png"
+                        },
+                        {
+                          "name": "plugin-timeline-group.png",
+                          "size": 13725,
+                          "path": "packages/docs/src/assets/plugin-timeline-group.png"
+                        },
+                        {
+                          "name": "plugin-timeline-layer.png",
+                          "size": 13890,
+                          "path": "packages/docs/src/assets/plugin-timeline-layer.png"
+                        },
+                        {
+                          "name": "pluygin-components-state.png",
+                          "size": 31516,
+                          "path": "packages/docs/src/assets/pluygin-components-state.png"
+                        },
+                        {
+                          "name": "vue-devtools-architecture.drawio",
+                          "size": 2901,
+                          "path": "packages/docs/src/assets/vue-devtools-architecture.drawio"
+                        },
+                        {
+                          "name": "vue-devtools-architecture.png",
+                          "size": 65800,
+                          "path": "packages/docs/src/assets/vue-devtools-architecture.png"
+                        },
+                        {
+                          "name": "vue-devtools-architecture.svg",
+                          "size": 60939,
+                          "path": "packages/docs/src/assets/vue-devtools-architecture.svg"
+                        }
+                      ],
+                      "path": "packages/docs/src/assets"
+                    },
+                    {
+                      "name": "components",
+                      "children": [
+                        {
+                          "name": "InstallButton.vue",
+                          "size": 485,
+                          "path": "packages/docs/src/components/InstallButton.vue"
+                        },
+                        {
+                          "name": "InstallButtons.vue",
+                          "size": 1031,
+                          "path": "packages/docs/src/components/InstallButtons.vue"
+                        }
+                      ],
+                      "path": "packages/docs/src/components"
+                    },
+                    {
+                      "name": "guide",
+                      "children": [
+                        {
+                          "name": "contributing.md",
+                          "size": 4867,
+                          "path": "packages/docs/src/guide/contributing.md"
+                        },
+                        {
+                          "name": "custom-vue2-app-scan-selector.md",
+                          "size": 430,
+                          "path": "packages/docs/src/guide/custom-vue2-app-scan-selector.md"
+                        },
+                        {
+                          "name": "devtools-perf.md",
+                          "size": 2894,
+                          "path": "packages/docs/src/guide/devtools-perf.md"
+                        },
+                        {
+                          "name": "faq.md",
+                          "size": 3206,
+                          "path": "packages/docs/src/guide/faq.md"
+                        },
+                        {
+                          "name": "installation.md",
+                          "size": 6153,
+                          "path": "packages/docs/src/guide/installation.md"
+                        },
+                        {
+                          "name": "open-in-editor.md",
+                          "size": 1826,
+                          "path": "packages/docs/src/guide/open-in-editor.md"
+                        }
+                      ],
+                      "path": "packages/docs/src/guide"
+                    },
+                    {
+                      "name": "plugin",
+                      "children": [
+                        {
+                          "name": "api-reference.md",
+                          "size": 20846,
+                          "path": "packages/docs/src/plugin/api-reference.md"
+                        },
+                        {
+                          "name": "plugins-guide.md",
+                          "size": 31839,
+                          "path": "packages/docs/src/plugin/plugins-guide.md"
+                        }
+                      ],
+                      "path": "packages/docs/src/plugin"
+                    },
+                    {
+                      "name": "public",
+                      "children": [
+                        {
+                          "name": "favicon.png",
+                          "size": 18305,
+                          "path": "packages/docs/src/public/favicon.png"
+                        },
+                        {
+                          "name": "favicon.svg",
+                          "size": 1164,
+                          "path": "packages/docs/src/public/favicon.svg"
+                        },
+                        {
+                          "name": "logo-chrome.svg",
+                          "size": 4521,
+                          "path": "packages/docs/src/public/logo-chrome.svg"
+                        },
+                        {
+                          "name": "logo-edge.png",
+                          "size": 144710,
+                          "path": "packages/docs/src/public/logo-edge.png"
+                        },
+                        {
+                          "name": "logo-electron.svg",
+                          "size": 2440,
+                          "path": "packages/docs/src/public/logo-electron.svg"
+                        },
+                        {
+                          "name": "logo-firefox.svg",
+                          "size": 11910,
+                          "path": "packages/docs/src/public/logo-firefox.svg"
+                        },
+                        {
+                          "name": "logo-header.svg",
+                          "size": 688,
+                          "path": "packages/docs/src/public/logo-header.svg"
+                        },
+                        {
+                          "name": "logo.png",
+                          "size": 15242,
+                          "path": "packages/docs/src/public/logo.png"
+                        },
+                        {
+                          "name": "logo.svg",
+                          "size": 1171,
+                          "path": "packages/docs/src/public/logo.svg"
+                        }
+                      ],
+                      "path": "packages/docs/src/public"
+                    },
+                    {
+                      "name": "devtools-vue3.md",
+                      "size": 432,
+                      "path": "packages/docs/src/devtools-vue3.md"
+                    },
+                    {
+                      "name": "index.md",
+                      "size": 420,
+                      "path": "packages/docs/src/index.md"
+                    },
+                    {
+                      "name": "release.md",
+                      "size": 1806,
+                      "path": "packages/docs/src/release.md"
+                    }
+                  ],
+                  "path": "packages/docs/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 133,
+                  "path": "packages/docs/package.json"
+                },
+                {
+                  "name": "postcss.config.js",
+                  "size": 264,
+                  "path": "packages/docs/postcss.config.js"
+                },
+                {
+                  "name": "tailwind.config.cjs",
+                  "size": 291,
+                  "path": "packages/docs/tailwind.config.cjs"
+                }
+              ],
+              "path": "packages/docs"
+            },
+            {
+              "name": "shared-utils",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "backend.ts",
+                      "size": 1755,
+                      "path": "packages/shared-utils/src/backend.ts"
+                    },
+                    {
+                      "name": "bridge.ts",
+                      "size": 2526,
+                      "path": "packages/shared-utils/src/bridge.ts"
+                    },
+                    {
+                      "name": "consts.ts",
+                      "size": 5357,
+                      "path": "packages/shared-utils/src/consts.ts"
+                    },
+                    {
+                      "name": "edit.ts",
+                      "size": 2138,
+                      "path": "packages/shared-utils/src/edit.ts"
+                    },
+                    {
+                      "name": "env.ts",
+                      "size": 1267,
+                      "path": "packages/shared-utils/src/env.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 344,
+                      "path": "packages/shared-utils/src/index.ts"
+                    },
+                    {
+                      "name": "plugin-permissions.ts",
+                      "size": 637,
+                      "path": "packages/shared-utils/src/plugin-permissions.ts"
+                    },
+                    {
+                      "name": "plugin-settings.ts",
+                      "size": 897,
+                      "path": "packages/shared-utils/src/plugin-settings.ts"
+                    },
+                    {
+                      "name": "raf.ts",
+                      "size": 590,
+                      "path": "packages/shared-utils/src/raf.ts"
+                    },
+                    {
+                      "name": "shared-data.ts",
+                      "size": 6450,
+                      "path": "packages/shared-utils/src/shared-data.ts"
+                    },
+                    {
+                      "name": "shell.ts",
+                      "size": 185,
+                      "path": "packages/shared-utils/src/shell.ts"
+                    },
+                    {
+                      "name": "storage.ts",
+                      "size": 1845,
+                      "path": "packages/shared-utils/src/storage.ts"
+                    },
+                    {
+                      "name": "transfer.ts",
+                      "size": 3236,
+                      "path": "packages/shared-utils/src/transfer.ts"
+                    },
+                    {
+                      "name": "util.ts",
+                      "size": 20646,
+                      "path": "packages/shared-utils/src/util.ts"
+                    }
+                  ],
+                  "path": "packages/shared-utils/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 495,
+                  "path": "packages/shared-utils/package.json"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "size": 590,
+                  "path": "packages/shared-utils/tsconfig.json"
+                }
+              ],
+              "path": "packages/shared-utils"
+            },
+            {
+              "name": "shell-chrome",
+              "children": [
+                {
+                  "name": "icons",
+                  "children": [
+                    {
+                      "name": "128-beta.png",
+                      "size": 4620,
+                      "path": "packages/shell-chrome/icons/128-beta.png"
+                    },
+                    {
+                      "name": "128-gray.png",
+                      "size": 4012,
+                      "path": "packages/shell-chrome/icons/128-gray.png"
+                    },
+                    {
+                      "name": "128.nuxt.png",
+                      "size": 2264,
+                      "path": "packages/shell-chrome/icons/128.nuxt.png"
+                    },
+                    {
+                      "name": "128.png",
+                      "size": 5269,
+                      "path": "packages/shell-chrome/icons/128.png"
+                    },
+                    {
+                      "name": "16-beta.png",
+                      "size": 644,
+                      "path": "packages/shell-chrome/icons/16-beta.png"
+                    },
+                    {
+                      "name": "16-gray.png",
+                      "size": 1500,
+                      "path": "packages/shell-chrome/icons/16-gray.png"
+                    },
+                    {
+                      "name": "16.nuxt.png",
+                      "size": 441,
+                      "path": "packages/shell-chrome/icons/16.nuxt.png"
+                    },
+                    {
+                      "name": "16.png",
+                      "size": 1603,
+                      "path": "packages/shell-chrome/icons/16.png"
+                    },
+                    {
+                      "name": "48-beta.png",
+                      "size": 1747,
+                      "path": "packages/shell-chrome/icons/48-beta.png"
+                    },
+                    {
+                      "name": "48-gray.png",
+                      "size": 2253,
+                      "path": "packages/shell-chrome/icons/48-gray.png"
+                    },
+                    {
+                      "name": "48.nuxt.png",
+                      "size": 968,
+                      "path": "packages/shell-chrome/icons/48.nuxt.png"
+                    },
+                    {
+                      "name": "48.png",
+                      "size": 2752,
+                      "path": "packages/shell-chrome/icons/48.png"
+                    }
+                  ],
+                  "path": "packages/shell-chrome/icons"
+                },
+                {
+                  "name": "popups",
+                  "children": [
+                    {
+                      "name": "devtools-screenshot.png",
+                      "size": 11306,
+                      "path": "packages/shell-chrome/popups/devtools-screenshot.png"
+                    },
+                    {
+                      "name": "disabled.html",
+                      "size": 260,
+                      "path": "packages/shell-chrome/popups/disabled.html"
+                    },
+                    {
+                      "name": "disabled.nuxt.html",
+                      "size": 267,
+                      "path": "packages/shell-chrome/popups/disabled.nuxt.html"
+                    },
+                    {
+                      "name": "enabled.html",
+                      "size": 495,
+                      "path": "packages/shell-chrome/popups/enabled.html"
+                    },
+                    {
+                      "name": "enabled.nuxt.html",
+                      "size": 502,
+                      "path": "packages/shell-chrome/popups/enabled.nuxt.html"
+                    },
+                    {
+                      "name": "not-found.html",
+                      "size": 155,
+                      "path": "packages/shell-chrome/popups/not-found.html"
+                    },
+                    {
+                      "name": "popup.css",
+                      "size": 673,
+                      "path": "packages/shell-chrome/popups/popup.css"
+                    }
+                  ],
+                  "path": "packages/shell-chrome/popups"
+                },
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "backend.js",
+                      "size": 1393,
+                      "path": "packages/shell-chrome/src/backend.js"
+                    },
+                    {
+                      "name": "background.js",
+                      "size": 3290,
+                      "path": "packages/shell-chrome/src/background.js"
+                    },
+                    {
+                      "name": "detector.js",
+                      "size": 2401,
+                      "path": "packages/shell-chrome/src/detector.js"
+                    },
+                    {
+                      "name": "devtools-background.js",
+                      "size": 1333,
+                      "path": "packages/shell-chrome/src/devtools-background.js"
+                    },
+                    {
+                      "name": "devtools.js",
+                      "size": 2797,
+                      "path": "packages/shell-chrome/src/devtools.js"
+                    },
+                    {
+                      "name": "hook.js",
+                      "size": 589,
+                      "path": "packages/shell-chrome/src/hook.js"
+                    },
+                    {
+                      "name": "proxy.js",
+                      "size": 1079,
+                      "path": "packages/shell-chrome/src/proxy.js"
+                    }
+                  ],
+                  "path": "packages/shell-chrome/src"
+                },
+                {
+                  "name": "devtools-background.html",
+                  "size": 78,
+                  "path": "packages/shell-chrome/devtools-background.html"
+                },
+                {
+                  "name": "devtools.html",
+                  "size": 384,
+                  "path": "packages/shell-chrome/devtools.html"
+                },
+                {
+                  "name": "manifest.json",
+                  "size": 1219,
+                  "path": "packages/shell-chrome/manifest.json"
+                },
+                {
+                  "name": "package.json",
+                  "size": 476,
+                  "path": "packages/shell-chrome/package.json"
+                },
+                {
+                  "name": "webpack.config.js",
+                  "size": 573,
+                  "path": "packages/shell-chrome/webpack.config.js"
+                }
+              ],
+              "path": "packages/shell-chrome"
+            },
+            {
+              "name": "shell-dev-vue2",
+              "children": [
+                {
+                  "name": "public",
+                  "children": [
+                    {
+                      "name": "target-electron.html",
+                      "size": 274,
+                      "path": "packages/shell-dev-vue2/public/target-electron.html"
+                    },
+                    {
+                      "name": "target-iframe.html",
+                      "size": 279,
+                      "path": "packages/shell-dev-vue2/public/target-iframe.html"
+                    },
+                    {
+                      "name": "target.html",
+                      "size": 354,
+                      "path": "packages/shell-dev-vue2/public/target.html"
+                    }
+                  ],
+                  "path": "packages/shell-dev-vue2/public"
+                },
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "router",
+                      "children": [
+                        {
+                          "name": "ChildRoute.vue",
+                          "size": 86,
+                          "path": "packages/shell-dev-vue2/src/router/ChildRoute.vue"
+                        },
+                        {
+                          "name": "NamedRoute.vue",
+                          "size": 108,
+                          "path": "packages/shell-dev-vue2/src/router/NamedRoute.vue"
+                        },
+                        {
+                          "name": "ParentRoute.vue",
+                          "size": 149,
+                          "path": "packages/shell-dev-vue2/src/router/ParentRoute.vue"
+                        },
+                        {
+                          "name": "RouteOne.vue",
+                          "size": 110,
+                          "path": "packages/shell-dev-vue2/src/router/RouteOne.vue"
+                        },
+                        {
+                          "name": "RouteTwo.vue",
+                          "size": 110,
+                          "path": "packages/shell-dev-vue2/src/router/RouteTwo.vue"
+                        },
+                        {
+                          "name": "RouteWithAlias.vue",
+                          "size": 118,
+                          "path": "packages/shell-dev-vue2/src/router/RouteWithAlias.vue"
+                        },
+                        {
+                          "name": "RouteWithBeforeEnter.vue",
+                          "size": 120,
+                          "path": "packages/shell-dev-vue2/src/router/RouteWithBeforeEnter.vue"
+                        },
+                        {
+                          "name": "RouteWithParams.vue",
+                          "size": 188,
+                          "path": "packages/shell-dev-vue2/src/router/RouteWithParams.vue"
+                        },
+                        {
+                          "name": "RouteWithProps.vue",
+                          "size": 294,
+                          "path": "packages/shell-dev-vue2/src/router/RouteWithProps.vue"
+                        },
+                        {
+                          "name": "RouteWithQuery.vue",
+                          "size": 138,
+                          "path": "packages/shell-dev-vue2/src/router/RouteWithQuery.vue"
+                        },
+                        {
+                          "name": "Router.vue",
+                          "size": 1896,
+                          "path": "packages/shell-dev-vue2/src/router/Router.vue"
+                        }
+                      ],
+                      "path": "packages/shell-dev-vue2/src/router"
+                    },
+                    {
+                      "name": "Child.vue",
+                      "size": 196,
+                      "path": "packages/shell-dev-vue2/src/Child.vue"
+                    },
+                    {
+                      "name": "Counter.vue",
+                      "size": 5553,
+                      "path": "packages/shell-dev-vue2/src/Counter.vue"
+                    },
+                    {
+                      "name": "EventChild.vue",
+                      "size": 1392,
+                      "path": "packages/shell-dev-vue2/src/EventChild.vue"
+                    },
+                    {
+                      "name": "EventChild1.vue",
+                      "size": 254,
+                      "path": "packages/shell-dev-vue2/src/EventChild1.vue"
+                    },
+                    {
+                      "name": "EventChildCond.vue",
+                      "size": 552,
+                      "path": "packages/shell-dev-vue2/src/EventChildCond.vue"
+                    },
+                    {
+                      "name": "Events.vue",
+                      "size": 752,
+                      "path": "packages/shell-dev-vue2/src/Events.vue"
+                    },
+                    {
+                      "name": "Functional.vue",
+                      "size": 91,
+                      "path": "packages/shell-dev-vue2/src/Functional.vue"
+                    },
+                    {
+                      "name": "Hidden.vue",
+                      "size": 137,
+                      "path": "packages/shell-dev-vue2/src/Hidden.vue"
+                    },
+                    {
+                      "name": "Init.vue",
+                      "size": 292,
+                      "path": "packages/shell-dev-vue2/src/Init.vue"
+                    },
+                    {
+                      "name": "MyClass.js",
+                      "size": 76,
+                      "path": "packages/shell-dev-vue2/src/MyClass.js"
+                    },
+                    {
+                      "name": "NativeTypes.vue",
+                      "size": 4421,
+                      "path": "packages/shell-dev-vue2/src/NativeTypes.vue"
+                    },
+                    {
+                      "name": "NoProp.vue",
+                      "size": 152,
+                      "path": "packages/shell-dev-vue2/src/NoProp.vue"
+                    },
+                    {
+                      "name": "Other.vue",
+                      "size": 1236,
+                      "path": "packages/shell-dev-vue2/src/Other.vue"
+                    },
+                    {
+                      "name": "RefTester.vue",
+                      "size": 365,
+                      "path": "packages/shell-dev-vue2/src/RefTester.vue"
+                    },
+                    {
+                      "name": "Target.vue",
+                      "size": 2327,
+                      "path": "packages/shell-dev-vue2/src/Target.vue"
+                    },
+                    {
+                      "name": "TransitionExample.vue",
+                      "size": 1159,
+                      "path": "packages/shell-dev-vue2/src/TransitionExample.vue"
+                    },
+                    {
+                      "name": "VuexObject.vue",
+                      "size": 255,
+                      "path": "packages/shell-dev-vue2/src/VuexObject.vue"
+                    },
+                    {
+                      "name": "dynamic-module.js",
+                      "size": 879,
+                      "path": "packages/shell-dev-vue2/src/dynamic-module.js"
+                    },
+                    {
+                      "name": "iframe-app.js",
+                      "size": 116,
+                      "path": "packages/shell-dev-vue2/src/iframe-app.js"
+                    },
+                    {
+                      "name": "index.js",
+                      "size": 1996,
+                      "path": "packages/shell-dev-vue2/src/index.js"
+                    },
+                    {
+                      "name": "router.js",
+                      "size": 1893,
+                      "path": "packages/shell-dev-vue2/src/router.js"
+                    },
+                    {
+                      "name": "store.js",
+                      "size": 2574,
+                      "path": "packages/shell-dev-vue2/src/store.js"
+                    }
+                  ],
+                  "path": "packages/shell-dev-vue2/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 455,
+                  "path": "packages/shell-dev-vue2/package.json"
+                },
+                {
+                  "name": "webpack.config.js",
+                  "size": 947,
+                  "path": "packages/shell-dev-vue2/webpack.config.js"
+                }
+              ],
+              "path": "packages/shell-dev-vue2"
+            },
+            {
+              "name": "shell-dev-vue3",
+              "children": [
+                {
+                  "name": "public",
+                  "children": [
+                    {
+                      "name": "target-iframe.html",
+                      "size": 279,
+                      "path": "packages/shell-dev-vue3/public/target-iframe.html"
+                    },
+                    {
+                      "name": "target.html",
+                      "size": 609,
+                      "path": "packages/shell-dev-vue3/public/target.html"
+                    }
+                  ],
+                  "path": "packages/shell-dev-vue3/public"
+                },
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "devtools-plugin",
+                      "children": [
+                        {
+                          "name": "index.js",
+                          "size": 9848,
+                          "path": "packages/shell-dev-vue3/src/devtools-plugin/index.js"
+                        },
+                        {
+                          "name": "simple.js",
+                          "size": 442,
+                          "path": "packages/shell-dev-vue3/src/devtools-plugin/simple.js"
+                        }
+                      ],
+                      "path": "packages/shell-dev-vue3/src/devtools-plugin"
+                    },
+                    {
+                      "name": "router",
+                      "children": [
+                        {
+                          "name": "Page1.vue",
+                          "size": 32,
+                          "path": "packages/shell-dev-vue3/src/router/Page1.vue"
+                        },
+                        {
+                          "name": "Page2.vue",
+                          "size": 32,
+                          "path": "packages/shell-dev-vue3/src/router/Page2.vue"
+                        }
+                      ],
+                      "path": "packages/shell-dev-vue3/src/router"
+                    },
+                    {
+                      "name": "Animation.vue",
+                      "size": 796,
+                      "path": "packages/shell-dev-vue3/src/Animation.vue"
+                    },
+                    {
+                      "name": "App.vue",
+                      "size": 3521,
+                      "path": "packages/shell-dev-vue3/src/App.vue"
+                    },
+                    {
+                      "name": "App3.vue",
+                      "size": 331,
+                      "path": "packages/shell-dev-vue3/src/App3.vue"
+                    },
+                    {
+                      "name": "AsyncComponent.vue",
+                      "size": 435,
+                      "path": "packages/shell-dev-vue3/src/AsyncComponent.vue"
+                    },
+                    {
+                      "name": "AsyncSetup.vue",
+                      "size": 480,
+                      "path": "packages/shell-dev-vue3/src/AsyncSetup.vue"
+                    },
+                    {
+                      "name": "Child.vue",
+                      "size": 1510,
+                      "path": "packages/shell-dev-vue3/src/Child.vue"
+                    },
+                    {
+                      "name": "Condition.vue",
+                      "size": 542,
+                      "path": "packages/shell-dev-vue3/src/Condition.vue"
+                    },
+                    {
+                      "name": "DomOrder.vue",
+                      "size": 522,
+                      "path": "packages/shell-dev-vue3/src/DomOrder.vue"
+                    },
+                    {
+                      "name": "EventEmit.vue",
+                      "size": 235,
+                      "path": "packages/shell-dev-vue3/src/EventEmit.vue"
+                    },
+                    {
+                      "name": "EventNesting.vue",
+                      "size": 435,
+                      "path": "packages/shell-dev-vue3/src/EventNesting.vue"
+                    },
+                    {
+                      "name": "Form.vue",
+                      "size": 473,
+                      "path": "packages/shell-dev-vue3/src/Form.vue"
+                    },
+                    {
+                      "name": "FormSection.vue",
+                      "size": 215,
+                      "path": "packages/shell-dev-vue3/src/FormSection.vue"
+                    },
+                    {
+                      "name": "Functional.vue",
+                      "size": 213,
+                      "path": "packages/shell-dev-vue3/src/Functional.vue"
+                    },
+                    {
+                      "name": "Ghost.vue",
+                      "size": 164,
+                      "path": "packages/shell-dev-vue3/src/Ghost.vue"
+                    },
+                    {
+                      "name": "Heavy.vue",
+                      "size": 621,
+                      "path": "packages/shell-dev-vue3/src/Heavy.vue"
+                    },
+                    {
+                      "name": "Hello.vue",
+                      "size": 40,
+                      "path": "packages/shell-dev-vue3/src/Hello.vue"
+                    },
+                    {
+                      "name": "IframeApp.vue",
+                      "size": 328,
+                      "path": "packages/shell-dev-vue3/src/IframeApp.vue"
+                    },
+                    {
+                      "name": "Mixins.vue",
+                      "size": 1862,
+                      "path": "packages/shell-dev-vue3/src/Mixins.vue"
+                    },
+                    {
+                      "name": "NativeTypes.vue",
+                      "size": 3531,
+                      "path": "packages/shell-dev-vue3/src/NativeTypes.vue"
+                    },
+                    {
+                      "name": "Nested.vue",
+                      "size": 616,
+                      "path": "packages/shell-dev-vue3/src/Nested.vue"
+                    },
+                    {
+                      "name": "NestedMore.vue",
+                      "size": 377,
+                      "path": "packages/shell-dev-vue3/src/NestedMore.vue"
+                    },
+                    {
+                      "name": "Other.vue",
+                      "size": 1262,
+                      "path": "packages/shell-dev-vue3/src/Other.vue"
+                    },
+                    {
+                      "name": "Provide.vue",
+                      "size": 1139,
+                      "path": "packages/shell-dev-vue3/src/Provide.vue"
+                    },
+                    {
+                      "name": "SetupDataLike.vue",
+                      "size": 204,
+                      "path": "packages/shell-dev-vue3/src/SetupDataLike.vue"
+                    },
+                    {
+                      "name": "SetupRender.js",
+                      "size": 248,
+                      "path": "packages/shell-dev-vue3/src/SetupRender.js"
+                    },
+                    {
+                      "name": "SetupScript.vue",
+                      "size": 705,
+                      "path": "packages/shell-dev-vue3/src/SetupScript.vue"
+                    },
+                    {
+                      "name": "SetupTSScriptProps.vue",
+                      "size": 169,
+                      "path": "packages/shell-dev-vue3/src/SetupTSScriptProps.vue"
+                    },
+                    {
+                      "name": "SuspenseExample.vue",
+                      "size": 327,
+                      "path": "packages/shell-dev-vue3/src/SuspenseExample.vue"
+                    },
+                    {
+                      "name": "VModelExample.vue",
+                      "size": 193,
+                      "path": "packages/shell-dev-vue3/src/VModelExample.vue"
+                    },
+                    {
+                      "name": "iframe-app.js",
+                      "size": 108,
+                      "path": "packages/shell-dev-vue3/src/iframe-app.js"
+                    },
+                    {
+                      "name": "main.js",
+                      "size": 1392,
+                      "path": "packages/shell-dev-vue3/src/main.js"
+                    },
+                    {
+                      "name": "store.js",
+                      "size": 1039,
+                      "path": "packages/shell-dev-vue3/src/store.js"
+                    }
+                  ],
+                  "path": "packages/shell-dev-vue3/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 683,
+                  "path": "packages/shell-dev-vue3/package.json"
+                },
+                {
+                  "name": "webpack.config.js",
+                  "size": 1308,
+                  "path": "packages/shell-dev-vue3/webpack.config.js"
+                }
+              ],
+              "path": "packages/shell-dev-vue3"
+            },
+            {
+              "name": "shell-electron",
+              "children": [
+                {
+                  "name": "icons",
+                  "children": [
+                    {
+                      "name": "128.png",
+                      "size": 5269,
+                      "path": "packages/shell-electron/icons/128.png"
+                    }
+                  ],
+                  "path": "packages/shell-electron/icons"
+                },
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "backend.js",
+                      "size": 1572,
+                      "path": "packages/shell-electron/src/backend.js"
+                    },
+                    {
+                      "name": "devtools.js",
+                      "size": 1243,
+                      "path": "packages/shell-electron/src/devtools.js"
+                    },
+                    {
+                      "name": "hook.js",
+                      "size": 114,
+                      "path": "packages/shell-electron/src/hook.js"
+                    }
+                  ],
+                  "path": "packages/shell-electron/src"
+                },
+                {
+                  "name": "types",
+                  "children": [
+                    {
+                      "name": "index.d.ts",
+                      "size": 67,
+                      "path": "packages/shell-electron/types/index.d.ts"
+                    }
+                  ],
+                  "path": "packages/shell-electron/types"
+                },
+                {
+                  "name": "README.md",
+                  "size": 4308,
+                  "path": "packages/shell-electron/README.md"
+                },
+                {
+                  "name": "app.html",
+                  "size": 2440,
+                  "path": "packages/shell-electron/app.html"
+                },
+                {
+                  "name": "app.js",
+                  "size": 824,
+                  "path": "packages/shell-electron/app.js"
+                },
+                {
+                  "name": "bin.js",
+                  "size": 266,
+                  "path": "packages/shell-electron/bin.js"
+                },
+                {
+                  "name": "index.js",
+                  "size": 816,
+                  "path": "packages/shell-electron/index.js"
+                },
+                {
+                  "name": "package.json",
+                  "size": 1520,
+                  "path": "packages/shell-electron/package.json"
+                },
+                {
+                  "name": "server.js",
+                  "size": 1219,
+                  "path": "packages/shell-electron/server.js"
+                },
+                {
+                  "name": "webpack.config.js",
+                  "size": 431,
+                  "path": "packages/shell-electron/webpack.config.js"
+                },
+                {
+                  "name": "webpack.node.config.js",
+                  "size": 609,
+                  "path": "packages/shell-electron/webpack.node.config.js"
+                }
+              ],
+              "path": "packages/shell-electron"
+            },
+            {
+              "name": "shell-host",
+              "children": [
+                {
+                  "name": "public",
+                  "children": [
+                    {
+                      "name": "favicon.svg",
+                      "size": 1164,
+                      "path": "packages/shell-host/public/favicon.svg"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 872,
+                      "path": "packages/shell-host/public/index.html"
+                    }
+                  ],
+                  "path": "packages/shell-host/public"
+                },
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "DevIframe.vue",
+                      "size": 5693,
+                      "path": "packages/shell-host/src/DevIframe.vue"
+                    },
+                    {
+                      "name": "backend.js",
+                      "size": 403,
+                      "path": "packages/shell-host/src/backend.js"
+                    },
+                    {
+                      "name": "devtools.js",
+                      "size": 123,
+                      "path": "packages/shell-host/src/devtools.js"
+                    },
+                    {
+                      "name": "hook.js",
+                      "size": 62,
+                      "path": "packages/shell-host/src/hook.js"
+                    }
+                  ],
+                  "path": "packages/shell-host/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 476,
+                  "path": "packages/shell-host/package.json"
+                },
+                {
+                  "name": "webpack.config.js",
+                  "size": 482,
+                  "path": "packages/shell-host/webpack.config.js"
+                }
+              ],
+              "path": "packages/shell-host"
+            }
+          ],
+          "path": "packages"
+        },
+        {
+          "name": ".browserslistrc",
+          "size": 27,
+          "path": ".browserslistrc"
+        },
+        {
+          "name": ".eslintrc.js",
+          "size": 2751,
+          "path": ".eslintrc.js"
+        },
+        {
+          "name": ".gitignore",
+          "size": 171,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1083,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 1674,
+          "path": "README.md"
+        },
+        {
+          "name": "babel.config.js",
+          "size": 121,
+          "path": "babel.config.js"
+        },
+        {
+          "name": "cypress.json",
+          "size": 83,
+          "path": "cypress.json"
+        },
+        {
+          "name": "extension-zips.js",
+          "size": 4221,
+          "path": "extension-zips.js"
+        },
+        {
+          "name": "lerna.json",
+          "size": 158,
+          "path": "lerna.json"
+        },
+        {
+          "name": "package.json",
+          "size": 3390,
+          "path": "package.json"
+        },
+        {
+          "name": "postcss.config.js",
+          "size": 263,
+          "path": "postcss.config.js"
+        },
+        {
+          "name": "release.js",
+          "size": 2245,
+          "path": "release.js"
+        },
+        {
+          "name": "sign-firefox.js",
+          "size": 898,
+          "path": "sign-firefox.js"
+        },
+        {
+          "name": "tailwind.config.js",
+          "size": 2713,
+          "path": "tailwind.config.js"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 830,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "vue1-test.html",
+          "size": 1892,
+          "path": "vue1-test.html"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 539081,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 454,
+    "totalSize": 4762334
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"vue-devtools\">vue-devtools</h1>\n<p><img src=\"./media/screenshot-shadow.png\" alt=\"screenshot\" /></p>\n<p><a href=\"https://devtools.vuejs.org/\">Documentation</a> | <a href=\"https://devtools.vuejs.org/guide/installation.html\">Install the extension</a></p>\n<h2 id=\"monorepo\">Monorepo</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Package</th><th>Description</th></tr></thead><tbody><tr><td><a href=\"./packages/api\">api</a></td><td>The public devtools API that can be installed in Vue plugins</td></tr><tr><td><a href=\"./packages/app-backend-api\">app-backend-api</a></td><td>Abstract API to link the Public API, the core and Vue handlers</td></tr><tr><td><a href=\"./packages/app-backend-core\">app-backend-core</a></td><td>The main logic injected in the page to interact with Vue apps</td></tr><tr><td><a href=\"./packages/app-backend-vue1\">app-backend-vue1</a></td><td>Decoupled handlers to support Vue 1 (soon)</td></tr><tr><td><a href=\"./packages/app-backend-vue2\">app-backend-vue2</a></td><td>Decoupled handlers to support Vue 2</td></tr><tr><td><a href=\"./packages/app-backend-vue3\">app-backend-vue3</a></td><td>Decoupled handlers to support Vue 3</td></tr><tr><td><a href=\"./packages/app-frontend\">app-frontend</a></td><td>Vue app displayed in the browser devtools pane</td></tr><tr><td><a href=\"./packages/shell-chrome\">shell-chrome</a></td><td>Chrome/Firefox extension</td></tr><tr><td><a href=\"./packages/shell-electron\">shell-electron</a></td><td>Electron standalone app</td></tr><tr><td><a href=\"./packages/shell-host\">shell-host</a></td><td>Development environment</td></tr><tr><td><a href=\"./packages/shell-dev-vue2\">shell-dev-vue2</a></td><td>Demo app for development (Vue 2)</td></tr><tr><td><a href=\"./packages/shell-dev-vue3\">shell-dev-vue3</a></td><td>Demo app for development (Vue 3)</td></tr></tbody></table>\n<h2 id=\"contributing\">Contributing</h2>\n<p>See the <a href=\"https://devtools.vuejs.org/guide/contributing.html\">Contributing guide</a>.</p>\n<h2 id=\"license\">License</h2>\n<p><a href=\"http://opensource.org/licenses/MIT\">MIT</a></p>\n<h2 id=\"sponsors\">Sponsors</h2>\n<p><a href=\"https://github.com/sponsors/Akryum\">💚️ Become a Sponsor</a></p>\n<p>\n  <a href=\"https://guillaume-chau.info/sponsors/\" target=\"_blank\">\n    <img src=\"https://akryum.netlify.app/sponsors.svg\" />\n  </a>\n</p>",

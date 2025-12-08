@@ -16,6 +16,45 @@
     "CoffeeScript": 1512
   },
   "diskUsage": 90,
+  "fileTree": {
+    "files": [
+      {
+        "path": "readme.md",
+        "size": 238
+      },
+      {
+        "path": "smooth_scrolling.coffee",
+        "size": 1512
+      },
+      {
+        "path": "smooth_scrolling.js",
+        "size": 1676
+      }
+    ],
+    "tree": {
+      "name": "Coffeescript-SmoothScrolling",
+      "children": [
+        {
+          "name": "readme.md",
+          "size": 238,
+          "path": "readme.md"
+        },
+        {
+          "name": "smooth_scrolling.coffee",
+          "size": 1512,
+          "path": "smooth_scrolling.coffee"
+        },
+        {
+          "name": "smooth_scrolling.js",
+          "size": 1676,
+          "path": "smooth_scrolling.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 3,
+    "totalSize": 3426
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

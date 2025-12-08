@@ -20,6 +20,459 @@
     "JavaScript": 607
   },
   "diskUsage": 87,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 10
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "README.md",
+        "size": 1291
+      },
+      {
+        "path": "frontend/.editorconfig",
+        "size": 153
+      },
+      {
+        "path": "frontend/.gitignore",
+        "size": 317
+      },
+      {
+        "path": "frontend/.prettierrc.json",
+        "size": 121
+      },
+      {
+        "path": "frontend/.vscode/extensions.json",
+        "size": 163
+      },
+      {
+        "path": "frontend/README.md",
+        "size": 1007
+      },
+      {
+        "path": "frontend/env.d.ts",
+        "size": 38
+      },
+      {
+        "path": "frontend/eslint.config.js",
+        "size": 607
+      },
+      {
+        "path": "frontend/index.html",
+        "size": 329
+      },
+      {
+        "path": "frontend/package-lock.json",
+        "size": 267670
+      },
+      {
+        "path": "frontend/package.json",
+        "size": 1223
+      },
+      {
+        "path": "frontend/public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "frontend/src/App.vue",
+        "size": 236
+      },
+      {
+        "path": "frontend/src/assets/base.css",
+        "size": 2067
+      },
+      {
+        "path": "frontend/src/assets/logo.svg",
+        "size": 276
+      },
+      {
+        "path": "frontend/src/assets/main.css",
+        "size": 492
+      },
+      {
+        "path": "frontend/src/components/Debugger.vue",
+        "size": 1744
+      },
+      {
+        "path": "frontend/src/components/HandDebugger.vue",
+        "size": 2995
+      },
+      {
+        "path": "frontend/src/components/HandVisualizer.vue",
+        "size": 2073
+      },
+      {
+        "path": "frontend/src/components/HelloWorld.vue",
+        "size": 674
+      },
+      {
+        "path": "frontend/src/components/TheWelcome.vue",
+        "size": 3298
+      },
+      {
+        "path": "frontend/src/components/WelcomeItem.vue",
+        "size": 1414
+      },
+      {
+        "path": "frontend/src/components/__tests__/HelloWorld.spec.ts",
+        "size": 330
+      },
+      {
+        "path": "frontend/src/components/icons/IconCommunity.vue",
+        "size": 1054
+      },
+      {
+        "path": "frontend/src/components/icons/IconDocumentation.vue",
+        "size": 1254
+      },
+      {
+        "path": "frontend/src/components/icons/IconEcosystem.vue",
+        "size": 1977
+      },
+      {
+        "path": "frontend/src/components/icons/IconSupport.vue",
+        "size": 288
+      },
+      {
+        "path": "frontend/src/components/icons/IconTooling.vue",
+        "size": 913
+      },
+      {
+        "path": "frontend/src/composables/useHands.ts",
+        "size": 3493
+      },
+      {
+        "path": "frontend/src/main.ts",
+        "size": 195
+      },
+      {
+        "path": "frontend/src/stores/counter.ts",
+        "size": 306
+      },
+      {
+        "path": "frontend/tsconfig.app.json",
+        "size": 312
+      },
+      {
+        "path": "frontend/tsconfig.json",
+        "size": 191
+      },
+      {
+        "path": "frontend/tsconfig.node.json",
+        "size": 414
+      },
+      {
+        "path": "frontend/tsconfig.vitest.json",
+        "size": 228
+      },
+      {
+        "path": "frontend/vite.config.ts",
+        "size": 379
+      },
+      {
+        "path": "frontend/vitest.config.ts",
+        "size": 382
+      },
+      {
+        "path": "main.py",
+        "size": 20153
+      },
+      {
+        "path": "static/index.html",
+        "size": 8477
+      }
+    ],
+    "tree": {
+      "name": "handtrack-websockets",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "frontend",
+          "children": [
+            {
+              "name": ".vscode",
+              "children": [
+                {
+                  "name": "extensions.json",
+                  "size": 163,
+                  "path": "frontend/.vscode/extensions.json"
+                }
+              ],
+              "path": "frontend/.vscode"
+            },
+            {
+              "name": "public",
+              "children": [
+                {
+                  "name": "favicon.ico",
+                  "size": 4286,
+                  "path": "frontend/public/favicon.ico"
+                }
+              ],
+              "path": "frontend/public"
+            },
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "assets",
+                  "children": [
+                    {
+                      "name": "base.css",
+                      "size": 2067,
+                      "path": "frontend/src/assets/base.css"
+                    },
+                    {
+                      "name": "logo.svg",
+                      "size": 276,
+                      "path": "frontend/src/assets/logo.svg"
+                    },
+                    {
+                      "name": "main.css",
+                      "size": 492,
+                      "path": "frontend/src/assets/main.css"
+                    }
+                  ],
+                  "path": "frontend/src/assets"
+                },
+                {
+                  "name": "components",
+                  "children": [
+                    {
+                      "name": "__tests__",
+                      "children": [
+                        {
+                          "name": "HelloWorld.spec.ts",
+                          "size": 330,
+                          "path": "frontend/src/components/__tests__/HelloWorld.spec.ts"
+                        }
+                      ],
+                      "path": "frontend/src/components/__tests__"
+                    },
+                    {
+                      "name": "icons",
+                      "children": [
+                        {
+                          "name": "IconCommunity.vue",
+                          "size": 1054,
+                          "path": "frontend/src/components/icons/IconCommunity.vue"
+                        },
+                        {
+                          "name": "IconDocumentation.vue",
+                          "size": 1254,
+                          "path": "frontend/src/components/icons/IconDocumentation.vue"
+                        },
+                        {
+                          "name": "IconEcosystem.vue",
+                          "size": 1977,
+                          "path": "frontend/src/components/icons/IconEcosystem.vue"
+                        },
+                        {
+                          "name": "IconSupport.vue",
+                          "size": 288,
+                          "path": "frontend/src/components/icons/IconSupport.vue"
+                        },
+                        {
+                          "name": "IconTooling.vue",
+                          "size": 913,
+                          "path": "frontend/src/components/icons/IconTooling.vue"
+                        }
+                      ],
+                      "path": "frontend/src/components/icons"
+                    },
+                    {
+                      "name": "Debugger.vue",
+                      "size": 1744,
+                      "path": "frontend/src/components/Debugger.vue"
+                    },
+                    {
+                      "name": "HandDebugger.vue",
+                      "size": 2995,
+                      "path": "frontend/src/components/HandDebugger.vue"
+                    },
+                    {
+                      "name": "HandVisualizer.vue",
+                      "size": 2073,
+                      "path": "frontend/src/components/HandVisualizer.vue"
+                    },
+                    {
+                      "name": "HelloWorld.vue",
+                      "size": 674,
+                      "path": "frontend/src/components/HelloWorld.vue"
+                    },
+                    {
+                      "name": "TheWelcome.vue",
+                      "size": 3298,
+                      "path": "frontend/src/components/TheWelcome.vue"
+                    },
+                    {
+                      "name": "WelcomeItem.vue",
+                      "size": 1414,
+                      "path": "frontend/src/components/WelcomeItem.vue"
+                    }
+                  ],
+                  "path": "frontend/src/components"
+                },
+                {
+                  "name": "composables",
+                  "children": [
+                    {
+                      "name": "useHands.ts",
+                      "size": 3493,
+                      "path": "frontend/src/composables/useHands.ts"
+                    }
+                  ],
+                  "path": "frontend/src/composables"
+                },
+                {
+                  "name": "stores",
+                  "children": [
+                    {
+                      "name": "counter.ts",
+                      "size": 306,
+                      "path": "frontend/src/stores/counter.ts"
+                    }
+                  ],
+                  "path": "frontend/src/stores"
+                },
+                {
+                  "name": "App.vue",
+                  "size": 236,
+                  "path": "frontend/src/App.vue"
+                },
+                {
+                  "name": "main.ts",
+                  "size": 195,
+                  "path": "frontend/src/main.ts"
+                }
+              ],
+              "path": "frontend/src"
+            },
+            {
+              "name": ".editorconfig",
+              "size": 153,
+              "path": "frontend/.editorconfig"
+            },
+            {
+              "name": ".gitignore",
+              "size": 317,
+              "path": "frontend/.gitignore"
+            },
+            {
+              "name": ".prettierrc.json",
+              "size": 121,
+              "path": "frontend/.prettierrc.json"
+            },
+            {
+              "name": "README.md",
+              "size": 1007,
+              "path": "frontend/README.md"
+            },
+            {
+              "name": "env.d.ts",
+              "size": 38,
+              "path": "frontend/env.d.ts"
+            },
+            {
+              "name": "eslint.config.js",
+              "size": 607,
+              "path": "frontend/eslint.config.js"
+            },
+            {
+              "name": "index.html",
+              "size": 329,
+              "path": "frontend/index.html"
+            },
+            {
+              "name": "package-lock.json",
+              "size": 267670,
+              "path": "frontend/package-lock.json"
+            },
+            {
+              "name": "package.json",
+              "size": 1223,
+              "path": "frontend/package.json"
+            },
+            {
+              "name": "tsconfig.app.json",
+              "size": 312,
+              "path": "frontend/tsconfig.app.json"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 191,
+              "path": "frontend/tsconfig.json"
+            },
+            {
+              "name": "tsconfig.node.json",
+              "size": 414,
+              "path": "frontend/tsconfig.node.json"
+            },
+            {
+              "name": "tsconfig.vitest.json",
+              "size": 228,
+              "path": "frontend/tsconfig.vitest.json"
+            },
+            {
+              "name": "vite.config.ts",
+              "size": 379,
+              "path": "frontend/vite.config.ts"
+            },
+            {
+              "name": "vitest.config.ts",
+              "size": 382,
+              "path": "frontend/vitest.config.ts"
+            }
+          ],
+          "path": "frontend"
+        },
+        {
+          "name": "static",
+          "children": [
+            {
+              "name": "index.html",
+              "size": 8477,
+              "path": "static/index.html"
+            }
+          ],
+          "path": "static"
+        },
+        {
+          "name": ".gitignore",
+          "size": 10,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 1291,
+          "path": "README.md"
+        },
+        {
+          "name": "main.py",
+          "size": 20153,
+          "path": "main.py"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 41,
+    "totalSize": 333097
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"handtrack-websockets-\">handtrack-websockets 🤚</h1>\n<p>Real-time hand tracking over WebSockets using MediaPipe, OpenCV, and FastAPI. Track hand position and rotation in 3D space with a cyberpunk visualization layer.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Real-time hand skeleton tracking and visualization</li>\n<li>WebSocket streaming of hand position/rotation data</li>\n<li>Smooth motion interpolation</li>\n<li>Cyberpunk-style HUD overlay</li>\n<li>~30 FPS performance on modern hardware</li>\n<li>Support for webcam or video file input</li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li>Python 3.9+</li>\n<li>OpenCV</li>\n<li>MediaPipe</li>\n<li>FastAPI</li>\n<li>Modern browser with WebSocket support</li>\n</ul>\n<h2 id=\"quick-start\">Quick Start</h2>\n<pre><code class=\"language-bash\"># Create conda environment\nconda create -n handtrack python=3.9\nconda activate handtrack\n\n# Install dependencies\nconda install -c conda-forge mediapipe opencv numpy\npip install fastapi uvicorn\n\n# Run with webcam\npython main.py\n\n# Run with video file\npython main.py --movie path/to/movie.mov\n</code></pre>\n<p>Visit <code>http://localhost:8000</code> to see the visualization.</p>\n<h2 id=\"protocol\">Protocol</h2>\n<p>WebSocket endpoint streams JSON packets containing:</p>\n<ul>\n<li>Palm center coordinates (x,y,z)</li>\n<li>Hand rotation (pitch/yaw)</li>\n<li>Raw landmark data</li>\n<li>Motion smoothing</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>BSD 3-Clause. Use it. Hack it. Share it.</p>\n<hr />\n<p><em>\"The hand is the visible part of the brain.\" - Immanuel Kant</em></p>\n<blockquote>\n<p>Note: Video files will automatically loop when they reach the end</p>\n</blockquote>",

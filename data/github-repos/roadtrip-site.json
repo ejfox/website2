@@ -18,6 +18,258 @@
     "JavaScript": 428
   },
   "diskUsage": 222,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".babelrc",
+        "size": 26
+      },
+      {
+        "path": ".gitignore",
+        "size": 114
+      },
+      {
+        "path": "LICENSE",
+        "size": 1063
+      },
+      {
+        "path": "coffeelint.json",
+        "size": 2222
+      },
+      {
+        "path": "gulpfile.coffee",
+        "size": 3973
+      },
+      {
+        "path": "gulpfile.js",
+        "size": 164
+      },
+      {
+        "path": "options.json",
+        "size": 181
+      },
+      {
+        "path": "package.json",
+        "size": 1423
+      },
+      {
+        "path": "src/coffee/app.coffee",
+        "size": 13972
+      },
+      {
+        "path": "src/data/usroadtrip.r3.csv",
+        "size": 4626
+      },
+      {
+        "path": "src/img/.keep",
+        "size": 0
+      },
+      {
+        "path": "src/styl/colors.styl",
+        "size": 241
+      },
+      {
+        "path": "src/styl/d3-tip.styl",
+        "size": 767
+      },
+      {
+        "path": "src/styl/grid.styl",
+        "size": 2203
+      },
+      {
+        "path": "src/styl/reset.styl",
+        "size": 1065
+      },
+      {
+        "path": "src/styl/style.styl",
+        "size": 890
+      },
+      {
+        "path": "src/styl/typography.styl",
+        "size": 1671
+      },
+      {
+        "path": "src/tmpl/index.mustache",
+        "size": 110
+      },
+      {
+        "path": "src/tmpl/partials/body.mustache",
+        "size": 680
+      },
+      {
+        "path": "src/tmpl/partials/footer.mustache",
+        "size": 162
+      },
+      {
+        "path": "src/tmpl/partials/header.mustache",
+        "size": 517
+      },
+      {
+        "path": "webpack.config.js",
+        "size": 264
+      }
+    ],
+    "tree": {
+      "name": "roadtrip-site",
+      "children": [
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "coffee",
+              "children": [
+                {
+                  "name": "app.coffee",
+                  "size": 13972,
+                  "path": "src/coffee/app.coffee"
+                }
+              ],
+              "path": "src/coffee"
+            },
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": "usroadtrip.r3.csv",
+                  "size": 4626,
+                  "path": "src/data/usroadtrip.r3.csv"
+                }
+              ],
+              "path": "src/data"
+            },
+            {
+              "name": "img",
+              "children": [
+                {
+                  "name": ".keep",
+                  "size": 0,
+                  "path": "src/img/.keep"
+                }
+              ],
+              "path": "src/img"
+            },
+            {
+              "name": "styl",
+              "children": [
+                {
+                  "name": "colors.styl",
+                  "size": 241,
+                  "path": "src/styl/colors.styl"
+                },
+                {
+                  "name": "d3-tip.styl",
+                  "size": 767,
+                  "path": "src/styl/d3-tip.styl"
+                },
+                {
+                  "name": "grid.styl",
+                  "size": 2203,
+                  "path": "src/styl/grid.styl"
+                },
+                {
+                  "name": "reset.styl",
+                  "size": 1065,
+                  "path": "src/styl/reset.styl"
+                },
+                {
+                  "name": "style.styl",
+                  "size": 890,
+                  "path": "src/styl/style.styl"
+                },
+                {
+                  "name": "typography.styl",
+                  "size": 1671,
+                  "path": "src/styl/typography.styl"
+                }
+              ],
+              "path": "src/styl"
+            },
+            {
+              "name": "tmpl",
+              "children": [
+                {
+                  "name": "partials",
+                  "children": [
+                    {
+                      "name": "body.mustache",
+                      "size": 680,
+                      "path": "src/tmpl/partials/body.mustache"
+                    },
+                    {
+                      "name": "footer.mustache",
+                      "size": 162,
+                      "path": "src/tmpl/partials/footer.mustache"
+                    },
+                    {
+                      "name": "header.mustache",
+                      "size": 517,
+                      "path": "src/tmpl/partials/header.mustache"
+                    }
+                  ],
+                  "path": "src/tmpl/partials"
+                },
+                {
+                  "name": "index.mustache",
+                  "size": 110,
+                  "path": "src/tmpl/index.mustache"
+                }
+              ],
+              "path": "src/tmpl"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".babelrc",
+          "size": 26,
+          "path": ".babelrc"
+        },
+        {
+          "name": ".gitignore",
+          "size": 114,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1063,
+          "path": "LICENSE"
+        },
+        {
+          "name": "coffeelint.json",
+          "size": 2222,
+          "path": "coffeelint.json"
+        },
+        {
+          "name": "gulpfile.coffee",
+          "size": 3973,
+          "path": "gulpfile.coffee"
+        },
+        {
+          "name": "gulpfile.js",
+          "size": 164,
+          "path": "gulpfile.js"
+        },
+        {
+          "name": "options.json",
+          "size": 181,
+          "path": "options.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1423,
+          "path": "package.json"
+        },
+        {
+          "name": "webpack.config.js",
+          "size": 264,
+          "path": "webpack.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 22,
+    "totalSize": 36334
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

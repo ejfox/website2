@@ -3,6 +3,9 @@ import { ref, computed } from 'vue'
 import { scaleTime } from 'd3-scale'
 import { extent } from 'd3-array'
 import { arc } from 'd3-shape'
+import { useLanguageColors } from '~/composables/useLanguageColors'
+
+const { getColor } = useLanguageColors()
 
 const props = defineProps({
   repos: {
@@ -44,14 +47,19 @@ const languageGroups = computed(() => {
     if (!grouped[lang]) {
       grouped[lang] = {
         language: lang,
-        color: repo.languageColor || '#666',
         repos: [],
       }
     }
     grouped[lang].repos.push(repo)
   })
 
-  return Object.values(grouped)
+  const groups = Object.values(grouped)
+
+  // Assign consistent colors by language name
+  return groups.map((group) => ({
+    ...group,
+    color: getColor(group.language),
+  }))
 })
 
 // Angular scale (divide circle among languages)
@@ -249,24 +257,12 @@ const formatDate = (dateStr) => {
         </div>
       </div>
     </div>
-
-    <!-- Title -->
-    <div class="viz-title">Developer Journey Timeline</div>
-    <div class="viz-subtitle">
-      Radial tree rings showing {{ repos.length }} repositories from
-      {{ dateExtent[0].getFullYear() }} to
-      {{ dateExtent[1].getFullYear() }}
-    </div>
   </div>
 </template>
 
 <style scoped>
 .radial-timeline-container {
   @apply relative;
-  @apply bg-white dark:bg-zinc-950;
-  @apply border border-zinc-200 dark:border-zinc-800 rounded;
-  @apply p-4;
-  @apply flex flex-col items-center;
 }
 
 .radial-timeline-svg {
@@ -313,17 +309,5 @@ const formatDate = (dateStr) => {
 .info-label {
   @apply text-zinc-500 dark:text-zinc-500;
   @apply mr-2;
-}
-
-.viz-title {
-  @apply text-xs font-mono uppercase tracking-wider;
-  @apply text-zinc-900 dark:text-zinc-100;
-  @apply mt-4 mb-1 text-center;
-}
-
-.viz-subtitle {
-  @apply text-[10px] font-mono;
-  @apply text-zinc-500 dark:text-zinc-500;
-  @apply text-center;
 }
 </style>

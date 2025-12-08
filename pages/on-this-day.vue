@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-w-3xl mx-auto px-4 py-12">
+  <div class="relative max-w-3xl mx-auto px-4 pt-12">
     <ClientOnly>
       <DotField :count="backgroundDotsCount" :seed="backgroundSeed" />
     </ClientOnly>
@@ -22,7 +22,7 @@
         </div>
 
         <div
-          class="mt-3 font-mono text-[12px] text-zinc-600 dark:text-zinc-400"
+          class="mt-4 font-mono text-[12px] text-zinc-600 dark:text-zinc-400"
         >
           {{ summaryText || 'No entries yet for this day.' }}
         </div>
@@ -74,7 +74,7 @@
                     <h3 class="font-serif text-lg">{{ post.title }}</h3>
                     <p
                       v-if="post.dek"
-                      class="text-sm text-zinc-600 dark:text-zinc-400 mt-1"
+                      class="text-sm text-zinc-600 dark:text-zinc-400 mt-2"
                     >
                       {{ post.dek }}
                     </p>

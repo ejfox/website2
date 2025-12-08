@@ -1,0 +1,96 @@
+{
+  "name": "startup-motd",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/startup-motd",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Shell",
+  "languageColor": "#89e051",
+  "languages": {
+    "Shell": 17653
+  },
+  "diskUsage": 0,
+  "fileTree": {
+    "files": [
+      {
+        "path": "README.md",
+        "size": 2713
+      },
+      {
+        "path": "bin/startup-motd",
+        "size": 480
+      },
+      {
+        "path": "config.sample.sh",
+        "size": 1466
+      },
+      {
+        "path": "install.sh",
+        "size": 1022
+      },
+      {
+        "path": "lib/startup-motd.sh",
+        "size": 14685
+      }
+    ],
+    "tree": {
+      "name": "startup-motd",
+      "children": [
+        {
+          "name": "bin",
+          "children": [
+            {
+              "name": "startup-motd",
+              "size": 480,
+              "path": "bin/startup-motd"
+            }
+          ],
+          "path": "bin"
+        },
+        {
+          "name": "lib",
+          "children": [
+            {
+              "name": "startup-motd.sh",
+              "size": 14685,
+              "path": "lib/startup-motd.sh"
+            }
+          ],
+          "path": "lib"
+        },
+        {
+          "name": "README.md",
+          "size": 2713,
+          "path": "README.md"
+        },
+        {
+          "name": "config.sample.sh",
+          "size": 1466,
+          "path": "config.sample.sh"
+        },
+        {
+          "name": "install.sh",
+          "size": 1022,
+          "path": "install.sh"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 5,
+    "totalSize": 20366
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"startup-motd-modular-motd\">startup-motd (modular MOTD)</h1>\n<p>Fast, configurable terminal startup inspired by the original <code>~/.startup.sh</code>. Modules run in parallel with caching, optional LLM bits, and graceful fallbacks. Defaults are safe (skip when deps are missing), and every data source can be swapped for your own commands.</p>\n<h2 id=\"quick-start\">Quick start</h2>\n<pre><code class=\"language-bash\">git clone &lt;repo-url&gt; startup-motd\ncd startup-motd\n./install.sh                 # copies config + symlink + runs --check\nstartup-motd                 # render MOTD once (after install)\n</code></pre>\n<p>To load at shell start, add to <code>~/.zshrc</code> or <code>~/.bashrc</code>:</p>\n<pre><code class=\"language-bash\">startup-motd\n</code></pre>\n<h2 id=\"configure\">Configure</h2>\n<p>Copy <code>config.sample.sh</code> to <code>~/.config/startup-motd/config.sh</code> and tweak:</p>\n<ul>\n<li>Toggle modules: <code>MOTD_ENABLE_STATS</code>, <code>MOTD_ENABLE_TASKS</code>, etc.</li>\n<li>Cache + timeouts: <code>MOTD_CACHE_*</code>, <code>MOTD_GLOBAL_WAIT</code>, <code>MOTD_NETWORK_TIMEOUT</code>.</li>\n<li>Providers: <code>MOTD_STATS_CMD</code>, <code>MOTD_TASKS_CMD</code>, <code>MOTD_CALENDAR_CMD</code>, <code>MOTD_EMAIL_CMD</code>.</li>\n<li>Repo scan roots: <code>MOTD_REPO_ROOTS</code> (space-separated) and <code>MOTD_REPO_LIMIT</code>.</li>\n<li>Colors/symbols: <code>MOTD_COLOR_*</code>, <code>MOTD_SYMBOL_*</code>.</li>\n<li>LLM: <code>MOTD_TASKS_LLM_CMD</code>, <code>MOTD_ORACLE_LLM_CMD</code>, <code>MOTD_TASKS_LLM_ENABLE</code>, <code>MOTD_ENABLE_ORACLE</code>.</li>\n</ul>\n<p>Flags:</p>\n<ul>\n<li><code>--check</code> show module readiness</li>\n<li><code>--clear-cache</code> purge caches before rendering</li>\n<li><code>--config /path/to/config.sh</code> use an alternate config</li>\n<li><code>--no-color</code> disable ANSI</li>\n</ul>\n<h2 id=\"modules--providers\">Modules &amp; providers</h2>\n<ul>\n<li>Stats: no network default; set <code>MOTD_STATS_CMD=\"your-stats-command\"</code> (e.g., <code>echo \\\"85 WPM • 3.2h\\\"</code>) or disable with <code>MOTD_ENABLE_STATS=0</code>.</li>\n<li>Tasks: default uses <code>things-cli today</code>. If you don’t use Things, set <code>MOTD_TASKS_CMD=\"todoist list\"</code> (or any command) or disable via <code>MOTD_ENABLE_TASKS=0</code>. LLM prioritization uses <code>MOTD_TASKS_LLM_CMD</code>.</li>\n<li>Calendar: default uses <code>icalBuddy</code>. For non-Apple setups, set <code>MOTD_CALENDAR_CMD=\"icalendar_cli eventsToday\"</code> or disable with <code>MOTD_ENABLE_CALENDAR=0</code>.</li>\n<li>Repos: scans <code>MOTD_REPO_ROOTS</code> (space-separated) for git repos and sorts by last commit.</li>\n<li>Email: default runs <code>~/.email-summary.sh</code>; set <code>MOTD_EMAIL_CMD=\"your-email-summary\"</code> or disable via <code>MOTD_ENABLE_EMAIL=0</code>.</li>\n<li>Oracle: optional; uses cached sections and <code>MOTD_ORACLE_LLM_CMD</code> when online. Disable with <code>MOTD_ENABLE_ORACLE=0</code>.</li>\n</ul>\n<p>If you don’t want to hit the example APIs, set <code>MOTD_ENABLE_STATS=0</code> or point <code>MOTD_STATS_CMD</code> at your own source.</p>\n<p>Note: on a clean system without optional tools, sections simply skip (you’ll just see the header/footer). That’s normal—enable modules as you add providers.</p>\n<h2 id=\"make-it-feel-like-a-plugin\">Make it feel like a plugin</h2>\n<ul>\n<li>Keep the project in <code>~/.config</code> or <code>~/code</code>, and symlink <code>bin/startup-motd</code> into your <code>$PATH</code>.</li>\n<li>Expose aliases: <code>alias motd='startup-motd'</code>.</li>\n<li>Run <code>startup-motd --check</code> after changing providers to verify dependencies.</li>\n</ul>",
+    "raw": "# startup-motd (modular MOTD)\n\nFast, configurable terminal startup inspired by the original `~/.startup.sh`. Modules run in parallel with caching, optional LLM bits, and graceful fallbacks. Defaults are safe (skip when deps are missing), and every data source can be swapped for your own commands.\n\n## Quick start\n```bash\ngit clone <repo-url> startup-motd\ncd startup-motd\n./install.sh                 # copies config + symlink + runs --check\nstartup-motd                 # render MOTD once (after install)\n```\n\nTo load at shell start, add to `~/.zshrc` or `~/.bashrc`:\n```bash\nstartup-motd\n```\n\n## Configure\nCopy `config.sample.sh` to `~/.config/startup-motd/config.sh` and tweak:\n- Toggle modules: `MOTD_ENABLE_STATS`, `MOTD_ENABLE_TASKS`, etc.\n- Cache + timeouts: `MOTD_CACHE_*`, `MOTD_GLOBAL_WAIT`, `MOTD_NETWORK_TIMEOUT`.\n- Providers: `MOTD_STATS_CMD`, `MOTD_TASKS_CMD`, `MOTD_CALENDAR_CMD`, `MOTD_EMAIL_CMD`.\n- Repo scan roots: `MOTD_REPO_ROOTS` (space-separated) and `MOTD_REPO_LIMIT`.\n- Colors/symbols: `MOTD_COLOR_*`, `MOTD_SYMBOL_*`.\n- LLM: `MOTD_TASKS_LLM_CMD`, `MOTD_ORACLE_LLM_CMD`, `MOTD_TASKS_LLM_ENABLE`, `MOTD_ENABLE_ORACLE`.\n\nFlags:\n- `--check` show module readiness\n- `--clear-cache` purge caches before rendering\n- `--config /path/to/config.sh` use an alternate config\n- `--no-color` disable ANSI\n\n## Modules & providers\n- Stats: no network default; set `MOTD_STATS_CMD=\"your-stats-command\"` (e.g., `echo \\\"85 WPM • 3.2h\\\"`) or disable with `MOTD_ENABLE_STATS=0`.\n- Tasks: default uses `things-cli today`. If you don’t use Things, set `MOTD_TASKS_CMD=\"todoist list\"` (or any command) or disable via `MOTD_ENABLE_TASKS=0`. LLM prioritization uses `MOTD_TASKS_LLM_CMD`.\n- Calendar: default uses `icalBuddy`. For non-Apple setups, set `MOTD_CALENDAR_CMD=\"icalendar_cli eventsToday\"` or disable with `MOTD_ENABLE_CALENDAR=0`.\n- Repos: scans `MOTD_REPO_ROOTS` (space-separated) for git repos and sorts by last commit.\n- Email: default runs `~/.email-summary.sh`; set `MOTD_EMAIL_CMD=\"your-email-summary\"` or disable via `MOTD_ENABLE_EMAIL=0`.\n- Oracle: optional; uses cached sections and `MOTD_ORACLE_LLM_CMD` when online. Disable with `MOTD_ENABLE_ORACLE=0`.\n\nIf you don’t want to hit the example APIs, set `MOTD_ENABLE_STATS=0` or point `MOTD_STATS_CMD` at your own source.\n\nNote: on a clean system without optional tools, sections simply skip (you’ll just see the header/footer). That’s normal—enable modules as you add providers.\n\n## Make it feel like a plugin\n- Keep the project in `~/.config` or `~/code`, and symlink `bin/startup-motd` into your `$PATH`.\n- Expose aliases: `alias motd='startup-motd'`.\n- Run `startup-motd --check` after changing providers to verify dependencies.\n",
+    "excerpt": "Fast, configurable terminal startup inspired by the original ~/.startup.sh. Modules run in parallel with caching, optional LLM bits, and graceful fallbacks. Def..."
+  },
+  "createdAt": "2025-12-05T18:28:08Z",
+  "updatedAt": "2025-12-05T18:28:14Z",
+  "pushedAt": "2025-12-05T18:28:10Z"
+}

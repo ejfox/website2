@@ -15,6 +15,78 @@
     "TypeScript": 5649
   },
   "diskUsage": 5,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "log.ts",
+        "size": 1077
+      },
+      {
+        "path": "main.ts",
+        "size": 1508
+      },
+      {
+        "path": "middleware.ts",
+        "size": 2251
+      },
+      {
+        "path": "package.json",
+        "size": 211
+      },
+      {
+        "path": "supabase.ts",
+        "size": 813
+      }
+    ],
+    "tree": {
+      "name": "smallweb-starter",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "log.ts",
+          "size": 1077,
+          "path": "log.ts"
+        },
+        {
+          "name": "main.ts",
+          "size": 1508,
+          "path": "main.ts"
+        },
+        {
+          "name": "middleware.ts",
+          "size": 2251,
+          "path": "middleware.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 211,
+          "path": "package.json"
+        },
+        {
+          "name": "supabase.ts",
+          "size": 813,
+          "path": "supabase.ts"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 6,
+    "totalSize": 6127
+  },
   "topics": [
     "smallweb"
   ],

@@ -17,6 +17,282 @@
     "HTML": 413
   },
   "diskUsage": 234,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 275
+      },
+      {
+        "path": "README.md",
+        "size": 488
+      },
+      {
+        "path": "babel.config.js",
+        "size": 67
+      },
+      {
+        "path": "cypress.json",
+        "size": 50
+      },
+      {
+        "path": "index.html",
+        "size": 413
+      },
+      {
+        "path": "jsconfig.json",
+        "size": 279
+      },
+      {
+        "path": "package-lock.json",
+        "size": 893478
+      },
+      {
+        "path": "package.json",
+        "size": 1568
+      },
+      {
+        "path": "src/App.vue",
+        "size": 293
+      },
+      {
+        "path": "src/assets/logo.png",
+        "size": 6849
+      },
+      {
+        "path": "src/components/HelloWorld.vue",
+        "size": 142
+      },
+      {
+        "path": "src/main.js",
+        "size": 176
+      },
+      {
+        "path": "src/router/index.js",
+        "size": 298
+      },
+      {
+        "path": "src/store/index.js",
+        "size": 145
+      },
+      {
+        "path": "src/views/HomeView.vue",
+        "size": 317
+      },
+      {
+        "path": "tests/e2e/.eslintrc.js",
+        "size": 141
+      },
+      {
+        "path": "tests/e2e/plugins/index.js",
+        "size": 909
+      },
+      {
+        "path": "tests/e2e/specs/test.js",
+        "size": 206
+      },
+      {
+        "path": "tests/e2e/support/commands.js",
+        "size": 841
+      },
+      {
+        "path": "tests/e2e/support/index.js",
+        "size": 671
+      },
+      {
+        "path": "vite.config.js",
+        "size": 264
+      },
+      {
+        "path": "vue.config.js",
+        "size": 121
+      }
+    ],
+    "tree": {
+      "name": "vite-boilerplate",
+      "children": [
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "assets",
+              "children": [
+                {
+                  "name": "logo.png",
+                  "size": 6849,
+                  "path": "src/assets/logo.png"
+                }
+              ],
+              "path": "src/assets"
+            },
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "HelloWorld.vue",
+                  "size": 142,
+                  "path": "src/components/HelloWorld.vue"
+                }
+              ],
+              "path": "src/components"
+            },
+            {
+              "name": "router",
+              "children": [
+                {
+                  "name": "index.js",
+                  "size": 298,
+                  "path": "src/router/index.js"
+                }
+              ],
+              "path": "src/router"
+            },
+            {
+              "name": "store",
+              "children": [
+                {
+                  "name": "index.js",
+                  "size": 145,
+                  "path": "src/store/index.js"
+                }
+              ],
+              "path": "src/store"
+            },
+            {
+              "name": "views",
+              "children": [
+                {
+                  "name": "HomeView.vue",
+                  "size": 317,
+                  "path": "src/views/HomeView.vue"
+                }
+              ],
+              "path": "src/views"
+            },
+            {
+              "name": "App.vue",
+              "size": 293,
+              "path": "src/App.vue"
+            },
+            {
+              "name": "main.js",
+              "size": 176,
+              "path": "src/main.js"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "tests",
+          "children": [
+            {
+              "name": "e2e",
+              "children": [
+                {
+                  "name": "plugins",
+                  "children": [
+                    {
+                      "name": "index.js",
+                      "size": 909,
+                      "path": "tests/e2e/plugins/index.js"
+                    }
+                  ],
+                  "path": "tests/e2e/plugins"
+                },
+                {
+                  "name": "specs",
+                  "children": [
+                    {
+                      "name": "test.js",
+                      "size": 206,
+                      "path": "tests/e2e/specs/test.js"
+                    }
+                  ],
+                  "path": "tests/e2e/specs"
+                },
+                {
+                  "name": "support",
+                  "children": [
+                    {
+                      "name": "commands.js",
+                      "size": 841,
+                      "path": "tests/e2e/support/commands.js"
+                    },
+                    {
+                      "name": "index.js",
+                      "size": 671,
+                      "path": "tests/e2e/support/index.js"
+                    }
+                  ],
+                  "path": "tests/e2e/support"
+                },
+                {
+                  "name": ".eslintrc.js",
+                  "size": 141,
+                  "path": "tests/e2e/.eslintrc.js"
+                }
+              ],
+              "path": "tests/e2e"
+            }
+          ],
+          "path": "tests"
+        },
+        {
+          "name": ".gitignore",
+          "size": 275,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 488,
+          "path": "README.md"
+        },
+        {
+          "name": "babel.config.js",
+          "size": 67,
+          "path": "babel.config.js"
+        },
+        {
+          "name": "cypress.json",
+          "size": 50,
+          "path": "cypress.json"
+        },
+        {
+          "name": "index.html",
+          "size": 413,
+          "path": "index.html"
+        },
+        {
+          "name": "jsconfig.json",
+          "size": 279,
+          "path": "jsconfig.json"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 893478,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1568,
+          "path": "package.json"
+        },
+        {
+          "name": "vite.config.js",
+          "size": 264,
+          "path": "vite.config.js"
+        },
+        {
+          "name": "vue.config.js",
+          "size": 121,
+          "path": "vue.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 22,
+    "totalSize": 907991
+  },
   "topics": [
     "tachyons",
     "vite",

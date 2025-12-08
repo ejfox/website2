@@ -16,6 +16,264 @@
     "Makefile": 1496
   },
   "diskUsage": 41,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 82
+      },
+      {
+        "path": "LICENSE",
+        "size": 715
+      },
+      {
+        "path": "Makefile",
+        "size": 1496
+      },
+      {
+        "path": "PATCHES.txt",
+        "size": 1547
+      },
+      {
+        "path": "README",
+        "size": 989
+      },
+      {
+        "path": "plugin.json",
+        "size": 1453
+      },
+      {
+        "path": "res/SpectrumAnalyzer.svg",
+        "size": 1092
+      },
+      {
+        "path": "res/StationScanner.svg",
+        "size": 1965
+      },
+      {
+        "path": "res/WebSDRReceiver.svg",
+        "size": 4002
+      },
+      {
+        "path": "src/modules/SpectrumAnalyzer.cpp",
+        "size": 2708
+      },
+      {
+        "path": "src/modules/StationScanner.cpp",
+        "size": 10294
+      },
+      {
+        "path": "src/modules/WebSDRExpander.cpp",
+        "size": 4903
+      },
+      {
+        "path": "src/modules/WebSDRModule.cpp",
+        "size": 18896
+      },
+      {
+        "path": "src/modules/WebSDRModule_v2.cpp",
+        "size": 14330
+      },
+      {
+        "path": "src/modules/stations.hpp",
+        "size": 4114
+      },
+      {
+        "path": "src/network/WebSDRClient.cpp",
+        "size": 10388
+      },
+      {
+        "path": "src/network/WebSDRClient.hpp",
+        "size": 1210
+      },
+      {
+        "path": "src/plugin.cpp",
+        "size": 321
+      },
+      {
+        "path": "src/plugin.hpp",
+        "size": 195
+      },
+      {
+        "path": "test/integration_test.cpp",
+        "size": 3634
+      },
+      {
+        "path": "test/simple_tests.cpp",
+        "size": 4537
+      },
+      {
+        "path": "test/test_module.cpp",
+        "size": 6329
+      },
+      {
+        "path": "test_stations",
+        "size": 51440
+      },
+      {
+        "path": "test_stations.cpp",
+        "size": 3555
+      }
+    ],
+    "tree": {
+      "name": "websdr-vcv",
+      "children": [
+        {
+          "name": "res",
+          "children": [
+            {
+              "name": "SpectrumAnalyzer.svg",
+              "size": 1092,
+              "path": "res/SpectrumAnalyzer.svg"
+            },
+            {
+              "name": "StationScanner.svg",
+              "size": 1965,
+              "path": "res/StationScanner.svg"
+            },
+            {
+              "name": "WebSDRReceiver.svg",
+              "size": 4002,
+              "path": "res/WebSDRReceiver.svg"
+            }
+          ],
+          "path": "res"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "modules",
+              "children": [
+                {
+                  "name": "SpectrumAnalyzer.cpp",
+                  "size": 2708,
+                  "path": "src/modules/SpectrumAnalyzer.cpp"
+                },
+                {
+                  "name": "StationScanner.cpp",
+                  "size": 10294,
+                  "path": "src/modules/StationScanner.cpp"
+                },
+                {
+                  "name": "WebSDRExpander.cpp",
+                  "size": 4903,
+                  "path": "src/modules/WebSDRExpander.cpp"
+                },
+                {
+                  "name": "WebSDRModule.cpp",
+                  "size": 18896,
+                  "path": "src/modules/WebSDRModule.cpp"
+                },
+                {
+                  "name": "WebSDRModule_v2.cpp",
+                  "size": 14330,
+                  "path": "src/modules/WebSDRModule_v2.cpp"
+                },
+                {
+                  "name": "stations.hpp",
+                  "size": 4114,
+                  "path": "src/modules/stations.hpp"
+                }
+              ],
+              "path": "src/modules"
+            },
+            {
+              "name": "network",
+              "children": [
+                {
+                  "name": "WebSDRClient.cpp",
+                  "size": 10388,
+                  "path": "src/network/WebSDRClient.cpp"
+                },
+                {
+                  "name": "WebSDRClient.hpp",
+                  "size": 1210,
+                  "path": "src/network/WebSDRClient.hpp"
+                }
+              ],
+              "path": "src/network"
+            },
+            {
+              "name": "plugin.cpp",
+              "size": 321,
+              "path": "src/plugin.cpp"
+            },
+            {
+              "name": "plugin.hpp",
+              "size": 195,
+              "path": "src/plugin.hpp"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "test",
+          "children": [
+            {
+              "name": "integration_test.cpp",
+              "size": 3634,
+              "path": "test/integration_test.cpp"
+            },
+            {
+              "name": "simple_tests.cpp",
+              "size": 4537,
+              "path": "test/simple_tests.cpp"
+            },
+            {
+              "name": "test_module.cpp",
+              "size": 6329,
+              "path": "test/test_module.cpp"
+            }
+          ],
+          "path": "test"
+        },
+        {
+          "name": ".gitignore",
+          "size": 82,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE",
+          "size": 715,
+          "path": "LICENSE"
+        },
+        {
+          "name": "Makefile",
+          "size": 1496,
+          "path": "Makefile"
+        },
+        {
+          "name": "PATCHES.txt",
+          "size": 1547,
+          "path": "PATCHES.txt"
+        },
+        {
+          "name": "README",
+          "size": 989,
+          "path": "README"
+        },
+        {
+          "name": "plugin.json",
+          "size": 1453,
+          "path": "plugin.json"
+        },
+        {
+          "name": "test_stations",
+          "size": 51440,
+          "path": "test_stations"
+        },
+        {
+          "name": "test_stations.cpp",
+          "size": 3555,
+          "path": "test_stations.cpp"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 24,
+    "totalSize": 150195
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

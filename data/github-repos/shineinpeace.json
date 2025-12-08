@@ -16,6 +16,909 @@
     "CSS": 201575
   },
   "diskUsage": 5272,
+  "fileTree": {
+    "files": [
+      {
+        "path": "README.md",
+        "size": 321
+      },
+      {
+        "path": "css/Control.MiniMap.css",
+        "size": 722
+      },
+      {
+        "path": "css/bootstrap.css",
+        "size": 146879
+      },
+      {
+        "path": "css/bootstrap.min.css",
+        "size": 126461
+      },
+      {
+        "path": "css/style.css",
+        "size": 20357
+      },
+      {
+        "path": "data.html",
+        "size": 11252
+      },
+      {
+        "path": "data/GangInjunctionZones.geojson",
+        "size": 17900
+      },
+      {
+        "path": "data/GangInjunctionZones.kml",
+        "size": 17093
+      },
+      {
+        "path": "data/PoliceDistricts_2013.geojson",
+        "size": 207994
+      },
+      {
+        "path": "data/oak_citycouncildistricts.geojson",
+        "size": 138094
+      },
+      {
+        "path": "data/oak_citycouncildistricts.kml",
+        "size": 125483
+      },
+      {
+        "path": "data/oak_policebeats.geojson",
+        "size": 756851
+      },
+      {
+        "path": "data/oak_policebeats.kml",
+        "size": 762004
+      },
+      {
+        "path": "data/oakincident_hex.geojson",
+        "size": 3029880
+      },
+      {
+        "path": "data/oakincident_hex2.geojson",
+        "size": 72275
+      },
+      {
+        "path": "data/oakincident_hex3.geojson",
+        "size": 523227
+      },
+      {
+        "path": "data/oakland_victims.geojson",
+        "size": 542300
+      },
+      {
+        "path": "fonts/goudy_bookletter_1911-webfont.ttf",
+        "size": 40896
+      },
+      {
+        "path": "fonts/raleway_thin-webfont.ttf",
+        "size": 24732
+      },
+      {
+        "path": "img/glyphicons-halflings-white.png",
+        "size": 8777
+      },
+      {
+        "path": "img/glyphicons-halflings.png",
+        "size": 12799
+      },
+      {
+        "path": "img/gotomap.jpg",
+        "size": 39175
+      },
+      {
+        "path": "img/map.hex.png",
+        "size": 925077
+      },
+      {
+        "path": "img/map.png",
+        "size": 1897383
+      },
+      {
+        "path": "img/map.points.png",
+        "size": 866452
+      },
+      {
+        "path": "img/toggle.png",
+        "size": 560
+      },
+      {
+        "path": "index.html",
+        "size": 4043
+      },
+      {
+        "path": "js/Control.MiniMap.js",
+        "size": 7281
+      },
+      {
+        "path": "js/ICanHaz.js",
+        "size": 16484
+      },
+      {
+        "path": "js/bootstrap.js",
+        "size": 61764
+      },
+      {
+        "path": "js/bootstrap.min.js",
+        "size": 28663
+      },
+      {
+        "path": "js/bouncemarker.js",
+        "size": 3304
+      },
+      {
+        "path": "js/jquery.isotope.min.js",
+        "size": 15954
+      },
+      {
+        "path": "js/moment.min.js",
+        "size": 14684
+      },
+      {
+        "path": "js/nv.d3.min.js",
+        "size": 154626
+      },
+      {
+        "path": "js/sStepper.js",
+        "size": 2754
+      },
+      {
+        "path": "js/src/core.js",
+        "size": 3298
+      },
+      {
+        "path": "js/src/intro.js",
+        "size": 13
+      },
+      {
+        "path": "js/src/models/axis.js",
+        "size": 15395
+      },
+      {
+        "path": "js/src/models/backup/bullet.js",
+        "size": 8003
+      },
+      {
+        "path": "js/src/models/backup/bulletChart.js",
+        "size": 10499
+      },
+      {
+        "path": "js/src/models/bullet.js",
+        "size": 12311
+      },
+      {
+        "path": "js/src/models/bulletChart.js",
+        "size": 10057
+      },
+      {
+        "path": "js/src/models/cumulativeLineChart.js",
+        "size": 17361
+      },
+      {
+        "path": "js/src/models/discreteBar.js",
+        "size": 10462
+      },
+      {
+        "path": "js/src/models/discreteBarChart.js",
+        "size": 8619
+      },
+      {
+        "path": "js/src/models/distribution.js",
+        "size": 4480
+      },
+      {
+        "path": "js/src/models/historicalBar.js",
+        "size": 8914
+      },
+      {
+        "path": "js/src/models/indentedTree.js",
+        "size": 9091
+      },
+      {
+        "path": "js/src/models/legend.js",
+        "size": 6510
+      },
+      {
+        "path": "js/src/models/line.js",
+        "size": 9428
+      },
+      {
+        "path": "js/src/models/lineChart.js",
+        "size": 10416
+      },
+      {
+        "path": "js/src/models/linePlusBarChart.js",
+        "size": 12817
+      },
+      {
+        "path": "js/src/models/linePlusBarWithFocusChart.js",
+        "size": 20223
+      },
+      {
+        "path": "js/src/models/lineWithFisheye.js",
+        "size": 5755
+      },
+      {
+        "path": "js/src/models/lineWithFisheyeChart.js",
+        "size": 9071
+      },
+      {
+        "path": "js/src/models/lineWithFocusChart.js",
+        "size": 16080
+      },
+      {
+        "path": "js/src/models/multiBar.js",
+        "size": 14196
+      },
+      {
+        "path": "js/src/models/multiBarChart.js",
+        "size": 12954
+      },
+      {
+        "path": "js/src/models/multiBarHorizontal.js",
+        "size": 13756
+      },
+      {
+        "path": "js/src/models/multiBarHorizontalChart.js",
+        "size": 12124
+      },
+      {
+        "path": "js/src/models/multiBarTimeSeries.js",
+        "size": 12148
+      },
+      {
+        "path": "js/src/models/multiBarTimeSeriesChart.js",
+        "size": 11636
+      },
+      {
+        "path": "js/src/models/multiChart.js",
+        "size": 14880
+      },
+      {
+        "path": "js/src/models/ohlcBar.js",
+        "size": 11112
+      },
+      {
+        "path": "js/src/models/pie.js",
+        "size": 11406
+      },
+      {
+        "path": "js/src/models/pieChart.js",
+        "size": 8233
+      },
+      {
+        "path": "js/src/models/scatter.js",
+        "size": 21490
+      },
+      {
+        "path": "js/src/models/scatterChart.js",
+        "size": 17699
+      },
+      {
+        "path": "js/src/models/scatterPlusLineChart.js",
+        "size": 18358
+      },
+      {
+        "path": "js/src/models/sparkline.js",
+        "size": 5296
+      },
+      {
+        "path": "js/src/models/sparklinePlus.js",
+        "size": 8568
+      },
+      {
+        "path": "js/src/models/stackedArea.js",
+        "size": 10339
+      },
+      {
+        "path": "js/src/models/stackedAreaChart.js",
+        "size": 13486
+      },
+      {
+        "path": "js/src/nv.d3.css",
+        "size": 11095
+      },
+      {
+        "path": "js/src/outro.js",
+        "size": 5
+      },
+      {
+        "path": "js/src/tooltip.js",
+        "size": 4207
+      },
+      {
+        "path": "js/src/utils.js",
+        "size": 3579
+      },
+      {
+        "path": "js/tabletop.js",
+        "size": 10075
+      },
+      {
+        "path": "js/underscore.js",
+        "size": 41416
+      },
+      {
+        "path": "lib/cie.js",
+        "size": 3983
+      },
+      {
+        "path": "lib/crossfilter.js",
+        "size": 37463
+      },
+      {
+        "path": "lib/crossfilter.min.js",
+        "size": 7624
+      },
+      {
+        "path": "lib/fisheye.js",
+        "size": 2129
+      },
+      {
+        "path": "lib/hive.js",
+        "size": 2632
+      },
+      {
+        "path": "lib/horizon.js",
+        "size": 5273
+      },
+      {
+        "path": "lib/sankey.js",
+        "size": 7372
+      },
+      {
+        "path": "old_data.html",
+        "size": 12497
+      },
+      {
+        "path": "old_index.html",
+        "size": 3897
+      },
+      {
+        "path": "shineinpeace.js",
+        "size": 25466
+      },
+      {
+        "path": "stats.html",
+        "size": 2355
+      },
+      {
+        "path": "style.less",
+        "size": 22623
+      },
+      {
+        "path": "topics.html",
+        "size": 10545
+      }
+    ],
+    "tree": {
+      "name": "shineinpeace",
+      "children": [
+        {
+          "name": "css",
+          "children": [
+            {
+              "name": "Control.MiniMap.css",
+              "size": 722,
+              "path": "css/Control.MiniMap.css"
+            },
+            {
+              "name": "bootstrap.css",
+              "size": 146879,
+              "path": "css/bootstrap.css"
+            },
+            {
+              "name": "bootstrap.min.css",
+              "size": 126461,
+              "path": "css/bootstrap.min.css"
+            },
+            {
+              "name": "style.css",
+              "size": 20357,
+              "path": "css/style.css"
+            }
+          ],
+          "path": "css"
+        },
+        {
+          "name": "data",
+          "children": [
+            {
+              "name": "GangInjunctionZones.geojson",
+              "size": 17900,
+              "path": "data/GangInjunctionZones.geojson"
+            },
+            {
+              "name": "GangInjunctionZones.kml",
+              "size": 17093,
+              "path": "data/GangInjunctionZones.kml"
+            },
+            {
+              "name": "PoliceDistricts_2013.geojson",
+              "size": 207994,
+              "path": "data/PoliceDistricts_2013.geojson"
+            },
+            {
+              "name": "oak_citycouncildistricts.geojson",
+              "size": 138094,
+              "path": "data/oak_citycouncildistricts.geojson"
+            },
+            {
+              "name": "oak_citycouncildistricts.kml",
+              "size": 125483,
+              "path": "data/oak_citycouncildistricts.kml"
+            },
+            {
+              "name": "oak_policebeats.geojson",
+              "size": 756851,
+              "path": "data/oak_policebeats.geojson"
+            },
+            {
+              "name": "oak_policebeats.kml",
+              "size": 762004,
+              "path": "data/oak_policebeats.kml"
+            },
+            {
+              "name": "oakincident_hex.geojson",
+              "size": 3029880,
+              "path": "data/oakincident_hex.geojson"
+            },
+            {
+              "name": "oakincident_hex2.geojson",
+              "size": 72275,
+              "path": "data/oakincident_hex2.geojson"
+            },
+            {
+              "name": "oakincident_hex3.geojson",
+              "size": 523227,
+              "path": "data/oakincident_hex3.geojson"
+            },
+            {
+              "name": "oakland_victims.geojson",
+              "size": 542300,
+              "path": "data/oakland_victims.geojson"
+            }
+          ],
+          "path": "data"
+        },
+        {
+          "name": "fonts",
+          "children": [
+            {
+              "name": "goudy_bookletter_1911-webfont.ttf",
+              "size": 40896,
+              "path": "fonts/goudy_bookletter_1911-webfont.ttf"
+            },
+            {
+              "name": "raleway_thin-webfont.ttf",
+              "size": 24732,
+              "path": "fonts/raleway_thin-webfont.ttf"
+            }
+          ],
+          "path": "fonts"
+        },
+        {
+          "name": "img",
+          "children": [
+            {
+              "name": "glyphicons-halflings-white.png",
+              "size": 8777,
+              "path": "img/glyphicons-halflings-white.png"
+            },
+            {
+              "name": "glyphicons-halflings.png",
+              "size": 12799,
+              "path": "img/glyphicons-halflings.png"
+            },
+            {
+              "name": "gotomap.jpg",
+              "size": 39175,
+              "path": "img/gotomap.jpg"
+            },
+            {
+              "name": "map.hex.png",
+              "size": 925077,
+              "path": "img/map.hex.png"
+            },
+            {
+              "name": "map.png",
+              "size": 1897383,
+              "path": "img/map.png"
+            },
+            {
+              "name": "map.points.png",
+              "size": 866452,
+              "path": "img/map.points.png"
+            },
+            {
+              "name": "toggle.png",
+              "size": 560,
+              "path": "img/toggle.png"
+            }
+          ],
+          "path": "img"
+        },
+        {
+          "name": "js",
+          "children": [
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "models",
+                  "children": [
+                    {
+                      "name": "backup",
+                      "children": [
+                        {
+                          "name": "bullet.js",
+                          "size": 8003,
+                          "path": "js/src/models/backup/bullet.js"
+                        },
+                        {
+                          "name": "bulletChart.js",
+                          "size": 10499,
+                          "path": "js/src/models/backup/bulletChart.js"
+                        }
+                      ],
+                      "path": "js/src/models/backup"
+                    },
+                    {
+                      "name": "axis.js",
+                      "size": 15395,
+                      "path": "js/src/models/axis.js"
+                    },
+                    {
+                      "name": "bullet.js",
+                      "size": 12311,
+                      "path": "js/src/models/bullet.js"
+                    },
+                    {
+                      "name": "bulletChart.js",
+                      "size": 10057,
+                      "path": "js/src/models/bulletChart.js"
+                    },
+                    {
+                      "name": "cumulativeLineChart.js",
+                      "size": 17361,
+                      "path": "js/src/models/cumulativeLineChart.js"
+                    },
+                    {
+                      "name": "discreteBar.js",
+                      "size": 10462,
+                      "path": "js/src/models/discreteBar.js"
+                    },
+                    {
+                      "name": "discreteBarChart.js",
+                      "size": 8619,
+                      "path": "js/src/models/discreteBarChart.js"
+                    },
+                    {
+                      "name": "distribution.js",
+                      "size": 4480,
+                      "path": "js/src/models/distribution.js"
+                    },
+                    {
+                      "name": "historicalBar.js",
+                      "size": 8914,
+                      "path": "js/src/models/historicalBar.js"
+                    },
+                    {
+                      "name": "indentedTree.js",
+                      "size": 9091,
+                      "path": "js/src/models/indentedTree.js"
+                    },
+                    {
+                      "name": "legend.js",
+                      "size": 6510,
+                      "path": "js/src/models/legend.js"
+                    },
+                    {
+                      "name": "line.js",
+                      "size": 9428,
+                      "path": "js/src/models/line.js"
+                    },
+                    {
+                      "name": "lineChart.js",
+                      "size": 10416,
+                      "path": "js/src/models/lineChart.js"
+                    },
+                    {
+                      "name": "linePlusBarChart.js",
+                      "size": 12817,
+                      "path": "js/src/models/linePlusBarChart.js"
+                    },
+                    {
+                      "name": "linePlusBarWithFocusChart.js",
+                      "size": 20223,
+                      "path": "js/src/models/linePlusBarWithFocusChart.js"
+                    },
+                    {
+                      "name": "lineWithFisheye.js",
+                      "size": 5755,
+                      "path": "js/src/models/lineWithFisheye.js"
+                    },
+                    {
+                      "name": "lineWithFisheyeChart.js",
+                      "size": 9071,
+                      "path": "js/src/models/lineWithFisheyeChart.js"
+                    },
+                    {
+                      "name": "lineWithFocusChart.js",
+                      "size": 16080,
+                      "path": "js/src/models/lineWithFocusChart.js"
+                    },
+                    {
+                      "name": "multiBar.js",
+                      "size": 14196,
+                      "path": "js/src/models/multiBar.js"
+                    },
+                    {
+                      "name": "multiBarChart.js",
+                      "size": 12954,
+                      "path": "js/src/models/multiBarChart.js"
+                    },
+                    {
+                      "name": "multiBarHorizontal.js",
+                      "size": 13756,
+                      "path": "js/src/models/multiBarHorizontal.js"
+                    },
+                    {
+                      "name": "multiBarHorizontalChart.js",
+                      "size": 12124,
+                      "path": "js/src/models/multiBarHorizontalChart.js"
+                    },
+                    {
+                      "name": "multiBarTimeSeries.js",
+                      "size": 12148,
+                      "path": "js/src/models/multiBarTimeSeries.js"
+                    },
+                    {
+                      "name": "multiBarTimeSeriesChart.js",
+                      "size": 11636,
+                      "path": "js/src/models/multiBarTimeSeriesChart.js"
+                    },
+                    {
+                      "name": "multiChart.js",
+                      "size": 14880,
+                      "path": "js/src/models/multiChart.js"
+                    },
+                    {
+                      "name": "ohlcBar.js",
+                      "size": 11112,
+                      "path": "js/src/models/ohlcBar.js"
+                    },
+                    {
+                      "name": "pie.js",
+                      "size": 11406,
+                      "path": "js/src/models/pie.js"
+                    },
+                    {
+                      "name": "pieChart.js",
+                      "size": 8233,
+                      "path": "js/src/models/pieChart.js"
+                    },
+                    {
+                      "name": "scatter.js",
+                      "size": 21490,
+                      "path": "js/src/models/scatter.js"
+                    },
+                    {
+                      "name": "scatterChart.js",
+                      "size": 17699,
+                      "path": "js/src/models/scatterChart.js"
+                    },
+                    {
+                      "name": "scatterPlusLineChart.js",
+                      "size": 18358,
+                      "path": "js/src/models/scatterPlusLineChart.js"
+                    },
+                    {
+                      "name": "sparkline.js",
+                      "size": 5296,
+                      "path": "js/src/models/sparkline.js"
+                    },
+                    {
+                      "name": "sparklinePlus.js",
+                      "size": 8568,
+                      "path": "js/src/models/sparklinePlus.js"
+                    },
+                    {
+                      "name": "stackedArea.js",
+                      "size": 10339,
+                      "path": "js/src/models/stackedArea.js"
+                    },
+                    {
+                      "name": "stackedAreaChart.js",
+                      "size": 13486,
+                      "path": "js/src/models/stackedAreaChart.js"
+                    }
+                  ],
+                  "path": "js/src/models"
+                },
+                {
+                  "name": "core.js",
+                  "size": 3298,
+                  "path": "js/src/core.js"
+                },
+                {
+                  "name": "intro.js",
+                  "size": 13,
+                  "path": "js/src/intro.js"
+                },
+                {
+                  "name": "nv.d3.css",
+                  "size": 11095,
+                  "path": "js/src/nv.d3.css"
+                },
+                {
+                  "name": "outro.js",
+                  "size": 5,
+                  "path": "js/src/outro.js"
+                },
+                {
+                  "name": "tooltip.js",
+                  "size": 4207,
+                  "path": "js/src/tooltip.js"
+                },
+                {
+                  "name": "utils.js",
+                  "size": 3579,
+                  "path": "js/src/utils.js"
+                }
+              ],
+              "path": "js/src"
+            },
+            {
+              "name": "Control.MiniMap.js",
+              "size": 7281,
+              "path": "js/Control.MiniMap.js"
+            },
+            {
+              "name": "ICanHaz.js",
+              "size": 16484,
+              "path": "js/ICanHaz.js"
+            },
+            {
+              "name": "bootstrap.js",
+              "size": 61764,
+              "path": "js/bootstrap.js"
+            },
+            {
+              "name": "bootstrap.min.js",
+              "size": 28663,
+              "path": "js/bootstrap.min.js"
+            },
+            {
+              "name": "bouncemarker.js",
+              "size": 3304,
+              "path": "js/bouncemarker.js"
+            },
+            {
+              "name": "jquery.isotope.min.js",
+              "size": 15954,
+              "path": "js/jquery.isotope.min.js"
+            },
+            {
+              "name": "moment.min.js",
+              "size": 14684,
+              "path": "js/moment.min.js"
+            },
+            {
+              "name": "nv.d3.min.js",
+              "size": 154626,
+              "path": "js/nv.d3.min.js"
+            },
+            {
+              "name": "sStepper.js",
+              "size": 2754,
+              "path": "js/sStepper.js"
+            },
+            {
+              "name": "tabletop.js",
+              "size": 10075,
+              "path": "js/tabletop.js"
+            },
+            {
+              "name": "underscore.js",
+              "size": 41416,
+              "path": "js/underscore.js"
+            }
+          ],
+          "path": "js"
+        },
+        {
+          "name": "lib",
+          "children": [
+            {
+              "name": "cie.js",
+              "size": 3983,
+              "path": "lib/cie.js"
+            },
+            {
+              "name": "crossfilter.js",
+              "size": 37463,
+              "path": "lib/crossfilter.js"
+            },
+            {
+              "name": "crossfilter.min.js",
+              "size": 7624,
+              "path": "lib/crossfilter.min.js"
+            },
+            {
+              "name": "fisheye.js",
+              "size": 2129,
+              "path": "lib/fisheye.js"
+            },
+            {
+              "name": "hive.js",
+              "size": 2632,
+              "path": "lib/hive.js"
+            },
+            {
+              "name": "horizon.js",
+              "size": 5273,
+              "path": "lib/horizon.js"
+            },
+            {
+              "name": "sankey.js",
+              "size": 7372,
+              "path": "lib/sankey.js"
+            }
+          ],
+          "path": "lib"
+        },
+        {
+          "name": "README.md",
+          "size": 321,
+          "path": "README.md"
+        },
+        {
+          "name": "data.html",
+          "size": 11252,
+          "path": "data.html"
+        },
+        {
+          "name": "index.html",
+          "size": 4043,
+          "path": "index.html"
+        },
+        {
+          "name": "old_data.html",
+          "size": 12497,
+          "path": "old_data.html"
+        },
+        {
+          "name": "old_index.html",
+          "size": 3897,
+          "path": "old_index.html"
+        },
+        {
+          "name": "shineinpeace.js",
+          "size": 25466,
+          "path": "shineinpeace.js"
+        },
+        {
+          "name": "stats.html",
+          "size": 2355,
+          "path": "stats.html"
+        },
+        {
+          "name": "style.less",
+          "size": 22623,
+          "path": "style.less"
+        },
+        {
+          "name": "topics.html",
+          "size": 10545,
+          "path": "topics.html"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 93,
+    "totalSize": 11265221
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"shine-in-peace\">Shine in Peace</h1>\n<p>============</p>\n<p>Website for Shine in Peace</p>\n<h2 id=\"pages-implemented-so-far\">Pages implemented so far</h2>\n<h3 id=\"home-page\">Home Page</h3>\n<p>Intro text + map placeholder (leaflet map can be used, similar to (Tablemap)[<a href=\"http://ejfox.github.com/tablemap/\">http://ejfox.github.com/tablemap/</a>] ) and topic sections</p>\n<h3 id=\"topic-page\">Topic Page</h3>\n<p>Individual story boxes, implemented in isotope for filtering / sorting</p>",

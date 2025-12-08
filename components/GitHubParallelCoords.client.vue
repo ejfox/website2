@@ -3,6 +3,9 @@ import { ref, computed } from 'vue'
 import { scaleLinear, scaleLog } from 'd3-scale'
 import { extent } from 'd3-array'
 import { line, curveBasis } from 'd3-shape'
+import { useLanguageColors } from '~/composables/useLanguageColors'
+
+const { getColor } = useLanguageColors()
 
 const props = defineProps({
   repos: {
@@ -69,24 +72,40 @@ const axes = [
 
 // Calculate scales for each axis
 const axisScales = computed(() => {
+  if (!props.repos || props.repos.length === 0) return []
+
   const padding = 60
   const axisWidth = (props.width - padding * 2) / (axes.length - 1)
 
   return axes.map((axis, i) => {
-    const values = props.repos.map(axis.getValue)
+    const values = props.repos
+      .map(axis.getValue)
+      .filter((v) => v != null && !Number.isNaN(v))
+    if (values.length === 0) {
+      // Return a default scale if no valid values
+      return {
+        ...axis,
+        x: padding + i * axisWidth,
+        yScale: scaleLinear()
+          .domain([0, 1])
+          .range([props.height - padding, padding]),
+        ticks: [0, 1],
+      }
+    }
+
     const [min, max] = extent(values)
 
     const yScale =
       axis.scale === 'log'
         ? scaleLog()
-            .domain([Math.max(min, 0.1), max])
+            .domain([Math.max(min, 0.1), max || 1])
             .range(
               axis.reverse
                 ? [padding, props.height - padding]
                 : [props.height - padding, padding]
             )
         : scaleLinear()
-            .domain([min, max])
+            .domain([min ?? 0, max ?? 1])
             .range(
               axis.reverse
                 ? [padding, props.height - padding]
@@ -118,7 +137,7 @@ const repoLines = computed(() => {
     return {
       repo,
       path: lineGenerator(points),
-      color: repo.languageColor || '#666',
+      color: getColor(repo.language),
     }
   })
 })
@@ -230,22 +249,12 @@ const handleMouseLeave = () => {
         </div>
       </div>
     </div>
-
-    <!-- Title -->
-    <div class="viz-title">Multi-Dimensional Repository Comparison</div>
-    <div class="viz-subtitle">
-      Parallel coordinates showing {{ repos.length }} repos across
-      {{ axes.length }} dimensions
-    </div>
   </div>
 </template>
 
 <style scoped>
 .parallel-coords-container {
   @apply relative;
-  @apply bg-white dark:bg-zinc-950;
-  @apply border border-zinc-200 dark:border-zinc-800 rounded;
-  @apply p-4;
 }
 
 .parallel-coords-svg {
@@ -287,16 +296,5 @@ const handleMouseLeave = () => {
 
 .stat-value {
   @apply text-zinc-900 dark:text-zinc-100 tabular-nums;
-}
-
-.viz-title {
-  @apply text-xs font-mono uppercase tracking-wider;
-  @apply text-zinc-900 dark:text-zinc-100;
-  @apply mt-4 mb-1;
-}
-
-.viz-subtitle {
-  @apply text-[10px] font-mono;
-  @apply text-zinc-500 dark:text-zinc-500;
 }
 </style>

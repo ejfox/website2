@@ -183,23 +183,29 @@ const toggleGist = (gistId: string) => {
 </script>
 
 <template>
-  <div class="py-8 px-4 font-mono text-sm">
-    <!-- Header -->
-    <div class="mb-8 pb-4">
-      <h1 class="text-mono-label mb-2">GITHUB_GISTS</h1>
-
-      <!-- Minimal stats -->
-      <div class="grid grid-cols-1 gap-1 text-xs text-muted">
-        <div>
-          GISTS: {{ totalGists }} | FILES: {{ totalFiles }} | SIZE:
-          {{ Math.round(totalSize / 1024) }}KB
-        </div>
-        <div>LANGUAGES: {{ languageCountsFormatted }}</div>
-        <div>
-          Updated: {{ lastUpdated || 'live' }} · source: GitHub Gists API
-        </div>
-      </div>
-    </div>
+  <div class="container-main pt-8">
+    <!-- Header - Editorial style -->
+    <header class="mb-12">
+      <h1
+        class="font-serif text-4xl md:text-5xl mb-4 text-zinc-900 dark:text-zinc-100"
+      >
+        GitHub Gists
+      </h1>
+      <p class="text-zinc-600 dark:text-zinc-400 text-base mb-2 max-w-prose">
+        {{ totalGists }} gists with {{ totalFiles }} files ({{
+          Math.round(totalSize / 1024)
+        }}KB total)
+      </p>
+      <p
+        v-if="languageCountsFormatted"
+        class="text-zinc-500 dark:text-zinc-500 text-sm mb-2"
+      >
+        Languages: {{ languageCountsFormatted }}
+      </p>
+      <p class="text-zinc-500 dark:text-zinc-500 font-mono text-xs">
+        Updated {{ lastUpdated || 'live' }}
+      </p>
+    </header>
 
     <!-- Loading state -->
     <div v-if="pending" class="stack-4">
@@ -209,7 +215,7 @@ const toggleGist = (gistId: string) => {
           <div class="skeleton w-64 h-4"></div>
           <div class="skeleton w-20 h-4 ml-auto"></div>
         </div>
-        <div class="pl-8 mt-1">
+        <div class="pl-8 mt-2">
           <div class="skeleton w-96 h-3"></div>
         </div>
       </div>
@@ -222,38 +228,47 @@ const toggleGist = (gistId: string) => {
 
     <!-- Gist list -->
     <div v-else-if="gists" class="space-y-0">
-      <div v-for="(gist, index) in gists" :key="gist.id" class="py-4">
-        <div class="flex items-baseline gap-2">
-          <span class="text-muted w-6 text-right">
-            {{ index + 1 + (currentPage - 1) * perPage }}.
-          </span>
+      <div
+        v-for="(gist, index) in gists"
+        :key="gist.id"
+        class="py-6 border-b border-zinc-200 dark:border-zinc-800 last:border-0"
+      >
+        <div class="flex items-start gap-3 mb-2">
           <a
             :href="gist.html_url"
             target="_blank"
             rel="noopener"
-            class="truncate"
+            class="font-mono text-sm text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors flex-1"
           >
             {{ Object.values(gist.files)[0]?.filename || 'Untitled' }}
           </a>
-          <span class="text-muted ml-auto">
+          <span
+            class="text-xs text-zinc-500 dark:text-zinc-500 font-mono whitespace-nowrap"
+          >
             {{ formatDate(gist.created_at) }}
           </span>
         </div>
 
-        <div v-if="gist.description" class="pl-8 text-secondary text-xs mt-1">
+        <div
+          v-if="gist.description"
+          class="text-sm text-zinc-600 dark:text-zinc-400 mb-2"
+        >
           {{ gist.description }}
         </div>
 
-        <div class="pl-8 text-muted text-xs mt-1 grid grid-cols-1 gap-1">
+        <div
+          class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-zinc-500 dark:text-zinc-500"
+        >
           <div
             v-for="(file, filename) in gist.files"
             :key="filename"
-            class="flex items-center gap-2"
+            class="flex items-center gap-2 font-mono"
           >
-            <span class="opacity-70">-</span>
-            <span class="truncate">{{ filename }}</span>
-            <span class="opacity-70">[{{ file.language || 'txt' }}]</span>
-            <span class="opacity-70">{{ Math.round(file.size / 1024) }}kb</span>
+            <span>{{ filename }}</span>
+            <span v-if="file.language" class="opacity-60">
+              [{{ file.language }}]
+            </span>
+            <span class="opacity-60">{{ Math.round(file.size / 1024) }}kb</span>
           </div>
         </div>
 
@@ -272,27 +287,27 @@ const toggleGist = (gistId: string) => {
       </div>
 
       <!-- Pagination -->
-      <div class="flex justify-between pt-4 mt-8 text-xs">
+      <div
+        class="flex justify-between items-center pt-8 mt-8 border-t border-zinc-200 dark:border-zinc-800"
+      >
         <button
           :disabled="currentPage === 1"
-          class="disabled:opacity-30 disabled:cursor-not-allowed"
+          class="px-4 py-2 text-sm border border-zinc-200 dark:border-zinc-800 disabled:opacity-30 disabled:cursor-not-allowed hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
           @click="prevPage"
         >
-          &lt;&lt; PREV
+          ← Previous
         </button>
-        <span class="text-muted">PAGE {{ currentPage }}</span>
+        <span class="text-sm text-zinc-500 dark:text-zinc-500 font-mono">
+          Page {{ currentPage }}
+        </span>
         <button
           :disabled="!gists?.length || gists.length < perPage"
-          class="disabled:opacity-30 disabled:cursor-not-allowed"
+          class="px-4 py-2 text-sm border border-zinc-200 dark:border-zinc-800 disabled:opacity-30 disabled:cursor-not-allowed hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
           @click="nextPage"
         >
-          NEXT &gt;&gt;
+          Next →
         </button>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-/* Monospace font for BBS style */
-</style>

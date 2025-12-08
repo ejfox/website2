@@ -15,6 +15,45 @@
     "JavaScript": 4053
   },
   "diskUsage": 34,
+  "fileTree": {
+    "files": [
+      {
+        "path": "chirp_formatted.csv",
+        "size": 30992
+      },
+      {
+        "path": "format_freqs_for_chirp.js",
+        "size": 4053
+      },
+      {
+        "path": "frequencies.csv",
+        "size": 56230
+      }
+    ],
+    "tree": {
+      "name": "frequencies",
+      "children": [
+        {
+          "name": "chirp_formatted.csv",
+          "size": 30992,
+          "path": "chirp_formatted.csv"
+        },
+        {
+          "name": "format_freqs_for_chirp.js",
+          "size": 4053,
+          "path": "format_freqs_for_chirp.js"
+        },
+        {
+          "name": "frequencies.csv",
+          "size": 56230,
+          "path": "frequencies.csv"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 3,
+    "totalSize": 91275
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

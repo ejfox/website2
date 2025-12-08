@@ -17,6 +17,144 @@
     "TypeScript": 92
   },
   "diskUsage": 92,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 58
+      },
+      {
+        "path": "README.md",
+        "size": 632
+      },
+      {
+        "path": "app.vue",
+        "size": 57
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 92
+      },
+      {
+        "path": "package.json",
+        "size": 334
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 71
+      },
+      {
+        "path": "scripts/coach.mjs",
+        "size": 1764
+      },
+      {
+        "path": "scripts/hourly_coach_run.mjs",
+        "size": 5946
+      },
+      {
+        "path": "scripts/package.json",
+        "size": 108
+      },
+      {
+        "path": "state/state.json",
+        "size": 561
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 94
+      },
+      {
+        "path": "yarn.lock",
+        "size": 210285
+      }
+    ],
+    "tree": {
+      "name": "ai-art-coach",
+      "children": [
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "index.vue",
+              "size": 71,
+              "path": "pages/index.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "coach.mjs",
+              "size": 1764,
+              "path": "scripts/coach.mjs"
+            },
+            {
+              "name": "hourly_coach_run.mjs",
+              "size": 5946,
+              "path": "scripts/hourly_coach_run.mjs"
+            },
+            {
+              "name": "package.json",
+              "size": 108,
+              "path": "scripts/package.json"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": "state",
+          "children": [
+            {
+              "name": "state.json",
+              "size": 561,
+              "path": "state/state.json"
+            }
+          ],
+          "path": "state"
+        },
+        {
+          "name": ".gitignore",
+          "size": 58,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 632,
+          "path": "README.md"
+        },
+        {
+          "name": "app.vue",
+          "size": 57,
+          "path": "app.vue"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 92,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 334,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 94,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 210285,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 12,
+    "totalSize": 220002
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"nuxt-3-minimal-starter\">Nuxt 3 Minimal Starter</h1>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install --shamefully-hoist\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\">npm run preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>",

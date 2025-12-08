@@ -24,19 +24,19 @@ const metrics = computed(() => {
     },
     stars: {
       label: 'Stars',
-      unit: '★',
+      unit: '',
       values: props.repos.map((r) => r.stats.stars).filter((v) => v > 0),
       scale: 'log',
     },
     forks: {
       label: 'Forks',
-      unit: '🔀',
+      unit: '',
       values: props.repos.map((r) => r.stats.forks).filter((v) => v > 0),
       scale: 'linear',
     },
     languages: {
       label: 'Languages',
-      unit: 'langs',
+      unit: '',
       values: props.repos
         .map((r) => (r.languages ? Object.keys(r.languages).length : 0))
         .filter((v) => v > 0),
@@ -136,8 +136,6 @@ const formatValue = (val, unit) => {
 
 <template>
   <div class="histogram-grid-container">
-    <div class="grid-title">Metric Distributions</div>
-
     <div class="histogram-grid">
       <div v-for="hist in histograms" :key="hist.key" class="histogram-cell">
         <!-- Mini histogram -->
@@ -180,24 +178,12 @@ const formatValue = (val, unit) => {
         </div>
       </div>
     </div>
-
-    <div class="grid-caption">
-      Small multiples showing distribution shapes across 6 key metrics
-    </div>
   </div>
 </template>
 
 <style scoped>
 .histogram-grid-container {
-  @apply bg-white dark:bg-zinc-950;
-  @apply border border-zinc-200 dark:border-zinc-800 rounded;
-  @apply p-4;
-}
-
-.grid-title {
-  @apply text-xs font-mono uppercase tracking-wider;
-  @apply text-zinc-900 dark:text-zinc-100;
-  @apply mb-4;
+  @apply relative;
 }
 
 .histogram-grid {
@@ -206,8 +192,6 @@ const formatValue = (val, unit) => {
 
 .histogram-cell {
   @apply flex flex-col;
-  @apply border border-zinc-200 dark:border-zinc-800 rounded;
-  @apply p-2;
 }
 
 .histogram-svg {
@@ -226,13 +210,13 @@ const formatValue = (val, unit) => {
 .cell-label {
   @apply text-xs font-mono font-medium;
   @apply text-zinc-900 dark:text-zinc-100;
-  @apply mt-1;
+  @apply mt-2;
 }
 
 .cell-stats {
   @apply text-[10px] font-mono tabular-nums;
   @apply text-zinc-500 dark:text-zinc-500;
-  @apply flex items-center gap-1;
+  @apply flex items-center gap-0.5;
 }
 
 .stat-item {
@@ -241,11 +225,5 @@ const formatValue = (val, unit) => {
 
 .stat-sep {
   @apply opacity-50;
-}
-
-.grid-caption {
-  @apply text-[10px] font-mono;
-  @apply text-zinc-500 dark:text-zinc-500;
-  @apply mt-4;
 }
 </style>

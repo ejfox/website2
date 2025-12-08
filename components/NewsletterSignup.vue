@@ -3,10 +3,10 @@
     <!-- Form -->
     <form
       ref="formRef"
-      class="flex items-center gap-1.5 relative"
+      class="flex items-center gap-0.5.5 relative"
       @submit.prevent="submitForm"
     >
-      <div class="flex-1 flex items-center gap-1.5 min-w-0">
+      <div class="flex-1 flex items-center gap-0.5.5 min-w-0">
         <input
           ref="emailInputRef"
           v-model="email"
@@ -22,7 +22,7 @@
         <div
           ref="nameFieldsContainer"
           :class="[
-            'flex gap-1.5 overflow-hidden transition-all duration-300',
+            'flex gap-0.5.5 overflow-hidden transition-all duration-300',
             'ease-out shrink-0',
             showNameFields ? 'w-auto opacity-100' : 'w-0 opacity-0',
           ]"
@@ -70,7 +70,7 @@
     >
       <div
         v-if="state.success || state.error"
-        class="absolute left-0 right-0 mt-1.5 text-xs"
+        class="absolute left-0 right-0 mt-2.5 text-xs"
         :class="{
           'text-green-600 dark:text-green-400': state.success,
           'text-red-600 dark:text-red-400': state.error,
@@ -84,7 +84,6 @@
 
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
-// NUKED BY BLOODHOUND: Animation imports obliterated
 // import { animate, stagger as _stagger } from '~/anime.esm.js'
 // import { useAnimations } from '~/composables/useAnimations'
 
@@ -168,14 +167,13 @@ const submitForm = async () => {
   } finally {
     state.loading = false
 
-    // Animate button state change
+    // Animate button state change (placeholder for future animation)
     if (buttonRef.value) {
-      // DELETED: All broken animation code
+      // Animation will go here
     }
   }
 }
 
-// NUKED BY BLOODHOUND: All animation functions obliterated
 // Newsletter shows immediately without animation
 
 onMounted(() => {

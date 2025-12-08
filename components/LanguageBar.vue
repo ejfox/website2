@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+import { useLanguageColors } from '~/composables/useLanguageColors'
 
 const props = defineProps({
   languages: {
@@ -16,26 +17,7 @@ const props = defineProps({
   },
 })
 
-const languageColors = {
-  JavaScript: '#f1e05a',
-  TypeScript: '#3178c6',
-  Vue: '#41b883',
-  Python: '#3572A5',
-  Go: '#00ADD8',
-  Rust: '#dea584',
-  Ruby: '#701516',
-  Java: '#b07219',
-  HTML: '#e34c26',
-  CSS: '#563d7c',
-  Shell: '#89e051',
-  Swift: '#F05138',
-  Kotlin: '#A97BFF',
-  Dart: '#00B4AB',
-  C: '#555555',
-  'C++': '#f34b7d',
-  'C#': '#178600',
-  Unknown: '#666666',
-}
+const { getColor } = useLanguageColors()
 
 const segments = computed(() => {
   const total = Object.values(props.languages).reduce(
@@ -53,7 +35,7 @@ const segments = computed(() => {
         lang,
         bytes,
         percentage,
-        color: languageColors[lang] || '#666666',
+        color: getColor(lang),
         offset,
       }
       offset += percentage
@@ -119,7 +101,7 @@ const segments = computed(() => {
 }
 
 .label-item {
-  @apply flex items-center gap-1;
+  @apply flex items-center gap-0.5;
 }
 
 .label-dot {

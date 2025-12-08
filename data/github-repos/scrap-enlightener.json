@@ -20,6 +20,948 @@
     "CSS": 782
   },
   "diskUsage": 17304,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".claude/settings.local.json",
+        "size": 153
+      },
+      {
+        "path": ".env.example",
+        "size": 2095
+      },
+      {
+        "path": ".gitignore",
+        "size": 279
+      },
+      {
+        "path": ".npmrc",
+        "size": 52
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 6185
+      },
+      {
+        "path": "README.md",
+        "size": 8840
+      },
+      {
+        "path": "TODO.txt",
+        "size": 199
+      },
+      {
+        "path": "app.vue",
+        "size": 1224
+      },
+      {
+        "path": "assets/css/main.css",
+        "size": 782
+      },
+      {
+        "path": "components/TagSuggestions.vue",
+        "size": 9150
+      },
+      {
+        "path": "composables/useEnlighten.ts",
+        "size": 5674
+      },
+      {
+        "path": "composables/useEnlightenSession.ts",
+        "size": 11796
+      },
+      {
+        "path": "composables/usePinboard.ts",
+        "size": 8365
+      },
+      {
+        "path": "composables/usePinboardProcessor.ts",
+        "size": 5322
+      },
+      {
+        "path": "data/bookmarks-atlas.json",
+        "size": 437791
+      },
+      {
+        "path": "data/bookmarks-atlas.parquet",
+        "size": 65310
+      },
+      {
+        "path": "data/processing-log.txt",
+        "size": 380928
+      },
+      {
+        "path": "data/processing-progress.json",
+        "size": 742387
+      },
+      {
+        "path": "docs/ai-summarization.md",
+        "size": 7606
+      },
+      {
+        "path": "docs/enrichment-api.md",
+        "size": 9200
+      },
+      {
+        "path": "docs/pinboard-integration.md",
+        "size": 4693
+      },
+      {
+        "path": "docs/processing-theater-architecture.md",
+        "size": 14198
+      },
+      {
+        "path": "docs/processing-theater-implementation.md",
+        "size": 9188
+      },
+      {
+        "path": "docs/supabase-decoupling.md",
+        "size": 6059
+      },
+      {
+        "path": "layouts/default.vue",
+        "size": 2867
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 1721
+      },
+      {
+        "path": "package-lock.json",
+        "size": 529923
+      },
+      {
+        "path": "package.json",
+        "size": 1249
+      },
+      {
+        "path": "pages/enlighten/index.vue",
+        "size": 24489
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 718
+      },
+      {
+        "path": "plugins/motion.client.ts",
+        "size": 1026
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 33
+      },
+      {
+        "path": "public/test-demo.html",
+        "size": 12949
+      },
+      {
+        "path": "scripts/bookmarks.js",
+        "size": 13910
+      },
+      {
+        "path": "scripts/cli.js",
+        "size": 3151
+      },
+      {
+        "path": "scripts/commands/export.js",
+        "size": 2014
+      },
+      {
+        "path": "scripts/commands/process.js",
+        "size": 3125
+      },
+      {
+        "path": "scripts/commands/search.js",
+        "size": 1560
+      },
+      {
+        "path": "scripts/commands/stats.js",
+        "size": 1131
+      },
+      {
+        "path": "scripts/commands/tag.js",
+        "size": 1063
+      },
+      {
+        "path": "scripts/lib/database.js",
+        "size": 1981
+      },
+      {
+        "path": "scripts/lib/embeddings.js",
+        "size": 685
+      },
+      {
+        "path": "scripts/lib/pinboard.js",
+        "size": 1061
+      },
+      {
+        "path": "scripts/lib/progress.js",
+        "size": 1073
+      },
+      {
+        "path": "scripts/test-ai-providers.js",
+        "size": 3390
+      },
+      {
+        "path": "server/api/enlighten/batch.post.ts",
+        "size": 11739
+      },
+      {
+        "path": "server/api/enrichment/content.post.ts",
+        "size": 1686
+      },
+      {
+        "path": "server/api/enrichment/demo-stream.post.ts",
+        "size": 8766
+      },
+      {
+        "path": "server/api/enrichment/embed.post.ts",
+        "size": 2104
+      },
+      {
+        "path": "server/api/enrichment/extract.post.ts",
+        "size": 8246
+      },
+      {
+        "path": "server/api/enrichment/process-stream.post.ts",
+        "size": 10102
+      },
+      {
+        "path": "server/api/enrichment/process.post.ts",
+        "size": 8408
+      },
+      {
+        "path": "server/api/enrichment/stream.post.ts",
+        "size": 11761
+      },
+      {
+        "path": "server/api/enrichment/summarize.post.ts",
+        "size": 6760
+      },
+      {
+        "path": "server/api/pinboard/[...].ts",
+        "size": 8863
+      },
+      {
+        "path": "server/lib/adapters/sqlite-vec.js",
+        "size": 13142
+      },
+      {
+        "path": "server/lib/ai-providers.js",
+        "size": 8491
+      },
+      {
+        "path": "server/lib/database.js",
+        "size": 2003
+      },
+      {
+        "path": "server/lib/pinboard-sync-README.md",
+        "size": 6843
+      },
+      {
+        "path": "server/lib/pinboard-sync-test.js",
+        "size": 2855
+      },
+      {
+        "path": "server/lib/pinboard-sync.js",
+        "size": 18592
+      },
+      {
+        "path": "server/lib/rate-limiter.js",
+        "size": 4392
+      },
+      {
+        "path": "server/lib/scraper/cache.js",
+        "size": 6766
+      },
+      {
+        "path": "server/lib/scraper/content-extractor.js",
+        "size": 6273
+      },
+      {
+        "path": "server/lib/scraper/error-handler.js",
+        "size": 9274
+      },
+      {
+        "path": "server/lib/scraper/integration-test.js",
+        "size": 6102
+      },
+      {
+        "path": "server/lib/scraper/metadata-parser.js",
+        "size": 6323
+      },
+      {
+        "path": "server/lib/scraper/rate-limiter.js",
+        "size": 7941
+      },
+      {
+        "path": "server/lib/scraper/test-scraper.js",
+        "size": 27526
+      },
+      {
+        "path": "server/lib/scraper/url-fetcher.js",
+        "size": 6129
+      },
+      {
+        "path": "stores/main.ts",
+        "size": 728
+      },
+      {
+        "path": "supabase/migrations/002_pinboard_token_encryption.sql",
+        "size": 1053
+      },
+      {
+        "path": "supabase/migrations/003_add_enrichment_data.sql",
+        "size": 12924
+      },
+      {
+        "path": "supabase/migrations/004_add_vector_embeddings.sql",
+        "size": 3287
+      },
+      {
+        "path": "supabase/migrations/20240112_add_gamification_tables.sql",
+        "size": 5488
+      },
+      {
+        "path": "supabase/schema.sql",
+        "size": 8407
+      },
+      {
+        "path": "tailwind.config.js",
+        "size": 789
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 276
+      },
+      {
+        "path": "types/enlighten.ts",
+        "size": 1326
+      },
+      {
+        "path": "types/pinboard.ts",
+        "size": 1208
+      },
+      {
+        "path": "utils/format.ts",
+        "size": 825
+      },
+      {
+        "path": "utils/taxonomy.ts",
+        "size": 6786
+      },
+      {
+        "path": "yarn.lock",
+        "size": 382091
+      }
+    ],
+    "tree": {
+      "name": "scrap-enlightener",
+      "children": [
+        {
+          "name": ".claude",
+          "children": [
+            {
+              "name": "settings.local.json",
+              "size": 153,
+              "path": ".claude/settings.local.json"
+            }
+          ],
+          "path": ".claude"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "assets",
+          "children": [
+            {
+              "name": "css",
+              "children": [
+                {
+                  "name": "main.css",
+                  "size": 782,
+                  "path": "assets/css/main.css"
+                }
+              ],
+              "path": "assets/css"
+            }
+          ],
+          "path": "assets"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "TagSuggestions.vue",
+              "size": 9150,
+              "path": "components/TagSuggestions.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "composables",
+          "children": [
+            {
+              "name": "useEnlighten.ts",
+              "size": 5674,
+              "path": "composables/useEnlighten.ts"
+            },
+            {
+              "name": "useEnlightenSession.ts",
+              "size": 11796,
+              "path": "composables/useEnlightenSession.ts"
+            },
+            {
+              "name": "usePinboard.ts",
+              "size": 8365,
+              "path": "composables/usePinboard.ts"
+            },
+            {
+              "name": "usePinboardProcessor.ts",
+              "size": 5322,
+              "path": "composables/usePinboardProcessor.ts"
+            }
+          ],
+          "path": "composables"
+        },
+        {
+          "name": "data",
+          "children": [
+            {
+              "name": "bookmarks-atlas.json",
+              "size": 437791,
+              "path": "data/bookmarks-atlas.json"
+            },
+            {
+              "name": "bookmarks-atlas.parquet",
+              "size": 65310,
+              "path": "data/bookmarks-atlas.parquet"
+            },
+            {
+              "name": "processing-log.txt",
+              "size": 380928,
+              "path": "data/processing-log.txt"
+            },
+            {
+              "name": "processing-progress.json",
+              "size": 742387,
+              "path": "data/processing-progress.json"
+            }
+          ],
+          "path": "data"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "ai-summarization.md",
+              "size": 7606,
+              "path": "docs/ai-summarization.md"
+            },
+            {
+              "name": "enrichment-api.md",
+              "size": 9200,
+              "path": "docs/enrichment-api.md"
+            },
+            {
+              "name": "pinboard-integration.md",
+              "size": 4693,
+              "path": "docs/pinboard-integration.md"
+            },
+            {
+              "name": "processing-theater-architecture.md",
+              "size": 14198,
+              "path": "docs/processing-theater-architecture.md"
+            },
+            {
+              "name": "processing-theater-implementation.md",
+              "size": 9188,
+              "path": "docs/processing-theater-implementation.md"
+            },
+            {
+              "name": "supabase-decoupling.md",
+              "size": 6059,
+              "path": "docs/supabase-decoupling.md"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "layouts",
+          "children": [
+            {
+              "name": "default.vue",
+              "size": 2867,
+              "path": "layouts/default.vue"
+            }
+          ],
+          "path": "layouts"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "enlighten",
+              "children": [
+                {
+                  "name": "index.vue",
+                  "size": 24489,
+                  "path": "pages/enlighten/index.vue"
+                }
+              ],
+              "path": "pages/enlighten"
+            },
+            {
+              "name": "index.vue",
+              "size": 718,
+              "path": "pages/index.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "plugins",
+          "children": [
+            {
+              "name": "motion.client.ts",
+              "size": 1026,
+              "path": "plugins/motion.client.ts"
+            }
+          ],
+          "path": "plugins"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "favicon.ico",
+              "size": 33,
+              "path": "public/favicon.ico"
+            },
+            {
+              "name": "test-demo.html",
+              "size": 12949,
+              "path": "public/test-demo.html"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "commands",
+              "children": [
+                {
+                  "name": "export.js",
+                  "size": 2014,
+                  "path": "scripts/commands/export.js"
+                },
+                {
+                  "name": "process.js",
+                  "size": 3125,
+                  "path": "scripts/commands/process.js"
+                },
+                {
+                  "name": "search.js",
+                  "size": 1560,
+                  "path": "scripts/commands/search.js"
+                },
+                {
+                  "name": "stats.js",
+                  "size": 1131,
+                  "path": "scripts/commands/stats.js"
+                },
+                {
+                  "name": "tag.js",
+                  "size": 1063,
+                  "path": "scripts/commands/tag.js"
+                }
+              ],
+              "path": "scripts/commands"
+            },
+            {
+              "name": "lib",
+              "children": [
+                {
+                  "name": "database.js",
+                  "size": 1981,
+                  "path": "scripts/lib/database.js"
+                },
+                {
+                  "name": "embeddings.js",
+                  "size": 685,
+                  "path": "scripts/lib/embeddings.js"
+                },
+                {
+                  "name": "pinboard.js",
+                  "size": 1061,
+                  "path": "scripts/lib/pinboard.js"
+                },
+                {
+                  "name": "progress.js",
+                  "size": 1073,
+                  "path": "scripts/lib/progress.js"
+                }
+              ],
+              "path": "scripts/lib"
+            },
+            {
+              "name": "bookmarks.js",
+              "size": 13910,
+              "path": "scripts/bookmarks.js"
+            },
+            {
+              "name": "cli.js",
+              "size": 3151,
+              "path": "scripts/cli.js"
+            },
+            {
+              "name": "test-ai-providers.js",
+              "size": 3390,
+              "path": "scripts/test-ai-providers.js"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": "server",
+          "children": [
+            {
+              "name": "api",
+              "children": [
+                {
+                  "name": "enlighten",
+                  "children": [
+                    {
+                      "name": "batch.post.ts",
+                      "size": 11739,
+                      "path": "server/api/enlighten/batch.post.ts"
+                    }
+                  ],
+                  "path": "server/api/enlighten"
+                },
+                {
+                  "name": "enrichment",
+                  "children": [
+                    {
+                      "name": "content.post.ts",
+                      "size": 1686,
+                      "path": "server/api/enrichment/content.post.ts"
+                    },
+                    {
+                      "name": "demo-stream.post.ts",
+                      "size": 8766,
+                      "path": "server/api/enrichment/demo-stream.post.ts"
+                    },
+                    {
+                      "name": "embed.post.ts",
+                      "size": 2104,
+                      "path": "server/api/enrichment/embed.post.ts"
+                    },
+                    {
+                      "name": "extract.post.ts",
+                      "size": 8246,
+                      "path": "server/api/enrichment/extract.post.ts"
+                    },
+                    {
+                      "name": "process-stream.post.ts",
+                      "size": 10102,
+                      "path": "server/api/enrichment/process-stream.post.ts"
+                    },
+                    {
+                      "name": "process.post.ts",
+                      "size": 8408,
+                      "path": "server/api/enrichment/process.post.ts"
+                    },
+                    {
+                      "name": "stream.post.ts",
+                      "size": 11761,
+                      "path": "server/api/enrichment/stream.post.ts"
+                    },
+                    {
+                      "name": "summarize.post.ts",
+                      "size": 6760,
+                      "path": "server/api/enrichment/summarize.post.ts"
+                    }
+                  ],
+                  "path": "server/api/enrichment"
+                },
+                {
+                  "name": "pinboard",
+                  "children": [
+                    {
+                      "name": "[...].ts",
+                      "size": 8863,
+                      "path": "server/api/pinboard/[...].ts"
+                    }
+                  ],
+                  "path": "server/api/pinboard"
+                }
+              ],
+              "path": "server/api"
+            },
+            {
+              "name": "lib",
+              "children": [
+                {
+                  "name": "adapters",
+                  "children": [
+                    {
+                      "name": "sqlite-vec.js",
+                      "size": 13142,
+                      "path": "server/lib/adapters/sqlite-vec.js"
+                    }
+                  ],
+                  "path": "server/lib/adapters"
+                },
+                {
+                  "name": "scraper",
+                  "children": [
+                    {
+                      "name": "cache.js",
+                      "size": 6766,
+                      "path": "server/lib/scraper/cache.js"
+                    },
+                    {
+                      "name": "content-extractor.js",
+                      "size": 6273,
+                      "path": "server/lib/scraper/content-extractor.js"
+                    },
+                    {
+                      "name": "error-handler.js",
+                      "size": 9274,
+                      "path": "server/lib/scraper/error-handler.js"
+                    },
+                    {
+                      "name": "integration-test.js",
+                      "size": 6102,
+                      "path": "server/lib/scraper/integration-test.js"
+                    },
+                    {
+                      "name": "metadata-parser.js",
+                      "size": 6323,
+                      "path": "server/lib/scraper/metadata-parser.js"
+                    },
+                    {
+                      "name": "rate-limiter.js",
+                      "size": 7941,
+                      "path": "server/lib/scraper/rate-limiter.js"
+                    },
+                    {
+                      "name": "test-scraper.js",
+                      "size": 27526,
+                      "path": "server/lib/scraper/test-scraper.js"
+                    },
+                    {
+                      "name": "url-fetcher.js",
+                      "size": 6129,
+                      "path": "server/lib/scraper/url-fetcher.js"
+                    }
+                  ],
+                  "path": "server/lib/scraper"
+                },
+                {
+                  "name": "ai-providers.js",
+                  "size": 8491,
+                  "path": "server/lib/ai-providers.js"
+                },
+                {
+                  "name": "database.js",
+                  "size": 2003,
+                  "path": "server/lib/database.js"
+                },
+                {
+                  "name": "pinboard-sync-README.md",
+                  "size": 6843,
+                  "path": "server/lib/pinboard-sync-README.md"
+                },
+                {
+                  "name": "pinboard-sync-test.js",
+                  "size": 2855,
+                  "path": "server/lib/pinboard-sync-test.js"
+                },
+                {
+                  "name": "pinboard-sync.js",
+                  "size": 18592,
+                  "path": "server/lib/pinboard-sync.js"
+                },
+                {
+                  "name": "rate-limiter.js",
+                  "size": 4392,
+                  "path": "server/lib/rate-limiter.js"
+                }
+              ],
+              "path": "server/lib"
+            }
+          ],
+          "path": "server"
+        },
+        {
+          "name": "stores",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 728,
+              "path": "stores/main.ts"
+            }
+          ],
+          "path": "stores"
+        },
+        {
+          "name": "supabase",
+          "children": [
+            {
+              "name": "migrations",
+              "children": [
+                {
+                  "name": "002_pinboard_token_encryption.sql",
+                  "size": 1053,
+                  "path": "supabase/migrations/002_pinboard_token_encryption.sql"
+                },
+                {
+                  "name": "003_add_enrichment_data.sql",
+                  "size": 12924,
+                  "path": "supabase/migrations/003_add_enrichment_data.sql"
+                },
+                {
+                  "name": "004_add_vector_embeddings.sql",
+                  "size": 3287,
+                  "path": "supabase/migrations/004_add_vector_embeddings.sql"
+                },
+                {
+                  "name": "20240112_add_gamification_tables.sql",
+                  "size": 5488,
+                  "path": "supabase/migrations/20240112_add_gamification_tables.sql"
+                }
+              ],
+              "path": "supabase/migrations"
+            },
+            {
+              "name": "schema.sql",
+              "size": 8407,
+              "path": "supabase/schema.sql"
+            }
+          ],
+          "path": "supabase"
+        },
+        {
+          "name": "types",
+          "children": [
+            {
+              "name": "enlighten.ts",
+              "size": 1326,
+              "path": "types/enlighten.ts"
+            },
+            {
+              "name": "pinboard.ts",
+              "size": 1208,
+              "path": "types/pinboard.ts"
+            }
+          ],
+          "path": "types"
+        },
+        {
+          "name": "utils",
+          "children": [
+            {
+              "name": "format.ts",
+              "size": 825,
+              "path": "utils/format.ts"
+            },
+            {
+              "name": "taxonomy.ts",
+              "size": 6786,
+              "path": "utils/taxonomy.ts"
+            }
+          ],
+          "path": "utils"
+        },
+        {
+          "name": ".env.example",
+          "size": 2095,
+          "path": ".env.example"
+        },
+        {
+          "name": ".gitignore",
+          "size": 279,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 52,
+          "path": ".npmrc"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 6185,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "README.md",
+          "size": 8840,
+          "path": "README.md"
+        },
+        {
+          "name": "TODO.txt",
+          "size": 199,
+          "path": "TODO.txt"
+        },
+        {
+          "name": "app.vue",
+          "size": 1224,
+          "path": "app.vue"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 1721,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 529923,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1249,
+          "path": "package.json"
+        },
+        {
+          "name": "tailwind.config.js",
+          "size": 789,
+          "path": "tailwind.config.js"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 276,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 382091,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 84,
+    "totalSize": 2983137
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"scrap-enlightener-️\">Scrap Enlightener 🕵️</h1>\n<p><strong>Transform your Pinboard bookmarks into a knowledge graph with AI-powered enrichment, semantic search, and automatic tagging.</strong></p>\n<h2 id=\"what-this-does\">What This Does</h2>\n<p>Scrap Enlightener supercharges your Pinboard bookmarks by:</p>\n<ul>\n<li>🤖 <strong>AI Enrichment</strong>: Automatically extracts key information from bookmarked pages (quotes, questions, links, headers)</li>\n<li>🔗 <strong>Connection Detection</strong>: Discovers relationships between bookmarks through shared links and concepts</li>\n<li>🔍 <strong>Semantic Search</strong>: Find bookmarks by meaning, not just keywords (powered by OpenAI embeddings)</li>\n<li>🏷️ <strong>Smart Tagging</strong>: AI suggests relevant tags based on actual page content</li>\n<li>📸 <strong>Visual Memory</strong>: Captures screenshots of bookmarked pages</li>\n<li>💬 <strong>Chat with Bookmarks</strong>: Ask questions about your bookmark collection</li>\n<li>📊 <strong>Social Discovery</strong>: Find Hacker News and Reddit discussions about your bookmarks</li>\n<li>🕰️ <strong>Time Machine</strong>: Browse your bookmarks by date with timeline view</li>\n<li>📦 <strong>Data Export</strong>: Export your enriched bookmarks as JSON, CSV, or standalone HTML</li>\n</ul>\n<h2 id=\"how-we-compare\">How We Compare</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Feature</th><th>Scrap Enlightener</th><th><a href=\"https://github.com/hoarder-app/hoarder\">Hoarder</a></th><th><a href=\"https://github.com/sissbruecker/linkding\">Linkding</a></th><th><a href=\"https://raindrop.io\">Raindrop.io</a></th><th><a href=\"https://readwise.io/reader\">Readwise Reader</a></th></tr></thead><tbody><tr><td><strong>Pinboard Integration</strong></td><td>✅ Native</td><td>❌</td><td>✅ Import only</td><td>✅ Import only</td><td>❌</td></tr><tr><td><strong>AI Auto-Tagging</strong></td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td><strong>Semantic Search</strong></td><td>✅ OpenAI</td><td>❌</td><td>❌</td><td>✅ Paid tier</td><td>✅</td></tr><tr><td><strong>Link Connections</strong></td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td><strong>Screenshots</strong></td><td>✅</td><td>✅</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td><strong>Full-Text Archive</strong></td><td>✅</td><td>✅</td><td>✅</td><td>✅ Paid</td><td>✅</td></tr><tr><td><strong>HN/Reddit Discovery</strong></td><td>✅</td><td>❌</td><td>❌</td><td>❌</td><td>❌</td></tr><tr><td><strong>Chat with Bookmarks</strong></td><td>✅</td><td>✅</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td><strong>Self-Hosted</strong></td><td>✅</td><td>✅</td><td>✅</td><td>❌</td><td>❌</td></tr><tr><td><strong>Offline Export</strong></td><td>✅ HTML/JSON/CSV</td><td>❌</td><td>✅ HTML</td><td>✅ Limited</td><td>✅ Limited</td></tr><tr><td><strong>Pricing</strong></td><td>Free (BYO API keys)</td><td>Free</td><td>Free</td><td>$3-9/mo</td><td>$8-15/mo</td></tr><tr><td><strong>Database</strong></td><td>Supabase/PostgreSQL</td><td>SQLite</td><td>SQLite/PostgreSQL</td><td>Proprietary</td><td>Proprietary</td></tr><tr><td><strong>Primary Focus</strong></td><td>Pinboard enhancement</td><td>Everything saver</td><td>Simple bookmarks</td><td>Visual bookmarks</td><td>Reading &amp; highlights</td></tr></tbody></table>\n<h3 id=\"why-scrap-enlightener\">Why Scrap Enlightener?</h3>\n<ul>\n<li><strong>Pinboard-first</strong>: Built specifically for Pinboard users, not trying to replace it</li>\n<li><strong>Bring Your Own Keys</strong>: Use your own OpenAI API keys, pay only for what you use</li>\n<li><strong>Knowledge Graph</strong>: Unique focus on discovering connections between bookmarks</li>\n<li><strong>Fully Exportable</strong>: Your data is always yours, export to standalone HTML that works offline</li>\n</ul>\n<h2 id=\"prerequisites\">Prerequisites</h2>\n<ul>\n<li>Node.js 20+ and npm</li>\n<li>A <a href=\"https://pinboard.in\">Pinboard</a> account with API token</li>\n<li>A <a href=\"https://supabase.com\">Supabase</a> project (free tier works) *</li>\n<li>An <a href=\"https://platform.openai.com/api-keys\">OpenAI API key</a> for AI features</li>\n</ul>\n<p>* <em>Supabase dependency is being removed - see <a href=\"docs/supabase-decoupling.md\">decoupling docs</a> for SQLite/PostgreSQL/JSON alternatives</em></p>\n<h2 id=\"quick-start\">Quick Start</h2>\n<h3 id=\"1-clone-and-install\">1. Clone and Install</h3>\n<pre><code class=\"language-bash\">git clone https://github.com/yourusername/scrap-enlightener.git\ncd scrap-enlightener\nnpm install\n</code></pre>\n<h3 id=\"2-choose-your-database\">2. Choose Your Database</h3>\n<h4 id=\"option-a-sqlite-easiest---no-external-dependencies\">Option A: SQLite (Easiest - No External Dependencies!)</h4>\n<pre><code class=\"language-bash\"># Just set this in your .env:\nDB_ADAPTER=sqlite\nSQLITE_PATH=./data/bookmarks.db\n# That's it! Database will be created automatically.\n</code></pre>\n<h4 id=\"option-b-supabase-cloud-hosted\">Option B: Supabase (Cloud-hosted)</h4>\n<ol>\n<li>Create a new project at <a href=\"https://supabase.com\">supabase.com</a></li>\n<li>Run the migrations in order from <code>supabase/migrations/</code>:\n<pre><code class=\"language-sql\">-- Run each .sql file in your Supabase SQL editor\n</code></pre>\n</li>\n<li>Copy your project URL and anon key from Project Settings &gt; API</li>\n</ol>\n<h3 id=\"3-configure-environment\">3. Configure Environment</h3>\n<pre><code class=\"language-bash\">cp .env.example .env\n</code></pre>\n<p>Edit <code>.env</code> with your keys:</p>\n<pre><code class=\"language-env\"># From Supabase project settings\nSUPABASE_URL=https://your-project.supabase.co\nSUPABASE_ANON_KEY=your-anon-key-here\n\n# From OpenAI platform\nOPENAI_API_KEY=sk-your-openai-key-here\n\n# Optional: Direct Pinboard API access (for testing)\nPINBOARD_API_TOKEN=username:token\n</code></pre>\n<h3 id=\"4-start-development-server\">4. Start Development Server</h3>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<p>Open <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<h3 id=\"5-connect-your-pinboard\">5. Connect Your Pinboard</h3>\n<ol>\n<li>Sign up/login with Supabase Auth</li>\n<li>Go to Settings page</li>\n<li>Enter your Pinboard API token (format: <code>username:XXXXXXXXXX</code>)</li>\n<li>Your token is securely stored in the database per-user</li>\n</ol>\n<h2 id=\"core-features\">Core Features</h2>\n<h3 id=\"-enlightenexe-enlighten\">⚡ ENLIGHTEN.EXE (<code>/enlighten</code>)</h3>\n<p><strong>Radically simplified single-screen bookmark processing theater</strong></p>\n<p>Transform your untagged Pinboard bookmarks into properly tagged knowledge:</p>\n<ul>\n<li><strong>Real-time AI streaming</strong> - Watch AI analyze content as it happens</li>\n<li><strong>Single-word tag suggestions</strong> - Only from your existing vocabulary</li>\n<li><strong>Live processing display</strong> - See content analysis and tag generation</li>\n<li><strong>Automatic progression</strong> - Accept tags and move to next bookmark seamlessly</li>\n<li><strong>Rate-limited &amp; respectful</strong> - Proper API throttling for Pinboard</li>\n</ul>\n<p><strong>Simple workflow:</strong></p>\n<ol>\n<li>Enter your Pinboard token</li>\n<li>Click \"Load Bookmarks\"</li>\n<li>Watch AI analyze each bookmark in real-time</li>\n<li>Accept/reject suggested tags with one click</li>\n<li>Automatically moves to next untagged bookmark</li>\n</ol>\n<h3 id=\"-semantic-search-search\">🔍 Semantic Search (<code>/search</code>)</h3>\n<p>Search bookmarks by meaning using AI embeddings:</p>\n<ul>\n<li>Finds conceptually related bookmarks</li>\n<li>Works even without exact keyword matches</li>\n<li>Powered by OpenAI's text-embedding-3-small model</li>\n</ul>\n<h3 id=\"-connection-discovery\">🔗 Connection Discovery</h3>\n<p>Automatically finds relationships between bookmarks:</p>\n<ul>\n<li>Detects when bookmarks link to each other</li>\n<li>Creates a knowledge graph of your bookmarks</li>\n<li>Surfaces forgotten related content</li>\n</ul>\n<h3 id=\"-analytics-dashboard-analytics\">📊 Analytics Dashboard (<code>/analytics</code>)</h3>\n<p>Track your bookmark habits:</p>\n<ul>\n<li>Tagging velocity and streaks</li>\n<li>Domain frequency analysis</li>\n<li>Achievement system for gamification</li>\n</ul>\n<h2 id=\"api-endpoints\">API Endpoints</h2>\n<h3 id=\"enrichment-apis\">Enrichment APIs</h3>\n<ul>\n<li><code>POST /api/enrichment/extract</code> - Extract content from a URL</li>\n<li><code>POST /api/enrichment/embed</code> - Generate embeddings for semantic search</li>\n</ul>\n<h3 id=\"capture-apis\">Capture APIs</h3>\n<ul>\n<li><code>POST /api/capture/screenshot</code> - Capture page screenshot</li>\n<li><code>POST /api/capture/archive</code> - Archive full page content</li>\n</ul>\n<h3 id=\"discovery-apis\">Discovery APIs</h3>\n<ul>\n<li><code>POST /api/social/discover</code> - Find HN/Reddit discussions</li>\n<li><code>POST /api/chat/bookmarks</code> - Chat with your bookmarks</li>\n<li><code>POST /api/diff/check</code> - Check if a page has changed</li>\n</ul>\n<h3 id=\"export-apis\">Export APIs</h3>\n<ul>\n<li><code>GET /api/export/json</code> - Export as JSON</li>\n<li><code>GET /api/export/csv</code> - Export as CSV</li>\n<li><code>GET /api/export/static</code> - Export as standalone HTML</li>\n</ul>\n<h3 id=\"time-machine\">Time Machine</h3>\n<ul>\n<li><code>GET /api/timemachine/snapshots</code> - Browse bookmarks by date</li>\n</ul>\n<h3 id=\"rest-api\">REST API</h3>\n<ul>\n<li><code>GET /api/v1/bookmarks</code> - List bookmarks with filters</li>\n<li><code>POST /api/v1/bookmarks</code> - Add new bookmark</li>\n<li><code>DELETE /api/v1/bookmarks</code> - Delete bookmark</li>\n</ul>\n<h2 id=\"architecture\">Architecture</h2>\n<pre><code>Frontend (Nuxt 3 + Vue 3 + Tailwind)\n    ↓\nAPI Layer (Nitro server endpoints)\n    ↓\nServices\n├── Pinboard API (bookmark sync)\n├── OpenAI API (enrichment + embeddings)\n├── Supabase (auth + database + vector search)\n└── External APIs (HN, Reddit, web scraping)\n</code></pre>\n<h2 id=\"database-schema\">Database Schema</h2>\n<ul>\n<li><code>users</code> - User accounts and settings</li>\n<li><code>bookmarks</code> - Synced Pinboard bookmarks</li>\n<li><code>enrichments</code> - Extracted content and metadata</li>\n<li><code>bookmark_embeddings</code> - Vector embeddings for semantic search</li>\n<li><code>connections</code> - Relationships between bookmarks</li>\n<li><code>achievements</code> - Gamification tracking</li>\n</ul>\n<h2 id=\"common-issues\">Common Issues</h2>\n<h3 id=\"cannot-find-package-xenovatransformers\">\"Cannot find package '@xenova/transformers'\"</h3>\n<pre><code class=\"language-bash\">npm install @xenova/transformers\n</code></pre>\n<h3 id=\"pinboard-api-token-invalid\">\"Pinboard API token invalid\"</h3>\n<ul>\n<li>Format should be <code>username:TOKEN</code> (get from <a href=\"https://pinboard.in/settings/password\">https://pinboard.in/settings/password</a>)</li>\n<li>Token is stored per-user in Settings, not in .env</li>\n</ul>\n<h3 id=\"openai-api-key-missing\">\"OpenAI API key missing\"</h3>\n<ul>\n<li>Get key from <a href=\"https://platform.openai.com/api-keys\">https://platform.openai.com/api-keys</a></li>\n<li>Add to .env as <code>OPENAI_API_KEY=sk-...</code></li>\n</ul>\n<h3 id=\"supabase-connection-failed\">\"Supabase connection failed\"</h3>\n<ul>\n<li>Check SUPABASE_URL and SUPABASE_ANON_KEY in .env</li>\n<li>Ensure migrations are run in order</li>\n</ul>\n<h2 id=\"development-commands\">Development Commands</h2>\n<pre><code class=\"language-bash\">npm run dev          # Start dev server\nnpm run build        # Build for production\nnpm run preview      # Preview production build\nnpm run lint         # Run linter\nnpm run typecheck    # Check TypeScript types\n</code></pre>\n<h2 id=\"tech-stack\">Tech Stack</h2>\n<ul>\n<li><strong>Frontend</strong>: Nuxt 3, Vue 3, Tailwind CSS, Headless UI</li>\n<li><strong>Backend</strong>: Nitro, Node.js</li>\n<li><strong>Database</strong>: Supabase (PostgreSQL + pgvector)</li>\n<li><strong>AI/ML</strong>: OpenAI API (GPT-3.5, embeddings)</li>\n<li><strong>APIs</strong>: Pinboard, Hacker News Algolia, Reddit</li>\n<li><strong>Scraping</strong>: Cheerio, Playwright (optional)</li>\n</ul>\n<h2 id=\"contributing\">Contributing</h2>\n<ol>\n<li>Fork the repository</li>\n<li>Create a feature branch (<code>git checkout -b feature/amazing-feature</code>)</li>\n<li>Commit changes (<code>git commit -m 'Add amazing feature'</code>)</li>\n<li>Push to branch (<code>git push origin feature/amazing-feature</code>)</li>\n<li>Open a Pull Request</li>\n</ol>\n<h2 id=\"license\">License</h2>\n<p>MIT - See <a href=\"LICENSE\">LICENSE</a> file</p>\n<h2 id=\"acknowledgments\">Acknowledgments</h2>\n<ul>\n<li>Inspired by tools like Hoarder, Karakeep, and Readwise</li>\n<li>Built for the Pinboard community</li>\n<li>Powered by OpenAI and Supabase</li>\n</ul>",

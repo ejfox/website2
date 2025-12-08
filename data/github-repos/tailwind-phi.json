@@ -15,6 +15,162 @@
     "JavaScript": 13168
   },
   "diskUsage": 5255,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".github/workflows/deploy.yml",
+        "size": 1528
+      },
+      {
+        "path": ".gitignore",
+        "size": 13
+      },
+      {
+        "path": "README.md",
+        "size": 3642
+      },
+      {
+        "path": "demo/index.html",
+        "size": 52822
+      },
+      {
+        "path": "demo/input.css",
+        "size": 58
+      },
+      {
+        "path": "demo/output.css",
+        "size": 27410
+      },
+      {
+        "path": "demo/package.json",
+        "size": 417
+      },
+      {
+        "path": "demo/tailwind.config.js",
+        "size": 133
+      },
+      {
+        "path": "demo/yarn.lock",
+        "size": 91994
+      },
+      {
+        "path": "index.js",
+        "size": 13040
+      },
+      {
+        "path": "package-lock.json",
+        "size": 142267
+      },
+      {
+        "path": "package.json",
+        "size": 531
+      },
+      {
+        "path": "tailwind.config.js",
+        "size": 128
+      },
+      {
+        "path": "yarn.lock",
+        "size": 94772
+      }
+    ],
+    "tree": {
+      "name": "tailwind-phi",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "deploy.yml",
+                  "size": 1528,
+                  "path": ".github/workflows/deploy.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "demo",
+          "children": [
+            {
+              "name": "index.html",
+              "size": 52822,
+              "path": "demo/index.html"
+            },
+            {
+              "name": "input.css",
+              "size": 58,
+              "path": "demo/input.css"
+            },
+            {
+              "name": "output.css",
+              "size": 27410,
+              "path": "demo/output.css"
+            },
+            {
+              "name": "package.json",
+              "size": 417,
+              "path": "demo/package.json"
+            },
+            {
+              "name": "tailwind.config.js",
+              "size": 133,
+              "path": "demo/tailwind.config.js"
+            },
+            {
+              "name": "yarn.lock",
+              "size": 91994,
+              "path": "demo/yarn.lock"
+            }
+          ],
+          "path": "demo"
+        },
+        {
+          "name": ".gitignore",
+          "size": 13,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 3642,
+          "path": "README.md"
+        },
+        {
+          "name": "index.js",
+          "size": 13040,
+          "path": "index.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 142267,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 531,
+          "path": "package.json"
+        },
+        {
+          "name": "tailwind.config.js",
+          "size": 128,
+          "path": "tailwind.config.js"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 94772,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 14,
+    "totalSize": 428755
+  },
   "topics": [
     "tailwindcss"
   ],

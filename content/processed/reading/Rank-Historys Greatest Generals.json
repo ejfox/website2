@@ -11,7 +11,11 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/91hdwM15ZqL._SY160.jpg",
       "highlightsCount": 4
     },
-    "tags": ["book", "history", "military"],
+    "tags": [
+      "book",
+      "history",
+      "military"
+    ],
     "words": 135,
     "images": 0,
     "imageDetails": {

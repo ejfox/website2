@@ -1,4 +1,21 @@
 <script setup>
+// Lazy load heavy visualization components (d3 + anime.js)
+const GithubForceLayout = defineAsyncComponent(
+  () => import('~/components/GithubForceLayout.client.vue')
+)
+const GitHubRidgeline = defineAsyncComponent(
+  () => import('~/components/GitHubRidgeline.client.vue')
+)
+const GitHubHistogramGrid = defineAsyncComponent(
+  () => import('~/components/GitHubHistogramGrid.client.vue')
+)
+const GitHubParallelCoords = defineAsyncComponent(
+  () => import('~/components/GitHubParallelCoords.client.vue')
+)
+const GitHubRadialTimeline = defineAsyncComponent(
+  () => import('~/components/GitHubRadialTimeline.client.vue')
+)
+
 // Load lightweight repos list (without README HTML for performance)
 const { data: reposData } = await useFetch('/api/github-repos-list')
 const repos = computed(() => reposData.value || [])
@@ -7,7 +24,6 @@ const repos = computed(() => reposData.value || [])
 const searchQuery = ref('')
 const selectedLanguage = ref('all')
 const sortBy = ref('updated') // updated, stars, name
-const viewMode = ref('list') // force, list, ridgeline, grid, parallel, radial
 
 // Get unique languages
 const languages = computed(() => {
@@ -87,172 +103,140 @@ usePageSeo({
 </script>
 
 <template>
-  <div class="container-main">
-    <!-- Header - Match blog/projects page header spacing -->
-    <header class="mb-8 md:mb-12 py-8 md:py-16 relative z-10">
-      <h1 class="font-serif text-3xl mb-2">GitHub Repositories</h1>
-      <p class="text-zinc-500 dark:text-zinc-400 font-mono text-sm">
-        {{ repos.length }} public repositories · {{ totalStars }} stars ·
-        {{ totalForks }} forks
-      </p>
-      <p class="text-zinc-500 dark:text-zinc-500 font-mono text-[11px]">
-        Updated {{ lastUpdated }} · source: GitHub API export
-      </p>
-    </header>
+  <div>
+    <!-- Header & Filters - Padded content -->
+    <div class="container-main pt-8">
+      <header class="mb-6">
+        <h1
+          class="font-serif text-4xl md:text-5xl mb-4 text-zinc-900 dark:text-zinc-100"
+        >
+          GitHub
+        </h1>
+        <div class="stats-grid mb-6">
+          <div class="stat-card">
+            <div class="stat-value">{{ repos.length }}</div>
+            <div class="stat-label">REPOSITORIES</div>
+          </div>
 
-    <!-- View Toggle -->
-    <div class="view-toggle mb-8 relative z-10">
-      <button
-        :class="['toggle-btn', { active: viewMode === 'force' }]"
-        title="Force-directed graph"
-        @click="viewMode = 'force'"
-      >
-        Force
-      </button>
-      <button
-        :class="['toggle-btn', { active: viewMode === 'ridgeline' }]"
-        title="Ridgeline density plot"
-        @click="viewMode = 'ridgeline'"
-      >
-        Ridgeline
-      </button>
-      <button
-        :class="['toggle-btn', { active: viewMode === 'grid' }]"
-        title="Histogram grid"
-        @click="viewMode = 'grid'"
-      >
-        Grid
-      </button>
-      <button
-        :class="['toggle-btn', { active: viewMode === 'parallel' }]"
-        title="Parallel coordinates"
-        @click="viewMode = 'parallel'"
-      >
-        Parallel
-      </button>
-      <button
-        :class="['toggle-btn', { active: viewMode === 'radial' }]"
-        title="Radial timeline"
-        @click="viewMode = 'radial'"
-      >
-        Radial
-      </button>
-      <button
-        :class="['toggle-btn', { active: viewMode === 'list' }]"
-        title="List view"
-        @click="viewMode = 'list'"
-      >
-        List
-      </button>
+          <div class="stat-card">
+            <div class="stat-value">{{ totalStars }}</div>
+            <div class="stat-label">STARS</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-value">{{ totalForks }}</div>
+            <div class="stat-label">FORKS</div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-value">{{ languages.length - 1 }}</div>
+            <div class="stat-label">LANGUAGES</div>
+          </div>
+        </div>
+
+        <p class="text-zinc-500 dark:text-zinc-500 font-mono text-xs">
+          Last updated: {{ lastUpdated }}
+        </p>
+      </header>
     </div>
 
-    <!-- Filters (only show for list view) -->
-    <div v-if="viewMode === 'list'" class="filters-container relative z-10">
-      <!-- Search -->
-      <input
-        v-model="searchQuery"
-        type="text"
-        placeholder="Search repositories..."
-        class="search-input"
-      />
-
-      <!-- Language Filter -->
-      <select v-model="selectedLanguage" class="filter-select">
-        <option v-for="lang in languages" :key="lang" :value="lang">
-          {{ lang === 'all' ? 'All Languages' : lang }}
-        </option>
-      </select>
-
-      <!-- Sort -->
-      <select v-model="sortBy" class="filter-select">
-        <option value="updated">Recently Updated</option>
-        <option value="stars">Most Stars</option>
-        <option value="name">Name (A-Z)</option>
-      </select>
-    </div>
-
-    <!-- Visualizations -->
     <ClientOnly>
-      <div class="relative z-10">
-        <!-- Force Layout -->
-        <GithubForceLayout v-if="viewMode === 'force'" :repos="repos" />
+      <div class="mb-12">
+        <GithubForceLayout :repos="repos" />
+      </div>
 
-        <!-- Ridgeline Plot -->
-        <GitHubRidgeline v-if="viewMode === 'ridgeline'" :repos="repos" />
+      <div class="mb-12">
+        <GitHubRidgeline :repos="repos" />
+      </div>
 
-        <!-- Histogram Grid -->
-        <GitHubHistogramGrid v-if="viewMode === 'grid'" :repos="repos" />
+      <div class="mb-12">
+        <GitHubHistogramGrid :repos="repos" />
+      </div>
 
-        <!-- Parallel Coordinates -->
-        <GitHubParallelCoords v-if="viewMode === 'parallel'" :repos="repos" />
+      <div class="mb-12">
+        <GitHubParallelCoords :repos="repos" />
+      </div>
 
-        <!-- Radial Timeline -->
-        <GitHubRadialTimeline v-if="viewMode === 'radial'" :repos="repos" />
+      <div class="mb-12">
+        <GitHubRadialTimeline :repos="repos" />
       </div>
     </ClientOnly>
+    <div class="container-main">
+      <div class="mb-12">
+        <div class="space-y-0">
+          <GithubRepoCard
+            v-for="repo in filteredRepos"
+            :key="repo.name"
+            :name="repo.name"
+            :description="repo.description"
+            :language="repo.language"
+            :language-color="repo.languageColor"
+            :stars="repo.stats.stars"
+            :forks="repo.stats.forks"
+            :repo="repo"
+          />
+        </div>
 
-    <!-- List View -->
-    <div v-if="viewMode === 'list'" class="relative z-10">
-      <div class="space-y-0">
-        <GithubRepoCard
-          v-for="repo in filteredRepos"
-          :key="repo.name"
-          :name="repo.name"
-          :description="repo.description"
-          :language="repo.language"
-          :language-color="repo.languageColor"
-          :stars="repo.stats.stars"
-          :forks="repo.stats.forks"
-          :repo="repo"
-        />
-      </div>
-
-      <!-- Empty State -->
-      <div
-        v-if="filteredRepos.length === 0"
-        class="text-center py-12 text-zinc-500"
-      >
-        No repositories found matching your filters.
+        <!-- Empty State -->
+        <div
+          v-if="filteredRepos.length === 0"
+          class="text-center py-12 text-zinc-500"
+        >
+          No repositories found matching your filters.
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.view-toggle {
-  @apply flex gap-2;
+/* Tuftian minimalist stats - no borders */
+.stats-grid {
+  @apply grid gap-4;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
 
-.toggle-btn {
-  @apply px-4 py-2 text-sm font-mono;
-  @apply border border-zinc-200 dark:border-zinc-800 rounded;
-  @apply bg-white dark:bg-zinc-950;
-  @apply text-zinc-600 dark:text-zinc-400;
-  @apply transition-all duration-150;
-  @apply hover:bg-zinc-50 dark:hover:bg-zinc-900;
+.stat-card {
+  @apply text-center;
+  /* 8px baseline rhythm */
+  padding: 8px 0;
 }
 
-.toggle-btn.active {
-  @apply bg-zinc-900 dark:bg-zinc-100;
-  @apply text-white dark:text-zinc-900;
-  @apply border-zinc-900 dark:border-zinc-100;
+.stat-value {
+  @apply font-mono text-2xl font-bold;
+  @apply text-zinc-900 dark:text-zinc-100;
+  /* 8px rhythm */
+  line-height: 32px;
+  margin-bottom: 4px;
 }
 
-.filters-container {
-  @apply flex flex-wrap gap-3 mb-8;
+.stat-label {
+  @apply font-mono text-[10px] uppercase tracking-wider;
+  @apply text-zinc-500 dark:text-zinc-500;
+  /* 8px rhythm */
+  line-height: 16px;
+  letter-spacing: 0.1em;
 }
 
-.search-input {
-  @apply flex-grow px-3 py-2 text-sm font-mono;
-  @apply border border-zinc-200 dark:border-zinc-800 rounded;
-  @apply bg-white dark:bg-zinc-950;
-  @apply focus:outline-none focus:ring-1 focus:ring-zinc-400;
+/* Utilitarian filters - minimal */
+.filter-input {
+  @apply px-3 py-2 font-mono text-sm;
+  @apply border-b border-zinc-200 dark:border-zinc-800;
+  @apply bg-transparent;
+  @apply text-zinc-900 dark:text-zinc-100;
+  @apply placeholder:text-zinc-400 dark:placeholder:text-zinc-600;
+  @apply focus:outline-none;
+  @apply focus:border-b-zinc-900 dark:focus:border-b-zinc-100;
+  @apply transition-colors duration-150;
 }
 
 .filter-select {
-  @apply px-3 py-2 text-sm font-mono;
-  @apply border border-zinc-200 dark:border-zinc-800 rounded;
-  @apply bg-white dark:bg-zinc-950;
-  @apply focus:outline-none focus:ring-1 focus:ring-zinc-400;
+  @apply px-3 py-2 font-mono text-sm;
+  @apply border-b border-zinc-200 dark:border-zinc-800;
+  @apply bg-transparent;
+  @apply text-zinc-900 dark:text-zinc-100;
+  @apply focus:outline-none;
+  @apply focus:border-b-zinc-900 dark:focus:border-b-zinc-100;
+  @apply transition-colors duration-150;
 }
 </style>

@@ -13,6 +13,51 @@
   "languageColor": "#666666",
   "languages": {},
   "diskUsage": 144,
+  "fileTree": {
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 1210
+      },
+      {
+        "path": "README.md",
+        "size": 243
+      },
+      {
+        "path": "data/scraped_camera_locations.json",
+        "size": 51961
+      }
+    ],
+    "tree": {
+      "name": "oaklandcams",
+      "children": [
+        {
+          "name": "data",
+          "children": [
+            {
+              "name": "scraped_camera_locations.json",
+              "size": 51961,
+              "path": "data/scraped_camera_locations.json"
+            }
+          ],
+          "path": "data"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1210,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 243,
+          "path": "README.md"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 3,
+    "totalSize": 53414
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"oaklandcams\">oaklandcams</h1>\n<p>Oakland camera map (for discovery of routes with least surveillance)</p>\n<h2 id=\"data\">Data</h2>\n<ul>\n<li><strong>data/scraped_camera_locations.json</strong> is Oakland data scraped from <a href=\"http://www.videosurveillance.com/communitycam/map/?pv=oaklandeastbay\">http://www.videosurveillance.com/communitycam/map/?pv=oaklandeastbay</a></li>\n</ul>",

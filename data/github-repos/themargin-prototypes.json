@@ -16,6 +16,501 @@
     "TypeScript": 940
   },
   "diskUsage": 28930,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".DS_Store",
+        "size": 6148
+      },
+      {
+        "path": ".gitignore",
+        "size": 58
+      },
+      {
+        "path": "README.md",
+        "size": 596
+      },
+      {
+        "path": "app.vue",
+        "size": 201
+      },
+      {
+        "path": "assets/superfund_sites.geojson",
+        "size": 2851448
+      },
+      {
+        "path": "assets/superfund_sites.json",
+        "size": 2261878
+      },
+      {
+        "path": "components/content/Byline.vue",
+        "size": 63
+      },
+      {
+        "path": "components/content/Date.vue",
+        "size": 80
+      },
+      {
+        "path": "components/content/Graphic.vue",
+        "size": 110
+      },
+      {
+        "path": "components/content/GraphicLarge.vue",
+        "size": 105
+      },
+      {
+        "path": "components/content/HeroImage.vue",
+        "size": 211
+      },
+      {
+        "path": "components/content/ImgFullwidth.vue",
+        "size": 205
+      },
+      {
+        "path": "components/content/InsetImage.vue",
+        "size": 232
+      },
+      {
+        "path": "components/content/Numeral.vue",
+        "size": 285
+      },
+      {
+        "path": "components/content/ProseH1.vue",
+        "size": 219
+      },
+      {
+        "path": "components/content/ProseH2.vue",
+        "size": 246
+      },
+      {
+        "path": "components/content/ProseH3.vue",
+        "size": 235
+      },
+      {
+        "path": "components/content/ProseHr.vue",
+        "size": 110
+      },
+      {
+        "path": "components/content/ProseP.vue",
+        "size": 97
+      },
+      {
+        "path": "components/content/Superfunds.json",
+        "size": 2851448
+      },
+      {
+        "path": "components/content/memphis/MemphisMapTour.vue",
+        "size": 24518
+      },
+      {
+        "path": "components/content/memphis/MemphisSuperfundSiteExplorer.vue",
+        "size": 5297
+      },
+      {
+        "path": "components/content/skagit/SkagitMapTour.vue",
+        "size": 19827
+      },
+      {
+        "path": "components/global/PostImage.vue",
+        "size": 287
+      },
+      {
+        "path": "content/houma.md",
+        "size": 38950
+      },
+      {
+        "path": "content/memphis.md",
+        "size": 38509
+      },
+      {
+        "path": "content/skagit.md",
+        "size": 32129
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 940
+      },
+      {
+        "path": "package.json",
+        "size": 937
+      },
+      {
+        "path": "pages/MapTour.vue",
+        "size": 43
+      },
+      {
+        "path": "pages/NCMapTour.vue",
+        "size": 8830
+      },
+      {
+        "path": "pages/SuperfundSites.vue",
+        "size": 57
+      },
+      {
+        "path": "pages/[...slug].vue",
+        "size": 287
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 652
+      },
+      {
+        "path": "public/.DS_Store",
+        "size": 6148
+      },
+      {
+        "path": "public/images/hamilton-hs-streetview.png",
+        "size": 14302951
+      },
+      {
+        "path": "public/images/inset-map.png",
+        "size": 2317390
+      },
+      {
+        "path": "public/images/memphis-inset-locator.r1.png",
+        "size": 361029
+      },
+      {
+        "path": "public/images/memphis-inset-locator.r2.png",
+        "size": 47819
+      },
+      {
+        "path": "public/images/memphis-inset-locator.r3.png",
+        "size": 695856
+      },
+      {
+        "path": "public/images/memphis_graphics_superfundsites.r1.png",
+        "size": 335640
+      },
+      {
+        "path": "public/images/memphis_satellite_locator.r1.png",
+        "size": 2832500
+      },
+      {
+        "path": "public/images/memphis_satellite_locator.r2.png",
+        "size": 7851196
+      },
+      {
+        "path": "public/superfund_sites.geojson",
+        "size": 2851448
+      },
+      {
+        "path": "superfund_sites.geojson",
+        "size": 2851448
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 88
+      },
+      {
+        "path": "yarn.lock",
+        "size": 331017
+      }
+    ],
+    "tree": {
+      "name": "themargin-prototypes",
+      "children": [
+        {
+          "name": "assets",
+          "children": [
+            {
+              "name": "superfund_sites.geojson",
+              "size": 2851448,
+              "path": "assets/superfund_sites.geojson"
+            },
+            {
+              "name": "superfund_sites.json",
+              "size": 2261878,
+              "path": "assets/superfund_sites.json"
+            }
+          ],
+          "path": "assets"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "content",
+              "children": [
+                {
+                  "name": "memphis",
+                  "children": [
+                    {
+                      "name": "MemphisMapTour.vue",
+                      "size": 24518,
+                      "path": "components/content/memphis/MemphisMapTour.vue"
+                    },
+                    {
+                      "name": "MemphisSuperfundSiteExplorer.vue",
+                      "size": 5297,
+                      "path": "components/content/memphis/MemphisSuperfundSiteExplorer.vue"
+                    }
+                  ],
+                  "path": "components/content/memphis"
+                },
+                {
+                  "name": "skagit",
+                  "children": [
+                    {
+                      "name": "SkagitMapTour.vue",
+                      "size": 19827,
+                      "path": "components/content/skagit/SkagitMapTour.vue"
+                    }
+                  ],
+                  "path": "components/content/skagit"
+                },
+                {
+                  "name": "Byline.vue",
+                  "size": 63,
+                  "path": "components/content/Byline.vue"
+                },
+                {
+                  "name": "Date.vue",
+                  "size": 80,
+                  "path": "components/content/Date.vue"
+                },
+                {
+                  "name": "Graphic.vue",
+                  "size": 110,
+                  "path": "components/content/Graphic.vue"
+                },
+                {
+                  "name": "GraphicLarge.vue",
+                  "size": 105,
+                  "path": "components/content/GraphicLarge.vue"
+                },
+                {
+                  "name": "HeroImage.vue",
+                  "size": 211,
+                  "path": "components/content/HeroImage.vue"
+                },
+                {
+                  "name": "ImgFullwidth.vue",
+                  "size": 205,
+                  "path": "components/content/ImgFullwidth.vue"
+                },
+                {
+                  "name": "InsetImage.vue",
+                  "size": 232,
+                  "path": "components/content/InsetImage.vue"
+                },
+                {
+                  "name": "Numeral.vue",
+                  "size": 285,
+                  "path": "components/content/Numeral.vue"
+                },
+                {
+                  "name": "ProseH1.vue",
+                  "size": 219,
+                  "path": "components/content/ProseH1.vue"
+                },
+                {
+                  "name": "ProseH2.vue",
+                  "size": 246,
+                  "path": "components/content/ProseH2.vue"
+                },
+                {
+                  "name": "ProseH3.vue",
+                  "size": 235,
+                  "path": "components/content/ProseH3.vue"
+                },
+                {
+                  "name": "ProseHr.vue",
+                  "size": 110,
+                  "path": "components/content/ProseHr.vue"
+                },
+                {
+                  "name": "ProseP.vue",
+                  "size": 97,
+                  "path": "components/content/ProseP.vue"
+                },
+                {
+                  "name": "Superfunds.json",
+                  "size": 2851448,
+                  "path": "components/content/Superfunds.json"
+                }
+              ],
+              "path": "components/content"
+            },
+            {
+              "name": "global",
+              "children": [
+                {
+                  "name": "PostImage.vue",
+                  "size": 287,
+                  "path": "components/global/PostImage.vue"
+                }
+              ],
+              "path": "components/global"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "content",
+          "children": [
+            {
+              "name": "houma.md",
+              "size": 38950,
+              "path": "content/houma.md"
+            },
+            {
+              "name": "memphis.md",
+              "size": 38509,
+              "path": "content/memphis.md"
+            },
+            {
+              "name": "skagit.md",
+              "size": 32129,
+              "path": "content/skagit.md"
+            }
+          ],
+          "path": "content"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "MapTour.vue",
+              "size": 43,
+              "path": "pages/MapTour.vue"
+            },
+            {
+              "name": "NCMapTour.vue",
+              "size": 8830,
+              "path": "pages/NCMapTour.vue"
+            },
+            {
+              "name": "SuperfundSites.vue",
+              "size": 57,
+              "path": "pages/SuperfundSites.vue"
+            },
+            {
+              "name": "[...slug].vue",
+              "size": 287,
+              "path": "pages/[...slug].vue"
+            },
+            {
+              "name": "index.vue",
+              "size": 652,
+              "path": "pages/index.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "images",
+              "children": [
+                {
+                  "name": "hamilton-hs-streetview.png",
+                  "size": 14302951,
+                  "path": "public/images/hamilton-hs-streetview.png"
+                },
+                {
+                  "name": "inset-map.png",
+                  "size": 2317390,
+                  "path": "public/images/inset-map.png"
+                },
+                {
+                  "name": "memphis-inset-locator.r1.png",
+                  "size": 361029,
+                  "path": "public/images/memphis-inset-locator.r1.png"
+                },
+                {
+                  "name": "memphis-inset-locator.r2.png",
+                  "size": 47819,
+                  "path": "public/images/memphis-inset-locator.r2.png"
+                },
+                {
+                  "name": "memphis-inset-locator.r3.png",
+                  "size": 695856,
+                  "path": "public/images/memphis-inset-locator.r3.png"
+                },
+                {
+                  "name": "memphis_graphics_superfundsites.r1.png",
+                  "size": 335640,
+                  "path": "public/images/memphis_graphics_superfundsites.r1.png"
+                },
+                {
+                  "name": "memphis_satellite_locator.r1.png",
+                  "size": 2832500,
+                  "path": "public/images/memphis_satellite_locator.r1.png"
+                },
+                {
+                  "name": "memphis_satellite_locator.r2.png",
+                  "size": 7851196,
+                  "path": "public/images/memphis_satellite_locator.r2.png"
+                }
+              ],
+              "path": "public/images"
+            },
+            {
+              "name": ".DS_Store",
+              "size": 6148,
+              "path": "public/.DS_Store"
+            },
+            {
+              "name": "superfund_sites.geojson",
+              "size": 2851448,
+              "path": "public/superfund_sites.geojson"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": ".DS_Store",
+          "size": 6148,
+          "path": ".DS_Store"
+        },
+        {
+          "name": ".gitignore",
+          "size": 58,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 596,
+          "path": "README.md"
+        },
+        {
+          "name": "app.vue",
+          "size": 201,
+          "path": "app.vue"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 940,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 937,
+          "path": "package.json"
+        },
+        {
+          "name": "superfund_sites.geojson",
+          "size": 2851448,
+          "path": "superfund_sites.geojson"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 88,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 331017,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 47,
+    "totalSize": 42929768
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"nuxt-3-minimal-starter\">Nuxt 3 Minimal Starter</h1>\n<p>Look at the <a href=\"https://v3.nuxtjs.org\">nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install --shamefully-hoist\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\">npm run preview\n</code></pre>\n<p>Checkout the <a href=\"https://v3.nuxtjs.org/guide/deploy/presets\">deployment documentation</a> for more information.</p>",

@@ -7,7 +7,15 @@
     <!-- Day labels (top) -->
     <div class="day-labels">
       <div
-        v-for="(day, index) in ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']"
+        v-for="(day, index) in [
+          'Mon',
+          'Tue',
+          'Wed',
+          'Thu',
+          'Fri',
+          'Sat',
+          'Sun',
+        ]"
         :key="day"
         class="day-label"
         :style="{ left: `${(index / 7) * 85 + 7.5}%` }"
@@ -121,8 +129,6 @@ function drawCommits() {
   const endDate = new Date(sorted[sorted.length - 1].date)
   const timeRange = endDate - startDate
 
-  console.log(`Drawing ${sorted.length} commits`)
-
   // Draw dots and store positions
   ctx.fillStyle = '#ffffff' // White
   commitPositions = []
@@ -159,8 +165,6 @@ function drawCommits() {
     ctx.arc(x, y, 1, 0, Math.PI * 2)
     ctx.fill()
   })
-
-  console.log('Drawing complete')
 }
 
 // Find nearest commit on hover

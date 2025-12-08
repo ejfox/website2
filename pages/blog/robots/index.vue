@@ -62,7 +62,7 @@ const getNoteSummary = (note) => {
 </script>
 
 <template>
-  <div class="container mx-auto px-2 py-8 lg:flex lg:gap-8 font-mono">
+  <div class="container mx-auto px-2 pt-8 lg:flex lg:gap-8 font-mono">
     <!-- Main Content -->
     <section class="lg:w-2/3">
       <div class="mb-8">

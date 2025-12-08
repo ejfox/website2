@@ -1,7 +1,7 @@
 <template>
-  <div v-if="hasData" class="space-y-4 font-mono">
+  <div v-if="hasData" class="space-y-2 font-mono">
     <!-- Primary Stats -->
-    <div class="text-center py-4">
+    <div class="text-center py-2">
       <div class="text-2xl font-bold">
         <AnimatedNumber
           :value="stats.pageviews.value"
@@ -10,7 +10,7 @@
           priority="primary"
         />
       </div>
-      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-1">
+      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
         PAGEVIEWS
       </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
@@ -34,7 +34,7 @@
     <!-- Key Metrics -->
     <div>
       <StatsSectionHeader title="ENGAGEMENT" />
-      <div class="space-y-1.5">
+      <div class="space-y-2">
         <div class="flex items-center justify-between text-xs">
           <span class="text-zinc-500 uppercase tracking-widest text-xs">
             BOUNCE RATE
@@ -71,7 +71,7 @@
     <!-- Growth Metrics -->
     <div>
       <StatsSectionHeader title="GROWTH (VS PREV 30 DAYS)" />
-      <div class="space-y-1.5">
+      <div class="space-y-2">
         <div class="flex items-center justify-between text-xs">
           <span class="text-zinc-500 uppercase tracking-widest text-xs">
             PAGEVIEWS
@@ -102,7 +102,7 @@
     <!-- Traffic Quality -->
     <div>
       <h4 class="section-label-tracked">TRAFFIC QUALITY</h4>
-      <div class="space-y-1.5">
+      <div class="space-y-2">
         <div class="flex items-center justify-between text-xs">
           <span class="text-zinc-500 uppercase tracking-widest text-xs">
             RETURN RATE

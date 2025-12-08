@@ -18,6 +18,795 @@
     "CSS": 779
   },
   "diskUsage": 1381,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".DS_Store",
+        "size": 6148
+      },
+      {
+        "path": ".gitignore",
+        "size": 57
+      },
+      {
+        "path": "README.md",
+        "size": 605
+      },
+      {
+        "path": "app.vue",
+        "size": 3117
+      },
+      {
+        "path": "assets/main.css",
+        "size": 779
+      },
+      {
+        "path": "components/Nav.vue",
+        "size": 2110
+      },
+      {
+        "path": "components/content/.DS_Store",
+        "size": 6148
+      },
+      {
+        "path": "components/content/HeroImage.vue",
+        "size": 212
+      },
+      {
+        "path": "components/content/ImgFullwidth.vue",
+        "size": 206
+      },
+      {
+        "path": "components/content/InsetImage.vue",
+        "size": 233
+      },
+      {
+        "path": "components/content/ProseA.vue",
+        "size": 2701
+      },
+      {
+        "path": "components/content/ProseBlockquote.vue",
+        "size": 88
+      },
+      {
+        "path": "components/content/ProseCode.vue",
+        "size": 1477
+      },
+      {
+        "path": "components/content/ProseH1.vue",
+        "size": 371
+      },
+      {
+        "path": "components/content/ProseH2.vue",
+        "size": 238
+      },
+      {
+        "path": "components/content/ProseH3.vue",
+        "size": 312
+      },
+      {
+        "path": "components/content/ProseH4.vue",
+        "size": 315
+      },
+      {
+        "path": "components/content/ProseHr.vue",
+        "size": 110
+      },
+      {
+        "path": "components/content/ProseImg.vue",
+        "size": 1748
+      },
+      {
+        "path": "components/content/ProseLi.vue",
+        "size": 219
+      },
+      {
+        "path": "components/content/ProseP.vue",
+        "size": 91
+      },
+      {
+        "path": "components/content/ProseTable.vue",
+        "size": 143
+      },
+      {
+        "path": "components/content/ProseTd.vue",
+        "size": 70
+      },
+      {
+        "path": "components/content/ProseTh.vue",
+        "size": 114
+      },
+      {
+        "path": "components/content/ProseTr.vue",
+        "size": 67
+      },
+      {
+        "path": "components/content/ProseUl.vue",
+        "size": 102
+      },
+      {
+        "path": "components/content/TableOfContents.vue",
+        "size": 407
+      },
+      {
+        "path": "content/.DS_Store",
+        "size": 6148
+      },
+      {
+        "path": "content/blog/.DS_Store",
+        "size": 6148
+      },
+      {
+        "path": "content/blog/2015-in-review.md",
+        "size": 3251
+      },
+      {
+        "path": "content/blog/2016-in-review.md",
+        "size": 1689
+      },
+      {
+        "path": "content/blog/2017-in-review.md",
+        "size": 2433
+      },
+      {
+        "path": "content/blog/2018-in-review.md",
+        "size": 4568
+      },
+      {
+        "path": "content/blog/america.md",
+        "size": 5429
+      },
+      {
+        "path": "content/blog/climate-strike-nyc.md",
+        "size": 2629
+      },
+      {
+        "path": "content/blog/coding-livestreams.md",
+        "size": 7740
+      },
+      {
+        "path": "content/blog/computer-setup-2019.md",
+        "size": 16556
+      },
+      {
+        "path": "content/blog/computer-setup.md",
+        "size": 12091
+      },
+      {
+        "path": "content/blog/creative-coding.md",
+        "size": 6391
+      },
+      {
+        "path": "content/blog/generative-music-iteration.md",
+        "size": 1949
+      },
+      {
+        "path": "content/blog/hong-kong-protest-techniques.md",
+        "size": 1005
+      },
+      {
+        "path": "content/blog/how-i-prototype-apps-and-dataviz-quickly-in-2019.md",
+        "size": 6471
+      },
+      {
+        "path": "content/blog/introduction-to-eavs-data.md",
+        "size": 7008
+      },
+      {
+        "path": "content/blog/lack-of-data.md",
+        "size": 3683
+      },
+      {
+        "path": "content/blog/linocut-printing-guide.md",
+        "size": 13170
+      },
+      {
+        "path": "content/blog/movies-to-watch.md",
+        "size": 2111
+      },
+      {
+        "path": "content/blog/nypd-ccrb-complaint-clusters.md",
+        "size": 28263
+      },
+      {
+        "path": "content/blog/online-brigades-gaming-twitter.md",
+        "size": 3520
+      },
+      {
+        "path": "content/blog/photography-2008-2010.md",
+        "size": 1566
+      },
+      {
+        "path": "content/blog/step-zero.md",
+        "size": 1794
+      },
+      {
+        "path": "content/blog/taking-things-for-granted.md",
+        "size": 1916
+      },
+      {
+        "path": "content/blog/the-internet-was-built-to-be-hacked.md",
+        "size": 9162
+      },
+      {
+        "path": "content/blog/the-magazine-experience-on-the-web.md",
+        "size": 11332
+      },
+      {
+        "path": "content/blog/things-ive-learned-about-elections.md",
+        "size": 19129
+      },
+      {
+        "path": "content/blog/two-reasons.md",
+        "size": 2670
+      },
+      {
+        "path": "content/blog/unsecured-ice-cameras.md",
+        "size": 4875
+      },
+      {
+        "path": "content/blog/video-mixes.md",
+        "size": 4625
+      },
+      {
+        "path": "content/blog/watercolor-sketching-in-nyc.md",
+        "size": 3336
+      },
+      {
+        "path": "content/blog/work-view-life-view.md",
+        "size": 4330
+      },
+      {
+        "path": "content/drafts/pirates-witches-hackers.md",
+        "size": 6545
+      },
+      {
+        "path": "content/drafts/upstate-city-balance.md",
+        "size": 10506
+      },
+      {
+        "path": "content/foo.md",
+        "size": 67
+      },
+      {
+        "path": "content/index.md",
+        "size": 451
+      },
+      {
+        "path": "content/projects.csv",
+        "size": 7465
+      },
+      {
+        "path": "helpers.js",
+        "size": 2039
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 3784
+      },
+      {
+        "path": "package.json",
+        "size": 921
+      },
+      {
+        "path": "pages/blog/[...slug].vue",
+        "size": 7063
+      },
+      {
+        "path": "pages/blog/index.vue",
+        "size": 2960
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 1475
+      },
+      {
+        "path": "pages/photos/index.vue",
+        "size": 1600
+      },
+      {
+        "path": "pages/projects.vue",
+        "size": 6750
+      },
+      {
+        "path": "plugins/scroll-top.ts",
+        "size": 135
+      },
+      {
+        "path": "public/og-image-generated-bg.png",
+        "size": 365458
+      },
+      {
+        "path": "public/og-image.png",
+        "size": 227907
+      },
+      {
+        "path": "public/pgp.txt",
+        "size": 3968
+      },
+      {
+        "path": "public/resume.pdf",
+        "size": 41062
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 88
+      },
+      {
+        "path": "yarn.lock",
+        "size": 283697
+      }
+    ],
+    "tree": {
+      "name": "website2-archive",
+      "children": [
+        {
+          "name": "assets",
+          "children": [
+            {
+              "name": "main.css",
+              "size": 779,
+              "path": "assets/main.css"
+            }
+          ],
+          "path": "assets"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "content",
+              "children": [
+                {
+                  "name": ".DS_Store",
+                  "size": 6148,
+                  "path": "components/content/.DS_Store"
+                },
+                {
+                  "name": "HeroImage.vue",
+                  "size": 212,
+                  "path": "components/content/HeroImage.vue"
+                },
+                {
+                  "name": "ImgFullwidth.vue",
+                  "size": 206,
+                  "path": "components/content/ImgFullwidth.vue"
+                },
+                {
+                  "name": "InsetImage.vue",
+                  "size": 233,
+                  "path": "components/content/InsetImage.vue"
+                },
+                {
+                  "name": "ProseA.vue",
+                  "size": 2701,
+                  "path": "components/content/ProseA.vue"
+                },
+                {
+                  "name": "ProseBlockquote.vue",
+                  "size": 88,
+                  "path": "components/content/ProseBlockquote.vue"
+                },
+                {
+                  "name": "ProseCode.vue",
+                  "size": 1477,
+                  "path": "components/content/ProseCode.vue"
+                },
+                {
+                  "name": "ProseH1.vue",
+                  "size": 371,
+                  "path": "components/content/ProseH1.vue"
+                },
+                {
+                  "name": "ProseH2.vue",
+                  "size": 238,
+                  "path": "components/content/ProseH2.vue"
+                },
+                {
+                  "name": "ProseH3.vue",
+                  "size": 312,
+                  "path": "components/content/ProseH3.vue"
+                },
+                {
+                  "name": "ProseH4.vue",
+                  "size": 315,
+                  "path": "components/content/ProseH4.vue"
+                },
+                {
+                  "name": "ProseHr.vue",
+                  "size": 110,
+                  "path": "components/content/ProseHr.vue"
+                },
+                {
+                  "name": "ProseImg.vue",
+                  "size": 1748,
+                  "path": "components/content/ProseImg.vue"
+                },
+                {
+                  "name": "ProseLi.vue",
+                  "size": 219,
+                  "path": "components/content/ProseLi.vue"
+                },
+                {
+                  "name": "ProseP.vue",
+                  "size": 91,
+                  "path": "components/content/ProseP.vue"
+                },
+                {
+                  "name": "ProseTable.vue",
+                  "size": 143,
+                  "path": "components/content/ProseTable.vue"
+                },
+                {
+                  "name": "ProseTd.vue",
+                  "size": 70,
+                  "path": "components/content/ProseTd.vue"
+                },
+                {
+                  "name": "ProseTh.vue",
+                  "size": 114,
+                  "path": "components/content/ProseTh.vue"
+                },
+                {
+                  "name": "ProseTr.vue",
+                  "size": 67,
+                  "path": "components/content/ProseTr.vue"
+                },
+                {
+                  "name": "ProseUl.vue",
+                  "size": 102,
+                  "path": "components/content/ProseUl.vue"
+                },
+                {
+                  "name": "TableOfContents.vue",
+                  "size": 407,
+                  "path": "components/content/TableOfContents.vue"
+                }
+              ],
+              "path": "components/content"
+            },
+            {
+              "name": "Nav.vue",
+              "size": 2110,
+              "path": "components/Nav.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "content",
+          "children": [
+            {
+              "name": "blog",
+              "children": [
+                {
+                  "name": ".DS_Store",
+                  "size": 6148,
+                  "path": "content/blog/.DS_Store"
+                },
+                {
+                  "name": "2015-in-review.md",
+                  "size": 3251,
+                  "path": "content/blog/2015-in-review.md"
+                },
+                {
+                  "name": "2016-in-review.md",
+                  "size": 1689,
+                  "path": "content/blog/2016-in-review.md"
+                },
+                {
+                  "name": "2017-in-review.md",
+                  "size": 2433,
+                  "path": "content/blog/2017-in-review.md"
+                },
+                {
+                  "name": "2018-in-review.md",
+                  "size": 4568,
+                  "path": "content/blog/2018-in-review.md"
+                },
+                {
+                  "name": "america.md",
+                  "size": 5429,
+                  "path": "content/blog/america.md"
+                },
+                {
+                  "name": "climate-strike-nyc.md",
+                  "size": 2629,
+                  "path": "content/blog/climate-strike-nyc.md"
+                },
+                {
+                  "name": "coding-livestreams.md",
+                  "size": 7740,
+                  "path": "content/blog/coding-livestreams.md"
+                },
+                {
+                  "name": "computer-setup-2019.md",
+                  "size": 16556,
+                  "path": "content/blog/computer-setup-2019.md"
+                },
+                {
+                  "name": "computer-setup.md",
+                  "size": 12091,
+                  "path": "content/blog/computer-setup.md"
+                },
+                {
+                  "name": "creative-coding.md",
+                  "size": 6391,
+                  "path": "content/blog/creative-coding.md"
+                },
+                {
+                  "name": "generative-music-iteration.md",
+                  "size": 1949,
+                  "path": "content/blog/generative-music-iteration.md"
+                },
+                {
+                  "name": "hong-kong-protest-techniques.md",
+                  "size": 1005,
+                  "path": "content/blog/hong-kong-protest-techniques.md"
+                },
+                {
+                  "name": "how-i-prototype-apps-and-dataviz-quickly-in-2019.md",
+                  "size": 6471,
+                  "path": "content/blog/how-i-prototype-apps-and-dataviz-quickly-in-2019.md"
+                },
+                {
+                  "name": "introduction-to-eavs-data.md",
+                  "size": 7008,
+                  "path": "content/blog/introduction-to-eavs-data.md"
+                },
+                {
+                  "name": "lack-of-data.md",
+                  "size": 3683,
+                  "path": "content/blog/lack-of-data.md"
+                },
+                {
+                  "name": "linocut-printing-guide.md",
+                  "size": 13170,
+                  "path": "content/blog/linocut-printing-guide.md"
+                },
+                {
+                  "name": "movies-to-watch.md",
+                  "size": 2111,
+                  "path": "content/blog/movies-to-watch.md"
+                },
+                {
+                  "name": "nypd-ccrb-complaint-clusters.md",
+                  "size": 28263,
+                  "path": "content/blog/nypd-ccrb-complaint-clusters.md"
+                },
+                {
+                  "name": "online-brigades-gaming-twitter.md",
+                  "size": 3520,
+                  "path": "content/blog/online-brigades-gaming-twitter.md"
+                },
+                {
+                  "name": "photography-2008-2010.md",
+                  "size": 1566,
+                  "path": "content/blog/photography-2008-2010.md"
+                },
+                {
+                  "name": "step-zero.md",
+                  "size": 1794,
+                  "path": "content/blog/step-zero.md"
+                },
+                {
+                  "name": "taking-things-for-granted.md",
+                  "size": 1916,
+                  "path": "content/blog/taking-things-for-granted.md"
+                },
+                {
+                  "name": "the-internet-was-built-to-be-hacked.md",
+                  "size": 9162,
+                  "path": "content/blog/the-internet-was-built-to-be-hacked.md"
+                },
+                {
+                  "name": "the-magazine-experience-on-the-web.md",
+                  "size": 11332,
+                  "path": "content/blog/the-magazine-experience-on-the-web.md"
+                },
+                {
+                  "name": "things-ive-learned-about-elections.md",
+                  "size": 19129,
+                  "path": "content/blog/things-ive-learned-about-elections.md"
+                },
+                {
+                  "name": "two-reasons.md",
+                  "size": 2670,
+                  "path": "content/blog/two-reasons.md"
+                },
+                {
+                  "name": "unsecured-ice-cameras.md",
+                  "size": 4875,
+                  "path": "content/blog/unsecured-ice-cameras.md"
+                },
+                {
+                  "name": "video-mixes.md",
+                  "size": 4625,
+                  "path": "content/blog/video-mixes.md"
+                },
+                {
+                  "name": "watercolor-sketching-in-nyc.md",
+                  "size": 3336,
+                  "path": "content/blog/watercolor-sketching-in-nyc.md"
+                },
+                {
+                  "name": "work-view-life-view.md",
+                  "size": 4330,
+                  "path": "content/blog/work-view-life-view.md"
+                }
+              ],
+              "path": "content/blog"
+            },
+            {
+              "name": "drafts",
+              "children": [
+                {
+                  "name": "pirates-witches-hackers.md",
+                  "size": 6545,
+                  "path": "content/drafts/pirates-witches-hackers.md"
+                },
+                {
+                  "name": "upstate-city-balance.md",
+                  "size": 10506,
+                  "path": "content/drafts/upstate-city-balance.md"
+                }
+              ],
+              "path": "content/drafts"
+            },
+            {
+              "name": ".DS_Store",
+              "size": 6148,
+              "path": "content/.DS_Store"
+            },
+            {
+              "name": "foo.md",
+              "size": 67,
+              "path": "content/foo.md"
+            },
+            {
+              "name": "index.md",
+              "size": 451,
+              "path": "content/index.md"
+            },
+            {
+              "name": "projects.csv",
+              "size": 7465,
+              "path": "content/projects.csv"
+            }
+          ],
+          "path": "content"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "blog",
+              "children": [
+                {
+                  "name": "[...slug].vue",
+                  "size": 7063,
+                  "path": "pages/blog/[...slug].vue"
+                },
+                {
+                  "name": "index.vue",
+                  "size": 2960,
+                  "path": "pages/blog/index.vue"
+                }
+              ],
+              "path": "pages/blog"
+            },
+            {
+              "name": "photos",
+              "children": [
+                {
+                  "name": "index.vue",
+                  "size": 1600,
+                  "path": "pages/photos/index.vue"
+                }
+              ],
+              "path": "pages/photos"
+            },
+            {
+              "name": "index.vue",
+              "size": 1475,
+              "path": "pages/index.vue"
+            },
+            {
+              "name": "projects.vue",
+              "size": 6750,
+              "path": "pages/projects.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "plugins",
+          "children": [
+            {
+              "name": "scroll-top.ts",
+              "size": 135,
+              "path": "plugins/scroll-top.ts"
+            }
+          ],
+          "path": "plugins"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "og-image-generated-bg.png",
+              "size": 365458,
+              "path": "public/og-image-generated-bg.png"
+            },
+            {
+              "name": "og-image.png",
+              "size": 227907,
+              "path": "public/og-image.png"
+            },
+            {
+              "name": "pgp.txt",
+              "size": 3968,
+              "path": "public/pgp.txt"
+            },
+            {
+              "name": "resume.pdf",
+              "size": 41062,
+              "path": "public/resume.pdf"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": ".DS_Store",
+          "size": 6148,
+          "path": ".DS_Store"
+        },
+        {
+          "name": ".gitignore",
+          "size": 57,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 605,
+          "path": "README.md"
+        },
+        {
+          "name": "app.vue",
+          "size": 3117,
+          "path": "app.vue"
+        },
+        {
+          "name": "helpers.js",
+          "size": 2039,
+          "path": "helpers.js"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 3784,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 921,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 88,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 283697,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 79,
+    "totalSize": 1209117
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"content-v2-minimal-starter\">Content v2 Minimal Starter</h1>\n<p>Look at the <a href=\"https://content-v2.nuxtjs.org/\">Content documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install --shamefully-hoist\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\">npm run preview\n</code></pre>\n<p>Checkout the <a href=\"https://v3.nuxtjs.org/docs/deployment\">deployment documentation</a> for more information.</p>",

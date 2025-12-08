@@ -19,6 +19,1260 @@
     "Shell": 457
   },
   "diskUsage": 5418,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 16
+      },
+      {
+        "path": "README.md",
+        "size": 1090
+      },
+      {
+        "path": "data/old/video-infos-911.json",
+        "size": 124437
+      },
+      {
+        "path": "data/old/video-infos-antivax.json",
+        "size": 136341
+      },
+      {
+        "path": "data/old/video-infos-bikes.json",
+        "size": 163509
+      },
+      {
+        "path": "data/old/video-infos-chemtrails.json",
+        "size": 97398
+      },
+      {
+        "path": "data/old/video-infos-erdogan.json",
+        "size": 103558
+      },
+      {
+        "path": "data/old/video-infos-flatearth.json",
+        "size": 50155
+      },
+      {
+        "path": "data/old/video-infos-flatearth2.json",
+        "size": 32550
+      },
+      {
+        "path": "data/old/video-infos-flatearthproof.json",
+        "size": 73680
+      },
+      {
+        "path": "data/old/video-infos-globalwarming.json",
+        "size": 679470
+      },
+      {
+        "path": "data/old/video-infos-globalwarminghoax.json",
+        "size": 75655
+      },
+      {
+        "path": "data/old/video-infos-gmos.json",
+        "size": 84416
+      },
+      {
+        "path": "data/old/video-infos-hatred.json",
+        "size": 51384
+      },
+      {
+        "path": "data/old/video-infos-holocaust.json",
+        "size": 60738
+      },
+      {
+        "path": "data/old/video-infos-ifls.json",
+        "size": 70545
+      },
+      {
+        "path": "data/old/video-infos-ifls2.json",
+        "size": 152226
+      },
+      {
+        "path": "data/old/video-infos-ifls4.json",
+        "size": 610150
+      },
+      {
+        "path": "data/old/video-infos-johnoliver.json",
+        "size": 32172
+      },
+      {
+        "path": "data/old/video-infos-kindness.json",
+        "size": 80305
+      },
+      {
+        "path": "data/old/video-infos-kitten.json",
+        "size": 53535
+      },
+      {
+        "path": "data/old/video-infos-moonaliens.json",
+        "size": 79994
+      },
+      {
+        "path": "data/old/video-infos-moonlanding.json",
+        "size": 99559
+      },
+      {
+        "path": "data/old/video-infos-nasa.json",
+        "size": 85371
+      },
+      {
+        "path": "data/old/video-infos-obama.json",
+        "size": 96044
+      },
+      {
+        "path": "data/old/video-infos-obamabirth.json",
+        "size": 81947
+      },
+      {
+        "path": "data/old/video-infos-putin.json",
+        "size": 55269
+      },
+      {
+        "path": "data/old/video-infos-roundearthproof.json",
+        "size": 67910
+      },
+      {
+        "path": "data/old/video-infos-russianfights.json",
+        "size": 62079
+      },
+      {
+        "path": "data/old/video-infos-russiankindness.json",
+        "size": 81818
+      },
+      {
+        "path": "data/old/video-infos-sanders.json",
+        "size": 72445
+      },
+      {
+        "path": "data/old/video-infos-sexycyrus.json",
+        "size": 57050
+      },
+      {
+        "path": "data/old/video-infos-tyson.json",
+        "size": 62272
+      },
+      {
+        "path": "data/old/video-infos-vsauce.json",
+        "size": 195145
+      },
+      {
+        "path": "data/video-infos-911.json",
+        "size": 43215
+      },
+      {
+        "path": "data/video-infos-apple.json",
+        "size": 26062
+      },
+      {
+        "path": "data/video-infos-china.json",
+        "size": 48597
+      },
+      {
+        "path": "data/video-infos-clinton-2016-08-22.json",
+        "size": 62899
+      },
+      {
+        "path": "data/video-infos-clinton-2016-10-18.json",
+        "size": 104419
+      },
+      {
+        "path": "data/video-infos-clinton-336-20161029.json",
+        "size": 59136
+      },
+      {
+        "path": "data/video-infos-clinton-336-20161030.json",
+        "size": 27352
+      },
+      {
+        "path": "data/video-infos-clinton-336-20161031.json",
+        "size": 120518
+      },
+      {
+        "path": "data/video-infos-clinton-336-20161101.json",
+        "size": 67015
+      },
+      {
+        "path": "data/video-infos-clinton-336-f-20161103.json",
+        "size": 113669
+      },
+      {
+        "path": "data/video-infos-clinton-336-f-20161104.json",
+        "size": 132771
+      },
+      {
+        "path": "data/video-infos-clinton-336-f-20161106.json",
+        "size": 183836
+      },
+      {
+        "path": "data/video-infos-clinton-336-f-20161107.json",
+        "size": 225627
+      },
+      {
+        "path": "data/video-infos-clinton-336-f.json",
+        "size": 225627
+      },
+      {
+        "path": "data/video-infos-clinton-336-p-20161105.json",
+        "size": 159040
+      },
+      {
+        "path": "data/video-infos-clinton-336-p.json",
+        "size": 159040
+      },
+      {
+        "path": "data/video-infos-clinton-336.json",
+        "size": 67015
+      },
+      {
+        "path": "data/video-infos-clinton-5-20161029.json",
+        "size": 239248
+      },
+      {
+        "path": "data/video-infos-clinton-5-20161030.json",
+        "size": 180795
+      },
+      {
+        "path": "data/video-infos-clinton-5-20161031.json",
+        "size": 272308
+      },
+      {
+        "path": "data/video-infos-clinton-5-20161101.json",
+        "size": 217574
+      },
+      {
+        "path": "data/video-infos-clinton-5-f-20161103.json",
+        "size": 521603
+      },
+      {
+        "path": "data/video-infos-clinton-5-f-20161106.json",
+        "size": 502797
+      },
+      {
+        "path": "data/video-infos-clinton-5-f-20161107.json",
+        "size": 621016
+      },
+      {
+        "path": "data/video-infos-clinton-5-f.json",
+        "size": 621016
+      },
+      {
+        "path": "data/video-infos-clinton-5.json",
+        "size": 217574
+      },
+      {
+        "path": "data/video-infos-clinton.json",
+        "size": 67765
+      },
+      {
+        "path": "data/video-infos-clinton5.json",
+        "size": 465500
+      },
+      {
+        "path": "data/video-infos-dieudonne.json",
+        "size": 57834
+      },
+      {
+        "path": "data/video-infos-earthflatround.json",
+        "size": 80587
+      },
+      {
+        "path": "data/video-infos-europeanunion.json",
+        "size": 80219
+      },
+      {
+        "path": "data/video-infos-fights.json",
+        "size": 36416
+      },
+      {
+        "path": "data/video-infos-flatearth.json",
+        "size": 77986
+      },
+      {
+        "path": "data/video-infos-france.json",
+        "size": 67226
+      },
+      {
+        "path": "data/video-infos-germany.json",
+        "size": 50102
+      },
+      {
+        "path": "data/video-infos-globalwarming.json",
+        "size": 85855
+      },
+      {
+        "path": "data/video-infos-greenpeace.json",
+        "size": 83609
+      },
+      {
+        "path": "data/video-infos-ifls.json",
+        "size": 78302
+      },
+      {
+        "path": "data/video-infos-isis.json",
+        "size": 32398
+      },
+      {
+        "path": "data/video-infos-japan.json",
+        "size": 72977
+      },
+      {
+        "path": "data/video-infos-kindnessgestures.json",
+        "size": 80220
+      },
+      {
+        "path": "data/video-infos-kitten.json",
+        "size": 71146
+      },
+      {
+        "path": "data/video-infos-moonlanding.json",
+        "size": 57862
+      },
+      {
+        "path": "data/video-infos-nasa.json",
+        "size": 87872
+      },
+      {
+        "path": "data/video-infos-obama.json",
+        "size": 57235
+      },
+      {
+        "path": "data/video-infos-obamabirth.json",
+        "size": 51396
+      },
+      {
+        "path": "data/video-infos-roundearth.json",
+        "size": 76927
+      },
+      {
+        "path": "data/video-infos-sanders.json",
+        "size": 41411
+      },
+      {
+        "path": "data/video-infos-trump-2016-08-22.json",
+        "size": 67118
+      },
+      {
+        "path": "data/video-infos-trump-2016-10-18.json",
+        "size": 48873
+      },
+      {
+        "path": "data/video-infos-trump-336-20161029.json",
+        "size": 40937
+      },
+      {
+        "path": "data/video-infos-trump-336-20161030.json",
+        "size": 100409
+      },
+      {
+        "path": "data/video-infos-trump-336-20161031.json",
+        "size": 41115
+      },
+      {
+        "path": "data/video-infos-trump-336-20161101.json",
+        "size": 63993
+      },
+      {
+        "path": "data/video-infos-trump-336-f-20161103.json",
+        "size": 39057
+      },
+      {
+        "path": "data/video-infos-trump-336-f-20161104.json",
+        "size": 99259
+      },
+      {
+        "path": "data/video-infos-trump-336-f-20161106.json",
+        "size": 59973
+      },
+      {
+        "path": "data/video-infos-trump-336-f-20161107.json",
+        "size": 146966
+      },
+      {
+        "path": "data/video-infos-trump-336-f.json",
+        "size": 146966
+      },
+      {
+        "path": "data/video-infos-trump-336-p-20161105.json",
+        "size": 110348
+      },
+      {
+        "path": "data/video-infos-trump-336-p.json",
+        "size": 110348
+      },
+      {
+        "path": "data/video-infos-trump-336.json",
+        "size": 63993
+      },
+      {
+        "path": "data/video-infos-trump-5-20161029.json",
+        "size": 183821
+      },
+      {
+        "path": "data/video-infos-trump-5-20161030.json",
+        "size": 438970
+      },
+      {
+        "path": "data/video-infos-trump-5-20161031.json",
+        "size": 249496
+      },
+      {
+        "path": "data/video-infos-trump-5-20161101.json",
+        "size": 211220
+      },
+      {
+        "path": "data/video-infos-trump-5-f-20161103.json",
+        "size": 255311
+      },
+      {
+        "path": "data/video-infos-trump-5-f-20161107.json",
+        "size": 411708
+      },
+      {
+        "path": "data/video-infos-trump-5-f.json",
+        "size": 411708
+      },
+      {
+        "path": "data/video-infos-trump-5.json",
+        "size": 211220
+      },
+      {
+        "path": "data/video-infos-trump.json",
+        "size": 65337
+      },
+      {
+        "path": "data/video-infos-trump5.json",
+        "size": 271297
+      },
+      {
+        "path": "data/video-infos-tyson.json",
+        "size": 44744
+      },
+      {
+        "path": "data/video-infos-unitedkingdom.json",
+        "size": 51885
+      },
+      {
+        "path": "data/video-infos-usa.json",
+        "size": 48160
+      },
+      {
+        "path": "data/video-infos-vsauce.json",
+        "size": 59853
+      },
+      {
+        "path": "follow-youtube-recommendations.py",
+        "size": 16918
+      },
+      {
+        "path": "graph-viz/css/font-awesome.min.css",
+        "size": 21984
+      },
+      {
+        "path": "graph-viz/css/skel.css",
+        "size": 5181
+      },
+      {
+        "path": "graph-viz/css/style-large.css",
+        "size": 347
+      },
+      {
+        "path": "graph-viz/css/style-medium.css",
+        "size": 1870
+      },
+      {
+        "path": "graph-viz/css/style-small.css",
+        "size": 1015
+      },
+      {
+        "path": "graph-viz/css/style-xlarge.css",
+        "size": 259
+      },
+      {
+        "path": "graph-viz/css/style-xsmall.css",
+        "size": 886
+      },
+      {
+        "path": "graph-viz/css/style.css",
+        "size": 21709
+      },
+      {
+        "path": "graph-viz/index.html",
+        "size": 7196
+      },
+      {
+        "path": "graph-viz/js/bootstrap.min.js",
+        "size": 37107
+      },
+      {
+        "path": "graph-viz/js/d3-tip.js",
+        "size": 7808
+      },
+      {
+        "path": "graph-viz/js/graph-builder.js",
+        "size": 11922
+      },
+      {
+        "path": "graph-viz/js/html5shiv.js",
+        "size": 2380
+      },
+      {
+        "path": "graph-viz/js/init.js",
+        "size": 1989
+      },
+      {
+        "path": "graph-viz/js/jquery.min.js",
+        "size": 95786
+      },
+      {
+        "path": "graph-viz/js/skel-layers.min.js",
+        "size": 15366
+      },
+      {
+        "path": "graph-viz/js/skel.min.js",
+        "size": 20972
+      },
+      {
+        "path": "graph-viz/js/tooltip.js",
+        "size": 2139
+      },
+      {
+        "path": "graph-viz/video-infos-clinton.json",
+        "size": 375961
+      },
+      {
+        "path": "graph-viz/video-infos-trump.json",
+        "size": 411708
+      },
+      {
+        "path": "launch.sh",
+        "size": 457
+      },
+      {
+        "path": "requirements.txt",
+        "size": 30
+      },
+      {
+        "path": "results/macron, melanchon, le pen, fillon, hamon-20170321.json",
+        "size": 2000
+      }
+    ],
+    "tree": {
+      "name": "youtube-explore",
+      "children": [
+        {
+          "name": "data",
+          "children": [
+            {
+              "name": "old",
+              "children": [
+                {
+                  "name": "video-infos-911.json",
+                  "size": 124437,
+                  "path": "data/old/video-infos-911.json"
+                },
+                {
+                  "name": "video-infos-antivax.json",
+                  "size": 136341,
+                  "path": "data/old/video-infos-antivax.json"
+                },
+                {
+                  "name": "video-infos-bikes.json",
+                  "size": 163509,
+                  "path": "data/old/video-infos-bikes.json"
+                },
+                {
+                  "name": "video-infos-chemtrails.json",
+                  "size": 97398,
+                  "path": "data/old/video-infos-chemtrails.json"
+                },
+                {
+                  "name": "video-infos-erdogan.json",
+                  "size": 103558,
+                  "path": "data/old/video-infos-erdogan.json"
+                },
+                {
+                  "name": "video-infos-flatearth.json",
+                  "size": 50155,
+                  "path": "data/old/video-infos-flatearth.json"
+                },
+                {
+                  "name": "video-infos-flatearth2.json",
+                  "size": 32550,
+                  "path": "data/old/video-infos-flatearth2.json"
+                },
+                {
+                  "name": "video-infos-flatearthproof.json",
+                  "size": 73680,
+                  "path": "data/old/video-infos-flatearthproof.json"
+                },
+                {
+                  "name": "video-infos-globalwarming.json",
+                  "size": 679470,
+                  "path": "data/old/video-infos-globalwarming.json"
+                },
+                {
+                  "name": "video-infos-globalwarminghoax.json",
+                  "size": 75655,
+                  "path": "data/old/video-infos-globalwarminghoax.json"
+                },
+                {
+                  "name": "video-infos-gmos.json",
+                  "size": 84416,
+                  "path": "data/old/video-infos-gmos.json"
+                },
+                {
+                  "name": "video-infos-hatred.json",
+                  "size": 51384,
+                  "path": "data/old/video-infos-hatred.json"
+                },
+                {
+                  "name": "video-infos-holocaust.json",
+                  "size": 60738,
+                  "path": "data/old/video-infos-holocaust.json"
+                },
+                {
+                  "name": "video-infos-ifls.json",
+                  "size": 70545,
+                  "path": "data/old/video-infos-ifls.json"
+                },
+                {
+                  "name": "video-infos-ifls2.json",
+                  "size": 152226,
+                  "path": "data/old/video-infos-ifls2.json"
+                },
+                {
+                  "name": "video-infos-ifls4.json",
+                  "size": 610150,
+                  "path": "data/old/video-infos-ifls4.json"
+                },
+                {
+                  "name": "video-infos-johnoliver.json",
+                  "size": 32172,
+                  "path": "data/old/video-infos-johnoliver.json"
+                },
+                {
+                  "name": "video-infos-kindness.json",
+                  "size": 80305,
+                  "path": "data/old/video-infos-kindness.json"
+                },
+                {
+                  "name": "video-infos-kitten.json",
+                  "size": 53535,
+                  "path": "data/old/video-infos-kitten.json"
+                },
+                {
+                  "name": "video-infos-moonaliens.json",
+                  "size": 79994,
+                  "path": "data/old/video-infos-moonaliens.json"
+                },
+                {
+                  "name": "video-infos-moonlanding.json",
+                  "size": 99559,
+                  "path": "data/old/video-infos-moonlanding.json"
+                },
+                {
+                  "name": "video-infos-nasa.json",
+                  "size": 85371,
+                  "path": "data/old/video-infos-nasa.json"
+                },
+                {
+                  "name": "video-infos-obama.json",
+                  "size": 96044,
+                  "path": "data/old/video-infos-obama.json"
+                },
+                {
+                  "name": "video-infos-obamabirth.json",
+                  "size": 81947,
+                  "path": "data/old/video-infos-obamabirth.json"
+                },
+                {
+                  "name": "video-infos-putin.json",
+                  "size": 55269,
+                  "path": "data/old/video-infos-putin.json"
+                },
+                {
+                  "name": "video-infos-roundearthproof.json",
+                  "size": 67910,
+                  "path": "data/old/video-infos-roundearthproof.json"
+                },
+                {
+                  "name": "video-infos-russianfights.json",
+                  "size": 62079,
+                  "path": "data/old/video-infos-russianfights.json"
+                },
+                {
+                  "name": "video-infos-russiankindness.json",
+                  "size": 81818,
+                  "path": "data/old/video-infos-russiankindness.json"
+                },
+                {
+                  "name": "video-infos-sanders.json",
+                  "size": 72445,
+                  "path": "data/old/video-infos-sanders.json"
+                },
+                {
+                  "name": "video-infos-sexycyrus.json",
+                  "size": 57050,
+                  "path": "data/old/video-infos-sexycyrus.json"
+                },
+                {
+                  "name": "video-infos-tyson.json",
+                  "size": 62272,
+                  "path": "data/old/video-infos-tyson.json"
+                },
+                {
+                  "name": "video-infos-vsauce.json",
+                  "size": 195145,
+                  "path": "data/old/video-infos-vsauce.json"
+                }
+              ],
+              "path": "data/old"
+            },
+            {
+              "name": "video-infos-911.json",
+              "size": 43215,
+              "path": "data/video-infos-911.json"
+            },
+            {
+              "name": "video-infos-apple.json",
+              "size": 26062,
+              "path": "data/video-infos-apple.json"
+            },
+            {
+              "name": "video-infos-china.json",
+              "size": 48597,
+              "path": "data/video-infos-china.json"
+            },
+            {
+              "name": "video-infos-clinton-2016-08-22.json",
+              "size": 62899,
+              "path": "data/video-infos-clinton-2016-08-22.json"
+            },
+            {
+              "name": "video-infos-clinton-2016-10-18.json",
+              "size": 104419,
+              "path": "data/video-infos-clinton-2016-10-18.json"
+            },
+            {
+              "name": "video-infos-clinton-336-20161029.json",
+              "size": 59136,
+              "path": "data/video-infos-clinton-336-20161029.json"
+            },
+            {
+              "name": "video-infos-clinton-336-20161030.json",
+              "size": 27352,
+              "path": "data/video-infos-clinton-336-20161030.json"
+            },
+            {
+              "name": "video-infos-clinton-336-20161031.json",
+              "size": 120518,
+              "path": "data/video-infos-clinton-336-20161031.json"
+            },
+            {
+              "name": "video-infos-clinton-336-20161101.json",
+              "size": 67015,
+              "path": "data/video-infos-clinton-336-20161101.json"
+            },
+            {
+              "name": "video-infos-clinton-336-f-20161103.json",
+              "size": 113669,
+              "path": "data/video-infos-clinton-336-f-20161103.json"
+            },
+            {
+              "name": "video-infos-clinton-336-f-20161104.json",
+              "size": 132771,
+              "path": "data/video-infos-clinton-336-f-20161104.json"
+            },
+            {
+              "name": "video-infos-clinton-336-f-20161106.json",
+              "size": 183836,
+              "path": "data/video-infos-clinton-336-f-20161106.json"
+            },
+            {
+              "name": "video-infos-clinton-336-f-20161107.json",
+              "size": 225627,
+              "path": "data/video-infos-clinton-336-f-20161107.json"
+            },
+            {
+              "name": "video-infos-clinton-336-f.json",
+              "size": 225627,
+              "path": "data/video-infos-clinton-336-f.json"
+            },
+            {
+              "name": "video-infos-clinton-336-p-20161105.json",
+              "size": 159040,
+              "path": "data/video-infos-clinton-336-p-20161105.json"
+            },
+            {
+              "name": "video-infos-clinton-336-p.json",
+              "size": 159040,
+              "path": "data/video-infos-clinton-336-p.json"
+            },
+            {
+              "name": "video-infos-clinton-336.json",
+              "size": 67015,
+              "path": "data/video-infos-clinton-336.json"
+            },
+            {
+              "name": "video-infos-clinton-5-20161029.json",
+              "size": 239248,
+              "path": "data/video-infos-clinton-5-20161029.json"
+            },
+            {
+              "name": "video-infos-clinton-5-20161030.json",
+              "size": 180795,
+              "path": "data/video-infos-clinton-5-20161030.json"
+            },
+            {
+              "name": "video-infos-clinton-5-20161031.json",
+              "size": 272308,
+              "path": "data/video-infos-clinton-5-20161031.json"
+            },
+            {
+              "name": "video-infos-clinton-5-20161101.json",
+              "size": 217574,
+              "path": "data/video-infos-clinton-5-20161101.json"
+            },
+            {
+              "name": "video-infos-clinton-5-f-20161103.json",
+              "size": 521603,
+              "path": "data/video-infos-clinton-5-f-20161103.json"
+            },
+            {
+              "name": "video-infos-clinton-5-f-20161106.json",
+              "size": 502797,
+              "path": "data/video-infos-clinton-5-f-20161106.json"
+            },
+            {
+              "name": "video-infos-clinton-5-f-20161107.json",
+              "size": 621016,
+              "path": "data/video-infos-clinton-5-f-20161107.json"
+            },
+            {
+              "name": "video-infos-clinton-5-f.json",
+              "size": 621016,
+              "path": "data/video-infos-clinton-5-f.json"
+            },
+            {
+              "name": "video-infos-clinton-5.json",
+              "size": 217574,
+              "path": "data/video-infos-clinton-5.json"
+            },
+            {
+              "name": "video-infos-clinton.json",
+              "size": 67765,
+              "path": "data/video-infos-clinton.json"
+            },
+            {
+              "name": "video-infos-clinton5.json",
+              "size": 465500,
+              "path": "data/video-infos-clinton5.json"
+            },
+            {
+              "name": "video-infos-dieudonne.json",
+              "size": 57834,
+              "path": "data/video-infos-dieudonne.json"
+            },
+            {
+              "name": "video-infos-earthflatround.json",
+              "size": 80587,
+              "path": "data/video-infos-earthflatround.json"
+            },
+            {
+              "name": "video-infos-europeanunion.json",
+              "size": 80219,
+              "path": "data/video-infos-europeanunion.json"
+            },
+            {
+              "name": "video-infos-fights.json",
+              "size": 36416,
+              "path": "data/video-infos-fights.json"
+            },
+            {
+              "name": "video-infos-flatearth.json",
+              "size": 77986,
+              "path": "data/video-infos-flatearth.json"
+            },
+            {
+              "name": "video-infos-france.json",
+              "size": 67226,
+              "path": "data/video-infos-france.json"
+            },
+            {
+              "name": "video-infos-germany.json",
+              "size": 50102,
+              "path": "data/video-infos-germany.json"
+            },
+            {
+              "name": "video-infos-globalwarming.json",
+              "size": 85855,
+              "path": "data/video-infos-globalwarming.json"
+            },
+            {
+              "name": "video-infos-greenpeace.json",
+              "size": 83609,
+              "path": "data/video-infos-greenpeace.json"
+            },
+            {
+              "name": "video-infos-ifls.json",
+              "size": 78302,
+              "path": "data/video-infos-ifls.json"
+            },
+            {
+              "name": "video-infos-isis.json",
+              "size": 32398,
+              "path": "data/video-infos-isis.json"
+            },
+            {
+              "name": "video-infos-japan.json",
+              "size": 72977,
+              "path": "data/video-infos-japan.json"
+            },
+            {
+              "name": "video-infos-kindnessgestures.json",
+              "size": 80220,
+              "path": "data/video-infos-kindnessgestures.json"
+            },
+            {
+              "name": "video-infos-kitten.json",
+              "size": 71146,
+              "path": "data/video-infos-kitten.json"
+            },
+            {
+              "name": "video-infos-moonlanding.json",
+              "size": 57862,
+              "path": "data/video-infos-moonlanding.json"
+            },
+            {
+              "name": "video-infos-nasa.json",
+              "size": 87872,
+              "path": "data/video-infos-nasa.json"
+            },
+            {
+              "name": "video-infos-obama.json",
+              "size": 57235,
+              "path": "data/video-infos-obama.json"
+            },
+            {
+              "name": "video-infos-obamabirth.json",
+              "size": 51396,
+              "path": "data/video-infos-obamabirth.json"
+            },
+            {
+              "name": "video-infos-roundearth.json",
+              "size": 76927,
+              "path": "data/video-infos-roundearth.json"
+            },
+            {
+              "name": "video-infos-sanders.json",
+              "size": 41411,
+              "path": "data/video-infos-sanders.json"
+            },
+            {
+              "name": "video-infos-trump-2016-08-22.json",
+              "size": 67118,
+              "path": "data/video-infos-trump-2016-08-22.json"
+            },
+            {
+              "name": "video-infos-trump-2016-10-18.json",
+              "size": 48873,
+              "path": "data/video-infos-trump-2016-10-18.json"
+            },
+            {
+              "name": "video-infos-trump-336-20161029.json",
+              "size": 40937,
+              "path": "data/video-infos-trump-336-20161029.json"
+            },
+            {
+              "name": "video-infos-trump-336-20161030.json",
+              "size": 100409,
+              "path": "data/video-infos-trump-336-20161030.json"
+            },
+            {
+              "name": "video-infos-trump-336-20161031.json",
+              "size": 41115,
+              "path": "data/video-infos-trump-336-20161031.json"
+            },
+            {
+              "name": "video-infos-trump-336-20161101.json",
+              "size": 63993,
+              "path": "data/video-infos-trump-336-20161101.json"
+            },
+            {
+              "name": "video-infos-trump-336-f-20161103.json",
+              "size": 39057,
+              "path": "data/video-infos-trump-336-f-20161103.json"
+            },
+            {
+              "name": "video-infos-trump-336-f-20161104.json",
+              "size": 99259,
+              "path": "data/video-infos-trump-336-f-20161104.json"
+            },
+            {
+              "name": "video-infos-trump-336-f-20161106.json",
+              "size": 59973,
+              "path": "data/video-infos-trump-336-f-20161106.json"
+            },
+            {
+              "name": "video-infos-trump-336-f-20161107.json",
+              "size": 146966,
+              "path": "data/video-infos-trump-336-f-20161107.json"
+            },
+            {
+              "name": "video-infos-trump-336-f.json",
+              "size": 146966,
+              "path": "data/video-infos-trump-336-f.json"
+            },
+            {
+              "name": "video-infos-trump-336-p-20161105.json",
+              "size": 110348,
+              "path": "data/video-infos-trump-336-p-20161105.json"
+            },
+            {
+              "name": "video-infos-trump-336-p.json",
+              "size": 110348,
+              "path": "data/video-infos-trump-336-p.json"
+            },
+            {
+              "name": "video-infos-trump-336.json",
+              "size": 63993,
+              "path": "data/video-infos-trump-336.json"
+            },
+            {
+              "name": "video-infos-trump-5-20161029.json",
+              "size": 183821,
+              "path": "data/video-infos-trump-5-20161029.json"
+            },
+            {
+              "name": "video-infos-trump-5-20161030.json",
+              "size": 438970,
+              "path": "data/video-infos-trump-5-20161030.json"
+            },
+            {
+              "name": "video-infos-trump-5-20161031.json",
+              "size": 249496,
+              "path": "data/video-infos-trump-5-20161031.json"
+            },
+            {
+              "name": "video-infos-trump-5-20161101.json",
+              "size": 211220,
+              "path": "data/video-infos-trump-5-20161101.json"
+            },
+            {
+              "name": "video-infos-trump-5-f-20161103.json",
+              "size": 255311,
+              "path": "data/video-infos-trump-5-f-20161103.json"
+            },
+            {
+              "name": "video-infos-trump-5-f-20161107.json",
+              "size": 411708,
+              "path": "data/video-infos-trump-5-f-20161107.json"
+            },
+            {
+              "name": "video-infos-trump-5-f.json",
+              "size": 411708,
+              "path": "data/video-infos-trump-5-f.json"
+            },
+            {
+              "name": "video-infos-trump-5.json",
+              "size": 211220,
+              "path": "data/video-infos-trump-5.json"
+            },
+            {
+              "name": "video-infos-trump.json",
+              "size": 65337,
+              "path": "data/video-infos-trump.json"
+            },
+            {
+              "name": "video-infos-trump5.json",
+              "size": 271297,
+              "path": "data/video-infos-trump5.json"
+            },
+            {
+              "name": "video-infos-tyson.json",
+              "size": 44744,
+              "path": "data/video-infos-tyson.json"
+            },
+            {
+              "name": "video-infos-unitedkingdom.json",
+              "size": 51885,
+              "path": "data/video-infos-unitedkingdom.json"
+            },
+            {
+              "name": "video-infos-usa.json",
+              "size": 48160,
+              "path": "data/video-infos-usa.json"
+            },
+            {
+              "name": "video-infos-vsauce.json",
+              "size": 59853,
+              "path": "data/video-infos-vsauce.json"
+            }
+          ],
+          "path": "data"
+        },
+        {
+          "name": "graph-viz",
+          "children": [
+            {
+              "name": "css",
+              "children": [
+                {
+                  "name": "font-awesome.min.css",
+                  "size": 21984,
+                  "path": "graph-viz/css/font-awesome.min.css"
+                },
+                {
+                  "name": "skel.css",
+                  "size": 5181,
+                  "path": "graph-viz/css/skel.css"
+                },
+                {
+                  "name": "style-large.css",
+                  "size": 347,
+                  "path": "graph-viz/css/style-large.css"
+                },
+                {
+                  "name": "style-medium.css",
+                  "size": 1870,
+                  "path": "graph-viz/css/style-medium.css"
+                },
+                {
+                  "name": "style-small.css",
+                  "size": 1015,
+                  "path": "graph-viz/css/style-small.css"
+                },
+                {
+                  "name": "style-xlarge.css",
+                  "size": 259,
+                  "path": "graph-viz/css/style-xlarge.css"
+                },
+                {
+                  "name": "style-xsmall.css",
+                  "size": 886,
+                  "path": "graph-viz/css/style-xsmall.css"
+                },
+                {
+                  "name": "style.css",
+                  "size": 21709,
+                  "path": "graph-viz/css/style.css"
+                }
+              ],
+              "path": "graph-viz/css"
+            },
+            {
+              "name": "js",
+              "children": [
+                {
+                  "name": "bootstrap.min.js",
+                  "size": 37107,
+                  "path": "graph-viz/js/bootstrap.min.js"
+                },
+                {
+                  "name": "d3-tip.js",
+                  "size": 7808,
+                  "path": "graph-viz/js/d3-tip.js"
+                },
+                {
+                  "name": "graph-builder.js",
+                  "size": 11922,
+                  "path": "graph-viz/js/graph-builder.js"
+                },
+                {
+                  "name": "html5shiv.js",
+                  "size": 2380,
+                  "path": "graph-viz/js/html5shiv.js"
+                },
+                {
+                  "name": "init.js",
+                  "size": 1989,
+                  "path": "graph-viz/js/init.js"
+                },
+                {
+                  "name": "jquery.min.js",
+                  "size": 95786,
+                  "path": "graph-viz/js/jquery.min.js"
+                },
+                {
+                  "name": "skel-layers.min.js",
+                  "size": 15366,
+                  "path": "graph-viz/js/skel-layers.min.js"
+                },
+                {
+                  "name": "skel.min.js",
+                  "size": 20972,
+                  "path": "graph-viz/js/skel.min.js"
+                },
+                {
+                  "name": "tooltip.js",
+                  "size": 2139,
+                  "path": "graph-viz/js/tooltip.js"
+                }
+              ],
+              "path": "graph-viz/js"
+            },
+            {
+              "name": "index.html",
+              "size": 7196,
+              "path": "graph-viz/index.html"
+            },
+            {
+              "name": "video-infos-clinton.json",
+              "size": 375961,
+              "path": "graph-viz/video-infos-clinton.json"
+            },
+            {
+              "name": "video-infos-trump.json",
+              "size": 411708,
+              "path": "graph-viz/video-infos-trump.json"
+            }
+          ],
+          "path": "graph-viz"
+        },
+        {
+          "name": "results",
+          "children": [
+            {
+              "name": "macron, melanchon, le pen, fillon, hamon-20170321.json",
+              "size": 2000,
+              "path": "results/macron, melanchon, le pen, fillon, hamon-20170321.json"
+            }
+          ],
+          "path": "results"
+        },
+        {
+          "name": ".gitignore",
+          "size": 16,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 1090,
+          "path": "README.md"
+        },
+        {
+          "name": "follow-youtube-recommendations.py",
+          "size": 16918,
+          "path": "follow-youtube-recommendations.py"
+        },
+        {
+          "name": "launch.sh",
+          "size": 457,
+          "path": "launch.sh"
+        },
+        {
+          "name": "requirements.txt",
+          "size": 30,
+          "path": "requirements.txt"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 134,
+    "totalSize": 16027922
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"exploring-youtube-recommendations\">Exploring YouTube recommendations</h1>\n<p>Where does YouTube's recommendation algorithm bring the user if he follows the recommendations?\nThis robot follows the recommendations on YouTube from a given search query to find out where they bring you.\nAfter searching on YouTube and following the recommendations, it prints the 50 most recommended videos.</p>\n<h2 id=\"installation\">Installation</h2>\n<p>To install the project's python dependencies, you can use pip:</p>\n<pre><code>pip install -r requirements\n</code></pre>\n<p>Used dependencies:</p>\n<ul>\n<li><a href=\"https://www.crummy.com/software/BeautifulSoup/bs4/doc/\">BeautifulSoup4</a></li>\n</ul>\n<h2 id=\"example-of-usage\">Example of usage:</h2>\n<p>python2.7 follow-youtube-recommendations.py  --query=\"global warming,vaccines,nasa\" --searches=4 --branch=4 --depth=4 --name=\"science\"</p>\n<ul>\n<li>--query: query that is made on youtube</li>\n<li>--searches: number of search results from the query to start with</li>\n<li>--branch: branching factor = number of recommendations that are followed</li>\n<li>--name: name under which it will be saved</li>\n<li>--alltime: add this option if you want to start from the most viewed videos for the query (using the option filter by viewcount on youtube)</li>\n</ul>",

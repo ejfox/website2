@@ -4,7 +4,7 @@
       class="px-1 py-0.5 text-zinc-100 truncate max-w-[300px]"
       :title="item.Name + (item.Notes ? '\n\n' + item.Notes : '')"
     >
-      <div class="flex items-center gap-1.5">
+      <div class="flex items-center gap-0.5.5">
         <span class="truncate flex-1 text-3xs">{{ item.Name }}</span>
         <span v-if="item.Notes" class="text-zinc-700 text-5xs">•</span>
       </div>

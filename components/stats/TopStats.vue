@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap justify-between gap-4 sm:gap-4 md:gap-8">
+  <div class="flex flex-wrap justify-between gap-2 sm:gap-2 md:gap-2">
     <!-- GitHub Contributions -->
     <div
       v-if="stats.github?.stats"
@@ -201,10 +201,6 @@ import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsDataState from './StatsDataState.vue'
 import type { StatsResponse } from '~/composables/useStats'
 import { useNumberFormat } from '~/composables/useNumberFormat'
-// NUKED BY BLOODHOUND: import { animate, stagger as _stagger,
-// onScroll as _onScroll } from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations }
-// from '~/composables/useAnimations'
 
 interface BlogStats {
   totalPosts: number
@@ -221,7 +217,6 @@ const props = defineProps<{
 }>()
 
 const { formatNumber: _formatNumber } = useNumberFormat()
-// DELETED: All animation references - BROKEN IMPORTS
 
 const totalLeetCodeSolved = computed(() => {
   if (!props.stats.leetcode?.submissionStats) return 0
@@ -252,16 +247,6 @@ const postsThisMonth = computed(() => {
   // Use the actual postsThisMonth value from blogStats
   return props.blogStats?.postsThisMonth || 0
 })
-
-// DELETED: Animation refs - no longer needed
-// const topStatsRef = ref<HTMLElement | null>(null)
-
-// DELETED: All broken animation code causing 53/100 performance score
-// BLOODHOUND OBLITERATED: 800, stagger(), /* staggers. - DELETED */
-// normal - ALL UNDEFINED!
-// onMounted(() => {
-// ALL ANIMATION CODE DELETED - BROKEN IMPORTS
-// })
 </script>
 
 <style scoped>

@@ -16,6 +16,72 @@
     "Shell": 332
   },
   "diskUsage": 9,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 35
+      },
+      {
+        "path": "README.md",
+        "size": 3751
+      },
+      {
+        "path": "bulk.sh",
+        "size": 332
+      },
+      {
+        "path": "index.js",
+        "size": 2872
+      },
+      {
+        "path": "package.json",
+        "size": 339
+      },
+      {
+        "path": "summary.js",
+        "size": 2668
+      }
+    ],
+    "tree": {
+      "name": "cli-markdown-tagger",
+      "children": [
+        {
+          "name": ".gitignore",
+          "size": 35,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 3751,
+          "path": "README.md"
+        },
+        {
+          "name": "bulk.sh",
+          "size": 332,
+          "path": "bulk.sh"
+        },
+        {
+          "name": "index.js",
+          "size": 2872,
+          "path": "index.js"
+        },
+        {
+          "name": "package.json",
+          "size": 339,
+          "path": "package.json"
+        },
+        {
+          "name": "summary.js",
+          "size": 2668,
+          "path": "summary.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 6,
+    "totalSize": 9997
+  },
   "topics": [
     "cli",
     "llm",

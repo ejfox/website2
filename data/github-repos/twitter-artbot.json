@@ -17,6 +17,1293 @@
     "HTML": 1409
   },
   "diskUsage": 8459,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".DS_Store",
+        "size": 8196
+      },
+      {
+        "path": ".env-example",
+        "size": 82
+      },
+      {
+        "path": ".gitignore",
+        "size": 141
+      },
+      {
+        "path": "Procfile",
+        "size": 46
+      },
+      {
+        "path": "README.md",
+        "size": 1479
+      },
+      {
+        "path": "dist/artscripts/2017/10-1.js",
+        "size": 3393
+      },
+      {
+        "path": "dist/artscripts/2017/10-14-2.js",
+        "size": 4472
+      },
+      {
+        "path": "dist/artscripts/2017/10-14-3.js",
+        "size": 5134
+      },
+      {
+        "path": "dist/artscripts/2017/10-14-4.js",
+        "size": 5250
+      },
+      {
+        "path": "dist/artscripts/2017/10-14-5.js",
+        "size": 4989
+      },
+      {
+        "path": "dist/artscripts/2017/10-14-6.js",
+        "size": 5295
+      },
+      {
+        "path": "dist/artscripts/2017/10-14-7.js",
+        "size": 3786
+      },
+      {
+        "path": "dist/artscripts/2017/10-14-8.js",
+        "size": 4792
+      },
+      {
+        "path": "dist/artscripts/2017/10-14-9.js",
+        "size": 5065
+      },
+      {
+        "path": "dist/artscripts/2017/10-14.js",
+        "size": 5918
+      },
+      {
+        "path": "dist/artscripts/2017/10-15.js",
+        "size": 7535
+      },
+      {
+        "path": "dist/artscripts/2017/10-2.js",
+        "size": 4906
+      },
+      {
+        "path": "dist/artscripts/2017/10-3-2.js",
+        "size": 6675
+      },
+      {
+        "path": "dist/artscripts/2017/10-3.js",
+        "size": 6970
+      },
+      {
+        "path": "dist/artscripts/2017/10-4-2.js",
+        "size": 6847
+      },
+      {
+        "path": "dist/artscripts/2017/10-4-3.js",
+        "size": 2997
+      },
+      {
+        "path": "dist/artscripts/2017/10-4.js",
+        "size": 7256
+      },
+      {
+        "path": "dist/artscripts/2017/10-7-2.js",
+        "size": 6420
+      },
+      {
+        "path": "dist/artscripts/2017/10-7-3.js",
+        "size": 6665
+      },
+      {
+        "path": "dist/artscripts/2017/10-7-4.js",
+        "size": 7074
+      },
+      {
+        "path": "dist/artscripts/2017/10-7.js",
+        "size": 5783
+      },
+      {
+        "path": "dist/artscripts/2017/10-8-2.js",
+        "size": 3681
+      },
+      {
+        "path": "dist/artscripts/2017/10-8-3.js",
+        "size": 3620
+      },
+      {
+        "path": "dist/artscripts/2017/10-8-4.js",
+        "size": 4855
+      },
+      {
+        "path": "dist/artscripts/2017/10-8.js",
+        "size": 2780
+      },
+      {
+        "path": "dist/artscripts/2017/11-6-2.js",
+        "size": 3774
+      },
+      {
+        "path": "dist/artscripts/2017/11-6-3.js",
+        "size": 4156
+      },
+      {
+        "path": "dist/artscripts/2017/11-6-4.js",
+        "size": 3969
+      },
+      {
+        "path": "dist/artscripts/2017/11-6-5.js",
+        "size": 4324
+      },
+      {
+        "path": "dist/artscripts/2017/11-6-6.js",
+        "size": 4298
+      },
+      {
+        "path": "dist/artscripts/2017/11-6.js",
+        "size": 3126
+      },
+      {
+        "path": "dist/artscripts/2017/12-1-2.js",
+        "size": 4902
+      },
+      {
+        "path": "dist/artscripts/2017/12-1-3.js",
+        "size": 4716
+      },
+      {
+        "path": "dist/artscripts/2017/12-1.js",
+        "size": 4301
+      },
+      {
+        "path": "dist/artscripts/2017/12-29-2.js",
+        "size": 4775
+      },
+      {
+        "path": "dist/artscripts/2017/12-29-3.js",
+        "size": 4776
+      },
+      {
+        "path": "dist/artscripts/2017/12-29-4.js",
+        "size": 4907
+      },
+      {
+        "path": "dist/artscripts/2017/12-29.js",
+        "size": 4588
+      },
+      {
+        "path": "dist/artscripts/2017/12-8-2.js",
+        "size": 5503
+      },
+      {
+        "path": "dist/artscripts/2017/12-8-3.js",
+        "size": 5703
+      },
+      {
+        "path": "dist/artscripts/2017/12-8.js",
+        "size": 5033
+      },
+      {
+        "path": "dist/artscripts/2017/9-10.js",
+        "size": 4466
+      },
+      {
+        "path": "dist/artscripts/2018/12-17.js",
+        "size": 3643
+      },
+      {
+        "path": "dist/artscripts/2018/12-20.js",
+        "size": 3633
+      },
+      {
+        "path": "dist/artscripts/2018/2-24-2.js",
+        "size": 4504
+      },
+      {
+        "path": "dist/artscripts/2018/2-24-3.js",
+        "size": 4761
+      },
+      {
+        "path": "dist/artscripts/2018/2-24.js",
+        "size": 3800
+      },
+      {
+        "path": "dist/artscripts/2018/3-12.js",
+        "size": 5360
+      },
+      {
+        "path": "dist/artscripts/2018/3-4-2.js",
+        "size": 3636
+      },
+      {
+        "path": "dist/artscripts/2018/3-4-3.js",
+        "size": 3888
+      },
+      {
+        "path": "dist/artscripts/2018/3-4-4.js",
+        "size": 5169
+      },
+      {
+        "path": "dist/artscripts/2018/3-4.js",
+        "size": 4532
+      },
+      {
+        "path": "dist/artscripts/2018/3-6-18.js",
+        "size": 3777
+      },
+      {
+        "path": "dist/artscripts/_boilerplate.js",
+        "size": 2651
+      },
+      {
+        "path": "dist/index.js",
+        "size": 6192
+      },
+      {
+        "path": "dist/models/trump.json",
+        "size": 91126
+      },
+      {
+        "path": "fonts/InputMonoCompressed-Thin.ttf",
+        "size": 122208
+      },
+      {
+        "path": "fonts/InputMonoCondensed-Black.ttf",
+        "size": 136664
+      },
+      {
+        "path": "fonts/InputMonoCondensed-Bold.ttf",
+        "size": 109520
+      },
+      {
+        "path": "fonts/blackjack.otf",
+        "size": 29132
+      },
+      {
+        "path": "index.js",
+        "size": 4598
+      },
+      {
+        "path": "lib/obj/BMWX54.obj",
+        "size": 6972395
+      },
+      {
+        "path": "lib/obj/sniper-tf2.json",
+        "size": 643581
+      },
+      {
+        "path": "lib/three/canvasrenderer.js",
+        "size": 25977
+      },
+      {
+        "path": "lib/three/projector.js",
+        "size": 23132
+      },
+      {
+        "path": "lib/three/three.js",
+        "size": 1043967
+      },
+      {
+        "path": "npm-debug.log",
+        "size": 2971
+      },
+      {
+        "path": "package-lock.json",
+        "size": 157749
+      },
+      {
+        "path": "package.json",
+        "size": 1501
+      },
+      {
+        "path": "src/artscripts/2017/10-1.coffee",
+        "size": 3469
+      },
+      {
+        "path": "src/artscripts/2017/10-14-2.coffee",
+        "size": 6496
+      },
+      {
+        "path": "src/artscripts/2017/10-14-3.coffee",
+        "size": 6635
+      },
+      {
+        "path": "src/artscripts/2017/10-14-4.coffee",
+        "size": 7080
+      },
+      {
+        "path": "src/artscripts/2017/10-14-5.coffee",
+        "size": 7297
+      },
+      {
+        "path": "src/artscripts/2017/10-14-6.coffee",
+        "size": 7117
+      },
+      {
+        "path": "src/artscripts/2017/10-14-7.coffee",
+        "size": 4379
+      },
+      {
+        "path": "src/artscripts/2017/10-14-8.coffee",
+        "size": 6804
+      },
+      {
+        "path": "src/artscripts/2017/10-14-9.coffee",
+        "size": 7014
+      },
+      {
+        "path": "src/artscripts/2017/10-14.coffee",
+        "size": 7668
+      },
+      {
+        "path": "src/artscripts/2017/10-15.coffee",
+        "size": 8631
+      },
+      {
+        "path": "src/artscripts/2017/10-2.coffee",
+        "size": 5080
+      },
+      {
+        "path": "src/artscripts/2017/10-3-2.coffee",
+        "size": 6585
+      },
+      {
+        "path": "src/artscripts/2017/10-3.coffee",
+        "size": 6484
+      },
+      {
+        "path": "src/artscripts/2017/10-4-2.coffee",
+        "size": 6746
+      },
+      {
+        "path": "src/artscripts/2017/10-4-3.coffee",
+        "size": 2987
+      },
+      {
+        "path": "src/artscripts/2017/10-4.coffee",
+        "size": 6981
+      },
+      {
+        "path": "src/artscripts/2017/10-7-2.coffee",
+        "size": 7102
+      },
+      {
+        "path": "src/artscripts/2017/10-7-3.coffee",
+        "size": 7234
+      },
+      {
+        "path": "src/artscripts/2017/10-7-4.coffee",
+        "size": 7844
+      },
+      {
+        "path": "src/artscripts/2017/10-7.coffee",
+        "size": 6326
+      },
+      {
+        "path": "src/artscripts/2017/10-8-2.coffee",
+        "size": 4040
+      },
+      {
+        "path": "src/artscripts/2017/10-8-3.coffee",
+        "size": 3627
+      },
+      {
+        "path": "src/artscripts/2017/10-8-4.coffee",
+        "size": 4781
+      },
+      {
+        "path": "src/artscripts/2017/10-8.coffee",
+        "size": 3433
+      },
+      {
+        "path": "src/artscripts/2017/11-6-2.coffee",
+        "size": 3787
+      },
+      {
+        "path": "src/artscripts/2017/11-6-3.coffee",
+        "size": 4061
+      },
+      {
+        "path": "src/artscripts/2017/11-6-4.coffee",
+        "size": 3883
+      },
+      {
+        "path": "src/artscripts/2017/11-6-5.coffee",
+        "size": 4237
+      },
+      {
+        "path": "src/artscripts/2017/11-6-6.coffee",
+        "size": 4591
+      },
+      {
+        "path": "src/artscripts/2017/11-6.coffee",
+        "size": 3223
+      },
+      {
+        "path": "src/artscripts/2017/12-1-2.coffee",
+        "size": 5514
+      },
+      {
+        "path": "src/artscripts/2017/12-1-3.coffee",
+        "size": 5045
+      },
+      {
+        "path": "src/artscripts/2017/12-1.coffee",
+        "size": 5025
+      },
+      {
+        "path": "src/artscripts/2017/12-29-2.coffee",
+        "size": 5915
+      },
+      {
+        "path": "src/artscripts/2017/12-29-3.coffee",
+        "size": 5878
+      },
+      {
+        "path": "src/artscripts/2017/12-29-4.coffee",
+        "size": 5938
+      },
+      {
+        "path": "src/artscripts/2017/12-29.coffee",
+        "size": 5189
+      },
+      {
+        "path": "src/artscripts/2017/12-8-2.coffee",
+        "size": 5965
+      },
+      {
+        "path": "src/artscripts/2017/12-8-3.coffee",
+        "size": 6229
+      },
+      {
+        "path": "src/artscripts/2017/12-8.coffee",
+        "size": 5510
+      },
+      {
+        "path": "src/artscripts/2017/9-10.coffee",
+        "size": 3216
+      },
+      {
+        "path": "src/artscripts/2018/12-17.coffee",
+        "size": 4402
+      },
+      {
+        "path": "src/artscripts/2018/12-20.coffee",
+        "size": 4478
+      },
+      {
+        "path": "src/artscripts/2018/2-24-2.coffee",
+        "size": 4165
+      },
+      {
+        "path": "src/artscripts/2018/2-24-3.coffee",
+        "size": 4320
+      },
+      {
+        "path": "src/artscripts/2018/2-24.coffee",
+        "size": 3719
+      },
+      {
+        "path": "src/artscripts/2018/3-12.coffee",
+        "size": 6462
+      },
+      {
+        "path": "src/artscripts/2018/3-4-2.coffee",
+        "size": 4265
+      },
+      {
+        "path": "src/artscripts/2018/3-4-3.coffee",
+        "size": 4497
+      },
+      {
+        "path": "src/artscripts/2018/3-4-4.coffee",
+        "size": 6289
+      },
+      {
+        "path": "src/artscripts/2018/3-4.coffee",
+        "size": 4490
+      },
+      {
+        "path": "src/artscripts/2018/3-6-18.coffee",
+        "size": 3896
+      },
+      {
+        "path": "src/artscripts/_boilerplate.coffee",
+        "size": 2941
+      },
+      {
+        "path": "src/index.coffee",
+        "size": 8031
+      },
+      {
+        "path": "src/index.js",
+        "size": 5206
+      },
+      {
+        "path": "src/webserver.html",
+        "size": 1409
+      },
+      {
+        "path": "src/webserver.js",
+        "size": 1269
+      },
+      {
+        "path": "src/webserver_gallery.js",
+        "size": 3367
+      }
+    ],
+    "tree": {
+      "name": "twitter-artbot",
+      "children": [
+        {
+          "name": "dist",
+          "children": [
+            {
+              "name": "artscripts",
+              "children": [
+                {
+                  "name": "2017",
+                  "children": [
+                    {
+                      "name": "10-1.js",
+                      "size": 3393,
+                      "path": "dist/artscripts/2017/10-1.js"
+                    },
+                    {
+                      "name": "10-14-2.js",
+                      "size": 4472,
+                      "path": "dist/artscripts/2017/10-14-2.js"
+                    },
+                    {
+                      "name": "10-14-3.js",
+                      "size": 5134,
+                      "path": "dist/artscripts/2017/10-14-3.js"
+                    },
+                    {
+                      "name": "10-14-4.js",
+                      "size": 5250,
+                      "path": "dist/artscripts/2017/10-14-4.js"
+                    },
+                    {
+                      "name": "10-14-5.js",
+                      "size": 4989,
+                      "path": "dist/artscripts/2017/10-14-5.js"
+                    },
+                    {
+                      "name": "10-14-6.js",
+                      "size": 5295,
+                      "path": "dist/artscripts/2017/10-14-6.js"
+                    },
+                    {
+                      "name": "10-14-7.js",
+                      "size": 3786,
+                      "path": "dist/artscripts/2017/10-14-7.js"
+                    },
+                    {
+                      "name": "10-14-8.js",
+                      "size": 4792,
+                      "path": "dist/artscripts/2017/10-14-8.js"
+                    },
+                    {
+                      "name": "10-14-9.js",
+                      "size": 5065,
+                      "path": "dist/artscripts/2017/10-14-9.js"
+                    },
+                    {
+                      "name": "10-14.js",
+                      "size": 5918,
+                      "path": "dist/artscripts/2017/10-14.js"
+                    },
+                    {
+                      "name": "10-15.js",
+                      "size": 7535,
+                      "path": "dist/artscripts/2017/10-15.js"
+                    },
+                    {
+                      "name": "10-2.js",
+                      "size": 4906,
+                      "path": "dist/artscripts/2017/10-2.js"
+                    },
+                    {
+                      "name": "10-3-2.js",
+                      "size": 6675,
+                      "path": "dist/artscripts/2017/10-3-2.js"
+                    },
+                    {
+                      "name": "10-3.js",
+                      "size": 6970,
+                      "path": "dist/artscripts/2017/10-3.js"
+                    },
+                    {
+                      "name": "10-4-2.js",
+                      "size": 6847,
+                      "path": "dist/artscripts/2017/10-4-2.js"
+                    },
+                    {
+                      "name": "10-4-3.js",
+                      "size": 2997,
+                      "path": "dist/artscripts/2017/10-4-3.js"
+                    },
+                    {
+                      "name": "10-4.js",
+                      "size": 7256,
+                      "path": "dist/artscripts/2017/10-4.js"
+                    },
+                    {
+                      "name": "10-7-2.js",
+                      "size": 6420,
+                      "path": "dist/artscripts/2017/10-7-2.js"
+                    },
+                    {
+                      "name": "10-7-3.js",
+                      "size": 6665,
+                      "path": "dist/artscripts/2017/10-7-3.js"
+                    },
+                    {
+                      "name": "10-7-4.js",
+                      "size": 7074,
+                      "path": "dist/artscripts/2017/10-7-4.js"
+                    },
+                    {
+                      "name": "10-7.js",
+                      "size": 5783,
+                      "path": "dist/artscripts/2017/10-7.js"
+                    },
+                    {
+                      "name": "10-8-2.js",
+                      "size": 3681,
+                      "path": "dist/artscripts/2017/10-8-2.js"
+                    },
+                    {
+                      "name": "10-8-3.js",
+                      "size": 3620,
+                      "path": "dist/artscripts/2017/10-8-3.js"
+                    },
+                    {
+                      "name": "10-8-4.js",
+                      "size": 4855,
+                      "path": "dist/artscripts/2017/10-8-4.js"
+                    },
+                    {
+                      "name": "10-8.js",
+                      "size": 2780,
+                      "path": "dist/artscripts/2017/10-8.js"
+                    },
+                    {
+                      "name": "11-6-2.js",
+                      "size": 3774,
+                      "path": "dist/artscripts/2017/11-6-2.js"
+                    },
+                    {
+                      "name": "11-6-3.js",
+                      "size": 4156,
+                      "path": "dist/artscripts/2017/11-6-3.js"
+                    },
+                    {
+                      "name": "11-6-4.js",
+                      "size": 3969,
+                      "path": "dist/artscripts/2017/11-6-4.js"
+                    },
+                    {
+                      "name": "11-6-5.js",
+                      "size": 4324,
+                      "path": "dist/artscripts/2017/11-6-5.js"
+                    },
+                    {
+                      "name": "11-6-6.js",
+                      "size": 4298,
+                      "path": "dist/artscripts/2017/11-6-6.js"
+                    },
+                    {
+                      "name": "11-6.js",
+                      "size": 3126,
+                      "path": "dist/artscripts/2017/11-6.js"
+                    },
+                    {
+                      "name": "12-1-2.js",
+                      "size": 4902,
+                      "path": "dist/artscripts/2017/12-1-2.js"
+                    },
+                    {
+                      "name": "12-1-3.js",
+                      "size": 4716,
+                      "path": "dist/artscripts/2017/12-1-3.js"
+                    },
+                    {
+                      "name": "12-1.js",
+                      "size": 4301,
+                      "path": "dist/artscripts/2017/12-1.js"
+                    },
+                    {
+                      "name": "12-29-2.js",
+                      "size": 4775,
+                      "path": "dist/artscripts/2017/12-29-2.js"
+                    },
+                    {
+                      "name": "12-29-3.js",
+                      "size": 4776,
+                      "path": "dist/artscripts/2017/12-29-3.js"
+                    },
+                    {
+                      "name": "12-29-4.js",
+                      "size": 4907,
+                      "path": "dist/artscripts/2017/12-29-4.js"
+                    },
+                    {
+                      "name": "12-29.js",
+                      "size": 4588,
+                      "path": "dist/artscripts/2017/12-29.js"
+                    },
+                    {
+                      "name": "12-8-2.js",
+                      "size": 5503,
+                      "path": "dist/artscripts/2017/12-8-2.js"
+                    },
+                    {
+                      "name": "12-8-3.js",
+                      "size": 5703,
+                      "path": "dist/artscripts/2017/12-8-3.js"
+                    },
+                    {
+                      "name": "12-8.js",
+                      "size": 5033,
+                      "path": "dist/artscripts/2017/12-8.js"
+                    },
+                    {
+                      "name": "9-10.js",
+                      "size": 4466,
+                      "path": "dist/artscripts/2017/9-10.js"
+                    }
+                  ],
+                  "path": "dist/artscripts/2017"
+                },
+                {
+                  "name": "2018",
+                  "children": [
+                    {
+                      "name": "12-17.js",
+                      "size": 3643,
+                      "path": "dist/artscripts/2018/12-17.js"
+                    },
+                    {
+                      "name": "12-20.js",
+                      "size": 3633,
+                      "path": "dist/artscripts/2018/12-20.js"
+                    },
+                    {
+                      "name": "2-24-2.js",
+                      "size": 4504,
+                      "path": "dist/artscripts/2018/2-24-2.js"
+                    },
+                    {
+                      "name": "2-24-3.js",
+                      "size": 4761,
+                      "path": "dist/artscripts/2018/2-24-3.js"
+                    },
+                    {
+                      "name": "2-24.js",
+                      "size": 3800,
+                      "path": "dist/artscripts/2018/2-24.js"
+                    },
+                    {
+                      "name": "3-12.js",
+                      "size": 5360,
+                      "path": "dist/artscripts/2018/3-12.js"
+                    },
+                    {
+                      "name": "3-4-2.js",
+                      "size": 3636,
+                      "path": "dist/artscripts/2018/3-4-2.js"
+                    },
+                    {
+                      "name": "3-4-3.js",
+                      "size": 3888,
+                      "path": "dist/artscripts/2018/3-4-3.js"
+                    },
+                    {
+                      "name": "3-4-4.js",
+                      "size": 5169,
+                      "path": "dist/artscripts/2018/3-4-4.js"
+                    },
+                    {
+                      "name": "3-4.js",
+                      "size": 4532,
+                      "path": "dist/artscripts/2018/3-4.js"
+                    },
+                    {
+                      "name": "3-6-18.js",
+                      "size": 3777,
+                      "path": "dist/artscripts/2018/3-6-18.js"
+                    }
+                  ],
+                  "path": "dist/artscripts/2018"
+                },
+                {
+                  "name": "_boilerplate.js",
+                  "size": 2651,
+                  "path": "dist/artscripts/_boilerplate.js"
+                }
+              ],
+              "path": "dist/artscripts"
+            },
+            {
+              "name": "models",
+              "children": [
+                {
+                  "name": "trump.json",
+                  "size": 91126,
+                  "path": "dist/models/trump.json"
+                }
+              ],
+              "path": "dist/models"
+            },
+            {
+              "name": "index.js",
+              "size": 6192,
+              "path": "dist/index.js"
+            }
+          ],
+          "path": "dist"
+        },
+        {
+          "name": "fonts",
+          "children": [
+            {
+              "name": "InputMonoCompressed-Thin.ttf",
+              "size": 122208,
+              "path": "fonts/InputMonoCompressed-Thin.ttf"
+            },
+            {
+              "name": "InputMonoCondensed-Black.ttf",
+              "size": 136664,
+              "path": "fonts/InputMonoCondensed-Black.ttf"
+            },
+            {
+              "name": "InputMonoCondensed-Bold.ttf",
+              "size": 109520,
+              "path": "fonts/InputMonoCondensed-Bold.ttf"
+            },
+            {
+              "name": "blackjack.otf",
+              "size": 29132,
+              "path": "fonts/blackjack.otf"
+            }
+          ],
+          "path": "fonts"
+        },
+        {
+          "name": "lib",
+          "children": [
+            {
+              "name": "obj",
+              "children": [
+                {
+                  "name": "BMWX54.obj",
+                  "size": 6972395,
+                  "path": "lib/obj/BMWX54.obj"
+                },
+                {
+                  "name": "sniper-tf2.json",
+                  "size": 643581,
+                  "path": "lib/obj/sniper-tf2.json"
+                }
+              ],
+              "path": "lib/obj"
+            },
+            {
+              "name": "three",
+              "children": [
+                {
+                  "name": "canvasrenderer.js",
+                  "size": 25977,
+                  "path": "lib/three/canvasrenderer.js"
+                },
+                {
+                  "name": "projector.js",
+                  "size": 23132,
+                  "path": "lib/three/projector.js"
+                },
+                {
+                  "name": "three.js",
+                  "size": 1043967,
+                  "path": "lib/three/three.js"
+                }
+              ],
+              "path": "lib/three"
+            }
+          ],
+          "path": "lib"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "artscripts",
+              "children": [
+                {
+                  "name": "2017",
+                  "children": [
+                    {
+                      "name": "10-1.coffee",
+                      "size": 3469,
+                      "path": "src/artscripts/2017/10-1.coffee"
+                    },
+                    {
+                      "name": "10-14-2.coffee",
+                      "size": 6496,
+                      "path": "src/artscripts/2017/10-14-2.coffee"
+                    },
+                    {
+                      "name": "10-14-3.coffee",
+                      "size": 6635,
+                      "path": "src/artscripts/2017/10-14-3.coffee"
+                    },
+                    {
+                      "name": "10-14-4.coffee",
+                      "size": 7080,
+                      "path": "src/artscripts/2017/10-14-4.coffee"
+                    },
+                    {
+                      "name": "10-14-5.coffee",
+                      "size": 7297,
+                      "path": "src/artscripts/2017/10-14-5.coffee"
+                    },
+                    {
+                      "name": "10-14-6.coffee",
+                      "size": 7117,
+                      "path": "src/artscripts/2017/10-14-6.coffee"
+                    },
+                    {
+                      "name": "10-14-7.coffee",
+                      "size": 4379,
+                      "path": "src/artscripts/2017/10-14-7.coffee"
+                    },
+                    {
+                      "name": "10-14-8.coffee",
+                      "size": 6804,
+                      "path": "src/artscripts/2017/10-14-8.coffee"
+                    },
+                    {
+                      "name": "10-14-9.coffee",
+                      "size": 7014,
+                      "path": "src/artscripts/2017/10-14-9.coffee"
+                    },
+                    {
+                      "name": "10-14.coffee",
+                      "size": 7668,
+                      "path": "src/artscripts/2017/10-14.coffee"
+                    },
+                    {
+                      "name": "10-15.coffee",
+                      "size": 8631,
+                      "path": "src/artscripts/2017/10-15.coffee"
+                    },
+                    {
+                      "name": "10-2.coffee",
+                      "size": 5080,
+                      "path": "src/artscripts/2017/10-2.coffee"
+                    },
+                    {
+                      "name": "10-3-2.coffee",
+                      "size": 6585,
+                      "path": "src/artscripts/2017/10-3-2.coffee"
+                    },
+                    {
+                      "name": "10-3.coffee",
+                      "size": 6484,
+                      "path": "src/artscripts/2017/10-3.coffee"
+                    },
+                    {
+                      "name": "10-4-2.coffee",
+                      "size": 6746,
+                      "path": "src/artscripts/2017/10-4-2.coffee"
+                    },
+                    {
+                      "name": "10-4-3.coffee",
+                      "size": 2987,
+                      "path": "src/artscripts/2017/10-4-3.coffee"
+                    },
+                    {
+                      "name": "10-4.coffee",
+                      "size": 6981,
+                      "path": "src/artscripts/2017/10-4.coffee"
+                    },
+                    {
+                      "name": "10-7-2.coffee",
+                      "size": 7102,
+                      "path": "src/artscripts/2017/10-7-2.coffee"
+                    },
+                    {
+                      "name": "10-7-3.coffee",
+                      "size": 7234,
+                      "path": "src/artscripts/2017/10-7-3.coffee"
+                    },
+                    {
+                      "name": "10-7-4.coffee",
+                      "size": 7844,
+                      "path": "src/artscripts/2017/10-7-4.coffee"
+                    },
+                    {
+                      "name": "10-7.coffee",
+                      "size": 6326,
+                      "path": "src/artscripts/2017/10-7.coffee"
+                    },
+                    {
+                      "name": "10-8-2.coffee",
+                      "size": 4040,
+                      "path": "src/artscripts/2017/10-8-2.coffee"
+                    },
+                    {
+                      "name": "10-8-3.coffee",
+                      "size": 3627,
+                      "path": "src/artscripts/2017/10-8-3.coffee"
+                    },
+                    {
+                      "name": "10-8-4.coffee",
+                      "size": 4781,
+                      "path": "src/artscripts/2017/10-8-4.coffee"
+                    },
+                    {
+                      "name": "10-8.coffee",
+                      "size": 3433,
+                      "path": "src/artscripts/2017/10-8.coffee"
+                    },
+                    {
+                      "name": "11-6-2.coffee",
+                      "size": 3787,
+                      "path": "src/artscripts/2017/11-6-2.coffee"
+                    },
+                    {
+                      "name": "11-6-3.coffee",
+                      "size": 4061,
+                      "path": "src/artscripts/2017/11-6-3.coffee"
+                    },
+                    {
+                      "name": "11-6-4.coffee",
+                      "size": 3883,
+                      "path": "src/artscripts/2017/11-6-4.coffee"
+                    },
+                    {
+                      "name": "11-6-5.coffee",
+                      "size": 4237,
+                      "path": "src/artscripts/2017/11-6-5.coffee"
+                    },
+                    {
+                      "name": "11-6-6.coffee",
+                      "size": 4591,
+                      "path": "src/artscripts/2017/11-6-6.coffee"
+                    },
+                    {
+                      "name": "11-6.coffee",
+                      "size": 3223,
+                      "path": "src/artscripts/2017/11-6.coffee"
+                    },
+                    {
+                      "name": "12-1-2.coffee",
+                      "size": 5514,
+                      "path": "src/artscripts/2017/12-1-2.coffee"
+                    },
+                    {
+                      "name": "12-1-3.coffee",
+                      "size": 5045,
+                      "path": "src/artscripts/2017/12-1-3.coffee"
+                    },
+                    {
+                      "name": "12-1.coffee",
+                      "size": 5025,
+                      "path": "src/artscripts/2017/12-1.coffee"
+                    },
+                    {
+                      "name": "12-29-2.coffee",
+                      "size": 5915,
+                      "path": "src/artscripts/2017/12-29-2.coffee"
+                    },
+                    {
+                      "name": "12-29-3.coffee",
+                      "size": 5878,
+                      "path": "src/artscripts/2017/12-29-3.coffee"
+                    },
+                    {
+                      "name": "12-29-4.coffee",
+                      "size": 5938,
+                      "path": "src/artscripts/2017/12-29-4.coffee"
+                    },
+                    {
+                      "name": "12-29.coffee",
+                      "size": 5189,
+                      "path": "src/artscripts/2017/12-29.coffee"
+                    },
+                    {
+                      "name": "12-8-2.coffee",
+                      "size": 5965,
+                      "path": "src/artscripts/2017/12-8-2.coffee"
+                    },
+                    {
+                      "name": "12-8-3.coffee",
+                      "size": 6229,
+                      "path": "src/artscripts/2017/12-8-3.coffee"
+                    },
+                    {
+                      "name": "12-8.coffee",
+                      "size": 5510,
+                      "path": "src/artscripts/2017/12-8.coffee"
+                    },
+                    {
+                      "name": "9-10.coffee",
+                      "size": 3216,
+                      "path": "src/artscripts/2017/9-10.coffee"
+                    }
+                  ],
+                  "path": "src/artscripts/2017"
+                },
+                {
+                  "name": "2018",
+                  "children": [
+                    {
+                      "name": "12-17.coffee",
+                      "size": 4402,
+                      "path": "src/artscripts/2018/12-17.coffee"
+                    },
+                    {
+                      "name": "12-20.coffee",
+                      "size": 4478,
+                      "path": "src/artscripts/2018/12-20.coffee"
+                    },
+                    {
+                      "name": "2-24-2.coffee",
+                      "size": 4165,
+                      "path": "src/artscripts/2018/2-24-2.coffee"
+                    },
+                    {
+                      "name": "2-24-3.coffee",
+                      "size": 4320,
+                      "path": "src/artscripts/2018/2-24-3.coffee"
+                    },
+                    {
+                      "name": "2-24.coffee",
+                      "size": 3719,
+                      "path": "src/artscripts/2018/2-24.coffee"
+                    },
+                    {
+                      "name": "3-12.coffee",
+                      "size": 6462,
+                      "path": "src/artscripts/2018/3-12.coffee"
+                    },
+                    {
+                      "name": "3-4-2.coffee",
+                      "size": 4265,
+                      "path": "src/artscripts/2018/3-4-2.coffee"
+                    },
+                    {
+                      "name": "3-4-3.coffee",
+                      "size": 4497,
+                      "path": "src/artscripts/2018/3-4-3.coffee"
+                    },
+                    {
+                      "name": "3-4-4.coffee",
+                      "size": 6289,
+                      "path": "src/artscripts/2018/3-4-4.coffee"
+                    },
+                    {
+                      "name": "3-4.coffee",
+                      "size": 4490,
+                      "path": "src/artscripts/2018/3-4.coffee"
+                    },
+                    {
+                      "name": "3-6-18.coffee",
+                      "size": 3896,
+                      "path": "src/artscripts/2018/3-6-18.coffee"
+                    }
+                  ],
+                  "path": "src/artscripts/2018"
+                },
+                {
+                  "name": "_boilerplate.coffee",
+                  "size": 2941,
+                  "path": "src/artscripts/_boilerplate.coffee"
+                }
+              ],
+              "path": "src/artscripts"
+            },
+            {
+              "name": "index.coffee",
+              "size": 8031,
+              "path": "src/index.coffee"
+            },
+            {
+              "name": "index.js",
+              "size": 5206,
+              "path": "src/index.js"
+            },
+            {
+              "name": "webserver.html",
+              "size": 1409,
+              "path": "src/webserver.html"
+            },
+            {
+              "name": "webserver.js",
+              "size": 1269,
+              "path": "src/webserver.js"
+            },
+            {
+              "name": "webserver_gallery.js",
+              "size": 3367,
+              "path": "src/webserver_gallery.js"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".DS_Store",
+          "size": 8196,
+          "path": ".DS_Store"
+        },
+        {
+          "name": ".env-example",
+          "size": 82,
+          "path": ".env-example"
+        },
+        {
+          "name": ".gitignore",
+          "size": 141,
+          "path": ".gitignore"
+        },
+        {
+          "name": "Procfile",
+          "size": 46,
+          "path": "Procfile"
+        },
+        {
+          "name": "README.md",
+          "size": 1479,
+          "path": "README.md"
+        },
+        {
+          "name": "index.js",
+          "size": 4598,
+          "path": "index.js"
+        },
+        {
+          "name": "npm-debug.log",
+          "size": 2971,
+          "path": "npm-debug.log"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 157749,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1501,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 133,
+    "totalSize": 9947738
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"twitter-art-bot\">Twitter Art Bot</h1>\n<h1 id=\"417am1975\">@417am1975</h1>\n<h2 id=\"what-it-does\">What it does</h2>\n<p>An art robot that creates generative works using <a href=\"https://github.com/ejfox/four-seventeen\">417</a>. This repo can be deployed to Heroku to create a Twitter bot that tweets randomly-selected art scripts every hour.</p>\n<p>See <a href=\"https://imgur.com/a/0nlIRIo\">lots of examples here</a>.</p>\n<h2 id=\"development\">Development</h2>\n<p><code>npm install</code> before your first use.</p>\n<p>To force the bot to randomly pick an artscript to run and tweet, use <code>node dist/index -force</code></p>\n<p>To force the bot to randomly pick an artscript to export every frame, use <code>node dist/index -movie</code></p>\n<h3 id=\"twitter-bot-setup\">Twitter Bot Setup</h3>\n<p>Create a <a href=\"https://apps.twitter.com/\">new Twitter app and get your consumer key and token</a>.</p>\n<p>Rename <code>.env-example</code> to <code>.env</code> and add your Twitter authentication details.</p>\n<h2 id=\"examples\">Examples</h2>\n<p><img src=\"https://i.imgur.com/96fLEBe.png\" alt=\"9-10\" />\n<img src=\"https://i.imgur.com/WNcRDgg.png\" alt=\"10-2\" />\n<img src=\"https://i.imgur.com/bxW0bex.png\" alt=\"10-3-2\" />\n<img src=\"https://i.imgur.com/BTgXBOQ.png\" alt=\"10-4-3\" />\n<img src=\"https://i.imgur.com/HGAz9QZ.png\" alt=\"10-3\" />\n<img src=\"https://i.imgur.com/Y77isUO.png\" alt=\"10-7-2\" />\n<img src=\"https://i.imgur.com/FOR6L5f.png\" alt=\"11-6-3\" />\n<a href=\"https://app.fossa.io/projects/git%2Bgithub.com%2Fejfox%2Ftwitter-artbot?ref=badge_shield\"><img src=\"https://app.fossa.io/api/projects/git%2Bgithub.com%2Fejfox%2Ftwitter-artbot.svg?type=shield\" alt=\"FOSSA Status\" /></a></p>\n<h2 id=\"license\">License</h2>\n<p><a href=\"https://app.fossa.io/projects/git%2Bgithub.com%2Fejfox%2Ftwitter-artbot?ref=badge_large\"><img src=\"https://app.fossa.io/api/projects/git%2Bgithub.com%2Fejfox%2Ftwitter-artbot.svg?type=large\" alt=\"FOSSA Status\" /></a></p>",

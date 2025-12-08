@@ -45,7 +45,6 @@ const displayValue = ref(props.value) // Show final value immediately
 
 // Component refs
 const numberRef = ref<HTMLElement | null>(null)
-// DELETED: duplicate displayValue - already defined on line 36
 
 /**
  * Number formatter factory - D3-powered for data visualization
@@ -92,7 +91,6 @@ const formatter = computed(() => {
  * - Defers animation until after component mount
  * - Passes formatter function for efficient updates
  */
-// NUKED BY BLOODHOUND: All animation code obliterated
 // onMounted(() => {
 //   // Animation code completely removed - numbers show immediately
 // })

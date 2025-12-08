@@ -17,6 +17,705 @@
     "TypeScript": 2771
   },
   "diskUsage": 264173,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".env-example",
+        "size": 43
+      },
+      {
+        "path": ".gitignore",
+        "size": 246
+      },
+      {
+        "path": ".npmrc",
+        "size": 53
+      },
+      {
+        "path": "README.md",
+        "size": 644
+      },
+      {
+        "path": "app.vue",
+        "size": 2768
+      },
+      {
+        "path": "components/CaseStudy.vue",
+        "size": 1236
+      },
+      {
+        "path": "components/CaseStudySatelliteImage.vue",
+        "size": 1175
+      },
+      {
+        "path": "components/Globe.vue",
+        "size": 1685
+      },
+      {
+        "path": "components/Globe2.vue",
+        "size": 4175
+      },
+      {
+        "path": "components/ReefTypeModule.vue",
+        "size": 2129
+      },
+      {
+        "path": "components/SatelliteImage.vue",
+        "size": 799
+      },
+      {
+        "path": "components/SpinnyGlobe.vue",
+        "size": 2779
+      },
+      {
+        "path": "components/TopographicVisual.vue",
+        "size": 5171
+      },
+      {
+        "path": "components/globe.js",
+        "size": 8326
+      },
+      {
+        "path": "composables/appStore.js",
+        "size": 1283
+      },
+      {
+        "path": "composables/useOpenAi.js",
+        "size": 2504
+      },
+      {
+        "path": "helpers.js",
+        "size": 3241
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 993
+      },
+      {
+        "path": "package-lock.json",
+        "size": 800447
+      },
+      {
+        "path": "package.json",
+        "size": 797
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 34119
+      },
+      {
+        "path": "plugins/toast.ts",
+        "size": 1778
+      },
+      {
+        "path": "public/50Reefs.json",
+        "size": 16007
+      },
+      {
+        "path": "public/50Reefs_data_extract/50Reefs_dataset_simple.csv",
+        "size": 2027429
+      },
+      {
+        "path": "public/50Reefs_data_extract/50Reefs_good_compromise_BCUs.json",
+        "size": 207200
+      },
+      {
+        "path": "public/50Reefs_data_extract/50Reefs_max_return_BCUs.json",
+        "size": 818523
+      },
+      {
+        "path": "public/Reefs70_min_attribute.r1.json",
+        "size": 309802
+      },
+      {
+        "path": "public/Reefs70_min_attribute.r2.json",
+        "size": 304192
+      },
+      {
+        "path": "public/Table 1 from Conservation Biology2023.pdf - Sheet1.csv",
+        "size": 9718
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "public/gallery-picks/AlecHughes.SolomonIslands.FishDrive.2022.75.JPG",
+        "size": 8985087
+      },
+      {
+        "path": "public/gallery-picks/Emily Darling.Borneo.2018(5).jpg",
+        "size": 2026518
+      },
+      {
+        "path": "public/gallery-picks/EmilyDarling.Siquijor Island. Philippines.2023.49.jpg",
+        "size": 1567142
+      },
+      {
+        "path": "public/gallery-picks/OceanImageBank_JordanRobins_01.jpg",
+        "size": 6635344
+      },
+      {
+        "path": "public/images/Emily Darling.Borneo.2018.jpg",
+        "size": 2289131
+      },
+      {
+        "path": "public/images/EmilyDarling.Fiji.2019_transparent.png",
+        "size": 3601870
+      },
+      {
+        "path": "public/images/avoid_OceanImageBank_MattCurnock_02.jpeg",
+        "size": 3251920
+      },
+      {
+        "path": "public/images/avoid_casestudy_MichaelMarkovina.Tanzania.Pemba.2019 (3).jpg",
+        "size": 14890446
+      },
+      {
+        "path": "public/images/recover_OceanImageBank_MattCurnock_24.jpeg",
+        "size": 3569899
+      },
+      {
+        "path": "public/images/recover_casestudy_TomVierus.VatuiRa.Fiji.2020.94.jpg",
+        "size": 40026666
+      },
+      {
+        "path": "public/images/resist_OceanImageBank_ShaunWolfe_26.jpeg",
+        "size": 1696278
+      },
+      {
+        "path": "public/images/resist_casestudy_WCS__Tom Vierus.Western Province.Solomon Islands.2023.83.jpg",
+        "size": 3017351
+      },
+      {
+        "path": "public/logos/BP_Ocean_Initiative_logo_BP-Lockup_White.png",
+        "size": 18496
+      },
+      {
+        "path": "public/logos/BP_Ocean_Initiative_logo_Stacked_White.png",
+        "size": 23021
+      },
+      {
+        "path": "public/logos/WCS_SEAL_ACRONYM-White stroke.png",
+        "size": 171128
+      },
+      {
+        "path": "public/logos/room302_logo_whiteonalpha.png",
+        "size": 36393
+      },
+      {
+        "path": "public/og_image.png",
+        "size": 16112983
+      },
+      {
+        "path": "public/social_cutdowns.ai",
+        "size": 73246139
+      },
+      {
+        "path": "public/svg/BE107E4785FAD54F.png",
+        "size": 73119
+      },
+      {
+        "path": "public/svg/caret.svg",
+        "size": 208
+      },
+      {
+        "path": "public/svg/cloud.svg",
+        "size": 1202
+      },
+      {
+        "path": "public/svg/down_arrow.svg",
+        "size": 407
+      },
+      {
+        "path": "public/svg/environmental_conditions.r2.svg",
+        "size": 48157
+      },
+      {
+        "path": "public/svg/environmental_conditions.svg",
+        "size": 26723
+      },
+      {
+        "path": "public/svg/global_temp_rise_chart.svg",
+        "size": 12017
+      },
+      {
+        "path": "public/svg/reef_type-01.svg",
+        "size": 13464
+      },
+      {
+        "path": "public/svg/reef_type-02.svg",
+        "size": 10960
+      },
+      {
+        "path": "public/svg/reef_type-03.svg",
+        "size": 10944
+      },
+      {
+        "path": "public/svg/reef_type.svg",
+        "size": 16960
+      },
+      {
+        "path": "public/svg/refuge_types.ai",
+        "size": 1313615
+      },
+      {
+        "path": "public/svg/refuge_types.r2-07.svg",
+        "size": 27959
+      },
+      {
+        "path": "public/svg/refuge_types.r2.svg",
+        "size": 26609
+      },
+      {
+        "path": "public/svg/sky_glow.png",
+        "size": 2460053
+      },
+      {
+        "path": "public/svg/sky_glow.svg",
+        "size": 486
+      },
+      {
+        "path": "public/svg/stars.svg",
+        "size": 805
+      },
+      {
+        "path": "public/svg/waves.svg",
+        "size": 1532
+      },
+      {
+        "path": "server/tsconfig.json",
+        "size": 49
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 94
+      },
+      {
+        "path": "yarn.lock",
+        "size": 267441
+      }
+    ],
+    "tree": {
+      "name": "wcs-coral-reef",
+      "children": [
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "CaseStudy.vue",
+              "size": 1236,
+              "path": "components/CaseStudy.vue"
+            },
+            {
+              "name": "CaseStudySatelliteImage.vue",
+              "size": 1175,
+              "path": "components/CaseStudySatelliteImage.vue"
+            },
+            {
+              "name": "Globe.vue",
+              "size": 1685,
+              "path": "components/Globe.vue"
+            },
+            {
+              "name": "Globe2.vue",
+              "size": 4175,
+              "path": "components/Globe2.vue"
+            },
+            {
+              "name": "ReefTypeModule.vue",
+              "size": 2129,
+              "path": "components/ReefTypeModule.vue"
+            },
+            {
+              "name": "SatelliteImage.vue",
+              "size": 799,
+              "path": "components/SatelliteImage.vue"
+            },
+            {
+              "name": "SpinnyGlobe.vue",
+              "size": 2779,
+              "path": "components/SpinnyGlobe.vue"
+            },
+            {
+              "name": "TopographicVisual.vue",
+              "size": 5171,
+              "path": "components/TopographicVisual.vue"
+            },
+            {
+              "name": "globe.js",
+              "size": 8326,
+              "path": "components/globe.js"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "composables",
+          "children": [
+            {
+              "name": "appStore.js",
+              "size": 1283,
+              "path": "composables/appStore.js"
+            },
+            {
+              "name": "useOpenAi.js",
+              "size": 2504,
+              "path": "composables/useOpenAi.js"
+            }
+          ],
+          "path": "composables"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "index.vue",
+              "size": 34119,
+              "path": "pages/index.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "plugins",
+          "children": [
+            {
+              "name": "toast.ts",
+              "size": 1778,
+              "path": "plugins/toast.ts"
+            }
+          ],
+          "path": "plugins"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "50Reefs_data_extract",
+              "children": [
+                {
+                  "name": "50Reefs_dataset_simple.csv",
+                  "size": 2027429,
+                  "path": "public/50Reefs_data_extract/50Reefs_dataset_simple.csv"
+                },
+                {
+                  "name": "50Reefs_good_compromise_BCUs.json",
+                  "size": 207200,
+                  "path": "public/50Reefs_data_extract/50Reefs_good_compromise_BCUs.json"
+                },
+                {
+                  "name": "50Reefs_max_return_BCUs.json",
+                  "size": 818523,
+                  "path": "public/50Reefs_data_extract/50Reefs_max_return_BCUs.json"
+                }
+              ],
+              "path": "public/50Reefs_data_extract"
+            },
+            {
+              "name": "gallery-picks",
+              "children": [
+                {
+                  "name": "AlecHughes.SolomonIslands.FishDrive.2022.75.JPG",
+                  "size": 8985087,
+                  "path": "public/gallery-picks/AlecHughes.SolomonIslands.FishDrive.2022.75.JPG"
+                },
+                {
+                  "name": "Emily Darling.Borneo.2018(5).jpg",
+                  "size": 2026518,
+                  "path": "public/gallery-picks/Emily Darling.Borneo.2018(5).jpg"
+                },
+                {
+                  "name": "EmilyDarling.Siquijor Island. Philippines.2023.49.jpg",
+                  "size": 1567142,
+                  "path": "public/gallery-picks/EmilyDarling.Siquijor Island. Philippines.2023.49.jpg"
+                },
+                {
+                  "name": "OceanImageBank_JordanRobins_01.jpg",
+                  "size": 6635344,
+                  "path": "public/gallery-picks/OceanImageBank_JordanRobins_01.jpg"
+                }
+              ],
+              "path": "public/gallery-picks"
+            },
+            {
+              "name": "images",
+              "children": [
+                {
+                  "name": "Emily Darling.Borneo.2018.jpg",
+                  "size": 2289131,
+                  "path": "public/images/Emily Darling.Borneo.2018.jpg"
+                },
+                {
+                  "name": "EmilyDarling.Fiji.2019_transparent.png",
+                  "size": 3601870,
+                  "path": "public/images/EmilyDarling.Fiji.2019_transparent.png"
+                },
+                {
+                  "name": "avoid_OceanImageBank_MattCurnock_02.jpeg",
+                  "size": 3251920,
+                  "path": "public/images/avoid_OceanImageBank_MattCurnock_02.jpeg"
+                },
+                {
+                  "name": "avoid_casestudy_MichaelMarkovina.Tanzania.Pemba.2019 (3).jpg",
+                  "size": 14890446,
+                  "path": "public/images/avoid_casestudy_MichaelMarkovina.Tanzania.Pemba.2019 (3).jpg"
+                },
+                {
+                  "name": "recover_OceanImageBank_MattCurnock_24.jpeg",
+                  "size": 3569899,
+                  "path": "public/images/recover_OceanImageBank_MattCurnock_24.jpeg"
+                },
+                {
+                  "name": "recover_casestudy_TomVierus.VatuiRa.Fiji.2020.94.jpg",
+                  "size": 40026666,
+                  "path": "public/images/recover_casestudy_TomVierus.VatuiRa.Fiji.2020.94.jpg"
+                },
+                {
+                  "name": "resist_OceanImageBank_ShaunWolfe_26.jpeg",
+                  "size": 1696278,
+                  "path": "public/images/resist_OceanImageBank_ShaunWolfe_26.jpeg"
+                },
+                {
+                  "name": "resist_casestudy_WCS__Tom Vierus.Western Province.Solomon Islands.2023.83.jpg",
+                  "size": 3017351,
+                  "path": "public/images/resist_casestudy_WCS__Tom Vierus.Western Province.Solomon Islands.2023.83.jpg"
+                }
+              ],
+              "path": "public/images"
+            },
+            {
+              "name": "logos",
+              "children": [
+                {
+                  "name": "BP_Ocean_Initiative_logo_BP-Lockup_White.png",
+                  "size": 18496,
+                  "path": "public/logos/BP_Ocean_Initiative_logo_BP-Lockup_White.png"
+                },
+                {
+                  "name": "BP_Ocean_Initiative_logo_Stacked_White.png",
+                  "size": 23021,
+                  "path": "public/logos/BP_Ocean_Initiative_logo_Stacked_White.png"
+                },
+                {
+                  "name": "WCS_SEAL_ACRONYM-White stroke.png",
+                  "size": 171128,
+                  "path": "public/logos/WCS_SEAL_ACRONYM-White stroke.png"
+                },
+                {
+                  "name": "room302_logo_whiteonalpha.png",
+                  "size": 36393,
+                  "path": "public/logos/room302_logo_whiteonalpha.png"
+                }
+              ],
+              "path": "public/logos"
+            },
+            {
+              "name": "svg",
+              "children": [
+                {
+                  "name": "BE107E4785FAD54F.png",
+                  "size": 73119,
+                  "path": "public/svg/BE107E4785FAD54F.png"
+                },
+                {
+                  "name": "caret.svg",
+                  "size": 208,
+                  "path": "public/svg/caret.svg"
+                },
+                {
+                  "name": "cloud.svg",
+                  "size": 1202,
+                  "path": "public/svg/cloud.svg"
+                },
+                {
+                  "name": "down_arrow.svg",
+                  "size": 407,
+                  "path": "public/svg/down_arrow.svg"
+                },
+                {
+                  "name": "environmental_conditions.r2.svg",
+                  "size": 48157,
+                  "path": "public/svg/environmental_conditions.r2.svg"
+                },
+                {
+                  "name": "environmental_conditions.svg",
+                  "size": 26723,
+                  "path": "public/svg/environmental_conditions.svg"
+                },
+                {
+                  "name": "global_temp_rise_chart.svg",
+                  "size": 12017,
+                  "path": "public/svg/global_temp_rise_chart.svg"
+                },
+                {
+                  "name": "reef_type-01.svg",
+                  "size": 13464,
+                  "path": "public/svg/reef_type-01.svg"
+                },
+                {
+                  "name": "reef_type-02.svg",
+                  "size": 10960,
+                  "path": "public/svg/reef_type-02.svg"
+                },
+                {
+                  "name": "reef_type-03.svg",
+                  "size": 10944,
+                  "path": "public/svg/reef_type-03.svg"
+                },
+                {
+                  "name": "reef_type.svg",
+                  "size": 16960,
+                  "path": "public/svg/reef_type.svg"
+                },
+                {
+                  "name": "refuge_types.ai",
+                  "size": 1313615,
+                  "path": "public/svg/refuge_types.ai"
+                },
+                {
+                  "name": "refuge_types.r2-07.svg",
+                  "size": 27959,
+                  "path": "public/svg/refuge_types.r2-07.svg"
+                },
+                {
+                  "name": "refuge_types.r2.svg",
+                  "size": 26609,
+                  "path": "public/svg/refuge_types.r2.svg"
+                },
+                {
+                  "name": "sky_glow.png",
+                  "size": 2460053,
+                  "path": "public/svg/sky_glow.png"
+                },
+                {
+                  "name": "sky_glow.svg",
+                  "size": 486,
+                  "path": "public/svg/sky_glow.svg"
+                },
+                {
+                  "name": "stars.svg",
+                  "size": 805,
+                  "path": "public/svg/stars.svg"
+                },
+                {
+                  "name": "waves.svg",
+                  "size": 1532,
+                  "path": "public/svg/waves.svg"
+                }
+              ],
+              "path": "public/svg"
+            },
+            {
+              "name": "50Reefs.json",
+              "size": 16007,
+              "path": "public/50Reefs.json"
+            },
+            {
+              "name": "Reefs70_min_attribute.r1.json",
+              "size": 309802,
+              "path": "public/Reefs70_min_attribute.r1.json"
+            },
+            {
+              "name": "Reefs70_min_attribute.r2.json",
+              "size": 304192,
+              "path": "public/Reefs70_min_attribute.r2.json"
+            },
+            {
+              "name": "Table 1 from Conservation Biology2023.pdf - Sheet1.csv",
+              "size": 9718,
+              "path": "public/Table 1 from Conservation Biology2023.pdf - Sheet1.csv"
+            },
+            {
+              "name": "favicon.ico",
+              "size": 4286,
+              "path": "public/favicon.ico"
+            },
+            {
+              "name": "og_image.png",
+              "size": 16112983,
+              "path": "public/og_image.png"
+            },
+            {
+              "name": "social_cutdowns.ai",
+              "size": 73246139,
+              "path": "public/social_cutdowns.ai"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "server",
+          "children": [
+            {
+              "name": "tsconfig.json",
+              "size": 49,
+              "path": "server/tsconfig.json"
+            }
+          ],
+          "path": "server"
+        },
+        {
+          "name": ".env-example",
+          "size": 43,
+          "path": ".env-example"
+        },
+        {
+          "name": ".gitignore",
+          "size": 246,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 53,
+          "path": ".npmrc"
+        },
+        {
+          "name": "README.md",
+          "size": 644,
+          "path": "README.md"
+        },
+        {
+          "name": "app.vue",
+          "size": 2768,
+          "path": "app.vue"
+        },
+        {
+          "name": "helpers.js",
+          "size": 3241,
+          "path": "helpers.js"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 993,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 800447,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 797,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 94,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 267441,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 69,
+    "totalSize": 190052164
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"wcs--room-302-studio-coral-reefs\">WCS + Room 302 Studio: Coral Reefs</h1>\n<p>Live site 👉 <a href=\"https://hopeunderwater.com/\">https://hopeunderwater.com/</a></p>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <code>http://localhost:3000</code>:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>",

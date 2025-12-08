@@ -17,6 +17,372 @@
     "JavaScript": 1254
   },
   "diskUsage": 247,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".eslintrc.js",
+        "size": 309
+      },
+      {
+        "path": ".github/FUNDING.yml",
+        "size": 93
+      },
+      {
+        "path": ".github/workflows/main.yml",
+        "size": 328
+      },
+      {
+        "path": ".gitignore",
+        "size": 54
+      },
+      {
+        "path": ".prettierrc",
+        "size": 179
+      },
+      {
+        "path": "LICENSE",
+        "size": 1066
+      },
+      {
+        "path": "README.md",
+        "size": 3345
+      },
+      {
+        "path": "index.d.ts",
+        "size": 2213
+      },
+      {
+        "path": "package.json",
+        "size": 1535
+      },
+      {
+        "path": "popper.d.ts",
+        "size": 35
+      },
+      {
+        "path": "rollup.config.js",
+        "size": 843
+      },
+      {
+        "path": "src/__mocks__/obsidian.ts",
+        "size": 755
+      },
+      {
+        "path": "src/__tests__/utils.spec.ts",
+        "size": 2807
+      },
+      {
+        "path": "src/components/Arrow.svelte",
+        "size": 1135
+      },
+      {
+        "path": "src/components/Calendar.svelte",
+        "size": 5097
+      },
+      {
+        "path": "src/components/Day.svelte",
+        "size": 4294
+      },
+      {
+        "path": "src/components/Dot.svelte",
+        "size": 571
+      },
+      {
+        "path": "src/components/Dots.svelte",
+        "size": 824
+      },
+      {
+        "path": "src/components/MetadataResolver.svelte",
+        "size": 346
+      },
+      {
+        "path": "src/components/Month.svelte",
+        "size": 3343
+      },
+      {
+        "path": "src/components/Nav.svelte",
+        "size": 2268
+      },
+      {
+        "path": "src/components/WeekNum.svelte",
+        "size": 3338
+      },
+      {
+        "path": "src/components/popover/Box.svelte",
+        "size": 3220
+      },
+      {
+        "path": "src/components/popover/PopoverMenu.svelte",
+        "size": 924
+      },
+      {
+        "path": "src/components/popover/Popper.svelte",
+        "size": 1182
+      },
+      {
+        "path": "src/context.js",
+        "size": 102
+      },
+      {
+        "path": "src/fileStore.ts",
+        "size": 4617
+      },
+      {
+        "path": "src/index.ts",
+        "size": 459
+      },
+      {
+        "path": "src/localization.ts",
+        "size": 2518
+      },
+      {
+        "path": "src/testUtils/mockApp.ts",
+        "size": 2277
+      },
+      {
+        "path": "src/types.ts",
+        "size": 1200
+      },
+      {
+        "path": "src/utils.ts",
+        "size": 1276
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 259
+      },
+      {
+        "path": "yarn.lock",
+        "size": 194594
+      }
+    ],
+    "tree": {
+      "name": "obsidian-calendar-ui",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "main.yml",
+                  "size": 328,
+                  "path": ".github/workflows/main.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            },
+            {
+              "name": "FUNDING.yml",
+              "size": 93,
+              "path": ".github/FUNDING.yml"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "__mocks__",
+              "children": [
+                {
+                  "name": "obsidian.ts",
+                  "size": 755,
+                  "path": "src/__mocks__/obsidian.ts"
+                }
+              ],
+              "path": "src/__mocks__"
+            },
+            {
+              "name": "__tests__",
+              "children": [
+                {
+                  "name": "utils.spec.ts",
+                  "size": 2807,
+                  "path": "src/__tests__/utils.spec.ts"
+                }
+              ],
+              "path": "src/__tests__"
+            },
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "popover",
+                  "children": [
+                    {
+                      "name": "Box.svelte",
+                      "size": 3220,
+                      "path": "src/components/popover/Box.svelte"
+                    },
+                    {
+                      "name": "PopoverMenu.svelte",
+                      "size": 924,
+                      "path": "src/components/popover/PopoverMenu.svelte"
+                    },
+                    {
+                      "name": "Popper.svelte",
+                      "size": 1182,
+                      "path": "src/components/popover/Popper.svelte"
+                    }
+                  ],
+                  "path": "src/components/popover"
+                },
+                {
+                  "name": "Arrow.svelte",
+                  "size": 1135,
+                  "path": "src/components/Arrow.svelte"
+                },
+                {
+                  "name": "Calendar.svelte",
+                  "size": 5097,
+                  "path": "src/components/Calendar.svelte"
+                },
+                {
+                  "name": "Day.svelte",
+                  "size": 4294,
+                  "path": "src/components/Day.svelte"
+                },
+                {
+                  "name": "Dot.svelte",
+                  "size": 571,
+                  "path": "src/components/Dot.svelte"
+                },
+                {
+                  "name": "Dots.svelte",
+                  "size": 824,
+                  "path": "src/components/Dots.svelte"
+                },
+                {
+                  "name": "MetadataResolver.svelte",
+                  "size": 346,
+                  "path": "src/components/MetadataResolver.svelte"
+                },
+                {
+                  "name": "Month.svelte",
+                  "size": 3343,
+                  "path": "src/components/Month.svelte"
+                },
+                {
+                  "name": "Nav.svelte",
+                  "size": 2268,
+                  "path": "src/components/Nav.svelte"
+                },
+                {
+                  "name": "WeekNum.svelte",
+                  "size": 3338,
+                  "path": "src/components/WeekNum.svelte"
+                }
+              ],
+              "path": "src/components"
+            },
+            {
+              "name": "testUtils",
+              "children": [
+                {
+                  "name": "mockApp.ts",
+                  "size": 2277,
+                  "path": "src/testUtils/mockApp.ts"
+                }
+              ],
+              "path": "src/testUtils"
+            },
+            {
+              "name": "context.js",
+              "size": 102,
+              "path": "src/context.js"
+            },
+            {
+              "name": "fileStore.ts",
+              "size": 4617,
+              "path": "src/fileStore.ts"
+            },
+            {
+              "name": "index.ts",
+              "size": 459,
+              "path": "src/index.ts"
+            },
+            {
+              "name": "localization.ts",
+              "size": 2518,
+              "path": "src/localization.ts"
+            },
+            {
+              "name": "types.ts",
+              "size": 1200,
+              "path": "src/types.ts"
+            },
+            {
+              "name": "utils.ts",
+              "size": 1276,
+              "path": "src/utils.ts"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".eslintrc.js",
+          "size": 309,
+          "path": ".eslintrc.js"
+        },
+        {
+          "name": ".gitignore",
+          "size": 54,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".prettierrc",
+          "size": 179,
+          "path": ".prettierrc"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1066,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 3345,
+          "path": "README.md"
+        },
+        {
+          "name": "index.d.ts",
+          "size": 2213,
+          "path": "index.d.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 1535,
+          "path": "package.json"
+        },
+        {
+          "name": "popper.d.ts",
+          "size": 35,
+          "path": "popper.d.ts"
+        },
+        {
+          "name": "rollup.config.js",
+          "size": 843,
+          "path": "rollup.config.js"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 259,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 194594,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 34,
+    "totalSize": 247406
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"obsidian-calendar-ui\"><code>obsidian-calendar-ui</code></h1>\n<p>The UI package that powers the <a href=\"https://github.com/liamcain/obsidian-calendar-plugin\">Obsidian Calendar plugin</a>.</p>\n<h2 id=\"the-problem\">The problem</h2>\n<p>You want a drop-in calendar widget for your Obsidian plugin that seamlessly blends with the user's theme, provides localization that matches the user's locale and language settings, and you don't want to learn about all intracasies of week numbers.</p>\n<h2 id=\"the-solution\">The solution</h2>\n<p>This package provides an out-of-the-box calendar view for Obsidian plugins. Built using Obsidian's CSS variables, it will match any theme or custom styling that the user has configured. It also syncs with the user's locale, meaning settings like <code>Week Start</code>, and <code>Week number</code> come preconfigured. Finally, the interface is generic so you can use it for any use case that you might have.</p>\n<h2 id=\"basic-usage\">Basic Usage</h2>\n<h3 id=\"standalone-component\">Standalone Component</h3>\n<p>You can render the component anywhere you would like in the DOM by initializing\nit with a <code>target</code> element.</p>\n<pre><code class=\"language-ts\">// const contentEl = ...;\nthis.calendar = new Calendar({\n  target: contentEl, // the HTML element you're attaching it to\n  props: {\n    // Settings\n    showWeekNums: boolean;\n\n    // Localization\n    localeOverride: ILocaleOverride;\n    weekStart: IWeekStartOption;\n\n    // Event Handlers\n    onHoverDay?: (date: Moment, targetEl: EventTarget) =&gt; void;\n    onHoverWeek?: (date: Moment, targetEl: EventTarget) =&gt; void;\n    onClickDay?: (date: Moment, isMetaPressed: boolean) =&gt; void;\n    onClickWeek?: (date: Moment, isMetaPressed: boolean) =&gt; void;\n    onContextMenuDay?: (date: Moment, event: MouseEvent) =&gt; boolean;\n    onContextMenuWeek?: (date: Moment, event: MouseEvent) =&gt; boolean;\n\n    // External sources\n    selectedId?: string | null;\n    sources?: ICalendarSource[];\n\n    // Override-able local state\n    today?: Moment;\n    displayedMonth?: Moment;\n  },\n});\n</code></pre>\n<h3 id=\"within-a-svelte-component\">Within a Svelte component</h3>\n<p>If you are building a plugin using Svelte.js, you can also render the calendar as a subcomponent. The calendar plugin uses this approach:</p>\n<pre><code class=\"language-svelte\">&lt;Calendar\n  localeOverride={$settings.localeOverride}\n  weekStart={$settings.weekStart}\n  {sources}\n  {today}\n  {onHoverDay}\n  {onHoverWeek}\n  {onContextMenuDay}\n  {onContextMenuWeek}\n  {onClickDay}\n  {onClickWeek}\n  bind:displayedMonth\n  selectedId={$activeFile}\n  showWeekNums={$settings.showWeeklyNote}\n/&gt;\n</code></pre>\n<h2 id=\"calendar-sources\">Calendar Sources</h2>\n<p>If you want to attach metadata to the calendar (e.g. adding classes or dots to a particular day, you'll need to provide a calendar source. A calendar source has the following interface:</p>\n<pre><code class=\"language-ts\">export interface ICalendarSource {\n  getDailyMetadata?: (date: Moment) =&gt; Promise&lt;IDayMetadata&gt;;\n  getWeeklyMetadata?: (date: Moment) =&gt; Promise&lt;IDayMetadata&gt;;\n}\n\nexport interface IDayMetadata {\n  classes?: string[];\n  dataAttributes?: Record&lt;string, string&gt;;\n  dots?: IDot[];\n}\n</code></pre>\n<p>For reference, the calendar plugin has the following Calendar Sources:</p>\n<ul>\n<li><code>tasks</code>: Creates hollow dots on days with <code>- [ ]</code> in them</li>\n<li><code>wordCount</code>: Creates dots based on the wordcount of a daily note</li>\n<li><code>tags</code>: Attaches <code>[data-tags]</code> for frontmatter tags within a daily note</li>\n</ul>\n<p>The calendar plugin relies heavily on \"Daily Notes\" but because this interface is generic, you're plugin doesn't need to. This unlocks the ability to use the calendar UI with any source, be it a flat Markdown file, or Google Calendar.</p>",

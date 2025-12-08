@@ -11,7 +11,11 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/81qLTBovPpL._SY160.jpg",
       "highlightsCount": 2
     },
-    "tags": ["book", "health", "research"],
+    "tags": [
+      "book",
+      "health",
+      "research"
+    ],
     "words": 123,
     "images": 0,
     "imageDetails": {

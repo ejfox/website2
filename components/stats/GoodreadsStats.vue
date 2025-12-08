@@ -1,5 +1,5 @@
 <template>
-  <div v-if="data?.stats" class="space-y-4 font-mono">
+  <div v-if="data?.stats" class="space-y-2 font-mono">
     <!-- Essential metrics only -->
     <div>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-2">

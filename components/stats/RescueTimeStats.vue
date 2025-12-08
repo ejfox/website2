@@ -1,7 +1,7 @@
 <template>
-  <div v-if="hasData" class="space-y-4 font-mono">
+  <div v-if="hasData" class="space-y-2 font-mono">
     <!-- Primary Stats -->
-    <div class="py-4">
+    <div class="py-2">
       <div class="text-2xl font-bold">
         <AnimatedNumber
           :value="monthlyHours"
@@ -58,25 +58,25 @@
         :title="cell.title"
       ></div>
     </div>
-    <div class="flex justify-between text-zinc-500 mt-1 text-xs leading-[12px]">
+    <div class="flex justify-between text-zinc-500 mt-4 text-xs leading-[12px]">
       <span>{{ uniqueActivitiesCount }} TRACKED ACTIVITIES</span>
       <span>SQUARE = 1% OF TOTAL TIME</span>
     </div>
 
     <!-- Categories -->
     <StatsSectionHeader title="CATEGORIES" />
-    <div class="space-y-1.5">
+    <div class="space-y-2">
       <div
         v-for="category in sortedCategories.slice(0, 10)"
         :key="category.name"
-        class="flex items-center gap-1.5"
+        class="flex items-center gap-0.5"
       >
         <div
           class="w-2 h-2 flex-shrink-0 rounded-sm"
           :style="{ backgroundColor: category.color }"
         ></div>
         <div class="flex-1 min-w-0">
-          <div class="flex justify-between items-center gap-1">
+          <div class="flex justify-between items-center gap-0.5">
             <!-- eslint-disable max-len,vue/max-len -->
             <span
               class="text-zinc-700 dark:text-zinc-300 truncate text-xs leading-[12px]"

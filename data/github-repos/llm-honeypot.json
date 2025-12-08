@@ -16,6 +16,63 @@
     "JavaScript": 5935
   },
   "diskUsage": 6,
+  "fileTree": {
+    "files": [
+      {
+        "path": "README.md",
+        "size": 1341
+      },
+      {
+        "path": "bot-detector.js",
+        "size": 5935
+      },
+      {
+        "path": "honeypot-triggered.html",
+        "size": 5488
+      },
+      {
+        "path": "index.html",
+        "size": 3782
+      },
+      {
+        "path": "robots.txt",
+        "size": 708
+      }
+    ],
+    "tree": {
+      "name": "llm-honeypot",
+      "children": [
+        {
+          "name": "README.md",
+          "size": 1341,
+          "path": "README.md"
+        },
+        {
+          "name": "bot-detector.js",
+          "size": 5935,
+          "path": "bot-detector.js"
+        },
+        {
+          "name": "honeypot-triggered.html",
+          "size": 5488,
+          "path": "honeypot-triggered.html"
+        },
+        {
+          "name": "index.html",
+          "size": 3782,
+          "path": "index.html"
+        },
+        {
+          "name": "robots.txt",
+          "size": 708,
+          "path": "robots.txt"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 5,
+    "totalSize": 17254
+  },
   "topics": [
     "bot-detection",
     "experiment",

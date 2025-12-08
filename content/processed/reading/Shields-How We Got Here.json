@@ -11,7 +11,12 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/61RFV9THfoL._SY160.jpg",
       "highlightsCount": 2
     },
-    "tags": ["book", "politics", "culture", "writing"],
+    "tags": [
+      "book",
+      "politics",
+      "culture",
+      "writing"
+    ],
     "words": 88,
     "images": 0,
     "imageDetails": {

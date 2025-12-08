@@ -20,6 +20,1641 @@
     "HTML": 484
   },
   "diskUsage": 4774,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+        "size": 162
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/help_wanted.md",
+        "size": 203
+      },
+      {
+        "path": ".github/PULL_REQUEST_TEMPLATE.md",
+        "size": 321
+      },
+      {
+        "path": ".github/dependabot.yml",
+        "size": 503
+      },
+      {
+        "path": ".github/workflows/build.yml",
+        "size": 967
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "size": 3146
+      },
+      {
+        "path": ".github/workflows/deploy.yml",
+        "size": 709
+      },
+      {
+        "path": ".gitignore",
+        "size": 273
+      },
+      {
+        "path": ".npmrc",
+        "size": 228
+      },
+      {
+        "path": ".nvmrc",
+        "size": 9
+      },
+      {
+        "path": ".vscode/.debug.script.mjs",
+        "size": 731
+      },
+      {
+        "path": ".vscode/extensions.json",
+        "size": 81
+      },
+      {
+        "path": ".vscode/launch.json",
+        "size": 1407
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 556
+      },
+      {
+        "path": ".vscode/tasks.json",
+        "size": 870
+      },
+      {
+        "path": "BETTER_AUTH_MIGRATION.md",
+        "size": 4286
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 1143
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 7424
+      },
+      {
+        "path": "LICENSE",
+        "size": 1069
+      },
+      {
+        "path": "README.md",
+        "size": 19908
+      },
+      {
+        "path": "anime.esm.js",
+        "size": 248336
+      },
+      {
+        "path": "build/icon.icns",
+        "size": 246379
+      },
+      {
+        "path": "build/icon.iconset/icon_128x128.png",
+        "size": 12340
+      },
+      {
+        "path": "build/icon.iconset/icon_128x128@2x.png",
+        "size": 27887
+      },
+      {
+        "path": "build/icon.iconset/icon_16x16.png",
+        "size": 1298
+      },
+      {
+        "path": "build/icon.iconset/icon_16x16@2x.png",
+        "size": 2251
+      },
+      {
+        "path": "build/icon.iconset/icon_256x256.png",
+        "size": 27887
+      },
+      {
+        "path": "build/icon.iconset/icon_256x256@2x.png",
+        "size": 59387
+      },
+      {
+        "path": "build/icon.iconset/icon_32x32.png",
+        "size": 2251
+      },
+      {
+        "path": "build/icon.iconset/icon_32x32@2x.png",
+        "size": 5250
+      },
+      {
+        "path": "build/icon.iconset/icon_512x512.png",
+        "size": 59387
+      },
+      {
+        "path": "build/icon.iconset/icon_512x512@2x.png",
+        "size": 59387
+      },
+      {
+        "path": "build/icons/128x128.png",
+        "size": 12340
+      },
+      {
+        "path": "build/icons/16x16.png",
+        "size": 1298
+      },
+      {
+        "path": "build/icons/256x256.png",
+        "size": 27887
+      },
+      {
+        "path": "build/icons/32x32.png",
+        "size": 2251
+      },
+      {
+        "path": "build/icons/48x48.png",
+        "size": 3618
+      },
+      {
+        "path": "build/icons/512x512.png",
+        "size": 59387
+      },
+      {
+        "path": "build/icons/64x64.png",
+        "size": 5250
+      },
+      {
+        "path": "build/icons/tray-icon-Template.png",
+        "size": 721
+      },
+      {
+        "path": "build/icons/tray-icon.png",
+        "size": 1150
+      },
+      {
+        "path": "build/logo.ico",
+        "size": 112641
+      },
+      {
+        "path": "docs/index.html",
+        "size": 5038
+      },
+      {
+        "path": "docs/index.md",
+        "size": 1545
+      },
+      {
+        "path": "electron-builder.json5",
+        "size": 960
+      },
+      {
+        "path": "electron/electron-env.d.ts",
+        "size": 575
+      },
+      {
+        "path": "electron/ipc/index.ts",
+        "size": 2767
+      },
+      {
+        "path": "electron/ipc/obsidian.ts",
+        "size": 2245
+      },
+      {
+        "path": "electron/main.ts",
+        "size": 878
+      },
+      {
+        "path": "electron/main/index.ts",
+        "size": 3101
+      },
+      {
+        "path": "electron/main/store.ts",
+        "size": 1710
+      },
+      {
+        "path": "electron/menu/index.ts",
+        "size": 7816
+      },
+      {
+        "path": "electron/menu/utils.ts",
+        "size": 81
+      },
+      {
+        "path": "electron/preload/index.ts",
+        "size": 3609
+      },
+      {
+        "path": "index.html",
+        "size": 484
+      },
+      {
+        "path": "package.json",
+        "size": 2641
+      },
+      {
+        "path": "postcss.config.js",
+        "size": 82
+      },
+      {
+        "path": "public/logo.ico",
+        "size": 121545
+      },
+      {
+        "path": "public/logo.svg",
+        "size": 2512
+      },
+      {
+        "path": "scripts/generate-icons.sh",
+        "size": 1502
+      },
+      {
+        "path": "src/App.vue",
+        "size": 36897
+      },
+      {
+        "path": "src/assets/electron.svg",
+        "size": 2440
+      },
+      {
+        "path": "src/assets/vite.svg",
+        "size": 1497
+      },
+      {
+        "path": "src/assets/vue.svg",
+        "size": 496
+      },
+      {
+        "path": "src/components/ApiKeyWarning.vue",
+        "size": 1643
+      },
+      {
+        "path": "src/components/ChatCodeblock.vue",
+        "size": 8358
+      },
+      {
+        "path": "src/components/ChatImport.vue",
+        "size": 4690
+      },
+      {
+        "path": "src/components/ChatInput.vue",
+        "size": 17511
+      },
+      {
+        "path": "src/components/ChatMessage.vue",
+        "size": 5267
+      },
+      {
+        "path": "src/components/ChatMetadata.vue",
+        "size": 5597
+      },
+      {
+        "path": "src/components/ChatSidebar.vue",
+        "size": 59307
+      },
+      {
+        "path": "src/components/ChatTitleBanner.vue",
+        "size": 3625
+      },
+      {
+        "path": "src/components/ConfirmationModal.vue",
+        "size": 1956
+      },
+      {
+        "path": "src/components/ContextAlchemyPanel.vue",
+        "size": 27621
+      },
+      {
+        "path": "src/components/ContextUsageBar.vue",
+        "size": 4514
+      },
+      {
+        "path": "src/components/DebugConsoleToggle.vue",
+        "size": 843
+      },
+      {
+        "path": "src/components/DebugOverlay.vue",
+        "size": 4526
+      },
+      {
+        "path": "src/components/HelloWorld.vue",
+        "size": 786
+      },
+      {
+        "path": "src/components/KeyboardShortcutsModal.vue",
+        "size": 4666
+      },
+      {
+        "path": "src/components/LoadingOverlay.vue",
+        "size": 485
+      },
+      {
+        "path": "src/components/LoadingState.vue",
+        "size": 2755
+      },
+      {
+        "path": "src/components/LogTicker.vue",
+        "size": 7034
+      },
+      {
+        "path": "src/components/LoginOverlay.vue",
+        "size": 14019
+      },
+      {
+        "path": "src/components/ModelMetadata.vue",
+        "size": 10876
+      },
+      {
+        "path": "src/components/ModelSettings.vue",
+        "size": 27032
+      },
+      {
+        "path": "src/components/ObsidianMentionPopup.vue",
+        "size": 4438
+      },
+      {
+        "path": "src/components/SettingsModal.vue",
+        "size": 37213
+      },
+      {
+        "path": "src/components/StatusBar.vue",
+        "size": 4665
+      },
+      {
+        "path": "src/components/TitleBar.vue",
+        "size": 11690
+      },
+      {
+        "path": "src/components/WelcomeScreen.vue",
+        "size": 13799
+      },
+      {
+        "path": "src/components/WindowControls.vue",
+        "size": 3010
+      },
+      {
+        "path": "src/composables/__tests__/useAppInit.test.ts",
+        "size": 2711
+      },
+      {
+        "path": "src/composables/__tests__/useConversation.test.ts",
+        "size": 896
+      },
+      {
+        "path": "src/composables/__tests__/useFileMentions.test.ts",
+        "size": 909
+      },
+      {
+        "path": "src/composables/__tests__/useMessageFormatting.test.ts",
+        "size": 1799
+      },
+      {
+        "path": "src/composables/__tests__/useOpenRouter.test.ts",
+        "size": 2274
+      },
+      {
+        "path": "src/composables/__tests__/usePathHandling.test.ts",
+        "size": 2464
+      },
+      {
+        "path": "src/composables/__tests__/useTokenCounting.test.ts",
+        "size": 3113
+      },
+      {
+        "path": "src/composables/useAIChat.ts",
+        "size": 18470
+      },
+      {
+        "path": "src/composables/useActiveUser-new.ts",
+        "size": 4288
+      },
+      {
+        "path": "src/composables/useActiveUser.ts",
+        "size": 3636
+      },
+      {
+        "path": "src/composables/useAnimeAnimations.ts",
+        "size": 9979
+      },
+      {
+        "path": "src/composables/useApi.ts",
+        "size": 8198
+      },
+      {
+        "path": "src/composables/useCoachArtie.ts",
+        "size": 4099
+      },
+      {
+        "path": "src/composables/useLoadingSequence.ts",
+        "size": 2012
+      },
+      {
+        "path": "src/composables/useObsidianFiles.ts",
+        "size": 11829
+      },
+      {
+        "path": "src/composables/useOpenRouter.ts",
+        "size": 22182
+      },
+      {
+        "path": "src/composables/useShortcuts.ts",
+        "size": 1118
+      },
+      {
+        "path": "src/composables/useSupabase.ts",
+        "size": 14641
+      },
+      {
+        "path": "src/composables/useTheme.ts",
+        "size": 1400
+      },
+      {
+        "path": "src/demos/ipc.ts",
+        "size": 175
+      },
+      {
+        "path": "src/demos/node.ts",
+        "size": 183
+      },
+      {
+        "path": "src/docs/AICommandsGuide.md",
+        "size": 2789
+      },
+      {
+        "path": "src/electron/ipc/obsidian.ts",
+        "size": 10234
+      },
+      {
+        "path": "src/electron/main.ts",
+        "size": 8250
+      },
+      {
+        "path": "src/electron/menu.js",
+        "size": 1829
+      },
+      {
+        "path": "src/electron/menu.ts",
+        "size": 4343
+      },
+      {
+        "path": "src/electron/preload.ts",
+        "size": 2991
+      },
+      {
+        "path": "src/electron/utils.ts",
+        "size": 52
+      },
+      {
+        "path": "src/lib/aiCommands.ts",
+        "size": 7541
+      },
+      {
+        "path": "src/lib/api-client.ts",
+        "size": 5206
+      },
+      {
+        "path": "src/lib/auth-client.ts",
+        "size": 1019
+      },
+      {
+        "path": "src/lib/fileUtils.ts",
+        "size": 1134
+      },
+      {
+        "path": "src/lib/logger.ts",
+        "size": 1614
+      },
+      {
+        "path": "src/lib/store.ts",
+        "size": 1480
+      },
+      {
+        "path": "src/lib/supabase.ts",
+        "size": 487
+      },
+      {
+        "path": "src/main.css",
+        "size": 3702
+      },
+      {
+        "path": "src/main.ts",
+        "size": 769
+      },
+      {
+        "path": "src/preload/index.ts",
+        "size": 2114
+      },
+      {
+        "path": "src/style.css",
+        "size": 0
+      },
+      {
+        "path": "src/types.d.ts",
+        "size": 11028
+      },
+      {
+        "path": "src/types.ts",
+        "size": 3672
+      },
+      {
+        "path": "src/types/electron-store.d.ts",
+        "size": 996
+      },
+      {
+        "path": "src/types/electron.d.ts",
+        "size": 2156
+      },
+      {
+        "path": "src/types/gray-matter.d.ts",
+        "size": 555
+      },
+      {
+        "path": "src/types/index.ts",
+        "size": 82
+      },
+      {
+        "path": "src/types/store.d.ts",
+        "size": 1167
+      },
+      {
+        "path": "src/vite-env.d.ts",
+        "size": 301
+      },
+      {
+        "path": "tailwind.config.js",
+        "size": 4040
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 659
+      },
+      {
+        "path": "tsconfig.node.json",
+        "size": 331
+      },
+      {
+        "path": "vite.config.flat.txt",
+        "size": 2612
+      },
+      {
+        "path": "vite.config.ts",
+        "size": 1517
+      },
+      {
+        "path": "vulpecula-auth-server/drizzle.config.ts",
+        "size": 320
+      },
+      {
+        "path": "vulpecula-auth-server/drizzle/0000_grey_excalibur.sql",
+        "size": 1320
+      },
+      {
+        "path": "vulpecula-auth-server/drizzle/meta/0000_snapshot.json",
+        "size": 5067
+      },
+      {
+        "path": "vulpecula-auth-server/drizzle/meta/_journal.json",
+        "size": 208
+      },
+      {
+        "path": "vulpecula-auth-server/package-lock.json",
+        "size": 98934
+      },
+      {
+        "path": "vulpecula-auth-server/package.json",
+        "size": 779
+      },
+      {
+        "path": "vulpecula-auth-server/src/auth/config.ts",
+        "size": 975
+      },
+      {
+        "path": "vulpecula-auth-server/src/db/connection.ts",
+        "size": 658
+      },
+      {
+        "path": "vulpecula-auth-server/src/db/schema.ts",
+        "size": 1968
+      },
+      {
+        "path": "vulpecula-auth-server/src/index.ts",
+        "size": 1399
+      },
+      {
+        "path": "vulpecula-auth-server/src/middleware/auth-handler.ts",
+        "size": 938
+      },
+      {
+        "path": "vulpecula-auth-server/src/routes/chats.ts",
+        "size": 3654
+      },
+      {
+        "path": "vulpecula-auth-server/tsconfig.json",
+        "size": 533
+      },
+      {
+        "path": "yarn.lock",
+        "size": 163239
+      }
+    ],
+    "tree": {
+      "name": "vulpecula-loom",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "ISSUE_TEMPLATE",
+              "children": [
+                {
+                  "name": "bug_report.md",
+                  "size": 162,
+                  "path": ".github/ISSUE_TEMPLATE/bug_report.md"
+                },
+                {
+                  "name": "help_wanted.md",
+                  "size": 203,
+                  "path": ".github/ISSUE_TEMPLATE/help_wanted.md"
+                }
+              ],
+              "path": ".github/ISSUE_TEMPLATE"
+            },
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "build.yml",
+                  "size": 967,
+                  "path": ".github/workflows/build.yml"
+                },
+                {
+                  "name": "ci.yml",
+                  "size": 3146,
+                  "path": ".github/workflows/ci.yml"
+                },
+                {
+                  "name": "deploy.yml",
+                  "size": 709,
+                  "path": ".github/workflows/deploy.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            },
+            {
+              "name": "PULL_REQUEST_TEMPLATE.md",
+              "size": 321,
+              "path": ".github/PULL_REQUEST_TEMPLATE.md"
+            },
+            {
+              "name": "dependabot.yml",
+              "size": 503,
+              "path": ".github/dependabot.yml"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": ".debug.script.mjs",
+              "size": 731,
+              "path": ".vscode/.debug.script.mjs"
+            },
+            {
+              "name": "extensions.json",
+              "size": 81,
+              "path": ".vscode/extensions.json"
+            },
+            {
+              "name": "launch.json",
+              "size": 1407,
+              "path": ".vscode/launch.json"
+            },
+            {
+              "name": "settings.json",
+              "size": 556,
+              "path": ".vscode/settings.json"
+            },
+            {
+              "name": "tasks.json",
+              "size": 870,
+              "path": ".vscode/tasks.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "build",
+          "children": [
+            {
+              "name": "icon.iconset",
+              "children": [
+                {
+                  "name": "icon_128x128.png",
+                  "size": 12340,
+                  "path": "build/icon.iconset/icon_128x128.png"
+                },
+                {
+                  "name": "icon_128x128@2x.png",
+                  "size": 27887,
+                  "path": "build/icon.iconset/icon_128x128@2x.png"
+                },
+                {
+                  "name": "icon_16x16.png",
+                  "size": 1298,
+                  "path": "build/icon.iconset/icon_16x16.png"
+                },
+                {
+                  "name": "icon_16x16@2x.png",
+                  "size": 2251,
+                  "path": "build/icon.iconset/icon_16x16@2x.png"
+                },
+                {
+                  "name": "icon_256x256.png",
+                  "size": 27887,
+                  "path": "build/icon.iconset/icon_256x256.png"
+                },
+                {
+                  "name": "icon_256x256@2x.png",
+                  "size": 59387,
+                  "path": "build/icon.iconset/icon_256x256@2x.png"
+                },
+                {
+                  "name": "icon_32x32.png",
+                  "size": 2251,
+                  "path": "build/icon.iconset/icon_32x32.png"
+                },
+                {
+                  "name": "icon_32x32@2x.png",
+                  "size": 5250,
+                  "path": "build/icon.iconset/icon_32x32@2x.png"
+                },
+                {
+                  "name": "icon_512x512.png",
+                  "size": 59387,
+                  "path": "build/icon.iconset/icon_512x512.png"
+                },
+                {
+                  "name": "icon_512x512@2x.png",
+                  "size": 59387,
+                  "path": "build/icon.iconset/icon_512x512@2x.png"
+                }
+              ],
+              "path": "build/icon.iconset"
+            },
+            {
+              "name": "icons",
+              "children": [
+                {
+                  "name": "128x128.png",
+                  "size": 12340,
+                  "path": "build/icons/128x128.png"
+                },
+                {
+                  "name": "16x16.png",
+                  "size": 1298,
+                  "path": "build/icons/16x16.png"
+                },
+                {
+                  "name": "256x256.png",
+                  "size": 27887,
+                  "path": "build/icons/256x256.png"
+                },
+                {
+                  "name": "32x32.png",
+                  "size": 2251,
+                  "path": "build/icons/32x32.png"
+                },
+                {
+                  "name": "48x48.png",
+                  "size": 3618,
+                  "path": "build/icons/48x48.png"
+                },
+                {
+                  "name": "512x512.png",
+                  "size": 59387,
+                  "path": "build/icons/512x512.png"
+                },
+                {
+                  "name": "64x64.png",
+                  "size": 5250,
+                  "path": "build/icons/64x64.png"
+                },
+                {
+                  "name": "tray-icon-Template.png",
+                  "size": 721,
+                  "path": "build/icons/tray-icon-Template.png"
+                },
+                {
+                  "name": "tray-icon.png",
+                  "size": 1150,
+                  "path": "build/icons/tray-icon.png"
+                }
+              ],
+              "path": "build/icons"
+            },
+            {
+              "name": "icon.icns",
+              "size": 246379,
+              "path": "build/icon.icns"
+            },
+            {
+              "name": "logo.ico",
+              "size": 112641,
+              "path": "build/logo.ico"
+            }
+          ],
+          "path": "build"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "index.html",
+              "size": 5038,
+              "path": "docs/index.html"
+            },
+            {
+              "name": "index.md",
+              "size": 1545,
+              "path": "docs/index.md"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "electron",
+          "children": [
+            {
+              "name": "ipc",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 2767,
+                  "path": "electron/ipc/index.ts"
+                },
+                {
+                  "name": "obsidian.ts",
+                  "size": 2245,
+                  "path": "electron/ipc/obsidian.ts"
+                }
+              ],
+              "path": "electron/ipc"
+            },
+            {
+              "name": "main",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 3101,
+                  "path": "electron/main/index.ts"
+                },
+                {
+                  "name": "store.ts",
+                  "size": 1710,
+                  "path": "electron/main/store.ts"
+                }
+              ],
+              "path": "electron/main"
+            },
+            {
+              "name": "menu",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 7816,
+                  "path": "electron/menu/index.ts"
+                },
+                {
+                  "name": "utils.ts",
+                  "size": 81,
+                  "path": "electron/menu/utils.ts"
+                }
+              ],
+              "path": "electron/menu"
+            },
+            {
+              "name": "preload",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 3609,
+                  "path": "electron/preload/index.ts"
+                }
+              ],
+              "path": "electron/preload"
+            },
+            {
+              "name": "electron-env.d.ts",
+              "size": 575,
+              "path": "electron/electron-env.d.ts"
+            },
+            {
+              "name": "main.ts",
+              "size": 878,
+              "path": "electron/main.ts"
+            }
+          ],
+          "path": "electron"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "logo.ico",
+              "size": 121545,
+              "path": "public/logo.ico"
+            },
+            {
+              "name": "logo.svg",
+              "size": 2512,
+              "path": "public/logo.svg"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "generate-icons.sh",
+              "size": 1502,
+              "path": "scripts/generate-icons.sh"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "assets",
+              "children": [
+                {
+                  "name": "electron.svg",
+                  "size": 2440,
+                  "path": "src/assets/electron.svg"
+                },
+                {
+                  "name": "vite.svg",
+                  "size": 1497,
+                  "path": "src/assets/vite.svg"
+                },
+                {
+                  "name": "vue.svg",
+                  "size": 496,
+                  "path": "src/assets/vue.svg"
+                }
+              ],
+              "path": "src/assets"
+            },
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "ApiKeyWarning.vue",
+                  "size": 1643,
+                  "path": "src/components/ApiKeyWarning.vue"
+                },
+                {
+                  "name": "ChatCodeblock.vue",
+                  "size": 8358,
+                  "path": "src/components/ChatCodeblock.vue"
+                },
+                {
+                  "name": "ChatImport.vue",
+                  "size": 4690,
+                  "path": "src/components/ChatImport.vue"
+                },
+                {
+                  "name": "ChatInput.vue",
+                  "size": 17511,
+                  "path": "src/components/ChatInput.vue"
+                },
+                {
+                  "name": "ChatMessage.vue",
+                  "size": 5267,
+                  "path": "src/components/ChatMessage.vue"
+                },
+                {
+                  "name": "ChatMetadata.vue",
+                  "size": 5597,
+                  "path": "src/components/ChatMetadata.vue"
+                },
+                {
+                  "name": "ChatSidebar.vue",
+                  "size": 59307,
+                  "path": "src/components/ChatSidebar.vue"
+                },
+                {
+                  "name": "ChatTitleBanner.vue",
+                  "size": 3625,
+                  "path": "src/components/ChatTitleBanner.vue"
+                },
+                {
+                  "name": "ConfirmationModal.vue",
+                  "size": 1956,
+                  "path": "src/components/ConfirmationModal.vue"
+                },
+                {
+                  "name": "ContextAlchemyPanel.vue",
+                  "size": 27621,
+                  "path": "src/components/ContextAlchemyPanel.vue"
+                },
+                {
+                  "name": "ContextUsageBar.vue",
+                  "size": 4514,
+                  "path": "src/components/ContextUsageBar.vue"
+                },
+                {
+                  "name": "DebugConsoleToggle.vue",
+                  "size": 843,
+                  "path": "src/components/DebugConsoleToggle.vue"
+                },
+                {
+                  "name": "DebugOverlay.vue",
+                  "size": 4526,
+                  "path": "src/components/DebugOverlay.vue"
+                },
+                {
+                  "name": "HelloWorld.vue",
+                  "size": 786,
+                  "path": "src/components/HelloWorld.vue"
+                },
+                {
+                  "name": "KeyboardShortcutsModal.vue",
+                  "size": 4666,
+                  "path": "src/components/KeyboardShortcutsModal.vue"
+                },
+                {
+                  "name": "LoadingOverlay.vue",
+                  "size": 485,
+                  "path": "src/components/LoadingOverlay.vue"
+                },
+                {
+                  "name": "LoadingState.vue",
+                  "size": 2755,
+                  "path": "src/components/LoadingState.vue"
+                },
+                {
+                  "name": "LogTicker.vue",
+                  "size": 7034,
+                  "path": "src/components/LogTicker.vue"
+                },
+                {
+                  "name": "LoginOverlay.vue",
+                  "size": 14019,
+                  "path": "src/components/LoginOverlay.vue"
+                },
+                {
+                  "name": "ModelMetadata.vue",
+                  "size": 10876,
+                  "path": "src/components/ModelMetadata.vue"
+                },
+                {
+                  "name": "ModelSettings.vue",
+                  "size": 27032,
+                  "path": "src/components/ModelSettings.vue"
+                },
+                {
+                  "name": "ObsidianMentionPopup.vue",
+                  "size": 4438,
+                  "path": "src/components/ObsidianMentionPopup.vue"
+                },
+                {
+                  "name": "SettingsModal.vue",
+                  "size": 37213,
+                  "path": "src/components/SettingsModal.vue"
+                },
+                {
+                  "name": "StatusBar.vue",
+                  "size": 4665,
+                  "path": "src/components/StatusBar.vue"
+                },
+                {
+                  "name": "TitleBar.vue",
+                  "size": 11690,
+                  "path": "src/components/TitleBar.vue"
+                },
+                {
+                  "name": "WelcomeScreen.vue",
+                  "size": 13799,
+                  "path": "src/components/WelcomeScreen.vue"
+                },
+                {
+                  "name": "WindowControls.vue",
+                  "size": 3010,
+                  "path": "src/components/WindowControls.vue"
+                }
+              ],
+              "path": "src/components"
+            },
+            {
+              "name": "composables",
+              "children": [
+                {
+                  "name": "__tests__",
+                  "children": [
+                    {
+                      "name": "useAppInit.test.ts",
+                      "size": 2711,
+                      "path": "src/composables/__tests__/useAppInit.test.ts"
+                    },
+                    {
+                      "name": "useConversation.test.ts",
+                      "size": 896,
+                      "path": "src/composables/__tests__/useConversation.test.ts"
+                    },
+                    {
+                      "name": "useFileMentions.test.ts",
+                      "size": 909,
+                      "path": "src/composables/__tests__/useFileMentions.test.ts"
+                    },
+                    {
+                      "name": "useMessageFormatting.test.ts",
+                      "size": 1799,
+                      "path": "src/composables/__tests__/useMessageFormatting.test.ts"
+                    },
+                    {
+                      "name": "useOpenRouter.test.ts",
+                      "size": 2274,
+                      "path": "src/composables/__tests__/useOpenRouter.test.ts"
+                    },
+                    {
+                      "name": "usePathHandling.test.ts",
+                      "size": 2464,
+                      "path": "src/composables/__tests__/usePathHandling.test.ts"
+                    },
+                    {
+                      "name": "useTokenCounting.test.ts",
+                      "size": 3113,
+                      "path": "src/composables/__tests__/useTokenCounting.test.ts"
+                    }
+                  ],
+                  "path": "src/composables/__tests__"
+                },
+                {
+                  "name": "useAIChat.ts",
+                  "size": 18470,
+                  "path": "src/composables/useAIChat.ts"
+                },
+                {
+                  "name": "useActiveUser-new.ts",
+                  "size": 4288,
+                  "path": "src/composables/useActiveUser-new.ts"
+                },
+                {
+                  "name": "useActiveUser.ts",
+                  "size": 3636,
+                  "path": "src/composables/useActiveUser.ts"
+                },
+                {
+                  "name": "useAnimeAnimations.ts",
+                  "size": 9979,
+                  "path": "src/composables/useAnimeAnimations.ts"
+                },
+                {
+                  "name": "useApi.ts",
+                  "size": 8198,
+                  "path": "src/composables/useApi.ts"
+                },
+                {
+                  "name": "useCoachArtie.ts",
+                  "size": 4099,
+                  "path": "src/composables/useCoachArtie.ts"
+                },
+                {
+                  "name": "useLoadingSequence.ts",
+                  "size": 2012,
+                  "path": "src/composables/useLoadingSequence.ts"
+                },
+                {
+                  "name": "useObsidianFiles.ts",
+                  "size": 11829,
+                  "path": "src/composables/useObsidianFiles.ts"
+                },
+                {
+                  "name": "useOpenRouter.ts",
+                  "size": 22182,
+                  "path": "src/composables/useOpenRouter.ts"
+                },
+                {
+                  "name": "useShortcuts.ts",
+                  "size": 1118,
+                  "path": "src/composables/useShortcuts.ts"
+                },
+                {
+                  "name": "useSupabase.ts",
+                  "size": 14641,
+                  "path": "src/composables/useSupabase.ts"
+                },
+                {
+                  "name": "useTheme.ts",
+                  "size": 1400,
+                  "path": "src/composables/useTheme.ts"
+                }
+              ],
+              "path": "src/composables"
+            },
+            {
+              "name": "demos",
+              "children": [
+                {
+                  "name": "ipc.ts",
+                  "size": 175,
+                  "path": "src/demos/ipc.ts"
+                },
+                {
+                  "name": "node.ts",
+                  "size": 183,
+                  "path": "src/demos/node.ts"
+                }
+              ],
+              "path": "src/demos"
+            },
+            {
+              "name": "docs",
+              "children": [
+                {
+                  "name": "AICommandsGuide.md",
+                  "size": 2789,
+                  "path": "src/docs/AICommandsGuide.md"
+                }
+              ],
+              "path": "src/docs"
+            },
+            {
+              "name": "electron",
+              "children": [
+                {
+                  "name": "ipc",
+                  "children": [
+                    {
+                      "name": "obsidian.ts",
+                      "size": 10234,
+                      "path": "src/electron/ipc/obsidian.ts"
+                    }
+                  ],
+                  "path": "src/electron/ipc"
+                },
+                {
+                  "name": "main.ts",
+                  "size": 8250,
+                  "path": "src/electron/main.ts"
+                },
+                {
+                  "name": "menu.js",
+                  "size": 1829,
+                  "path": "src/electron/menu.js"
+                },
+                {
+                  "name": "menu.ts",
+                  "size": 4343,
+                  "path": "src/electron/menu.ts"
+                },
+                {
+                  "name": "preload.ts",
+                  "size": 2991,
+                  "path": "src/electron/preload.ts"
+                },
+                {
+                  "name": "utils.ts",
+                  "size": 52,
+                  "path": "src/electron/utils.ts"
+                }
+              ],
+              "path": "src/electron"
+            },
+            {
+              "name": "lib",
+              "children": [
+                {
+                  "name": "aiCommands.ts",
+                  "size": 7541,
+                  "path": "src/lib/aiCommands.ts"
+                },
+                {
+                  "name": "api-client.ts",
+                  "size": 5206,
+                  "path": "src/lib/api-client.ts"
+                },
+                {
+                  "name": "auth-client.ts",
+                  "size": 1019,
+                  "path": "src/lib/auth-client.ts"
+                },
+                {
+                  "name": "fileUtils.ts",
+                  "size": 1134,
+                  "path": "src/lib/fileUtils.ts"
+                },
+                {
+                  "name": "logger.ts",
+                  "size": 1614,
+                  "path": "src/lib/logger.ts"
+                },
+                {
+                  "name": "store.ts",
+                  "size": 1480,
+                  "path": "src/lib/store.ts"
+                },
+                {
+                  "name": "supabase.ts",
+                  "size": 487,
+                  "path": "src/lib/supabase.ts"
+                }
+              ],
+              "path": "src/lib"
+            },
+            {
+              "name": "preload",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 2114,
+                  "path": "src/preload/index.ts"
+                }
+              ],
+              "path": "src/preload"
+            },
+            {
+              "name": "types",
+              "children": [
+                {
+                  "name": "electron-store.d.ts",
+                  "size": 996,
+                  "path": "src/types/electron-store.d.ts"
+                },
+                {
+                  "name": "electron.d.ts",
+                  "size": 2156,
+                  "path": "src/types/electron.d.ts"
+                },
+                {
+                  "name": "gray-matter.d.ts",
+                  "size": 555,
+                  "path": "src/types/gray-matter.d.ts"
+                },
+                {
+                  "name": "index.ts",
+                  "size": 82,
+                  "path": "src/types/index.ts"
+                },
+                {
+                  "name": "store.d.ts",
+                  "size": 1167,
+                  "path": "src/types/store.d.ts"
+                }
+              ],
+              "path": "src/types"
+            },
+            {
+              "name": "App.vue",
+              "size": 36897,
+              "path": "src/App.vue"
+            },
+            {
+              "name": "main.css",
+              "size": 3702,
+              "path": "src/main.css"
+            },
+            {
+              "name": "main.ts",
+              "size": 769,
+              "path": "src/main.ts"
+            },
+            {
+              "name": "style.css",
+              "size": 0,
+              "path": "src/style.css"
+            },
+            {
+              "name": "types.d.ts",
+              "size": 11028,
+              "path": "src/types.d.ts"
+            },
+            {
+              "name": "types.ts",
+              "size": 3672,
+              "path": "src/types.ts"
+            },
+            {
+              "name": "vite-env.d.ts",
+              "size": 301,
+              "path": "src/vite-env.d.ts"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "vulpecula-auth-server",
+          "children": [
+            {
+              "name": "drizzle",
+              "children": [
+                {
+                  "name": "meta",
+                  "children": [
+                    {
+                      "name": "0000_snapshot.json",
+                      "size": 5067,
+                      "path": "vulpecula-auth-server/drizzle/meta/0000_snapshot.json"
+                    },
+                    {
+                      "name": "_journal.json",
+                      "size": 208,
+                      "path": "vulpecula-auth-server/drizzle/meta/_journal.json"
+                    }
+                  ],
+                  "path": "vulpecula-auth-server/drizzle/meta"
+                },
+                {
+                  "name": "0000_grey_excalibur.sql",
+                  "size": 1320,
+                  "path": "vulpecula-auth-server/drizzle/0000_grey_excalibur.sql"
+                }
+              ],
+              "path": "vulpecula-auth-server/drizzle"
+            },
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "auth",
+                  "children": [
+                    {
+                      "name": "config.ts",
+                      "size": 975,
+                      "path": "vulpecula-auth-server/src/auth/config.ts"
+                    }
+                  ],
+                  "path": "vulpecula-auth-server/src/auth"
+                },
+                {
+                  "name": "db",
+                  "children": [
+                    {
+                      "name": "connection.ts",
+                      "size": 658,
+                      "path": "vulpecula-auth-server/src/db/connection.ts"
+                    },
+                    {
+                      "name": "schema.ts",
+                      "size": 1968,
+                      "path": "vulpecula-auth-server/src/db/schema.ts"
+                    }
+                  ],
+                  "path": "vulpecula-auth-server/src/db"
+                },
+                {
+                  "name": "middleware",
+                  "children": [
+                    {
+                      "name": "auth-handler.ts",
+                      "size": 938,
+                      "path": "vulpecula-auth-server/src/middleware/auth-handler.ts"
+                    }
+                  ],
+                  "path": "vulpecula-auth-server/src/middleware"
+                },
+                {
+                  "name": "routes",
+                  "children": [
+                    {
+                      "name": "chats.ts",
+                      "size": 3654,
+                      "path": "vulpecula-auth-server/src/routes/chats.ts"
+                    }
+                  ],
+                  "path": "vulpecula-auth-server/src/routes"
+                },
+                {
+                  "name": "index.ts",
+                  "size": 1399,
+                  "path": "vulpecula-auth-server/src/index.ts"
+                }
+              ],
+              "path": "vulpecula-auth-server/src"
+            },
+            {
+              "name": "drizzle.config.ts",
+              "size": 320,
+              "path": "vulpecula-auth-server/drizzle.config.ts"
+            },
+            {
+              "name": "package-lock.json",
+              "size": 98934,
+              "path": "vulpecula-auth-server/package-lock.json"
+            },
+            {
+              "name": "package.json",
+              "size": 779,
+              "path": "vulpecula-auth-server/package.json"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 533,
+              "path": "vulpecula-auth-server/tsconfig.json"
+            }
+          ],
+          "path": "vulpecula-auth-server"
+        },
+        {
+          "name": ".gitignore",
+          "size": 273,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 228,
+          "path": ".npmrc"
+        },
+        {
+          "name": ".nvmrc",
+          "size": 9,
+          "path": ".nvmrc"
+        },
+        {
+          "name": "BETTER_AUTH_MIGRATION.md",
+          "size": 4286,
+          "path": "BETTER_AUTH_MIGRATION.md"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 1143,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 7424,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1069,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 19908,
+          "path": "README.md"
+        },
+        {
+          "name": "anime.esm.js",
+          "size": 248336,
+          "path": "anime.esm.js"
+        },
+        {
+          "name": "electron-builder.json5",
+          "size": 960,
+          "path": "electron-builder.json5"
+        },
+        {
+          "name": "index.html",
+          "size": 484,
+          "path": "index.html"
+        },
+        {
+          "name": "package.json",
+          "size": 2641,
+          "path": "package.json"
+        },
+        {
+          "name": "postcss.config.js",
+          "size": 82,
+          "path": "postcss.config.js"
+        },
+        {
+          "name": "tailwind.config.js",
+          "size": 4040,
+          "path": "tailwind.config.js"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 659,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "tsconfig.node.json",
+          "size": 331,
+          "path": "tsconfig.node.json"
+        },
+        {
+          "name": "vite.config.flat.txt",
+          "size": 2612,
+          "path": "vite.config.flat.txt"
+        },
+        {
+          "name": "vite.config.ts",
+          "size": 1517,
+          "path": "vite.config.ts"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 163239,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 157,
+    "totalSize": 1991964
+  },
   "topics": [
     "electron",
     "llm",

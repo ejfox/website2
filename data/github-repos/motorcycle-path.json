@@ -17,6 +17,324 @@
     "HTML": 505
   },
   "diskUsage": 1546,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 308
+      },
+      {
+        "path": "README.md",
+        "size": 389
+      },
+      {
+        "path": "babel.config.js",
+        "size": 67
+      },
+      {
+        "path": "cypress.json",
+        "size": 50
+      },
+      {
+        "path": "data/2022-06-17 PM 12_10_22.gpx",
+        "size": 3552865
+      },
+      {
+        "path": "index.html",
+        "size": 505
+      },
+      {
+        "path": "jsconfig.json",
+        "size": 279
+      },
+      {
+        "path": "package-lock.json",
+        "size": 1074713
+      },
+      {
+        "path": "package.json",
+        "size": 1611
+      },
+      {
+        "path": "src/App.vue",
+        "size": 293
+      },
+      {
+        "path": "src/assets/logo.png",
+        "size": 6849
+      },
+      {
+        "path": "src/assets/tracks01.geojson",
+        "size": 3059965
+      },
+      {
+        "path": "src/components/HelloWorld.vue",
+        "size": 142
+      },
+      {
+        "path": "src/components/MapComponent.vue",
+        "size": 5277
+      },
+      {
+        "path": "src/main.js",
+        "size": 176
+      },
+      {
+        "path": "src/router/index.js",
+        "size": 298
+      },
+      {
+        "path": "src/store/index.js",
+        "size": 145
+      },
+      {
+        "path": "src/views/HomeView.vue",
+        "size": 1137
+      },
+      {
+        "path": "tests/e2e/.eslintrc.js",
+        "size": 141
+      },
+      {
+        "path": "tests/e2e/plugins/index.js",
+        "size": 909
+      },
+      {
+        "path": "tests/e2e/specs/test.js",
+        "size": 206
+      },
+      {
+        "path": "tests/e2e/support/commands.js",
+        "size": 841
+      },
+      {
+        "path": "tests/e2e/support/index.js",
+        "size": 671
+      },
+      {
+        "path": "tracks01.geojson",
+        "size": 3059965
+      },
+      {
+        "path": "vite.config.js",
+        "size": 264
+      },
+      {
+        "path": "vue.config.js",
+        "size": 121
+      }
+    ],
+    "tree": {
+      "name": "motorcycle-path",
+      "children": [
+        {
+          "name": "data",
+          "children": [
+            {
+              "name": "2022-06-17 PM 12_10_22.gpx",
+              "size": 3552865,
+              "path": "data/2022-06-17 PM 12_10_22.gpx"
+            }
+          ],
+          "path": "data"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "assets",
+              "children": [
+                {
+                  "name": "logo.png",
+                  "size": 6849,
+                  "path": "src/assets/logo.png"
+                },
+                {
+                  "name": "tracks01.geojson",
+                  "size": 3059965,
+                  "path": "src/assets/tracks01.geojson"
+                }
+              ],
+              "path": "src/assets"
+            },
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "HelloWorld.vue",
+                  "size": 142,
+                  "path": "src/components/HelloWorld.vue"
+                },
+                {
+                  "name": "MapComponent.vue",
+                  "size": 5277,
+                  "path": "src/components/MapComponent.vue"
+                }
+              ],
+              "path": "src/components"
+            },
+            {
+              "name": "router",
+              "children": [
+                {
+                  "name": "index.js",
+                  "size": 298,
+                  "path": "src/router/index.js"
+                }
+              ],
+              "path": "src/router"
+            },
+            {
+              "name": "store",
+              "children": [
+                {
+                  "name": "index.js",
+                  "size": 145,
+                  "path": "src/store/index.js"
+                }
+              ],
+              "path": "src/store"
+            },
+            {
+              "name": "views",
+              "children": [
+                {
+                  "name": "HomeView.vue",
+                  "size": 1137,
+                  "path": "src/views/HomeView.vue"
+                }
+              ],
+              "path": "src/views"
+            },
+            {
+              "name": "App.vue",
+              "size": 293,
+              "path": "src/App.vue"
+            },
+            {
+              "name": "main.js",
+              "size": 176,
+              "path": "src/main.js"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "tests",
+          "children": [
+            {
+              "name": "e2e",
+              "children": [
+                {
+                  "name": "plugins",
+                  "children": [
+                    {
+                      "name": "index.js",
+                      "size": 909,
+                      "path": "tests/e2e/plugins/index.js"
+                    }
+                  ],
+                  "path": "tests/e2e/plugins"
+                },
+                {
+                  "name": "specs",
+                  "children": [
+                    {
+                      "name": "test.js",
+                      "size": 206,
+                      "path": "tests/e2e/specs/test.js"
+                    }
+                  ],
+                  "path": "tests/e2e/specs"
+                },
+                {
+                  "name": "support",
+                  "children": [
+                    {
+                      "name": "commands.js",
+                      "size": 841,
+                      "path": "tests/e2e/support/commands.js"
+                    },
+                    {
+                      "name": "index.js",
+                      "size": 671,
+                      "path": "tests/e2e/support/index.js"
+                    }
+                  ],
+                  "path": "tests/e2e/support"
+                },
+                {
+                  "name": ".eslintrc.js",
+                  "size": 141,
+                  "path": "tests/e2e/.eslintrc.js"
+                }
+              ],
+              "path": "tests/e2e"
+            }
+          ],
+          "path": "tests"
+        },
+        {
+          "name": ".gitignore",
+          "size": 308,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 389,
+          "path": "README.md"
+        },
+        {
+          "name": "babel.config.js",
+          "size": 67,
+          "path": "babel.config.js"
+        },
+        {
+          "name": "cypress.json",
+          "size": 50,
+          "path": "cypress.json"
+        },
+        {
+          "name": "index.html",
+          "size": 505,
+          "path": "index.html"
+        },
+        {
+          "name": "jsconfig.json",
+          "size": 279,
+          "path": "jsconfig.json"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 1074713,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1611,
+          "path": "package.json"
+        },
+        {
+          "name": "tracks01.geojson",
+          "size": 3059965,
+          "path": "tracks01.geojson"
+        },
+        {
+          "name": "vite.config.js",
+          "size": 264,
+          "path": "vite.config.js"
+        },
+        {
+          "name": "vue.config.js",
+          "size": 121,
+          "path": "vue.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 26,
+    "totalSize": 10768187
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"ej-vite-boilerplate\">ej-vite-boilerplate</h1>\n<h2 id=\"project-setup\">Project setup</h2>\n<pre><code>npm install\n</code></pre>\n<h4 id=\"compiles-and-hot-reloads-for-development\">Compiles and hot-reloads for development</h4>\n<pre><code>npm run dev\n</code></pre>\n<h4 id=\"compiles-and-minifies-for-production\">Compiles and minifies for production</h4>\n<pre><code>npm run build\n</code></pre>\n<h4 id=\"run-your-end-to-end-tests\">Run your end-to-end tests</h4>\n<pre><code>npm run test:e2e\n</code></pre>\n<h4 id=\"lints-and-fixes-files\">Lints and fixes files</h4>\n<pre><code>npm run lint\n</code></pre>\n<h3 id=\"customize-configuration\">Customize configuration</h3>\n<p>See <a href=\"https://cli.vuejs.org/config/\">Configuration Reference</a>.</p>",

@@ -13,6 +13,117 @@
   "languageColor": "#666666",
   "languages": {},
   "diskUsage": 3,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".github/workflows/build.yml",
+        "size": 156
+      },
+      {
+        "path": "boards/shields/.gitkeep",
+        "size": 0
+      },
+      {
+        "path": "build.yaml",
+        "size": 871
+      },
+      {
+        "path": "config/planck_rev6.conf",
+        "size": 146
+      },
+      {
+        "path": "config/planck_rev6.keymap",
+        "size": 2501
+      },
+      {
+        "path": "config/west.yml",
+        "size": 392
+      },
+      {
+        "path": "zephyr/module.yml",
+        "size": 37
+      }
+    ],
+    "tree": {
+      "name": "zmk-config3",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "build.yml",
+                  "size": 156,
+                  "path": ".github/workflows/build.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "boards",
+          "children": [
+            {
+              "name": "shields",
+              "children": [
+                {
+                  "name": ".gitkeep",
+                  "size": 0,
+                  "path": "boards/shields/.gitkeep"
+                }
+              ],
+              "path": "boards/shields"
+            }
+          ],
+          "path": "boards"
+        },
+        {
+          "name": "config",
+          "children": [
+            {
+              "name": "planck_rev6.conf",
+              "size": 146,
+              "path": "config/planck_rev6.conf"
+            },
+            {
+              "name": "planck_rev6.keymap",
+              "size": 2501,
+              "path": "config/planck_rev6.keymap"
+            },
+            {
+              "name": "west.yml",
+              "size": 392,
+              "path": "config/west.yml"
+            }
+          ],
+          "path": "config"
+        },
+        {
+          "name": "zephyr",
+          "children": [
+            {
+              "name": "module.yml",
+              "size": 37,
+              "path": "zephyr/module.yml"
+            }
+          ],
+          "path": "zephyr"
+        },
+        {
+          "name": "build.yaml",
+          "size": 871,
+          "path": "build.yaml"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 7,
+    "totalSize": 4103
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

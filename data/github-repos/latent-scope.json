@@ -19,6 +19,1077 @@
     "HTML": 708
   },
   "diskUsage": 17213,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".env.example",
+        "size": 221
+      },
+      {
+        "path": ".github/workflows/build-web.yml",
+        "size": 1486
+      },
+      {
+        "path": ".gitignore",
+        "size": 86
+      },
+      {
+        "path": "README.md",
+        "size": 13630
+      },
+      {
+        "path": "data/.gitignore",
+        "size": 70
+      },
+      {
+        "path": "documentation/0-ingest.png",
+        "size": 1393023
+      },
+      {
+        "path": "documentation/1-embed.png",
+        "size": 1530428
+      },
+      {
+        "path": "documentation/2-umap.png",
+        "size": 1643252
+      },
+      {
+        "path": "documentation/3-cluster.png",
+        "size": 1750564
+      },
+      {
+        "path": "documentation/4-label.png",
+        "size": 1825784
+      },
+      {
+        "path": "documentation/5-scope.png",
+        "size": 1804268
+      },
+      {
+        "path": "documentation/6-explore.png",
+        "size": 2277628
+      },
+      {
+        "path": "documentation/DEVELOPMENT.md",
+        "size": 4650
+      },
+      {
+        "path": "documentation/dadabase-explore.png",
+        "size": 2799438
+      },
+      {
+        "path": "documentation/dadabase-scopes.png",
+        "size": 512553
+      },
+      {
+        "path": "documentation/home.png",
+        "size": 1020111
+      },
+      {
+        "path": "latentscope/__init__.py",
+        "size": 1951
+      },
+      {
+        "path": "latentscope/models/__init__.py",
+        "size": 2579
+      },
+      {
+        "path": "latentscope/models/chat_models.json",
+        "size": 1428
+      },
+      {
+        "path": "latentscope/models/embedding_models.json",
+        "size": 5743
+      },
+      {
+        "path": "latentscope/models/providers/__init__.py",
+        "size": 0
+      },
+      {
+        "path": "latentscope/models/providers/base.py",
+        "size": 694
+      },
+      {
+        "path": "latentscope/models/providers/cohereai.py",
+        "size": 697
+      },
+      {
+        "path": "latentscope/models/providers/mistralai.py",
+        "size": 1874
+      },
+      {
+        "path": "latentscope/models/providers/openai.py",
+        "size": 1710
+      },
+      {
+        "path": "latentscope/models/providers/togetherai.py",
+        "size": 1122
+      },
+      {
+        "path": "latentscope/models/providers/transformers.py",
+        "size": 3001
+      },
+      {
+        "path": "latentscope/models/providers/voyageai.py",
+        "size": 1324
+      },
+      {
+        "path": "latentscope/scripts/__init__.py",
+        "size": 0
+      },
+      {
+        "path": "latentscope/scripts/cluster-1d.py",
+        "size": 3893
+      },
+      {
+        "path": "latentscope/scripts/cluster.py",
+        "size": 6271
+      },
+      {
+        "path": "latentscope/scripts/embed.py",
+        "size": 7128
+      },
+      {
+        "path": "latentscope/scripts/ingest.py",
+        "size": 2670
+      },
+      {
+        "path": "latentscope/scripts/label_clusters.py",
+        "size": 7623
+      },
+      {
+        "path": "latentscope/scripts/scope.py",
+        "size": 2010
+      },
+      {
+        "path": "latentscope/scripts/umapper-1d.py",
+        "size": 2651
+      },
+      {
+        "path": "latentscope/scripts/umapper.py",
+        "size": 4630
+      },
+      {
+        "path": "latentscope/server/__init__.py",
+        "size": 827
+      },
+      {
+        "path": "latentscope/server/app.py",
+        "size": 4463
+      },
+      {
+        "path": "latentscope/server/datasets.py",
+        "size": 9614
+      },
+      {
+        "path": "latentscope/server/jobs.py",
+        "size": 10279
+      },
+      {
+        "path": "latentscope/server/search.py",
+        "size": 2518
+      },
+      {
+        "path": "latentscope/server/tags.py",
+        "size": 4405
+      },
+      {
+        "path": "latentscope/util/__init__.py",
+        "size": 149
+      },
+      {
+        "path": "latentscope/util/configuration.py",
+        "size": 3178
+      },
+      {
+        "path": "latentscope/web/.gitignore",
+        "size": 4
+      },
+      {
+        "path": "notebooks/dadabase.ipynb",
+        "size": 3697
+      },
+      {
+        "path": "notebooks/dolly15k.ipynb",
+        "size": 1955
+      },
+      {
+        "path": "notebooks/dvs-survey.ipynb",
+        "size": 4374
+      },
+      {
+        "path": "notebooks/emotion.ipynb",
+        "size": 1605
+      },
+      {
+        "path": "requirements.txt",
+        "size": 2993
+      },
+      {
+        "path": "setup.py",
+        "size": 2734
+      },
+      {
+        "path": "web/.env.development",
+        "size": 111
+      },
+      {
+        "path": "web/.env.production",
+        "size": 57
+      },
+      {
+        "path": "web/.env.read_only",
+        "size": 118
+      },
+      {
+        "path": "web/.eslintrc.cjs",
+        "size": 526
+      },
+      {
+        "path": "web/.gitignore",
+        "size": 244
+      },
+      {
+        "path": "web/README.md",
+        "size": 45
+      },
+      {
+        "path": "web/index.html",
+        "size": 708
+      },
+      {
+        "path": "web/package-lock.json",
+        "size": 175363
+      },
+      {
+        "path": "web/package.json",
+        "size": 958
+      },
+      {
+        "path": "web/src/App.css",
+        "size": 207
+      },
+      {
+        "path": "web/src/App.jsx",
+        "size": 1390
+      },
+      {
+        "path": "web/src/components/AnnotationPlot.css",
+        "size": 68
+      },
+      {
+        "path": "web/src/components/AnnotationPlot.jsx",
+        "size": 1476
+      },
+      {
+        "path": "web/src/components/DataTable.css",
+        "size": 755
+      },
+      {
+        "path": "web/src/components/DataTable.jsx",
+        "size": 2767
+      },
+      {
+        "path": "web/src/components/Home.css",
+        "size": 1091
+      },
+      {
+        "path": "web/src/components/Home.jsx",
+        "size": 4957
+      },
+      {
+        "path": "web/src/components/HullPlot.css",
+        "size": 60
+      },
+      {
+        "path": "web/src/components/HullPlot.jsx",
+        "size": 1665
+      },
+      {
+        "path": "web/src/components/IndexDataTable.jsx",
+        "size": 2228
+      },
+      {
+        "path": "web/src/components/Job/Progress.css",
+        "size": 325
+      },
+      {
+        "path": "web/src/components/Job/Progress.jsx",
+        "size": 1563
+      },
+      {
+        "path": "web/src/components/Job/Run.jsx",
+        "size": 2063
+      },
+      {
+        "path": "web/src/components/Nav.css",
+        "size": 432
+      },
+      {
+        "path": "web/src/components/Nav.jsx",
+        "size": 244
+      },
+      {
+        "path": "web/src/components/Scatter.jsx",
+        "size": 4026
+      },
+      {
+        "path": "web/src/components/Scatter.module.css",
+        "size": 149
+      },
+      {
+        "path": "web/src/components/Setup/Cluster.jsx",
+        "size": 3940
+      },
+      {
+        "path": "web/src/components/Setup/ClusterLabels.jsx",
+        "size": 6138
+      },
+      {
+        "path": "web/src/components/Setup/Embedding.jsx",
+        "size": 4709
+      },
+      {
+        "path": "web/src/components/Setup/Embedding.module.css",
+        "size": 194
+      },
+      {
+        "path": "web/src/components/Setup/Scope.jsx",
+        "size": 4276
+      },
+      {
+        "path": "web/src/components/Setup/Stage.jsx",
+        "size": 381
+      },
+      {
+        "path": "web/src/components/Setup/Stage.module.css",
+        "size": 890
+      },
+      {
+        "path": "web/src/components/Setup/Umap.jsx",
+        "size": 3789
+      },
+      {
+        "path": "web/src/components/Setup/Umap.module.css",
+        "size": 392
+      },
+      {
+        "path": "web/src/components/SlideBar.css",
+        "size": 661
+      },
+      {
+        "path": "web/src/components/SlideBar.jsx",
+        "size": 1069
+      },
+      {
+        "path": "web/src/components/TagDetail.jsx",
+        "size": 1886
+      },
+      {
+        "path": "web/src/components/UmapScatter.jsx",
+        "size": 1510
+      },
+      {
+        "path": "web/src/index.css",
+        "size": 1506
+      },
+      {
+        "path": "web/src/lib/DuckDB.js",
+        "size": 1350
+      },
+      {
+        "path": "web/src/main.jsx",
+        "size": 235
+      },
+      {
+        "path": "web/src/pages/Explore.css",
+        "size": 4203
+      },
+      {
+        "path": "web/src/pages/Explore.jsx",
+        "size": 24059
+      },
+      {
+        "path": "web/src/pages/Job.jsx",
+        "size": 2446
+      },
+      {
+        "path": "web/src/pages/Jobs.css",
+        "size": 568
+      },
+      {
+        "path": "web/src/pages/Jobs.jsx",
+        "size": 3030
+      },
+      {
+        "path": "web/src/pages/Mobile.css",
+        "size": 115
+      },
+      {
+        "path": "web/src/pages/Mobile.jsx",
+        "size": 862
+      },
+      {
+        "path": "web/src/pages/Setup.css",
+        "size": 5172
+      },
+      {
+        "path": "web/src/pages/Setup.jsx",
+        "size": 18666
+      },
+      {
+        "path": "web/vite.config.js",
+        "size": 395
+      }
+    ],
+    "tree": {
+      "name": "latent-scope",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "build-web.yml",
+                  "size": 1486,
+                  "path": ".github/workflows/build-web.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "data",
+          "children": [
+            {
+              "name": ".gitignore",
+              "size": 70,
+              "path": "data/.gitignore"
+            }
+          ],
+          "path": "data"
+        },
+        {
+          "name": "documentation",
+          "children": [
+            {
+              "name": "0-ingest.png",
+              "size": 1393023,
+              "path": "documentation/0-ingest.png"
+            },
+            {
+              "name": "1-embed.png",
+              "size": 1530428,
+              "path": "documentation/1-embed.png"
+            },
+            {
+              "name": "2-umap.png",
+              "size": 1643252,
+              "path": "documentation/2-umap.png"
+            },
+            {
+              "name": "3-cluster.png",
+              "size": 1750564,
+              "path": "documentation/3-cluster.png"
+            },
+            {
+              "name": "4-label.png",
+              "size": 1825784,
+              "path": "documentation/4-label.png"
+            },
+            {
+              "name": "5-scope.png",
+              "size": 1804268,
+              "path": "documentation/5-scope.png"
+            },
+            {
+              "name": "6-explore.png",
+              "size": 2277628,
+              "path": "documentation/6-explore.png"
+            },
+            {
+              "name": "DEVELOPMENT.md",
+              "size": 4650,
+              "path": "documentation/DEVELOPMENT.md"
+            },
+            {
+              "name": "dadabase-explore.png",
+              "size": 2799438,
+              "path": "documentation/dadabase-explore.png"
+            },
+            {
+              "name": "dadabase-scopes.png",
+              "size": 512553,
+              "path": "documentation/dadabase-scopes.png"
+            },
+            {
+              "name": "home.png",
+              "size": 1020111,
+              "path": "documentation/home.png"
+            }
+          ],
+          "path": "documentation"
+        },
+        {
+          "name": "latentscope",
+          "children": [
+            {
+              "name": "models",
+              "children": [
+                {
+                  "name": "providers",
+                  "children": [
+                    {
+                      "name": "__init__.py",
+                      "size": 0,
+                      "path": "latentscope/models/providers/__init__.py"
+                    },
+                    {
+                      "name": "base.py",
+                      "size": 694,
+                      "path": "latentscope/models/providers/base.py"
+                    },
+                    {
+                      "name": "cohereai.py",
+                      "size": 697,
+                      "path": "latentscope/models/providers/cohereai.py"
+                    },
+                    {
+                      "name": "mistralai.py",
+                      "size": 1874,
+                      "path": "latentscope/models/providers/mistralai.py"
+                    },
+                    {
+                      "name": "openai.py",
+                      "size": 1710,
+                      "path": "latentscope/models/providers/openai.py"
+                    },
+                    {
+                      "name": "togetherai.py",
+                      "size": 1122,
+                      "path": "latentscope/models/providers/togetherai.py"
+                    },
+                    {
+                      "name": "transformers.py",
+                      "size": 3001,
+                      "path": "latentscope/models/providers/transformers.py"
+                    },
+                    {
+                      "name": "voyageai.py",
+                      "size": 1324,
+                      "path": "latentscope/models/providers/voyageai.py"
+                    }
+                  ],
+                  "path": "latentscope/models/providers"
+                },
+                {
+                  "name": "__init__.py",
+                  "size": 2579,
+                  "path": "latentscope/models/__init__.py"
+                },
+                {
+                  "name": "chat_models.json",
+                  "size": 1428,
+                  "path": "latentscope/models/chat_models.json"
+                },
+                {
+                  "name": "embedding_models.json",
+                  "size": 5743,
+                  "path": "latentscope/models/embedding_models.json"
+                }
+              ],
+              "path": "latentscope/models"
+            },
+            {
+              "name": "scripts",
+              "children": [
+                {
+                  "name": "__init__.py",
+                  "size": 0,
+                  "path": "latentscope/scripts/__init__.py"
+                },
+                {
+                  "name": "cluster-1d.py",
+                  "size": 3893,
+                  "path": "latentscope/scripts/cluster-1d.py"
+                },
+                {
+                  "name": "cluster.py",
+                  "size": 6271,
+                  "path": "latentscope/scripts/cluster.py"
+                },
+                {
+                  "name": "embed.py",
+                  "size": 7128,
+                  "path": "latentscope/scripts/embed.py"
+                },
+                {
+                  "name": "ingest.py",
+                  "size": 2670,
+                  "path": "latentscope/scripts/ingest.py"
+                },
+                {
+                  "name": "label_clusters.py",
+                  "size": 7623,
+                  "path": "latentscope/scripts/label_clusters.py"
+                },
+                {
+                  "name": "scope.py",
+                  "size": 2010,
+                  "path": "latentscope/scripts/scope.py"
+                },
+                {
+                  "name": "umapper-1d.py",
+                  "size": 2651,
+                  "path": "latentscope/scripts/umapper-1d.py"
+                },
+                {
+                  "name": "umapper.py",
+                  "size": 4630,
+                  "path": "latentscope/scripts/umapper.py"
+                }
+              ],
+              "path": "latentscope/scripts"
+            },
+            {
+              "name": "server",
+              "children": [
+                {
+                  "name": "__init__.py",
+                  "size": 827,
+                  "path": "latentscope/server/__init__.py"
+                },
+                {
+                  "name": "app.py",
+                  "size": 4463,
+                  "path": "latentscope/server/app.py"
+                },
+                {
+                  "name": "datasets.py",
+                  "size": 9614,
+                  "path": "latentscope/server/datasets.py"
+                },
+                {
+                  "name": "jobs.py",
+                  "size": 10279,
+                  "path": "latentscope/server/jobs.py"
+                },
+                {
+                  "name": "search.py",
+                  "size": 2518,
+                  "path": "latentscope/server/search.py"
+                },
+                {
+                  "name": "tags.py",
+                  "size": 4405,
+                  "path": "latentscope/server/tags.py"
+                }
+              ],
+              "path": "latentscope/server"
+            },
+            {
+              "name": "util",
+              "children": [
+                {
+                  "name": "__init__.py",
+                  "size": 149,
+                  "path": "latentscope/util/__init__.py"
+                },
+                {
+                  "name": "configuration.py",
+                  "size": 3178,
+                  "path": "latentscope/util/configuration.py"
+                }
+              ],
+              "path": "latentscope/util"
+            },
+            {
+              "name": "web",
+              "children": [
+                {
+                  "name": ".gitignore",
+                  "size": 4,
+                  "path": "latentscope/web/.gitignore"
+                }
+              ],
+              "path": "latentscope/web"
+            },
+            {
+              "name": "__init__.py",
+              "size": 1951,
+              "path": "latentscope/__init__.py"
+            }
+          ],
+          "path": "latentscope"
+        },
+        {
+          "name": "notebooks",
+          "children": [
+            {
+              "name": "dadabase.ipynb",
+              "size": 3697,
+              "path": "notebooks/dadabase.ipynb"
+            },
+            {
+              "name": "dolly15k.ipynb",
+              "size": 1955,
+              "path": "notebooks/dolly15k.ipynb"
+            },
+            {
+              "name": "dvs-survey.ipynb",
+              "size": 4374,
+              "path": "notebooks/dvs-survey.ipynb"
+            },
+            {
+              "name": "emotion.ipynb",
+              "size": 1605,
+              "path": "notebooks/emotion.ipynb"
+            }
+          ],
+          "path": "notebooks"
+        },
+        {
+          "name": "web",
+          "children": [
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "components",
+                  "children": [
+                    {
+                      "name": "Job",
+                      "children": [
+                        {
+                          "name": "Progress.css",
+                          "size": 325,
+                          "path": "web/src/components/Job/Progress.css"
+                        },
+                        {
+                          "name": "Progress.jsx",
+                          "size": 1563,
+                          "path": "web/src/components/Job/Progress.jsx"
+                        },
+                        {
+                          "name": "Run.jsx",
+                          "size": 2063,
+                          "path": "web/src/components/Job/Run.jsx"
+                        }
+                      ],
+                      "path": "web/src/components/Job"
+                    },
+                    {
+                      "name": "Setup",
+                      "children": [
+                        {
+                          "name": "Cluster.jsx",
+                          "size": 3940,
+                          "path": "web/src/components/Setup/Cluster.jsx"
+                        },
+                        {
+                          "name": "ClusterLabels.jsx",
+                          "size": 6138,
+                          "path": "web/src/components/Setup/ClusterLabels.jsx"
+                        },
+                        {
+                          "name": "Embedding.jsx",
+                          "size": 4709,
+                          "path": "web/src/components/Setup/Embedding.jsx"
+                        },
+                        {
+                          "name": "Embedding.module.css",
+                          "size": 194,
+                          "path": "web/src/components/Setup/Embedding.module.css"
+                        },
+                        {
+                          "name": "Scope.jsx",
+                          "size": 4276,
+                          "path": "web/src/components/Setup/Scope.jsx"
+                        },
+                        {
+                          "name": "Stage.jsx",
+                          "size": 381,
+                          "path": "web/src/components/Setup/Stage.jsx"
+                        },
+                        {
+                          "name": "Stage.module.css",
+                          "size": 890,
+                          "path": "web/src/components/Setup/Stage.module.css"
+                        },
+                        {
+                          "name": "Umap.jsx",
+                          "size": 3789,
+                          "path": "web/src/components/Setup/Umap.jsx"
+                        },
+                        {
+                          "name": "Umap.module.css",
+                          "size": 392,
+                          "path": "web/src/components/Setup/Umap.module.css"
+                        }
+                      ],
+                      "path": "web/src/components/Setup"
+                    },
+                    {
+                      "name": "AnnotationPlot.css",
+                      "size": 68,
+                      "path": "web/src/components/AnnotationPlot.css"
+                    },
+                    {
+                      "name": "AnnotationPlot.jsx",
+                      "size": 1476,
+                      "path": "web/src/components/AnnotationPlot.jsx"
+                    },
+                    {
+                      "name": "DataTable.css",
+                      "size": 755,
+                      "path": "web/src/components/DataTable.css"
+                    },
+                    {
+                      "name": "DataTable.jsx",
+                      "size": 2767,
+                      "path": "web/src/components/DataTable.jsx"
+                    },
+                    {
+                      "name": "Home.css",
+                      "size": 1091,
+                      "path": "web/src/components/Home.css"
+                    },
+                    {
+                      "name": "Home.jsx",
+                      "size": 4957,
+                      "path": "web/src/components/Home.jsx"
+                    },
+                    {
+                      "name": "HullPlot.css",
+                      "size": 60,
+                      "path": "web/src/components/HullPlot.css"
+                    },
+                    {
+                      "name": "HullPlot.jsx",
+                      "size": 1665,
+                      "path": "web/src/components/HullPlot.jsx"
+                    },
+                    {
+                      "name": "IndexDataTable.jsx",
+                      "size": 2228,
+                      "path": "web/src/components/IndexDataTable.jsx"
+                    },
+                    {
+                      "name": "Nav.css",
+                      "size": 432,
+                      "path": "web/src/components/Nav.css"
+                    },
+                    {
+                      "name": "Nav.jsx",
+                      "size": 244,
+                      "path": "web/src/components/Nav.jsx"
+                    },
+                    {
+                      "name": "Scatter.jsx",
+                      "size": 4026,
+                      "path": "web/src/components/Scatter.jsx"
+                    },
+                    {
+                      "name": "Scatter.module.css",
+                      "size": 149,
+                      "path": "web/src/components/Scatter.module.css"
+                    },
+                    {
+                      "name": "SlideBar.css",
+                      "size": 661,
+                      "path": "web/src/components/SlideBar.css"
+                    },
+                    {
+                      "name": "SlideBar.jsx",
+                      "size": 1069,
+                      "path": "web/src/components/SlideBar.jsx"
+                    },
+                    {
+                      "name": "TagDetail.jsx",
+                      "size": 1886,
+                      "path": "web/src/components/TagDetail.jsx"
+                    },
+                    {
+                      "name": "UmapScatter.jsx",
+                      "size": 1510,
+                      "path": "web/src/components/UmapScatter.jsx"
+                    }
+                  ],
+                  "path": "web/src/components"
+                },
+                {
+                  "name": "lib",
+                  "children": [
+                    {
+                      "name": "DuckDB.js",
+                      "size": 1350,
+                      "path": "web/src/lib/DuckDB.js"
+                    }
+                  ],
+                  "path": "web/src/lib"
+                },
+                {
+                  "name": "pages",
+                  "children": [
+                    {
+                      "name": "Explore.css",
+                      "size": 4203,
+                      "path": "web/src/pages/Explore.css"
+                    },
+                    {
+                      "name": "Explore.jsx",
+                      "size": 24059,
+                      "path": "web/src/pages/Explore.jsx"
+                    },
+                    {
+                      "name": "Job.jsx",
+                      "size": 2446,
+                      "path": "web/src/pages/Job.jsx"
+                    },
+                    {
+                      "name": "Jobs.css",
+                      "size": 568,
+                      "path": "web/src/pages/Jobs.css"
+                    },
+                    {
+                      "name": "Jobs.jsx",
+                      "size": 3030,
+                      "path": "web/src/pages/Jobs.jsx"
+                    },
+                    {
+                      "name": "Mobile.css",
+                      "size": 115,
+                      "path": "web/src/pages/Mobile.css"
+                    },
+                    {
+                      "name": "Mobile.jsx",
+                      "size": 862,
+                      "path": "web/src/pages/Mobile.jsx"
+                    },
+                    {
+                      "name": "Setup.css",
+                      "size": 5172,
+                      "path": "web/src/pages/Setup.css"
+                    },
+                    {
+                      "name": "Setup.jsx",
+                      "size": 18666,
+                      "path": "web/src/pages/Setup.jsx"
+                    }
+                  ],
+                  "path": "web/src/pages"
+                },
+                {
+                  "name": "App.css",
+                  "size": 207,
+                  "path": "web/src/App.css"
+                },
+                {
+                  "name": "App.jsx",
+                  "size": 1390,
+                  "path": "web/src/App.jsx"
+                },
+                {
+                  "name": "index.css",
+                  "size": 1506,
+                  "path": "web/src/index.css"
+                },
+                {
+                  "name": "main.jsx",
+                  "size": 235,
+                  "path": "web/src/main.jsx"
+                }
+              ],
+              "path": "web/src"
+            },
+            {
+              "name": ".env.development",
+              "size": 111,
+              "path": "web/.env.development"
+            },
+            {
+              "name": ".env.production",
+              "size": 57,
+              "path": "web/.env.production"
+            },
+            {
+              "name": ".env.read_only",
+              "size": 118,
+              "path": "web/.env.read_only"
+            },
+            {
+              "name": ".eslintrc.cjs",
+              "size": 526,
+              "path": "web/.eslintrc.cjs"
+            },
+            {
+              "name": ".gitignore",
+              "size": 244,
+              "path": "web/.gitignore"
+            },
+            {
+              "name": "README.md",
+              "size": 45,
+              "path": "web/README.md"
+            },
+            {
+              "name": "index.html",
+              "size": 708,
+              "path": "web/index.html"
+            },
+            {
+              "name": "package-lock.json",
+              "size": 175363,
+              "path": "web/package-lock.json"
+            },
+            {
+              "name": "package.json",
+              "size": 958,
+              "path": "web/package.json"
+            },
+            {
+              "name": "vite.config.js",
+              "size": 395,
+              "path": "web/vite.config.js"
+            }
+          ],
+          "path": "web"
+        },
+        {
+          "name": ".env.example",
+          "size": 221,
+          "path": ".env.example"
+        },
+        {
+          "name": ".gitignore",
+          "size": 86,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 13630,
+          "path": "README.md"
+        },
+        {
+          "name": "requirements.txt",
+          "size": 2993,
+          "path": "requirements.txt"
+        },
+        {
+          "name": "setup.py",
+          "size": 2734,
+          "path": "setup.py"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 105,
+    "totalSize": 16985024
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"latent-scope\">Latent Scope</h1>\n<p>Quickly embed, project, cluster and explore a dataset. This project is a new kind of workflow + tool for visualizing and exploring datasets through the lens of latent spaces.\n<a href=\"https://enjalot.github.io/latent-scope/#/datasets/dadabase/explore/scopes-007\"><img src=\"https://github.com/enjalot/latent-scope/blob/main/documentation/dadabase-explore.png?raw=true\" height=\"480px\" alt=\"Example exploration\" /></a></p>\n<p>The power of machine learning models to encode unstructured data into high-dimensional embeddings is relatively under-explored. Retrieval Augmented Generation has taken off as a popular usecase for embeddings, but do you feel confident in your understanding of why certain data is being retrieved? Do you have a clear picture of what all is in your dataset? Latentscope is like a microscope that allows you to get a new perspective on what's happening to your data when it's embedded. You can try similarity search with different embeddings, peruse automatically labeled clusters and zoom in on individual data points all while keeping the context of your entire dataset.</p>\n<h3 id=\"demo\">Demo</h3>\n<p>This tool is meant to be run locally or on a trusted server to process data for viewing in the latent scope. You can see the result of the process in a read-only <a href=\"https://enjalot.github.io/latent-scope\">live demo</a>:</p>\n<ul>\n<li><a href=\"https://enjalot.github.io/latent-scope/#/datasets/datavis-misunderstood/explore/scopes-001\">datavis survey responses</a> - 700 survey responses</li>\n<li><a href=\"https://enjalot.github.io/latent-scope/#/datasets/dolly15k/explore/scopes-001\">Dolly 15k</a> - 15k instructions</li>\n<li><a href=\"https://enjalot.github.io/latent-scope/#/datasets/dadabase/explore/scopes-004\">r/DadJokes</a> - 50k dad jokes</li>\n<li><a href=\"https://enjalot.github.io/latent-scope/#/datasets/emotion/explore/scopes-001\">emotion</a> - 400k emotion statements from Twitter</li>\n</ul>\n<p>The source of each demo dataset is documented in the notebooks linked below. Each demo was chosen to represent different scales of data as well as some common usecases.</p>\n<p><a href=\"https://enjalot.github.io/latent-scope\"><img src=\"https://github.com/enjalot/latent-scope/blob/main/documentation/dadabase-scopes.png?raw=true\" width=\"100%\" alt=\"Dadabase demo scopes\" /></a></p>\n<h3 id=\"quick-start\">Quick Start</h3>\n<p>To get started, install the <a href=\"https://pypi.org/project/latentscope/\">latent-scope module</a> and run the server via the Command Line:</p>\n<pre><code class=\"language-bash\">python -m venv venv\nsource venv/bin/activate\npip install latent-scope\nls-serve ~/local-scope-data\n</code></pre>\n<p>Then open your browser to <a href=\"http://localhost:5001\">http://localhost:5001</a> and start processing your first dataset!<br />\n<img src=\"https://github.com/enjalot/latent-scope/blob/main/documentation/home.png?raw=true\" width=\"320px\" alt=\"Ingest\" />  <img src=\"https://github.com/enjalot/latent-scope/blob/main/documentation/0-ingest.png?raw=true\" width=\"320px\" alt=\"Ingest\" /></p>\n<p>Once ingested, you will go through the following 6 steps: Embed, UMAP, Cluster, Label, Scope and Explore\n<img src=\"https://github.com/enjalot/latent-scope/blob/main/documentation/1-embed.png?raw=true\" width=\"320px\" alt=\"Embed\" /> <img src=\"https://github.com/enjalot/latent-scope/blob/main/documentation/2-umap.png?raw=true\" width=\"320px\" alt=\"UMAP\" /> <img src=\"https://github.com/enjalot/latent-scope/blob/main/documentation/3-cluster.png?raw=true\" width=\"320px\" alt=\"Cluster\" /> <img src=\"https://github.com/enjalot/latent-scope/blob/main/documentation/4-label.png?raw=true\" width=\"320px\" alt=\"Label\" /> <img src=\"https://github.com/enjalot/latent-scope/blob/main/documentation/5-scope.png?raw=true\" width=\"320px\" alt=\"Scope\" /> <img src=\"https://github.com/enjalot/latent-scope/blob/main/documentation/6-explore.png?raw=true\" width=\"320px\" alt=\"Scope\" /></p>\n<p>Each step focuses on the relevant choices to move you to the next step. For example choosing which embedding model you want to use to embed with, or the parameters for UMAP. It's very likely you may want to try several choices at each step, which is why the final step before \"Explore\" is to make a \"scope\". You can make multiple scopes, as seen in the <a href=\"https://enjalot.github.io/latent-scope/#/datasets/dadabase/explore/scopes-004\">dadabase example</a> to explore your data through different lenses (i.e. OpenAI embeddings vs. Jina v2).</p>\n<h3 id=\"python-interface\">Python interface</h3>\n<p>You can also ingest data from a Pandas dataframe using the Python interface:</p>\n<pre><code class=\"language-python\">from latentscope import ls\ndf = pd.read_parquet(\"...\")\nls.init(\"~/latent-scope-data\")\nls.ingest(\"dadabase\", df, text_column=\"joke\")\nls.serve()\n</code></pre>\n<p>See these notebooks for detailed examples of using the Python interface to prepare and load data.</p>\n<ul>\n<li><a href=\"notebooks/dvs-survey.ipynb\">dvs-survey</a> - A small test dataset of 700 rows to quickly illustrate the process. This notebook shows how you can do every step of the process with the Python interface.</li>\n<li><a href=\"notebooks/dadabase.ipynb\">dadabase</a> - A more interesting (and funny) dataset of 50k rows. This notebook shows how you can preprocess a dataset, ingest it into latentscope and then use the web interface to complete the process.</li>\n<li><a href=\"notebooks/dolly15k.ipynb\">dolly15k</a> - Grab data from HuggingFace datasets and ingest into the process.</li>\n<li><a href=\"notebooks/emotion.ipynb\">emotion</a> - 400k rows of emotional tweets.</li>\n</ul>\n<h3 id=\"command-line-quick-start\">Command line quick start</h3>\n<p>When latent-scope is installed, it creates a suite of command line scripts that can be used to setup the scopes for exploring in the web application. The output of each step in the process is flat files stored in the data directory specified at init. These files are in standard formats that were designed to be ported into other pipelines or interfaces.</p>\n<pre><code class=\"language-bash\"># like above, we make sure to install latent-scope\npython -m venv venv\nsource venv/bin/activate\npip install latent-scope\n\n# prepare some data\nwget \"https://storage.googleapis.com/fun-data/latent-scope/examples/dvs-survey/datavis-misunderstood.csv\" &gt; ~/Downloads/datavis-misunderstood.csv\n\nls-init \"~/latent-scope-data\"\n# ls-ingest dataset_id csv_path\nls-ingest-csv \"datavis-misunderstood\" \"~/Downloads/datavis-misunderstood.csv\"\n# get a list of model ids available (lists both embedding and chat models available)\nls-list-models\n# ls-embed dataset_id text_column model_id prefix\nls-embed datavis-misunderstood \"answer\" transformers-intfloat___e5-small-v2 \"\"\n# ls-umap dataset_id embedding_id n_neighbors min_dist\nls-umap datavis-misunderstood embedding-001 25 .1\n# ls-cluster dataset_id umap_id samples min_samples\nls-cluster datavis-misunderstood umap-001 5 5\n# ls-label dataset_id text_column cluster_id model_id context\nls-label datavis-misunderstood \"answer\" cluster-001 transformers-HuggingFaceH4___zephyr-7b-beta \"\"\n# ls-scope  dataset_id embedding_id umap_id cluster_id cluster_labels_id label description\nls-scope datavis-misunderstood cluster-001-labels-001 \"E5 demo\" \"E5 embeddings summarized by Zephyr 7B\"\n# start the server to explore your scope\nls-serve\n</code></pre>\n<h3 id=\"repository-overview\">Repository overview</h3>\n<p>This repository is currently meant to run locally, with a React frontend that communicates with a python server backend. We support several popular open source embedding models that can run locally as well as proprietary API embedding services. Adding new models and services should be quick and easy.</p>\n<p>To learn more about customizing, extending and contributing see <a href=\"documentation/DEVELOPMENT.md\">DEVELOPMENT.md</a></p>\n<h3 id=\"design-principles\">Design principles</h3>\n<p>This tool is meant to be a part of a larger process. Something that hopefully helps you see things in your data that you wouldn't otherwise have. That means it needs to be easy to get data in, and easily get useful data out.</p>\n<ol>\n<li>Flat files</li>\n</ol>\n<ul>\n<li>All of the data that drives the app is stored in flat files. This is so that both final and intermediate outputs can easily be exported for other uses. It also makes it easy to see the status of any part of the process.</li>\n</ul>\n<ol>\n<li>Remember everything</li>\n</ol>\n<ul>\n<li>This tool is intended to aid in research, the purpose is experimentation and exploration. I developed it because far too often I try a lot of things and then I forget what parameters lead me down a promising path in the first place. All choices you make in the process are recorded in metadata files along with the output of the process.</li>\n</ul>\n<ol>\n<li>It's all about the indices</li>\n</ol>\n<ul>\n<li>We consider an input dataset the source of truth, a list of rows that can be indexed into. So all downstream operations, whether its embeddings, pointing to nearest neighbors or assigning data points to clusters, all use indices into the input dataset.</li>\n</ul>\n<h2 id=\"command-line-scripts-detailed-description\">Command Line Scripts: Detailed description</h2>\n<p>If you want to use the CLI instead of the web UI you can use the following scripts.</p>\n<p>The scripts should be run in order once you have an <code>input.csv</code> file in your folder. Alternatively the Setup page in the web UI will run these scripts via API calls to the server for you.<br />\nThese scripts expect at the least a <code>LATENT_SCOPE_DATA</code> environment variable with a path to where you want to store your data. If you run <code>ls-serve</code> it will set the variable and put it in a <code>.env</code> file. You can add API keys to the .env file to enable usage of the various API services, see <a href=\".env.example\">.env.example</a> for the structure.</p>\n<h3 id=\"0-ingest\">0. ingest</h3>\n<p>This script turns the <code>input.csv</code> into <code>input.parquet</code> and sets up the directories and <code>meta.json</code> which run the app.</p>\n<pre><code class=\"language-bash\"># ls-ingest &lt;dataset_name&gt;\nls-ingest database-curated\n</code></pre>\n<h3 id=\"1-embed\">1. embed</h3>\n<p>Take the text from the input and embed it. Default is to use <code>BAAI/bge-small-en-v1.5</code> locally via HuggingFace transformers. API services are supported as well, see <a href=\"latentscope/models/embedding_models.json\">latentscope/models/embedding_models.json</a> for model ids.</p>\n<pre><code class=\"language-bash\"># you can get a list of models available with:\nls-list-models\n# ls-embed &lt;dataset_name&gt; &lt;text_column&gt; &lt;model_id&gt;\nls-embed dadabase joke transformers-intfloat___e5-small-v2\n</code></pre>\n<h3 id=\"2-umap\">2. umap</h3>\n<p>Map the embeddings from high-dimensional space to 2D with UMAP. Will generate a thumbnail of the scatterplot.</p>\n<pre><code class=\"language-bash\"># ls-umap &lt;dataset_name&gt; &lt;embedding_id&gt; &lt;neighbors&gt; &lt;min_dist&gt;\nls-umap dadabase embedding-001 50 0.1\n</code></pre>\n<h3 id=\"3-cluster\">3. cluster</h3>\n<p>Cluster the UMAP points using HDBSCAN. This will label each point with a cluster label</p>\n<pre><code class=\"language-bash\"># ls-cluster &lt;dataset_name&gt; &lt;umap_id&gt; &lt;samples&gt; &lt;min-samples&gt;\nls-cluster dadabase umap-001 5 3\n</code></pre>\n<h3 id=\"4-label\">4. label</h3>\n<p>We support auto-labeling clusters by summarizing them with an LLM. Supported models and APIs are listed in <a href=\"latentscope/models/chat_models.json\">latentscope/models/chat_models.json</a>.\nYou can pass context that will be injected into the system prompt for your dataset.</p>\n<pre><code class=\"language-bash\"># ls-label &lt;dataset_id&gt; &lt;cluster_id&gt; &lt;chat_model_id&gt; &lt;context&gt;\nls-label dadabase \"joke\" cluster-001 openai-gpt-3.5-turbo \"\"\n</code></pre>\n<h3 id=\"5-scope\">5. scope</h3>\n<p>The scope command ties together each step of the process to create an explorable configuration. You can have several scopes to view different choices, for example using different embeddings or even different parameters for UMAP and clustering. Switching between scopes in the UI is instant.</p>\n<pre><code class=\"language-bash\"># ls-scope  &lt;dataset_id&gt; &lt;embedding_id&gt; &lt;umap_id&gt; &lt;cluster_id&gt; &lt;cluster_labels_id&gt; &lt;label&gt; &lt;description&gt;\nls-scope datavis-misunderstood cluster-001-labels-001 \"E5 demo\" \"E5 embeddings summarized by GPT3.5-Turbo\"\n</code></pre>\n<h3 id=\"6-serve\">6. serve</h3>\n<p>To start the web UI we run a small server. This also enables nearest neighbor similarity search and interactively querying subsets of the input data while exploring the scopes.</p>\n<pre><code class=\"language-bash\">ls-serve ~/latent-scope-data\n</code></pre>\n<h2 id=\"dataset-directory-structure\">Dataset directory structure</h2>\n<p>Each dataset will have its own directory in data/ created when you ingest your CSV. All subsequent steps of setting up a dataset write their data and metadata to this directory.\nThere are no databases in this tool, just flat files that are easy to copy and edit.</p>\n<pre>├── data/\n|   ├── dataset1/\n|   |   ├── input.parquet                           # from ingest.py, the dataset\n|   |   ├── meta.json                               # from ingest.py, metadata for dataset, #rows, columns, text_column\n|   |   ├── embeddings/\n|   |   |   ├── embedding-001.h5                    # from embed.py, embedding vectors\n|   |   |   ├── embedding-001.json                  # from embed.py, parameters used to embed\n|   |   |   ├── embedding-002...                   \n|   |   ├── umaps/\n|   |   |   ├── umap-001.parquet                    # from umap.py, x,y coordinates\n|   |   |   ├── umap-001.json                       # from umap.py, params used\n|   |   |   ├── umap-001.png                        # from umap.py, thumbnail of plot\n|   |   |   ├── umap-002....                        \n|   |   ├── clusters/\n|   |   |   ├── clusters-001.parquet                # from cluster.py, cluster indices\n|   |   |   ├── clusters-001-labels-default.parquet # from cluster.py, default labels\n|   |   |   ├── clusters-001-labels-001.parquet     # from label_clusters.py, LLM generated labels\n|   |   |   ├── clusters-001.json                   # from cluster.py, params used\n|   |   |   ├── clusters-001.png                    # from cluster.py, thumbnail of plot\n|   |   |   ├── clusters-002...                     \n|   |   ├── scopes/\n|   |   |   ├── scopes-001.json                     # from scope.py, combination of embed, umap, clusters and label choice\n|   |   |   ├── scopes-...                      \n|   |   ├── tags/\n|   |   |   ├── ❤️.indices                           # tagged by UI, powered by tags.py\n|   |   |   ├── ...                                 # can have arbitrary named tags\n|   |   ├── jobs/\n|   |   |   ├──  8980️-12345...json                  # created when job is run via web UI\n</pre>",

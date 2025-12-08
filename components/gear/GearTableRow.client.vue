@@ -78,7 +78,10 @@
 
       <!-- Weight - Primary data with mini viz -->
       <div class="col-span-1 text-right">
-        <div v-if="baseWeight > 0" class="flex items-center justify-end gap-1">
+        <div
+          v-if="baseWeight > 0"
+          class="flex items-center justify-end gap-0.5"
+        >
           <!-- Mini weight indicator -->
           <div
             :class="weightIndicatorClasses"

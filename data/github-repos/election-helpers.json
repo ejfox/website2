@@ -15,6 +15,288 @@
     "JavaScript": 99795
   },
   "diskUsage": 16298,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 46
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 2133
+      },
+      {
+        "path": "README.md",
+        "size": 3398
+      },
+      {
+        "path": "docs.md",
+        "size": 9456
+      },
+      {
+        "path": "docs/css/baseline.css",
+        "size": 85526
+      },
+      {
+        "path": "docs/global.html",
+        "size": 33620
+      },
+      {
+        "path": "docs/index.html",
+        "size": 6761
+      },
+      {
+        "path": "docs/index.js.html",
+        "size": 23944
+      },
+      {
+        "path": "docs/scripts/jquery.min.js",
+        "size": 88145
+      },
+      {
+        "path": "docs/scripts/jsdoc-toc.js",
+        "size": 446
+      },
+      {
+        "path": "docs/scripts/lang-css.js",
+        "size": 1020
+      },
+      {
+        "path": "docs/scripts/linenumber.js",
+        "size": 260
+      },
+      {
+        "path": "docs/scripts/prettify.js",
+        "size": 15394
+      },
+      {
+        "path": "docs/scripts/scrollanchor.js",
+        "size": 355
+      },
+      {
+        "path": "docs/scripts/tree.jquery.js",
+        "size": 52283
+      },
+      {
+        "path": "index.js",
+        "size": 21563
+      },
+      {
+        "path": "jsdoc.config.json",
+        "size": 612
+      },
+      {
+        "path": "package-lock.json",
+        "size": 259197
+      },
+      {
+        "path": "package.json",
+        "size": 1311
+      },
+      {
+        "path": "src/election-dates.js",
+        "size": 14342
+      },
+      {
+        "path": "src/geographic.js",
+        "size": 9249
+      },
+      {
+        "path": "src/party-normalizer.js",
+        "size": 11743
+      },
+      {
+        "path": "src/universal-helpers.js",
+        "size": 23388
+      },
+      {
+        "path": "test/index.test.js",
+        "size": 19510
+      },
+      {
+        "path": "yarn.lock",
+        "size": 166255
+      }
+    ],
+    "tree": {
+      "name": "election-helpers",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "css",
+              "children": [
+                {
+                  "name": "baseline.css",
+                  "size": 85526,
+                  "path": "docs/css/baseline.css"
+                }
+              ],
+              "path": "docs/css"
+            },
+            {
+              "name": "scripts",
+              "children": [
+                {
+                  "name": "jquery.min.js",
+                  "size": 88145,
+                  "path": "docs/scripts/jquery.min.js"
+                },
+                {
+                  "name": "jsdoc-toc.js",
+                  "size": 446,
+                  "path": "docs/scripts/jsdoc-toc.js"
+                },
+                {
+                  "name": "lang-css.js",
+                  "size": 1020,
+                  "path": "docs/scripts/lang-css.js"
+                },
+                {
+                  "name": "linenumber.js",
+                  "size": 260,
+                  "path": "docs/scripts/linenumber.js"
+                },
+                {
+                  "name": "prettify.js",
+                  "size": 15394,
+                  "path": "docs/scripts/prettify.js"
+                },
+                {
+                  "name": "scrollanchor.js",
+                  "size": 355,
+                  "path": "docs/scripts/scrollanchor.js"
+                },
+                {
+                  "name": "tree.jquery.js",
+                  "size": 52283,
+                  "path": "docs/scripts/tree.jquery.js"
+                }
+              ],
+              "path": "docs/scripts"
+            },
+            {
+              "name": "global.html",
+              "size": 33620,
+              "path": "docs/global.html"
+            },
+            {
+              "name": "index.html",
+              "size": 6761,
+              "path": "docs/index.html"
+            },
+            {
+              "name": "index.js.html",
+              "size": 23944,
+              "path": "docs/index.js.html"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "election-dates.js",
+              "size": 14342,
+              "path": "src/election-dates.js"
+            },
+            {
+              "name": "geographic.js",
+              "size": 9249,
+              "path": "src/geographic.js"
+            },
+            {
+              "name": "party-normalizer.js",
+              "size": 11743,
+              "path": "src/party-normalizer.js"
+            },
+            {
+              "name": "universal-helpers.js",
+              "size": 23388,
+              "path": "src/universal-helpers.js"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "test",
+          "children": [
+            {
+              "name": "index.test.js",
+              "size": 19510,
+              "path": "test/index.test.js"
+            }
+          ],
+          "path": "test"
+        },
+        {
+          "name": ".gitignore",
+          "size": 46,
+          "path": ".gitignore"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 2133,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "README.md",
+          "size": 3398,
+          "path": "README.md"
+        },
+        {
+          "name": "docs.md",
+          "size": 9456,
+          "path": "docs.md"
+        },
+        {
+          "name": "index.js",
+          "size": 21563,
+          "path": "index.js"
+        },
+        {
+          "name": "jsdoc.config.json",
+          "size": 612,
+          "path": "jsdoc.config.json"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 259197,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1311,
+          "path": "package.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 166255,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 26,
+    "totalSize": 850224
+  },
   "topics": [
     "data",
     "elections",

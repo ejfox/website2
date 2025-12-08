@@ -19,6 +19,792 @@
     "TypeScript": 157
   },
   "diskUsage": 4542,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".claude/settings.local.json",
+        "size": 391
+      },
+      {
+        "path": ".env.example",
+        "size": 178
+      },
+      {
+        "path": ".gitignore",
+        "size": 209
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 2593
+      },
+      {
+        "path": "README.md",
+        "size": 2786
+      },
+      {
+        "path": "TODO.md",
+        "size": 36
+      },
+      {
+        "path": "exports/embeddings_2025-06-13T14-11-07_load.py",
+        "size": 599
+      },
+      {
+        "path": "exports/umap_input_2025-06-13T14:19:30_umap_explorer.py",
+        "size": 6331
+      },
+      {
+        "path": "package-lock.json",
+        "size": 100980
+      },
+      {
+        "path": "package.json",
+        "size": 823
+      },
+      {
+        "path": "sqlite-vec.tar.gz",
+        "size": 52113
+      },
+      {
+        "path": "src/analyze-embeddings.js",
+        "size": 5493
+      },
+      {
+        "path": "src/context-enricher.js",
+        "size": 7956
+      },
+      {
+        "path": "src/database-vec.js",
+        "size": 7664
+      },
+      {
+        "path": "src/database.js",
+        "size": 2801
+      },
+      {
+        "path": "src/embeddings-client.js",
+        "size": 5043
+      },
+      {
+        "path": "src/enhanced-parameter-generator.js",
+        "size": 14313
+      },
+      {
+        "path": "src/export-embeddings.js",
+        "size": 8595
+      },
+      {
+        "path": "src/generate-64-umap-combinations.py",
+        "size": 7844
+      },
+      {
+        "path": "src/generate-dense-parameter-grid.js",
+        "size": 5125
+      },
+      {
+        "path": "src/generate-embeddings.js",
+        "size": 7411
+      },
+      {
+        "path": "src/index.js",
+        "size": 3879
+      },
+      {
+        "path": "src/markdown-chunker.js",
+        "size": 10517
+      },
+      {
+        "path": "src/modularity-detector.py",
+        "size": 9713
+      },
+      {
+        "path": "src/obsidian-parser.js",
+        "size": 5662
+      },
+      {
+        "path": "src/orcmanl-umap-generator.js",
+        "size": 13426
+      },
+      {
+        "path": "src/preflight-check.js",
+        "size": 7325
+      },
+      {
+        "path": "src/search.js",
+        "size": 2266
+      },
+      {
+        "path": "src/semantic-chunker.js",
+        "size": 7029
+      },
+      {
+        "path": "src/simple-modularity.js",
+        "size": 7336
+      },
+      {
+        "path": "src/tokenizer.js",
+        "size": 1315
+      },
+      {
+        "path": "src/tsne-parameter-surf.js",
+        "size": 14657
+      },
+      {
+        "path": "src/umap-parameter-surf-with-modularity.js",
+        "size": 14910
+      },
+      {
+        "path": "src/umap-parameter-surf.js",
+        "size": 14295
+      },
+      {
+        "path": "test-vault/AI/Neural Networks.md",
+        "size": 1139
+      },
+      {
+        "path": "test-vault/AI/Transformer Architecture.md",
+        "size": 708
+      },
+      {
+        "path": "test-vault/Personal/Daily Notes.md",
+        "size": 785
+      },
+      {
+        "path": "test-vault/Projects/Database Design.md",
+        "size": 966
+      },
+      {
+        "path": "test-vault/Projects/Machine-Learning/UMAP Visualization.md",
+        "size": 1075
+      },
+      {
+        "path": "test-vault/Quick Note.md",
+        "size": 277
+      },
+      {
+        "path": "test-vault/edge-cases/Empty File.md",
+        "size": 0
+      },
+      {
+        "path": "test-vault/edge-cases/Just Whitespace.md",
+        "size": 9
+      },
+      {
+        "path": "test-vault/edge-cases/Malformed Frontmatter.md",
+        "size": 174
+      },
+      {
+        "path": "test-vault/edge-cases/Unicode-Test-文档-тест-🚀.md",
+        "size": 480
+      },
+      {
+        "path": "test-vault/edge-cases/Very-Long-Title-That-Goes-On-And-On-With-Lots-Of-Hyphens-And-Details-About-Machine-Learning-Research-Paper-Analysis.md",
+        "size": 70
+      },
+      {
+        "path": "test_export.json",
+        "size": 23409258
+      },
+      {
+        "path": "umap-explorer/.claude/settings.local.json",
+        "size": 235
+      },
+      {
+        "path": "umap-explorer/.gitignore",
+        "size": 193
+      },
+      {
+        "path": "umap-explorer/README.md",
+        "size": 1600
+      },
+      {
+        "path": "umap-explorer/app.vue",
+        "size": 3310
+      },
+      {
+        "path": "umap-explorer/components/Canvas2DPlot.vue",
+        "size": 2913
+      },
+      {
+        "path": "umap-explorer/components/ChunkDetails.vue",
+        "size": 28808
+      },
+      {
+        "path": "umap-explorer/components/ClientOnlyPlot.vue",
+        "size": 286
+      },
+      {
+        "path": "umap-explorer/components/ControlPanel.vue",
+        "size": 2148
+      },
+      {
+        "path": "umap-explorer/components/FullscreenView.vue",
+        "size": 6456
+      },
+      {
+        "path": "umap-explorer/components/SingleView.vue",
+        "size": 17982
+      },
+      {
+        "path": "umap-explorer/components/SingleView3D.vue",
+        "size": 15230
+      },
+      {
+        "path": "umap-explorer/components/SmallMultiplesGrid.vue",
+        "size": 2662
+      },
+      {
+        "path": "umap-explorer/components/UMAPExplorer.vue",
+        "size": 2276
+      },
+      {
+        "path": "umap-explorer/components/UMAPPlot.vue",
+        "size": 6126
+      },
+      {
+        "path": "umap-explorer/components/UmapVisualization.vue",
+        "size": 4800
+      },
+      {
+        "path": "umap-explorer/dense_umap_parameter_grid.json",
+        "size": 88931
+      },
+      {
+        "path": "umap-explorer/nuxt.config.ts",
+        "size": 157
+      },
+      {
+        "path": "umap-explorer/package-lock.json",
+        "size": 396990
+      },
+      {
+        "path": "umap-explorer/package.json",
+        "size": 650
+      },
+      {
+        "path": "umap-explorer/public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "umap-explorer/public/robots.txt",
+        "size": 24
+      },
+      {
+        "path": "umap-explorer/server/tsconfig.json",
+        "size": 49
+      },
+      {
+        "path": "umap-explorer/tsconfig.json",
+        "size": 94
+      },
+      {
+        "path": "umap-explorer/yarn.lock",
+        "size": 275086
+      },
+      {
+        "path": "update-embeddings.sh",
+        "size": 969
+      },
+      {
+        "path": "vec0.dylib",
+        "size": 161704
+      },
+      {
+        "path": "visualization/requirements.txt",
+        "size": 128
+      },
+      {
+        "path": "visualization/tsne_example.py",
+        "size": 10263
+      },
+      {
+        "path": "visualization/tsne_parameter_surf.py",
+        "size": 15561
+      },
+      {
+        "path": "visualization/umap_example.py",
+        "size": 6275
+      }
+    ],
+    "tree": {
+      "name": "obsidian-analysis",
+      "children": [
+        {
+          "name": ".claude",
+          "children": [
+            {
+              "name": "settings.local.json",
+              "size": 391,
+              "path": ".claude/settings.local.json"
+            }
+          ],
+          "path": ".claude"
+        },
+        {
+          "name": "exports",
+          "children": [
+            {
+              "name": "embeddings_2025-06-13T14-11-07_load.py",
+              "size": 599,
+              "path": "exports/embeddings_2025-06-13T14-11-07_load.py"
+            },
+            {
+              "name": "umap_input_2025-06-13T14:19:30_umap_explorer.py",
+              "size": 6331,
+              "path": "exports/umap_input_2025-06-13T14:19:30_umap_explorer.py"
+            }
+          ],
+          "path": "exports"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "analyze-embeddings.js",
+              "size": 5493,
+              "path": "src/analyze-embeddings.js"
+            },
+            {
+              "name": "context-enricher.js",
+              "size": 7956,
+              "path": "src/context-enricher.js"
+            },
+            {
+              "name": "database-vec.js",
+              "size": 7664,
+              "path": "src/database-vec.js"
+            },
+            {
+              "name": "database.js",
+              "size": 2801,
+              "path": "src/database.js"
+            },
+            {
+              "name": "embeddings-client.js",
+              "size": 5043,
+              "path": "src/embeddings-client.js"
+            },
+            {
+              "name": "enhanced-parameter-generator.js",
+              "size": 14313,
+              "path": "src/enhanced-parameter-generator.js"
+            },
+            {
+              "name": "export-embeddings.js",
+              "size": 8595,
+              "path": "src/export-embeddings.js"
+            },
+            {
+              "name": "generate-64-umap-combinations.py",
+              "size": 7844,
+              "path": "src/generate-64-umap-combinations.py"
+            },
+            {
+              "name": "generate-dense-parameter-grid.js",
+              "size": 5125,
+              "path": "src/generate-dense-parameter-grid.js"
+            },
+            {
+              "name": "generate-embeddings.js",
+              "size": 7411,
+              "path": "src/generate-embeddings.js"
+            },
+            {
+              "name": "index.js",
+              "size": 3879,
+              "path": "src/index.js"
+            },
+            {
+              "name": "markdown-chunker.js",
+              "size": 10517,
+              "path": "src/markdown-chunker.js"
+            },
+            {
+              "name": "modularity-detector.py",
+              "size": 9713,
+              "path": "src/modularity-detector.py"
+            },
+            {
+              "name": "obsidian-parser.js",
+              "size": 5662,
+              "path": "src/obsidian-parser.js"
+            },
+            {
+              "name": "orcmanl-umap-generator.js",
+              "size": 13426,
+              "path": "src/orcmanl-umap-generator.js"
+            },
+            {
+              "name": "preflight-check.js",
+              "size": 7325,
+              "path": "src/preflight-check.js"
+            },
+            {
+              "name": "search.js",
+              "size": 2266,
+              "path": "src/search.js"
+            },
+            {
+              "name": "semantic-chunker.js",
+              "size": 7029,
+              "path": "src/semantic-chunker.js"
+            },
+            {
+              "name": "simple-modularity.js",
+              "size": 7336,
+              "path": "src/simple-modularity.js"
+            },
+            {
+              "name": "tokenizer.js",
+              "size": 1315,
+              "path": "src/tokenizer.js"
+            },
+            {
+              "name": "tsne-parameter-surf.js",
+              "size": 14657,
+              "path": "src/tsne-parameter-surf.js"
+            },
+            {
+              "name": "umap-parameter-surf-with-modularity.js",
+              "size": 14910,
+              "path": "src/umap-parameter-surf-with-modularity.js"
+            },
+            {
+              "name": "umap-parameter-surf.js",
+              "size": 14295,
+              "path": "src/umap-parameter-surf.js"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "test-vault",
+          "children": [
+            {
+              "name": "AI",
+              "children": [
+                {
+                  "name": "Neural Networks.md",
+                  "size": 1139,
+                  "path": "test-vault/AI/Neural Networks.md"
+                },
+                {
+                  "name": "Transformer Architecture.md",
+                  "size": 708,
+                  "path": "test-vault/AI/Transformer Architecture.md"
+                }
+              ],
+              "path": "test-vault/AI"
+            },
+            {
+              "name": "Personal",
+              "children": [
+                {
+                  "name": "Daily Notes.md",
+                  "size": 785,
+                  "path": "test-vault/Personal/Daily Notes.md"
+                }
+              ],
+              "path": "test-vault/Personal"
+            },
+            {
+              "name": "Projects",
+              "children": [
+                {
+                  "name": "Machine-Learning",
+                  "children": [
+                    {
+                      "name": "UMAP Visualization.md",
+                      "size": 1075,
+                      "path": "test-vault/Projects/Machine-Learning/UMAP Visualization.md"
+                    }
+                  ],
+                  "path": "test-vault/Projects/Machine-Learning"
+                },
+                {
+                  "name": "Database Design.md",
+                  "size": 966,
+                  "path": "test-vault/Projects/Database Design.md"
+                }
+              ],
+              "path": "test-vault/Projects"
+            },
+            {
+              "name": "edge-cases",
+              "children": [
+                {
+                  "name": "Empty File.md",
+                  "size": 0,
+                  "path": "test-vault/edge-cases/Empty File.md"
+                },
+                {
+                  "name": "Just Whitespace.md",
+                  "size": 9,
+                  "path": "test-vault/edge-cases/Just Whitespace.md"
+                },
+                {
+                  "name": "Malformed Frontmatter.md",
+                  "size": 174,
+                  "path": "test-vault/edge-cases/Malformed Frontmatter.md"
+                },
+                {
+                  "name": "Unicode-Test-文档-тест-🚀.md",
+                  "size": 480,
+                  "path": "test-vault/edge-cases/Unicode-Test-文档-тест-🚀.md"
+                },
+                {
+                  "name": "Very-Long-Title-That-Goes-On-And-On-With-Lots-Of-Hyphens-And-Details-About-Machine-Learning-Research-Paper-Analysis.md",
+                  "size": 70,
+                  "path": "test-vault/edge-cases/Very-Long-Title-That-Goes-On-And-On-With-Lots-Of-Hyphens-And-Details-About-Machine-Learning-Research-Paper-Analysis.md"
+                }
+              ],
+              "path": "test-vault/edge-cases"
+            },
+            {
+              "name": "Quick Note.md",
+              "size": 277,
+              "path": "test-vault/Quick Note.md"
+            }
+          ],
+          "path": "test-vault"
+        },
+        {
+          "name": "umap-explorer",
+          "children": [
+            {
+              "name": ".claude",
+              "children": [
+                {
+                  "name": "settings.local.json",
+                  "size": 235,
+                  "path": "umap-explorer/.claude/settings.local.json"
+                }
+              ],
+              "path": "umap-explorer/.claude"
+            },
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "Canvas2DPlot.vue",
+                  "size": 2913,
+                  "path": "umap-explorer/components/Canvas2DPlot.vue"
+                },
+                {
+                  "name": "ChunkDetails.vue",
+                  "size": 28808,
+                  "path": "umap-explorer/components/ChunkDetails.vue"
+                },
+                {
+                  "name": "ClientOnlyPlot.vue",
+                  "size": 286,
+                  "path": "umap-explorer/components/ClientOnlyPlot.vue"
+                },
+                {
+                  "name": "ControlPanel.vue",
+                  "size": 2148,
+                  "path": "umap-explorer/components/ControlPanel.vue"
+                },
+                {
+                  "name": "FullscreenView.vue",
+                  "size": 6456,
+                  "path": "umap-explorer/components/FullscreenView.vue"
+                },
+                {
+                  "name": "SingleView.vue",
+                  "size": 17982,
+                  "path": "umap-explorer/components/SingleView.vue"
+                },
+                {
+                  "name": "SingleView3D.vue",
+                  "size": 15230,
+                  "path": "umap-explorer/components/SingleView3D.vue"
+                },
+                {
+                  "name": "SmallMultiplesGrid.vue",
+                  "size": 2662,
+                  "path": "umap-explorer/components/SmallMultiplesGrid.vue"
+                },
+                {
+                  "name": "UMAPExplorer.vue",
+                  "size": 2276,
+                  "path": "umap-explorer/components/UMAPExplorer.vue"
+                },
+                {
+                  "name": "UMAPPlot.vue",
+                  "size": 6126,
+                  "path": "umap-explorer/components/UMAPPlot.vue"
+                },
+                {
+                  "name": "UmapVisualization.vue",
+                  "size": 4800,
+                  "path": "umap-explorer/components/UmapVisualization.vue"
+                }
+              ],
+              "path": "umap-explorer/components"
+            },
+            {
+              "name": "public",
+              "children": [
+                {
+                  "name": "favicon.ico",
+                  "size": 4286,
+                  "path": "umap-explorer/public/favicon.ico"
+                },
+                {
+                  "name": "robots.txt",
+                  "size": 24,
+                  "path": "umap-explorer/public/robots.txt"
+                }
+              ],
+              "path": "umap-explorer/public"
+            },
+            {
+              "name": "server",
+              "children": [
+                {
+                  "name": "tsconfig.json",
+                  "size": 49,
+                  "path": "umap-explorer/server/tsconfig.json"
+                }
+              ],
+              "path": "umap-explorer/server"
+            },
+            {
+              "name": ".gitignore",
+              "size": 193,
+              "path": "umap-explorer/.gitignore"
+            },
+            {
+              "name": "README.md",
+              "size": 1600,
+              "path": "umap-explorer/README.md"
+            },
+            {
+              "name": "app.vue",
+              "size": 3310,
+              "path": "umap-explorer/app.vue"
+            },
+            {
+              "name": "dense_umap_parameter_grid.json",
+              "size": 88931,
+              "path": "umap-explorer/dense_umap_parameter_grid.json"
+            },
+            {
+              "name": "nuxt.config.ts",
+              "size": 157,
+              "path": "umap-explorer/nuxt.config.ts"
+            },
+            {
+              "name": "package-lock.json",
+              "size": 396990,
+              "path": "umap-explorer/package-lock.json"
+            },
+            {
+              "name": "package.json",
+              "size": 650,
+              "path": "umap-explorer/package.json"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 94,
+              "path": "umap-explorer/tsconfig.json"
+            },
+            {
+              "name": "yarn.lock",
+              "size": 275086,
+              "path": "umap-explorer/yarn.lock"
+            }
+          ],
+          "path": "umap-explorer"
+        },
+        {
+          "name": "visualization",
+          "children": [
+            {
+              "name": "requirements.txt",
+              "size": 128,
+              "path": "visualization/requirements.txt"
+            },
+            {
+              "name": "tsne_example.py",
+              "size": 10263,
+              "path": "visualization/tsne_example.py"
+            },
+            {
+              "name": "tsne_parameter_surf.py",
+              "size": 15561,
+              "path": "visualization/tsne_parameter_surf.py"
+            },
+            {
+              "name": "umap_example.py",
+              "size": 6275,
+              "path": "visualization/umap_example.py"
+            }
+          ],
+          "path": "visualization"
+        },
+        {
+          "name": ".env.example",
+          "size": 178,
+          "path": ".env.example"
+        },
+        {
+          "name": ".gitignore",
+          "size": 209,
+          "path": ".gitignore"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 2593,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "README.md",
+          "size": 2786,
+          "path": "README.md"
+        },
+        {
+          "name": "TODO.md",
+          "size": 36,
+          "path": "TODO.md"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 100980,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 823,
+          "path": "package.json"
+        },
+        {
+          "name": "sqlite-vec.tar.gz",
+          "size": 52113,
+          "path": "sqlite-vec.tar.gz"
+        },
+        {
+          "name": "test_export.json",
+          "size": 23409258,
+          "path": "test_export.json"
+        },
+        {
+          "name": "update-embeddings.sh",
+          "size": 969,
+          "path": "update-embeddings.sh"
+        },
+        {
+          "name": "vec0.dylib",
+          "size": 161704,
+          "path": "vec0.dylib"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 76,
+    "totalSize": 24822747
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"-obsidian-embeddings\">🧠 Obsidian Embeddings</h1>\n<p>Generate semantic embeddings for your Obsidian vault using LM Studio and Nomic embeddings. Search your notes using natural language!</p>\n<h2 id=\"setup\">Setup</h2>\n<ol>\n<li>\n<p><strong>Install dependencies:</strong></p>\n<pre><code class=\"language-bash\">npm install\n</code></pre>\n</li>\n<li>\n<p><strong>Configure your environment:</strong></p>\n<pre><code class=\"language-bash\">cp .env.example .env\n</code></pre>\n<p>Edit <code>.env</code> with your settings:</p>\n<pre><code>OBSIDIAN_VAULT_PATH=/path/to/your/obsidian/vault\nLM_STUDIO_BASE_URL=http://localhost:1234\nNOMIC_MODEL_NAME=nomic-embed-text-v1.5\n</code></pre>\n</li>\n<li>\n<p><strong>Start LM Studio:</strong></p>\n<ul>\n<li>Launch LM Studio</li>\n<li>Load the Nomic embedding model (<code>nomic-embed-text-v1.5</code>)</li>\n<li>Start the local server</li>\n</ul>\n</li>\n</ol>\n<h2 id=\"usage\">Usage</h2>\n<h3 id=\"generate-embeddings\">Generate Embeddings</h3>\n<p>Process all your Obsidian notes and generate embeddings:</p>\n<pre><code class=\"language-bash\">npm run generate\n</code></pre>\n<h3 id=\"search-your-notes\">Search Your Notes</h3>\n<p>Search using natural language:</p>\n<pre><code class=\"language-bash\">npm run search \"machine learning concepts\"\nnpm run search \"productivity tips\" --limit 5\n</code></pre>\n<h3 id=\"check-status\">Check Status</h3>\n<p>View system status and configuration:</p>\n<pre><code class=\"language-bash\">npm start status\n</code></pre>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li><strong>Intelligent Chunking</strong>: Splits notes into semantic chunks</li>\n<li><strong>Batch Processing</strong>: Efficient embedding generation</li>\n<li><strong>Semantic Search</strong>: Find notes by meaning, not just keywords</li>\n<li><strong>Local &amp; Private</strong>: Everything runs on your machine</li>\n<li><strong>Fast SQLite Database</strong>: Quick search and retrieval</li>\n</ul>\n<h2 id=\"commands\">Commands</h2>\n<ul>\n<li><code>npm start generate</code> - Generate embeddings for all notes</li>\n<li><code>npm start export</code> - Export embeddings for visualization</li>\n<li><code>npm start analyze</code> - Analyze embedding database statistics</li>\n<li><code>npm start search &lt;query&gt;</code> - Search notes semantically</li>\n<li><code>npm start status</code> - Check system status</li>\n</ul>\n<h2 id=\"visualization\">Visualization</h2>\n<p>After generating embeddings, export them for visualization:</p>\n<pre><code class=\"language-bash\"># Export as JSON (default)\nnpm start export\n\n# Export as CSV for analysis\nnpm start export -- --format csv\n\n# Export for Python/NumPy\nnpm start export -- --format npy\n</code></pre>\n<h3 id=\"python-visualization-examples\">Python Visualization Examples</h3>\n<p>Install Python dependencies:</p>\n<pre><code class=\"language-bash\">cd visualization\npip install -r requirements.txt\n</code></pre>\n<p>Create UMAP visualization:</p>\n<pre><code class=\"language-bash\">python umap_example.py --input ../exports/embeddings_2024-*\n</code></pre>\n<p><strong>Advanced UMAP Exploration</strong>: Generate and compare 64 different UMAP parameter combinations:</p>\n<pre><code class=\"language-bash\">python src/generate-64-umap-combinations.py\n</code></pre>\n<p>Then explore results in the interactive web interface at <code>umap-explorer/</code>.</p>\n<p>Create t-SNE visualization:</p>\n<pre><code class=\"language-bash\">python tsne_example.py --input ../exports/embeddings_2024-*\n</code></pre>\n<h2 id=\"export-formats\">Export Formats</h2>\n<ul>\n<li><strong>JSON</strong>: Full data with embeddings and metadata</li>\n<li><strong>CSV</strong>: Flattened format for spreadsheet analysis</li>\n<li><strong>NPY</strong>: Separate arrays for Python/NumPy workflows</li>\n<li><strong>PKL</strong>: Pandas-ready format with conversion scripts</li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li>Node.js 18+</li>\n<li>LM Studio with Nomic embedding model</li>\n<li>Obsidian vault with markdown files</li>\n<li>Python 3.8+ (for visualizations)</li>\n</ul>",

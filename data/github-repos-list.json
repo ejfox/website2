@@ -13,18 +13,46 @@
     "language": "Shell",
     "languageColor": "#89e051",
     "languages": {
-      "Shell": 233306,
+      "Shell": 238831,
       "GLSL": 155774,
       "Lua": 114144,
       "Vim Script": 83725,
+      "JavaScript": 8622,
       "Less": 2089
     },
-    "diskUsage": 63207,
+    "diskUsage": 63256,
     "topics": [],
     "excerpt": "Backup of my dotfiles",
     "createdAt": "2019-04-07T22:09:55Z",
-    "updatedAt": "2025-12-03T23:50:37Z",
-    "pushedAt": "2025-12-03T23:50:33Z"
+    "updatedAt": "2025-12-07T19:06:53Z",
+    "pushedAt": "2025-12-07T19:06:49Z"
+  },
+  {
+    "name": "vulpes-theme-lab",
+    "description": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
+    "url": "https://github.com/ejfox/vulpes-theme-lab",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 299489,
+      "TypeScript": 224866,
+      "CSS": 13233,
+      "JavaScript": 3513,
+      "Lua": 14
+    },
+    "diskUsage": 496,
+    "topics": [],
+    "excerpt": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
+    "createdAt": "2025-10-24T21:15:15Z",
+    "updatedAt": "2025-12-07T17:58:56Z",
+    "pushedAt": "2025-12-07T17:58:52Z"
   },
   {
     "name": "website2",
@@ -40,20 +68,88 @@
     "language": "Vue",
     "languageColor": "#41b883",
     "languages": {
-      "Vue": 689093,
-      "TypeScript": 308224,
-      "JavaScript": 187332,
+      "Vue": 689230,
+      "TypeScript": 308271,
+      "JavaScript": 194514,
       "CSS": 53947,
       "Shell": 15733,
       "HTML": 15405,
       "Dockerfile": 779
     },
-    "diskUsage": 80732,
+    "diskUsage": 80904,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-03T21:26:14Z",
-    "pushedAt": "2025-12-03T21:26:10Z"
+    "updatedAt": "2025-12-05T22:27:44Z",
+    "pushedAt": "2025-12-05T22:27:40Z"
+  },
+  {
+    "name": "tweakcc",
+    "description": "Customize Claude Code's system prompts, create custom toolsets, add custom themes/thinking verbs/spinner, input box style, user message display, sign-in ASCII art, fix bugs (frozen spinner), and add features (context limit customization). Supports both native (binary) and npm installs on all platforms.",
+    "url": "https://github.com/ejfox/tweakcc",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 491737,
+      "JavaScript": 23420
+    },
+    "diskUsage": 23855,
+    "topics": [],
+    "excerpt": "Customize Claude Code's system prompts, create custom toolsets, add custom themes/thinking verbs/spinner, input box style, user message display, sign-in ASCII art, fix bugs (frozen spinner), and add features (context limit customization). Supports both native (binary) and npm installs on all platforms.",
+    "createdAt": "2025-12-05T17:11:34Z",
+    "updatedAt": "2025-12-05T22:27:09Z",
+    "pushedAt": "2025-12-05T22:27:05Z"
+  },
+  {
+    "name": "startup-motd",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/startup-motd",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "languages": {
+      "Shell": 17653
+    },
+    "diskUsage": 0,
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-12-05T18:28:08Z",
+    "updatedAt": "2025-12-05T18:28:14Z",
+    "pushedAt": "2025-12-05T18:28:10Z"
+  },
+  {
+    "name": "SubwayBuilderIssues",
+    "description": "Where you report issues and bugs for Subway Builder",
+    "url": "https://github.com/colindm/SubwayBuilderIssues",
+    "homepage": null,
+    "stats": {
+      "stars": 36,
+      "forks": 7,
+      "watchers": 0,
+      "openIssues": 331
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 12,
+    "topics": [],
+    "excerpt": "Where you report issues and bugs for Subway Builder",
+    "createdAt": "2025-10-10T21:48:38Z",
+    "updatedAt": "2025-12-04T06:12:10Z",
+    "pushedAt": "2025-11-25T16:48:22Z"
   },
   {
     "name": "scrapbook-cli",
@@ -121,52 +217,6 @@
     "createdAt": "2012-03-17T02:42:38Z",
     "updatedAt": "2025-12-01T16:28:31Z",
     "pushedAt": "2017-05-03T17:22:42Z"
-  },
-  {
-    "name": "SubwayBuilderIssues",
-    "description": "Where you report issues and bugs for Subway Builder",
-    "url": "https://github.com/colindm/SubwayBuilderIssues",
-    "homepage": null,
-    "stats": {
-      "stars": 35,
-      "forks": 6,
-      "watchers": 0,
-      "openIssues": 323
-    },
-    "language": "Unknown",
-    "languageColor": "#666666",
-    "languages": {},
-    "diskUsage": 12,
-    "topics": [],
-    "excerpt": "Where you report issues and bugs for Subway Builder",
-    "createdAt": "2025-10-10T21:48:38Z",
-    "updatedAt": "2025-11-25T16:48:26Z",
-    "pushedAt": "2025-11-25T16:48:22Z"
-  },
-  {
-    "name": "vulpes-theme-lab",
-    "description": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
-    "url": "https://github.com/ejfox/vulpes-theme-lab",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 358273,
-      "TypeScript": 129231,
-      "JavaScript": 1832
-    },
-    "diskUsage": 614,
-    "topics": [],
-    "excerpt": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
-    "createdAt": "2025-10-24T21:15:15Z",
-    "updatedAt": "2025-11-23T23:23:52Z",
-    "pushedAt": "2025-11-23T23:23:49Z"
   },
   {
     "name": "towntuner",

@@ -60,7 +60,7 @@
       <div
         :class="[
           'font-mono text-[9px] text-zinc-400 dark:text-zinc-600',
-          'mt-1 flex justify-between',
+          'mt-2 flex justify-between',
         ]"
       >
         <span>{{ yearlyData[0]?.year || '' }}</span>
@@ -98,7 +98,7 @@
       <div
         :class="[
           'font-mono text-[9px] text-zinc-400 dark:text-zinc-600',
-          'mt-1 flex justify-between',
+          'mt-2 flex justify-between',
         ]"
       >
         <span>min: {{ highlightStats.min }}</span>

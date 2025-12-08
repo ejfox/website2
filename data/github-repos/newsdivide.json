@@ -16,6 +16,306 @@
     "HTML": 10031
   },
   "diskUsage": 171,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".editorconfig",
+        "size": 321
+      },
+      {
+        "path": ".eslintrc.json",
+        "size": 28
+      },
+      {
+        "path": ".gitignore",
+        "size": 249
+      },
+      {
+        "path": ".nvmrc",
+        "size": 2
+      },
+      {
+        "path": "Procfile",
+        "size": 19
+      },
+      {
+        "path": "README.md",
+        "size": 422
+      },
+      {
+        "path": "lib/captureChrome.js",
+        "size": 931
+      },
+      {
+        "path": "lib/data/left-right.json",
+        "size": 2262
+      },
+      {
+        "path": "lib/data/manifest.json",
+        "size": 4004
+      },
+      {
+        "path": "lib/data/removed.json",
+        "size": 857
+      },
+      {
+        "path": "lib/data/test-manifest.json",
+        "size": 2184
+      },
+      {
+        "path": "lib/data/test-sites.json",
+        "size": 1054
+      },
+      {
+        "path": "lib/generateHtml.js",
+        "size": 958
+      },
+      {
+        "path": "lib/hideAds.js",
+        "size": 434
+      },
+      {
+        "path": "lib/noop.js",
+        "size": 8
+      },
+      {
+        "path": "lib/persist.js",
+        "size": 1175
+      },
+      {
+        "path": "lib/queue.js",
+        "size": 1872
+      },
+      {
+        "path": "lib/templates/newsdivide.hbs",
+        "size": 5947
+      },
+      {
+        "path": "lib/templates/newsdivide2.hbs",
+        "size": 4084
+      },
+      {
+        "path": "package-lock.json",
+        "size": 87513
+      },
+      {
+        "path": "package.json",
+        "size": 698
+      },
+      {
+        "path": "test/capture.js",
+        "size": 581
+      },
+      {
+        "path": "test/html.js",
+        "size": 369
+      },
+      {
+        "path": "test/index.js",
+        "size": 545
+      },
+      {
+        "path": "test/puppet.js",
+        "size": 876
+      },
+      {
+        "path": "test/s3.js",
+        "size": 833
+      },
+      {
+        "path": "worker/index.js",
+        "size": 1887
+      },
+      {
+        "path": "worker/jobs/htmlJob.js",
+        "size": 1183
+      }
+    ],
+    "tree": {
+      "name": "newsdivide",
+      "children": [
+        {
+          "name": "lib",
+          "children": [
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": "left-right.json",
+                  "size": 2262,
+                  "path": "lib/data/left-right.json"
+                },
+                {
+                  "name": "manifest.json",
+                  "size": 4004,
+                  "path": "lib/data/manifest.json"
+                },
+                {
+                  "name": "removed.json",
+                  "size": 857,
+                  "path": "lib/data/removed.json"
+                },
+                {
+                  "name": "test-manifest.json",
+                  "size": 2184,
+                  "path": "lib/data/test-manifest.json"
+                },
+                {
+                  "name": "test-sites.json",
+                  "size": 1054,
+                  "path": "lib/data/test-sites.json"
+                }
+              ],
+              "path": "lib/data"
+            },
+            {
+              "name": "templates",
+              "children": [
+                {
+                  "name": "newsdivide.hbs",
+                  "size": 5947,
+                  "path": "lib/templates/newsdivide.hbs"
+                },
+                {
+                  "name": "newsdivide2.hbs",
+                  "size": 4084,
+                  "path": "lib/templates/newsdivide2.hbs"
+                }
+              ],
+              "path": "lib/templates"
+            },
+            {
+              "name": "captureChrome.js",
+              "size": 931,
+              "path": "lib/captureChrome.js"
+            },
+            {
+              "name": "generateHtml.js",
+              "size": 958,
+              "path": "lib/generateHtml.js"
+            },
+            {
+              "name": "hideAds.js",
+              "size": 434,
+              "path": "lib/hideAds.js"
+            },
+            {
+              "name": "noop.js",
+              "size": 8,
+              "path": "lib/noop.js"
+            },
+            {
+              "name": "persist.js",
+              "size": 1175,
+              "path": "lib/persist.js"
+            },
+            {
+              "name": "queue.js",
+              "size": 1872,
+              "path": "lib/queue.js"
+            }
+          ],
+          "path": "lib"
+        },
+        {
+          "name": "test",
+          "children": [
+            {
+              "name": "capture.js",
+              "size": 581,
+              "path": "test/capture.js"
+            },
+            {
+              "name": "html.js",
+              "size": 369,
+              "path": "test/html.js"
+            },
+            {
+              "name": "index.js",
+              "size": 545,
+              "path": "test/index.js"
+            },
+            {
+              "name": "puppet.js",
+              "size": 876,
+              "path": "test/puppet.js"
+            },
+            {
+              "name": "s3.js",
+              "size": 833,
+              "path": "test/s3.js"
+            }
+          ],
+          "path": "test"
+        },
+        {
+          "name": "worker",
+          "children": [
+            {
+              "name": "jobs",
+              "children": [
+                {
+                  "name": "htmlJob.js",
+                  "size": 1183,
+                  "path": "worker/jobs/htmlJob.js"
+                }
+              ],
+              "path": "worker/jobs"
+            },
+            {
+              "name": "index.js",
+              "size": 1887,
+              "path": "worker/index.js"
+            }
+          ],
+          "path": "worker"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 321,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".eslintrc.json",
+          "size": 28,
+          "path": ".eslintrc.json"
+        },
+        {
+          "name": ".gitignore",
+          "size": 249,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".nvmrc",
+          "size": 2,
+          "path": ".nvmrc"
+        },
+        {
+          "name": "Procfile",
+          "size": 19,
+          "path": "Procfile"
+        },
+        {
+          "name": "README.md",
+          "size": 422,
+          "path": "README.md"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 87513,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 698,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 28,
+    "totalSize": 121296
+  },
   "topics": [],
   "readme": {
     "html": "<h2 id=\"newsdivide-worker\">Newsdivide worker</h2>\n<p>The screenshot worker queue that powers <a href=\"https://newsdivide.bradoyler.com/\">NewsDivide.bradoyler.com</a></p>\n<p><img src=\"https://newsdivide.bradoyler.com/day/2017-08-19/newsdivide.jpg\" alt=\"site\" /></p>\n<hr />\n<h4 id=\"components\">Components:</h4>\n<ul>\n<li>Nodejs 8.x</li>\n<li>Headless Chrome (<a href=\"https://github.com/GoogleChrome/puppeteer\">puppeteer</a>)</li>\n<li>AWS SDK (S3)</li>\n<li>Node-Cron</li>\n</ul>\n<hr />\n<p>TODOs:</p>\n<ul>\n<li>twitter bot</li>\n<li>get working in 'Azure / Lambda functions'</li>\n<li>better tests</li>\n</ul>",

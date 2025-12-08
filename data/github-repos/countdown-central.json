@@ -18,6 +18,267 @@
     "JavaScript": 411
   },
   "diskUsage": 107,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 193
+      },
+      {
+        "path": "README.md",
+        "size": 1179
+      },
+      {
+        "path": "app.vue",
+        "size": 87
+      },
+      {
+        "path": "assets/css/main.css",
+        "size": 670
+      },
+      {
+        "path": "components/CountdownCard.vue",
+        "size": 1477
+      },
+      {
+        "path": "composables/useCountdowns.ts",
+        "size": 3605
+      },
+      {
+        "path": "data/countdowns.json",
+        "size": 1732
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 406
+      },
+      {
+        "path": "package-lock.json",
+        "size": 412239
+      },
+      {
+        "path": "package.json",
+        "size": 525
+      },
+      {
+        "path": "pages/admin.vue",
+        "size": 3877
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 964
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "public/robots.txt",
+        "size": 24
+      },
+      {
+        "path": "server/api/countdowns/[id].delete.ts",
+        "size": 626
+      },
+      {
+        "path": "server/api/countdowns/[id].put.ts",
+        "size": 868
+      },
+      {
+        "path": "server/api/countdowns/index.get.ts",
+        "size": 479
+      },
+      {
+        "path": "server/api/countdowns/index.post.ts",
+        "size": 699
+      },
+      {
+        "path": "server/tsconfig.json",
+        "size": 49
+      },
+      {
+        "path": "tailwind.config.js",
+        "size": 411
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 94
+      }
+    ],
+    "tree": {
+      "name": "countdown-central",
+      "children": [
+        {
+          "name": "assets",
+          "children": [
+            {
+              "name": "css",
+              "children": [
+                {
+                  "name": "main.css",
+                  "size": 670,
+                  "path": "assets/css/main.css"
+                }
+              ],
+              "path": "assets/css"
+            }
+          ],
+          "path": "assets"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "CountdownCard.vue",
+              "size": 1477,
+              "path": "components/CountdownCard.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "composables",
+          "children": [
+            {
+              "name": "useCountdowns.ts",
+              "size": 3605,
+              "path": "composables/useCountdowns.ts"
+            }
+          ],
+          "path": "composables"
+        },
+        {
+          "name": "data",
+          "children": [
+            {
+              "name": "countdowns.json",
+              "size": 1732,
+              "path": "data/countdowns.json"
+            }
+          ],
+          "path": "data"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "admin.vue",
+              "size": 3877,
+              "path": "pages/admin.vue"
+            },
+            {
+              "name": "index.vue",
+              "size": 964,
+              "path": "pages/index.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "favicon.ico",
+              "size": 4286,
+              "path": "public/favicon.ico"
+            },
+            {
+              "name": "robots.txt",
+              "size": 24,
+              "path": "public/robots.txt"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "server",
+          "children": [
+            {
+              "name": "api",
+              "children": [
+                {
+                  "name": "countdowns",
+                  "children": [
+                    {
+                      "name": "[id].delete.ts",
+                      "size": 626,
+                      "path": "server/api/countdowns/[id].delete.ts"
+                    },
+                    {
+                      "name": "[id].put.ts",
+                      "size": 868,
+                      "path": "server/api/countdowns/[id].put.ts"
+                    },
+                    {
+                      "name": "index.get.ts",
+                      "size": 479,
+                      "path": "server/api/countdowns/index.get.ts"
+                    },
+                    {
+                      "name": "index.post.ts",
+                      "size": 699,
+                      "path": "server/api/countdowns/index.post.ts"
+                    }
+                  ],
+                  "path": "server/api/countdowns"
+                }
+              ],
+              "path": "server/api"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 49,
+              "path": "server/tsconfig.json"
+            }
+          ],
+          "path": "server"
+        },
+        {
+          "name": ".gitignore",
+          "size": 193,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 1179,
+          "path": "README.md"
+        },
+        {
+          "name": "app.vue",
+          "size": 87,
+          "path": "app.vue"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 406,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 412239,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 525,
+          "path": "package.json"
+        },
+        {
+          "name": "tailwind.config.js",
+          "size": 411,
+          "path": "tailwind.config.js"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 94,
+          "path": "tsconfig.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 21,
+    "totalSize": 434490
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"countdown-central\">countdown central</h1>\n<p>a brutalist countdown dashboard for tracking important deadlines and events.</p>\n<h2 id=\"what-it-is\">what it is</h2>\n<ul>\n<li>monochrome design (black text on white, very chill)</li>\n<li>tracks countdowns to space launches, elections, climate deadlines, etc</li>\n<li>real-time updates (ticks down every second)</li>\n<li>admin interface to add/edit/delete countdowns</li>\n<li>uses json files for data (no database needed)</li>\n<li>built with nuxt 3 + vue + tailwind</li>\n</ul>\n<h2 id=\"running-it\">running it</h2>\n<pre><code class=\"language-bash\">npm install\nnpm run dev\n</code></pre>\n<p>open <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<h2 id=\"adding-countdowns\">adding countdowns</h2>\n<p>go to <code>/admin</code> to add new countdowns. you can set:</p>\n<ul>\n<li>title and description</li>\n<li>target date/time</li>\n<li>category (space, politics, climate, etc)</li>\n<li>display format (days, hours, minutes, seconds)</li>\n</ul>\n<p>changes save to <code>data/countdowns.json</code> - commit them to make them permanent.</p>\n<h2 id=\"deploying\">deploying</h2>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>deploy the <code>.output</code> folder to vercel, netlify, or anywhere that runs node.</p>\n<p>the admin interface works but changes only persist if you can commit to the repo (which is the auth model - very simple).</p>\n<h2 id=\"vibe\">vibe</h2>\n<p>inspired by nasa mission control displays and brutalist web design. ibm plex mono font throughout. no colors, just pure information density.</p>",

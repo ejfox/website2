@@ -15,6 +15,261 @@
     "JavaScript": 27005
   },
   "diskUsage": 4548,
+  "fileTree": {
+    "files": [
+      {
+        "path": "README.md",
+        "size": 72
+      },
+      {
+        "path": "img/content/crossfilter.png",
+        "size": 38836
+      },
+      {
+        "path": "img/content/learn-d3.png",
+        "size": 475027
+      },
+      {
+        "path": "img/content/learn-michael.png",
+        "size": 96401
+      },
+      {
+        "path": "img/content/learn-zeffii.png",
+        "size": 25236
+      },
+      {
+        "path": "img/content/learn.png",
+        "size": 247840
+      },
+      {
+        "path": "img/content/play-geom.png",
+        "size": 161436
+      },
+      {
+        "path": "img/content/play-illusions.png",
+        "size": 1281595
+      },
+      {
+        "path": "img/content/play-vj.png",
+        "size": 405253
+      },
+      {
+        "path": "img/content/work-enjalot.png",
+        "size": 83468
+      },
+      {
+        "path": "img/content/work-halftone.png",
+        "size": 139704
+      },
+      {
+        "path": "img/content/work-nils.png",
+        "size": 26449
+      },
+      {
+        "path": "img/content/work.png",
+        "size": 286818
+      },
+      {
+        "path": "img/intro.jpg",
+        "size": 273553
+      },
+      {
+        "path": "img/intro_bg2.png",
+        "size": 549401
+      },
+      {
+        "path": "index.html",
+        "size": 9458
+      },
+      {
+        "path": "js/d3.min.js",
+        "size": 126855
+      },
+      {
+        "path": "js/jquery-1.7.1.min.js",
+        "size": 93868
+      },
+      {
+        "path": "js/jquery.lettering.js",
+        "size": 1715
+      },
+      {
+        "path": "js/jquery.scrollorama.js",
+        "size": 15753
+      },
+      {
+        "path": "js/retina.js",
+        "size": 1326
+      },
+      {
+        "path": "js/tabletop.js",
+        "size": 9537
+      },
+      {
+        "path": "js/underscore-min.js",
+        "size": 10260
+      },
+      {
+        "path": "style.css",
+        "size": 17556
+      },
+      {
+        "path": "style.less",
+        "size": 23220
+      }
+    ],
+    "tree": {
+      "name": "happybirthdaytributary",
+      "children": [
+        {
+          "name": "img",
+          "children": [
+            {
+              "name": "content",
+              "children": [
+                {
+                  "name": "crossfilter.png",
+                  "size": 38836,
+                  "path": "img/content/crossfilter.png"
+                },
+                {
+                  "name": "learn-d3.png",
+                  "size": 475027,
+                  "path": "img/content/learn-d3.png"
+                },
+                {
+                  "name": "learn-michael.png",
+                  "size": 96401,
+                  "path": "img/content/learn-michael.png"
+                },
+                {
+                  "name": "learn-zeffii.png",
+                  "size": 25236,
+                  "path": "img/content/learn-zeffii.png"
+                },
+                {
+                  "name": "learn.png",
+                  "size": 247840,
+                  "path": "img/content/learn.png"
+                },
+                {
+                  "name": "play-geom.png",
+                  "size": 161436,
+                  "path": "img/content/play-geom.png"
+                },
+                {
+                  "name": "play-illusions.png",
+                  "size": 1281595,
+                  "path": "img/content/play-illusions.png"
+                },
+                {
+                  "name": "play-vj.png",
+                  "size": 405253,
+                  "path": "img/content/play-vj.png"
+                },
+                {
+                  "name": "work-enjalot.png",
+                  "size": 83468,
+                  "path": "img/content/work-enjalot.png"
+                },
+                {
+                  "name": "work-halftone.png",
+                  "size": 139704,
+                  "path": "img/content/work-halftone.png"
+                },
+                {
+                  "name": "work-nils.png",
+                  "size": 26449,
+                  "path": "img/content/work-nils.png"
+                },
+                {
+                  "name": "work.png",
+                  "size": 286818,
+                  "path": "img/content/work.png"
+                }
+              ],
+              "path": "img/content"
+            },
+            {
+              "name": "intro.jpg",
+              "size": 273553,
+              "path": "img/intro.jpg"
+            },
+            {
+              "name": "intro_bg2.png",
+              "size": 549401,
+              "path": "img/intro_bg2.png"
+            }
+          ],
+          "path": "img"
+        },
+        {
+          "name": "js",
+          "children": [
+            {
+              "name": "d3.min.js",
+              "size": 126855,
+              "path": "js/d3.min.js"
+            },
+            {
+              "name": "jquery-1.7.1.min.js",
+              "size": 93868,
+              "path": "js/jquery-1.7.1.min.js"
+            },
+            {
+              "name": "jquery.lettering.js",
+              "size": 1715,
+              "path": "js/jquery.lettering.js"
+            },
+            {
+              "name": "jquery.scrollorama.js",
+              "size": 15753,
+              "path": "js/jquery.scrollorama.js"
+            },
+            {
+              "name": "retina.js",
+              "size": 1326,
+              "path": "js/retina.js"
+            },
+            {
+              "name": "tabletop.js",
+              "size": 9537,
+              "path": "js/tabletop.js"
+            },
+            {
+              "name": "underscore-min.js",
+              "size": 10260,
+              "path": "js/underscore-min.js"
+            }
+          ],
+          "path": "js"
+        },
+        {
+          "name": "README.md",
+          "size": 72,
+          "path": "README.md"
+        },
+        {
+          "name": "index.html",
+          "size": 9458,
+          "path": "index.html"
+        },
+        {
+          "name": "style.css",
+          "size": 17556,
+          "path": "style.css"
+        },
+        {
+          "name": "style.less",
+          "size": 23220,
+          "path": "style.less"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 25,
+    "totalSize": 4400637
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"happybirthdaytributary\">happybirthdaytributary</h1>\n<p>Happy birthday Tributary!</p>",

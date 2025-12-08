@@ -11,7 +11,12 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/61UgA0cr+5L._SY160.jpg",
       "highlightsCount": 6
     },
-    "tags": ["book", "history", "culture", "america"],
+    "tags": [
+      "book",
+      "history",
+      "culture",
+      "america"
+    ],
     "words": 251,
     "images": 0,
     "imageDetails": {

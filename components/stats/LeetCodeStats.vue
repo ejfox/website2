@@ -70,7 +70,7 @@
             )} problems`"
           ></div>
         </div>
-        <div class="flex justify-between text-2xs text-zinc-500 mt-1">
+        <div class="flex justify-between text-2xs text-zinc-500 mt-2">
           <span>EASY</span>
           <span>MEDIUM</span>
           <span>HARD</span>

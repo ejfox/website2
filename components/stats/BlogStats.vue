@@ -1,16 +1,16 @@
 <template>
-  <div v-if="stats" class="space-y-4 font-mono">
+  <div v-if="stats" class="space-y-2 font-mono">
     <!-- Writing Status -->
-    <div class="flex justify-around items-start gap-8 py-4">
+    <div class="flex justify-around items-start gap-2 py-2">
       <div class="text-center">
         <div class="text-2xl font-bold">{{ stats.posts.total || 'N/A' }}</div>
-        <div class="text-xs text-zinc-500 uppercase tracking-widest mt-1">
+        <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
           TOTAL POSTS
         </div>
       </div>
       <div class="text-center">
         <div class="text-2xl font-bold">{{ stats.posts.thisMonth }}</div>
-        <div class="text-xs text-zinc-500 uppercase tracking-widest mt-1">
+        <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
           THIS MONTH
         </div>
       </div>
@@ -18,7 +18,7 @@
 
     <!-- Simple Stats -->
     <StatsSectionHeader title="STATISTICS" />
-    <div class="space-y-1.5">
+    <div class="space-y-2">
       <div class="flex items-center justify-between">
         <span class="text-zinc-500 uppercase tracking-widest text-xs">
           WORDS THIS MONTH
@@ -47,7 +47,7 @@
 
     <!-- Recent Posts -->
     <StatsSectionHeader title="RECENT POSTS" />
-    <div class="space-y-1.5">
+    <div class="space-y-2">
       <div
         v-for="post in stats.recentPosts.slice(0, 5)"
         :key="post.slug"

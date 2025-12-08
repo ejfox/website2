@@ -13,7 +13,11 @@
     },
     "date": "2025-08-21T18:46:31.000Z",
     "modified": "2025-08-24T22:31:29.000Z",
-    "tags": ["book", "tech", "anarchism"],
+    "tags": [
+      "book",
+      "tech",
+      "anarchism"
+    ],
     "words": 595,
     "images": 0,
     "imageDetails": {

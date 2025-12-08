@@ -97,7 +97,7 @@ usePageSeo({
 
 <template>
   <div>
-    <header class="my-20 md:mt-8 pl-4 pr-4 md:pl-0">
+    <header class="pt-8 mb-8 pl-4 pr-4 md:pl-0">
       <h1 class="text-display mb-8">External Links</h1>
       <p class="text-body mb-8">
         {{ links?.length || 0 }} unique external links from across the site

@@ -16,6 +16,282 @@
     "Vue": 16173
   },
   "diskUsage": 131,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".env.example",
+        "size": 87
+      },
+      {
+        "path": ".gitignore",
+        "size": 201
+      },
+      {
+        "path": "README.md",
+        "size": 1021
+      },
+      {
+        "path": "app.vue",
+        "size": 1331
+      },
+      {
+        "path": "components/HomepageArticle.vue",
+        "size": 2669
+      },
+      {
+        "path": "components/NewsArticle.vue",
+        "size": 2845
+      },
+      {
+        "path": "composables/useBookmarks.ts",
+        "size": 2695
+      },
+      {
+        "path": "layouts/default.vue",
+        "size": 105
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 396
+      },
+      {
+        "path": "package.json",
+        "size": 503
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 9223
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "public/robots.txt",
+        "size": 1
+      },
+      {
+        "path": "server/api/articles.get.ts",
+        "size": 1048
+      },
+      {
+        "path": "server/api/news/process.post.ts",
+        "size": 6794
+      },
+      {
+        "path": "server/api/openrouter/summarize.post.ts",
+        "size": 1577
+      },
+      {
+        "path": "server/api/pinboard/bookmarks.get.ts",
+        "size": 1775
+      },
+      {
+        "path": "server/api/rss.get.ts",
+        "size": 2470
+      },
+      {
+        "path": "server/services/database.ts",
+        "size": 1995
+      },
+      {
+        "path": "server/tsconfig.json",
+        "size": 49
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 94
+      },
+      {
+        "path": "yarn.lock",
+        "size": 270637
+      }
+    ],
+    "tree": {
+      "name": "ejfox.news",
+      "children": [
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "HomepageArticle.vue",
+              "size": 2669,
+              "path": "components/HomepageArticle.vue"
+            },
+            {
+              "name": "NewsArticle.vue",
+              "size": 2845,
+              "path": "components/NewsArticle.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "composables",
+          "children": [
+            {
+              "name": "useBookmarks.ts",
+              "size": 2695,
+              "path": "composables/useBookmarks.ts"
+            }
+          ],
+          "path": "composables"
+        },
+        {
+          "name": "layouts",
+          "children": [
+            {
+              "name": "default.vue",
+              "size": 105,
+              "path": "layouts/default.vue"
+            }
+          ],
+          "path": "layouts"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "index.vue",
+              "size": 9223,
+              "path": "pages/index.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "favicon.ico",
+              "size": 4286,
+              "path": "public/favicon.ico"
+            },
+            {
+              "name": "robots.txt",
+              "size": 1,
+              "path": "public/robots.txt"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "server",
+          "children": [
+            {
+              "name": "api",
+              "children": [
+                {
+                  "name": "news",
+                  "children": [
+                    {
+                      "name": "process.post.ts",
+                      "size": 6794,
+                      "path": "server/api/news/process.post.ts"
+                    }
+                  ],
+                  "path": "server/api/news"
+                },
+                {
+                  "name": "openrouter",
+                  "children": [
+                    {
+                      "name": "summarize.post.ts",
+                      "size": 1577,
+                      "path": "server/api/openrouter/summarize.post.ts"
+                    }
+                  ],
+                  "path": "server/api/openrouter"
+                },
+                {
+                  "name": "pinboard",
+                  "children": [
+                    {
+                      "name": "bookmarks.get.ts",
+                      "size": 1775,
+                      "path": "server/api/pinboard/bookmarks.get.ts"
+                    }
+                  ],
+                  "path": "server/api/pinboard"
+                },
+                {
+                  "name": "articles.get.ts",
+                  "size": 1048,
+                  "path": "server/api/articles.get.ts"
+                },
+                {
+                  "name": "rss.get.ts",
+                  "size": 2470,
+                  "path": "server/api/rss.get.ts"
+                }
+              ],
+              "path": "server/api"
+            },
+            {
+              "name": "services",
+              "children": [
+                {
+                  "name": "database.ts",
+                  "size": 1995,
+                  "path": "server/services/database.ts"
+                }
+              ],
+              "path": "server/services"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 49,
+              "path": "server/tsconfig.json"
+            }
+          ],
+          "path": "server"
+        },
+        {
+          "name": ".env.example",
+          "size": 87,
+          "path": ".env.example"
+        },
+        {
+          "name": ".gitignore",
+          "size": 201,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 1021,
+          "path": "README.md"
+        },
+        {
+          "name": "app.vue",
+          "size": 1331,
+          "path": "app.vue"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 396,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 503,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 94,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 270637,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 22,
+    "totalSize": 311802
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"ejfoxnews\">ejfox.news</h1>\n<p>A pinboard and AI generated news website for my friends. Any pinboard bookmark I tag with \"!news\" is AI-summarized and added to the website.</p>\n<img width=\"1110\" height=\"614\" alt=\"screenshot 2025-08-12 at 11 15 46 AM\" src=\"https://github.com/user-attachments/assets/f86d9106-642f-49f1-b233-5d7cb0276034\" />\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install dependencies:</p>\n<pre><code class=\"language-bash\"># npm\nnpm install\n\n# pnpm\npnpm install\n\n# yarn\nyarn install\n\n# bun\nbun install\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <code>http://localhost:3000</code>:</p>\n<pre><code class=\"language-bash\"># npm\nnpm run dev\n\n# pnpm\npnpm dev\n\n# yarn\nyarn dev\n\n# bun\nbun run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\"># npm\nnpm run build\n\n# pnpm\npnpm build\n\n# yarn\nyarn build\n\n# bun\nbun run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\"># npm\nnpm run preview\n\n# pnpm\npnpm preview\n\n# yarn\nyarn preview\n\n# bun\nbun run preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>",

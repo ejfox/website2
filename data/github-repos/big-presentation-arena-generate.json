@@ -15,6 +15,72 @@
     "JavaScript": 1991
   },
   "diskUsage": 38,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 13
+      },
+      {
+        "path": "LICENSE.md",
+        "size": 1119
+      },
+      {
+        "path": "README.md",
+        "size": 1065
+      },
+      {
+        "path": "cli.js",
+        "size": 1991
+      },
+      {
+        "path": "package-lock.json",
+        "size": 7251
+      },
+      {
+        "path": "package.json",
+        "size": 699
+      }
+    ],
+    "tree": {
+      "name": "big-presentation-arena-generate",
+      "children": [
+        {
+          "name": ".gitignore",
+          "size": 13,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE.md",
+          "size": 1119,
+          "path": "LICENSE.md"
+        },
+        {
+          "name": "README.md",
+          "size": 1065,
+          "path": "README.md"
+        },
+        {
+          "name": "cli.js",
+          "size": 1991,
+          "path": "cli.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 7251,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 699,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 6,
+    "totalSize": 12138
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"big-presentation-arena-generate\">big-presentation-arena-generate</h1>\n<p>A set of code glue to easily generate <a href=\"https://github.com/tmcw/big/blob/gh-pages/docs/user-guide.md\">big</a> presentations from &lt;are.na&gt; channels</p>\n<h1 id=\"install\">Install</h1>\n<p><code>npm install -g big-presentation-arena-generate</code></p>\n<h1 id=\"usage\">Usage</h1>\n<p>This assumes you have <a href=\"https://github.com/tmcw/big/blob/gh-pages/docs/user-guide.md\">already installed big</a> via <code>npm install -g big-presentation</code></p>\n<p>Initialize your project with <code>big-presentation-init</code>\nIn your project's folder, run <code>big-presentation-arena-generate --slug=CHANNELSLUG</code></p>\n<p><img src=\"https://i.imgur.com/zkfXSwG.gif\" alt=\"Demo part 1\" /></p>\n<h4 id=\"finding-your-channel-slug\">Finding your channel slug</h4>\n<p>The channel slug is the last part of the URL on the are.na website. For example the slug for <a href=\"https://www.are.na/ej-fox/neo-internet-philosophy\">https://www.are.na/ej-fox/neo-internet-philosophy</a> is <code>neo-internet-philosophy</code></p>\n<h2 id=\"to-do\">To-do</h2>\n<ul>\n<li>Add --image-only flag to skip text only posts</li>\n<li>Add generated final slide with link to are.na channel</li>\n</ul>\n<h1 id=\"made-by-ej-fox-\">Made by EJ Fox 🌞</h1>\n<h4 id=\"mar-30-2019\">Mar 30, 2019</h4>\n<p><a href=\"mailto:ejfox@ejfox.com\">ejfox@ejfox.com</a> // Questions, comments, collaboration welcome</p>\n<p>Support for my work is appreciated! <a href=\"https://ejfox.com/donate/\">https://ejfox.com/donate/</a></p>",

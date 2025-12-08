@@ -2,7 +2,11 @@
   "html": "<h2 class=\"\" id=\"2024-45\">2024-45</h2>\n<h3 class=\"\" id=\"daily-check-in--reflections\">Daily Check-In &#x26; Reflections</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Monday:</li>\n<li class=\"\">Tuesday:</li>\n<li class=\"\">Wednesday:</li>\n<li class=\"\">Thursday:</li>\n<li class=\"\">Friday:</li>\n<li class=\"\">Saturday:</li>\n<li class=\"\">Sunday:</li>\n</ul>\n<h3 class=\"\" id=\"code--creations\">Code &#x26; Creations</h3>\n<h3 class=\"\" id=\"ideas--inspirations\">Ideas &#x26; Inspirations</h3>\n<h3 class=\"\" id=\"-health--wellness\">🏋 Health &#x26; Wellness</h3>\n<!-- Note any physical activity, mindfulness practice, or self-care -->\n<h3 class=\"\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->\n<h3 class=\"\" id=\"-connections--insights\">🔗 Connections &#x26; Insights</h3>\n<!-- Note any interesting connections between ideas or new realizations -->\n<h3 class=\"\" id=\"next-weeks-intentions\">Next Week's Intentions</h3>\n<!-- What do you want to focus on or accomplish next week? -->",
   "title": "2024 45",
   "metadata": {
-    "tags": ["weekly-notes", "reflections", "progress"],
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
     "modified": "2024-11-05T16:37:55.000Z",
     "date": "Invalid date",
     "words": 93,

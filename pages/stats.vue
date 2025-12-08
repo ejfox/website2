@@ -3,7 +3,7 @@
     <!-- Stats TOC - ClientOnly to fix SSR hydration -->
     <ClientOnly>
       <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
-        <div class="py-4">
+        <div class="pt-8 pb-4">
           <ul class="space-y-1 font-mono text-xs list-none pl-0">
             <li v-for="section in statsSections" :key="section.id">
               <a
@@ -20,13 +20,17 @@
     </ClientOnly>
 
     <!-- Simple Mode -->
-    <section v-if="isSimpleMode" ref="sectionRef" class="space-y-2 text-xs">
+    <section
+      v-if="isSimpleMode"
+      ref="sectionRef"
+      class="space-y-2 text-xs pt-8"
+    >
       <!-- Minimal header -->
       <div ref="headerRef" class="simple-mode-header">
         <div>FOX_STATS</div>
         <div ref="progressRef">{{ displayDayOfYear }}/{{ daysInYear }}</div>
       </div>
-      <div class="text-[10px] text-zinc-500 dark:text-zinc-500 px-4">
+      <div class="text-[10px] text-zinc-500 dark:text-zinc-500 px-2">
         Updated {{ statsUpdated || 'live' }} · sources: GitHub, Chess.com,
         Monkeytype, Last.fm, RescueTime
       </div>
@@ -48,7 +52,7 @@
       </div>
 
       <!-- Dense stats layout -->
-      <div v-else class="space-y-4 p-4">
+      <div v-else class="space-y-2 p-4">
         <!-- Writing Stats -->
         <StatsStatSection title="WRITING" :show="validBlogStats">
           <StatsStatRow label="Posts" :value="validBlogStats.totalPosts" />
@@ -237,7 +241,7 @@
 
           <!-- Top Artists -->
           <div v-if="stats.lastfm.topArtists?.artists" class="mt-4">
-            <div class="text-xs text-zinc-500 mb-1">TOP_ARTISTS</div>
+            <div class="text-xs text-zinc-500 mb-2">TOP_ARTISTS</div>
             <div class="space-y-0.5">
               <div
                 v-for="(artist, index) in stats.lastfm.topArtists.artists.slice(
@@ -257,7 +261,7 @@
 
           <!-- Top Tracks -->
           <div v-if="stats.lastfm.topTracks?.tracks" class="mt-4">
-            <div class="text-xs text-zinc-500 mb-1">TOP_TRACKS</div>
+            <div class="text-xs text-zinc-500 mb-2">TOP_TRACKS</div>
             <div class="space-y-0.5">
               <div
                 v-for="(track, index) in stats.lastfm.topTracks.tracks.slice(
@@ -279,11 +283,11 @@
     </section>
 
     <!-- Full Mode (default) -->
-    <div v-else class="relative overflow-hidden">
+    <div v-else class="relative overflow-hidden pt-8">
       <!-- Main Content -->
       <section class="min-w-0 w-full mx-auto max-w-none">
         <!-- Header -->
-        <header class="py-8">
+        <header class="pb-8">
           <div style="max-width: 65ch">
             <h1 class="font-serif text-3xl font-normal mb-2">Stats</h1>
             <!-- Data-driven gonzo summary -->
@@ -602,8 +606,10 @@ const { getAllPosts } = useProcessedMarkdown()
 const { formatNumber } = useNumberFormat()
 const { isValidPost } = usePostFilters()
 
-// Load all commits for the matrix visualization
-const { data: allCommitsData } = await useFetch('/api/github-commits')
+// Load all commits for the matrix visualization (lazy: below-the-fold, 868KB)
+const { data: allCommitsData } = await useFetch('/api/github-commits', {
+  lazy: true,
+})
 const allCommits = computed(() => allCommitsData.value || [])
 
 // Calculate height based on time span (roughly 2px per day)

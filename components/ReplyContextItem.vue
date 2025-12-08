@@ -20,7 +20,7 @@
     <!-- Content -->
     <div class="flex-grow min-w-0">
       <!-- Header: "In reply to" + site name -->
-      <div class="flex items-baseline gap-2 flex-wrap mb-1">
+      <div class="flex items-baseline gap-2 flex-wrap mb-2">
         <span
           v-if="showLabel"
           class="text-xs font-mono uppercase tracking-wide text-zinc-500 dark:text-zinc-400"
@@ -59,7 +59,7 @@
       <!-- Description -->
       <p
         v-if="ogData?.description"
-        class="text-sm text-zinc-600 dark:text-zinc-400 mt-1 line-clamp-2"
+        class="text-sm text-zinc-600 dark:text-zinc-400 mt-2 line-clamp-2"
       >
         {{ truncate(ogData.description, 160) }}
       </p>
@@ -69,7 +69,7 @@
         v-if="ogData?.image && showImage"
         :src="ogData.image"
         :alt="ogData.title || 'Preview'"
-        class="mt-3 rounded max-h-32 object-cover"
+        class="mt-4 rounded max-h-32 object-cover"
         @error="showImage = false"
       />
     </div>

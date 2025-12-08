@@ -17,6 +17,507 @@
     "SCSS": 3727
   },
   "diskUsage": 1261,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".babelrc",
+        "size": 489
+      },
+      {
+        "path": ".editorconfig",
+        "size": 606
+      },
+      {
+        "path": ".gitattributes",
+        "size": 554
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE.md",
+        "size": 762
+      },
+      {
+        "path": ".github/workflows/build.yml",
+        "size": 1062
+      },
+      {
+        "path": ".gitignore",
+        "size": 514
+      },
+      {
+        "path": ".npmrc",
+        "size": 22
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 4016
+      },
+      {
+        "path": "LICENSE.txt",
+        "size": 1063
+      },
+      {
+        "path": "UPGRADING.md",
+        "size": 1174
+      },
+      {
+        "path": "__test__/__mocks__/styleMock.js",
+        "size": 21
+      },
+      {
+        "path": "__test__/__snapshots__/component.spec.js.snap",
+        "size": 345
+      },
+      {
+        "path": "__test__/component.spec.js",
+        "size": 484
+      },
+      {
+        "path": "__test__/plugin.spec.js",
+        "size": 565
+      },
+      {
+        "path": "examples/App.vue",
+        "size": 5560
+      },
+      {
+        "path": "examples/favicon.ico",
+        "size": 0
+      },
+      {
+        "path": "examples/index.html",
+        "size": 331
+      },
+      {
+        "path": "examples/index.js",
+        "size": 365
+      },
+      {
+        "path": "jest.config.js",
+        "size": 494
+      },
+      {
+        "path": "package.json",
+        "size": 2058
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "size": 219695
+      },
+      {
+        "path": "readme.md",
+        "size": 6075
+      },
+      {
+        "path": "src/index.js",
+        "size": 411
+      },
+      {
+        "path": "src/js/Component.vue",
+        "size": 4758
+      },
+      {
+        "path": "src/js/api.js",
+        "size": 1359
+      },
+      {
+        "path": "src/js/bus.js",
+        "size": 74
+      },
+      {
+        "path": "src/js/helpers.js",
+        "size": 499
+      },
+      {
+        "path": "src/js/positions.js",
+        "size": 180
+      },
+      {
+        "path": "src/js/timer.js",
+        "size": 492
+      },
+      {
+        "path": "src/themes/_animations.scss",
+        "size": 769
+      },
+      {
+        "path": "src/themes/bootstrap/_variables.scss",
+        "size": 46
+      },
+      {
+        "path": "src/themes/bootstrap/index.scss",
+        "size": 131
+      },
+      {
+        "path": "src/themes/default/_main.scss",
+        "size": 1404
+      },
+      {
+        "path": "src/themes/default/_variables.scss",
+        "size": 212
+      },
+      {
+        "path": "src/themes/default/index.scss",
+        "size": 62
+      },
+      {
+        "path": "src/themes/sugar/_variables.scss",
+        "size": 251
+      },
+      {
+        "path": "src/themes/sugar/icons.scss",
+        "size": 762
+      },
+      {
+        "path": "src/themes/sugar/icons/error.svg",
+        "size": 467
+      },
+      {
+        "path": "src/themes/sugar/icons/info.svg",
+        "size": 454
+      },
+      {
+        "path": "src/themes/sugar/icons/success.svg",
+        "size": 309
+      },
+      {
+        "path": "src/themes/sugar/icons/warning.svg",
+        "size": 590
+      },
+      {
+        "path": "src/themes/sugar/index.scss",
+        "size": 90
+      },
+      {
+        "path": "types/toast.d.ts",
+        "size": 1302
+      },
+      {
+        "path": "webpack.config.dev.js",
+        "size": 3416
+      },
+      {
+        "path": "webpack.config.js",
+        "size": 2648
+      }
+    ],
+    "tree": {
+      "name": "vue-toast-notification",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "build.yml",
+                  "size": 1062,
+                  "path": ".github/workflows/build.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            },
+            {
+              "name": "ISSUE_TEMPLATE.md",
+              "size": 762,
+              "path": ".github/ISSUE_TEMPLATE.md"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "__test__",
+          "children": [
+            {
+              "name": "__mocks__",
+              "children": [
+                {
+                  "name": "styleMock.js",
+                  "size": 21,
+                  "path": "__test__/__mocks__/styleMock.js"
+                }
+              ],
+              "path": "__test__/__mocks__"
+            },
+            {
+              "name": "__snapshots__",
+              "children": [
+                {
+                  "name": "component.spec.js.snap",
+                  "size": 345,
+                  "path": "__test__/__snapshots__/component.spec.js.snap"
+                }
+              ],
+              "path": "__test__/__snapshots__"
+            },
+            {
+              "name": "component.spec.js",
+              "size": 484,
+              "path": "__test__/component.spec.js"
+            },
+            {
+              "name": "plugin.spec.js",
+              "size": 565,
+              "path": "__test__/plugin.spec.js"
+            }
+          ],
+          "path": "__test__"
+        },
+        {
+          "name": "examples",
+          "children": [
+            {
+              "name": "App.vue",
+              "size": 5560,
+              "path": "examples/App.vue"
+            },
+            {
+              "name": "favicon.ico",
+              "size": 0,
+              "path": "examples/favicon.ico"
+            },
+            {
+              "name": "index.html",
+              "size": 331,
+              "path": "examples/index.html"
+            },
+            {
+              "name": "index.js",
+              "size": 365,
+              "path": "examples/index.js"
+            }
+          ],
+          "path": "examples"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "js",
+              "children": [
+                {
+                  "name": "Component.vue",
+                  "size": 4758,
+                  "path": "src/js/Component.vue"
+                },
+                {
+                  "name": "api.js",
+                  "size": 1359,
+                  "path": "src/js/api.js"
+                },
+                {
+                  "name": "bus.js",
+                  "size": 74,
+                  "path": "src/js/bus.js"
+                },
+                {
+                  "name": "helpers.js",
+                  "size": 499,
+                  "path": "src/js/helpers.js"
+                },
+                {
+                  "name": "positions.js",
+                  "size": 180,
+                  "path": "src/js/positions.js"
+                },
+                {
+                  "name": "timer.js",
+                  "size": 492,
+                  "path": "src/js/timer.js"
+                }
+              ],
+              "path": "src/js"
+            },
+            {
+              "name": "themes",
+              "children": [
+                {
+                  "name": "bootstrap",
+                  "children": [
+                    {
+                      "name": "_variables.scss",
+                      "size": 46,
+                      "path": "src/themes/bootstrap/_variables.scss"
+                    },
+                    {
+                      "name": "index.scss",
+                      "size": 131,
+                      "path": "src/themes/bootstrap/index.scss"
+                    }
+                  ],
+                  "path": "src/themes/bootstrap"
+                },
+                {
+                  "name": "default",
+                  "children": [
+                    {
+                      "name": "_main.scss",
+                      "size": 1404,
+                      "path": "src/themes/default/_main.scss"
+                    },
+                    {
+                      "name": "_variables.scss",
+                      "size": 212,
+                      "path": "src/themes/default/_variables.scss"
+                    },
+                    {
+                      "name": "index.scss",
+                      "size": 62,
+                      "path": "src/themes/default/index.scss"
+                    }
+                  ],
+                  "path": "src/themes/default"
+                },
+                {
+                  "name": "sugar",
+                  "children": [
+                    {
+                      "name": "icons",
+                      "children": [
+                        {
+                          "name": "error.svg",
+                          "size": 467,
+                          "path": "src/themes/sugar/icons/error.svg"
+                        },
+                        {
+                          "name": "info.svg",
+                          "size": 454,
+                          "path": "src/themes/sugar/icons/info.svg"
+                        },
+                        {
+                          "name": "success.svg",
+                          "size": 309,
+                          "path": "src/themes/sugar/icons/success.svg"
+                        },
+                        {
+                          "name": "warning.svg",
+                          "size": 590,
+                          "path": "src/themes/sugar/icons/warning.svg"
+                        }
+                      ],
+                      "path": "src/themes/sugar/icons"
+                    },
+                    {
+                      "name": "_variables.scss",
+                      "size": 251,
+                      "path": "src/themes/sugar/_variables.scss"
+                    },
+                    {
+                      "name": "icons.scss",
+                      "size": 762,
+                      "path": "src/themes/sugar/icons.scss"
+                    },
+                    {
+                      "name": "index.scss",
+                      "size": 90,
+                      "path": "src/themes/sugar/index.scss"
+                    }
+                  ],
+                  "path": "src/themes/sugar"
+                },
+                {
+                  "name": "_animations.scss",
+                  "size": 769,
+                  "path": "src/themes/_animations.scss"
+                }
+              ],
+              "path": "src/themes"
+            },
+            {
+              "name": "index.js",
+              "size": 411,
+              "path": "src/index.js"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "types",
+          "children": [
+            {
+              "name": "toast.d.ts",
+              "size": 1302,
+              "path": "types/toast.d.ts"
+            }
+          ],
+          "path": "types"
+        },
+        {
+          "name": ".babelrc",
+          "size": 489,
+          "path": ".babelrc"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 606,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".gitattributes",
+          "size": 554,
+          "path": ".gitattributes"
+        },
+        {
+          "name": ".gitignore",
+          "size": 514,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 22,
+          "path": ".npmrc"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 4016,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "LICENSE.txt",
+          "size": 1063,
+          "path": "LICENSE.txt"
+        },
+        {
+          "name": "UPGRADING.md",
+          "size": 1174,
+          "path": "UPGRADING.md"
+        },
+        {
+          "name": "jest.config.js",
+          "size": 494,
+          "path": "jest.config.js"
+        },
+        {
+          "name": "package.json",
+          "size": 2058,
+          "path": "package.json"
+        },
+        {
+          "name": "pnpm-lock.yaml",
+          "size": 219695,
+          "path": "pnpm-lock.yaml"
+        },
+        {
+          "name": "readme.md",
+          "size": 6075,
+          "path": "readme.md"
+        },
+        {
+          "name": "webpack.config.dev.js",
+          "size": 3416,
+          "path": "webpack.config.dev.js"
+        },
+        {
+          "name": "webpack.config.js",
+          "size": 2648,
+          "path": "webpack.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 45,
+    "totalSize": 266941
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

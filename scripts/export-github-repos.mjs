@@ -6,7 +6,7 @@
  * Usage: node scripts/export-github-repos.mjs
  */
 
-import { writeFileSync, mkdirSync, existsSync } from 'node:fs'
+import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { unified } from 'unified'
@@ -93,6 +93,121 @@ async function fetchLanguageBreakdown(owner, repoName) {
       error.message
     )
     return {}
+  }
+}
+
+async function fetchFileTree(owner, repoName) {
+  try {
+    // Get default branch first
+    const repoResponse = await fetch(
+      `https://api.github.com/repos/${owner}/${repoName}`,
+      {
+        headers: {
+          Authorization: `bearer ${GITHUB_TOKEN}`,
+          'User-Agent': 'EJFox-Website/1.0',
+        },
+      }
+    )
+
+    if (!repoResponse.ok) {
+      console.warn(`  ⚠️  Failed to fetch repo info for ${repoName}`)
+      return null
+    }
+
+    const repoInfo = await repoResponse.json()
+    const defaultBranch = repoInfo.default_branch
+
+    // Get tree recursively
+    const treeResponse = await fetch(
+      `https://api.github.com/repos/${owner}/${repoName}/git/trees/${defaultBranch}?recursive=1`,
+      {
+        headers: {
+          Authorization: `bearer ${GITHUB_TOKEN}`,
+          'User-Agent': 'EJFox-Website/1.0',
+        },
+      }
+    )
+
+    if (!treeResponse.ok) {
+      console.warn(`  ⚠️  Failed to fetch tree for ${repoName}`)
+      return null
+    }
+
+    const treeData = await treeResponse.json()
+
+    // Build hierarchical structure for treemap
+    const root = {
+      name: repoName,
+      children: [],
+      path: '',
+    }
+
+    const pathMap = { '': root }
+
+    // First pass: create all directories
+    treeData.tree
+      .filter((item) => item.type === 'tree')
+      .forEach((dir) => {
+        const parts = dir.path.split('/')
+        let currentPath = ''
+
+        parts.forEach((part, idx) => {
+          const parentPath = currentPath
+          currentPath = currentPath ? `${currentPath}/${part}` : part
+
+          if (!pathMap[currentPath]) {
+            const node = {
+              name: part,
+              children: [],
+              path: currentPath,
+            }
+            pathMap[currentPath] = node
+
+            // Add to parent
+            const parent = pathMap[parentPath]
+            if (parent) {
+              parent.children.push(node)
+            }
+          }
+        })
+      })
+
+    // Second pass: add files
+    const files = []
+    treeData.tree
+      .filter((item) => item.type === 'blob')
+      .forEach((file) => {
+        const size = file.size || 0
+        files.push({
+          path: file.path,
+          size,
+        })
+
+        // Add to tree structure
+        const parts = file.path.split('/')
+        const filename = parts.pop()
+        const dirPath = parts.join('/')
+
+        const parent = pathMap[dirPath] || root
+        parent.children.push({
+          name: filename,
+          size,
+          path: file.path,
+        })
+      })
+
+    return {
+      files, // Flat list for simple viz
+      tree: root, // Hierarchical for treemap
+      totalFiles: files.length,
+      totalSize: files.reduce((sum, f) => sum + f.size, 0),
+    }
+  } catch (error) {
+    console.warn(
+      `  ⚠️  Error fetching file tree for ${repoName}:`,
+      error.message
+    )
+    return null
   }
 }
 
@@ -248,10 +363,34 @@ async function exportRepository(repo) {
     console.warn(`  ⚠️  Sanitized repo name: ${repo.name} -> ${safeName}`)
   }
 
+  const outputFile = join(OUTPUT_DIR, `${safeName}.json`)
+
+  // 🚀 SMART CACHING: Check if repo unchanged since last export
+  if (existsSync(outputFile)) {
+    try {
+      const cached = JSON.parse(readFileSync(outputFile, 'utf-8'))
+      if (cached.pushedAt === repo.pushedAt) {
+        console.log(
+          `  ✓ ${safeName} (cached, unchanged since ${repo.pushedAt})`
+        )
+        return {
+          name: safeName,
+          languages: cached.languages,
+          diskUsage: cached.diskUsage || 0,
+          cached: true,
+        }
+      }
+    } catch (err) {
+      // Corrupted cache, re-fetch
+      console.log(`  ⚠️  ${safeName} cache corrupted, re-fetching...`)
+    }
+  }
+
   console.log(`  Processing ${safeName}...`)
 
   const readme = await processReadme(repo.object?.text)
   const languages = await fetchLanguageBreakdown(GITHUB_OWNER, repo.name)
+  const fileTree = await fetchFileTree(GITHUB_OWNER, repo.name)
 
   const repoData = {
     name: repo.name,
@@ -268,6 +407,7 @@ async function exportRepository(repo) {
     languageColor: repo.primaryLanguage?.color || '#666666',
     languages, // Language breakdown by bytes
     diskUsage: repo.diskUsage || 0, // Total KB
+    fileTree, // File tree with sizes
     topics: repo.repositoryTopics.nodes.map((t) => t.topic.name),
     readme,
     createdAt: repo.createdAt,
@@ -275,10 +415,14 @@ async function exportRepository(repo) {
     pushedAt: repo.pushedAt,
   }
 
-  const outputFile = join(OUTPUT_DIR, `${safeName}.json`)
   writeFileSync(outputFile, JSON.stringify(repoData, null, 2))
 
-  return { name: safeName, languages, diskUsage: repo.diskUsage || 0 }
+  return {
+    name: safeName,
+    languages,
+    diskUsage: repo.diskUsage || 0,
+    cached: false,
+  }
 }
 
 async function main() {
@@ -291,9 +435,15 @@ async function main() {
 
     const repoNames = []
     const reposList = [] // Lightweight list for index page
+    let cachedCount = 0
+    let fetchedCount = 0
 
     for (const repo of repos) {
-      const { name, languages, diskUsage } = await exportRepository(repo)
+      const { name, languages, diskUsage, cached } =
+        await exportRepository(repo)
+
+      if (cached) cachedCount++
+      else fetchedCount++
 
       repoNames.push(name)
 
@@ -335,6 +485,9 @@ async function main() {
 
     console.log(`\n✅ Done!`)
     console.log(`\nExported ${repos.length} repositories`)
+    console.log(
+      `🚀 Cache: ${cachedCount} cached, ${fetchedCount} fetched (${Math.round((cachedCount / repos.length) * 100)}% cache hit)`
+    )
     console.log(`Languages: ${languages.join(', ')}`)
     console.log(`Total stars: ${totalStars}`)
     console.log(`Output: ${OUTPUT_DIR}`)

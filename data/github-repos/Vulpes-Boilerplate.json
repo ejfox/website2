@@ -16,6 +16,87 @@
     "CSS": 11668
   },
   "diskUsage": 556,
+  "fileTree": {
+    "files": [
+      {
+        "path": "README.md",
+        "size": 484
+      },
+      {
+        "path": "index.html",
+        "size": 5127
+      },
+      {
+        "path": "js/d3.min.js",
+        "size": 146841
+      },
+      {
+        "path": "js/jquery.js",
+        "size": 96380
+      },
+      {
+        "path": "js/underscore-min.js",
+        "size": 14682
+      },
+      {
+        "path": "style.css",
+        "size": 5939
+      },
+      {
+        "path": "style.styl",
+        "size": 5729
+      }
+    ],
+    "tree": {
+      "name": "Vulpes-Boilerplate",
+      "children": [
+        {
+          "name": "js",
+          "children": [
+            {
+              "name": "d3.min.js",
+              "size": 146841,
+              "path": "js/d3.min.js"
+            },
+            {
+              "name": "jquery.js",
+              "size": 96380,
+              "path": "js/jquery.js"
+            },
+            {
+              "name": "underscore-min.js",
+              "size": 14682,
+              "path": "js/underscore-min.js"
+            }
+          ],
+          "path": "js"
+        },
+        {
+          "name": "README.md",
+          "size": 484,
+          "path": "README.md"
+        },
+        {
+          "name": "index.html",
+          "size": 5127,
+          "path": "index.html"
+        },
+        {
+          "name": "style.css",
+          "size": 5939,
+          "path": "style.css"
+        },
+        {
+          "name": "style.styl",
+          "size": 5729,
+          "path": "style.styl"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 7,
+    "totalSize": 275182
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"vulpes-interactive-infographic-template\">Vulpes Interactive Infographic Template</h1>\n<p>A lightweight starting point to create websites, especially data visualization mini-sites. (That's my job!)</p>\n<p>jQuery, D3, and Underscore are included. <a href=\"http://learnboost.github.io/stylus/\">Stylus</a> is used for CSS.</p>\n<p>I've focused on sane defaults (for me) and little else, so it can be the starting point for as many projects as possible with little to no modification.</p>\n<p>Check out a <a href=\"http://ejfox.github.com/Vulpes-Boilerplate/\">demo/preview</a>.</p>",

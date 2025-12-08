@@ -1,7 +1,7 @@
 <template>
-  <div v-if="stats" class="space-y-4 font-mono">
+  <div v-if="stats" class="space-y-2 font-mono">
     <!-- Primary Rating -->
-    <div class="text-center py-4">
+    <div class="text-center py-2">
       <div class="text-2xl font-bold">
         <AnimatedNumber
           :value="highestActiveRating"
@@ -10,7 +10,7 @@
           priority="primary"
         />
       </div>
-      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-1">
+      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
         CHESS RATING
       </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
@@ -30,7 +30,7 @@
     </div>
 
     <!-- Variant Ratings with Stats -->
-    <div class="space-y-1.5 mb-4">
+    <div class="space-y-2 mb-4">
       <div
         v-for="variant in variantStats"
         :key="variant.name"
@@ -66,7 +66,7 @@
     <!-- Performance Stats -->
     <div v-if="hasGameStats">
       <StatsSectionHeader title="PERFORMANCE" />
-      <div class="space-y-1.5">
+      <div class="space-y-2">
         <div
           v-for="metric in performanceMetrics"
           :key="metric.label"
@@ -104,7 +104,7 @@
               {{ formatTimeAgo(game.timestamp) }}
             </span>
           </div>
-          <div class="flex items-center gap-1">
+          <div class="flex items-center gap-0.5">
             <span class="tabular-nums font-medium">{{ game.rating }}</span>
             <span
               v-if="game.ratingDiff && game.ratingDiff !== 0"

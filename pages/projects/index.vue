@@ -144,10 +144,10 @@ useHead(() => ({
 </script>
 
 <template>
-  <div class="px-4 md:px-8 max-w-4xl pt-0.5">
-    <header class="mb-12 pb-4">
+  <div class="px-4 md:px-8 max-w-4xl pt-8">
+    <header class="mb-8">
       <div
-        class="font-mono text-xs text-zinc-500 mb-3 uppercase tracking-wider"
+        class="font-mono text-xs text-zinc-500 mb-4 uppercase tracking-wider"
       >
         INDEX / PROJECTS / {{ earliestYear }}–{{ latestYear }}
       </div>
@@ -181,7 +181,7 @@ useHead(() => ({
     </div>
 
     <!-- Featured Projects -->
-    <div v-if="featuredProjects.length" class="mb-16 space-y-16">
+    <div v-if="featuredProjects.length" class="mb-12 space-y-8">
       <FeaturedProjectCard
         v-for="(project, index) in featuredProjects"
         :id="getProjectId(project)"
@@ -194,7 +194,7 @@ useHead(() => ({
     <!-- Regular Projects - Simple Grid -->
     <div
       v-if="regularProjects.length"
-      class="grid gap-6"
+      class="grid gap-4"
       style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))"
     >
       <BentoProjectCard
@@ -208,15 +208,15 @@ useHead(() => ({
     <!-- TOC -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">
-        <nav class="mt-8">
-          <ul class="text-sm">
+        <div class="pt-8 pb-4">
+          <ul class="space-y-1 font-mono text-xs list-none pl-0">
             <li v-for="project in projects" :key="project.slug">
               <a :href="`#${getProjectId(project)}`" :class="tocLinkClass">
                 {{ project.title || project.metadata?.title }}
               </a>
             </li>
           </ul>
-        </nav>
+        </div>
       </teleport>
     </ClientOnly>
   </div>

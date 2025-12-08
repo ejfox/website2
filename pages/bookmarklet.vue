@@ -15,7 +15,7 @@
           placeholder="Enter your secret passphrase"
           class="input-text"
         />
-        <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-1">
+        <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-2">
           This will be embedded in your bookmarklet for authentication
         </p>
       </div>

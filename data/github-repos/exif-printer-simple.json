@@ -19,6 +19,1101 @@
     "HTML": 329
   },
   "diskUsage": 11454,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".claude/settings.local.json",
+        "size": 320
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "size": 1640
+      },
+      {
+        "path": ".github/workflows/test.yml",
+        "size": 1378
+      },
+      {
+        "path": ".gitignore",
+        "size": 365
+      },
+      {
+        "path": ".vscode/extensions.json",
+        "size": 102
+      },
+      {
+        "path": "README.md",
+        "size": 2306
+      },
+      {
+        "path": "env.d.ts",
+        "size": 312
+      },
+      {
+        "path": "icon.png",
+        "size": 2134872
+      },
+      {
+        "path": "icon_1024.png",
+        "size": 1521368
+      },
+      {
+        "path": "index.html",
+        "size": 329
+      },
+      {
+        "path": "package-lock.json",
+        "size": 398267
+      },
+      {
+        "path": "package.json",
+        "size": 1883
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "src-tauri/.gitignore",
+        "size": 86
+      },
+      {
+        "path": "src-tauri/Cargo.lock",
+        "size": 127693
+      },
+      {
+        "path": "src-tauri/Cargo.toml",
+        "size": 697
+      },
+      {
+        "path": "src-tauri/build.rs",
+        "size": 37
+      },
+      {
+        "path": "src-tauri/capabilities/default.json",
+        "size": 207
+      },
+      {
+        "path": "src-tauri/icons/128x128.png",
+        "size": 24498
+      },
+      {
+        "path": "src-tauri/icons/128x128@2x.png",
+        "size": 88534
+      },
+      {
+        "path": "src-tauri/icons/32x32.png",
+        "size": 2563
+      },
+      {
+        "path": "src-tauri/icons/64x64.png",
+        "size": 7633
+      },
+      {
+        "path": "src-tauri/icons/Square107x107Logo.png",
+        "size": 17965
+      },
+      {
+        "path": "src-tauri/icons/Square142x142Logo.png",
+        "size": 29307
+      },
+      {
+        "path": "src-tauri/icons/Square150x150Logo.png",
+        "size": 32433
+      },
+      {
+        "path": "src-tauri/icons/Square284x284Logo.png",
+        "size": 108601
+      },
+      {
+        "path": "src-tauri/icons/Square30x30Logo.png",
+        "size": 2342
+      },
+      {
+        "path": "src-tauri/icons/Square310x310Logo.png",
+        "size": 129836
+      },
+      {
+        "path": "src-tauri/icons/Square44x44Logo.png",
+        "size": 4170
+      },
+      {
+        "path": "src-tauri/icons/Square71x71Logo.png",
+        "size": 9086
+      },
+      {
+        "path": "src-tauri/icons/Square89x89Logo.png",
+        "size": 13166
+      },
+      {
+        "path": "src-tauri/icons/StoreLogo.png",
+        "size": 5105
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-hdpi/ic_launcher.png",
+        "size": 4903
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-hdpi/ic_launcher_foreground.png",
+        "size": 37419
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-hdpi/ic_launcher_round.png",
+        "size": 4903
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-mdpi/ic_launcher.png",
+        "size": 4736
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-mdpi/ic_launcher_foreground.png",
+        "size": 18209
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-mdpi/ic_launcher_round.png",
+        "size": 4736
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-xhdpi/ic_launcher.png",
+        "size": 14857
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-xhdpi/ic_launcher_foreground.png",
+        "size": 63832
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-xhdpi/ic_launcher_round.png",
+        "size": 14857
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-xxhdpi/ic_launcher.png",
+        "size": 30038
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-xxhdpi/ic_launcher_foreground.png",
+        "size": 141866
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-xxhdpi/ic_launcher_round.png",
+        "size": 30038
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher.png",
+        "size": 50885
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher_foreground.png",
+        "size": 258501
+      },
+      {
+        "path": "src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher_round.png",
+        "size": 50885
+      },
+      {
+        "path": "src-tauri/icons/icon.icns",
+        "size": 2496862
+      },
+      {
+        "path": "src-tauri/icons/icon.ico",
+        "size": 106573
+      },
+      {
+        "path": "src-tauri/icons/icon.png",
+        "size": 374427
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-20x20@1x.png",
+        "size": 1187
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-20x20@2x-1.png",
+        "size": 3400
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-20x20@2x.png",
+        "size": 3400
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-20x20@3x.png",
+        "size": 6648
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-29x29@1x.png",
+        "size": 2079
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-29x29@2x-1.png",
+        "size": 6318
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-29x29@2x.png",
+        "size": 6318
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-29x29@3x.png",
+        "size": 12406
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-40x40@1x.png",
+        "size": 3400
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-40x40@2x-1.png",
+        "size": 10732
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-40x40@2x.png",
+        "size": 10732
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-40x40@3x.png",
+        "size": 21560
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-512@2x.png",
+        "size": 1537590
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-60x60@2x.png",
+        "size": 21560
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-60x60@3x.png",
+        "size": 44753
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-76x76@1x.png",
+        "size": 9903
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-76x76@2x.png",
+        "size": 32849
+      },
+      {
+        "path": "src-tauri/icons/ios/AppIcon-83.5x83.5@2x.png",
+        "size": 39093
+      },
+      {
+        "path": "src-tauri/src/lib.rs",
+        "size": 5212
+      },
+      {
+        "path": "src-tauri/src/main.rs",
+        "size": 177
+      },
+      {
+        "path": "src-tauri/tauri.conf.json",
+        "size": 874
+      },
+      {
+        "path": "src/App.vue",
+        "size": 27095
+      },
+      {
+        "path": "src/assets/base.css",
+        "size": 2067
+      },
+      {
+        "path": "src/assets/logo.svg",
+        "size": 276
+      },
+      {
+        "path": "src/assets/main.css",
+        "size": 492
+      },
+      {
+        "path": "src/components/HelloWorld.vue",
+        "size": 687
+      },
+      {
+        "path": "src/components/TheWelcome.vue",
+        "size": 3502
+      },
+      {
+        "path": "src/components/WelcomeItem.vue",
+        "size": 1414
+      },
+      {
+        "path": "src/components/__tests__/HelloWorld.spec.ts",
+        "size": 330
+      },
+      {
+        "path": "src/components/icons/IconCommunity.vue",
+        "size": 1054
+      },
+      {
+        "path": "src/components/icons/IconDocumentation.vue",
+        "size": 1254
+      },
+      {
+        "path": "src/components/icons/IconEcosystem.vue",
+        "size": 1977
+      },
+      {
+        "path": "src/components/icons/IconSupport.vue",
+        "size": 288
+      },
+      {
+        "path": "src/components/icons/IconTooling.vue",
+        "size": 913
+      },
+      {
+        "path": "src/composables/__tests__/usePhotoProcessing.spec.ts",
+        "size": 4928
+      },
+      {
+        "path": "src/composables/__tests__/usePrintSizes.spec.ts",
+        "size": 2525
+      },
+      {
+        "path": "src/composables/__tests__/useTauriIntegration.spec.ts",
+        "size": 5700
+      },
+      {
+        "path": "src/composables/useContactSheet.ts",
+        "size": 5471
+      },
+      {
+        "path": "src/composables/usePhotoProcessing.ts",
+        "size": 2587
+      },
+      {
+        "path": "src/composables/usePrintSizes.ts",
+        "size": 1293
+      },
+      {
+        "path": "src/main.ts",
+        "size": 237
+      },
+      {
+        "path": "src/router/index.ts",
+        "size": 591
+      },
+      {
+        "path": "src/shims-vue.d.ts",
+        "size": 146
+      },
+      {
+        "path": "src/stores/counter.ts",
+        "size": 306
+      },
+      {
+        "path": "src/style.css",
+        "size": 7784
+      },
+      {
+        "path": "src/views/AboutView.vue",
+        "size": 220
+      },
+      {
+        "path": "src/views/HomeView.vue",
+        "size": 151
+      },
+      {
+        "path": "tsconfig.app.json",
+        "size": 289
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 244
+      },
+      {
+        "path": "tsconfig.node.json",
+        "size": 414
+      },
+      {
+        "path": "tsconfig.vitest.json",
+        "size": 254
+      },
+      {
+        "path": "vite.config.ts",
+        "size": 486
+      },
+      {
+        "path": "vitest.config.ts",
+        "size": 382
+      }
+    ],
+    "tree": {
+      "name": "exif-printer-simple",
+      "children": [
+        {
+          "name": ".claude",
+          "children": [
+            {
+              "name": "settings.local.json",
+              "size": 320,
+              "path": ".claude/settings.local.json"
+            }
+          ],
+          "path": ".claude"
+        },
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "ci.yml",
+                  "size": 1640,
+                  "path": ".github/workflows/ci.yml"
+                },
+                {
+                  "name": "test.yml",
+                  "size": 1378,
+                  "path": ".github/workflows/test.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "extensions.json",
+              "size": 102,
+              "path": ".vscode/extensions.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "favicon.ico",
+              "size": 4286,
+              "path": "public/favicon.ico"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "src-tauri",
+          "children": [
+            {
+              "name": "capabilities",
+              "children": [
+                {
+                  "name": "default.json",
+                  "size": 207,
+                  "path": "src-tauri/capabilities/default.json"
+                }
+              ],
+              "path": "src-tauri/capabilities"
+            },
+            {
+              "name": "icons",
+              "children": [
+                {
+                  "name": "android",
+                  "children": [
+                    {
+                      "name": "mipmap-hdpi",
+                      "children": [
+                        {
+                          "name": "ic_launcher.png",
+                          "size": 4903,
+                          "path": "src-tauri/icons/android/mipmap-hdpi/ic_launcher.png"
+                        },
+                        {
+                          "name": "ic_launcher_foreground.png",
+                          "size": 37419,
+                          "path": "src-tauri/icons/android/mipmap-hdpi/ic_launcher_foreground.png"
+                        },
+                        {
+                          "name": "ic_launcher_round.png",
+                          "size": 4903,
+                          "path": "src-tauri/icons/android/mipmap-hdpi/ic_launcher_round.png"
+                        }
+                      ],
+                      "path": "src-tauri/icons/android/mipmap-hdpi"
+                    },
+                    {
+                      "name": "mipmap-mdpi",
+                      "children": [
+                        {
+                          "name": "ic_launcher.png",
+                          "size": 4736,
+                          "path": "src-tauri/icons/android/mipmap-mdpi/ic_launcher.png"
+                        },
+                        {
+                          "name": "ic_launcher_foreground.png",
+                          "size": 18209,
+                          "path": "src-tauri/icons/android/mipmap-mdpi/ic_launcher_foreground.png"
+                        },
+                        {
+                          "name": "ic_launcher_round.png",
+                          "size": 4736,
+                          "path": "src-tauri/icons/android/mipmap-mdpi/ic_launcher_round.png"
+                        }
+                      ],
+                      "path": "src-tauri/icons/android/mipmap-mdpi"
+                    },
+                    {
+                      "name": "mipmap-xhdpi",
+                      "children": [
+                        {
+                          "name": "ic_launcher.png",
+                          "size": 14857,
+                          "path": "src-tauri/icons/android/mipmap-xhdpi/ic_launcher.png"
+                        },
+                        {
+                          "name": "ic_launcher_foreground.png",
+                          "size": 63832,
+                          "path": "src-tauri/icons/android/mipmap-xhdpi/ic_launcher_foreground.png"
+                        },
+                        {
+                          "name": "ic_launcher_round.png",
+                          "size": 14857,
+                          "path": "src-tauri/icons/android/mipmap-xhdpi/ic_launcher_round.png"
+                        }
+                      ],
+                      "path": "src-tauri/icons/android/mipmap-xhdpi"
+                    },
+                    {
+                      "name": "mipmap-xxhdpi",
+                      "children": [
+                        {
+                          "name": "ic_launcher.png",
+                          "size": 30038,
+                          "path": "src-tauri/icons/android/mipmap-xxhdpi/ic_launcher.png"
+                        },
+                        {
+                          "name": "ic_launcher_foreground.png",
+                          "size": 141866,
+                          "path": "src-tauri/icons/android/mipmap-xxhdpi/ic_launcher_foreground.png"
+                        },
+                        {
+                          "name": "ic_launcher_round.png",
+                          "size": 30038,
+                          "path": "src-tauri/icons/android/mipmap-xxhdpi/ic_launcher_round.png"
+                        }
+                      ],
+                      "path": "src-tauri/icons/android/mipmap-xxhdpi"
+                    },
+                    {
+                      "name": "mipmap-xxxhdpi",
+                      "children": [
+                        {
+                          "name": "ic_launcher.png",
+                          "size": 50885,
+                          "path": "src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher.png"
+                        },
+                        {
+                          "name": "ic_launcher_foreground.png",
+                          "size": 258501,
+                          "path": "src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher_foreground.png"
+                        },
+                        {
+                          "name": "ic_launcher_round.png",
+                          "size": 50885,
+                          "path": "src-tauri/icons/android/mipmap-xxxhdpi/ic_launcher_round.png"
+                        }
+                      ],
+                      "path": "src-tauri/icons/android/mipmap-xxxhdpi"
+                    }
+                  ],
+                  "path": "src-tauri/icons/android"
+                },
+                {
+                  "name": "ios",
+                  "children": [
+                    {
+                      "name": "AppIcon-20x20@1x.png",
+                      "size": 1187,
+                      "path": "src-tauri/icons/ios/AppIcon-20x20@1x.png"
+                    },
+                    {
+                      "name": "AppIcon-20x20@2x-1.png",
+                      "size": 3400,
+                      "path": "src-tauri/icons/ios/AppIcon-20x20@2x-1.png"
+                    },
+                    {
+                      "name": "AppIcon-20x20@2x.png",
+                      "size": 3400,
+                      "path": "src-tauri/icons/ios/AppIcon-20x20@2x.png"
+                    },
+                    {
+                      "name": "AppIcon-20x20@3x.png",
+                      "size": 6648,
+                      "path": "src-tauri/icons/ios/AppIcon-20x20@3x.png"
+                    },
+                    {
+                      "name": "AppIcon-29x29@1x.png",
+                      "size": 2079,
+                      "path": "src-tauri/icons/ios/AppIcon-29x29@1x.png"
+                    },
+                    {
+                      "name": "AppIcon-29x29@2x-1.png",
+                      "size": 6318,
+                      "path": "src-tauri/icons/ios/AppIcon-29x29@2x-1.png"
+                    },
+                    {
+                      "name": "AppIcon-29x29@2x.png",
+                      "size": 6318,
+                      "path": "src-tauri/icons/ios/AppIcon-29x29@2x.png"
+                    },
+                    {
+                      "name": "AppIcon-29x29@3x.png",
+                      "size": 12406,
+                      "path": "src-tauri/icons/ios/AppIcon-29x29@3x.png"
+                    },
+                    {
+                      "name": "AppIcon-40x40@1x.png",
+                      "size": 3400,
+                      "path": "src-tauri/icons/ios/AppIcon-40x40@1x.png"
+                    },
+                    {
+                      "name": "AppIcon-40x40@2x-1.png",
+                      "size": 10732,
+                      "path": "src-tauri/icons/ios/AppIcon-40x40@2x-1.png"
+                    },
+                    {
+                      "name": "AppIcon-40x40@2x.png",
+                      "size": 10732,
+                      "path": "src-tauri/icons/ios/AppIcon-40x40@2x.png"
+                    },
+                    {
+                      "name": "AppIcon-40x40@3x.png",
+                      "size": 21560,
+                      "path": "src-tauri/icons/ios/AppIcon-40x40@3x.png"
+                    },
+                    {
+                      "name": "AppIcon-512@2x.png",
+                      "size": 1537590,
+                      "path": "src-tauri/icons/ios/AppIcon-512@2x.png"
+                    },
+                    {
+                      "name": "AppIcon-60x60@2x.png",
+                      "size": 21560,
+                      "path": "src-tauri/icons/ios/AppIcon-60x60@2x.png"
+                    },
+                    {
+                      "name": "AppIcon-60x60@3x.png",
+                      "size": 44753,
+                      "path": "src-tauri/icons/ios/AppIcon-60x60@3x.png"
+                    },
+                    {
+                      "name": "AppIcon-76x76@1x.png",
+                      "size": 9903,
+                      "path": "src-tauri/icons/ios/AppIcon-76x76@1x.png"
+                    },
+                    {
+                      "name": "AppIcon-76x76@2x.png",
+                      "size": 32849,
+                      "path": "src-tauri/icons/ios/AppIcon-76x76@2x.png"
+                    },
+                    {
+                      "name": "AppIcon-83.5x83.5@2x.png",
+                      "size": 39093,
+                      "path": "src-tauri/icons/ios/AppIcon-83.5x83.5@2x.png"
+                    }
+                  ],
+                  "path": "src-tauri/icons/ios"
+                },
+                {
+                  "name": "128x128.png",
+                  "size": 24498,
+                  "path": "src-tauri/icons/128x128.png"
+                },
+                {
+                  "name": "128x128@2x.png",
+                  "size": 88534,
+                  "path": "src-tauri/icons/128x128@2x.png"
+                },
+                {
+                  "name": "32x32.png",
+                  "size": 2563,
+                  "path": "src-tauri/icons/32x32.png"
+                },
+                {
+                  "name": "64x64.png",
+                  "size": 7633,
+                  "path": "src-tauri/icons/64x64.png"
+                },
+                {
+                  "name": "Square107x107Logo.png",
+                  "size": 17965,
+                  "path": "src-tauri/icons/Square107x107Logo.png"
+                },
+                {
+                  "name": "Square142x142Logo.png",
+                  "size": 29307,
+                  "path": "src-tauri/icons/Square142x142Logo.png"
+                },
+                {
+                  "name": "Square150x150Logo.png",
+                  "size": 32433,
+                  "path": "src-tauri/icons/Square150x150Logo.png"
+                },
+                {
+                  "name": "Square284x284Logo.png",
+                  "size": 108601,
+                  "path": "src-tauri/icons/Square284x284Logo.png"
+                },
+                {
+                  "name": "Square30x30Logo.png",
+                  "size": 2342,
+                  "path": "src-tauri/icons/Square30x30Logo.png"
+                },
+                {
+                  "name": "Square310x310Logo.png",
+                  "size": 129836,
+                  "path": "src-tauri/icons/Square310x310Logo.png"
+                },
+                {
+                  "name": "Square44x44Logo.png",
+                  "size": 4170,
+                  "path": "src-tauri/icons/Square44x44Logo.png"
+                },
+                {
+                  "name": "Square71x71Logo.png",
+                  "size": 9086,
+                  "path": "src-tauri/icons/Square71x71Logo.png"
+                },
+                {
+                  "name": "Square89x89Logo.png",
+                  "size": 13166,
+                  "path": "src-tauri/icons/Square89x89Logo.png"
+                },
+                {
+                  "name": "StoreLogo.png",
+                  "size": 5105,
+                  "path": "src-tauri/icons/StoreLogo.png"
+                },
+                {
+                  "name": "icon.icns",
+                  "size": 2496862,
+                  "path": "src-tauri/icons/icon.icns"
+                },
+                {
+                  "name": "icon.ico",
+                  "size": 106573,
+                  "path": "src-tauri/icons/icon.ico"
+                },
+                {
+                  "name": "icon.png",
+                  "size": 374427,
+                  "path": "src-tauri/icons/icon.png"
+                }
+              ],
+              "path": "src-tauri/icons"
+            },
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "lib.rs",
+                  "size": 5212,
+                  "path": "src-tauri/src/lib.rs"
+                },
+                {
+                  "name": "main.rs",
+                  "size": 177,
+                  "path": "src-tauri/src/main.rs"
+                }
+              ],
+              "path": "src-tauri/src"
+            },
+            {
+              "name": ".gitignore",
+              "size": 86,
+              "path": "src-tauri/.gitignore"
+            },
+            {
+              "name": "Cargo.lock",
+              "size": 127693,
+              "path": "src-tauri/Cargo.lock"
+            },
+            {
+              "name": "Cargo.toml",
+              "size": 697,
+              "path": "src-tauri/Cargo.toml"
+            },
+            {
+              "name": "build.rs",
+              "size": 37,
+              "path": "src-tauri/build.rs"
+            },
+            {
+              "name": "tauri.conf.json",
+              "size": 874,
+              "path": "src-tauri/tauri.conf.json"
+            }
+          ],
+          "path": "src-tauri"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "assets",
+              "children": [
+                {
+                  "name": "base.css",
+                  "size": 2067,
+                  "path": "src/assets/base.css"
+                },
+                {
+                  "name": "logo.svg",
+                  "size": 276,
+                  "path": "src/assets/logo.svg"
+                },
+                {
+                  "name": "main.css",
+                  "size": 492,
+                  "path": "src/assets/main.css"
+                }
+              ],
+              "path": "src/assets"
+            },
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "__tests__",
+                  "children": [
+                    {
+                      "name": "HelloWorld.spec.ts",
+                      "size": 330,
+                      "path": "src/components/__tests__/HelloWorld.spec.ts"
+                    }
+                  ],
+                  "path": "src/components/__tests__"
+                },
+                {
+                  "name": "icons",
+                  "children": [
+                    {
+                      "name": "IconCommunity.vue",
+                      "size": 1054,
+                      "path": "src/components/icons/IconCommunity.vue"
+                    },
+                    {
+                      "name": "IconDocumentation.vue",
+                      "size": 1254,
+                      "path": "src/components/icons/IconDocumentation.vue"
+                    },
+                    {
+                      "name": "IconEcosystem.vue",
+                      "size": 1977,
+                      "path": "src/components/icons/IconEcosystem.vue"
+                    },
+                    {
+                      "name": "IconSupport.vue",
+                      "size": 288,
+                      "path": "src/components/icons/IconSupport.vue"
+                    },
+                    {
+                      "name": "IconTooling.vue",
+                      "size": 913,
+                      "path": "src/components/icons/IconTooling.vue"
+                    }
+                  ],
+                  "path": "src/components/icons"
+                },
+                {
+                  "name": "HelloWorld.vue",
+                  "size": 687,
+                  "path": "src/components/HelloWorld.vue"
+                },
+                {
+                  "name": "TheWelcome.vue",
+                  "size": 3502,
+                  "path": "src/components/TheWelcome.vue"
+                },
+                {
+                  "name": "WelcomeItem.vue",
+                  "size": 1414,
+                  "path": "src/components/WelcomeItem.vue"
+                }
+              ],
+              "path": "src/components"
+            },
+            {
+              "name": "composables",
+              "children": [
+                {
+                  "name": "__tests__",
+                  "children": [
+                    {
+                      "name": "usePhotoProcessing.spec.ts",
+                      "size": 4928,
+                      "path": "src/composables/__tests__/usePhotoProcessing.spec.ts"
+                    },
+                    {
+                      "name": "usePrintSizes.spec.ts",
+                      "size": 2525,
+                      "path": "src/composables/__tests__/usePrintSizes.spec.ts"
+                    },
+                    {
+                      "name": "useTauriIntegration.spec.ts",
+                      "size": 5700,
+                      "path": "src/composables/__tests__/useTauriIntegration.spec.ts"
+                    }
+                  ],
+                  "path": "src/composables/__tests__"
+                },
+                {
+                  "name": "useContactSheet.ts",
+                  "size": 5471,
+                  "path": "src/composables/useContactSheet.ts"
+                },
+                {
+                  "name": "usePhotoProcessing.ts",
+                  "size": 2587,
+                  "path": "src/composables/usePhotoProcessing.ts"
+                },
+                {
+                  "name": "usePrintSizes.ts",
+                  "size": 1293,
+                  "path": "src/composables/usePrintSizes.ts"
+                }
+              ],
+              "path": "src/composables"
+            },
+            {
+              "name": "router",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 591,
+                  "path": "src/router/index.ts"
+                }
+              ],
+              "path": "src/router"
+            },
+            {
+              "name": "stores",
+              "children": [
+                {
+                  "name": "counter.ts",
+                  "size": 306,
+                  "path": "src/stores/counter.ts"
+                }
+              ],
+              "path": "src/stores"
+            },
+            {
+              "name": "views",
+              "children": [
+                {
+                  "name": "AboutView.vue",
+                  "size": 220,
+                  "path": "src/views/AboutView.vue"
+                },
+                {
+                  "name": "HomeView.vue",
+                  "size": 151,
+                  "path": "src/views/HomeView.vue"
+                }
+              ],
+              "path": "src/views"
+            },
+            {
+              "name": "App.vue",
+              "size": 27095,
+              "path": "src/App.vue"
+            },
+            {
+              "name": "main.ts",
+              "size": 237,
+              "path": "src/main.ts"
+            },
+            {
+              "name": "shims-vue.d.ts",
+              "size": 146,
+              "path": "src/shims-vue.d.ts"
+            },
+            {
+              "name": "style.css",
+              "size": 7784,
+              "path": "src/style.css"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".gitignore",
+          "size": 365,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 2306,
+          "path": "README.md"
+        },
+        {
+          "name": "env.d.ts",
+          "size": 312,
+          "path": "env.d.ts"
+        },
+        {
+          "name": "icon.png",
+          "size": 2134872,
+          "path": "icon.png"
+        },
+        {
+          "name": "icon_1024.png",
+          "size": 1521368,
+          "path": "icon_1024.png"
+        },
+        {
+          "name": "index.html",
+          "size": 329,
+          "path": "index.html"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 398267,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1883,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.app.json",
+          "size": 289,
+          "path": "tsconfig.app.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 244,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "tsconfig.node.json",
+          "size": 414,
+          "path": "tsconfig.node.json"
+        },
+        {
+          "name": "tsconfig.vitest.json",
+          "size": 254,
+          "path": "tsconfig.vitest.json"
+        },
+        {
+          "name": "vite.config.ts",
+          "size": 486,
+          "path": "vite.config.ts"
+        },
+        {
+          "name": "vitest.config.ts",
+          "size": 382,
+          "path": "vitest.config.ts"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 103,
+    "totalSize": 10235462
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"exif-photo-printer\">EXIF Photo Printer</h1>\n<p>A minimal desktop application for creating printable photos with EXIF camera data displayed in clean borders.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li><strong>Drag &amp; Drop Interface</strong> - Simply drag photos into the app</li>\n<li><strong>EXIF Data Integration</strong> - Automatically extracts and displays camera settings</li>\n<li><strong>Multiple Print Sizes</strong> - 4x6, 5x7, 8x10, 8x12, 11x14, and 5x5 square formats</li>\n<li><strong>Batch Processing</strong> - Download all prints at once to a selected folder</li>\n<li><strong>Professional Output</strong> - 300 DPI resolution for high-quality printing</li>\n<li><strong>Dark Mode Support</strong> - Clean, minimal interface with native macOS feel</li>\n</ul>\n<h2 id=\"quick-start\">Quick Start</h2>\n<ol>\n<li>Launch the app</li>\n<li>Drag photos into the window</li>\n<li>Adjust global settings (print size, fit mode)</li>\n<li>Click \"Download All\" to save prints to your chosen folder</li>\n<li>Use \"Open in Finder\" to view saved files</li>\n</ol>\n<h2 id=\"technical-details\">Technical Details</h2>\n<ul>\n<li>Built with <strong>Electron</strong> and <strong>Vue 3</strong></li>\n<li>Uses <strong>exifr</strong> library for EXIF data extraction</li>\n<li><strong>Canvas-based</strong> image processing for precise layout</li>\n<li><strong>Code signed</strong> for macOS distribution</li>\n<li><strong>Unsandboxed</strong> for full directory access</li>\n</ul>\n<h2 id=\"development\">Development</h2>\n<pre><code class=\"language-bash\"># Install dependencies\nnpm install\n\n# Run in development mode\nnpm run dev\nnpm run electron:dev\n\n# Build for production\nnpm run build\nnpm run build:electron\n\n# Distribution build (creates DMG)\nnpm run dist\n</code></pre>\n<h2 id=\"release-management\">Release Management</h2>\n<pre><code class=\"language-bash\"># Version bumping\nnpm run version:patch  # 1.0.0 → 1.0.1\nnpm run version:minor  # 1.0.0 → 1.1.0\nnpm run version:major  # 1.0.0 → 2.0.0\n\n# Build and release to GitHub\nnpm run release        # Release current version\nnpm run release:patch  # Bump patch version and release\nnpm run release:minor  # Bump minor version and release\nnpm run release:major  # Bump major version and release\n</code></pre>\n<h2 id=\"macos-permissions\">macOS Permissions</h2>\n<p>For development mode, grant Terminal.app \"Full Disk Access\" in System Preferences &gt; Security &amp; Privacy &gt; Privacy.</p>\n<p>The built app includes proper entitlements for directory access.</p>\n<h2 id=\"output-format\">Output Format</h2>\n<p>Each print includes:</p>\n<ul>\n<li>Original photo (auto-rotated for portraits)</li>\n<li>0.3\" border with EXIF data:\n<ul>\n<li>Camera make/model</li>\n<li>Lens information</li>\n<li>Exposure settings (aperture, shutter, ISO)</li>\n<li>Date/time in DD.MM.YY format</li>\n<li>Additional metadata when available</li>\n</ul>\n</li>\n</ul>\n<p>Perfect for photographers who want clean, professional prints with technical details preserved.</p>",

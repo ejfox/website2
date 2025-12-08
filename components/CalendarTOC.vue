@@ -6,7 +6,7 @@
       <!-- Loading state -->
       <div v-if="pending" class="space-y-2">
         <div v-for="i in 3" :key="i" class="animate-pulse">
-          <div class="h-3 bg-zinc-200 dark:bg-zinc-700 rounded mb-1"></div>
+          <div class="h-3 bg-zinc-200 dark:bg-zinc-700 rounded mb-2"></div>
           <div class="h-2 bg-zinc-150 dark:bg-zinc-750 rounded w-3/4"></div>
         </div>
       </div>

@@ -11,7 +11,12 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/91r7o60L5KL._SY160.jpg",
       "highlightsCount": 12
     },
-    "tags": ["book", "history", "america", "activism"],
+    "tags": [
+      "book",
+      "history",
+      "america",
+      "activism"
+    ],
     "words": 828,
     "images": 0,
     "imageDetails": {

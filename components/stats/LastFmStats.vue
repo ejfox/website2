@@ -1,9 +1,9 @@
 <template>
-  <div v-if="hasData" class="space-y-4 font-mono">
+  <div v-if="hasData" class="space-y-2 font-mono">
     <!-- Last 5 Songs -->
     <div v-if="stats?.recentTracks?.tracks?.length">
       <StatsSectionHeader title="LAST 5 SONGS" />
-      <div class="space-y-1.5">
+      <div class="space-y-2">
         <div
           v-for="track in (stats?.recentTracks?.tracks || []).slice(0, 5)"
           :key="track.name + track.date"
@@ -36,7 +36,7 @@
     <!-- Top Artists -->
     <div v-if="topArtists?.length">
       <StatsSectionHeader title="TOP ARTISTS" />
-      <div class="space-y-1.5">
+      <div class="space-y-2">
         <div
           v-for="(artist, index) in topArtists.slice(0, 5)"
           :key="artist.name"
@@ -61,7 +61,7 @@
     <!-- Top Genres if available -->
     <div v-if="topGenres?.length">
       <h4 class="section-label-tracked">TOP GENRES</h4>
-      <div class="space-y-1.5">
+      <div class="space-y-2">
         <div
           v-for="(genre, index) in topGenres.slice(0, 3)"
           :key="genre.name"
@@ -86,7 +86,7 @@
     <!-- Top Tracks -->
     <div v-if="topTracks?.length">
       <h4 class="section-label-tracked">TOP SONGS</h4>
-      <div class="space-y-1.5">
+      <div class="space-y-2">
         <div
           v-for="(track, index) in topTracks.slice(0, 3)"
           :key="track.name"

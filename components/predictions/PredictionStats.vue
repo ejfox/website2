@@ -51,7 +51,7 @@ const _props = defineProps({
 }
 
 .stat-card h3 {
-  @apply text-sm text-zinc-600 dark:text-zinc-400 mb-1;
+  @apply text-sm text-zinc-600 dark:text-zinc-400 mb-2;
 }
 
 .stat-value {
@@ -59,6 +59,6 @@ const _props = defineProps({
 }
 
 .stat-meta {
-  @apply text-xs text-zinc-500 dark:text-zinc-500 mt-1;
+  @apply text-xs text-zinc-500 dark:text-zinc-500 mt-2;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <main v-if="prediction" class="py-8 container-main">
+  <main v-if="prediction" class="pt-8 container-main">
     <!-- Header -->
     <header class="section-spacing-lg">
       <NuxtLink to="/predictions" class="mono-xs text-muted link-hover">
@@ -51,7 +51,7 @@
     <!-- Resolution -->
     <section v-if="prediction.resolution" class="section-spacing">
       <h2
-        class="heading-2 mb-3"
+        class="heading-2 mb-4"
         :class="prediction.status === 'correct' ? 'text-success' : 'text-error'"
       >
         {{
@@ -70,7 +70,7 @@
 
     <!-- Evidence -->
     <section v-if="prediction.evidence" class="section-spacing">
-      <h2 class="heading-2 mb-3">Evidence</h2>
+      <h2 class="heading-2 mb-4">Evidence</h2>
       <div
         class="prose prose-sm dark:prose-invert max-w-none"
         v-html="evidenceHtml"
@@ -118,7 +118,7 @@
       v-if="prediction.related && prediction.related.length > 0"
       class="section-spacing"
     >
-      <h2 class="heading-2 mb-3">Related</h2>
+      <h2 class="heading-2 mb-4">Related</h2>
       <ul class="stack-1 font-serif text-sm">
         <li v-for="relatedId in prediction.related" :key="relatedId">
           <NuxtLink
@@ -141,7 +141,7 @@
       <div class="text-error mb-2 uppercase font-bold">
         Error: Prediction not found
       </div>
-      <p class="text-secondary mb-3">
+      <p class="text-secondary mb-4">
         The requested prediction does not exist or has been removed.
       </p>
       <NuxtLink to="/predictions" class="text-secondary link-hover">

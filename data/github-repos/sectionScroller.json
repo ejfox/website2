@@ -15,6 +15,96 @@
     "JavaScript": 25290
   },
   "diskUsage": 208,
+  "fileTree": {
+    "files": [
+      {
+        "path": "README.md",
+        "size": 108
+      },
+      {
+        "path": "index.html",
+        "size": 15972
+      },
+      {
+        "path": "js/d3.min.js",
+        "size": 126855
+      },
+      {
+        "path": "js/jquery-1.7.1.min.js",
+        "size": 93868
+      },
+      {
+        "path": "js/jquery.scrollorama.js",
+        "size": 15753
+      },
+      {
+        "path": "js/tabletop.js",
+        "size": 9537
+      },
+      {
+        "path": "style.css",
+        "size": 13794
+      },
+      {
+        "path": "style.less",
+        "size": 19753
+      }
+    ],
+    "tree": {
+      "name": "sectionScroller",
+      "children": [
+        {
+          "name": "js",
+          "children": [
+            {
+              "name": "d3.min.js",
+              "size": 126855,
+              "path": "js/d3.min.js"
+            },
+            {
+              "name": "jquery-1.7.1.min.js",
+              "size": 93868,
+              "path": "js/jquery-1.7.1.min.js"
+            },
+            {
+              "name": "jquery.scrollorama.js",
+              "size": 15753,
+              "path": "js/jquery.scrollorama.js"
+            },
+            {
+              "name": "tabletop.js",
+              "size": 9537,
+              "path": "js/tabletop.js"
+            }
+          ],
+          "path": "js"
+        },
+        {
+          "name": "README.md",
+          "size": 108,
+          "path": "README.md"
+        },
+        {
+          "name": "index.html",
+          "size": 15972,
+          "path": "index.html"
+        },
+        {
+          "name": "style.css",
+          "size": 13794,
+          "path": "style.css"
+        },
+        {
+          "name": "style.less",
+          "size": 19753,
+          "path": "style.less"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 8,
+    "totalSize": 295640
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"sectionscroller\">sectionScroller</h1>\n<p>A little tool to visualize how far a user has scrolled in a page or section</p>",

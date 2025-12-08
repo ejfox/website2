@@ -16,6 +16,285 @@
     "JavaScript": 1526
   },
   "diskUsage": 139,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".editorconfig",
+        "size": 207
+      },
+      {
+        "path": ".firebaserc",
+        "size": 60
+      },
+      {
+        "path": ".github/workflows/firebase-hosting-merge.yml",
+        "size": 597
+      },
+      {
+        "path": ".github/workflows/firebase-hosting-pull-request.yml",
+        "size": 631
+      },
+      {
+        "path": ".gitignore",
+        "size": 1253
+      },
+      {
+        "path": "README.md",
+        "size": 350
+      },
+      {
+        "path": "assets/README.md",
+        "size": 296
+      },
+      {
+        "path": "components/Logo.vue",
+        "size": 853
+      },
+      {
+        "path": "components/README.md",
+        "size": 205
+      },
+      {
+        "path": "database.rules.json",
+        "size": 161
+      },
+      {
+        "path": "firebase.json",
+        "size": 291
+      },
+      {
+        "path": "layouts/README.md",
+        "size": 261
+      },
+      {
+        "path": "layouts/default.vue",
+        "size": 993
+      },
+      {
+        "path": "middleware/README.md",
+        "size": 383
+      },
+      {
+        "path": "nuxt.config.js",
+        "size": 1526
+      },
+      {
+        "path": "package-lock.json",
+        "size": 523401
+      },
+      {
+        "path": "package.json",
+        "size": 352
+      },
+      {
+        "path": "pages/README.md",
+        "size": 286
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 1208
+      },
+      {
+        "path": "plugins/README.md",
+        "size": 314
+      },
+      {
+        "path": "static/README.md",
+        "size": 435
+      },
+      {
+        "path": "static/favicon.ico",
+        "size": 1393
+      },
+      {
+        "path": "store/README.md",
+        "size": 400
+      }
+    ],
+    "tree": {
+      "name": "emoji-update",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "firebase-hosting-merge.yml",
+                  "size": 597,
+                  "path": ".github/workflows/firebase-hosting-merge.yml"
+                },
+                {
+                  "name": "firebase-hosting-pull-request.yml",
+                  "size": 631,
+                  "path": ".github/workflows/firebase-hosting-pull-request.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "assets",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 296,
+              "path": "assets/README.md"
+            }
+          ],
+          "path": "assets"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "Logo.vue",
+              "size": 853,
+              "path": "components/Logo.vue"
+            },
+            {
+              "name": "README.md",
+              "size": 205,
+              "path": "components/README.md"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "layouts",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 261,
+              "path": "layouts/README.md"
+            },
+            {
+              "name": "default.vue",
+              "size": 993,
+              "path": "layouts/default.vue"
+            }
+          ],
+          "path": "layouts"
+        },
+        {
+          "name": "middleware",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 383,
+              "path": "middleware/README.md"
+            }
+          ],
+          "path": "middleware"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 286,
+              "path": "pages/README.md"
+            },
+            {
+              "name": "index.vue",
+              "size": 1208,
+              "path": "pages/index.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "plugins",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 314,
+              "path": "plugins/README.md"
+            }
+          ],
+          "path": "plugins"
+        },
+        {
+          "name": "static",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 435,
+              "path": "static/README.md"
+            },
+            {
+              "name": "favicon.ico",
+              "size": 1393,
+              "path": "static/favicon.ico"
+            }
+          ],
+          "path": "static"
+        },
+        {
+          "name": "store",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 400,
+              "path": "store/README.md"
+            }
+          ],
+          "path": "store"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 207,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".firebaserc",
+          "size": 60,
+          "path": ".firebaserc"
+        },
+        {
+          "name": ".gitignore",
+          "size": 1253,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 350,
+          "path": "README.md"
+        },
+        {
+          "name": "database.rules.json",
+          "size": 161,
+          "path": "database.rules.json"
+        },
+        {
+          "name": "firebase.json",
+          "size": 291,
+          "path": "firebase.json"
+        },
+        {
+          "name": "nuxt.config.js",
+          "size": 1526,
+          "path": "nuxt.config.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 523401,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 352,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 23,
+    "totalSize": 535856
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"emoji-update\">emoji-update</h1>\n<h2 id=\"build-setup\">Build Setup</h2>\n<pre><code class=\"language-bash\"># install dependencies\n$ npm install\n\n# serve with hot reload at localhost:3000\n$ npm run dev\n\n# build for production and launch server\n$ npm run build\n$ npm run start\n\n# generate static project\n$ npm run generate\n</code></pre>\n<p>For detailed explanation on how things work, check out <a href=\"https://nuxtjs.org\">Nuxt.js docs</a>.</p>",

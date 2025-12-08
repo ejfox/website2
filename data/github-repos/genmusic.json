@@ -17,6 +17,186 @@
     "HTML": 660
   },
   "diskUsage": 113,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".editorconfig",
+        "size": 121
+      },
+      {
+        "path": ".gitignore",
+        "size": 214
+      },
+      {
+        "path": "README.md",
+        "size": 361
+      },
+      {
+        "path": "babel.config.js",
+        "size": 53
+      },
+      {
+        "path": "package-lock.json",
+        "size": 425710
+      },
+      {
+        "path": "package.json",
+        "size": 1067
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 1150
+      },
+      {
+        "path": "public/index.html",
+        "size": 660
+      },
+      {
+        "path": "src/App.vue",
+        "size": 118
+      },
+      {
+        "path": "src/assets/logo.png",
+        "size": 6849
+      },
+      {
+        "path": "src/main.js",
+        "size": 212
+      },
+      {
+        "path": "src/router.js",
+        "size": 532
+      },
+      {
+        "path": "src/store.js",
+        "size": 153
+      },
+      {
+        "path": "src/views/About.vue",
+        "size": 89
+      },
+      {
+        "path": "src/views/Home.vue",
+        "size": 876
+      },
+      {
+        "path": "vue.config.js",
+        "size": 41
+      }
+    ],
+    "tree": {
+      "name": "genmusic",
+      "children": [
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "favicon.ico",
+              "size": 1150,
+              "path": "public/favicon.ico"
+            },
+            {
+              "name": "index.html",
+              "size": 660,
+              "path": "public/index.html"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "assets",
+              "children": [
+                {
+                  "name": "logo.png",
+                  "size": 6849,
+                  "path": "src/assets/logo.png"
+                }
+              ],
+              "path": "src/assets"
+            },
+            {
+              "name": "views",
+              "children": [
+                {
+                  "name": "About.vue",
+                  "size": 89,
+                  "path": "src/views/About.vue"
+                },
+                {
+                  "name": "Home.vue",
+                  "size": 876,
+                  "path": "src/views/Home.vue"
+                }
+              ],
+              "path": "src/views"
+            },
+            {
+              "name": "App.vue",
+              "size": 118,
+              "path": "src/App.vue"
+            },
+            {
+              "name": "main.js",
+              "size": 212,
+              "path": "src/main.js"
+            },
+            {
+              "name": "router.js",
+              "size": 532,
+              "path": "src/router.js"
+            },
+            {
+              "name": "store.js",
+              "size": 153,
+              "path": "src/store.js"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 121,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".gitignore",
+          "size": 214,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 361,
+          "path": "README.md"
+        },
+        {
+          "name": "babel.config.js",
+          "size": 53,
+          "path": "babel.config.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 425710,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1067,
+          "path": "package.json"
+        },
+        {
+          "name": "vue.config.js",
+          "size": 41,
+          "path": "vue.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 16,
+    "totalSize": 438206
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"genmusic\">genmusic</h1>\n<h2 id=\"project-setup\">Project setup</h2>\n<pre><code>npm install\n</code></pre>\n<h3 id=\"compiles-and-hot-reloads-for-development\">Compiles and hot-reloads for development</h3>\n<pre><code>npm run serve\n</code></pre>\n<h3 id=\"compiles-and-minifies-for-production\">Compiles and minifies for production</h3>\n<pre><code>npm run build\n</code></pre>\n<h3 id=\"run-your-tests\">Run your tests</h3>\n<pre><code>npm run test\n</code></pre>\n<h3 id=\"lints-and-fixes-files\">Lints and fixes files</h3>\n<pre><code>npm run lint\n</code></pre>\n<h3 id=\"customize-configuration\">Customize configuration</h3>\n<p>See <a href=\"https://cli.vuejs.org/config/\">Configuration Reference</a>.</p>",

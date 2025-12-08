@@ -17,6 +17,285 @@
     "JavaScript": 1375
   },
   "diskUsage": 159,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".editorconfig",
+        "size": 146
+      },
+      {
+        "path": ".env-example",
+        "size": 40
+      },
+      {
+        "path": ".eslintrc.js",
+        "size": 524
+      },
+      {
+        "path": ".github/workflows/prettier.yml",
+        "size": 1024
+      },
+      {
+        "path": ".gitignore",
+        "size": 234
+      },
+      {
+        "path": ".npmrc",
+        "size": 52
+      },
+      {
+        "path": ".nvmrc",
+        "size": 9
+      },
+      {
+        "path": ".prettierrc",
+        "size": 104
+      },
+      {
+        "path": "README.md",
+        "size": 614
+      },
+      {
+        "path": "app.config.ts",
+        "size": 201
+      },
+      {
+        "path": "app.vue",
+        "size": 227
+      },
+      {
+        "path": "composables/.keep",
+        "size": 0
+      },
+      {
+        "path": "helpers.js",
+        "size": 851
+      },
+      {
+        "path": "netlify.toml",
+        "size": 185
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 999
+      },
+      {
+        "path": "package.json",
+        "size": 880
+      },
+      {
+        "path": "pages/confirm.vue",
+        "size": 229
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 1162
+      },
+      {
+        "path": "pages/login.vue",
+        "size": 574
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "server/api/.keep",
+        "size": 0
+      },
+      {
+        "path": "server/api/weather.post.ts",
+        "size": 397
+      },
+      {
+        "path": "server/tsconfig.json",
+        "size": 49
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 94
+      },
+      {
+        "path": "yarn.lock",
+        "size": 383556
+      }
+    ],
+    "tree": {
+      "name": "arena-cards",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "prettier.yml",
+                  "size": 1024,
+                  "path": ".github/workflows/prettier.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "composables",
+          "children": [
+            {
+              "name": ".keep",
+              "size": 0,
+              "path": "composables/.keep"
+            }
+          ],
+          "path": "composables"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "confirm.vue",
+              "size": 229,
+              "path": "pages/confirm.vue"
+            },
+            {
+              "name": "index.vue",
+              "size": 1162,
+              "path": "pages/index.vue"
+            },
+            {
+              "name": "login.vue",
+              "size": 574,
+              "path": "pages/login.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "favicon.ico",
+              "size": 4286,
+              "path": "public/favicon.ico"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "server",
+          "children": [
+            {
+              "name": "api",
+              "children": [
+                {
+                  "name": ".keep",
+                  "size": 0,
+                  "path": "server/api/.keep"
+                },
+                {
+                  "name": "weather.post.ts",
+                  "size": 397,
+                  "path": "server/api/weather.post.ts"
+                }
+              ],
+              "path": "server/api"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 49,
+              "path": "server/tsconfig.json"
+            }
+          ],
+          "path": "server"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 146,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".env-example",
+          "size": 40,
+          "path": ".env-example"
+        },
+        {
+          "name": ".eslintrc.js",
+          "size": 524,
+          "path": ".eslintrc.js"
+        },
+        {
+          "name": ".gitignore",
+          "size": 234,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 52,
+          "path": ".npmrc"
+        },
+        {
+          "name": ".nvmrc",
+          "size": 9,
+          "path": ".nvmrc"
+        },
+        {
+          "name": ".prettierrc",
+          "size": 104,
+          "path": ".prettierrc"
+        },
+        {
+          "name": "README.md",
+          "size": 614,
+          "path": "README.md"
+        },
+        {
+          "name": "app.config.ts",
+          "size": 201,
+          "path": "app.config.ts"
+        },
+        {
+          "name": "app.vue",
+          "size": 227,
+          "path": "app.vue"
+        },
+        {
+          "name": "helpers.js",
+          "size": 851,
+          "path": "helpers.js"
+        },
+        {
+          "name": "netlify.toml",
+          "size": 185,
+          "path": "netlify.toml"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 999,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 880,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 94,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 383556,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 25,
+    "totalSize": 396437
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"draggable-arena-cards\">Draggable Arena Cards</h1>\n<img width=\"838\" alt=\"Screenshot 2024-06-30 at 12 39 01 PM\" src=\"https://github.com/ejfox/arena-cards/assets/530073/b09de0a6-ded8-4789-be72-3c613cc1862a\" />\n<p>This code was originally created as part of a <a href=\"https://www.youtube.com/watch?v=Ly3BXZbWOak\">YouTube video exploring the are.na API and taking control of your own data</a></p>\n<p>This uses Nuxt + the are.na API to allow the user to authorize the application, and then see a list of channels. Within a channel, blocks can be dragged anywhere on the page, and they will stay where you left them (because we store the location in local storage)</p>",

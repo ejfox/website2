@@ -19,6 +19,2463 @@
     "CSS": 136
   },
   "diskUsage": 4898,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".env.example",
+        "size": 308
+      },
+      {
+        "path": ".env.release",
+        "size": 27
+      },
+      {
+        "path": ".gitignore",
+        "size": 65
+      },
+      {
+        "path": ".prettierignore",
+        "size": 86
+      },
+      {
+        "path": ".prettierrc",
+        "size": 46
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "size": 3597
+      },
+      {
+        "path": "LICENSE",
+        "size": 1072
+      },
+      {
+        "path": "README.md",
+        "size": 5880
+      },
+      {
+        "path": "eslint.config.js",
+        "size": 329
+      },
+      {
+        "path": "index.html",
+        "size": 652
+      },
+      {
+        "path": "package-lock.json",
+        "size": 348469
+      },
+      {
+        "path": "package.json",
+        "size": 5705
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 766
+      },
+      {
+        "path": "src/client/AIAssist/AIAssistCodeMirrorKeyMap.ts",
+        "size": 1014
+      },
+      {
+        "path": "src/client/AIAssist/AIAssistWidget/index.tsx",
+        "size": 3930
+      },
+      {
+        "path": "src/client/AIAssist/AIAssistWidget/style.scss",
+        "size": 839
+      },
+      {
+        "path": "src/client/AIAssist/Spinner.jsx",
+        "size": 1996
+      },
+      {
+        "path": "src/client/AIAssist/formatFile.ts",
+        "size": 533
+      },
+      {
+        "path": "src/client/AIAssist/generateFilesContext.ts",
+        "size": 654
+      },
+      {
+        "path": "src/client/AIAssist/index.ts",
+        "size": 122
+      },
+      {
+        "path": "src/client/AIAssist/startAIAssist.ts",
+        "size": 2165
+      },
+      {
+        "path": "src/client/App/index.tsx",
+        "size": 4839
+      },
+      {
+        "path": "src/client/App/style.scss",
+        "size": 2029
+      },
+      {
+        "path": "src/client/App/usePending.ts",
+        "size": 1322
+      },
+      {
+        "path": "src/client/App/useShareDB.ts",
+        "size": 5297
+      },
+      {
+        "path": "src/client/CodeEditor/Copilot/index.ts",
+        "size": 1788
+      },
+      {
+        "path": "src/client/CodeEditor/InteractiveWidgets/boolToggler.ts",
+        "size": 358
+      },
+      {
+        "path": "src/client/CodeEditor/InteractiveWidgets/colorPicker.ts",
+        "size": 1927
+      },
+      {
+        "path": "src/client/CodeEditor/InteractiveWidgets/colorsInTextPlugin.ts",
+        "size": 4603
+      },
+      {
+        "path": "src/client/CodeEditor/InteractiveWidgets/highlightWidgets.ts",
+        "size": 2867
+      },
+      {
+        "path": "src/client/CodeEditor/InteractiveWidgets/index.ts",
+        "size": 1338
+      },
+      {
+        "path": "src/client/CodeEditor/InteractiveWidgets/markdownCheckboxToggler.ts",
+        "size": 340
+      },
+      {
+        "path": "src/client/CodeEditor/InteractiveWidgets/numberDragger.ts",
+        "size": 601
+      },
+      {
+        "path": "src/client/CodeEditor/InteractiveWidgets/rotateWidget.ts",
+        "size": 3691
+      },
+      {
+        "path": "src/client/CodeEditor/InteractiveWidgets/urlClicker.test.ts",
+        "size": 1318
+      },
+      {
+        "path": "src/client/CodeEditor/InteractiveWidgets/urlClicker.ts",
+        "size": 301
+      },
+      {
+        "path": "src/client/CodeEditor/InteractiveWidgets/vec2Slider.ts",
+        "size": 708
+      },
+      {
+        "path": "src/client/CodeEditor/basicSetup.ts",
+        "size": 2058
+      },
+      {
+        "path": "src/client/CodeEditor/getOrCreateEditor.tsx",
+        "size": 17567
+      },
+      {
+        "path": "src/client/CodeEditor/index.tsx",
+        "size": 5274
+      },
+      {
+        "path": "src/client/CodeEditor/json1PresenceBroadcast.ts",
+        "size": 1524
+      },
+      {
+        "path": "src/client/CodeEditor/json1PresenceDisplay.ts",
+        "size": 10172
+      },
+      {
+        "path": "src/client/CodeEditor/rainbowBrackets.ts",
+        "size": 3062
+      },
+      {
+        "path": "src/client/CodeEditor/style.scss",
+        "size": 3325
+      },
+      {
+        "path": "src/client/CodeEditor/typescriptExtension/worker.ts",
+        "size": 894
+      },
+      {
+        "path": "src/client/CodeErrorOverlay/index.tsx",
+        "size": 1952
+      },
+      {
+        "path": "src/client/CodeErrorOverlay/style.scss",
+        "size": 775
+      },
+      {
+        "path": "src/client/Fonts/fonts.ts",
+        "size": 133
+      },
+      {
+        "path": "src/client/Icons/BugSVG.tsx",
+        "size": 1298
+      },
+      {
+        "path": "src/client/Icons/CloseSVG.tsx",
+        "size": 368
+      },
+      {
+        "path": "src/client/Icons/CssSVG.tsx",
+        "size": 532
+      },
+      {
+        "path": "src/client/Icons/DirectoryArrowSVG.tsx",
+        "size": 356
+      },
+      {
+        "path": "src/client/Icons/EditSVG.tsx",
+        "size": 605
+      },
+      {
+        "path": "src/client/Icons/FileSVG.tsx",
+        "size": 629
+      },
+      {
+        "path": "src/client/Icons/FolderSVG.tsx",
+        "size": 622
+      },
+      {
+        "path": "src/client/Icons/GearSVG.tsx",
+        "size": 1334
+      },
+      {
+        "path": "src/client/Icons/HtmlSVG.tsx",
+        "size": 541
+      },
+      {
+        "path": "src/client/Icons/JavaScriptSVG.tsx",
+        "size": 1172
+      },
+      {
+        "path": "src/client/Icons/JsonSVG.tsx",
+        "size": 688
+      },
+      {
+        "path": "src/client/Icons/MarkdownSVG.tsx",
+        "size": 575
+      },
+      {
+        "path": "src/client/Icons/MicSVG.tsx",
+        "size": 1022
+      },
+      {
+        "path": "src/client/Icons/NewSVG.tsx",
+        "size": 618
+      },
+      {
+        "path": "src/client/Icons/PinSVG.tsx",
+        "size": 792
+      },
+      {
+        "path": "src/client/Icons/PlaySVG.tsx",
+        "size": 384
+      },
+      {
+        "path": "src/client/Icons/QuestionMarkSVG.tsx",
+        "size": 535
+      },
+      {
+        "path": "src/client/Icons/ReactSVG.tsx",
+        "size": 3012
+      },
+      {
+        "path": "src/client/Icons/SearchSVG.tsx",
+        "size": 440
+      },
+      {
+        "path": "src/client/Icons/SparklesSVG.tsx",
+        "size": 1356
+      },
+      {
+        "path": "src/client/Icons/SplitEditorSVG.tsx",
+        "size": 594
+      },
+      {
+        "path": "src/client/Icons/StopSVG.tsx",
+        "size": 444
+      },
+      {
+        "path": "src/client/Icons/SvelteSVG.tsx",
+        "size": 1626
+      },
+      {
+        "path": "src/client/Icons/TrashSVG.tsx",
+        "size": 1072
+      },
+      {
+        "path": "src/client/Icons/TypeScriptSVG.tsx",
+        "size": 696
+      },
+      {
+        "path": "src/client/Icons/index.tsx",
+        "size": 937
+      },
+      {
+        "path": "src/client/ImageViewer/index.tsx",
+        "size": 2286
+      },
+      {
+        "path": "src/client/ImageViewer/style.scss",
+        "size": 794
+      },
+      {
+        "path": "src/client/PresenceNotifications/PresenceNotifications.test.ts",
+        "size": 3310
+      },
+      {
+        "path": "src/client/PresenceNotifications/index.tsx",
+        "size": 4137
+      },
+      {
+        "path": "src/client/PresenceNotifications/style.scss",
+        "size": 286
+      },
+      {
+        "path": "src/client/RunCodeWidget/index.tsx",
+        "size": 3216
+      },
+      {
+        "path": "src/client/RunCodeWidget/runCodeWidget.test.tsx",
+        "size": 2866
+      },
+      {
+        "path": "src/client/RunCodeWidget/style.scss",
+        "size": 389
+      },
+      {
+        "path": "src/client/SplitPaneResizeContext.tsx",
+        "size": 6227
+      },
+      {
+        "path": "src/client/TabList/Tab.tsx",
+        "size": 1786
+      },
+      {
+        "path": "src/client/TabList/index.tsx",
+        "size": 1101
+      },
+      {
+        "path": "src/client/TabList/style.scss",
+        "size": 1056
+      },
+      {
+        "path": "src/client/VZCodeContext.tsx",
+        "size": 13678
+      },
+      {
+        "path": "src/client/VZKeyboardShortcutsDoc.tsx",
+        "size": 4157
+      },
+      {
+        "path": "src/client/VZLeft.tsx",
+        "size": 912
+      },
+      {
+        "path": "src/client/VZMiddle.tsx",
+        "size": 4761
+      },
+      {
+        "path": "src/client/VZResizer/index.tsx",
+        "size": 3310
+      },
+      {
+        "path": "src/client/VZResizer/styles.scss",
+        "size": 696
+      },
+      {
+        "path": "src/client/VZRight.tsx",
+        "size": 2257
+      },
+      {
+        "path": "src/client/VZSettings.tsx",
+        "size": 7171
+      },
+      {
+        "path": "src/client/VZSidebar/AIChat/ChatInput.tsx",
+        "size": 1807
+      },
+      {
+        "path": "src/client/VZSidebar/AIChat/DiffView.scss",
+        "size": 3256
+      },
+      {
+        "path": "src/client/VZSidebar/AIChat/DiffView.tsx",
+        "size": 1827
+      },
+      {
+        "path": "src/client/VZSidebar/AIChat/Message.tsx",
+        "size": 1559
+      },
+      {
+        "path": "src/client/VZSidebar/AIChat/MessageList.tsx",
+        "size": 1466
+      },
+      {
+        "path": "src/client/VZSidebar/AIChat/StreamingMessage.tsx",
+        "size": 660
+      },
+      {
+        "path": "src/client/VZSidebar/AIChat/TypingIndicator.tsx",
+        "size": 408
+      },
+      {
+        "path": "src/client/VZSidebar/AIChat/index.tsx",
+        "size": 2629
+      },
+      {
+        "path": "src/client/VZSidebar/AIChat/styles.scss",
+        "size": 4813
+      },
+      {
+        "path": "src/client/VZSidebar/CreateDirModal.tsx",
+        "size": 2690
+      },
+      {
+        "path": "src/client/VZSidebar/CreateFileModal.tsx",
+        "size": 2680
+      },
+      {
+        "path": "src/client/VZSidebar/DeleteConfirmationModal.tsx",
+        "size": 1517
+      },
+      {
+        "path": "src/client/VZSidebar/DirectoryListing.tsx",
+        "size": 2239
+      },
+      {
+        "path": "src/client/VZSidebar/FileListing.tsx",
+        "size": 2320
+      },
+      {
+        "path": "src/client/VZSidebar/FileTypeIcon.tsx",
+        "size": 945
+      },
+      {
+        "path": "src/client/VZSidebar/Item.tsx",
+        "size": 6344
+      },
+      {
+        "path": "src/client/VZSidebar/Listing.tsx",
+        "size": 1376
+      },
+      {
+        "path": "src/client/VZSidebar/Search.tsx",
+        "size": 16305
+      },
+      {
+        "path": "src/client/VZSidebar/VoiceChatModal.tsx",
+        "size": 3152
+      },
+      {
+        "path": "src/client/VZSidebar/aiCopyPaste.ts",
+        "size": 4908
+      },
+      {
+        "path": "src/client/VZSidebar/index.tsx",
+        "size": 16506
+      },
+      {
+        "path": "src/client/VZSidebar/styles.scss",
+        "size": 7285
+      },
+      {
+        "path": "src/client/VZSidebar/useDragAndDrop.tsx",
+        "size": 11253
+      },
+      {
+        "path": "src/client/bootstrap.ts",
+        "size": 631
+      },
+      {
+        "path": "src/client/buildWorker.ts",
+        "size": 106
+      },
+      {
+        "path": "src/client/featureFlags.ts",
+        "size": 151
+      },
+      {
+        "path": "src/client/generateRequestId.ts",
+        "size": 183
+      },
+      {
+        "path": "src/client/getFileTree.ts",
+        "size": 1527
+      },
+      {
+        "path": "src/client/index.ts",
+        "size": 715
+      },
+      {
+        "path": "src/client/main.jsx",
+        "size": 268
+      },
+      {
+        "path": "src/client/presenceColor.ts",
+        "size": 205
+      },
+      {
+        "path": "src/client/shouldTriggerRun.ts",
+        "size": 1083
+      },
+      {
+        "path": "src/client/sortFileTree.ts",
+        "size": 763
+      },
+      {
+        "path": "src/client/tabsSearchParameters.test.ts",
+        "size": 1911
+      },
+      {
+        "path": "src/client/tabsSearchParameters.ts",
+        "size": 3982
+      },
+      {
+        "path": "src/client/themes/index.ts",
+        "size": 187
+      },
+      {
+        "path": "src/client/themes/themes.ts",
+        "size": 1689
+      },
+      {
+        "path": "src/client/themes/uiwImports.ts",
+        "size": 1135
+      },
+      {
+        "path": "src/client/themes/useDynamicTheme.ts",
+        "size": 872
+      },
+      {
+        "path": "src/client/themes/vizhubTheme/colors.ts",
+        "size": 2454
+      },
+      {
+        "path": "src/client/themes/vizhubTheme/index.ts",
+        "size": 4675
+      },
+      {
+        "path": "src/client/useActions.ts",
+        "size": 5728
+      },
+      {
+        "path": "src/client/useESLint/index.ts",
+        "size": 1975
+      },
+      {
+        "path": "src/client/useESLint/worker.ts",
+        "size": 2715
+      },
+      {
+        "path": "src/client/useEditorCache.ts",
+        "size": 984
+      },
+      {
+        "path": "src/client/useFileCRUD.ts",
+        "size": 6159
+      },
+      {
+        "path": "src/client/useKeyboardShortcuts.ts",
+        "size": 12367
+      },
+      {
+        "path": "src/client/useOpenDirectories.ts",
+        "size": 2890
+      },
+      {
+        "path": "src/client/usePresenceAutoFollow.ts",
+        "size": 2477
+      },
+      {
+        "path": "src/client/usePrettier/index.ts",
+        "size": 4837
+      },
+      {
+        "path": "src/client/usePrettier/worker.ts",
+        "size": 2439
+      },
+      {
+        "path": "src/client/useRunCode.tsx",
+        "size": 465
+      },
+      {
+        "path": "src/client/useRuntimeError.ts",
+        "size": 826
+      },
+      {
+        "path": "src/client/useSubmitOperation.ts",
+        "size": 544
+      },
+      {
+        "path": "src/client/useURLSync.ts",
+        "size": 3834
+      },
+      {
+        "path": "src/client/usernameLocalStorage.ts",
+        "size": 1352
+      },
+      {
+        "path": "src/client/utils/fileExtension.ts",
+        "size": 365
+      },
+      {
+        "path": "src/client/utils/isImageFile.ts",
+        "size": 370
+      },
+      {
+        "path": "src/client/vzReducer/aiChatReducer.ts",
+        "size": 648
+      },
+      {
+        "path": "src/client/vzReducer/closeTabReducer.test.ts",
+        "size": 5110
+      },
+      {
+        "path": "src/client/vzReducer/closeTabsReducer.ts",
+        "size": 2256
+      },
+      {
+        "path": "src/client/vzReducer/createInitialState.ts",
+        "size": 776
+      },
+      {
+        "path": "src/client/vzReducer/editorNoLongerWantsFocusReducer.ts",
+        "size": 247
+      },
+      {
+        "path": "src/client/vzReducer/findPane.ts",
+        "size": 419
+      },
+      {
+        "path": "src/client/vzReducer/index.ts",
+        "size": 6587
+      },
+      {
+        "path": "src/client/vzReducer/openTabReducer.test.ts",
+        "size": 3562
+      },
+      {
+        "path": "src/client/vzReducer/openTabReducer.ts",
+        "size": 1958
+      },
+      {
+        "path": "src/client/vzReducer/searchReducer.test.ts",
+        "size": 6724
+      },
+      {
+        "path": "src/client/vzReducer/searchReducer.ts",
+        "size": 4064
+      },
+      {
+        "path": "src/client/vzReducer/setActiveFileIdReducer.ts",
+        "size": 677
+      },
+      {
+        "path": "src/client/vzReducer/setActiveFileLeftRightReducer.ts",
+        "size": 1623
+      },
+      {
+        "path": "src/client/vzReducer/setIsDocOpenReducer.ts",
+        "size": 222
+      },
+      {
+        "path": "src/client/vzReducer/setIsSettingsOpenReducer.ts",
+        "size": 237
+      },
+      {
+        "path": "src/client/vzReducer/setThemeReducer.ts",
+        "size": 213
+      },
+      {
+        "path": "src/client/vzReducer/setUsernameReducer.ts",
+        "size": 220
+      },
+      {
+        "path": "src/client/vzReducer/splitCurrentPaneReducer.ts",
+        "size": 1444
+      },
+      {
+        "path": "src/client/vzReducer/toggleAutoFollowReducer.ts",
+        "size": 270
+      },
+      {
+        "path": "src/client/vzReducer/updatePane.ts",
+        "size": 963
+      },
+      {
+        "path": "src/client/vzReducer/updatePresenceIndicatorReducer.ts",
+        "size": 804
+      },
+      {
+        "path": "src/index.ts",
+        "size": 51
+      },
+      {
+        "path": "src/ot.ts",
+        "size": 687
+      },
+      {
+        "path": "src/randomId.ts",
+        "size": 1945
+      },
+      {
+        "path": "src/reactRouterExports.ts",
+        "size": 582
+      },
+      {
+        "path": "src/runCode.ts",
+        "size": 1457
+      },
+      {
+        "path": "src/server/aiChatHandler/aiEditing.ts",
+        "size": 1579
+      },
+      {
+        "path": "src/server/aiChatHandler/chatOperations.ts",
+        "size": 9740
+      },
+      {
+        "path": "src/server/aiChatHandler/errorHandling.ts",
+        "size": 1319
+      },
+      {
+        "path": "src/server/aiChatHandler/index.ts",
+        "size": 3011
+      },
+      {
+        "path": "src/server/aiChatHandler/llmStreaming.ts",
+        "size": 7365
+      },
+      {
+        "path": "src/server/aiChatHandler/validation.ts",
+        "size": 545
+      },
+      {
+        "path": "src/server/computeInitialDocument.ts",
+        "size": 6045
+      },
+      {
+        "path": "src/server/config.ts",
+        "size": 601
+      },
+      {
+        "path": "src/server/featureFlags.ts",
+        "size": 217
+      },
+      {
+        "path": "src/server/generateAIResponse.ts",
+        "size": 5119
+      },
+      {
+        "path": "src/server/handleAIAssist.ts",
+        "size": 1295
+      },
+      {
+        "path": "src/server/handleAIChatMessage.ts",
+        "size": 143
+      },
+      {
+        "path": "src/server/handleAICopilot.ts",
+        "size": 2643
+      },
+      {
+        "path": "src/server/index.ts",
+        "size": 11263
+      },
+      {
+        "path": "src/server/isDirectory.ts",
+        "size": 57
+      },
+      {
+        "path": "src/server/livekit.ts",
+        "size": 723
+      },
+      {
+        "path": "src/server/setupEnv.ts",
+        "size": 201
+      },
+      {
+        "path": "src/submitOperation.ts",
+        "size": 684
+      },
+      {
+        "path": "src/types.ts",
+        "size": 5084
+      },
+      {
+        "path": "src/utils/fileDiff.ts",
+        "size": 2514
+      },
+      {
+        "path": "src/vite-env.d.ts",
+        "size": 216
+      },
+      {
+        "path": "test/aiCopyPasteIntegration.test.js",
+        "size": 4898
+      },
+      {
+        "path": "test/aiPasteEdgeCases.test.js",
+        "size": 3160
+      },
+      {
+        "path": "test/aiPasteIssue.test.js",
+        "size": 3222
+      },
+      {
+        "path": "test/fileDiff.test.ts",
+        "size": 6642
+      },
+      {
+        "path": "test/getFileTree.test.js",
+        "size": 5092
+      },
+      {
+        "path": "test/imageEndToEnd.test.js",
+        "size": 4750
+      },
+      {
+        "path": "test/imageHandling.test.js",
+        "size": 2527
+      },
+      {
+        "path": "test/imageSave.test.js",
+        "size": 2016
+      },
+      {
+        "path": "test/isImageFile.test.ts",
+        "size": 1426
+      },
+      {
+        "path": "test/listFiles.test.js",
+        "size": 7692
+      },
+      {
+        "path": "test/sampleDirectories/kitchenSink/README.md",
+        "size": 1966
+      },
+      {
+        "path": "test/sampleDirectories/kitchenSink/index.html",
+        "size": 469
+      },
+      {
+        "path": "test/sampleDirectories/kitchenSink/index.js",
+        "size": 104
+      },
+      {
+        "path": "test/sampleDirectories/kitchenSink/testtodo.js",
+        "size": 331
+      },
+      {
+        "path": "test/sampleDirectories/kitchenSink/viz.js",
+        "size": 982
+      },
+      {
+        "path": "test/sampleDirectories/listFiles/index.html",
+        "size": 183
+      },
+      {
+        "path": "test/sampleDirectories/listFiles/index.js",
+        "size": 44
+      },
+      {
+        "path": "test/sampleDirectories/listFiles/styles.css",
+        "size": 34
+      },
+      {
+        "path": "test/sampleDirectories/listFilesEmptyDirectory/index.html",
+        "size": 183
+      },
+      {
+        "path": "test/sampleDirectories/listFilesEmptyDirectory/index.js",
+        "size": 44
+      },
+      {
+        "path": "test/sampleDirectories/listFilesEmptyDirectory/styles.css",
+        "size": 34
+      },
+      {
+        "path": "test/sampleDirectories/listFilesFullDirectory/fullDirectory/index.html",
+        "size": 183
+      },
+      {
+        "path": "test/sampleDirectories/listFilesFullDirectory/fullDirectory/index.js",
+        "size": 44
+      },
+      {
+        "path": "test/sampleDirectories/listFilesFullDirectory/fullDirectory/styles.css",
+        "size": 34
+      },
+      {
+        "path": "test/sampleDirectories/listFilesFullDirectory/index.html",
+        "size": 183
+      },
+      {
+        "path": "test/sampleDirectories/listFilesFullDirectory/index.js",
+        "size": 44
+      },
+      {
+        "path": "test/sampleDirectories/listFilesFullDirectory/styles.css",
+        "size": 34
+      },
+      {
+        "path": "test/sampleDirectories/listFilesIgnore/.ignore",
+        "size": 58
+      },
+      {
+        "path": "test/sampleDirectories/listFilesIgnore/file",
+        "size": 0
+      },
+      {
+        "path": "test/sampleDirectories/listFilesIgnore/ignoredDirectory/directory/file",
+        "size": 0
+      },
+      {
+        "path": "test/sampleDirectories/listFilesIgnore/ignoredDirectory/file",
+        "size": 0
+      },
+      {
+        "path": "test/sampleDirectories/listFilesIgnore/ignoredDirectory/keptFile",
+        "size": 0
+      },
+      {
+        "path": "test/sampleDirectories/listFilesIgnore/ignoredFile",
+        "size": 0
+      },
+      {
+        "path": "test/sampleDirectories/listFilesIgnore/subdirectory/.ignore",
+        "size": 24
+      },
+      {
+        "path": "test/sampleDirectories/listFilesIgnore/subdirectory/file",
+        "size": 0
+      },
+      {
+        "path": "test/sampleDirectories/listFilesIgnore/subdirectory/ignoredSubdirectoryFile",
+        "size": 0
+      },
+      {
+        "path": "test/sampleDirectories/listFilesIgnore/subdirectory/subdirectoryFile",
+        "size": 0
+      },
+      {
+        "path": "test/sampleDirectories/listFilesRecursive/index.html",
+        "size": 183
+      },
+      {
+        "path": "test/sampleDirectories/listFilesRecursive/outerDirectory/index.html",
+        "size": 183
+      },
+      {
+        "path": "test/sampleDirectories/listFilesRecursive/outerDirectory/innerDirectory/index.html",
+        "size": 183
+      },
+      {
+        "path": "test/sortFileTree.test.js",
+        "size": 8679
+      },
+      {
+        "path": "test/streamingOTParser.test.js",
+        "size": 4688
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 413
+      },
+      {
+        "path": "vite.config.js",
+        "size": 1096
+      }
+    ],
+    "tree": {
+      "name": "vzcode",
+      "children": [
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "favicon.ico",
+              "size": 766,
+              "path": "public/favicon.ico"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "client",
+              "children": [
+                {
+                  "name": "AIAssist",
+                  "children": [
+                    {
+                      "name": "AIAssistWidget",
+                      "children": [
+                        {
+                          "name": "index.tsx",
+                          "size": 3930,
+                          "path": "src/client/AIAssist/AIAssistWidget/index.tsx"
+                        },
+                        {
+                          "name": "style.scss",
+                          "size": 839,
+                          "path": "src/client/AIAssist/AIAssistWidget/style.scss"
+                        }
+                      ],
+                      "path": "src/client/AIAssist/AIAssistWidget"
+                    },
+                    {
+                      "name": "AIAssistCodeMirrorKeyMap.ts",
+                      "size": 1014,
+                      "path": "src/client/AIAssist/AIAssistCodeMirrorKeyMap.ts"
+                    },
+                    {
+                      "name": "Spinner.jsx",
+                      "size": 1996,
+                      "path": "src/client/AIAssist/Spinner.jsx"
+                    },
+                    {
+                      "name": "formatFile.ts",
+                      "size": 533,
+                      "path": "src/client/AIAssist/formatFile.ts"
+                    },
+                    {
+                      "name": "generateFilesContext.ts",
+                      "size": 654,
+                      "path": "src/client/AIAssist/generateFilesContext.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 122,
+                      "path": "src/client/AIAssist/index.ts"
+                    },
+                    {
+                      "name": "startAIAssist.ts",
+                      "size": 2165,
+                      "path": "src/client/AIAssist/startAIAssist.ts"
+                    }
+                  ],
+                  "path": "src/client/AIAssist"
+                },
+                {
+                  "name": "App",
+                  "children": [
+                    {
+                      "name": "index.tsx",
+                      "size": 4839,
+                      "path": "src/client/App/index.tsx"
+                    },
+                    {
+                      "name": "style.scss",
+                      "size": 2029,
+                      "path": "src/client/App/style.scss"
+                    },
+                    {
+                      "name": "usePending.ts",
+                      "size": 1322,
+                      "path": "src/client/App/usePending.ts"
+                    },
+                    {
+                      "name": "useShareDB.ts",
+                      "size": 5297,
+                      "path": "src/client/App/useShareDB.ts"
+                    }
+                  ],
+                  "path": "src/client/App"
+                },
+                {
+                  "name": "CodeEditor",
+                  "children": [
+                    {
+                      "name": "Copilot",
+                      "children": [
+                        {
+                          "name": "index.ts",
+                          "size": 1788,
+                          "path": "src/client/CodeEditor/Copilot/index.ts"
+                        }
+                      ],
+                      "path": "src/client/CodeEditor/Copilot"
+                    },
+                    {
+                      "name": "InteractiveWidgets",
+                      "children": [
+                        {
+                          "name": "boolToggler.ts",
+                          "size": 358,
+                          "path": "src/client/CodeEditor/InteractiveWidgets/boolToggler.ts"
+                        },
+                        {
+                          "name": "colorPicker.ts",
+                          "size": 1927,
+                          "path": "src/client/CodeEditor/InteractiveWidgets/colorPicker.ts"
+                        },
+                        {
+                          "name": "colorsInTextPlugin.ts",
+                          "size": 4603,
+                          "path": "src/client/CodeEditor/InteractiveWidgets/colorsInTextPlugin.ts"
+                        },
+                        {
+                          "name": "highlightWidgets.ts",
+                          "size": 2867,
+                          "path": "src/client/CodeEditor/InteractiveWidgets/highlightWidgets.ts"
+                        },
+                        {
+                          "name": "index.ts",
+                          "size": 1338,
+                          "path": "src/client/CodeEditor/InteractiveWidgets/index.ts"
+                        },
+                        {
+                          "name": "markdownCheckboxToggler.ts",
+                          "size": 340,
+                          "path": "src/client/CodeEditor/InteractiveWidgets/markdownCheckboxToggler.ts"
+                        },
+                        {
+                          "name": "numberDragger.ts",
+                          "size": 601,
+                          "path": "src/client/CodeEditor/InteractiveWidgets/numberDragger.ts"
+                        },
+                        {
+                          "name": "rotateWidget.ts",
+                          "size": 3691,
+                          "path": "src/client/CodeEditor/InteractiveWidgets/rotateWidget.ts"
+                        },
+                        {
+                          "name": "urlClicker.test.ts",
+                          "size": 1318,
+                          "path": "src/client/CodeEditor/InteractiveWidgets/urlClicker.test.ts"
+                        },
+                        {
+                          "name": "urlClicker.ts",
+                          "size": 301,
+                          "path": "src/client/CodeEditor/InteractiveWidgets/urlClicker.ts"
+                        },
+                        {
+                          "name": "vec2Slider.ts",
+                          "size": 708,
+                          "path": "src/client/CodeEditor/InteractiveWidgets/vec2Slider.ts"
+                        }
+                      ],
+                      "path": "src/client/CodeEditor/InteractiveWidgets"
+                    },
+                    {
+                      "name": "typescriptExtension",
+                      "children": [
+                        {
+                          "name": "worker.ts",
+                          "size": 894,
+                          "path": "src/client/CodeEditor/typescriptExtension/worker.ts"
+                        }
+                      ],
+                      "path": "src/client/CodeEditor/typescriptExtension"
+                    },
+                    {
+                      "name": "basicSetup.ts",
+                      "size": 2058,
+                      "path": "src/client/CodeEditor/basicSetup.ts"
+                    },
+                    {
+                      "name": "getOrCreateEditor.tsx",
+                      "size": 17567,
+                      "path": "src/client/CodeEditor/getOrCreateEditor.tsx"
+                    },
+                    {
+                      "name": "index.tsx",
+                      "size": 5274,
+                      "path": "src/client/CodeEditor/index.tsx"
+                    },
+                    {
+                      "name": "json1PresenceBroadcast.ts",
+                      "size": 1524,
+                      "path": "src/client/CodeEditor/json1PresenceBroadcast.ts"
+                    },
+                    {
+                      "name": "json1PresenceDisplay.ts",
+                      "size": 10172,
+                      "path": "src/client/CodeEditor/json1PresenceDisplay.ts"
+                    },
+                    {
+                      "name": "rainbowBrackets.ts",
+                      "size": 3062,
+                      "path": "src/client/CodeEditor/rainbowBrackets.ts"
+                    },
+                    {
+                      "name": "style.scss",
+                      "size": 3325,
+                      "path": "src/client/CodeEditor/style.scss"
+                    }
+                  ],
+                  "path": "src/client/CodeEditor"
+                },
+                {
+                  "name": "CodeErrorOverlay",
+                  "children": [
+                    {
+                      "name": "index.tsx",
+                      "size": 1952,
+                      "path": "src/client/CodeErrorOverlay/index.tsx"
+                    },
+                    {
+                      "name": "style.scss",
+                      "size": 775,
+                      "path": "src/client/CodeErrorOverlay/style.scss"
+                    }
+                  ],
+                  "path": "src/client/CodeErrorOverlay"
+                },
+                {
+                  "name": "Fonts",
+                  "children": [
+                    {
+                      "name": "fonts.ts",
+                      "size": 133,
+                      "path": "src/client/Fonts/fonts.ts"
+                    }
+                  ],
+                  "path": "src/client/Fonts"
+                },
+                {
+                  "name": "Icons",
+                  "children": [
+                    {
+                      "name": "BugSVG.tsx",
+                      "size": 1298,
+                      "path": "src/client/Icons/BugSVG.tsx"
+                    },
+                    {
+                      "name": "CloseSVG.tsx",
+                      "size": 368,
+                      "path": "src/client/Icons/CloseSVG.tsx"
+                    },
+                    {
+                      "name": "CssSVG.tsx",
+                      "size": 532,
+                      "path": "src/client/Icons/CssSVG.tsx"
+                    },
+                    {
+                      "name": "DirectoryArrowSVG.tsx",
+                      "size": 356,
+                      "path": "src/client/Icons/DirectoryArrowSVG.tsx"
+                    },
+                    {
+                      "name": "EditSVG.tsx",
+                      "size": 605,
+                      "path": "src/client/Icons/EditSVG.tsx"
+                    },
+                    {
+                      "name": "FileSVG.tsx",
+                      "size": 629,
+                      "path": "src/client/Icons/FileSVG.tsx"
+                    },
+                    {
+                      "name": "FolderSVG.tsx",
+                      "size": 622,
+                      "path": "src/client/Icons/FolderSVG.tsx"
+                    },
+                    {
+                      "name": "GearSVG.tsx",
+                      "size": 1334,
+                      "path": "src/client/Icons/GearSVG.tsx"
+                    },
+                    {
+                      "name": "HtmlSVG.tsx",
+                      "size": 541,
+                      "path": "src/client/Icons/HtmlSVG.tsx"
+                    },
+                    {
+                      "name": "JavaScriptSVG.tsx",
+                      "size": 1172,
+                      "path": "src/client/Icons/JavaScriptSVG.tsx"
+                    },
+                    {
+                      "name": "JsonSVG.tsx",
+                      "size": 688,
+                      "path": "src/client/Icons/JsonSVG.tsx"
+                    },
+                    {
+                      "name": "MarkdownSVG.tsx",
+                      "size": 575,
+                      "path": "src/client/Icons/MarkdownSVG.tsx"
+                    },
+                    {
+                      "name": "MicSVG.tsx",
+                      "size": 1022,
+                      "path": "src/client/Icons/MicSVG.tsx"
+                    },
+                    {
+                      "name": "NewSVG.tsx",
+                      "size": 618,
+                      "path": "src/client/Icons/NewSVG.tsx"
+                    },
+                    {
+                      "name": "PinSVG.tsx",
+                      "size": 792,
+                      "path": "src/client/Icons/PinSVG.tsx"
+                    },
+                    {
+                      "name": "PlaySVG.tsx",
+                      "size": 384,
+                      "path": "src/client/Icons/PlaySVG.tsx"
+                    },
+                    {
+                      "name": "QuestionMarkSVG.tsx",
+                      "size": 535,
+                      "path": "src/client/Icons/QuestionMarkSVG.tsx"
+                    },
+                    {
+                      "name": "ReactSVG.tsx",
+                      "size": 3012,
+                      "path": "src/client/Icons/ReactSVG.tsx"
+                    },
+                    {
+                      "name": "SearchSVG.tsx",
+                      "size": 440,
+                      "path": "src/client/Icons/SearchSVG.tsx"
+                    },
+                    {
+                      "name": "SparklesSVG.tsx",
+                      "size": 1356,
+                      "path": "src/client/Icons/SparklesSVG.tsx"
+                    },
+                    {
+                      "name": "SplitEditorSVG.tsx",
+                      "size": 594,
+                      "path": "src/client/Icons/SplitEditorSVG.tsx"
+                    },
+                    {
+                      "name": "StopSVG.tsx",
+                      "size": 444,
+                      "path": "src/client/Icons/StopSVG.tsx"
+                    },
+                    {
+                      "name": "SvelteSVG.tsx",
+                      "size": 1626,
+                      "path": "src/client/Icons/SvelteSVG.tsx"
+                    },
+                    {
+                      "name": "TrashSVG.tsx",
+                      "size": 1072,
+                      "path": "src/client/Icons/TrashSVG.tsx"
+                    },
+                    {
+                      "name": "TypeScriptSVG.tsx",
+                      "size": 696,
+                      "path": "src/client/Icons/TypeScriptSVG.tsx"
+                    },
+                    {
+                      "name": "index.tsx",
+                      "size": 937,
+                      "path": "src/client/Icons/index.tsx"
+                    }
+                  ],
+                  "path": "src/client/Icons"
+                },
+                {
+                  "name": "ImageViewer",
+                  "children": [
+                    {
+                      "name": "index.tsx",
+                      "size": 2286,
+                      "path": "src/client/ImageViewer/index.tsx"
+                    },
+                    {
+                      "name": "style.scss",
+                      "size": 794,
+                      "path": "src/client/ImageViewer/style.scss"
+                    }
+                  ],
+                  "path": "src/client/ImageViewer"
+                },
+                {
+                  "name": "PresenceNotifications",
+                  "children": [
+                    {
+                      "name": "PresenceNotifications.test.ts",
+                      "size": 3310,
+                      "path": "src/client/PresenceNotifications/PresenceNotifications.test.ts"
+                    },
+                    {
+                      "name": "index.tsx",
+                      "size": 4137,
+                      "path": "src/client/PresenceNotifications/index.tsx"
+                    },
+                    {
+                      "name": "style.scss",
+                      "size": 286,
+                      "path": "src/client/PresenceNotifications/style.scss"
+                    }
+                  ],
+                  "path": "src/client/PresenceNotifications"
+                },
+                {
+                  "name": "RunCodeWidget",
+                  "children": [
+                    {
+                      "name": "index.tsx",
+                      "size": 3216,
+                      "path": "src/client/RunCodeWidget/index.tsx"
+                    },
+                    {
+                      "name": "runCodeWidget.test.tsx",
+                      "size": 2866,
+                      "path": "src/client/RunCodeWidget/runCodeWidget.test.tsx"
+                    },
+                    {
+                      "name": "style.scss",
+                      "size": 389,
+                      "path": "src/client/RunCodeWidget/style.scss"
+                    }
+                  ],
+                  "path": "src/client/RunCodeWidget"
+                },
+                {
+                  "name": "TabList",
+                  "children": [
+                    {
+                      "name": "Tab.tsx",
+                      "size": 1786,
+                      "path": "src/client/TabList/Tab.tsx"
+                    },
+                    {
+                      "name": "index.tsx",
+                      "size": 1101,
+                      "path": "src/client/TabList/index.tsx"
+                    },
+                    {
+                      "name": "style.scss",
+                      "size": 1056,
+                      "path": "src/client/TabList/style.scss"
+                    }
+                  ],
+                  "path": "src/client/TabList"
+                },
+                {
+                  "name": "VZResizer",
+                  "children": [
+                    {
+                      "name": "index.tsx",
+                      "size": 3310,
+                      "path": "src/client/VZResizer/index.tsx"
+                    },
+                    {
+                      "name": "styles.scss",
+                      "size": 696,
+                      "path": "src/client/VZResizer/styles.scss"
+                    }
+                  ],
+                  "path": "src/client/VZResizer"
+                },
+                {
+                  "name": "VZSidebar",
+                  "children": [
+                    {
+                      "name": "AIChat",
+                      "children": [
+                        {
+                          "name": "ChatInput.tsx",
+                          "size": 1807,
+                          "path": "src/client/VZSidebar/AIChat/ChatInput.tsx"
+                        },
+                        {
+                          "name": "DiffView.scss",
+                          "size": 3256,
+                          "path": "src/client/VZSidebar/AIChat/DiffView.scss"
+                        },
+                        {
+                          "name": "DiffView.tsx",
+                          "size": 1827,
+                          "path": "src/client/VZSidebar/AIChat/DiffView.tsx"
+                        },
+                        {
+                          "name": "Message.tsx",
+                          "size": 1559,
+                          "path": "src/client/VZSidebar/AIChat/Message.tsx"
+                        },
+                        {
+                          "name": "MessageList.tsx",
+                          "size": 1466,
+                          "path": "src/client/VZSidebar/AIChat/MessageList.tsx"
+                        },
+                        {
+                          "name": "StreamingMessage.tsx",
+                          "size": 660,
+                          "path": "src/client/VZSidebar/AIChat/StreamingMessage.tsx"
+                        },
+                        {
+                          "name": "TypingIndicator.tsx",
+                          "size": 408,
+                          "path": "src/client/VZSidebar/AIChat/TypingIndicator.tsx"
+                        },
+                        {
+                          "name": "index.tsx",
+                          "size": 2629,
+                          "path": "src/client/VZSidebar/AIChat/index.tsx"
+                        },
+                        {
+                          "name": "styles.scss",
+                          "size": 4813,
+                          "path": "src/client/VZSidebar/AIChat/styles.scss"
+                        }
+                      ],
+                      "path": "src/client/VZSidebar/AIChat"
+                    },
+                    {
+                      "name": "CreateDirModal.tsx",
+                      "size": 2690,
+                      "path": "src/client/VZSidebar/CreateDirModal.tsx"
+                    },
+                    {
+                      "name": "CreateFileModal.tsx",
+                      "size": 2680,
+                      "path": "src/client/VZSidebar/CreateFileModal.tsx"
+                    },
+                    {
+                      "name": "DeleteConfirmationModal.tsx",
+                      "size": 1517,
+                      "path": "src/client/VZSidebar/DeleteConfirmationModal.tsx"
+                    },
+                    {
+                      "name": "DirectoryListing.tsx",
+                      "size": 2239,
+                      "path": "src/client/VZSidebar/DirectoryListing.tsx"
+                    },
+                    {
+                      "name": "FileListing.tsx",
+                      "size": 2320,
+                      "path": "src/client/VZSidebar/FileListing.tsx"
+                    },
+                    {
+                      "name": "FileTypeIcon.tsx",
+                      "size": 945,
+                      "path": "src/client/VZSidebar/FileTypeIcon.tsx"
+                    },
+                    {
+                      "name": "Item.tsx",
+                      "size": 6344,
+                      "path": "src/client/VZSidebar/Item.tsx"
+                    },
+                    {
+                      "name": "Listing.tsx",
+                      "size": 1376,
+                      "path": "src/client/VZSidebar/Listing.tsx"
+                    },
+                    {
+                      "name": "Search.tsx",
+                      "size": 16305,
+                      "path": "src/client/VZSidebar/Search.tsx"
+                    },
+                    {
+                      "name": "VoiceChatModal.tsx",
+                      "size": 3152,
+                      "path": "src/client/VZSidebar/VoiceChatModal.tsx"
+                    },
+                    {
+                      "name": "aiCopyPaste.ts",
+                      "size": 4908,
+                      "path": "src/client/VZSidebar/aiCopyPaste.ts"
+                    },
+                    {
+                      "name": "index.tsx",
+                      "size": 16506,
+                      "path": "src/client/VZSidebar/index.tsx"
+                    },
+                    {
+                      "name": "styles.scss",
+                      "size": 7285,
+                      "path": "src/client/VZSidebar/styles.scss"
+                    },
+                    {
+                      "name": "useDragAndDrop.tsx",
+                      "size": 11253,
+                      "path": "src/client/VZSidebar/useDragAndDrop.tsx"
+                    }
+                  ],
+                  "path": "src/client/VZSidebar"
+                },
+                {
+                  "name": "themes",
+                  "children": [
+                    {
+                      "name": "vizhubTheme",
+                      "children": [
+                        {
+                          "name": "colors.ts",
+                          "size": 2454,
+                          "path": "src/client/themes/vizhubTheme/colors.ts"
+                        },
+                        {
+                          "name": "index.ts",
+                          "size": 4675,
+                          "path": "src/client/themes/vizhubTheme/index.ts"
+                        }
+                      ],
+                      "path": "src/client/themes/vizhubTheme"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 187,
+                      "path": "src/client/themes/index.ts"
+                    },
+                    {
+                      "name": "themes.ts",
+                      "size": 1689,
+                      "path": "src/client/themes/themes.ts"
+                    },
+                    {
+                      "name": "uiwImports.ts",
+                      "size": 1135,
+                      "path": "src/client/themes/uiwImports.ts"
+                    },
+                    {
+                      "name": "useDynamicTheme.ts",
+                      "size": 872,
+                      "path": "src/client/themes/useDynamicTheme.ts"
+                    }
+                  ],
+                  "path": "src/client/themes"
+                },
+                {
+                  "name": "useESLint",
+                  "children": [
+                    {
+                      "name": "index.ts",
+                      "size": 1975,
+                      "path": "src/client/useESLint/index.ts"
+                    },
+                    {
+                      "name": "worker.ts",
+                      "size": 2715,
+                      "path": "src/client/useESLint/worker.ts"
+                    }
+                  ],
+                  "path": "src/client/useESLint"
+                },
+                {
+                  "name": "usePrettier",
+                  "children": [
+                    {
+                      "name": "index.ts",
+                      "size": 4837,
+                      "path": "src/client/usePrettier/index.ts"
+                    },
+                    {
+                      "name": "worker.ts",
+                      "size": 2439,
+                      "path": "src/client/usePrettier/worker.ts"
+                    }
+                  ],
+                  "path": "src/client/usePrettier"
+                },
+                {
+                  "name": "utils",
+                  "children": [
+                    {
+                      "name": "fileExtension.ts",
+                      "size": 365,
+                      "path": "src/client/utils/fileExtension.ts"
+                    },
+                    {
+                      "name": "isImageFile.ts",
+                      "size": 370,
+                      "path": "src/client/utils/isImageFile.ts"
+                    }
+                  ],
+                  "path": "src/client/utils"
+                },
+                {
+                  "name": "vzReducer",
+                  "children": [
+                    {
+                      "name": "aiChatReducer.ts",
+                      "size": 648,
+                      "path": "src/client/vzReducer/aiChatReducer.ts"
+                    },
+                    {
+                      "name": "closeTabReducer.test.ts",
+                      "size": 5110,
+                      "path": "src/client/vzReducer/closeTabReducer.test.ts"
+                    },
+                    {
+                      "name": "closeTabsReducer.ts",
+                      "size": 2256,
+                      "path": "src/client/vzReducer/closeTabsReducer.ts"
+                    },
+                    {
+                      "name": "createInitialState.ts",
+                      "size": 776,
+                      "path": "src/client/vzReducer/createInitialState.ts"
+                    },
+                    {
+                      "name": "editorNoLongerWantsFocusReducer.ts",
+                      "size": 247,
+                      "path": "src/client/vzReducer/editorNoLongerWantsFocusReducer.ts"
+                    },
+                    {
+                      "name": "findPane.ts",
+                      "size": 419,
+                      "path": "src/client/vzReducer/findPane.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 6587,
+                      "path": "src/client/vzReducer/index.ts"
+                    },
+                    {
+                      "name": "openTabReducer.test.ts",
+                      "size": 3562,
+                      "path": "src/client/vzReducer/openTabReducer.test.ts"
+                    },
+                    {
+                      "name": "openTabReducer.ts",
+                      "size": 1958,
+                      "path": "src/client/vzReducer/openTabReducer.ts"
+                    },
+                    {
+                      "name": "searchReducer.test.ts",
+                      "size": 6724,
+                      "path": "src/client/vzReducer/searchReducer.test.ts"
+                    },
+                    {
+                      "name": "searchReducer.ts",
+                      "size": 4064,
+                      "path": "src/client/vzReducer/searchReducer.ts"
+                    },
+                    {
+                      "name": "setActiveFileIdReducer.ts",
+                      "size": 677,
+                      "path": "src/client/vzReducer/setActiveFileIdReducer.ts"
+                    },
+                    {
+                      "name": "setActiveFileLeftRightReducer.ts",
+                      "size": 1623,
+                      "path": "src/client/vzReducer/setActiveFileLeftRightReducer.ts"
+                    },
+                    {
+                      "name": "setIsDocOpenReducer.ts",
+                      "size": 222,
+                      "path": "src/client/vzReducer/setIsDocOpenReducer.ts"
+                    },
+                    {
+                      "name": "setIsSettingsOpenReducer.ts",
+                      "size": 237,
+                      "path": "src/client/vzReducer/setIsSettingsOpenReducer.ts"
+                    },
+                    {
+                      "name": "setThemeReducer.ts",
+                      "size": 213,
+                      "path": "src/client/vzReducer/setThemeReducer.ts"
+                    },
+                    {
+                      "name": "setUsernameReducer.ts",
+                      "size": 220,
+                      "path": "src/client/vzReducer/setUsernameReducer.ts"
+                    },
+                    {
+                      "name": "splitCurrentPaneReducer.ts",
+                      "size": 1444,
+                      "path": "src/client/vzReducer/splitCurrentPaneReducer.ts"
+                    },
+                    {
+                      "name": "toggleAutoFollowReducer.ts",
+                      "size": 270,
+                      "path": "src/client/vzReducer/toggleAutoFollowReducer.ts"
+                    },
+                    {
+                      "name": "updatePane.ts",
+                      "size": 963,
+                      "path": "src/client/vzReducer/updatePane.ts"
+                    },
+                    {
+                      "name": "updatePresenceIndicatorReducer.ts",
+                      "size": 804,
+                      "path": "src/client/vzReducer/updatePresenceIndicatorReducer.ts"
+                    }
+                  ],
+                  "path": "src/client/vzReducer"
+                },
+                {
+                  "name": "SplitPaneResizeContext.tsx",
+                  "size": 6227,
+                  "path": "src/client/SplitPaneResizeContext.tsx"
+                },
+                {
+                  "name": "VZCodeContext.tsx",
+                  "size": 13678,
+                  "path": "src/client/VZCodeContext.tsx"
+                },
+                {
+                  "name": "VZKeyboardShortcutsDoc.tsx",
+                  "size": 4157,
+                  "path": "src/client/VZKeyboardShortcutsDoc.tsx"
+                },
+                {
+                  "name": "VZLeft.tsx",
+                  "size": 912,
+                  "path": "src/client/VZLeft.tsx"
+                },
+                {
+                  "name": "VZMiddle.tsx",
+                  "size": 4761,
+                  "path": "src/client/VZMiddle.tsx"
+                },
+                {
+                  "name": "VZRight.tsx",
+                  "size": 2257,
+                  "path": "src/client/VZRight.tsx"
+                },
+                {
+                  "name": "VZSettings.tsx",
+                  "size": 7171,
+                  "path": "src/client/VZSettings.tsx"
+                },
+                {
+                  "name": "bootstrap.ts",
+                  "size": 631,
+                  "path": "src/client/bootstrap.ts"
+                },
+                {
+                  "name": "buildWorker.ts",
+                  "size": 106,
+                  "path": "src/client/buildWorker.ts"
+                },
+                {
+                  "name": "featureFlags.ts",
+                  "size": 151,
+                  "path": "src/client/featureFlags.ts"
+                },
+                {
+                  "name": "generateRequestId.ts",
+                  "size": 183,
+                  "path": "src/client/generateRequestId.ts"
+                },
+                {
+                  "name": "getFileTree.ts",
+                  "size": 1527,
+                  "path": "src/client/getFileTree.ts"
+                },
+                {
+                  "name": "index.ts",
+                  "size": 715,
+                  "path": "src/client/index.ts"
+                },
+                {
+                  "name": "main.jsx",
+                  "size": 268,
+                  "path": "src/client/main.jsx"
+                },
+                {
+                  "name": "presenceColor.ts",
+                  "size": 205,
+                  "path": "src/client/presenceColor.ts"
+                },
+                {
+                  "name": "shouldTriggerRun.ts",
+                  "size": 1083,
+                  "path": "src/client/shouldTriggerRun.ts"
+                },
+                {
+                  "name": "sortFileTree.ts",
+                  "size": 763,
+                  "path": "src/client/sortFileTree.ts"
+                },
+                {
+                  "name": "tabsSearchParameters.test.ts",
+                  "size": 1911,
+                  "path": "src/client/tabsSearchParameters.test.ts"
+                },
+                {
+                  "name": "tabsSearchParameters.ts",
+                  "size": 3982,
+                  "path": "src/client/tabsSearchParameters.ts"
+                },
+                {
+                  "name": "useActions.ts",
+                  "size": 5728,
+                  "path": "src/client/useActions.ts"
+                },
+                {
+                  "name": "useEditorCache.ts",
+                  "size": 984,
+                  "path": "src/client/useEditorCache.ts"
+                },
+                {
+                  "name": "useFileCRUD.ts",
+                  "size": 6159,
+                  "path": "src/client/useFileCRUD.ts"
+                },
+                {
+                  "name": "useKeyboardShortcuts.ts",
+                  "size": 12367,
+                  "path": "src/client/useKeyboardShortcuts.ts"
+                },
+                {
+                  "name": "useOpenDirectories.ts",
+                  "size": 2890,
+                  "path": "src/client/useOpenDirectories.ts"
+                },
+                {
+                  "name": "usePresenceAutoFollow.ts",
+                  "size": 2477,
+                  "path": "src/client/usePresenceAutoFollow.ts"
+                },
+                {
+                  "name": "useRunCode.tsx",
+                  "size": 465,
+                  "path": "src/client/useRunCode.tsx"
+                },
+                {
+                  "name": "useRuntimeError.ts",
+                  "size": 826,
+                  "path": "src/client/useRuntimeError.ts"
+                },
+                {
+                  "name": "useSubmitOperation.ts",
+                  "size": 544,
+                  "path": "src/client/useSubmitOperation.ts"
+                },
+                {
+                  "name": "useURLSync.ts",
+                  "size": 3834,
+                  "path": "src/client/useURLSync.ts"
+                },
+                {
+                  "name": "usernameLocalStorage.ts",
+                  "size": 1352,
+                  "path": "src/client/usernameLocalStorage.ts"
+                }
+              ],
+              "path": "src/client"
+            },
+            {
+              "name": "server",
+              "children": [
+                {
+                  "name": "aiChatHandler",
+                  "children": [
+                    {
+                      "name": "aiEditing.ts",
+                      "size": 1579,
+                      "path": "src/server/aiChatHandler/aiEditing.ts"
+                    },
+                    {
+                      "name": "chatOperations.ts",
+                      "size": 9740,
+                      "path": "src/server/aiChatHandler/chatOperations.ts"
+                    },
+                    {
+                      "name": "errorHandling.ts",
+                      "size": 1319,
+                      "path": "src/server/aiChatHandler/errorHandling.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 3011,
+                      "path": "src/server/aiChatHandler/index.ts"
+                    },
+                    {
+                      "name": "llmStreaming.ts",
+                      "size": 7365,
+                      "path": "src/server/aiChatHandler/llmStreaming.ts"
+                    },
+                    {
+                      "name": "validation.ts",
+                      "size": 545,
+                      "path": "src/server/aiChatHandler/validation.ts"
+                    }
+                  ],
+                  "path": "src/server/aiChatHandler"
+                },
+                {
+                  "name": "computeInitialDocument.ts",
+                  "size": 6045,
+                  "path": "src/server/computeInitialDocument.ts"
+                },
+                {
+                  "name": "config.ts",
+                  "size": 601,
+                  "path": "src/server/config.ts"
+                },
+                {
+                  "name": "featureFlags.ts",
+                  "size": 217,
+                  "path": "src/server/featureFlags.ts"
+                },
+                {
+                  "name": "generateAIResponse.ts",
+                  "size": 5119,
+                  "path": "src/server/generateAIResponse.ts"
+                },
+                {
+                  "name": "handleAIAssist.ts",
+                  "size": 1295,
+                  "path": "src/server/handleAIAssist.ts"
+                },
+                {
+                  "name": "handleAIChatMessage.ts",
+                  "size": 143,
+                  "path": "src/server/handleAIChatMessage.ts"
+                },
+                {
+                  "name": "handleAICopilot.ts",
+                  "size": 2643,
+                  "path": "src/server/handleAICopilot.ts"
+                },
+                {
+                  "name": "index.ts",
+                  "size": 11263,
+                  "path": "src/server/index.ts"
+                },
+                {
+                  "name": "isDirectory.ts",
+                  "size": 57,
+                  "path": "src/server/isDirectory.ts"
+                },
+                {
+                  "name": "livekit.ts",
+                  "size": 723,
+                  "path": "src/server/livekit.ts"
+                },
+                {
+                  "name": "setupEnv.ts",
+                  "size": 201,
+                  "path": "src/server/setupEnv.ts"
+                }
+              ],
+              "path": "src/server"
+            },
+            {
+              "name": "utils",
+              "children": [
+                {
+                  "name": "fileDiff.ts",
+                  "size": 2514,
+                  "path": "src/utils/fileDiff.ts"
+                }
+              ],
+              "path": "src/utils"
+            },
+            {
+              "name": "index.ts",
+              "size": 51,
+              "path": "src/index.ts"
+            },
+            {
+              "name": "ot.ts",
+              "size": 687,
+              "path": "src/ot.ts"
+            },
+            {
+              "name": "randomId.ts",
+              "size": 1945,
+              "path": "src/randomId.ts"
+            },
+            {
+              "name": "reactRouterExports.ts",
+              "size": 582,
+              "path": "src/reactRouterExports.ts"
+            },
+            {
+              "name": "runCode.ts",
+              "size": 1457,
+              "path": "src/runCode.ts"
+            },
+            {
+              "name": "submitOperation.ts",
+              "size": 684,
+              "path": "src/submitOperation.ts"
+            },
+            {
+              "name": "types.ts",
+              "size": 5084,
+              "path": "src/types.ts"
+            },
+            {
+              "name": "vite-env.d.ts",
+              "size": 216,
+              "path": "src/vite-env.d.ts"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "test",
+          "children": [
+            {
+              "name": "sampleDirectories",
+              "children": [
+                {
+                  "name": "kitchenSink",
+                  "children": [
+                    {
+                      "name": "README.md",
+                      "size": 1966,
+                      "path": "test/sampleDirectories/kitchenSink/README.md"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 469,
+                      "path": "test/sampleDirectories/kitchenSink/index.html"
+                    },
+                    {
+                      "name": "index.js",
+                      "size": 104,
+                      "path": "test/sampleDirectories/kitchenSink/index.js"
+                    },
+                    {
+                      "name": "testtodo.js",
+                      "size": 331,
+                      "path": "test/sampleDirectories/kitchenSink/testtodo.js"
+                    },
+                    {
+                      "name": "viz.js",
+                      "size": 982,
+                      "path": "test/sampleDirectories/kitchenSink/viz.js"
+                    }
+                  ],
+                  "path": "test/sampleDirectories/kitchenSink"
+                },
+                {
+                  "name": "listFiles",
+                  "children": [
+                    {
+                      "name": "index.html",
+                      "size": 183,
+                      "path": "test/sampleDirectories/listFiles/index.html"
+                    },
+                    {
+                      "name": "index.js",
+                      "size": 44,
+                      "path": "test/sampleDirectories/listFiles/index.js"
+                    },
+                    {
+                      "name": "styles.css",
+                      "size": 34,
+                      "path": "test/sampleDirectories/listFiles/styles.css"
+                    }
+                  ],
+                  "path": "test/sampleDirectories/listFiles"
+                },
+                {
+                  "name": "listFilesEmptyDirectory",
+                  "children": [
+                    {
+                      "name": "index.html",
+                      "size": 183,
+                      "path": "test/sampleDirectories/listFilesEmptyDirectory/index.html"
+                    },
+                    {
+                      "name": "index.js",
+                      "size": 44,
+                      "path": "test/sampleDirectories/listFilesEmptyDirectory/index.js"
+                    },
+                    {
+                      "name": "styles.css",
+                      "size": 34,
+                      "path": "test/sampleDirectories/listFilesEmptyDirectory/styles.css"
+                    }
+                  ],
+                  "path": "test/sampleDirectories/listFilesEmptyDirectory"
+                },
+                {
+                  "name": "listFilesFullDirectory",
+                  "children": [
+                    {
+                      "name": "fullDirectory",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 183,
+                          "path": "test/sampleDirectories/listFilesFullDirectory/fullDirectory/index.html"
+                        },
+                        {
+                          "name": "index.js",
+                          "size": 44,
+                          "path": "test/sampleDirectories/listFilesFullDirectory/fullDirectory/index.js"
+                        },
+                        {
+                          "name": "styles.css",
+                          "size": 34,
+                          "path": "test/sampleDirectories/listFilesFullDirectory/fullDirectory/styles.css"
+                        }
+                      ],
+                      "path": "test/sampleDirectories/listFilesFullDirectory/fullDirectory"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 183,
+                      "path": "test/sampleDirectories/listFilesFullDirectory/index.html"
+                    },
+                    {
+                      "name": "index.js",
+                      "size": 44,
+                      "path": "test/sampleDirectories/listFilesFullDirectory/index.js"
+                    },
+                    {
+                      "name": "styles.css",
+                      "size": 34,
+                      "path": "test/sampleDirectories/listFilesFullDirectory/styles.css"
+                    }
+                  ],
+                  "path": "test/sampleDirectories/listFilesFullDirectory"
+                },
+                {
+                  "name": "listFilesIgnore",
+                  "children": [
+                    {
+                      "name": "ignoredDirectory",
+                      "children": [
+                        {
+                          "name": "directory",
+                          "children": [
+                            {
+                              "name": "file",
+                              "size": 0,
+                              "path": "test/sampleDirectories/listFilesIgnore/ignoredDirectory/directory/file"
+                            }
+                          ],
+                          "path": "test/sampleDirectories/listFilesIgnore/ignoredDirectory/directory"
+                        },
+                        {
+                          "name": "file",
+                          "size": 0,
+                          "path": "test/sampleDirectories/listFilesIgnore/ignoredDirectory/file"
+                        },
+                        {
+                          "name": "keptFile",
+                          "size": 0,
+                          "path": "test/sampleDirectories/listFilesIgnore/ignoredDirectory/keptFile"
+                        }
+                      ],
+                      "path": "test/sampleDirectories/listFilesIgnore/ignoredDirectory"
+                    },
+                    {
+                      "name": "subdirectory",
+                      "children": [
+                        {
+                          "name": ".ignore",
+                          "size": 24,
+                          "path": "test/sampleDirectories/listFilesIgnore/subdirectory/.ignore"
+                        },
+                        {
+                          "name": "file",
+                          "size": 0,
+                          "path": "test/sampleDirectories/listFilesIgnore/subdirectory/file"
+                        },
+                        {
+                          "name": "ignoredSubdirectoryFile",
+                          "size": 0,
+                          "path": "test/sampleDirectories/listFilesIgnore/subdirectory/ignoredSubdirectoryFile"
+                        },
+                        {
+                          "name": "subdirectoryFile",
+                          "size": 0,
+                          "path": "test/sampleDirectories/listFilesIgnore/subdirectory/subdirectoryFile"
+                        }
+                      ],
+                      "path": "test/sampleDirectories/listFilesIgnore/subdirectory"
+                    },
+                    {
+                      "name": ".ignore",
+                      "size": 58,
+                      "path": "test/sampleDirectories/listFilesIgnore/.ignore"
+                    },
+                    {
+                      "name": "file",
+                      "size": 0,
+                      "path": "test/sampleDirectories/listFilesIgnore/file"
+                    },
+                    {
+                      "name": "ignoredFile",
+                      "size": 0,
+                      "path": "test/sampleDirectories/listFilesIgnore/ignoredFile"
+                    }
+                  ],
+                  "path": "test/sampleDirectories/listFilesIgnore"
+                },
+                {
+                  "name": "listFilesRecursive",
+                  "children": [
+                    {
+                      "name": "outerDirectory",
+                      "children": [
+                        {
+                          "name": "innerDirectory",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 183,
+                              "path": "test/sampleDirectories/listFilesRecursive/outerDirectory/innerDirectory/index.html"
+                            }
+                          ],
+                          "path": "test/sampleDirectories/listFilesRecursive/outerDirectory/innerDirectory"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 183,
+                          "path": "test/sampleDirectories/listFilesRecursive/outerDirectory/index.html"
+                        }
+                      ],
+                      "path": "test/sampleDirectories/listFilesRecursive/outerDirectory"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 183,
+                      "path": "test/sampleDirectories/listFilesRecursive/index.html"
+                    }
+                  ],
+                  "path": "test/sampleDirectories/listFilesRecursive"
+                }
+              ],
+              "path": "test/sampleDirectories"
+            },
+            {
+              "name": "aiCopyPasteIntegration.test.js",
+              "size": 4898,
+              "path": "test/aiCopyPasteIntegration.test.js"
+            },
+            {
+              "name": "aiPasteEdgeCases.test.js",
+              "size": 3160,
+              "path": "test/aiPasteEdgeCases.test.js"
+            },
+            {
+              "name": "aiPasteIssue.test.js",
+              "size": 3222,
+              "path": "test/aiPasteIssue.test.js"
+            },
+            {
+              "name": "fileDiff.test.ts",
+              "size": 6642,
+              "path": "test/fileDiff.test.ts"
+            },
+            {
+              "name": "getFileTree.test.js",
+              "size": 5092,
+              "path": "test/getFileTree.test.js"
+            },
+            {
+              "name": "imageEndToEnd.test.js",
+              "size": 4750,
+              "path": "test/imageEndToEnd.test.js"
+            },
+            {
+              "name": "imageHandling.test.js",
+              "size": 2527,
+              "path": "test/imageHandling.test.js"
+            },
+            {
+              "name": "imageSave.test.js",
+              "size": 2016,
+              "path": "test/imageSave.test.js"
+            },
+            {
+              "name": "isImageFile.test.ts",
+              "size": 1426,
+              "path": "test/isImageFile.test.ts"
+            },
+            {
+              "name": "listFiles.test.js",
+              "size": 7692,
+              "path": "test/listFiles.test.js"
+            },
+            {
+              "name": "sortFileTree.test.js",
+              "size": 8679,
+              "path": "test/sortFileTree.test.js"
+            },
+            {
+              "name": "streamingOTParser.test.js",
+              "size": 4688,
+              "path": "test/streamingOTParser.test.js"
+            }
+          ],
+          "path": "test"
+        },
+        {
+          "name": ".env.example",
+          "size": 308,
+          "path": ".env.example"
+        },
+        {
+          "name": ".env.release",
+          "size": 27,
+          "path": ".env.release"
+        },
+        {
+          "name": ".gitignore",
+          "size": 65,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".prettierignore",
+          "size": 86,
+          "path": ".prettierignore"
+        },
+        {
+          "name": ".prettierrc",
+          "size": 46,
+          "path": ".prettierrc"
+        },
+        {
+          "name": "CONTRIBUTING.md",
+          "size": 3597,
+          "path": "CONTRIBUTING.md"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1072,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 5880,
+          "path": "README.md"
+        },
+        {
+          "name": "eslint.config.js",
+          "size": 329,
+          "path": "eslint.config.js"
+        },
+        {
+          "name": "index.html",
+          "size": 652,
+          "path": "index.html"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 348469,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 5705,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 413,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "vite.config.js",
+          "size": 1096,
+          "path": "vite.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 243,
+    "totalSize": 881709
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"vzcode-mob-programming-code-editor\">VZCode: Mob Programming Code Editor</h1>\n<p>VZCode offers a multiplayer code editing environment that caters to a real-time collaborative development experience. It's the code editor component of <a href=\"https://vizhub.com/\">VizHub</a>, and can also be used independently from VizHub.</p>\n<p><img src=\"https://github.com/vizhub-core/vzcode/assets/68416/4eb1c037-6748-47be-a85f-db29b11c2223\" alt=\"VZCode Interface\" /></p>\n<h2 id=\"table-of-contents\">Table of Contents</h2>\n<ul>\n<li><a href=\"#usage\">Usage</a></li>\n<li><a href=\"#development\">Development</a></li>\n<li><a href=\"#features\">Features</a></li>\n<li><a href=\"#use-cases\">Use Cases</a></li>\n<li><a href=\"#stack\">Stack</a></li>\n<li><a href=\"#goals\">Goals</a></li>\n<li><a href=\"#prior-work\">Prior Work</a></li>\n<li><a href=\"#milestones\">Milestones</a></li>\n<li><a href=\"#team\">Team</a></li>\n<li><a href=\"#spaces\">Spaces</a></li>\n</ul>\n<h2 id=\"usage\">Usage</h2>\n<p>You can use VZCode as an editor for your current directory if you install it globally with:</p>\n<pre><code>npm install -g vzcode\n</code></pre>\n<p>To open it, navigate to the directory of your choice in the terminal, then run</p>\n<pre><code>vzcode\n</code></pre>\n<p>A new browser window should automatically pop open with the files in that directory exposed for interactive multiplayer editing.</p>\n<p><strong>Note:</strong> A known shortcoming of VZCode is that it does not (yet) watch for changes from the file system. VZCode assumes that no other programs are modifying the same files. If another program does modify the same files at the same time, each VZCode auto-save will clobber the changes made by the other program.</p>\n<p>To invite others to edit with you in real time, share your IP in your LAN with them to access. You can also expose your VZCode instance publicly using a tunneling service such as <a href=\"https://ngrok.com/\">NGrok</a>. In fact, if you set your <code>NGROK_TOKEN</code> environment variable, VZCode will automatically connect and log the public URL when it starts.</p>\n<h2 id=\"development\">Development</h2>\n<ul>\n<li>\n<p><strong>Backlog &amp; Issues</strong>: Use our <a href=\"https://github.com/orgs/vizhub-core/projects/2/views/1\">Kanban Board</a> to track the backlog, <a href=\"https://github.com/orgs/vizhub-core/projects/2/views/1?filterQuery=label%3A%22good+first+issue%22\">good first issues</a>, and <a href=\"https://github.com/orgs/vizhub-core/projects/2/views/1?filterQuery=label%3Abug\">known bugs</a>.</p>\n</li>\n<li>\n<p><strong>Local Setup</strong>:</p>\n</li>\n</ul>\n<pre><code class=\"language-bash\">cd vzcode\nnpm install\nnpm run test-interactive\n</code></pre>\n<p>If you're on Windows, you'll also need to do this additional step:</p>\n<pre><code>npm install @rollup/rollup-win32-x64-msvc\n</code></pre>\n<p>For local development with hot reloading (for client-side changes only), <em>keep the server running, started by</em> <code>npm run test-interactive</code>, and also in a separate terminal run this:</p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<p>This will expose <a href=\"http://localhost:5173/\">http://localhost:5173/</a> and proxy the requests for data to the server (running on port 3030).</p>\n<p>You can also use <a href=\"https://docs.npmjs.com/cli/v8/commands/npm-link\">npm link</a> to set up the <code>vzcode</code> NPM package in another project to point to your clone of the repository. This can be useful when testing out how <code>vzcode</code> functions as a dependency.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Browser-based editing environment</li>\n<li>Sidebar with file listings (directories support pending)</li>\n<li>Real-time collaboration via LAN or using services like <a href=\"https://ngrok.com/\">NGrok</a></li>\n<li>File management through tabs</li>\n<li>Basic file operations: create, rename, delete</li>\n<li>Syntax highlighting for web languages</li>\n<li>Interactive widgets for editing numbers (Alt+drag on numbers)</li>\n<li>Auto-save, debounced after code changes</li>\n<li>Auto-save, throttled while using interactive widgets to support hot reloading environments</li>\n</ul>\n<h2 id=\"use-cases\">Use Cases</h2>\n<ul>\n<li>\n<p><strong>Local Editor</strong>:\nUse VZCode like VSCode or Vim:</p>\n<pre><code class=\"language-bash\">npm install -g vzcode\ncd myProject\nvzcode\n</code></pre>\n</li>\n<li>\n<p><strong>Project-specific Editor</strong>:\nEmbed VZCode within your project for developers who might not have a preferred IDE, or to provide an editing experience that seamlessly integrates with hot reloading.</p>\n<pre><code class=\"language-json\">{\n  \"name\": \"example-project\",\n  \"scripts\": {\n    \"edit\": \"vzcode\"\n  },\n  \"dependencies\": {\n    \"vzcode\": \"^0.1.0\"\n  }\n}\n</code></pre>\n<p>Run using <code>npm run edit</code>.</p>\n<p>For example, as the editor of <a href=\"https://github.com/curran/vite-d3-template\">Vite D3 Template</a>, which showcases the throttled auto-save behavior of VZCode while using the interactive widgets in the context of editing files served by the Vite dev server which supports hot reloading.</p>\n</li>\n<li>\n<p><strong>Hosting with Ngrok</strong>: Allow external collaborators to join your VZCode session.</p>\n<ul>\n<li>\n<p><strong>With Ngrok Globally Installed</strong>: (Requires authenticated Ngrok account)</p>\n<pre><code class=\"language-bash\">vzcode\nngrok http 3030\n</code></pre>\n</li>\n<li>\n<p><strong>Through VZCode</strong>: Coming soon!</p>\n</li>\n</ul>\n</li>\n<li>\n<p><strong>Staging Site Editor (Experimental)</strong>:\nUse VZCode on a persistent server, making code changes with multiplayer mode remotely, reflecting instantly on a staging site.</p>\n</li>\n</ul>\n<h2 id=\"stack\">Stack</h2>\n<p>Built using technologies such as:</p>\n<ul>\n<li><a href=\"https://nodejs.org/en/\">NodeJS</a></li>\n<li><a href=\"https://expressjs.com/\">Express</a></li>\n<li><a href=\"https://github.com/share/sharedb\">ShareDB</a></li>\n<li><a href=\"https://github.com/ottypes/json1\">JSON1 Operational Transform</a></li>\n<li><a href=\"https://codemirror.net/\">CodeMirror 6</a></li>\n<li><a href=\"https://reactjs.org/\">React</a></li>\n<li><a href=\"https://vitejs.dev/\">Vite</a></li>\n</ul>\n<h2 id=\"goals\">Goals</h2>\n<p>The project aims to:</p>\n<ul>\n<li>Offer a feasible alternative to VSCode + Live Share for frontend development</li>\n<li>Facilitate easy project-specific IDE embedding</li>\n<li>Enhance user experience with advanced features</li>\n<li>Support instant feedback through hot reloading</li>\n<li>Keep improving based on feedback</li>\n<li>Serve as a core for <a href=\"https://vizhub.com/\">VizHub's</a> next-gen editor</li>\n</ul>\n<h2 id=\"prior-work\">Prior Work</h2>\n<p>VZCode is inspired by <a href=\"https://github.com/vizhub-core/vizhub/\">VizHub v2</a>. VizHub V2's code editor supports real-time collaboration using older versions of libraries such as CodeMirror 5 and JSON0 OT. For VZCode, the aim is to leverage the latest technologies to deliver a more streamlined experience.</p>\n<p><img src=\"https://user-images.githubusercontent.com/68416/213894278-51c7c9a9-dc11-42bc-ba10-c23109c473cd.png\" alt=\"Prior Work Image\" /></p>\n<h2 id=\"spaces\">Spaces</h2>\n<ul>\n<li><a href=\"https://discord.com/invite/wbtJ7SCtYr\">VizHub Discord</a></li>\n<li><a href=\"https://github.com/vizhub-core/vzcode\">GitHub Repository</a></li>\n<li><a href=\"https://discord.com/channels/738593165438746634/1066068656045441044\">Discord Channel within RCOS</a></li>\n</ul>",

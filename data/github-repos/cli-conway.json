@@ -15,6 +15,96 @@
     "JavaScript": 14802
   },
   "diskUsage": 8,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 13
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "README",
+        "size": 1511
+      },
+      {
+        "path": "index.bak.js",
+        "size": 2327
+      },
+      {
+        "path": "index.bak2.js",
+        "size": 5685
+      },
+      {
+        "path": "index.js",
+        "size": 6790
+      },
+      {
+        "path": "package-lock.json",
+        "size": 696
+      },
+      {
+        "path": "package.json",
+        "size": 472
+      }
+    ],
+    "tree": {
+      "name": "cli-conway",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": ".gitignore",
+          "size": 13,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README",
+          "size": 1511,
+          "path": "README"
+        },
+        {
+          "name": "index.bak.js",
+          "size": 2327,
+          "path": "index.bak.js"
+        },
+        {
+          "name": "index.bak2.js",
+          "size": 5685,
+          "path": "index.bak2.js"
+        },
+        {
+          "name": "index.js",
+          "size": 6790,
+          "path": "index.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 696,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 472,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 8,
+    "totalSize": 17761
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

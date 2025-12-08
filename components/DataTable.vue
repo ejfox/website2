@@ -25,7 +25,7 @@
             ]"
             @click="column.sortable !== false && sort(column.key)"
           >
-            <span class="inline-flex items-center gap-1">
+            <span class="inline-flex items-center gap-0.5">
               {{ column.label }}
               <span
                 v-if="column.sortable !== false"

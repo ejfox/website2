@@ -1,7 +1,7 @@
 <template>
-  <main class="max-w-4xl mx-auto px-4 py-8">
+  <main class="max-w-4xl mx-auto px-4 pt-8">
     <!-- Header -->
-    <header class="space-y-8 mb-16">
+    <header class="space-y-6 mb-12">
       <div>
         <h1 class="sitemap-title">Site Map</h1>
         <p class="text-zinc-600 dark:text-zinc-400 mt-2">
@@ -171,7 +171,7 @@
                 <div class="title-card">
                   {{ post.title }}
                 </div>
-                <div class="text-xs text-zinc-500 mt-1">
+                <div class="text-xs text-zinc-500 mt-2">
                   {{ formatDate(post.date) }}
                   <span v-if="post.tags?.length" class="ml-2">
                     · {{ post.tags[0] }}
@@ -198,7 +198,7 @@
                 <div class="nav-link-sm">
                   {{ prediction.statement }}
                 </div>
-                <div class="text-xs text-zinc-500 mt-1">
+                <div class="text-xs text-zinc-500 mt-2">
                   {{ prediction.confidence }}% confidence · Due
                   {{ formatDate(prediction.deadline) }}
                 </div>
@@ -282,31 +282,27 @@ const lastUpdated = computed(() => {
   const dates = []
   if (manifest.value?.length) {
     manifest.value.forEach((item) => {
-      if (item?.date) dates.push(new Date(item.date).getTime())
+      if (item?.date) {
+        const timestamp = new Date(item.date).getTime()
+        if (!isNaN(timestamp)) dates.push(timestamp)
+      }
     })
   }
   if (predictions.value?.length) {
     predictions.value.forEach((p) => {
-      if (p?.created) dates.push(new Date(p.created).getTime())
+      if (p?.created) {
+        const timestamp = new Date(p.created).getTime()
+        if (!isNaN(timestamp)) dates.push(timestamp)
+      }
       const lastUpdate = p?.updates?.[p.updates.length - 1]?.timestamp
-      if (lastUpdate) dates.push(new Date(lastUpdate).getTime())
+      if (lastUpdate) {
+        const timestamp = new Date(lastUpdate).getTime()
+        if (!isNaN(timestamp)) dates.push(timestamp)
+      }
     })
   }
   if (!dates.length) return ''
   return new Date(Math.max(...dates)).toISOString().split('T')[0]
-})
-
-usePageSeo({
-  title: 'Site Map | ejfox.com',
-  description:
-    'Complete navigation and overview of ejfox.com pages, tools, and collections.',
-  type: 'website',
-  section: 'Meta',
-  tags: ['Sitemap', 'Navigation', 'Site index'],
-  label1: 'Posts indexed',
-  data1: computed(() => `${totalPosts.value} articles`),
-  label2: 'Predictions',
-  data2: computed(() => `${publicPredictions.value} public forecasts`),
 })
 
 // Process recent posts
@@ -352,6 +348,19 @@ const yearsActive = computed(() => {
   const currentYear = new Date().getFullYear()
   return currentYear - startYear
 })
+
+usePageSeo({
+  title: 'Site Map | ejfox.com',
+  description:
+    'Complete navigation and overview of ejfox.com pages, tools, and collections.',
+  type: 'website',
+  section: 'Meta',
+  tags: ['Sitemap', 'Navigation', 'Site index'],
+  label1: 'Posts indexed',
+  data1: computed(() => `${totalPosts.value} articles`),
+  label2: 'Predictions',
+  data2: computed(() => `${publicPredictions.value} public forecasts`),
+})
 </script>
 
 <style scoped>
@@ -372,6 +381,6 @@ const yearsActive = computed(() => {
 }
 
 .stat-label {
-  @apply text-xs text-zinc-500 mt-1;
+  @apply text-xs text-zinc-500 mt-2;
 }
 </style>

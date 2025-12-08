@@ -15,6 +15,63 @@
     "JavaScript": 6612
   },
   "diskUsage": 49,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 61
+      },
+      {
+        "path": "README.md",
+        "size": 244
+      },
+      {
+        "path": "embeddings.js",
+        "size": 2178
+      },
+      {
+        "path": "package.json",
+        "size": 168
+      },
+      {
+        "path": "posts.js",
+        "size": 4434
+      }
+    ],
+    "tree": {
+      "name": "reddit-embeddings-1",
+      "children": [
+        {
+          "name": ".gitignore",
+          "size": 61,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 244,
+          "path": "README.md"
+        },
+        {
+          "name": "embeddings.js",
+          "size": 2178,
+          "path": "embeddings.js"
+        },
+        {
+          "name": "package.json",
+          "size": 168,
+          "path": "package.json"
+        },
+        {
+          "name": "posts.js",
+          "size": 4434,
+          "path": "posts.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 5,
+    "totalSize": 7085
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"reddit-embeddings\">Reddit embeddings</h1>\n<p>Download post data from reddit and embed it with OpenAI</p>\n<pre><code class=\"language-bash\"># download the top 1000 posts for DataIsBeautiful\nnode posts.js fetch 1000\n# procses the posts\nnode posts.js process\n\n#embed the posts\nnode embeddings.js\n</code></pre>",

@@ -146,7 +146,7 @@ usePageSeo({
 </script>
 
 <template>
-  <main class="px-4 md:px-8 py-8 max-w-2xl">
+  <main class="px-4 md:px-8 pt-8 max-w-2xl">
     <!-- Header -->
     <header class="mb-8">
       <div
@@ -253,7 +253,7 @@ usePageSeo({
           target="_blank"
           class="block group"
         >
-          <div class="font-mono text-xs text-zinc-600 dark:text-zinc-400 mb-1">
+          <div class="font-mono text-xs text-zinc-600 dark:text-zinc-400 mb-2">
             {{ now.code.repo }}
           </div>
           <div class="activity-title-base">
@@ -390,7 +390,7 @@ usePageSeo({
 }
 
 .confidence-badge {
-  @apply font-mono text-xs text-zinc-900 dark:text-zinc-100 font-bold mb-1;
+  @apply font-mono text-xs text-zinc-900 dark:text-zinc-100 font-bold mb-2;
 }
 
 .chess-rating {

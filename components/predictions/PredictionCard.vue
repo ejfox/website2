@@ -7,7 +7,7 @@
     >
       <!-- Statement with confidence badge - PRIORITIZED -->
       <div class="mb-2">
-        <div class="flex items-start gap-3 mb-1">
+        <div class="flex items-start gap-3 mb-2">
           <span :class="confidenceClasses">{{ displayConfidence }}%</span>
           <span :class="statementClasses">
             {{ prediction.statement || prediction.title }}

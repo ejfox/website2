@@ -15,6 +15,345 @@
     "C": 28206
   },
   "diskUsage": 85,
+  "fileTree": {
+    "files": [
+      {
+        "path": "DEMO.md",
+        "size": 4586
+      },
+      {
+        "path": "DESIGN_DECISIONS.md",
+        "size": 3861
+      },
+      {
+        "path": "DEV_WORKFLOW.md",
+        "size": 4919
+      },
+      {
+        "path": "FORMULA_VERIFICATION.md",
+        "size": 3783
+      },
+      {
+        "path": "README.md",
+        "size": 2290
+      },
+      {
+        "path": "SUBAGENT_BRIEFING.md",
+        "size": 4719
+      },
+      {
+        "path": "dilate/.github/workflows/build.yml",
+        "size": 1384
+      },
+      {
+        "path": "dilate/.vscode/compile_commands.json",
+        "size": 6766
+      },
+      {
+        "path": "dilate/CLAUDE.md",
+        "size": 4826
+      },
+      {
+        "path": "dilate/README.md",
+        "size": 1890
+      },
+      {
+        "path": "dilate/application.fam",
+        "size": 607
+      },
+      {
+        "path": "dilate/dilate.c",
+        "size": 10676
+      },
+      {
+        "path": "dilate/dilate.png",
+        "size": 220
+      },
+      {
+        "path": "dilate/dist/debug/dilate_d.elf",
+        "size": 24756
+      },
+      {
+        "path": "dilate/dist/dilate.fap",
+        "size": 9428
+      },
+      {
+        "path": "dilate/images/.gitkeep",
+        "size": 0
+      },
+      {
+        "path": "space-travel-calculator/.clang-format",
+        "size": 6747
+      },
+      {
+        "path": "space-travel-calculator/.github/workflows/build.yml",
+        "size": 1384
+      },
+      {
+        "path": "space-travel-calculator/.vscode/compile_commands.json",
+        "size": 7106
+      },
+      {
+        "path": "space-travel-calculator/CLAUDE.md",
+        "size": 9683
+      },
+      {
+        "path": "space-travel-calculator/README.md",
+        "size": 2282
+      },
+      {
+        "path": "space-travel-calculator/application.fam",
+        "size": 632
+      },
+      {
+        "path": "space-travel-calculator/dist/debug/space_travel_calculator_d.elf",
+        "size": 48884
+      },
+      {
+        "path": "space-travel-calculator/dist/space_travel_calculator.fap",
+        "size": 24928
+      },
+      {
+        "path": "space-travel-calculator/images/.gitkeep",
+        "size": 0
+      },
+      {
+        "path": "space-travel-calculator/space_travel_calculator.c",
+        "size": 17530
+      },
+      {
+        "path": "space-travel-calculator/space_travel_calculator.png",
+        "size": 220
+      }
+    ],
+    "tree": {
+      "name": "flipper-space-calculators",
+      "children": [
+        {
+          "name": "dilate",
+          "children": [
+            {
+              "name": ".github",
+              "children": [
+                {
+                  "name": "workflows",
+                  "children": [
+                    {
+                      "name": "build.yml",
+                      "size": 1384,
+                      "path": "dilate/.github/workflows/build.yml"
+                    }
+                  ],
+                  "path": "dilate/.github/workflows"
+                }
+              ],
+              "path": "dilate/.github"
+            },
+            {
+              "name": ".vscode",
+              "children": [
+                {
+                  "name": "compile_commands.json",
+                  "size": 6766,
+                  "path": "dilate/.vscode/compile_commands.json"
+                }
+              ],
+              "path": "dilate/.vscode"
+            },
+            {
+              "name": "dist",
+              "children": [
+                {
+                  "name": "debug",
+                  "children": [
+                    {
+                      "name": "dilate_d.elf",
+                      "size": 24756,
+                      "path": "dilate/dist/debug/dilate_d.elf"
+                    }
+                  ],
+                  "path": "dilate/dist/debug"
+                },
+                {
+                  "name": "dilate.fap",
+                  "size": 9428,
+                  "path": "dilate/dist/dilate.fap"
+                }
+              ],
+              "path": "dilate/dist"
+            },
+            {
+              "name": "images",
+              "children": [
+                {
+                  "name": ".gitkeep",
+                  "size": 0,
+                  "path": "dilate/images/.gitkeep"
+                }
+              ],
+              "path": "dilate/images"
+            },
+            {
+              "name": "CLAUDE.md",
+              "size": 4826,
+              "path": "dilate/CLAUDE.md"
+            },
+            {
+              "name": "README.md",
+              "size": 1890,
+              "path": "dilate/README.md"
+            },
+            {
+              "name": "application.fam",
+              "size": 607,
+              "path": "dilate/application.fam"
+            },
+            {
+              "name": "dilate.c",
+              "size": 10676,
+              "path": "dilate/dilate.c"
+            },
+            {
+              "name": "dilate.png",
+              "size": 220,
+              "path": "dilate/dilate.png"
+            }
+          ],
+          "path": "dilate"
+        },
+        {
+          "name": "space-travel-calculator",
+          "children": [
+            {
+              "name": ".github",
+              "children": [
+                {
+                  "name": "workflows",
+                  "children": [
+                    {
+                      "name": "build.yml",
+                      "size": 1384,
+                      "path": "space-travel-calculator/.github/workflows/build.yml"
+                    }
+                  ],
+                  "path": "space-travel-calculator/.github/workflows"
+                }
+              ],
+              "path": "space-travel-calculator/.github"
+            },
+            {
+              "name": ".vscode",
+              "children": [
+                {
+                  "name": "compile_commands.json",
+                  "size": 7106,
+                  "path": "space-travel-calculator/.vscode/compile_commands.json"
+                }
+              ],
+              "path": "space-travel-calculator/.vscode"
+            },
+            {
+              "name": "dist",
+              "children": [
+                {
+                  "name": "debug",
+                  "children": [
+                    {
+                      "name": "space_travel_calculator_d.elf",
+                      "size": 48884,
+                      "path": "space-travel-calculator/dist/debug/space_travel_calculator_d.elf"
+                    }
+                  ],
+                  "path": "space-travel-calculator/dist/debug"
+                },
+                {
+                  "name": "space_travel_calculator.fap",
+                  "size": 24928,
+                  "path": "space-travel-calculator/dist/space_travel_calculator.fap"
+                }
+              ],
+              "path": "space-travel-calculator/dist"
+            },
+            {
+              "name": "images",
+              "children": [
+                {
+                  "name": ".gitkeep",
+                  "size": 0,
+                  "path": "space-travel-calculator/images/.gitkeep"
+                }
+              ],
+              "path": "space-travel-calculator/images"
+            },
+            {
+              "name": ".clang-format",
+              "size": 6747,
+              "path": "space-travel-calculator/.clang-format"
+            },
+            {
+              "name": "CLAUDE.md",
+              "size": 9683,
+              "path": "space-travel-calculator/CLAUDE.md"
+            },
+            {
+              "name": "README.md",
+              "size": 2282,
+              "path": "space-travel-calculator/README.md"
+            },
+            {
+              "name": "application.fam",
+              "size": 632,
+              "path": "space-travel-calculator/application.fam"
+            },
+            {
+              "name": "space_travel_calculator.c",
+              "size": 17530,
+              "path": "space-travel-calculator/space_travel_calculator.c"
+            },
+            {
+              "name": "space_travel_calculator.png",
+              "size": 220,
+              "path": "space-travel-calculator/space_travel_calculator.png"
+            }
+          ],
+          "path": "space-travel-calculator"
+        },
+        {
+          "name": "DEMO.md",
+          "size": 4586,
+          "path": "DEMO.md"
+        },
+        {
+          "name": "DESIGN_DECISIONS.md",
+          "size": 3861,
+          "path": "DESIGN_DECISIONS.md"
+        },
+        {
+          "name": "DEV_WORKFLOW.md",
+          "size": 4919,
+          "path": "DEV_WORKFLOW.md"
+        },
+        {
+          "name": "FORMULA_VERIFICATION.md",
+          "size": 3783,
+          "path": "FORMULA_VERIFICATION.md"
+        },
+        {
+          "name": "README.md",
+          "size": 2290,
+          "path": "README.md"
+        },
+        {
+          "name": "SUBAGENT_BRIEFING.md",
+          "size": 4719,
+          "path": "SUBAGENT_BRIEFING.md"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 27,
+    "totalSize": 204107
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"flipper-space-calculators\">Flipper Space Calculators</h1>\n<p>A collection of minimalist space and physics calculators for the Flipper Zero. No games, no gimmicks - just the essential calculations for when you need them most.</p>\n<h2 id=\"applications\">Applications</h2>\n<h3 id=\"space-travel-calculator\"><a href=\"./space-travel-calculator/\">Space Travel Calculator</a></h3>\n<p>Interplanetary trajectory calculator for planning transfers between planets. Calculates:</p>\n<ul>\n<li>Hohmann transfer orbits</li>\n<li>Delta-v requirements</li>\n<li>Launch windows</li>\n<li>Phase angles</li>\n</ul>\n<p><em>For when you need to know if that Mars window is actually worth taking.</em></p>\n<h3 id=\"dilate\"><a href=\"./dilate/\">Dilate</a></h3>\n<p>Time dilation calculator with two modes:</p>\n<ul>\n<li><strong>Special Relativity</strong>: Time dilation at relativistic velocities</li>\n<li><strong>General Relativity</strong>: Time dilation in gravitational fields</li>\n</ul>\n<p><em>Because sometimes you need to know exactly how much younger you'll be.</em></p>\n<h2 id=\"design-philosophy\">Design Philosophy</h2>\n<p>These calculators follow strict minimalist principles:</p>\n<ul>\n<li>Boot directly to functionality - no splash screens</li>\n<li>Response time &lt;50ms for all interactions</li>\n<li>Numbers only - no unnecessary explanations</li>\n<li>Default system font - no fancy typography</li>\n<li>Metric units - this is space</li>\n</ul>\n<h2 id=\"building\">Building</h2>\n<p>Each application can be built independently from the Flipper firmware root:</p>\n<pre><code class=\"language-bash\"># Space Travel Calculator\n./fbt fap_space_travel_calculator\n\n# Dilate\n./fbt fap_dilate\n</code></pre>\n<h2 id=\"installation\">Installation</h2>\n<p>Copy the <code>.fap</code> files to your Flipper Zero's SD card under <code>/apps/Tools/</code></p>\n<h2 id=\"project-structure\">Project Structure</h2>\n<pre><code>flipper-space-calculators/\n├── README.md                    # This file\n├── space-travel-calculator/     # Orbital transfer calculator\n│   ├── README.md\n│   ├── CLAUDE.md               # Development guide\n│   └── [source files]\n└── dilate/                     # Time dilation calculator\n    ├── README.md\n    ├── CLAUDE.md               # Development guide\n    └── [source files]\n</code></pre>\n<h2 id=\"contributing\">Contributing</h2>\n<p>These tools are designed to do one thing perfectly. If you're thinking of adding features, ask yourself:</p>\n<ol>\n<li>Is it essential to the core calculation?</li>\n<li>Does it maintain &lt;50ms response time?</li>\n<li>Does it follow the minimalist aesthetic?</li>\n</ol>\n<p>If any answer is no, it doesn't belong here.</p>\n<h2 id=\"license\">License</h2>\n<p>These calculators are tools, not toys. Use them wisely.</p>\n<hr />\n<p><em>\"The universe is under no obligation to make sense to you. But your calculator is.\"</em></p>",

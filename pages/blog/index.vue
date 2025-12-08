@@ -3,74 +3,48 @@
 <template>
   <div>
     <!-- Header with consistent metadata styling -->
-    <header class="mb-6 relative">
+    <header class="mb-6 relative pt-8">
       <!-- Swiss Grid Container matching blog posts -->
       <div class="max-w-screen-xl mx-auto px-4 md:px-8">
         <!-- Compact metadata bar matching blog posts -->
         <div>
-          <div class="metadata-bar mb-3">
-            <span class="flex-gap-1 whitespace-nowrap">
+          <div class="metadata-bar mb-4">
+            <span class="flex-gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">ENTRIES</span>
               <span class="text-zinc-600 dark:text-zinc-300">
-                {{ posts?.length || 0 }}
+                {{ blogStats.postsCount }}
               </span>
             </span>
             <span class="mx-1 text-divider">·</span>
-            <span class="flex-gap-1 whitespace-nowrap">
+            <span class="flex-gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">WORDS</span>
               <span class="text-zinc-600 dark:text-zinc-300">
-                {{
-                  Math.floor(
-                    (posts?.reduce(
-                      (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
-                      0
-                    ) || 0) / 1000
-                  )
-                }}K
+                {{ blogStats.totalWordsK }}K
               </span>
             </span>
             <span class="mx-1 text-divider">·</span>
-            <span class="flex-gap-1 whitespace-nowrap">
+            <span class="flex-gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">READ</span>
               <span class="text-zinc-600 dark:text-zinc-300">
-                {{
-                  Math.floor(
-                    (posts?.reduce(
-                      (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
-                      0
-                    ) || 0) /
-                      200 /
-                      60
-                  )
-                }}hr
+                {{ blogStats.totalReadHours }}hr
               </span>
             </span>
             <span class="mx-1 text-divider">·</span>
-            <span class="flex-gap-1 whitespace-nowrap">
+            <span class="flex-gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">LINKS</span>
               <span class="text-zinc-600 dark:text-zinc-300">
-                {{
-                  posts?.reduce(
-                    (acc, p) => acc + (p?.metadata?.links || p?.links || 0),
-                    0
-                  ) || 0
-                }}
+                {{ blogStats.totalLinks }}
               </span>
             </span>
             <span class="mx-1 text-divider">·</span>
-            <span class="flex-gap-1 whitespace-nowrap">
+            <span class="flex-gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">IMAGES</span>
               <span class="text-zinc-600 dark:text-zinc-300">
-                {{
-                  posts?.reduce(
-                    (acc, p) => acc + (p?.metadata?.images || p?.images || 0),
-                    0
-                  ) || 0
-                }}
+                {{ blogStats.totalImages }}
               </span>
             </span>
             <span class="mx-1 text-divider">·</span>
-            <span class="flex-gap-1 whitespace-nowrap">
+            <span class="flex-gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">YEARS</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{ sortedYears?.length || 0 }}
@@ -167,7 +141,7 @@
                       <!-- Word count with sparkline -->
                       <span
                         v-if="post?.metadata?.words || post?.words"
-                        class="flex-gap-1"
+                        class="flex-gap-0.5"
                       >
                         <span class="mx-1 text-divider">·</span>
                         <ClientOnly>
@@ -190,7 +164,7 @@
                       <!-- Images sparkline -->
                       <span
                         v-if="(post?.metadata?.images || post?.images || 0) > 0"
-                        class="flex-gap-1"
+                        class="flex-gap-0.5"
                       >
                         <span class="mx-1 text-divider">·</span>
                         <ClientOnly>
@@ -208,7 +182,7 @@
                       <!-- Links sparkline -->
                       <span
                         v-if="(post?.metadata?.links || post?.links || 0) > 0"
-                        class="flex-gap-1"
+                        class="flex-gap-0.5"
                       >
                         <span class="mx-1 text-divider">·</span>
                         <ClientOnly>
@@ -252,45 +226,17 @@
               <div>
                 <span class="text-zinc-500">TTL_WORDS</span>
                 <br />
-                <span>
-                  {{
-                    Math.floor(
-                      (posts?.reduce(
-                        (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
-                        0
-                      ) || 0) / 1000
-                    )
-                  }}k
-                </span>
+                <span>{{ blogStats.totalWordsK }}k</span>
               </div>
               <div>
                 <span class="text-zinc-500">AVG_POST</span>
                 <br />
-                <span>
-                  {{
-                    posts?.length
-                      ? Math.floor(
-                          posts.reduce(
-                            (acc, p) =>
-                              acc + (p?.metadata?.words || p?.words || 0),
-                            0
-                          ) / posts.length
-                        )
-                      : 0
-                  }}w
-                </span>
+                <span>{{ blogStats.avgWords }}w</span>
               </div>
               <div>
                 <span class="text-zinc-500">MEDIA</span>
                 <br />
-                <span>
-                  {{
-                    posts?.reduce(
-                      (acc, p) => acc + (p?.metadata?.images || p?.images || 0),
-                      0
-                    ) || 0
-                  }}img
-                </span>
+                <span>{{ blogStats.totalImages }}img</span>
               </div>
             </div>
             <div class="mt-8 space-y-8">
@@ -440,6 +386,37 @@ const { data: notes, error: _notesError } = useAsyncData(
     }
   }
 )
+
+// ✅ Performance: Memoized stats computed once instead of per-render
+const blogStats = computed(() => {
+  const postsArray = posts.value || []
+  const totalWords =
+    postsArray.reduce(
+      (acc, p) => acc + (p?.metadata?.words || p?.words || 0),
+      0
+    ) || 0
+  const totalLinks =
+    postsArray.reduce(
+      (acc, p) => acc + (p?.metadata?.links || p?.links || 0),
+      0
+    ) || 0
+  const totalImages =
+    postsArray.reduce(
+      (acc, p) => acc + (p?.metadata?.images || p?.images || 0),
+      0
+    ) || 0
+
+  return {
+    postsCount: postsArray.length,
+    totalWordsK: Math.floor(totalWords / 1000),
+    totalReadHours: Math.floor(totalWords / 200 / 60),
+    avgWords: postsArray.length
+      ? Math.floor(totalWords / postsArray.length)
+      : 0,
+    totalLinks,
+    totalImages,
+  }
+})
 
 // Static description for SSR-safety
 const defaultDescription =
@@ -639,7 +616,7 @@ const _createPostMetadata = (post) => {
 // Blog description paragraph styling
 const blogDescriptionClass =
   'font-serif text-base md:text-lg text-zinc-600 ' +
-  'dark:text-zinc-400 mb-3 leading-[1.5]'
+  'dark:text-zinc-400 mb-4 leading-[1.5]'
 
 // Post dek paragraph styling
 const postDekClass =
@@ -649,7 +626,7 @@ const postDekClass =
 
 <style scoped>
 .blog-title {
-  @apply font-serif font-light mb-1.5 tracking-tight;
+  @apply font-serif font-light mb-2.5 tracking-tight;
   @apply leading-[1.1];
   @apply text-3xl md:text-4xl lg:text-5xl;
 }

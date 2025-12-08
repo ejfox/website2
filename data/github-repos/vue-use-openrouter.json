@@ -17,6 +17,387 @@
     "HTML": 351
   },
   "diskUsage": 238,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".commitlintrc.json",
+        "size": 318
+      },
+      {
+        "path": ".editorconfig",
+        "size": 224
+      },
+      {
+        "path": ".eslintignore",
+        "size": 18
+      },
+      {
+        "path": ".eslintrc",
+        "size": 65
+      },
+      {
+        "path": ".github/workflows/docs.yml",
+        "size": 821
+      },
+      {
+        "path": ".gitignore",
+        "size": 79
+      },
+      {
+        "path": ".nvmrc",
+        "size": 9
+      },
+      {
+        "path": ".release-it.json",
+        "size": 492
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 282
+      },
+      {
+        "path": "CODE_OF_CONDUCT.md",
+        "size": 5490
+      },
+      {
+        "path": "LICENSE",
+        "size": 1065
+      },
+      {
+        "path": "README.md",
+        "size": 5854
+      },
+      {
+        "path": "docs/.nojekyll",
+        "size": 0
+      },
+      {
+        "path": "docs/README.md",
+        "size": 653
+      },
+      {
+        "path": "docs/functions/useOpenRouter.md",
+        "size": 6376
+      },
+      {
+        "path": "docs/interfaces/ChatMessage.md",
+        "size": 592
+      },
+      {
+        "path": "docs/interfaces/ChatOptions.md",
+        "size": 981
+      },
+      {
+        "path": "docs/interfaces/ChatResponse.md",
+        "size": 1266
+      },
+      {
+        "path": "docs/interfaces/ChatStats.md",
+        "size": 1139
+      },
+      {
+        "path": "docs/interfaces/OpenRouterError.md",
+        "size": 488
+      },
+      {
+        "path": "docs/interfaces/OpenRouterModel.md",
+        "size": 1211
+      },
+      {
+        "path": "docs/interfaces/OpenRouterOptions.md",
+        "size": 1256
+      },
+      {
+        "path": "docs/interfaces/UseOpenRouterReturn.md",
+        "size": 5952
+      },
+      {
+        "path": "docs/type-aliases/ModelID.md",
+        "size": 309
+      },
+      {
+        "path": "docs/type-aliases/Temperature.md",
+        "size": 321
+      },
+      {
+        "path": "package.json",
+        "size": 1718
+      },
+      {
+        "path": "playground/App.vue",
+        "size": 588
+      },
+      {
+        "path": "playground/index.html",
+        "size": 351
+      },
+      {
+        "path": "playground/main.ts",
+        "size": 90
+      },
+      {
+        "path": "playground/vite.config.ts",
+        "size": 156
+      },
+      {
+        "path": "src/index.ts",
+        "size": 23179
+      },
+      {
+        "path": "test/index.test.ts",
+        "size": 368
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 417
+      },
+      {
+        "path": "typedoc.json",
+        "size": 601
+      },
+      {
+        "path": "yarn.lock",
+        "size": 277991
+      }
+    ],
+    "tree": {
+      "name": "vue-use-openrouter",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "docs.yml",
+                  "size": 821,
+                  "path": ".github/workflows/docs.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "functions",
+              "children": [
+                {
+                  "name": "useOpenRouter.md",
+                  "size": 6376,
+                  "path": "docs/functions/useOpenRouter.md"
+                }
+              ],
+              "path": "docs/functions"
+            },
+            {
+              "name": "interfaces",
+              "children": [
+                {
+                  "name": "ChatMessage.md",
+                  "size": 592,
+                  "path": "docs/interfaces/ChatMessage.md"
+                },
+                {
+                  "name": "ChatOptions.md",
+                  "size": 981,
+                  "path": "docs/interfaces/ChatOptions.md"
+                },
+                {
+                  "name": "ChatResponse.md",
+                  "size": 1266,
+                  "path": "docs/interfaces/ChatResponse.md"
+                },
+                {
+                  "name": "ChatStats.md",
+                  "size": 1139,
+                  "path": "docs/interfaces/ChatStats.md"
+                },
+                {
+                  "name": "OpenRouterError.md",
+                  "size": 488,
+                  "path": "docs/interfaces/OpenRouterError.md"
+                },
+                {
+                  "name": "OpenRouterModel.md",
+                  "size": 1211,
+                  "path": "docs/interfaces/OpenRouterModel.md"
+                },
+                {
+                  "name": "OpenRouterOptions.md",
+                  "size": 1256,
+                  "path": "docs/interfaces/OpenRouterOptions.md"
+                },
+                {
+                  "name": "UseOpenRouterReturn.md",
+                  "size": 5952,
+                  "path": "docs/interfaces/UseOpenRouterReturn.md"
+                }
+              ],
+              "path": "docs/interfaces"
+            },
+            {
+              "name": "type-aliases",
+              "children": [
+                {
+                  "name": "ModelID.md",
+                  "size": 309,
+                  "path": "docs/type-aliases/ModelID.md"
+                },
+                {
+                  "name": "Temperature.md",
+                  "size": 321,
+                  "path": "docs/type-aliases/Temperature.md"
+                }
+              ],
+              "path": "docs/type-aliases"
+            },
+            {
+              "name": ".nojekyll",
+              "size": 0,
+              "path": "docs/.nojekyll"
+            },
+            {
+              "name": "README.md",
+              "size": 653,
+              "path": "docs/README.md"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "playground",
+          "children": [
+            {
+              "name": "App.vue",
+              "size": 588,
+              "path": "playground/App.vue"
+            },
+            {
+              "name": "index.html",
+              "size": 351,
+              "path": "playground/index.html"
+            },
+            {
+              "name": "main.ts",
+              "size": 90,
+              "path": "playground/main.ts"
+            },
+            {
+              "name": "vite.config.ts",
+              "size": 156,
+              "path": "playground/vite.config.ts"
+            }
+          ],
+          "path": "playground"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "index.ts",
+              "size": 23179,
+              "path": "src/index.ts"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "test",
+          "children": [
+            {
+              "name": "index.test.ts",
+              "size": 368,
+              "path": "test/index.test.ts"
+            }
+          ],
+          "path": "test"
+        },
+        {
+          "name": ".commitlintrc.json",
+          "size": 318,
+          "path": ".commitlintrc.json"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 224,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".eslintignore",
+          "size": 18,
+          "path": ".eslintignore"
+        },
+        {
+          "name": ".eslintrc",
+          "size": 65,
+          "path": ".eslintrc"
+        },
+        {
+          "name": ".gitignore",
+          "size": 79,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".nvmrc",
+          "size": 9,
+          "path": ".nvmrc"
+        },
+        {
+          "name": ".release-it.json",
+          "size": 492,
+          "path": ".release-it.json"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 282,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "CODE_OF_CONDUCT.md",
+          "size": 5490,
+          "path": "CODE_OF_CONDUCT.md"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1065,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 5854,
+          "path": "README.md"
+        },
+        {
+          "name": "package.json",
+          "size": 1718,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 417,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "typedoc.json",
+          "size": 601,
+          "path": "typedoc.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 277991,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 35,
+    "totalSize": 340720
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"-useopenrouter\">📦 useOpenRouter</h1>\n<p>A Vue 3 composable for interacting with OpenRouter's AI models API. Easily integrate multiple AI models (like GPT-4, Claude, etc.) into your Vue applications.</p>\n<h2 id=\"-features\">🌟 Features</h2>\n<ul>\n<li>🔌 Simple integration with OpenRouter API</li>\n<li>🔄 Automatic model switching and management</li>\n<li>💰 Built-in cost tracking and token usage</li>\n<li>🧠 Temperature control for response creativity</li>\n<li>📝 Full conversation history management</li>\n<li>🔒 Type-safe with full TypeScript support</li>\n<li>⚡ Powered by Vue 3's Composition API</li>\n</ul>\n<h2 id=\"-installation\">📦 Installation</h2>\n<pre><code class=\"language-bash\"># npm\nnpm install use-openrouter\n\n# yarn\nyarn add use-openrouter\n\n# pnpm\npnpm add use-openrouter\n</code></pre>\n<h2 id=\"-quick-start\">🚀 Quick Start</h2>\n<pre><code class=\"language-ts\">import { useOpenRouter } from 'use-openrouter'\n\n// Initialize with your API key\nconst chat = useOpenRouter({\n  apiKey: 'your-api-key',\n  defaultModel: 'anthropic/claude-3-sonnet'\n})\n\n// Send messages and get responses\nawait chat.sendMessage('What is quantum computing?')\nconsole.log(chat.messages.value.at(-1)?.content)\n\n// Track costs\nconsole.log(`Cost: $${chat.chatStats.value.totalCost}`)\n</code></pre>\n<h2 id=\"-usage-guide\">📖 Usage Guide</h2>\n<h3 id=\"basic-chat\">Basic Chat</h3>\n<pre><code class=\"language-ts\">const chat = useOpenRouter({ apiKey: 'your-api-key' })\n\n// Send a message\nawait chat.sendMessage('Hello AI!')\n\n// Get all messages\nconsole.log(chat.messages.value)\n// [\n//   { role: 'user', content: 'Hello AI!' },\n//   { role: 'assistant', content: 'Hello! How can I help...' }\n// ]\n</code></pre>\n<h3 id=\"switching-models\">Switching Models</h3>\n<pre><code class=\"language-ts\">// Get available models\nawait chat.fetchAvailableModels()\n\n// Switch to a different model\nchat.setModel('openai/gpt-4-turbo')\n\n// Check model costs\nconst cost = chat.formatModelCost(chat.currentModel.value)\nconsole.log(`This model costs ${cost} per million tokens`)\n</code></pre>\n<h3 id=\"temperature-control\">Temperature Control</h3>\n<pre><code class=\"language-ts\">// For creative tasks (more random)\nchat.updateTemperature(1.0)\nawait chat.sendMessage('Write a creative story')\n\n// For factual tasks (more focused)\nchat.updateTemperature(0.1)\nawait chat.sendMessage('What is 123 * 456?')\n</code></pre>\n<h3 id=\"cost-tracking\">Cost Tracking</h3>\n<pre><code class=\"language-ts\">// Track conversation costs\nconsole.log(chat.chatStats.value)\n// {\n//   tokens: 150,\n//   promptTokens: 50,\n//   completionTokens: 100,\n//   cost: 0.002,\n//   totalCost: 0.002\n// }\n\n// Format costs nicely\nconst cost = chat.formatModelCost('anthropic/claude-3-opus')\nconsole.log(cost) // \"$15.00\"\n</code></pre>\n<h3 id=\"error-handling\">Error Handling</h3>\n<pre><code class=\"language-ts\">try {\n  await chat.sendMessage('Hello')\n} catch (err) {\n  if (chat.error.value?.includes('401')) {\n    console.log('Invalid API key')\n  } else if (chat.error.value?.includes('429')) {\n    console.log('Rate limited - wait a bit')\n  }\n}\n</code></pre>\n<h2 id=\"️-api-reference\">🛠️ API Reference</h2>\n<h3 id=\"configuration\">Configuration</h3>\n<pre><code class=\"language-ts\">interface OpenRouterOptions {\n  apiKey?: string          // Your OpenRouter API key\n  temperature?: number     // Initial temperature (0-1)\n  defaultModel?: string    // Starting model\n  enabledModels?: string[] // List of allowed models\n}\n</code></pre>\n<h3 id=\"properties\">Properties</h3>\n<ul>\n<li><code>messages</code> - Conversation history</li>\n<li><code>isLoading</code> - Request status</li>\n<li><code>error</code> - Error messages</li>\n<li><code>currentModel</code> - Active model ID</li>\n<li><code>modelName</code> - Active model display name</li>\n<li><code>chatStats</code> - Token and cost tracking</li>\n<li><code>temperature</code> - Current temperature setting</li>\n</ul>\n<h3 id=\"methods\">Methods</h3>\n<ul>\n<li><code>sendMessage(content: string)</code> - Send a message</li>\n<li><code>setModel(modelId: string)</code> - Switch models</li>\n<li><code>updateTemperature(value: number)</code> - Adjust temperature</li>\n<li><code>clearChat()</code> - Reset conversation</li>\n<li><code>fetchAvailableModels()</code> - Get model list</li>\n</ul>\n<h2 id=\"-license\">📄 License</h2>\n<p>MIT License © 2024</p>\n<h2 id=\"-design-philosophy\">💡 Design Philosophy</h2>\n<p>We've carefully designed this composable to handle all the tricky parts of working with AI APIs:</p>\n<h3 id=\"️-built-in-safeguards\">🛡️ Built-in Safeguards</h3>\n<ul>\n<li>Temperature is automatically clamped between 0-1</li>\n<li>Empty messages are rejected</li>\n<li>API key validation before requests</li>\n<li>Proper cleanup on component unmount</li>\n<li>SSR-safe window usage</li>\n</ul>\n<h3 id=\"-smart-cost-management\">���� Smart Cost Management</h3>\n<ul>\n<li>Automatic token counting</li>\n<li>Running cost totals</li>\n<li>Smart decimal formatting (more decimals for cheap models)</li>\n<li>Cost-based model sorting (expensive → cheap)</li>\n<li>Free model detection</li>\n</ul>\n<h3 id=\"-state-management\">🔄 State Management</h3>\n<ul>\n<li>Readonly refs where appropriate</li>\n<li>Automatic model fetching when API key changes</li>\n<li>Recent models tracking (last 10 used)</li>\n<li>Conversation history management</li>\n<li>Proper error state handling</li>\n</ul>\n<h3 id=\"-developer-experience\">🎯 Developer Experience</h3>\n<pre><code class=\"language-ts\">// Everything is typed!\nconst chat = useOpenRouter({\n  apiKey: 'key',\n  temperature: 0.7,\n  defaultModel: 'anthropic/claude-3-sonnet',\n  enabledModels: ['anthropic/claude-3-sonnet', 'openai/gpt-4']\n})\n\n// Costs are always formatted nicely\nchat.formatModelCost('openai/gpt-3.5-turbo') // \"$0.00200\"\nchat.formatModelCost('anthropic/claude-3-opus') // \"$15.00\"\n\n// Models are sorted by cost (expensive first)\nchat.enabledModels.value.forEach(model =&gt; {\n  console.log(`${model.name}: ${chat.formatModelCost(model.id)}`)\n})\n\n// Track all your costs\nconsole.log(chat.chatStats.value)\n// {\n//   tokens: 1500,\n//   promptTokens: 500,    // Input tokens\n//   completionTokens: 1000, // Output tokens\n//   cost: 0.015,          // Current conversation\n//   totalCost: 0.045      // All conversations\n// }\n</code></pre>\n<h3 id=\"-edge-cases-we-handle\">🔍 Edge Cases We Handle</h3>\n<ul>\n<li>Rate limiting detection</li>\n<li>Invalid API keys</li>\n<li>Empty or malformed responses</li>\n<li>Context length limits</li>\n<li>Model availability changes</li>\n<li>Token counting edge cases</li>\n<li>Cost calculation precision</li>\n<li>SSR compatibility</li>\n<li>Component unmounting</li>\n<li>Type safety throughout</li>\n</ul>\n<h3 id=\"-flexibility\">🎨 Flexibility</h3>\n<ul>\n<li>Use any OpenRouter model</li>\n<li>Customize temperature per request</li>\n<li>Track costs across conversations</li>\n<li>Enable/disable specific models</li>\n<li>Monitor token usage</li>\n<li>Handle errors your way</li>\n<li>Full TypeScript support</li>\n</ul>\n<p>We've aimed to create a composable that's both powerful and pleasant to use, handling all the complex bits while keeping the API clean and intuitive.</p>\n<h2 id=\"-documentation\">📚 Documentation</h2>\n<p>Full API documentation is available at <a href=\"https://your-username.github.io/use-openrouter/\">https://your-username.github.io/use-openrouter/</a></p>",

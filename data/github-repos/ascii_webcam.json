@@ -15,6 +15,81 @@
     "Python": 10363
   },
   "diskUsage": 12,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 1137
+      },
+      {
+        "path": "README.md",
+        "size": 2929
+      },
+      {
+        "path": "ascii_webcam.py",
+        "size": 1214
+      },
+      {
+        "path": "ascii_webcam_eyes.py",
+        "size": 1944
+      },
+      {
+        "path": "ascii_yolo_webcam.py",
+        "size": 5080
+      },
+      {
+        "path": "glitch_braille_cam.py",
+        "size": 2125
+      },
+      {
+        "path": "requirements.txt",
+        "size": 42
+      }
+    ],
+    "tree": {
+      "name": "ascii_webcam",
+      "children": [
+        {
+          "name": ".gitignore",
+          "size": 1137,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 2929,
+          "path": "README.md"
+        },
+        {
+          "name": "ascii_webcam.py",
+          "size": 1214,
+          "path": "ascii_webcam.py"
+        },
+        {
+          "name": "ascii_webcam_eyes.py",
+          "size": 1944,
+          "path": "ascii_webcam_eyes.py"
+        },
+        {
+          "name": "ascii_yolo_webcam.py",
+          "size": 5080,
+          "path": "ascii_yolo_webcam.py"
+        },
+        {
+          "name": "glitch_braille_cam.py",
+          "size": 2125,
+          "path": "glitch_braille_cam.py"
+        },
+        {
+          "name": "requirements.txt",
+          "size": 42,
+          "path": "requirements.txt"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 7,
+    "totalSize": 14471
+  },
   "topics": [
     "ascii",
     "ascii-art",

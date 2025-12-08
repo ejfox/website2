@@ -24,13 +24,13 @@ const tagsContainerClass =
   'px-4 md:px-6 py-4 md:py-3 border-t border-zinc-200 ' + 'dark:border-zinc-800'
 const navDateClass =
   'block text-sm sm:text-xs font-mono text-zinc-400 ' +
-  'leading-5 sm:leading-4 mt-1'
+  'leading-5 sm:leading-4 mt-2'
 const relatedPostsContainerClass =
   'px-4 md:px-6 py-8 border-t border-zinc-200 dark:border-zinc-800'
 const relatedPostsTitleClass =
   'font-mono text-xs uppercase tracking-[0.15em] text-zinc-500 mb-4'
 const relatedPostItemClass =
-  'font-serif text-base text-zinc-900 dark:text-zinc-100 mb-1'
+  'font-serif text-base text-zinc-900 dark:text-zinc-100 mb-2'
 const relatedPostMetaClass =
   'flex items-center gap-2 text-xs font-mono text-zinc-500'
 const tocLinkClass =

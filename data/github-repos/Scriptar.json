@@ -15,6 +15,36 @@
     "JavaScript": 1238
   },
   "diskUsage": 92,
+  "fileTree": {
+    "files": [
+      {
+        "path": "hello_world.js",
+        "size": 443
+      },
+      {
+        "path": "unitchart_pure.js",
+        "size": 795
+      }
+    ],
+    "tree": {
+      "name": "Scriptar",
+      "children": [
+        {
+          "name": "hello_world.js",
+          "size": 443,
+          "path": "hello_world.js"
+        },
+        {
+          "name": "unitchart_pure.js",
+          "size": 795,
+          "path": "unitchart_pure.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 2,
+    "totalSize": 1238
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

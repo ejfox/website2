@@ -36,8 +36,6 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, watch } from 'vue'
 import { useWindowSize } from '@vueuse/core'
-// DELETED: Heavy d3-format dependency
-// DELETED: All animation references - BROKEN IMPORTS
 
 interface Props {
   value: number | string
@@ -72,7 +70,6 @@ const { width } = useWindowSize()
 const _isMobile = computed(() => width.value < 768)
 
 // Format functions - more compact by default
-// DELETED: D3 formatters - using native alternatives
 const formatLarge = (num: number) =>
   num.toLocaleString('en-US', { maximumFractionDigits: 0 })
 const formatCompact = (num: number) => {

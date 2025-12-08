@@ -15,6 +15,195 @@
     "CSS": 5241
   },
   "diskUsage": 43944,
+  "fileTree": {
+    "files": [
+      {
+        "path": "ICanHaz.min.js",
+        "size": 5535
+      },
+      {
+        "path": "LICENSE",
+        "size": 0
+      },
+      {
+        "path": "README.md",
+        "size": 56
+      },
+      {
+        "path": "aperture_alt.svg",
+        "size": 1284
+      },
+      {
+        "path": "index.html",
+        "size": 5458
+      },
+      {
+        "path": "jquery.isotope.min.js",
+        "size": 16033
+      },
+      {
+        "path": "style.css",
+        "size": 7568
+      },
+      {
+        "path": "style.styl",
+        "size": 7413
+      },
+      {
+        "path": "syria.html",
+        "size": 7555
+      },
+      {
+        "path": "syria/iconic.zip",
+        "size": 9054522
+      },
+      {
+        "path": "syria/sy_homs_fire_feb15_2012_dg1.jpg",
+        "size": 326076
+      },
+      {
+        "path": "syria/syria_satellite-cut.png",
+        "size": 3537697
+      },
+      {
+        "path": "syria/syria_satellite-cut2.png",
+        "size": 2938057
+      },
+      {
+        "path": "syria/syria_satellite.png",
+        "size": 4102011
+      },
+      {
+        "path": "syria/syria_satellite.psd",
+        "size": 46726040
+      },
+      {
+        "path": "syria/un_condemning_syria.jpg",
+        "size": 1772152
+      },
+      {
+        "path": "syria/whitehouse_syria_meeting.jpg",
+        "size": 1351453
+      },
+      {
+        "path": "syria/whitehouse_syria_meeting2.jpg",
+        "size": 565182
+      },
+      {
+        "path": "templates.html",
+        "size": 169
+      }
+    ],
+    "tree": {
+      "name": "futurelensnews",
+      "children": [
+        {
+          "name": "syria",
+          "children": [
+            {
+              "name": "iconic.zip",
+              "size": 9054522,
+              "path": "syria/iconic.zip"
+            },
+            {
+              "name": "sy_homs_fire_feb15_2012_dg1.jpg",
+              "size": 326076,
+              "path": "syria/sy_homs_fire_feb15_2012_dg1.jpg"
+            },
+            {
+              "name": "syria_satellite-cut.png",
+              "size": 3537697,
+              "path": "syria/syria_satellite-cut.png"
+            },
+            {
+              "name": "syria_satellite-cut2.png",
+              "size": 2938057,
+              "path": "syria/syria_satellite-cut2.png"
+            },
+            {
+              "name": "syria_satellite.png",
+              "size": 4102011,
+              "path": "syria/syria_satellite.png"
+            },
+            {
+              "name": "syria_satellite.psd",
+              "size": 46726040,
+              "path": "syria/syria_satellite.psd"
+            },
+            {
+              "name": "un_condemning_syria.jpg",
+              "size": 1772152,
+              "path": "syria/un_condemning_syria.jpg"
+            },
+            {
+              "name": "whitehouse_syria_meeting.jpg",
+              "size": 1351453,
+              "path": "syria/whitehouse_syria_meeting.jpg"
+            },
+            {
+              "name": "whitehouse_syria_meeting2.jpg",
+              "size": 565182,
+              "path": "syria/whitehouse_syria_meeting2.jpg"
+            }
+          ],
+          "path": "syria"
+        },
+        {
+          "name": "ICanHaz.min.js",
+          "size": 5535,
+          "path": "ICanHaz.min.js"
+        },
+        {
+          "name": "LICENSE",
+          "size": 0,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 56,
+          "path": "README.md"
+        },
+        {
+          "name": "aperture_alt.svg",
+          "size": 1284,
+          "path": "aperture_alt.svg"
+        },
+        {
+          "name": "index.html",
+          "size": 5458,
+          "path": "index.html"
+        },
+        {
+          "name": "jquery.isotope.min.js",
+          "size": 16033,
+          "path": "jquery.isotope.min.js"
+        },
+        {
+          "name": "style.css",
+          "size": 7568,
+          "path": "style.css"
+        },
+        {
+          "name": "style.styl",
+          "size": 7413,
+          "path": "style.styl"
+        },
+        {
+          "name": "syria.html",
+          "size": 7555,
+          "path": "syria.html"
+        },
+        {
+          "name": "templates.html",
+          "size": 169,
+          "path": "templates.html"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 19,
+    "totalSize": 70424261
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"futurelensnews\">futurelensnews</h1>\n<p>Future lens news website</p>",

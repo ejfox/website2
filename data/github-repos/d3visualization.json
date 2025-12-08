@@ -15,6 +15,45 @@
     "JavaScript": 267929
   },
   "diskUsage": 204,
+  "fileTree": {
+    "files": [
+      {
+        "path": "README.md",
+        "size": 448
+      },
+      {
+        "path": "d3.v3.js",
+        "size": 267929
+      },
+      {
+        "path": "index.html",
+        "size": 11452
+      }
+    ],
+    "tree": {
+      "name": "d3visualization",
+      "children": [
+        {
+          "name": "README.md",
+          "size": 448,
+          "path": "README.md"
+        },
+        {
+          "name": "d3.v3.js",
+          "size": 267929,
+          "path": "d3.v3.js"
+        },
+        {
+          "name": "index.html",
+          "size": 11452,
+          "path": "index.html"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 3,
+    "totalSize": 279829
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"d3visualization\">d3visualization</h1>\n<p>An alternative, filterable gallery for <a href=\"d3js.org\">d3.js</a>.</p>\n<p>See it in action <a href=\"http://biovisualize.github.com/d3visualization/\">here</a>.</p>\n<p>Feel free to contribute on this GitHub or on the gallery <a href=\"https://docs.google.com/spreadsheet/ccc?key=0AqMEGBUNwXeHdHpQNlVuY29SUE5BSXVtS3JueGlNYVE#gid=0\">spreadsheet</a>.</p>\n<p>Follow <a href=\"https://twitter.com/d3visualization\">@d3visualization</a> for updates about the new entries to the gallery.</p>",

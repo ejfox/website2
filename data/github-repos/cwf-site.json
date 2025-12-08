@@ -16,6 +16,60 @@
     "JavaScript": 38
   },
   "diskUsage": 107,
+  "fileTree": {
+    "files": [
+      {
+        "path": "nuxt.config.js",
+        "size": 38
+      },
+      {
+        "path": "package-lock.json",
+        "size": 422054
+      },
+      {
+        "path": "package.json",
+        "size": 198
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 46
+      }
+    ],
+    "tree": {
+      "name": "cwf-site",
+      "children": [
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "index.vue",
+              "size": 46,
+              "path": "pages/index.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "nuxt.config.js",
+          "size": 38,
+          "path": "nuxt.config.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 422054,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 198,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 4,
+    "totalSize": 422336
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

@@ -16,6 +16,4011 @@
     "JavaScript": 28437
   },
   "diskUsage": 190,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".env.example",
+        "size": 161
+      },
+      {
+        "path": ".gitignore",
+        "size": 44
+      },
+      {
+        "path": "README.md",
+        "size": 4017
+      },
+      {
+        "path": "benchmarks/challenges/add/amazon/nova-micro-v1/functions.mjs",
+        "size": 86
+      },
+      {
+        "path": "benchmarks/challenges/add/amazon/nova-micro-v1/index.mjs",
+        "size": 230
+      },
+      {
+        "path": "benchmarks/challenges/add/amazon/nova-micro-v1/llmResponse.md",
+        "size": 554
+      },
+      {
+        "path": "benchmarks/challenges/add/anthropic/claude-3.5-haiku/functions.mjs",
+        "size": 45
+      },
+      {
+        "path": "benchmarks/challenges/add/anthropic/claude-3.5-haiku/index.mjs",
+        "size": 240
+      },
+      {
+        "path": "benchmarks/challenges/add/anthropic/claude-3.5-haiku/llmResponse.md",
+        "size": 477
+      },
+      {
+        "path": "benchmarks/challenges/add/anthropic/claude-3.5-sonnet/functions.mjs",
+        "size": 75
+      },
+      {
+        "path": "benchmarks/challenges/add/anthropic/claude-3.5-sonnet/index.mjs",
+        "size": 240
+      },
+      {
+        "path": "benchmarks/challenges/add/anthropic/claude-3.5-sonnet/llmResponse.md",
+        "size": 621
+      },
+      {
+        "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet/functions.mjs",
+        "size": 75
+      },
+      {
+        "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet/index.mjs",
+        "size": 240
+      },
+      {
+        "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet/llmResponse.md",
+        "size": 440
+      },
+      {
+        "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet:thinking/functions.mjs",
+        "size": 75
+      },
+      {
+        "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet:thinking/index.mjs",
+        "size": 240
+      },
+      {
+        "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet:thinking/llmResponse.md",
+        "size": 390
+      },
+      {
+        "path": "benchmarks/challenges/add/deepseek/deepseek-chat/functions.mjs",
+        "size": 45
+      },
+      {
+        "path": "benchmarks/challenges/add/deepseek/deepseek-chat/index.mjs",
+        "size": 240
+      },
+      {
+        "path": "benchmarks/challenges/add/deepseek/deepseek-chat/llmResponse.md",
+        "size": 347
+      },
+      {
+        "path": "benchmarks/challenges/add/deepseek/deepseek-r1/functions.mjs",
+        "size": 81
+      },
+      {
+        "path": "benchmarks/challenges/add/deepseek/deepseek-r1/index.mjs",
+        "size": 240
+      },
+      {
+        "path": "benchmarks/challenges/add/deepseek/deepseek-r1/llmResponse.md",
+        "size": 110
+      },
+      {
+        "path": "benchmarks/challenges/add/google/gemini-2.0-flash-001/functions.mjs",
+        "size": 81
+      },
+      {
+        "path": "benchmarks/challenges/add/google/gemini-2.0-flash-001/index.mjs",
+        "size": 240
+      },
+      {
+        "path": "benchmarks/challenges/add/google/gemini-2.0-flash-001/llmResponse.md",
+        "size": 111
+      },
+      {
+        "path": "benchmarks/challenges/add/meta-llama/llama-3.1-8b-instruct/functions.mjs",
+        "size": 176
+      },
+      {
+        "path": "benchmarks/challenges/add/meta-llama/llama-3.1-8b-instruct/index.mjs",
+        "size": 240
+      },
+      {
+        "path": "benchmarks/challenges/add/meta-llama/llama-3.1-8b-instruct/llmResponse.md",
+        "size": 484
+      },
+      {
+        "path": "benchmarks/challenges/add/meta-llama/llama-3.2-1b-instruct/functions.mjs",
+        "size": 40
+      },
+      {
+        "path": "benchmarks/challenges/add/meta-llama/llama-3.2-1b-instruct/index.mjs",
+        "size": 36
+      },
+      {
+        "path": "benchmarks/challenges/add/meta-llama/llama-3.2-1b-instruct/llmResponse.md",
+        "size": 15884
+      },
+      {
+        "path": "benchmarks/challenges/add/meta-llama/llama-3.2-1b-instruct/utils.js",
+        "size": 81
+      },
+      {
+        "path": "benchmarks/challenges/add/meta-llama/llama-3.2-3b-instruct/functions.mjs",
+        "size": 86
+      },
+      {
+        "path": "benchmarks/challenges/add/meta-llama/llama-3.2-3b-instruct/index.mjs",
+        "size": 267
+      },
+      {
+        "path": "benchmarks/challenges/add/meta-llama/llama-3.2-3b-instruct/llmResponse.md",
+        "size": 425
+      },
+      {
+        "path": "benchmarks/challenges/add/openai/o3-mini-high/functions.mjs",
+        "size": 45
+      },
+      {
+        "path": "benchmarks/challenges/add/openai/o3-mini-high/index.mjs",
+        "size": 240
+      },
+      {
+        "path": "benchmarks/challenges/add/openai/o3-mini-high/llmResponse.md",
+        "size": 73
+      },
+      {
+        "path": "benchmarks/challenges/add/openai/o3-mini/functions.mjs",
+        "size": 75
+      },
+      {
+        "path": "benchmarks/challenges/add/openai/o3-mini/index.mjs",
+        "size": 240
+      },
+      {
+        "path": "benchmarks/challenges/add/openai/o3-mini/llmResponse.md",
+        "size": 103
+      },
+      {
+        "path": "benchmarks/challenges/add/qwen/qwen-2.5-72b-instruct/functions.mjs",
+        "size": 75
+      },
+      {
+        "path": "benchmarks/challenges/add/qwen/qwen-2.5-72b-instruct/index.mjs",
+        "size": 230
+      },
+      {
+        "path": "benchmarks/challenges/add/qwen/qwen-2.5-72b-instruct/llmResponse.md",
+        "size": 361
+      },
+      {
+        "path": "benchmarks/challenges/add/qwen/qwen-2.5-7b-instruct/functions.mjs",
+        "size": 45
+      },
+      {
+        "path": "benchmarks/challenges/add/qwen/qwen-2.5-7b-instruct/index.mjs",
+        "size": 240
+      },
+      {
+        "path": "benchmarks/challenges/add/qwen/qwen-2.5-7b-instruct/llmResponse.md",
+        "size": 74
+      },
+      {
+        "path": "benchmarks/challenges/add/qwen/qwq-32b/functions.mjs",
+        "size": 45
+      },
+      {
+        "path": "benchmarks/challenges/add/qwen/qwq-32b/index.mjs",
+        "size": 240
+      },
+      {
+        "path": "benchmarks/challenges/add/qwen/qwq-32b/llmResponse.md",
+        "size": 74
+      },
+      {
+        "path": "benchmarks/challenges/multiply/amazon/nova-micro-v1/functions.mjs",
+        "size": 50
+      },
+      {
+        "path": "benchmarks/challenges/multiply/amazon/nova-micro-v1/index.mjs",
+        "size": 229
+      },
+      {
+        "path": "benchmarks/challenges/multiply/amazon/nova-micro-v1/llmResponse.md",
+        "size": 491
+      },
+      {
+        "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-haiku/functions.mjs",
+        "size": 50
+      },
+      {
+        "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-haiku/index.mjs",
+        "size": 229
+      },
+      {
+        "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-haiku/llmResponse.md",
+        "size": 720
+      },
+      {
+        "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-sonnet/functions.mjs",
+        "size": 50
+      },
+      {
+        "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-sonnet/index.mjs",
+        "size": 229
+      },
+      {
+        "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-sonnet/llmResponse.md",
+        "size": 842
+      },
+      {
+        "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet/functions.mjs",
+        "size": 85
+      },
+      {
+        "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet/index.mjs",
+        "size": 237
+      },
+      {
+        "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet/llmResponse.md",
+        "size": 502
+      },
+      {
+        "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet:thinking/functions.mjs",
+        "size": 85
+      },
+      {
+        "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet:thinking/index.mjs",
+        "size": 237
+      },
+      {
+        "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet:thinking/llmResponse.md",
+        "size": 369
+      },
+      {
+        "path": "benchmarks/challenges/multiply/deepseek/deepseek-chat/functions.mjs",
+        "size": 85
+      },
+      {
+        "path": "benchmarks/challenges/multiply/deepseek/deepseek-chat/index.mjs",
+        "size": 237
+      },
+      {
+        "path": "benchmarks/challenges/multiply/deepseek/deepseek-chat/llmResponse.md",
+        "size": 315
+      },
+      {
+        "path": "benchmarks/challenges/multiply/deepseek/deepseek-r1/functions.mjs",
+        "size": 50
+      },
+      {
+        "path": "benchmarks/challenges/multiply/deepseek/deepseek-r1/index.mjs",
+        "size": 237
+      },
+      {
+        "path": "benchmarks/challenges/multiply/deepseek/deepseek-r1/llmResponse.md",
+        "size": 79
+      },
+      {
+        "path": "benchmarks/challenges/multiply/google/gemini-2.0-flash-001/functions.mjs",
+        "size": 91
+      },
+      {
+        "path": "benchmarks/challenges/multiply/google/gemini-2.0-flash-001/index.mjs",
+        "size": 237
+      },
+      {
+        "path": "benchmarks/challenges/multiply/google/gemini-2.0-flash-001/llmResponse.md",
+        "size": 121
+      },
+      {
+        "path": "benchmarks/challenges/multiply/meta-llama/llama-3.1-8b-instruct/functions.mjs",
+        "size": 132
+      },
+      {
+        "path": "benchmarks/challenges/multiply/meta-llama/llama-3.1-8b-instruct/index.mjs",
+        "size": 229
+      },
+      {
+        "path": "benchmarks/challenges/multiply/meta-llama/llama-3.1-8b-instruct/llmResponse.md",
+        "size": 430
+      },
+      {
+        "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-1b-instruct/functions.mjs",
+        "size": 40
+      },
+      {
+        "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-1b-instruct/index.mjs",
+        "size": 36
+      },
+      {
+        "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-1b-instruct/index.test.js",
+        "size": 40
+      },
+      {
+        "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-1b-instruct/llmResponse.md",
+        "size": 3365
+      },
+      {
+        "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-3b-instruct/functions.mjs",
+        "size": 212
+      },
+      {
+        "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-3b-instruct/index.mjs",
+        "size": 229
+      },
+      {
+        "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-3b-instruct/llmResponse.md",
+        "size": 513
+      },
+      {
+        "path": "benchmarks/challenges/multiply/openai/o3-mini-high/functions.mjs",
+        "size": 50
+      },
+      {
+        "path": "benchmarks/challenges/multiply/openai/o3-mini-high/index.mjs",
+        "size": 237
+      },
+      {
+        "path": "benchmarks/challenges/multiply/openai/o3-mini-high/llmResponse.md",
+        "size": 78
+      },
+      {
+        "path": "benchmarks/challenges/multiply/openai/o3-mini/functions.mjs",
+        "size": 85
+      },
+      {
+        "path": "benchmarks/challenges/multiply/openai/o3-mini/index.mjs",
+        "size": 237
+      },
+      {
+        "path": "benchmarks/challenges/multiply/openai/o3-mini/llmResponse.md",
+        "size": 114
+      },
+      {
+        "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-72b-instruct/functions.mjs",
+        "size": 91
+      },
+      {
+        "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-72b-instruct/index.mjs",
+        "size": 229
+      },
+      {
+        "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-72b-instruct/llmResponse.md",
+        "size": 376
+      },
+      {
+        "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-7b-instruct/functions.mjs",
+        "size": 50
+      },
+      {
+        "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-7b-instruct/index.mjs",
+        "size": 237
+      },
+      {
+        "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-7b-instruct/llmResponse.md",
+        "size": 79
+      },
+      {
+        "path": "benchmarks/challenges/multiply/qwen/qwq-32b/functions.mjs",
+        "size": 50
+      },
+      {
+        "path": "benchmarks/challenges/multiply/qwen/qwq-32b/index.mjs",
+        "size": 237
+      },
+      {
+        "path": "benchmarks/challenges/multiply/qwen/qwq-32b/llmResponse.md",
+        "size": 79
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/amazon/nova-micro-v1/README.md",
+        "size": 272
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/amazon/nova-micro-v1/functions.mjs",
+        "size": 122
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/amazon/nova-micro-v1/index.mjs",
+        "size": 316
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/amazon/nova-micro-v1/llmResponse.md",
+        "size": 928
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-haiku/functions.mjs",
+        "size": 81
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-haiku/index.mjs",
+        "size": 324
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-haiku/llmResponse.md",
+        "size": 703
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-sonnet/functions.mjs",
+        "size": 81
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-sonnet/index.mjs",
+        "size": 324
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-sonnet/llmResponse.md",
+        "size": 785
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/anthropic/claude-3.7-sonnet:thinking/functions.mjs",
+        "size": 127
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/anthropic/claude-3.7-sonnet:thinking/index.mjs",
+        "size": 324
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/anthropic/claude-3.7-sonnet:thinking/llmResponse.md",
+        "size": 396
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/deepseek/deepseek-chat/functions.mjs",
+        "size": 121
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/deepseek/deepseek-chat/index.mjs",
+        "size": 324
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/deepseek/deepseek-chat/llmResponse.md",
+        "size": 391
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/deepseek/deepseek-r1/functions.mjs",
+        "size": 81
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/deepseek/deepseek-r1/index.mjs",
+        "size": 324
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/deepseek/deepseek-r1/llmResponse.md",
+        "size": 110
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/google/gemini-2.0-flash-001/functions.mjs",
+        "size": 127
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/google/gemini-2.0-flash-001/index.mjs",
+        "size": 324
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/google/gemini-2.0-flash-001/llmResponse.md",
+        "size": 157
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.1-8b-instruct/functions.mjs",
+        "size": 443
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.1-8b-instruct/index.mjs",
+        "size": 324
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.1-8b-instruct/llmResponse.md",
+        "size": 693
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-1b-instruct/functions.mjs",
+        "size": 40
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-1b-instruct/index.mjs",
+        "size": 353
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-1b-instruct/llmResponse.md",
+        "size": 1557
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-3b-instruct/functions.mjs",
+        "size": 387
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-3b-instruct/index.mjs",
+        "size": 316
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-3b-instruct/llmResponse.md",
+        "size": 775
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/openai/o3-mini-high/functions.mjs",
+        "size": 149
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/openai/o3-mini-high/index.mjs",
+        "size": 324
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/openai/o3-mini-high/llmResponse.md",
+        "size": 177
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/openai/o3-mini/functions.mjs",
+        "size": 121
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/openai/o3-mini/index.mjs",
+        "size": 324
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/openai/o3-mini/llmResponse.md",
+        "size": 149
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-72b-instruct/functions.mjs",
+        "size": 81
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-72b-instruct/index.mjs",
+        "size": 316
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-72b-instruct/llmResponse.md",
+        "size": 453
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-7b-instruct/functions.mjs",
+        "size": 81
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-7b-instruct/index.mjs",
+        "size": 324
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-7b-instruct/llmResponse.md",
+        "size": 110
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/qwen/qwq-32b/functions.mjs",
+        "size": 81
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/qwen/qwq-32b/index.mjs",
+        "size": 324
+      },
+      {
+        "path": "benchmarks/challenges/reverseString/qwen/qwq-32b/llmResponse.md",
+        "size": 110
+      },
+      {
+        "path": "benchmarks/challenges/square/amazon/nova-micro-v1/functions.mjs",
+        "size": 78
+      },
+      {
+        "path": "benchmarks/challenges/square/amazon/nova-micro-v1/index.mjs",
+        "size": 241
+      },
+      {
+        "path": "benchmarks/challenges/square/amazon/nova-micro-v1/llmResponse.md",
+        "size": 622
+      },
+      {
+        "path": "benchmarks/challenges/square/anthropic/claude-3.5-haiku/functions.mjs",
+        "size": 45
+      },
+      {
+        "path": "benchmarks/challenges/square/anthropic/claude-3.5-haiku/index.mjs",
+        "size": 249
+      },
+      {
+        "path": "benchmarks/challenges/square/anthropic/claude-3.5-haiku/llmResponse.md",
+        "size": 499
+      },
+      {
+        "path": "benchmarks/challenges/square/anthropic/claude-3.5-sonnet/functions.mjs",
+        "size": 45
+      },
+      {
+        "path": "benchmarks/challenges/square/anthropic/claude-3.5-sonnet/index.mjs",
+        "size": 249
+      },
+      {
+        "path": "benchmarks/challenges/square/anthropic/claude-3.5-sonnet/llmResponse.md",
+        "size": 576
+      },
+      {
+        "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet/functions.mjs",
+        "size": 84
+      },
+      {
+        "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet/index.mjs",
+        "size": 249
+      },
+      {
+        "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet/llmResponse.md",
+        "size": 449
+      },
+      {
+        "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet:thinking/functions.mjs",
+        "size": 84
+      },
+      {
+        "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet:thinking/index.mjs",
+        "size": 249
+      },
+      {
+        "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet:thinking/llmResponse.md",
+        "size": 280
+      },
+      {
+        "path": "benchmarks/challenges/square/deepseek/deepseek-chat/functions.mjs",
+        "size": 78
+      },
+      {
+        "path": "benchmarks/challenges/square/deepseek/deepseek-chat/index.mjs",
+        "size": 249
+      },
+      {
+        "path": "benchmarks/challenges/square/deepseek/deepseek-chat/llmResponse.md",
+        "size": 265
+      },
+      {
+        "path": "benchmarks/challenges/square/deepseek/deepseek-r1/functions.mjs",
+        "size": 45
+      },
+      {
+        "path": "benchmarks/challenges/square/deepseek/deepseek-r1/index.mjs",
+        "size": 249
+      },
+      {
+        "path": "benchmarks/challenges/square/deepseek/deepseek-r1/llmResponse.md",
+        "size": 74
+      },
+      {
+        "path": "benchmarks/challenges/square/google/gemini-2.0-flash-001/functions.mjs",
+        "size": 84
+      },
+      {
+        "path": "benchmarks/challenges/square/google/gemini-2.0-flash-001/index.mjs",
+        "size": 249
+      },
+      {
+        "path": "benchmarks/challenges/square/google/gemini-2.0-flash-001/llmResponse.md",
+        "size": 114
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.1-8b-instruct/functions.mjs",
+        "size": 86
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.1-8b-instruct/index.mjs",
+        "size": 249
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.1-8b-instruct/llmResponse.md",
+        "size": 324
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/README.md",
+        "size": 99
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/functions.js",
+        "size": 78
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/functions.mjs",
+        "size": 78
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/index.js",
+        "size": 241
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/index.md",
+        "size": 80
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/index.mjs",
+        "size": 241
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/llmResponse.md",
+        "size": 1843
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.2-3b-instruct/functions.mjs",
+        "size": 184
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.2-3b-instruct/index.mjs",
+        "size": 241
+      },
+      {
+        "path": "benchmarks/challenges/square/meta-llama/llama-3.2-3b-instruct/llmResponse.md",
+        "size": 497
+      },
+      {
+        "path": "benchmarks/challenges/square/openai/o3-mini-high/functions.mjs",
+        "size": 45
+      },
+      {
+        "path": "benchmarks/challenges/square/openai/o3-mini-high/index.mjs",
+        "size": 249
+      },
+      {
+        "path": "benchmarks/challenges/square/openai/o3-mini-high/llmResponse.md",
+        "size": 73
+      },
+      {
+        "path": "benchmarks/challenges/square/openai/o3-mini/functions.mjs",
+        "size": 84
+      },
+      {
+        "path": "benchmarks/challenges/square/openai/o3-mini/index.mjs",
+        "size": 249
+      },
+      {
+        "path": "benchmarks/challenges/square/openai/o3-mini/llmResponse.md",
+        "size": 112
+      },
+      {
+        "path": "benchmarks/challenges/square/qwen/qwen-2.5-72b-instruct/functions.mjs",
+        "size": 86
+      },
+      {
+        "path": "benchmarks/challenges/square/qwen/qwen-2.5-72b-instruct/index.mjs",
+        "size": 249
+      },
+      {
+        "path": "benchmarks/challenges/square/qwen/qwen-2.5-72b-instruct/llmResponse.md",
+        "size": 115
+      },
+      {
+        "path": "benchmarks/challenges/square/qwen/qwen-2.5-7b-instruct/functions.mjs",
+        "size": 45
+      },
+      {
+        "path": "benchmarks/challenges/square/qwen/qwen-2.5-7b-instruct/index.mjs",
+        "size": 241
+      },
+      {
+        "path": "benchmarks/challenges/square/qwen/qwen-2.5-7b-instruct/llmResponse.md",
+        "size": 342
+      },
+      {
+        "path": "benchmarks/challenges/square/qwen/qwq-32b/functions.mjs",
+        "size": 45
+      },
+      {
+        "path": "benchmarks/challenges/square/qwen/qwq-32b/index.mjs",
+        "size": 249
+      },
+      {
+        "path": "benchmarks/challenges/square/qwen/qwq-32b/llmResponse.md",
+        "size": 74
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/amazon/nova-micro-v1/README.md",
+        "size": 389
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/amazon/nova-micro-v1/functions.mjs",
+        "size": 102
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/amazon/nova-micro-v1/index.mjs",
+        "size": 272
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/amazon/nova-micro-v1/llmResponse.md",
+        "size": 1223
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-haiku/functions.mjs",
+        "size": 64
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-haiku/index.mjs",
+        "size": 280
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-haiku/llmResponse.md",
+        "size": 724
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-sonnet/functions.mjs",
+        "size": 64
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-sonnet/index.mjs",
+        "size": 280
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-sonnet/llmResponse.md",
+        "size": 760
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet/functions.mjs",
+        "size": 108
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet/index.mjs",
+        "size": 280
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet/llmResponse.md",
+        "size": 581
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet:thinking/functions.mjs",
+        "size": 102
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet:thinking/index.mjs",
+        "size": 280
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet:thinking/llmResponse.md",
+        "size": 437
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-chat/functions.mjs",
+        "size": 102
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-chat/index.mjs",
+        "size": 272
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-chat/llmResponse.md",
+        "size": 1030
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-r1/functions.mjs",
+        "size": 64
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-r1/index.mjs",
+        "size": 280
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-r1/llmResponse.md",
+        "size": 93
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/google/gemini-2.0-flash-001/functions.mjs",
+        "size": 233
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/google/gemini-2.0-flash-001/index.mjs",
+        "size": 280
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/google/gemini-2.0-flash-001/llmResponse.md",
+        "size": 263
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.1-8b-instruct/functions.mjs",
+        "size": 105
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.1-8b-instruct/index.mjs",
+        "size": 280
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.1-8b-instruct/llmResponse.md",
+        "size": 321
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/fileA.js",
+        "size": 32
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/fileB.js",
+        "size": 32
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/fileToDelete.js",
+        "size": 42
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/functions.mjs",
+        "size": 108
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/index.mjs",
+        "size": 272
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/llmResponse.md",
+        "size": 1929
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/uppercase.js",
+        "size": 39
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-3b-instruct/functions.mjs",
+        "size": 236
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-3b-instruct/index.mjs",
+        "size": 272
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-3b-instruct/llmResponse.md",
+        "size": 580
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/openai/o3-mini-high/functions.mjs",
+        "size": 64
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/openai/o3-mini-high/index.mjs",
+        "size": 280
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/openai/o3-mini-high/llmResponse.md",
+        "size": 92
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/openai/o3-mini/functions.mjs",
+        "size": 102
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/openai/o3-mini/index.mjs",
+        "size": 280
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/openai/o3-mini/llmResponse.md",
+        "size": 130
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-72b-instruct/functions.mjs",
+        "size": 102
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-72b-instruct/index.mjs",
+        "size": 272
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-72b-instruct/llmResponse.md",
+        "size": 430
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-7b-instruct/functions.mjs",
+        "size": 64
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-7b-instruct/index.mjs",
+        "size": 280
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-7b-instruct/llmResponse.md",
+        "size": 93
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/qwen/qwq-32b/functions.mjs",
+        "size": 64
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/qwen/qwq-32b/index.mjs",
+        "size": 280
+      },
+      {
+        "path": "benchmarks/challenges/toUpperCase/qwen/qwq-32b/llmResponse.md",
+        "size": 93
+      },
+      {
+        "path": "benchmarks/llmResponseCache/01800288c70cadd9a50f1c9cd0496cd892113521.json",
+        "size": 1190
+      },
+      {
+        "path": "benchmarks/llmResponseCache/01b3cbf56a21abc0ed44f7e48c18dfbf22babfd2.json",
+        "size": 1487
+      },
+      {
+        "path": "benchmarks/llmResponseCache/01cd05a1af2ec921c662020d791b1a733c2f38ad.json",
+        "size": 848
+      },
+      {
+        "path": "benchmarks/llmResponseCache/051a25a02c6ccb2ba8b7db5be3cb47f379caf32c.json",
+        "size": 1487
+      },
+      {
+        "path": "benchmarks/llmResponseCache/0c153ffc3a52942aa50087b5c10b92942950cb9a.json",
+        "size": 886
+      },
+      {
+        "path": "benchmarks/llmResponseCache/0e50945bf1027f285e9fea75120e4e9532233692.json",
+        "size": 1486
+      },
+      {
+        "path": "benchmarks/llmResponseCache/0f590de192f2b0d7701cb581ecb02ebbdfae0dde.json",
+        "size": 1625
+      },
+      {
+        "path": "benchmarks/llmResponseCache/12362923f22be807ae41064b29681ec625ac4a3c.json",
+        "size": 632
+      },
+      {
+        "path": "benchmarks/llmResponseCache/1c02d4d549cfe1a3a31ec32c5b58e9f876eed905.json",
+        "size": 698
+      },
+      {
+        "path": "benchmarks/llmResponseCache/1c9327c5a8946ffc759f754d766c4c3f31973648.json",
+        "size": 2201
+      },
+      {
+        "path": "benchmarks/llmResponseCache/1e59e74e3fea03f5ea1901b0fa74b5332b777906.json",
+        "size": 1249
+      },
+      {
+        "path": "benchmarks/llmResponseCache/1e6601582520e28b3fbd9c12a5f4b0d44c7cea3e.json",
+        "size": 4667
+      },
+      {
+        "path": "benchmarks/llmResponseCache/219a06bdd9da429470096ee5b4547b34b9753f4e.json",
+        "size": 884
+      },
+      {
+        "path": "benchmarks/llmResponseCache/23ed73052ca09dd003a08ece1d7d9f6189790939.json",
+        "size": 611
+      },
+      {
+        "path": "benchmarks/llmResponseCache/32fffaae866cee4fa0fbdd557e9c2aebff77aae7.json",
+        "size": 1799
+      },
+      {
+        "path": "benchmarks/llmResponseCache/33f8e0407c6b23c8cd6adc56a3ae43155c6ab9e8.json",
+        "size": 650
+      },
+      {
+        "path": "benchmarks/llmResponseCache/39690f1f9c2d892e54480b1ea44f9b2371e76b33.json",
+        "size": 642
+      },
+      {
+        "path": "benchmarks/llmResponseCache/4439f17e3108c89753258d955fe74ba85da68e32.json",
+        "size": 673
+      },
+      {
+        "path": "benchmarks/llmResponseCache/4606e509613fe81a71cf1af896bfb686656be0e3.json",
+        "size": 1270
+      },
+      {
+        "path": "benchmarks/llmResponseCache/497e05f88abcaa28ecad7858818cd7157199ee79.json",
+        "size": 951
+      },
+      {
+        "path": "benchmarks/llmResponseCache/4a5c30c76cba9ab12637a8e404655fb623c29a9d.json",
+        "size": 684
+      },
+      {
+        "path": "benchmarks/llmResponseCache/4ba89c0b108796d1715a612b413e8f1c8fc2ea7c.json",
+        "size": 1337
+      },
+      {
+        "path": "benchmarks/llmResponseCache/4f1790d1eac7b5a6b9e0c116677ec5b43ced0616.json",
+        "size": 34379
+      },
+      {
+        "path": "benchmarks/llmResponseCache/507d6fb130cd9ba003a3c9ba7afd70cbca96dd6e.json",
+        "size": 1002
+      },
+      {
+        "path": "benchmarks/llmResponseCache/527fb881f97080f8d10076807af7ac21cccc6981.json",
+        "size": 1216
+      },
+      {
+        "path": "benchmarks/llmResponseCache/5486808c3a8bb8d03db23badf6b6b33aec721d23.json",
+        "size": 1439
+      },
+      {
+        "path": "benchmarks/llmResponseCache/5b48e1adb2990223a2d1b37c51e0139db30ec71c.json",
+        "size": 882
+      },
+      {
+        "path": "benchmarks/llmResponseCache/5bed5a0ec0cf557f137157c61fb51224860acfa1.json",
+        "size": 622
+      },
+      {
+        "path": "benchmarks/llmResponseCache/5e67a53be7505aa5eb5ea8104064b27f60e8ecd3.json",
+        "size": 1038
+      },
+      {
+        "path": "benchmarks/llmResponseCache/610d712f763442f058673935b1c0cc6bec40d689.json",
+        "size": 1814
+      },
+      {
+        "path": "benchmarks/llmResponseCache/617976643a8bbbbe28df8091e2b8e91fd1534507.json",
+        "size": 1362
+      },
+      {
+        "path": "benchmarks/llmResponseCache/61b1ec4c71ff871a15b34724f96086186b4341a2.json",
+        "size": 7784
+      },
+      {
+        "path": "benchmarks/llmResponseCache/64ad85e8229c8cbca6cfbef7310392d164f40dce.json",
+        "size": 800
+      },
+      {
+        "path": "benchmarks/llmResponseCache/653ebdd3cdbe543e662d1e4ec8c3bcc5df0da672.json",
+        "size": 3003
+      },
+      {
+        "path": "benchmarks/llmResponseCache/65801dcc0c959a38d5ce3477428dee8bf43f0085.json",
+        "size": 1159
+      },
+      {
+        "path": "benchmarks/llmResponseCache/682b1cb6d2e40c12f869298f3a5dbf1e8edf787c.json",
+        "size": 612
+      },
+      {
+        "path": "benchmarks/llmResponseCache/69d45da2f806d03a7da3e6dd50ebf4bfe88de2a9.json",
+        "size": 1736
+      },
+      {
+        "path": "benchmarks/llmResponseCache/6a13320523bcab5d97f1153f28e398ccd4a9df63.json",
+        "size": 858
+      },
+      {
+        "path": "benchmarks/llmResponseCache/6a67c55d79637a62dbd8ea8ffe6df6e6eab05969.json",
+        "size": 1561
+      },
+      {
+        "path": "benchmarks/llmResponseCache/6efb4d15909db879a066db7352344fd5379a1c95.json",
+        "size": 2427
+      },
+      {
+        "path": "benchmarks/llmResponseCache/72f99f91ef8e41d7597e2ab24d2df60ae8abbccd.json",
+        "size": 1097
+      },
+      {
+        "path": "benchmarks/llmResponseCache/7463f1b9d6f5857208191e74eb0109c7da2ddfef.json",
+        "size": 1066
+      },
+      {
+        "path": "benchmarks/llmResponseCache/7932581c5c87039b805eb4d0c012730e9599388d.json",
+        "size": 1354
+      },
+      {
+        "path": "benchmarks/llmResponseCache/79cf26836e33fffadcbb00c118e6ca3c487fc597.json",
+        "size": 632
+      },
+      {
+        "path": "benchmarks/llmResponseCache/7a2340ec04e00cb7bc00abfb8383d21b14275c2b.json",
+        "size": 1222
+      },
+      {
+        "path": "benchmarks/llmResponseCache/7d0a6210532a6bfb257ae83fc54fa186c95484ce.json",
+        "size": 1989
+      },
+      {
+        "path": "benchmarks/llmResponseCache/8532023e966b68b95673ef9f7f8bae9492e13460.json",
+        "size": 1258
+      },
+      {
+        "path": "benchmarks/llmResponseCache/8603418575c5d8bc2c3213bffc57d877c5a50402.json",
+        "size": 997
+      },
+      {
+        "path": "benchmarks/llmResponseCache/8b9dfa3dc5ba8ee423baf9c7c0c85063e3231aa7.json",
+        "size": 792
+      },
+      {
+        "path": "benchmarks/llmResponseCache/9189c0e98326da78b98b5da5ac475de387b8055d.json",
+        "size": 1652
+      },
+      {
+        "path": "benchmarks/llmResponseCache/918b90c86012cdb3f71972e6cced5a46249d4459.json",
+        "size": 1483
+      },
+      {
+        "path": "benchmarks/llmResponseCache/91a9276f618e32e4c833f64897e05c67d6b69ffe.json",
+        "size": 1535
+      },
+      {
+        "path": "benchmarks/llmResponseCache/9206b41c00e8a4943c1b5988cf8dd385e5c2a72b.json",
+        "size": 639
+      },
+      {
+        "path": "benchmarks/llmResponseCache/92bbcdee8afb00a848aff74b4d16d650465f61ef.json",
+        "size": 711
+      },
+      {
+        "path": "benchmarks/llmResponseCache/9406f147757793020f893a9ef1b641b325886404.json",
+        "size": 1642
+      },
+      {
+        "path": "benchmarks/llmResponseCache/947fc9d73e529fdd0c66f4d0a11c086c0134a5ec.json",
+        "size": 2076
+      },
+      {
+        "path": "benchmarks/llmResponseCache/95ecbf974ceccc8120ab43027ae3d179fb6f59ba.json",
+        "size": 1473
+      },
+      {
+        "path": "benchmarks/llmResponseCache/99fb6dc4353b82bbecc8be78c2146a37d7a3fb9a.json",
+        "size": 2
+      },
+      {
+        "path": "benchmarks/llmResponseCache/a3a6816cacc1e93386ca40735c95aeabf36f33a9.json",
+        "size": 921
+      },
+      {
+        "path": "benchmarks/llmResponseCache/a43155a06be50bce8cf473e72350e8e5c4e1c694.json",
+        "size": 1763
+      },
+      {
+        "path": "benchmarks/llmResponseCache/a4b8839d832565443b4696e890671ab29d26675a.json",
+        "size": 1965
+      },
+      {
+        "path": "benchmarks/llmResponseCache/a564d2c3d70cc8396662de1cf961dd25f1c298b3.json",
+        "size": 1642
+      },
+      {
+        "path": "benchmarks/llmResponseCache/a5c7a47bcd8f935c077cf31c7e1ecd70de16d216.json",
+        "size": 1617
+      },
+      {
+        "path": "benchmarks/llmResponseCache/ad417bf992fc71840d616494263411e3a1d24524.json",
+        "size": 2216
+      },
+      {
+        "path": "benchmarks/llmResponseCache/aef35154ee99e8ece35ad449bf12776c2d939a92.json",
+        "size": 709
+      },
+      {
+        "path": "benchmarks/llmResponseCache/b2583d5ab08b12ea492c6509a4d2283ce6c9ce82.json",
+        "size": 1380
+      },
+      {
+        "path": "benchmarks/llmResponseCache/b30c9b47caefee9522c7b368259b558747cc911a.json",
+        "size": 848
+      },
+      {
+        "path": "benchmarks/llmResponseCache/b3cf0147739dfe6539375da2f4c030ddb93a86c5.json",
+        "size": 1365
+      },
+      {
+        "path": "benchmarks/llmResponseCache/b869663d6690adc64781de3e266e3ad758b630b0.json",
+        "size": 989
+      },
+      {
+        "path": "benchmarks/llmResponseCache/bedefe003e071a49d0690d510c36f69fcdbf7e9b.json",
+        "size": 2020
+      },
+      {
+        "path": "benchmarks/llmResponseCache/c49185cc05031625a9d2fa9b48a8b49f3189ca2f.json",
+        "size": 918
+      },
+      {
+        "path": "benchmarks/llmResponseCache/c4b12c3d70063079c334d7333c22d74cfecea74d.json",
+        "size": 3893
+      },
+      {
+        "path": "benchmarks/llmResponseCache/ca572bbe1bea5c5396e4ef37a2b54cf7e5acd2d8.json",
+        "size": 2136
+      },
+      {
+        "path": "benchmarks/llmResponseCache/cb5b8966555011584ce4a6cbeed7469e175561c4.json",
+        "size": 900
+      },
+      {
+        "path": "benchmarks/llmResponseCache/ccc140fa8abd9c41d0d0a078531d0c41351d7687.json",
+        "size": 1475
+      },
+      {
+        "path": "benchmarks/llmResponseCache/cff377e6513a3b02567a62d7ff4b090af6e4a251.json",
+        "size": 692
+      },
+      {
+        "path": "benchmarks/llmResponseCache/d3f18cad6cb5f6609512508722714cb88dd8791d.json",
+        "size": 1939
+      },
+      {
+        "path": "benchmarks/llmResponseCache/d9bf7e153addbad646633f8404ac8bd530da92f2.json",
+        "size": 4519
+      },
+      {
+        "path": "benchmarks/llmResponseCache/dd1bbf748d647f2784f5ebc6f926c9685026e3cd.json",
+        "size": 1236
+      },
+      {
+        "path": "benchmarks/llmResponseCache/e00b8d8b97662e6f13b67fe3e62d9f22930d6822.json",
+        "size": 647
+      },
+      {
+        "path": "benchmarks/llmResponseCache/e1f093f6da95c6e85228f795d87e0e829aec45d4.json",
+        "size": 712
+      },
+      {
+        "path": "benchmarks/llmResponseCache/e3ddc4f050ccdfbd17d9af53f295cea0f9cb49c7.json",
+        "size": 675
+      },
+      {
+        "path": "benchmarks/llmResponseCache/e77c0d5819dbdc96671af581942591090ff045d0.json",
+        "size": 601
+      },
+      {
+        "path": "benchmarks/llmResponseCache/ebafad3fbc279c73d7680a10dc5daa823d0cd268.json",
+        "size": 1903
+      },
+      {
+        "path": "benchmarks/llmResponseCache/f2f7ff574f2936cdd7a2fb5a31e118e961b198dc.json",
+        "size": 601
+      },
+      {
+        "path": "benchmarks/llmResponseCache/fbd11f1c8504349e477f4f38f7fa414ba3e2cff2.json",
+        "size": 1657
+      },
+      {
+        "path": "benchmarks/llmResponseCache/fd7dad06ad82ca3ba5165c055de548c08542c537.json",
+        "size": 637
+      },
+      {
+        "path": "benchmarks/llmResponseCache/ff4dd0e4aa45b970b41a71d6401ed3091ad02e99.json",
+        "size": 2595
+      },
+      {
+        "path": "benchmarks/results.csv",
+        "size": 3227
+      },
+      {
+        "path": "package-lock.json",
+        "size": 80919
+      },
+      {
+        "path": "package.json",
+        "size": 1158
+      },
+      {
+        "path": "src/benchmarks/benchmarkRunner.ts",
+        "size": 3045
+      },
+      {
+        "path": "src/benchmarks/challenges.ts",
+        "size": 3508
+      },
+      {
+        "path": "src/benchmarks/fileUtils.ts",
+        "size": 1799
+      },
+      {
+        "path": "src/benchmarks/index.ts",
+        "size": 1362
+      },
+      {
+        "path": "src/benchmarks/llm.ts",
+        "size": 1204
+      },
+      {
+        "path": "src/benchmarks/models.ts",
+        "size": 520
+      },
+      {
+        "path": "src/benchmarks/runner.ts",
+        "size": 1051
+      },
+      {
+        "path": "src/benchmarks/types.ts",
+        "size": 343
+      },
+      {
+        "path": "src/fileUtils.test.ts",
+        "size": 5284
+      },
+      {
+        "path": "src/fileUtils.ts",
+        "size": 2044
+      },
+      {
+        "path": "src/index.test.ts",
+        "size": 2682
+      },
+      {
+        "path": "src/index.ts",
+        "size": 2215
+      },
+      {
+        "path": "src/metadata.test.ts",
+        "size": 4502
+      },
+      {
+        "path": "src/metadata.ts",
+        "size": 1912
+      },
+      {
+        "path": "src/prompt.test.ts",
+        "size": 1732
+      },
+      {
+        "path": "src/prompt.ts",
+        "size": 1513
+      },
+      {
+        "path": "src/types.ts",
+        "size": 551
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 360
+      }
+    ],
+    "tree": {
+      "name": "editcodewithai",
+      "children": [
+        {
+          "name": "benchmarks",
+          "children": [
+            {
+              "name": "challenges",
+              "children": [
+                {
+                  "name": "add",
+                  "children": [
+                    {
+                      "name": "amazon",
+                      "children": [
+                        {
+                          "name": "nova-micro-v1",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 86,
+                              "path": "benchmarks/challenges/add/amazon/nova-micro-v1/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 230,
+                              "path": "benchmarks/challenges/add/amazon/nova-micro-v1/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 554,
+                              "path": "benchmarks/challenges/add/amazon/nova-micro-v1/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/amazon/nova-micro-v1"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/add/amazon"
+                    },
+                    {
+                      "name": "anthropic",
+                      "children": [
+                        {
+                          "name": "claude-3.5-haiku",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 45,
+                              "path": "benchmarks/challenges/add/anthropic/claude-3.5-haiku/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 240,
+                              "path": "benchmarks/challenges/add/anthropic/claude-3.5-haiku/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 477,
+                              "path": "benchmarks/challenges/add/anthropic/claude-3.5-haiku/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/anthropic/claude-3.5-haiku"
+                        },
+                        {
+                          "name": "claude-3.5-sonnet",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 75,
+                              "path": "benchmarks/challenges/add/anthropic/claude-3.5-sonnet/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 240,
+                              "path": "benchmarks/challenges/add/anthropic/claude-3.5-sonnet/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 621,
+                              "path": "benchmarks/challenges/add/anthropic/claude-3.5-sonnet/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/anthropic/claude-3.5-sonnet"
+                        },
+                        {
+                          "name": "claude-3.7-sonnet",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 75,
+                              "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 240,
+                              "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 440,
+                              "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet"
+                        },
+                        {
+                          "name": "claude-3.7-sonnet:thinking",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 75,
+                              "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet:thinking/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 240,
+                              "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet:thinking/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 390,
+                              "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet:thinking/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/anthropic/claude-3.7-sonnet:thinking"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/add/anthropic"
+                    },
+                    {
+                      "name": "deepseek",
+                      "children": [
+                        {
+                          "name": "deepseek-chat",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 45,
+                              "path": "benchmarks/challenges/add/deepseek/deepseek-chat/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 240,
+                              "path": "benchmarks/challenges/add/deepseek/deepseek-chat/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 347,
+                              "path": "benchmarks/challenges/add/deepseek/deepseek-chat/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/deepseek/deepseek-chat"
+                        },
+                        {
+                          "name": "deepseek-r1",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 81,
+                              "path": "benchmarks/challenges/add/deepseek/deepseek-r1/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 240,
+                              "path": "benchmarks/challenges/add/deepseek/deepseek-r1/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 110,
+                              "path": "benchmarks/challenges/add/deepseek/deepseek-r1/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/deepseek/deepseek-r1"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/add/deepseek"
+                    },
+                    {
+                      "name": "google",
+                      "children": [
+                        {
+                          "name": "gemini-2.0-flash-001",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 81,
+                              "path": "benchmarks/challenges/add/google/gemini-2.0-flash-001/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 240,
+                              "path": "benchmarks/challenges/add/google/gemini-2.0-flash-001/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 111,
+                              "path": "benchmarks/challenges/add/google/gemini-2.0-flash-001/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/google/gemini-2.0-flash-001"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/add/google"
+                    },
+                    {
+                      "name": "meta-llama",
+                      "children": [
+                        {
+                          "name": "llama-3.1-8b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 176,
+                              "path": "benchmarks/challenges/add/meta-llama/llama-3.1-8b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 240,
+                              "path": "benchmarks/challenges/add/meta-llama/llama-3.1-8b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 484,
+                              "path": "benchmarks/challenges/add/meta-llama/llama-3.1-8b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/meta-llama/llama-3.1-8b-instruct"
+                        },
+                        {
+                          "name": "llama-3.2-1b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 40,
+                              "path": "benchmarks/challenges/add/meta-llama/llama-3.2-1b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 36,
+                              "path": "benchmarks/challenges/add/meta-llama/llama-3.2-1b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 15884,
+                              "path": "benchmarks/challenges/add/meta-llama/llama-3.2-1b-instruct/llmResponse.md"
+                            },
+                            {
+                              "name": "utils.js",
+                              "size": 81,
+                              "path": "benchmarks/challenges/add/meta-llama/llama-3.2-1b-instruct/utils.js"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/meta-llama/llama-3.2-1b-instruct"
+                        },
+                        {
+                          "name": "llama-3.2-3b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 86,
+                              "path": "benchmarks/challenges/add/meta-llama/llama-3.2-3b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 267,
+                              "path": "benchmarks/challenges/add/meta-llama/llama-3.2-3b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 425,
+                              "path": "benchmarks/challenges/add/meta-llama/llama-3.2-3b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/meta-llama/llama-3.2-3b-instruct"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/add/meta-llama"
+                    },
+                    {
+                      "name": "openai",
+                      "children": [
+                        {
+                          "name": "o3-mini-high",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 45,
+                              "path": "benchmarks/challenges/add/openai/o3-mini-high/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 240,
+                              "path": "benchmarks/challenges/add/openai/o3-mini-high/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 73,
+                              "path": "benchmarks/challenges/add/openai/o3-mini-high/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/openai/o3-mini-high"
+                        },
+                        {
+                          "name": "o3-mini",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 75,
+                              "path": "benchmarks/challenges/add/openai/o3-mini/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 240,
+                              "path": "benchmarks/challenges/add/openai/o3-mini/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 103,
+                              "path": "benchmarks/challenges/add/openai/o3-mini/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/openai/o3-mini"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/add/openai"
+                    },
+                    {
+                      "name": "qwen",
+                      "children": [
+                        {
+                          "name": "qwen-2.5-72b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 75,
+                              "path": "benchmarks/challenges/add/qwen/qwen-2.5-72b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 230,
+                              "path": "benchmarks/challenges/add/qwen/qwen-2.5-72b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 361,
+                              "path": "benchmarks/challenges/add/qwen/qwen-2.5-72b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/qwen/qwen-2.5-72b-instruct"
+                        },
+                        {
+                          "name": "qwen-2.5-7b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 45,
+                              "path": "benchmarks/challenges/add/qwen/qwen-2.5-7b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 240,
+                              "path": "benchmarks/challenges/add/qwen/qwen-2.5-7b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 74,
+                              "path": "benchmarks/challenges/add/qwen/qwen-2.5-7b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/qwen/qwen-2.5-7b-instruct"
+                        },
+                        {
+                          "name": "qwq-32b",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 45,
+                              "path": "benchmarks/challenges/add/qwen/qwq-32b/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 240,
+                              "path": "benchmarks/challenges/add/qwen/qwq-32b/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 74,
+                              "path": "benchmarks/challenges/add/qwen/qwq-32b/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/add/qwen/qwq-32b"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/add/qwen"
+                    }
+                  ],
+                  "path": "benchmarks/challenges/add"
+                },
+                {
+                  "name": "multiply",
+                  "children": [
+                    {
+                      "name": "amazon",
+                      "children": [
+                        {
+                          "name": "nova-micro-v1",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 50,
+                              "path": "benchmarks/challenges/multiply/amazon/nova-micro-v1/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 229,
+                              "path": "benchmarks/challenges/multiply/amazon/nova-micro-v1/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 491,
+                              "path": "benchmarks/challenges/multiply/amazon/nova-micro-v1/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/amazon/nova-micro-v1"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/multiply/amazon"
+                    },
+                    {
+                      "name": "anthropic",
+                      "children": [
+                        {
+                          "name": "claude-3.5-haiku",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 50,
+                              "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-haiku/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 229,
+                              "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-haiku/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 720,
+                              "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-haiku/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-haiku"
+                        },
+                        {
+                          "name": "claude-3.5-sonnet",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 50,
+                              "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-sonnet/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 229,
+                              "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-sonnet/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 842,
+                              "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-sonnet/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/anthropic/claude-3.5-sonnet"
+                        },
+                        {
+                          "name": "claude-3.7-sonnet",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 85,
+                              "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 237,
+                              "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 502,
+                              "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet"
+                        },
+                        {
+                          "name": "claude-3.7-sonnet:thinking",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 85,
+                              "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet:thinking/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 237,
+                              "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet:thinking/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 369,
+                              "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet:thinking/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/anthropic/claude-3.7-sonnet:thinking"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/multiply/anthropic"
+                    },
+                    {
+                      "name": "deepseek",
+                      "children": [
+                        {
+                          "name": "deepseek-chat",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 85,
+                              "path": "benchmarks/challenges/multiply/deepseek/deepseek-chat/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 237,
+                              "path": "benchmarks/challenges/multiply/deepseek/deepseek-chat/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 315,
+                              "path": "benchmarks/challenges/multiply/deepseek/deepseek-chat/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/deepseek/deepseek-chat"
+                        },
+                        {
+                          "name": "deepseek-r1",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 50,
+                              "path": "benchmarks/challenges/multiply/deepseek/deepseek-r1/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 237,
+                              "path": "benchmarks/challenges/multiply/deepseek/deepseek-r1/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 79,
+                              "path": "benchmarks/challenges/multiply/deepseek/deepseek-r1/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/deepseek/deepseek-r1"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/multiply/deepseek"
+                    },
+                    {
+                      "name": "google",
+                      "children": [
+                        {
+                          "name": "gemini-2.0-flash-001",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 91,
+                              "path": "benchmarks/challenges/multiply/google/gemini-2.0-flash-001/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 237,
+                              "path": "benchmarks/challenges/multiply/google/gemini-2.0-flash-001/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 121,
+                              "path": "benchmarks/challenges/multiply/google/gemini-2.0-flash-001/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/google/gemini-2.0-flash-001"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/multiply/google"
+                    },
+                    {
+                      "name": "meta-llama",
+                      "children": [
+                        {
+                          "name": "llama-3.1-8b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 132,
+                              "path": "benchmarks/challenges/multiply/meta-llama/llama-3.1-8b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 229,
+                              "path": "benchmarks/challenges/multiply/meta-llama/llama-3.1-8b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 430,
+                              "path": "benchmarks/challenges/multiply/meta-llama/llama-3.1-8b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/meta-llama/llama-3.1-8b-instruct"
+                        },
+                        {
+                          "name": "llama-3.2-1b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 40,
+                              "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-1b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 36,
+                              "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-1b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "index.test.js",
+                              "size": 40,
+                              "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-1b-instruct/index.test.js"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 3365,
+                              "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-1b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-1b-instruct"
+                        },
+                        {
+                          "name": "llama-3.2-3b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 212,
+                              "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-3b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 229,
+                              "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-3b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 513,
+                              "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-3b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/meta-llama/llama-3.2-3b-instruct"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/multiply/meta-llama"
+                    },
+                    {
+                      "name": "openai",
+                      "children": [
+                        {
+                          "name": "o3-mini-high",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 50,
+                              "path": "benchmarks/challenges/multiply/openai/o3-mini-high/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 237,
+                              "path": "benchmarks/challenges/multiply/openai/o3-mini-high/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 78,
+                              "path": "benchmarks/challenges/multiply/openai/o3-mini-high/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/openai/o3-mini-high"
+                        },
+                        {
+                          "name": "o3-mini",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 85,
+                              "path": "benchmarks/challenges/multiply/openai/o3-mini/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 237,
+                              "path": "benchmarks/challenges/multiply/openai/o3-mini/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 114,
+                              "path": "benchmarks/challenges/multiply/openai/o3-mini/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/openai/o3-mini"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/multiply/openai"
+                    },
+                    {
+                      "name": "qwen",
+                      "children": [
+                        {
+                          "name": "qwen-2.5-72b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 91,
+                              "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-72b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 229,
+                              "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-72b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 376,
+                              "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-72b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-72b-instruct"
+                        },
+                        {
+                          "name": "qwen-2.5-7b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 50,
+                              "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-7b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 237,
+                              "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-7b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 79,
+                              "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-7b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/qwen/qwen-2.5-7b-instruct"
+                        },
+                        {
+                          "name": "qwq-32b",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 50,
+                              "path": "benchmarks/challenges/multiply/qwen/qwq-32b/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 237,
+                              "path": "benchmarks/challenges/multiply/qwen/qwq-32b/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 79,
+                              "path": "benchmarks/challenges/multiply/qwen/qwq-32b/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/multiply/qwen/qwq-32b"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/multiply/qwen"
+                    }
+                  ],
+                  "path": "benchmarks/challenges/multiply"
+                },
+                {
+                  "name": "reverseString",
+                  "children": [
+                    {
+                      "name": "amazon",
+                      "children": [
+                        {
+                          "name": "nova-micro-v1",
+                          "children": [
+                            {
+                              "name": "README.md",
+                              "size": 272,
+                              "path": "benchmarks/challenges/reverseString/amazon/nova-micro-v1/README.md"
+                            },
+                            {
+                              "name": "functions.mjs",
+                              "size": 122,
+                              "path": "benchmarks/challenges/reverseString/amazon/nova-micro-v1/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 316,
+                              "path": "benchmarks/challenges/reverseString/amazon/nova-micro-v1/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 928,
+                              "path": "benchmarks/challenges/reverseString/amazon/nova-micro-v1/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/amazon/nova-micro-v1"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/reverseString/amazon"
+                    },
+                    {
+                      "name": "anthropic",
+                      "children": [
+                        {
+                          "name": "claude-3.5-haiku",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 81,
+                              "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-haiku/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 324,
+                              "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-haiku/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 703,
+                              "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-haiku/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-haiku"
+                        },
+                        {
+                          "name": "claude-3.5-sonnet",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 81,
+                              "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-sonnet/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 324,
+                              "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-sonnet/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 785,
+                              "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-sonnet/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/anthropic/claude-3.5-sonnet"
+                        },
+                        {
+                          "name": "claude-3.7-sonnet:thinking",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 127,
+                              "path": "benchmarks/challenges/reverseString/anthropic/claude-3.7-sonnet:thinking/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 324,
+                              "path": "benchmarks/challenges/reverseString/anthropic/claude-3.7-sonnet:thinking/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 396,
+                              "path": "benchmarks/challenges/reverseString/anthropic/claude-3.7-sonnet:thinking/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/anthropic/claude-3.7-sonnet:thinking"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/reverseString/anthropic"
+                    },
+                    {
+                      "name": "deepseek",
+                      "children": [
+                        {
+                          "name": "deepseek-chat",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 121,
+                              "path": "benchmarks/challenges/reverseString/deepseek/deepseek-chat/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 324,
+                              "path": "benchmarks/challenges/reverseString/deepseek/deepseek-chat/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 391,
+                              "path": "benchmarks/challenges/reverseString/deepseek/deepseek-chat/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/deepseek/deepseek-chat"
+                        },
+                        {
+                          "name": "deepseek-r1",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 81,
+                              "path": "benchmarks/challenges/reverseString/deepseek/deepseek-r1/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 324,
+                              "path": "benchmarks/challenges/reverseString/deepseek/deepseek-r1/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 110,
+                              "path": "benchmarks/challenges/reverseString/deepseek/deepseek-r1/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/deepseek/deepseek-r1"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/reverseString/deepseek"
+                    },
+                    {
+                      "name": "google",
+                      "children": [
+                        {
+                          "name": "gemini-2.0-flash-001",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 127,
+                              "path": "benchmarks/challenges/reverseString/google/gemini-2.0-flash-001/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 324,
+                              "path": "benchmarks/challenges/reverseString/google/gemini-2.0-flash-001/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 157,
+                              "path": "benchmarks/challenges/reverseString/google/gemini-2.0-flash-001/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/google/gemini-2.0-flash-001"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/reverseString/google"
+                    },
+                    {
+                      "name": "meta-llama",
+                      "children": [
+                        {
+                          "name": "llama-3.1-8b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 443,
+                              "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.1-8b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 324,
+                              "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.1-8b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 693,
+                              "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.1-8b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.1-8b-instruct"
+                        },
+                        {
+                          "name": "llama-3.2-1b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 40,
+                              "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-1b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 353,
+                              "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-1b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 1557,
+                              "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-1b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-1b-instruct"
+                        },
+                        {
+                          "name": "llama-3.2-3b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 387,
+                              "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-3b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 316,
+                              "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-3b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 775,
+                              "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-3b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/meta-llama/llama-3.2-3b-instruct"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/reverseString/meta-llama"
+                    },
+                    {
+                      "name": "openai",
+                      "children": [
+                        {
+                          "name": "o3-mini-high",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 149,
+                              "path": "benchmarks/challenges/reverseString/openai/o3-mini-high/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 324,
+                              "path": "benchmarks/challenges/reverseString/openai/o3-mini-high/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 177,
+                              "path": "benchmarks/challenges/reverseString/openai/o3-mini-high/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/openai/o3-mini-high"
+                        },
+                        {
+                          "name": "o3-mini",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 121,
+                              "path": "benchmarks/challenges/reverseString/openai/o3-mini/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 324,
+                              "path": "benchmarks/challenges/reverseString/openai/o3-mini/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 149,
+                              "path": "benchmarks/challenges/reverseString/openai/o3-mini/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/openai/o3-mini"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/reverseString/openai"
+                    },
+                    {
+                      "name": "qwen",
+                      "children": [
+                        {
+                          "name": "qwen-2.5-72b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 81,
+                              "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-72b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 316,
+                              "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-72b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 453,
+                              "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-72b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-72b-instruct"
+                        },
+                        {
+                          "name": "qwen-2.5-7b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 81,
+                              "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-7b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 324,
+                              "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-7b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 110,
+                              "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-7b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/qwen/qwen-2.5-7b-instruct"
+                        },
+                        {
+                          "name": "qwq-32b",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 81,
+                              "path": "benchmarks/challenges/reverseString/qwen/qwq-32b/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 324,
+                              "path": "benchmarks/challenges/reverseString/qwen/qwq-32b/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 110,
+                              "path": "benchmarks/challenges/reverseString/qwen/qwq-32b/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/reverseString/qwen/qwq-32b"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/reverseString/qwen"
+                    }
+                  ],
+                  "path": "benchmarks/challenges/reverseString"
+                },
+                {
+                  "name": "square",
+                  "children": [
+                    {
+                      "name": "amazon",
+                      "children": [
+                        {
+                          "name": "nova-micro-v1",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 78,
+                              "path": "benchmarks/challenges/square/amazon/nova-micro-v1/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 241,
+                              "path": "benchmarks/challenges/square/amazon/nova-micro-v1/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 622,
+                              "path": "benchmarks/challenges/square/amazon/nova-micro-v1/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/amazon/nova-micro-v1"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/square/amazon"
+                    },
+                    {
+                      "name": "anthropic",
+                      "children": [
+                        {
+                          "name": "claude-3.5-haiku",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 45,
+                              "path": "benchmarks/challenges/square/anthropic/claude-3.5-haiku/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 249,
+                              "path": "benchmarks/challenges/square/anthropic/claude-3.5-haiku/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 499,
+                              "path": "benchmarks/challenges/square/anthropic/claude-3.5-haiku/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/anthropic/claude-3.5-haiku"
+                        },
+                        {
+                          "name": "claude-3.5-sonnet",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 45,
+                              "path": "benchmarks/challenges/square/anthropic/claude-3.5-sonnet/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 249,
+                              "path": "benchmarks/challenges/square/anthropic/claude-3.5-sonnet/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 576,
+                              "path": "benchmarks/challenges/square/anthropic/claude-3.5-sonnet/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/anthropic/claude-3.5-sonnet"
+                        },
+                        {
+                          "name": "claude-3.7-sonnet",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 84,
+                              "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 249,
+                              "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 449,
+                              "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet"
+                        },
+                        {
+                          "name": "claude-3.7-sonnet:thinking",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 84,
+                              "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet:thinking/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 249,
+                              "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet:thinking/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 280,
+                              "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet:thinking/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/anthropic/claude-3.7-sonnet:thinking"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/square/anthropic"
+                    },
+                    {
+                      "name": "deepseek",
+                      "children": [
+                        {
+                          "name": "deepseek-chat",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 78,
+                              "path": "benchmarks/challenges/square/deepseek/deepseek-chat/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 249,
+                              "path": "benchmarks/challenges/square/deepseek/deepseek-chat/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 265,
+                              "path": "benchmarks/challenges/square/deepseek/deepseek-chat/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/deepseek/deepseek-chat"
+                        },
+                        {
+                          "name": "deepseek-r1",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 45,
+                              "path": "benchmarks/challenges/square/deepseek/deepseek-r1/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 249,
+                              "path": "benchmarks/challenges/square/deepseek/deepseek-r1/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 74,
+                              "path": "benchmarks/challenges/square/deepseek/deepseek-r1/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/deepseek/deepseek-r1"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/square/deepseek"
+                    },
+                    {
+                      "name": "google",
+                      "children": [
+                        {
+                          "name": "gemini-2.0-flash-001",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 84,
+                              "path": "benchmarks/challenges/square/google/gemini-2.0-flash-001/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 249,
+                              "path": "benchmarks/challenges/square/google/gemini-2.0-flash-001/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 114,
+                              "path": "benchmarks/challenges/square/google/gemini-2.0-flash-001/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/google/gemini-2.0-flash-001"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/square/google"
+                    },
+                    {
+                      "name": "meta-llama",
+                      "children": [
+                        {
+                          "name": "llama-3.1-8b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 86,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.1-8b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 249,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.1-8b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 324,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.1-8b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/meta-llama/llama-3.1-8b-instruct"
+                        },
+                        {
+                          "name": "llama-3.2-1b-instruct",
+                          "children": [
+                            {
+                              "name": "README.md",
+                              "size": 99,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/README.md"
+                            },
+                            {
+                              "name": "functions.js",
+                              "size": 78,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/functions.js"
+                            },
+                            {
+                              "name": "functions.mjs",
+                              "size": 78,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.js",
+                              "size": 241,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/index.js"
+                            },
+                            {
+                              "name": "index.md",
+                              "size": 80,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/index.md"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 241,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 1843,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/meta-llama/llama-3.2-1b-instruct"
+                        },
+                        {
+                          "name": "llama-3.2-3b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 184,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.2-3b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 241,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.2-3b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 497,
+                              "path": "benchmarks/challenges/square/meta-llama/llama-3.2-3b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/meta-llama/llama-3.2-3b-instruct"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/square/meta-llama"
+                    },
+                    {
+                      "name": "openai",
+                      "children": [
+                        {
+                          "name": "o3-mini-high",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 45,
+                              "path": "benchmarks/challenges/square/openai/o3-mini-high/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 249,
+                              "path": "benchmarks/challenges/square/openai/o3-mini-high/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 73,
+                              "path": "benchmarks/challenges/square/openai/o3-mini-high/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/openai/o3-mini-high"
+                        },
+                        {
+                          "name": "o3-mini",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 84,
+                              "path": "benchmarks/challenges/square/openai/o3-mini/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 249,
+                              "path": "benchmarks/challenges/square/openai/o3-mini/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 112,
+                              "path": "benchmarks/challenges/square/openai/o3-mini/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/openai/o3-mini"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/square/openai"
+                    },
+                    {
+                      "name": "qwen",
+                      "children": [
+                        {
+                          "name": "qwen-2.5-72b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 86,
+                              "path": "benchmarks/challenges/square/qwen/qwen-2.5-72b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 249,
+                              "path": "benchmarks/challenges/square/qwen/qwen-2.5-72b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 115,
+                              "path": "benchmarks/challenges/square/qwen/qwen-2.5-72b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/qwen/qwen-2.5-72b-instruct"
+                        },
+                        {
+                          "name": "qwen-2.5-7b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 45,
+                              "path": "benchmarks/challenges/square/qwen/qwen-2.5-7b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 241,
+                              "path": "benchmarks/challenges/square/qwen/qwen-2.5-7b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 342,
+                              "path": "benchmarks/challenges/square/qwen/qwen-2.5-7b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/qwen/qwen-2.5-7b-instruct"
+                        },
+                        {
+                          "name": "qwq-32b",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 45,
+                              "path": "benchmarks/challenges/square/qwen/qwq-32b/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 249,
+                              "path": "benchmarks/challenges/square/qwen/qwq-32b/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 74,
+                              "path": "benchmarks/challenges/square/qwen/qwq-32b/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/square/qwen/qwq-32b"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/square/qwen"
+                    }
+                  ],
+                  "path": "benchmarks/challenges/square"
+                },
+                {
+                  "name": "toUpperCase",
+                  "children": [
+                    {
+                      "name": "amazon",
+                      "children": [
+                        {
+                          "name": "nova-micro-v1",
+                          "children": [
+                            {
+                              "name": "README.md",
+                              "size": 389,
+                              "path": "benchmarks/challenges/toUpperCase/amazon/nova-micro-v1/README.md"
+                            },
+                            {
+                              "name": "functions.mjs",
+                              "size": 102,
+                              "path": "benchmarks/challenges/toUpperCase/amazon/nova-micro-v1/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 272,
+                              "path": "benchmarks/challenges/toUpperCase/amazon/nova-micro-v1/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 1223,
+                              "path": "benchmarks/challenges/toUpperCase/amazon/nova-micro-v1/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/amazon/nova-micro-v1"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/toUpperCase/amazon"
+                    },
+                    {
+                      "name": "anthropic",
+                      "children": [
+                        {
+                          "name": "claude-3.5-haiku",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 64,
+                              "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-haiku/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 280,
+                              "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-haiku/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 724,
+                              "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-haiku/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-haiku"
+                        },
+                        {
+                          "name": "claude-3.5-sonnet",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 64,
+                              "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-sonnet/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 280,
+                              "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-sonnet/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 760,
+                              "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-sonnet/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.5-sonnet"
+                        },
+                        {
+                          "name": "claude-3.7-sonnet",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 108,
+                              "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 280,
+                              "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 581,
+                              "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet"
+                        },
+                        {
+                          "name": "claude-3.7-sonnet:thinking",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 102,
+                              "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet:thinking/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 280,
+                              "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet:thinking/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 437,
+                              "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet:thinking/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/anthropic/claude-3.7-sonnet:thinking"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/toUpperCase/anthropic"
+                    },
+                    {
+                      "name": "deepseek",
+                      "children": [
+                        {
+                          "name": "deepseek-chat",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 102,
+                              "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-chat/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 272,
+                              "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-chat/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 1030,
+                              "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-chat/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-chat"
+                        },
+                        {
+                          "name": "deepseek-r1",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 64,
+                              "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-r1/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 280,
+                              "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-r1/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 93,
+                              "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-r1/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/deepseek/deepseek-r1"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/toUpperCase/deepseek"
+                    },
+                    {
+                      "name": "google",
+                      "children": [
+                        {
+                          "name": "gemini-2.0-flash-001",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 233,
+                              "path": "benchmarks/challenges/toUpperCase/google/gemini-2.0-flash-001/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 280,
+                              "path": "benchmarks/challenges/toUpperCase/google/gemini-2.0-flash-001/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 263,
+                              "path": "benchmarks/challenges/toUpperCase/google/gemini-2.0-flash-001/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/google/gemini-2.0-flash-001"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/toUpperCase/google"
+                    },
+                    {
+                      "name": "meta-llama",
+                      "children": [
+                        {
+                          "name": "llama-3.1-8b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 105,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.1-8b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 280,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.1-8b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 321,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.1-8b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.1-8b-instruct"
+                        },
+                        {
+                          "name": "llama-3.2-1b-instruct",
+                          "children": [
+                            {
+                              "name": "fileA.js",
+                              "size": 32,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/fileA.js"
+                            },
+                            {
+                              "name": "fileB.js",
+                              "size": 32,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/fileB.js"
+                            },
+                            {
+                              "name": "fileToDelete.js",
+                              "size": 42,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/fileToDelete.js"
+                            },
+                            {
+                              "name": "functions.mjs",
+                              "size": 108,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 272,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 1929,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/llmResponse.md"
+                            },
+                            {
+                              "name": "uppercase.js",
+                              "size": 39,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct/uppercase.js"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-1b-instruct"
+                        },
+                        {
+                          "name": "llama-3.2-3b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 236,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-3b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 272,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-3b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 580,
+                              "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-3b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/meta-llama/llama-3.2-3b-instruct"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/toUpperCase/meta-llama"
+                    },
+                    {
+                      "name": "openai",
+                      "children": [
+                        {
+                          "name": "o3-mini-high",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 64,
+                              "path": "benchmarks/challenges/toUpperCase/openai/o3-mini-high/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 280,
+                              "path": "benchmarks/challenges/toUpperCase/openai/o3-mini-high/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 92,
+                              "path": "benchmarks/challenges/toUpperCase/openai/o3-mini-high/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/openai/o3-mini-high"
+                        },
+                        {
+                          "name": "o3-mini",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 102,
+                              "path": "benchmarks/challenges/toUpperCase/openai/o3-mini/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 280,
+                              "path": "benchmarks/challenges/toUpperCase/openai/o3-mini/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 130,
+                              "path": "benchmarks/challenges/toUpperCase/openai/o3-mini/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/openai/o3-mini"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/toUpperCase/openai"
+                    },
+                    {
+                      "name": "qwen",
+                      "children": [
+                        {
+                          "name": "qwen-2.5-72b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 102,
+                              "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-72b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 272,
+                              "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-72b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 430,
+                              "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-72b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-72b-instruct"
+                        },
+                        {
+                          "name": "qwen-2.5-7b-instruct",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 64,
+                              "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-7b-instruct/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 280,
+                              "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-7b-instruct/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 93,
+                              "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-7b-instruct/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/qwen/qwen-2.5-7b-instruct"
+                        },
+                        {
+                          "name": "qwq-32b",
+                          "children": [
+                            {
+                              "name": "functions.mjs",
+                              "size": 64,
+                              "path": "benchmarks/challenges/toUpperCase/qwen/qwq-32b/functions.mjs"
+                            },
+                            {
+                              "name": "index.mjs",
+                              "size": 280,
+                              "path": "benchmarks/challenges/toUpperCase/qwen/qwq-32b/index.mjs"
+                            },
+                            {
+                              "name": "llmResponse.md",
+                              "size": 93,
+                              "path": "benchmarks/challenges/toUpperCase/qwen/qwq-32b/llmResponse.md"
+                            }
+                          ],
+                          "path": "benchmarks/challenges/toUpperCase/qwen/qwq-32b"
+                        }
+                      ],
+                      "path": "benchmarks/challenges/toUpperCase/qwen"
+                    }
+                  ],
+                  "path": "benchmarks/challenges/toUpperCase"
+                }
+              ],
+              "path": "benchmarks/challenges"
+            },
+            {
+              "name": "llmResponseCache",
+              "children": [
+                {
+                  "name": "01800288c70cadd9a50f1c9cd0496cd892113521.json",
+                  "size": 1190,
+                  "path": "benchmarks/llmResponseCache/01800288c70cadd9a50f1c9cd0496cd892113521.json"
+                },
+                {
+                  "name": "01b3cbf56a21abc0ed44f7e48c18dfbf22babfd2.json",
+                  "size": 1487,
+                  "path": "benchmarks/llmResponseCache/01b3cbf56a21abc0ed44f7e48c18dfbf22babfd2.json"
+                },
+                {
+                  "name": "01cd05a1af2ec921c662020d791b1a733c2f38ad.json",
+                  "size": 848,
+                  "path": "benchmarks/llmResponseCache/01cd05a1af2ec921c662020d791b1a733c2f38ad.json"
+                },
+                {
+                  "name": "051a25a02c6ccb2ba8b7db5be3cb47f379caf32c.json",
+                  "size": 1487,
+                  "path": "benchmarks/llmResponseCache/051a25a02c6ccb2ba8b7db5be3cb47f379caf32c.json"
+                },
+                {
+                  "name": "0c153ffc3a52942aa50087b5c10b92942950cb9a.json",
+                  "size": 886,
+                  "path": "benchmarks/llmResponseCache/0c153ffc3a52942aa50087b5c10b92942950cb9a.json"
+                },
+                {
+                  "name": "0e50945bf1027f285e9fea75120e4e9532233692.json",
+                  "size": 1486,
+                  "path": "benchmarks/llmResponseCache/0e50945bf1027f285e9fea75120e4e9532233692.json"
+                },
+                {
+                  "name": "0f590de192f2b0d7701cb581ecb02ebbdfae0dde.json",
+                  "size": 1625,
+                  "path": "benchmarks/llmResponseCache/0f590de192f2b0d7701cb581ecb02ebbdfae0dde.json"
+                },
+                {
+                  "name": "12362923f22be807ae41064b29681ec625ac4a3c.json",
+                  "size": 632,
+                  "path": "benchmarks/llmResponseCache/12362923f22be807ae41064b29681ec625ac4a3c.json"
+                },
+                {
+                  "name": "1c02d4d549cfe1a3a31ec32c5b58e9f876eed905.json",
+                  "size": 698,
+                  "path": "benchmarks/llmResponseCache/1c02d4d549cfe1a3a31ec32c5b58e9f876eed905.json"
+                },
+                {
+                  "name": "1c9327c5a8946ffc759f754d766c4c3f31973648.json",
+                  "size": 2201,
+                  "path": "benchmarks/llmResponseCache/1c9327c5a8946ffc759f754d766c4c3f31973648.json"
+                },
+                {
+                  "name": "1e59e74e3fea03f5ea1901b0fa74b5332b777906.json",
+                  "size": 1249,
+                  "path": "benchmarks/llmResponseCache/1e59e74e3fea03f5ea1901b0fa74b5332b777906.json"
+                },
+                {
+                  "name": "1e6601582520e28b3fbd9c12a5f4b0d44c7cea3e.json",
+                  "size": 4667,
+                  "path": "benchmarks/llmResponseCache/1e6601582520e28b3fbd9c12a5f4b0d44c7cea3e.json"
+                },
+                {
+                  "name": "219a06bdd9da429470096ee5b4547b34b9753f4e.json",
+                  "size": 884,
+                  "path": "benchmarks/llmResponseCache/219a06bdd9da429470096ee5b4547b34b9753f4e.json"
+                },
+                {
+                  "name": "23ed73052ca09dd003a08ece1d7d9f6189790939.json",
+                  "size": 611,
+                  "path": "benchmarks/llmResponseCache/23ed73052ca09dd003a08ece1d7d9f6189790939.json"
+                },
+                {
+                  "name": "32fffaae866cee4fa0fbdd557e9c2aebff77aae7.json",
+                  "size": 1799,
+                  "path": "benchmarks/llmResponseCache/32fffaae866cee4fa0fbdd557e9c2aebff77aae7.json"
+                },
+                {
+                  "name": "33f8e0407c6b23c8cd6adc56a3ae43155c6ab9e8.json",
+                  "size": 650,
+                  "path": "benchmarks/llmResponseCache/33f8e0407c6b23c8cd6adc56a3ae43155c6ab9e8.json"
+                },
+                {
+                  "name": "39690f1f9c2d892e54480b1ea44f9b2371e76b33.json",
+                  "size": 642,
+                  "path": "benchmarks/llmResponseCache/39690f1f9c2d892e54480b1ea44f9b2371e76b33.json"
+                },
+                {
+                  "name": "4439f17e3108c89753258d955fe74ba85da68e32.json",
+                  "size": 673,
+                  "path": "benchmarks/llmResponseCache/4439f17e3108c89753258d955fe74ba85da68e32.json"
+                },
+                {
+                  "name": "4606e509613fe81a71cf1af896bfb686656be0e3.json",
+                  "size": 1270,
+                  "path": "benchmarks/llmResponseCache/4606e509613fe81a71cf1af896bfb686656be0e3.json"
+                },
+                {
+                  "name": "497e05f88abcaa28ecad7858818cd7157199ee79.json",
+                  "size": 951,
+                  "path": "benchmarks/llmResponseCache/497e05f88abcaa28ecad7858818cd7157199ee79.json"
+                },
+                {
+                  "name": "4a5c30c76cba9ab12637a8e404655fb623c29a9d.json",
+                  "size": 684,
+                  "path": "benchmarks/llmResponseCache/4a5c30c76cba9ab12637a8e404655fb623c29a9d.json"
+                },
+                {
+                  "name": "4ba89c0b108796d1715a612b413e8f1c8fc2ea7c.json",
+                  "size": 1337,
+                  "path": "benchmarks/llmResponseCache/4ba89c0b108796d1715a612b413e8f1c8fc2ea7c.json"
+                },
+                {
+                  "name": "4f1790d1eac7b5a6b9e0c116677ec5b43ced0616.json",
+                  "size": 34379,
+                  "path": "benchmarks/llmResponseCache/4f1790d1eac7b5a6b9e0c116677ec5b43ced0616.json"
+                },
+                {
+                  "name": "507d6fb130cd9ba003a3c9ba7afd70cbca96dd6e.json",
+                  "size": 1002,
+                  "path": "benchmarks/llmResponseCache/507d6fb130cd9ba003a3c9ba7afd70cbca96dd6e.json"
+                },
+                {
+                  "name": "527fb881f97080f8d10076807af7ac21cccc6981.json",
+                  "size": 1216,
+                  "path": "benchmarks/llmResponseCache/527fb881f97080f8d10076807af7ac21cccc6981.json"
+                },
+                {
+                  "name": "5486808c3a8bb8d03db23badf6b6b33aec721d23.json",
+                  "size": 1439,
+                  "path": "benchmarks/llmResponseCache/5486808c3a8bb8d03db23badf6b6b33aec721d23.json"
+                },
+                {
+                  "name": "5b48e1adb2990223a2d1b37c51e0139db30ec71c.json",
+                  "size": 882,
+                  "path": "benchmarks/llmResponseCache/5b48e1adb2990223a2d1b37c51e0139db30ec71c.json"
+                },
+                {
+                  "name": "5bed5a0ec0cf557f137157c61fb51224860acfa1.json",
+                  "size": 622,
+                  "path": "benchmarks/llmResponseCache/5bed5a0ec0cf557f137157c61fb51224860acfa1.json"
+                },
+                {
+                  "name": "5e67a53be7505aa5eb5ea8104064b27f60e8ecd3.json",
+                  "size": 1038,
+                  "path": "benchmarks/llmResponseCache/5e67a53be7505aa5eb5ea8104064b27f60e8ecd3.json"
+                },
+                {
+                  "name": "610d712f763442f058673935b1c0cc6bec40d689.json",
+                  "size": 1814,
+                  "path": "benchmarks/llmResponseCache/610d712f763442f058673935b1c0cc6bec40d689.json"
+                },
+                {
+                  "name": "617976643a8bbbbe28df8091e2b8e91fd1534507.json",
+                  "size": 1362,
+                  "path": "benchmarks/llmResponseCache/617976643a8bbbbe28df8091e2b8e91fd1534507.json"
+                },
+                {
+                  "name": "61b1ec4c71ff871a15b34724f96086186b4341a2.json",
+                  "size": 7784,
+                  "path": "benchmarks/llmResponseCache/61b1ec4c71ff871a15b34724f96086186b4341a2.json"
+                },
+                {
+                  "name": "64ad85e8229c8cbca6cfbef7310392d164f40dce.json",
+                  "size": 800,
+                  "path": "benchmarks/llmResponseCache/64ad85e8229c8cbca6cfbef7310392d164f40dce.json"
+                },
+                {
+                  "name": "653ebdd3cdbe543e662d1e4ec8c3bcc5df0da672.json",
+                  "size": 3003,
+                  "path": "benchmarks/llmResponseCache/653ebdd3cdbe543e662d1e4ec8c3bcc5df0da672.json"
+                },
+                {
+                  "name": "65801dcc0c959a38d5ce3477428dee8bf43f0085.json",
+                  "size": 1159,
+                  "path": "benchmarks/llmResponseCache/65801dcc0c959a38d5ce3477428dee8bf43f0085.json"
+                },
+                {
+                  "name": "682b1cb6d2e40c12f869298f3a5dbf1e8edf787c.json",
+                  "size": 612,
+                  "path": "benchmarks/llmResponseCache/682b1cb6d2e40c12f869298f3a5dbf1e8edf787c.json"
+                },
+                {
+                  "name": "69d45da2f806d03a7da3e6dd50ebf4bfe88de2a9.json",
+                  "size": 1736,
+                  "path": "benchmarks/llmResponseCache/69d45da2f806d03a7da3e6dd50ebf4bfe88de2a9.json"
+                },
+                {
+                  "name": "6a13320523bcab5d97f1153f28e398ccd4a9df63.json",
+                  "size": 858,
+                  "path": "benchmarks/llmResponseCache/6a13320523bcab5d97f1153f28e398ccd4a9df63.json"
+                },
+                {
+                  "name": "6a67c55d79637a62dbd8ea8ffe6df6e6eab05969.json",
+                  "size": 1561,
+                  "path": "benchmarks/llmResponseCache/6a67c55d79637a62dbd8ea8ffe6df6e6eab05969.json"
+                },
+                {
+                  "name": "6efb4d15909db879a066db7352344fd5379a1c95.json",
+                  "size": 2427,
+                  "path": "benchmarks/llmResponseCache/6efb4d15909db879a066db7352344fd5379a1c95.json"
+                },
+                {
+                  "name": "72f99f91ef8e41d7597e2ab24d2df60ae8abbccd.json",
+                  "size": 1097,
+                  "path": "benchmarks/llmResponseCache/72f99f91ef8e41d7597e2ab24d2df60ae8abbccd.json"
+                },
+                {
+                  "name": "7463f1b9d6f5857208191e74eb0109c7da2ddfef.json",
+                  "size": 1066,
+                  "path": "benchmarks/llmResponseCache/7463f1b9d6f5857208191e74eb0109c7da2ddfef.json"
+                },
+                {
+                  "name": "7932581c5c87039b805eb4d0c012730e9599388d.json",
+                  "size": 1354,
+                  "path": "benchmarks/llmResponseCache/7932581c5c87039b805eb4d0c012730e9599388d.json"
+                },
+                {
+                  "name": "79cf26836e33fffadcbb00c118e6ca3c487fc597.json",
+                  "size": 632,
+                  "path": "benchmarks/llmResponseCache/79cf26836e33fffadcbb00c118e6ca3c487fc597.json"
+                },
+                {
+                  "name": "7a2340ec04e00cb7bc00abfb8383d21b14275c2b.json",
+                  "size": 1222,
+                  "path": "benchmarks/llmResponseCache/7a2340ec04e00cb7bc00abfb8383d21b14275c2b.json"
+                },
+                {
+                  "name": "7d0a6210532a6bfb257ae83fc54fa186c95484ce.json",
+                  "size": 1989,
+                  "path": "benchmarks/llmResponseCache/7d0a6210532a6bfb257ae83fc54fa186c95484ce.json"
+                },
+                {
+                  "name": "8532023e966b68b95673ef9f7f8bae9492e13460.json",
+                  "size": 1258,
+                  "path": "benchmarks/llmResponseCache/8532023e966b68b95673ef9f7f8bae9492e13460.json"
+                },
+                {
+                  "name": "8603418575c5d8bc2c3213bffc57d877c5a50402.json",
+                  "size": 997,
+                  "path": "benchmarks/llmResponseCache/8603418575c5d8bc2c3213bffc57d877c5a50402.json"
+                },
+                {
+                  "name": "8b9dfa3dc5ba8ee423baf9c7c0c85063e3231aa7.json",
+                  "size": 792,
+                  "path": "benchmarks/llmResponseCache/8b9dfa3dc5ba8ee423baf9c7c0c85063e3231aa7.json"
+                },
+                {
+                  "name": "9189c0e98326da78b98b5da5ac475de387b8055d.json",
+                  "size": 1652,
+                  "path": "benchmarks/llmResponseCache/9189c0e98326da78b98b5da5ac475de387b8055d.json"
+                },
+                {
+                  "name": "918b90c86012cdb3f71972e6cced5a46249d4459.json",
+                  "size": 1483,
+                  "path": "benchmarks/llmResponseCache/918b90c86012cdb3f71972e6cced5a46249d4459.json"
+                },
+                {
+                  "name": "91a9276f618e32e4c833f64897e05c67d6b69ffe.json",
+                  "size": 1535,
+                  "path": "benchmarks/llmResponseCache/91a9276f618e32e4c833f64897e05c67d6b69ffe.json"
+                },
+                {
+                  "name": "9206b41c00e8a4943c1b5988cf8dd385e5c2a72b.json",
+                  "size": 639,
+                  "path": "benchmarks/llmResponseCache/9206b41c00e8a4943c1b5988cf8dd385e5c2a72b.json"
+                },
+                {
+                  "name": "92bbcdee8afb00a848aff74b4d16d650465f61ef.json",
+                  "size": 711,
+                  "path": "benchmarks/llmResponseCache/92bbcdee8afb00a848aff74b4d16d650465f61ef.json"
+                },
+                {
+                  "name": "9406f147757793020f893a9ef1b641b325886404.json",
+                  "size": 1642,
+                  "path": "benchmarks/llmResponseCache/9406f147757793020f893a9ef1b641b325886404.json"
+                },
+                {
+                  "name": "947fc9d73e529fdd0c66f4d0a11c086c0134a5ec.json",
+                  "size": 2076,
+                  "path": "benchmarks/llmResponseCache/947fc9d73e529fdd0c66f4d0a11c086c0134a5ec.json"
+                },
+                {
+                  "name": "95ecbf974ceccc8120ab43027ae3d179fb6f59ba.json",
+                  "size": 1473,
+                  "path": "benchmarks/llmResponseCache/95ecbf974ceccc8120ab43027ae3d179fb6f59ba.json"
+                },
+                {
+                  "name": "99fb6dc4353b82bbecc8be78c2146a37d7a3fb9a.json",
+                  "size": 2,
+                  "path": "benchmarks/llmResponseCache/99fb6dc4353b82bbecc8be78c2146a37d7a3fb9a.json"
+                },
+                {
+                  "name": "a3a6816cacc1e93386ca40735c95aeabf36f33a9.json",
+                  "size": 921,
+                  "path": "benchmarks/llmResponseCache/a3a6816cacc1e93386ca40735c95aeabf36f33a9.json"
+                },
+                {
+                  "name": "a43155a06be50bce8cf473e72350e8e5c4e1c694.json",
+                  "size": 1763,
+                  "path": "benchmarks/llmResponseCache/a43155a06be50bce8cf473e72350e8e5c4e1c694.json"
+                },
+                {
+                  "name": "a4b8839d832565443b4696e890671ab29d26675a.json",
+                  "size": 1965,
+                  "path": "benchmarks/llmResponseCache/a4b8839d832565443b4696e890671ab29d26675a.json"
+                },
+                {
+                  "name": "a564d2c3d70cc8396662de1cf961dd25f1c298b3.json",
+                  "size": 1642,
+                  "path": "benchmarks/llmResponseCache/a564d2c3d70cc8396662de1cf961dd25f1c298b3.json"
+                },
+                {
+                  "name": "a5c7a47bcd8f935c077cf31c7e1ecd70de16d216.json",
+                  "size": 1617,
+                  "path": "benchmarks/llmResponseCache/a5c7a47bcd8f935c077cf31c7e1ecd70de16d216.json"
+                },
+                {
+                  "name": "ad417bf992fc71840d616494263411e3a1d24524.json",
+                  "size": 2216,
+                  "path": "benchmarks/llmResponseCache/ad417bf992fc71840d616494263411e3a1d24524.json"
+                },
+                {
+                  "name": "aef35154ee99e8ece35ad449bf12776c2d939a92.json",
+                  "size": 709,
+                  "path": "benchmarks/llmResponseCache/aef35154ee99e8ece35ad449bf12776c2d939a92.json"
+                },
+                {
+                  "name": "b2583d5ab08b12ea492c6509a4d2283ce6c9ce82.json",
+                  "size": 1380,
+                  "path": "benchmarks/llmResponseCache/b2583d5ab08b12ea492c6509a4d2283ce6c9ce82.json"
+                },
+                {
+                  "name": "b30c9b47caefee9522c7b368259b558747cc911a.json",
+                  "size": 848,
+                  "path": "benchmarks/llmResponseCache/b30c9b47caefee9522c7b368259b558747cc911a.json"
+                },
+                {
+                  "name": "b3cf0147739dfe6539375da2f4c030ddb93a86c5.json",
+                  "size": 1365,
+                  "path": "benchmarks/llmResponseCache/b3cf0147739dfe6539375da2f4c030ddb93a86c5.json"
+                },
+                {
+                  "name": "b869663d6690adc64781de3e266e3ad758b630b0.json",
+                  "size": 989,
+                  "path": "benchmarks/llmResponseCache/b869663d6690adc64781de3e266e3ad758b630b0.json"
+                },
+                {
+                  "name": "bedefe003e071a49d0690d510c36f69fcdbf7e9b.json",
+                  "size": 2020,
+                  "path": "benchmarks/llmResponseCache/bedefe003e071a49d0690d510c36f69fcdbf7e9b.json"
+                },
+                {
+                  "name": "c49185cc05031625a9d2fa9b48a8b49f3189ca2f.json",
+                  "size": 918,
+                  "path": "benchmarks/llmResponseCache/c49185cc05031625a9d2fa9b48a8b49f3189ca2f.json"
+                },
+                {
+                  "name": "c4b12c3d70063079c334d7333c22d74cfecea74d.json",
+                  "size": 3893,
+                  "path": "benchmarks/llmResponseCache/c4b12c3d70063079c334d7333c22d74cfecea74d.json"
+                },
+                {
+                  "name": "ca572bbe1bea5c5396e4ef37a2b54cf7e5acd2d8.json",
+                  "size": 2136,
+                  "path": "benchmarks/llmResponseCache/ca572bbe1bea5c5396e4ef37a2b54cf7e5acd2d8.json"
+                },
+                {
+                  "name": "cb5b8966555011584ce4a6cbeed7469e175561c4.json",
+                  "size": 900,
+                  "path": "benchmarks/llmResponseCache/cb5b8966555011584ce4a6cbeed7469e175561c4.json"
+                },
+                {
+                  "name": "ccc140fa8abd9c41d0d0a078531d0c41351d7687.json",
+                  "size": 1475,
+                  "path": "benchmarks/llmResponseCache/ccc140fa8abd9c41d0d0a078531d0c41351d7687.json"
+                },
+                {
+                  "name": "cff377e6513a3b02567a62d7ff4b090af6e4a251.json",
+                  "size": 692,
+                  "path": "benchmarks/llmResponseCache/cff377e6513a3b02567a62d7ff4b090af6e4a251.json"
+                },
+                {
+                  "name": "d3f18cad6cb5f6609512508722714cb88dd8791d.json",
+                  "size": 1939,
+                  "path": "benchmarks/llmResponseCache/d3f18cad6cb5f6609512508722714cb88dd8791d.json"
+                },
+                {
+                  "name": "d9bf7e153addbad646633f8404ac8bd530da92f2.json",
+                  "size": 4519,
+                  "path": "benchmarks/llmResponseCache/d9bf7e153addbad646633f8404ac8bd530da92f2.json"
+                },
+                {
+                  "name": "dd1bbf748d647f2784f5ebc6f926c9685026e3cd.json",
+                  "size": 1236,
+                  "path": "benchmarks/llmResponseCache/dd1bbf748d647f2784f5ebc6f926c9685026e3cd.json"
+                },
+                {
+                  "name": "e00b8d8b97662e6f13b67fe3e62d9f22930d6822.json",
+                  "size": 647,
+                  "path": "benchmarks/llmResponseCache/e00b8d8b97662e6f13b67fe3e62d9f22930d6822.json"
+                },
+                {
+                  "name": "e1f093f6da95c6e85228f795d87e0e829aec45d4.json",
+                  "size": 712,
+                  "path": "benchmarks/llmResponseCache/e1f093f6da95c6e85228f795d87e0e829aec45d4.json"
+                },
+                {
+                  "name": "e3ddc4f050ccdfbd17d9af53f295cea0f9cb49c7.json",
+                  "size": 675,
+                  "path": "benchmarks/llmResponseCache/e3ddc4f050ccdfbd17d9af53f295cea0f9cb49c7.json"
+                },
+                {
+                  "name": "e77c0d5819dbdc96671af581942591090ff045d0.json",
+                  "size": 601,
+                  "path": "benchmarks/llmResponseCache/e77c0d5819dbdc96671af581942591090ff045d0.json"
+                },
+                {
+                  "name": "ebafad3fbc279c73d7680a10dc5daa823d0cd268.json",
+                  "size": 1903,
+                  "path": "benchmarks/llmResponseCache/ebafad3fbc279c73d7680a10dc5daa823d0cd268.json"
+                },
+                {
+                  "name": "f2f7ff574f2936cdd7a2fb5a31e118e961b198dc.json",
+                  "size": 601,
+                  "path": "benchmarks/llmResponseCache/f2f7ff574f2936cdd7a2fb5a31e118e961b198dc.json"
+                },
+                {
+                  "name": "fbd11f1c8504349e477f4f38f7fa414ba3e2cff2.json",
+                  "size": 1657,
+                  "path": "benchmarks/llmResponseCache/fbd11f1c8504349e477f4f38f7fa414ba3e2cff2.json"
+                },
+                {
+                  "name": "fd7dad06ad82ca3ba5165c055de548c08542c537.json",
+                  "size": 637,
+                  "path": "benchmarks/llmResponseCache/fd7dad06ad82ca3ba5165c055de548c08542c537.json"
+                },
+                {
+                  "name": "ff4dd0e4aa45b970b41a71d6401ed3091ad02e99.json",
+                  "size": 2595,
+                  "path": "benchmarks/llmResponseCache/ff4dd0e4aa45b970b41a71d6401ed3091ad02e99.json"
+                }
+              ],
+              "path": "benchmarks/llmResponseCache"
+            },
+            {
+              "name": "results.csv",
+              "size": 3227,
+              "path": "benchmarks/results.csv"
+            }
+          ],
+          "path": "benchmarks"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "benchmarks",
+              "children": [
+                {
+                  "name": "benchmarkRunner.ts",
+                  "size": 3045,
+                  "path": "src/benchmarks/benchmarkRunner.ts"
+                },
+                {
+                  "name": "challenges.ts",
+                  "size": 3508,
+                  "path": "src/benchmarks/challenges.ts"
+                },
+                {
+                  "name": "fileUtils.ts",
+                  "size": 1799,
+                  "path": "src/benchmarks/fileUtils.ts"
+                },
+                {
+                  "name": "index.ts",
+                  "size": 1362,
+                  "path": "src/benchmarks/index.ts"
+                },
+                {
+                  "name": "llm.ts",
+                  "size": 1204,
+                  "path": "src/benchmarks/llm.ts"
+                },
+                {
+                  "name": "models.ts",
+                  "size": 520,
+                  "path": "src/benchmarks/models.ts"
+                },
+                {
+                  "name": "runner.ts",
+                  "size": 1051,
+                  "path": "src/benchmarks/runner.ts"
+                },
+                {
+                  "name": "types.ts",
+                  "size": 343,
+                  "path": "src/benchmarks/types.ts"
+                }
+              ],
+              "path": "src/benchmarks"
+            },
+            {
+              "name": "fileUtils.test.ts",
+              "size": 5284,
+              "path": "src/fileUtils.test.ts"
+            },
+            {
+              "name": "fileUtils.ts",
+              "size": 2044,
+              "path": "src/fileUtils.ts"
+            },
+            {
+              "name": "index.test.ts",
+              "size": 2682,
+              "path": "src/index.test.ts"
+            },
+            {
+              "name": "index.ts",
+              "size": 2215,
+              "path": "src/index.ts"
+            },
+            {
+              "name": "metadata.test.ts",
+              "size": 4502,
+              "path": "src/metadata.test.ts"
+            },
+            {
+              "name": "metadata.ts",
+              "size": 1912,
+              "path": "src/metadata.ts"
+            },
+            {
+              "name": "prompt.test.ts",
+              "size": 1732,
+              "path": "src/prompt.test.ts"
+            },
+            {
+              "name": "prompt.ts",
+              "size": 1513,
+              "path": "src/prompt.ts"
+            },
+            {
+              "name": "types.ts",
+              "size": 551,
+              "path": "src/types.ts"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".env.example",
+          "size": 161,
+          "path": ".env.example"
+        },
+        {
+          "name": ".gitignore",
+          "size": 44,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 4017,
+          "path": "README.md"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 80919,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1158,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 360,
+          "path": "tsconfig.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 361,
+    "totalSize": 364405
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"editcodewithai\">editcodewithai</h1>\n<p>Edit Code With AI</p>\n<h2 id=\"a-simple-open-source-ai-code-editor\">A Simple Open Source AI Code Editor</h2>\n<p>The premise of this project is to build and iterate an open source AI code editing system. The core idea is that you can feed this system a set of source code files and high level instructions, and it will return the edited code after some time. It aims to be compatible with many LLMs, and flexible enough to adapt to future models as they come out.</p>\n<h2 id=\"installation\">Installation</h2>\n<pre><code class=\"language-bash\"># Clone the repository\ngit clone https://github.com/yourusername/editcodewithai.git\n\n# Navigate to project directory\ncd editcodewithai\n\n# Install dependencies\nnpm install\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<pre><code class=\"language-typescript\">import { performAiEdit } from \"editcodewithai\";\nimport { VizFiles } from \"@vizhub/viz-types\";\n\n// Define your LLM function that will process the prompt\nconst myLlmFunction = async (prompt: string) =&gt; {\n  // Call your preferred LLM API here\n  // This example assumes using OpenRouter\n  const response = await fetch(\n    \"https://openrouter.ai/api/v1/chat/completions\",\n    {\n      method: \"POST\",\n      headers: {\n        \"Content-Type\": \"application/json\",\n        Authorization: `Bearer ${apiKey}`,\n      },\n      body: JSON.stringify({\n        model: \"openai/gpt-4\",\n        messages: [{ role: \"user\", content: prompt }],\n      }),\n    }\n  );\n\n  const data = await response.json();\n  return {\n    content: data.choices[0].message.content,\n    generationId: data.id,\n  };\n};\n\n// Your files\nconst files: VizFiles = {\n  file1: {\n    name: \"index.js\",\n    text: \"console.log('Hello world');\",\n  },\n};\n\n// Perform the AI edit\nconst result = await performAiEdit({\n  prompt: \"Update the code to use async/await\",\n  files: files,\n  llmFunction: myLlmFunction,\n  apiKey: \"your-openrouter-api-key\",\n});\n</code></pre>\n<h3 id=\"parameters\">Parameters</h3>\n<p>The <code>performAiEdit</code> function accepts the following parameters:</p>\n<ul>\n<li><code>prompt</code>: A string containing instructions for the AI</li>\n<li><code>files</code>: A <code>VizFiles</code> object (map of file IDs to file objects)</li>\n<li><code>llmFunction</code>: A function that takes a prompt string and returns a Promise with the LLM response</li>\n<li><code>apiKey</code>: Your OpenRouter API key for retrieving cost metadata</li>\n</ul>\n<p>Each file in the <code>files</code> object should contain:</p>\n<ul>\n<li><code>name</code>: The filename (e.g. \"index.js\")</li>\n<li><code>text</code>: The file contents as a string</li>\n</ul>\n<h3 id=\"return-value\">Return Value</h3>\n<p>The function returns an object with:</p>\n<ul>\n<li><code>changedFiles</code>: Updated files with modifications</li>\n<li><code>openRouterGenerationId</code>: ID of the generation</li>\n<li><code>upstreamCostCents</code>: Cost in cents</li>\n<li><code>provider</code>: The AI provider used</li>\n<li><code>inputTokens</code>: Number of input tokens</li>\n<li><code>outputTokens</code>: Number of output tokens</li>\n<li><code>promptTemplateVersion</code>: Version of the prompt template used</li>\n</ul>\n<h2 id=\"similar-open-source-projects\">Similar open source projects</h2>\n<ul>\n<li>\n<p><strong>Aider</strong>: An AI pair programming tool that integrates with your terminal to assist in code editing within your local git repository. <a href=\"https://aider.chat/\">https://aider.chat/</a></p>\n</li>\n<li>\n<p><strong>Bolt.new / Bolt.diy</strong>: A platform that allows users to prompt, run, edit, and deploy full-stack web and mobile applications. <a href=\"https://bolt.new/\">https://bolt.new/</a></p>\n</li>\n<li>\n<p><strong>Cline</strong>: An AI-powered code assistant designed to help developers write and debug code more efficiently. <a href=\"https://cline.ai/\">https://cline.ai/</a></p>\n</li>\n<li>\n<p><strong>Cerebras Coder</strong>: A code generation tool developed by Cerebras Systems, leveraging advanced AI models to assist in coding tasks. <a href=\"https://www.cerebras.net/\">https://www.cerebras.net/</a></p>\n</li>\n<li>\n<p><strong>Pear AI</strong>: An open-source AI code editor that accelerates the development process by integrating features like AI chat, code generation, and debugging assistance. <a href=\"https://trypear.ai/\">https://trypear.ai/</a></p>\n</li>\n<li>\n<p><strong>Void</strong>: An open-source alternative to proprietary AI code editors, offering AI-assisted coding features while prioritizing user privacy and control. <a href=\"https://void.dev/\">https://void.dev/</a></p>\n</li>\n<li>\n<p><strong>Cody</strong>: An advanced AI coding assistant developed by Sourcegraph, integrating seamlessly with popular IDEs to provide features like AI-driven chat, code autocompletion, and inline editing. <a href=\"https://github.com/sourcegraph/cody\">https://github.com/sourcegraph/cody</a></p>\n</li>\n</ul>",

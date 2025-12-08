@@ -18,7 +18,7 @@
         </div>
 
         <!-- Page Info -->
-        <div class="text-xs font-mono text-zinc-600 dark:text-zinc-400 mb-1">
+        <div class="text-xs font-mono text-zinc-600 dark:text-zinc-400 mb-2">
           {{ pageTitle }}
         </div>
 
@@ -46,7 +46,7 @@
           <div class="text-xs font-mono text-zinc-900 dark:text-zinc-100 mb-2">
             suggested:
           </div>
-          <div class="flex flex-wrap gap-1 mb-2">
+          <div class="flex flex-wrap gap-0.5 mb-2">
             <button
               v-for="tagObj in suggestions.suggested_tags.slice(0, 8)"
               :key="typeof tagObj === 'string' ? tagObj : tagObj.tag"
@@ -60,7 +60,7 @@
                 toggleTag(typeof tagObj === 'string' ? tagObj : tagObj.tag)
               "
             >
-              <span class="flex items-center gap-1 font-mono">
+              <span class="flex items-center gap-0.5 font-mono">
                 {{ typeof tagObj === 'string' ? tagObj : tagObj.tag }}
                 <span
                   v-if="typeof tagObj === 'object' && tagObj.frequency > 0"
@@ -108,11 +108,11 @@
           />
           <div v-if="selectedTags.length" class="mt-2">
             <div
-              class="text-xs font-mono text-zinc-600 dark:text-zinc-400 mb-1"
+              class="text-xs font-mono text-zinc-600 dark:text-zinc-400 mb-2"
             >
               selected:
             </div>
-            <div class="flex flex-wrap gap-1">
+            <div class="flex flex-wrap gap-0.5">
               <span v-for="tag in selectedTags" :key="tag" class="tag-btn">
                 {{ tag }}
                 <button
@@ -138,7 +138,7 @@
 
         <!-- Similar Items -->
         <div v-if="suggestions.similar_scraps?.length" class="mt-4 opacity-50">
-          <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-1">
+          <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-2">
             similar
             <span class="opacity-60">
               ({{ suggestions.similar_scraps.length }})

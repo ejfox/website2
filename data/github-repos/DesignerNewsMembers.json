@@ -16,6 +16,165 @@
     "CoffeeScript": 3095
   },
   "diskUsage": 261,
+  "fileTree": {
+    "files": [
+      {
+        "path": "README.md",
+        "size": 152
+      },
+      {
+        "path": "dn_viz.coffee",
+        "size": 3210
+      },
+      {
+        "path": "index.html",
+        "size": 1898
+      },
+      {
+        "path": "js/d3.v2.min.js",
+        "size": 111440
+      },
+      {
+        "path": "js/dn_viz.js",
+        "size": 3725
+      },
+      {
+        "path": "js/jquery-1.7.1.min.js",
+        "size": 93868
+      },
+      {
+        "path": "js/jquery.lettering.js",
+        "size": 1715
+      },
+      {
+        "path": "js/jquery.scrollorama.js",
+        "size": 15753
+      },
+      {
+        "path": "js/retina.js",
+        "size": 1326
+      },
+      {
+        "path": "js/tabletop.js",
+        "size": 9537
+      },
+      {
+        "path": "js/underscore-min.js",
+        "size": 10260
+      },
+      {
+        "path": "json/dn_tree.flat.r1.json",
+        "size": 20062
+      },
+      {
+        "path": "json/dn_tree.r1.json",
+        "size": 10240
+      },
+      {
+        "path": "style.css",
+        "size": 5359
+      },
+      {
+        "path": "style.less",
+        "size": 10386
+      }
+    ],
+    "tree": {
+      "name": "DesignerNewsMembers",
+      "children": [
+        {
+          "name": "js",
+          "children": [
+            {
+              "name": "d3.v2.min.js",
+              "size": 111440,
+              "path": "js/d3.v2.min.js"
+            },
+            {
+              "name": "dn_viz.js",
+              "size": 3725,
+              "path": "js/dn_viz.js"
+            },
+            {
+              "name": "jquery-1.7.1.min.js",
+              "size": 93868,
+              "path": "js/jquery-1.7.1.min.js"
+            },
+            {
+              "name": "jquery.lettering.js",
+              "size": 1715,
+              "path": "js/jquery.lettering.js"
+            },
+            {
+              "name": "jquery.scrollorama.js",
+              "size": 15753,
+              "path": "js/jquery.scrollorama.js"
+            },
+            {
+              "name": "retina.js",
+              "size": 1326,
+              "path": "js/retina.js"
+            },
+            {
+              "name": "tabletop.js",
+              "size": 9537,
+              "path": "js/tabletop.js"
+            },
+            {
+              "name": "underscore-min.js",
+              "size": 10260,
+              "path": "js/underscore-min.js"
+            }
+          ],
+          "path": "js"
+        },
+        {
+          "name": "json",
+          "children": [
+            {
+              "name": "dn_tree.flat.r1.json",
+              "size": 20062,
+              "path": "json/dn_tree.flat.r1.json"
+            },
+            {
+              "name": "dn_tree.r1.json",
+              "size": 10240,
+              "path": "json/dn_tree.r1.json"
+            }
+          ],
+          "path": "json"
+        },
+        {
+          "name": "README.md",
+          "size": 152,
+          "path": "README.md"
+        },
+        {
+          "name": "dn_viz.coffee",
+          "size": 3210,
+          "path": "dn_viz.coffee"
+        },
+        {
+          "name": "index.html",
+          "size": 1898,
+          "path": "index.html"
+        },
+        {
+          "name": "style.css",
+          "size": 5359,
+          "path": "style.css"
+        },
+        {
+          "name": "style.less",
+          "size": 10386,
+          "path": "style.less"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 15,
+    "totalSize": 298931
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"designernewsmembers\">DesignerNewsMembers</h1>\n<p>A visualization of all the members of Designer News</p>\n<p>Data from: <a href=\"https://news.layervault.com/u/tree_flat.json\">https://news.layervault.com/u/tree_flat.json</a></p>",

@@ -16,7 +16,10 @@
     ],
     "state": "deployed",
     "aiInvolvement": "ai-assisted",
-    "tags": ["tools", "deployment"],
+    "tags": [
+      "tools",
+      "deployment"
+    ],
     "words": 134,
     "images": 0,
     "imageDetails": {

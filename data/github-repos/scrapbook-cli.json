@@ -15,6 +15,471 @@
     "JavaScript": 167452
   },
   "diskUsage": 270,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 34
+      },
+      {
+        "path": ".prettierignore",
+        "size": 51
+      },
+      {
+        "path": ".prettierrc",
+        "size": 160
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 268
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 5930
+      },
+      {
+        "path": "README.md",
+        "size": 9539
+      },
+      {
+        "path": "YOUTUBE-WORKFLOWS.md",
+        "size": 14280
+      },
+      {
+        "path": "analyze-entities.mjs",
+        "size": 2149
+      },
+      {
+        "path": "config-tool.js",
+        "size": 9918
+      },
+      {
+        "path": "config.js",
+        "size": 1440
+      },
+      {
+        "path": "config.yaml",
+        "size": 4735
+      },
+      {
+        "path": "config/loader.js",
+        "size": 9954
+      },
+      {
+        "path": "config/themes.yaml",
+        "size": 8058
+      },
+      {
+        "path": "config/validator.js",
+        "size": 6273
+      },
+      {
+        "path": "constants.js",
+        "size": 757
+      },
+      {
+        "path": "database.js",
+        "size": 18314
+      },
+      {
+        "path": "docs/CLI-EXAMPLES.md",
+        "size": 6168
+      },
+      {
+        "path": "docs/CONFIG-ADVANCED.md",
+        "size": 8347
+      },
+      {
+        "path": "docs/CONFIG.md",
+        "size": 3016
+      },
+      {
+        "path": "docs/INTEGRATIONS.md",
+        "size": 8109
+      },
+      {
+        "path": "docs/THEMING.md",
+        "size": 3776
+      },
+      {
+        "path": "enrich-youtube-api.js",
+        "size": 4753
+      },
+      {
+        "path": "enrich-youtube.js",
+        "size": 6034
+      },
+      {
+        "path": "eslint.config.js",
+        "size": 611
+      },
+      {
+        "path": "examples/completions/_scrapbook-cli",
+        "size": 2166
+      },
+      {
+        "path": "examples/completions/scrapbook-cli.fish",
+        "size": 2829
+      },
+      {
+        "path": "examples/config.development.yaml.example",
+        "size": 788
+      },
+      {
+        "path": "examples/config.example.yaml",
+        "size": 1808
+      },
+      {
+        "path": "examples/config.production.yaml.example",
+        "size": 932
+      },
+      {
+        "path": "examples/sketchybar/scrapbook.sh",
+        "size": 1270
+      },
+      {
+        "path": "import-youtube-watchlater.js",
+        "size": 4344
+      },
+      {
+        "path": "index.mjs",
+        "size": 15023
+      },
+      {
+        "path": "package-lock.json",
+        "size": 171649
+      },
+      {
+        "path": "package.json",
+        "size": 1584
+      },
+      {
+        "path": "playlist.txt",
+        "size": 644
+      },
+      {
+        "path": "themes.js",
+        "size": 2523
+      },
+      {
+        "path": "themes/vulpes-reddishnovember-dark.toml",
+        "size": 3219
+      },
+      {
+        "path": "tui.js",
+        "size": 27288
+      },
+      {
+        "path": "ui/entity-graph.js",
+        "size": 20147
+      },
+      {
+        "path": "ui/force-layout.js",
+        "size": 13248
+      },
+      {
+        "path": "ui/map-view.js",
+        "size": 4642
+      },
+      {
+        "path": "ui/safe-exec.js",
+        "size": 10179
+      },
+      {
+        "path": "ui/state.js",
+        "size": 1159
+      },
+      {
+        "path": "yarn.lock",
+        "size": 107535
+      },
+      {
+        "path": "youtube.js",
+        "size": 8696
+      }
+    ],
+    "tree": {
+      "name": "scrapbook-cli",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 268,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "config",
+          "children": [
+            {
+              "name": "loader.js",
+              "size": 9954,
+              "path": "config/loader.js"
+            },
+            {
+              "name": "themes.yaml",
+              "size": 8058,
+              "path": "config/themes.yaml"
+            },
+            {
+              "name": "validator.js",
+              "size": 6273,
+              "path": "config/validator.js"
+            }
+          ],
+          "path": "config"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "CLI-EXAMPLES.md",
+              "size": 6168,
+              "path": "docs/CLI-EXAMPLES.md"
+            },
+            {
+              "name": "CONFIG-ADVANCED.md",
+              "size": 8347,
+              "path": "docs/CONFIG-ADVANCED.md"
+            },
+            {
+              "name": "CONFIG.md",
+              "size": 3016,
+              "path": "docs/CONFIG.md"
+            },
+            {
+              "name": "INTEGRATIONS.md",
+              "size": 8109,
+              "path": "docs/INTEGRATIONS.md"
+            },
+            {
+              "name": "THEMING.md",
+              "size": 3776,
+              "path": "docs/THEMING.md"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "examples",
+          "children": [
+            {
+              "name": "completions",
+              "children": [
+                {
+                  "name": "_scrapbook-cli",
+                  "size": 2166,
+                  "path": "examples/completions/_scrapbook-cli"
+                },
+                {
+                  "name": "scrapbook-cli.fish",
+                  "size": 2829,
+                  "path": "examples/completions/scrapbook-cli.fish"
+                }
+              ],
+              "path": "examples/completions"
+            },
+            {
+              "name": "sketchybar",
+              "children": [
+                {
+                  "name": "scrapbook.sh",
+                  "size": 1270,
+                  "path": "examples/sketchybar/scrapbook.sh"
+                }
+              ],
+              "path": "examples/sketchybar"
+            },
+            {
+              "name": "config.development.yaml.example",
+              "size": 788,
+              "path": "examples/config.development.yaml.example"
+            },
+            {
+              "name": "config.example.yaml",
+              "size": 1808,
+              "path": "examples/config.example.yaml"
+            },
+            {
+              "name": "config.production.yaml.example",
+              "size": 932,
+              "path": "examples/config.production.yaml.example"
+            }
+          ],
+          "path": "examples"
+        },
+        {
+          "name": "themes",
+          "children": [
+            {
+              "name": "vulpes-reddishnovember-dark.toml",
+              "size": 3219,
+              "path": "themes/vulpes-reddishnovember-dark.toml"
+            }
+          ],
+          "path": "themes"
+        },
+        {
+          "name": "ui",
+          "children": [
+            {
+              "name": "entity-graph.js",
+              "size": 20147,
+              "path": "ui/entity-graph.js"
+            },
+            {
+              "name": "force-layout.js",
+              "size": 13248,
+              "path": "ui/force-layout.js"
+            },
+            {
+              "name": "map-view.js",
+              "size": 4642,
+              "path": "ui/map-view.js"
+            },
+            {
+              "name": "safe-exec.js",
+              "size": 10179,
+              "path": "ui/safe-exec.js"
+            },
+            {
+              "name": "state.js",
+              "size": 1159,
+              "path": "ui/state.js"
+            }
+          ],
+          "path": "ui"
+        },
+        {
+          "name": ".gitignore",
+          "size": 34,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".prettierignore",
+          "size": 51,
+          "path": ".prettierignore"
+        },
+        {
+          "name": ".prettierrc",
+          "size": 160,
+          "path": ".prettierrc"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 5930,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "README.md",
+          "size": 9539,
+          "path": "README.md"
+        },
+        {
+          "name": "YOUTUBE-WORKFLOWS.md",
+          "size": 14280,
+          "path": "YOUTUBE-WORKFLOWS.md"
+        },
+        {
+          "name": "analyze-entities.mjs",
+          "size": 2149,
+          "path": "analyze-entities.mjs"
+        },
+        {
+          "name": "config-tool.js",
+          "size": 9918,
+          "path": "config-tool.js"
+        },
+        {
+          "name": "config.js",
+          "size": 1440,
+          "path": "config.js"
+        },
+        {
+          "name": "config.yaml",
+          "size": 4735,
+          "path": "config.yaml"
+        },
+        {
+          "name": "constants.js",
+          "size": 757,
+          "path": "constants.js"
+        },
+        {
+          "name": "database.js",
+          "size": 18314,
+          "path": "database.js"
+        },
+        {
+          "name": "enrich-youtube-api.js",
+          "size": 4753,
+          "path": "enrich-youtube-api.js"
+        },
+        {
+          "name": "enrich-youtube.js",
+          "size": 6034,
+          "path": "enrich-youtube.js"
+        },
+        {
+          "name": "eslint.config.js",
+          "size": 611,
+          "path": "eslint.config.js"
+        },
+        {
+          "name": "import-youtube-watchlater.js",
+          "size": 4344,
+          "path": "import-youtube-watchlater.js"
+        },
+        {
+          "name": "index.mjs",
+          "size": 15023,
+          "path": "index.mjs"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 171649,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1584,
+          "path": "package.json"
+        },
+        {
+          "name": "playlist.txt",
+          "size": 644,
+          "path": "playlist.txt"
+        },
+        {
+          "name": "themes.js",
+          "size": 2523,
+          "path": "themes.js"
+        },
+        {
+          "name": "tui.js",
+          "size": 27288,
+          "path": "tui.js"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 107535,
+          "path": "yarn.lock"
+        },
+        {
+          "name": "youtube.js",
+          "size": 8696,
+          "path": "youtube.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 45,
+    "totalSize": 534347
+  },
   "topics": [
     "cli"
   ],

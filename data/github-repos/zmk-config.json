@@ -13,6 +13,117 @@
   "languageColor": "#666666",
   "languages": {},
   "diskUsage": 3,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".github/workflows/build.yml",
+        "size": 156
+      },
+      {
+        "path": "boards/shields/.gitkeep",
+        "size": 0
+      },
+      {
+        "path": "build.yaml",
+        "size": 799
+      },
+      {
+        "path": "config/nice60.conf",
+        "size": 33
+      },
+      {
+        "path": "config/nice60.keymap",
+        "size": 3181
+      },
+      {
+        "path": "config/west.yml",
+        "size": 392
+      },
+      {
+        "path": "zephyr/module.yml",
+        "size": 37
+      }
+    ],
+    "tree": {
+      "name": "zmk-config",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "build.yml",
+                  "size": 156,
+                  "path": ".github/workflows/build.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "boards",
+          "children": [
+            {
+              "name": "shields",
+              "children": [
+                {
+                  "name": ".gitkeep",
+                  "size": 0,
+                  "path": "boards/shields/.gitkeep"
+                }
+              ],
+              "path": "boards/shields"
+            }
+          ],
+          "path": "boards"
+        },
+        {
+          "name": "config",
+          "children": [
+            {
+              "name": "nice60.conf",
+              "size": 33,
+              "path": "config/nice60.conf"
+            },
+            {
+              "name": "nice60.keymap",
+              "size": 3181,
+              "path": "config/nice60.keymap"
+            },
+            {
+              "name": "west.yml",
+              "size": 392,
+              "path": "config/west.yml"
+            }
+          ],
+          "path": "config"
+        },
+        {
+          "name": "zephyr",
+          "children": [
+            {
+              "name": "module.yml",
+              "size": 37,
+              "path": "zephyr/module.yml"
+            }
+          ],
+          "path": "zephyr"
+        },
+        {
+          "name": "build.yaml",
+          "size": 799,
+          "path": "build.yaml"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 7,
+    "totalSize": 4598
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

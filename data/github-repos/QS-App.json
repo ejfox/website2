@@ -16,6 +16,513 @@
     "CoffeeScript": 1320
   },
   "diskUsage": 1411,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 13
+      },
+      {
+        "path": "Makefile",
+        "size": 164
+      },
+      {
+        "path": "README",
+        "size": 302
+      },
+      {
+        "path": "config.json",
+        "size": 23
+      },
+      {
+        "path": "package.json",
+        "size": 413
+      },
+      {
+        "path": "server.js",
+        "size": 7133
+      },
+      {
+        "path": "static/css/ratchet.css",
+        "size": 32168
+      },
+      {
+        "path": "static/css/style.css",
+        "size": 51002
+      },
+      {
+        "path": "static/css/style.less",
+        "size": 59532
+      },
+      {
+        "path": "static/history.html",
+        "size": 2064
+      },
+      {
+        "path": "static/images/bg.png",
+        "size": 146
+      },
+      {
+        "path": "static/images/bg@2x.png",
+        "size": 2864
+      },
+      {
+        "path": "static/images/type_icons.ai",
+        "size": 184231
+      },
+      {
+        "path": "static/images/type_icons.artboards.ai",
+        "size": 189785
+      },
+      {
+        "path": "static/images/type_icons/amMood.svg",
+        "size": 18128
+      },
+      {
+        "path": "static/images/type_icons/png/amMood.png",
+        "size": 1437
+      },
+      {
+        "path": "static/images/type_icons/png/exercise.png",
+        "size": 929
+      },
+      {
+        "path": "static/images/type_icons/png/meditated.png",
+        "size": 1345
+      },
+      {
+        "path": "static/images/type_icons/png/optimism.png",
+        "size": 911
+      },
+      {
+        "path": "static/images/type_icons/png/orgasms.png",
+        "size": 1447
+      },
+      {
+        "path": "static/images/type_icons/png/pmMood.png",
+        "size": 1233
+      },
+      {
+        "path": "static/images/type_icons/png/restedness.png",
+        "size": 2463
+      },
+      {
+        "path": "static/images/type_icons/png/showered.png",
+        "size": 764
+      },
+      {
+        "path": "static/images/type_icons/png/videoGames.png",
+        "size": 1229
+      },
+      {
+        "path": "static/images/type_icons/png/wakeTime.png",
+        "size": 1132
+      },
+      {
+        "path": "static/images/type_icons/wakeTime.svg",
+        "size": 18156
+      },
+      {
+        "path": "static/js/d3.v2.min.js",
+        "size": 126772
+      },
+      {
+        "path": "static/js/jquery-1.7.1.min.js",
+        "size": 93868
+      },
+      {
+        "path": "static/js/jquery.URI.js",
+        "size": 46728
+      },
+      {
+        "path": "static/js/jquery.lettering.js",
+        "size": 1715
+      },
+      {
+        "path": "static/js/jquery.scrollorama.js",
+        "size": 15753
+      },
+      {
+        "path": "static/js/metric_history.js",
+        "size": 1731
+      },
+      {
+        "path": "static/js/moment.js",
+        "size": 12413
+      },
+      {
+        "path": "static/js/ratchet.js",
+        "size": 21423
+      },
+      {
+        "path": "static/js/retina.js",
+        "size": 1326
+      },
+      {
+        "path": "static/js/tabletop.js",
+        "size": 9537
+      },
+      {
+        "path": "static/js/underscore-min.js",
+        "size": 10260
+      },
+      {
+        "path": "static/metric_history.coffee",
+        "size": 1320
+      },
+      {
+        "path": "static/touch-icons/apple-touch-icon-114x114.png",
+        "size": 15538
+      },
+      {
+        "path": "static/touch-icons/apple-touch-icon-57x57.png",
+        "size": 5276
+      },
+      {
+        "path": "static/touch-icons/apple-touch-icon-72x72.png",
+        "size": 7362
+      },
+      {
+        "path": "test/stub.js",
+        "size": 111
+      },
+      {
+        "path": "views/404.jade",
+        "size": 72
+      },
+      {
+        "path": "views/500.jade",
+        "size": 102
+      },
+      {
+        "path": "views/index.html",
+        "size": 9431
+      },
+      {
+        "path": "views/index.jade",
+        "size": 88
+      },
+      {
+        "path": "views/layout.jade",
+        "size": 1585
+      },
+      {
+        "path": "views/list.html",
+        "size": 4680
+      },
+      {
+        "path": "views/newevent.html",
+        "size": 1877
+      }
+    ],
+    "tree": {
+      "name": "QS-App",
+      "children": [
+        {
+          "name": "static",
+          "children": [
+            {
+              "name": "css",
+              "children": [
+                {
+                  "name": "ratchet.css",
+                  "size": 32168,
+                  "path": "static/css/ratchet.css"
+                },
+                {
+                  "name": "style.css",
+                  "size": 51002,
+                  "path": "static/css/style.css"
+                },
+                {
+                  "name": "style.less",
+                  "size": 59532,
+                  "path": "static/css/style.less"
+                }
+              ],
+              "path": "static/css"
+            },
+            {
+              "name": "images",
+              "children": [
+                {
+                  "name": "type_icons",
+                  "children": [
+                    {
+                      "name": "png",
+                      "children": [
+                        {
+                          "name": "amMood.png",
+                          "size": 1437,
+                          "path": "static/images/type_icons/png/amMood.png"
+                        },
+                        {
+                          "name": "exercise.png",
+                          "size": 929,
+                          "path": "static/images/type_icons/png/exercise.png"
+                        },
+                        {
+                          "name": "meditated.png",
+                          "size": 1345,
+                          "path": "static/images/type_icons/png/meditated.png"
+                        },
+                        {
+                          "name": "optimism.png",
+                          "size": 911,
+                          "path": "static/images/type_icons/png/optimism.png"
+                        },
+                        {
+                          "name": "orgasms.png",
+                          "size": 1447,
+                          "path": "static/images/type_icons/png/orgasms.png"
+                        },
+                        {
+                          "name": "pmMood.png",
+                          "size": 1233,
+                          "path": "static/images/type_icons/png/pmMood.png"
+                        },
+                        {
+                          "name": "restedness.png",
+                          "size": 2463,
+                          "path": "static/images/type_icons/png/restedness.png"
+                        },
+                        {
+                          "name": "showered.png",
+                          "size": 764,
+                          "path": "static/images/type_icons/png/showered.png"
+                        },
+                        {
+                          "name": "videoGames.png",
+                          "size": 1229,
+                          "path": "static/images/type_icons/png/videoGames.png"
+                        },
+                        {
+                          "name": "wakeTime.png",
+                          "size": 1132,
+                          "path": "static/images/type_icons/png/wakeTime.png"
+                        }
+                      ],
+                      "path": "static/images/type_icons/png"
+                    },
+                    {
+                      "name": "amMood.svg",
+                      "size": 18128,
+                      "path": "static/images/type_icons/amMood.svg"
+                    },
+                    {
+                      "name": "wakeTime.svg",
+                      "size": 18156,
+                      "path": "static/images/type_icons/wakeTime.svg"
+                    }
+                  ],
+                  "path": "static/images/type_icons"
+                },
+                {
+                  "name": "bg.png",
+                  "size": 146,
+                  "path": "static/images/bg.png"
+                },
+                {
+                  "name": "bg@2x.png",
+                  "size": 2864,
+                  "path": "static/images/bg@2x.png"
+                },
+                {
+                  "name": "type_icons.ai",
+                  "size": 184231,
+                  "path": "static/images/type_icons.ai"
+                },
+                {
+                  "name": "type_icons.artboards.ai",
+                  "size": 189785,
+                  "path": "static/images/type_icons.artboards.ai"
+                }
+              ],
+              "path": "static/images"
+            },
+            {
+              "name": "js",
+              "children": [
+                {
+                  "name": "d3.v2.min.js",
+                  "size": 126772,
+                  "path": "static/js/d3.v2.min.js"
+                },
+                {
+                  "name": "jquery-1.7.1.min.js",
+                  "size": 93868,
+                  "path": "static/js/jquery-1.7.1.min.js"
+                },
+                {
+                  "name": "jquery.URI.js",
+                  "size": 46728,
+                  "path": "static/js/jquery.URI.js"
+                },
+                {
+                  "name": "jquery.lettering.js",
+                  "size": 1715,
+                  "path": "static/js/jquery.lettering.js"
+                },
+                {
+                  "name": "jquery.scrollorama.js",
+                  "size": 15753,
+                  "path": "static/js/jquery.scrollorama.js"
+                },
+                {
+                  "name": "metric_history.js",
+                  "size": 1731,
+                  "path": "static/js/metric_history.js"
+                },
+                {
+                  "name": "moment.js",
+                  "size": 12413,
+                  "path": "static/js/moment.js"
+                },
+                {
+                  "name": "ratchet.js",
+                  "size": 21423,
+                  "path": "static/js/ratchet.js"
+                },
+                {
+                  "name": "retina.js",
+                  "size": 1326,
+                  "path": "static/js/retina.js"
+                },
+                {
+                  "name": "tabletop.js",
+                  "size": 9537,
+                  "path": "static/js/tabletop.js"
+                },
+                {
+                  "name": "underscore-min.js",
+                  "size": 10260,
+                  "path": "static/js/underscore-min.js"
+                }
+              ],
+              "path": "static/js"
+            },
+            {
+              "name": "touch-icons",
+              "children": [
+                {
+                  "name": "apple-touch-icon-114x114.png",
+                  "size": 15538,
+                  "path": "static/touch-icons/apple-touch-icon-114x114.png"
+                },
+                {
+                  "name": "apple-touch-icon-57x57.png",
+                  "size": 5276,
+                  "path": "static/touch-icons/apple-touch-icon-57x57.png"
+                },
+                {
+                  "name": "apple-touch-icon-72x72.png",
+                  "size": 7362,
+                  "path": "static/touch-icons/apple-touch-icon-72x72.png"
+                }
+              ],
+              "path": "static/touch-icons"
+            },
+            {
+              "name": "history.html",
+              "size": 2064,
+              "path": "static/history.html"
+            },
+            {
+              "name": "metric_history.coffee",
+              "size": 1320,
+              "path": "static/metric_history.coffee"
+            }
+          ],
+          "path": "static"
+        },
+        {
+          "name": "test",
+          "children": [
+            {
+              "name": "stub.js",
+              "size": 111,
+              "path": "test/stub.js"
+            }
+          ],
+          "path": "test"
+        },
+        {
+          "name": "views",
+          "children": [
+            {
+              "name": "404.jade",
+              "size": 72,
+              "path": "views/404.jade"
+            },
+            {
+              "name": "500.jade",
+              "size": 102,
+              "path": "views/500.jade"
+            },
+            {
+              "name": "index.html",
+              "size": 9431,
+              "path": "views/index.html"
+            },
+            {
+              "name": "index.jade",
+              "size": 88,
+              "path": "views/index.jade"
+            },
+            {
+              "name": "layout.jade",
+              "size": 1585,
+              "path": "views/layout.jade"
+            },
+            {
+              "name": "list.html",
+              "size": 4680,
+              "path": "views/list.html"
+            },
+            {
+              "name": "newevent.html",
+              "size": 1877,
+              "path": "views/newevent.html"
+            }
+          ],
+          "path": "views"
+        },
+        {
+          "name": ".gitignore",
+          "size": 13,
+          "path": ".gitignore"
+        },
+        {
+          "name": "Makefile",
+          "size": 164,
+          "path": "Makefile"
+        },
+        {
+          "name": "README",
+          "size": 302,
+          "path": "README"
+        },
+        {
+          "name": "config.json",
+          "size": 23,
+          "path": "config.json"
+        },
+        {
+          "name": "package.json",
+          "size": 413,
+          "path": "package.json"
+        },
+        {
+          "name": "server.js",
+          "size": 7133,
+          "path": "server.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 49,
+    "totalSize": 967982
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

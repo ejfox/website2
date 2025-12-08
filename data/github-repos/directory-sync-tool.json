@@ -15,6 +15,123 @@
     "JavaScript": 15807
   },
   "diskUsage": 37525,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 33
+      },
+      {
+        "path": ".release-it.json",
+        "size": 227
+      },
+      {
+        "path": "README.md",
+        "size": 2418
+      },
+      {
+        "path": "index.js",
+        "size": 15807
+      },
+      {
+        "path": "package-lock.json",
+        "size": 8668
+      },
+      {
+        "path": "package.json",
+        "size": 501
+      },
+      {
+        "path": "sounds/JLZ_fx_weird_vinyl.wav",
+        "size": 606420
+      },
+      {
+        "path": "sounds/background.wav",
+        "size": 36563090
+      },
+      {
+        "path": "sounds/delete.wav",
+        "size": 796802
+      },
+      {
+        "path": "sounds/easter_egg.wav",
+        "size": 4618514
+      },
+      {
+        "path": "sounds/ignore.wav",
+        "size": 55168
+      }
+    ],
+    "tree": {
+      "name": "directory-sync-tool",
+      "children": [
+        {
+          "name": "sounds",
+          "children": [
+            {
+              "name": "JLZ_fx_weird_vinyl.wav",
+              "size": 606420,
+              "path": "sounds/JLZ_fx_weird_vinyl.wav"
+            },
+            {
+              "name": "background.wav",
+              "size": 36563090,
+              "path": "sounds/background.wav"
+            },
+            {
+              "name": "delete.wav",
+              "size": 796802,
+              "path": "sounds/delete.wav"
+            },
+            {
+              "name": "easter_egg.wav",
+              "size": 4618514,
+              "path": "sounds/easter_egg.wav"
+            },
+            {
+              "name": "ignore.wav",
+              "size": 55168,
+              "path": "sounds/ignore.wav"
+            }
+          ],
+          "path": "sounds"
+        },
+        {
+          "name": ".gitignore",
+          "size": 33,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".release-it.json",
+          "size": 227,
+          "path": ".release-it.json"
+        },
+        {
+          "name": "README.md",
+          "size": 2418,
+          "path": "README.md"
+        },
+        {
+          "name": "index.js",
+          "size": 15807,
+          "path": "index.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 8668,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 501,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 11,
+    "totalSize": 42667648
+  },
   "topics": [
     "cli"
   ],

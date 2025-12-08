@@ -17,6 +17,273 @@
     "TypeScript": 950
   },
   "diskUsage": 3536,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".editorconfig",
+        "size": 146
+      },
+      {
+        "path": ".env-example",
+        "size": 43
+      },
+      {
+        "path": ".eslintrc.js",
+        "size": 524
+      },
+      {
+        "path": ".gitignore",
+        "size": 220
+      },
+      {
+        "path": ".npmrc",
+        "size": 53
+      },
+      {
+        "path": ".nvmrc",
+        "size": 9
+      },
+      {
+        "path": ".prettierrc",
+        "size": 152
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "README.md",
+        "size": 745
+      },
+      {
+        "path": "app.vue",
+        "size": 183
+      },
+      {
+        "path": "assets/8_16_2021.glb",
+        "size": 3839268
+      },
+      {
+        "path": "components/TheModel.vue",
+        "size": 503
+      },
+      {
+        "path": "components/content/ProseP.vue",
+        "size": 69
+      },
+      {
+        "path": "composables/appStore.js",
+        "size": 1067
+      },
+      {
+        "path": "helpers.js",
+        "size": 851
+      },
+      {
+        "path": "netlify.toml",
+        "size": 185
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 950
+      },
+      {
+        "path": "package.json",
+        "size": 1010
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 3963
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "server/tsconfig.json",
+        "size": 49
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 94
+      },
+      {
+        "path": "yarn.lock",
+        "size": 394169
+      }
+    ],
+    "tree": {
+      "name": "foxandwowee",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "assets",
+          "children": [
+            {
+              "name": "8_16_2021.glb",
+              "size": 3839268,
+              "path": "assets/8_16_2021.glb"
+            }
+          ],
+          "path": "assets"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "content",
+              "children": [
+                {
+                  "name": "ProseP.vue",
+                  "size": 69,
+                  "path": "components/content/ProseP.vue"
+                }
+              ],
+              "path": "components/content"
+            },
+            {
+              "name": "TheModel.vue",
+              "size": 503,
+              "path": "components/TheModel.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "composables",
+          "children": [
+            {
+              "name": "appStore.js",
+              "size": 1067,
+              "path": "composables/appStore.js"
+            }
+          ],
+          "path": "composables"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "index.vue",
+              "size": 3963,
+              "path": "pages/index.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "favicon.ico",
+              "size": 4286,
+              "path": "public/favicon.ico"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "server",
+          "children": [
+            {
+              "name": "tsconfig.json",
+              "size": 49,
+              "path": "server/tsconfig.json"
+            }
+          ],
+          "path": "server"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 146,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".env-example",
+          "size": 43,
+          "path": ".env-example"
+        },
+        {
+          "name": ".eslintrc.js",
+          "size": 524,
+          "path": ".eslintrc.js"
+        },
+        {
+          "name": ".gitignore",
+          "size": 220,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 53,
+          "path": ".npmrc"
+        },
+        {
+          "name": ".nvmrc",
+          "size": 9,
+          "path": ".nvmrc"
+        },
+        {
+          "name": ".prettierrc",
+          "size": 152,
+          "path": ".prettierrc"
+        },
+        {
+          "name": "README.md",
+          "size": 745,
+          "path": "README.md"
+        },
+        {
+          "name": "app.vue",
+          "size": 183,
+          "path": "app.vue"
+        },
+        {
+          "name": "helpers.js",
+          "size": 851,
+          "path": "helpers.js"
+        },
+        {
+          "name": "netlify.toml",
+          "size": 185,
+          "path": "netlify.toml"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 950,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 1010,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 94,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 394169,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 23,
+    "totalSize": 4248806
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"room-302-nuxt-3-starter\">Room 302 Nuxt 3 Starter</h1>\n<h2 id=\"usage\">Usage</h2>\n<p><code>npx room302-template</code></p>\n<p>Deployed through a small script that handles naming, cloning, and setting up the repo for prototyping. <a href=\"https://www.npmjs.com/package/room302-template\">https://www.npmjs.com/package/room302-template</a></p>\n<h2 id=\"whats-different-from-the-standard-nuxt-3-starter\">What's different from the standard Nuxt 3 starter?</h2>\n<ul>\n<li>VueUse 🔧</li>\n<li>Vueuse motion 🌈</li>\n<li>OpenAI plugin 🧠</li>\n<li>Pinia store 🏬</li>\n<li>Helpers file 🔨</li>\n<li>Google fonts 🖋️</li>\n</ul>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn install\nyarn install\n\n# run the dev server\nyarn dev\n</code></pre>\n<h2 id=\"deployment\">Deployment</h2>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>",

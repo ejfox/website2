@@ -16,6 +16,183 @@
     "CoffeeScript": 322
   },
   "diskUsage": 2392,
+  "fileTree": {
+    "files": [
+      {
+        "path": "README.md",
+        "size": 482
+      },
+      {
+        "path": "img/space.jpg",
+        "size": 468726
+      },
+      {
+        "path": "img/space@2x.jpg",
+        "size": 1752088
+      },
+      {
+        "path": "index.html",
+        "size": 4446
+      },
+      {
+        "path": "js/ICanHaz.js",
+        "size": 16135
+      },
+      {
+        "path": "js/d3.v2.min.js",
+        "size": 111440
+      },
+      {
+        "path": "js/jquery-1.7.1.min.js",
+        "size": 93868
+      },
+      {
+        "path": "js/jquery.isotope.min.js",
+        "size": 15883
+      },
+      {
+        "path": "js/jquery.lettering.js",
+        "size": 1715
+      },
+      {
+        "path": "js/jquery.scrollorama.js",
+        "size": 15753
+      },
+      {
+        "path": "js/moredata.js",
+        "size": 395
+      },
+      {
+        "path": "js/retina.js",
+        "size": 1326
+      },
+      {
+        "path": "js/tabletop.js",
+        "size": 9537
+      },
+      {
+        "path": "js/underscore-min.js",
+        "size": 10260
+      },
+      {
+        "path": "moredata.coffee",
+        "size": 322
+      },
+      {
+        "path": "style.css",
+        "size": 13208
+      },
+      {
+        "path": "style.less",
+        "size": 19544
+      }
+    ],
+    "tree": {
+      "name": "GoodData",
+      "children": [
+        {
+          "name": "img",
+          "children": [
+            {
+              "name": "space.jpg",
+              "size": 468726,
+              "path": "img/space.jpg"
+            },
+            {
+              "name": "space@2x.jpg",
+              "size": 1752088,
+              "path": "img/space@2x.jpg"
+            }
+          ],
+          "path": "img"
+        },
+        {
+          "name": "js",
+          "children": [
+            {
+              "name": "ICanHaz.js",
+              "size": 16135,
+              "path": "js/ICanHaz.js"
+            },
+            {
+              "name": "d3.v2.min.js",
+              "size": 111440,
+              "path": "js/d3.v2.min.js"
+            },
+            {
+              "name": "jquery-1.7.1.min.js",
+              "size": 93868,
+              "path": "js/jquery-1.7.1.min.js"
+            },
+            {
+              "name": "jquery.isotope.min.js",
+              "size": 15883,
+              "path": "js/jquery.isotope.min.js"
+            },
+            {
+              "name": "jquery.lettering.js",
+              "size": 1715,
+              "path": "js/jquery.lettering.js"
+            },
+            {
+              "name": "jquery.scrollorama.js",
+              "size": 15753,
+              "path": "js/jquery.scrollorama.js"
+            },
+            {
+              "name": "moredata.js",
+              "size": 395,
+              "path": "js/moredata.js"
+            },
+            {
+              "name": "retina.js",
+              "size": 1326,
+              "path": "js/retina.js"
+            },
+            {
+              "name": "tabletop.js",
+              "size": 9537,
+              "path": "js/tabletop.js"
+            },
+            {
+              "name": "underscore-min.js",
+              "size": 10260,
+              "path": "js/underscore-min.js"
+            }
+          ],
+          "path": "js"
+        },
+        {
+          "name": "README.md",
+          "size": 482,
+          "path": "README.md"
+        },
+        {
+          "name": "index.html",
+          "size": 4446,
+          "path": "index.html"
+        },
+        {
+          "name": "moredata.coffee",
+          "size": 322,
+          "path": "moredata.coffee"
+        },
+        {
+          "name": "style.css",
+          "size": 13208,
+          "path": "style.css"
+        },
+        {
+          "name": "style.less",
+          "size": 19544,
+          "path": "style.less"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 17,
+    "totalSize": 2535128
+  },
   "topics": [],
   "readme": {
     "html": "<h2 id=\"gooddata\">#GoodData</h2>\n<p>Collecting good data sources to inspire visualizers.</p>\n<p>Makes a quick <a href=\"https://github.com/jsoma/tabletop\">Tabletop</a> + <a href=\"http://isotope.metafizzy.co/index.html\">Isotope</a>-based page to display the data sources listed in a <a href=\"https://docs.google.com/spreadsheet/ccc?key=0ApAkxBfw1JT4dEphMEpZM051NlM3RUlfTlRwcUtENlE\">Google Spreadsheet</a> which I curate along with other members of <a href=\"http://mainstem.org\">Mainstem</a>.</p>\n<p>Send your suggestions for data sources to <strong><a href=\"mailto:ejfox@ejfox.com\">ejfox@ejfox.com</a></strong></p>",

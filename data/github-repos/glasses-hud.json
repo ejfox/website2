@@ -16,6 +16,87 @@
     "TypeScript": 66
   },
   "diskUsage": 150,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 462
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 3405
+      },
+      {
+        "path": "README.md",
+        "size": 1164
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 66
+      },
+      {
+        "path": "package-lock.json",
+        "size": 460434
+      },
+      {
+        "path": "package.json",
+        "size": 458
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 6476
+      }
+    ],
+    "tree": {
+      "name": "glasses-hud",
+      "children": [
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "index.vue",
+              "size": 6476,
+              "path": "pages/index.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": ".gitignore",
+          "size": 462,
+          "path": ".gitignore"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 3405,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "README.md",
+          "size": 1164,
+          "path": "README.md"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 66,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 460434,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 458,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 7,
+    "totalSize": 472465
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"ar-glasses-hud-prototyper\">AR Glasses HUD Prototyper</h1>\n<p>Simple prototyping tool for AR glasses data visualizations. Built with Nuxt 3 + Vue.</p>\n<h2 id=\"goal\">Goal</h2>\n<p>Quickly prototype ambient data displays and widgets for AR glasses. Test different positions, content types, and visual elements before building real implementations.</p>\n<h2 id=\"setup\">Setup</h2>\n<pre><code class=\"language-bash\">npm install\nnpm run dev\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<ol>\n<li><strong>Select Eye</strong>: Choose left or right lens</li>\n<li><strong>Choose Widget Type</strong>: Text or animated decibel meter</li>\n<li><strong>Pick Position</strong>: Top-left, top-right, bottom-left, bottom-right, or center</li>\n<li><strong>Add Content</strong>: Type text or add visual widgets</li>\n<li><strong>Prototype</strong>: See how it looks in the glasses display</li>\n</ol>\n<h2 id=\"widget-types\">Widget Types</h2>\n<ul>\n<li><strong>Text</strong>: Simple monospace text labels</li>\n<li><strong>Decibel Meter</strong>: 64x4px animated bar chart with real-time oscillation</li>\n</ul>\n<h2 id=\"architecture\">Architecture</h2>\n<ul>\n<li>Single <code>pages/index.vue</code> file with inline styles</li>\n<li>No complex components or abstractions</li>\n<li>Real-time oscillators for dynamic visual widgets</li>\n<li>Simple dropdown controls for rapid prototyping</li>\n</ul>\n<p>Perfect for testing ideas like:</p>\n<ul>\n<li>Notification displays</li>\n<li>Biometric readouts</li>\n<li>Audio level meters</li>\n<li>Status indicators</li>\n<li>Ambient data visualization</li>\n</ul>\n<p>Keep it simple. Prototype fast.</p>",

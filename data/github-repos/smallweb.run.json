@@ -20,6 +20,3906 @@
     "Shell": 5017
   },
   "diskUsage": 17577,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".envrc",
+        "size": 74
+      },
+      {
+        "path": ".github/README.md",
+        "size": 417
+      },
+      {
+        "path": ".gitignore",
+        "size": 18
+      },
+      {
+        "path": ".gitmodules",
+        "size": 569
+      },
+      {
+        "path": ".smallweb/config.json",
+        "size": 319
+      },
+      {
+        "path": ".smallweb/plugins/edit.sh",
+        "size": 299
+      },
+      {
+        "path": ".smallweb/plugins/jsr.sh",
+        "size": 153
+      },
+      {
+        "path": ".smallweb/plugins/pull.sh",
+        "size": 98
+      },
+      {
+        "path": ".smallweb/plugins/push.sh",
+        "size": 103
+      },
+      {
+        "path": ".smallweb/secrets.enc.env",
+        "size": 1745
+      },
+      {
+        "path": ".sops.yaml",
+        "size": 211
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 832
+      },
+      {
+        "path": "api/README.md",
+        "size": 302
+      },
+      {
+        "path": "api/deno.json",
+        "size": 466
+      },
+      {
+        "path": "api/deno.lock",
+        "size": 4476
+      },
+      {
+        "path": "api/img/swagger-ui.png",
+        "size": 195991
+      },
+      {
+        "path": "api/main.ts",
+        "size": 157
+      },
+      {
+        "path": "api/pkg/cli.ts",
+        "size": 1335
+      },
+      {
+        "path": "api/pkg/mod.ts",
+        "size": 2245
+      },
+      {
+        "path": "api/pkg/server.ts",
+        "size": 6026
+      },
+      {
+        "path": "api/pkg/swagger.ts",
+        "size": 1491
+      },
+      {
+        "path": "api/secrets.enc.env",
+        "size": 1627
+      },
+      {
+        "path": "astro-demo/.gitignore",
+        "size": 264
+      },
+      {
+        "path": "astro-demo/.vscode/extensions.json",
+        "size": 87
+      },
+      {
+        "path": "astro-demo/.vscode/launch.json",
+        "size": 207
+      },
+      {
+        "path": "astro-demo/.vscode/settings.json",
+        "size": 82
+      },
+      {
+        "path": "astro-demo/README.md",
+        "size": 2129
+      },
+      {
+        "path": "astro-demo/astro.config.mjs",
+        "size": 233
+      },
+      {
+        "path": "astro-demo/main.ts",
+        "size": 324
+      },
+      {
+        "path": "astro-demo/package-lock.json",
+        "size": 184696
+      },
+      {
+        "path": "astro-demo/package.json",
+        "size": 278
+      },
+      {
+        "path": "astro-demo/public/favicon.svg",
+        "size": 749
+      },
+      {
+        "path": "astro-demo/src/assets/astro.svg",
+        "size": 2914
+      },
+      {
+        "path": "astro-demo/src/assets/background.svg",
+        "size": 1454
+      },
+      {
+        "path": "astro-demo/src/components/Welcome.astro",
+        "size": 4918
+      },
+      {
+        "path": "astro-demo/src/layouts/Layout.astro",
+        "size": 396
+      },
+      {
+        "path": "astro-demo/src/pages/index.astro",
+        "size": 387
+      },
+      {
+        "path": "astro-demo/tsconfig.json",
+        "size": 109
+      },
+      {
+        "path": "bearer-auth/deno.json",
+        "size": 187
+      },
+      {
+        "path": "bearer-auth/main.ts",
+        "size": 227
+      },
+      {
+        "path": "bearer-auth/mod.ts",
+        "size": 914
+      },
+      {
+        "path": "blog/.gitignore",
+        "size": 23
+      },
+      {
+        "path": "blog/.vscode/settings.json",
+        "size": 278
+      },
+      {
+        "path": "blog/CHANGELOG.md",
+        "size": 7797
+      },
+      {
+        "path": "blog/LICENSE",
+        "size": 1069
+      },
+      {
+        "path": "blog/README.md",
+        "size": 78
+      },
+      {
+        "path": "blog/_config.ts",
+        "size": 396
+      },
+      {
+        "path": "blog/deno.json",
+        "size": 592
+      },
+      {
+        "path": "blog/deno.lock",
+        "size": 98078
+      },
+      {
+        "path": "blog/main.ts",
+        "size": 513
+      },
+      {
+        "path": "blog/plugins.ts",
+        "size": 2451
+      },
+      {
+        "path": "blog/src/404.md",
+        "size": 84
+      },
+      {
+        "path": "blog/src/_data.yml",
+        "size": 279
+      },
+      {
+        "path": "blog/src/_data/i18n.yml",
+        "size": 654
+      },
+      {
+        "path": "blog/src/_includes/css/navbar.css",
+        "size": 551
+      },
+      {
+        "path": "blog/src/_includes/css/page.css",
+        "size": 629
+      },
+      {
+        "path": "blog/src/_includes/css/post-list.css",
+        "size": 477
+      },
+      {
+        "path": "blog/src/_includes/css/post.css",
+        "size": 741
+      },
+      {
+        "path": "blog/src/_includes/layouts/archive.vto",
+        "size": 1540
+      },
+      {
+        "path": "blog/src/_includes/layouts/archive_result.vto",
+        "size": 270
+      },
+      {
+        "path": "blog/src/_includes/layouts/base.vto",
+        "size": 2314
+      },
+      {
+        "path": "blog/src/_includes/layouts/page.vto",
+        "size": 278
+      },
+      {
+        "path": "blog/src/_includes/layouts/post.vto",
+        "size": 1838
+      },
+      {
+        "path": "blog/src/_includes/templates/post-details.vto",
+        "size": 772
+      },
+      {
+        "path": "blog/src/_includes/templates/post-list.vto",
+        "size": 436
+      },
+      {
+        "path": "blog/src/archive.page.js",
+        "size": 534
+      },
+      {
+        "path": "blog/src/archive_result.page.js",
+        "size": 665
+      },
+      {
+        "path": "blog/src/index.vto",
+        "size": 979
+      },
+      {
+        "path": "blog/src/pages/contact.md",
+        "size": 271
+      },
+      {
+        "path": "blog/src/posts/2024-07-11_routing-design.md",
+        "size": 7283
+      },
+      {
+        "path": "blog/src/posts/2024-07-12_v0.9.md",
+        "size": 1765
+      },
+      {
+        "path": "blog/src/posts/2024-07-13_v0.10.md",
+        "size": 1802
+      },
+      {
+        "path": "blog/src/posts/2024-07-17_v0.11.md",
+        "size": 2148
+      },
+      {
+        "path": "blog/src/posts/2024-07-23_v0.12.md",
+        "size": 4767
+      },
+      {
+        "path": "blog/src/posts/2024-07-23_why-smallweb.md",
+        "size": 3670
+      },
+      {
+        "path": "blog/src/posts/2024-09-01_v0.13.md",
+        "size": 9468
+      },
+      {
+        "path": "blog/src/posts/2024-10-01_v0.14.md",
+        "size": 7292
+      },
+      {
+        "path": "blog/src/posts/2024-11-14_v0.15.md",
+        "size": 7550
+      },
+      {
+        "path": "blog/src/posts/2024-11-18_v0.16.md",
+        "size": 7415
+      },
+      {
+        "path": "blog/src/posts/2024-12-02_v0.17.md",
+        "size": 4195
+      },
+      {
+        "path": "blog/src/posts/2024-12-03_my_smallweb_setup.md",
+        "size": 4685
+      },
+      {
+        "path": "blog/src/posts/2024-12-09_v0.18.md",
+        "size": 3538
+      },
+      {
+        "path": "blog/src/posts/2024-12-16_v0.19.md",
+        "size": 5850
+      },
+      {
+        "path": "blog/src/posts/_data.yml",
+        "size": 62
+      },
+      {
+        "path": "blog/src/posts/img/browser_cli_demo.png",
+        "size": 254896
+      },
+      {
+        "path": "blog/src/posts/img/cli_demo.png",
+        "size": 1089697
+      },
+      {
+        "path": "blog/src/posts/img/lastlogin.png",
+        "size": 986711
+      },
+      {
+        "path": "blog/src/posts/img/openapi.png",
+        "size": 192196
+      },
+      {
+        "path": "blog/src/posts/img/pretty_error_page.png",
+        "size": 220676
+      },
+      {
+        "path": "blog/src/posts/img/runtipi_store.png",
+        "size": 218864
+      },
+      {
+        "path": "blog/src/posts/img/smallweb-run-backup.png",
+        "size": 306377
+      },
+      {
+        "path": "blog/src/posts/img/smallweb_live.png",
+        "size": 222982
+      },
+      {
+        "path": "blog/src/posts/img/star_history.png",
+        "size": 71205
+      },
+      {
+        "path": "blog/src/posts/img/taras_message.png",
+        "size": 92244
+      },
+      {
+        "path": "blog/src/posts/img/video_thumbnail.png",
+        "size": 66132
+      },
+      {
+        "path": "blog/src/posts/img/vscode_demo.png",
+        "size": 290157
+      },
+      {
+        "path": "blog/src/posts/img/webdav_demo.png",
+        "size": 46661
+      },
+      {
+        "path": "blog/src/styles.css",
+        "size": 555
+      },
+      {
+        "path": "bluesky/main.ts",
+        "size": 578
+      },
+      {
+        "path": "bluesky/secrets.enc.env",
+        "size": 1562
+      },
+      {
+        "path": "bookmarks/data/example.url",
+        "size": 44
+      },
+      {
+        "path": "bookmarks/main.ts",
+        "size": 238
+      },
+      {
+        "path": "bsky",
+        "size": 9
+      },
+      {
+        "path": "cli/deno.json",
+        "size": 301
+      },
+      {
+        "path": "cli/deno.lock",
+        "size": 3773
+      },
+      {
+        "path": "cli/main.ts",
+        "size": 76
+      },
+      {
+        "path": "cli/mod.ts",
+        "size": 3911
+      },
+      {
+        "path": "cli/secrets.enc.env",
+        "size": 1738
+      },
+      {
+        "path": "cloud/.gitignore",
+        "size": 13
+      },
+      {
+        "path": "cloud/README.md",
+        "size": 1181
+      },
+      {
+        "path": "cloud/index.html",
+        "size": 2042
+      },
+      {
+        "path": "cloud/main.ts",
+        "size": 1966
+      },
+      {
+        "path": "cloud/secrets.enc.env",
+        "size": 1878
+      },
+      {
+        "path": "codejar/README.md",
+        "size": 255
+      },
+      {
+        "path": "codejar/deno.json",
+        "size": 371
+      },
+      {
+        "path": "codejar/main.ts",
+        "size": 190
+      },
+      {
+        "path": "codejar/mod.ts",
+        "size": 5656
+      },
+      {
+        "path": "confettis/app.tsx",
+        "size": 663
+      },
+      {
+        "path": "confettis/index.html",
+        "size": 248
+      },
+      {
+        "path": "confettis/script.tsx",
+        "size": 257
+      },
+      {
+        "path": "confettis/style.css",
+        "size": 347
+      },
+      {
+        "path": "console/main.ts",
+        "size": 328
+      },
+      {
+        "path": "deno/main.ts",
+        "size": 64
+      },
+      {
+        "path": "discord-bis/main.ts",
+        "size": 95
+      },
+      {
+        "path": "discord/main.ts",
+        "size": 88
+      },
+      {
+        "path": "docker/main.ts",
+        "size": 140
+      },
+      {
+        "path": "docs/main.ts",
+        "size": 104
+      },
+      {
+        "path": "draft/main.ts",
+        "size": 168
+      },
+      {
+        "path": "duckdb/main.ts",
+        "size": 300
+      },
+      {
+        "path": "echo/main.ts",
+        "size": 246
+      },
+      {
+        "path": "editor/main.ts",
+        "size": 275
+      },
+      {
+        "path": "editor/styles.css",
+        "size": 39
+      },
+      {
+        "path": "env/main.ts",
+        "size": 140
+      },
+      {
+        "path": "env/secrets.enc.env",
+        "size": 1553
+      },
+      {
+        "path": "error/main.ts",
+        "size": 89
+      },
+      {
+        "path": "esm/main.ts",
+        "size": 2635
+      },
+      {
+        "path": "example-db/example.db",
+        "size": 884736
+      },
+      {
+        "path": "example-static/index.html",
+        "size": 224
+      },
+      {
+        "path": "example-static/script.tsx",
+        "size": 259
+      },
+      {
+        "path": "excalidraw-demo",
+        "size": 10
+      },
+      {
+        "path": "excalidraw-dev/.gitignore",
+        "size": 16
+      },
+      {
+        "path": "excalidraw-dev/.vscode/launch.json",
+        "size": 730
+      },
+      {
+        "path": "excalidraw-dev/.vscode/settings.json",
+        "size": 81
+      },
+      {
+        "path": "excalidraw-dev/README.md",
+        "size": 153
+      },
+      {
+        "path": "excalidraw-dev/deno.json",
+        "size": 606
+      },
+      {
+        "path": "excalidraw-dev/deno.lock",
+        "size": 28216
+      },
+      {
+        "path": "excalidraw-dev/frontend/.eslintrc.cjs",
+        "size": 436
+      },
+      {
+        "path": "excalidraw-dev/frontend/.gitignore",
+        "size": 253
+      },
+      {
+        "path": "excalidraw-dev/frontend/README.md",
+        "size": 1300
+      },
+      {
+        "path": "excalidraw-dev/frontend/index.html",
+        "size": 418
+      },
+      {
+        "path": "excalidraw-dev/frontend/package-lock.json",
+        "size": 212296
+      },
+      {
+        "path": "excalidraw-dev/frontend/package.json",
+        "size": 930
+      },
+      {
+        "path": "excalidraw-dev/frontend/src/App.tsx",
+        "size": 3088
+      },
+      {
+        "path": "excalidraw-dev/frontend/src/index.css",
+        "size": 1161
+      },
+      {
+        "path": "excalidraw-dev/frontend/src/main.tsx",
+        "size": 236
+      },
+      {
+        "path": "excalidraw-dev/frontend/src/vite-env.d.ts",
+        "size": 38
+      },
+      {
+        "path": "excalidraw-dev/frontend/tsconfig.app.json",
+        "size": 677
+      },
+      {
+        "path": "excalidraw-dev/frontend/tsconfig.json",
+        "size": 139
+      },
+      {
+        "path": "excalidraw-dev/frontend/tsconfig.node.json",
+        "size": 325
+      },
+      {
+        "path": "excalidraw-dev/frontend/vite.config.ts",
+        "size": 163
+      },
+      {
+        "path": "excalidraw-dev/main.ts",
+        "size": 109
+      },
+      {
+        "path": "excalidraw-dev/pkg/mod.ts",
+        "size": 423
+      },
+      {
+        "path": "excalidraw-dev/pkg/server.ts",
+        "size": 1695
+      },
+      {
+        "path": "excalidraw/data/drawing.excalidraw.json",
+        "size": 193653
+      },
+      {
+        "path": "excalidraw/data/drawing.svg",
+        "size": 189329
+      },
+      {
+        "path": "excalidraw/main.ts",
+        "size": 152
+      },
+      {
+        "path": "files/main.ts",
+        "size": 193
+      },
+      {
+        "path": "files/markdown/index.md",
+        "size": 3
+      },
+      {
+        "path": "gh",
+        "size": 8
+      },
+      {
+        "path": "github/.vscode/launch.json",
+        "size": 760
+      },
+      {
+        "path": "github/main.ts",
+        "size": 320
+      },
+      {
+        "path": "hello-framework/.gitignore",
+        "size": 46
+      },
+      {
+        "path": "hello-framework/README.md",
+        "size": 2910
+      },
+      {
+        "path": "hello-framework/observablehq.config.js",
+        "size": 1585
+      },
+      {
+        "path": "hello-framework/package-lock.json",
+        "size": 126039
+      },
+      {
+        "path": "hello-framework/package.json",
+        "size": 453
+      },
+      {
+        "path": "hello-framework/smallweb.json",
+        "size": 76
+      },
+      {
+        "path": "hello-framework/src/.gitignore",
+        "size": 22
+      },
+      {
+        "path": "hello-framework/src/components/timeline.js",
+        "size": 492
+      },
+      {
+        "path": "hello-framework/src/data/events.json",
+        "size": 329
+      },
+      {
+        "path": "hello-framework/src/data/launches.csv.js",
+        "size": 1722
+      },
+      {
+        "path": "hello-framework/src/example-dashboard.md",
+        "size": 2613
+      },
+      {
+        "path": "hello-framework/src/example-report.md",
+        "size": 3908
+      },
+      {
+        "path": "hello-framework/src/index.md",
+        "size": 3773
+      },
+      {
+        "path": "hello-framework/src/observable.png",
+        "size": 394
+      },
+      {
+        "path": "hot/main.ts",
+        "size": 924
+      },
+      {
+        "path": "http-cli/README.md",
+        "size": 1248
+      },
+      {
+        "path": "http-cli/deno.json",
+        "size": 320
+      },
+      {
+        "path": "http-cli/deno.lock",
+        "size": 1139
+      },
+      {
+        "path": "http-cli/example.ts",
+        "size": 650
+      },
+      {
+        "path": "http-cli/mod.ts",
+        "size": 1490
+      },
+      {
+        "path": "icons/smallweb.svg",
+        "size": 3616
+      },
+      {
+        "path": "ide/main.ts",
+        "size": 128
+      },
+      {
+        "path": "install/install.sh",
+        "size": 1964
+      },
+      {
+        "path": "install/main.ts",
+        "size": 1605
+      },
+      {
+        "path": "install/secrets.enc.env",
+        "size": 1589
+      },
+      {
+        "path": "install/vps.sh",
+        "size": 2319
+      },
+      {
+        "path": "isabelle/main.ts",
+        "size": 127
+      },
+      {
+        "path": "lastlogin-bug/main.ts",
+        "size": 236
+      },
+      {
+        "path": "logs/deno.json",
+        "size": 69
+      },
+      {
+        "path": "logs/deno.lock",
+        "size": 1287
+      },
+      {
+        "path": "logs/main.ts",
+        "size": 1172
+      },
+      {
+        "path": "machin/main.ts",
+        "size": 207
+      },
+      {
+        "path": "marp/data/slides.md",
+        "size": 703
+      },
+      {
+        "path": "marp/main.ts",
+        "size": 1069
+      },
+      {
+        "path": "mohammad/index.md",
+        "size": 140
+      },
+      {
+        "path": "notes/example.md",
+        "size": 79
+      },
+      {
+        "path": "notes/movies.md",
+        "size": 0
+      },
+      {
+        "path": "old/index.html",
+        "size": 439
+      },
+      {
+        "path": "old/script.tsx",
+        "size": 10298
+      },
+      {
+        "path": "open/README.md",
+        "size": 95
+      },
+      {
+        "path": "open/deno.json",
+        "size": 106
+      },
+      {
+        "path": "open/mod.ts",
+        "size": 280
+      },
+      {
+        "path": "openapi/.gitignore",
+        "size": 4
+      },
+      {
+        "path": "openapi/README.md",
+        "size": 674
+      },
+      {
+        "path": "openapi/build.ts",
+        "size": 485
+      },
+      {
+        "path": "openapi/deno.json",
+        "size": 418
+      },
+      {
+        "path": "openapi/deno.lock",
+        "size": 13499
+      },
+      {
+        "path": "openapi/example.ts",
+        "size": 568
+      },
+      {
+        "path": "openapi/main.ts",
+        "size": 175
+      },
+      {
+        "path": "openapi/mod.ts",
+        "size": 4060
+      },
+      {
+        "path": "openapi/openapi.json",
+        "size": 4034
+      },
+      {
+        "path": "openauth-client/deno.json",
+        "size": 162
+      },
+      {
+        "path": "openauth-client/deno.lock",
+        "size": 3167
+      },
+      {
+        "path": "openauth-client/main.ts",
+        "size": 1952
+      },
+      {
+        "path": "openauth-client/subjects.ts",
+        "size": 192
+      },
+      {
+        "path": "openauth/deno.json",
+        "size": 130
+      },
+      {
+        "path": "openauth/deno.lock",
+        "size": 3107
+      },
+      {
+        "path": "openauth/main.ts",
+        "size": 872
+      },
+      {
+        "path": "openauth/subjects.ts",
+        "size": 192
+      },
+      {
+        "path": "outerbase/.gitignore",
+        "size": 7
+      },
+      {
+        "path": "outerbase/README.md",
+        "size": 142
+      },
+      {
+        "path": "outerbase/deno.json",
+        "size": 54
+      },
+      {
+        "path": "outerbase/deno.lock",
+        "size": 638
+      },
+      {
+        "path": "outerbase/main.ts",
+        "size": 317
+      },
+      {
+        "path": "outerbase/static/index.html",
+        "size": 642
+      },
+      {
+        "path": "plugins",
+        "size": 17
+      },
+      {
+        "path": "raw/main.ts",
+        "size": 203
+      },
+      {
+        "path": "ray/.vscode/launch.json",
+        "size": 760
+      },
+      {
+        "path": "ray/README.md",
+        "size": 516
+      },
+      {
+        "path": "ray/deno.json",
+        "size": 340
+      },
+      {
+        "path": "ray/main.ts",
+        "size": 228
+      },
+      {
+        "path": "ray/mod.ts",
+        "size": 2355
+      },
+      {
+        "path": "react/main.tsx",
+        "size": 403
+      },
+      {
+        "path": "schemas/main.ts",
+        "size": 1014
+      },
+      {
+        "path": "scripts/dot-shortcut.js",
+        "size": 376
+      },
+      {
+        "path": "sdk/README.md",
+        "size": 265
+      },
+      {
+        "path": "sdk/deno.json",
+        "size": 445
+      },
+      {
+        "path": "sdk/deno.lock",
+        "size": 1121
+      },
+      {
+        "path": "sdk/main.ts",
+        "size": 246
+      },
+      {
+        "path": "sdk/mod.ts",
+        "size": 1415
+      },
+      {
+        "path": "sdk/swagger.ts",
+        "size": 1321
+      },
+      {
+        "path": "simplecss/index.html",
+        "size": 52336
+      },
+      {
+        "path": "simplecss/simple.css",
+        "size": 13491
+      },
+      {
+        "path": "smallfeed/data/index.html",
+        "size": 2874
+      },
+      {
+        "path": "smallfeed/deno.json",
+        "size": 150
+      },
+      {
+        "path": "smallfeed/deno.lock",
+        "size": 3327
+      },
+      {
+        "path": "smallfeed/main.ts",
+        "size": 159
+      },
+      {
+        "path": "smallfeed/pkg/mod.ts",
+        "size": 3794
+      },
+      {
+        "path": "smallfeed/test.vento",
+        "size": 2963
+      },
+      {
+        "path": "sms/main.ts",
+        "size": 699
+      },
+      {
+        "path": "sms/secrets.enc.env",
+        "size": 1702
+      },
+      {
+        "path": "sms/smallweb.json",
+        "size": 24
+      },
+      {
+        "path": "store/main.ts",
+        "size": 96
+      },
+      {
+        "path": "todo/index.md",
+        "size": 490
+      },
+      {
+        "path": "vite-project/.gitignore",
+        "size": 253
+      },
+      {
+        "path": "vite-project/README.md",
+        "size": 1607
+      },
+      {
+        "path": "vite-project/eslint.config.js",
+        "size": 734
+      },
+      {
+        "path": "vite-project/index.html",
+        "size": 356
+      },
+      {
+        "path": "vite-project/package-lock.json",
+        "size": 104599
+      },
+      {
+        "path": "vite-project/package.json",
+        "size": 684
+      },
+      {
+        "path": "vite-project/public/vite.svg",
+        "size": 1497
+      },
+      {
+        "path": "vite-project/src/App.css",
+        "size": 606
+      },
+      {
+        "path": "vite-project/src/App.tsx",
+        "size": 910
+      },
+      {
+        "path": "vite-project/src/assets/react.svg",
+        "size": 4126
+      },
+      {
+        "path": "vite-project/src/index.css",
+        "size": 1161
+      },
+      {
+        "path": "vite-project/src/main.tsx",
+        "size": 230
+      },
+      {
+        "path": "vite-project/src/vite-env.d.ts",
+        "size": 38
+      },
+      {
+        "path": "vite-project/tsconfig.app.json",
+        "size": 665
+      },
+      {
+        "path": "vite-project/tsconfig.json",
+        "size": 119
+      },
+      {
+        "path": "vite-project/tsconfig.node.json",
+        "size": 593
+      },
+      {
+        "path": "vite-project/vite.config.ts",
+        "size": 161
+      },
+      {
+        "path": "vscode-demo/data/example.md",
+        "size": 71
+      },
+      {
+        "path": "vscode-demo/data/hi.md",
+        "size": 55
+      },
+      {
+        "path": "vscode-demo/data/mohammad.md",
+        "size": 23
+      },
+      {
+        "path": "vscode-demo/data/playerwashere/smallweb.md",
+        "size": 113
+      },
+      {
+        "path": "vscode-demo/main.ts",
+        "size": 131
+      },
+      {
+        "path": "vscode-demo/secrets.enc.env",
+        "size": 1581
+      },
+      {
+        "path": "vscode/main.ts",
+        "size": 152
+      },
+      {
+        "path": "vscode/secrets.enc.env",
+        "size": 1584
+      },
+      {
+        "path": "vt/main.ts",
+        "size": 110
+      },
+      {
+        "path": "vt/secrets.enc.env",
+        "size": 1734
+      },
+      {
+        "path": "webdav/.envrc",
+        "size": 7
+      },
+      {
+        "path": "webdav/README.md",
+        "size": 26
+      },
+      {
+        "path": "webdav/deno.json",
+        "size": 407
+      },
+      {
+        "path": "webdav/deno.lock",
+        "size": 4111
+      },
+      {
+        "path": "webdav/main.ts",
+        "size": 166
+      },
+      {
+        "path": "webdav/pkg/mod.ts",
+        "size": 5569
+      },
+      {
+        "path": "websockets/index.html",
+        "size": 1015
+      },
+      {
+        "path": "websockets/main.ts",
+        "size": 803
+      },
+      {
+        "path": "www/.gitignore",
+        "size": 46
+      },
+      {
+        "path": "www/.vitepress/config.mts",
+        "size": 4829
+      },
+      {
+        "path": "www/.vscode/launch.json",
+        "size": 760
+      },
+      {
+        "path": "www/.vscode/settings.json",
+        "size": 110
+      },
+      {
+        "path": "www/README.md",
+        "size": 217
+      },
+      {
+        "path": "www/deno.lock",
+        "size": 39432
+      },
+      {
+        "path": "www/docs/getting-started.md",
+        "size": 1479
+      },
+      {
+        "path": "www/docs/guides/auth.md",
+        "size": 1186
+      },
+      {
+        "path": "www/docs/guides/commands.md",
+        "size": 1019
+      },
+      {
+        "path": "www/docs/guides/cron.md",
+        "size": 536
+      },
+      {
+        "path": "www/docs/guides/data.md",
+        "size": 1600
+      },
+      {
+        "path": "www/docs/guides/env.md",
+        "size": 3140
+      },
+      {
+        "path": "www/docs/guides/file-sync.md",
+        "size": 1043
+      },
+      {
+        "path": "www/docs/guides/http.md",
+        "size": 4077
+      },
+      {
+        "path": "www/docs/guides/logs.md",
+        "size": 725
+      },
+      {
+        "path": "www/docs/guides/permissions.md",
+        "size": 1290
+      },
+      {
+        "path": "www/docs/guides/plugins.md",
+        "size": 757
+      },
+      {
+        "path": "www/docs/guides/routing.md",
+        "size": 1033
+      },
+      {
+        "path": "www/docs/guides/symlinks.md",
+        "size": 930
+      },
+      {
+        "path": "www/docs/hosting/cloudflare/apex.png",
+        "size": 34042
+      },
+      {
+        "path": "www/docs/hosting/cloudflare/dns.png",
+        "size": 92110
+      },
+      {
+        "path": "www/docs/hosting/cloudflare/index.md",
+        "size": 1671
+      },
+      {
+        "path": "www/docs/hosting/cloudflare/tunnel.png",
+        "size": 151559
+      },
+      {
+        "path": "www/docs/hosting/deno-deploy.md",
+        "size": 622
+      },
+      {
+        "path": "www/docs/hosting/local/architecture.excalidraw.png",
+        "size": 130695
+      },
+      {
+        "path": "www/docs/hosting/local/index.md",
+        "size": 748
+      },
+      {
+        "path": "www/docs/hosting/local/linux.md",
+        "size": 1166
+      },
+      {
+        "path": "www/docs/hosting/local/macos.md",
+        "size": 2383
+      },
+      {
+        "path": "www/docs/hosting/local/windows.md",
+        "size": 1365
+      },
+      {
+        "path": "www/docs/hosting/runtipi.md",
+        "size": 420
+      },
+      {
+        "path": "www/docs/hosting/smallweb-cloud.md",
+        "size": 158
+      },
+      {
+        "path": "www/docs/hosting/vps.md",
+        "size": 1905
+      },
+      {
+        "path": "www/docs/hosting/vps.png",
+        "size": 59210
+      },
+      {
+        "path": "www/docs/reference/app-config.md",
+        "size": 829
+      },
+      {
+        "path": "www/docs/reference/cli.md",
+        "size": 8076
+      },
+      {
+        "path": "www/docs/reference/editor.md",
+        "size": 402
+      },
+      {
+        "path": "www/docs/reference/global-config.md",
+        "size": 1370
+      },
+      {
+        "path": "www/index.md",
+        "size": 1381
+      },
+      {
+        "path": "www/main.ts",
+        "size": 680
+      },
+      {
+        "path": "www/package-lock.json",
+        "size": 86028
+      },
+      {
+        "path": "www/package.json",
+        "size": 237
+      },
+      {
+        "path": "www/public/apple-touch-icon.png",
+        "size": 2416
+      },
+      {
+        "path": "www/public/banner-icon.png",
+        "size": 6072
+      },
+      {
+        "path": "www/public/favicon-96x96.png",
+        "size": 1413
+      },
+      {
+        "path": "www/public/favicon.ico",
+        "size": 15086
+      },
+      {
+        "path": "www/public/favicon.svg",
+        "size": 4379
+      },
+      {
+        "path": "www/public/icon-dark.svg",
+        "size": 3670
+      },
+      {
+        "path": "www/public/icon-light.jpeg",
+        "size": 15182
+      },
+      {
+        "path": "www/public/icon-light.png",
+        "size": 8839
+      },
+      {
+        "path": "www/public/icon-light.svg",
+        "size": 3662
+      },
+      {
+        "path": "www/public/web-app-manifest-192x192.png",
+        "size": 2800
+      },
+      {
+        "path": "www/public/web-app-manifest-512x512.png",
+        "size": 11624
+      }
+    ],
+    "tree": {
+      "name": "smallweb.run",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 417,
+              "path": ".github/README.md"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": ".smallweb",
+          "children": [
+            {
+              "name": "plugins",
+              "children": [
+                {
+                  "name": "edit.sh",
+                  "size": 299,
+                  "path": ".smallweb/plugins/edit.sh"
+                },
+                {
+                  "name": "jsr.sh",
+                  "size": 153,
+                  "path": ".smallweb/plugins/jsr.sh"
+                },
+                {
+                  "name": "pull.sh",
+                  "size": 98,
+                  "path": ".smallweb/plugins/pull.sh"
+                },
+                {
+                  "name": "push.sh",
+                  "size": 103,
+                  "path": ".smallweb/plugins/push.sh"
+                }
+              ],
+              "path": ".smallweb/plugins"
+            },
+            {
+              "name": "config.json",
+              "size": 319,
+              "path": ".smallweb/config.json"
+            },
+            {
+              "name": "secrets.enc.env",
+              "size": 1745,
+              "path": ".smallweb/secrets.enc.env"
+            }
+          ],
+          "path": ".smallweb"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 832,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "api",
+          "children": [
+            {
+              "name": "img",
+              "children": [
+                {
+                  "name": "swagger-ui.png",
+                  "size": 195991,
+                  "path": "api/img/swagger-ui.png"
+                }
+              ],
+              "path": "api/img"
+            },
+            {
+              "name": "pkg",
+              "children": [
+                {
+                  "name": "cli.ts",
+                  "size": 1335,
+                  "path": "api/pkg/cli.ts"
+                },
+                {
+                  "name": "mod.ts",
+                  "size": 2245,
+                  "path": "api/pkg/mod.ts"
+                },
+                {
+                  "name": "server.ts",
+                  "size": 6026,
+                  "path": "api/pkg/server.ts"
+                },
+                {
+                  "name": "swagger.ts",
+                  "size": 1491,
+                  "path": "api/pkg/swagger.ts"
+                }
+              ],
+              "path": "api/pkg"
+            },
+            {
+              "name": "README.md",
+              "size": 302,
+              "path": "api/README.md"
+            },
+            {
+              "name": "deno.json",
+              "size": 466,
+              "path": "api/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 4476,
+              "path": "api/deno.lock"
+            },
+            {
+              "name": "main.ts",
+              "size": 157,
+              "path": "api/main.ts"
+            },
+            {
+              "name": "secrets.enc.env",
+              "size": 1627,
+              "path": "api/secrets.enc.env"
+            }
+          ],
+          "path": "api"
+        },
+        {
+          "name": "astro-demo",
+          "children": [
+            {
+              "name": ".vscode",
+              "children": [
+                {
+                  "name": "extensions.json",
+                  "size": 87,
+                  "path": "astro-demo/.vscode/extensions.json"
+                },
+                {
+                  "name": "launch.json",
+                  "size": 207,
+                  "path": "astro-demo/.vscode/launch.json"
+                },
+                {
+                  "name": "settings.json",
+                  "size": 82,
+                  "path": "astro-demo/.vscode/settings.json"
+                }
+              ],
+              "path": "astro-demo/.vscode"
+            },
+            {
+              "name": "public",
+              "children": [
+                {
+                  "name": "favicon.svg",
+                  "size": 749,
+                  "path": "astro-demo/public/favicon.svg"
+                }
+              ],
+              "path": "astro-demo/public"
+            },
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "assets",
+                  "children": [
+                    {
+                      "name": "astro.svg",
+                      "size": 2914,
+                      "path": "astro-demo/src/assets/astro.svg"
+                    },
+                    {
+                      "name": "background.svg",
+                      "size": 1454,
+                      "path": "astro-demo/src/assets/background.svg"
+                    }
+                  ],
+                  "path": "astro-demo/src/assets"
+                },
+                {
+                  "name": "components",
+                  "children": [
+                    {
+                      "name": "Welcome.astro",
+                      "size": 4918,
+                      "path": "astro-demo/src/components/Welcome.astro"
+                    }
+                  ],
+                  "path": "astro-demo/src/components"
+                },
+                {
+                  "name": "layouts",
+                  "children": [
+                    {
+                      "name": "Layout.astro",
+                      "size": 396,
+                      "path": "astro-demo/src/layouts/Layout.astro"
+                    }
+                  ],
+                  "path": "astro-demo/src/layouts"
+                },
+                {
+                  "name": "pages",
+                  "children": [
+                    {
+                      "name": "index.astro",
+                      "size": 387,
+                      "path": "astro-demo/src/pages/index.astro"
+                    }
+                  ],
+                  "path": "astro-demo/src/pages"
+                }
+              ],
+              "path": "astro-demo/src"
+            },
+            {
+              "name": ".gitignore",
+              "size": 264,
+              "path": "astro-demo/.gitignore"
+            },
+            {
+              "name": "README.md",
+              "size": 2129,
+              "path": "astro-demo/README.md"
+            },
+            {
+              "name": "astro.config.mjs",
+              "size": 233,
+              "path": "astro-demo/astro.config.mjs"
+            },
+            {
+              "name": "main.ts",
+              "size": 324,
+              "path": "astro-demo/main.ts"
+            },
+            {
+              "name": "package-lock.json",
+              "size": 184696,
+              "path": "astro-demo/package-lock.json"
+            },
+            {
+              "name": "package.json",
+              "size": 278,
+              "path": "astro-demo/package.json"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 109,
+              "path": "astro-demo/tsconfig.json"
+            }
+          ],
+          "path": "astro-demo"
+        },
+        {
+          "name": "bearer-auth",
+          "children": [
+            {
+              "name": "deno.json",
+              "size": 187,
+              "path": "bearer-auth/deno.json"
+            },
+            {
+              "name": "main.ts",
+              "size": 227,
+              "path": "bearer-auth/main.ts"
+            },
+            {
+              "name": "mod.ts",
+              "size": 914,
+              "path": "bearer-auth/mod.ts"
+            }
+          ],
+          "path": "bearer-auth"
+        },
+        {
+          "name": "blog",
+          "children": [
+            {
+              "name": ".vscode",
+              "children": [
+                {
+                  "name": "settings.json",
+                  "size": 278,
+                  "path": "blog/.vscode/settings.json"
+                }
+              ],
+              "path": "blog/.vscode"
+            },
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "_data",
+                  "children": [
+                    {
+                      "name": "i18n.yml",
+                      "size": 654,
+                      "path": "blog/src/_data/i18n.yml"
+                    }
+                  ],
+                  "path": "blog/src/_data"
+                },
+                {
+                  "name": "_includes",
+                  "children": [
+                    {
+                      "name": "css",
+                      "children": [
+                        {
+                          "name": "navbar.css",
+                          "size": 551,
+                          "path": "blog/src/_includes/css/navbar.css"
+                        },
+                        {
+                          "name": "page.css",
+                          "size": 629,
+                          "path": "blog/src/_includes/css/page.css"
+                        },
+                        {
+                          "name": "post-list.css",
+                          "size": 477,
+                          "path": "blog/src/_includes/css/post-list.css"
+                        },
+                        {
+                          "name": "post.css",
+                          "size": 741,
+                          "path": "blog/src/_includes/css/post.css"
+                        }
+                      ],
+                      "path": "blog/src/_includes/css"
+                    },
+                    {
+                      "name": "layouts",
+                      "children": [
+                        {
+                          "name": "archive.vto",
+                          "size": 1540,
+                          "path": "blog/src/_includes/layouts/archive.vto"
+                        },
+                        {
+                          "name": "archive_result.vto",
+                          "size": 270,
+                          "path": "blog/src/_includes/layouts/archive_result.vto"
+                        },
+                        {
+                          "name": "base.vto",
+                          "size": 2314,
+                          "path": "blog/src/_includes/layouts/base.vto"
+                        },
+                        {
+                          "name": "page.vto",
+                          "size": 278,
+                          "path": "blog/src/_includes/layouts/page.vto"
+                        },
+                        {
+                          "name": "post.vto",
+                          "size": 1838,
+                          "path": "blog/src/_includes/layouts/post.vto"
+                        }
+                      ],
+                      "path": "blog/src/_includes/layouts"
+                    },
+                    {
+                      "name": "templates",
+                      "children": [
+                        {
+                          "name": "post-details.vto",
+                          "size": 772,
+                          "path": "blog/src/_includes/templates/post-details.vto"
+                        },
+                        {
+                          "name": "post-list.vto",
+                          "size": 436,
+                          "path": "blog/src/_includes/templates/post-list.vto"
+                        }
+                      ],
+                      "path": "blog/src/_includes/templates"
+                    }
+                  ],
+                  "path": "blog/src/_includes"
+                },
+                {
+                  "name": "pages",
+                  "children": [
+                    {
+                      "name": "contact.md",
+                      "size": 271,
+                      "path": "blog/src/pages/contact.md"
+                    }
+                  ],
+                  "path": "blog/src/pages"
+                },
+                {
+                  "name": "posts",
+                  "children": [
+                    {
+                      "name": "img",
+                      "children": [
+                        {
+                          "name": "browser_cli_demo.png",
+                          "size": 254896,
+                          "path": "blog/src/posts/img/browser_cli_demo.png"
+                        },
+                        {
+                          "name": "cli_demo.png",
+                          "size": 1089697,
+                          "path": "blog/src/posts/img/cli_demo.png"
+                        },
+                        {
+                          "name": "lastlogin.png",
+                          "size": 986711,
+                          "path": "blog/src/posts/img/lastlogin.png"
+                        },
+                        {
+                          "name": "openapi.png",
+                          "size": 192196,
+                          "path": "blog/src/posts/img/openapi.png"
+                        },
+                        {
+                          "name": "pretty_error_page.png",
+                          "size": 220676,
+                          "path": "blog/src/posts/img/pretty_error_page.png"
+                        },
+                        {
+                          "name": "runtipi_store.png",
+                          "size": 218864,
+                          "path": "blog/src/posts/img/runtipi_store.png"
+                        },
+                        {
+                          "name": "smallweb-run-backup.png",
+                          "size": 306377,
+                          "path": "blog/src/posts/img/smallweb-run-backup.png"
+                        },
+                        {
+                          "name": "smallweb_live.png",
+                          "size": 222982,
+                          "path": "blog/src/posts/img/smallweb_live.png"
+                        },
+                        {
+                          "name": "star_history.png",
+                          "size": 71205,
+                          "path": "blog/src/posts/img/star_history.png"
+                        },
+                        {
+                          "name": "taras_message.png",
+                          "size": 92244,
+                          "path": "blog/src/posts/img/taras_message.png"
+                        },
+                        {
+                          "name": "video_thumbnail.png",
+                          "size": 66132,
+                          "path": "blog/src/posts/img/video_thumbnail.png"
+                        },
+                        {
+                          "name": "vscode_demo.png",
+                          "size": 290157,
+                          "path": "blog/src/posts/img/vscode_demo.png"
+                        },
+                        {
+                          "name": "webdav_demo.png",
+                          "size": 46661,
+                          "path": "blog/src/posts/img/webdav_demo.png"
+                        }
+                      ],
+                      "path": "blog/src/posts/img"
+                    },
+                    {
+                      "name": "2024-07-11_routing-design.md",
+                      "size": 7283,
+                      "path": "blog/src/posts/2024-07-11_routing-design.md"
+                    },
+                    {
+                      "name": "2024-07-12_v0.9.md",
+                      "size": 1765,
+                      "path": "blog/src/posts/2024-07-12_v0.9.md"
+                    },
+                    {
+                      "name": "2024-07-13_v0.10.md",
+                      "size": 1802,
+                      "path": "blog/src/posts/2024-07-13_v0.10.md"
+                    },
+                    {
+                      "name": "2024-07-17_v0.11.md",
+                      "size": 2148,
+                      "path": "blog/src/posts/2024-07-17_v0.11.md"
+                    },
+                    {
+                      "name": "2024-07-23_v0.12.md",
+                      "size": 4767,
+                      "path": "blog/src/posts/2024-07-23_v0.12.md"
+                    },
+                    {
+                      "name": "2024-07-23_why-smallweb.md",
+                      "size": 3670,
+                      "path": "blog/src/posts/2024-07-23_why-smallweb.md"
+                    },
+                    {
+                      "name": "2024-09-01_v0.13.md",
+                      "size": 9468,
+                      "path": "blog/src/posts/2024-09-01_v0.13.md"
+                    },
+                    {
+                      "name": "2024-10-01_v0.14.md",
+                      "size": 7292,
+                      "path": "blog/src/posts/2024-10-01_v0.14.md"
+                    },
+                    {
+                      "name": "2024-11-14_v0.15.md",
+                      "size": 7550,
+                      "path": "blog/src/posts/2024-11-14_v0.15.md"
+                    },
+                    {
+                      "name": "2024-11-18_v0.16.md",
+                      "size": 7415,
+                      "path": "blog/src/posts/2024-11-18_v0.16.md"
+                    },
+                    {
+                      "name": "2024-12-02_v0.17.md",
+                      "size": 4195,
+                      "path": "blog/src/posts/2024-12-02_v0.17.md"
+                    },
+                    {
+                      "name": "2024-12-03_my_smallweb_setup.md",
+                      "size": 4685,
+                      "path": "blog/src/posts/2024-12-03_my_smallweb_setup.md"
+                    },
+                    {
+                      "name": "2024-12-09_v0.18.md",
+                      "size": 3538,
+                      "path": "blog/src/posts/2024-12-09_v0.18.md"
+                    },
+                    {
+                      "name": "2024-12-16_v0.19.md",
+                      "size": 5850,
+                      "path": "blog/src/posts/2024-12-16_v0.19.md"
+                    },
+                    {
+                      "name": "_data.yml",
+                      "size": 62,
+                      "path": "blog/src/posts/_data.yml"
+                    }
+                  ],
+                  "path": "blog/src/posts"
+                },
+                {
+                  "name": "404.md",
+                  "size": 84,
+                  "path": "blog/src/404.md"
+                },
+                {
+                  "name": "_data.yml",
+                  "size": 279,
+                  "path": "blog/src/_data.yml"
+                },
+                {
+                  "name": "archive.page.js",
+                  "size": 534,
+                  "path": "blog/src/archive.page.js"
+                },
+                {
+                  "name": "archive_result.page.js",
+                  "size": 665,
+                  "path": "blog/src/archive_result.page.js"
+                },
+                {
+                  "name": "index.vto",
+                  "size": 979,
+                  "path": "blog/src/index.vto"
+                },
+                {
+                  "name": "styles.css",
+                  "size": 555,
+                  "path": "blog/src/styles.css"
+                }
+              ],
+              "path": "blog/src"
+            },
+            {
+              "name": ".gitignore",
+              "size": 23,
+              "path": "blog/.gitignore"
+            },
+            {
+              "name": "CHANGELOG.md",
+              "size": 7797,
+              "path": "blog/CHANGELOG.md"
+            },
+            {
+              "name": "LICENSE",
+              "size": 1069,
+              "path": "blog/LICENSE"
+            },
+            {
+              "name": "README.md",
+              "size": 78,
+              "path": "blog/README.md"
+            },
+            {
+              "name": "_config.ts",
+              "size": 396,
+              "path": "blog/_config.ts"
+            },
+            {
+              "name": "deno.json",
+              "size": 592,
+              "path": "blog/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 98078,
+              "path": "blog/deno.lock"
+            },
+            {
+              "name": "main.ts",
+              "size": 513,
+              "path": "blog/main.ts"
+            },
+            {
+              "name": "plugins.ts",
+              "size": 2451,
+              "path": "blog/plugins.ts"
+            }
+          ],
+          "path": "blog"
+        },
+        {
+          "name": "bluesky",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 578,
+              "path": "bluesky/main.ts"
+            },
+            {
+              "name": "secrets.enc.env",
+              "size": 1562,
+              "path": "bluesky/secrets.enc.env"
+            }
+          ],
+          "path": "bluesky"
+        },
+        {
+          "name": "bookmarks",
+          "children": [
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": "example.url",
+                  "size": 44,
+                  "path": "bookmarks/data/example.url"
+                }
+              ],
+              "path": "bookmarks/data"
+            },
+            {
+              "name": "main.ts",
+              "size": 238,
+              "path": "bookmarks/main.ts"
+            }
+          ],
+          "path": "bookmarks"
+        },
+        {
+          "name": "cli",
+          "children": [
+            {
+              "name": "deno.json",
+              "size": 301,
+              "path": "cli/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 3773,
+              "path": "cli/deno.lock"
+            },
+            {
+              "name": "main.ts",
+              "size": 76,
+              "path": "cli/main.ts"
+            },
+            {
+              "name": "mod.ts",
+              "size": 3911,
+              "path": "cli/mod.ts"
+            },
+            {
+              "name": "secrets.enc.env",
+              "size": 1738,
+              "path": "cli/secrets.enc.env"
+            }
+          ],
+          "path": "cli"
+        },
+        {
+          "name": "cloud",
+          "children": [
+            {
+              "name": ".gitignore",
+              "size": 13,
+              "path": "cloud/.gitignore"
+            },
+            {
+              "name": "README.md",
+              "size": 1181,
+              "path": "cloud/README.md"
+            },
+            {
+              "name": "index.html",
+              "size": 2042,
+              "path": "cloud/index.html"
+            },
+            {
+              "name": "main.ts",
+              "size": 1966,
+              "path": "cloud/main.ts"
+            },
+            {
+              "name": "secrets.enc.env",
+              "size": 1878,
+              "path": "cloud/secrets.enc.env"
+            }
+          ],
+          "path": "cloud"
+        },
+        {
+          "name": "codejar",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 255,
+              "path": "codejar/README.md"
+            },
+            {
+              "name": "deno.json",
+              "size": 371,
+              "path": "codejar/deno.json"
+            },
+            {
+              "name": "main.ts",
+              "size": 190,
+              "path": "codejar/main.ts"
+            },
+            {
+              "name": "mod.ts",
+              "size": 5656,
+              "path": "codejar/mod.ts"
+            }
+          ],
+          "path": "codejar"
+        },
+        {
+          "name": "confettis",
+          "children": [
+            {
+              "name": "app.tsx",
+              "size": 663,
+              "path": "confettis/app.tsx"
+            },
+            {
+              "name": "index.html",
+              "size": 248,
+              "path": "confettis/index.html"
+            },
+            {
+              "name": "script.tsx",
+              "size": 257,
+              "path": "confettis/script.tsx"
+            },
+            {
+              "name": "style.css",
+              "size": 347,
+              "path": "confettis/style.css"
+            }
+          ],
+          "path": "confettis"
+        },
+        {
+          "name": "console",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 328,
+              "path": "console/main.ts"
+            }
+          ],
+          "path": "console"
+        },
+        {
+          "name": "deno",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 64,
+              "path": "deno/main.ts"
+            }
+          ],
+          "path": "deno"
+        },
+        {
+          "name": "discord-bis",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 95,
+              "path": "discord-bis/main.ts"
+            }
+          ],
+          "path": "discord-bis"
+        },
+        {
+          "name": "discord",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 88,
+              "path": "discord/main.ts"
+            }
+          ],
+          "path": "discord"
+        },
+        {
+          "name": "docker",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 140,
+              "path": "docker/main.ts"
+            }
+          ],
+          "path": "docker"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 104,
+              "path": "docs/main.ts"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "draft",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 168,
+              "path": "draft/main.ts"
+            }
+          ],
+          "path": "draft"
+        },
+        {
+          "name": "duckdb",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 300,
+              "path": "duckdb/main.ts"
+            }
+          ],
+          "path": "duckdb"
+        },
+        {
+          "name": "echo",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 246,
+              "path": "echo/main.ts"
+            }
+          ],
+          "path": "echo"
+        },
+        {
+          "name": "editor",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 275,
+              "path": "editor/main.ts"
+            },
+            {
+              "name": "styles.css",
+              "size": 39,
+              "path": "editor/styles.css"
+            }
+          ],
+          "path": "editor"
+        },
+        {
+          "name": "env",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 140,
+              "path": "env/main.ts"
+            },
+            {
+              "name": "secrets.enc.env",
+              "size": 1553,
+              "path": "env/secrets.enc.env"
+            }
+          ],
+          "path": "env"
+        },
+        {
+          "name": "error",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 89,
+              "path": "error/main.ts"
+            }
+          ],
+          "path": "error"
+        },
+        {
+          "name": "esm",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 2635,
+              "path": "esm/main.ts"
+            }
+          ],
+          "path": "esm"
+        },
+        {
+          "name": "example-db",
+          "children": [
+            {
+              "name": "example.db",
+              "size": 884736,
+              "path": "example-db/example.db"
+            }
+          ],
+          "path": "example-db"
+        },
+        {
+          "name": "example-static",
+          "children": [
+            {
+              "name": "index.html",
+              "size": 224,
+              "path": "example-static/index.html"
+            },
+            {
+              "name": "script.tsx",
+              "size": 259,
+              "path": "example-static/script.tsx"
+            }
+          ],
+          "path": "example-static"
+        },
+        {
+          "name": "excalidraw-dev",
+          "children": [
+            {
+              "name": ".vscode",
+              "children": [
+                {
+                  "name": "launch.json",
+                  "size": 730,
+                  "path": "excalidraw-dev/.vscode/launch.json"
+                },
+                {
+                  "name": "settings.json",
+                  "size": 81,
+                  "path": "excalidraw-dev/.vscode/settings.json"
+                }
+              ],
+              "path": "excalidraw-dev/.vscode"
+            },
+            {
+              "name": "frontend",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "App.tsx",
+                      "size": 3088,
+                      "path": "excalidraw-dev/frontend/src/App.tsx"
+                    },
+                    {
+                      "name": "index.css",
+                      "size": 1161,
+                      "path": "excalidraw-dev/frontend/src/index.css"
+                    },
+                    {
+                      "name": "main.tsx",
+                      "size": 236,
+                      "path": "excalidraw-dev/frontend/src/main.tsx"
+                    },
+                    {
+                      "name": "vite-env.d.ts",
+                      "size": 38,
+                      "path": "excalidraw-dev/frontend/src/vite-env.d.ts"
+                    }
+                  ],
+                  "path": "excalidraw-dev/frontend/src"
+                },
+                {
+                  "name": ".eslintrc.cjs",
+                  "size": 436,
+                  "path": "excalidraw-dev/frontend/.eslintrc.cjs"
+                },
+                {
+                  "name": ".gitignore",
+                  "size": 253,
+                  "path": "excalidraw-dev/frontend/.gitignore"
+                },
+                {
+                  "name": "README.md",
+                  "size": 1300,
+                  "path": "excalidraw-dev/frontend/README.md"
+                },
+                {
+                  "name": "index.html",
+                  "size": 418,
+                  "path": "excalidraw-dev/frontend/index.html"
+                },
+                {
+                  "name": "package-lock.json",
+                  "size": 212296,
+                  "path": "excalidraw-dev/frontend/package-lock.json"
+                },
+                {
+                  "name": "package.json",
+                  "size": 930,
+                  "path": "excalidraw-dev/frontend/package.json"
+                },
+                {
+                  "name": "tsconfig.app.json",
+                  "size": 677,
+                  "path": "excalidraw-dev/frontend/tsconfig.app.json"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "size": 139,
+                  "path": "excalidraw-dev/frontend/tsconfig.json"
+                },
+                {
+                  "name": "tsconfig.node.json",
+                  "size": 325,
+                  "path": "excalidraw-dev/frontend/tsconfig.node.json"
+                },
+                {
+                  "name": "vite.config.ts",
+                  "size": 163,
+                  "path": "excalidraw-dev/frontend/vite.config.ts"
+                }
+              ],
+              "path": "excalidraw-dev/frontend"
+            },
+            {
+              "name": "pkg",
+              "children": [
+                {
+                  "name": "mod.ts",
+                  "size": 423,
+                  "path": "excalidraw-dev/pkg/mod.ts"
+                },
+                {
+                  "name": "server.ts",
+                  "size": 1695,
+                  "path": "excalidraw-dev/pkg/server.ts"
+                }
+              ],
+              "path": "excalidraw-dev/pkg"
+            },
+            {
+              "name": ".gitignore",
+              "size": 16,
+              "path": "excalidraw-dev/.gitignore"
+            },
+            {
+              "name": "README.md",
+              "size": 153,
+              "path": "excalidraw-dev/README.md"
+            },
+            {
+              "name": "deno.json",
+              "size": 606,
+              "path": "excalidraw-dev/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 28216,
+              "path": "excalidraw-dev/deno.lock"
+            },
+            {
+              "name": "main.ts",
+              "size": 109,
+              "path": "excalidraw-dev/main.ts"
+            }
+          ],
+          "path": "excalidraw-dev"
+        },
+        {
+          "name": "excalidraw",
+          "children": [
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": "drawing.excalidraw.json",
+                  "size": 193653,
+                  "path": "excalidraw/data/drawing.excalidraw.json"
+                },
+                {
+                  "name": "drawing.svg",
+                  "size": 189329,
+                  "path": "excalidraw/data/drawing.svg"
+                }
+              ],
+              "path": "excalidraw/data"
+            },
+            {
+              "name": "main.ts",
+              "size": 152,
+              "path": "excalidraw/main.ts"
+            }
+          ],
+          "path": "excalidraw"
+        },
+        {
+          "name": "files",
+          "children": [
+            {
+              "name": "markdown",
+              "children": [
+                {
+                  "name": "index.md",
+                  "size": 3,
+                  "path": "files/markdown/index.md"
+                }
+              ],
+              "path": "files/markdown"
+            },
+            {
+              "name": "main.ts",
+              "size": 193,
+              "path": "files/main.ts"
+            }
+          ],
+          "path": "files"
+        },
+        {
+          "name": "github",
+          "children": [
+            {
+              "name": ".vscode",
+              "children": [
+                {
+                  "name": "launch.json",
+                  "size": 760,
+                  "path": "github/.vscode/launch.json"
+                }
+              ],
+              "path": "github/.vscode"
+            },
+            {
+              "name": "main.ts",
+              "size": 320,
+              "path": "github/main.ts"
+            }
+          ],
+          "path": "github"
+        },
+        {
+          "name": "hello-framework",
+          "children": [
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "components",
+                  "children": [
+                    {
+                      "name": "timeline.js",
+                      "size": 492,
+                      "path": "hello-framework/src/components/timeline.js"
+                    }
+                  ],
+                  "path": "hello-framework/src/components"
+                },
+                {
+                  "name": "data",
+                  "children": [
+                    {
+                      "name": "events.json",
+                      "size": 329,
+                      "path": "hello-framework/src/data/events.json"
+                    },
+                    {
+                      "name": "launches.csv.js",
+                      "size": 1722,
+                      "path": "hello-framework/src/data/launches.csv.js"
+                    }
+                  ],
+                  "path": "hello-framework/src/data"
+                },
+                {
+                  "name": ".gitignore",
+                  "size": 22,
+                  "path": "hello-framework/src/.gitignore"
+                },
+                {
+                  "name": "example-dashboard.md",
+                  "size": 2613,
+                  "path": "hello-framework/src/example-dashboard.md"
+                },
+                {
+                  "name": "example-report.md",
+                  "size": 3908,
+                  "path": "hello-framework/src/example-report.md"
+                },
+                {
+                  "name": "index.md",
+                  "size": 3773,
+                  "path": "hello-framework/src/index.md"
+                },
+                {
+                  "name": "observable.png",
+                  "size": 394,
+                  "path": "hello-framework/src/observable.png"
+                }
+              ],
+              "path": "hello-framework/src"
+            },
+            {
+              "name": ".gitignore",
+              "size": 46,
+              "path": "hello-framework/.gitignore"
+            },
+            {
+              "name": "README.md",
+              "size": 2910,
+              "path": "hello-framework/README.md"
+            },
+            {
+              "name": "observablehq.config.js",
+              "size": 1585,
+              "path": "hello-framework/observablehq.config.js"
+            },
+            {
+              "name": "package-lock.json",
+              "size": 126039,
+              "path": "hello-framework/package-lock.json"
+            },
+            {
+              "name": "package.json",
+              "size": 453,
+              "path": "hello-framework/package.json"
+            },
+            {
+              "name": "smallweb.json",
+              "size": 76,
+              "path": "hello-framework/smallweb.json"
+            }
+          ],
+          "path": "hello-framework"
+        },
+        {
+          "name": "hot",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 924,
+              "path": "hot/main.ts"
+            }
+          ],
+          "path": "hot"
+        },
+        {
+          "name": "http-cli",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 1248,
+              "path": "http-cli/README.md"
+            },
+            {
+              "name": "deno.json",
+              "size": 320,
+              "path": "http-cli/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 1139,
+              "path": "http-cli/deno.lock"
+            },
+            {
+              "name": "example.ts",
+              "size": 650,
+              "path": "http-cli/example.ts"
+            },
+            {
+              "name": "mod.ts",
+              "size": 1490,
+              "path": "http-cli/mod.ts"
+            }
+          ],
+          "path": "http-cli"
+        },
+        {
+          "name": "icons",
+          "children": [
+            {
+              "name": "smallweb.svg",
+              "size": 3616,
+              "path": "icons/smallweb.svg"
+            }
+          ],
+          "path": "icons"
+        },
+        {
+          "name": "ide",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 128,
+              "path": "ide/main.ts"
+            }
+          ],
+          "path": "ide"
+        },
+        {
+          "name": "install",
+          "children": [
+            {
+              "name": "install.sh",
+              "size": 1964,
+              "path": "install/install.sh"
+            },
+            {
+              "name": "main.ts",
+              "size": 1605,
+              "path": "install/main.ts"
+            },
+            {
+              "name": "secrets.enc.env",
+              "size": 1589,
+              "path": "install/secrets.enc.env"
+            },
+            {
+              "name": "vps.sh",
+              "size": 2319,
+              "path": "install/vps.sh"
+            }
+          ],
+          "path": "install"
+        },
+        {
+          "name": "isabelle",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 127,
+              "path": "isabelle/main.ts"
+            }
+          ],
+          "path": "isabelle"
+        },
+        {
+          "name": "lastlogin-bug",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 236,
+              "path": "lastlogin-bug/main.ts"
+            }
+          ],
+          "path": "lastlogin-bug"
+        },
+        {
+          "name": "logs",
+          "children": [
+            {
+              "name": "deno.json",
+              "size": 69,
+              "path": "logs/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 1287,
+              "path": "logs/deno.lock"
+            },
+            {
+              "name": "main.ts",
+              "size": 1172,
+              "path": "logs/main.ts"
+            }
+          ],
+          "path": "logs"
+        },
+        {
+          "name": "machin",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 207,
+              "path": "machin/main.ts"
+            }
+          ],
+          "path": "machin"
+        },
+        {
+          "name": "marp",
+          "children": [
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": "slides.md",
+                  "size": 703,
+                  "path": "marp/data/slides.md"
+                }
+              ],
+              "path": "marp/data"
+            },
+            {
+              "name": "main.ts",
+              "size": 1069,
+              "path": "marp/main.ts"
+            }
+          ],
+          "path": "marp"
+        },
+        {
+          "name": "mohammad",
+          "children": [
+            {
+              "name": "index.md",
+              "size": 140,
+              "path": "mohammad/index.md"
+            }
+          ],
+          "path": "mohammad"
+        },
+        {
+          "name": "notes",
+          "children": [
+            {
+              "name": "example.md",
+              "size": 79,
+              "path": "notes/example.md"
+            },
+            {
+              "name": "movies.md",
+              "size": 0,
+              "path": "notes/movies.md"
+            }
+          ],
+          "path": "notes"
+        },
+        {
+          "name": "old",
+          "children": [
+            {
+              "name": "index.html",
+              "size": 439,
+              "path": "old/index.html"
+            },
+            {
+              "name": "script.tsx",
+              "size": 10298,
+              "path": "old/script.tsx"
+            }
+          ],
+          "path": "old"
+        },
+        {
+          "name": "open",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 95,
+              "path": "open/README.md"
+            },
+            {
+              "name": "deno.json",
+              "size": 106,
+              "path": "open/deno.json"
+            },
+            {
+              "name": "mod.ts",
+              "size": 280,
+              "path": "open/mod.ts"
+            }
+          ],
+          "path": "open"
+        },
+        {
+          "name": "openapi",
+          "children": [
+            {
+              "name": ".gitignore",
+              "size": 4,
+              "path": "openapi/.gitignore"
+            },
+            {
+              "name": "README.md",
+              "size": 674,
+              "path": "openapi/README.md"
+            },
+            {
+              "name": "build.ts",
+              "size": 485,
+              "path": "openapi/build.ts"
+            },
+            {
+              "name": "deno.json",
+              "size": 418,
+              "path": "openapi/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 13499,
+              "path": "openapi/deno.lock"
+            },
+            {
+              "name": "example.ts",
+              "size": 568,
+              "path": "openapi/example.ts"
+            },
+            {
+              "name": "main.ts",
+              "size": 175,
+              "path": "openapi/main.ts"
+            },
+            {
+              "name": "mod.ts",
+              "size": 4060,
+              "path": "openapi/mod.ts"
+            },
+            {
+              "name": "openapi.json",
+              "size": 4034,
+              "path": "openapi/openapi.json"
+            }
+          ],
+          "path": "openapi"
+        },
+        {
+          "name": "openauth-client",
+          "children": [
+            {
+              "name": "deno.json",
+              "size": 162,
+              "path": "openauth-client/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 3167,
+              "path": "openauth-client/deno.lock"
+            },
+            {
+              "name": "main.ts",
+              "size": 1952,
+              "path": "openauth-client/main.ts"
+            },
+            {
+              "name": "subjects.ts",
+              "size": 192,
+              "path": "openauth-client/subjects.ts"
+            }
+          ],
+          "path": "openauth-client"
+        },
+        {
+          "name": "openauth",
+          "children": [
+            {
+              "name": "deno.json",
+              "size": 130,
+              "path": "openauth/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 3107,
+              "path": "openauth/deno.lock"
+            },
+            {
+              "name": "main.ts",
+              "size": 872,
+              "path": "openauth/main.ts"
+            },
+            {
+              "name": "subjects.ts",
+              "size": 192,
+              "path": "openauth/subjects.ts"
+            }
+          ],
+          "path": "openauth"
+        },
+        {
+          "name": "outerbase",
+          "children": [
+            {
+              "name": "static",
+              "children": [
+                {
+                  "name": "index.html",
+                  "size": 642,
+                  "path": "outerbase/static/index.html"
+                }
+              ],
+              "path": "outerbase/static"
+            },
+            {
+              "name": ".gitignore",
+              "size": 7,
+              "path": "outerbase/.gitignore"
+            },
+            {
+              "name": "README.md",
+              "size": 142,
+              "path": "outerbase/README.md"
+            },
+            {
+              "name": "deno.json",
+              "size": 54,
+              "path": "outerbase/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 638,
+              "path": "outerbase/deno.lock"
+            },
+            {
+              "name": "main.ts",
+              "size": 317,
+              "path": "outerbase/main.ts"
+            }
+          ],
+          "path": "outerbase"
+        },
+        {
+          "name": "raw",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 203,
+              "path": "raw/main.ts"
+            }
+          ],
+          "path": "raw"
+        },
+        {
+          "name": "ray",
+          "children": [
+            {
+              "name": ".vscode",
+              "children": [
+                {
+                  "name": "launch.json",
+                  "size": 760,
+                  "path": "ray/.vscode/launch.json"
+                }
+              ],
+              "path": "ray/.vscode"
+            },
+            {
+              "name": "README.md",
+              "size": 516,
+              "path": "ray/README.md"
+            },
+            {
+              "name": "deno.json",
+              "size": 340,
+              "path": "ray/deno.json"
+            },
+            {
+              "name": "main.ts",
+              "size": 228,
+              "path": "ray/main.ts"
+            },
+            {
+              "name": "mod.ts",
+              "size": 2355,
+              "path": "ray/mod.ts"
+            }
+          ],
+          "path": "ray"
+        },
+        {
+          "name": "react",
+          "children": [
+            {
+              "name": "main.tsx",
+              "size": 403,
+              "path": "react/main.tsx"
+            }
+          ],
+          "path": "react"
+        },
+        {
+          "name": "schemas",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 1014,
+              "path": "schemas/main.ts"
+            }
+          ],
+          "path": "schemas"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "dot-shortcut.js",
+              "size": 376,
+              "path": "scripts/dot-shortcut.js"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": "sdk",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 265,
+              "path": "sdk/README.md"
+            },
+            {
+              "name": "deno.json",
+              "size": 445,
+              "path": "sdk/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 1121,
+              "path": "sdk/deno.lock"
+            },
+            {
+              "name": "main.ts",
+              "size": 246,
+              "path": "sdk/main.ts"
+            },
+            {
+              "name": "mod.ts",
+              "size": 1415,
+              "path": "sdk/mod.ts"
+            },
+            {
+              "name": "swagger.ts",
+              "size": 1321,
+              "path": "sdk/swagger.ts"
+            }
+          ],
+          "path": "sdk"
+        },
+        {
+          "name": "simplecss",
+          "children": [
+            {
+              "name": "index.html",
+              "size": 52336,
+              "path": "simplecss/index.html"
+            },
+            {
+              "name": "simple.css",
+              "size": 13491,
+              "path": "simplecss/simple.css"
+            }
+          ],
+          "path": "simplecss"
+        },
+        {
+          "name": "smallfeed",
+          "children": [
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": "index.html",
+                  "size": 2874,
+                  "path": "smallfeed/data/index.html"
+                }
+              ],
+              "path": "smallfeed/data"
+            },
+            {
+              "name": "pkg",
+              "children": [
+                {
+                  "name": "mod.ts",
+                  "size": 3794,
+                  "path": "smallfeed/pkg/mod.ts"
+                }
+              ],
+              "path": "smallfeed/pkg"
+            },
+            {
+              "name": "deno.json",
+              "size": 150,
+              "path": "smallfeed/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 3327,
+              "path": "smallfeed/deno.lock"
+            },
+            {
+              "name": "main.ts",
+              "size": 159,
+              "path": "smallfeed/main.ts"
+            },
+            {
+              "name": "test.vento",
+              "size": 2963,
+              "path": "smallfeed/test.vento"
+            }
+          ],
+          "path": "smallfeed"
+        },
+        {
+          "name": "sms",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 699,
+              "path": "sms/main.ts"
+            },
+            {
+              "name": "secrets.enc.env",
+              "size": 1702,
+              "path": "sms/secrets.enc.env"
+            },
+            {
+              "name": "smallweb.json",
+              "size": 24,
+              "path": "sms/smallweb.json"
+            }
+          ],
+          "path": "sms"
+        },
+        {
+          "name": "store",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 96,
+              "path": "store/main.ts"
+            }
+          ],
+          "path": "store"
+        },
+        {
+          "name": "todo",
+          "children": [
+            {
+              "name": "index.md",
+              "size": 490,
+              "path": "todo/index.md"
+            }
+          ],
+          "path": "todo"
+        },
+        {
+          "name": "vite-project",
+          "children": [
+            {
+              "name": "public",
+              "children": [
+                {
+                  "name": "vite.svg",
+                  "size": 1497,
+                  "path": "vite-project/public/vite.svg"
+                }
+              ],
+              "path": "vite-project/public"
+            },
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "assets",
+                  "children": [
+                    {
+                      "name": "react.svg",
+                      "size": 4126,
+                      "path": "vite-project/src/assets/react.svg"
+                    }
+                  ],
+                  "path": "vite-project/src/assets"
+                },
+                {
+                  "name": "App.css",
+                  "size": 606,
+                  "path": "vite-project/src/App.css"
+                },
+                {
+                  "name": "App.tsx",
+                  "size": 910,
+                  "path": "vite-project/src/App.tsx"
+                },
+                {
+                  "name": "index.css",
+                  "size": 1161,
+                  "path": "vite-project/src/index.css"
+                },
+                {
+                  "name": "main.tsx",
+                  "size": 230,
+                  "path": "vite-project/src/main.tsx"
+                },
+                {
+                  "name": "vite-env.d.ts",
+                  "size": 38,
+                  "path": "vite-project/src/vite-env.d.ts"
+                }
+              ],
+              "path": "vite-project/src"
+            },
+            {
+              "name": ".gitignore",
+              "size": 253,
+              "path": "vite-project/.gitignore"
+            },
+            {
+              "name": "README.md",
+              "size": 1607,
+              "path": "vite-project/README.md"
+            },
+            {
+              "name": "eslint.config.js",
+              "size": 734,
+              "path": "vite-project/eslint.config.js"
+            },
+            {
+              "name": "index.html",
+              "size": 356,
+              "path": "vite-project/index.html"
+            },
+            {
+              "name": "package-lock.json",
+              "size": 104599,
+              "path": "vite-project/package-lock.json"
+            },
+            {
+              "name": "package.json",
+              "size": 684,
+              "path": "vite-project/package.json"
+            },
+            {
+              "name": "tsconfig.app.json",
+              "size": 665,
+              "path": "vite-project/tsconfig.app.json"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 119,
+              "path": "vite-project/tsconfig.json"
+            },
+            {
+              "name": "tsconfig.node.json",
+              "size": 593,
+              "path": "vite-project/tsconfig.node.json"
+            },
+            {
+              "name": "vite.config.ts",
+              "size": 161,
+              "path": "vite-project/vite.config.ts"
+            }
+          ],
+          "path": "vite-project"
+        },
+        {
+          "name": "vscode-demo",
+          "children": [
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": "playerwashere",
+                  "children": [
+                    {
+                      "name": "smallweb.md",
+                      "size": 113,
+                      "path": "vscode-demo/data/playerwashere/smallweb.md"
+                    }
+                  ],
+                  "path": "vscode-demo/data/playerwashere"
+                },
+                {
+                  "name": "example.md",
+                  "size": 71,
+                  "path": "vscode-demo/data/example.md"
+                },
+                {
+                  "name": "hi.md",
+                  "size": 55,
+                  "path": "vscode-demo/data/hi.md"
+                },
+                {
+                  "name": "mohammad.md",
+                  "size": 23,
+                  "path": "vscode-demo/data/mohammad.md"
+                }
+              ],
+              "path": "vscode-demo/data"
+            },
+            {
+              "name": "main.ts",
+              "size": 131,
+              "path": "vscode-demo/main.ts"
+            },
+            {
+              "name": "secrets.enc.env",
+              "size": 1581,
+              "path": "vscode-demo/secrets.enc.env"
+            }
+          ],
+          "path": "vscode-demo"
+        },
+        {
+          "name": "vscode",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 152,
+              "path": "vscode/main.ts"
+            },
+            {
+              "name": "secrets.enc.env",
+              "size": 1584,
+              "path": "vscode/secrets.enc.env"
+            }
+          ],
+          "path": "vscode"
+        },
+        {
+          "name": "vt",
+          "children": [
+            {
+              "name": "main.ts",
+              "size": 110,
+              "path": "vt/main.ts"
+            },
+            {
+              "name": "secrets.enc.env",
+              "size": 1734,
+              "path": "vt/secrets.enc.env"
+            }
+          ],
+          "path": "vt"
+        },
+        {
+          "name": "webdav",
+          "children": [
+            {
+              "name": "pkg",
+              "children": [
+                {
+                  "name": "mod.ts",
+                  "size": 5569,
+                  "path": "webdav/pkg/mod.ts"
+                }
+              ],
+              "path": "webdav/pkg"
+            },
+            {
+              "name": ".envrc",
+              "size": 7,
+              "path": "webdav/.envrc"
+            },
+            {
+              "name": "README.md",
+              "size": 26,
+              "path": "webdav/README.md"
+            },
+            {
+              "name": "deno.json",
+              "size": 407,
+              "path": "webdav/deno.json"
+            },
+            {
+              "name": "deno.lock",
+              "size": 4111,
+              "path": "webdav/deno.lock"
+            },
+            {
+              "name": "main.ts",
+              "size": 166,
+              "path": "webdav/main.ts"
+            }
+          ],
+          "path": "webdav"
+        },
+        {
+          "name": "websockets",
+          "children": [
+            {
+              "name": "index.html",
+              "size": 1015,
+              "path": "websockets/index.html"
+            },
+            {
+              "name": "main.ts",
+              "size": 803,
+              "path": "websockets/main.ts"
+            }
+          ],
+          "path": "websockets"
+        },
+        {
+          "name": "www",
+          "children": [
+            {
+              "name": ".vitepress",
+              "children": [
+                {
+                  "name": "config.mts",
+                  "size": 4829,
+                  "path": "www/.vitepress/config.mts"
+                }
+              ],
+              "path": "www/.vitepress"
+            },
+            {
+              "name": ".vscode",
+              "children": [
+                {
+                  "name": "launch.json",
+                  "size": 760,
+                  "path": "www/.vscode/launch.json"
+                },
+                {
+                  "name": "settings.json",
+                  "size": 110,
+                  "path": "www/.vscode/settings.json"
+                }
+              ],
+              "path": "www/.vscode"
+            },
+            {
+              "name": "docs",
+              "children": [
+                {
+                  "name": "guides",
+                  "children": [
+                    {
+                      "name": "auth.md",
+                      "size": 1186,
+                      "path": "www/docs/guides/auth.md"
+                    },
+                    {
+                      "name": "commands.md",
+                      "size": 1019,
+                      "path": "www/docs/guides/commands.md"
+                    },
+                    {
+                      "name": "cron.md",
+                      "size": 536,
+                      "path": "www/docs/guides/cron.md"
+                    },
+                    {
+                      "name": "data.md",
+                      "size": 1600,
+                      "path": "www/docs/guides/data.md"
+                    },
+                    {
+                      "name": "env.md",
+                      "size": 3140,
+                      "path": "www/docs/guides/env.md"
+                    },
+                    {
+                      "name": "file-sync.md",
+                      "size": 1043,
+                      "path": "www/docs/guides/file-sync.md"
+                    },
+                    {
+                      "name": "http.md",
+                      "size": 4077,
+                      "path": "www/docs/guides/http.md"
+                    },
+                    {
+                      "name": "logs.md",
+                      "size": 725,
+                      "path": "www/docs/guides/logs.md"
+                    },
+                    {
+                      "name": "permissions.md",
+                      "size": 1290,
+                      "path": "www/docs/guides/permissions.md"
+                    },
+                    {
+                      "name": "plugins.md",
+                      "size": 757,
+                      "path": "www/docs/guides/plugins.md"
+                    },
+                    {
+                      "name": "routing.md",
+                      "size": 1033,
+                      "path": "www/docs/guides/routing.md"
+                    },
+                    {
+                      "name": "symlinks.md",
+                      "size": 930,
+                      "path": "www/docs/guides/symlinks.md"
+                    }
+                  ],
+                  "path": "www/docs/guides"
+                },
+                {
+                  "name": "hosting",
+                  "children": [
+                    {
+                      "name": "cloudflare",
+                      "children": [
+                        {
+                          "name": "apex.png",
+                          "size": 34042,
+                          "path": "www/docs/hosting/cloudflare/apex.png"
+                        },
+                        {
+                          "name": "dns.png",
+                          "size": 92110,
+                          "path": "www/docs/hosting/cloudflare/dns.png"
+                        },
+                        {
+                          "name": "index.md",
+                          "size": 1671,
+                          "path": "www/docs/hosting/cloudflare/index.md"
+                        },
+                        {
+                          "name": "tunnel.png",
+                          "size": 151559,
+                          "path": "www/docs/hosting/cloudflare/tunnel.png"
+                        }
+                      ],
+                      "path": "www/docs/hosting/cloudflare"
+                    },
+                    {
+                      "name": "local",
+                      "children": [
+                        {
+                          "name": "architecture.excalidraw.png",
+                          "size": 130695,
+                          "path": "www/docs/hosting/local/architecture.excalidraw.png"
+                        },
+                        {
+                          "name": "index.md",
+                          "size": 748,
+                          "path": "www/docs/hosting/local/index.md"
+                        },
+                        {
+                          "name": "linux.md",
+                          "size": 1166,
+                          "path": "www/docs/hosting/local/linux.md"
+                        },
+                        {
+                          "name": "macos.md",
+                          "size": 2383,
+                          "path": "www/docs/hosting/local/macos.md"
+                        },
+                        {
+                          "name": "windows.md",
+                          "size": 1365,
+                          "path": "www/docs/hosting/local/windows.md"
+                        }
+                      ],
+                      "path": "www/docs/hosting/local"
+                    },
+                    {
+                      "name": "deno-deploy.md",
+                      "size": 622,
+                      "path": "www/docs/hosting/deno-deploy.md"
+                    },
+                    {
+                      "name": "runtipi.md",
+                      "size": 420,
+                      "path": "www/docs/hosting/runtipi.md"
+                    },
+                    {
+                      "name": "smallweb-cloud.md",
+                      "size": 158,
+                      "path": "www/docs/hosting/smallweb-cloud.md"
+                    },
+                    {
+                      "name": "vps.md",
+                      "size": 1905,
+                      "path": "www/docs/hosting/vps.md"
+                    },
+                    {
+                      "name": "vps.png",
+                      "size": 59210,
+                      "path": "www/docs/hosting/vps.png"
+                    }
+                  ],
+                  "path": "www/docs/hosting"
+                },
+                {
+                  "name": "reference",
+                  "children": [
+                    {
+                      "name": "app-config.md",
+                      "size": 829,
+                      "path": "www/docs/reference/app-config.md"
+                    },
+                    {
+                      "name": "cli.md",
+                      "size": 8076,
+                      "path": "www/docs/reference/cli.md"
+                    },
+                    {
+                      "name": "editor.md",
+                      "size": 402,
+                      "path": "www/docs/reference/editor.md"
+                    },
+                    {
+                      "name": "global-config.md",
+                      "size": 1370,
+                      "path": "www/docs/reference/global-config.md"
+                    }
+                  ],
+                  "path": "www/docs/reference"
+                },
+                {
+                  "name": "getting-started.md",
+                  "size": 1479,
+                  "path": "www/docs/getting-started.md"
+                }
+              ],
+              "path": "www/docs"
+            },
+            {
+              "name": "public",
+              "children": [
+                {
+                  "name": "apple-touch-icon.png",
+                  "size": 2416,
+                  "path": "www/public/apple-touch-icon.png"
+                },
+                {
+                  "name": "banner-icon.png",
+                  "size": 6072,
+                  "path": "www/public/banner-icon.png"
+                },
+                {
+                  "name": "favicon-96x96.png",
+                  "size": 1413,
+                  "path": "www/public/favicon-96x96.png"
+                },
+                {
+                  "name": "favicon.ico",
+                  "size": 15086,
+                  "path": "www/public/favicon.ico"
+                },
+                {
+                  "name": "favicon.svg",
+                  "size": 4379,
+                  "path": "www/public/favicon.svg"
+                },
+                {
+                  "name": "icon-dark.svg",
+                  "size": 3670,
+                  "path": "www/public/icon-dark.svg"
+                },
+                {
+                  "name": "icon-light.jpeg",
+                  "size": 15182,
+                  "path": "www/public/icon-light.jpeg"
+                },
+                {
+                  "name": "icon-light.png",
+                  "size": 8839,
+                  "path": "www/public/icon-light.png"
+                },
+                {
+                  "name": "icon-light.svg",
+                  "size": 3662,
+                  "path": "www/public/icon-light.svg"
+                },
+                {
+                  "name": "web-app-manifest-192x192.png",
+                  "size": 2800,
+                  "path": "www/public/web-app-manifest-192x192.png"
+                },
+                {
+                  "name": "web-app-manifest-512x512.png",
+                  "size": 11624,
+                  "path": "www/public/web-app-manifest-512x512.png"
+                }
+              ],
+              "path": "www/public"
+            },
+            {
+              "name": ".gitignore",
+              "size": 46,
+              "path": "www/.gitignore"
+            },
+            {
+              "name": "README.md",
+              "size": 217,
+              "path": "www/README.md"
+            },
+            {
+              "name": "deno.lock",
+              "size": 39432,
+              "path": "www/deno.lock"
+            },
+            {
+              "name": "index.md",
+              "size": 1381,
+              "path": "www/index.md"
+            },
+            {
+              "name": "main.ts",
+              "size": 680,
+              "path": "www/main.ts"
+            },
+            {
+              "name": "package-lock.json",
+              "size": 86028,
+              "path": "www/package-lock.json"
+            },
+            {
+              "name": "package.json",
+              "size": 237,
+              "path": "www/package.json"
+            }
+          ],
+          "path": "www"
+        },
+        {
+          "name": ".envrc",
+          "size": 74,
+          "path": ".envrc"
+        },
+        {
+          "name": ".gitignore",
+          "size": 18,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".gitmodules",
+          "size": 569,
+          "path": ".gitmodules"
+        },
+        {
+          "name": ".sops.yaml",
+          "size": 211,
+          "path": ".sops.yaml"
+        },
+        {
+          "name": "bsky",
+          "size": 9,
+          "path": "bsky"
+        },
+        {
+          "name": "excalidraw-demo",
+          "size": 10,
+          "path": "excalidraw-demo"
+        },
+        {
+          "name": "gh",
+          "size": 8,
+          "path": "gh"
+        },
+        {
+          "name": "plugins",
+          "size": 17,
+          "path": "plugins"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 352,
+    "totalSize": 7390324
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

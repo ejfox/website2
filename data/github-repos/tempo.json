@@ -15,6 +15,369 @@
     "Swift": 74475
   },
   "diskUsage": 37,
+  "fileTree": {
+    "files": [
+      {
+        "path": "README.md",
+        "size": 330
+      },
+      {
+        "path": "Tempo.xcodeproj/project.pbxproj",
+        "size": 31011
+      },
+      {
+        "path": "Tempo.xcodeproj/project.xcworkspace/contents.xcworkspacedata",
+        "size": 135
+      },
+      {
+        "path": "Tempo.xcodeproj/xcuserdata/ejfox.xcuserdatad/xcschemes/xcschememanagement.plist",
+        "size": 463
+      },
+      {
+        "path": "Tempo/Assets.xcassets/AccentColor.colorset/Contents.json",
+        "size": 123
+      },
+      {
+        "path": "Tempo/Assets.xcassets/AppIcon.appiconset/Contents.json",
+        "size": 1429
+      },
+      {
+        "path": "Tempo/Assets.xcassets/Contents.json",
+        "size": 63
+      },
+      {
+        "path": "Tempo/ContentView.swift",
+        "size": 26284
+      },
+      {
+        "path": "Tempo/Info.plist",
+        "size": 352
+      },
+      {
+        "path": "Tempo/Persistence.swift",
+        "size": 9389
+      },
+      {
+        "path": "Tempo/Tempo.entitlements",
+        "size": 735
+      },
+      {
+        "path": "Tempo/Tempo.xcdatamodeld/.xccurrentversion",
+        "size": 258
+      },
+      {
+        "path": "Tempo/Tempo.xcdatamodeld/Tempo.xcdatamodel/contents",
+        "size": 2615
+      },
+      {
+        "path": "Tempo/TempoApp.swift",
+        "size": 14736
+      },
+      {
+        "path": "TempoTests/TempoTests.swift",
+        "size": 8502
+      },
+      {
+        "path": "TempoUITests/TempoUITests.swift",
+        "size": 1292
+      },
+      {
+        "path": "TempoUITests/TempoUITestsLaunchTests.swift",
+        "size": 805
+      },
+      {
+        "path": "TempoWidgets/Assets.xcassets/AccentColor.colorset/Contents.json",
+        "size": 123
+      },
+      {
+        "path": "TempoWidgets/Assets.xcassets/AppIcon.appiconset/Contents.json",
+        "size": 607
+      },
+      {
+        "path": "TempoWidgets/Assets.xcassets/Contents.json",
+        "size": 63
+      },
+      {
+        "path": "TempoWidgets/Assets.xcassets/WidgetBackground.colorset/Contents.json",
+        "size": 123
+      },
+      {
+        "path": "TempoWidgets/Info.plist",
+        "size": 318
+      },
+      {
+        "path": "TempoWidgets/TempoWidgets.swift",
+        "size": 2328
+      },
+      {
+        "path": "TempoWidgets/TempoWidgetsBundle.swift",
+        "size": 295
+      },
+      {
+        "path": "TempoWidgets/TempoWidgetsControl.swift",
+        "size": 1347
+      },
+      {
+        "path": "TempoWidgets/TempoWidgetsLiveActivity.swift",
+        "size": 5892
+      },
+      {
+        "path": "TempoWidgetsLiveActivity_TEMPLATE.swift",
+        "size": 3605
+      }
+    ],
+    "tree": {
+      "name": "tempo",
+      "children": [
+        {
+          "name": "Tempo.xcodeproj",
+          "children": [
+            {
+              "name": "project.xcworkspace",
+              "children": [
+                {
+                  "name": "contents.xcworkspacedata",
+                  "size": 135,
+                  "path": "Tempo.xcodeproj/project.xcworkspace/contents.xcworkspacedata"
+                }
+              ],
+              "path": "Tempo.xcodeproj/project.xcworkspace"
+            },
+            {
+              "name": "xcuserdata",
+              "children": [
+                {
+                  "name": "ejfox.xcuserdatad",
+                  "children": [
+                    {
+                      "name": "xcschemes",
+                      "children": [
+                        {
+                          "name": "xcschememanagement.plist",
+                          "size": 463,
+                          "path": "Tempo.xcodeproj/xcuserdata/ejfox.xcuserdatad/xcschemes/xcschememanagement.plist"
+                        }
+                      ],
+                      "path": "Tempo.xcodeproj/xcuserdata/ejfox.xcuserdatad/xcschemes"
+                    }
+                  ],
+                  "path": "Tempo.xcodeproj/xcuserdata/ejfox.xcuserdatad"
+                }
+              ],
+              "path": "Tempo.xcodeproj/xcuserdata"
+            },
+            {
+              "name": "project.pbxproj",
+              "size": 31011,
+              "path": "Tempo.xcodeproj/project.pbxproj"
+            }
+          ],
+          "path": "Tempo.xcodeproj"
+        },
+        {
+          "name": "Tempo",
+          "children": [
+            {
+              "name": "Assets.xcassets",
+              "children": [
+                {
+                  "name": "AccentColor.colorset",
+                  "children": [
+                    {
+                      "name": "Contents.json",
+                      "size": 123,
+                      "path": "Tempo/Assets.xcassets/AccentColor.colorset/Contents.json"
+                    }
+                  ],
+                  "path": "Tempo/Assets.xcassets/AccentColor.colorset"
+                },
+                {
+                  "name": "AppIcon.appiconset",
+                  "children": [
+                    {
+                      "name": "Contents.json",
+                      "size": 1429,
+                      "path": "Tempo/Assets.xcassets/AppIcon.appiconset/Contents.json"
+                    }
+                  ],
+                  "path": "Tempo/Assets.xcassets/AppIcon.appiconset"
+                },
+                {
+                  "name": "Contents.json",
+                  "size": 63,
+                  "path": "Tempo/Assets.xcassets/Contents.json"
+                }
+              ],
+              "path": "Tempo/Assets.xcassets"
+            },
+            {
+              "name": "Tempo.xcdatamodeld",
+              "children": [
+                {
+                  "name": "Tempo.xcdatamodel",
+                  "children": [
+                    {
+                      "name": "contents",
+                      "size": 2615,
+                      "path": "Tempo/Tempo.xcdatamodeld/Tempo.xcdatamodel/contents"
+                    }
+                  ],
+                  "path": "Tempo/Tempo.xcdatamodeld/Tempo.xcdatamodel"
+                },
+                {
+                  "name": ".xccurrentversion",
+                  "size": 258,
+                  "path": "Tempo/Tempo.xcdatamodeld/.xccurrentversion"
+                }
+              ],
+              "path": "Tempo/Tempo.xcdatamodeld"
+            },
+            {
+              "name": "ContentView.swift",
+              "size": 26284,
+              "path": "Tempo/ContentView.swift"
+            },
+            {
+              "name": "Info.plist",
+              "size": 352,
+              "path": "Tempo/Info.plist"
+            },
+            {
+              "name": "Persistence.swift",
+              "size": 9389,
+              "path": "Tempo/Persistence.swift"
+            },
+            {
+              "name": "Tempo.entitlements",
+              "size": 735,
+              "path": "Tempo/Tempo.entitlements"
+            },
+            {
+              "name": "TempoApp.swift",
+              "size": 14736,
+              "path": "Tempo/TempoApp.swift"
+            }
+          ],
+          "path": "Tempo"
+        },
+        {
+          "name": "TempoTests",
+          "children": [
+            {
+              "name": "TempoTests.swift",
+              "size": 8502,
+              "path": "TempoTests/TempoTests.swift"
+            }
+          ],
+          "path": "TempoTests"
+        },
+        {
+          "name": "TempoUITests",
+          "children": [
+            {
+              "name": "TempoUITests.swift",
+              "size": 1292,
+              "path": "TempoUITests/TempoUITests.swift"
+            },
+            {
+              "name": "TempoUITestsLaunchTests.swift",
+              "size": 805,
+              "path": "TempoUITests/TempoUITestsLaunchTests.swift"
+            }
+          ],
+          "path": "TempoUITests"
+        },
+        {
+          "name": "TempoWidgets",
+          "children": [
+            {
+              "name": "Assets.xcassets",
+              "children": [
+                {
+                  "name": "AccentColor.colorset",
+                  "children": [
+                    {
+                      "name": "Contents.json",
+                      "size": 123,
+                      "path": "TempoWidgets/Assets.xcassets/AccentColor.colorset/Contents.json"
+                    }
+                  ],
+                  "path": "TempoWidgets/Assets.xcassets/AccentColor.colorset"
+                },
+                {
+                  "name": "AppIcon.appiconset",
+                  "children": [
+                    {
+                      "name": "Contents.json",
+                      "size": 607,
+                      "path": "TempoWidgets/Assets.xcassets/AppIcon.appiconset/Contents.json"
+                    }
+                  ],
+                  "path": "TempoWidgets/Assets.xcassets/AppIcon.appiconset"
+                },
+                {
+                  "name": "WidgetBackground.colorset",
+                  "children": [
+                    {
+                      "name": "Contents.json",
+                      "size": 123,
+                      "path": "TempoWidgets/Assets.xcassets/WidgetBackground.colorset/Contents.json"
+                    }
+                  ],
+                  "path": "TempoWidgets/Assets.xcassets/WidgetBackground.colorset"
+                },
+                {
+                  "name": "Contents.json",
+                  "size": 63,
+                  "path": "TempoWidgets/Assets.xcassets/Contents.json"
+                }
+              ],
+              "path": "TempoWidgets/Assets.xcassets"
+            },
+            {
+              "name": "Info.plist",
+              "size": 318,
+              "path": "TempoWidgets/Info.plist"
+            },
+            {
+              "name": "TempoWidgets.swift",
+              "size": 2328,
+              "path": "TempoWidgets/TempoWidgets.swift"
+            },
+            {
+              "name": "TempoWidgetsBundle.swift",
+              "size": 295,
+              "path": "TempoWidgets/TempoWidgetsBundle.swift"
+            },
+            {
+              "name": "TempoWidgetsControl.swift",
+              "size": 1347,
+              "path": "TempoWidgets/TempoWidgetsControl.swift"
+            },
+            {
+              "name": "TempoWidgetsLiveActivity.swift",
+              "size": 5892,
+              "path": "TempoWidgets/TempoWidgetsLiveActivity.swift"
+            }
+          ],
+          "path": "TempoWidgets"
+        },
+        {
+          "name": "README.md",
+          "size": 330,
+          "path": "README.md"
+        },
+        {
+          "name": "TempoWidgetsLiveActivity_TEMPLATE.swift",
+          "size": 3605,
+          "path": "TempoWidgetsLiveActivity_TEMPLATE.swift"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 27,
+    "totalSize": 113223
+  },
   "topics": [],
   "readme": {
     "html": "<img width=\"484\" height=\"1030\" alt=\"screenshot 2025-08-16 at 11 51 04 AM\" src=\"https://github.com/user-attachments/assets/a2684407-d7e6-4266-98d7-a2c97e73667c\" />\n<img width=\"484\" height=\"1030\" alt=\"screenshot 2025-08-16 at 11 51 07 AM\" src=\"https://github.com/user-attachments/assets/b6040683-202b-4d5a-a5e6-21999a1136ef\" />",

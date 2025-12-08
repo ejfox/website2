@@ -15,6 +15,54 @@
     "Python": 2041
   },
   "diskUsage": 3,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 1137
+      },
+      {
+        "path": "README.md",
+        "size": 1236
+      },
+      {
+        "path": "requirements.txt",
+        "size": 22
+      },
+      {
+        "path": "showtouch.py",
+        "size": 2041
+      }
+    ],
+    "tree": {
+      "name": "showtouch",
+      "children": [
+        {
+          "name": ".gitignore",
+          "size": 1137,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 1236,
+          "path": "README.md"
+        },
+        {
+          "name": "requirements.txt",
+          "size": 22,
+          "path": "requirements.txt"
+        },
+        {
+          "name": "showtouch.py",
+          "size": 2041,
+          "path": "showtouch.py"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 4,
+    "totalSize": 4436
+  },
   "topics": [
     "ascii",
     "cli",

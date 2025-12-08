@@ -1,11 +1,11 @@
 <template>
   <div
     v-if="stats"
-    class="grid gap-1 auto-fit-columns font-mono overflow-hidden"
+    class="grid gap-0.5 auto-fit-columns font-mono overflow-hidden"
   >
     <!-- Primary Stats -->
     <div class="col-span-full">
-      <div class="flex justify-around items-start gap-8 py-4">
+      <div class="flex justify-around items-start gap-2 py-2">
         <div class="text-center">
           <div class="stat-value text-2xl font-bold">
             <AnimatedNumber
@@ -18,7 +18,7 @@
           </div>
           <!-- eslint-disable max-len,vue/max-len -->
           <div
-            class="stat-label text-xs text-zinc-500 uppercase tracking-widest mt-1"
+            class="stat-label text-xs text-zinc-500 uppercase tracking-widest mt-2"
           >
             GITHUB COMMITS
           </div>
@@ -35,7 +35,7 @@
           </div>
           <!-- eslint-disable max-len,vue/max-len -->
           <div
-            class="stat-label text-xs text-zinc-500 uppercase tracking-widest mt-1"
+            class="stat-label text-xs text-zinc-500 uppercase tracking-widest mt-2"
           >
             REPOS
           </div>
@@ -59,7 +59,7 @@
     <!-- Recent Commits -->
     <div v-if="hasCommits" class="break-inside-avoid overflow-hidden min-w-0">
       <StatsSectionHeader title="RECENT COMMITS" />
-      <div class="space-y-1.5">
+      <div class="space-y-2">
         <div
           v-for="project in recentProjects.slice(0, 10)"
           :key="project.name"

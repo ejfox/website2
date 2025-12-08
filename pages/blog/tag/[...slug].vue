@@ -3,7 +3,7 @@
 <template>
   <div>
     <!-- Header with tag info -->
-    <header class="mb-4 relative">
+    <header class="mb-4 relative pt-8">
       <!-- Swiss Grid Container matching blog posts -->
       <div class="max-w-4xl mx-auto">
         <!-- Tag title -->
@@ -18,14 +18,14 @@
         <!-- Compact metadata bar matching blog posts -->
         <div class="border-b border-zinc-200 dark:border-zinc-800">
           <div class="metadata-bar">
-            <span class="flex items-center gap-1 whitespace-nowrap">
+            <span class="flex items-center gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">ENTRIES</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{ filteredPosts?.length || 0 }}
               </span>
             </span>
             <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
+            <span class="flex items-center gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">WORDS</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{
@@ -39,7 +39,7 @@
               </span>
             </span>
             <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
+            <span class="flex items-center gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">READ</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{
@@ -55,7 +55,7 @@
               </span>
             </span>
             <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
-            <span class="flex items-center gap-1 whitespace-nowrap">
+            <span class="flex items-center gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">TAG</span>
               <span class="text-zinc-600 dark:text-zinc-300 lowercase">
                 {{ tag }}
@@ -107,7 +107,7 @@
                 <!-- Word count -->
                 <span
                   v-if="post?.metadata?.words || post?.words"
-                  class="flex items-center gap-1"
+                  class="flex items-center gap-0.5"
                 >
                   <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
                   <span>
@@ -134,7 +134,7 @@
               <!-- Tags -->
               <div
                 v-if="(post?.tags || post?.metadata?.tags)?.length"
-                class="flex flex-wrap gap-2 mt-3"
+                class="flex flex-wrap gap-2 mt-4"
               >
                 <a
                   v-for="postTag in post?.tags || post?.metadata?.tags"

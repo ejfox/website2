@@ -16,6 +16,315 @@
     "TypeScript": 309
   },
   "diskUsage": 18662,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 57
+      },
+      {
+        "path": "README.md",
+        "size": 605
+      },
+      {
+        "path": "app.vue",
+        "size": 503
+      },
+      {
+        "path": "cities.numbers",
+        "size": 204707
+      },
+      {
+        "path": "components/MapTour.vue",
+        "size": 4120
+      },
+      {
+        "path": "components/content/CityReportCard.vue",
+        "size": 2757
+      },
+      {
+        "path": "components/content/ProseP.vue",
+        "size": 65
+      },
+      {
+        "path": "content/ReportCard.md",
+        "size": 0
+      },
+      {
+        "path": "content/about.md",
+        "size": 35
+      },
+      {
+        "path": "content/index.md",
+        "size": 21204
+      },
+      {
+        "path": "content/old_index.md",
+        "size": 8573
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 309
+      },
+      {
+        "path": "package.json",
+        "size": 462
+      },
+      {
+        "path": "pages/ReportCard.vue",
+        "size": 154
+      },
+      {
+        "path": "pages/[...slug].vue",
+        "size": 128
+      },
+      {
+        "path": "public/774730.pdf",
+        "size": 2862279
+      },
+      {
+        "path": "public/ai_export/nationgraphics.png",
+        "size": 146503
+      },
+      {
+        "path": "public/ai_export/thenation_graphics_r2-01.png",
+        "size": 347922
+      },
+      {
+        "path": "public/ai_export/thenation_graphics_r2-02.png",
+        "size": 196345
+      },
+      {
+        "path": "public/ai_export/thenation_graphics_r2-03.png",
+        "size": 239193
+      },
+      {
+        "path": "public/cities.csv",
+        "size": 2289
+      },
+      {
+        "path": "public/cities.numbers",
+        "size": 204707
+      },
+      {
+        "path": "public/housless_murders_by_county.png",
+        "size": 231688
+      },
+      {
+        "path": "public/lapd_crime_stats.png",
+        "size": 321725
+      },
+      {
+        "path": "public/map-cities-with-serialkillers.png",
+        "size": 253963
+      },
+      {
+        "path": "public/thenation_graphics.ai",
+        "size": 5013756
+      },
+      {
+        "path": "public/thenation_graphics_r2.ai",
+        "size": 627602
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 88
+      },
+      {
+        "path": "yarn.lock",
+        "size": 275646
+      }
+    ],
+    "tree": {
+      "name": "thenation-homelessness-story",
+      "children": [
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "content",
+              "children": [
+                {
+                  "name": "CityReportCard.vue",
+                  "size": 2757,
+                  "path": "components/content/CityReportCard.vue"
+                },
+                {
+                  "name": "ProseP.vue",
+                  "size": 65,
+                  "path": "components/content/ProseP.vue"
+                }
+              ],
+              "path": "components/content"
+            },
+            {
+              "name": "MapTour.vue",
+              "size": 4120,
+              "path": "components/MapTour.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "content",
+          "children": [
+            {
+              "name": "ReportCard.md",
+              "size": 0,
+              "path": "content/ReportCard.md"
+            },
+            {
+              "name": "about.md",
+              "size": 35,
+              "path": "content/about.md"
+            },
+            {
+              "name": "index.md",
+              "size": 21204,
+              "path": "content/index.md"
+            },
+            {
+              "name": "old_index.md",
+              "size": 8573,
+              "path": "content/old_index.md"
+            }
+          ],
+          "path": "content"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "ReportCard.vue",
+              "size": 154,
+              "path": "pages/ReportCard.vue"
+            },
+            {
+              "name": "[...slug].vue",
+              "size": 128,
+              "path": "pages/[...slug].vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "ai_export",
+              "children": [
+                {
+                  "name": "nationgraphics.png",
+                  "size": 146503,
+                  "path": "public/ai_export/nationgraphics.png"
+                },
+                {
+                  "name": "thenation_graphics_r2-01.png",
+                  "size": 347922,
+                  "path": "public/ai_export/thenation_graphics_r2-01.png"
+                },
+                {
+                  "name": "thenation_graphics_r2-02.png",
+                  "size": 196345,
+                  "path": "public/ai_export/thenation_graphics_r2-02.png"
+                },
+                {
+                  "name": "thenation_graphics_r2-03.png",
+                  "size": 239193,
+                  "path": "public/ai_export/thenation_graphics_r2-03.png"
+                }
+              ],
+              "path": "public/ai_export"
+            },
+            {
+              "name": "774730.pdf",
+              "size": 2862279,
+              "path": "public/774730.pdf"
+            },
+            {
+              "name": "cities.csv",
+              "size": 2289,
+              "path": "public/cities.csv"
+            },
+            {
+              "name": "cities.numbers",
+              "size": 204707,
+              "path": "public/cities.numbers"
+            },
+            {
+              "name": "housless_murders_by_county.png",
+              "size": 231688,
+              "path": "public/housless_murders_by_county.png"
+            },
+            {
+              "name": "lapd_crime_stats.png",
+              "size": 321725,
+              "path": "public/lapd_crime_stats.png"
+            },
+            {
+              "name": "map-cities-with-serialkillers.png",
+              "size": 253963,
+              "path": "public/map-cities-with-serialkillers.png"
+            },
+            {
+              "name": "thenation_graphics.ai",
+              "size": 5013756,
+              "path": "public/thenation_graphics.ai"
+            },
+            {
+              "name": "thenation_graphics_r2.ai",
+              "size": 627602,
+              "path": "public/thenation_graphics_r2.ai"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": ".gitignore",
+          "size": 57,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 605,
+          "path": "README.md"
+        },
+        {
+          "name": "app.vue",
+          "size": 503,
+          "path": "app.vue"
+        },
+        {
+          "name": "cities.numbers",
+          "size": 204707,
+          "path": "cities.numbers"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 309,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 462,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 88,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 275646,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 29,
+    "totalSize": 10967385
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"content-v2-minimal-starter\">Content v2 Minimal Starter</h1>\n<p>Look at the <a href=\"https://content-v2.nuxtjs.org/\">Content documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install --shamefully-hoist\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\">npm run preview\n</code></pre>\n<p>Checkout the <a href=\"https://v3.nuxtjs.org/docs/deployment\">deployment documentation</a> for more information.</p>",

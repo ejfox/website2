@@ -1,17 +1,36 @@
 # Frontend Design Skill - Enhanced for ejfox.com
 
-## Core Philosophy: Intentional Minimalism + Swiss Rigor
+## Core Philosophy: Brutalist Minimalism + Tuftian Data Density
 
-**Your Design Direction:** Editorial data journalism meets Swiss typographic grid system. Refined minimalism with Tuftian data density—precision over intensity.
+**Your Design Direction:** Editorial data journalism meets Swiss typographic grid system meets web brutalism. Unadorned minimalism with maximum data-ink ratio—precision over decoration, function over form.
 
 ## Design Thinking Framework
 
 **Four Questions Before Implementation:**
 
 1. **Purpose**: What problem does this interface solve? (Data presentation, project showcase, information hierarchy)
-2. **Tone**: Refined minimalism with journalistic clarity (NOT brutalist, NOT maximalist)
-3. **Constraints**: Dark-first, 8px baseline grid, no anime.js, Georgia serif
-4. **Differentiation**: Tuftian micro-visualizations + Swiss grid precision = distinctive data-dense editorial
+2. **Tone**: Brutalist minimalism with Tuftian data density (NO decoration, NO ornamentation, NO chart junk)
+3. **Constraints**: Dark-first, 8px baseline grid, no anime.js, Georgia serif, maximize data-ink ratio
+4. **Differentiation**: Tuftian micro-visualizations + Swiss grid precision + brutalist restraint = distinctive data-dense editorial
+
+## Tuftian Data Density Principles
+
+**Core Tenets:**
+
+1. **Maximize Data-Ink Ratio** - Remove all non-data ink. Every pixel must serve information delivery.
+2. **Small Multiples** - Repeated micro-visualizations reveal patterns better than single large charts
+3. **Sparklines** - Intense, simple, word-sized graphics embedded in text flow
+4. **Tables Over Charts** - Well-designed tables are often superior to decorative charts
+5. **No Chart Junk** - Delete gridlines, backgrounds, borders, 3D effects, decorative fills
+
+**Implementation Rules:**
+
+- Remove backgrounds from charts (transparent or match page color)
+- Eliminate unnecessary borders and boxes
+- Use minimal axis labels (only what's essential)
+- Embrace whitespace as data separator
+- Inline data visualizations within text (sparklines, micro-bars)
+- Dense information tables with careful alignment
 
 ## Typography System
 
@@ -94,25 +113,33 @@
 - Diagonal flow through staggered card heights
 - Embrace negative space as design element
 
-## Visual Details
+## Visual Details: Brutalist Restraint
 
-**Minimal Approach (Your Style):**
+**Brutalist Minimalism (Your Style):**
 
-- Atmospheric depth through SUBTLE gradients
-- No decorative patterns (data is the decoration)
-- Micro-visualizations (sparklines, inline charts)
+- Raw, unadorned materials (semantic HTML, minimal CSS)
+- Exposed structure (grid systems visible, not hidden)
+- Function dictates form (no decoration without purpose)
+- Honest materials (no skeuomorphism, no fake textures)
+- Micro-visualizations as functional elements (sparklines, inline charts)
 
-**Avoid:**
+**Avoid (Chart Junk & Decoration):**
 
-- Dramatic shadows (too heavy)
-- Geometric patterns (visual noise)
+- Dramatic shadows (visual noise)
+- Geometric patterns (reduces data-ink ratio)
 - Custom cursors (unnecessary complexity)
+- Gradients for decoration (only for data representation)
+- Rounded corners without purpose
+- Drop shadows without hierarchy need
+- Any "polish" that doesn't serve information architecture
 
-**Embrace:**
+**Embrace (Data-Driven Elements):**
 
-- Layered transparencies for depth
+- Stark typography contrasts
+- Grid-based composition (visible structure)
 - Data-driven decorative elements (charts become art)
-- Subtle texture for tactile feel
+- Raw color (no gradients unless representing data)
+- Monospace for tabular data alignment
 
 ## Critical Restrictions
 
@@ -157,14 +184,36 @@
 - **Layout**: Max 65ch, left-aligned, sidenotes in margin
 - **Motion**: Minimal—focus on reading experience
 
+## Data Visualization Specific Guidance
+
+**When Creating Charts/Graphs:**
+
+1. **Remove all backgrounds** - Let page color show through
+2. **Minimal axes** - Only label what's necessary for comprehension
+3. **No gridlines** - Use whitespace and alignment instead
+4. **Direct labeling** - Label data points directly, not with legends
+5. **Small multiples** - Multiple small charts > one large complex chart
+6. **Sparklines everywhere** - Word-sized graphics in tables, lists, metadata
+7. **Tables first** - Consider if a well-designed table is better than a chart
+
+**Brutalist Data Viz:**
+
+- Exposed data (show the numbers, not just the visualization)
+- Monospace alignment for tabular data
+- ASCII-style charts where appropriate
+- Raw, unsmoothed data (honesty over aesthetics)
+- Dense information displays (maximize useful pixels)
+
 ## Key Principles
 
-1. **Bold minimalism beats timid decoration**
-2. **Data density through precision, not clutter**
-3. **Every design choice serves information architecture**
-4. **Swiss rigor + Editorial warmth = Distinctive voice**
-5. **Delete before adding—simplicity beats complexity**
+1. **Maximize data-ink ratio** - Delete until only information remains
+2. **Brutalist honesty** - Function over form, structure over decoration
+3. **Data density through precision** - Tuftian small multiples, not clutter
+4. **Every design choice serves information architecture**
+5. **Swiss rigor + Brutalist restraint = Distinctive voice**
+6. **Delete before adding** - Simplicity beats complexity
+7. **Expose, don't hide** - Show structure, grids, and data relationships
 
 ---
 
-_This skill merges Anthropic's frontend-design principles with ejfox.com's Swiss/Tuftian design system for intentional, distinctive, production-grade interfaces._
+_This skill merges Anthropic's frontend-design principles with ejfox.com's Tuftian/Brutalist design system for maximum data density, minimal decoration, and honest information architecture._

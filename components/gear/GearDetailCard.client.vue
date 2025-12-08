@@ -5,7 +5,7 @@
       <div class="text-4xl mb-2">
         {{ getTypeSymbol(gearItem.Type) }}
       </div>
-      <h1 class="text-2xl font-light text-zinc-900 dark:text-zinc-100 mb-1">
+      <h1 class="text-2xl font-light text-zinc-900 dark:text-zinc-100 mb-2">
         {{ gearItem.Name }}
       </h1>
       <div :class="headerLabelClass">
@@ -129,7 +129,7 @@ const formatFieldName = (fieldName) => {
 const headerLabelClass =
   'text-sm uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
 const weightDisplayClass =
-  'text-3xl font-bold font-mono mb-1 text-zinc-900 dark:text-zinc-100'
+  'text-3xl font-bold font-mono mb-2 text-zinc-900 dark:text-zinc-100'
 const weightLabelClass =
   'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
 const tierLabelClass =
@@ -225,7 +225,6 @@ const _animateGearCardReveal = async () => {
 //   )
 //   if (details?.length) {
 //     const pulseDetails = () => {
-// DELETED: All broken animation code
 // Expose the exit function to parent components
 defineExpose({
   triggerExit,

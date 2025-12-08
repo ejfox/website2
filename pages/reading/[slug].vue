@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen">
-    <div class="max-w-4xl mx-auto px-4 py-8">
+    <div class="max-w-4xl mx-auto px-4 pt-8">
       <!-- Loading State -->
       <div v-if="pending" class="animate-pulse">
         <div class="h-8 bg-zinc-200 dark:bg-zinc-800 rounded w-3/4 mb-4"></div>

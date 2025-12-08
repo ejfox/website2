@@ -19,6 +19,513 @@
     "Dockerfile": 1233
   },
   "diskUsage": 3241,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".claude/settings.local.json",
+        "size": 82
+      },
+      {
+        "path": ".dockerignore",
+        "size": 159
+      },
+      {
+        "path": ".env-example",
+        "size": 84
+      },
+      {
+        "path": ".gitignore",
+        "size": 224
+      },
+      {
+        "path": ".npmrc",
+        "size": 53
+      },
+      {
+        "path": ".nvmrc",
+        "size": 9
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 268
+      },
+      {
+        "path": "Dockerfile",
+        "size": 1233
+      },
+      {
+        "path": "README.md",
+        "size": 3663
+      },
+      {
+        "path": "anime.esm.js",
+        "size": 162323
+      },
+      {
+        "path": "app.vue",
+        "size": 159
+      },
+      {
+        "path": "components/ContributionCalendar.vue",
+        "size": 3647
+      },
+      {
+        "path": "components/LibraryPhoto.vue",
+        "size": 6257
+      },
+      {
+        "path": "components/PhotoMetadata.vue",
+        "size": 1931
+      },
+      {
+        "path": "components/SiteNav.vue",
+        "size": 1751
+      },
+      {
+        "path": "composables/appStore.js",
+        "size": 1288
+      },
+      {
+        "path": "deploy-vps.sh",
+        "size": 3194
+      },
+      {
+        "path": "docker-compose.yml",
+        "size": 1036
+      },
+      {
+        "path": "helpers.js",
+        "size": 757
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 1601
+      },
+      {
+        "path": "package.json",
+        "size": 1052
+      },
+      {
+        "path": "pages/[...slug].vue",
+        "size": 6403
+      },
+      {
+        "path": "pages/archive/[year]/[month].vue",
+        "size": 5990
+      },
+      {
+        "path": "pages/archive/index.vue",
+        "size": 4417
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 8527
+      },
+      {
+        "path": "pages/licensing.vue",
+        "size": 2046
+      },
+      {
+        "path": "pages/stats.vue",
+        "size": 15014
+      },
+      {
+        "path": "public/cam_cybershot.png",
+        "size": 289555
+      },
+      {
+        "path": "public/cam_xpro3.png",
+        "size": 546727
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "public/handdrawn__MadeWithLove.svg",
+        "size": 7660
+      },
+      {
+        "path": "server/api/calendar.ts",
+        "size": 1484
+      },
+      {
+        "path": "server/api/cloudinary-add-tag.ts",
+        "size": 1122
+      },
+      {
+        "path": "server/api/cloudinary-exif.ts",
+        "size": 528
+      },
+      {
+        "path": "server/api/cloudinary-lite-info.ts",
+        "size": 464
+      },
+      {
+        "path": "server/api/cloudinary-remove-tag.ts",
+        "size": 1335
+      },
+      {
+        "path": "server/api/cloudinary.ts",
+        "size": 5142
+      },
+      {
+        "path": "server/api/cloudinary_update_asset.ts",
+        "size": 2628
+      },
+      {
+        "path": "server/api/healthcheck.get.ts",
+        "size": 218
+      },
+      {
+        "path": "server/api/monthly-archive.ts",
+        "size": 1559
+      },
+      {
+        "path": "server/api/stats.ts",
+        "size": 7994
+      },
+      {
+        "path": "server/routes/rss.xml.ts",
+        "size": 2520
+      },
+      {
+        "path": "server/tsconfig.json",
+        "size": 49
+      },
+      {
+        "path": "server/utils/cloudinary-utils.ts",
+        "size": 4094
+      },
+      {
+        "path": "tailwind.config.ts",
+        "size": 447
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 94
+      },
+      {
+        "path": "yarn.lock",
+        "size": 369054
+      }
+    ],
+    "tree": {
+      "name": "photos",
+      "children": [
+        {
+          "name": ".claude",
+          "children": [
+            {
+              "name": "settings.local.json",
+              "size": 82,
+              "path": ".claude/settings.local.json"
+            }
+          ],
+          "path": ".claude"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 268,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "ContributionCalendar.vue",
+              "size": 3647,
+              "path": "components/ContributionCalendar.vue"
+            },
+            {
+              "name": "LibraryPhoto.vue",
+              "size": 6257,
+              "path": "components/LibraryPhoto.vue"
+            },
+            {
+              "name": "PhotoMetadata.vue",
+              "size": 1931,
+              "path": "components/PhotoMetadata.vue"
+            },
+            {
+              "name": "SiteNav.vue",
+              "size": 1751,
+              "path": "components/SiteNav.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "composables",
+          "children": [
+            {
+              "name": "appStore.js",
+              "size": 1288,
+              "path": "composables/appStore.js"
+            }
+          ],
+          "path": "composables"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "archive",
+              "children": [
+                {
+                  "name": "[year]",
+                  "children": [
+                    {
+                      "name": "[month].vue",
+                      "size": 5990,
+                      "path": "pages/archive/[year]/[month].vue"
+                    }
+                  ],
+                  "path": "pages/archive/[year]"
+                },
+                {
+                  "name": "index.vue",
+                  "size": 4417,
+                  "path": "pages/archive/index.vue"
+                }
+              ],
+              "path": "pages/archive"
+            },
+            {
+              "name": "[...slug].vue",
+              "size": 6403,
+              "path": "pages/[...slug].vue"
+            },
+            {
+              "name": "index.vue",
+              "size": 8527,
+              "path": "pages/index.vue"
+            },
+            {
+              "name": "licensing.vue",
+              "size": 2046,
+              "path": "pages/licensing.vue"
+            },
+            {
+              "name": "stats.vue",
+              "size": 15014,
+              "path": "pages/stats.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "cam_cybershot.png",
+              "size": 289555,
+              "path": "public/cam_cybershot.png"
+            },
+            {
+              "name": "cam_xpro3.png",
+              "size": 546727,
+              "path": "public/cam_xpro3.png"
+            },
+            {
+              "name": "favicon.ico",
+              "size": 4286,
+              "path": "public/favicon.ico"
+            },
+            {
+              "name": "handdrawn__MadeWithLove.svg",
+              "size": 7660,
+              "path": "public/handdrawn__MadeWithLove.svg"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "server",
+          "children": [
+            {
+              "name": "api",
+              "children": [
+                {
+                  "name": "calendar.ts",
+                  "size": 1484,
+                  "path": "server/api/calendar.ts"
+                },
+                {
+                  "name": "cloudinary-add-tag.ts",
+                  "size": 1122,
+                  "path": "server/api/cloudinary-add-tag.ts"
+                },
+                {
+                  "name": "cloudinary-exif.ts",
+                  "size": 528,
+                  "path": "server/api/cloudinary-exif.ts"
+                },
+                {
+                  "name": "cloudinary-lite-info.ts",
+                  "size": 464,
+                  "path": "server/api/cloudinary-lite-info.ts"
+                },
+                {
+                  "name": "cloudinary-remove-tag.ts",
+                  "size": 1335,
+                  "path": "server/api/cloudinary-remove-tag.ts"
+                },
+                {
+                  "name": "cloudinary.ts",
+                  "size": 5142,
+                  "path": "server/api/cloudinary.ts"
+                },
+                {
+                  "name": "cloudinary_update_asset.ts",
+                  "size": 2628,
+                  "path": "server/api/cloudinary_update_asset.ts"
+                },
+                {
+                  "name": "healthcheck.get.ts",
+                  "size": 218,
+                  "path": "server/api/healthcheck.get.ts"
+                },
+                {
+                  "name": "monthly-archive.ts",
+                  "size": 1559,
+                  "path": "server/api/monthly-archive.ts"
+                },
+                {
+                  "name": "stats.ts",
+                  "size": 7994,
+                  "path": "server/api/stats.ts"
+                }
+              ],
+              "path": "server/api"
+            },
+            {
+              "name": "routes",
+              "children": [
+                {
+                  "name": "rss.xml.ts",
+                  "size": 2520,
+                  "path": "server/routes/rss.xml.ts"
+                }
+              ],
+              "path": "server/routes"
+            },
+            {
+              "name": "utils",
+              "children": [
+                {
+                  "name": "cloudinary-utils.ts",
+                  "size": 4094,
+                  "path": "server/utils/cloudinary-utils.ts"
+                }
+              ],
+              "path": "server/utils"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 49,
+              "path": "server/tsconfig.json"
+            }
+          ],
+          "path": "server"
+        },
+        {
+          "name": ".dockerignore",
+          "size": 159,
+          "path": ".dockerignore"
+        },
+        {
+          "name": ".env-example",
+          "size": 84,
+          "path": ".env-example"
+        },
+        {
+          "name": ".gitignore",
+          "size": 224,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 53,
+          "path": ".npmrc"
+        },
+        {
+          "name": ".nvmrc",
+          "size": 9,
+          "path": ".nvmrc"
+        },
+        {
+          "name": "Dockerfile",
+          "size": 1233,
+          "path": "Dockerfile"
+        },
+        {
+          "name": "README.md",
+          "size": 3663,
+          "path": "README.md"
+        },
+        {
+          "name": "anime.esm.js",
+          "size": 162323,
+          "path": "anime.esm.js"
+        },
+        {
+          "name": "app.vue",
+          "size": 159,
+          "path": "app.vue"
+        },
+        {
+          "name": "deploy-vps.sh",
+          "size": 3194,
+          "path": "deploy-vps.sh"
+        },
+        {
+          "name": "docker-compose.yml",
+          "size": 1036,
+          "path": "docker-compose.yml"
+        },
+        {
+          "name": "helpers.js",
+          "size": 757,
+          "path": "helpers.js"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 1601,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 1052,
+          "path": "package.json"
+        },
+        {
+          "name": "tailwind.config.ts",
+          "size": 447,
+          "path": "tailwind.config.ts"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 94,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 369054,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 47,
+    "totalSize": 1480128
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"nuxt--cloudinary-photo-gallery-app\">Nuxt + Cloudinary Photo Gallery App</h1>\n<p>This README document describes the development of a custom media organizing and publishing application using bash scripts, Apple Automator, and Cloudinary on a Nuxt.js framework.</p>\n<h2 id=\"what-is-this-project-about\">What is this project about?</h2>\n<p>This project arose from the author's need for a better way to organize and publish media files. Frustrated with existing solutions, a unique process of organizing and publishing photos using existing tools and some custom scripting was developed. The project focuses on an organized file system that starts with the <code>~/dump/</code> directory where all new media is initially saved and subsequently moved to organized directories in <code>~/media/</code> and finally uploaded to Cloudinary.</p>\n<h2 id=\"the-project-process\">The Project Process:</h2>\n<ol>\n<li><strong>Import SD Card to <code>~/dump/</code></strong>: Apple Automator and bash scripting are used to handle the importation of files from SD cards into the <code>~/dump/</code> directory. Only specific file types (JPEG, MP3, MP4, RAF, WAV) are selected for copying.</li>\n<li><strong>Organize <code>~/dump/</code> into <code>~/media/</code>:</strong> When <code>~/dump/</code> grows too large, another script is run which moves everything in <code>~/dump/</code> into organized sub-folders in <code>~/media/</code>, based on their creation date and file type. Log files of the operations are created and stored in the same directory.</li>\n<li><strong>Upload to Cloudinary:</strong> After the local organization is completed, the media files tagged in green are uploaded to Cloudinary using a bash script that detects the tags, navigates to the correct directory, and executes the upload command.</li>\n</ol>\n<h2 id=\"web-interface-with-nuxtjs\">Web Interface with Nuxt.js:</h2>\n<p>The files stored on Cloudinary are fetched back for viewing on a web interface built with Nuxt.js. Server-side coding is implemented to securely access Cloudinary with private keys and retrieve the media. It also features a Nuxt Server API which fetches the latest photos when the endpoint <code>/api/latest-photos</code> is accessed.</p>\n<p>Overall, this is a fully functional and efficient media organizing system that follows the author's personalized approach to manage a large collection of files and present them in an organized and pleasant web gallery built on Nuxt.js.</p>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <code>http://localhost:3000</code>:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>\n<h2 id=\"api-endpoints\">API Endpoints</h2>\n<h3 id=\"apicloudinary-lite-info\"><code>/api/cloudinary-lite-info</code></h3>\n<p>This endpoint retrieves lite information about all photos stored in Cloudinary.</p>\n<h4 id=\"request-method\">Request Method:</h4>\n<ul>\n<li><code>GET</code></li>\n</ul>\n<h4 id=\"response\">Response:</h4>\n<p>The response will be a JSON array containing objects with the following fields for each photo:</p>\n<ul>\n<li><code>public_id</code>: The unique identifier for the photo in Cloudinary.</li>\n<li><code>secure_url</code>: The secure URL to access the photo.</li>\n<li><code>created_at</code>: The date and time when the photo was uploaded.</li>\n</ul>\n<h4 id=\"example-response\">Example Response:</h4>\n<pre><code class=\"language-json\">[\n  {\n    \"public_id\": \"sample_photo_1\",\n    \"secure_url\": \"https://res.cloudinary.com/demo/image/upload/v123456/sample_photo_1.jpg\",\n    \"created_at\": \"2023-01-01T12:00:00Z\"\n  },\n  {\n    \"public_id\": \"sample_photo_2\",\n    \"secure_url\": \"https://res.cloudinary.com/demo/image/upload/v123456/sample_photo_2.jpg\",\n    \"created_at\": \"2023-01-02T12:00:00Z\"\n  }\n]\n</code></pre>\n<p>This endpoint is useful for fetching a summary of all photos for analytics, such as totals, counts, and grouping by month stats.</p>",

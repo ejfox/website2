@@ -234,7 +234,7 @@ const proseClasses =
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-8">
+  <div class="container mx-auto px-4 pt-8">
     <!-- Main Content with Adjusted Layout -->
     <div
       class="lg:grid lg:grid-cols-[1fr,300px] xl:grid-cols-[1fr,350px] gap-8"
@@ -269,7 +269,7 @@ const proseClasses =
 
             <!-- Stats -->
             <div class="text-zinc-500 dark:text-zinc-400">stats:</div>
-            <div class="text-zinc-700 dark:text-zinc-300 grid gap-1">
+            <div class="text-zinc-700 dark:text-zinc-300 grid gap-0.5">
               <template v-if="metadataFields.stats">
                 <div v-if="metadataFields.stats.images">
                   {{ metadataFields.stats.images }} images

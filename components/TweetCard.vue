@@ -12,7 +12,7 @@
 
       <div class="flex-grow min-w-0">
         <!-- Header -->
-        <div class="flex items-center gap-2 mb-1">
+        <div class="flex items-center gap-2 mb-2">
           <span class="font-medium text-zinc-900 dark:text-zinc-100 text-sm">
             EJ Fox
           </span>
@@ -30,7 +30,7 @@
         <!-- Reply indicator -->
         <div
           v-if="replyTo"
-          class="flex items-center gap-1 mb-2 text-xs text-zinc-400 dark:text-zinc-500"
+          class="flex items-center gap-0.5 mb-2 text-xs text-zinc-400 dark:text-zinc-500"
         >
           <svg
             class="w-3 h-3"
@@ -57,9 +57,9 @@
 
         <!-- Engagement -->
         <div
-          class="flex items-center gap-6 mt-3 text-xs text-zinc-400 dark:text-zinc-500"
+          class="flex items-center gap-6 mt-4 text-xs text-zinc-400 dark:text-zinc-500"
         >
-          <span v-if="retweets > 0" class="flex items-center gap-1.5">
+          <span v-if="retweets > 0" class="flex items-center gap-0.5.5">
             <svg
               class="w-4 h-4"
               fill="none"
@@ -75,7 +75,7 @@
             </svg>
             {{ retweets }}
           </span>
-          <span v-if="favorites > 0" class="flex items-center gap-1.5">
+          <span v-if="favorites > 0" class="flex items-center gap-0.5.5">
             <svg
               class="w-4 h-4"
               fill="none"

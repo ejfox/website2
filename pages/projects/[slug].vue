@@ -119,7 +119,7 @@ onMounted(() => {
 
 <template>
   <div class="container-main" style="max-width: 65ch">
-    <article v-if="project" class="py-8 md:py-16">
+    <article v-if="project" class="pt-8 md:pt-16">
       <!-- Content (title is extracted and removed by markdown processor) -->
       <BlogPostContent :html="project.html" />
 
@@ -139,7 +139,7 @@ onMounted(() => {
           <div
             class="space-y-3 pb-6 border-b border-zinc-200 dark:border-zinc-800"
           >
-            <h3 class="label-uppercase-mono text-xs mb-3">Project Info</h3>
+            <h3 class="label-uppercase-mono text-xs mb-4">Project Info</h3>
 
             <!-- Date -->
             <div v-if="project.metadata?.date" class="text-sm">
@@ -152,7 +152,7 @@ onMounted(() => {
             <!-- Tech Stack -->
             <div v-if="project.metadata?.tech?.length" class="text-sm">
               <div class="metadata-label">Tech</div>
-              <div class="flex flex-wrap gap-1">
+              <div class="flex flex-wrap gap-0.5">
                 <span
                   v-for="tech in project.metadata.tech"
                   :key="tech"
@@ -178,7 +178,7 @@ onMounted(() => {
 
           <!-- TOC -->
           <div v-if="tocChildren.length > 0" class="toc">
-            <h3 class="label-uppercase-mono text-xs mb-3">Contents</h3>
+            <h3 class="label-uppercase-mono text-xs mb-4">Contents</h3>
             <div class="py-4 pl-0 relative">
               <ul class="space-y-0">
                 <li
@@ -231,7 +231,7 @@ onMounted(() => {
 }
 
 .metadata-label {
-  @apply text-zinc-500 dark:text-zinc-500 text-xs uppercase tracking-wider mb-1;
+  @apply text-zinc-500 dark:text-zinc-500 text-xs uppercase tracking-wider mb-2;
 }
 
 .tech-badge {

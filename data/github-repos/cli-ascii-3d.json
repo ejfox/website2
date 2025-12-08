@@ -16,6 +16,96 @@
     "Shell": 1563
   },
   "diskUsage": 27,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 12
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "README.md",
+        "size": 913
+      },
+      {
+        "path": "dashboard.sh",
+        "size": 1563
+      },
+      {
+        "path": "index.bak1.js",
+        "size": 1125
+      },
+      {
+        "path": "index.js",
+        "size": 8701
+      },
+      {
+        "path": "package-lock.json",
+        "size": 85366
+      },
+      {
+        "path": "package.json",
+        "size": 419
+      }
+    ],
+    "tree": {
+      "name": "cli-ascii-3d",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": ".gitignore",
+          "size": 12,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 913,
+          "path": "README.md"
+        },
+        {
+          "name": "dashboard.sh",
+          "size": 1563,
+          "path": "dashboard.sh"
+        },
+        {
+          "name": "index.bak1.js",
+          "size": 1125,
+          "path": "index.bak1.js"
+        },
+        {
+          "name": "index.js",
+          "size": 8701,
+          "path": "index.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 85366,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 419,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 8,
+    "totalSize": 98366
+  },
   "topics": [
     "ascii",
     "cli"

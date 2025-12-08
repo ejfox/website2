@@ -2,7 +2,7 @@
   <div ref="monkeyStatsRef" class="font-mono">
     <!-- Main Stats -->
     <div v-if="hasStats" ref="mainStatsRef">
-      <div class="space-y-4">
+      <div class="space-y-2">
         <!-- Primary WPM Stat with AnimatedNumber -->
         <div class="individual-stat-large">
           <div class="stat-value">
@@ -37,7 +37,7 @@
     <div v-if="hasRecentTests" ref="recentTestsRef" class="mt-8 space-y-8">
       <StatsSectionHeader title="RECENT TESTS" />
 
-      <div class="space-y-4">
+      <div class="space-y-2">
         <div v-for="test in recentTests" :key="test.timestamp" class="test-row">
           <div class="flex-none">
             <!-- Simplified date format -->
@@ -76,7 +76,7 @@
     <div v-if="stats.typingStats" ref="performanceRef" class="mt-8 space-y-8">
       <StatsSectionHeader title="PERFORMANCE" />
 
-      <div class="grid grid-cols-2 gap-4">
+      <div class="grid grid-cols-2 gap-2">
         <div class="stat-item">
           <div class="stat-label">TESTS</div>
           <div class="stat-value">
@@ -123,9 +123,7 @@ import { computed } from 'vue'
 import { format } from 'date-fns/format'
 import AnimatedNumber from '../AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
-// NUKED BY BLOODHOUND: import { animate, stagger, onScroll }
 // from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations }
 // from '~/composables/useAnimations'
 
 interface MonkeyTypeTest {
@@ -155,8 +153,6 @@ interface MonkeyTypeStats {
 const props = defineProps<{
   stats: MonkeyTypeStats
 }>()
-
-// DELETED: const { timing } = // DELETED: useAnimations() - BROKEN IMPORT
 
 // Computed properties for conditional rendering and data formatting
 const hasRecentTests = computed(
@@ -209,15 +205,12 @@ const recentTestsRef = ref<HTMLElement | null>(null)
 const performanceRef = ref<HTMLElement | null>(null)
 
 // Epic MonkeyType stats scroll-triggered animations
-// DELETED: setupScrollAnimations() - ALL ANIMATION FUNCTIONS REMOVED FOR
 // PERFORMANCE
 // const setupScrollAnimations = () => {
 //   ALL BROKEN ANIMATION CODE DELETED
 // }
 
-onMounted(() => {
-  // DELETED: setupScrollAnimations() - BROKEN FUNCTION
-})
+onMounted(() => {})
 </script>
 
 <style scoped>

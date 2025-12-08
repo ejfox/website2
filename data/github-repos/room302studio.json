@@ -19,6 +19,3324 @@
     "TypeScript": 2037
   },
   "diskUsage": 54774,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".DS_Store",
+        "size": 6148
+      },
+      {
+        "path": ".env",
+        "size": 251
+      },
+      {
+        "path": ".env.template",
+        "size": 329
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/blog-post-idea.md",
+        "size": 1188
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/event.md",
+        "size": 780
+      },
+      {
+        "path": ".gitignore",
+        "size": 42
+      },
+      {
+        "path": ".nvmrc",
+        "size": 9
+      },
+      {
+        "path": ".output/nitro.json",
+        "size": 226
+      },
+      {
+        "path": ".output/public/200.html",
+        "size": 314262
+      },
+      {
+        "path": ".output/public/404.html",
+        "size": 314262
+      },
+      {
+        "path": ".output/public/_nuxt/Card.b6bbd48e.js",
+        "size": 4185
+      },
+      {
+        "path": ".output/public/_nuxt/ContentDoc.3d96e8d5.js",
+        "size": 1532
+      },
+      {
+        "path": ".output/public/_nuxt/ContentList.e8de0e08.js",
+        "size": 871
+      },
+      {
+        "path": ".output/public/_nuxt/ContentNavigation.c8315ad6.js",
+        "size": 865
+      },
+      {
+        "path": ".output/public/_nuxt/ContentQuery.ab7bfc02.js",
+        "size": 2465
+      },
+      {
+        "path": ".output/public/_nuxt/ContentRenderer.80514074.js",
+        "size": 1215
+      },
+      {
+        "path": ".output/public/_nuxt/ContentRendererMarkdown.2f370952.js",
+        "size": 112
+      },
+      {
+        "path": ".output/public/_nuxt/ContentRendererMarkdown.vue.122419e9.js",
+        "size": 23481
+      },
+      {
+        "path": ".output/public/_nuxt/ContentSlot.ea028183.js",
+        "size": 1946
+      },
+      {
+        "path": ".output/public/_nuxt/DocumentDrivenEmpty.7d5d0e4a.js",
+        "size": 292
+      },
+      {
+        "path": ".output/public/_nuxt/DocumentDrivenNotFound.2a583a57.js",
+        "size": 159
+      },
+      {
+        "path": ".output/public/_nuxt/Icon.3c07e455.js",
+        "size": 21889
+      },
+      {
+        "path": ".output/public/_nuxt/Icon.cf693866.css",
+        "size": 67
+      },
+      {
+        "path": ".output/public/_nuxt/IconCSS.3544dd2a.css",
+        "size": 258
+      },
+      {
+        "path": ".output/public/_nuxt/IconCSS.dfcc75b6.js",
+        "size": 1075
+      },
+      {
+        "path": ".output/public/_nuxt/MailchimpSignupForm.60823535.js",
+        "size": 1830
+      },
+      {
+        "path": ".output/public/_nuxt/Markdown.c4f17cc3.js",
+        "size": 330
+      },
+      {
+        "path": ".output/public/_nuxt/ProseA.66624500.js",
+        "size": 358
+      },
+      {
+        "path": ".output/public/_nuxt/ProseBlockquote.b64dbfd9.js",
+        "size": 189
+      },
+      {
+        "path": ".output/public/_nuxt/ProseCode.21bc8321.js",
+        "size": 98
+      },
+      {
+        "path": ".output/public/_nuxt/ProseCode.vue.ba5cf5fa.js",
+        "size": 321
+      },
+      {
+        "path": ".output/public/_nuxt/ProseCodeInline.c0c1227b.js",
+        "size": 188
+      },
+      {
+        "path": ".output/public/_nuxt/ProseEm.4239264d.js",
+        "size": 186
+      },
+      {
+        "path": ".output/public/_nuxt/ProseH1.07828808.js",
+        "size": 437
+      },
+      {
+        "path": ".output/public/_nuxt/ProseH2.71f762ec.js",
+        "size": 443
+      },
+      {
+        "path": ".output/public/_nuxt/ProseH3.1f74f489.js",
+        "size": 443
+      },
+      {
+        "path": ".output/public/_nuxt/ProseH4.70c12f70.js",
+        "size": 443
+      },
+      {
+        "path": ".output/public/_nuxt/ProseH5.a8c3ba63.js",
+        "size": 443
+      },
+      {
+        "path": ".output/public/_nuxt/ProseH6.5bd8e314.js",
+        "size": 443
+      },
+      {
+        "path": ".output/public/_nuxt/ProseHr.b39ee228.js",
+        "size": 145
+      },
+      {
+        "path": ".output/public/_nuxt/ProseImg.6c98e5d1.js",
+        "size": 623
+      },
+      {
+        "path": ".output/public/_nuxt/ProseLi.194070e6.js",
+        "size": 186
+      },
+      {
+        "path": ".output/public/_nuxt/ProseOl.e1af6361.js",
+        "size": 186
+      },
+      {
+        "path": ".output/public/_nuxt/ProseP.c9a0a705.js",
+        "size": 185
+      },
+      {
+        "path": ".output/public/_nuxt/ProsePre.47252dce.js",
+        "size": 742
+      },
+      {
+        "path": ".output/public/_nuxt/ProsePre.e63e49c6.css",
+        "size": 46
+      },
+      {
+        "path": ".output/public/_nuxt/ProseScript.aa235cd8.js",
+        "size": 491
+      },
+      {
+        "path": ".output/public/_nuxt/ProseStrong.c4c52d7e.js",
+        "size": 190
+      },
+      {
+        "path": ".output/public/_nuxt/ProseTable.739f44d4.js",
+        "size": 189
+      },
+      {
+        "path": ".output/public/_nuxt/ProseTbody.aa73d1d1.js",
+        "size": 189
+      },
+      {
+        "path": ".output/public/_nuxt/ProseTd.fa76da57.js",
+        "size": 186
+      },
+      {
+        "path": ".output/public/_nuxt/ProseTh.1de79c2c.js",
+        "size": 186
+      },
+      {
+        "path": ".output/public/_nuxt/ProseThead.fd8d3e1e.js",
+        "size": 189
+      },
+      {
+        "path": ".output/public/_nuxt/ProseTr.bfebde8c.js",
+        "size": 181
+      },
+      {
+        "path": ".output/public/_nuxt/ProseUl.3df78e6f.js",
+        "size": 186
+      },
+      {
+        "path": ".output/public/_nuxt/Rubik-300-1.bc857679.woff2",
+        "size": 32372
+      },
+      {
+        "path": ".output/public/_nuxt/Rubik-300-2.452feb2a.woff2",
+        "size": 12236
+      },
+      {
+        "path": ".output/public/_nuxt/Rubik-300-3.a7ad9db1.woff2",
+        "size": 15076
+      },
+      {
+        "path": ".output/public/_nuxt/Rubik-300-4.95d333fe.woff2",
+        "size": 8704
+      },
+      {
+        "path": ".output/public/_nuxt/Rubik-300-5.f4bbc2bf.woff2",
+        "size": 18928
+      },
+      {
+        "path": ".output/public/_nuxt/Rubik-300-6.47374cb7.woff2",
+        "size": 35448
+      },
+      {
+        "path": ".output/public/_nuxt/Source_Code_Pro-400-25.0bc153e8.woff2",
+        "size": 8488
+      },
+      {
+        "path": ".output/public/_nuxt/Source_Code_Pro-400-26.a9204ea7.woff2",
+        "size": 13872
+      },
+      {
+        "path": ".output/public/_nuxt/Source_Code_Pro-400-28.62e15bcc.woff2",
+        "size": 10312
+      },
+      {
+        "path": ".output/public/_nuxt/Source_Code_Pro-400-29.ecf0d6bf.woff2",
+        "size": 7692
+      },
+      {
+        "path": ".output/public/_nuxt/Source_Code_Pro-400-30.c6489cfa.woff2",
+        "size": 28908
+      },
+      {
+        "path": ".output/public/_nuxt/Source_Code_Pro-400-31.539bdb4b.woff2",
+        "size": 21528
+      },
+      {
+        "path": ".output/public/_nuxt/_...slug_.67aa7d94.js",
+        "size": 659
+      },
+      {
+        "path": ".output/public/_nuxt/_...slug_.d953334d.js",
+        "size": 671
+      },
+      {
+        "path": ".output/public/_nuxt/asyncData.0e0ee21d.js",
+        "size": 2537
+      },
+      {
+        "path": ".output/public/_nuxt/blog.dbe6a729.js",
+        "size": 225
+      },
+      {
+        "path": ".output/public/_nuxt/builds/latest.json",
+        "size": 71
+      },
+      {
+        "path": ".output/public/_nuxt/builds/meta/e2ff6401-df8b-4adc-a9be-bdaedf3b47e0.json",
+        "size": 450
+      },
+      {
+        "path": ".output/public/_nuxt/client-db.d42cb5c3.js",
+        "size": 21530
+      },
+      {
+        "path": ".output/public/_nuxt/contact.0038f68b.js",
+        "size": 27590
+      },
+      {
+        "path": ".output/public/_nuxt/default.eec42a6f.js",
+        "size": 235
+      },
+      {
+        "path": ".output/public/_nuxt/document-driven.686b7830.js",
+        "size": 2037
+      },
+      {
+        "path": ".output/public/_nuxt/entry.3883dc74.js",
+        "size": 216614
+      },
+      {
+        "path": ".output/public/_nuxt/entry.b855e4e9.css",
+        "size": 157
+      },
+      {
+        "path": ".output/public/_nuxt/error-404.7a95e7c6.js",
+        "size": 2221
+      },
+      {
+        "path": ".output/public/_nuxt/error-404.95c28eb4.css",
+        "size": 3696
+      },
+      {
+        "path": ".output/public/_nuxt/error-500.cd39b478.js",
+        "size": 1878
+      },
+      {
+        "path": ".output/public/_nuxt/error-500.e798523c.css",
+        "size": 2016
+      },
+      {
+        "path": ".output/public/_nuxt/events.18d96764.js",
+        "size": 402
+      },
+      {
+        "path": ".output/public/_nuxt/head.d4e1f8bd.js",
+        "size": 589
+      },
+      {
+        "path": ".output/public/_nuxt/index.76bc9eb1.js",
+        "size": 693
+      },
+      {
+        "path": ".output/public/_nuxt/index.7f800b49.js",
+        "size": 13232
+      },
+      {
+        "path": ".output/public/_nuxt/index.8f25907a.js",
+        "size": 1460
+      },
+      {
+        "path": ".output/public/_nuxt/index.9e8722ba.css",
+        "size": 106
+      },
+      {
+        "path": ".output/public/_nuxt/index.a52d2ddd.js",
+        "size": 7870
+      },
+      {
+        "path": ".output/public/_nuxt/index.b8fe2cb5.js",
+        "size": 2099
+      },
+      {
+        "path": ".output/public/_nuxt/members.878341e0.js",
+        "size": 6203
+      },
+      {
+        "path": ".output/public/_nuxt/our-work.9cc110a1.js",
+        "size": 225
+      },
+      {
+        "path": ".output/public/_nuxt/services.0011de62.js",
+        "size": 849
+      },
+      {
+        "path": ".output/public/_nuxt/work.ea7fd1fd.js",
+        "size": 225
+      },
+      {
+        "path": ".output/public/_payload.json",
+        "size": 62
+      },
+      {
+        "path": ".output/public/api/_content/cache.1703010921609.json",
+        "size": 46741
+      },
+      {
+        "path": ".output/public/api/_content/navigation/u7BbTyuhiE.1703010921609.json",
+        "size": 861
+      },
+      {
+        "path": ".output/public/api/_content/query/1oKnK0vnkm.1703010921609.json",
+        "size": 5128
+      },
+      {
+        "path": ".output/public/api/_content/query/4rWHRbRzSn.1703010921609.json",
+        "size": 11
+      },
+      {
+        "path": ".output/public/api/_content/query/59kDZyXONr.1703010921609.json",
+        "size": 584
+      },
+      {
+        "path": ".output/public/api/_content/query/5FUYZQ994d.1703010921609.json",
+        "size": 803
+      },
+      {
+        "path": ".output/public/api/_content/query/66ZMwiUDro.1703010921609.json",
+        "size": 933
+      },
+      {
+        "path": ".output/public/api/_content/query/6Bbj1qQqCU.1703010921609.json",
+        "size": 587
+      },
+      {
+        "path": ".output/public/api/_content/query/6naLmYJYTh.1703010921609.json",
+        "size": 1046
+      },
+      {
+        "path": ".output/public/api/_content/query/8bxkQyXpoF.1703010921609.json",
+        "size": 637
+      },
+      {
+        "path": ".output/public/api/_content/query/FZDfxgV2E0.1703010921609.json",
+        "size": 587
+      },
+      {
+        "path": ".output/public/api/_content/query/G8y7NNaZcX.1703010921609.json",
+        "size": 587
+      },
+      {
+        "path": ".output/public/api/_content/query/INYrSNDmPa.1703010921609.json",
+        "size": 587
+      },
+      {
+        "path": ".output/public/api/_content/query/KrTGJqHxiU.1703010921609.json",
+        "size": 11
+      },
+      {
+        "path": ".output/public/api/_content/query/MNvcwcH6We.1703010921609.json",
+        "size": 11
+      },
+      {
+        "path": ".output/public/api/_content/query/MSWcoXckSg.1703010921609.json",
+        "size": 8403
+      },
+      {
+        "path": ".output/public/api/_content/query/O3ydtLe788.1703010921609.json",
+        "size": 1085
+      },
+      {
+        "path": ".output/public/api/_content/query/O5DPFWxgTD.1703010921609.json",
+        "size": 933
+      },
+      {
+        "path": ".output/public/api/_content/query/PdhTWQMGS0.1703010921609.json",
+        "size": 11
+      },
+      {
+        "path": ".output/public/api/_content/query/Pj5B6VH8P4.1703010921609.json",
+        "size": 238
+      },
+      {
+        "path": ".output/public/api/_content/query/R8qJq4JRBm.1703010921609.json",
+        "size": 587
+      },
+      {
+        "path": ".output/public/api/_content/query/Sdte0TUPxt.1703010921609.json",
+        "size": 933
+      },
+      {
+        "path": ".output/public/api/_content/query/TylHLDETmI.1703010921609.json",
+        "size": 587
+      },
+      {
+        "path": ".output/public/api/_content/query/XJIKcGkTSi.1703010921609.json",
+        "size": 590
+      },
+      {
+        "path": ".output/public/api/_content/query/Z7zh8KJxlG.1703010921609.json",
+        "size": 933
+      },
+      {
+        "path": ".output/public/api/_content/query/ZOuoueJfWF.1703010921609.json",
+        "size": 933
+      },
+      {
+        "path": ".output/public/api/_content/query/d50CYKFfS2.1703010921609.json",
+        "size": 797
+      },
+      {
+        "path": ".output/public/api/_content/query/fCEXcyouD1.1703010921609.json",
+        "size": 933
+      },
+      {
+        "path": ".output/public/api/_content/query/gCcivIl2Tv.1703010921609.json",
+        "size": 936
+      },
+      {
+        "path": ".output/public/api/_content/query/ghiJxsvsaM.1703010921609.json",
+        "size": 6177
+      },
+      {
+        "path": ".output/public/api/_content/query/jIuzblYUgw.1703010921609.json",
+        "size": 11
+      },
+      {
+        "path": ".output/public/api/_content/query/pALAl0rM2T.1703010921609.json",
+        "size": 933
+      },
+      {
+        "path": ".output/public/api/_content/query/uQoQr1m5KP.1703010921609.json",
+        "size": 587
+      },
+      {
+        "path": ".output/public/api/_content/query/vOqXRsznSI.1703010921609.json",
+        "size": 933
+      },
+      {
+        "path": ".output/public/api/_content/query/vwgAJmWDk6.1703010921609.json",
+        "size": 526
+      },
+      {
+        "path": ".output/public/api/_content/query/xWeY3NfYtX.1703010921609.json",
+        "size": 11
+      },
+      {
+        "path": ".output/public/api/_content/query/yNRlaqTPdg.1703010921609.json",
+        "size": 933
+      },
+      {
+        "path": ".output/public/api/_content/query/yU1WsESpXh.1703010921609.json",
+        "size": 39630
+      },
+      {
+        "path": ".output/public/api/_content/query/ylaj9DfXyn.1703010921609.json",
+        "size": 20950
+      },
+      {
+        "path": ".output/public/api/_content/query/ywdRwte9WD.1703010921609.json",
+        "size": 930
+      },
+      {
+        "path": ".output/public/blog/_payload.json",
+        "size": 65394
+      },
+      {
+        "path": ".output/public/blog/how-to-give-credit/_payload.json",
+        "size": 21852
+      },
+      {
+        "path": ".output/public/blog/how-to-give-credit/index.html",
+        "size": 355293
+      },
+      {
+        "path": ".output/public/blog/index.html",
+        "size": 330575
+      },
+      {
+        "path": ".output/public/blog/starting-a-studio-introducing-room-302/_payload.json",
+        "size": 8704
+      },
+      {
+        "path": ".output/public/blog/starting-a-studio-introducing-room-302/index.html",
+        "size": 333307
+      },
+      {
+        "path": ".output/public/blog/test/_payload.json",
+        "size": 1070
+      },
+      {
+        "path": ".output/public/blog/test/index.html",
+        "size": 320459
+      },
+      {
+        "path": ".output/public/blog/test1/_payload.json",
+        "size": 1073
+      },
+      {
+        "path": ".output/public/blog/test1/index.html",
+        "size": 319962
+      },
+      {
+        "path": ".output/public/blog/test10/_payload.json",
+        "size": 1076
+      },
+      {
+        "path": ".output/public/blog/test10/index.html",
+        "size": 319947
+      },
+      {
+        "path": ".output/public/blog/test2/_payload.json",
+        "size": 1073
+      },
+      {
+        "path": ".output/public/blog/test2/index.html",
+        "size": 319964
+      },
+      {
+        "path": ".output/public/blog/test3/_payload.json",
+        "size": 1073
+      },
+      {
+        "path": ".output/public/blog/test3/index.html",
+        "size": 319964
+      },
+      {
+        "path": ".output/public/blog/test4/_payload.json",
+        "size": 1073
+      },
+      {
+        "path": ".output/public/blog/test4/index.html",
+        "size": 319964
+      },
+      {
+        "path": ".output/public/blog/test5/_payload.json",
+        "size": 1073
+      },
+      {
+        "path": ".output/public/blog/test5/index.html",
+        "size": 319964
+      },
+      {
+        "path": ".output/public/blog/test6/_payload.json",
+        "size": 1073
+      },
+      {
+        "path": ".output/public/blog/test6/index.html",
+        "size": 319964
+      },
+      {
+        "path": ".output/public/blog/test7/_payload.json",
+        "size": 1073
+      },
+      {
+        "path": ".output/public/blog/test7/index.html",
+        "size": 319964
+      },
+      {
+        "path": ".output/public/blog/test8/_payload.json",
+        "size": 1073
+      },
+      {
+        "path": ".output/public/blog/test8/index.html",
+        "size": 319964
+      },
+      {
+        "path": ".output/public/blog/test9/_payload.json",
+        "size": 1073
+      },
+      {
+        "path": ".output/public/blog/test9/index.html",
+        "size": 319966
+      },
+      {
+        "path": ".output/public/contact/_payload.json",
+        "size": 62
+      },
+      {
+        "path": ".output/public/contact/index.html",
+        "size": 328897
+      },
+      {
+        "path": ".output/public/css/nuxt-google-fonts.css",
+        "size": 11597
+      },
+      {
+        "path": ".output/public/events/_payload.json",
+        "size": 62
+      },
+      {
+        "path": ".output/public/events/index.html",
+        "size": 319314
+      },
+      {
+        "path": ".output/public/favicon.ico",
+        "size": 1150
+      },
+      {
+        "path": ".output/public/favicon.png",
+        "size": 364
+      },
+      {
+        "path": ".output/public/fonts/Rubik-300-1.woff2",
+        "size": 32372
+      },
+      {
+        "path": ".output/public/fonts/Rubik-300-2.woff2",
+        "size": 12236
+      },
+      {
+        "path": ".output/public/fonts/Rubik-300-3.woff2",
+        "size": 15076
+      },
+      {
+        "path": ".output/public/fonts/Rubik-300-4.woff2",
+        "size": 8704
+      },
+      {
+        "path": ".output/public/fonts/Rubik-300-5.woff2",
+        "size": 18928
+      },
+      {
+        "path": ".output/public/fonts/Rubik-300-6.woff2",
+        "size": 35448
+      },
+      {
+        "path": ".output/public/fonts/Source_Code_Pro-400-25.woff2",
+        "size": 8488
+      },
+      {
+        "path": ".output/public/fonts/Source_Code_Pro-400-26.woff2",
+        "size": 13872
+      },
+      {
+        "path": ".output/public/fonts/Source_Code_Pro-400-27.woff2",
+        "size": 2932
+      },
+      {
+        "path": ".output/public/fonts/Source_Code_Pro-400-28.woff2",
+        "size": 10312
+      },
+      {
+        "path": ".output/public/fonts/Source_Code_Pro-400-29.woff2",
+        "size": 7692
+      },
+      {
+        "path": ".output/public/fonts/Source_Code_Pro-400-30.woff2",
+        "size": 28908
+      },
+      {
+        "path": ".output/public/fonts/Source_Code_Pro-400-31.woff2",
+        "size": 21528
+      },
+      {
+        "path": ".output/public/index.html",
+        "size": 324272
+      },
+      {
+        "path": ".output/public/logo1.r1.svg",
+        "size": 10427
+      },
+      {
+        "path": ".output/public/logo1.r2.svg",
+        "size": 14403
+      },
+      {
+        "path": ".output/public/logo1.r3.svg",
+        "size": 14083
+      },
+      {
+        "path": ".output/public/member-headshots/curran-headshot.png",
+        "size": 1652445
+      },
+      {
+        "path": ".output/public/member-headshots/ej-headshot.png",
+        "size": 3153148
+      },
+      {
+        "path": ".output/public/member-headshots/ian-headshot.png",
+        "size": 4059653
+      },
+      {
+        "path": ".output/public/member-headshots/israel-headshot.png",
+        "size": 748176
+      },
+      {
+        "path": ".output/public/member-headshots/sam-headshot.png",
+        "size": 2646444
+      },
+      {
+        "path": ".output/public/members/_payload.json",
+        "size": 62
+      },
+      {
+        "path": ".output/public/members/index.html",
+        "size": 326440
+      },
+      {
+        "path": ".output/public/og-image.jpg",
+        "size": 210420
+      },
+      {
+        "path": ".output/public/our-work-images/getnoan.png",
+        "size": 455205
+      },
+      {
+        "path": ".output/public/our-work-images/themargin.png",
+        "size": 9537785
+      },
+      {
+        "path": ".output/public/our-work-images/ukrainegrain.png",
+        "size": 1027914
+      },
+      {
+        "path": ".output/public/our-work-images/unhcr.png",
+        "size": 1515832
+      },
+      {
+        "path": ".output/public/our-work/_payload.json",
+        "size": 5911
+      },
+      {
+        "path": ".output/public/our-work/index.html",
+        "size": 323435
+      },
+      {
+        "path": ".output/public/our-work/wcs/_payload.json",
+        "size": 1196
+      },
+      {
+        "path": ".output/public/our-work/wcs/index.html",
+        "size": 319859
+      },
+      {
+        "path": ".output/public/services/_payload.json",
+        "size": 62
+      },
+      {
+        "path": ".output/public/services/index.html",
+        "size": 318458
+      },
+      {
+        "path": ".output/public/twitter-image.jpg",
+        "size": 210420
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "README.md",
+        "size": 1549
+      },
+      {
+        "path": "app.config.ts",
+        "size": 92
+      },
+      {
+        "path": "app.vue",
+        "size": 553
+      },
+      {
+        "path": "components/CalendarBooking.vue",
+        "size": 364
+      },
+      {
+        "path": "components/ContactForm.vue",
+        "size": 5954
+      },
+      {
+        "path": "components/DataTimeline.vue",
+        "size": 7981
+      },
+      {
+        "path": "components/DataViz.vue",
+        "size": 8069
+      },
+      {
+        "path": "components/GlobalFooter.vue",
+        "size": 5447
+      },
+      {
+        "path": "components/HomepageCaseStudy.vue",
+        "size": 4512
+      },
+      {
+        "path": "components/Logo.vue",
+        "size": 160
+      },
+      {
+        "path": "components/MailchimpSignupForm.vue",
+        "size": 2667
+      },
+      {
+        "path": "components/MemberBio.vue",
+        "size": 1168
+      },
+      {
+        "path": "components/MonoButton.vue",
+        "size": 2117
+      },
+      {
+        "path": "components/SiteNav.vue",
+        "size": 4615
+      },
+      {
+        "path": "components/TechnologyShowcase.vue",
+        "size": 3628
+      },
+      {
+        "path": "components/TufteAnnotation.vue",
+        "size": 2353
+      },
+      {
+        "path": "components/TufteGrid.vue",
+        "size": 4286
+      },
+      {
+        "path": "components/content/ProseH2.vue",
+        "size": 509
+      },
+      {
+        "path": "composables/useOgMetadata.js",
+        "size": 2481
+      },
+      {
+        "path": "content/.obsidian/app.json",
+        "size": 62
+      },
+      {
+        "path": "content/.obsidian/appearance.json",
+        "size": 2
+      },
+      {
+        "path": "content/.obsidian/core-plugins.json",
+        "size": 637
+      },
+      {
+        "path": "content/.obsidian/workspace.json",
+        "size": 4706
+      },
+      {
+        "path": "content/blog/coach-artie-webhooks-cron-and-advanced-reflection.md",
+        "size": 10100
+      },
+      {
+        "path": "content/blog/discord-community.md",
+        "size": 1284
+      },
+      {
+        "path": "content/blog/how-to-give-credit.md",
+        "size": 9808
+      },
+      {
+        "path": "content/blog/livestreaming-our-process.md",
+        "size": 3252
+      },
+      {
+        "path": "content/blog/starting-a-studio-introducing-room-302.md",
+        "size": 4070
+      },
+      {
+        "path": "content/blog/state-of-the-studio-2024.md",
+        "size": 2554
+      },
+      {
+        "path": "content/members/curran-kelleher.md",
+        "size": 882
+      },
+      {
+        "path": "content/members/ej-fox.md",
+        "size": 754
+      },
+      {
+        "path": "content/members/elena-haliczer.md",
+        "size": 140
+      },
+      {
+        "path": "content/members/ian-johnson.md",
+        "size": 757
+      },
+      {
+        "path": "content/members/israel-gonzalez.md",
+        "size": 837
+      },
+      {
+        "path": "content/members/sam-vogt.md",
+        "size": 657
+      },
+      {
+        "path": "content/our-work/client-work/apnews-2024.md",
+        "size": 735
+      },
+      {
+        "path": "content/our-work/client-work/coralreefs.md",
+        "size": 2943
+      },
+      {
+        "path": "content/our-work/client-work/themargin.md",
+        "size": 2809
+      },
+      {
+        "path": "content/our-work/client-work/ukrainegrain.md",
+        "size": 3039
+      },
+      {
+        "path": "content/our-work/internal/coachartie.md",
+        "size": 1386
+      },
+      {
+        "path": "content/process.md",
+        "size": 2011
+      },
+      {
+        "path": "error.vue",
+        "size": 8813
+      },
+      {
+        "path": "layouts/blog.vue",
+        "size": 534
+      },
+      {
+        "path": "layouts/default.vue",
+        "size": 261
+      },
+      {
+        "path": "layouts/error.vue",
+        "size": 5487
+      },
+      {
+        "path": "layouts/work.vue",
+        "size": 604
+      },
+      {
+        "path": "netlify.tml",
+        "size": 64
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 1945
+      },
+      {
+        "path": "package.json",
+        "size": 1106
+      },
+      {
+        "path": "pages/approach.vue",
+        "size": 1055
+      },
+      {
+        "path": "pages/blog/[...slug].vue",
+        "size": 7728
+      },
+      {
+        "path": "pages/blog/index.vue",
+        "size": 5742
+      },
+      {
+        "path": "pages/contact-success.vue",
+        "size": 347
+      },
+      {
+        "path": "pages/contact.vue",
+        "size": 2567
+      },
+      {
+        "path": "pages/events.vue",
+        "size": 420
+      },
+      {
+        "path": "pages/for-ceos.vue",
+        "size": 8977
+      },
+      {
+        "path": "pages/for-data-analysts.vue",
+        "size": 9099
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 23635
+      },
+      {
+        "path": "pages/lab/gradients.vue",
+        "size": 23790
+      },
+      {
+        "path": "pages/lab/index.vue",
+        "size": 23985
+      },
+      {
+        "path": "pages/members.vue",
+        "size": 542
+      },
+      {
+        "path": "pages/og_generator.vue",
+        "size": 10989
+      },
+      {
+        "path": "pages/our-work/client-work/[...slug].vue",
+        "size": 7474
+      },
+      {
+        "path": "pages/our-work/index.vue",
+        "size": 15023
+      },
+      {
+        "path": "pages/our-work/internal/[...slug].vue",
+        "size": 7565
+      },
+      {
+        "path": "pages/process.vue",
+        "size": 23320
+      },
+      {
+        "path": "pages/services.vue",
+        "size": 13186
+      },
+      {
+        "path": "pages/toolkit.vue",
+        "size": 30277
+      },
+      {
+        "path": "plugins/umami.client.js",
+        "size": 299
+      },
+      {
+        "path": "public/css/fonts.css",
+        "size": 3252
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 1150
+      },
+      {
+        "path": "public/favicon.png",
+        "size": 364
+      },
+      {
+        "path": "public/fonts/Fraunces-Variable.woff2",
+        "size": 273313
+      },
+      {
+        "path": "public/fonts/Inter-Variable.woff2",
+        "size": 272955
+      },
+      {
+        "path": "public/member-headshots/curran-headshot.png",
+        "size": 1652445
+      },
+      {
+        "path": "public/member-headshots/ej-headshot.png",
+        "size": 3153148
+      },
+      {
+        "path": "public/member-headshots/elena-headshot.jpeg",
+        "size": 54353
+      },
+      {
+        "path": "public/member-headshots/ian-headshot.png",
+        "size": 4059653
+      },
+      {
+        "path": "public/member-headshots/israel-headshot.png",
+        "size": 748176
+      },
+      {
+        "path": "public/member-headshots/sam-headshot.png",
+        "size": 2646444
+      },
+      {
+        "path": "public/og-image.jpg",
+        "size": 210420
+      },
+      {
+        "path": "public/og/README.md",
+        "size": 2045
+      },
+      {
+        "path": "public/og/contact-us.png",
+        "size": 143522
+      },
+      {
+        "path": "public/og/innovation-services.png",
+        "size": 227728
+      },
+      {
+        "path": "public/og/journal.png",
+        "size": 128451
+      },
+      {
+        "path": "public/og/our-work.png",
+        "size": 921850
+      },
+      {
+        "path": "public/og/placeholder.html",
+        "size": 1607
+      },
+      {
+        "path": "public/og/r&d-lab.png",
+        "size": 896969
+      },
+      {
+        "path": "public/og/room-302-studio (1).png",
+        "size": 837452
+      },
+      {
+        "path": "public/og/room-302-studio.png",
+        "size": 657077
+      },
+      {
+        "path": "public/our-work-images/ap1.png",
+        "size": 284615
+      },
+      {
+        "path": "public/our-work-images/ap2.png",
+        "size": 508280
+      },
+      {
+        "path": "public/our-work-images/ap3.png",
+        "size": 223098
+      },
+      {
+        "path": "public/our-work-images/laptop.png",
+        "size": 1209504
+      },
+      {
+        "path": "public/our-work-images/margin-1.jpg",
+        "size": 469333
+      },
+      {
+        "path": "public/our-work-images/margin-2.jpg",
+        "size": 258534
+      },
+      {
+        "path": "public/our-work-images/reef-1.jpg",
+        "size": 303584
+      },
+      {
+        "path": "public/our-work-images/reef-2.jpg",
+        "size": 447783
+      },
+      {
+        "path": "public/our-work-images/ukraine-1.jpg",
+        "size": 555240
+      },
+      {
+        "path": "public/our-work-images/ukraine-2.jpg",
+        "size": 304044
+      },
+      {
+        "path": "public/our-work-images/ukraine-3.jpg",
+        "size": 740543
+      },
+      {
+        "path": "public/our-work-images/ukraine-4.jpg",
+        "size": 860520
+      },
+      {
+        "path": "public/our-work-images/ukraine.jpg",
+        "size": 1548530
+      },
+      {
+        "path": "public/our-work-images/ukrainegrain.png",
+        "size": 1027914
+      },
+      {
+        "path": "public/our-work-images/ukrainegrain/001_introimage.png",
+        "size": 1323571
+      },
+      {
+        "path": "public/our-work-images/ukrainegrain/004_insetmap.png",
+        "size": 135590
+      },
+      {
+        "path": "public/our-work-images/ukrainegrain/005_insetmap2.png",
+        "size": 1886390
+      },
+      {
+        "path": "public/our-work-images/ukrainegrain/006_barchart.png",
+        "size": 76050
+      },
+      {
+        "path": "public/our-work-images/ukrainegrain/007_sliders.png",
+        "size": 102958
+      },
+      {
+        "path": "public/our-work-images/ukrainegrain/008_map.png",
+        "size": 25608
+      },
+      {
+        "path": "public/our-work-images/unhcr.png",
+        "size": 516220
+      },
+      {
+        "path": "public/room302-logo.svg",
+        "size": 14783
+      },
+      {
+        "path": "public/twitter-image.jpg",
+        "size": 210420
+      },
+      {
+        "path": "tailwind.config.js",
+        "size": 768
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 94
+      },
+      {
+        "path": "types/animejs.d.ts",
+        "size": 73
+      },
+      {
+        "path": "yarn-error.log",
+        "size": 408296
+      },
+      {
+        "path": "yarn.lock",
+        "size": 419131
+      }
+    ],
+    "tree": {
+      "name": "room302studio",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "ISSUE_TEMPLATE",
+              "children": [
+                {
+                  "name": "blog-post-idea.md",
+                  "size": 1188,
+                  "path": ".github/ISSUE_TEMPLATE/blog-post-idea.md"
+                },
+                {
+                  "name": "event.md",
+                  "size": 780,
+                  "path": ".github/ISSUE_TEMPLATE/event.md"
+                }
+              ],
+              "path": ".github/ISSUE_TEMPLATE"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": ".output",
+          "children": [
+            {
+              "name": "public",
+              "children": [
+                {
+                  "name": "_nuxt",
+                  "children": [
+                    {
+                      "name": "builds",
+                      "children": [
+                        {
+                          "name": "meta",
+                          "children": [
+                            {
+                              "name": "e2ff6401-df8b-4adc-a9be-bdaedf3b47e0.json",
+                              "size": 450,
+                              "path": ".output/public/_nuxt/builds/meta/e2ff6401-df8b-4adc-a9be-bdaedf3b47e0.json"
+                            }
+                          ],
+                          "path": ".output/public/_nuxt/builds/meta"
+                        },
+                        {
+                          "name": "latest.json",
+                          "size": 71,
+                          "path": ".output/public/_nuxt/builds/latest.json"
+                        }
+                      ],
+                      "path": ".output/public/_nuxt/builds"
+                    },
+                    {
+                      "name": "Card.b6bbd48e.js",
+                      "size": 4185,
+                      "path": ".output/public/_nuxt/Card.b6bbd48e.js"
+                    },
+                    {
+                      "name": "ContentDoc.3d96e8d5.js",
+                      "size": 1532,
+                      "path": ".output/public/_nuxt/ContentDoc.3d96e8d5.js"
+                    },
+                    {
+                      "name": "ContentList.e8de0e08.js",
+                      "size": 871,
+                      "path": ".output/public/_nuxt/ContentList.e8de0e08.js"
+                    },
+                    {
+                      "name": "ContentNavigation.c8315ad6.js",
+                      "size": 865,
+                      "path": ".output/public/_nuxt/ContentNavigation.c8315ad6.js"
+                    },
+                    {
+                      "name": "ContentQuery.ab7bfc02.js",
+                      "size": 2465,
+                      "path": ".output/public/_nuxt/ContentQuery.ab7bfc02.js"
+                    },
+                    {
+                      "name": "ContentRenderer.80514074.js",
+                      "size": 1215,
+                      "path": ".output/public/_nuxt/ContentRenderer.80514074.js"
+                    },
+                    {
+                      "name": "ContentRendererMarkdown.2f370952.js",
+                      "size": 112,
+                      "path": ".output/public/_nuxt/ContentRendererMarkdown.2f370952.js"
+                    },
+                    {
+                      "name": "ContentRendererMarkdown.vue.122419e9.js",
+                      "size": 23481,
+                      "path": ".output/public/_nuxt/ContentRendererMarkdown.vue.122419e9.js"
+                    },
+                    {
+                      "name": "ContentSlot.ea028183.js",
+                      "size": 1946,
+                      "path": ".output/public/_nuxt/ContentSlot.ea028183.js"
+                    },
+                    {
+                      "name": "DocumentDrivenEmpty.7d5d0e4a.js",
+                      "size": 292,
+                      "path": ".output/public/_nuxt/DocumentDrivenEmpty.7d5d0e4a.js"
+                    },
+                    {
+                      "name": "DocumentDrivenNotFound.2a583a57.js",
+                      "size": 159,
+                      "path": ".output/public/_nuxt/DocumentDrivenNotFound.2a583a57.js"
+                    },
+                    {
+                      "name": "Icon.3c07e455.js",
+                      "size": 21889,
+                      "path": ".output/public/_nuxt/Icon.3c07e455.js"
+                    },
+                    {
+                      "name": "Icon.cf693866.css",
+                      "size": 67,
+                      "path": ".output/public/_nuxt/Icon.cf693866.css"
+                    },
+                    {
+                      "name": "IconCSS.3544dd2a.css",
+                      "size": 258,
+                      "path": ".output/public/_nuxt/IconCSS.3544dd2a.css"
+                    },
+                    {
+                      "name": "IconCSS.dfcc75b6.js",
+                      "size": 1075,
+                      "path": ".output/public/_nuxt/IconCSS.dfcc75b6.js"
+                    },
+                    {
+                      "name": "MailchimpSignupForm.60823535.js",
+                      "size": 1830,
+                      "path": ".output/public/_nuxt/MailchimpSignupForm.60823535.js"
+                    },
+                    {
+                      "name": "Markdown.c4f17cc3.js",
+                      "size": 330,
+                      "path": ".output/public/_nuxt/Markdown.c4f17cc3.js"
+                    },
+                    {
+                      "name": "ProseA.66624500.js",
+                      "size": 358,
+                      "path": ".output/public/_nuxt/ProseA.66624500.js"
+                    },
+                    {
+                      "name": "ProseBlockquote.b64dbfd9.js",
+                      "size": 189,
+                      "path": ".output/public/_nuxt/ProseBlockquote.b64dbfd9.js"
+                    },
+                    {
+                      "name": "ProseCode.21bc8321.js",
+                      "size": 98,
+                      "path": ".output/public/_nuxt/ProseCode.21bc8321.js"
+                    },
+                    {
+                      "name": "ProseCode.vue.ba5cf5fa.js",
+                      "size": 321,
+                      "path": ".output/public/_nuxt/ProseCode.vue.ba5cf5fa.js"
+                    },
+                    {
+                      "name": "ProseCodeInline.c0c1227b.js",
+                      "size": 188,
+                      "path": ".output/public/_nuxt/ProseCodeInline.c0c1227b.js"
+                    },
+                    {
+                      "name": "ProseEm.4239264d.js",
+                      "size": 186,
+                      "path": ".output/public/_nuxt/ProseEm.4239264d.js"
+                    },
+                    {
+                      "name": "ProseH1.07828808.js",
+                      "size": 437,
+                      "path": ".output/public/_nuxt/ProseH1.07828808.js"
+                    },
+                    {
+                      "name": "ProseH2.71f762ec.js",
+                      "size": 443,
+                      "path": ".output/public/_nuxt/ProseH2.71f762ec.js"
+                    },
+                    {
+                      "name": "ProseH3.1f74f489.js",
+                      "size": 443,
+                      "path": ".output/public/_nuxt/ProseH3.1f74f489.js"
+                    },
+                    {
+                      "name": "ProseH4.70c12f70.js",
+                      "size": 443,
+                      "path": ".output/public/_nuxt/ProseH4.70c12f70.js"
+                    },
+                    {
+                      "name": "ProseH5.a8c3ba63.js",
+                      "size": 443,
+                      "path": ".output/public/_nuxt/ProseH5.a8c3ba63.js"
+                    },
+                    {
+                      "name": "ProseH6.5bd8e314.js",
+                      "size": 443,
+                      "path": ".output/public/_nuxt/ProseH6.5bd8e314.js"
+                    },
+                    {
+                      "name": "ProseHr.b39ee228.js",
+                      "size": 145,
+                      "path": ".output/public/_nuxt/ProseHr.b39ee228.js"
+                    },
+                    {
+                      "name": "ProseImg.6c98e5d1.js",
+                      "size": 623,
+                      "path": ".output/public/_nuxt/ProseImg.6c98e5d1.js"
+                    },
+                    {
+                      "name": "ProseLi.194070e6.js",
+                      "size": 186,
+                      "path": ".output/public/_nuxt/ProseLi.194070e6.js"
+                    },
+                    {
+                      "name": "ProseOl.e1af6361.js",
+                      "size": 186,
+                      "path": ".output/public/_nuxt/ProseOl.e1af6361.js"
+                    },
+                    {
+                      "name": "ProseP.c9a0a705.js",
+                      "size": 185,
+                      "path": ".output/public/_nuxt/ProseP.c9a0a705.js"
+                    },
+                    {
+                      "name": "ProsePre.47252dce.js",
+                      "size": 742,
+                      "path": ".output/public/_nuxt/ProsePre.47252dce.js"
+                    },
+                    {
+                      "name": "ProsePre.e63e49c6.css",
+                      "size": 46,
+                      "path": ".output/public/_nuxt/ProsePre.e63e49c6.css"
+                    },
+                    {
+                      "name": "ProseScript.aa235cd8.js",
+                      "size": 491,
+                      "path": ".output/public/_nuxt/ProseScript.aa235cd8.js"
+                    },
+                    {
+                      "name": "ProseStrong.c4c52d7e.js",
+                      "size": 190,
+                      "path": ".output/public/_nuxt/ProseStrong.c4c52d7e.js"
+                    },
+                    {
+                      "name": "ProseTable.739f44d4.js",
+                      "size": 189,
+                      "path": ".output/public/_nuxt/ProseTable.739f44d4.js"
+                    },
+                    {
+                      "name": "ProseTbody.aa73d1d1.js",
+                      "size": 189,
+                      "path": ".output/public/_nuxt/ProseTbody.aa73d1d1.js"
+                    },
+                    {
+                      "name": "ProseTd.fa76da57.js",
+                      "size": 186,
+                      "path": ".output/public/_nuxt/ProseTd.fa76da57.js"
+                    },
+                    {
+                      "name": "ProseTh.1de79c2c.js",
+                      "size": 186,
+                      "path": ".output/public/_nuxt/ProseTh.1de79c2c.js"
+                    },
+                    {
+                      "name": "ProseThead.fd8d3e1e.js",
+                      "size": 189,
+                      "path": ".output/public/_nuxt/ProseThead.fd8d3e1e.js"
+                    },
+                    {
+                      "name": "ProseTr.bfebde8c.js",
+                      "size": 181,
+                      "path": ".output/public/_nuxt/ProseTr.bfebde8c.js"
+                    },
+                    {
+                      "name": "ProseUl.3df78e6f.js",
+                      "size": 186,
+                      "path": ".output/public/_nuxt/ProseUl.3df78e6f.js"
+                    },
+                    {
+                      "name": "Rubik-300-1.bc857679.woff2",
+                      "size": 32372,
+                      "path": ".output/public/_nuxt/Rubik-300-1.bc857679.woff2"
+                    },
+                    {
+                      "name": "Rubik-300-2.452feb2a.woff2",
+                      "size": 12236,
+                      "path": ".output/public/_nuxt/Rubik-300-2.452feb2a.woff2"
+                    },
+                    {
+                      "name": "Rubik-300-3.a7ad9db1.woff2",
+                      "size": 15076,
+                      "path": ".output/public/_nuxt/Rubik-300-3.a7ad9db1.woff2"
+                    },
+                    {
+                      "name": "Rubik-300-4.95d333fe.woff2",
+                      "size": 8704,
+                      "path": ".output/public/_nuxt/Rubik-300-4.95d333fe.woff2"
+                    },
+                    {
+                      "name": "Rubik-300-5.f4bbc2bf.woff2",
+                      "size": 18928,
+                      "path": ".output/public/_nuxt/Rubik-300-5.f4bbc2bf.woff2"
+                    },
+                    {
+                      "name": "Rubik-300-6.47374cb7.woff2",
+                      "size": 35448,
+                      "path": ".output/public/_nuxt/Rubik-300-6.47374cb7.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-25.0bc153e8.woff2",
+                      "size": 8488,
+                      "path": ".output/public/_nuxt/Source_Code_Pro-400-25.0bc153e8.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-26.a9204ea7.woff2",
+                      "size": 13872,
+                      "path": ".output/public/_nuxt/Source_Code_Pro-400-26.a9204ea7.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-28.62e15bcc.woff2",
+                      "size": 10312,
+                      "path": ".output/public/_nuxt/Source_Code_Pro-400-28.62e15bcc.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-29.ecf0d6bf.woff2",
+                      "size": 7692,
+                      "path": ".output/public/_nuxt/Source_Code_Pro-400-29.ecf0d6bf.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-30.c6489cfa.woff2",
+                      "size": 28908,
+                      "path": ".output/public/_nuxt/Source_Code_Pro-400-30.c6489cfa.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-31.539bdb4b.woff2",
+                      "size": 21528,
+                      "path": ".output/public/_nuxt/Source_Code_Pro-400-31.539bdb4b.woff2"
+                    },
+                    {
+                      "name": "_...slug_.67aa7d94.js",
+                      "size": 659,
+                      "path": ".output/public/_nuxt/_...slug_.67aa7d94.js"
+                    },
+                    {
+                      "name": "_...slug_.d953334d.js",
+                      "size": 671,
+                      "path": ".output/public/_nuxt/_...slug_.d953334d.js"
+                    },
+                    {
+                      "name": "asyncData.0e0ee21d.js",
+                      "size": 2537,
+                      "path": ".output/public/_nuxt/asyncData.0e0ee21d.js"
+                    },
+                    {
+                      "name": "blog.dbe6a729.js",
+                      "size": 225,
+                      "path": ".output/public/_nuxt/blog.dbe6a729.js"
+                    },
+                    {
+                      "name": "client-db.d42cb5c3.js",
+                      "size": 21530,
+                      "path": ".output/public/_nuxt/client-db.d42cb5c3.js"
+                    },
+                    {
+                      "name": "contact.0038f68b.js",
+                      "size": 27590,
+                      "path": ".output/public/_nuxt/contact.0038f68b.js"
+                    },
+                    {
+                      "name": "default.eec42a6f.js",
+                      "size": 235,
+                      "path": ".output/public/_nuxt/default.eec42a6f.js"
+                    },
+                    {
+                      "name": "document-driven.686b7830.js",
+                      "size": 2037,
+                      "path": ".output/public/_nuxt/document-driven.686b7830.js"
+                    },
+                    {
+                      "name": "entry.3883dc74.js",
+                      "size": 216614,
+                      "path": ".output/public/_nuxt/entry.3883dc74.js"
+                    },
+                    {
+                      "name": "entry.b855e4e9.css",
+                      "size": 157,
+                      "path": ".output/public/_nuxt/entry.b855e4e9.css"
+                    },
+                    {
+                      "name": "error-404.7a95e7c6.js",
+                      "size": 2221,
+                      "path": ".output/public/_nuxt/error-404.7a95e7c6.js"
+                    },
+                    {
+                      "name": "error-404.95c28eb4.css",
+                      "size": 3696,
+                      "path": ".output/public/_nuxt/error-404.95c28eb4.css"
+                    },
+                    {
+                      "name": "error-500.cd39b478.js",
+                      "size": 1878,
+                      "path": ".output/public/_nuxt/error-500.cd39b478.js"
+                    },
+                    {
+                      "name": "error-500.e798523c.css",
+                      "size": 2016,
+                      "path": ".output/public/_nuxt/error-500.e798523c.css"
+                    },
+                    {
+                      "name": "events.18d96764.js",
+                      "size": 402,
+                      "path": ".output/public/_nuxt/events.18d96764.js"
+                    },
+                    {
+                      "name": "head.d4e1f8bd.js",
+                      "size": 589,
+                      "path": ".output/public/_nuxt/head.d4e1f8bd.js"
+                    },
+                    {
+                      "name": "index.76bc9eb1.js",
+                      "size": 693,
+                      "path": ".output/public/_nuxt/index.76bc9eb1.js"
+                    },
+                    {
+                      "name": "index.7f800b49.js",
+                      "size": 13232,
+                      "path": ".output/public/_nuxt/index.7f800b49.js"
+                    },
+                    {
+                      "name": "index.8f25907a.js",
+                      "size": 1460,
+                      "path": ".output/public/_nuxt/index.8f25907a.js"
+                    },
+                    {
+                      "name": "index.9e8722ba.css",
+                      "size": 106,
+                      "path": ".output/public/_nuxt/index.9e8722ba.css"
+                    },
+                    {
+                      "name": "index.a52d2ddd.js",
+                      "size": 7870,
+                      "path": ".output/public/_nuxt/index.a52d2ddd.js"
+                    },
+                    {
+                      "name": "index.b8fe2cb5.js",
+                      "size": 2099,
+                      "path": ".output/public/_nuxt/index.b8fe2cb5.js"
+                    },
+                    {
+                      "name": "members.878341e0.js",
+                      "size": 6203,
+                      "path": ".output/public/_nuxt/members.878341e0.js"
+                    },
+                    {
+                      "name": "our-work.9cc110a1.js",
+                      "size": 225,
+                      "path": ".output/public/_nuxt/our-work.9cc110a1.js"
+                    },
+                    {
+                      "name": "services.0011de62.js",
+                      "size": 849,
+                      "path": ".output/public/_nuxt/services.0011de62.js"
+                    },
+                    {
+                      "name": "work.ea7fd1fd.js",
+                      "size": 225,
+                      "path": ".output/public/_nuxt/work.ea7fd1fd.js"
+                    }
+                  ],
+                  "path": ".output/public/_nuxt"
+                },
+                {
+                  "name": "api",
+                  "children": [
+                    {
+                      "name": "_content",
+                      "children": [
+                        {
+                          "name": "navigation",
+                          "children": [
+                            {
+                              "name": "u7BbTyuhiE.1703010921609.json",
+                              "size": 861,
+                              "path": ".output/public/api/_content/navigation/u7BbTyuhiE.1703010921609.json"
+                            }
+                          ],
+                          "path": ".output/public/api/_content/navigation"
+                        },
+                        {
+                          "name": "query",
+                          "children": [
+                            {
+                              "name": "1oKnK0vnkm.1703010921609.json",
+                              "size": 5128,
+                              "path": ".output/public/api/_content/query/1oKnK0vnkm.1703010921609.json"
+                            },
+                            {
+                              "name": "4rWHRbRzSn.1703010921609.json",
+                              "size": 11,
+                              "path": ".output/public/api/_content/query/4rWHRbRzSn.1703010921609.json"
+                            },
+                            {
+                              "name": "59kDZyXONr.1703010921609.json",
+                              "size": 584,
+                              "path": ".output/public/api/_content/query/59kDZyXONr.1703010921609.json"
+                            },
+                            {
+                              "name": "5FUYZQ994d.1703010921609.json",
+                              "size": 803,
+                              "path": ".output/public/api/_content/query/5FUYZQ994d.1703010921609.json"
+                            },
+                            {
+                              "name": "66ZMwiUDro.1703010921609.json",
+                              "size": 933,
+                              "path": ".output/public/api/_content/query/66ZMwiUDro.1703010921609.json"
+                            },
+                            {
+                              "name": "6Bbj1qQqCU.1703010921609.json",
+                              "size": 587,
+                              "path": ".output/public/api/_content/query/6Bbj1qQqCU.1703010921609.json"
+                            },
+                            {
+                              "name": "6naLmYJYTh.1703010921609.json",
+                              "size": 1046,
+                              "path": ".output/public/api/_content/query/6naLmYJYTh.1703010921609.json"
+                            },
+                            {
+                              "name": "8bxkQyXpoF.1703010921609.json",
+                              "size": 637,
+                              "path": ".output/public/api/_content/query/8bxkQyXpoF.1703010921609.json"
+                            },
+                            {
+                              "name": "FZDfxgV2E0.1703010921609.json",
+                              "size": 587,
+                              "path": ".output/public/api/_content/query/FZDfxgV2E0.1703010921609.json"
+                            },
+                            {
+                              "name": "G8y7NNaZcX.1703010921609.json",
+                              "size": 587,
+                              "path": ".output/public/api/_content/query/G8y7NNaZcX.1703010921609.json"
+                            },
+                            {
+                              "name": "INYrSNDmPa.1703010921609.json",
+                              "size": 587,
+                              "path": ".output/public/api/_content/query/INYrSNDmPa.1703010921609.json"
+                            },
+                            {
+                              "name": "KrTGJqHxiU.1703010921609.json",
+                              "size": 11,
+                              "path": ".output/public/api/_content/query/KrTGJqHxiU.1703010921609.json"
+                            },
+                            {
+                              "name": "MNvcwcH6We.1703010921609.json",
+                              "size": 11,
+                              "path": ".output/public/api/_content/query/MNvcwcH6We.1703010921609.json"
+                            },
+                            {
+                              "name": "MSWcoXckSg.1703010921609.json",
+                              "size": 8403,
+                              "path": ".output/public/api/_content/query/MSWcoXckSg.1703010921609.json"
+                            },
+                            {
+                              "name": "O3ydtLe788.1703010921609.json",
+                              "size": 1085,
+                              "path": ".output/public/api/_content/query/O3ydtLe788.1703010921609.json"
+                            },
+                            {
+                              "name": "O5DPFWxgTD.1703010921609.json",
+                              "size": 933,
+                              "path": ".output/public/api/_content/query/O5DPFWxgTD.1703010921609.json"
+                            },
+                            {
+                              "name": "PdhTWQMGS0.1703010921609.json",
+                              "size": 11,
+                              "path": ".output/public/api/_content/query/PdhTWQMGS0.1703010921609.json"
+                            },
+                            {
+                              "name": "Pj5B6VH8P4.1703010921609.json",
+                              "size": 238,
+                              "path": ".output/public/api/_content/query/Pj5B6VH8P4.1703010921609.json"
+                            },
+                            {
+                              "name": "R8qJq4JRBm.1703010921609.json",
+                              "size": 587,
+                              "path": ".output/public/api/_content/query/R8qJq4JRBm.1703010921609.json"
+                            },
+                            {
+                              "name": "Sdte0TUPxt.1703010921609.json",
+                              "size": 933,
+                              "path": ".output/public/api/_content/query/Sdte0TUPxt.1703010921609.json"
+                            },
+                            {
+                              "name": "TylHLDETmI.1703010921609.json",
+                              "size": 587,
+                              "path": ".output/public/api/_content/query/TylHLDETmI.1703010921609.json"
+                            },
+                            {
+                              "name": "XJIKcGkTSi.1703010921609.json",
+                              "size": 590,
+                              "path": ".output/public/api/_content/query/XJIKcGkTSi.1703010921609.json"
+                            },
+                            {
+                              "name": "Z7zh8KJxlG.1703010921609.json",
+                              "size": 933,
+                              "path": ".output/public/api/_content/query/Z7zh8KJxlG.1703010921609.json"
+                            },
+                            {
+                              "name": "ZOuoueJfWF.1703010921609.json",
+                              "size": 933,
+                              "path": ".output/public/api/_content/query/ZOuoueJfWF.1703010921609.json"
+                            },
+                            {
+                              "name": "d50CYKFfS2.1703010921609.json",
+                              "size": 797,
+                              "path": ".output/public/api/_content/query/d50CYKFfS2.1703010921609.json"
+                            },
+                            {
+                              "name": "fCEXcyouD1.1703010921609.json",
+                              "size": 933,
+                              "path": ".output/public/api/_content/query/fCEXcyouD1.1703010921609.json"
+                            },
+                            {
+                              "name": "gCcivIl2Tv.1703010921609.json",
+                              "size": 936,
+                              "path": ".output/public/api/_content/query/gCcivIl2Tv.1703010921609.json"
+                            },
+                            {
+                              "name": "ghiJxsvsaM.1703010921609.json",
+                              "size": 6177,
+                              "path": ".output/public/api/_content/query/ghiJxsvsaM.1703010921609.json"
+                            },
+                            {
+                              "name": "jIuzblYUgw.1703010921609.json",
+                              "size": 11,
+                              "path": ".output/public/api/_content/query/jIuzblYUgw.1703010921609.json"
+                            },
+                            {
+                              "name": "pALAl0rM2T.1703010921609.json",
+                              "size": 933,
+                              "path": ".output/public/api/_content/query/pALAl0rM2T.1703010921609.json"
+                            },
+                            {
+                              "name": "uQoQr1m5KP.1703010921609.json",
+                              "size": 587,
+                              "path": ".output/public/api/_content/query/uQoQr1m5KP.1703010921609.json"
+                            },
+                            {
+                              "name": "vOqXRsznSI.1703010921609.json",
+                              "size": 933,
+                              "path": ".output/public/api/_content/query/vOqXRsznSI.1703010921609.json"
+                            },
+                            {
+                              "name": "vwgAJmWDk6.1703010921609.json",
+                              "size": 526,
+                              "path": ".output/public/api/_content/query/vwgAJmWDk6.1703010921609.json"
+                            },
+                            {
+                              "name": "xWeY3NfYtX.1703010921609.json",
+                              "size": 11,
+                              "path": ".output/public/api/_content/query/xWeY3NfYtX.1703010921609.json"
+                            },
+                            {
+                              "name": "yNRlaqTPdg.1703010921609.json",
+                              "size": 933,
+                              "path": ".output/public/api/_content/query/yNRlaqTPdg.1703010921609.json"
+                            },
+                            {
+                              "name": "yU1WsESpXh.1703010921609.json",
+                              "size": 39630,
+                              "path": ".output/public/api/_content/query/yU1WsESpXh.1703010921609.json"
+                            },
+                            {
+                              "name": "ylaj9DfXyn.1703010921609.json",
+                              "size": 20950,
+                              "path": ".output/public/api/_content/query/ylaj9DfXyn.1703010921609.json"
+                            },
+                            {
+                              "name": "ywdRwte9WD.1703010921609.json",
+                              "size": 930,
+                              "path": ".output/public/api/_content/query/ywdRwte9WD.1703010921609.json"
+                            }
+                          ],
+                          "path": ".output/public/api/_content/query"
+                        },
+                        {
+                          "name": "cache.1703010921609.json",
+                          "size": 46741,
+                          "path": ".output/public/api/_content/cache.1703010921609.json"
+                        }
+                      ],
+                      "path": ".output/public/api/_content"
+                    }
+                  ],
+                  "path": ".output/public/api"
+                },
+                {
+                  "name": "blog",
+                  "children": [
+                    {
+                      "name": "how-to-give-credit",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 21852,
+                          "path": ".output/public/blog/how-to-give-credit/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 355293,
+                          "path": ".output/public/blog/how-to-give-credit/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/how-to-give-credit"
+                    },
+                    {
+                      "name": "starting-a-studio-introducing-room-302",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 8704,
+                          "path": ".output/public/blog/starting-a-studio-introducing-room-302/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 333307,
+                          "path": ".output/public/blog/starting-a-studio-introducing-room-302/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/starting-a-studio-introducing-room-302"
+                    },
+                    {
+                      "name": "test",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 1070,
+                          "path": ".output/public/blog/test/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 320459,
+                          "path": ".output/public/blog/test/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/test"
+                    },
+                    {
+                      "name": "test1",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 1073,
+                          "path": ".output/public/blog/test1/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 319962,
+                          "path": ".output/public/blog/test1/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/test1"
+                    },
+                    {
+                      "name": "test10",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 1076,
+                          "path": ".output/public/blog/test10/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 319947,
+                          "path": ".output/public/blog/test10/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/test10"
+                    },
+                    {
+                      "name": "test2",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 1073,
+                          "path": ".output/public/blog/test2/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 319964,
+                          "path": ".output/public/blog/test2/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/test2"
+                    },
+                    {
+                      "name": "test3",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 1073,
+                          "path": ".output/public/blog/test3/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 319964,
+                          "path": ".output/public/blog/test3/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/test3"
+                    },
+                    {
+                      "name": "test4",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 1073,
+                          "path": ".output/public/blog/test4/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 319964,
+                          "path": ".output/public/blog/test4/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/test4"
+                    },
+                    {
+                      "name": "test5",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 1073,
+                          "path": ".output/public/blog/test5/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 319964,
+                          "path": ".output/public/blog/test5/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/test5"
+                    },
+                    {
+                      "name": "test6",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 1073,
+                          "path": ".output/public/blog/test6/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 319964,
+                          "path": ".output/public/blog/test6/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/test6"
+                    },
+                    {
+                      "name": "test7",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 1073,
+                          "path": ".output/public/blog/test7/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 319964,
+                          "path": ".output/public/blog/test7/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/test7"
+                    },
+                    {
+                      "name": "test8",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 1073,
+                          "path": ".output/public/blog/test8/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 319964,
+                          "path": ".output/public/blog/test8/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/test8"
+                    },
+                    {
+                      "name": "test9",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 1073,
+                          "path": ".output/public/blog/test9/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 319966,
+                          "path": ".output/public/blog/test9/index.html"
+                        }
+                      ],
+                      "path": ".output/public/blog/test9"
+                    },
+                    {
+                      "name": "_payload.json",
+                      "size": 65394,
+                      "path": ".output/public/blog/_payload.json"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 330575,
+                      "path": ".output/public/blog/index.html"
+                    }
+                  ],
+                  "path": ".output/public/blog"
+                },
+                {
+                  "name": "contact",
+                  "children": [
+                    {
+                      "name": "_payload.json",
+                      "size": 62,
+                      "path": ".output/public/contact/_payload.json"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 328897,
+                      "path": ".output/public/contact/index.html"
+                    }
+                  ],
+                  "path": ".output/public/contact"
+                },
+                {
+                  "name": "css",
+                  "children": [
+                    {
+                      "name": "nuxt-google-fonts.css",
+                      "size": 11597,
+                      "path": ".output/public/css/nuxt-google-fonts.css"
+                    }
+                  ],
+                  "path": ".output/public/css"
+                },
+                {
+                  "name": "events",
+                  "children": [
+                    {
+                      "name": "_payload.json",
+                      "size": 62,
+                      "path": ".output/public/events/_payload.json"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 319314,
+                      "path": ".output/public/events/index.html"
+                    }
+                  ],
+                  "path": ".output/public/events"
+                },
+                {
+                  "name": "fonts",
+                  "children": [
+                    {
+                      "name": "Rubik-300-1.woff2",
+                      "size": 32372,
+                      "path": ".output/public/fonts/Rubik-300-1.woff2"
+                    },
+                    {
+                      "name": "Rubik-300-2.woff2",
+                      "size": 12236,
+                      "path": ".output/public/fonts/Rubik-300-2.woff2"
+                    },
+                    {
+                      "name": "Rubik-300-3.woff2",
+                      "size": 15076,
+                      "path": ".output/public/fonts/Rubik-300-3.woff2"
+                    },
+                    {
+                      "name": "Rubik-300-4.woff2",
+                      "size": 8704,
+                      "path": ".output/public/fonts/Rubik-300-4.woff2"
+                    },
+                    {
+                      "name": "Rubik-300-5.woff2",
+                      "size": 18928,
+                      "path": ".output/public/fonts/Rubik-300-5.woff2"
+                    },
+                    {
+                      "name": "Rubik-300-6.woff2",
+                      "size": 35448,
+                      "path": ".output/public/fonts/Rubik-300-6.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-25.woff2",
+                      "size": 8488,
+                      "path": ".output/public/fonts/Source_Code_Pro-400-25.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-26.woff2",
+                      "size": 13872,
+                      "path": ".output/public/fonts/Source_Code_Pro-400-26.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-27.woff2",
+                      "size": 2932,
+                      "path": ".output/public/fonts/Source_Code_Pro-400-27.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-28.woff2",
+                      "size": 10312,
+                      "path": ".output/public/fonts/Source_Code_Pro-400-28.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-29.woff2",
+                      "size": 7692,
+                      "path": ".output/public/fonts/Source_Code_Pro-400-29.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-30.woff2",
+                      "size": 28908,
+                      "path": ".output/public/fonts/Source_Code_Pro-400-30.woff2"
+                    },
+                    {
+                      "name": "Source_Code_Pro-400-31.woff2",
+                      "size": 21528,
+                      "path": ".output/public/fonts/Source_Code_Pro-400-31.woff2"
+                    }
+                  ],
+                  "path": ".output/public/fonts"
+                },
+                {
+                  "name": "member-headshots",
+                  "children": [
+                    {
+                      "name": "curran-headshot.png",
+                      "size": 1652445,
+                      "path": ".output/public/member-headshots/curran-headshot.png"
+                    },
+                    {
+                      "name": "ej-headshot.png",
+                      "size": 3153148,
+                      "path": ".output/public/member-headshots/ej-headshot.png"
+                    },
+                    {
+                      "name": "ian-headshot.png",
+                      "size": 4059653,
+                      "path": ".output/public/member-headshots/ian-headshot.png"
+                    },
+                    {
+                      "name": "israel-headshot.png",
+                      "size": 748176,
+                      "path": ".output/public/member-headshots/israel-headshot.png"
+                    },
+                    {
+                      "name": "sam-headshot.png",
+                      "size": 2646444,
+                      "path": ".output/public/member-headshots/sam-headshot.png"
+                    }
+                  ],
+                  "path": ".output/public/member-headshots"
+                },
+                {
+                  "name": "members",
+                  "children": [
+                    {
+                      "name": "_payload.json",
+                      "size": 62,
+                      "path": ".output/public/members/_payload.json"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 326440,
+                      "path": ".output/public/members/index.html"
+                    }
+                  ],
+                  "path": ".output/public/members"
+                },
+                {
+                  "name": "our-work-images",
+                  "children": [
+                    {
+                      "name": "getnoan.png",
+                      "size": 455205,
+                      "path": ".output/public/our-work-images/getnoan.png"
+                    },
+                    {
+                      "name": "themargin.png",
+                      "size": 9537785,
+                      "path": ".output/public/our-work-images/themargin.png"
+                    },
+                    {
+                      "name": "ukrainegrain.png",
+                      "size": 1027914,
+                      "path": ".output/public/our-work-images/ukrainegrain.png"
+                    },
+                    {
+                      "name": "unhcr.png",
+                      "size": 1515832,
+                      "path": ".output/public/our-work-images/unhcr.png"
+                    }
+                  ],
+                  "path": ".output/public/our-work-images"
+                },
+                {
+                  "name": "our-work",
+                  "children": [
+                    {
+                      "name": "wcs",
+                      "children": [
+                        {
+                          "name": "_payload.json",
+                          "size": 1196,
+                          "path": ".output/public/our-work/wcs/_payload.json"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 319859,
+                          "path": ".output/public/our-work/wcs/index.html"
+                        }
+                      ],
+                      "path": ".output/public/our-work/wcs"
+                    },
+                    {
+                      "name": "_payload.json",
+                      "size": 5911,
+                      "path": ".output/public/our-work/_payload.json"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 323435,
+                      "path": ".output/public/our-work/index.html"
+                    }
+                  ],
+                  "path": ".output/public/our-work"
+                },
+                {
+                  "name": "services",
+                  "children": [
+                    {
+                      "name": "_payload.json",
+                      "size": 62,
+                      "path": ".output/public/services/_payload.json"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 318458,
+                      "path": ".output/public/services/index.html"
+                    }
+                  ],
+                  "path": ".output/public/services"
+                },
+                {
+                  "name": "200.html",
+                  "size": 314262,
+                  "path": ".output/public/200.html"
+                },
+                {
+                  "name": "404.html",
+                  "size": 314262,
+                  "path": ".output/public/404.html"
+                },
+                {
+                  "name": "_payload.json",
+                  "size": 62,
+                  "path": ".output/public/_payload.json"
+                },
+                {
+                  "name": "favicon.ico",
+                  "size": 1150,
+                  "path": ".output/public/favicon.ico"
+                },
+                {
+                  "name": "favicon.png",
+                  "size": 364,
+                  "path": ".output/public/favicon.png"
+                },
+                {
+                  "name": "index.html",
+                  "size": 324272,
+                  "path": ".output/public/index.html"
+                },
+                {
+                  "name": "logo1.r1.svg",
+                  "size": 10427,
+                  "path": ".output/public/logo1.r1.svg"
+                },
+                {
+                  "name": "logo1.r2.svg",
+                  "size": 14403,
+                  "path": ".output/public/logo1.r2.svg"
+                },
+                {
+                  "name": "logo1.r3.svg",
+                  "size": 14083,
+                  "path": ".output/public/logo1.r3.svg"
+                },
+                {
+                  "name": "og-image.jpg",
+                  "size": 210420,
+                  "path": ".output/public/og-image.jpg"
+                },
+                {
+                  "name": "twitter-image.jpg",
+                  "size": 210420,
+                  "path": ".output/public/twitter-image.jpg"
+                }
+              ],
+              "path": ".output/public"
+            },
+            {
+              "name": "nitro.json",
+              "size": 226,
+              "path": ".output/nitro.json"
+            }
+          ],
+          "path": ".output"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "content",
+              "children": [
+                {
+                  "name": "ProseH2.vue",
+                  "size": 509,
+                  "path": "components/content/ProseH2.vue"
+                }
+              ],
+              "path": "components/content"
+            },
+            {
+              "name": "CalendarBooking.vue",
+              "size": 364,
+              "path": "components/CalendarBooking.vue"
+            },
+            {
+              "name": "ContactForm.vue",
+              "size": 5954,
+              "path": "components/ContactForm.vue"
+            },
+            {
+              "name": "DataTimeline.vue",
+              "size": 7981,
+              "path": "components/DataTimeline.vue"
+            },
+            {
+              "name": "DataViz.vue",
+              "size": 8069,
+              "path": "components/DataViz.vue"
+            },
+            {
+              "name": "GlobalFooter.vue",
+              "size": 5447,
+              "path": "components/GlobalFooter.vue"
+            },
+            {
+              "name": "HomepageCaseStudy.vue",
+              "size": 4512,
+              "path": "components/HomepageCaseStudy.vue"
+            },
+            {
+              "name": "Logo.vue",
+              "size": 160,
+              "path": "components/Logo.vue"
+            },
+            {
+              "name": "MailchimpSignupForm.vue",
+              "size": 2667,
+              "path": "components/MailchimpSignupForm.vue"
+            },
+            {
+              "name": "MemberBio.vue",
+              "size": 1168,
+              "path": "components/MemberBio.vue"
+            },
+            {
+              "name": "MonoButton.vue",
+              "size": 2117,
+              "path": "components/MonoButton.vue"
+            },
+            {
+              "name": "SiteNav.vue",
+              "size": 4615,
+              "path": "components/SiteNav.vue"
+            },
+            {
+              "name": "TechnologyShowcase.vue",
+              "size": 3628,
+              "path": "components/TechnologyShowcase.vue"
+            },
+            {
+              "name": "TufteAnnotation.vue",
+              "size": 2353,
+              "path": "components/TufteAnnotation.vue"
+            },
+            {
+              "name": "TufteGrid.vue",
+              "size": 4286,
+              "path": "components/TufteGrid.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "composables",
+          "children": [
+            {
+              "name": "useOgMetadata.js",
+              "size": 2481,
+              "path": "composables/useOgMetadata.js"
+            }
+          ],
+          "path": "composables"
+        },
+        {
+          "name": "content",
+          "children": [
+            {
+              "name": ".obsidian",
+              "children": [
+                {
+                  "name": "app.json",
+                  "size": 62,
+                  "path": "content/.obsidian/app.json"
+                },
+                {
+                  "name": "appearance.json",
+                  "size": 2,
+                  "path": "content/.obsidian/appearance.json"
+                },
+                {
+                  "name": "core-plugins.json",
+                  "size": 637,
+                  "path": "content/.obsidian/core-plugins.json"
+                },
+                {
+                  "name": "workspace.json",
+                  "size": 4706,
+                  "path": "content/.obsidian/workspace.json"
+                }
+              ],
+              "path": "content/.obsidian"
+            },
+            {
+              "name": "blog",
+              "children": [
+                {
+                  "name": "coach-artie-webhooks-cron-and-advanced-reflection.md",
+                  "size": 10100,
+                  "path": "content/blog/coach-artie-webhooks-cron-and-advanced-reflection.md"
+                },
+                {
+                  "name": "discord-community.md",
+                  "size": 1284,
+                  "path": "content/blog/discord-community.md"
+                },
+                {
+                  "name": "how-to-give-credit.md",
+                  "size": 9808,
+                  "path": "content/blog/how-to-give-credit.md"
+                },
+                {
+                  "name": "livestreaming-our-process.md",
+                  "size": 3252,
+                  "path": "content/blog/livestreaming-our-process.md"
+                },
+                {
+                  "name": "starting-a-studio-introducing-room-302.md",
+                  "size": 4070,
+                  "path": "content/blog/starting-a-studio-introducing-room-302.md"
+                },
+                {
+                  "name": "state-of-the-studio-2024.md",
+                  "size": 2554,
+                  "path": "content/blog/state-of-the-studio-2024.md"
+                }
+              ],
+              "path": "content/blog"
+            },
+            {
+              "name": "members",
+              "children": [
+                {
+                  "name": "curran-kelleher.md",
+                  "size": 882,
+                  "path": "content/members/curran-kelleher.md"
+                },
+                {
+                  "name": "ej-fox.md",
+                  "size": 754,
+                  "path": "content/members/ej-fox.md"
+                },
+                {
+                  "name": "elena-haliczer.md",
+                  "size": 140,
+                  "path": "content/members/elena-haliczer.md"
+                },
+                {
+                  "name": "ian-johnson.md",
+                  "size": 757,
+                  "path": "content/members/ian-johnson.md"
+                },
+                {
+                  "name": "israel-gonzalez.md",
+                  "size": 837,
+                  "path": "content/members/israel-gonzalez.md"
+                },
+                {
+                  "name": "sam-vogt.md",
+                  "size": 657,
+                  "path": "content/members/sam-vogt.md"
+                }
+              ],
+              "path": "content/members"
+            },
+            {
+              "name": "our-work",
+              "children": [
+                {
+                  "name": "client-work",
+                  "children": [
+                    {
+                      "name": "apnews-2024.md",
+                      "size": 735,
+                      "path": "content/our-work/client-work/apnews-2024.md"
+                    },
+                    {
+                      "name": "coralreefs.md",
+                      "size": 2943,
+                      "path": "content/our-work/client-work/coralreefs.md"
+                    },
+                    {
+                      "name": "themargin.md",
+                      "size": 2809,
+                      "path": "content/our-work/client-work/themargin.md"
+                    },
+                    {
+                      "name": "ukrainegrain.md",
+                      "size": 3039,
+                      "path": "content/our-work/client-work/ukrainegrain.md"
+                    }
+                  ],
+                  "path": "content/our-work/client-work"
+                },
+                {
+                  "name": "internal",
+                  "children": [
+                    {
+                      "name": "coachartie.md",
+                      "size": 1386,
+                      "path": "content/our-work/internal/coachartie.md"
+                    }
+                  ],
+                  "path": "content/our-work/internal"
+                }
+              ],
+              "path": "content/our-work"
+            },
+            {
+              "name": "process.md",
+              "size": 2011,
+              "path": "content/process.md"
+            }
+          ],
+          "path": "content"
+        },
+        {
+          "name": "layouts",
+          "children": [
+            {
+              "name": "blog.vue",
+              "size": 534,
+              "path": "layouts/blog.vue"
+            },
+            {
+              "name": "default.vue",
+              "size": 261,
+              "path": "layouts/default.vue"
+            },
+            {
+              "name": "error.vue",
+              "size": 5487,
+              "path": "layouts/error.vue"
+            },
+            {
+              "name": "work.vue",
+              "size": 604,
+              "path": "layouts/work.vue"
+            }
+          ],
+          "path": "layouts"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "blog",
+              "children": [
+                {
+                  "name": "[...slug].vue",
+                  "size": 7728,
+                  "path": "pages/blog/[...slug].vue"
+                },
+                {
+                  "name": "index.vue",
+                  "size": 5742,
+                  "path": "pages/blog/index.vue"
+                }
+              ],
+              "path": "pages/blog"
+            },
+            {
+              "name": "lab",
+              "children": [
+                {
+                  "name": "gradients.vue",
+                  "size": 23790,
+                  "path": "pages/lab/gradients.vue"
+                },
+                {
+                  "name": "index.vue",
+                  "size": 23985,
+                  "path": "pages/lab/index.vue"
+                }
+              ],
+              "path": "pages/lab"
+            },
+            {
+              "name": "our-work",
+              "children": [
+                {
+                  "name": "client-work",
+                  "children": [
+                    {
+                      "name": "[...slug].vue",
+                      "size": 7474,
+                      "path": "pages/our-work/client-work/[...slug].vue"
+                    }
+                  ],
+                  "path": "pages/our-work/client-work"
+                },
+                {
+                  "name": "internal",
+                  "children": [
+                    {
+                      "name": "[...slug].vue",
+                      "size": 7565,
+                      "path": "pages/our-work/internal/[...slug].vue"
+                    }
+                  ],
+                  "path": "pages/our-work/internal"
+                },
+                {
+                  "name": "index.vue",
+                  "size": 15023,
+                  "path": "pages/our-work/index.vue"
+                }
+              ],
+              "path": "pages/our-work"
+            },
+            {
+              "name": "approach.vue",
+              "size": 1055,
+              "path": "pages/approach.vue"
+            },
+            {
+              "name": "contact-success.vue",
+              "size": 347,
+              "path": "pages/contact-success.vue"
+            },
+            {
+              "name": "contact.vue",
+              "size": 2567,
+              "path": "pages/contact.vue"
+            },
+            {
+              "name": "events.vue",
+              "size": 420,
+              "path": "pages/events.vue"
+            },
+            {
+              "name": "for-ceos.vue",
+              "size": 8977,
+              "path": "pages/for-ceos.vue"
+            },
+            {
+              "name": "for-data-analysts.vue",
+              "size": 9099,
+              "path": "pages/for-data-analysts.vue"
+            },
+            {
+              "name": "index.vue",
+              "size": 23635,
+              "path": "pages/index.vue"
+            },
+            {
+              "name": "members.vue",
+              "size": 542,
+              "path": "pages/members.vue"
+            },
+            {
+              "name": "og_generator.vue",
+              "size": 10989,
+              "path": "pages/og_generator.vue"
+            },
+            {
+              "name": "process.vue",
+              "size": 23320,
+              "path": "pages/process.vue"
+            },
+            {
+              "name": "services.vue",
+              "size": 13186,
+              "path": "pages/services.vue"
+            },
+            {
+              "name": "toolkit.vue",
+              "size": 30277,
+              "path": "pages/toolkit.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "plugins",
+          "children": [
+            {
+              "name": "umami.client.js",
+              "size": 299,
+              "path": "plugins/umami.client.js"
+            }
+          ],
+          "path": "plugins"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "css",
+              "children": [
+                {
+                  "name": "fonts.css",
+                  "size": 3252,
+                  "path": "public/css/fonts.css"
+                }
+              ],
+              "path": "public/css"
+            },
+            {
+              "name": "fonts",
+              "children": [
+                {
+                  "name": "Fraunces-Variable.woff2",
+                  "size": 273313,
+                  "path": "public/fonts/Fraunces-Variable.woff2"
+                },
+                {
+                  "name": "Inter-Variable.woff2",
+                  "size": 272955,
+                  "path": "public/fonts/Inter-Variable.woff2"
+                }
+              ],
+              "path": "public/fonts"
+            },
+            {
+              "name": "member-headshots",
+              "children": [
+                {
+                  "name": "curran-headshot.png",
+                  "size": 1652445,
+                  "path": "public/member-headshots/curran-headshot.png"
+                },
+                {
+                  "name": "ej-headshot.png",
+                  "size": 3153148,
+                  "path": "public/member-headshots/ej-headshot.png"
+                },
+                {
+                  "name": "elena-headshot.jpeg",
+                  "size": 54353,
+                  "path": "public/member-headshots/elena-headshot.jpeg"
+                },
+                {
+                  "name": "ian-headshot.png",
+                  "size": 4059653,
+                  "path": "public/member-headshots/ian-headshot.png"
+                },
+                {
+                  "name": "israel-headshot.png",
+                  "size": 748176,
+                  "path": "public/member-headshots/israel-headshot.png"
+                },
+                {
+                  "name": "sam-headshot.png",
+                  "size": 2646444,
+                  "path": "public/member-headshots/sam-headshot.png"
+                }
+              ],
+              "path": "public/member-headshots"
+            },
+            {
+              "name": "og",
+              "children": [
+                {
+                  "name": "README.md",
+                  "size": 2045,
+                  "path": "public/og/README.md"
+                },
+                {
+                  "name": "contact-us.png",
+                  "size": 143522,
+                  "path": "public/og/contact-us.png"
+                },
+                {
+                  "name": "innovation-services.png",
+                  "size": 227728,
+                  "path": "public/og/innovation-services.png"
+                },
+                {
+                  "name": "journal.png",
+                  "size": 128451,
+                  "path": "public/og/journal.png"
+                },
+                {
+                  "name": "our-work.png",
+                  "size": 921850,
+                  "path": "public/og/our-work.png"
+                },
+                {
+                  "name": "placeholder.html",
+                  "size": 1607,
+                  "path": "public/og/placeholder.html"
+                },
+                {
+                  "name": "r&d-lab.png",
+                  "size": 896969,
+                  "path": "public/og/r&d-lab.png"
+                },
+                {
+                  "name": "room-302-studio (1).png",
+                  "size": 837452,
+                  "path": "public/og/room-302-studio (1).png"
+                },
+                {
+                  "name": "room-302-studio.png",
+                  "size": 657077,
+                  "path": "public/og/room-302-studio.png"
+                }
+              ],
+              "path": "public/og"
+            },
+            {
+              "name": "our-work-images",
+              "children": [
+                {
+                  "name": "ukrainegrain",
+                  "children": [
+                    {
+                      "name": "001_introimage.png",
+                      "size": 1323571,
+                      "path": "public/our-work-images/ukrainegrain/001_introimage.png"
+                    },
+                    {
+                      "name": "004_insetmap.png",
+                      "size": 135590,
+                      "path": "public/our-work-images/ukrainegrain/004_insetmap.png"
+                    },
+                    {
+                      "name": "005_insetmap2.png",
+                      "size": 1886390,
+                      "path": "public/our-work-images/ukrainegrain/005_insetmap2.png"
+                    },
+                    {
+                      "name": "006_barchart.png",
+                      "size": 76050,
+                      "path": "public/our-work-images/ukrainegrain/006_barchart.png"
+                    },
+                    {
+                      "name": "007_sliders.png",
+                      "size": 102958,
+                      "path": "public/our-work-images/ukrainegrain/007_sliders.png"
+                    },
+                    {
+                      "name": "008_map.png",
+                      "size": 25608,
+                      "path": "public/our-work-images/ukrainegrain/008_map.png"
+                    }
+                  ],
+                  "path": "public/our-work-images/ukrainegrain"
+                },
+                {
+                  "name": "ap1.png",
+                  "size": 284615,
+                  "path": "public/our-work-images/ap1.png"
+                },
+                {
+                  "name": "ap2.png",
+                  "size": 508280,
+                  "path": "public/our-work-images/ap2.png"
+                },
+                {
+                  "name": "ap3.png",
+                  "size": 223098,
+                  "path": "public/our-work-images/ap3.png"
+                },
+                {
+                  "name": "laptop.png",
+                  "size": 1209504,
+                  "path": "public/our-work-images/laptop.png"
+                },
+                {
+                  "name": "margin-1.jpg",
+                  "size": 469333,
+                  "path": "public/our-work-images/margin-1.jpg"
+                },
+                {
+                  "name": "margin-2.jpg",
+                  "size": 258534,
+                  "path": "public/our-work-images/margin-2.jpg"
+                },
+                {
+                  "name": "reef-1.jpg",
+                  "size": 303584,
+                  "path": "public/our-work-images/reef-1.jpg"
+                },
+                {
+                  "name": "reef-2.jpg",
+                  "size": 447783,
+                  "path": "public/our-work-images/reef-2.jpg"
+                },
+                {
+                  "name": "ukraine-1.jpg",
+                  "size": 555240,
+                  "path": "public/our-work-images/ukraine-1.jpg"
+                },
+                {
+                  "name": "ukraine-2.jpg",
+                  "size": 304044,
+                  "path": "public/our-work-images/ukraine-2.jpg"
+                },
+                {
+                  "name": "ukraine-3.jpg",
+                  "size": 740543,
+                  "path": "public/our-work-images/ukraine-3.jpg"
+                },
+                {
+                  "name": "ukraine-4.jpg",
+                  "size": 860520,
+                  "path": "public/our-work-images/ukraine-4.jpg"
+                },
+                {
+                  "name": "ukraine.jpg",
+                  "size": 1548530,
+                  "path": "public/our-work-images/ukraine.jpg"
+                },
+                {
+                  "name": "ukrainegrain.png",
+                  "size": 1027914,
+                  "path": "public/our-work-images/ukrainegrain.png"
+                },
+                {
+                  "name": "unhcr.png",
+                  "size": 516220,
+                  "path": "public/our-work-images/unhcr.png"
+                }
+              ],
+              "path": "public/our-work-images"
+            },
+            {
+              "name": "favicon.ico",
+              "size": 1150,
+              "path": "public/favicon.ico"
+            },
+            {
+              "name": "favicon.png",
+              "size": 364,
+              "path": "public/favicon.png"
+            },
+            {
+              "name": "og-image.jpg",
+              "size": 210420,
+              "path": "public/og-image.jpg"
+            },
+            {
+              "name": "room302-logo.svg",
+              "size": 14783,
+              "path": "public/room302-logo.svg"
+            },
+            {
+              "name": "twitter-image.jpg",
+              "size": 210420,
+              "path": "public/twitter-image.jpg"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "types",
+          "children": [
+            {
+              "name": "animejs.d.ts",
+              "size": 73,
+              "path": "types/animejs.d.ts"
+            }
+          ],
+          "path": "types"
+        },
+        {
+          "name": ".DS_Store",
+          "size": 6148,
+          "path": ".DS_Store"
+        },
+        {
+          "name": ".env",
+          "size": 251,
+          "path": ".env"
+        },
+        {
+          "name": ".env.template",
+          "size": 329,
+          "path": ".env.template"
+        },
+        {
+          "name": ".gitignore",
+          "size": 42,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".nvmrc",
+          "size": 9,
+          "path": ".nvmrc"
+        },
+        {
+          "name": "README.md",
+          "size": 1549,
+          "path": "README.md"
+        },
+        {
+          "name": "app.config.ts",
+          "size": 92,
+          "path": "app.config.ts"
+        },
+        {
+          "name": "app.vue",
+          "size": 553,
+          "path": "app.vue"
+        },
+        {
+          "name": "error.vue",
+          "size": 8813,
+          "path": "error.vue"
+        },
+        {
+          "name": "netlify.tml",
+          "size": 64,
+          "path": "netlify.tml"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 1945,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 1106,
+          "path": "package.json"
+        },
+        {
+          "name": "tailwind.config.js",
+          "size": 768,
+          "path": "tailwind.config.js"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 94,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn-error.log",
+          "size": 408296,
+          "path": "yarn-error.log"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 419131,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 326,
+    "totalSize": 64888842
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"nuxt-3-minimal-starter\">Nuxt 3 Minimal Starter</h1>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\">npm run preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>\n<h2 id=\"og-image-generator\">OG Image Generator</h2>\n<p>The project includes a built-in Open Graph image generator at <code>/og_generator</code>. This tool helps create consistent social media preview cards for all pages.</p>\n<h3 id=\"features\">Features</h3>\n<ul>\n<li>Dynamic text with IBM Plex Sans font</li>\n<li>Gradient backgrounds with preset options</li>\n<li>Subtle animated preview with 302 floating dots using Perlin noise</li>\n<li>Watermarked logo</li>\n<li>Downloads high-resolution (1200x630) PNG files</li>\n</ul>\n<h3 id=\"usage\">Usage</h3>\n<ol>\n<li>Navigate to <code>/og_generator</code></li>\n<li>Select a page from the dropdown</li>\n<li>Choose colors:\n<ul>\n<li>Use the \"Minimal\" preset for dark monotone</li>\n<li>Use the \"Primary\" preset for brand colors</li>\n<li>Use \"Random\" to explore theme color combinations</li>\n<li>Or manually pick gradient colors</li>\n</ul>\n</li>\n<li>Click \"Download Image\" to save</li>\n</ol>\n<h3 id=\"technical-notes\">Technical Notes</h3>\n<ul>\n<li>Uses <code>html2canvas</code> for image generation</li>\n<li>Implements <code>simplex-noise</code> for dot animation</li>\n<li>Maintains consistent branding with theme color palette</li>\n<li>Exports at 2x scale for retina displays</li>\n</ul>",

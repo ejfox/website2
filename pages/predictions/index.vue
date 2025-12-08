@@ -1,5 +1,5 @@
 <template>
-  <main class="container-main">
+  <main class="container-main pt-8">
     <!-- Error State -->
     <div
       v-if="predictionsError"
@@ -9,7 +9,7 @@
     </div>
 
     <header v-else class="section-spacing-lg">
-      <h1 class="heading-1 mb-3">Predictions</h1>
+      <h1 class="heading-1 mb-4">Predictions</h1>
 
       <div class="label-xs">
         <div>
@@ -164,10 +164,9 @@
           class="card-padding"
         >
           <!-- Title + Side -->
-          <div class="mb-1">
+          <div class="mb-2">
             <div class="flex-gap-3">
               <span
-                class=""
                 :class="
                   position.position > 0 ? 'badge-side-yes' : 'badge-side-no'
                 "
@@ -251,7 +250,7 @@
 
       <!-- Fills Table -->
       <div v-if="kalshiData?.fills && kalshiData.fills.length > 0" class="mt-8">
-        <h3 class="heading-3 mb-3">Recent Fills</h3>
+        <h3 class="heading-3 mb-4">Recent Fills</h3>
         <div class="overflow-x-auto -mx-4 px-4">
           <div class="min-w-[450px]">
             <table class="table-header">
@@ -268,7 +267,6 @@
                 <tr
                   v-for="fill in kalshiData.fills.slice(0, 10)"
                   :key="fill.fill_id"
-                  class=""
                 >
                   <td class="table-cell tabular">
                     {{ formatRelativeTime(fill.created_time) }}
@@ -455,7 +453,7 @@
             }}
           </span>
         </div>
-        <div class="calibration-label mt-1">
+        <div class="calibration-label mt-2">
           0 = perfect · 1 = worst · &lt;0.25 = good
         </div>
       </div>
@@ -477,11 +475,7 @@
             </tr>
           </thead>
           <tbody class="table-muted-body">
-            <tr
-              v-for="bucket in calibration.calibration"
-              :key="bucket.label"
-              class=""
-            >
+            <tr v-for="bucket in calibration.calibration" :key="bucket.label">
               <td class="py-1">{{ bucket.label }}</td>
               <td class="py-1 text-right tabular-nums">
                 {{ bucket.expected }}%
@@ -523,11 +517,7 @@
             </tr>
           </thead>
           <tbody class="table-muted-body">
-            <tr
-              v-for="cat in calibration.by_category"
-              :key="cat.category"
-              class=""
-            >
+            <tr v-for="cat in calibration.by_category" :key="cat.category">
               <td class="py-1">{{ cat.category }}</td>
               <td
                 class="calibration-table-value"
@@ -620,7 +610,7 @@
 
       <!-- Summary Stats -->
       <div class="calibration-label">
-        <div class="mb-1">
+        <div class="mb-2">
           Analysis based on
           <span class="text-zinc-900 dark:text-zinc-100 font-bold">
             {{ calibration.summary.resolved }}
@@ -635,7 +625,7 @@
 
     <!-- Version Control -->
     <section class="mt-12">
-      <h2 class="heading-2 mb-3">Version Control</h2>
+      <h2 class="heading-2 mb-4">Version Control</h2>
       <div class="version-info">
         <div>Markdown + SHA-256 + Git timestamps</div>
         <div>github.com/ejfox/website2/content/predictions/</div>
@@ -652,8 +642,12 @@
       v-if="tocTarget && predictionToc.length > 0"
       to="#nav-toc-container"
     >
-      <div class="toc w-48 font-mono">
-        <div class="py-4 space-y-6">
+      <div
+        ref="tocContainer"
+        class="toc w-48 font-mono overflow-y-auto"
+        :style="{ maxHeight: `${tocMaxHeight}px` }"
+      >
+        <div class="pt-8 pb-4 space-y-6">
           <!-- Section for each type -->
           <div v-for="section in predictionToc" :key="section.type">
             <!-- Section header -->
@@ -754,12 +748,23 @@
 </template>
 
 <script setup>
+import { useWindowSize } from '@vueuse/core'
 import PredictionCard from '~/components/predictions/PredictionCard.vue'
 
 const commitHistoryUrl =
   'https://github.com/ejfox/website2/commits/main/content/predictions/'
 
 const { formatRelativeTime } = useDateFormat()
+
+// Dynamic TOC height calculation using VueUse
+const { height: windowHeight } = useWindowSize()
+const tocContainer = ref(null)
+
+// Calculate available height: viewport - nav header - padding
+const tocMaxHeight = computed(() => {
+  // Reserve space for: branding (80px) + nav links (200px) + padding (64px)
+  return Math.max(300, windowHeight.value - 344)
+})
 
 const { data: predictions, error: predictionsError } =
   await useFetch('/api/predictions')
@@ -769,19 +774,6 @@ const { data: calibration } = useCalibration()
 const totalPredictions = computed(
   () => predictions.value?.filter((p) => p.visibility === 'public').length || 0
 )
-
-usePageSeo({
-  title: 'Predictions · EJ Fox',
-  description:
-    'Public, timestamped predictions with SHA-256 hashes plus performance and calibration tracking.',
-  type: 'article',
-  section: 'Forecasting',
-  tags: ['Predictions', 'Forecasting', 'Calibration', 'Probability'],
-  label1: 'Public predictions',
-  data1: computed(() => `${totalPredictions.value} total`),
-  label2: 'Resolved so far',
-  data2: computed(() => `${resolvedCount.value} resolved`),
-})
 
 const predictionsSchema = computed(() => {
   const items =
@@ -884,6 +876,19 @@ const lastUpdated = computed(() => {
   if (!dates.length) return ''
   const max = Math.max(...dates)
   return new Date(max).toISOString().split('T')[0]
+})
+
+usePageSeo({
+  title: 'Predictions · EJ Fox',
+  description:
+    'Public, timestamped predictions with SHA-256 hashes plus performance and calibration tracking.',
+  type: 'article',
+  section: 'Forecasting',
+  tags: ['Predictions', 'Forecasting', 'Calibration', 'Probability'],
+  label1: 'Public predictions',
+  data1: computed(() => `${totalPredictions.value} total`),
+  label2: 'Resolved so far',
+  data2: computed(() => `${resolvedCount.value} resolved`),
 })
 
 // Advanced statistics
@@ -1146,7 +1151,7 @@ const getCommentary = (ticker) => {
 }
 
 .section-label-transition {
-  @apply text-zinc-500 dark:text-zinc-500 mb-1;
+  @apply text-zinc-500 dark:text-zinc-500 mb-2;
 }
 
 .value-transition {
@@ -1163,7 +1168,7 @@ const getCommentary = (ticker) => {
 }
 
 .version-info {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 space-y-1 mb-3;
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 space-y-1 mb-4;
 }
 
 .toc-section-label {

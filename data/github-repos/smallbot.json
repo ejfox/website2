@@ -17,6 +17,276 @@
     "Vue": 2473
   },
   "diskUsage": 30,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".DS_Store",
+        "size": 6148
+      },
+      {
+        "path": ".gitignore",
+        "size": 21
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "README.md",
+        "size": 1582
+      },
+      {
+        "path": "deno.json",
+        "size": 439
+      },
+      {
+        "path": "deno.lock",
+        "size": 11813
+      },
+      {
+        "path": "frontend/index.html",
+        "size": 18863
+      },
+      {
+        "path": "main.ts",
+        "size": 313
+      },
+      {
+        "path": "public/index.html",
+        "size": 3477
+      },
+      {
+        "path": "smallweb.json",
+        "size": 62
+      },
+      {
+        "path": "src/app.ts",
+        "size": 1000
+      },
+      {
+        "path": "src/components/ChatApp.vue",
+        "size": 2473
+      },
+      {
+        "path": "src/config/systemPrompt.ts",
+        "size": 19471
+      },
+      {
+        "path": "src/handlers/chatApi.ts",
+        "size": 12772
+      },
+      {
+        "path": "src/handlers/staticFiles.ts",
+        "size": 682
+      },
+      {
+        "path": "src/middleware/cors.ts",
+        "size": 426
+      },
+      {
+        "path": "src/middleware/logger.ts",
+        "size": 352
+      },
+      {
+        "path": "src/types/index.ts",
+        "size": 1691
+      },
+      {
+        "path": "src/utils/commandExecutor.ts",
+        "size": 12907
+      },
+      {
+        "path": "src/utils/contentType.ts",
+        "size": 555
+      },
+      {
+        "path": "src/utils/logStorage.ts",
+        "size": 1155
+      },
+      {
+        "path": "src/utils/validation.ts",
+        "size": 3694
+      }
+    ],
+    "tree": {
+      "name": "smallbot",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "frontend",
+          "children": [
+            {
+              "name": "index.html",
+              "size": 18863,
+              "path": "frontend/index.html"
+            }
+          ],
+          "path": "frontend"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "index.html",
+              "size": 3477,
+              "path": "public/index.html"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "ChatApp.vue",
+                  "size": 2473,
+                  "path": "src/components/ChatApp.vue"
+                }
+              ],
+              "path": "src/components"
+            },
+            {
+              "name": "config",
+              "children": [
+                {
+                  "name": "systemPrompt.ts",
+                  "size": 19471,
+                  "path": "src/config/systemPrompt.ts"
+                }
+              ],
+              "path": "src/config"
+            },
+            {
+              "name": "handlers",
+              "children": [
+                {
+                  "name": "chatApi.ts",
+                  "size": 12772,
+                  "path": "src/handlers/chatApi.ts"
+                },
+                {
+                  "name": "staticFiles.ts",
+                  "size": 682,
+                  "path": "src/handlers/staticFiles.ts"
+                }
+              ],
+              "path": "src/handlers"
+            },
+            {
+              "name": "middleware",
+              "children": [
+                {
+                  "name": "cors.ts",
+                  "size": 426,
+                  "path": "src/middleware/cors.ts"
+                },
+                {
+                  "name": "logger.ts",
+                  "size": 352,
+                  "path": "src/middleware/logger.ts"
+                }
+              ],
+              "path": "src/middleware"
+            },
+            {
+              "name": "types",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 1691,
+                  "path": "src/types/index.ts"
+                }
+              ],
+              "path": "src/types"
+            },
+            {
+              "name": "utils",
+              "children": [
+                {
+                  "name": "commandExecutor.ts",
+                  "size": 12907,
+                  "path": "src/utils/commandExecutor.ts"
+                },
+                {
+                  "name": "contentType.ts",
+                  "size": 555,
+                  "path": "src/utils/contentType.ts"
+                },
+                {
+                  "name": "logStorage.ts",
+                  "size": 1155,
+                  "path": "src/utils/logStorage.ts"
+                },
+                {
+                  "name": "validation.ts",
+                  "size": 3694,
+                  "path": "src/utils/validation.ts"
+                }
+              ],
+              "path": "src/utils"
+            },
+            {
+              "name": "app.ts",
+              "size": 1000,
+              "path": "src/app.ts"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".DS_Store",
+          "size": 6148,
+          "path": ".DS_Store"
+        },
+        {
+          "name": ".gitignore",
+          "size": 21,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 1582,
+          "path": "README.md"
+        },
+        {
+          "name": "deno.json",
+          "size": 439,
+          "path": "deno.json"
+        },
+        {
+          "name": "deno.lock",
+          "size": 11813,
+          "path": "deno.lock"
+        },
+        {
+          "name": "main.ts",
+          "size": 313,
+          "path": "main.ts"
+        },
+        {
+          "name": "smallweb.json",
+          "size": 62,
+          "path": "smallweb.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 22,
+    "totalSize": 100163
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"smallbot\">Smallbot</h1>\n<p>A simple, modular server for Smallweb applications. Smallbot helps users create and understand Smallweb applications through an AI assistant interface.</p>\n<h2 id=\"project-structure\">Project Structure</h2>\n<p>The project has been modularized for better maintainability:</p>\n<pre><code>smallbot/\n├── main.ts                 # Entry point\n├── deno.json               # Deno configuration\n├── deno.lock               # Deno lock file\n├── src/\n│   ├── app.ts              # Main application setup\n│   ├── config/\n│   │   └── systemPrompt.ts # System prompt for AI\n│   ├── handlers/\n│   │   ├── chatApi.ts      # Chat API handler\n│   │   └── staticFiles.ts  # Static file handler\n│   ├── middleware/\n│   │   ├── cors.ts         # CORS middleware\n│   │   └── logger.ts       # Logger middleware\n│   ├── types/\n│   │   └── index.ts        # Type definitions\n│   └── utils/\n│       ├── contentType.ts  # Content type utilities\n│       └── validation.ts   # Response validation\n├── frontend/               # Frontend assets\n└── public/                 # Public assets\n</code></pre>\n<h2 id=\"development\">Development</h2>\n<p>To run the development server:</p>\n<pre><code class=\"language-bash\">deno task dev\n</code></pre>\n<p>This will start the server at <a href=\"http://localhost:8000\">http://localhost:8000</a> with hot reloading enabled.</p>\n<h2 id=\"environment-variables\">Environment Variables</h2>\n<ul>\n<li><code>OPENROUTER_API_KEY</code>: API key for OpenRouter (required for AI functionality)</li>\n</ul>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Static file serving</li>\n<li>AI-powered chat API</li>\n<li>CORS support</li>\n<li>Error handling</li>\n<li>Response validation</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",

@@ -14,10 +14,10 @@
           :title="item.Name"
           @click="navigateToItem(item)"
         >
-          <div class="font-bold text-xs mb-1">
+          <div class="font-bold text-xs mb-2">
             {{ item.Type?.slice(0, 3) || '?' }}
           </div>
-          <div class="truncate text-xs mb-1 px-1 w-full text-center">
+          <div class="truncate text-xs mb-2 px-1 w-full text-center">
             {{ item.Name?.slice(0, 10) }}
           </div>
           <div
@@ -37,7 +37,6 @@
 </template>
 
 <script setup>
-// NUKED BY BLOODHOUND: Animation import obliterated
 // import { animate } from '~/anime.esm.js'
 
 const props = defineProps({
@@ -117,7 +116,6 @@ const navigateToItem = (item, direction = 'none') => {
   const targetIndex = gearItems.value.findIndex((i) => i.Name === item.Name)
 
   // Add directional animation
-  // NUKED BY BLOODHOUND: Animation code obliterated
   // Navigation works without fancy animations
   if (direction !== 'none') {
     // Animation removed for better performance

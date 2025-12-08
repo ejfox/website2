@@ -1,29 +1,32 @@
 <template>
   <NuxtLink :to="`/github/${name}`" class="repo-card group block">
-    <article class="space-y-2">
-      <!-- Title row with metrics -->
-      <div class="flex items-baseline justify-between gap-3">
+    <article>
+      <!-- Title and language inline -->
+      <div class="title-row">
         <h3 class="repo-title">{{ name }}</h3>
-        <RepoMetrics v-if="repo" :repo="repo" compact class="flex-shrink-0" />
+        <span v-if="language" class="language-label">{{ language }}</span>
       </div>
-
-      <!-- Language bar - Tuftian micro-viz -->
-      <LanguageBar
-        v-if="repo?.languages && Object.keys(repo.languages).length > 0"
-        :languages="repo.languages"
-        :height="3"
-      />
 
       <!-- Description -->
       <p v-if="description" class="repo-description">
         {{ description }}
       </p>
 
-      <!-- Stats row - minimal Feltron style -->
+      <!-- Language bar - Tuftian micro-viz -->
+      <LanguageBar
+        v-if="repo?.languages && Object.keys(repo.languages).length > 0"
+        :languages="repo.languages"
+        :height="3"
+        class="language-bar"
+      />
+
+      <!-- Stats row - pure typography, no backgrounds -->
       <div class="repo-stats">
-        <span v-if="stars > 0">⭐ {{ stars }}</span>
-        <span v-if="forks > 0">🔀 {{ forks }}</span>
-        <span v-if="language" class="language-tag">{{ language }}</span>
+        <span v-if="stars > 0" class="stat">{{ stars }} stars</span>
+        <span v-if="forks > 0" class="stat">{{ forks }} forks</span>
+        <span v-if="repo?.stats.watchers > 0" class="stat">
+          {{ repo.stats.watchers }} watching
+        </span>
       </div>
     </article>
   </NuxtLink>
@@ -67,29 +70,58 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <style scoped>
+/* Magazine-style stacked list - pure typography, no backgrounds */
 .repo-card {
-  @apply py-3 px-0;
+  @apply py-4 px-0;
   @apply border-b border-zinc-200 dark:border-zinc-800;
+  @apply transition-opacity duration-200;
+}
+
+.repo-card:hover {
+  @apply opacity-70;
+}
+
+.repo-card:last-child {
+  @apply border-b-0;
+}
+
+.title-row {
+  @apply flex items-baseline gap-3 mb-2;
 }
 
 .repo-title {
-  @apply font-mono text-sm font-medium;
+  @apply font-serif text-2xl font-medium;
   @apply text-zinc-900 dark:text-zinc-100;
-  @apply group-hover:text-zinc-600 dark:group-hover:text-zinc-400;
-  @apply transition-colors duration-300;
+}
+
+.language-label {
+  @apply font-mono text-xs uppercase tracking-wider;
+  @apply text-zinc-500 dark:text-zinc-500;
+  letter-spacing: 0.1em;
 }
 
 .repo-description {
-  @apply text-xs text-zinc-500 dark:text-zinc-400;
-  @apply line-clamp-2;
+  @apply text-base text-zinc-700 dark:text-zinc-300;
+  @apply line-clamp-2 leading-relaxed mb-4;
+  @apply max-w-3xl;
+}
+
+.language-bar {
+  @apply mb-4;
 }
 
 .repo-stats {
-  @apply flex items-center gap-3 text-xs font-mono;
-  @apply text-zinc-400 dark:text-zinc-600;
+  @apply flex items-center gap-4 font-mono text-xs;
+  @apply text-zinc-500 dark:text-zinc-500;
 }
 
-.language-tag {
-  @apply text-zinc-500 dark:text-zinc-500;
+.stat {
+  @apply tabular-nums;
+}
+
+/* Separator between stats */
+.stat:not(:last-child)::after {
+  content: '·';
+  @apply ml-4 text-zinc-400 dark:text-zinc-600;
 }
 </style>

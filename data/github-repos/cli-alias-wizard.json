@@ -15,6 +15,78 @@
     "JavaScript": 7513
   },
   "diskUsage": 277,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 13
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "README.md",
+        "size": 902
+      },
+      {
+        "path": "index.js",
+        "size": 7513
+      },
+      {
+        "path": "package.json",
+        "size": 311
+      },
+      {
+        "path": "yarn.lock",
+        "size": 599
+      }
+    ],
+    "tree": {
+      "name": "cli-alias-wizard",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": ".gitignore",
+          "size": 13,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 902,
+          "path": "README.md"
+        },
+        {
+          "name": "index.js",
+          "size": 7513,
+          "path": "index.js"
+        },
+        {
+          "name": "package.json",
+          "size": 311,
+          "path": "package.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 599,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 6,
+    "totalSize": 9605
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"cli-alias-wizard\">cli-alias-wizard</h1>\n<p>CLI tool for managing shell aliases.</p>\n<p><a href=\"https://www.npmjs.com/package/cli-alias-wizard\">https://www.npmjs.com/package/cli-alias-wizard</a></p>\n<p><a href=\"https://github.com/user-attachments/assets/4678d331-18f1-4102-8116-905950fcb8e5\">https://github.com/user-attachments/assets/4678d331-18f1-4102-8116-905950fcb8e5</a></p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Create new aliases</li>\n<li>Use example aliases</li>\n<li>Modify existing aliases</li>\n<li>Auto-source shell config</li>\n<li>Interactive and command-line modes</li>\n</ul>\n<h2 id=\"install\">Install</h2>\n<pre><code>git clone https://github.com/yourusername/cli-alias-wizard.git\ncd cli-alias-wizard\nnpm install\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<p>Interactive mode:</p>\n<pre><code>node index.js\n</code></pre>\n<p>Command-line mode:</p>\n<pre><code>node index.js create &lt;alias_name&gt; \"&lt;command&gt;\"\nnpx cli-alias-wizard create &lt;alias_name&gt; \"&lt;command&gt;\"\n</code></pre>\n<p>Example:</p>\n<pre><code>node index.js create gp \"git push\"\nnpx cli-alias-wizard create g. \"git add .\"\n</code></pre>\n<h2 id=\"config\">Config</h2>\n<p>Modifies ~/.bashrc or ~/.zshrc based on shell.</p>\n<h2 id=\"troubleshoot\">Troubleshoot</h2>\n<p>If aliases don't work, run:</p>\n<pre><code>source ~/.bashrc\n</code></pre>\n<p>or</p>\n<pre><code>source ~/.zshrc\n</code></pre>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",

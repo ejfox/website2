@@ -9,7 +9,11 @@
     "date": "2019-03-24T08:00:39.000Z",
     "hidetimestamp": false,
     "modified": "2024-09-23T16:13:18.000Z",
-    "tags": ["security", "hacking", "osint"],
+    "tags": [
+      "security",
+      "hacking",
+      "osint"
+    ],
     "words": 668,
     "images": 0,
     "imageDetails": {

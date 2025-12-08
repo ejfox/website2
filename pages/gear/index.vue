@@ -1,5 +1,5 @@
 <template>
-  <main class="px-4 md:px-6 lg:px-8 max-w-full bg-zinc-950 min-h-screen">
+  <main class="px-4 md:px-6 lg:px-8 max-w-full min-h-screen pt-8">
     <!-- Error State -->
     <div
       v-if="csvError"
@@ -32,7 +32,7 @@
           </div>
           <button
             title="Toggle sort"
-            class="gear-btn flex-gap-1"
+            class="gear-btn flex-gap-0.5"
             @click="toggleSort"
           >
             <span class="text-[8px]">
@@ -40,18 +40,22 @@
             </span>
             {{ sortBy === 'weight' ? 'Weight' : 'Name' }}
           </button>
-          <a href="/gear.csv" download class="gear-btn inline-flex-gap-1">
+          <a href="/gear.csv" download class="gear-btn inline-flex-gap-0.5">
             <span>↓</span>
             CSV
           </a>
         </div>
       </div>
 
-      <div class="mb-3">
-        <div class="mb-3">
+      <div class="mb-4">
+        <div class="mb-4">
           <h3 class="gear-section-header mb-2">Type Legend</h3>
           <div class="grid grid-cols-7 gap-2">
-            <div v-for="type in typeStats" :key="type.name" class="flex-gap-1">
+            <div
+              v-for="type in typeStats"
+              :key="type.name"
+              class="flex-gap-0.5"
+            >
               <span class="text-xs font-medium text-muted">
                 {{ type.symbol }}
               </span>
@@ -91,13 +95,13 @@
               <span class="text-zinc-500">{{ getAvgItemWeight(items) }}</span>
             </div>
           </div>
-          <div class="mt-1">
+          <div class="mt-2">
             <!-- Weight distribution bar -->
             <div class="flex h-0.5 bg-zinc-900">
               <div
                 v-for="item in items.slice(0, 20)"
                 :key="item.Name"
-                class="bg-zinc-700 bg-orange-500"
+                class="bg-zinc-700"
                 :style="{
                   width: `${getWeightPercentage(item, items)}%`,
                   opacity:
@@ -153,7 +157,9 @@
 
         <div class="relative overflow-x-auto">
           <table class="w-full text-[9px] font-mono">
-            <thead class="sticky top-0 bg-zinc-950 backdrop-blur-sm">
+            <thead
+              class="sticky top-0 bg-white dark:bg-zinc-950 backdrop-blur-sm"
+            >
               <tr class="/30">
                 <th class="gear-th-left">Item</th>
                 <th class="gear-th"></th>
@@ -166,7 +172,7 @@
                 <th class="gear-th-right">g/oz</th>
               </tr>
             </thead>
-            <tbody class="bg-zinc-950">
+            <tbody>
               <GearItem
                 v-for="item in sortItems(items)"
                 :key="item.Name"
@@ -448,7 +454,7 @@ usePageSeo({
     () => `${totalItems.value} items • ${containerCount.value} containers`
   ),
   label2: 'Weight',
-  data2: computed(() => `${totalWeightOunces.value} oz (${totalWeight.value})`),
+  data2: computed(() => `${totalWeight.value} oz`),
 })
 
 const sortItemsByName = (items) => {
@@ -618,11 +624,11 @@ useHead(() => ({
 }
 
 .gear-weight-range {
-  @apply flex justify-between mt-1 text-[7px] text-zinc-600 font-mono;
+  @apply flex justify-between mt-2 text-[7px] text-zinc-600 font-mono;
 }
 
 .gear-histogram {
-  @apply w-1 bg-zinc-700/50 bg-orange-500/50;
+  @apply w-1 bg-zinc-700/50;
 }
 
 .gear-section-header {
@@ -638,6 +644,6 @@ useHead(() => ({
 }
 
 .gear-container-header {
-  @apply flex items-baseline justify-between pb-2 mb-3;
+  @apply flex items-baseline justify-between pb-2 mb-4;
 }
 </style>

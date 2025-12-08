@@ -3,7 +3,7 @@
     <div
       class="bg-black/80 text-white text-xs p-2 rounded-lg font-mono max-w-xs"
     >
-      <div class="font-bold mb-1">Web Vitals</div>
+      <div class="font-bold mb-2">Web Vitals</div>
       <div
         v-for="vital in vitals"
         :key="vital.name"

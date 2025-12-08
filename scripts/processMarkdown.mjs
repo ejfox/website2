@@ -1,5 +1,5 @@
 // Markdown → HTML Processing Pipeline
-import { promises as fs } from 'node:fs'
+import { promises as fs, existsSync, statSync } from 'node:fs'
 import path from 'node:path'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -695,15 +695,17 @@ function remarkEnhanceImages() {
   return (tree) => {
     visit(tree, 'image', (node) => {
       if (node.url) {
+        // Always add loading/decoding to ALL images (performance optimization)
+        node.data = node.data || {}
+        node.data.hProperties = node.data.hProperties || {}
+        node.data.hProperties.loading = 'lazy'
+        node.data.hProperties.decoding = 'async'
+
         const enhanced = enhanceImageUrl(node.url)
         if (enhanced !== node.url) {
-          node.data = node.data || {}
-          node.data.hProperties = node.data.hProperties || {}
           node.data.hProperties.srcset = enhanced.srcset
           node.data.hProperties.sizes = enhanced.sizes
           node.url = enhanced.src
-          node.data.hProperties.loading = 'lazy'
-          node.data.hProperties.decoding = 'async'
 
           // Grid-based image classes
           const classes = ['img-full', 'my-8', 'rounded-sm']
@@ -970,36 +972,107 @@ async function processAllFiles() {
       await checkAllLinks(links, linkToSources)
     }
 
+    // 📊 PRE-FLIGHT CHECK: Analyze what will be cached vs processed
+    console.log('\n📊 Pre-flight cache analysis...')
+    let willCache = 0
+    let willProcess = 0
+    const filesToProcess = []
+
+    for (const filePath of allFiles) {
+      const relativePath = path.relative(paths.contentDir, filePath)
+      const normalizedPath = normalizeSlug(relativePath.replace(/\.md$/, ''))
+      const outputPath = path.join(paths.outputDir, `${normalizedPath}.json`)
+
+      if (existsSync(outputPath)) {
+        try {
+          const sourceStats = statSync(filePath)
+          const outputStats = statSync(outputPath)
+          if (outputStats.mtime > sourceStats.mtime) {
+            willCache++
+          } else {
+            willProcess++
+            filesToProcess.push(path.basename(filePath))
+          }
+        } catch {
+          willProcess++
+          filesToProcess.push(path.basename(filePath))
+        }
+      } else {
+        willProcess++
+        filesToProcess.push(path.basename(filePath))
+      }
+    }
+
+    console.log(`  ✓ ${willCache} files cached (unchanged)`)
+    console.log(`  → ${willProcess} files to process`)
+    if (willProcess > 0 && willProcess <= 10) {
+      console.log(`\nFiles to process:`)
+      filesToProcess.forEach((f) => console.log(`  • ${f}`))
+    }
+
     console.log('\nProcessing files...\n')
 
     const results = []
+    let cachedCount = 0
+    let fetchedCount = 0
+
     for (const filePath of allFiles) {
       try {
-        const result = await processMarkdown(
-          await fs.readFile(filePath, 'utf8'),
-          filePath
-        )
         const relativePath = path.relative(paths.contentDir, filePath)
+        const normalizedPath = normalizeSlug(relativePath.replace(/\.md$/, ''))
+        const outputPath = path.join(paths.outputDir, `${normalizedPath}.json`)
 
-        const baseName = path.basename(filePath).padEnd(40)
-        const pct2 = Math.round(
-          (processStats.filesProcessed / processStats.totalFiles) * 100
-        )
-        process.stdout.write(
-          `\r${chalk.gray(`Processing: ${baseName}`)}${pct2}%`
-        )
+        // 🚀 SMART CACHING: Check if output exists and is newer than source
+        let result
+        let cached = false
 
-        // Only write JSON files for non-draft content
-        if (result.metadata?.draft !== true) {
-          const normalizedPath = normalizeSlug(
-            relativePath.replace(/\.md$/, '')
+        if (existsSync(outputPath)) {
+          try {
+            const sourceStats = statSync(filePath)
+            const outputStats = statSync(outputPath)
+
+            if (outputStats.mtime > sourceStats.mtime) {
+              // Output is newer - use cached version
+              const cachedData = await fs.readFile(outputPath, 'utf-8')
+              result = JSON.parse(cachedData)
+              cached = true
+              cachedCount++
+
+              const baseName = path.basename(filePath).padEnd(40)
+              const pct2 = Math.round(
+                (processStats.filesProcessed / processStats.totalFiles) * 100
+              )
+              process.stdout.write(
+                `\r${chalk.gray(`Cached:     ${baseName}`)}${pct2}%`
+              )
+            }
+          } catch (err) {
+            // Corrupted cache or stat error - re-process
+            cached = false
+          }
+        }
+
+        if (!cached) {
+          // Process file normally
+          result = await processMarkdown(
+            await fs.readFile(filePath, 'utf8'),
+            filePath
           )
-          const outputPath = path.join(
-            paths.outputDir,
-            `${normalizedPath}.json`
+          fetchedCount++
+
+          const baseName = path.basename(filePath).padEnd(40)
+          const pct2 = Math.round(
+            (processStats.filesProcessed / processStats.totalFiles) * 100
           )
-          await fs.mkdir(path.dirname(outputPath), { recursive: true })
-          await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
+          process.stdout.write(
+            `\r${chalk.gray(`Processing: ${baseName}`)}${pct2}%`
+          )
+
+          // Only write JSON files for non-draft content
+          if (result.metadata?.draft !== true) {
+            await fs.mkdir(path.dirname(outputPath), { recursive: true })
+            await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
+          }
         }
 
         results.push(result)
@@ -1081,6 +1154,15 @@ async function processAllFiles() {
     const manifestPath = path.join(paths.outputDir, 'manifest-lite.json')
     await fs.writeFile(manifestPath, JSON.stringify(manifestResults, null, 2))
     spinner.succeed('Manifest written successfully')
+
+    // Cache performance report
+    const totalProcessed = cachedCount + fetchedCount
+    const cacheHitRate =
+      totalProcessed > 0 ? Math.round((cachedCount / totalProcessed) * 100) : 0
+    console.log(
+      `🚀 Cache: ${cachedCount} cached, ${fetchedCount} processed ` +
+        `(${cacheHitRate}% cache hit)`
+    )
 
     // Extract tags with usage counts from content
     // and write to public/content-tags.json

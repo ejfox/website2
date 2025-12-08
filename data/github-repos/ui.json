@@ -19,6 +19,3156 @@
     "CSS": 156
   },
   "diskUsage": 5661,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".editorconfig",
+        "size": 207
+      },
+      {
+        "path": ".eslintignore",
+        "size": 125
+      },
+      {
+        "path": ".eslintrc.cjs",
+        "size": 1750
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/bug-report.yml",
+        "size": 2379
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/config.yml",
+        "size": 320
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/feature-request.yml",
+        "size": 941
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/question.yml",
+        "size": 483
+      },
+      {
+        "path": ".github/PULL_REQUEST_TEMPLATE.md",
+        "size": 1323
+      },
+      {
+        "path": ".github/workflows/ci-dev.yml",
+        "size": 1760
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "size": 1595
+      },
+      {
+        "path": ".gitignore",
+        "size": 86
+      },
+      {
+        "path": ".npmrc",
+        "size": 46
+      },
+      {
+        "path": ".nuxtrc",
+        "size": 82
+      },
+      {
+        "path": ".release-it.json",
+        "size": 447
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 68963
+      },
+      {
+        "path": "LICENSE.md",
+        "size": 1065
+      },
+      {
+        "path": "README.md",
+        "size": 2681
+      },
+      {
+        "path": "docs/.env.example",
+        "size": 188
+      },
+      {
+        "path": "docs/.nuxtrc",
+        "size": 24
+      },
+      {
+        "path": "docs/app.config.ts",
+        "size": 88
+      },
+      {
+        "path": "docs/app.vue",
+        "size": 2325
+      },
+      {
+        "path": "docs/components/BranchSelect.vue",
+        "size": 1192
+      },
+      {
+        "path": "docs/components/Footer.vue",
+        "size": 1656
+      },
+      {
+        "path": "docs/components/Header.vue",
+        "size": 1769
+      },
+      {
+        "path": "docs/components/Logo.vue",
+        "size": 3163
+      },
+      {
+        "path": "docs/components/LogoGreen.vue",
+        "size": 3085
+      },
+      {
+        "path": "docs/components/LogoLabs.vue",
+        "size": 4598
+      },
+      {
+        "path": "docs/components/LogoOnly.vue",
+        "size": 1243
+      },
+      {
+        "path": "docs/components/OgImage/OgImageDocs.vue",
+        "size": 817
+      },
+      {
+        "path": "docs/components/color-picker/ColorPicker.vue",
+        "size": 1973
+      },
+      {
+        "path": "docs/components/color-picker/ColorPickerPill.vue",
+        "size": 771
+      },
+      {
+        "path": "docs/components/content/ColorModeButton.vue",
+        "size": 565
+      },
+      {
+        "path": "docs/components/content/ComponentCard.vue",
+        "size": 8071
+      },
+      {
+        "path": "docs/components/content/ComponentExample.vue",
+        "size": 2287
+      },
+      {
+        "path": "docs/components/content/ComponentPreset.vue",
+        "size": 920
+      },
+      {
+        "path": "docs/components/content/ComponentProps.vue",
+        "size": 599
+      },
+      {
+        "path": "docs/components/content/ComponentPropsField.vue",
+        "size": 1998
+      },
+      {
+        "path": "docs/components/content/ComponentSlots.vue",
+        "size": 789
+      },
+      {
+        "path": "docs/components/content/Placeholder.vue",
+        "size": 695
+      },
+      {
+        "path": "docs/components/content/VoltaEmbed.vue",
+        "size": 480
+      },
+      {
+        "path": "docs/components/content/examples/AccordionExampleBasic.vue",
+        "size": 2089
+      },
+      {
+        "path": "docs/components/content/examples/AccordionExampleDefaultSlot.vue",
+        "size": 2965
+      },
+      {
+        "path": "docs/components/content/examples/AccordionExampleItemSlot.vue",
+        "size": 2774
+      },
+      {
+        "path": "docs/components/content/examples/AlertExampleHtml.vue",
+        "size": 352
+      },
+      {
+        "path": "docs/components/content/examples/CardExample.vue",
+        "size": 225
+      },
+      {
+        "path": "docs/components/content/examples/CheckboxExample.vue",
+        "size": 154
+      },
+      {
+        "path": "docs/components/content/examples/CommandPaletteExampleAsync.vue",
+        "size": 510
+      },
+      {
+        "path": "docs/components/content/examples/CommandPaletteExampleBasic.vue",
+        "size": 676
+      },
+      {
+        "path": "docs/components/content/examples/CommandPaletteExampleEmptySlot.vue",
+        "size": 289
+      },
+      {
+        "path": "docs/components/content/examples/CommandPaletteExampleGroups.vue",
+        "size": 2116
+      },
+      {
+        "path": "docs/components/content/examples/CommandPaletteExampleModal.vue",
+        "size": 744
+      },
+      {
+        "path": "docs/components/content/examples/ContainerExample.vue",
+        "size": 87
+      },
+      {
+        "path": "docs/components/content/examples/ContextMenuExample.vue",
+        "size": 773
+      },
+      {
+        "path": "docs/components/content/examples/DatePickerExample.vue",
+        "size": 465
+      },
+      {
+        "path": "docs/components/content/examples/DividerExampleDefaultSlot.vue",
+        "size": 80
+      },
+      {
+        "path": "docs/components/content/examples/DividerExampleOrientation.vue",
+        "size": 1535
+      },
+      {
+        "path": "docs/components/content/examples/DropdownExampleBasic.vue",
+        "size": 889
+      },
+      {
+        "path": "docs/components/content/examples/DropdownExampleMode.vue",
+        "size": 376
+      },
+      {
+        "path": "docs/components/content/examples/DropdownExampleSlot.vue",
+        "size": 1165
+      },
+      {
+        "path": "docs/components/content/examples/FormExampleBasic.vue",
+        "size": 901
+      },
+      {
+        "path": "docs/components/content/examples/FormExampleElements.vue",
+        "size": 2629
+      },
+      {
+        "path": "docs/components/content/examples/FormExampleJoi.vue",
+        "size": 796
+      },
+      {
+        "path": "docs/components/content/examples/FormExampleOnError.vue",
+        "size": 1134
+      },
+      {
+        "path": "docs/components/content/examples/FormExampleValibot.vue",
+        "size": 909
+      },
+      {
+        "path": "docs/components/content/examples/FormExampleYup.vue",
+        "size": 929
+      },
+      {
+        "path": "docs/components/content/examples/FormExampleZod.vue",
+        "size": 852
+      },
+      {
+        "path": "docs/components/content/examples/FormGroupErrorExample.vue",
+        "size": 370
+      },
+      {
+        "path": "docs/components/content/examples/FormGroupErrorSlotExample.vue",
+        "size": 630
+      },
+      {
+        "path": "docs/components/content/examples/InputExample.vue",
+        "size": 100
+      },
+      {
+        "path": "docs/components/content/examples/InputExampleClearable.vue",
+        "size": 508
+      },
+      {
+        "path": "docs/components/content/examples/KbdExample.vue",
+        "size": 191
+      },
+      {
+        "path": "docs/components/content/examples/ModalExampleBasic.vue",
+        "size": 263
+      },
+      {
+        "path": "docs/components/content/examples/ModalExampleCard.vue",
+        "size": 503
+      },
+      {
+        "path": "docs/components/content/examples/ModalExampleDisableOverlay.vue",
+        "size": 280
+      },
+      {
+        "path": "docs/components/content/examples/ModalExampleDisableTransition.vue",
+        "size": 283
+      },
+      {
+        "path": "docs/components/content/examples/ModalExampleFullscreen.vue",
+        "size": 862
+      },
+      {
+        "path": "docs/components/content/examples/ModalExamplePreventClose.vue",
+        "size": 721
+      },
+      {
+        "path": "docs/components/content/examples/NotificationExampleActions.vue",
+        "size": 321
+      },
+      {
+        "path": "docs/components/content/examples/NotificationExampleBasic.vue",
+        "size": 153
+      },
+      {
+        "path": "docs/components/content/examples/NotificationExampleCallback.vue",
+        "size": 254
+      },
+      {
+        "path": "docs/components/content/examples/NotificationExampleClick.vue",
+        "size": 210
+      },
+      {
+        "path": "docs/components/content/examples/NotificationExampleHtml.vue",
+        "size": 242
+      },
+      {
+        "path": "docs/components/content/examples/PaginationExampleBasic.vue",
+        "size": 169
+      },
+      {
+        "path": "docs/components/content/examples/PaginationExamplePrevNextSlots.vue",
+        "size": 815
+      },
+      {
+        "path": "docs/components/content/examples/PaginationExampleRTL.vue",
+        "size": 1714
+      },
+      {
+        "path": "docs/components/content/examples/PopoverExample.vue",
+        "size": 261
+      },
+      {
+        "path": "docs/components/content/examples/PopoverExampleMode.vue",
+        "size": 274
+      },
+      {
+        "path": "docs/components/content/examples/PopoverExampleOpen.vue",
+        "size": 420
+      },
+      {
+        "path": "docs/components/content/examples/PopoverExampleSlot.vue",
+        "size": 280
+      },
+      {
+        "path": "docs/components/content/examples/RadioExample.vue",
+        "size": 408
+      },
+      {
+        "path": "docs/components/content/examples/RangeExample.vue",
+        "size": 164
+      },
+      {
+        "path": "docs/components/content/examples/SelectExample.vue",
+        "size": 193
+      },
+      {
+        "path": "docs/components/content/examples/SelectExampleObjects.vue",
+        "size": 308
+      },
+      {
+        "path": "docs/components/content/examples/SelectMenuExampleAsyncSearch.vue",
+        "size": 434
+      },
+      {
+        "path": "docs/components/content/examples/SelectMenuExampleBasic.vue",
+        "size": 313
+      },
+      {
+        "path": "docs/components/content/examples/SelectMenuExampleButton.vue",
+        "size": 610
+      },
+      {
+        "path": "docs/components/content/examples/SelectMenuExampleCreatable.vue",
+        "size": 2678
+      },
+      {
+        "path": "docs/components/content/examples/SelectMenuExampleMultiple.vue",
+        "size": 343
+      },
+      {
+        "path": "docs/components/content/examples/SelectMenuExampleMultipleSlot.vue",
+        "size": 493
+      },
+      {
+        "path": "docs/components/content/examples/SelectMenuExampleObjects.vue",
+        "size": 1006
+      },
+      {
+        "path": "docs/components/content/examples/SelectMenuExampleObjectsValueAttribute.vue",
+        "size": 556
+      },
+      {
+        "path": "docs/components/content/examples/SelectMenuExampleOptionEmptySlot.vue",
+        "size": 431
+      },
+      {
+        "path": "docs/components/content/examples/SelectMenuExampleOptionSlot.vue",
+        "size": 1116
+      },
+      {
+        "path": "docs/components/content/examples/SkeletonExample.vue",
+        "size": 269
+      },
+      {
+        "path": "docs/components/content/examples/SlideoverExampleBasic.vue",
+        "size": 280
+      },
+      {
+        "path": "docs/components/content/examples/SlideoverExampleCard.vue",
+        "size": 568
+      },
+      {
+        "path": "docs/components/content/examples/SlideoverExampleDisableOverlay.vue",
+        "size": 297
+      },
+      {
+        "path": "docs/components/content/examples/SlideoverExampleDisableTransition.vue",
+        "size": 300
+      },
+      {
+        "path": "docs/components/content/examples/SlideoverExamplePreventClose.vue",
+        "size": 790
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleAdvanced.vue",
+        "size": 6180
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleBasic.vue",
+        "size": 819
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleClickable.vue",
+        "size": 969
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleColumns.vue",
+        "size": 1031
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleColumnsSelectable.vue",
+        "size": 1297
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleColumnsSortable.vue",
+        "size": 1139
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleEmptySlot.vue",
+        "size": 538
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleLoadingSlot.vue",
+        "size": 1387
+      },
+      {
+        "path": "docs/components/content/examples/TableExamplePaginable.vue",
+        "size": 1843
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleReactiveSorting.vue",
+        "size": 1192
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleSearchable.vue",
+        "size": 1489
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleSelectable.vue",
+        "size": 873
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleSlots.vue",
+        "size": 1943
+      },
+      {
+        "path": "docs/components/content/examples/TableExampleStyle.vue",
+        "size": 784
+      },
+      {
+        "path": "docs/components/content/examples/TabsExampleBasic.vue",
+        "size": 321
+      },
+      {
+        "path": "docs/components/content/examples/TabsExampleChange.vue",
+        "size": 420
+      },
+      {
+        "path": "docs/components/content/examples/TabsExampleDefaultSlot.vue",
+        "size": 863
+      },
+      {
+        "path": "docs/components/content/examples/TabsExampleIndex.vue",
+        "size": 322
+      },
+      {
+        "path": "docs/components/content/examples/TabsExampleItemCustomSlot.vue",
+        "size": 2317
+      },
+      {
+        "path": "docs/components/content/examples/TabsExampleItemSlot.vue",
+        "size": 2003
+      },
+      {
+        "path": "docs/components/content/examples/TabsExampleVModel.vue",
+        "size": 754
+      },
+      {
+        "path": "docs/components/content/examples/TabsExampleVertical.vue",
+        "size": 396
+      },
+      {
+        "path": "docs/components/content/examples/TextareaExample.vue",
+        "size": 103
+      },
+      {
+        "path": "docs/components/content/examples/ToggleExample.vue",
+        "size": 110
+      },
+      {
+        "path": "docs/components/content/examples/TooltipExample.vue",
+        "size": 145
+      },
+      {
+        "path": "docs/components/content/examples/VerticalNavigationExample.vue",
+        "size": 533
+      },
+      {
+        "path": "docs/components/content/examples/VerticalNavigationExampleAvatarSlot.vue",
+        "size": 1110
+      },
+      {
+        "path": "docs/components/content/examples/VerticalNavigationExampleBadgeSlot.vue",
+        "size": 825
+      },
+      {
+        "path": "docs/components/content/examples/VerticalNavigationExampleDefaultSlot.vue",
+        "size": 666
+      },
+      {
+        "path": "docs/components/content/examples/VerticalNavigationExampleIconSlot.vue",
+        "size": 1126
+      },
+      {
+        "path": "docs/components/content/themes/CommandPaletteThemeAlgolia.vue",
+        "size": 2685
+      },
+      {
+        "path": "docs/components/content/themes/CommandPaletteThemeRaycast.vue",
+        "size": 2200
+      },
+      {
+        "path": "docs/components/content/themes/PaginationThemeRounded.vue",
+        "size": 436
+      },
+      {
+        "path": "docs/components/content/themes/VerticalNavigationThemeTailwind.vue",
+        "size": 961
+      },
+      {
+        "path": "docs/components/date-picker/DatePicker.vue",
+        "size": 1879
+      },
+      {
+        "path": "docs/components/home/HomeDemo.vue",
+        "size": 4955
+      },
+      {
+        "path": "docs/components/home/HomeTetris.vue",
+        "size": 2693
+      },
+      {
+        "path": "docs/composables/useComponentMeta.ts",
+        "size": 814
+      },
+      {
+        "path": "docs/composables/useContentExamplesCode.ts",
+        "size": 826
+      },
+      {
+        "path": "docs/composables/useContentSource.ts",
+        "size": 1000
+      },
+      {
+        "path": "docs/content/1.getting-started/1.index.md",
+        "size": 1356
+      },
+      {
+        "path": "docs/content/1.getting-started/2.installation.md",
+        "size": 4000
+      },
+      {
+        "path": "docs/content/1.getting-started/3.theming.md",
+        "size": 12374
+      },
+      {
+        "path": "docs/content/1.getting-started/4.shortcuts.md",
+        "size": 3693
+      },
+      {
+        "path": "docs/content/1.getting-started/5.examples.md",
+        "size": 4172
+      },
+      {
+        "path": "docs/content/1.getting-started/6.contributing.md",
+        "size": 6049
+      },
+      {
+        "path": "docs/content/1.getting-started/7.roadmap.md",
+        "size": 537
+      },
+      {
+        "path": "docs/content/1.getting-started/_dir.yml",
+        "size": 23
+      },
+      {
+        "path": "docs/content/2.elements/1.accordion.md",
+        "size": 4708
+      },
+      {
+        "path": "docs/content/2.elements/2.alert.md",
+        "size": 3629
+      },
+      {
+        "path": "docs/content/2.elements/3.avatar.md",
+        "size": 2739
+      },
+      {
+        "path": "docs/content/2.elements/4.badge.md",
+        "size": 1922
+      },
+      {
+        "path": "docs/content/2.elements/5.button.md",
+        "size": 5658
+      },
+      {
+        "path": "docs/content/2.elements/6.dropdown.md",
+        "size": 1503
+      },
+      {
+        "path": "docs/content/2.elements/7.icon.md",
+        "size": 548
+      },
+      {
+        "path": "docs/content/2.elements/8.kbd.md",
+        "size": 851
+      },
+      {
+        "path": "docs/content/2.elements/9.link.md",
+        "size": 1648
+      },
+      {
+        "path": "docs/content/3.forms/1.input.md",
+        "size": 3945
+      },
+      {
+        "path": "docs/content/3.forms/10.form.md",
+        "size": 5833
+      },
+      {
+        "path": "docs/content/3.forms/2.textarea.md",
+        "size": 2060
+      },
+      {
+        "path": "docs/content/3.forms/3.select.md",
+        "size": 4275
+      },
+      {
+        "path": "docs/content/3.forms/4.select-menu.md",
+        "size": 5213
+      },
+      {
+        "path": "docs/content/3.forms/5.checkbox.md",
+        "size": 1242
+      },
+      {
+        "path": "docs/content/3.forms/6.radio.md",
+        "size": 1245
+      },
+      {
+        "path": "docs/content/3.forms/7.toggle.md",
+        "size": 1045
+      },
+      {
+        "path": "docs/content/3.forms/8.range.md",
+        "size": 972
+      },
+      {
+        "path": "docs/content/3.forms/9.form-group.md",
+        "size": 5594
+      },
+      {
+        "path": "docs/content/4.data/1.table.md",
+        "size": 11097
+      },
+      {
+        "path": "docs/content/5.navigation/1.vertical-navigation.md",
+        "size": 2049
+      },
+      {
+        "path": "docs/content/5.navigation/2.command-palette.md",
+        "size": 6175
+      },
+      {
+        "path": "docs/content/5.navigation/3.pagination.md",
+        "size": 1914
+      },
+      {
+        "path": "docs/content/5.navigation/4.tabs.md",
+        "size": 2447
+      },
+      {
+        "path": "docs/content/6.overlays/1.modal.md",
+        "size": 1562
+      },
+      {
+        "path": "docs/content/6.overlays/2.slideover.md",
+        "size": 1489
+      },
+      {
+        "path": "docs/content/6.overlays/3.popover.md",
+        "size": 1005
+      },
+      {
+        "path": "docs/content/6.overlays/4.tooltip.md",
+        "size": 540
+      },
+      {
+        "path": "docs/content/6.overlays/5.context-menu.md",
+        "size": 355
+      },
+      {
+        "path": "docs/content/6.overlays/6.notification.md",
+        "size": 6228
+      },
+      {
+        "path": "docs/content/7.layout/1.card.md",
+        "size": 498
+      },
+      {
+        "path": "docs/content/7.layout/2.container.md",
+        "size": 392
+      },
+      {
+        "path": "docs/content/7.layout/3.skeleton.md",
+        "size": 384
+      },
+      {
+        "path": "docs/content/7.layout/4.divider.md",
+        "size": 1934
+      },
+      {
+        "path": "docs/content/index.yml",
+        "size": 4708
+      },
+      {
+        "path": "docs/error.vue",
+        "size": 1158
+      },
+      {
+        "path": "docs/layouts/default.vue",
+        "size": 53
+      },
+      {
+        "path": "docs/layouts/docs.vue",
+        "size": 466
+      },
+      {
+        "path": "docs/modules/content-examples-code.ts",
+        "size": 3877
+      },
+      {
+        "path": "docs/nuxt.config.ts",
+        "size": 2101
+      },
+      {
+        "path": "docs/package.json",
+        "size": 876
+      },
+      {
+        "path": "docs/pages/[...slug].vue",
+        "size": 2812
+      },
+      {
+        "path": "docs/pages/index.vue",
+        "size": 7793
+      },
+      {
+        "path": "docs/pages/playground.vue",
+        "size": 543
+      },
+      {
+        "path": "docs/pages/pro.vue",
+        "size": 3735
+      },
+      {
+        "path": "docs/plugins/prettier.ts",
+        "size": 1476
+      },
+      {
+        "path": "docs/plugins/ui.ts",
+        "size": 1607
+      },
+      {
+        "path": "docs/public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "docs/public/icon.svg",
+        "size": 1217
+      },
+      {
+        "path": "docs/public/illustrations/color-palette-dark.svg",
+        "size": 8423
+      },
+      {
+        "path": "docs/public/illustrations/color-palette-light.svg",
+        "size": 8423
+      },
+      {
+        "path": "docs/public/illustrations/dark-mode-dark.svg",
+        "size": 130814
+      },
+      {
+        "path": "docs/public/illustrations/dark-mode-light.svg",
+        "size": 130500
+      },
+      {
+        "path": "docs/public/illustrations/data-dark.svg",
+        "size": 6690
+      },
+      {
+        "path": "docs/public/illustrations/data-light.svg",
+        "size": 6371
+      },
+      {
+        "path": "docs/public/illustrations/elements-dark.svg",
+        "size": 9410
+      },
+      {
+        "path": "docs/public/illustrations/elements-light.svg",
+        "size": 9753
+      },
+      {
+        "path": "docs/public/illustrations/forms-dark.svg",
+        "size": 3352
+      },
+      {
+        "path": "docs/public/illustrations/forms-light.svg",
+        "size": 3045
+      },
+      {
+        "path": "docs/public/illustrations/fully-customizable-dark.svg",
+        "size": 320769
+      },
+      {
+        "path": "docs/public/illustrations/fully-customizable-light.svg",
+        "size": 318295
+      },
+      {
+        "path": "docs/public/illustrations/icon-library-dark.svg",
+        "size": 35957
+      },
+      {
+        "path": "docs/public/illustrations/icon-library-light.svg",
+        "size": 39808
+      },
+      {
+        "path": "docs/public/illustrations/keyboard-shortcuts-dark.svg",
+        "size": 16098
+      },
+      {
+        "path": "docs/public/illustrations/keyboard-shortcuts-light.svg",
+        "size": 15789
+      },
+      {
+        "path": "docs/public/illustrations/layout-dark.svg",
+        "size": 10854
+      },
+      {
+        "path": "docs/public/illustrations/layout-light.svg",
+        "size": 10479
+      },
+      {
+        "path": "docs/public/illustrations/navigation-dark.svg",
+        "size": 8929
+      },
+      {
+        "path": "docs/public/illustrations/navigation-light.svg",
+        "size": 8908
+      },
+      {
+        "path": "docs/public/illustrations/overlays-dark.svg",
+        "size": 3976
+      },
+      {
+        "path": "docs/public/illustrations/overlays-light.svg",
+        "size": 3977
+      },
+      {
+        "path": "docs/public/robots.txt",
+        "size": 31
+      },
+      {
+        "path": "docs/public/social-card.png",
+        "size": 318575
+      },
+      {
+        "path": "docs/server/api/content-examples-code.get.ts",
+        "size": 616
+      },
+      {
+        "path": "docs/server/api/search.json.get.ts",
+        "size": 203
+      },
+      {
+        "path": "docs/tailwind.config.ts",
+        "size": 671
+      },
+      {
+        "path": "docs/tsconfig.json",
+        "size": 41
+      },
+      {
+        "path": "docs/utils/pro.ts",
+        "size": 586
+      },
+      {
+        "path": "docs/workers/prettier.js",
+        "size": 721
+      },
+      {
+        "path": "package.json",
+        "size": 1968
+      },
+      {
+        "path": "playground/.nuxtrc",
+        "size": 24
+      },
+      {
+        "path": "playground/app.vue",
+        "size": 645
+      },
+      {
+        "path": "playground/nuxt.config.ts",
+        "size": 101
+      },
+      {
+        "path": "playground/tsconfig.json",
+        "size": 41
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "size": 440726
+      },
+      {
+        "path": "pnpm-workspace.yaml",
+        "size": 30
+      },
+      {
+        "path": "renovate.json",
+        "size": 37
+      },
+      {
+        "path": "scripts/bump-edge.ts",
+        "size": 849
+      },
+      {
+        "path": "scripts/release-edge.sh",
+        "size": 438
+      },
+      {
+        "path": "scripts/release.sh",
+        "size": 383
+      },
+      {
+        "path": "src/colors.ts",
+        "size": 8054
+      },
+      {
+        "path": "src/module.ts",
+        "size": 6924
+      },
+      {
+        "path": "src/runtime/components/data/Table.vue",
+        "size": 9490
+      },
+      {
+        "path": "src/runtime/components/elements/Accordion.vue",
+        "size": 4801
+      },
+      {
+        "path": "src/runtime/components/elements/Alert.vue",
+        "size": 4342
+      },
+      {
+        "path": "src/runtime/components/elements/Avatar.vue",
+        "size": 4160
+      },
+      {
+        "path": "src/runtime/components/elements/AvatarGroup.ts",
+        "size": 2432
+      },
+      {
+        "path": "src/runtime/components/elements/Badge.vue",
+        "size": 2286
+      },
+      {
+        "path": "src/runtime/components/elements/Button.vue",
+        "size": 5393
+      },
+      {
+        "path": "src/runtime/components/elements/ButtonGroup.ts",
+        "size": 3877
+      },
+      {
+        "path": "src/runtime/components/elements/Dropdown.vue",
+        "size": 6517
+      },
+      {
+        "path": "src/runtime/components/elements/Icon.vue",
+        "size": 227
+      },
+      {
+        "path": "src/runtime/components/elements/Kbd.vue",
+        "size": 1644
+      },
+      {
+        "path": "src/runtime/components/elements/Link.vue",
+        "size": 2117
+      },
+      {
+        "path": "src/runtime/components/forms/Checkbox.vue",
+        "size": 3823
+      },
+      {
+        "path": "src/runtime/components/forms/Form.vue",
+        "size": 6803
+      },
+      {
+        "path": "src/runtime/components/forms/FormGroup.vue",
+        "size": 3996
+      },
+      {
+        "path": "src/runtime/components/forms/Input.vue",
+        "size": 7588
+      },
+      {
+        "path": "src/runtime/components/forms/Radio.vue",
+        "size": 3487
+      },
+      {
+        "path": "src/runtime/components/forms/Range.vue",
+        "size": 4671
+      },
+      {
+        "path": "src/runtime/components/forms/Select.vue",
+        "size": 9918
+      },
+      {
+        "path": "src/runtime/components/forms/SelectMenu.vue",
+        "size": 15648
+      },
+      {
+        "path": "src/runtime/components/forms/Textarea.vue",
+        "size": 5456
+      },
+      {
+        "path": "src/runtime/components/forms/Toggle.vue",
+        "size": 3527
+      },
+      {
+        "path": "src/runtime/components/layout/Card.vue",
+        "size": 1806
+      },
+      {
+        "path": "src/runtime/components/layout/Container.vue",
+        "size": 1372
+      },
+      {
+        "path": "src/runtime/components/layout/Divider.vue",
+        "size": 3294
+      },
+      {
+        "path": "src/runtime/components/layout/Skeleton.vue",
+        "size": 1264
+      },
+      {
+        "path": "src/runtime/components/navigation/CommandPalette.vue",
+        "size": 10112
+      },
+      {
+        "path": "src/runtime/components/navigation/CommandPaletteGroup.vue",
+        "size": 5767
+      },
+      {
+        "path": "src/runtime/components/navigation/Pagination.vue",
+        "size": 6303
+      },
+      {
+        "path": "src/runtime/components/navigation/Tabs.vue",
+        "size": 4702
+      },
+      {
+        "path": "src/runtime/components/navigation/VerticalNavigation.vue",
+        "size": 2669
+      },
+      {
+        "path": "src/runtime/components/overlays/ContextMenu.vue",
+        "size": 2469
+      },
+      {
+        "path": "src/runtime/components/overlays/Modal.vue",
+        "size": 3168
+      },
+      {
+        "path": "src/runtime/components/overlays/Notification.vue",
+        "size": 6147
+      },
+      {
+        "path": "src/runtime/components/overlays/Notifications.vue",
+        "size": 2208
+      },
+      {
+        "path": "src/runtime/components/overlays/Popover.vue",
+        "size": 5226
+      },
+      {
+        "path": "src/runtime/components/overlays/Slideover.vue",
+        "size": 3182
+      },
+      {
+        "path": "src/runtime/components/overlays/Tooltip.vue",
+        "size": 3542
+      },
+      {
+        "path": "src/runtime/composables/defineShortcuts.ts",
+        "size": 4728
+      },
+      {
+        "path": "src/runtime/composables/useCopyToClipboard.ts",
+        "size": 837
+      },
+      {
+        "path": "src/runtime/composables/useFormGroup.ts",
+        "size": 1907
+      },
+      {
+        "path": "src/runtime/composables/usePopper.ts",
+        "size": 2805
+      },
+      {
+        "path": "src/runtime/composables/useShortcuts.ts",
+        "size": 943
+      },
+      {
+        "path": "src/runtime/composables/useTimer.ts",
+        "size": 1267
+      },
+      {
+        "path": "src/runtime/composables/useToast.ts",
+        "size": 702
+      },
+      {
+        "path": "src/runtime/composables/useUI.ts",
+        "size": 956
+      },
+      {
+        "path": "src/runtime/plugins/colors.ts",
+        "size": 1706
+      },
+      {
+        "path": "src/runtime/types/accordion.d.ts",
+        "size": 194
+      },
+      {
+        "path": "src/runtime/types/avatar.d.ts",
+        "size": 420
+      },
+      {
+        "path": "src/runtime/types/badge.d.ts",
+        "size": 427
+      },
+      {
+        "path": "src/runtime/types/button.d.ts",
+        "size": 789
+      },
+      {
+        "path": "src/runtime/types/clipboard.d.ts",
+        "size": 172
+      },
+      {
+        "path": "src/runtime/types/command-palette.d.ts",
+        "size": 587
+      },
+      {
+        "path": "src/runtime/types/dropdown.d.ts",
+        "size": 272
+      },
+      {
+        "path": "src/runtime/types/form.d.ts",
+        "size": 867
+      },
+      {
+        "path": "src/runtime/types/index.d.ts",
+        "size": 378
+      },
+      {
+        "path": "src/runtime/types/link.d.ts",
+        "size": 199
+      },
+      {
+        "path": "src/runtime/types/notification.d.ts",
+        "size": 524
+      },
+      {
+        "path": "src/runtime/types/popper.d.ts",
+        "size": 343
+      },
+      {
+        "path": "src/runtime/types/tabs.d.ts",
+        "size": 122
+      },
+      {
+        "path": "src/runtime/types/utils.d.ts",
+        "size": 333
+      },
+      {
+        "path": "src/runtime/types/vertical-navigation.d.ts",
+        "size": 248
+      },
+      {
+        "path": "src/runtime/ui.config.ts",
+        "size": 38228
+      },
+      {
+        "path": "src/runtime/ui.css",
+        "size": 156
+      },
+      {
+        "path": "src/runtime/utils/index.ts",
+        "size": 1695
+      },
+      {
+        "path": "src/runtime/utils/lodash.ts",
+        "size": 759
+      },
+      {
+        "path": "src/runtime/utils/uid.ts",
+        "size": 65
+      },
+      {
+        "path": "src/templates.ts",
+        "size": 738
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 64
+      }
+    ],
+    "tree": {
+      "name": "ui",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "ISSUE_TEMPLATE",
+              "children": [
+                {
+                  "name": "bug-report.yml",
+                  "size": 2379,
+                  "path": ".github/ISSUE_TEMPLATE/bug-report.yml"
+                },
+                {
+                  "name": "config.yml",
+                  "size": 320,
+                  "path": ".github/ISSUE_TEMPLATE/config.yml"
+                },
+                {
+                  "name": "feature-request.yml",
+                  "size": 941,
+                  "path": ".github/ISSUE_TEMPLATE/feature-request.yml"
+                },
+                {
+                  "name": "question.yml",
+                  "size": 483,
+                  "path": ".github/ISSUE_TEMPLATE/question.yml"
+                }
+              ],
+              "path": ".github/ISSUE_TEMPLATE"
+            },
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "ci-dev.yml",
+                  "size": 1760,
+                  "path": ".github/workflows/ci-dev.yml"
+                },
+                {
+                  "name": "ci.yml",
+                  "size": 1595,
+                  "path": ".github/workflows/ci.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            },
+            {
+              "name": "PULL_REQUEST_TEMPLATE.md",
+              "size": 1323,
+              "path": ".github/PULL_REQUEST_TEMPLATE.md"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "OgImage",
+                  "children": [
+                    {
+                      "name": "OgImageDocs.vue",
+                      "size": 817,
+                      "path": "docs/components/OgImage/OgImageDocs.vue"
+                    }
+                  ],
+                  "path": "docs/components/OgImage"
+                },
+                {
+                  "name": "color-picker",
+                  "children": [
+                    {
+                      "name": "ColorPicker.vue",
+                      "size": 1973,
+                      "path": "docs/components/color-picker/ColorPicker.vue"
+                    },
+                    {
+                      "name": "ColorPickerPill.vue",
+                      "size": 771,
+                      "path": "docs/components/color-picker/ColorPickerPill.vue"
+                    }
+                  ],
+                  "path": "docs/components/color-picker"
+                },
+                {
+                  "name": "content",
+                  "children": [
+                    {
+                      "name": "examples",
+                      "children": [
+                        {
+                          "name": "AccordionExampleBasic.vue",
+                          "size": 2089,
+                          "path": "docs/components/content/examples/AccordionExampleBasic.vue"
+                        },
+                        {
+                          "name": "AccordionExampleDefaultSlot.vue",
+                          "size": 2965,
+                          "path": "docs/components/content/examples/AccordionExampleDefaultSlot.vue"
+                        },
+                        {
+                          "name": "AccordionExampleItemSlot.vue",
+                          "size": 2774,
+                          "path": "docs/components/content/examples/AccordionExampleItemSlot.vue"
+                        },
+                        {
+                          "name": "AlertExampleHtml.vue",
+                          "size": 352,
+                          "path": "docs/components/content/examples/AlertExampleHtml.vue"
+                        },
+                        {
+                          "name": "CardExample.vue",
+                          "size": 225,
+                          "path": "docs/components/content/examples/CardExample.vue"
+                        },
+                        {
+                          "name": "CheckboxExample.vue",
+                          "size": 154,
+                          "path": "docs/components/content/examples/CheckboxExample.vue"
+                        },
+                        {
+                          "name": "CommandPaletteExampleAsync.vue",
+                          "size": 510,
+                          "path": "docs/components/content/examples/CommandPaletteExampleAsync.vue"
+                        },
+                        {
+                          "name": "CommandPaletteExampleBasic.vue",
+                          "size": 676,
+                          "path": "docs/components/content/examples/CommandPaletteExampleBasic.vue"
+                        },
+                        {
+                          "name": "CommandPaletteExampleEmptySlot.vue",
+                          "size": 289,
+                          "path": "docs/components/content/examples/CommandPaletteExampleEmptySlot.vue"
+                        },
+                        {
+                          "name": "CommandPaletteExampleGroups.vue",
+                          "size": 2116,
+                          "path": "docs/components/content/examples/CommandPaletteExampleGroups.vue"
+                        },
+                        {
+                          "name": "CommandPaletteExampleModal.vue",
+                          "size": 744,
+                          "path": "docs/components/content/examples/CommandPaletteExampleModal.vue"
+                        },
+                        {
+                          "name": "ContainerExample.vue",
+                          "size": 87,
+                          "path": "docs/components/content/examples/ContainerExample.vue"
+                        },
+                        {
+                          "name": "ContextMenuExample.vue",
+                          "size": 773,
+                          "path": "docs/components/content/examples/ContextMenuExample.vue"
+                        },
+                        {
+                          "name": "DatePickerExample.vue",
+                          "size": 465,
+                          "path": "docs/components/content/examples/DatePickerExample.vue"
+                        },
+                        {
+                          "name": "DividerExampleDefaultSlot.vue",
+                          "size": 80,
+                          "path": "docs/components/content/examples/DividerExampleDefaultSlot.vue"
+                        },
+                        {
+                          "name": "DividerExampleOrientation.vue",
+                          "size": 1535,
+                          "path": "docs/components/content/examples/DividerExampleOrientation.vue"
+                        },
+                        {
+                          "name": "DropdownExampleBasic.vue",
+                          "size": 889,
+                          "path": "docs/components/content/examples/DropdownExampleBasic.vue"
+                        },
+                        {
+                          "name": "DropdownExampleMode.vue",
+                          "size": 376,
+                          "path": "docs/components/content/examples/DropdownExampleMode.vue"
+                        },
+                        {
+                          "name": "DropdownExampleSlot.vue",
+                          "size": 1165,
+                          "path": "docs/components/content/examples/DropdownExampleSlot.vue"
+                        },
+                        {
+                          "name": "FormExampleBasic.vue",
+                          "size": 901,
+                          "path": "docs/components/content/examples/FormExampleBasic.vue"
+                        },
+                        {
+                          "name": "FormExampleElements.vue",
+                          "size": 2629,
+                          "path": "docs/components/content/examples/FormExampleElements.vue"
+                        },
+                        {
+                          "name": "FormExampleJoi.vue",
+                          "size": 796,
+                          "path": "docs/components/content/examples/FormExampleJoi.vue"
+                        },
+                        {
+                          "name": "FormExampleOnError.vue",
+                          "size": 1134,
+                          "path": "docs/components/content/examples/FormExampleOnError.vue"
+                        },
+                        {
+                          "name": "FormExampleValibot.vue",
+                          "size": 909,
+                          "path": "docs/components/content/examples/FormExampleValibot.vue"
+                        },
+                        {
+                          "name": "FormExampleYup.vue",
+                          "size": 929,
+                          "path": "docs/components/content/examples/FormExampleYup.vue"
+                        },
+                        {
+                          "name": "FormExampleZod.vue",
+                          "size": 852,
+                          "path": "docs/components/content/examples/FormExampleZod.vue"
+                        },
+                        {
+                          "name": "FormGroupErrorExample.vue",
+                          "size": 370,
+                          "path": "docs/components/content/examples/FormGroupErrorExample.vue"
+                        },
+                        {
+                          "name": "FormGroupErrorSlotExample.vue",
+                          "size": 630,
+                          "path": "docs/components/content/examples/FormGroupErrorSlotExample.vue"
+                        },
+                        {
+                          "name": "InputExample.vue",
+                          "size": 100,
+                          "path": "docs/components/content/examples/InputExample.vue"
+                        },
+                        {
+                          "name": "InputExampleClearable.vue",
+                          "size": 508,
+                          "path": "docs/components/content/examples/InputExampleClearable.vue"
+                        },
+                        {
+                          "name": "KbdExample.vue",
+                          "size": 191,
+                          "path": "docs/components/content/examples/KbdExample.vue"
+                        },
+                        {
+                          "name": "ModalExampleBasic.vue",
+                          "size": 263,
+                          "path": "docs/components/content/examples/ModalExampleBasic.vue"
+                        },
+                        {
+                          "name": "ModalExampleCard.vue",
+                          "size": 503,
+                          "path": "docs/components/content/examples/ModalExampleCard.vue"
+                        },
+                        {
+                          "name": "ModalExampleDisableOverlay.vue",
+                          "size": 280,
+                          "path": "docs/components/content/examples/ModalExampleDisableOverlay.vue"
+                        },
+                        {
+                          "name": "ModalExampleDisableTransition.vue",
+                          "size": 283,
+                          "path": "docs/components/content/examples/ModalExampleDisableTransition.vue"
+                        },
+                        {
+                          "name": "ModalExampleFullscreen.vue",
+                          "size": 862,
+                          "path": "docs/components/content/examples/ModalExampleFullscreen.vue"
+                        },
+                        {
+                          "name": "ModalExamplePreventClose.vue",
+                          "size": 721,
+                          "path": "docs/components/content/examples/ModalExamplePreventClose.vue"
+                        },
+                        {
+                          "name": "NotificationExampleActions.vue",
+                          "size": 321,
+                          "path": "docs/components/content/examples/NotificationExampleActions.vue"
+                        },
+                        {
+                          "name": "NotificationExampleBasic.vue",
+                          "size": 153,
+                          "path": "docs/components/content/examples/NotificationExampleBasic.vue"
+                        },
+                        {
+                          "name": "NotificationExampleCallback.vue",
+                          "size": 254,
+                          "path": "docs/components/content/examples/NotificationExampleCallback.vue"
+                        },
+                        {
+                          "name": "NotificationExampleClick.vue",
+                          "size": 210,
+                          "path": "docs/components/content/examples/NotificationExampleClick.vue"
+                        },
+                        {
+                          "name": "NotificationExampleHtml.vue",
+                          "size": 242,
+                          "path": "docs/components/content/examples/NotificationExampleHtml.vue"
+                        },
+                        {
+                          "name": "PaginationExampleBasic.vue",
+                          "size": 169,
+                          "path": "docs/components/content/examples/PaginationExampleBasic.vue"
+                        },
+                        {
+                          "name": "PaginationExamplePrevNextSlots.vue",
+                          "size": 815,
+                          "path": "docs/components/content/examples/PaginationExamplePrevNextSlots.vue"
+                        },
+                        {
+                          "name": "PaginationExampleRTL.vue",
+                          "size": 1714,
+                          "path": "docs/components/content/examples/PaginationExampleRTL.vue"
+                        },
+                        {
+                          "name": "PopoverExample.vue",
+                          "size": 261,
+                          "path": "docs/components/content/examples/PopoverExample.vue"
+                        },
+                        {
+                          "name": "PopoverExampleMode.vue",
+                          "size": 274,
+                          "path": "docs/components/content/examples/PopoverExampleMode.vue"
+                        },
+                        {
+                          "name": "PopoverExampleOpen.vue",
+                          "size": 420,
+                          "path": "docs/components/content/examples/PopoverExampleOpen.vue"
+                        },
+                        {
+                          "name": "PopoverExampleSlot.vue",
+                          "size": 280,
+                          "path": "docs/components/content/examples/PopoverExampleSlot.vue"
+                        },
+                        {
+                          "name": "RadioExample.vue",
+                          "size": 408,
+                          "path": "docs/components/content/examples/RadioExample.vue"
+                        },
+                        {
+                          "name": "RangeExample.vue",
+                          "size": 164,
+                          "path": "docs/components/content/examples/RangeExample.vue"
+                        },
+                        {
+                          "name": "SelectExample.vue",
+                          "size": 193,
+                          "path": "docs/components/content/examples/SelectExample.vue"
+                        },
+                        {
+                          "name": "SelectExampleObjects.vue",
+                          "size": 308,
+                          "path": "docs/components/content/examples/SelectExampleObjects.vue"
+                        },
+                        {
+                          "name": "SelectMenuExampleAsyncSearch.vue",
+                          "size": 434,
+                          "path": "docs/components/content/examples/SelectMenuExampleAsyncSearch.vue"
+                        },
+                        {
+                          "name": "SelectMenuExampleBasic.vue",
+                          "size": 313,
+                          "path": "docs/components/content/examples/SelectMenuExampleBasic.vue"
+                        },
+                        {
+                          "name": "SelectMenuExampleButton.vue",
+                          "size": 610,
+                          "path": "docs/components/content/examples/SelectMenuExampleButton.vue"
+                        },
+                        {
+                          "name": "SelectMenuExampleCreatable.vue",
+                          "size": 2678,
+                          "path": "docs/components/content/examples/SelectMenuExampleCreatable.vue"
+                        },
+                        {
+                          "name": "SelectMenuExampleMultiple.vue",
+                          "size": 343,
+                          "path": "docs/components/content/examples/SelectMenuExampleMultiple.vue"
+                        },
+                        {
+                          "name": "SelectMenuExampleMultipleSlot.vue",
+                          "size": 493,
+                          "path": "docs/components/content/examples/SelectMenuExampleMultipleSlot.vue"
+                        },
+                        {
+                          "name": "SelectMenuExampleObjects.vue",
+                          "size": 1006,
+                          "path": "docs/components/content/examples/SelectMenuExampleObjects.vue"
+                        },
+                        {
+                          "name": "SelectMenuExampleObjectsValueAttribute.vue",
+                          "size": 556,
+                          "path": "docs/components/content/examples/SelectMenuExampleObjectsValueAttribute.vue"
+                        },
+                        {
+                          "name": "SelectMenuExampleOptionEmptySlot.vue",
+                          "size": 431,
+                          "path": "docs/components/content/examples/SelectMenuExampleOptionEmptySlot.vue"
+                        },
+                        {
+                          "name": "SelectMenuExampleOptionSlot.vue",
+                          "size": 1116,
+                          "path": "docs/components/content/examples/SelectMenuExampleOptionSlot.vue"
+                        },
+                        {
+                          "name": "SkeletonExample.vue",
+                          "size": 269,
+                          "path": "docs/components/content/examples/SkeletonExample.vue"
+                        },
+                        {
+                          "name": "SlideoverExampleBasic.vue",
+                          "size": 280,
+                          "path": "docs/components/content/examples/SlideoverExampleBasic.vue"
+                        },
+                        {
+                          "name": "SlideoverExampleCard.vue",
+                          "size": 568,
+                          "path": "docs/components/content/examples/SlideoverExampleCard.vue"
+                        },
+                        {
+                          "name": "SlideoverExampleDisableOverlay.vue",
+                          "size": 297,
+                          "path": "docs/components/content/examples/SlideoverExampleDisableOverlay.vue"
+                        },
+                        {
+                          "name": "SlideoverExampleDisableTransition.vue",
+                          "size": 300,
+                          "path": "docs/components/content/examples/SlideoverExampleDisableTransition.vue"
+                        },
+                        {
+                          "name": "SlideoverExamplePreventClose.vue",
+                          "size": 790,
+                          "path": "docs/components/content/examples/SlideoverExamplePreventClose.vue"
+                        },
+                        {
+                          "name": "TableExampleAdvanced.vue",
+                          "size": 6180,
+                          "path": "docs/components/content/examples/TableExampleAdvanced.vue"
+                        },
+                        {
+                          "name": "TableExampleBasic.vue",
+                          "size": 819,
+                          "path": "docs/components/content/examples/TableExampleBasic.vue"
+                        },
+                        {
+                          "name": "TableExampleClickable.vue",
+                          "size": 969,
+                          "path": "docs/components/content/examples/TableExampleClickable.vue"
+                        },
+                        {
+                          "name": "TableExampleColumns.vue",
+                          "size": 1031,
+                          "path": "docs/components/content/examples/TableExampleColumns.vue"
+                        },
+                        {
+                          "name": "TableExampleColumnsSelectable.vue",
+                          "size": 1297,
+                          "path": "docs/components/content/examples/TableExampleColumnsSelectable.vue"
+                        },
+                        {
+                          "name": "TableExampleColumnsSortable.vue",
+                          "size": 1139,
+                          "path": "docs/components/content/examples/TableExampleColumnsSortable.vue"
+                        },
+                        {
+                          "name": "TableExampleEmptySlot.vue",
+                          "size": 538,
+                          "path": "docs/components/content/examples/TableExampleEmptySlot.vue"
+                        },
+                        {
+                          "name": "TableExampleLoadingSlot.vue",
+                          "size": 1387,
+                          "path": "docs/components/content/examples/TableExampleLoadingSlot.vue"
+                        },
+                        {
+                          "name": "TableExamplePaginable.vue",
+                          "size": 1843,
+                          "path": "docs/components/content/examples/TableExamplePaginable.vue"
+                        },
+                        {
+                          "name": "TableExampleReactiveSorting.vue",
+                          "size": 1192,
+                          "path": "docs/components/content/examples/TableExampleReactiveSorting.vue"
+                        },
+                        {
+                          "name": "TableExampleSearchable.vue",
+                          "size": 1489,
+                          "path": "docs/components/content/examples/TableExampleSearchable.vue"
+                        },
+                        {
+                          "name": "TableExampleSelectable.vue",
+                          "size": 873,
+                          "path": "docs/components/content/examples/TableExampleSelectable.vue"
+                        },
+                        {
+                          "name": "TableExampleSlots.vue",
+                          "size": 1943,
+                          "path": "docs/components/content/examples/TableExampleSlots.vue"
+                        },
+                        {
+                          "name": "TableExampleStyle.vue",
+                          "size": 784,
+                          "path": "docs/components/content/examples/TableExampleStyle.vue"
+                        },
+                        {
+                          "name": "TabsExampleBasic.vue",
+                          "size": 321,
+                          "path": "docs/components/content/examples/TabsExampleBasic.vue"
+                        },
+                        {
+                          "name": "TabsExampleChange.vue",
+                          "size": 420,
+                          "path": "docs/components/content/examples/TabsExampleChange.vue"
+                        },
+                        {
+                          "name": "TabsExampleDefaultSlot.vue",
+                          "size": 863,
+                          "path": "docs/components/content/examples/TabsExampleDefaultSlot.vue"
+                        },
+                        {
+                          "name": "TabsExampleIndex.vue",
+                          "size": 322,
+                          "path": "docs/components/content/examples/TabsExampleIndex.vue"
+                        },
+                        {
+                          "name": "TabsExampleItemCustomSlot.vue",
+                          "size": 2317,
+                          "path": "docs/components/content/examples/TabsExampleItemCustomSlot.vue"
+                        },
+                        {
+                          "name": "TabsExampleItemSlot.vue",
+                          "size": 2003,
+                          "path": "docs/components/content/examples/TabsExampleItemSlot.vue"
+                        },
+                        {
+                          "name": "TabsExampleVModel.vue",
+                          "size": 754,
+                          "path": "docs/components/content/examples/TabsExampleVModel.vue"
+                        },
+                        {
+                          "name": "TabsExampleVertical.vue",
+                          "size": 396,
+                          "path": "docs/components/content/examples/TabsExampleVertical.vue"
+                        },
+                        {
+                          "name": "TextareaExample.vue",
+                          "size": 103,
+                          "path": "docs/components/content/examples/TextareaExample.vue"
+                        },
+                        {
+                          "name": "ToggleExample.vue",
+                          "size": 110,
+                          "path": "docs/components/content/examples/ToggleExample.vue"
+                        },
+                        {
+                          "name": "TooltipExample.vue",
+                          "size": 145,
+                          "path": "docs/components/content/examples/TooltipExample.vue"
+                        },
+                        {
+                          "name": "VerticalNavigationExample.vue",
+                          "size": 533,
+                          "path": "docs/components/content/examples/VerticalNavigationExample.vue"
+                        },
+                        {
+                          "name": "VerticalNavigationExampleAvatarSlot.vue",
+                          "size": 1110,
+                          "path": "docs/components/content/examples/VerticalNavigationExampleAvatarSlot.vue"
+                        },
+                        {
+                          "name": "VerticalNavigationExampleBadgeSlot.vue",
+                          "size": 825,
+                          "path": "docs/components/content/examples/VerticalNavigationExampleBadgeSlot.vue"
+                        },
+                        {
+                          "name": "VerticalNavigationExampleDefaultSlot.vue",
+                          "size": 666,
+                          "path": "docs/components/content/examples/VerticalNavigationExampleDefaultSlot.vue"
+                        },
+                        {
+                          "name": "VerticalNavigationExampleIconSlot.vue",
+                          "size": 1126,
+                          "path": "docs/components/content/examples/VerticalNavigationExampleIconSlot.vue"
+                        }
+                      ],
+                      "path": "docs/components/content/examples"
+                    },
+                    {
+                      "name": "themes",
+                      "children": [
+                        {
+                          "name": "CommandPaletteThemeAlgolia.vue",
+                          "size": 2685,
+                          "path": "docs/components/content/themes/CommandPaletteThemeAlgolia.vue"
+                        },
+                        {
+                          "name": "CommandPaletteThemeRaycast.vue",
+                          "size": 2200,
+                          "path": "docs/components/content/themes/CommandPaletteThemeRaycast.vue"
+                        },
+                        {
+                          "name": "PaginationThemeRounded.vue",
+                          "size": 436,
+                          "path": "docs/components/content/themes/PaginationThemeRounded.vue"
+                        },
+                        {
+                          "name": "VerticalNavigationThemeTailwind.vue",
+                          "size": 961,
+                          "path": "docs/components/content/themes/VerticalNavigationThemeTailwind.vue"
+                        }
+                      ],
+                      "path": "docs/components/content/themes"
+                    },
+                    {
+                      "name": "ColorModeButton.vue",
+                      "size": 565,
+                      "path": "docs/components/content/ColorModeButton.vue"
+                    },
+                    {
+                      "name": "ComponentCard.vue",
+                      "size": 8071,
+                      "path": "docs/components/content/ComponentCard.vue"
+                    },
+                    {
+                      "name": "ComponentExample.vue",
+                      "size": 2287,
+                      "path": "docs/components/content/ComponentExample.vue"
+                    },
+                    {
+                      "name": "ComponentPreset.vue",
+                      "size": 920,
+                      "path": "docs/components/content/ComponentPreset.vue"
+                    },
+                    {
+                      "name": "ComponentProps.vue",
+                      "size": 599,
+                      "path": "docs/components/content/ComponentProps.vue"
+                    },
+                    {
+                      "name": "ComponentPropsField.vue",
+                      "size": 1998,
+                      "path": "docs/components/content/ComponentPropsField.vue"
+                    },
+                    {
+                      "name": "ComponentSlots.vue",
+                      "size": 789,
+                      "path": "docs/components/content/ComponentSlots.vue"
+                    },
+                    {
+                      "name": "Placeholder.vue",
+                      "size": 695,
+                      "path": "docs/components/content/Placeholder.vue"
+                    },
+                    {
+                      "name": "VoltaEmbed.vue",
+                      "size": 480,
+                      "path": "docs/components/content/VoltaEmbed.vue"
+                    }
+                  ],
+                  "path": "docs/components/content"
+                },
+                {
+                  "name": "date-picker",
+                  "children": [
+                    {
+                      "name": "DatePicker.vue",
+                      "size": 1879,
+                      "path": "docs/components/date-picker/DatePicker.vue"
+                    }
+                  ],
+                  "path": "docs/components/date-picker"
+                },
+                {
+                  "name": "home",
+                  "children": [
+                    {
+                      "name": "HomeDemo.vue",
+                      "size": 4955,
+                      "path": "docs/components/home/HomeDemo.vue"
+                    },
+                    {
+                      "name": "HomeTetris.vue",
+                      "size": 2693,
+                      "path": "docs/components/home/HomeTetris.vue"
+                    }
+                  ],
+                  "path": "docs/components/home"
+                },
+                {
+                  "name": "BranchSelect.vue",
+                  "size": 1192,
+                  "path": "docs/components/BranchSelect.vue"
+                },
+                {
+                  "name": "Footer.vue",
+                  "size": 1656,
+                  "path": "docs/components/Footer.vue"
+                },
+                {
+                  "name": "Header.vue",
+                  "size": 1769,
+                  "path": "docs/components/Header.vue"
+                },
+                {
+                  "name": "Logo.vue",
+                  "size": 3163,
+                  "path": "docs/components/Logo.vue"
+                },
+                {
+                  "name": "LogoGreen.vue",
+                  "size": 3085,
+                  "path": "docs/components/LogoGreen.vue"
+                },
+                {
+                  "name": "LogoLabs.vue",
+                  "size": 4598,
+                  "path": "docs/components/LogoLabs.vue"
+                },
+                {
+                  "name": "LogoOnly.vue",
+                  "size": 1243,
+                  "path": "docs/components/LogoOnly.vue"
+                }
+              ],
+              "path": "docs/components"
+            },
+            {
+              "name": "composables",
+              "children": [
+                {
+                  "name": "useComponentMeta.ts",
+                  "size": 814,
+                  "path": "docs/composables/useComponentMeta.ts"
+                },
+                {
+                  "name": "useContentExamplesCode.ts",
+                  "size": 826,
+                  "path": "docs/composables/useContentExamplesCode.ts"
+                },
+                {
+                  "name": "useContentSource.ts",
+                  "size": 1000,
+                  "path": "docs/composables/useContentSource.ts"
+                }
+              ],
+              "path": "docs/composables"
+            },
+            {
+              "name": "content",
+              "children": [
+                {
+                  "name": "1.getting-started",
+                  "children": [
+                    {
+                      "name": "1.index.md",
+                      "size": 1356,
+                      "path": "docs/content/1.getting-started/1.index.md"
+                    },
+                    {
+                      "name": "2.installation.md",
+                      "size": 4000,
+                      "path": "docs/content/1.getting-started/2.installation.md"
+                    },
+                    {
+                      "name": "3.theming.md",
+                      "size": 12374,
+                      "path": "docs/content/1.getting-started/3.theming.md"
+                    },
+                    {
+                      "name": "4.shortcuts.md",
+                      "size": 3693,
+                      "path": "docs/content/1.getting-started/4.shortcuts.md"
+                    },
+                    {
+                      "name": "5.examples.md",
+                      "size": 4172,
+                      "path": "docs/content/1.getting-started/5.examples.md"
+                    },
+                    {
+                      "name": "6.contributing.md",
+                      "size": 6049,
+                      "path": "docs/content/1.getting-started/6.contributing.md"
+                    },
+                    {
+                      "name": "7.roadmap.md",
+                      "size": 537,
+                      "path": "docs/content/1.getting-started/7.roadmap.md"
+                    },
+                    {
+                      "name": "_dir.yml",
+                      "size": 23,
+                      "path": "docs/content/1.getting-started/_dir.yml"
+                    }
+                  ],
+                  "path": "docs/content/1.getting-started"
+                },
+                {
+                  "name": "2.elements",
+                  "children": [
+                    {
+                      "name": "1.accordion.md",
+                      "size": 4708,
+                      "path": "docs/content/2.elements/1.accordion.md"
+                    },
+                    {
+                      "name": "2.alert.md",
+                      "size": 3629,
+                      "path": "docs/content/2.elements/2.alert.md"
+                    },
+                    {
+                      "name": "3.avatar.md",
+                      "size": 2739,
+                      "path": "docs/content/2.elements/3.avatar.md"
+                    },
+                    {
+                      "name": "4.badge.md",
+                      "size": 1922,
+                      "path": "docs/content/2.elements/4.badge.md"
+                    },
+                    {
+                      "name": "5.button.md",
+                      "size": 5658,
+                      "path": "docs/content/2.elements/5.button.md"
+                    },
+                    {
+                      "name": "6.dropdown.md",
+                      "size": 1503,
+                      "path": "docs/content/2.elements/6.dropdown.md"
+                    },
+                    {
+                      "name": "7.icon.md",
+                      "size": 548,
+                      "path": "docs/content/2.elements/7.icon.md"
+                    },
+                    {
+                      "name": "8.kbd.md",
+                      "size": 851,
+                      "path": "docs/content/2.elements/8.kbd.md"
+                    },
+                    {
+                      "name": "9.link.md",
+                      "size": 1648,
+                      "path": "docs/content/2.elements/9.link.md"
+                    }
+                  ],
+                  "path": "docs/content/2.elements"
+                },
+                {
+                  "name": "3.forms",
+                  "children": [
+                    {
+                      "name": "1.input.md",
+                      "size": 3945,
+                      "path": "docs/content/3.forms/1.input.md"
+                    },
+                    {
+                      "name": "10.form.md",
+                      "size": 5833,
+                      "path": "docs/content/3.forms/10.form.md"
+                    },
+                    {
+                      "name": "2.textarea.md",
+                      "size": 2060,
+                      "path": "docs/content/3.forms/2.textarea.md"
+                    },
+                    {
+                      "name": "3.select.md",
+                      "size": 4275,
+                      "path": "docs/content/3.forms/3.select.md"
+                    },
+                    {
+                      "name": "4.select-menu.md",
+                      "size": 5213,
+                      "path": "docs/content/3.forms/4.select-menu.md"
+                    },
+                    {
+                      "name": "5.checkbox.md",
+                      "size": 1242,
+                      "path": "docs/content/3.forms/5.checkbox.md"
+                    },
+                    {
+                      "name": "6.radio.md",
+                      "size": 1245,
+                      "path": "docs/content/3.forms/6.radio.md"
+                    },
+                    {
+                      "name": "7.toggle.md",
+                      "size": 1045,
+                      "path": "docs/content/3.forms/7.toggle.md"
+                    },
+                    {
+                      "name": "8.range.md",
+                      "size": 972,
+                      "path": "docs/content/3.forms/8.range.md"
+                    },
+                    {
+                      "name": "9.form-group.md",
+                      "size": 5594,
+                      "path": "docs/content/3.forms/9.form-group.md"
+                    }
+                  ],
+                  "path": "docs/content/3.forms"
+                },
+                {
+                  "name": "4.data",
+                  "children": [
+                    {
+                      "name": "1.table.md",
+                      "size": 11097,
+                      "path": "docs/content/4.data/1.table.md"
+                    }
+                  ],
+                  "path": "docs/content/4.data"
+                },
+                {
+                  "name": "5.navigation",
+                  "children": [
+                    {
+                      "name": "1.vertical-navigation.md",
+                      "size": 2049,
+                      "path": "docs/content/5.navigation/1.vertical-navigation.md"
+                    },
+                    {
+                      "name": "2.command-palette.md",
+                      "size": 6175,
+                      "path": "docs/content/5.navigation/2.command-palette.md"
+                    },
+                    {
+                      "name": "3.pagination.md",
+                      "size": 1914,
+                      "path": "docs/content/5.navigation/3.pagination.md"
+                    },
+                    {
+                      "name": "4.tabs.md",
+                      "size": 2447,
+                      "path": "docs/content/5.navigation/4.tabs.md"
+                    }
+                  ],
+                  "path": "docs/content/5.navigation"
+                },
+                {
+                  "name": "6.overlays",
+                  "children": [
+                    {
+                      "name": "1.modal.md",
+                      "size": 1562,
+                      "path": "docs/content/6.overlays/1.modal.md"
+                    },
+                    {
+                      "name": "2.slideover.md",
+                      "size": 1489,
+                      "path": "docs/content/6.overlays/2.slideover.md"
+                    },
+                    {
+                      "name": "3.popover.md",
+                      "size": 1005,
+                      "path": "docs/content/6.overlays/3.popover.md"
+                    },
+                    {
+                      "name": "4.tooltip.md",
+                      "size": 540,
+                      "path": "docs/content/6.overlays/4.tooltip.md"
+                    },
+                    {
+                      "name": "5.context-menu.md",
+                      "size": 355,
+                      "path": "docs/content/6.overlays/5.context-menu.md"
+                    },
+                    {
+                      "name": "6.notification.md",
+                      "size": 6228,
+                      "path": "docs/content/6.overlays/6.notification.md"
+                    }
+                  ],
+                  "path": "docs/content/6.overlays"
+                },
+                {
+                  "name": "7.layout",
+                  "children": [
+                    {
+                      "name": "1.card.md",
+                      "size": 498,
+                      "path": "docs/content/7.layout/1.card.md"
+                    },
+                    {
+                      "name": "2.container.md",
+                      "size": 392,
+                      "path": "docs/content/7.layout/2.container.md"
+                    },
+                    {
+                      "name": "3.skeleton.md",
+                      "size": 384,
+                      "path": "docs/content/7.layout/3.skeleton.md"
+                    },
+                    {
+                      "name": "4.divider.md",
+                      "size": 1934,
+                      "path": "docs/content/7.layout/4.divider.md"
+                    }
+                  ],
+                  "path": "docs/content/7.layout"
+                },
+                {
+                  "name": "index.yml",
+                  "size": 4708,
+                  "path": "docs/content/index.yml"
+                }
+              ],
+              "path": "docs/content"
+            },
+            {
+              "name": "layouts",
+              "children": [
+                {
+                  "name": "default.vue",
+                  "size": 53,
+                  "path": "docs/layouts/default.vue"
+                },
+                {
+                  "name": "docs.vue",
+                  "size": 466,
+                  "path": "docs/layouts/docs.vue"
+                }
+              ],
+              "path": "docs/layouts"
+            },
+            {
+              "name": "modules",
+              "children": [
+                {
+                  "name": "content-examples-code.ts",
+                  "size": 3877,
+                  "path": "docs/modules/content-examples-code.ts"
+                }
+              ],
+              "path": "docs/modules"
+            },
+            {
+              "name": "pages",
+              "children": [
+                {
+                  "name": "[...slug].vue",
+                  "size": 2812,
+                  "path": "docs/pages/[...slug].vue"
+                },
+                {
+                  "name": "index.vue",
+                  "size": 7793,
+                  "path": "docs/pages/index.vue"
+                },
+                {
+                  "name": "playground.vue",
+                  "size": 543,
+                  "path": "docs/pages/playground.vue"
+                },
+                {
+                  "name": "pro.vue",
+                  "size": 3735,
+                  "path": "docs/pages/pro.vue"
+                }
+              ],
+              "path": "docs/pages"
+            },
+            {
+              "name": "plugins",
+              "children": [
+                {
+                  "name": "prettier.ts",
+                  "size": 1476,
+                  "path": "docs/plugins/prettier.ts"
+                },
+                {
+                  "name": "ui.ts",
+                  "size": 1607,
+                  "path": "docs/plugins/ui.ts"
+                }
+              ],
+              "path": "docs/plugins"
+            },
+            {
+              "name": "public",
+              "children": [
+                {
+                  "name": "illustrations",
+                  "children": [
+                    {
+                      "name": "color-palette-dark.svg",
+                      "size": 8423,
+                      "path": "docs/public/illustrations/color-palette-dark.svg"
+                    },
+                    {
+                      "name": "color-palette-light.svg",
+                      "size": 8423,
+                      "path": "docs/public/illustrations/color-palette-light.svg"
+                    },
+                    {
+                      "name": "dark-mode-dark.svg",
+                      "size": 130814,
+                      "path": "docs/public/illustrations/dark-mode-dark.svg"
+                    },
+                    {
+                      "name": "dark-mode-light.svg",
+                      "size": 130500,
+                      "path": "docs/public/illustrations/dark-mode-light.svg"
+                    },
+                    {
+                      "name": "data-dark.svg",
+                      "size": 6690,
+                      "path": "docs/public/illustrations/data-dark.svg"
+                    },
+                    {
+                      "name": "data-light.svg",
+                      "size": 6371,
+                      "path": "docs/public/illustrations/data-light.svg"
+                    },
+                    {
+                      "name": "elements-dark.svg",
+                      "size": 9410,
+                      "path": "docs/public/illustrations/elements-dark.svg"
+                    },
+                    {
+                      "name": "elements-light.svg",
+                      "size": 9753,
+                      "path": "docs/public/illustrations/elements-light.svg"
+                    },
+                    {
+                      "name": "forms-dark.svg",
+                      "size": 3352,
+                      "path": "docs/public/illustrations/forms-dark.svg"
+                    },
+                    {
+                      "name": "forms-light.svg",
+                      "size": 3045,
+                      "path": "docs/public/illustrations/forms-light.svg"
+                    },
+                    {
+                      "name": "fully-customizable-dark.svg",
+                      "size": 320769,
+                      "path": "docs/public/illustrations/fully-customizable-dark.svg"
+                    },
+                    {
+                      "name": "fully-customizable-light.svg",
+                      "size": 318295,
+                      "path": "docs/public/illustrations/fully-customizable-light.svg"
+                    },
+                    {
+                      "name": "icon-library-dark.svg",
+                      "size": 35957,
+                      "path": "docs/public/illustrations/icon-library-dark.svg"
+                    },
+                    {
+                      "name": "icon-library-light.svg",
+                      "size": 39808,
+                      "path": "docs/public/illustrations/icon-library-light.svg"
+                    },
+                    {
+                      "name": "keyboard-shortcuts-dark.svg",
+                      "size": 16098,
+                      "path": "docs/public/illustrations/keyboard-shortcuts-dark.svg"
+                    },
+                    {
+                      "name": "keyboard-shortcuts-light.svg",
+                      "size": 15789,
+                      "path": "docs/public/illustrations/keyboard-shortcuts-light.svg"
+                    },
+                    {
+                      "name": "layout-dark.svg",
+                      "size": 10854,
+                      "path": "docs/public/illustrations/layout-dark.svg"
+                    },
+                    {
+                      "name": "layout-light.svg",
+                      "size": 10479,
+                      "path": "docs/public/illustrations/layout-light.svg"
+                    },
+                    {
+                      "name": "navigation-dark.svg",
+                      "size": 8929,
+                      "path": "docs/public/illustrations/navigation-dark.svg"
+                    },
+                    {
+                      "name": "navigation-light.svg",
+                      "size": 8908,
+                      "path": "docs/public/illustrations/navigation-light.svg"
+                    },
+                    {
+                      "name": "overlays-dark.svg",
+                      "size": 3976,
+                      "path": "docs/public/illustrations/overlays-dark.svg"
+                    },
+                    {
+                      "name": "overlays-light.svg",
+                      "size": 3977,
+                      "path": "docs/public/illustrations/overlays-light.svg"
+                    }
+                  ],
+                  "path": "docs/public/illustrations"
+                },
+                {
+                  "name": "favicon.ico",
+                  "size": 4286,
+                  "path": "docs/public/favicon.ico"
+                },
+                {
+                  "name": "icon.svg",
+                  "size": 1217,
+                  "path": "docs/public/icon.svg"
+                },
+                {
+                  "name": "robots.txt",
+                  "size": 31,
+                  "path": "docs/public/robots.txt"
+                },
+                {
+                  "name": "social-card.png",
+                  "size": 318575,
+                  "path": "docs/public/social-card.png"
+                }
+              ],
+              "path": "docs/public"
+            },
+            {
+              "name": "server",
+              "children": [
+                {
+                  "name": "api",
+                  "children": [
+                    {
+                      "name": "content-examples-code.get.ts",
+                      "size": 616,
+                      "path": "docs/server/api/content-examples-code.get.ts"
+                    },
+                    {
+                      "name": "search.json.get.ts",
+                      "size": 203,
+                      "path": "docs/server/api/search.json.get.ts"
+                    }
+                  ],
+                  "path": "docs/server/api"
+                }
+              ],
+              "path": "docs/server"
+            },
+            {
+              "name": "utils",
+              "children": [
+                {
+                  "name": "pro.ts",
+                  "size": 586,
+                  "path": "docs/utils/pro.ts"
+                }
+              ],
+              "path": "docs/utils"
+            },
+            {
+              "name": "workers",
+              "children": [
+                {
+                  "name": "prettier.js",
+                  "size": 721,
+                  "path": "docs/workers/prettier.js"
+                }
+              ],
+              "path": "docs/workers"
+            },
+            {
+              "name": ".env.example",
+              "size": 188,
+              "path": "docs/.env.example"
+            },
+            {
+              "name": ".nuxtrc",
+              "size": 24,
+              "path": "docs/.nuxtrc"
+            },
+            {
+              "name": "app.config.ts",
+              "size": 88,
+              "path": "docs/app.config.ts"
+            },
+            {
+              "name": "app.vue",
+              "size": 2325,
+              "path": "docs/app.vue"
+            },
+            {
+              "name": "error.vue",
+              "size": 1158,
+              "path": "docs/error.vue"
+            },
+            {
+              "name": "nuxt.config.ts",
+              "size": 2101,
+              "path": "docs/nuxt.config.ts"
+            },
+            {
+              "name": "package.json",
+              "size": 876,
+              "path": "docs/package.json"
+            },
+            {
+              "name": "tailwind.config.ts",
+              "size": 671,
+              "path": "docs/tailwind.config.ts"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 41,
+              "path": "docs/tsconfig.json"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "playground",
+          "children": [
+            {
+              "name": ".nuxtrc",
+              "size": 24,
+              "path": "playground/.nuxtrc"
+            },
+            {
+              "name": "app.vue",
+              "size": 645,
+              "path": "playground/app.vue"
+            },
+            {
+              "name": "nuxt.config.ts",
+              "size": 101,
+              "path": "playground/nuxt.config.ts"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 41,
+              "path": "playground/tsconfig.json"
+            }
+          ],
+          "path": "playground"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "bump-edge.ts",
+              "size": 849,
+              "path": "scripts/bump-edge.ts"
+            },
+            {
+              "name": "release-edge.sh",
+              "size": 438,
+              "path": "scripts/release-edge.sh"
+            },
+            {
+              "name": "release.sh",
+              "size": 383,
+              "path": "scripts/release.sh"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "runtime",
+              "children": [
+                {
+                  "name": "components",
+                  "children": [
+                    {
+                      "name": "data",
+                      "children": [
+                        {
+                          "name": "Table.vue",
+                          "size": 9490,
+                          "path": "src/runtime/components/data/Table.vue"
+                        }
+                      ],
+                      "path": "src/runtime/components/data"
+                    },
+                    {
+                      "name": "elements",
+                      "children": [
+                        {
+                          "name": "Accordion.vue",
+                          "size": 4801,
+                          "path": "src/runtime/components/elements/Accordion.vue"
+                        },
+                        {
+                          "name": "Alert.vue",
+                          "size": 4342,
+                          "path": "src/runtime/components/elements/Alert.vue"
+                        },
+                        {
+                          "name": "Avatar.vue",
+                          "size": 4160,
+                          "path": "src/runtime/components/elements/Avatar.vue"
+                        },
+                        {
+                          "name": "AvatarGroup.ts",
+                          "size": 2432,
+                          "path": "src/runtime/components/elements/AvatarGroup.ts"
+                        },
+                        {
+                          "name": "Badge.vue",
+                          "size": 2286,
+                          "path": "src/runtime/components/elements/Badge.vue"
+                        },
+                        {
+                          "name": "Button.vue",
+                          "size": 5393,
+                          "path": "src/runtime/components/elements/Button.vue"
+                        },
+                        {
+                          "name": "ButtonGroup.ts",
+                          "size": 3877,
+                          "path": "src/runtime/components/elements/ButtonGroup.ts"
+                        },
+                        {
+                          "name": "Dropdown.vue",
+                          "size": 6517,
+                          "path": "src/runtime/components/elements/Dropdown.vue"
+                        },
+                        {
+                          "name": "Icon.vue",
+                          "size": 227,
+                          "path": "src/runtime/components/elements/Icon.vue"
+                        },
+                        {
+                          "name": "Kbd.vue",
+                          "size": 1644,
+                          "path": "src/runtime/components/elements/Kbd.vue"
+                        },
+                        {
+                          "name": "Link.vue",
+                          "size": 2117,
+                          "path": "src/runtime/components/elements/Link.vue"
+                        }
+                      ],
+                      "path": "src/runtime/components/elements"
+                    },
+                    {
+                      "name": "forms",
+                      "children": [
+                        {
+                          "name": "Checkbox.vue",
+                          "size": 3823,
+                          "path": "src/runtime/components/forms/Checkbox.vue"
+                        },
+                        {
+                          "name": "Form.vue",
+                          "size": 6803,
+                          "path": "src/runtime/components/forms/Form.vue"
+                        },
+                        {
+                          "name": "FormGroup.vue",
+                          "size": 3996,
+                          "path": "src/runtime/components/forms/FormGroup.vue"
+                        },
+                        {
+                          "name": "Input.vue",
+                          "size": 7588,
+                          "path": "src/runtime/components/forms/Input.vue"
+                        },
+                        {
+                          "name": "Radio.vue",
+                          "size": 3487,
+                          "path": "src/runtime/components/forms/Radio.vue"
+                        },
+                        {
+                          "name": "Range.vue",
+                          "size": 4671,
+                          "path": "src/runtime/components/forms/Range.vue"
+                        },
+                        {
+                          "name": "Select.vue",
+                          "size": 9918,
+                          "path": "src/runtime/components/forms/Select.vue"
+                        },
+                        {
+                          "name": "SelectMenu.vue",
+                          "size": 15648,
+                          "path": "src/runtime/components/forms/SelectMenu.vue"
+                        },
+                        {
+                          "name": "Textarea.vue",
+                          "size": 5456,
+                          "path": "src/runtime/components/forms/Textarea.vue"
+                        },
+                        {
+                          "name": "Toggle.vue",
+                          "size": 3527,
+                          "path": "src/runtime/components/forms/Toggle.vue"
+                        }
+                      ],
+                      "path": "src/runtime/components/forms"
+                    },
+                    {
+                      "name": "layout",
+                      "children": [
+                        {
+                          "name": "Card.vue",
+                          "size": 1806,
+                          "path": "src/runtime/components/layout/Card.vue"
+                        },
+                        {
+                          "name": "Container.vue",
+                          "size": 1372,
+                          "path": "src/runtime/components/layout/Container.vue"
+                        },
+                        {
+                          "name": "Divider.vue",
+                          "size": 3294,
+                          "path": "src/runtime/components/layout/Divider.vue"
+                        },
+                        {
+                          "name": "Skeleton.vue",
+                          "size": 1264,
+                          "path": "src/runtime/components/layout/Skeleton.vue"
+                        }
+                      ],
+                      "path": "src/runtime/components/layout"
+                    },
+                    {
+                      "name": "navigation",
+                      "children": [
+                        {
+                          "name": "CommandPalette.vue",
+                          "size": 10112,
+                          "path": "src/runtime/components/navigation/CommandPalette.vue"
+                        },
+                        {
+                          "name": "CommandPaletteGroup.vue",
+                          "size": 5767,
+                          "path": "src/runtime/components/navigation/CommandPaletteGroup.vue"
+                        },
+                        {
+                          "name": "Pagination.vue",
+                          "size": 6303,
+                          "path": "src/runtime/components/navigation/Pagination.vue"
+                        },
+                        {
+                          "name": "Tabs.vue",
+                          "size": 4702,
+                          "path": "src/runtime/components/navigation/Tabs.vue"
+                        },
+                        {
+                          "name": "VerticalNavigation.vue",
+                          "size": 2669,
+                          "path": "src/runtime/components/navigation/VerticalNavigation.vue"
+                        }
+                      ],
+                      "path": "src/runtime/components/navigation"
+                    },
+                    {
+                      "name": "overlays",
+                      "children": [
+                        {
+                          "name": "ContextMenu.vue",
+                          "size": 2469,
+                          "path": "src/runtime/components/overlays/ContextMenu.vue"
+                        },
+                        {
+                          "name": "Modal.vue",
+                          "size": 3168,
+                          "path": "src/runtime/components/overlays/Modal.vue"
+                        },
+                        {
+                          "name": "Notification.vue",
+                          "size": 6147,
+                          "path": "src/runtime/components/overlays/Notification.vue"
+                        },
+                        {
+                          "name": "Notifications.vue",
+                          "size": 2208,
+                          "path": "src/runtime/components/overlays/Notifications.vue"
+                        },
+                        {
+                          "name": "Popover.vue",
+                          "size": 5226,
+                          "path": "src/runtime/components/overlays/Popover.vue"
+                        },
+                        {
+                          "name": "Slideover.vue",
+                          "size": 3182,
+                          "path": "src/runtime/components/overlays/Slideover.vue"
+                        },
+                        {
+                          "name": "Tooltip.vue",
+                          "size": 3542,
+                          "path": "src/runtime/components/overlays/Tooltip.vue"
+                        }
+                      ],
+                      "path": "src/runtime/components/overlays"
+                    }
+                  ],
+                  "path": "src/runtime/components"
+                },
+                {
+                  "name": "composables",
+                  "children": [
+                    {
+                      "name": "defineShortcuts.ts",
+                      "size": 4728,
+                      "path": "src/runtime/composables/defineShortcuts.ts"
+                    },
+                    {
+                      "name": "useCopyToClipboard.ts",
+                      "size": 837,
+                      "path": "src/runtime/composables/useCopyToClipboard.ts"
+                    },
+                    {
+                      "name": "useFormGroup.ts",
+                      "size": 1907,
+                      "path": "src/runtime/composables/useFormGroup.ts"
+                    },
+                    {
+                      "name": "usePopper.ts",
+                      "size": 2805,
+                      "path": "src/runtime/composables/usePopper.ts"
+                    },
+                    {
+                      "name": "useShortcuts.ts",
+                      "size": 943,
+                      "path": "src/runtime/composables/useShortcuts.ts"
+                    },
+                    {
+                      "name": "useTimer.ts",
+                      "size": 1267,
+                      "path": "src/runtime/composables/useTimer.ts"
+                    },
+                    {
+                      "name": "useToast.ts",
+                      "size": 702,
+                      "path": "src/runtime/composables/useToast.ts"
+                    },
+                    {
+                      "name": "useUI.ts",
+                      "size": 956,
+                      "path": "src/runtime/composables/useUI.ts"
+                    }
+                  ],
+                  "path": "src/runtime/composables"
+                },
+                {
+                  "name": "plugins",
+                  "children": [
+                    {
+                      "name": "colors.ts",
+                      "size": 1706,
+                      "path": "src/runtime/plugins/colors.ts"
+                    }
+                  ],
+                  "path": "src/runtime/plugins"
+                },
+                {
+                  "name": "types",
+                  "children": [
+                    {
+                      "name": "accordion.d.ts",
+                      "size": 194,
+                      "path": "src/runtime/types/accordion.d.ts"
+                    },
+                    {
+                      "name": "avatar.d.ts",
+                      "size": 420,
+                      "path": "src/runtime/types/avatar.d.ts"
+                    },
+                    {
+                      "name": "badge.d.ts",
+                      "size": 427,
+                      "path": "src/runtime/types/badge.d.ts"
+                    },
+                    {
+                      "name": "button.d.ts",
+                      "size": 789,
+                      "path": "src/runtime/types/button.d.ts"
+                    },
+                    {
+                      "name": "clipboard.d.ts",
+                      "size": 172,
+                      "path": "src/runtime/types/clipboard.d.ts"
+                    },
+                    {
+                      "name": "command-palette.d.ts",
+                      "size": 587,
+                      "path": "src/runtime/types/command-palette.d.ts"
+                    },
+                    {
+                      "name": "dropdown.d.ts",
+                      "size": 272,
+                      "path": "src/runtime/types/dropdown.d.ts"
+                    },
+                    {
+                      "name": "form.d.ts",
+                      "size": 867,
+                      "path": "src/runtime/types/form.d.ts"
+                    },
+                    {
+                      "name": "index.d.ts",
+                      "size": 378,
+                      "path": "src/runtime/types/index.d.ts"
+                    },
+                    {
+                      "name": "link.d.ts",
+                      "size": 199,
+                      "path": "src/runtime/types/link.d.ts"
+                    },
+                    {
+                      "name": "notification.d.ts",
+                      "size": 524,
+                      "path": "src/runtime/types/notification.d.ts"
+                    },
+                    {
+                      "name": "popper.d.ts",
+                      "size": 343,
+                      "path": "src/runtime/types/popper.d.ts"
+                    },
+                    {
+                      "name": "tabs.d.ts",
+                      "size": 122,
+                      "path": "src/runtime/types/tabs.d.ts"
+                    },
+                    {
+                      "name": "utils.d.ts",
+                      "size": 333,
+                      "path": "src/runtime/types/utils.d.ts"
+                    },
+                    {
+                      "name": "vertical-navigation.d.ts",
+                      "size": 248,
+                      "path": "src/runtime/types/vertical-navigation.d.ts"
+                    }
+                  ],
+                  "path": "src/runtime/types"
+                },
+                {
+                  "name": "utils",
+                  "children": [
+                    {
+                      "name": "index.ts",
+                      "size": 1695,
+                      "path": "src/runtime/utils/index.ts"
+                    },
+                    {
+                      "name": "lodash.ts",
+                      "size": 759,
+                      "path": "src/runtime/utils/lodash.ts"
+                    },
+                    {
+                      "name": "uid.ts",
+                      "size": 65,
+                      "path": "src/runtime/utils/uid.ts"
+                    }
+                  ],
+                  "path": "src/runtime/utils"
+                },
+                {
+                  "name": "ui.config.ts",
+                  "size": 38228,
+                  "path": "src/runtime/ui.config.ts"
+                },
+                {
+                  "name": "ui.css",
+                  "size": 156,
+                  "path": "src/runtime/ui.css"
+                }
+              ],
+              "path": "src/runtime"
+            },
+            {
+              "name": "colors.ts",
+              "size": 8054,
+              "path": "src/colors.ts"
+            },
+            {
+              "name": "module.ts",
+              "size": 6924,
+              "path": "src/module.ts"
+            },
+            {
+              "name": "templates.ts",
+              "size": 738,
+              "path": "src/templates.ts"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 207,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".eslintignore",
+          "size": 125,
+          "path": ".eslintignore"
+        },
+        {
+          "name": ".eslintrc.cjs",
+          "size": 1750,
+          "path": ".eslintrc.cjs"
+        },
+        {
+          "name": ".gitignore",
+          "size": 86,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 46,
+          "path": ".npmrc"
+        },
+        {
+          "name": ".nuxtrc",
+          "size": 82,
+          "path": ".nuxtrc"
+        },
+        {
+          "name": ".release-it.json",
+          "size": 447,
+          "path": ".release-it.json"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 68963,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "LICENSE.md",
+          "size": 1065,
+          "path": "LICENSE.md"
+        },
+        {
+          "name": "README.md",
+          "size": 2681,
+          "path": "README.md"
+        },
+        {
+          "name": "package.json",
+          "size": 1968,
+          "path": "package.json"
+        },
+        {
+          "name": "pnpm-lock.yaml",
+          "size": 440726,
+          "path": "pnpm-lock.yaml"
+        },
+        {
+          "name": "pnpm-workspace.yaml",
+          "size": 30,
+          "path": "pnpm-workspace.yaml"
+        },
+        {
+          "name": "renovate.json",
+          "size": 37,
+          "path": "renovate.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 64,
+          "path": "tsconfig.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 318,
+    "totalSize": 2516051
+  },
   "topics": [],
   "readme": {
     "html": "<p><a href=\"https://ui.nuxt.com\"><img src=\"https://repository-images.githubusercontent.com/428329515/43fec891-9030-4601-8233-5d45ba5c6013\" alt=\"nuxt-ui-social-card\" /></a></p>\n<h1 id=\"nuxt-ui\">Nuxt UI</h1>\n<p><a href=\"https://npmjs.com/package/@nuxt/ui\"><img src=\"https://img.shields.io/npm/v/@nuxt/ui/latest.svg?style=flat&amp;colorA=18181B&amp;colorB=28CF8D\" alt=\"npm version\" /></a>\n<a href=\"https://npmjs.com/package/@nuxt/ui\"><img src=\"https://img.shields.io/npm/dm/@nuxt/ui.svg?style=flat&amp;colorA=18181B&amp;colorB=28CF8D\" alt=\"npm downloads\" /></a>\n<a href=\"https://github.com/nuxt/ui/blob/main/LICENSE\"><img src=\"https://img.shields.io/github/license/nuxt/ui.svg?style=flat&amp;colorA=18181B&amp;colorB=28CF8D\" alt=\"License\" /></a>\n<a href=\"https://nuxt.com\"><img src=\"https://img.shields.io/badge/Nuxt-18181B?logo=nuxt.js\" alt=\"Nuxt\" /></a></p>\n<p>Nuxt UI provides everything related to UI when building Nuxt applications: components, icons, colors, dark mode and also keyboard shortcuts.</p>\n<p>Is has been developed by <a href=\"https://nuxtlabs.com/\">NuxtLabs</a> for <a href=\"https://volta.net\">Volta</a>, <a href=\"https://nuxt.studio/\">Nuxt Studio</a> and the Nuxt community.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Built with <a href=\"https://headlessui.dev/\">Headless UI</a> and <a href=\"https://tailwindcss.com/\">Tailwind CSS</a></li>\n<li>HMR support through Nuxt App Config</li>\n<li>Dark mode support</li>\n<li>Support for LTR and RTL languages</li>\n<li>Keyboard shortcuts</li>\n<li>Bundled icons</li>\n<li>Fully typed</li>\n<li><a href=\"https://www.figma.com/community/file/1288455405058138934\">Figma Kit</a></li>\n</ul>\n<p>Read more on <a href=\"https://ui.nuxt.com\">ui.nuxt.com</a></p>\n<h2 id=\"installation\">Installation</h2>\n<pre><code class=\"language-bash\"># Using npm\nnpm install @nuxt/ui\n\n# Using yarn\nyarn add @nuxt/ui\n\n# Using pnpm\npnpm add @nuxt/ui\n</code></pre>\n<p>Then, register the module in your <code>nuxt.config.ts</code>:</p>\n<pre><code class=\"language-js\">export default defineNuxtConfig({\n  modules: [\n    '@nuxt/ui'\n  ]\n})\n</code></pre>\n<p>If you want latest updates, please use <code>@nuxt/ui-edge</code> in your <code>package.json</code>:</p>\n<pre><code class=\"language-json\">{\n  \"devDependencies\": {\n    \"@nuxt/ui\": \"npm:@nuxt/ui-edge@latest\"\n  }\n}\n</code></pre>\n<h2 id=\"documentation\">Documentation</h2>\n<p>Visit <a href=\"https://ui.nuxt.com\">https://ui.nuxt.com</a> to explore the documentation.</p>\n<h2 id=\"credits\">Credits</h2>\n<ul>\n<li><a href=\"https://github.com/nuxt/nuxt\">nuxt/nuxt</a></li>\n<li><a href=\"https://github.com/nuxt-modules/color-mode\">nuxt-modules/color-mode</a></li>\n<li><a href=\"https://github.com/nuxt-modules/tailwindcss\">nuxt-modules/tailwindcss</a></li>\n<li><a href=\"https://github.com/tailwindlabs/tailwindcss\">tailwindlabs/tailwindcss</a></li>\n<li><a href=\"https://github.com/tailwindlabs/headlessui\">tailwindlabs/headlessui</a></li>\n<li><a href=\"https://github.com/vueuse/vueuse\">vueuse/vueuse</a></li>\n<li><a href=\"https://github.com/egoist/tailwindcss-icons\">egoist/tailwindcss-icons</a></li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>Licensed under the <a href=\"https://github.com/nuxt/ui/blob/dev/LICENSE.md\">MIT license</a>.</p>\n",

@@ -18,6 +18,252 @@
     "JavaScript": 609
   },
   "diskUsage": 967,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".babelrc",
+        "size": 26
+      },
+      {
+        "path": ".gitignore",
+        "size": 103
+      },
+      {
+        "path": "README.md",
+        "size": 3743
+      },
+      {
+        "path": "coffeelint.json",
+        "size": 2218
+      },
+      {
+        "path": "gulpfile.coffee",
+        "size": 3704
+      },
+      {
+        "path": "gulpfile.js",
+        "size": 164
+      },
+      {
+        "path": "options.json",
+        "size": 181
+      },
+      {
+        "path": "options.sample.js",
+        "size": 181
+      },
+      {
+        "path": "package.json",
+        "size": 1589
+      },
+      {
+        "path": "src/coffee/app.coffee",
+        "size": 443
+      },
+      {
+        "path": "src/img/.keep",
+        "size": 0
+      },
+      {
+        "path": "src/styl/colors.styl",
+        "size": 241
+      },
+      {
+        "path": "src/styl/d3-tip.styl",
+        "size": 767
+      },
+      {
+        "path": "src/styl/grid.styl",
+        "size": 2203
+      },
+      {
+        "path": "src/styl/reset.styl",
+        "size": 1065
+      },
+      {
+        "path": "src/styl/style.styl",
+        "size": 103
+      },
+      {
+        "path": "src/styl/typography.styl",
+        "size": 1671
+      },
+      {
+        "path": "src/tmpl/index.mustache",
+        "size": 110
+      },
+      {
+        "path": "src/tmpl/partials/body.mustache",
+        "size": 76
+      },
+      {
+        "path": "src/tmpl/partials/footer.mustache",
+        "size": 162
+      },
+      {
+        "path": "src/tmpl/partials/header.mustache",
+        "size": 639
+      },
+      {
+        "path": "webpack.config.js",
+        "size": 264
+      }
+    ],
+    "tree": {
+      "name": "old-starter",
+      "children": [
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "coffee",
+              "children": [
+                {
+                  "name": "app.coffee",
+                  "size": 443,
+                  "path": "src/coffee/app.coffee"
+                }
+              ],
+              "path": "src/coffee"
+            },
+            {
+              "name": "img",
+              "children": [
+                {
+                  "name": ".keep",
+                  "size": 0,
+                  "path": "src/img/.keep"
+                }
+              ],
+              "path": "src/img"
+            },
+            {
+              "name": "styl",
+              "children": [
+                {
+                  "name": "colors.styl",
+                  "size": 241,
+                  "path": "src/styl/colors.styl"
+                },
+                {
+                  "name": "d3-tip.styl",
+                  "size": 767,
+                  "path": "src/styl/d3-tip.styl"
+                },
+                {
+                  "name": "grid.styl",
+                  "size": 2203,
+                  "path": "src/styl/grid.styl"
+                },
+                {
+                  "name": "reset.styl",
+                  "size": 1065,
+                  "path": "src/styl/reset.styl"
+                },
+                {
+                  "name": "style.styl",
+                  "size": 103,
+                  "path": "src/styl/style.styl"
+                },
+                {
+                  "name": "typography.styl",
+                  "size": 1671,
+                  "path": "src/styl/typography.styl"
+                }
+              ],
+              "path": "src/styl"
+            },
+            {
+              "name": "tmpl",
+              "children": [
+                {
+                  "name": "partials",
+                  "children": [
+                    {
+                      "name": "body.mustache",
+                      "size": 76,
+                      "path": "src/tmpl/partials/body.mustache"
+                    },
+                    {
+                      "name": "footer.mustache",
+                      "size": 162,
+                      "path": "src/tmpl/partials/footer.mustache"
+                    },
+                    {
+                      "name": "header.mustache",
+                      "size": 639,
+                      "path": "src/tmpl/partials/header.mustache"
+                    }
+                  ],
+                  "path": "src/tmpl/partials"
+                },
+                {
+                  "name": "index.mustache",
+                  "size": 110,
+                  "path": "src/tmpl/index.mustache"
+                }
+              ],
+              "path": "src/tmpl"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".babelrc",
+          "size": 26,
+          "path": ".babelrc"
+        },
+        {
+          "name": ".gitignore",
+          "size": 103,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 3743,
+          "path": "README.md"
+        },
+        {
+          "name": "coffeelint.json",
+          "size": 2218,
+          "path": "coffeelint.json"
+        },
+        {
+          "name": "gulpfile.coffee",
+          "size": 3704,
+          "path": "gulpfile.coffee"
+        },
+        {
+          "name": "gulpfile.js",
+          "size": 164,
+          "path": "gulpfile.js"
+        },
+        {
+          "name": "options.json",
+          "size": 181,
+          "path": "options.json"
+        },
+        {
+          "name": "options.sample.js",
+          "size": 181,
+          "path": "options.sample.js"
+        },
+        {
+          "name": "package.json",
+          "size": 1589,
+          "path": "package.json"
+        },
+        {
+          "name": "webpack.config.js",
+          "size": 264,
+          "path": "webpack.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 22,
+    "totalSize": 19653
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"templatestarter\">Template/Starter</h1>\n<p>A lightweight starting point to create interactives of all sorts.</p>\n<h2 id=\"prerequisites\">Prerequisites</h2>\n<p>On OS X 10.9, aka Mavericks, be sure to have the following libraries installed:</p>\n<ul>\n<li><a href=\"http://brew.sh/\">Homebrew</a>: OS X package manager</li>\n<li><a href=\"https://nodejs.org/\">Node.js</a>: JavaScript framework</li>\n<li><a href=\"http://gulpjs.com/\">Gulp.js</a>: streaming build system</li>\n<li><a href=\"http://coffeescript.org/\">Coffeescript</a>: JavaScript preprocessor</li>\n<li><a href=\"https://learnboost.github.io/styl/\">Stylus</a>: CSS preprocessor</li>\n</ul>\n<p>Copy and paste the following code into your terminal if you're starting on a fresh machine that does not have any of those prerequisites.</p>\n<pre><code>ruby -e \"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\"\nbrew install node\n</code></pre>\n<h2 id=\"getting-started\">Getting Started</h2>\n<ul>\n<li>Clone starter</li>\n<li>Go to it <code>cd NEW-PROJECT</code></li>\n<li><code>subl options.sample.js</code> and <strong>edit the project name and slug for your project</strong></li>\n<li>Install the core node libraries like gulp.js and coffeescript <code>npm run deps</code></li>\n<li>Then, install dependencies from package.json &amp; bower.json and remove the starter's git history <code>gulp init</code></li>\n<li>Create new repo in GitHub web app</li>\n<li>Add repo in GitHub desktop app, add GitHub URL as remote</li>\n<li><code>gulp</code></li>\n<li><strong>Develop</strong></li>\n<li>Want to show internally? <code>gulp github</code></li>\n<li>Ready to deploy? <code>gulp s3</code></li>\n</ul>\n<h2 id=\"application-structure\">Application structure</h2>\n<p>This starter is a jumping-off-point for all sorts of different interactive dataviz. It tries to take care of all the things you don't want to think of so you can move quickly, but leaving enough room for anything to be possible.</p>\n<h4 id=\"stylstylestyl\">/styl/style.styl</h4>\n<p>The master style / CSS file is <strong>/styl/style.styl</strong>, all other .styl files need to be included with <strong>@import</strong> in style.styl to be compiled into the final style.css file.</p>\n<h4 id=\"tmplpartialsbodymustache\">/tmpl/partials/body.mustache</h4>\n<p>This is the only HTML file you need to be modifying, in most cases.</p>\n<h4 id=\"coffeeappcoffee\">/coffee/app.coffee</h4>\n<p>This is the main file for the app, where initial variables are defined, data is loaded and cleaned, and the proper chart function to visualize the data is called.</p>\n<h2 id=\"use\">Use</h2>\n<p>First <code>npm install</code> or perhaps <code>sudo npm install</code></p>\n<p>To run <strong>/gulpfile.coffee</strong> for development, from the root of the project use <code>npm start</code> or <code>gulp</code></p>\n<p>To deploy to gh-pages, run <code>gulp github</code></p>\n<p>To deploy to S3, run <code>gulp publish</code></p>\n<p>The files in <strong>/tmpl/</strong> are mustache templates/partials. The variables for those templates are defined in <strong>/options.js</strong></p>\n<h2 id=\"what-gulpfilecoffee-does\">What gulpfile.coffee does</h2>\n<ul>\n<li><code>gulp init</code>: removes <strong>.git</strong> and moves <strong>PROJECT_README.md</strong> to <strong>README.md</strong> to initialize a new project</li>\n<li><strong>/tmpl/</strong> is compiled into <strong>/build/index.html</strong></li>\n<li><strong>/styl/style.styl</strong> is compiled into <strong>build/style.css</strong></li>\n<li><strong>/coffee/</strong> is compiled into <strong>/build/app.js</strong></li>\n<li><strong>/javascript/</strong> is compiled into <strong>/build/lib.js</strong></li>\n<li>.png and .svg in <strong>/img/</strong> is optimized and moved to <strong>/build/img/</strong></li>\n<li>.json and .csv in <strong>/data/</strong> is moved to <strong>/build/data/</strong></li>\n<li>Minifies CSS</li>\n<li>Uglifies JS (vendor and compiled CoffeeScript)</li>\n<li>Watches all files and compiles them on change</li>\n<li>Starts a local webserver at <em><strong>localhost:8888</strong></em></li>\n<li>Deploy /build/ to gh-pages with <code>gulp github</code></li>\n<li>Deploy /build/ to S3 with <code>gulp s3</code></li>\n<li>Mirror /build/ on S3 and gh-pages with <code>gulp mirror</code></li>\n</ul>\n<h2 id=\"technologies--libraries-used\">Technologies / Libraries used</h2>\n<ul>\n<li><a href=\"http://coffeescript.org/\">CoffeeScript</a></li>\n<li><a href=\"http://learnboost.github.io/styl/\">Stylus</a></li>\n<li><a href=\"http://d3js.org/\">D3</a></li>\n<li><a href=\"http://jquery.com/\">jQuery</a></li>\n<li><a href=\"http://underscorejs.org/\">Underscore</a></li>\n<li><a href=\"http://gulpjs.com/\">Gulp</a></li>\n<li><a href=\"http://blog.apps.npr.org/pym.js/\">Pym</a></li>\n</ul>\n<h1 id=\"to-do\">To-Do</h1>\n<p>Additions/changes to be made on this boilerplate/starter.</p>\n<ul class=\"contains-task-list\">\n<li class=\"task-list-item\"> Add <a href=\"https://github.com/sindresorhus/gulp-imagemin\">gulp-imagemin</a> to compress images and SVG</li>\n<li class=\"task-list-item\"> Add <a href=\"https://github.com/mikaelbr/gulp-notify\">gulp-notify</a></li>\n<li class=\"task-list-item\"> Add <a href=\"https://www.npmjs.com/package/gulp-uncss\">gulp-uncss</a></li>\n</ul>",

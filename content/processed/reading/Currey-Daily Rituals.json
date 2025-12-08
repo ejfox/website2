@@ -11,7 +11,12 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/81T0Ky96r+L._SY160.jpg",
       "highlightsCount": 2
     },
-    "tags": ["book", "art", "writing", "process"],
+    "tags": [
+      "book",
+      "art",
+      "writing",
+      "process"
+    ],
     "words": 172,
     "images": 0,
     "imageDetails": {

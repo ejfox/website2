@@ -8,14 +8,11 @@ export interface NavItem {
 }
 
 export const navigationItems: NavItem[] = [
-  // Primary navigation (always visible)
+  // Minimal sidebar navigation
   { label: 'Home', href: '/', primary: true },
-  { label: 'Projects', href: '/projects', primary: true },
   { label: 'Blog', href: '/blog/', primary: true },
-
-  // Secondary navigation (desktop sidebar / mobile more menu)
-  { label: 'Photos', href: 'https://ejfox.photos', external: true },
-  { label: 'Archive', href: 'https://archive.ejfox.com', external: true },
+  { label: 'Projects', href: '/projects', primary: true },
+  { label: 'Calendar', href: '/calendar', primary: true }, // 💰 Money maker
 ]
 
 // Filter helpers

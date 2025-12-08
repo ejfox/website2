@@ -17,6 +17,228 @@
     "Makefile": 416
   },
   "diskUsage": 1687,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 54
+      },
+      {
+        "path": "LICENSE",
+        "size": 1078
+      },
+      {
+        "path": "Makefile",
+        "size": 416
+      },
+      {
+        "path": "README.md",
+        "size": 1242
+      },
+      {
+        "path": "bower.json",
+        "size": 245
+      },
+      {
+        "path": "docs/index.md",
+        "size": 759
+      },
+      {
+        "path": "docs/initializing-tooltips.md",
+        "size": 648
+      },
+      {
+        "path": "docs/positioning-tooltips.md",
+        "size": 1439
+      },
+      {
+        "path": "docs/showing-and-hiding-tooltips.md",
+        "size": 747
+      },
+      {
+        "path": "docs/styling-and-modifying-tooltips.md",
+        "size": 651
+      },
+      {
+        "path": "docs/updating-tooltip-content.md",
+        "size": 237
+      },
+      {
+        "path": "examples/arrow-styles.html",
+        "size": 2431
+      },
+      {
+        "path": "examples/bars.html",
+        "size": 4859
+      },
+      {
+        "path": "examples/bulk-attr-style.html",
+        "size": 5108
+      },
+      {
+        "path": "examples/circles.html",
+        "size": 2628
+      },
+      {
+        "path": "examples/css-transitions.html",
+        "size": 5689
+      },
+      {
+        "path": "examples/example-styles.css",
+        "size": 906
+      },
+      {
+        "path": "examples/explicit-target.html",
+        "size": 5521
+      },
+      {
+        "path": "examples/performance.html",
+        "size": 2375
+      },
+      {
+        "path": "examples/requirejs.html",
+        "size": 5188
+      },
+      {
+        "path": "index.js",
+        "size": 7876
+      },
+      {
+        "path": "package.json",
+        "size": 658
+      }
+    ],
+    "tree": {
+      "name": "d3-tip",
+      "children": [
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "index.md",
+              "size": 759,
+              "path": "docs/index.md"
+            },
+            {
+              "name": "initializing-tooltips.md",
+              "size": 648,
+              "path": "docs/initializing-tooltips.md"
+            },
+            {
+              "name": "positioning-tooltips.md",
+              "size": 1439,
+              "path": "docs/positioning-tooltips.md"
+            },
+            {
+              "name": "showing-and-hiding-tooltips.md",
+              "size": 747,
+              "path": "docs/showing-and-hiding-tooltips.md"
+            },
+            {
+              "name": "styling-and-modifying-tooltips.md",
+              "size": 651,
+              "path": "docs/styling-and-modifying-tooltips.md"
+            },
+            {
+              "name": "updating-tooltip-content.md",
+              "size": 237,
+              "path": "docs/updating-tooltip-content.md"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "examples",
+          "children": [
+            {
+              "name": "arrow-styles.html",
+              "size": 2431,
+              "path": "examples/arrow-styles.html"
+            },
+            {
+              "name": "bars.html",
+              "size": 4859,
+              "path": "examples/bars.html"
+            },
+            {
+              "name": "bulk-attr-style.html",
+              "size": 5108,
+              "path": "examples/bulk-attr-style.html"
+            },
+            {
+              "name": "circles.html",
+              "size": 2628,
+              "path": "examples/circles.html"
+            },
+            {
+              "name": "css-transitions.html",
+              "size": 5689,
+              "path": "examples/css-transitions.html"
+            },
+            {
+              "name": "example-styles.css",
+              "size": 906,
+              "path": "examples/example-styles.css"
+            },
+            {
+              "name": "explicit-target.html",
+              "size": 5521,
+              "path": "examples/explicit-target.html"
+            },
+            {
+              "name": "performance.html",
+              "size": 2375,
+              "path": "examples/performance.html"
+            },
+            {
+              "name": "requirejs.html",
+              "size": 5188,
+              "path": "examples/requirejs.html"
+            }
+          ],
+          "path": "examples"
+        },
+        {
+          "name": ".gitignore",
+          "size": 54,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1078,
+          "path": "LICENSE"
+        },
+        {
+          "name": "Makefile",
+          "size": 416,
+          "path": "Makefile"
+        },
+        {
+          "name": "README.md",
+          "size": 1242,
+          "path": "README.md"
+        },
+        {
+          "name": "bower.json",
+          "size": 245,
+          "path": "bower.json"
+        },
+        {
+          "name": "index.js",
+          "size": 7876,
+          "path": "index.js"
+        },
+        {
+          "name": "package.json",
+          "size": 658,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 22,
+    "totalSize": 50755
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"d3tip-tooltips-for-d3js-visualizations\">d3.tip: Tooltips for d3.js visualizations</h1>\n<p><a href=\"http://bl.ocks.org/Caged/6476579\"><img src=\"https://github-images.s3.amazonaws.com/skitch/Screen_Shot_2013-04-08_at_11.40.10_AM-20130408-114054.png\" alt=\"\" /></a></p>\n<ul>\n<li><a href=\"http://bl.ocks.org/Caged/6476579\">See a live demo</a></li>\n<li><a href=\"/examples\">Example code</a></li>\n</ul>\n<h3 id=\"api-docs\">API Docs</h3>\n<p>See the <a href=\"docs/index.md\">API Documentation</a></p>\n<h3 id=\"download-latest-version\">Download Latest Version</h3>\n<ul>\n<li><a href=\"https://raw.github.com/Caged/d3-tip/master/index.js\">Development Version</a> : <strong>6kb</strong> / <strong>~2kb gzipped</strong></li>\n</ul>\n<h3 id=\"install-with-bower\">Install with Bower</h3>\n<pre><code>bower install d3-tip\n</code></pre>\n<h3 id=\"quick-usage\">Quick Usage</h3>\n<pre><code class=\"language-javascript\">/* Initialize tooltip */\ntip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d; });\n\n/* Invoke the tip in the context of your visualization */\nvis.call(tip)\n\nvis.selectAll('rect')\n  .data(data)\n.enter().append('rect')\n  .attr('width', function() { return x.rangeBand() })\n  .attr('height', function(d) { return h - y(d) })\n  .attr('y', function(d) { return y(d) })\n  .attr('x', function(d, i) { return x(i) })\n  .on('mouseover', tip.show)\n  .on('mouseout', tip.hide)\n</code></pre>\n<p>If you want basic styling, you can include <code>example-styles.css</code> using a service like\nrawgithub.com.</p>\n<pre><code class=\"language-html\">&lt;link rel=\"stylesheet\" href=\"//rawgithub.com/Caged/d3-tip/master/examples/example-styles.css\"&gt;\n</code></pre>",

@@ -64,50 +64,41 @@ const activityColors = {
   <div :class="['repo-metrics', { compact }]">
     <!-- Compact view: Single line of metrics -->
     <div v-if="compact" class="metrics-compact">
-      <span class="metric-item" :title="`${sizeInMB} MB on disk`">
+      <span class="metric-item">
         {{ sizeInMB }}
         <span class="metric-unit">MB</span>
       </span>
       <span class="metric-sep">·</span>
-      <span
-        class="metric-item"
-        :title="`~${formatNumber(totalLines)} lines of code`"
-      >
+      <span class="metric-item">
         {{ formatNumber(totalLines) }}
         <span class="metric-unit">LOC</span>
       </span>
       <span class="metric-sep">·</span>
-      <span
-        class="metric-item"
-        :title="`${languageCount} programming languages`"
-      >
+      <span class="metric-item">
         {{ languageCount }}
         <span class="metric-unit">lang</span>
       </span>
-      <span
-        class="activity-indicator"
-        :style="{ backgroundColor: activityColors[activityScore] }"
-        :title="`Activity: ${activityScore}`"
-      ></span>
+      <span class="metric-sep">·</span>
+      <span class="metric-item">{{ activityScore }}</span>
     </div>
 
-    <!-- Full view: Grid of metrics -->
-    <div v-else class="metrics-grid">
-      <div class="metric-cell">
-        <div class="metric-value">{{ sizeInMB }}</div>
-        <div class="metric-label">MB</div>
+    <!-- Full view: Table of metrics (left-aligned) -->
+    <div v-else class="metrics-table">
+      <div class="metric-row">
+        <span class="metric-value">{{ sizeInMB }}</span>
+        <span class="metric-label">MB</span>
       </div>
-      <div class="metric-cell">
-        <div class="metric-value">{{ formatNumber(totalLines) }}</div>
-        <div class="metric-label">lines</div>
+      <div class="metric-row">
+        <span class="metric-value">{{ formatNumber(totalLines) }}</span>
+        <span class="metric-label">lines</span>
       </div>
-      <div class="metric-cell">
-        <div class="metric-value">{{ languageCount }}</div>
-        <div class="metric-label">langs</div>
+      <div class="metric-row">
+        <span class="metric-value">{{ languageCount }}</span>
+        <span class="metric-label">langs</span>
       </div>
-      <div class="metric-cell">
-        <div class="metric-value">{{ repo.stats.stars }}</div>
-        <div class="metric-label">stars</div>
+      <div class="metric-row">
+        <span class="metric-value">{{ repo.stats.stars }}</span>
+        <span class="metric-label">stars</span>
       </div>
     </div>
   </div>
@@ -118,8 +109,9 @@ const activityColors = {
   @apply font-mono;
 }
 
+/* Compact: inline metrics */
 .metrics-compact {
-  @apply flex items-center gap-1.5 text-xs;
+  @apply flex items-center gap-0.5 text-[10px];
   @apply text-zinc-600 dark:text-zinc-400;
 }
 
@@ -128,32 +120,31 @@ const activityColors = {
 }
 
 .metric-unit {
-  @apply text-[10px] opacity-60 ml-0.5;
+  @apply text-[9px] opacity-50;
 }
 
 .metric-sep {
-  @apply opacity-40;
+  @apply opacity-30;
 }
 
-.activity-indicator {
-  @apply w-1.5 h-1.5 rounded-full ml-1;
+/* Full: table layout (left-aligned, brutalist) */
+.metrics-table {
+  @apply space-y-0;
 }
 
-.metrics-grid {
-  @apply grid grid-cols-4 gap-3 text-center;
-}
-
-.metric-cell {
-  @apply space-y-0.5;
+.metric-row {
+  @apply flex items-baseline gap-2;
+  padding: 4px 0; /* 8px baseline */
 }
 
 .metric-value {
-  @apply text-base tabular-nums;
+  @apply text-sm tabular-nums font-medium;
   @apply text-zinc-900 dark:text-zinc-100;
+  min-width: 3ch;
 }
 
 .metric-label {
-  @apply text-[10px] uppercase tracking-wider;
+  @apply text-[10px];
   @apply text-zinc-500 dark:text-zinc-500;
 }
 </style>

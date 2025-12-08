@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-screen-xl mx-auto px-4 md:px-8 py-8">
+  <div class="max-w-screen-xl mx-auto px-4 md:px-8 pt-8">
     <div class="max-w-4xl">
       <!-- Header -->
       <header class="section-spacing-lg">

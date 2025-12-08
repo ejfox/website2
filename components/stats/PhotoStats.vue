@@ -13,7 +13,7 @@
     <!-- Monthly Stats -->
     <div>
       <StatsSectionHeader title="MONTHLY STATS" />
-      <div class="space-y-4">
+      <div class="space-y-2">
         <div class="stat-row">
           <span class="text-zinc-400">Photos This Month</span>
           <span class="text-zinc-500 tabular-nums">
@@ -26,7 +26,7 @@
     <!-- Camera Stats -->
     <div v-if="hasCameraData">
       <StatsSectionHeader title="CAMERA EQUIPMENT" />
-      <div class="grid grid-cols-2 gap-4 text-xs">
+      <div class="grid grid-cols-2 gap-2 text-xs">
         <StatItem
           v-if="topCamera"
           label="MOST USED CAMERA"

@@ -15,6 +15,96 @@
     "Python": 17324
   },
   "diskUsage": 101,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 564
+      },
+      {
+        "path": "README.md",
+        "size": 1782
+      },
+      {
+        "path": "docs/AUTHENTICATION_SETUP.md",
+        "size": 3708
+      },
+      {
+        "path": "docs/DEPLOYMENT_SUMMARY.md",
+        "size": 3652
+      },
+      {
+        "path": "docs/FOIA_ASSISTANT_USE_CASES.md",
+        "size": 8774
+      },
+      {
+        "path": "docs/MCP_SERVER_README.md",
+        "size": 3627
+      },
+      {
+        "path": "muckrock_server.py",
+        "size": 17324
+      },
+      {
+        "path": "requirements.txt",
+        "size": 117
+      }
+    ],
+    "tree": {
+      "name": "muckrock-mcp",
+      "children": [
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "AUTHENTICATION_SETUP.md",
+              "size": 3708,
+              "path": "docs/AUTHENTICATION_SETUP.md"
+            },
+            {
+              "name": "DEPLOYMENT_SUMMARY.md",
+              "size": 3652,
+              "path": "docs/DEPLOYMENT_SUMMARY.md"
+            },
+            {
+              "name": "FOIA_ASSISTANT_USE_CASES.md",
+              "size": 8774,
+              "path": "docs/FOIA_ASSISTANT_USE_CASES.md"
+            },
+            {
+              "name": "MCP_SERVER_README.md",
+              "size": 3627,
+              "path": "docs/MCP_SERVER_README.md"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": ".gitignore",
+          "size": 564,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 1782,
+          "path": "README.md"
+        },
+        {
+          "name": "muckrock_server.py",
+          "size": 17324,
+          "path": "muckrock_server.py"
+        },
+        {
+          "name": "requirements.txt",
+          "size": 117,
+          "path": "requirements.txt"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 8,
+    "totalSize": 39548
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"muckrock-mcp-server\">MuckRock MCP Server</h1>\n<p>A Model Context Protocol (MCP) server for interacting with MuckRock's FOIA platform.</p>\n<h2 id=\"installation\">Installation</h2>\n<pre><code class=\"language-bash\">pip install -r requirements.txt\n</code></pre>\n<h2 id=\"configuration\">Configuration</h2>\n<p>Add to Claude Desktop config (<code>~/Library/Application Support/Claude/claude_desktop_config.json</code>):</p>\n<pre><code class=\"language-json\">{\n  \"mcpServers\": {\n    \"muckrock\": {\n      \"command\": \"/path/to/python\",\n      \"args\": [\"/path/to/muckrock_server.py\"]\n    }\n  }\n}\n</code></pre>\n<h2 id=\"authentication\">Authentication</h2>\n<p>The server will prompt for MuckRock credentials on startup. You can also set environment variables:</p>\n<pre><code class=\"language-bash\">export MUCKROCK_USERNAME=\"your_username\"\nexport MUCKROCK_PASSWORD=\"your_password\"\n</code></pre>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li><strong>Search</strong> - Search FOIA requests and government agencies</li>\n<li><strong>File Requests</strong> - File new FOIA requests with automatic organization selection</li>\n<li><strong>Track Requests</strong> - View your submitted requests and their status</li>\n<li><strong>Organizations</strong> - Manage which organization to file under</li>\n</ul>\n<h2 id=\"usage\">Usage</h2>\n<p>Once configured, use natural language in Claude:</p>\n<ul>\n<li>\"Search for EPA FOIA requests\"</li>\n<li>\"File a FOIA request for police records\"</li>\n<li>\"Show my pending requests\"</li>\n<li>\"What organizations can I file under?\"</li>\n</ul>\n<h2 id=\"tools-available\">Tools Available</h2>\n<ul>\n<li><code>check_auth_status</code> - Check authentication status</li>\n<li><code>search_foia_requests</code> - Search public FOIA requests</li>\n<li><code>search_agencies</code> - Find government agencies</li>\n<li><code>get_foia_details</code> - Get request details</li>\n<li><code>get_my_user_info</code> - View your user info</li>\n<li><code>get_my_organizations</code> - List your organizations</li>\n<li><code>file_foia_request_simple</code> - File new FOIA requests</li>\n</ul>\n<h2 id=\"notes\">Notes</h2>\n<ul>\n<li>Always test with test agencies first (ID: 248)</li>\n<li>Authentication tokens are automatically refreshed</li>\n<li>This is experimental software - use at your own risk</li>\n</ul>\n<h2 id=\"documentation\">Documentation</h2>\n<p>See the <code>docs/</code> folder for detailed guides on authentication, deployment, and use cases.</p>",

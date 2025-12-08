@@ -1,0 +1,1090 @@
+{
+  "name": "tweakcc",
+  "description": "Customize Claude Code's system prompts, create custom toolsets, add custom themes/thinking verbs/spinner, input box style, user message display, sign-in ASCII art, fix bugs (frozen spinner), and add features (context limit customization). Supports both native (binary) and npm installs on all platforms.",
+  "url": "https://github.com/ejfox/tweakcc",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "TypeScript",
+  "languageColor": "#3178c6",
+  "languages": {
+    "TypeScript": 491737,
+    "JavaScript": 23420
+  },
+  "diskUsage": 23855,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".editorconfig",
+        "size": 130
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "size": 769
+      },
+      {
+        "path": ".github/workflows/release.yml",
+        "size": 950
+      },
+      {
+        "path": ".gitignore",
+        "size": 472
+      },
+      {
+        "path": ".npmignore",
+        "size": 22
+      },
+      {
+        "path": ".prettierrc",
+        "size": 174
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 10802
+      },
+      {
+        "path": "LICENSE",
+        "size": 1068
+      },
+      {
+        "path": "README.md",
+        "size": 13693
+      },
+      {
+        "path": "assets/demo.gif",
+        "size": 2466555
+      },
+      {
+        "path": "data/prompts/prompts-2.0.14.json",
+        "size": 124647
+      },
+      {
+        "path": "data/prompts/prompts-2.0.15.json",
+        "size": 124658
+      },
+      {
+        "path": "data/prompts/prompts-2.0.17.json",
+        "size": 125558
+      },
+      {
+        "path": "data/prompts/prompts-2.0.18.json",
+        "size": 125564
+      },
+      {
+        "path": "data/prompts/prompts-2.0.19.json",
+        "size": 125564
+      },
+      {
+        "path": "data/prompts/prompts-2.0.20.json",
+        "size": 127009
+      },
+      {
+        "path": "data/prompts/prompts-2.0.21.json",
+        "size": 127232
+      },
+      {
+        "path": "data/prompts/prompts-2.0.22.json",
+        "size": 127232
+      },
+      {
+        "path": "data/prompts/prompts-2.0.24.json",
+        "size": 129858
+      },
+      {
+        "path": "data/prompts/prompts-2.0.25.json",
+        "size": 130993
+      },
+      {
+        "path": "data/prompts/prompts-2.0.26.json",
+        "size": 130988
+      },
+      {
+        "path": "data/prompts/prompts-2.0.27.json",
+        "size": 130987
+      },
+      {
+        "path": "data/prompts/prompts-2.0.28.json",
+        "size": 130719
+      },
+      {
+        "path": "data/prompts/prompts-2.0.29.json",
+        "size": 131198
+      },
+      {
+        "path": "data/prompts/prompts-2.0.30.json",
+        "size": 131855
+      },
+      {
+        "path": "data/prompts/prompts-2.0.31.json",
+        "size": 131854
+      },
+      {
+        "path": "data/prompts/prompts-2.0.32.json",
+        "size": 131854
+      },
+      {
+        "path": "data/prompts/prompts-2.0.33.json",
+        "size": 131853
+      },
+      {
+        "path": "data/prompts/prompts-2.0.34.json",
+        "size": 138154
+      },
+      {
+        "path": "data/prompts/prompts-2.0.35.json",
+        "size": 138154
+      },
+      {
+        "path": "data/prompts/prompts-2.0.36.json",
+        "size": 138121
+      },
+      {
+        "path": "data/prompts/prompts-2.0.37.json",
+        "size": 138995
+      },
+      {
+        "path": "data/prompts/prompts-2.0.41.json",
+        "size": 145854
+      },
+      {
+        "path": "data/prompts/prompts-2.0.42.json",
+        "size": 145853
+      },
+      {
+        "path": "data/prompts/prompts-2.0.43.json",
+        "size": 151949
+      },
+      {
+        "path": "data/prompts/prompts-2.0.44.json",
+        "size": 151949
+      },
+      {
+        "path": "data/prompts/prompts-2.0.45.json",
+        "size": 157634
+      },
+      {
+        "path": "data/prompts/prompts-2.0.46.json",
+        "size": 157634
+      },
+      {
+        "path": "data/prompts/prompts-2.0.47.json",
+        "size": 160330
+      },
+      {
+        "path": "data/prompts/prompts-2.0.49.json",
+        "size": 161106
+      },
+      {
+        "path": "data/prompts/prompts-2.0.50.json",
+        "size": 163565
+      },
+      {
+        "path": "data/prompts/prompts-2.0.51.json",
+        "size": 168190
+      },
+      {
+        "path": "data/prompts/prompts-2.0.52.json",
+        "size": 168397
+      },
+      {
+        "path": "data/prompts/prompts-2.0.53.json",
+        "size": 168396
+      },
+      {
+        "path": "data/prompts/prompts-2.0.54.json",
+        "size": 168993
+      },
+      {
+        "path": "data/prompts/prompts-2.0.55.json",
+        "size": 169910
+      },
+      {
+        "path": "data/prompts/prompts-2.0.56.json",
+        "size": 168459
+      },
+      {
+        "path": "data/prompts/prompts-2.0.57.json",
+        "size": 168458
+      },
+      {
+        "path": "eslint.config.js",
+        "size": 700
+      },
+      {
+        "path": "package.json",
+        "size": 1794
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "size": 134994
+      },
+      {
+        "path": "pnpm-workspace.yaml",
+        "size": 58
+      },
+      {
+        "path": "src/App.tsx",
+        "size": 6766
+      },
+      {
+        "path": "src/components/ChangeNameView.tsx",
+        "size": 1893
+      },
+      {
+        "path": "src/components/ColorPicker.tsx",
+        "size": 20560
+      },
+      {
+        "path": "src/components/ColoredColorName.tsx",
+        "size": 1092
+      },
+      {
+        "path": "src/components/Header.tsx",
+        "size": 257
+      },
+      {
+        "path": "src/components/MainView.tsx",
+        "size": 4500
+      },
+      {
+        "path": "src/components/MiscView.tsx",
+        "size": 6070
+      },
+      {
+        "path": "src/components/SelectInput.tsx",
+        "size": 1512
+      },
+      {
+        "path": "src/components/ThemeEditView.tsx",
+        "size": 19865
+      },
+      {
+        "path": "src/components/ThemePreview.tsx",
+        "size": 16531
+      },
+      {
+        "path": "src/components/ThemesView.tsx",
+        "size": 4453
+      },
+      {
+        "path": "src/components/ThinkingStyleView.tsx",
+        "size": 19164
+      },
+      {
+        "path": "src/components/ThinkingVerbsView.tsx",
+        "size": 9936
+      },
+      {
+        "path": "src/components/ToolsetEditView.tsx",
+        "size": 6278
+      },
+      {
+        "path": "src/components/ToolsetsView.tsx",
+        "size": 5825
+      },
+      {
+        "path": "src/components/UserMessageDisplayView.tsx",
+        "size": 20808
+      },
+      {
+        "path": "src/index.tsx",
+        "size": 8948
+      },
+      {
+        "path": "src/utils/config.test.ts",
+        "size": 11173
+      },
+      {
+        "path": "src/utils/config.ts",
+        "size": 19880
+      },
+      {
+        "path": "src/utils/download.ts",
+        "size": 3604
+      },
+      {
+        "path": "src/utils/misc.ts",
+        "size": 8956
+      },
+      {
+        "path": "src/utils/nativeInstallation.ts",
+        "size": 28253
+      },
+      {
+        "path": "src/utils/osAppearance.test.ts",
+        "size": 3064
+      },
+      {
+        "path": "src/utils/osAppearance.ts",
+        "size": 3174
+      },
+      {
+        "path": "src/utils/patches/contextLimit.ts",
+        "size": 1104
+      },
+      {
+        "path": "src/utils/patches/conversationTitle.ts",
+        "size": 16901
+      },
+      {
+        "path": "src/utils/patches/fixLspSupport.ts",
+        "size": 9023
+      },
+      {
+        "path": "src/utils/patches/index.ts",
+        "size": 22887
+      },
+      {
+        "path": "src/utils/patches/inputBorderBox.ts",
+        "size": 1667
+      },
+      {
+        "path": "src/utils/patches/modelSelector.ts",
+        "size": 7019
+      },
+      {
+        "path": "src/utils/patches/patchesAppliedIndication.ts",
+        "size": 14723
+      },
+      {
+        "path": "src/utils/patches/showMoreItemsInSelectMenus.ts",
+        "size": 1652
+      },
+      {
+        "path": "src/utils/patches/slashCommands.ts",
+        "size": 1997
+      },
+      {
+        "path": "src/utils/patches/spinnerNoFreeze.ts",
+        "size": 1358
+      },
+      {
+        "path": "src/utils/patches/systemPrompts.test.ts",
+        "size": 3585
+      },
+      {
+        "path": "src/utils/patches/systemPrompts.ts",
+        "size": 7284
+      },
+      {
+        "path": "src/utils/patches/themes.ts",
+        "size": 3345
+      },
+      {
+        "path": "src/utils/patches/thinkerFormat.ts",
+        "size": 2078
+      },
+      {
+        "path": "src/utils/patches/thinkerMirrorOption.ts",
+        "size": 1213
+      },
+      {
+        "path": "src/utils/patches/thinkerSymbolChars.ts",
+        "size": 1445
+      },
+      {
+        "path": "src/utils/patches/thinkerSymbolSpeed.ts",
+        "size": 1494
+      },
+      {
+        "path": "src/utils/patches/thinkerSymbolWidth.ts",
+        "size": 1027
+      },
+      {
+        "path": "src/utils/patches/thinkerVerbs.ts",
+        "size": 3061
+      },
+      {
+        "path": "src/utils/patches/thinkingVisibility.ts",
+        "size": 3089
+      },
+      {
+        "path": "src/utils/patches/toolsets.ts",
+        "size": 28445
+      },
+      {
+        "path": "src/utils/patches/userMessageDisplay.ts",
+        "size": 5723
+      },
+      {
+        "path": "src/utils/patches/verboseProperty.ts",
+        "size": 1607
+      },
+      {
+        "path": "src/utils/promptSync.test.ts",
+        "size": 28621
+      },
+      {
+        "path": "src/utils/promptSync.ts",
+        "size": 45162
+      },
+      {
+        "path": "src/utils/systemPromptHashIndex.ts",
+        "size": 8625
+      },
+      {
+        "path": "src/utils/types.test.ts",
+        "size": 4690
+      },
+      {
+        "path": "src/utils/types.ts",
+        "size": 38440
+      },
+      {
+        "path": "tools/package-lock.json",
+        "size": 19171
+      },
+      {
+        "path": "tools/package.json",
+        "size": 399
+      },
+      {
+        "path": "tools/promptExtractor.js",
+        "size": 13772
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 501
+      },
+      {
+        "path": "vite.config.ts",
+        "size": 743
+      },
+      {
+        "path": "vitest.config.ts",
+        "size": 115
+      }
+    ],
+    "tree": {
+      "name": "tweakcc",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "ci.yml",
+                  "size": 769,
+                  "path": ".github/workflows/ci.yml"
+                },
+                {
+                  "name": "release.yml",
+                  "size": 950,
+                  "path": ".github/workflows/release.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "assets",
+          "children": [
+            {
+              "name": "demo.gif",
+              "size": 2466555,
+              "path": "assets/demo.gif"
+            }
+          ],
+          "path": "assets"
+        },
+        {
+          "name": "data",
+          "children": [
+            {
+              "name": "prompts",
+              "children": [
+                {
+                  "name": "prompts-2.0.14.json",
+                  "size": 124647,
+                  "path": "data/prompts/prompts-2.0.14.json"
+                },
+                {
+                  "name": "prompts-2.0.15.json",
+                  "size": 124658,
+                  "path": "data/prompts/prompts-2.0.15.json"
+                },
+                {
+                  "name": "prompts-2.0.17.json",
+                  "size": 125558,
+                  "path": "data/prompts/prompts-2.0.17.json"
+                },
+                {
+                  "name": "prompts-2.0.18.json",
+                  "size": 125564,
+                  "path": "data/prompts/prompts-2.0.18.json"
+                },
+                {
+                  "name": "prompts-2.0.19.json",
+                  "size": 125564,
+                  "path": "data/prompts/prompts-2.0.19.json"
+                },
+                {
+                  "name": "prompts-2.0.20.json",
+                  "size": 127009,
+                  "path": "data/prompts/prompts-2.0.20.json"
+                },
+                {
+                  "name": "prompts-2.0.21.json",
+                  "size": 127232,
+                  "path": "data/prompts/prompts-2.0.21.json"
+                },
+                {
+                  "name": "prompts-2.0.22.json",
+                  "size": 127232,
+                  "path": "data/prompts/prompts-2.0.22.json"
+                },
+                {
+                  "name": "prompts-2.0.24.json",
+                  "size": 129858,
+                  "path": "data/prompts/prompts-2.0.24.json"
+                },
+                {
+                  "name": "prompts-2.0.25.json",
+                  "size": 130993,
+                  "path": "data/prompts/prompts-2.0.25.json"
+                },
+                {
+                  "name": "prompts-2.0.26.json",
+                  "size": 130988,
+                  "path": "data/prompts/prompts-2.0.26.json"
+                },
+                {
+                  "name": "prompts-2.0.27.json",
+                  "size": 130987,
+                  "path": "data/prompts/prompts-2.0.27.json"
+                },
+                {
+                  "name": "prompts-2.0.28.json",
+                  "size": 130719,
+                  "path": "data/prompts/prompts-2.0.28.json"
+                },
+                {
+                  "name": "prompts-2.0.29.json",
+                  "size": 131198,
+                  "path": "data/prompts/prompts-2.0.29.json"
+                },
+                {
+                  "name": "prompts-2.0.30.json",
+                  "size": 131855,
+                  "path": "data/prompts/prompts-2.0.30.json"
+                },
+                {
+                  "name": "prompts-2.0.31.json",
+                  "size": 131854,
+                  "path": "data/prompts/prompts-2.0.31.json"
+                },
+                {
+                  "name": "prompts-2.0.32.json",
+                  "size": 131854,
+                  "path": "data/prompts/prompts-2.0.32.json"
+                },
+                {
+                  "name": "prompts-2.0.33.json",
+                  "size": 131853,
+                  "path": "data/prompts/prompts-2.0.33.json"
+                },
+                {
+                  "name": "prompts-2.0.34.json",
+                  "size": 138154,
+                  "path": "data/prompts/prompts-2.0.34.json"
+                },
+                {
+                  "name": "prompts-2.0.35.json",
+                  "size": 138154,
+                  "path": "data/prompts/prompts-2.0.35.json"
+                },
+                {
+                  "name": "prompts-2.0.36.json",
+                  "size": 138121,
+                  "path": "data/prompts/prompts-2.0.36.json"
+                },
+                {
+                  "name": "prompts-2.0.37.json",
+                  "size": 138995,
+                  "path": "data/prompts/prompts-2.0.37.json"
+                },
+                {
+                  "name": "prompts-2.0.41.json",
+                  "size": 145854,
+                  "path": "data/prompts/prompts-2.0.41.json"
+                },
+                {
+                  "name": "prompts-2.0.42.json",
+                  "size": 145853,
+                  "path": "data/prompts/prompts-2.0.42.json"
+                },
+                {
+                  "name": "prompts-2.0.43.json",
+                  "size": 151949,
+                  "path": "data/prompts/prompts-2.0.43.json"
+                },
+                {
+                  "name": "prompts-2.0.44.json",
+                  "size": 151949,
+                  "path": "data/prompts/prompts-2.0.44.json"
+                },
+                {
+                  "name": "prompts-2.0.45.json",
+                  "size": 157634,
+                  "path": "data/prompts/prompts-2.0.45.json"
+                },
+                {
+                  "name": "prompts-2.0.46.json",
+                  "size": 157634,
+                  "path": "data/prompts/prompts-2.0.46.json"
+                },
+                {
+                  "name": "prompts-2.0.47.json",
+                  "size": 160330,
+                  "path": "data/prompts/prompts-2.0.47.json"
+                },
+                {
+                  "name": "prompts-2.0.49.json",
+                  "size": 161106,
+                  "path": "data/prompts/prompts-2.0.49.json"
+                },
+                {
+                  "name": "prompts-2.0.50.json",
+                  "size": 163565,
+                  "path": "data/prompts/prompts-2.0.50.json"
+                },
+                {
+                  "name": "prompts-2.0.51.json",
+                  "size": 168190,
+                  "path": "data/prompts/prompts-2.0.51.json"
+                },
+                {
+                  "name": "prompts-2.0.52.json",
+                  "size": 168397,
+                  "path": "data/prompts/prompts-2.0.52.json"
+                },
+                {
+                  "name": "prompts-2.0.53.json",
+                  "size": 168396,
+                  "path": "data/prompts/prompts-2.0.53.json"
+                },
+                {
+                  "name": "prompts-2.0.54.json",
+                  "size": 168993,
+                  "path": "data/prompts/prompts-2.0.54.json"
+                },
+                {
+                  "name": "prompts-2.0.55.json",
+                  "size": 169910,
+                  "path": "data/prompts/prompts-2.0.55.json"
+                },
+                {
+                  "name": "prompts-2.0.56.json",
+                  "size": 168459,
+                  "path": "data/prompts/prompts-2.0.56.json"
+                },
+                {
+                  "name": "prompts-2.0.57.json",
+                  "size": 168458,
+                  "path": "data/prompts/prompts-2.0.57.json"
+                }
+              ],
+              "path": "data/prompts"
+            }
+          ],
+          "path": "data"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "ChangeNameView.tsx",
+                  "size": 1893,
+                  "path": "src/components/ChangeNameView.tsx"
+                },
+                {
+                  "name": "ColorPicker.tsx",
+                  "size": 20560,
+                  "path": "src/components/ColorPicker.tsx"
+                },
+                {
+                  "name": "ColoredColorName.tsx",
+                  "size": 1092,
+                  "path": "src/components/ColoredColorName.tsx"
+                },
+                {
+                  "name": "Header.tsx",
+                  "size": 257,
+                  "path": "src/components/Header.tsx"
+                },
+                {
+                  "name": "MainView.tsx",
+                  "size": 4500,
+                  "path": "src/components/MainView.tsx"
+                },
+                {
+                  "name": "MiscView.tsx",
+                  "size": 6070,
+                  "path": "src/components/MiscView.tsx"
+                },
+                {
+                  "name": "SelectInput.tsx",
+                  "size": 1512,
+                  "path": "src/components/SelectInput.tsx"
+                },
+                {
+                  "name": "ThemeEditView.tsx",
+                  "size": 19865,
+                  "path": "src/components/ThemeEditView.tsx"
+                },
+                {
+                  "name": "ThemePreview.tsx",
+                  "size": 16531,
+                  "path": "src/components/ThemePreview.tsx"
+                },
+                {
+                  "name": "ThemesView.tsx",
+                  "size": 4453,
+                  "path": "src/components/ThemesView.tsx"
+                },
+                {
+                  "name": "ThinkingStyleView.tsx",
+                  "size": 19164,
+                  "path": "src/components/ThinkingStyleView.tsx"
+                },
+                {
+                  "name": "ThinkingVerbsView.tsx",
+                  "size": 9936,
+                  "path": "src/components/ThinkingVerbsView.tsx"
+                },
+                {
+                  "name": "ToolsetEditView.tsx",
+                  "size": 6278,
+                  "path": "src/components/ToolsetEditView.tsx"
+                },
+                {
+                  "name": "ToolsetsView.tsx",
+                  "size": 5825,
+                  "path": "src/components/ToolsetsView.tsx"
+                },
+                {
+                  "name": "UserMessageDisplayView.tsx",
+                  "size": 20808,
+                  "path": "src/components/UserMessageDisplayView.tsx"
+                }
+              ],
+              "path": "src/components"
+            },
+            {
+              "name": "utils",
+              "children": [
+                {
+                  "name": "patches",
+                  "children": [
+                    {
+                      "name": "contextLimit.ts",
+                      "size": 1104,
+                      "path": "src/utils/patches/contextLimit.ts"
+                    },
+                    {
+                      "name": "conversationTitle.ts",
+                      "size": 16901,
+                      "path": "src/utils/patches/conversationTitle.ts"
+                    },
+                    {
+                      "name": "fixLspSupport.ts",
+                      "size": 9023,
+                      "path": "src/utils/patches/fixLspSupport.ts"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 22887,
+                      "path": "src/utils/patches/index.ts"
+                    },
+                    {
+                      "name": "inputBorderBox.ts",
+                      "size": 1667,
+                      "path": "src/utils/patches/inputBorderBox.ts"
+                    },
+                    {
+                      "name": "modelSelector.ts",
+                      "size": 7019,
+                      "path": "src/utils/patches/modelSelector.ts"
+                    },
+                    {
+                      "name": "patchesAppliedIndication.ts",
+                      "size": 14723,
+                      "path": "src/utils/patches/patchesAppliedIndication.ts"
+                    },
+                    {
+                      "name": "showMoreItemsInSelectMenus.ts",
+                      "size": 1652,
+                      "path": "src/utils/patches/showMoreItemsInSelectMenus.ts"
+                    },
+                    {
+                      "name": "slashCommands.ts",
+                      "size": 1997,
+                      "path": "src/utils/patches/slashCommands.ts"
+                    },
+                    {
+                      "name": "spinnerNoFreeze.ts",
+                      "size": 1358,
+                      "path": "src/utils/patches/spinnerNoFreeze.ts"
+                    },
+                    {
+                      "name": "systemPrompts.test.ts",
+                      "size": 3585,
+                      "path": "src/utils/patches/systemPrompts.test.ts"
+                    },
+                    {
+                      "name": "systemPrompts.ts",
+                      "size": 7284,
+                      "path": "src/utils/patches/systemPrompts.ts"
+                    },
+                    {
+                      "name": "themes.ts",
+                      "size": 3345,
+                      "path": "src/utils/patches/themes.ts"
+                    },
+                    {
+                      "name": "thinkerFormat.ts",
+                      "size": 2078,
+                      "path": "src/utils/patches/thinkerFormat.ts"
+                    },
+                    {
+                      "name": "thinkerMirrorOption.ts",
+                      "size": 1213,
+                      "path": "src/utils/patches/thinkerMirrorOption.ts"
+                    },
+                    {
+                      "name": "thinkerSymbolChars.ts",
+                      "size": 1445,
+                      "path": "src/utils/patches/thinkerSymbolChars.ts"
+                    },
+                    {
+                      "name": "thinkerSymbolSpeed.ts",
+                      "size": 1494,
+                      "path": "src/utils/patches/thinkerSymbolSpeed.ts"
+                    },
+                    {
+                      "name": "thinkerSymbolWidth.ts",
+                      "size": 1027,
+                      "path": "src/utils/patches/thinkerSymbolWidth.ts"
+                    },
+                    {
+                      "name": "thinkerVerbs.ts",
+                      "size": 3061,
+                      "path": "src/utils/patches/thinkerVerbs.ts"
+                    },
+                    {
+                      "name": "thinkingVisibility.ts",
+                      "size": 3089,
+                      "path": "src/utils/patches/thinkingVisibility.ts"
+                    },
+                    {
+                      "name": "toolsets.ts",
+                      "size": 28445,
+                      "path": "src/utils/patches/toolsets.ts"
+                    },
+                    {
+                      "name": "userMessageDisplay.ts",
+                      "size": 5723,
+                      "path": "src/utils/patches/userMessageDisplay.ts"
+                    },
+                    {
+                      "name": "verboseProperty.ts",
+                      "size": 1607,
+                      "path": "src/utils/patches/verboseProperty.ts"
+                    }
+                  ],
+                  "path": "src/utils/patches"
+                },
+                {
+                  "name": "config.test.ts",
+                  "size": 11173,
+                  "path": "src/utils/config.test.ts"
+                },
+                {
+                  "name": "config.ts",
+                  "size": 19880,
+                  "path": "src/utils/config.ts"
+                },
+                {
+                  "name": "download.ts",
+                  "size": 3604,
+                  "path": "src/utils/download.ts"
+                },
+                {
+                  "name": "misc.ts",
+                  "size": 8956,
+                  "path": "src/utils/misc.ts"
+                },
+                {
+                  "name": "nativeInstallation.ts",
+                  "size": 28253,
+                  "path": "src/utils/nativeInstallation.ts"
+                },
+                {
+                  "name": "osAppearance.test.ts",
+                  "size": 3064,
+                  "path": "src/utils/osAppearance.test.ts"
+                },
+                {
+                  "name": "osAppearance.ts",
+                  "size": 3174,
+                  "path": "src/utils/osAppearance.ts"
+                },
+                {
+                  "name": "promptSync.test.ts",
+                  "size": 28621,
+                  "path": "src/utils/promptSync.test.ts"
+                },
+                {
+                  "name": "promptSync.ts",
+                  "size": 45162,
+                  "path": "src/utils/promptSync.ts"
+                },
+                {
+                  "name": "systemPromptHashIndex.ts",
+                  "size": 8625,
+                  "path": "src/utils/systemPromptHashIndex.ts"
+                },
+                {
+                  "name": "types.test.ts",
+                  "size": 4690,
+                  "path": "src/utils/types.test.ts"
+                },
+                {
+                  "name": "types.ts",
+                  "size": 38440,
+                  "path": "src/utils/types.ts"
+                }
+              ],
+              "path": "src/utils"
+            },
+            {
+              "name": "App.tsx",
+              "size": 6766,
+              "path": "src/App.tsx"
+            },
+            {
+              "name": "index.tsx",
+              "size": 8948,
+              "path": "src/index.tsx"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "tools",
+          "children": [
+            {
+              "name": "package-lock.json",
+              "size": 19171,
+              "path": "tools/package-lock.json"
+            },
+            {
+              "name": "package.json",
+              "size": 399,
+              "path": "tools/package.json"
+            },
+            {
+              "name": "promptExtractor.js",
+              "size": 13772,
+              "path": "tools/promptExtractor.js"
+            }
+          ],
+          "path": "tools"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 130,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".gitignore",
+          "size": 472,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmignore",
+          "size": 22,
+          "path": ".npmignore"
+        },
+        {
+          "name": ".prettierrc",
+          "size": 174,
+          "path": ".prettierrc"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 10802,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1068,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 13693,
+          "path": "README.md"
+        },
+        {
+          "name": "eslint.config.js",
+          "size": 700,
+          "path": "eslint.config.js"
+        },
+        {
+          "name": "package.json",
+          "size": 1794,
+          "path": "package.json"
+        },
+        {
+          "name": "pnpm-lock.yaml",
+          "size": 134994,
+          "path": "pnpm-lock.yaml"
+        },
+        {
+          "name": "pnpm-workspace.yaml",
+          "size": 58,
+          "path": "pnpm-workspace.yaml"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 501,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "vite.config.ts",
+          "size": 743,
+          "path": "vite.config.ts"
+        },
+        {
+          "name": "vitest.config.ts",
+          "size": 115,
+          "path": "vitest.config.ts"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 110,
+    "totalSize": 8616433
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"tweakcc\">tweakcc</h1>\n<p><a href=\"https://www.npmjs.com/package/tweakcc\"><img src=\"https://img.shields.io/npm/v/tweakcc?color\" alt=\"tweakcc on npm\" /></a>\n<a href=\"https://github.com/hesreallyhim/awesome-claude-code\"><img src=\"https://awesome.re/mentioned-badge.svg\" alt=\"Mentioned in Awesome Claude Code\" /></a>\n<a href=\"https://claudelog.com/\"><img src=\"https://claudelog.com/img/claude_log_badge.svg\" alt=\"ClaudeLog - A comprehensive knowledge base for Claude.\" /></a></p>\n<p>tweakcc is a CLI tool that upgrades your Claude Code experience.  Customize its system prompts, add custom themes, create toolsets, and personalize the UI.</p>\n<blockquote>\n<p>[!important]\n<strong>NEW in 3.1.0:</strong> tweakcc now enables you to manually name your Claude Code sessions—run <code>npx tweakcc --apply</code> now to get a <code>/title my chat title</code> slash command (or <code>/rename</code>)!</p>\n</blockquote>\n<blockquote>\n<p>[!tip]\n<strong>NEW in 3.0.0:</strong> tweakcc now supports Claude Code native installations!  It also adds a new feature to CC called <strong>toolsets</strong>—try them out in Claude Code with the <code>/toolsets</code> command after you create them in tweakcc.  Lastly it makes <a href=\"https://www.reddit.com/r/ClaudeAI/comments/1otdfo9/lsp_is_coming_to_claude_code_and_you_can_try_it/\">Claude Code's native LSP server support work.</a></p>\n</blockquote>\n<blockquote>\n<p>[!note]\n⭐ <strong>If you find tweakcc useful, please consider <a href=\"https://github.com/Piebald-AI/tweakcc\">starring the repository</a> to show your support!</strong> ⭐</p>\n</blockquote>\n<img src=\"./assets/demo.gif\" alt=\"Animated GIF demonstrating running `npx tweakcc`, creating a new theme, changing all of Claude Code's UI colors to purple, changing the thinking format from '&lt;verb&gt;ing...' to 'Claude is &lt;verb&gt;ing', changing the generating spinner style to a 50m glow animation, applying the changes, running Claude, and using '/config' to switch to the new theme, and sending a message to see the new thinking verb format.\" width=\"800\" />\n<p>With tweakcc, you can</p>\n<ul>\n<li>Customize all of Claude Code's <strong>system prompts</strong> (<strong>NEW:</strong> also see <a href=\"https://github.com/Piebald-AI/claude-code-system-prompts\"><strong>Claude Code System Prompts</strong></a>)</li>\n<li>Create custom <strong>toolsets</strong> that can be used in Claude Code with the new <strong><code>/toolset</code></strong> command</li>\n<li>Manually name <strong>sessions</strong> in Claude Code with <code>/title my chat name</code> or <code>/rename</code></li>\n<li>Create <strong>custom themes</strong> with a graphical HSL/RGB color picker</li>\n<li>Add custom <strong>thinking verbs</strong> that will show while Claude's working</li>\n<li>Create custom <strong>thinking spinner animations</strong> with different speeds and phases</li>\n<li>Style the <strong>user messages in the chat history</strong> beyond the default plain gray text</li>\n<li>Remove the <strong>ASCII border</strong> from the input box</li>\n<li>Expand <strong>thinking blocks</strong> by default, so that you don't need to use the transcript (<kbd>Ctrl+O</kbd>) to see them</li>\n</ul>\n<p>tweakcc also</p>\n<ul>\n<li>Fixes a bug where the <strong>spinner animation</strong> is frozen if you have the <code>CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC</code> environment variable set (<a href=\"https://github.com/Piebald-AI/tweakcc/issues/46\">#46</a>)</li>\n<li>Allows you to <strong>change the context limit</strong> (default: 200k tokens) used with models from custom Anthropic-compatible APIs with a new environment variable, <code>CLAUDE_CODE_CONTEXT_LIMIT</code></li>\n<li>Adds a message to Claude Code's startup banner indicating that you're running the patched version of CC (configurable)</li>\n</ul>\n<p>Additionally, we're working on features that will allow you to</p>\n<ul>\n<li>Pick from over <strong>70+ spinning/thinking animations</strong> from <a href=\"https://github.com/sindresorhus/cli-spinners\"><code>cli-spinners</code></a></li>\n<li>Apply <strong>custom styling</strong> to the markdown elements in Claude's responses like code, bold, headers, etc</li>\n</ul>\n<p>tweakcc supports Claude Code installed on <strong>Windows, macOS, and Linux</strong>, both <strong>native/binary installations</strong> and those installed via npm, yarn, pnpm, bun, Homebrew/Linuxbrew, nvm, fnm, n, volta, nvs, and nodenv, as well as custom locations.</p>\n<p>Run without installation:</p>\n<pre><code class=\"language-bash\">$ npx tweakcc\n\n# Or use pnpm:\n$ pnpm dlx tweakcc\n</code></pre>\n<h2 id=\"how-it-works\">How it works</h2>\n<p>tweakcc works by patching Claude Code's minified <code>cli.js</code> file.  For npm-based installations this file is modified directly, but for native installation it's extracted from the binary, patched, and then the binary is repacked.  When you update your Claude Code installation, your customizations will be overwritten, but they're remembered in your configuration file, so they can be reapplied by just running <code>npx tweakcc --apply</code>.</p>\n<p>tweakcc is verified to work with Claude Code <strong>2.0.55</strong>.</p>\n<h3 id=\"configuration-directory\">Configuration directory</h3>\n<p>tweakcc stores its configuration files in one of the following locations, in order of priority:</p>\n<ol>\n<li><strong><code>~/.tweakcc/</code></strong> - If this directory already exists, it will always be used for backward compatibility; or if <code>XDG_CONFIG_HOME</code> is not set</li>\n<li><strong><code>$XDG_CONFIG_HOME/tweakcc</code></strong> - If <code>~/.tweakcc/</code> doesn't exist and <code>$XDG_CONFIG_HOME</code> is set</li>\n</ol>\n<h2 id=\"building-from-source\">Building from source</h2>\n<p>You can use tweakcc by running <code>npx tweakcc</code>, or <code>npm install -g tweakcc</code> and then <code>tweakcc</code>.  Or build and run it locally:</p>\n<pre><code class=\"language-bash\">git clone https://github.com/Piebald-AI/tweakcc.git\ncd tweakcc\npnpm i\npnpm build\nnode dist/index.js\n</code></pre>\n<h2 id=\"related-projects\">Related projects</h2>\n<p>Other tools for customizing Claude Code or adding functionality to it:</p>\n<ul>\n<li><a href=\"https://github.com/fgrehm/clotilde\"><strong>clotilde</strong></a> - Wrapper for Claude Code that adds powerful manual session naming, resuming, forking, and incognito (ephemeral) session management to Claude Code.</li>\n<li><a href=\"https://github.com/sirmalloc/ccstatusline\"><strong>ccstatusline</strong></a> - Highly customizable status line formatter for Claude Code CLI that displays model info, git branch, token usage, and other metrics in your terminal.</li>\n<li><a href=\"https://github.com/Owloops/claude-powerline\"><strong>claude-powerline</strong></a> - Vim-style powerline statusline for Claude Code with real-time usage tracking, git integration, and custom themes.</li>\n<li><a href=\"https://github.com/Haleclipse/CCometixLine\"><strong>CCometixLine</strong></a> - A high-performance Claude Code statusline tool written in Rust with Git integration, usage tracking, interactive TUI configuration, and Claude Code enhancement utilities.</li>\n</ul>\n<p>Forks:</p>\n<ul>\n<li><a href=\"https://github.com/DanielNappa/tweakgc-cli\"><strong>tweakgc-cli</strong></a> - CLI tool to extend the GitHub Copilot CLI to accept more selectable models.</li>\n</ul>\n<h2 id=\"system-prompts\">System prompts</h2>\n<p>tweakcc allows you to customize the various parts of Claude Code's system prompt, including</p>\n<ul>\n<li>the main system prompt and any conditional bits,</li>\n<li>descriptions for all 17 builtin tools like <code>Bash</code>, <code>TodoWrite</code>, <code>Read</code>, etc.,</li>\n<li>prompts for builtin Task/Plan/Explore subagents, and</li>\n<li>prompts for utilities such as conversation compaction, WebFetch summarization, Bash command analysis, CLAUDE.md/output style/statusline creation, and many more.</li>\n</ul>\n<p>👉 See <a href=\"https://github.com/Piebald-AI/claude-code-system-prompts\"><strong>Claude Code System Prompts</strong></a> for a breakdown of all the system prompt parts, as well as a changelog and diffs for each CC version.</p>\n<p>Because the system prompt is <strong>dynamically composed</strong> based on several factors, <strong>it's not one string</strong> that can be simply modified in a text editor.  It's a bunch of smaller strings sprinkled throughout Claude Code's source code.</p>\n<p>tweakcc's method for modifying involves maintaining one markdown file for each individual portion of the prompt, resulting in a file for each tool description, each agent/utility prompt, and one for the main system prompt and a few more for various large notes inserted into other prompt parts.</p>\n<h4 id=\"how-the-prompt-files-are-created\">How the prompt files are created</h4>\n<p>When tweakcc starts up, it downloads a list of system prompt parts for your Claude Code installation from GitHub (the <a href=\"https://github.com/Piebald-AI/tweakcc/tree/main/data/prompts\"><code>data/prompts</code></a> folder in the tweakcc repo).  It then checks if each prompt part has a corresponding markdown file on disk, creating ones that don't exist and populating them with the default text for the version.</p>\n<p>Simply edit the markdown files in <code>~/.tweakcc/system-prompts</code> (or <code>$XDG_CONFIG_HOME/tweakcc/system-prompts</code>) and then run <code>npx tweakcc --apply</code>.</p>\n<h4 id=\"what-happens-when-anthropic-changes-the-prompts\">What happens when Anthropic changes the prompts?</h4>\n<p>When your Claude Code installation is updated, tweakcc will automatically update all of your markdown files that correspond to parts of the system prompt that were changed in the new version, unless you've modified any of them.  But if you <em>did</em> modify ones that Anthropic has also modified, then tweakcc will leave the ones you modified unchanged, and rely on you to resolve the conflict.</p>\n<p>To assist you with resolving the conflicts, tweakcc will generate an HTML file that shows on the left, the diff of the change you've made, and on the right, the diff of Anthropic's changes.  That way you can recall at a glance what you've changed in the prompt, and easily see what's changed in the new prompt.  Then you can modify the markdown file for the prompt, incorporate or ignore new changes as you see fit.</p>\n<blockquote>\n<p>[!tip]\nMake sure to update the <code>ccVersion</code> field at the top of the file when you're done resolving the conflicts.  If you don't, tweakcc won't know that you've resolved the conflicts and will continue to report conflicts and generate the HTML diff file.  <strong>Important:</strong> Also note that the version you update <code>ccVersion</code> to is <strong>not</strong> necessarily the new version of CC that you installed; rather, it's the most recent version this particular system prompt was updated in.  Different prompt files have different most-recently-modified versions.</p>\n</blockquote>\n<p>Screenshot of the HTML file:</p>\n<img width=\"2525\" height=\"1310\" alt=\"tweakcc_html_diff\" src=\"https://github.com/user-attachments/assets/52b02f2c-7846-4313-90bf-9ff97dae47f7\" />\n<h4 id=\"git-for-version-control-over-your-customized-prompts\">Git for version control over your customized prompts</h4>\n<p>This is a great idea, and we recommend it; in fact, we have one ourselves <a href=\"https://github.com/bl-ue/tweakcc-system-prompts\">here.</a>  It allows you to keep your modified prompt safe in GitHub or elsewhere, and you can also switch from one set of prompts to another via branches, for example.  In the future we plan to integrate git repo management for the system prompt markdown files into tweakcc.  For now you'll need to manually initialize a git repository in <code>~/.tweakcc</code> directory.  tweakcc automatically generates a recommended <code>.gitignore</code> file in that directory (which you can modify if you'd like).</p>\n<h2 id=\"troubleshooting\">Troubleshooting</h2>\n<p>tweakcc stores a backup of your Claude Code <code>cli.js</code>/binary for when you want to revert your customizations and for reapplying patches.  Before it applies your customizations, it restores the original <code>cli.js</code>/binary so that it can start from a clean slate.  Sometimes things can get confused and your <code>claude</code> can be corrupted.</p>\n<p>In particular, you may run into a situation where you have a tweakcc-patched (or maybe a formatted) <code>claude</code> but no tweakcc backup.  And then it makes a backup of that modified <code>claude</code>.  If you then try to reinstall Claude Code and apply your customizations, tweakcc will restore its backup of the old <em>modified</em> <code>claude</code>.</p>\n<p>To break out of this loop you can install a different version of Claude Code, which will cause tweakcc to discard its existing backup and take a fresh backup of the new <code>claude</code> file.  Or you can simply delete tweakcc's backup file (located at <code>~/.tweakcc/cli.backup.js</code> or <code>~/.tweakcc/native-binary.backup</code>).  If you do delete <code>cli.backup.js</code> or <code>native-binary.backup</code>, make sure you reinstall Claude Code <em>before</em> you run tweakcc again, because if your <code>claude</code> is still the modified version, it will get into the same loop again.</p>\n<h2 id=\"faq\">FAQ</h2>\n<h4 id=\"system-prompts-1\">System prompts</h4>\n<details>\n<summary>How can I customize my Claude Code system prompts?</summary>\n<p>Run <code>npx tweakcc</code> first, and then navigate to the <code>system-prompts</code> directory in your config directory (see <a href=\"#configuration-directory\">Configuration directory</a>), which will have just been created, in your file browser.  Each markdown file contains parts of prompts, such as the main system prompt, built-in tool descriptions, and various agent and utility prompts.  Modify any of them, and then run <code>tweakcc --apply</code> or the tweakcc UI to apply your changes.</p>\n</details>\n<details>\n<summary>Does tweakcc generate the prompt markdown files from my Claude Code installation?</summary>\n<p>No, it fetches them fresh from the <a href=\"https://github.com/Piebald-AI/tweakcc/tree/main/data/prompts\">data/prompts</a> folder in this (<code>tweakcc</code>) repo.  There is one JSON file for each Claude Code version.  When a new CC version is released, we generate a prompts file for it as soon as possible.</p>\n</details>\n<h4 id=\"themes\">Themes</h4>\n<details>\n<summary>How can I customize my Claude Code theme?</summary>\n<p>Run <code>npx tweakcc</code>, go to <code>Themes</code>, and modify existing themes or create a new one.  Then go back to the main menu and choose <code>Apply customizations</code>.</p>\n</details>\n<details>\n<summary>Why isn't all the text in Claude Code getting its color changed?</summary>\n<p>Some of the text Claude Code outputs has no coloring information at all, and unfortunately, that text is rendered using your terminal's default text foreground color and can't be customized.</p>\n</details>\n<details>\n<summary>Is there a way to disable colored output in Claude Code altogether?</summary>\n<p>Yes!  You can use the <a href=\"https://force-color.org/\"><code>FORCE_COLOR</code></a> environment variable, a convention which many CLI tools including Claude Code respect.  Set it to <code>0</code> to disable colors entirely in Claude Code.</p>\n</details>\n<details>\n<summary>Why isn't my new theme being applied?</summary>\n<p>Could you have forgotten to actually set Claude Code's theme to your new theme?  Run <code>claude</code> and then use <code>/theme</code> to switch to your new theme if so.</p>\n</details>\n<h4 id=\"other\">Other</h4>\n<details>\n<summary>tweakcc vs. tweakcn...?</summary>\n<p><a href=\"https://github.com/jnsahaj/tweakcn\">tweakcn</a>, though similarly named, is unrelated to tweakcc or Claude Code.  It's a tool for editing your <a href=\"https://github.com/shadcn-ui/ui\">shadcn/ui</a> themes.  Check it out!</p>\n</details>\n<h2 id=\"license\">License</h2>\n<p><a href=\"https://github.com/Piebald-AI/tweakcc/blob/main/LICENSE\">MIT</a></p>\n<p>Copyright © 2025 <a href=\"https://piebald.ai\">Piebald LLC</a>.</p>",
+    "raw": "# tweakcc\n\n[![tweakcc on npm](https://img.shields.io/npm/v/tweakcc?color)](https://www.npmjs.com/package/tweakcc)\n[![Mentioned in Awesome Claude Code](https://awesome.re/mentioned-badge.svg)](https://github.com/hesreallyhim/awesome-claude-code)\n[![ClaudeLog - A comprehensive knowledge base for Claude.](https://claudelog.com/img/claude_log_badge.svg)](https://claudelog.com/)\n\ntweakcc is a CLI tool that upgrades your Claude Code experience.  Customize its system prompts, add custom themes, create toolsets, and personalize the UI.\n\n> [!important]\n> **NEW in 3.1.0:** tweakcc now enables you to manually name your Claude Code sessions&mdash;run `npx tweakcc --apply` now to get a `/title my chat title` slash command (or `/rename`)!\n\n> [!tip]\n> **NEW in 3.0.0:** tweakcc now supports Claude Code native installations!  It also adds a new feature to CC called **toolsets**&mdash;try them out in Claude Code with the `/toolsets` command after you create them in tweakcc.  Lastly it makes [Claude Code's native LSP server support work.](https://www.reddit.com/r/ClaudeAI/comments/1otdfo9/lsp_is_coming_to_claude_code_and_you_can_try_it/)\n\n> [!note]\n> ⭐ **If you find tweakcc useful, please consider [starring the repository](https://github.com/Piebald-AI/tweakcc) to show your support!** ⭐\n\n<img src=\"./assets/demo.gif\" alt=\"Animated GIF demonstrating running `npx tweakcc`, creating a new theme, changing all of Claude Code's UI colors to purple, changing the thinking format from '<verb>ing...' to 'Claude is <verb>ing', changing the generating spinner style to a 50m glow animation, applying the changes, running Claude, and using '/config' to switch to the new theme, and sending a message to see the new thinking verb format.\" width=\"800\">\n\nWith tweakcc, you can\n\n- Customize all of Claude Code's **system prompts** (**NEW:** also see [**Claude Code System Prompts**](https://github.com/Piebald-AI/claude-code-system-prompts))\n- Create custom **toolsets** that can be used in Claude Code with the new **`/toolset`** command\n- Manually name **sessions** in Claude Code with `/title my chat name` or `/rename`\n- Create **custom themes** with a graphical HSL/RGB color picker\n- Add custom **thinking verbs** that will show while Claude's working\n- Create custom **thinking spinner animations** with different speeds and phases\n- Style the **user messages in the chat history** beyond the default plain gray text\n- Remove the **ASCII border** from the input box\n- Expand **thinking blocks** by default, so that you don't need to use the transcript (<kbd>Ctrl+O</kbd>) to see them\n\ntweakcc also\n- Fixes a bug where the **spinner animation** is frozen if you have the `CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC` environment variable set ([#46](https://github.com/Piebald-AI/tweakcc/issues/46))\n- Allows you to **change the context limit** (default: 200k tokens) used with models from custom Anthropic-compatible APIs with a new environment variable, `CLAUDE_CODE_CONTEXT_LIMIT`\n- Adds a message to Claude Code's startup banner indicating that you're running the patched version of CC (configurable)\n\nAdditionally, we're working on features that will allow you to\n- Pick from over **70+ spinning/thinking animations** from [`cli-spinners`](https://github.com/sindresorhus/cli-spinners)\n- Apply **custom styling** to the markdown elements in Claude's responses like code, bold, headers, etc\n\ntweakcc supports Claude Code installed on **Windows, macOS, and Linux**, both **native/binary installations** and those installed via npm, yarn, pnpm, bun, Homebrew/Linuxbrew, nvm, fnm, n, volta, nvs, and nodenv, as well as custom locations.\n\nRun without installation:\n\n```bash\n$ npx tweakcc\n\n# Or use pnpm:\n$ pnpm dlx tweakcc\n```\n\n## How it works\n\ntweakcc works by patching Claude Code's minified `cli.js` file.  For npm-based installations this file is modified directly, but for native installation it's extracted from the binary, patched, and then the binary is repacked.  When you update your Claude Code installation, your customizations will be overwritten, but they're remembered in your configuration file, so they can be reapplied by just running `npx tweakcc --apply`.\n\ntweakcc is verified to work with Claude Code **2.0.55**.\n\n### Configuration directory\n\ntweakcc stores its configuration files in one of the following locations, in order of priority:\n\n1. **`~/.tweakcc/`** - If this directory already exists, it will always be used for backward compatibility; or if `XDG_CONFIG_HOME` is not set\n2. **`$XDG_CONFIG_HOME/tweakcc`** - If `~/.tweakcc/` doesn't exist and `$XDG_CONFIG_HOME` is set\n\n## Building from source\n\nYou can use tweakcc by running `npx tweakcc`, or `npm install -g tweakcc` and then `tweakcc`.  Or build and run it locally:\n\n```bash\ngit clone https://github.com/Piebald-AI/tweakcc.git\ncd tweakcc\npnpm i\npnpm build\nnode dist/index.js\n```\n\n## Related projects\n\nOther tools for customizing Claude Code or adding functionality to it:\n\n- [**clotilde**](https://github.com/fgrehm/clotilde) - Wrapper for Claude Code that adds powerful manual session naming, resuming, forking, and incognito (ephemeral) session management to Claude Code. \n- [**ccstatusline**](https://github.com/sirmalloc/ccstatusline) - Highly customizable status line formatter for Claude Code CLI that displays model info, git branch, token usage, and other metrics in your terminal.\n- [**claude-powerline**](https://github.com/Owloops/claude-powerline) - Vim-style powerline statusline for Claude Code with real-time usage tracking, git integration, and custom themes.\n- [**CCometixLine**](https://github.com/Haleclipse/CCometixLine) - A high-performance Claude Code statusline tool written in Rust with Git integration, usage tracking, interactive TUI configuration, and Claude Code enhancement utilities.\n\nForks:\n\n- [**tweakgc-cli**](https://github.com/DanielNappa/tweakgc-cli) - CLI tool to extend the GitHub Copilot CLI to accept more selectable models.\n\n\n## System prompts\n\ntweakcc allows you to customize the various parts of Claude Code's system prompt, including\n- the main system prompt and any conditional bits,\n- descriptions for all 17 builtin tools like `Bash`, `TodoWrite`, `Read`, etc.,\n- prompts for builtin Task/Plan/Explore subagents, and\n- prompts for utilities such as conversation compaction, WebFetch summarization, Bash command analysis, CLAUDE.md/output style/statusline creation, and many more.\n\n👉 See [**Claude Code System Prompts**](https://github.com/Piebald-AI/claude-code-system-prompts) for a breakdown of all the system prompt parts, as well as a changelog and diffs for each CC version.\n\nBecause the system prompt is **dynamically composed** based on several factors, **it's not one string** that can be simply modified in a text editor.  It's a bunch of smaller strings sprinkled throughout Claude Code's source code.\n\ntweakcc's method for modifying involves maintaining one markdown file for each individual portion of the prompt, resulting in a file for each tool description, each agent/utility prompt, and one for the main system prompt and a few more for various large notes inserted into other prompt parts.\n\n#### How the prompt files are created\n\nWhen tweakcc starts up, it downloads a list of system prompt parts for your Claude Code installation from GitHub (the [`data/prompts`](https://github.com/Piebald-AI/tweakcc/tree/main/data/prompts) folder in the tweakcc repo).  It then checks if each prompt part has a corresponding markdown file on disk, creating ones that don't exist and populating them with the default text for the version.\n\nSimply edit the markdown files in `~/.tweakcc/system-prompts` (or `$XDG_CONFIG_HOME/tweakcc/system-prompts`) and then run `npx tweakcc --apply`.\n\n#### What happens when Anthropic changes the prompts?\n\nWhen your Claude Code installation is updated, tweakcc will automatically update all of your markdown files that correspond to parts of the system prompt that were changed in the new version, unless you've modified any of them.  But if you _did_ modify ones that Anthropic has also modified, then tweakcc will leave the ones you modified unchanged, and rely on you to resolve the conflict.\n\nTo assist you with resolving the conflicts, tweakcc will generate an HTML file that shows on the left, the diff of the change you've made, and on the right, the diff of Anthropic's changes.  That way you can recall at a glance what you've changed in the prompt, and easily see what's changed in the new prompt.  Then you can modify the markdown file for the prompt, incorporate or ignore new changes as you see fit.\n\n> [!tip]\n> Make sure to update the `ccVersion` field at the top of the file when you're done resolving the conflicts.  If you don't, tweakcc won't know that you've resolved the conflicts and will continue to report conflicts and generate the HTML diff file.  **Important:** Also note that the version you update `ccVersion` to is **not** necessarily the new version of CC that you installed; rather, it's the most recent version this particular system prompt was updated in.  Different prompt files have different most-recently-modified versions.\n\nScreenshot of the HTML file:\n\n<img width=\"2525\" height=\"1310\" alt=\"tweakcc_html_diff\" src=\"https://github.com/user-attachments/assets/52b02f2c-7846-4313-90bf-9ff97dae47f7\" />\n\n#### Git for version control over your customized prompts\n\nThis is a great idea, and we recommend it; in fact, we have one ourselves [here.](https://github.com/bl-ue/tweakcc-system-prompts)  It allows you to keep your modified prompt safe in GitHub or elsewhere, and you can also switch from one set of prompts to another via branches, for example.  In the future we plan to integrate git repo management for the system prompt markdown files into tweakcc.  For now you'll need to manually initialize a git repository in `~/.tweakcc` directory.  tweakcc automatically generates a recommended `.gitignore` file in that directory (which you can modify if you'd like).\n\n## Troubleshooting\n\ntweakcc stores a backup of your Claude Code `cli.js`/binary for when you want to revert your customizations and for reapplying patches.  Before it applies your customizations, it restores the original `cli.js`/binary so that it can start from a clean slate.  Sometimes things can get confused and your `claude` can be corrupted.\n\nIn particular, you may run into a situation where you have a tweakcc-patched (or maybe a formatted) `claude` but no tweakcc backup.  And then it makes a backup of that modified `claude`.  If you then try to reinstall Claude Code and apply your customizations, tweakcc will restore its backup of the old _modified_ `claude`.\n\nTo break out of this loop you can install a different version of Claude Code, which will cause tweakcc to discard its existing backup and take a fresh backup of the new `claude` file.  Or you can simply delete tweakcc's backup file (located at `~/.tweakcc/cli.backup.js` or `~/.tweakcc/native-binary.backup`).  If you do delete `cli.backup.js` or `native-binary.backup`, make sure you reinstall Claude Code _before_ you run tweakcc again, because if your `claude` is still the modified version, it will get into the same loop again.\n\n## FAQ\n\n#### System prompts\n\n<details>\n<summary>How can I customize my Claude Code system prompts?</summary>\n\nRun `npx tweakcc` first, and then navigate to the `system-prompts` directory in your config directory (see [Configuration directory](#configuration-directory)), which will have just been created, in your file browser.  Each markdown file contains parts of prompts, such as the main system prompt, built-in tool descriptions, and various agent and utility prompts.  Modify any of them, and then run `tweakcc --apply` or the tweakcc UI to apply your changes.\n\n</details>\n\n<details>\n<summary>Does tweakcc generate the prompt markdown files from my Claude Code installation?</summary>\n\nNo, it fetches them fresh from the [data/prompts](https://github.com/Piebald-AI/tweakcc/tree/main/data/prompts) folder in this (`tweakcc`) repo.  There is one JSON file for each Claude Code version.  When a new CC version is released, we generate a prompts file for it as soon as possible.\n\n</details>\n\n\n#### Themes\n\n<details>\n<summary>How can I customize my Claude Code theme?</summary>\n\nRun `npx tweakcc`, go to `Themes`, and modify existing themes or create a new one.  Then go back to the main menu and choose `Apply customizations`.\n\n</details>\n\n<details>\n<summary>Why isn't all the text in Claude Code getting its color changed?</summary>\n\nSome of the text Claude Code outputs has no coloring information at all, and unfortunately, that text is rendered using your terminal's default text foreground color and can't be customized.\n\n</details>\n\n<details>\n<summary>Is there a way to disable colored output in Claude Code altogether?</summary>\n\nYes!  You can use the [`FORCE_COLOR`](https://force-color.org/) environment variable, a convention which many CLI tools including Claude Code respect.  Set it to `0` to disable colors entirely in Claude Code.\n\n</details>\n\n<details>\n<summary>Why isn't my new theme being applied?</summary>\n\nCould you have forgotten to actually set Claude Code's theme to your new theme?  Run `claude` and then use `/theme` to switch to your new theme if so.\n\n</details>\n\n#### Other\n\n<details>\n<summary>tweakcc vs. tweakcn...?</summary>\n\n[tweakcn](https://github.com/jnsahaj/tweakcn), though similarly named, is unrelated to tweakcc or Claude Code.  It's a tool for editing your [shadcn/ui](https://github.com/shadcn-ui/ui) themes.  Check it out!\n\n</details>\n\n## License\n\n[MIT](https://github.com/Piebald-AI/tweakcc/blob/main/LICENSE)\n\nCopyright © 2025 [Piebald LLC](https://piebald.ai).\n",
+    "excerpt": "![tweakcc on npm](https://www.npmjs.com/package/tweakcc)\n![Mentioned in Awesome Claude Code](https://github.com/hesreallyhim/awesome-claude-code)\n![ClaudeLog -..."
+  },
+  "createdAt": "2025-12-05T17:11:34Z",
+  "updatedAt": "2025-12-05T22:27:09Z",
+  "pushedAt": "2025-12-05T22:27:05Z"
+}

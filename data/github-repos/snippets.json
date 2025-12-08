@@ -18,6 +18,4086 @@
     "Shell": 133
   },
   "diskUsage": 2364,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 52
+      },
+      {
+        "path": "README.md",
+        "size": 100
+      },
+      {
+        "path": "img/bg.png",
+        "size": 12047
+      },
+      {
+        "path": "img/bg2.png",
+        "size": 19751
+      },
+      {
+        "path": "img/bg2@2X.png",
+        "size": 28732
+      },
+      {
+        "path": "img/bg3.png",
+        "size": 222357
+      },
+      {
+        "path": "img/bg3@2X.png",
+        "size": 318459
+      },
+      {
+        "path": "img/bg@2x.png",
+        "size": 20351
+      },
+      {
+        "path": "index.html",
+        "size": 4649
+      },
+      {
+        "path": "js/d3.v2.min.js",
+        "size": 111440
+      },
+      {
+        "path": "js/ich.js",
+        "size": 5444
+      },
+      {
+        "path": "js/jquery-1.7.1.min.js",
+        "size": 93868
+      },
+      {
+        "path": "js/jquery.lettering.js",
+        "size": 1715
+      },
+      {
+        "path": "js/jquery.scrollorama.js",
+        "size": 15753
+      },
+      {
+        "path": "js/retina.js",
+        "size": 1326
+      },
+      {
+        "path": "js/tabletop.js",
+        "size": 9537
+      },
+      {
+        "path": "js/underscore-min.js",
+        "size": 10260
+      },
+      {
+        "path": "snippets.js",
+        "size": 2162
+      },
+      {
+        "path": "style.css",
+        "size": 14799
+      },
+      {
+        "path": "style.less",
+        "size": 21140
+      },
+      {
+        "path": "tributary/README.md",
+        "size": 831
+      },
+      {
+        "path": "tributary/css/embed.css",
+        "size": 11215
+      },
+      {
+        "path": "tributary/css/index.css",
+        "size": 3083
+      },
+      {
+        "path": "tributary/css/less/editor.less",
+        "size": 5172
+      },
+      {
+        "path": "tributary/css/less/header.less",
+        "size": 3824
+      },
+      {
+        "path": "tributary/css/less/panel.less",
+        "size": 12438
+      },
+      {
+        "path": "tributary/css/less/style.less",
+        "size": 9122
+      },
+      {
+        "path": "tributary/css/style.css",
+        "size": 23375
+      },
+      {
+        "path": "tributary/css/tributary.css",
+        "size": 134
+      },
+      {
+        "path": "tributary/double.html",
+        "size": 4248
+      },
+      {
+        "path": "tributary/gallery.json",
+        "size": 4643
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/LICENSE",
+        "size": 1228
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/README.md",
+        "size": 234
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/activeline.html",
+        "size": 2737
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/changemode.html",
+        "size": 1455
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/closetag.html",
+        "size": 2138
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/complete.html",
+        "size": 2495
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/emacs.html",
+        "size": 1857
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/folding.html",
+        "size": 2259
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/formatting.html",
+        "size": 2494
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/fullscreen.html",
+        "size": 5933
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/loadmode.html",
+        "size": 1258
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/marker.html",
+        "size": 1344
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/matchhighlighter.html",
+        "size": 1225
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/mustache.html",
+        "size": 1760
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/preview.html",
+        "size": 2166
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/resize.html",
+        "size": 1003
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/runmode.html",
+        "size": 1939
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/search.html",
+        "size": 3458
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/theme.html",
+        "size": 2435
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/vim.html",
+        "size": 1457
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/demo/visibletabs.html",
+        "size": 1649
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/doc/baboon.png",
+        "size": 23299
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/doc/baboon_vector.svg",
+        "size": 17183
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/doc/compress.html",
+        "size": 10020
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/doc/docs.css",
+        "size": 2083
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/doc/internals.html",
+        "size": 25411
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/doc/manual.html",
+        "size": 56957
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/doc/oldrelease.html",
+        "size": 13499
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/doc/reporting.html",
+        "size": 2142
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/doc/upgrade_v2.2.html",
+        "size": 3613
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/index.html",
+        "size": 20374
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/keymap/emacs.js",
+        "size": 1335
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/keymap/vim.js",
+        "size": 16615
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/codemirror.css",
+        "size": 3490
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/codemirror.js",
+        "size": 126053
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/closetag.js",
+        "size": 5053
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/dialog.css",
+        "size": 401
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/dialog.js",
+        "size": 1962
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/foldcode.js",
+        "size": 6123
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/formatting.js",
+        "size": 10183
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/javascript-hint.js",
+        "size": 5385
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/loadmode.js",
+        "size": 1786
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/match-highlighter.js",
+        "size": 1682
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/overlay.js",
+        "size": 1877
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/runmode.js",
+        "size": 1611
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/search.js",
+        "size": 4758
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/searchcursor.js",
+        "size": 4694
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/simple-hint.css",
+        "size": 368
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/lib/util/simple-hint.js",
+        "size": 2943
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/clike/clike.js",
+        "size": 8405
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/clike/index.html",
+        "size": 3054
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/clojure/clojure.js",
+        "size": 12435
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/clojure/index.html",
+        "size": 1981
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/coffeescript/LICENSE",
+        "size": 1151
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/coffeescript/coffeescript.js",
+        "size": 10731
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/coffeescript/index.html",
+        "size": 21995
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/css/css.js",
+        "size": 3646
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/css/index.html",
+        "size": 1051
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/diff/diff.js",
+        "size": 670
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/diff/index.html",
+        "size": 4055
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/ecl/ecl.js",
+        "size": 8721
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/ecl/index.html",
+        "size": 1164
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/erlang/erlang.js",
+        "size": 6723
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/erlang/index.html",
+        "size": 1712
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/gfm/gfm.js",
+        "size": 3035
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/gfm/index.html",
+        "size": 1297
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/go/go.js",
+        "size": 5471
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/go/index.html",
+        "size": 1765
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/groovy/groovy.js",
+        "size": 7154
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/groovy/index.html",
+        "size": 1760
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/haskell/haskell.js",
+        "size": 7478
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/haskell/index.html",
+        "size": 1780
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/htmlembedded/htmlembedded.js",
+        "size": 2293
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/htmlembedded/index.html",
+        "size": 1703
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/htmlmixed/htmlmixed.js",
+        "size": 2957
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/htmlmixed/index.html",
+        "size": 1558
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/javascript/index.html",
+        "size": 2539
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/javascript/javascript.js",
+        "size": 12819
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/jinja2/index.html",
+        "size": 1040
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/jinja2/jinja2.js",
+        "size": 1380
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/less/index.html",
+        "size": 14891
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/less/less.js",
+        "size": 9240
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/lua/index.html",
+        "size": 1693
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/lua/lua.js",
+        "size": 5347
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/markdown/index.html",
+        "size": 9858
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/markdown/markdown.js",
+        "size": 6147
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/mysql/index.html",
+        "size": 1132
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/mysql/mysql.js",
+        "size": 7776
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/ntriples/index.html",
+        "size": 998
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/ntriples/ntriples.js",
+        "size": 6348
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/pascal/LICENSE",
+        "size": 1078
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/pascal/index.html",
+        "size": 1108
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/pascal/pascal.js",
+        "size": 2605
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/perl/LICENSE",
+        "size": 1094
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/perl/index.html",
+        "size": 1212
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/perl/perl.js",
+        "size": 29358
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/php/index.html",
+        "size": 1499
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/php/php.js",
+        "size": 6113
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/pig/index.html",
+        "size": 1132
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/pig/pig.js",
+        "size": 5223
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/plsql/index.html",
+        "size": 1553
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/plsql/plsql.js",
+        "size": 8430
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/properties/index.html",
+        "size": 1189
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/properties/properties.js",
+        "size": 1734
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/python/LICENSE.txt",
+        "size": 1075
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/python/index.html",
+        "size": 2835
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/python/python.js",
+        "size": 12145
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/r/LICENSE",
+        "size": 1486
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/r/index.html",
+        "size": 2263
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/r/r.js",
+        "size": 4936
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/rpm/changes/changes.js",
+        "size": 654
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/rpm/changes/index.html",
+        "size": 1793
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/rpm/spec/index.html",
+        "size": 3037
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/rpm/spec/spec.css",
+        "size": 267
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/rpm/spec/spec.js",
+        "size": 2698
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/rst/index.html",
+        "size": 17578
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/rst/rst.js",
+        "size": 8439
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/ruby/LICENSE",
+        "size": 1487
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/ruby/index.html",
+        "size": 5412
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/ruby/ruby.js",
+        "size": 7400
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/rust/index.html",
+        "size": 1071
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/rust/rust.js",
+        "size": 15457
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/scheme/index.html",
+        "size": 2198
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/scheme/scheme.js",
+        "size": 10326
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/shell/index.html",
+        "size": 1269
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/shell/shell.js",
+        "size": 3226
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/smalltalk/index.html",
+        "size": 1484
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/smalltalk/smalltalk.js",
+        "size": 3448
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/smarty/index.html",
+        "size": 2306
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/smarty/smarty.js",
+        "size": 3852
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/sparql/index.html",
+        "size": 1196
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/sparql/sparql.js",
+        "size": 4605
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/stex/index.html",
+        "size": 3610
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/stex/stex.js",
+        "size": 4413
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/stex/test.html",
+        "size": 5785
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/tiddlywiki/index.html",
+        "size": 4187
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/tiddlywiki/tiddlywiki.css",
+        "size": 220
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/tiddlywiki/tiddlywiki.js",
+        "size": 9485
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/tiki/index.html",
+        "size": 1485
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/tiki/tiki.css",
+        "size": 446
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/tiki/tiki.js",
+        "size": 8096
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/vbscript/index.html",
+        "size": 1161
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/vbscript/vbscript.js",
+        "size": 867
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/velocity/index.html",
+        "size": 2761
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/velocity/velocity.js",
+        "size": 4959
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/verilog/index.html",
+        "size": 6782
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/verilog/verilog.js",
+        "size": 6996
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/xml/index.html",
+        "size": 1617
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/xml/xml.js",
+        "size": 10170
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/xquery/LICENSE",
+        "size": 1109
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/xquery/index.html",
+        "size": 9447
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/xquery/test/index.html",
+        "size": 1171
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/xquery/test/testBase.js",
+        "size": 6114
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/xquery/test/testEmptySequenceKeyword.js",
+        "size": 639
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/xquery/test/testMultiAttr.js",
+        "size": 789
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/xquery/test/testNamespaces.js",
+        "size": 5494
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/xquery/test/testProcessingInstructions.js",
+        "size": 719
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/xquery/test/testQuotes.js",
+        "size": 1070
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/xquery/xquery.js",
+        "size": 15976
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/yaml/index.html",
+        "size": 1744
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/mode/yaml/yaml.js",
+        "size": 2677
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/test/index.html",
+        "size": 740
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/test/mode_test.css",
+        "size": 317
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/test/mode_test.js",
+        "size": 4301
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/test/test.js",
+        "size": 11348
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/theme/ambiance.css",
+        "size": 26155
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/theme/blackboard.css",
+        "size": 1226
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/theme/cobalt.css",
+        "size": 1037
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/theme/eclipse.css",
+        "size": 1050
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/theme/elegant.css",
+        "size": 593
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/theme/erlang-dark.css",
+        "size": 1227
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/theme/lesser-dark.css",
+        "size": 2059
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/theme/monokai.css",
+        "size": 1151
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/theme/neat.css",
+        "size": 524
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/theme/night.css",
+        "size": 1118
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/theme/rubyblue.css",
+        "size": 1300
+      },
+      {
+        "path": "tributary/lib/CodeMirror2/theme/xq-dark.css",
+        "size": 2296
+      },
+      {
+        "path": "tributary/lib/Stats.js",
+        "size": 2243
+      },
+      {
+        "path": "tributary/lib/backbone-min.js",
+        "size": 16464
+      },
+      {
+        "path": "tributary/lib/base64.js",
+        "size": 2986
+      },
+      {
+        "path": "tributary/lib/canvas2image.js",
+        "size": 6770
+      },
+      {
+        "path": "tributary/lib/coffee-script.js",
+        "size": 177228
+      },
+      {
+        "path": "tributary/lib/colorpicker/Color.Picker.Classic.css",
+        "size": 1545
+      },
+      {
+        "path": "tributary/lib/colorpicker/Color.Picker.Classic.js",
+        "size": 17371
+      },
+      {
+        "path": "tributary/lib/colorpicker/Color.Space.js",
+        "size": 4928
+      },
+      {
+        "path": "tributary/lib/crossfilter.min.js",
+        "size": 7624
+      },
+      {
+        "path": "tributary/lib/d3.v2.min.js",
+        "size": 115816
+      },
+      {
+        "path": "tributary/lib/dat.gui.min.js",
+        "size": 45411
+      },
+      {
+        "path": "tributary/lib/dvl/.gitignore",
+        "size": 35
+      },
+      {
+        "path": "tributary/lib/dvl/LICENSE",
+        "size": 1426
+      },
+      {
+        "path": "tributary/lib/dvl/README.md",
+        "size": 2328
+      },
+      {
+        "path": "tributary/lib/dvl/compile",
+        "size": 34
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png",
+        "size": 180
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_flat_75_ffffff_40x100.png",
+        "size": 178
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png",
+        "size": 120
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_glass_65_ffffff_1x400.png",
+        "size": 105
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_glass_75_dadada_1x400.png",
+        "size": 111
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png",
+        "size": 110
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png",
+        "size": 119
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png",
+        "size": 101
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-icons_222222_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-icons_2e83ff_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-icons_454545_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-icons_888888_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/images/ui-icons_cd0a0a_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/dvl/css/smoothness/jquery-ui-1.8.7.custom.css",
+        "size": 33985
+      },
+      {
+        "path": "tributary/lib/dvl/d3/d3.js",
+        "size": 253776
+      },
+      {
+        "path": "tributary/lib/dvl/d3/d3.time.js",
+        "size": 19685
+      },
+      {
+        "path": "tributary/lib/dvl/docs/docco.css",
+        "size": 7101
+      },
+      {
+        "path": "tributary/lib/dvl/dvl.coffee",
+        "size": 68348
+      },
+      {
+        "path": "tributary/lib/dvl/dvl.js",
+        "size": 92464
+      },
+      {
+        "path": "tributary/lib/dvl/examples/json/base",
+        "size": 6
+      },
+      {
+        "path": "tributary/lib/dvl/examples/json/cache.html",
+        "size": 1716
+      },
+      {
+        "path": "tributary/lib/dvl/examples/json/json_get.html",
+        "size": 2179
+      },
+      {
+        "path": "tributary/lib/dvl/examples/json/json_post.html",
+        "size": 2294
+      },
+      {
+        "path": "tributary/lib/dvl/examples/json/mirror_server.js",
+        "size": 2102
+      },
+      {
+        "path": "tributary/lib/dvl/examples/misc/clock.html",
+        "size": 3046
+      },
+      {
+        "path": "tributary/lib/dvl/examples/misc/new.html",
+        "size": 953
+      },
+      {
+        "path": "tributary/lib/dvl/examples/time/mouse.html",
+        "size": 3331
+      },
+      {
+        "path": "tributary/lib/dvl/examples/time/random-walk.html",
+        "size": 3128
+      },
+      {
+        "path": "tributary/lib/dvl/examples/time/simple.html",
+        "size": 3122
+      },
+      {
+        "path": "tributary/lib/dvl/lib/jquery/jquery-1.6.2.min.js",
+        "size": 91555
+      },
+      {
+        "path": "tributary/lib/dvl/lib/jquery/jquery-ui-1.8.7.custom.js",
+        "size": 206617
+      },
+      {
+        "path": "tributary/lib/dvl/lib/sizzle/LICENSE",
+        "size": 1471
+      },
+      {
+        "path": "tributary/lib/dvl/lib/sizzle/sizzle.js",
+        "size": 31742
+      },
+      {
+        "path": "tributary/lib/dvl/lib/sizzle/sizzle.min.js",
+        "size": 14175
+      },
+      {
+        "path": "tributary/lib/dvl/logo/LEGOtype.ai",
+        "size": 279662
+      },
+      {
+        "path": "tributary/lib/dvl/logo/dvl-logo.ai",
+        "size": 232585
+      },
+      {
+        "path": "tributary/lib/dvl/package.json",
+        "size": 731
+      },
+      {
+        "path": "tributary/lib/dvl/test",
+        "size": 62
+      },
+      {
+        "path": "tributary/lib/dvl/tests/core/apply.js",
+        "size": 3678
+      },
+      {
+        "path": "tributary/lib/dvl/tests/core/block.js",
+        "size": 305
+      },
+      {
+        "path": "tributary/lib/dvl/tests/core/knows.js",
+        "size": 1197
+      },
+      {
+        "path": "tributary/lib/dvl/tests/core/register.js",
+        "size": 9131
+      },
+      {
+        "path": "tributary/lib/dvl/tests/core/varibale.js",
+        "size": 3771
+      },
+      {
+        "path": "tributary/lib/dvl/tests/env.js",
+        "size": 393
+      },
+      {
+        "path": "tributary/lib/dvl/todo",
+        "size": 616
+      },
+      {
+        "path": "tributary/lib/dvl/watch",
+        "size": 37
+      },
+      {
+        "path": "tributary/lib/handlebars-1.0.rc.1.js",
+        "size": 61991
+      },
+      {
+        "path": "tributary/lib/handlebars.js",
+        "size": 61990
+      },
+      {
+        "path": "tributary/lib/inlet.js",
+        "size": 5506
+      },
+      {
+        "path": "tributary/lib/isotope.min.js",
+        "size": 15877
+      },
+      {
+        "path": "tributary/lib/jquery-1.7.min.js",
+        "size": 94019
+      },
+      {
+        "path": "tributary/lib/jquery-ui.1.8.16.custom.min.js",
+        "size": 20594
+      },
+      {
+        "path": "tributary/lib/jquery.hotkeys.js",
+        "size": 3366
+      },
+      {
+        "path": "tributary/lib/jshint.js",
+        "size": 171199
+      },
+      {
+        "path": "tributary/lib/jwerty.js",
+        "size": 20150
+      },
+      {
+        "path": "tributary/lib/midibridge-0.5.min.js",
+        "size": 4811
+      },
+      {
+        "path": "tributary/lib/raphael-min.js",
+        "size": 90647
+      },
+      {
+        "path": "tributary/lib/require.js",
+        "size": 14845
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-bg_flat_75_aaaaaa_40x100.png",
+        "size": 180
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-bg_glass_100_f5f0e5_1x400.png",
+        "size": 123
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-bg_glass_25_cb842e_1x400.png",
+        "size": 130
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-bg_glass_70_ede4d4_1x400.png",
+        "size": 161
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-bg_highlight-hard_100_f4f0ec_1x100.png",
+        "size": 103
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-bg_highlight-hard_65_fee4bd_1x100.png",
+        "size": 114
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-bg_highlight-hard_75_f5f5b5_1x100.png",
+        "size": 116
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-bg_inset-soft_100_f4f0ec_1x100.png",
+        "size": 113
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-icons_c47a23_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-icons_cb672b_256x240.png",
+        "size": 5355
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-icons_f08000_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-icons_f35f07_256x240.png",
+        "size": 5355
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-icons_ff7519_256x240.png",
+        "size": 5355
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/images/ui-icons_ffffff_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/slider/css/humanity/jquery-ui-slider.css",
+        "size": 20002
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/AUTHORS.txt",
+        "size": 816
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/GPL-LICENSE.txt",
+        "size": 15099
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/MIT-LICENSE.txt",
+        "size": 1311
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/demos.css",
+        "size": 14338
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/images/calendar.gif",
+        "size": 269
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/images/demo-config-on-tile.gif",
+        "size": 172
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/images/demo-config-on.gif",
+        "size": 335
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/images/demo-spindown-closed.gif",
+        "size": 103
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/images/demo-spindown-open.gif",
+        "size": 105
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/images/icon-docs-info.gif",
+        "size": 206
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/images/pbar-ani.gif",
+        "size": 7970
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/index.html",
+        "size": 13877
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/colorpicker.html",
+        "size": 2510
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/default.html",
+        "size": 932
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/hotelrooms.html",
+        "size": 1561
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/index.html",
+        "size": 987
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/multiple-vertical.html",
+        "size": 1986
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/range-vertical.html",
+        "size": 1524
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/range.html",
+        "size": 1478
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/rangemax.html",
+        "size": 1323
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/rangemin.html",
+        "size": 1325
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/side-scroll.html",
+        "size": 5513
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/slider-vertical.html",
+        "size": 1410
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/steps.html",
+        "size": 1330
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/demos/slider/tabs.html",
+        "size": 3732
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/docs/slider.html",
+        "size": 23062
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/external/jquery.bgiframe-2.1.2.js",
+        "size": 1724
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/external/jquery.cookie.js",
+        "size": 3655
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/external/jquery.metadata.js",
+        "size": 3955
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/external/qunit.css",
+        "size": 4490
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/external/qunit.js",
+        "size": 38247
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/jquery-1.7.1.js",
+        "size": 248235
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png",
+        "size": 180
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_flat_75_ffffff_40x100.png",
+        "size": 178
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png",
+        "size": 120
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_glass_65_ffffff_1x400.png",
+        "size": 105
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_glass_75_dadada_1x400.png",
+        "size": 111
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png",
+        "size": 110
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png",
+        "size": 119
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png",
+        "size": 101
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-icons_222222_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-icons_2e83ff_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-icons_454545_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-icons_888888_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-icons_cd0a0a_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/jquery.ui.all.css",
+        "size": 291
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/jquery.ui.base.css",
+        "size": 71
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/jquery.ui.core.css",
+        "size": 1317
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/jquery.ui.slider.css",
+        "size": 1140
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/base/jquery.ui.theme.css",
+        "size": 18120
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_flat_75_aaaaaa_40x100.png",
+        "size": 180
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_glass_100_f5f0e5_1x400.png",
+        "size": 123
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_glass_25_cb842e_1x400.png",
+        "size": 130
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_glass_70_ede4d4_1x400.png",
+        "size": 161
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_highlight-hard_100_f4f0ec_1x100.png",
+        "size": 103
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_highlight-hard_65_fee4bd_1x100.png",
+        "size": 114
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_highlight-hard_75_f5f5b5_1x100.png",
+        "size": 116
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_inset-soft_100_f4f0ec_1x100.png",
+        "size": 113
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-icons_c47a23_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-icons_cb672b_256x240.png",
+        "size": 5355
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-icons_f08000_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-icons_f35f07_256x240.png",
+        "size": 5355
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-icons_ff7519_256x240.png",
+        "size": 5355
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-icons_ffffff_256x240.png",
+        "size": 4369
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/jquery-ui-1.8.18.custom.css",
+        "size": 20002
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/jquery.ui.all.css",
+        "size": 291
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/jquery.ui.base.css",
+        "size": 71
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/jquery.ui.core.css",
+        "size": 1317
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/jquery.ui.slider.css",
+        "size": 1140
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/themes/humanity/jquery.ui.theme.css",
+        "size": 17545
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/ui/jquery-ui-1.8.18.custom.js",
+        "size": 37321
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/ui/jquery.ui.core.js",
+        "size": 8455
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/ui/jquery.ui.mouse.js",
+        "size": 4294
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/ui/jquery.ui.slider.js",
+        "size": 17569
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/ui/jquery.ui.widget.js",
+        "size": 7003
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/ui/minified/jquery.ui.core.min.js",
+        "size": 4363
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/ui/minified/jquery.ui.mouse.min.js",
+        "size": 2784
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/ui/minified/jquery.ui.slider.min.js",
+        "size": 9963
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/ui/minified/jquery.ui.widget.min.js",
+        "size": 3256
+      },
+      {
+        "path": "tributary/lib/slider/development-bundle/version.txt",
+        "size": 7
+      },
+      {
+        "path": "tributary/lib/slider/index.html",
+        "size": 25801
+      },
+      {
+        "path": "tributary/lib/slider/js/jquery-1.7.1.min.js",
+        "size": 93868
+      },
+      {
+        "path": "tributary/lib/slider/js/jquery.ui.slider.js",
+        "size": 20370
+      },
+      {
+        "path": "tributary/lib/three.min.js",
+        "size": 391407
+      },
+      {
+        "path": "tributary/lib/underscore-min.js",
+        "size": 13403
+      },
+      {
+        "path": "tributary/lib/underscore.math.js",
+        "size": 2965
+      },
+      {
+        "path": "tributary/simple.html",
+        "size": 3217
+      },
+      {
+        "path": "tributary/templates.js",
+        "size": 5331
+      },
+      {
+        "path": "tributary/tributary.js",
+        "size": 44483
+      },
+      {
+        "path": "tributary/util.js",
+        "size": 191
+      }
+    ],
+    "tree": {
+      "name": "snippets",
+      "children": [
+        {
+          "name": "img",
+          "children": [
+            {
+              "name": "bg.png",
+              "size": 12047,
+              "path": "img/bg.png"
+            },
+            {
+              "name": "bg2.png",
+              "size": 19751,
+              "path": "img/bg2.png"
+            },
+            {
+              "name": "bg2@2X.png",
+              "size": 28732,
+              "path": "img/bg2@2X.png"
+            },
+            {
+              "name": "bg3.png",
+              "size": 222357,
+              "path": "img/bg3.png"
+            },
+            {
+              "name": "bg3@2X.png",
+              "size": 318459,
+              "path": "img/bg3@2X.png"
+            },
+            {
+              "name": "bg@2x.png",
+              "size": 20351,
+              "path": "img/bg@2x.png"
+            }
+          ],
+          "path": "img"
+        },
+        {
+          "name": "js",
+          "children": [
+            {
+              "name": "d3.v2.min.js",
+              "size": 111440,
+              "path": "js/d3.v2.min.js"
+            },
+            {
+              "name": "ich.js",
+              "size": 5444,
+              "path": "js/ich.js"
+            },
+            {
+              "name": "jquery-1.7.1.min.js",
+              "size": 93868,
+              "path": "js/jquery-1.7.1.min.js"
+            },
+            {
+              "name": "jquery.lettering.js",
+              "size": 1715,
+              "path": "js/jquery.lettering.js"
+            },
+            {
+              "name": "jquery.scrollorama.js",
+              "size": 15753,
+              "path": "js/jquery.scrollorama.js"
+            },
+            {
+              "name": "retina.js",
+              "size": 1326,
+              "path": "js/retina.js"
+            },
+            {
+              "name": "tabletop.js",
+              "size": 9537,
+              "path": "js/tabletop.js"
+            },
+            {
+              "name": "underscore-min.js",
+              "size": 10260,
+              "path": "js/underscore-min.js"
+            }
+          ],
+          "path": "js"
+        },
+        {
+          "name": "tributary",
+          "children": [
+            {
+              "name": "css",
+              "children": [
+                {
+                  "name": "less",
+                  "children": [
+                    {
+                      "name": "editor.less",
+                      "size": 5172,
+                      "path": "tributary/css/less/editor.less"
+                    },
+                    {
+                      "name": "header.less",
+                      "size": 3824,
+                      "path": "tributary/css/less/header.less"
+                    },
+                    {
+                      "name": "panel.less",
+                      "size": 12438,
+                      "path": "tributary/css/less/panel.less"
+                    },
+                    {
+                      "name": "style.less",
+                      "size": 9122,
+                      "path": "tributary/css/less/style.less"
+                    }
+                  ],
+                  "path": "tributary/css/less"
+                },
+                {
+                  "name": "embed.css",
+                  "size": 11215,
+                  "path": "tributary/css/embed.css"
+                },
+                {
+                  "name": "index.css",
+                  "size": 3083,
+                  "path": "tributary/css/index.css"
+                },
+                {
+                  "name": "style.css",
+                  "size": 23375,
+                  "path": "tributary/css/style.css"
+                },
+                {
+                  "name": "tributary.css",
+                  "size": 134,
+                  "path": "tributary/css/tributary.css"
+                }
+              ],
+              "path": "tributary/css"
+            },
+            {
+              "name": "lib",
+              "children": [
+                {
+                  "name": "CodeMirror2",
+                  "children": [
+                    {
+                      "name": "demo",
+                      "children": [
+                        {
+                          "name": "activeline.html",
+                          "size": 2737,
+                          "path": "tributary/lib/CodeMirror2/demo/activeline.html"
+                        },
+                        {
+                          "name": "changemode.html",
+                          "size": 1455,
+                          "path": "tributary/lib/CodeMirror2/demo/changemode.html"
+                        },
+                        {
+                          "name": "closetag.html",
+                          "size": 2138,
+                          "path": "tributary/lib/CodeMirror2/demo/closetag.html"
+                        },
+                        {
+                          "name": "complete.html",
+                          "size": 2495,
+                          "path": "tributary/lib/CodeMirror2/demo/complete.html"
+                        },
+                        {
+                          "name": "emacs.html",
+                          "size": 1857,
+                          "path": "tributary/lib/CodeMirror2/demo/emacs.html"
+                        },
+                        {
+                          "name": "folding.html",
+                          "size": 2259,
+                          "path": "tributary/lib/CodeMirror2/demo/folding.html"
+                        },
+                        {
+                          "name": "formatting.html",
+                          "size": 2494,
+                          "path": "tributary/lib/CodeMirror2/demo/formatting.html"
+                        },
+                        {
+                          "name": "fullscreen.html",
+                          "size": 5933,
+                          "path": "tributary/lib/CodeMirror2/demo/fullscreen.html"
+                        },
+                        {
+                          "name": "loadmode.html",
+                          "size": 1258,
+                          "path": "tributary/lib/CodeMirror2/demo/loadmode.html"
+                        },
+                        {
+                          "name": "marker.html",
+                          "size": 1344,
+                          "path": "tributary/lib/CodeMirror2/demo/marker.html"
+                        },
+                        {
+                          "name": "matchhighlighter.html",
+                          "size": 1225,
+                          "path": "tributary/lib/CodeMirror2/demo/matchhighlighter.html"
+                        },
+                        {
+                          "name": "mustache.html",
+                          "size": 1760,
+                          "path": "tributary/lib/CodeMirror2/demo/mustache.html"
+                        },
+                        {
+                          "name": "preview.html",
+                          "size": 2166,
+                          "path": "tributary/lib/CodeMirror2/demo/preview.html"
+                        },
+                        {
+                          "name": "resize.html",
+                          "size": 1003,
+                          "path": "tributary/lib/CodeMirror2/demo/resize.html"
+                        },
+                        {
+                          "name": "runmode.html",
+                          "size": 1939,
+                          "path": "tributary/lib/CodeMirror2/demo/runmode.html"
+                        },
+                        {
+                          "name": "search.html",
+                          "size": 3458,
+                          "path": "tributary/lib/CodeMirror2/demo/search.html"
+                        },
+                        {
+                          "name": "theme.html",
+                          "size": 2435,
+                          "path": "tributary/lib/CodeMirror2/demo/theme.html"
+                        },
+                        {
+                          "name": "vim.html",
+                          "size": 1457,
+                          "path": "tributary/lib/CodeMirror2/demo/vim.html"
+                        },
+                        {
+                          "name": "visibletabs.html",
+                          "size": 1649,
+                          "path": "tributary/lib/CodeMirror2/demo/visibletabs.html"
+                        }
+                      ],
+                      "path": "tributary/lib/CodeMirror2/demo"
+                    },
+                    {
+                      "name": "doc",
+                      "children": [
+                        {
+                          "name": "baboon.png",
+                          "size": 23299,
+                          "path": "tributary/lib/CodeMirror2/doc/baboon.png"
+                        },
+                        {
+                          "name": "baboon_vector.svg",
+                          "size": 17183,
+                          "path": "tributary/lib/CodeMirror2/doc/baboon_vector.svg"
+                        },
+                        {
+                          "name": "compress.html",
+                          "size": 10020,
+                          "path": "tributary/lib/CodeMirror2/doc/compress.html"
+                        },
+                        {
+                          "name": "docs.css",
+                          "size": 2083,
+                          "path": "tributary/lib/CodeMirror2/doc/docs.css"
+                        },
+                        {
+                          "name": "internals.html",
+                          "size": 25411,
+                          "path": "tributary/lib/CodeMirror2/doc/internals.html"
+                        },
+                        {
+                          "name": "manual.html",
+                          "size": 56957,
+                          "path": "tributary/lib/CodeMirror2/doc/manual.html"
+                        },
+                        {
+                          "name": "oldrelease.html",
+                          "size": 13499,
+                          "path": "tributary/lib/CodeMirror2/doc/oldrelease.html"
+                        },
+                        {
+                          "name": "reporting.html",
+                          "size": 2142,
+                          "path": "tributary/lib/CodeMirror2/doc/reporting.html"
+                        },
+                        {
+                          "name": "upgrade_v2.2.html",
+                          "size": 3613,
+                          "path": "tributary/lib/CodeMirror2/doc/upgrade_v2.2.html"
+                        }
+                      ],
+                      "path": "tributary/lib/CodeMirror2/doc"
+                    },
+                    {
+                      "name": "keymap",
+                      "children": [
+                        {
+                          "name": "emacs.js",
+                          "size": 1335,
+                          "path": "tributary/lib/CodeMirror2/keymap/emacs.js"
+                        },
+                        {
+                          "name": "vim.js",
+                          "size": 16615,
+                          "path": "tributary/lib/CodeMirror2/keymap/vim.js"
+                        }
+                      ],
+                      "path": "tributary/lib/CodeMirror2/keymap"
+                    },
+                    {
+                      "name": "lib",
+                      "children": [
+                        {
+                          "name": "util",
+                          "children": [
+                            {
+                              "name": "closetag.js",
+                              "size": 5053,
+                              "path": "tributary/lib/CodeMirror2/lib/util/closetag.js"
+                            },
+                            {
+                              "name": "dialog.css",
+                              "size": 401,
+                              "path": "tributary/lib/CodeMirror2/lib/util/dialog.css"
+                            },
+                            {
+                              "name": "dialog.js",
+                              "size": 1962,
+                              "path": "tributary/lib/CodeMirror2/lib/util/dialog.js"
+                            },
+                            {
+                              "name": "foldcode.js",
+                              "size": 6123,
+                              "path": "tributary/lib/CodeMirror2/lib/util/foldcode.js"
+                            },
+                            {
+                              "name": "formatting.js",
+                              "size": 10183,
+                              "path": "tributary/lib/CodeMirror2/lib/util/formatting.js"
+                            },
+                            {
+                              "name": "javascript-hint.js",
+                              "size": 5385,
+                              "path": "tributary/lib/CodeMirror2/lib/util/javascript-hint.js"
+                            },
+                            {
+                              "name": "loadmode.js",
+                              "size": 1786,
+                              "path": "tributary/lib/CodeMirror2/lib/util/loadmode.js"
+                            },
+                            {
+                              "name": "match-highlighter.js",
+                              "size": 1682,
+                              "path": "tributary/lib/CodeMirror2/lib/util/match-highlighter.js"
+                            },
+                            {
+                              "name": "overlay.js",
+                              "size": 1877,
+                              "path": "tributary/lib/CodeMirror2/lib/util/overlay.js"
+                            },
+                            {
+                              "name": "runmode.js",
+                              "size": 1611,
+                              "path": "tributary/lib/CodeMirror2/lib/util/runmode.js"
+                            },
+                            {
+                              "name": "search.js",
+                              "size": 4758,
+                              "path": "tributary/lib/CodeMirror2/lib/util/search.js"
+                            },
+                            {
+                              "name": "searchcursor.js",
+                              "size": 4694,
+                              "path": "tributary/lib/CodeMirror2/lib/util/searchcursor.js"
+                            },
+                            {
+                              "name": "simple-hint.css",
+                              "size": 368,
+                              "path": "tributary/lib/CodeMirror2/lib/util/simple-hint.css"
+                            },
+                            {
+                              "name": "simple-hint.js",
+                              "size": 2943,
+                              "path": "tributary/lib/CodeMirror2/lib/util/simple-hint.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/lib/util"
+                        },
+                        {
+                          "name": "codemirror.css",
+                          "size": 3490,
+                          "path": "tributary/lib/CodeMirror2/lib/codemirror.css"
+                        },
+                        {
+                          "name": "codemirror.js",
+                          "size": 126053,
+                          "path": "tributary/lib/CodeMirror2/lib/codemirror.js"
+                        }
+                      ],
+                      "path": "tributary/lib/CodeMirror2/lib"
+                    },
+                    {
+                      "name": "mode",
+                      "children": [
+                        {
+                          "name": "clike",
+                          "children": [
+                            {
+                              "name": "clike.js",
+                              "size": 8405,
+                              "path": "tributary/lib/CodeMirror2/mode/clike/clike.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 3054,
+                              "path": "tributary/lib/CodeMirror2/mode/clike/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/clike"
+                        },
+                        {
+                          "name": "clojure",
+                          "children": [
+                            {
+                              "name": "clojure.js",
+                              "size": 12435,
+                              "path": "tributary/lib/CodeMirror2/mode/clojure/clojure.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1981,
+                              "path": "tributary/lib/CodeMirror2/mode/clojure/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/clojure"
+                        },
+                        {
+                          "name": "coffeescript",
+                          "children": [
+                            {
+                              "name": "LICENSE",
+                              "size": 1151,
+                              "path": "tributary/lib/CodeMirror2/mode/coffeescript/LICENSE"
+                            },
+                            {
+                              "name": "coffeescript.js",
+                              "size": 10731,
+                              "path": "tributary/lib/CodeMirror2/mode/coffeescript/coffeescript.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 21995,
+                              "path": "tributary/lib/CodeMirror2/mode/coffeescript/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/coffeescript"
+                        },
+                        {
+                          "name": "css",
+                          "children": [
+                            {
+                              "name": "css.js",
+                              "size": 3646,
+                              "path": "tributary/lib/CodeMirror2/mode/css/css.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1051,
+                              "path": "tributary/lib/CodeMirror2/mode/css/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/css"
+                        },
+                        {
+                          "name": "diff",
+                          "children": [
+                            {
+                              "name": "diff.js",
+                              "size": 670,
+                              "path": "tributary/lib/CodeMirror2/mode/diff/diff.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 4055,
+                              "path": "tributary/lib/CodeMirror2/mode/diff/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/diff"
+                        },
+                        {
+                          "name": "ecl",
+                          "children": [
+                            {
+                              "name": "ecl.js",
+                              "size": 8721,
+                              "path": "tributary/lib/CodeMirror2/mode/ecl/ecl.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1164,
+                              "path": "tributary/lib/CodeMirror2/mode/ecl/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/ecl"
+                        },
+                        {
+                          "name": "erlang",
+                          "children": [
+                            {
+                              "name": "erlang.js",
+                              "size": 6723,
+                              "path": "tributary/lib/CodeMirror2/mode/erlang/erlang.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1712,
+                              "path": "tributary/lib/CodeMirror2/mode/erlang/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/erlang"
+                        },
+                        {
+                          "name": "gfm",
+                          "children": [
+                            {
+                              "name": "gfm.js",
+                              "size": 3035,
+                              "path": "tributary/lib/CodeMirror2/mode/gfm/gfm.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1297,
+                              "path": "tributary/lib/CodeMirror2/mode/gfm/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/gfm"
+                        },
+                        {
+                          "name": "go",
+                          "children": [
+                            {
+                              "name": "go.js",
+                              "size": 5471,
+                              "path": "tributary/lib/CodeMirror2/mode/go/go.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1765,
+                              "path": "tributary/lib/CodeMirror2/mode/go/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/go"
+                        },
+                        {
+                          "name": "groovy",
+                          "children": [
+                            {
+                              "name": "groovy.js",
+                              "size": 7154,
+                              "path": "tributary/lib/CodeMirror2/mode/groovy/groovy.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1760,
+                              "path": "tributary/lib/CodeMirror2/mode/groovy/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/groovy"
+                        },
+                        {
+                          "name": "haskell",
+                          "children": [
+                            {
+                              "name": "haskell.js",
+                              "size": 7478,
+                              "path": "tributary/lib/CodeMirror2/mode/haskell/haskell.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1780,
+                              "path": "tributary/lib/CodeMirror2/mode/haskell/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/haskell"
+                        },
+                        {
+                          "name": "htmlembedded",
+                          "children": [
+                            {
+                              "name": "htmlembedded.js",
+                              "size": 2293,
+                              "path": "tributary/lib/CodeMirror2/mode/htmlembedded/htmlembedded.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1703,
+                              "path": "tributary/lib/CodeMirror2/mode/htmlembedded/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/htmlembedded"
+                        },
+                        {
+                          "name": "htmlmixed",
+                          "children": [
+                            {
+                              "name": "htmlmixed.js",
+                              "size": 2957,
+                              "path": "tributary/lib/CodeMirror2/mode/htmlmixed/htmlmixed.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1558,
+                              "path": "tributary/lib/CodeMirror2/mode/htmlmixed/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/htmlmixed"
+                        },
+                        {
+                          "name": "javascript",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 2539,
+                              "path": "tributary/lib/CodeMirror2/mode/javascript/index.html"
+                            },
+                            {
+                              "name": "javascript.js",
+                              "size": 12819,
+                              "path": "tributary/lib/CodeMirror2/mode/javascript/javascript.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/javascript"
+                        },
+                        {
+                          "name": "jinja2",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1040,
+                              "path": "tributary/lib/CodeMirror2/mode/jinja2/index.html"
+                            },
+                            {
+                              "name": "jinja2.js",
+                              "size": 1380,
+                              "path": "tributary/lib/CodeMirror2/mode/jinja2/jinja2.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/jinja2"
+                        },
+                        {
+                          "name": "less",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 14891,
+                              "path": "tributary/lib/CodeMirror2/mode/less/index.html"
+                            },
+                            {
+                              "name": "less.js",
+                              "size": 9240,
+                              "path": "tributary/lib/CodeMirror2/mode/less/less.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/less"
+                        },
+                        {
+                          "name": "lua",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1693,
+                              "path": "tributary/lib/CodeMirror2/mode/lua/index.html"
+                            },
+                            {
+                              "name": "lua.js",
+                              "size": 5347,
+                              "path": "tributary/lib/CodeMirror2/mode/lua/lua.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/lua"
+                        },
+                        {
+                          "name": "markdown",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 9858,
+                              "path": "tributary/lib/CodeMirror2/mode/markdown/index.html"
+                            },
+                            {
+                              "name": "markdown.js",
+                              "size": 6147,
+                              "path": "tributary/lib/CodeMirror2/mode/markdown/markdown.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/markdown"
+                        },
+                        {
+                          "name": "mysql",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1132,
+                              "path": "tributary/lib/CodeMirror2/mode/mysql/index.html"
+                            },
+                            {
+                              "name": "mysql.js",
+                              "size": 7776,
+                              "path": "tributary/lib/CodeMirror2/mode/mysql/mysql.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/mysql"
+                        },
+                        {
+                          "name": "ntriples",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 998,
+                              "path": "tributary/lib/CodeMirror2/mode/ntriples/index.html"
+                            },
+                            {
+                              "name": "ntriples.js",
+                              "size": 6348,
+                              "path": "tributary/lib/CodeMirror2/mode/ntriples/ntriples.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/ntriples"
+                        },
+                        {
+                          "name": "pascal",
+                          "children": [
+                            {
+                              "name": "LICENSE",
+                              "size": 1078,
+                              "path": "tributary/lib/CodeMirror2/mode/pascal/LICENSE"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1108,
+                              "path": "tributary/lib/CodeMirror2/mode/pascal/index.html"
+                            },
+                            {
+                              "name": "pascal.js",
+                              "size": 2605,
+                              "path": "tributary/lib/CodeMirror2/mode/pascal/pascal.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/pascal"
+                        },
+                        {
+                          "name": "perl",
+                          "children": [
+                            {
+                              "name": "LICENSE",
+                              "size": 1094,
+                              "path": "tributary/lib/CodeMirror2/mode/perl/LICENSE"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1212,
+                              "path": "tributary/lib/CodeMirror2/mode/perl/index.html"
+                            },
+                            {
+                              "name": "perl.js",
+                              "size": 29358,
+                              "path": "tributary/lib/CodeMirror2/mode/perl/perl.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/perl"
+                        },
+                        {
+                          "name": "php",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1499,
+                              "path": "tributary/lib/CodeMirror2/mode/php/index.html"
+                            },
+                            {
+                              "name": "php.js",
+                              "size": 6113,
+                              "path": "tributary/lib/CodeMirror2/mode/php/php.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/php"
+                        },
+                        {
+                          "name": "pig",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1132,
+                              "path": "tributary/lib/CodeMirror2/mode/pig/index.html"
+                            },
+                            {
+                              "name": "pig.js",
+                              "size": 5223,
+                              "path": "tributary/lib/CodeMirror2/mode/pig/pig.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/pig"
+                        },
+                        {
+                          "name": "plsql",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1553,
+                              "path": "tributary/lib/CodeMirror2/mode/plsql/index.html"
+                            },
+                            {
+                              "name": "plsql.js",
+                              "size": 8430,
+                              "path": "tributary/lib/CodeMirror2/mode/plsql/plsql.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/plsql"
+                        },
+                        {
+                          "name": "properties",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1189,
+                              "path": "tributary/lib/CodeMirror2/mode/properties/index.html"
+                            },
+                            {
+                              "name": "properties.js",
+                              "size": 1734,
+                              "path": "tributary/lib/CodeMirror2/mode/properties/properties.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/properties"
+                        },
+                        {
+                          "name": "python",
+                          "children": [
+                            {
+                              "name": "LICENSE.txt",
+                              "size": 1075,
+                              "path": "tributary/lib/CodeMirror2/mode/python/LICENSE.txt"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 2835,
+                              "path": "tributary/lib/CodeMirror2/mode/python/index.html"
+                            },
+                            {
+                              "name": "python.js",
+                              "size": 12145,
+                              "path": "tributary/lib/CodeMirror2/mode/python/python.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/python"
+                        },
+                        {
+                          "name": "r",
+                          "children": [
+                            {
+                              "name": "LICENSE",
+                              "size": 1486,
+                              "path": "tributary/lib/CodeMirror2/mode/r/LICENSE"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 2263,
+                              "path": "tributary/lib/CodeMirror2/mode/r/index.html"
+                            },
+                            {
+                              "name": "r.js",
+                              "size": 4936,
+                              "path": "tributary/lib/CodeMirror2/mode/r/r.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/r"
+                        },
+                        {
+                          "name": "rpm",
+                          "children": [
+                            {
+                              "name": "changes",
+                              "children": [
+                                {
+                                  "name": "changes.js",
+                                  "size": 654,
+                                  "path": "tributary/lib/CodeMirror2/mode/rpm/changes/changes.js"
+                                },
+                                {
+                                  "name": "index.html",
+                                  "size": 1793,
+                                  "path": "tributary/lib/CodeMirror2/mode/rpm/changes/index.html"
+                                }
+                              ],
+                              "path": "tributary/lib/CodeMirror2/mode/rpm/changes"
+                            },
+                            {
+                              "name": "spec",
+                              "children": [
+                                {
+                                  "name": "index.html",
+                                  "size": 3037,
+                                  "path": "tributary/lib/CodeMirror2/mode/rpm/spec/index.html"
+                                },
+                                {
+                                  "name": "spec.css",
+                                  "size": 267,
+                                  "path": "tributary/lib/CodeMirror2/mode/rpm/spec/spec.css"
+                                },
+                                {
+                                  "name": "spec.js",
+                                  "size": 2698,
+                                  "path": "tributary/lib/CodeMirror2/mode/rpm/spec/spec.js"
+                                }
+                              ],
+                              "path": "tributary/lib/CodeMirror2/mode/rpm/spec"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/rpm"
+                        },
+                        {
+                          "name": "rst",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 17578,
+                              "path": "tributary/lib/CodeMirror2/mode/rst/index.html"
+                            },
+                            {
+                              "name": "rst.js",
+                              "size": 8439,
+                              "path": "tributary/lib/CodeMirror2/mode/rst/rst.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/rst"
+                        },
+                        {
+                          "name": "ruby",
+                          "children": [
+                            {
+                              "name": "LICENSE",
+                              "size": 1487,
+                              "path": "tributary/lib/CodeMirror2/mode/ruby/LICENSE"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 5412,
+                              "path": "tributary/lib/CodeMirror2/mode/ruby/index.html"
+                            },
+                            {
+                              "name": "ruby.js",
+                              "size": 7400,
+                              "path": "tributary/lib/CodeMirror2/mode/ruby/ruby.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/ruby"
+                        },
+                        {
+                          "name": "rust",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1071,
+                              "path": "tributary/lib/CodeMirror2/mode/rust/index.html"
+                            },
+                            {
+                              "name": "rust.js",
+                              "size": 15457,
+                              "path": "tributary/lib/CodeMirror2/mode/rust/rust.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/rust"
+                        },
+                        {
+                          "name": "scheme",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 2198,
+                              "path": "tributary/lib/CodeMirror2/mode/scheme/index.html"
+                            },
+                            {
+                              "name": "scheme.js",
+                              "size": 10326,
+                              "path": "tributary/lib/CodeMirror2/mode/scheme/scheme.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/scheme"
+                        },
+                        {
+                          "name": "shell",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1269,
+                              "path": "tributary/lib/CodeMirror2/mode/shell/index.html"
+                            },
+                            {
+                              "name": "shell.js",
+                              "size": 3226,
+                              "path": "tributary/lib/CodeMirror2/mode/shell/shell.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/shell"
+                        },
+                        {
+                          "name": "smalltalk",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1484,
+                              "path": "tributary/lib/CodeMirror2/mode/smalltalk/index.html"
+                            },
+                            {
+                              "name": "smalltalk.js",
+                              "size": 3448,
+                              "path": "tributary/lib/CodeMirror2/mode/smalltalk/smalltalk.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/smalltalk"
+                        },
+                        {
+                          "name": "smarty",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 2306,
+                              "path": "tributary/lib/CodeMirror2/mode/smarty/index.html"
+                            },
+                            {
+                              "name": "smarty.js",
+                              "size": 3852,
+                              "path": "tributary/lib/CodeMirror2/mode/smarty/smarty.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/smarty"
+                        },
+                        {
+                          "name": "sparql",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1196,
+                              "path": "tributary/lib/CodeMirror2/mode/sparql/index.html"
+                            },
+                            {
+                              "name": "sparql.js",
+                              "size": 4605,
+                              "path": "tributary/lib/CodeMirror2/mode/sparql/sparql.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/sparql"
+                        },
+                        {
+                          "name": "stex",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 3610,
+                              "path": "tributary/lib/CodeMirror2/mode/stex/index.html"
+                            },
+                            {
+                              "name": "stex.js",
+                              "size": 4413,
+                              "path": "tributary/lib/CodeMirror2/mode/stex/stex.js"
+                            },
+                            {
+                              "name": "test.html",
+                              "size": 5785,
+                              "path": "tributary/lib/CodeMirror2/mode/stex/test.html"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/stex"
+                        },
+                        {
+                          "name": "tiddlywiki",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 4187,
+                              "path": "tributary/lib/CodeMirror2/mode/tiddlywiki/index.html"
+                            },
+                            {
+                              "name": "tiddlywiki.css",
+                              "size": 220,
+                              "path": "tributary/lib/CodeMirror2/mode/tiddlywiki/tiddlywiki.css"
+                            },
+                            {
+                              "name": "tiddlywiki.js",
+                              "size": 9485,
+                              "path": "tributary/lib/CodeMirror2/mode/tiddlywiki/tiddlywiki.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/tiddlywiki"
+                        },
+                        {
+                          "name": "tiki",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1485,
+                              "path": "tributary/lib/CodeMirror2/mode/tiki/index.html"
+                            },
+                            {
+                              "name": "tiki.css",
+                              "size": 446,
+                              "path": "tributary/lib/CodeMirror2/mode/tiki/tiki.css"
+                            },
+                            {
+                              "name": "tiki.js",
+                              "size": 8096,
+                              "path": "tributary/lib/CodeMirror2/mode/tiki/tiki.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/tiki"
+                        },
+                        {
+                          "name": "vbscript",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1161,
+                              "path": "tributary/lib/CodeMirror2/mode/vbscript/index.html"
+                            },
+                            {
+                              "name": "vbscript.js",
+                              "size": 867,
+                              "path": "tributary/lib/CodeMirror2/mode/vbscript/vbscript.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/vbscript"
+                        },
+                        {
+                          "name": "velocity",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 2761,
+                              "path": "tributary/lib/CodeMirror2/mode/velocity/index.html"
+                            },
+                            {
+                              "name": "velocity.js",
+                              "size": 4959,
+                              "path": "tributary/lib/CodeMirror2/mode/velocity/velocity.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/velocity"
+                        },
+                        {
+                          "name": "verilog",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 6782,
+                              "path": "tributary/lib/CodeMirror2/mode/verilog/index.html"
+                            },
+                            {
+                              "name": "verilog.js",
+                              "size": 6996,
+                              "path": "tributary/lib/CodeMirror2/mode/verilog/verilog.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/verilog"
+                        },
+                        {
+                          "name": "xml",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1617,
+                              "path": "tributary/lib/CodeMirror2/mode/xml/index.html"
+                            },
+                            {
+                              "name": "xml.js",
+                              "size": 10170,
+                              "path": "tributary/lib/CodeMirror2/mode/xml/xml.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/xml"
+                        },
+                        {
+                          "name": "xquery",
+                          "children": [
+                            {
+                              "name": "test",
+                              "children": [
+                                {
+                                  "name": "index.html",
+                                  "size": 1171,
+                                  "path": "tributary/lib/CodeMirror2/mode/xquery/test/index.html"
+                                },
+                                {
+                                  "name": "testBase.js",
+                                  "size": 6114,
+                                  "path": "tributary/lib/CodeMirror2/mode/xquery/test/testBase.js"
+                                },
+                                {
+                                  "name": "testEmptySequenceKeyword.js",
+                                  "size": 639,
+                                  "path": "tributary/lib/CodeMirror2/mode/xquery/test/testEmptySequenceKeyword.js"
+                                },
+                                {
+                                  "name": "testMultiAttr.js",
+                                  "size": 789,
+                                  "path": "tributary/lib/CodeMirror2/mode/xquery/test/testMultiAttr.js"
+                                },
+                                {
+                                  "name": "testNamespaces.js",
+                                  "size": 5494,
+                                  "path": "tributary/lib/CodeMirror2/mode/xquery/test/testNamespaces.js"
+                                },
+                                {
+                                  "name": "testProcessingInstructions.js",
+                                  "size": 719,
+                                  "path": "tributary/lib/CodeMirror2/mode/xquery/test/testProcessingInstructions.js"
+                                },
+                                {
+                                  "name": "testQuotes.js",
+                                  "size": 1070,
+                                  "path": "tributary/lib/CodeMirror2/mode/xquery/test/testQuotes.js"
+                                }
+                              ],
+                              "path": "tributary/lib/CodeMirror2/mode/xquery/test"
+                            },
+                            {
+                              "name": "LICENSE",
+                              "size": 1109,
+                              "path": "tributary/lib/CodeMirror2/mode/xquery/LICENSE"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 9447,
+                              "path": "tributary/lib/CodeMirror2/mode/xquery/index.html"
+                            },
+                            {
+                              "name": "xquery.js",
+                              "size": 15976,
+                              "path": "tributary/lib/CodeMirror2/mode/xquery/xquery.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/xquery"
+                        },
+                        {
+                          "name": "yaml",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 1744,
+                              "path": "tributary/lib/CodeMirror2/mode/yaml/index.html"
+                            },
+                            {
+                              "name": "yaml.js",
+                              "size": 2677,
+                              "path": "tributary/lib/CodeMirror2/mode/yaml/yaml.js"
+                            }
+                          ],
+                          "path": "tributary/lib/CodeMirror2/mode/yaml"
+                        }
+                      ],
+                      "path": "tributary/lib/CodeMirror2/mode"
+                    },
+                    {
+                      "name": "test",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 740,
+                          "path": "tributary/lib/CodeMirror2/test/index.html"
+                        },
+                        {
+                          "name": "mode_test.css",
+                          "size": 317,
+                          "path": "tributary/lib/CodeMirror2/test/mode_test.css"
+                        },
+                        {
+                          "name": "mode_test.js",
+                          "size": 4301,
+                          "path": "tributary/lib/CodeMirror2/test/mode_test.js"
+                        },
+                        {
+                          "name": "test.js",
+                          "size": 11348,
+                          "path": "tributary/lib/CodeMirror2/test/test.js"
+                        }
+                      ],
+                      "path": "tributary/lib/CodeMirror2/test"
+                    },
+                    {
+                      "name": "theme",
+                      "children": [
+                        {
+                          "name": "ambiance.css",
+                          "size": 26155,
+                          "path": "tributary/lib/CodeMirror2/theme/ambiance.css"
+                        },
+                        {
+                          "name": "blackboard.css",
+                          "size": 1226,
+                          "path": "tributary/lib/CodeMirror2/theme/blackboard.css"
+                        },
+                        {
+                          "name": "cobalt.css",
+                          "size": 1037,
+                          "path": "tributary/lib/CodeMirror2/theme/cobalt.css"
+                        },
+                        {
+                          "name": "eclipse.css",
+                          "size": 1050,
+                          "path": "tributary/lib/CodeMirror2/theme/eclipse.css"
+                        },
+                        {
+                          "name": "elegant.css",
+                          "size": 593,
+                          "path": "tributary/lib/CodeMirror2/theme/elegant.css"
+                        },
+                        {
+                          "name": "erlang-dark.css",
+                          "size": 1227,
+                          "path": "tributary/lib/CodeMirror2/theme/erlang-dark.css"
+                        },
+                        {
+                          "name": "lesser-dark.css",
+                          "size": 2059,
+                          "path": "tributary/lib/CodeMirror2/theme/lesser-dark.css"
+                        },
+                        {
+                          "name": "monokai.css",
+                          "size": 1151,
+                          "path": "tributary/lib/CodeMirror2/theme/monokai.css"
+                        },
+                        {
+                          "name": "neat.css",
+                          "size": 524,
+                          "path": "tributary/lib/CodeMirror2/theme/neat.css"
+                        },
+                        {
+                          "name": "night.css",
+                          "size": 1118,
+                          "path": "tributary/lib/CodeMirror2/theme/night.css"
+                        },
+                        {
+                          "name": "rubyblue.css",
+                          "size": 1300,
+                          "path": "tributary/lib/CodeMirror2/theme/rubyblue.css"
+                        },
+                        {
+                          "name": "xq-dark.css",
+                          "size": 2296,
+                          "path": "tributary/lib/CodeMirror2/theme/xq-dark.css"
+                        }
+                      ],
+                      "path": "tributary/lib/CodeMirror2/theme"
+                    },
+                    {
+                      "name": "LICENSE",
+                      "size": 1228,
+                      "path": "tributary/lib/CodeMirror2/LICENSE"
+                    },
+                    {
+                      "name": "README.md",
+                      "size": 234,
+                      "path": "tributary/lib/CodeMirror2/README.md"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 20374,
+                      "path": "tributary/lib/CodeMirror2/index.html"
+                    }
+                  ],
+                  "path": "tributary/lib/CodeMirror2"
+                },
+                {
+                  "name": "colorpicker",
+                  "children": [
+                    {
+                      "name": "Color.Picker.Classic.css",
+                      "size": 1545,
+                      "path": "tributary/lib/colorpicker/Color.Picker.Classic.css"
+                    },
+                    {
+                      "name": "Color.Picker.Classic.js",
+                      "size": 17371,
+                      "path": "tributary/lib/colorpicker/Color.Picker.Classic.js"
+                    },
+                    {
+                      "name": "Color.Space.js",
+                      "size": 4928,
+                      "path": "tributary/lib/colorpicker/Color.Space.js"
+                    }
+                  ],
+                  "path": "tributary/lib/colorpicker"
+                },
+                {
+                  "name": "dvl",
+                  "children": [
+                    {
+                      "name": "css",
+                      "children": [
+                        {
+                          "name": "smoothness",
+                          "children": [
+                            {
+                              "name": "images",
+                              "children": [
+                                {
+                                  "name": "ui-bg_flat_0_aaaaaa_40x100.png",
+                                  "size": 180,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_flat_0_aaaaaa_40x100.png"
+                                },
+                                {
+                                  "name": "ui-bg_flat_75_ffffff_40x100.png",
+                                  "size": 178,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_flat_75_ffffff_40x100.png"
+                                },
+                                {
+                                  "name": "ui-bg_glass_55_fbf9ee_1x400.png",
+                                  "size": 120,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_glass_55_fbf9ee_1x400.png"
+                                },
+                                {
+                                  "name": "ui-bg_glass_65_ffffff_1x400.png",
+                                  "size": 105,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_glass_65_ffffff_1x400.png"
+                                },
+                                {
+                                  "name": "ui-bg_glass_75_dadada_1x400.png",
+                                  "size": 111,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_glass_75_dadada_1x400.png"
+                                },
+                                {
+                                  "name": "ui-bg_glass_75_e6e6e6_1x400.png",
+                                  "size": 110,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_glass_75_e6e6e6_1x400.png"
+                                },
+                                {
+                                  "name": "ui-bg_glass_95_fef1ec_1x400.png",
+                                  "size": 119,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_glass_95_fef1ec_1x400.png"
+                                },
+                                {
+                                  "name": "ui-bg_highlight-soft_75_cccccc_1x100.png",
+                                  "size": 101,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png"
+                                },
+                                {
+                                  "name": "ui-icons_222222_256x240.png",
+                                  "size": 4369,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-icons_222222_256x240.png"
+                                },
+                                {
+                                  "name": "ui-icons_2e83ff_256x240.png",
+                                  "size": 4369,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-icons_2e83ff_256x240.png"
+                                },
+                                {
+                                  "name": "ui-icons_454545_256x240.png",
+                                  "size": 4369,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-icons_454545_256x240.png"
+                                },
+                                {
+                                  "name": "ui-icons_888888_256x240.png",
+                                  "size": 4369,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-icons_888888_256x240.png"
+                                },
+                                {
+                                  "name": "ui-icons_cd0a0a_256x240.png",
+                                  "size": 4369,
+                                  "path": "tributary/lib/dvl/css/smoothness/images/ui-icons_cd0a0a_256x240.png"
+                                }
+                              ],
+                              "path": "tributary/lib/dvl/css/smoothness/images"
+                            },
+                            {
+                              "name": "jquery-ui-1.8.7.custom.css",
+                              "size": 33985,
+                              "path": "tributary/lib/dvl/css/smoothness/jquery-ui-1.8.7.custom.css"
+                            }
+                          ],
+                          "path": "tributary/lib/dvl/css/smoothness"
+                        }
+                      ],
+                      "path": "tributary/lib/dvl/css"
+                    },
+                    {
+                      "name": "d3",
+                      "children": [
+                        {
+                          "name": "d3.js",
+                          "size": 253776,
+                          "path": "tributary/lib/dvl/d3/d3.js"
+                        },
+                        {
+                          "name": "d3.time.js",
+                          "size": 19685,
+                          "path": "tributary/lib/dvl/d3/d3.time.js"
+                        }
+                      ],
+                      "path": "tributary/lib/dvl/d3"
+                    },
+                    {
+                      "name": "docs",
+                      "children": [
+                        {
+                          "name": "docco.css",
+                          "size": 7101,
+                          "path": "tributary/lib/dvl/docs/docco.css"
+                        }
+                      ],
+                      "path": "tributary/lib/dvl/docs"
+                    },
+                    {
+                      "name": "examples",
+                      "children": [
+                        {
+                          "name": "json",
+                          "children": [
+                            {
+                              "name": "base",
+                              "size": 6,
+                              "path": "tributary/lib/dvl/examples/json/base"
+                            },
+                            {
+                              "name": "cache.html",
+                              "size": 1716,
+                              "path": "tributary/lib/dvl/examples/json/cache.html"
+                            },
+                            {
+                              "name": "json_get.html",
+                              "size": 2179,
+                              "path": "tributary/lib/dvl/examples/json/json_get.html"
+                            },
+                            {
+                              "name": "json_post.html",
+                              "size": 2294,
+                              "path": "tributary/lib/dvl/examples/json/json_post.html"
+                            },
+                            {
+                              "name": "mirror_server.js",
+                              "size": 2102,
+                              "path": "tributary/lib/dvl/examples/json/mirror_server.js"
+                            }
+                          ],
+                          "path": "tributary/lib/dvl/examples/json"
+                        },
+                        {
+                          "name": "misc",
+                          "children": [
+                            {
+                              "name": "clock.html",
+                              "size": 3046,
+                              "path": "tributary/lib/dvl/examples/misc/clock.html"
+                            },
+                            {
+                              "name": "new.html",
+                              "size": 953,
+                              "path": "tributary/lib/dvl/examples/misc/new.html"
+                            }
+                          ],
+                          "path": "tributary/lib/dvl/examples/misc"
+                        },
+                        {
+                          "name": "time",
+                          "children": [
+                            {
+                              "name": "mouse.html",
+                              "size": 3331,
+                              "path": "tributary/lib/dvl/examples/time/mouse.html"
+                            },
+                            {
+                              "name": "random-walk.html",
+                              "size": 3128,
+                              "path": "tributary/lib/dvl/examples/time/random-walk.html"
+                            },
+                            {
+                              "name": "simple.html",
+                              "size": 3122,
+                              "path": "tributary/lib/dvl/examples/time/simple.html"
+                            }
+                          ],
+                          "path": "tributary/lib/dvl/examples/time"
+                        }
+                      ],
+                      "path": "tributary/lib/dvl/examples"
+                    },
+                    {
+                      "name": "lib",
+                      "children": [
+                        {
+                          "name": "jquery",
+                          "children": [
+                            {
+                              "name": "jquery-1.6.2.min.js",
+                              "size": 91555,
+                              "path": "tributary/lib/dvl/lib/jquery/jquery-1.6.2.min.js"
+                            },
+                            {
+                              "name": "jquery-ui-1.8.7.custom.js",
+                              "size": 206617,
+                              "path": "tributary/lib/dvl/lib/jquery/jquery-ui-1.8.7.custom.js"
+                            }
+                          ],
+                          "path": "tributary/lib/dvl/lib/jquery"
+                        },
+                        {
+                          "name": "sizzle",
+                          "children": [
+                            {
+                              "name": "LICENSE",
+                              "size": 1471,
+                              "path": "tributary/lib/dvl/lib/sizzle/LICENSE"
+                            },
+                            {
+                              "name": "sizzle.js",
+                              "size": 31742,
+                              "path": "tributary/lib/dvl/lib/sizzle/sizzle.js"
+                            },
+                            {
+                              "name": "sizzle.min.js",
+                              "size": 14175,
+                              "path": "tributary/lib/dvl/lib/sizzle/sizzle.min.js"
+                            }
+                          ],
+                          "path": "tributary/lib/dvl/lib/sizzle"
+                        }
+                      ],
+                      "path": "tributary/lib/dvl/lib"
+                    },
+                    {
+                      "name": "logo",
+                      "children": [
+                        {
+                          "name": "LEGOtype.ai",
+                          "size": 279662,
+                          "path": "tributary/lib/dvl/logo/LEGOtype.ai"
+                        },
+                        {
+                          "name": "dvl-logo.ai",
+                          "size": 232585,
+                          "path": "tributary/lib/dvl/logo/dvl-logo.ai"
+                        }
+                      ],
+                      "path": "tributary/lib/dvl/logo"
+                    },
+                    {
+                      "name": "tests",
+                      "children": [
+                        {
+                          "name": "core",
+                          "children": [
+                            {
+                              "name": "apply.js",
+                              "size": 3678,
+                              "path": "tributary/lib/dvl/tests/core/apply.js"
+                            },
+                            {
+                              "name": "block.js",
+                              "size": 305,
+                              "path": "tributary/lib/dvl/tests/core/block.js"
+                            },
+                            {
+                              "name": "knows.js",
+                              "size": 1197,
+                              "path": "tributary/lib/dvl/tests/core/knows.js"
+                            },
+                            {
+                              "name": "register.js",
+                              "size": 9131,
+                              "path": "tributary/lib/dvl/tests/core/register.js"
+                            },
+                            {
+                              "name": "varibale.js",
+                              "size": 3771,
+                              "path": "tributary/lib/dvl/tests/core/varibale.js"
+                            }
+                          ],
+                          "path": "tributary/lib/dvl/tests/core"
+                        },
+                        {
+                          "name": "env.js",
+                          "size": 393,
+                          "path": "tributary/lib/dvl/tests/env.js"
+                        }
+                      ],
+                      "path": "tributary/lib/dvl/tests"
+                    },
+                    {
+                      "name": ".gitignore",
+                      "size": 35,
+                      "path": "tributary/lib/dvl/.gitignore"
+                    },
+                    {
+                      "name": "LICENSE",
+                      "size": 1426,
+                      "path": "tributary/lib/dvl/LICENSE"
+                    },
+                    {
+                      "name": "README.md",
+                      "size": 2328,
+                      "path": "tributary/lib/dvl/README.md"
+                    },
+                    {
+                      "name": "compile",
+                      "size": 34,
+                      "path": "tributary/lib/dvl/compile"
+                    },
+                    {
+                      "name": "dvl.coffee",
+                      "size": 68348,
+                      "path": "tributary/lib/dvl/dvl.coffee"
+                    },
+                    {
+                      "name": "dvl.js",
+                      "size": 92464,
+                      "path": "tributary/lib/dvl/dvl.js"
+                    },
+                    {
+                      "name": "package.json",
+                      "size": 731,
+                      "path": "tributary/lib/dvl/package.json"
+                    },
+                    {
+                      "name": "test",
+                      "size": 62,
+                      "path": "tributary/lib/dvl/test"
+                    },
+                    {
+                      "name": "todo",
+                      "size": 616,
+                      "path": "tributary/lib/dvl/todo"
+                    },
+                    {
+                      "name": "watch",
+                      "size": 37,
+                      "path": "tributary/lib/dvl/watch"
+                    }
+                  ],
+                  "path": "tributary/lib/dvl"
+                },
+                {
+                  "name": "slider",
+                  "children": [
+                    {
+                      "name": "css",
+                      "children": [
+                        {
+                          "name": "humanity",
+                          "children": [
+                            {
+                              "name": "images",
+                              "children": [
+                                {
+                                  "name": "ui-bg_flat_75_aaaaaa_40x100.png",
+                                  "size": 180,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-bg_flat_75_aaaaaa_40x100.png"
+                                },
+                                {
+                                  "name": "ui-bg_glass_100_f5f0e5_1x400.png",
+                                  "size": 123,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-bg_glass_100_f5f0e5_1x400.png"
+                                },
+                                {
+                                  "name": "ui-bg_glass_25_cb842e_1x400.png",
+                                  "size": 130,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-bg_glass_25_cb842e_1x400.png"
+                                },
+                                {
+                                  "name": "ui-bg_glass_70_ede4d4_1x400.png",
+                                  "size": 161,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-bg_glass_70_ede4d4_1x400.png"
+                                },
+                                {
+                                  "name": "ui-bg_highlight-hard_100_f4f0ec_1x100.png",
+                                  "size": 103,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-bg_highlight-hard_100_f4f0ec_1x100.png"
+                                },
+                                {
+                                  "name": "ui-bg_highlight-hard_65_fee4bd_1x100.png",
+                                  "size": 114,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-bg_highlight-hard_65_fee4bd_1x100.png"
+                                },
+                                {
+                                  "name": "ui-bg_highlight-hard_75_f5f5b5_1x100.png",
+                                  "size": 116,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-bg_highlight-hard_75_f5f5b5_1x100.png"
+                                },
+                                {
+                                  "name": "ui-bg_inset-soft_100_f4f0ec_1x100.png",
+                                  "size": 113,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-bg_inset-soft_100_f4f0ec_1x100.png"
+                                },
+                                {
+                                  "name": "ui-icons_c47a23_256x240.png",
+                                  "size": 4369,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-icons_c47a23_256x240.png"
+                                },
+                                {
+                                  "name": "ui-icons_cb672b_256x240.png",
+                                  "size": 5355,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-icons_cb672b_256x240.png"
+                                },
+                                {
+                                  "name": "ui-icons_f08000_256x240.png",
+                                  "size": 4369,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-icons_f08000_256x240.png"
+                                },
+                                {
+                                  "name": "ui-icons_f35f07_256x240.png",
+                                  "size": 5355,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-icons_f35f07_256x240.png"
+                                },
+                                {
+                                  "name": "ui-icons_ff7519_256x240.png",
+                                  "size": 5355,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-icons_ff7519_256x240.png"
+                                },
+                                {
+                                  "name": "ui-icons_ffffff_256x240.png",
+                                  "size": 4369,
+                                  "path": "tributary/lib/slider/css/humanity/images/ui-icons_ffffff_256x240.png"
+                                }
+                              ],
+                              "path": "tributary/lib/slider/css/humanity/images"
+                            },
+                            {
+                              "name": "jquery-ui-slider.css",
+                              "size": 20002,
+                              "path": "tributary/lib/slider/css/humanity/jquery-ui-slider.css"
+                            }
+                          ],
+                          "path": "tributary/lib/slider/css/humanity"
+                        }
+                      ],
+                      "path": "tributary/lib/slider/css"
+                    },
+                    {
+                      "name": "development-bundle",
+                      "children": [
+                        {
+                          "name": "demos",
+                          "children": [
+                            {
+                              "name": "images",
+                              "children": [
+                                {
+                                  "name": "calendar.gif",
+                                  "size": 269,
+                                  "path": "tributary/lib/slider/development-bundle/demos/images/calendar.gif"
+                                },
+                                {
+                                  "name": "demo-config-on-tile.gif",
+                                  "size": 172,
+                                  "path": "tributary/lib/slider/development-bundle/demos/images/demo-config-on-tile.gif"
+                                },
+                                {
+                                  "name": "demo-config-on.gif",
+                                  "size": 335,
+                                  "path": "tributary/lib/slider/development-bundle/demos/images/demo-config-on.gif"
+                                },
+                                {
+                                  "name": "demo-spindown-closed.gif",
+                                  "size": 103,
+                                  "path": "tributary/lib/slider/development-bundle/demos/images/demo-spindown-closed.gif"
+                                },
+                                {
+                                  "name": "demo-spindown-open.gif",
+                                  "size": 105,
+                                  "path": "tributary/lib/slider/development-bundle/demos/images/demo-spindown-open.gif"
+                                },
+                                {
+                                  "name": "icon-docs-info.gif",
+                                  "size": 206,
+                                  "path": "tributary/lib/slider/development-bundle/demos/images/icon-docs-info.gif"
+                                },
+                                {
+                                  "name": "pbar-ani.gif",
+                                  "size": 7970,
+                                  "path": "tributary/lib/slider/development-bundle/demos/images/pbar-ani.gif"
+                                }
+                              ],
+                              "path": "tributary/lib/slider/development-bundle/demos/images"
+                            },
+                            {
+                              "name": "slider",
+                              "children": [
+                                {
+                                  "name": "colorpicker.html",
+                                  "size": 2510,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/colorpicker.html"
+                                },
+                                {
+                                  "name": "default.html",
+                                  "size": 932,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/default.html"
+                                },
+                                {
+                                  "name": "hotelrooms.html",
+                                  "size": 1561,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/hotelrooms.html"
+                                },
+                                {
+                                  "name": "index.html",
+                                  "size": 987,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/index.html"
+                                },
+                                {
+                                  "name": "multiple-vertical.html",
+                                  "size": 1986,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/multiple-vertical.html"
+                                },
+                                {
+                                  "name": "range-vertical.html",
+                                  "size": 1524,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/range-vertical.html"
+                                },
+                                {
+                                  "name": "range.html",
+                                  "size": 1478,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/range.html"
+                                },
+                                {
+                                  "name": "rangemax.html",
+                                  "size": 1323,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/rangemax.html"
+                                },
+                                {
+                                  "name": "rangemin.html",
+                                  "size": 1325,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/rangemin.html"
+                                },
+                                {
+                                  "name": "side-scroll.html",
+                                  "size": 5513,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/side-scroll.html"
+                                },
+                                {
+                                  "name": "slider-vertical.html",
+                                  "size": 1410,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/slider-vertical.html"
+                                },
+                                {
+                                  "name": "steps.html",
+                                  "size": 1330,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/steps.html"
+                                },
+                                {
+                                  "name": "tabs.html",
+                                  "size": 3732,
+                                  "path": "tributary/lib/slider/development-bundle/demos/slider/tabs.html"
+                                }
+                              ],
+                              "path": "tributary/lib/slider/development-bundle/demos/slider"
+                            },
+                            {
+                              "name": "demos.css",
+                              "size": 14338,
+                              "path": "tributary/lib/slider/development-bundle/demos/demos.css"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 13877,
+                              "path": "tributary/lib/slider/development-bundle/demos/index.html"
+                            }
+                          ],
+                          "path": "tributary/lib/slider/development-bundle/demos"
+                        },
+                        {
+                          "name": "docs",
+                          "children": [
+                            {
+                              "name": "slider.html",
+                              "size": 23062,
+                              "path": "tributary/lib/slider/development-bundle/docs/slider.html"
+                            }
+                          ],
+                          "path": "tributary/lib/slider/development-bundle/docs"
+                        },
+                        {
+                          "name": "external",
+                          "children": [
+                            {
+                              "name": "jquery.bgiframe-2.1.2.js",
+                              "size": 1724,
+                              "path": "tributary/lib/slider/development-bundle/external/jquery.bgiframe-2.1.2.js"
+                            },
+                            {
+                              "name": "jquery.cookie.js",
+                              "size": 3655,
+                              "path": "tributary/lib/slider/development-bundle/external/jquery.cookie.js"
+                            },
+                            {
+                              "name": "jquery.metadata.js",
+                              "size": 3955,
+                              "path": "tributary/lib/slider/development-bundle/external/jquery.metadata.js"
+                            },
+                            {
+                              "name": "qunit.css",
+                              "size": 4490,
+                              "path": "tributary/lib/slider/development-bundle/external/qunit.css"
+                            },
+                            {
+                              "name": "qunit.js",
+                              "size": 38247,
+                              "path": "tributary/lib/slider/development-bundle/external/qunit.js"
+                            }
+                          ],
+                          "path": "tributary/lib/slider/development-bundle/external"
+                        },
+                        {
+                          "name": "themes",
+                          "children": [
+                            {
+                              "name": "base",
+                              "children": [
+                                {
+                                  "name": "images",
+                                  "children": [
+                                    {
+                                      "name": "ui-bg_flat_0_aaaaaa_40x100.png",
+                                      "size": 180,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_flat_0_aaaaaa_40x100.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_flat_75_ffffff_40x100.png",
+                                      "size": 178,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_flat_75_ffffff_40x100.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_glass_55_fbf9ee_1x400.png",
+                                      "size": 120,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_glass_55_fbf9ee_1x400.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_glass_65_ffffff_1x400.png",
+                                      "size": 105,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_glass_65_ffffff_1x400.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_glass_75_dadada_1x400.png",
+                                      "size": 111,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_glass_75_dadada_1x400.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_glass_75_e6e6e6_1x400.png",
+                                      "size": 110,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_glass_75_e6e6e6_1x400.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_glass_95_fef1ec_1x400.png",
+                                      "size": 119,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_glass_95_fef1ec_1x400.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_highlight-soft_75_cccccc_1x100.png",
+                                      "size": 101,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-bg_highlight-soft_75_cccccc_1x100.png"
+                                    },
+                                    {
+                                      "name": "ui-icons_222222_256x240.png",
+                                      "size": 4369,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-icons_222222_256x240.png"
+                                    },
+                                    {
+                                      "name": "ui-icons_2e83ff_256x240.png",
+                                      "size": 4369,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-icons_2e83ff_256x240.png"
+                                    },
+                                    {
+                                      "name": "ui-icons_454545_256x240.png",
+                                      "size": 4369,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-icons_454545_256x240.png"
+                                    },
+                                    {
+                                      "name": "ui-icons_888888_256x240.png",
+                                      "size": 4369,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-icons_888888_256x240.png"
+                                    },
+                                    {
+                                      "name": "ui-icons_cd0a0a_256x240.png",
+                                      "size": 4369,
+                                      "path": "tributary/lib/slider/development-bundle/themes/base/images/ui-icons_cd0a0a_256x240.png"
+                                    }
+                                  ],
+                                  "path": "tributary/lib/slider/development-bundle/themes/base/images"
+                                },
+                                {
+                                  "name": "jquery.ui.all.css",
+                                  "size": 291,
+                                  "path": "tributary/lib/slider/development-bundle/themes/base/jquery.ui.all.css"
+                                },
+                                {
+                                  "name": "jquery.ui.base.css",
+                                  "size": 71,
+                                  "path": "tributary/lib/slider/development-bundle/themes/base/jquery.ui.base.css"
+                                },
+                                {
+                                  "name": "jquery.ui.core.css",
+                                  "size": 1317,
+                                  "path": "tributary/lib/slider/development-bundle/themes/base/jquery.ui.core.css"
+                                },
+                                {
+                                  "name": "jquery.ui.slider.css",
+                                  "size": 1140,
+                                  "path": "tributary/lib/slider/development-bundle/themes/base/jquery.ui.slider.css"
+                                },
+                                {
+                                  "name": "jquery.ui.theme.css",
+                                  "size": 18120,
+                                  "path": "tributary/lib/slider/development-bundle/themes/base/jquery.ui.theme.css"
+                                }
+                              ],
+                              "path": "tributary/lib/slider/development-bundle/themes/base"
+                            },
+                            {
+                              "name": "humanity",
+                              "children": [
+                                {
+                                  "name": "images",
+                                  "children": [
+                                    {
+                                      "name": "ui-bg_flat_75_aaaaaa_40x100.png",
+                                      "size": 180,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_flat_75_aaaaaa_40x100.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_glass_100_f5f0e5_1x400.png",
+                                      "size": 123,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_glass_100_f5f0e5_1x400.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_glass_25_cb842e_1x400.png",
+                                      "size": 130,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_glass_25_cb842e_1x400.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_glass_70_ede4d4_1x400.png",
+                                      "size": 161,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_glass_70_ede4d4_1x400.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_highlight-hard_100_f4f0ec_1x100.png",
+                                      "size": 103,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_highlight-hard_100_f4f0ec_1x100.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_highlight-hard_65_fee4bd_1x100.png",
+                                      "size": 114,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_highlight-hard_65_fee4bd_1x100.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_highlight-hard_75_f5f5b5_1x100.png",
+                                      "size": 116,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_highlight-hard_75_f5f5b5_1x100.png"
+                                    },
+                                    {
+                                      "name": "ui-bg_inset-soft_100_f4f0ec_1x100.png",
+                                      "size": 113,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-bg_inset-soft_100_f4f0ec_1x100.png"
+                                    },
+                                    {
+                                      "name": "ui-icons_c47a23_256x240.png",
+                                      "size": 4369,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-icons_c47a23_256x240.png"
+                                    },
+                                    {
+                                      "name": "ui-icons_cb672b_256x240.png",
+                                      "size": 5355,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-icons_cb672b_256x240.png"
+                                    },
+                                    {
+                                      "name": "ui-icons_f08000_256x240.png",
+                                      "size": 4369,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-icons_f08000_256x240.png"
+                                    },
+                                    {
+                                      "name": "ui-icons_f35f07_256x240.png",
+                                      "size": 5355,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-icons_f35f07_256x240.png"
+                                    },
+                                    {
+                                      "name": "ui-icons_ff7519_256x240.png",
+                                      "size": 5355,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-icons_ff7519_256x240.png"
+                                    },
+                                    {
+                                      "name": "ui-icons_ffffff_256x240.png",
+                                      "size": 4369,
+                                      "path": "tributary/lib/slider/development-bundle/themes/humanity/images/ui-icons_ffffff_256x240.png"
+                                    }
+                                  ],
+                                  "path": "tributary/lib/slider/development-bundle/themes/humanity/images"
+                                },
+                                {
+                                  "name": "jquery-ui-1.8.18.custom.css",
+                                  "size": 20002,
+                                  "path": "tributary/lib/slider/development-bundle/themes/humanity/jquery-ui-1.8.18.custom.css"
+                                },
+                                {
+                                  "name": "jquery.ui.all.css",
+                                  "size": 291,
+                                  "path": "tributary/lib/slider/development-bundle/themes/humanity/jquery.ui.all.css"
+                                },
+                                {
+                                  "name": "jquery.ui.base.css",
+                                  "size": 71,
+                                  "path": "tributary/lib/slider/development-bundle/themes/humanity/jquery.ui.base.css"
+                                },
+                                {
+                                  "name": "jquery.ui.core.css",
+                                  "size": 1317,
+                                  "path": "tributary/lib/slider/development-bundle/themes/humanity/jquery.ui.core.css"
+                                },
+                                {
+                                  "name": "jquery.ui.slider.css",
+                                  "size": 1140,
+                                  "path": "tributary/lib/slider/development-bundle/themes/humanity/jquery.ui.slider.css"
+                                },
+                                {
+                                  "name": "jquery.ui.theme.css",
+                                  "size": 17545,
+                                  "path": "tributary/lib/slider/development-bundle/themes/humanity/jquery.ui.theme.css"
+                                }
+                              ],
+                              "path": "tributary/lib/slider/development-bundle/themes/humanity"
+                            }
+                          ],
+                          "path": "tributary/lib/slider/development-bundle/themes"
+                        },
+                        {
+                          "name": "ui",
+                          "children": [
+                            {
+                              "name": "minified",
+                              "children": [
+                                {
+                                  "name": "jquery.ui.core.min.js",
+                                  "size": 4363,
+                                  "path": "tributary/lib/slider/development-bundle/ui/minified/jquery.ui.core.min.js"
+                                },
+                                {
+                                  "name": "jquery.ui.mouse.min.js",
+                                  "size": 2784,
+                                  "path": "tributary/lib/slider/development-bundle/ui/minified/jquery.ui.mouse.min.js"
+                                },
+                                {
+                                  "name": "jquery.ui.slider.min.js",
+                                  "size": 9963,
+                                  "path": "tributary/lib/slider/development-bundle/ui/minified/jquery.ui.slider.min.js"
+                                },
+                                {
+                                  "name": "jquery.ui.widget.min.js",
+                                  "size": 3256,
+                                  "path": "tributary/lib/slider/development-bundle/ui/minified/jquery.ui.widget.min.js"
+                                }
+                              ],
+                              "path": "tributary/lib/slider/development-bundle/ui/minified"
+                            },
+                            {
+                              "name": "jquery-ui-1.8.18.custom.js",
+                              "size": 37321,
+                              "path": "tributary/lib/slider/development-bundle/ui/jquery-ui-1.8.18.custom.js"
+                            },
+                            {
+                              "name": "jquery.ui.core.js",
+                              "size": 8455,
+                              "path": "tributary/lib/slider/development-bundle/ui/jquery.ui.core.js"
+                            },
+                            {
+                              "name": "jquery.ui.mouse.js",
+                              "size": 4294,
+                              "path": "tributary/lib/slider/development-bundle/ui/jquery.ui.mouse.js"
+                            },
+                            {
+                              "name": "jquery.ui.slider.js",
+                              "size": 17569,
+                              "path": "tributary/lib/slider/development-bundle/ui/jquery.ui.slider.js"
+                            },
+                            {
+                              "name": "jquery.ui.widget.js",
+                              "size": 7003,
+                              "path": "tributary/lib/slider/development-bundle/ui/jquery.ui.widget.js"
+                            }
+                          ],
+                          "path": "tributary/lib/slider/development-bundle/ui"
+                        },
+                        {
+                          "name": "AUTHORS.txt",
+                          "size": 816,
+                          "path": "tributary/lib/slider/development-bundle/AUTHORS.txt"
+                        },
+                        {
+                          "name": "GPL-LICENSE.txt",
+                          "size": 15099,
+                          "path": "tributary/lib/slider/development-bundle/GPL-LICENSE.txt"
+                        },
+                        {
+                          "name": "MIT-LICENSE.txt",
+                          "size": 1311,
+                          "path": "tributary/lib/slider/development-bundle/MIT-LICENSE.txt"
+                        },
+                        {
+                          "name": "jquery-1.7.1.js",
+                          "size": 248235,
+                          "path": "tributary/lib/slider/development-bundle/jquery-1.7.1.js"
+                        },
+                        {
+                          "name": "version.txt",
+                          "size": 7,
+                          "path": "tributary/lib/slider/development-bundle/version.txt"
+                        }
+                      ],
+                      "path": "tributary/lib/slider/development-bundle"
+                    },
+                    {
+                      "name": "js",
+                      "children": [
+                        {
+                          "name": "jquery-1.7.1.min.js",
+                          "size": 93868,
+                          "path": "tributary/lib/slider/js/jquery-1.7.1.min.js"
+                        },
+                        {
+                          "name": "jquery.ui.slider.js",
+                          "size": 20370,
+                          "path": "tributary/lib/slider/js/jquery.ui.slider.js"
+                        }
+                      ],
+                      "path": "tributary/lib/slider/js"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 25801,
+                      "path": "tributary/lib/slider/index.html"
+                    }
+                  ],
+                  "path": "tributary/lib/slider"
+                },
+                {
+                  "name": "Stats.js",
+                  "size": 2243,
+                  "path": "tributary/lib/Stats.js"
+                },
+                {
+                  "name": "backbone-min.js",
+                  "size": 16464,
+                  "path": "tributary/lib/backbone-min.js"
+                },
+                {
+                  "name": "base64.js",
+                  "size": 2986,
+                  "path": "tributary/lib/base64.js"
+                },
+                {
+                  "name": "canvas2image.js",
+                  "size": 6770,
+                  "path": "tributary/lib/canvas2image.js"
+                },
+                {
+                  "name": "coffee-script.js",
+                  "size": 177228,
+                  "path": "tributary/lib/coffee-script.js"
+                },
+                {
+                  "name": "crossfilter.min.js",
+                  "size": 7624,
+                  "path": "tributary/lib/crossfilter.min.js"
+                },
+                {
+                  "name": "d3.v2.min.js",
+                  "size": 115816,
+                  "path": "tributary/lib/d3.v2.min.js"
+                },
+                {
+                  "name": "dat.gui.min.js",
+                  "size": 45411,
+                  "path": "tributary/lib/dat.gui.min.js"
+                },
+                {
+                  "name": "handlebars-1.0.rc.1.js",
+                  "size": 61991,
+                  "path": "tributary/lib/handlebars-1.0.rc.1.js"
+                },
+                {
+                  "name": "handlebars.js",
+                  "size": 61990,
+                  "path": "tributary/lib/handlebars.js"
+                },
+                {
+                  "name": "inlet.js",
+                  "size": 5506,
+                  "path": "tributary/lib/inlet.js"
+                },
+                {
+                  "name": "isotope.min.js",
+                  "size": 15877,
+                  "path": "tributary/lib/isotope.min.js"
+                },
+                {
+                  "name": "jquery-1.7.min.js",
+                  "size": 94019,
+                  "path": "tributary/lib/jquery-1.7.min.js"
+                },
+                {
+                  "name": "jquery-ui.1.8.16.custom.min.js",
+                  "size": 20594,
+                  "path": "tributary/lib/jquery-ui.1.8.16.custom.min.js"
+                },
+                {
+                  "name": "jquery.hotkeys.js",
+                  "size": 3366,
+                  "path": "tributary/lib/jquery.hotkeys.js"
+                },
+                {
+                  "name": "jshint.js",
+                  "size": 171199,
+                  "path": "tributary/lib/jshint.js"
+                },
+                {
+                  "name": "jwerty.js",
+                  "size": 20150,
+                  "path": "tributary/lib/jwerty.js"
+                },
+                {
+                  "name": "midibridge-0.5.min.js",
+                  "size": 4811,
+                  "path": "tributary/lib/midibridge-0.5.min.js"
+                },
+                {
+                  "name": "raphael-min.js",
+                  "size": 90647,
+                  "path": "tributary/lib/raphael-min.js"
+                },
+                {
+                  "name": "require.js",
+                  "size": 14845,
+                  "path": "tributary/lib/require.js"
+                },
+                {
+                  "name": "three.min.js",
+                  "size": 391407,
+                  "path": "tributary/lib/three.min.js"
+                },
+                {
+                  "name": "underscore-min.js",
+                  "size": 13403,
+                  "path": "tributary/lib/underscore-min.js"
+                },
+                {
+                  "name": "underscore.math.js",
+                  "size": 2965,
+                  "path": "tributary/lib/underscore.math.js"
+                }
+              ],
+              "path": "tributary/lib"
+            },
+            {
+              "name": "README.md",
+              "size": 831,
+              "path": "tributary/README.md"
+            },
+            {
+              "name": "double.html",
+              "size": 4248,
+              "path": "tributary/double.html"
+            },
+            {
+              "name": "gallery.json",
+              "size": 4643,
+              "path": "tributary/gallery.json"
+            },
+            {
+              "name": "simple.html",
+              "size": 3217,
+              "path": "tributary/simple.html"
+            },
+            {
+              "name": "templates.js",
+              "size": 5331,
+              "path": "tributary/templates.js"
+            },
+            {
+              "name": "tributary.js",
+              "size": 44483,
+              "path": "tributary/tributary.js"
+            },
+            {
+              "name": "util.js",
+              "size": 191,
+              "path": "tributary/util.js"
+            }
+          ],
+          "path": "tributary"
+        },
+        {
+          "name": ".gitignore",
+          "size": 52,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 100,
+          "path": "README.md"
+        },
+        {
+          "name": "index.html",
+          "size": 4649,
+          "path": "index.html"
+        },
+        {
+          "name": "snippets.js",
+          "size": 2162,
+          "path": "snippets.js"
+        },
+        {
+          "name": "style.css",
+          "size": 14799,
+          "path": "style.css"
+        },
+        {
+          "name": "style.less",
+          "size": 21140,
+          "path": "style.less"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 386,
+    "totalSize": 5605374
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"snippets\">snippets</h1>\n<p>A D3 snippet/pattern library.</p>\n<p><a href=\"http://ejfox.github.com/snippets/\">Check it out.</a></p>",

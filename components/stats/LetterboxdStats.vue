@@ -1,7 +1,7 @@
 <template>
   <div v-if="hasData" class="space-y-8 font-mono">
     <!-- Primary Metric -->
-    <div class="text-center py-4">
+    <div class="text-center py-2">
       <div class="text-2xl font-bold">
         <AnimatedNumber
           :value="stats.totalFilms"
@@ -10,7 +10,7 @@
           priority="primary"
         />
       </div>
-      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-1">
+      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
         FILMS WATCHED
       </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2 space-y-1">
@@ -57,7 +57,7 @@
     </div>
 
     <!-- Recent Films - Enhanced -->
-    <div v-if="recentFilms.length" class="space-y-4">
+    <div v-if="recentFilms.length" class="space-y-2">
       <StatsSectionHeader title="RECENT" />
       <div class="space-y-2">
         <a
@@ -109,7 +109,7 @@
     </div>
 
     <!-- Top Rated - If we have any -->
-    <div v-if="stats.topRatedFilms.length > 0" class="space-y-4">
+    <div v-if="stats.topRatedFilms.length > 0" class="space-y-2">
       <StatsSectionHeader title="TOP RATED" />
       <div class="space-y-1">
         <a
@@ -188,8 +188,6 @@ interface LetterboxdStats {
 const props = defineProps<{
   letterboxdStats?: LetterboxdStats | null
 }>()
-
-// DELETED: const { timing } = // DELETED: useAnimations() - BROKEN IMPORT
 
 const hasData = computed(() => {
   return (

@@ -16,6 +16,126 @@
     "Shell": 1553
   },
   "diskUsage": 41,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 186
+      },
+      {
+        "path": "PERFORMANCE_NOTES.md",
+        "size": 3620
+      },
+      {
+        "path": "README.md",
+        "size": 6019
+      },
+      {
+        "path": "TOUCHDESIGNER_INTEGRATION.md",
+        "size": 6697
+      },
+      {
+        "path": "hand_midi_controller.py",
+        "size": 46522
+      },
+      {
+        "path": "hand_midi_controller_clean.py",
+        "size": 32160
+      },
+      {
+        "path": "hand_midi_controller_final.py",
+        "size": 43105
+      },
+      {
+        "path": "motion_line_controller.py",
+        "size": 11297
+      },
+      {
+        "path": "requirements.txt",
+        "size": 74
+      },
+      {
+        "path": "run.sh",
+        "size": 219
+      },
+      {
+        "path": "setup.sh",
+        "size": 926
+      },
+      {
+        "path": "start_line.sh",
+        "size": 408
+      }
+    ],
+    "tree": {
+      "name": "hand-midi-controller",
+      "children": [
+        {
+          "name": ".gitignore",
+          "size": 186,
+          "path": ".gitignore"
+        },
+        {
+          "name": "PERFORMANCE_NOTES.md",
+          "size": 3620,
+          "path": "PERFORMANCE_NOTES.md"
+        },
+        {
+          "name": "README.md",
+          "size": 6019,
+          "path": "README.md"
+        },
+        {
+          "name": "TOUCHDESIGNER_INTEGRATION.md",
+          "size": 6697,
+          "path": "TOUCHDESIGNER_INTEGRATION.md"
+        },
+        {
+          "name": "hand_midi_controller.py",
+          "size": 46522,
+          "path": "hand_midi_controller.py"
+        },
+        {
+          "name": "hand_midi_controller_clean.py",
+          "size": 32160,
+          "path": "hand_midi_controller_clean.py"
+        },
+        {
+          "name": "hand_midi_controller_final.py",
+          "size": 43105,
+          "path": "hand_midi_controller_final.py"
+        },
+        {
+          "name": "motion_line_controller.py",
+          "size": 11297,
+          "path": "motion_line_controller.py"
+        },
+        {
+          "name": "requirements.txt",
+          "size": 74,
+          "path": "requirements.txt"
+        },
+        {
+          "name": "run.sh",
+          "size": 219,
+          "path": "run.sh"
+        },
+        {
+          "name": "setup.sh",
+          "size": 926,
+          "path": "setup.sh"
+        },
+        {
+          "name": "start_line.sh",
+          "size": 408,
+          "path": "start_line.sh"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 12,
+    "totalSize": 151233
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"hand-midi-controller---professional-edition\">Hand MIDI Controller - Professional Edition</h1>\n<p>A high-performance, real-time hand tracking MIDI controller using MediaPipe and OpenCV. Transform your hand movements into MIDI control signals for music production, VJing, and creative performances.</p>\n<h2 id=\"-features\">✨ Features</h2>\n<h3 id=\"core-functionality\">Core Functionality</h3>\n<ul>\n<li><strong>Dual Hand Tracking</strong>: Independent tracking of both hands with 6 parameters each</li>\n<li><strong>12 MIDI CC Outputs</strong>: Organized in logical blocks (CC 1-6 left hand, CC 7-12 right hand)</li>\n<li><strong>Virtual MIDI Device</strong>: Creates \"HandMIDI Virtual\" device for DAW integration</li>\n<li><strong>Zero Latency</strong>: Optimized for real-time performance (30+ FPS)</li>\n</ul>\n<h3 id=\"advanced-features\">Advanced Features</h3>\n<ul>\n<li><strong>Click-Drag Region Selection</strong>: Define custom X/Y mapping bounds</li>\n<li><strong>Retina Display Optimization</strong>: Crisp UI scaling for high-DPI displays</li>\n<li><strong>Professional UI</strong>: Cyberpunk-styled overlay with real-time parameter visualization</li>\n<li><strong>Multi-Camera Support</strong>: Cycle between available cameras with 'V' key</li>\n<li><strong>Smoothing Algorithms</strong>: Exponential moving average for stable output</li>\n</ul>\n<h3 id=\"hand-parameters\">Hand Parameters</h3>\n<h4 id=\"left-hand-cc-1-6\">Left Hand (CC 1-6)</h4>\n<ol>\n<li><strong>X-Axis</strong> (CC 1): Horizontal hand position</li>\n<li><strong>Y-Axis</strong> (CC 2): Vertical hand position (inverted for natural control)</li>\n<li><strong>Pinch</strong> (CC 3): Thumb-index finger distance</li>\n<li><strong>Palm</strong> (CC 4): Hand openness/spread</li>\n<li><strong>Rotation</strong> (CC 5): Hand rotation angle</li>\n<li><strong>Velocity</strong> (CC 6): Hand movement speed</li>\n</ol>\n<h4 id=\"right-hand-cc-7-12\">Right Hand (CC 7-12)</h4>\n<ol>\n<li><strong>X-Axis</strong> (CC 7): Horizontal hand position</li>\n<li><strong>Y-Axis</strong> (CC 8): Vertical hand position (inverted for natural control)</li>\n<li><strong>Pinch</strong> (CC 9): Thumb-index finger distance</li>\n<li><strong>Palm</strong> (CC 10): Hand openness/spread</li>\n<li><strong>Rotation</strong> (CC 11): Hand rotation angle</li>\n<li><strong>Distance</strong> (CC 12): Distance between both hands</li>\n</ol>\n<h2 id=\"get-it-running-in-30-seconds\">get it running in 30 seconds</h2>\n<h3 id=\"option-1-automatic-setup-recommended\">option 1: automatic setup (recommended)</h3>\n<pre><code class=\"language-bash\">cd hand-midi-controller\n./setup.sh   # installs everything\n./run.sh     # runs it\n</code></pre>\n<h3 id=\"option-2-manual-setup\">option 2: manual setup</h3>\n<pre><code class=\"language-bash\"># 1. create virtual environment (MUST be python 3.12 or lower)\npython3.12 -m venv venv\nsource venv/bin/activate\n\n# 2. install dependencies\npip install -r requirements.txt\n\n# 3. run it\npython hand_midi_controller_final.py\n</code></pre>\n<p>that's it. \"hand midi controller\" should appear in your daw's midi inputs.</p>\n<h2 id=\"first-time-setup-checklist\">first time setup checklist</h2>\n<ol>\n<li>\n<p><strong>check python version</strong> - mediapipe needs 3.12 or lower:</p>\n<pre><code class=\"language-bash\">python3 --version  # if 3.13+, won't work\npython3.12 --version  # use this instead\n</code></pre>\n</li>\n<li>\n<p><strong>install python 3.12 if needed</strong>:</p>\n<pre><code class=\"language-bash\"># macos\nbrew install python@3.12\n\n# ubuntu/debian\nsudo apt install python3.12 python3.12-venv\n</code></pre>\n</li>\n<li>\n<p><strong>run the setup</strong>:</p>\n<pre><code class=\"language-bash\">./setup.sh  # handles everything automatically\n</code></pre>\n</li>\n<li>\n<p><strong>check your daw</strong>:</p>\n<ul>\n<li>open logic pro / ableton / your daw</li>\n<li>create new midi track</li>\n<li>set input to \"hand midi controller\"</li>\n<li>load any synth</li>\n<li>wave your hands!</li>\n</ul>\n</li>\n</ol>\n<h2 id=\"-controls\">🎮 Controls</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody><tr><td>Q</td><td>Quit application</td></tr><tr><td>V</td><td>Cycle between cameras</td></tr><tr><td>F</td><td>Toggle fullscreen</td></tr><tr><td>O</td><td>Toggle overlay display</td></tr><tr><td>R</td><td>Reset region selection</td></tr><tr><td>Click+Drag</td><td>Select custom X/Y region</td></tr></tbody></table>\n<h2 id=\"midi-mappings\">midi mappings</h2>\n<p>left hand:</p>\n<ul>\n<li><strong>cc01</strong> - x position</li>\n<li><strong>cc02</strong> - y position</li>\n<li><strong>cc05</strong> - thumb-index pinch</li>\n<li><strong>cc07</strong> - palm openness</li>\n<li><strong>cc09</strong> - hand rotation</li>\n</ul>\n<p>right hand:</p>\n<ul>\n<li><strong>cc03</strong> - x position</li>\n<li><strong>cc04</strong> - y position</li>\n<li><strong>cc06</strong> - thumb-index pinch</li>\n<li><strong>cc08</strong> - palm openness</li>\n<li><strong>cc10</strong> - hand rotation</li>\n</ul>\n<h2 id=\"ui-modes\">ui modes</h2>\n<p>run with different modes:</p>\n<pre><code class=\"language-bash\">python hand_midi_controller_final.py --ui minimal  # clean, labels only\npython hand_midi_controller_final.py --ui cyberpunk # neon meters  \npython hand_midi_controller_final.py --ui debug    # verbose info\n</code></pre>\n<h2 id=\"performance\">performance</h2>\n<p>if it's laggy:</p>\n<ul>\n<li>use minimal ui mode</li>\n<li>close other camera apps</li>\n<li>reduce smoothing in config</li>\n<li>use model_complexity=0 in config</li>\n</ul>\n<h2 id=\"custom-mapping-areas\">custom mapping areas</h2>\n<p>click and drag on the video to define a control zone. only hand movements in that area will generate midi 0-127. press <code>c</code> to clear.</p>\n<h2 id=\"config\">config</h2>\n<p>settings save to <code>hand_midi_config.json</code>. edit to:</p>\n<ul>\n<li>change cc numbers</li>\n<li>adjust sensitivity</li>\n<li>modify smoothing</li>\n<li>set camera resolution</li>\n</ul>\n<h2 id=\"common-issues--fixes\">common issues &amp; fixes</h2>\n<h3 id=\"no-module-named-cv2-or-similar-errors\">\"no module named cv2\" or similar errors</h3>\n<p>you probably ran <code>python</code> instead of using the virtual environment:</p>\n<pre><code class=\"language-bash\">./run.sh  # use this instead\n# or\nsource venv/bin/activate\npython hand_midi_controller_final.py\n</code></pre>\n<h3 id=\"python-312-not-found\">\"python 3.12 not found\"</h3>\n<pre><code class=\"language-bash\"># check what you have\npython3 --version\n\n# install 3.12\nbrew install python@3.12        # macos\nsudo apt install python3.12     # linux\n</code></pre>\n<h3 id=\"no-hands-detected\">\"no hands detected\"</h3>\n<ul>\n<li>better lighting helps (face a window)</li>\n<li>plain background works best</li>\n<li>keep hands 1-3 feet from camera</li>\n<li>check camera permissions in system settings</li>\n</ul>\n<h3 id=\"midi-not-showing-in-logic-pro\">midi not showing in logic pro</h3>\n<ol>\n<li>quit logic pro completely</li>\n<li>run the hand midi controller</li>\n<li>reopen logic pro</li>\n<li>check: track inspector → input → \"hand midi controller\"</li>\n</ol>\n<h3 id=\"still-stuck\">still stuck?</h3>\n<pre><code class=\"language-bash\"># clean install\nrm -rf venv\n./setup.sh\n./run.sh\n</code></pre>\n<h2 id=\"advanced\">advanced</h2>\n<h3 id=\"multiple-cameras\">multiple cameras</h3>\n<p>press <code>v</code> to cycle through available cameras. the app will detect all connected cameras on startup.</p>\n<h3 id=\"custom-cc-mappings\">custom cc mappings</h3>\n<p>edit the cc_mappings in config:</p>\n<pre><code class=\"language-json\">\"cc_mappings\": {\n  \"left_x\": {\"cc\": 1, \"label\": \"l_x_pos\", \"color\": [0, 255, 255], \"enabled\": true}\n}\n</code></pre>\n<h3 id=\"performance-tuning\">performance tuning</h3>\n<pre><code class=\"language-json\">\"model_complexity\": 0,          // 0=faster, 1=more accurate\n\"position_smoothing\": 3,        // lower = more responsive\n\"skip_frames\": 1,              // process every Nth frame\n\"camera_width\": 640,           // lower resolution = faster\n\"camera_height\": 480\n</code></pre>\n<hr />\n<h2 id=\"-touchdesigner-integration\">🎨 TouchDesigner Integration</h2>\n<p>Want to turn your hand gestures into sick reactive visuals? Check out <code>TOUCHDESIGNER_INTEGRATION.md</code> for:</p>\n<ul>\n<li>Real-time hand-to-visual mapping</li>\n<li>Velocity-reactive particle systems</li>\n<li>Distance-controlled camera movements</li>\n<li>Pinch-triggered effects and shaders</li>\n<li>Complete .toe project examples</li>\n</ul>\n<p><strong>Hand tracking + TouchDesigner = absolute peak creative tech!</strong> 🔥</p>\n<hr />\n<p>made for musicians who like to wave their hands around</p>",

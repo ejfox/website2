@@ -16,6 +16,201 @@
     "TypeScript": 834
   },
   "diskUsage": 691,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 68
+      },
+      {
+        "path": ".npmrc",
+        "size": 53
+      },
+      {
+        "path": "README.md",
+        "size": 613
+      },
+      {
+        "path": "app.vue",
+        "size": 388
+      },
+      {
+        "path": "assets/spinning.wav",
+        "size": 888262
+      },
+      {
+        "path": "components/NavBar.vue",
+        "size": 508
+      },
+      {
+        "path": "middleware/auth.ts",
+        "size": 624
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 210
+      },
+      {
+        "path": "package.json",
+        "size": 420
+      },
+      {
+        "path": "pages/chooser.vue",
+        "size": 4166
+      },
+      {
+        "path": "pages/idea-submit.vue",
+        "size": 1723
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 305
+      },
+      {
+        "path": "pages/queue.vue",
+        "size": 1028
+      },
+      {
+        "path": "pages/user.vue",
+        "size": 1388
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 94
+      },
+      {
+        "path": "yarn.lock",
+        "size": 233896
+      }
+    ],
+    "tree": {
+      "name": "comeup-app",
+      "children": [
+        {
+          "name": "assets",
+          "children": [
+            {
+              "name": "spinning.wav",
+              "size": 888262,
+              "path": "assets/spinning.wav"
+            }
+          ],
+          "path": "assets"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "NavBar.vue",
+              "size": 508,
+              "path": "components/NavBar.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "middleware",
+          "children": [
+            {
+              "name": "auth.ts",
+              "size": 624,
+              "path": "middleware/auth.ts"
+            }
+          ],
+          "path": "middleware"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "chooser.vue",
+              "size": 4166,
+              "path": "pages/chooser.vue"
+            },
+            {
+              "name": "idea-submit.vue",
+              "size": 1723,
+              "path": "pages/idea-submit.vue"
+            },
+            {
+              "name": "index.vue",
+              "size": 305,
+              "path": "pages/index.vue"
+            },
+            {
+              "name": "queue.vue",
+              "size": 1028,
+              "path": "pages/queue.vue"
+            },
+            {
+              "name": "user.vue",
+              "size": 1388,
+              "path": "pages/user.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "favicon.ico",
+              "size": 4286,
+              "path": "public/favicon.ico"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": ".gitignore",
+          "size": 68,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 53,
+          "path": ".npmrc"
+        },
+        {
+          "name": "README.md",
+          "size": 613,
+          "path": "README.md"
+        },
+        {
+          "name": "app.vue",
+          "size": 388,
+          "path": "app.vue"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 210,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 420,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 94,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 233896,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 17,
+    "totalSize": 1138032
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"nuxt-3-minimal-starter\">Nuxt 3 Minimal Starter</h1>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\">npm run preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>",

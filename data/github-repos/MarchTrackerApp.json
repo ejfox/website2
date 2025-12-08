@@ -16,6 +16,438 @@
     "CoffeeScript": 10354
   },
   "diskUsage": 248,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 28
+      },
+      {
+        "path": "Makefile",
+        "size": 164
+      },
+      {
+        "path": "README.md",
+        "size": 984
+      },
+      {
+        "path": "config.json",
+        "size": 23
+      },
+      {
+        "path": "package.json",
+        "size": 436
+      },
+      {
+        "path": "server.js",
+        "size": 4959
+      },
+      {
+        "path": "static/css/animate.css",
+        "size": 68611
+      },
+      {
+        "path": "static/gmaps/README.md",
+        "size": 5845
+      },
+      {
+        "path": "static/gmaps/gmaps.js",
+        "size": 45383
+      },
+      {
+        "path": "static/images/glyphicons_011_camera.png",
+        "size": 203
+      },
+      {
+        "path": "static/images/glyphicons_011_camera@2x.png",
+        "size": 344
+      },
+      {
+        "path": "static/images/glyphicons_047_camera_small.png",
+        "size": 242
+      },
+      {
+        "path": "static/images/glyphicons_047_camera_small@2x.png",
+        "size": 468
+      },
+      {
+        "path": "static/images/glyphicons_054_clock.png",
+        "size": 282
+      },
+      {
+        "path": "static/images/glyphicons_054_clock@2x.png",
+        "size": 542
+      },
+      {
+        "path": "static/images/glyphicons_151_edit.png",
+        "size": 259
+      },
+      {
+        "path": "static/images/glyphicons_151_edit@2x.png",
+        "size": 394
+      },
+      {
+        "path": "static/images/glyphicons_242_google_maps.png",
+        "size": 257
+      },
+      {
+        "path": "static/images/glyphicons_242_google_maps@2x.png",
+        "size": 448
+      },
+      {
+        "path": "static/images/glyphicons_halflings_045_camera.png",
+        "size": 133
+      },
+      {
+        "path": "static/images/logo.png",
+        "size": 1522
+      },
+      {
+        "path": "static/js/d3.v2.min.js",
+        "size": 111440
+      },
+      {
+        "path": "static/js/date.js",
+        "size": 25801
+      },
+      {
+        "path": "static/js/jquery-1.7.1.min.js",
+        "size": 93868
+      },
+      {
+        "path": "static/js/jquery.lettering.js",
+        "size": 1715
+      },
+      {
+        "path": "static/js/jquery.scrollorama.js",
+        "size": 15753
+      },
+      {
+        "path": "static/js/jquery.timeinput.js",
+        "size": 11001
+      },
+      {
+        "path": "static/js/jquery.tipsy.js",
+        "size": 9786
+      },
+      {
+        "path": "static/js/marchmap.coffee",
+        "size": 10354
+      },
+      {
+        "path": "static/js/marchmap.js",
+        "size": 9996
+      },
+      {
+        "path": "static/js/retina.js",
+        "size": 1326
+      },
+      {
+        "path": "static/js/smooth_scrolling.js",
+        "size": 1675
+      },
+      {
+        "path": "static/js/tabletop.js",
+        "size": 9537
+      },
+      {
+        "path": "static/js/trunk8.js",
+        "size": 5668
+      },
+      {
+        "path": "static/js/underscore-min.js",
+        "size": 10260
+      },
+      {
+        "path": "static/style.css",
+        "size": 17116
+      },
+      {
+        "path": "static/style.less",
+        "size": 23078
+      },
+      {
+        "path": "test/stub.js",
+        "size": 111
+      },
+      {
+        "path": "views/404.jade",
+        "size": 72
+      },
+      {
+        "path": "views/500.jade",
+        "size": 102
+      },
+      {
+        "path": "views/index.html",
+        "size": 8352
+      },
+      {
+        "path": "views/layout.jade",
+        "size": 1585
+      }
+    ],
+    "tree": {
+      "name": "MarchTrackerApp",
+      "children": [
+        {
+          "name": "static",
+          "children": [
+            {
+              "name": "css",
+              "children": [
+                {
+                  "name": "animate.css",
+                  "size": 68611,
+                  "path": "static/css/animate.css"
+                }
+              ],
+              "path": "static/css"
+            },
+            {
+              "name": "gmaps",
+              "children": [
+                {
+                  "name": "README.md",
+                  "size": 5845,
+                  "path": "static/gmaps/README.md"
+                },
+                {
+                  "name": "gmaps.js",
+                  "size": 45383,
+                  "path": "static/gmaps/gmaps.js"
+                }
+              ],
+              "path": "static/gmaps"
+            },
+            {
+              "name": "images",
+              "children": [
+                {
+                  "name": "glyphicons_011_camera.png",
+                  "size": 203,
+                  "path": "static/images/glyphicons_011_camera.png"
+                },
+                {
+                  "name": "glyphicons_011_camera@2x.png",
+                  "size": 344,
+                  "path": "static/images/glyphicons_011_camera@2x.png"
+                },
+                {
+                  "name": "glyphicons_047_camera_small.png",
+                  "size": 242,
+                  "path": "static/images/glyphicons_047_camera_small.png"
+                },
+                {
+                  "name": "glyphicons_047_camera_small@2x.png",
+                  "size": 468,
+                  "path": "static/images/glyphicons_047_camera_small@2x.png"
+                },
+                {
+                  "name": "glyphicons_054_clock.png",
+                  "size": 282,
+                  "path": "static/images/glyphicons_054_clock.png"
+                },
+                {
+                  "name": "glyphicons_054_clock@2x.png",
+                  "size": 542,
+                  "path": "static/images/glyphicons_054_clock@2x.png"
+                },
+                {
+                  "name": "glyphicons_151_edit.png",
+                  "size": 259,
+                  "path": "static/images/glyphicons_151_edit.png"
+                },
+                {
+                  "name": "glyphicons_151_edit@2x.png",
+                  "size": 394,
+                  "path": "static/images/glyphicons_151_edit@2x.png"
+                },
+                {
+                  "name": "glyphicons_242_google_maps.png",
+                  "size": 257,
+                  "path": "static/images/glyphicons_242_google_maps.png"
+                },
+                {
+                  "name": "glyphicons_242_google_maps@2x.png",
+                  "size": 448,
+                  "path": "static/images/glyphicons_242_google_maps@2x.png"
+                },
+                {
+                  "name": "glyphicons_halflings_045_camera.png",
+                  "size": 133,
+                  "path": "static/images/glyphicons_halflings_045_camera.png"
+                },
+                {
+                  "name": "logo.png",
+                  "size": 1522,
+                  "path": "static/images/logo.png"
+                }
+              ],
+              "path": "static/images"
+            },
+            {
+              "name": "js",
+              "children": [
+                {
+                  "name": "d3.v2.min.js",
+                  "size": 111440,
+                  "path": "static/js/d3.v2.min.js"
+                },
+                {
+                  "name": "date.js",
+                  "size": 25801,
+                  "path": "static/js/date.js"
+                },
+                {
+                  "name": "jquery-1.7.1.min.js",
+                  "size": 93868,
+                  "path": "static/js/jquery-1.7.1.min.js"
+                },
+                {
+                  "name": "jquery.lettering.js",
+                  "size": 1715,
+                  "path": "static/js/jquery.lettering.js"
+                },
+                {
+                  "name": "jquery.scrollorama.js",
+                  "size": 15753,
+                  "path": "static/js/jquery.scrollorama.js"
+                },
+                {
+                  "name": "jquery.timeinput.js",
+                  "size": 11001,
+                  "path": "static/js/jquery.timeinput.js"
+                },
+                {
+                  "name": "jquery.tipsy.js",
+                  "size": 9786,
+                  "path": "static/js/jquery.tipsy.js"
+                },
+                {
+                  "name": "marchmap.coffee",
+                  "size": 10354,
+                  "path": "static/js/marchmap.coffee"
+                },
+                {
+                  "name": "marchmap.js",
+                  "size": 9996,
+                  "path": "static/js/marchmap.js"
+                },
+                {
+                  "name": "retina.js",
+                  "size": 1326,
+                  "path": "static/js/retina.js"
+                },
+                {
+                  "name": "smooth_scrolling.js",
+                  "size": 1675,
+                  "path": "static/js/smooth_scrolling.js"
+                },
+                {
+                  "name": "tabletop.js",
+                  "size": 9537,
+                  "path": "static/js/tabletop.js"
+                },
+                {
+                  "name": "trunk8.js",
+                  "size": 5668,
+                  "path": "static/js/trunk8.js"
+                },
+                {
+                  "name": "underscore-min.js",
+                  "size": 10260,
+                  "path": "static/js/underscore-min.js"
+                }
+              ],
+              "path": "static/js"
+            },
+            {
+              "name": "style.css",
+              "size": 17116,
+              "path": "static/style.css"
+            },
+            {
+              "name": "style.less",
+              "size": 23078,
+              "path": "static/style.less"
+            }
+          ],
+          "path": "static"
+        },
+        {
+          "name": "test",
+          "children": [
+            {
+              "name": "stub.js",
+              "size": 111,
+              "path": "test/stub.js"
+            }
+          ],
+          "path": "test"
+        },
+        {
+          "name": "views",
+          "children": [
+            {
+              "name": "404.jade",
+              "size": 72,
+              "path": "views/404.jade"
+            },
+            {
+              "name": "500.jade",
+              "size": 102,
+              "path": "views/500.jade"
+            },
+            {
+              "name": "index.html",
+              "size": 8352,
+              "path": "views/index.html"
+            },
+            {
+              "name": "layout.jade",
+              "size": 1585,
+              "path": "views/layout.jade"
+            }
+          ],
+          "path": "views"
+        },
+        {
+          "name": ".gitignore",
+          "size": 28,
+          "path": ".gitignore"
+        },
+        {
+          "name": "Makefile",
+          "size": 164,
+          "path": "Makefile"
+        },
+        {
+          "name": "README.md",
+          "size": 984,
+          "path": "README.md"
+        },
+        {
+          "name": "config.json",
+          "size": 23,
+          "path": "config.json"
+        },
+        {
+          "name": "package.json",
+          "size": 436,
+          "path": "package.json"
+        },
+        {
+          "name": "server.js",
+          "size": 4959,
+          "path": "server.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 42,
+    "totalSize": 500123
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"march-tracker-app\">March Tracker App</h1>\n<h3 id=\"this-march-tracker-is-an-experiment-in-an-idea-of-laying-out-events-of-political-marches-on-a-google-map\">This \"march tracker\" is an experiment in an idea of laying out events of political marches on a google map.</h3>\n<p><a href=\"https://www.google.com/maps/ms?msa=0&amp;msid=200010661405270055365.0004b689a116e2bd3c665\">I have made experiments in this direction before</a>. But this is my first foray into a custom interface for displaying events on a map. I am using Google Maps not only to display events, but to make sensible guesses about where the march has been based on different updates of it's location. The idea is to have a map that is not only updatable in real-time with pictures / tweets / info for tactical reasons, but to serve as a historical document showing events of a march without losing chronological order or geographic perspective. Just as livestreamers provide an up-close-and-personal live view of the action, I would like this map to serve as a live overview of the action.</p>\n<p>You can <a href=\"http://ejfox.com/marchtracker/\">find an early demo here</a>.</p>",

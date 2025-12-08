@@ -16,7 +16,12 @@
     ],
     "state": "evolved",
     "aiInvolvement": "ai-enhanced",
-    "tags": ["programming", "ai", "product", "nodejs"],
+    "tags": [
+      "programming",
+      "ai",
+      "product",
+      "nodejs"
+    ],
     "words": 125,
     "images": 0,
     "imageDetails": {

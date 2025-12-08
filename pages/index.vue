@@ -113,12 +113,12 @@ useHead({
 </script>
 
 <template>
-  <main class="container-main h-card">
+  <main class="container-main h-card pt-8">
     <!-- Content -->
     <div style="max-width: 65ch">
       <template v-if="indexContent">
         <!-- Data overlay -->
-        <div class="mono-xs text-secondary mb-4 mt-8 tabular">
+        <div class="mono-xs text-secondary mb-4 tabular">
           <span>INDEX</span>
           <span class="mx-2 text-divider">·</span>
           <span>{{ new Date().toISOString().split('T')[0] }}</span>

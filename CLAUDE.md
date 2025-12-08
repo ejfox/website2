@@ -290,3 +290,46 @@ Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-si
 ---
 
 _This file provides AI assistants with architectural context for the EJ Fox website project. For human-readable documentation, see README.md_
+
+## VueUse Best Practices (2025-12-04)
+
+**Always prefer VueUse composables over manual lifecycle hooks**
+
+When working with:
+
+- **Element sizing**: Use `useElementSize()` instead of manual `onMounted` + resize listeners
+- **Window events**: Use `useEventListener()` instead of manual addEventListener
+- **Async data**: Use `useAsyncState()` for cleaner async handling
+- **Scroll**: Use `useScroll()` instead of scroll event listeners
+- **Breakpoints**: Use `useBreakpoints()` for responsive logic
+
+### Why?
+
+- Handles SSR/hydration edge cases automatically
+- Works correctly with async parent components (`await useAsyncData`)
+- Auto-cleanup on unmount
+- Type-safe and battle-tested
+
+### Example: Element Sizing
+
+```vue
+<!-- ❌ BAD: Manual lifecycle hooks -->
+<script setup>
+const container = ref(null)
+const width = ref(0)
+onMounted(() => {
+  width.value = container.value.offsetWidth
+  window.addEventListener('resize', handleResize)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize)
+})
+</script>
+
+<!-- ✅ GOOD: VueUse composable -->
+<script setup>
+import { useElementSize } from '@vueuse/core'
+const container = ref(null)
+const { width } = useElementSize(container)
+</script>
+```

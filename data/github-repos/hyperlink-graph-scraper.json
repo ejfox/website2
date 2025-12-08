@@ -15,6 +15,63 @@
     "JavaScript": 4515
   },
   "diskUsage": 15,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitattributes",
+        "size": 66
+      },
+      {
+        "path": "LICENSE",
+        "size": 35128
+      },
+      {
+        "path": "README.md",
+        "size": 26
+      },
+      {
+        "path": "package.json",
+        "size": 462
+      },
+      {
+        "path": "scraper.js",
+        "size": 4515
+      }
+    ],
+    "tree": {
+      "name": "hyperlink-graph-scraper",
+      "children": [
+        {
+          "name": ".gitattributes",
+          "size": 66,
+          "path": ".gitattributes"
+        },
+        {
+          "name": "LICENSE",
+          "size": 35128,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 26,
+          "path": "README.md"
+        },
+        {
+          "name": "package.json",
+          "size": 462,
+          "path": "package.json"
+        },
+        {
+          "name": "scraper.js",
+          "size": 4515,
+          "path": "scraper.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 5,
+    "totalSize": 40197
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"hyperlink-graph-scraper\">hyperlink-graph-scraper</h1>",

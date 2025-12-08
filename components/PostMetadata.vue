@@ -92,7 +92,7 @@ const props = defineProps<Props>()
 const containerClasses = computed(() => {
   const baseClasses =
     'w-full text-zinc-600 dark:text-zinc-400 uppercase font-mono text-xs'
-  const compactBase = 'flex flex-col gap-1 items-start'
+  const compactBase = 'flex flex-col gap-0.5 items-start'
   const compactSm = 'sm:flex-row sm:items-center sm:gap-2 sm:flex-wrap'
   const compactLayout = [compactBase, compactSm].join(' ')
   const normalLayout = 'flex items-center gap-2 md:gap-4'

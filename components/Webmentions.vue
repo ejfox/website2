@@ -10,7 +10,7 @@
     >
       <button
         v-if="likes.length > 0"
-        class="flex items-center gap-1.5"
+        class="flex items-center gap-0.5.5"
         @click="showLikes = !showLikes"
       >
         <span>{{ likes.length }}</span>
@@ -19,14 +19,14 @@
 
       <button
         v-if="reposts.length > 0"
-        class="flex items-center gap-1.5"
+        class="flex items-center gap-0.5.5"
         @click="showReposts = !showReposts"
       >
         <span>{{ reposts.length }}</span>
         <span class="text-green-500">↻</span>
       </button>
 
-      <span v-if="replies.length > 0" class="flex items-center gap-1.5">
+      <span v-if="replies.length > 0" class="flex items-center gap-0.5.5">
         <span>{{ replies.length }}</span>
         <span>💬</span>
       </span>
@@ -35,7 +35,7 @@
     <!-- Expanded likes -->
     <div
       v-if="showLikes && likes.length > 0"
-      class="flex flex-wrap gap-1 mb-4 p-2 bg-zinc-50 dark:bg-zinc-900/50 rounded"
+      class="flex flex-wrap gap-0.5 mb-4 p-2 bg-zinc-50 dark:bg-zinc-900/50 rounded"
     >
       <a
         v-for="like in likes"
@@ -57,7 +57,7 @@
     <!-- Expanded reposts -->
     <div
       v-if="showReposts && reposts.length > 0"
-      class="flex flex-wrap gap-1 mb-4 p-2 bg-zinc-50 dark:bg-zinc-900/50 rounded"
+      class="flex flex-wrap gap-0.5 mb-4 p-2 bg-zinc-50 dark:bg-zinc-900/50 rounded"
     >
       <a
         v-for="repost in reposts"

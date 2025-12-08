@@ -17,6 +17,249 @@
     "HTML": 942
   },
   "diskUsage": 4029,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".editorconfig",
+        "size": 121
+      },
+      {
+        "path": ".gitignore",
+        "size": 214
+      },
+      {
+        "path": ".netlify/state.json",
+        "size": 53
+      },
+      {
+        "path": "README.md",
+        "size": 357
+      },
+      {
+        "path": "babel.config.js",
+        "size": 73
+      },
+      {
+        "path": "package-lock.json",
+        "size": 450777
+      },
+      {
+        "path": "package.json",
+        "size": 1217
+      },
+      {
+        "path": "public/data/state_centroids.csv",
+        "size": 1601
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "public/image/eavs-sankey-01.svg",
+        "size": 31655
+      },
+      {
+        "path": "public/index.html",
+        "size": 942
+      },
+      {
+        "path": "src/App.vue",
+        "size": 333
+      },
+      {
+        "path": "src/assets/logo.png",
+        "size": 6849
+      },
+      {
+        "path": "src/components/Sankey.vue",
+        "size": 33041
+      },
+      {
+        "path": "src/main.js",
+        "size": 212
+      },
+      {
+        "path": "src/router/index.js",
+        "size": 577
+      },
+      {
+        "path": "src/store/index.js",
+        "size": 168
+      },
+      {
+        "path": "src/views/Home.vue",
+        "size": 13139
+      },
+      {
+        "path": "vue.config.js",
+        "size": 41
+      }
+    ],
+    "tree": {
+      "name": "eavs",
+      "children": [
+        {
+          "name": ".netlify",
+          "children": [
+            {
+              "name": "state.json",
+              "size": 53,
+              "path": ".netlify/state.json"
+            }
+          ],
+          "path": ".netlify"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": "state_centroids.csv",
+                  "size": 1601,
+                  "path": "public/data/state_centroids.csv"
+                }
+              ],
+              "path": "public/data"
+            },
+            {
+              "name": "image",
+              "children": [
+                {
+                  "name": "eavs-sankey-01.svg",
+                  "size": 31655,
+                  "path": "public/image/eavs-sankey-01.svg"
+                }
+              ],
+              "path": "public/image"
+            },
+            {
+              "name": "favicon.ico",
+              "size": 4286,
+              "path": "public/favicon.ico"
+            },
+            {
+              "name": "index.html",
+              "size": 942,
+              "path": "public/index.html"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "assets",
+              "children": [
+                {
+                  "name": "logo.png",
+                  "size": 6849,
+                  "path": "src/assets/logo.png"
+                }
+              ],
+              "path": "src/assets"
+            },
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "Sankey.vue",
+                  "size": 33041,
+                  "path": "src/components/Sankey.vue"
+                }
+              ],
+              "path": "src/components"
+            },
+            {
+              "name": "router",
+              "children": [
+                {
+                  "name": "index.js",
+                  "size": 577,
+                  "path": "src/router/index.js"
+                }
+              ],
+              "path": "src/router"
+            },
+            {
+              "name": "store",
+              "children": [
+                {
+                  "name": "index.js",
+                  "size": 168,
+                  "path": "src/store/index.js"
+                }
+              ],
+              "path": "src/store"
+            },
+            {
+              "name": "views",
+              "children": [
+                {
+                  "name": "Home.vue",
+                  "size": 13139,
+                  "path": "src/views/Home.vue"
+                }
+              ],
+              "path": "src/views"
+            },
+            {
+              "name": "App.vue",
+              "size": 333,
+              "path": "src/App.vue"
+            },
+            {
+              "name": "main.js",
+              "size": 212,
+              "path": "src/main.js"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 121,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".gitignore",
+          "size": 214,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 357,
+          "path": "README.md"
+        },
+        {
+          "name": "babel.config.js",
+          "size": 73,
+          "path": "babel.config.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 450777,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1217,
+          "path": "package.json"
+        },
+        {
+          "name": "vue.config.js",
+          "size": 41,
+          "path": "vue.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 19,
+    "totalSize": 545656
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"eavs\">eavs</h1>\n<h2 id=\"project-setup\">Project setup</h2>\n<pre><code>npm install\n</code></pre>\n<h3 id=\"compiles-and-hot-reloads-for-development\">Compiles and hot-reloads for development</h3>\n<pre><code>npm run serve\n</code></pre>\n<h3 id=\"compiles-and-minifies-for-production\">Compiles and minifies for production</h3>\n<pre><code>npm run build\n</code></pre>\n<h3 id=\"run-your-tests\">Run your tests</h3>\n<pre><code>npm run test\n</code></pre>\n<h3 id=\"lints-and-fixes-files\">Lints and fixes files</h3>\n<pre><code>npm run lint\n</code></pre>\n<h3 id=\"customize-configuration\">Customize configuration</h3>\n<p>See <a href=\"https://cli.vuejs.org/config/\">Configuration Reference</a>.</p>",

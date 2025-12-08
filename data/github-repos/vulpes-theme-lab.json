@@ -12,11 +12,1177 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 358273,
-    "TypeScript": 129231,
-    "JavaScript": 1832
+    "Vue": 299489,
+    "TypeScript": 224866,
+    "CSS": 13233,
+    "JavaScript": 3513,
+    "Lua": 14
   },
-  "diskUsage": 614,
+  "diskUsage": 496,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".claude/REFACTOR_PLAN.md",
+        "size": 12062
+      },
+      {
+        "path": ".env.example",
+        "size": 148
+      },
+      {
+        "path": ".github/workflows/deploy.yml",
+        "size": 1073
+      },
+      {
+        "path": ".gitignore",
+        "size": 207
+      },
+      {
+        "path": ".prettierignore",
+        "size": 86
+      },
+      {
+        "path": ".prettierrc",
+        "size": 191
+      },
+      {
+        "path": ".stylelintcache",
+        "size": 5704
+      },
+      {
+        "path": ".stylelintignore",
+        "size": 78
+      },
+      {
+        "path": ".stylelintrc.cjs",
+        "size": 261
+      },
+      {
+        "path": "CARTOGRAPHIC_DESIGN_PRINCIPLES.md",
+        "size": 10457
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 2396
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 2775
+      },
+      {
+        "path": "ENV_SETUP.md",
+        "size": 2234
+      },
+      {
+        "path": "HIERARCHY_DIAGRAM.txt",
+        "size": 7985
+      },
+      {
+        "path": "MAPLIBRE_INTEGRATION.md",
+        "size": 4365
+      },
+      {
+        "path": "README.md",
+        "size": 3532
+      },
+      {
+        "path": "THEME_EXPORT_FORMATS.md",
+        "size": 11155
+      },
+      {
+        "path": "THEME_IMPORT_PLAN.md",
+        "size": 10404
+      },
+      {
+        "path": "VULPES_MONTHLY_LINE.md",
+        "size": 7741
+      },
+      {
+        "path": "app.vue",
+        "size": 319
+      },
+      {
+        "path": "assets/css/main.css",
+        "size": 12367
+      },
+      {
+        "path": "assets/css/tokens.css",
+        "size": 866
+      },
+      {
+        "path": "components/BaseSlider.vue",
+        "size": 6592
+      },
+      {
+        "path": "components/CodePreview.vue",
+        "size": 8811
+      },
+      {
+        "path": "components/ColorControls.vue",
+        "size": 25028
+      },
+      {
+        "path": "components/ColorFidelity.vue",
+        "size": 2573
+      },
+      {
+        "path": "components/ColorReferencePreview.vue",
+        "size": 10932
+      },
+      {
+        "path": "components/ColorSwatches.vue",
+        "size": 8343
+      },
+      {
+        "path": "components/ColorTooltip.vue",
+        "size": 5338
+      },
+      {
+        "path": "components/ColorWheel.vue",
+        "size": 7302
+      },
+      {
+        "path": "components/ConfigFilePreview.vue",
+        "size": 5520
+      },
+      {
+        "path": "components/ConfigPreview.vue",
+        "size": 2542
+      },
+      {
+        "path": "components/ContrastValidator.vue",
+        "size": 6860
+      },
+      {
+        "path": "components/ContrastWarningModal.vue",
+        "size": 10302
+      },
+      {
+        "path": "components/EditorPreview.vue",
+        "size": 9815
+      },
+      {
+        "path": "components/ExportControls.vue",
+        "size": 12872
+      },
+      {
+        "path": "components/ExportModal.vue",
+        "size": 15043
+      },
+      {
+        "path": "components/FileTreePreview.vue",
+        "size": 4944
+      },
+      {
+        "path": "components/GitPreview.vue",
+        "size": 7403
+      },
+      {
+        "path": "components/GlobalDropOverlay.vue",
+        "size": 2488
+      },
+      {
+        "path": "components/HtopPreview.vue",
+        "size": 10804
+      },
+      {
+        "path": "components/ImportModal.vue",
+        "size": 17037
+      },
+      {
+        "path": "components/MapPreview.vue",
+        "size": 5081
+      },
+      {
+        "path": "components/NvimPreview.vue",
+        "size": 19819
+      },
+      {
+        "path": "components/PresetSelector.vue",
+        "size": 3769
+      },
+      {
+        "path": "components/PreviewGrid.vue",
+        "size": 522
+      },
+      {
+        "path": "components/ScenarioSection.vue",
+        "size": 1394
+      },
+      {
+        "path": "components/ShellPreview.vue",
+        "size": 7966
+      },
+      {
+        "path": "components/SuccessToast.vue",
+        "size": 1592
+      },
+      {
+        "path": "components/ThemeSidebar.vue",
+        "size": 5531
+      },
+      {
+        "path": "components/TmuxPreview.vue",
+        "size": 5643
+      },
+      {
+        "path": "composables/useGlobalDrop.ts",
+        "size": 1412
+      },
+      {
+        "path": "composables/useHighlightedColor.ts",
+        "size": 472
+      },
+      {
+        "path": "composables/useTheme.ts",
+        "size": 38538
+      },
+      {
+        "path": "eslint.config.js",
+        "size": 1832
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 591
+      },
+      {
+        "path": "package-lock.json",
+        "size": 572409
+      },
+      {
+        "path": "package.json",
+        "size": 2248
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 44011
+      },
+      {
+        "path": "pages/showcase.vue",
+        "size": 23293
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "public/robots.txt",
+        "size": 24
+      },
+      {
+        "path": "samples/bat-example.tmTheme",
+        "size": 5860
+      },
+      {
+        "path": "samples/lazygit-example.yml",
+        "size": 1557
+      },
+      {
+        "path": "samples/nvim-example.lua",
+        "size": 4556
+      },
+      {
+        "path": "samples/yazi-example.toml",
+        "size": 3166
+      },
+      {
+        "path": "samples/zsh-example.sh",
+        "size": 2889
+      },
+      {
+        "path": "test-import.js",
+        "size": 1420
+      },
+      {
+        "path": "test-themes/ayu-dark.json",
+        "size": 20103
+      },
+      {
+        "path": "test-themes/ayu-mirage.json",
+        "size": 20103
+      },
+      {
+        "path": "test-themes/catppuccin-latte.json",
+        "size": 14
+      },
+      {
+        "path": "test-themes/catppuccin-mocha.json",
+        "size": 14
+      },
+      {
+        "path": "test-themes/dracula.json",
+        "size": 14
+      },
+      {
+        "path": "test-themes/github-dark.json",
+        "size": 14
+      },
+      {
+        "path": "test-themes/gruvbox-dark.yml",
+        "size": 501
+      },
+      {
+        "path": "test-themes/gruvbox.yml",
+        "size": 4848
+      },
+      {
+        "path": "test-themes/nord.json",
+        "size": 41603
+      },
+      {
+        "path": "test-themes/tokyonight-night.json",
+        "size": 59768
+      },
+      {
+        "path": "test-themes/tokyonight.lua",
+        "size": 14
+      },
+      {
+        "path": "test/exporters/bat.test.ts",
+        "size": 2635
+      },
+      {
+        "path": "test/exporters/ghostty.test.ts",
+        "size": 2123
+      },
+      {
+        "path": "test/exporters/lazygit.test.ts",
+        "size": 2690
+      },
+      {
+        "path": "test/exporters/nvim.test.ts",
+        "size": 3103
+      },
+      {
+        "path": "test/exporters/tweakcc.test.ts",
+        "size": 7961
+      },
+      {
+        "path": "test/exporters/yazi.test.ts",
+        "size": 2905
+      },
+      {
+        "path": "test/exporters/zsh.test.ts",
+        "size": 3870
+      },
+      {
+        "path": "test/importers/theme-import.test.ts",
+        "size": 3020
+      },
+      {
+        "path": "test/utils/test-helpers.ts",
+        "size": 1822
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 320
+      },
+      {
+        "path": "utils/codeExample.ts",
+        "size": 2080
+      },
+      {
+        "path": "utils/contrast.ts",
+        "size": 8255
+      },
+      {
+        "path": "utils/exporters/alacritty.ts",
+        "size": 1187
+      },
+      {
+        "path": "utils/exporters/bat.ts",
+        "size": 3104
+      },
+      {
+        "path": "utils/exporters/ghostty.ts",
+        "size": 923
+      },
+      {
+        "path": "utils/exporters/index.ts",
+        "size": 672
+      },
+      {
+        "path": "utils/exporters/lazygit.ts",
+        "size": 1557
+      },
+      {
+        "path": "utils/exporters/maplibre.ts",
+        "size": 26427
+      },
+      {
+        "path": "utils/exporters/neomutt.ts",
+        "size": 1893
+      },
+      {
+        "path": "utils/exporters/nvim.ts",
+        "size": 20156
+      },
+      {
+        "path": "utils/exporters/tweakcc.ts",
+        "size": 10653
+      },
+      {
+        "path": "utils/exporters/wezterm.ts",
+        "size": 1640
+      },
+      {
+        "path": "utils/exporters/yazi.ts",
+        "size": 4122
+      },
+      {
+        "path": "utils/exporters/zsh.ts",
+        "size": 6880
+      },
+      {
+        "path": "utils/importedPresets.ts",
+        "size": 3189
+      },
+      {
+        "path": "utils/importers/base16.ts",
+        "size": 6116
+      },
+      {
+        "path": "utils/importers/ghostty.ts",
+        "size": 4759
+      },
+      {
+        "path": "utils/importers/index.ts",
+        "size": 5107
+      },
+      {
+        "path": "utils/importers/neovim.ts",
+        "size": 6516
+      },
+      {
+        "path": "utils/importers/types.ts",
+        "size": 2056
+      },
+      {
+        "path": "utils/importers/vscode.ts",
+        "size": 8216
+      },
+      {
+        "path": "utils/iterm.ts",
+        "size": 2156
+      },
+      {
+        "path": "utils/presets.ts",
+        "size": 10138
+      },
+      {
+        "path": "utils/semanticMapper.ts",
+        "size": 9921
+      },
+      {
+        "path": "utils/tmux.ts",
+        "size": 984
+      },
+      {
+        "path": "utils/types.ts",
+        "size": 4684
+      },
+      {
+        "path": "vitest.config.ts",
+        "size": 333
+      }
+    ],
+    "tree": {
+      "name": "vulpes-theme-lab",
+      "children": [
+        {
+          "name": ".claude",
+          "children": [
+            {
+              "name": "REFACTOR_PLAN.md",
+              "size": 12062,
+              "path": ".claude/REFACTOR_PLAN.md"
+            }
+          ],
+          "path": ".claude"
+        },
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "deploy.yml",
+                  "size": 1073,
+                  "path": ".github/workflows/deploy.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "assets",
+          "children": [
+            {
+              "name": "css",
+              "children": [
+                {
+                  "name": "main.css",
+                  "size": 12367,
+                  "path": "assets/css/main.css"
+                },
+                {
+                  "name": "tokens.css",
+                  "size": 866,
+                  "path": "assets/css/tokens.css"
+                }
+              ],
+              "path": "assets/css"
+            }
+          ],
+          "path": "assets"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "BaseSlider.vue",
+              "size": 6592,
+              "path": "components/BaseSlider.vue"
+            },
+            {
+              "name": "CodePreview.vue",
+              "size": 8811,
+              "path": "components/CodePreview.vue"
+            },
+            {
+              "name": "ColorControls.vue",
+              "size": 25028,
+              "path": "components/ColorControls.vue"
+            },
+            {
+              "name": "ColorFidelity.vue",
+              "size": 2573,
+              "path": "components/ColorFidelity.vue"
+            },
+            {
+              "name": "ColorReferencePreview.vue",
+              "size": 10932,
+              "path": "components/ColorReferencePreview.vue"
+            },
+            {
+              "name": "ColorSwatches.vue",
+              "size": 8343,
+              "path": "components/ColorSwatches.vue"
+            },
+            {
+              "name": "ColorTooltip.vue",
+              "size": 5338,
+              "path": "components/ColorTooltip.vue"
+            },
+            {
+              "name": "ColorWheel.vue",
+              "size": 7302,
+              "path": "components/ColorWheel.vue"
+            },
+            {
+              "name": "ConfigFilePreview.vue",
+              "size": 5520,
+              "path": "components/ConfigFilePreview.vue"
+            },
+            {
+              "name": "ConfigPreview.vue",
+              "size": 2542,
+              "path": "components/ConfigPreview.vue"
+            },
+            {
+              "name": "ContrastValidator.vue",
+              "size": 6860,
+              "path": "components/ContrastValidator.vue"
+            },
+            {
+              "name": "ContrastWarningModal.vue",
+              "size": 10302,
+              "path": "components/ContrastWarningModal.vue"
+            },
+            {
+              "name": "EditorPreview.vue",
+              "size": 9815,
+              "path": "components/EditorPreview.vue"
+            },
+            {
+              "name": "ExportControls.vue",
+              "size": 12872,
+              "path": "components/ExportControls.vue"
+            },
+            {
+              "name": "ExportModal.vue",
+              "size": 15043,
+              "path": "components/ExportModal.vue"
+            },
+            {
+              "name": "FileTreePreview.vue",
+              "size": 4944,
+              "path": "components/FileTreePreview.vue"
+            },
+            {
+              "name": "GitPreview.vue",
+              "size": 7403,
+              "path": "components/GitPreview.vue"
+            },
+            {
+              "name": "GlobalDropOverlay.vue",
+              "size": 2488,
+              "path": "components/GlobalDropOverlay.vue"
+            },
+            {
+              "name": "HtopPreview.vue",
+              "size": 10804,
+              "path": "components/HtopPreview.vue"
+            },
+            {
+              "name": "ImportModal.vue",
+              "size": 17037,
+              "path": "components/ImportModal.vue"
+            },
+            {
+              "name": "MapPreview.vue",
+              "size": 5081,
+              "path": "components/MapPreview.vue"
+            },
+            {
+              "name": "NvimPreview.vue",
+              "size": 19819,
+              "path": "components/NvimPreview.vue"
+            },
+            {
+              "name": "PresetSelector.vue",
+              "size": 3769,
+              "path": "components/PresetSelector.vue"
+            },
+            {
+              "name": "PreviewGrid.vue",
+              "size": 522,
+              "path": "components/PreviewGrid.vue"
+            },
+            {
+              "name": "ScenarioSection.vue",
+              "size": 1394,
+              "path": "components/ScenarioSection.vue"
+            },
+            {
+              "name": "ShellPreview.vue",
+              "size": 7966,
+              "path": "components/ShellPreview.vue"
+            },
+            {
+              "name": "SuccessToast.vue",
+              "size": 1592,
+              "path": "components/SuccessToast.vue"
+            },
+            {
+              "name": "ThemeSidebar.vue",
+              "size": 5531,
+              "path": "components/ThemeSidebar.vue"
+            },
+            {
+              "name": "TmuxPreview.vue",
+              "size": 5643,
+              "path": "components/TmuxPreview.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "composables",
+          "children": [
+            {
+              "name": "useGlobalDrop.ts",
+              "size": 1412,
+              "path": "composables/useGlobalDrop.ts"
+            },
+            {
+              "name": "useHighlightedColor.ts",
+              "size": 472,
+              "path": "composables/useHighlightedColor.ts"
+            },
+            {
+              "name": "useTheme.ts",
+              "size": 38538,
+              "path": "composables/useTheme.ts"
+            }
+          ],
+          "path": "composables"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "index.vue",
+              "size": 44011,
+              "path": "pages/index.vue"
+            },
+            {
+              "name": "showcase.vue",
+              "size": 23293,
+              "path": "pages/showcase.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "favicon.ico",
+              "size": 4286,
+              "path": "public/favicon.ico"
+            },
+            {
+              "name": "robots.txt",
+              "size": 24,
+              "path": "public/robots.txt"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "samples",
+          "children": [
+            {
+              "name": "bat-example.tmTheme",
+              "size": 5860,
+              "path": "samples/bat-example.tmTheme"
+            },
+            {
+              "name": "lazygit-example.yml",
+              "size": 1557,
+              "path": "samples/lazygit-example.yml"
+            },
+            {
+              "name": "nvim-example.lua",
+              "size": 4556,
+              "path": "samples/nvim-example.lua"
+            },
+            {
+              "name": "yazi-example.toml",
+              "size": 3166,
+              "path": "samples/yazi-example.toml"
+            },
+            {
+              "name": "zsh-example.sh",
+              "size": 2889,
+              "path": "samples/zsh-example.sh"
+            }
+          ],
+          "path": "samples"
+        },
+        {
+          "name": "test-themes",
+          "children": [
+            {
+              "name": "ayu-dark.json",
+              "size": 20103,
+              "path": "test-themes/ayu-dark.json"
+            },
+            {
+              "name": "ayu-mirage.json",
+              "size": 20103,
+              "path": "test-themes/ayu-mirage.json"
+            },
+            {
+              "name": "catppuccin-latte.json",
+              "size": 14,
+              "path": "test-themes/catppuccin-latte.json"
+            },
+            {
+              "name": "catppuccin-mocha.json",
+              "size": 14,
+              "path": "test-themes/catppuccin-mocha.json"
+            },
+            {
+              "name": "dracula.json",
+              "size": 14,
+              "path": "test-themes/dracula.json"
+            },
+            {
+              "name": "github-dark.json",
+              "size": 14,
+              "path": "test-themes/github-dark.json"
+            },
+            {
+              "name": "gruvbox-dark.yml",
+              "size": 501,
+              "path": "test-themes/gruvbox-dark.yml"
+            },
+            {
+              "name": "gruvbox.yml",
+              "size": 4848,
+              "path": "test-themes/gruvbox.yml"
+            },
+            {
+              "name": "nord.json",
+              "size": 41603,
+              "path": "test-themes/nord.json"
+            },
+            {
+              "name": "tokyonight-night.json",
+              "size": 59768,
+              "path": "test-themes/tokyonight-night.json"
+            },
+            {
+              "name": "tokyonight.lua",
+              "size": 14,
+              "path": "test-themes/tokyonight.lua"
+            }
+          ],
+          "path": "test-themes"
+        },
+        {
+          "name": "test",
+          "children": [
+            {
+              "name": "exporters",
+              "children": [
+                {
+                  "name": "bat.test.ts",
+                  "size": 2635,
+                  "path": "test/exporters/bat.test.ts"
+                },
+                {
+                  "name": "ghostty.test.ts",
+                  "size": 2123,
+                  "path": "test/exporters/ghostty.test.ts"
+                },
+                {
+                  "name": "lazygit.test.ts",
+                  "size": 2690,
+                  "path": "test/exporters/lazygit.test.ts"
+                },
+                {
+                  "name": "nvim.test.ts",
+                  "size": 3103,
+                  "path": "test/exporters/nvim.test.ts"
+                },
+                {
+                  "name": "tweakcc.test.ts",
+                  "size": 7961,
+                  "path": "test/exporters/tweakcc.test.ts"
+                },
+                {
+                  "name": "yazi.test.ts",
+                  "size": 2905,
+                  "path": "test/exporters/yazi.test.ts"
+                },
+                {
+                  "name": "zsh.test.ts",
+                  "size": 3870,
+                  "path": "test/exporters/zsh.test.ts"
+                }
+              ],
+              "path": "test/exporters"
+            },
+            {
+              "name": "importers",
+              "children": [
+                {
+                  "name": "theme-import.test.ts",
+                  "size": 3020,
+                  "path": "test/importers/theme-import.test.ts"
+                }
+              ],
+              "path": "test/importers"
+            },
+            {
+              "name": "utils",
+              "children": [
+                {
+                  "name": "test-helpers.ts",
+                  "size": 1822,
+                  "path": "test/utils/test-helpers.ts"
+                }
+              ],
+              "path": "test/utils"
+            }
+          ],
+          "path": "test"
+        },
+        {
+          "name": "utils",
+          "children": [
+            {
+              "name": "exporters",
+              "children": [
+                {
+                  "name": "alacritty.ts",
+                  "size": 1187,
+                  "path": "utils/exporters/alacritty.ts"
+                },
+                {
+                  "name": "bat.ts",
+                  "size": 3104,
+                  "path": "utils/exporters/bat.ts"
+                },
+                {
+                  "name": "ghostty.ts",
+                  "size": 923,
+                  "path": "utils/exporters/ghostty.ts"
+                },
+                {
+                  "name": "index.ts",
+                  "size": 672,
+                  "path": "utils/exporters/index.ts"
+                },
+                {
+                  "name": "lazygit.ts",
+                  "size": 1557,
+                  "path": "utils/exporters/lazygit.ts"
+                },
+                {
+                  "name": "maplibre.ts",
+                  "size": 26427,
+                  "path": "utils/exporters/maplibre.ts"
+                },
+                {
+                  "name": "neomutt.ts",
+                  "size": 1893,
+                  "path": "utils/exporters/neomutt.ts"
+                },
+                {
+                  "name": "nvim.ts",
+                  "size": 20156,
+                  "path": "utils/exporters/nvim.ts"
+                },
+                {
+                  "name": "tweakcc.ts",
+                  "size": 10653,
+                  "path": "utils/exporters/tweakcc.ts"
+                },
+                {
+                  "name": "wezterm.ts",
+                  "size": 1640,
+                  "path": "utils/exporters/wezterm.ts"
+                },
+                {
+                  "name": "yazi.ts",
+                  "size": 4122,
+                  "path": "utils/exporters/yazi.ts"
+                },
+                {
+                  "name": "zsh.ts",
+                  "size": 6880,
+                  "path": "utils/exporters/zsh.ts"
+                }
+              ],
+              "path": "utils/exporters"
+            },
+            {
+              "name": "importers",
+              "children": [
+                {
+                  "name": "base16.ts",
+                  "size": 6116,
+                  "path": "utils/importers/base16.ts"
+                },
+                {
+                  "name": "ghostty.ts",
+                  "size": 4759,
+                  "path": "utils/importers/ghostty.ts"
+                },
+                {
+                  "name": "index.ts",
+                  "size": 5107,
+                  "path": "utils/importers/index.ts"
+                },
+                {
+                  "name": "neovim.ts",
+                  "size": 6516,
+                  "path": "utils/importers/neovim.ts"
+                },
+                {
+                  "name": "types.ts",
+                  "size": 2056,
+                  "path": "utils/importers/types.ts"
+                },
+                {
+                  "name": "vscode.ts",
+                  "size": 8216,
+                  "path": "utils/importers/vscode.ts"
+                }
+              ],
+              "path": "utils/importers"
+            },
+            {
+              "name": "codeExample.ts",
+              "size": 2080,
+              "path": "utils/codeExample.ts"
+            },
+            {
+              "name": "contrast.ts",
+              "size": 8255,
+              "path": "utils/contrast.ts"
+            },
+            {
+              "name": "importedPresets.ts",
+              "size": 3189,
+              "path": "utils/importedPresets.ts"
+            },
+            {
+              "name": "iterm.ts",
+              "size": 2156,
+              "path": "utils/iterm.ts"
+            },
+            {
+              "name": "presets.ts",
+              "size": 10138,
+              "path": "utils/presets.ts"
+            },
+            {
+              "name": "semanticMapper.ts",
+              "size": 9921,
+              "path": "utils/semanticMapper.ts"
+            },
+            {
+              "name": "tmux.ts",
+              "size": 984,
+              "path": "utils/tmux.ts"
+            },
+            {
+              "name": "types.ts",
+              "size": 4684,
+              "path": "utils/types.ts"
+            }
+          ],
+          "path": "utils"
+        },
+        {
+          "name": ".env.example",
+          "size": 148,
+          "path": ".env.example"
+        },
+        {
+          "name": ".gitignore",
+          "size": 207,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".prettierignore",
+          "size": 86,
+          "path": ".prettierignore"
+        },
+        {
+          "name": ".prettierrc",
+          "size": 191,
+          "path": ".prettierrc"
+        },
+        {
+          "name": ".stylelintcache",
+          "size": 5704,
+          "path": ".stylelintcache"
+        },
+        {
+          "name": ".stylelintignore",
+          "size": 78,
+          "path": ".stylelintignore"
+        },
+        {
+          "name": ".stylelintrc.cjs",
+          "size": 261,
+          "path": ".stylelintrc.cjs"
+        },
+        {
+          "name": "CARTOGRAPHIC_DESIGN_PRINCIPLES.md",
+          "size": 10457,
+          "path": "CARTOGRAPHIC_DESIGN_PRINCIPLES.md"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 2396,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 2775,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "ENV_SETUP.md",
+          "size": 2234,
+          "path": "ENV_SETUP.md"
+        },
+        {
+          "name": "HIERARCHY_DIAGRAM.txt",
+          "size": 7985,
+          "path": "HIERARCHY_DIAGRAM.txt"
+        },
+        {
+          "name": "MAPLIBRE_INTEGRATION.md",
+          "size": 4365,
+          "path": "MAPLIBRE_INTEGRATION.md"
+        },
+        {
+          "name": "README.md",
+          "size": 3532,
+          "path": "README.md"
+        },
+        {
+          "name": "THEME_EXPORT_FORMATS.md",
+          "size": 11155,
+          "path": "THEME_EXPORT_FORMATS.md"
+        },
+        {
+          "name": "THEME_IMPORT_PLAN.md",
+          "size": 10404,
+          "path": "THEME_IMPORT_PLAN.md"
+        },
+        {
+          "name": "VULPES_MONTHLY_LINE.md",
+          "size": 7741,
+          "path": "VULPES_MONTHLY_LINE.md"
+        },
+        {
+          "name": "app.vue",
+          "size": 319,
+          "path": "app.vue"
+        },
+        {
+          "name": "eslint.config.js",
+          "size": 1832,
+          "path": "eslint.config.js"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 591,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 572409,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 2248,
+          "path": "package.json"
+        },
+        {
+          "name": "test-import.js",
+          "size": 1420,
+          "path": "test-import.js"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 320,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "vitest.config.ts",
+          "size": 333,
+          "path": "vitest.config.ts"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 116,
+    "totalSize": 1368005
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"vulpes-theme-lab\">vulpes-theme-lab</h1>\n<p>🎨 <strong><a href=\"https://ejfox.github.io/vulpes-theme-lab/\">Live Demo</a></strong> — Try it now in your browser</p>\n<p>a minimal theme builder for ghostty terminal with live previews of nvim, lazygit, htop, and tmux.</p>\n<h2 id=\"design-principles\">design principles</h2>\n<p>tuftian minimalism. hue offset precision ±7° for maximum signal, minimal variation. monochrome mode available for absolute clarity.</p>\n<h2 id=\"features\">features</h2>\n<p>live color controls with real-time preview across multiple terminal scenarios:</p>\n<ul>\n<li>nvim with lsp diagnostics and telescope fuzzy finder</li>\n<li>lazygit interface with branch info and stash panel</li>\n<li>htop system monitor with process details</li>\n<li>tmux multi-pane layouts with realistic content</li>\n<li>codemirror-based code editor</li>\n</ul>\n<p>export both dark and light theme variants for:</p>\n<ul>\n<li>ghostty terminal</li>\n<li>neovim (100+ highlight groups, LSP support)</li>\n<li>bat syntax highlighter</li>\n<li>yazi file manager</li>\n<li>lazygit git ui</li>\n<li>zsh (syntax highlighting + fzf colors + powerlevel10k colors)</li>\n</ul>\n<p><strong><a href=\"./QUICKSTART.md\">🚀 Quick Start Guide</a></strong> — 5-minute setup\n<strong><a href=\"./INSTALLATION.md\">📘 Complete Installation Guide</a></strong> — Full setup instructions for all tools</p>\n<h2 id=\"usage\">usage</h2>\n<pre><code class=\"language-bash\">npm install\nnpm run dev\n</code></pre>\n<p>navigate to <a href=\"http://localhost:3322\">http://localhost:3322</a></p>\n<p>adjust hue, saturation, contrast, and lightness controls. toggle monochrome mode for single-hue themes. export generates both dark and light variants.</p>\n<h2 id=\"theme-generation\">theme generation</h2>\n<p>themes use precise hue offset mathematics:</p>\n<pre><code class=\"language-javascript\">const error = chroma.hsl(baseHue + 7, 0.85, 0.55)\nconst warning = chroma.hsl(baseHue - 7, 0.85, 0.55)\nconst base = chroma.hsl(baseHue, 0.85, 0.5)\n</code></pre>\n<p>minimal variation. maximum signal.</p>\n<h2 id=\"installation\">installation</h2>\n<p>exported themes work across your entire terminal ecosystem:</p>\n<p><strong>auto-switching</strong> (with system appearance):</p>\n<ul>\n<li>ghostty: <code>theme = light:yourtheme-light,dark:yourtheme-dark</code></li>\n<li>neovim: via auto-dark-mode.nvim plugin</li>\n<li>bat: <code>--theme=auto:system</code></li>\n</ul>\n<p><strong>manual switching</strong> (unified theme switcher):</p>\n<ul>\n<li>yazi file manager</li>\n<li>lazygit git ui</li>\n<li>zsh syntax highlighting</li>\n</ul>\n<p>see <strong><a href=\"./INSTALLATION.md\">INSTALLATION.md</a></strong> for complete setup guide including:</p>\n<ul>\n<li>file installation locations</li>\n<li>configuration examples</li>\n<li>unified theme switcher functions</li>\n<li>auto-sync with macos appearance</li>\n<li>troubleshooting guide</li>\n</ul>\n<h2 id=\"sample-exports\">sample exports</h2>\n<p>example theme outputs for all supported TUI targets:</p>\n<ul>\n<li><strong><a href=\"./samples/nvim-example.lua\">nvim-example.lua</a></strong> — Neovim colorscheme with 50+ highlight groups (LSP, syntax, UI)</li>\n<li><strong><a href=\"./samples/bat-example.tmTheme\">bat-example.tmTheme</a></strong> — Bat syntax highlighter (TextMate theme format)</li>\n<li><strong><a href=\"./samples/yazi-example.toml\">yazi-example.toml</a></strong> — Yazi file manager colors (light + dark variants)</li>\n<li><strong><a href=\"./samples/lazygit-example.yml\">lazygit-example.yml</a></strong> — Lazygit Git UI color configuration</li>\n<li><strong><a href=\"./samples/zsh-example.sh\">zsh-example.sh</a></strong> — ZSH syntax highlighting + FZF colors with theme switching functions</li>\n</ul>\n<p>these samples show the exact structure and color mappings for each tool format.</p>\n<h2 id=\"multi-format-export\">multi-format export</h2>\n<p><strong>status: ✓ implemented</strong></p>\n<p>all formats now export in a single download:</p>\n<ul>\n<li>ghostty (dark + light .ghostty files)</li>\n<li>neovim (dark + light .lua colorschemes)</li>\n<li>bat (dark + light .tmTheme files)</li>\n<li>yazi (dark + light .toml themes)</li>\n<li>lazygit (dark + light .yml configs)</li>\n<li>zsh (dark + light .zsh with syntax highlighting, fzf, and p10k colors)</li>\n<li>tweak.cc json reference files</li>\n</ul>\n<p>see <strong><a href=\"./THEME_EXPORT_FORMATS.md\">THEME_EXPORT_FORMATS.md</a></strong> for implementation details.</p>\n<h2 id=\"stack\">stack</h2>\n<ul>\n<li>nuxt 4</li>\n<li>vue 3</li>\n<li>codemirror 6</li>\n<li>chroma-js</li>\n<li>vueuse</li>\n</ul>\n<p>built for terminal aesthetes who value precision over decoration.</p>",
@@ -24,6 +1190,6 @@
     "excerpt": "🎨 Live Demo — Try it now in your browser\n\na minimal theme builder for ghostty terminal with live previews of nvim, lazygit, htop, and tmux.\n\n\n\ntuftian minimali..."
   },
   "createdAt": "2025-10-24T21:15:15Z",
-  "updatedAt": "2025-11-23T23:23:52Z",
-  "pushedAt": "2025-11-23T23:23:49Z"
+  "updatedAt": "2025-12-07T17:58:56Z",
+  "pushedAt": "2025-12-07T17:58:52Z"
 }

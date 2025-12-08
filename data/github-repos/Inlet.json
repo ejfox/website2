@@ -15,6 +15,2538 @@
     "JavaScript": 1007211
   },
   "diskUsage": 978,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 12
+      },
+      {
+        "path": "README.md",
+        "size": 963
+      },
+      {
+        "path": "index.html",
+        "size": 2269
+      },
+      {
+        "path": "lib/CodeMirror3/.gitattributes",
+        "size": 104
+      },
+      {
+        "path": "lib/CodeMirror3/.gitignore",
+        "size": 39
+      },
+      {
+        "path": "lib/CodeMirror3/.travis.yml",
+        "size": 35
+      },
+      {
+        "path": "lib/CodeMirror3/CONTRIBUTING.md",
+        "size": 3027
+      },
+      {
+        "path": "lib/CodeMirror3/LICENSE",
+        "size": 1228
+      },
+      {
+        "path": "lib/CodeMirror3/README.md",
+        "size": 507
+      },
+      {
+        "path": "lib/CodeMirror3/bin/compress",
+        "size": 2637
+      },
+      {
+        "path": "lib/CodeMirror3/demo/activeline.html",
+        "size": 2878
+      },
+      {
+        "path": "lib/CodeMirror3/demo/btree.html",
+        "size": 3335
+      },
+      {
+        "path": "lib/CodeMirror3/demo/changemode.html",
+        "size": 1460
+      },
+      {
+        "path": "lib/CodeMirror3/demo/closetag.html",
+        "size": 1355
+      },
+      {
+        "path": "lib/CodeMirror3/demo/complete.html",
+        "size": 2413
+      },
+      {
+        "path": "lib/CodeMirror3/demo/emacs.html",
+        "size": 1884
+      },
+      {
+        "path": "lib/CodeMirror3/demo/folding.html",
+        "size": 2459
+      },
+      {
+        "path": "lib/CodeMirror3/demo/formatting.html",
+        "size": 2521
+      },
+      {
+        "path": "lib/CodeMirror3/demo/fullscreen.html",
+        "size": 5618
+      },
+      {
+        "path": "lib/CodeMirror3/demo/loadmode.html",
+        "size": 1280
+      },
+      {
+        "path": "lib/CodeMirror3/demo/marker.html",
+        "size": 1630
+      },
+      {
+        "path": "lib/CodeMirror3/demo/matchhighlighter.html",
+        "size": 1253
+      },
+      {
+        "path": "lib/CodeMirror3/demo/multiplex.html",
+        "size": 1681
+      },
+      {
+        "path": "lib/CodeMirror3/demo/mustache.html",
+        "size": 1810
+      },
+      {
+        "path": "lib/CodeMirror3/demo/preview.html",
+        "size": 2171
+      },
+      {
+        "path": "lib/CodeMirror3/demo/resize.html",
+        "size": 1038
+      },
+      {
+        "path": "lib/CodeMirror3/demo/runmode.html",
+        "size": 1966
+      },
+      {
+        "path": "lib/CodeMirror3/demo/search.html",
+        "size": 3560
+      },
+      {
+        "path": "lib/CodeMirror3/demo/theme.html",
+        "size": 2823
+      },
+      {
+        "path": "lib/CodeMirror3/demo/variableheight.html",
+        "size": 1575
+      },
+      {
+        "path": "lib/CodeMirror3/demo/vim.html",
+        "size": 2032
+      },
+      {
+        "path": "lib/CodeMirror3/demo/visibletabs.html",
+        "size": 1585
+      },
+      {
+        "path": "lib/CodeMirror3/demo/widget.html",
+        "size": 2667
+      },
+      {
+        "path": "lib/CodeMirror3/demo/xmlcomplete.html",
+        "size": 2367
+      },
+      {
+        "path": "lib/CodeMirror3/doc/baboon.png",
+        "size": 23299
+      },
+      {
+        "path": "lib/CodeMirror3/doc/baboon_vector.svg",
+        "size": 17183
+      },
+      {
+        "path": "lib/CodeMirror3/doc/compress.html",
+        "size": 12221
+      },
+      {
+        "path": "lib/CodeMirror3/doc/docs.css",
+        "size": 2377
+      },
+      {
+        "path": "lib/CodeMirror3/doc/internals.html",
+        "size": 25800
+      },
+      {
+        "path": "lib/CodeMirror3/doc/manual.html",
+        "size": 77003
+      },
+      {
+        "path": "lib/CodeMirror3/doc/oldrelease.html",
+        "size": 22097
+      },
+      {
+        "path": "lib/CodeMirror3/doc/realworld.html",
+        "size": 5586
+      },
+      {
+        "path": "lib/CodeMirror3/doc/reporting.html",
+        "size": 2111
+      },
+      {
+        "path": "lib/CodeMirror3/doc/upgrade_v2.2.html",
+        "size": 3584
+      },
+      {
+        "path": "lib/CodeMirror3/doc/upgrade_v3.html",
+        "size": 8367
+      },
+      {
+        "path": "lib/CodeMirror3/index.html",
+        "size": 24285
+      },
+      {
+        "path": "lib/CodeMirror3/keymap/emacs.js",
+        "size": 1427
+      },
+      {
+        "path": "lib/CodeMirror3/keymap/vim.js",
+        "size": 83615
+      },
+      {
+        "path": "lib/CodeMirror3/lib/codemirror.css",
+        "size": 5920
+      },
+      {
+        "path": "lib/CodeMirror3/lib/codemirror.js",
+        "size": 177835
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/closetag.js",
+        "size": 3693
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/colorize.js",
+        "size": 834
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/continuecomment.js",
+        "size": 1513
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/continuelist.js",
+        "size": 925
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/dialog.css",
+        "size": 502
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/dialog.js",
+        "size": 2362
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/foldcode.js",
+        "size": 6112
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/formatting.js",
+        "size": 3909
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/javascript-hint.js",
+        "size": 5541
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/loadmode.js",
+        "size": 1787
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/match-highlighter.js",
+        "size": 1796
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/matchbrackets.js",
+        "size": 2877
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/multiplex.js",
+        "size": 3496
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/overlay.js",
+        "size": 2186
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/pig-hint.js",
+        "size": 5066
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/runmode-standalone.js",
+        "size": 3182
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/runmode.js",
+        "size": 1649
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/search.js",
+        "size": 5089
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/searchcursor.js",
+        "size": 4805
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/simple-hint.css",
+        "size": 368
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/simple-hint.js",
+        "size": 4258
+      },
+      {
+        "path": "lib/CodeMirror3/lib/util/xml-hint.js",
+        "size": 3282
+      },
+      {
+        "path": "lib/CodeMirror3/mode/clike/clike.js",
+        "size": 11240
+      },
+      {
+        "path": "lib/CodeMirror3/mode/clike/index.html",
+        "size": 3141
+      },
+      {
+        "path": "lib/CodeMirror3/mode/clike/scala.html",
+        "size": 28389
+      },
+      {
+        "path": "lib/CodeMirror3/mode/clojure/clojure.js",
+        "size": 12410
+      },
+      {
+        "path": "lib/CodeMirror3/mode/clojure/index.html",
+        "size": 2008
+      },
+      {
+        "path": "lib/CodeMirror3/mode/coffeescript/LICENSE",
+        "size": 1151
+      },
+      {
+        "path": "lib/CodeMirror3/mode/coffeescript/coffeescript.js",
+        "size": 10915
+      },
+      {
+        "path": "lib/CodeMirror3/mode/coffeescript/index.html",
+        "size": 22099
+      },
+      {
+        "path": "lib/CodeMirror3/mode/commonlisp/commonlisp.js",
+        "size": 3534
+      },
+      {
+        "path": "lib/CodeMirror3/mode/commonlisp/index.html",
+        "size": 6357
+      },
+      {
+        "path": "lib/CodeMirror3/mode/css/css.js",
+        "size": 22136
+      },
+      {
+        "path": "lib/CodeMirror3/mode/css/index.html",
+        "size": 1245
+      },
+      {
+        "path": "lib/CodeMirror3/mode/css/test.js",
+        "size": 9022
+      },
+      {
+        "path": "lib/CodeMirror3/mode/diff/diff.js",
+        "size": 677
+      },
+      {
+        "path": "lib/CodeMirror3/mode/diff/index.html",
+        "size": 4082
+      },
+      {
+        "path": "lib/CodeMirror3/mode/ecl/ecl.js",
+        "size": 8292
+      },
+      {
+        "path": "lib/CodeMirror3/mode/ecl/index.html",
+        "size": 1059
+      },
+      {
+        "path": "lib/CodeMirror3/mode/erlang/erlang.js",
+        "size": 13295
+      },
+      {
+        "path": "lib/CodeMirror3/mode/erlang/index.html",
+        "size": 1842
+      },
+      {
+        "path": "lib/CodeMirror3/mode/gfm/gfm.js",
+        "size": 2828
+      },
+      {
+        "path": "lib/CodeMirror3/mode/gfm/index.html",
+        "size": 2091
+      },
+      {
+        "path": "lib/CodeMirror3/mode/gfm/test.js",
+        "size": 3954
+      },
+      {
+        "path": "lib/CodeMirror3/mode/go/go.js",
+        "size": 5314
+      },
+      {
+        "path": "lib/CodeMirror3/mode/go/index.html",
+        "size": 1852
+      },
+      {
+        "path": "lib/CodeMirror3/mode/groovy/groovy.js",
+        "size": 7145
+      },
+      {
+        "path": "lib/CodeMirror3/mode/groovy/index.html",
+        "size": 1847
+      },
+      {
+        "path": "lib/CodeMirror3/mode/haskell/haskell.js",
+        "size": 7466
+      },
+      {
+        "path": "lib/CodeMirror3/mode/haskell/index.html",
+        "size": 1867
+      },
+      {
+        "path": "lib/CodeMirror3/mode/haxe/haxe.js",
+        "size": 15160
+      },
+      {
+        "path": "lib/CodeMirror3/mode/haxe/index.html",
+        "size": 1834
+      },
+      {
+        "path": "lib/CodeMirror3/mode/htmlembedded/htmlembedded.js",
+        "size": 2637
+      },
+      {
+        "path": "lib/CodeMirror3/mode/htmlembedded/index.html",
+        "size": 1701
+      },
+      {
+        "path": "lib/CodeMirror3/mode/htmlmixed/htmlmixed.js",
+        "size": 2997
+      },
+      {
+        "path": "lib/CodeMirror3/mode/htmlmixed/index.html",
+        "size": 1585
+      },
+      {
+        "path": "lib/CodeMirror3/mode/http/http.js",
+        "size": 2334
+      },
+      {
+        "path": "lib/CodeMirror3/mode/http/index.html",
+        "size": 1061
+      },
+      {
+        "path": "lib/CodeMirror3/mode/javascript/index.html",
+        "size": 3059
+      },
+      {
+        "path": "lib/CodeMirror3/mode/javascript/javascript.js",
+        "size": 14424
+      },
+      {
+        "path": "lib/CodeMirror3/mode/javascript/typescript.html",
+        "size": 1209
+      },
+      {
+        "path": "lib/CodeMirror3/mode/jinja2/index.html",
+        "size": 1067
+      },
+      {
+        "path": "lib/CodeMirror3/mode/jinja2/jinja2.js",
+        "size": 1362
+      },
+      {
+        "path": "lib/CodeMirror3/mode/less/index.html",
+        "size": 18317
+      },
+      {
+        "path": "lib/CodeMirror3/mode/less/less.js",
+        "size": 11652
+      },
+      {
+        "path": "lib/CodeMirror3/mode/lua/index.html",
+        "size": 1780
+      },
+      {
+        "path": "lib/CodeMirror3/mode/lua/lua.js",
+        "size": 5366
+      },
+      {
+        "path": "lib/CodeMirror3/mode/markdown/index.html",
+        "size": 10253
+      },
+      {
+        "path": "lib/CodeMirror3/mode/markdown/markdown.js",
+        "size": 13659
+      },
+      {
+        "path": "lib/CodeMirror3/mode/markdown/test.js",
+        "size": 22134
+      },
+      {
+        "path": "lib/CodeMirror3/mode/mysql/index.html",
+        "size": 1130
+      },
+      {
+        "path": "lib/CodeMirror3/mode/mysql/mysql.js",
+        "size": 8181
+      },
+      {
+        "path": "lib/CodeMirror3/mode/ntriples/index.html",
+        "size": 1025
+      },
+      {
+        "path": "lib/CodeMirror3/mode/ntriples/ntriples.js",
+        "size": 6253
+      },
+      {
+        "path": "lib/CodeMirror3/mode/ocaml/index.html",
+        "size": 3422
+      },
+      {
+        "path": "lib/CodeMirror3/mode/ocaml/ocaml.js",
+        "size": 2688
+      },
+      {
+        "path": "lib/CodeMirror3/mode/pascal/LICENSE",
+        "size": 1078
+      },
+      {
+        "path": "lib/CodeMirror3/mode/pascal/index.html",
+        "size": 1106
+      },
+      {
+        "path": "lib/CodeMirror3/mode/pascal/pascal.js",
+        "size": 2594
+      },
+      {
+        "path": "lib/CodeMirror3/mode/perl/LICENSE",
+        "size": 1094
+      },
+      {
+        "path": "lib/CodeMirror3/mode/perl/index.html",
+        "size": 1210
+      },
+      {
+        "path": "lib/CodeMirror3/mode/perl/perl.js",
+        "size": 29410
+      },
+      {
+        "path": "lib/CodeMirror3/mode/php/index.html",
+        "size": 1651
+      },
+      {
+        "path": "lib/CodeMirror3/mode/php/php.js",
+        "size": 12144
+      },
+      {
+        "path": "lib/CodeMirror3/mode/pig/index.html",
+        "size": 1130
+      },
+      {
+        "path": "lib/CodeMirror3/mode/pig/pig.js",
+        "size": 5191
+      },
+      {
+        "path": "lib/CodeMirror3/mode/plsql/index.html",
+        "size": 1551
+      },
+      {
+        "path": "lib/CodeMirror3/mode/plsql/plsql.js",
+        "size": 8379
+      },
+      {
+        "path": "lib/CodeMirror3/mode/properties/index.html",
+        "size": 1216
+      },
+      {
+        "path": "lib/CodeMirror3/mode/properties/properties.js",
+        "size": 1734
+      },
+      {
+        "path": "lib/CodeMirror3/mode/python/LICENSE.txt",
+        "size": 1075
+      },
+      {
+        "path": "lib/CodeMirror3/mode/python/index.html",
+        "size": 2922
+      },
+      {
+        "path": "lib/CodeMirror3/mode/python/python.js",
+        "size": 12236
+      },
+      {
+        "path": "lib/CodeMirror3/mode/r/LICENSE",
+        "size": 1486
+      },
+      {
+        "path": "lib/CodeMirror3/mode/r/index.html",
+        "size": 2290
+      },
+      {
+        "path": "lib/CodeMirror3/mode/r/r.js",
+        "size": 4932
+      },
+      {
+        "path": "lib/CodeMirror3/mode/rpm/changes/changes.js",
+        "size": 636
+      },
+      {
+        "path": "lib/CodeMirror3/mode/rpm/changes/index.html",
+        "size": 1791
+      },
+      {
+        "path": "lib/CodeMirror3/mode/rpm/spec/index.html",
+        "size": 3035
+      },
+      {
+        "path": "lib/CodeMirror3/mode/rpm/spec/spec.css",
+        "size": 267
+      },
+      {
+        "path": "lib/CodeMirror3/mode/rpm/spec/spec.js",
+        "size": 2680
+      },
+      {
+        "path": "lib/CodeMirror3/mode/rst/index.html",
+        "size": 17605
+      },
+      {
+        "path": "lib/CodeMirror3/mode/rst/rst.js",
+        "size": 8138
+      },
+      {
+        "path": "lib/CodeMirror3/mode/ruby/LICENSE",
+        "size": 1487
+      },
+      {
+        "path": "lib/CodeMirror3/mode/ruby/index.html",
+        "size": 5499
+      },
+      {
+        "path": "lib/CodeMirror3/mode/ruby/ruby.js",
+        "size": 7283
+      },
+      {
+        "path": "lib/CodeMirror3/mode/rust/index.html",
+        "size": 1069
+      },
+      {
+        "path": "lib/CodeMirror3/mode/rust/rust.js",
+        "size": 15445
+      },
+      {
+        "path": "lib/CodeMirror3/mode/scheme/index.html",
+        "size": 2225
+      },
+      {
+        "path": "lib/CodeMirror3/mode/scheme/scheme.js",
+        "size": 12903
+      },
+      {
+        "path": "lib/CodeMirror3/mode/shell/index.html",
+        "size": 1325
+      },
+      {
+        "path": "lib/CodeMirror3/mode/shell/shell.js",
+        "size": 3206
+      },
+      {
+        "path": "lib/CodeMirror3/mode/sieve/LICENSE",
+        "size": 1226
+      },
+      {
+        "path": "lib/CodeMirror3/mode/sieve/index.html",
+        "size": 1997
+      },
+      {
+        "path": "lib/CodeMirror3/mode/sieve/sieve.js",
+        "size": 3399
+      },
+      {
+        "path": "lib/CodeMirror3/mode/smalltalk/index.html",
+        "size": 1571
+      },
+      {
+        "path": "lib/CodeMirror3/mode/smalltalk/smalltalk.js",
+        "size": 3431
+      },
+      {
+        "path": "lib/CodeMirror3/mode/smarty/index.html",
+        "size": 2333
+      },
+      {
+        "path": "lib/CodeMirror3/mode/smarty/smarty.js",
+        "size": 3840
+      },
+      {
+        "path": "lib/CodeMirror3/mode/sparql/index.html",
+        "size": 1283
+      },
+      {
+        "path": "lib/CodeMirror3/mode/sparql/sparql.js",
+        "size": 4595
+      },
+      {
+        "path": "lib/CodeMirror3/mode/stex/index.html",
+        "size": 3806
+      },
+      {
+        "path": "lib/CodeMirror3/mode/stex/stex.js",
+        "size": 4391
+      },
+      {
+        "path": "lib/CodeMirror3/mode/stex/test.js",
+        "size": 4561
+      },
+      {
+        "path": "lib/CodeMirror3/mode/tiddlywiki/index.html",
+        "size": 4274
+      },
+      {
+        "path": "lib/CodeMirror3/mode/tiddlywiki/tiddlywiki.css",
+        "size": 220
+      },
+      {
+        "path": "lib/CodeMirror3/mode/tiddlywiki/tiddlywiki.js",
+        "size": 8799
+      },
+      {
+        "path": "lib/CodeMirror3/mode/tiki/index.html",
+        "size": 1456
+      },
+      {
+        "path": "lib/CodeMirror3/mode/tiki/tiki.css",
+        "size": 446
+      },
+      {
+        "path": "lib/CodeMirror3/mode/tiki/tiki.js",
+        "size": 7754
+      },
+      {
+        "path": "lib/CodeMirror3/mode/vb/LICENSE.txt",
+        "size": 1113
+      },
+      {
+        "path": "lib/CodeMirror3/mode/vb/index.html",
+        "size": 2935
+      },
+      {
+        "path": "lib/CodeMirror3/mode/vb/vb.js",
+        "size": 8269
+      },
+      {
+        "path": "lib/CodeMirror3/mode/vbscript/index.html",
+        "size": 1159
+      },
+      {
+        "path": "lib/CodeMirror3/mode/vbscript/vbscript.js",
+        "size": 867
+      },
+      {
+        "path": "lib/CodeMirror3/mode/velocity/index.html",
+        "size": 2759
+      },
+      {
+        "path": "lib/CodeMirror3/mode/velocity/velocity.js",
+        "size": 4872
+      },
+      {
+        "path": "lib/CodeMirror3/mode/verilog/index.html",
+        "size": 6780
+      },
+      {
+        "path": "lib/CodeMirror3/mode/verilog/verilog.js",
+        "size": 6520
+      },
+      {
+        "path": "lib/CodeMirror3/mode/xml/index.html",
+        "size": 1644
+      },
+      {
+        "path": "lib/CodeMirror3/mode/xml/xml.js",
+        "size": 10095
+      },
+      {
+        "path": "lib/CodeMirror3/mode/xquery/LICENSE",
+        "size": 1109
+      },
+      {
+        "path": "lib/CodeMirror3/mode/xquery/index.html",
+        "size": 9417
+      },
+      {
+        "path": "lib/CodeMirror3/mode/xquery/test.js",
+        "size": 8985
+      },
+      {
+        "path": "lib/CodeMirror3/mode/xquery/xquery.js",
+        "size": 15916
+      },
+      {
+        "path": "lib/CodeMirror3/mode/yaml/index.html",
+        "size": 1771
+      },
+      {
+        "path": "lib/CodeMirror3/mode/yaml/yaml.js",
+        "size": 2677
+      },
+      {
+        "path": "lib/CodeMirror3/mode/z80/index.html",
+        "size": 1057
+      },
+      {
+        "path": "lib/CodeMirror3/mode/z80/z80.js",
+        "size": 2186
+      },
+      {
+        "path": "lib/CodeMirror3/package.json",
+        "size": 903
+      },
+      {
+        "path": "lib/CodeMirror3/test/driver.js",
+        "size": 3975
+      },
+      {
+        "path": "lib/CodeMirror3/test/index.html",
+        "size": 6647
+      },
+      {
+        "path": "lib/CodeMirror3/test/lint/acorn.js",
+        "size": 63657
+      },
+      {
+        "path": "lib/CodeMirror3/test/lint/lint.js",
+        "size": 3041
+      },
+      {
+        "path": "lib/CodeMirror3/test/lint/parse-js.js",
+        "size": 55968
+      },
+      {
+        "path": "lib/CodeMirror3/test/lint/walk.js",
+        "size": 7837
+      },
+      {
+        "path": "lib/CodeMirror3/test/mode_test.css",
+        "size": 179
+      },
+      {
+        "path": "lib/CodeMirror3/test/mode_test.js",
+        "size": 5394
+      },
+      {
+        "path": "lib/CodeMirror3/test/phantom_driver.js",
+        "size": 921
+      },
+      {
+        "path": "lib/CodeMirror3/test/run.js",
+        "size": 850
+      },
+      {
+        "path": "lib/CodeMirror3/test/test.js",
+        "size": 42026
+      },
+      {
+        "path": "lib/CodeMirror3/test/vim_test.js",
+        "size": 29719
+      },
+      {
+        "path": "lib/CodeMirror3/theme/ambiance-mobile.css",
+        "size": 126
+      },
+      {
+        "path": "lib/CodeMirror3/theme/ambiance.css",
+        "size": 26068
+      },
+      {
+        "path": "lib/CodeMirror3/theme/blackboard.css",
+        "size": 1237
+      },
+      {
+        "path": "lib/CodeMirror3/theme/cobalt.css",
+        "size": 1048
+      },
+      {
+        "path": "lib/CodeMirror3/theme/eclipse.css",
+        "size": 1050
+      },
+      {
+        "path": "lib/CodeMirror3/theme/elegant.css",
+        "size": 635
+      },
+      {
+        "path": "lib/CodeMirror3/theme/erlang-dark.css",
+        "size": 1238
+      },
+      {
+        "path": "lib/CodeMirror3/theme/lesser-dark.css",
+        "size": 1991
+      },
+      {
+        "path": "lib/CodeMirror3/theme/monokai.css",
+        "size": 1162
+      },
+      {
+        "path": "lib/CodeMirror3/theme/neat.css",
+        "size": 524
+      },
+      {
+        "path": "lib/CodeMirror3/theme/night.css",
+        "size": 1129
+      },
+      {
+        "path": "lib/CodeMirror3/theme/rubyblue.css",
+        "size": 1294
+      },
+      {
+        "path": "lib/CodeMirror3/theme/solarized.css",
+        "size": 28855
+      },
+      {
+        "path": "lib/CodeMirror3/theme/twilight.css",
+        "size": 1466
+      },
+      {
+        "path": "lib/CodeMirror3/theme/vibrant-ink.css",
+        "size": 1401
+      },
+      {
+        "path": "lib/CodeMirror3/theme/xq-dark.css",
+        "size": 2307
+      },
+      {
+        "path": "lib/colorpicker/Color.Picker.Classic.css",
+        "size": 1544
+      },
+      {
+        "path": "lib/colorpicker/Color.Picker.Classic.js",
+        "size": 17320
+      },
+      {
+        "path": "lib/colorpicker/Color.Space.js",
+        "size": 4928
+      },
+      {
+        "path": "src/inlet.js",
+        "size": 7193
+      },
+      {
+        "path": "src/style.css",
+        "size": 2070
+      },
+      {
+        "path": "src/style.less",
+        "size": 2560
+      }
+    ],
+    "tree": {
+      "name": "Inlet",
+      "children": [
+        {
+          "name": "lib",
+          "children": [
+            {
+              "name": "CodeMirror3",
+              "children": [
+                {
+                  "name": "bin",
+                  "children": [
+                    {
+                      "name": "compress",
+                      "size": 2637,
+                      "path": "lib/CodeMirror3/bin/compress"
+                    }
+                  ],
+                  "path": "lib/CodeMirror3/bin"
+                },
+                {
+                  "name": "demo",
+                  "children": [
+                    {
+                      "name": "activeline.html",
+                      "size": 2878,
+                      "path": "lib/CodeMirror3/demo/activeline.html"
+                    },
+                    {
+                      "name": "btree.html",
+                      "size": 3335,
+                      "path": "lib/CodeMirror3/demo/btree.html"
+                    },
+                    {
+                      "name": "changemode.html",
+                      "size": 1460,
+                      "path": "lib/CodeMirror3/demo/changemode.html"
+                    },
+                    {
+                      "name": "closetag.html",
+                      "size": 1355,
+                      "path": "lib/CodeMirror3/demo/closetag.html"
+                    },
+                    {
+                      "name": "complete.html",
+                      "size": 2413,
+                      "path": "lib/CodeMirror3/demo/complete.html"
+                    },
+                    {
+                      "name": "emacs.html",
+                      "size": 1884,
+                      "path": "lib/CodeMirror3/demo/emacs.html"
+                    },
+                    {
+                      "name": "folding.html",
+                      "size": 2459,
+                      "path": "lib/CodeMirror3/demo/folding.html"
+                    },
+                    {
+                      "name": "formatting.html",
+                      "size": 2521,
+                      "path": "lib/CodeMirror3/demo/formatting.html"
+                    },
+                    {
+                      "name": "fullscreen.html",
+                      "size": 5618,
+                      "path": "lib/CodeMirror3/demo/fullscreen.html"
+                    },
+                    {
+                      "name": "loadmode.html",
+                      "size": 1280,
+                      "path": "lib/CodeMirror3/demo/loadmode.html"
+                    },
+                    {
+                      "name": "marker.html",
+                      "size": 1630,
+                      "path": "lib/CodeMirror3/demo/marker.html"
+                    },
+                    {
+                      "name": "matchhighlighter.html",
+                      "size": 1253,
+                      "path": "lib/CodeMirror3/demo/matchhighlighter.html"
+                    },
+                    {
+                      "name": "multiplex.html",
+                      "size": 1681,
+                      "path": "lib/CodeMirror3/demo/multiplex.html"
+                    },
+                    {
+                      "name": "mustache.html",
+                      "size": 1810,
+                      "path": "lib/CodeMirror3/demo/mustache.html"
+                    },
+                    {
+                      "name": "preview.html",
+                      "size": 2171,
+                      "path": "lib/CodeMirror3/demo/preview.html"
+                    },
+                    {
+                      "name": "resize.html",
+                      "size": 1038,
+                      "path": "lib/CodeMirror3/demo/resize.html"
+                    },
+                    {
+                      "name": "runmode.html",
+                      "size": 1966,
+                      "path": "lib/CodeMirror3/demo/runmode.html"
+                    },
+                    {
+                      "name": "search.html",
+                      "size": 3560,
+                      "path": "lib/CodeMirror3/demo/search.html"
+                    },
+                    {
+                      "name": "theme.html",
+                      "size": 2823,
+                      "path": "lib/CodeMirror3/demo/theme.html"
+                    },
+                    {
+                      "name": "variableheight.html",
+                      "size": 1575,
+                      "path": "lib/CodeMirror3/demo/variableheight.html"
+                    },
+                    {
+                      "name": "vim.html",
+                      "size": 2032,
+                      "path": "lib/CodeMirror3/demo/vim.html"
+                    },
+                    {
+                      "name": "visibletabs.html",
+                      "size": 1585,
+                      "path": "lib/CodeMirror3/demo/visibletabs.html"
+                    },
+                    {
+                      "name": "widget.html",
+                      "size": 2667,
+                      "path": "lib/CodeMirror3/demo/widget.html"
+                    },
+                    {
+                      "name": "xmlcomplete.html",
+                      "size": 2367,
+                      "path": "lib/CodeMirror3/demo/xmlcomplete.html"
+                    }
+                  ],
+                  "path": "lib/CodeMirror3/demo"
+                },
+                {
+                  "name": "doc",
+                  "children": [
+                    {
+                      "name": "baboon.png",
+                      "size": 23299,
+                      "path": "lib/CodeMirror3/doc/baboon.png"
+                    },
+                    {
+                      "name": "baboon_vector.svg",
+                      "size": 17183,
+                      "path": "lib/CodeMirror3/doc/baboon_vector.svg"
+                    },
+                    {
+                      "name": "compress.html",
+                      "size": 12221,
+                      "path": "lib/CodeMirror3/doc/compress.html"
+                    },
+                    {
+                      "name": "docs.css",
+                      "size": 2377,
+                      "path": "lib/CodeMirror3/doc/docs.css"
+                    },
+                    {
+                      "name": "internals.html",
+                      "size": 25800,
+                      "path": "lib/CodeMirror3/doc/internals.html"
+                    },
+                    {
+                      "name": "manual.html",
+                      "size": 77003,
+                      "path": "lib/CodeMirror3/doc/manual.html"
+                    },
+                    {
+                      "name": "oldrelease.html",
+                      "size": 22097,
+                      "path": "lib/CodeMirror3/doc/oldrelease.html"
+                    },
+                    {
+                      "name": "realworld.html",
+                      "size": 5586,
+                      "path": "lib/CodeMirror3/doc/realworld.html"
+                    },
+                    {
+                      "name": "reporting.html",
+                      "size": 2111,
+                      "path": "lib/CodeMirror3/doc/reporting.html"
+                    },
+                    {
+                      "name": "upgrade_v2.2.html",
+                      "size": 3584,
+                      "path": "lib/CodeMirror3/doc/upgrade_v2.2.html"
+                    },
+                    {
+                      "name": "upgrade_v3.html",
+                      "size": 8367,
+                      "path": "lib/CodeMirror3/doc/upgrade_v3.html"
+                    }
+                  ],
+                  "path": "lib/CodeMirror3/doc"
+                },
+                {
+                  "name": "keymap",
+                  "children": [
+                    {
+                      "name": "emacs.js",
+                      "size": 1427,
+                      "path": "lib/CodeMirror3/keymap/emacs.js"
+                    },
+                    {
+                      "name": "vim.js",
+                      "size": 83615,
+                      "path": "lib/CodeMirror3/keymap/vim.js"
+                    }
+                  ],
+                  "path": "lib/CodeMirror3/keymap"
+                },
+                {
+                  "name": "lib",
+                  "children": [
+                    {
+                      "name": "util",
+                      "children": [
+                        {
+                          "name": "closetag.js",
+                          "size": 3693,
+                          "path": "lib/CodeMirror3/lib/util/closetag.js"
+                        },
+                        {
+                          "name": "colorize.js",
+                          "size": 834,
+                          "path": "lib/CodeMirror3/lib/util/colorize.js"
+                        },
+                        {
+                          "name": "continuecomment.js",
+                          "size": 1513,
+                          "path": "lib/CodeMirror3/lib/util/continuecomment.js"
+                        },
+                        {
+                          "name": "continuelist.js",
+                          "size": 925,
+                          "path": "lib/CodeMirror3/lib/util/continuelist.js"
+                        },
+                        {
+                          "name": "dialog.css",
+                          "size": 502,
+                          "path": "lib/CodeMirror3/lib/util/dialog.css"
+                        },
+                        {
+                          "name": "dialog.js",
+                          "size": 2362,
+                          "path": "lib/CodeMirror3/lib/util/dialog.js"
+                        },
+                        {
+                          "name": "foldcode.js",
+                          "size": 6112,
+                          "path": "lib/CodeMirror3/lib/util/foldcode.js"
+                        },
+                        {
+                          "name": "formatting.js",
+                          "size": 3909,
+                          "path": "lib/CodeMirror3/lib/util/formatting.js"
+                        },
+                        {
+                          "name": "javascript-hint.js",
+                          "size": 5541,
+                          "path": "lib/CodeMirror3/lib/util/javascript-hint.js"
+                        },
+                        {
+                          "name": "loadmode.js",
+                          "size": 1787,
+                          "path": "lib/CodeMirror3/lib/util/loadmode.js"
+                        },
+                        {
+                          "name": "match-highlighter.js",
+                          "size": 1796,
+                          "path": "lib/CodeMirror3/lib/util/match-highlighter.js"
+                        },
+                        {
+                          "name": "matchbrackets.js",
+                          "size": 2877,
+                          "path": "lib/CodeMirror3/lib/util/matchbrackets.js"
+                        },
+                        {
+                          "name": "multiplex.js",
+                          "size": 3496,
+                          "path": "lib/CodeMirror3/lib/util/multiplex.js"
+                        },
+                        {
+                          "name": "overlay.js",
+                          "size": 2186,
+                          "path": "lib/CodeMirror3/lib/util/overlay.js"
+                        },
+                        {
+                          "name": "pig-hint.js",
+                          "size": 5066,
+                          "path": "lib/CodeMirror3/lib/util/pig-hint.js"
+                        },
+                        {
+                          "name": "runmode-standalone.js",
+                          "size": 3182,
+                          "path": "lib/CodeMirror3/lib/util/runmode-standalone.js"
+                        },
+                        {
+                          "name": "runmode.js",
+                          "size": 1649,
+                          "path": "lib/CodeMirror3/lib/util/runmode.js"
+                        },
+                        {
+                          "name": "search.js",
+                          "size": 5089,
+                          "path": "lib/CodeMirror3/lib/util/search.js"
+                        },
+                        {
+                          "name": "searchcursor.js",
+                          "size": 4805,
+                          "path": "lib/CodeMirror3/lib/util/searchcursor.js"
+                        },
+                        {
+                          "name": "simple-hint.css",
+                          "size": 368,
+                          "path": "lib/CodeMirror3/lib/util/simple-hint.css"
+                        },
+                        {
+                          "name": "simple-hint.js",
+                          "size": 4258,
+                          "path": "lib/CodeMirror3/lib/util/simple-hint.js"
+                        },
+                        {
+                          "name": "xml-hint.js",
+                          "size": 3282,
+                          "path": "lib/CodeMirror3/lib/util/xml-hint.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/lib/util"
+                    },
+                    {
+                      "name": "codemirror.css",
+                      "size": 5920,
+                      "path": "lib/CodeMirror3/lib/codemirror.css"
+                    },
+                    {
+                      "name": "codemirror.js",
+                      "size": 177835,
+                      "path": "lib/CodeMirror3/lib/codemirror.js"
+                    }
+                  ],
+                  "path": "lib/CodeMirror3/lib"
+                },
+                {
+                  "name": "mode",
+                  "children": [
+                    {
+                      "name": "clike",
+                      "children": [
+                        {
+                          "name": "clike.js",
+                          "size": 11240,
+                          "path": "lib/CodeMirror3/mode/clike/clike.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 3141,
+                          "path": "lib/CodeMirror3/mode/clike/index.html"
+                        },
+                        {
+                          "name": "scala.html",
+                          "size": 28389,
+                          "path": "lib/CodeMirror3/mode/clike/scala.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/clike"
+                    },
+                    {
+                      "name": "clojure",
+                      "children": [
+                        {
+                          "name": "clojure.js",
+                          "size": 12410,
+                          "path": "lib/CodeMirror3/mode/clojure/clojure.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 2008,
+                          "path": "lib/CodeMirror3/mode/clojure/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/clojure"
+                    },
+                    {
+                      "name": "coffeescript",
+                      "children": [
+                        {
+                          "name": "LICENSE",
+                          "size": 1151,
+                          "path": "lib/CodeMirror3/mode/coffeescript/LICENSE"
+                        },
+                        {
+                          "name": "coffeescript.js",
+                          "size": 10915,
+                          "path": "lib/CodeMirror3/mode/coffeescript/coffeescript.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 22099,
+                          "path": "lib/CodeMirror3/mode/coffeescript/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/coffeescript"
+                    },
+                    {
+                      "name": "commonlisp",
+                      "children": [
+                        {
+                          "name": "commonlisp.js",
+                          "size": 3534,
+                          "path": "lib/CodeMirror3/mode/commonlisp/commonlisp.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 6357,
+                          "path": "lib/CodeMirror3/mode/commonlisp/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/commonlisp"
+                    },
+                    {
+                      "name": "css",
+                      "children": [
+                        {
+                          "name": "css.js",
+                          "size": 22136,
+                          "path": "lib/CodeMirror3/mode/css/css.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1245,
+                          "path": "lib/CodeMirror3/mode/css/index.html"
+                        },
+                        {
+                          "name": "test.js",
+                          "size": 9022,
+                          "path": "lib/CodeMirror3/mode/css/test.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/css"
+                    },
+                    {
+                      "name": "diff",
+                      "children": [
+                        {
+                          "name": "diff.js",
+                          "size": 677,
+                          "path": "lib/CodeMirror3/mode/diff/diff.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 4082,
+                          "path": "lib/CodeMirror3/mode/diff/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/diff"
+                    },
+                    {
+                      "name": "ecl",
+                      "children": [
+                        {
+                          "name": "ecl.js",
+                          "size": 8292,
+                          "path": "lib/CodeMirror3/mode/ecl/ecl.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1059,
+                          "path": "lib/CodeMirror3/mode/ecl/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/ecl"
+                    },
+                    {
+                      "name": "erlang",
+                      "children": [
+                        {
+                          "name": "erlang.js",
+                          "size": 13295,
+                          "path": "lib/CodeMirror3/mode/erlang/erlang.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1842,
+                          "path": "lib/CodeMirror3/mode/erlang/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/erlang"
+                    },
+                    {
+                      "name": "gfm",
+                      "children": [
+                        {
+                          "name": "gfm.js",
+                          "size": 2828,
+                          "path": "lib/CodeMirror3/mode/gfm/gfm.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 2091,
+                          "path": "lib/CodeMirror3/mode/gfm/index.html"
+                        },
+                        {
+                          "name": "test.js",
+                          "size": 3954,
+                          "path": "lib/CodeMirror3/mode/gfm/test.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/gfm"
+                    },
+                    {
+                      "name": "go",
+                      "children": [
+                        {
+                          "name": "go.js",
+                          "size": 5314,
+                          "path": "lib/CodeMirror3/mode/go/go.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1852,
+                          "path": "lib/CodeMirror3/mode/go/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/go"
+                    },
+                    {
+                      "name": "groovy",
+                      "children": [
+                        {
+                          "name": "groovy.js",
+                          "size": 7145,
+                          "path": "lib/CodeMirror3/mode/groovy/groovy.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1847,
+                          "path": "lib/CodeMirror3/mode/groovy/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/groovy"
+                    },
+                    {
+                      "name": "haskell",
+                      "children": [
+                        {
+                          "name": "haskell.js",
+                          "size": 7466,
+                          "path": "lib/CodeMirror3/mode/haskell/haskell.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1867,
+                          "path": "lib/CodeMirror3/mode/haskell/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/haskell"
+                    },
+                    {
+                      "name": "haxe",
+                      "children": [
+                        {
+                          "name": "haxe.js",
+                          "size": 15160,
+                          "path": "lib/CodeMirror3/mode/haxe/haxe.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1834,
+                          "path": "lib/CodeMirror3/mode/haxe/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/haxe"
+                    },
+                    {
+                      "name": "htmlembedded",
+                      "children": [
+                        {
+                          "name": "htmlembedded.js",
+                          "size": 2637,
+                          "path": "lib/CodeMirror3/mode/htmlembedded/htmlembedded.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1701,
+                          "path": "lib/CodeMirror3/mode/htmlembedded/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/htmlembedded"
+                    },
+                    {
+                      "name": "htmlmixed",
+                      "children": [
+                        {
+                          "name": "htmlmixed.js",
+                          "size": 2997,
+                          "path": "lib/CodeMirror3/mode/htmlmixed/htmlmixed.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1585,
+                          "path": "lib/CodeMirror3/mode/htmlmixed/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/htmlmixed"
+                    },
+                    {
+                      "name": "http",
+                      "children": [
+                        {
+                          "name": "http.js",
+                          "size": 2334,
+                          "path": "lib/CodeMirror3/mode/http/http.js"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1061,
+                          "path": "lib/CodeMirror3/mode/http/index.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/http"
+                    },
+                    {
+                      "name": "javascript",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 3059,
+                          "path": "lib/CodeMirror3/mode/javascript/index.html"
+                        },
+                        {
+                          "name": "javascript.js",
+                          "size": 14424,
+                          "path": "lib/CodeMirror3/mode/javascript/javascript.js"
+                        },
+                        {
+                          "name": "typescript.html",
+                          "size": 1209,
+                          "path": "lib/CodeMirror3/mode/javascript/typescript.html"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/javascript"
+                    },
+                    {
+                      "name": "jinja2",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1067,
+                          "path": "lib/CodeMirror3/mode/jinja2/index.html"
+                        },
+                        {
+                          "name": "jinja2.js",
+                          "size": 1362,
+                          "path": "lib/CodeMirror3/mode/jinja2/jinja2.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/jinja2"
+                    },
+                    {
+                      "name": "less",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 18317,
+                          "path": "lib/CodeMirror3/mode/less/index.html"
+                        },
+                        {
+                          "name": "less.js",
+                          "size": 11652,
+                          "path": "lib/CodeMirror3/mode/less/less.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/less"
+                    },
+                    {
+                      "name": "lua",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1780,
+                          "path": "lib/CodeMirror3/mode/lua/index.html"
+                        },
+                        {
+                          "name": "lua.js",
+                          "size": 5366,
+                          "path": "lib/CodeMirror3/mode/lua/lua.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/lua"
+                    },
+                    {
+                      "name": "markdown",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 10253,
+                          "path": "lib/CodeMirror3/mode/markdown/index.html"
+                        },
+                        {
+                          "name": "markdown.js",
+                          "size": 13659,
+                          "path": "lib/CodeMirror3/mode/markdown/markdown.js"
+                        },
+                        {
+                          "name": "test.js",
+                          "size": 22134,
+                          "path": "lib/CodeMirror3/mode/markdown/test.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/markdown"
+                    },
+                    {
+                      "name": "mysql",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1130,
+                          "path": "lib/CodeMirror3/mode/mysql/index.html"
+                        },
+                        {
+                          "name": "mysql.js",
+                          "size": 8181,
+                          "path": "lib/CodeMirror3/mode/mysql/mysql.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/mysql"
+                    },
+                    {
+                      "name": "ntriples",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1025,
+                          "path": "lib/CodeMirror3/mode/ntriples/index.html"
+                        },
+                        {
+                          "name": "ntriples.js",
+                          "size": 6253,
+                          "path": "lib/CodeMirror3/mode/ntriples/ntriples.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/ntriples"
+                    },
+                    {
+                      "name": "ocaml",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 3422,
+                          "path": "lib/CodeMirror3/mode/ocaml/index.html"
+                        },
+                        {
+                          "name": "ocaml.js",
+                          "size": 2688,
+                          "path": "lib/CodeMirror3/mode/ocaml/ocaml.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/ocaml"
+                    },
+                    {
+                      "name": "pascal",
+                      "children": [
+                        {
+                          "name": "LICENSE",
+                          "size": 1078,
+                          "path": "lib/CodeMirror3/mode/pascal/LICENSE"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1106,
+                          "path": "lib/CodeMirror3/mode/pascal/index.html"
+                        },
+                        {
+                          "name": "pascal.js",
+                          "size": 2594,
+                          "path": "lib/CodeMirror3/mode/pascal/pascal.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/pascal"
+                    },
+                    {
+                      "name": "perl",
+                      "children": [
+                        {
+                          "name": "LICENSE",
+                          "size": 1094,
+                          "path": "lib/CodeMirror3/mode/perl/LICENSE"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1210,
+                          "path": "lib/CodeMirror3/mode/perl/index.html"
+                        },
+                        {
+                          "name": "perl.js",
+                          "size": 29410,
+                          "path": "lib/CodeMirror3/mode/perl/perl.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/perl"
+                    },
+                    {
+                      "name": "php",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1651,
+                          "path": "lib/CodeMirror3/mode/php/index.html"
+                        },
+                        {
+                          "name": "php.js",
+                          "size": 12144,
+                          "path": "lib/CodeMirror3/mode/php/php.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/php"
+                    },
+                    {
+                      "name": "pig",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1130,
+                          "path": "lib/CodeMirror3/mode/pig/index.html"
+                        },
+                        {
+                          "name": "pig.js",
+                          "size": 5191,
+                          "path": "lib/CodeMirror3/mode/pig/pig.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/pig"
+                    },
+                    {
+                      "name": "plsql",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1551,
+                          "path": "lib/CodeMirror3/mode/plsql/index.html"
+                        },
+                        {
+                          "name": "plsql.js",
+                          "size": 8379,
+                          "path": "lib/CodeMirror3/mode/plsql/plsql.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/plsql"
+                    },
+                    {
+                      "name": "properties",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1216,
+                          "path": "lib/CodeMirror3/mode/properties/index.html"
+                        },
+                        {
+                          "name": "properties.js",
+                          "size": 1734,
+                          "path": "lib/CodeMirror3/mode/properties/properties.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/properties"
+                    },
+                    {
+                      "name": "python",
+                      "children": [
+                        {
+                          "name": "LICENSE.txt",
+                          "size": 1075,
+                          "path": "lib/CodeMirror3/mode/python/LICENSE.txt"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 2922,
+                          "path": "lib/CodeMirror3/mode/python/index.html"
+                        },
+                        {
+                          "name": "python.js",
+                          "size": 12236,
+                          "path": "lib/CodeMirror3/mode/python/python.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/python"
+                    },
+                    {
+                      "name": "r",
+                      "children": [
+                        {
+                          "name": "LICENSE",
+                          "size": 1486,
+                          "path": "lib/CodeMirror3/mode/r/LICENSE"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 2290,
+                          "path": "lib/CodeMirror3/mode/r/index.html"
+                        },
+                        {
+                          "name": "r.js",
+                          "size": 4932,
+                          "path": "lib/CodeMirror3/mode/r/r.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/r"
+                    },
+                    {
+                      "name": "rpm",
+                      "children": [
+                        {
+                          "name": "changes",
+                          "children": [
+                            {
+                              "name": "changes.js",
+                              "size": 636,
+                              "path": "lib/CodeMirror3/mode/rpm/changes/changes.js"
+                            },
+                            {
+                              "name": "index.html",
+                              "size": 1791,
+                              "path": "lib/CodeMirror3/mode/rpm/changes/index.html"
+                            }
+                          ],
+                          "path": "lib/CodeMirror3/mode/rpm/changes"
+                        },
+                        {
+                          "name": "spec",
+                          "children": [
+                            {
+                              "name": "index.html",
+                              "size": 3035,
+                              "path": "lib/CodeMirror3/mode/rpm/spec/index.html"
+                            },
+                            {
+                              "name": "spec.css",
+                              "size": 267,
+                              "path": "lib/CodeMirror3/mode/rpm/spec/spec.css"
+                            },
+                            {
+                              "name": "spec.js",
+                              "size": 2680,
+                              "path": "lib/CodeMirror3/mode/rpm/spec/spec.js"
+                            }
+                          ],
+                          "path": "lib/CodeMirror3/mode/rpm/spec"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/rpm"
+                    },
+                    {
+                      "name": "rst",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 17605,
+                          "path": "lib/CodeMirror3/mode/rst/index.html"
+                        },
+                        {
+                          "name": "rst.js",
+                          "size": 8138,
+                          "path": "lib/CodeMirror3/mode/rst/rst.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/rst"
+                    },
+                    {
+                      "name": "ruby",
+                      "children": [
+                        {
+                          "name": "LICENSE",
+                          "size": 1487,
+                          "path": "lib/CodeMirror3/mode/ruby/LICENSE"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 5499,
+                          "path": "lib/CodeMirror3/mode/ruby/index.html"
+                        },
+                        {
+                          "name": "ruby.js",
+                          "size": 7283,
+                          "path": "lib/CodeMirror3/mode/ruby/ruby.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/ruby"
+                    },
+                    {
+                      "name": "rust",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1069,
+                          "path": "lib/CodeMirror3/mode/rust/index.html"
+                        },
+                        {
+                          "name": "rust.js",
+                          "size": 15445,
+                          "path": "lib/CodeMirror3/mode/rust/rust.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/rust"
+                    },
+                    {
+                      "name": "scheme",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 2225,
+                          "path": "lib/CodeMirror3/mode/scheme/index.html"
+                        },
+                        {
+                          "name": "scheme.js",
+                          "size": 12903,
+                          "path": "lib/CodeMirror3/mode/scheme/scheme.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/scheme"
+                    },
+                    {
+                      "name": "shell",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1325,
+                          "path": "lib/CodeMirror3/mode/shell/index.html"
+                        },
+                        {
+                          "name": "shell.js",
+                          "size": 3206,
+                          "path": "lib/CodeMirror3/mode/shell/shell.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/shell"
+                    },
+                    {
+                      "name": "sieve",
+                      "children": [
+                        {
+                          "name": "LICENSE",
+                          "size": 1226,
+                          "path": "lib/CodeMirror3/mode/sieve/LICENSE"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 1997,
+                          "path": "lib/CodeMirror3/mode/sieve/index.html"
+                        },
+                        {
+                          "name": "sieve.js",
+                          "size": 3399,
+                          "path": "lib/CodeMirror3/mode/sieve/sieve.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/sieve"
+                    },
+                    {
+                      "name": "smalltalk",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1571,
+                          "path": "lib/CodeMirror3/mode/smalltalk/index.html"
+                        },
+                        {
+                          "name": "smalltalk.js",
+                          "size": 3431,
+                          "path": "lib/CodeMirror3/mode/smalltalk/smalltalk.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/smalltalk"
+                    },
+                    {
+                      "name": "smarty",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 2333,
+                          "path": "lib/CodeMirror3/mode/smarty/index.html"
+                        },
+                        {
+                          "name": "smarty.js",
+                          "size": 3840,
+                          "path": "lib/CodeMirror3/mode/smarty/smarty.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/smarty"
+                    },
+                    {
+                      "name": "sparql",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1283,
+                          "path": "lib/CodeMirror3/mode/sparql/index.html"
+                        },
+                        {
+                          "name": "sparql.js",
+                          "size": 4595,
+                          "path": "lib/CodeMirror3/mode/sparql/sparql.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/sparql"
+                    },
+                    {
+                      "name": "stex",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 3806,
+                          "path": "lib/CodeMirror3/mode/stex/index.html"
+                        },
+                        {
+                          "name": "stex.js",
+                          "size": 4391,
+                          "path": "lib/CodeMirror3/mode/stex/stex.js"
+                        },
+                        {
+                          "name": "test.js",
+                          "size": 4561,
+                          "path": "lib/CodeMirror3/mode/stex/test.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/stex"
+                    },
+                    {
+                      "name": "tiddlywiki",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 4274,
+                          "path": "lib/CodeMirror3/mode/tiddlywiki/index.html"
+                        },
+                        {
+                          "name": "tiddlywiki.css",
+                          "size": 220,
+                          "path": "lib/CodeMirror3/mode/tiddlywiki/tiddlywiki.css"
+                        },
+                        {
+                          "name": "tiddlywiki.js",
+                          "size": 8799,
+                          "path": "lib/CodeMirror3/mode/tiddlywiki/tiddlywiki.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/tiddlywiki"
+                    },
+                    {
+                      "name": "tiki",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1456,
+                          "path": "lib/CodeMirror3/mode/tiki/index.html"
+                        },
+                        {
+                          "name": "tiki.css",
+                          "size": 446,
+                          "path": "lib/CodeMirror3/mode/tiki/tiki.css"
+                        },
+                        {
+                          "name": "tiki.js",
+                          "size": 7754,
+                          "path": "lib/CodeMirror3/mode/tiki/tiki.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/tiki"
+                    },
+                    {
+                      "name": "vb",
+                      "children": [
+                        {
+                          "name": "LICENSE.txt",
+                          "size": 1113,
+                          "path": "lib/CodeMirror3/mode/vb/LICENSE.txt"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 2935,
+                          "path": "lib/CodeMirror3/mode/vb/index.html"
+                        },
+                        {
+                          "name": "vb.js",
+                          "size": 8269,
+                          "path": "lib/CodeMirror3/mode/vb/vb.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/vb"
+                    },
+                    {
+                      "name": "vbscript",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1159,
+                          "path": "lib/CodeMirror3/mode/vbscript/index.html"
+                        },
+                        {
+                          "name": "vbscript.js",
+                          "size": 867,
+                          "path": "lib/CodeMirror3/mode/vbscript/vbscript.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/vbscript"
+                    },
+                    {
+                      "name": "velocity",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 2759,
+                          "path": "lib/CodeMirror3/mode/velocity/index.html"
+                        },
+                        {
+                          "name": "velocity.js",
+                          "size": 4872,
+                          "path": "lib/CodeMirror3/mode/velocity/velocity.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/velocity"
+                    },
+                    {
+                      "name": "verilog",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 6780,
+                          "path": "lib/CodeMirror3/mode/verilog/index.html"
+                        },
+                        {
+                          "name": "verilog.js",
+                          "size": 6520,
+                          "path": "lib/CodeMirror3/mode/verilog/verilog.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/verilog"
+                    },
+                    {
+                      "name": "xml",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1644,
+                          "path": "lib/CodeMirror3/mode/xml/index.html"
+                        },
+                        {
+                          "name": "xml.js",
+                          "size": 10095,
+                          "path": "lib/CodeMirror3/mode/xml/xml.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/xml"
+                    },
+                    {
+                      "name": "xquery",
+                      "children": [
+                        {
+                          "name": "LICENSE",
+                          "size": 1109,
+                          "path": "lib/CodeMirror3/mode/xquery/LICENSE"
+                        },
+                        {
+                          "name": "index.html",
+                          "size": 9417,
+                          "path": "lib/CodeMirror3/mode/xquery/index.html"
+                        },
+                        {
+                          "name": "test.js",
+                          "size": 8985,
+                          "path": "lib/CodeMirror3/mode/xquery/test.js"
+                        },
+                        {
+                          "name": "xquery.js",
+                          "size": 15916,
+                          "path": "lib/CodeMirror3/mode/xquery/xquery.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/xquery"
+                    },
+                    {
+                      "name": "yaml",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1771,
+                          "path": "lib/CodeMirror3/mode/yaml/index.html"
+                        },
+                        {
+                          "name": "yaml.js",
+                          "size": 2677,
+                          "path": "lib/CodeMirror3/mode/yaml/yaml.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/yaml"
+                    },
+                    {
+                      "name": "z80",
+                      "children": [
+                        {
+                          "name": "index.html",
+                          "size": 1057,
+                          "path": "lib/CodeMirror3/mode/z80/index.html"
+                        },
+                        {
+                          "name": "z80.js",
+                          "size": 2186,
+                          "path": "lib/CodeMirror3/mode/z80/z80.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/mode/z80"
+                    }
+                  ],
+                  "path": "lib/CodeMirror3/mode"
+                },
+                {
+                  "name": "test",
+                  "children": [
+                    {
+                      "name": "lint",
+                      "children": [
+                        {
+                          "name": "acorn.js",
+                          "size": 63657,
+                          "path": "lib/CodeMirror3/test/lint/acorn.js"
+                        },
+                        {
+                          "name": "lint.js",
+                          "size": 3041,
+                          "path": "lib/CodeMirror3/test/lint/lint.js"
+                        },
+                        {
+                          "name": "parse-js.js",
+                          "size": 55968,
+                          "path": "lib/CodeMirror3/test/lint/parse-js.js"
+                        },
+                        {
+                          "name": "walk.js",
+                          "size": 7837,
+                          "path": "lib/CodeMirror3/test/lint/walk.js"
+                        }
+                      ],
+                      "path": "lib/CodeMirror3/test/lint"
+                    },
+                    {
+                      "name": "driver.js",
+                      "size": 3975,
+                      "path": "lib/CodeMirror3/test/driver.js"
+                    },
+                    {
+                      "name": "index.html",
+                      "size": 6647,
+                      "path": "lib/CodeMirror3/test/index.html"
+                    },
+                    {
+                      "name": "mode_test.css",
+                      "size": 179,
+                      "path": "lib/CodeMirror3/test/mode_test.css"
+                    },
+                    {
+                      "name": "mode_test.js",
+                      "size": 5394,
+                      "path": "lib/CodeMirror3/test/mode_test.js"
+                    },
+                    {
+                      "name": "phantom_driver.js",
+                      "size": 921,
+                      "path": "lib/CodeMirror3/test/phantom_driver.js"
+                    },
+                    {
+                      "name": "run.js",
+                      "size": 850,
+                      "path": "lib/CodeMirror3/test/run.js"
+                    },
+                    {
+                      "name": "test.js",
+                      "size": 42026,
+                      "path": "lib/CodeMirror3/test/test.js"
+                    },
+                    {
+                      "name": "vim_test.js",
+                      "size": 29719,
+                      "path": "lib/CodeMirror3/test/vim_test.js"
+                    }
+                  ],
+                  "path": "lib/CodeMirror3/test"
+                },
+                {
+                  "name": "theme",
+                  "children": [
+                    {
+                      "name": "ambiance-mobile.css",
+                      "size": 126,
+                      "path": "lib/CodeMirror3/theme/ambiance-mobile.css"
+                    },
+                    {
+                      "name": "ambiance.css",
+                      "size": 26068,
+                      "path": "lib/CodeMirror3/theme/ambiance.css"
+                    },
+                    {
+                      "name": "blackboard.css",
+                      "size": 1237,
+                      "path": "lib/CodeMirror3/theme/blackboard.css"
+                    },
+                    {
+                      "name": "cobalt.css",
+                      "size": 1048,
+                      "path": "lib/CodeMirror3/theme/cobalt.css"
+                    },
+                    {
+                      "name": "eclipse.css",
+                      "size": 1050,
+                      "path": "lib/CodeMirror3/theme/eclipse.css"
+                    },
+                    {
+                      "name": "elegant.css",
+                      "size": 635,
+                      "path": "lib/CodeMirror3/theme/elegant.css"
+                    },
+                    {
+                      "name": "erlang-dark.css",
+                      "size": 1238,
+                      "path": "lib/CodeMirror3/theme/erlang-dark.css"
+                    },
+                    {
+                      "name": "lesser-dark.css",
+                      "size": 1991,
+                      "path": "lib/CodeMirror3/theme/lesser-dark.css"
+                    },
+                    {
+                      "name": "monokai.css",
+                      "size": 1162,
+                      "path": "lib/CodeMirror3/theme/monokai.css"
+                    },
+                    {
+                      "name": "neat.css",
+                      "size": 524,
+                      "path": "lib/CodeMirror3/theme/neat.css"
+                    },
+                    {
+                      "name": "night.css",
+                      "size": 1129,
+                      "path": "lib/CodeMirror3/theme/night.css"
+                    },
+                    {
+                      "name": "rubyblue.css",
+                      "size": 1294,
+                      "path": "lib/CodeMirror3/theme/rubyblue.css"
+                    },
+                    {
+                      "name": "solarized.css",
+                      "size": 28855,
+                      "path": "lib/CodeMirror3/theme/solarized.css"
+                    },
+                    {
+                      "name": "twilight.css",
+                      "size": 1466,
+                      "path": "lib/CodeMirror3/theme/twilight.css"
+                    },
+                    {
+                      "name": "vibrant-ink.css",
+                      "size": 1401,
+                      "path": "lib/CodeMirror3/theme/vibrant-ink.css"
+                    },
+                    {
+                      "name": "xq-dark.css",
+                      "size": 2307,
+                      "path": "lib/CodeMirror3/theme/xq-dark.css"
+                    }
+                  ],
+                  "path": "lib/CodeMirror3/theme"
+                },
+                {
+                  "name": ".gitattributes",
+                  "size": 104,
+                  "path": "lib/CodeMirror3/.gitattributes"
+                },
+                {
+                  "name": ".gitignore",
+                  "size": 39,
+                  "path": "lib/CodeMirror3/.gitignore"
+                },
+                {
+                  "name": ".travis.yml",
+                  "size": 35,
+                  "path": "lib/CodeMirror3/.travis.yml"
+                },
+                {
+                  "name": "CONTRIBUTING.md",
+                  "size": 3027,
+                  "path": "lib/CodeMirror3/CONTRIBUTING.md"
+                },
+                {
+                  "name": "LICENSE",
+                  "size": 1228,
+                  "path": "lib/CodeMirror3/LICENSE"
+                },
+                {
+                  "name": "README.md",
+                  "size": 507,
+                  "path": "lib/CodeMirror3/README.md"
+                },
+                {
+                  "name": "index.html",
+                  "size": 24285,
+                  "path": "lib/CodeMirror3/index.html"
+                },
+                {
+                  "name": "package.json",
+                  "size": 903,
+                  "path": "lib/CodeMirror3/package.json"
+                }
+              ],
+              "path": "lib/CodeMirror3"
+            },
+            {
+              "name": "colorpicker",
+              "children": [
+                {
+                  "name": "Color.Picker.Classic.css",
+                  "size": 1544,
+                  "path": "lib/colorpicker/Color.Picker.Classic.css"
+                },
+                {
+                  "name": "Color.Picker.Classic.js",
+                  "size": 17320,
+                  "path": "lib/colorpicker/Color.Picker.Classic.js"
+                },
+                {
+                  "name": "Color.Space.js",
+                  "size": 4928,
+                  "path": "lib/colorpicker/Color.Space.js"
+                }
+              ],
+              "path": "lib/colorpicker"
+            }
+          ],
+          "path": "lib"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "inlet.js",
+              "size": 7193,
+              "path": "src/inlet.js"
+            },
+            {
+              "name": "style.css",
+              "size": 2070,
+              "path": "src/style.css"
+            },
+            {
+              "name": "style.less",
+              "size": 2560,
+              "path": "src/style.less"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".gitignore",
+          "size": 12,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 963,
+          "path": "README.md"
+        },
+        {
+          "name": "index.html",
+          "size": 2269,
+          "path": "index.html"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 234,
+    "totalSize": 1632471
+  },
   "topics": [],
   "readme": {
     "html": "<p>Inlet is a \"plugin\" for CodeMirror2 which pops up a slider whenever you click on a number or a color picker when you click on a Hex string (i.e. \"#ff0000\")</p>\n<p>See an example at <a href=\"http://enjalot.github.com/Inlet\">http://enjalot.github.com/Inlet</a></p>\n<h1 id=\"about\">About</h1>\n<p>This project is inspired by Bret Victor's talk <a href=\"https://vimeo.com/36579366\">\"Inventing on Principle\"</a></p>\n<p>The the slider code is adapted from Gabriel Florit's <a href=\"http://gabrielflor.it/water\">Water project</a></p>\n<p>The <a href=\"https://github.com/mudcube/Color-Picker\">Color Picker library</a></p>\n<p>This project is used in enjalot's <a href=\"http://tributary.io\">Tributary</a></p>\n<h1 id=\"usage\">Usage</h1>\n<p>All you need is the inlet.js file from src/inlet.js<br />\nbut you do need to make sure you have all of the libs this depends on (found in the example/lib folder):\nColorPicker<br />\nCodeMirror2 ( &gt;= 3.1 )</p>\n<p>Check out index.html to see how to put things together</p>\n<p>The key bit of javascript code to kick things off is:</p>\n<pre><code class=\"language-javascript\">var editor = CodeMirror('#editor', ...)\nInlet(editor)\n</code></pre>\n<p>Enjoy!</p>",

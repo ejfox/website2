@@ -1,16 +1,27 @@
 {
-  "html": "<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg\" alt=\"\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" loading=\"lazy\" decoding=\"async\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\" width=\"1280\"></p>\n<p class=\"\">In 2021, I got my hands on a massive NYPD complaint dataset from Gothamist/WNYC and immediately went down a data rabbit hole. Built a network of 29,915 officer nodes with 159,671 relationships using Neo4j and Gephi (love-hate relationship with Gephi, but unrivaled for networks).</p>\n<p class=\"\">When Gothamist reporter George Joseph interviewed victims, they confirmed what the network showed - certain officers were \"catalysts\" who other officers \"followed\" into misconduct. Math and reality matched up! I documented everything in excruciating detail so others could replicate it for their own police departments.</p>",
+  "html": "<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg\" alt=\"\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\" width=\"1280\"></p>\n<p class=\"\">In 2021, I got my hands on a massive NYPD complaint dataset from Gothamist/WNYC and immediately went down a data rabbit hole. Built a network of 29,915 officer nodes with 159,671 relationships using Neo4j and Gephi (love-hate relationship with Gephi, but unrivaled for networks).</p>\n<p class=\"\">When Gothamist reporter George Joseph interviewed victims, they confirmed what the network showed - certain officers were \"catalysts\" who other officers \"followed\" into misconduct. Math and reality matched up! I documented everything in excruciating detail so others could replicate it for their own police departments.</p>",
   "title": "Clusters of NYPD Misconduct",
   "metadata": {
     "title": "Clusters of NYPD Misconduct",
     "date": "2021-06-15T04:00:00.000Z",
     "modified": "2025-08-26T19:52:56.000Z",
     "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
-    "tech": ["Neo4j", "SQLite", "Gephi", "Network Analysis", "Cypher"],
+    "tech": [
+      "Neo4j",
+      "SQLite",
+      "Gephi",
+      "Network Analysis",
+      "Cypher"
+    ],
     "featured": true,
     "state": "deployed",
     "aiInvolvement": "human-only",
-    "tags": ["data", "nypd", "journalism", "database"],
+    "tags": [
+      "data",
+      "nypd",
+      "journalism",
+      "database"
+    ],
     "words": 92,
     "images": 1,
     "imageDetails": {

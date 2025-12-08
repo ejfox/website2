@@ -15,6 +15,96 @@
     "JavaScript": 34722
   },
   "diskUsage": 71,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 89
+      },
+      {
+        "path": "README.md",
+        "size": 500
+      },
+      {
+        "path": "package-lock.json",
+        "size": 264249
+      },
+      {
+        "path": "package.json",
+        "size": 940
+      },
+      {
+        "path": "sketches/perlin-noise-dithered.js",
+        "size": 5091
+      },
+      {
+        "path": "sketches/perlin-noise-interactive.js",
+        "size": 9307
+      },
+      {
+        "path": "sketches/perlin-noise-sliders.js",
+        "size": 7675
+      },
+      {
+        "path": "sketches/perlin-noise-smart-dither.js",
+        "size": 12649
+      }
+    ],
+    "tree": {
+      "name": "art",
+      "children": [
+        {
+          "name": "sketches",
+          "children": [
+            {
+              "name": "perlin-noise-dithered.js",
+              "size": 5091,
+              "path": "sketches/perlin-noise-dithered.js"
+            },
+            {
+              "name": "perlin-noise-interactive.js",
+              "size": 9307,
+              "path": "sketches/perlin-noise-interactive.js"
+            },
+            {
+              "name": "perlin-noise-sliders.js",
+              "size": 7675,
+              "path": "sketches/perlin-noise-sliders.js"
+            },
+            {
+              "name": "perlin-noise-smart-dither.js",
+              "size": 12649,
+              "path": "sketches/perlin-noise-smart-dither.js"
+            }
+          ],
+          "path": "sketches"
+        },
+        {
+          "name": ".gitignore",
+          "size": 89,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 500,
+          "path": "README.md"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 264249,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 940,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 8,
+    "totalSize": 300500
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"art-playground\">Art Playground</h1>\n<p>Canvas-sketch playground for generative art experiments.</p>\n<h2 id=\"setup\">Setup</h2>\n<pre><code class=\"language-bash\">cd ~/art\nnpm install\n</code></pre>\n<h2 id=\"running-sketches\">Running Sketches</h2>\n<ul>\n<li><code>npm run perlin</code> - Generate perlin noise with dithering</li>\n<li><code>npm run dev</code> - Run with hot reload</li>\n<li><code>npm run sketch</code> - General canvas-sketch command</li>\n</ul>\n<h2 id=\"sketches\">Sketches</h2>\n<ul>\n<li><code>sketches/perlin-noise-dithered.js</code> - 1920x1080 monochrome perlin noise with Floyd-Steinberg dithering, glitch effects, and chromatic aberration</li>\n</ul>\n<p>Generated images are saved to <code>output/</code> directory.</p>",

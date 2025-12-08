@@ -17,6 +17,210 @@
     "Shell": 1452
   },
   "diskUsage": 38,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".env.example",
+        "size": 397
+      },
+      {
+        "path": ".gitignore",
+        "size": 53
+      },
+      {
+        "path": ".gitmodules",
+        "size": 579
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 4479
+      },
+      {
+        "path": "DEPLOYMENT_NIGHTMARE_ISSUE.md",
+        "size": 5150
+      },
+      {
+        "path": "README.md",
+        "size": 5168
+      },
+      {
+        "path": "database/README.md",
+        "size": 5929
+      },
+      {
+        "path": "database/legacy/README.md",
+        "size": 781
+      },
+      {
+        "path": "database/legacy/discord_schema.sql",
+        "size": 698
+      },
+      {
+        "path": "database/migrations/001_initial_schema.sql",
+        "size": 5912
+      },
+      {
+        "path": "database/schema.prisma",
+        "size": 4086
+      },
+      {
+        "path": "docker-compose.yml",
+        "size": 2495
+      },
+      {
+        "path": "package.json",
+        "size": 646
+      },
+      {
+        "path": "test-e2e.js",
+        "size": 4694
+      },
+      {
+        "path": "test-quick.sh",
+        "size": 904
+      },
+      {
+        "path": "tests/docker-validation.test.js",
+        "size": 5629
+      },
+      {
+        "path": "update_submodules.sh",
+        "size": 548
+      }
+    ],
+    "tree": {
+      "name": "coachartie_docker",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "database",
+          "children": [
+            {
+              "name": "legacy",
+              "children": [
+                {
+                  "name": "README.md",
+                  "size": 781,
+                  "path": "database/legacy/README.md"
+                },
+                {
+                  "name": "discord_schema.sql",
+                  "size": 698,
+                  "path": "database/legacy/discord_schema.sql"
+                }
+              ],
+              "path": "database/legacy"
+            },
+            {
+              "name": "migrations",
+              "children": [
+                {
+                  "name": "001_initial_schema.sql",
+                  "size": 5912,
+                  "path": "database/migrations/001_initial_schema.sql"
+                }
+              ],
+              "path": "database/migrations"
+            },
+            {
+              "name": "README.md",
+              "size": 5929,
+              "path": "database/README.md"
+            },
+            {
+              "name": "schema.prisma",
+              "size": 4086,
+              "path": "database/schema.prisma"
+            }
+          ],
+          "path": "database"
+        },
+        {
+          "name": "tests",
+          "children": [
+            {
+              "name": "docker-validation.test.js",
+              "size": 5629,
+              "path": "tests/docker-validation.test.js"
+            }
+          ],
+          "path": "tests"
+        },
+        {
+          "name": ".env.example",
+          "size": 397,
+          "path": ".env.example"
+        },
+        {
+          "name": ".gitignore",
+          "size": 53,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".gitmodules",
+          "size": 579,
+          "path": ".gitmodules"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 4479,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "DEPLOYMENT_NIGHTMARE_ISSUE.md",
+          "size": 5150,
+          "path": "DEPLOYMENT_NIGHTMARE_ISSUE.md"
+        },
+        {
+          "name": "README.md",
+          "size": 5168,
+          "path": "README.md"
+        },
+        {
+          "name": "docker-compose.yml",
+          "size": 2495,
+          "path": "docker-compose.yml"
+        },
+        {
+          "name": "package.json",
+          "size": 646,
+          "path": "package.json"
+        },
+        {
+          "name": "test-e2e.js",
+          "size": 4694,
+          "path": "test-e2e.js"
+        },
+        {
+          "name": "test-quick.sh",
+          "size": 904,
+          "path": "test-quick.sh"
+        },
+        {
+          "name": "update_submodules.sh",
+          "size": 548,
+          "path": "update_submodules.sh"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 18,
+    "totalSize": 48415
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"-coachartie-your-ai-assistant-stack\">🤖 CoachArtie: Your AI Assistant Stack</h1>\n<p><strong>Ready-to-deploy Docker stack for CoachArtie</strong> - a powerful AI assistant with memory, capabilities, and multi-platform communication.</p>\n<h2 id=\"-what-is-coachartie\">🚀 What is CoachArtie?</h2>\n<p>CoachArtie is more than just another chatbot. It's a <strong>memory-enabled AI assistant</strong> that can:</p>\n<ul>\n<li>🧠 <strong>Remember conversations</strong> across platforms (Discord, SMS, Email)</li>\n<li>🔧 <strong>Execute capabilities</strong> like calculations, web research, and GitHub operations</li>\n<li>💬 <strong>Communicate naturally</strong> using advanced context engineering</li>\n<li>🔄 <strong>Process tasks asynchronously</strong> with a robust queue system</li>\n<li>📊 <strong>Track everything</strong> with comprehensive logging and metrics</li>\n</ul>\n<h2 id=\"-quick-install--5-minutes\">⚡ Quick Install (&lt; 5 minutes)</h2>\n<p><strong>Prerequisites:</strong> Docker &amp; Docker Compose installed</p>\n<pre><code class=\"language-bash\"># 1. Clone with all services\ngit clone --recursive https://github.com/ejfox/coachartie_docker.git\ncd coachartie_docker\n\n# 2. Set up environment (add your API keys)\ncp .env.example .env\n# Edit .env with your OpenAI, Discord, and Supabase credentials\n\n# 3. Deploy everything\ndocker-compose up -d\n\n# 4. Verify it's working (should show 5/5 tests passing)\nnode test-e2e.js\n</code></pre>\n<p><strong>That's it!</strong> CoachArtie is now running with:</p>\n<ul>\n<li>🎯 <strong>Capabilities Service</strong> on port 9991 (AI brain)</li>\n<li>📧 <strong>Email Interface</strong> on port 9994 (email processing)</li>\n<li>💾 <strong>Database</strong> connection (Supabase)</li>\n<li>🔍 <strong>Health monitoring</strong> and E2E validation</li>\n</ul>\n<h2 id=\"-for-developers\">🎯 For Developers</h2>\n<p>CoachArtie is built with modern practices:</p>\n<ul>\n<li><strong>Microservices architecture</strong> with Docker orchestration</li>\n<li><strong>TypeScript throughout</strong> with strict type safety</li>\n<li><strong>Comprehensive testing</strong> (100% E2E test pass rate)</li>\n<li><strong>npm standardized</strong> across all services</li>\n<li><strong>Production-ready</strong> logging and error handling</li>\n</ul>\n<h2 id=\"-try-it-out\">🎮 Try It Out</h2>\n<pre><code class=\"language-bash\"># Chat with CoachArtie\ncurl -X POST http://localhost:9991/api/chat \\\n  -H \"Content-Type: application/json\" \\\n  -H \"Authorization: Bearer test\" \\\n  -d '{\"message\":\"What can you do?\",\"userId\":\"demo\"}'\n\n# Run a calculation\ncurl -X POST http://localhost:9991/api/task/execute \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"capability\": \"calculate\",\n    \"action\": \"compute\", \n    \"params\": {\"expression\": \"2 + 2\"},\n    \"respondTo\": {\"channel\": \"api\", \"details\": {\"type\": \"test\"}}\n  }'\n</code></pre>\n<h2 id=\"-essential-documentation\">📋 Essential Documentation</h2>\n<ul>\n<li><strong><a href=\"./database/README.md\">🗄️ Database Schema</a></strong> - Complete database documentation</li>\n<li><strong><a href=\"http://localhost:9991/openapi.yaml\">🔧 API Documentation</a></strong> - OpenAPI spec (when running)</li>\n<li><strong><a href=\"#testing\">🧪 Testing Guide</a></strong> - E2E tests and validation</li>\n</ul>\n<h2 id=\"services\">Services</h2>\n<h3 id=\"capabilities-service\">Capabilities Service</h3>\n<ul>\n<li>AI/ML processing engine</li>\n<li>Natural language processing</li>\n<li>Conversation memory management</li>\n<li>Port: 9991</li>\n</ul>\n<h3 id=\"discord-bot\">Discord Bot</h3>\n<ul>\n<li>User interface via Discord</li>\n<li>Command processing</li>\n<li>Voice channel integration</li>\n<li>Depends on Capabilities Service</li>\n</ul>\n<h2 id=\"testing\">Testing</h2>\n<h3 id=\"e2e-integration-tests\">E2E Integration Tests</h3>\n<p>Lightweight tests that verify service communication:</p>\n<pre><code class=\"language-bash\"># Install test dependencies\nnpm install\n\n# Quick health check (bash script)\n./test-quick.sh\n\n# Full E2E tests (requires services running)\nnpm test\n\n# Start services and test in one command\nnpm run docker:test\n</code></pre>\n<h3 id=\"test-coverage\">Test Coverage</h3>\n<ul>\n<li>✅ Health checks for all services</li>\n<li>✅ Capabilities service API endpoints</li>\n<li>✅ Calculate capability execution</li>\n<li>✅ Chat endpoint with memory</li>\n<li>✅ Service interdependency validation</li>\n</ul>\n<p><strong>Latest Status:</strong> 🎉 <strong>5/5 tests passing (100% success rate)</strong></p>\n<h2 id=\"development\">Development</h2>\n<p>The services can be managed individually or together using docker-compose commands. Logs can be viewed for all services or filtered by service name.</p>\n<h3 id=\"updating-submodules\">Updating Submodules</h3>\n<p>Use the provided script to update submodules to latest versions:</p>\n<pre><code class=\"language-bash\">./update_submodules.sh\n</code></pre>\n<h2 id=\"api-testing\">API Testing</h2>\n<h3 id=\"health-check\">Health Check</h3>\n<pre><code class=\"language-bash\">curl http://localhost:9991/api/health\n</code></pre>\n<h3 id=\"list-available-capabilities\">List Available Capabilities</h3>\n<pre><code class=\"language-bash\">curl http://localhost:9991/api/task/capabilities\n</code></pre>\n<h3 id=\"add-task-to-queue\">Add Task to Queue</h3>\n<pre><code class=\"language-bash\">curl -X POST http://localhost:9991/api/task/execute \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"capability\": \"calculate\", \n    \"action\": \"compute\",\n    \"params\": {\"expression\": \"123 + 456\"}, \n    \"respondTo\": {\"channelId\": \"test-channel\"}\n  }'\n\n# Test Wolfram Alpha (external API - should queue)\ncurl -X POST http://localhost:9991/api/task/execute \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\n    \"capability\": \"wolfram_alpha\", \n    \"action\": \"compute\",\n    \"params\": {\"query\": \"integrate x^2 sin(x) dx\"}, \n    \"respondTo\": {\"channelId\": \"test-wolfram\"}\n  }'\n</code></pre>\n<h3 id=\"monitor-queue-processing\">Monitor Queue Processing</h3>\n<p>Watch the logs to see tasks being processed:</p>\n<pre><code class=\"language-bash\">docker-compose logs -f capabilities | grep -E \"(queue|processing|task)\"\n</code></pre>\n<h3 id=\"queue-processor-features\">Queue Processor Features</h3>\n<ul>\n<li><strong>Fixed Bug</strong>: Removed time filter that prevented processing old tasks</li>\n<li><strong>Batch Processing</strong>: Handles up to 15 concurrent tasks</li>\n<li><strong>Auto-Retry</strong>: Up to 3 retries for failed tasks</li>\n<li><strong>Real-time Polling</strong>: Checks for new tasks every 1000ms</li>\n</ul>\n<h2 id=\"environment-variables\">Environment Variables</h2>\n<p>Core service variables needed:</p>\n<ul>\n<li>Database connection (Supabase)</li>\n<li>OpenAI API access</li>\n<li>Discord bot credentials</li>\n<li>Webhook authentication</li>\n<li>Internal service communication</li>\n</ul>\n<p>See .env.example for full configuration options.</p>\n<h2 id=\"license\">License</h2>\n<p>MIT © EJ Fox</p>",

@@ -11,7 +11,11 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/819oeJKp3wL._SY160.jpg",
       "highlightsCount": 6
     },
-    "tags": ["book", "journalism", "writing"],
+    "tags": [
+      "book",
+      "journalism",
+      "writing"
+    ],
     "words": 305,
     "images": 0,
     "imageDetails": {

@@ -13,6 +13,213 @@
   "languageColor": "#666666",
   "languages": {},
   "diskUsage": 30,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".github/workflows/build.yml",
+        "size": 131
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "README.md",
+        "size": 422
+      },
+      {
+        "path": "build.yaml",
+        "size": 516
+      },
+      {
+        "path": "config/boards/shields/rhymestone/Kconfig.defconfig",
+        "size": 617
+      },
+      {
+        "path": "config/boards/shields/rhymestone/Kconfig.shield",
+        "size": 231
+      },
+      {
+        "path": "config/boards/shields/rhymestone/nice_nano_v2.overlay",
+        "size": 972
+      },
+      {
+        "path": "config/boards/shields/rhymestone/rhymestonae.notkeymap",
+        "size": 4280
+      },
+      {
+        "path": "config/boards/shields/rhymestone/rhymestone.conf",
+        "size": 522
+      },
+      {
+        "path": "config/boards/shields/rhymestone/rhymestone.dtsi",
+        "size": 1702
+      },
+      {
+        "path": "config/boards/shields/rhymestone/rhymestone.keymap",
+        "size": 5862
+      },
+      {
+        "path": "config/boards/shields/rhymestone/rhymestone.zmk.yml",
+        "size": 173
+      },
+      {
+        "path": "config/boards/shields/rhymestone/rhymestone_left.conf",
+        "size": 213
+      },
+      {
+        "path": "config/boards/shields/rhymestone/rhymestone_left.overlay",
+        "size": 324
+      },
+      {
+        "path": "config/boards/shields/rhymestone/rhymestone_right.conf",
+        "size": 214
+      },
+      {
+        "path": "config/boards/shields/rhymestone/rhymestone_right.overlay",
+        "size": 368
+      },
+      {
+        "path": "config/west.yml",
+        "size": 219
+      }
+    ],
+    "tree": {
+      "name": "zmk-config2",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "build.yml",
+                  "size": 131,
+                  "path": ".github/workflows/build.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "config",
+          "children": [
+            {
+              "name": "boards",
+              "children": [
+                {
+                  "name": "shields",
+                  "children": [
+                    {
+                      "name": "rhymestone",
+                      "children": [
+                        {
+                          "name": "Kconfig.defconfig",
+                          "size": 617,
+                          "path": "config/boards/shields/rhymestone/Kconfig.defconfig"
+                        },
+                        {
+                          "name": "Kconfig.shield",
+                          "size": 231,
+                          "path": "config/boards/shields/rhymestone/Kconfig.shield"
+                        },
+                        {
+                          "name": "nice_nano_v2.overlay",
+                          "size": 972,
+                          "path": "config/boards/shields/rhymestone/nice_nano_v2.overlay"
+                        },
+                        {
+                          "name": "rhymestonae.notkeymap",
+                          "size": 4280,
+                          "path": "config/boards/shields/rhymestone/rhymestonae.notkeymap"
+                        },
+                        {
+                          "name": "rhymestone.conf",
+                          "size": 522,
+                          "path": "config/boards/shields/rhymestone/rhymestone.conf"
+                        },
+                        {
+                          "name": "rhymestone.dtsi",
+                          "size": 1702,
+                          "path": "config/boards/shields/rhymestone/rhymestone.dtsi"
+                        },
+                        {
+                          "name": "rhymestone.keymap",
+                          "size": 5862,
+                          "path": "config/boards/shields/rhymestone/rhymestone.keymap"
+                        },
+                        {
+                          "name": "rhymestone.zmk.yml",
+                          "size": 173,
+                          "path": "config/boards/shields/rhymestone/rhymestone.zmk.yml"
+                        },
+                        {
+                          "name": "rhymestone_left.conf",
+                          "size": 213,
+                          "path": "config/boards/shields/rhymestone/rhymestone_left.conf"
+                        },
+                        {
+                          "name": "rhymestone_left.overlay",
+                          "size": 324,
+                          "path": "config/boards/shields/rhymestone/rhymestone_left.overlay"
+                        },
+                        {
+                          "name": "rhymestone_right.conf",
+                          "size": 214,
+                          "path": "config/boards/shields/rhymestone/rhymestone_right.conf"
+                        },
+                        {
+                          "name": "rhymestone_right.overlay",
+                          "size": 368,
+                          "path": "config/boards/shields/rhymestone/rhymestone_right.overlay"
+                        }
+                      ],
+                      "path": "config/boards/shields/rhymestone"
+                    }
+                  ],
+                  "path": "config/boards/shields"
+                }
+              ],
+              "path": "config/boards"
+            },
+            {
+              "name": "west.yml",
+              "size": 219,
+              "path": "config/west.yml"
+            }
+          ],
+          "path": "config"
+        },
+        {
+          "name": "README.md",
+          "size": 422,
+          "path": "README.md"
+        },
+        {
+          "name": "build.yaml",
+          "size": 516,
+          "path": "build.yaml"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 17,
+    "totalSize": 17033
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"zmk-config2\">zmk-config2</h1>\n<p>ZMK firmware configuration for custom keyboard builds.</p>\n<h2 id=\"keyboard\">Keyboard</h2>\n<p>Rhymestone split keyboard configuration.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Split keyboard support</li>\n<li>Custom keymap layers</li>\n<li>Nice!Nano v2 board configuration</li>\n</ul>\n<h2 id=\"building\">Building</h2>\n<p>See <a href=\"https://zmk.dev/docs\">ZMK documentation</a> for build instructions.</p>\n<h2 id=\"flashing\">Flashing</h2>\n<ol>\n<li>Build firmware using GitHub Actions</li>\n<li>Download artifacts</li>\n<li>Flash left and right halves separately</li>\n</ol>",

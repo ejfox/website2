@@ -18,6 +18,258 @@
     "JavaScript": 740
   },
   "diskUsage": 185,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".babelrc",
+        "size": 23
+      },
+      {
+        "path": ".gitignore",
+        "size": 103
+      },
+      {
+        "path": "README.md",
+        "size": 1554
+      },
+      {
+        "path": "coffeelint.json",
+        "size": 2218
+      },
+      {
+        "path": "gulpfile.coffee",
+        "size": 8783
+      },
+      {
+        "path": "gulpfile.js",
+        "size": 164
+      },
+      {
+        "path": "options.json",
+        "size": 211
+      },
+      {
+        "path": "package-lock.json",
+        "size": 510343
+      },
+      {
+        "path": "package.json",
+        "size": 1883
+      },
+      {
+        "path": "src/coffee/app.coffee",
+        "size": 488
+      },
+      {
+        "path": "src/data/.gitkeep",
+        "size": 0
+      },
+      {
+        "path": "src/img/.keep",
+        "size": 0
+      },
+      {
+        "path": "src/styl/colors.styl",
+        "size": 241
+      },
+      {
+        "path": "src/styl/d3-tip.styl",
+        "size": 767
+      },
+      {
+        "path": "src/styl/grid.styl",
+        "size": 2203
+      },
+      {
+        "path": "src/styl/reset.styl",
+        "size": 1065
+      },
+      {
+        "path": "src/styl/style.styl",
+        "size": 103
+      },
+      {
+        "path": "src/styl/typography.styl",
+        "size": 1671
+      },
+      {
+        "path": "src/tmpl/index.mustache",
+        "size": 130
+      },
+      {
+        "path": "src/tmpl/partials/footer.mustache",
+        "size": 162
+      },
+      {
+        "path": "src/tmpl/partials/header.mustache",
+        "size": 1588
+      },
+      {
+        "path": "webpack.config.js",
+        "size": 576
+      }
+    ],
+    "tree": {
+      "name": "starter",
+      "children": [
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "coffee",
+              "children": [
+                {
+                  "name": "app.coffee",
+                  "size": 488,
+                  "path": "src/coffee/app.coffee"
+                }
+              ],
+              "path": "src/coffee"
+            },
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": ".gitkeep",
+                  "size": 0,
+                  "path": "src/data/.gitkeep"
+                }
+              ],
+              "path": "src/data"
+            },
+            {
+              "name": "img",
+              "children": [
+                {
+                  "name": ".keep",
+                  "size": 0,
+                  "path": "src/img/.keep"
+                }
+              ],
+              "path": "src/img"
+            },
+            {
+              "name": "styl",
+              "children": [
+                {
+                  "name": "colors.styl",
+                  "size": 241,
+                  "path": "src/styl/colors.styl"
+                },
+                {
+                  "name": "d3-tip.styl",
+                  "size": 767,
+                  "path": "src/styl/d3-tip.styl"
+                },
+                {
+                  "name": "grid.styl",
+                  "size": 2203,
+                  "path": "src/styl/grid.styl"
+                },
+                {
+                  "name": "reset.styl",
+                  "size": 1065,
+                  "path": "src/styl/reset.styl"
+                },
+                {
+                  "name": "style.styl",
+                  "size": 103,
+                  "path": "src/styl/style.styl"
+                },
+                {
+                  "name": "typography.styl",
+                  "size": 1671,
+                  "path": "src/styl/typography.styl"
+                }
+              ],
+              "path": "src/styl"
+            },
+            {
+              "name": "tmpl",
+              "children": [
+                {
+                  "name": "partials",
+                  "children": [
+                    {
+                      "name": "footer.mustache",
+                      "size": 162,
+                      "path": "src/tmpl/partials/footer.mustache"
+                    },
+                    {
+                      "name": "header.mustache",
+                      "size": 1588,
+                      "path": "src/tmpl/partials/header.mustache"
+                    }
+                  ],
+                  "path": "src/tmpl/partials"
+                },
+                {
+                  "name": "index.mustache",
+                  "size": 130,
+                  "path": "src/tmpl/index.mustache"
+                }
+              ],
+              "path": "src/tmpl"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".babelrc",
+          "size": 23,
+          "path": ".babelrc"
+        },
+        {
+          "name": ".gitignore",
+          "size": 103,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 1554,
+          "path": "README.md"
+        },
+        {
+          "name": "coffeelint.json",
+          "size": 2218,
+          "path": "coffeelint.json"
+        },
+        {
+          "name": "gulpfile.coffee",
+          "size": 8783,
+          "path": "gulpfile.coffee"
+        },
+        {
+          "name": "gulpfile.js",
+          "size": 164,
+          "path": "gulpfile.js"
+        },
+        {
+          "name": "options.json",
+          "size": 211,
+          "path": "options.json"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 510343,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1883,
+          "path": "package.json"
+        },
+        {
+          "name": "webpack.config.js",
+          "size": 576,
+          "path": "webpack.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 22,
+    "totalSize": 534276
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"starter-template\">Starter Template</h1>\n<p>This is a basic but opinionated starting point for prototyping apps, with an emphasis on data handling and visualization.</p>\n<h1 id=\"getting-started\">Getting started</h1>\n<h2 id=\"clone-project-into-new-folder\">Clone project into new folder</h2>\n<p><code>git clone https://github.com/ejfox/starter.git project-slug-name</code>\n<code>cd project-slug-name</code></p>\n<h2 id=\"configure-with-init-or-edit-by-hand\">Configure with init or edit by hand</h2>\n<h3 id=\"initilization\">Initilization</h3>\n<p>For the quickest start, you can run <code>gulp init</code> to perform basic project starting actions.</p>\n<pre><code class=\"language-coffeescript\">exec 'rm -rf .git'\nexec 'git init'\nexec 'rm README.md'\nexec 'touch README.md'\nexec 'atom .'\nexec 'npm install'\nexec 'gulp config'\n</code></pre>\n<p>Run <code>gulp config</code> for configuration walkthrough or edit <code>options.json</code> by hand</p>\n<h3 id=\"modifying-the-project\">Modifying the project</h3>\n<p>Edit coffeescript in <code>src/coffee/app.coffee</code></p>\n<p>Edit HTML in <code>src/tmpl/index.mustache</code></p>\n<p>Edit Stylus (CSS) in <code>src/styl/style.styl</code></p>\n<h3 id=\"updating-data\">Updating data</h3>\n<p>The default place for storing data is <code>data/data.csv</code></p>\n<p>If you have set <code>project.googledatakey</code> in <code>options.json</code> you can run <code>gulp getdata</code> to download that sheet using curl to <code>data/data.csv</code></p>\n<h3 id=\"publishing\">Publishing</h3>\n<p>The <code>/build/</code> folder is a standalone client-side web app with everything packaged. It can be put on a webserver or uploaded to a site like Netlify.</p>\n<p>If you have set <code>project.s3bucket</code> in <code>options.json</code> and set your S3 credentials by renaming <code>.env-example</code> and filling it out you can run <code>gulp s3publish</code> to publish to an S3 bucket, and update the data in the project by running <code>gulp s3publishdata</code> – you need to run both commands on first upload</p>\n<p>To publish to github pages you can run <code>gulp gh-pages</code></p>",

@@ -1,7 +1,7 @@
 <template>
   <div
     ref="gearStatsRef"
-    class="space-y-4 pr-4 md:pr-8 font-mono text-2xs leading-tight"
+    class="space-y-2 pr-4 md:pr-8 font-mono text-2xs leading-tight"
   >
     <!-- Ultra-Dense Stats Grid -->
     <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
@@ -60,7 +60,7 @@
 
     <!-- Containers - Ultra Dense -->
     <div class="space-y-0.5">
-      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-1">
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         BAGS
       </div>
       <div
@@ -68,7 +68,7 @@
         :key="container.name"
         class="row-hover-gap"
       >
-        <div class="flex items-baseline gap-1.5 min-w-0 flex-1">
+        <div class="flex items-baseline gap-0.5.5 min-w-0 flex-1">
           <span class="text-zinc-500 text-4xs">
             {{ container.type.substring(0, 3) }}
           </span>
@@ -93,14 +93,14 @@
 
     <!-- Weight Per Type - Ultra Dense -->
     <div class="space-y-0.5">
-      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-1">
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         WEIGHT BY TYPE
       </div>
       <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
         <div
           v-for="item in weightPerType.slice(0, 10)"
           :key="item.type"
-          class="flex items-baseline justify-between gap-1"
+          class="flex items-baseline justify-between gap-0.5"
         >
           <span class="text-zinc-500 text-4xs uppercase truncate">
             {{ item.type }}
@@ -117,19 +117,19 @@
 
     <!-- Type Distribution - Compressed -->
     <div class="space-y-0.5">
-      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-1">
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         TYPE COUNTS
       </div>
       <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
         <div
           v-for="[type, count] in sortedTypeDistribution.slice(0, 10)"
           :key="type"
-          class="flex items-center justify-between gap-1"
+          class="flex items-center justify-between gap-0.5"
         >
           <span class="text-zinc-500 text-4xs uppercase truncate">
             {{ type }}
           </span>
-          <div class="flex items-center gap-1">
+          <div class="flex items-center gap-0.5">
             <div
               class="h-1 bg-zinc-400 dark:bg-zinc-600 rounded-[1px]"
               :style="{
@@ -150,7 +150,7 @@
     <!-- Favorites - Pinned to Top -->
     <div v-if="favoriteItems.length > 0" class="space-y-0.5">
       <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-1">
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         ⭐ ESSENTIALS
       </div>
       <div
@@ -170,7 +170,7 @@
     <!-- Recently Used -->
     <div v-if="recentlyUsed.length > 0" class="space-y-0.5">
       <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-1">
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         RECENTLY USED
       </div>
       <div
@@ -181,7 +181,7 @@
         <span class="text-zinc-700 dark:text-zinc-300 truncate">
           {{ item.Name }}
         </span>
-        <div class="flex items-baseline gap-1.5">
+        <div class="flex items-baseline gap-0.5.5">
           <span class="text-zinc-500 text-4xs">{{ item.Last_Used }}</span>
           <span class="text-zinc-500 tabular-nums flex-shrink-0">
             {{ formatWeight(parseFloat(item.Weight_oz || '0')) }}
@@ -193,14 +193,14 @@
     <!-- Average Weight Per Type -->
     <div v-if="weightPerType.length > 0" class="space-y-0.5">
       <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-1">
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         AVG WT/TYPE
       </div>
       <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
         <div
           v-for="item in weightPerType.slice(0, 8)"
           :key="item.type + '-avg'"
-          class="flex items-baseline justify-between gap-1"
+          class="flex items-baseline justify-between gap-0.5"
         >
           <span class="text-zinc-500 text-4xs uppercase truncate">
             {{ item.type }}
@@ -218,9 +218,7 @@
 // Nuxt 4 auto-imports everything!
 import * as d3 from 'd3'
 import _StatsSectionHeader from './StatsSectionHeader.vue'
-// NUKED BY BLOODHOUND: import { animate, stagger as _stagger, onScroll }
 // from '~/anime.esm.js'
-// NUKED BY BLOODHOUND: import { useAnimations }
 // from '~/composables/useAnimations'
 
 interface GearItem {

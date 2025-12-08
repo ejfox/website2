@@ -17,6 +17,309 @@
     "HTML": 553
   },
   "diskUsage": 12430,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 267
+      },
+      {
+        "path": ".prettierignore",
+        "size": 53
+      },
+      {
+        "path": "LICENSE",
+        "size": 1072
+      },
+      {
+        "path": "README.md",
+        "size": 447
+      },
+      {
+        "path": "data/README.md",
+        "size": 511
+      },
+      {
+        "path": "data/data2022jobtitles_etc.tsv",
+        "size": 90462
+      },
+      {
+        "path": "data/data2022main.csv",
+        "size": 8137971
+      },
+      {
+        "path": "data/dictionary2022main.tsv",
+        "size": 135262
+      },
+      {
+        "path": "data/simple2022dictionaryLists.tsv",
+        "size": 58768
+      },
+      {
+        "path": "index.html",
+        "size": 553
+      },
+      {
+        "path": "package-lock.json",
+        "size": 97260
+      },
+      {
+        "path": "package.json",
+        "size": 709
+      },
+      {
+        "path": "processData.js",
+        "size": 1851
+      },
+      {
+        "path": "public/dictionary.csv",
+        "size": 132882
+      },
+      {
+        "path": "public/main.csv",
+        "size": 1947810
+      },
+      {
+        "path": "public/values.csv",
+        "size": 250286
+      },
+      {
+        "path": "src/App.css",
+        "size": 348
+      },
+      {
+        "path": "src/App.jsx",
+        "size": 286
+      },
+      {
+        "path": "src/MatrixViz/index.jsx",
+        "size": 2708
+      },
+      {
+        "path": "src/MatrixViz/styles.css",
+        "size": 223
+      },
+      {
+        "path": "src/QuestionViz/index.jsx",
+        "size": 2605
+      },
+      {
+        "path": "src/QuestionViz/styles.css",
+        "size": 223
+      },
+      {
+        "path": "src/Viz.jsx",
+        "size": 3192
+      },
+      {
+        "path": "src/hasData.js",
+        "size": 276
+      },
+      {
+        "path": "src/index.css",
+        "size": 0
+      },
+      {
+        "path": "src/key.js",
+        "size": 122
+      },
+      {
+        "path": "src/main.jsx",
+        "size": 186
+      },
+      {
+        "path": "src/useDataset.js",
+        "size": 2990
+      },
+      {
+        "path": "vite.config.js",
+        "size": 166
+      }
+    ],
+    "tree": {
+      "name": "dvs-soti-2022",
+      "children": [
+        {
+          "name": "data",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 511,
+              "path": "data/README.md"
+            },
+            {
+              "name": "data2022jobtitles_etc.tsv",
+              "size": 90462,
+              "path": "data/data2022jobtitles_etc.tsv"
+            },
+            {
+              "name": "data2022main.csv",
+              "size": 8137971,
+              "path": "data/data2022main.csv"
+            },
+            {
+              "name": "dictionary2022main.tsv",
+              "size": 135262,
+              "path": "data/dictionary2022main.tsv"
+            },
+            {
+              "name": "simple2022dictionaryLists.tsv",
+              "size": 58768,
+              "path": "data/simple2022dictionaryLists.tsv"
+            }
+          ],
+          "path": "data"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "dictionary.csv",
+              "size": 132882,
+              "path": "public/dictionary.csv"
+            },
+            {
+              "name": "main.csv",
+              "size": 1947810,
+              "path": "public/main.csv"
+            },
+            {
+              "name": "values.csv",
+              "size": 250286,
+              "path": "public/values.csv"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "MatrixViz",
+              "children": [
+                {
+                  "name": "index.jsx",
+                  "size": 2708,
+                  "path": "src/MatrixViz/index.jsx"
+                },
+                {
+                  "name": "styles.css",
+                  "size": 223,
+                  "path": "src/MatrixViz/styles.css"
+                }
+              ],
+              "path": "src/MatrixViz"
+            },
+            {
+              "name": "QuestionViz",
+              "children": [
+                {
+                  "name": "index.jsx",
+                  "size": 2605,
+                  "path": "src/QuestionViz/index.jsx"
+                },
+                {
+                  "name": "styles.css",
+                  "size": 223,
+                  "path": "src/QuestionViz/styles.css"
+                }
+              ],
+              "path": "src/QuestionViz"
+            },
+            {
+              "name": "App.css",
+              "size": 348,
+              "path": "src/App.css"
+            },
+            {
+              "name": "App.jsx",
+              "size": 286,
+              "path": "src/App.jsx"
+            },
+            {
+              "name": "Viz.jsx",
+              "size": 3192,
+              "path": "src/Viz.jsx"
+            },
+            {
+              "name": "hasData.js",
+              "size": 276,
+              "path": "src/hasData.js"
+            },
+            {
+              "name": "index.css",
+              "size": 0,
+              "path": "src/index.css"
+            },
+            {
+              "name": "key.js",
+              "size": 122,
+              "path": "src/key.js"
+            },
+            {
+              "name": "main.jsx",
+              "size": 186,
+              "path": "src/main.jsx"
+            },
+            {
+              "name": "useDataset.js",
+              "size": 2990,
+              "path": "src/useDataset.js"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".gitignore",
+          "size": 267,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".prettierignore",
+          "size": 53,
+          "path": ".prettierignore"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1072,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 447,
+          "path": "README.md"
+        },
+        {
+          "name": "index.html",
+          "size": 553,
+          "path": "index.html"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 97260,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 709,
+          "path": "package.json"
+        },
+        {
+          "name": "processData.js",
+          "size": 1851,
+          "path": "processData.js"
+        },
+        {
+          "name": "vite.config.js",
+          "size": 166,
+          "path": "vite.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 29,
+    "totalSize": 10869489
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"dsv-soti-2022\">dsv-soti-2022</h1>\n<p><a href=\"https://main--tranquil-blancmange-bf568b.netlify.app/\">Live Demo</a></p>\n<p>Visualization of the <a href=\"https://www.datavisualizationsociety.org/soti-challenge-2022\">Data Visualization Society State of the Industry Survey</a>.</p>\n<p><img src=\"https://user-images.githubusercontent.com/68416/231660831-e77600e2-8518-442d-be5a-91fa3269e66a.png\" alt=\"image\" /></p>\n<p><img src=\"https://user-images.githubusercontent.com/68416/231660842-d08b92cd-23c7-4886-a36e-ed94c34d1e5d.png\" alt=\"image\" /></p>",

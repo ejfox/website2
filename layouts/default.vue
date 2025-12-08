@@ -18,62 +18,23 @@
             role="tablist"
             aria-label="Main navigation"
           >
-            <a
-              v-for="item in primaryNav"
-              :key="item.href"
-              :href="item.href"
-              role="tab"
-              class="nav-pill"
-            >
-              {{ item.label }}
-            </a>
-
-            <!-- More button for additional links -->
-            <button
-              :aria-expanded="mobileMenuOpen"
-              aria-controls="secondary-nav-menu"
-              aria-label="Show more navigation options"
-              class="nav-pill-simple"
-              :class="
-                mobileMenuOpen
-                  ? 'bg-zinc-100 dark:bg-zinc-800'
-                  : 'hover:bg-zinc-100 dark:hover:bg-zinc-800/50'
-              "
-              @click="toggleMobileMenu"
-            >
-              More
-            </button>
+            <template v-for="item in primaryNav" :key="item.href">
+              <a
+                v-if="item.external"
+                :href="item.href"
+                role="tab"
+                class="nav-pill"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{ item.label }}
+              </a>
+              <NuxtLink v-else :to="item.href" role="tab" class="nav-pill">
+                {{ item.label }}
+              </NuxtLink>
+            </template>
           </div>
         </div>
-
-        <!-- Expandable secondary menu -->
-        <Transition
-          enter-active-class="transition-all duration-200 ease-out"
-          leave-active-class="transition-all duration-150 ease-in"
-          enter-from-class="opacity-0 -translate-y-1 scale-95"
-          enter-to-class="opacity-100 translate-y-0 scale-100"
-          leave-from-class="opacity-100 translate-y-0 scale-100"
-          leave-to-class="opacity-0 -translate-y-1 scale-95"
-        >
-          <div
-            v-if="mobileMenuOpen"
-            id="secondary-nav-menu"
-            :class="secondaryNavMenuClasses"
-          >
-            <div class="flex flex-wrap gap-1 pt-4">
-              <a
-                v-for="item in secondaryNav"
-                :key="item.href"
-                :href="item.href"
-                :target="item.external ? '_blank' : undefined"
-                class="nav-pill-hover"
-                @click="closeMobileMenu"
-              >
-                {{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}
-              </a>
-            </div>
-          </div>
-        </Transition>
       </nav>
 
       <!-- Desktop navigation - DELETED COMPLEX SSR-BREAKING LINKS -->
@@ -82,27 +43,20 @@
           <div class="px-8 py-8 space-y-1 w-full">
             <div :class="headingClasses">EJ Fox</div>
             <div class="space-y-1">
-              <a
-                v-for="item in primaryNav"
-                :key="item.href"
-                :class="linkClasses"
-                :href="item.href"
-                :target="item.external ? '_blank' : undefined"
-              >
-                {{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}
-              </a>
-            </div>
-            <div class="my-8"></div>
-            <div class="space-y-1">
-              <a
-                v-for="item in secondaryNav"
-                :key="item.href"
-                :class="linkClasses"
-                :href="item.href"
-                :target="item.external ? '_blank' : undefined"
-              >
-                {{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}
-              </a>
+              <template v-for="item in primaryNav" :key="item.href">
+                <a
+                  v-if="item.external"
+                  :href="item.href"
+                  :class="linkClasses"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}
+                </a>
+                <NuxtLink v-else :to="item.href" :class="linkClasses">
+                  {{ item.label }}{{ item.icon ? ` ${item.icon}` : '' }}
+                </NuxtLink>
+              </template>
             </div>
             <!-- Table of Contents Teleport Target -->
             <div id="nav-toc-container" class="mt-8"></div>
@@ -150,7 +104,6 @@ const isStatsSimple = ref(false)
 
 // Navigation config
 const primaryNav = getPrimaryNav()
-const secondaryNav = getSecondaryNav()
 
 const linkClasses = `
   block text-sm font-mono transition-colors-base

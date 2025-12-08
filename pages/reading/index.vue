@@ -1,10 +1,10 @@
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen pt-8">
     <div class="px-4 md:px-8" style="max-width: 65ch">
       <!-- Header with data overlay -->
       <header class="section-spacing-lg">
         <!-- Data stream indicator -->
-        <div class="mono-xs text-secondary mb-2 mt-8 tabular">
+        <div class="mono-xs text-secondary mb-2 tabular">
           <span>READING</span>
           <span class="mx-2 text-divider">·</span>
           <span>{{ books?.length || 0 }} BOOKS</span>

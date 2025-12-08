@@ -18,6 +18,894 @@
     "CSS": 1706
   },
   "diskUsage": 7600,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".eslintrc.js",
+        "size": 484
+      },
+      {
+        "path": ".gitignore",
+        "size": 126
+      },
+      {
+        "path": ".netlify/state.json",
+        "size": 53
+      },
+      {
+        "path": "LICENSE.md",
+        "size": 1127
+      },
+      {
+        "path": "README.md",
+        "size": 2429
+      },
+      {
+        "path": "app.html",
+        "size": 1478
+      },
+      {
+        "path": "components/BottomNav.vue",
+        "size": 1483
+      },
+      {
+        "path": "components/Nav.vue",
+        "size": 634
+      },
+      {
+        "path": "components/blogtypes/words.vue",
+        "size": 3473
+      },
+      {
+        "path": "content/words/posts/eggplant-harvest.json",
+        "size": 3079
+      },
+      {
+        "path": "content/words/posts/end-of-summer-weather-report.json",
+        "size": 2607
+      },
+      {
+        "path": "content/words/posts/hopeful-dreams-the-first-polar-winds-blow-in-bed.json",
+        "size": 848
+      },
+      {
+        "path": "content/words/posts/letter-to-brooklyn.json",
+        "size": 6325
+      },
+      {
+        "path": "content/words/posts/letter-to-new-orleans.json",
+        "size": 3011
+      },
+      {
+        "path": "content/words/posts/route-1.json",
+        "size": 2881
+      },
+      {
+        "path": "content/words/posts/the-fable-of-the-potato-crazed-husband.json",
+        "size": 3986
+      },
+      {
+        "path": "content/words/posts/the-seasons-are-out-of-order.json",
+        "size": 5176
+      },
+      {
+        "path": "content/words/posts/upstairs-neighbor-weather-report.json",
+        "size": 3029
+      },
+      {
+        "path": "content/words/posts/wiscasset.json",
+        "size": 3742
+      },
+      {
+        "path": "layouts/default.vue",
+        "size": 1882
+      },
+      {
+        "path": "middleware/README.md",
+        "size": 381
+      },
+      {
+        "path": "netlify.toml",
+        "size": 159
+      },
+      {
+        "path": "nuxt.config.js",
+        "size": 3776
+      },
+      {
+        "path": "package-lock.json",
+        "size": 491419
+      },
+      {
+        "path": "package.json",
+        "size": 1459
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 2135
+      },
+      {
+        "path": "pages/words/_slug.vue",
+        "size": 4367
+      },
+      {
+        "path": "plugins/vue-moment.js",
+        "size": 77
+      },
+      {
+        "path": "static/746853/00857A910183F6EBD.css",
+        "size": 97090
+      },
+      {
+        "path": "static/746853/0759D5675366CD2E0.css",
+        "size": 160536
+      },
+      {
+        "path": "static/746853/1196D51B913B7EF2C.eot",
+        "size": 57784
+      },
+      {
+        "path": "static/746853/1C1E400EE7F3F4877.css",
+        "size": 305523
+      },
+      {
+        "path": "static/746853/20FF49E03DACD30AA.css",
+        "size": 190623
+      },
+      {
+        "path": "static/746853/2B792FB102B51402E.eot",
+        "size": 381
+      },
+      {
+        "path": "static/746853/2BA0B27785B581DAA.css",
+        "size": 91866
+      },
+      {
+        "path": "static/746853/2C6FBB6DE45C5446F.css",
+        "size": 122750
+      },
+      {
+        "path": "static/746853/36C52CBBF28B4391F.css",
+        "size": 160860
+      },
+      {
+        "path": "static/746853/4CACEF283A1691E16.eot",
+        "size": 383
+      },
+      {
+        "path": "static/746853/4D12CB40F1C6A783A.css",
+        "size": 190623
+      },
+      {
+        "path": "static/746853/4E782F7AC2267376E.css",
+        "size": 160536
+      },
+      {
+        "path": "static/746853/5110D39F274D34873.css",
+        "size": 253052
+      },
+      {
+        "path": "static/746853/6077999B4E1D753A9.css",
+        "size": 118748
+      },
+      {
+        "path": "static/746853/664B290E4FA907CC2.css",
+        "size": 227238
+      },
+      {
+        "path": "static/746853/6771379F44569906C.css",
+        "size": 110324
+      },
+      {
+        "path": "static/746853/6C54849C12B1ABBA6.css",
+        "size": 3337
+      },
+      {
+        "path": "static/746853/711A81155B173F85C.css",
+        "size": 227238
+      },
+      {
+        "path": "static/746853/734C9CCA327E205EE.eot",
+        "size": 11332
+      },
+      {
+        "path": "static/746853/736286F188ABA2836.css",
+        "size": 133262
+      },
+      {
+        "path": "static/746853/782C2922E83D92409.css",
+        "size": 77171
+      },
+      {
+        "path": "static/746853/7999118190B45556D.eot",
+        "size": 363
+      },
+      {
+        "path": "static/746853/7DF0B292D88857B10.eot",
+        "size": 50570
+      },
+      {
+        "path": "static/746853/7E0F5EFD5DBDABC84.css",
+        "size": 124442
+      },
+      {
+        "path": "static/746853/7FE1F55CF8DD56BD5.css",
+        "size": 106341
+      },
+      {
+        "path": "static/746853/877DC3FE93E4BE004.eot",
+        "size": 383
+      },
+      {
+        "path": "static/746853/9954619F18147CA20.css",
+        "size": 227238
+      },
+      {
+        "path": "static/746853/9FAF098AC92BE4196.css",
+        "size": 853
+      },
+      {
+        "path": "static/746853/A574301FDFD0A5804.css",
+        "size": 307336
+      },
+      {
+        "path": "static/746853/A797909A955078E7B.eot",
+        "size": 385
+      },
+      {
+        "path": "static/746853/AF33D35D51A9F8636.css",
+        "size": 197096
+      },
+      {
+        "path": "static/746853/B04D1B6B00DBE40E5.eot",
+        "size": 51266
+      },
+      {
+        "path": "static/746853/B0767EC0BD45A0066.css",
+        "size": 118748
+      },
+      {
+        "path": "static/746853/B78403A246232D137.css",
+        "size": 95887
+      },
+      {
+        "path": "static/746853/BA0DAA9CE6D409BEE.eot",
+        "size": 58556
+      },
+      {
+        "path": "static/746853/BD9053FC4E226B43A.css",
+        "size": 197096
+      },
+      {
+        "path": "static/746853/C257A39E54695E737.css",
+        "size": 113486
+      },
+      {
+        "path": "static/746853/C32DC13CA5074CC72.css",
+        "size": 97090
+      },
+      {
+        "path": "static/746853/CEF34293F0865AADB.css",
+        "size": 146549
+      },
+      {
+        "path": "static/746853/D09DEF30AE55A2211.css",
+        "size": 110324
+      },
+      {
+        "path": "static/746853/D3EF2557830610C14.css",
+        "size": 182526
+      },
+      {
+        "path": "static/746853/D4F8D40D2722DB299.css",
+        "size": 197096
+      },
+      {
+        "path": "static/746853/D6990EE7DDCE934E9.css",
+        "size": 853
+      },
+      {
+        "path": "static/746853/DCE071EB671E7A959.css",
+        "size": 90410
+      },
+      {
+        "path": "static/746853/DEA72B8809B7DDEC1.css",
+        "size": 197096
+      },
+      {
+        "path": "static/746853/E45B9C2BF79A44380.css",
+        "size": 140088
+      },
+      {
+        "path": "static/746853/E66808F2F20AB776C.css",
+        "size": 358330
+      },
+      {
+        "path": "static/746853/EB8E54D6C4E886F9E.css",
+        "size": 133262
+      },
+      {
+        "path": "static/746853/F0DF28B31F9C3F1CA.css",
+        "size": 227238
+      },
+      {
+        "path": "static/746853/F4562FC94D429674E.css",
+        "size": 3337
+      },
+      {
+        "path": "static/admin/config.yml",
+        "size": 1342
+      },
+      {
+        "path": "static/admin/index.html",
+        "size": 432
+      },
+      {
+        "path": "static/android-chrome-192x192.png",
+        "size": 15127
+      },
+      {
+        "path": "static/android-chrome-512x512.png",
+        "size": 49536
+      },
+      {
+        "path": "static/apple-touch-icon.png",
+        "size": 13501
+      },
+      {
+        "path": "static/favicon-16x16.png",
+        "size": 435
+      },
+      {
+        "path": "static/favicon-32x32.png",
+        "size": 1129
+      },
+      {
+        "path": "static/favicon.ico",
+        "size": 15406
+      },
+      {
+        "path": "static/site.webmanifest",
+        "size": 263
+      },
+      {
+        "path": "static/tachyons.min.css",
+        "size": 73497
+      }
+    ],
+    "tree": {
+      "name": "maine-weather-report",
+      "children": [
+        {
+          "name": ".netlify",
+          "children": [
+            {
+              "name": "state.json",
+              "size": 53,
+              "path": ".netlify/state.json"
+            }
+          ],
+          "path": ".netlify"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "blogtypes",
+              "children": [
+                {
+                  "name": "words.vue",
+                  "size": 3473,
+                  "path": "components/blogtypes/words.vue"
+                }
+              ],
+              "path": "components/blogtypes"
+            },
+            {
+              "name": "BottomNav.vue",
+              "size": 1483,
+              "path": "components/BottomNav.vue"
+            },
+            {
+              "name": "Nav.vue",
+              "size": 634,
+              "path": "components/Nav.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "content",
+          "children": [
+            {
+              "name": "words",
+              "children": [
+                {
+                  "name": "posts",
+                  "children": [
+                    {
+                      "name": "eggplant-harvest.json",
+                      "size": 3079,
+                      "path": "content/words/posts/eggplant-harvest.json"
+                    },
+                    {
+                      "name": "end-of-summer-weather-report.json",
+                      "size": 2607,
+                      "path": "content/words/posts/end-of-summer-weather-report.json"
+                    },
+                    {
+                      "name": "hopeful-dreams-the-first-polar-winds-blow-in-bed.json",
+                      "size": 848,
+                      "path": "content/words/posts/hopeful-dreams-the-first-polar-winds-blow-in-bed.json"
+                    },
+                    {
+                      "name": "letter-to-brooklyn.json",
+                      "size": 6325,
+                      "path": "content/words/posts/letter-to-brooklyn.json"
+                    },
+                    {
+                      "name": "letter-to-new-orleans.json",
+                      "size": 3011,
+                      "path": "content/words/posts/letter-to-new-orleans.json"
+                    },
+                    {
+                      "name": "route-1.json",
+                      "size": 2881,
+                      "path": "content/words/posts/route-1.json"
+                    },
+                    {
+                      "name": "the-fable-of-the-potato-crazed-husband.json",
+                      "size": 3986,
+                      "path": "content/words/posts/the-fable-of-the-potato-crazed-husband.json"
+                    },
+                    {
+                      "name": "the-seasons-are-out-of-order.json",
+                      "size": 5176,
+                      "path": "content/words/posts/the-seasons-are-out-of-order.json"
+                    },
+                    {
+                      "name": "upstairs-neighbor-weather-report.json",
+                      "size": 3029,
+                      "path": "content/words/posts/upstairs-neighbor-weather-report.json"
+                    },
+                    {
+                      "name": "wiscasset.json",
+                      "size": 3742,
+                      "path": "content/words/posts/wiscasset.json"
+                    }
+                  ],
+                  "path": "content/words/posts"
+                }
+              ],
+              "path": "content/words"
+            }
+          ],
+          "path": "content"
+        },
+        {
+          "name": "layouts",
+          "children": [
+            {
+              "name": "default.vue",
+              "size": 1882,
+              "path": "layouts/default.vue"
+            }
+          ],
+          "path": "layouts"
+        },
+        {
+          "name": "middleware",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 381,
+              "path": "middleware/README.md"
+            }
+          ],
+          "path": "middleware"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "words",
+              "children": [
+                {
+                  "name": "_slug.vue",
+                  "size": 4367,
+                  "path": "pages/words/_slug.vue"
+                }
+              ],
+              "path": "pages/words"
+            },
+            {
+              "name": "index.vue",
+              "size": 2135,
+              "path": "pages/index.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "plugins",
+          "children": [
+            {
+              "name": "vue-moment.js",
+              "size": 77,
+              "path": "plugins/vue-moment.js"
+            }
+          ],
+          "path": "plugins"
+        },
+        {
+          "name": "static",
+          "children": [
+            {
+              "name": "746853",
+              "children": [
+                {
+                  "name": "00857A910183F6EBD.css",
+                  "size": 97090,
+                  "path": "static/746853/00857A910183F6EBD.css"
+                },
+                {
+                  "name": "0759D5675366CD2E0.css",
+                  "size": 160536,
+                  "path": "static/746853/0759D5675366CD2E0.css"
+                },
+                {
+                  "name": "1196D51B913B7EF2C.eot",
+                  "size": 57784,
+                  "path": "static/746853/1196D51B913B7EF2C.eot"
+                },
+                {
+                  "name": "1C1E400EE7F3F4877.css",
+                  "size": 305523,
+                  "path": "static/746853/1C1E400EE7F3F4877.css"
+                },
+                {
+                  "name": "20FF49E03DACD30AA.css",
+                  "size": 190623,
+                  "path": "static/746853/20FF49E03DACD30AA.css"
+                },
+                {
+                  "name": "2B792FB102B51402E.eot",
+                  "size": 381,
+                  "path": "static/746853/2B792FB102B51402E.eot"
+                },
+                {
+                  "name": "2BA0B27785B581DAA.css",
+                  "size": 91866,
+                  "path": "static/746853/2BA0B27785B581DAA.css"
+                },
+                {
+                  "name": "2C6FBB6DE45C5446F.css",
+                  "size": 122750,
+                  "path": "static/746853/2C6FBB6DE45C5446F.css"
+                },
+                {
+                  "name": "36C52CBBF28B4391F.css",
+                  "size": 160860,
+                  "path": "static/746853/36C52CBBF28B4391F.css"
+                },
+                {
+                  "name": "4CACEF283A1691E16.eot",
+                  "size": 383,
+                  "path": "static/746853/4CACEF283A1691E16.eot"
+                },
+                {
+                  "name": "4D12CB40F1C6A783A.css",
+                  "size": 190623,
+                  "path": "static/746853/4D12CB40F1C6A783A.css"
+                },
+                {
+                  "name": "4E782F7AC2267376E.css",
+                  "size": 160536,
+                  "path": "static/746853/4E782F7AC2267376E.css"
+                },
+                {
+                  "name": "5110D39F274D34873.css",
+                  "size": 253052,
+                  "path": "static/746853/5110D39F274D34873.css"
+                },
+                {
+                  "name": "6077999B4E1D753A9.css",
+                  "size": 118748,
+                  "path": "static/746853/6077999B4E1D753A9.css"
+                },
+                {
+                  "name": "664B290E4FA907CC2.css",
+                  "size": 227238,
+                  "path": "static/746853/664B290E4FA907CC2.css"
+                },
+                {
+                  "name": "6771379F44569906C.css",
+                  "size": 110324,
+                  "path": "static/746853/6771379F44569906C.css"
+                },
+                {
+                  "name": "6C54849C12B1ABBA6.css",
+                  "size": 3337,
+                  "path": "static/746853/6C54849C12B1ABBA6.css"
+                },
+                {
+                  "name": "711A81155B173F85C.css",
+                  "size": 227238,
+                  "path": "static/746853/711A81155B173F85C.css"
+                },
+                {
+                  "name": "734C9CCA327E205EE.eot",
+                  "size": 11332,
+                  "path": "static/746853/734C9CCA327E205EE.eot"
+                },
+                {
+                  "name": "736286F188ABA2836.css",
+                  "size": 133262,
+                  "path": "static/746853/736286F188ABA2836.css"
+                },
+                {
+                  "name": "782C2922E83D92409.css",
+                  "size": 77171,
+                  "path": "static/746853/782C2922E83D92409.css"
+                },
+                {
+                  "name": "7999118190B45556D.eot",
+                  "size": 363,
+                  "path": "static/746853/7999118190B45556D.eot"
+                },
+                {
+                  "name": "7DF0B292D88857B10.eot",
+                  "size": 50570,
+                  "path": "static/746853/7DF0B292D88857B10.eot"
+                },
+                {
+                  "name": "7E0F5EFD5DBDABC84.css",
+                  "size": 124442,
+                  "path": "static/746853/7E0F5EFD5DBDABC84.css"
+                },
+                {
+                  "name": "7FE1F55CF8DD56BD5.css",
+                  "size": 106341,
+                  "path": "static/746853/7FE1F55CF8DD56BD5.css"
+                },
+                {
+                  "name": "877DC3FE93E4BE004.eot",
+                  "size": 383,
+                  "path": "static/746853/877DC3FE93E4BE004.eot"
+                },
+                {
+                  "name": "9954619F18147CA20.css",
+                  "size": 227238,
+                  "path": "static/746853/9954619F18147CA20.css"
+                },
+                {
+                  "name": "9FAF098AC92BE4196.css",
+                  "size": 853,
+                  "path": "static/746853/9FAF098AC92BE4196.css"
+                },
+                {
+                  "name": "A574301FDFD0A5804.css",
+                  "size": 307336,
+                  "path": "static/746853/A574301FDFD0A5804.css"
+                },
+                {
+                  "name": "A797909A955078E7B.eot",
+                  "size": 385,
+                  "path": "static/746853/A797909A955078E7B.eot"
+                },
+                {
+                  "name": "AF33D35D51A9F8636.css",
+                  "size": 197096,
+                  "path": "static/746853/AF33D35D51A9F8636.css"
+                },
+                {
+                  "name": "B04D1B6B00DBE40E5.eot",
+                  "size": 51266,
+                  "path": "static/746853/B04D1B6B00DBE40E5.eot"
+                },
+                {
+                  "name": "B0767EC0BD45A0066.css",
+                  "size": 118748,
+                  "path": "static/746853/B0767EC0BD45A0066.css"
+                },
+                {
+                  "name": "B78403A246232D137.css",
+                  "size": 95887,
+                  "path": "static/746853/B78403A246232D137.css"
+                },
+                {
+                  "name": "BA0DAA9CE6D409BEE.eot",
+                  "size": 58556,
+                  "path": "static/746853/BA0DAA9CE6D409BEE.eot"
+                },
+                {
+                  "name": "BD9053FC4E226B43A.css",
+                  "size": 197096,
+                  "path": "static/746853/BD9053FC4E226B43A.css"
+                },
+                {
+                  "name": "C257A39E54695E737.css",
+                  "size": 113486,
+                  "path": "static/746853/C257A39E54695E737.css"
+                },
+                {
+                  "name": "C32DC13CA5074CC72.css",
+                  "size": 97090,
+                  "path": "static/746853/C32DC13CA5074CC72.css"
+                },
+                {
+                  "name": "CEF34293F0865AADB.css",
+                  "size": 146549,
+                  "path": "static/746853/CEF34293F0865AADB.css"
+                },
+                {
+                  "name": "D09DEF30AE55A2211.css",
+                  "size": 110324,
+                  "path": "static/746853/D09DEF30AE55A2211.css"
+                },
+                {
+                  "name": "D3EF2557830610C14.css",
+                  "size": 182526,
+                  "path": "static/746853/D3EF2557830610C14.css"
+                },
+                {
+                  "name": "D4F8D40D2722DB299.css",
+                  "size": 197096,
+                  "path": "static/746853/D4F8D40D2722DB299.css"
+                },
+                {
+                  "name": "D6990EE7DDCE934E9.css",
+                  "size": 853,
+                  "path": "static/746853/D6990EE7DDCE934E9.css"
+                },
+                {
+                  "name": "DCE071EB671E7A959.css",
+                  "size": 90410,
+                  "path": "static/746853/DCE071EB671E7A959.css"
+                },
+                {
+                  "name": "DEA72B8809B7DDEC1.css",
+                  "size": 197096,
+                  "path": "static/746853/DEA72B8809B7DDEC1.css"
+                },
+                {
+                  "name": "E45B9C2BF79A44380.css",
+                  "size": 140088,
+                  "path": "static/746853/E45B9C2BF79A44380.css"
+                },
+                {
+                  "name": "E66808F2F20AB776C.css",
+                  "size": 358330,
+                  "path": "static/746853/E66808F2F20AB776C.css"
+                },
+                {
+                  "name": "EB8E54D6C4E886F9E.css",
+                  "size": 133262,
+                  "path": "static/746853/EB8E54D6C4E886F9E.css"
+                },
+                {
+                  "name": "F0DF28B31F9C3F1CA.css",
+                  "size": 227238,
+                  "path": "static/746853/F0DF28B31F9C3F1CA.css"
+                },
+                {
+                  "name": "F4562FC94D429674E.css",
+                  "size": 3337,
+                  "path": "static/746853/F4562FC94D429674E.css"
+                }
+              ],
+              "path": "static/746853"
+            },
+            {
+              "name": "admin",
+              "children": [
+                {
+                  "name": "config.yml",
+                  "size": 1342,
+                  "path": "static/admin/config.yml"
+                },
+                {
+                  "name": "index.html",
+                  "size": 432,
+                  "path": "static/admin/index.html"
+                }
+              ],
+              "path": "static/admin"
+            },
+            {
+              "name": "android-chrome-192x192.png",
+              "size": 15127,
+              "path": "static/android-chrome-192x192.png"
+            },
+            {
+              "name": "android-chrome-512x512.png",
+              "size": 49536,
+              "path": "static/android-chrome-512x512.png"
+            },
+            {
+              "name": "apple-touch-icon.png",
+              "size": 13501,
+              "path": "static/apple-touch-icon.png"
+            },
+            {
+              "name": "favicon-16x16.png",
+              "size": 435,
+              "path": "static/favicon-16x16.png"
+            },
+            {
+              "name": "favicon-32x32.png",
+              "size": 1129,
+              "path": "static/favicon-32x32.png"
+            },
+            {
+              "name": "favicon.ico",
+              "size": 15406,
+              "path": "static/favicon.ico"
+            },
+            {
+              "name": "site.webmanifest",
+              "size": 263,
+              "path": "static/site.webmanifest"
+            },
+            {
+              "name": "tachyons.min.css",
+              "size": 73497,
+              "path": "static/tachyons.min.css"
+            }
+          ],
+          "path": "static"
+        },
+        {
+          "name": ".eslintrc.js",
+          "size": 484,
+          "path": ".eslintrc.js"
+        },
+        {
+          "name": ".gitignore",
+          "size": 126,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE.md",
+          "size": 1127,
+          "path": "LICENSE.md"
+        },
+        {
+          "name": "README.md",
+          "size": 2429,
+          "path": "README.md"
+        },
+        {
+          "name": "app.html",
+          "size": 1478,
+          "path": "app.html"
+        },
+        {
+          "name": "netlify.toml",
+          "size": 159,
+          "path": "netlify.toml"
+        },
+        {
+          "name": "nuxt.config.js",
+          "size": 3776,
+          "path": "nuxt.config.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 491419,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1459,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 88,
+    "totalSize": 6957196
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"ejfox\">ejfox</h1>\n<h2 id=\"personal-website--blog-for-ej-fox\">Personal website &amp; blog for EJ Fox</h2>\n<h3 id=\"httpsejfoxcom\"><a href=\"https://ejfox.com\">https://ejfox.com</a></h3>\n<p><a href=\"https://app.netlify.com/sites/ejfoxcom/deploys\"><img src=\"https://api.netlify.com/api/v1/badges/ff495492-f06f-44e1-8986-fe4b47981237/deploy-status\" alt=\"Netlify Status\" /></a></p>\n<p>Currently powered by:</p>\n<ul>\n<li>Netlify for web hosting</li>\n<li>Cloudinary for image hosting</li>\n<li>Vue/Nuxt for the site</li>\n<li>Tachyons for layout and styling</li>\n<li>Markdown for text formatting</li>\n</ul>\n<h2 id=\"backups\">Backups</h2>\n<p><a href=\"http://ejfox.keybase.pub\">http://ejfox.keybase.pub</a></p>\n<h2 id=\"to-do\">To do</h2>\n<ul>\n<li>Add status tags for posts (\"notes\", \"draft\", \"in progress\", \"finished\" )</li>\n<li>Add way for people to submit anonymous feedback / tips</li>\n<li>Add mechanism for automatically archiving linked URLs <a href=\"https://www.gwern.net/Archiving-URLs\">a la Gwern</a></li>\n</ul>\n<h3 id=\"books\">Books</h3>\n<p>To get book library for goodreads to the books page:</p>\n<ul>\n<li>Go to <a href=\"https://www.goodreads.com/review/import\">this page</a> and click \"Export Library\"</li>\n<li>Wait for library in email</li>\n<li>Copy the goodreads CSV to the data folder</li>\n<li>Run <code>npx csvtojson static/data/goodreads_library_export.csv &gt; static/data/goodreads_library_export.json</code> to convert the CSV into json</li>\n</ul>\n<p>To scrape <a href=\"https://www.goodreads.com/notes/9273959-ej-fox\">highlights</a>:</p>\n<ul>\n<li><code>scrape-highlights https://www.goodreads.com/notes/9273959-ej-fox &gt; static/data/book_highlights.json</code></li>\n</ul>\n<h3 id=\"markdown-blog-posts\">Markdown Blog Posts</h3>\n<pre><code class=\"language-bash\"># To convert all JSON blog posts to markdown:\nprocessmd content/blog/posts/*.json --outputDir content/blog/md/ --convertMode source\n# or\nnpm run blog:to-md\n\n# To copy over all PUBLISHED markdown files in Dropbox writing folder to `md` folder in `~/content/blog/`\ncp ~/Dropbox/Writing/PUBLISHED/*.md content/blog/md/\n# or\nnpm run dropbox-import\n\n# To convert all markdown posts to JSON files and copy them to the content directory\nprocessmd content/blog/md/* --outputDir content/blog/posts/\n# or\nnpm run blog:md-to-json\n</code></pre>\n<h2 id=\"build-setup\">Build Setup</h2>\n<pre><code class=\"language-bash\"># install dependencies\nnpm install # Or yarn install\n\n# serve with hot reload at localhost:3000\nnpm run dev\n\n# build for production and launch server\nnpm run build\nnpm start\n\n# generate static project\nnpm run generate\n\n# generate static project and publish to keybase\nnpm run keybase\n\n# pull in markdown from dropbox and generate static project and publish everywhere\nnpm run publish\n\n# convert goodreads csv into json\nnpx csvtojson static/data/goodreads_library_export.csv &gt; static/data/goodreads_library_export.json\n\n# convert projects csv into json\nnpx csvtojson static/data/projects.csv &gt; static/data/projects.json\n</code></pre>",

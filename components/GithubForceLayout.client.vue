@@ -1,9 +1,10 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount, computed, watch } from 'vue'
+import { ref, computed, onMounted } from 'vue'
+import { useElementSize } from '@vueuse/core'
 import * as d3 from 'd3-force'
 import { select } from 'd3-selection'
-import { scaleLinear, scaleSqrt } from 'd3-scale'
-import chroma from 'chroma-js'
+import { scaleLinear, scaleSqrt, scaleTime, scaleLog } from 'd3-scale'
+import { useLanguageColors } from '~/composables/useLanguageColors'
 
 const props = defineProps({
   repos: {
@@ -12,500 +13,299 @@ const props = defineProps({
   },
 })
 
-const svgRef = ref(null)
+const { getColor } = useLanguageColors()
 const containerRef = ref(null)
-const width = ref(800)
-const height = ref(600)
-const hoveredRepo = ref(null)
+const svgRef = ref(null)
+const { width } = useElementSize(containerRef)
+const height = 450
 
-// Prepare node data with blended colors
+// Simple tooltip state
+const tooltip = ref({
+  show: false,
+  x: 0,
+  y: 0,
+  repo: null,
+})
+
+// Prepare nodes - simple data only, exclude forks
 const nodes = computed(() => {
-  return props.repos.map((repo) => {
-    // Calculate blended color from language breakdown
-    const color = getBlendedColor(repo.languages, repo.languageColor)
-
-    // Size by disk usage (in KB), with minimum size
-    const size = Math.max(repo.diskUsage || 100, 100)
-
-    return {
+  return props.repos
+    .filter((repo) => !repo.fork) // Hide forks of other repos
+    .map((repo) => ({
       id: repo.name,
       name: repo.name,
-      description: repo.description,
-      url: repo.url,
-      language: repo.language,
-      languages: repo.languages,
-      diskUsage: repo.diskUsage,
-      stars: repo.stats.stars,
-      topics: repo.topics,
-      color,
-      size,
-      // D3 force simulation will add x, y, vx, vy
-    }
-  })
+      createdAt: repo.createdAt ? new Date(repo.createdAt) : new Date(),
+      pushedAt: repo.pushedAt ? new Date(repo.pushedAt) : new Date(),
+      diskUsage: repo.diskUsage || 100,
+      stars: repo.stats?.stars || 0,
+      color: getColor(repo.language),
+      language: repo.language || 'Unknown',
+    }))
 })
 
-// Create links between repos with shared topics
-const links = computed(() => {
-  const linksList = []
-  const nodesByTopic = new Map()
-
-  // Group nodes by topics
-  nodes.value.forEach((node) => {
-    node.topics.forEach((topic) => {
-      if (!nodesByTopic.has(topic)) {
-        nodesByTopic.set(topic, [])
-      }
-      nodesByTopic.get(topic).push(node)
-    })
-  })
-
-  // Create links between nodes with shared topics
-  nodesByTopic.forEach((topicNodes) => {
-    if (topicNodes.length > 1) {
-      for (let i = 0; i < topicNodes.length; i++) {
-        for (let j = i + 1; j < topicNodes.length; j++) {
-          linksList.push({
-            source: topicNodes[i].id,
-            target: topicNodes[j].id,
-          })
-        }
-      }
-    }
-  })
-
-  return linksList
-})
-
-// Format date for tooltip
-function formatDate(date) {
-  if (!date) return ''
-  const d = new Date(date)
-  const now = new Date()
-  const diffDays = Math.floor((now - d) / (1000 * 60 * 60 * 24))
-
-  if (diffDays < 7) return `${diffDays}d ago`
-  if (diffDays < 30) return `${Math.floor(diffDays / 7)}w ago`
-  if (diffDays < 365) return `${Math.floor(diffDays / 30)}mo ago`
-  return `${Math.floor(diffDays / 365)}y ago`
-}
-
-// Blend language colors using chroma.js in LAB colorspace
-function getBlendedColor(languages, fallbackColor) {
-  if (!languages || Object.keys(languages).length === 0) {
-    return fallbackColor || '#666666'
-  }
-
-  const languageColors = {
-    JavaScript: '#f1e05a',
-    TypeScript: '#3178c6',
-    Vue: '#41b883',
-    Python: '#3572A5',
-    Go: '#00ADD8',
-    Rust: '#dea584',
-    Ruby: '#701516',
-    Java: '#b07219',
-    HTML: '#e34c26',
-    CSS: '#563d7c',
-    Shell: '#89e051',
-    Swift: '#F05138',
-    Kotlin: '#A97BFF',
-    Dart: '#00B4AB',
-    C: '#555555',
-    'C++': '#f34b7d',
-    'C#': '#178600',
-    Unknown: '#666666',
-  }
-
-  // Get weighted colors based on byte count
-  const totalBytes = Object.values(languages).reduce(
-    (sum, bytes) => sum + bytes,
-    0
-  )
-  const weightedColors = Object.entries(languages).map(([lang, bytes]) => ({
-    color: languageColors[lang] || '#666666',
-    weight: bytes / totalBytes,
-  }))
-
-  // If single language, return its color
-  if (weightedColors.length === 1) {
-    return weightedColors[0].color
-  }
-
-  // Blend colors in LAB colorspace
-  const colors = weightedColors.map((w) => chroma(w.color))
-  const weights = weightedColors.map((w) => w.weight)
-
-  // Weighted average in LAB space
-  const lab = colors.reduce(
-    (acc, color, i) => {
-      const [l, a, b] = color.lab()
-      return [
-        acc[0] + l * weights[i],
-        acc[1] + a * weights[i],
-        acc[2] + b * weights[i],
-      ]
-    },
-    [0, 0, 0]
-  )
-
-  return chroma.lab(lab[0], lab[1], lab[2]).hex()
-}
-
-// Scale for node radius based on disk usage
-const radiusScale = computed(() => {
-  const maxSize = Math.max(...nodes.value.map((n) => n.size))
-  return scaleSqrt().domain([0, maxSize]).range([5, 40])
-})
-
-// Prepare nodes with temporal data for positioning
-const nodesWithDates = computed(() => {
-  return nodes.value.map((node) => {
-    const repo = props.repos.find((r) => r.name === node.id)
-    return {
-      ...node,
-      createdAt: new Date(repo.createdAt),
-      pushedAt: new Date(repo.pushedAt),
-      updatedAt: new Date(repo.updatedAt),
-    }
-  })
-})
-
-// X scale: Creation date (older left, newer right)
+// Scales - increased padding for collision space
 const xScale = computed(() => {
-  const dates = nodesWithDates.value.map((n) => n.createdAt.getTime())
-  const extent = [Math.min(...dates), Math.max(...dates)]
-  return scaleLinear()
-    .domain(extent)
-    .range([80, width.value - 80])
+  const dates = nodes.value.map((n) => n.createdAt)
+  const min = new Date(Math.min(...dates))
+  const max = new Date(Math.max(...dates))
+  const padding = width.value * 0.1 // Increased from 0.05
+  return scaleTime()
+    .domain([min, max])
+    .range([padding, width.value - padding])
 })
 
-// Y scale: Last push date (older bottom, newer top)
 const yScale = computed(() => {
-  const dates = nodesWithDates.value.map((n) => n.pushedAt.getTime())
-  const extent = [Math.min(...dates), Math.max(...dates)]
-  return scaleLinear()
-    .domain(extent)
-    .range([height.value - 80, 80])
+  const dates = nodes.value.map((n) => n.pushedAt)
+  const min = new Date(Math.min(...dates))
+  const max = new Date(Math.max(...dates))
+  const padding = height * 0.12 // Increased from 0.05
+  return scaleTime()
+    .domain([min, max])
+    .range([height - padding, padding])
 })
 
-let simulation = null
-
-onMounted(() => {
-  initVisualization()
-  window.addEventListener('resize', handleResize)
+const radiusScale = computed(() => {
+  const sizes = nodes.value.map((n) => n.diskUsage)
+  const min = Math.min(...sizes, 100)
+  const max = Math.max(...sizes, 1000)
+  return scaleSqrt().domain([min, max]).range([3, 40]) // Reduced from 3.6-52.5 for better spacing
 })
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', handleResize)
-  if (simulation) {
-    simulation.stop()
-  }
-})
-
-function handleResize() {
-  if (!containerRef.value) return
-  width.value = containerRef.value.clientWidth
-  height.value = Math.max(600, window.innerHeight - 200)
-
-  if (simulation) {
-    simulation.force(
-      'center',
-      d3.forceCenter(width.value / 2, height.value / 2)
-    )
-    simulation.alpha(0.3).restart()
-  }
-}
 
 function initVisualization() {
-  if (!svgRef.value) return
-
-  width.value = containerRef.value?.clientWidth || 800
-  height.value = Math.max(600, window.innerHeight - 200)
+  if (!svgRef.value || width.value === 0) return
 
   const svg = select(svgRef.value)
-  svg.selectAll('*').remove() // Clear existing
+  svg.selectAll('*').remove()
 
-  // Create links group
-  const linkGroup = svg.append('g').attr('class', 'links')
+  // Initialize node positions based on data
+  const nodeData = nodes.value.map((n) => ({
+    ...n,
+    x: xScale.value(n.createdAt),
+    y: yScale.value(n.pushedAt),
+  }))
 
-  // Create nodes group
-  const nodeGroup = svg.append('g').attr('class', 'nodes')
-
-  // Setup force simulation with temporal positioning
-  simulation = d3
-    .forceSimulation(nodesWithDates.value)
+  // Refined force simulation - no touching circles
+  const simulation = d3
+    .forceSimulation(nodeData)
+    .force('x', d3.forceX((d) => xScale.value(d.createdAt)).strength(0.4))
+    .force('y', d3.forceY((d) => yScale.value(d.pushedAt)).strength(0.4))
     .force(
-      'link',
+      'collide',
       d3
-        .forceLink(links.value)
-        .id((d) => d.id)
-        .distance(50)
-        .strength(0.05)
+        .forceCollide((d) => radiusScale.value(d.diskUsage) + 8)
+        .strength(1)
+        .iterations(6)
     )
-    .force('charge', d3.forceManyBody().strength(-80))
-    .force(
-      'x',
-      d3.forceX((d) => xScale.value(d.createdAt.getTime())).strength(0.3)
-    )
-    .force(
-      'y',
-      d3.forceY((d) => yScale.value(d.pushedAt.getTime())).strength(0.3)
-    )
-    .force(
-      'collision',
-      d3.forceCollide().radius((d) => radiusScale.value(d.size) + 2)
-    )
+    .alphaDecay(0.005)
+    .velocityDecay(0.4)
+    .stop()
 
-  // Draw links
-  const link = linkGroup
-    .selectAll('line')
-    .data(links.value)
-    .enter()
-    .append('line')
-    .attr('class', 'link')
-    .attr('stroke', '#27272a')
-    .attr('stroke-opacity', 0.2)
-    .attr('stroke-width', 1)
+  // Run simulation synchronously - more iterations for better separation
+  for (let i = 0; i < 500; i++) simulation.tick()
 
-  // Add axis labels
-  svg
-    .append('text')
-    .attr('x', width.value / 2)
-    .attr('y', height.value - 20)
-    .attr('text-anchor', 'middle')
-    .attr('class', 'axis-label')
-    .attr('fill', '#71717a')
-    .attr('font-size', '12px')
-    .attr('font-family', 'monospace')
-    .text('Created →')
+  // Clamp nodes within bounds with buffer zone (prevents edge touching)
+  nodeData.forEach((d) => {
+    const r = radiusScale.value(d.diskUsage)
+    const bufferX = r + 12 // Extra space at edges
+    const bufferY = r + 12
+    d.x = Math.max(bufferX, Math.min(width.value - bufferX, d.x))
+    d.y = Math.max(bufferY, Math.min(height - bufferY, d.y))
+  })
 
-  svg
-    .append('text')
-    .attr('x', 20)
-    .attr('y', height.value / 2)
-    .attr('text-anchor', 'middle')
-    .attr('transform', `rotate(-90, 20, ${height.value / 2})`)
-    .attr('class', 'axis-label')
-    .attr('fill', '#71717a')
-    .attr('font-size', '12px')
-    .attr('font-family', 'monospace')
-    .text('↑ Recently Active')
-
-  // Draw nodes
-  const node = nodeGroup
+  // Draw circles - brutalist
+  const circles = svg
+    .append('g')
     .selectAll('circle')
-    .data(nodesWithDates.value)
-    .enter()
-    .append('circle')
-    .attr('r', (d) => radiusScale.value(d.size))
+    .data(nodeData)
+    .join('circle')
+    .attr('cx', (d) => d.x)
+    .attr('cy', (d) => d.y)
+    .attr('r', (d) => radiusScale.value(d.diskUsage))
     .attr('fill', (d) => d.color)
-    .attr('stroke', (d) =>
-      d.stars > 0 ? chroma(d.color).brighten(1).hex() : '#3f3f46'
-    )
-    .attr('stroke-width', (d) => (d.stars > 0 ? 2 : 1))
-    .attr('opacity', 0.85)
+    .attr('opacity', 0.7)
     .style('cursor', 'pointer')
-    .on('mouseover', handleNodeHover)
-    .on('mouseout', handleNodeLeave)
-    .on('click', handleNodeClick)
-    .call(
-      d3
-        .drag()
-        .on('start', dragstarted)
-        .on('drag', dragged)
-        .on('end', dragended)
-    )
 
-  // Update positions on tick
-  simulation.on('tick', () => {
-    link
-      .attr('x1', (d) => d.source.x)
-      .attr('y1', (d) => d.source.y)
-      .attr('x2', (d) => d.target.x)
-      .attr('y2', (d) => d.target.y)
+  // Nerd Font devicons - generate from codepoints
+  const devicons = {
+    JavaScript: String.fromCodePoint(0xe781),
+    TypeScript: String.fromCodePoint(0xe8ca),
+    Vue: String.fromCodePoint(0xe8dc),
+    Python: String.fromCodePoint(0xe73c),
+    Go: String.fromCodePoint(0xe724),
+    Rust: String.fromCodePoint(0xe7a8),
+    Java: String.fromCodePoint(0xe738),
+    Ruby: String.fromCodePoint(0xe739),
+    PHP: String.fromCodePoint(0xe73d),
+    Swift: String.fromCodePoint(0xe755),
+    Kotlin: String.fromCodePoint(0xe81b),
+    C: String.fromCodePoint(0xe771),
+    'C++': String.fromCodePoint(0xe7a3),
+    Shell: String.fromCodePoint(0xf489),
+    HTML: String.fromCodePoint(0xe736),
+    CSS: String.fromCodePoint(0xe749),
+    Markdown: String.fromCodePoint(0xe73e),
+    Lua: String.fromCodePoint(0xe826),
+  }
 
-    node.attr('cx', (d) => d.x).attr('cy', (d) => d.y)
+  svg
+    .append('g')
+    .selectAll('text')
+    .data(nodeData)
+    .join('text')
+    .attr('x', (d) => d.x)
+    .attr('y', (d) => d.y)
+    .attr('text-anchor', 'middle')
+    .attr('dominant-baseline', 'central')
+    .attr('font-family', '"Symbols Nerd Font Mono", monospace')
+    .attr('font-size', (d) => {
+      const r = radiusScale.value(d.diskUsage)
+      return r > 15 ? 14 : r > 10 ? 10 : r > 6 ? 7 : 0
+    })
+    .attr('fill', '#000')
+    .attr('opacity', 0.3)
+    .attr('pointer-events', 'none')
+    .text((d) => {
+      const r = radiusScale.value(d.diskUsage)
+      if (r < 6) return ''
+      return devicons[d.language] || ''
+    })
+
+  circles
+    .on('mouseenter', (event, d) => {
+      const w = 180
+      const h = 60
+      let x = event.clientX + 12
+      let y = event.clientY + 12
+
+      if (x + w > window.innerWidth) x = event.clientX - w - 12
+      if (y + h > window.innerHeight) y = event.clientY - h - 12
+
+      tooltip.value = { show: true, x, y, repo: d }
+      select(event.target).attr('opacity', 0.95)
+    })
+    .on('mouseleave', (event) => {
+      tooltip.value.show = false
+      select(event.target).attr('opacity', 0.7)
+    })
+    .on('click', (event, d) => {
+      window.location.href = `/github/${d.id}`
+    })
+
+  // Legend
+  const legend = svg.append('g').attr('class', 'legend')
+
+  // Axis labels
+  legend
+    .append('text')
+    .attr('x', 40)
+    .attr('y', height - 12)
+    .attr('font-family', 'monospace')
+    .attr('font-size', 9)
+    .attr('fill', 'currentColor')
+    .attr('opacity', 0.4)
+    .text('created →')
+
+  legend
+    .append('text')
+    .attr('x', 12)
+    .attr('y', 40)
+    .attr('font-family', 'monospace')
+    .attr('font-size', 9)
+    .attr('fill', 'currentColor')
+    .attr('opacity', 0.4)
+    .attr('transform', `rotate(-90, 12, 40)`)
+    .attr('text-anchor', 'end')
+    .text('updated →')
+
+  // Size legend
+  const legendX = width.value - 110
+  const legendY = height - 100
+
+  legend
+    .append('text')
+    .attr('x', legendX)
+    .attr('y', legendY - 8)
+    .attr('font-family', 'monospace')
+    .attr('font-size', 9)
+    .attr('fill', 'currentColor')
+    .attr('opacity', 0.35)
+    .text('disk usage')
+
+  // Size samples with actual data distribution
+  const allSizes = nodes.value.map((n) => n.diskUsage)
+  const maxSize = Math.max(...allSizes)
+  const sampleSizes = [1000, maxSize / 4, maxSize / 2].filter((s) => s > 0)
+
+  sampleSizes.forEach((size, i) => {
+    const r = radiusScale.value(size)
+    const cx = legendX + 20
+    const spacing = i === 0 ? 15 : sampleSizes[i - 1] > 10000 ? 25 : 18
+    const cy = legendY + 15 + i * spacing
+
+    legend
+      .append('circle')
+      .attr('cx', cx)
+      .attr('cy', cy)
+      .attr('r', r)
+      .attr('fill', 'currentColor')
+      .attr('opacity', 0.12)
+
+    legend
+      .append('text')
+      .attr('x', cx + r + 5)
+      .attr('y', cy + 3)
+      .attr('font-family', 'monospace')
+      .attr('font-size', 8)
+      .attr('fill', 'currentColor')
+      .attr('opacity', 0.35)
+      .text(size >= 1024 ? Math.round(size / 1024) + 'MB' : size + 'KB')
   })
 }
 
-function handleNodeHover(event, d) {
-  hoveredRepo.value = d
-
-  // Brighten hovered node
-  select(event.target).attr('opacity', 1).attr('stroke-width', 3)
-}
-
-function handleNodeLeave(event, d) {
-  hoveredRepo.value = null
-
-  // Reset node appearance
-  select(event.target)
-    .attr('opacity', 0.85)
-    .attr('stroke-width', d.stars > 0 ? 2 : 1)
-}
-
-function handleNodeClick(event, d) {
-  window.open(`/github/${d.id}`, '_self')
-}
-
-function dragstarted(event, d) {
-  if (!event.active) simulation.alphaTarget(0.3).restart()
-  d.fx = d.x
-  d.fy = d.y
-}
-
-function dragged(event, d) {
-  d.fx = event.x
-  d.fy = event.y
-}
-
-function dragended(event, d) {
-  if (!event.active) simulation.alphaTarget(0)
-  d.fx = null
-  d.fy = null
-}
-
-// Watch for data changes
-watch(
-  () => props.repos,
-  () => {
-    if (simulation) {
-      initVisualization()
-    }
-  }
-)
+onMounted(() => {
+  setTimeout(initVisualization, 300)
+})
 </script>
 
 <template>
-  <div ref="containerRef" class="force-layout-container">
-    <svg
-      ref="svgRef"
-      :width="width"
-      :height="height"
-      class="force-layout-svg"
-    ></svg>
+  <div ref="containerRef" class="relative w-full">
+    <svg ref="svgRef" :width="width" :height="height" class="w-full" />
 
-    <!-- Tooltip -->
-    <div v-if="hoveredRepo" class="repo-tooltip">
-      <h3 class="font-mono text-sm font-medium">{{ hoveredRepo.name }}</h3>
-      <p class="text-xs text-zinc-500 line-clamp-2">
-        {{ hoveredRepo.description }}
-      </p>
-      <div class="flex flex-col gap-1 mt-2 text-xs font-mono">
-        <div class="flex items-center gap-2">
-          <span v-if="hoveredRepo.stars > 0">⭐ {{ hoveredRepo.stars }}</span>
-          <span>{{ hoveredRepo.language }}</span>
-          <span v-if="hoveredRepo.diskUsage">
-            {{ Math.round(hoveredRepo.diskUsage / 1024) }} MB
-          </span>
-        </div>
-        <div class="text-zinc-400">
-          <span v-if="hoveredRepo.createdAt">
-            Created {{ formatDate(hoveredRepo.createdAt) }}
-          </span>
-          <span v-if="hoveredRepo.pushedAt" class="ml-2">
-            • Active {{ formatDate(hoveredRepo.pushedAt) }}
-          </span>
-        </div>
+    <!-- Tooltip - brutalist minimal -->
+    <div
+      v-if="tooltip.show && tooltip.repo"
+      class="fixed z-50 pointer-events-none bg-white dark:bg-zinc-900 border border-zinc-900 dark:border-zinc-100 px-2 py-1 text-[10px] font-mono"
+      :style="{
+        left: tooltip.x + 'px',
+        top: tooltip.y + 'px',
+      }"
+    >
+      <div class="font-medium text-zinc-900 dark:text-zinc-100">
+        {{ tooltip.repo.name }}
       </div>
-    </div>
-
-    <!-- Legend -->
-    <div class="legend">
-      <div class="legend-title">Visual Encoding</div>
-      <div class="legend-item">
-        <span class="legend-label">X</span>
-        <span>Creation date</span>
-      </div>
-      <div class="legend-item">
-        <span class="legend-label">Y</span>
-        <span>Recent activity</span>
-      </div>
-      <div class="legend-item">
-        <div class="legend-dot legend-dot-small"></div>
-        <span>Size = Disk usage</span>
-      </div>
-      <div class="legend-item">
-        <div class="legend-color-blend">
-          <div class="color-dot" style="background: #f1e05a"></div>
-          <div class="color-dot" style="background: #41b883"></div>
-        </div>
-        <span>Color = Language mix</span>
-      </div>
-      <div class="legend-item">
-        <div class="legend-dot legend-dot-starred"></div>
-        <span>Glow = Stars</span>
+      <div class="text-zinc-500 flex items-center gap-0.5">
+        <span
+          class="w-1 h-1 inline-block"
+          :style="{ backgroundColor: tooltip.repo.color }"
+        />
+        <span>{{ tooltip.repo.language }}</span>
+        <span>·</span>
+        <span>
+          {{
+            tooltip.repo.diskUsage >= 1024
+              ? Math.round(tooltip.repo.diskUsage / 1024) + 'MB'
+              : tooltip.repo.diskUsage + 'KB'
+          }}
+        </span>
+        <template v-if="tooltip.repo.stars > 0">
+          <span>·</span>
+          <span>{{ tooltip.repo.stars }}★</span>
+        </template>
       </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.force-layout-container {
-  @apply relative w-full;
-  @apply bg-white dark:bg-zinc-950;
-  @apply border border-zinc-200 dark:border-zinc-800 rounded;
-}
-
-.force-layout-svg {
-  @apply block;
-}
-
-.repo-tooltip {
-  @apply absolute top-4 right-4 p-3;
-  @apply bg-white dark:bg-zinc-900;
-  @apply border border-zinc-200 dark:border-zinc-800 rounded;
-  @apply max-w-xs;
-  @apply pointer-events-none;
-  @apply shadow-lg;
-}
-
-.legend {
-  @apply absolute bottom-4 left-4;
-  @apply flex flex-col gap-2 p-3;
-  @apply bg-white/90 dark:bg-zinc-900/90 backdrop-blur;
-  @apply border border-zinc-200 dark:border-zinc-800 rounded;
-  @apply text-xs font-mono;
-}
-
-.legend-title {
-  @apply font-medium text-zinc-900 dark:text-zinc-100 mb-1;
-  @apply border-b border-zinc-200 dark:border-zinc-800 pb-1;
-}
-
-.legend-item {
-  @apply flex items-center gap-2;
-}
-
-.legend-label {
-  @apply w-4 h-4 flex items-center justify-center;
-  @apply bg-zinc-200 dark:bg-zinc-700 rounded;
-  @apply font-bold text-[10px];
-}
-
-.legend-dot {
-  @apply rounded-full;
-  @apply bg-zinc-400 dark:bg-zinc-600;
-}
-
-.legend-dot-small {
-  @apply w-2 h-2;
-}
-
-.legend-dot-large {
-  @apply w-4 h-4;
-}
-
-.legend-dot-starred {
-  @apply w-3 h-3;
-  @apply ring-2 ring-yellow-500;
-}
-
-.legend-color-blend {
-  @apply flex items-center gap-0.5;
-}
-
-.color-dot {
-  @apply w-2 h-2 rounded-full;
-}
+@import url('https://www.nerdfonts.com/assets/css/webfont.css');
 </style>

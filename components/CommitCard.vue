@@ -18,7 +18,7 @@
 
       <div class="flex-grow min-w-0">
         <!-- Header -->
-        <div class="flex items-center gap-2 mb-1">
+        <div class="flex items-center gap-2 mb-2">
           <span class="font-medium text-zinc-900 dark:text-zinc-100 text-sm">
             {{ repo }}
           </span>

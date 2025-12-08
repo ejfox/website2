@@ -18,6 +18,1020 @@
     "TypeScript": 1190
   },
   "diskUsage": 17181,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".auto-changelog",
+        "size": 462
+      },
+      {
+        "path": ".editorconfig",
+        "size": 146
+      },
+      {
+        "path": ".env-example",
+        "size": 140
+      },
+      {
+        "path": ".eslintrc.js",
+        "size": 524
+      },
+      {
+        "path": ".gitignore",
+        "size": 236
+      },
+      {
+        "path": ".npmrc",
+        "size": 53
+      },
+      {
+        "path": ".nvmrc",
+        "size": 9
+      },
+      {
+        "path": ".prettierrc",
+        "size": 152
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 2712
+      },
+      {
+        "path": "README.md",
+        "size": 2979
+      },
+      {
+        "path": "app.vue",
+        "size": 710
+      },
+      {
+        "path": "assets/css/main.css",
+        "size": 650
+      },
+      {
+        "path": "assets/css/transitions.css",
+        "size": 615
+      },
+      {
+        "path": "components/AppFooter.vue",
+        "size": 7174
+      },
+      {
+        "path": "components/DataTooltip.vue",
+        "size": 3034
+      },
+      {
+        "path": "components/DateHistogramSelector.vue",
+        "size": 12799
+      },
+      {
+        "path": "components/DownloadProgress.vue",
+        "size": 4987
+      },
+      {
+        "path": "components/FilesFilterBar.vue",
+        "size": 10418
+      },
+      {
+        "path": "components/GlobalFilterBar.vue",
+        "size": 9784
+      },
+      {
+        "path": "components/MultiSelect.vue",
+        "size": 2969
+      },
+      {
+        "path": "components/ParquetLoader.vue",
+        "size": 12018
+      },
+      {
+        "path": "components/ParquetLoaderControls.vue",
+        "size": 2310
+      },
+      {
+        "path": "components/ParquetLoaderStatus.vue",
+        "size": 2072
+      },
+      {
+        "path": "components/ParquetLoaderVisualization.vue",
+        "size": 7942
+      },
+      {
+        "path": "components/PointInfo.vue",
+        "size": 2150
+      },
+      {
+        "path": "components/TopBar.vue",
+        "size": 6564
+      },
+      {
+        "path": "components/VisualizationControls.vue",
+        "size": 1225
+      },
+      {
+        "path": "components/VisualizationLegends.vue",
+        "size": 554
+      },
+      {
+        "path": "components/VisualizationLoading.vue",
+        "size": 3155
+      },
+      {
+        "path": "components/metadata/ComparisonPies.vue",
+        "size": 11384
+      },
+      {
+        "path": "components/metadata/DailyMessageChart.vue",
+        "size": 5926
+      },
+      {
+        "path": "components/metadata/FilesOverview.vue",
+        "size": 12316
+      },
+      {
+        "path": "components/metadata/MonthlyBreakdown.vue",
+        "size": 5464
+      },
+      {
+        "path": "components/metadata/SparkLine.vue",
+        "size": 2746
+      },
+      {
+        "path": "components/metadata/StreamGraph.vue",
+        "size": 20644
+      },
+      {
+        "path": "components/metadata/TopMessageDays.vue",
+        "size": 7187
+      },
+      {
+        "path": "components/narrative/DataVisualizationSection.vue",
+        "size": 10737
+      },
+      {
+        "path": "components/narrative/HeroSection.vue",
+        "size": 4585
+      },
+      {
+        "path": "components/narrative/KeyPoint.vue",
+        "size": 4207
+      },
+      {
+        "path": "components/narrative/NarrativeScatterplot.vue",
+        "size": 6604
+      },
+      {
+        "path": "components/narrative/ProgressNav.vue",
+        "size": 1306
+      },
+      {
+        "path": "components/narrative/PullQuote.vue",
+        "size": 2930
+      },
+      {
+        "path": "components/narrative/ScrollStreamGraph.vue",
+        "size": 13851
+      },
+      {
+        "path": "components/narrative/SectionTransition.vue",
+        "size": 2901
+      },
+      {
+        "path": "components/narrative/StatCounter.vue",
+        "size": 3408
+      },
+      {
+        "path": "components/narrative/StatsSection.vue",
+        "size": 8308
+      },
+      {
+        "path": "components/narrative/StorySection.vue",
+        "size": 5894
+      },
+      {
+        "path": "components/narrative/Timeline.vue",
+        "size": 2233
+      },
+      {
+        "path": "components/narrative/VideoSection.vue",
+        "size": 17747
+      },
+      {
+        "path": "components/utils/PageLoader.vue",
+        "size": 1979
+      },
+      {
+        "path": "components/utils/PageProgress.vue",
+        "size": 1154
+      },
+      {
+        "path": "components/utils/StaggeredFade.vue",
+        "size": 1159
+      },
+      {
+        "path": "composables/appStore.js",
+        "size": 1460
+      },
+      {
+        "path": "composables/useAnimationUtils.js",
+        "size": 5097
+      },
+      {
+        "path": "composables/useAppVersion.js",
+        "size": 508
+      },
+      {
+        "path": "composables/useColorMap.js",
+        "size": 4595
+      },
+      {
+        "path": "composables/useFuzzySearch.js",
+        "size": 11242
+      },
+      {
+        "path": "composables/useNarrativeScrolling.js",
+        "size": 3051
+      },
+      {
+        "path": "composables/useOpenRouter.js",
+        "size": 1472
+      },
+      {
+        "path": "composables/usePageTransition.js",
+        "size": 1222
+      },
+      {
+        "path": "composables/useParquetLoader.js",
+        "size": 29744
+      },
+      {
+        "path": "composables/useR2Storage.js",
+        "size": 16065
+      },
+      {
+        "path": "composables/useScrollAnimations.js",
+        "size": 2460
+      },
+      {
+        "path": "composables/useTelegramFilesLoader.js",
+        "size": 3682
+      },
+      {
+        "path": "composables/useTimestampParser.js",
+        "size": 2043
+      },
+      {
+        "path": "composables/useVisualization.js",
+        "size": 37492
+      },
+      {
+        "path": "helpers.js",
+        "size": 851
+      },
+      {
+        "path": "netlify.toml",
+        "size": 1006
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 1190
+      },
+      {
+        "path": "package-lock.json",
+        "size": 404394
+      },
+      {
+        "path": "package.json",
+        "size": 1659
+      },
+      {
+        "path": "pages/changelog.vue",
+        "size": 5209
+      },
+      {
+        "path": "pages/feed.vue",
+        "size": 45906
+      },
+      {
+        "path": "pages/files.vue",
+        "size": 30785
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 55210
+      },
+      {
+        "path": "pages/messages/[id].vue",
+        "size": 24770
+      },
+      {
+        "path": "pages/metadata.vue",
+        "size": 32432
+      },
+      {
+        "path": "pages/narrative.vue",
+        "size": 51653
+      },
+      {
+        "path": "pages/senders.vue",
+        "size": 22996
+      },
+      {
+        "path": "plugins/page-transitions.js",
+        "size": 322
+      },
+      {
+        "path": "public/CHANGELOG.md",
+        "size": 2712
+      },
+      {
+        "path": "public/android-chrome-192x192.png",
+        "size": 53953
+      },
+      {
+        "path": "public/android-chrome-512x512.png",
+        "size": 319988
+      },
+      {
+        "path": "public/apple-touch-icon.png",
+        "size": 48435
+      },
+      {
+        "path": "public/assets/img/noise.png",
+        "size": 1
+      },
+      {
+        "path": "public/duckdb/duckdb-browser-mvp.worker.js",
+        "size": 318628
+      },
+      {
+        "path": "public/duckdb/duckdb-browser.js",
+        "size": 80
+      },
+      {
+        "path": "public/duckdb/duckdb-mvp.wasm",
+        "size": 22092382
+      },
+      {
+        "path": "public/favicon-16x16.png",
+        "size": 838
+      },
+      {
+        "path": "public/favicon-32x32.png",
+        "size": 2387
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 15406
+      },
+      {
+        "path": "public/site.webmanifest",
+        "size": 263
+      },
+      {
+        "path": "public/videos/001.mp4",
+        "size": 3736821
+      },
+      {
+        "path": "public/videos/002.mp4",
+        "size": 3549096
+      },
+      {
+        "path": "public/videos/003.mp4",
+        "size": 4249105
+      },
+      {
+        "path": "scripts/copy-changelog.js",
+        "size": 724
+      },
+      {
+        "path": "server/tsconfig.json",
+        "size": 49
+      },
+      {
+        "path": "tailwind.config.js",
+        "size": 280
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 94
+      },
+      {
+        "path": "yarn.lock",
+        "size": 248387
+      }
+    ],
+    "tree": {
+      "name": "paramilitary-leaks-frontend",
+      "children": [
+        {
+          "name": "assets",
+          "children": [
+            {
+              "name": "css",
+              "children": [
+                {
+                  "name": "main.css",
+                  "size": 650,
+                  "path": "assets/css/main.css"
+                },
+                {
+                  "name": "transitions.css",
+                  "size": 615,
+                  "path": "assets/css/transitions.css"
+                }
+              ],
+              "path": "assets/css"
+            }
+          ],
+          "path": "assets"
+        },
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "metadata",
+              "children": [
+                {
+                  "name": "ComparisonPies.vue",
+                  "size": 11384,
+                  "path": "components/metadata/ComparisonPies.vue"
+                },
+                {
+                  "name": "DailyMessageChart.vue",
+                  "size": 5926,
+                  "path": "components/metadata/DailyMessageChart.vue"
+                },
+                {
+                  "name": "FilesOverview.vue",
+                  "size": 12316,
+                  "path": "components/metadata/FilesOverview.vue"
+                },
+                {
+                  "name": "MonthlyBreakdown.vue",
+                  "size": 5464,
+                  "path": "components/metadata/MonthlyBreakdown.vue"
+                },
+                {
+                  "name": "SparkLine.vue",
+                  "size": 2746,
+                  "path": "components/metadata/SparkLine.vue"
+                },
+                {
+                  "name": "StreamGraph.vue",
+                  "size": 20644,
+                  "path": "components/metadata/StreamGraph.vue"
+                },
+                {
+                  "name": "TopMessageDays.vue",
+                  "size": 7187,
+                  "path": "components/metadata/TopMessageDays.vue"
+                }
+              ],
+              "path": "components/metadata"
+            },
+            {
+              "name": "narrative",
+              "children": [
+                {
+                  "name": "DataVisualizationSection.vue",
+                  "size": 10737,
+                  "path": "components/narrative/DataVisualizationSection.vue"
+                },
+                {
+                  "name": "HeroSection.vue",
+                  "size": 4585,
+                  "path": "components/narrative/HeroSection.vue"
+                },
+                {
+                  "name": "KeyPoint.vue",
+                  "size": 4207,
+                  "path": "components/narrative/KeyPoint.vue"
+                },
+                {
+                  "name": "NarrativeScatterplot.vue",
+                  "size": 6604,
+                  "path": "components/narrative/NarrativeScatterplot.vue"
+                },
+                {
+                  "name": "ProgressNav.vue",
+                  "size": 1306,
+                  "path": "components/narrative/ProgressNav.vue"
+                },
+                {
+                  "name": "PullQuote.vue",
+                  "size": 2930,
+                  "path": "components/narrative/PullQuote.vue"
+                },
+                {
+                  "name": "ScrollStreamGraph.vue",
+                  "size": 13851,
+                  "path": "components/narrative/ScrollStreamGraph.vue"
+                },
+                {
+                  "name": "SectionTransition.vue",
+                  "size": 2901,
+                  "path": "components/narrative/SectionTransition.vue"
+                },
+                {
+                  "name": "StatCounter.vue",
+                  "size": 3408,
+                  "path": "components/narrative/StatCounter.vue"
+                },
+                {
+                  "name": "StatsSection.vue",
+                  "size": 8308,
+                  "path": "components/narrative/StatsSection.vue"
+                },
+                {
+                  "name": "StorySection.vue",
+                  "size": 5894,
+                  "path": "components/narrative/StorySection.vue"
+                },
+                {
+                  "name": "Timeline.vue",
+                  "size": 2233,
+                  "path": "components/narrative/Timeline.vue"
+                },
+                {
+                  "name": "VideoSection.vue",
+                  "size": 17747,
+                  "path": "components/narrative/VideoSection.vue"
+                }
+              ],
+              "path": "components/narrative"
+            },
+            {
+              "name": "utils",
+              "children": [
+                {
+                  "name": "PageLoader.vue",
+                  "size": 1979,
+                  "path": "components/utils/PageLoader.vue"
+                },
+                {
+                  "name": "PageProgress.vue",
+                  "size": 1154,
+                  "path": "components/utils/PageProgress.vue"
+                },
+                {
+                  "name": "StaggeredFade.vue",
+                  "size": 1159,
+                  "path": "components/utils/StaggeredFade.vue"
+                }
+              ],
+              "path": "components/utils"
+            },
+            {
+              "name": "AppFooter.vue",
+              "size": 7174,
+              "path": "components/AppFooter.vue"
+            },
+            {
+              "name": "DataTooltip.vue",
+              "size": 3034,
+              "path": "components/DataTooltip.vue"
+            },
+            {
+              "name": "DateHistogramSelector.vue",
+              "size": 12799,
+              "path": "components/DateHistogramSelector.vue"
+            },
+            {
+              "name": "DownloadProgress.vue",
+              "size": 4987,
+              "path": "components/DownloadProgress.vue"
+            },
+            {
+              "name": "FilesFilterBar.vue",
+              "size": 10418,
+              "path": "components/FilesFilterBar.vue"
+            },
+            {
+              "name": "GlobalFilterBar.vue",
+              "size": 9784,
+              "path": "components/GlobalFilterBar.vue"
+            },
+            {
+              "name": "MultiSelect.vue",
+              "size": 2969,
+              "path": "components/MultiSelect.vue"
+            },
+            {
+              "name": "ParquetLoader.vue",
+              "size": 12018,
+              "path": "components/ParquetLoader.vue"
+            },
+            {
+              "name": "ParquetLoaderControls.vue",
+              "size": 2310,
+              "path": "components/ParquetLoaderControls.vue"
+            },
+            {
+              "name": "ParquetLoaderStatus.vue",
+              "size": 2072,
+              "path": "components/ParquetLoaderStatus.vue"
+            },
+            {
+              "name": "ParquetLoaderVisualization.vue",
+              "size": 7942,
+              "path": "components/ParquetLoaderVisualization.vue"
+            },
+            {
+              "name": "PointInfo.vue",
+              "size": 2150,
+              "path": "components/PointInfo.vue"
+            },
+            {
+              "name": "TopBar.vue",
+              "size": 6564,
+              "path": "components/TopBar.vue"
+            },
+            {
+              "name": "VisualizationControls.vue",
+              "size": 1225,
+              "path": "components/VisualizationControls.vue"
+            },
+            {
+              "name": "VisualizationLegends.vue",
+              "size": 554,
+              "path": "components/VisualizationLegends.vue"
+            },
+            {
+              "name": "VisualizationLoading.vue",
+              "size": 3155,
+              "path": "components/VisualizationLoading.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "composables",
+          "children": [
+            {
+              "name": "appStore.js",
+              "size": 1460,
+              "path": "composables/appStore.js"
+            },
+            {
+              "name": "useAnimationUtils.js",
+              "size": 5097,
+              "path": "composables/useAnimationUtils.js"
+            },
+            {
+              "name": "useAppVersion.js",
+              "size": 508,
+              "path": "composables/useAppVersion.js"
+            },
+            {
+              "name": "useColorMap.js",
+              "size": 4595,
+              "path": "composables/useColorMap.js"
+            },
+            {
+              "name": "useFuzzySearch.js",
+              "size": 11242,
+              "path": "composables/useFuzzySearch.js"
+            },
+            {
+              "name": "useNarrativeScrolling.js",
+              "size": 3051,
+              "path": "composables/useNarrativeScrolling.js"
+            },
+            {
+              "name": "useOpenRouter.js",
+              "size": 1472,
+              "path": "composables/useOpenRouter.js"
+            },
+            {
+              "name": "usePageTransition.js",
+              "size": 1222,
+              "path": "composables/usePageTransition.js"
+            },
+            {
+              "name": "useParquetLoader.js",
+              "size": 29744,
+              "path": "composables/useParquetLoader.js"
+            },
+            {
+              "name": "useR2Storage.js",
+              "size": 16065,
+              "path": "composables/useR2Storage.js"
+            },
+            {
+              "name": "useScrollAnimations.js",
+              "size": 2460,
+              "path": "composables/useScrollAnimations.js"
+            },
+            {
+              "name": "useTelegramFilesLoader.js",
+              "size": 3682,
+              "path": "composables/useTelegramFilesLoader.js"
+            },
+            {
+              "name": "useTimestampParser.js",
+              "size": 2043,
+              "path": "composables/useTimestampParser.js"
+            },
+            {
+              "name": "useVisualization.js",
+              "size": 37492,
+              "path": "composables/useVisualization.js"
+            }
+          ],
+          "path": "composables"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "messages",
+              "children": [
+                {
+                  "name": "[id].vue",
+                  "size": 24770,
+                  "path": "pages/messages/[id].vue"
+                }
+              ],
+              "path": "pages/messages"
+            },
+            {
+              "name": "changelog.vue",
+              "size": 5209,
+              "path": "pages/changelog.vue"
+            },
+            {
+              "name": "feed.vue",
+              "size": 45906,
+              "path": "pages/feed.vue"
+            },
+            {
+              "name": "files.vue",
+              "size": 30785,
+              "path": "pages/files.vue"
+            },
+            {
+              "name": "index.vue",
+              "size": 55210,
+              "path": "pages/index.vue"
+            },
+            {
+              "name": "metadata.vue",
+              "size": 32432,
+              "path": "pages/metadata.vue"
+            },
+            {
+              "name": "narrative.vue",
+              "size": 51653,
+              "path": "pages/narrative.vue"
+            },
+            {
+              "name": "senders.vue",
+              "size": 22996,
+              "path": "pages/senders.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "plugins",
+          "children": [
+            {
+              "name": "page-transitions.js",
+              "size": 322,
+              "path": "plugins/page-transitions.js"
+            }
+          ],
+          "path": "plugins"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "assets",
+              "children": [
+                {
+                  "name": "img",
+                  "children": [
+                    {
+                      "name": "noise.png",
+                      "size": 1,
+                      "path": "public/assets/img/noise.png"
+                    }
+                  ],
+                  "path": "public/assets/img"
+                }
+              ],
+              "path": "public/assets"
+            },
+            {
+              "name": "duckdb",
+              "children": [
+                {
+                  "name": "duckdb-browser-mvp.worker.js",
+                  "size": 318628,
+                  "path": "public/duckdb/duckdb-browser-mvp.worker.js"
+                },
+                {
+                  "name": "duckdb-browser.js",
+                  "size": 80,
+                  "path": "public/duckdb/duckdb-browser.js"
+                },
+                {
+                  "name": "duckdb-mvp.wasm",
+                  "size": 22092382,
+                  "path": "public/duckdb/duckdb-mvp.wasm"
+                }
+              ],
+              "path": "public/duckdb"
+            },
+            {
+              "name": "videos",
+              "children": [
+                {
+                  "name": "001.mp4",
+                  "size": 3736821,
+                  "path": "public/videos/001.mp4"
+                },
+                {
+                  "name": "002.mp4",
+                  "size": 3549096,
+                  "path": "public/videos/002.mp4"
+                },
+                {
+                  "name": "003.mp4",
+                  "size": 4249105,
+                  "path": "public/videos/003.mp4"
+                }
+              ],
+              "path": "public/videos"
+            },
+            {
+              "name": "CHANGELOG.md",
+              "size": 2712,
+              "path": "public/CHANGELOG.md"
+            },
+            {
+              "name": "android-chrome-192x192.png",
+              "size": 53953,
+              "path": "public/android-chrome-192x192.png"
+            },
+            {
+              "name": "android-chrome-512x512.png",
+              "size": 319988,
+              "path": "public/android-chrome-512x512.png"
+            },
+            {
+              "name": "apple-touch-icon.png",
+              "size": 48435,
+              "path": "public/apple-touch-icon.png"
+            },
+            {
+              "name": "favicon-16x16.png",
+              "size": 838,
+              "path": "public/favicon-16x16.png"
+            },
+            {
+              "name": "favicon-32x32.png",
+              "size": 2387,
+              "path": "public/favicon-32x32.png"
+            },
+            {
+              "name": "favicon.ico",
+              "size": 15406,
+              "path": "public/favicon.ico"
+            },
+            {
+              "name": "site.webmanifest",
+              "size": 263,
+              "path": "public/site.webmanifest"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "copy-changelog.js",
+              "size": 724,
+              "path": "scripts/copy-changelog.js"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": "server",
+          "children": [
+            {
+              "name": "tsconfig.json",
+              "size": 49,
+              "path": "server/tsconfig.json"
+            }
+          ],
+          "path": "server"
+        },
+        {
+          "name": ".auto-changelog",
+          "size": 462,
+          "path": ".auto-changelog"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 146,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".env-example",
+          "size": 140,
+          "path": ".env-example"
+        },
+        {
+          "name": ".eslintrc.js",
+          "size": 524,
+          "path": ".eslintrc.js"
+        },
+        {
+          "name": ".gitignore",
+          "size": 236,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 53,
+          "path": ".npmrc"
+        },
+        {
+          "name": ".nvmrc",
+          "size": 9,
+          "path": ".nvmrc"
+        },
+        {
+          "name": ".prettierrc",
+          "size": 152,
+          "path": ".prettierrc"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 2712,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "README.md",
+          "size": 2979,
+          "path": "README.md"
+        },
+        {
+          "name": "app.vue",
+          "size": 710,
+          "path": "app.vue"
+        },
+        {
+          "name": "helpers.js",
+          "size": 851,
+          "path": "helpers.js"
+        },
+        {
+          "name": "netlify.toml",
+          "size": 1006,
+          "path": "netlify.toml"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 1190,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 404394,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1659,
+          "path": "package.json"
+        },
+        {
+          "name": "tailwind.config.js",
+          "size": 280,
+          "path": "tailwind.config.js"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 94,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 248387,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 100,
+    "totalSize": 35691358
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"paramilitary-leaks-frontend\">Paramilitary Leaks Frontend</h1>\n<p>A visualization dashboard for leaked paramilitary communications.</p>\n<h2 id=\"setup\">Setup</h2>\n<pre><code class=\"language-bash\"># Install dependencies\nyarn install\n\n# Start development server\nyarn dev\n</code></pre>\n<h2 id=\"deployment-with-netlify-and-cloudflare-r2\">Deployment with Netlify and Cloudflare R2</h2>\n<p>This application is configured to work with Netlify for deployment and Cloudflare R2 for storing and serving the parquet data files.</p>\n<h3 id=\"r2-configuration\">R2 Configuration</h3>\n<p>The application is configured to use the following R2 URL for the parquet file:</p>\n<pre><code>https://r2.ejfox.com/para-leaks/telegram_chats.r4.parquet\n</code></pre>\n<h3 id=\"setting-up-netlify\">Setting up Netlify</h3>\n<ol>\n<li>\n<p>Create a new site in Netlify:</p>\n<ul>\n<li>Connect to your GitHub repository</li>\n<li>Use the build settings from the <code>netlify.toml</code> file</li>\n</ul>\n</li>\n<li>\n<p>Configure environment variables in Netlify:</p>\n<ul>\n<li>Go to Site settings &gt; Environment variables</li>\n<li>Add the following variable:\n<ul>\n<li><code>R2_PARQUET_URL</code>: <code>https://r2.ejfox.com/para-leaks/telegram_chats.r4.parquet</code></li>\n</ul>\n</li>\n</ul>\n</li>\n<li>\n<p>Deploy your site:</p>\n<ul>\n<li>Trigger a new deployment</li>\n<li>The application will fetch the parquet file from R2</li>\n</ul>\n</li>\n</ol>\n<h3 id=\"local-development-with-r2\">Local Development with R2</h3>\n<p>To test with R2 locally:</p>\n<ol>\n<li>Create a <code>.env</code> file in the root of your project</li>\n<li>The file should contain:\n<pre><code>R2_PARQUET_URL=https://r2.ejfox.com/para-leaks/telegram_chats.r4.parquet\n</code></pre>\n</li>\n<li>Run the development server:\n<pre><code class=\"language-bash\">yarn dev\n</code></pre>\n</li>\n</ol>\n<h3 id=\"troubleshooting-r2-issues\">Troubleshooting R2 Issues</h3>\n<p>If you encounter the \"No magic bytes found at end of file\" error:</p>\n<ol>\n<li>Check that the parquet file is accessible at the URL</li>\n<li>Check the browser console for more detailed error messages</li>\n</ol>\n<h2 id=\"data-preparation\">Data Preparation</h2>\n<p>Getting data from sqlite to a csv:</p>\n<pre><code class=\"language-bash\">sqlite3 -header -csv telegram_chats.db 'select * from messages;' &gt; telegram_chats.csv\n</code></pre>\n<p>Getting data from .csv to parquet:</p>\n<pre><code class=\"language-bash\">duckdb -c \"COPY (SELECT * FROM read_csv('telegram_chats.csv')) TO 'telegram_chats.parquet' (FORMAT PARQUET);\"\n</code></pre>\n<h2 id=\"data-conversion\">Data Conversion</h2>\n<p>You can create a Python script to convert the SQLite database to Parquet format:</p>\n<pre><code class=\"language-bash\"># Install DuckDB Python package\npip install duckdb\n\n# Run the conversion script\npython3 convert_db.py\n</code></pre>\n<p>The script:</p>\n<ol>\n<li>Opens the SQLite database using DuckDB's SQLite extension</li>\n<li>Joins the messages table with the group_chats table</li>\n<li>Maps the fields to our expected format</li>\n<li>Writes the result to a Parquet file</li>\n</ol>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Interactive time-based visualization of messages</li>\n<li>Metadata view with statistics</li>\n<li>Message feed with filtering options</li>\n<li>Responsive design</li>\n<li>Color coding by chat or sender</li>\n<li>Tooltip displaying message details on hover</li>\n<li>Time annotations on the X-axis</li>\n<li>Legend showing chat groups</li>\n</ul>\n<h2 id=\"technologies\">Technologies</h2>\n<ul>\n<li>Vue.js 3 with Composition API</li>\n<li>Nuxt 3</li>\n<li>DuckDB-wasm for parquet file processing</li>\n<li>D3.js for data visualization</li>\n<li>Tailwind CSS for styling</li>\n<li>Cloudflare R2 for data storage</li>\n<li>Netlify for deployment</li>\n<li>WebGL for 2D visualization</li>\n</ul>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn preview\n</code></pre>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",

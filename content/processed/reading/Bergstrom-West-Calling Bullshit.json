@@ -11,7 +11,11 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/81Dd92++GgS._SY160.jpg",
       "highlightsCount": 1
     },
-    "tags": ["book", "data", "research"],
+    "tags": [
+      "book",
+      "data",
+      "research"
+    ],
     "words": 72,
     "images": 0,
     "imageDetails": {

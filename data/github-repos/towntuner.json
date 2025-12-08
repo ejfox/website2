@@ -13,6 +13,108 @@
   "languageColor": "#666666",
   "languages": {},
   "diskUsage": 88,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".DS_Store",
+        "size": 6148
+      },
+      {
+        "path": "BUILD_INSTRUCTIONS.md",
+        "size": 3118
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 10004
+      },
+      {
+        "path": "FEEDBACK_FORM.md",
+        "size": 1900
+      },
+      {
+        "path": "QA_PACKAGE_README.md",
+        "size": 1687
+      },
+      {
+        "path": "QA_TESTING_NOTES.md",
+        "size": 3954
+      },
+      {
+        "path": "README.md",
+        "size": 5768
+      },
+      {
+        "path": "USER_QA_INSTRUCTIONS.md",
+        "size": 4717
+      },
+      {
+        "path": "harmontown_episodes.csv",
+        "size": 50704
+      },
+      {
+        "path": "harmontown_episodes.tsv",
+        "size": 120886
+      }
+    ],
+    "tree": {
+      "name": "towntuner",
+      "children": [
+        {
+          "name": ".DS_Store",
+          "size": 6148,
+          "path": ".DS_Store"
+        },
+        {
+          "name": "BUILD_INSTRUCTIONS.md",
+          "size": 3118,
+          "path": "BUILD_INSTRUCTIONS.md"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 10004,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "FEEDBACK_FORM.md",
+          "size": 1900,
+          "path": "FEEDBACK_FORM.md"
+        },
+        {
+          "name": "QA_PACKAGE_README.md",
+          "size": 1687,
+          "path": "QA_PACKAGE_README.md"
+        },
+        {
+          "name": "QA_TESTING_NOTES.md",
+          "size": 3954,
+          "path": "QA_TESTING_NOTES.md"
+        },
+        {
+          "name": "README.md",
+          "size": 5768,
+          "path": "README.md"
+        },
+        {
+          "name": "USER_QA_INSTRUCTIONS.md",
+          "size": 4717,
+          "path": "USER_QA_INSTRUCTIONS.md"
+        },
+        {
+          "name": "harmontown_episodes.csv",
+          "size": 50704,
+          "path": "harmontown_episodes.csv"
+        },
+        {
+          "name": "harmontown_episodes.tsv",
+          "size": 120886,
+          "path": "harmontown_episodes.tsv"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 10,
+    "totalSize": 208886
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"towntuner-\">TownTuner 🎧</h1>\n<p>A dedicated podcast player for all 360 episodes of Harmontown, designed specifically for nightly sleep listening with gamification elements. Built with SwiftUI for iOS featuring a brutalist monochrome design with cutting-edge liquid glass effects.</p>\n<p><img src=\"https://github.com/user-attachments/assets/5a5ccd8a-76a5-4bff-9ebc-d392e5a16a0e\" alt=\"TownTuner Screenshots\" /></p>\n<h2 id=\"-key-features\">✨ Key Features</h2>\n<h3 id=\"-core-experience\">🎮 Core Experience</h3>\n<ul>\n<li><strong>Prestige System</strong>: Complete all 360 episodes chronologically to earn prestige levels</li>\n<li><strong>Smart Shuffle</strong>: Randomize only unplayed episodes from current prestige level</li>\n<li><strong>Sleep Timer</strong>: Automatic fade-out for bedtime listening</li>\n<li><strong>Episode Tracking</strong>: 85% completion rule with persistent progress tracking</li>\n</ul>\n<h3 id=\"-design--animation\">🎨 Design &amp; Animation</h3>\n<ul>\n<li><strong>Liquid Glass UI</strong>: Ultra-thin material backgrounds showing content beneath</li>\n<li><strong>Hero Transitions</strong>: Smooth matched geometry animations between screens</li>\n<li><strong>Brutalist Aesthetic</strong>: Monochrome design with professional SF Symbol effects</li>\n<li><strong>Sleep-Optimized</strong>: Designed for half-asleep operation with thumb-first navigation</li>\n</ul>\n<h3 id=\"-professional-audio\">🎵 Professional Audio</h3>\n<ul>\n<li><strong>Lock Screen Controls</strong>: Full media integration with custom episode artwork</li>\n<li><strong>Background Playback</strong>: Continues when app is backgrounded or device locked</li>\n<li><strong>AirPlay &amp; CarPlay</strong>: Seamless integration with external audio systems</li>\n<li><strong>Enhanced Speeds</strong>: 0.5x-3x playback with special mode detection</li>\n</ul>\n<h3 id=\"️-cloud-integration\">☁️ Cloud Integration</h3>\n<ul>\n<li><strong>iCloud Sync</strong>: Episode progress and listening history across all devices</li>\n<li><strong>Real Statistics</strong>: Actual listening time, completion tracking, streak calculation</li>\n<li><strong>Offline First</strong>: Works without internet, syncs when available</li>\n<li><strong>Play History</strong>: Complete log of every listening session with timestamps</li>\n</ul>\n<h2 id=\"core-mechanics\">Core Mechanics</h2>\n<h3 id=\"the-prestige-system\">The Prestige System</h3>\n<ul>\n<li>Start at Episode 1, work through all 360 episodes chronologically</li>\n<li>Episodes marked complete at 85% playback</li>\n<li>Completing all episodes = 1 Prestige level</li>\n<li>Prestige counter permanently displayed</li>\n<li>Episodes reset to unplayed upon prestiging</li>\n</ul>\n<h3 id=\"uiux-principles\">UI/UX Principles</h3>\n<ul>\n<li><strong>Brutalist Glass Aesthetic</strong>: Black background with iOS 18+ liquid glass effects</li>\n<li><strong>Thumb-First Design</strong>: All primary actions reachable with right thumb</li>\n<li><strong>Information Hierarchy</strong>: Episode number &gt; Date &gt; Comptroller</li>\n<li><strong>Enhanced Animations</strong>: Spring physics with glass morphing transitions</li>\n</ul>\n<h2 id=\"technical-stack\">Technical Stack</h2>\n<ul>\n<li><strong>Platform</strong>: iOS 18+ (Swift/SwiftUI)</li>\n<li><strong>Glass Effects</strong>: Custom liquid/ultra/morphing glass view extensions using SwiftUI materials</li>\n<li><strong>Audio</strong>: AVFoundation with background playback, lock screen controls, and AirPlay</li>\n<li><strong>Storage</strong>: Core Data for play history and progress tracking</li>\n<li><strong>Deployment</strong>: App Store ready with bundled sample content</li>\n</ul>\n<h2 id=\"-implementation-status\">🚀 Implementation Status</h2>\n<h3 id=\"-completed-features\">✅ COMPLETED FEATURES</h3>\n<p><strong>Core App Foundation</strong></p>\n<ul>\n<li>✅ SwiftUI app structure with iOS/macOS cross-platform support</li>\n<li>✅ Episode data model with complete metadata for all 360 episodes</li>\n<li>✅ Prestige system with animated episode resets and progress tracking</li>\n</ul>\n<p><strong>Audio Engine &amp; Media Integration</strong></p>\n<ul>\n<li>✅ Professional AVFoundation audio manager with background playback</li>\n<li>✅ Lock screen controls with custom generated episode artwork</li>\n<li>✅ AirPlay, CarPlay, and Bluetooth audio support</li>\n<li>✅ Sleep timer with smooth fade-out functionality</li>\n<li>✅ Enhanced playback speeds (0.5x-3x) with special mode detection</li>\n</ul>\n<p><strong>User Interface &amp; Animation</strong></p>\n<ul>\n<li>✅ Liquid glass UI with ultra-thin material backgrounds</li>\n<li>✅ Hero transitions with matched geometry effects between screens</li>\n<li>✅ Professional SF Symbol animations and haptic feedback</li>\n<li>✅ Native iOS progress slider with functional seek controls</li>\n<li>✅ Brutalist monochrome design with proper dark mode support</li>\n</ul>\n<p><strong>Data &amp; Cloud Integration</strong></p>\n<ul>\n<li>✅ Complete CloudKit integration for cross-device sync</li>\n<li>✅ Real statistics tracking with actual listening data</li>\n<li>✅ Play history with timestamped session logging</li>\n<li>✅ Smart episode completion tracking (85% rule)</li>\n<li>✅ Streak calculation based on consecutive listening days</li>\n</ul>\n<p><strong>Native iOS Features</strong></p>\n<ul>\n<li>✅ Proper sheet presentation with corner radius and materials</li>\n<li>✅ Full accessibility support with VoiceOver labels and hints</li>\n<li>✅ Background audio session management with interruption handling</li>\n<li>✅ App Store compliance with bundled sample episode</li>\n</ul>\n<h3 id=\"-future-enhancements\">📋 FUTURE ENHANCEMENTS</h3>\n<p><strong>Advanced Features</strong></p>\n<ul>\n<li>🔮 Transcript search integration with embedding API</li>\n<li>🔮 Guest search functionality with frequent guest filters</li>\n<li>🔮 TownTuner Wrapped annual statistics with sharing</li>\n<li>🔮 Vodka bottle clicker mini-game in credits screen</li>\n</ul>\n<p><strong>Platform Extensions</strong></p>\n<ul>\n<li>🔮 iOS widget showing current episode and progress</li>\n<li>🔮 Apple Watch companion app with big shuffle button</li>\n<li>🔮 Siri Shortcuts for voice control integration</li>\n<li>🔮 CSV export for comprehensive data analysis</li>\n</ul>\n<h2 id=\"unique-features\">Unique Features</h2>\n<ul>\n<li><strong>Vodka Bottle Clicker</strong>: Cookie-clicker style mini-game in credits (planned)</li>\n<li><strong>TownTuner Wrapped</strong>: Annual stats with both legitimate and satirical metrics (planned)</li>\n<li><strong>Guest Search</strong>: Quick access to episodes by frequent guests (planned)</li>\n<li><strong>Lifetime History</strong>: Every play session logged with timestamps (in progress)</li>\n</ul>\n<h2 id=\"development-philosophy\">Development Philosophy</h2>\n<p>The app embodies the philosophy of \"would I use this at 2 AM with a cat on my chest?\" - optimizing for barely conscious operation while maintaining meaningful engagement through the prestige system and beautiful glass visual effects.</p>\n<h2 id=\"getting-started\">Getting Started</h2>\n<ol>\n<li>Clone the repository</li>\n<li>Open <code>TownTuner.xcodeproj</code> in Xcode 16+</li>\n<li>Build and run on iOS 18+ simulator or device</li>\n<li>The app includes Episode #1 as a bundled sample</li>\n</ol>\n<p>See <code>CLAUDE.md</code> for detailed technical requirements and complete screen specifications.</p>\n<hr />\n<p><em>This is a labor of love, not money. No ads, no IAP, no bullshit.</em></p>",

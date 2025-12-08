@@ -19,6 +19,426 @@
     "Shell": 4234
   },
   "diskUsage": 323,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".github/workflows/release.yml",
+        "size": 2330
+      },
+      {
+        "path": ".gitignore",
+        "size": 439
+      },
+      {
+        "path": ".vscode/extensions.json",
+        "size": 80
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 3766
+      },
+      {
+        "path": "DATABASE.md",
+        "size": 4054
+      },
+      {
+        "path": "README.md",
+        "size": 3010
+      },
+      {
+        "path": "create-icon.sh",
+        "size": 4234
+      },
+      {
+        "path": "index.html",
+        "size": 11093
+      },
+      {
+        "path": "package-lock.json",
+        "size": 50315
+      },
+      {
+        "path": "package.json",
+        "size": 524
+      },
+      {
+        "path": "schema.sql",
+        "size": 8368
+      },
+      {
+        "path": "src-tauri/.gitignore",
+        "size": 166
+      },
+      {
+        "path": "src-tauri/Cargo.lock",
+        "size": 161918
+      },
+      {
+        "path": "src-tauri/Cargo.toml",
+        "size": 1116
+      },
+      {
+        "path": "src-tauri/build.rs",
+        "size": 39
+      },
+      {
+        "path": "src-tauri/capabilities/default.json",
+        "size": 822
+      },
+      {
+        "path": "src-tauri/icons/128x128.png",
+        "size": 668
+      },
+      {
+        "path": "src-tauri/icons/128x128@2x.png",
+        "size": 1312
+      },
+      {
+        "path": "src-tauri/icons/32x32.png",
+        "size": 222
+      },
+      {
+        "path": "src-tauri/icons/Square107x107Logo.png",
+        "size": 2863
+      },
+      {
+        "path": "src-tauri/icons/Square142x142Logo.png",
+        "size": 3858
+      },
+      {
+        "path": "src-tauri/icons/Square150x150Logo.png",
+        "size": 3966
+      },
+      {
+        "path": "src-tauri/icons/Square284x284Logo.png",
+        "size": 7737
+      },
+      {
+        "path": "src-tauri/icons/Square30x30Logo.png",
+        "size": 903
+      },
+      {
+        "path": "src-tauri/icons/Square310x310Logo.png",
+        "size": 8591
+      },
+      {
+        "path": "src-tauri/icons/Square44x44Logo.png",
+        "size": 1299
+      },
+      {
+        "path": "src-tauri/icons/Square71x71Logo.png",
+        "size": 2011
+      },
+      {
+        "path": "src-tauri/icons/Square89x89Logo.png",
+        "size": 2468
+      },
+      {
+        "path": "src-tauri/icons/StoreLogo.png",
+        "size": 1523
+      },
+      {
+        "path": "src-tauri/icons/icon.icns",
+        "size": 27464
+      },
+      {
+        "path": "src-tauri/icons/icon.ico",
+        "size": 104283
+      },
+      {
+        "path": "src-tauri/icons/icon.png",
+        "size": 3045
+      },
+      {
+        "path": "src-tauri/src/lib.rs",
+        "size": 13708
+      },
+      {
+        "path": "src-tauri/src/main.rs",
+        "size": 192
+      },
+      {
+        "path": "src-tauri/tauri.conf.json",
+        "size": 1010
+      },
+      {
+        "path": "src/database.ts",
+        "size": 5394
+      },
+      {
+        "path": "src/main.ts",
+        "size": 51727
+      },
+      {
+        "path": "src/styles.css",
+        "size": 12317
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 527
+      },
+      {
+        "path": "vite.config.ts",
+        "size": 756
+      }
+    ],
+    "tree": {
+      "name": "cloudinary-backup",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "release.yml",
+                  "size": 2330,
+                  "path": ".github/workflows/release.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "extensions.json",
+              "size": 80,
+              "path": ".vscode/extensions.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "src-tauri",
+          "children": [
+            {
+              "name": "capabilities",
+              "children": [
+                {
+                  "name": "default.json",
+                  "size": 822,
+                  "path": "src-tauri/capabilities/default.json"
+                }
+              ],
+              "path": "src-tauri/capabilities"
+            },
+            {
+              "name": "icons",
+              "children": [
+                {
+                  "name": "128x128.png",
+                  "size": 668,
+                  "path": "src-tauri/icons/128x128.png"
+                },
+                {
+                  "name": "128x128@2x.png",
+                  "size": 1312,
+                  "path": "src-tauri/icons/128x128@2x.png"
+                },
+                {
+                  "name": "32x32.png",
+                  "size": 222,
+                  "path": "src-tauri/icons/32x32.png"
+                },
+                {
+                  "name": "Square107x107Logo.png",
+                  "size": 2863,
+                  "path": "src-tauri/icons/Square107x107Logo.png"
+                },
+                {
+                  "name": "Square142x142Logo.png",
+                  "size": 3858,
+                  "path": "src-tauri/icons/Square142x142Logo.png"
+                },
+                {
+                  "name": "Square150x150Logo.png",
+                  "size": 3966,
+                  "path": "src-tauri/icons/Square150x150Logo.png"
+                },
+                {
+                  "name": "Square284x284Logo.png",
+                  "size": 7737,
+                  "path": "src-tauri/icons/Square284x284Logo.png"
+                },
+                {
+                  "name": "Square30x30Logo.png",
+                  "size": 903,
+                  "path": "src-tauri/icons/Square30x30Logo.png"
+                },
+                {
+                  "name": "Square310x310Logo.png",
+                  "size": 8591,
+                  "path": "src-tauri/icons/Square310x310Logo.png"
+                },
+                {
+                  "name": "Square44x44Logo.png",
+                  "size": 1299,
+                  "path": "src-tauri/icons/Square44x44Logo.png"
+                },
+                {
+                  "name": "Square71x71Logo.png",
+                  "size": 2011,
+                  "path": "src-tauri/icons/Square71x71Logo.png"
+                },
+                {
+                  "name": "Square89x89Logo.png",
+                  "size": 2468,
+                  "path": "src-tauri/icons/Square89x89Logo.png"
+                },
+                {
+                  "name": "StoreLogo.png",
+                  "size": 1523,
+                  "path": "src-tauri/icons/StoreLogo.png"
+                },
+                {
+                  "name": "icon.icns",
+                  "size": 27464,
+                  "path": "src-tauri/icons/icon.icns"
+                },
+                {
+                  "name": "icon.ico",
+                  "size": 104283,
+                  "path": "src-tauri/icons/icon.ico"
+                },
+                {
+                  "name": "icon.png",
+                  "size": 3045,
+                  "path": "src-tauri/icons/icon.png"
+                }
+              ],
+              "path": "src-tauri/icons"
+            },
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "lib.rs",
+                  "size": 13708,
+                  "path": "src-tauri/src/lib.rs"
+                },
+                {
+                  "name": "main.rs",
+                  "size": 192,
+                  "path": "src-tauri/src/main.rs"
+                }
+              ],
+              "path": "src-tauri/src"
+            },
+            {
+              "name": ".gitignore",
+              "size": 166,
+              "path": "src-tauri/.gitignore"
+            },
+            {
+              "name": "Cargo.lock",
+              "size": 161918,
+              "path": "src-tauri/Cargo.lock"
+            },
+            {
+              "name": "Cargo.toml",
+              "size": 1116,
+              "path": "src-tauri/Cargo.toml"
+            },
+            {
+              "name": "build.rs",
+              "size": 39,
+              "path": "src-tauri/build.rs"
+            },
+            {
+              "name": "tauri.conf.json",
+              "size": 1010,
+              "path": "src-tauri/tauri.conf.json"
+            }
+          ],
+          "path": "src-tauri"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "database.ts",
+              "size": 5394,
+              "path": "src/database.ts"
+            },
+            {
+              "name": "main.ts",
+              "size": 51727,
+              "path": "src/main.ts"
+            },
+            {
+              "name": "styles.css",
+              "size": 12317,
+              "path": "src/styles.css"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".gitignore",
+          "size": 439,
+          "path": ".gitignore"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 3766,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "DATABASE.md",
+          "size": 4054,
+          "path": "DATABASE.md"
+        },
+        {
+          "name": "README.md",
+          "size": 3010,
+          "path": "README.md"
+        },
+        {
+          "name": "create-icon.sh",
+          "size": 4234,
+          "path": "create-icon.sh"
+        },
+        {
+          "name": "index.html",
+          "size": 11093,
+          "path": "index.html"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 50315,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 524,
+          "path": "package.json"
+        },
+        {
+          "name": "schema.sql",
+          "size": 8368,
+          "path": "schema.sql"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 527,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "vite.config.ts",
+          "size": 756,
+          "path": "vite.config.ts"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 40,
+    "totalSize": 510118
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"cloudinary-backup\">Cloudinary Backup</h1>\n<p>A desktop application to backup all your photos from Cloudinary with complete metadata preservation and photo management features.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li><strong>Complete Backup</strong>: Downloads all images from your Cloudinary account</li>\n<li><strong>SQLite Database</strong>: Stores all metadata locally for complete independence from Cloudinary</li>\n<li><strong>Photography Tools</strong>: Organize by shoots, detect duplicates, preserve EXIF data</li>\n<li><strong>Resume Support</strong>: Automatically resumes interrupted downloads</li>\n<li><strong>Progress Tracking</strong>: Real-time progress with file counts and transfer speeds</li>\n<li><strong>Easy Folder Access</strong>: \"Open Photos Folder\" button to quickly find your downloads</li>\n<li><strong>Cross-Platform</strong>: Automated builds for macOS (ARM64/Intel), Windows, and Linux</li>\n<li><strong>User-Friendly</strong>: Step-by-step guidance with clear instructions and emojis</li>\n</ul>\n<h2 id=\"quick-start\">Quick Start</h2>\n<ol>\n<li>\n<p><strong>Get your Cloudinary credentials</strong>:</p>\n<ul>\n<li>Go to <a href=\"https://console.cloudinary.com\">console.cloudinary.com</a> → Account Details</li>\n<li>Copy your Cloud Name, API Key, and API Secret (click \"Reveal\" first)</li>\n</ul>\n</li>\n<li>\n<p><strong>Download the app</strong>:</p>\n<ul>\n<li>Visit the <a href=\"https://github.com/ejfox/cloudinary-backup/releases\">Releases page</a></li>\n<li>Download the file for your platform</li>\n</ul>\n</li>\n<li>\n<p><strong>Run the backup</strong>:</p>\n<ul>\n<li>🔐 Enter your Cloudinary credentials</li>\n<li>📁 Pick where to save photos</li>\n<li>🚀 Scan &amp; download everything</li>\n</ul>\n</li>\n</ol>\n<h2 id=\"installation\">Installation</h2>\n<h3 id=\"macos-apple-silicon\">macOS (Apple Silicon)</h3>\n<ul>\n<li>Download <code>cloudinary-backup_aarch64.app.tar.gz</code></li>\n<li>Extract and drag to Applications folder</li>\n</ul>\n<h3 id=\"macos-intel\">macOS (Intel)</h3>\n<ul>\n<li>Download <code>cloudinary-backup_0.2.0_aarch64.dmg</code></li>\n<li>Open DMG and drag to Applications</li>\n</ul>\n<h3 id=\"windows\">Windows</h3>\n<ul>\n<li>Download <code>cloudinary-backup_0.2.0_x64-setup.exe</code></li>\n<li>Run the installer</li>\n</ul>\n<h3 id=\"linux\">Linux</h3>\n<ul>\n<li>Ubuntu support coming soon (dependency issues being resolved)</li>\n</ul>\n<h2 id=\"database-features\">Database Features</h2>\n<p>The app creates a comprehensive SQLite database with:</p>\n<ul>\n<li><strong>Complete metadata</strong> from all Cloudinary photos</li>\n<li><strong>Download tracking</strong> and integrity verification</li>\n<li><strong>Photography organization</strong> (shoots, collections, EXIF data)</li>\n<li><strong>Duplicate detection</strong> based on file size and dimensions</li>\n<li><strong>Original filename preservation</strong></li>\n<li><strong>Session tracking</strong> for all backup operations</li>\n</ul>\n<p>See <a href=\"DATABASE.md\">DATABASE.md</a> for full schema documentation.</p>\n<h2 id=\"development\">Development</h2>\n<p>Built with:</p>\n<ul>\n<li><a href=\"https://tauri.app/\">Tauri</a> - Rust + TypeScript desktop framework</li>\n<li><a href=\"https://vitejs.dev/\">Vite</a> - Frontend build tool</li>\n<li><a href=\"https://sqlite.org/\">SQLite</a> + <a href=\"https://github.com/rusqlite/rusqlite\">rusqlite</a> - Database</li>\n<li><a href=\"https://github.com/features/actions\">GitHub Actions</a> - Automated CI/CD</li>\n</ul>\n<h3 id=\"setup\">Setup</h3>\n<pre><code class=\"language-bash\">npm install\nnpm run tauri dev\n</code></pre>\n<h3 id=\"build\">Build</h3>\n<pre><code class=\"language-bash\">npm run tauri build\n</code></pre>\n<h3 id=\"release\">Release</h3>\n<p>Push a version tag to trigger automated builds:</p>\n<pre><code class=\"language-bash\">git tag v0.3.0\ngit push origin v0.3.0\n</code></pre>\n<h2 id=\"architecture\">Architecture</h2>\n<ul>\n<li><strong>Frontend</strong>: TypeScript + HTML/CSS with step-by-step UI</li>\n<li><strong>Backend</strong>: Rust with Tauri for system integration</li>\n<li><strong>Database</strong>: SQLite with comprehensive photo metadata schema</li>\n<li><strong>CI/CD</strong>: GitHub Actions with multi-platform builds</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT License - see LICENSE file for details.</p>",

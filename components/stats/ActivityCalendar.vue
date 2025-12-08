@@ -125,7 +125,7 @@ const activeCount = computed(() => {
 
 <style scoped>
 .activity-grid {
-  @apply grid gap-1 h-4;
+  @apply grid gap-0.5 h-4;
   grid-template-columns: repeat(30, minmax(0, 1fr));
 }
 

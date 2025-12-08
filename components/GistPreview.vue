@@ -186,7 +186,7 @@ const handleToggle = () => {
 }
 
 .action-button {
-  @apply flex items-center gap-1 px-2 py-1 text-xs;
+  @apply flex items-center gap-0.5 px-2 py-1 text-xs;
   @apply bg-white dark:bg-zinc-800 border shadow-sm;
   @apply border-zinc-200 dark:border-zinc-700;
   @apply rounded text-zinc-600 dark:text-zinc-400;

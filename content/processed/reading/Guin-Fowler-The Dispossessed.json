@@ -11,7 +11,11 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/919GgLbYxpL._SY160.jpg",
       "highlightsCount": 1
     },
-    "tags": ["book", "anarchism", "politics"],
+    "tags": [
+      "book",
+      "anarchism",
+      "politics"
+    ],
     "words": 60,
     "images": 0,
     "imageDetails": {

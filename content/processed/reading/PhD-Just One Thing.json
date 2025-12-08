@@ -11,7 +11,11 @@
       "bookImageUrl": "https://m.media-amazon.com/images/I/61ehh4-cDSL._SY160.jpg",
       "highlightsCount": 4
     },
-    "tags": ["book", "meditation", "health"],
+    "tags": [
+      "book",
+      "meditation",
+      "health"
+    ],
     "words": 133,
     "images": 0,
     "imageDetails": {

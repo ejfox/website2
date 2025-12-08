@@ -15,6 +15,27 @@
     "HTML": 764
   },
   "diskUsage": 1,
+  "fileTree": {
+    "files": [
+      {
+        "path": "index.html",
+        "size": 764
+      }
+    ],
+    "tree": {
+      "name": "hangstudio",
+      "children": [
+        {
+          "name": "index.html",
+          "size": 764,
+          "path": "index.html"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 1,
+    "totalSize": 764
+  },
   "topics": [],
   "readme": {
     "html": "<p><em>No README available</em></p>",

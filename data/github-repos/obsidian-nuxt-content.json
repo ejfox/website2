@@ -17,6 +17,153 @@
     "CSS": 164
   },
   "diskUsage": 24,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".editorconfig",
+        "size": 166
+      },
+      {
+        "path": ".eslintignore",
+        "size": 23
+      },
+      {
+        "path": ".eslintrc",
+        "size": 627
+      },
+      {
+        "path": ".gitignore",
+        "size": 316
+      },
+      {
+        "path": ".npmrc",
+        "size": 21
+      },
+      {
+        "path": "README.md",
+        "size": 4786
+      },
+      {
+        "path": "esbuild.config.mjs",
+        "size": 953
+      },
+      {
+        "path": "main.ts",
+        "size": 3877
+      },
+      {
+        "path": "manifest.json",
+        "size": 301
+      },
+      {
+        "path": "package-lock.json",
+        "size": 69844
+      },
+      {
+        "path": "package.json",
+        "size": 681
+      },
+      {
+        "path": "styles.css",
+        "size": 164
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 419
+      },
+      {
+        "path": "version-bump.mjs",
+        "size": 648
+      },
+      {
+        "path": "versions.json",
+        "size": 23
+      }
+    ],
+    "tree": {
+      "name": "obsidian-nuxt-content",
+      "children": [
+        {
+          "name": ".editorconfig",
+          "size": 166,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".eslintignore",
+          "size": 23,
+          "path": ".eslintignore"
+        },
+        {
+          "name": ".eslintrc",
+          "size": 627,
+          "path": ".eslintrc"
+        },
+        {
+          "name": ".gitignore",
+          "size": 316,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 21,
+          "path": ".npmrc"
+        },
+        {
+          "name": "README.md",
+          "size": 4786,
+          "path": "README.md"
+        },
+        {
+          "name": "esbuild.config.mjs",
+          "size": 953,
+          "path": "esbuild.config.mjs"
+        },
+        {
+          "name": "main.ts",
+          "size": 3877,
+          "path": "main.ts"
+        },
+        {
+          "name": "manifest.json",
+          "size": 301,
+          "path": "manifest.json"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 69844,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 681,
+          "path": "package.json"
+        },
+        {
+          "name": "styles.css",
+          "size": 164,
+          "path": "styles.css"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 419,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "version-bump.mjs",
+          "size": 648,
+          "path": "version-bump.mjs"
+        },
+        {
+          "name": "versions.json",
+          "size": 23,
+          "path": "versions.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 15,
+    "totalSize": 82849
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"obsidian-sample-plugin\">Obsidian Sample Plugin</h1>\n<p>This is a sample plugin for Obsidian (<a href=\"https://obsidian.md\">https://obsidian.md</a>).</p>\n<p>This project uses Typescript to provide type checking and documentation.\nThe repo depends on the latest plugin API (obsidian.d.ts) in Typescript Definition format, which contains TSDoc comments describing what it does.</p>\n<p><strong>Note:</strong> The Obsidian API is still in early alpha and is subject to change at any time!</p>\n<p>This sample plugin demonstrates some of the basic functionality the plugin API can do.</p>\n<ul>\n<li>Adds a ribbon icon, which shows a Notice when clicked.</li>\n<li>Adds a command \"Open Sample Modal\" which opens a Modal.</li>\n<li>Adds a plugin setting tab to the settings page.</li>\n<li>Registers a global click event and output 'click' to the console.</li>\n<li>Registers a global interval which logs 'setInterval' to the console.</li>\n</ul>\n<h2 id=\"first-time-developing-plugins\">First time developing plugins?</h2>\n<p>Quick starting guide for new plugin devs:</p>\n<ul>\n<li>Check if <a href=\"https://obsidian.md/plugins\">someone already developed a plugin for what you want</a>! There might be an existing plugin similar enough that you can partner up with.</li>\n<li>Make a copy of this repo as a template with the \"Use this template\" button (login to GitHub if you don't see it).</li>\n<li>Clone your repo to a local development folder. For convenience, you can place this folder in your <code>.obsidian/plugins/your-plugin-name</code> folder.</li>\n<li>Install NodeJS, then run <code>npm i</code> in the command line under your repo folder.</li>\n<li>Run <code>npm run dev</code> to compile your plugin from <code>main.ts</code> to <code>main.js</code>.</li>\n<li>Make changes to <code>main.ts</code> (or create new <code>.ts</code> files). Those changes should be automatically compiled into <code>main.js</code>.</li>\n<li>Reload Obsidian to load the new version of your plugin.</li>\n<li>Enable plugin in settings window.</li>\n<li>For updates to the Obsidian API run <code>npm update</code> in the command line under your repo folder.</li>\n</ul>\n<h2 id=\"releasing-new-releases\">Releasing new releases</h2>\n<ul>\n<li>Update your <code>manifest.json</code> with your new version number, such as <code>1.0.1</code>, and the minimum Obsidian version required for your latest release.</li>\n<li>Update your <code>versions.json</code> file with <code>\"new-plugin-version\": \"minimum-obsidian-version\"</code> so older versions of Obsidian can download an older version of your plugin that's compatible.</li>\n<li>Create new GitHub release using your new version number as the \"Tag version\". Use the exact version number, don't include a prefix <code>v</code>. See here for an example: <a href=\"https://github.com/obsidianmd/obsidian-sample-plugin/releases\">https://github.com/obsidianmd/obsidian-sample-plugin/releases</a></li>\n<li>Upload the files <code>manifest.json</code>, <code>main.js</code>, <code>styles.css</code> as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.</li>\n<li>Publish the release.</li>\n</ul>\n<blockquote>\n<p>You can simplify the version bump process by running <code>npm version patch</code>, <code>npm version minor</code> or <code>npm version major</code> after updating <code>minAppVersion</code> manually in <code>manifest.json</code>.\nThe command will bump version in <code>manifest.json</code> and <code>package.json</code>, and add the entry for the new version to <code>versions.json</code></p>\n</blockquote>\n<h2 id=\"adding-your-plugin-to-the-community-plugin-list\">Adding your plugin to the community plugin list</h2>\n<ul>\n<li>Check <a href=\"https://github.com/obsidianmd/obsidian-releases/blob/master/plugin-review.md\">https://github.com/obsidianmd/obsidian-releases/blob/master/plugin-review.md</a></li>\n<li>Publish an initial version.</li>\n<li>Make sure you have a <code>README.md</code> file in the root of your repo.</li>\n<li>Make a pull request at <a href=\"https://github.com/obsidianmd/obsidian-releases\">https://github.com/obsidianmd/obsidian-releases</a> to add your plugin.</li>\n</ul>\n<h2 id=\"how-to-use\">How to use</h2>\n<ul>\n<li>Clone this repo.</li>\n<li>Make sure your NodeJS is at least v16 (<code>node --version</code>).</li>\n<li><code>npm i</code> or <code>yarn</code> to install dependencies.</li>\n<li><code>npm run dev</code> to start compilation in watch mode.</li>\n</ul>\n<h2 id=\"manually-installing-the-plugin\">Manually installing the plugin</h2>\n<ul>\n<li>Copy over <code>main.js</code>, <code>styles.css</code>, <code>manifest.json</code> to your vault <code>VaultFolder/.obsidian/plugins/your-plugin-id/</code>.</li>\n</ul>\n<h2 id=\"improve-code-quality-with-eslint-optional\">Improve code quality with eslint (optional)</h2>\n<ul>\n<li><a href=\"https://eslint.org/\">ESLint</a> is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code.</li>\n<li>To use eslint with this project, make sure to install eslint from terminal:\n<ul>\n<li><code>npm install -g eslint</code></li>\n</ul>\n</li>\n<li>To use eslint to analyze this project use this command:\n<ul>\n<li><code>eslint main.ts</code></li>\n<li>eslint will then create a report with suggestions for code improvement by file and line number.</li>\n</ul>\n</li>\n<li>If your source code is in a folder, such as <code>src</code>, you can use eslint with this command to analyze all files in that folder:\n<ul>\n<li><code>eslint .\\src\\</code></li>\n</ul>\n</li>\n</ul>\n<h2 id=\"funding-url\">Funding URL</h2>\n<p>You can include funding URLs where people who use your plugin can financially support it.</p>\n<p>The simple way is to set the <code>fundingUrl</code> field to your link in your <code>manifest.json</code> file:</p>\n<pre><code class=\"language-json\">{\n    \"fundingUrl\": \"https://buymeacoffee.com\"\n}\n</code></pre>\n<p>If you have multiple URLs, you can also do:</p>\n<pre><code class=\"language-json\">{\n    \"fundingUrl\": {\n        \"Buy Me a Coffee\": \"https://buymeacoffee.com\",\n        \"GitHub Sponsor\": \"https://github.com/sponsors\",\n        \"Patreon\": \"https://www.patreon.com/\"\n    }\n}\n</code></pre>\n<h2 id=\"api-documentation\">API Documentation</h2>\n<p>See <a href=\"https://github.com/obsidianmd/obsidian-api\">https://github.com/obsidianmd/obsidian-api</a></p>",

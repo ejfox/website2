@@ -17,6 +17,252 @@
     "TypeScript": 427
   },
   "diskUsage": 244,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 69
+      },
+      {
+        "path": "README.md",
+        "size": 632
+      },
+      {
+        "path": "app.vue",
+        "size": 108
+      },
+      {
+        "path": "components/AssetCard.vue",
+        "size": 1456
+      },
+      {
+        "path": "components/AssetList.vue",
+        "size": 3830
+      },
+      {
+        "path": "components/GlobalEmissions.vue",
+        "size": 3547
+      },
+      {
+        "path": "components/Nav.vue",
+        "size": 130
+      },
+      {
+        "path": "components/ShoppingCart.vue",
+        "size": 1645
+      },
+      {
+        "path": "helpers.js",
+        "size": 128
+      },
+      {
+        "path": "layouts/default.vue",
+        "size": 73
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 427
+      },
+      {
+        "path": "package.json",
+        "size": 543
+      },
+      {
+        "path": "pages/api-wishlist.vue",
+        "size": 2626
+      },
+      {
+        "path": "pages/aroundme.vue",
+        "size": 8396
+      },
+      {
+        "path": "pages/cart.vue",
+        "size": 1574
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 2371
+      },
+      {
+        "path": "pages/top.vue",
+        "size": 139
+      },
+      {
+        "path": "public/data/2021-100_top_emitting_assets.csv",
+        "size": 8352
+      },
+      {
+        "path": "public/data/oil_and_gas_refining__USA.json",
+        "size": 45312
+      },
+      {
+        "path": "store/shoppingcart.js",
+        "size": 653
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 94
+      },
+      {
+        "path": "yarn.lock",
+        "size": 301149
+      }
+    ],
+    "tree": {
+      "name": "climate-trace-prototypes",
+      "children": [
+        {
+          "name": "components",
+          "children": [
+            {
+              "name": "AssetCard.vue",
+              "size": 1456,
+              "path": "components/AssetCard.vue"
+            },
+            {
+              "name": "AssetList.vue",
+              "size": 3830,
+              "path": "components/AssetList.vue"
+            },
+            {
+              "name": "GlobalEmissions.vue",
+              "size": 3547,
+              "path": "components/GlobalEmissions.vue"
+            },
+            {
+              "name": "Nav.vue",
+              "size": 130,
+              "path": "components/Nav.vue"
+            },
+            {
+              "name": "ShoppingCart.vue",
+              "size": 1645,
+              "path": "components/ShoppingCart.vue"
+            }
+          ],
+          "path": "components"
+        },
+        {
+          "name": "layouts",
+          "children": [
+            {
+              "name": "default.vue",
+              "size": 73,
+              "path": "layouts/default.vue"
+            }
+          ],
+          "path": "layouts"
+        },
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "api-wishlist.vue",
+              "size": 2626,
+              "path": "pages/api-wishlist.vue"
+            },
+            {
+              "name": "aroundme.vue",
+              "size": 8396,
+              "path": "pages/aroundme.vue"
+            },
+            {
+              "name": "cart.vue",
+              "size": 1574,
+              "path": "pages/cart.vue"
+            },
+            {
+              "name": "index.vue",
+              "size": 2371,
+              "path": "pages/index.vue"
+            },
+            {
+              "name": "top.vue",
+              "size": 139,
+              "path": "pages/top.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": "2021-100_top_emitting_assets.csv",
+                  "size": 8352,
+                  "path": "public/data/2021-100_top_emitting_assets.csv"
+                },
+                {
+                  "name": "oil_and_gas_refining__USA.json",
+                  "size": 45312,
+                  "path": "public/data/oil_and_gas_refining__USA.json"
+                }
+              ],
+              "path": "public/data"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "store",
+          "children": [
+            {
+              "name": "shoppingcart.js",
+              "size": 653,
+              "path": "store/shoppingcart.js"
+            }
+          ],
+          "path": "store"
+        },
+        {
+          "name": ".gitignore",
+          "size": 69,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 632,
+          "path": "README.md"
+        },
+        {
+          "name": "app.vue",
+          "size": 108,
+          "path": "app.vue"
+        },
+        {
+          "name": "helpers.js",
+          "size": 128,
+          "path": "helpers.js"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 427,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 543,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 94,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 301149,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 22,
+    "totalSize": 383254
+  },
   "topics": [],
   "readme": {
     "html": "<h1 id=\"nuxt-3-minimal-starter\">Nuxt 3 Minimal Starter</h1>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt 3 documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install the dependencies:</p>\n<pre><code class=\"language-bash\"># yarn\nyarn install\n\n# npm\nnpm install\n\n# pnpm\npnpm install --shamefully-hoist\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <a href=\"http://localhost:3000\">http://localhost:3000</a></p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\">npm run preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>",
