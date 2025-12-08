@@ -21,6 +21,6 @@ jobs:
           git fetch origin main
           git reset --hard origin/main
           rm -rf node_modules .yarn/cache
-          yarn install --frozen-lockfile
+          yarn install --frozen-lockfile --ignore-engines
           yarn build
           DOCKER_BUILDKIT=1 docker-compose up -d --build
