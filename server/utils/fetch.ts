@@ -4,7 +4,7 @@
  */
 export async function fetchWithTimeout(
   url: string,
-  options: RequestInit = {},
+  options: Record<string, any> = {},
   timeoutMs: number = 10000
 ): Promise<Response> {
   const controller = new AbortController()
@@ -47,7 +47,7 @@ export async function fetchWithTimeout(
  */
 export async function fetchJSON<T = any>(
   url: string,
-  options: RequestInit = {},
+  options: Record<string, any> = {},
   timeoutMs: number = 10000
 ): Promise<T | null> {
   try {

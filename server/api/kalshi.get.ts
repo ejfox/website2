@@ -347,11 +347,10 @@ export default defineEventHandler(
 
       // Still need to recalculate derived data with fresh commentary
       const commentaries = await loadCommentaries()
-      let { balance, positions, eventPositions, fills, orders } =
-        portfolioCache.data
+      const { balance, eventPositions, fills, orders } = portfolioCache.data
 
-      // Convert dollar string amounts to numbers (in case cached data has strings)
-      positions = positions.map((pos) => ({
+      // Convert dollar amounts to numbers (cache may store as strings)
+      const positions = portfolioCache.data.positions.map((pos) => ({
         ...pos,
         market_exposure_dollars:
           typeof pos.market_exposure_dollars === 'string'

@@ -10,7 +10,7 @@ router.get(
   '/',
   defineEventHandler(async () => {
     const { getRobotNotes } = useProcessedMarkdown()
-    return await getRobotNotes()
+    return getRobotNotes()
   })
 )
 

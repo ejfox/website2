@@ -1,3 +1,5 @@
+import { fetchWithTimeout } from '~/server/utils/fetch'
+
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
 
