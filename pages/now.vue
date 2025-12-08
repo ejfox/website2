@@ -146,7 +146,7 @@ usePageSeo({
 </script>
 
 <template>
-  <main class="px-4 md:px-8 pt-8 max-w-2xl">
+  <main class="px-4 md:px-8 xl:px-16 pt-8 max-w-2xl">
     <!-- Header -->
     <header class="mb-8">
       <div

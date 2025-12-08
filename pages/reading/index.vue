@@ -1,6 +1,6 @@
 <template>
   <div class="min-h-screen pt-8">
-    <div class="px-4 md:px-8" style="max-width: 65ch">
+    <div class="px-4 md:px-8 xl:px-16" style="max-width: 65ch">
       <!-- Header with data overlay -->
       <header class="section-spacing-lg">
         <!-- Data stream indicator -->

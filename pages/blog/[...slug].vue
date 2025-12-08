@@ -734,13 +734,13 @@ const _processedMetadata = computed(() => {
       ></div>
     </div>
 
-    <article v-if="post && !post.redirect" class="h-entry w-full px-4 md:px-8">
+    <article v-if="post && !post.redirect" class="h-entry w-full px-4 md:px-8 xl:px-16">
       <!-- Swiss Grid Container -->
       <div>
         <!-- Top metadata bar with microvisualizations -->
         <div ref="postMetadata">
           <!-- Mobile-optimized metadata with better layout -->
-          <div class="px-4 md:px-8 py-3 sm:py-2">
+          <div class="px-4 md:px-8 xl:px-16 py-3 sm:py-2">
             <!-- Mobile: Stack date and main stats -->
             <div class="block sm:hidden stack-2">
               <div class="mono-xs text-secondary">
@@ -792,7 +792,7 @@ const _processedMetadata = computed(() => {
 
         <!-- Title section - mobile optimized -->
         <div
-          class="px-4 md:px-8 pt-3 pb-2"
+          class="px-4 md:px-8 xl:px-16 pt-3 pb-2"
         >
           <h1
             v-if="post?.metadata?.title || post?.title"
@@ -828,7 +828,7 @@ const _processedMetadata = computed(() => {
         <!-- Reply Context (IndieWeb reply posts) -->
         <div
           v-if="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']"
-          class="px-4 md:px-8"
+          class="px-4 md:px-8 xl:px-16"
         >
           <ReplyContext
             :reply-to="
@@ -840,7 +840,7 @@ const _processedMetadata = computed(() => {
         <!-- Article Content - mobile optimized spacing -->
         <div
           ref="articleContent"
-          class="px-4 md:px-8 pt-3 pb-6"
+          class="px-4 md:px-8 xl:px-16 pt-3 pb-6"
         >
           <article
             v-if="post?.html"
