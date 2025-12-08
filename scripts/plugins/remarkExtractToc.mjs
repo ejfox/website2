@@ -14,19 +14,24 @@ export function extractHeadersAndToc(tree, maxDepth = 3) {
     if (node.depth > maxDepth) return
 
     // Extract text content from heading, handling various node types
-    const headingText = node.children
-      .map((child) => {
-        if (child.type === 'text') {
-          return child.value
-        } else if (child.type === 'image') {
-          return child.alt || '' // Use alt text for images
-        } else if (child.type === 'link') {
-          return child.children.map((c) => c.value || '').join('')
-        }
-        return ''
-      })
-      .join('')
-      .trim()
+    const extractText = (nodes) => {
+      return nodes
+        .map((child) => {
+          if (child.type === 'text') {
+            return child.value
+          } else if (child.type === 'image') {
+            return child.alt || '' // Use alt text for images
+          } else if (child.type === 'link') {
+            return extractText(child.children || [])
+          } else if (child.type === 'emphasis' || child.type === 'strong') {
+            return extractText(child.children || [])
+          }
+          return ''
+        })
+        .join('')
+    }
+
+    const headingText = extractText(node.children).trim()
 
     // Skip empty headings
     if (!headingText) return
