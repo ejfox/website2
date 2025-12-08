@@ -18,7 +18,8 @@ jobs:
         key: ${{ secrets.VPS_SSH_KEY }}
         script: |
           cd /data2/website2
-          git pull origin main
+          git fetch origin main
+          git reset --hard origin/main
           yarn install --frozen-lockfile --prefer-offline
           yarn build
           DOCKER_BUILDKIT=1 docker-compose up -d --build
