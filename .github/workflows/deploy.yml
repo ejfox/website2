@@ -19,5 +19,6 @@ jobs:
         script: |
           cd /data2/website2
           git pull origin main
+          yarn install --frozen-lockfile --prefer-offline
           yarn build
           DOCKER_BUILDKIT=1 docker-compose up -d --build
