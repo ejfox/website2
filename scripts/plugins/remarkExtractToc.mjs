@@ -85,6 +85,12 @@ export function remarkExtractToc(options = { maxDepth: 3 }) {
     file.data.firstHeading = firstHeading
     file.data.firstHeadingNode = firstHeadingNode
 
+    // Debug logging
+    if (toc.length === 0) {
+      // Silently track empty TOCs - they're valid
+      // (some posts have no h2-h3 headings)
+    }
+
     // Remove first heading if requested
     if (options.removeFirstHeading) {
       removeFirstHeading(tree, firstHeadingNode)

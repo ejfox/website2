@@ -736,7 +736,7 @@ const _processedMetadata = computed(() => {
 
     <article
       v-if="post && !post.redirect"
-      class="h-entry max-w-screen-xl mx-auto px-4 md:px-8"
+      class="h-entry w-full px-4 md:px-8"
     >
       <!-- Swiss Grid Container -->
       <div>
