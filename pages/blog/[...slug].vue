@@ -489,8 +489,8 @@ usePageSeo({
       post.value?.metadata?.imageAlt ||
       `${post.value?.metadata?.title || post.value?.title} — EJ Fox`
   ),
-  publishedTime,
-  modifiedTime,
+  publishedTime: publishedDate,
+  modifiedTime: modifiedDate,
   label1: 'Reading time',
   data1: computed(() => `${readingStats.value.readingTime} min`),
   label2: 'Word count',
