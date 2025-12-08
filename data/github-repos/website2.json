@@ -12,7 +12,7 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 678885,
+    "Vue": 677017,
     "TypeScript": 305109,
     "JavaScript": 213036,
     "CSS": 53947,
@@ -5628,16 +5628,12 @@
         "size": 2414
       },
       {
-        "path": "layouts/default.vue",
-        "size": 4355
-      },
-      {
-        "path": "layouts/simple.vue",
+        "path": "layouts/bookmarklet.vue",
         "size": 478
       },
       {
-        "path": "layouts/with-sidebar.vue",
-        "size": 1878
+        "path": "layouts/default.vue",
+        "size": 4355
       },
       {
         "path": "nuxt.config.ts",
@@ -5673,7 +5669,7 @@
       },
       {
         "path": "pages/bookmarklet-popup.vue",
-        "size": 11056
+        "size": 11066
       },
       {
         "path": "pages/bookmarklet.vue",
@@ -13925,19 +13921,14 @@
           "name": "layouts",
           "children": [
             {
+              "name": "bookmarklet.vue",
+              "size": 478,
+              "path": "layouts/bookmarklet.vue"
+            },
+            {
               "name": "default.vue",
               "size": 4355,
               "path": "layouts/default.vue"
-            },
-            {
-              "name": "simple.vue",
-              "size": 478,
-              "path": "layouts/simple.vue"
-            },
-            {
-              "name": "with-sidebar.vue",
-              "size": 1878,
-              "path": "layouts/with-sidebar.vue"
             }
           ],
           "path": "layouts"
@@ -14081,7 +14072,7 @@
             },
             {
               "name": "bookmarklet-popup.vue",
-              "size": 11056,
+              "size": 11066,
               "path": "pages/bookmarklet-popup.vue"
             },
             {
@@ -15414,8 +15405,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 1630,
-    "totalSize": 82726507
+    "totalFiles": 1629,
+    "totalSize": 82724639
   },
   "topics": [],
   "readme": {
@@ -15424,6 +15415,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-08T21:44:10Z",
-  "pushedAt": "2025-12-08T21:44:06Z"
+  "updatedAt": "2025-12-08T21:56:13Z",
+  "pushedAt": "2025-12-08T21:56:09Z"
 }

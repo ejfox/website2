@@ -1,5 +1,12 @@
 <template>
   <div id="app-container" class="layout-base">
+    <!-- Skip to main content link for accessibility -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-2 focus:bg-black focus:text-white"
+    >
+      Skip to main content
+    </a>
     <NuxtLoadingIndicator color="#999999" :height="1" />
     <section class="flex flex-col md:flex-row min-h-screen relative">
       <!-- Mobile navigation - 2025 best practices: Tab bar pattern -->
@@ -65,6 +72,7 @@
       </nav>
 
       <article
+        id="main-content"
         class="w-full pt-24 md:pt-0"
         :class="{
           'pt-36': mobileMenuOpen,

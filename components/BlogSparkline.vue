@@ -3,8 +3,11 @@
     <svg
       :width="width"
       :height="height"
+      :aria-label="tooltip"
+      role="img"
       class="sparkline fill-zinc-300 dark:fill-zinc-700"
     >
+      <title>{{ tooltip }}</title>
       <!-- Inline bars visualization (default for blog index) -->
       <g v-if="type === 'bars'">
         <rect
@@ -65,6 +68,8 @@
       </g>
     </svg>
     <span v-if="showLabel" class="sparkline-label">{{ label }}</span>
+    <!-- Text alternative for text-only browsers -->
+    <span class="sr-only">{{ tooltip }}</span>
   </div>
 </template>
 

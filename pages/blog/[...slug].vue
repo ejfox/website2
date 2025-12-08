@@ -913,7 +913,7 @@ const _processedMetadata = computed(() => {
 
         <!-- Related Posts by Tag -->
         <div v-if="relatedPosts.length > 0" :class="relatedPostsContainerClass">
-          <h3 :class="relatedPostsTitleClass">Related Posts</h3>
+          <h2 :class="relatedPostsTitleClass">Related Posts</h2>
           <div class="stack-4">
             <div
               v-for="{ post: relatedPost, overlappingTags } in relatedPosts"

@@ -7,7 +7,9 @@
       @submit.prevent="submitForm"
     >
       <div class="flex-1 flex items-center gap-0.5.5 min-w-0">
+        <label for="newsletter-email" class="sr-only">Email address</label>
         <input
+          id="newsletter-email"
           ref="emailInputRef"
           v-model="email"
           type="email"
@@ -27,14 +29,18 @@
             showNameFields ? 'w-auto opacity-100' : 'w-0 opacity-0',
           ]"
         >
+          <label for="newsletter-first-name" class="sr-only">First name</label>
           <input
+            id="newsletter-first-name"
             v-model="firstName"
             type="text"
             placeholder="First"
             class="input-numeric"
             :disabled="state.loading"
           />
+          <label for="newsletter-last-name" class="sr-only">Last name</label>
           <input
+            id="newsletter-last-name"
             v-model="lastName"
             type="text"
             placeholder="Last"
