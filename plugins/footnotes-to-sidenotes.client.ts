@@ -65,6 +65,8 @@ export default defineNuxtPlugin(() => {
         @media (min-width: 1280px) {
           .blog-post-content {
             position: relative;
+            /* Pre-allocate margin space for floated sidenotes to prevent layout shift */
+            margin-right: 240px;
           }
 
           .sidenote {
@@ -82,11 +84,28 @@ export default defineNuxtPlugin(() => {
             hyphens: auto;
             overflow-wrap: break-word;
             margin-bottom: 16px;
+            /* Prevent sidenote from causing layout shift */
+            visibility: hidden;
+            animation: fadeInSidenote 0.2s ease-out 0.05s forwards;
+          }
+
+          @keyframes fadeInSidenote {
+            from {
+              opacity: 0;
+            }
+            to {
+              opacity: 1;
+              visibility: visible;
+            }
           }
         }
 
         /* Extra large screens - more space for sidenotes */
         @media (min-width: 1536px) {
+          .blog-post-content {
+            margin-right: 260px;
+          }
+
           .sidenote {
             margin-right: -260px;
             width: 220px;
@@ -141,16 +160,19 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  // Initialize once on mount
+  // Initialize once on mount - minimal delay to avoid layout shift
   onNuxtReady(() => {
-    setTimeout(initializeSidenotes, 200)
+    // Use nextTick to ensure DOM is ready, then init immediately
+    nextTick(() => {
+      initializeSidenotes()
+    })
   })
 
   // Re-init on navigation
   const router = useRouter()
   router.afterEach(() => {
     nextTick(() => {
-      setTimeout(initializeSidenotes, 200)
+      initializeSidenotes()
     })
   })
 })

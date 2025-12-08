@@ -7,7 +7,7 @@
       <!-- Swiss Grid Container matching blog posts -->
       <div class="max-w-4xl mx-auto">
         <!-- Tag title -->
-        <div class="px-4 md:px-6 mb-4">
+        <div class="px-4 md:px-8 mb-4">
           <h1 :class="tagPageTitleClass">Posts tagged "{{ tag }}"</h1>
           <p class="text-zinc-600 dark:text-zinc-400 text-sm">
             {{ filteredPosts.length }}

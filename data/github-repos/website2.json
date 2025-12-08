@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 679422,
-    "TypeScript": 304180,
-    "JavaScript": 211643,
+    "Vue": 678864,
+    "TypeScript": 304442,
+    "JavaScript": 213036,
     "CSS": 53947,
     "HTML": 15405,
     "Shell": 15076,
     "Dockerfile": 779
   },
-  "diskUsage": 85457,
+  "diskUsage": 85615,
   "fileTree": {
     "files": [
       {
@@ -41,7 +41,7 @@
       },
       {
         "path": ".github/workflows/deploy.yml",
-        "size": 542
+        "size": 624
       },
       {
         "path": ".github/workflows/send-webmentions.yml",
@@ -129,7 +129,7 @@
       },
       {
         "path": "components/DataTable.vue",
-        "size": 6943
+        "size": 6946
       },
       {
         "path": "components/DebugGrid.vue",
@@ -137,11 +137,11 @@
       },
       {
         "path": "components/DotField.vue",
-        "size": 2358
+        "size": 2362
       },
       {
         "path": "components/FileSizeDistribution.vue",
-        "size": 2261
+        "size": 2067
       },
       {
         "path": "components/Footer.vue",
@@ -157,7 +157,7 @@
       },
       {
         "path": "components/GitHubParallelCoords.client.vue",
-        "size": 7103
+        "size": 7104
       },
       {
         "path": "components/GitHubRadialTimeline.client.vue",
@@ -169,11 +169,11 @@
       },
       {
         "path": "components/GitHubScrollViz.client.vue",
-        "size": 7583
+        "size": 7606
       },
       {
         "path": "components/GithubForceLayout.client.vue",
-        "size": 9057
+        "size": 9036
       },
       {
         "path": "components/GithubRepoCard.vue",
@@ -205,7 +205,7 @@
       },
       {
         "path": "components/RepoMetrics.vue",
-        "size": 3587
+        "size": 3588
       },
       {
         "path": "components/RepoSparkline.client.vue",
@@ -237,7 +237,7 @@
       },
       {
         "path": "components/VizTooltip.vue",
-        "size": 1511
+        "size": 1512
       },
       {
         "path": "components/WebVitalsReporter.vue",
@@ -261,7 +261,7 @@
       },
       {
         "path": "components/gear/GearDetailCard.client.vue",
-        "size": 7538
+        "size": 7611
       },
       {
         "path": "components/gear/GearItem.vue",
@@ -285,11 +285,11 @@
       },
       {
         "path": "components/kalshi/KalshiPortfolioStats.vue",
-        "size": 2186
+        "size": 2178
       },
       {
         "path": "components/kalshi/KalshiPositionCard.vue",
-        "size": 3522
+        "size": 3476
       },
       {
         "path": "components/kalshi/KalshiPositionsList.vue",
@@ -389,7 +389,7 @@
       },
       {
         "path": "components/stats/RescueTimeStats.vue",
-        "size": 10236
+        "size": 10188
       },
       {
         "path": "components/stats/StatRow.vue",
@@ -473,7 +473,7 @@
       },
       {
         "path": "composables/useStats.ts",
-        "size": 12200
+        "size": 12161
       },
       {
         "path": "composables/useStatusFormatting.ts",
@@ -485,7 +485,7 @@
       },
       {
         "path": "composables/useTooltip.ts",
-        "size": 1587
+        "size": 1567
       },
       {
         "path": "composables/useWeightCalculations.ts",
@@ -4065,7 +4065,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 506015
+        "size": 501841
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -5621,15 +5621,15 @@
       },
       {
         "path": "eslint.config.mjs",
-        "size": 6409
+        "size": 7003
       },
       {
         "path": "kalshi-query.mjs",
-        "size": 2374
+        "size": 2414
       },
       {
         "path": "layouts/default.vue",
-        "size": 4663
+        "size": 4355
       },
       {
         "path": "layouts/simple.vue",
@@ -5641,7 +5641,7 @@
       },
       {
         "path": "nuxt.config.ts",
-        "size": 6075
+        "size": 6107
       },
       {
         "path": "package.json",
@@ -5649,7 +5649,7 @@
       },
       {
         "path": "pages/blog/[...slug].vue",
-        "size": 34988
+        "size": 34971
       },
       {
         "path": "pages/blog/index.vue",
@@ -5657,7 +5657,7 @@
       },
       {
         "path": "pages/blog/robots/[...slug].vue",
-        "size": 13819
+        "size": 13825
       },
       {
         "path": "pages/blog/robots/index.vue",
@@ -5705,7 +5705,7 @@
       },
       {
         "path": "pages/gists.vue",
-        "size": 8729
+        "size": 8720
       },
       {
         "path": "pages/github/[slug].vue",
@@ -5721,7 +5721,7 @@
       },
       {
         "path": "pages/kalshi.vue",
-        "size": 2033
+        "size": 2017
       },
       {
         "path": "pages/now.vue",
@@ -5737,7 +5737,7 @@
       },
       {
         "path": "pages/predictions/index.vue",
-        "size": 26737
+        "size": 26713
       },
       {
         "path": "pages/projects-enhanced.vue",
@@ -5761,7 +5761,7 @@
       },
       {
         "path": "pages/sitemap.vue",
-        "size": 11620
+        "size": 11641
       },
       {
         "path": "pages/stats.vue",
@@ -5769,7 +5769,7 @@
       },
       {
         "path": "plugins/dark-mode.client.js",
-        "size": 293
+        "size": 256
       },
       {
         "path": "plugins/footnotes-to-sidenotes.client.ts",
@@ -5785,7 +5785,7 @@
       },
       {
         "path": "plugins/umami.client.js",
-        "size": 472
+        "size": 435
       },
       {
         "path": "public/ai2html/thorn-hill/ThornHill-Artboard_1.jpg",
@@ -6041,11 +6041,11 @@
       },
       {
         "path": "scripts/blog/create-prediction.mjs",
-        "size": 1992
+        "size": 2024
       },
       {
         "path": "scripts/blog/import.mjs",
-        "size": 5961
+        "size": 5993
       },
       {
         "path": "scripts/blog/publish.sh",
@@ -6057,11 +6057,11 @@
       },
       {
         "path": "scripts/calibration-analysis.mjs",
-        "size": 9228
+        "size": 9260
       },
       {
         "path": "scripts/check-series.mjs",
-        "size": 913
+        "size": 945
       },
       {
         "path": "scripts/config.mjs",
@@ -6069,11 +6069,11 @@
       },
       {
         "path": "scripts/create-prediction.mjs",
-        "size": 1797
+        "size": 1829
       },
       {
         "path": "scripts/dev-with-perf.mjs",
-        "size": 1176
+        "size": 1208
       },
       {
         "path": "scripts/dev/test-robot-apis.sh",
@@ -6085,39 +6085,39 @@
       },
       {
         "path": "scripts/export-all-contributions.mjs",
-        "size": 3521
+        "size": 3553
       },
       {
         "path": "scripts/export-all-github-commits.mjs",
-        "size": 3060
+        "size": 3113
       },
       {
         "path": "scripts/export-github-commits.mjs",
-        "size": 2866
+        "size": 2898
       },
       {
         "path": "scripts/export-github-repos.mjs",
-        "size": 13842
+        "size": 13895
       },
       {
         "path": "scripts/fetch-my-events.mjs",
-        "size": 1523
+        "size": 1555
       },
       {
         "path": "scripts/fix-date-fns-imports.mjs",
-        "size": 2268
+        "size": 2300
       },
       {
         "path": "scripts/fix-vueuse-imports.mjs",
-        "size": 2434
+        "size": 2466
       },
       {
         "path": "scripts/generate-build-info.mjs",
-        "size": 604
+        "size": 636
       },
       {
         "path": "scripts/generate-commentary-templates.mjs",
-        "size": 2584
+        "size": 2616
       },
       {
         "path": "scripts/index.mjs",
@@ -6125,15 +6125,15 @@
       },
       {
         "path": "scripts/kalshi-test.mjs",
-        "size": 3538
+        "size": 3570
       },
       {
         "path": "scripts/lighthouse-check.mjs",
-        "size": 3396
+        "size": 3428
       },
       {
         "path": "scripts/perf-analyze.mjs",
-        "size": 4429
+        "size": 4461
       },
       {
         "path": "scripts/plugins/__tests__/remarkExtractToc.test.mjs",
@@ -6157,7 +6157,7 @@
       },
       {
         "path": "scripts/plugins/remarkExtractToc.mjs",
-        "size": 2806
+        "size": 2764
       },
       {
         "path": "scripts/plugins/remarkGenerateAltText.mjs",
@@ -6177,11 +6177,11 @@
       },
       {
         "path": "scripts/predictions/sign-prediction.mjs",
-        "size": 2607
+        "size": 2639
       },
       {
         "path": "scripts/processMarkdown.mjs",
-        "size": 39152
+        "size": 39185
       },
       {
         "path": "scripts/publish_blog_automator.sh",
@@ -6189,11 +6189,11 @@
       },
       {
         "path": "scripts/security-performance-audit.js",
-        "size": 7855
+        "size": 7887
       },
       {
         "path": "scripts/send-webmentions.mjs",
-        "size": 7683
+        "size": 7715
       },
       {
         "path": "scripts/sign-post.sh",
@@ -6201,11 +6201,11 @@
       },
       {
         "path": "scripts/sign-prediction.mjs",
-        "size": 2999
+        "size": 3031
       },
       {
         "path": "scripts/utils/backup.mjs",
-        "size": 544
+        "size": 576
       },
       {
         "path": "scripts/utils/config.mjs",
@@ -6213,11 +6213,11 @@
       },
       {
         "path": "scripts/utils/helpers.mjs",
-        "size": 12692
+        "size": 12724
       },
       {
         "path": "scripts/utils/stats.mjs",
-        "size": 4901
+        "size": 4933
       },
       {
         "path": "scripts/vps_update.sh",
@@ -6309,7 +6309,7 @@
       },
       {
         "path": "server/api/kalshi.get.ts",
-        "size": 19235
+        "size": 19264
       },
       {
         "path": "server/api/lastfm.get.ts",
@@ -6321,7 +6321,7 @@
       },
       {
         "path": "server/api/letterboxd.get.ts",
-        "size": 4397
+        "size": 4429
       },
       {
         "path": "server/api/manifest.ts",
@@ -6405,7 +6405,7 @@
       },
       {
         "path": "server/api/robots/[...slug].ts",
-        "size": 1773
+        "size": 1767
       },
       {
         "path": "server/api/search.get.ts",
@@ -6421,11 +6421,11 @@
       },
       {
         "path": "server/api/umami/auth.post.ts",
-        "size": 864
+        "size": 921
       },
       {
         "path": "server/api/umami/stats.get.ts",
-        "size": 3009
+        "size": 3041
       },
       {
         "path": "server/api/webmentions.get.ts",
@@ -6433,7 +6433,7 @@
       },
       {
         "path": "server/api/website-stats.get.ts",
-        "size": 2610
+        "size": 2667
       },
       {
         "path": "server/api/words-this-month.get.ts",
@@ -6461,7 +6461,7 @@
       },
       {
         "path": "server/routes/tags.json.ts",
-        "size": 1942
+        "size": 1974
       },
       {
         "path": "server/tsconfig.json",
@@ -6473,11 +6473,11 @@
       },
       {
         "path": "server/utils/apiHelpers.ts",
-        "size": 3256
+        "size": 3264
       },
       {
         "path": "server/utils/fetch.ts",
-        "size": 1757
+        "size": 1773
       },
       {
         "path": "server/utils/text-processing.ts",
@@ -6521,7 +6521,7 @@
       },
       {
         "path": "unlighthouse.config.ts",
-        "size": 573
+        "size": 605
       },
       {
         "path": "utils/dateFormatters.ts",
@@ -6572,7 +6572,7 @@
               "children": [
                 {
                   "name": "deploy.yml",
-                  "size": 542,
+                  "size": 624,
                   "path": ".github/workflows/deploy.yml"
                 },
                 {
@@ -6664,7 +6664,7 @@
                 },
                 {
                   "name": "GearDetailCard.client.vue",
-                  "size": 7538,
+                  "size": 7611,
                   "path": "components/gear/GearDetailCard.client.vue"
                 },
                 {
@@ -6700,12 +6700,12 @@
                 },
                 {
                   "name": "KalshiPortfolioStats.vue",
-                  "size": 2186,
+                  "size": 2178,
                   "path": "components/kalshi/KalshiPortfolioStats.vue"
                 },
                 {
                   "name": "KalshiPositionCard.vue",
-                  "size": 3522,
+                  "size": 3476,
                   "path": "components/kalshi/KalshiPositionCard.vue"
                 },
                 {
@@ -6854,7 +6854,7 @@
                 },
                 {
                   "name": "RescueTimeStats.vue",
-                  "size": 10236,
+                  "size": 10188,
                   "path": "components/stats/RescueTimeStats.vue"
                 },
                 {
@@ -6943,7 +6943,7 @@
             },
             {
               "name": "DataTable.vue",
-              "size": 6943,
+              "size": 6946,
               "path": "components/DataTable.vue"
             },
             {
@@ -6953,12 +6953,12 @@
             },
             {
               "name": "DotField.vue",
-              "size": 2358,
+              "size": 2362,
               "path": "components/DotField.vue"
             },
             {
               "name": "FileSizeDistribution.vue",
-              "size": 2261,
+              "size": 2067,
               "path": "components/FileSizeDistribution.vue"
             },
             {
@@ -6978,7 +6978,7 @@
             },
             {
               "name": "GitHubParallelCoords.client.vue",
-              "size": 7103,
+              "size": 7104,
               "path": "components/GitHubParallelCoords.client.vue"
             },
             {
@@ -6993,12 +6993,12 @@
             },
             {
               "name": "GitHubScrollViz.client.vue",
-              "size": 7583,
+              "size": 7606,
               "path": "components/GitHubScrollViz.client.vue"
             },
             {
               "name": "GithubForceLayout.client.vue",
-              "size": 9057,
+              "size": 9036,
               "path": "components/GithubForceLayout.client.vue"
             },
             {
@@ -7038,7 +7038,7 @@
             },
             {
               "name": "RepoMetrics.vue",
-              "size": 3587,
+              "size": 3588,
               "path": "components/RepoMetrics.vue"
             },
             {
@@ -7078,7 +7078,7 @@
             },
             {
               "name": "VizTooltip.vue",
-              "size": 1511,
+              "size": 1512,
               "path": "components/VizTooltip.vue"
             },
             {
@@ -7165,7 +7165,7 @@
             },
             {
               "name": "useStats.ts",
-              "size": 12200,
+              "size": 12161,
               "path": "composables/useStats.ts"
             },
             {
@@ -7180,7 +7180,7 @@
             },
             {
               "name": "useTooltip.ts",
-              "size": 1587,
+              "size": 1567,
               "path": "composables/useTooltip.ts"
             },
             {
@@ -11940,7 +11940,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 506015,
+                  "size": 501841,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -13926,7 +13926,7 @@
           "children": [
             {
               "name": "default.vue",
-              "size": 4663,
+              "size": 4355,
               "path": "layouts/default.vue"
             },
             {
@@ -13953,7 +13953,7 @@
                   "children": [
                     {
                       "name": "[...slug].vue",
-                      "size": 13819,
+                      "size": 13825,
                       "path": "pages/blog/robots/[...slug].vue"
                     },
                     {
@@ -13988,7 +13988,7 @@
                 },
                 {
                   "name": "[...slug].vue",
-                  "size": 34988,
+                  "size": 34971,
                   "path": "pages/blog/[...slug].vue"
                 },
                 {
@@ -14041,7 +14041,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 26737,
+                  "size": 26713,
                   "path": "pages/predictions/index.vue"
                 }
               ],
@@ -14111,7 +14111,7 @@
             },
             {
               "name": "gists.vue",
-              "size": 8729,
+              "size": 8720,
               "path": "pages/gists.vue"
             },
             {
@@ -14121,7 +14121,7 @@
             },
             {
               "name": "kalshi.vue",
-              "size": 2033,
+              "size": 2017,
               "path": "pages/kalshi.vue"
             },
             {
@@ -14141,7 +14141,7 @@
             },
             {
               "name": "sitemap.vue",
-              "size": 11620,
+              "size": 11641,
               "path": "pages/sitemap.vue"
             },
             {
@@ -14157,7 +14157,7 @@
           "children": [
             {
               "name": "dark-mode.client.js",
-              "size": 293,
+              "size": 256,
               "path": "plugins/dark-mode.client.js"
             },
             {
@@ -14177,7 +14177,7 @@
             },
             {
               "name": "umami.client.js",
-              "size": 472,
+              "size": 435,
               "path": "plugins/umami.client.js"
             }
           ],
@@ -14539,12 +14539,12 @@
               "children": [
                 {
                   "name": "create-prediction.mjs",
-                  "size": 1992,
+                  "size": 2024,
                   "path": "scripts/blog/create-prediction.mjs"
                 },
                 {
                   "name": "import.mjs",
-                  "size": 5961,
+                  "size": 5993,
                   "path": "scripts/blog/import.mjs"
                 },
                 {
@@ -14612,7 +14612,7 @@
                 },
                 {
                   "name": "remarkExtractToc.mjs",
-                  "size": 2806,
+                  "size": 2764,
                   "path": "scripts/plugins/remarkExtractToc.mjs"
                 },
                 {
@@ -14638,7 +14638,7 @@
               "children": [
                 {
                   "name": "sign-prediction.mjs",
-                  "size": 2607,
+                  "size": 2639,
                   "path": "scripts/predictions/sign-prediction.mjs"
                 }
               ],
@@ -14649,7 +14649,7 @@
               "children": [
                 {
                   "name": "backup.mjs",
-                  "size": 544,
+                  "size": 576,
                   "path": "scripts/utils/backup.mjs"
                 },
                 {
@@ -14659,12 +14659,12 @@
                 },
                 {
                   "name": "helpers.mjs",
-                  "size": 12692,
+                  "size": 12724,
                   "path": "scripts/utils/helpers.mjs"
                 },
                 {
                   "name": "stats.mjs",
-                  "size": 4901,
+                  "size": 4933,
                   "path": "scripts/utils/stats.mjs"
                 }
               ],
@@ -14687,12 +14687,12 @@
             },
             {
               "name": "calibration-analysis.mjs",
-              "size": 9228,
+              "size": 9260,
               "path": "scripts/calibration-analysis.mjs"
             },
             {
               "name": "check-series.mjs",
-              "size": 913,
+              "size": 945,
               "path": "scripts/check-series.mjs"
             },
             {
@@ -14702,57 +14702,57 @@
             },
             {
               "name": "create-prediction.mjs",
-              "size": 1797,
+              "size": 1829,
               "path": "scripts/create-prediction.mjs"
             },
             {
               "name": "dev-with-perf.mjs",
-              "size": 1176,
+              "size": 1208,
               "path": "scripts/dev-with-perf.mjs"
             },
             {
               "name": "export-all-contributions.mjs",
-              "size": 3521,
+              "size": 3553,
               "path": "scripts/export-all-contributions.mjs"
             },
             {
               "name": "export-all-github-commits.mjs",
-              "size": 3060,
+              "size": 3113,
               "path": "scripts/export-all-github-commits.mjs"
             },
             {
               "name": "export-github-commits.mjs",
-              "size": 2866,
+              "size": 2898,
               "path": "scripts/export-github-commits.mjs"
             },
             {
               "name": "export-github-repos.mjs",
-              "size": 13842,
+              "size": 13895,
               "path": "scripts/export-github-repos.mjs"
             },
             {
               "name": "fetch-my-events.mjs",
-              "size": 1523,
+              "size": 1555,
               "path": "scripts/fetch-my-events.mjs"
             },
             {
               "name": "fix-date-fns-imports.mjs",
-              "size": 2268,
+              "size": 2300,
               "path": "scripts/fix-date-fns-imports.mjs"
             },
             {
               "name": "fix-vueuse-imports.mjs",
-              "size": 2434,
+              "size": 2466,
               "path": "scripts/fix-vueuse-imports.mjs"
             },
             {
               "name": "generate-build-info.mjs",
-              "size": 604,
+              "size": 636,
               "path": "scripts/generate-build-info.mjs"
             },
             {
               "name": "generate-commentary-templates.mjs",
-              "size": 2584,
+              "size": 2616,
               "path": "scripts/generate-commentary-templates.mjs"
             },
             {
@@ -14762,17 +14762,17 @@
             },
             {
               "name": "kalshi-test.mjs",
-              "size": 3538,
+              "size": 3570,
               "path": "scripts/kalshi-test.mjs"
             },
             {
               "name": "lighthouse-check.mjs",
-              "size": 3396,
+              "size": 3428,
               "path": "scripts/lighthouse-check.mjs"
             },
             {
               "name": "perf-analyze.mjs",
-              "size": 4429,
+              "size": 4461,
               "path": "scripts/perf-analyze.mjs"
             },
             {
@@ -14782,7 +14782,7 @@
             },
             {
               "name": "processMarkdown.mjs",
-              "size": 39152,
+              "size": 39185,
               "path": "scripts/processMarkdown.mjs"
             },
             {
@@ -14792,12 +14792,12 @@
             },
             {
               "name": "security-performance-audit.js",
-              "size": 7855,
+              "size": 7887,
               "path": "scripts/security-performance-audit.js"
             },
             {
               "name": "send-webmentions.mjs",
-              "size": 7683,
+              "size": 7715,
               "path": "scripts/send-webmentions.mjs"
             },
             {
@@ -14807,7 +14807,7 @@
             },
             {
               "name": "sign-prediction.mjs",
-              "size": 2999,
+              "size": 3031,
               "path": "scripts/sign-prediction.mjs"
             },
             {
@@ -14937,7 +14937,7 @@
                   "children": [
                     {
                       "name": "[...slug].ts",
-                      "size": 1773,
+                      "size": 1767,
                       "path": "server/api/robots/[...slug].ts"
                     }
                   ],
@@ -14948,12 +14948,12 @@
                   "children": [
                     {
                       "name": "auth.post.ts",
-                      "size": 864,
+                      "size": 921,
                       "path": "server/api/umami/auth.post.ts"
                     },
                     {
                       "name": "stats.get.ts",
-                      "size": 3009,
+                      "size": 3041,
                       "path": "server/api/umami/stats.get.ts"
                     }
                   ],
@@ -15056,7 +15056,7 @@
                 },
                 {
                   "name": "kalshi.get.ts",
-                  "size": 19235,
+                  "size": 19264,
                   "path": "server/api/kalshi.get.ts"
                 },
                 {
@@ -15071,7 +15071,7 @@
                 },
                 {
                   "name": "letterboxd.get.ts",
-                  "size": 4397,
+                  "size": 4429,
                   "path": "server/api/letterboxd.get.ts"
                 },
                 {
@@ -15146,7 +15146,7 @@
                 },
                 {
                   "name": "website-stats.get.ts",
-                  "size": 2610,
+                  "size": 2667,
                   "path": "server/api/website-stats.get.ts"
                 },
                 {
@@ -15187,7 +15187,7 @@
                 },
                 {
                   "name": "tags.json.ts",
-                  "size": 1942,
+                  "size": 1974,
                   "path": "server/routes/tags.json.ts"
                 }
               ],
@@ -15209,12 +15209,12 @@
               "children": [
                 {
                   "name": "apiHelpers.ts",
-                  "size": 3256,
+                  "size": 3264,
                   "path": "server/utils/apiHelpers.ts"
                 },
                 {
                   "name": "fetch.ts",
-                  "size": 1757,
+                  "size": 1773,
                   "path": "server/utils/fetch.ts"
                 },
                 {
@@ -15368,17 +15368,17 @@
         },
         {
           "name": "eslint.config.mjs",
-          "size": 6409,
+          "size": 7003,
           "path": "eslint.config.mjs"
         },
         {
           "name": "kalshi-query.mjs",
-          "size": 2374,
+          "size": 2414,
           "path": "kalshi-query.mjs"
         },
         {
           "name": "nuxt.config.ts",
-          "size": 6075,
+          "size": 6107,
           "path": "nuxt.config.ts"
         },
         {
@@ -15398,7 +15398,7 @@
         },
         {
           "name": "unlighthouse.config.ts",
-          "size": 573,
+          "size": 605,
           "path": "unlighthouse.config.ts"
         },
         {
@@ -15415,7 +15415,7 @@
       "path": ""
     },
     "totalFiles": 1630,
-    "totalSize": 82728814
+    "totalSize": 82725819
   },
   "topics": [],
   "readme": {
@@ -15424,6 +15424,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-08T17:27:04Z",
-  "pushedAt": "2025-12-08T17:27:00Z"
+  "updatedAt": "2025-12-08T21:20:11Z",
+  "pushedAt": "2025-12-08T21:20:06Z"
 }

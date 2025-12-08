@@ -1,26 +1,5 @@
 [
   {
-    "name": "ejthirdbear",
-    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
-    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Svelte",
-    "languageColor": "#ff3e00",
-    "languages": {},
-    "diskUsage": 5628,
-    "topics": [],
-    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
-    "createdAt": "2025-11-12T20:10:52Z",
-    "updatedAt": "2025-12-08T20:21:36Z",
-    "pushedAt": "2025-12-08T20:21:33Z"
-  },
-  {
     "name": "website2",
     "description": "No description provided",
     "url": "https://github.com/ejfox/website2",
@@ -34,20 +13,41 @@
     "language": "Vue",
     "languageColor": "#41b883",
     "languages": {
-      "Vue": 679422,
-      "TypeScript": 304180,
-      "JavaScript": 211643,
+      "Vue": 678864,
+      "TypeScript": 304442,
+      "JavaScript": 213036,
       "CSS": 53947,
       "HTML": 15405,
       "Shell": 15076,
       "Dockerfile": 779
     },
-    "diskUsage": 85457,
+    "diskUsage": 85615,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-08T17:27:04Z",
-    "pushedAt": "2025-12-08T17:27:00Z"
+    "updatedAt": "2025-12-08T21:20:11Z",
+    "pushedAt": "2025-12-08T21:20:06Z"
+  },
+  {
+    "name": "ejthirdbear",
+    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Svelte",
+    "languageColor": "#ff3e00",
+    "languages": {},
+    "diskUsage": 5921,
+    "topics": [],
+    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "createdAt": "2025-11-12T20:10:52Z",
+    "updatedAt": "2025-12-08T21:12:51Z",
+    "pushedAt": "2025-12-08T21:12:48Z"
   },
   {
     "name": "dotfiles",

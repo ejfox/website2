@@ -12,7 +12,7 @@
   "language": "Svelte",
   "languageColor": "#ff3e00",
   "languages": {},
-  "diskUsage": 5628,
+  "diskUsage": 5921,
   "fileTree": null,
   "topics": [],
   "readme": {
@@ -21,6 +21,6 @@
     "excerpt": "Cross-tracker ownership visualization and geospatial analysis.\n\n\n\n- gem-viz/ - SvelteKit static site generator\n- data-processing/ - Data pipeline scripts\n- docs..."
   },
   "createdAt": "2025-11-12T20:10:52Z",
-  "updatedAt": "2025-12-08T20:21:36Z",
-  "pushedAt": "2025-12-08T20:21:33Z"
+  "updatedAt": "2025-12-08T21:12:51Z",
+  "pushedAt": "2025-12-08T21:12:48Z"
 }
