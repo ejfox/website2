@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { useWindowScroll } from '@vueuse/core'
-import { animate, stagger } from 'animejs'
+import { animate, utils } from 'animejs'
 
 const props = defineProps<{
   count?: number
@@ -71,7 +71,7 @@ onMounted(() => {
       opacity: (el, i) => 0.05 + (i % 10) * 0.02,
       scale: (el, i) => 0.6 + (i % 6) * 0.05,
       duration: 900,
-      delay: stagger(12),
+      delay: utils.stagger(12),
       easing: 'easeOutSine',
     })
   }

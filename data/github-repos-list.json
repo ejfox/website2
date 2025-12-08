@@ -1,5 +1,55 @@
 [
   {
+    "name": "ejthirdbear",
+    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Svelte",
+    "languageColor": "#ff3e00",
+    "languages": {},
+    "diskUsage": 5596,
+    "topics": [],
+    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "createdAt": "2025-11-12T20:10:52Z",
+    "updatedAt": "2025-12-08T17:48:58Z",
+    "pushedAt": "2025-12-08T17:48:54Z"
+  },
+  {
+    "name": "website2",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/website2",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 679422,
+      "TypeScript": 304180,
+      "JavaScript": 211643,
+      "CSS": 53947,
+      "HTML": 15405,
+      "Shell": 15076,
+      "Dockerfile": 779
+    },
+    "diskUsage": 85457,
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-10-13T14:09:19Z",
+    "updatedAt": "2025-12-08T17:27:04Z",
+    "pushedAt": "2025-12-08T17:27:00Z"
+  },
+  {
     "name": "dotfiles",
     "description": "Backup of my dotfiles",
     "url": "https://github.com/ejfox/dotfiles",
@@ -53,35 +103,6 @@
     "createdAt": "2025-10-24T21:15:15Z",
     "updatedAt": "2025-12-07T17:58:56Z",
     "pushedAt": "2025-12-07T17:58:52Z"
-  },
-  {
-    "name": "website2",
-    "description": "No description provided",
-    "url": "https://github.com/ejfox/website2",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 1
-    },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 689230,
-      "TypeScript": 308271,
-      "JavaScript": 194514,
-      "CSS": 53947,
-      "Shell": 15733,
-      "HTML": 15405,
-      "Dockerfile": 779
-    },
-    "diskUsage": 80904,
-    "topics": [],
-    "excerpt": "No description provided",
-    "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-05T22:27:44Z",
-    "pushedAt": "2025-12-05T22:27:40Z"
   },
   {
     "name": "tweakcc",
@@ -139,7 +160,7 @@
       "stars": 36,
       "forks": 7,
       "watchers": 0,
-      "openIssues": 331
+      "openIssues": 332
     },
     "language": "Unknown",
     "languageColor": "#666666",
@@ -175,27 +196,6 @@
     "createdAt": "2024-06-01T07:35:15Z",
     "updatedAt": "2025-12-03T19:58:06Z",
     "pushedAt": "2025-12-03T19:58:02Z"
-  },
-  {
-    "name": "ejthirdbear",
-    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
-    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Svelte",
-    "languageColor": "#ff3e00",
-    "languages": {},
-    "diskUsage": 5590,
-    "topics": [],
-    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
-    "createdAt": "2025-11-12T20:10:52Z",
-    "updatedAt": "2025-12-03T17:32:16Z",
-    "pushedAt": "2025-12-03T17:32:13Z"
   },
   {
     "name": "tributary",
