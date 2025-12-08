@@ -247,11 +247,10 @@
 
           <!-- Commentary -->
           <div
-            v-if="getCommentary(position.ticker)"
-            class="text-sm text-muted leading-relaxed"
-          >
-            {{ getCommentary(position.ticker).commentary }}
-          </div>
+            v-if="parsedCommentaries[position.ticker]"
+            class="text-sm text-muted leading-relaxed prose prose-sm prose-zinc dark:prose-invert max-w-none"
+            v-html="parsedCommentaries[position.ticker]"
+          />
         </article>
       </div>
 
@@ -762,6 +761,7 @@ const commitHistoryUrl =
   'https://github.com/ejfox/website2/commits/main/content/predictions/'
 
 const { formatRelativeTime } = useDateFormat()
+const { markdownToHtml } = useMarkdown()
 
 // Dynamic TOC height calculation using VueUse
 const { height: windowHeight } = useWindowSize()
@@ -1092,6 +1092,26 @@ onMounted(() => {
     onUnmounted(() => observer.disconnect())
   }
 })
+
+// Parsed commentary cache
+const parsedCommentaries = ref({})
+
+// Watch kalshiData and parse commentaries when they load
+watch(
+  () => kalshiData.value?.commentaries,
+  async (commentaries) => {
+    if (!commentaries) return
+
+    const parsed = {}
+    for (const [ticker, commentary] of Object.entries(commentaries)) {
+      if (commentary?.commentary) {
+        parsed[ticker] = await markdownToHtml(commentary.commentary)
+      }
+    }
+    parsedCommentaries.value = parsed
+  },
+  { immediate: true }
+)
 
 // Kalshi helpers
 const getMarketTitle = (ticker) => {
