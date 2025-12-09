@@ -44,7 +44,6 @@ export default defineEventHandler(async (): Promise<Scrap[]> => {
       .from('scraps')
       .select('*')
       .order('created_at', { ascending: false })
-      .limit(500)
 
     if (error) {
       console.error('❌ Supabase query error:', error)

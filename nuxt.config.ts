@@ -1,4 +1,35 @@
 /* eslint-disable no-console */
+
+async function getScrapTags() {
+  try {
+    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
+      console.warn('❌ Supabase not configured, skipping tag discovery')
+      return []
+    }
+
+    const { createClient } = await import('@supabase/supabase-js')
+    const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY)
+
+    console.log('🔍 Discovering unique tags for prerendering...')
+    const { data } = await supabase.from('scraps').select('tags')
+
+    const tagSet = new Set<string>()
+    data?.forEach(scrap => {
+      if (scrap.tags && Array.isArray(scrap.tags)) {
+        scrap.tags.forEach(tag => tagSet.add(tag))
+      }
+    })
+
+    const tags = Array.from(tagSet).sort()
+    console.log(`✅ Discovered ${tags.length} unique tags for prerendering`)
+
+    return tags
+  } catch (error) {
+    console.error('❌ Error discovering tags:', error)
+    return []
+  }
+}
+
 export default defineNuxtConfig({
   // Enable Nuxt 4 compatibility mode
   future: {
@@ -102,6 +133,8 @@ export default defineNuxtConfig({
     compressPublicAssets: false, // Let reverse proxy handle compression
     prerender: {
       concurrency: 12, // Faster prerendering
+      routes: [],
+      crawlLinks: true, // Crawl links for SSR prerendering
     },
     // Copy content directory to .output for API routes to access
     hooks: {
@@ -141,6 +174,14 @@ export default defineNuxtConfig({
             'Cache-Control': 'public, max-age=300, s-maxage=3600',
             'Cloudflare-CDN-Cache-Control':
               'max-age=3600, stale-if-error=86400',
+          },
+        },
+        // Pre-rendered tag pages - cache aggressively
+        '/scraps/**': {
+          headers: {
+            'Cache-Control': 'public, max-age=86400, s-maxage=604800',
+            'Cloudflare-CDN-Cache-Control':
+              'max-age=604800, stale-if-error=2592000',
           },
         },
       }),
@@ -184,4 +225,21 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/global.css'],
+
+  // Hooks for build-time operations
+  hooks: {
+    async 'build:before'() {
+      // Discover scrap tags and add prerender routes
+      if (process.env.npm_lifecycle_event === 'build' || process.env.npm_lifecycle_event?.includes('generate')) {
+        const tags = await getScrapTags()
+        if (tags.length > 0) {
+          // Dynamically add tag routes to prerender
+          const tagRoutes = tags.map(tag => `/scraps/tag/${encodeURIComponent(tag)}`)
+          console.log(`📝 Adding ${tagRoutes.length} tag routes to prerender`)
+          // Store tags globally for nitro to use
+          globalThis.__SCRAP_TAGS__ = tags
+        }
+      }
+    },
+  },
 })

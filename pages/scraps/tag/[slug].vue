@@ -145,17 +145,19 @@ interface Scrap {
 const route = useRoute()
 const tag = computed(() => {
   const slug = route.params.slug as string
-  return Array.isArray(slug) ? slug[0] : slug
+  return Array.isArray(slug) ? slug[0] : decodeURIComponent(slug)
 })
 
-const { data: scraps, pending, error } = await useFetch<Scrap[]>('/api/scraps')
-
-const filteredScraps = computed(() => {
-  if (!scraps.value) return []
-  return scraps.value.filter(s =>
-    s.tags?.includes(tag.value)
-  )
+// SSR-friendly data fetching: fetch all scraps once, cache aggressively
+const { data: scraps, pending, error } = await useFetch<Scrap[]>('/api/scraps', {
+  key: 'scraps-all',
+  transform: (data) => {
+    // Filter for this tag server-side during SSR
+    return data.filter(s => s.tags?.includes(tag.value))
+  },
 })
+
+const filteredScraps = computed(() => scraps.value || [])
 
 const formatDate = (dateStr: string) => {
   try {
