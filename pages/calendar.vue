@@ -10,15 +10,12 @@
 </template>
 
 <script setup>
-import { useColorMode } from '@vueuse/core'
+import { useDark } from '@vueuse/core'
 
-// Detect system theme
-const colorMode = useColorMode()
+// Detect dark mode (syncs with site's dark mode plugin)
+const isDark = useDark()
 const calendarUrl = computed(() => {
-  const theme =
-    colorMode.preference === 'system' ? colorMode.value : colorMode.preference
-
-  return `https://cal.com/ejfox/30min?embed=true&layout=month_view&theme=${theme === 'dark' ? 'dark' : 'light'}`
+  return `https://cal.com/ejfox/30min?embed=true&layout=month_view&theme=${isDark.value ? 'dark' : 'light'}`
 })
 
 usePageSeo({

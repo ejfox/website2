@@ -1,5 +1,5 @@
 <template>
-  <div class="font-mono text-xs space-y-2">
+  <div class="max-w-screen-xl mx-auto px-4 md:px-8 font-mono text-xs space-y-2">
     <!-- Header -->
     <div>
       <div class="font-bold tracking-wider uppercase">Scraps</div>
@@ -35,7 +35,7 @@
           :href="scrap.url"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-blue-600 hover:underline dark:text-blue-400 block text-xs line-clamp-2"
+          class="text-blue-600 hover:underline dark:text-blue-400 block text-xs line-clamp-1 xl:line-clamp-2 break-words"
         >
           {{ scrap.title || scrap.url }}
         </a>
@@ -46,7 +46,7 @@
         <!-- Summary -->
         <div
           v-if="scrap.summary"
-          class="text-[9px] text-zinc-600 dark:text-zinc-400 line-clamp-3"
+          class="text-[9px] text-zinc-600 dark:text-zinc-400 line-clamp-2 xl:line-clamp-3 break-words"
         >
           {{ scrap.summary }}
         </div>
@@ -74,14 +74,14 @@
             <span
               v-for="tag in scrap.concept_tags"
               :key="tag"
-              class="px-1 bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 opacity-50 italic"
+              class="hidden xl:inline px-1 bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 opacity-50 italic"
             >
               {{ tag }}
             </span>
           </div>
 
-          <!-- Row 3: Additional metadata -->
-          <div v-if="scrap.location || scrap.screenshot_url || scrap.shared || scrap.relationships?.length" class="flex flex-wrap gap-2 opacity-60">
+          <!-- Row 3: Additional metadata (lg+ only) -->
+          <div v-if="scrap.location || scrap.screenshot_url || scrap.shared || scrap.relationships?.length" class="hidden lg:flex flex-wrap gap-2 opacity-60">
             <span v-if="scrap.location">{{ scrap.location }}</span>
             <a
               v-if="scrap.screenshot_url"
@@ -96,15 +96,15 @@
             <span v-if="scrap.relationships?.length">↔ {{ scrap.relationships.length }}</span>
           </div>
 
-          <!-- Row 4: Confidence scores -->
-          <div v-if="scrap.extraction_confidence" class="opacity-50">
+          <!-- Row 4: Confidence scores (xl+ only) -->
+          <div v-if="scrap.extraction_confidence" class="hidden xl:block opacity-50">
             Conf:
             <span v-if="scrap.extraction_confidence.tags">tags {{ Math.round(scrap.extraction_confidence.tags * 100) }}%</span>
             <span v-if="scrap.extraction_confidence.summary">summary {{ Math.round(scrap.extraction_confidence.summary * 100) }}%</span>
           </div>
 
-          <!-- Row 5: Financial data -->
-          <div v-if="scrap.financial_analysis" class="opacity-50">
+          <!-- Row 5: Financial data (xl+ only) -->
+          <div v-if="scrap.financial_analysis" class="hidden xl:block opacity-50">
             financial data present
           </div>
         </div>
