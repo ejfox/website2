@@ -11,7 +11,16 @@ async function getScrapTags() {
     const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY)
 
     console.log('🔍 Discovering unique tags for prerendering...')
-    const { data } = await supabase.from('scraps').select('tags')
+    // Only select tags field for faster query, not all data
+    const { data, error } = await supabase
+      .from('scraps')
+      .select('tags')
+      .limit(5000) // Reasonable limit to avoid timeout
+
+    if (error) {
+      console.error('❌ Tag discovery error:', error)
+      return []
+    }
 
     const tagSet = new Set<string>()
     data?.forEach(scrap => {
@@ -133,8 +142,8 @@ export default defineNuxtConfig({
     compressPublicAssets: false, // Let reverse proxy handle compression
     prerender: {
       concurrency: 12, // Faster prerendering
-      routes: [],
-      crawlLinks: true, // Crawl links for SSR prerendering
+      routes: [], // Will be populated dynamically
+      crawlLinks: false, // Don't crawl - causes issues with broken/localhost links
     },
     // Copy content directory to .output for API routes to access
     hooks: {
@@ -226,20 +235,4 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/global.css'],
 
-  // Hooks for build-time operations
-  hooks: {
-    async 'build:before'() {
-      // Discover scrap tags and add prerender routes
-      if (process.env.npm_lifecycle_event === 'build' || process.env.npm_lifecycle_event?.includes('generate')) {
-        const tags = await getScrapTags()
-        if (tags.length > 0) {
-          // Dynamically add tag routes to prerender
-          const tagRoutes = tags.map(tag => `/scraps/tag/${encodeURIComponent(tag)}`)
-          console.log(`📝 Adding ${tagRoutes.length} tag routes to prerender`)
-          // Store tags globally for nitro to use
-          globalThis.__SCRAP_TAGS__ = tags
-        }
-      }
-    },
-  },
 })
