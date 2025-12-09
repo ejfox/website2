@@ -2,14 +2,14 @@
   <div class="font-mono text-xs space-y-2">
     <!-- Header -->
     <div>
-      <div class="font-bold tracking-wider uppercase">Scraps</div>
+      <div class="font-bold tracking-wider uppercase">Scraps: {{ tag }}</div>
       <div class="text-[10px] text-zinc-500 dark:text-zinc-500 space-y-1">
-        <div>{{ scraps.length }} items · {{ uniqueTags }} tags · {{ uniqueSources }}</div>
+        <div v-if="filteredScraps">{{ filteredScraps.length }} items</div>
       </div>
     </div>
 
     <!-- Loading/Error States -->
-    <div v-if="isLoading" class="text-zinc-500 dark:text-zinc-500 text-center py-8">
+    <div v-if="pending" class="text-zinc-500 dark:text-zinc-500 text-center py-8">
       Loading scraps...
     </div>
 
@@ -18,14 +18,14 @@
     </div>
 
     <!-- Empty State -->
-    <div v-else-if="!scraps.length" class="text-zinc-500 dark:text-zinc-500 text-center py-8">
-      No scraps yet
+    <div v-else-if="!filteredScraps?.length" class="text-zinc-500 dark:text-zinc-500 text-center py-8">
+      No scraps with this tag
     </div>
 
     <!-- Scraps List -->
     <div v-else class="space-y-2">
       <div
-        v-for="scrap in scraps"
+        v-for="scrap in filteredScraps"
         :key="scrap.id"
         class="space-y-1 border-b border-zinc-200 dark:border-zinc-800 pb-2 last:border-0"
       >
@@ -64,19 +64,19 @@
           <!-- Row 2: Tags + Concept tags -->
           <div v-if="scrap.tags?.length || scrap.concept_tags?.length" class="flex flex-wrap gap-1">
             <NuxtLink
-              v-for="tag in scrap.tags"
-              :key="tag"
-              :to="`/scraps/tag/${encodeURIComponent(tag)}`"
+              v-for="t in scrap.tags"
+              :key="t"
+              :to="`/scraps/tag/${encodeURIComponent(t)}`"
               class="px-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 opacity-60 hover:opacity-100 hover:underline cursor-pointer transition-opacity"
             >
-              {{ tag }}
+              {{ t }}
             </NuxtLink>
             <span
-              v-for="tag in scrap.concept_tags"
-              :key="tag"
+              v-for="t in scrap.concept_tags"
+              :key="t"
               class="px-1 bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 opacity-50 italic"
             >
-              {{ tag }}
+              {{ t }}
             </span>
           </div>
 
@@ -121,7 +121,6 @@ interface Scrap {
   id: string
   title: string | null
   summary: string | null
-  summaryHtml?: string
   url: string | null
   content: string | null
   created_at: string
@@ -143,29 +142,19 @@ interface Scrap {
   metadata: any | null
 }
 
-const { data: scraps, pending: isLoading, error } = await useFetch<Scrap[]>('/api/scraps')
-
-const stats = computed(() => {
-  if (!scraps.value.length) return null
-  return {
-    total: scraps.value.length,
-  }
+const route = useRoute()
+const tag = computed(() => {
+  const slug = route.params.slug as string
+  return Array.isArray(slug) ? slug[0] : slug
 })
 
-const uniqueTags = computed(() => {
-  const tags = new Set<string>()
-  scraps.value.forEach((s) => {
-    s.tags?.forEach((t) => tags.add(t))
-  })
-  return tags.size
-})
+const { data: scraps, pending, error } = await useFetch<Scrap[]>('/api/scraps')
 
-const uniqueSources = computed(() => {
-  const sources = new Set<string>()
-  scraps.value.forEach((s) => {
-    if (s.source) sources.add(s.source)
-  })
-  return Array.from(sources).join(', ') || 'unknown'
+const filteredScraps = computed(() => {
+  if (!scraps.value) return []
+  return scraps.value.filter(s =>
+    s.tags?.includes(tag.value)
+  )
 })
 
 const formatDate = (dateStr: string) => {
@@ -177,8 +166,8 @@ const formatDate = (dateStr: string) => {
 }
 
 usePageSeo({
-  title: 'Scraps',
-  description: 'A collection of interesting things found around the web',
+  title: `Tag: ${tag.value}`,
+  description: `Scraps tagged with ${tag.value}`,
   type: 'website',
   section: 'Content',
 })
