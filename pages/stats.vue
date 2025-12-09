@@ -356,7 +356,7 @@
               "
             >
               <!-- GitHub -->
-              <StatsSection
+              <StatSection
                 v-if="stats.github?.stats"
                 id="github"
                 key="github-section"
@@ -364,10 +364,10 @@
                 class="break-inside-avoid"
               >
                 <GitHubStats key="github" :stats="stats.github" />
-              </StatsSection>
+              </StatSection>
 
               <!-- Writing -->
-              <StatsSection
+              <StatSection
                 v-if="stats.blog"
                 id="writing"
                 key="writing-section"
@@ -375,10 +375,10 @@
                 class="break-inside-avoid"
               >
                 <BlogStats key="blog" :stats="stats.blog" />
-              </StatsSection>
+              </StatSection>
 
               <!-- Reading -->
-              <StatsSection
+              <StatSection
                 v-if="stats.goodreads?.stats"
                 id="reading"
                 key="reading-section"
@@ -386,10 +386,10 @@
                 class="break-inside-avoid"
               >
                 <GoodreadsStats key="goodreads" :data="stats.goodreads" />
-              </StatsSection>
+              </StatSection>
 
               <!-- Productivity -->
-              <StatsSection
+              <StatSection
                 v-if="stats.rescueTime"
                 id="productivity"
                 key="productivity-section"
@@ -397,10 +397,10 @@
                 class="break-inside-avoid"
               >
                 <RescueTimeStats key="rescuetime" :stats="stats" />
-              </StatsSection>
+              </StatSection>
 
               <!-- LeetCode -->
-              <StatsSection
+              <StatSection
                 v-if="
                   stats.leetcode?.submissionStats &&
                   (stats.leetcode.submissionStats.easy.count > 0 ||
@@ -413,10 +413,10 @@
                 class="break-inside-avoid"
               >
                 <LeetCodeStats key="leetcode" :stats="stats.leetcode" />
-              </StatsSection>
+              </StatSection>
 
               <!-- Chess -->
-              <StatsSection
+              <StatSection
                 v-if="stats.chess"
                 id="chess"
                 key="chess-section"
@@ -424,10 +424,10 @@
                 class="break-inside-avoid"
               >
                 <ChessStats key="chess" :stats="stats.chess" />
-              </StatsSection>
+              </StatSection>
 
               <!-- Typing -->
-              <StatsSection
+              <StatSection
                 v-if="stats.monkeyType?.typingStats"
                 id="typing"
                 key="typing-section"
@@ -435,10 +435,10 @@
                 class="break-inside-avoid"
               >
                 <MonkeyTypeStats key="monkeytype" :stats="stats.monkeyType" />
-              </StatsSection>
+              </StatSection>
 
               <!-- Code Snippets -->
-              <StatsSection
+              <StatSection
                 v-if="stats.gists?.stats"
                 id="gists"
                 key="gists-section"
@@ -446,10 +446,10 @@
                 class="break-inside-avoid"
               >
                 <GistStats key="gists" :gist-stats="stats.gists" />
-              </StatsSection>
+              </StatSection>
 
               <!-- Music -->
-              <StatsSection
+              <StatSection
                 v-if="stats.lastfm"
                 id="music"
                 key="music-section"
@@ -457,10 +457,10 @@
                 class="break-inside-avoid"
               >
                 <LastFmStats key="lastfm" :stats="stats.lastfm" />
-              </StatsSection>
+              </StatSection>
 
               <!-- Films -->
-              <StatsSection
+              <StatSection
                 v-if="stats.letterboxd?.stats"
                 id="films"
                 key="films-section"
@@ -471,10 +471,10 @@
                   key="letterboxd"
                   :letterboxd-stats="stats.letterboxd"
                 />
-              </StatsSection>
+              </StatSection>
 
               <!-- Analytics -->
-              <StatsSection
+              <StatSection
                 v-if="stats.website?.stats"
                 id="website"
                 key="website-section"
@@ -482,7 +482,7 @@
                 class="break-inside-avoid"
               >
                 <UmamiStats key="umami" :umami-stats="stats.website" />
-              </StatsSection>
+              </StatSection>
             </template>
           </TransitionGroup>
         </section>
@@ -492,9 +492,9 @@
           <!-- Gear Stats -->
           <Transition name="fade-up" appear>
             <div id="gear" class="relative">
-              <StatsSection title="GEAR">
+              <StatSection title="GEAR">
                 <GearStats :gear-stats="stats?.gear" />
-              </StatsSection>
+              </StatSection>
             </div>
           </Transition>
 
@@ -523,7 +523,7 @@
 
 <script setup lang="ts">
 // Import stats components explicitly (Nuxt 4 auto-import issues)
-import StatsSection from '~/components/stats/StatsSection.vue'
+import StatSection from '~/components/stats/StatSection.vue'
 import TopStats from '~/components/stats/TopStats.vue'
 import GitHubStats from '~/components/stats/GitHubStats.vue'
 import BlogStats from '~/components/stats/BlogStats.vue'
