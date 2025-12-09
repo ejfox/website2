@@ -13,7 +13,7 @@
       <nav v-if="!isStatsSimple" class="header-mobile-sticky">
         <!-- Top bar with branding -->
         <div class="flex items-center justify-between px-4 h-12">
-          <a href="/" :class="brandingClasses">EJ Fox</a>
+          <NuxtLink to="/" :class="brandingClasses">EJ Fox</NuxtLink>
           <div class="w-6"></div>
           <!-- Spacer for visual balance -->
         </div>

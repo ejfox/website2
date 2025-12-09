@@ -5,7 +5,7 @@
     class="font-mono text-xs mb-6 flex items-center gap-2 text-zinc-500 dark:text-zinc-500 overflow-x-auto"
     aria-label="Breadcrumb"
   >
-    <a href="/" class="text-zinc-500 dark:text-zinc-400">Home</a>
+    <NuxtLink to="/" class="text-zinc-500 dark:text-zinc-400">Home</NuxtLink>
 
     <template
       v-for="(crumb, index) in breadcrumbs"
@@ -13,8 +13,8 @@
     >
       <span class="opacity-50">/</span>
       <component
-        :is="crumb.href ? 'a' : 'span'"
-        :href="crumb.href || undefined"
+        :is="crumb.href ? 'NuxtLink' : 'span'"
+        :to="crumb.href || undefined"
         :class="{
           'text-zinc-500 dark:text-zinc-400': crumb.href,
           'text-zinc-900 dark:text-zinc-100': !crumb.href,

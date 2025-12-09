@@ -19,13 +19,13 @@
 
       <!-- Navigation -->
       <nav :class="navClasses">
-        <a href="/stats" :class="navLinkClasses">/stats</a>
-        <a href="/gists" :class="navLinkClasses">/gists</a>
-        <a href="/gear" :class="navLinkClasses">/gear</a>
-        <a href="/predictions" :class="navLinkClasses">/predictions</a>
-        <a href="/now" :class="navLinkClasses">/now</a>
-        <a href="/on-this-day" :class="navLinkClasses">/on-this-day</a>
-        <a href="/sitemap" :class="navLinkClasses">/sitemap</a>
+        <NuxtLink to="/stats" :class="navLinkClasses">/stats</NuxtLink>
+        <NuxtLink to="/gists" :class="navLinkClasses">/gists</NuxtLink>
+        <NuxtLink to="/gear" :class="navLinkClasses">/gear</NuxtLink>
+        <NuxtLink to="/predictions" :class="navLinkClasses">/predictions</NuxtLink>
+        <NuxtLink to="/now" :class="navLinkClasses">/now</NuxtLink>
+        <NuxtLink to="/on-this-day" :class="navLinkClasses">/on-this-day</NuxtLink>
+        <NuxtLink to="/sitemap" :class="navLinkClasses">/sitemap</NuxtLink>
         <a href="https://ejfox.com/rss.xml" :class="navLinkClasses">/rss</a>
         <a
           href="https://github.com/ejfox"
@@ -45,9 +45,9 @@
       <!-- PGP + Build info -->
       <div class="space-y-2 text-xs text-zinc-500 dark:text-zinc-500">
         <div>
-          <a href="/pgp.txt" class="interactive-link">
+          <NuxtLink to="/pgp.txt" class="interactive-link">
             PGP: E207 8E65 3FE3 89CD
-          </a>
+          </NuxtLink>
         </div>
         <div v-if="buildInfo">
           <a

@@ -55,59 +55,59 @@
         <div class="text-[8px] text-zinc-500 dark:text-zinc-500 space-y-0.5">
           <!-- Row 1: Core info -->
           <div class="flex flex-wrap gap-2 opacity-70">
-            <a
+            <NuxtLink
               v-if="scrap.source"
-              :href="`/scraps?source=${encodeURIComponent(scrap.source)}`"
+              :to="{ query: { source: scrap.source } }"
               class="hover:underline hover:opacity-100 cursor-pointer transition-opacity"
             >
               {{ scrap.source }}
-            </a>
-            <a
+            </NuxtLink>
+            <NuxtLink
               v-if="scrap.type"
-              :href="`/scraps?type=${encodeURIComponent(scrap.type)}`"
+              :to="{ query: { type: scrap.type } }"
               class="hover:underline hover:opacity-100 cursor-pointer transition-opacity"
             >
               {{ scrap.type }}
-            </a>
-            <a
+            </NuxtLink>
+            <NuxtLink
               v-if="scrap.content_type"
-              :href="`/scraps?content_type=${encodeURIComponent(scrap.content_type)}`"
+              :to="{ query: { content_type: scrap.content_type } }"
               class="hover:underline hover:opacity-100 cursor-pointer transition-opacity"
             >
               {{ scrap.content_type }}
-            </a>
+            </NuxtLink>
             <span class="opacity-50">{{ formatDate(scrap.created_at) }}</span>
           </div>
 
           <!-- Row 2: Tags + Concept tags -->
           <div v-if="scrap.tags?.length || scrap.concept_tags?.length" class="flex flex-wrap gap-1">
-            <a
+            <NuxtLink
               v-for="tag in scrap.tags"
               :key="tag"
-              :href="`/scraps?tag=${encodeURIComponent(tag)}`"
+              :to="{ query: { tag } }"
               class="px-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 opacity-60 hover:opacity-100 hover:underline cursor-pointer transition-opacity"
             >
               {{ tag }}
-            </a>
-            <a
+            </NuxtLink>
+            <NuxtLink
               v-for="tag in scrap.concept_tags"
               :key="tag"
-              :href="`/scraps?concept_tag=${encodeURIComponent(tag)}`"
+              :to="{ query: { concept_tag: tag } }"
               class="px-1 bg-zinc-200 dark:bg-zinc-700 text-zinc-700 dark:text-zinc-300 opacity-50 italic hover:opacity-100 hover:underline cursor-pointer transition-opacity"
             >
               {{ tag }}
-            </a>
+            </NuxtLink>
           </div>
 
           <!-- Row 3: Additional metadata -->
           <div v-if="scrap.location || scrap.screenshot_url || scrap.shared || scrap.relationships?.length" class="flex flex-wrap gap-2 opacity-60">
-            <a
+            <NuxtLink
               v-if="scrap.location"
-              :href="`/scraps?location=${encodeURIComponent(scrap.location)}`"
+              :to="{ query: { location: scrap.location } }"
               class="hover:underline hover:opacity-100 cursor-pointer transition-opacity"
             >
               {{ scrap.location }}
-            </a>
+            </NuxtLink>
             <a
               v-if="scrap.screenshot_url"
               :href="scrap.screenshot_url"
@@ -117,13 +117,13 @@
             >
               image
             </a>
-            <a
+            <NuxtLink
               v-if="scrap.shared"
-              href="/scraps?shared=true"
+              :to="{ query: { shared: 'true' } }"
               class="hover:underline hover:opacity-100 cursor-pointer transition-opacity"
             >
               shared
-            </a>
+            </NuxtLink>
             <span v-if="scrap.relationships?.length">↔ {{ scrap.relationships.length }}</span>
           </div>
 
