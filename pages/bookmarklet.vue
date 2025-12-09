@@ -181,7 +181,7 @@ const bookmarkletCode = computed(() => {
     return;
   }
 
-  var popupUrl='http://localhost:3006/bookmarklet-popup?'+
+  var popupUrl='https://'+w.location.hostname+'/bookmarklet-popup?'+
     'url='+encodeURIComponent(l)+
     '&title='+encodeURIComponent(d.title)+
     '&text='+encodeURIComponent(truncatedText)+

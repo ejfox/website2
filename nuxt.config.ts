@@ -73,6 +73,9 @@ export default defineNuxtConfig({
     UMAMI_PASSWORD: process.env.UMAMI_PASSWORD || '',
     KALSHI_KEY_ID: process.env.KALSHI_KEY_ID || '',
     KALSHI_PRIVATE_KEY: process.env.KALSHI_PRIVATE_KEY || '',
+    SUPABASE_URL: process.env.SUPABASE_URL || '',
+    SUPABASE_KEY: process.env.SUPABASE_KEY || '',
+    scrapEnlightenerAuth: process.env.SCRAP_ENLIGHTENER_AUTH || '',
 
     // Public client-accessible vars
     public: {
