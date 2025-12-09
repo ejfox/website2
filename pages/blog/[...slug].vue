@@ -142,21 +142,19 @@ const relatedPosts = computed(() => {
 
   return postsWithScores
 })
-// New refs for animation targets
+// Refs for animation targets and DOM tracking
 const postTitle = ref(null)
 const postMetadata = ref(null)
-const _postMetadataComponent = ref(null)
 const navigationLinks = ref(null)
 const articleContent = ref(null)
 const headings = ref([])
 const activeSection = ref('')
-const titleWidth = ref(0)
 
-// Scroll progress tracking (just the percentage)
+// Scroll progress tracking
 const scrollProgress = ref(0)
 
-// Debug grid toggle
-const showDebugGrid = ref(false) // Dev only - toggle with Cmd+G
+// Debug grid toggle (Cmd+G)
+const showDebugGrid = ref(false)
 
 // Calculate reading stats
 const readingStats = computed(() => {
@@ -189,19 +187,8 @@ const readingStats = computed(() => {
   }
 })
 
-const _isMobile = computed(() => {
-  if (typeof window !== 'undefined') {
-    return window.innerWidth < 768
-  }
-  return false
-})
-
-// Simple setup for title and TOC
+// Setup scroll tracking and keyboard shortcuts
 onMounted(() => {
-  if (postTitle.value) {
-    titleWidth.value = postTitle.value.offsetWidth
-  }
-
   // Track scroll progress
   const handleScroll = () => {
     const scrollHeight =
@@ -282,7 +269,7 @@ const animationState = reactive({
 })
 
 // Update the rendered title to wrap words properly
-const _renderedTitle = computed(() => {
+const renderedTitle = computed(() => {
   // If we haven't started animating yet, show all letters
   if (!animationState.hasAnimated) {
     const spans = letters.value.map(({ char, isSpace }) => {
@@ -533,19 +520,6 @@ useHead(() => ({
   ],
   htmlAttrs: { lang: 'en' },
 }))
-
-// Add this new computed property
-const _isBlogPost = computed(() => {
-  return route.path.startsWith('/blog/') && route.path !== '/blog/'
-})
-// Add computed property to check if donations should be shown
-const _showDonations = computed(() => {
-  // Show donations by default unless explicitly disabled in frontmatter
-  // return post.value?.donation !== false
-  // actually lets hide by default
-  return false
-})
-
 const smartSuggestions = ref([])
 
 // Table of Contents computed property
@@ -614,66 +588,7 @@ watch(
   { immediate: true }
 )
 
-// DELETE: Removed 369KB OpenPGP.js signature verification for performance
-
-/**
- * Post Metadata Structure
- * ======================
- * All post metadata MUST be inside the metadata object:
- *
- * {
- *   content: "<article>...</article>",
- *   html: "<article>...</article>",
- *   title: "Post Title",
- *   metadata: {
- *     // Required
- *     date: "2024-01-01T00:00:00.000Z",
- *     modified: "2024-01-02T00:00:00.000Z",
- *     dek: "Post description",
- *     type: "post",
- *
- *     // Stats (auto-calculated)
- *     words: 2077,
- *     images: 3,
- *     links: 6,
- *
- *     // Optional
- *     tags: ["tag1", "tag2"],
- *     draft: false,
- *     hidden: false
- *   }
- * }
- */
-
-// Prepare metadata for PostMetadata component
-const _processedMetadata = computed(() => {
-  if (!post.value) return null
-
-  const metadata = post.value.metadata
-  if (!metadata) {
-    console.warn('Post is missing metadata object:', post.value)
-    return null
-  }
-
-  return {
-    // Basic metadata
-    slug: metadata.slug || route.params.slug.join('/'),
-    title: post.value.title || metadata.title, // Use top-level title first
-    date: metadata.date,
-    draft: metadata.draft,
-
-    // Stats
-    readingTime: Math.ceil(metadata.words / 200),
-    wordCount: metadata.words,
-    imageCount: metadata.images,
-    linkCount: metadata.links,
-
-    // Additional metadata
-    type: metadata.type,
-    dek: metadata.dek,
-    metadata, // Pass through full metadata object
-  }
-})
+// Note: Metadata structure: {content, html, title, metadata:{date, modified, dek, type, words, images, links, tags, draft, hidden}}
 </script>
 
 <template>
@@ -799,9 +714,8 @@ const _processedMetadata = computed(() => {
             ref="postTitle"
             class="post-title-hero"
             style="line-height: 1.2; letter-spacing: -0.025em"
-          >
-            {{ post?.metadata?.title || post?.title }}
-          </h1>
+            v-html="renderedTitle"
+          ></h1>
           <p v-if="post?.metadata?.dek || post?.dek" class="post-dek">
             {{ post?.metadata?.dek || post?.dek }}
           </p>
@@ -1217,5 +1131,36 @@ const _processedMetadata = computed(() => {
 
 .blog-post-content a:hover .external-link svg {
   opacity: 0.8;
+}
+
+/* Title typing animation */
+.post-title-hero .letter {
+  transition: opacity 0.1s ease-out;
+}
+
+.post-title-hero .letter.hidden {
+  opacity: 0;
+}
+
+.post-title-hero .letter.visible {
+  opacity: 1;
+}
+
+.post-title-hero .cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  margin: 0 2px;
+  background-color: currentColor;
+  animation: blink 0.6s infinite;
+}
+
+@keyframes blink {
+  0%, 49% {
+    opacity: 1;
+  }
+  50%, 100% {
+    opacity: 0;
+  }
 }
 </style>
