@@ -81,10 +81,10 @@
 
           <!-- Row 3: Additional metadata -->
           <div v-if="scrap.location || scrap.screenshot_url || scrap.shared || scrap.relationships?.length" class="flex flex-wrap gap-2 opacity-60">
-            <span v-if="scrap.location">📍 {{ scrap.location }}</span>
-            <span v-if="scrap.screenshot_url">🖼️</span>
-            <span v-if="scrap.shared">🔗 shared</span>
-            <span v-if="scrap.relationships?.length">↔️ {{ scrap.relationships.length }}</span>
+            <span v-if="scrap.location">{{ scrap.location }}</span>
+            <span v-if="scrap.screenshot_url">image</span>
+            <span v-if="scrap.shared">shared</span>
+            <span v-if="scrap.relationships?.length">↔ {{ scrap.relationships.length }}</span>
           </div>
 
           <!-- Row 4: Confidence scores -->
@@ -96,7 +96,7 @@
 
           <!-- Row 5: Financial data -->
           <div v-if="scrap.financial_analysis" class="opacity-50">
-            💰 financial data present
+            financial data present
           </div>
         </div>
       </div>
