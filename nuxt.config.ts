@@ -8,7 +8,10 @@ async function getScrapTags() {
     }
 
     const { createClient } = await import('@supabase/supabase-js')
-    const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY)
+    const supabase = createClient(
+      process.env.SUPABASE_URL,
+      process.env.SUPABASE_KEY
+    )
 
     console.log('🔍 Discovering unique tags for prerendering...')
     // Only select tags field for faster query, not all data
@@ -23,9 +26,9 @@ async function getScrapTags() {
     }
 
     const tagSet = new Set<string>()
-    data?.forEach(scrap => {
+    data?.forEach((scrap) => {
       if (scrap.tags && Array.isArray(scrap.tags)) {
-        scrap.tags.forEach(tag => tagSet.add(tag))
+        scrap.tags.forEach((tag) => tagSet.add(tag))
       }
     })
 
@@ -211,14 +214,30 @@ export default defineNuxtConfig({
           manualChunks: {
             // Static chunks instead of function (faster)
             vue: ['vue', '@vue/reactivity', '@vueuse/core'],
-            d3: ['d3', 'd3-dsv', 'd3-format'],
+            d3: [
+              'd3',
+              'd3-dsv',
+              'd3-format',
+              'd3-scale-chromatic',
+              'd3-scale',
+              'd3-array',
+              'd3-shape',
+            ],
           },
         },
       },
     },
     optimizeDeps: {
       include: ['vue', '@vue/reactivity', '@vueuse/core'],
-      exclude: ['d3', 'd3-dsv', 'd3-format'], // Lazy load heavy libs
+      exclude: [
+        'd3',
+        'd3-dsv',
+        'd3-format',
+        'd3-scale-chromatic',
+        'd3-scale',
+        'd3-array',
+        'd3-shape',
+      ], // Lazy load heavy libs
       // force: true // DISABLED FOR DEV - was forcing aggressive dep caching
     },
     esbuild: {
@@ -234,5 +253,4 @@ export default defineNuxtConfig({
   },
 
   css: ['~/assets/css/global.css'],
-
 })
