@@ -17,7 +17,12 @@ jobs:
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.VPS_SSH_KEY }}
         script: |
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
           cd /data2/website2
+          nvm install 22 || true
+          nvm use 22
+          node --version
           git fetch origin main
           git reset --hard origin/main
           rm -rf node_modules .yarn/cache .nuxt .output
