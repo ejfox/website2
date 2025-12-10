@@ -49,6 +49,31 @@
       </div>
     </div>
 
+    <!-- Commit Type Distribution Small Multiples -->
+    <div v-if="commitTypeBars?.length" class="col-span-full">
+      <StatsSectionHeader title="COMMIT TYPES" />
+      <div class="space-y-1">
+        <div
+          v-for="ct in commitTypeBars"
+          :key="ct.type"
+          class="flex items-center gap-2 text-xs"
+        >
+          <span class="text-zinc-500 uppercase tracking-widest w-14 text-xs">
+            {{ ct.type }}
+          </span>
+          <div class="flex-1 h-2 bg-zinc-200 dark:bg-zinc-800 rounded-sm">
+            <div
+              class="h-full bg-zinc-400 dark:bg-zinc-500 rounded-sm transition-all"
+              :style="{ width: `${ct.barPct}%` }"
+            ></div>
+          </div>
+          <span class="text-zinc-500 tabular-nums w-8 text-right text-xs">
+            {{ ct.count }}
+          </span>
+        </div>
+      </div>
+    </div>
+
     <!-- Activity Calendar -->
     <div v-if="hasCommits" class="col-span-full">
       <StatsSectionHeader title="COMMIT ACTIVITY" />
@@ -176,6 +201,21 @@ const totalCommits = computed(() => {
 
 const hasCommits = computed(() => {
   return !!props.stats?.detail?.commits?.length
+})
+
+// Commit type bars with normalized counts
+const commitTypeBars = computed(() => {
+  const types = props.stats?.detail?.commitTypes
+  if (!types?.length) return []
+
+  const sorted = [...types].sort((a, b) => b.count - a.count).slice(0, 6)
+  const max = Math.max(...sorted.map((t) => t.count), 1)
+
+  return sorted.map((t) => ({
+    type: t.type,
+    count: t.count,
+    barPct: Math.round((t.count / max) * 100),
+  }))
 })
 
 // Data for activity calendar
