@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 678273,
+    "Vue": 676691,
     "TypeScript": 305109,
-    "JavaScript": 213036,
+    "JavaScript": 210622,
     "CSS": 54309,
     "HTML": 15405,
     "Shell": 15076,
     "Dockerfile": 779
   },
-  "diskUsage": 86015,
+  "diskUsage": 86144,
   "fileTree": {
     "files": [
       {
@@ -397,15 +397,11 @@
       },
       {
         "path": "components/stats/StatSection.vue",
-        "size": 323
+        "size": 947
       },
       {
         "path": "components/stats/StatsDataState.vue",
         "size": 763
-      },
-      {
-        "path": "components/stats/StatsSection.vue",
-        "size": 741
       },
       {
         "path": "components/stats/StatsSectionHeader.vue",
@@ -5624,10 +5620,6 @@
         "size": 7003
       },
       {
-        "path": "kalshi-query.mjs",
-        "size": 2414
-      },
-      {
         "path": "layouts/bookmarklet.vue",
         "size": 478
       },
@@ -5645,7 +5637,7 @@
       },
       {
         "path": "pages/blog/[...slug].vue",
-        "size": 34920
+        "size": 33305
       },
       {
         "path": "pages/blog/index.vue",
@@ -5725,7 +5717,7 @@
       },
       {
         "path": "pages/on-this-day.vue",
-        "size": 9530
+        "size": 9706
       },
       {
         "path": "pages/predictions/[slug].vue",
@@ -5761,7 +5753,7 @@
       },
       {
         "path": "pages/stats.vue",
-        "size": 37193
+        "size": 37167
       },
       {
         "path": "plugins/dark-mode.client.js",
@@ -6860,18 +6852,13 @@
                 },
                 {
                   "name": "StatSection.vue",
-                  "size": 323,
+                  "size": 947,
                   "path": "components/stats/StatSection.vue"
                 },
                 {
                   "name": "StatsDataState.vue",
                   "size": 763,
                   "path": "components/stats/StatsDataState.vue"
-                },
-                {
-                  "name": "StatsSection.vue",
-                  "size": 741,
-                  "path": "components/stats/StatsSection.vue"
                 },
                 {
                   "name": "StatsSectionHeader.vue",
@@ -13979,7 +13966,7 @@
                 },
                 {
                   "name": "[...slug].vue",
-                  "size": 34920,
+                  "size": 33305,
                   "path": "pages/blog/[...slug].vue"
                 },
                 {
@@ -14122,7 +14109,7 @@
             },
             {
               "name": "on-this-day.vue",
-              "size": 9530,
+              "size": 9706,
               "path": "pages/on-this-day.vue"
             },
             {
@@ -14137,7 +14124,7 @@
             },
             {
               "name": "stats.vue",
-              "size": 37193,
+              "size": 37167,
               "path": "pages/stats.vue"
             }
           ],
@@ -15363,11 +15350,6 @@
           "path": "eslint.config.mjs"
         },
         {
-          "name": "kalshi-query.mjs",
-          "size": 2414,
-          "path": "kalshi-query.mjs"
-        },
-        {
           "name": "nuxt.config.ts",
           "size": 6107,
           "path": "nuxt.config.ts"
@@ -15405,8 +15387,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 1629,
-    "totalSize": 82726042
+    "totalFiles": 1627,
+    "totalSize": 82722046
   },
   "topics": [],
   "readme": {
@@ -15415,6 +15397,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-08T22:32:30Z",
-  "pushedAt": "2025-12-08T22:32:26Z"
+  "updatedAt": "2025-12-09T17:22:06Z",
+  "pushedAt": "2025-12-09T17:22:02Z"
 }

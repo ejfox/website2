@@ -1,8 +1,36 @@
 [
   {
-    "name": "ejthirdbear",
-    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
-    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
+    "name": "dotfiles",
+    "description": "Backup of my dotfiles",
+    "url": "https://github.com/ejfox/dotfiles",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 1,
+      "watchers": 0,
+      "openIssues": 3
+    },
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "languages": {
+      "Shell": 254882,
+      "GLSL": 155860,
+      "Lua": 114144,
+      "Vim Script": 83725,
+      "JavaScript": 8622,
+      "Less": 2089
+    },
+    "diskUsage": 63256,
+    "topics": [],
+    "excerpt": "Backup of my dotfiles",
+    "createdAt": "2019-04-07T22:09:55Z",
+    "updatedAt": "2025-12-09T17:59:20Z",
+    "pushedAt": "2025-12-09T17:59:16Z"
+  },
+  {
+    "name": "tmux-link-grab",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/tmux-link-grab",
     "homepage": null,
     "stats": {
       "stars": 0,
@@ -10,15 +38,17 @@
       "watchers": 0,
       "openIssues": 0
     },
-    "language": "Svelte",
-    "languageColor": "#ff3e00",
-    "languages": {},
-    "diskUsage": 5921,
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "languages": {
+      "Shell": 3076
+    },
+    "diskUsage": 0,
     "topics": [],
-    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
-    "createdAt": "2025-11-12T20:10:52Z",
-    "updatedAt": "2025-12-08T22:55:48Z",
-    "pushedAt": "2025-12-08T22:55:45Z"
+    "excerpt": "No description provided",
+    "createdAt": "2025-12-09T17:39:32Z",
+    "updatedAt": "2025-12-09T17:59:18Z",
+    "pushedAt": "2025-12-09T17:59:15Z"
   },
   {
     "name": "website2",
@@ -34,48 +64,153 @@
     "language": "Vue",
     "languageColor": "#41b883",
     "languages": {
-      "Vue": 678273,
+      "Vue": 676691,
       "TypeScript": 305109,
-      "JavaScript": 213036,
+      "JavaScript": 210622,
       "CSS": 54309,
       "HTML": 15405,
       "Shell": 15076,
       "Dockerfile": 779
     },
-    "diskUsage": 86015,
+    "diskUsage": 86144,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-08T22:32:30Z",
-    "pushedAt": "2025-12-08T22:32:26Z"
+    "updatedAt": "2025-12-09T17:22:06Z",
+    "pushedAt": "2025-12-09T17:22:02Z"
   },
   {
-    "name": "dotfiles",
-    "description": "Backup of my dotfiles",
-    "url": "https://github.com/ejfox/dotfiles",
+    "name": "ghostty",
+    "description": "👻 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.",
+    "url": "https://github.com/ejfox/ghostty",
+    "homepage": "https://ghostty.org",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Zig",
+    "languageColor": "#ec915c",
+    "languages": {
+      "Zig": 7260559,
+      "Swift": 953060,
+      "C++": 319267,
+      "C": 252364,
+      "Shell": 71164,
+      "HTML": 49123,
+      "GLSL": 29367,
+      "Nix": 25529,
+      "Metal": 25257,
+      "Python": 23893,
+      "Elvish": 6264,
+      "Nushell": 5711,
+      "Dockerfile": 4169,
+      "CSS": 4093,
+      "Objective-C": 973,
+      "Makefile": 731
+    },
+    "diskUsage": 69843,
+    "topics": [],
+    "excerpt": "👻 Ghostty is a fast, feature-rich, and cross-platform terminal emulator that uses platform-native UI and GPU acceleration.",
+    "createdAt": "2025-12-09T17:19:24Z",
+    "updatedAt": "2025-12-09T17:19:24Z",
+    "pushedAt": "2025-12-09T18:32:45Z"
+  },
+  {
+    "name": "four-seventeen",
+    "description": "NPM module for canvas-based generative art ",
+    "url": "https://github.com/ejfox/four-seventeen",
     "homepage": null,
     "stats": {
-      "stars": 1,
+      "stars": 2,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 6091
+    },
+    "diskUsage": 884,
+    "topics": [],
+    "excerpt": "NPM module for canvas-based generative art ",
+    "createdAt": "2018-12-27T19:07:50Z",
+    "updatedAt": "2025-12-09T13:29:47Z",
+    "pushedAt": "2022-12-08T09:03:05Z"
+  },
+  {
+    "name": "417am",
+    "description": "Website for generative art explanations",
+    "url": "https://github.com/ejfox/417am",
+    "homepage": "http://417.cool",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 2108683,
+      "HTML": 50224,
+      "CoffeeScript": 28194,
+      "CSS": 11780
+    },
+    "diskUsage": 48591,
+    "topics": [],
+    "excerpt": "Website for generative art explanations",
+    "createdAt": "2017-10-29T18:50:21Z",
+    "updatedAt": "2025-12-09T13:22:50Z",
+    "pushedAt": "2017-11-25T22:53:04Z"
+  },
+  {
+    "name": "twitter-artbot",
+    "description": "Generative art framework with JS, D3, Canvas, and more...",
+    "url": "https://github.com/ejfox/twitter-artbot",
+    "homepage": "https://twitter.com/417am1975",
+    "stats": {
+      "stars": 6,
       "forks": 1,
       "watchers": 0,
-      "openIssues": 3
+      "openIssues": 0
     },
-    "language": "Shell",
-    "languageColor": "#89e051",
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
     "languages": {
-      "Shell": 238831,
-      "GLSL": 155774,
-      "Lua": 114144,
-      "Vim Script": 83725,
-      "JavaScript": 8622,
-      "Less": 2089
+      "JavaScript": 1107516,
+      "CoffeeScript": 297001,
+      "HTML": 1409
     },
-    "diskUsage": 63256,
+    "diskUsage": 8459,
     "topics": [],
-    "excerpt": "Backup of my dotfiles",
-    "createdAt": "2019-04-07T22:09:55Z",
-    "updatedAt": "2025-12-07T19:06:53Z",
-    "pushedAt": "2025-12-07T19:06:49Z"
+    "excerpt": "Generative art framework with JS, D3, Canvas, and more...",
+    "createdAt": "2017-06-11T20:47:18Z",
+    "updatedAt": "2025-12-09T13:20:51Z",
+    "pushedAt": "2022-12-09T04:48:59Z"
+  },
+  {
+    "name": "ejthirdbear",
+    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Svelte",
+    "languageColor": "#ff3e00",
+    "languages": {},
+    "diskUsage": 7707,
+    "topics": [],
+    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "createdAt": "2025-11-12T20:10:52Z",
+    "updatedAt": "2025-12-08T23:05:50Z",
+    "pushedAt": "2025-12-09T18:39:09Z"
   },
   {
     "name": "vulpes-theme-lab",
@@ -160,7 +295,7 @@
       "stars": 36,
       "forks": 7,
       "watchers": 0,
-      "openIssues": 330
+      "openIssues": 331
     },
     "language": "Unknown",
     "languageColor": "#666666",
@@ -3233,80 +3368,6 @@
     "createdAt": "2022-06-18T15:08:25Z",
     "updatedAt": "2022-06-18T15:08:32Z",
     "pushedAt": "2022-07-24T23:38:03Z"
-  },
-  {
-    "name": "417am",
-    "description": "Website for generative art explanations",
-    "url": "https://github.com/ejfox/417am",
-    "homepage": "http://417.cool",
-    "stats": {
-      "stars": 1,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 0
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 2108683,
-      "HTML": 50224,
-      "CoffeeScript": 28194,
-      "CSS": 11780
-    },
-    "diskUsage": 48591,
-    "topics": [],
-    "excerpt": "Website for generative art explanations",
-    "createdAt": "2017-10-29T18:50:21Z",
-    "updatedAt": "2022-03-12T22:47:09Z",
-    "pushedAt": "2017-11-25T22:53:04Z"
-  },
-  {
-    "name": "four-seventeen",
-    "description": "NPM module for canvas-based generative art ",
-    "url": "https://github.com/ejfox/four-seventeen",
-    "homepage": null,
-    "stats": {
-      "stars": 3,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 6091
-    },
-    "diskUsage": 884,
-    "topics": [],
-    "excerpt": "NPM module for canvas-based generative art ",
-    "createdAt": "2018-12-27T19:07:50Z",
-    "updatedAt": "2022-03-12T21:18:10Z",
-    "pushedAt": "2022-12-08T09:03:05Z"
-  },
-  {
-    "name": "twitter-artbot",
-    "description": "Generative art framework with JS, D3, Canvas, and more...",
-    "url": "https://github.com/ejfox/twitter-artbot",
-    "homepage": "https://twitter.com/417am1975",
-    "stats": {
-      "stars": 7,
-      "forks": 1,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 1107516,
-      "CoffeeScript": 297001,
-      "HTML": 1409
-    },
-    "diskUsage": 8459,
-    "topics": [],
-    "excerpt": "Generative art framework with JS, D3, Canvas, and more...",
-    "createdAt": "2017-06-11T20:47:18Z",
-    "updatedAt": "2022-03-12T20:55:00Z",
-    "pushedAt": "2022-12-09T04:48:59Z"
   },
   {
     "name": "tributary.io",
