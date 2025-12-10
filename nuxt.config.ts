@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 
-async function getScrapTags() {
+async function _getScrapTags() {
   try {
     if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
       console.warn('❌ Supabase not configured, skipping tag discovery')
@@ -146,7 +146,7 @@ export default defineNuxtConfig({
     prerender: {
       concurrency: 12, // Faster prerendering
       routes: [], // Will be populated dynamically
-      crawlLinks: false, // Don't crawl - causes issues with broken/localhost links
+      crawlLinks: false, // Causes issues with broken links
     },
     // Copy content directory to .output for API routes to access
     hooks: {

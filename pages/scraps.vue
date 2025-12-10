@@ -4,21 +4,33 @@
     <div>
       <div class="font-bold tracking-wider uppercase">Scraps</div>
       <div class="text-[10px] text-zinc-500 dark:text-zinc-500 space-y-1">
-        <div>{{ scraps.length }} items · {{ uniqueTags }} tags · {{ uniqueSources }}</div>
+        <div>
+          {{ scraps.length }} items · {{ uniqueTags }} tags ·
+          {{ uniqueSources }}
+        </div>
       </div>
     </div>
 
     <!-- Loading/Error States -->
-    <div v-if="isLoading" class="text-zinc-500 dark:text-zinc-500 text-center py-8">
+    <div
+      v-if="isLoading"
+      class="text-zinc-500 dark:text-zinc-500 text-center py-8"
+    >
       Loading scraps...
     </div>
 
-    <div v-else-if="error" class="text-red-600 dark:text-red-400 text-center py-8">
+    <div
+      v-else-if="error"
+      class="text-red-600 dark:text-red-400 text-center py-8"
+    >
       {{ error }}
     </div>
 
     <!-- Empty State -->
-    <div v-else-if="!scraps.length" class="text-zinc-500 dark:text-zinc-500 text-center py-8">
+    <div
+      v-else-if="!scraps.length"
+      class="text-zinc-500 dark:text-zinc-500 text-center py-8"
+    >
       No scraps yet
     </div>
 
@@ -39,7 +51,10 @@
         >
           {{ scrap.title || scrap.url }}
         </a>
-        <div v-else class="text-zinc-900 dark:text-zinc-100 text-xs line-clamp-2">
+        <div
+          v-else
+          class="text-zinc-900 dark:text-zinc-100 text-xs line-clamp-2"
+        >
           {{ scrap.title || '(untitled)' }}
         </div>
 
@@ -62,7 +77,10 @@
           </div>
 
           <!-- Row 2: Tags + Concept tags -->
-          <div v-if="scrap.tags?.length || scrap.concept_tags?.length" class="flex flex-wrap gap-1">
+          <div
+            v-if="scrap.tags?.length || scrap.concept_tags?.length"
+            class="flex flex-wrap gap-1"
+          >
             <NuxtLink
               v-for="tag in scrap.tags"
               :key="tag"
@@ -81,7 +99,15 @@
           </div>
 
           <!-- Row 3: Additional metadata (lg+ only) -->
-          <div v-if="scrap.location || scrap.screenshot_url || scrap.shared || scrap.relationships?.length" class="hidden lg:flex flex-wrap gap-2 opacity-60">
+          <div
+            v-if="
+              scrap.location ||
+              scrap.screenshot_url ||
+              scrap.shared ||
+              scrap.relationships?.length
+            "
+            class="hidden lg:flex flex-wrap gap-2 opacity-60"
+          >
             <span v-if="scrap.location">{{ scrap.location }}</span>
             <a
               v-if="scrap.screenshot_url"
@@ -93,18 +119,31 @@
               image
             </a>
             <span v-if="scrap.shared">shared</span>
-            <span v-if="scrap.relationships?.length">↔ {{ scrap.relationships.length }}</span>
+            <span v-if="scrap.relationships?.length">
+              ↔ {{ scrap.relationships.length }}
+            </span>
           </div>
 
           <!-- Row 4: Confidence scores (xl+ only) -->
-          <div v-if="scrap.extraction_confidence" class="hidden xl:block opacity-50">
+          <div
+            v-if="scrap.extraction_confidence"
+            class="hidden xl:block opacity-50"
+          >
             Conf:
-            <span v-if="scrap.extraction_confidence.tags">tags {{ Math.round(scrap.extraction_confidence.tags * 100) }}%</span>
-            <span v-if="scrap.extraction_confidence.summary">summary {{ Math.round(scrap.extraction_confidence.summary * 100) }}%</span>
+            <span v-if="scrap.extraction_confidence.tags">
+              tags {{ Math.round(scrap.extraction_confidence.tags * 100) }}%
+            </span>
+            <span v-if="scrap.extraction_confidence.summary">
+              summary
+              {{ Math.round(scrap.extraction_confidence.summary * 100) }}%
+            </span>
           </div>
 
           <!-- Row 5: Financial data (xl+ only) -->
-          <div v-if="scrap.financial_analysis" class="hidden xl:block opacity-50">
+          <div
+            v-if="scrap.financial_analysis"
+            class="hidden xl:block opacity-50"
+          >
             financial data present
           </div>
         </div>
@@ -143,9 +182,13 @@ interface Scrap {
   metadata: any | null
 }
 
-const { data: scraps, pending: isLoading, error } = await useFetch<Scrap[]>('/api/scraps')
+const {
+  data: scraps,
+  pending: isLoading,
+  error,
+} = await useFetch<Scrap[]>('/api/scraps')
 
-const stats = computed(() => {
+const _stats = computed(() => {
   if (!scraps.value.length) return null
   return {
     total: scraps.value.length,

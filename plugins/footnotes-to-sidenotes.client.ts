@@ -65,7 +65,7 @@ export default defineNuxtPlugin(() => {
         @media (min-width: 1280px) {
           .blog-post-content {
             position: relative;
-            /* Pre-allocate margin space for floated sidenotes to prevent layout shift */
+            /* Margin space for sidenotes */
             margin-right: 240px;
           }
 

@@ -588,7 +588,8 @@ watch(
   { immediate: true }
 )
 
-// Note: Metadata structure: {content, html, title, metadata:{date, modified, dek, type, words, images, links, tags, draft, hidden}}
+// Metadata: {content, html, title, metadata:{date, modified, dek,
+// type, words, images, links, tags, draft, hidden}}
 </script>
 
 <template>
@@ -649,7 +650,10 @@ watch(
       ></div>
     </div>
 
-    <article v-if="post && !post.redirect" class="h-entry w-full px-4 md:px-8 xl:px-16">
+    <article
+      v-if="post && !post.redirect"
+      class="h-entry w-full px-4 md:px-8 xl:px-16"
+    >
       <!-- Swiss Grid Container -->
       <div>
         <!-- Top metadata bar with microvisualizations -->
@@ -706,9 +710,7 @@ watch(
         </div>
 
         <!-- Title section - mobile optimized -->
-        <div
-          class="px-4 md:px-8 xl:px-16 pt-3 pb-2"
-        >
+        <div class="px-4 md:px-8 xl:px-16 pt-3 pb-2">
           <h1
             v-if="post?.metadata?.title || post?.title"
             ref="postTitle"
@@ -752,10 +754,7 @@ watch(
         </div>
 
         <!-- Article Content - mobile optimized spacing -->
-        <div
-          ref="articleContent"
-          class="px-4 md:px-8 xl:px-16 pt-3 pb-6"
-        >
+        <div ref="articleContent" class="px-4 md:px-8 xl:px-16 pt-3 pb-6">
           <article
             v-if="post?.html"
             class="blog-post-content e-content font-serif"
@@ -1156,10 +1155,12 @@ watch(
 }
 
 @keyframes blink {
-  0%, 49% {
+  0%,
+  49% {
     opacity: 1;
   }
-  50%, 100% {
+  50%,
+  100% {
     opacity: 0;
   }
 }
