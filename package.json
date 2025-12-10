@@ -71,6 +71,7 @@
   },
   "dependencies": {
     "@nuxtjs/tailwindcss": "^6.0.0",
+    "@supabase/supabase-js": "^2.87.1",
     "@types/rss": "^0.0.32",
     "@vueuse/core": "^13.5.0",
     "animejs": "^4.2.2",
