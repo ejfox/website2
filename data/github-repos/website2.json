@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 676691,
-    "TypeScript": 305109,
+    "Vue": 685967,
+    "TypeScript": 310701,
     "JavaScript": 210622,
     "CSS": 54309,
     "HTML": 15405,
     "Shell": 15076,
     "Dockerfile": 779
   },
-  "diskUsage": 86144,
+  "diskUsage": 86495,
   "fileTree": {
     "files": [
       {
@@ -37,7 +37,7 @@
       },
       {
         "path": ".env.example",
-        "size": 750
+        "size": 980
       },
       {
         "path": ".github/workflows/deploy.yml",
@@ -113,7 +113,7 @@
       },
       {
         "path": "components/Breadcrumb.vue",
-        "size": 1036
+        "size": 1053
       },
       {
         "path": "components/CalendarTOC.vue",
@@ -145,7 +145,7 @@
       },
       {
         "path": "components/Footer.vue",
-        "size": 2873
+        "size": 2969
       },
       {
         "path": "components/GistPreview.vue",
@@ -3369,11 +3369,11 @@
       },
       {
         "path": "data/github-repos-index.json",
-        "size": 3443
+        "size": 3476
       },
       {
         "path": "data/github-repos-list.json",
-        "size": 120647
+        "size": 122320
       },
       {
         "path": "data/github-repos/30-data-days.json",
@@ -3593,7 +3593,7 @@
       },
       {
         "path": "data/github-repos/dotfiles.json",
-        "size": 108907
+        "size": 112228
       },
       {
         "path": "data/github-repos/dvs-soti-2022.json",
@@ -3670,6 +3670,10 @@
       {
         "path": "data/github-repos/genmusic.json",
         "size": 5687
+      },
+      {
+        "path": "data/github-repos/ghostty.json",
+        "size": 471233
       },
       {
         "path": "data/github-repos/git-status-dash.json",
@@ -3968,6 +3972,10 @@
         "size": 10009
       },
       {
+        "path": "data/github-repos/tmux-link-grab.json",
+        "size": 10885
+      },
+      {
         "path": "data/github-repos/tmux-mutagen-indicator.json",
         "size": 12334
       },
@@ -4061,7 +4069,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 501626
+        "size": 501166
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -5625,15 +5633,15 @@
       },
       {
         "path": "layouts/default.vue",
-        "size": 4639
+        "size": 4651
       },
       {
         "path": "nuxt.config.ts",
-        "size": 6107
+        "size": 7853
       },
       {
         "path": "package.json",
-        "size": 3637
+        "size": 3677
       },
       {
         "path": "pages/blog/[...slug].vue",
@@ -5665,11 +5673,11 @@
       },
       {
         "path": "pages/bookmarklet.vue",
-        "size": 7132
+        "size": 7142
       },
       {
         "path": "pages/calendar.vue",
-        "size": 2484
+        "size": 2405
       },
       {
         "path": "pages/changelog.vue",
@@ -5728,10 +5736,6 @@
         "size": 26713
       },
       {
-        "path": "pages/projects-enhanced.vue",
-        "size": 2766
-      },
-      {
         "path": "pages/projects/[slug].vue",
         "size": 7206
       },
@@ -5746,6 +5750,14 @@
       {
         "path": "pages/reading/index.vue",
         "size": 6772
+      },
+      {
+        "path": "pages/scraps.vue",
+        "size": 6126
+      },
+      {
+        "path": "pages/scraps/tag/[slug].vue",
+        "size": 5860
       },
       {
         "path": "pages/sitemap.vue",
@@ -6396,6 +6408,14 @@
         "size": 1767
       },
       {
+        "path": "server/api/scraps.get.ts",
+        "size": 2696
+      },
+      {
+        "path": "server/api/scraps/tags.get.ts",
+        "size": 1150
+      },
+      {
         "path": "server/api/search.get.ts",
         "size": 6839
       },
@@ -6493,7 +6513,7 @@
       },
       {
         "path": "tsconfig.json",
-        "size": 94
+        "size": 794
       },
       {
         "path": "types/d3.d.ts",
@@ -6529,7 +6549,7 @@
       },
       {
         "path": "yarn.lock",
-        "size": 439852
+        "size": 395075
       }
     ],
     "tree": {
@@ -6906,7 +6926,7 @@
             },
             {
               "name": "Breadcrumb.vue",
-              "size": 1036,
+              "size": 1053,
               "path": "components/Breadcrumb.vue"
             },
             {
@@ -6946,7 +6966,7 @@
             },
             {
               "name": "Footer.vue",
-              "size": 2873,
+              "size": 2969,
               "path": "components/Footer.vue"
             },
             {
@@ -11338,7 +11358,7 @@
                 },
                 {
                   "name": "dotfiles.json",
-                  "size": 108907,
+                  "size": 112228,
                   "path": "data/github-repos/dotfiles.json"
                 },
                 {
@@ -11435,6 +11455,11 @@
                   "name": "genmusic.json",
                   "size": 5687,
                   "path": "data/github-repos/genmusic.json"
+                },
+                {
+                  "name": "ghostty.json",
+                  "size": 471233,
+                  "path": "data/github-repos/ghostty.json"
                 },
                 {
                   "name": "git-status-dash.json",
@@ -11807,6 +11832,11 @@
                   "path": "data/github-repos/thenation-homelessness-story.json"
                 },
                 {
+                  "name": "tmux-link-grab.json",
+                  "size": 10885,
+                  "path": "data/github-repos/tmux-link-grab.json"
+                },
+                {
                   "name": "tmux-mutagen-indicator.json",
                   "size": 12334,
                   "path": "data/github-repos/tmux-mutagen-indicator.json"
@@ -11923,7 +11953,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 501626,
+                  "size": 501166,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -13827,12 +13857,12 @@
             },
             {
               "name": "github-repos-index.json",
-              "size": 3443,
+              "size": 3476,
               "path": "data/github-repos-index.json"
             },
             {
               "name": "github-repos-list.json",
-              "size": 120647,
+              "size": 122320,
               "path": "data/github-repos-list.json"
             },
             {
@@ -13914,7 +13944,7 @@
             },
             {
               "name": "default.vue",
-              "size": 4639,
+              "size": 4651,
               "path": "layouts/default.vue"
             }
           ],
@@ -14058,18 +14088,35 @@
               "path": "pages/reading"
             },
             {
+              "name": "scraps",
+              "children": [
+                {
+                  "name": "tag",
+                  "children": [
+                    {
+                      "name": "[slug].vue",
+                      "size": 5860,
+                      "path": "pages/scraps/tag/[slug].vue"
+                    }
+                  ],
+                  "path": "pages/scraps/tag"
+                }
+              ],
+              "path": "pages/scraps"
+            },
+            {
               "name": "bookmarklet-popup.vue",
               "size": 11066,
               "path": "pages/bookmarklet-popup.vue"
             },
             {
               "name": "bookmarklet.vue",
-              "size": 7132,
+              "size": 7142,
               "path": "pages/bookmarklet.vue"
             },
             {
               "name": "calendar.vue",
-              "size": 2484,
+              "size": 2405,
               "path": "pages/calendar.vue"
             },
             {
@@ -14113,9 +14160,9 @@
               "path": "pages/on-this-day.vue"
             },
             {
-              "name": "projects-enhanced.vue",
-              "size": 2766,
-              "path": "pages/projects-enhanced.vue"
+              "name": "scraps.vue",
+              "size": 6126,
+              "path": "pages/scraps.vue"
             },
             {
               "name": "sitemap.vue",
@@ -14922,6 +14969,17 @@
                   "path": "server/api/robots"
                 },
                 {
+                  "name": "scraps",
+                  "children": [
+                    {
+                      "name": "tags.get.ts",
+                      "size": 1150,
+                      "path": "server/api/scraps/tags.get.ts"
+                    }
+                  ],
+                  "path": "server/api/scraps"
+                },
+                {
                   "name": "umami",
                   "children": [
                     {
@@ -15101,6 +15159,11 @@
                   "name": "rescuetime.get.ts",
                   "size": 6280,
                   "path": "server/api/rescuetime.get.ts"
+                },
+                {
+                  "name": "scraps.get.ts",
+                  "size": 2696,
+                  "path": "server/api/scraps.get.ts"
                 },
                 {
                   "name": "search.get.ts",
@@ -15291,7 +15354,7 @@
         },
         {
           "name": ".env.example",
-          "size": 750,
+          "size": 980,
           "path": ".env.example"
         },
         {
@@ -15351,12 +15414,12 @@
         },
         {
           "name": "nuxt.config.ts",
-          "size": 6107,
+          "size": 7853,
           "path": "nuxt.config.ts"
         },
         {
           "name": "package.json",
-          "size": 3637,
+          "size": 3677,
           "path": "package.json"
         },
         {
@@ -15366,7 +15429,7 @@
         },
         {
           "name": "tsconfig.json",
-          "size": 94,
+          "size": 794,
           "path": "tsconfig.json"
         },
         {
@@ -15381,14 +15444,14 @@
         },
         {
           "name": "yarn.lock",
-          "size": 439852,
+          "size": 395075,
           "path": "yarn.lock"
         }
       ],
       "path": ""
     },
-    "totalFiles": 1627,
-    "totalSize": 82722046
+    "totalFiles": 1632,
+    "totalSize": 83179792
   },
   "topics": [],
   "readme": {
@@ -15397,6 +15460,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-09T17:22:06Z",
-  "pushedAt": "2025-12-09T17:22:02Z"
+  "updatedAt": "2025-12-10T01:21:35Z",
+  "pushedAt": "2025-12-10T01:21:30Z"
 }

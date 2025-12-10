@@ -1,5 +1,106 @@
 [
   {
+    "name": "ejthirdbear",
+    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Svelte",
+    "languageColor": "#ff3e00",
+    "languages": {},
+    "diskUsage": 8941,
+    "topics": [],
+    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "createdAt": "2025-11-12T20:10:52Z",
+    "updatedAt": "2025-12-10T18:04:16Z",
+    "pushedAt": "2025-12-10T18:04:12Z"
+  },
+  {
+    "name": "website2",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/website2",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 685967,
+      "TypeScript": 310701,
+      "JavaScript": 210622,
+      "CSS": 54309,
+      "HTML": 15405,
+      "Shell": 15076,
+      "Dockerfile": 779
+    },
+    "diskUsage": 86495,
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-10-13T14:09:19Z",
+    "updatedAt": "2025-12-10T01:21:35Z",
+    "pushedAt": "2025-12-10T01:21:30Z"
+  },
+  {
+    "name": "subwaybuilder-mod",
+    "description": "Template for creating Subway Builder mods",
+    "url": "https://github.com/ejfox/subwaybuilder-mod",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 14508
+    },
+    "diskUsage": 15,
+    "topics": [],
+    "excerpt": "Template for creating Subway Builder mods",
+    "createdAt": "2025-12-10T01:11:05Z",
+    "updatedAt": "2025-12-10T01:11:10Z",
+    "pushedAt": "2025-12-10T01:11:06Z"
+  },
+  {
+    "name": "cli-markdown-tagger",
+    "description": "Use an LLM to add tags to your markdown's frontmatter",
+    "url": "https://github.com/ejfox/cli-markdown-tagger",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 5540,
+      "Shell": 332
+    },
+    "diskUsage": 9,
+    "topics": [
+      "cli",
+      "llm",
+      "markdown"
+    ],
+    "excerpt": "Use an LLM to add tags to your markdown's frontmatter",
+    "createdAt": "2024-09-19T21:13:31Z",
+    "updatedAt": "2025-12-09T23:58:32Z",
+    "pushedAt": "2024-11-24T19:04:31Z"
+  },
+  {
     "name": "dotfiles",
     "description": "Backup of my dotfiles",
     "url": "https://github.com/ejfox/dotfiles",
@@ -49,35 +150,6 @@
     "createdAt": "2025-12-09T17:39:32Z",
     "updatedAt": "2025-12-09T17:59:18Z",
     "pushedAt": "2025-12-09T17:59:15Z"
-  },
-  {
-    "name": "website2",
-    "description": "No description provided",
-    "url": "https://github.com/ejfox/website2",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 1
-    },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 676691,
-      "TypeScript": 305109,
-      "JavaScript": 210622,
-      "CSS": 54309,
-      "HTML": 15405,
-      "Shell": 15076,
-      "Dockerfile": 779
-    },
-    "diskUsage": 86144,
-    "topics": [],
-    "excerpt": "No description provided",
-    "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-09T17:22:06Z",
-    "pushedAt": "2025-12-09T17:22:02Z"
   },
   {
     "name": "ghostty",
@@ -192,27 +264,6 @@
     "pushedAt": "2022-12-09T04:48:59Z"
   },
   {
-    "name": "ejthirdbear",
-    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
-    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Svelte",
-    "languageColor": "#ff3e00",
-    "languages": {},
-    "diskUsage": 7707,
-    "topics": [],
-    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
-    "createdAt": "2025-11-12T20:10:52Z",
-    "updatedAt": "2025-12-08T23:05:50Z",
-    "pushedAt": "2025-12-09T18:39:09Z"
-  },
-  {
     "name": "vulpes-theme-lab",
     "description": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
     "url": "https://github.com/ejfox/vulpes-theme-lab",
@@ -295,7 +346,7 @@
       "stars": 36,
       "forks": 7,
       "watchers": 0,
-      "openIssues": 331
+      "openIssues": 333
     },
     "language": "Unknown",
     "languageColor": "#666666",
@@ -2095,34 +2146,6 @@
     "createdAt": "2024-08-11T17:24:13Z",
     "updatedAt": "2024-11-24T19:18:01Z",
     "pushedAt": "2024-11-24T19:43:31Z"
-  },
-  {
-    "name": "cli-markdown-tagger",
-    "description": "Use an LLM to add tags to your markdown's frontmatter",
-    "url": "https://github.com/ejfox/cli-markdown-tagger",
-    "homepage": null,
-    "stats": {
-      "stars": 1,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 0
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 5540,
-      "Shell": 332
-    },
-    "diskUsage": 9,
-    "topics": [
-      "cli",
-      "llm",
-      "markdown"
-    ],
-    "excerpt": "Use an LLM to add tags to your markdown's frontmatter",
-    "createdAt": "2024-09-19T21:13:31Z",
-    "updatedAt": "2024-11-24T19:04:34Z",
-    "pushedAt": "2024-11-24T19:04:31Z"
   },
   {
     "name": "cli-ai-chat",

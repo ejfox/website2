@@ -1,0 +1,174 @@
+{
+  "name": "subwaybuilder-mod",
+  "description": "Template for creating Subway Builder mods",
+  "url": "https://github.com/ejfox/subwaybuilder-mod",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 14508
+  },
+  "diskUsage": 15,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 365
+      },
+      {
+        "path": "README.md",
+        "size": 6359
+      },
+      {
+        "path": "data/demand_data.example.json",
+        "size": 1867
+      },
+      {
+        "path": "data/metadata.example.json",
+        "size": 685
+      },
+      {
+        "path": "examples/commuter-rail.js",
+        "size": 2574
+      },
+      {
+        "path": "examples/custom-city.js",
+        "size": 1565
+      },
+      {
+        "path": "examples/game-tweaks.js",
+        "size": 2717
+      },
+      {
+        "path": "examples/tram-mod.js",
+        "size": 2917
+      },
+      {
+        "path": "index.js",
+        "size": 10764
+      },
+      {
+        "path": "manifest.json",
+        "size": 533
+      },
+      {
+        "path": "package.json",
+        "size": 512
+      },
+      {
+        "path": "scripts/serve-data.js",
+        "size": 3744
+      },
+      {
+        "path": "types.d.ts",
+        "size": 11109
+      }
+    ],
+    "tree": {
+      "name": "subwaybuilder-mod",
+      "children": [
+        {
+          "name": "data",
+          "children": [
+            {
+              "name": "demand_data.example.json",
+              "size": 1867,
+              "path": "data/demand_data.example.json"
+            },
+            {
+              "name": "metadata.example.json",
+              "size": 685,
+              "path": "data/metadata.example.json"
+            }
+          ],
+          "path": "data"
+        },
+        {
+          "name": "examples",
+          "children": [
+            {
+              "name": "commuter-rail.js",
+              "size": 2574,
+              "path": "examples/commuter-rail.js"
+            },
+            {
+              "name": "custom-city.js",
+              "size": 1565,
+              "path": "examples/custom-city.js"
+            },
+            {
+              "name": "game-tweaks.js",
+              "size": 2717,
+              "path": "examples/game-tweaks.js"
+            },
+            {
+              "name": "tram-mod.js",
+              "size": 2917,
+              "path": "examples/tram-mod.js"
+            }
+          ],
+          "path": "examples"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "serve-data.js",
+              "size": 3744,
+              "path": "scripts/serve-data.js"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": ".gitignore",
+          "size": 365,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 6359,
+          "path": "README.md"
+        },
+        {
+          "name": "index.js",
+          "size": 10764,
+          "path": "index.js"
+        },
+        {
+          "name": "manifest.json",
+          "size": 533,
+          "path": "manifest.json"
+        },
+        {
+          "name": "package.json",
+          "size": 512,
+          "path": "package.json"
+        },
+        {
+          "name": "types.d.ts",
+          "size": 11109,
+          "path": "types.d.ts"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 13,
+    "totalSize": 45711
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"subway-builder-mod-template\">Subway Builder Mod Template</h1>\n<p>A boilerplate for creating mods for <a href=\"https://subwaybuilder.com\">Subway Builder</a>.</p>\n<h2 id=\"quick-start\">Quick Start</h2>\n<ol>\n<li>\n<p><strong>Clone this repo</strong> into your mods folder:</p>\n<pre><code class=\"language-bash\"># macOS\ncd ~/Library/Application\\ Support/SubwayBuilder/mods/\ngit clone https://github.com/yourusername/subwaybuilder-mod my-mod\n\n# Windows\ncd %APPDATA%\\SubwayBuilder\\mods\\\ngit clone https://github.com/yourusername/subwaybuilder-mod my-mod\n\n# Linux\ncd ~/.config/SubwayBuilder/mods/\ngit clone https://github.com/yourusername/subwaybuilder-mod my-mod\n</code></pre>\n</li>\n<li>\n<p><strong>Edit <code>manifest.json</code></strong> with your mod info:</p>\n<pre><code class=\"language-json\">{\n  \"id\": \"com.yourname.my-mod\",\n  \"name\": \"My Awesome Mod\",\n  \"version\": \"1.0.0\"\n}\n</code></pre>\n</li>\n<li>\n<p><strong>Edit <code>index.js</code></strong> with your mod code</p>\n</li>\n<li>\n<p><strong>Restart Subway Builder</strong> and enable your mod in Settings &gt; Mods</p>\n</li>\n</ol>\n<h2 id=\"finding-your-mods-folder\">Finding Your Mods Folder</h2>\n<p>If you can't find the mods folder:</p>\n<ol>\n<li>Open Subway Builder</li>\n<li>Go to <strong>Settings &gt; System</strong></li>\n<li>Click <strong>\"Open Saves Folder\"</strong></li>\n<li>Navigate up one level - you'll see the <code>SubwayBuilder/</code> directory</li>\n<li>Create a <code>mods/</code> folder if it doesn't exist</li>\n</ol>\n<p><strong>Directory structure:</strong></p>\n<pre><code>SubwayBuilder/\n├── saves/              ← Your save files\n├── mods/               ← Put your mods here\n│   └── my-mod/         ← Your mod folder\n│       ├── manifest.json\n│       └── index.js\n└── settings.json\n</code></pre>\n<h2 id=\"project-structure\">Project Structure</h2>\n<pre><code>subwaybuilder-mod/\n├── manifest.json       # Mod metadata (required)\n├── index.js            # Main entry point (required)\n├── types.d.ts          # TypeScript definitions (for IDE support)\n├── examples/           # Example mod snippets\n│   ├── custom-city.js\n│   ├── custom-train.js\n│   ├── tram-mod.js\n│   └── game-tweaks.js\n├── data/               # Example data files for custom cities\n│   ├── demand_data.example.json\n│   └── metadata.example.json\n├── scripts/            # Helper scripts\n│   └── serve-data.js   # Local server for city data\n└── README.md\n</code></pre>\n<h2 id=\"examples\">Examples</h2>\n<h3 id=\"add-a-custom-city\">Add a Custom City</h3>\n<pre><code class=\"language-javascript\">window.SubwayBuilderAPI.registerCity({\n    name: 'Montreal',\n    code: 'MTL',\n    description: 'Build metros beneath the Underground City',\n    population: 4_300_000,\n    initialViewState: {\n        zoom: 13.5,\n        latitude: 45.5017,\n        longitude: -73.5673,\n        bearing: 0\n    },\n    // Optional: custom thumbnail\n    mapImageUrl: 'http://127.0.0.1:8080/MTL/thumbnail.svg'\n});\n</code></pre>\n<h3 id=\"add-a-tramstreetcar\">Add a Tram/Streetcar</h3>\n<pre><code class=\"language-javascript\">window.SubwayBuilderAPI.trains.registerTrainType({\n    id: 'tram',\n    name: 'Streetcar',\n    description: 'Light rail for street running',\n    stats: {\n        maxAcceleration: 1.2,\n        maxDeceleration: 1.5,\n        maxSpeed: 15,\n        maxSpeedLocalStation: 12,\n        capacityPerCar: 80,\n        carLength: 20,\n        minCars: 1,\n        maxCars: 3,\n        carsPerCarSet: 1,\n        carCost: 500_000,\n        trainWidth: 2.4,\n        minStationLength: 40,\n        maxStationLength: 80,\n        baseTrackCost: 15_000,\n        baseStationCost: 5_000_000,\n        trainOperationalCostPerHour: 100,\n        carOperationalCostPerHour: 20,\n        scissorsCrossoverCost: 1_000_000,\n    },\n    compatibleTrackTypes: ['tram'],\n    appearance: { color: '#f59e0b' },\n\n    // Tram-specific settings\n    allowAtGradeRoadCrossing: true,  // Can cross roads at street level\n    elevationMultipliers: {\n        AT_GRADE: 0.5,               // Cheaper at street level\n        ELEVATED: 1.8,               // More expensive elevated\n    },\n});\n</code></pre>\n<h3 id=\"modify-game-rules\">Modify Game Rules</h3>\n<pre><code class=\"language-javascript\">window.SubwayBuilderAPI.modifyConstants({\n    STARTING_MONEY: 10_000_000_000,  // 10B instead of 3B\n    DEFAULT_TICKET_COST: 5,          // $5 tickets\n    CONSTRUCTION_COSTS: {\n        TUNNEL: {\n            SINGLE_MULTIPLIER: 0.5   // Half tunnel cost\n        }\n    }\n});\n</code></pre>\n<h3 id=\"access-game-state\">Access Game State</h3>\n<pre><code class=\"language-javascript\">// Get current game data\nconst stations = window.SubwayBuilderAPI.gameState.getStations();\nconst routes = window.SubwayBuilderAPI.gameState.getRoutes();\nconst tracks = window.SubwayBuilderAPI.gameState.getTracks();\nconst budget = window.SubwayBuilderAPI.gameState.getBudget();\nconst day = window.SubwayBuilderAPI.gameState.getCurrentDay();\n\nconsole.log(`Day ${day}: ${stations.length} stations, $${budget.toLocaleString()}`);\n</code></pre>\n<h2 id=\"typescript-support\">TypeScript Support</h2>\n<p>This template includes <code>types.d.ts</code> with full type definitions. For the best development experience:</p>\n<pre><code class=\"language-typescript\">// Your mod with type checking\nconst api = window.SubwayBuilderAPI;\n\napi.registerCity({\n    name: 'Montreal',\n    code: 'MTL',\n    // TypeScript will show errors for missing/wrong fields\n});\n</code></pre>\n<h2 id=\"serving-custom-city-data\">Serving Custom City Data</h2>\n<p>For custom cities, you need to serve data files. Use the included server script:</p>\n<pre><code class=\"language-bash\"># Install dependencies\nnpm install\n\n# Serve your city data from ./data/\nnpm run serve\n# → Serving at http://127.0.0.1:8080\n</code></pre>\n<p>Then configure your mod to load from this server:</p>\n<pre><code class=\"language-javascript\">window.SubwayBuilderAPI.registerCity({\n    name: 'My City',\n    code: 'MYC',\n    dataUrl: 'http://127.0.0.1:8080/MYC',\n});\n</code></pre>\n<h2 id=\"validating-your-data\">Validating Your Data</h2>\n<p>The API exposes Zod schemas for data validation:</p>\n<pre><code class=\"language-javascript\">const schemas = window.SubwayBuilderAPI.schemas;\n\n// Validate demand_data.json\nconst result = schemas.DemandDataSchema.safeParse(myData);\nif (!result.success) {\n    console.error('Validation errors:', result.error.errors);\n}\n</code></pre>\n<h2 id=\"lifecycle-hooks\">Lifecycle Hooks</h2>\n<pre><code class=\"language-javascript\">// When the game starts\nwindow.SubwayBuilderAPI.hooks.onGameInit(() =&gt; {\n    console.log('Game initialized!');\n});\n\n// When a city loads\nwindow.SubwayBuilderAPI.hooks.onCityLoad((cityCode) =&gt; {\n    if (cityCode === 'MTL') {\n        // Do Montreal-specific setup\n    }\n});\n\n// When a day passes\nwindow.SubwayBuilderAPI.hooks.onDayChange((day) =&gt; {\n    if (day % 100 === 0) {\n        console.log(`Milestone: Day ${day}!`);\n    }\n});\n\n// When the map is ready\nwindow.SubwayBuilderAPI.hooks.onMapReady((map) =&gt; {\n    // Access raw MapLibre instance\n    map.on('click', (e) =&gt; console.log('Clicked:', e.lngLat));\n});\n</code></pre>\n<h2 id=\"api-reference\">API Reference</h2>\n<p>See the <a href=\"https://github.com/ejfox/metro-maker4/blob/main/MODDING.md\">full modding documentation</a> for complete API reference.</p>\n<h2 id=\"license\">License</h2>\n<p>MIT - do whatever you want with this template!</p>",
+    "raw": "# Subway Builder Mod Template\n\nA boilerplate for creating mods for [Subway Builder](https://subwaybuilder.com).\n\n## Quick Start\n\n1. **Clone this repo** into your mods folder:\n   ```bash\n   # macOS\n   cd ~/Library/Application\\ Support/SubwayBuilder/mods/\n   git clone https://github.com/yourusername/subwaybuilder-mod my-mod\n\n   # Windows\n   cd %APPDATA%\\SubwayBuilder\\mods\\\n   git clone https://github.com/yourusername/subwaybuilder-mod my-mod\n\n   # Linux\n   cd ~/.config/SubwayBuilder/mods/\n   git clone https://github.com/yourusername/subwaybuilder-mod my-mod\n   ```\n\n2. **Edit `manifest.json`** with your mod info:\n   ```json\n   {\n     \"id\": \"com.yourname.my-mod\",\n     \"name\": \"My Awesome Mod\",\n     \"version\": \"1.0.0\"\n   }\n   ```\n\n3. **Edit `index.js`** with your mod code\n\n4. **Restart Subway Builder** and enable your mod in Settings > Mods\n\n## Finding Your Mods Folder\n\nIf you can't find the mods folder:\n\n1. Open Subway Builder\n2. Go to **Settings > System**\n3. Click **\"Open Saves Folder\"**\n4. Navigate up one level - you'll see the `SubwayBuilder/` directory\n5. Create a `mods/` folder if it doesn't exist\n\n**Directory structure:**\n```\nSubwayBuilder/\n├── saves/              ← Your save files\n├── mods/               ← Put your mods here\n│   └── my-mod/         ← Your mod folder\n│       ├── manifest.json\n│       └── index.js\n└── settings.json\n```\n\n## Project Structure\n\n```\nsubwaybuilder-mod/\n├── manifest.json       # Mod metadata (required)\n├── index.js            # Main entry point (required)\n├── types.d.ts          # TypeScript definitions (for IDE support)\n├── examples/           # Example mod snippets\n│   ├── custom-city.js\n│   ├── custom-train.js\n│   ├── tram-mod.js\n│   └── game-tweaks.js\n├── data/               # Example data files for custom cities\n│   ├── demand_data.example.json\n│   └── metadata.example.json\n├── scripts/            # Helper scripts\n│   └── serve-data.js   # Local server for city data\n└── README.md\n```\n\n## Examples\n\n### Add a Custom City\n\n```javascript\nwindow.SubwayBuilderAPI.registerCity({\n    name: 'Montreal',\n    code: 'MTL',\n    description: 'Build metros beneath the Underground City',\n    population: 4_300_000,\n    initialViewState: {\n        zoom: 13.5,\n        latitude: 45.5017,\n        longitude: -73.5673,\n        bearing: 0\n    },\n    // Optional: custom thumbnail\n    mapImageUrl: 'http://127.0.0.1:8080/MTL/thumbnail.svg'\n});\n```\n\n### Add a Tram/Streetcar\n\n```javascript\nwindow.SubwayBuilderAPI.trains.registerTrainType({\n    id: 'tram',\n    name: 'Streetcar',\n    description: 'Light rail for street running',\n    stats: {\n        maxAcceleration: 1.2,\n        maxDeceleration: 1.5,\n        maxSpeed: 15,\n        maxSpeedLocalStation: 12,\n        capacityPerCar: 80,\n        carLength: 20,\n        minCars: 1,\n        maxCars: 3,\n        carsPerCarSet: 1,\n        carCost: 500_000,\n        trainWidth: 2.4,\n        minStationLength: 40,\n        maxStationLength: 80,\n        baseTrackCost: 15_000,\n        baseStationCost: 5_000_000,\n        trainOperationalCostPerHour: 100,\n        carOperationalCostPerHour: 20,\n        scissorsCrossoverCost: 1_000_000,\n    },\n    compatibleTrackTypes: ['tram'],\n    appearance: { color: '#f59e0b' },\n\n    // Tram-specific settings\n    allowAtGradeRoadCrossing: true,  // Can cross roads at street level\n    elevationMultipliers: {\n        AT_GRADE: 0.5,               // Cheaper at street level\n        ELEVATED: 1.8,               // More expensive elevated\n    },\n});\n```\n\n### Modify Game Rules\n\n```javascript\nwindow.SubwayBuilderAPI.modifyConstants({\n    STARTING_MONEY: 10_000_000_000,  // 10B instead of 3B\n    DEFAULT_TICKET_COST: 5,          // $5 tickets\n    CONSTRUCTION_COSTS: {\n        TUNNEL: {\n            SINGLE_MULTIPLIER: 0.5   // Half tunnel cost\n        }\n    }\n});\n```\n\n### Access Game State\n\n```javascript\n// Get current game data\nconst stations = window.SubwayBuilderAPI.gameState.getStations();\nconst routes = window.SubwayBuilderAPI.gameState.getRoutes();\nconst tracks = window.SubwayBuilderAPI.gameState.getTracks();\nconst budget = window.SubwayBuilderAPI.gameState.getBudget();\nconst day = window.SubwayBuilderAPI.gameState.getCurrentDay();\n\nconsole.log(`Day ${day}: ${stations.length} stations, $${budget.toLocaleString()}`);\n```\n\n## TypeScript Support\n\nThis template includes `types.d.ts` with full type definitions. For the best development experience:\n\n```typescript\n// Your mod with type checking\nconst api = window.SubwayBuilderAPI;\n\napi.registerCity({\n    name: 'Montreal',\n    code: 'MTL',\n    // TypeScript will show errors for missing/wrong fields\n});\n```\n\n## Serving Custom City Data\n\nFor custom cities, you need to serve data files. Use the included server script:\n\n```bash\n# Install dependencies\nnpm install\n\n# Serve your city data from ./data/\nnpm run serve\n# → Serving at http://127.0.0.1:8080\n```\n\nThen configure your mod to load from this server:\n\n```javascript\nwindow.SubwayBuilderAPI.registerCity({\n    name: 'My City',\n    code: 'MYC',\n    dataUrl: 'http://127.0.0.1:8080/MYC',\n});\n```\n\n## Validating Your Data\n\nThe API exposes Zod schemas for data validation:\n\n```javascript\nconst schemas = window.SubwayBuilderAPI.schemas;\n\n// Validate demand_data.json\nconst result = schemas.DemandDataSchema.safeParse(myData);\nif (!result.success) {\n    console.error('Validation errors:', result.error.errors);\n}\n```\n\n## Lifecycle Hooks\n\n```javascript\n// When the game starts\nwindow.SubwayBuilderAPI.hooks.onGameInit(() => {\n    console.log('Game initialized!');\n});\n\n// When a city loads\nwindow.SubwayBuilderAPI.hooks.onCityLoad((cityCode) => {\n    if (cityCode === 'MTL') {\n        // Do Montreal-specific setup\n    }\n});\n\n// When a day passes\nwindow.SubwayBuilderAPI.hooks.onDayChange((day) => {\n    if (day % 100 === 0) {\n        console.log(`Milestone: Day ${day}!`);\n    }\n});\n\n// When the map is ready\nwindow.SubwayBuilderAPI.hooks.onMapReady((map) => {\n    // Access raw MapLibre instance\n    map.on('click', (e) => console.log('Clicked:', e.lngLat));\n});\n```\n\n## API Reference\n\nSee the [full modding documentation](https://github.com/ejfox/metro-maker4/blob/main/MODDING.md) for complete API reference.\n\n## License\n\nMIT - do whatever you want with this template!\n",
+    "excerpt": "A boilerplate for creating mods for Subway Builder.\n\n\n\n1. Clone this repo into your mods folder:\n   bash\n   # macOS\n   cd ~/Library/Application\\ Support/SubwayB..."
+  },
+  "createdAt": "2025-12-10T01:11:05Z",
+  "updatedAt": "2025-12-10T01:11:10Z",
+  "pushedAt": "2025-12-10T01:11:06Z"
+}
