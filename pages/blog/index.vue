@@ -62,6 +62,42 @@
           </p>
         </div>
 
+        <!-- 12-Month Activity Small Multiples -->
+        <div v-if="monthlyActivity.length" class="px-4 md:px-6 pb-6 pt-2">
+          <div class="flex items-end gap-[2px] h-8">
+            <div
+              v-for="month in monthlyActivity"
+              :key="month.key"
+              class="flex-1 flex flex-col items-center group cursor-default"
+              :title="
+                `${month.month} ${month.year}: ` +
+                `${month.count} posts, ${Math.round(month.words / 1000)}K words`
+              "
+            >
+              <div
+                class="w-full bg-zinc-300 dark:bg-zinc-600 transition-colors group-hover:bg-zinc-500 dark:group-hover:bg-zinc-400"
+                :style="{
+                  height: `${Math.max(month.height, month.count > 0 ? 8 : 2)}%`,
+                  opacity: month.count > 0 ? 1 : 0.3,
+                }"
+              ></div>
+            </div>
+          </div>
+          <div class="flex gap-[2px] mt-1">
+            <div
+              v-for="month in monthlyActivity"
+              :key="`label-${month.key}`"
+              class="flex-1 text-center"
+            >
+              <span
+                class="text-[8px] font-mono text-zinc-400 dark:text-zinc-500"
+              >
+                {{ month.month }}
+              </span>
+            </div>
+          </div>
+        </div>
+
         <!-- Main content - h-feed microformat for IndieWeb -->
         <div class="blog-grid h-feed">
           <!-- Hidden h-feed metadata for parsers -->
@@ -482,27 +518,54 @@ const _postCountByYear = computed(() => {
   return Object.values(years)
 })
 
-const _monthlyActivity = computed(() => {
+const monthlyActivity = computed(() => {
   if (!posts.value) return []
-  // Get last 12 months of activity
-  const months = {}
+  // Get last 12 months of activity with rich data
+  const monthNames = [
+    'J',
+    'F',
+    'M',
+    'A',
+    'M',
+    'J',
+    'J',
+    'A',
+    'S',
+    'O',
+    'N',
+    'D',
+  ]
   const now = new Date()
+  const result = []
 
-  for (let i = 0; i < 12; i++) {
+  for (let i = 11; i >= 0; i--) {
     const month = new Date(now.getFullYear(), now.getMonth() - i, 1)
     const key = `${month.getFullYear()}-${month.getMonth()}`
-    months[key] = 0
+    result.push({
+      key,
+      month: monthNames[month.getMonth()],
+      year: month.getFullYear(),
+      count: 0,
+      words: 0,
+    })
   }
 
   posts.value.forEach((post) => {
     const date = new Date(post?.metadata?.date || post?.date)
     const key = `${date.getFullYear()}-${date.getMonth()}`
-    if (months[key] !== undefined) {
-      months[key]++
+    const entry = result.find((m) => m.key === key)
+    if (entry) {
+      entry.count++
+      entry.words += post?.metadata?.words || post?.words || 0
     }
   })
 
-  return Object.values(months).reverse()
+  const maxCount = Math.max(...result.map((m) => m.count), 1)
+  result.forEach((m) => {
+    m.height = Math.round((m.count / maxCount) * 100)
+  })
+
+  return result
 })
 
 const sortedWeekNotes = computed(() => {

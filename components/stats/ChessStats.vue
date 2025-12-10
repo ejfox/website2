@@ -29,37 +29,40 @@
       </div>
     </div>
 
-    <!-- Variant Ratings with Stats -->
+    <!-- Variant Ratings Small Multiples -->
     <div class="space-y-2 mb-4">
       <div
-        v-for="variant in variantStats"
+        v-for="variant in variantStatsWithBars"
         :key="variant.name"
-        class="flex items-center justify-between text-xs"
+        class="flex items-center gap-2 text-xs"
       >
-        <div class="flex items-center gap-2">
-          <span class="text-zinc-500 uppercase tracking-widest text-xs">
-            {{ variant.name }}
-          </span>
-          <span class="text-zinc-600 dark:text-zinc-400 text-xs">
-            {{ variant.winRate }}
-          </span>
+        <span class="text-zinc-500 uppercase tracking-widest w-12 text-xs">
+          {{ variant.name }}
+        </span>
+        <!-- Rating bar visualization -->
+        <div class="flex-1 h-2 bg-zinc-200 dark:bg-zinc-800 rounded-sm">
+          <div
+            class="h-full bg-zinc-400 dark:bg-zinc-500 rounded-sm transition-all"
+            :style="{ width: `${variant.barPct}%` }"
+          ></div>
         </div>
-        <div class="flex items-center gap-2">
-          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
-            {{ variant.current }}
-          </span>
-          <span
-            v-if="variant.delta !== 0"
-            :class="
-              variant.delta > 0
-                ? 'text-green-600 dark:text-green-400'
-                : 'text-red-600 dark:text-red-400'
-            "
-            class="tabular-nums text-xs"
-          >
-            {{ variant.delta > 0 ? '+' : '' }}{{ variant.delta }}
-          </span>
-        </div>
+        <span
+          class="text-zinc-700 dark:text-zinc-300 tabular-nums w-12 text-right"
+        >
+          {{ variant.current }}
+        </span>
+        <span
+          v-if="variant.delta !== 0"
+          :class="
+            variant.delta > 0
+              ? 'text-green-600 dark:text-green-400'
+              : 'text-red-600 dark:text-red-400'
+          "
+          class="tabular-nums text-xs w-8"
+        >
+          {{ variant.delta > 0 ? '+' : '' }}{{ variant.delta }}
+        </span>
+        <span v-else class="w-8"></span>
       </div>
     </div>
 
@@ -310,6 +313,20 @@ const variantStats = computed(() => {
       }
     })
     .filter((variant) => Number.parseInt(variant.current.replace(/,/g, '')) > 0)
+})
+
+// Small multiples with bar visualization
+const variantStatsWithBars = computed(() => {
+  const stats = variantStats.value
+  if (!stats.length) return []
+  const ratings = stats.map(
+    (s) => Number.parseInt(s.current.replace(/,/g, '')) || 0
+  )
+  const maxRating = Math.max(...ratings, 1)
+  return stats.map((s, i) => ({
+    ...s,
+    barPct: Math.round((ratings[i] / maxRating) * 100),
+  }))
 })
 
 const performanceMetrics = computed(() => [

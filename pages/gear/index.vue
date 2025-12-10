@@ -75,6 +75,36 @@
         <div class="gear-footer-date">
           <span class="uppercase tracking-[0.1em]">{{ currentDate }}</span>
         </div>
+
+        <!-- Container Weight Comparison Small Multiples -->
+        <div v-if="containerComparison.length" class="mt-4">
+          <h3 class="gear-section-header mb-2">Weight by Container</h3>
+          <div class="flex items-end gap-1 h-12">
+            <div
+              v-for="c in containerComparison"
+              :key="c.name"
+              class="flex-1 flex flex-col items-center group cursor-default"
+              :title="`${c.name}: ${c.items} items, ${c.weight}`"
+            >
+              <div
+                class="w-full bg-zinc-300 dark:bg-zinc-600 transition-colors"
+                :class="{ 'group-hover:bg-zinc-500': true }"
+                :style="{ height: `${c.heightPct}%`, minHeight: '2px' }"
+              ></div>
+            </div>
+          </div>
+          <div class="flex gap-1 mt-1">
+            <div
+              v-for="c in containerComparison"
+              :key="`lbl-${c.name}`"
+              class="flex-1 text-center overflow-hidden"
+            >
+              <span class="text-[7px] font-mono text-zinc-500 truncate block">
+                {{ c.short }}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -302,6 +332,26 @@ const formatWeight = (items) => {
     return kg > 0 ? `${kg}kg ${grams}g` : `${grams}g`
   }
 }
+
+// Container comparison small multiples data
+const containerComparison = computed(() => {
+  if (!groupedGear.value.size) return []
+  const data = Array.from(groupedGear.value.entries()).map(([name, items]) => {
+    const totalOz = calculateTotalWeight(items).ounces || 0
+    return {
+      name,
+      short: name.split(' ')[0].slice(0, 6),
+      items: items.length,
+      weight: formatWeight(items),
+      totalOz,
+    }
+  })
+  const maxOz = Math.max(...data.map((d) => d.totalOz), 1)
+  return data.map((d) => ({
+    ...d,
+    heightPct: Math.round((d.totalOz / maxOz) * 100),
+  }))
+})
 
 const addAffiliateCode = (url) => {
   if (!url?.includes('amazon.com')) return url
