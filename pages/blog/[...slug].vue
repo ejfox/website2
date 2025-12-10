@@ -268,36 +268,30 @@ const animationState = reactive({
   hasAnimated: false, // Track if we've animated this title already
 })
 
-// Update the rendered title to wrap words properly
+// Simplified rendered title - no complex word wrapping
 const renderedTitle = computed(() => {
-  // If we haven't started animating yet, show all letters
+  // Before animation: just show the title normally
   if (!animationState.hasAnimated) {
-    const spans = letters.value.map(({ char, isSpace }) => {
-      if (isSpace) {
-        return `</span><span class="word">`
-      }
-      return `<span class="letter visible">${char}</span>`
-    })
-    return `<span class="word">${spans.join('')}</span>`
+    return letters.value
+      .map(({ char }) =>
+        char === ' ' ? ' ' : `<span class="letter">${char}</span>`
+      )
+      .join('')
   }
 
-  // During animation
-  const spans = letters.value.map(({ char, id, isSpace }, index) => {
-    const isVisible = animationState.visibleLetters.has(id)
-    const isCursorHere =
-      !isSpace &&
-      index === animationState.cursorPosition &&
-      animationState.isAnimating
-
-    if (isSpace) {
-      return `</span><span class="word">`
-    }
-
-    const visibility = isVisible ? 'visible' : 'hidden'
-    const cursor = isCursorHere ? '<span class="cursor"></span>' : ''
-    return `<span class="letter ${visibility}">${char}${cursor}</span>`
-  })
-  return `<span class="word">${spans.join('')}</span>`
+  // During animation: show/hide letters
+  return letters.value
+    .map(({ char, id }, index) => {
+      if (char === ' ') {
+        return animationState.visibleLetters.has(id) ? ' ' : ''
+      }
+      const isVisible = animationState.visibleLetters.has(id)
+      const isCursor =
+        index === animationState.cursorPosition && animationState.isAnimating
+      const cursor = isCursor ? '<span class="cursor"></span>' : ''
+      return `<span class="letter ${isVisible ? '' : 'opacity-0'}">${char}${cursor}</span>`
+    })
+    .join('')
 })
 
 // Typing animation - only runs on client after mount
@@ -1133,25 +1127,25 @@ watch(
 }
 
 /* Title typing animation */
+.post-title-hero {
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
 .post-title-hero .letter {
-  transition: opacity 0.1s ease-out;
-}
-
-.post-title-hero .letter.hidden {
-  opacity: 0;
-}
-
-.post-title-hero .letter.visible {
-  opacity: 1;
+  display: inline;
+  transition: opacity 0.08s ease-out;
 }
 
 .post-title-hero .cursor {
   display: inline-block;
   width: 2px;
-  height: 1em;
-  margin: 0 2px;
+  height: 0.8em;
+  margin-left: 1px;
   background-color: currentColor;
-  animation: blink 0.6s infinite;
+  animation: blink 0.5s infinite;
+  vertical-align: baseline;
 }
 
 @keyframes blink {

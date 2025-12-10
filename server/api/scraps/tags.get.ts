@@ -14,9 +14,7 @@ export default defineEventHandler(async (): Promise<string[]> => {
     const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY)
 
     // Fetch all scraps to extract unique tags
-    const { data, error } = await supabase
-      .from('scraps')
-      .select('tags')
+    const { data, error } = await supabase.from('scraps').select('tags')
 
     if (error) {
       console.error('❌ Supabase query error:', error)
@@ -25,9 +23,9 @@ export default defineEventHandler(async (): Promise<string[]> => {
 
     // Extract and deduplicate tags
     const tagSet = new Set<string>()
-    data?.forEach(scrap => {
+    data?.forEach((scrap) => {
       if (scrap.tags && Array.isArray(scrap.tags)) {
-        scrap.tags.forEach(tag => tagSet.add(tag))
+        scrap.tags.forEach((tag) => tagSet.add(tag))
       }
     })
 

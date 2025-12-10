@@ -22,9 +22,13 @@
         <NuxtLink to="/stats" :class="navLinkClasses">/stats</NuxtLink>
         <NuxtLink to="/gists" :class="navLinkClasses">/gists</NuxtLink>
         <NuxtLink to="/gear" :class="navLinkClasses">/gear</NuxtLink>
-        <NuxtLink to="/predictions" :class="navLinkClasses">/predictions</NuxtLink>
+        <NuxtLink to="/predictions" :class="navLinkClasses">
+          /predictions
+        </NuxtLink>
         <NuxtLink to="/now" :class="navLinkClasses">/now</NuxtLink>
-        <NuxtLink to="/on-this-day" :class="navLinkClasses">/on-this-day</NuxtLink>
+        <NuxtLink to="/on-this-day" :class="navLinkClasses">
+          /on-this-day
+        </NuxtLink>
         <NuxtLink to="/sitemap" :class="navLinkClasses">/sitemap</NuxtLink>
         <a href="https://ejfox.com/rss.xml" :class="navLinkClasses">/rss</a>
         <a

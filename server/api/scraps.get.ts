@@ -63,7 +63,9 @@ export default defineEventHandler(async (): Promise<Scrap[]> => {
       updated_at: scrap.updated_at || null,
       published_at: scrap.published_at || null,
       tags: Array.isArray(scrap.tags) ? scrap.tags : null,
-      concept_tags: Array.isArray(scrap.concept_tags) ? scrap.concept_tags : null,
+      concept_tags: Array.isArray(scrap.concept_tags)
+        ? scrap.concept_tags
+        : null,
       type: scrap.type || null,
       source: scrap.source || null,
       content_type: scrap.content_type || null,

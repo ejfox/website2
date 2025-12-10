@@ -30,8 +30,12 @@ const props = defineProps({
 })
 
 const headerTag = computed(() => (props.grid ? 'div' : 'h2'))
-const headerClass = computed(() => (props.grid ? 'label-uppercase' : 'stats-section-title-hover'))
-const wrapperClass = computed(() => (props.grid ? 'stack-1' : 'stats-section space-y-8 group'))
+const headerClass = computed(() =>
+  props.grid ? 'label-uppercase' : 'stats-section-title-hover'
+)
+const wrapperClass = computed(() =>
+  props.grid ? 'stack-1' : 'stats-section space-y-8 group'
+)
 const contentClass = computed(() => (props.grid ? 'grid-2col' : 'div'))
 </script>
 

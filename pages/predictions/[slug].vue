@@ -151,7 +151,10 @@
   </div>
 
   <!-- Loading state -->
-  <div v-else class="px-4 md:px-8 xl:px-16 mx-auto max-w-4xl py-8 font-mono text-xs">
+  <div
+    v-else
+    class="px-4 md:px-8 xl:px-16 mx-auto max-w-4xl py-8 font-mono text-xs"
+  >
     <p class="text-muted">loading...</p>
   </div>
 </template>
