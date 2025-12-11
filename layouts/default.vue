@@ -10,7 +10,7 @@
     <NuxtLoadingIndicator color="#999999" :height="1" />
     <div class="flex flex-col md:flex-row min-h-screen relative">
       <!-- Mobile navigation - 2025 best practices: Tab bar pattern -->
-      <nav v-if="!isStatsSimple" class="header-mobile-sticky">
+      <nav v-if="!isStatsSimple" class="header-mobile-sticky md:hidden">
         <!-- Top bar with branding -->
         <div class="flex items-center justify-between px-4 h-12">
           <NuxtLink to="/" :class="brandingClasses">EJ Fox</NuxtLink>
@@ -45,7 +45,7 @@
       </nav>
 
       <!-- Desktop navigation - DELETED COMPLEX SSR-BREAKING LINKS -->
-      <nav class="sidebar-sticky">
+      <nav class="sidebar-sticky hidden md:block">
         <div :class="desktopNavContainerClasses">
           <div class="px-8 py-8 space-y-1 w-full">
             <div :class="headingClasses">EJ Fox</div>
