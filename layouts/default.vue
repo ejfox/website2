@@ -45,7 +45,7 @@
       </nav>
 
       <!-- Desktop navigation - DELETED COMPLEX SSR-BREAKING LINKS -->
-      <nav class="sidebar-sticky hidden md:block">
+      <nav class="hidden md:block w-48 flex-shrink-0">
         <div :class="desktopNavContainerClasses">
           <div class="px-8 py-8 space-y-1 w-full">
             <div :class="headingClasses">EJ Fox</div>
@@ -107,6 +107,7 @@ const primaryNav = getPrimaryNav()
 
 const linkClasses = `
   block text-sm font-mono transition-colors-base
+  text-zinc-600 dark:text-zinc-400
   hover:text-zinc-900 dark:hover:text-zinc-100
   no-underline
 `
