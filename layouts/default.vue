@@ -10,7 +10,7 @@
     <NuxtLoadingIndicator color="#999999" :height="1" />
     <div class="flex flex-col md:flex-row min-h-screen relative">
       <!-- Mobile navigation - 2025 best practices: Tab bar pattern -->
-      <nav v-if="!isStatsSimple" class="header-mobile-sticky md:hidden">
+      <nav v-if="!isStatsSimple" class="fixed top-0 left-0 right-0 z-40 bg-white dark:bg-zinc-950 md:hidden">
         <!-- Top bar with branding -->
         <div class="flex items-center justify-between px-4 h-12">
           <NuxtLink to="/" :class="brandingClasses">EJ Fox</NuxtLink>
@@ -30,13 +30,13 @@
                 v-if="item.external"
                 :href="item.href"
                 role="tab"
-                class="nav-pill"
+                class="px-3 py-1 text-sm font-mono text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 {{ item.label }}
               </a>
-              <NuxtLink v-else :to="item.href" role="tab" class="nav-pill">
+              <NuxtLink v-else :to="item.href" role="tab" class="px-3 py-1 text-sm font-mono text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100">
                 {{ item.label }}
               </NuxtLink>
             </template>
