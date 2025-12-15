@@ -1,22 +1,14 @@
 <template>
-  <div class="calendar-wrapper p-4 md:p-8">
-    <iframe
-      :src="calendarUrl"
-      class="calendar-iframe"
-      frameborder="0"
-      allowfullscreen
-    ></iframe>
+  <div class="calendar-page">
+    <!-- Cal.com inline embed target -->
+    <div id="cal-embed" class="cal-embed-container"></div>
   </div>
 </template>
 
 <script setup>
 import { useDark } from '@vueuse/core'
 
-// Detect dark mode (syncs with site's dark mode plugin)
 const isDark = useDark()
-const calendarUrl = computed(() => {
-  return `https://cal.com/ejfox/30min?embed=true&layout=month_view&theme=${isDark.value ? 'dark' : 'light'}`
-})
 
 usePageSeo({
   title: 'Book time with EJ Fox | Calendar',
@@ -29,85 +21,97 @@ usePageSeo({
   data1: '30-minute video call',
 })
 
-// CSP headers
-useHead({
-  meta: [
-    {
-      name: 'Content-Security-Policy',
-      content: "frame-src 'self' https://cal.com;",
-    },
-  ],
+// Load Cal.com embed script and initialize
+onMounted(() => {
+  // Load the Cal.com embed script
+  const script = document.createElement('script')
+  script.src = 'https://app.cal.com/embed/embed.js'
+  script.async = true
+  script.onload = () => {
+    initCalEmbed()
+  }
+  document.head.appendChild(script)
+
+  // Watch for theme changes and reinitialize
+  watch(isDark, () => {
+    if (window.Cal) {
+      updateCalTheme()
+    }
+  })
 })
+
+function initCalEmbed() {
+  if (!window.Cal) return
+
+  // Initialize Cal with namespace
+  window.Cal('init', { origin: 'https://cal.com' })
+
+  // Create the inline embed
+  window.Cal('inline', {
+    elementOrSelector: '#cal-embed',
+    calLink: 'ejfox/30min',
+    layout: 'month_view',
+  })
+
+  // Set initial theme
+  updateCalTheme()
+}
+
+function updateCalTheme() {
+  if (!window.Cal) return
+
+  window.Cal('ui', {
+    theme: isDark.value ? 'dark' : 'light',
+    hideEventTypeDetails: false,
+    layout: 'month_view',
+    styles: {
+      branding: {
+        brandColor: isDark.value ? '#a1a1aa' : '#3f3f46', // zinc-400 / zinc-700
+      },
+    },
+  })
+}
 </script>
 
 <style scoped>
-.calendar-wrapper {
+.calendar-page {
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 1rem;
   background: rgb(250 250 250);
   transition: background-color 0.2s ease;
 }
 
-.calendar-iframe {
-  width: 100%;
-  height: calc(100vh - 2rem); /* Account for padding */
-  border: none;
-  display: block;
-  background: transparent;
-  transition: opacity 0.2s ease;
-  border-radius: 1rem; /* Big round corners */
-}
-
-@media (min-width: 768px) {
-  .calendar-iframe {
-    height: calc(100vh - 4rem); /* Account for larger padding on desktop */
+@media (min-width: 640px) {
+  .calendar-page {
+    padding: 2rem;
+    border-left: 1px solid rgb(228 228 231);
   }
 }
 
-/* Dark mode background */
-:global(.dark) .calendar-wrapper {
+/* Dark mode */
+:global(.dark) .calendar-page {
   background: rgb(9 9 11);
 }
 
-/* Loading state */
-.calendar-iframe:not([src]) {
-  opacity: 0;
+:global(.dark) .calendar-page {
+  border-left-color: rgb(39 39 42);
 }
 
-/* Desktop layout - full width within layout */
-@media (min-width: 768px) {
-  .calendar-wrapper {
-    width: 100%;
-  }
+.cal-embed-container {
+  width: 100%;
+  min-height: calc(100vh - 6rem);
+  overflow: hidden;
 }
 
-/* Mobile layout - account for header */
-@media (max-width: 767px) {
-  .calendar-wrapper {
-    height: calc(100vh - 64px);
-  }
-}
-
-/* Ensure calendar blends with your site's background */
-.calendar-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: inherit;
-  z-index: -1;
-}
-
-/* Add subtle border on desktop to separate from nav */
-@media (min-width: 768px) {
-  .calendar-wrapper {
-    border-left: 1px solid rgb(228 228 231);
+/* Mobile adjustments */
+@media (max-width: 639px) {
+  .calendar-page {
+    padding-top: 0.5rem;
   }
 
-  :global(.dark) .calendar-wrapper {
-    border-left-color: rgb(39 39 42);
+  .cal-embed-container {
+    min-height: calc(100vh - 5rem);
   }
 }
 </style>
