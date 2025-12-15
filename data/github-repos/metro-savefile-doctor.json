@@ -1,0 +1,218 @@
+{
+  "name": "metro-savefile-doctor",
+  "description": "If Young Metro don't trust your save file, I'm gon' restore it. TUI tool for editing Subway Builder save files.",
+  "url": "https://github.com/ejfox/metro-savefile-doctor",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "TypeScript",
+  "languageColor": "#3178c6",
+  "languages": {
+    "TypeScript": 31323,
+    "JavaScript": 7690,
+    "Lua": 3206
+  },
+  "diskUsage": 18,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 158
+      },
+      {
+        "path": "README.md",
+        "size": 2916
+      },
+      {
+        "path": "cli.tsx",
+        "size": 4696
+      },
+      {
+        "path": "js-script-runner.ts",
+        "size": 8129
+      },
+      {
+        "path": "metro-loader.ts",
+        "size": 6343
+      },
+      {
+        "path": "package.json",
+        "size": 1072
+      },
+      {
+        "path": "script-runner.ts",
+        "size": 8829
+      },
+      {
+        "path": "scripts/README.md",
+        "size": 5711
+      },
+      {
+        "path": "scripts/change-difficulty.js",
+        "size": 585
+      },
+      {
+        "path": "scripts/change-difficulty.lua",
+        "size": 579
+      },
+      {
+        "path": "scripts/fast-forward-time.js",
+        "size": 500
+      },
+      {
+        "path": "scripts/fast-forward-time.lua",
+        "size": 503
+      },
+      {
+        "path": "scripts/give-money.js",
+        "size": 369
+      },
+      {
+        "path": "scripts/give-money.lua",
+        "size": 370
+      },
+      {
+        "path": "scripts/give-trains.js",
+        "size": 388
+      },
+      {
+        "path": "scripts/give-trains.lua",
+        "size": 390
+      },
+      {
+        "path": "scripts/stats-report.js",
+        "size": 1152
+      },
+      {
+        "path": "scripts/stats-report.lua",
+        "size": 1364
+      },
+      {
+        "path": "ui.tsx",
+        "size": 8022
+      }
+    ],
+    "tree": {
+      "name": "metro-savefile-doctor",
+      "children": [
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 5711,
+              "path": "scripts/README.md"
+            },
+            {
+              "name": "change-difficulty.js",
+              "size": 585,
+              "path": "scripts/change-difficulty.js"
+            },
+            {
+              "name": "change-difficulty.lua",
+              "size": 579,
+              "path": "scripts/change-difficulty.lua"
+            },
+            {
+              "name": "fast-forward-time.js",
+              "size": 500,
+              "path": "scripts/fast-forward-time.js"
+            },
+            {
+              "name": "fast-forward-time.lua",
+              "size": 503,
+              "path": "scripts/fast-forward-time.lua"
+            },
+            {
+              "name": "give-money.js",
+              "size": 369,
+              "path": "scripts/give-money.js"
+            },
+            {
+              "name": "give-money.lua",
+              "size": 370,
+              "path": "scripts/give-money.lua"
+            },
+            {
+              "name": "give-trains.js",
+              "size": 388,
+              "path": "scripts/give-trains.js"
+            },
+            {
+              "name": "give-trains.lua",
+              "size": 390,
+              "path": "scripts/give-trains.lua"
+            },
+            {
+              "name": "stats-report.js",
+              "size": 1152,
+              "path": "scripts/stats-report.js"
+            },
+            {
+              "name": "stats-report.lua",
+              "size": 1364,
+              "path": "scripts/stats-report.lua"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": ".gitignore",
+          "size": 158,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 2916,
+          "path": "README.md"
+        },
+        {
+          "name": "cli.tsx",
+          "size": 4696,
+          "path": "cli.tsx"
+        },
+        {
+          "name": "js-script-runner.ts",
+          "size": 8129,
+          "path": "js-script-runner.ts"
+        },
+        {
+          "name": "metro-loader.ts",
+          "size": 6343,
+          "path": "metro-loader.ts"
+        },
+        {
+          "name": "package.json",
+          "size": 1072,
+          "path": "package.json"
+        },
+        {
+          "name": "script-runner.ts",
+          "size": 8829,
+          "path": "script-runner.ts"
+        },
+        {
+          "name": "ui.tsx",
+          "size": 8022,
+          "path": "ui.tsx"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 19,
+    "totalSize": 52076
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"-subway-builder-savefile-doctor\">🏥 Subway Builder Savefile Doctor</h1>\n<blockquote>\n<p><em>\"If Young Metro don't trust your save file, I'm gon' restore it\"</em></p>\n</blockquote>\n<p>A beautiful TUI (Text User Interface) tool for editing Subway Builder save files. Metro Boomin want some more... trains.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>💰 <strong>Edit Money</strong> - Give yourself unlimited cash</li>\n<li>⏱️ <strong>Edit Game Time</strong> - Change elapsed simulation time</li>\n<li>🚆 <strong>Edit Train Count</strong> - Change owned train count</li>\n<li>🎫 <strong>Edit Transit Cost</strong> - Change ticket price for riders</li>\n<li>💾 <strong>Auto Backup</strong> - Creates backups before modifying</li>\n<li>📦 <strong>Binary Format Support</strong> - Handles both JSON and .metro binary saves</li>\n<li>✨ <strong>Beautiful TUI</strong> - Interactive terminal interface with colors</li>\n</ul>\n<h2 id=\"installation\">Installation</h2>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/metro-savefile-doctor.git\ncd metro-savefile-doctor\nnpm install\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<h3 id=\"basic-usage\">Basic Usage</h3>\n<pre><code class=\"language-bash\"># Edit a .metro binary save file (creates backup automatically)\nnpm start -- ~/Documents/SubwayBuilder/my-save.metro\n\n# Or edit a JSON save file\nnpm start -- ~/path/to/your-save.json\n</code></pre>\n<h3 id=\"advanced-options\">Advanced Options</h3>\n<pre><code class=\"language-bash\"># Save to a different file\nnpm start -- my-save.json --output modified-save.json\n\n# Don't create backup\nnpm start -- my-save.json --no-backup\n\n# Install globally\nnpm link\nmetro-savefile-doctor ~/saves/my-save.json\n</code></pre>\n<h2 id=\"controls\">Controls</h2>\n<ul>\n<li><strong>Arrow Keys</strong> - Navigate menu</li>\n<li><strong>Enter</strong> - Edit selected field</li>\n<li><strong>Escape</strong> - Cancel editing</li>\n<li><strong>s</strong> - Save changes</li>\n<li><strong>q</strong> - Quit (without saving if you haven't pressed 's')</li>\n</ul>\n<h2 id=\"examples\">Examples</h2>\n<h3 id=\"give-yourself-money\">Give Yourself Money</h3>\n<ol>\n<li>Run the tool: <code>npm start -- my-save.metro</code></li>\n<li>Select \"💰 Money\"</li>\n<li>Enter new amount (e.g., <code>999999999</code>)</li>\n<li>Press Enter</li>\n<li>Press 's' to save</li>\n</ol>\n<h3 id=\"fix-train-count\">Fix Train Count</h3>\n<ol>\n<li>Run the tool: <code>npm start -- my-save.metro</code></li>\n<li>Select \"🚆 Owned Trains\"</li>\n<li>Enter new count (e.g., <code>100</code>)</li>\n<li>Press Enter</li>\n<li>Press 's' to save</li>\n</ol>\n<h2 id=\"safety\">Safety</h2>\n<ul>\n<li><strong>Automatic Backups</strong>: By default, creates <code>.backup</code> file before modifying</li>\n<li><strong>Validation</strong>: Checks file format before editing</li>\n<li><strong>Non-Destructive</strong>: Original file preserved unless you save changes</li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li>Node.js 18+</li>\n<li>Subway Builder save file (.metro binary or JSON format)</li>\n</ul>\n<h2 id=\"supported-formats\">Supported Formats</h2>\n<ul>\n<li><strong>📦 .metro files</strong> - Binary format with 4KB header, compressed game data, and metadata</li>\n<li><strong>📄 JSON files</strong> - Plain JSON save files</li>\n</ul>\n<p>The tool automatically detects the format and handles both seamlessly.</p>\n<h2 id=\"troubleshooting\">Troubleshooting</h2>\n<p><strong>\"Invalid save file format\"</strong></p>\n<ul>\n<li>Make sure you're using a Subway Builder save file</li>\n<li>File must be valid JSON with <code>data</code> and <code>version</code> fields</li>\n</ul>\n<p><strong>\"File not found\"</strong></p>\n<ul>\n<li>Check the file path is correct</li>\n<li>Use absolute paths or relative to current directory</li>\n</ul>\n<h2 id=\"technical-details\">Technical Details</h2>\n<p>Built with:</p>\n<ul>\n<li><a href=\"https://github.com/vadimdemedes/ink\">Ink</a> - React for CLIs</li>\n<li><a href=\"https://github.com/chalk/chalk\">Chalk</a> - Terminal colors</li>\n<li><a href=\"https://github.com/sindresorhus/meow\">Meow</a> - CLI argument parsing</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>\n<hr />\n<p><em>Young Metro trusted this repo ✓</em></p>",
+    "raw": "# 🏥 Subway Builder Savefile Doctor\n\n> *\"If Young Metro don't trust your save file, I'm gon' restore it\"*\n\nA beautiful TUI (Text User Interface) tool for editing Subway Builder save files. Metro Boomin want some more... trains.\n\n## Features\n\n- 💰 **Edit Money** - Give yourself unlimited cash\n- ⏱️ **Edit Game Time** - Change elapsed simulation time\n- 🚆 **Edit Train Count** - Change owned train count\n- 🎫 **Edit Transit Cost** - Change ticket price for riders\n- 💾 **Auto Backup** - Creates backups before modifying\n- 📦 **Binary Format Support** - Handles both JSON and .metro binary saves\n- ✨ **Beautiful TUI** - Interactive terminal interface with colors\n\n## Installation\n\n```bash\ngit clone https://github.com/ejfox/metro-savefile-doctor.git\ncd metro-savefile-doctor\nnpm install\n```\n\n## Usage\n\n### Basic Usage\n\n```bash\n# Edit a .metro binary save file (creates backup automatically)\nnpm start -- ~/Documents/SubwayBuilder/my-save.metro\n\n# Or edit a JSON save file\nnpm start -- ~/path/to/your-save.json\n```\n\n### Advanced Options\n\n```bash\n# Save to a different file\nnpm start -- my-save.json --output modified-save.json\n\n# Don't create backup\nnpm start -- my-save.json --no-backup\n\n# Install globally\nnpm link\nmetro-savefile-doctor ~/saves/my-save.json\n```\n\n## Controls\n\n- **Arrow Keys** - Navigate menu\n- **Enter** - Edit selected field\n- **Escape** - Cancel editing\n- **s** - Save changes\n- **q** - Quit (without saving if you haven't pressed 's')\n\n## Examples\n\n### Give Yourself Money\n\n1. Run the tool: `npm start -- my-save.metro`\n2. Select \"💰 Money\"\n3. Enter new amount (e.g., `999999999`)\n4. Press Enter\n5. Press 's' to save\n\n### Fix Train Count\n\n1. Run the tool: `npm start -- my-save.metro`\n2. Select \"🚆 Owned Trains\"\n3. Enter new count (e.g., `100`)\n4. Press Enter\n5. Press 's' to save\n\n## Safety\n\n- **Automatic Backups**: By default, creates `.backup` file before modifying\n- **Validation**: Checks file format before editing\n- **Non-Destructive**: Original file preserved unless you save changes\n\n## Requirements\n\n- Node.js 18+\n- Subway Builder save file (.metro binary or JSON format)\n\n## Supported Formats\n\n- **📦 .metro files** - Binary format with 4KB header, compressed game data, and metadata\n- **📄 JSON files** - Plain JSON save files\n\nThe tool automatically detects the format and handles both seamlessly.\n\n## Troubleshooting\n\n**\"Invalid save file format\"**\n- Make sure you're using a Subway Builder save file\n- File must be valid JSON with `data` and `version` fields\n\n**\"File not found\"**\n- Check the file path is correct\n- Use absolute paths or relative to current directory\n\n## Technical Details\n\nBuilt with:\n- [Ink](https://github.com/vadimdemedes/ink) - React for CLIs\n- [Chalk](https://github.com/chalk/chalk) - Terminal colors\n- [Meow](https://github.com/sindresorhus/meow) - CLI argument parsing\n\n## License\n\nMIT\n\n---\n\n*Young Metro trusted this repo ✓*\n",
+    "excerpt": "> \"If Young Metro don't trust your save file, I'm gon' restore it\"\n\nA beautiful TUI (Text User Interface) tool for editing Subway Builder save files. Metro Boom..."
+  },
+  "createdAt": "2025-12-10T23:43:16Z",
+  "updatedAt": "2025-12-10T23:43:21Z",
+  "pushedAt": "2025-12-10T23:43:18Z"
+}

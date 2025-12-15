@@ -1,5 +1,53 @@
 [
   {
+    "name": "subwaybuilder-mod",
+    "description": "Template for creating Subway Builder mods",
+    "url": "https://github.com/ejfox/subwaybuilder-mod",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 14508
+    },
+    "diskUsage": 15,
+    "topics": [],
+    "excerpt": "Template for creating Subway Builder mods",
+    "createdAt": "2025-12-10T01:11:05Z",
+    "updatedAt": "2025-12-14T07:18:27Z",
+    "pushedAt": "2025-12-10T01:11:06Z"
+  },
+  {
+    "name": "scrapbook-cli",
+    "description": "A command line interface for exploring my scrapbook",
+    "url": "https://github.com/ejfox/scrapbook-cli",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 172236
+    },
+    "diskUsage": 277,
+    "topics": [
+      "cli"
+    ],
+    "excerpt": "A command line interface for exploring my scrapbook",
+    "createdAt": "2024-06-01T07:35:15Z",
+    "updatedAt": "2025-12-12T16:16:50Z",
+    "pushedAt": "2025-12-12T16:16:46Z"
+  },
+  {
     "name": "ejthirdbear",
     "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
     "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
@@ -13,12 +61,12 @@
     "language": "Svelte",
     "languageColor": "#ff3e00",
     "languages": {},
-    "diskUsage": 8941,
+    "diskUsage": 8279,
     "topics": [],
     "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
     "createdAt": "2025-11-12T20:10:52Z",
-    "updatedAt": "2025-12-10T18:04:16Z",
-    "pushedAt": "2025-12-10T18:04:12Z"
+    "updatedAt": "2025-12-12T16:10:01Z",
+    "pushedAt": "2025-12-12T16:09:58Z"
   },
   {
     "name": "website2",
@@ -34,25 +82,74 @@
     "language": "Vue",
     "languageColor": "#41b883",
     "languages": {
-      "Vue": 685967,
-      "TypeScript": 310701,
+      "Vue": 688353,
+      "TypeScript": 310954,
       "JavaScript": 210622,
-      "CSS": 54309,
+      "CSS": 33507,
       "HTML": 15405,
       "Shell": 15076,
       "Dockerfile": 779
     },
-    "diskUsage": 86495,
+    "diskUsage": 86978,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-10T01:21:35Z",
-    "pushedAt": "2025-12-10T01:21:30Z"
+    "updatedAt": "2025-12-11T23:25:23Z",
+    "pushedAt": "2025-12-11T23:25:20Z"
   },
   {
-    "name": "subwaybuilder-mod",
-    "description": "Template for creating Subway Builder mods",
-    "url": "https://github.com/ejfox/subwaybuilder-mod",
+    "name": "SubwayBuilderIssues",
+    "description": "Where you report issues and bugs for Subway Builder",
+    "url": "https://github.com/colindm/SubwayBuilderIssues",
+    "homepage": null,
+    "stats": {
+      "stars": 37,
+      "forks": 8,
+      "watchers": 0,
+      "openIssues": 349
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 12,
+    "topics": [],
+    "excerpt": "Where you report issues and bugs for Subway Builder",
+    "createdAt": "2025-10-10T21:48:38Z",
+    "updatedAt": "2025-12-11T18:03:27Z",
+    "pushedAt": "2025-11-25T16:48:22Z"
+  },
+  {
+    "name": "dotfiles",
+    "description": "Backup of my dotfiles",
+    "url": "https://github.com/ejfox/dotfiles",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 1,
+      "watchers": 0,
+      "openIssues": 3
+    },
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "languages": {
+      "Shell": 254932,
+      "GLSL": 155860,
+      "Lua": 114144,
+      "Vim Script": 83725,
+      "JavaScript": 8622,
+      "Less": 2089
+    },
+    "diskUsage": 63278,
+    "topics": [],
+    "excerpt": "Backup of my dotfiles",
+    "createdAt": "2019-04-07T22:09:55Z",
+    "updatedAt": "2025-12-11T17:54:58Z",
+    "pushedAt": "2025-12-11T17:54:55Z"
+  },
+  {
+    "name": "metro-savefile-doctor",
+    "description": "If Young Metro don't trust your save file, I'm gon' restore it. TUI tool for editing Subway Builder save files.",
+    "url": "https://github.com/ejfox/metro-savefile-doctor",
     "homepage": null,
     "stats": {
       "stars": 0,
@@ -60,17 +157,19 @@
       "watchers": 0,
       "openIssues": 0
     },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
     "languages": {
-      "JavaScript": 14508
+      "TypeScript": 31323,
+      "JavaScript": 7690,
+      "Lua": 3206
     },
-    "diskUsage": 15,
+    "diskUsage": 18,
     "topics": [],
-    "excerpt": "Template for creating Subway Builder mods",
-    "createdAt": "2025-12-10T01:11:05Z",
-    "updatedAt": "2025-12-10T01:11:10Z",
-    "pushedAt": "2025-12-10T01:11:06Z"
+    "excerpt": "If Young Metro don't trust your save file, I'm gon' restore it. TUI tool for editing Subway Builder save files.",
+    "createdAt": "2025-12-10T23:43:16Z",
+    "updatedAt": "2025-12-10T23:43:21Z",
+    "pushedAt": "2025-12-10T23:43:18Z"
   },
   {
     "name": "cli-markdown-tagger",
@@ -99,34 +198,6 @@
     "createdAt": "2024-09-19T21:13:31Z",
     "updatedAt": "2025-12-09T23:58:32Z",
     "pushedAt": "2024-11-24T19:04:31Z"
-  },
-  {
-    "name": "dotfiles",
-    "description": "Backup of my dotfiles",
-    "url": "https://github.com/ejfox/dotfiles",
-    "homepage": null,
-    "stats": {
-      "stars": 1,
-      "forks": 1,
-      "watchers": 0,
-      "openIssues": 3
-    },
-    "language": "Shell",
-    "languageColor": "#89e051",
-    "languages": {
-      "Shell": 254882,
-      "GLSL": 155860,
-      "Lua": 114144,
-      "Vim Script": 83725,
-      "JavaScript": 8622,
-      "Less": 2089
-    },
-    "diskUsage": 63256,
-    "topics": [],
-    "excerpt": "Backup of my dotfiles",
-    "createdAt": "2019-04-07T22:09:55Z",
-    "updatedAt": "2025-12-09T17:59:20Z",
-    "pushedAt": "2025-12-09T17:59:16Z"
   },
   {
     "name": "tmux-link-grab",
@@ -336,52 +407,6 @@
     "createdAt": "2025-12-05T18:28:08Z",
     "updatedAt": "2025-12-05T18:28:14Z",
     "pushedAt": "2025-12-05T18:28:10Z"
-  },
-  {
-    "name": "SubwayBuilderIssues",
-    "description": "Where you report issues and bugs for Subway Builder",
-    "url": "https://github.com/colindm/SubwayBuilderIssues",
-    "homepage": null,
-    "stats": {
-      "stars": 36,
-      "forks": 7,
-      "watchers": 0,
-      "openIssues": 333
-    },
-    "language": "Unknown",
-    "languageColor": "#666666",
-    "languages": {},
-    "diskUsage": 12,
-    "topics": [],
-    "excerpt": "Where you report issues and bugs for Subway Builder",
-    "createdAt": "2025-10-10T21:48:38Z",
-    "updatedAt": "2025-12-04T06:12:10Z",
-    "pushedAt": "2025-11-25T16:48:22Z"
-  },
-  {
-    "name": "scrapbook-cli",
-    "description": "A command line interface for exploring my scrapbook",
-    "url": "https://github.com/ejfox/scrapbook-cli",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 1
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 167452
-    },
-    "diskUsage": 270,
-    "topics": [
-      "cli"
-    ],
-    "excerpt": "A command line interface for exploring my scrapbook",
-    "createdAt": "2024-06-01T07:35:15Z",
-    "updatedAt": "2025-12-03T19:58:06Z",
-    "pushedAt": "2025-12-03T19:58:02Z"
   },
   {
     "name": "tributary",
@@ -1984,7 +2009,7 @@
     "stats": {
       "stars": 78,
       "forks": 29,
-      "watchers": 14,
+      "watchers": 13,
       "openIssues": 3
     },
     "language": "JavaScript",

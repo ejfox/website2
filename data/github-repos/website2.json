@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 685967,
-    "TypeScript": 310701,
+    "Vue": 688353,
+    "TypeScript": 310954,
     "JavaScript": 210622,
-    "CSS": 54309,
+    "CSS": 33507,
     "HTML": 15405,
     "Shell": 15076,
     "Dockerfile": 779
   },
-  "diskUsage": 86495,
+  "diskUsage": 86978,
   "fileTree": {
     "files": [
       {
@@ -41,7 +41,7 @@
       },
       {
         "path": ".github/workflows/deploy.yml",
-        "size": 624
+        "size": 813
       },
       {
         "path": ".github/workflows/send-webmentions.yml",
@@ -97,7 +97,7 @@
       },
       {
         "path": "assets/css/tailwind.css",
-        "size": 26720
+        "size": 5918
       },
       {
         "path": "components/AnimatedNumber.vue",
@@ -145,7 +145,7 @@
       },
       {
         "path": "components/Footer.vue",
-        "size": 2969
+        "size": 3009
       },
       {
         "path": "components/GistPreview.vue",
@@ -341,7 +341,7 @@
       },
       {
         "path": "components/stats/ChessStats.vue",
-        "size": 9281
+        "size": 9793
       },
       {
         "path": "components/stats/GearStats.vue",
@@ -397,7 +397,7 @@
       },
       {
         "path": "components/stats/StatSection.vue",
-        "size": 947
+        "size": 949
       },
       {
         "path": "components/stats/StatsDataState.vue",
@@ -3369,11 +3369,11 @@
       },
       {
         "path": "data/github-repos-index.json",
-        "size": 3476
+        "size": 3499
       },
       {
         "path": "data/github-repos-list.json",
-        "size": 122320
+        "size": 122940
       },
       {
         "path": "data/github-repos/30-data-days.json",
@@ -3944,6 +3944,10 @@
         "size": 8617
       },
       {
+        "path": "data/github-repos/subwaybuilder-mod.json",
+        "size": 18337
+      },
+      {
         "path": "data/github-repos/supabase.json",
         "size": 3331537
       },
@@ -4069,7 +4073,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 501166
+        "size": 502950
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -5633,23 +5637,27 @@
       },
       {
         "path": "layouts/default.vue",
-        "size": 4651
+        "size": 2285
       },
       {
         "path": "nuxt.config.ts",
-        "size": 7853
+        "size": 8145
+      },
+      {
+        "path": "package-lock.json",
+        "size": 688492
       },
       {
         "path": "package.json",
-        "size": 3677
+        "size": 3678
       },
       {
         "path": "pages/blog/[...slug].vue",
-        "size": 33305
+        "size": 33129
       },
       {
         "path": "pages/blog/index.vue",
-        "size": 21495
+        "size": 23338
       },
       {
         "path": "pages/blog/robots/[...slug].vue",
@@ -5697,7 +5705,7 @@
       },
       {
         "path": "pages/gear/index.vue",
-        "size": 19125
+        "size": 20892
       },
       {
         "path": "pages/gists.vue",
@@ -5729,7 +5737,7 @@
       },
       {
         "path": "pages/predictions/[slug].vue",
-        "size": 8108
+        "size": 8119
       },
       {
         "path": "pages/predictions/index.vue",
@@ -5753,11 +5761,11 @@
       },
       {
         "path": "pages/scraps.vue",
-        "size": 6126
+        "size": 6552
       },
       {
         "path": "pages/scraps/tag/[slug].vue",
-        "size": 5860
+        "size": 6187
       },
       {
         "path": "pages/sitemap.vue",
@@ -5773,7 +5781,7 @@
       },
       {
         "path": "plugins/footnotes-to-sidenotes.client.ts",
-        "size": 5216
+        "size": 5171
       },
       {
         "path": "plugins/markdownTable.client.ts",
@@ -6409,11 +6417,11 @@
       },
       {
         "path": "server/api/scraps.get.ts",
-        "size": 2696
+        "size": 2712
       },
       {
         "path": "server/api/scraps/tags.get.ts",
-        "size": 1150
+        "size": 1140
       },
       {
         "path": "server/api/search.get.ts",
@@ -6549,7 +6557,7 @@
       },
       {
         "path": "yarn.lock",
-        "size": 395075
+        "size": 348082
       }
     ],
     "tree": {
@@ -6580,7 +6588,7 @@
               "children": [
                 {
                   "name": "deploy.yml",
-                  "size": 624,
+                  "size": 813,
                   "path": ".github/workflows/deploy.yml"
                 },
                 {
@@ -6634,7 +6642,7 @@
                 },
                 {
                   "name": "tailwind.css",
-                  "size": 26720,
+                  "size": 5918,
                   "path": "assets/css/tailwind.css"
                 }
               ],
@@ -6802,7 +6810,7 @@
                 },
                 {
                   "name": "ChessStats.vue",
-                  "size": 9281,
+                  "size": 9793,
                   "path": "components/stats/ChessStats.vue"
                 },
                 {
@@ -6872,7 +6880,7 @@
                 },
                 {
                   "name": "StatSection.vue",
-                  "size": 947,
+                  "size": 949,
                   "path": "components/stats/StatSection.vue"
                 },
                 {
@@ -6966,7 +6974,7 @@
             },
             {
               "name": "Footer.vue",
-              "size": 2969,
+              "size": 3009,
               "path": "components/Footer.vue"
             },
             {
@@ -11797,6 +11805,11 @@
                   "path": "data/github-repos/startup-motd.json"
                 },
                 {
+                  "name": "subwaybuilder-mod.json",
+                  "size": 18337,
+                  "path": "data/github-repos/subwaybuilder-mod.json"
+                },
+                {
                   "name": "supabase.json",
                   "size": 3331537,
                   "path": "data/github-repos/supabase.json"
@@ -11953,7 +11966,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 501166,
+                  "size": 502950,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -13857,12 +13870,12 @@
             },
             {
               "name": "github-repos-index.json",
-              "size": 3476,
+              "size": 3499,
               "path": "data/github-repos-index.json"
             },
             {
               "name": "github-repos-list.json",
-              "size": 122320,
+              "size": 122940,
               "path": "data/github-repos-list.json"
             },
             {
@@ -13944,7 +13957,7 @@
             },
             {
               "name": "default.vue",
-              "size": 4651,
+              "size": 2285,
               "path": "layouts/default.vue"
             }
           ],
@@ -13996,12 +14009,12 @@
                 },
                 {
                   "name": "[...slug].vue",
-                  "size": 33305,
+                  "size": 33129,
                   "path": "pages/blog/[...slug].vue"
                 },
                 {
                   "name": "index.vue",
-                  "size": 21495,
+                  "size": 23338,
                   "path": "pages/blog/index.vue"
                 }
               ],
@@ -14017,7 +14030,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 19125,
+                  "size": 20892,
                   "path": "pages/gear/index.vue"
                 }
               ],
@@ -14044,7 +14057,7 @@
               "children": [
                 {
                   "name": "[slug].vue",
-                  "size": 8108,
+                  "size": 8119,
                   "path": "pages/predictions/[slug].vue"
                 },
                 {
@@ -14095,7 +14108,7 @@
                   "children": [
                     {
                       "name": "[slug].vue",
-                      "size": 5860,
+                      "size": 6187,
                       "path": "pages/scraps/tag/[slug].vue"
                     }
                   ],
@@ -14161,7 +14174,7 @@
             },
             {
               "name": "scraps.vue",
-              "size": 6126,
+              "size": 6552,
               "path": "pages/scraps.vue"
             },
             {
@@ -14187,7 +14200,7 @@
             },
             {
               "name": "footnotes-to-sidenotes.client.ts",
-              "size": 5216,
+              "size": 5171,
               "path": "plugins/footnotes-to-sidenotes.client.ts"
             },
             {
@@ -14973,7 +14986,7 @@
                   "children": [
                     {
                       "name": "tags.get.ts",
-                      "size": 1150,
+                      "size": 1140,
                       "path": "server/api/scraps/tags.get.ts"
                     }
                   ],
@@ -15162,7 +15175,7 @@
                 },
                 {
                   "name": "scraps.get.ts",
-                  "size": 2696,
+                  "size": 2712,
                   "path": "server/api/scraps.get.ts"
                 },
                 {
@@ -15414,12 +15427,17 @@
         },
         {
           "name": "nuxt.config.ts",
-          "size": 7853,
+          "size": 8145,
           "path": "nuxt.config.ts"
         },
         {
+          "name": "package-lock.json",
+          "size": 688492,
+          "path": "package-lock.json"
+        },
+        {
           "name": "package.json",
-          "size": 3677,
+          "size": 3678,
           "path": "package.json"
         },
         {
@@ -15444,14 +15462,14 @@
         },
         {
           "name": "yarn.lock",
-          "size": 395075,
+          "size": 348082,
           "path": "yarn.lock"
         }
       ],
       "path": ""
     },
-    "totalFiles": 1632,
-    "totalSize": 83179792
+    "totalFiles": 1634,
+    "totalSize": 83824082
   },
   "topics": [],
   "readme": {
@@ -15460,6 +15478,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-10T01:21:35Z",
-  "pushedAt": "2025-12-10T01:21:30Z"
+  "updatedAt": "2025-12-11T23:25:23Z",
+  "pushedAt": "2025-12-11T23:25:20Z"
 }

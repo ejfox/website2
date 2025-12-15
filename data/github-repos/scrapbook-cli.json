@@ -12,9 +12,9 @@
   "language": "JavaScript",
   "languageColor": "#f1e05a",
   "languages": {
-    "JavaScript": 167452
+    "JavaScript": 172236
   },
-  "diskUsage": 270,
+  "diskUsage": 277,
   "fileTree": {
     "files": [
       {
@@ -35,7 +35,7 @@
       },
       {
         "path": "CHANGELOG.md",
-        "size": 5930
+        "size": 7855
       },
       {
         "path": "README.md",
@@ -75,11 +75,11 @@
       },
       {
         "path": "constants.js",
-        "size": 757
+        "size": 1048
       },
       {
         "path": "database.js",
-        "size": 18314
+        "size": 21120
       },
       {
         "path": "docs/CLI-EXAMPLES.md",
@@ -107,7 +107,7 @@
       },
       {
         "path": "enrich-youtube.js",
-        "size": 6034
+        "size": 6146
       },
       {
         "path": "eslint.config.js",
@@ -143,7 +143,7 @@
       },
       {
         "path": "index.mjs",
-        "size": 15023
+        "size": 17783
       },
       {
         "path": "package-lock.json",
@@ -167,7 +167,7 @@
       },
       {
         "path": "tui.js",
-        "size": 27288
+        "size": 27953
       },
       {
         "path": "ui/entity-graph.js",
@@ -179,11 +179,11 @@
       },
       {
         "path": "ui/map-view.js",
-        "size": 4642
+        "size": 3732
       },
       {
         "path": "ui/safe-exec.js",
-        "size": 10179
+        "size": 9239
       },
       {
         "path": "ui/state.js",
@@ -338,12 +338,12 @@
             },
             {
               "name": "map-view.js",
-              "size": 4642,
+              "size": 3732,
               "path": "ui/map-view.js"
             },
             {
               "name": "safe-exec.js",
-              "size": 10179,
+              "size": 9239,
               "path": "ui/safe-exec.js"
             },
             {
@@ -371,7 +371,7 @@
         },
         {
           "name": "CHANGELOG.md",
-          "size": 5930,
+          "size": 7855,
           "path": "CHANGELOG.md"
         },
         {
@@ -406,12 +406,12 @@
         },
         {
           "name": "constants.js",
-          "size": 757,
+          "size": 1048,
           "path": "constants.js"
         },
         {
           "name": "database.js",
-          "size": 18314,
+          "size": 21120,
           "path": "database.js"
         },
         {
@@ -421,7 +421,7 @@
         },
         {
           "name": "enrich-youtube.js",
-          "size": 6034,
+          "size": 6146,
           "path": "enrich-youtube.js"
         },
         {
@@ -436,7 +436,7 @@
         },
         {
           "name": "index.mjs",
-          "size": 15023,
+          "size": 17783,
           "path": "index.mjs"
         },
         {
@@ -461,7 +461,7 @@
         },
         {
           "name": "tui.js",
-          "size": 27288,
+          "size": 27953,
           "path": "tui.js"
         },
         {
@@ -478,7 +478,7 @@
       "path": ""
     },
     "totalFiles": 45,
-    "totalSize": 534347
+    "totalSize": 541056
   },
   "topics": [
     "cli"
@@ -489,6 +489,6 @@
     "excerpt": "A cyberpunk-inspired, terminal-based interface for your digital scrapbook. Dive into your memories, search through your digital artifacts, and relive your onlin..."
   },
   "createdAt": "2024-06-01T07:35:15Z",
-  "updatedAt": "2025-12-03T19:58:06Z",
-  "pushedAt": "2025-12-03T19:58:02Z"
+  "updatedAt": "2025-12-12T16:16:50Z",
+  "pushedAt": "2025-12-12T16:16:46Z"
 }
