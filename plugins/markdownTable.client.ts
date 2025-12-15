@@ -1,18 +1,28 @@
 // Auto-enhance markdown tables with DataTable component
+// Deferred execution for better LCP
 export default defineNuxtPlugin(() => {
   if (!import.meta.client) return
 
   // Watch for markdown content and enhance tables
   onMounted(() => {
-    enhanceMarkdownTables()
+    const init = () => {
+      enhanceMarkdownTables()
 
-    // Re-enhance after route changes
-    const router = useRouter()
-    router.afterEach(() => {
-      nextTick(() => {
-        enhanceMarkdownTables()
+      // Re-enhance after route changes
+      const router = useRouter()
+      router.afterEach(() => {
+        nextTick(() => {
+          enhanceMarkdownTables()
+        })
       })
-    })
+    }
+
+    // Defer to idle time for better LCP
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(init, { timeout: 2000 })
+    } else {
+      setTimeout(init, 1000)
+    }
   })
 
   function enhanceMarkdownTables() {

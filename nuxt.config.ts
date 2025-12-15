@@ -63,6 +63,7 @@ export default defineNuxtConfig({
     typedPages: true, // Enable typed routing
     renderJsonPayloads: false, // Reduce payload size
     viewTransition: true, // Enable instant view transitions (Nuxt 4)
+    inlineStyles: true, // Inline critical CSS for faster FCP
   },
 
   // Aggressive router prefetching for instant navigation
@@ -80,6 +81,18 @@ export default defineNuxtConfig({
         lang: 'en',
       },
       link: [
+        // DNS prefetch and preconnect for external resources (LCP optimization)
+        {
+          rel: 'preconnect',
+          href: 'https://res.cloudinary.com',
+          crossorigin: '',
+        },
+        { rel: 'dns-prefetch', href: 'https://res.cloudinary.com' },
+        {
+          rel: 'preconnect',
+          href: 'https://static.cloudflareinsights.com',
+          crossorigin: '',
+        },
         // IndieAuth authorization endpoint
         { rel: 'authorization_endpoint', href: 'https://indieauth.com/auth' },
         // IndieAuth token endpoint
@@ -181,22 +194,63 @@ export default defineNuxtConfig({
       ...(process.env.NODE_ENV === 'development' && {
         '/**': { headers: { 'Cache-Control': 'no-cache' } },
       }),
-      // API routes - production only caching
+      // Production caching rules for sub-1s LCP
       ...(process.env.NODE_ENV === 'production' && {
+        // HTML pages - edge cache with stale-while-revalidate for instant TTFB
+        '/': {
+          headers: {
+            'Cache-Control':
+              'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
+            'CDN-Cache-Control': 'max-age=300, stale-while-revalidate=600',
+          },
+        },
+        '/blog': {
+          headers: {
+            'Cache-Control':
+              'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
+            'CDN-Cache-Control': 'max-age=300, stale-while-revalidate=600',
+          },
+        },
+        '/blog/**': {
+          headers: {
+            'Cache-Control':
+              'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400',
+            'CDN-Cache-Control': 'max-age=3600, stale-while-revalidate=86400',
+          },
+        },
+        '/projects': {
+          headers: {
+            'Cache-Control':
+              'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400',
+            'CDN-Cache-Control': 'max-age=3600, stale-while-revalidate=86400',
+          },
+        },
+        '/calendar': {
+          headers: {
+            'Cache-Control':
+              'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
+            'CDN-Cache-Control': 'max-age=300, stale-while-revalidate=600',
+          },
+        },
+        // Static assets - aggressive caching
+        '/_nuxt/**': {
+          headers: {
+            'Cache-Control': 'public, max-age=31536000, immutable',
+          },
+        },
+        // API routes
         '/api/**': {
           cors: true,
           headers: {
             'Cache-Control': 'public, max-age=300, s-maxage=3600',
-            'Cloudflare-CDN-Cache-Control':
-              'max-age=3600, stale-if-error=86400',
+            'CDN-Cache-Control': 'max-age=3600, stale-if-error=86400',
           },
         },
         // Pre-rendered tag pages - cache aggressively
         '/scraps/**': {
           headers: {
             'Cache-Control': 'public, max-age=86400, s-maxage=604800',
-            'Cloudflare-CDN-Cache-Control':
-              'max-age=604800, stale-if-error=2592000',
+            'CDN-Cache-Control': 'max-age=604800, stale-if-error=2592000',
           },
         },
       }),

@@ -160,12 +160,19 @@ export default defineNuxtPlugin(() => {
     }
   }
 
-  // Initialize once on mount - minimal delay to avoid layout shift
+  // Initialize once on mount - defer to idle time for better LCP
   onNuxtReady(() => {
-    // Use nextTick to ensure DOM is ready, then init immediately
-    nextTick(() => {
-      initializeSidenotes()
-    })
+    const init = () => {
+      nextTick(() => {
+        initializeSidenotes()
+      })
+    }
+    // Defer to idle time - sidenotes are not critical for LCP
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(init, { timeout: 2000 })
+    } else {
+      setTimeout(init, 500)
+    }
   })
 
   // Re-init on navigation
