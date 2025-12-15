@@ -13,9 +13,9 @@
   "languageColor": "#41b883",
   "languages": {
     "Vue": 696841,
-    "TypeScript": 314926,
+    "TypeScript": 311244,
     "JavaScript": 210622,
-    "CSS": 33507,
+    "CSS": 35191,
     "HTML": 15405,
     "Shell": 15076,
     "Dockerfile": 779
@@ -93,7 +93,7 @@
       },
       {
         "path": "assets/css/global.css",
-        "size": 27589
+        "size": 29273
       },
       {
         "path": "assets/css/tailwind.css",
@@ -4077,7 +4077,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 503439
+        "size": 503745
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -5785,15 +5785,15 @@
       },
       {
         "path": "plugins/footnotes-to-sidenotes.client.ts",
-        "size": 5344
+        "size": 2217
       },
       {
         "path": "plugins/markdownTable.client.ts",
-        "size": 4564
+        "size": 4296
       },
       {
         "path": "plugins/toc-highlight.client.ts",
-        "size": 2299
+        "size": 2012
       },
       {
         "path": "plugins/umami.client.js",
@@ -6641,7 +6641,7 @@
               "children": [
                 {
                   "name": "global.css",
-                  "size": 27589,
+                  "size": 29273,
                   "path": "assets/css/global.css"
                 },
                 {
@@ -11975,7 +11975,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 503439,
+                  "size": 503745,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -14209,17 +14209,17 @@
             },
             {
               "name": "footnotes-to-sidenotes.client.ts",
-              "size": 5344,
+              "size": 2217,
               "path": "plugins/footnotes-to-sidenotes.client.ts"
             },
             {
               "name": "markdownTable.client.ts",
-              "size": 4564,
+              "size": 4296,
               "path": "plugins/markdownTable.client.ts"
             },
             {
               "name": "toc-highlight.client.ts",
-              "size": 2299,
+              "size": 2012,
               "path": "plugins/toc-highlight.client.ts"
             },
             {
@@ -15478,7 +15478,7 @@
       "path": ""
     },
     "totalFiles": 1635,
-    "totalSize": 83856255
+    "totalSize": 83854563
   },
   "topics": [],
   "readme": {
@@ -15487,6 +15487,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-15T19:26:34Z",
-  "pushedAt": "2025-12-15T19:26:30Z"
+  "updatedAt": "2025-12-15T19:52:54Z",
+  "pushedAt": "2025-12-15T19:52:49Z"
 }

@@ -6,6 +6,8 @@
         <img
           :src="avatarUrl"
           alt="EJ Fox"
+          width="40"
+          height="40"
           class="w-10 h-10 rounded-full mx-auto u-photo"
         />
         <span class="p-name hidden">EJ Fox</span>
