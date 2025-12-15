@@ -63,7 +63,6 @@ export default defineNuxtConfig({
     typedPages: true, // Enable typed routing
     renderJsonPayloads: false, // Reduce payload size
     viewTransition: true, // Enable instant view transitions (Nuxt 4)
-    inlineStyles: true, // Inline critical CSS for faster FCP
   },
 
   // Aggressive router prefetching for instant navigation
@@ -161,7 +160,6 @@ export default defineNuxtConfig({
     compressPublicAssets: false, // Let reverse proxy handle compression
     prerender: {
       concurrency: 12, // Faster prerendering
-      routes: [], // Will be populated dynamically
       crawlLinks: false, // Causes issues with broken links
     },
     // Copy content directory to .output for API routes to access
@@ -196,40 +194,98 @@ export default defineNuxtConfig({
       }),
       // Production caching rules for sub-1s LCP
       ...(process.env.NODE_ENV === 'production' && {
-        // HTML pages - edge cache with stale-while-revalidate for instant TTFB
+        // STATIC PRERENDERED PAGES - fastest possible LCP
         '/': {
+          prerender: true,
           headers: {
-            'Cache-Control':
-              'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
-            'CDN-Cache-Control': 'max-age=300, stale-while-revalidate=600',
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
           },
         },
         '/blog': {
+          prerender: true,
           headers: {
-            'Cache-Control':
-              'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
-            'CDN-Cache-Control': 'max-age=300, stale-while-revalidate=600',
-          },
-        },
-        '/blog/**': {
-          headers: {
-            'Cache-Control':
-              'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400',
-            'CDN-Cache-Control': 'max-age=3600, stale-while-revalidate=86400',
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
           },
         },
         '/projects': {
+          prerender: true,
           headers: {
-            'Cache-Control':
-              'public, max-age=300, s-maxage=3600, stale-while-revalidate=86400',
-            'CDN-Cache-Control': 'max-age=3600, stale-while-revalidate=86400',
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
           },
         },
+        '/gear': {
+          prerender: true,
+          headers: {
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+          },
+        },
+        '/now': {
+          prerender: true,
+          headers: {
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+          },
+        },
+        '/sitemap': {
+          prerender: true,
+          headers: {
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+          },
+        },
+        '/gists': {
+          prerender: true,
+          headers: {
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+          },
+        },
+        '/changelog': {
+          prerender: true,
+          headers: {
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+          },
+        },
+        '/on-this-day': {
+          prerender: true,
+          headers: {
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+          },
+        },
+        // Blog posts - prerender all
+        '/blog/**': {
+          prerender: true,
+          headers: {
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+          },
+        },
+        // Predictions - prerender
+        '/predictions': {
+          prerender: true,
+          headers: {
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+          },
+        },
+        '/predictions/**': {
+          prerender: true,
+          headers: {
+            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
+          },
+        },
+        // DYNAMIC PAGES - SSR with edge caching
         '/calendar': {
           headers: {
             'Cache-Control':
               'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
-            'CDN-Cache-Control': 'max-age=300, stale-while-revalidate=600',
+          },
+        },
+        '/stats': {
+          headers: {
+            'Cache-Control':
+              'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
+          },
+        },
+        '/kalshi': {
+          headers: {
+            'Cache-Control':
+              'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
           },
         },
         // Static assets - aggressive caching
