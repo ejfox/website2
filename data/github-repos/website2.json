@@ -12,7 +12,7 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 697111,
+    "Vue": 696785,
     "TypeScript": 312846,
     "JavaScript": 210622,
     "CSS": 35191,
@@ -5653,11 +5653,11 @@
       },
       {
         "path": "package.json",
-        "size": 3678
+        "size": 3705
       },
       {
         "path": "pages/blog/[...slug].vue",
-        "size": 33380
+        "size": 33054
       },
       {
         "path": "pages/blog/index.vue",
@@ -6561,7 +6561,7 @@
       },
       {
         "path": "yarn.lock",
-        "size": 348082
+        "size": 386648
       }
     ],
     "tree": {
@@ -14018,7 +14018,7 @@
                 },
                 {
                   "name": "[...slug].vue",
-                  "size": 33380,
+                  "size": 33054,
                   "path": "pages/blog/[...slug].vue"
                 },
                 {
@@ -15446,7 +15446,7 @@
         },
         {
           "name": "package.json",
-          "size": 3678,
+          "size": 3705,
           "path": "package.json"
         },
         {
@@ -15471,14 +15471,14 @@
         },
         {
           "name": "yarn.lock",
-          "size": 348082,
+          "size": 386648,
           "path": "yarn.lock"
         }
       ],
       "path": ""
     },
     "totalFiles": 1635,
-    "totalSize": 83856435
+    "totalSize": 83894702
   },
   "topics": [],
   "readme": {
@@ -15487,6 +15487,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-15T22:11:14Z",
-  "pushedAt": "2025-12-15T22:11:10Z"
+  "updatedAt": "2025-12-15T22:23:22Z",
+  "pushedAt": "2025-12-15T22:23:18Z"
 }

@@ -63,8 +63,9 @@ async function getBlogRoutes(): Promise<string[]> {
         if (post.draft === true) return false
         // Skip system files like CLAUDE.md, WIKILINK-OPPORTUNITIES.md
         if (post.slug === post.slug.toUpperCase()) return false
-        // Skip week-notes (have separate rendering issues to investigate)
-        if (post.slug.startsWith('week-notes/')) return false
+        // Week-notes are fine now that DOMPurify is fixed
+        // Skip robots (have separate page structure)
+        if (post.slug.startsWith('robots/')) return false
         // Skip drafts - shouldn't be public
         if (post.slug.includes('drafts/')) return false
         return true
