@@ -1,15 +1,19 @@
 <script setup>
 import { format, isValid, parseISO } from 'date-fns'
 import { useDark, useIntersectionObserver } from '@vueuse/core'
-import DOMPurify from 'dompurify'
 
-// Browser-compatible HTML stripper using DOMPurify
+// SSR-safe HTML stripper using regex (no DOM required)
 const stripHtml = (html) => {
-  return DOMPurify.sanitize(html, {
-    ALLOWED_TAGS: [],
-    KEEP_CONTENT: true,
-  })
-    .replace(/\s+/g, ' ')
+  if (!html) return ''
+  return html
+    .replace(/<[^>]*>/g, '') // Remove HTML tags
+    .replace(/&nbsp;/g, ' ') // Replace nbsp
+    .replace(/&amp;/g, '&') // Replace amp
+    .replace(/&lt;/g, '<') // Replace lt
+    .replace(/&gt;/g, '>') // Replace gt
+    .replace(/&quot;/g, '"') // Replace quot
+    .replace(/&#39;/g, "'") // Replace apos
+    .replace(/\s+/g, ' ') // Collapse whitespace
     .trim()
 }
 
