@@ -144,7 +144,7 @@ useHead(() => ({
 </script>
 
 <template>
-  <div class="px-4 md:px-8 xl:px-16 max-w-4xl pt-8">
+  <div class="px-4 sm:px-8 xl:px-16 max-w-4xl pt-8">
     <header class="mb-8">
       <div
         class="font-mono text-xs text-zinc-500 mb-4 uppercase tracking-wider"

@@ -151,7 +151,7 @@
   }
 
   .container-main {
-    @apply px-4 md:px-8 max-w-4xl;
+    @apply px-4 sm:px-8 max-w-4xl;
   }
 
   /* ========================================

@@ -5,7 +5,7 @@
     <!-- Header with consistent metadata styling -->
     <header class="mb-6 relative pt-8">
       <!-- Swiss Grid Container matching blog posts -->
-      <div class="max-w-screen-xl mx-auto px-4 md:px-8 xl:px-16">
+      <div class="max-w-screen-xl mx-auto px-4 sm:px-8 xl:px-16">
         <!-- Compact metadata bar matching blog posts -->
         <div>
           <div class="metadata-bar mb-4">
@@ -54,7 +54,7 @@
         </div>
 
         <!-- Title section matching blog posts -->
-        <div class="px-4 md:px-6 pt-4 pb-3">
+        <div class="px-4 sm:px-6 pt-4 pb-3">
           <h1 class="blog-title">Blog</h1>
           <p :class="blogDescriptionClass">
             Thoughts, projects, and explorations in technology, design, and
@@ -63,7 +63,7 @@
         </div>
 
         <!-- 12-Month Activity Small Multiples -->
-        <div v-if="monthlyActivity.length" class="px-4 md:px-6 pb-6 pt-2">
+        <div v-if="monthlyActivity.length" class="px-4 sm:px-6 pb-6 pt-2">
           <div class="flex items-end gap-[2px] h-8">
             <div
               v-for="month in monthlyActivity"
@@ -81,19 +81,6 @@
                   opacity: month.count > 0 ? 1 : 0.3,
                 }"
               ></div>
-            </div>
-          </div>
-          <div class="flex gap-[2px] mt-1">
-            <div
-              v-for="month in monthlyActivity"
-              :key="`label-${month.key}`"
-              class="flex-1 text-center"
-            >
-              <span
-                class="text-[8px] font-mono text-zinc-400 dark:text-zinc-500"
-              >
-                {{ month.month }}
-              </span>
             </div>
           </div>
         </div>
@@ -695,7 +682,7 @@ const postDekClass =
 }
 
 .blog-grid {
-  @apply relative px-4 md:px-6;
+  @apply relative px-4 sm:px-6;
   @apply lg:grid lg:grid-cols-12 lg:gap-16 xl:gap-20;
 }
 
