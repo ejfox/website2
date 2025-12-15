@@ -704,8 +704,8 @@ watch(
           <h1
             v-if="post?.metadata?.title || post?.title"
             ref="postTitle"
-            class="post-title-hero"
-            style="line-height: 1.2; letter-spacing: -0.025em"
+            class="post-title-hero text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-black"
+            style="line-height: 1.1; letter-spacing: -0.03em"
             v-html="renderedTitle"
           ></h1>
           <p v-if="post?.metadata?.dek || post?.dek" class="post-dek">
