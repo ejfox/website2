@@ -1,20 +1,12 @@
 <script setup>
 import { format, isValid, parseISO } from 'date-fns'
 import { useDark, useIntersectionObserver } from '@vueuse/core'
+import striptags from 'striptags'
 
-// SSR-safe HTML stripper using regex (no DOM required)
+// SSR-safe HTML stripper
 const stripHtml = (html) => {
   if (!html) return ''
-  return html
-    .replace(/<[^>]*>/g, '') // Remove HTML tags
-    .replace(/&nbsp;/g, ' ') // Replace nbsp
-    .replace(/&amp;/g, '&') // Replace amp
-    .replace(/&lt;/g, '<') // Replace lt
-    .replace(/&gt;/g, '>') // Replace gt
-    .replace(/&quot;/g, '"') // Replace quot
-    .replace(/&#39;/g, "'") // Replace apos
-    .replace(/\s+/g, ' ') // Collapse whitespace
-    .trim()
+  return striptags(html).replace(/\s+/g, ' ').trim()
 }
 
 // CSS Classes

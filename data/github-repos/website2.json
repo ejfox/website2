@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 696884,
-    "TypeScript": 311244,
+    "Vue": 697111,
+    "TypeScript": 312846,
     "JavaScript": 210622,
     "CSS": 35191,
     "HTML": 15405,
     "Shell": 15076,
     "Dockerfile": 779
   },
-  "diskUsage": 87133,
+  "diskUsage": 87348,
   "fileTree": {
     "files": [
       {
@@ -5641,11 +5641,11 @@
       },
       {
         "path": "layouts/default.vue",
-        "size": 11162
+        "size": 11138
       },
       {
         "path": "nuxt.config.ts",
-        "size": 11405
+        "size": 13007
       },
       {
         "path": "package-lock.json",
@@ -5657,7 +5657,7 @@
       },
       {
         "path": "pages/blog/[...slug].vue",
-        "size": 33129
+        "size": 33380
       },
       {
         "path": "pages/blog/index.vue",
@@ -13966,7 +13966,7 @@
             },
             {
               "name": "default.vue",
-              "size": 11162,
+              "size": 11138,
               "path": "layouts/default.vue"
             }
           ],
@@ -14018,7 +14018,7 @@
                 },
                 {
                   "name": "[...slug].vue",
-                  "size": 33129,
+                  "size": 33380,
                   "path": "pages/blog/[...slug].vue"
                 },
                 {
@@ -15436,7 +15436,7 @@
         },
         {
           "name": "nuxt.config.ts",
-          "size": 11405,
+          "size": 13007,
           "path": "nuxt.config.ts"
         },
         {
@@ -15478,7 +15478,7 @@
       "path": ""
     },
     "totalFiles": 1635,
-    "totalSize": 83854606
+    "totalSize": 83856435
   },
   "topics": [],
   "readme": {
@@ -15487,6 +15487,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-15T20:05:06Z",
-  "pushedAt": "2025-12-15T20:04:57Z"
+  "updatedAt": "2025-12-15T22:11:14Z",
+  "pushedAt": "2025-12-15T22:11:10Z"
 }
