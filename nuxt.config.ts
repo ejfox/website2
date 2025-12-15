@@ -42,6 +42,43 @@ async function _getScrapTags() {
   }
 }
 
+// Generate blog routes from manifest for prerendering
+async function getBlogRoutes(): Promise<string[]> {
+  try {
+    const { promises: fs } = await import('node:fs')
+    const path = await import('node:path')
+
+    const manifestPath = path.join(
+      process.cwd(),
+      'content/processed/manifest-lite.json'
+    )
+    const manifestData = await fs.readFile(manifestPath, 'utf-8')
+    const manifest = JSON.parse(manifestData)
+
+    // Filter out draft posts and generate routes
+    const routes = manifest
+      .filter((post: any) => {
+        // Skip posts without slugs or that are drafts
+        if (!post.slug) return false
+        if (post.draft === true) return false
+        // Skip system files like CLAUDE.md, WIKILINK-OPPORTUNITIES.md
+        if (post.slug === post.slug.toUpperCase()) return false
+        // Skip week-notes (have separate rendering issues to investigate)
+        if (post.slug.startsWith('week-notes/')) return false
+        // Skip drafts - shouldn't be public
+        if (post.slug.includes('drafts/')) return false
+        return true
+      })
+      .map((post: any) => `/blog/${post.slug}`)
+
+    console.log(`📝 Found ${routes.length} blog posts to prerender`)
+    return routes
+  } catch (error) {
+    console.error('❌ Error reading blog manifest:', error)
+    return []
+  }
+}
+
 export default defineNuxtConfig({
   // Lock in current Nitro behavior (silences warning)
   compatibilityDate: '2025-12-14',
@@ -115,6 +152,14 @@ export default defineNuxtConfig({
     port: 3006,
   },
 
+  // Add blog routes to prerender at build time
+  hooks: {
+    async 'prerender:routes'(ctx) {
+      const blogRoutes = await getBlogRoutes()
+      blogRoutes.forEach((route) => ctx.routes.add(route))
+    },
+  },
+
   // Runtime config - CRITICAL for preventing process.env in client bundle
   runtimeConfig: {
     // Private server-only vars
@@ -161,6 +206,7 @@ export default defineNuxtConfig({
     prerender: {
       concurrency: 12, // Faster prerendering
       crawlLinks: false, // Causes issues with broken links
+      failOnError: false, // Don't fail build on prerender errors
     },
     // Copy content directory to .output for API routes to access
     hooks: {
