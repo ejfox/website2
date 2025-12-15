@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 688353,
-    "TypeScript": 310954,
+    "Vue": 696841,
+    "TypeScript": 314926,
     "JavaScript": 210622,
     "CSS": 33507,
     "HTML": 15405,
     "Shell": 15076,
     "Dockerfile": 779
   },
-  "diskUsage": 86978,
+  "diskUsage": 87133,
   "fileTree": {
     "files": [
       {
@@ -3361,7 +3361,7 @@
       },
       {
         "path": "data/gear.csv",
-        "size": 13355
+        "size": 19208
       },
       {
         "path": "data/github-commits.json",
@@ -3369,11 +3369,11 @@
       },
       {
         "path": "data/github-repos-index.json",
-        "size": 3499
+        "size": 3526
       },
       {
         "path": "data/github-repos-list.json",
-        "size": 122940
+        "size": 123753
       },
       {
         "path": "data/github-repos/30-data-days.json",
@@ -3744,6 +3744,10 @@
         "size": 13650
       },
       {
+        "path": "data/github-repos/metro-savefile-doctor.json",
+        "size": 12531
+      },
+      {
         "path": "data/github-repos/motorcycle-path.json",
         "size": 9463
       },
@@ -4073,7 +4077,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 502950
+        "size": 503439
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -5637,11 +5641,11 @@
       },
       {
         "path": "layouts/default.vue",
-        "size": 2285
+        "size": 11162
       },
       {
         "path": "nuxt.config.ts",
-        "size": 8145
+        "size": 11405
       },
       {
         "path": "package-lock.json",
@@ -5657,7 +5661,7 @@
       },
       {
         "path": "pages/blog/index.vue",
-        "size": 23338
+        "size": 22927
       },
       {
         "path": "pages/blog/robots/[...slug].vue",
@@ -5685,7 +5689,7 @@
       },
       {
         "path": "pages/calendar.vue",
-        "size": 2405
+        "size": 2427
       },
       {
         "path": "pages/changelog.vue",
@@ -5781,15 +5785,15 @@
       },
       {
         "path": "plugins/footnotes-to-sidenotes.client.ts",
-        "size": 5171
+        "size": 5344
       },
       {
         "path": "plugins/markdownTable.client.ts",
-        "size": 4296
+        "size": 4564
       },
       {
         "path": "plugins/toc-highlight.client.ts",
-        "size": 2028
+        "size": 2299
       },
       {
         "path": "plugins/umami.client.js",
@@ -11555,6 +11559,11 @@
                   "path": "data/github-repos/markdown-it-footnote.json"
                 },
                 {
+                  "name": "metro-savefile-doctor.json",
+                  "size": 12531,
+                  "path": "data/github-repos/metro-savefile-doctor.json"
+                },
+                {
                   "name": "motorcycle-path.json",
                   "size": 9463,
                   "path": "data/github-repos/motorcycle-path.json"
@@ -11966,7 +11975,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 502950,
+                  "size": 503439,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -13860,7 +13869,7 @@
             },
             {
               "name": "gear.csv",
-              "size": 13355,
+              "size": 19208,
               "path": "data/gear.csv"
             },
             {
@@ -13870,12 +13879,12 @@
             },
             {
               "name": "github-repos-index.json",
-              "size": 3499,
+              "size": 3526,
               "path": "data/github-repos-index.json"
             },
             {
               "name": "github-repos-list.json",
-              "size": 122940,
+              "size": 123753,
               "path": "data/github-repos-list.json"
             },
             {
@@ -13957,7 +13966,7 @@
             },
             {
               "name": "default.vue",
-              "size": 2285,
+              "size": 11162,
               "path": "layouts/default.vue"
             }
           ],
@@ -14014,7 +14023,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 23338,
+                  "size": 22927,
                   "path": "pages/blog/index.vue"
                 }
               ],
@@ -14129,7 +14138,7 @@
             },
             {
               "name": "calendar.vue",
-              "size": 2405,
+              "size": 2427,
               "path": "pages/calendar.vue"
             },
             {
@@ -14200,17 +14209,17 @@
             },
             {
               "name": "footnotes-to-sidenotes.client.ts",
-              "size": 5171,
+              "size": 5344,
               "path": "plugins/footnotes-to-sidenotes.client.ts"
             },
             {
               "name": "markdownTable.client.ts",
-              "size": 4296,
+              "size": 4564,
               "path": "plugins/markdownTable.client.ts"
             },
             {
               "name": "toc-highlight.client.ts",
-              "size": 2028,
+              "size": 2299,
               "path": "plugins/toc-highlight.client.ts"
             },
             {
@@ -15427,7 +15436,7 @@
         },
         {
           "name": "nuxt.config.ts",
-          "size": 8145,
+          "size": 11405,
           "path": "nuxt.config.ts"
         },
         {
@@ -15468,8 +15477,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 1634,
-    "totalSize": 83824082
+    "totalFiles": 1635,
+    "totalSize": 83856255
   },
   "topics": [],
   "readme": {
@@ -15478,6 +15487,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-11T23:25:23Z",
-  "pushedAt": "2025-12-11T23:25:20Z"
+  "updatedAt": "2025-12-15T19:26:34Z",
+  "pushedAt": "2025-12-15T19:26:30Z"
 }

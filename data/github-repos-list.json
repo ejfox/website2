@@ -1,5 +1,34 @@
 [
   {
+    "name": "website2",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/website2",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 696841,
+      "TypeScript": 314926,
+      "JavaScript": 210622,
+      "CSS": 33507,
+      "HTML": 15405,
+      "Shell": 15076,
+      "Dockerfile": 779
+    },
+    "diskUsage": 87133,
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-10-13T14:09:19Z",
+    "updatedAt": "2025-12-15T19:26:34Z",
+    "pushedAt": "2025-12-15T19:26:30Z"
+  },
+  {
     "name": "subwaybuilder-mod",
     "description": "Template for creating Subway Builder mods",
     "url": "https://github.com/ejfox/subwaybuilder-mod",
@@ -69,35 +98,6 @@
     "pushedAt": "2025-12-12T16:09:58Z"
   },
   {
-    "name": "website2",
-    "description": "No description provided",
-    "url": "https://github.com/ejfox/website2",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 1
-    },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 688353,
-      "TypeScript": 310954,
-      "JavaScript": 210622,
-      "CSS": 33507,
-      "HTML": 15405,
-      "Shell": 15076,
-      "Dockerfile": 779
-    },
-    "diskUsage": 86978,
-    "topics": [],
-    "excerpt": "No description provided",
-    "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-11T23:25:23Z",
-    "pushedAt": "2025-12-11T23:25:20Z"
-  },
-  {
     "name": "SubwayBuilderIssues",
     "description": "Where you report issues and bugs for Subway Builder",
     "url": "https://github.com/colindm/SubwayBuilderIssues",
@@ -106,7 +106,7 @@
       "stars": 37,
       "forks": 8,
       "watchers": 0,
-      "openIssues": 349
+      "openIssues": 352
     },
     "language": "Unknown",
     "languageColor": "#666666",

@@ -1143,3 +1143,85 @@ img[data-placeholder] {
 img[data-placeholder='loaded'] {
   filter: blur(0);
 }
+
+/* ========================================
+   SIDENOTES - Static CSS (prevents CLS)
+   ======================================== */
+@media (min-width: 1280px) {
+  .blog-post-content {
+    position: relative;
+    margin-right: 240px;
+  }
+
+  .sidenote {
+    float: right;
+    clear: right;
+    margin-right: -240px;
+    width: 200px;
+    font-size: 0.7rem;
+    line-height: 1.3;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas,
+      'Courier New', monospace;
+    color: #71717a;
+    text-align: justify;
+    word-break: break-word;
+    hyphens: auto;
+    overflow-wrap: break-word;
+    margin-bottom: 16px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .blog-post-content {
+    margin-right: 260px;
+  }
+
+  .sidenote {
+    margin-right: -260px;
+    width: 220px;
+  }
+}
+
+/* Mobile: hide sidenotes */
+@media (max-width: 1279px) {
+  .sidenote {
+    display: none;
+  }
+
+  section[data-footnotes] {
+    display: block !important;
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: #fafafa;
+    border-radius: 0.5rem;
+    border-left: 4px solid #e4e4e7;
+  }
+
+  section[data-footnotes] h2 {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    margin-bottom: 1rem !important;
+    color: #52525b !important;
+  }
+
+  section[data-footnotes] ol {
+    padding-left: 1rem !important;
+  }
+
+  section[data-footnotes] li {
+    margin-bottom: 0.75rem !important;
+    line-height: 1.5 !important;
+    font-size: 0.9rem !important;
+  }
+}
+
+@media (max-width: 1279px) and (prefers-color-scheme: dark) {
+  section[data-footnotes] {
+    background: #18181b;
+    border-left-color: #3f3f46;
+  }
+
+  section[data-footnotes] h2 {
+    color: #a1a1aa !important;
+  }
+}

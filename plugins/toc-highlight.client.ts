@@ -1,5 +1,4 @@
 // Client-side plugin to highlight active TOC items when scrolling
-// Deferred execution for better LCP
 export default defineNuxtPlugin((nuxtApp: any) => {
   // Function to update active TOC item based on scroll position
   const updateActiveTocItem = () => {
@@ -47,21 +46,11 @@ export default defineNuxtPlugin((nuxtApp: any) => {
   }
 
   // Set up scroll event listener when component is mounted
-  // Use requestIdleCallback to defer non-critical work
   if (import.meta.client) {
     nuxtApp.hook('app:mounted', () => {
-      const init = () => {
-        window.addEventListener('scroll', updateActiveTocItem, {
-          passive: true,
-        })
-        updateActiveTocItem()
-      }
-      // Defer to idle time for better LCP
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(init, { timeout: 2000 })
-      } else {
-        setTimeout(init, 1000)
-      }
+      window.addEventListener('scroll', updateActiveTocItem, { passive: true })
+      // Small delay to ensure DOM is ready
+      setTimeout(updateActiveTocItem, 100)
     })
   }
 
