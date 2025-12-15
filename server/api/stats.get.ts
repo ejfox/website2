@@ -12,6 +12,7 @@ import gistStatsHandler from './gist-stats.get'
 import websiteStatsHandler from './website-stats.get'
 import letterboxdStatsHandler from './letterboxd.get'
 import blogStatsHandler from './blog-stats.get'
+import discogsHandler from './discogs.get'
 
 // Adapter function to convert chess stats to the expected format
 function adaptChessStats(chessStats: any) {
@@ -166,6 +167,7 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       websiteStatsResult,
       letterboxdStatsResult,
       blogStatsResult,
+      discogsResult,
     ] = await Promise.allSettled([
       githubHandler(event).catch((err) => {
         console.error('❌ GitHub API error:', err)
@@ -219,6 +221,10 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
         console.error('❌ Blog stats error:', err)
         return null
       }),
+      discogsHandler(event).catch((err) => {
+        console.error('❌ Discogs API error:', err)
+        return null
+      }),
     ])
 
     const response: StatsResponse = {
@@ -239,6 +245,7 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       website: getValue(websiteStatsResult),
       letterboxd: getValue(letterboxdStatsResult),
       blog: getValue(blogStatsResult),
+      discogs: getValue(discogsResult),
     }
 
     return response

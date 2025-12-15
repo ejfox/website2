@@ -488,6 +488,47 @@ export interface StatsResponse {
     month: string
     year: number
   }
+  discogs?: {
+    stats: {
+      totalItems: number
+      totalValue: number
+      medianValue: number
+      highestValue: number
+      averageValue: number
+    }
+    topGenres: Array<{
+      genre: string
+      count: number
+    }>
+    decadeBreakdown: Array<{
+      decade: string
+      count: number
+    }>
+    topArtists: Array<{
+      artist: string
+      count: number
+    }>
+    randomRecord: {
+      title: string
+      artist: string
+      year: number
+      genres: string[]
+      price: number
+      uri: string
+      resourceUrl: string
+      format: string
+    } | null
+    collection: Array<{
+      title: string
+      artist: string
+      year: number
+      price: number
+      uri: string
+      resourceUrl: string
+    }>
+    lastUpdated: string
+    error?: string
+  }
 }
 
 export function useStats() {
@@ -514,6 +555,7 @@ export function useStats() {
   const hasChessData = computed(() => !!stats.value?.chess)
   const hasRescueTimeData = computed(() => !!stats.value?.rescueTime)
   const hasLastFmData = computed(() => !!stats.value?.lastfm)
+  const hasDiscogsData = computed(() => !!stats.value?.discogs?.stats)
 
   // DELETED: All caching functions
 
@@ -555,6 +597,7 @@ export function useStats() {
     hasChessData,
     hasRescueTimeData,
     hasLastFmData,
+    hasDiscogsData,
     // DELETED: refresh method - not needed without caching
   }
 }

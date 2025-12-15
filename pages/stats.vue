@@ -459,6 +459,17 @@
                 <LastFmStats key="lastfm" :stats="stats.lastfm" />
               </StatSection>
 
+              <!-- Vinyl -->
+              <StatSection
+                v-if="stats.discogs?.stats"
+                id="vinyl"
+                key="vinyl-section"
+                title="VINYL"
+                class="break-inside-avoid"
+              >
+                <DiscogsStats key="discogs" :stats="stats.discogs" />
+              </StatSection>
+
               <!-- Films -->
               <StatSection
                 v-if="stats.letterboxd?.stats"
@@ -535,6 +546,7 @@ import MonkeyTypeStats from '~/components/stats/MonkeyTypeStats.vue'
 import GistStats from '~/components/stats/GistStats.vue'
 import LastFmStats from '~/components/stats/LastFmStats.vue'
 import LetterboxdStats from '~/components/stats/LetterboxdStats.vue'
+import DiscogsStats from '~/components/stats/DiscogsStats.vue'
 import UmamiStats from '~/components/stats/UmamiStats.vue'
 import GearStats from '~/components/stats/GearStats.vue'
 import { usePostFilters } from '~/composables/blog/usePostFilters'
@@ -1027,6 +1039,7 @@ const statsSections = [
   { id: 'typing', text: 'Typing' },
   { id: 'gists', text: 'Code' },
   { id: 'music', text: 'Music' },
+  { id: 'vinyl', text: 'Vinyl' },
   { id: 'films', text: 'Films' },
   { id: 'website', text: 'Analytics' },
   { id: 'gear', text: 'Gear' },
