@@ -12,10 +12,10 @@
     </a>
     <NuxtLoadingIndicator color="#999999" :height="1" />
     <section class="flex flex-col sm:flex-row min-h-screen relative">
-      <!-- Mobile navigation - hide on stats page with simple mode -->
+      <!-- Mobile navigation - CSS-only visibility to prevent CLS -->
       <nav
-        v-if="isMobile && !isStatsSimple"
-        class="fixed top-0 left-0 w-full z-50 bg-zinc-100/80 dark:bg-zinc-900/80 backdrop-blur-lg"
+        v-if="!isStatsSimple"
+        class="sm:hidden fixed top-0 left-0 w-full z-50 bg-zinc-100/80 dark:bg-zinc-900/80 backdrop-blur-lg"
       >
         <div class="px-4 py-3">
           <div class="flex justify-between items-center">
@@ -140,10 +140,10 @@
         </Transition>
       </nav>
 
-      <!-- Desktop navigation - sticky left sidebar -->
+      <!-- Desktop navigation - sticky left sidebar, CSS-only visibility -->
       <nav
-        v-else-if="!isStatsSimple"
-        class="sticky min-w-[200px] h-auto max-h-screen top-0 left-0 z-50 p-4 font-mono overflow-auto"
+        v-if="!isStatsSimple"
+        class="hidden sm:block sticky min-w-[200px] h-auto max-h-screen top-0 left-0 z-50 p-4 font-mono overflow-auto"
       >
         <div
           class="container mx-auto sm:py-1 sm:flex sm:flex-col items-start w-full sm:shadow-none sm:border-none rounded bg-zinc-50/50 sm:bg-transparent dark:bg-zinc-900/30 sm:dark:bg-transparent backdrop-blur-md px-2 max-h-screen"
@@ -255,12 +255,10 @@
 
 <script setup>
 import { computed, ref, watch, nextTick } from 'vue'
-import { useBreakpoints, breakpointsTailwind } from '@vueuse/core'
 import { getPrimaryNav } from '~/config/navigation'
 
-const breakpoints = useBreakpoints(breakpointsTailwind)
-const isMobile = breakpoints.smaller('sm') // < 640px
-
+// Removed isMobile JS check - using CSS-only sm:hidden/sm:block for visibility
+// This prevents CLS from hydration mismatch
 const mobileMenuOpen = ref(false)
 
 const toggleMobileMenu = () => {

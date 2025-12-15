@@ -12,7 +12,7 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 696841,
+    "Vue": 696884,
     "TypeScript": 311244,
     "JavaScript": 210622,
     "CSS": 35191,
@@ -145,7 +145,7 @@
       },
       {
         "path": "components/Footer.vue",
-        "size": 3009
+        "size": 3052
       },
       {
         "path": "components/GistPreview.vue",
@@ -6978,7 +6978,7 @@
             },
             {
               "name": "Footer.vue",
-              "size": 3009,
+              "size": 3052,
               "path": "components/Footer.vue"
             },
             {
@@ -15478,7 +15478,7 @@
       "path": ""
     },
     "totalFiles": 1635,
-    "totalSize": 83854563
+    "totalSize": 83854606
   },
   "topics": [],
   "readme": {
@@ -15487,6 +15487,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-15T19:52:54Z",
-  "pushedAt": "2025-12-15T19:52:49Z"
+  "updatedAt": "2025-12-15T20:05:06Z",
+  "pushedAt": "2025-12-15T20:04:57Z"
 }
