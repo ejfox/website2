@@ -43,6 +43,9 @@ async function _getScrapTags() {
 }
 
 export default defineNuxtConfig({
+  // Lock in current Nitro behavior (silences warning)
+  compatibilityDate: '2025-12-14',
+
   // Enable Nuxt 4 compatibility mode
   future: {
     compatibilityVersion: 4,
