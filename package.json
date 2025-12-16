@@ -6,7 +6,7 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "prebuild": "node scripts/generate-build-info.mjs && node scripts/export-github-repos.mjs && node scripts/fetch-goodreads.mjs",
+    "prebuild": "node scripts/generate-build-info.mjs && (node scripts/export-github-repos.mjs || echo 'GitHub export failed, using cached data') && (node scripts/fetch-goodreads.mjs || echo 'Goodreads fetch failed, using cached data')",
     "build": "nuxt build",
     "github:export": "node scripts/export-github-repos.mjs",
     "goodreads:fetch": "node scripts/fetch-goodreads.mjs",
