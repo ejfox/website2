@@ -21,41 +21,59 @@ usePageSeo({
   data1: '30-minute video call',
 })
 
-// Load Cal.com embed script and initialize
+// Load Cal.com embed script and initialize using their loader pattern
 onMounted(() => {
-  // Load the Cal.com embed script
-  const script = document.createElement('script')
-  script.src = 'https://app.cal.com/embed/embed.js'
-  script.async = true
-  script.onload = () => {
-    initCalEmbed()
-  }
-  document.head.appendChild(script)
-
-  // Watch for theme changes and reinitialize
-  watch(isDark, () => {
-    if (window.Cal) {
-      updateCalTheme()
+  // Cal.com's official loader pattern
+  ;(function (C, A, L) {
+    const p = function (a, ar) {
+      a.q.push(ar)
     }
-  })
-})
+    const d = C.document
+    C.Cal =
+      C.Cal ||
+      function () {
+        const cal = C.Cal
+        const ar = arguments
+        if (!cal.loaded) {
+          cal.ns = {}
+          cal.q = cal.q || []
+          d.head.appendChild(d.createElement('script')).src = A
+          cal.loaded = true
+        }
+        if (ar[0] === L) {
+          const api = function () {
+            p(api, arguments)
+          }
+          const namespace = ar[1]
+          api.q = api.q || []
+          typeof namespace === 'string'
+            ? (cal.ns[namespace] = api) && p(api, ar)
+            : p(cal, ar)
+          return
+        }
+        p(cal, ar)
+      }
+  })(window, 'https://app.cal.com/embed/embed.js', 'init')
 
-function initCalEmbed() {
-  if (!window.Cal) return
-
-  // Initialize Cal with namespace
+  // Initialize and create embed
   window.Cal('init', { origin: 'https://cal.com' })
 
-  // Create the inline embed
   window.Cal('inline', {
     elementOrSelector: '#cal-embed',
     calLink: 'ejfox/30min',
     layout: 'month_view',
   })
 
-  // Set initial theme
-  updateCalTheme()
-}
+  // Set initial theme after a brief delay to ensure Cal is ready
+  setTimeout(() => {
+    updateCalTheme()
+  }, 100)
+
+  // Watch for theme changes
+  watch(isDark, () => {
+    updateCalTheme()
+  })
+})
 
 function updateCalTheme() {
   if (!window.Cal) return
