@@ -1,3 +1,8 @@
+<!--
+  @file GearDetailCard.client.vue
+  @description 3D gear detail card with mouse-tracking parallax, showing comprehensive item information
+  @props gearItem: Object - Gear item with Name, Type, Weight, Tier, Parent Container, amazon, imageUrl, etc.
+-->
 <template>
   <div ref="cardRef" class="gear-card-container" :style="cardTransform">
     <!-- Header -->

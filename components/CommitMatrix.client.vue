@@ -1,3 +1,9 @@
+<!--
+  @file CommitMatrix.client.vue
+  @description Canvas-based commit visualization plotting commits by time (Y-axis) and day of week (X-axis)
+  @props commits: Array - Array of commit objects with date, repo properties
+  @props height: number - Canvas height in pixels
+-->
 <template>
   <div
     ref="containerRef"

@@ -1,3 +1,9 @@
+/**
+ * @file predictions.get.ts
+ * @description Parses all prediction markdown files from content/predictions/ with frontmatter metadata
+ * @endpoint GET /api/predictions
+ * @returns Array of prediction objects with statement, confidence, deadline, resolution status, and evidence
+ */
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
 import matter from 'gray-matter'

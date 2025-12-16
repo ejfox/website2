@@ -1,8 +1,8 @@
 /**
- * /api/blogroll
- *
- * Parses newsboat RSS feeds and returns as JSON.
- * Your reading list, machine-readable.
+ * @file blogroll.get.ts
+ * @description Parses newsboat RSS feeds from ~/.newsboat/urls and returns categorized feed list
+ * @endpoint GET /api/blogroll
+ * @returns RSS feeds grouped by category with stats including total count and category distribution
  */
 
 import { promises as fs } from 'node:fs'

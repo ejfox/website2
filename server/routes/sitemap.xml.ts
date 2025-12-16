@@ -1,4 +1,9 @@
-export default defineEventHandler(async (event) => {
+import { defineEventHandler, setHeader, type H3Event } from 'h3'
+
+// Nuxt auto-imports $fetch at runtime
+declare const $fetch: typeof globalThis.fetch
+
+export default defineEventHandler(async (event: H3Event) => {
   const baseUrl = 'https://ejfox.com'
 
   // Static pages with their priorities and update frequencies

@@ -1,3 +1,8 @@
+<!--
+  @file UmamiStats.vue
+  @description Umami website analytics statistics
+  @props stats: Object - Umami analytics data
+-->
 <template>
   <div v-if="hasData" class="space-y-2 font-mono">
     <!-- Primary Stats -->

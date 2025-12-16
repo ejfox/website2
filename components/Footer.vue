@@ -1,3 +1,8 @@
+<!--
+  @file Footer.vue
+  @description Site footer with h-card microformat, navigation links, PGP key, and build info
+  @props None - fetches build info from /api/build-info endpoint
+-->
 <template>
   <footer class="py-8 mt-8">
     <div class="max-w-4xl mx-auto px-4 space-y-8 text-center">

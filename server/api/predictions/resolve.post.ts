@@ -1,3 +1,10 @@
+/**
+ * @file predictions/resolve.post.ts
+ * @description Resolves a prediction by updating its markdown frontmatter with correctness verdict and explanation
+ * @endpoint POST /api/predictions/resolve
+ * @params id: string - Prediction ID, correct: boolean - Whether prediction was correct, explanation: string - Resolution explanation, date: string - Resolution date
+ * @returns Resolved prediction with updated frontmatter and complete metadata
+ */
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
 import matter from 'gray-matter'

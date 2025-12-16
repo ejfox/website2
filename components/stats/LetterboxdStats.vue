@@ -1,3 +1,8 @@
+<!--
+  @file LetterboxdStats.vue
+  @description Letterboxd film watching statistics
+  @props stats: Object - Letterboxd data
+-->
 <template>
   <div v-if="hasData" class="space-y-8 font-mono">
     <!-- Primary Metric -->

@@ -1,8 +1,8 @@
 /**
- * /api/build-info
- *
- * Returns build information captured at build time.
- * Shows which commit the deployed site is running.
+ * @file build-info.get.ts
+ * @description Returns build metadata including git commit, branch, and build timestamp from .build-info.json
+ * @endpoint GET /api/build-info
+ * @returns Build information with commit hash, branch name, and build date (returns dev placeholders if file doesn't exist)
  */
 
 import { readFileSync } from 'node:fs'

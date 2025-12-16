@@ -1,3 +1,8 @@
+<!--
+  @file GearCard3D.client.vue
+  @description 3D gear card with mouse-tracking parallax effect showing item details, weight, tier, and photo
+  @props gearItem: Object - Gear item with Name, Type, Weight_oz, Tier, Waterproof, imageUrl, amazon, etc.
+-->
 <template>
   <div ref="cardRef" class="gear-card-container" :style="cardTransform">
     <!-- Header -->

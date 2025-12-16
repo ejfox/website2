@@ -1,4 +1,8 @@
-// composables/useStats.ts
+/**
+ * @file useStats.ts
+ * @description Stats aggregation composable for fetching and computing personal metrics
+ * @returns Stats data, loading states, and computed time breakdowns
+ */
 import { ref, computed, onMounted } from 'vue'
 
 // DELETED: All caching - direct API calls only

@@ -1,3 +1,10 @@
+/**
+ * @file markets/polymarket.get.ts
+ * @description Fetches public market data from Polymarket Gamma API with price history from CLOB API
+ * @endpoint GET /api/markets/polymarket
+ * @params slug: string - Market slug (e.g., "new-york-city-mayoral-election")
+ * @returns Market data with current probability, volume, liquidity, resolution status, and daily price history
+ */
 // Polymarket Gamma API client (simpler, no auth needed)
 // Docs: https://docs.polymarket.com/developers/gamma-markets-api
 

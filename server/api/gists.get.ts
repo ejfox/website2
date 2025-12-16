@@ -1,3 +1,10 @@
+/**
+ * @file gists.get.ts
+ * @description Fetches GitHub Gists with pagination support and automatically fetches content for single-file gists
+ * @endpoint GET /api/gists
+ * @params per_page: number - Items per page (default: 64), page: number - Page number (default: 1)
+ * @returns Array of Gist objects with metadata and content for single-file gists
+ */
 import { defineEventHandler, createError, getQuery } from 'h3'
 
 interface GistFile {
@@ -26,7 +33,7 @@ export default defineEventHandler(async (event): Promise<Gist[]> => {
   const page = query.page || 1
 
   // Get token (same logic as github.get.ts)
-  let token = config.githubToken || config.GITHUB_TOKEN
+  let token = (config.githubToken || config.GITHUB_TOKEN) as string
 
   if (token === 'your_token_here') {
     const directEnvToken = process.env.GITHUB_TOKEN

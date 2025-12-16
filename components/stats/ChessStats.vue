@@ -1,3 +1,8 @@
+<!--
+  @file ChessStats.vue
+  @description Chess.com statistics showing ratings, games, and performance metrics
+  @props stats: Object - Chess statistics from Chess.com API
+-->
 <template>
   <div v-if="stats" class="space-y-2 font-mono">
     <!-- Primary Rating -->

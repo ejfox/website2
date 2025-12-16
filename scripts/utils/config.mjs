@@ -1,3 +1,9 @@
+/**
+ * @file utils/config.mjs
+ * @description Configuration utilities for source directories, whitelisted folders, and path resolution
+ * @usage import { CONFIG, getAbsolutePaths } from './scripts/utils/config.mjs'
+ */
+
 import path from 'node:path'
 
 export const CONFIG = {

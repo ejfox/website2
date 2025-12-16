@@ -1,3 +1,8 @@
+<!--
+  @file Breadcrumb.vue
+  @description Navigation breadcrumb trail with Home link and path segments
+  @props breadcrumbs: Breadcrumb[] - Array of breadcrumb objects with label and optional href
+-->
 <template>
   <!--  eslint-disable-next-line vue/max-len, max-len -->
   <nav

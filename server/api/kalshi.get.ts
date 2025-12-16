@@ -1,3 +1,9 @@
+/**
+ * @file kalshi.get.ts
+ * @description Fetches and enriches Kalshi prediction market portfolio data with multi-layer caching (2min portfolio, 1hr events, 10min commentary)
+ * @endpoint GET /api/kalshi
+ * @returns KalshiApiResponse with balance, positions, fills, orders, market details, user commentaries, and portfolio P&L statistics
+ */
 /* eslint-disable no-console */
 import { Configuration, PortfolioApi, EventsApi } from 'kalshi-typescript'
 import { readFile, readdir } from 'node:fs/promises'
@@ -260,7 +266,9 @@ async function fetchEvents(
   // Fetch missing events in parallel
   const eventResults = await Promise.allSettled(
     needsFetch.map(async (eventTicker) => {
-      const eventRes = await eventsApi.getEvent({ event_ticker: eventTicker })
+      const eventRes = await (eventsApi.getEvent as any)({
+        event_ticker: eventTicker,
+      })
       return { eventTicker, data: eventRes.data as KalshiEvent }
     })
   )
@@ -485,9 +493,9 @@ export default defineEventHandler(
       const [balanceRes, positionsRes, fillsRes, ordersRes] = await Promise.all(
         [
           portfolioApi.getBalance(),
-          portfolioApi.getPositions({ limit: 100 }),
-          portfolioApi.getFills({ limit: 100 }),
-          portfolioApi.getOrders({ limit: 100 }),
+          (portfolioApi.getPositions as any)({ limit: 100 }),
+          (portfolioApi.getFills as any)({ limit: 100 }),
+          (portfolioApi.getOrders as any)({ limit: 100 }),
         ]
       )
 

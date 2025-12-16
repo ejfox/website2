@@ -1,3 +1,11 @@
+/**
+ * @file config.mjs
+ * @description Processing configuration for content pipeline - directories, batch sizes, Cloudinary settings, and file patterns
+ * @usage import { config, dirs, processing } from './scripts/config.mjs'
+ * @env DEBUG_PROCESS - Enable debug mode for processing (optional)
+ * @env CLOUDINARY_CLOUD_NAME - Cloudinary cloud name for image optimization (optional)
+ */
+
 import path from 'node:path'
 
 export const config = {

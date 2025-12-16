@@ -1,3 +1,12 @@
+<!--
+  @file RepoSparkline.client.vue
+  @description SVG sparkline chart for visualizing repository activity trends
+  @props data: Array - Array of numeric values to plot
+  @props width: number - SVG width in pixels (default: 60)
+  @props height: number - SVG height in pixels (default: 16)
+  @props color: string - Line color (default: '#71717a')
+  @props showDot: boolean - Show dot at last point (default: false)
+-->
 <script setup>
 import { computed } from 'vue'
 

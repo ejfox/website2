@@ -1,3 +1,8 @@
+<!--
+  @file LastFmStats.vue
+  @description Last.fm music listening statistics
+  @props stats: Object - Last.fm data from API
+-->
 <template>
   <div v-if="hasData" class="space-y-2 font-mono">
     <!-- Last 5 Songs -->

@@ -1,3 +1,9 @@
+/**
+ * @file letterboxd.get.ts
+ * @description Fetches Letterboxd film diary via RSS feed parsing to extract watched films, ratings, and viewing statistics
+ * @endpoint GET /api/letterboxd
+ * @returns Film data with list of watched films, ratings, rewatch status, and calculated statistics (yearly/monthly counts, average rating)
+ */
 /* eslint-disable no-console */
 export default defineEventHandler(async (_event) => {
   try {

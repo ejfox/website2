@@ -1,3 +1,8 @@
+<!--
+  @file GitHubHistogramGrid.client.vue
+  @description Grid of D3 histograms showing distribution of repository metrics (size, stars, forks, languages, age, recency)
+  @props repos: Array - Array of repository objects with stats, languages, dates, diskUsage
+-->
 <script setup>
 import { computed } from 'vue'
 import { scaleLinear, scaleLog } from 'd3-scale'

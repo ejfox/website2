@@ -1,8 +1,8 @@
 /**
- * /api/robot/meta
- *
- * Schema and capabilities discovery for AI agents.
- * Describes what data is available and how to query it.
+ * @file robot/meta.get.ts
+ * @description Machine-readable API schema and capabilities discovery for AI agents to query personal data
+ * @endpoint GET /api/robot/meta
+ * @returns Complete API documentation including available endpoints, schemas, data availability, usage guidelines, and philosophical principles
  */
 
 export default defineEventHandler(async () => {

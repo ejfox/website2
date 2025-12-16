@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+/**
+ * @file generate-build-info.mjs
+ * @description Generate build info JSON with git commit, branch, and timestamp for deployment tracking
+ * @usage node scripts/generate-build-info.mjs
+ * @env None required - reads from git
+ */
+
 /* eslint-disable no-console */
 import { execSync } from 'node:child_process'
 import { writeFileSync } from 'node:fs'

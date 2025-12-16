@@ -1,3 +1,9 @@
+/**
+ * @file stats.get.ts
+ * @description Aggregates statistics from multiple third-party APIs (GitHub, Chess.com, Last.fm, MonkeyType, LeetCode, RescueTime, Letterboxd, Discogs, etc.) into a single unified response
+ * @endpoint GET /api/stats
+ * @returns Comprehensive StatsResponse object containing data from all integrated services with graceful error handling for individual service failures
+ */
 import type { StatsResponse } from '~/composables/useStats'
 import githubHandler from './github.get'
 import monkeyTypeHandler from './monkeytype.get'
@@ -101,17 +107,17 @@ function _processCommits(commits: any[]): {
   )
 
   // Calculate total commits
-  const total = Object.values(typeCounts).reduce(
-    (sum: number, count: number) => sum + count,
+  const total: number = (Object.values(typeCounts) as number[]).reduce(
+    (sum, count) => sum + count,
     0
   )
 
   // Convert to array with percentages
   const commitTypes = Object.entries(typeCounts)
-    .map(([type, count]: [string, number]) => ({
+    .map(([type, count]) => ({
       type,
-      count,
-      percentage: (count / total) * 100,
+      count: count as number,
+      percentage: ((count as number) / total) * 100,
     }))
     .sort((a, b) => b.count - a.count)
 

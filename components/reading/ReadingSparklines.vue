@@ -1,3 +1,9 @@
+<!--
+  @file ReadingSparklines.vue
+  @description Reading activity sparkline showing books per year with bar chart visualization
+  @props yearlyData: Array - Array of yearly reading data with year and count
+  @props width: number - SVG width in pixels (default: 400)
+-->
 <template>
   <div class="space-y-4">
     <!-- Books per year sparkline -->

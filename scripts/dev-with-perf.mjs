@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+/**
+ * @file dev-with-perf.mjs
+ * @description Dev server wrapper with automatic Lighthouse performance checks every 2 minutes
+ * @usage node scripts/dev-with-perf.mjs
+ * @env None required
+ */
+
 /* eslint-disable no-console */
 
 import { spawn } from 'node:child_process'

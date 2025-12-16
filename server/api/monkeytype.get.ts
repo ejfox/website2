@@ -1,3 +1,9 @@
+/**
+ * @file monkeytype.get.ts
+ * @description Fetches MonkeyType typing test statistics including WPM, accuracy, and test completion data
+ * @endpoint GET /api/monkeytype
+ * @returns Typing statistics with best WPM, average WPM, tests completed, accuracy, consistency, and recent test results
+ */
 import { defineEventHandler, createError } from 'h3'
 
 interface MonkeyTypeTest {

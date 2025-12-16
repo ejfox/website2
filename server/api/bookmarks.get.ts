@@ -1,3 +1,10 @@
+/**
+ * @file bookmarks.get.ts
+ * @description Fetches bookmarks from Pinboard API with optional tag filtering and count limiting
+ * @endpoint GET /api/bookmarks
+ * @params count: number - Number of bookmarks to fetch (default: 300, max: 1000), tag: string - Filter by tag (defaults to !news)
+ * @returns Processed Pinboard bookmarks with tags, titles, descriptions, and read status
+ */
 import { defineEventHandler, getQuery } from 'h3'
 
 interface PinboardBookmark {

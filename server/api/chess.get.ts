@@ -1,3 +1,9 @@
+/**
+ * @file chess.get.ts
+ * @description Fetches Chess.com player statistics including ratings, games played, win rates, and puzzle stats across all time controls
+ * @endpoint GET /api/chess
+ * @returns ChessStats with current/best ratings, games played, win rates, puzzle stats, and recent game results
+ */
 import { defineEventHandler, createError } from 'h3'
 
 interface ChessGameResult {

@@ -2,6 +2,10 @@ import RSS from 'rss'
 import sanitizeHtml from 'sanitize-html'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { parseISO, isValid, compareDesc, formatISO } from 'date-fns'
+import { defineEventHandler } from 'h3'
+
+// Nuxt auto-imports at runtime
+declare function useRuntimeConfig(): { public: Record<string, unknown> }
 
 // RSS item type
 interface RSSItemOptions {
@@ -60,7 +64,7 @@ export default defineEventHandler(async (event) => {
 
   // Add items to feed
   for (const post of sortedPosts) {
-    const metadata = post.metadata || {}
+    const metadata = (post.metadata || {}) as Record<string, any>
     const parsedContent = post.html || ''
     const html = sanitizeHtml(parsedContent, {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),

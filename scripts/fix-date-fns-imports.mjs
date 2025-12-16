@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+/**
+ * @file fix-date-fns-imports.mjs
+ * @description Automatically refactor date-fns imports to use centralized utils for better tree-shaking and bundle size reduction
+ * @usage node scripts/fix-date-fns-imports.mjs
+ * @env None required
+ */
+
 /* eslint-disable no-console */
 
 import { readFile, writeFile } from 'node:fs/promises'

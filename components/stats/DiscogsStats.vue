@@ -1,7 +1,15 @@
+<!--
+  @file DiscogsStats.vue
+  @description Discogs vinyl collection statistics
+  @props stats: Object - Discogs collection data from API
+-->
 <template>
   <div v-if="hasData" class="space-y-2 font-mono">
     <!-- Random Record of the Day -->
-    <div v-if="randomRecord" class="border border-zinc-300 dark:border-zinc-700 rounded p-3 mb-4">
+    <div
+      v-if="randomRecord"
+      class="border border-zinc-300 dark:border-zinc-700 rounded p-3 mb-4"
+    >
       <div class="text-xs text-zinc-500 mb-1">FEATURED</div>
       <div class="text-xs">
         <div class="font-bold text-zinc-900 dark:text-zinc-100 truncate">
@@ -17,7 +25,10 @@
           <span v-if="randomRecord.price > 0">•</span>
           <span v-if="randomRecord.price > 0">${{ randomRecord.price }}</span>
         </div>
-        <div v-if="randomRecord.genres?.length" class="text-zinc-500 text-xs mt-1">
+        <div
+          v-if="randomRecord.genres?.length"
+          class="text-zinc-500 text-xs mt-1"
+        >
           {{ randomRecord.genres.join(', ') }}
         </div>
       </div>
@@ -44,7 +55,8 @@
         >
           <span class="text-zinc-700 dark:text-zinc-300">Total Value</span>
           <span class="text-zinc-500 tabular-nums">
-            $<AnimatedNumber
+            $
+            <AnimatedNumber
               :value="Math.round(stats.stats.totalValue)"
               format="default"
               :duration="400"
@@ -58,7 +70,8 @@
         >
           <span class="text-zinc-700 dark:text-zinc-300">Avg Price</span>
           <span class="text-zinc-500 tabular-nums">
-            $<AnimatedNumber
+            $
+            <AnimatedNumber
               :value="Math.round(stats.stats.averageValue * 100) / 100"
               format="default"
               :duration="400"
@@ -217,8 +230,7 @@ const randomRecord = computed(() => {
 
 const hasData = computed(() => {
   return !!(
-    props.stats?.stats?.totalItems &&
-    props.stats?.stats?.totalItems > 0
+    props.stats?.stats?.totalItems && props.stats?.stats?.totalItems > 0
   )
 })
 </script>

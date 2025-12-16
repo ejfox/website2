@@ -1,3 +1,9 @@
+<!--
+  @file GearItem.vue
+  @description Ultra-dense gear table row with symbols, abbreviations, and weight display
+  @props item: Object - Gear item with Name, Type, Category, Waterproof, Priority, Condition, Last_Used, Weight_oz, Amazon_URL
+  @props weightUnit: string - Weight display unit: 'metric' or 'imperial' (default: 'metric')
+-->
 <template>
   <tr :class="rowClasses">
     <td

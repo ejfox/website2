@@ -1,3 +1,10 @@
+/**
+ * @file search.get.ts
+ * @description Full-text search across processed blog content with TF-IDF relevance scoring and snippet extraction
+ * @endpoint GET /api/search
+ * @params q: string - Search query, limit: number - Maximum results (default: 20, max: 50)
+ * @returns Search results with snippets, relevance scores, tags, and metadata, sorted by relevance
+ */
 import { defineEventHandler, getQuery } from 'h3'
 import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'

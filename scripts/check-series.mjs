@@ -1,3 +1,11 @@
+/**
+ * @file check-series.mjs
+ * @description Query Kalshi series data for specific market tickers to get detailed event information
+ * @usage node scripts/check-series.mjs
+ * @env KALSHI_KEY_ID - Kalshi API key ID (required)
+ * @env KALSHI_PRIVATE_KEY - Kalshi API private key (required)
+ */
+
 /* eslint-disable no-console */
 import { Configuration, SeriesApi } from 'kalshi-typescript'
 import { config } from 'dotenv'

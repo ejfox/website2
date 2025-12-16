@@ -1,3 +1,9 @@
+/**
+ * @file gear-stats.get.ts
+ * @description Calculates statistics from gear.csv including total weight, item counts, and type distribution
+ * @endpoint GET /api/gear-stats
+ * @returns Gear statistics with total items, total weight (oz), container count, and type distribution
+ */
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import * as d3 from 'd3'

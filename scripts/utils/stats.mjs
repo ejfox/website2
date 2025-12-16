@@ -1,3 +1,9 @@
+/**
+ * @file utils/stats.mjs
+ * @description Processing statistics tracking for content pipeline - real-time progress, word counts, content analysis
+ * @usage import { processStats, updateRealTimeStats, printProcessingReport } from './scripts/utils/stats.mjs'
+ */
+
 /* eslint-disable no-console */
 import chalk from 'chalk'
 import path from 'node:path'

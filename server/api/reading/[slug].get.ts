@@ -1,3 +1,10 @@
+/**
+ * @file reading/[slug].get.ts
+ * @description Retrieves individual book data with highlights and metadata from processed reading collection
+ * @endpoint GET /api/reading/{slug}
+ * @params slug: string - URL-encoded book slug
+ * @returns Complete book data including Kindle highlights, metadata, and sync information
+ */
 import { defineEventHandler, getRouterParam, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'

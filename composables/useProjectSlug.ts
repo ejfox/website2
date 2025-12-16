@@ -1,3 +1,8 @@
+/**
+ * @file useProjectSlug.ts
+ * @description Generates URL-safe slugs from project titles using github-slugger
+ * @returns { getSlug } - Function to generate slug from project object
+ */
 import GithubSlugger from 'github-slugger'
 
 interface Project {

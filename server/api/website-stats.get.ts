@@ -1,3 +1,9 @@
+/**
+ * @file website-stats.get.ts
+ * @description Fetches website analytics from Umami self-hosted analytics platform with 30-day statistics
+ * @endpoint GET /api/website-stats
+ * @returns Umami website statistics with pageviews, visitors, and share URL for the last 30 days
+ */
 import { fetchWithTimeout } from '~/server/utils/fetch'
 
 export default defineEventHandler(async () => {

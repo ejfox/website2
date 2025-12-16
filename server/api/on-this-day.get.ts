@@ -1,3 +1,10 @@
+/**
+ * @file on-this-day.get.ts
+ * @description Retrieves historical events from pre-processed JSON files organized by month-day with 1-hour caching
+ * @endpoint GET /api/on-this-day
+ * @params month: number - Month (1-12), day: number - Day (1-31), defaults to current date if not provided
+ * @returns Historical data grouped by year and source type with totals for each source
+ */
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 

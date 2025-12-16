@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+/**
+ * @file blog/create-prediction.mjs
+ * @description Simple CLI tool to create prediction files with frontmatter (statement, confidence, deadline, categories)
+ * @usage node scripts/blog/create-prediction.mjs
+ * @env None required
+ */
+
 /* eslint-disable no-console */
 
 import { promises as fs } from 'node:fs'

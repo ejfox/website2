@@ -1,3 +1,8 @@
+<!--
+  @file GitHubStats.vue
+  @description GitHub statistics component
+  @props stats: Object - GitHub statistics from API
+-->
 <template>
   <div
     v-if="stats"

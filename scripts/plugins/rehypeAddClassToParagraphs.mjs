@@ -1,3 +1,9 @@
+/**
+ * @file plugins/rehypeAddClassToParagraphs.mjs
+ * @description Rehype plugin that adds Tailwind CSS classes to HTML elements (blockquotes, code blocks, tables, footnotes)
+ * @usage .use(rehypeAddClassToParagraphs)
+ */
+
 import { visit } from 'unist-util-visit'
 
 // Define SVG for horizontal rule - using the simpler line style

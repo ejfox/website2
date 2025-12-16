@@ -1,3 +1,10 @@
+/**
+ * @file posts/[...slug].ts
+ * @description Fetches blog post content from pre-processed JSON files with support for nested paths and year-based organization
+ * @endpoint GET /api/posts/{slug}
+ * @params slug: string[] - Dynamic path segments representing post location (e.g., ["2025", "post-name"])
+ * @returns Post data with HTML content, metadata, title, and table of contents
+ */
 import { defineEventHandler, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'

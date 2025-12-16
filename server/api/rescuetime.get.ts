@@ -1,3 +1,9 @@
+/**
+ * @file rescuetime.get.ts
+ * @description Fetches RescueTime productivity tracking data for the current week and month with activity breakdowns
+ * @endpoint GET /api/rescuetime
+ * @returns Time tracking data with categories, activities, and productivity summary (productive/distracting/neutral time)
+ */
 import { defineEventHandler, createError } from 'h3'
 
 interface RescueTimeRow {
@@ -97,10 +103,12 @@ export default defineEventHandler(async () => {
       }),
     ])
 
-    const weekData =
+    const weekData = (
       results[0].status === 'fulfilled' ? results[0].value : { rows: [] }
-    const monthData =
+    ) as RescueTimeResponse
+    const monthData = (
       results[1].status === 'fulfilled' ? results[1].value : { rows: [] }
+    ) as RescueTimeResponse
 
     // Process week data
     const processData = (response: RescueTimeResponse) => {

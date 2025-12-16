@@ -1,3 +1,8 @@
+<!--
+  @file GithubForceLayout.client.vue
+  @description D3 force-directed layout visualization of GitHub repositories by creation/update time and size
+  @props repos: Array - Array of repository objects with language, stats, dates, diskUsage
+-->
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useElementSize } from '@vueuse/core'

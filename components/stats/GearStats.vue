@@ -1,3 +1,8 @@
+<!--
+  @file GearStats.vue
+  @description Gear inventory statistics
+  @props stats: Object - Gear statistics from CSV data
+-->
 <template>
   <div
     ref="gearStatsRef"

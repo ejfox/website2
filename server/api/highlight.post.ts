@@ -1,3 +1,10 @@
+/**
+ * @file highlight.post.ts
+ * @description Server-side syntax highlighting using Shiki with support for multiple languages and themes
+ * @endpoint POST /api/highlight
+ * @params code: string - Code to highlight, language: string - Language name (default: 'text'), theme: string - Theme name (default: 'github-light')
+ * @returns Highlighted HTML code with language detection and fallback handling
+ */
 // SERVER-SIDE SYNTAX HIGHLIGHTING - Zeus almighty, no bundlin'
 // Pre-calculate, pre-render, hit em with the flow slide
 

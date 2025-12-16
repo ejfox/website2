@@ -1,3 +1,9 @@
+<!--
+  @file StatsDataState.vue
+  @description Data state message component for unavailable/loading/error states
+  @props message: string - Custom message (default: DATA_UNAVAILABLE)
+  @props type: string - State type: unavailable, loading, error
+-->
 <template>
   <div class="data-unavailable">
     {{ computedMessage }}

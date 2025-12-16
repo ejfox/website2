@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+/**
+ * @file predictions/sign-prediction.mjs
+ * @description Sign prediction files with SHA-256 hash and optional PGP signature for cryptographic verification
+ * @usage node scripts/predictions/sign-prediction.mjs <prediction-file> [--sign]
+ * @env None required - GPG must be installed for PGP signing
+ */
+
 /* eslint-disable no-console */
 
 import { createHash } from 'node:crypto'

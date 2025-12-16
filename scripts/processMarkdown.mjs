@@ -1,3 +1,13 @@
+/**
+ * @file processMarkdown.mjs
+ * @description Main content processing pipeline - converts Markdown to HTML with smart caching, link health checking, and on-this-day index generation
+ * @usage yarn blog:process OR node scripts/processMarkdown.mjs
+ * @env OBSIDIAN_VAULT_PATH - Path to Obsidian vault (optional)
+ * @env CHECK_LINKS - Enable link health checking (optional)
+ * @env AUTO_FIX_LINKS - Auto-replace broken links with archive.org versions (optional)
+ * @env DEBUG - Enable debug output (optional)
+ */
+
 /* eslint-disable no-console */
 // Markdown → HTML Processing Pipeline
 import { promises as fs, existsSync, statSync } from 'node:fs'

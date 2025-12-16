@@ -1,11 +1,13 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
- * Export GitHub repositories to JSON for /github/[repo] pages
- * Fetches all public repos, processes READMEs, generates static data
- *
- * Usage: node scripts/export-github-repos.mjs
+ * @file export-github-repos.mjs
+ * @description Export GitHub repository data including READMEs, language breakdown, file trees, and metadata with smart caching
+ * @usage node scripts/export-github-repos.mjs
+ * @env GITHUB_TOKEN - GitHub personal access token (required)
+ * @env githubToken - Alternative env var name for GitHub token (optional)
  */
+
+/* eslint-disable no-console */
 
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'

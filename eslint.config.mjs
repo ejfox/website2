@@ -161,8 +161,10 @@ export default createConfigForNuxt({
           ignoreStrings: true,
           ignoreTemplateLiterals: true,
           ignoreRegExpLiterals: true,
-          ignoreComments: false,
-          ignorePattern: '^\\s*d="|^\\s*<path|class="|:class=',
+          ignoreComments: true, // Allow long JSDoc headers
+          // Ignore: SVG paths, class attrs, JSDoc tags in HTML comments
+          ignorePattern:
+            '^\\s*d="|^\\s*<path|class="|:class=|^\\s*\\*|@file|@description|@props|@returns|@param|@endpoint|@usage|@env',
         },
       ],
 
@@ -201,10 +203,14 @@ export default createConfigForNuxt({
           code: 80,
           template: 120,
           tabWidth: 2,
-          ignoreComments: false,
+          ignoreComments: true, // Allow long JSDoc headers
           ignoreUrls: true,
           ignoreStrings: true,
-          ignorePattern: '^\\s*d="|^\\s*<path|class=',
+          ignoreTemplateLiterals: true,
+          ignoreHTMLTextContents: true,
+          // Ignore: SVG paths, class attrs, JSDoc tags in HTML comments
+          ignorePattern:
+            '^\\s*d="|^\\s*<path|class=|@file|@description|@props|@returns|@param|@endpoint|@usage|@env|@emits',
         },
       ],
 

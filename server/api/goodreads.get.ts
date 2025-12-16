@@ -1,9 +1,18 @@
-import fs from 'fs'
-import path from 'path'
+/**
+ * @file goodreads.get.ts
+ * @description Serves pre-processed Goodreads reading data from build-time cached JSON file
+ * @endpoint GET /api/goodreads
+ * @returns Goodreads data with book lists (currently reading, read, to-read), stats (total read, ratings, pages), and reading trends
+ */
+import fs from 'node:fs'
+import path from 'node:path'
 
 export default defineEventHandler(async () => {
   try {
-    const dataPath = path.join(process.cwd(), 'content/processed/goodreads-stats.json')
+    const dataPath = path.join(
+      process.cwd(),
+      'content/processed/goodreads-stats.json'
+    )
 
     if (fs.existsSync(dataPath)) {
       const data = JSON.parse(fs.readFileSync(dataPath, 'utf-8'))

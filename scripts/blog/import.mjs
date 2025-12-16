@@ -1,3 +1,10 @@
+/**
+ * @file blog/import.mjs
+ * @description Obsidian to blog content import pipeline - syncs whitelisted folders from Obsidian vault to blog content directory
+ * @usage yarn blog:import OR node scripts/blog/import.mjs
+ * @env DRY_RUN - Run without writing files (optional)
+ */
+
 /* eslint-disable no-console */
 // Obsidian → Blog Import Pipeline
 import { promises as fs } from 'node:fs'

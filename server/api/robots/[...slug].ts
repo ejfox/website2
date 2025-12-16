@@ -1,3 +1,10 @@
+/**
+ * @file robots/[...slug].ts
+ * @description Dynamic router for robot notes with shareable AI-readable content, supports both list view and individual note retrieval
+ * @endpoint GET /api/robots/ - Lists all robot notes, GET /api/robots/{slug} - Gets individual robot note
+ * @params slug: string[] - Dynamic path segments for nested robot note structure
+ * @returns Robot note data with metadata and shareable content from content/processed/robots or content/blog/robots
+ */
 import { createRouter, defineEventHandler, useBase, createError } from 'h3'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { readFile } from 'node:fs/promises'

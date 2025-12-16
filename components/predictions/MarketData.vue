@@ -1,3 +1,8 @@
+<!--
+  @file MarketData.vue
+  @description Market data display with current probability, provider link, and price history sparkline
+  @props marketData: Object - Market data with url, provider, currentProb, priceHistory
+-->
 <template>
   <div
     v-if="marketData"

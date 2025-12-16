@@ -1,3 +1,9 @@
+/**
+ * @file healthcheck.get.ts
+ * @description System health check endpoint with uptime, memory usage, and manifest validation
+ * @endpoint GET /api/healthcheck
+ * @returns Health status object with system metrics, version info, and service status (returns 503 if degraded, 500 if error)
+ */
 import { setResponseStatus } from 'h3'
 
 export default defineEventHandler(async (event) => {

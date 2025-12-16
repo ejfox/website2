@@ -1,3 +1,9 @@
+/**
+ * @file reading.get.ts
+ * @description Loads and serves Kindle book highlights from processed reading collection with random highlight extraction
+ * @endpoint GET /api/reading
+ * @returns Array of books with metadata, random highlights, and Kindle sync information, sorted by annotation date
+ */
 import { defineEventHandler } from 'h3'
 import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'

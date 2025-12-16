@@ -1,3 +1,9 @@
+/**
+ * @file now.get.ts
+ * @description Parses and renders the /now page markdown file with frontmatter support
+ * @endpoint GET /api/now
+ * @returns Rendered HTML content and frontmatter metadata from now.md
+ */
 import { readFile } from 'node:fs/promises'
 import matter from 'gray-matter'
 import { unified } from 'unified'

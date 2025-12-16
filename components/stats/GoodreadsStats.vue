@@ -1,3 +1,8 @@
+<!--
+  @file GoodreadsStats.vue
+  @description Goodreads reading statistics
+  @props stats: Object - Goodreads data
+-->
 <template>
   <div v-if="data?.stats" class="space-y-2 font-mono">
     <!-- Essential metrics only -->

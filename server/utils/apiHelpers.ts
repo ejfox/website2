@@ -1,4 +1,4 @@
-import type { H3Event as _H3Event } from 'h3'
+import { createError, type H3Event as _H3Event } from 'h3'
 
 export interface ApiRequestOptions extends Record<string, any> {
   timeout?: number

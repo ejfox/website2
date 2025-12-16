@@ -1,9 +1,12 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
- * Fetch ALL GitHub contributions using the GraphQL API
- * This includes commits to any repo (personal, org, forks)
+ * @file export-all-contributions.mjs
+ * @description Fetch ALL GitHub contributions using GraphQL API - includes commits to personal, org, and forked repos
+ * @usage node scripts/export-all-contributions.mjs
+ * @env None required - uses gh CLI which must be authenticated
  */
+
+/* eslint-disable no-console */
 
 import { execSync } from 'node:child_process'
 import { writeFileSync } from 'node:fs'

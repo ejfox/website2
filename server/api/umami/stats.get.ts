@@ -1,3 +1,10 @@
+/**
+ * @file umami/stats.get.ts
+ * @description Fetches page-specific analytics from Umami with authentication and overall website stats
+ * @endpoint GET /api/umami/stats
+ * @params url: string - URL to fetch page view statistics for
+ * @returns Page views for specific URL and overall website statistics from Umami
+ */
 /* eslint-disable no-console */
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)

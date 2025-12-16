@@ -1,3 +1,11 @@
+<!--
+  @file IndividualStat.vue
+  @description Individual stat display with large number, label, and optional details
+  @props value: number | string - Stat value to display
+  @props label: string - Stat label
+  @props details: string - Additional details (optional)
+  @props size: string - Size variant: 'large', 'medium', 'small' (default: 'medium')
+-->
 <template>
   <div
     ref="containerRef"

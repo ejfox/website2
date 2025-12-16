@@ -1,4 +1,12 @@
 #!/usr/bin/env node
+/**
+ * @file kalshi-test.mjs
+ * @description Test Kalshi API connection and fetch portfolio data (balance, positions, events, markets, fills)
+ * @usage yarn kalshi:test OR node scripts/kalshi-test.mjs
+ * @env KALSHI_KEY_ID - Kalshi API key ID (required)
+ * @env KALSHI_PRIVATE_KEY - Kalshi API private key (required)
+ */
+
 /* eslint-disable no-console */
 import { writeFileSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'

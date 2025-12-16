@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+/**
+ * @file fix-vueuse-imports.mjs
+ * @description Automatically refactor @vueuse/core imports to use centralized composable for better tree-shaking
+ * @usage node scripts/fix-vueuse-imports.mjs
+ * @env None required
+ */
+
 /* eslint-disable no-console */
 
 import { readFile, writeFile } from 'node:fs/promises'

@@ -1,3 +1,10 @@
+/**
+ * @file markets/kalshi.get.ts
+ * @description Fetches public market data from Kalshi prediction market API including current probability and price history
+ * @endpoint GET /api/markets/kalshi
+ * @params id: string - Market ID (e.g., "BTCUSD-24DEC-100K")
+ * @returns Market data with current probability, volume, liquidity, resolution status, and price history
+ */
 // Kalshi API client
 // Docs: https://trading-api.readme.io/reference/getting-started
 

@@ -1,3 +1,14 @@
+<!--
+  @file TweetCard.vue
+  @description Twitter-style tweet card with text, engagement stats, and link to original tweet
+  @props id: string - Tweet ID (optional)
+  @props text: string - Tweet text content
+  @props date: string - Tweet date (optional)
+  @props replyTo: string - Username being replied to (optional)
+  @props favorites: number - Favorite count (default: 0)
+  @props retweets: number - Retweet count (default: 0)
+  @props year: number - Year of tweet (optional)
+-->
 <template>
   <article class="tweet-card group">
     <div class="flex gap-3">

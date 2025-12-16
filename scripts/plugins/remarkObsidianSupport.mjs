@@ -1,3 +1,9 @@
+/**
+ * @file plugins/remarkObsidianSupport.mjs
+ * @description Remark plugin that converts Obsidian [[wikilinks]] to standard markdown links with proper routing
+ * @usage .use(remarkObsidianSupport)
+ */
+
 import { visit } from 'unist-util-visit'
 import { getTitleFromFrontmatter } from '../utils/helpers.mjs'
 

@@ -1,3 +1,9 @@
+/**
+ * @file github.get.ts
+ * @description Fetches GitHub user statistics including contributions, repositories, followers, and recent commits with conventional commit type parsing
+ * @endpoint GET /api/github
+ * @returns GitHubStats with user stats, contribution history, commit details, and commit type distribution
+ */
 import { defineEventHandler, createError } from 'h3'
 
 interface GitHubStats {
@@ -231,7 +237,7 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
   // console.log('GITHUB_TOKEN length:', config.GITHUB_TOKEN?.length)
 
   // Get token and handle potential whitespace issues
-  let token = config.githubToken || config.GITHUB_TOKEN
+  let token = (config.githubToken || config.GITHUB_TOKEN) as string
 
   // Check if we have the placeholder token instead of the real one
   if (token === 'your_token_here') {
@@ -306,7 +312,7 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
 
     const contributionCollection = contributions.viewer.contributionsCollection
     const commits = contributionCollection.commitContributionsByRepository
-      .filter((repo) => !repo.repository.isPrivate)
+      .filter((repo: any) => !repo.repository.isPrivate)
       .flatMap((repo) => {
         const branch = repo.repository.defaultBranchRef
         const nodes = branch?.target?.history?.nodes

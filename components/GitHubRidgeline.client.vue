@@ -1,3 +1,9 @@
+<!--
+  @file GitHubRidgeline.client.vue
+  @description D3 ridgeline (joyplot) visualization showing repository count by programming language
+  @props repos: Array - Array of repository objects with language property
+  @props height: number - SVG height in pixels (default: 500)
+-->
 <script setup>
 import { ref, computed } from 'vue'
 import { useElementSize } from '@vueuse/core'

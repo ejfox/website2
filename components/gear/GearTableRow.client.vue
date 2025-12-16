@@ -1,3 +1,9 @@
+<!--
+  @file GearTableRow.client.vue
+  @description Gear item row with name, type, waterproof status, weight visualization, and age indicator
+  @props item: Object - Gear item with Name, Type, Waterproof, Weight_oz, amazon, Purchase Date, Notes
+  @props createViz: Function - Optional visualization creation function
+-->
 <template>
   <div
     class="gear-row"

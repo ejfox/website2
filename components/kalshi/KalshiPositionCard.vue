@@ -1,3 +1,10 @@
+<!--
+  @file KalshiPositionCard.vue
+  @description Individual Kalshi market position card with position details, P&L, and commentary
+  @props position: Object - Position with ticker, position, market_exposure_dollars, fees_paid_dollars, realized_pnl_dollars
+  @props kalshiData: Object - Full Kalshi data including markets and events
+  @props parsedCommentaries: Record<string, string> - Parsed commentary content by ticker
+-->
 <template>
   <article :id="`kalshi-${position.ticker}`" class="card-padding">
     <!-- Title + Side -->

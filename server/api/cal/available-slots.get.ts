@@ -1,3 +1,9 @@
+/**
+ * @file cal/available-slots.get.ts
+ * @description Fetches next 3 available 30-minute calendar slots from Cal.com API for booking meetings
+ * @endpoint GET /api/cal/available-slots
+ * @returns Formatted calendar slots with natural time display (e.g., "9am Monday?") and booking URLs for the next 7 days
+ */
 export default defineEventHandler(async (_event) => {
   const _config = useRuntimeConfig()
 
@@ -11,7 +17,7 @@ export default defineEventHandler(async (_event) => {
     const endISO = endDate.toISOString()
 
     // Cal.com API call for your 30min event type
-    const response = await $fetch('https://api.cal.com/v2/slots', {
+    const response = (await $fetch('https://api.cal.com/v2/slots', {
       method: 'GET',
       headers: {
         Authorization: `Bearer cal_live_556d97a3add1c087738058a73b2d697c`,
@@ -26,7 +32,7 @@ export default defineEventHandler(async (_event) => {
         timeZone: 'America/New_York',
         format: 'range',
       },
-    })
+    })) as { data?: Record<string, any[]> }
 
     if (!response.data) {
       return { slots: [] }

@@ -1,3 +1,13 @@
+<!--
+  @file RhythmicSparklines.vue
+  @description Rhythmic sparkline visualization with baseline, area fill, and peak indicator
+  @props data: Array - Array of numeric values to visualize
+  @props variant: string - Style variant: 'inline' or 'standalone' (default: 'inline')
+  @props baseline: number - Baseline reference value (optional)
+  @props showPeak: boolean - Show peak indicator (default: false)
+  @props width: number - SVG width in pixels (default: 60)
+  @props height: number - SVG height in pixels (default: 16)
+-->
 <template>
   <svg
     :class="variantClass"

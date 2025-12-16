@@ -1,3 +1,9 @@
+/**
+ * @file lastfm.get.ts
+ * @description Fetches Last.fm scrobbling statistics including recent tracks, top artists, albums, and listening habits
+ * @endpoint GET /api/lastfm
+ * @returns Last.fm data with recent tracks, top artists/albums/tracks for the month, user info, and calculated listening statistics
+ */
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   // Use hardcoded API key as fallback if environment variables aren't available

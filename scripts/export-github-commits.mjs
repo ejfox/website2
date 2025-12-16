@@ -1,11 +1,12 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
- * Export GitHub commits to JSON for on-this-day feature
- * Uses GitHub Search API to fetch all commits by author
- *
- * Usage: node scripts/export-github-commits.mjs
+ * @file export-github-commits.mjs
+ * @description Export GitHub commits to JSON using Search API (limited to 1000 results) for on-this-day feature
+ * @usage node scripts/export-github-commits.mjs
+ * @env None required - uses gh CLI which must be authenticated
  */
+
+/* eslint-disable no-console */
 
 import { execSync } from 'node:child_process'
 import { writeFileSync } from 'node:fs'

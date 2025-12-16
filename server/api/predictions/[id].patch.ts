@@ -1,3 +1,10 @@
+/**
+ * @file predictions/[id].patch.ts
+ * @description Updates prediction resolution status and notes in predictions.json file
+ * @endpoint PATCH /api/predictions/{id}
+ * @params id: string - Prediction ID
+ * @returns Updated prediction object with resolution status and notes
+ */
 import type { Prediction, UpdatePredictionInput } from '~/types/prediction'
 import { readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'

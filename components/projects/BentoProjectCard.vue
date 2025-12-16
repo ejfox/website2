@@ -1,3 +1,9 @@
+<!--
+  @file BentoProjectCard.vue
+  @description Bento-style project card with metadata, tech stack, and dense statistics display
+  @props project: Object - Project with title, metadata (date, tech), html content, stats
+  @props index: number - Card index for stagger animation
+-->
 <template>
   <NuxtLink
     :to="`/projects/${projectSlug}`"

@@ -1,3 +1,14 @@
+<!--
+  @file AnimatedNumber.vue
+  @description Displays numbers with D3-powered formatting (commas, percentages, currency, SI prefixes)
+  @props value: number - The number to display
+  @props startValue: number - Starting value for animation (default: 0)
+  @props duration: number - Animation duration in ms (default: 500)
+  @props format: string - Format type: 'default', 'commas', 'compact', 'percent', 'currency', 'decimal'
+  @props decimals: number - Number of decimal places (default: 0)
+  @props class: string - CSS classes to apply
+  @props style: string | object - Inline styles to apply
+-->
 <template>
   <span
     ref="numberRef"

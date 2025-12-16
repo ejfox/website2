@@ -1,3 +1,8 @@
+<!--
+  @file ReplyContext.vue
+  @description Reply context container displaying one or more URLs being replied to
+  @props replyTo: string | string[] - URL or array of URLs being replied to (optional)
+-->
 <template>
   <div v-if="urls.length > 0" class="reply-context-container space-y-3 mb-6">
     <div

@@ -1,3 +1,8 @@
+<!--
+  @file KalshiFillsTable.vue
+  @description Recent Kalshi market fills table showing time, market, side, quantity, and price
+  @props fills: any[] - Array of fill objects with fill_id, created_time, ticker, side, count, price
+-->
 <template>
   <div v-if="fills && fills.length > 0" class="mt-8">
     <h3 class="heading-3 mb-4">Recent Fills</h3>

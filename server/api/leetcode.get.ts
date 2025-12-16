@@ -1,3 +1,9 @@
+/**
+ * @file leetcode.get.ts
+ * @description Fetches LeetCode user statistics including problem submissions, contest ranking, and recent activity
+ * @endpoint GET /api/leetcode
+ * @returns LeetCode data with contest stats, submission counts by difficulty (easy/medium/hard), and recent submissions
+ */
 import { defineEventHandler, createError } from 'h3'
 
 interface _ContestRanking {

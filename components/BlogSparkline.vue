@@ -1,3 +1,16 @@
+<!--
+  @file BlogSparkline.vue
+  @description Inline SVG data visualizations for blog metadata (word count, images, links, file size, reading time)
+  @props value: number - The numeric value to visualize
+  @props max: number - Maximum value for scaling (optional)
+  @props type: string - Visualization type: 'bars', 'bar', 'dots', 'grid' (default: 'bars')
+  @props metric: string - Metric type: 'words', 'images', 'links', 'size', 'time' (default: 'words')
+  @props squareSize: number - Size of squares/bars in pixels (default: 1)
+  @props gap: number - Gap between elements in pixels (default: 1)
+  @props columns: number - Number of columns for grid layout (default: 4)
+  @props showLabel: boolean - Whether to show text label (default: false)
+  @props color: string - Custom fill color (optional)
+-->
 <template>
   <div class="sparkline-container" :title="tooltip">
     <svg

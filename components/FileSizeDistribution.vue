@@ -1,3 +1,9 @@
+<!--
+  @file FileSizeDistribution.vue
+  @description D3-powered histogram visualization of file size distribution
+  @props files: Array - Array of file objects with size property
+  @props buckets: number - Number of histogram buckets (default: 8)
+-->
 <script setup>
 import { computed } from 'vue'
 import { scaleLinear } from 'd3-scale'

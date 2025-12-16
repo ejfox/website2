@@ -1,8 +1,9 @@
 /**
- * /api/changelog
- *
- * Living history of the site from git commits.
- * Shows how the site evolves over time.
+ * @file changelog.get.ts
+ * @description Generates changelog from git commit history with conventional commit type parsing
+ * @endpoint GET /api/changelog
+ * @params limit: number - Number of commits (default: 50), since: string - Filter commits after date (e.g., "2024-01-01")
+ * @returns Git commits grouped by date and type with stats including commit counts by type
  */
 
 import { exec } from 'node:child_process'

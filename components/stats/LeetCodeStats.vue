@@ -1,3 +1,8 @@
+<!--
+  @file LeetCodeStats.vue
+  @description LeetCode coding challenge statistics
+  @props stats: Object - LeetCode stats from API
+-->
 <template>
   <div class="font-mono">
     <!-- Main Stats -->

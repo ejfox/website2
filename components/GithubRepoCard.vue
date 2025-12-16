@@ -1,3 +1,14 @@
+<!--
+  @file GithubRepoCard.vue
+  @description GitHub repository card with title, description, language bar, and stats
+  @props name: string - Repository name
+  @props description: string - Repository description (optional)
+  @props language: string - Primary language (default: 'Unknown')
+  @props languageColor: string - Primary language color (optional)
+  @props stars: number - Star count (default: 0)
+  @props forks: number - Fork count (default: 0)
+  @props repo: Repo - Full repository object with languages, stats (optional)
+-->
 <template>
   <NuxtLink :to="`/github/${name}`" class="repo-card group block">
     <article>

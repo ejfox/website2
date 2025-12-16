@@ -1,3 +1,9 @@
+/**
+ * @file utils/helpers.mjs
+ * @description Utility helper functions for content processing, file operations, and data transformations
+ * @usage import { getPostType, formatFileSize, calculateWordCount } from './scripts/utils/helpers.mjs'
+ */
+
 /* eslint-disable no-console */
 import { createHash } from 'node:crypto'
 import path from 'node:path'

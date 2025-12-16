@@ -1,3 +1,9 @@
+<!--
+  @file RepoMetrics.vue
+  @description Repository metrics display showing size, lines of code, language count, and activity status
+  @props repo: Object - Repository object with diskUsage, languages, stats, pushedAt properties
+  @props compact: boolean - Use compact inline layout (default: false)
+-->
 <script setup>
 import { computed } from 'vue'
 

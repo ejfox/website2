@@ -1,3 +1,8 @@
+<!--
+  @file TipJar.vue
+  @description Minimal tip jar component with GitHub Sponsors and cryptocurrency donation options
+  @props None - loads crypto addresses from /crypto.txt file
+-->
 <template>
   <div :class="containerClasses">
     <!-- Super understated, almost like a footnote -->

@@ -1,3 +1,9 @@
+<!--
+  @file KalshiPositionsList.vue
+  @description List of all Kalshi market positions with portfolio stats header
+  @props kalshiData: Object - Kalshi data with positions and portfolioStats
+  @props parsedCommentaries: Record<string, string> - Parsed commentary content by ticker
+-->
 <template>
   <div>
     <h2 class="heading-3 mb-4">Market Positions</h2>

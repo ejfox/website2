@@ -1,3 +1,8 @@
+<!--
+  @file PhotoStats.vue
+  @description Photography statistics
+  @props stats: Object - Photo metadata and counts
+-->
 <template>
   <div v-if="stats.stats" class="space-y-16 font-mono">
     <!-- Main Stats -->

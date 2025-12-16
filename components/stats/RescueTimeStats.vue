@@ -1,3 +1,8 @@
+<!--
+  @file RescueTimeStats.vue
+  @description RescueTime productivity statistics
+  @props stats: Object - RescueTime data from API
+-->
 <template>
   <div v-if="hasData" class="space-y-2 font-mono">
     <!-- Primary Stats -->

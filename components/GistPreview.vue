@@ -1,3 +1,11 @@
+<!--
+  @file GistPreview.vue
+  @description Expandable code preview with server-side syntax highlighting and theme support
+  @props gist: Gist - Gist object with content, description, files
+  @props file: GistFile - File object with filename, language, size
+  @props expanded: boolean - Whether code is expanded
+  @emits toggle - When expand/collapse button is clicked
+-->
 <template>
   <div ref="gistRef" class="gist-preview">
     <div ref="containerRef" class="code-container" :class="{ expanded }">

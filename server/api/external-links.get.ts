@@ -1,3 +1,9 @@
+/**
+ * @file external-links.get.ts
+ * @description Parses external_links_final.csv to extract and deduplicate external links with source tracking
+ * @endpoint GET /api/external-links
+ * @returns Array of external links with domain, TLD, sources, and usage counts, sorted by domain
+ */
 import { defineEventHandler } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'

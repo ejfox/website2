@@ -1,3 +1,8 @@
+<!--
+  @file StatsSectionHeader.vue
+  @description Stats section header with consistent styling
+  @props title: string - Header title
+-->
 <template>
   <h4 class="section-subheader">
     {{ title }}

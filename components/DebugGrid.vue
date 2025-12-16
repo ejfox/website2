@@ -1,3 +1,8 @@
+<!--
+  @file DebugGrid.vue
+  @description Debug overlay showing 8px baseline grid and 12-column layout (toggle with Ctrl/Cmd+G)
+  @props None - uses VueUse useMagicKeys for keyboard shortcut
+-->
 <template>
   <div
     v-show="showGrid"

@@ -1,5 +1,12 @@
+/**
+ * @file blog-stats.get.ts
+ * @description Aggregates blog writing statistics from words-this-month endpoint into a stats-friendly format
+ * @endpoint GET /api/blog-stats
+ * @returns Blog statistics with post count, word count, recent posts, and monthly writing metrics
+ */
 interface WordsThisMonthResponse {
   postCount?: number
+  totalPosts?: number
   totalWords?: number
   avgWordsPerPost?: number
   posts?: any[]

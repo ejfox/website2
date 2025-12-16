@@ -1,3 +1,11 @@
+<!--
+  @file PostMetadata.vue
+  @description Blog post metadata display with folder, draft status, date, reading time, and content stats
+  @props doc: Object - Document object with metadata property
+  @props compact: boolean - Use compact layout (default: false)
+  @props colors: ColorScheme - Custom color scheme for folder name (optional)
+  @props isDark: boolean - Dark mode flag for color selection (optional)
+-->
 <template>
   <div :class="containerClasses" :style="colorVars">
     <!-- Folder name -->

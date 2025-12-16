@@ -1,3 +1,10 @@
+/**
+ * @file repos/[slug].get.ts
+ * @description Retrieves pre-generated GitHub repository data with stats, readme, and language information from cached JSON files
+ * @endpoint GET /api/repos/{slug}
+ * @params slug: string - Repository name (validated against whitelist)
+ * @returns Complete repository data including stars, forks, languages, readme HTML, and timestamps
+ */
 import { defineEventHandler, createError } from 'h3'
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'

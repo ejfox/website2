@@ -1,3 +1,8 @@
+/**
+ * @file useNumberFormat.ts
+ * @description Centralized number formatting utilities using d3-format
+ * @exports formatNumber, formatPercent, formatCurrency, formatCompact, smartFormat, etc.
+ */
 import { format } from 'd3-format'
 import {
   format as formatDate,

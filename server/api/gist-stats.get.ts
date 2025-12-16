@@ -1,3 +1,9 @@
+/**
+ * @file gist-stats.get.ts
+ * @description Aggregates GitHub Gist statistics including language usage, file counts, and temporal distribution
+ * @endpoint GET /api/gist-stats
+ * @returns Gist statistics with total counts, top languages, year distribution, and recent gists with metadata
+ */
 export default defineEventHandler(async () => {
   try {
     // Get all gists
@@ -49,7 +55,7 @@ export default defineEventHandler(async () => {
         const fileList = Object.values(gist.files)
         const firstFileName = Object.keys(gist.files)[0] || null
         const totalLines = fileList.reduce(
-          (sum, file) => sum + (file.content?.split('\n').length || 0),
+          (sum, file: any) => sum + (file.content?.split('\n').length || 0),
           0
         )
 

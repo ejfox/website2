@@ -1,3 +1,9 @@
+/**
+ * @file projects.get.ts
+ * @description Loads project posts from manifest and enriches with full content from processed JSON files
+ * @endpoint GET /api/projects
+ * @returns Array of project posts with slug, title, HTML content, and metadata, sorted by date descending
+ */
 import { defineEventHandler } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'

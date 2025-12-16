@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+/**
+ * @file predict-pro.mjs
+ * @description Interactive prediction creation wizard with AI-powered quality analysis, validation, and git integration
+ * @usage yarn predict OR node scripts/predict-pro.mjs
+ * @usage yarn predict --update <filename.md> OR yarn predict --resolve <filename.md>
+ * @env OPENROUTER_API_KEY - OpenRouter API key for AI quality analysis (optional)
+ */
 
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'

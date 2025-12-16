@@ -1,3 +1,8 @@
+/**
+ * @file useMarkdown.ts
+ * @description Converts markdown strings to HTML using unified/remark/rehype
+ * @returns { markdownToHtml } - Async function to process markdown
+ */
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'

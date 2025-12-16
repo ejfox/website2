@@ -1,3 +1,10 @@
+<!--
+  @file GitHubParallelCoords.client.vue
+  @description D3 parallel coordinates visualization showing multi-dimensional repository metrics
+  @props repos: Array - Array of repository objects with stats, languages, dates, diskUsage
+  @props width: number - SVG width in pixels (default: 800)
+  @props height: number - SVG height in pixels (default: 400)
+-->
 <script setup>
 import { ref, computed } from 'vue'
 import { scaleLinear, scaleLog } from 'd3-scale'

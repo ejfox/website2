@@ -1,3 +1,9 @@
+<!--
+  @file ReplyContextItem.vue
+  @description Individual reply context item with favicon, title, description, and OG metadata
+  @props url: string - URL to fetch OpenGraph data for
+  @props showLabel: boolean - Show "In reply to" label (default: false)
+-->
 <template>
   <div class="flex items-start gap-3">
     <!-- Favicon -->

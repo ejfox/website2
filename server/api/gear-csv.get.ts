@@ -1,3 +1,9 @@
+/**
+ * @file gear-csv.get.ts
+ * @description Serves raw gear.csv file content directly
+ * @endpoint GET /api/gear-csv
+ * @returns Raw CSV file content as plain text
+ */
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 

@@ -1,3 +1,14 @@
+<!--
+  @file SparklineScaled.vue
+  @description D3-powered sparkline with multiple visualization types (squares, line, bars) and metric-aware scaling
+  @props values: Array - Array of numeric values to visualize (default: [])
+  @props type: string - Visualization type: 'squares', 'line', 'bars' (default: 'squares')
+  @props width: number - SVG width in pixels (default: 100)
+  @props height: number - SVG height in pixels (default: 20)
+  @props columns: number - Number of columns for square layout (default: 10)
+  @props color: string - Base color (default: '#3b82f6')
+  @props metric: string - Metric type for specialized scaling: 'words', 'size', 'time', 'images' (optional)
+-->
 <template>
   <svg :width="width" :height="height" class="sparkline-scaled">
     <g v-if="type === 'squares'">

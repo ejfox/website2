@@ -1,3 +1,9 @@
+/**
+ * @file umami/auth.post.ts
+ * @description Authenticates with Umami analytics platform and returns access token
+ * @endpoint POST /api/umami/auth
+ * @returns Authentication token for Umami API access
+ */
 import { fetchWithTimeout } from '~/server/utils/fetch'
 
 export default defineEventHandler(async () => {

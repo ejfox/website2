@@ -1,3 +1,10 @@
+/**
+ * @file plugins/remarkGenerateAltText.mjs
+ * @description Remark plugin that auto-generates alt text for images using Gemini Vision API with caching
+ * @usage .use(remarkGenerateAltText)
+ * @env GOOGLE_AI_API_KEY - Google AI API key for Gemini Vision (optional)
+ */
+
 // Alt text generation using Gemini Vision API
 // Generates accessibility descriptions for images automatically
 // Caches results in alt-text-cache.json for fast rebuilds

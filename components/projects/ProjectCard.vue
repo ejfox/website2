@@ -1,3 +1,9 @@
+<!--
+  @file ProjectCard.vue
+  @description Project card with HTML content, metadata, GitHub link, and activity sparkline
+  @props project: Object - Project with html, metadata (date, github), activity data
+  @props index: number - Card index for stagger animation
+-->
 <template>
   <article
     :id="projectSlug"

@@ -1,3 +1,10 @@
+/**
+ * @file generate-commentary-templates.mjs
+ * @description Generate Markdown templates for Kalshi positions to add commentary and thesis notes
+ * @usage yarn kalshi:templates OR node scripts/generate-commentary-templates.mjs
+ * @env None required - reads from data/kalshi-positions.json
+ */
+
 /* eslint-disable no-console */
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 

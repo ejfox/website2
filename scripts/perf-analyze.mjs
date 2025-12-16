@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+/**
+ * @file perf-analyze.mjs
+ * @description Deep Lighthouse analysis identifying render-blocking resources, unused JS/CSS, and optimization opportunities
+ * @usage node scripts/perf-analyze.mjs [url]
+ * @env None required
+ */
+
 /* eslint-disable no-console */
 
 import { exec } from 'node:child_process'

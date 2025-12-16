@@ -1,3 +1,9 @@
+/**
+ * @file manifest.ts
+ * @description Serves the processed blog post manifest containing all published posts and projects
+ * @endpoint GET /api/manifest
+ * @returns Array of post metadata from manifest-lite.json
+ */
 import { defineEventHandler, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'

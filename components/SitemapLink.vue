@@ -1,3 +1,11 @@
+<!--
+  @file SitemapLink.vue
+  @description Sitemap link component with title, description, and internal/external link support
+  @props to: string - Link URL (internal path or external URL)
+  @props title: string - Link title
+  @props description: string - Link description
+  @props external: boolean - Whether link is external (default: false)
+-->
 <template>
   <div :class="['group', 'rounded-lg p-4 -m-4']">
     <component

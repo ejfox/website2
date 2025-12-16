@@ -1,3 +1,9 @@
+/**
+ * @file gear.get.ts
+ * @description Parses gear.csv and returns all gear items with generated slugs, sorted alphabetically
+ * @endpoint GET /api/gear
+ * @returns Array of gear items with slugs, count, and last updated timestamp
+ */
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import * as d3 from 'd3'

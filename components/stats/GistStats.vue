@@ -1,3 +1,8 @@
+<!--
+  @file GistStats.vue
+  @description GitHub Gist statistics
+  @props stats: Object - Gist statistics from GitHub API
+-->
 <template>
   <div v-if="hasData" class="space-y-8 font-mono">
     <!-- Primary Stats -->

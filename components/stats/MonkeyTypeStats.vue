@@ -1,3 +1,8 @@
+<!--
+  @file MonkeyTypeStats.vue
+  @description MonkeyType typing test statistics
+  @props stats: Object - MonkeyType stats
+-->
 <template>
   <div ref="monkeyStatsRef" class="font-mono">
     <!-- Main Stats -->

@@ -1,8 +1,9 @@
 /**
- * /api/webmentions
- *
- * Fetches webmentions from webmention.io for a given URL.
- * Filters based on moderation rules in data/webmention-moderation.json
+ * @file webmentions.get.ts
+ * @description Fetches and filters webmentions from webmention.io with spam/abuse moderation using blocklists
+ * @endpoint GET /api/webmentions
+ * @params target: string - Target URL to fetch webmentions for
+ * @returns Filtered array of webmention objects excluding blocked domains, authors, and spam content
  */
 
 import { readFileSync } from 'node:fs'

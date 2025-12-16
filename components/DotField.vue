@@ -1,3 +1,13 @@
+<!--
+  @file DotField.vue
+  @description Animated background dot field with parallax scrolling and seeded randomization
+  @props count: number - Number of dots to render (default: 120, clamped 20-240)
+  @props parallax: number - Parallax scroll factor (default: 0.05)
+  @props seed: number - Random seed for consistent positioning (default: 1337)
+  @props size: number - Dot size in pixels (default: 5)
+  @props color: string - Dot color (default: 'rgba(113, 113, 122, 0.25)')
+  @props blur: number - Blur amount in pixels (default: 0.8)
+-->
 <template>
   <div class="dot-field" :style="containerStyle">
     <span
@@ -66,10 +76,9 @@ const setDotRef = (el: HTMLElement | null) => {
 
 onMounted(() => {
   if (dotRefs.value.length) {
-    animate({
-      targets: dotRefs.value,
-      opacity: (el, i) => 0.05 + (i % 10) * 0.02,
-      scale: (el, i) => 0.6 + (i % 6) * 0.05,
+    animate(dotRefs.value, {
+      opacity: (_el: HTMLElement, i: number) => 0.05 + (i % 10) * 0.02,
+      scale: (_el: HTMLElement, i: number) => 0.6 + (i % 6) * 0.05,
       duration: 900,
       delay: utils.stagger(12),
       easing: 'easeOutSine',

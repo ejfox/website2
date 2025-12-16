@@ -1,3 +1,13 @@
+<!--
+  @file DataTable.vue
+  @description Tuftian-style data table with sortable columns, type-aware formatting, and custom cell slots
+  @props columns: Array - Column definitions with key, label, type, sortable, align, format properties
+  @props rows: Array - Data rows to display
+  @props dense: boolean - Use dense spacing (default: false)
+  @props showStats: boolean - Show row/column counts (default: true)
+  @props initialSort: string - Initial sort column key (optional)
+  @props initialSortDirection: string - Initial sort direction: 'asc' or 'desc' (default: 'asc')
+-->
 <template>
   <div class="table-container">
     <!-- Data overlay -->

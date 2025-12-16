@@ -1,3 +1,8 @@
+<!--
+  @file Webmentions.vue
+  @description Webmentions display showing likes, reposts, replies, and mentions from external sites
+  @props url: string - URL to fetch webmentions for
+-->
 <template>
   <div
     v-if="webmentions && webmentions.length > 0"

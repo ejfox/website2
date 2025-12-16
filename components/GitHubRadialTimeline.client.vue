@@ -1,3 +1,9 @@
+<!--
+  @file GitHubRadialTimeline.client.vue
+  @description D3 radial timeline visualization showing repository development as tree rings
+  @props repos: Array - Array of repository objects with language, createdAt, pushedAt
+  @props size: number - SVG width/height in pixels (default: 600)
+-->
 <script setup>
 import { ref, computed } from 'vue'
 import { scaleTime } from 'd3-scale'

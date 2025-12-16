@@ -1,9 +1,12 @@
 #!/usr/bin/env node
-/* eslint-disable no-console */
 /**
- * Export ALL GitHub commits by fetching from each repo
- * Bypasses the 1000 search result limit
+ * @file export-all-github-commits.mjs
+ * @description Export ALL GitHub commits by iterating through each repository (bypasses 1000 result limit)
+ * @usage node scripts/export-all-github-commits.mjs
+ * @env None required - uses gh CLI and requires github-repos-list.json
  */
+
+/* eslint-disable no-console */
 
 import { execSync } from 'node:child_process'
 import { writeFileSync, readFileSync } from 'node:fs'

@@ -1,3 +1,10 @@
+/**
+ * @file suggest.get.ts
+ * @description AI-powered content suggestion engine using OpenAI GPT-4 to suggest tags, generate summaries, and find similar content for digital scrapbook entries
+ * @endpoint GET /api/suggest
+ * @params url: string - Source URL, title: string - Content title, text: string - Content text, auth: string - Authentication token
+ * @returns Suggested tags, AI-generated summary, similar blog posts, and active thematic threads with relevance scoring
+ */
 import { defineEventHandler, getQuery, createError } from 'h3'
 import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'

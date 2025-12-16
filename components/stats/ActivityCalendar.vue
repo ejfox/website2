@@ -1,3 +1,11 @@
+<!--
+  @file ActivityCalendar.vue
+  @description Activity calendar heatmap showing daily activity over a period
+  @props title: string - Calendar title (optional)
+  @props activityData: Array - Array of daily activity data with active boolean
+  @props days: number - Number of days to display
+  @props activeColor: string - Color for active days
+-->
 <template>
   <div class="activity-calendar font-mono">
     <StatsSectionHeader v-if="title" :title="title" />

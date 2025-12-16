@@ -1,5 +1,59 @@
 [
   {
+    "name": "scrapbook-cli",
+    "description": "A command line interface for exploring my scrapbook",
+    "url": "https://github.com/ejfox/scrapbook-cli",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 190027
+    },
+    "diskUsage": 331,
+    "topics": [
+      "cli"
+    ],
+    "excerpt": "A command line interface for exploring my scrapbook",
+    "createdAt": "2024-06-01T07:35:15Z",
+    "updatedAt": "2025-12-16T00:55:59Z",
+    "pushedAt": "2025-12-16T00:55:56Z"
+  },
+  {
+    "name": "dotfiles",
+    "description": "Backup of my dotfiles",
+    "url": "https://github.com/ejfox/dotfiles",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 1,
+      "watchers": 0,
+      "openIssues": 3
+    },
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "languages": {
+      "Shell": 265145,
+      "GLSL": 170261,
+      "Lua": 113850,
+      "Vim Script": 83725,
+      "JavaScript": 8622,
+      "Less": 2089,
+      "CSS": 1367
+    },
+    "diskUsage": 63380,
+    "topics": [],
+    "excerpt": "Backup of my dotfiles",
+    "createdAt": "2019-04-07T22:09:55Z",
+    "updatedAt": "2025-12-16T00:36:35Z",
+    "pushedAt": "2025-12-16T00:36:31Z"
+  },
+  {
     "name": "website2",
     "description": "No description provided",
     "url": "https://github.com/ejfox/website2",
@@ -14,19 +68,19 @@
     "languageColor": "#41b883",
     "languages": {
       "Vue": 703694,
-      "TypeScript": 321594,
-      "JavaScript": 210622,
+      "TypeScript": 317226,
+      "JavaScript": 217957,
       "CSS": 35191,
       "HTML": 15405,
       "Shell": 15076,
       "Dockerfile": 794
     },
-    "diskUsage": 88722,
+    "diskUsage": 88836,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-15T23:59:47Z",
-    "pushedAt": "2025-12-15T23:59:43Z"
+    "updatedAt": "2025-12-16T00:07:58Z",
+    "pushedAt": "2025-12-16T00:07:54Z"
   },
   {
     "name": "subwaybuilder-mod",
@@ -50,31 +104,6 @@
     "createdAt": "2025-12-10T01:11:05Z",
     "updatedAt": "2025-12-14T07:18:27Z",
     "pushedAt": "2025-12-10T01:11:06Z"
-  },
-  {
-    "name": "scrapbook-cli",
-    "description": "A command line interface for exploring my scrapbook",
-    "url": "https://github.com/ejfox/scrapbook-cli",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 1
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 172236
-    },
-    "diskUsage": 277,
-    "topics": [
-      "cli"
-    ],
-    "excerpt": "A command line interface for exploring my scrapbook",
-    "createdAt": "2024-06-01T07:35:15Z",
-    "updatedAt": "2025-12-12T16:16:50Z",
-    "pushedAt": "2025-12-12T16:16:46Z"
   },
   {
     "name": "ejthirdbear",
@@ -117,34 +146,6 @@
     "createdAt": "2025-10-10T21:48:38Z",
     "updatedAt": "2025-12-11T18:03:27Z",
     "pushedAt": "2025-11-25T16:48:22Z"
-  },
-  {
-    "name": "dotfiles",
-    "description": "Backup of my dotfiles",
-    "url": "https://github.com/ejfox/dotfiles",
-    "homepage": null,
-    "stats": {
-      "stars": 1,
-      "forks": 1,
-      "watchers": 0,
-      "openIssues": 3
-    },
-    "language": "Shell",
-    "languageColor": "#89e051",
-    "languages": {
-      "Shell": 254932,
-      "GLSL": 155860,
-      "Lua": 114144,
-      "Vim Script": 83725,
-      "JavaScript": 8622,
-      "Less": 2089
-    },
-    "diskUsage": 63278,
-    "topics": [],
-    "excerpt": "Backup of my dotfiles",
-    "createdAt": "2019-04-07T22:09:55Z",
-    "updatedAt": "2025-12-11T17:54:58Z",
-    "pushedAt": "2025-12-11T17:54:55Z"
   },
   {
     "name": "metro-savefile-doctor",

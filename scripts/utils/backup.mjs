@@ -1,3 +1,9 @@
+/**
+ * @file utils/backup.mjs
+ * @description Backup utility for processed content - creates safety copies before regenerating
+ * @usage import { backupProcessedContent } from './scripts/utils/backup.mjs'
+ */
+
 /* eslint-disable no-console */
 import { promises as fs } from 'node:fs'
 import chalk from 'chalk'

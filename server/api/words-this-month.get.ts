@@ -1,3 +1,9 @@
+/**
+ * @file words-this-month.get.ts
+ * @description Calculates monthly writing statistics from manifest including word count, post count, and averages
+ * @endpoint GET /api/words-this-month
+ * @returns Current month's writing stats with total words, post count, average words per post, and post details
+ */
 import { defineEventHandler } from 'h3'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'

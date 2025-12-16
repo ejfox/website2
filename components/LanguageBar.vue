@@ -1,3 +1,10 @@
+<!--
+  @file LanguageBar.vue
+  @description Horizontal stacked bar chart showing programming language distribution
+  @props languages: Object - Object mapping language names to byte counts
+  @props height: number - Bar height in pixels (default: 3)
+  @props showLabels: boolean - Show language labels below bar (default: false)
+-->
 <script setup>
 import { computed } from 'vue'
 import { useLanguageColors } from '~/composables/useLanguageColors'

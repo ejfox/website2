@@ -1,3 +1,8 @@
+/**
+ * @file useLanguageColors.ts
+ * @description Maps programming languages to consistent colors using d3 turbo scale
+ * @returns { getColor, LANGUAGE_ORDER } - Color function and language ordering
+ */
 import { interpolateTurbo } from 'd3-scale-chromatic'
 
 // Fixed order of languages for consistent colors across all charts

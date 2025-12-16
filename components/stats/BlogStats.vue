@@ -1,3 +1,8 @@
+<!--
+  @file BlogStats.vue
+  @description Blog statistics showing post counts, word counts, and writing metrics
+  @props stats: Object - Blog statistics data from API
+-->
 <template>
   <div v-if="stats" class="space-y-2 font-mono">
     <!-- Writing Status -->

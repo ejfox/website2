@@ -1,3 +1,9 @@
+/**
+ * @file scraps/tags.get.ts
+ * @description Extracts and deduplicates all unique tags from Supabase scraps collection
+ * @endpoint GET /api/scraps/tags
+ * @returns Sorted array of unique tag strings from all scraps
+ */
 import { defineEventHandler } from 'h3'
 import { createClient } from '@supabase/supabase-js'
 

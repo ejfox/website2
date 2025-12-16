@@ -1,3 +1,11 @@
+<!--
+  @file StatRow.vue
+  @description Simple stat row with label and formatted value
+  @props label: string - Stat label
+  @props value: string | number - Stat value
+  @props format: string - Format type (number, percentage, decimal, raw)
+  @props decimals: number - Decimal places (default: 0)
+-->
 <template>
   <div class="flex-between">
     <div class="text-muted">{{ label }}</div>

@@ -61,8 +61,9 @@ export default defineNuxtPlugin(() => {
       // Add sorting functionality to headers
       const headers = table.querySelectorAll('thead th')
       headers.forEach((th, colIndex) => {
+        const thEl = th as HTMLElement
         // Make header clickable
-        th.style.cursor = 'pointer'
+        thEl.style.cursor = 'pointer'
         th.classList.add('select-none')
 
         // Add sort indicator

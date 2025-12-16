@@ -13,14 +13,14 @@
   "languageColor": "#41b883",
   "languages": {
     "Vue": 703694,
-    "TypeScript": 321594,
-    "JavaScript": 210622,
+    "TypeScript": 317226,
+    "JavaScript": 217957,
     "CSS": 35191,
     "HTML": 15405,
     "Shell": 15076,
     "Dockerfile": 794
   },
-  "diskUsage": 88722,
+  "diskUsage": 88836,
   "fileTree": {
     "files": [
       {
@@ -2516,6 +2516,10 @@
         "size": 1008
       },
       {
+        "path": "content/processed/goodreads-stats.json",
+        "size": 48896
+      },
+      {
         "path": "content/processed/index.json",
         "size": 1949
       },
@@ -4081,7 +4085,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 503745
+        "size": 504263
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -5657,7 +5661,7 @@
       },
       {
         "path": "package.json",
-        "size": 3705
+        "size": 3800
       },
       {
         "path": "pages/blog/[...slug].vue",
@@ -6116,6 +6120,10 @@
         "size": 13895
       },
       {
+        "path": "scripts/fetch-goodreads.mjs",
+        "size": 7335
+      },
+      {
         "path": "scripts/fetch-my-events.mjs",
         "size": 1555
       },
@@ -6317,7 +6325,7 @@
       },
       {
         "path": "server/api/goodreads.get.ts",
-        "size": 6107
+        "size": 1739
       },
       {
         "path": "server/api/healthcheck.get.ts",
@@ -11080,6 +11088,11 @@
                   "path": "content/processed/WIKILINK-OPPORTUNITIES.json"
                 },
                 {
+                  "name": "goodreads-stats.json",
+                  "size": 48896,
+                  "path": "content/processed/goodreads-stats.json"
+                },
+                {
                   "name": "index.json",
                   "size": 1949,
                   "path": "content/processed/index.json"
@@ -11988,7 +12001,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 503745,
+                  "size": 504263,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -14791,6 +14804,11 @@
               "path": "scripts/export-github-repos.mjs"
             },
             {
+              "name": "fetch-goodreads.mjs",
+              "size": 7335,
+              "path": "scripts/fetch-goodreads.mjs"
+            },
+            {
               "name": "fetch-my-events.mjs",
               "size": 1555,
               "path": "scripts/fetch-my-events.mjs"
@@ -15117,7 +15135,7 @@
                 },
                 {
                   "name": "goodreads.get.ts",
-                  "size": 6107,
+                  "size": 1739,
                   "path": "server/api/goodreads.get.ts"
                 },
                 {
@@ -15464,7 +15482,7 @@
         },
         {
           "name": "package.json",
-          "size": 3705,
+          "size": 3800,
           "path": "package.json"
         },
         {
@@ -15495,8 +15513,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 1637,
-    "totalSize": 83910374
+    "totalFiles": 1639,
+    "totalSize": 83962850
   },
   "topics": [],
   "readme": {
@@ -15505,6 +15523,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-15T23:59:47Z",
-  "pushedAt": "2025-12-15T23:59:43Z"
+  "updatedAt": "2025-12-16T00:07:58Z",
+  "pushedAt": "2025-12-16T00:07:54Z"
 }

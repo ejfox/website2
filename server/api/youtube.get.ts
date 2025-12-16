@@ -1,3 +1,9 @@
+/**
+ * @file youtube.get.ts
+ * @description Fetches YouTube channel statistics including subscriber count, video metrics, and monthly analytics
+ * @endpoint GET /api/youtube
+ * @returns YouTubeStats with channel stats (total videos, views, subscribers), latest videos with thumbnails, and monthly performance metrics
+ */
 import { defineEventHandler, createError } from 'h3'
 
 interface YouTubeStats {
@@ -252,7 +258,6 @@ export default defineEventHandler(async (): Promise<YouTubeStats> => {
     console.error('YouTube API Error:', youtubeError)
 
     if (youtubeError.response?.error?.code === 403) {
-      /* eslint-disable vue/max-len */
       console.error(`
         ⚠️ YouTube Authentication Failed ⚠️
         
@@ -268,7 +273,6 @@ export default defineEventHandler(async (): Promise<YouTubeStats> => {
            - Your .env file
            - Your deployment environment
       `)
-      /* eslint-enable vue/max-len */
     }
 
     throw createError({

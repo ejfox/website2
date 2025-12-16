@@ -1,3 +1,9 @@
+<!--
+  @file FeaturedProjectCard.vue
+  @description Featured project card with image extraction and full HTML content display
+  @props project: Object - Project with title, html, metadata
+  @props index: number - Card index
+-->
 <template>
   <NuxtLink
     :to="`/projects/${projectSlug}`"

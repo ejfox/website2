@@ -96,7 +96,6 @@ export default defineNuxtConfig({
   // Optimized for sub-1s FCP (First Contentful Paint)
   experimental: {
     payloadExtraction: false, // Prevents large payload chunks
-    treeshakeClientOnly: true, // Remove client-only components from SSR
     sharedPrerenderData: false, // Can cause hydration issues in dev
     typedPages: true, // Enable typed routing
     renderJsonPayloads: false, // Reduce payload size
@@ -148,7 +147,6 @@ export default defineNuxtConfig({
   },
 
   modules: ['@nuxtjs/tailwindcss'],
-  port: 3006,
   devServer: {
     port: 3006,
   },
@@ -198,7 +196,6 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'node-server',
     minify: true, // Re-enable for production
-    legacyExternals: true, // Fix node-externals performance issue
     experimental: {
       wasm: false, // Disable WASM for faster startup
       asyncContext: true, // Enable async context support (Nuxt 4 feature)

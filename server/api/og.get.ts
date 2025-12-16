@@ -1,8 +1,9 @@
 /**
- * /api/og - Fetch Open Graph data from URLs
- *
- * Used by ReplyContext component to show rich previews
- * of URLs being replied to (IndieWeb reply posts)
+ * @file og.get.ts
+ * @description Fetches Open Graph metadata from URLs for rich link previews with 5-minute in-memory caching
+ * @endpoint GET /api/og
+ * @params url: string - URL to fetch Open Graph data from
+ * @returns OGData object with title, description, image, siteName, favicon, author, and published date
  */
 
 interface OGData {

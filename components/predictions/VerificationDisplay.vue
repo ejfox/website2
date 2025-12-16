@@ -1,3 +1,8 @@
+<!--
+  @file VerificationDisplay.vue
+  @description Cryptographic verification display showing SHA-256 hash, Git commit, and PGP signature
+  @props verification: Object - Verification data with hash, gitCommit, gitDate, signature
+-->
 <template>
   <div class="verification-box">
     <div v-if="verification.hash" class="flex items-start gap-4">

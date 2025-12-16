@@ -1,21 +1,21 @@
 import { useSeoMeta } from '#imports'
-import { unref } from 'vue'
+import { unref, type MaybeRef } from 'vue'
 
 type PageSeoInput = {
-  title: string
-  description: string
+  title: MaybeRef<string>
+  description: MaybeRef<string>
   type?: 'website' | 'article'
-  image?: string
-  canonical?: string
-  tags?: string[]
-  section?: string
-  publishedTime?: string
-  modifiedTime?: string
-  label1?: string
-  data1?: string
-  label2?: string
-  data2?: string
-  imageAlt?: string
+  image?: MaybeRef<string>
+  canonical?: MaybeRef<string>
+  tags?: MaybeRef<string[]>
+  section?: MaybeRef<string>
+  publishedTime?: MaybeRef<string>
+  modifiedTime?: MaybeRef<string>
+  label1?: MaybeRef<string>
+  data1?: MaybeRef<string>
+  label2?: MaybeRef<string>
+  data2?: MaybeRef<string>
+  imageAlt?: MaybeRef<string>
 }
 
 /**
@@ -89,7 +89,7 @@ export function usePageSeo(input: PageSeoInput) {
     script: [
       {
         type: 'application/ld+json',
-        children: JSON.stringify({
+        innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': input.type === 'article' ? 'Article' : 'WebPage',
           headline: title,

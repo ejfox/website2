@@ -1,3 +1,8 @@
+<!--
+  @file KalshiPortfolioStats.vue
+  @description Kalshi portfolio statistics showing open P&L, closed P&L, total P&L, and invested capital
+  @props portfolioStats: Object - Portfolio statistics with totalUnrealizedPnL, totalRealizedPnL, totalInvested, closedPositions
+-->
 <template>
   <div v-if="portfolioStats" class="section-spacing-sm grid-2col-lg">
     <div>

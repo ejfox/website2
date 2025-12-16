@@ -1,3 +1,9 @@
+/**
+ * @file photos.get.ts
+ * @description Proxies photo statistics from external ejfox.photos API
+ * @endpoint GET /api/photos
+ * @returns Photo statistics from https://ejfox.photos/api/stats
+ */
 import { defineEventHandler, createError } from 'h3'
 
 export default defineEventHandler(async () => {

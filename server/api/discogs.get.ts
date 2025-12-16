@@ -1,7 +1,14 @@
+/**
+ * @file discogs.get.ts
+ * @description Fetches Discogs vinyl/record collection data with value analysis, genre distribution, and artist statistics
+ * @endpoint GET /api/discogs
+ * @returns Collection data with stats (total items, value, median), top genres, decade breakdown, top artists, and a random record
+ */
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
-  const token = config.DISCOGS_TOKEN || process.env.DISCOGS_TOKEN
-  const username = config.DISCOGS_USERNAME || process.env.DISCOGS_USERNAME || 'mrejfox'
+  const token = (config.DISCOGS_TOKEN || process.env.DISCOGS_TOKEN) as string
+  const username =
+    config.DISCOGS_USERNAME || process.env.DISCOGS_USERNAME || 'mrejfox'
 
   if (!token) {
     console.warn('Discogs token not configured')
@@ -43,7 +50,8 @@ export default defineEventHandler(async () => {
           signal: controller.signal,
           headers: {
             Accept: 'application/json',
-            'User-Agent': 'EJFox-Website/2.0 (https://ejfox.com; ejfox@ejfox.com)',
+            'User-Agent':
+              'EJFox-Website/2.0 (https://ejfox.com; ejfox@ejfox.com)',
           },
         })
 
@@ -121,7 +129,7 @@ export default defineEventHandler(async () => {
     // Calculate stats
     const totalItems = allItems.length
     let totalValue = 0
-    let values: number[] = []
+    const values: number[] = []
 
     allItems.forEach((item: any) => {
       if (item.basic_information) {
@@ -136,9 +144,7 @@ export default defineEventHandler(async () => {
     // Calculate median
     values.sort((a, b) => a - b)
     const medianValue =
-      values.length > 0
-        ? values[Math.floor(values.length / 2)]
-        : 0
+      values.length > 0 ? values[Math.floor(values.length / 2)] : 0
 
     const highestValue = values.length > 0 ? Math.max(...values) : 0
 
@@ -171,8 +177,8 @@ export default defineEventHandler(async () => {
     const decadeBreakdown = Object.entries(decadeMap)
       .map(([decade, count]) => ({ decade, count }))
       .sort((a, b) => {
-        const yearA = parseInt(a.decade)
-        const yearB = parseInt(b.decade)
+        const yearA = Number.parseInt(a.decade)
+        const yearB = Number.parseInt(b.decade)
         return yearA - yearB
       })
 
@@ -193,9 +199,10 @@ export default defineEventHandler(async () => {
       .slice(0, 10)
 
     // Pick a random record
-    const randomRecord = allItems.length > 0
-      ? allItems[Math.floor(Math.random() * allItems.length)]
-      : null
+    const randomRecord =
+      allItems.length > 0
+        ? allItems[Math.floor(Math.random() * allItems.length)]
+        : null
 
     // Get collection value endpoint
     const collectionValue = await makeRequest<any>(
@@ -208,21 +215,30 @@ export default defineEventHandler(async () => {
         totalValue: collectionValue.overall_value || totalValue,
         medianValue,
         highestValue,
-        averageValue: totalItems > 0 ? Math.round((totalValue / totalItems) * 100) / 100 : 0,
+        averageValue:
+          totalItems > 0
+            ? Math.round((totalValue / totalItems) * 100) / 100
+            : 0,
       },
       topGenres,
       decadeBreakdown,
       topArtists,
-      randomRecord: randomRecord ? {
-        title: randomRecord.basic_information?.title || 'Unknown',
-        artist: randomRecord.basic_information?.artists?.[0]?.name || 'Unknown Artist',
-        year: randomRecord.basic_information?.year || 0,
-        genres: randomRecord.basic_information?.genres || [],
-        price: randomRecord.basic_information?.price || 0,
-        uri: randomRecord.uri || '',
-        resourceUrl: randomRecord.resource_url || '',
-        format: randomRecord.basic_information?.formats?.[0]?.name || 'Unknown Format',
-      } : null,
+      randomRecord: randomRecord
+        ? {
+            title: randomRecord.basic_information?.title || 'Unknown',
+            artist:
+              randomRecord.basic_information?.artists?.[0]?.name ||
+              'Unknown Artist',
+            year: randomRecord.basic_information?.year || 0,
+            genres: randomRecord.basic_information?.genres || [],
+            price: randomRecord.basic_information?.price || 0,
+            uri: randomRecord.uri || '',
+            resourceUrl: randomRecord.resource_url || '',
+            format:
+              randomRecord.basic_information?.formats?.[0]?.name ||
+              'Unknown Format',
+          }
+        : null,
       collection: allItems.slice(0, 20).map((item: any) => ({
         title: item.basic_information?.title || 'Unknown',
         artist: item.basic_information?.artists?.[0]?.name || 'Unknown Artist',

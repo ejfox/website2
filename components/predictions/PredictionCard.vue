@@ -1,3 +1,8 @@
+<!--
+  @file PredictionCard.vue
+  @description Prediction card with confidence badge, statement, status, updates count, and resolution excerpt
+  @props prediction: Object - Prediction with slug, id, statement, title, confidence, status, updates, resolution
+-->
 <template>
   <article class="py-4">
     <!-- Make entire card tappable on mobile -->

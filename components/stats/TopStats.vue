@@ -1,3 +1,8 @@
+<!--
+  @file TopStats.vue
+  @description Top-level statistics dashboard showing key metrics
+  @props stats: Object - All statistics data from API
+-->
 <template>
   <div class="flex flex-wrap justify-between gap-2 sm:gap-2 md:gap-2">
     <!-- GitHub Contributions -->

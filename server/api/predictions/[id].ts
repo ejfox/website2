@@ -1,3 +1,10 @@
+/**
+ * @file predictions/[id].ts
+ * @description Handles prediction updates via PATCH method, modifying markdown frontmatter with resolution outcomes
+ * @endpoint PATCH /api/predictions/{id}
+ * @params id: string - Prediction ID (supports both flat and year-based structures)
+ * @returns Updated prediction with outcome data including resolution status, correctness, and notes
+ */
 import {
   defineEventHandler,
   readBody,

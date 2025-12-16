@@ -54,7 +54,7 @@ export default defineNuxtPlugin(() => {
     // Hide original footnote section only on desktop
     // (where sidenotes are shown)
     if (footnoteSection && window.innerWidth >= 1280) {
-      footnoteSection.style.display = 'none'
+      ;(footnoteSection as HTMLElement).style.display = 'none'
     }
   }
 

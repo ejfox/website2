@@ -1,3 +1,9 @@
+/**
+ * @file plugins/index.mjs
+ * @description Aggregates and exports all remark/rehype plugins for markdown processing
+ * @usage import { remarkEnhanceLinks, rehypeAddClassToParagraphs } from './scripts/plugins/index.mjs'
+ */
+
 // Remark plugins
 export { remarkEnhanceLinks } from './remarkEnhanceLinks.mjs'
 export { remarkObsidianSupport } from './remarkObsidianSupport.mjs'

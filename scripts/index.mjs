@@ -1,3 +1,9 @@
+/**
+ * @file index.mjs
+ * @description Entry point and exports for content processing scripts - aggregates all major functions, plugins, and utilities
+ * @usage import { processMarkdown, processAllFiles } from './scripts/index.mjs'
+ */
+
 // Core processing exports
 export { processMarkdown, processAllFiles } from './processMarkdown.mjs'
 export { importContent } from './import.mjs'

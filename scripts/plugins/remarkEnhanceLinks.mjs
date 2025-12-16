@@ -1,3 +1,9 @@
+/**
+ * @file plugins/remarkEnhanceLinks.mjs
+ * @description Remark plugin that adds social platform icons to external links using Iconify API with caching
+ * @usage .use(remarkEnhanceLinks)
+ */
+
 import { visit } from 'unist-util-visit'
 import fetch from 'node-fetch'
 import NodeCache from 'node-cache'

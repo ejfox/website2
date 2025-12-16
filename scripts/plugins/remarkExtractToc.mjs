@@ -1,3 +1,9 @@
+/**
+ * @file plugins/remarkExtractToc.mjs
+ * @description Remark plugin that extracts table of contents from headings and stores in vfile.data
+ * @usage .use(remarkExtractToc, { maxDepth: 3, removeFirstHeading: false })
+ */
+
 import { visit } from 'unist-util-visit'
 import GithubSlugger from 'github-slugger'
 

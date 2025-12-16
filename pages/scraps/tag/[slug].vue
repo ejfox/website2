@@ -174,7 +174,7 @@ interface Scrap {
 
 const route = useRoute()
 const tag = computed(() => {
-  const slug = route.params.slug as string
+  const slug = (route.params as any).slug as string
   return Array.isArray(slug) ? slug[0] : decodeURIComponent(slug)
 })
 

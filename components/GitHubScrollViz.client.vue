@@ -1,3 +1,8 @@
+<!--
+  @file GitHubScrollViz.client.vue
+  @description Scroll-driven D3 visualization cycling through 4 layouts: Force, Parallel, Radial, Timeline
+  @props repos: Array - Array of repository objects with stats, languages, dates, diskUsage, languageColor
+-->
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import { useWindowScroll, useWindowSize, useRafFn } from '@vueuse/core'

@@ -1,3 +1,8 @@
+<!--
+  @file NextAvailableSlot.vue
+  @description Inline calendar slot component showing next available booking time with auto-refresh
+  @props None - fetches data from /api/cal/available-slots endpoint
+-->
 <template>
   <span class="next-available-slot group relative inline">
     <!-- Prevent hydration mismatch by showing fallback initially -->

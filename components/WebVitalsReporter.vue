@@ -1,3 +1,8 @@
+<!--
+  @file WebVitalsReporter.vue
+  @description Web vitals performance overlay showing LCP, FID, CLS metrics (dev/debug mode only)
+  @props None - listens to window web-vitals events
+-->
 <template>
   <div v-if="showVitals && vitals.length" class="fixed bottom-4 left-4 z-50">
     <div

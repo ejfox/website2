@@ -1,3 +1,8 @@
+<!--
+  @file NewsletterSignup.vue
+  @description Newsletter subscription form with animated name field reveal and loading states
+  @props None - form submits to /api/newsletter-signup endpoint
+-->
 <template>
   <div ref="signupContainer" class="newsletter-signup">
     <!-- Form -->

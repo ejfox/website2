@@ -1,8 +1,9 @@
 /**
- * /api/robot/timeline
- *
- * Chronological life events and milestones.
- * Every meaningful thing I've published, predicted, or created.
+ * @file robot/timeline.get.ts
+ * @description Chronological aggregation of all life events including blog posts, predictions, prediction updates, and reading annotations
+ * @endpoint GET /api/robot/timeline
+ * @params from: string - Start date (YYYY-MM-DD), to: string - End date (YYYY-MM-DD), limit: number - Maximum events (default: 100)
+ * @returns Sorted timeline events with stats grouped by type and year
  */
 
 import { promises as fs } from 'node:fs'

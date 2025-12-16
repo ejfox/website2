@@ -33,10 +33,10 @@ export default defineEventHandler(async (event) => {
       .sort()
     const usedTags = Object.entries(contentTagUsage)
       .filter(([tag]) => !tag.startsWith('!'))
-      .sort(([, a], [, b]) => b - a)
+      .sort(([, a], [, b]) => (b as number) - (a as number))
       .map(([tag]) => tag)
     const unusedTags = baseTags
-      .filter((t) => !t.startsWith('!') && !contentTagUsage[t])
+      .filter((t: string) => !t.startsWith('!') && !(contentTagUsage as Record<string, number>)[t])
       .sort()
     console.log(
       'Special:',

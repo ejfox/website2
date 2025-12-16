@@ -379,7 +379,7 @@ export const useProcessedMarkdown = () => {
     return filterAndSortPosts(manifest, { slugPrefix: 'projects/' }).map(
       (post: Post) => ({
         ...post,
-        html: post.html || post.metadata?.html || '',
+        html: post.html || (post.metadata as any)?.html || '',
       })
     )
   }

@@ -1,8 +1,14 @@
 #!/usr/bin/env node
+/**
+ * @file fetch-goodreads.mjs
+ * @description Fetch Goodreads reading data from RSS feeds and generate comprehensive stats (books read, ratings, reading pace, top authors)
+ * @usage node scripts/fetch-goodreads.mjs
+ * @env None required - uses public Goodreads RSS feeds
+ */
 
-import fs from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+import fs from 'node:fs'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const outputDir = path.join(__dirname, '../content/processed')
@@ -40,18 +46,12 @@ async function fetchGoodreadsData() {
           const titleMatch = itemXml.match(
             /<title><!\[CDATA\[(.*?)\]\]><\/title>/
           )
-          const linkMatch = itemXml.match(
-            /<link><!\[CDATA\[(.*?)\]\]><\/link>/
-          )
+          const linkMatch = itemXml.match(/<link><!\[CDATA\[(.*?)\]\]><\/link>/)
           const pubDateMatch = itemXml.match(
             /<pubDate><!\[CDATA\[(.*?)\]\]><\/pubDate>/
           )
-          const authorMatch = itemXml.match(
-            /<author_name>(.*?)<\/author_name>/
-          )
-          const ratingMatch = itemXml.match(
-            /<user_rating>(\d+)<\/user_rating>/
-          )
+          const authorMatch = itemXml.match(/<author_name>(.*?)<\/author_name>/)
+          const ratingMatch = itemXml.match(/<user_rating>(\d+)<\/user_rating>/)
           const coverPattern =
             '<book_large_image_url><!\\[CDATA\\[' +
             '(.*?)\\]\\]><\\/book_large_image_url>'
@@ -65,7 +65,7 @@ async function fetchGoodreadsData() {
             /<user_date_created><!\[CDATA\[(.*?)\]\]><\/user_date_created>/
           )
           const numPagesMatch = itemXml.match(/<num_pages>(\d+)<\/num_pages>/)
-          const pubYearMatch = itemXml.match(/<book_published>(\d{4})/m)
+          const pubYearMatch = itemXml.match(/<book_published>(\d{4})/)
 
           const title = titleMatch ? titleMatch[1].trim() : ''
           const author = authorMatch ? authorMatch[1].trim() : ''
@@ -76,9 +76,7 @@ async function fetchGoodreadsData() {
           const pubDate = pubDateMatch ? pubDateMatch[1] : ''
           const dateAdded = dateAddedMatch ? dateAddedMatch[1] : pubDate
           const dateRead = dateReadMatch ? dateReadMatch[1] : null
-          const numPages = numPagesMatch
-            ? Number.parseInt(numPagesMatch[1])
-            : 0
+          const numPages = numPagesMatch ? Number.parseInt(numPagesMatch[1]) : 0
           const pubYear = pubYearMatch ? Number.parseInt(pubYearMatch[1]) : null
 
           return {
@@ -105,7 +103,9 @@ async function fetchGoodreadsData() {
   }
 
   // Separate books by shelf
-  const currentlyReading = allBooks.filter((b) => b.shelf === 'currently-reading')
+  const currentlyReading = allBooks.filter(
+    (b) => b.shelf === 'currently-reading'
+  )
   const read = allBooks.filter((b) => b.shelf === 'read')
   const toRead = allBooks.filter((b) => b.shelf === 'to-read')
 
@@ -170,7 +170,10 @@ async function fetchGoodreadsData() {
   }, {})
 
   // Pages read stats
-  const totalPagesRead = read.reduce((sum, book) => sum + (book.numPages || 0), 0)
+  const totalPagesRead = read.reduce(
+    (sum, book) => sum + (book.numPages || 0),
+    0
+  )
   const avgPagesPerBook =
     read.length > 0 ? Math.round(totalPagesRead / read.length) : 0
 
@@ -219,7 +222,9 @@ async function fetchGoodreadsData() {
 
   // Write to file
   fs.writeFileSync(outputFile, JSON.stringify(output, null, 2))
-  console.log(`✅ Goodreads data saved to ${path.relative(process.cwd(), outputFile)}`)
+  console.log(
+    `✅ Goodreads data saved to ${path.relative(process.cwd(), outputFile)}`
+  )
 
   return output
 }

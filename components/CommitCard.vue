@@ -1,3 +1,11 @@
+<!--
+  @file CommitCard.vue
+  @description Git commit display card with repository, hash, message, and timestamp
+  @props sha: string - Git commit hash (short form)
+  @props message: string - Commit message
+  @props repo: string - Repository name
+  @props date: string - Commit timestamp (optional)
+-->
 <template>
   <article class="commit-card group">
     <div class="flex gap-3">

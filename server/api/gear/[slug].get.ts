@@ -1,3 +1,10 @@
+/**
+ * @file gear/[slug].get.ts
+ * @description Retrieves individual gear item by slug from gear.csv with slug-based lookup
+ * @endpoint GET /api/gear/{slug}
+ * @params slug: string - URL-friendly slug generated from gear item name
+ * @returns Individual gear item data with all CSV columns
+ */
 import * as d3 from 'd3'
 import { getRouterParam } from 'h3'
 import { readFile } from 'node:fs/promises'

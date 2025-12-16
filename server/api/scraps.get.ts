@@ -1,3 +1,9 @@
+/**
+ * @file scraps.get.ts
+ * @description Fetches digital scrapbook entries from Supabase database with full metadata including tags, location, and relationships
+ * @endpoint GET /api/scraps
+ * @returns Array of scrap objects with content, tags, source info, geolocation, screenshots, and metadata, sorted by creation date descending
+ */
 import { defineEventHandler } from 'h3'
 import { createClient } from '@supabase/supabase-js'
 

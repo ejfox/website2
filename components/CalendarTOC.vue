@@ -1,3 +1,8 @@
+<!--
+  @file CalendarTOC.vue
+  @description Calendar availability widget showing next available booking slots from Cal.com API
+  @props None - fetches data from /api/cal/available-slots endpoint
+-->
 <template>
   <div class="calendar-toc">
     <div class="py-4">

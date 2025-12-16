@@ -1,4 +1,11 @@
 #!/usr/bin/env node
+/**
+ * @file lighthouse-check.mjs
+ * @description Quick Lighthouse performance check focusing on Core Web Vitals (FCP, LCP, CLS, TBT, SI)
+ * @usage node scripts/lighthouse-check.mjs [url] OR yarn lighthouse
+ * @env None required
+ */
+
 /* eslint-disable no-console */
 
 import { exec } from 'node:child_process'

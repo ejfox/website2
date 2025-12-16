@@ -1,3 +1,9 @@
+/**
+ * @file plugins/remarkObsidianEnhanced.mjs
+ * @description Remark plugin for Obsidian expandable details/callouts (??? syntax and {expand:} inline syntax)
+ * @usage .use(remarkObsidianEnhanced)
+ */
+
 import { visit } from 'unist-util-visit'
 
 /**

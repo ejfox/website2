@@ -1,3 +1,11 @@
+<!--
+  @file ScrobbleCard.vue
+  @description Last.fm scrobble display card showing play count and top tracks/artists
+  @props count: number - Total scrobble count
+  @props topTracks: string[] - Array of top track names
+  @props topArtists: string[] - Array of top artist names (optional)
+  @props date: string - Date of scrobbles (optional)
+-->
 <template>
   <article class="scrobble-card">
     <div class="flex gap-3">

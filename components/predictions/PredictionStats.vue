@@ -1,3 +1,8 @@
+<!--
+  @file PredictionStats.vue
+  @description Prediction statistics grid showing total, pending, resolved, and accuracy
+  @props stats: Object - Stats with total, pending, resolved, accuracy, correct
+-->
 <template>
   <div class="prediction-stats">
     <div class="stat-card">
