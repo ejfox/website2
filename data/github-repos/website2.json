@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 696840,
-    "TypeScript": 312880,
+    "Vue": 703694,
+    "TypeScript": 321594,
     "JavaScript": 210622,
     "CSS": 35191,
     "HTML": 15405,
     "Shell": 15076,
     "Dockerfile": 794
   },
-  "diskUsage": 88709,
+  "diskUsage": 88722,
   "fileTree": {
     "files": [
       {
@@ -344,6 +344,10 @@
         "size": 9793
       },
       {
+        "path": "components/stats/DiscogsStats.vue",
+        "size": 6405
+      },
+      {
         "path": "components/stats/GearStats.vue",
         "size": 14222
       },
@@ -469,7 +473,7 @@
       },
       {
         "path": "composables/useStats.ts",
-        "size": 12161
+        "size": 13037
       },
       {
         "path": "composables/useStatusFormatting.ts",
@@ -5777,7 +5781,7 @@
       },
       {
         "path": "pages/stats.vue",
-        "size": 37167
+        "size": 37616
       },
       {
         "path": "plugins/dark-mode.client.js",
@@ -6268,6 +6272,10 @@
         "size": 6015
       },
       {
+        "path": "server/api/discogs.get.ts",
+        "size": 7606
+      },
+      {
         "path": "server/api/external-links.get.ts",
         "size": 2821
       },
@@ -6433,7 +6441,7 @@
       },
       {
         "path": "server/api/stats.get.ts",
-        "size": 7758
+        "size": 7990
       },
       {
         "path": "server/api/suggest.get.ts",
@@ -6818,6 +6826,11 @@
                   "path": "components/stats/ChessStats.vue"
                 },
                 {
+                  "name": "DiscogsStats.vue",
+                  "size": 6405,
+                  "path": "components/stats/DiscogsStats.vue"
+                },
+                {
                   "name": "GearStats.vue",
                   "size": 14222,
                   "path": "components/stats/GearStats.vue"
@@ -7180,7 +7193,7 @@
             },
             {
               "name": "useStats.ts",
-              "size": 12161,
+              "size": 13037,
               "path": "composables/useStats.ts"
             },
             {
@@ -14193,7 +14206,7 @@
             },
             {
               "name": "stats.vue",
-              "size": 37167,
+              "size": 37616,
               "path": "pages/stats.vue"
             }
           ],
@@ -15053,6 +15066,11 @@
                   "path": "server/api/chess.get.ts"
                 },
                 {
+                  "name": "discogs.get.ts",
+                  "size": 7606,
+                  "path": "server/api/discogs.get.ts"
+                },
+                {
                   "name": "external-links.get.ts",
                   "size": 2821,
                   "path": "server/api/external-links.get.ts"
@@ -15194,7 +15212,7 @@
                 },
                 {
                   "name": "stats.get.ts",
-                  "size": 7758,
+                  "size": 7990,
                   "path": "server/api/stats.get.ts"
                 },
                 {
@@ -15477,8 +15495,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 1635,
-    "totalSize": 83894806
+    "totalFiles": 1637,
+    "totalSize": 83910374
   },
   "topics": [],
   "readme": {
@@ -15487,6 +15505,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-15T23:08:51Z",
-  "pushedAt": "2025-12-15T23:08:47Z"
+  "updatedAt": "2025-12-15T23:59:47Z",
+  "pushedAt": "2025-12-15T23:59:43Z"
 }
