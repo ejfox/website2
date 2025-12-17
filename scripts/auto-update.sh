@@ -10,8 +10,12 @@ export PATH="/home/debian/.nvm/versions/node/v20.19.0/bin:/usr/local/bin:/usr/bi
 WEBSITE_DIR="/data2/website2"
 LOG_FILE="$WEBSITE_DIR/auto-update.log"
 METRICS_FILE="$WEBSITE_DIR/deployment-metrics.json"
+ALERT="/home/debian/scripts/alert.sh"
 
 log() { echo "[$(date +'%Y-%m-%d %H:%M:%S')] $1" | tee -a "$LOG_FILE"; }
+
+# Alert on failure
+trap '$ALERT website error "Deployment FAILED: check $LOG_FILE"' ERR
 
 cd "$WEBSITE_DIR" || { log "ERROR: Cannot cd"; exit 1; }
 
@@ -97,4 +101,6 @@ DEPLOY_END=$(date +%s)
 DEPLOY_TIME=$((DEPLOY_END - DEPLOY_START))
 
 log "🎉 TURBO: ${DEPLOY_TIME}s"
-# TURBO TEST Sun Nov  9 15:24:13 EST 2025
+
+# Alert on successful deploy
+$ALERT website info "Deployed ${LOCAL:0:7}→${REMOTE:0:7} in ${DEPLOY_TIME}s"
