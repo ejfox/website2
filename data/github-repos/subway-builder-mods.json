@@ -1,0 +1,81 @@
+{
+  "name": "subway-builder-mods",
+  "description": "Mods for Subway Builder game - including Day/Night theme cycle",
+  "url": "https://github.com/ejfox/subway-builder-mods",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 4740
+  },
+  "diskUsage": 3,
+  "fileTree": {
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 1063
+      },
+      {
+        "path": "README.md",
+        "size": 1186
+      },
+      {
+        "path": "day-night-cycle/index.js",
+        "size": 4740
+      },
+      {
+        "path": "day-night-cycle/manifest.json",
+        "size": 401
+      }
+    ],
+    "tree": {
+      "name": "subway-builder-mods",
+      "children": [
+        {
+          "name": "day-night-cycle",
+          "children": [
+            {
+              "name": "index.js",
+              "size": 4740,
+              "path": "day-night-cycle/index.js"
+            },
+            {
+              "name": "manifest.json",
+              "size": 401,
+              "path": "day-night-cycle/manifest.json"
+            }
+          ],
+          "path": "day-night-cycle"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1063,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 1186,
+          "path": "README.md"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 4,
+    "totalSize": 7390
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"subway-builder-mods\">Subway Builder Mods</h1>\n<p>A collection of mods for <a href=\"https://subwaybuilder.io\">Subway Builder</a>, a subway/metro simulation game.</p>\n<h2 id=\"installation\">Installation</h2>\n<ol>\n<li>Open Subway Builder</li>\n<li>Go to <strong>Settings &gt; System</strong></li>\n<li>Click <strong>\"Open Saves Folder\"</strong></li>\n<li>Navigate up one level to the <code>metro-maker4/</code> folder</li>\n<li>Create a <code>mods/</code> folder if it doesn't exist</li>\n<li>Copy the mod folder (e.g., <code>day-night-cycle/</code>) into the <code>mods/</code> folder</li>\n<li>Restart the game and enable the mod in <strong>Settings &gt; Mods</strong></li>\n</ol>\n<p><strong>Mods folder locations by platform:</strong></p>\n<ul>\n<li><strong>macOS</strong>: <code>~/Library/Application Support/metro-maker4/mods/</code></li>\n<li><strong>Windows</strong>: <code>%APPDATA%\\metro-maker4\\mods\\</code></li>\n<li><strong>Linux</strong>: <code>~/.config/metro-maker4/mods/</code></li>\n</ul>\n<h2 id=\"available-mods\">Available Mods</h2>\n<h3 id=\"daynight-theme-cycle\">Day/Night Theme Cycle</h3>\n<p>Automatically switches between light and dark theme based on in-game time of day.</p>\n<ul>\n<li><strong>Day (6:00 AM - 5:59 PM)</strong>: Light theme</li>\n<li><strong>Night (6:00 PM - 5:59 AM)</strong>: Dark theme</li>\n</ul>\n<p>Shows a notification when the theme changes at sunrise/sunset.</p>\n<p><strong>Files:</strong> <a href=\"./day-night-cycle/\"><code>day-night-cycle/</code></a></p>\n<h2 id=\"creating-your-own-mods\">Creating Your Own Mods</h2>\n<p>See the <a href=\"https://gist.github.com/ejfox/fcc7dcc4b97d7f6a43800cf384dc694b\">Subway Builder Modding Guide</a> for full documentation on the modding API.</p>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",
+    "raw": "# Subway Builder Mods\n\nA collection of mods for [Subway Builder](https://subwaybuilder.io), a subway/metro simulation game.\n\n## Installation\n\n1. Open Subway Builder\n2. Go to **Settings > System**\n3. Click **\"Open Saves Folder\"**\n4. Navigate up one level to the `metro-maker4/` folder\n5. Create a `mods/` folder if it doesn't exist\n6. Copy the mod folder (e.g., `day-night-cycle/`) into the `mods/` folder\n7. Restart the game and enable the mod in **Settings > Mods**\n\n**Mods folder locations by platform:**\n- **macOS**: `~/Library/Application Support/metro-maker4/mods/`\n- **Windows**: `%APPDATA%\\metro-maker4\\mods\\`\n- **Linux**: `~/.config/metro-maker4/mods/`\n\n## Available Mods\n\n### Day/Night Theme Cycle\n\nAutomatically switches between light and dark theme based on in-game time of day.\n\n- **Day (6:00 AM - 5:59 PM)**: Light theme\n- **Night (6:00 PM - 5:59 AM)**: Dark theme\n\nShows a notification when the theme changes at sunrise/sunset.\n\n**Files:** [`day-night-cycle/`](./day-night-cycle/)\n\n## Creating Your Own Mods\n\nSee the [Subway Builder Modding Guide](https://gist.github.com/ejfox/fcc7dcc4b97d7f6a43800cf384dc694b) for full documentation on the modding API.\n\n## License\n\nMIT\n",
+    "excerpt": "A collection of mods for Subway Builder, a subway/metro simulation game.\n\n\n\n1. Open Subway Builder\n2. Go to Settings > System\n3. Click \"Open Saves Folder\"\n4. Na..."
+  },
+  "createdAt": "2025-12-17T00:02:45Z",
+  "updatedAt": "2025-12-17T00:33:13Z",
+  "pushedAt": "2025-12-17T00:33:09Z"
+}

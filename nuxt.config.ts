@@ -101,6 +101,7 @@ export default defineNuxtConfig({
     renderJsonPayloads: false, // Reduce payload size
     viewTransition: true, // Enable instant view transitions (Nuxt 4)
     inlineSSRStyles: true, // Inline critical CSS to eliminate render-blocking
+    componentIslands: true, // Enable Nuxt Islands for partial hydration
   },
 
   // Aggressive router prefetching for instant navigation

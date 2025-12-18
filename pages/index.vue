@@ -136,11 +136,12 @@ useHead({
         >
           {{ indexContent.title }}
         </h1>
-        <div
-          id="index-content"
+        <!-- Server-only island - no hydration needed for static content -->
+        <StaticContent
+          :html="indexContent.html"
           class="font-serif prose prose-zinc dark:prose-invert max-w-none"
-          v-html="indexContent.html"
-        ></div>
+          id="index-content"
+        />
       </template>
     </div>
 

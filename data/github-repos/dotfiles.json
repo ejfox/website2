@@ -12,7 +12,7 @@
   "language": "Shell",
   "languageColor": "#89e051",
   "languages": {
-    "Shell": 265145,
+    "Shell": 265186,
     "GLSL": 170261,
     "Lua": 113850,
     "Vim Script": 83725,
@@ -20,7 +20,7 @@
     "Less": 2089,
     "CSS": 1367
   },
-  "diskUsage": 63380,
+  "diskUsage": 63393,
   "fileTree": {
     "files": [
       {
@@ -825,7 +825,7 @@
       },
       {
         "path": ".config/sketchybar/sketchybarrc",
-        "size": 5466
+        "size": 5507
       },
       {
         "path": ".config/wireshark/recent",
@@ -1082,6 +1082,10 @@
       {
         "path": "CLAUDE.md",
         "size": 29317
+      },
+      {
+        "path": "HISTORY.md",
+        "size": 21505
       },
       {
         "path": "LICENSE",
@@ -2311,7 +2315,7 @@
                 },
                 {
                   "name": "sketchybarrc",
-                  "size": 5466,
+                  "size": 5507,
                   "path": ".config/sketchybar/sketchybarrc"
                 }
               ],
@@ -2855,6 +2859,11 @@
           "path": "CLAUDE.md"
         },
         {
+          "name": "HISTORY.md",
+          "size": 21505,
+          "path": "HISTORY.md"
+        },
+        {
           "name": "LICENSE",
           "size": 1209,
           "path": "LICENSE"
@@ -2902,8 +2911,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 282,
-    "totalSize": 20244649
+    "totalFiles": 283,
+    "totalSize": 20266195
   },
   "topics": [],
   "readme": {
@@ -2912,6 +2921,6 @@
     "excerpt": "Minimalist terminal configuration focused on functional beauty, speed-of-thought workflows, and distraction-free computing.\n\n\n- Geometric symbols throughout int..."
   },
   "createdAt": "2019-04-07T22:09:55Z",
-  "updatedAt": "2025-12-16T00:36:35Z",
-  "pushedAt": "2025-12-16T00:36:31Z"
+  "updatedAt": "2025-12-16T17:50:52Z",
+  "pushedAt": "2025-12-16T17:50:48Z"
 }

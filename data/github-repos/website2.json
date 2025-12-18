@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 703694,
-    "TypeScript": 317226,
-    "JavaScript": 217957,
+    "Vue": 690175,
+    "TypeScript": 336471,
+    "JavaScript": 221072,
     "CSS": 35191,
     "HTML": 15405,
-    "Shell": 15076,
+    "Shell": 15270,
     "Dockerfile": 794
   },
-  "diskUsage": 88836,
+  "diskUsage": 89124,
   "fileTree": {
     "files": [
       {
@@ -101,327 +101,303 @@
       },
       {
         "path": "components/AnimatedNumber.vue",
-        "size": 2488
+        "size": 3088
       },
       {
         "path": "components/BlogPostContent.vue",
-        "size": 214
+        "size": 397
       },
       {
         "path": "components/BlogSparkline.vue",
-        "size": 7904
+        "size": 8708
       },
       {
         "path": "components/Breadcrumb.vue",
-        "size": 1053
+        "size": 1255
       },
       {
         "path": "components/CalendarTOC.vue",
-        "size": 4459
+        "size": 4658
       },
       {
         "path": "components/CommitCard.vue",
-        "size": 3354
+        "size": 3657
       },
       {
         "path": "components/CommitMatrix.client.vue",
-        "size": 6925
+        "size": 7201
       },
       {
         "path": "components/DataTable.vue",
-        "size": 6946
+        "size": 7525
       },
       {
         "path": "components/DebugGrid.vue",
-        "size": 1602
+        "size": 1797
       },
       {
         "path": "components/DotField.vue",
-        "size": 2362
+        "size": 2933
       },
       {
         "path": "components/FileSizeDistribution.vue",
-        "size": 2067
+        "size": 2318
       },
       {
         "path": "components/Footer.vue",
-        "size": 3052
+        "size": 3239
       },
       {
         "path": "components/GistPreview.vue",
-        "size": 5843
+        "size": 6216
       },
       {
         "path": "components/GitHubHistogramGrid.client.vue",
-        "size": 5216
+        "size": 5482
       },
       {
         "path": "components/GitHubParallelCoords.client.vue",
-        "size": 7104
+        "size": 7465
       },
       {
         "path": "components/GitHubRadialTimeline.client.vue",
-        "size": 7643
+        "size": 7938
       },
       {
         "path": "components/GitHubRidgeline.client.vue",
-        "size": 1928
+        "size": 2210
       },
       {
         "path": "components/GitHubScrollViz.client.vue",
-        "size": 7606
+        "size": 7864
       },
       {
         "path": "components/GithubForceLayout.client.vue",
-        "size": 9036
+        "size": 9283
       },
       {
         "path": "components/GithubRepoCard.vue",
-        "size": 2740
+        "size": 3277
       },
       {
         "path": "components/LanguageBar.vue",
-        "size": 2506
+        "size": 2838
       },
       {
         "path": "components/NewsletterSignup.vue",
-        "size": 5716
+        "size": 5913
       },
       {
         "path": "components/NextAvailableSlot.vue",
-        "size": 2426
+        "size": 2633
       },
       {
         "path": "components/PostMetadata.vue",
-        "size": 4746
+        "size": 5164
       },
       {
         "path": "components/ReplyContext.vue",
-        "size": 665
+        "size": 870
       },
       {
         "path": "components/ReplyContextItem.vue",
-        "size": 3718
+        "size": 3978
       },
       {
         "path": "components/RepoMetrics.vue",
-        "size": 3588
+        "size": 3895
       },
       {
         "path": "components/RepoSparkline.client.vue",
-        "size": 1600
+        "size": 2020
       },
       {
         "path": "components/ScrobbleCard.vue",
-        "size": 1849
-      },
-      {
-        "path": "components/SidebarTOC.vue",
-        "size": 2644
+        "size": 2194
       },
       {
         "path": "components/SitemapLink.vue",
-        "size": 1361
-      },
-      {
-        "path": "components/SmartSidebar.vue",
-        "size": 12289
+        "size": 1710
       },
       {
         "path": "components/SparklineScaled.vue",
-        "size": 4281
+        "size": 4965
       },
       {
         "path": "components/TweetCard.vue",
-        "size": 4984
-      },
-      {
-        "path": "components/VizTooltip.vue",
-        "size": 1512
+        "size": 5467
       },
       {
         "path": "components/WebVitalsReporter.vue",
-        "size": 1626
+        "size": 1815
       },
       {
         "path": "components/Webmentions.vue",
-        "size": 5900
+        "size": 6086
       },
       {
         "path": "components/blog/TipJar.vue",
-        "size": 2974
+        "size": 3161
       },
       {
-        "path": "components/gear/Card3D.client.vue",
-        "size": 7932
-      },
-      {
-        "path": "components/gear/GearCard3D.vue",
-        "size": 6195
+        "path": "components/gear/GearCard3D.client.vue",
+        "size": 8188
       },
       {
         "path": "components/gear/GearDetailCard.client.vue",
-        "size": 7611
+        "size": 7868
       },
       {
         "path": "components/gear/GearItem.vue",
-        "size": 4507
-      },
-      {
-        "path": "components/gear/GearNavigation.vue",
-        "size": 4885
+        "size": 4848
       },
       {
         "path": "components/gear/GearTableRow.client.vue",
-        "size": 6642
-      },
-      {
-        "path": "components/gear/Navigator.vue",
-        "size": 5026
+        "size": 6963
       },
       {
         "path": "components/kalshi/KalshiFillsTable.vue",
-        "size": 1549
+        "size": 1784
       },
       {
         "path": "components/kalshi/KalshiPortfolioStats.vue",
-        "size": 2178
+        "size": 2454
       },
       {
         "path": "components/kalshi/KalshiPositionCard.vue",
-        "size": 3476
+        "size": 3904
       },
       {
         "path": "components/kalshi/KalshiPositionsList.vue",
-        "size": 780
+        "size": 1066
       },
       {
         "path": "components/predictions/MarketData.vue",
-        "size": 4556
+        "size": 4780
       },
       {
         "path": "components/predictions/PredictionCard.vue",
-        "size": 4171
+        "size": 4432
       },
       {
         "path": "components/predictions/PredictionStats.vue",
-        "size": 1277
+        "size": 1483
       },
       {
         "path": "components/predictions/PredictionVerification.vue",
-        "size": 4236
+        "size": 4473
       },
       {
         "path": "components/predictions/VerificationDisplay.vue",
-        "size": 4236
+        "size": 4470
       },
       {
         "path": "components/projects/BentoProjectCard.vue",
-        "size": 3604
+        "size": 3886
       },
       {
         "path": "components/projects/FeaturedProjectCard.vue",
-        "size": 1186
+        "size": 1414
       },
       {
         "path": "components/projects/ProjectCard.vue",
-        "size": 2863
+        "size": 3132
       },
       {
         "path": "components/reading/ReadingSparklines.vue",
-        "size": 8465
+        "size": 8736
       },
       {
         "path": "components/stats/ActivityCalendar.vue",
-        "size": 3673
+        "size": 4023
       },
       {
         "path": "components/stats/BlogStats.vue",
-        "size": 3102
+        "size": 3273
       },
       {
         "path": "components/stats/ChessStats.vue",
-        "size": 9793
+        "size": 9970
       },
       {
         "path": "components/stats/DiscogsStats.vue",
-        "size": 6405
+        "size": 6616
       },
       {
         "path": "components/stats/GearStats.vue",
-        "size": 14222
+        "size": 14349
       },
       {
         "path": "components/stats/GistStats.vue",
-        "size": 4631
+        "size": 4757
       },
       {
         "path": "components/stats/GitHubMiniContributions.vue",
-        "size": 0
+        "size": 3599
       },
       {
         "path": "components/stats/GitHubStats.vue",
-        "size": 8072
+        "size": 8200
       },
       {
         "path": "components/stats/GoodreadsStats.vue",
-        "size": 3571
+        "size": 3691
       },
       {
         "path": "components/stats/IndividualStat.vue",
-        "size": 6150
+        "size": 6506
       },
       {
         "path": "components/stats/LastFmStats.vue",
-        "size": 5670
+        "size": 5800
       },
       {
         "path": "components/stats/LeetCodeStats.vue",
-        "size": 6445
+        "size": 6581
       },
       {
         "path": "components/stats/LetterboxdStats.vue",
-        "size": 6711
+        "size": 6840
       },
       {
         "path": "components/stats/MonkeyTypeStats.vue",
-        "size": 6920
+        "size": 7048
       },
       {
         "path": "components/stats/PhotoStats.vue",
-        "size": 3524
+        "size": 3645
       },
       {
         "path": "components/stats/RescueTimeStats.vue",
-        "size": 10188
+        "size": 10325
       },
       {
         "path": "components/stats/StatRow.vue",
-        "size": 1047
+        "size": 1348
       },
       {
         "path": "components/stats/StatSection.vue",
-        "size": 949
+        "size": 1299
       },
       {
         "path": "components/stats/StatsDataState.vue",
-        "size": 763
+        "size": 1014
       },
       {
         "path": "components/stats/StatsSectionHeader.vue",
-        "size": 352
+        "size": 490
       },
       {
         "path": "components/stats/TopStats.vue",
-        "size": 6908
+        "size": 7058
       },
       {
         "path": "components/stats/UmamiStats.vue",
-        "size": 8263
+        "size": 8391
       },
       {
         "path": "components/visualizations/RhythmicSparklines.vue",
-        "size": 3916
+        "size": 4446
       },
       {
         "path": "composables/README.md",
@@ -441,31 +417,31 @@
       },
       {
         "path": "composables/useKalshi.ts",
-        "size": 280
+        "size": 458
       },
       {
         "path": "composables/useLanguageColors.ts",
-        "size": 1019
+        "size": 1222
       },
       {
         "path": "composables/useMarkdown.ts",
-        "size": 778
+        "size": 956
       },
       {
         "path": "composables/useNumberFormat.ts",
-        "size": 11473
+        "size": 11671
       },
       {
         "path": "composables/usePageSeo.ts",
-        "size": 2893
+        "size": 3039
       },
       {
         "path": "composables/useProcessedMarkdown.ts",
-        "size": 13326
+        "size": 13335
       },
       {
         "path": "composables/useProjectSlug.ts",
-        "size": 360
+        "size": 549
       },
       {
         "path": "composables/useReadingTime.ts",
@@ -473,7 +449,7 @@
       },
       {
         "path": "composables/useStats.ts",
-        "size": 13037
+        "size": 13197
       },
       {
         "path": "composables/useStatusFormatting.ts",
@@ -3381,7 +3357,7 @@
       },
       {
         "path": "data/github-repos-list.json",
-        "size": 123753
+        "size": 123772
       },
       {
         "path": "data/github-repos/30-data-days.json",
@@ -3601,7 +3577,7 @@
       },
       {
         "path": "data/github-repos/dotfiles.json",
-        "size": 112228
+        "size": 125455
       },
       {
         "path": "data/github-repos/dvs-soti-2022.json",
@@ -3901,7 +3877,7 @@
       },
       {
         "path": "data/github-repos/scrapbook-cli.json",
-        "size": 33287
+        "size": 47243
       },
       {
         "path": "data/github-repos/scrapbook.json",
@@ -4085,7 +4061,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 504263
+        "size": 504786
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -5641,7 +5617,7 @@
       },
       {
         "path": "eslint.config.mjs",
-        "size": 7003
+        "size": 7451
       },
       {
         "path": "layouts/bookmarklet.vue",
@@ -5649,11 +5625,11 @@
       },
       {
         "path": "layouts/default.vue",
-        "size": 11138
+        "size": 4996
       },
       {
         "path": "nuxt.config.ts",
-        "size": 13041
+        "size": 12966
       },
       {
         "path": "package-lock.json",
@@ -5661,7 +5637,7 @@
       },
       {
         "path": "package.json",
-        "size": 3800
+        "size": 3906
       },
       {
         "path": "pages/blog/[...slug].vue",
@@ -5697,11 +5673,11 @@
       },
       {
         "path": "pages/calendar.vue",
-        "size": 2427
+        "size": 2984
       },
       {
         "path": "pages/changelog.vue",
-        "size": 4856
+        "size": 4922
       },
       {
         "path": "pages/external-links.vue",
@@ -5709,7 +5685,7 @@
       },
       {
         "path": "pages/following.vue",
-        "size": 3269
+        "size": 3335
       },
       {
         "path": "pages/gear/[slug].vue",
@@ -5745,7 +5721,7 @@
       },
       {
         "path": "pages/on-this-day.vue",
-        "size": 9706
+        "size": 9772
       },
       {
         "path": "pages/predictions/[slug].vue",
@@ -5777,7 +5753,7 @@
       },
       {
         "path": "pages/scraps/tag/[slug].vue",
-        "size": 6187
+        "size": 6196
       },
       {
         "path": "pages/sitemap.vue",
@@ -5785,7 +5761,7 @@
       },
       {
         "path": "pages/stats.vue",
-        "size": 37616
+        "size": 37682
       },
       {
         "path": "plugins/dark-mode.client.js",
@@ -5793,11 +5769,11 @@
       },
       {
         "path": "plugins/footnotes-to-sidenotes.client.ts",
-        "size": 2217
+        "size": 2235
       },
       {
         "path": "plugins/markdownTable.client.ts",
-        "size": 4296
+        "size": 4337
       },
       {
         "path": "plugins/toc-highlight.client.ts",
@@ -6053,19 +6029,15 @@
       },
       {
         "path": "scripts/auto-update.sh",
-        "size": 2750
-      },
-      {
-        "path": "scripts/blog.mjs",
-        "size": 863
+        "size": 2944
       },
       {
         "path": "scripts/blog/create-prediction.mjs",
-        "size": 2024
+        "size": 2263
       },
       {
         "path": "scripts/blog/import.mjs",
-        "size": 5993
+        "size": 6272
       },
       {
         "path": "scripts/blog/publish.sh",
@@ -6081,19 +6053,15 @@
       },
       {
         "path": "scripts/check-series.mjs",
-        "size": 945
+        "size": 1239
       },
       {
         "path": "scripts/config.mjs",
-        "size": 1304
-      },
-      {
-        "path": "scripts/create-prediction.mjs",
-        "size": 1829
+        "size": 1692
       },
       {
         "path": "scripts/dev-with-perf.mjs",
-        "size": 1208
+        "size": 1403
       },
       {
         "path": "scripts/dev/test-robot-apis.sh",
@@ -6105,59 +6073,59 @@
       },
       {
         "path": "scripts/export-all-contributions.mjs",
-        "size": 3553
+        "size": 3711
       },
       {
         "path": "scripts/export-all-github-commits.mjs",
-        "size": 3113
+        "size": 3289
       },
       {
         "path": "scripts/export-github-commits.mjs",
-        "size": 2898
+        "size": 2994
       },
       {
         "path": "scripts/export-github-repos.mjs",
-        "size": 13895
+        "size": 14060
       },
       {
         "path": "scripts/fetch-goodreads.mjs",
-        "size": 7335
+        "size": 7559
       },
       {
         "path": "scripts/fetch-my-events.mjs",
-        "size": 1555
+        "size": 1831
       },
       {
         "path": "scripts/fix-date-fns-imports.mjs",
-        "size": 2300
+        "size": 2544
       },
       {
         "path": "scripts/fix-vueuse-imports.mjs",
-        "size": 2466
+        "size": 2689
       },
       {
         "path": "scripts/generate-build-info.mjs",
-        "size": 636
+        "size": 868
       },
       {
         "path": "scripts/generate-commentary-templates.mjs",
-        "size": 2616
+        "size": 2912
       },
       {
         "path": "scripts/index.mjs",
-        "size": 535
+        "size": 772
       },
       {
         "path": "scripts/kalshi-test.mjs",
-        "size": 3570
+        "size": 3892
       },
       {
         "path": "scripts/lighthouse-check.mjs",
-        "size": 3428
+        "size": 3662
       },
       {
         "path": "scripts/perf-analyze.mjs",
-        "size": 4461
+        "size": 4690
       },
       {
         "path": "scripts/plugins/__tests__/remarkExtractToc.test.mjs",
@@ -6165,47 +6133,47 @@
       },
       {
         "path": "scripts/plugins/index.mjs",
-        "size": 679
+        "size": 907
       },
       {
         "path": "scripts/plugins/rehypeAddClassToParagraphs.mjs",
-        "size": 5175
+        "size": 5399
       },
       {
         "path": "scripts/plugins/remarkAi2htmlEmbed.mjs",
-        "size": 655
+        "size": 844
       },
       {
         "path": "scripts/plugins/remarkEnhanceLinks.mjs",
-        "size": 4920
+        "size": 5115
       },
       {
         "path": "scripts/plugins/remarkExtractToc.mjs",
-        "size": 2764
+        "size": 2989
       },
       {
         "path": "scripts/plugins/remarkGenerateAltText.mjs",
-        "size": 5212
+        "size": 5484
       },
       {
         "path": "scripts/plugins/remarkObsidianEnhanced.mjs",
-        "size": 4260
+        "size": 4464
       },
       {
         "path": "scripts/plugins/remarkObsidianSupport.mjs",
-        "size": 2053
+        "size": 2257
       },
       {
         "path": "scripts/predict-pro.mjs",
-        "size": 21637
+        "size": 22015
       },
       {
         "path": "scripts/predictions/sign-prediction.mjs",
-        "size": 2639
+        "size": 2947
       },
       {
         "path": "scripts/processMarkdown.mjs",
-        "size": 39185
+        "size": 39699
       },
       {
         "path": "scripts/publish_blog_automator.sh",
@@ -6224,24 +6192,20 @@
         "size": 640
       },
       {
-        "path": "scripts/sign-prediction.mjs",
-        "size": 3031
-      },
-      {
         "path": "scripts/utils/backup.mjs",
-        "size": 576
+        "size": 786
       },
       {
         "path": "scripts/utils/config.mjs",
-        "size": 722
+        "size": 942
       },
       {
         "path": "scripts/utils/helpers.mjs",
-        "size": 12724
+        "size": 12971
       },
       {
         "path": "scripts/utils/stats.mjs",
-        "size": 4933
+        "size": 5198
       },
       {
         "path": "scripts/vps_update.sh",
@@ -6249,235 +6213,235 @@
       },
       {
         "path": "server/api/blog-stats.get.ts",
-        "size": 1119
+        "size": 1419
       },
       {
         "path": "server/api/blogroll.get.ts",
-        "size": 1901
+        "size": 2046
       },
       {
         "path": "server/api/bookmarks.get.ts",
-        "size": 2489
+        "size": 2875
       },
       {
         "path": "server/api/build-info.get.ts",
-        "size": 894
+        "size": 1063
       },
       {
         "path": "server/api/cal/available-slots.get.ts",
-        "size": 2759
-      },
-      {
-        "path": "server/api/calibration.get.ts",
-        "size": 1046
-      },
-      {
-        "path": "server/api/changelog.get.ts",
-        "size": 3177
-      },
-      {
-        "path": "server/api/chess.get.ts",
-        "size": 6015
-      },
-      {
-        "path": "server/api/discogs.get.ts",
-        "size": 7606
-      },
-      {
-        "path": "server/api/external-links.get.ts",
-        "size": 2821
-      },
-      {
-        "path": "server/api/gear-csv.get.ts",
-        "size": 488
-      },
-      {
-        "path": "server/api/gear-stats.get.ts",
-        "size": 1794
-      },
-      {
-        "path": "server/api/gear.get.ts",
-        "size": 1348
-      },
-      {
-        "path": "server/api/gear/[slug].get.ts",
-        "size": 1124
-      },
-      {
-        "path": "server/api/gist-stats.get.ts",
-        "size": 2713
-      },
-      {
-        "path": "server/api/gists.get.ts",
-        "size": 2293
-      },
-      {
-        "path": "server/api/github-commits.get.ts",
-        "size": 242
-      },
-      {
-        "path": "server/api/github-repos-list.get.ts",
-        "size": 245
-      },
-      {
-        "path": "server/api/github.get.ts",
-        "size": 10650
-      },
-      {
-        "path": "server/api/goodreads.get.ts",
-        "size": 1739
-      },
-      {
-        "path": "server/api/healthcheck.get.ts",
-        "size": 1477
-      },
-      {
-        "path": "server/api/highlight.post.ts",
-        "size": 1989
-      },
-      {
-        "path": "server/api/kalshi.get.ts",
-        "size": 19264
-      },
-      {
-        "path": "server/api/lastfm.get.ts",
-        "size": 10615
-      },
-      {
-        "path": "server/api/leetcode.get.ts",
-        "size": 3147
-      },
-      {
-        "path": "server/api/letterboxd.get.ts",
-        "size": 4429
-      },
-      {
-        "path": "server/api/manifest.ts",
-        "size": 1330
-      },
-      {
-        "path": "server/api/markets/kalshi.get.ts",
-        "size": 1686
-      },
-      {
-        "path": "server/api/markets/polymarket.get.ts",
-        "size": 2443
-      },
-      {
-        "path": "server/api/monkeytype.get.ts",
-        "size": 3951
-      },
-      {
-        "path": "server/api/now.get.ts",
-        "size": 1117
-      },
-      {
-        "path": "server/api/og.get.ts",
-        "size": 5320
-      },
-      {
-        "path": "server/api/on-this-day.get.ts",
-        "size": 2287
-      },
-      {
-        "path": "server/api/photos.get.ts",
-        "size": 554
-      },
-      {
-        "path": "server/api/posts/[...slug].ts",
-        "size": 3486
-      },
-      {
-        "path": "server/api/predictions.get.ts",
-        "size": 1766
-      },
-      {
-        "path": "server/api/predictions/[id].patch.ts",
-        "size": 1700
-      },
-      {
-        "path": "server/api/predictions/[id].ts",
         "size": 3109
       },
       {
+        "path": "server/api/calibration.get.ts",
+        "size": 1192
+      },
+      {
+        "path": "server/api/changelog.get.ts",
+        "size": 3438
+      },
+      {
+        "path": "server/api/chess.get.ts",
+        "size": 6324
+      },
+      {
+        "path": "server/api/discogs.get.ts",
+        "size": 8106
+      },
+      {
+        "path": "server/api/external-links.get.ts",
+        "size": 3106
+      },
+      {
+        "path": "server/api/gear-csv.get.ts",
+        "size": 657
+      },
+      {
+        "path": "server/api/gear-stats.get.ts",
+        "size": 2077
+      },
+      {
+        "path": "server/api/gear.get.ts",
+        "size": 1585
+      },
+      {
+        "path": "server/api/gear/[slug].get.ts",
+        "size": 1419
+      },
+      {
+        "path": "server/api/gist-stats.get.ts",
+        "size": 3013
+      },
+      {
+        "path": "server/api/gists.get.ts",
+        "size": 2662
+      },
+      {
+        "path": "server/api/github-commits.get.ts",
+        "size": 448
+      },
+      {
+        "path": "server/api/github-repos-list.get.ts",
+        "size": 467
+      },
+      {
+        "path": "server/api/github.get.ts",
+        "size": 10989
+      },
+      {
+        "path": "server/api/goodreads.get.ts",
+        "size": 2060
+      },
+      {
+        "path": "server/api/healthcheck.get.ts",
+        "size": 1770
+      },
+      {
+        "path": "server/api/highlight.post.ts",
+        "size": 2394
+      },
+      {
+        "path": "server/api/kalshi.get.ts",
+        "size": 19658
+      },
+      {
+        "path": "server/api/lastfm.get.ts",
+        "size": 10929
+      },
+      {
+        "path": "server/api/leetcode.get.ts",
+        "size": 3449
+      },
+      {
+        "path": "server/api/letterboxd.get.ts",
+        "size": 4763
+      },
+      {
+        "path": "server/api/manifest.ts",
+        "size": 1549
+      },
+      {
+        "path": "server/api/markets/kalshi.get.ts",
+        "size": 2055
+      },
+      {
+        "path": "server/api/markets/polymarket.get.ts",
+        "size": 2820
+      },
+      {
+        "path": "server/api/monkeytype.get.ts",
+        "size": 4249
+      },
+      {
+        "path": "server/api/now.get.ts",
+        "size": 1330
+      },
+      {
+        "path": "server/api/og.get.ts",
+        "size": 5481
+      },
+      {
+        "path": "server/api/on-this-day.get.ts",
+        "size": 2670
+      },
+      {
+        "path": "server/api/photos.get.ts",
+        "size": 751
+      },
+      {
+        "path": "server/api/posts/[...slug].ts",
+        "size": 3874
+      },
+      {
+        "path": "server/api/predictions.get.ts",
+        "size": 2051
+      },
+      {
+        "path": "server/api/predictions/[id].patch.ts",
+        "size": 1981
+      },
+      {
+        "path": "server/api/predictions/[id].ts",
+        "size": 3490
+      },
+      {
         "path": "server/api/predictions/resolve.post.ts",
-        "size": 1399
+        "size": 1849
       },
       {
         "path": "server/api/projects.get.ts",
-        "size": 2308
+        "size": 2586
       },
       {
         "path": "server/api/reading.get.ts",
-        "size": 2734
+        "size": 3035
       },
       {
         "path": "server/api/reading/[slug].get.ts",
-        "size": 868
+        "size": 1193
       },
       {
         "path": "server/api/repos/[slug].get.ts",
-        "size": 2378
+        "size": 2753
       },
       {
         "path": "server/api/rescuetime.get.ts",
-        "size": 6280
+        "size": 6649
       },
       {
         "path": "server/api/robot/meta.get.ts",
-        "size": 4830
+        "size": 5012
       },
       {
         "path": "server/api/robot/timeline.get.ts",
-        "size": 6318
+        "size": 6594
       },
       {
         "path": "server/api/robots/[...slug].ts",
-        "size": 1767
+        "size": 2247
       },
       {
         "path": "server/api/scraps.get.ts",
-        "size": 2712
+        "size": 3051
       },
       {
         "path": "server/api/scraps/tags.get.ts",
-        "size": 1140
+        "size": 1363
       },
       {
         "path": "server/api/search.get.ts",
-        "size": 6839
+        "size": 7207
       },
       {
         "path": "server/api/stats.get.ts",
-        "size": 7990
+        "size": 8408
       },
       {
         "path": "server/api/suggest.get.ts",
-        "size": 12215
+        "size": 12695
       },
       {
         "path": "server/api/umami/auth.post.ts",
-        "size": 921
+        "size": 1130
       },
       {
         "path": "server/api/umami/stats.get.ts",
-        "size": 3041
+        "size": 3361
       },
       {
         "path": "server/api/webmentions.get.ts",
-        "size": 2550
+        "size": 2735
       },
       {
         "path": "server/api/website-stats.get.ts",
-        "size": 2667
+        "size": 2946
       },
       {
         "path": "server/api/words-this-month.get.ts",
-        "size": 2806
+        "size": 3114
       },
       {
         "path": "server/api/youtube.get.ts",
-        "size": 7255
+        "size": 7499
       },
       {
         "path": "server/routes/gists-rss.xml.ts",
@@ -6489,15 +6453,15 @@
       },
       {
         "path": "server/routes/rss.xml.ts",
-        "size": 4301
+        "size": 4472
       },
       {
         "path": "server/routes/sitemap.xml.ts",
-        "size": 2921
+        "size": 3082
       },
       {
         "path": "server/routes/tags.json.ts",
-        "size": 1974
+        "size": 2034
       },
       {
         "path": "server/tsconfig.json",
@@ -6509,7 +6473,7 @@
       },
       {
         "path": "server/utils/apiHelpers.ts",
-        "size": 3264
+        "size": 3277
       },
       {
         "path": "server/utils/fetch.ts",
@@ -6541,7 +6505,7 @@
       },
       {
         "path": "tsconfig.json",
-        "size": 794
+        "size": 190
       },
       {
         "path": "types/d3.d.ts",
@@ -6679,7 +6643,7 @@
               "children": [
                 {
                   "name": "TipJar.vue",
-                  "size": 2974,
+                  "size": 3161,
                   "path": "components/blog/TipJar.vue"
                 }
               ],
@@ -6689,39 +6653,24 @@
               "name": "gear",
               "children": [
                 {
-                  "name": "Card3D.client.vue",
-                  "size": 7932,
-                  "path": "components/gear/Card3D.client.vue"
-                },
-                {
-                  "name": "GearCard3D.vue",
-                  "size": 6195,
-                  "path": "components/gear/GearCard3D.vue"
+                  "name": "GearCard3D.client.vue",
+                  "size": 8188,
+                  "path": "components/gear/GearCard3D.client.vue"
                 },
                 {
                   "name": "GearDetailCard.client.vue",
-                  "size": 7611,
+                  "size": 7868,
                   "path": "components/gear/GearDetailCard.client.vue"
                 },
                 {
                   "name": "GearItem.vue",
-                  "size": 4507,
+                  "size": 4848,
                   "path": "components/gear/GearItem.vue"
                 },
                 {
-                  "name": "GearNavigation.vue",
-                  "size": 4885,
-                  "path": "components/gear/GearNavigation.vue"
-                },
-                {
                   "name": "GearTableRow.client.vue",
-                  "size": 6642,
+                  "size": 6963,
                   "path": "components/gear/GearTableRow.client.vue"
-                },
-                {
-                  "name": "Navigator.vue",
-                  "size": 5026,
-                  "path": "components/gear/Navigator.vue"
                 }
               ],
               "path": "components/gear"
@@ -6731,22 +6680,22 @@
               "children": [
                 {
                   "name": "KalshiFillsTable.vue",
-                  "size": 1549,
+                  "size": 1784,
                   "path": "components/kalshi/KalshiFillsTable.vue"
                 },
                 {
                   "name": "KalshiPortfolioStats.vue",
-                  "size": 2178,
+                  "size": 2454,
                   "path": "components/kalshi/KalshiPortfolioStats.vue"
                 },
                 {
                   "name": "KalshiPositionCard.vue",
-                  "size": 3476,
+                  "size": 3904,
                   "path": "components/kalshi/KalshiPositionCard.vue"
                 },
                 {
                   "name": "KalshiPositionsList.vue",
-                  "size": 780,
+                  "size": 1066,
                   "path": "components/kalshi/KalshiPositionsList.vue"
                 }
               ],
@@ -6757,27 +6706,27 @@
               "children": [
                 {
                   "name": "MarketData.vue",
-                  "size": 4556,
+                  "size": 4780,
                   "path": "components/predictions/MarketData.vue"
                 },
                 {
                   "name": "PredictionCard.vue",
-                  "size": 4171,
+                  "size": 4432,
                   "path": "components/predictions/PredictionCard.vue"
                 },
                 {
                   "name": "PredictionStats.vue",
-                  "size": 1277,
+                  "size": 1483,
                   "path": "components/predictions/PredictionStats.vue"
                 },
                 {
                   "name": "PredictionVerification.vue",
-                  "size": 4236,
+                  "size": 4473,
                   "path": "components/predictions/PredictionVerification.vue"
                 },
                 {
                   "name": "VerificationDisplay.vue",
-                  "size": 4236,
+                  "size": 4470,
                   "path": "components/predictions/VerificationDisplay.vue"
                 }
               ],
@@ -6788,17 +6737,17 @@
               "children": [
                 {
                   "name": "BentoProjectCard.vue",
-                  "size": 3604,
+                  "size": 3886,
                   "path": "components/projects/BentoProjectCard.vue"
                 },
                 {
                   "name": "FeaturedProjectCard.vue",
-                  "size": 1186,
+                  "size": 1414,
                   "path": "components/projects/FeaturedProjectCard.vue"
                 },
                 {
                   "name": "ProjectCard.vue",
-                  "size": 2863,
+                  "size": 3132,
                   "path": "components/projects/ProjectCard.vue"
                 }
               ],
@@ -6809,7 +6758,7 @@
               "children": [
                 {
                   "name": "ReadingSparklines.vue",
-                  "size": 8465,
+                  "size": 8736,
                   "path": "components/reading/ReadingSparklines.vue"
                 }
               ],
@@ -6820,112 +6769,112 @@
               "children": [
                 {
                   "name": "ActivityCalendar.vue",
-                  "size": 3673,
+                  "size": 4023,
                   "path": "components/stats/ActivityCalendar.vue"
                 },
                 {
                   "name": "BlogStats.vue",
-                  "size": 3102,
+                  "size": 3273,
                   "path": "components/stats/BlogStats.vue"
                 },
                 {
                   "name": "ChessStats.vue",
-                  "size": 9793,
+                  "size": 9970,
                   "path": "components/stats/ChessStats.vue"
                 },
                 {
                   "name": "DiscogsStats.vue",
-                  "size": 6405,
+                  "size": 6616,
                   "path": "components/stats/DiscogsStats.vue"
                 },
                 {
                   "name": "GearStats.vue",
-                  "size": 14222,
+                  "size": 14349,
                   "path": "components/stats/GearStats.vue"
                 },
                 {
                   "name": "GistStats.vue",
-                  "size": 4631,
+                  "size": 4757,
                   "path": "components/stats/GistStats.vue"
                 },
                 {
                   "name": "GitHubMiniContributions.vue",
-                  "size": 0,
+                  "size": 3599,
                   "path": "components/stats/GitHubMiniContributions.vue"
                 },
                 {
                   "name": "GitHubStats.vue",
-                  "size": 8072,
+                  "size": 8200,
                   "path": "components/stats/GitHubStats.vue"
                 },
                 {
                   "name": "GoodreadsStats.vue",
-                  "size": 3571,
+                  "size": 3691,
                   "path": "components/stats/GoodreadsStats.vue"
                 },
                 {
                   "name": "IndividualStat.vue",
-                  "size": 6150,
+                  "size": 6506,
                   "path": "components/stats/IndividualStat.vue"
                 },
                 {
                   "name": "LastFmStats.vue",
-                  "size": 5670,
+                  "size": 5800,
                   "path": "components/stats/LastFmStats.vue"
                 },
                 {
                   "name": "LeetCodeStats.vue",
-                  "size": 6445,
+                  "size": 6581,
                   "path": "components/stats/LeetCodeStats.vue"
                 },
                 {
                   "name": "LetterboxdStats.vue",
-                  "size": 6711,
+                  "size": 6840,
                   "path": "components/stats/LetterboxdStats.vue"
                 },
                 {
                   "name": "MonkeyTypeStats.vue",
-                  "size": 6920,
+                  "size": 7048,
                   "path": "components/stats/MonkeyTypeStats.vue"
                 },
                 {
                   "name": "PhotoStats.vue",
-                  "size": 3524,
+                  "size": 3645,
                   "path": "components/stats/PhotoStats.vue"
                 },
                 {
                   "name": "RescueTimeStats.vue",
-                  "size": 10188,
+                  "size": 10325,
                   "path": "components/stats/RescueTimeStats.vue"
                 },
                 {
                   "name": "StatRow.vue",
-                  "size": 1047,
+                  "size": 1348,
                   "path": "components/stats/StatRow.vue"
                 },
                 {
                   "name": "StatSection.vue",
-                  "size": 949,
+                  "size": 1299,
                   "path": "components/stats/StatSection.vue"
                 },
                 {
                   "name": "StatsDataState.vue",
-                  "size": 763,
+                  "size": 1014,
                   "path": "components/stats/StatsDataState.vue"
                 },
                 {
                   "name": "StatsSectionHeader.vue",
-                  "size": 352,
+                  "size": 490,
                   "path": "components/stats/StatsSectionHeader.vue"
                 },
                 {
                   "name": "TopStats.vue",
-                  "size": 6908,
+                  "size": 7058,
                   "path": "components/stats/TopStats.vue"
                 },
                 {
                   "name": "UmamiStats.vue",
-                  "size": 8263,
+                  "size": 8391,
                   "path": "components/stats/UmamiStats.vue"
                 }
               ],
@@ -6936,7 +6885,7 @@
               "children": [
                 {
                   "name": "RhythmicSparklines.vue",
-                  "size": 3916,
+                  "size": 4446,
                   "path": "components/visualizations/RhythmicSparklines.vue"
                 }
               ],
@@ -6944,187 +6893,172 @@
             },
             {
               "name": "AnimatedNumber.vue",
-              "size": 2488,
+              "size": 3088,
               "path": "components/AnimatedNumber.vue"
             },
             {
               "name": "BlogPostContent.vue",
-              "size": 214,
+              "size": 397,
               "path": "components/BlogPostContent.vue"
             },
             {
               "name": "BlogSparkline.vue",
-              "size": 7904,
+              "size": 8708,
               "path": "components/BlogSparkline.vue"
             },
             {
               "name": "Breadcrumb.vue",
-              "size": 1053,
+              "size": 1255,
               "path": "components/Breadcrumb.vue"
             },
             {
               "name": "CalendarTOC.vue",
-              "size": 4459,
+              "size": 4658,
               "path": "components/CalendarTOC.vue"
             },
             {
               "name": "CommitCard.vue",
-              "size": 3354,
+              "size": 3657,
               "path": "components/CommitCard.vue"
             },
             {
               "name": "CommitMatrix.client.vue",
-              "size": 6925,
+              "size": 7201,
               "path": "components/CommitMatrix.client.vue"
             },
             {
               "name": "DataTable.vue",
-              "size": 6946,
+              "size": 7525,
               "path": "components/DataTable.vue"
             },
             {
               "name": "DebugGrid.vue",
-              "size": 1602,
+              "size": 1797,
               "path": "components/DebugGrid.vue"
             },
             {
               "name": "DotField.vue",
-              "size": 2362,
+              "size": 2933,
               "path": "components/DotField.vue"
             },
             {
               "name": "FileSizeDistribution.vue",
-              "size": 2067,
+              "size": 2318,
               "path": "components/FileSizeDistribution.vue"
             },
             {
               "name": "Footer.vue",
-              "size": 3052,
+              "size": 3239,
               "path": "components/Footer.vue"
             },
             {
               "name": "GistPreview.vue",
-              "size": 5843,
+              "size": 6216,
               "path": "components/GistPreview.vue"
             },
             {
               "name": "GitHubHistogramGrid.client.vue",
-              "size": 5216,
+              "size": 5482,
               "path": "components/GitHubHistogramGrid.client.vue"
             },
             {
               "name": "GitHubParallelCoords.client.vue",
-              "size": 7104,
+              "size": 7465,
               "path": "components/GitHubParallelCoords.client.vue"
             },
             {
               "name": "GitHubRadialTimeline.client.vue",
-              "size": 7643,
+              "size": 7938,
               "path": "components/GitHubRadialTimeline.client.vue"
             },
             {
               "name": "GitHubRidgeline.client.vue",
-              "size": 1928,
+              "size": 2210,
               "path": "components/GitHubRidgeline.client.vue"
             },
             {
               "name": "GitHubScrollViz.client.vue",
-              "size": 7606,
+              "size": 7864,
               "path": "components/GitHubScrollViz.client.vue"
             },
             {
               "name": "GithubForceLayout.client.vue",
-              "size": 9036,
+              "size": 9283,
               "path": "components/GithubForceLayout.client.vue"
             },
             {
               "name": "GithubRepoCard.vue",
-              "size": 2740,
+              "size": 3277,
               "path": "components/GithubRepoCard.vue"
             },
             {
               "name": "LanguageBar.vue",
-              "size": 2506,
+              "size": 2838,
               "path": "components/LanguageBar.vue"
             },
             {
               "name": "NewsletterSignup.vue",
-              "size": 5716,
+              "size": 5913,
               "path": "components/NewsletterSignup.vue"
             },
             {
               "name": "NextAvailableSlot.vue",
-              "size": 2426,
+              "size": 2633,
               "path": "components/NextAvailableSlot.vue"
             },
             {
               "name": "PostMetadata.vue",
-              "size": 4746,
+              "size": 5164,
               "path": "components/PostMetadata.vue"
             },
             {
               "name": "ReplyContext.vue",
-              "size": 665,
+              "size": 870,
               "path": "components/ReplyContext.vue"
             },
             {
               "name": "ReplyContextItem.vue",
-              "size": 3718,
+              "size": 3978,
               "path": "components/ReplyContextItem.vue"
             },
             {
               "name": "RepoMetrics.vue",
-              "size": 3588,
+              "size": 3895,
               "path": "components/RepoMetrics.vue"
             },
             {
               "name": "RepoSparkline.client.vue",
-              "size": 1600,
+              "size": 2020,
               "path": "components/RepoSparkline.client.vue"
             },
             {
               "name": "ScrobbleCard.vue",
-              "size": 1849,
+              "size": 2194,
               "path": "components/ScrobbleCard.vue"
             },
             {
-              "name": "SidebarTOC.vue",
-              "size": 2644,
-              "path": "components/SidebarTOC.vue"
-            },
-            {
               "name": "SitemapLink.vue",
-              "size": 1361,
+              "size": 1710,
               "path": "components/SitemapLink.vue"
             },
             {
-              "name": "SmartSidebar.vue",
-              "size": 12289,
-              "path": "components/SmartSidebar.vue"
-            },
-            {
               "name": "SparklineScaled.vue",
-              "size": 4281,
+              "size": 4965,
               "path": "components/SparklineScaled.vue"
             },
             {
               "name": "TweetCard.vue",
-              "size": 4984,
+              "size": 5467,
               "path": "components/TweetCard.vue"
             },
             {
-              "name": "VizTooltip.vue",
-              "size": 1512,
-              "path": "components/VizTooltip.vue"
-            },
-            {
               "name": "WebVitalsReporter.vue",
-              "size": 1626,
+              "size": 1815,
               "path": "components/WebVitalsReporter.vue"
             },
             {
               "name": "Webmentions.vue",
-              "size": 5900,
+              "size": 6086,
               "path": "components/Webmentions.vue"
             }
           ],
@@ -7161,37 +7095,37 @@
             },
             {
               "name": "useKalshi.ts",
-              "size": 280,
+              "size": 458,
               "path": "composables/useKalshi.ts"
             },
             {
               "name": "useLanguageColors.ts",
-              "size": 1019,
+              "size": 1222,
               "path": "composables/useLanguageColors.ts"
             },
             {
               "name": "useMarkdown.ts",
-              "size": 778,
+              "size": 956,
               "path": "composables/useMarkdown.ts"
             },
             {
               "name": "useNumberFormat.ts",
-              "size": 11473,
+              "size": 11671,
               "path": "composables/useNumberFormat.ts"
             },
             {
               "name": "usePageSeo.ts",
-              "size": 2893,
+              "size": 3039,
               "path": "composables/usePageSeo.ts"
             },
             {
               "name": "useProcessedMarkdown.ts",
-              "size": 13326,
+              "size": 13335,
               "path": "composables/useProcessedMarkdown.ts"
             },
             {
               "name": "useProjectSlug.ts",
-              "size": 360,
+              "size": 549,
               "path": "composables/useProjectSlug.ts"
             },
             {
@@ -7201,7 +7135,7 @@
             },
             {
               "name": "useStats.ts",
-              "size": 13037,
+              "size": 13197,
               "path": "composables/useStats.ts"
             },
             {
@@ -11396,7 +11330,7 @@
                 },
                 {
                   "name": "dotfiles.json",
-                  "size": 112228,
+                  "size": 125455,
                   "path": "data/github-repos/dotfiles.json"
                 },
                 {
@@ -11771,7 +11705,7 @@
                 },
                 {
                   "name": "scrapbook-cli.json",
-                  "size": 33287,
+                  "size": 47243,
                   "path": "data/github-repos/scrapbook-cli.json"
                 },
                 {
@@ -12001,7 +11935,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 504263,
+                  "size": 504786,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -13910,7 +13844,7 @@
             },
             {
               "name": "github-repos-list.json",
-              "size": 123753,
+              "size": 123772,
               "path": "data/github-repos-list.json"
             },
             {
@@ -13992,7 +13926,7 @@
             },
             {
               "name": "default.vue",
-              "size": 11138,
+              "size": 4996,
               "path": "layouts/default.vue"
             }
           ],
@@ -14143,7 +14077,7 @@
                   "children": [
                     {
                       "name": "[slug].vue",
-                      "size": 6187,
+                      "size": 6196,
                       "path": "pages/scraps/tag/[slug].vue"
                     }
                   ],
@@ -14164,12 +14098,12 @@
             },
             {
               "name": "calendar.vue",
-              "size": 2427,
+              "size": 2984,
               "path": "pages/calendar.vue"
             },
             {
               "name": "changelog.vue",
-              "size": 4856,
+              "size": 4922,
               "path": "pages/changelog.vue"
             },
             {
@@ -14179,7 +14113,7 @@
             },
             {
               "name": "following.vue",
-              "size": 3269,
+              "size": 3335,
               "path": "pages/following.vue"
             },
             {
@@ -14204,7 +14138,7 @@
             },
             {
               "name": "on-this-day.vue",
-              "size": 9706,
+              "size": 9772,
               "path": "pages/on-this-day.vue"
             },
             {
@@ -14219,7 +14153,7 @@
             },
             {
               "name": "stats.vue",
-              "size": 37616,
+              "size": 37682,
               "path": "pages/stats.vue"
             }
           ],
@@ -14235,12 +14169,12 @@
             },
             {
               "name": "footnotes-to-sidenotes.client.ts",
-              "size": 2217,
+              "size": 2235,
               "path": "plugins/footnotes-to-sidenotes.client.ts"
             },
             {
               "name": "markdownTable.client.ts",
-              "size": 4296,
+              "size": 4337,
               "path": "plugins/markdownTable.client.ts"
             },
             {
@@ -14612,12 +14546,12 @@
               "children": [
                 {
                   "name": "create-prediction.mjs",
-                  "size": 2024,
+                  "size": 2263,
                   "path": "scripts/blog/create-prediction.mjs"
                 },
                 {
                   "name": "import.mjs",
-                  "size": 5993,
+                  "size": 6272,
                   "path": "scripts/blog/import.mjs"
                 },
                 {
@@ -14665,42 +14599,42 @@
                 },
                 {
                   "name": "index.mjs",
-                  "size": 679,
+                  "size": 907,
                   "path": "scripts/plugins/index.mjs"
                 },
                 {
                   "name": "rehypeAddClassToParagraphs.mjs",
-                  "size": 5175,
+                  "size": 5399,
                   "path": "scripts/plugins/rehypeAddClassToParagraphs.mjs"
                 },
                 {
                   "name": "remarkAi2htmlEmbed.mjs",
-                  "size": 655,
+                  "size": 844,
                   "path": "scripts/plugins/remarkAi2htmlEmbed.mjs"
                 },
                 {
                   "name": "remarkEnhanceLinks.mjs",
-                  "size": 4920,
+                  "size": 5115,
                   "path": "scripts/plugins/remarkEnhanceLinks.mjs"
                 },
                 {
                   "name": "remarkExtractToc.mjs",
-                  "size": 2764,
+                  "size": 2989,
                   "path": "scripts/plugins/remarkExtractToc.mjs"
                 },
                 {
                   "name": "remarkGenerateAltText.mjs",
-                  "size": 5212,
+                  "size": 5484,
                   "path": "scripts/plugins/remarkGenerateAltText.mjs"
                 },
                 {
                   "name": "remarkObsidianEnhanced.mjs",
-                  "size": 4260,
+                  "size": 4464,
                   "path": "scripts/plugins/remarkObsidianEnhanced.mjs"
                 },
                 {
                   "name": "remarkObsidianSupport.mjs",
-                  "size": 2053,
+                  "size": 2257,
                   "path": "scripts/plugins/remarkObsidianSupport.mjs"
                 }
               ],
@@ -14711,7 +14645,7 @@
               "children": [
                 {
                   "name": "sign-prediction.mjs",
-                  "size": 2639,
+                  "size": 2947,
                   "path": "scripts/predictions/sign-prediction.mjs"
                 }
               ],
@@ -14722,22 +14656,22 @@
               "children": [
                 {
                   "name": "backup.mjs",
-                  "size": 576,
+                  "size": 786,
                   "path": "scripts/utils/backup.mjs"
                 },
                 {
                   "name": "config.mjs",
-                  "size": 722,
+                  "size": 942,
                   "path": "scripts/utils/config.mjs"
                 },
                 {
                   "name": "helpers.mjs",
-                  "size": 12724,
+                  "size": 12971,
                   "path": "scripts/utils/helpers.mjs"
                 },
                 {
                   "name": "stats.mjs",
-                  "size": 4933,
+                  "size": 5198,
                   "path": "scripts/utils/stats.mjs"
                 }
               ],
@@ -14750,13 +14684,8 @@
             },
             {
               "name": "auto-update.sh",
-              "size": 2750,
+              "size": 2944,
               "path": "scripts/auto-update.sh"
-            },
-            {
-              "name": "blog.mjs",
-              "size": 863,
-              "path": "scripts/blog.mjs"
             },
             {
               "name": "calibration-analysis.mjs",
@@ -14765,102 +14694,97 @@
             },
             {
               "name": "check-series.mjs",
-              "size": 945,
+              "size": 1239,
               "path": "scripts/check-series.mjs"
             },
             {
               "name": "config.mjs",
-              "size": 1304,
+              "size": 1692,
               "path": "scripts/config.mjs"
             },
             {
-              "name": "create-prediction.mjs",
-              "size": 1829,
-              "path": "scripts/create-prediction.mjs"
-            },
-            {
               "name": "dev-with-perf.mjs",
-              "size": 1208,
+              "size": 1403,
               "path": "scripts/dev-with-perf.mjs"
             },
             {
               "name": "export-all-contributions.mjs",
-              "size": 3553,
+              "size": 3711,
               "path": "scripts/export-all-contributions.mjs"
             },
             {
               "name": "export-all-github-commits.mjs",
-              "size": 3113,
+              "size": 3289,
               "path": "scripts/export-all-github-commits.mjs"
             },
             {
               "name": "export-github-commits.mjs",
-              "size": 2898,
+              "size": 2994,
               "path": "scripts/export-github-commits.mjs"
             },
             {
               "name": "export-github-repos.mjs",
-              "size": 13895,
+              "size": 14060,
               "path": "scripts/export-github-repos.mjs"
             },
             {
               "name": "fetch-goodreads.mjs",
-              "size": 7335,
+              "size": 7559,
               "path": "scripts/fetch-goodreads.mjs"
             },
             {
               "name": "fetch-my-events.mjs",
-              "size": 1555,
+              "size": 1831,
               "path": "scripts/fetch-my-events.mjs"
             },
             {
               "name": "fix-date-fns-imports.mjs",
-              "size": 2300,
+              "size": 2544,
               "path": "scripts/fix-date-fns-imports.mjs"
             },
             {
               "name": "fix-vueuse-imports.mjs",
-              "size": 2466,
+              "size": 2689,
               "path": "scripts/fix-vueuse-imports.mjs"
             },
             {
               "name": "generate-build-info.mjs",
-              "size": 636,
+              "size": 868,
               "path": "scripts/generate-build-info.mjs"
             },
             {
               "name": "generate-commentary-templates.mjs",
-              "size": 2616,
+              "size": 2912,
               "path": "scripts/generate-commentary-templates.mjs"
             },
             {
               "name": "index.mjs",
-              "size": 535,
+              "size": 772,
               "path": "scripts/index.mjs"
             },
             {
               "name": "kalshi-test.mjs",
-              "size": 3570,
+              "size": 3892,
               "path": "scripts/kalshi-test.mjs"
             },
             {
               "name": "lighthouse-check.mjs",
-              "size": 3428,
+              "size": 3662,
               "path": "scripts/lighthouse-check.mjs"
             },
             {
               "name": "perf-analyze.mjs",
-              "size": 4461,
+              "size": 4690,
               "path": "scripts/perf-analyze.mjs"
             },
             {
               "name": "predict-pro.mjs",
-              "size": 21637,
+              "size": 22015,
               "path": "scripts/predict-pro.mjs"
             },
             {
               "name": "processMarkdown.mjs",
-              "size": 39185,
+              "size": 39699,
               "path": "scripts/processMarkdown.mjs"
             },
             {
@@ -14884,11 +14808,6 @@
               "path": "scripts/sign-post.sh"
             },
             {
-              "name": "sign-prediction.mjs",
-              "size": 3031,
-              "path": "scripts/sign-prediction.mjs"
-            },
-            {
               "name": "vps_update.sh",
               "size": 1044,
               "path": "scripts/vps_update.sh"
@@ -14907,7 +14826,7 @@
                   "children": [
                     {
                       "name": "available-slots.get.ts",
-                      "size": 2759,
+                      "size": 3109,
                       "path": "server/api/cal/available-slots.get.ts"
                     }
                   ],
@@ -14918,7 +14837,7 @@
                   "children": [
                     {
                       "name": "[slug].get.ts",
-                      "size": 1124,
+                      "size": 1419,
                       "path": "server/api/gear/[slug].get.ts"
                     }
                   ],
@@ -14929,12 +14848,12 @@
                   "children": [
                     {
                       "name": "kalshi.get.ts",
-                      "size": 1686,
+                      "size": 2055,
                       "path": "server/api/markets/kalshi.get.ts"
                     },
                     {
                       "name": "polymarket.get.ts",
-                      "size": 2443,
+                      "size": 2820,
                       "path": "server/api/markets/polymarket.get.ts"
                     }
                   ],
@@ -14945,7 +14864,7 @@
                   "children": [
                     {
                       "name": "[...slug].ts",
-                      "size": 3486,
+                      "size": 3874,
                       "path": "server/api/posts/[...slug].ts"
                     }
                   ],
@@ -14956,17 +14875,17 @@
                   "children": [
                     {
                       "name": "[id].patch.ts",
-                      "size": 1700,
+                      "size": 1981,
                       "path": "server/api/predictions/[id].patch.ts"
                     },
                     {
                       "name": "[id].ts",
-                      "size": 3109,
+                      "size": 3490,
                       "path": "server/api/predictions/[id].ts"
                     },
                     {
                       "name": "resolve.post.ts",
-                      "size": 1399,
+                      "size": 1849,
                       "path": "server/api/predictions/resolve.post.ts"
                     }
                   ],
@@ -14977,7 +14896,7 @@
                   "children": [
                     {
                       "name": "[slug].get.ts",
-                      "size": 868,
+                      "size": 1193,
                       "path": "server/api/reading/[slug].get.ts"
                     }
                   ],
@@ -14988,7 +14907,7 @@
                   "children": [
                     {
                       "name": "[slug].get.ts",
-                      "size": 2378,
+                      "size": 2753,
                       "path": "server/api/repos/[slug].get.ts"
                     }
                   ],
@@ -14999,12 +14918,12 @@
                   "children": [
                     {
                       "name": "meta.get.ts",
-                      "size": 4830,
+                      "size": 5012,
                       "path": "server/api/robot/meta.get.ts"
                     },
                     {
                       "name": "timeline.get.ts",
-                      "size": 6318,
+                      "size": 6594,
                       "path": "server/api/robot/timeline.get.ts"
                     }
                   ],
@@ -15015,7 +14934,7 @@
                   "children": [
                     {
                       "name": "[...slug].ts",
-                      "size": 1767,
+                      "size": 2247,
                       "path": "server/api/robots/[...slug].ts"
                     }
                   ],
@@ -15026,7 +14945,7 @@
                   "children": [
                     {
                       "name": "tags.get.ts",
-                      "size": 1140,
+                      "size": 1363,
                       "path": "server/api/scraps/tags.get.ts"
                     }
                   ],
@@ -15037,12 +14956,12 @@
                   "children": [
                     {
                       "name": "auth.post.ts",
-                      "size": 921,
+                      "size": 1130,
                       "path": "server/api/umami/auth.post.ts"
                     },
                     {
                       "name": "stats.get.ts",
-                      "size": 3041,
+                      "size": 3361,
                       "path": "server/api/umami/stats.get.ts"
                     }
                   ],
@@ -15050,212 +14969,212 @@
                 },
                 {
                   "name": "blog-stats.get.ts",
-                  "size": 1119,
+                  "size": 1419,
                   "path": "server/api/blog-stats.get.ts"
                 },
                 {
                   "name": "blogroll.get.ts",
-                  "size": 1901,
+                  "size": 2046,
                   "path": "server/api/blogroll.get.ts"
                 },
                 {
                   "name": "bookmarks.get.ts",
-                  "size": 2489,
+                  "size": 2875,
                   "path": "server/api/bookmarks.get.ts"
                 },
                 {
                   "name": "build-info.get.ts",
-                  "size": 894,
+                  "size": 1063,
                   "path": "server/api/build-info.get.ts"
                 },
                 {
                   "name": "calibration.get.ts",
-                  "size": 1046,
+                  "size": 1192,
                   "path": "server/api/calibration.get.ts"
                 },
                 {
                   "name": "changelog.get.ts",
-                  "size": 3177,
+                  "size": 3438,
                   "path": "server/api/changelog.get.ts"
                 },
                 {
                   "name": "chess.get.ts",
-                  "size": 6015,
+                  "size": 6324,
                   "path": "server/api/chess.get.ts"
                 },
                 {
                   "name": "discogs.get.ts",
-                  "size": 7606,
+                  "size": 8106,
                   "path": "server/api/discogs.get.ts"
                 },
                 {
                   "name": "external-links.get.ts",
-                  "size": 2821,
+                  "size": 3106,
                   "path": "server/api/external-links.get.ts"
                 },
                 {
                   "name": "gear-csv.get.ts",
-                  "size": 488,
+                  "size": 657,
                   "path": "server/api/gear-csv.get.ts"
                 },
                 {
                   "name": "gear-stats.get.ts",
-                  "size": 1794,
+                  "size": 2077,
                   "path": "server/api/gear-stats.get.ts"
                 },
                 {
                   "name": "gear.get.ts",
-                  "size": 1348,
+                  "size": 1585,
                   "path": "server/api/gear.get.ts"
                 },
                 {
                   "name": "gist-stats.get.ts",
-                  "size": 2713,
+                  "size": 3013,
                   "path": "server/api/gist-stats.get.ts"
                 },
                 {
                   "name": "gists.get.ts",
-                  "size": 2293,
+                  "size": 2662,
                   "path": "server/api/gists.get.ts"
                 },
                 {
                   "name": "github-commits.get.ts",
-                  "size": 242,
+                  "size": 448,
                   "path": "server/api/github-commits.get.ts"
                 },
                 {
                   "name": "github-repos-list.get.ts",
-                  "size": 245,
+                  "size": 467,
                   "path": "server/api/github-repos-list.get.ts"
                 },
                 {
                   "name": "github.get.ts",
-                  "size": 10650,
+                  "size": 10989,
                   "path": "server/api/github.get.ts"
                 },
                 {
                   "name": "goodreads.get.ts",
-                  "size": 1739,
+                  "size": 2060,
                   "path": "server/api/goodreads.get.ts"
                 },
                 {
                   "name": "healthcheck.get.ts",
-                  "size": 1477,
+                  "size": 1770,
                   "path": "server/api/healthcheck.get.ts"
                 },
                 {
                   "name": "highlight.post.ts",
-                  "size": 1989,
+                  "size": 2394,
                   "path": "server/api/highlight.post.ts"
                 },
                 {
                   "name": "kalshi.get.ts",
-                  "size": 19264,
+                  "size": 19658,
                   "path": "server/api/kalshi.get.ts"
                 },
                 {
                   "name": "lastfm.get.ts",
-                  "size": 10615,
+                  "size": 10929,
                   "path": "server/api/lastfm.get.ts"
                 },
                 {
                   "name": "leetcode.get.ts",
-                  "size": 3147,
+                  "size": 3449,
                   "path": "server/api/leetcode.get.ts"
                 },
                 {
                   "name": "letterboxd.get.ts",
-                  "size": 4429,
+                  "size": 4763,
                   "path": "server/api/letterboxd.get.ts"
                 },
                 {
                   "name": "manifest.ts",
-                  "size": 1330,
+                  "size": 1549,
                   "path": "server/api/manifest.ts"
                 },
                 {
                   "name": "monkeytype.get.ts",
-                  "size": 3951,
+                  "size": 4249,
                   "path": "server/api/monkeytype.get.ts"
                 },
                 {
                   "name": "now.get.ts",
-                  "size": 1117,
+                  "size": 1330,
                   "path": "server/api/now.get.ts"
                 },
                 {
                   "name": "og.get.ts",
-                  "size": 5320,
+                  "size": 5481,
                   "path": "server/api/og.get.ts"
                 },
                 {
                   "name": "on-this-day.get.ts",
-                  "size": 2287,
+                  "size": 2670,
                   "path": "server/api/on-this-day.get.ts"
                 },
                 {
                   "name": "photos.get.ts",
-                  "size": 554,
+                  "size": 751,
                   "path": "server/api/photos.get.ts"
                 },
                 {
                   "name": "predictions.get.ts",
-                  "size": 1766,
+                  "size": 2051,
                   "path": "server/api/predictions.get.ts"
                 },
                 {
                   "name": "projects.get.ts",
-                  "size": 2308,
+                  "size": 2586,
                   "path": "server/api/projects.get.ts"
                 },
                 {
                   "name": "reading.get.ts",
-                  "size": 2734,
+                  "size": 3035,
                   "path": "server/api/reading.get.ts"
                 },
                 {
                   "name": "rescuetime.get.ts",
-                  "size": 6280,
+                  "size": 6649,
                   "path": "server/api/rescuetime.get.ts"
                 },
                 {
                   "name": "scraps.get.ts",
-                  "size": 2712,
+                  "size": 3051,
                   "path": "server/api/scraps.get.ts"
                 },
                 {
                   "name": "search.get.ts",
-                  "size": 6839,
+                  "size": 7207,
                   "path": "server/api/search.get.ts"
                 },
                 {
                   "name": "stats.get.ts",
-                  "size": 7990,
+                  "size": 8408,
                   "path": "server/api/stats.get.ts"
                 },
                 {
                   "name": "suggest.get.ts",
-                  "size": 12215,
+                  "size": 12695,
                   "path": "server/api/suggest.get.ts"
                 },
                 {
                   "name": "webmentions.get.ts",
-                  "size": 2550,
+                  "size": 2735,
                   "path": "server/api/webmentions.get.ts"
                 },
                 {
                   "name": "website-stats.get.ts",
-                  "size": 2667,
+                  "size": 2946,
                   "path": "server/api/website-stats.get.ts"
                 },
                 {
                   "name": "words-this-month.get.ts",
-                  "size": 2806,
+                  "size": 3114,
                   "path": "server/api/words-this-month.get.ts"
                 },
                 {
                   "name": "youtube.get.ts",
-                  "size": 7255,
+                  "size": 7499,
                   "path": "server/api/youtube.get.ts"
                 }
               ],
@@ -15276,17 +15195,17 @@
                 },
                 {
                   "name": "rss.xml.ts",
-                  "size": 4301,
+                  "size": 4472,
                   "path": "server/routes/rss.xml.ts"
                 },
                 {
                   "name": "sitemap.xml.ts",
-                  "size": 2921,
+                  "size": 3082,
                   "path": "server/routes/sitemap.xml.ts"
                 },
                 {
                   "name": "tags.json.ts",
-                  "size": 1974,
+                  "size": 2034,
                   "path": "server/routes/tags.json.ts"
                 }
               ],
@@ -15308,7 +15227,7 @@
               "children": [
                 {
                   "name": "apiHelpers.ts",
-                  "size": 3264,
+                  "size": 3277,
                   "path": "server/utils/apiHelpers.ts"
                 },
                 {
@@ -15467,12 +15386,12 @@
         },
         {
           "name": "eslint.config.mjs",
-          "size": 7003,
+          "size": 7451,
           "path": "eslint.config.mjs"
         },
         {
           "name": "nuxt.config.ts",
-          "size": 13041,
+          "size": 12966,
           "path": "nuxt.config.ts"
         },
         {
@@ -15482,7 +15401,7 @@
         },
         {
           "name": "package.json",
-          "size": 3800,
+          "size": 3906,
           "path": "package.json"
         },
         {
@@ -15492,7 +15411,7 @@
         },
         {
           "name": "tsconfig.json",
-          "size": 794,
+          "size": 190,
           "path": "tsconfig.json"
         },
         {
@@ -15513,8 +15432,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 1639,
-    "totalSize": 83962850
+    "totalFiles": 1630,
+    "totalSize": 83999112
   },
   "topics": [],
   "readme": {
@@ -15523,6 +15442,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-16T00:07:58Z",
-  "pushedAt": "2025-12-16T00:07:54Z"
+  "updatedAt": "2025-12-18T05:11:13Z",
+  "pushedAt": "2025-12-18T05:11:10Z"
 }

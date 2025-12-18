@@ -2,6 +2,19 @@
   "books": {
     "currentlyReading": [
       {
+        "title": "Almost a Miracle: The American Victory in the War of Independence",
+        "author": "John Ferling",
+        "rating": null,
+        "shelf": "currently-reading",
+        "link": "https://www.goodreads.com/review/show/8152592862?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1479228618l/9464244._SY475_.jpg",
+        "dateAdded": "2025-12-17T04:20:24.000Z",
+        "dateRead": "2025-12-17T04:20:24.000Z",
+        "bookId": "9464244",
+        "numPages": 693,
+        "pubYear": 2007
+      },
+      {
         "title": "Consent Laid Bare: Sex, Entitlement & the Distortion of Desire",
         "author": "Chanel Contos",
         "rating": null,
@@ -672,7 +685,7 @@
   },
   "stats": {
     "totalRead": 74,
-    "currentlyReading": 6,
+    "currentlyReading": 7,
     "toRead": 107,
     "thisYear": 14,
     "thisMonth": 0,
@@ -1165,5 +1178,5 @@
     ],
     "profileUrl": "https://www.goodreads.com/user/show/9273959"
   },
-  "lastUpdated": "2025-12-16T01:26:49.603Z"
+  "lastUpdated": "2025-12-18T05:36:41.358Z"
 }

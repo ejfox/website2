@@ -1,5 +1,107 @@
 [
   {
+    "name": "website2",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/website2",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 690175,
+      "TypeScript": 336471,
+      "JavaScript": 221072,
+      "CSS": 35191,
+      "HTML": 15405,
+      "Shell": 15270,
+      "Dockerfile": 794
+    },
+    "diskUsage": 89124,
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-10-13T14:09:19Z",
+    "updatedAt": "2025-12-18T05:11:13Z",
+    "pushedAt": "2025-12-18T05:11:10Z"
+  },
+  {
+    "name": "subway-builder-mods",
+    "description": "Mods for Subway Builder game - including Day/Night theme cycle",
+    "url": "https://github.com/ejfox/subway-builder-mods",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 4740
+    },
+    "diskUsage": 3,
+    "topics": [],
+    "excerpt": "Mods for Subway Builder game - including Day/Night theme cycle",
+    "createdAt": "2025-12-17T00:02:45Z",
+    "updatedAt": "2025-12-17T00:33:13Z",
+    "pushedAt": "2025-12-17T00:33:09Z"
+  },
+  {
+    "name": "SubwayBuilderIssues",
+    "description": "Where you report issues and bugs for Subway Builder",
+    "url": "https://github.com/colindm/SubwayBuilderIssues",
+    "homepage": null,
+    "stats": {
+      "stars": 37,
+      "forks": 8,
+      "watchers": 0,
+      "openIssues": 353
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 12,
+    "topics": [],
+    "excerpt": "Where you report issues and bugs for Subway Builder",
+    "createdAt": "2025-10-10T21:48:38Z",
+    "updatedAt": "2025-12-16T22:02:42Z",
+    "pushedAt": "2025-11-25T16:48:22Z"
+  },
+  {
+    "name": "dotfiles",
+    "description": "Backup of my dotfiles",
+    "url": "https://github.com/ejfox/dotfiles",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 1,
+      "watchers": 0,
+      "openIssues": 3
+    },
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "languages": {
+      "Shell": 265186,
+      "GLSL": 170261,
+      "Lua": 113850,
+      "Vim Script": 83725,
+      "JavaScript": 8622,
+      "Less": 2089,
+      "CSS": 1367
+    },
+    "diskUsage": 63393,
+    "topics": [],
+    "excerpt": "Backup of my dotfiles",
+    "createdAt": "2019-04-07T22:09:55Z",
+    "updatedAt": "2025-12-16T17:50:52Z",
+    "pushedAt": "2025-12-16T17:50:48Z"
+  },
+  {
     "name": "scrapbook-cli",
     "description": "A command line interface for exploring my scrapbook",
     "url": "https://github.com/ejfox/scrapbook-cli",
@@ -23,64 +125,6 @@
     "createdAt": "2024-06-01T07:35:15Z",
     "updatedAt": "2025-12-16T00:55:59Z",
     "pushedAt": "2025-12-16T00:55:56Z"
-  },
-  {
-    "name": "dotfiles",
-    "description": "Backup of my dotfiles",
-    "url": "https://github.com/ejfox/dotfiles",
-    "homepage": null,
-    "stats": {
-      "stars": 1,
-      "forks": 1,
-      "watchers": 0,
-      "openIssues": 3
-    },
-    "language": "Shell",
-    "languageColor": "#89e051",
-    "languages": {
-      "Shell": 265145,
-      "GLSL": 170261,
-      "Lua": 113850,
-      "Vim Script": 83725,
-      "JavaScript": 8622,
-      "Less": 2089,
-      "CSS": 1367
-    },
-    "diskUsage": 63380,
-    "topics": [],
-    "excerpt": "Backup of my dotfiles",
-    "createdAt": "2019-04-07T22:09:55Z",
-    "updatedAt": "2025-12-16T00:36:35Z",
-    "pushedAt": "2025-12-16T00:36:31Z"
-  },
-  {
-    "name": "website2",
-    "description": "No description provided",
-    "url": "https://github.com/ejfox/website2",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 1
-    },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 703694,
-      "TypeScript": 317226,
-      "JavaScript": 217957,
-      "CSS": 35191,
-      "HTML": 15405,
-      "Shell": 15076,
-      "Dockerfile": 794
-    },
-    "diskUsage": 88836,
-    "topics": [],
-    "excerpt": "No description provided",
-    "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-16T00:07:58Z",
-    "pushedAt": "2025-12-16T00:07:54Z"
   },
   {
     "name": "subwaybuilder-mod",
@@ -125,27 +169,6 @@
     "createdAt": "2025-11-12T20:10:52Z",
     "updatedAt": "2025-12-12T16:10:01Z",
     "pushedAt": "2025-12-12T16:09:58Z"
-  },
-  {
-    "name": "SubwayBuilderIssues",
-    "description": "Where you report issues and bugs for Subway Builder",
-    "url": "https://github.com/colindm/SubwayBuilderIssues",
-    "homepage": null,
-    "stats": {
-      "stars": 37,
-      "forks": 8,
-      "watchers": 0,
-      "openIssues": 352
-    },
-    "language": "Unknown",
-    "languageColor": "#666666",
-    "languages": {},
-    "diskUsage": 12,
-    "topics": [],
-    "excerpt": "Where you report issues and bugs for Subway Builder",
-    "createdAt": "2025-10-10T21:48:38Z",
-    "updatedAt": "2025-12-11T18:03:27Z",
-    "pushedAt": "2025-11-25T16:48:22Z"
   },
   {
     "name": "metro-savefile-doctor",
