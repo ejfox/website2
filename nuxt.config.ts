@@ -199,6 +199,10 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'node-server',
     minify: true, // Re-enable for production
+    // Bundle openai package into server output (needed for suggest API)
+    externals: {
+      inline: ['openai'],
+    },
     experimental: {
       wasm: false, // Disable WASM for faster startup
       asyncContext: true, // Enable async context support (Nuxt 4 feature)
