@@ -72,7 +72,7 @@
           <div class="sitemap-section-header">COLLECTIONS</div>
           <div class="stack-4">
             <SitemapLink
-              to="/scrapbook"
+              to="/scraps"
               title="Scrapbook"
               description="Visual inspiration collection"
             />
