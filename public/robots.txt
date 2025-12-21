@@ -1,2 +1,9 @@
 User-agent: *
 Disallow: /drafts/
+Disallow: /_nuxt/
+Disallow: /api/
+
+Sitemap: https://ejfox.com/sitemap.xml
+
+# For AI crawlers
+# https://ejfox.com/llms.txt

@@ -1,154 +1,109 @@
 <template>
-  <div class="relative max-w-3xl mx-auto px-4 pt-12">
-    <ClientOnly>
-      <DotField :count="backgroundDotsCount" :seed="backgroundSeed" />
-    </ClientOnly>
-    <div class="relative z-10">
-      <!-- Header -->
-      <header class="mb-10">
-        <div>
-          <div
-            class="font-mono text-xs text-zinc-500 uppercase tracking-[0.2em]"
-          >
-            ON_THIS_DAY
-          </div>
-          <h1 class="font-serif text-3xl mt-2">{{ formattedDate }}</h1>
-          <div
-            class="text-zinc-500 dark:text-zinc-500 font-mono text-[11px] mt-2"
-          >
-            Updated {{ lastUpdated || 'live' }} · sources: blog posts, robot
-            notes, scrobbles, commits
-          </div>
-        </div>
-
-        <div
-          class="mt-4 font-mono text-[12px] text-zinc-600 dark:text-zinc-400"
-        >
-          {{ summaryText || 'No entries yet for this day.' }}
-        </div>
-        <div
-          class="mt-2 text-zinc-600 dark:text-zinc-400 font-mono text-[12px] flex flex-wrap gap-2"
-        >
-          <span v-for="stat in topLevelStats" :key="stat.label">
-            {{ stat.label }}: {{ stat.value }}
-          </span>
-        </div>
-      </header>
-
-      <!-- Loading -->
-      <div v-if="pending" class="text-zinc-500">Loading...</div>
-
-      <!-- Error state -->
-      <div v-else-if="error" class="text-red-600 dark:text-red-400">
-        Error loading data for this day. Please try again.
-      </div>
-
-      <!-- Empty state -->
-      <div
-        v-else-if="!data?.years?.length"
-        class="text-zinc-500 dark:text-zinc-400"
+  <div class="max-w-2xl mx-auto px-4 pt-16 pb-24">
+    <!-- Header -->
+    <header class="mb-12">
+      <h1 class="font-serif text-4xl">{{ formattedDate }}</h1>
+      <p
+        v-if="summaryText"
+        class="mt-3 text-zinc-600 dark:text-zinc-400"
       >
-        Nothing happened on this day. Yet.
-      </div>
-
-      <!-- Timeline by year -->
-      <div v-else class="space-y-8">
-        <section v-for="yearData in data.years" :key="yearData.year">
-          <!-- Year header -->
-          <div class="year-header">
-            <span class="font-mono text-lg font-bold">{{ yearData.year }}</span>
-            <span class="text-xs text-zinc-400">
-              {{ yearsAgo(yearData.year) }}
-            </span>
-            <div class="h-px flex-grow bg-zinc-200 dark:bg-zinc-800"></div>
-          </div>
-
-          <!-- Dynamic rendering of all source types -->
-          <div class="space-y-4">
-            <!-- Posts -->
-            <template v-if="yearData.posts?.length">
-              <NuxtLink
-                v-for="post in yearData.posts"
-                :key="post.slug"
-                :to="`/blog/${post.slug}`"
-                class="card card-interactive"
-              >
-                <div class="flex items-start gap-3">
-                  <span class="text-zinc-400">{{ sourceIcons.posts }}</span>
-                  <div>
-                    <h3 class="font-serif text-lg">{{ post.title }}</h3>
-                    <p
-                      v-if="post.dek"
-                      class="text-sm text-zinc-600 dark:text-zinc-400 mt-2"
-                    >
-                      {{ post.dek }}
-                    </p>
-                  </div>
-                </div>
-              </NuxtLink>
-            </template>
-
-            <!-- Commits -->
-            <template v-if="yearData.commits?.length">
-              <CommitCard
-                v-for="commit in yearData.commits"
-                :key="commit.sha"
-                :sha="commit.sha"
-                :message="commit.message"
-                :repo="commit.repo"
-                :date="commit.date"
-              />
-            </template>
-
-            <!-- Tweets -->
-            <template v-if="yearData.tweets?.length">
-              <TweetCard
-                v-for="tweet in yearData.tweets"
-                :id="tweet.id"
-                :key="tweet.id"
-                :text="tweet.text"
-                :date="tweet.date"
-                :reply-to="tweet.replyTo"
-                :favorites="tweet.favorites"
-                :retweets="tweet.retweets"
-              />
-            </template>
-
-            <!-- Scrobbles -->
-            <template v-if="yearData.scrobbles?.length">
-              <ScrobbleCard
-                v-for="scrobble in yearData.scrobbles"
-                :key="scrobble.date"
-                :count="scrobble.count"
-                :top-tracks="scrobble.topTracks"
-                :top-artists="scrobble.topArtists"
-                :date="scrobble.date"
-              />
-            </template>
-          </div>
-        </section>
-      </div>
-
-      <!-- Summary -->
-      <footer v-if="summaryText" class="summary-footer">
         {{ summaryText }}
-      </footer>
+      </p>
+    </header>
+
+    <!-- Loading -->
+    <div v-if="pending" class="text-zinc-400 text-sm">Loading...</div>
+
+    <!-- Error state -->
+    <div v-else-if="error" class="text-red-600 dark:text-red-400 text-sm">
+      Error loading data for this day.
+    </div>
+
+    <!-- Empty state -->
+    <div
+      v-else-if="!data?.years?.length"
+      class="text-zinc-500 dark:text-zinc-400"
+    >
+      Nothing happened on this day. Yet.
+    </div>
+
+    <!-- Timeline by year -->
+    <div v-else class="space-y-12">
+      <section v-for="yearData in data.years" :key="yearData.year">
+        <!-- Year header -->
+        <div class="flex items-baseline gap-3 mb-6">
+          <span class="font-mono text-sm text-zinc-400">{{ yearData.year }}</span>
+          <span class="text-xs text-zinc-400">{{ yearsAgo(yearData.year) }}</span>
+        </div>
+
+        <!-- Entries -->
+        <div class="space-y-6">
+          <!-- Posts -->
+          <template v-if="yearData.posts?.length">
+            <NuxtLink
+              v-for="post in yearData.posts"
+              :key="post.slug"
+              :to="`/blog/${post.slug}`"
+              class="block group"
+            >
+              <h3 class="font-serif text-lg group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                {{ post.title }}
+              </h3>
+              <p
+                v-if="post.dek"
+                class="text-sm text-zinc-500 dark:text-zinc-500 mt-1"
+              >
+                {{ post.dek }}
+              </p>
+            </NuxtLink>
+          </template>
+
+          <!-- Commits -->
+          <template v-if="yearData.commits?.length">
+            <CommitCard
+              v-for="commit in yearData.commits"
+              :key="commit.sha"
+              :sha="commit.sha"
+              :message="commit.message"
+              :repo="commit.repo"
+              :date="commit.date"
+            />
+          </template>
+
+          <!-- Tweets -->
+          <template v-if="yearData.tweets?.length">
+            <TweetCard
+              v-for="tweet in yearData.tweets"
+              :id="tweet.id"
+              :key="tweet.id"
+              :text="tweet.text"
+              :date="tweet.date"
+              :reply-to="tweet.replyTo"
+              :favorites="tweet.favorites"
+              :retweets="tweet.retweets"
+            />
+          </template>
+
+          <!-- Scrobbles -->
+          <template v-if="yearData.scrobbles?.length">
+            <ScrobbleCard
+              v-for="scrobble in yearData.scrobbles"
+              :key="scrobble.date"
+              :count="scrobble.count"
+              :top-tracks="scrobble.topTracks"
+              :top-artists="scrobble.topArtists"
+              :date="scrobble.date"
+            />
+          </template>
+        </div>
+      </section>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 // @ts-nocheck - API response types don't match page expectations
-import DotField from '~/components/DotField.vue'
 const route = useRoute()
-
-// Source type icons (easily extensible)
-const sourceIcons: Record<string, string> = {
-  posts: 'P',
-  tweets: 'X',
-  scrobbles: 'M',
-  commits: 'G',
-}
 
 // Source type labels for summary
 const sourceLabels: Record<string, [string, string]> = {
@@ -174,63 +129,6 @@ const { data, pending, error } = await useFetch('/api/on-this-day', {
     day: currentDay.value,
   })),
 })
-
-const lastUpdated = computed(() => {
-  if (!data.value) return ''
-  const dates: number[] = []
-  Object.values(data.value).forEach((entries: any) => {
-    if (Array.isArray(entries)) {
-      entries.forEach((entry: any) => {
-        if (entry?.date) {
-          dates.push(new Date(entry.date).getTime())
-        }
-      })
-    }
-  })
-  if (!dates.length) return ''
-  return new Date(Math.max(...dates)).toISOString().split('T')[0]
-})
-
-const topLevelStats = computed(() => {
-  if (!data.value) return []
-  const stats: { label: string; value: string }[] = []
-  if (data.value.total_posts)
-    stats.push({
-      label: 'Posts',
-      value: `${data.value.total_posts}`,
-    })
-  if (data.value.total_commits)
-    stats.push({
-      label: 'Commits',
-      value: `${data.value.total_commits}`,
-    })
-  if (data.value.total_tweets)
-    stats.push({
-      label: 'Tweets',
-      value: `${data.value.total_tweets}`,
-    })
-  if (data.value.total_scrobbles)
-    stats.push({
-      label: 'Scrobbles',
-      value: `${data.value.total_scrobbles}`,
-    })
-  return stats
-})
-
-const totalEntries = computed(() => {
-  if (!data.value) return 0
-  return (
-    (data.value.total_posts || 0) +
-    (data.value.total_commits || 0) +
-    (data.value.total_tweets || 0) +
-    (data.value.total_scrobbles || 0)
-  )
-})
-
-const backgroundDotsCount = computed(() =>
-  Math.min(Math.max(totalEntries.value, 40), 180)
-)
-const backgroundSeed = 1337
 
 // Formatted date display
 const formattedDate = computed(() => {
@@ -322,27 +220,5 @@ useHead(() => ({
 </script>
 
 <style scoped>
-.nav-button {
-  @apply px-3 py-1 text-sm rounded;
-  @apply bg-zinc-100 dark:bg-zinc-800;
-  @apply hover:bg-zinc-200 dark:hover:bg-zinc-700;
-}
-
-.year-header {
-  @apply flex items-center gap-3 mb-4 py-2 z-10;
-  @apply sticky top-0 bg-white dark:bg-zinc-950;
-}
-
-.card-interactive {
-  @apply block p-4 rounded-lg border transition-colors;
-  @apply bg-zinc-50 dark:bg-zinc-900;
-  @apply border-zinc-200 dark:border-zinc-800;
-  @apply hover:border-zinc-400 dark:hover:border-zinc-600;
-}
-
-.summary-footer {
-  @apply mt-12 pt-6 border-t text-sm;
-  @apply text-zinc-500;
-  @apply border-zinc-200 dark:border-zinc-800;
-}
+/* Minimal styles */
 </style>

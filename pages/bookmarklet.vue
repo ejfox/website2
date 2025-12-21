@@ -1,166 +1,125 @@
 <template>
-  <div class="max-w-4xl mx-auto p-8">
-    <h1 class="text-4xl font-light mb-8">Enhanced Pinboard Bookmarklet</h1>
+  <div class="max-w-2xl mx-auto px-4 py-12">
+    <header class="mb-12">
+      <h1 class="font-serif text-3xl mb-2">Pinboard Bookmarklet</h1>
+      <p class="text-zinc-600 dark:text-zinc-400">
+        Save to Pinboard instantly, get smart tag suggestions after.
+      </p>
+    </header>
 
-    <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-8 mb-8">
-      <h2 class="text-2xl font-light mb-4">Installation</h2>
-
-      <div class="mb-8">
-        <label class="block text-sm font-medium mb-2">
-          Your Passphrase (Required)
-        </label>
+    <section class="mb-12">
+      <label class="block text-xs font-mono uppercase tracking-wider text-zinc-500 mb-3">
+        Passphrase
+      </label>
+      <div class="relative">
         <input
           v-model="passphrase"
-          type="password"
+          :type="showPassword ? 'text' : 'password'"
           placeholder="Enter your secret passphrase"
-          class="input-text"
+          class="w-full px-4 py-3 font-mono text-sm
+                 bg-zinc-50 dark:bg-zinc-900
+                 border border-zinc-200 dark:border-zinc-800
+                 rounded-lg
+                 text-zinc-900 dark:text-zinc-100
+                 placeholder:text-zinc-400 dark:placeholder:text-zinc-600
+                 focus:outline-none focus:ring-2 focus:ring-zinc-300 dark:focus:ring-zinc-700
+                 focus:border-transparent
+                 transition-all duration-200"
         />
-        <p class="text-xs text-zinc-600 dark:text-zinc-400 mt-2">
-          This will be embedded in your bookmarklet for authentication
-        </p>
-      </div>
-
-      <p class="mb-4">Drag this button to your bookmarks bar:</p>
-
-      <div class="flex items-center gap-4 mb-8">
-        <a
-          :href="bookmarkletCode"
-          class="btn-drag"
-          :class="{ 'opacity-50 cursor-not-allowed': !passphrase }"
-          @click.prevent="!passphrase ? null : (showInstructions = true)"
+        <button
+          type="button"
+          class="absolute right-3 top-1/2 -translate-y-1/2
+                 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300
+                 text-xs font-mono uppercase tracking-wider
+                 transition-colors"
+          @click="showPassword = !showPassword"
         >
-          📌 Pin to Pinboard+
-        </a>
-
-        <span
-          v-if="passphrase"
-          class="text-sm text-zinc-600 dark:text-zinc-400"
-        >
-          ← Drag me!
-        </span>
-        <span v-else class="text-sm text-red-600 dark:text-red-400">
-          ← Enter passphrase first
-        </span>
+          {{ showPassword ? 'Hide' : 'Show' }}
+        </button>
       </div>
+      <p class="text-xs text-zinc-500 mt-2 font-mono">
+        Embedded in the bookmarklet for authentication.
+      </p>
+    </section>
 
-      <div
-        v-if="showInstructions"
-        class="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg mb-4"
+    <section class="mb-12">
+      <a
+        :href="bookmarkletCode"
+        class="inline-flex items-center gap-2 px-5 py-3
+               bg-zinc-900 dark:bg-zinc-100
+               text-zinc-100 dark:text-zinc-900
+               text-sm font-mono
+               rounded-lg
+               hover:bg-zinc-700 dark:hover:bg-zinc-300
+               active:scale-[0.98]
+               transition-all duration-200"
+        :class="{ 'opacity-40 pointer-events-none': !passphrase }"
+        @click.prevent
       >
-        <p class="text-sm">
-          <strong>Can't drag?</strong>
-          Right-click the button and select "Bookmark This Link" or manually
-          create a bookmark with the code below.
-        </p>
-      </div>
-    </div>
+        <span class="text-base">+</span>
+        Pin to Pinboard
+      </a>
+      <span class="text-sm text-zinc-500 ml-4 font-mono">
+        {{ passphrase ? 'Drag to bookmarks bar' : 'Enter passphrase first' }}
+      </span>
+    </section>
 
-    <div class="grid md:grid-cols-2 gap-8 mb-8">
-      <div>
-        <h3 class="text-xl font-light mb-4">How it works</h3>
-        <ol class="space-y-2 text-sm">
-          <li class="flex gap-2">
-            <span class="font-bold">1.</span>
-            <span>Saves to Pinboard immediately (no delay!)</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="font-bold">2.</span>
-            <span>Analyzes page content in the background</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="font-bold">3.</span>
-            <span>Shows tag suggestions based on your bookmarks</span>
-          </li>
-          <li class="flex gap-2">
-            <span class="font-bold">4.</span>
-            <span>One click to update with better tags</span>
-          </li>
-        </ol>
+    <section class="mb-12 space-y-2">
+      <div
+        v-for="(step, i) in steps"
+        :key="i"
+        class="flex items-start gap-3 text-sm"
+      >
+        <span class="font-mono text-zinc-400 tabular-nums">{{ i + 1 }}.</span>
+        <span class="text-zinc-600 dark:text-zinc-400">{{ step }}</span>
       </div>
+    </section>
 
-      <div>
-        <h3 class="text-xl font-light mb-4">Features</h3>
-        <ul class="space-y-2 text-sm">
-          <li class="flex gap-2">
-            <span>✓</span>
-            <span>Smart tag suggestions from similar bookmarks</span>
-          </li>
-          <li class="flex gap-2">
-            <span>✓</span>
-            <span>Shows related items you've saved before</span>
-          </li>
-          <li class="flex gap-2">
-            <span>✓</span>
-            <span>Identifies active "threads" in your collection</span>
-          </li>
-          <li class="flex gap-2">
-            <span>✓</span>
-            <span>Works exactly like regular Pinboard bookmarklet</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-8 mb-8">
-      <h3 class="text-xl font-light mb-4">Test it out</h3>
-      <p class="mb-4">Try bookmarking these pages to see suggestions:</p>
-      <div class="grid gap-2">
-        <a
-          href="https://www.are.na/blog/building-with-care"
-          target="_blank"
-          class="text-blue-600 hover:underline"
-        >
-          Are.na: Building with Care
-        </a>
-        <a
-          href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/"
-          target="_blank"
-          class="text-blue-600 hover:underline"
-        >
-          CSS-Tricks: A Complete Guide to Flexbox
-        </a>
-        <a
-          href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-          target="_blank"
-          class="text-blue-600 hover:underline"
-        >
-          A Classic YouTube Video
-        </a>
-      </div>
-    </div>
-
-    <details class="mb-8">
-      <summary class="cursor-pointer font-normal mb-2">
-        Manual Installation (Advanced)
+    <details class="group">
+      <summary
+        class="cursor-pointer text-xs font-mono uppercase tracking-wider
+               text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300
+               transition-colors"
+      >
+        Manual installation
       </summary>
       <div class="mt-4">
-        <p class="text-sm mb-2">
-          Create a new bookmark with this code as the URL:
-        </p>
-        <div class="bg-zinc-900 text-zinc-100 p-4 rounded-lg overflow-x-auto">
-          <code class="text-xs font-mono whitespace-pre">
-            {{ bookmarkletCode }}
-          </code>
-        </div>
-        <button :class="copyButtonClass" @click="copyCode">
-          {{ copied ? '✓ Copied!' : 'Copy Code' }}
+        <pre
+          class="bg-zinc-900 dark:bg-zinc-950 text-zinc-300
+                 p-4 rounded-lg overflow-x-auto text-xs font-mono
+                 border border-zinc-800"
+        ><code>{{ bookmarkletCode }}</code></pre>
+        <button
+          class="mt-3 px-3 py-1.5 text-xs font-mono
+                 bg-zinc-100 dark:bg-zinc-800
+                 text-zinc-600 dark:text-zinc-400
+                 rounded
+                 hover:bg-zinc-200 dark:hover:bg-zinc-700
+                 transition-colors"
+          @click="copyCode"
+        >
+          {{ copied ? 'Copied' : 'Copy code' }}
         </button>
       </div>
     </details>
-
-    <div class="text-sm text-zinc-600 dark:text-zinc-400">
-      <p>
-        Privacy: The bookmarklet only sends data to ejfox.com for analysis. Your
-        Pinboard credentials are never touched.
-      </p>
-    </div>
   </div>
 </template>
 
 <script setup>
-const showInstructions = ref(false)
+definePageMeta({
+  layout: 'bookmarklet',
+})
+
 const copied = ref(false)
 const passphrase = ref('')
+const showPassword = ref(false)
+
+const steps = [
+  'Saves to Pinboard immediately',
+  'Analyzes page content in background',
+  'Suggests tags from your existing bookmarks',
+  'One click to update with better tags',
+]
 
 const bookmarkletCode = computed(() => {
   if (!passphrase.value) return '#'
@@ -181,7 +140,7 @@ const bookmarkletCode = computed(() => {
     return;
   }
 
-  var popupUrl='https://'+w.location.hostname+'/bookmarklet-popup?'+
+  var popupUrl='https://ejfox.com/bookmarklet-popup?'+
     'url='+encodeURIComponent(l)+
     '&title='+encodeURIComponent(d.title)+
     '&text='+encodeURIComponent(truncatedText)+
@@ -196,10 +155,6 @@ const bookmarkletCode = computed(() => {
 })();`.replace(/\n\s*/g, '')
 })
 
-// Copy button styling
-const copyButtonClass =
-  'mt-2 text-sm bg-zinc-700 hover:bg-zinc-600 text-white px-4 py-1 rounded'
-
 const copyCode = async () => {
   try {
     await navigator.clipboard.writeText(bookmarkletCode.value)
@@ -212,19 +167,11 @@ const copyCode = async () => {
   }
 }
 
-const pageDescription =
-  'A smarter Pinboard bookmarklet that suggests tags based on your ' +
-  'existing bookmarks'
-
 usePageSeo({
-  title: 'Enhanced Pinboard Bookmarklet',
-  description: pageDescription,
+  title: 'Pinboard Bookmarklet',
+  description: 'Save to Pinboard instantly with smart tag suggestions.',
   type: 'website',
   section: 'Tools',
-  tags: ['Bookmarklet', 'Pinboard', 'Tagging', 'Automation'],
-  label1: 'Workflow',
-  data1: 'Instant save + tag suggestions',
-  label2: 'Use case',
-  data2: 'Speed-run bookmarking with smart tags',
+  tags: ['Bookmarklet', 'Pinboard', 'Tagging'],
 })
 </script>

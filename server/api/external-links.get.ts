@@ -69,10 +69,23 @@ export default defineEventHandler(async () => {
 
         const urlObj = new URL(url)
         const domain = urlObj.hostname
+
+        // Skip localhost URLs - these are internal development links
+        if (domain === 'localhost' || domain.startsWith('127.') || domain === '0.0.0.0') {
+          return
+        }
+
         const tldParts = domain.split('.')
         const tld = tldParts[tldParts.length - 1]
 
-        const sources = sourcesStr ? sourcesStr.split(';') : []
+        // Filter out week-notes sources - these contain internal screenshots and ephemeral links
+        const allSources = sourcesStr ? sourcesStr.split(';') : []
+        const sources = allSources.filter(s => !s.startsWith('week-notes/'))
+
+        // Skip links that ONLY appeared in week-notes (no other sources)
+        if (allSources.length > 0 && sources.length === 0) {
+          return
+        }
 
         if (linkMap.has(url)) {
           const existing = linkMap.get(url)!

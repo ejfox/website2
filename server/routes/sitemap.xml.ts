@@ -3,6 +3,26 @@ import { defineEventHandler, setHeader, type H3Event } from 'h3'
 // Nuxt auto-imports $fetch at runtime
 declare const $fetch: typeof globalThis.fetch
 
+// Escape XML special characters
+function escapeXml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
+// Extract unique cloudinary image URLs from HTML content
+function extractImageUrls(html: string): string[] {
+  if (!html) return []
+  // Match cloudinary URLs, get the canonical w_800 version
+  const regex = /https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^"'\s]+w_800[^"'\s]+/g
+  const matches = html.match(regex) || []
+  // Dedupe
+  return [...new Set(matches)]
+}
+
 export default defineEventHandler(async (event: H3Event) => {
   const baseUrl = 'https://ejfox.com'
 
@@ -22,9 +42,10 @@ export default defineEventHandler(async (event: H3Event) => {
 
   const now = new Date().toISOString()
 
-  // Start building sitemap XML
+  // Start building sitemap XML with image namespace
   let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 `
 
   // Add static pages
@@ -52,17 +73,45 @@ export default defineEventHandler(async (event: H3Event) => {
 
     // Add each blog post to sitemap
     for (const post of posts) {
-      if (!post.hidden && !post.draft) {
+      if (!post.hidden && !post.draft && post.date) {
         const priority = post.type === 'essay' ? '0.8' : '0.7'
-        const changefreq = 'monthly'
-        const lastmod = post.modified || post.date || now
+        // Blog posts are static once published - use 'never' or 'yearly' for older posts
+        const postDate = new Date(post.date || now)
+        const monthsOld = (Date.now() - postDate.getTime()) / (1000 * 60 * 60 * 24 * 30)
+        const changefreq = monthsOld < 1 ? 'monthly' : 'never'
+        // Use actual modification date, fall back to publish date (never use 'now')
+        const lastmod = post.modified || post.date
+
+        // Extract images from post HTML if available
+        let imageUrls: string[] = []
+        if (post.metadata?.images > 0) {
+          try {
+            const postPath = path.join(
+              process.cwd(),
+              `content/processed/${post.slug}.json`
+            )
+            const postData = await fs.readFile(postPath, 'utf-8')
+            const postJson = JSON.parse(postData)
+            imageUrls = extractImageUrls(postJson.html).slice(0, 3)
+          } catch {
+            // Post file not found, skip images
+          }
+        }
 
         sitemap += `  <url>
-    <loc>${baseUrl}/blog/${post.slug}</loc>
+    <loc>${escapeXml(`${baseUrl}/blog/${post.slug}`)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-  </url>
+`
+        // Add image entries
+        for (const imageUrl of imageUrls) {
+          sitemap += `    <image:image>
+      <image:loc>${escapeXml(imageUrl)}</image:loc>
+    </image:image>
+`
+        }
+        sitemap += `  </url>
 `
       }
     }
@@ -76,9 +125,9 @@ export default defineEventHandler(async (event: H3Event) => {
     if (Array.isArray(predictions)) {
       for (const prediction of predictions) {
         sitemap += `  <url>
-    <loc>${baseUrl}/predictions/${prediction.id}</loc>
+    <loc>${escapeXml(`${baseUrl}/predictions/${prediction.id}`)}</loc>
     <lastmod>${prediction.created_at || now}</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>never</changefreq>
     <priority>0.6</priority>
   </url>
 `

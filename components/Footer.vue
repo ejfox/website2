@@ -48,6 +48,13 @@
         <a href="https://twitter.com/mrejfox" rel="me" :class="navLinkClasses">
           twitter
         </a>
+        <a
+          href="https://mastodon.social/@ejfox"
+          rel="me"
+          :class="navLinkClasses"
+        >
+          mastodon
+        </a>
         <a href="mailto:ejfox@ejfox.com" rel="me authn" :class="navLinkClasses">
           email
         </a>

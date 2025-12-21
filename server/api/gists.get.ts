@@ -22,6 +22,7 @@ interface Gist {
   updated_at: string
   files: Record<string, GistFile>
   html_url: string
+  public: boolean
   content?: string // For single file gists
 }
 
@@ -68,9 +69,12 @@ export default defineEventHandler(async (event): Promise<Gist[]> => {
       }
     )
 
+    // Filter out secret gists - only show public ones
+    const publicGists = response.filter((gist) => gist.public)
+
     // For single-file gists, fetch the content
     const gistsWithContent = await Promise.all(
-      response.map(async (gist) => {
+      publicGists.map(async (gist) => {
         const fileCount = Object.keys(gist.files).length
         if (fileCount === 1) {
           try {

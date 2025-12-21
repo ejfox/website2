@@ -1,0 +1,50 @@
+# EJ Fox
+
+> Data visualization engineer and investigative journalist building newsroom-ready data experiences through room302.studio.
+
+EJ Fox transforms complex datasets into clear, compelling narratives for journalism and public policy. Areas of expertise include climate data visualization, urban analytics, and investigative data tools.
+
+## On AI and LLMs
+
+I use AI extensively as a tool — not a replacement for human judgment, but an amplifier of investigative capacity. A two-person newsroom can now analyze datasets that would have required teams and months of work.
+
+**What AI is good for**: Fact extraction from documents. Semantic search across thousands of records. Auto-tagging years of unorganized archives. Geolocation verification. Pattern recognition in satellite imagery. The boring parts of investigative work that machines can do faster.
+
+**What matters**: Flipping the surveillance script. The same technologies used for control can increase transparency and accountability. Projects like OpenOversight and Amazon Mining Watch show AI identifying police officers and illegal gold mines — using power against power.
+
+**What I'm skeptical of**: AI replicating colonial dynamics. Models trained on white, western, wealthy perspectives being unleashed on communities they weren't designed to understand. Tech that extracts value rather than building mutual aid. Hype over working software.
+
+**How I actually use it**: Claude instances coordinating via tmux sessions in plain English. Cryptographic predictions with SHA-256 verification because accountability matters. Delete-driven development — when the system hangs, delete code until it works. Simple beats clever. Working beats perfect.
+
+The goal is technology for joy, not just profit. AI that serves communities, not exploits them. Open source. Diverse perspectives. Verification over vibes.
+
+## Writing
+
+- [Blog](https://ejfox.com/blog): Essays on technology, design, data visualization, journalism, and creative process. Posts span 2010 to present.
+- [Now](https://ejfox.com/now): Current focus and recent activities.
+
+## Work
+
+- [Projects](https://ejfox.com/projects): Data visualization projects, newsroom tools, and experimental interfaces.
+- [Studio](https://room302.studio): Professional work and client projects.
+
+## Data
+
+- [Predictions](https://ejfox.com/predictions): Cryptographic predictions with SHA-256 verification, plus Kalshi prediction market positions with calibration tracking.
+- [Stats](https://ejfox.com/stats): Personal metrics aggregated from GitHub, YouTube, LastFM, Chess.com, and other platforms.
+- [Gear](https://ejfox.com/gear): Equipment inventory with weight tracking.
+
+## Public APIs
+
+- [/rss.xml](https://ejfox.com/rss.xml): Blog feed in RSS 2.0
+- [/feed.json](https://ejfox.com/feed.json): Blog feed in JSON Feed 1.1
+- [/sitemap.xml](https://ejfox.com/sitemap.xml): Full URL listing with images
+- [/tags.json](https://ejfox.com/tags.json): Tag vocabulary ordered by usage frequency
+- [/api/stats](https://ejfox.com/api/stats): Aggregated personal metrics (JSON)
+- [/api/gists](https://ejfox.com/api/gists): Recent GitHub gists (JSON)
+
+## Contact
+
+- Email: ejfox@ejfox.com
+- Calendar: [ejfox.com/calendar](https://ejfox.com/calendar)
+- GitHub: [github.com/ejfox](https://github.com/ejfox)

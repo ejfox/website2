@@ -9,42 +9,42 @@
         <!-- Compact metadata bar matching blog posts -->
         <div>
           <div class="metadata-bar mb-4">
-            <span class="flex-gap-0.5 whitespace-nowrap">
+            <span class="inline-flex gap-1 whitespace-nowrap">
               <span class="text-zinc-400">ENTRIES</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{ blogStats.postsCount }}
               </span>
             </span>
             <span class="mx-1 text-divider">·</span>
-            <span class="flex-gap-0.5 whitespace-nowrap">
+            <span class="inline-flex gap-1 whitespace-nowrap">
               <span class="text-zinc-400">WORDS</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{ blogStats.totalWordsK }}K
               </span>
             </span>
             <span class="mx-1 text-divider">·</span>
-            <span class="flex-gap-0.5 whitespace-nowrap">
+            <span class="inline-flex gap-1 whitespace-nowrap">
               <span class="text-zinc-400">READ</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{ blogStats.totalReadHours }}hr
               </span>
             </span>
             <span class="mx-1 text-divider">·</span>
-            <span class="flex-gap-0.5 whitespace-nowrap">
+            <span class="inline-flex gap-1 whitespace-nowrap">
               <span class="text-zinc-400">LINKS</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{ blogStats.totalLinks }}
               </span>
             </span>
             <span class="mx-1 text-divider">·</span>
-            <span class="flex-gap-0.5 whitespace-nowrap">
+            <span class="inline-flex gap-1 whitespace-nowrap">
               <span class="text-zinc-400">IMAGES</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{ blogStats.totalImages }}
               </span>
             </span>
             <span class="mx-1 text-divider">·</span>
-            <span class="flex-gap-0.5 whitespace-nowrap">
+            <span class="inline-flex gap-1 whitespace-nowrap">
               <span class="text-zinc-400">YEARS</span>
               <span class="text-zinc-600 dark:text-zinc-300">
                 {{ sortedYears?.length || 0 }}
@@ -164,7 +164,7 @@
                       <!-- Word count with sparkline -->
                       <span
                         v-if="post?.metadata?.words || post?.words"
-                        class="flex-gap-0.5"
+                        class="inline-flex gap-1 items-center"
                       >
                         <span class="mx-1 text-divider">·</span>
                         <ClientOnly>
@@ -187,7 +187,7 @@
                       <!-- Images sparkline -->
                       <span
                         v-if="(post?.metadata?.images || post?.images || 0) > 0"
-                        class="flex-gap-0.5"
+                        class="inline-flex gap-1 items-center"
                       >
                         <span class="mx-1 text-divider">·</span>
                         <ClientOnly>
@@ -205,7 +205,7 @@
                       <!-- Links sparkline -->
                       <span
                         v-if="(post?.metadata?.links || post?.links || 0) > 0"
-                        class="flex-gap-0.5"
+                        class="inline-flex gap-1 items-center"
                       >
                         <span class="mx-1 text-divider">·</span>
                         <ClientOnly>

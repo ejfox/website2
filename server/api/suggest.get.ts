@@ -212,17 +212,17 @@ async function searchDirectory(dir: string, posts: BlogPost[], basePath = '') {
   }
 }
 
-// AI-powered suggestion using OpenAI - THIS IS THE SMART PART! 🧠⚡
+// AI-powered suggestion using OpenRouter
 async function generateAISuggestions(
   content: string,
   availableTags: string[],
   similarPosts: BlogPost[]
 ): Promise<{ tags: string[]; summary: string; threads: string[] }> {
   const config = useRuntimeConfig()
-  const openaiKey = config.OPENAI_API_KEY || process.env.OPENAI_API_KEY
+  const openrouterKey = config.OPENROUTER_API_KEY || process.env.OPENROUTER_API_KEY
 
-  if (!openaiKey) {
-    // Fallback to simple keyword matching *swoosh*
+  if (!openrouterKey) {
+    // Fallback to simple keyword matching
     const words = tokenize(content)
     const matchedTags = availableTags
       .filter((tag) =>
@@ -240,10 +240,15 @@ async function generateAISuggestions(
     }
   }
 
-  // Initialize OpenAI client - LIGHTNING FAST! ⚡
+  // Initialize OpenRouter client (OpenAI-compatible)
   const openai = new OpenAI({
-    apiKey: openaiKey,
-    timeout: 10000, // 10 second timeout for SPEED! *zoom*
+    apiKey: openrouterKey,
+    baseURL: 'https://openrouter.ai/api/v1',
+    timeout: 10000,
+    defaultHeaders: {
+      'HTTP-Referer': 'https://ejfox.com',
+      'X-Title': 'EJ Fox Website',
+    },
   })
 
   // Build context from similar posts
@@ -288,7 +293,7 @@ The summary should be engaging and match his voice.`
 
   try {
     const response = await openai.chat.completions.create({
-      model: 'gpt-4o-mini', // Fast and cheap! *zoom*
+      model: 'openai/gpt-4o-mini', // Via OpenRouter
       messages: [
         {
           role: 'system',

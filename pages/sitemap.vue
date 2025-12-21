@@ -8,7 +8,7 @@
           Complete navigation of ejfox.com — find everything here
         </p>
         <p class="text-zinc-500 dark:text-zinc-500 font-mono text-[11px]">
-          Updated {{ lastUpdated || 'live' }} · sources: manifest + predictions
+          Updated {{ lastUpdated || 'live' }}
         </p>
       </div>
     </header>
@@ -56,11 +56,6 @@
               to="/gear"
               title="Gear"
               description="Complete inventory of adventure and tech equipment"
-            />
-            <SitemapLink
-              to="/predictions"
-              title="Predictions"
-              description="Cryptographically verified forecasts and predictions"
             />
             <SitemapLink
               to="/gists"
@@ -148,7 +143,7 @@
 
     <!-- Error State -->
     <div
-      v-if="manifestError || predictionsError || tagsError"
+      v-if="manifestError || tagsError"
       class="text-center py-8 text-red-600 dark:text-red-400"
     >
       Failed to load data
@@ -176,31 +171,6 @@
                   <span v-if="post.tags?.length" class="ml-2">
                     · {{ post.tags[0] }}
                   </span>
-                </div>
-              </div>
-            </div>
-          </NuxtLink>
-        </div>
-      </section>
-
-      <!-- Active Predictions -->
-      <section v-if="activePredictions.length">
-        <div class="sitemap-section-header">ACTIVE_PREDICTIONS</div>
-        <div class="stack-4">
-          <NuxtLink
-            v-for="prediction in activePredictions"
-            :key="prediction.id"
-            :to="`/predictions/${prediction.id}`"
-            class="card-link"
-          >
-            <div class="flex items-start justify-between gap-2">
-              <div class="min-w-0 flex-1">
-                <div class="nav-link-sm">
-                  {{ prediction.statement }}
-                </div>
-                <div class="text-xs text-zinc-500 mt-2">
-                  {{ prediction.confidence }}% confidence · Due
-                  {{ formatDate(prediction.deadline) }}
                 </div>
               </div>
             </div>
@@ -267,16 +237,8 @@ const { formatShortDate: formatDate } = useDateFormat()
 // Fetch blog posts from manifest
 const { data: manifest, error: manifestError } = await useFetch('/api/manifest')
 
-// Fetch predictions
-const { data: predictions, error: predictionsError } =
-  await useFetch('/api/predictions')
-
 // Fetch tags for counting
 const { data: tags, error: tagsError } = await useFetch('/tags.json')
-
-const publicPredictions = computed(
-  () => predictions.value?.filter((p) => p.visibility === 'public').length || 0
-)
 
 const lastUpdated = computed(() => {
   const dates = []
@@ -284,19 +246,6 @@ const lastUpdated = computed(() => {
     manifest.value.forEach((item) => {
       if (item?.date) {
         const timestamp = new Date(item.date).getTime()
-        if (!Number.isNaN(timestamp)) dates.push(timestamp)
-      }
-    })
-  }
-  if (predictions.value?.length) {
-    predictions.value.forEach((p) => {
-      if (p?.created) {
-        const timestamp = new Date(p.created).getTime()
-        if (!Number.isNaN(timestamp)) dates.push(timestamp)
-      }
-      const lastUpdate = p?.updates?.[p.updates.length - 1]?.timestamp
-      if (lastUpdate) {
-        const timestamp = new Date(lastUpdate).getTime()
         if (!Number.isNaN(timestamp)) dates.push(timestamp)
       }
     })
@@ -312,16 +261,6 @@ const recentPosts = computed(() => {
     .filter((post) => !post.hidden && !post.draft)
     .sort((a, b) => new Date(b.date) - new Date(a.date))
     .slice(0, 10)
-})
-
-// Process active predictions
-const activePredictions = computed(() => {
-  if (!predictions.value) return []
-  const now = new Date()
-  return predictions.value
-    .filter((p) => new Date(p.deadline) > now && !p.resolved)
-    .sort((a, b) => new Date(a.deadline) - new Date(b.deadline))
-    .slice(0, 5)
 })
 
 // Calculate stats
@@ -358,8 +297,6 @@ usePageSeo({
   tags: ['Sitemap', 'Navigation', 'Site index'],
   label1: 'Posts indexed',
   data1: computed(() => `${totalPosts.value} articles`),
-  label2: 'Predictions',
-  data2: computed(() => `${publicPredictions.value} public forecasts`),
 })
 </script>
 
