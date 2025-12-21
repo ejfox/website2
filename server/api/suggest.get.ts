@@ -9,7 +9,6 @@ import { defineEventHandler, getQuery, createError } from 'h3'
 import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import NodeCache from 'node-cache'
-import OpenAI from 'openai'
 import { stripHtml, tokenize } from '~/server/utils/text-processing'
 
 // ⚡ BLAZINGLY FAST cache for EJ's enlightener! *WHOOSH*
@@ -240,17 +239,6 @@ async function generateAISuggestions(
     }
   }
 
-  // Initialize OpenRouter client (OpenAI-compatible)
-  const openai = new OpenAI({
-    apiKey: openrouterKey,
-    baseURL: 'https://openrouter.ai/api/v1',
-    timeout: 10000,
-    defaultHeaders: {
-      'HTTP-Referer': 'https://ejfox.com',
-      'X-Title': 'EJ Fox Website',
-    },
-  })
-
   // Build context from similar posts
   const contextPosts = similarPosts
     .slice(0, 3)
@@ -264,12 +252,9 @@ async function generateAISuggestions(
   const contentTitle = content.split('\n')[0] || 'No title'
   const contentText = content.substring(0, 1000)
 
-  const prompt = `You are EJ Fox's AI assistant helping to categorize
-content for his digital scrapbook.
+  const prompt = `You are EJ Fox's AI assistant helping to categorize content for his digital scrapbook.
 
-EJ writes about: data visualization, journalism, technology, coding
-(especially Vue.js/JavaScript), AI/ML, politics, activism, creative
-tools, photography, music production, automation, and digital culture.
+EJ writes about: data visualization, journalism, technology, coding (especially Vue.js/JavaScript), AI/ML, politics, activism, creative tools, photography, music production, automation, and digital culture.
 
 Available tags (choose 3-4 from this exact list): ${tagsStr}
 
@@ -281,41 +266,44 @@ Title: ${contentTitle}
 Text: ${contentText}
 
 Please respond in this exact JSON format:
-{
-  "tags": ["tag1", "tag2", "tag3"],
-  "summary": "A concise 2-sentence description of what this
-  content is about and why it's interesting.",
-  "threads": ["theme1", "theme2"]
-}
+{"tags": ["tag1", "tag2", "tag3"], "summary": "A concise 2-sentence description.", "threads": ["theme1", "theme2"]}
 
-Focus on tags that match EJ's interests and writing style.
-The summary should be engaging and match his voice.`
+Focus on tags that match EJ's interests and writing style.`
 
   try {
-    const response = await openai.chat.completions.create({
-      model: 'openai/gpt-4o-mini', // Via OpenRouter
-      messages: [
-        {
-          role: 'system',
-          content: 'You are a helpful assistant that returns valid JSON.',
-        },
-        { role: 'user', content: prompt },
-      ],
-      temperature: 0.7,
-      max_tokens: 300,
+    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${openrouterKey}`,
+        'Content-Type': 'application/json',
+        'HTTP-Referer': 'https://ejfox.com',
+        'X-Title': 'ejfox.com',
+      },
+      body: JSON.stringify({
+        model: 'openai/gpt-4o-mini',
+        messages: [
+          { role: 'system', content: 'You are a helpful assistant that returns valid JSON only.' },
+          { role: 'user', content: prompt },
+        ],
+        temperature: 0.7,
+        max_tokens: 300,
+      }),
     })
 
-    const aiResponse = response.choices[0]?.message?.content
-    if (aiResponse) {
-      const parsed = JSON.parse(aiResponse)
-      return {
-        tags: parsed.tags?.slice(0, 4) || [],
-        summary: parsed.summary || 'Interesting content worth exploring.',
-        threads: parsed.threads || [],
+    if (response.ok) {
+      const data = await response.json()
+      const aiResponse = data.choices?.[0]?.message?.content
+      if (aiResponse) {
+        const parsed = JSON.parse(aiResponse)
+        return {
+          tags: parsed.tags?.slice(0, 4) || [],
+          summary: parsed.summary || 'Interesting content worth exploring.',
+          threads: parsed.threads || [],
+        }
       }
     }
   } catch (error) {
-    console.error('OpenAI API error:', error)
+    console.error('OpenRouter API error:', error)
   }
 
   // Fallback if AI fails *swoosh*
