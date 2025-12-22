@@ -8,845 +8,428 @@
       Failed to load data
     </div>
 
-    <header v-else class="section-spacing-lg">
-      <h1 class="heading-1 mb-4">Predictions</h1>
+    <template v-else>
+      <!-- HERO: Brier Score -->
+      <header class="section-spacing-lg">
+        <h1 class="heading-1 mb-6">Predictions</h1>
 
-      <div class="label-xs">
-        <div>
-          <span class="text-primary mono-lg tabular">
-            {{ transformedPredictions?.length || 0 }}
-          </span>
-          total ·
-          <span class="text-success mono-lg tabular">{{ correctCount }}</span>
-          correct ·
-          <span class="text-error mono-lg tabular">{{ incorrectCount }}</span>
-          incorrect ·
-          <span class="text-primary mono-lg tabular">{{ pendingCount }}</span>
-          pending
+        <!-- Brier Score Hero -->
+        <div
+          v-if="calibration && calibration.summary.resolved > 0"
+          class="mb-8"
+        >
+          <div class="flex items-baseline gap-4 mb-2">
+            <span
+              class="font-mono tabular-nums font-bold"
+              :class="[
+                brierScoreClass(calibration.brier_score),
+                'text-6xl md:text-8xl',
+              ]"
+            >
+              {{ formatBrierScore(calibration.brier_score) }}
+            </span>
+            <span class="text-zinc-500 dark:text-zinc-500 text-sm uppercase tracking-wide">
+              Brier Score
+            </span>
+          </div>
+          <div class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
+            <div>
+              {{ brierScoreLabel(calibration.brier_score) }} ·
+              Based on {{ calibration.summary.resolved }} resolved predictions
+            </div>
+            <div class="text-xs text-zinc-500">
+              0 = perfect · 0.25 = chance · 1 = always wrong
+            </div>
+          </div>
         </div>
-        <div class="text-muted">
-          {{ lastUpdated ? `Updated ${lastUpdated}` : 'Updating live' }} ·
-          sources: git + SHA-256 hashes
+
+        <!-- Verification Summary -->
+        <div class="font-mono text-xs border-t border-zinc-200 dark:border-zinc-800 pt-4">
+          <div class="tabular-nums">
+            <span class="text-zinc-900 dark:text-zinc-100">{{ correctCount }}/{{ correctCount + incorrectCount }}</span>
+            <span class="text-zinc-500 ml-1">correct</span>
+            <span class="text-zinc-400 mx-2">·</span>
+            <span class="text-zinc-600 dark:text-zinc-400">{{ pendingCount }}</span>
+            <span class="text-zinc-500 ml-1">pending</span>
+            <span v-if="kalshiPositionCount > 0" class="text-zinc-400 mx-2">·</span>
+            <span v-if="kalshiPositionCount > 0" class="text-zinc-600 dark:text-zinc-400">${{ formatExposure(totalKalshiExposure) }}</span>
+            <span v-if="kalshiPositionCount > 0" class="text-zinc-500 ml-1">at stake</span>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
 
-    <!-- Zero State -->
-    <section v-if="transformedPredictions.length === 0" class="card-padding">
-      <div class="text-primary mb-2 uppercase">No predictions yet</div>
-      <p class="text-secondary">
-        Cryptographically verified predictions with SHA-256 hashing, PGP
-        signatures, and git-based version control.
-      </p>
-    </section>
+      <!-- Zero State -->
+      <section v-if="transformedPredictions.length === 0" class="card-padding">
+        <div class="text-primary mb-2 uppercase">No predictions yet</div>
+        <p class="text-secondary">
+          Cryptographically verified predictions with SHA-256 hashing, PGP
+          signatures, and git-based version control.
+        </p>
+      </section>
 
-    <!-- Predictions List -->
-    <section v-else>
-      <!-- ACTIVE Predictions -->
-      <div v-if="activePredictions.length > 0" class="section-spacing">
+      <!-- Dense Table View: Active Predictions -->
+      <section v-if="activePredictions.length > 0" class="section-spacing">
         <h2 class="heading-2 mb-4">Active</h2>
-        <div class="grid-predictions">
-          <PredictionCard
-            v-for="prediction in activePredictions"
-            :id="`prediction-${prediction.id}`"
-            :key="prediction.id"
-            :prediction="prediction"
-          />
+        <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+          <table class="w-full font-mono text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-zinc-300 dark:border-zinc-700">
+                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">Conf</th>
+                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">Statement</th>
+                <th class="text-right pb-2 font-normal text-zinc-500">Deadline</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="prediction in activePredictions"
+                :key="prediction.id"
+                class="border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
+              >
+                <td class="py-3 pr-4 align-top tabular-nums">
+                  <span class="text-lg font-bold">{{ prediction.confidence }}%</span>
+                </td>
+                <td class="py-3 pr-4 align-top">
+                  <NuxtLink
+                    :to="`/predictions/${prediction.slug}`"
+                    class="text-zinc-900 dark:text-zinc-100 hover:underline font-serif text-sm leading-snug"
+                  >
+                    {{ prediction.statement }}
+                  </NuxtLink>
+                </td>
+                <td class="py-3 pr-4 align-top text-right tabular-nums text-zinc-500 whitespace-nowrap">
+                  <template v-if="daysUntil(prediction.deadline) !== null">
+                    {{ daysUntil(prediction.deadline) }}d
+                  </template>
+                  <template v-else>
+                    {{ formatDeadline(prediction.deadline) }}
+                  </template>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-      </div>
+      </section>
 
-      <!-- RESOLVED Predictions -->
-      <div v-if="resolvedPredictions.length > 0">
+      <!-- Dense Table View: Resolved Predictions -->
+      <section v-if="resolvedPredictions.length > 0" class="section-spacing">
         <h2 class="heading-2 mb-4">Resolved</h2>
-        <div class="grid-predictions">
-          <PredictionCard
-            v-for="prediction in resolvedPredictions"
-            :id="`prediction-${prediction.id}`"
-            :key="prediction.id"
-            :prediction="prediction"
-          />
-        </div>
-      </div>
-    </section>
-
-    <!-- Statistics -->
-    <section v-if="transformedPredictions.length > 0" class="mt-12">
-      <h2 class="heading-2 mb-4">Statistics</h2>
-
-      <!-- Summary stats -->
-      <div class="label-xs section-spacing-sm stack-1">
-        <div>
-          <span class="text-primary mono-lg tabular">
-            {{ transformedPredictions.length }}
-          </span>
-          predictions ·
-          <span class="text-primary mono-lg tabular">{{ resolvedCount }}</span>
-          resolved ·
-          <span class="text-primary mono-lg tabular">{{ pendingCount }}</span>
-          pending
-        </div>
-        <div v-if="correctCount + incorrectCount > 0">
-          Accuracy
-          <span class="text-primary font-mono text-xl font-bold tabular">
-            {{ accuracyRate }}%
-          </span>
-          · Avg confidence
-          <span class="text-primary font-mono text-xl font-bold tabular">
-            {{ avgConfidence }}%
-          </span>
-        </div>
-      </div>
-
-      <!-- Calibration Analysis -->
-      <div v-if="correctCount + incorrectCount > 0" class="mb-6">
-        <h3 class="calibration-header">Calibration</h3>
-
-        <!-- Confidence breakdown -->
-        <table
-          v-if="correctCount + incorrectCount > 1"
-          class="w-full border-collapse mb-6 font-mono text-xs"
-        >
-          <thead>
-            <tr>
-              <th class="table-th">Analysis</th>
-              <th class="table-th-right">Avg</th>
-              <th class="table-th-right">n</th>
-            </tr>
-          </thead>
-          <tbody class="text-muted">
-            <tr v-if="correctCount > 0">
-              <td class="py-1">Correct</td>
-              <td class="confidence-cell success">
-                {{ correctConfidenceAvg }}%
-              </td>
-              <td class="text-right">{{ correctCount }}</td>
-            </tr>
-            <tr v-if="incorrectCount > 0">
-              <td class="py-1">Incorrect</td>
-              <td class="confidence-cell error">
-                {{ incorrectConfidenceAvg }}%
-              </td>
-              <td class="text-right">{{ incorrectCount }}</td>
-            </tr>
-            <tr v-if="correctCount > 0 && incorrectCount > 0">
-              <td class="py-1">Differential</td>
-              <td
-                class="text-right font-bold text-2xl tabular-nums"
-                :class="
-                  correctConfidenceAvg > incorrectConfidenceAvg
-                    ? 'text-success'
-                    : 'text-error'
-                "
+        <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
+          <table class="w-full font-mono text-xs border-collapse">
+            <thead>
+              <tr class="border-b border-zinc-300 dark:border-zinc-700">
+                <th class="text-center pb-2 pr-4 font-normal text-zinc-500"></th>
+                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">Conf</th>
+                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">Statement</th>
+                <th class="text-left pb-2 font-normal text-zinc-500">Resolved</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr
+                v-for="prediction in resolvedPredictions"
+                :key="prediction.id"
+                class="border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
               >
-                {{ correctConfidenceAvg > incorrectConfidenceAvg ? '+' : ''
-                }}{{ correctConfidenceAvg - incorrectConfidenceAvg }}%
-              </td>
-              <td class="text-right">
-                {{
-                  correctConfidenceAvg > incorrectConfidenceAvg ? 'good' : 'bad'
-                }}
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <!-- Calibration by range -->
-        <table
-          v-if="calibrationData.length > 0"
-          class="w-full border-collapse mb-6 font-mono text-xs"
-        >
-          <thead>
-            <tr>
-              <th class="table-th-left">Range</th>
-              <th class="table-th-right">Accuracy</th>
-              <th class="table-th-right">n</th>
-            </tr>
-          </thead>
-          <tbody class="text-muted">
-            <tr v-for="range in calibrationData" :key="range.label">
-              <td class="py-1">{{ range.label }}</td>
-              <td class="accuracy-cell">{{ range.accuracy }}%</td>
-              <td class="text-right">{{ range.total }}</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <!-- Resolutions by year -->
-        <table
-          v-if="resolutionsByYear.length > 0"
-          class="w-full border-collapse mb-6 font-mono text-xs"
-        >
-          <thead>
-            <tr>
-              <th class="table-th-left">Year</th>
-              <th class="table-th-right">Accuracy</th>
-              <th class="table-th-right">n</th>
-            </tr>
-          </thead>
-          <tbody class="text-muted">
-            <tr v-for="yearData in resolutionsByYear" :key="yearData.year">
-              <td class="py-1">{{ yearData.year }}</td>
-              <td class="accuracy-cell">{{ yearData.accuracy }}%</td>
-              <td class="text-right">{{ yearData.total }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- Meta-Analysis (Gwern Mode) -->
-    <section
-      v-if="calibration && calibration.summary.resolved > 0"
-      class="mt-12"
-    >
-      <h2 class="heading-2 mb-4">Meta-Analysis</h2>
-
-      <!-- Brier Score -->
-      <div v-if="calibration.brier_score !== null" class="mb-6">
-        <div class="calibration-label mb-2">Brier Score</div>
-        <div class="flex items-baseline gap-2">
-          <span
-            v-if="calibration.brier_score < 0.2"
-            class="mono-4xl text-success"
-          >
-            {{ calibration.brier_score.toFixed(3) }}
-          </span>
-          <span
-            v-else-if="calibration.brier_score < 0.25"
-            class="mono-4xl text-primary"
-          >
-            {{ calibration.brier_score.toFixed(3) }}
-          </span>
-          <span v-else class="mono-4xl text-error">
-            {{ calibration.brier_score.toFixed(3) }}
-          </span>
-          <span class="calibration-label">
-            {{
-              calibration.brier_score < 0.2
-                ? '(excellent)'
-                : calibration.brier_score < 0.25
-                  ? '(good)'
-                  : '(needs work)'
-            }}
-          </span>
+                <td class="py-3 pr-4 align-top text-center">
+                  <span v-if="prediction.status === 'correct'" class="text-success">✓</span>
+                  <span v-else-if="prediction.status === 'incorrect'" class="text-error">✗</span>
+                  <span v-else class="text-zinc-400">—</span>
+                </td>
+                <td class="py-3 pr-4 align-top tabular-nums">
+                  <span
+                    class="text-lg font-bold"
+                    :class="prediction.status === 'correct' ? 'text-success' : prediction.status === 'incorrect' ? 'text-error' : ''"
+                  >{{ prediction.confidence }}%</span>
+                  <span
+                    v-if="brierContribution(prediction) !== null"
+                    class="text-zinc-400 text-[10px] ml-2"
+                    :title="`Brier: (${prediction.confidence/100} - ${prediction.status === 'correct' ? 1 : 0})² = ${brierContribution(prediction)?.toFixed(3)}`"
+                  >{{ brierContribution(prediction)?.toFixed(2) }}</span>
+                </td>
+                <td class="py-3 pr-4 align-top">
+                  <NuxtLink
+                    :to="`/predictions/${prediction.slug}`"
+                    class="text-zinc-900 dark:text-zinc-100 hover:underline font-serif text-sm leading-snug"
+                  >
+                    {{ prediction.statement }}
+                  </NuxtLink>
+                </td>
+                <td class="py-3 align-top whitespace-nowrap text-zinc-500 tabular-nums">
+                  {{ formatResolvedDate(prediction.resolved_date) }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-        <div class="calibration-label mt-2">
-          0 = perfect · 1 = worst · &lt;0.25 = good
-        </div>
-      </div>
+      </section>
 
-      <!-- Calibration Buckets -->
-      <div
-        v-if="calibration.calibration && calibration.calibration.length > 0"
-        class="mb-6"
+      <!-- Calibration -->
+      <section
+        v-if="calibration?.calibration?.length"
+        class="section-spacing font-mono text-xs"
       >
-        <h3 class="calibration-header">Calibration Curve</h3>
-        <table class="calibration-table">
+        <h2 class="heading-2 mb-4">Calibration</h2>
+
+        <!-- Calibration Curve -->
+        <div class="mb-6">
+          <svg viewBox="0 0 100 100" class="w-full max-w-xs h-auto aspect-square">
+            <!-- Grid -->
+            <line x1="0" y1="100" x2="100" y2="100" class="stroke-zinc-300 dark:stroke-zinc-700" stroke-width="0.5" />
+            <line x1="0" y1="0" x2="0" y2="100" class="stroke-zinc-300 dark:stroke-zinc-700" stroke-width="0.5" />
+            <!-- Perfect calibration line -->
+            <line x1="0" y1="100" x2="100" y2="0" class="stroke-zinc-400 dark:stroke-zinc-600" stroke-width="0.5" stroke-dasharray="2,2" />
+            <!-- Calibration points -->
+            <circle
+              v-for="bucket in calibration.calibration"
+              :key="bucket.label"
+              :cx="bucket.expected"
+              :cy="100 - bucket.accuracy"
+              :r="Math.max(2, Math.min(5, bucket.count))"
+              :class="Math.abs(bucket.delta) <= 10 ? 'fill-success' : 'fill-error'"
+              class="opacity-80"
+            />
+            <!-- Connect points with line -->
+            <polyline
+              :points="calibrationPoints"
+              fill="none"
+              class="stroke-zinc-900 dark:stroke-zinc-100"
+              stroke-width="1"
+            />
+          </svg>
+          <div class="text-[10px] text-zinc-500 mt-1">
+            x: predicted · y: actual · dashed: perfect
+          </div>
+        </div>
+
+        <table class="w-full border-collapse">
           <thead>
-            <tr>
-              <th class="table-th">Confidence</th>
-              <th class="table-th-right">Expected</th>
-              <th class="table-th-right">Actual</th>
-              <th class="table-th-right">Δ</th>
-              <th class="table-th-right">n</th>
+            <tr class="border-b border-zinc-300 dark:border-zinc-700 text-zinc-500">
+              <th class="text-left pb-2 pr-4 font-normal">Range</th>
+              <th class="text-right pb-2 pr-4 font-normal">Actual</th>
+              <th class="text-right pb-2 pr-4 font-normal">Δ</th>
+              <th class="text-right pb-2 font-normal">n</th>
             </tr>
           </thead>
-          <tbody class="table-muted-body">
-            <tr v-for="bucket in calibration.calibration" :key="bucket.label">
-              <td class="py-1">{{ bucket.label }}</td>
-              <td class="py-1 text-right tabular-nums">
-                {{ bucket.expected }}%
-              </td>
-              <td
-                class="calibration-table-value"
-                :class="deltaClass(bucket.delta)"
-              >
+          <tbody>
+            <tr
+              v-for="bucket in calibration.calibration"
+              :key="bucket.label"
+              class="border-b border-zinc-200 dark:border-zinc-800"
+            >
+              <td class="py-2 pr-4">{{ bucket.label }}</td>
+              <td class="py-2 pr-4 text-right tabular-nums font-bold" :class="deltaClass(bucket.delta)">
                 {{ bucket.accuracy }}%
               </td>
-              <td
-                class="delta-cell"
-                :class="bucket.delta >= 0 ? 'text-success' : 'text-error'"
-              >
-                {{ bucket.delta >= 0 ? '+' : '' }}{{ bucket.delta }}pp
+              <td class="py-2 pr-4 text-right tabular-nums" :class="bucket.delta >= 0 ? 'text-success' : 'text-error'">
+                {{ bucket.delta >= 0 ? '+' : '' }}{{ bucket.delta }}
               </td>
-              <td class="py-1 text-right tabular-nums">{{ bucket.count }}</td>
+              <td class="py-2 text-right tabular-nums text-zinc-500">{{ bucket.count }}</td>
             </tr>
           </tbody>
         </table>
-        <div class="calibration-label mt-2">
-          Well-calibrated means actual ≈ expected (Δ near 0)
-        </div>
-      </div>
+      </section>
 
-      <!-- Category Performance -->
-      <div
-        v-if="calibration.by_category && calibration.by_category.length > 0"
-        class="mb-6"
-      >
-        <h3 class="calibration-header">By Category</h3>
-        <table class="calibration-table">
-          <thead>
-            <tr>
-              <th class="table-th">Category</th>
-              <th class="table-th-right">Accuracy</th>
-              <th class="table-th-right">Correct</th>
-              <th class="table-th-right">Total</th>
-            </tr>
-          </thead>
-          <tbody class="table-muted-body">
-            <tr v-for="cat in calibration.by_category" :key="cat.category">
-              <td class="py-1">{{ cat.category }}</td>
-              <td
-                class="calibration-table-value"
-                :class="accuracyClass(cat.accuracy)"
-              >
-                {{ cat.accuracy }}%
-              </td>
-              <td class="py-1 text-right tabular-nums">{{ cat.correct }}</td>
-              <td class="py-1 text-right tabular-nums">{{ cat.total }}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <!-- Update Analysis -->
-      <div v-if="calibration.update_analysis" class="mb-6">
-        <h3 class="calibration-header">Update Patterns</h3>
-        <div class="grid grid-cols-2 gap-4 font-mono text-xs">
-          <div>
-            <div class="section-label-transition">Predictions Updated</div>
-            <div class="calibration-value">
-              {{ calibration.update_analysis.predictionsWithUpdates }}
-            </div>
-          </div>
-          <div>
-            <div class="section-label-transition">Total Updates</div>
-            <div class="calibration-value">
-              {{ calibration.update_analysis.totalUpdates }}
-            </div>
-          </div>
-          <div>
-            <div class="section-label-transition">Avg Updates/Prediction</div>
-            <div class="calibration-value">
-              {{ calibration.update_analysis.avgUpdatesPerPrediction }}
-            </div>
-          </div>
-          <div>
-            <div class="section-label-transition">Avg Confidence Δ</div>
-            <div
-              class="value-transition"
-              :class="
-                positiveNegativeClass(
-                  calibration.update_analysis.avgConfidenceChange
-                )
-              "
-            >
-              {{
-                calibration.update_analysis.avgConfidenceChange >= 0 ? '+' : ''
-              }}{{ calibration.update_analysis.avgConfidenceChange }}%
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Market Comparison -->
-      <div v-if="calibration.market_comparison" class="mb-6">
-        <h3 class="calibration-header">vs Market Baseline</h3>
-        <div class="grid grid-cols-2 gap-4 font-mono text-xs">
-          <div>
-            <div class="section-label-transition">
-              Disagreements (&gt;10% diff)
-            </div>
-            <div class="calibration-value">
-              {{ calibration.market_comparison.disagreements }} /
-              {{ calibration.market_comparison.total }}
-            </div>
-          </div>
-          <div>
-            <div class="section-label-transition">Accuracy When Disagreed</div>
-            <div
-              class="value-transition"
-              :class="
-                accuracyClass(
-                  calibration.market_comparison.accuracyWhenDisagreed
-                )
-              "
-            >
-              {{ calibration.market_comparison.accuracyWhenDisagreed }}%
-            </div>
-          </div>
-        </div>
-        <div class="calibration-label mt-2">
-          {{
-            calibration.market_comparison.accuracyWhenDisagreed >= 50
-              ? 'Beating the market when you disagree'
-              : 'Market outperforming when you disagree'
-          }}
-        </div>
-      </div>
-
-      <!-- Summary Stats -->
-      <div class="calibration-label">
-        <div class="mb-2">
-          Analysis based on
-          <span class="text-zinc-900 dark:text-zinc-100 font-bold">
-            {{ calibration.summary.resolved }}
-          </span>
-          resolved predictions
-        </div>
-        <div v-if="calibration.generated_at" class="generated-at">
-          Generated {{ new Date(calibration.generated_at).toLocaleString() }}
-        </div>
-      </div>
-    </section>
-
-    <!-- Version Control -->
-    <section class="mt-12">
-      <h2 class="heading-2 mb-4">Version Control</h2>
-      <div class="version-info">
-        <div>Markdown + SHA-256 + Git timestamps</div>
-        <div>github.com/ejfox/website2/content/predictions/</div>
-      </div>
-      <a :href="commitHistoryUrl" target="_blank" class="link-subtle">
-        View commit history →
-      </a>
-    </section>
+      <!-- Footer -->
+      <footer class="mt-12 text-xs font-mono text-zinc-500">
+        <a :href="commitHistoryUrl" target="_blank" class="hover:underline">
+          Verification: git history →
+        </a>
+      </footer>
+    </template>
   </main>
-
-  <!-- Desktop TOC -->
-  <ClientOnly>
-    <teleport
-      v-if="tocTarget && predictionToc.length > 0"
-      to="#nav-toc-container"
-    >
-      <div
-        ref="tocContainer"
-        class="toc w-48 font-mono overflow-y-auto"
-        :style="{ maxHeight: `${tocMaxHeight}px` }"
-      >
-        <div class="pt-8 pb-4 space-y-6">
-          <!-- Section for each type -->
-          <div v-for="section in predictionToc" :key="section.type">
-            <!-- Section header -->
-            <div class="toc-section-label">
-              <span v-if="section.type === 'active'">
-                Active ({{ section.items.length }})
-              </span>
-              <span v-else-if="section.type === 'resolved'">
-                Resolved ({{ section.items.length }})
-              </span>
-            </div>
-
-            <ul class="space-y-2 text-xs">
-              <!-- Prediction items -->
-              <li
-                v-for="item in section.items"
-                :key="item.slug"
-                class="group relative"
-              >
-                <a
-                  :href="`#${item.slug}`"
-                  class="block no-underline"
-                  :class="[
-                    activeSection === item.slug
-                      ? 'text-zinc-900 dark:text-zinc-100 font-bold'
-                      : 'text-zinc-600 dark:text-zinc-400',
-                  ]"
-                  :style="{ opacity: 0.7 + (item.confidence / 100) * 0.3 }"
-                >
-                  <div class="flex items-start gap-2">
-                    <span class="text-zinc-500 dark:text-zinc-500 shrink-0">
-                      {{ item.confidence }}%
-                    </span>
-                    <span class="block line-clamp-2 flex-1 min-w-0">
-                      {{ item.text }}
-                    </span>
-                    <span
-                      v-if="
-                        item.status === 'correct' || item.status === 'incorrect'
-                      "
-                      class="shrink-0"
-                      :class="
-                        item.status === 'correct'
-                          ? 'text-success'
-                          : 'text-error'
-                      "
-                    >
-                      {{ item.status === 'correct' ? '✓' : '✗' }}
-                    </span>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </teleport>
-  </ClientOnly>
 </template>
 
-<script setup>
-import { useWindowSize } from '@vueuse/core'
-import PredictionCard from '~/components/predictions/PredictionCard.vue'
+<script setup lang="ts">
+import { formatBrierScore } from '~/composables/useNumberFormat'
+import { format } from 'date-fns'
+import type { KalshiApiResponse } from '~/server/types/kalshi'
+
+// Type definitions for predictions API
+interface Prediction {
+  id: string
+  slug: string
+  statement: string
+  confidence: number
+  deadline?: string
+  categories?: string[]
+  visibility: string
+  created?: string
+  resolved: boolean
+  resolved_date?: string
+  status?: 'correct' | 'incorrect' | 'pending' | 'resolved'
+  evidence?: string
+  resolution?: string
+  related?: string[]
+  updates?: Array<{ timestamp: string; content?: string }>
+  updatedAt?: string
+  market?: {
+    provider: 'polymarket' | 'kalshi'
+    slug: string
+    autoResolve?: boolean
+  }
+  hash?: string
+  gitCommit?: string
+}
 
 const commitHistoryUrl =
   'https://github.com/ejfox/website2/commits/main/content/predictions/'
 
-const { _formatRelativeTime } = useDateFormat()
-
-// Dynamic TOC height calculation using VueUse
-const { height: windowHeight } = useWindowSize()
-const tocContainer = ref(null)
-
-// Calculate available height: viewport - nav header - padding
-const tocMaxHeight = computed(() => {
-  // Reserve space for: branding (80px) + nav links (200px) + padding (64px)
-  return Math.max(300, windowHeight.value - 344)
-})
-
+// Fetch predictions data
 const { data: predictions, error: predictionsError } =
-  await useFetch('/api/predictions')
+  await useFetch<Prediction[]>('/api/predictions')
 const { data: calibration } = useCalibration()
 
+// Fetch Kalshi data for financial verification
+const { data: kalshiData } = await useFetch<KalshiApiResponse>('/api/kalshi', {
+  default: () => null,
+})
+
+// Transform and filter predictions
+const transformedPredictions = computed(() => {
+  if (!predictions.value) return []
+  return predictions.value
+    .filter((p) => p.visibility === 'public')
+    .map((p) => ({
+      ...p,
+      status: p.status || (p.resolved ? 'resolved' : 'pending'),
+    }))
+})
+
+// Separate active and resolved
+const activePredictions = computed(() =>
+  transformedPredictions.value
+    .filter((p) => !p.resolved)
+    .sort((a, b) => new Date(b.created || 0).getTime() - new Date(a.created || 0).getTime())
+)
+
+const resolvedPredictions = computed(() =>
+  transformedPredictions.value
+    .filter((p) => p.resolved)
+    .sort((a, b) =>
+      new Date(b.resolved_date || b.created || 0).getTime() -
+      new Date(a.resolved_date || a.created || 0).getTime()
+    )
+)
+
+// Counts
+const pendingCount = computed(
+  () => transformedPredictions.value.filter((p) => !p.resolved).length
+)
+const correctCount = computed(
+  () => transformedPredictions.value.filter((p) => p.status === 'correct').length
+)
+const incorrectCount = computed(
+  () => transformedPredictions.value.filter((p) => p.status === 'incorrect').length
+)
+
+// Kalshi data
+const kalshiPositionCount = computed(
+  () => kalshiData.value?.positions?.length || 0
+)
+const totalKalshiExposure = computed(() => {
+  if (!kalshiData.value?.positions) return 0
+  return kalshiData.value.positions.reduce(
+    (sum, p) => sum + (p.market_exposure_dollars || 0),
+    0
+  )
+})
+
+// Formatting helpers
+const formatDeadline = (deadline: string | undefined) => {
+  if (!deadline) return '—'
+  try {
+    return format(new Date(deadline), 'MMM d, yyyy')
+  } catch {
+    return '—'
+  }
+}
+
+const formatResolvedDate = (date: string | undefined) => {
+  if (!date) return '—'
+  try {
+    return format(new Date(date), 'MMM yyyy')
+  } catch {
+    return '—'
+  }
+}
+
+const formatExposure = (value: number) => {
+  if (value >= 1000) {
+    return (value / 1000).toFixed(1) + 'K'
+  }
+  return value.toFixed(0)
+}
+
+// Calibration curve points for SVG polyline
+const calibrationPoints = computed(() => {
+  if (!calibration.value?.calibration?.length) return ''
+  return calibration.value.calibration
+    .map((b: { expected: number; accuracy: number }) => `${b.expected},${100 - b.accuracy}`)
+    .join(' ')
+})
+
+// Utilitarian helpers
+const daysUntil = (deadline: string | undefined): number | null => {
+  if (!deadline) return null
+  try {
+    const target = new Date(deadline)
+    const now = new Date()
+    const diff = Math.ceil((target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))
+    return diff > 0 ? diff : null
+  } catch {
+    return null
+  }
+}
+
+const brierContribution = (prediction: { resolved: boolean; status?: string; confidence: number }): number | null => {
+  if (!prediction.resolved || !prediction.status) return null
+  const outcome = prediction.status === 'correct' ? 1 : 0
+  const forecast = prediction.confidence / 100
+  return (forecast - outcome) ** 2
+}
+
+// Brier score helpers
+const brierScoreClass = (score: number | null) => {
+  if (score === null) return 'text-zinc-500'
+  if (score < 0.15) return 'text-success'
+  if (score < 0.2) return 'text-green-600 dark:text-green-500'
+  if (score < 0.25) return 'text-zinc-900 dark:text-zinc-100'
+  return 'text-error'
+}
+
+const brierScoreLabel = (score: number | null) => {
+  if (score === null) return ''
+  if (score < 0.15) return 'Excellent calibration'
+  if (score < 0.2) return 'Good calibration'
+  if (score < 0.25) return 'Better than chance'
+  return 'Needs improvement'
+}
+
+const deltaClass = (delta: number) => {
+  const abs = Math.abs(delta)
+  if (abs <= 5) return 'text-success'
+  if (abs <= 10) return 'text-zinc-900 dark:text-zinc-100'
+  return 'text-error'
+}
+
+// SEO
 const totalPredictions = computed(
   () => predictions.value?.filter((p) => p.visibility === 'public').length || 0
 )
 
-const predictionsSchema = computed(() => {
-  const items =
-    predictions.value
-      ?.filter((p) => p.visibility === 'public')
-      .slice(0, 20)
-      .map((p, index) => ({
-        '@type': 'ListItem',
-        position: index + 1,
-        url: `https://ejfox.com/predictions/${p.slug}`,
-        name: p.statement,
-      })) || []
-
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'ItemList',
-    name: 'Predictions',
-    numberOfItems: totalPredictions.value,
-    itemListElement: items,
-  }
-})
-
-useHead(() => ({
-  script: [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify(predictionsSchema.value),
-    },
-  ],
-}))
-
-// Transform and filter predictions
-const transformedPredictions = computed(
-  () =>
-    predictions.value
-      ?.filter((p) => p.visibility === 'public')
-      .map((p) => ({
-        ...p,
-        title: p.statement,
-        status: p.status || (p.resolved ? 'resolved' : 'pending'),
-      })) || []
-)
-
-// Separate active and resolved predictions
-const activePredictions = computed(() => {
-  return transformedPredictions.value
-    .filter((p) => !p.resolved)
-    .sort((a, b) => new Date(b.created || 0) - new Date(a.created || 0))
-})
-
-const resolvedPredictions = computed(() => {
-  return transformedPredictions.value
-    .filter((p) => p.resolved)
-    .sort(
-      (a, b) =>
-        new Date(b.resolved_date || b.created || 0) -
-        new Date(a.resolved_date || a.created || 0)
-    )
-})
-
-// Computed stats
-const pendingCount = computed(
-  () => transformedPredictions.value.filter((p) => !p.resolved).length
-)
-const resolvedCount = computed(
-  () => transformedPredictions.value.filter((p) => p.resolved).length
-)
-const correctCount = computed(
-  () =>
-    transformedPredictions.value.filter((p) => p.status === 'correct').length
-)
-const incorrectCount = computed(
-  () =>
-    transformedPredictions.value.filter((p) => p.status === 'incorrect').length
-)
-
-const avgConfidence = computed(() => {
-  const valid = transformedPredictions.value.filter(
-    (p) => typeof p.confidence === 'number'
-  )
-  return valid.length
-    ? Math.round(valid.reduce((sum, p) => sum + p.confidence, 0) / valid.length)
-    : 0
-})
-
-const accuracyRate = computed(() => {
-  const resolved = correctCount.value + incorrectCount.value
-  return resolved ? Math.round((correctCount.value / resolved) * 100) : 0
-})
-
-const lastUpdated = computed(() => {
-  const dates = []
-  transformedPredictions.value.forEach((p) => {
-    if (p.created) dates.push(new Date(p.created).getTime())
-    if (p.updates && p.updates.length > 0) {
-      const last = p.updates[p.updates.length - 1]?.timestamp
-      if (last) dates.push(new Date(last).getTime())
-    }
-  })
-  if (!dates.length) return ''
-  const max = Math.max(...dates)
-  return new Date(max).toISOString().split('T')[0]
-})
-
 usePageSeo({
   title: 'Predictions · EJ Fox',
   description:
-    'Public, timestamped predictions with SHA-256 hashes plus performance and calibration tracking.',
+    'Public, timestamped predictions with SHA-256 hashes and calibration tracking.',
   type: 'article',
   section: 'Forecasting',
   tags: ['Predictions', 'Forecasting', 'Calibration', 'Probability'],
   label1: 'Public predictions',
   data1: computed(() => `${totalPredictions.value} total`),
-  label2: 'Resolved so far',
-  data2: computed(() => `${resolvedCount.value} resolved`),
-})
-
-// Advanced statistics
-const correctConfidenceAvg = computed(() => {
-  const correct = transformedPredictions.value.filter(
-    (p) => p.status === 'correct' && typeof p.confidence === 'number'
-  )
-  return correct.length
-    ? Math.round(
-        correct.reduce((sum, p) => sum + p.confidence, 0) / correct.length
-      )
-    : 0
-})
-
-const incorrectConfidenceAvg = computed(() => {
-  const incorrect = transformedPredictions.value.filter(
-    (p) => p.status === 'incorrect' && typeof p.confidence === 'number'
-  )
-  return incorrect.length
-    ? Math.round(
-        incorrect.reduce((sum, p) => sum + p.confidence, 0) / incorrect.length
-      )
-    : 0
-})
-
-// Calibration class helpers
-const _brierScoreClass = (score) => {
-  if (score < 0.2) return 'text-success'
-  if (score < 0.25) return 'text-primary'
-  return 'text-error'
-}
-
-const deltaClass = (delta) => {
-  const abs = Math.abs(delta)
-  if (abs <= 5) return 'text-success'
-  if (abs <= 10) return 'text-primary'
-  return 'text-error'
-}
-
-const accuracyClass = (accuracy) => {
-  if (accuracy >= 70) return 'text-success'
-  if (accuracy >= 50) return 'text-primary'
-  return 'text-error'
-}
-
-const positiveNegativeClass = (value) =>
-  value >= 0 ? 'text-success' : 'text-error'
-
-const resolutionsByYear = computed(() => {
-  const yearStats = {}
-  transformedPredictions.value
-    .filter((p) => p.resolved_date)
-    .forEach((p) => {
-      const year = new Date(p.resolved_date).getFullYear()
-      if (!yearStats[year]) yearStats[year] = { total: 0, correct: 0 }
-      yearStats[year].total++
-      if (p.status === 'correct') yearStats[year].correct++
-    })
-
-  return Object.entries(yearStats)
-    .map(([year, stats]) => ({
-      year: Number.parseInt(year),
-      ...stats,
-      accuracy: stats.total
-        ? Math.round((stats.correct / stats.total) * 100)
-        : 0,
-    }))
-    .sort((a, b) => b.year - a.year)
-})
-
-const calibrationData = computed(() => {
-  const ranges = [
-    { min: 90, max: 100, label: '90-100%' },
-    { min: 80, max: 89, label: '80-89%' },
-    { min: 70, max: 79, label: '70-79%' },
-    { min: 60, max: 69, label: '60-69%' },
-    { min: 50, max: 59, label: '50-59%' },
-    { min: 0, max: 49, label: '0-49%' },
-  ]
-
-  return ranges
-    .map((range) => {
-      const predictions = transformedPredictions.value.filter(
-        (p) =>
-          p.confidence >= range.min &&
-          p.confidence <= range.max &&
-          (p.status === 'correct' || p.status === 'incorrect')
-      )
-      const correct = predictions.filter((p) => p.status === 'correct').length
-      return {
-        ...range,
-        count: predictions.length,
-        accuracy: predictions.length
-          ? Math.round((correct / predictions.length) * 100)
-          : 0,
-        correct,
-        total: predictions.length,
-      }
-    })
-    .filter((range) => range.count > 0)
-})
-
-// TOC functionality
-const activeSection = ref('')
-const { tocTarget } = useTOC()
-
-const predictionToc = computed(() => {
-  const sections = []
-
-  // Active predictions section
-  if (activePredictions.value.length > 0) {
-    const active = activePredictions.value.map((p) => ({
-      slug: `prediction-${p.id}`,
-      text:
-        p.statement.length > 50
-          ? p.statement.slice(0, 47) + '...'
-          : p.statement,
-      status: p.status,
-      confidence: p.confidence,
-      type: 'prediction',
-      resolved: false,
-    }))
-    sections.push({ type: 'active', items: active })
-  }
-
-  // Resolved predictions section
-  if (resolvedPredictions.value.length > 0) {
-    const resolved = resolvedPredictions.value.map((p) => ({
-      slug: `prediction-${p.id}`,
-      text:
-        p.statement.length > 50
-          ? p.statement.slice(0, 47) + '...'
-          : p.statement,
-      status: p.status,
-      confidence: p.confidence,
-      type: 'prediction',
-      resolved: true,
-    }))
-    sections.push({ type: 'resolved', items: resolved })
-  }
-
-  return sections
-})
-
-onMounted(() => {
-  if (import.meta.client) {
-    const observer = new IntersectionObserver(
-      (entries) =>
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) activeSection.value = entry.target.id
-        }),
-      { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
-    )
-
-    nextTick(() => {
-      document
-        .querySelectorAll('[data-prediction-id]')
-        .forEach((card) => observer.observe(card))
-    })
-
-    onUnmounted(() => observer.disconnect())
-  }
+  label2: 'Brier Score',
+  data2: computed(() =>
+    calibration.value?.brier_score
+      ? formatBrierScore(calibration.value.brier_score)
+      : '—'
+  ),
 })
 </script>
-
-<style scoped>
-.confidence-cell {
-  @apply text-right font-bold text-2xl tabular-nums;
-}
-
-.confidence-cell.success {
-  @apply text-green-600 dark:text-green-500;
-}
-
-.confidence-cell.error {
-  @apply text-red-600 dark:text-red-500;
-}
-
-.accuracy-cell {
-  @apply text-right text-zinc-900 dark:text-zinc-100;
-  @apply font-bold text-2xl tabular-nums;
-}
-
-.delta-cell {
-  @apply py-1 text-right tabular-nums font-bold;
-}
-
-.table-th-left {
-  @apply text-left pb-2 text-zinc-900 dark:text-zinc-100 font-normal;
-}
-
-.table-th-right {
-  @apply text-right pb-2 text-zinc-900 dark:text-zinc-100 font-normal;
-}
-
-.table-muted-body {
-  @apply text-zinc-500 dark:text-zinc-500;
-}
-
-.section-label-transition {
-  @apply text-zinc-500 dark:text-zinc-500 mb-2;
-}
-
-.value-transition {
-  @apply font-bold text-2xl tabular-nums;
-}
-
-.calibration-table {
-  @apply w-full border-collapse font-mono text-xs;
-  @apply tracking-normal dark:tracking-wide;
-}
-
-.generated-at {
-  @apply text-zinc-400 dark:text-zinc-600;
-}
-
-.version-info {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 space-y-1 mb-4;
-}
-
-.toc-section-label {
-  @apply text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500 mb-2;
-}
-</style>

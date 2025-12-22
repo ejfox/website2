@@ -1,9 +1,9 @@
 /**
  * @file predictions/[id].ts
- * @description Handles prediction updates via PATCH method, modifying markdown frontmatter with resolution outcomes
- * @endpoint PATCH /api/predictions/{id}
- * @params id: string - Prediction ID (supports both flat and year-based structures)
- * @returns Updated prediction with outcome data including resolution status, correctness, and notes
+ * @description Handles prediction GET (single prediction with SSR markdown) and PATCH (resolution updates)
+ * @endpoint GET /api/predictions/{id} - Fetch single prediction with rendered markdown
+ * @endpoint PATCH /api/predictions/{id} - Update prediction resolution
+ * @params id: string - Prediction ID/slug (supports both flat and year-based structures)
  */
 import {
   defineEventHandler,
@@ -15,6 +15,12 @@ import {
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
 import matter from 'gray-matter'
+import { glob } from 'glob'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
+import remarkGfm from 'remark-gfm'
 
 const predictionsDir = join(process.cwd(), 'content/predictions')
 
@@ -119,6 +125,84 @@ export default defineEventHandler(async (event) => {
         statusCode: 404,
         statusMessage: 'Prediction not found',
       })
+    }
+  }
+
+  if (method === 'GET') {
+    // Fetch single prediction with SSR markdown
+    const filePath = await findPredictionFile(id)
+    if (!filePath) {
+      throw createError({ statusCode: 404, statusMessage: 'Prediction not found' })
+    }
+
+    const content = await fs.readFile(filePath, 'utf-8')
+    const { data, content: body } = matter(content)
+
+    // SSR markdown processing
+    const processor = unified()
+      .use(remarkParse)
+      .use(remarkGfm)
+      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeStringify, { allowDangerousHtml: true })
+
+    const evidenceHtml = body.trim() ? String(await processor.process(body)) : null
+    const resolutionHtml = data.resolution
+      ? String(await processor.process(data.resolution))
+      : null
+
+    // Enrich related predictions with statements
+    let relatedPredictions: Array<{
+      id: string
+      slug: string
+      statement: string
+      confidence: number
+      status?: string
+    }> = []
+
+    if (data.related?.length) {
+      const files = await glob('**/*.md', { cwd: predictionsDir })
+      const allPredictions = await Promise.all(
+        files.map(async (file) => {
+          const fp = join(predictionsDir, file)
+          const c = await fs.readFile(fp, 'utf-8')
+          const { data: d } = matter(c)
+          const fileId = file.replace(/\.md$/, '').replace(/\//g, '-')
+          return {
+            id: d.id || fileId,
+            slug: file.replace(/\.md$/, ''),
+            statement: d.statement,
+            confidence: d.confidence,
+            status: d.status,
+          }
+        })
+      )
+
+      relatedPredictions = data.related
+        .map((relId: string) => allPredictions.find((p) => p.id === relId || p.slug === relId))
+        .filter(Boolean)
+    }
+
+    const fileId = filePath
+      .replace(predictionsDir + '/', '')
+      .replace(/\.md$/, '')
+      .replace(/\//g, '-')
+
+    return {
+      id: data.id || fileId,
+      slug: filePath.replace(predictionsDir + '/', '').replace(/\.md$/, ''),
+      statement: data.statement,
+      confidence: data.confidence,
+      deadline: data.deadline,
+      status: data.status,
+      resolved: data.resolved ?? false,
+      resolved_date: data.resolved_date,
+      evidence: body.trim(),
+      evidenceHtml,
+      resolution: data.resolution,
+      resolutionHtml,
+      updates: data.updates || [],
+      relatedPredictions,
+      market: data.market,
     }
   }
 
