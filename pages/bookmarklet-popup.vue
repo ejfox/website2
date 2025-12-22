@@ -411,9 +411,9 @@ onMounted(async () => {
 
     suggestions.value = response
 
+    // Select ALL suggested tags by default so user can just hit save
     if (response.suggested_tags?.length) {
       selectedTags.value = response.suggested_tags
-        .slice(0, 3)
         .map((t) => (typeof t === 'string' ? t : t.tag))
     }
 
