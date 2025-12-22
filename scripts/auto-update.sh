@@ -5,7 +5,8 @@
 set -e
 
 # ABSOLUTE paths - $HOME doesn't expand in cron!
-export PATH="/home/debian/.nvm/versions/node/v20.19.0/bin:/usr/local/bin:/usr/bin:/bin"
+# Use Node 22 (required for Nuxt 4)
+export PATH="/home/debian/.nvm/versions/node/v22.21.1/bin:/usr/local/bin:/usr/bin:/bin"
 
 WEBSITE_DIR="/data2/website2"
 LOG_FILE="$WEBSITE_DIR/auto-update.log"
