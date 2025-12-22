@@ -1,101 +1,112 @@
 <template>
-  <div class="max-w-2xl mx-auto px-4 pt-16 pb-24">
+  <div class="max-w-xl mx-auto px-4 pt-12 pb-24 font-serif">
     <!-- Header -->
-    <header class="mb-12">
-      <h1 class="font-serif text-4xl">{{ formattedDate }}</h1>
-      <p
-        v-if="summaryText"
-        class="mt-3 text-zinc-600 dark:text-zinc-400"
-      >
+    <header class="mb-8 border-b border-zinc-200 dark:border-zinc-800 pb-4">
+      <h1 class="text-2xl tracking-tight">{{ formattedDate }}</h1>
+      <p v-if="summaryText" class="mt-1 text-sm text-zinc-500">
         {{ summaryText }}
       </p>
     </header>
 
     <!-- Loading -->
-    <div v-if="pending" class="text-zinc-400 text-sm">Loading...</div>
+    <p v-if="pending" class="text-zinc-400 text-sm font-mono">loading...</p>
 
     <!-- Error state -->
-    <div v-else-if="error" class="text-red-600 dark:text-red-400 text-sm">
-      Error loading data for this day.
-    </div>
+    <p v-else-if="error" class="text-sm">Error loading data for this day.</p>
 
     <!-- Empty state -->
-    <div
-      v-else-if="!data?.years?.length"
-      class="text-zinc-500 dark:text-zinc-400"
-    >
-      Nothing happened on this day. Yet.
-    </div>
+    <p v-else-if="!data?.years?.length" class="text-zinc-500 text-sm italic">
+      Nothing recorded on this day.
+    </p>
 
     <!-- Timeline by year -->
-    <div v-else class="space-y-12">
-      <section v-for="yearData in data.years" :key="yearData.year">
+    <div v-else>
+      <section
+        v-for="yearData in data.years"
+        :key="yearData.year"
+        class="mb-8"
+      >
         <!-- Year header -->
-        <div class="flex items-baseline gap-3 mb-6">
-          <span class="font-mono text-sm text-zinc-400">{{ yearData.year }}</span>
-          <span class="text-xs text-zinc-400">{{ yearsAgo(yearData.year) }}</span>
-        </div>
+        <h2 class="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-4">
+          {{ yearData.year }} <span class="text-zinc-300 dark:text-zinc-600">/</span> {{ yearsAgo(yearData.year) }}
+        </h2>
 
         <!-- Entries -->
-        <div class="space-y-6">
+        <dl class="space-y-4">
           <!-- Posts -->
           <template v-if="yearData.posts?.length">
-            <NuxtLink
-              v-for="post in yearData.posts"
-              :key="post.slug"
-              :to="`/blog/${post.slug}`"
-              class="block group"
-            >
-              <h3 class="font-serif text-lg group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                {{ post.title }}
-              </h3>
-              <p
-                v-if="post.dek"
-                class="text-sm text-zinc-500 dark:text-zinc-500 mt-1"
-              >
-                {{ post.dek }}
-              </p>
-            </NuxtLink>
+            <div v-for="post in yearData.posts" :key="post.slug">
+              <dt class="text-xs font-mono text-zinc-400 mb-0.5">post</dt>
+              <dd>
+                <NuxtLink
+                  :to="`/blog/${post.slug}`"
+                  class="underline decoration-zinc-300 dark:decoration-zinc-700 hover:decoration-zinc-500 underline-offset-2"
+                >
+                  {{ post.title }}
+                </NuxtLink>
+                <span v-if="post.dek" class="text-zinc-500 text-sm block mt-0.5">
+                  {{ post.dek }}
+                </span>
+              </dd>
+            </div>
           </template>
 
           <!-- Commits -->
           <template v-if="yearData.commits?.length">
-            <CommitCard
-              v-for="commit in yearData.commits"
-              :key="commit.sha"
-              :sha="commit.sha"
-              :message="commit.message"
-              :repo="commit.repo"
-              :date="commit.date"
-            />
+            <div v-for="commit in yearData.commits" :key="commit.sha">
+              <dt class="text-xs font-mono text-zinc-400 mb-0.5">
+                commit <span class="text-zinc-300 dark:text-zinc-600">/</span> {{ commit.repo }}
+              </dt>
+              <dd class="font-mono text-sm">
+                <code class="text-zinc-400 text-xs">{{ commit.sha }}</code>
+                {{ commit.message }}
+              </dd>
+            </div>
           </template>
 
           <!-- Tweets -->
           <template v-if="yearData.tweets?.length">
-            <TweetCard
-              v-for="tweet in yearData.tweets"
-              :id="tweet.id"
-              :key="tweet.id"
-              :text="tweet.text"
-              :date="tweet.date"
-              :reply-to="tweet.replyTo"
-              :favorites="tweet.favorites"
-              :retweets="tweet.retweets"
-            />
+            <div v-for="tweet in yearData.tweets" :key="tweet.id">
+              <dt class="text-xs font-mono text-zinc-400 mb-0.5">
+                tweet
+                <template v-if="tweet.replyTo">
+                  <span class="text-zinc-300 dark:text-zinc-600">/</span> re: @{{ tweet.replyTo }}
+                </template>
+              </dt>
+              <dd class="text-sm leading-relaxed whitespace-pre-wrap">{{ tweet.text }}</dd>
+              <dd
+                v-if="tweet.favorites > 0 || tweet.retweets > 0"
+                class="text-xs font-mono text-zinc-400 mt-1"
+              >
+                <span v-if="tweet.retweets > 0">{{ tweet.retweets }} rt</span>
+                <span v-if="tweet.retweets > 0 && tweet.favorites > 0"> / </span>
+                <span v-if="tweet.favorites > 0">{{ tweet.favorites }} fav</span>
+              </dd>
+            </div>
           </template>
 
           <!-- Scrobbles -->
           <template v-if="yearData.scrobbles?.length">
-            <ScrobbleCard
-              v-for="scrobble in yearData.scrobbles"
-              :key="scrobble.date"
-              :count="scrobble.count"
-              :top-tracks="scrobble.topTracks"
-              :top-artists="scrobble.topArtists"
-              :date="scrobble.date"
-            />
+            <div v-for="scrobble in yearData.scrobbles" :key="scrobble.date">
+              <dt class="text-xs font-mono text-zinc-400 mb-0.5">
+                music <span class="text-zinc-300 dark:text-zinc-600">/</span> {{ scrobble.count }} scrobbles
+              </dt>
+              <dd class="text-sm">
+                <span v-if="scrobble.topArtists?.length" class="text-zinc-500">
+                  {{ scrobble.topArtists.slice(0, 3).join(', ') }}
+                </span>
+              </dd>
+              <dd
+                v-if="scrobble.topTracks?.length"
+                class="text-xs text-zinc-400 mt-1 font-mono"
+              >
+                <span v-for="(track, i) in scrobble.topTracks.slice(0, 3)" :key="track">
+                  {{ i + 1 }}. {{ track }}<template v-if="i < Math.min(scrobble.topTracks.length, 3) - 1">, </template>
+                </span>
+              </dd>
+            </div>
           </template>
-        </div>
+        </dl>
       </section>
     </div>
   </div>
