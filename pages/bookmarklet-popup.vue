@@ -1,174 +1,187 @@
 <template>
-  <div class="min-h-screen bg-zinc-50 dark:bg-zinc-900 p-2">
-    <div class="max-w-lg mx-auto">
+  <div class="min-h-screen bg-zinc-50 dark:bg-zinc-950 p-4">
+    <div class="max-w-md mx-auto space-y-4">
       <!-- Header -->
-      <div class="mb-4">
-        <div class="flex items-center justify-between mb-2">
-          <h1 class="text-sm font-mono text-zinc-900 dark:text-zinc-100">
-            Enhanced Pinboard Save
-          </h1>
-          <button class="link-text-hover" @click="saveToPinboard(false)">
-            skip →
-          </button>
-        </div>
-
-        <!-- URL Display -->
-        <div :class="urlDisplayClass">
-          {{ pageUrl }}
-        </div>
-
-        <!-- Page Info -->
-        <div class="text-xs font-mono text-zinc-600 dark:text-zinc-400 mb-2">
-          {{ pageTitle }}
-        </div>
-
-        <!-- Description -->
-        <div
-          v-if="selectedText"
-          class="text-xs text-zinc-500 dark:text-zinc-500 italic"
+      <header class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3">
+        <span class="text-meta">PINBOARD</span>
+        <button
+          class="text-xs font-mono text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
+          @click="saveToPinboard(false)"
         >
-          "{{ selectedText.substring(0, 120)
-          }}{{ selectedText.length > 120 ? '...' : '' }}"
-        </div>
+          skip &rarr;
+        </button>
+      </header>
+
+      <!-- URL + Title -->
+      <div class="space-y-1">
+        <a
+          :href="pageUrl"
+          target="_blank"
+          class="text-xs font-mono text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 block truncate"
+          :title="pageUrl"
+        >
+          {{ truncateUrl(pageUrl, 50) }}
+        </a>
+        <h1 class="font-serif text-lg text-zinc-900 dark:text-zinc-100 leading-snug">
+          {{ pageTitle }}
+        </h1>
+        <p
+          v-if="selectedText"
+          class="text-sm text-zinc-500 dark:text-zinc-400 italic line-clamp-2"
+        >
+          "{{ selectedText }}"
+        </p>
       </div>
 
       <!-- Loading State -->
-      <div v-if="loading" class="text-center py-4">
-        <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400">
-          analyzing...
-        </div>
+      <div v-if="loading" class="py-8 text-center">
+        <div class="inline-block w-4 h-4 border-2 border-zinc-300 dark:border-zinc-600 border-t-zinc-900 dark:border-t-zinc-100 rounded-full animate-spin"></div>
+        <p class="text-xs font-mono text-zinc-400 mt-2">analyzing...</p>
       </div>
 
       <!-- Suggestions -->
-      <div v-else-if="suggestions" class="stack-4">
+      <div v-else-if="suggestions" class="space-y-4">
         <!-- Suggested Tags -->
-        <div v-if="suggestions.suggested_tags?.length">
-          <div class="text-xs font-mono text-zinc-900 dark:text-zinc-100 mb-2">
-            suggested:
+        <section v-if="suggestions.suggested_tags?.length">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-meta">SUGGESTED</span>
+            <div class="flex gap-2">
+              <button
+                class="text-xs font-mono text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                @click="selectAllSuggested"
+              >
+                +all
+              </button>
+              <button
+                class="text-xs font-mono text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+                @click="clearAllTags"
+              >
+                clear
+              </button>
+            </div>
           </div>
-          <div class="flex flex-wrap gap-0.5 mb-2">
+          <div class="flex flex-wrap gap-1.5">
             <button
               v-for="tagObj in suggestions.suggested_tags.slice(0, 8)"
               :key="typeof tagObj === 'string' ? tagObj : tagObj.tag"
               :class="[
-                'px-2 py-1 text-xs border transition-colors relative ' +
-                  'group font-mono',
-                getTagButtonClass(tagObj),
+                'px-2 py-1 text-xs font-mono rounded transition-all',
+                isTagSelected(tagObj)
+                  ? 'bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900'
+                  : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700'
               ]"
-              :title="typeof tagObj === 'object' ? tagObj.details : ''"
-              @click="
-                toggleTag(typeof tagObj === 'string' ? tagObj : tagObj.tag)
-              "
+              @click="toggleTag(typeof tagObj === 'string' ? tagObj : tagObj.tag)"
             >
-              <span class="flex items-center gap-0.5 font-mono">
-                {{ typeof tagObj === 'string' ? tagObj : tagObj.tag }}
-                <span
-                  v-if="typeof tagObj === 'object' && tagObj.frequency > 0"
-                  class="text-xs opacity-40 -ml-1"
-                >
-                  <sup>{{ tagObj.frequency }}</sup>
-                </span>
-                <span
-                  v-if="
-                    isOfficialTag(
-                      typeof tagObj === 'string' ? tagObj : tagObj.tag
-                    )
-                  "
-                  class="text-xs opacity-50"
-                >
-                  *
-                </span>
-              </span>
-
-              <!-- Tooltip -->
-              <div v-if="typeof tagObj === 'object'" class="tooltip-label">
-                {{ tagObj.details }}
-              </div>
+              {{ typeof tagObj === 'string' ? tagObj : tagObj.tag }}
+              <span
+                v-if="isOfficialTag(typeof tagObj === 'string' ? tagObj : tagObj.tag)"
+                class="opacity-50"
+              >*</span>
             </button>
           </div>
-          <div class="flex gap-2">
-            <button class="link-mono-xs" @click="selectAllSuggested">
-              all
-            </button>
-            <button class="link-mono-xs" @click="clearAllTags">clear</button>
-          </div>
-        </div>
+        </section>
 
-        <!-- Custom Tags Input -->
-        <div>
-          <div class="text-xs font-mono text-zinc-900 dark:text-zinc-100 mb-2">
-            custom:
-          </div>
+        <!-- Custom Tags -->
+        <section>
+          <label class="text-meta block mb-2">CUSTOM</label>
           <input
             v-model="customTagInput"
-            placeholder="space separated tags..."
-            class="input-sm"
-            @keydown.enter="addCustomTag"
-            @keydown.space="addCustomTag"
+            type="text"
+            placeholder="add tags..."
+            class="w-full px-3 py-2 text-sm font-mono
+                   bg-white dark:bg-zinc-900
+                   border border-zinc-200 dark:border-zinc-700
+                   rounded
+                   text-zinc-900 dark:text-zinc-100
+                   placeholder:text-zinc-400 dark:placeholder:text-zinc-600
+                   focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-500
+                   transition-shadow"
+            @keydown.enter.prevent="addCustomTag"
+            @keydown.space.prevent="addCustomTag"
           />
-          <div v-if="selectedTags.length" class="mt-2">
-            <div
-              class="text-xs font-mono text-zinc-600 dark:text-zinc-400 mb-2"
-            >
-              selected:
-            </div>
-            <div class="flex flex-wrap gap-0.5">
-              <span v-for="tag in selectedTags" :key="tag" class="tag-btn">
-                {{ tag }}
-                <button
-                  class="hover:opacity-70 text-xs"
-                  @click="removeTag(tag)"
-                >
-                  ×
-                </button>
-              </span>
-            </div>
+        </section>
+
+        <!-- Selected Tags -->
+        <section v-if="selectedTags.length">
+          <div class="flex items-center gap-2 mb-2">
+            <span class="text-meta">SELECTED</span>
+            <span class="text-xs font-mono text-zinc-400">{{ selectedTags.length }}</span>
           </div>
-        </div>
+          <div class="flex flex-wrap gap-1.5">
+            <span
+              v-for="tag in selectedTags"
+              :key="tag"
+              class="inline-flex items-center gap-1 px-2 py-1 text-xs font-mono
+                     bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900
+                     rounded"
+            >
+              {{ tag }}
+              <button
+                class="opacity-60 hover:opacity-100 transition-opacity"
+                @click="removeTag(tag)"
+              >
+                &times;
+              </button>
+            </span>
+          </div>
+        </section>
 
         <!-- Action Buttons -->
-        <div class="flex gap-2 mt-4">
-          <button class="btn-action" @click="saveToPinboard(true)">
-            save {{ selectedTags.length ? `(${selectedTags.length})` : '' }}
+        <div class="flex gap-2 pt-2 border-t border-zinc-200 dark:border-zinc-800">
+          <button
+            class="flex-1 px-4 py-2.5 text-sm font-mono
+                   bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900
+                   rounded
+                   hover:bg-zinc-700 dark:hover:bg-zinc-300
+                   active:scale-[0.98]
+                   transition-all"
+            @click="saveToPinboard(true)"
+          >
+            Save{{ selectedTags.length ? ` (${selectedTags.length})` : '' }}
           </button>
-          <button class="btn-secondary" @click="saveToPinboard(false)">
-            basic
+          <button
+            class="px-4 py-2.5 text-sm font-mono
+                   text-zinc-600 dark:text-zinc-400
+                   border border-zinc-200 dark:border-zinc-700
+                   rounded
+                   hover:border-zinc-400 dark:hover:border-zinc-500
+                   active:scale-[0.98]
+                   transition-all"
+            @click="saveToPinboard(false)"
+          >
+            Basic
           </button>
         </div>
 
-        <!-- Similar Items -->
-        <div v-if="suggestions.similar_scraps?.length" class="mt-4 opacity-50">
-          <div class="text-xs font-mono text-zinc-500 dark:text-zinc-400 mb-2">
-            similar
-            <span class="opacity-60">
-              ({{ suggestions.similar_scraps.length }})
-            </span>
-            :
-          </div>
-          <div class="stack-1">
-            <div
-              v-for="scrap in suggestions.similar_scraps.slice(0, 6)"
+        <!-- Similar Items (collapsed by default) -->
+        <details v-if="suggestions.similar_scraps?.length" class="group">
+          <summary class="text-xs font-mono text-zinc-400 cursor-pointer hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">
+            Similar ({{ suggestions.similar_scraps.length }})
+          </summary>
+          <div class="mt-2 space-y-1.5 pl-2 border-l border-zinc-200 dark:border-zinc-800">
+            <button
+              v-for="scrap in suggestions.similar_scraps.slice(0, 4)"
               :key="scrap.id"
-              class="scrap-link"
+              class="block w-full text-left text-xs text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors truncate"
               @click="copyTagsFromScrap(scrap)"
             >
-              {{ scrap.title?.substring(0, 240)
-              }}{{ scrap.title?.length > 240 ? '...' : '' }}
-              <span v-if="scrap.tags?.length" class="opacity-60">
-                [{{ scrap.tags.join(' ') }}]
+              {{ scrap.title }}
+              <span v-if="scrap.tags?.length" class="text-zinc-400">
+                [{{ scrap.tags.slice(0, 3).join(' ') }}]
               </span>
-            </div>
+            </button>
           </div>
-        </div>
+        </details>
       </div>
 
       <!-- Error State -->
-      <div v-else-if="error" class="py-4">
-        <div class="text-xs font-mono text-red-600 dark:text-red-400 mb-2">
-          error: {{ error }}
-        </div>
-        <button class="btn-secondary" @click="saveToPinboard(false)">
-          continue to pinboard
+      <div v-else-if="error" class="py-6 text-center space-y-3">
+        <p class="text-xs font-mono text-red-500 dark:text-red-400">{{ error }}</p>
+        <button
+          class="px-4 py-2 text-sm font-mono text-zinc-600 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-600 rounded hover:border-zinc-500 transition-colors"
+          @click="saveToPinboard(false)"
+        >
+          Continue to Pinboard
         </button>
       </div>
     </div>
@@ -184,70 +197,54 @@ const selectedTags = ref([])
 const customTagInput = ref('')
 const officialTags = ref([])
 
-// Get URL parameters
 const pageUrl = route.query.url || ''
 const pageTitle = route.query.title || 'Untitled'
 const pageText = route.query.text || ''
 const selectedText = route.query.description || ''
 const auth = route.query.auth || ''
 
-// URL display styling
-const urlDisplayClass =
-  'text-lg font-mono text-zinc-900 dark:text-zinc-100 mb-2 ' +
-  'break-all leading-tight'
-
-// Helper function to check if tag is in official list
-const isOfficialTag = (tag) => {
-  return officialTags.value.includes(tag)
+const truncateUrl = (url, max) => {
+  if (!url || url.length <= max) return url
+  try {
+    const parsed = new URL(url)
+    const path = parsed.pathname + parsed.search
+    const domain = parsed.hostname.replace('www.', '')
+    if (domain.length + path.length <= max) return domain + path
+    return domain + path.substring(0, max - domain.length - 3) + '...'
+  } catch {
+    return url.substring(0, max) + '...'
+  }
 }
 
-// Get dynamic class for tag button
-const getTagButtonClass = (tagObj) => {
+const isOfficialTag = (tag) => officialTags.value.includes(tag)
+
+const isTagSelected = (tagObj) => {
   const tag = typeof tagObj === 'string' ? tagObj : tagObj.tag
-  const isSelected = selectedTags.value.includes(tag)
-  return isSelected
-    ? 'bg-zinc-900 border-zinc-900 text-zinc-100 dark:bg-zinc-100 ' +
-        'dark:border-zinc-100 dark:text-zinc-900'
-    : 'bg-transparent border-zinc-300 text-zinc-700 ' +
-        'hover:border-zinc-900 dark:border-zinc-600 dark:text-zinc-300 ' +
-        'dark:hover:border-zinc-100'
+  return selectedTags.value.includes(tag)
 }
 
-// Fetch suggestions on mount
 onMounted(async () => {
-  // Validate required parameters before starting any fetches
   if (!pageUrl || !auth) {
     error.value = 'Missing required parameters'
     loading.value = false
     return
   }
 
-  // Load tags and suggestions in parallel
   try {
     const [tags, response] = await Promise.all([
-      $fetch('/tags.json').catch((err) => {
-        console.warn('Failed to load official tags:', err)
-        return []
-      }),
+      $fetch('/tags.json').catch(() => []),
       $fetch('/api/suggest', {
-        query: {
-          url: pageUrl,
-          title: pageTitle,
-          text: pageText,
-          auth: auth,
-        },
+        query: { url: pageUrl, title: pageTitle, text: pageText, auth },
       }),
     ])
 
     officialTags.value = tags || []
     suggestions.value = response
 
-    // Pre-select top 3 suggested tags
     if (response.suggested_tags?.length) {
-      const tagsToSelect = response.suggested_tags
+      selectedTags.value = response.suggested_tags
         .slice(0, 3)
-        .map((tagObj) => (typeof tagObj === 'string' ? tagObj : tagObj.tag))
-      selectedTags.value = tagsToSelect
+        .map((t) => (typeof t === 'string' ? t : t.tag))
     }
   } catch (err) {
     error.value = err.data?.message || 'Failed to load suggestions'
@@ -257,43 +254,29 @@ onMounted(async () => {
 })
 
 const toggleTag = (tag) => {
-  const index = selectedTags.value.indexOf(tag)
-  if (index > -1) {
-    selectedTags.value.splice(index, 1)
-  } else {
-    selectedTags.value.push(tag)
-  }
+  const idx = selectedTags.value.indexOf(tag)
+  if (idx > -1) selectedTags.value.splice(idx, 1)
+  else selectedTags.value.push(tag)
 }
 
 const removeTag = (tag) => {
-  const index = selectedTags.value.indexOf(tag)
-  if (index > -1) {
-    selectedTags.value.splice(index, 1)
-  }
+  const idx = selectedTags.value.indexOf(tag)
+  if (idx > -1) selectedTags.value.splice(idx, 1)
 }
 
 const addCustomTag = () => {
-  const tags = customTagInput.value
-    .trim()
-    .split(/\s+/)
-    .filter((tag) => tag.length > 0)
+  const tags = customTagInput.value.trim().split(/\s+/).filter(Boolean)
   tags.forEach((tag) => {
-    if (!selectedTags.value.includes(tag)) {
-      selectedTags.value.push(tag)
-    }
+    if (!selectedTags.value.includes(tag)) selectedTags.value.push(tag)
   })
   customTagInput.value = ''
 }
 
 const selectAllSuggested = () => {
-  if (suggestions.value?.suggested_tags) {
-    suggestions.value.suggested_tags.forEach((tagObj) => {
-      const tag = typeof tagObj === 'string' ? tagObj : tagObj.tag
-      if (!selectedTags.value.includes(tag)) {
-        selectedTags.value.push(tag)
-      }
-    })
-  }
+  suggestions.value?.suggested_tags?.forEach((tagObj) => {
+    const tag = typeof tagObj === 'string' ? tagObj : tagObj.tag
+    if (!selectedTags.value.includes(tag)) selectedTags.value.push(tag)
+  })
 }
 
 const clearAllTags = () => {
@@ -301,83 +284,32 @@ const clearAllTags = () => {
 }
 
 const copyTagsFromScrap = (scrap) => {
-  // Use allTags if available, fallback to tags (shared only)
-  const tagsToAdd = scrap.allTags || scrap.tags
-  if (tagsToAdd && Array.isArray(tagsToAdd)) {
-    tagsToAdd.forEach((tag) => {
-      if (!selectedTags.value.includes(tag)) {
-        selectedTags.value.push(tag)
-      }
-    })
-  }
+  const tags = scrap.allTags || scrap.tags || []
+  tags.forEach((tag) => {
+    if (!selectedTags.value.includes(tag)) selectedTags.value.push(tag)
+  })
 }
 
 const saveToPinboard = (useEnhancedTags = false) => {
-  const url = 'https://pinboard.in/add'
-  const params = new URLSearchParams({
-    url: pageUrl,
-    title: pageTitle,
-  })
-
-  if (selectedText) {
-    params.append('description', selectedText)
-  }
-
-  if (useEnhancedTags && selectedTags.value.length > 0) {
+  const params = new URLSearchParams({ url: pageUrl, title: pageTitle })
+  if (selectedText) params.append('description', selectedText)
+  if (useEnhancedTags && selectedTags.value.length) {
     params.append('tags', selectedTags.value.join(' '))
   }
-
-  // Open Pinboard in the same window to replace this popup
-  window.location.href = `${url}?${params.toString()}`
+  window.location.href = `https://pinboard.in/add?${params.toString()}`
 }
 
-// Use bookmarklet layout without sidebar
-definePageMeta({
-  layout: 'bookmarklet',
-})
+definePageMeta({ layout: 'bookmarklet' })
 
 usePageSeo({
   title: 'Pinboard enhancement popup',
-  description:
-    'Lightweight popup to capture a page, selection, and smart tags before saving to Pinboard.',
+  description: 'Lightweight popup for smart tagging before saving to Pinboard.',
   type: 'website',
   section: 'Tools',
-  tags: ['Pinboard', 'Bookmarklet', 'Tags', 'Automation'],
-  label1: 'Mode',
-  data1: 'Popup tagging workflow',
+  tags: ['Pinboard', 'Bookmarklet', 'Tags'],
 })
 
 useHead({
   meta: [{ name: 'robots', content: 'noindex, nofollow' }],
 })
 </script>
-
-<style scoped>
-/* Custom scrollbar for better UX */
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(156, 163, 175, 0.5);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(156, 163, 175, 0.7);
-}
-
-@media (prefers-color-scheme: dark) {
-  ::-webkit-scrollbar-thumb {
-    background: rgba(75, 85, 99, 0.5);
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    background: rgba(75, 85, 99, 0.7);
-  }
-}
-</style>
