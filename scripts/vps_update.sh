@@ -37,9 +37,10 @@ if [ "$NO_BUILD" = true ]; then
     echo "   Skipping build (--no-build flag)"
 else
     echo "🔨 Building project..."
-    # Clean build for production
-    rm -rf .nuxt .output
-    yarn build
+    # CRITICAL: Clear ALL build caches to prevent wrong Nitro preset
+    rm -rf .nuxt .output node_modules/.cache
+    # CRITICAL: Explicitly set node-server preset (Docker needs server files)
+    NITRO_PRESET=node-server yarn build
 fi
 
 echo "🐳 Restarting Docker containers..."

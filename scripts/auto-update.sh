@@ -62,11 +62,13 @@ if [ -n "$CONTENT_CHANGED" ]; then
   PROCESS_PID=$!
 fi
 
-# OPT 3: Incremental build
+# OPT 3: Clean build with correct preset
 log "🔨 Build..."
 STEP_START=$(date +%s)
-rm -rf .output
-NODE_ENV=production yarn build --quiet >> "$LOG_FILE" 2>&1 || { log "ERROR: Build failed"; exit 1; }
+# CRITICAL: Clear ALL build caches to prevent wrong Nitro preset
+rm -rf .nuxt .output node_modules/.cache
+# CRITICAL: Explicitly set node-server preset (Docker needs server files)
+NITRO_PRESET=node-server NODE_ENV=production yarn build --quiet >> "$LOG_FILE" 2>&1 || { log "ERROR: Build failed"; exit 1; }
 BUILD_TIME=$(($(date +%s) - STEP_START))
 log "   ${BUILD_TIME}s"
 
@@ -76,15 +78,13 @@ if [ -n "$CONTENT_CHANGED" ]; then
   PROCESS_TIME=$(($(date +%s) - STEP_START))
 fi
 
-# OPT 4: Smart reload
-log "⚡ Reload..."
+# OPT 4: Docker rebuild (always needed - .output is copied into image)
+log "🐳 Docker..."
 STEP_START=$(date +%s)
-if [ -n "$DEPS_CHANGED" ]; then
-  docker-compose down >> "$LOG_FILE" 2>&1
-  docker-compose up -d --build >> "$LOG_FILE" 2>&1
-else
-  docker-compose restart >> "$LOG_FILE" 2>&1
-fi
+# Always rebuild - the Dockerfile copies .output/ into the image
+# A restart won't pick up the new build files
+docker-compose build --quiet >> "$LOG_FILE" 2>&1 || { log "ERROR: Docker build failed"; exit 1; }
+docker-compose up -d >> "$LOG_FILE" 2>&1 || { log "ERROR: Docker up failed"; exit 1; }
 RELOAD_TIME=$(($(date +%s) - STEP_START))
 log "   ${RELOAD_TIME}s"
 

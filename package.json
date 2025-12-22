@@ -39,7 +39,11 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "start": "node .output/server/index.mjs",
-    "clean": "rm -rf .nuxt dist .output content/processed/*"
+    "clean": "rm -rf .nuxt dist .output node_modules/.cache",
+    "clean:all": "rm -rf .nuxt dist .output node_modules/.cache content/processed/*",
+    "build:docker": "NITRO_PRESET=node-server yarn build",
+    "deploy": "bash scripts/deploy.sh",
+    "deploy:quick": "git push origin main && echo '⏳ Auto-deploy will run via cron'"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.10.0",
