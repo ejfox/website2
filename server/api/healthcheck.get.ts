@@ -5,19 +5,17 @@
  * @returns Health status object with system metrics, version info, and service status (returns 503 if degraded, 500 if error)
  */
 import { setResponseStatus } from 'h3'
+import { readFileSync } from 'node:fs'
+
+let buildCommit = 'unknown'
+try {
+  const buildInfo = JSON.parse(readFileSync('.build-info.json', 'utf8'))
+  buildCommit = buildInfo.commit || 'unknown'
+} catch {}
 
 export default defineEventHandler(async (event) => {
   try {
-    // Get version info
-    let commit = 'unknown'
-    try {
-      const { execSync } = await import('node:child_process')
-      commit = execSync('git rev-parse HEAD', { encoding: 'utf8' })
-        .trim()
-        .substring(0, 8)
-    } catch {
-      // Git not available
-    }
+    const commit = buildCommit
 
     // Basic health checks
     const health = {
