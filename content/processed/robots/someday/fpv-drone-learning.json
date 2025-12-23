@@ -21,8 +21,127 @@
     },
     "links": 0,
     "codeBlocks": 2,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 2
+    },
+    "toc": [
+      {
+        "text": "FPV Simulator Training Program",
+        "slug": "fpv-simulator-training-program",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Setting Up for Uncrashed",
+            "slug": "setting-up-for-uncrashed",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Core Philosophy",
+            "slug": "core-philosophy",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Week 0: Foundation Building",
+            "slug": "week-0-foundation-building",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Week 1-2: Basic Control Development",
+            "slug": "week-1-2-basic-control-development",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Week 3-4: Orientation and Movement",
+            "slug": "week-3-4-orientation-and-movement",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Week 5-6: Advanced Control Development",
+            "slug": "week-5-6-advanced-control-development",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Week 7-8: Racing and Technical Skills",
+            "slug": "week-7-8-racing-and-technical-skills",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Documentation System",
+            "slug": "documentation-system",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Progress Assessment",
+            "slug": "progress-assessment",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Essential Concept Flashcards",
+            "slug": "essential-concept-flashcards",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Uncrashed Basic Benchmark Course",
+        "slug": "uncrashed-basic-benchmark-course",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Course Design Instructions",
+            "slug": "course-design-instructions",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Training Protocol",
+            "slug": "training-protocol",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Progress Tracking",
+            "slug": "progress-tracking",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Progression Metrics",
+            "slug": "progression-metrics",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Using Built-in Metrics",
+            "slug": "using-built-in-metrics",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Training Integration",
+            "slug": "training-integration",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Building on Success",
+            "slug": "building-on-success",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/robots/someday/fpv-drone-learning.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

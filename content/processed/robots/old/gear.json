@@ -21,8 +21,79 @@
     },
     "links": 1,
     "codeBlocks": 1,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 2
+    },
+    "toc": [
+      {
+        "text": "Primary Systems",
+        "slug": "primary-systems",
+        "level": "h2",
+        "children": [
+          {
+            "text": "CONTAINER HIERARCHY",
+            "slug": "container-hierarchy",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "CAPABILITY CLUSTERS",
+            "slug": "capability-clusters",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Fox's Circle of Accessibility",
+        "slug": "foxs-circle-of-accessibility",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Core Principles",
+            "slug": "core-principles",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Scoring System",
+            "slug": "scoring-system",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Tier Classification Formula",
+            "slug": "tier-classification-formula",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Tier Definitions",
+            "slug": "tier-definitions",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Modifiers and Special Considerations",
+            "slug": "modifiers-and-special-considerations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Application Process",
+            "slug": "application-process",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Version Notes",
+            "slug": "version-notes",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/robots/old/gear.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

@@ -1,6 +1,6 @@
 {
   "html": "<h2 class=\"\" id=\"creating-opengraph-images-with-generative-art\">Creating Opengraph Images with Generative Art</h2>",
-  "title": "Og Images With Genart",
+  "title": "Creating Opengraph Images with Generative Art",
   "metadata": {
     "dek": "In which",
     "inprogress": true,
@@ -24,8 +24,17 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Creating Opengraph Images with Generative Art",
+        "slug": "creating-opengraph-images-with-generative-art",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/og-images-with-genart.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

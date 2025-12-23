@@ -1,6 +1,6 @@
 {
   "html": "<h2 class=\"\" id=\"title\">Title</h2>\n<p class=\"\"><strong class=\"\">Assemblymember Sarahana Shrestha</strong></p>\n<p class=\"\"><strong class=\"\">For The Many</strong></p>\n<p class=\"\"><strong class=\"\">Novo Foundation</strong></p>",
-  "title": "Hudson Valley Politics",
+  "title": "Title",
   "metadata": {
     "dek": "In which",
     "inprogress": true,
@@ -20,8 +20,17 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Title",
+        "slug": "title",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/hudson-valley-politics.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

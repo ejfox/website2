@@ -1,6 +1,6 @@
 {
   "html": "<h2 class=\"\" id=\"building-a-vps-for-business-and-pleasure\">Building A VPS For Business and Pleasure</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Smallweb</li>\n<li class=\"\">Caddy</li>\n<li class=\"\">DNS</li>\n<li class=\"\">Cloudflare Tunnel</li>\n<li class=\"\">PM2</li>\n<li class=\"\">SSH Certificates / Termius</li>\n<li class=\"\">Loki</li>\n<li class=\"\">Grafana</li>\n<li class=\"\">Uptime Kuma</li>\n<li class=\"\">n8n</li>\n</ul>",
-  "title": "Vps Micro Endpoints Smallweb",
+  "title": "Building A VPS For Business and Pleasure",
   "metadata": {
     "date": "2025-01-05T17:25:05.000Z",
     "modified": "2025-01-27T04:35:12.000Z",
@@ -19,8 +19,17 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Building A VPS For Business and Pleasure",
+        "slug": "building-a-vps-for-business-and-pleasure",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/vps-micro-endpoints-smallweb.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

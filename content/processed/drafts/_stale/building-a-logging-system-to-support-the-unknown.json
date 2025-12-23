@@ -1,6 +1,6 @@
 {
   "html": "<h2 class=\"\" id=\"building-a-vps-to-support-the-unknown\">Building a VPS to support the unknown</h2>",
-  "title": "Building A Logging System To Support The Unknown",
+  "title": "Building a VPS to support the unknown",
   "metadata": {
     "date": "2024-12-30T04:22:33.000Z",
     "modified": "2025-01-14T15:04:30.000Z",
@@ -17,8 +17,17 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Building a VPS to support the unknown",
+        "slug": "building-a-vps-to-support-the-unknown",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/building-a-logging-system-to-support-the-unknown.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

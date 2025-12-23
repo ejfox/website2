@@ -21,8 +21,114 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "MORNING RADIO 📻",
+        "slug": "morning-radio-",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Core User Context (Direct Quotes)",
+            "slug": "core-user-context-direct-quotes",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Technical Foundations",
+            "slug": "technical-foundations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Existing Systems Integration",
+            "slug": "existing-systems-integration",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Documentation & Publishing Flow",
+            "slug": "documentation--publishing-flow",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Current Pain Points",
+            "slug": "current-pain-points",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Interaction Pattern Considerations",
+            "slug": "interaction-pattern-considerations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "System Requirements",
+            "slug": "system-requirements",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Future Expansion Potential",
+            "slug": "future-expansion-potential",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Core Experience 🌅",
+            "slug": "core-experience-",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Interaction Patterns 🎛",
+            "slug": "interaction-patterns-",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Content \"Channels\" 📡",
+            "slug": "content-channels-",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Documentation Flow",
+            "slug": "documentation-flow",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Success Metrics",
+            "slug": "success-metrics",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "V0.0.1 (1 week) - \"The First Song\"",
+            "slug": "v001-1-week---the-first-song",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "V0.0.5 (3 months) - \"Finding the Rhythm\"",
+            "slug": "v005-3-months---finding-the-rhythm",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "V0.1.0 (1 year) - \"Full Morning Show\"",
+            "slug": "v010-1-year---full-morning-show",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/robots/someday/morning-radio.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

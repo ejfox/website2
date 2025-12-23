@@ -32,6 +32,12 @@
             "slug": "code--creations",
             "level": "h3",
             "children": []
+          },
+          {
+            "text": "THE EPIC QUEST TO DEPLOY A WEBSITE: A Tale of Code and Chaos",
+            "slug": "the-epic-quest-to-deploy-a-website-a-tale-of-code-and-chaos",
+            "level": "h3",
+            "children": []
           }
         ]
       }

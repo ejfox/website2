@@ -1,6 +1,6 @@
 {
   "html": "<h2 class=\"\" id=\"elon-musk-is-a-bad-man\">Elon Musk is a Bad Man</h2>",
-  "title": "Elon Musk Is A Bad Man",
+  "title": "Elon Musk is a Bad Man",
   "metadata": {
     "dek": "In which we explore the numerous reasons why the billionaire son of an apartheid Emerald mine owner is not a man to be admired",
     "inprogress": true,
@@ -23,8 +23,17 @@
     },
     "links": 0,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Elon Musk is a Bad Man",
+        "slug": "elon-musk-is-a-bad-man",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/elon-musk-is-a-bad-man.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

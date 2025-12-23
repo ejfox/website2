@@ -1,51 +1,5 @@
 [
   {
-    "slug": "CLAUDE",
-    "title": "CLAUDE",
-    "type": "post",
-    "toc": [],
-    "metadata": {
-      "words": 255,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 1,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/CLAUDE.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "CLAUDE"
-    }
-  },
-  {
-    "slug": "WIKILINK-OPPORTUNITIES",
-    "title": "WIKILINK OPPORTUNITIES",
-    "type": "post",
-    "toc": [],
-    "metadata": {
-      "words": 1029,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 40,
-      "codeBlocks": 23,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/WIKILINK-OPPORTUNITIES.md",
-      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
-      "slug": "WIKILINK-OPPORTUNITIES"
-    }
-  },
-  {
     "slug": "2010/photography-2008-2010",
     "title": "Photography 2008-2010",
     "date": "2010-01-01T18:44:00-05:00",
@@ -94,7 +48,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2010/photography-2008-2010.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2010/photography-2008-2010.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2010/photography-2008-2010"
     }
@@ -239,7 +193,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2013/the-magazine-experience-on-the-web.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2013/the-magazine-experience-on-the-web.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2013/the-magazine-experience-on-the-web"
     }
@@ -295,7 +249,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2015/2015-in-review.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2015/2015-in-review.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2015/2015-in-review"
     }
@@ -357,7 +311,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2016/2016-in-review.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2016/2016-in-review.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2016/2016-in-review"
     }
@@ -603,7 +557,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2016/video-mixes.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2016/video-mixes.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2016/video-mixes"
     }
@@ -661,7 +615,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2017/2017-in-review.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2017/2017-in-review.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2017/2017-in-review"
     }
@@ -719,7 +673,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2018/2018-in-review.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2018/2018-in-review.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2018/2018-in-review"
     }
@@ -791,7 +745,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2018/watercolor-sketching-in-nyc.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2018/watercolor-sketching-in-nyc.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2018/watercolor-sketching-in-nyc"
     }
@@ -928,7 +882,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2018/work-view-life-view.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2018/work-view-life-view.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2018/work-view-life-view"
     }
@@ -985,7 +939,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/climate-strike-nyc.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2019/climate-strike-nyc.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/climate-strike-nyc"
     }
@@ -1088,7 +1042,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/generative-music-iteration.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2019/generative-music-iteration.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/generative-music-iteration"
     }
@@ -1149,7 +1103,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/hong-kong-protest-techniques.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2019/hong-kong-protest-techniques.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/hong-kong-protest-techniques"
     }
@@ -1260,7 +1214,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/how-i-prototype-apps-and-dataviz-quickly-in-2019.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2019/how-i-prototype-apps-and-dataviz-quickly-in-2019.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/how-i-prototype-apps-and-dataviz-quickly-in-2019"
     }
@@ -1337,7 +1291,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/linocut-printing-guide.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2019/linocut-printing-guide.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/linocut-printing-guide"
     }
@@ -1396,7 +1350,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/movies-to-watch.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2019/movies-to-watch.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/movies-to-watch"
     }
@@ -1453,7 +1407,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/step-zero.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2019/step-zero.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/step-zero"
     }
@@ -1508,7 +1462,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/taking-things-for-granted.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2019/taking-things-for-granted.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/taking-things-for-granted"
     }
@@ -1569,7 +1523,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/the-internet-was-built-to-be-hacked.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2019/the-internet-was-built-to-be-hacked.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/the-internet-was-built-to-be-hacked"
     }
@@ -1628,7 +1582,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/two-reasons.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2019/two-reasons.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/two-reasons"
     }
@@ -1737,7 +1691,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2019/unsecured-ice-cameras.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2019/unsecured-ice-cameras.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2019/unsecured-ice-cameras"
     }
@@ -1863,7 +1817,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2020/coding-livestreams.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2020/coding-livestreams.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2020/coding-livestreams"
     }
@@ -1922,7 +1876,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2020/online-brigades-gaming-twitter.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2020/online-brigades-gaming-twitter.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2020/online-brigades-gaming-twitter"
     }
@@ -2109,7 +2063,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2020/things-ive-learned-about-elections.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2020/things-ive-learned-about-elections.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2020/things-ive-learned-about-elections"
     }
@@ -2207,7 +2161,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2021/creative-coding.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2021/creative-coding.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2021/creative-coding"
     }
@@ -2271,7 +2225,7 @@
           "children": []
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2021/lack-of-data.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2021/lack-of-data.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2021/lack-of-data"
     }
@@ -2441,7 +2395,7 @@
           ]
         }
       ],
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2021/nypd-ccrb-complaint-clusters.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2021/nypd-ccrb-complaint-clusters.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2021/nypd-ccrb-complaint-clusters"
     }
@@ -2567,7 +2521,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/art-setup.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2022/art-setup.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/art-setup"
     }
@@ -2620,7 +2574,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/election-night-2018.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2022/election-night-2018.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/election-night-2018"
     }
@@ -2740,7 +2694,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/experiments-with-live-looping-performance.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2022/experiments-with-live-looping-performance.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/experiments-with-live-looping-performance"
     }
@@ -2848,7 +2802,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/food.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2022/food.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/food"
     }
@@ -2938,7 +2892,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/joy-driven-development.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2022/joy-driven-development.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/joy-driven-development"
     }
@@ -3156,7 +3110,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/the-art-of-coding.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2022/the-art-of-coding.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/the-art-of-coding"
     }
@@ -3259,7 +3213,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2022/the-studio.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2022/the-studio.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2022/the-studio"
     }
@@ -3387,7 +3341,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2023/camera-setup.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2023/camera-setup.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2023/camera-setup"
     }
@@ -3498,7 +3452,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2023/crypto-ai-colonization.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2023/crypto-ai-colonization.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2023/crypto-ai-colonization"
     }
@@ -3573,7 +3527,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2023/livestreaming.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2023/livestreaming.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2023/livestreaming"
     }
@@ -3662,7 +3616,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2023/starting-a-studio-introducing-room-302.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2023/starting-a-studio-introducing-room-302.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2023/starting-a-studio-introducing-room-302"
     }
@@ -3804,7 +3758,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2023/why-i-love-obsidian.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2023/why-i-love-obsidian.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2023/why-i-love-obsidian"
     }
@@ -4199,7 +4153,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2024/2024.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2024/2024.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2024/2024"
     }
@@ -4356,7 +4310,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2024/my-modern-scrapbook.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2024/my-modern-scrapbook.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2024/my-modern-scrapbook"
     }
@@ -4516,7 +4470,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2024/the-mystery-of-peter-todd.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2024/the-mystery-of-peter-todd.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2024/the-mystery-of-peter-todd"
     }
@@ -4628,7 +4582,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/hidden-networks-of-warmth.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2025/hidden-networks-of-warmth.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2025/hidden-networks-of-warmth"
     }
@@ -4684,7 +4638,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/mcp-meta-mapping.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2025/mcp-meta-mapping.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2025/mcp-meta-mapping"
     }
@@ -4794,7 +4748,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/owning-my-cloudinary-photos.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2025/owning-my-cloudinary-photos.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2025/owning-my-cloudinary-photos"
     }
@@ -4927,7 +4881,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/paramilitary-telegram-leaks-001.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2025/paramilitary-telegram-leaks-001.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2025/paramilitary-telegram-leaks-001"
     }
@@ -5070,7 +5024,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/personal-apis.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2025/personal-apis.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2025/personal-apis"
     }
@@ -5191,9 +5145,407 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/blog/2025/using-radios.md",
+      "sourcePath": "../../../../../code/website2/content/blog/2025/using-radios.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "2025/using-radios"
+    }
+  },
+  {
+    "slug": "CLAUDE",
+    "title": "Claude Code Notes",
+    "type": "post",
+    "toc": [
+      {
+        "text": "Claude Code Notes",
+        "slug": "claude-code-notes",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Video Script Format",
+            "slug": "video-script-format",
+            "level": "h2",
+            "children": [
+              {
+                "text": "Structure",
+                "slug": "structure",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Key Principles",
+                "slug": "key-principles",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Examples",
+                "slug": "examples",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "words": 255,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 1,
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "Claude Code Notes",
+          "slug": "claude-code-notes",
+          "level": "h1",
+          "children": [
+            {
+              "text": "Video Script Format",
+              "slug": "video-script-format",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "Structure",
+                  "slug": "structure",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Key Principles",
+                  "slug": "key-principles",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Examples",
+                  "slug": "examples",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/CLAUDE.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "CLAUDE"
+    }
+  },
+  {
+    "slug": "WIKILINK-OPPORTUNITIES",
+    "title": "Wikilink Opportunities: Connecting the Thread-Weaving Posts",
+    "type": "post",
+    "toc": [
+      {
+        "text": "Wikilink Opportunities: Connecting the Thread-Weaving Posts",
+        "slug": "wikilink-opportunities-connecting-the-thread-weaving-posts",
+        "level": "h1",
+        "children": [
+          {
+            "text": "How to Use This Guide",
+            "slug": "how-to-use-this-guide",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "personal-apis.md → quantified-self-as-archaeology.md",
+            "slug": "personal-apismd--quantified-self-as-archaeologymd",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "hidden-networks-of-warmth.md → Multiple Connections",
+            "slug": "hidden-networks-of-warmthmd--multiple-connections",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "project-notes/scrapbook.md → Multiple Connections",
+            "slug": "project-notesscrapbookmd--multiple-connections",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Connecting New Robot Posts to Each Other",
+            "slug": "connecting-new-robot-posts-to-each-other",
+            "level": "h2",
+            "children": [
+              {
+                "text": "In scrapbook-core-digital-memory.md",
+                "slug": "in-scrapbook-core-digital-memorymd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In delete-driven-development.md",
+                "slug": "in-delete-driven-developmentmd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In vulpes-theme-lab-terminal-aesthetics.md",
+                "slug": "in-vulpes-theme-lab-terminal-aestheticsmd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In logbook-analysis-ten-years-tasks.md",
+                "slug": "in-logbook-analysis-ten-years-tasksmd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In coachartie-multi-interface-ai.md",
+                "slug": "in-coachartie-multi-interface-aimd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In connectology-network-thinking.md",
+                "slug": "in-connectology-network-thinkingmd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In hexagram-news-dual-views.md",
+                "slug": "in-hexagram-news-dual-viewsmd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In morning-radio-ios-curation.md",
+                "slug": "in-morning-radio-ios-curationmd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In website2-obsidian-pipeline.md",
+                "slug": "in-website2-obsidian-pipelinemd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In meta-patterns-100-projects.md",
+                "slug": "in-meta-patterns-100-projectsmd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In mcp-purge-story.md",
+                "slug": "in-mcp-purge-storymd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In scrapers-consolidation.md",
+                "slug": "in-scrapers-consolidationmd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In minimalism-as-technical-practice.md",
+                "slug": "in-minimalism-as-technical-practicemd",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "In preparation-as-practice.md",
+                "slug": "in-preparation-as-practicemd",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "General Wikilink Principles",
+            "slug": "general-wikilink-principles",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Quick-Add Checklist",
+            "slug": "quick-add-checklist",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "After Adding Links",
+            "slug": "after-adding-links",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "words": 1029,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 40,
+      "codeBlocks": 23,
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "Wikilink Opportunities: Connecting the Thread-Weaving Posts",
+          "slug": "wikilink-opportunities-connecting-the-thread-weaving-posts",
+          "level": "h1",
+          "children": [
+            {
+              "text": "How to Use This Guide",
+              "slug": "how-to-use-this-guide",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "personal-apis.md → quantified-self-as-archaeology.md",
+              "slug": "personal-apismd--quantified-self-as-archaeologymd",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "hidden-networks-of-warmth.md → Multiple Connections",
+              "slug": "hidden-networks-of-warmthmd--multiple-connections",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "project-notes/scrapbook.md → Multiple Connections",
+              "slug": "project-notesscrapbookmd--multiple-connections",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "Connecting New Robot Posts to Each Other",
+              "slug": "connecting-new-robot-posts-to-each-other",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "In scrapbook-core-digital-memory.md",
+                  "slug": "in-scrapbook-core-digital-memorymd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In delete-driven-development.md",
+                  "slug": "in-delete-driven-developmentmd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In vulpes-theme-lab-terminal-aesthetics.md",
+                  "slug": "in-vulpes-theme-lab-terminal-aestheticsmd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In logbook-analysis-ten-years-tasks.md",
+                  "slug": "in-logbook-analysis-ten-years-tasksmd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In coachartie-multi-interface-ai.md",
+                  "slug": "in-coachartie-multi-interface-aimd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In connectology-network-thinking.md",
+                  "slug": "in-connectology-network-thinkingmd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In hexagram-news-dual-views.md",
+                  "slug": "in-hexagram-news-dual-viewsmd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In morning-radio-ios-curation.md",
+                  "slug": "in-morning-radio-ios-curationmd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In website2-obsidian-pipeline.md",
+                  "slug": "in-website2-obsidian-pipelinemd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In meta-patterns-100-projects.md",
+                  "slug": "in-meta-patterns-100-projectsmd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In mcp-purge-story.md",
+                  "slug": "in-mcp-purge-storymd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In scrapers-consolidation.md",
+                  "slug": "in-scrapers-consolidationmd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In minimalism-as-technical-practice.md",
+                  "slug": "in-minimalism-as-technical-practicemd",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "In preparation-as-practice.md",
+                  "slug": "in-preparation-as-practicemd",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "General Wikilink Principles",
+              "slug": "general-wikilink-principles",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "Quick-Add Checklist",
+              "slug": "quick-add-checklist",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "After Adding Links",
+              "slug": "after-adding-links",
+              "level": "h2",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/WIKILINK-OPPORTUNITIES.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "WIKILINK-OPPORTUNITIES"
     }
   },
   {
@@ -5231,7 +5583,7 @@
   },
   {
     "slug": "drafts/_stale/building-a-logging-system-to-support-the-unknown",
-    "title": "Building A Logging System To Support The Unknown",
+    "title": "Building a VPS to support the unknown",
     "date": "2024-12-30T04:22:33.000Z",
     "type": "post",
     "modified": "2025-01-14T15:04:30.000Z",
@@ -5239,7 +5591,14 @@
       "infrastructure",
       "tools"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Building a VPS to support the unknown",
+        "slug": "building-a-vps-to-support-the-unknown",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "date": "2024-12-30T04:22:33.000Z",
       "modified": "2025-01-14T15:04:30.000Z",
@@ -5256,8 +5615,17 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Building a VPS to support the unknown",
+          "slug": "building-a-vps-to-support-the-unknown",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/building-a-logging-system-to-support-the-unknown.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5328,7 +5696,7 @@
   },
   {
     "slug": "drafts/_stale/core-principles",
-    "title": "Core Principles",
+    "title": "Core Principles for Making Things on the Internet",
     "date": "2024-04-20T18:42:43.000Z",
     "type": "post",
     "hidden": false,
@@ -5344,7 +5712,45 @@
       "philosophy",
       "creativity"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Core Principles for Making Things on the Internet",
+        "slug": "core-principles-for-making-things-on-the-internet",
+        "level": "h1",
+        "children": [
+          {
+            "text": "1. I always tell the truth, no matter what",
+            "slug": "1-i-always-tell-the-truth-no-matter-what",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "2. I follow journalistic ethics, show my work, stay verifiable and repeatable",
+            "slug": "2-i-follow-journalistic-ethics-show-my-work-stay-verifiable-and-repeatable",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "3. I practice mutual aid: from each according to their ability, to each according to their need",
+            "slug": "3-i-practice-mutual-aid-from-each-according-to-their-ability-to-each-according-to-their-need",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "4. I document everything, work in public, stay vulnerable even when it's dangerous",
+            "slug": "4-i-document-everything-work-in-public-stay-vulnerable-even-when-its-dangerous",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "5. The world is editable",
+            "slug": "5-the-world-is-editable",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "date": "2024-04-20T18:42:43.000Z",
       "modified": "2025-08-29T16:45:00.000Z",
@@ -5369,8 +5775,48 @@
       },
       "links": 1,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "Core Principles for Making Things on the Internet",
+          "slug": "core-principles-for-making-things-on-the-internet",
+          "level": "h1",
+          "children": [
+            {
+              "text": "1. I always tell the truth, no matter what",
+              "slug": "1-i-always-tell-the-truth-no-matter-what",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "2. I follow journalistic ethics, show my work, stay verifiable and repeatable",
+              "slug": "2-i-follow-journalistic-ethics-show-my-work-stay-verifiable-and-repeatable",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "3. I practice mutual aid: from each according to their ability, to each according to their need",
+              "slug": "3-i-practice-mutual-aid-from-each-according-to-their-ability-to-each-according-to-their-need",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "4. I document everything, work in public, stay vulnerable even when it's dangerous",
+              "slug": "4-i-document-everything-work-in-public-stay-vulnerable-even-when-its-dangerous",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "5. The world is editable",
+              "slug": "5-the-world-is-editable",
+              "level": "h2",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/core-principles.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5379,7 +5825,7 @@
   },
   {
     "slug": "drafts/_stale/cursor-rules-and-smallbot",
-    "title": "Cursor Rules And Smallbot",
+    "title": "Exploring Cursor Rules and Smallbot",
     "date": "2025-02-21T17:00:05.000Z",
     "type": "post",
     "modified": "2025-02-21T17:00:51.000Z",
@@ -5387,7 +5833,14 @@
       "ai",
       "tools"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Exploring Cursor Rules and Smallbot",
+        "slug": "exploring-cursor-rules-and-smallbot",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "date": "2025-02-21T17:00:05.000Z",
       "modified": "2025-02-21T17:00:51.000Z",
@@ -5404,8 +5857,17 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Exploring Cursor Rules and Smallbot",
+          "slug": "exploring-cursor-rules-and-smallbot",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/cursor-rules-and-smallbot.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5414,7 +5876,7 @@
   },
   {
     "slug": "drafts/_stale/electology-vision",
-    "title": "Electology Vision",
+    "title": "Unveiling Electology: The Election Analysis Tool You Didn’t Know You Needed",
     "date": "2022-12-05T23:34:09.000Z",
     "type": "post",
     "dek": "See behind the scenes of election night coverage with Electology, the new tool transforming live data analysis.",
@@ -5427,7 +5889,39 @@
       "tv",
       "webdesign"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Unveiling Electology: The Election Analysis Tool You Didn’t Know You Needed",
+        "slug": "unveiling-electology-the-election-analysis-tool-you-didnt-know-you-needed",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Touchscreen Application",
+            "slug": "touchscreen-application",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Digital Maps",
+            "slug": "digital-maps",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Data Integration",
+            "slug": "data-integration",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Analysis Tools",
+            "slug": "analysis-tools",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "dek": "See behind the scenes of election night coverage with Electology, the new tool transforming live data analysis.",
       "inprogress": true,
@@ -5450,8 +5944,42 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Unveiling Electology: The Election Analysis Tool You Didn’t Know You Needed",
+          "slug": "unveiling-electology-the-election-analysis-tool-you-didnt-know-you-needed",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Touchscreen Application",
+              "slug": "touchscreen-application",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Digital Maps",
+              "slug": "digital-maps",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Data Integration",
+              "slug": "data-integration",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Analysis Tools",
+              "slug": "analysis-tools",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/electology-vision.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5460,7 +5988,7 @@
   },
   {
     "slug": "drafts/_stale/elon-musk-is-a-bad-man",
-    "title": "Elon Musk Is A Bad Man",
+    "title": "Elon Musk is a Bad Man",
     "date": "2024-06-02T00:00:00.000Z",
     "type": "post",
     "dek": "In which we explore the numerous reasons why the billionaire son of an apartheid Emerald mine owner is not a man to be admired",
@@ -5473,7 +6001,14 @@
       "design",
       "inspiration"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Elon Musk is a Bad Man",
+        "slug": "elon-musk-is-a-bad-man",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "dek": "In which we explore the numerous reasons why the billionaire son of an apartheid Emerald mine owner is not a man to be admired",
       "inprogress": true,
@@ -5496,8 +6031,17 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Elon Musk is a Bad Man",
+          "slug": "elon-musk-is-a-bad-man",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/elon-musk-is-a-bad-man.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5506,7 +6050,7 @@
   },
   {
     "slug": "drafts/_stale/espresso",
-    "title": "Espresso",
+    "title": "My Coffee Education: From Madman to Marzocco",
     "date": "2023-01-06T22:34:42.000Z",
     "type": "post",
     "hidden": false,
@@ -5521,7 +6065,39 @@
       "ritual",
       "culture"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "My Coffee Education: From Madman to Marzocco",
+        "slug": "my-coffee-education-from-madman-to-marzocco",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Blue Bottle: Before and After",
+            "slug": "blue-bottle-before-and-after",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Marzocco Signal",
+            "slug": "the-marzocco-signal",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Coffee as Creative Fuel",
+            "slug": "coffee-as-creative-fuel",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What I Learned",
+            "slug": "what-i-learned",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "draft": false,
       "dek": "In which I trace my coffee journey from teenage mochas to third-wave obsession, and what I learned about taste, place, and the Marzocco machine as quality signal",
@@ -5546,8 +6122,42 @@
       },
       "links": 1,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "My Coffee Education: From Madman to Marzocco",
+          "slug": "my-coffee-education-from-madman-to-marzocco",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Blue Bottle: Before and After",
+              "slug": "blue-bottle-before-and-after",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "The Marzocco Signal",
+              "slug": "the-marzocco-signal",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Coffee as Creative Fuel",
+              "slug": "coffee-as-creative-fuel",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "What I Learned",
+              "slug": "what-i-learned",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/espresso.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5556,7 +6166,7 @@
   },
   {
     "slug": "drafts/_stale/food-log",
-    "title": "Food Log",
+    "title": "Meal Log - {{date:YYYY-MM-DD}}",
     "date": "2024-10-05T16:05:41.000Z",
     "type": "post",
     "modified": "2024-10-05T16:06:18.000Z",
@@ -5564,7 +6174,21 @@
       "health",
       "nutrition"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Meal Log - {{date:YYYY-MM-DD}}",
+        "slug": "meal-log---dateyyyy-mm-dd",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Meal: {{time}} (e.g., Breakfast, Lunch, Snack)",
+            "slug": "meal-time-eg-breakfast-lunch-snack",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "tags": [
         "health",
@@ -5581,8 +6205,24 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Meal Log - {{date:YYYY-MM-DD}}",
+          "slug": "meal-log---dateyyyy-mm-dd",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Meal: {{time}} (e.g., Breakfast, Lunch, Snack)",
+              "slug": "meal-time-eg-breakfast-lunch-snack",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/food-log.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5591,7 +6231,7 @@
   },
   {
     "slug": "drafts/_stale/getting-started-with-amateur-radio",
-    "title": "Getting Started With Amateur Radio",
+    "title": "Dipping Your Toes Into Amateur Radio",
     "date": "2025-01-27T00:33:10.000Z",
     "type": "post",
     "dek": "In which",
@@ -5601,7 +6241,94 @@
       "radio",
       "howto"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Dipping Your Toes Into Amateur Radio",
+        "slug": "dipping-your-toes-into-amateur-radio",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "FRS vs GMRS vs Ham Frequencies",
+        "slug": "frs-vs-gmrs-vs-ham-frequencies",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Your First Radio: Baofeng UV5R",
+        "slug": "your-first-radio-baofeng-uv5r",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "HamStudy Is Awesome",
+        "slug": "hamstudy-is-awesome",
+        "level": "h2",
+        "children": [
+          {
+            "text": "WebSDR",
+            "slug": "websdr",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Community & Practice",
+        "slug": "community--practice",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Finding Frequencies and Repeaters",
+            "slug": "finding-frequencies-and-repeaters",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Hudson Valley Frequencies",
+            "slug": "hudson-valley-frequencies",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Local Nets",
+            "slug": "local-nets",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Your Second Radio: TD-H3",
+        "slug": "your-second-radio-td-h3",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Radiograms",
+        "slug": "radiograms",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "NOAA Weather Satellites",
+        "slug": "noaa-weather-satellites",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Meshtastic",
+        "slug": "meshtastic",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Flipper Zero and HackRF / H4M",
+        "slug": "flipper-zero-and-hackrf--h4m",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "dek": "In which",
       "inprogress": true,
@@ -5621,8 +6348,97 @@
       },
       "links": 2,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 10
+      },
+      "toc": [
+        {
+          "text": "Dipping Your Toes Into Amateur Radio",
+          "slug": "dipping-your-toes-into-amateur-radio",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "FRS vs GMRS vs Ham Frequencies",
+          "slug": "frs-vs-gmrs-vs-ham-frequencies",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Your First Radio: Baofeng UV5R",
+          "slug": "your-first-radio-baofeng-uv5r",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "HamStudy Is Awesome",
+          "slug": "hamstudy-is-awesome",
+          "level": "h2",
+          "children": [
+            {
+              "text": "WebSDR",
+              "slug": "websdr",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Community & Practice",
+          "slug": "community--practice",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Finding Frequencies and Repeaters",
+              "slug": "finding-frequencies-and-repeaters",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Hudson Valley Frequencies",
+              "slug": "hudson-valley-frequencies",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Local Nets",
+              "slug": "local-nets",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Your Second Radio: TD-H3",
+          "slug": "your-second-radio-td-h3",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Radiograms",
+          "slug": "radiograms",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "NOAA Weather Satellites",
+          "slug": "noaa-weather-satellites",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Meshtastic",
+          "slug": "meshtastic",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Flipper Zero and HackRF / H4M",
+          "slug": "flipper-zero-and-hackrf--h4m",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/getting-started-with-amateur-radio.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5631,7 +6447,7 @@
   },
   {
     "slug": "drafts/_stale/getting-started-with-embeddings",
-    "title": "Getting Started With Embeddings",
+    "title": "Getting started with embeddings in JS",
     "date": "2023-07-16T20:34:14.000Z",
     "type": "post",
     "dek": "In which we put words into space and then explore the constellations they create",
@@ -5646,7 +6462,14 @@
       "visualization",
       "programming"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Getting started with embeddings in JS",
+        "slug": "getting-started-with-embeddings-in-js",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "dek": "In which we put words into space and then explore the constellations they create",
       "inprogress": true,
@@ -5671,8 +6494,17 @@
       },
       "links": 5,
       "codeBlocks": 4,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Getting started with embeddings in JS",
+          "slug": "getting-started-with-embeddings-in-js",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/getting-started-with-embeddings.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5714,7 +6546,7 @@
   },
   {
     "slug": "drafts/_stale/hudson-valley-politics",
-    "title": "Hudson Valley Politics",
+    "title": "Title",
     "date": "2025-04-09T18:28:08.000Z",
     "type": "post",
     "dek": "In which",
@@ -5724,7 +6556,14 @@
       "design",
       "inspiration"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Title",
+        "slug": "title",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "dek": "In which",
       "inprogress": true,
@@ -5744,8 +6583,17 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Title",
+          "slug": "title",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/hudson-valley-politics.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5754,7 +6602,7 @@
   },
   {
     "slug": "drafts/_stale/i-just-do-what-my-calendar-says",
-    "title": "I Just Do What My Calendar Says",
+    "title": "I Just Do What My Calendar Tells Me to Do",
     "date": "2023-01-06T22:34:06.000Z",
     "type": "post",
     "hidden": false,
@@ -5767,7 +6615,57 @@
       "productivity",
       "systems"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "I Just Do What My Calendar Tells Me to Do",
+        "slug": "i-just-do-what-my-calendar-tells-me-to-do",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The Calendar as External Brain",
+            "slug": "the-calendar-as-external-brain",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Why Casual Plans Get Calendar Invites",
+            "slug": "why-casual-plans-get-calendar-invites",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The System: Everything Gets Scheduled",
+            "slug": "the-system-everything-gets-scheduled",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Psychology of Pre-Commitment",
+            "slug": "the-psychology-of-pre-commitment",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "When the System Breaks Down",
+            "slug": "when-the-system-breaks-down",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Looking Backward for Motivation",
+            "slug": "looking-backward-for-motivation",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Relief of Not Deciding",
+            "slug": "the-relief-of-not-deciding",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "draft": false,
       "dek": "In which I explain why I send calendar invites for casual hangouts and how surrendering to my calendar helps manage ADHD and creates space for deep work",
@@ -5790,8 +6688,60 @@
       },
       "links": 1,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "I Just Do What My Calendar Tells Me to Do",
+          "slug": "i-just-do-what-my-calendar-tells-me-to-do",
+          "level": "h2",
+          "children": [
+            {
+              "text": "The Calendar as External Brain",
+              "slug": "the-calendar-as-external-brain",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Why Casual Plans Get Calendar Invites",
+              "slug": "why-casual-plans-get-calendar-invites",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "The System: Everything Gets Scheduled",
+              "slug": "the-system-everything-gets-scheduled",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "The Psychology of Pre-Commitment",
+              "slug": "the-psychology-of-pre-commitment",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "When the System Breaks Down",
+              "slug": "when-the-system-breaks-down",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Looking Backward for Motivation",
+              "slug": "looking-backward-for-motivation",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "The Relief of Not Deciding",
+              "slug": "the-relief-of-not-deciding",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/i-just-do-what-my-calendar-says.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5800,7 +6750,7 @@
   },
   {
     "slug": "drafts/_stale/idiots-guide-finetuning-llm",
-    "title": "Idiots Guide Finetuning Llm",
+    "title": "Why?",
     "date": "2025-08-19T17:38:18.000Z",
     "type": "post",
     "modified": "2025-09-23T12:05:52.000Z",
@@ -5811,7 +6761,26 @@
       "coding",
       "ai"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Why?",
+        "slug": "why",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "How?",
+        "slug": "how",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What does it cost?",
+        "slug": "what-does-it-cost",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "date": "2025-08-19T17:38:18.000Z",
       "modified": "2025-09-23T12:05:52.000Z",
@@ -5831,8 +6800,29 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 3
+      },
+      "toc": [
+        {
+          "text": "Why?",
+          "slug": "why",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "How?",
+          "slug": "how",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What does it cost?",
+          "slug": "what-does-it-cost",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/idiots-guide-finetuning-llm.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5841,7 +6831,7 @@
   },
   {
     "slug": "drafts/_stale/og-images-with-genart",
-    "title": "Og Images With Genart",
+    "title": "Creating Opengraph Images with Generative Art",
     "date": "2024-06-02T04:00:00.000Z",
     "type": "post",
     "dek": "In which",
@@ -5855,7 +6845,14 @@
       "design",
       "visualization"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Creating Opengraph Images with Generative Art",
+        "slug": "creating-opengraph-images-with-generative-art",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "dek": "In which",
       "inprogress": true,
@@ -5879,8 +6876,17 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Creating Opengraph Images with Generative Art",
+          "slug": "creating-opengraph-images-with-generative-art",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/og-images-with-genart.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5889,7 +6895,7 @@
   },
   {
     "slug": "drafts/_stale/personal-automation-patterns",
-    "title": "Personal Automation Patterns",
+    "title": "I Love n8n",
     "date": "2025-01-14T15:20:05.000Z",
     "type": "post",
     "dek": "In which",
@@ -5899,7 +6905,51 @@
       "design",
       "inspiration"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "I Love n8n",
+        "slug": "i-love-n8n",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Daily Email Summary",
+        "slug": "daily-email-summary",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Daily News Summary",
+        "slug": "daily-news-summary",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "News To Audio To Phone Call",
+        "slug": "news-to-audio-to-phone-call",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Screenshots to Cloudinary",
+        "slug": "screenshots-to-cloudinary",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Automatic Screenshot Content Summary",
+            "slug": "automatic-screenshot-content-summary",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Bookmark to Scrapbook Processing",
+        "slug": "bookmark-to-scrapbook-processing",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "dek": "In which",
       "inprogress": true,
@@ -5919,8 +6969,54 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 6
+      },
+      "toc": [
+        {
+          "text": "I Love n8n",
+          "slug": "i-love-n8n",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Daily Email Summary",
+          "slug": "daily-email-summary",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Daily News Summary",
+          "slug": "daily-news-summary",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "News To Audio To Phone Call",
+          "slug": "news-to-audio-to-phone-call",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Screenshots to Cloudinary",
+          "slug": "screenshots-to-cloudinary",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Automatic Screenshot Content Summary",
+              "slug": "automatic-screenshot-content-summary",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Bookmark to Scrapbook Processing",
+          "slug": "bookmark-to-scrapbook-processing",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/personal-automation-patterns.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5929,7 +7025,7 @@
   },
   {
     "slug": "drafts/_stale/photoblog-with-cloudinary-nuxt",
-    "title": "Photoblog With Cloudinary Nuxt",
+    "title": "Building a Photo Gallery That Feels Like Throwing Pictures on a Table",
     "date": "2022-12-05T23:34:09.000Z",
     "type": "post",
     "draft": false,
@@ -5942,7 +7038,57 @@
       "cloudinary",
       "workflow"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Building a Photo Gallery That Feels Like Throwing Pictures on a Table",
+        "slug": "building-a-photo-gallery-that-feels-like-throwing-pictures-on-a-table",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The Three-Act Structure",
+            "slug": "the-three-act-structure",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Act I: Import & Organize",
+            "slug": "act-i-import--organize",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Act II: Curate & Upload",
+            "slug": "act-ii-curate--upload",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Act III: Display & Analytics",
+            "slug": "act-iii-display--analytics",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Philosophy: Augment, Don't Replace",
+            "slug": "the-philosophy-augment-dont-replace",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Why This Approach Works",
+            "slug": "why-this-approach-works",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Magic of Custom Features",
+            "slug": "the-magic-of-custom-features",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "draft": false,
       "dek": "In which we build a photography workflow that turns Finder tags into a web gallery, complete with EXIF analytics and randomized layouts that make your photos look like they were thrown on a table",
@@ -5965,8 +7111,60 @@
       },
       "links": 2,
       "codeBlocks": 8,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Building a Photo Gallery That Feels Like Throwing Pictures on a Table",
+          "slug": "building-a-photo-gallery-that-feels-like-throwing-pictures-on-a-table",
+          "level": "h2",
+          "children": [
+            {
+              "text": "The Three-Act Structure",
+              "slug": "the-three-act-structure",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Act I: Import & Organize",
+              "slug": "act-i-import--organize",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Act II: Curate & Upload",
+              "slug": "act-ii-curate--upload",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Act III: Display & Analytics",
+              "slug": "act-iii-display--analytics",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "The Philosophy: Augment, Don't Replace",
+              "slug": "the-philosophy-augment-dont-replace",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Why This Approach Works",
+              "slug": "why-this-approach-works",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "The Magic of Custom Features",
+              "slug": "the-magic-of-custom-features",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/photoblog-with-cloudinary-nuxt.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -5975,7 +7173,7 @@
   },
   {
     "slug": "drafts/_stale/room302-livestream-learning",
-    "title": "Room302 Livestream Learning",
+    "title": "Livestream Learning: How Room 302 Engages and Educates in Real-Time",
     "date": "2022-12-05T23:34:09.000Z",
     "type": "post",
     "modified": "2024-09-21T19:47:00.000Z",
@@ -5985,7 +7183,14 @@
       "education",
       "programming"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Livestream Learning: How Room 302 Engages and Educates in Real-Time",
+        "slug": "livestream-learning-how-room-302-engages-and-educates-in-real-time",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "date": "2022-12-05T23:34:09.000Z",
       "modified": "2024-09-21T19:47:00.000Z",
@@ -6004,8 +7209,17 @@
       },
       "links": 9,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Livestream Learning: How Room 302 Engages and Educates in Real-Time",
+          "slug": "livestream-learning-how-room-302-engages-and-educates-in-real-time",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/room302-livestream-learning.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -6049,7 +7263,7 @@
   },
   {
     "slug": "drafts/_stale/techs-anti-humanist-wave",
-    "title": "Techs Anti Humanist Wave",
+    "title": "Tech's Anti-Humanist Wave",
     "date": "2025-01-27T04:56:02.000Z",
     "type": "post",
     "dek": "In which we trace how GamerGate weaponized hacker culture, turning technical skills into tools for fascist coordination, and why we can't cede the ground to techno-authoritarians",
@@ -6064,7 +7278,50 @@
       "hacker",
       "resistance"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Tech's Anti-Humanist Wave",
+        "slug": "techs-anti-humanist-wave",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "The Inflection Point",
+        "slug": "the-inflection-point",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "The Corruption",
+        "slug": "the-corruption",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Village Idiots With Nuclear Weapons",
+        "slug": "village-idiots-with-nuclear-weapons",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What Would Our Ancestors Do?",
+        "slug": "what-would-our-ancestors-do",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Don't Cede the Ground",
+        "slug": "dont-cede-the-ground",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Reclaiming the Magic",
+        "slug": "reclaiming-the-magic",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "dek": "In which we trace how GamerGate weaponized hacker culture, turning technical skills into tools for fascist coordination, and why we can't cede the ground to techno-authoritarians",
       "tags": [
@@ -6088,8 +7345,53 @@
       },
       "links": 8,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 7
+      },
+      "toc": [
+        {
+          "text": "Tech's Anti-Humanist Wave",
+          "slug": "techs-anti-humanist-wave",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "The Inflection Point",
+          "slug": "the-inflection-point",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "The Corruption",
+          "slug": "the-corruption",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Village Idiots With Nuclear Weapons",
+          "slug": "village-idiots-with-nuclear-weapons",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What Would Our Ancestors Do?",
+          "slug": "what-would-our-ancestors-do",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Don't Cede the Ground",
+          "slug": "dont-cede-the-ground",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Reclaiming the Magic",
+          "slug": "reclaiming-the-magic",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/techs-anti-humanist-wave.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -6098,7 +7400,7 @@
   },
   {
     "slug": "drafts/_stale/the-rise-of-bespoke-tech",
-    "title": "The Rise Of Bespoke Tech",
+    "title": "The Rise of Bespoke Tech",
     "date": "2024-06-02T04:00:00.000Z",
     "type": "post",
     "dek": "In which",
@@ -6113,7 +7415,14 @@
       "opensource",
       "systemsthinking"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "The Rise of Bespoke Tech",
+        "slug": "the-rise-of-bespoke-tech",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "date": "2024-06-02T04:00:00.000Z",
       "modified": "2024-09-21T19:46:58.000Z",
@@ -6138,8 +7447,17 @@
       },
       "links": 5,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "The Rise of Bespoke Tech",
+          "slug": "the-rise-of-bespoke-tech",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/the-rise-of-bespoke-tech.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -6148,7 +7466,7 @@
   },
   {
     "slug": "drafts/_stale/truth-terminal",
-    "title": "Truth Terminal",
+    "title": "Truth Terminal and The Cryptids",
     "date": "2024-10-20T15:10:49.000Z",
     "type": "post",
     "dek": "Wherein a sleepless inventor sets his creations loose, and by morning, they have conjured both gospel and gold, and the line between art and reality dissolves",
@@ -6157,7 +7475,89 @@
       "ai",
       "crypto"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Truth Terminal and The Cryptids",
+        "slug": "truth-terminal-and-the-cryptids",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Infinite Backrooms",
+            "slug": "infinite-backrooms",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Act I and the Cyborgism Discord",
+        "slug": "act-i-and-the-cyborgism-discord",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Truth Terminal",
+        "slug": "truth-terminal",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "An injection of capital",
+        "slug": "an-injection-of-capital",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "The launch of $GOAT",
+        "slug": "the-launch-of-goat",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The many $GOAT follow-ups",
+            "slug": "the-many-goat-follow-ups",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "The cryptids descend",
+        "slug": "the-cryptids-descend",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Janus as bridge-maker",
+            "slug": "janus-as-bridge-maker",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Unexpected Success",
+        "slug": "unexpected-success",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What does it all mean tho lol",
+        "slug": "what-does-it-all-mean-tho-lol",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Andy’s Twitter Hacked",
+        "slug": "andys-twitter-hacked",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Footnotes",
+        "slug": "footnotes",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "date": "2024-10-20T15:10:49.000Z",
       "modified": "2024-12-06T16:54:29.000Z",
@@ -6175,8 +7575,92 @@
       },
       "links": 39,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 10
+      },
+      "toc": [
+        {
+          "text": "Truth Terminal and The Cryptids",
+          "slug": "truth-terminal-and-the-cryptids",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Infinite Backrooms",
+              "slug": "infinite-backrooms",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Act I and the Cyborgism Discord",
+          "slug": "act-i-and-the-cyborgism-discord",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Truth Terminal",
+          "slug": "truth-terminal",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "An injection of capital",
+          "slug": "an-injection-of-capital",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "The launch of $GOAT",
+          "slug": "the-launch-of-goat",
+          "level": "h2",
+          "children": [
+            {
+              "text": "The many $GOAT follow-ups",
+              "slug": "the-many-goat-follow-ups",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "The cryptids descend",
+          "slug": "the-cryptids-descend",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Janus as bridge-maker",
+              "slug": "janus-as-bridge-maker",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Unexpected Success",
+          "slug": "unexpected-success",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What does it all mean tho lol",
+          "slug": "what-does-it-all-mean-tho-lol",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Andy’s Twitter Hacked",
+          "slug": "andys-twitter-hacked",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Footnotes",
+          "slug": "footnotes",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/truth-terminal.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -6185,7 +7669,7 @@
   },
   {
     "slug": "drafts/_stale/using-observable-plot-in-vue",
-    "title": "Using Observable Plot In Vue",
+    "title": "Using Observable Plot in Vue",
     "date": "2022-12-15T15:18:53.000Z",
     "type": "post",
     "dek": "In which we use two javascript frameworks to quickly scale from prototype to functional tool",
@@ -6195,7 +7679,27 @@
       "howto",
       "vue"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Using Observable Plot in Vue",
+        "slug": "using-observable-plot-in-vue",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Getting set up",
+            "slug": "getting-set-up",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Making a chart with Plot and rendering with Vue",
+            "slug": "making-a-chart-with-plot-and-rendering-with-vue",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "dek": "In which we use two javascript frameworks to quickly scale from prototype to functional tool",
       "inprogress": true,
@@ -6215,8 +7719,30 @@
       },
       "links": 6,
       "codeBlocks": 4,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Using Observable Plot in Vue",
+          "slug": "using-observable-plot-in-vue",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Getting set up",
+              "slug": "getting-set-up",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Making a chart with Plot and rendering with Vue",
+              "slug": "making-a-chart-with-plot-and-rendering-with-vue",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/using-observable-plot-in-vue.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -6225,7 +7751,7 @@
   },
   {
     "slug": "drafts/_stale/using-polycam-scans-in-three-js",
-    "title": "Using Polycam Scans In Three Js",
+    "title": "Building a Video Game Inventory for My Real-World Gear",
     "date": "2022-11-20T21:03:54.000Z",
     "type": "post",
     "hidden": false,
@@ -6240,7 +7766,51 @@
       "gear",
       "gaming"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Building a Video Game Inventory for My Real-World Gear",
+        "slug": "building-a-video-game-inventory-for-my-real-world-gear",
+        "level": "h1",
+        "children": [
+          {
+            "text": "The Vision: RPG Inventory Meets Real Gear",
+            "slug": "the-vision-rpg-inventory-meets-real-gear",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Step 1: Creating Polycam Scans",
+            "slug": "step-1-creating-polycam-scans",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Step 2: Exporting for Web Use",
+            "slug": "step-2-exporting-for-web-use",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "The Technical Challenge",
+            "slug": "the-technical-challenge",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Game Design Elements",
+            "slug": "game-design-elements",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Why Build This?",
+            "slug": "why-build-this",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "date": "2022-11-20T21:03:54.000Z",
       "modified": "2025-08-29T21:45:00.000Z",
@@ -6264,8 +7834,54 @@
       },
       "links": 5,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "Building a Video Game Inventory for My Real-World Gear",
+          "slug": "building-a-video-game-inventory-for-my-real-world-gear",
+          "level": "h1",
+          "children": [
+            {
+              "text": "The Vision: RPG Inventory Meets Real Gear",
+              "slug": "the-vision-rpg-inventory-meets-real-gear",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "Step 1: Creating Polycam Scans",
+              "slug": "step-1-creating-polycam-scans",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "Step 2: Exporting for Web Use",
+              "slug": "step-2-exporting-for-web-use",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "The Technical Challenge",
+              "slug": "the-technical-challenge",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "Game Design Elements",
+              "slug": "game-design-elements",
+              "level": "h2",
+              "children": []
+            },
+            {
+              "text": "Why Build This?",
+              "slug": "why-build-this",
+              "level": "h2",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/using-polycam-scans-in-three-js.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -6274,7 +7890,7 @@
   },
   {
     "slug": "drafts/_stale/vps-micro-endpoints-smallweb",
-    "title": "Vps Micro Endpoints Smallweb",
+    "title": "Building A VPS For Business and Pleasure",
     "date": "2025-01-05T17:25:05.000Z",
     "type": "post",
     "dek": "In which the author prepares a little computer far away from home to do his bidding",
@@ -6283,7 +7899,14 @@
       "cli",
       "tech"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Building A VPS For Business and Pleasure",
+        "slug": "building-a-vps-for-business-and-pleasure",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "date": "2025-01-05T17:25:05.000Z",
       "modified": "2025-01-27T04:35:12.000Z",
@@ -6302,8 +7925,17 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Building A VPS For Business and Pleasure",
+          "slug": "building-a-vps-for-business-and-pleasure",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/vps-micro-endpoints-smallweb.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -6312,7 +7944,7 @@
   },
   {
     "slug": "drafts/_stale/ways-to-viz-embeddings",
-    "title": "Ways To Viz Embeddings",
+    "title": "Ways To Visualize Embeddings",
     "date": "2024-11-27T01:35:16.000Z",
     "type": "post",
     "modified": "2024-11-27T01:36:07.000Z",
@@ -6320,7 +7952,14 @@
       "visualization",
       "ai"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Ways To Visualize Embeddings",
+        "slug": "ways-to-visualize-embeddings",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "date": "2024-11-27T01:35:16.000Z",
       "modified": "2024-11-27T01:36:07.000Z",
@@ -6337,8 +7976,17 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Ways To Visualize Embeddings",
+          "slug": "ways-to-visualize-embeddings",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/drafts/_stale/ways-to-viz-embeddings.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -16698,7 +18346,76 @@
       "travel",
       "systemsthinking"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Primary Systems",
+        "slug": "primary-systems",
+        "level": "h2",
+        "children": [
+          {
+            "text": "CONTAINER HIERARCHY",
+            "slug": "container-hierarchy",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "CAPABILITY CLUSTERS",
+            "slug": "capability-clusters",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Fox's Circle of Accessibility",
+        "slug": "foxs-circle-of-accessibility",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Core Principles",
+            "slug": "core-principles",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Scoring System",
+            "slug": "scoring-system",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Tier Classification Formula",
+            "slug": "tier-classification-formula",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Tier Definitions",
+            "slug": "tier-definitions",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Modifiers and Special Considerations",
+            "slug": "modifiers-and-special-considerations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Application Process",
+            "slug": "application-process",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Version Notes",
+            "slug": "version-notes",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "title": "Motorcycle Gear System Optimization",
       "date": "2024-11-11T07:28:49.000Z",
@@ -16719,8 +18436,79 @@
       },
       "links": 1,
       "codeBlocks": 1,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 2
+      },
+      "toc": [
+        {
+          "text": "Primary Systems",
+          "slug": "primary-systems",
+          "level": "h2",
+          "children": [
+            {
+              "text": "CONTAINER HIERARCHY",
+              "slug": "container-hierarchy",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "CAPABILITY CLUSTERS",
+              "slug": "capability-clusters",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Fox's Circle of Accessibility",
+          "slug": "foxs-circle-of-accessibility",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Core Principles",
+              "slug": "core-principles",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Scoring System",
+              "slug": "scoring-system",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Tier Classification Formula",
+              "slug": "tier-classification-formula",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Tier Definitions",
+              "slug": "tier-definitions",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Modifiers and Special Considerations",
+              "slug": "modifiers-and-special-considerations",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Application Process",
+              "slug": "application-process",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Version Notes",
+              "slug": "version-notes",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/robots/old/gear.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -16729,7 +18517,7 @@
   },
   {
     "slug": "robots/old/tenancy-in-common",
-    "title": "Tenancy In Common",
+    "title": "Co-Buyer Pre-Meeting Checklist",
     "date": "2024-11-11T04:16:16.000Z",
     "type": "post",
     "modified": "2024-11-12T17:27:05.000Z",
@@ -16738,7 +18526,21 @@
       "housing",
       "planning"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Co-Buyer Pre-Meeting Checklist",
+        "slug": "co-buyer-pre-meeting-checklist",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Personal Information & Documentation Checklist",
+            "slug": "personal-information--documentation-checklist",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "date": "2024-11-11T04:16:16.000Z",
       "modified": "2024-11-12T17:27:05.000Z",
@@ -16757,8 +18559,24 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Co-Buyer Pre-Meeting Checklist",
+          "slug": "co-buyer-pre-meeting-checklist",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Personal Information & Documentation Checklist",
+              "slug": "personal-information--documentation-checklist",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/robots/old/tenancy-in-common.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -16767,7 +18585,7 @@
   },
   {
     "slug": "robots/someday/chess-course",
-    "title": "Chess Course",
+    "title": "Week 1: Chess Fundamentals and Effective Study Techniques",
     "date": "2024-10-15T21:05:33.000Z",
     "type": "post",
     "modified": "2024-11-24T22:19:45.000Z",
@@ -16775,7 +18593,225 @@
       "learning",
       "games"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Week 1: Chess Fundamentals and Effective Study Techniques",
+        "slug": "week-1-chess-fundamentals-and-effective-study-techniques",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Topics Covered",
+            "slug": "topics-covered",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "YouTube Lectures",
+            "slug": "youtube-lectures",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Recommended Resources",
+            "slug": "recommended-resources",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Practice Recommendations",
+            "slug": "practice-recommendations",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Week 2: Opening Fundamentals with a Focus on the Réti Opening",
+        "slug": "week-2-opening-fundamentals-with-a-focus-on-the-réti-opening",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Topics Covered",
+            "slug": "topics-covered-1",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "YouTube Lectures",
+            "slug": "youtube-lectures-1",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Recommended Resources",
+            "slug": "recommended-resources-1",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Practice Recommendations",
+            "slug": "practice-recommendations-1",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Week 3: Time Management, Quick Decision-Making, and the Nimzowitsch Defense",
+        "slug": "week-3-time-management-quick-decision-making-and-the-nimzowitsch-defense",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Topics Covered",
+            "slug": "topics-covered-2",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "YouTube Lectures",
+            "slug": "youtube-lectures-2",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Recommended Resources",
+            "slug": "recommended-resources-2",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Practice Recommendations",
+            "slug": "practice-recommendations-2",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Week 4: Tactical Patterns and Sharp Play",
+        "slug": "week-4-tactical-patterns-and-sharp-play",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Topics Covered",
+            "slug": "topics-covered-3",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "YouTube Lectures",
+            "slug": "youtube-lectures-3",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Recommended Resources",
+            "slug": "recommended-resources-3",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Practice Recommendations",
+            "slug": "practice-recommendations-3",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Week 5: Middlegame Planning and Positional Play",
+        "slug": "week-5-middlegame-planning-and-positional-play",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Topics Covered",
+            "slug": "topics-covered-4",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "YouTube Lectures",
+            "slug": "youtube-lectures-4",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Recommended Resources",
+            "slug": "recommended-resources-4",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Practice Recommendations",
+            "slug": "practice-recommendations-4",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Week 6: Endgame Fundamentals for Blitz",
+        "slug": "week-6-endgame-fundamentals-for-blitz",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Topics Covered",
+            "slug": "topics-covered-5",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "YouTube Lectures",
+            "slug": "youtube-lectures-5",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Recommended Resources",
+            "slug": "recommended-resources-5",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Practice Recommendations",
+            "slug": "practice-recommendations-5",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Week 7: Analysis and Continuous Improvement",
+        "slug": "week-7-analysis-and-continuous-improvement",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Topics Covered",
+            "slug": "topics-covered-6",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "YouTube Lectures",
+            "slug": "youtube-lectures-6",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Recommended Resources",
+            "slug": "recommended-resources-6",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Practice Recommendations",
+            "slug": "practice-recommendations-6",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "date": "2024-10-15T21:05:33.000Z",
       "modified": "2024-11-24T22:19:45.000Z",
@@ -16793,8 +18829,228 @@
       },
       "links": 54,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 7
+      },
+      "toc": [
+        {
+          "text": "Week 1: Chess Fundamentals and Effective Study Techniques",
+          "slug": "week-1-chess-fundamentals-and-effective-study-techniques",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Topics Covered",
+              "slug": "topics-covered",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "YouTube Lectures",
+              "slug": "youtube-lectures",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Recommended Resources",
+              "slug": "recommended-resources",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Practice Recommendations",
+              "slug": "practice-recommendations",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Week 2: Opening Fundamentals with a Focus on the Réti Opening",
+          "slug": "week-2-opening-fundamentals-with-a-focus-on-the-réti-opening",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Topics Covered",
+              "slug": "topics-covered-1",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "YouTube Lectures",
+              "slug": "youtube-lectures-1",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Recommended Resources",
+              "slug": "recommended-resources-1",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Practice Recommendations",
+              "slug": "practice-recommendations-1",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Week 3: Time Management, Quick Decision-Making, and the Nimzowitsch Defense",
+          "slug": "week-3-time-management-quick-decision-making-and-the-nimzowitsch-defense",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Topics Covered",
+              "slug": "topics-covered-2",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "YouTube Lectures",
+              "slug": "youtube-lectures-2",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Recommended Resources",
+              "slug": "recommended-resources-2",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Practice Recommendations",
+              "slug": "practice-recommendations-2",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Week 4: Tactical Patterns and Sharp Play",
+          "slug": "week-4-tactical-patterns-and-sharp-play",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Topics Covered",
+              "slug": "topics-covered-3",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "YouTube Lectures",
+              "slug": "youtube-lectures-3",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Recommended Resources",
+              "slug": "recommended-resources-3",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Practice Recommendations",
+              "slug": "practice-recommendations-3",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Week 5: Middlegame Planning and Positional Play",
+          "slug": "week-5-middlegame-planning-and-positional-play",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Topics Covered",
+              "slug": "topics-covered-4",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "YouTube Lectures",
+              "slug": "youtube-lectures-4",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Recommended Resources",
+              "slug": "recommended-resources-4",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Practice Recommendations",
+              "slug": "practice-recommendations-4",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Week 6: Endgame Fundamentals for Blitz",
+          "slug": "week-6-endgame-fundamentals-for-blitz",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Topics Covered",
+              "slug": "topics-covered-5",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "YouTube Lectures",
+              "slug": "youtube-lectures-5",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Recommended Resources",
+              "slug": "recommended-resources-5",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Practice Recommendations",
+              "slug": "practice-recommendations-5",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Week 7: Analysis and Continuous Improvement",
+          "slug": "week-7-analysis-and-continuous-improvement",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Topics Covered",
+              "slug": "topics-covered-6",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "YouTube Lectures",
+              "slug": "youtube-lectures-6",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Recommended Resources",
+              "slug": "recommended-resources-6",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Practice Recommendations",
+              "slug": "practice-recommendations-6",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/robots/someday/chess-course.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -16803,7 +19059,7 @@
   },
   {
     "slug": "robots/someday/ejfox-news",
-    "title": "Ejfox News",
+    "title": "ejfox.news Phase 1: Core Development Plan",
     "date": "2024-11-05T17:00:28.000Z",
     "type": "post",
     "modified": "2024-11-08T21:19:49.000Z",
@@ -16812,7 +19068,191 @@
       "projects",
       "tools"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "ejfox.news Phase 1: Core Development Plan",
+        "slug": "ejfoxnews-phase-1-core-development-plan",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Overview",
+            "slug": "overview",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Technical Stack",
+            "slug": "technical-stack",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Development Phases",
+            "slug": "development-phases",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Success Criteria",
+            "slug": "success-criteria",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Won't Do (MVP)",
+            "slug": "wont-do-mvp",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Next Steps After MVP",
+            "slug": "next-steps-after-mvp",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Emergency Contacts",
+            "slug": "emergency-contacts",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Deployment URLs",
+            "slug": "deployment-urls",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "ejfox.news Phase 2: Social Layer & Enhanced Reading",
+        "slug": "ejfoxnews-phase-2-social-layer--enhanced-reading",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Overview",
+            "slug": "overview-1",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "New Technical Components",
+            "slug": "new-technical-components",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Development Phases",
+            "slug": "development-phases-1",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Success Criteria",
+            "slug": "success-criteria-1",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Won't Do (Phase 2)",
+            "slug": "wont-do-phase-2",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Migration Notes",
+            "slug": "migration-notes",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Monitoring",
+            "slug": "monitoring",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Rollout Strategy",
+            "slug": "rollout-strategy",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Emergency Procedures",
+            "slug": "emergency-procedures",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "ejfox.news Launch Burndown List",
+        "slug": "ejfoxnews-launch-burndown-list",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Technical Readiness",
+            "slug": "technical-readiness",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Content Readiness",
+            "slug": "content-readiness",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Launch Infrastructure",
+            "slug": "launch-infrastructure",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Friend Launch Prep",
+            "slug": "friend-launch-prep",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Documentation",
+            "slug": "documentation",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Pre-Launch Final Check",
+            "slug": "pre-launch-final-check",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Launch Day Schedule",
+            "slug": "launch-day-schedule",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Success Metrics",
+            "slug": "success-metrics",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Emergency Contacts",
+            "slug": "emergency-contacts-1",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Recovery Procedures",
+            "slug": "recovery-procedures",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "date": "2024-11-05T17:00:28.000Z",
       "modified": "2024-11-08T21:19:49.000Z",
@@ -16831,8 +19271,194 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 3
+      },
+      "toc": [
+        {
+          "text": "ejfox.news Phase 1: Core Development Plan",
+          "slug": "ejfoxnews-phase-1-core-development-plan",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Overview",
+              "slug": "overview",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Technical Stack",
+              "slug": "technical-stack",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Development Phases",
+              "slug": "development-phases",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Success Criteria",
+              "slug": "success-criteria",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Won't Do (MVP)",
+              "slug": "wont-do-mvp",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Next Steps After MVP",
+              "slug": "next-steps-after-mvp",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Emergency Contacts",
+              "slug": "emergency-contacts",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Deployment URLs",
+              "slug": "deployment-urls",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "ejfox.news Phase 2: Social Layer & Enhanced Reading",
+          "slug": "ejfoxnews-phase-2-social-layer--enhanced-reading",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Overview",
+              "slug": "overview-1",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "New Technical Components",
+              "slug": "new-technical-components",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Development Phases",
+              "slug": "development-phases-1",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Success Criteria",
+              "slug": "success-criteria-1",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Won't Do (Phase 2)",
+              "slug": "wont-do-phase-2",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Migration Notes",
+              "slug": "migration-notes",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Monitoring",
+              "slug": "monitoring",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Rollout Strategy",
+              "slug": "rollout-strategy",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Emergency Procedures",
+              "slug": "emergency-procedures",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "ejfox.news Launch Burndown List",
+          "slug": "ejfoxnews-launch-burndown-list",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Technical Readiness",
+              "slug": "technical-readiness",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Content Readiness",
+              "slug": "content-readiness",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Launch Infrastructure",
+              "slug": "launch-infrastructure",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Friend Launch Prep",
+              "slug": "friend-launch-prep",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Documentation",
+              "slug": "documentation",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Pre-Launch Final Check",
+              "slug": "pre-launch-final-check",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Launch Day Schedule",
+              "slug": "launch-day-schedule",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Success Metrics",
+              "slug": "success-metrics",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Emergency Contacts",
+              "slug": "emergency-contacts-1",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Recovery Procedures",
+              "slug": "recovery-procedures",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/robots/someday/ejfox-news.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -16851,7 +19477,124 @@
       "education",
       "games"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "FPV Simulator Training Program",
+        "slug": "fpv-simulator-training-program",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Setting Up for Uncrashed",
+            "slug": "setting-up-for-uncrashed",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Core Philosophy",
+            "slug": "core-philosophy",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Week 0: Foundation Building",
+            "slug": "week-0-foundation-building",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Week 1-2: Basic Control Development",
+            "slug": "week-1-2-basic-control-development",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Week 3-4: Orientation and Movement",
+            "slug": "week-3-4-orientation-and-movement",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Week 5-6: Advanced Control Development",
+            "slug": "week-5-6-advanced-control-development",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Week 7-8: Racing and Technical Skills",
+            "slug": "week-7-8-racing-and-technical-skills",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Documentation System",
+            "slug": "documentation-system",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Progress Assessment",
+            "slug": "progress-assessment",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Essential Concept Flashcards",
+            "slug": "essential-concept-flashcards",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Uncrashed Basic Benchmark Course",
+        "slug": "uncrashed-basic-benchmark-course",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Course Design Instructions",
+            "slug": "course-design-instructions",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Training Protocol",
+            "slug": "training-protocol",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Progress Tracking",
+            "slug": "progress-tracking",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Progression Metrics",
+            "slug": "progression-metrics",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Using Built-in Metrics",
+            "slug": "using-built-in-metrics",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Training Integration",
+            "slug": "training-integration",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Building on Success",
+            "slug": "building-on-success",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "title": "FPV Drone Simulator Training",
       "date": "2025-01-07T18:00:42.000Z",
@@ -16872,8 +19615,127 @@
       },
       "links": 0,
       "codeBlocks": 2,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 2
+      },
+      "toc": [
+        {
+          "text": "FPV Simulator Training Program",
+          "slug": "fpv-simulator-training-program",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Setting Up for Uncrashed",
+              "slug": "setting-up-for-uncrashed",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Core Philosophy",
+              "slug": "core-philosophy",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Week 0: Foundation Building",
+              "slug": "week-0-foundation-building",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Week 1-2: Basic Control Development",
+              "slug": "week-1-2-basic-control-development",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Week 3-4: Orientation and Movement",
+              "slug": "week-3-4-orientation-and-movement",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Week 5-6: Advanced Control Development",
+              "slug": "week-5-6-advanced-control-development",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Week 7-8: Racing and Technical Skills",
+              "slug": "week-7-8-racing-and-technical-skills",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Documentation System",
+              "slug": "documentation-system",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Progress Assessment",
+              "slug": "progress-assessment",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Essential Concept Flashcards",
+              "slug": "essential-concept-flashcards",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Uncrashed Basic Benchmark Course",
+          "slug": "uncrashed-basic-benchmark-course",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Course Design Instructions",
+              "slug": "course-design-instructions",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Training Protocol",
+              "slug": "training-protocol",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Progress Tracking",
+              "slug": "progress-tracking",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Progression Metrics",
+              "slug": "progression-metrics",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Using Built-in Metrics",
+              "slug": "using-built-in-metrics",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Training Integration",
+              "slug": "training-integration",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Building on Success",
+              "slug": "building-on-success",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/robots/someday/fpv-drone-learning.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -16882,7 +19744,7 @@
   },
   {
     "slug": "robots/someday/hudson-valley-cannabis-doc",
-    "title": "Hudson Valley Cannabis Doc",
+    "title": "Hudson Valley Cannabis: Growing a New Legacy",
     "date": "2024-11-26T16:40:25.000Z",
     "type": "post",
     "modified": "2025-01-28T14:58:21.000Z",
@@ -16891,7 +19753,27 @@
       "photography",
       "america"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Hudson Valley Cannabis: Growing a New Legacy",
+        "slug": "hudson-valley-cannabis-growing-a-new-legacy",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Documentary Series Proposal for Hudsy.tv",
+            "slug": "documentary-series-proposal-for-hudsytv",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Pre Production Phase",
+            "slug": "pre-production-phase",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "date": "2024-11-26T16:40:25.000Z",
       "modified": "2025-01-28T14:58:21.000Z",
@@ -16910,8 +19792,30 @@
       },
       "links": 0,
       "codeBlocks": 1,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Hudson Valley Cannabis: Growing a New Legacy",
+          "slug": "hudson-valley-cannabis-growing-a-new-legacy",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Documentary Series Proposal for Hudsy.tv",
+              "slug": "documentary-series-proposal-for-hudsytv",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Pre Production Phase",
+              "slug": "pre-production-phase",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/robots/someday/hudson-valley-cannabis-doc.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -16920,7 +19824,7 @@
   },
   {
     "slug": "robots/someday/hudson-valley-maps",
-    "title": "Hudson Valley Maps",
+    "title": "Hudson Valley Systems & Trail Mapping Project",
     "date": "2024-11-27T16:23:08.000Z",
     "type": "post",
     "modified": "2024-12-31T00:44:34.000Z",
@@ -16929,7 +19833,75 @@
       "data",
       "amateurradio"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Hudson Valley Systems & Trail Mapping Project",
+        "slug": "hudson-valley-systems--trail-mapping-project",
+        "level": "h2",
+        "children": [
+          {
+            "text": "1. Scoping & Requirements Gathering",
+            "slug": "1-scoping--requirements-gathering",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "2. Data Acquisition & Processing",
+            "slug": "2-data-acquisition--processing",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "3. Cartographic Design & Layout",
+            "slug": "3-cartographic-design--layout",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "4. Review & Refinement",
+            "slug": "4-review--refinement",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "5. Production & Distribution",
+            "slug": "5-production--distribution",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Hudson Valley Radio & Trail Mapping Project",
+            "slug": "hudson-valley-radio--trail-mapping-project",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Forestpunk OSM Contribution: Mapping for Mutual Aid",
+            "slug": "forestpunk-osm-contribution-mapping-for-mutual-aid",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Forestpunk Approach to OSM",
+            "slug": "the-forestpunk-approach-to-osm",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "How To Start Contributing",
+            "slug": "how-to-start-contributing",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Contributing With Purpose",
+            "slug": "contributing-with-purpose",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "date": "2024-11-27T16:23:08.000Z",
       "modified": "2024-12-31T00:44:34.000Z",
@@ -16948,8 +19920,78 @@
       },
       "links": 1,
       "codeBlocks": 4,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Hudson Valley Systems & Trail Mapping Project",
+          "slug": "hudson-valley-systems--trail-mapping-project",
+          "level": "h2",
+          "children": [
+            {
+              "text": "1. Scoping & Requirements Gathering",
+              "slug": "1-scoping--requirements-gathering",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "2. Data Acquisition & Processing",
+              "slug": "2-data-acquisition--processing",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "3. Cartographic Design & Layout",
+              "slug": "3-cartographic-design--layout",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "4. Review & Refinement",
+              "slug": "4-review--refinement",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "5. Production & Distribution",
+              "slug": "5-production--distribution",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Hudson Valley Radio & Trail Mapping Project",
+              "slug": "hudson-valley-radio--trail-mapping-project",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Forestpunk OSM Contribution: Mapping for Mutual Aid",
+              "slug": "forestpunk-osm-contribution-mapping-for-mutual-aid",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "The Forestpunk Approach to OSM",
+              "slug": "the-forestpunk-approach-to-osm",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "How To Start Contributing",
+              "slug": "how-to-start-contributing",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Contributing With Purpose",
+              "slug": "contributing-with-purpose",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/robots/someday/hudson-valley-maps.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -16958,7 +20000,7 @@
   },
   {
     "slug": "robots/someday/ml-comedy-hour",
-    "title": "Ml Comedy Hour",
+    "title": "Machine Learning Comedy Hour",
     "date": "2024-11-13T20:03:41.000Z",
     "type": "post",
     "modified": "2024-11-13T20:29:38.000Z",
@@ -16967,7 +20009,70 @@
       "creativity",
       "humor"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Machine Learning Comedy Hour",
+        "slug": "machine-learning-comedy-hour",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Audio Version",
+            "slug": "audio-version",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "ML Caveman",
+        "slug": "ml-caveman",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Advanced Nodding Topics",
+        "slug": "advanced-nodding-topics",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Comedy Hour: Things We All Pretend To Understand",
+        "slug": "comedy-hour-things-we-all-pretend-to-understand",
+        "level": "h2",
+        "children": [
+          {
+            "text": "\"Attention Mechanisms\"",
+            "slug": "attention-mechanisms",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "\"Hyperparameter Tuning\"",
+            "slug": "hyperparameter-tuning",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "\"Architecture Ablation Studies\"",
+            "slug": "architecture-ablation-studies",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "\"Reproducibility Crisis\"",
+            "slug": "reproducibility-crisis",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "\"State Of the Art Results\"",
+            "slug": "state-of-the-art-results",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "date": "2024-11-13T20:03:41.000Z",
       "modified": "2024-11-13T20:29:38.000Z",
@@ -16987,8 +20092,73 @@
       },
       "links": 2,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 4
+      },
+      "toc": [
+        {
+          "text": "Machine Learning Comedy Hour",
+          "slug": "machine-learning-comedy-hour",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Audio Version",
+              "slug": "audio-version",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "ML Caveman",
+          "slug": "ml-caveman",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Advanced Nodding Topics",
+          "slug": "advanced-nodding-topics",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Comedy Hour: Things We All Pretend To Understand",
+          "slug": "comedy-hour-things-we-all-pretend-to-understand",
+          "level": "h2",
+          "children": [
+            {
+              "text": "\"Attention Mechanisms\"",
+              "slug": "attention-mechanisms",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "\"Hyperparameter Tuning\"",
+              "slug": "hyperparameter-tuning",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "\"Architecture Ablation Studies\"",
+              "slug": "architecture-ablation-studies",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "\"Reproducibility Crisis\"",
+              "slug": "reproducibility-crisis",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "\"State Of the Art Results\"",
+              "slug": "state-of-the-art-results",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/robots/someday/ml-comedy-hour.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -17007,7 +20177,111 @@
       "personal",
       "meditation"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "MORNING RADIO 📻",
+        "slug": "morning-radio-",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Core User Context (Direct Quotes)",
+            "slug": "core-user-context-direct-quotes",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Technical Foundations",
+            "slug": "technical-foundations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Existing Systems Integration",
+            "slug": "existing-systems-integration",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Documentation & Publishing Flow",
+            "slug": "documentation--publishing-flow",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Current Pain Points",
+            "slug": "current-pain-points",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Interaction Pattern Considerations",
+            "slug": "interaction-pattern-considerations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "System Requirements",
+            "slug": "system-requirements",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Future Expansion Potential",
+            "slug": "future-expansion-potential",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Core Experience 🌅",
+            "slug": "core-experience-",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Interaction Patterns 🎛",
+            "slug": "interaction-patterns-",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Content \"Channels\" 📡",
+            "slug": "content-channels-",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Documentation Flow",
+            "slug": "documentation-flow",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Success Metrics",
+            "slug": "success-metrics",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "V0.0.1 (1 week) - \"The First Song\"",
+            "slug": "v001-1-week---the-first-song",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "V0.0.5 (3 months) - \"Finding the Rhythm\"",
+            "slug": "v005-3-months---finding-the-rhythm",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "V0.1.0 (1 year) - \"Full Morning Show\"",
+            "slug": "v010-1-year---full-morning-show",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "title": "Morning Radio - Personal Audio Brief",
       "date": "2024-11-16T17:58:36.000Z",
@@ -17028,8 +20302,114 @@
       },
       "links": 0,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "MORNING RADIO 📻",
+          "slug": "morning-radio-",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Core User Context (Direct Quotes)",
+              "slug": "core-user-context-direct-quotes",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Technical Foundations",
+              "slug": "technical-foundations",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Existing Systems Integration",
+              "slug": "existing-systems-integration",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Documentation & Publishing Flow",
+              "slug": "documentation--publishing-flow",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Current Pain Points",
+              "slug": "current-pain-points",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Interaction Pattern Considerations",
+              "slug": "interaction-pattern-considerations",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "System Requirements",
+              "slug": "system-requirements",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Future Expansion Potential",
+              "slug": "future-expansion-potential",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Core Experience 🌅",
+              "slug": "core-experience-",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Interaction Patterns 🎛",
+              "slug": "interaction-patterns-",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Content \"Channels\" 📡",
+              "slug": "content-channels-",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Documentation Flow",
+              "slug": "documentation-flow",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Success Metrics",
+              "slug": "success-metrics",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "V0.0.1 (1 week) - \"The First Song\"",
+              "slug": "v001-1-week---the-first-song",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "V0.0.5 (3 months) - \"Finding the Rhythm\"",
+              "slug": "v005-3-months---finding-the-rhythm",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "V0.1.0 (1 year) - \"Full Morning Show\"",
+              "slug": "v010-1-year---full-morning-show",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/robots/someday/morning-radio.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -17038,7 +20418,7 @@
   },
   {
     "slug": "robots/someday/prep-mesh",
-    "title": "Prep Mesh",
+    "title": "PREP-MESH COMPLETE SPECIFICATION",
     "date": "2024-11-11T18:47:06.000Z",
     "type": "post",
     "modified": "2025-02-03T01:41:52.000Z",
@@ -17047,7 +20427,350 @@
       "projects",
       "infrastructure"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "PREP-MESH COMPLETE SPECIFICATION",
+        "slug": "prep-mesh-complete-specification",
+        "level": "h2",
+        "children": [
+          {
+            "text": "CORE CONCEPT",
+            "slug": "core-concept",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "USER STORIES & ACCEPTANCE CRITERIA",
+            "slug": "user-stories--acceptance-criteria",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "FEATURES",
+            "slug": "features",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "WON'T DO",
+            "slug": "wont-do",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "PREP-MESH EVALUATION SYSTEMS",
+        "slug": "prep-mesh-evaluation-systems",
+        "level": "h2",
+        "children": [
+          {
+            "text": "MEDICAL & TRAUMA",
+            "slug": "medical--trauma",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "POWER & COMMS",
+            "slug": "power--comms",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "SHELTER & CLOTHING",
+            "slug": "shelter--clothing",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "WATER & HYDRATION",
+            "slug": "water--hydration",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "FOOD & COOKING",
+            "slug": "food--cooking",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "TOOLS & REPAIR",
+            "slug": "tools--repair",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "INFO & NAVIGATION",
+            "slug": "info--navigation",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "LOAD CARRYING",
+            "slug": "load-carrying",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Introduction",
+        "slug": "introduction",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Project Goals",
+        "slug": "project-goals",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Development Phases and Key Features",
+        "slug": "development-phases-and-key-features",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Phase 1: Foundation Setup",
+            "slug": "phase-1-foundation-setup",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 2: Supply Hub and Skill-Based Kits",
+            "slug": "phase-2-supply-hub-and-skill-based-kits",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 3: Group Formation and Management",
+            "slug": "phase-3-group-formation-and-management",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 4: Dashboard and Progress Tracking",
+            "slug": "phase-4-dashboard-and-progress-tracking",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 5: User Interface and Experience",
+            "slug": "phase-5-user-interface-and-experience",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 6: Data Synchronization and Offline Functionality",
+            "slug": "phase-6-data-synchronization-and-offline-functionality",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 7: Data Privacy and Control",
+            "slug": "phase-7-data-privacy-and-control",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 8: Testing and Deployment",
+            "slug": "phase-8-testing-and-deployment",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Future Features and Directions",
+        "slug": "future-features-and-directions",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Conclusion",
+        "slug": "conclusion",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Introduction",
+        "slug": "introduction-1",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Project Goals",
+        "slug": "project-goals-1",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Development Phases and Key Features",
+        "slug": "development-phases-and-key-features-1",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Phase 1: PGP Key Generation and Onboarding",
+            "slug": "phase-1-pgp-key-generation-and-onboarding",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 2: Client-Side Key Management",
+            "slug": "phase-2-client-side-key-management",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 3: In-App Verification and Web of Trust",
+            "slug": "phase-3-in-app-verification-and-web-of-trust",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 4: Shared Group Key Management",
+            "slug": "phase-4-shared-group-key-management",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 5: Supply Cycle Integration",
+            "slug": "phase-5-supply-cycle-integration",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 6: Story-Driven Prompts and Scenario-Based Rewards",
+            "slug": "phase-6-story-driven-prompts-and-scenario-based-rewards",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 7: Notifications and Reminders",
+            "slug": "phase-7-notifications-and-reminders",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Phase 8: Collective Progress Tracking and Rewards",
+            "slug": "phase-8-collective-progress-tracking-and-rewards",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Future Features and Directions",
+        "slug": "future-features-and-directions-1",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Conclusion",
+        "slug": "conclusion-1",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Development Plan: PGP Encryption Scrollytelling Site",
+        "slug": "development-plan-pgp-encryption-scrollytelling-site",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Project Overview",
+            "slug": "project-overview",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Technology Stack",
+            "slug": "technology-stack",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "User Stories and Feature Evolution",
+            "slug": "user-stories-and-feature-evolution",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Development Roadmap",
+            "slug": "development-roadmap",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Next Steps",
+            "slug": "next-steps",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "SurvivalHub Landing Page Design",
+        "slug": "survivalhub-landing-page-design",
+        "level": "h2",
+        "children": [
+          {
+            "text": "1. Header",
+            "slug": "1-header",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "2. Hero Section",
+            "slug": "2-hero-section",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "3. What is SurvivalHub?",
+            "slug": "3-what-is-survivalhub",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "4. Why SurvivalHub?",
+            "slug": "4-why-survivalhub",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "5. Features",
+            "slug": "5-features",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "6. How It Works",
+            "slug": "6-how-it-works",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "7. Testimonials",
+            "slug": "7-testimonials",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "8. Call to Action",
+            "slug": "8-call-to-action",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "9. Footer",
+            "slug": "9-footer",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "date": "2024-11-11T18:47:06.000Z",
       "modified": "2025-02-03T01:41:52.000Z",
@@ -17066,8 +20789,353 @@
       },
       "links": 0,
       "codeBlocks": 11,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 14
+      },
+      "toc": [
+        {
+          "text": "PREP-MESH COMPLETE SPECIFICATION",
+          "slug": "prep-mesh-complete-specification",
+          "level": "h2",
+          "children": [
+            {
+              "text": "CORE CONCEPT",
+              "slug": "core-concept",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "USER STORIES & ACCEPTANCE CRITERIA",
+              "slug": "user-stories--acceptance-criteria",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "FEATURES",
+              "slug": "features",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "WON'T DO",
+              "slug": "wont-do",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "PREP-MESH EVALUATION SYSTEMS",
+          "slug": "prep-mesh-evaluation-systems",
+          "level": "h2",
+          "children": [
+            {
+              "text": "MEDICAL & TRAUMA",
+              "slug": "medical--trauma",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "POWER & COMMS",
+              "slug": "power--comms",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "SHELTER & CLOTHING",
+              "slug": "shelter--clothing",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "WATER & HYDRATION",
+              "slug": "water--hydration",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "FOOD & COOKING",
+              "slug": "food--cooking",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "TOOLS & REPAIR",
+              "slug": "tools--repair",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "INFO & NAVIGATION",
+              "slug": "info--navigation",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "LOAD CARRYING",
+              "slug": "load-carrying",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Introduction",
+          "slug": "introduction",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Project Goals",
+          "slug": "project-goals",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Development Phases and Key Features",
+          "slug": "development-phases-and-key-features",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Phase 1: Foundation Setup",
+              "slug": "phase-1-foundation-setup",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 2: Supply Hub and Skill-Based Kits",
+              "slug": "phase-2-supply-hub-and-skill-based-kits",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 3: Group Formation and Management",
+              "slug": "phase-3-group-formation-and-management",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 4: Dashboard and Progress Tracking",
+              "slug": "phase-4-dashboard-and-progress-tracking",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 5: User Interface and Experience",
+              "slug": "phase-5-user-interface-and-experience",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 6: Data Synchronization and Offline Functionality",
+              "slug": "phase-6-data-synchronization-and-offline-functionality",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 7: Data Privacy and Control",
+              "slug": "phase-7-data-privacy-and-control",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 8: Testing and Deployment",
+              "slug": "phase-8-testing-and-deployment",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Future Features and Directions",
+          "slug": "future-features-and-directions",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Conclusion",
+          "slug": "conclusion",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Introduction",
+          "slug": "introduction-1",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Project Goals",
+          "slug": "project-goals-1",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Development Phases and Key Features",
+          "slug": "development-phases-and-key-features-1",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Phase 1: PGP Key Generation and Onboarding",
+              "slug": "phase-1-pgp-key-generation-and-onboarding",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 2: Client-Side Key Management",
+              "slug": "phase-2-client-side-key-management",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 3: In-App Verification and Web of Trust",
+              "slug": "phase-3-in-app-verification-and-web-of-trust",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 4: Shared Group Key Management",
+              "slug": "phase-4-shared-group-key-management",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 5: Supply Cycle Integration",
+              "slug": "phase-5-supply-cycle-integration",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 6: Story-Driven Prompts and Scenario-Based Rewards",
+              "slug": "phase-6-story-driven-prompts-and-scenario-based-rewards",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 7: Notifications and Reminders",
+              "slug": "phase-7-notifications-and-reminders",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Phase 8: Collective Progress Tracking and Rewards",
+              "slug": "phase-8-collective-progress-tracking-and-rewards",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "Future Features and Directions",
+          "slug": "future-features-and-directions-1",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Conclusion",
+          "slug": "conclusion-1",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Development Plan: PGP Encryption Scrollytelling Site",
+          "slug": "development-plan-pgp-encryption-scrollytelling-site",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Project Overview",
+              "slug": "project-overview",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Technology Stack",
+              "slug": "technology-stack",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "User Stories and Feature Evolution",
+              "slug": "user-stories-and-feature-evolution",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Development Roadmap",
+              "slug": "development-roadmap",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Next Steps",
+              "slug": "next-steps",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "SurvivalHub Landing Page Design",
+          "slug": "survivalhub-landing-page-design",
+          "level": "h2",
+          "children": [
+            {
+              "text": "1. Header",
+              "slug": "1-header",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "2. Hero Section",
+              "slug": "2-hero-section",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "3. What is SurvivalHub?",
+              "slug": "3-what-is-survivalhub",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "4. Why SurvivalHub?",
+              "slug": "4-why-survivalhub",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "5. Features",
+              "slug": "5-features",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "6. How It Works",
+              "slug": "6-how-it-works",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "7. Testimonials",
+              "slug": "7-testimonials",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "8. Call to Action",
+              "slug": "8-call-to-action",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "9. Footer",
+              "slug": "9-footer",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/robots/someday/prep-mesh.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -17076,7 +21144,7 @@
   },
   {
     "slug": "robots/someday/quests-irl",
-    "title": "Quests Irl",
+    "title": "QuestsIRL (MVP Scope)",
     "date": "2024-11-07T16:50:52.000Z",
     "type": "post",
     "modified": "2024-11-08T21:43:10.000Z",
@@ -17085,7 +21153,83 @@
       "projects",
       "games"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "QuestsIRL (MVP Scope)",
+        "slug": "questsirl-mvp-scope",
+        "level": "h2",
+        "children": [
+          {
+            "text": "OVERVIEW:",
+            "slug": "overview",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "CYBERPUNK SKILL DISCOVERY",
+        "slug": "cyberpunk-skill-discovery",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "QUESTSIRL ONBOARDING FLOW",
+        "slug": "questsirl-onboarding-flow",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "NEURAL INTERFACE",
+        "slug": "neural-interface",
+        "level": "h2",
+        "children": [
+          {
+            "text": "QUESTSIRL MVP STRUCTURE",
+            "slug": "questsirl-mvp-structure",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "QuestsIRL Development Plan",
+        "slug": "questsirl-development-plan",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Overview",
+            "slug": "overview-1",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Architecture Components",
+            "slug": "architecture-components",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Integration Steps",
+            "slug": "integration-steps",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Detailed Cloudflare Integration Guide",
+            "slug": "detailed-cloudflare-integration-guide",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Next Steps",
+            "slug": "next-steps",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "date": "2024-11-07T16:50:52.000Z",
       "modified": "2024-11-08T21:43:10.000Z",
@@ -17104,8 +21248,86 @@
       },
       "links": 0,
       "codeBlocks": 3,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 5
+      },
+      "toc": [
+        {
+          "text": "QuestsIRL (MVP Scope)",
+          "slug": "questsirl-mvp-scope",
+          "level": "h2",
+          "children": [
+            {
+              "text": "OVERVIEW:",
+              "slug": "overview",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "CYBERPUNK SKILL DISCOVERY",
+          "slug": "cyberpunk-skill-discovery",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "QUESTSIRL ONBOARDING FLOW",
+          "slug": "questsirl-onboarding-flow",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "NEURAL INTERFACE",
+          "slug": "neural-interface",
+          "level": "h2",
+          "children": [
+            {
+              "text": "QUESTSIRL MVP STRUCTURE",
+              "slug": "questsirl-mvp-structure",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        },
+        {
+          "text": "QuestsIRL Development Plan",
+          "slug": "questsirl-development-plan",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Overview",
+              "slug": "overview-1",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Architecture Components",
+              "slug": "architecture-components",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Integration Steps",
+              "slug": "integration-steps",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Detailed Cloudflare Integration Guide",
+              "slug": "detailed-cloudflare-integration-guide",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Next Steps",
+              "slug": "next-steps",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/robots/someday/quests-irl.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -17114,7 +21336,7 @@
   },
   {
     "slug": "robots/someday/smallweb-with-cloudflare-on-vps",
-    "title": "Smallweb With Cloudflare On Vps",
+    "title": "Setting up Smallweb with Cloudflare Tunnel and Caddy",
     "date": "2024-12-08T20:13:29.000Z",
     "type": "post",
     "modified": "2024-12-08T22:46:33.000Z",
@@ -17123,7 +21345,45 @@
       "infrastructure",
       "tools"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Setting up Smallweb with Cloudflare Tunnel and Caddy",
+        "slug": "setting-up-smallweb-with-cloudflare-tunnel-and-caddy",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Stack Overview",
+            "slug": "stack-overview",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Configuration Steps",
+            "slug": "configuration-steps",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Key Learnings & Notes",
+            "slug": "key-learnings--notes",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Verification",
+            "slug": "verification",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Final Result",
+            "slug": "final-result",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "date": "2024-12-08T20:13:29.000Z",
       "modified": "2024-12-08T22:46:33.000Z",
@@ -17142,8 +21402,48 @@
       },
       "links": 0,
       "codeBlocks": 6,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Setting up Smallweb with Cloudflare Tunnel and Caddy",
+          "slug": "setting-up-smallweb-with-cloudflare-tunnel-and-caddy",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Stack Overview",
+              "slug": "stack-overview",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Configuration Steps",
+              "slug": "configuration-steps",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Key Learnings & Notes",
+              "slug": "key-learnings--notes",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Verification",
+              "slug": "verification",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Final Result",
+              "slug": "final-result",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/robots/someday/smallweb-with-cloudflare-on-vps.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -20502,6 +24802,12 @@
             "slug": "code--creations",
             "level": "h3",
             "children": []
+          },
+          {
+            "text": "THE EPIC QUEST TO DEPLOY A WEBSITE: A Tale of Code and Chaos",
+            "slug": "the-epic-quest-to-deploy-a-website-a-tale-of-code-and-chaos",
+            "level": "h3",
+            "children": []
           }
         ]
       }
@@ -20535,6 +24841,12 @@
             {
               "text": "Code & Creations",
               "slug": "code--creations",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "THE EPIC QUEST TO DEPLOY A WEBSITE: A Tale of Code and Chaos",
+              "slug": "the-epic-quest-to-deploy-a-website-a-tale-of-code-and-chaos",
               "level": "h3",
               "children": []
             }
