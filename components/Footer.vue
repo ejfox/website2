@@ -37,6 +37,7 @@
           /on-this-day
         </NuxtLink>
         <NuxtLink to="/sitemap" :class="navLinkClasses">/sitemap</NuxtLink>
+        <NuxtLink to="/threads" :class="navLinkClasses">/threads</NuxtLink>
         <a href="https://ejfox.com/rss.xml" :class="navLinkClasses">/rss</a>
         <a
           href="https://github.com/ejfox"
