@@ -12,10 +12,13 @@ interface BlogPost {
   slug: string
   title: string
   date: string
+  draft?: boolean
+  hidden?: boolean
   metadata: {
     words?: number
     date?: string
     hidden?: boolean
+    draft?: boolean
   }
 }
 
@@ -38,8 +41,11 @@ export default defineEventHandler(async () => {
     // Filter out drafts and hidden posts for total count
     // Only count actual blog posts (yearly folders, not projects/reading/etc)
     const allPublishedPosts = allPosts.filter((post) => {
-      if (!post.date || post.metadata?.hidden === true) return false
+      if (!post.date) return false
+      // Exclude hidden posts
+      if (post.hidden || post.metadata?.hidden) return false
       // Exclude draft posts
+      if (post.draft || post.metadata?.draft) return false
       if (post.slug.startsWith('drafts/')) return false
       // Only count posts in yearly folders (2018/, 2019/, etc.) as blog posts
       if (!post.slug.match(/^\d{4}\//)) return false

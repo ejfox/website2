@@ -121,7 +121,13 @@ const relatedPosts = computed(() => {
   const postsWithScores = allPosts.value
     .filter((p) => {
       const slug = p.slug || p.metadata?.slug
-      return slug !== currentSlug && !p.draft && !p.metadata?.draft
+      return (
+        slug !== currentSlug &&
+        !p.draft &&
+        !p.metadata?.draft &&
+        !p.hidden &&
+        !p.metadata?.hidden
+      )
     })
     .map((p) => {
       const tags = p.metadata?.tags || p.tags || []
@@ -588,7 +594,9 @@ watch(
       <Meta
         name="robots"
         :content="
-          post?.metadata?.robotsMeta || post?.robotsMeta || 'index, follow'
+          post?.metadata?.draft || post?.draft
+            ? 'noindex, nofollow'
+            : post?.metadata?.robotsMeta || post?.robotsMeta || 'index, follow'
         "
       />
     </Head>

@@ -24,20 +24,17 @@ export default defineEventHandler(async () => {
   try {
     const manifest = await readManifest()
 
-    // Simple check for projects
-    const _projectSlugs = manifest
-      .filter((p: Post) => p.slug?.startsWith('projects/'))
-      .map((p: Post) => p.slug)
+    // Filter out drafts and hidden posts - they're "hidden in plain sight"
+    // (URLs work but they don't appear in listings)
+    const publicPosts = manifest.filter(
+      (p: Post) =>
+        !p.draft &&
+        !p.hidden &&
+        !p.metadata?.draft &&
+        !p.slug?.startsWith('drafts/')
+    )
 
-    // console.log('Manifest endpoint check:', {
-    //   total: manifest.length,
-    //   projectSlugs,
-    //   sampleProject: manifest.find(
-    //     (p: Post) => p.slug?.startsWith('projects/')
-    //   )
-    // })
-
-    return manifest
+    return publicPosts
   } catch (error) {
     console.error('Error in manifest endpoint:', error)
     const err = error as Error

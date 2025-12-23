@@ -189,7 +189,9 @@ const formatTitle = (slug) => {
 }
 
 const isValidPost = (post) => {
-  return post && post.slug && !post.draft
+  const isDraft = post?.draft || post?.metadata?.draft
+  const isHidden = post?.hidden || post?.metadata?.hidden
+  return post && post.slug && !isDraft && !isHidden
 }
 
 const processPost = (post) => {

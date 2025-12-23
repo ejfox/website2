@@ -14,6 +14,8 @@ interface ManifestPost {
   title?: string
   metadata?: Record<string, unknown>
   date?: string
+  draft?: boolean
+  hidden?: boolean
 }
 
 export default defineEventHandler(async () => {
@@ -26,9 +28,18 @@ export default defineEventHandler(async () => {
     const manifestContent = await readFile(manifestPath, 'utf8')
     const manifest = JSON.parse(manifestContent)
 
-    // Filter for project posts, excluding those starting with !
+    // Filter for project posts, excluding drafts, hidden, and those starting with !
     const projectPosts = manifest.filter((post: ManifestPost) => {
-      return post.slug?.startsWith('projects/') && !post.slug.includes('/!')
+      const isDraft =
+        post.draft || (post.metadata as Record<string, unknown>)?.draft
+      const isHidden =
+        post.hidden || (post.metadata as Record<string, unknown>)?.hidden
+      return (
+        post.slug?.startsWith('projects/') &&
+        !post.slug.includes('/!') &&
+        !isDraft &&
+        !isHidden
+      )
     })
 
     // Load content for each project

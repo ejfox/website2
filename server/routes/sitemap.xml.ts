@@ -72,9 +72,13 @@ export default defineEventHandler(async (event: H3Event) => {
     const manifestData = await fs.readFile(manifestPath, 'utf-8')
     const posts = JSON.parse(manifestData)
 
-    // Add each blog post to sitemap
+    // Add each blog post to sitemap (filter drafts, hidden, special sections)
     for (const post of posts) {
-      if (!post.hidden && !post.draft && post.date) {
+      const isDraft = post.draft || post.metadata?.draft
+      const isHidden = post.hidden || post.metadata?.hidden
+      const isSpecialSection =
+        post.slug?.startsWith('drafts/') || post.slug?.startsWith('robots/')
+      if (!isDraft && !isHidden && !isSpecialSection && post.date) {
         const priority = post.type === 'essay' ? '0.8' : '0.7'
         // Blog posts are static once published - use 'never' or 'yearly' for older posts
         const postDate = new Date(post.date || now)
