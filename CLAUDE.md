@@ -56,6 +56,19 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
    - Ultra-dense data tables with 8px baseline grid
    - Container-based organization with inline statistics
 
+5. **Threads Visualization** (`pages/threads.vue`)
+   - D3.js force-directed graph on canvas (350vh scrollable)
+   - Shows posts, scraps, and tags as interconnected nodes
+   - Maypole tags: top 25 tags pinned in sine wave pattern down the page
+   - anime.js staggered animations for node streaming
+   - Tag pages: `/tag/[slug]` shows all content with that tag
+   - Configurable constants at top of file:
+     - `NODE_RADIUS`, `COLLISION_RADIUS`, `NODE_COLOR` - visual tuning
+     - `NUM_MAYPOLES`, `CANVAS_HEIGHT_VH`, `BOUNDARY_FORCE_STRENGTH` - layout
+     - `BLACKLISTED_TAGS` - tags excluded from visualization
+   - Filters: toggle posts/scraps/tags visibility
+   - Click nodes to navigate to content
+
 ## Important File Locations
 
 ### Critical Scripts
@@ -67,6 +80,8 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 
 ### Key Components
 
+- `pages/threads.vue` - D3 force-directed graph visualization
+- `pages/tag/[...slug].vue` - Tag detail pages
 - `components/gear/GearItem.vue` - Individual gear row component
 - `components/gear/GearTableRow.client.vue` - Client-side gear display
 - `composables/useWeightCalculations.ts` - Weight conversion utilities
