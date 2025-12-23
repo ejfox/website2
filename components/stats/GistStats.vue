@@ -120,7 +120,7 @@ interface GistStats {
     id: string
     description: string | null
     created_at: string
-    files: number | any
+    files: number
     firstFileName?: string
     totalLines?: number
     languages: string[]
@@ -156,7 +156,7 @@ const formatDate = (dateString: string): string => {
   return format(new Date(dateString), 'MMM yyyy').toUpperCase()
 }
 
-const getGistTitle = (gist: any): string => {
+const getGistTitle = (gist: GistStats['recentGists'][number]): string => {
   // If there's a description (and it's not 'No description'), use it
   if (
     gist.description &&

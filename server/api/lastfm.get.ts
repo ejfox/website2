@@ -4,6 +4,83 @@
  * @endpoint GET /api/lastfm
  * @returns Last.fm data with recent tracks, top artists/albums/tracks for the month, user info, and calculated listening statistics
  */
+
+// Last.fm API response types
+interface LastFmImage {
+  size: string
+  '#text': string
+}
+
+interface LastFmArtistRef {
+  '#text': string
+  url?: string
+  name?: string
+}
+
+interface LastFmTrack {
+  name: string
+  url: string
+  artist: LastFmArtistRef
+  date?: { uts: string; '#text': string }
+  image?: LastFmImage[]
+  playcount?: string
+}
+
+interface LastFmArtist {
+  name: string
+  url: string
+  playcount: string
+  image?: LastFmImage[]
+}
+
+interface LastFmAlbum {
+  name: string
+  url: string
+  playcount: string
+  artist: { name: string; url: string }
+  image?: LastFmImage[]
+}
+
+interface LastFmUser {
+  name: string
+  playcount?: string
+  registered?: { unixtime: string; '#text': string }
+  url?: string
+  image?: LastFmImage[]
+}
+
+interface RecentTracksResponse {
+  recenttracks?: {
+    track?: LastFmTrack[]
+    '@attr'?: { total: string }
+  }
+}
+
+interface TopArtistsResponse {
+  topartists?: {
+    artist?: LastFmArtist[]
+    '@attr'?: { total: string }
+  }
+}
+
+interface TopAlbumsResponse {
+  topalbums?: {
+    album?: LastFmAlbum[]
+    '@attr'?: { total: string }
+  }
+}
+
+interface TopTracksResponse {
+  toptracks?: {
+    track?: LastFmTrack[]
+    '@attr'?: { total: string }
+  }
+}
+
+interface UserInfoResponse {
+  user?: LastFmUser
+}
+
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   // Use hardcoded API key as fallback if environment variables aren't available
@@ -104,10 +181,11 @@ export default defineEventHandler(async () => {
         // Cache disabled - direct API calls only
 
         return data as T
-      } catch (error: any) {
+      } catch (error) {
         attempt++
+        const err = error as Error
 
-        if (error.name === 'AbortError') {
+        if (err.name === 'AbortError') {
           console.warn(
             `Request timeout for ${method}, attempt ${attempt}/${maxRetries}`
           )
@@ -156,7 +234,7 @@ export default defineEventHandler(async () => {
 
     // Test the API connection first
     try {
-      const _testResponse = await makeRequest<any>('user.getinfo')
+      const _testResponse = await makeRequest<UserInfoResponse>('user.getinfo')
       // console.log(
       //   'Last.fm API test successful:',
       //   testResponse.user?.name === username
@@ -170,20 +248,22 @@ export default defineEventHandler(async () => {
 
     // Fetch all data in parallel with error recovery
     const results = await Promise.allSettled([
-      makeRequest<any>('user.getrecenttracks', { limit: '10' }),
-      makeRequest<any>('user.gettopartists', {
+      makeRequest<RecentTracksResponse>('user.getrecenttracks', {
+        limit: '10',
+      }),
+      makeRequest<TopArtistsResponse>('user.gettopartists', {
         period: '1month',
         limit: '10',
       }),
-      makeRequest<any>('user.gettopalbums', {
+      makeRequest<TopAlbumsResponse>('user.gettopalbums', {
         period: '1month',
         limit: '10',
       }),
-      makeRequest<any>('user.gettoptracks', {
+      makeRequest<TopTracksResponse>('user.gettoptracks', {
         period: '1month',
         limit: '10',
       }),
-      makeRequest<any>('user.getinfo'),
+      makeRequest<UserInfoResponse>('user.getinfo'),
     ])
 
     const recentTracks =
@@ -202,13 +282,13 @@ export default defineEventHandler(async () => {
       results[3].status === 'fulfilled'
         ? results[3].value
         : { toptracks: { track: [] } }
-    const userInfo =
-      results[4].status === 'fulfilled' ? results[4].value : { user: {} }
+    const userInfo: UserInfoResponse =
+      results[4].status === 'fulfilled' ? results[4].value : { user: undefined }
 
     // Process recent tracks
     const processedRecentTracks = {
       tracks:
-        recentTracks.recenttracks?.track?.map((track: any) => ({
+        recentTracks.recenttracks?.track?.map((track: LastFmTrack) => ({
           name: track.name,
           artist: {
             name: track.artist['#text'],
@@ -226,7 +306,7 @@ export default defineEventHandler(async () => {
     // Process top artists
     const processedTopArtists = {
       artists:
-        topArtists.topartists?.artist?.map((artist: any) => ({
+        topArtists.topartists?.artist?.map((artist: LastFmArtist) => ({
           name: artist.name,
           playcount: artist.playcount,
           url: artist.url,
@@ -238,7 +318,7 @@ export default defineEventHandler(async () => {
     // Process top albums
     const processedTopAlbums = {
       albums:
-        topAlbums.topalbums?.album?.map((album: any) => ({
+        topAlbums.topalbums?.album?.map((album: LastFmAlbum) => ({
           name: album.name,
           playcount: album.playcount,
           artist: {
@@ -254,7 +334,7 @@ export default defineEventHandler(async () => {
     // Process top tracks
     const processedTopTracks = {
       tracks:
-        topTracks.toptracks?.track?.map((track: any) => ({
+        topTracks.toptracks?.track?.map((track: LastFmTrack) => ({
           name: track.name,
           artist: {
             name: track.artist.name,
@@ -320,8 +400,9 @@ export default defineEventHandler(async () => {
     // })
 
     return result
-  } catch (error: any) {
+  } catch (error) {
     console.error('Last.fm API error details:', error)
+    const err = error as Error & { statusCode?: number }
 
     // Instead of throwing an error, return fallback data
     return {
@@ -356,8 +437,8 @@ export default defineEventHandler(async () => {
       },
       lastUpdated: new Date().toISOString(),
       error: {
-        message: error.message || 'Failed to fetch Last.fm data',
-        statusCode: error.statusCode || 500,
+        message: err.message || 'Failed to fetch Last.fm data',
+        statusCode: err.statusCode || 500,
       },
     }
   }

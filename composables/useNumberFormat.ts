@@ -181,6 +181,81 @@ export const formatPercentage = (
   return `${value.toFixed(precision)}%`
 }
 
+// =============================================================================
+// MOBILE-OPTIMIZED FORMATTING UTILITIES
+// =============================================================================
+
+/**
+ * Format currency with sign prefix for P&L displays
+ * Mobile-optimized: Clear visual distinction for gains/losses
+ * Always shows 2 decimals for consistency
+ * @example formatCurrencyWithSign(123.45) => "+$123.45"
+ * @example formatCurrencyWithSign(-50.00) => "-$50.00"
+ */
+export const formatCurrencyWithSign = (value: number): string => {
+  const absValue = Math.abs(value)
+  const formatted = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(absValue)
+
+  return value >= 0 ? `+${formatted}` : `-${formatted}`
+}
+
+/**
+ * Format currency with smart decimal display
+ * Mobile-optimized: Shows cents only when necessary to save space
+ * @example formatCurrencySmart(100) => "$100"
+ * @example formatCurrencySmart(100.50) => "$100.50"
+ */
+export const formatCurrencySmart = (value: number): string => {
+  const absValue = Math.abs(value)
+  const hasCents = absValue % 1 !== 0
+
+  const formatted = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: hasCents ? 2 : 0,
+    maximumFractionDigits: 2,
+  }).format(absValue)
+
+  // Return with sign for negative values
+  return value < 0 ? `-${formatted}` : formatted
+}
+
+/**
+ * Format Brier score with consistent 3-decimal precision
+ * Mobile-optimized: Scientific accuracy for calibration metrics
+ * @example formatBrierScore(0.12345) => "0.123"
+ */
+export const formatBrierScore = (value: number): string => {
+  if (Number.isNaN(value) || !Number.isFinite(value)) return '—'
+  return value.toFixed(3)
+}
+
+/**
+ * Format confidence percentage (no decimals, mobile-friendly)
+ * Mobile-optimized: Clean integer display for quick scanning
+ * @example formatConfidence(75) => "75%"
+ */
+export const formatConfidence = (value: number): string => {
+  return formatPercentage(Math.round(value), 0)
+}
+
+/**
+ * Get CSS classes for tabular number display
+ * Use on ALL numeric values for consistent vertical alignment
+ */
+export const tabularClasses = 'tabular-nums font-mono'
+
+/**
+ * Get CSS classes for large numeric displays
+ * Mobile-optimized: Minimum 20px font size for readability
+ */
+export const valueClasses = 'text-xl md:text-2xl font-mono tabular-nums font-bold'
+
 // Week range formatting (for health/activity stats)
 export const formatWeekRange = (startDate: string, endDate: string): string => {
   try {
@@ -540,6 +615,14 @@ export function useNumberFormat() {
     formatPercentage,
     formatWeekRange,
     formatRatingDiff,
+
+    // Mobile-optimized formatting
+    formatCurrencyWithSign,
+    formatCurrencySmart,
+    formatBrierScore,
+    formatConfidence,
+    tabularClasses,
+    valueClasses,
 
     // Color utilities
     turboColors,

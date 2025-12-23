@@ -38,11 +38,12 @@ export default defineEventHandler(async () => {
     // })
 
     return manifest
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error in manifest endpoint:', error)
+    const err = error as Error
     throw createError({
       statusCode: 500,
-      message: `Failed to read manifest: ${error.message}`,
+      message: `Failed to read manifest: ${err.message}`,
     })
   }
 })
@@ -55,7 +56,7 @@ async function readManifest() {
   try {
     const content = await readFile(manifestPath, 'utf8')
     return JSON.parse(content)
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error reading manifest file:', error)
     throw error
   }

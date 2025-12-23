@@ -17,7 +17,7 @@ const outputFile = path.join(outputDir, 'goodreads-stats.json')
 const userId = '9273959'
 
 async function fetchGoodreadsData() {
-  console.log('📚 Fetching Goodreads data...')
+  console.info('📚 Fetching Goodreads data...')
 
   const shelves = ['currently-reading', 'read', 'to-read']
   const allBooks = []
@@ -27,7 +27,7 @@ async function fetchGoodreadsData() {
       const baseUrl = 'https://www.goodreads.com/review/list_rss'
       const rssUrl = `${baseUrl}/${userId}?shelf=${shelf}&per_page=200`
 
-      console.log(`  Fetching ${shelf}...`)
+      console.info(`  Fetching ${shelf}...`)
 
       const response = await fetch(rssUrl, {
         headers: {
@@ -96,7 +96,7 @@ async function fetchGoodreadsData() {
         .filter((book) => book.title)
 
       allBooks.push(...books)
-      console.log(`  ✓ Fetched ${books.length} books from ${shelf}`)
+      console.info(`  ✓ Fetched ${books.length} books from ${shelf}`)
     } catch (error) {
       console.warn(`  ✗ Failed to fetch ${shelf}:`, error.message)
     }
@@ -222,7 +222,7 @@ async function fetchGoodreadsData() {
 
   // Write to file
   fs.writeFileSync(outputFile, JSON.stringify(output, null, 2))
-  console.log(
+  console.info(
     `✅ Goodreads data saved to ${path.relative(process.cwd(), outputFile)}`
   )
 

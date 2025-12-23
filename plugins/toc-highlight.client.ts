@@ -1,5 +1,5 @@
 // Client-side plugin to highlight active TOC items when scrolling
-export default defineNuxtPlugin((nuxtApp: any) => {
+export default defineNuxtPlugin((nuxtApp) => {
   // Function to update active TOC item based on scroll position
   const updateActiveTocItem = () => {
     // Only run on pages with TOC

@@ -1,7 +1,6 @@
 import sanitizeHtml from 'sanitize-html'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { parseISO, isValid, compareDesc } from 'date-fns'
-import { defineEventHandler, useRuntimeConfig } from '#imports'
 
 // JSON Feed 1.1 spec: https://jsonfeed.org/version/1.1
 

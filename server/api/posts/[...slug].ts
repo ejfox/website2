@@ -10,15 +10,21 @@ import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { existsSync } from 'node:fs'
 
+interface TocItem {
+  level: number
+  text: string
+  id: string
+}
+
 interface PostData {
   html?: string
   content?: string
   metadata?: {
     title?: string
-    toc?: any[]
+    toc?: TocItem[]
   }
   title?: string
-  toc?: any[]
+  toc?: TocItem[]
 }
 
 /**

@@ -17,7 +17,8 @@ function escapeXml(str: string): string {
 function extractImageUrls(html: string): string[] {
   if (!html) return []
   // Match cloudinary URLs, get the canonical w_800 version
-  const regex = /https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^"'\s]+w_800[^"'\s]+/g
+  const regex =
+    /https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^"'\s]+w_800[^"'\s]+/g
   const matches = html.match(regex) || []
   // Dedupe
   return [...new Set(matches)]
@@ -77,7 +78,8 @@ export default defineEventHandler(async (event: H3Event) => {
         const priority = post.type === 'essay' ? '0.8' : '0.7'
         // Blog posts are static once published - use 'never' or 'yearly' for older posts
         const postDate = new Date(post.date || now)
-        const monthsOld = (Date.now() - postDate.getTime()) / (1000 * 60 * 60 * 24 * 30)
+        const monthsOld =
+          (Date.now() - postDate.getTime()) / (1000 * 60 * 60 * 24 * 30)
         const changefreq = monthsOld < 1 ? 'monthly' : 'never'
         // Use actual modification date, fall back to publish date (never use 'now')
         const lastmod = post.modified || post.date

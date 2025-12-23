@@ -57,13 +57,17 @@ export const formatRelative = (date: Date | string) =>
   formatDistanceToNow(new Date(date), { addSuffix: true })
 
 // ⚡ VALIDATION HELPERS! *zoom*
-export const isValidDate = (date: any): boolean => {
+export const isValidDate = (
+  date: string | number | Date | null | undefined
+): boolean => {
   if (!date) return false
   const parsed = typeof date === 'string' ? parseISO(date) : new Date(date)
   return isValid(parsed)
 }
 
-export const safeParseDate = (date: any): Date | null => {
+export const safeParseDate = (
+  date: string | number | Date | null | undefined
+): Date | null => {
   if (!date) return null
   const parsed = typeof date === 'string' ? parseISO(date) : new Date(date)
   return isValid(parsed) ? parsed : null

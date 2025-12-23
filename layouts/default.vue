@@ -30,18 +30,30 @@
             :aria-expanded="mobileMenuOpen"
             @click="mobileMenuOpen = !mobileMenuOpen"
           >
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                :d="mobileMenuOpen ? 'M6 18L18 6M6 6l12 12' : 'M4 6h16M4 12h16M4 18h16'"
+                :d="
+                  mobileMenuOpen
+                    ? 'M6 18L18 6M6 6l12 12'
+                    : 'M4 6h16M4 12h16M4 18h16'
+                "
               />
             </svg>
           </button>
         </div>
 
-        <div v-if="mobileMenuOpen" class="border-t border-zinc-200 dark:border-zinc-800 px-4 py-2 space-y-1">
+        <div
+          v-if="mobileMenuOpen"
+          class="border-t border-zinc-200 dark:border-zinc-800 px-4 py-2 space-y-1"
+        >
           <template v-for="item in primaryNav" :key="item.href">
             <a
               v-if="item.external"
@@ -94,7 +106,10 @@
           </template>
 
           <div class="pt-4 text-xs text-zinc-500 dark:text-zinc-500">
-            <a href="/pgp.txt" class="hover:text-zinc-700 dark:hover:text-zinc-300">
+            <a
+              href="/pgp.txt"
+              class="hover:text-zinc-700 dark:hover:text-zinc-300"
+            >
               PGP: E207 8E65
             </a>
           </div>
@@ -149,4 +164,3 @@ const isStatsSimple = computed(() => {
 const linkClasses =
   'block px-2 py-1.5 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
 </script>
-

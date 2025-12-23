@@ -27,10 +27,15 @@ interface CacheLayer<T> {
   timestamp: number
 }
 
+interface EventPosition {
+  event_ticker: string
+  [key: string]: unknown
+}
+
 let portfolioCache: CacheLayer<{
   balance: KalshiBalance
   positions: KalshiPosition[]
-  eventPositions: any[] // Event-level position aggregation from API
+  eventPositions: EventPosition[] // Event-level position aggregation from API
   fills: KalshiFill[]
   orders: KalshiOrder[]
 }> | null = null
@@ -383,7 +388,7 @@ export default defineEventHandler(
       const tickerToEvent = new Map<string, string>()
 
       for (const marketPos of positions) {
-        const eventPos = eventPositions.find((ep: any) =>
+        const eventPos = eventPositions.find((ep: EventPosition) =>
           marketPos.ticker.startsWith(ep.event_ticker)
         )
         if (eventPos) {
@@ -528,7 +533,7 @@ export default defineEventHandler(
       for (const marketPos of positions) {
         // Find corresponding event position
         // Event positions are aggregated, so we need to match by ticker pattern
-        const eventPos = eventPositions.find((ep: any) =>
+        const eventPos = eventPositions.find((ep: EventPosition) =>
           marketPos.ticker.startsWith(ep.event_ticker)
         )
 
@@ -620,11 +625,14 @@ export default defineEventHandler(
           nextRefresh: new Date(now + PORTFOLIO_CACHE_DURATION).toISOString(),
         },
       }
-    } catch (error: any) {
-      console.error('[Kalshi] API error:', error.message, error.response?.data)
+    } catch (error) {
+      const err = error as Error & {
+        response?: { status?: number; data?: unknown }
+      }
+      console.error('[Kalshi] API error:', err.message, err.response?.data)
       throw createError({
-        statusCode: error.response?.status || 500,
-        message: `Kalshi API error: ${error.message}`,
+        statusCode: err.response?.status || 500,
+        message: `Kalshi API error: ${err.message}`,
       })
     }
   }

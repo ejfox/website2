@@ -83,10 +83,22 @@ interface GitHubError extends Error {
   }
 }
 
+interface GitHubGraphQLResponse<T> {
+  data: T
+  errors?: Array<{ message: string }>
+}
+
+interface RateLimitResponse {
+  rateLimit?: {
+    remaining: number
+    resetAt: string
+  }
+}
+
 async function makeGitHubRequest<T>(
   token: string,
   query: string,
-  variables?: Record<string, any>
+  variables?: Record<string, unknown>
 ): Promise<T> {
   const maxRetries = 3
   const timeout = 10000 // 10 seconds
@@ -97,16 +109,19 @@ async function makeGitHubRequest<T>(
       const controller = new AbortController()
       const timeoutId = setTimeout(() => controller.abort(), timeout)
 
-      const response = await $fetch<any>('https://api.github.com/graphql', {
-        method: 'POST',
-        headers: {
-          Authorization: `bearer ${token}`,
-          'Content-Type': 'application/json',
-          'User-Agent': 'EJFox-Website/1.0',
-        },
-        body: { query, variables },
-        signal: controller.signal,
-      })
+      const response = await $fetch<GitHubGraphQLResponse<T>>(
+        'https://api.github.com/graphql',
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `bearer ${token}`,
+            'Content-Type': 'application/json',
+            'User-Agent': 'EJFox-Website/1.0',
+          },
+          body: { query, variables },
+          signal: controller.signal,
+        }
+      )
 
       clearTimeout(timeoutId)
 
@@ -119,11 +134,12 @@ async function makeGitHubRequest<T>(
         })
       }
 
-      return response.data as T
-    } catch (error: any) {
+      return response.data
+    } catch (error) {
       attempt++
+      const err = error as Error
 
-      if (error.name === 'AbortError') {
+      if (err.name === 'AbortError') {
         console.warn(`GitHub request timeout, attempt ${attempt}/${maxRetries}`)
       } else {
         console.error(
@@ -213,7 +229,7 @@ async function checkRateLimit(token: string) {
     }
   }`
 
-  const response = await makeGitHubRequest<any>(token, query)
+  const response = await makeGitHubRequest<RateLimitResponse>(token, query)
 
   if (response.rateLimit?.remaining === 0) {
     throw createError({
@@ -311,8 +327,14 @@ export default defineEventHandler(async (): Promise<GitHubStats> => {
     }
 
     const contributionCollection = contributions.viewer.contributionsCollection
-    const commits = contributionCollection.commitContributionsByRepository
-      .filter((repo: any) => !repo.repository.isPrivate)
+    type ContribRepos =
+      typeof contributionCollection.commitContributionsByRepository
+    type RepoContribution = ContribRepos[number] & {
+      repository: { isPrivate?: boolean }
+    }
+    const repoList = contributionCollection.commitContributionsByRepository
+    const commits = (repoList as RepoContribution[])
+      .filter((repo) => !repo.repository.isPrivate)
       .flatMap((repo) => {
         const branch = repo.repository.defaultBranchRef
         const nodes = branch?.target?.history?.nodes

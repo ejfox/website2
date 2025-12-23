@@ -76,23 +76,36 @@ const levenshtein = (a: string, b: string): number => {
   return matrix[b.length][a.length]
 }
 
+interface ManifestItem {
+  title: string
+  slug: string
+  hidden?: boolean
+  draft?: boolean
+}
+
+interface ScoredMatch {
+  title: string
+  path: string
+  score: number
+}
+
 onMounted(async () => {
   try {
-    const manifest = await $fetch('/api/manifest')
+    const manifest = await $fetch<ManifestItem[]>('/api/manifest')
     const items =
-      manifest?.filter((item: any) => !item.hidden && !item.draft) || []
+      manifest?.filter((item) => !item.hidden && !item.draft) || []
 
     const search = cleanPath.value.toLowerCase()
     if (!search || search.length > 80) return
 
-    const matches = items
-      .map((item: any) => ({
+    const matches: ScoredMatch[] = items
+      .map((item) => ({
         title: item.title,
         path: `/blog/${item.slug}`,
         score: -levenshtein(item.slug || '', search),
       }))
-      .filter((m: any) => m.score > -20)
-      .sort((a: any, b: any) => b.score - a.score)
+      .filter((m) => m.score > -20)
+      .sort((a, b) => b.score - a.score)
       .slice(0, 3)
 
     suggestions.value = matches

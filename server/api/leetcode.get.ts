@@ -20,7 +20,7 @@ interface _SubmissionStats {
   submissions: number
 }
 
-interface _RecentSubmission {
+interface RecentSubmission {
   title: string
   titleSlug: string
   timestamp: string
@@ -28,7 +28,29 @@ interface _RecentSubmission {
   lang: string
 }
 
-// Unused interface LeetCodeResponse removed
+interface SubmissionStat {
+  difficulty: string
+  count: number
+  submissions: number
+}
+
+interface LeetCodeGraphQLResponse {
+  data: {
+    userContestRanking?: {
+      attendedContestsCount: number
+      rating: number
+      globalRanking: number
+      totalParticipants: number
+      topPercentage: number
+    }
+    recentSubmissionList?: RecentSubmission[]
+    matchedUser?: {
+      submitStats?: {
+        acSubmissionNum?: SubmissionStat[]
+      }
+    }
+  }
+}
 
 export default defineEventHandler(async () => {
   const username = 'ejfox'
@@ -86,12 +108,14 @@ export default defineEventHandler(async () => {
   }
 
   try {
-    const data = await makeRequest<any>('https://leetcode.com/graphql')
+    const data = await makeRequest<LeetCodeGraphQLResponse>(
+      'https://leetcode.com/graphql'
+    )
 
     const response = {
       contestStats: data.data.userContestRanking || null,
       recentSubmissions:
-        data.data.recentSubmissionList?.map((submission: any) => ({
+        data.data.recentSubmissionList?.map((submission: RecentSubmission) => ({
           title: submission.title,
           titleSlug: submission.titleSlug,
           timestamp: submission.timestamp,
@@ -107,25 +131,28 @@ export default defineEventHandler(async () => {
     }
 
     if (data.data.matchedUser?.submitStats?.acSubmissionNum) {
-      data.data.matchedUser.submitStats.acSubmissionNum.forEach((stat: any) => {
-        const difficulty = stat.difficulty.toLowerCase()
-        if (difficulty in response.submissionStats) {
-          response.submissionStats[
-            difficulty as keyof typeof response.submissionStats
-          ] = {
-            count: stat.count,
-            submissions: stat.submissions,
+      data.data.matchedUser.submitStats.acSubmissionNum.forEach(
+        (stat: SubmissionStat) => {
+          const difficulty = stat.difficulty.toLowerCase()
+          if (difficulty in response.submissionStats) {
+            response.submissionStats[
+              difficulty as keyof typeof response.submissionStats
+            ] = {
+              count: stat.count,
+              submissions: stat.submissions,
+            }
           }
         }
-      })
+      )
     }
 
     return response
-  } catch (error: any) {
+  } catch (error) {
     console.error('LeetCode API error:', error)
+    const err = error as Error
     throw createError({
       statusCode: 500,
-      message: `LeetCode API error: ${error.message}`,
+      message: `LeetCode API error: ${err.message}`,
     })
   }
 })

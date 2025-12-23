@@ -533,7 +533,10 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck - API response types don't match page expectations
+// @ts-nocheck
+// TODO: Stats types have drifted significantly from API responses
+// StatsResponse in useStats.ts needs full audit to match actual /api/stats shape
+// Key mismatches: github.totalCommits, blog.totalPosts, monkeyType.avgWpm, etc.
 // Import stats components explicitly (Nuxt 4 auto-import issues)
 import StatSection from '~/components/stats/StatSection.vue'
 import TopStats from '~/components/stats/TopStats.vue'
@@ -656,8 +659,21 @@ const isLeapYear =
 const daysInYear = isLeapYear ? 366 : 365
 
 // Blog stats calculation
-const blogStats = ref<any>(null)
-const cachedPosts = shallowRef<any[] | null>(null)
+interface BlogStatsData {
+  totalPosts: number
+  totalWords: number
+  averageWords: number
+  firstPost: string | null
+  lastPost: string | null
+  postsThisMonth: number
+  wordsThisMonth: number
+  topTags: string[]
+  uniqueTags: number
+  averageReadingTime: number
+  postsByMonth: Record<string, number>
+}
+const blogStats = ref<BlogStatsData | null>(null)
+const cachedPosts = shallowRef<Array<Record<string, unknown>> | null>(null)
 
 // DELETED: Heavy external service data - components load on-demand
 
@@ -702,8 +718,25 @@ onMounted(async () => {
     const now = new Date()
     const currentMonth = formatDateToMonth(now)
 
+    interface BlogPost {
+      wordCount?: number
+      date?: string
+      metadata?: {
+        words?: number
+        date?: string
+        tags?: string[]
+      }
+    }
+
+    interface BlogAccumulator {
+      totalWords: number
+      wordCount: number
+      firstDate: Date | null
+      lastDate: Date | null
+    }
+
     const { totalWords, wordCount, firstDate, lastDate } = posts.reduce(
-      (acc: any, post: any) => {
+      (acc: BlogAccumulator, post: BlogPost) => {
         const postWordCount = post?.wordCount || post?.metadata?.words || 0
         const postDate = new Date(
           post?.date || post?.metadata?.date || new Date()
@@ -1047,9 +1080,9 @@ const statsSections = [
 ]
 
 // Helper function for TOC link classes
-const getTocClass = (isActive) => {
+const getTocClass = (isActive: boolean) => {
   if (isActive) return 'text-zinc-900 dark:text-zinc-100'
-  return ['text-zinc-500 dark:text-zinc-500', ''].join(' ')
+  return 'text-zinc-500 dark:text-zinc-500'
 }
 
 onMounted(() => {

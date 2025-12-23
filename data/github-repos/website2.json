@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 690175,
-    "TypeScript": 336471,
+    "Vue": 691405,
+    "TypeScript": 334119,
     "JavaScript": 221072,
     "CSS": 35191,
+    "Shell": 18074,
     "HTML": 15405,
-    "Shell": 15270,
     "Dockerfile": 794
   },
-  "diskUsage": 89124,
+  "diskUsage": 89331,
   "fileTree": {
     "files": [
       {
@@ -145,7 +145,7 @@
       },
       {
         "path": "components/Footer.vue",
-        "size": 3239
+        "size": 3393
       },
       {
         "path": "components/GistPreview.vue",
@@ -222,6 +222,10 @@
       {
         "path": "components/SparklineScaled.vue",
         "size": 4965
+      },
+      {
+        "path": "components/StaticContent.server.vue",
+        "size": 301
       },
       {
         "path": "components/TweetCard.vue",
@@ -449,7 +453,7 @@
       },
       {
         "path": "composables/useStats.ts",
-        "size": 13197
+        "size": 12749
       },
       {
         "path": "composables/useStatusFormatting.ts",
@@ -2493,7 +2497,7 @@
       },
       {
         "path": "content/processed/goodreads-stats.json",
-        "size": 48896
+        "size": 49490
       },
       {
         "path": "content/processed/index.json",
@@ -3353,11 +3357,11 @@
       },
       {
         "path": "data/github-repos-index.json",
-        "size": 3526
+        "size": 3551
       },
       {
         "path": "data/github-repos-list.json",
-        "size": 123772
+        "size": 124436
       },
       {
         "path": "data/github-repos/30-data-days.json",
@@ -3577,7 +3581,7 @@
       },
       {
         "path": "data/github-repos/dotfiles.json",
-        "size": 125455
+        "size": 125633
       },
       {
         "path": "data/github-repos/dvs-soti-2022.json",
@@ -3932,6 +3936,10 @@
         "size": 8617
       },
       {
+        "path": "data/github-repos/subway-builder-mods.json",
+        "size": 4928
+      },
+      {
         "path": "data/github-repos/subwaybuilder-mod.json",
         "size": 18337
       },
@@ -4061,7 +4069,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 504786
+        "size": 502641
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -5629,7 +5637,7 @@
       },
       {
         "path": "nuxt.config.ts",
-        "size": 12966
+        "size": 12929
       },
       {
         "path": "package-lock.json",
@@ -5637,7 +5645,7 @@
       },
       {
         "path": "package.json",
-        "size": 3906
+        "size": 4179
       },
       {
         "path": "pages/blog/[...slug].vue",
@@ -5645,7 +5653,7 @@
       },
       {
         "path": "pages/blog/index.vue",
-        "size": 22927
+        "size": 23011
       },
       {
         "path": "pages/blog/robots/[...slug].vue",
@@ -5665,11 +5673,11 @@
       },
       {
         "path": "pages/bookmarklet-popup.vue",
-        "size": 11066
+        "size": 19053
       },
       {
         "path": "pages/bookmarklet.vue",
-        "size": 7142
+        "size": 5633
       },
       {
         "path": "pages/calendar.vue",
@@ -5709,7 +5717,7 @@
       },
       {
         "path": "pages/index.vue",
-        "size": 4889
+        "size": 4970
       },
       {
         "path": "pages/kalshi.vue",
@@ -5721,7 +5729,7 @@
       },
       {
         "path": "pages/on-this-day.vue",
-        "size": 9772
+        "size": 6133
       },
       {
         "path": "pages/predictions/[slug].vue",
@@ -5757,7 +5765,7 @@
       },
       {
         "path": "pages/sitemap.vue",
-        "size": 11641
+        "size": 9412
       },
       {
         "path": "pages/stats.vue",
@@ -5782,6 +5790,10 @@
       {
         "path": "plugins/umami.client.js",
         "size": 435
+      },
+      {
+        "path": "public/.well-known/security.txt",
+        "size": 285
       },
       {
         "path": "public/ai2html/thorn-hill/ThornHill-Artboard_1.jpg",
@@ -5988,6 +6000,10 @@
         "size": 2951
       },
       {
+        "path": "public/llms.txt",
+        "size": 3300
+      },
+      {
         "path": "public/me.png",
         "size": 152668
       },
@@ -6013,7 +6029,7 @@
       },
       {
         "path": "public/robots.txt",
-        "size": 32
+        "size": 155
       },
       {
         "path": "public/site.webmanifest",
@@ -6029,7 +6045,7 @@
       },
       {
         "path": "scripts/auto-update.sh",
-        "size": 2944
+        "size": 3352
       },
       {
         "path": "scripts/blog/create-prediction.mjs",
@@ -6058,6 +6074,10 @@
       {
         "path": "scripts/config.mjs",
         "size": 1692
+      },
+      {
+        "path": "scripts/deploy.sh",
+        "size": 2237
       },
       {
         "path": "scripts/dev-with-perf.mjs",
@@ -6209,7 +6229,7 @@
       },
       {
         "path": "scripts/vps_update.sh",
-        "size": 1044
+        "size": 1203
       },
       {
         "path": "server/api/blog-stats.get.ts",
@@ -6249,7 +6269,7 @@
       },
       {
         "path": "server/api/external-links.get.ts",
-        "size": 3106
+        "size": 3637
       },
       {
         "path": "server/api/gear-csv.get.ts",
@@ -6273,7 +6293,7 @@
       },
       {
         "path": "server/api/gists.get.ts",
-        "size": 2662
+        "size": 2802
       },
       {
         "path": "server/api/github-commits.get.ts",
@@ -6417,7 +6437,7 @@
       },
       {
         "path": "server/api/suggest.get.ts",
-        "size": 12695
+        "size": 12702
       },
       {
         "path": "server/api/umami/auth.post.ts",
@@ -6440,8 +6460,8 @@
         "size": 3114
       },
       {
-        "path": "server/api/youtube.get.ts",
-        "size": 7499
+        "path": "server/routes/feed.json.ts",
+        "size": 3186
       },
       {
         "path": "server/routes/gists-rss.xml.ts",
@@ -6453,11 +6473,11 @@
       },
       {
         "path": "server/routes/rss.xml.ts",
-        "size": 4472
+        "size": 4390
       },
       {
         "path": "server/routes/sitemap.xml.ts",
-        "size": 3082
+        "size": 4932
       },
       {
         "path": "server/routes/tags.json.ts",
@@ -6948,7 +6968,7 @@
             },
             {
               "name": "Footer.vue",
-              "size": 3239,
+              "size": 3393,
               "path": "components/Footer.vue"
             },
             {
@@ -7047,6 +7067,11 @@
               "path": "components/SparklineScaled.vue"
             },
             {
+              "name": "StaticContent.server.vue",
+              "size": 301,
+              "path": "components/StaticContent.server.vue"
+            },
+            {
               "name": "TweetCard.vue",
               "size": 5467,
               "path": "components/TweetCard.vue"
@@ -7135,7 +7160,7 @@
             },
             {
               "name": "useStats.ts",
-              "size": 13197,
+              "size": 12749,
               "path": "composables/useStats.ts"
             },
             {
@@ -11023,7 +11048,7 @@
                 },
                 {
                   "name": "goodreads-stats.json",
-                  "size": 48896,
+                  "size": 49490,
                   "path": "content/processed/goodreads-stats.json"
                 },
                 {
@@ -11330,7 +11355,7 @@
                 },
                 {
                   "name": "dotfiles.json",
-                  "size": 125455,
+                  "size": 125633,
                   "path": "data/github-repos/dotfiles.json"
                 },
                 {
@@ -11774,6 +11799,11 @@
                   "path": "data/github-repos/startup-motd.json"
                 },
                 {
+                  "name": "subway-builder-mods.json",
+                  "size": 4928,
+                  "path": "data/github-repos/subway-builder-mods.json"
+                },
+                {
                   "name": "subwaybuilder-mod.json",
                   "size": 18337,
                   "path": "data/github-repos/subwaybuilder-mod.json"
@@ -11935,7 +11965,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 504786,
+                  "size": 502641,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -13839,12 +13869,12 @@
             },
             {
               "name": "github-repos-index.json",
-              "size": 3526,
+              "size": 3551,
               "path": "data/github-repos-index.json"
             },
             {
               "name": "github-repos-list.json",
-              "size": 123772,
+              "size": 124436,
               "path": "data/github-repos-list.json"
             },
             {
@@ -13983,7 +14013,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 22927,
+                  "size": 23011,
                   "path": "pages/blog/index.vue"
                 }
               ],
@@ -14088,12 +14118,12 @@
             },
             {
               "name": "bookmarklet-popup.vue",
-              "size": 11066,
+              "size": 19053,
               "path": "pages/bookmarklet-popup.vue"
             },
             {
               "name": "bookmarklet.vue",
-              "size": 7142,
+              "size": 5633,
               "path": "pages/bookmarklet.vue"
             },
             {
@@ -14123,7 +14153,7 @@
             },
             {
               "name": "index.vue",
-              "size": 4889,
+              "size": 4970,
               "path": "pages/index.vue"
             },
             {
@@ -14138,7 +14168,7 @@
             },
             {
               "name": "on-this-day.vue",
-              "size": 9772,
+              "size": 6133,
               "path": "pages/on-this-day.vue"
             },
             {
@@ -14148,7 +14178,7 @@
             },
             {
               "name": "sitemap.vue",
-              "size": 11641,
+              "size": 9412,
               "path": "pages/sitemap.vue"
             },
             {
@@ -14193,6 +14223,17 @@
         {
           "name": "public",
           "children": [
+            {
+              "name": ".well-known",
+              "children": [
+                {
+                  "name": "security.txt",
+                  "size": 285,
+                  "path": "public/.well-known/security.txt"
+                }
+              ],
+              "path": "public/.well-known"
+            },
             {
               "name": "ai2html",
               "children": [
@@ -14491,6 +14532,11 @@
               "path": "public/keybase.txt"
             },
             {
+              "name": "llms.txt",
+              "size": 3300,
+              "path": "public/llms.txt"
+            },
+            {
               "name": "me.png",
               "size": 152668,
               "path": "public/me.png"
@@ -14522,7 +14568,7 @@
             },
             {
               "name": "robots.txt",
-              "size": 32,
+              "size": 155,
               "path": "public/robots.txt"
             },
             {
@@ -14684,7 +14730,7 @@
             },
             {
               "name": "auto-update.sh",
-              "size": 2944,
+              "size": 3352,
               "path": "scripts/auto-update.sh"
             },
             {
@@ -14701,6 +14747,11 @@
               "name": "config.mjs",
               "size": 1692,
               "path": "scripts/config.mjs"
+            },
+            {
+              "name": "deploy.sh",
+              "size": 2237,
+              "path": "scripts/deploy.sh"
             },
             {
               "name": "dev-with-perf.mjs",
@@ -14809,7 +14860,7 @@
             },
             {
               "name": "vps_update.sh",
-              "size": 1044,
+              "size": 1203,
               "path": "scripts/vps_update.sh"
             }
           ],
@@ -15009,7 +15060,7 @@
                 },
                 {
                   "name": "external-links.get.ts",
-                  "size": 3106,
+                  "size": 3637,
                   "path": "server/api/external-links.get.ts"
                 },
                 {
@@ -15034,7 +15085,7 @@
                 },
                 {
                   "name": "gists.get.ts",
-                  "size": 2662,
+                  "size": 2802,
                   "path": "server/api/gists.get.ts"
                 },
                 {
@@ -15154,7 +15205,7 @@
                 },
                 {
                   "name": "suggest.get.ts",
-                  "size": 12695,
+                  "size": 12702,
                   "path": "server/api/suggest.get.ts"
                 },
                 {
@@ -15171,11 +15222,6 @@
                   "name": "words-this-month.get.ts",
                   "size": 3114,
                   "path": "server/api/words-this-month.get.ts"
-                },
-                {
-                  "name": "youtube.get.ts",
-                  "size": 7499,
-                  "path": "server/api/youtube.get.ts"
                 }
               ],
               "path": "server/api"
@@ -15183,6 +15229,11 @@
             {
               "name": "routes",
               "children": [
+                {
+                  "name": "feed.json.ts",
+                  "size": 3186,
+                  "path": "server/routes/feed.json.ts"
+                },
                 {
                   "name": "gists-rss.xml.ts",
                   "size": 4889,
@@ -15195,12 +15246,12 @@
                 },
                 {
                   "name": "rss.xml.ts",
-                  "size": 4472,
+                  "size": 4390,
                   "path": "server/routes/rss.xml.ts"
                 },
                 {
                   "name": "sitemap.xml.ts",
-                  "size": 3082,
+                  "size": 4932,
                   "path": "server/routes/sitemap.xml.ts"
                 },
                 {
@@ -15391,7 +15442,7 @@
         },
         {
           "name": "nuxt.config.ts",
-          "size": 12966,
+          "size": 12929,
           "path": "nuxt.config.ts"
         },
         {
@@ -15401,7 +15452,7 @@
         },
         {
           "name": "package.json",
-          "size": 3906,
+          "size": 4179,
           "path": "package.json"
         },
         {
@@ -15432,8 +15483,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 1630,
-    "totalSize": 83999112
+    "totalFiles": 1635,
+    "totalSize": 84009019
   },
   "topics": [],
   "readme": {
@@ -15442,6 +15493,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-18T05:11:13Z",
-  "pushedAt": "2025-12-18T05:11:10Z"
+  "updatedAt": "2025-12-22T01:05:04Z",
+  "pushedAt": "2025-12-22T01:05:01Z"
 }

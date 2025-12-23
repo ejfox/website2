@@ -11,13 +11,47 @@ import { join } from 'node:path'
 import matter from 'gray-matter'
 import { glob } from 'glob'
 
+// Timeline event types
+interface TimelineEvent {
+  timestamp: string
+  type:
+    | 'post'
+    | 'prediction'
+    | 'prediction_update'
+    | 'prediction_resolution'
+    | 'reading'
+  title: string
+  description: string
+  url: string
+  tags?: string[]
+  metadata: Record<string, unknown>
+}
+
+interface ManifestPost {
+  slug: string
+  title: string
+  date: string
+  description?: string
+  tags?: string[]
+  wordCount?: number
+  readingTime?: number
+  draft?: boolean
+}
+
+interface PredictionUpdate {
+  timestamp: string
+  reasoning: string
+  confidenceBefore: number
+  confidenceAfter: number
+}
+
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const limit = Number.parseInt(query.limit as string) || 100
   const from = query.from as string
   const to = query.to as string
 
-  const events: any[] = []
+  const events: TimelineEvent[] = []
 
   // Get all blog posts
   try {
@@ -29,8 +63,8 @@ export default defineEventHandler(async (event) => {
     const posts = JSON.parse(manifestContent)
 
     posts
-      .filter((p: any) => !p.draft && p.date)
-      .forEach((post: any) => {
+      .filter((p: ManifestPost) => !p.draft && p.date)
+      .forEach((post: ManifestPost) => {
         events.push({
           timestamp: post.date,
           type: 'post',
@@ -76,7 +110,7 @@ export default defineEventHandler(async (event) => {
 
         // Add prediction updates as events
         if (data.updates && data.updates.length > 0) {
-          data.updates.forEach((update: any) => {
+          data.updates.forEach((update: PredictionUpdate) => {
             events.push({
               timestamp: update.timestamp,
               type: 'prediction_update',
@@ -202,7 +236,7 @@ export default defineEventHandler(async (event) => {
         ).length,
         reading: events.filter((e) => e.type === 'reading').length,
       },
-      byYear: events.reduce((acc: any, e) => {
+      byYear: events.reduce((acc: Record<number, number>, e) => {
         const year = new Date(e.timestamp).getFullYear()
         acc[year] = (acc[year] || 0) + 1
         return acc

@@ -21,14 +21,14 @@
 
     <!-- Timeline by year -->
     <div v-else>
-      <section
-        v-for="yearData in data.years"
-        :key="yearData.year"
-        class="mb-8"
-      >
+      <section v-for="yearData in data.years" :key="yearData.year" class="mb-8">
         <!-- Year header -->
-        <h2 class="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-4">
-          {{ yearData.year }} <span class="text-zinc-300 dark:text-zinc-600">/</span> {{ yearsAgo(yearData.year) }}
+        <h2
+          class="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-4"
+        >
+          {{ yearData.year }}
+          <span class="text-zinc-300 dark:text-zinc-600">/</span>
+          {{ yearsAgo(yearData.year) }}
         </h2>
 
         <!-- Entries -->
@@ -44,7 +44,10 @@
                 >
                   {{ post.title }}
                 </NuxtLink>
-                <span v-if="post.dek" class="text-zinc-500 text-sm block mt-0.5">
+                <span
+                  v-if="post.dek"
+                  class="text-zinc-500 text-sm block mt-0.5"
+                >
                   {{ post.dek }}
                 </span>
               </dd>
@@ -55,7 +58,9 @@
           <template v-if="yearData.commits?.length">
             <div v-for="commit in yearData.commits" :key="commit.sha">
               <dt class="text-xs font-mono text-zinc-400 mb-0.5">
-                commit <span class="text-zinc-300 dark:text-zinc-600">/</span> {{ commit.repo }}
+                commit
+                <span class="text-zinc-300 dark:text-zinc-600">/</span>
+                {{ commit.repo }}
               </dt>
               <dd class="font-mono text-sm">
                 <code class="text-zinc-400 text-xs">{{ commit.sha }}</code>
@@ -70,17 +75,22 @@
               <dt class="text-xs font-mono text-zinc-400 mb-0.5">
                 tweet
                 <template v-if="tweet.replyTo">
-                  <span class="text-zinc-300 dark:text-zinc-600">/</span> re: @{{ tweet.replyTo }}
+                  <span class="text-zinc-300 dark:text-zinc-600">/</span>
+                  re: @{{ tweet.replyTo }}
                 </template>
               </dt>
-              <dd class="text-sm leading-relaxed whitespace-pre-wrap">{{ tweet.text }}</dd>
+              <dd class="text-sm leading-relaxed whitespace-pre-wrap">
+                {{ tweet.text }}
+              </dd>
               <dd
                 v-if="tweet.favorites > 0 || tweet.retweets > 0"
                 class="text-xs font-mono text-zinc-400 mt-1"
               >
                 <span v-if="tweet.retweets > 0">{{ tweet.retweets }} rt</span>
-                <span v-if="tweet.retweets > 0 && tweet.favorites > 0"> / </span>
-                <span v-if="tweet.favorites > 0">{{ tweet.favorites }} fav</span>
+                <span v-if="tweet.retweets > 0 && tweet.favorites > 0">/</span>
+                <span v-if="tweet.favorites > 0">
+                  {{ tweet.favorites }} fav
+                </span>
               </dd>
             </div>
           </template>
@@ -89,7 +99,9 @@
           <template v-if="yearData.scrobbles?.length">
             <div v-for="scrobble in yearData.scrobbles" :key="scrobble.date">
               <dt class="text-xs font-mono text-zinc-400 mb-0.5">
-                music <span class="text-zinc-300 dark:text-zinc-600">/</span> {{ scrobble.count }} scrobbles
+                music
+                <span class="text-zinc-300 dark:text-zinc-600">/</span>
+                {{ scrobble.count }} scrobbles
               </dt>
               <dd class="text-sm">
                 <span v-if="scrobble.topArtists?.length" class="text-zinc-500">
@@ -100,8 +112,16 @@
                 v-if="scrobble.topTracks?.length"
                 class="text-xs text-zinc-400 mt-1 font-mono"
               >
-                <span v-for="(track, i) in scrobble.topTracks.slice(0, 3)" :key="track">
-                  {{ i + 1 }}. {{ track }}<template v-if="i < Math.min(scrobble.topTracks.length, 3) - 1">, </template>
+                <span
+                  v-for="(track, i) in scrobble.topTracks.slice(0, 3)"
+                  :key="track"
+                >
+                  {{ i + 1 }}. {{ track }}
+                  <template
+                    v-if="i < Math.min(scrobble.topTracks.length, 3) - 1"
+                  >
+                    ,
+                  </template>
                 </span>
               </dd>
             </div>
@@ -113,7 +133,49 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck - API response types don't match page expectations
+interface Post {
+  slug: string
+  title: string
+  dek?: string
+}
+
+interface Commit {
+  sha: string
+  repo: string
+  message: string
+}
+
+interface Tweet {
+  id: string
+  text: string
+  replyTo?: string
+  favorites: number
+  retweets: number
+}
+
+interface Scrobble {
+  date: string
+  count: number
+  topArtists?: string[]
+  topTracks?: string[]
+}
+
+interface YearData {
+  year: number
+  posts?: Post[]
+  commits?: Commit[]
+  tweets?: Tweet[]
+  scrobbles?: Scrobble[]
+}
+
+interface OnThisDayResponse {
+  month: number
+  day: number
+  key: string
+  years: YearData[]
+  [key: string]: unknown // For total_* dynamic keys
+}
+
 const route = useRoute()
 
 // Source type labels for summary
@@ -134,12 +196,15 @@ const currentDay = ref(
 )
 
 // Fetch data
-const { data, pending, error } = await useFetch('/api/on-this-day', {
-  query: computed(() => ({
-    month: currentMonth.value,
-    day: currentDay.value,
-  })),
-})
+const { data, pending, error } = await useFetch<OnThisDayResponse>(
+  '/api/on-this-day',
+  {
+    query: computed(() => ({
+      month: currentMonth.value,
+      day: currentDay.value,
+    })),
+  }
+)
 
 // Formatted date display
 const formattedDate = computed(() => {

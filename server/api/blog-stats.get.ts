@@ -4,12 +4,19 @@
  * @endpoint GET /api/blog-stats
  * @returns Blog statistics with post count, word count, recent posts, and monthly writing metrics
  */
+interface RecentPost {
+  title?: string
+  slug?: string
+  date?: string
+  words?: number
+}
+
 interface WordsThisMonthResponse {
   postCount?: number
   totalPosts?: number
   totalWords?: number
   avgWordsPerPost?: number
-  posts?: any[]
+  posts?: RecentPost[]
   month?: string
   year?: number
   error?: string

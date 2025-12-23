@@ -8,9 +8,9 @@
 // SERVER-SIDE SYNTAX HIGHLIGHTING - Zeus almighty, no bundlin'
 // Pre-calculate, pre-render, hit em with the flow slide
 
-import { createHighlighter } from 'shiki'
+import { createHighlighter, type Highlighter } from 'shiki'
 
-let highlighterInstance: any = null
+let highlighterInstance: Highlighter | null = null
 
 async function getHighlighter() {
   if (!highlighterInstance) {

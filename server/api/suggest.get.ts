@@ -218,7 +218,8 @@ async function generateAISuggestions(
   similarPosts: BlogPost[]
 ): Promise<{ tags: string[]; summary: string; threads: string[] }> {
   const config = useRuntimeConfig()
-  const openrouterKey = config.OPENROUTER_API_KEY || process.env.OPENROUTER_API_KEY
+  const openrouterKey =
+    config.OPENROUTER_API_KEY || process.env.OPENROUTER_API_KEY
 
   if (!openrouterKey) {
     // Fallback to simple keyword matching
@@ -271,24 +272,31 @@ Please respond in this exact JSON format:
 Focus on tags that match EJ's interests and writing style.`
 
   try {
-    const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${openrouterKey}`,
-        'Content-Type': 'application/json',
-        'HTTP-Referer': 'https://ejfox.com',
-        'X-Title': 'ejfox.com',
-      },
-      body: JSON.stringify({
-        model: 'openai/gpt-4o-mini',
-        messages: [
-          { role: 'system', content: 'You are a helpful assistant that returns valid JSON only.' },
-          { role: 'user', content: prompt },
-        ],
-        temperature: 0.7,
-        max_tokens: 300,
-      }),
-    })
+    const response = await fetch(
+      'https://openrouter.ai/api/v1/chat/completions',
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${openrouterKey}`,
+          'Content-Type': 'application/json',
+          'HTTP-Referer': 'https://ejfox.com',
+          'X-Title': 'ejfox.com',
+        },
+        body: JSON.stringify({
+          model: 'openai/gpt-4o-mini',
+          messages: [
+            {
+              role: 'system',
+              content:
+                'You are a helpful assistant that returns valid JSON only.',
+            },
+            { role: 'user', content: prompt },
+          ],
+          temperature: 0.7,
+          max_tokens: 300,
+        }),
+      }
+    )
 
     if (response.ok) {
       const data = await response.json()
@@ -418,7 +426,7 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
     cache.set(cacheKey, result, 1800) // 30 minutes
 
     return result
-  } catch (error: any) {
+  } catch (error) {
     console.error('Suggest endpoint error:', error)
 
     // Return graceful fallback

@@ -138,9 +138,9 @@ useHead({
         </h1>
         <!-- Server-only island - no hydration needed for static content -->
         <StaticContent
+          id="index-content"
           :html="indexContent.html"
           class="font-serif prose prose-zinc dark:prose-invert max-w-none"
-          id="index-content"
         />
       </template>
     </div>

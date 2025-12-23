@@ -1,5 +1,40 @@
 import { defineEventHandler } from 'h3'
 
+// GraphQL response types
+interface GistFile {
+  name: string
+  language: { name: string } | null
+  text: string | null
+  size: number
+}
+
+interface Gist {
+  name: string
+  description: string | null
+  url: string
+  pushedAt: string
+  updatedAt: string
+  createdAt: string
+  isPublic: boolean
+  stargazerCount: number
+  files: GistFile[]
+}
+
+interface GraphQLError {
+  message: string
+}
+
+interface GistsGraphQLResponse {
+  errors?: GraphQLError[]
+  data?: {
+    viewer?: {
+      gists?: {
+        nodes?: Gist[]
+      }
+    }
+  }
+}
+
 const siteURL = 'https://ejfox.com'
 const siteName = 'EJ Fox - Code Snippets & Gists'
 const siteDescription =
@@ -53,14 +88,17 @@ export default defineEventHandler(async (event): Promise<string> => {
       }
     `
 
-    const response: any = await $fetch<any>('https://api.github.com/graphql', {
-      method: 'POST',
-      headers: {
-        Authorization: `bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      body: { query },
-    })
+    const response = await $fetch<GistsGraphQLResponse>(
+      'https://api.github.com/graphql',
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+        body: { query },
+      }
+    )
 
     // Handle GraphQL errors
     if (response?.errors) {
@@ -78,10 +116,10 @@ export default defineEventHandler(async (event): Promise<string> => {
       throw new Error('Invalid GitHub API response structure')
     }
 
-    const gists: any[] = response.data.viewer.gists.nodes
+    const gists: Gist[] = response.data.viewer.gists.nodes
 
     // Get the latest update time for ETag
-    const lastBuildDate: Date = gists.reduce((latest: Date, gist: any) => {
+    const lastBuildDate: Date = gists.reduce((latest: Date, gist: Gist) => {
       const gistDate = new Date(gist.pushedAt)
       return gistDate > latest ? gistDate : latest
     }, new Date(0))
@@ -114,14 +152,14 @@ export default defineEventHandler(async (event): Promise<string> => {
   <ttl>${CACHE_DURATION / 60}</ttl>
   <generator>EJ Fox Gists RSS Generator</generator>
   ${gists
-    .map((gist: any) => {
+    .map((gist: Gist) => {
       const title = gist.description || gist.files[0]?.name || 'Untitled Gist'
       const pubDate = new Date(gist.createdAt).toUTCString()
       const updateDate = new Date(gist.updatedAt).toUTCString()
 
       const filesContent = gist.files
         .map(
-          (file: any) => `
+          (file: GistFile) => `
           <code:file>
             <code:filename>${file.name}</code:filename>
             <code:language>${file.language?.name || 'Unknown'}</code:language>

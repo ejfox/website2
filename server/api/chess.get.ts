@@ -16,6 +16,53 @@ interface ChessGameResult {
   ratingDiff: number
 }
 
+// Chess.com API response types
+interface ChessStatsResponse {
+  chess_bullet?: {
+    last?: { rating: number }
+    best?: { rating: number }
+    record?: { win: number; loss: number; draw: number }
+  }
+  chess_blitz?: {
+    last?: { rating: number }
+    best?: { rating: number }
+    record?: { win: number; loss: number; draw: number }
+  }
+  chess_rapid?: {
+    last?: { rating: number }
+    best?: { rating: number }
+    record?: { win: number; loss: number; draw: number }
+  }
+  tactics?: {
+    highest?: { rating: number; date: number }
+    lowest?: { rating: number }
+  }
+}
+
+interface ArchivesResponse {
+  archives: string[]
+}
+
+interface ChessPlayer {
+  username: string
+  rating: number
+  result: string
+  rating_diff?: number
+}
+
+interface ChessGame {
+  uuid: string
+  url: string
+  time_class: string
+  end_time: number
+  white: ChessPlayer
+  black: ChessPlayer
+}
+
+interface GamesResponse {
+  games: ChessGame[]
+}
+
 interface ChessStats {
   currentRating: {
     bullet: number
@@ -84,20 +131,21 @@ export default defineEventHandler(async () => {
   try {
     // Fetch all data in parallel with error recovery
     const results = await Promise.allSettled([
-      makeRequest<any>(`player/${username}/stats`),
-      makeRequest<any>(`player/${username}/games/archives`).then(
+      makeRequest<ChessStatsResponse>(`player/${username}/stats`),
+      makeRequest<ArchivesResponse>(`player/${username}/games/archives`).then(
         async (archives) => {
           // Get most recent month's games
           const latestArchive = archives.archives[archives.archives.length - 1]
-          return makeRequest<any>(
+          return makeRequest<GamesResponse>(
             latestArchive.replace('https://api.chess.com/pub/', '')
           )
         }
       ),
     ])
 
-    const stats = results[0].status === 'fulfilled' ? results[0].value : {}
-    const games =
+    const stats: ChessStatsResponse =
+      results[0].status === 'fulfilled' ? results[0].value : {}
+    const games: GamesResponse =
       results[1].status === 'fulfilled' ? results[1].value : { games: [] }
 
     // Process the stats
@@ -141,7 +189,7 @@ export default defineEventHandler(async () => {
         lowestRating: stats.tactics?.lowest?.rating || 0,
         lastUpdated: stats.tactics?.highest?.date,
       },
-      recentGames: games.games.slice(0, 10).map((game: any) => ({
+      recentGames: games.games.slice(0, 10).map((game: ChessGame) => ({
         id: game.uuid,
         opponent:
           game[username === game.white.username ? 'black' : 'white'].username,
@@ -175,11 +223,12 @@ export default defineEventHandler(async () => {
         : 0
 
     return response
-  } catch (error: any) {
+  } catch (error) {
     console.error('Chess.com API error details:', error)
+    const err = error as Error & { statusCode?: number }
     throw createError({
-      statusCode: error.statusCode || 500,
-      message: error.message || 'Failed to fetch Chess.com data',
+      statusCode: err.statusCode || 500,
+      message: err.message || 'Failed to fetch Chess.com data',
     })
   }
 })
@@ -192,7 +241,10 @@ function calculateWinRate(
   return total > 0 ? Math.round((record.win / total) * 100) : 0
 }
 
-function determineResult(game: any, username: string): 'win' | 'loss' | 'draw' {
+function determineResult(
+  game: ChessGame,
+  username: string
+): 'win' | 'loss' | 'draw' {
   if (game.white.username === username) {
     return game.white.result === 'win'
       ? 'win'
@@ -208,7 +260,7 @@ function determineResult(game: any, username: string): 'win' | 'loss' | 'draw' {
   }
 }
 
-function calculateRatingDiff(game: any, username: string): number {
+function calculateRatingDiff(game: ChessGame, username: string): number {
   const playerData = game.white.username === username ? game.white : game.black
   return playerData.rating_diff || 0
 }

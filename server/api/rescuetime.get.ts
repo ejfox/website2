@@ -112,7 +112,7 @@ export default defineEventHandler(async () => {
 
     // Process week data
     const processData = (response: RescueTimeResponse) => {
-      const rows: RescueTimeRow[] = response.rows.map((row: any[]) => ({
+      const rows: RescueTimeRow[] = response.rows.map((row) => ({
         date: row[0],
         seconds: row[1],
         activity: row[3],
@@ -212,9 +212,10 @@ export default defineEventHandler(async () => {
       month: processData(monthData),
       lastUpdated: new Date().toISOString(),
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error('RescueTime API error:', error)
-    const errorMsg = `Failed to fetch RescueTime data: ${error.message}`
+    const err = error as Error
+    const errorMsg = `Failed to fetch RescueTime data: ${err.message}`
     throw createError({
       statusCode: 500,
       message: errorMsg,

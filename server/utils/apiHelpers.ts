@@ -1,6 +1,6 @@
 import { createError, type H3Event as _H3Event } from 'h3'
 
-export interface ApiRequestOptions extends Record<string, any> {
+export interface ApiRequestOptions extends Record<string, unknown> {
   timeout?: number
   maxRetries?: number
   retryDelay?: number
@@ -40,11 +40,12 @@ export async function makeApiRequest<T>(
       }
 
       return (await response.json()) as T
-    } catch (error: any) {
+    } catch (error) {
       attempt++
+      const err = error as Error & { statusCode?: number }
 
       // Don't retry on authentication errors
-      if (error.statusCode === 401 || error.statusCode === 403) {
+      if (err.statusCode === 401 || err.statusCode === 403) {
         throw error
       }
 
@@ -54,7 +55,7 @@ export async function makeApiRequest<T>(
           statusMessage: 'API Request Failed',
           message:
             `Failed to fetch from ${url} after ${maxRetries} attempts: ` +
-            `${error.message}`,
+            `${err.message}`,
         })
       }
 
@@ -131,8 +132,9 @@ export async function withErrorLogging<T>(
 ): Promise<T> {
   try {
     return await operation()
-  } catch (error: any) {
-    console.error(`[${context}] Error:`, error.message || error)
+  } catch (error) {
+    const err = error as Error
+    console.error(`[${context}] Error:`, err.message || error)
     throw error
   }
 }

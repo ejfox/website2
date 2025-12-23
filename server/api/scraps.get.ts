@@ -26,10 +26,10 @@ interface Scrap {
   longitude: number | null
   screenshot_url: string | null
   shared: boolean
-  relationships: any[] | null
-  extraction_confidence: any | null
-  financial_analysis: any | null
-  metadata: any | null
+  relationships: unknown[] | null
+  extraction_confidence: Record<string, unknown> | null
+  financial_analysis: Record<string, unknown> | null
+  metadata: Record<string, unknown> | null
 }
 
 export default defineEventHandler(async (): Promise<Scrap[]> => {
@@ -42,7 +42,7 @@ export default defineEventHandler(async (): Promise<Scrap[]> => {
       return []
     }
 
-    console.log('🔗 Connecting to Supabase:', config.SUPABASE_URL)
+    console.info('🔗 Connecting to Supabase:', config.SUPABASE_URL)
     const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY)
 
     // Fetch ALL available scrap data from Supabase
@@ -56,34 +56,37 @@ export default defineEventHandler(async (): Promise<Scrap[]> => {
       return []
     }
 
-    console.log(`✅ Fetched ${data?.length || 0} scraps from Supabase`)
+    console.info(`✅ Fetched ${data?.length || 0} scraps from Supabase`)
 
     // Map and clean the data, preserving all fields
-    const scraps = (data || []).map((scrap: any) => ({
-      id: scrap.id,
-      title: scrap.title || null,
-      summary: scrap.summary || null,
-      url: scrap.url || null,
-      content: scrap.content || null,
-      created_at: scrap.created_at,
-      updated_at: scrap.updated_at || null,
-      published_at: scrap.published_at || null,
+    // Cast Supabase data to expected shape - the select('*') returns the table row
+    const scraps: Scrap[] = (data || []).map((scrap) => ({
+      id: String(scrap.id),
+      title: (scrap.title as string) || null,
+      summary: (scrap.summary as string) || null,
+      url: (scrap.url as string) || null,
+      content: (scrap.content as string) || null,
+      created_at: scrap.created_at as string,
+      updated_at: (scrap.updated_at as string) || null,
+      published_at: (scrap.published_at as string) || null,
       tags: Array.isArray(scrap.tags) ? scrap.tags : null,
       concept_tags: Array.isArray(scrap.concept_tags)
         ? scrap.concept_tags
         : null,
-      type: scrap.type || null,
-      source: scrap.source || null,
-      content_type: scrap.content_type || null,
-      location: scrap.location || null,
-      latitude: scrap.latitude || null,
-      longitude: scrap.longitude || null,
-      screenshot_url: scrap.screenshot_url || null,
-      shared: scrap.shared || false,
-      relationships: scrap.relationships || null,
-      extraction_confidence: scrap.extraction_confidence || null,
-      financial_analysis: scrap.financial_analysis || null,
-      metadata: scrap.metadata || null,
+      type: (scrap.type as string) || null,
+      source: (scrap.source as string) || null,
+      content_type: (scrap.content_type as string) || null,
+      location: (scrap.location as string) || null,
+      latitude: (scrap.latitude as number) || null,
+      longitude: (scrap.longitude as number) || null,
+      screenshot_url: (scrap.screenshot_url as string) || null,
+      shared: Boolean(scrap.shared),
+      relationships: (scrap.relationships as unknown[]) || null,
+      extraction_confidence:
+        (scrap.extraction_confidence as Record<string, unknown>) || null,
+      financial_analysis:
+        (scrap.financial_analysis as Record<string, unknown>) || null,
+      metadata: (scrap.metadata as Record<string, unknown>) || null,
     }))
 
     return scraps

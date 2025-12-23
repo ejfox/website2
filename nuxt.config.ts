@@ -56,8 +56,12 @@ async function getBlogRoutes(): Promise<string[]> {
     const manifest = JSON.parse(manifestData)
 
     // Filter out draft posts and generate routes
+    interface ManifestPost {
+      slug?: string
+      draft?: boolean
+    }
     const routes = manifest
-      .filter((post: any) => {
+      .filter((post: ManifestPost) => {
         // Skip posts without slugs or that are drafts
         if (!post.slug) return false
         if (post.draft === true) return false
@@ -70,7 +74,7 @@ async function getBlogRoutes(): Promise<string[]> {
         if (post.slug.includes('drafts/')) return false
         return true
       })
-      .map((post: any) => `/blog/${post.slug}`)
+      .map((post: ManifestPost) => `/blog/${post.slug}`)
 
     console.log(`📝 Found ${routes.length} blog posts to prerender`)
     return routes
@@ -100,8 +104,12 @@ export default defineNuxtConfig({
     typedPages: true, // Enable typed routing
     renderJsonPayloads: false, // Reduce payload size
     viewTransition: true, // Enable instant view transitions (Nuxt 4)
-    inlineSSRStyles: true, // Inline critical CSS to eliminate render-blocking
     componentIslands: true, // Enable Nuxt Islands for partial hydration
+  },
+
+  // Inline critical CSS to eliminate render-blocking
+  features: {
+    inlineStyles: true,
   },
 
   // Aggressive router prefetching for instant navigation
@@ -223,9 +231,10 @@ export default defineNuxtConfig({
             force: true,
           })
           console.log(`✓ Copied content directory to ${dest}`)
-        } catch (err: any) {
+        } catch (err) {
           // Ignore ENOENT errors during hot reload race conditions
-          if (err?.code !== 'ENOENT') {
+          const e = err as NodeJS.ErrnoException
+          if (e?.code !== 'ENOENT') {
             throw err
           }
         }

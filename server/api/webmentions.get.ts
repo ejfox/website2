@@ -9,6 +9,23 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
+interface Webmention {
+  url?: string
+  'wm-source'?: string
+  author?: {
+    url?: string
+    name?: string
+  }
+  content?: {
+    text?: string
+    html?: string
+  }
+}
+
+interface WebmentionResponse {
+  children?: Webmention[]
+}
+
 interface ModerationConfig {
   blockedDomains: string[]
   blockedUrls: string[]
@@ -32,7 +49,7 @@ function loadModeration(): ModerationConfig {
   }
 }
 
-function isBlocked(mention: any, config: ModerationConfig): boolean {
+function isBlocked(mention: Webmention, config: ModerationConfig): boolean {
   const sourceUrl = mention.url || mention['wm-source'] || ''
   const authorUrl = mention.author?.url || ''
   const authorName = mention.author?.name || ''
@@ -83,19 +100,20 @@ export default defineEventHandler(async (event) => {
 
   try {
     const url = `https://webmention.io/api/mentions.jf2?token=${token}&target=${encodeURIComponent(target)}&per-page=100`
-    const response = (await $fetch(url)) as any
+    const response = await $fetch<WebmentionResponse>(url)
     const mentions = response.children || []
 
     // Load moderation config and filter
     const config = loadModeration()
-    const filtered = mentions.filter((m: any) => !isBlocked(m, config))
+    const filtered = mentions.filter((m: Webmention) => !isBlocked(m, config))
 
     return filtered
-  } catch (error: any) {
+  } catch (error) {
+    const err = error as Error
     throw createError({
       statusCode: 500,
       statusMessage: 'Failed to fetch webmentions',
-      message: error.message,
+      message: err.message,
     })
   }
 })

@@ -53,17 +53,18 @@ export default defineEventHandler(async (event) => {
       endDate: market.close_time,
       url: `https://kalshi.com/markets/${marketId}`,
       priceHistory:
-        historyData.history?.map((p: any) => ({
+        historyData.history?.map((p: { ts: number; yes_price: number }) => ({
           t: p.ts,
           p: p.yes_price * 100,
         })) || [],
       lastUpdated: new Date().toISOString(),
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error('Kalshi API error:', error)
+    const err = error as Error
     throw createError({
       statusCode: 500,
-      message: `Failed to fetch Kalshi data: ${error.message}`,
+      message: `Failed to fetch Kalshi data: ${err.message}`,
     })
   }
 })

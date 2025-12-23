@@ -32,7 +32,7 @@ export default defineEventHandler(async (_event) => {
         timeZone: 'America/New_York',
         format: 'range',
       },
-    })) as { data?: Record<string, any[]> }
+    })) as { data?: Record<string, Array<{ start: string; end?: string }>> }
 
     if (!response.data) {
       return { slots: [] }
@@ -43,7 +43,7 @@ export default defineEventHandler(async (_event) => {
 
     Object.entries(response.data).forEach(([date, slots]) => {
       if (Array.isArray(slots)) {
-        slots.forEach((slot: any) => {
+        slots.forEach((slot) => {
           allSlots.push({
             start: slot.start,
             end: slot.end,

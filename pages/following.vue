@@ -74,17 +74,39 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck - API response types don't match page expectations
-const { data, error } = await useFetch('/api/blogroll')
+interface Feed {
+  url: string
+  name: string
+  category: string
+  domain: string
+}
+
+interface BlogrollResponse {
+  meta: {
+    endpoint: string
+    timestamp: string
+    source: string
+    stats: {
+      total: number
+      categories: number
+      byCategoryCount: Record<string, number>
+    }
+  }
+  feeds: Feed[]
+  byCategory: Record<string, Feed[]>
+}
+
+const { data, error } = await useFetch<BlogrollResponse>('/api/blogroll')
 
 const totalFeeds = computed(() => data.value?.meta.stats.total || 0)
 const totalCategories = computed(() => data.value?.meta.stats.categories || 0)
 
 const sortedCategories = computed(() => {
   if (!data.value?.meta.stats.byCategoryCount) return {}
-  return Object.entries(data.value.meta.stats.byCategoryCount)
-    .sort(([, a]: any, [, b]: any) => b - a)
-    .reduce((acc: any, [cat, count]) => {
+  const entries = Object.entries(data.value.meta.stats.byCategoryCount)
+  return entries
+    .sort(([, a], [, b]) => b - a)
+    .reduce<Record<string, number>>((acc, [cat, count]) => {
       acc[cat] = count
       return acc
     }, {})

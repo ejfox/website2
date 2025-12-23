@@ -69,17 +69,18 @@ export default defineEventHandler(async (event) => {
       outcome: market.outcome,
       endDate: event.end_date || market.end_date,
       url: `https://polymarket.com/event/${slug}`,
-      priceHistory: priceHistory.map((p: any) => ({
+      priceHistory: priceHistory.map((p: { t: number; p: string }) => ({
         t: p.t * 1000, // Convert to milliseconds
         p: Number.parseFloat(p.p) * 100, // Convert to percentage
       })),
       lastUpdated: new Date().toISOString(),
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error('Polymarket API error:', error)
+    const err = error as Error
     throw createError({
       statusCode: 500,
-      message: `Failed to fetch Polymarket data: ${error.message}`,
+      message: `Failed to fetch Polymarket data: ${err.message}`,
     })
   }
 })

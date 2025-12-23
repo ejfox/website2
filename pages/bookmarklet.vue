@@ -8,7 +8,9 @@
     </header>
 
     <section class="mb-12">
-      <label class="block text-xs font-mono uppercase tracking-wider text-zinc-500 mb-3">
+      <label
+        class="block text-xs font-mono uppercase tracking-wider text-zinc-500 mb-3"
+      >
         Passphrase
       </label>
       <div class="relative">
@@ -16,22 +18,11 @@
           v-model="passphrase"
           :type="showPassword ? 'text' : 'password'"
           placeholder="Enter your secret passphrase"
-          class="w-full px-4 py-3 font-mono text-sm
-                 bg-zinc-50 dark:bg-zinc-900
-                 border border-zinc-200 dark:border-zinc-800
-                 rounded-lg
-                 text-zinc-900 dark:text-zinc-100
-                 placeholder:text-zinc-400 dark:placeholder:text-zinc-600
-                 focus:outline-none focus:ring-2 focus:ring-zinc-300 dark:focus:ring-zinc-700
-                 focus:border-transparent
-                 transition-all duration-200"
+          class="w-full px-4 py-3 font-mono text-sm bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-zinc-300 dark:focus:ring-zinc-700 focus:border-transparent transition-all duration-200"
         />
         <button
           type="button"
-          class="absolute right-3 top-1/2 -translate-y-1/2
-                 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300
-                 text-xs font-mono uppercase tracking-wider
-                 transition-colors"
+          class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 text-xs font-mono uppercase tracking-wider transition-colors"
           @click="showPassword = !showPassword"
         >
           {{ showPassword ? 'Hide' : 'Show' }}
@@ -45,14 +36,7 @@
     <section class="mb-12">
       <a
         :href="bookmarkletCode"
-        class="inline-flex items-center gap-2 px-5 py-3
-               bg-zinc-900 dark:bg-zinc-100
-               text-zinc-100 dark:text-zinc-900
-               text-sm font-mono
-               rounded-lg
-               hover:bg-zinc-700 dark:hover:bg-zinc-300
-               active:scale-[0.98]
-               transition-all duration-200"
+        class="inline-flex items-center gap-2 px-5 py-3 bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 text-sm font-mono rounded-lg hover:bg-zinc-700 dark:hover:bg-zinc-300 active:scale-[0.98] transition-all duration-200"
         :class="{ 'opacity-40 pointer-events-none': !passphrase }"
         @click.prevent
       >
@@ -77,25 +61,16 @@
 
     <details class="group">
       <summary
-        class="cursor-pointer text-xs font-mono uppercase tracking-wider
-               text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300
-               transition-colors"
+        class="cursor-pointer text-xs font-mono uppercase tracking-wider text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
       >
         Manual installation
       </summary>
       <div class="mt-4">
         <pre
-          class="bg-zinc-900 dark:bg-zinc-950 text-zinc-300
-                 p-4 rounded-lg overflow-x-auto text-xs font-mono
-                 border border-zinc-800"
+          class="bg-zinc-900 dark:bg-zinc-950 text-zinc-300 p-4 rounded-lg overflow-x-auto text-xs font-mono border border-zinc-800"
         ><code>{{ bookmarkletCode }}</code></pre>
         <button
-          class="mt-3 px-3 py-1.5 text-xs font-mono
-                 bg-zinc-100 dark:bg-zinc-800
-                 text-zinc-600 dark:text-zinc-400
-                 rounded
-                 hover:bg-zinc-200 dark:hover:bg-zinc-700
-                 transition-colors"
+          class="mt-3 px-3 py-1.5 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
           @click="copyCode"
         >
           {{ copied ? 'Copied' : 'Copy code' }}

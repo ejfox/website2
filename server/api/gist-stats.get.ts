@@ -55,7 +55,10 @@ export default defineEventHandler(async () => {
         const fileList = Object.values(gist.files)
         const firstFileName = Object.keys(gist.files)[0] || null
         const totalLines = fileList.reduce(
-          (sum, file: any) => sum + (file.content?.split('\n').length || 0),
+          (sum, file) => {
+            const f = file as { content?: string }
+            return sum + (f.content?.split('\n').length || 0)
+          },
           0
         )
 

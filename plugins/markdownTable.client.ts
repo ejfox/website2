@@ -116,17 +116,20 @@ export default defineNuxtPlugin(() => {
       const bCell = b.cells[colIndex]
       if (!aCell || !bCell) return 0
 
-      let aVal: any = aCell.textContent?.trim() || ''
-      let bVal: any = bCell.textContent?.trim() || ''
+      const aText = aCell.textContent?.trim() || ''
+      const bText = bCell.textContent?.trim() || ''
 
       // Parse as numbers if numeric column
       if (isNumericColumn) {
-        aVal = Number.parseFloat(aVal.replace(/[,$%]/g, '')) || 0
-        bVal = Number.parseFloat(bVal.replace(/[,$%]/g, '')) || 0
+        const aNum = Number.parseFloat(aText.replace(/[,$%]/g, '')) || 0
+        const bNum = Number.parseFloat(bText.replace(/[,$%]/g, '')) || 0
+        if (aNum < bNum) return newDirection === 'asc' ? -1 : 1
+        if (aNum > bNum) return newDirection === 'asc' ? 1 : -1
+        return 0
       }
 
-      if (aVal < bVal) return newDirection === 'asc' ? -1 : 1
-      if (aVal > bVal) return newDirection === 'asc' ? 1 : -1
+      if (aText < bText) return newDirection === 'asc' ? -1 : 1
+      if (aText > bText) return newDirection === 'asc' ? 1 : -1
       return 0
     })
 

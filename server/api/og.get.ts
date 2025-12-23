@@ -186,7 +186,7 @@ export default defineEventHandler(async (event) => {
     })
 
     return ogData
-  } catch (error: any) {
+  } catch (error) {
     console.error('OG fetch failed:', error)
     // Return minimal data on error
     const fallback: OGData = {

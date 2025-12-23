@@ -17,6 +17,27 @@ interface ExternalLink {
   count: number
 }
 
+interface DomainStats {
+  domain: string
+  linkCount: number
+  totalCitations: number
+}
+
+interface ExternalLinksResponse {
+  links: ExternalLink[]
+  stats: {
+    totalLinks: number
+    totalDomains: number
+    totalCitations: number
+    httpCount: number
+    httpsCount: number
+    topDomains: DomainStats[]
+    tldBreakdown: { tld: string; count: number }[]
+    oldestSource: string | null
+    newestSource: string | null
+  }
+}
+
 function parseCSVLine(line: string): [string, string] {
   // Simple CSV parser for our specific format
   const firstComma = line.indexOf(',')
@@ -65,13 +86,35 @@ export default defineEventHandler(async () => {
     dataLines.forEach((line) => {
       try {
         const [url, sourcesStr] = parseCSVLine(line)
-        if (!url) return
+        if (!url || url === 'https://' || url === 'http://') return
 
         const urlObj = new URL(url)
-        const domain = urlObj.hostname
+        let domain = urlObj.hostname
+
+        // Skip URLs with no valid hostname
+        if (!domain) return
+
+        // Strip www. prefix for cleaner grouping
+        if (domain.startsWith('www.')) {
+          domain = domain.slice(4)
+        }
+
+        // Normalize x.com to twitter.com
+        if (domain === 'x.com') {
+          domain = 'twitter.com'
+        }
+
+        // Normalize youtu.be to youtube.com
+        if (domain === 'youtu.be') {
+          domain = 'youtube.com'
+        }
 
         // Skip localhost URLs - these are internal development links
-        if (domain === 'localhost' || domain.startsWith('127.') || domain === '0.0.0.0') {
+        if (
+          domain === 'localhost' ||
+          domain.startsWith('127.') ||
+          domain === '0.0.0.0'
+        ) {
           return
         }
 
@@ -80,7 +123,7 @@ export default defineEventHandler(async () => {
 
         // Filter out week-notes sources - these contain internal screenshots and ephemeral links
         const allSources = sourcesStr ? sourcesStr.split(';') : []
-        const sources = allSources.filter(s => !s.startsWith('week-notes/'))
+        const sources = allSources.filter((s) => !s.startsWith('week-notes/'))
 
         // Skip links that ONLY appeared in week-notes (no other sources)
         if (allSources.length > 0 && sources.length === 0) {
@@ -114,9 +157,91 @@ export default defineEventHandler(async () => {
       return a.domain.localeCompare(b.domain)
     })
 
-    return links
-  } catch (error: any) {
+    // Compute aggregate stats
+    const domainMap = new Map<
+      string,
+      { linkCount: number; totalCitations: number }
+    >()
+    const tldMap = new Map<string, number>()
+    let httpCount = 0
+    let httpsCount = 0
+    let totalCitations = 0
+    const allSources = new Set<string>()
+
+    links.forEach((link) => {
+      // Domain stats
+      const existing = domainMap.get(link.domain) || {
+        linkCount: 0,
+        totalCitations: 0,
+      }
+      existing.linkCount += 1
+      existing.totalCitations += link.sources.length
+      domainMap.set(link.domain, existing)
+
+      // TLD stats
+      tldMap.set(link.tld, (tldMap.get(link.tld) || 0) + 1)
+
+      // Protocol stats
+      if (link.url.startsWith('https://')) {
+        httpsCount++
+      } else {
+        httpCount++
+      }
+
+      // Citation count
+      totalCitations += link.sources.length
+
+      // Collect sources for temporal analysis
+      link.sources.forEach((s) => allSources.add(s))
+    })
+
+    // Top domains by total citations
+    const topDomains: DomainStats[] = Array.from(domainMap.entries())
+      .map(([domain, stats]) => ({ domain, ...stats }))
+      .sort((a, b) => b.totalCitations - a.totalCitations)
+      .slice(0, 15)
+
+    // TLD breakdown sorted by count
+    const tldBreakdown = Array.from(tldMap.entries())
+      .map(([tld, count]) => ({ tld, count }))
+      .sort((a, b) => b.count - a.count)
+
+    // Find oldest/newest sources by year prefix
+    const sortedSources = Array.from(allSources).sort()
+    const oldestSource = sortedSources[0] || null
+    const newestSource = sortedSources[sortedSources.length - 1] || null
+
+    const response: ExternalLinksResponse = {
+      links,
+      stats: {
+        totalLinks: links.length,
+        totalDomains: domainMap.size,
+        totalCitations,
+        httpCount,
+        httpsCount,
+        topDomains,
+        tldBreakdown,
+        oldestSource,
+        newestSource,
+      },
+    }
+
+    return response
+  } catch (error) {
     console.error('Error reading external links:', error)
-    return []
+    return {
+      links: [],
+      stats: {
+        totalLinks: 0,
+        totalDomains: 0,
+        totalCitations: 0,
+        httpCount: 0,
+        httpsCount: 0,
+        topDomains: [],
+        tldBreakdown: [],
+        oldestSource: null,
+        newestSource: null,
+      },
+    }
   }
 })

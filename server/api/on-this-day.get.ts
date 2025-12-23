@@ -10,7 +10,7 @@ import { join } from 'node:path'
 
 interface DayItem {
   year: number
-  [key: string]: any
+  [key: string]: unknown
 }
 
 interface DayData {

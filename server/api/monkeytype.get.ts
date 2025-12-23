@@ -142,7 +142,7 @@ export default defineEventHandler(async () => {
       },
       lastUpdated: new Date().toISOString(),
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error('MonkeyType API error details:', error)
     // Only return null if we actually failed to fetch data
     return {

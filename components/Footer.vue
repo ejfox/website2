@@ -63,9 +63,9 @@
       <!-- PGP + Build info -->
       <div class="space-y-2 text-xs text-zinc-500 dark:text-zinc-500">
         <div>
-          <NuxtLink to="/pgp.txt" class="interactive-link">
+          <a href="/pgp.txt" class="interactive-link">
             PGP: E207 8E65 3FE3 89CD
-          </NuxtLink>
+          </a>
         </div>
         <div v-if="buildInfo">
           <a

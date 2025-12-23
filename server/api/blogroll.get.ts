@@ -9,12 +9,19 @@ import { promises as fs } from 'node:fs'
 import { homedir } from 'node:os'
 import { join } from 'node:path'
 
+interface Feed {
+  url: string
+  name: string
+  category: string
+  domain: string
+}
+
 export default defineEventHandler(async () => {
   try {
     const newsboatPath = join(homedir(), '.newsboat', 'urls')
     const content = await fs.readFile(newsboatPath, 'utf-8')
 
-    const feeds: any[] = []
+    const feeds: Feed[] = []
     const lines = content
       .split('\n')
       .filter((line) => line.trim() && !line.startsWith('#'))
@@ -35,7 +42,7 @@ export default defineEventHandler(async () => {
     }
 
     // Group by category
-    const byCategory = feeds.reduce((acc: any, feed) => {
+    const byCategory = feeds.reduce((acc: Record<string, Feed[]>, feed) => {
       if (!acc[feed.category]) {
         acc[feed.category] = []
       }
@@ -48,8 +55,8 @@ export default defineEventHandler(async () => {
       total: feeds.length,
       categories: Object.keys(byCategory).length,
       byCategoryCount: Object.entries(byCategory).reduce(
-        (acc: any, [cat, feeds]: [string, any]) => {
-          acc[cat] = feeds.length
+        (acc: Record<string, number>, [cat, catFeeds]) => {
+          acc[cat] = (catFeeds as Feed[]).length
           return acc
         },
         {}
@@ -66,11 +73,12 @@ export default defineEventHandler(async () => {
       feeds,
       byCategory,
     }
-  } catch (error: any) {
+  } catch (error) {
+    const err = error as Error
     throw createError({
       statusCode: 500,
       statusMessage: 'Failed to read newsboat feeds',
-      message: error.message,
+      message: err.message,
     })
   }
 })

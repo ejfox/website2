@@ -4,6 +4,52 @@
  * @endpoint GET /api/discogs
  * @returns Collection data with stats (total items, value, median), top genres, decade breakdown, top artists, and a random record
  */
+
+interface DiscogsArtist {
+  name: string
+  id?: number
+}
+
+interface DiscogsFormat {
+  name: string
+  qty?: string
+  descriptions?: string[]
+}
+
+interface DiscogsBasicInfo {
+  title: string
+  year: number
+  artists?: DiscogsArtist[]
+  genres?: string[]
+  styles?: string[]
+  formats?: DiscogsFormat[]
+  price?: number
+}
+
+interface DiscogsRelease {
+  id: number
+  instance_id: number
+  basic_information: DiscogsBasicInfo
+  uri?: string
+  resource_url?: string
+}
+
+interface DiscogsPagination {
+  page: number
+  pages: number
+  per_page: number
+  items: number
+}
+
+interface DiscogsCollectionResponse {
+  pagination?: DiscogsPagination
+  releases?: DiscogsRelease[]
+}
+
+interface DiscogsValueResponse {
+  overall_value?: number
+}
+
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   const token = (config.DISCOGS_TOKEN || process.env.DISCOGS_TOKEN) as string
@@ -69,10 +115,10 @@ export default defineEventHandler(async () => {
 
         const data = await response.json()
         return data as T
-      } catch (error: any) {
+      } catch (error) {
         attempt++
-
-        if (error.name === 'AbortError') {
+        const err = error as Error
+        if (err.name === 'AbortError') {
           console.warn(
             `Discogs request timeout for ${endpoint}, attempt ${attempt}/${maxRetries}`
           )
@@ -100,12 +146,12 @@ export default defineEventHandler(async () => {
 
   try {
     // Fetch collection data with pagination
-    let allItems: any[] = []
+    let allItems: DiscogsRelease[] = []
     let page = 1
     let hasMore = true
 
     while (hasMore) {
-      const collectionData = await makeRequest<any>(
+      const collectionData = await makeRequest<DiscogsCollectionResponse>(
         `/users/${username}/collection/folders/0/releases`,
         { page: page.toString() }
       )
@@ -131,7 +177,7 @@ export default defineEventHandler(async () => {
     let totalValue = 0
     const values: number[] = []
 
-    allItems.forEach((item: any) => {
+    allItems.forEach((item) => {
       if (item.basic_information) {
         const value = item.basic_information.price || 0
         totalValue += value
@@ -150,9 +196,9 @@ export default defineEventHandler(async () => {
 
     // Group by genre
     const genreMap: Record<string, number> = {}
-    allItems.forEach((item: any) => {
+    allItems.forEach((item) => {
       if (item.basic_information?.genres) {
-        item.basic_information.genres.forEach((genre: string) => {
+        item.basic_information.genres.forEach((genre) => {
           genreMap[genre] = (genreMap[genre] || 0) + 1
         })
       }
@@ -165,7 +211,7 @@ export default defineEventHandler(async () => {
 
     // Group by decade
     const decadeMap: Record<string, number> = {}
-    allItems.forEach((item: any) => {
+    allItems.forEach((item) => {
       const year = item.basic_information?.year
       if (year) {
         const decade = Math.floor(year / 10) * 10
@@ -184,9 +230,9 @@ export default defineEventHandler(async () => {
 
     // Top artists
     const artistMap: Record<string, number> = {}
-    allItems.forEach((item: any) => {
+    allItems.forEach((item) => {
       if (item.basic_information?.artists) {
-        item.basic_information.artists.forEach((artist: any) => {
+        item.basic_information.artists.forEach((artist) => {
           const artistName = artist.name || 'Unknown'
           artistMap[artistName] = (artistMap[artistName] || 0) + 1
         })
@@ -205,7 +251,7 @@ export default defineEventHandler(async () => {
         : null
 
     // Get collection value endpoint
-    const collectionValue = await makeRequest<any>(
+    const collectionValue = await makeRequest<DiscogsValueResponse>(
       `/users/${username}/collection/value`
     )
 
@@ -239,7 +285,7 @@ export default defineEventHandler(async () => {
               'Unknown Format',
           }
         : null,
-      collection: allItems.slice(0, 20).map((item: any) => ({
+      collection: allItems.slice(0, 20).map((item) => ({
         title: item.basic_information?.title || 'Unknown',
         artist: item.basic_information?.artists?.[0]?.name || 'Unknown Artist',
         year: item.basic_information?.year || 0,
@@ -251,11 +297,11 @@ export default defineEventHandler(async () => {
     }
 
     return result
-  } catch (error: any) {
+  } catch (error) {
     console.error('Discogs API error details:', error)
-
+    const err = error as Error
     return {
-      error: error.message || 'Failed to fetch Discogs collection',
+      error: err.message || 'Failed to fetch Discogs collection',
       stats: {
         totalItems: 0,
         totalValue: 0,

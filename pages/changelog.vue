@@ -95,11 +95,34 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck - API response types don't match page expectations
+interface Commit {
+  hash: string
+  author: string
+  email: string
+  date: string
+  message: string
+  type: string
+}
+
+interface ChangelogResponse {
+  meta: { endpoint: string; timestamp: string; count: number }
+  commits: Commit[]
+  grouped: {
+    byDate: Record<string, Commit[]>
+    byType: Record<string, Commit[]>
+  }
+  stats: {
+    totalCommits: number
+    dateRange: { earliest: string; latest: string }
+    byType: Record<string, number>
+  }
+}
+
 const limit = ref(50)
-const { data, refresh, error } = await useFetch('/api/changelog', {
-  query: { limit },
-})
+const { data, refresh, error } = await useFetch<ChangelogResponse>(
+  '/api/changelog',
+  { query: { limit } }
+)
 
 const canLoadMore = computed(
   () => data.value && data.value.commits.length >= limit.value
@@ -138,24 +161,24 @@ function formatTime(dateString: string) {
   })
 }
 
+const typeColors: Record<string, string> = {
+  feat: 'bg-green-100 dark:bg-green-950 text-green-900 dark:text-green-100',
+  fix: 'bg-red-100 dark:bg-red-950 text-red-900 dark:text-red-100',
+  docs: 'bg-blue-100 dark:bg-blue-950 text-blue-900 dark:text-blue-100',
+  style:
+    'bg-purple-100 dark:bg-purple-950 text-purple-900 dark:text-purple-100',
+  refactor:
+    'bg-yellow-100 dark:bg-yellow-950 text-yellow-900 dark:text-yellow-100',
+  test: 'bg-cyan-100 dark:bg-cyan-950 text-cyan-900 dark:text-cyan-100',
+  chore: 'bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100',
+  remove:
+    'bg-orange-100 dark:bg-orange-950 text-orange-900 dark:text-orange-100',
+}
+const defaultTypeColor =
+  'bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100'
+
 function getTypeColor(type: string) {
-  const colors: any = {
-    feat: 'bg-green-100 dark:bg-green-950 text-green-900 dark:text-green-100',
-    fix: 'bg-red-100 dark:bg-red-950 text-red-900 dark:text-red-100',
-    docs: 'bg-blue-100 dark:bg-blue-950 text-blue-900 dark:text-blue-100',
-    style:
-      'bg-purple-100 dark:bg-purple-950 text-purple-900 dark:text-purple-100',
-    refactor:
-      'bg-yellow-100 dark:bg-yellow-950 text-yellow-900 dark:text-yellow-100',
-    test: 'bg-cyan-100 dark:bg-cyan-950 text-cyan-900 dark:text-cyan-100',
-    chore: 'bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100',
-    remove:
-      'bg-orange-100 dark:bg-orange-950 text-orange-900 dark:text-orange-100',
-  }
-  return (
-    colors[type] ||
-    'bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100'
-  )
+  return typeColors[type] || defaultTypeColor
 }
 
 usePageSeo({

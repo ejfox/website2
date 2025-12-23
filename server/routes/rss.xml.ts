@@ -2,9 +2,12 @@ import RSS from 'rss'
 import sanitizeHtml from 'sanitize-html'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { parseISO, isValid, compareDesc, formatISO } from 'date-fns'
-import { defineEventHandler, useRuntimeConfig } from '#imports'
 
 // RSS item type
+interface RSSCustomElement {
+  [key: string]: string | { _cdata: string }
+}
+
 interface RSSItemOptions {
   title: string
   description: string
@@ -13,7 +16,7 @@ interface RSSItemOptions {
   categories?: string[]
   author?: string
   date?: Date | string
-  custom_elements?: any[]
+  custom_elements?: RSSCustomElement[]
 }
 
 // Helper to create a short excerpt
@@ -59,9 +62,21 @@ export default defineEventHandler(async (event) => {
     return compareDesc(dateA, dateB)
   })
 
+  interface PostMetadata {
+    title?: string
+    slug?: string
+    date?: string
+    dek?: string
+    description?: string
+    tags?: string[]
+    draft?: boolean
+    hidden?: boolean
+    type?: string
+  }
+
   // Add items to feed
   for (const post of sortedPosts) {
-    const metadata = (post.metadata || {}) as Record<string, any>
+    const metadata = (post.metadata || {}) as PostMetadata
     const parsedContent = post.html || ''
     const html = sanitizeHtml(parsedContent, {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
@@ -115,7 +130,7 @@ export default defineEventHandler(async (event) => {
       ],
     }
 
-    feed.item(feedItem as any)
+    feed.item(feedItem as Parameters<typeof feed.item>[0])
   }
 
   // Set response headers with longer cache for production

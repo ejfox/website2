@@ -11,6 +11,15 @@ import { promisify } from 'node:util'
 
 const execAsync = promisify(exec)
 
+interface Commit {
+  hash: string
+  author: string
+  email: string
+  date: string
+  message: string
+  type: string
+}
+
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const limit = Number.parseInt(query.limit as string) || 50
@@ -45,7 +54,7 @@ export default defineEventHandler(async (event) => {
       })
 
     // Group by date
-    const byDate = commits.reduce((acc: any, commit) => {
+    const byDate = commits.reduce((acc: Record<string, Commit[]>, commit) => {
       const date = commit.date.split('T')[0]
       if (!acc[date]) {
         acc[date] = []
@@ -55,7 +64,7 @@ export default defineEventHandler(async (event) => {
     }, {})
 
     // Group by type
-    const byType = commits.reduce((acc: any, commit) => {
+    const byType = commits.reduce((acc: Record<string, Commit[]>, commit) => {
       const type = commit.type
       if (!acc[type]) {
         acc[type] = []
@@ -83,19 +92,20 @@ export default defineEventHandler(async (event) => {
           latest: commits[0]?.date,
         },
         byType: Object.entries(byType).reduce(
-          (acc: any, [type, commits]: [string, any]) => {
-            acc[type] = commits.length
+          (acc: Record<string, number>, [type, typeCommits]) => {
+            acc[type] = (typeCommits as Commit[]).length
             return acc
           },
           {}
         ),
       },
     }
-  } catch (error: any) {
+  } catch (error) {
+    const err = error as Error
     throw createError({
       statusCode: 500,
       statusMessage: 'Failed to read git log',
-      message: error.message,
+      message: err.message,
     })
   }
 })

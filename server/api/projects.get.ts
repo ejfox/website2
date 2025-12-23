@@ -9,6 +9,13 @@ import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { existsSync } from 'node:fs'
 
+interface ManifestPost {
+  slug: string
+  title?: string
+  metadata?: Record<string, unknown>
+  date?: string
+}
+
 export default defineEventHandler(async () => {
   try {
     // Read the manifest first
@@ -20,13 +27,13 @@ export default defineEventHandler(async () => {
     const manifest = JSON.parse(manifestContent)
 
     // Filter for project posts, excluding those starting with !
-    const projectPosts = manifest.filter((post: any) => {
+    const projectPosts = manifest.filter((post: ManifestPost) => {
       return post.slug?.startsWith('projects/') && !post.slug.includes('/!')
     })
 
     // Load content for each project
     const projectsWithContent = await Promise.all(
-      projectPosts.map(async (post: any) => {
+      projectPosts.map(async (post: ManifestPost) => {
         try {
           const contentPath = resolve(
             process.cwd(),
@@ -74,7 +81,7 @@ export default defineEventHandler(async () => {
     })
 
     return sorted
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error in projects API:', error)
     return []
   }

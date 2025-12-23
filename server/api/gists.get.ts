@@ -95,12 +95,13 @@ export default defineEventHandler(async (event): Promise<Gist[]> => {
     )
 
     return gistsWithContent
-  } catch (error: any) {
+  } catch (error) {
     console.error('Gists API Error:', error)
+    const err = error as Error & { statusCode?: number }
 
     throw createError({
-      statusCode: error.statusCode || 500,
-      message: error.message || 'Failed to fetch gists',
+      statusCode: err.statusCode || 500,
+      message: err.message || 'Failed to fetch gists',
     })
   }
 })

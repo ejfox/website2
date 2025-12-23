@@ -147,7 +147,7 @@
         >
           {{ mention.author?.name || getDomain(mention.url) }}
         </a>
-        <span v-if="i < Math.min(mentions.length, 3) - 1">,</span>
+        <span v-if="(i as number) < Math.min(mentions.length, 3) - 1">,</span>
       </span>
       <span v-if="mentions.length > 3">+ {{ mentions.length - 3 }} more</span>
     </div>
@@ -169,26 +169,42 @@ const { data: webmentions } = await useFetch('/api/webmentions', {
   default: () => [],
 })
 
+interface Webmention {
+  'wm-id': number
+  'wm-property': string
+  url: string
+  author?: {
+    name?: string
+    url?: string
+    photo?: string
+  }
+  content?: {
+    html?: string
+    text?: string
+  }
+  published?: string
+}
+
 const likes = computed(() =>
-  (webmentions.value || []).filter((w: any) =>
+  (webmentions.value || []).filter((w: Webmention) =>
     ['like-of', 'favorite'].includes(w['wm-property'])
   )
 )
 
 const reposts = computed(() =>
-  (webmentions.value || []).filter((w: any) =>
+  (webmentions.value || []).filter((w: Webmention) =>
     ['repost-of', 'share'].includes(w['wm-property'])
   )
 )
 
 const replies = computed(() =>
-  (webmentions.value || []).filter((w: any) =>
+  (webmentions.value || []).filter((w: Webmention) =>
     ['in-reply-to', 'reply'].includes(w['wm-property'])
   )
 )
 
 const mentions = computed(() =>
-  (webmentions.value || []).filter((w: any) =>
+  (webmentions.value || []).filter((w: Webmention) =>
     ['mention-of', 'bookmark-of'].includes(w['wm-property'])
   )
 )

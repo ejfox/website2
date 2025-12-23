@@ -176,10 +176,10 @@ interface Scrap {
   longitude: number | null
   screenshot_url: string | null
   shared: boolean
-  relationships: any[] | null
-  extraction_confidence: any | null
-  financial_analysis: any | null
-  metadata: any | null
+  relationships: Array<{ id: string; type?: string }> | null
+  extraction_confidence: { tags?: number; summary?: number } | null
+  financial_analysis: Record<string, unknown> | null
+  metadata: Record<string, unknown> | null
 }
 
 const {

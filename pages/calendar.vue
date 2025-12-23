@@ -23,7 +23,8 @@ usePageSeo({
 
 // Load Cal.com embed script and initialize using their loader pattern
 onMounted(() => {
-  // Cal.com's official loader pattern
+  /* eslint-disable prefer-rest-params, @typescript-eslint/no-unused-expressions */
+  // Cal.com's official loader pattern (third-party code, do not modify)
   ;(function (C, A, L) {
     const p = function (a, ar) {
       a.q.push(ar)
@@ -54,6 +55,7 @@ onMounted(() => {
         p(cal, ar)
       }
   })(window, 'https://app.cal.com/embed/embed.js', 'init')
+  /* eslint-enable prefer-rest-params, @typescript-eslint/no-unused-expressions */
 
   // Initialize and create embed
   window.Cal('init', { origin: 'https://cal.com' })

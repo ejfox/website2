@@ -12,15 +12,15 @@
   "language": "Shell",
   "languageColor": "#89e051",
   "languages": {
-    "Shell": 265186,
+    "Shell": 275229,
     "GLSL": 170261,
-    "Lua": 113850,
+    "Lua": 114467,
     "Vim Script": 83725,
     "JavaScript": 8622,
     "Less": 2089,
     "CSS": 1367
   },
-  "diskUsage": 63393,
+  "diskUsage": 63441,
   "fileTree": {
     "files": [
       {
@@ -604,6 +604,10 @@
         "size": 3354
       },
       {
+        "path": ".config/nvim/lua/custom/clipboard.lua",
+        "size": 528
+      },
+      {
         "path": ".config/nvim/lua/custom/directory-watcher.lua",
         "size": 2015
       },
@@ -621,7 +625,7 @@
       },
       {
         "path": ".config/nvim/lua/plugins/claude-code-workflow.lua",
-        "size": 2800
+        "size": 2889
       },
       {
         "path": ".config/nvim/lua/plugins/colorscheme.lua",
@@ -933,7 +937,7 @@
       },
       {
         "path": ".config/zsh/themes/vulpes-reddishnovember-light.zsh",
-        "size": 2993
+        "size": 2986
       },
       {
         "path": ".docker/config.json",
@@ -1025,7 +1029,7 @@
       },
       {
         "path": ".startup.sh",
-        "size": 11376
+        "size": 18869
       },
       {
         "path": ".subversion/README.txt",
@@ -1041,7 +1045,7 @@
       },
       {
         "path": ".tmux.conf",
-        "size": 8241
+        "size": 9450
       },
       {
         "path": ".tweakcc-apply.sh",
@@ -1077,7 +1081,7 @@
       },
       {
         "path": ".zshrc",
-        "size": 24572
+        "size": 25920
       },
       {
         "path": "CLAUDE.md",
@@ -1145,7 +1149,7 @@
       },
       {
         "path": "tips.txt",
-        "size": 16755
+        "size": 18399
       },
       {
         "path": "vulpes-reddish2-dark-tmux.tmux.conf",
@@ -1965,6 +1969,11 @@
                       "name": "custom",
                       "children": [
                         {
+                          "name": "clipboard.lua",
+                          "size": 528,
+                          "path": ".config/nvim/lua/custom/clipboard.lua"
+                        },
+                        {
                           "name": "directory-watcher.lua",
                           "size": 2015,
                           "path": ".config/nvim/lua/custom/directory-watcher.lua"
@@ -1992,7 +2001,7 @@
                         },
                         {
                           "name": "claude-code-workflow.lua",
-                          "size": 2800,
+                          "size": 2889,
                           "path": ".config/nvim/lua/plugins/claude-code-workflow.lua"
                         },
                         {
@@ -2501,7 +2510,7 @@
                     },
                     {
                       "name": "vulpes-reddishnovember-light.zsh",
-                      "size": 2993,
+                      "size": 2986,
                       "path": ".config/zsh/themes/vulpes-reddishnovember-light.zsh"
                     }
                   ],
@@ -2815,12 +2824,12 @@
         },
         {
           "name": ".startup.sh",
-          "size": 11376,
+          "size": 18869,
           "path": ".startup.sh"
         },
         {
           "name": ".tmux.conf",
-          "size": 8241,
+          "size": 9450,
           "path": ".tmux.conf"
         },
         {
@@ -2850,7 +2859,7 @@
         },
         {
           "name": ".zshrc",
-          "size": 24572,
+          "size": 25920,
           "path": ".zshrc"
         },
         {
@@ -2895,7 +2904,7 @@
         },
         {
           "name": "tips.txt",
-          "size": 16755,
+          "size": 18399,
           "path": "tips.txt"
         },
         {
@@ -2911,8 +2920,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 283,
-    "totalSize": 20266195
+    "totalFiles": 284,
+    "totalSize": 20278499
   },
   "topics": [],
   "readme": {
@@ -2921,6 +2930,6 @@
     "excerpt": "Minimalist terminal configuration focused on functional beauty, speed-of-thought workflows, and distraction-free computing.\n\n\n- Geometric symbols throughout int..."
   },
   "createdAt": "2019-04-07T22:09:55Z",
-  "updatedAt": "2025-12-16T17:50:52Z",
-  "pushedAt": "2025-12-16T17:50:48Z"
+  "updatedAt": "2025-12-23T00:46:58Z",
+  "pushedAt": "2025-12-23T00:46:54Z"
 }

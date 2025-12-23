@@ -20,8 +20,50 @@ import letterboxdStatsHandler from './letterboxd.get'
 import blogStatsHandler from './blog-stats.get'
 import discogsHandler from './discogs.get'
 
+// Chess types (matching chess.get.ts)
+interface ChessGameResult {
+  id: string
+  opponent: string
+  timeControl: string
+  result: 'win' | 'loss' | 'draw'
+  timestamp: number
+  rating: number
+  ratingDiff: number
+}
+
+interface ChessStats {
+  currentRating: { bullet: number; blitz: number; rapid: number }
+  bestRating: { bullet: number; blitz: number; rapid: number }
+  gamesPlayed: { bullet: number; blitz: number; rapid: number; total: number }
+  winRate: { bullet: number; blitz: number; rapid: number; overall: number }
+  puzzleStats: {
+    rating: number
+    totalSolved: number
+    bestRating: number
+    lowestRating?: number
+  }
+  recentGames: ChessGameResult[]
+  lastUpdated: string
+}
+
+// GitHub types
+interface GitHubData {
+  stats?: {
+    totalContributions?: number
+    totalRepos?: number
+    followers?: number
+    following?: number
+  }
+  contributions?: number[]
+  dates?: string[]
+  detail?: {
+    commits?: GitHubCommit[]
+    commitTypes?: CommitType[]
+  }
+}
+
 // Adapter function to convert chess stats to the expected format
-function adaptChessStats(chessStats: any) {
+function adaptChessStats(chessStats: ChessStats) {
   return {
     currentRating: {
       bullet: chessStats.currentRating.bullet || 0,
@@ -50,15 +92,17 @@ function adaptChessStats(chessStats: any) {
       totalSolved: chessStats.puzzleStats.totalSolved || 0,
       bestRating: chessStats.puzzleStats.bestRating || 0,
     },
-    recentGames: (chessStats.recentGames || []).map((game: any) => ({
-      id: game.id,
-      opponent: game.opponent,
-      timeControl: game.timeControl,
-      result: game.result,
-      timestamp: game.timestamp,
-      rating: game.rating,
-      ratingDiff: game.ratingDiff,
-    })),
+    recentGames: (chessStats.recentGames || []).map(
+      (game: ChessGameResult) => ({
+        id: game.id,
+        opponent: game.opponent,
+        timeControl: game.timeControl,
+        result: game.result,
+        timestamp: game.timestamp,
+        rating: game.rating,
+        ratingDiff: game.ratingDiff,
+      })
+    ),
     lastUpdated: chessStats.lastUpdated,
   }
 }
@@ -80,12 +124,12 @@ interface CommitType {
   percentage: number
 }
 
-function _processCommits(commits: any[]): {
+function _processCommits(commits: GitHubCommit[]): {
   commits: GitHubCommit[]
   commitTypes: CommitType[]
 } {
   // Process commits to extract types and other metadata
-  const processedCommits = commits.map((commit: any) => {
+  const processedCommits = commits.map((commit: GitHubCommit) => {
     // Extract commit type from message (e.g., "feat: add new feature")
     const typeMatch = commit.message.match(/^(\w+)(\([\w-]+\))?:/)
     const type = typeMatch ? typeMatch[1].toLowerCase() : 'other'
@@ -98,7 +142,7 @@ function _processCommits(commits: any[]): {
 
   // Count commit types
   const typeCounts = processedCommits.reduce(
-    (acc: Record<string, number>, commit: any) => {
+    (acc: Record<string, number>, commit: GitHubCommit & { type: string }) => {
       const type = commit.type
       acc[type] = (acc[type] || 0) + 1
       return acc
@@ -125,7 +169,7 @@ function _processCommits(commits: any[]): {
 }
 
 // Helper function to adapt GitHub stats for compatibility
-function adaptGitHubStats(githubData: any) {
+function adaptGitHubStats(githubData: GitHubData | null) {
   // If there's no data, return undefined to show data unavailable
   if (!githubData || !githubData.stats) {
     return undefined
@@ -151,7 +195,7 @@ function adaptGitHubStats(githubData: any) {
 }
 
 // Helper function to safely get value from Promise result
-function getValue(result: PromiseSettledResult<any>) {
+function getValue<T>(result: PromiseSettledResult<T>): T | null {
   return result.status === 'fulfilled' ? result.value : null
 }
 

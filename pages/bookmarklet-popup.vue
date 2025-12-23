@@ -1,15 +1,17 @@
 <template>
   <div
+    ref="container"
     class="min-h-screen bg-zinc-50 dark:bg-zinc-950 p-4"
+    tabindex="0"
     @keydown.meta.enter="saveToPinboard(true)"
     @keydown.ctrl.enter="saveToPinboard(true)"
     @keydown.escape="saveToPinboard(false)"
-    tabindex="0"
-    ref="container"
   >
     <div class="max-w-md mx-auto space-y-4">
       <!-- Header -->
-      <header class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3">
+      <header
+        class="flex items-center justify-between border-b border-zinc-200 dark:border-zinc-800 pb-3"
+      >
         <div class="flex items-center gap-2">
           <img
             v-if="favicon"
@@ -20,7 +22,11 @@
           <span class="text-meta">PINBOARD</span>
         </div>
         <div class="flex items-center gap-3">
-          <kbd class="text-[10px] font-mono text-zinc-300 dark:text-zinc-700 px-1 py-0.5 border border-zinc-200 dark:border-zinc-800 rounded">esc</kbd>
+          <kbd
+            class="text-[10px] font-mono text-zinc-300 dark:text-zinc-700 px-1 py-0.5 border border-zinc-200 dark:border-zinc-800 rounded"
+          >
+            esc
+          </kbd>
           <button
             class="text-xs font-mono text-zinc-400 hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
             @click="saveToPinboard(false)"
@@ -40,7 +46,9 @@
         >
           {{ truncateUrl(pageUrl, 50) }}
         </a>
-        <h1 class="font-serif text-lg text-zinc-900 dark:text-zinc-100 leading-snug">
+        <h1
+          class="font-serif text-lg text-zinc-900 dark:text-zinc-100 leading-snug"
+        >
           {{ pageTitle }}
         </h1>
         <p
@@ -58,13 +66,17 @@
             <div
               :class="[
                 'w-2 h-2 rounded-full transition-colors duration-300',
-                loadingStep >= 1 ? 'bg-zinc-900 dark:bg-zinc-100' : 'bg-zinc-200 dark:bg-zinc-700'
+                loadingStep >= 1
+                  ? 'bg-zinc-900 dark:bg-zinc-100'
+                  : 'bg-zinc-200 dark:bg-zinc-700',
               ]"
             ></div>
             <span
               :class="[
                 'text-xs font-mono transition-colors duration-300',
-                loadingStep >= 1 ? 'text-zinc-900 dark:text-zinc-100' : 'text-zinc-400'
+                loadingStep >= 1
+                  ? 'text-zinc-900 dark:text-zinc-100'
+                  : 'text-zinc-400',
               ]"
             >
               {{ loadingStep === 1 ? 'fetching tags...' : 'tags loaded' }}
@@ -74,36 +86,56 @@
             <div
               :class="[
                 'w-2 h-2 rounded-full transition-colors duration-300',
-                loadingStep >= 2 ? 'bg-zinc-900 dark:bg-zinc-100' : 'bg-zinc-200 dark:bg-zinc-700'
+                loadingStep >= 2
+                  ? 'bg-zinc-900 dark:bg-zinc-100'
+                  : 'bg-zinc-200 dark:bg-zinc-700',
               ]"
             ></div>
             <span
               :class="[
                 'text-xs font-mono transition-colors duration-300',
-                loadingStep >= 2 ? 'text-zinc-900 dark:text-zinc-100' : 'text-zinc-400'
+                loadingStep >= 2
+                  ? 'text-zinc-900 dark:text-zinc-100'
+                  : 'text-zinc-400',
               ]"
             >
-              {{ loadingStep === 2 ? 'analyzing content...' : loadingStep > 2 ? 'content analyzed' : 'analyze content' }}
+              {{
+                loadingStep === 2
+                  ? 'analyzing content...'
+                  : loadingStep > 2
+                    ? 'content analyzed'
+                    : 'analyze content'
+              }}
             </span>
           </div>
           <div class="flex items-center gap-2">
             <div
               :class="[
                 'w-2 h-2 rounded-full transition-colors duration-300',
-                loadingStep >= 3 ? 'bg-zinc-900 dark:bg-zinc-100' : 'bg-zinc-200 dark:bg-zinc-700'
+                loadingStep >= 3
+                  ? 'bg-zinc-900 dark:bg-zinc-100'
+                  : 'bg-zinc-200 dark:bg-zinc-700',
               ]"
             ></div>
             <span
               :class="[
                 'text-xs font-mono transition-colors duration-300',
-                loadingStep >= 3 ? 'text-zinc-900 dark:text-zinc-100' : 'text-zinc-400'
+                loadingStep >= 3
+                  ? 'text-zinc-900 dark:text-zinc-100'
+                  : 'text-zinc-400',
               ]"
             >
-              {{ loadingStep >= 3 ? 'generating suggestions...' : 'generate suggestions' }}
+              {{
+                loadingStep >= 3
+                  ? 'generating suggestions...'
+                  : 'generate suggestions'
+              }}
             </span>
           </div>
         </div>
-        <div class="h-1 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden">
+        <div
+          class="h-1 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden"
+        >
           <div
             class="h-full bg-zinc-900 dark:bg-zinc-100 transition-all duration-500 ease-out"
             :style="{ width: `${(loadingStep / 3) * 100}%` }"
@@ -115,7 +147,10 @@
       <div v-else-if="suggestions" class="space-y-4">
         <!-- AI Summary -->
         <p
-          v-if="suggestions.summary && suggestions.summary !== 'Content added to your digital scrapbook.'"
+          v-if="
+            suggestions.summary &&
+            suggestions.summary !== 'Content added to your digital scrapbook.'
+          "
           class="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed border-l-2 border-zinc-200 dark:border-zinc-700 pl-3"
         >
           {{ suggestions.summary }}
@@ -124,7 +159,11 @@
         <!-- Step 1: Choose Tags -->
         <section v-if="suggestions.suggested_tags?.length" class="space-y-2">
           <div class="flex items-center gap-2">
-            <span class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 text-[10px] font-mono">1</span>
+            <span
+              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 text-[10px] font-mono"
+            >
+              1
+            </span>
             <span class="text-meta">CHOOSE TAGS</span>
             <div class="flex-1"></div>
             <button
@@ -144,19 +183,22 @@
             <button
               v-for="tagObj in suggestions.suggested_tags.slice(0, 8)"
               :key="typeof tagObj === 'string' ? tagObj : tagObj.tag"
-              :class="[
-                'px-2 py-1 text-xs font-mono rounded transition-all duration-150',
-                isTagSelected(tagObj)
-                  ? 'bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900 scale-105'
-                  : 'bg-zinc-100 text-zinc-600 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700'
-              ]"
-              @click="toggleTag(typeof tagObj === 'string' ? tagObj : tagObj.tag)"
+              :class="tagClasses(tagObj)"
+              @click="
+                toggleTag(typeof tagObj === 'string' ? tagObj : tagObj.tag)
+              "
             >
               {{ typeof tagObj === 'string' ? tagObj : tagObj.tag }}
               <span
-                v-if="isOfficialTag(typeof tagObj === 'string' ? tagObj : tagObj.tag)"
+                v-if="
+                  isOfficialTag(
+                    typeof tagObj === 'string' ? tagObj : tagObj.tag
+                  )
+                "
                 class="opacity-50"
-              >*</span>
+              >
+                *
+              </span>
             </button>
           </div>
         </section>
@@ -164,9 +206,17 @@
         <!-- Step 2: Add Custom -->
         <section class="space-y-2">
           <div class="flex items-center gap-2">
-            <span class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-[10px] font-mono">2</span>
+            <span
+              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-[10px] font-mono"
+            >
+              2
+            </span>
             <span class="text-meta">ADD CUSTOM</span>
-            <span class="text-[10px] font-mono text-zinc-300 dark:text-zinc-700">optional</span>
+            <span
+              class="text-[10px] font-mono text-zinc-300 dark:text-zinc-700"
+            >
+              optional
+            </span>
           </div>
           <div class="pl-7">
             <input
@@ -174,14 +224,7 @@
               v-model="customTagInput"
               type="text"
               placeholder="type and press space..."
-              class="w-full px-3 py-2 text-sm font-mono
-                     bg-white dark:bg-zinc-900
-                     border border-zinc-200 dark:border-zinc-700
-                     rounded
-                     text-zinc-900 dark:text-zinc-100
-                     placeholder:text-zinc-400 dark:placeholder:text-zinc-600
-                     focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-500
-                     transition-shadow"
+              class="w-full px-3 py-2 text-sm font-mono bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-500 transition-shadow"
               @keydown.enter.prevent="addCustomTag"
               @keydown.space.prevent="addCustomTag"
             />
@@ -191,16 +234,18 @@
         <!-- Selected Tags Preview -->
         <section v-if="selectedTags.length" class="space-y-2">
           <div class="flex items-center gap-2">
-            <span class="flex items-center justify-center w-5 h-5 rounded-full bg-green-500 text-white text-[10px] font-mono">{{ selectedTags.length }}</span>
+            <span
+              class="flex items-center justify-center w-5 h-5 rounded-full bg-green-500 text-white text-[10px] font-mono"
+            >
+              {{ selectedTags.length }}
+            </span>
             <span class="text-meta">READY TO SAVE</span>
           </div>
           <div class="flex flex-wrap gap-1.5 pl-7">
             <span
               v-for="tag in selectedTags"
               :key="tag"
-              class="inline-flex items-center gap-1 px-2 py-1 text-xs font-mono
-                     bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900
-                     rounded animate-in"
+              class="inline-flex items-center gap-1 px-2 py-1 text-xs font-mono bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900 rounded animate-in"
             >
               {{ tag }}
               <button
@@ -219,48 +264,48 @@
             <input
               v-model="readLater"
               type="checkbox"
-              class="w-3.5 h-3.5 rounded border-zinc-300 dark:border-zinc-600
-                     text-zinc-900 dark:text-zinc-100
-                     focus:ring-zinc-400 dark:focus:ring-zinc-500
-                     bg-white dark:bg-zinc-800"
+              class="w-3.5 h-3.5 rounded border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-zinc-100 focus:ring-zinc-400 dark:focus:ring-zinc-500 bg-white dark:bg-zinc-800"
             />
-            <span class="text-xs font-mono text-zinc-500 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors">
+            <span
+              class="text-xs font-mono text-zinc-500 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors"
+            >
               read later
             </span>
           </label>
         </div>
 
         <!-- Step 3: Save -->
-        <section class="space-y-2 pt-2 border-t border-zinc-200 dark:border-zinc-800">
+        <section
+          class="space-y-2 pt-2 border-t border-zinc-200 dark:border-zinc-800"
+        >
           <div class="flex items-center gap-2 mb-3">
-            <span class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-[10px] font-mono">3</span>
+            <span
+              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-[10px] font-mono"
+            >
+              3
+            </span>
             <span class="text-meta">SAVE</span>
           </div>
           <div class="flex gap-2 pl-7">
             <button
-              class="flex-1 px-4 py-2.5 text-sm font-mono
-                     bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900
-                     rounded
-                     hover:bg-zinc-700 dark:hover:bg-zinc-300
-                     active:scale-[0.98]
-                     transition-all
-                     flex items-center justify-center gap-2"
+              class="flex-1 px-4 py-2.5 text-sm font-mono bg-zinc-900 text-zinc-100 dark:bg-zinc-100 dark:text-zinc-900 rounded hover:bg-zinc-700 dark:hover:bg-zinc-300 active:scale-[0.98] transition-all flex items-center justify-center gap-2"
               @click="saveToPinboard(true)"
             >
-              <span>Save{{ selectedTags.length ? ` with ${selectedTags.length} tags` : '' }}</span>
-              <kbd class="text-[10px] opacity-50 hidden sm:inline px-1 py-0.5 bg-zinc-800 dark:bg-zinc-200 rounded">⌘↵</kbd>
+              <span>
+                Save{{
+                  selectedTags.length ? ` with ${selectedTags.length} tags` : ''
+                }}
+              </span>
+              <kbd
+                class="text-[10px] opacity-50 hidden sm:inline px-1 py-0.5 bg-zinc-800 dark:bg-zinc-200 rounded"
+              >
+                ⌘↵
+              </kbd>
             </button>
             <button
-              class="px-4 py-2.5 text-sm font-mono
-                     text-zinc-500
-                     border border-zinc-200 dark:border-zinc-700
-                     rounded
-                     hover:border-zinc-400 dark:hover:border-zinc-500
-                     hover:text-zinc-700 dark:hover:text-zinc-300
-                     active:scale-[0.98]
-                     transition-all"
-              @click="saveToPinboard(false)"
+              class="px-4 py-2.5 text-sm font-mono text-zinc-500 border border-zinc-200 dark:border-zinc-700 rounded hover:border-zinc-400 dark:hover:border-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 active:scale-[0.98] transition-all"
               title="Save without AI tags"
+              @click="saveToPinboard(false)"
             >
               Basic
             </button>
@@ -268,7 +313,9 @@
         </section>
 
         <!-- Footer info -->
-        <div class="flex items-center justify-between text-[10px] font-mono text-zinc-300 dark:text-zinc-700 pl-7">
+        <div
+          class="flex items-center justify-between text-[10px] font-mono text-zinc-300 dark:text-zinc-700 pl-7"
+        >
           <span v-if="suggestions.processing_time_ms">
             analyzed in {{ suggestions.processing_time_ms }}ms
           </span>
@@ -277,16 +324,21 @@
 
         <!-- Similar Items (collapsed by default) -->
         <details v-if="suggestions.similar_scraps?.length" class="group pl-7">
-          <summary class="text-xs font-mono text-zinc-400 cursor-pointer hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors">
-            {{ suggestions.similar_scraps.length }} similar items in your archive
+          <summary
+            class="text-xs font-mono text-zinc-400 cursor-pointer hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors"
+          >
+            {{ suggestions.similar_scraps.length }} similar items in your
+            archive
           </summary>
-          <div class="mt-2 space-y-1.5 pl-2 border-l border-zinc-200 dark:border-zinc-800">
+          <div
+            class="mt-2 space-y-1.5 pl-2 border-l border-zinc-200 dark:border-zinc-800"
+          >
             <button
               v-for="scrap in suggestions.similar_scraps.slice(0, 4)"
               :key="scrap.id"
               class="block w-full text-left text-xs text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors truncate"
-              @click="copyTagsFromScrap(scrap)"
               :title="`Click to copy tags: ${(scrap.tags || []).join(', ')}`"
+              @click="copyTagsFromScrap(scrap)"
             >
               {{ scrap.title }}
               <span v-if="scrap.tags?.length" class="text-zinc-400">
@@ -299,10 +351,14 @@
 
       <!-- Error State -->
       <div v-else-if="error" class="py-6 text-center space-y-3">
-        <div class="w-10 h-10 mx-auto rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
+        <div
+          class="w-10 h-10 mx-auto rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center"
+        >
           <span class="text-red-500 text-lg">!</span>
         </div>
-        <p class="text-xs font-mono text-red-500 dark:text-red-400">{{ error }}</p>
+        <p class="text-xs font-mono text-red-500 dark:text-red-400">
+          {{ error }}
+        </p>
         <button
           class="px-4 py-2 text-sm font-mono text-zinc-600 dark:text-zinc-400 border border-zinc-300 dark:border-zinc-600 rounded hover:border-zinc-500 transition-colors"
           @click="saveToPinboard(false)"
@@ -315,10 +371,7 @@
       <Transition name="toast">
         <div
           v-if="toast"
-          class="fixed bottom-4 left-1/2 -translate-x-1/2 px-3 py-1.5
-                 bg-zinc-900 dark:bg-zinc-100
-                 text-zinc-100 dark:text-zinc-900
-                 text-xs font-mono rounded shadow-lg"
+          class="fixed bottom-4 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 text-xs font-mono rounded shadow-lg"
         >
           {{ toast }}
         </div>
@@ -353,7 +406,9 @@ if (pageUrl) {
   try {
     const domain = new URL(pageUrl).hostname
     favicon.value = `https://www.google.com/s2/favicons?domain=${domain}&sz=32`
-  } catch {}
+  } catch {
+    // Invalid URL - skip favicon
+  }
 }
 
 const truncateUrl = (url, max) => {
@@ -371,7 +426,9 @@ const truncateUrl = (url, max) => {
 
 const showToast = (msg) => {
   toast.value = msg
-  setTimeout(() => { toast.value = '' }, 1500)
+  setTimeout(() => {
+    toast.value = ''
+  }, 1500)
 }
 
 const isOfficialTag = (tag) => officialTags.value.includes(tag)
@@ -379,6 +436,20 @@ const isOfficialTag = (tag) => officialTags.value.includes(tag)
 const isTagSelected = (tagObj) => {
   const tag = typeof tagObj === 'string' ? tagObj : tagObj.tag
   return selectedTags.value.includes(tag)
+}
+
+const tagClasses = (tagObj) => {
+  const base = 'px-2 py-1 text-xs font-mono rounded transition-all duration-150'
+  if (isTagSelected(tagObj)) {
+    return (
+      `${base} bg-zinc-900 text-zinc-100 scale-105 ` +
+      'dark:bg-zinc-100 dark:text-zinc-900'
+    )
+  }
+  return (
+    `${base} bg-zinc-100 text-zinc-600 hover:bg-zinc-200 ` +
+    'dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700'
+  )
 }
 
 onMounted(async () => {
@@ -407,14 +478,15 @@ onMounted(async () => {
     loadingStep.value = 3
 
     // Small delay to show completion
-    await new Promise(r => setTimeout(r, 300))
+    await new Promise((r) => setTimeout(r, 300))
 
     suggestions.value = response
 
     // Select ALL suggested tags by default so user can just hit save
     if (response.suggested_tags?.length) {
-      selectedTags.value = response.suggested_tags
-        .map((t) => (typeof t === 'string' ? t : t.tag))
+      selectedTags.value = response.suggested_tags.map((t) =>
+        typeof t === 'string' ? t : t.tag
+      )
     }
 
     // Auto-focus custom input after load
@@ -512,8 +584,14 @@ useHead({
 }
 
 @keyframes pop-in {
-  0% { transform: scale(0.9); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .toast-enter-active,

@@ -128,7 +128,19 @@ export default defineEventHandler(async (event) => {
 
     // Read processed content directory
     const processedDir = path.join(process.cwd(), 'content/processed')
-    const results: any[] = []
+
+    interface SearchResult {
+      title: string
+      slug: string
+      url: string
+      snippet: string
+      score: number
+      date?: string
+      tags: string[]
+      type: string
+      words: number
+    }
+    const results: SearchResult[] = []
 
     // Function to recursively search directories
     async function searchDirectory(dir: string, basePath = '') {

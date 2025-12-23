@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
     const gearItems = d3.csvParse(csvText as string)
 
     // Find the item by converting name to slug
-    const foundItem = gearItems.find((item: any) => {
+    const foundItem = gearItems.find((item: d3.DSVRowString) => {
       const itemSlug = item.Name?.toLowerCase().replace(/[^a-z0-9]+/g, '-')
       return itemSlug === slug
     })
@@ -41,8 +41,9 @@ export default defineEventHandler(async (event) => {
     }
 
     return foundItem
-  } catch (error: any) {
-    if (error.statusCode) {
+  } catch (error) {
+    const err = error as Error & { statusCode?: number }
+    if (err.statusCode) {
       throw error
     }
 

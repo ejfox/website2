@@ -87,13 +87,14 @@ export default defineEventHandler(async (event) => {
       tag: tag || '!news',
       cached_at: new Date().toISOString(),
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error('Error fetching bookmarks:', error)
+    const err = error as Error
 
     // Return error response
     return {
       error: 'Failed to fetch bookmarks',
-      message: error.message,
+      message: err.message,
       bookmarks: [],
       count: 0,
     }
