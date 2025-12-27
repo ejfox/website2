@@ -154,6 +154,11 @@ const specialties = [
     proof: 'NBC Big Board started as a weekend prototype. 9 months later: 19M viewers, zero crashes.',
   },
   {
+    title: 'Newsroom Scale-Up',
+    description: 'Building systems that multiply team output. Process design, style guides, reusable tooling.',
+    proof: 'At Vocativ, transformed graphics output from 5-6/month to 5-6/day. Built Dataproofer (Knight Foundation-funded).',
+  },
+  {
     title: 'Creative AI Applications',
     description: 'Making AI do things it wasn\'t obviously designed for. Novel interfaces, weird tools, useful magic.',
     proof: 'Coach Artie, MCP servers, AI-assisted workflows that actually ship.',
@@ -476,7 +481,7 @@ usePageSeo({
           <h3 class="font-serif text-zinc-900 dark:text-zinc-100 mb-2">What's your tech stack?</h3>
           <p class="font-serif text-sm text-zinc-600 dark:text-zinc-400">
             D3.js, Vue/Nuxt, TypeScript, Node. For mapping: Mapbox, TopoJSON.
-            For data: Python, Observable, Datasette. But I pick tools based on your constraints, not mine.
+            For data: <a href="https://observablehq.com/@ejfox" target="_blank" rel="noopener" class="underline hover:text-zinc-900 dark:hover:text-zinc-100">Observable</a>, Datasette. JavaScript all the way down.
           </p>
         </div>
         <div>
