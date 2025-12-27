@@ -12,7 +12,7 @@ export const navigationItems: NavItem[] = [
   { label: 'Home', href: '/', primary: true },
   { label: 'Blog', href: '/blog/', primary: true },
   { label: 'Projects', href: '/projects', primary: true },
-  { label: 'Calendar', href: '/calendar', primary: true }, // 💰 Money maker
+  { label: 'Hire Me', href: '/consulting', primary: true }, // 💰 Money maker
 ]
 
 // Filter helpers
