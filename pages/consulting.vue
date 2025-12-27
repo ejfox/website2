@@ -191,8 +191,9 @@ usePageSeo({
         I build data systems for moments when failure isn't an option.
       </h1>
       <p class="font-serif text-lg text-zinc-600 dark:text-zinc-400 mb-6">
-        Election nights. Breaking investigations. Public health crises.
-        When millions are watching and the data has to be right, that's when you call me.
+        You've got a dataset that could change the story—but your current tools can't show it.
+        Or you're 8 weeks from election night and the touchscreen software is held together with duct tape.
+        That's when you call me.
       </p>
 
       <!-- Photo - 39% conversion lift from showing face -->
@@ -390,43 +391,67 @@ usePageSeo({
       </div>
     </section>
 
-    <!-- Pricing -->
+    <!-- Pricing Tiers -->
     <section ref="pricingRef" class="section-spacing">
-      <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-6">
-        <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-4">
-          Rates
-        </h2>
+      <h2 class="heading-2 mb-6">Engagement Options</h2>
 
-        <!-- Rate cards -->
-        <div class="grid grid-cols-2 gap-4 mb-6">
-          <div class="bg-white dark:bg-zinc-900 rounded p-4 border border-zinc-200 dark:border-zinc-700">
-            <p class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 font-bold">$1,250</p>
-            <p class="font-mono text-xs text-zinc-500">per day</p>
-          </div>
-          <div class="bg-white dark:bg-zinc-900 rounded p-4 border border-zinc-200 dark:border-zinc-700">
-            <p class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 font-bold">$175</p>
-            <p class="font-mono text-xs text-zinc-500">per hour</p>
-          </div>
+      <div class="grid gap-4 md:grid-cols-3">
+        <!-- Anchor: Deep Dive (shown first, highest price) -->
+        <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-5 border border-zinc-200 dark:border-zinc-700">
+          <p class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-2">Deep Dive</p>
+          <p class="font-mono text-3xl text-zinc-900 dark:text-zinc-100 font-bold mb-1">$25,000</p>
+          <p class="font-mono text-xs text-zinc-500 mb-4">20 days</p>
+          <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <li class="flex gap-2"><span class="text-zinc-400">—</span> Full system build</li>
+            <li class="flex gap-2"><span class="text-zinc-400">—</span> Election night / launch support</li>
+            <li class="flex gap-2"><span class="text-zinc-400">—</span> Team training & handoff</li>
+            <li class="flex gap-2"><span class="text-zinc-400">—</span> 30 days post-launch support</li>
+          </ul>
         </div>
 
-        <!-- Payment terms -->
-        <div class="border-t border-zinc-200 dark:border-zinc-700 pt-4 mb-4">
-          <p class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-2">Payment</p>
-          <p class="font-serif text-zinc-700 dark:text-zinc-300">
-            <span class="font-mono text-zinc-900 dark:text-zinc-100">50% upfront</span> to start,
-            <span class="font-mono text-zinc-900 dark:text-zinc-100">50% on delivery</span>.
-            Simple.
-          </p>
+        <!-- Recommended: Standard (middle tier, most will pick this) -->
+        <div class="bg-zinc-900 dark:bg-zinc-100 rounded-lg p-5 border-2 border-zinc-900 dark:border-zinc-100 relative">
+          <div class="absolute -top-3 left-4 bg-zinc-900 dark:bg-zinc-100 px-2 py-0.5 rounded">
+            <span class="font-mono text-xs text-zinc-100 dark:text-zinc-900 uppercase tracking-wide">Most Popular</span>
+          </div>
+          <p class="font-mono text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-wide mb-2">Standard</p>
+          <p class="font-mono text-3xl text-zinc-100 dark:text-zinc-900 font-bold mb-1">$12,500</p>
+          <p class="font-mono text-xs text-zinc-400 dark:text-zinc-600 mb-4">10 days</p>
+          <ul class="space-y-2 text-sm text-zinc-300 dark:text-zinc-700">
+            <li class="flex gap-2"><span class="text-zinc-500">—</span> Prototype to production</li>
+            <li class="flex gap-2"><span class="text-zinc-500">—</span> Core feature complete</li>
+            <li class="flex gap-2"><span class="text-zinc-500">—</span> Documentation</li>
+            <li class="flex gap-2"><span class="text-zinc-500">—</span> 1 week async support</li>
+          </ul>
         </div>
 
-        <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-          <span class="font-mono text-orange-600 dark:text-orange-400 font-bold">Rush jobs welcome.</span>
-          Tight deadline? I love those. We'll figure it out on the call.
-        </p>
+        <!-- Entry: Sprint -->
+        <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-5 border border-zinc-200 dark:border-zinc-700">
+          <p class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-2">Sprint</p>
+          <p class="font-mono text-3xl text-zinc-900 dark:text-zinc-100 font-bold mb-1">$6,250</p>
+          <p class="font-mono text-xs text-zinc-500 mb-4">5 days</p>
+          <ul class="space-y-2 text-sm text-zinc-600 dark:text-zinc-400">
+            <li class="flex gap-2"><span class="text-zinc-400">—</span> Proof of concept</li>
+            <li class="flex gap-2"><span class="text-zinc-400">—</span> Technical feasibility</li>
+            <li class="flex gap-2"><span class="text-zinc-400">—</span> Architecture plan</li>
+            <li class="flex gap-2"><span class="text-zinc-400">—</span> Working prototype</li>
+          </ul>
+        </div>
+      </div>
 
-        <p class="font-serif text-sm text-zinc-500">
-          Typical engagements run 5–20 days. Longer projects and retainers available.
-        </p>
+      <!-- Payment & hourly note -->
+      <div class="mt-6 flex flex-wrap gap-6 text-sm">
+        <div>
+          <span class="font-mono text-zinc-500">Payment:</span>
+          <span class="text-zinc-700 dark:text-zinc-300 ml-1">50% upfront, 50% on delivery</span>
+        </div>
+        <div>
+          <span class="font-mono text-zinc-500">Hourly available:</span>
+          <span class="text-zinc-700 dark:text-zinc-300 ml-1">$175/hr for smaller tasks</span>
+        </div>
+        <div>
+          <span class="font-mono text-orange-600 dark:text-orange-400 font-bold">Rush jobs welcome</span>
+        </div>
       </div>
     </section>
 
@@ -511,6 +536,21 @@ usePageSeo({
           I recorded this so you know what you're getting into before we talk.
         </p>
       </div>
+    </section>
+
+    <!-- Testimonial at Decision Point -->
+    <section class="section-spacing">
+      <blockquote class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-6">
+        <p class="font-serif text-lg text-zinc-700 dark:text-zinc-300 mb-4">
+          "First election night where Chuck wasn't frustrated with the app."
+        </p>
+        <footer class="flex items-center gap-3">
+          <div>
+            <cite class="font-mono text-sm text-zinc-900 dark:text-zinc-100 not-italic">Producer, Meet the Press</cite>
+            <p class="font-mono text-xs text-zinc-500">NBC News, Election Night 2018</p>
+          </div>
+        </footer>
+      </blockquote>
     </section>
 
     <!-- #2: Social Proof at Decision Point -->
