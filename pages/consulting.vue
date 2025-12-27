@@ -176,7 +176,7 @@ usePageSeo({
       <div class="flex flex-wrap gap-4 text-sm font-mono border-t border-b border-zinc-200 dark:border-zinc-800 py-4 mb-8">
         <div>
           <span class="text-zinc-500">Past clients:</span>
-          <span class="text-zinc-900 dark:text-zinc-100 ml-1">NBC, WaPo, AP, CMU</span>
+          <span class="text-zinc-900 dark:text-zinc-100 ml-1">NBC, MSNBC, WaPo, AP, CMU</span>
         </div>
         <div v-if="calibration?.brier_score" class="border-l border-zinc-300 dark:border-zinc-700 pl-4">
           <span class="text-zinc-500">Prediction accuracy:</span>
@@ -338,14 +338,16 @@ usePageSeo({
         <p class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-4">
           Trusted by teams at
         </p>
-        <div class="flex flex-wrap items-center justify-center gap-5 md:gap-6 opacity-60">
-          <img src="/logos/nbc-news.svg" alt="NBC News" class="h-4 md:h-5 dark:invert" />
-          <img src="/logos/wapo.svg" alt="The Washington Post" class="h-4 md:h-5 dark:invert" />
-          <img src="/logos/ap.svg" alt="Associated Press" class="h-3 md:h-4 dark:invert" />
-          <img src="/logos/gothamist.svg" alt="Gothamist" class="h-4 md:h-5 dark:invert" />
-          <img src="/logos/cmu.svg" alt="Carnegie Mellon" class="h-3 md:h-4 dark:invert" />
-          <img src="/logos/climate-trace.svg" alt="Climate TRACE" class="h-3 md:h-4 dark:invert" />
-          <img src="/logos/knight.svg" alt="Knight Foundation" class="h-3 md:h-4 dark:invert" />
+        <div class="flex flex-wrap items-center justify-center gap-4 md:gap-5 opacity-50">
+          <img src="/logos/nbc-news.svg" alt="NBC News" class="h-4 dark:invert" />
+          <img src="/logos/msnbc.svg" alt="MSNBC" class="h-4 dark:invert" />
+          <img src="/logos/wapo.svg" alt="The Washington Post" class="h-4 dark:invert" />
+          <img src="/logos/ap.svg" alt="Associated Press" class="h-3 dark:invert" />
+          <img src="/logos/gothamist.svg" alt="Gothamist" class="h-4 dark:invert" />
+          <img src="/logos/wnyc.svg" alt="WNYC" class="h-3 dark:invert" />
+          <img src="/logos/cmu.svg" alt="Carnegie Mellon" class="h-3 dark:invert" />
+          <img src="/logos/climate-trace.svg" alt="Climate TRACE" class="h-3 dark:invert" />
+          <img src="/logos/knight.svg" alt="Knight Foundation" class="h-3 dark:invert" />
         </div>
       </div>
 
