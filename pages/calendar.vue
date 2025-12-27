@@ -29,6 +29,7 @@ import { useDark } from '@vueuse/core'
 
 const isDark = useDark()
 const { funnel } = useFunnelTracking()
+const { getAttributionForForm } = useAttribution()
 
 usePageSeo({
   title: 'Book time with EJ Fox | Calendar',
@@ -82,10 +83,17 @@ onMounted(() => {
   // Initialize and create embed
   window.Cal('init', { origin: 'https://cal.com' })
 
+  // Get attribution data to pass to Cal.com
+  const attribution = getAttributionForForm()
+
   window.Cal('inline', {
     elementOrSelector: '#cal-embed',
     calLink: 'ejfox/30min',
     layout: 'month_view',
+    config: {
+      // Pass attribution as metadata (shows in webhook payload)
+      metadata: attribution,
+    },
   })
 
   // Set initial theme after a brief delay to ensure Cal is ready

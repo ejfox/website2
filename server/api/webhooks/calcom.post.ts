@@ -47,6 +47,20 @@ export default defineEventHandler(async (event) => {
   const budget = responses['budget-range']?.value
   const source = responses['how-did-you-find-me']?.value
 
+  // Extract attribution from metadata (passed from frontend)
+  const metadata = body.payload?.metadata || {}
+  const attribution = {
+    first_source: metadata.first_source as string | undefined,
+    first_medium: metadata.first_medium as string | undefined,
+    first_campaign: metadata.first_campaign as string | undefined,
+    first_channel: metadata.first_channel as string | undefined,
+    last_source: metadata.last_source as string | undefined,
+    last_medium: metadata.last_medium as string | undefined,
+    last_campaign: metadata.last_campaign as string | undefined,
+    landing_page: metadata.landing_page as string | undefined,
+    referrer: metadata.referrer as string | undefined,
+  }
+
   // Track different events
   switch (body.triggerEvent) {
     case 'BOOKING_CREATED':
@@ -56,6 +70,12 @@ export default defineEventHandler(async (event) => {
         timeline,
         source,
         hasProjectDescription: !!projectDescription,
+        // Attribution
+        first_source: attribution.first_source,
+        first_channel: attribution.first_channel,
+        last_source: attribution.last_source,
+        landing_page: attribution.landing_page,
+        referrer: attribution.referrer,
       })
       break
 

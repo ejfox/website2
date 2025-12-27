@@ -215,6 +215,65 @@ Cal.com can POST to any URL when bookings happen. Use this for custom tracking.
 
 ---
 
+## Attribution Tracking
+
+How visitors find your site is tracked automatically via `useAttribution` composable.
+
+### What's Captured
+
+| Data | Storage | Purpose |
+|------|---------|---------|
+| `utm_source` | localStorage | Where they came from (twitter, google, etc.) |
+| `utm_medium` | localStorage | Channel type (social, cpc, email) |
+| `utm_campaign` | localStorage | Specific campaign name |
+| `utm_content` | localStorage | Ad variation / content variant |
+| `utm_term` | localStorage | Search keyword (for paid search) |
+| `referrer` | localStorage | Full referrer URL |
+| `landing_page` | localStorage | First page they hit |
+
+### First Touch vs Last Touch
+
+Both are stored separately:
+
+- **First touch**: Never overwritten. Shows original acquisition channel.
+- **Last touch**: Updated on each visit with UTMs. Shows what brought them back.
+
+Example: Someone finds you via Twitter, leaves, comes back via Google search, books.
+- First touch: `twitter / social`
+- Last touch: `google / organic`
+
+### Channel Grouping
+
+Attribution is auto-grouped into channels:
+
+| Channel | How it's detected |
+|---------|-------------------|
+| `paid` | utm_medium contains cpc, ppc, paid |
+| `social` | twitter, linkedin, facebook in source or referrer |
+| `email` | utm_medium = email, utm_source = newsletter |
+| `referral` | Has referrer but not a search engine |
+| `organic` | google/bing/duckduckgo in referrer |
+| `direct` | No referrer, no UTMs |
+
+### Using UTM Links
+
+When sharing links, add UTM parameters:
+
+```
+https://ejfox.com/consulting?utm_source=twitter&utm_medium=social&utm_campaign=dataviz_thread
+https://ejfox.com/consulting?utm_source=newsletter&utm_medium=email&utm_campaign=jan_2025
+https://ejfox.com/consulting?utm_source=substack&utm_medium=referral&utm_campaign=guest_post
+```
+
+### Passed to Cal.com
+
+Attribution data is automatically passed to Cal.com as metadata, which shows up in webhook payloads. This lets you see:
+
+- "This booking came from someone who first found me via Twitter 3 weeks ago"
+- "They landed on /blog/election-viz first, then came back directly to /consulting"
+
+---
+
 ## Analytics & Tracking
 
 The funnel is tracked via Umami + Cal.com webhooks.

@@ -99,10 +99,24 @@ export function useFunnelTracking() {
    * Track consulting funnel specific events
    */
   const funnel = {
-    // Page entry points
-    viewedConsulting: () => trackEvent({ name: 'funnel_consulting_view' }),
+    // Page entry points (include attribution context)
+    viewedConsulting: () => {
+      const { getFirstTouchAttribution } = useAttribution()
+      const attr = getFirstTouchAttribution()
+      trackEvent({
+        name: 'funnel_consulting_view',
+        data: attr ? { channel: attr.channel || 'unknown' } : undefined,
+      })
+    },
     viewedProcess: () => trackEvent({ name: 'funnel_process_view' }),
-    viewedCalendar: () => trackEvent({ name: 'funnel_calendar_view' }),
+    viewedCalendar: () => {
+      const { getFirstTouchAttribution } = useAttribution()
+      const attr = getFirstTouchAttribution()
+      trackEvent({
+        name: 'funnel_calendar_view',
+        data: attr ? { channel: attr.channel || 'unknown' } : undefined,
+      })
+    },
     viewedWork: () => trackEvent({ name: 'funnel_work_view' }),
 
     // Consulting page sections (track when scrolled into view)
