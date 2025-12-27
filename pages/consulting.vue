@@ -128,17 +128,17 @@ const specialties = [
   {
     title: 'Election Night Systems',
     description: 'Real-time visualization that doesn\'t crash when 50 million people are watching.',
-    proof: 'Built NBC\'s Big Board used by Steve Kornacki on live TV.',
+    proof: 'NBC Big Board: 19M viewers on election night 2018. Zero crashes. Featured in NYT and Vulture.',
   },
   {
     title: 'Investigative Data Analysis',
     description: 'Finding patterns in messy datasets that hold up to scrutiny.',
-    proof: 'NYPD misconduct network analysis—findings confirmed by victim interviews.',
+    proof: 'NYPD analysis: 180K+ complaints, 113K officer nodes. Findings confirmed by victim interviews for Gothamist.',
   },
   {
     title: 'Public Interest Dashboards',
     description: 'Making complex data accessible without dumbing it down.',
-    proof: 'COVIDcast visualizations for Carnegie Mellon during peak pandemic.',
+    proof: 'CMU COVIDcast: Helped millions track pandemic spread during peak uncertainty.',
   },
 ]
 
@@ -171,6 +171,18 @@ usePageSeo({
         Election nights. Breaking investigations. Public health crises.
         When millions are watching and the data has to be right, that's when you call me.
       </p>
+
+      <!-- Photo - 39% conversion lift from showing face -->
+      <div class="mb-8">
+        <img
+          src="https://res.cloudinary.com/ejf/image/upload/v1667919994/IMG_6222.jpg"
+          alt="EJ Fox presenting election visualization on NBC's Big Board"
+          class="w-full rounded-lg"
+        />
+        <p class="font-mono text-xs text-zinc-400 mt-2">
+          Me with the Big Board at 30 Rock, election night 2018
+        </p>
+      </div>
 
       <!-- Credibility bar -->
       <div class="flex flex-wrap gap-4 text-sm font-mono border-t border-b border-zinc-200 dark:border-zinc-800 py-4 mb-8">
