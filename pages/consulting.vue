@@ -1,13 +1,17 @@
 <script setup lang="ts">
 import { formatBrierScore } from '~/composables/useNumberFormat'
+import { useDark } from '@vueuse/core'
 
+const isDark = useDark()
 const { data: calibration } = useCalibration()
 const { funnel, trackScrollDepth, trackTimeOnPage } = useFunnelTracking()
 const { micro } = useMicroConversions()
+const { getAttributionForForm } = useAttribution()
 
 // Element refs for section tracking
 const pricingRef = ref<HTMLElement | null>(null)
 const ctaRef = ref<HTMLElement | null>(null)
+const calEmbedRef = ref<HTMLElement | null>(null)
 
 // Track section visibility
 useElementVisibility(pricingRef, {
@@ -35,7 +39,84 @@ onMounted(() => {
   micro.landed('/consulting')
   trackScrollDepth([25, 50, 75, 90])
   trackTimeOnPage([30, 60, 120])
+
+  // Initialize Cal.com inline embed (#8 - inline calendar converts 40% better)
+  initCalEmbed()
 })
+
+// Cal.com embed initialization
+function initCalEmbed() {
+  if (!import.meta.client) return
+
+  /* eslint-disable prefer-rest-params, @typescript-eslint/no-unused-expressions */
+  ;(function (C, A, L) {
+    const p = function (a: { q: unknown[] }, ar: unknown) {
+      a.q.push(ar)
+    }
+    const d = C.document
+    ;(C as Window & { Cal?: unknown }).Cal =
+      (C as Window & { Cal?: unknown }).Cal ||
+      function () {
+        const cal = (C as Window & { Cal: { loaded?: boolean; ns: Record<string, unknown>; q: unknown[] } }).Cal
+        const ar = arguments
+        if (!cal.loaded) {
+          cal.ns = {}
+          cal.q = cal.q || []
+          d.head.appendChild(d.createElement('script')).src = A
+          cal.loaded = true
+        }
+        if (ar[0] === L) {
+          const api = function () {
+            p(api as unknown as { q: unknown[] }, arguments)
+          } as unknown as { q: unknown[] }
+          const namespace = ar[1]
+          api.q = api.q || []
+          typeof namespace === 'string'
+            ? (cal.ns[namespace] = api) && p(api, ar)
+            : p(cal, ar)
+          return
+        }
+        p(cal, ar)
+      }
+  })(window, 'https://app.cal.com/embed/embed.js', 'init')
+  /* eslint-enable prefer-rest-params, @typescript-eslint/no-unused-expressions */
+
+  const win = window as Window & { Cal?: (action: string, config?: unknown) => void }
+  win.Cal?.('init', { origin: 'https://cal.com' })
+
+  const attribution = getAttributionForForm()
+  win.Cal?.('inline', {
+    elementOrSelector: '#cal-inline-embed',
+    calLink: 'ejfox/30min',
+    layout: 'month_view',
+    config: { metadata: attribution },
+  })
+
+  setTimeout(() => {
+    updateCalTheme()
+    funnel.calendarLoaded()
+  }, 100)
+
+  win.Cal?.('on', {
+    action: 'bookingSuccessful',
+    callback: () => {
+      funnel.calBookingComplete()
+    },
+  })
+
+  watch(isDark, () => updateCalTheme())
+}
+
+function updateCalTheme() {
+  const win = window as Window & { Cal?: (action: string, config?: unknown) => void }
+  if (!win.Cal) return
+  win.Cal('ui', {
+    theme: isDark.value ? 'dark' : 'light',
+    hideEventTypeDetails: false,
+    layout: 'month_view',
+    styles: { branding: { brandColor: isDark.value ? '#a1a1aa' : '#3f3f46' } },
+  })
+}
 
 const currentQuarter = computed(() => {
   const now = new Date()
@@ -225,22 +306,55 @@ usePageSeo({
       </div>
     </section>
 
-    <!-- CTA -->
-    <section ref="ctaRef" class="section-spacing">
-      <div class="border border-zinc-900 dark:border-zinc-100 rounded-lg p-6">
-        <h2 class="font-serif text-xl text-zinc-900 dark:text-zinc-100 mb-3">
-          Ready to talk?
+    <!-- #7: Value Before Ask -->
+    <section class="section-spacing">
+      <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
+        <h2 class="font-mono text-xs text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-3">
+          What you'll get on the call
         </h2>
-        <p class="font-serif text-zinc-600 dark:text-zinc-400 mb-4">
-          Book a discovery call. Come with a problem, not a requirements doc.
+        <ul class="space-y-2 font-serif text-zinc-700 dark:text-zinc-300">
+          <li class="flex gap-3">
+            <span class="text-blue-500 shrink-0">1.</span>
+            <span>Honest assessment: is this a good fit, or should you look elsewhere?</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-500 shrink-0">2.</span>
+            <span>Initial approach: how I'd tackle your specific problem</span>
+          </li>
+          <li class="flex gap-3">
+            <span class="text-blue-500 shrink-0">3.</span>
+            <span>Ballpark scope: rough timeline and investment range</span>
+          </li>
+        </ul>
+        <p class="mt-4 font-mono text-xs text-blue-600 dark:text-blue-400">
+          Even if we don't work together, you'll leave with a clearer picture.
         </p>
-        <NuxtLink
-          to="/calendar"
-          class="inline-block bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 px-5 py-2.5 rounded font-mono text-sm hover:bg-zinc-700 dark:hover:bg-zinc-300 transition-colors"
-        >
-          Book Discovery Call
-        </NuxtLink>
       </div>
+    </section>
+
+    <!-- #2: Social Proof at Decision Point -->
+    <section ref="ctaRef" class="section-spacing">
+      <div class="text-center mb-6">
+        <p class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-3">
+          Trusted by teams at
+        </p>
+        <p class="font-serif text-lg text-zinc-900 dark:text-zinc-100">
+          NBC News · Gothamist · Carnegie Mellon · Knight Foundation
+        </p>
+      </div>
+
+      <!-- #3: Risk Reversal -->
+      <div class="text-center mb-8">
+        <p class="font-serif text-zinc-600 dark:text-zinc-400">
+          No pitch. No commitment. Just a conversation.
+        </p>
+        <p class="font-mono text-sm text-zinc-500 mt-1">
+          30 minutes · You talk, I listen · Zero obligation
+        </p>
+      </div>
+
+      <!-- #8: Inline Calendar (40% better conversion than links) -->
+      <div id="cal-inline-embed" class="cal-inline-embed rounded-lg overflow-hidden border border-zinc-200 dark:border-zinc-800"></div>
     </section>
 
     <!-- Footer -->
@@ -250,8 +364,20 @@ usePageSeo({
         <a href="mailto:ejfox@ejfox.com" class="underline hover:text-zinc-700 dark:hover:text-zinc-300">
           ejfox@ejfox.com
         </a>
-        — but for projects, the calendar is faster.
       </p>
     </footer>
   </main>
 </template>
+
+<style scoped>
+.cal-inline-embed {
+  min-height: 500px;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .cal-inline-embed {
+    min-height: 600px;
+  }
+}
+</style>
