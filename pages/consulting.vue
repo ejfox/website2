@@ -2,6 +2,14 @@
 import { formatBrierScore } from '~/composables/useNumberFormat'
 
 const { data: calibration } = useCalibration()
+const { funnel, trackScrollDepth, trackTimeOnPage } = useFunnelTracking()
+
+// Track page view and engagement
+onMounted(() => {
+  funnel.viewedConsulting()
+  trackScrollDepth([25, 50, 75, 90])
+  trackTimeOnPage([30, 60, 120])
+})
 
 const currentQuarter = computed(() => {
   const now = new Date()

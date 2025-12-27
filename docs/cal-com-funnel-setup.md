@@ -213,6 +213,72 @@ Cal.com can POST to any URL when bookings happen. Use this for custom tracking.
 
 ---
 
+---
+
+## Analytics & Tracking
+
+The funnel is tracked via Umami + Cal.com webhooks.
+
+### What's Tracked (Automatically)
+
+| Event | Where | Meaning |
+|-------|-------|---------|
+| `funnel_consulting_view` | /consulting | Landed on consulting page |
+| `scroll_depth` (25/50/75/90) | /consulting | How far they read |
+| `time_on_page` (30/60/120s) | /consulting | Engagement depth |
+| `funnel_calendar_view` | /calendar | Made it to booking page |
+| `funnel_calendar_loaded` | /calendar | Cal.com embed rendered |
+| `funnel_cal_booking_complete` | /calendar | Booking confirmed |
+
+### Cal.com Webhook
+
+Webhook endpoint: `/api/webhooks/calcom`
+
+Set this up in Cal.com:
+1. Settings → Developer → Webhooks
+2. URL: `https://ejfox.com/api/webhooks/calcom`
+3. Events: BOOKING_CREATED, BOOKING_CANCELLED, BOOKING_RESCHEDULED, BOOKING_NO_SHOW_UPDATED
+
+This gives you server-side tracking of:
+- Booking created (with budget/timeline/source from booking questions)
+- Cancellations (with reason if provided)
+- Reschedules
+- No-shows
+
+### Funnel Analysis in Umami
+
+Build a funnel report:
+1. Umami → Reports → Create Funnel
+2. Steps:
+   - `funnel_consulting_view` (entry)
+   - `scroll_depth` where depth = 75 (read most of page)
+   - `funnel_calendar_view` (clicked through)
+   - `funnel_calendar_loaded` (page rendered)
+   - `funnel_cal_booking_complete` (success)
+
+### Key Metrics to Watch
+
+| Metric | Good | Bad | Action |
+|--------|------|-----|--------|
+| Consulting → Calendar | >30% | <15% | Page not converting, check copy/pricing |
+| Calendar → Booking | >20% | <10% | Cal.com friction, check available times |
+| 75% scroll on /consulting | >50% | <25% | They're bouncing early, fix above-fold |
+| Time on page >60s | >40% | <20% | Not engaging, content issue |
+
+### Debugging Drop-offs
+
+**"Can't find a time" problem:**
+- Check Cal.com availability settings
+- Look for patterns in when people visit vs. available slots
+- Consider adding more availability or buffer times
+
+**High calendar view, low booking:**
+- Booking questions too long?
+- Price shock after seeing intake form?
+- Technical issues with embed?
+
+---
+
 ## Checklist
 
 - [ ] Create "Consulting Discovery Call" event type
@@ -222,6 +288,8 @@ Cal.com can POST to any URL when bookings happen. Use this for custom tracking.
 - [ ] Set up Workflow 2: 24-hour reminder
 - [ ] Set up Workflow 3: 2-hour reminder
 - [ ] Set up Workflow 4: No-show follow-up
+- [ ] Set up Cal.com webhook to /api/webhooks/calcom
+- [ ] Create Umami funnel report
 - [ ] (Optional) Set up routing form for volume filtering
 - [ ] Test the full flow yourself
 

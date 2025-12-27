@@ -28,6 +28,7 @@
 import { useDark } from '@vueuse/core'
 
 const isDark = useDark()
+const { funnel } = useFunnelTracking()
 
 usePageSeo({
   title: 'Book time with EJ Fox | Calendar',
@@ -42,6 +43,8 @@ usePageSeo({
 
 // Load Cal.com embed script and initialize using their loader pattern
 onMounted(() => {
+  // Track calendar page view
+  funnel.viewedCalendar()
   /* eslint-disable prefer-rest-params, @typescript-eslint/no-unused-expressions */
   // Cal.com's official loader pattern (third-party code, do not modify)
   ;(function (C, A, L) {
@@ -88,7 +91,16 @@ onMounted(() => {
   // Set initial theme after a brief delay to ensure Cal is ready
   setTimeout(() => {
     updateCalTheme()
+    funnel.calendarLoaded()
   }, 100)
+
+  // Listen for Cal.com booking events
+  window.Cal('on', {
+    action: 'bookingSuccessful',
+    callback: () => {
+      funnel.calBookingComplete()
+    },
+  })
 
   // Watch for theme changes
   watch(isDark, () => {
