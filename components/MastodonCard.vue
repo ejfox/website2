@@ -1,9 +1,9 @@
 <template>
-  <article class="tweet-card group">
+  <article class="mastodon-card group">
     <div class="flex gap-2">
       <!-- Icon -->
       <div class="flex-shrink-0 pt-1">
-        <span class="text-zinc-400 dark:text-zinc-600 text-xs">𝕏</span>
+        <span class="text-zinc-400 dark:text-zinc-600 text-xs">M</span>
       </div>
 
       <div class="flex-grow min-w-0">
@@ -18,7 +18,7 @@
           </time>
         </div>
 
-        <!-- Tweet text -->
+        <!-- Post text -->
         <p
           class="text-zinc-700 dark:text-zinc-300 text-sm leading-snug whitespace-pre-wrap break-words"
         >
@@ -27,11 +27,11 @@
 
         <!-- Engagement -->
         <div
-          v-if="favorites > 0 || retweets > 0"
+          v-if="favorites > 0 || reblogs > 0"
           class="flex items-center gap-3 mt-2 text-xs text-zinc-400 dark:text-zinc-600"
         >
-          <span v-if="favorites > 0">♥ {{ favorites }}</span>
-          <span v-if="retweets > 0">↻ {{ retweets }}</span>
+          <span v-if="favorites > 0">⭐ {{ favorites }}</span>
+          <span v-if="reblogs > 0">↻ {{ reblogs }}</span>
         </div>
       </div>
     </div>
@@ -43,19 +43,21 @@ interface Props {
   id?: string
   text: string
   date?: string
+  url?: string
   replyTo?: string | null
   favorites?: number
-  retweets?: number
-  year?: number
+  reblogs?: number
+  visibility?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   id: undefined,
   date: undefined,
+  url: undefined,
   replyTo: undefined,
   favorites: 0,
-  retweets: 0,
-  year: undefined,
+  reblogs: 0,
+  visibility: 'public',
 })
 
 const formattedDate = computed(() => {
@@ -88,12 +90,12 @@ const formattedDate = computed(() => {
 </script>
 
 <style scoped>
-.tweet-card {
+.mastodon-card {
   @apply py-3 px-0;
   @apply border-b border-zinc-200 dark:border-zinc-800;
 }
 
-.tweet-card:hover {
+.mastodon-card:hover {
   @apply bg-zinc-50/30 dark:bg-zinc-900/30;
 }
 </style>
