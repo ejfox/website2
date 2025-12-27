@@ -243,6 +243,25 @@ usePageSeo({
       </div>
     </section>
 
+    <!-- Press Mentions -->
+    <section class="section-spacing">
+      <h2 class="heading-2 mb-4">Featured In</h2>
+      <div class="space-y-4">
+        <blockquote class="border-l-2 border-zinc-300 dark:border-zinc-700 pl-4">
+          <p class="font-serif text-zinc-600 dark:text-zinc-400 italic">
+            "A newly juiced-up model of the board that can zoom in on the most obscure House districts"
+          </p>
+          <cite class="font-mono text-xs text-zinc-500 not-italic">— The New York Times, on NBC's Big Board</cite>
+        </blockquote>
+        <blockquote class="border-l-2 border-zinc-300 dark:border-zinc-700 pl-4">
+          <p class="font-serif text-zinc-600 dark:text-zinc-400 italic">
+            "Kornacki,eli5-ing races with sleeves rolled up and an 82-inch vertical touchscreen... looked amazing with the board, panning and zooming"
+          </p>
+          <cite class="font-mono text-xs text-zinc-500 not-italic">— Vulture</cite>
+        </blockquote>
+      </div>
+    </section>
+
     <!-- Not For -->
     <section class="section-spacing">
       <h2 class="heading-2 mb-4">Not a Fit</h2>
@@ -318,6 +337,41 @@ usePageSeo({
       </div>
     </section>
 
+    <!-- FAQ - reduces uncertainty -->
+    <section class="section-spacing">
+      <h2 class="heading-2 mb-6">Common Questions</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="font-serif text-zinc-900 dark:text-zinc-100 mb-2">What if we're not sure about scope yet?</h3>
+          <p class="font-serif text-sm text-zinc-600 dark:text-zinc-400">
+            That's what the discovery call is for. Come with the problem, not a requirements doc.
+            We'll figure out scope together—and if it's not a fit, I'll tell you.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-serif text-zinc-900 dark:text-zinc-100 mb-2">Do you work with teams or solo?</h3>
+          <p class="font-serif text-sm text-zinc-600 dark:text-zinc-400">
+            Both. I can embed with your existing team or run the whole thing myself.
+            For larger projects, I bring in trusted collaborators from my network.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-serif text-zinc-900 dark:text-zinc-100 mb-2">What's your tech stack?</h3>
+          <p class="font-serif text-sm text-zinc-600 dark:text-zinc-400">
+            D3.js, Vue/Nuxt, TypeScript, Node. For mapping: Mapbox, TopoJSON.
+            For data: Python, Observable, Datasette. But I pick tools based on your constraints, not mine.
+          </p>
+        </div>
+        <div>
+          <h3 class="font-serif text-zinc-900 dark:text-zinc-100 mb-2">What happens after the project ends?</h3>
+          <p class="font-serif text-sm text-zinc-600 dark:text-zinc-400">
+            You own everything. Full source code, documentation, handoff to your team.
+            I'm available for maintenance retainers if you want ongoing support.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- #7: Value Before Ask -->
     <section class="section-spacing">
       <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
@@ -340,6 +394,28 @@ usePageSeo({
         </ul>
         <p class="mt-4 font-mono text-xs text-blue-600 dark:text-blue-400">
           Even if we don't work together, you'll leave with a clearer picture.
+        </p>
+      </div>
+    </section>
+
+    <!-- Video Intro - personal connection before booking -->
+    <section class="section-spacing">
+      <div class="bg-zinc-900 dark:bg-zinc-800 rounded-lg p-6 text-center">
+        <p class="font-mono text-xs text-zinc-400 uppercase tracking-wide mb-3">
+          2 min video
+        </p>
+        <h2 class="font-serif text-xl text-zinc-100 mb-4">
+          Before you book: a quick intro
+        </h2>
+        <div class="aspect-video bg-zinc-800 dark:bg-zinc-700 rounded-lg flex items-center justify-center mb-4">
+          <!-- Replace with Loom embed: <iframe src="https://www.loom.com/embed/VIDEO_ID" ... /> -->
+          <div class="text-center">
+            <p class="font-mono text-sm text-zinc-500 mb-2">Video coming soon</p>
+            <p class="font-mono text-xs text-zinc-600">Who I am, how I work, what to expect</p>
+          </div>
+        </div>
+        <p class="font-serif text-sm text-zinc-400">
+          I recorded this so you know what you're getting into before we talk.
         </p>
       </div>
     </section>
