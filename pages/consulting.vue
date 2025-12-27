@@ -129,6 +129,24 @@ const { data: availability } = await useFetch('/api/cal/availability', {
   }),
 })
 
+// Recent GitHub activity for "proof of life"
+const { data: github } = await useFetch('/api/github', {
+  default: () => ({ detail: { commits: [] } }),
+})
+
+const recentCommits = computed(() => {
+  const commits = github.value?.detail?.commits || []
+  // Get last 5 unique repos with their most recent commit
+  const seen = new Set()
+  return commits
+    .filter((c: { repository: { name: string } }) => {
+      if (seen.has(c.repository.name)) return false
+      seen.add(c.repository.name)
+      return true
+    })
+    .slice(0, 5)
+})
+
 const specialties = [
   {
     title: 'Election Night Systems',
@@ -242,6 +260,24 @@ usePageSeo({
         <span class="text-zinc-400 ml-1">
           ({{ currentWork.currentProject.client }})
         </span>
+      </div>
+
+      <!-- Recent GitHub Activity -->
+      <div v-if="recentCommits.length" class="mt-6 pt-4 border-t border-zinc-200 dark:border-zinc-800">
+        <p class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-3">Recent Activity</p>
+        <div class="flex flex-wrap gap-2">
+          <a
+            v-for="commit in recentCommits"
+            :key="commit.url"
+            :href="commit.repository.url"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-1.5 px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded text-xs hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
+          >
+            <span class="w-2 h-2 rounded-full bg-green-500"></span>
+            <span class="font-mono text-zinc-600 dark:text-zinc-400">{{ commit.repository.name }}</span>
+          </a>
+        </div>
       </div>
     </header>
 
