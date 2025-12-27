@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { formatBrierScore } from '~/composables/useNumberFormat'
 import { useDark } from '@vueuse/core'
+import currentWork from '~/data/current-work.json'
 
 const isDark = useDark()
 const { data: calibration } = useCalibration()
@@ -230,6 +231,17 @@ usePageSeo({
             {{ availability?.message }}
           </span>
         </div>
+      </div>
+
+      <!-- Currently Working On -->
+      <div v-if="currentWork.currentProject" class="mt-4 text-sm">
+        <span class="font-mono text-zinc-500">Currently:</span>
+        <span class="text-zinc-700 dark:text-zinc-300 ml-2">
+          {{ currentWork.currentProject.type }}
+        </span>
+        <span class="text-zinc-400 ml-1">
+          ({{ currentWork.currentProject.client }})
+        </span>
       </div>
     </header>
 
