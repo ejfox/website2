@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 691405,
-    "TypeScript": 334119,
-    "JavaScript": 221072,
+    "Vue": 691759,
+    "TypeScript": 352995,
+    "JavaScript": 221076,
     "CSS": 35191,
     "Shell": 18074,
     "HTML": 15405,
     "Dockerfile": 794
   },
-  "diskUsage": 89331,
+  "diskUsage": 89632,
   "fileTree": {
     "files": [
       {
@@ -77,7 +77,7 @@
       },
       {
         "path": "CLAUDE.md",
-        "size": 11405
+        "size": 12219
       },
       {
         "path": "Dockerfile",
@@ -145,7 +145,7 @@
       },
       {
         "path": "components/Footer.vue",
-        "size": 3393
+        "size": 3457
       },
       {
         "path": "components/GistPreview.vue",
@@ -225,7 +225,7 @@
       },
       {
         "path": "components/StaticContent.server.vue",
-        "size": 301
+        "size": 342
       },
       {
         "path": "components/TweetCard.vue",
@@ -237,7 +237,7 @@
       },
       {
         "path": "components/Webmentions.vue",
-        "size": 6086
+        "size": 6354
       },
       {
         "path": "components/blog/TipJar.vue",
@@ -258,42 +258,6 @@
       {
         "path": "components/gear/GearTableRow.client.vue",
         "size": 6963
-      },
-      {
-        "path": "components/kalshi/KalshiFillsTable.vue",
-        "size": 1784
-      },
-      {
-        "path": "components/kalshi/KalshiPortfolioStats.vue",
-        "size": 2454
-      },
-      {
-        "path": "components/kalshi/KalshiPositionCard.vue",
-        "size": 3904
-      },
-      {
-        "path": "components/kalshi/KalshiPositionsList.vue",
-        "size": 1066
-      },
-      {
-        "path": "components/predictions/MarketData.vue",
-        "size": 4780
-      },
-      {
-        "path": "components/predictions/PredictionCard.vue",
-        "size": 4432
-      },
-      {
-        "path": "components/predictions/PredictionStats.vue",
-        "size": 1483
-      },
-      {
-        "path": "components/predictions/PredictionVerification.vue",
-        "size": 4473
-      },
-      {
-        "path": "components/predictions/VerificationDisplay.vue",
-        "size": 4470
       },
       {
         "path": "components/projects/BentoProjectCard.vue",
@@ -333,7 +297,7 @@
       },
       {
         "path": "components/stats/GistStats.vue",
-        "size": 4757
+        "size": 4780
       },
       {
         "path": "components/stats/GitHubMiniContributions.vue",
@@ -433,7 +397,7 @@
       },
       {
         "path": "composables/useNumberFormat.ts",
-        "size": 11671
+        "size": 14310
       },
       {
         "path": "composables/usePageSeo.ts",
@@ -476,256 +440,256 @@
         "size": 689
       },
       {
+        "path": "content/blog/2010/photography-2008-2010.md",
+        "size": 1604
+      },
+      {
+        "path": "content/blog/2013/the-magazine-experience-on-the-web.md",
+        "size": 11425
+      },
+      {
+        "path": "content/blog/2015/2015-in-review.md",
+        "size": 3317
+      },
+      {
+        "path": "content/blog/2016/2016-in-review.md",
+        "size": 1788
+      },
+      {
+        "path": "content/blog/2016/video-mixes.md",
+        "size": 4694
+      },
+      {
+        "path": "content/blog/2017/2017-in-review.md",
+        "size": 2533
+      },
+      {
+        "path": "content/blog/2018/2018-in-review.md",
+        "size": 4655
+      },
+      {
+        "path": "content/blog/2018/watercolor-sketching-in-nyc.md",
+        "size": 3413
+      },
+      {
+        "path": "content/blog/2018/work-view-life-view.md",
+        "size": 4413
+      },
+      {
+        "path": "content/blog/2019/climate-strike-nyc.md",
+        "size": 2685
+      },
+      {
+        "path": "content/blog/2019/generative-music-iteration.md",
+        "size": 2065
+      },
+      {
+        "path": "content/blog/2019/hong-kong-protest-techniques.md",
+        "size": 1103
+      },
+      {
+        "path": "content/blog/2019/how-i-prototype-apps-and-dataviz-quickly-in-2019.md",
+        "size": 6546
+      },
+      {
+        "path": "content/blog/2019/linocut-printing-guide.md",
+        "size": 13255
+      },
+      {
+        "path": "content/blog/2019/movies-to-watch.md",
+        "size": 2111
+      },
+      {
+        "path": "content/blog/2019/step-zero.md",
+        "size": 1842
+      },
+      {
+        "path": "content/blog/2019/taking-things-for-granted.md",
+        "size": 1953
+      },
+      {
+        "path": "content/blog/2019/the-internet-was-built-to-be-hacked.md",
+        "size": 9252
+      },
+      {
+        "path": "content/blog/2019/two-reasons.md",
+        "size": 2749
+      },
+      {
+        "path": "content/blog/2019/unsecured-ice-cameras.md",
+        "size": 4934
+      },
+      {
+        "path": "content/blog/2020/coding-livestreams.md",
+        "size": 7855
+      },
+      {
+        "path": "content/blog/2020/introduction-to-eavs-data.md",
+        "size": 7119
+      },
+      {
+        "path": "content/blog/2020/online-brigades-gaming-twitter.md",
+        "size": 3586
+      },
+      {
+        "path": "content/blog/2020/things-ive-learned-about-elections.md",
+        "size": 19270
+      },
+      {
+        "path": "content/blog/2021/creative-coding.md",
+        "size": 6472
+      },
+      {
+        "path": "content/blog/2021/lack-of-data.md",
+        "size": 3791
+      },
+      {
+        "path": "content/blog/2021/nypd-ccrb-complaint-clusters.md",
+        "size": 28425
+      },
+      {
+        "path": "content/blog/2022/2022-prototyping-toolkit.md",
+        "size": 3107
+      },
+      {
+        "path": "content/blog/2022/8pm-to-midnight-mixes.md",
+        "size": 2056
+      },
+      {
+        "path": "content/blog/2022/art-setup.md",
+        "size": 2596
+      },
+      {
+        "path": "content/blog/2022/election-night-2018.md",
+        "size": 8971
+      },
+      {
+        "path": "content/blog/2022/everyone-should-code-data-literacy.md",
+        "size": 4154
+      },
+      {
+        "path": "content/blog/2022/experiments-with-live-looping-performance.md",
+        "size": 7206
+      },
+      {
+        "path": "content/blog/2022/food.md",
+        "size": 3637
+      },
+      {
+        "path": "content/blog/2022/joy-driven-development.md",
+        "size": 3903
+      },
+      {
+        "path": "content/blog/2022/morning-routine-daily-rituals.md",
+        "size": 3082
+      },
+      {
+        "path": "content/blog/2022/motorcycle-camping.md",
+        "size": 8679
+      },
+      {
+        "path": "content/blog/2022/my-vscode-setup.md",
+        "size": 3033
+      },
+      {
+        "path": "content/blog/2022/rules-for-joyful-travel.md",
+        "size": 9030
+      },
+      {
+        "path": "content/blog/2022/the-art-of-coding.md",
+        "size": 16545
+      },
+      {
+        "path": "content/blog/2022/the-studio.md",
+        "size": 7988
+      },
+      {
+        "path": "content/blog/2023/camera-setup.md",
+        "size": 705
+      },
+      {
+        "path": "content/blog/2023/capitalism-letting-people-die.md",
+        "size": 9540
+      },
+      {
+        "path": "content/blog/2023/crypto-ai-colonization.md",
+        "size": 10145
+      },
+      {
+        "path": "content/blog/2023/design-philosophy.md",
+        "size": 6284
+      },
+      {
+        "path": "content/blog/2023/film-development.md",
+        "size": 3452
+      },
+      {
+        "path": "content/blog/2023/hacker-culture.md",
+        "size": 13712
+      },
+      {
+        "path": "content/blog/2023/how-i-built-coach-artie.md",
+        "size": 9955
+      },
+      {
+        "path": "content/blog/2023/livestreaming.md",
+        "size": 2412
+      },
+      {
+        "path": "content/blog/2023/selecting-a-cms.md",
+        "size": 11792
+      },
+      {
+        "path": "content/blog/2023/starting-a-studio-introducing-room-302.md",
+        "size": 4212
+      },
+      {
+        "path": "content/blog/2023/why-i-love-obsidian.md",
+        "size": 4209
+      },
+      {
+        "path": "content/blog/2024/2024.md",
+        "size": 28894
+      },
+      {
+        "path": "content/blog/2024/my-modern-scrapbook.md",
+        "size": 15615
+      },
+      {
+        "path": "content/blog/2024/the-mystery-of-peter-todd.md",
+        "size": 32045
+      },
+      {
+        "path": "content/blog/2025/hidden-networks-of-warmth.md",
+        "size": 13132
+      },
+      {
+        "path": "content/blog/2025/mcp-meta-mapping.md",
+        "size": 5690
+      },
+      {
+        "path": "content/blog/2025/owning-my-cloudinary-photos.md",
+        "size": 4226
+      },
+      {
+        "path": "content/blog/2025/paramilitary-telegram-leaks-001.md",
+        "size": 6679
+      },
+      {
+        "path": "content/blog/2025/personal-apis.md",
+        "size": 5643
+      },
+      {
+        "path": "content/blog/2025/using-radios.md",
+        "size": 8691
+      },
+      {
         "path": "content/blog/CLAUDE.md",
         "size": 1540
       },
       {
         "path": "content/blog/WIKILINK-OPPORTUNITIES.md",
         "size": 9739
-      },
-      {
-        "path": "content/blog/blog/2010/photography-2008-2010.md",
-        "size": 1604
-      },
-      {
-        "path": "content/blog/blog/2013/the-magazine-experience-on-the-web.md",
-        "size": 11425
-      },
-      {
-        "path": "content/blog/blog/2015/2015-in-review.md",
-        "size": 3317
-      },
-      {
-        "path": "content/blog/blog/2016/2016-in-review.md",
-        "size": 1788
-      },
-      {
-        "path": "content/blog/blog/2016/video-mixes.md",
-        "size": 4694
-      },
-      {
-        "path": "content/blog/blog/2017/2017-in-review.md",
-        "size": 2533
-      },
-      {
-        "path": "content/blog/blog/2018/2018-in-review.md",
-        "size": 4655
-      },
-      {
-        "path": "content/blog/blog/2018/watercolor-sketching-in-nyc.md",
-        "size": 3413
-      },
-      {
-        "path": "content/blog/blog/2018/work-view-life-view.md",
-        "size": 4413
-      },
-      {
-        "path": "content/blog/blog/2019/climate-strike-nyc.md",
-        "size": 2685
-      },
-      {
-        "path": "content/blog/blog/2019/generative-music-iteration.md",
-        "size": 2065
-      },
-      {
-        "path": "content/blog/blog/2019/hong-kong-protest-techniques.md",
-        "size": 1103
-      },
-      {
-        "path": "content/blog/blog/2019/how-i-prototype-apps-and-dataviz-quickly-in-2019.md",
-        "size": 6546
-      },
-      {
-        "path": "content/blog/blog/2019/linocut-printing-guide.md",
-        "size": 13255
-      },
-      {
-        "path": "content/blog/blog/2019/movies-to-watch.md",
-        "size": 2111
-      },
-      {
-        "path": "content/blog/blog/2019/step-zero.md",
-        "size": 1842
-      },
-      {
-        "path": "content/blog/blog/2019/taking-things-for-granted.md",
-        "size": 1953
-      },
-      {
-        "path": "content/blog/blog/2019/the-internet-was-built-to-be-hacked.md",
-        "size": 9252
-      },
-      {
-        "path": "content/blog/blog/2019/two-reasons.md",
-        "size": 2749
-      },
-      {
-        "path": "content/blog/blog/2019/unsecured-ice-cameras.md",
-        "size": 4934
-      },
-      {
-        "path": "content/blog/blog/2020/coding-livestreams.md",
-        "size": 7855
-      },
-      {
-        "path": "content/blog/blog/2020/introduction-to-eavs-data.md",
-        "size": 7119
-      },
-      {
-        "path": "content/blog/blog/2020/online-brigades-gaming-twitter.md",
-        "size": 3586
-      },
-      {
-        "path": "content/blog/blog/2020/things-ive-learned-about-elections.md",
-        "size": 19270
-      },
-      {
-        "path": "content/blog/blog/2021/creative-coding.md",
-        "size": 6472
-      },
-      {
-        "path": "content/blog/blog/2021/lack-of-data.md",
-        "size": 3791
-      },
-      {
-        "path": "content/blog/blog/2021/nypd-ccrb-complaint-clusters.md",
-        "size": 28425
-      },
-      {
-        "path": "content/blog/blog/2022/2022-prototyping-toolkit.md",
-        "size": 3107
-      },
-      {
-        "path": "content/blog/blog/2022/8pm-to-midnight-mixes.md",
-        "size": 2056
-      },
-      {
-        "path": "content/blog/blog/2022/art-setup.md",
-        "size": 2596
-      },
-      {
-        "path": "content/blog/blog/2022/election-night-2018.md",
-        "size": 8971
-      },
-      {
-        "path": "content/blog/blog/2022/everyone-should-code-data-literacy.md",
-        "size": 4154
-      },
-      {
-        "path": "content/blog/blog/2022/experiments-with-live-looping-performance.md",
-        "size": 7206
-      },
-      {
-        "path": "content/blog/blog/2022/food.md",
-        "size": 3637
-      },
-      {
-        "path": "content/blog/blog/2022/joy-driven-development.md",
-        "size": 3903
-      },
-      {
-        "path": "content/blog/blog/2022/morning-routine-daily-rituals.md",
-        "size": 3082
-      },
-      {
-        "path": "content/blog/blog/2022/motorcycle-camping.md",
-        "size": 8679
-      },
-      {
-        "path": "content/blog/blog/2022/my-vscode-setup.md",
-        "size": 3033
-      },
-      {
-        "path": "content/blog/blog/2022/rules-for-joyful-travel.md",
-        "size": 9030
-      },
-      {
-        "path": "content/blog/blog/2022/the-art-of-coding.md",
-        "size": 16545
-      },
-      {
-        "path": "content/blog/blog/2022/the-studio.md",
-        "size": 7988
-      },
-      {
-        "path": "content/blog/blog/2023/camera-setup.md",
-        "size": 705
-      },
-      {
-        "path": "content/blog/blog/2023/capitalism-letting-people-die.md",
-        "size": 9540
-      },
-      {
-        "path": "content/blog/blog/2023/crypto-ai-colonization.md",
-        "size": 10145
-      },
-      {
-        "path": "content/blog/blog/2023/design-philosophy.md",
-        "size": 6284
-      },
-      {
-        "path": "content/blog/blog/2023/film-development.md",
-        "size": 3452
-      },
-      {
-        "path": "content/blog/blog/2023/hacker-culture.md",
-        "size": 13712
-      },
-      {
-        "path": "content/blog/blog/2023/how-i-built-coach-artie.md",
-        "size": 9955
-      },
-      {
-        "path": "content/blog/blog/2023/livestreaming.md",
-        "size": 2412
-      },
-      {
-        "path": "content/blog/blog/2023/selecting-a-cms.md",
-        "size": 11792
-      },
-      {
-        "path": "content/blog/blog/2023/starting-a-studio-introducing-room-302.md",
-        "size": 4212
-      },
-      {
-        "path": "content/blog/blog/2023/why-i-love-obsidian.md",
-        "size": 4209
-      },
-      {
-        "path": "content/blog/blog/2024/2024.md",
-        "size": 28894
-      },
-      {
-        "path": "content/blog/blog/2024/my-modern-scrapbook.md",
-        "size": 15615
-      },
-      {
-        "path": "content/blog/blog/2024/the-mystery-of-peter-todd.md",
-        "size": 32045
-      },
-      {
-        "path": "content/blog/blog/2025/hidden-networks-of-warmth.md",
-        "size": 13132
-      },
-      {
-        "path": "content/blog/blog/2025/mcp-meta-mapping.md",
-        "size": 5690
-      },
-      {
-        "path": "content/blog/blog/2025/owning-my-cloudinary-photos.md",
-        "size": 4226
-      },
-      {
-        "path": "content/blog/blog/2025/paramilitary-telegram-leaks-001.md",
-        "size": 6679
-      },
-      {
-        "path": "content/blog/blog/2025/personal-apis.md",
-        "size": 5643
-      },
-      {
-        "path": "content/blog/blog/2025/using-radios.md",
-        "size": 8691
       },
       {
         "path": "content/blog/drafts/_stale/adhoc-apis-for-static-sites.md",
@@ -2141,199 +2105,199 @@
       },
       {
         "path": "content/processed/2010/photography-2008-2010.json",
-        "size": 2886
+        "size": 2881
       },
       {
         "path": "content/processed/2013/the-magazine-experience-on-the-web.json",
-        "size": 27322
+        "size": 27317
       },
       {
         "path": "content/processed/2015/2015-in-review.json",
-        "size": 4872
+        "size": 4867
       },
       {
         "path": "content/processed/2016/2016-in-review.json",
-        "size": 4710
+        "size": 4705
       },
       {
         "path": "content/processed/2016/video-mixes.json",
-        "size": 9810
+        "size": 9805
       },
       {
         "path": "content/processed/2017/2017-in-review.json",
-        "size": 3992
+        "size": 3987
       },
       {
         "path": "content/processed/2018/2018-in-review.json",
-        "size": 6790
+        "size": 6785
       },
       {
         "path": "content/processed/2018/watercolor-sketching-in-nyc.json",
-        "size": 7748
+        "size": 7743
       },
       {
         "path": "content/processed/2018/work-view-life-view.json",
-        "size": 7325
+        "size": 7320
       },
       {
         "path": "content/processed/2019/climate-strike-nyc.json",
-        "size": 12345
+        "size": 12340
       },
       {
         "path": "content/processed/2019/generative-music-iteration.json",
-        "size": 3878
+        "size": 3873
       },
       {
         "path": "content/processed/2019/hong-kong-protest-techniques.json",
-        "size": 2264
+        "size": 2259
       },
       {
         "path": "content/processed/2019/how-i-prototype-apps-and-dataviz-quickly-in-2019.json",
-        "size": 34154
+        "size": 34149
       },
       {
         "path": "content/processed/2019/linocut-printing-guide.json",
-        "size": 17370
+        "size": 17365
       },
       {
         "path": "content/processed/2019/movies-to-watch.json",
-        "size": 4291
+        "size": 4286
       },
       {
         "path": "content/processed/2019/step-zero.json",
-        "size": 7678
+        "size": 7673
       },
       {
         "path": "content/processed/2019/taking-things-for-granted.json",
-        "size": 3073
+        "size": 3068
       },
       {
         "path": "content/processed/2019/the-internet-was-built-to-be-hacked.json",
-        "size": 11097
+        "size": 11092
       },
       {
         "path": "content/processed/2019/two-reasons.json",
-        "size": 3739
+        "size": 3734
       },
       {
         "path": "content/processed/2019/unsecured-ice-cameras.json",
-        "size": 14808
+        "size": 14803
       },
       {
         "path": "content/processed/2020/coding-livestreams.json",
-        "size": 18105
+        "size": 18100
       },
       {
         "path": "content/processed/2020/online-brigades-gaming-twitter.json",
-        "size": 8878
+        "size": 8873
       },
       {
         "path": "content/processed/2020/things-ive-learned-about-elections.json",
-        "size": 70730
+        "size": 70725
       },
       {
         "path": "content/processed/2021/creative-coding.json",
-        "size": 22336
+        "size": 22331
       },
       {
         "path": "content/processed/2021/lack-of-data.json",
-        "size": 5045
+        "size": 5040
       },
       {
         "path": "content/processed/2021/nypd-ccrb-complaint-clusters.json",
-        "size": 129092
+        "size": 129087
       },
       {
         "path": "content/processed/2022/art-setup.json",
-        "size": 5307
+        "size": 5302
       },
       {
         "path": "content/processed/2022/election-night-2018.json",
-        "size": 13058
+        "size": 13053
       },
       {
         "path": "content/processed/2022/experiments-with-live-looping-performance.json",
-        "size": 10830
+        "size": 10825
       },
       {
         "path": "content/processed/2022/food.json",
-        "size": 6451
+        "size": 6446
       },
       {
         "path": "content/processed/2022/joy-driven-development.json",
-        "size": 6357
+        "size": 6352
       },
       {
         "path": "content/processed/2022/the-art-of-coding.json",
-        "size": 24198
+        "size": 24193
       },
       {
         "path": "content/processed/2022/the-studio.json",
-        "size": 13511
+        "size": 13506
       },
       {
         "path": "content/processed/2023/camera-setup.json",
-        "size": 3251
+        "size": 3246
       },
       {
         "path": "content/processed/2023/crypto-ai-colonization.json",
-        "size": 15897
+        "size": 15892
       },
       {
         "path": "content/processed/2023/livestreaming.json",
-        "size": 14075
+        "size": 14070
       },
       {
         "path": "content/processed/2023/starting-a-studio-introducing-room-302.json",
-        "size": 7485
+        "size": 7480
       },
       {
         "path": "content/processed/2023/why-i-love-obsidian.json",
-        "size": 12489
+        "size": 12484
       },
       {
         "path": "content/processed/2024/2024.json",
-        "size": 42640
+        "size": 42635
       },
       {
         "path": "content/processed/2024/my-modern-scrapbook.json",
-        "size": 55404
+        "size": 55399
       },
       {
         "path": "content/processed/2024/the-mystery-of-peter-todd.json",
-        "size": 76245
+        "size": 76240
       },
       {
         "path": "content/processed/2025/hidden-networks-of-warmth.json",
-        "size": 18586
+        "size": 18581
       },
       {
         "path": "content/processed/2025/mcp-meta-mapping.json",
-        "size": 11985
+        "size": 11980
       },
       {
         "path": "content/processed/2025/owning-my-cloudinary-photos.json",
-        "size": 6589
+        "size": 6584
       },
       {
         "path": "content/processed/2025/paramilitary-telegram-leaks-001.json",
-        "size": 32983
+        "size": 32978
       },
       {
         "path": "content/processed/2025/personal-apis.json",
-        "size": 8594
+        "size": 8589
       },
       {
         "path": "content/processed/2025/using-radios.json",
-        "size": 11726
+        "size": 11721
       },
       {
         "path": "content/processed/CLAUDE.json",
-        "size": 6601
+        "size": 7472
       },
       {
         "path": "content/processed/WIKILINK-OPPORTUNITIES.json",
-        "size": 84496
+        "size": 89380
       },
       {
         "path": "content/processed/drafts/_stale/black-ops-6.json",
@@ -2341,7 +2305,7 @@
       },
       {
         "path": "content/processed/drafts/_stale/building-a-logging-system-to-support-the-unknown.json",
-        "size": 788
+        "size": 977
       },
       {
         "path": "content/processed/drafts/_stale/catskills-hiking.json",
@@ -2353,35 +2317,35 @@
       },
       {
         "path": "content/processed/drafts/_stale/core-principles.json",
-        "size": 11228
+        "size": 12756
       },
       {
         "path": "content/processed/drafts/_stale/cursor-rules-and-smallbot.json",
-        "size": 725
+        "size": 931
       },
       {
         "path": "content/processed/drafts/_stale/electology-vision.json",
-        "size": 11194
+        "size": 12176
       },
       {
         "path": "content/processed/drafts/_stale/elon-musk-is-a-bad-man.json",
-        "size": 937
+        "size": 1107
       },
       {
         "path": "content/processed/drafts/_stale/espresso.json",
-        "size": 5078
+        "size": 6012
       },
       {
         "path": "content/processed/drafts/_stale/food-log.json",
-        "size": 1822
+        "size": 2240
       },
       {
         "path": "content/processed/drafts/_stale/getting-started-with-amateur-radio.json",
-        "size": 5747
+        "size": 7933
       },
       {
         "path": "content/processed/drafts/_stale/getting-started-with-embeddings.json",
-        "size": 26947
+        "size": 27153
       },
       {
         "path": "content/processed/drafts/_stale/ham-study.json",
@@ -2389,31 +2353,31 @@
       },
       {
         "path": "content/processed/drafts/_stale/hudson-valley-politics.json",
-        "size": 937
+        "size": 1056
       },
       {
         "path": "content/processed/drafts/_stale/i-just-do-what-my-calendar-says.json",
-        "size": 7290
+        "size": 8844
       },
       {
         "path": "content/processed/drafts/_stale/idiots-guide-finetuning-llm.json",
-        "size": 972
+        "size": 1330
       },
       {
         "path": "content/processed/drafts/_stale/og-images-with-genart.json",
-        "size": 885
+        "size": 1125
       },
       {
         "path": "content/processed/drafts/_stale/personal-automation-patterns.json",
-        "size": 1250
+        "size": 2342
       },
       {
         "path": "content/processed/drafts/_stale/photoblog-with-cloudinary-nuxt.json",
-        "size": 106590
+        "size": 108155
       },
       {
         "path": "content/processed/drafts/_stale/room302-livestream-learning.json",
-        "size": 11895
+        "size": 12194
       },
       {
         "path": "content/processed/drafts/_stale/smallweb.json",
@@ -2421,31 +2385,31 @@
       },
       {
         "path": "content/processed/drafts/_stale/techs-anti-humanist-wave.json",
-        "size": 14106
+        "size": 15174
       },
       {
         "path": "content/processed/drafts/_stale/the-rise-of-bespoke-tech.json",
-        "size": 14567
+        "size": 14741
       },
       {
         "path": "content/processed/drafts/_stale/truth-terminal.json",
-        "size": 59139
+        "size": 61172
       },
       {
         "path": "content/processed/drafts/_stale/using-observable-plot-in-vue.json",
-        "size": 25160
+        "size": 25726
       },
       {
         "path": "content/processed/drafts/_stale/using-polycam-scans-in-three-js.json",
-        "size": 10211
+        "size": 11550
       },
       {
         "path": "content/processed/drafts/_stale/vps-micro-endpoints-smallweb.json",
-        "size": 1204
+        "size": 1422
       },
       {
         "path": "content/processed/drafts/_stale/ways-to-viz-embeddings.json",
-        "size": 10939
+        "size": 11127
       },
       {
         "path": "content/processed/drafts/ar-lens-prototyping.json",
@@ -2496,16 +2460,12 @@
         "size": 1008
       },
       {
-        "path": "content/processed/goodreads-stats.json",
-        "size": 49490
-      },
-      {
         "path": "content/processed/index.json",
         "size": 1949
       },
       {
         "path": "content/processed/manifest-lite.json",
-        "size": 635586
+        "size": 759569
       },
       {
         "path": "content/processed/projects/MorningRadio.json",
@@ -2961,51 +2921,51 @@
       },
       {
         "path": "content/processed/robots/old/gear.json",
-        "size": 28644
+        "size": 30475
       },
       {
         "path": "content/processed/robots/old/tenancy-in-common.json",
-        "size": 8786
+        "size": 9211
       },
       {
         "path": "content/processed/robots/someday/chess-course.json",
-        "size": 63361
+        "size": 69575
       },
       {
         "path": "content/processed/robots/someday/ejfox-news.json",
-        "size": 30035
+        "size": 34993
       },
       {
         "path": "content/processed/robots/someday/fpv-drone-learning.json",
-        "size": 31983
+        "size": 35340
       },
       {
         "path": "content/processed/robots/someday/hudson-valley-cannabis-doc.json",
-        "size": 18318
+        "size": 18930
       },
       {
         "path": "content/processed/robots/someday/hudson-valley-maps.json",
-        "size": 26481
+        "size": 28633
       },
       {
         "path": "content/processed/robots/someday/ml-comedy-hour.json",
-        "size": 22207
+        "size": 23929
       },
       {
         "path": "content/processed/robots/someday/morning-radio.json",
-        "size": 18431
+        "size": 21448
       },
       {
         "path": "content/processed/robots/someday/prep-mesh.json",
-        "size": 87594
+        "size": 97214
       },
       {
         "path": "content/processed/robots/someday/quests-irl.json",
-        "size": 47598
+        "size": 49539
       },
       {
         "path": "content/processed/robots/someday/smallweb-with-cloudflare-on-vps.json",
-        "size": 20980
+        "size": 22029
       },
       {
         "path": "content/processed/week-notes/2023-50.json",
@@ -3121,7 +3081,7 @@
       },
       {
         "path": "content/processed/week-notes/2024-41.json",
-        "size": 6007
+        "size": 6253
       },
       {
         "path": "content/processed/week-notes/2024-42.json",
@@ -3581,7 +3541,7 @@
       },
       {
         "path": "data/github-repos/dotfiles.json",
-        "size": 125633
+        "size": 125944
       },
       {
         "path": "data/github-repos/dvs-soti-2022.json",
@@ -4069,7 +4029,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 502641
+        "size": 504017
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -4113,7 +4073,7 @@
       },
       {
         "path": "data/on-this-day-index.json",
-        "size": 11360175
+        "size": 11360651
       },
       {
         "path": "data/on-this-day/01-01.json",
@@ -4133,11 +4093,11 @@
       },
       {
         "path": "data/on-this-day/01-05.json",
-        "size": 27859
+        "size": 27871
       },
       {
         "path": "data/on-this-day/01-06.json",
-        "size": 43534
+        "size": 43580
       },
       {
         "path": "data/on-this-day/01-07.json",
@@ -4169,7 +4129,7 @@
       },
       {
         "path": "data/on-this-day/01-14.json",
-        "size": 21484
+        "size": 21466
       },
       {
         "path": "data/on-this-day/01-15.json",
@@ -4217,7 +4177,7 @@
       },
       {
         "path": "data/on-this-day/01-26.json",
-        "size": 20026
+        "size": 20029
       },
       {
         "path": "data/on-this-day/01-27.json",
@@ -4321,7 +4281,7 @@
       },
       {
         "path": "data/on-this-day/02-21.json",
-        "size": 20028
+        "size": 20038
       },
       {
         "path": "data/on-this-day/02-22.json",
@@ -4513,7 +4473,7 @@
       },
       {
         "path": "data/on-this-day/04-09.json",
-        "size": 20202
+        "size": 20185
       },
       {
         "path": "data/on-this-day/04-10.json",
@@ -4557,7 +4517,7 @@
       },
       {
         "path": "data/on-this-day/04-20.json",
-        "size": 21253
+        "size": 21287
       },
       {
         "path": "data/on-this-day/04-21.json",
@@ -4729,7 +4689,7 @@
       },
       {
         "path": "data/on-this-day/06-02.json",
-        "size": 17823
+        "size": 17847
       },
       {
         "path": "data/on-this-day/06-03.json",
@@ -4905,7 +4865,7 @@
       },
       {
         "path": "data/on-this-day/07-16.json",
-        "size": 15903
+        "size": 15909
       },
       {
         "path": "data/on-this-day/07-17.json",
@@ -5041,7 +5001,7 @@
       },
       {
         "path": "data/on-this-day/08-19.json",
-        "size": 17304
+        "size": 17281
       },
       {
         "path": "data/on-this-day/08-20.json",
@@ -5229,7 +5189,7 @@
       },
       {
         "path": "data/on-this-day/10-05.json",
-        "size": 15583
+        "size": 15605
       },
       {
         "path": "data/on-this-day/10-06.json",
@@ -5269,7 +5229,7 @@
       },
       {
         "path": "data/on-this-day/10-15.json",
-        "size": 19774
+        "size": 19819
       },
       {
         "path": "data/on-this-day/10-16.json",
@@ -5289,7 +5249,7 @@
       },
       {
         "path": "data/on-this-day/10-20.json",
-        "size": 25978
+        "size": 25995
       },
       {
         "path": "data/on-this-day/10-21.json",
@@ -5353,7 +5313,7 @@
       },
       {
         "path": "data/on-this-day/11-05.json",
-        "size": 21522
+        "size": 21553
       },
       {
         "path": "data/on-this-day/11-06.json",
@@ -5361,7 +5321,7 @@
       },
       {
         "path": "data/on-this-day/11-07.json",
-        "size": 28085
+        "size": 28096
       },
       {
         "path": "data/on-this-day/11-08.json",
@@ -5373,11 +5333,11 @@
       },
       {
         "path": "data/on-this-day/11-10.json",
-        "size": 33451
+        "size": 33464
       },
       {
         "path": "data/on-this-day/11-11.json",
-        "size": 25096
+        "size": 25119
       },
       {
         "path": "data/on-this-day/11-12.json",
@@ -5385,7 +5345,7 @@
       },
       {
         "path": "data/on-this-day/11-13.json",
-        "size": 21571
+        "size": 21585
       },
       {
         "path": "data/on-this-day/11-14.json",
@@ -5413,7 +5373,7 @@
       },
       {
         "path": "data/on-this-day/11-20.json",
-        "size": 28377
+        "size": 28400
       },
       {
         "path": "data/on-this-day/11-21.json",
@@ -5437,11 +5397,11 @@
       },
       {
         "path": "data/on-this-day/11-26.json",
-        "size": 22659
+        "size": 22683
       },
       {
         "path": "data/on-this-day/11-27.json",
-        "size": 14942
+        "size": 14969
       },
       {
         "path": "data/on-this-day/11-28.json",
@@ -5473,7 +5433,7 @@
       },
       {
         "path": "data/on-this-day/12-05.json",
-        "size": 23975
+        "size": 24114
       },
       {
         "path": "data/on-this-day/12-06.json",
@@ -5485,7 +5445,7 @@
       },
       {
         "path": "data/on-this-day/12-08.json",
-        "size": 24533
+        "size": 24554
       },
       {
         "path": "data/on-this-day/12-09.json",
@@ -5569,7 +5529,7 @@
       },
       {
         "path": "data/on-this-day/12-29.json",
-        "size": 27338
+        "size": 27327
       },
       {
         "path": "data/on-this-day/12-30.json",
@@ -5621,7 +5581,7 @@
       },
       {
         "path": "error.vue",
-        "size": 2817
+        "size": 2993
       },
       {
         "path": "eslint.config.mjs",
@@ -5633,11 +5593,11 @@
       },
       {
         "path": "layouts/default.vue",
-        "size": 4996
+        "size": 5210
       },
       {
         "path": "nuxt.config.ts",
-        "size": 12929
+        "size": 13085
       },
       {
         "path": "package-lock.json",
@@ -5649,7 +5609,7 @@
       },
       {
         "path": "pages/blog/[...slug].vue",
-        "size": 33109
+        "size": 33280
       },
       {
         "path": "pages/blog/index.vue",
@@ -5665,7 +5625,7 @@
       },
       {
         "path": "pages/blog/tag/[...slug].vue",
-        "size": 8618
+        "size": 8741
       },
       {
         "path": "pages/blog/week-notes/index.vue",
@@ -5673,27 +5633,27 @@
       },
       {
         "path": "pages/bookmarklet-popup.vue",
-        "size": 19053
+        "size": 19854
       },
       {
         "path": "pages/bookmarklet.vue",
-        "size": 5633
+        "size": 5207
       },
       {
         "path": "pages/calendar.vue",
-        "size": 2984
+        "size": 3185
       },
       {
         "path": "pages/changelog.vue",
-        "size": 4922
+        "size": 5362
       },
       {
         "path": "pages/external-links.vue",
-        "size": 7802
+        "size": 14538
       },
       {
         "path": "pages/following.vue",
-        "size": 3335
+        "size": 3678
       },
       {
         "path": "pages/gear/[slug].vue",
@@ -5721,7 +5681,7 @@
       },
       {
         "path": "pages/kalshi.vue",
-        "size": 2017
+        "size": 125
       },
       {
         "path": "pages/now.vue",
@@ -5729,15 +5689,15 @@
       },
       {
         "path": "pages/on-this-day.vue",
-        "size": 6133
+        "size": 8442
       },
       {
         "path": "pages/predictions/[slug].vue",
-        "size": 8119
+        "size": 7455
       },
       {
         "path": "pages/predictions/index.vue",
-        "size": 26713
+        "size": 16218
       },
       {
         "path": "pages/projects/[slug].vue",
@@ -5757,11 +5717,11 @@
       },
       {
         "path": "pages/scraps.vue",
-        "size": 6552
+        "size": 6655
       },
       {
         "path": "pages/scraps/tag/[slug].vue",
-        "size": 6196
+        "size": 6320
       },
       {
         "path": "pages/sitemap.vue",
@@ -5769,7 +5729,15 @@
       },
       {
         "path": "pages/stats.vue",
-        "size": 37682
+        "size": 38536
+      },
+      {
+        "path": "pages/tag/[...slug].vue",
+        "size": 8090
+      },
+      {
+        "path": "pages/threads.vue",
+        "size": 21596
       },
       {
         "path": "plugins/dark-mode.client.js",
@@ -5781,11 +5749,11 @@
       },
       {
         "path": "plugins/markdownTable.client.ts",
-        "size": 4337
+        "size": 4496
       },
       {
         "path": "plugins/toc-highlight.client.ts",
-        "size": 2012
+        "size": 2007
       },
       {
         "path": "plugins/umami.client.js",
@@ -5822,6 +5790,10 @@
       {
         "path": "public/android-chrome-512x512.png",
         "size": 445046
+      },
+      {
+        "path": "public/apple-touch-icon-precomposed.png",
+        "size": 72047
       },
       {
         "path": "public/apple-touch-icon.png",
@@ -6109,7 +6081,7 @@
       },
       {
         "path": "scripts/fetch-goodreads.mjs",
-        "size": 7559
+        "size": 7563
       },
       {
         "path": "scripts/fetch-my-events.mjs",
@@ -6233,15 +6205,15 @@
       },
       {
         "path": "server/api/blog-stats.get.ts",
-        "size": 1419
+        "size": 1518
       },
       {
         "path": "server/api/blogroll.get.ts",
-        "size": 2046
+        "size": 2197
       },
       {
         "path": "server/api/bookmarks.get.ts",
-        "size": 2875
+        "size": 2899
       },
       {
         "path": "server/api/build-info.get.ts",
@@ -6249,7 +6221,7 @@
       },
       {
         "path": "server/api/cal/available-slots.get.ts",
-        "size": 3109
+        "size": 3137
       },
       {
         "path": "server/api/calibration.get.ts",
@@ -6257,19 +6229,19 @@
       },
       {
         "path": "server/api/changelog.get.ts",
-        "size": 3438
+        "size": 3648
       },
       {
         "path": "server/api/chess.get.ts",
-        "size": 6324
+        "size": 7398
       },
       {
         "path": "server/api/discogs.get.ts",
-        "size": 8106
+        "size": 8894
       },
       {
         "path": "server/api/external-links.get.ts",
-        "size": 3637
+        "size": 6817
       },
       {
         "path": "server/api/gear-csv.get.ts",
@@ -6285,15 +6257,15 @@
       },
       {
         "path": "server/api/gear/[slug].get.ts",
-        "size": 1419
+        "size": 1481
       },
       {
         "path": "server/api/gist-stats.get.ts",
-        "size": 3013
+        "size": 3089
       },
       {
         "path": "server/api/gists.get.ts",
-        "size": 2802
+        "size": 2850
       },
       {
         "path": "server/api/github-commits.get.ts",
@@ -6305,7 +6277,7 @@
       },
       {
         "path": "server/api/github.get.ts",
-        "size": 10989
+        "size": 11516
       },
       {
         "path": "server/api/goodreads.get.ts",
@@ -6313,23 +6285,23 @@
       },
       {
         "path": "server/api/healthcheck.get.ts",
-        "size": 1770
+        "size": 1726
       },
       {
         "path": "server/api/highlight.post.ts",
-        "size": 2394
+        "size": 2427
       },
       {
         "path": "server/api/kalshi.get.ts",
-        "size": 19658
+        "size": 19852
       },
       {
         "path": "server/api/lastfm.get.ts",
-        "size": 10929
+        "size": 12405
       },
       {
         "path": "server/api/leetcode.get.ts",
-        "size": 3449
+        "size": 3983
       },
       {
         "path": "server/api/letterboxd.get.ts",
@@ -6337,19 +6309,19 @@
       },
       {
         "path": "server/api/manifest.ts",
-        "size": 1549
+        "size": 1494
       },
       {
         "path": "server/api/markets/kalshi.get.ts",
-        "size": 2055
+        "size": 2109
       },
       {
         "path": "server/api/markets/polymarket.get.ts",
-        "size": 2820
+        "size": 2865
       },
       {
         "path": "server/api/monkeytype.get.ts",
-        "size": 4249
+        "size": 4244
       },
       {
         "path": "server/api/now.get.ts",
@@ -6357,11 +6329,11 @@
       },
       {
         "path": "server/api/og.get.ts",
-        "size": 5481
+        "size": 5476
       },
       {
         "path": "server/api/on-this-day.get.ts",
-        "size": 2670
+        "size": 2674
       },
       {
         "path": "server/api/photos.get.ts",
@@ -6369,7 +6341,7 @@
       },
       {
         "path": "server/api/posts/[...slug].ts",
-        "size": 3874
+        "size": 3949
       },
       {
         "path": "server/api/predictions.get.ts",
@@ -6381,7 +6353,7 @@
       },
       {
         "path": "server/api/predictions/[id].ts",
-        "size": 3490
+        "size": 6151
       },
       {
         "path": "server/api/predictions/resolve.post.ts",
@@ -6389,7 +6361,7 @@
       },
       {
         "path": "server/api/projects.get.ts",
-        "size": 2586
+        "size": 3027
       },
       {
         "path": "server/api/reading.get.ts",
@@ -6405,7 +6377,7 @@
       },
       {
         "path": "server/api/rescuetime.get.ts",
-        "size": 6649
+        "size": 6666
       },
       {
         "path": "server/api/robot/meta.get.ts",
@@ -6413,7 +6385,7 @@
       },
       {
         "path": "server/api/robot/timeline.get.ts",
-        "size": 6594
+        "size": 7247
       },
       {
         "path": "server/api/robots/[...slug].ts",
@@ -6421,23 +6393,23 @@
       },
       {
         "path": "server/api/scraps.get.ts",
-        "size": 3051
+        "size": 3497
       },
       {
         "path": "server/api/scraps/tags.get.ts",
-        "size": 1363
+        "size": 1365
       },
       {
         "path": "server/api/search.get.ts",
-        "size": 7207
+        "size": 7431
       },
       {
         "path": "server/api/stats.get.ts",
-        "size": 8408
+        "size": 9504
       },
       {
         "path": "server/api/suggest.get.ts",
-        "size": 12702
+        "size": 12808
       },
       {
         "path": "server/api/umami/auth.post.ts",
@@ -6449,7 +6421,7 @@
       },
       {
         "path": "server/api/webmentions.get.ts",
-        "size": 2735
+        "size": 3014
       },
       {
         "path": "server/api/website-stats.get.ts",
@@ -6457,15 +6429,15 @@
       },
       {
         "path": "server/api/words-this-month.get.ts",
-        "size": 3114
+        "size": 3287
       },
       {
         "path": "server/routes/feed.json.ts",
-        "size": 3186
+        "size": 3122
       },
       {
         "path": "server/routes/gists-rss.xml.ts",
-        "size": 4889
+        "size": 5472
       },
       {
         "path": "server/routes/robots-rss.xml.ts",
@@ -6473,15 +6445,15 @@
       },
       {
         "path": "server/routes/rss.xml.ts",
-        "size": 4390
+        "size": 4645
       },
       {
         "path": "server/routes/sitemap.xml.ts",
-        "size": 4932
+        "size": 5228
       },
       {
         "path": "server/routes/tags.json.ts",
-        "size": 2034
+        "size": 2060
       },
       {
         "path": "server/tsconfig.json",
@@ -6493,7 +6465,7 @@
       },
       {
         "path": "server/utils/apiHelpers.ts",
-        "size": 3277
+        "size": 3353
       },
       {
         "path": "server/utils/fetch.ts",
@@ -6533,7 +6505,7 @@
       },
       {
         "path": "types/globals.d.ts",
-        "size": 4771
+        "size": 1209
       },
       {
         "path": "types/prediction.ts",
@@ -6549,7 +6521,7 @@
       },
       {
         "path": "utils/dateUtils.ts",
-        "size": 2611
+        "size": 2695
       },
       {
         "path": "utils/helpers.ts",
@@ -6696,63 +6668,6 @@
               "path": "components/gear"
             },
             {
-              "name": "kalshi",
-              "children": [
-                {
-                  "name": "KalshiFillsTable.vue",
-                  "size": 1784,
-                  "path": "components/kalshi/KalshiFillsTable.vue"
-                },
-                {
-                  "name": "KalshiPortfolioStats.vue",
-                  "size": 2454,
-                  "path": "components/kalshi/KalshiPortfolioStats.vue"
-                },
-                {
-                  "name": "KalshiPositionCard.vue",
-                  "size": 3904,
-                  "path": "components/kalshi/KalshiPositionCard.vue"
-                },
-                {
-                  "name": "KalshiPositionsList.vue",
-                  "size": 1066,
-                  "path": "components/kalshi/KalshiPositionsList.vue"
-                }
-              ],
-              "path": "components/kalshi"
-            },
-            {
-              "name": "predictions",
-              "children": [
-                {
-                  "name": "MarketData.vue",
-                  "size": 4780,
-                  "path": "components/predictions/MarketData.vue"
-                },
-                {
-                  "name": "PredictionCard.vue",
-                  "size": 4432,
-                  "path": "components/predictions/PredictionCard.vue"
-                },
-                {
-                  "name": "PredictionStats.vue",
-                  "size": 1483,
-                  "path": "components/predictions/PredictionStats.vue"
-                },
-                {
-                  "name": "PredictionVerification.vue",
-                  "size": 4473,
-                  "path": "components/predictions/PredictionVerification.vue"
-                },
-                {
-                  "name": "VerificationDisplay.vue",
-                  "size": 4470,
-                  "path": "components/predictions/VerificationDisplay.vue"
-                }
-              ],
-              "path": "components/predictions"
-            },
-            {
               "name": "projects",
               "children": [
                 {
@@ -6814,7 +6729,7 @@
                 },
                 {
                   "name": "GistStats.vue",
-                  "size": 4757,
+                  "size": 4780,
                   "path": "components/stats/GistStats.vue"
                 },
                 {
@@ -6968,7 +6883,7 @@
             },
             {
               "name": "Footer.vue",
-              "size": 3393,
+              "size": 3457,
               "path": "components/Footer.vue"
             },
             {
@@ -7068,7 +6983,7 @@
             },
             {
               "name": "StaticContent.server.vue",
-              "size": 301,
+              "size": 342,
               "path": "components/StaticContent.server.vue"
             },
             {
@@ -7083,7 +6998,7 @@
             },
             {
               "name": "Webmentions.vue",
-              "size": 6086,
+              "size": 6354,
               "path": "components/Webmentions.vue"
             }
           ],
@@ -7135,7 +7050,7 @@
             },
             {
               "name": "useNumberFormat.ts",
-              "size": 11671,
+              "size": 14310,
               "path": "composables/useNumberFormat.ts"
             },
             {
@@ -7204,393 +7119,387 @@
               "name": "blog",
               "children": [
                 {
-                  "name": "blog",
+                  "name": "2010",
                   "children": [
                     {
-                      "name": "2010",
-                      "children": [
-                        {
-                          "name": "photography-2008-2010.md",
-                          "size": 1604,
-                          "path": "content/blog/blog/2010/photography-2008-2010.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2010"
-                    },
-                    {
-                      "name": "2013",
-                      "children": [
-                        {
-                          "name": "the-magazine-experience-on-the-web.md",
-                          "size": 11425,
-                          "path": "content/blog/blog/2013/the-magazine-experience-on-the-web.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2013"
-                    },
-                    {
-                      "name": "2015",
-                      "children": [
-                        {
-                          "name": "2015-in-review.md",
-                          "size": 3317,
-                          "path": "content/blog/blog/2015/2015-in-review.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2015"
-                    },
-                    {
-                      "name": "2016",
-                      "children": [
-                        {
-                          "name": "2016-in-review.md",
-                          "size": 1788,
-                          "path": "content/blog/blog/2016/2016-in-review.md"
-                        },
-                        {
-                          "name": "video-mixes.md",
-                          "size": 4694,
-                          "path": "content/blog/blog/2016/video-mixes.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2016"
-                    },
-                    {
-                      "name": "2017",
-                      "children": [
-                        {
-                          "name": "2017-in-review.md",
-                          "size": 2533,
-                          "path": "content/blog/blog/2017/2017-in-review.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2017"
-                    },
-                    {
-                      "name": "2018",
-                      "children": [
-                        {
-                          "name": "2018-in-review.md",
-                          "size": 4655,
-                          "path": "content/blog/blog/2018/2018-in-review.md"
-                        },
-                        {
-                          "name": "watercolor-sketching-in-nyc.md",
-                          "size": 3413,
-                          "path": "content/blog/blog/2018/watercolor-sketching-in-nyc.md"
-                        },
-                        {
-                          "name": "work-view-life-view.md",
-                          "size": 4413,
-                          "path": "content/blog/blog/2018/work-view-life-view.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2018"
-                    },
-                    {
-                      "name": "2019",
-                      "children": [
-                        {
-                          "name": "climate-strike-nyc.md",
-                          "size": 2685,
-                          "path": "content/blog/blog/2019/climate-strike-nyc.md"
-                        },
-                        {
-                          "name": "generative-music-iteration.md",
-                          "size": 2065,
-                          "path": "content/blog/blog/2019/generative-music-iteration.md"
-                        },
-                        {
-                          "name": "hong-kong-protest-techniques.md",
-                          "size": 1103,
-                          "path": "content/blog/blog/2019/hong-kong-protest-techniques.md"
-                        },
-                        {
-                          "name": "how-i-prototype-apps-and-dataviz-quickly-in-2019.md",
-                          "size": 6546,
-                          "path": "content/blog/blog/2019/how-i-prototype-apps-and-dataviz-quickly-in-2019.md"
-                        },
-                        {
-                          "name": "linocut-printing-guide.md",
-                          "size": 13255,
-                          "path": "content/blog/blog/2019/linocut-printing-guide.md"
-                        },
-                        {
-                          "name": "movies-to-watch.md",
-                          "size": 2111,
-                          "path": "content/blog/blog/2019/movies-to-watch.md"
-                        },
-                        {
-                          "name": "step-zero.md",
-                          "size": 1842,
-                          "path": "content/blog/blog/2019/step-zero.md"
-                        },
-                        {
-                          "name": "taking-things-for-granted.md",
-                          "size": 1953,
-                          "path": "content/blog/blog/2019/taking-things-for-granted.md"
-                        },
-                        {
-                          "name": "the-internet-was-built-to-be-hacked.md",
-                          "size": 9252,
-                          "path": "content/blog/blog/2019/the-internet-was-built-to-be-hacked.md"
-                        },
-                        {
-                          "name": "two-reasons.md",
-                          "size": 2749,
-                          "path": "content/blog/blog/2019/two-reasons.md"
-                        },
-                        {
-                          "name": "unsecured-ice-cameras.md",
-                          "size": 4934,
-                          "path": "content/blog/blog/2019/unsecured-ice-cameras.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2019"
-                    },
-                    {
-                      "name": "2020",
-                      "children": [
-                        {
-                          "name": "coding-livestreams.md",
-                          "size": 7855,
-                          "path": "content/blog/blog/2020/coding-livestreams.md"
-                        },
-                        {
-                          "name": "introduction-to-eavs-data.md",
-                          "size": 7119,
-                          "path": "content/blog/blog/2020/introduction-to-eavs-data.md"
-                        },
-                        {
-                          "name": "online-brigades-gaming-twitter.md",
-                          "size": 3586,
-                          "path": "content/blog/blog/2020/online-brigades-gaming-twitter.md"
-                        },
-                        {
-                          "name": "things-ive-learned-about-elections.md",
-                          "size": 19270,
-                          "path": "content/blog/blog/2020/things-ive-learned-about-elections.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2020"
-                    },
-                    {
-                      "name": "2021",
-                      "children": [
-                        {
-                          "name": "creative-coding.md",
-                          "size": 6472,
-                          "path": "content/blog/blog/2021/creative-coding.md"
-                        },
-                        {
-                          "name": "lack-of-data.md",
-                          "size": 3791,
-                          "path": "content/blog/blog/2021/lack-of-data.md"
-                        },
-                        {
-                          "name": "nypd-ccrb-complaint-clusters.md",
-                          "size": 28425,
-                          "path": "content/blog/blog/2021/nypd-ccrb-complaint-clusters.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2021"
-                    },
-                    {
-                      "name": "2022",
-                      "children": [
-                        {
-                          "name": "2022-prototyping-toolkit.md",
-                          "size": 3107,
-                          "path": "content/blog/blog/2022/2022-prototyping-toolkit.md"
-                        },
-                        {
-                          "name": "8pm-to-midnight-mixes.md",
-                          "size": 2056,
-                          "path": "content/blog/blog/2022/8pm-to-midnight-mixes.md"
-                        },
-                        {
-                          "name": "art-setup.md",
-                          "size": 2596,
-                          "path": "content/blog/blog/2022/art-setup.md"
-                        },
-                        {
-                          "name": "election-night-2018.md",
-                          "size": 8971,
-                          "path": "content/blog/blog/2022/election-night-2018.md"
-                        },
-                        {
-                          "name": "everyone-should-code-data-literacy.md",
-                          "size": 4154,
-                          "path": "content/blog/blog/2022/everyone-should-code-data-literacy.md"
-                        },
-                        {
-                          "name": "experiments-with-live-looping-performance.md",
-                          "size": 7206,
-                          "path": "content/blog/blog/2022/experiments-with-live-looping-performance.md"
-                        },
-                        {
-                          "name": "food.md",
-                          "size": 3637,
-                          "path": "content/blog/blog/2022/food.md"
-                        },
-                        {
-                          "name": "joy-driven-development.md",
-                          "size": 3903,
-                          "path": "content/blog/blog/2022/joy-driven-development.md"
-                        },
-                        {
-                          "name": "morning-routine-daily-rituals.md",
-                          "size": 3082,
-                          "path": "content/blog/blog/2022/morning-routine-daily-rituals.md"
-                        },
-                        {
-                          "name": "motorcycle-camping.md",
-                          "size": 8679,
-                          "path": "content/blog/blog/2022/motorcycle-camping.md"
-                        },
-                        {
-                          "name": "my-vscode-setup.md",
-                          "size": 3033,
-                          "path": "content/blog/blog/2022/my-vscode-setup.md"
-                        },
-                        {
-                          "name": "rules-for-joyful-travel.md",
-                          "size": 9030,
-                          "path": "content/blog/blog/2022/rules-for-joyful-travel.md"
-                        },
-                        {
-                          "name": "the-art-of-coding.md",
-                          "size": 16545,
-                          "path": "content/blog/blog/2022/the-art-of-coding.md"
-                        },
-                        {
-                          "name": "the-studio.md",
-                          "size": 7988,
-                          "path": "content/blog/blog/2022/the-studio.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2022"
-                    },
-                    {
-                      "name": "2023",
-                      "children": [
-                        {
-                          "name": "camera-setup.md",
-                          "size": 705,
-                          "path": "content/blog/blog/2023/camera-setup.md"
-                        },
-                        {
-                          "name": "capitalism-letting-people-die.md",
-                          "size": 9540,
-                          "path": "content/blog/blog/2023/capitalism-letting-people-die.md"
-                        },
-                        {
-                          "name": "crypto-ai-colonization.md",
-                          "size": 10145,
-                          "path": "content/blog/blog/2023/crypto-ai-colonization.md"
-                        },
-                        {
-                          "name": "design-philosophy.md",
-                          "size": 6284,
-                          "path": "content/blog/blog/2023/design-philosophy.md"
-                        },
-                        {
-                          "name": "film-development.md",
-                          "size": 3452,
-                          "path": "content/blog/blog/2023/film-development.md"
-                        },
-                        {
-                          "name": "hacker-culture.md",
-                          "size": 13712,
-                          "path": "content/blog/blog/2023/hacker-culture.md"
-                        },
-                        {
-                          "name": "how-i-built-coach-artie.md",
-                          "size": 9955,
-                          "path": "content/blog/blog/2023/how-i-built-coach-artie.md"
-                        },
-                        {
-                          "name": "livestreaming.md",
-                          "size": 2412,
-                          "path": "content/blog/blog/2023/livestreaming.md"
-                        },
-                        {
-                          "name": "selecting-a-cms.md",
-                          "size": 11792,
-                          "path": "content/blog/blog/2023/selecting-a-cms.md"
-                        },
-                        {
-                          "name": "starting-a-studio-introducing-room-302.md",
-                          "size": 4212,
-                          "path": "content/blog/blog/2023/starting-a-studio-introducing-room-302.md"
-                        },
-                        {
-                          "name": "why-i-love-obsidian.md",
-                          "size": 4209,
-                          "path": "content/blog/blog/2023/why-i-love-obsidian.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2023"
-                    },
-                    {
-                      "name": "2024",
-                      "children": [
-                        {
-                          "name": "2024.md",
-                          "size": 28894,
-                          "path": "content/blog/blog/2024/2024.md"
-                        },
-                        {
-                          "name": "my-modern-scrapbook.md",
-                          "size": 15615,
-                          "path": "content/blog/blog/2024/my-modern-scrapbook.md"
-                        },
-                        {
-                          "name": "the-mystery-of-peter-todd.md",
-                          "size": 32045,
-                          "path": "content/blog/blog/2024/the-mystery-of-peter-todd.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2024"
-                    },
-                    {
-                      "name": "2025",
-                      "children": [
-                        {
-                          "name": "hidden-networks-of-warmth.md",
-                          "size": 13132,
-                          "path": "content/blog/blog/2025/hidden-networks-of-warmth.md"
-                        },
-                        {
-                          "name": "mcp-meta-mapping.md",
-                          "size": 5690,
-                          "path": "content/blog/blog/2025/mcp-meta-mapping.md"
-                        },
-                        {
-                          "name": "owning-my-cloudinary-photos.md",
-                          "size": 4226,
-                          "path": "content/blog/blog/2025/owning-my-cloudinary-photos.md"
-                        },
-                        {
-                          "name": "paramilitary-telegram-leaks-001.md",
-                          "size": 6679,
-                          "path": "content/blog/blog/2025/paramilitary-telegram-leaks-001.md"
-                        },
-                        {
-                          "name": "personal-apis.md",
-                          "size": 5643,
-                          "path": "content/blog/blog/2025/personal-apis.md"
-                        },
-                        {
-                          "name": "using-radios.md",
-                          "size": 8691,
-                          "path": "content/blog/blog/2025/using-radios.md"
-                        }
-                      ],
-                      "path": "content/blog/blog/2025"
+                      "name": "photography-2008-2010.md",
+                      "size": 1604,
+                      "path": "content/blog/2010/photography-2008-2010.md"
                     }
                   ],
-                  "path": "content/blog/blog"
+                  "path": "content/blog/2010"
+                },
+                {
+                  "name": "2013",
+                  "children": [
+                    {
+                      "name": "the-magazine-experience-on-the-web.md",
+                      "size": 11425,
+                      "path": "content/blog/2013/the-magazine-experience-on-the-web.md"
+                    }
+                  ],
+                  "path": "content/blog/2013"
+                },
+                {
+                  "name": "2015",
+                  "children": [
+                    {
+                      "name": "2015-in-review.md",
+                      "size": 3317,
+                      "path": "content/blog/2015/2015-in-review.md"
+                    }
+                  ],
+                  "path": "content/blog/2015"
+                },
+                {
+                  "name": "2016",
+                  "children": [
+                    {
+                      "name": "2016-in-review.md",
+                      "size": 1788,
+                      "path": "content/blog/2016/2016-in-review.md"
+                    },
+                    {
+                      "name": "video-mixes.md",
+                      "size": 4694,
+                      "path": "content/blog/2016/video-mixes.md"
+                    }
+                  ],
+                  "path": "content/blog/2016"
+                },
+                {
+                  "name": "2017",
+                  "children": [
+                    {
+                      "name": "2017-in-review.md",
+                      "size": 2533,
+                      "path": "content/blog/2017/2017-in-review.md"
+                    }
+                  ],
+                  "path": "content/blog/2017"
+                },
+                {
+                  "name": "2018",
+                  "children": [
+                    {
+                      "name": "2018-in-review.md",
+                      "size": 4655,
+                      "path": "content/blog/2018/2018-in-review.md"
+                    },
+                    {
+                      "name": "watercolor-sketching-in-nyc.md",
+                      "size": 3413,
+                      "path": "content/blog/2018/watercolor-sketching-in-nyc.md"
+                    },
+                    {
+                      "name": "work-view-life-view.md",
+                      "size": 4413,
+                      "path": "content/blog/2018/work-view-life-view.md"
+                    }
+                  ],
+                  "path": "content/blog/2018"
+                },
+                {
+                  "name": "2019",
+                  "children": [
+                    {
+                      "name": "climate-strike-nyc.md",
+                      "size": 2685,
+                      "path": "content/blog/2019/climate-strike-nyc.md"
+                    },
+                    {
+                      "name": "generative-music-iteration.md",
+                      "size": 2065,
+                      "path": "content/blog/2019/generative-music-iteration.md"
+                    },
+                    {
+                      "name": "hong-kong-protest-techniques.md",
+                      "size": 1103,
+                      "path": "content/blog/2019/hong-kong-protest-techniques.md"
+                    },
+                    {
+                      "name": "how-i-prototype-apps-and-dataviz-quickly-in-2019.md",
+                      "size": 6546,
+                      "path": "content/blog/2019/how-i-prototype-apps-and-dataviz-quickly-in-2019.md"
+                    },
+                    {
+                      "name": "linocut-printing-guide.md",
+                      "size": 13255,
+                      "path": "content/blog/2019/linocut-printing-guide.md"
+                    },
+                    {
+                      "name": "movies-to-watch.md",
+                      "size": 2111,
+                      "path": "content/blog/2019/movies-to-watch.md"
+                    },
+                    {
+                      "name": "step-zero.md",
+                      "size": 1842,
+                      "path": "content/blog/2019/step-zero.md"
+                    },
+                    {
+                      "name": "taking-things-for-granted.md",
+                      "size": 1953,
+                      "path": "content/blog/2019/taking-things-for-granted.md"
+                    },
+                    {
+                      "name": "the-internet-was-built-to-be-hacked.md",
+                      "size": 9252,
+                      "path": "content/blog/2019/the-internet-was-built-to-be-hacked.md"
+                    },
+                    {
+                      "name": "two-reasons.md",
+                      "size": 2749,
+                      "path": "content/blog/2019/two-reasons.md"
+                    },
+                    {
+                      "name": "unsecured-ice-cameras.md",
+                      "size": 4934,
+                      "path": "content/blog/2019/unsecured-ice-cameras.md"
+                    }
+                  ],
+                  "path": "content/blog/2019"
+                },
+                {
+                  "name": "2020",
+                  "children": [
+                    {
+                      "name": "coding-livestreams.md",
+                      "size": 7855,
+                      "path": "content/blog/2020/coding-livestreams.md"
+                    },
+                    {
+                      "name": "introduction-to-eavs-data.md",
+                      "size": 7119,
+                      "path": "content/blog/2020/introduction-to-eavs-data.md"
+                    },
+                    {
+                      "name": "online-brigades-gaming-twitter.md",
+                      "size": 3586,
+                      "path": "content/blog/2020/online-brigades-gaming-twitter.md"
+                    },
+                    {
+                      "name": "things-ive-learned-about-elections.md",
+                      "size": 19270,
+                      "path": "content/blog/2020/things-ive-learned-about-elections.md"
+                    }
+                  ],
+                  "path": "content/blog/2020"
+                },
+                {
+                  "name": "2021",
+                  "children": [
+                    {
+                      "name": "creative-coding.md",
+                      "size": 6472,
+                      "path": "content/blog/2021/creative-coding.md"
+                    },
+                    {
+                      "name": "lack-of-data.md",
+                      "size": 3791,
+                      "path": "content/blog/2021/lack-of-data.md"
+                    },
+                    {
+                      "name": "nypd-ccrb-complaint-clusters.md",
+                      "size": 28425,
+                      "path": "content/blog/2021/nypd-ccrb-complaint-clusters.md"
+                    }
+                  ],
+                  "path": "content/blog/2021"
+                },
+                {
+                  "name": "2022",
+                  "children": [
+                    {
+                      "name": "2022-prototyping-toolkit.md",
+                      "size": 3107,
+                      "path": "content/blog/2022/2022-prototyping-toolkit.md"
+                    },
+                    {
+                      "name": "8pm-to-midnight-mixes.md",
+                      "size": 2056,
+                      "path": "content/blog/2022/8pm-to-midnight-mixes.md"
+                    },
+                    {
+                      "name": "art-setup.md",
+                      "size": 2596,
+                      "path": "content/blog/2022/art-setup.md"
+                    },
+                    {
+                      "name": "election-night-2018.md",
+                      "size": 8971,
+                      "path": "content/blog/2022/election-night-2018.md"
+                    },
+                    {
+                      "name": "everyone-should-code-data-literacy.md",
+                      "size": 4154,
+                      "path": "content/blog/2022/everyone-should-code-data-literacy.md"
+                    },
+                    {
+                      "name": "experiments-with-live-looping-performance.md",
+                      "size": 7206,
+                      "path": "content/blog/2022/experiments-with-live-looping-performance.md"
+                    },
+                    {
+                      "name": "food.md",
+                      "size": 3637,
+                      "path": "content/blog/2022/food.md"
+                    },
+                    {
+                      "name": "joy-driven-development.md",
+                      "size": 3903,
+                      "path": "content/blog/2022/joy-driven-development.md"
+                    },
+                    {
+                      "name": "morning-routine-daily-rituals.md",
+                      "size": 3082,
+                      "path": "content/blog/2022/morning-routine-daily-rituals.md"
+                    },
+                    {
+                      "name": "motorcycle-camping.md",
+                      "size": 8679,
+                      "path": "content/blog/2022/motorcycle-camping.md"
+                    },
+                    {
+                      "name": "my-vscode-setup.md",
+                      "size": 3033,
+                      "path": "content/blog/2022/my-vscode-setup.md"
+                    },
+                    {
+                      "name": "rules-for-joyful-travel.md",
+                      "size": 9030,
+                      "path": "content/blog/2022/rules-for-joyful-travel.md"
+                    },
+                    {
+                      "name": "the-art-of-coding.md",
+                      "size": 16545,
+                      "path": "content/blog/2022/the-art-of-coding.md"
+                    },
+                    {
+                      "name": "the-studio.md",
+                      "size": 7988,
+                      "path": "content/blog/2022/the-studio.md"
+                    }
+                  ],
+                  "path": "content/blog/2022"
+                },
+                {
+                  "name": "2023",
+                  "children": [
+                    {
+                      "name": "camera-setup.md",
+                      "size": 705,
+                      "path": "content/blog/2023/camera-setup.md"
+                    },
+                    {
+                      "name": "capitalism-letting-people-die.md",
+                      "size": 9540,
+                      "path": "content/blog/2023/capitalism-letting-people-die.md"
+                    },
+                    {
+                      "name": "crypto-ai-colonization.md",
+                      "size": 10145,
+                      "path": "content/blog/2023/crypto-ai-colonization.md"
+                    },
+                    {
+                      "name": "design-philosophy.md",
+                      "size": 6284,
+                      "path": "content/blog/2023/design-philosophy.md"
+                    },
+                    {
+                      "name": "film-development.md",
+                      "size": 3452,
+                      "path": "content/blog/2023/film-development.md"
+                    },
+                    {
+                      "name": "hacker-culture.md",
+                      "size": 13712,
+                      "path": "content/blog/2023/hacker-culture.md"
+                    },
+                    {
+                      "name": "how-i-built-coach-artie.md",
+                      "size": 9955,
+                      "path": "content/blog/2023/how-i-built-coach-artie.md"
+                    },
+                    {
+                      "name": "livestreaming.md",
+                      "size": 2412,
+                      "path": "content/blog/2023/livestreaming.md"
+                    },
+                    {
+                      "name": "selecting-a-cms.md",
+                      "size": 11792,
+                      "path": "content/blog/2023/selecting-a-cms.md"
+                    },
+                    {
+                      "name": "starting-a-studio-introducing-room-302.md",
+                      "size": 4212,
+                      "path": "content/blog/2023/starting-a-studio-introducing-room-302.md"
+                    },
+                    {
+                      "name": "why-i-love-obsidian.md",
+                      "size": 4209,
+                      "path": "content/blog/2023/why-i-love-obsidian.md"
+                    }
+                  ],
+                  "path": "content/blog/2023"
+                },
+                {
+                  "name": "2024",
+                  "children": [
+                    {
+                      "name": "2024.md",
+                      "size": 28894,
+                      "path": "content/blog/2024/2024.md"
+                    },
+                    {
+                      "name": "my-modern-scrapbook.md",
+                      "size": 15615,
+                      "path": "content/blog/2024/my-modern-scrapbook.md"
+                    },
+                    {
+                      "name": "the-mystery-of-peter-todd.md",
+                      "size": 32045,
+                      "path": "content/blog/2024/the-mystery-of-peter-todd.md"
+                    }
+                  ],
+                  "path": "content/blog/2024"
+                },
+                {
+                  "name": "2025",
+                  "children": [
+                    {
+                      "name": "hidden-networks-of-warmth.md",
+                      "size": 13132,
+                      "path": "content/blog/2025/hidden-networks-of-warmth.md"
+                    },
+                    {
+                      "name": "mcp-meta-mapping.md",
+                      "size": 5690,
+                      "path": "content/blog/2025/mcp-meta-mapping.md"
+                    },
+                    {
+                      "name": "owning-my-cloudinary-photos.md",
+                      "size": 4226,
+                      "path": "content/blog/2025/owning-my-cloudinary-photos.md"
+                    },
+                    {
+                      "name": "paramilitary-telegram-leaks-001.md",
+                      "size": 6679,
+                      "path": "content/blog/2025/paramilitary-telegram-leaks-001.md"
+                    },
+                    {
+                      "name": "personal-apis.md",
+                      "size": 5643,
+                      "path": "content/blog/2025/personal-apis.md"
+                    },
+                    {
+                      "name": "using-radios.md",
+                      "size": 8691,
+                      "path": "content/blog/2025/using-radios.md"
+                    }
+                  ],
+                  "path": "content/blog/2025"
                 },
                 {
                   "name": "drafts",
@@ -9434,7 +9343,7 @@
                   "children": [
                     {
                       "name": "photography-2008-2010.json",
-                      "size": 2886,
+                      "size": 2881,
                       "path": "content/processed/2010/photography-2008-2010.json"
                     }
                   ],
@@ -9445,7 +9354,7 @@
                   "children": [
                     {
                       "name": "the-magazine-experience-on-the-web.json",
-                      "size": 27322,
+                      "size": 27317,
                       "path": "content/processed/2013/the-magazine-experience-on-the-web.json"
                     }
                   ],
@@ -9456,7 +9365,7 @@
                   "children": [
                     {
                       "name": "2015-in-review.json",
-                      "size": 4872,
+                      "size": 4867,
                       "path": "content/processed/2015/2015-in-review.json"
                     }
                   ],
@@ -9467,12 +9376,12 @@
                   "children": [
                     {
                       "name": "2016-in-review.json",
-                      "size": 4710,
+                      "size": 4705,
                       "path": "content/processed/2016/2016-in-review.json"
                     },
                     {
                       "name": "video-mixes.json",
-                      "size": 9810,
+                      "size": 9805,
                       "path": "content/processed/2016/video-mixes.json"
                     }
                   ],
@@ -9483,7 +9392,7 @@
                   "children": [
                     {
                       "name": "2017-in-review.json",
-                      "size": 3992,
+                      "size": 3987,
                       "path": "content/processed/2017/2017-in-review.json"
                     }
                   ],
@@ -9494,17 +9403,17 @@
                   "children": [
                     {
                       "name": "2018-in-review.json",
-                      "size": 6790,
+                      "size": 6785,
                       "path": "content/processed/2018/2018-in-review.json"
                     },
                     {
                       "name": "watercolor-sketching-in-nyc.json",
-                      "size": 7748,
+                      "size": 7743,
                       "path": "content/processed/2018/watercolor-sketching-in-nyc.json"
                     },
                     {
                       "name": "work-view-life-view.json",
-                      "size": 7325,
+                      "size": 7320,
                       "path": "content/processed/2018/work-view-life-view.json"
                     }
                   ],
@@ -9515,57 +9424,57 @@
                   "children": [
                     {
                       "name": "climate-strike-nyc.json",
-                      "size": 12345,
+                      "size": 12340,
                       "path": "content/processed/2019/climate-strike-nyc.json"
                     },
                     {
                       "name": "generative-music-iteration.json",
-                      "size": 3878,
+                      "size": 3873,
                       "path": "content/processed/2019/generative-music-iteration.json"
                     },
                     {
                       "name": "hong-kong-protest-techniques.json",
-                      "size": 2264,
+                      "size": 2259,
                       "path": "content/processed/2019/hong-kong-protest-techniques.json"
                     },
                     {
                       "name": "how-i-prototype-apps-and-dataviz-quickly-in-2019.json",
-                      "size": 34154,
+                      "size": 34149,
                       "path": "content/processed/2019/how-i-prototype-apps-and-dataviz-quickly-in-2019.json"
                     },
                     {
                       "name": "linocut-printing-guide.json",
-                      "size": 17370,
+                      "size": 17365,
                       "path": "content/processed/2019/linocut-printing-guide.json"
                     },
                     {
                       "name": "movies-to-watch.json",
-                      "size": 4291,
+                      "size": 4286,
                       "path": "content/processed/2019/movies-to-watch.json"
                     },
                     {
                       "name": "step-zero.json",
-                      "size": 7678,
+                      "size": 7673,
                       "path": "content/processed/2019/step-zero.json"
                     },
                     {
                       "name": "taking-things-for-granted.json",
-                      "size": 3073,
+                      "size": 3068,
                       "path": "content/processed/2019/taking-things-for-granted.json"
                     },
                     {
                       "name": "the-internet-was-built-to-be-hacked.json",
-                      "size": 11097,
+                      "size": 11092,
                       "path": "content/processed/2019/the-internet-was-built-to-be-hacked.json"
                     },
                     {
                       "name": "two-reasons.json",
-                      "size": 3739,
+                      "size": 3734,
                       "path": "content/processed/2019/two-reasons.json"
                     },
                     {
                       "name": "unsecured-ice-cameras.json",
-                      "size": 14808,
+                      "size": 14803,
                       "path": "content/processed/2019/unsecured-ice-cameras.json"
                     }
                   ],
@@ -9576,17 +9485,17 @@
                   "children": [
                     {
                       "name": "coding-livestreams.json",
-                      "size": 18105,
+                      "size": 18100,
                       "path": "content/processed/2020/coding-livestreams.json"
                     },
                     {
                       "name": "online-brigades-gaming-twitter.json",
-                      "size": 8878,
+                      "size": 8873,
                       "path": "content/processed/2020/online-brigades-gaming-twitter.json"
                     },
                     {
                       "name": "things-ive-learned-about-elections.json",
-                      "size": 70730,
+                      "size": 70725,
                       "path": "content/processed/2020/things-ive-learned-about-elections.json"
                     }
                   ],
@@ -9597,17 +9506,17 @@
                   "children": [
                     {
                       "name": "creative-coding.json",
-                      "size": 22336,
+                      "size": 22331,
                       "path": "content/processed/2021/creative-coding.json"
                     },
                     {
                       "name": "lack-of-data.json",
-                      "size": 5045,
+                      "size": 5040,
                       "path": "content/processed/2021/lack-of-data.json"
                     },
                     {
                       "name": "nypd-ccrb-complaint-clusters.json",
-                      "size": 129092,
+                      "size": 129087,
                       "path": "content/processed/2021/nypd-ccrb-complaint-clusters.json"
                     }
                   ],
@@ -9618,37 +9527,37 @@
                   "children": [
                     {
                       "name": "art-setup.json",
-                      "size": 5307,
+                      "size": 5302,
                       "path": "content/processed/2022/art-setup.json"
                     },
                     {
                       "name": "election-night-2018.json",
-                      "size": 13058,
+                      "size": 13053,
                       "path": "content/processed/2022/election-night-2018.json"
                     },
                     {
                       "name": "experiments-with-live-looping-performance.json",
-                      "size": 10830,
+                      "size": 10825,
                       "path": "content/processed/2022/experiments-with-live-looping-performance.json"
                     },
                     {
                       "name": "food.json",
-                      "size": 6451,
+                      "size": 6446,
                       "path": "content/processed/2022/food.json"
                     },
                     {
                       "name": "joy-driven-development.json",
-                      "size": 6357,
+                      "size": 6352,
                       "path": "content/processed/2022/joy-driven-development.json"
                     },
                     {
                       "name": "the-art-of-coding.json",
-                      "size": 24198,
+                      "size": 24193,
                       "path": "content/processed/2022/the-art-of-coding.json"
                     },
                     {
                       "name": "the-studio.json",
-                      "size": 13511,
+                      "size": 13506,
                       "path": "content/processed/2022/the-studio.json"
                     }
                   ],
@@ -9659,27 +9568,27 @@
                   "children": [
                     {
                       "name": "camera-setup.json",
-                      "size": 3251,
+                      "size": 3246,
                       "path": "content/processed/2023/camera-setup.json"
                     },
                     {
                       "name": "crypto-ai-colonization.json",
-                      "size": 15897,
+                      "size": 15892,
                       "path": "content/processed/2023/crypto-ai-colonization.json"
                     },
                     {
                       "name": "livestreaming.json",
-                      "size": 14075,
+                      "size": 14070,
                       "path": "content/processed/2023/livestreaming.json"
                     },
                     {
                       "name": "starting-a-studio-introducing-room-302.json",
-                      "size": 7485,
+                      "size": 7480,
                       "path": "content/processed/2023/starting-a-studio-introducing-room-302.json"
                     },
                     {
                       "name": "why-i-love-obsidian.json",
-                      "size": 12489,
+                      "size": 12484,
                       "path": "content/processed/2023/why-i-love-obsidian.json"
                     }
                   ],
@@ -9690,17 +9599,17 @@
                   "children": [
                     {
                       "name": "2024.json",
-                      "size": 42640,
+                      "size": 42635,
                       "path": "content/processed/2024/2024.json"
                     },
                     {
                       "name": "my-modern-scrapbook.json",
-                      "size": 55404,
+                      "size": 55399,
                       "path": "content/processed/2024/my-modern-scrapbook.json"
                     },
                     {
                       "name": "the-mystery-of-peter-todd.json",
-                      "size": 76245,
+                      "size": 76240,
                       "path": "content/processed/2024/the-mystery-of-peter-todd.json"
                     }
                   ],
@@ -9711,32 +9620,32 @@
                   "children": [
                     {
                       "name": "hidden-networks-of-warmth.json",
-                      "size": 18586,
+                      "size": 18581,
                       "path": "content/processed/2025/hidden-networks-of-warmth.json"
                     },
                     {
                       "name": "mcp-meta-mapping.json",
-                      "size": 11985,
+                      "size": 11980,
                       "path": "content/processed/2025/mcp-meta-mapping.json"
                     },
                     {
                       "name": "owning-my-cloudinary-photos.json",
-                      "size": 6589,
+                      "size": 6584,
                       "path": "content/processed/2025/owning-my-cloudinary-photos.json"
                     },
                     {
                       "name": "paramilitary-telegram-leaks-001.json",
-                      "size": 32983,
+                      "size": 32978,
                       "path": "content/processed/2025/paramilitary-telegram-leaks-001.json"
                     },
                     {
                       "name": "personal-apis.json",
-                      "size": 8594,
+                      "size": 8589,
                       "path": "content/processed/2025/personal-apis.json"
                     },
                     {
                       "name": "using-radios.json",
-                      "size": 11726,
+                      "size": 11721,
                       "path": "content/processed/2025/using-radios.json"
                     }
                   ],
@@ -9755,7 +9664,7 @@
                         },
                         {
                           "name": "building-a-logging-system-to-support-the-unknown.json",
-                          "size": 788,
+                          "size": 977,
                           "path": "content/processed/drafts/_stale/building-a-logging-system-to-support-the-unknown.json"
                         },
                         {
@@ -9770,42 +9679,42 @@
                         },
                         {
                           "name": "core-principles.json",
-                          "size": 11228,
+                          "size": 12756,
                           "path": "content/processed/drafts/_stale/core-principles.json"
                         },
                         {
                           "name": "cursor-rules-and-smallbot.json",
-                          "size": 725,
+                          "size": 931,
                           "path": "content/processed/drafts/_stale/cursor-rules-and-smallbot.json"
                         },
                         {
                           "name": "electology-vision.json",
-                          "size": 11194,
+                          "size": 12176,
                           "path": "content/processed/drafts/_stale/electology-vision.json"
                         },
                         {
                           "name": "elon-musk-is-a-bad-man.json",
-                          "size": 937,
+                          "size": 1107,
                           "path": "content/processed/drafts/_stale/elon-musk-is-a-bad-man.json"
                         },
                         {
                           "name": "espresso.json",
-                          "size": 5078,
+                          "size": 6012,
                           "path": "content/processed/drafts/_stale/espresso.json"
                         },
                         {
                           "name": "food-log.json",
-                          "size": 1822,
+                          "size": 2240,
                           "path": "content/processed/drafts/_stale/food-log.json"
                         },
                         {
                           "name": "getting-started-with-amateur-radio.json",
-                          "size": 5747,
+                          "size": 7933,
                           "path": "content/processed/drafts/_stale/getting-started-with-amateur-radio.json"
                         },
                         {
                           "name": "getting-started-with-embeddings.json",
-                          "size": 26947,
+                          "size": 27153,
                           "path": "content/processed/drafts/_stale/getting-started-with-embeddings.json"
                         },
                         {
@@ -9815,37 +9724,37 @@
                         },
                         {
                           "name": "hudson-valley-politics.json",
-                          "size": 937,
+                          "size": 1056,
                           "path": "content/processed/drafts/_stale/hudson-valley-politics.json"
                         },
                         {
                           "name": "i-just-do-what-my-calendar-says.json",
-                          "size": 7290,
+                          "size": 8844,
                           "path": "content/processed/drafts/_stale/i-just-do-what-my-calendar-says.json"
                         },
                         {
                           "name": "idiots-guide-finetuning-llm.json",
-                          "size": 972,
+                          "size": 1330,
                           "path": "content/processed/drafts/_stale/idiots-guide-finetuning-llm.json"
                         },
                         {
                           "name": "og-images-with-genart.json",
-                          "size": 885,
+                          "size": 1125,
                           "path": "content/processed/drafts/_stale/og-images-with-genart.json"
                         },
                         {
                           "name": "personal-automation-patterns.json",
-                          "size": 1250,
+                          "size": 2342,
                           "path": "content/processed/drafts/_stale/personal-automation-patterns.json"
                         },
                         {
                           "name": "photoblog-with-cloudinary-nuxt.json",
-                          "size": 106590,
+                          "size": 108155,
                           "path": "content/processed/drafts/_stale/photoblog-with-cloudinary-nuxt.json"
                         },
                         {
                           "name": "room302-livestream-learning.json",
-                          "size": 11895,
+                          "size": 12194,
                           "path": "content/processed/drafts/_stale/room302-livestream-learning.json"
                         },
                         {
@@ -9855,37 +9764,37 @@
                         },
                         {
                           "name": "techs-anti-humanist-wave.json",
-                          "size": 14106,
+                          "size": 15174,
                           "path": "content/processed/drafts/_stale/techs-anti-humanist-wave.json"
                         },
                         {
                           "name": "the-rise-of-bespoke-tech.json",
-                          "size": 14567,
+                          "size": 14741,
                           "path": "content/processed/drafts/_stale/the-rise-of-bespoke-tech.json"
                         },
                         {
                           "name": "truth-terminal.json",
-                          "size": 59139,
+                          "size": 61172,
                           "path": "content/processed/drafts/_stale/truth-terminal.json"
                         },
                         {
                           "name": "using-observable-plot-in-vue.json",
-                          "size": 25160,
+                          "size": 25726,
                           "path": "content/processed/drafts/_stale/using-observable-plot-in-vue.json"
                         },
                         {
                           "name": "using-polycam-scans-in-three-js.json",
-                          "size": 10211,
+                          "size": 11550,
                           "path": "content/processed/drafts/_stale/using-polycam-scans-in-three-js.json"
                         },
                         {
                           "name": "vps-micro-endpoints-smallweb.json",
-                          "size": 1204,
+                          "size": 1422,
                           "path": "content/processed/drafts/_stale/vps-micro-endpoints-smallweb.json"
                         },
                         {
                           "name": "ways-to-viz-embeddings.json",
-                          "size": 10939,
+                          "size": 11127,
                           "path": "content/processed/drafts/_stale/ways-to-viz-embeddings.json"
                         }
                       ],
@@ -10540,12 +10449,12 @@
                       "children": [
                         {
                           "name": "gear.json",
-                          "size": 28644,
+                          "size": 30475,
                           "path": "content/processed/robots/old/gear.json"
                         },
                         {
                           "name": "tenancy-in-common.json",
-                          "size": 8786,
+                          "size": 9211,
                           "path": "content/processed/robots/old/tenancy-in-common.json"
                         }
                       ],
@@ -10556,52 +10465,52 @@
                       "children": [
                         {
                           "name": "chess-course.json",
-                          "size": 63361,
+                          "size": 69575,
                           "path": "content/processed/robots/someday/chess-course.json"
                         },
                         {
                           "name": "ejfox-news.json",
-                          "size": 30035,
+                          "size": 34993,
                           "path": "content/processed/robots/someday/ejfox-news.json"
                         },
                         {
                           "name": "fpv-drone-learning.json",
-                          "size": 31983,
+                          "size": 35340,
                           "path": "content/processed/robots/someday/fpv-drone-learning.json"
                         },
                         {
                           "name": "hudson-valley-cannabis-doc.json",
-                          "size": 18318,
+                          "size": 18930,
                           "path": "content/processed/robots/someday/hudson-valley-cannabis-doc.json"
                         },
                         {
                           "name": "hudson-valley-maps.json",
-                          "size": 26481,
+                          "size": 28633,
                           "path": "content/processed/robots/someday/hudson-valley-maps.json"
                         },
                         {
                           "name": "ml-comedy-hour.json",
-                          "size": 22207,
+                          "size": 23929,
                           "path": "content/processed/robots/someday/ml-comedy-hour.json"
                         },
                         {
                           "name": "morning-radio.json",
-                          "size": 18431,
+                          "size": 21448,
                           "path": "content/processed/robots/someday/morning-radio.json"
                         },
                         {
                           "name": "prep-mesh.json",
-                          "size": 87594,
+                          "size": 97214,
                           "path": "content/processed/robots/someday/prep-mesh.json"
                         },
                         {
                           "name": "quests-irl.json",
-                          "size": 47598,
+                          "size": 49539,
                           "path": "content/processed/robots/someday/quests-irl.json"
                         },
                         {
                           "name": "smallweb-with-cloudflare-on-vps.json",
-                          "size": 20980,
+                          "size": 22029,
                           "path": "content/processed/robots/someday/smallweb-with-cloudflare-on-vps.json"
                         }
                       ],
@@ -10760,7 +10669,7 @@
                     },
                     {
                       "name": "2024-41.json",
-                      "size": 6007,
+                      "size": 6253,
                       "path": "content/processed/week-notes/2024-41.json"
                     },
                     {
@@ -11038,18 +10947,13 @@
                 },
                 {
                   "name": "CLAUDE.json",
-                  "size": 6601,
+                  "size": 7472,
                   "path": "content/processed/CLAUDE.json"
                 },
                 {
                   "name": "WIKILINK-OPPORTUNITIES.json",
-                  "size": 84496,
+                  "size": 89380,
                   "path": "content/processed/WIKILINK-OPPORTUNITIES.json"
-                },
-                {
-                  "name": "goodreads-stats.json",
-                  "size": 49490,
-                  "path": "content/processed/goodreads-stats.json"
                 },
                 {
                   "name": "index.json",
@@ -11058,7 +10962,7 @@
                 },
                 {
                   "name": "manifest-lite.json",
-                  "size": 635586,
+                  "size": 759569,
                   "path": "content/processed/manifest-lite.json"
                 }
               ],
@@ -11355,7 +11259,7 @@
                 },
                 {
                   "name": "dotfiles.json",
-                  "size": 125633,
+                  "size": 125944,
                   "path": "data/github-repos/dotfiles.json"
                 },
                 {
@@ -11965,7 +11869,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 502641,
+                  "size": 504017,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -12031,12 +11935,12 @@
                 },
                 {
                   "name": "01-05.json",
-                  "size": 27859,
+                  "size": 27871,
                   "path": "data/on-this-day/01-05.json"
                 },
                 {
                   "name": "01-06.json",
-                  "size": 43534,
+                  "size": 43580,
                   "path": "data/on-this-day/01-06.json"
                 },
                 {
@@ -12076,7 +11980,7 @@
                 },
                 {
                   "name": "01-14.json",
-                  "size": 21484,
+                  "size": 21466,
                   "path": "data/on-this-day/01-14.json"
                 },
                 {
@@ -12136,7 +12040,7 @@
                 },
                 {
                   "name": "01-26.json",
-                  "size": 20026,
+                  "size": 20029,
                   "path": "data/on-this-day/01-26.json"
                 },
                 {
@@ -12266,7 +12170,7 @@
                 },
                 {
                   "name": "02-21.json",
-                  "size": 20028,
+                  "size": 20038,
                   "path": "data/on-this-day/02-21.json"
                 },
                 {
@@ -12506,7 +12410,7 @@
                 },
                 {
                   "name": "04-09.json",
-                  "size": 20202,
+                  "size": 20185,
                   "path": "data/on-this-day/04-09.json"
                 },
                 {
@@ -12561,7 +12465,7 @@
                 },
                 {
                   "name": "04-20.json",
-                  "size": 21253,
+                  "size": 21287,
                   "path": "data/on-this-day/04-20.json"
                 },
                 {
@@ -12776,7 +12680,7 @@
                 },
                 {
                   "name": "06-02.json",
-                  "size": 17823,
+                  "size": 17847,
                   "path": "data/on-this-day/06-02.json"
                 },
                 {
@@ -12996,7 +12900,7 @@
                 },
                 {
                   "name": "07-16.json",
-                  "size": 15903,
+                  "size": 15909,
                   "path": "data/on-this-day/07-16.json"
                 },
                 {
@@ -13166,7 +13070,7 @@
                 },
                 {
                   "name": "08-19.json",
-                  "size": 17304,
+                  "size": 17281,
                   "path": "data/on-this-day/08-19.json"
                 },
                 {
@@ -13401,7 +13305,7 @@
                 },
                 {
                   "name": "10-05.json",
-                  "size": 15583,
+                  "size": 15605,
                   "path": "data/on-this-day/10-05.json"
                 },
                 {
@@ -13451,7 +13355,7 @@
                 },
                 {
                   "name": "10-15.json",
-                  "size": 19774,
+                  "size": 19819,
                   "path": "data/on-this-day/10-15.json"
                 },
                 {
@@ -13476,7 +13380,7 @@
                 },
                 {
                   "name": "10-20.json",
-                  "size": 25978,
+                  "size": 25995,
                   "path": "data/on-this-day/10-20.json"
                 },
                 {
@@ -13556,7 +13460,7 @@
                 },
                 {
                   "name": "11-05.json",
-                  "size": 21522,
+                  "size": 21553,
                   "path": "data/on-this-day/11-05.json"
                 },
                 {
@@ -13566,7 +13470,7 @@
                 },
                 {
                   "name": "11-07.json",
-                  "size": 28085,
+                  "size": 28096,
                   "path": "data/on-this-day/11-07.json"
                 },
                 {
@@ -13581,12 +13485,12 @@
                 },
                 {
                   "name": "11-10.json",
-                  "size": 33451,
+                  "size": 33464,
                   "path": "data/on-this-day/11-10.json"
                 },
                 {
                   "name": "11-11.json",
-                  "size": 25096,
+                  "size": 25119,
                   "path": "data/on-this-day/11-11.json"
                 },
                 {
@@ -13596,7 +13500,7 @@
                 },
                 {
                   "name": "11-13.json",
-                  "size": 21571,
+                  "size": 21585,
                   "path": "data/on-this-day/11-13.json"
                 },
                 {
@@ -13631,7 +13535,7 @@
                 },
                 {
                   "name": "11-20.json",
-                  "size": 28377,
+                  "size": 28400,
                   "path": "data/on-this-day/11-20.json"
                 },
                 {
@@ -13661,12 +13565,12 @@
                 },
                 {
                   "name": "11-26.json",
-                  "size": 22659,
+                  "size": 22683,
                   "path": "data/on-this-day/11-26.json"
                 },
                 {
                   "name": "11-27.json",
-                  "size": 14942,
+                  "size": 14969,
                   "path": "data/on-this-day/11-27.json"
                 },
                 {
@@ -13706,7 +13610,7 @@
                 },
                 {
                   "name": "12-05.json",
-                  "size": 23975,
+                  "size": 24114,
                   "path": "data/on-this-day/12-05.json"
                 },
                 {
@@ -13721,7 +13625,7 @@
                 },
                 {
                   "name": "12-08.json",
-                  "size": 24533,
+                  "size": 24554,
                   "path": "data/on-this-day/12-08.json"
                 },
                 {
@@ -13826,7 +13730,7 @@
                 },
                 {
                   "name": "12-29.json",
-                  "size": 27338,
+                  "size": 27327,
                   "path": "data/on-this-day/12-29.json"
                 },
                 {
@@ -13894,7 +13798,7 @@
             },
             {
               "name": "on-this-day-index.json",
-              "size": 11360175,
+              "size": 11360651,
               "path": "data/on-this-day-index.json"
             },
             {
@@ -13956,7 +13860,7 @@
             },
             {
               "name": "default.vue",
-              "size": 4996,
+              "size": 5210,
               "path": "layouts/default.vue"
             }
           ],
@@ -13989,7 +13893,7 @@
                   "children": [
                     {
                       "name": "[...slug].vue",
-                      "size": 8618,
+                      "size": 8741,
                       "path": "pages/blog/tag/[...slug].vue"
                     }
                   ],
@@ -14008,7 +13912,7 @@
                 },
                 {
                   "name": "[...slug].vue",
-                  "size": 33109,
+                  "size": 33280,
                   "path": "pages/blog/[...slug].vue"
                 },
                 {
@@ -14056,12 +13960,12 @@
               "children": [
                 {
                   "name": "[slug].vue",
-                  "size": 8119,
+                  "size": 7455,
                   "path": "pages/predictions/[slug].vue"
                 },
                 {
                   "name": "index.vue",
-                  "size": 26713,
+                  "size": 16218,
                   "path": "pages/predictions/index.vue"
                 }
               ],
@@ -14107,7 +14011,7 @@
                   "children": [
                     {
                       "name": "[slug].vue",
-                      "size": 6196,
+                      "size": 6320,
                       "path": "pages/scraps/tag/[slug].vue"
                     }
                   ],
@@ -14117,33 +14021,44 @@
               "path": "pages/scraps"
             },
             {
+              "name": "tag",
+              "children": [
+                {
+                  "name": "[...slug].vue",
+                  "size": 8090,
+                  "path": "pages/tag/[...slug].vue"
+                }
+              ],
+              "path": "pages/tag"
+            },
+            {
               "name": "bookmarklet-popup.vue",
-              "size": 19053,
+              "size": 19854,
               "path": "pages/bookmarklet-popup.vue"
             },
             {
               "name": "bookmarklet.vue",
-              "size": 5633,
+              "size": 5207,
               "path": "pages/bookmarklet.vue"
             },
             {
               "name": "calendar.vue",
-              "size": 2984,
+              "size": 3185,
               "path": "pages/calendar.vue"
             },
             {
               "name": "changelog.vue",
-              "size": 4922,
+              "size": 5362,
               "path": "pages/changelog.vue"
             },
             {
               "name": "external-links.vue",
-              "size": 7802,
+              "size": 14538,
               "path": "pages/external-links.vue"
             },
             {
               "name": "following.vue",
-              "size": 3335,
+              "size": 3678,
               "path": "pages/following.vue"
             },
             {
@@ -14158,7 +14073,7 @@
             },
             {
               "name": "kalshi.vue",
-              "size": 2017,
+              "size": 125,
               "path": "pages/kalshi.vue"
             },
             {
@@ -14168,12 +14083,12 @@
             },
             {
               "name": "on-this-day.vue",
-              "size": 6133,
+              "size": 8442,
               "path": "pages/on-this-day.vue"
             },
             {
               "name": "scraps.vue",
-              "size": 6552,
+              "size": 6655,
               "path": "pages/scraps.vue"
             },
             {
@@ -14183,8 +14098,13 @@
             },
             {
               "name": "stats.vue",
-              "size": 37682,
+              "size": 38536,
               "path": "pages/stats.vue"
+            },
+            {
+              "name": "threads.vue",
+              "size": 21596,
+              "path": "pages/threads.vue"
             }
           ],
           "path": "pages"
@@ -14204,12 +14124,12 @@
             },
             {
               "name": "markdownTable.client.ts",
-              "size": 4337,
+              "size": 4496,
               "path": "plugins/markdownTable.client.ts"
             },
             {
               "name": "toc-highlight.client.ts",
-              "size": 2012,
+              "size": 2007,
               "path": "plugins/toc-highlight.client.ts"
             },
             {
@@ -14490,6 +14410,11 @@
               "name": "android-chrome-512x512.png",
               "size": 445046,
               "path": "public/android-chrome-512x512.png"
+            },
+            {
+              "name": "apple-touch-icon-precomposed.png",
+              "size": 72047,
+              "path": "public/apple-touch-icon-precomposed.png"
             },
             {
               "name": "apple-touch-icon.png",
@@ -14780,7 +14705,7 @@
             },
             {
               "name": "fetch-goodreads.mjs",
-              "size": 7559,
+              "size": 7563,
               "path": "scripts/fetch-goodreads.mjs"
             },
             {
@@ -14877,7 +14802,7 @@
                   "children": [
                     {
                       "name": "available-slots.get.ts",
-                      "size": 3109,
+                      "size": 3137,
                       "path": "server/api/cal/available-slots.get.ts"
                     }
                   ],
@@ -14888,7 +14813,7 @@
                   "children": [
                     {
                       "name": "[slug].get.ts",
-                      "size": 1419,
+                      "size": 1481,
                       "path": "server/api/gear/[slug].get.ts"
                     }
                   ],
@@ -14899,12 +14824,12 @@
                   "children": [
                     {
                       "name": "kalshi.get.ts",
-                      "size": 2055,
+                      "size": 2109,
                       "path": "server/api/markets/kalshi.get.ts"
                     },
                     {
                       "name": "polymarket.get.ts",
-                      "size": 2820,
+                      "size": 2865,
                       "path": "server/api/markets/polymarket.get.ts"
                     }
                   ],
@@ -14915,7 +14840,7 @@
                   "children": [
                     {
                       "name": "[...slug].ts",
-                      "size": 3874,
+                      "size": 3949,
                       "path": "server/api/posts/[...slug].ts"
                     }
                   ],
@@ -14931,7 +14856,7 @@
                     },
                     {
                       "name": "[id].ts",
-                      "size": 3490,
+                      "size": 6151,
                       "path": "server/api/predictions/[id].ts"
                     },
                     {
@@ -14974,7 +14899,7 @@
                     },
                     {
                       "name": "timeline.get.ts",
-                      "size": 6594,
+                      "size": 7247,
                       "path": "server/api/robot/timeline.get.ts"
                     }
                   ],
@@ -14996,7 +14921,7 @@
                   "children": [
                     {
                       "name": "tags.get.ts",
-                      "size": 1363,
+                      "size": 1365,
                       "path": "server/api/scraps/tags.get.ts"
                     }
                   ],
@@ -15020,17 +14945,17 @@
                 },
                 {
                   "name": "blog-stats.get.ts",
-                  "size": 1419,
+                  "size": 1518,
                   "path": "server/api/blog-stats.get.ts"
                 },
                 {
                   "name": "blogroll.get.ts",
-                  "size": 2046,
+                  "size": 2197,
                   "path": "server/api/blogroll.get.ts"
                 },
                 {
                   "name": "bookmarks.get.ts",
-                  "size": 2875,
+                  "size": 2899,
                   "path": "server/api/bookmarks.get.ts"
                 },
                 {
@@ -15045,22 +14970,22 @@
                 },
                 {
                   "name": "changelog.get.ts",
-                  "size": 3438,
+                  "size": 3648,
                   "path": "server/api/changelog.get.ts"
                 },
                 {
                   "name": "chess.get.ts",
-                  "size": 6324,
+                  "size": 7398,
                   "path": "server/api/chess.get.ts"
                 },
                 {
                   "name": "discogs.get.ts",
-                  "size": 8106,
+                  "size": 8894,
                   "path": "server/api/discogs.get.ts"
                 },
                 {
                   "name": "external-links.get.ts",
-                  "size": 3637,
+                  "size": 6817,
                   "path": "server/api/external-links.get.ts"
                 },
                 {
@@ -15080,12 +15005,12 @@
                 },
                 {
                   "name": "gist-stats.get.ts",
-                  "size": 3013,
+                  "size": 3089,
                   "path": "server/api/gist-stats.get.ts"
                 },
                 {
                   "name": "gists.get.ts",
-                  "size": 2802,
+                  "size": 2850,
                   "path": "server/api/gists.get.ts"
                 },
                 {
@@ -15100,7 +15025,7 @@
                 },
                 {
                   "name": "github.get.ts",
-                  "size": 10989,
+                  "size": 11516,
                   "path": "server/api/github.get.ts"
                 },
                 {
@@ -15110,27 +15035,27 @@
                 },
                 {
                   "name": "healthcheck.get.ts",
-                  "size": 1770,
+                  "size": 1726,
                   "path": "server/api/healthcheck.get.ts"
                 },
                 {
                   "name": "highlight.post.ts",
-                  "size": 2394,
+                  "size": 2427,
                   "path": "server/api/highlight.post.ts"
                 },
                 {
                   "name": "kalshi.get.ts",
-                  "size": 19658,
+                  "size": 19852,
                   "path": "server/api/kalshi.get.ts"
                 },
                 {
                   "name": "lastfm.get.ts",
-                  "size": 10929,
+                  "size": 12405,
                   "path": "server/api/lastfm.get.ts"
                 },
                 {
                   "name": "leetcode.get.ts",
-                  "size": 3449,
+                  "size": 3983,
                   "path": "server/api/leetcode.get.ts"
                 },
                 {
@@ -15140,12 +15065,12 @@
                 },
                 {
                   "name": "manifest.ts",
-                  "size": 1549,
+                  "size": 1494,
                   "path": "server/api/manifest.ts"
                 },
                 {
                   "name": "monkeytype.get.ts",
-                  "size": 4249,
+                  "size": 4244,
                   "path": "server/api/monkeytype.get.ts"
                 },
                 {
@@ -15155,12 +15080,12 @@
                 },
                 {
                   "name": "og.get.ts",
-                  "size": 5481,
+                  "size": 5476,
                   "path": "server/api/og.get.ts"
                 },
                 {
                   "name": "on-this-day.get.ts",
-                  "size": 2670,
+                  "size": 2674,
                   "path": "server/api/on-this-day.get.ts"
                 },
                 {
@@ -15175,7 +15100,7 @@
                 },
                 {
                   "name": "projects.get.ts",
-                  "size": 2586,
+                  "size": 3027,
                   "path": "server/api/projects.get.ts"
                 },
                 {
@@ -15185,32 +15110,32 @@
                 },
                 {
                   "name": "rescuetime.get.ts",
-                  "size": 6649,
+                  "size": 6666,
                   "path": "server/api/rescuetime.get.ts"
                 },
                 {
                   "name": "scraps.get.ts",
-                  "size": 3051,
+                  "size": 3497,
                   "path": "server/api/scraps.get.ts"
                 },
                 {
                   "name": "search.get.ts",
-                  "size": 7207,
+                  "size": 7431,
                   "path": "server/api/search.get.ts"
                 },
                 {
                   "name": "stats.get.ts",
-                  "size": 8408,
+                  "size": 9504,
                   "path": "server/api/stats.get.ts"
                 },
                 {
                   "name": "suggest.get.ts",
-                  "size": 12702,
+                  "size": 12808,
                   "path": "server/api/suggest.get.ts"
                 },
                 {
                   "name": "webmentions.get.ts",
-                  "size": 2735,
+                  "size": 3014,
                   "path": "server/api/webmentions.get.ts"
                 },
                 {
@@ -15220,7 +15145,7 @@
                 },
                 {
                   "name": "words-this-month.get.ts",
-                  "size": 3114,
+                  "size": 3287,
                   "path": "server/api/words-this-month.get.ts"
                 }
               ],
@@ -15231,12 +15156,12 @@
               "children": [
                 {
                   "name": "feed.json.ts",
-                  "size": 3186,
+                  "size": 3122,
                   "path": "server/routes/feed.json.ts"
                 },
                 {
                   "name": "gists-rss.xml.ts",
-                  "size": 4889,
+                  "size": 5472,
                   "path": "server/routes/gists-rss.xml.ts"
                 },
                 {
@@ -15246,17 +15171,17 @@
                 },
                 {
                   "name": "rss.xml.ts",
-                  "size": 4390,
+                  "size": 4645,
                   "path": "server/routes/rss.xml.ts"
                 },
                 {
                   "name": "sitemap.xml.ts",
-                  "size": 4932,
+                  "size": 5228,
                   "path": "server/routes/sitemap.xml.ts"
                 },
                 {
                   "name": "tags.json.ts",
-                  "size": 2034,
+                  "size": 2060,
                   "path": "server/routes/tags.json.ts"
                 }
               ],
@@ -15278,7 +15203,7 @@
               "children": [
                 {
                   "name": "apiHelpers.ts",
-                  "size": 3277,
+                  "size": 3353,
                   "path": "server/utils/apiHelpers.ts"
                 },
                 {
@@ -15338,7 +15263,7 @@
             },
             {
               "name": "globals.d.ts",
-              "size": 4771,
+              "size": 1209,
               "path": "types/globals.d.ts"
             },
             {
@@ -15359,7 +15284,7 @@
             },
             {
               "name": "dateUtils.ts",
-              "size": 2611,
+              "size": 2695,
               "path": "utils/dateUtils.ts"
             },
             {
@@ -15407,7 +15332,7 @@
         },
         {
           "name": "CLAUDE.md",
-          "size": 11405,
+          "size": 12219,
           "path": "CLAUDE.md"
         },
         {
@@ -15432,7 +15357,7 @@
         },
         {
           "name": "error.vue",
-          "size": 2817,
+          "size": 2993,
           "path": "error.vue"
         },
         {
@@ -15442,7 +15367,7 @@
         },
         {
           "name": "nuxt.config.ts",
-          "size": 12929,
+          "size": 13085,
           "path": "nuxt.config.ts"
         },
         {
@@ -15483,8 +15408,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 1635,
-    "totalSize": 84009019
+    "totalFiles": 1628,
+    "totalSize": 84234980
   },
   "topics": [],
   "readme": {
@@ -15493,6 +15418,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-22T01:05:04Z",
-  "pushedAt": "2025-12-22T01:05:01Z"
+  "updatedAt": "2025-12-23T20:57:22Z",
+  "pushedAt": "2025-12-27T06:01:51Z"
 }
