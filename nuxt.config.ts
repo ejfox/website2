@@ -169,6 +169,9 @@ export default defineNuxtConfig({
     },
   },
 
+  // Disable devtools in dev to prevent 404 issues (known Nuxt bug)
+  devtools: { enabled: false },
+
   // Runtime config - CRITICAL for preventing process.env in client bundle
   runtimeConfig: {
     // Private server-only vars
@@ -186,6 +189,7 @@ export default defineNuxtConfig({
     SUPABASE_URL: process.env.SUPABASE_URL || '',
     SUPABASE_KEY: process.env.SUPABASE_KEY || '',
     scrapEnlightenerAuth: process.env.SCRAP_ENLIGHTENER_AUTH || '',
+    muckrockToken: process.env.MUCKROCK_TOKEN || '',
 
     // Public client-accessible vars
     public: {
@@ -368,6 +372,17 @@ export default defineNuxtConfig({
 
   // Ultra-optimized Vite config for sub-1s FCP
   vite: {
+    // Explicit HMR config to prevent 404 on refresh (forum fix)
+    server: {
+      host: '127.0.0.1',
+      strictPort: true,
+      hmr: {
+        protocol: 'ws',
+        host: '127.0.0.1',
+        port: 3006,
+        clientPort: 3006
+      }
+    },
     build: {
       cssCodeSplit: true, // Split CSS for faster parallel loading
       cssMinify: 'esbuild',
