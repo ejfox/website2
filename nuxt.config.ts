@@ -186,6 +186,7 @@ export default defineNuxtConfig({
     SUPABASE_URL: process.env.SUPABASE_URL || '',
     SUPABASE_KEY: process.env.SUPABASE_KEY || '',
     scrapEnlightenerAuth: process.env.SCRAP_ENLIGHTENER_AUTH || '',
+    calcomApiKey: process.env.CAL_COM_API_KEY || '',
 
     // Public client-accessible vars
     public: {

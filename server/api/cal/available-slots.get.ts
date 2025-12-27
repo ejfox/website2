@@ -5,7 +5,12 @@
  * @returns Formatted calendar slots with natural time display (e.g., "9am Monday?") and booking URLs for the next 7 days
  */
 export default defineEventHandler(async (_event) => {
-  const _config = useRuntimeConfig()
+  const config = useRuntimeConfig()
+
+  if (!config.calcomApiKey) {
+    console.warn('CAL_COM_API_KEY not configured')
+    return { slots: [], error: 'Calendar not configured' }
+  }
 
   try {
     // Get next 7 days to find available slots
@@ -20,7 +25,7 @@ export default defineEventHandler(async (_event) => {
     const response = (await $fetch('https://api.cal.com/v2/slots', {
       method: 'GET',
       headers: {
-        Authorization: `Bearer cal_live_556d97a3add1c087738058a73b2d697c`,
+        Authorization: `Bearer ${config.calcomApiKey}`,
         'Content-Type': 'application/json',
         'cal-api-version': '2024-09-04',
       },

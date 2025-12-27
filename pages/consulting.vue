@@ -118,10 +118,14 @@ function updateCalTheme() {
   })
 }
 
-const currentQuarter = computed(() => {
-  const now = new Date()
-  const q = Math.ceil((now.getMonth() + 1) / 3)
-  return `Q${q} ${now.getFullYear()}`
+// Live availability from Cal.com
+const { data: availability } = await useFetch('/api/cal/availability', {
+  default: () => ({
+    quarter: 'Q1 2025',
+    slotsAvailable: 2,
+    status: 'available',
+    message: '2 spots open',
+  }),
 })
 
 const specialties = [
@@ -145,7 +149,7 @@ const specialties = [
 const notFor = [
   'Generic BI dashboards',
   'Projects without editorial stakes',
-  'Budgets under $25K',
+  'Engagements under 5 days',
 ]
 
 usePageSeo({
@@ -197,12 +201,33 @@ usePageSeo({
         </div>
       </div>
 
-      <!-- Availability -->
-      <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded px-4 py-3">
+      <!-- Live Availability -->
+      <div
+        class="rounded px-4 py-3"
+        :class="{
+          'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800': availability?.status === 'available',
+          'bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800': availability?.status === 'limited',
+          'bg-zinc-100 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700': availability?.status === 'full',
+        }"
+      >
         <div class="flex items-center gap-3">
-          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          <span class="font-mono text-sm text-green-800 dark:text-green-300">
-            1 engagement slot open for {{ currentQuarter }}
+          <span
+            class="w-2 h-2 rounded-full"
+            :class="{
+              'bg-green-500 animate-pulse': availability?.status === 'available',
+              'bg-yellow-500 animate-pulse': availability?.status === 'limited',
+              'bg-zinc-400': availability?.status === 'full',
+            }"
+          ></span>
+          <span
+            class="font-mono text-sm"
+            :class="{
+              'text-green-800 dark:text-green-300': availability?.status === 'available',
+              'text-yellow-800 dark:text-yellow-300': availability?.status === 'limited',
+              'text-zinc-600 dark:text-zinc-400': availability?.status === 'full',
+            }"
+          >
+            {{ availability?.message }}
           </span>
         </div>
       </div>
@@ -317,22 +342,42 @@ usePageSeo({
       </div>
     </section>
 
-    <!-- Pricing Signal -->
+    <!-- Pricing -->
     <section ref="pricingRef" class="section-spacing">
       <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-6">
-        <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-3">
-          Investment
+        <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-4">
+          Rates
         </h2>
-        <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-          Typical engagements run <span class="font-mono text-zinc-900 dark:text-zinc-100 font-bold">$25K–$75K</span> for 4–8 weeks of focused work.
-          Larger systems (election platforms, ongoing newsroom tools) start higher.
-        </p>
+
+        <!-- Rate cards -->
+        <div class="grid grid-cols-2 gap-4 mb-6">
+          <div class="bg-white dark:bg-zinc-900 rounded p-4 border border-zinc-200 dark:border-zinc-700">
+            <p class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 font-bold">$1,250</p>
+            <p class="font-mono text-xs text-zinc-500">per day</p>
+          </div>
+          <div class="bg-white dark:bg-zinc-900 rounded p-4 border border-zinc-200 dark:border-zinc-700">
+            <p class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 font-bold">$175</p>
+            <p class="font-mono text-xs text-zinc-500">per hour</p>
+          </div>
+        </div>
+
+        <!-- Payment terms -->
+        <div class="border-t border-zinc-200 dark:border-zinc-700 pt-4 mb-4">
+          <p class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-2">Payment</p>
+          <p class="font-serif text-zinc-700 dark:text-zinc-300">
+            <span class="font-mono text-zinc-900 dark:text-zinc-100">50% upfront</span> to start,
+            <span class="font-mono text-zinc-900 dark:text-zinc-100">50% on delivery</span>.
+            Simple.
+          </p>
+        </div>
+
         <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
           <span class="font-mono text-orange-600 dark:text-orange-400 font-bold">Rush jobs welcome.</span>
-          Tight deadline? I love those. Rush fee applies—we'll figure it out on the call.
+          Tight deadline? I love those. We'll figure it out on the call.
         </p>
+
         <p class="font-serif text-sm text-zinc-500">
-          If that's not in your budget, no hard feelings—I can sometimes recommend others.
+          Typical engagements run 5–20 days. Longer projects and retainers available.
         </p>
       </div>
     </section>
