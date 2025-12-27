@@ -568,11 +568,12 @@ usePageSeo({
           <img src="/logos/msnbc.svg" alt="MSNBC" class="h-4 dark:invert" />
           <img src="/logos/wapo.svg" alt="The Washington Post" class="h-4 dark:invert" />
           <img src="/logos/ap.svg" alt="Associated Press" class="h-3 dark:invert" />
-          <img src="/logos/github.svg" alt="GitHub" class="h-4 dark:invert" />
           <img src="/logos/gothamist.svg" alt="Gothamist" class="h-4 dark:invert" />
           <img src="/logos/wnyc.svg" alt="WNYC" class="h-3 dark:invert" />
           <img src="/logos/cmu.svg" alt="Carnegie Mellon" class="h-3 dark:invert" />
-          <img src="/logos/climate-trace.svg" alt="Climate TRACE" class="h-3 dark:invert" />
+          <img src="/logos/vocativ.svg" alt="Vocativ" class="h-3 dark:invert" />
+          <img src="/logos/oset.svg" alt="OSET Institute" class="h-3 dark:invert" />
+          <img src="/logos/opennews.svg" alt="OpenNews" class="h-3 dark:invert" />
           <img src="/logos/knight.svg" alt="Knight Foundation" class="h-3 dark:invert" />
         </div>
       </div>
