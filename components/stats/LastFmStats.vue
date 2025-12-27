@@ -38,26 +38,29 @@
       </div>
     </div>
 
-    <!-- Top Artists -->
-    <div v-if="topArtists?.length">
+    <!-- Top Artists Small Multiples -->
+    <div v-if="artistBars?.length">
       <StatsSectionHeader title="TOP ARTISTS" />
       <div class="space-y-2">
         <div
-          v-for="(artist, index) in topArtists.slice(0, 5)"
+          v-for="artist in artistBars"
           :key="artist.name"
-          class="flex items-baseline justify-between text-xs"
+          class="flex items-center gap-2 text-xs"
         >
-          <span class="text-zinc-700 dark:text-zinc-300 text-xs">
-            {{ index + 1 }}. {{ artist.name }}
+          <span
+            class="text-zinc-500 truncate w-20 text-xs"
+            :title="artist.name"
+          >
+            {{ artist.name }}
           </span>
-          <span class="text-zinc-500 tabular-nums text-xs">
-            <AnimatedNumber
-              :value="parseInt(artist.playcount)"
-              format="default"
-              :duration="400"
-              priority="tertiary"
-            />
-            plays
+          <div class="flex-1 h-2 bg-zinc-200 dark:bg-zinc-800 rounded-sm">
+            <div
+              class="h-full bg-zinc-400 dark:bg-zinc-500 rounded-sm transition-all"
+              :style="{ width: `${artist.barPct}%` }"
+            ></div>
+          </div>
+          <span class="text-zinc-500 tabular-nums w-12 text-right text-xs">
+            {{ artist.plays }}
           </span>
         </div>
       </div>
@@ -180,6 +183,21 @@ const topArtists = computed(() => {
   return (
     props.stats?.topArtists?.artists || props.stats?.topArtists?.month || []
   )
+})
+
+// Artist bars with normalized playcounts
+const artistBars = computed(() => {
+  const artists = topArtists.value.slice(0, 6)
+  if (!artists.length) return []
+
+  const counts = artists.map((a) => Number.parseInt(a.playcount) || 0)
+  const max = Math.max(...counts, 1)
+
+  return artists.map((a, i) => ({
+    name: a.name,
+    plays: counts[i],
+    barPct: Math.round((counts[i] / max) * 100),
+  }))
 })
 
 const topTracks = computed(() => {

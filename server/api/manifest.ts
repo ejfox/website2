@@ -17,6 +17,7 @@ interface Post {
   metadata?: {
     type?: string
     slug?: string
+    draft?: boolean
   }
 }
 

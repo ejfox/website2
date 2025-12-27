@@ -12,13 +12,13 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 299489,
-    "TypeScript": 224866,
-    "CSS": 13233,
+    "Vue": 324349,
+    "TypeScript": 225980,
+    "CSS": 13396,
     "JavaScript": 3513,
     "Lua": 14
   },
-  "diskUsage": 496,
+  "diskUsage": 513,
   "fileTree": {
     "files": [
       {
@@ -103,7 +103,7 @@
       },
       {
         "path": "assets/css/main.css",
-        "size": 12367
+        "size": 12530
       },
       {
         "path": "assets/css/tokens.css",
@@ -131,7 +131,7 @@
       },
       {
         "path": "components/ColorSwatches.vue",
-        "size": 8343
+        "size": 8369
       },
       {
         "path": "components/ColorTooltip.vue",
@@ -191,7 +191,7 @@
       },
       {
         "path": "components/MapPreview.vue",
-        "size": 5081
+        "size": 5198
       },
       {
         "path": "components/NvimPreview.vue",
@@ -199,7 +199,7 @@
       },
       {
         "path": "components/PresetSelector.vue",
-        "size": 3769
+        "size": 3950
       },
       {
         "path": "components/PreviewGrid.vue",
@@ -243,7 +243,7 @@
       },
       {
         "path": "nuxt.config.ts",
-        "size": 591
+        "size": 762
       },
       {
         "path": "package-lock.json",
@@ -259,7 +259,7 @@
       },
       {
         "path": "pages/showcase.vue",
-        "size": 23293
+        "size": 47829
       },
       {
         "path": "public/favicon.ico",
@@ -407,7 +407,7 @@
       },
       {
         "path": "utils/exporters/maplibre.ts",
-        "size": 26427
+        "size": 27370
       },
       {
         "path": "utils/exporters/neomutt.ts",
@@ -525,7 +525,7 @@
               "children": [
                 {
                   "name": "main.css",
-                  "size": 12367,
+                  "size": 12530,
                   "path": "assets/css/main.css"
                 },
                 {
@@ -569,7 +569,7 @@
             },
             {
               "name": "ColorSwatches.vue",
-              "size": 8343,
+              "size": 8369,
               "path": "components/ColorSwatches.vue"
             },
             {
@@ -644,7 +644,7 @@
             },
             {
               "name": "MapPreview.vue",
-              "size": 5081,
+              "size": 5198,
               "path": "components/MapPreview.vue"
             },
             {
@@ -654,7 +654,7 @@
             },
             {
               "name": "PresetSelector.vue",
-              "size": 3769,
+              "size": 3950,
               "path": "components/PresetSelector.vue"
             },
             {
@@ -721,7 +721,7 @@
             },
             {
               "name": "showcase.vue",
-              "size": 23293,
+              "size": 47829,
               "path": "pages/showcase.vue"
             }
           ],
@@ -937,7 +937,7 @@
                 },
                 {
                   "name": "maplibre.ts",
-                  "size": 26427,
+                  "size": 27370,
                   "path": "utils/exporters/maplibre.ts"
                 },
                 {
@@ -1149,7 +1149,7 @@
         },
         {
           "name": "nuxt.config.ts",
-          "size": 591,
+          "size": 762,
           "path": "nuxt.config.ts"
         },
         {
@@ -1181,7 +1181,7 @@
       "path": ""
     },
     "totalFiles": 116,
-    "totalSize": 1368005
+    "totalSize": 1394142
   },
   "topics": [],
   "readme": {
@@ -1190,6 +1190,6 @@
     "excerpt": "🎨 Live Demo — Try it now in your browser\n\na minimal theme builder for ghostty terminal with live previews of nvim, lazygit, htop, and tmux.\n\n\n\ntuftian minimali..."
   },
   "createdAt": "2025-10-24T21:15:15Z",
-  "updatedAt": "2025-12-07T17:58:56Z",
-  "pushedAt": "2025-12-07T17:58:52Z"
+  "updatedAt": "2025-12-24T21:49:15Z",
+  "pushedAt": "2025-12-24T21:49:11Z"
 }
