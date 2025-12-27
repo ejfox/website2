@@ -328,7 +328,7 @@ usePageSeo({
         </blockquote>
         <blockquote class="border-l-2 border-zinc-300 dark:border-zinc-700 pl-4">
           <p class="font-serif text-zinc-600 dark:text-zinc-400 italic">
-            "Kornacki,eli5-ing races with sleeves rolled up and an 82-inch vertical touchscreen... looked amazing with the board, panning and zooming"
+            "Kornacki, eli5-ing races with sleeves rolled up and an 82-inch vertical touchscreen... looked amazing with the board, panning and zooming"
           </p>
           <cite class="font-mono text-xs text-zinc-500 not-italic">— Vulture</cite>
         </blockquote>
