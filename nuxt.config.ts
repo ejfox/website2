@@ -197,6 +197,7 @@ export default defineNuxtConfig({
       debug: process.env.DEBUG === 'true',
       debugContent: process.env.DEBUG_CONTENT === 'true',
       nodeEnv: process.env.NODE_ENV || 'development',
+      clarityId: process.env.NUXT_PUBLIC_CLARITY_ID || '',
     },
   },
 

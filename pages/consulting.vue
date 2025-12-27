@@ -3,10 +3,36 @@ import { formatBrierScore } from '~/composables/useNumberFormat'
 
 const { data: calibration } = useCalibration()
 const { funnel, trackScrollDepth, trackTimeOnPage } = useFunnelTracking()
+const { micro } = useMicroConversions()
+
+// Element refs for section tracking
+const pricingRef = ref<HTMLElement | null>(null)
+const ctaRef = ref<HTMLElement | null>(null)
+
+// Track section visibility
+useElementVisibility(pricingRef, {
+  onVisible: () => micro.viewedPricing(),
+  threshold: 0.5,
+  once: true,
+})
+
+useElementVisibility(ctaRef, {
+  onVisible: () => micro.clickedCTA('consulting_cta_section'),
+  threshold: 0.5,
+  once: true,
+})
+
+// Exit intent tracking
+useExitIntent({
+  onExitIntent: () => {
+    // Could show modal, for now just tracks
+  },
+})
 
 // Track page view and engagement
 onMounted(() => {
   funnel.viewedConsulting()
+  micro.landed('/consulting')
   trackScrollDepth([25, 50, 75, 90])
   trackTimeOnPage([30, 60, 120])
 })
@@ -180,7 +206,7 @@ usePageSeo({
     </section>
 
     <!-- Pricing Signal -->
-    <section class="section-spacing">
+    <section ref="pricingRef" class="section-spacing">
       <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-6">
         <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-3">
           Investment
@@ -200,7 +226,7 @@ usePageSeo({
     </section>
 
     <!-- CTA -->
-    <section class="section-spacing">
+    <section ref="ctaRef" class="section-spacing">
       <div class="border border-zinc-900 dark:border-zinc-100 rounded-lg p-6">
         <h2 class="font-serif text-xl text-zinc-900 dark:text-zinc-100 mb-3">
           Ready to talk?

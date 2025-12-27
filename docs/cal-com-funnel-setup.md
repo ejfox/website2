@@ -338,8 +338,88 @@ Build a funnel report:
 
 ---
 
+## Advanced Analytics
+
+### Microsoft Clarity (Free Session Replay)
+
+Clarity provides free session recordings and heatmaps without sampling limits.
+
+**Setup:**
+1. Go to https://clarity.microsoft.com
+2. Create project for ejfox.com
+3. Copy project ID to `NUXT_PUBLIC_CLARITY_ID` env var
+
+**What it tracks automatically:**
+- Session recordings (full video replay)
+- Heatmaps (click, scroll, area)
+- Rage clicks (user clicking same spot repeatedly)
+- Dead clicks (clicking on non-interactive elements)
+- Quick-backs (user leaves and returns quickly)
+- Excessive scrolling
+- JavaScript errors
+
+**Using with funnel analysis:**
+- Filter recordings by URL to see /consulting and /calendar sessions
+- Look for rage clicks on CTA buttons (broken? too small?)
+- Watch recordings of users who hit /calendar but didn't book
+- Identify where users get stuck in the booking form
+
+### Micro-Conversions
+
+The funnel tracks granular "micro-conversions" via `useMicroConversions()`:
+
+| Event | Step | Meaning |
+|-------|------|---------|
+| `micro_landed` | 1 | Visitor arrived |
+| `micro_scrolled_past_fold` | 2 | Scrolled down the page |
+| `micro_read_30s` | 2 | Spent 30s reading |
+| `micro_read_60s` | 2 | Spent 60s reading |
+| `micro_viewed_pricing` | 3 | Saw pricing section |
+| `micro_viewed_case_studies` | 3 | Saw case studies |
+| `micro_clicked_cta` | 3 | Clicked a call-to-action |
+| `micro_viewed_calendar` | 4 | Visited calendar page |
+| `micro_calendar_loaded` | 4 | Cal.com widget rendered |
+| `micro_selected_date` | 5 | Picked a date |
+| `micro_selected_time` | 5 | Picked a time slot |
+| `micro_started_form` | 5 | Started filling booking form |
+| `micro_completed_booking` | 6 | Booking confirmed |
+
+**B2B Benchmark Conversion Rates:**
+- Visitor → Engaged: 35%
+- Engaged → Interested: 20%
+- Interested → Calendar: 15%
+- Calendar → Booking: 25%
+- Booking → Meeting: 80%
+
+### Exit Intent Detection
+
+The `useExitIntent()` composable tracks when users are about to leave:
+
+- Mouse moving toward browser chrome (desktop)
+- Tab visibility change (switching away)
+- Back button / navigation away
+
+Use this data to identify abandonment patterns.
+
+### Section Visibility Tracking
+
+The `useElementVisibility()` composable tracks when page sections become visible:
+
+```typescript
+useElementVisibility(pricingRef, {
+  onVisible: () => micro.viewedPricing(),
+  threshold: 0.5, // 50% visible
+  once: true,
+})
+```
+
+This is more accurate than scroll percentage for tracking content consumption.
+
+---
+
 ## Checklist
 
+### Cal.com Setup
 - [ ] Create "Consulting Discovery Call" event type
 - [ ] Add 5 booking questions (project, timeline, budget, source, notes)
 - [ ] Record 3-min Loom prep video
@@ -348,9 +428,20 @@ Build a funnel report:
 - [ ] Set up Workflow 3: 2-hour reminder
 - [ ] Set up Workflow 4: No-show follow-up
 - [ ] Set up Cal.com webhook to /api/webhooks/calcom
-- [ ] Create Umami funnel report
 - [ ] (Optional) Set up routing form for volume filtering
-- [ ] Test the full flow yourself
+
+### Analytics Setup
+- [ ] Create Umami funnel report with micro-conversion events
+- [ ] Set up Microsoft Clarity project
+- [ ] Add `NUXT_PUBLIC_CLARITY_ID` to environment variables
+- [ ] Test attribution tracking with UTM parameters
+- [ ] Verify webhook is receiving booking events
+
+### Validation
+- [ ] Test the full flow yourself (landing → consulting → calendar → booking)
+- [ ] Check Umami for funnel events
+- [ ] Check Clarity for session recordings
+- [ ] Verify attribution data in Cal.com webhook payload
 
 ---
 
