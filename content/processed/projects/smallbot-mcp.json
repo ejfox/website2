@@ -1,5 +1,5 @@
 {
-  "html": "<h2 class=\"\" id=\"smallbot-mcp\">Smallbot MCP</h2>\n<p class=\"\"><a href=\"https://www.smallweb.run\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Smallweb</a> is a really unique tool to create a filesystem based system for rapidly-deployed deno apps, and it pairs really well with a robot companion.</p>\n<p class=\"\">Nowadays when I have an idea for a website and I just want it to exist, without spending three hours setting up a build pipeline configuring DNS. Smallbot is an incredible tool to defeat that particular form of procrastination—a robot that takes \"make me a site about <a href=\"https://youtube.com/shorts/i6IZSkmqNSo\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">northeastern trees<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z\" class=\"\"></path></svg></a>\" and actually builds the thing.</p>\n<p class=\"\">I made a <a href=\"https://www.youtube.com/watch?v=thIt-JXYbco\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">video with the creator of Smallweb<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z\" class=\"\"></path></svg></a> about how easy it is to get setup, and I love how much the project embodies <a href=\"https://www.are.na/ej-fox/neo-internet-philosophy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">indieweb philosophies</a></p>\n<p class=\"\">This is a tool built on the MCP (Model Context Protocol) so it can talk to Claude and other AI assistants and give them the tools and documentation to make little Smallweb sites easily, on-the-fly.</p>",
+  "html": "<h2 class=\"\" id=\"the-problem\">The Problem</h2>\n<p class=\"\">You have an idea for a website. Maybe it's a visualization, a tool, a quick demo. But between \"idea\" and \"deployed\" is an hour of DNS configuration, build pipelines, and deployment scripts. By then, the energy is gone.</p>\n<h2 class=\"\" id=\"what-i-built\">What I Built</h2>\n<p class=\"\"><a href=\"https://github.com/ejfox/smallbot-mcp\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Smallbot MCP<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12\" class=\"\"></path></svg></a>—an MCP server that lets AI assistants (Claude, etc.) create and deploy websites instantly using <a href=\"https://www.smallweb.run\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Smallweb</a>.</p>\n<p class=\"\"><strong class=\"\">How it works:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Say \"make me a site about northeastern trees\"</li>\n<li class=\"\">AI generates the code via MCP tools</li>\n<li class=\"\">Smallweb deploys it to a real URL</li>\n<li class=\"\">Done in seconds, not hours</li>\n</ul>\n<h2 class=\"\" id=\"why-mcp\">Why MCP?</h2>\n<p class=\"\">Model Context Protocol gives AI assistants the ability to take real actions—not just generate text. Smallbot is a practical example: give Claude the tools to create websites, and it actually creates websites.</p>\n<p class=\"\">Made a <a href=\"https://www.youtube.com/watch?v=thIt-JXYbco\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">video with Smallweb's creator<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z\" class=\"\"></path></svg></a> showing the setup. Part of my broader work on AI-human creative workflows and <a href=\"https://www.are.na/ej-fox/neo-internet-philosophy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">indieweb philosophies</a>.</p>",
   "title": "Smallbot MCP",
   "metadata": {
     "title": "Smallbot MCP",
@@ -8,17 +8,23 @@
     "url": "https://github.com/ejfox/smallbot-mcp",
     "tech": [
       "MCP",
-      "AI",
-      "Web Generation",
-      "Node.js"
+      "TypeScript",
+      "Deno",
+      "AI Tooling"
     ],
     "state": "deployed",
     "aiInvolvement": "ai-enhanced",
+    "industry": [
+      "AI/ML",
+      "Developer Tools"
+    ],
+    "client": "Open Source",
     "tags": [
       "ai",
-      "web"
+      "web",
+      "mcp"
     ],
-    "words": 146,
+    "words": 154,
     "images": 0,
     "imageDetails": {
       "total": 0,
@@ -28,18 +34,30 @@
     "links": 4,
     "codeBlocks": 0,
     "headers": {
-      "h2": 1
+      "h2": 3
     },
     "toc": [
       {
-        "text": "Smallbot MCP",
-        "slug": "smallbot-mcp",
+        "text": "The Problem",
+        "slug": "the-problem",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I Built",
+        "slug": "what-i-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Why MCP?",
+        "slug": "why-mcp",
         "level": "h2",
         "children": []
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/projects/smallbot-mcp.md",
+    "sourcePath": "../../../../../../../data2/website2/content/blog/projects/smallbot-mcp.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

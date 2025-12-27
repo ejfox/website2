@@ -3,20 +3,33 @@ title: 'Smallbot MCP'
 date: 2025-08-02T00:00:00-04:00
 modified: 2025-08-13T13:17:13-04:00
 url: https://github.com/ejfox/smallbot-mcp
-tech: ['MCP', 'AI', 'Web Generation', 'Node.js']
+tech: ['MCP', 'TypeScript', 'Deno', 'AI Tooling']
 state: deployed
 aiInvolvement: ai-enhanced
+industry: ['AI/ML', 'Developer Tools']
+client: Open Source
 tags:
   - ai
   - web
+  - mcp
 ---
 
-## Smallbot MCP
+## The Problem
 
-[Smallweb](https://www.smallweb.run) is a really unique tool to create a filesystem based system for rapidly-deployed deno apps, and it pairs really well with a robot companion.
+You have an idea for a website. Maybe it's a visualization, a tool, a quick demo. But between "idea" and "deployed" is an hour of DNS configuration, build pipelines, and deployment scripts. By then, the energy is gone.
 
-Nowadays when I have an idea for a website and I just want it to exist, without spending three hours setting up a build pipeline configuring DNS. Smallbot is an incredible tool to defeat that particular form of procrastination—a robot that takes "make me a site about [northeastern trees](https://youtube.com/shorts/i6IZSkmqNSo)" and actually builds the thing.
+## What I Built
 
-I made a [video with the creator of Smallweb](https://www.youtube.com/watch?v=thIt-JXYbco) about how easy it is to get setup, and I love how much the project embodies [indieweb philosophies](https://www.are.na/ej-fox/neo-internet-philosophy)
+[Smallbot MCP](https://github.com/ejfox/smallbot-mcp)—an MCP server that lets AI assistants (Claude, etc.) create and deploy websites instantly using [Smallweb](https://www.smallweb.run).
 
-This is a tool built on the MCP (Model Context Protocol) so it can talk to Claude and other AI assistants and give them the tools and documentation to make little Smallweb sites easily, on-the-fly.
+**How it works:**
+- Say "make me a site about northeastern trees"
+- AI generates the code via MCP tools
+- Smallweb deploys it to a real URL
+- Done in seconds, not hours
+
+## Why MCP?
+
+Model Context Protocol gives AI assistants the ability to take real actions—not just generate text. Smallbot is a practical example: give Claude the tools to create websites, and it actually creates websites.
+
+Made a [video with Smallweb's creator](https://www.youtube.com/watch?v=thIt-JXYbco) showing the setup. Part of my broader work on AI-human creative workflows and [indieweb philosophies](https://www.are.na/ej-fox/neo-internet-philosophy).
