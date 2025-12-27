@@ -343,6 +343,7 @@ usePageSeo({
           <img src="/logos/msnbc.svg" alt="MSNBC" class="h-4 dark:invert" />
           <img src="/logos/wapo.svg" alt="The Washington Post" class="h-4 dark:invert" />
           <img src="/logos/ap.svg" alt="Associated Press" class="h-3 dark:invert" />
+          <img src="/logos/github.svg" alt="GitHub" class="h-4 dark:invert" />
           <img src="/logos/gothamist.svg" alt="Gothamist" class="h-4 dark:invert" />
           <img src="/logos/wnyc.svg" alt="WNYC" class="h-3 dark:invert" />
           <img src="/logos/cmu.svg" alt="Carnegie Mellon" class="h-3 dark:invert" />
