@@ -335,12 +335,15 @@ usePageSeo({
     <!-- #2: Social Proof at Decision Point -->
     <section ref="ctaRef" class="section-spacing">
       <div class="text-center mb-6">
-        <p class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-3">
+        <p class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-4">
           Trusted by teams at
         </p>
-        <p class="font-serif text-lg text-zinc-900 dark:text-zinc-100">
-          NBC News · Gothamist · Carnegie Mellon · Knight Foundation
-        </p>
+        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-8 opacity-70">
+          <img src="/logos/nbc-news.svg" alt="NBC News" class="h-5 md:h-6 dark:invert" />
+          <img src="/logos/gothamist.svg" alt="Gothamist" class="h-5 md:h-6 dark:invert" />
+          <img src="/logos/cmu.svg" alt="Carnegie Mellon" class="h-4 md:h-5 dark:invert" />
+          <img src="/logos/knight.svg" alt="Knight Foundation" class="h-4 md:h-5 dark:invert" />
+        </div>
       </div>
 
       <!-- #3: Risk Reversal -->
