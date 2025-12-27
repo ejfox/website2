@@ -1,5 +1,24 @@
 <template>
   <div class="calendar-page">
+    <!-- Context before booking -->
+    <header class="max-w-xl mb-8">
+      <h1 class="font-serif text-2xl md:text-3xl font-normal mb-4" style="letter-spacing: -0.02em">
+        Book a Discovery Call
+      </h1>
+      <p class="font-serif text-zinc-600 dark:text-zinc-400 mb-4">
+        30 minutes. You tell me the problem, I tell you if I can help.
+        No pitch deck needed.
+      </p>
+      <div class="font-mono text-xs text-zinc-500 space-y-1">
+        <p>After you book, you'll get:</p>
+        <ul class="list-disc list-inside ml-2 space-y-0.5">
+          <li>A short prep video so you know what to expect</li>
+          <li>Reminders so we don't miss each other</li>
+          <li>A follow-up with next steps if it's a fit</li>
+        </ul>
+      </div>
+    </header>
+
     <!-- Cal.com inline embed target -->
     <div id="cal-embed" class="cal-embed-container"></div>
   </div>
