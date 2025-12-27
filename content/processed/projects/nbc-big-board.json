@@ -1,5 +1,5 @@
 {
-  "html": "<p class=\"\">I spearheaded an internal effort to develop <a href=\"https://www.newscaststudio.com/2018/11/05/nbc-big-board-update/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">new D3-powered mapping software</a> for visualizing election maps and results live - the touchscreen app wielded by Steve Kornacki known as the \"Big Board\". Built for real-time county-level election analysis.</p>\n<p class=\"\"><a href=\"https://www.youtube.com/watch?v=p4KIMQsVkt8\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">2016 NBC News County-Level Election Maps<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z\" class=\"\"></path></svg></a></p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755101296/IMG_5294_dpmmkr.jpg\" alt=\"https://res.cloudinary.com/ejf/image/upload/v1755101296/IMG_5294_dpmmkr.jpg\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755101296/IMG_5294_dpmmkr.jpg 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755101296/IMG_5294_dpmmkr.jpg 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755101296/IMG_5294_dpmmkr.jpg 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755101273/IMG_6264_ubgaak.jpg\" alt=\"https://res.cloudinary.com/ejf/image/upload/v1755101273/IMG_6264_ubgaak.jpg\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755101273/IMG_6264_ubgaak.jpg 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755101273/IMG_6264_ubgaak.jpg 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755101273/IMG_6264_ubgaak.jpg 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755101285/IMG_5444_mn2u7z.jpg\" alt=\"https://res.cloudinary.com/ejf/image/upload/v1755101285/IMG_5444_mn2u7z.jpg\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755101285/IMG_5444_mn2u7z.jpg 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755101285/IMG_5444_mn2u7z.jpg 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755101285/IMG_5444_mn2u7z.jpg 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>",
+  "html": "<h2 class=\"\" id=\"the-challenge\">The Challenge</h2>\n<p class=\"\">NBC News needed a way for anchors to explore election results live on air—zooming into counties, comparing historical data, and explaining vote margins in real-time. The existing tools couldn't handle the speed and flexibility required for live broadcast.</p>\n<h2 class=\"\" id=\"what-i-built\">What I Built</h2>\n<p class=\"\">I proposed and led development of the Big Board—the touchscreen election visualization system Steve Kornacki uses on MSNBC. Built entirely with web technologies (HTML, CSS, JavaScript, D3), which <a href=\"https://www.newscaststudio.com/2018/11/05/nbc-big-board-update/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">NBC believes was an industry first</a> for broadcast election graphics.</p>\n<p class=\"\"><strong class=\"\">Key capabilities:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Multi-touch zoom to view any district, no matter how small</li>\n<li class=\"\">Historical data for any race in the past decade</li>\n<li class=\"\">Real-time data integration with election feeds</li>\n<li class=\"\">Smooth enough for live TV (no lag, no crashes)</li>\n</ul>\n<h2 class=\"\" id=\"technical-details\">Technical Details</h2>\n<p class=\"\">The system runs as an HTML5 web app in Chrome kiosk mode on a commodity gaming PC (Intel i7, ATI Radeon GPU), paired with large Planar touchscreen displays. D3.js handles all visualizations and animations.</p>\n<p class=\"\">Same codebase works on-air and embedded on NBC's web properties.</p>\n<h2 class=\"\" id=\"results\">Results</h2>\n<ul class=\"list-disc\">\n<li class=\"\"><strong class=\"\">19M+ viewers</strong> on election night 2018</li>\n<li class=\"\"><strong class=\"\">Zero crashes</strong> across multiple election cycles</li>\n<li class=\"\">Featured in <a href=\"https://www.nytimes.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">The New York Times<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><g fill=\"none\" stroke=\"currentColor\" stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" class=\"\"><path d=\"M11.036 5.058a8 8 0 1 0 8.706 9.965\" class=\"\"></path><path d=\"M12 21V10l-7.5 4m13-11a2.5 2.5 0 1 1 0 5l-11-5a2.5 2.5 0 0 0-.67 4.91M9 12v8m7-7h-.01\" class=\"\"></path></g></svg></a>: \"A newly juiced-up model of the board that can zoom in on the most obscure House districts\"</li>\n<li class=\"\"><a href=\"https://www.vulture.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Vulture</a>: \"Kornacki, eli5-ing races with sleeves rolled up and an 82-inch vertical touchscreen... looked amazing with the board, panning and zooming\"</li>\n</ul>\n<p class=\"\"><a href=\"https://www.youtube.com/watch?v=p4KIMQsVkt8\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">2016 NBC News County-Level Election Maps<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z\" class=\"\"></path></svg></a></p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755101296/IMG_5294_dpmmkr.jpg\" alt=\"https://res.cloudinary.com/ejf/image/upload/v1755101296/IMG_5294_dpmmkr.jpg\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755101296/IMG_5294_dpmmkr.jpg 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755101296/IMG_5294_dpmmkr.jpg 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755101296/IMG_5294_dpmmkr.jpg 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755101273/IMG_6264_ubgaak.jpg\" alt=\"https://res.cloudinary.com/ejf/image/upload/v1755101273/IMG_6264_ubgaak.jpg\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755101273/IMG_6264_ubgaak.jpg 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755101273/IMG_6264_ubgaak.jpg 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755101273/IMG_6264_ubgaak.jpg 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755101285/IMG_5444_mn2u7z.jpg\" alt=\"https://res.cloudinary.com/ejf/image/upload/v1755101285/IMG_5444_mn2u7z.jpg\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755101285/IMG_5444_mn2u7z.jpg 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755101285/IMG_5444_mn2u7z.jpg 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755101285/IMG_5444_mn2u7z.jpg 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>",
   "title": "NBC News Big Board",
   "metadata": {
     "title": "NBC News Big Board",
@@ -8,31 +8,65 @@
     "tech": [
       "D3.js",
       "JavaScript",
+      "HTML5",
       "Touch Interface",
-      "Election Data"
+      "Election Data",
+      "Chrome Kiosk"
     ],
     "featured": true,
     "state": "deployed",
     "aiInvolvement": "human-only",
+    "industry": [
+      "Broadcast Media",
+      "Elections"
+    ],
+    "client": "NBC News / MSNBC",
     "tags": [
       "d3",
       "dataviz",
       "javascript",
       "elections"
     ],
-    "words": 48,
+    "words": 243,
     "images": 3,
     "imageDetails": {
       "total": 3,
       "cloudinary": 3,
       "withDimensions": 0
     },
-    "links": 5,
+    "links": 7,
     "codeBlocks": 0,
-    "headers": {},
-    "toc": [],
+    "headers": {
+      "h2": 4
+    },
+    "toc": [
+      {
+        "text": "The Challenge",
+        "slug": "the-challenge",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I Built",
+        "slug": "what-i-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Technical Details",
+        "slug": "technical-details",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Results",
+        "slug": "results",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/projects/nbc-big-board.md",
+    "sourcePath": "../../../../../../../data2/website2/content/blog/projects/nbc-big-board.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }
