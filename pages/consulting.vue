@@ -149,31 +149,31 @@ const recentCommits = computed(() => {
 
 const specialties = [
   {
-    title: 'Election Night Systems',
-    description: 'Real-time visualization that doesn\'t crash when 50 million people are watching.',
-    proof: 'NBC Big Board: 19M viewers on election night 2018. Zero crashes. Featured in NYT and Vulture.',
+    title: 'Rapid Prototyping',
+    description: 'Ideas to working software in days, not months. I build the thing so you can see if it works.',
+    proof: 'NBC Big Board started as a weekend prototype. 9 months later: 19M viewers, zero crashes.',
   },
   {
-    title: 'Investigative Data Analysis',
-    description: 'Finding patterns in messy datasets that hold up to scrutiny.',
-    proof: 'NYPD analysis: 180K+ complaints, 113K officer nodes. Findings confirmed by victim interviews for Gothamist.',
+    title: 'Creative AI Applications',
+    description: 'Making AI do things it wasn\'t obviously designed for. Novel interfaces, weird tools, useful magic.',
+    proof: 'Coach Artie, MCP servers, AI-assisted workflows that actually ship.',
   },
   {
-    title: 'Public Interest Dashboards',
-    description: 'Making complex data accessible without dumbing it down.',
-    proof: 'CMU COVIDcast: Helped millions track pandemic spread during peak uncertainty.',
+    title: 'High-Stakes Systems',
+    description: 'When failure isn\'t an option. Election nights, live broadcasts, public health crises.',
+    proof: 'CMU COVIDcast, NBC election systems, investigative data viz for Gothamist.',
   },
 ]
 
 const notFor = [
-  'Generic BI dashboards',
-  'Projects without editorial stakes',
+  'Maintenance of existing systems',
+  'Projects where "good enough" is the goal',
   'Engagements under 5 days',
 ]
 
 usePageSeo({
   title: 'Consulting · EJ Fox',
-  description: 'High-stakes data visualization for newsrooms, investigations, and public interest. Built NBC\'s election Big Board. Limited availability.',
+  description: 'I make computers do things no one\'s seen before. Rapid prototyping, creative AI, high-stakes systems. Limited availability.',
   type: 'website',
   section: 'Consulting',
   tags: ['Consulting', 'Data Visualization', 'Elections', 'Journalism'],
@@ -188,12 +188,11 @@ usePageSeo({
         Consulting via Room 302 Studio
       </p>
       <h1 class="font-serif text-3xl md:text-4xl font-normal mb-6" style="letter-spacing: -0.02em">
-        I build data systems for moments when failure isn't an option.
+        I make computers do things no one's seen before.
       </h1>
       <p class="font-serif text-lg text-zinc-600 dark:text-zinc-400 mb-6">
-        You've got a dataset that could change the story—but your current tools can't show it.
-        Or you're 8 weeks from election night and the touchscreen software is held together with duct tape.
-        That's when you call me.
+        You have an idea that doesn't fit in existing tools. A prototype that needs to become real.
+        A vision for something that doesn't exist yet. I build those things.
       </p>
 
       <!-- Photo - 39% conversion lift from showing face -->
@@ -285,12 +284,12 @@ usePageSeo({
     <!-- Why Now -->
     <section class="section-spacing border-l-2 border-orange-400 dark:border-orange-600 pl-4 bg-orange-50/50 dark:bg-orange-900/10 -mx-4 px-4 py-4 rounded-r">
       <p class="font-mono text-xs text-orange-600 dark:text-orange-400 uppercase tracking-wide mb-2">
-        2024-2025
+        The moment
       </p>
       <p class="font-serif text-zinc-700 dark:text-zinc-300">
-        Election cycles, AI-disrupted newsrooms, climate deadlines converging.
-        Newsrooms need people who understand both the journalism and the engineering.
-        That intersection is getting rarer, not more common.
+        AI is creating new possibilities faster than most teams can explore them.
+        The gap between "that's a cool idea" and "that's a working prototype" is where I live.
+        Let's build something that doesn't exist yet.
       </p>
     </section>
 
