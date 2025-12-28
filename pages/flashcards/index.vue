@@ -104,25 +104,16 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
         <div class="flex items-baseline gap-4 mb-6">
           <h2 class="text-xl font-light text-zinc-100">{{ course }}</h2>
           <span class="font-mono text-xs text-zinc-600 tabular-nums">
-            {{
-              courseDecks.reduce((s, d) => s + d.cardCount, 0)
-            }}
+            {{ courseDecks.reduce((s, d) => s + d.cardCount, 0) }}
             cards
           </span>
         </div>
 
         <!-- Deck list -->
         <div class="space-y-2">
-          <div
-            v-for="deck in courseDecks"
-            :key="deck.id"
-            class="deck-item"
-          >
+          <div v-for="deck in courseDecks" :key="deck.id" class="deck-item">
             <!-- Deck header row -->
-            <div
-              class="deck-header"
-              @click="toggleDeck(deck.id)"
-            >
+            <div class="deck-header" @click="toggleDeck(deck.id)">
               <div class="flex items-center gap-3">
                 <span
                   class="expand-icon"
@@ -152,10 +143,7 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
                 <span class="card-front">{{ card[0] }}</span>
                 <span class="card-back">{{ card[1] || '—' }}</span>
               </div>
-              <div
-                v-if="deck.cards.length > 10"
-                class="card-row text-zinc-600"
-              >
+              <div v-if="deck.cards.length > 10" class="card-row text-zinc-600">
                 + {{ deck.cards.length - 10 }} more cards
               </div>
             </div>

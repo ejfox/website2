@@ -47,12 +47,14 @@ function parseDeckName(filename: string): { course: string; name: string } {
 }
 
 function formatWeekName(s: string): string {
-  return s
-    .split('-')
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(' ')
-    // Insert space before numbers: "Week01" -> "Week 01"
-    .replace(/([a-zA-Z])(\d)/g, '$1 $2')
+  return (
+    s
+      .split('-')
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ')
+      // Insert space before numbers: "Week01" -> "Week 01"
+      .replace(/([a-z])(\d)/gi, '$1 $2')
+  )
 }
 
 // Parse CSV rows (no header assumed)
