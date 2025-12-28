@@ -1,0 +1,1139 @@
+Sugar Maple,,
+What is this tree?,Loblolly pine (pinus taeda)
+Red Maple,,
+What is this tree?,Sugar Maple (Acer saccharum)
+What tree do these belong to?,"Acer rubrum, the red maple
+
+also known as swamp maple, water maple or soft maple"
+Eastern White Pine,,
+White Oak,,
+What is this tree?,"Acer rubrum, the red maple, 
+
+also known as swamp maple, water maple or soft maple
+"
+Flowering Dogwood,,
+Norway Maple,,
+American Beech,,
+Douglas Fir,,
+Black Birch,,
+Hornbeam,,
+Staghorn Sumac,,
+Black Walnut,,
+Black Cherry,,
+Chaga,"Inonotus obliquus
+",
+Reishi,Ganoderma lingzhi,
+Lion’s Mane,Hericium erinaceus,"monkey head mushroom, bearded tooth mushroom, satyr's beard, bearded hedgehog mushroom, pom pom mushroom, or bearded tooth fungus
+",
+Cordyceps,a genus of ascomycete fungi,
+Maitake,Grifola frondosa,,Hen-of-the-woods
+Shiitake,Lentinula edodes,
+Turkey tail,Coriolus versicolor and Polyporus versicolor,
+How to quit vim?,q,w,z,esc
+How to save and quit vim?,wq
+Better alternative to wget or curl,http
+How to scroll up in tmux?,"Ctrl-a
+Fn + up/down arrow"
+How to select text in vim?,v
+How to list a directory and include dot files?,ls -a
+How do I easily make a license file for a project?,mklicense
+How do you download a file?,http --download URL
+How do you unzip a zip file?,unzip
+How to insert line below in vim (in normal mode)?,o for blank line after,O for blank line before
+Delete current line in vim,dd
+Skip to line in vim,"line number 
+shift-g"
+Expand the current tmux pane to take up the entire window,ctrl-a z
+Control spotify,spt
+Show system stats,btm
+Better alternative to cat,bat
+What tool replaces `cd` with fuzzy matching?,`zoxide`
+What is a quick alternative to `cd` a full path? ,`z [PATH]` to intelligently fuzzy-find based on recent activity
+What key opens fuzzy command search with `atuin` ?,ctrl-r
+What command line tool makes it easy to render .md files?,`glow`
+How do you create a new branch with your current changes in git?,git switch -c topic/wip -m
+What does the * key do in Neovim?,"Searches forward for the exact word under cursor. Use n to go to next match, N for previous match."
+What does the # key do in Neovim?,"Searches backward for the exact word under cursor. Use n to go to next match, N for previous match."
+How do you quickly find and open any file in your project?,Press <Space>ff to open Telescope file finder.
+How do you view and switch between all open buffers/files?,Press <Space>fb to show all open buffers in a searchable list.
+How do you jump to the definition of a function or variable?,Press gd (go to definition) with cursor on the symbol.
+How do you quickly cycle through open files without menus?,<Space>Tab  to switch between open buffers
+What key do you press to open Telescope file finder?,<Space>ff
+How to livegrep in lazyvim/neovim?,Leader (space) /
+How to fold everything down to top-level?,zM
+"If everything is folded, how do we un-fold it one level?",`zr`
+What does pressing f followed by a character do in LazyVim's Find mode?,Jumps the cursor forward to the next instance of that character.
+How do you jump to the 3rd instance of a character using Find mode?, Type 3f followed by the character.
+What’s the difference between Find (f) and “To” (t) mode?,“To” mode moves before the target character instead of on it.
+What does d2ts do in LazyVim?,Deletes text from the cursor up to before the second instance of s.
+What does Ctrl-o do in Neovim?,Jumps back to the previous location in the jump history.
+What is the opposite of Ctrl-o in Neovim?,"Ctrl-i, which jumps forward in the jump history."
+What happens visually when you enter Seek mode?,Part of the screen dims and labels appear on targets.
+What does f<char> do in Find mode?,Jumps forward to the next instance of <char>.
+"What does t<char> do in To mode?
+
+",Jumps just before the <char> (forward).
+How do you repeat a Find jump forward?,Press ;
+How do you repeat a Find jump backward?,"Press ,"
+Which mode should you use for longer-range navigation: Seek or Find?,Seek — shows labeled targets without counting.
+What keybinding opens the Snacks file picker in LazyVim?,<Space><Space> (Spacebar twice)
+How do you change directories from inside LazyVim?,Use :cd /path/to/dir and press <Enter>
+How do you change a window's working directory?,:lcd
+What key is used to add a new file or folder in the explorer?,a — Use with a trailing slash (/) to create a folder.
+How do you rename a file or folder in the explorer?,Press r while the item is selected.
+What does the y key do in the explorer?,"It ""yanks"" (copies) the selected file to the pseudo-clipboard."
+What key is used to move a file or folder in the explorer?,m
+Better than bracket jumping to find symbols?,"<space>ss - fuzzy search symbols in file (mnemonic: ""search symbols"")"
+Find any file in project fast?,"<space>ff - fuzzy find files (mnemonic: ""find file"")"
+Search for text across ALL files?,"<space>sg - live grep search (mnemonic: ""search grep"")"
+Search for word under cursor across project?,"<space>sw - search word under cursor (mnemonic: ""search word"")"
+Resume last telescope search?,"<space>sr - resume (mnemonic: ""search resume"")"
+What does * do in normal mode?,Search forward for word under cursor (exact match)
+What does # do in normal mode?,Search backward for word under cursor (exact match)
+Search word under cursor (partial match)?,"g* forward, g# backward (finds ""test"" in ""testing"")"
+Jump to next search result?,"n (mnemonic: ""next"")"
+Jump to previous search result?,N (shift-n = backwards)
+What's the jumplist?,"History of cursor positions across files (Ctrl-o = back, Ctrl-i = forward)"
+Go back to previous location?,"Ctrl-o (mnemonic: ""o"" = ""out/old"")"
+Go forward in jump history?,"Ctrl-i (mnemonic: ""i"" = ""in"")"
+See all your jumps?,:jumps or <space>sj
+What's the changelist?,"History of edit locations (g; = back, g, = forward)"
+Jump to last edit location?,g; (mnemonic: semicolon points back)
+Jump forward in changelist?,"g, (mnemonic: comma points forward)"
+Set a mark at current position?,"m{letter} - lowercase=file, uppercase=global (ma, mB, etc)"
+Jump to mark?,"'{letter} - line start, `{letter} - exact position"
+List all marks?,:marks
+What's the `` mark?,Backtick twice - jumps to last jump position
+What's the '. mark?,Last change position (line start)
+What's the '^ mark?,Last insert position
+Search within current buffer (besides /)?,<space>/ - fuzzy search current buffer lines
+Find recent files?,"<space>fr - recent files (mnemonic: ""find recent"")"
+Find buffers?,"<space>fb or <space>, - buffer list"
+Close current buffer?,<space>bd - buffer delete (safer than :bd)
+Visual select then search that text?,"y to yank, then /<Ctrl-r>"" to paste into search"
+Better: search visual selection?,"Select text, then <space>sw (if in visual mode) or * after visual select"
+Go to definition (text-based fallback)?,"gd tries LSP first, gD goes to first occurrence in file"
+Find references without LSP?,<space>sw on the symbol name
+Jump to matching bracket?,"% (works on (), [], {}, HTML tags)"
+Center screen on cursor?,"zz (mnemonic: ""zoom"" or cursor in ""middle"")"
+Scroll down half screen?,"Ctrl-d (mnemonic: ""down"")"
+Scroll up half screen?,"Ctrl-u (mnemonic: ""up"")"
+Go to top of file?,gg
+Go to bottom of file?,G (shift-g)
+Go to line number?,:42 or 42gg or 42G
+Move by paragraph?,"{ up, } down"
+Move by sentence?,"( back, ) forward"
+Jump to start of line?,0 (zero) or ^ (first non-blank)
+Jump to end of line?,$
+Find character forward in line?,"f{char} (mnemonic: ""find"") - then ; to repeat"
+Find character backward in line?,"F{char} (shift-f) - then , to repeat"
+Till character (stop before)?,"t{char} forward, T{char} backward (mnemonic: ""till"")"
+Repeat last f/F/t/T motion?,"; forward, , backward"
+Word forward?,"w (start of word), e (end of word)"
+Word backward?,b (back)
+WORD forward (ignore punctuation)?,"W, E, B (uppercase = big words)"
+What's a text object?,"Inner/around combo for structured editing (iw, aw, i"", a(, etc)"
+Change inside word?,"ciw (mnemonic: ""change inner word"")"
+Delete around paragraph?,"dap (mnemonic: ""delete around paragraph"")"
+Visual select inside brackets?,vi{ or vi[ or vi( - works on any bracket
+Change inside quotes?,"ci"" or ci' (mnemonic: ""change inner quotes"")"
+What does 'around' include that 'inner' doesn't?,"Surrounding whitespace/delimiters (aw includes spaces, a"" includes quotes)"
+Split window vertically?,<space>| or :vsp
+Split window horizontally?,<space>- or :sp
+Navigate between windows?,Ctrl-h/j/k/l (vim directions)
+Close window?,<space>wd or Ctrl-w c
+Make window full screen (toggle)?,<space>wm or Ctrl-w |
+Open file explorer?,<space>e (LazyVim default = neo-tree)
+Toggle terminal?,<space>ft or Ctrl-/ (floats a terminal)
+Search command history?,"<space>sc (mnemonic: ""search commands"")"
+Search help docs?,"<space>sh (mnemonic: ""search help"")"
+Search LazyVim keymaps?,"<space>sk (mnemonic: ""search keys"")"
+Undo?,u
+Redo?,Ctrl-r
+See undo tree?,<space>su or :UndotreeToggle (if installed)
+Repeat last command?,. (dot) - most powerful vim command
+What does . repeat?,"Last change (insert, delete, replace, etc) - NOT motions"
+Macro: start recording?,q{letter} - records to register (qa = record to 'a')
+Macro: stop recording?,q (press q again)
+Macro: replay?,@{letter} - then @@ to repeat last macro
+Better than LSP for Vue projects?,"Text search (<space>sw, *, #) + telescope symbols (<space>ss)"
+LazyVim which-key delay?,Shows menu after ~200ms on <space> - wait to see options
+Mnemonic for <space>s* commands?,"""search"" - sg=grep, ss=symbols, sw=word, sf=files"
+Mnemonic for <space>f* commands?,"""find"" - ff=files, fr=recent, fb=buffers"
+When to use marks vs jumplist?,"Marks = manual bookmarks you set, jumplist = automatic history"
+Fastest way to jump between two spots?,"Set mark ma at one, mb at other, then 'a and 'b to toggle"
+Why use f{char} over /search?,"Faster for same-line navigation, no search highlighting pollution"
+Telescope in insert mode?,Usually Ctrl-/ toggles - check which-key for mappings
+Search files by name pattern?,<space>ff then type partial name (fuzzy matches)
+Case sensitivity in search?,"/pattern\c = ignore case, /pattern\C = force case sensitive"
+Smart case search default?,"Usually enabled - lowercase=ignore case, any uppercase=case sensitive"
+Clear search highlighting?,"<space>ur or :noh (mnemonic: ""no highlight"")"
+Visual mode line select?,V (shift-v) - selects full lines
+Visual mode block select?,Ctrl-v - rectangular selection
+Reselect last visual selection?,gv
+Indent in visual mode?,"> indent right, < indent left, then . to repeat"
+Move lines up/down in visual?,"J moves down, K moves up (LazyVim remaps)"
+Join lines?,"J in normal mode (mnemonic: ""join"")"
+LazyVim lazy.nvim UI?,<space>l or :Lazy - manage plugins
+LazyVim extras installer?,<space>x or :LazyExtras - add language support
+Search TODO comments?,<space>st (if todo-comments installed)
+Diagnostic list (errors)?,<space>xx - trouble list (if installed)
+What’s the base case when recursively reversing a linked list?,"if (head === null || head.next === null) return head;
+
+This stops the recursion at the last node (which becomes the new head)."
+What does .next = recursiveCall(...) actually do?,"It rewires the .next pointer of the current node to the result of the recursive merge/reverse.
+You’re linking the current node to the rest of the solved list.
+"
+How do you detect a cycle in a linked list in O(1) space?,"Use two pointers:
+	•	slow = slow.next
+	•	fast = fast.next.next
+If fast === slow → cycle
+If fast === null || fast.next === null → no cycle"
+What’s the recursive definition of max depth in a binary tree?,"if (node === null) return 0;
+return 1 + Math.max(
+  maxDepth(node.left),
+  maxDepth(node.right)
+);
+"
+What’s the shape of a recursive tree problem?,"	•	Base case: node is null
+	•	Recurse on node.left and node.right
+	•	Combine result: sum, max, boolean, etc."
+What’s a leaf node in a binary tree?,A node where node.left === null && node.right === null
+What’s wrong with if (list1 < list2) in a merge function?,"You’re comparing object references, not values.
+You must compare list1.val < list2.val—always access .val explicitly when comparing node contents.
+"
+What’s the full recursive shape for merging two sorted linked lists?,"function merge(list1, list2) {
+  if (list1 === null) return list2;
+  if (list2 === null) return list1;
+
+  if (list1.val < list2.val) {
+    list1.next = merge(list1.next, list2);
+    return list1;
+  } else {
+    list2.next = merge(list1, list2.next);
+    return list2;
+  }
+}
+"
+What is the base case in recursion?,The condition where recursion stops and returns a final value.
+What does recursion use instead of loops?,The call stack.
+"In a merge, when do you return list2?",When list1 is null.
+How do you detect a cycle in a list using two pointers,"Move slow by 1, fast by 2 → if they ever meet, there’s a cycle."
+What’s the time complexity of recursive merge sort?,O(n log n)
+What is the Big O of a single for loop over n elements?,O(n)
+What’s the Big O of two nested loops over n?,O(n²)
+What’s the Big O of visiting all nodes and edges in a graph?,O(V + E) — vertices plus edges
+What does “log n” actually mean?,Input is divided by 2 each step — like halving in binary search
+Why is O(1) better than O(n)?,It doesn’t grow with input size—it’s constant time.
+What is a Transformer’s “attention” mechanism similar to in DS&A terms?,A weighted lookup across a list — conceptually like a soft binary search or inner-product-based traversal.
+What ML concept is like a hash map?,Embeddings — map discrete tokens to fixed-size vector lookups (like dict[token])
+Differentiate between directed and undirected graphs.,"In a directed graph, edges have a direction, indicating a one-way relationship; in an undirected graph, edges have no direction, indicating a two-way relationship."
+What is a weighted graph?,"A weighted graph assigns a numerical value (weight) to each edge, representing attributes like cost, distance, or capacity."
+Define a path in graph theory.,"A path is a sequence of vertices where each adjacent pair is connected by an edge, with no vertex repeated"
+What is the difference between a tree and a graph?,"A tree is a special case of a graph:
+	•	Acyclic
+	•	Connected
+	•	No cycles
+Every tree is a graph, but not every graph is a tree."
+What are the two main ways to traverse a graph?,"1.	Depth-First Search (DFS)
+	2.	Breadth-First Search (BFS)
+
+DFS uses a stack (often recursion).
+BFS uses a queue."
+O(1) means what?,Constant time (same speed regardless of input size)
+O(n) means what?,Linear time (doubles if input doubles)
+O(n²) common cause?,Nested loops over same data
+O(log n) common cause?,Dividing problem in half each step (binary search)
+O(n log n) common cause?,"Efficient sorting (merge sort, heap sort)"
+Two pointers pattern: where do they usually start?,Start/end OR both at start moving at different speeds
+Two pointers for palindrome check - how do they move?,"Start→← End, move toward center"
+Space complexity counts what?,Extra memory used (not including input)
+What's the space complexity of recursion?,O(depth) - call stack frames
+`while (left < right)` - when does this stop?,When pointers meet or cross
+Finding pair that sums to target in sorted array?,"If sum too small: left++, if too big: right--"
+Sliding window: what stays constant?,Window SIZE (usually)
+"Sliding window: how to ""slide""?","Add new element, remove old element"
+Fixed window size k: what's the pattern?,"Add arr[i], remove arr[i-k]"
+Variable sliding window: when to expand?,When condition not met (need more elements)
+Variable sliding window: when to shrink?,When condition exceeded (too many elements)
+Fast/slow pointers: detect cycle how?,"If they meet, there's a cycle (Floyd's algorithm)"
+Fast pointer moves how fast?,2x speed (slow.next vs fast.next.next)
+Find middle of linked list pattern?,"When fast reaches end, slow is at middle"
+Binary search: when to move left pointer?,When target > mid (search right half)
+Binary search: inclusive vs exclusive bounds?,`while (left <= right)` vs `while (left < right)`
+Finding leftmost occurrence pattern?,"When found, don't return - set `right = mid - 1`"
+Inorder traversal order?,"Left → Root → Right (mnemonic: ""In"" = LNR alphabetical)"
+Preorder traversal order?,"Root → Left → Right (mnemonic: ""Pre"" = root first)"
+Postorder traversal order?,"Left → Right → Root (mnemonic: ""Post"" = root last)"
+Level-order traversal uses what data structure?,Queue (BFS pattern)
+DFS tree traversal uses what data structure?,Stack (or recursion call stack)
+Recursion template: what two things needed?,Base case + Recursive case
+"""Bottom-up"" recursion means?","Solve smaller problems first, build up"
+"""Top-down"" recursion means?",Break big problem down into smaller ones
+Tail recursion special property?,Recursive call is LAST thing (can be optimized)
+Find all anagrams optimal?,Sliding window + frequency map compare
+Two pointers mnemonic?,"""Pinch"" (start outside, squeeze in) or ""Chase"" (one follows other)"
+Sliding window mnemonic?,"""Inchworm"" - back end follows front end"
+"In `for (let i = 0; ...)`, what does `let i = 0` do?",Declares counter variable `i` starting at 0 (happens ONCE before loop starts)
+The semicolons in `for ( ; ; )` separate what 3 things?,"init ; condition ; increment (mnemonic: ""start ; check ; step"")"
+`i++` means what?,Add 1 to i (same as `i = i + 1`) - happens AFTER each loop body runs
+When does `i < 5` get checked in a for loop?,BEFORE each iteration (including the very first one)
+What happens if you write `for (;;)`?,"Infinite loop! (no init, always true, no increment)"
+Can you declare multiple variables in a for loop init?,"Yes! `for (let i = 0, j = 10; ...)`"
+What's the scope of `let i` in `for (let i = 0; ...)`?,Block scoped - only exists inside the loop
+`for (const item of array)` - what does `of` mean?,"""of"" = get VALUES from an iterable (mnemonic: ""of"" = ""out of"")"
+Can you use `for...of` on a string?,Yes! It iterates over each character
+"`for (const [index, value] of arr.entries())` - what is `entries()`?","Method that returns [index, value] pairs"
+Why use `const` in `for (const item of array)`?,Each iteration gets a NEW variable (can't reassign within loop body)
+`for (const key in object)` - what does `in` give you?,"Property NAMES/KEYS (mnemonic: ""in"" = ""index/key"")"
+Does `for...in` loop over inherited properties?,YES! (use `hasOwnProperty()` to filter)
+Should you use `for...in` on arrays?,"NO! It's for objects (gives string indices, not guaranteed order)"
+`for...of` vs `for...in` mnemonic?,"of = VALUES of iterables, in = KEYS in objects"
+`while (condition) { }` - when is condition checked?,BEFORE each iteration (might never run!)
+What must you do inside a while loop to avoid infinite loop?,Change something that affects the condition
+Convert `for(let i=0; i<5; i++)` to while loop,`let i=0; while(i<5) { ...code...; i++; }`
+`do { } while (condition)` - when is condition checked?,AFTER each iteration (always runs at least once!)
+What punctuation ends a do...while loop?,Semicolon! `do { } while (condition);`
+while vs do...while - which guarantees at least one run?,"do...while (mnemonic: ""do"" = ""do it first"")"
+`arr.forEach((item) => {})` - what parameters can the callback receive?,"(value, index, array) - in that order!"
+Can you `break` out of a forEach?,NO! (use for...of or some() instead)
+What does forEach return?,undefined (always!)
+`this` inside forEach callback?,undefined (in arrow functions) or global object
+What's the difference between forEach and map?,"map RETURNS a new array, forEach returns undefined"
+`arr.map(x => x * 2)` - what must the callback do?,RETURN a value (becomes element in new array)
+Does map modify the original array?,NO! Creates a new array
+`arr.filter(x => x > 5)` - what should the callback return?,"true/false (truthy keeps element, falsy removes it)"
+What does filter return if nothing matches?,Empty array `[]`
+"`arr.reduce((acc, val) => {}, init)` - what is `acc`?",Accumulator - the running total/result
+What happens if you omit reduce's initial value?,First element becomes initial accumulator
+reduce callback parameters in order?,"(accumulator, currentValue, index, array)"
+What does `find()` return when nothing matches?,undefined
+What does `findIndex()` return when nothing matches?,-1
+find() vs filter() - what's the difference?,"find returns FIRST match, filter returns ALL matches"
+`arr.some(x => x > 5)` returns what?,true if ANY element passes test
+`arr.every(x => x > 5)` returns what?,true if ALL elements pass test
+What does `[].some(x => true)` return?,false (empty array = no elements match)
+What does `[].every(x => false)` return?,true (empty array = all zero elements match!)
+`Object.keys(obj)` returns what?,Array of object's own property names
+`Object.values(obj)` returns what?,Array of object's own property values
+`Object.entries(obj)` returns what?,"Array of [key, value] pairs"
+How to loop over an object's entries?,"`for (const [key, value] of Object.entries(obj))`"
+`for await (const val of asyncIterable)` - what does `await` do here?,Waits for each Promise in the iterable
+Where can you use `for await...of`?,Only inside async functions
+`break` does what in a loop?,Exits the loop completely
+`continue` does what in a loop?,Skips to next iteration
+Can you use `break` in forEach?,"NO! (forEach, map, filter, etc. don't support break)"
+How to break out of nested loops?,Use labeled break: `outer: for {...}`
+Which is faster: for loop or forEach?,for loop (less function call overhead)
+`for (var i = 0; ...)` vs `for (let i = 0; ...)` - what's the danger?,`var` leaks out of loop scope!
+Why might `arr.length` in loop condition be slow?,Recalculated each iteration (cache it: `len = arr.length`)
+What makes a function recursive?,It calls itself
+What must every recursive function have?,Base case (condition to stop recursing)
+Stack overflow happens when?,Too many recursive calls (no base case or too deep)
+"""for...of"" mnemonic?","""of"" = ""values OF array"" (rhyme: ""of gives you stuff"")"
+"""for...in"" mnemonic?","""in"" = ""keys IN object"" (rhyme: ""in gives you keys to get in"")"
+"forEach, map, filter, reduce order mnemonic?","""Every Map Filters Reduced traffic"" (Every=forEach, Map, Filter, Reduce)"
+Loop method that returns undefined?,"forEach (mnemonic: ""for Each returns nothEach"")"
+Time complexity of `arr.push()`?,O(1) - adds to end
+Time complexity of `arr.unshift()`?,O(n) - must shift all elements
+Binary search: `mid = ?`,`Math.floor((left + right) / 2)` or `left + Math.floor((right - left) / 2)`
+Backtracking pattern: three steps?,Choose → Explore → Unchoose
+When to backtrack?,When current path can't lead to solution
+Backtracking space complexity?,O(depth) for recursion stack
+DP prerequisite properties (2)?,Overlapping subproblems + Optimal substructure
+Memoization stores what?,Results of expensive function calls
+Bottom-up DP uses what instead of recursion?,Iteration with array/table
+DP time-space tradeoff?,Trade space (storing results) for time (not recomputing)
+HashMap get/set time complexity?,O(1) average case
+When does HashMap become O(n)?,Many collisions (poor hash function)
+Stack operations (2) and their complexity?,push/pop - both O(1)
+Queue operations (2) and their complexity?,enqueue/dequeue - both O(1)
+Heap insert/delete complexity?,O(log n) - bubble up/down
+Dummy node used for?,"Simplify linked list edge cases (empty, single node)"
+`n + 1` sized array for n items means?,Often using index as value (0 to n)
+XOR trick: `a ^ a = ?`,0 (number XOR itself = 0)
+XOR trick: `a ^ 0 = ?`,a (number XOR 0 = itself)
+Find single number in array of pairs?,XOR all numbers (pairs cancel out)
+Modulo for circular array?,`(index + 1) % length` wraps around
+Check if power of 2?,`n & (n-1) === 0` (and n > 0)
+Toggle between 0 and 1?,`val ^ 1` or `1 - val`
+Integer overflow check pattern?,Check BEFORE operation: `if (a > MAX_VALUE - b)`
+Graph BFS shortest path - what data structure?,"Queue + Set (visited), level by level guarantees shortest path"
+Graph DFS detect cycle pattern?,"Track visiting set (gray) + visited set (black), cycle if hit gray node"
+Topological sort requires what type of graph?,DAG (Directed Acyclic Graph) with no cycles
+Union-Find path compression?,Point node directly to root during find: parent[x] = find(parent[x])
+Array.from({length: n}) creates what?,Array of n undefined elements (useful for DP initialization)
+Why Array(n).fill().map() instead of just map()?,map() skips empty slots - fill() makes them undefined first
+Check palindrome without extra space?,Two pointers: while(left<right) if(s[left++] !== s[right--]) return false
+Trie node structure?,"{children: Map(), isEnd: false}"
+Min-heap parent formula?,Math.floor((i-1)/2)
+Min-heap children formulas?,Left: 2*i+1  Right: 2*i+2
+Set union?,new Set([...setA ...setB])
+Set intersection?,new Set([...setA].filter(x => setB.has(x)))
+Set difference A-B?,new Set([...setA].filter(x => !setB.has(x)))
+Edit distance recurrence?,"Match: dp[i-1][j-1], else: 1+min(insert delete replace)"
+Promise.all() fails when?,ANY promise rejects - whole thing rejects immediately
+Promise.allSettled() difference?,Never rejects - returns array of {status value/reason}
+Promise.race() resolves?,First promise to settle (resolve OR reject)
+await vs return await?,return await only needed in try/catch to catch promise rejection
+Parallel async operations?,await Promise.all(arr.map(async x => ...))
+Sequential async operations?,for(const x of arr) await process(x)
+Array.prototype.at(-1) does?,Access from end: at(-1)=last at(-2)=second-to-last
+String.prototype.replaceAll() vs replace?,"replaceAll replaces ALL, replace only first (unless regex /g)"
+Nullish coalescing operator ??,Returns right if left is null/undefined (not 0 or '')
+Optional chaining edge case?,obj?.prop?.() only calls function if obj and prop exist
+structuredClone() vs JSON.parse/stringify?,structuredClone handles Date Map Set circular refs
+Array.prototype.findLast()?,Find last element matching predicate (iterates backwards)
+Array.prototype.toSorted()?,Non-mutating sort - returns new sorted array
+"What is loss, in machine learning?",A number that measures how wrong the model’s predictions are.
+What is gradient descent in machine learning?,An optimization method that tweaks parameters step by step to reduce loss.
+What is back propagation in machine learning?,A way to calculate gradients by moving backward through the network.
+What is overfitting in machine learning?,When the model memorizes training data instead of learning patterns.
+What is the R in RNN?,Recurrent—because it loops to handle sequences.
+What is sequence modeling in Machine Learning?,Predicting or generating data where order matters.
+What is the most basic process of creating an embedding in a Neural Network?,Mapping high-dimensional data into a dense vector space.
+What makes variable sequence lengths special in neural networks and machine learning predictions?,The model must handle inputs that aren’t all the same size.
+What is the back propagation algorithm?,A method to update weights using gradients via the chain rule.
+Why do we need a loss function?,To measure error so the model knows what to improve.
+What is the difference between loss and cost in machine learning?,Loss = error for one example; Cost = average error across all.
+What is stochastic gradient descent?,Gradient descent using one (or a few) random samples per step.
+What is a local minimum vs global minimum in machine learning?,Local = a small dip; Global = the deepest dip in the loss landscape.
+What is convergence in Machine Learning?,When training stops improving and stabilizes.
+What is a perceptron in a neutral network?,A basic linear classifier with weights and an activation.
+What is a Neuron in a neural network?,"A tiny function that takes inputs, applies weights, and outputs a value."
+"In machine learning, explain the difference between test data, training data, and validation data?","Training = learn, Validation = tune, Test = final check."
+"In machine learning, what is a training epoch?",One full pass through the training data.
+"In python, what is a data frame?",A 2D table of data with rows and labeled columns.
+What is the difference between supervised and unsupervised learning for neural networks?,"Supervised = labeled data, Unsupervised = no labels."
+What is a hyperparameter in machine learning?,"A setting chosen before training, like learning rate."
+What is dimensionality reduction in machine learning?,Shrinking features while keeping important info.
+"In machine learning, what is “attention”?",A way for the model to focus on relevant parts of the input.
+"In neural networks, what is a “transformer”?",A model that uses attention instead of recurrence for sequences.
+How is linear algebra used to determine the similarity between two features in a neural network?,By computing dot products or cosine similarity.
+What is a “softmax” function used for in machine learning?,Turning scores into probabilities that sum to 1.
+What is a “feature” in machine learning?,An input variable that represents some property of the data.
+What is self-attention in machine learning?,Attention applied to the same sequence to relate its elements.
+What is the “chain rule”?,A rule for finding derivatives of composite functions.
+What is the difference between probability and likelihood?,Probability = chance of data given parameters; Likelihood = fit of parameters given data.
+What is a matrix multiplication?,Combining two matrices by multiplying rows by columns.
+"In machine learning, why is data split into training and testing sets?",To check if the model generalizes to unseen data.
+What is a function?,A mapping from inputs to outputs.
+What is the technical definition of the difference between correlation and causation?,Correlation = relationship; Causation = one changes because of the other.
+"In machine learning, what is the “curse of dimensionality”?",High dimensions make data sparse and models harder to train.
+What is the universal approximation theorem?,A neural net can approximate any continuous function with enough neurons.
+Explain the “no free lunch” theorem.,No single model works best for every problem.
+What is the hotkey to adjust scale?,s
+Who is the Senior Senator from Alabama?,"Tommy Tuberville (R), 71 years old. Facts: Former Auburn football coach who won national championship; First coach elected to Senate since 1970s; Delayed 300+ military promotions in 2023 over Pentagon abortion policy."
+Who is the Junior Senator from Alabama?,"Katie Britt (R), 43 years old. Facts: Youngest Republican woman ever elected to Senate; Former chief of staff to Richard Shelby; Gave Republican response to 2024 State of the Union address."
+Who is the Senior Senator from Alaska?,"Lisa Murkowski (R), 68 years old. Facts: Appointed by her father Governor Frank Murkowski; Only senator to win as write-in candidate (2010); Votes independently from party frequently on abortion and other issues."
+Who is the Junior Senator from Alaska?,"Dan Sullivan (R), 60 years old. Facts: Marine Corps Reserve colonel; Former Alaska Attorney General and Natural Resources Commissioner; Born in Ohio but Alaska resident since 1990s."
+Who is the Senior Senator from Arizona?,"Mark Kelly (D), 61 years old. Facts: Former NASA astronaut who flew 4 space missions; Husband of former Rep. Gabby Giffords (survived assassination attempt); US Navy combat pilot who flew 39 missions."
+Who is the Junior Senator from Arizona?,"Ruben Gallego (D), 45 years old. Facts: Marine Corps Iraq War veteran; Son of Colombian and Mexican immigrants raised by single mother; Harvard graduate who represented working-class Phoenix district."
+Who is the Senior Senator from Arkansas?,"John Boozman (R), 74 years old. Facts: Former optometrist who practiced for years; Played college football at University of Arkansas; Oldest of four children raised on family farm in Arkansas."
+Who is the Junior Senator from Arkansas?,"Tom Cotton (R), 48 years old. Facts: Army veteran (served in Iraq and Afghanistan); Harvard Law graduate and former clerk; Was youngest senator when first elected at age 37."
+Who is the Senior Senator from California?,"Alex Padilla (D), 52 years old. Facts: First Latino senator from California; Appointed to replace Kamala Harris when she became VP; Former Los Angeles City Council member and California Secretary of State."
+Who is the Junior Senator from California?,"Adam Schiff (D), 65 years old. Facts: Led Trump's first impeachment as House manager; Former federal prosecutor; Stanford and Harvard Law graduate who represented Burbank area."
+Who is the Senior Senator from Colorado?,"Michael Bennet (D), 61 years old. Facts: Brother of journalist James Bennet (former NY Times editor); Former Denver Public Schools superintendent; Ran for president in 2020 as moderate Democrat."
+Who is the Junior Senator from Colorado?,"John Hickenlooper (D), 73 years old. Facts: Former Colorado Governor (2011-2019); Founded Wynkoop Brewing Company (Denver's first brewpub); Trained as geologist and worked for oil companies."
+Who is the Senior Senator from Connecticut?,"Richard Blumenthal (D), 79 years old. Facts: Connecticut Attorney General for 20 years before Senate; Yale Law graduate and former clerk for Justice Blackmun; Served in Marine Corps Reserve during Vietnam era."
+Who is the Junior Senator from Connecticut?,"Chris Murphy (D), 52 years old. Facts: Leading gun control advocate after Sandy Hook shooting in his state; Was youngest senator when first elected at age 39; Prolific social media user who live-tweets extensively."
+Who is the Senior Senator from Delaware?,"Tom Carper (D), 78 years old. Facts: Former Delaware Governor and held every statewide office in Delaware; Navy veteran who flew missions in Vietnam; Oldest Democrat currently in Senate leadership."
+Who is the Junior Senator from Delaware?,"Chris Coons (D), 62 years old. Facts: Appointed to Joe Biden's former Senate seat; Yale Law graduate who clerked for judge; Former New Castle County Executive and chemical company executive."
+Who is the Senior Senator from Florida?,"Rick Scott (R), 72 years old. Facts: Former Florida Governor (served 2 terms); Built healthcare company Columbia/HCA into largest; Wealthiest senator with net worth over $300 million."
+Who is the Junior Senator from Florida?,"Ashley Moody (R), 49 years old. Facts: Former Florida Attorney General (2019-2025); Appointed to replace Marco Rubio who became Secretary of State; Former federal prosecutor and circuit judge."
+Who is the Senior Senator from Georgia?,"Jon Ossoff (D), 38 years old. Facts: Youngest senator currently serving in entire Senate; Investigative journalist who exposed ISIS war crimes; Won 2021 runoff that gave Democrats Senate control."
+Who is the Junior Senator from Georgia?,"Raphael Warnock (D), 56 years old. Facts: Senior pastor at Ebenezer Baptist Church (MLK's historic church); First Black senator from Georgia; Won both 2021 runoff and 2022 re-election."
+Who is the Senior Senator from Hawaii?,"Brian Schatz (D), 52 years old. Facts: Appointed to replace Daniel Inouye (served 50 years); Born in Michigan but raised in Hawaii from age 2; Former state House member and party chair."
+Who is the Junior Senator from Hawaii?,"Mazie Hirono (D), 78 years old. Facts: First Asian-American woman in Senate; Born in Japan (first senator born in Japan) and immigrated at age 7; Worked way through college as hotel maid."
+Who is the Senior Senator from Idaho?,"Mike Crapo (R), 74 years old. Facts: Cancer survivor (prostate cancer); Chairs powerful Senate Finance Committee; Strong conservative but occasionally moderate on some issues."
+Who is the Junior Senator from Idaho?,"Jim Risch (R), 82 years old. Facts: Former Idaho Governor (served briefly 2006); One of wealthiest senators from cattle ranching family; Former prosecutor and ranking member on Foreign Relations."
+Who is the Senior Senator from Illinois?,"Dick Durbin (D), 80 years old. Facts: Senate Democratic Whip (2nd highest Democrat); Served since 1997 plus 14 years in House before that; Chairs Senate Judiciary Committee."
+Who is the Junior Senator from Illinois?,"Tammy Duckworth (D), 57 years old. Facts: Combat helicopter pilot who lost both legs in Iraq War; First senator to give birth while in office (2018); Thai-American and daughter of military veteran."
+Who is the Senior Senator from Indiana?,"Todd Young (R), 53 years old. Facts: Marine Corps veteran and Naval Academy graduate; Former prosecutor in Orange County; Known as more moderate policy-focused Republican."
+Who is the Junior Senator from Indiana?,"Jim Banks (R), 45 years old. Facts: Navy Reserve officer who served in Afghanistan; Former chair of Republican Study Committee (conservative caucus); First elected to Senate in 2024 after House service."
+Who is the Senior Senator from Iowa?,"Chuck Grassley (R), 92 years old. Facts: Oldest senator currently serving and longest-serving Republican (since 1981); Famous for visiting all 99 Iowa counties every year; Active on Twitter with folksy posts."
+Who is the Junior Senator from Iowa?,"Joni Ernst (R), 55 years old. Facts: First female combat veteran in Senate; Served 23 years in Army National Guard including Iraq deployment; Domestic violence survivor and advocate."
+Who is the Senior Senator from Kansas?,"Jerry Moran (R), 71 years old. Facts: Former 7-term House member before Senate; Born and raised in small Kansas farming town; Moderate Republican on some issues."
+Who is the Junior Senator from Kansas?,"Roger Marshall (R), 64 years old. Facts: Medical doctor (OB-GYN) who delivered over 5000 babies; Army veteran; Former 2-term House member from western Kansas."
+Who is the Senior Senator from Kentucky?,"Mitch McConnell (R), 83 years old. Facts: Longest-serving Senate Republican leader in history (2007-2025); Survived polio as child; Married to Elaine Chao (former Transportation Secretary)."
+Who is the Junior Senator from Kentucky?,"Rand Paul (R), 62 years old. Facts: Ophthalmologist who founded his own clinic; Son of Ron Paul (former congressman and presidential candidate); Libertarian-leaning Republican known for filibusters."
+Who is the Senior Senator from Louisiana?,"Bill Cassidy (R), 67 years old. Facts: Medical doctor (gastroenterologist); Founded free healthcare clinic in Baton Rouge; One of 7 Republicans who voted to convict Trump in 2nd impeachment."
+Who is the Junior Senator from Louisiana?,"John Kennedy (R), 73 years old. Facts: Oxford University graduate and Rhodes Scholar; Known for colorful folksy quotes and one-liners; Former Democrat who switched to Republican Party."
+Who is the Senior Senator from Maine?,"Susan Collins (R), 72 years old. Facts: Most moderate Republican in Senate; Serving since 1997 (only loses to Grassley in seniority among current GOP); First woman to represent Maine in Senate."
+Who is the Junior Senator from Maine?,"Angus King (I), 81 years old. Facts: Independent who caucuses with Democrats; Former Maine Governor (1995-2003); Founded energy conservation company worth millions."
+Who is the Senior Senator from Maryland?,"Ben Cardin (D), 81 years old. Facts: Chairs Senate Foreign Relations Committee; Served 20 years in House before Senate (40 years in state legislature before that); Announced retirement effective 2025."
+Who is the Junior Senator from Maryland?,"Angela Alsobrooks (D), 54 years old. Facts: First Black senator from Maryland; Former Prince George's County Executive; Former prosecutor who created innovative crime prevention programs."
+Who is the Senior Senator from Massachusetts?,"Elizabeth Warren (D), 76 years old. Facts: Harvard Law professor specializing in bankruptcy; Created Consumer Financial Protection Bureau under Obama; Ran for president in 2020 with detailed policy plans."
+Who is the Junior Senator from Massachusetts?,"Ed Markey (D), 79 years old. Facts: Co-author of Green New Deal with AOC; Served 37 years in House before moving to Senate; Progressive champion on climate and telecommunications issues."
+Who is the Senior Senator from Michigan?,"Debbie Stabenow (D), 75 years old. Facts: First woman to chair Senate Agriculture Committee; Former social worker before politics; Serving since 2001 and announced retirement effective 2025."
+Who is the Junior Senator from Michigan?,"Elissa Slotkin (D), 49 years old. Facts: Former CIA analyst who did 3 tours in Iraq; Worked in both Bush and Obama administrations; Represented swing district in House before Senate."
+Who is the Senior Senator from Minnesota?,"Amy Klobuchar (D), 65 years old. Facts: Ran for president in 2020 as moderate; Former Hennepin County Attorney (prosecutor); Daughter of journalist Jim Klobuchar (newspaper columnist)."
+Who is the Junior Senator from Minnesota?,"Tina Smith (D), 67 years old. Facts: Former Minnesota Lieutenant Governor appointed to replace Al Franken; Marketing executive and political strategist before elected office; Low-key policy-focused approach."
+Who is the Senior Senator from Mississippi?,"Roger Wicker (R), 74 years old. Facts: Former 13-term House member before Senate; Air Force veteran; Chairs Senate Armed Services Committee (defense focus)."
+Who is the Junior Senator from Mississippi?,"Cindy Hyde-Smith (R), 66 years old. Facts: First woman elected to Congress from Mississippi; Former Agriculture Commissioner; Appointed to Thad Cochran's seat then won election."
+Who is the Senior Senator from Missouri?,"Josh Hawley (R), 45 years old. Facts: Yale and Stanford Law graduate; Former Missouri Attorney General at age 37; Controversial for Jan 6 objections and fist pump to crowd."
+Who is the Junior Senator from Missouri?,"Eric Schmitt (R), 50 years old. Facts: Former Missouri Attorney General who sued federal government frequently; Former state senator and state treasurer; Defeated Eric Greitens in 2022 primary."
+Who is the Senior Senator from Montana?,"Jon Tester (D), 69 years old. Facts: Third-generation farmer who still actively farms; Only senator with flat-top haircut; Lost three fingers in meat grinder accident as child."
+Who is the Junior Senator from Montana?,"Tim Sheehy (R), 39 years old. Facts: Former Navy SEAL veteran (one of youngest senators); Founded aerial firefighting company Bridger Aerospace; Defeated Tester in 2024 after competitive race."
+Who is the Senior Senator from Nebraska?,"Deb Fischer (R), 74 years old. Facts: Rancher from Valentine Nebraska; Served in Nebraska legislature before Senate; Moderate Republican who occasionally breaks with party."
+Who is the Junior Senator from Nebraska?,"Pete Ricketts (R), 60 years old. Facts: Former Nebraska Governor (2015-2023); Son of Joe Ricketts (TD Ameritrade founder); Appointed to Ben Sasse's seat who left for university presidency."
+Who is the Senior Senator from Nevada?,"Catherine Cortez Masto (D), 61 years old. Facts: First Latina senator in US history; Former Nevada Attorney General; Granddaughter of Mexican immigrant who was Reno mechanic."
+Who is the Junior Senator from Nevada?,"Jacky Rosen (D), 68 years old. Facts: Former computer programmer and software developer; Synagogue president before politics; Only served one House term before winning Senate seat."
+Who is the Senior Senator from New Hampshire?,"Jeanne Shaheen (D), 78 years old. Facts: Former New Hampshire Governor (first woman governor); First woman to be both governor and senator from same state; Former high school teacher."
+Who is the Junior Senator from New Hampshire?,"Maggie Hassan (D), 67 years old. Facts: Former New Hampshire Governor; Mother of son with cerebral palsy (advocates for disability rights); Won 2016 Senate race by only 1017 votes."
+Who is the Senior Senator from New Jersey?,"Cory Booker (D), 56 years old. Facts: Former Newark Mayor (lived in projects); Rhodes Scholar and Stanford/Yale Law graduate; Ran for president in 2020 with social justice focus."
+Who is the Junior Senator from New Jersey?,"Andy Kim (D), 42 years old. Facts: Korean-American (son of immigrants from South Korea); Former Obama administration official on national security; Famous for cleaning Capitol debris after Jan 6 riot."
+Who is the Senior Senator from New Mexico?,"Martin Heinrich (D), 53 years old. Facts: Mechanical engineer by training; Former Albuquerque City Council member and House member; Strong focus on renewable energy and technology policy."
+Who is the Junior Senator from New Mexico?,"Ben Ray Luján (D), 52 years old. Facts: Hispanic with deep political roots (father was NM House speaker); Had stroke in 2022 but made full recovery; Former House member and DCCC chair."
+Who is the Senior Senator from New York?,"Chuck Schumer (D), 75 years old. Facts: Senate Majority Leader (or Minority Leader depending on control); Serving in Congress since 1981 (House then Senate since 1999); Brooklyn native and Harvard graduate."
+Who is the Junior Senator from New York?,"Kirsten Gillibrand (D), 59 years old. Facts: Appointed to Hillary Clinton's seat in 2009; Leading advocate against military sexual assault; Ran for president in 2020 with women's rights focus."
+Who is the Senior Senator from North Carolina?,"Thom Tillis (R), 65 years old. Facts: Former North Carolina House Speaker; Narrowly won both 2014 and 2020 elections; Management consultant and IBM partner before politics."
+Who is the Junior Senator from North Carolina?,"Ted Budd (R), 53 years old. Facts: Gun range and gun shop owner; Former 3-term House member; MBA from Wake Forest and runs investment firm."
+Who is the Senior Senator from North Dakota?,"John Hoeven (R), 68 years old. Facts: Former North Dakota Governor (served 10 years 2000-2010); Banker before politics at family bank; One of wealthiest senators from oil/agriculture wealth."
+Who is the Junior Senator from North Dakota?,"Kevin Cramer (R), 64 years old. Facts: Former 2-term House member and state tourism director; Strong Trump ally; Defeated Heidi Heitkamp in 2018 race."
+Who is the Senior Senator from Ohio?,"Sherrod Brown (D), 73 years old. Facts: Only Democrat to win statewide in Ohio recently; Populist liberal on economic issues; Former House member for 14 years and Ohio Secretary of State."
+Who is the Junior Senator from Ohio?,"Bernie Moreno (R), 57 years old. Facts: Colombian immigrant who became car dealership magnate; Appointed to replace JD Vance (became VP); Blockchain and cryptocurrency entrepreneur."
+Who is the Senior Senator from Oklahoma?,"James Lankford (R), 57 years old. Facts: Former youth camp director and ministry leader; Strong social conservative; Took office after Tom Coburn resigned mid-term."
+Who is the Junior Senator from Oklahoma?,"Markwayne Mullin (R), 47 years old. Facts: Former 5-term House member; Cherokee Nation citizen; Plumbing company owner who took over family business."
+Who is the Senior Senator from Oregon?,"Ron Wyden (D), 76 years old. Facts: Chairs Senate Finance Committee; Serving since 1996 after special election; Strong advocate for internet freedom and privacy."
+Who is the Junior Senator from Oregon?,"Jeff Merkley (D), 68 years old. Facts: Former Oregon House Speaker; Led 2011 filibuster reform efforts; Strong progressive voice on environmental and labor issues."
+Who is the Senior Senator from Pennsylvania?,"Bob Casey Jr. (D), 65 years old. Facts: Son of former Pennsylvania Governor Bob Casey Sr.; Pro-labor moderate Democrat; Serving since 2007 but lost 2024 reelection to Dave McCormick."
+Who is the Junior Senator from Pennsylvania?,"Dave McCormick (R), 59 years old. Facts: Former hedge fund CEO (Bridgewater Associates); Army veteran and Gulf War paratrooper; West Point graduate who defeated Casey in 2024."
+Who is the Senior Senator from Rhode Island?,"Jack Reed (D), 75 years old. Facts: West Point graduate and Army veteran; Chairs Senate Armed Services Committee; Harvard Kennedy School graduate with military focus."
+Who is the Junior Senator from Rhode Island?,"Sheldon Whitehouse (D), 69 years old. Facts: Former Rhode Island Attorney General and US Attorney; Grandson of diplomat; Strong climate change activist who gives weekly Senate floor speeches."
+Who is the Senior Senator from South Carolina?,"Lindsey Graham (R), 70 years old. Facts: Chairs Senate Judiciary Committee; Air Force veteran and JAG officer; Close friend of John McCain and evolved on Trump."
+Who is the Junior Senator from South Carolina?,"Tim Scott (R), 60 years old. Facts: First Black Republican senator from the South since Reconstruction; Former House member; Gave Republican response to Biden speech."
+Who is the Senior Senator from South Dakota?,"John Thune (R), 64 years old. Facts: Senate Majority Leader (Republican); Former House member who defeated Tom Daschle in 2004; Second-highest Republican leader."
+Who is the Junior Senator from South Dakota?,"Mike Rounds (R), 71 years old. Facts: Former South Dakota Governor (served 2 terms); Insurance and real estate businessman; Moderate conservative who occasionally breaks with party."
+Who is the Senior Senator from Tennessee?,"Marsha Blackburn (R), 73 years old. Facts: Former 8-term House member; First woman senator from Tennessee; Strong social conservative who defeated Phil Bredesen."
+Who is the Junior Senator from Tennessee?,"Bill Hagerty (R), 65 years old. Facts: Former US Ambassador to Japan under Trump; Private equity executive and businessman; Defeated Manny Sethi in 2020 primary."
+Who is the Senior Senator from Texas?,"John Cornyn (R), 73 years old. Facts: Former Senate Majority Whip; Former Texas Attorney General and state Supreme Court justice; Second longest-serving Texas senator after Hutchison."
+Who is the Junior Senator from Texas?,"Ted Cruz (R), 54 years old. Facts: Harvard Law graduate and former Supreme Court clerk; Led 2013 government shutdown over Obamacare; Ran for president in 2016 and came in second."
+Who is the Senior Senator from Utah?,"Mike Lee (R), 54 years old. Facts: Former Supreme Court clerk and constitutional lawyer; Tea Party conservative; Brother of former Solicitor General Tom Lee."
+Who is the Junior Senator from Utah?,"Mitt Romney (R), 78 years old. Facts: Former Massachusetts Governor and 2012 presidential nominee; Only senator to vote to convict president of own party (Trump); Former Bain Capital CEO and Olympics organizer."
+Who is the Senior Senator from Vermont?,"Bernie Sanders (I), 83 years old. Facts: Independent who caucuses with Democrats; Self-described democratic socialist; Ran for president in 2016 and 2020 energizing progressive movement."
+Who is the Junior Senator from Vermont?,"Peter Welch (D), 78 years old. Facts: Former 8-term House member; Former Vermont state senator for 14 years; Oldest freshman senator when elected at age 75."
+Who is the Senior Senator from Virginia?,"Mark Warner (D), 70 years old. Facts: Former Virginia Governor; Made fortune in cellular telephone industry; Former chair of Senate Intelligence Committee."
+Who is the Junior Senator from Virginia?,"Tim Kaine (D), 67 years old. Facts: Former Virginia Governor and Hillary Clinton's 2016 VP nominee; Former mayor of Richmond; Speaks fluent Spanish (did missionary work in Honduras)."
+Who is the Senior Senator from Washington?,"Patty Murray (D), 74 years old. Facts: Longest-serving female senator currently; Former preschool teacher called 'mom in tennis shoes'; Senate President Pro Tempore (3rd in line)."
+Who is the Junior Senator from Washington?,"Maria Cantwell (D), 66 years old. Facts: Former House member and tech executive; Strong on tech and energy policy; Chairs Senate Commerce Committee."
+Who is the Senior Senator from West Virginia?,"Joe Manchin (I), 78 years old. Facts: Former West Virginia Governor; Most conservative Democrat (now Independent) who often bucked party; Killed Build Back Better in 2021-2022."
+Who is the Junior Senator from West Virginia?,"Jim Justice (R), 73 years old. Facts: Former West Virginia Governor (was Democrat then switched); Coal billionaire and one of wealthiest senators; Owns Greenbrier Resort."
+Who is the Senior Senator from Wisconsin?,"Tammy Baldwin (D), 63 years old. Facts: First openly gay person elected to Senate; Former 7-term House member; Only openly LGBTQ senator when first elected."
+Who is the Junior Senator from Wisconsin?,"Ron Johnson (R), 70 years old. Facts: Businessman who made fortune in plastics manufacturing; Tea Party conservative elected in 2010; Known for contrarian positions on COVID and other issues."
+Who is the Senior Senator from Wyoming?,"John Barrasso (R), 73 years old. Facts: Orthopedic surgeon who practiced for 24 years; Senate Republican Conference Chair (3rd in leadership); Appointed initially then elected."
+Who is the Junior Senator from Wyoming?,"Cynthia Lummis (R), 70 years old. Facts: Former House member and Wyoming state treasurer; First woman to represent Wyoming in Senate; Rancher and strong advocate for cryptocurrency."
+Who is the Governor of New York?,Kathy Hochul
+Who is the Lieutenant Governor of New York?,Antonio Delgado
+What party is Governor Kathy Hochul?,Democratic
+When did Kathy Hochul become Governor?,August 24 2021 (after Cuomo resignation)
+Who are New York's two US Senators?,Chuck Schumer and Kirsten Gillibrand
+What leadership position does Chuck Schumer hold?,Senate Minority Leader
+When was Chuck Schumer first elected to the Senate?,1999
+When was Kirsten Gillibrand first appointed to the Senate?,2009
+Who is the New York State Senate Majority Leader?,Andrea Stewart-Cousins
+What district does Andrea Stewart-Cousins represent?,35th State Senate District
+What historic first does Andrea Stewart-Cousins hold?,First female Senate Majority Leader in NY history
+Who is the Speaker of the New York State Assembly?,Carl Heastie
+What district does Carl Heastie represent?,83rd Assembly District (Bronx)
+What historic first does Carl Heastie hold?,First African-American Assembly Speaker in NY
+When did Carl Heastie become Assembly Speaker?,February 3 2015
+Who is the New York Attorney General?,Letitia James
+What party is Attorney General Letitia James?,Democratic
+What historic first does Letitia James hold as AG?,First African-American woman Attorney General in NY
+Who is the current NYC Mayor?,Eric Adams (election for successor on Nov 4 2025)
+Who are the three main candidates in the 2025 NYC mayoral race?,"Zohran Mamdani, Andrew Cuomo, Curtis Sliwa"
+Which candidate is leading in the 2025 NYC mayoral race?,Zohran Mamdani (Democratic nominee)
+What office does Zohran Mamdani currently hold?,NY State Assembly 36th District
+What office did Andrew Cuomo previously hold?,Governor of New York (2011-2021)
+What party is Curtis Sliwa?,Republican
+Who represents NY Congressional District 1?,Nick LaLota (R)
+What area does NY-1 cover?,Eastern Long Island - Hamptons and North Shore
+Who represents NY Congressional District 2?,Andrew Garbarino (R)
+What area does NY-2 cover?,South Shore Suffolk County
+Who represents NY Congressional District 3?,Tom Suozzi (D)
+What area does NY-3 cover?,North Shore Long Island - Nassau County
+Who represents NY Congressional District 4?,Anthony D'Esposito (R)
+What area does NY-4 cover?,South Nassau County
+Who represents NY Congressional District 5?,Gregory Meeks (D)
+What area does NY-5 cover?,Southeast Queens
+Who represents NY Congressional District 6?,Grace Meng (D)
+What area does NY-6 cover?,Northeast Queens - Flushing
+Who represents NY Congressional District 7?,Nydia Velázquez (D)
+What area does NY-7 cover?,Parts of Brooklyn and Lower Manhattan
+Who represents NY Congressional District 8?,Hakeem Jeffries (D)
+What leadership position does Hakeem Jeffries hold?,House Minority Leader
+What area does NY-8 cover?,Central Brooklyn - Bedford-Stuyvesant and Crown Heights
+Who represents NY Congressional District 9?,Yvette Clarke (D)
+What area does NY-9 cover?,Central Brooklyn - Flatbush and Crown Heights
+Who represents NY Congressional District 10?,Dan Goldman (D)
+What area does NY-10 cover?,Lower Manhattan and parts of Brooklyn
+Who represents NY Congressional District 11?,Nicole Malliotakis (R)
+What area does NY-11 cover?,Staten Island and parts of Brooklyn
+Who represents NY Congressional District 12?,Jerry Nadler (D)
+What area does NY-12 cover?,Manhattan - Upper West and East Sides
+Who represents NY Congressional District 13?,Adriano Espaillat (D)
+What area does NY-13 cover?,Northern Manhattan - Harlem and Washington Heights
+Who represents NY Congressional District 14?,Alexandria Ocasio-Cortez (D)
+What area does NY-14 cover?,Parts of Bronx and Queens
+Who represents NY Congressional District 15?,Ritchie Torres (D)
+What area does NY-15 cover?,South Bronx
+Who represents NY Congressional District 16?,George Latimer (D)
+What area does NY-16 cover?,Southern Westchester County and part of Bronx
+When did George Latimer take office in Congress?,January 2025
+Who represents NY Congressional District 17?,Mike Lawler (R)
+What area does NY-17 cover?,Lower Hudson Valley - Rockland and parts of Westchester
+Who represents NY Congressional District 18?,Pat Ryan (D)
+What area does NY-18 cover?,Hudson Valley - Ulster and Dutchess Counties
+Who represents NY Congressional District 19?,Josh Riley (D)
+What area does NY-19 cover?,Upstate - Southern Tier and Finger Lakes
+Who represents NY Congressional District 20?,Paul Tonko (D)
+What area does NY-20 cover?,Capital Region - Albany and Schenectady
+Who represents NY Congressional District 21?,Elise Stefanik (R)
+What area does NY-21 cover?,North Country - Adirondacks and St Lawrence County
+Is Elise Stefanik running for Governor in 2026?,"Yes, expected to announce after Nov 2025"
+Who represents NY Congressional District 22?,John Mannion (D)
+What area does NY-22 cover?,Central New York - Syracuse area
+Who represents NY Congressional District 23?,Nick Langworthy (R)
+What area does NY-23 cover?,Western Southern Tier
+Who represents NY Congressional District 24?,Claudia Tenney (R)
+What area does NY-24 cover?,Central New York - Oneida and Oswego Counties
+Who represents NY Congressional District 25?,Joseph Morelle (D)
+What area does NY-25 cover?,Rochester and Monroe County
+Who represents NY Congressional District 26?,Tim Kennedy (D)
+What area does NY-26 cover?,Buffalo and Erie County
+How many US House seats does New York have?,26 seats
+What is the party breakdown of NY House delegation?,"19 Democrats, 7 Republicans"
+Who is the Manhattan Borough President?,Mark Levine (running for Comptroller - election Nov 4)
+Who are the top candidates for Manhattan Borough President in 2025?,"Brad Hoylman-Sigal, Keith Powers, Calvin Sun"
+Who is the Brooklyn Borough President?,Antonio Reynoso (D)
+When was Antonio Reynoso elected Borough President?,2021
+Who is the Queens Borough President?,Donovan Richards (D)
+Who is the Bronx Borough President?,Vanessa Gibson (D)
+Is Vanessa Gibson running for reelection?,Yes - in primary against Rafael Salamanca
+Who is the Staten Island Borough President?,Vito Fossella (R)
+What do Borough Presidents do?,Advisory role on land use and appoint community board members
+How many NYC borough presidents are there?,5 (one per borough)
+What are the five boroughs of NYC?,"Manhattan, Brooklyn, Queens, Bronx, Staten Island"
+Who is running against Vito Fossella for Staten Island BP?,Michael Colombo (D)
+Who is running against Donovan Richards for Queens BP?,Henry Ikezi (R)
+What State Senate district does Andrea Stewart-Cousins represent?,35th District - Westchester (Yonkers and Greenburgh)
+What Assembly district does Carl Heastie represent?,83rd District - Northeast Bronx
+What Assembly district does Zohran Mamdani represent?,36th District - Astoria Queens
+What major legislation did Andrea Stewart-Cousins lead?,Housing Stability and Tenant Protection Act of 2019
+What was Carl Heastie's role before becoming Speaker?,Chair of Assembly Labor Committee
+Who is the NYC Comptroller running in 2025?,Brad Lander is current Comptroller
+Who is running for NYC Comptroller in 2025?,Mark Levine (Manhattan BP) is a major candidate
+What areas make up NY Congressional District 3?,North Shore of Long Island including parts of Nassau County
+What areas make up NY Congressional District 8?,Central Brooklyn including Bedford-Stuyvesant and Crown Heights
+What areas make up NY Congressional District 15?,South Bronx
+What areas make up NY Congressional District 21?,North Country including the Adirondacks
+What is Hakeem Jeffries' title?,House Minority Leader (highest ranking Democrat in House)
+What is Chuck Schumer's title?,Senate Minority Leader (highest ranking Democrat in Senate)
+Which NY House members are in Republican leadership?,Elise Stefanik was in leadership (preparing governor run)
+How long has Chuck Schumer been in Congress?,Since 1981 (House 1981-1999; Senate 1999-present)
+What previous position did Kathy Hochul hold?,Lieutenant Governor under Andrew Cuomo
+What congressional district did Kathy Hochul represent?,26th Congressional District (2011-2013)
+Where is Kathy Hochul from?,Buffalo area (Erie County)
+Where is Andrea Stewart-Cousins from?,Yonkers (Westchester County)
+Where is Carl Heastie from?,Bronx
+Where is Hakeem Jeffries from?,Brooklyn (Crown Heights)
+What NYC borough is Hakeem Jeffries from?,Brooklyn
+What NYC borough is Alexandria Ocasio-Cortez from?,Queens (also represents part of Bronx)
+What NYC borough is Ritchie Torres from?,Bronx
+What NYC borough is Jerry Nadler from?,Manhattan
+What NYC borough is Adriano Espaillat from?,Manhattan
+Which NY-area House member chairs major committees?,Jerry Nadler has served on Judiciary Committee
+Which district does AOC represent?,14th Congressional District
+What does AOC stand for?,Alexandria Ocasio-Cortez
+How old was AOC when first elected to Congress?,29 (youngest woman ever elected to Congress at the time)
+When was AOC first elected?,2018 (took office January 2019)
+What party is Nicole Malliotakis?,Republican
+What NYC borough does Nicole Malliotakis represent?,Staten Island (and parts of Brooklyn)
+Is NY-11 typically Republican or Democratic?,Republican-leaning (only NYC district regularly electing Republicans)
+What is unique about Staten Island politically?,Most conservative/Republican-leaning NYC borough
+Which upstate cities are in NY-20?,Albany and Schenectady
+Which upstate city is in NY-25?,Rochester
+Which upstate city is in NY-26?,Buffalo
+Which upstate city is in NY-22?,Syracuse
+What region is the North Country?,Northern NY including Adirondacks (NY-21)
+What is the Southern Tier?,Southern border region of upstate NY
+Which districts cover the Southern Tier?,Parts of NY-19 and NY-23
+What is the Capital Region?,Albany area (NY-20)
+What is the Hudson Valley?,Region along Hudson River north of NYC (includes NY-17 NY-18 NY-19)
+Which Long Island districts are Republican?,NY-1 and NY-4 are Republican
+Which Long Island districts are Democratic?,NY-3 (Suozzi) is Democratic
+Which Queens representatives are there?,Gregory Meeks (NY-5) and Grace Meng (NY-6)
+How many House seats represent Brooklyn?,Parts of NY-7 NY-8 NY-9 NY-10 NY-11
+How many House seats represent Manhattan?,Parts of NY-7 NY-10 NY-12 NY-13
+How many House seats represent the Bronx?,NY-15 and parts of NY-14 NY-16
+How many House seats represent Queens?,NY-5 NY-6 and parts of NY-14
+How many House seats represent Staten Island?,NY-11 only
+What percentage of NY House delegation is from NYC?,About 12 of 26 districts (roughly half)
+Which NY House member represents Westchester?,George Latimer (NY-16) and parts of other districts
+What county is in NY-17?,Rockland County and parts of Westchester and Putnam
+What happened to Jamaal Bowman?,Lost reelection in 2024 in NY-16
+Who defeated Jamaal Bowman?,George Latimer
+What is significant about Dan Goldman (NY-10)?,Heir to Levi Strauss fortune; former lead counsel in Trump impeachment
+When was Dan Goldman elected to Congress?,2022 (took office January 2023)
+What is Tom Suozzi known for?,Moderate Democrat; previously served 2017-2023 and returned 2024
+Did Tom Suozzi run for Governor?,Yes in 2006 and 2022
+What region does Pat Ryan represent?,Mid-Hudson Valley
+What is Josh Riley's background?,Attorney; elected in 2024
+What city is in John Mannion's district?,Syracuse (NY-22)
+What party controls NY State Senate?,Democratic majority
+What party controls NY State Assembly?,Democratic majority (large majority)
+How many members in NY State Senate?,63 members
+How many members in NY State Assembly?,150 members
+What is the power dynamic in Albany?,"Democrats control both chambers and governorship (""trifecta"")"
+Who are the three people in a room in NY budget?,Governor Hochul + Senate Leader Stewart-Cousins + Assembly Speaker Heastie
+What is notable about NY's 2026 gubernatorial race?,Hochul faces primary challenges from Delgado and potentially Torres
+Who is Antonio Delgado challenging?,Running for Governor against incumbent Hochul in 2026 primary
+Who is Ritchie Torres considering running for?,Potentially Governor or other statewide office
+What is the political trend in NY House races?,Competitive - Democrats lost seats in 2022 but gained some back in 2024
+Which NY Republicans hold Biden districts?,Mike Lawler (NY-17) holds a competitive seat
+What defines a competitive NY House seat?,Districts in Long Island and Hudson Valley often swing
+How did NY lose House seats?,Population decline led to loss of one seat after 2020 census (from 27 to 26)
+What congressional district covers the Hamptons?,NY-1 (Nick LaLota)
+What congressional district covers the Rockaways?,NY-5 (Gregory Meeks)
+What congressional district covers Park Slope Brooklyn?,NY-10 (Dan Goldman)
+What congressional district covers Brownsville Brooklyn?,NY-8 (Hakeem Jeffries)
+What congressional district covers Washington Heights?,NY-13 (Adriano Espaillat)
+What congressional district covers Riverdale?,NY-16 (George Latimer)
+Which NYC mayoral candidate has endorsements from state leaders?,Zohran Mamdani (endorsed by Hochul Stewart-Cousins and Heastie)
+When is the NYC mayoral general election?,November 4 2025 (tomorrow from Nov 3)
+When is the NYC borough president general election?,November 4 2025 (tomorrow from Nov 3)
+What happened in NYC mayoral primary?,Mamdani won Democratic nomination
+Who is the Republican mayoral candidate?,Curtis Sliwa
+What is Curtis Sliwa known for?,Founder of Guardian Angels; ran for mayor in 2021
+What was the 2021 NYC mayoral result?,Eric Adams (D) defeated Curtis Sliwa
+Is Eric Adams running for reelection?,No - facing legal issues and did not seek reelection
+What legal issues does Eric Adams face?,Federal corruption charges
+Who is Brad Lander?,Current NYC Comptroller (ran for reelection in 2025)
+What does NYC Comptroller do?,Chief financial officer and auditor for NYC
+What other citywide office exists in NYC?,Public Advocate
+Who is the NYC Public Advocate?,Jumaane Williams
+How many NYC Council members are there?,51 members
+What is the NYC Council?,Legislative body for NYC (like a city legislature)
+Who leads the NYC City Council?,Speaker (currently Adrienne Adams)
+What is ranked choice voting in NYC?,Used in primaries - voters rank up to 5 candidates
+When did NYC adopt ranked choice voting?,2021 (first used in that year's elections)
+What is unique about NY's election calendar?,State/federal primaries in June; general in November
+What is the Working Families Party in NY?,Minor party that often cross-endorses Democrats
+Do NY candidates appear on multiple party lines?,Yes - NY has fusion voting allowing multiple party nominations
+What is the Conservative Party line in NY?,Minor party line often used by Republicans
+What is the Liberal Party in NY history?,Former minor party (defunct since 2002)
+What State Senate district is in Harlem?,Various including parts of 30th and others
+What Assembly district is in Chinatown?,District 65 (Manhattan)
+How many state legislators represent NYC?,About 43 Assembly and 26 Senate districts are in NYC
+What percentage of NY legislators are from NYC?,About 40-50% (NYC has about 40% of state population)
+Who controls committee assignments in State Senate?,Senate Majority Leader (Stewart-Cousins)
+Who controls committee assignments in State Assembly?,Assembly Speaker (Heastie)
+What is the NY State Senate Democratic Conference?,Organizing body of Democratic state senators
+What is the IDC in NY politics history?,Independent Democratic Conference (defunct - group that caucused with Republicans until 2018)
+When did Democrats take back NY State Senate?,2018 elections gave Democrats full control
+What was significant about 2019 in Albany?,First time in decade Democrats controlled both chambers and governorship
+What major laws passed in 2019?,Criminal justice reform bail reform reproductive rights protections
+What is the NY SAFE Act?,2013 gun control law passed after Sandy Hook
+Who passed the NY SAFE Act?,Andrew Cuomo as Governor
+What is the Climate Leadership and Community Protection Act?,2019 ambitious climate law committing NY to clean energy
+Who was the key legislative leader for CLCPA?,Andrea Stewart-Cousins helped pass it
+What is congestion pricing in NY?,Tolling program for vehicles entering Manhattan CBD
+What happened to congestion pricing?,Hochul paused it in 2024 then restarted modified version
+What is controversial about the NY budget process?,Governor has significant power - legislative leaders often frustrated
+When is the NY budget due?,April 1 each year
+Is the NY budget usually on time?,Often late - 2025 budget was weeks late
+What is notable about the 2026 gubernatorial race dynamics?,Internal Democratic tension between Hochul and potential challengers
+What criticism has Hochul faced?,Low approval ratings declining NYC margins
+Why might Elise Stefanik be strong in 2026?,Trump got more votes in NY in 2024; she has high name recognition
+What would be historic about Stefanik winning?,First Republican NY Governor since George Pataki (left office 2006)
+Who was the last Republican NY Governor?,George Pataki (1995-2006)
+What is the typical pattern of NY governors?,Usually serve at least 2 terms; rare to be one-term governor
+Who appoints judges in NY?,Some elected; some appointed by Governor with Senate confirmation
+,Diode
+,Capacitor
+,Variable capacitor
+,Field effect transformer
+,Antenna
+,Inductor
+,Resistor
+,DC Voltage Source
+,Lamp
+,Battery
+,Ground
+,Switch
+,LED
+,NPN Transistor
+,Transformer
+,Capacitor
+What is voltage (V)?,Electrical pressure/potential difference,Like water pressure. Measured in volts.
+What is current (I or A)?,Flow of electrons,Like water flow rate. Measured in amps.
+What is resistance (R)?,Opposition to current flow,Like pipe friction. Measured in ohms (Ω).
+What is power (P)?,Rate of energy transfer,Measured in watts (W). Energy per second.
+What's the difference between AC and DC?,AC = Alternating (flips polarity). DC = Direct (constant polarity),Batteries are DC. Wall outlet is AC.
+Which direction does current flow (conventional)?,Positive to negative,Opposite of electron flow (negative to positive)
+What is ground?,Reference point for voltage (0V). Also safety connection to Earth.,Like sea level for elevation. Everything measured relative to it.
+What does polarity mean?,Which terminal is positive vs negative,Reversed polarity can damage equipment
+Series connection means?,Components connected end-to-end (single path),Current same through all. Voltages add.
+Parallel connection means?,Components connected side-by-side (multiple paths),Voltage same across all. Currents add.
+What is a short circuit?,Low/zero resistance path (usually accidental),"Causes huge current, blows fuse, dangerous"
+What is an open circuit?,Infinite resistance - broken/disconnected path,No current flows. Like water pipe break.
+What does a resistor do?,"Limits current flow, drops voltage, dissipates power as heat","Passive component, always dissipates energy"
+What does a capacitor do?,"Stores charge, blocks DC, passes AC",Like spring - stores/releases energy
+What does an inductor do?,"Stores energy in magnetic field, resists current changes",Like flywheel - opposes changes in current
+What does a diode do?,Allows current in ONE direction only,Like check valve in plumbing
+What does a transistor do?,Amplifies signal OR acts as electronic switch,Foundation of all modern electronics
+What is impedance (Z)?,AC version of resistance (includes capacitance/inductance effects),Measured in ohms. Z reduces to R at DC.
+What is a load?,Device that consumes power,Antenna is load for transmitter. Light bulb is load.
+Voltage is to current as ___ is to ___?,Pressure is to flow (fluid). Altitude is to gradient (terrain).,V drives I like pressure drives flow
+Series circuit current is like?,Single-threaded execution - same current everywhere,"One path, no branching"
+Parallel circuit current is like?,Multi-threaded execution - current splits across paths,"Multiple paths, load sharing"
+Short circuit is like?,Null pointer dereference or infinite loop - catastrophic failure,Unintended low-resistance path causes failure
+Open circuit is like?,Broken API call or network timeout,"No connection, no data flow"
+Resistor divider is like?,Map/reduce operation - transforms input to scaled output,Voltage in → scaled voltage out
+Capacitor charging curve is like?,Exponential backoff in networking,Approaches full charge asymptotically
+Ground reference is like?,Origin point in coordinate system,All voltages measured relative to ground (like y=0)
+Why 12V for ham radio?,"Matches car electrical, standard battery voltage",Portable ops + vehicle ops
+100W radio on 12V draws how much current?,"~8A calculated, ~20A peak actual (50% amp efficiency)",Always 2× calculated for real-world
+Fuse size for 100W radio?,20-25A (allows for peak draw + safety margin),Not 10A - will blow immediately
+Best battery chemistry for portable?,LiFePO4 (lithium iron phosphate),"Best weight, cycle life, energy density"
+Solar panel sizing rule?,3× daily Wh consumption,"Accounts for weather, angles, losses"
+Anderson Powerpole standard?,Red = positive RIGHT,"Genderless 15-45A connector, ham standard"
+Wire gauge for 10A at 12V?,"14 AWG <10ft, 12 AWG longer",Smaller AWG number = thicker wire
+Voltage drop formula?,"V = (2×L×R×I)/1000, L=feet, R=Ω/1000ft, I=amps",2× because + and - wire. Want <0.5V drop
+HF radio power draw on transmit?,~2× calculated (50-70% amp efficiency),Most power becomes heat
+What is LVD?,Low Voltage Disconnect - protects battery at ~11V,Prevents over-discharge damage
+Battery capacity (Ah) is like?,RAM or storage capacity,7Ah = 7 hours at 1A (like 7GB storage used at 1GB/hr)
+Voltage drop in long wires is like?,Latency in long network cables or API chains,Longer distance = more loss (resistance/impedance)
+Solar panel sizing (3× consumption) is like?,Overprovisioning for peak load,Account for cloudy days (like scaling for traffic spikes)
+Anderson Powerpole standard is like?,USB-C or standardized connector,"Genderless, universal in ham community"
+LVD (Low Voltage Disconnect) is like?,Graceful degradation or circuit breaker,Prevents battery damage (like preventing resource exhaustion)
+Power budget (P = V × I) is like?,Resource allocation or capacity planning,Calculate total power draw to size supply
+2× power draw rule (amp inefficiency) is like?,Overhead in virtualization or abstraction layers,"Calculated 8A, actual 16A (50% efficiency loss)"
+QRL,"I am busy (or I am busy with _________). Are you busy?
+Usually used to see if a frequency is busy."
+QRM,"Your transmission is being interfered with _________
+(1. Nil; 2. Slightly; 3. Moderately; 4. Severely; 5. Extremely.)
+Is my transmission being interfered with?"
+QRZ,"You are being called by _________ (on ______kHz).
+Who is calling me?"
+QSL,"I am acknowledging receipt.
+Can you acknowledge receipt (of a message or transmission)?"
+QSY,"Change to transmission on another frequency (or on ______kHz).
+Shall I change to transmission on another frequency (or on ______kHz)?
+"
+QRO,"Increase power. Shall I increase power?
+"
+QRP,"Decrease power. Shall I decrease power?
+"
+QSB,Your signals are fading. Are my signals fading?
+QRM,"Your transmission is being interfered with _________
+(1. Nil; 2. Slightly; 3. Moderately; 4. Severely; 5. Extremely.)
+Is my transmission being interfered with?"
+What is a frequency?,Number of wave cycles per second (Hertz),1 MHz = 1 million cycles/second
+"What are kHz, MHz, GHz?","kilo (×1000), Mega (×1 million), Giga (×1 billion)","146 MHz = 146,000,000 Hz"
+What is a wavelength?,Physical distance of one complete wave cycle,Inversely related to frequency
+What is a band?,Range of frequencies grouped together,2m band ≈ 144-148 MHz. 70cm band ≈ 420-450 MHz
+HF vs VHF vs UHF - frequency order?,HF (3-30 MHz) < VHF (30-300 MHz) < UHF (300 MHz-3 GHz),"H=High, V=Very high, U=Ultra high"
+What does transmit mean?,Send RF signal out via antenna,Your radio is TXing when you talk
+What does receive mean?,Pick up RF signal via antenna,Your radio is RXing when you listen
+What is simplex?,Both stations transmit/receive on SAME frequency,"Direct radio-to-radio, no repeater"
+What is duplex?,"Transmit on one freq, receive on another",Repeaters use duplex (offset between RX/TX)
+What is a repeater?,Station that receives and retransmits to extend range,"Usually on hilltop, uses duplex operation"
+Repeater offset - what is it?,Frequency difference between input and output,2m typical: +/- 600 kHz. 70cm: +/- 5 MHz
+What is FM (modulation)?,Frequency Modulation - voice varies frequency of carrier,"Most common on VHF/UHF. Simple, noise-resistant"
+What is AM (modulation)?,Amplitude Modulation - voice varies amplitude of carrier,Aircraft band uses AM. Less efficient than FM
+What is SSB?,"Single Sideband - filtered AM, uses less bandwidth",More efficient than AM. Common on HF.
+What is CW?,Continuous Wave - morse code (on/off keying),"Oldest mode, narrowest bandwidth, most efficient"
+What does PEP mean?,Peak Envelope Power - maximum power during modulation,Legal limit measured in PEP
+What is the FCC?,Federal Communications Commission - regulates radio in USA,"Issues ham licenses, enforces rules"
+How often must you ID your station?,Every 10 minutes AND at end of transmission,Use callsign in English (voice or CW)
+What can a Technician license do?,"Full privileges on VHF/UHF (6m and above), limited HF",Most Techs operate 2m/70cm FM
+What can a General license do?,Most HF privileges + all VHF/UHF,Most popular upgrade - unlocks HF
+What can Amateur Extra do?,"All frequencies, all modes, all power","Hardest test, full privileges"
+What is a callsign?,Unique identifier assigned by FCC,"Format: prefix + number + suffix (e.g., KE5ABC)"
+What is QSO?,Two-way radio conversation,'Had a QSO with KE5ABC'
+What is QTH?,Your location / station location,'My QTH is New York'
+What is 73?,'Best regards' - end of conversation,Not '73s' (redundant). Just '73'
+What does CQ mean?,General call for any station to respond,"'CQ CQ CQ, this is KE5ABC calling CQ'"
+Frequency spectrum allocation is like?,Memory segmentation - each band allocated for specific use,VHF/UHF/HF bands like heap/stack/static memory regions
+Simplex vs duplex is like?,Half-duplex vs full-duplex network communication,Simplex = walkie-talkie. Duplex = phone call.
+Repeater network topology is like?,Star topology with relay nodes (like WiFi repeaters),Central infrastructure extends range
+Ham license progression (Tech→General→Extra) is like?,Permission escalation in OS. More privileges = more access.,"Tech=user, General=sudoer, Extra=root"
+Q-codes are like?,Compression algorithm for common phrases,"QSO=conversation, QTH=location. Saves bandwidth/time."
+Callsign format (prefix-number-suffix) is like?,Hierarchical naming scheme (like domain names),"KE5ABC: KE=region, 5=district, ABC=unique ID"
+Can Technician operate on 10m HF?,Yes - limited privileges on 10m (28.000-28.500 MHz),Only Technician HF privilege besides 6m
+Can Technician operate phone (voice) on HF?,Very limited: 10m phone only (28.300-28.500 MHz),Most HF phone requires General license
+Max power for Technician?,"200W PEP (VHF/UHF), 200W PEP (10m), 1500W on other HF if upgraded",Usually 1500W max for most hams
+When can you transmit without ID?,NEVER - must ID every 10 min + end of QSO,"Even in emergency, ID as soon as possible"
+Can you be paid to operate ham radio?,NO - amateur radio is non-commercial,"Exception: instructing, repairing equipment"
+Can you encrypt messages on ham radio?,NO - all transmissions must be plain language,Exception: space/control commands for satellites
+Can you play music on ham radio?,"NO - no broadcasting, no entertainment",Two-way communication only
+What's the penalty for intentional interference?,"FCC fines, license suspension/revocation, criminal charges",Jamming is federal crime
+Can you use ham radio for business?,"NO - personal, non-commercial only",Can coordinate volunteer activities
+Third-party traffic rules?,Can pass messages for non-hams if not business/illegal,Check country agreements for international
+Grace period after license expires?,2 years to renew without retaking test,"After 2 years, must retest"
+How long is a ham license valid?,10 years,Free to renew (no fee)
+ID requirement (every 10 min) is like?,Heartbeat or keepalive packet,Proves you're still authorized operator
+Non-commercial rule is like?,Open source license restrictions,"Personal/educational use OK, commercial requires different license"
+Plain language requirement is like?,No encryption = no obfuscation requirement,All transmissions must be transparent/auditable
+No broadcasting rule is like?,Unicast vs multicast restriction,"Two-way communication only, not one-to-many entertainment"
+Grace period (2 years) is like?,Token expiration with refresh window,Can renew without retest within grace period
+Third-party traffic is like?,Acting as proxy or relay for non-authenticated user,Can pass messages but you're responsible
+National simplex calling frequency (2m)?,146.520 MHz,"Make contact, then QSY (move) to another freq"
+National FM simplex calling (70cm)?,446.000 MHz,Less crowded than 2m
+Typical 2m repeater input/output split?,± 600 kHz,"If output 146.940, input is 146.340 (minus) or 147.540 (plus)"
+Typical 70cm repeater input/output split?,± 5 MHz,"If output 442.000, input is 447.000 (plus)"
+What does 'negative offset' mean?,Input (TX) is LOWER than output (RX),Your radio TXs 600kHz below repeater output
+What does 'positive offset' mean?,Input (TX) is HIGHER than output (RX),Your radio TXs 600kHz above repeater output
+What is CTCSS/PL tone?,Sub-audible tone (67-254 Hz) to access repeater,Prevents interference. Tone must match repeater.
+What is squelch?,Mutes audio when no signal present,Eliminates noise between transmissions
+What is VOX?,Voice-Operated Transmit - TX when you speak (no PTT),Hands-free operation. Needs adjustment to avoid false keys.
+What is PTT?,Push-To-Talk button,"Press to transmit, release to receive"
+Phonetic alphabet for callsign KE5ABC?,Kilo Echo Five Alpha Bravo Charlie,Reduces confusion on poor signals
+CTCSS tone is like?,Authentication token or password,Must match to access repeater (prevents interference)
+Squelch is like?,Noise gate or threshold filter,Mutes output when signal below threshold
+VOX is like?,Voice activation or trigger detection,Auto-transmit when audio detected
+Repeater offset is like?,Port forwarding or NAT translation,"Input freq ≠ output freq, repeater bridges them"
+Simplex calling freq then QSY is like?,"Handshake on well-known port, then switch to dynamic port","146.520 = port 80, then move to avoid congestion"
+Phonetic alphabet is like?,Error correction coding,Redundancy prevents misinterpretation
+What frequency range is VHF?,144-148 MHz (2 meter). Mnemonic: 1-4-4 ascending,VHF = Very High Frequency
+What frequency range is UHF?,420-450 MHz (70 cm). Mnemonic: 4-2-0,UHF = Ultra High Frequency. Line-of-sight propagation.
+Wavelength from frequency formula?,λ = 300 / MHz. Example: 146 MHz = 2.05 meters,300 = speed of light in million m/s
+What propagation mode bounces off ionosphere?,"Skywave (HF bands, 3-30 MHz)","Signal bounces between ionosphere layers (E, F1, F2) and Earth"
+What propagation mode is line-of-sight only?,VHF/UHF (>30 MHz),Direct path only - no ionosphere bounce
+What causes skip zone in HF?,Area between ground wave end and where skywave returns,Dead zone - signal can't reach that region
+HF propagation varies by time of day how?,40m/80m best at night. 20m/15m/10m best during day.,Ionosphere ionization changes with sunlight
+What is SWR?,Standing Wave Ratio - measures impedance mismatch,Want <2:1. Perfect = 1:1. High SWR = reflected power
+What happens if SWR is too high?,"TX shuts down (protection), reduced efficiency, possible damage",Modern radios protect themselves
+Characteristic impedance of coax?,"50Ω (ham radio), 75Ω (TV/video)","Mnemonic: 50 for Sending, 75 for Viewing"
+Ohm's law - solve for voltage?,V = I × R,Mnemonic: VIR sounds like 'veer'
+Ohm's law - solve for current?,I = V / R,Current = pressure / restriction
+Ohm's law - solve for resistance?,R = V / I,Resistance = voltage / current
+Power from voltage and current?,P = V × I,"P for Power, VI for Very Important"
+Power from current and resistance?,P = I²R,Mnemonic: 'I squared R' = watts
+Power from voltage and resistance?,P = V²/R,Used for feedline loss calculations
+"If voltage doubles, power does what?","Quadruples (P = V²/R, so 2² = 4×)",Quadratic relationship
+Battery capacity units?,Amp-hours (Ah) or mAh,"7Ah = 1A for 7hrs, or 7A for 1hr"
+Runtime formula for battery?,Hours = Ah / Amps,7Ah battery at 2A = 3.5 hours
+Power budget formula?,P = V × I,12V × 5A = 60W
+Series resistors total?,R_total = R1 + R2 + R3...,Just add them
+Parallel resistors total?,1/R = 1/R1 + 1/R2 OR (R1×R2)/(R1+R2) for two,Two 100Ω in parallel = 50Ω
+Series capacitors behave opposite how?,Series caps add like parallel resistors (1/C = 1/C1 + 1/C2),Series caps = SMALLER total
+Parallel capacitors behave opposite how?,Parallel caps add like series resistors (C = C1 + C2),Parallel caps = LARGER total
+Capacitor blocks what?,DC (passes AC),High-pass filter behavior
+Inductor blocks what?,AC (passes DC),Low-pass filter behavior. Opposite of capacitor.
+What is resonance?,Frequency where XL = XC (reactances cancel),Signal passes easily at resonant frequency
+Resonant frequency changes how with L or C?,↑L or ↑C → ↓frequency,Inverse relationship
+What is dummy load?,50Ω resistor for testing TX without radiating,"No interference, no FCC violation, safe testing"
+What is balun?,Balanced-to-Unbalanced transformer,Matches antenna (balanced) to coax (unbalanced)
+Common balun ratios?,4:1 or 1:1,Matches dipole (~70Ω) to coax (50Ω)
+Ground wave propagation range?,"HF/MF, ~100 miles max","Follows Earth's curvature, then dies out"
+What is tropospheric ducting?,"Temperature inversion traps VHF/UHF, extends range",Weather-dependent. Can reach hundreds of miles.
+Sporadic E propagation?,"Random E-layer patches enable VHF skip (summer, 6m/10m)",Unpredictable long-distance VHF
+Sunspot cycle effect on HF?,More sunspots = better HF propagation,11-year cycle. High sunspots = more ionization
+What is MUF?,Maximum Usable Frequency that refracts back,"Above MUF, signal escapes to space"
+Critical angle in propagation?,Steepest angle that refracts back (doesn't escape),Too steep = signal lost to space
+Feed line loss increases with what 3 factors?,"Frequency (↑), length (↑), diameter (↓)",Higher freq = more loss. Longer = more loss.
+Best feed line for VHF/UHF?,Hardline or LMR-400,RG-58 too lossy at VHF/UHF
+What is quarter-wave stub?,Feedline segment used as impedance transformer,Open λ/4 = short. Shorted λ/4 = open.
+3dB power rule?,3dB = 2× power (up or down),Every 3dB doubles or halves
+dB formula for power?,dB = 10 × log₁₀(P2/P1),"Know: 3dB=2×, 6dB=4×, 10dB=10×"
+100W + 3dBi antenna gain = ?,~200W ERP (3dB = double),"Gain focuses power, doesn't create it"
+dBi vs dBd?,dBi = vs isotropic. dBd = vs dipole. dBi ≈ dBd + 2.15,dBi numbers are ~2dB higher
+Dipole antenna gain?,~2.15 dBi (0 dBd by definition),Focuses energy horizontally
+What is EIRP?,Effective Isotropic Radiated Power = TX power × antenna gain,Used for legal limit calculations
+Technician power limits?,"200W PEP on VHF/UHF, 1500W PEP on HF (with privileges)",PEP = Peak Envelope Power
+RF duty cycle meaning?,"% of time transmitting (100%=continuous, 50%=half)",Affects average exposure for safety calcs
+RF safety distance increases with what?,"↑Power, ↑duty cycle, varies by frequency",Higher power or longer TX time = farther distance
+What is SAR?,Specific Absorption Rate (W/kg) - RF absorbed by tissue,FCC limits based on frequency-dependent SAR
+Why single-point ground?,"Prevents ground loops (noise, hum)",Star topology - no loops = no circulating currents
+What is ground loop?,Multiple ground paths create current flow and noise,"Want tree structure, not mesh (no cycles)"
+Convert dBm to watts (key values)?,"0dBm=1mW, +30dBm=1W, +40dBm=10W",Every +10dBm = ×10
+Skywave propagation is like?,Packet routing via gateway/relay,Signal bounces off ionosphere (relay node) to reach distant station
+Skip zone is like?,Dead zone in wireless coverage or unreachable subnet,Signal can't reach area between direct and reflected coverage
+Tropospheric ducting is like?,Atmospheric waveguide or fiber optic cable,"Weather traps signal, extends range beyond normal line-of-sight"
+MUF (Maximum Usable Frequency) is like?,Maximum payload size before fragmentation,"Above MUF, signal escapes ionosphere (lost packets)"
+SWR is like?,Impedance mismatch = packet loss or retransmission,High SWR = reflected power (like TCP retransmits)
+Ground loop is like?,Circular dependency or routing loop,Multiple ground paths create noise (like broadcast storm)
+dB scale is logarithmic like?,Big O notation or Richter scale,Each 3dB = 2× power (exponential growth)
+Quarter-wave stub is like?,Impedance transformer or voltage regulator,Transforms impedance via transmission line mathematics
+EIRP calculation (TX power + antenna gain) is like?,Effective throughput (bandwidth × efficiency),Total radiated power = transmitter × antenna focusing
+Duty cycle in RF safety is like?,Average vs peak load or CPU utilization,"100% duty cycle = continuous TX, 50% = half time TX"
+Feed line loss is like?,Resistance in wire or HTTP overhead,Longer cable = more loss (like longer API call chain)
+Balun (balanced-unbalanced) is like?,Protocol adapter or serialization layer,Converts between antenna (balanced) and coax (unbalanced)
+Dummy load testing is like?,Unit testing in isolated environment,Test transmitter without radiating (no side effects)
+Parallel resonance (LC) is like?,Resonance in mechanical system or standing wave,"XL = XC, impedance peaks, signal passes easily"
+What is Part 107?,FAA regulation for commercial drone operations (Remote Pilot Certificate),Required for any commercial/business drone use
+Who needs Part 107?,Anyone flying drone for compensation or business purposes,Hobby = exception (recreational only)
+Part 107 age requirement?,16 years old minimum,Must pass aeronautical knowledge test
+Part 107 validity period?,24 months (2 years),Must pass recurrent test to renew
+Part 107 max altitude?,400 feet AGL (Above Ground Level),"Exception: within 400ft of structure, can go up to 400ft above structure"
+Part 107 max groundspeed?,100 mph (87 knots),Most consumer drones can't reach this anyway
+Can you fly Part 107 at night?,YES - with anti-collision lights visible 3 statute miles,Recent rule change (previously required waiver)
+Part 107 VLOS requirement?,Visual Line Of Sight - must see drone with unaided eye,No FPV-only flight. Observer can help but pilot must maintain VLOS.
+Can you fly over people under Part 107?,"YES - but drone must meet Category 1, 2, or 3 requirements",Most DJI drones need Category 1 (under 0.55 lbs) or propeller guards
+Part 107 weather minimum: visibility?,3 statute miles,Same as Class G airspace VFR minimums
+Part 107 weather minimum: cloud clearance?,"500 feet below, 2000 feet horizontally",Can't fly in clouds or through them
+Part 107 weather minimum: ceiling?,Must operate below clouds,"No specific ceiling, but must maintain cloud clearance"
+Can you fly from a moving vehicle?,YES - but only over sparsely populated area,Common for inspection work from trucks
+Can you fly from a moving aircraft?,NO - absolutely prohibited,"Dangerous, no exceptions"
+"Multiple drones, one pilot?",NO - one pilot per drone during flight,Can operate sequentially but not simultaneously
+Can you carry hazardous materials?,NO - explicitly prohibited,"Includes flammable liquids, explosives, etc."
+Part 107 preflight requirement?,"Check drone, control station, links are functional",Like pre-flight inspection on manned aircraft
+Alcohol limit for Part 107?,"8 hours 'bottle to throttle', BAC must be under 0.04%",Same as manned pilots. Zero tolerance practically.
+Can you drop objects?,YES - but not to cause property damage or injury,Delivery drones allowed with proper planning
+== AIRSPACE FUNDAMENTALS ==,""""
+What is Class A airspace?,"18,000 ft MSL to 60,000 ft MSL (FL180-FL600)",Drones can't operate here (too high)
+What is Class B airspace?,Busiest airports - looks like upside-down wedding cake,Requires ATC authorization (LAANC or manual)
+What is Class C airspace?,Moderately busy airports - typically 2 rings,Requires ATC authorization
+What is Class D airspace?,Towered airports - single cylinder typically 4nm radius,Requires ATC authorization
+What is Class E airspace?,Controlled airspace not A/B/C/D - starts 700 or 1200 ft AGL most places,No authorization needed (below 400ft AGL)
+What is Class G airspace?,Uncontrolled airspace - typically surface to 700/1200 ft AGL,"No authorization needed, most drone ops happen here"
+Airspace mnemonic for authorization?,"BCDΕ - 'Be Cool, Don't Enter' without auth","Class B, C, D, E (some) need authorization"
+What is LAANC?,Low Altitude Authorization and Notification Capability,Automated ATC authorization system (near-instant approval in some areas)
+How to get airspace authorization?,LAANC (instant-ish) or manual FAA request (weeks),LAANC available at many controlled airports
+What is a TFR?,Temporary Flight Restriction - NO drone operations,"Check NOTAMs before every flight. Wildfire, VIP, stadium, etc."
+Stadium TFR rules?,"1 nm radius, surface to 3000 ft AGL, 1 hour before to 1 hour after event","Includes MLB, NFL, NCAA Div 1, NASCAR. >30,000 attendance"
+Wildfire TFR rules?,Drones ABSOLUTELY PROHIBITED within wildfire TFR,"'If you fly, we can't' - grounds firefighting aircraft"
+What is a NOTAM?,Notice to Airmen - temporary flight restrictions/hazards,Check BEFORE every flight. TFRs issued as NOTAMs
+Where to check NOTAMs?,"1800wxbrief.com, B4UFLY app, FAA UAS Data Exchange",Must check before EVERY flight
+What is METAR?,Meteorological Aerodrome Report - weather observation at airport,"Updated hourly, shows current conditions"
+What is TAF?,Terminal Aerodrome Forecast - weather forecast for airport,"Covers 24-30 hours, updated every 6 hours"
+METAR: VRB03KT means?,Variable wind at 3 knots,"Wind direction varying, too light to determine direction"
+METAR: 27015G25KT means?,"Wind from 270° at 15 knots, gusting to 25 knots",270° = west. Gusts = turbulence risk.
+METAR: 10SM means?,Visibility 10 statute miles,Exceeds Part 107 minimum (3 SM)
+METAR: FEW025 SCT050 BKN100 means?,"Clouds: few at 2500ft, scattered at 5000ft, broken at 10,000ft","FEW=1-2 oktas, SCT=3-4, BKN=5-7, OVC=8 (full coverage)"
+METAR: BKN010 means what for Part 107?,Broken clouds at 1000 ft AGL - can't fly above ~500ft,Must stay 500ft below clouds = 500ft max altitude here
+METAR: OVC004 means what for Part 107?,Overcast at 400ft - probably can't fly,"Clouds at 400ft, must stay 500ft below = ground ops only"
+What is density altitude?,Pressure altitude corrected for non-standard temperature,High density altitude = reduced drone performance (less lift)
+When is density altitude a concern?,"Hot, humid, high elevation",Colorado summer day = poor performance
+What does G mean in winds?,Gusts,"15G25KT = sustained 15kt, gusts to 25kt"
+Wind direction in METAR is?,"Magnetic, where wind is FROM",270° = wind from west (blowing toward east)
+What is ATIS?,Automatic Terminal Information Service - recorded airport info,"Weather, active runway, NOTAMs. VHF frequency at towered airports."
+== SECTIONAL CHARTS ==,""""
+What is a sectional chart?,"VFR aeronautical chart showing airspace, airports, hazards","1:500,000 scale, updated every 6 months"
+Magenta dashed circle on sectional?,Class E airspace starting at 700 ft AGL,Controlled airspace starts lower than typical 1200ft
+Blue dashed circle on sectional?,Class D airspace (towered airport),Need authorization for drone ops
+Solid magenta circle on sectional?,Class B or C airspace (busy airport),"Need authorization, multiple altitude tiers"
+What does R- prefix mean on chart?,"Restricted airspace - military ops, hazards","Check if active, often part-time"
+What does P- prefix mean?,Prohibited airspace - NO flight,"Rare, usually around sensitive govt facilities"
+What does MOA mean?,Military Operations Area - caution,Drones allowed but military traffic may be present
+What does MTR mean?,Military Training Route - low-level high-speed jets,VR (VFR) or IR (IFR) routes. Stay alert.
+Magenta airport symbol means?,Towered airport with services,"Probably Class D airspace, need authorization"
+Blue airport symbol means?,Non-towered airport,"Class G or E airspace, usually no authorization needed"
+Numbers next to airport symbol?,Elevation of airport (MSL) and pattern altitude,Helps calculate AGL from MSL
+What is AGL?,Above Ground Level - height above terrain below you,"Part 107 limits are AGL, not MSL"
+What is MSL?,Mean Sea Level - altitude above sea level,Used for airspace boundaries and chart elevations
+What is IMC?,"Instrument Meteorological Conditions - clouds, low vis",Part 107 drones can ONLY fly in VMC
+What is VMC?,Visual Meteorological Conditions - clear enough to see,"Required for Part 107: 3 SM vis, cloud clearance"
+Preflight inspection must check?,"Battery, props, airframe, control links, camera gimbal, GPS signal",Like ABCDE but for drones
+What is geofencing?,Software limits preventing flight in restricted areas,DJI drones use this. Can request unlock for authorized ops.
+What is a battery cell count?,"Number of series cells in LiPo battery (3S, 4S, etc.)",Higher S = higher voltage = more power
+LiPo battery danger?,"Fire/explosion if damaged, overcharged, or short-circuited",Never use puffed/damaged batteries
+LiPo storage voltage?,~3.8V per cell (60-70% charge),Prevents degradation. Full charge = 4.2V/cell
+What is propeller wash?,Downward airflow from props (also called rotor wash),"Can exceed 40mph, injury risk to bystanders"
+What is flyaway?,"Drone loses control link, flies away uncontrolled",Set return-to-home as failsafe. GPS required.
+Return-to-home (RTH) triggers?,"Low battery, signal loss, manual activation",Make sure RTH altitude clears obstacles
+What is lost link procedure?,Drone behavior when control signal lost,"Typically hovers, lands, or returns home (configurable)"
+Gimbal stabilization uses?,IMU (gyroscope/accelerometer) to keep camera level,Allows smooth video in wind/motion
+Who is Remote PIC?,Remote Pilot in Command - responsible person during flight,"Holds Part 107 cert, makes all decisions"
+Who is VO (Visual Observer)?,Person assisting PIC by maintaining visual contact with drone,Optional but helpful. Must communicate with PIC.
+Who is person manipulating controls?,"Can be someone other than PIC, but PIC remains responsible","PIC supervises, holds cert"
+Can VO use binoculars for VLOS?,NO - VLOS must be unaided eye,Binoculars OK to supplement but not replace unaided vision
+Small UAS definition?,Unmanned aircraft <55 lbs,Includes drone + payload
+Registration requirement?,All drones 0.55 lbs to 55 lbs must be registered,"$5, valid 3 years, mark drone with number"
+Where to mark registration number?,Externally visible OR inside battery compartment (with tool access),FAA now allows internal marking
+Accident reporting threshold?,Serious injury OR property damage >$500 (not drone itself),Report within 10 days to FAA
+Serious injury definition?,"Hospitalization >48 hours (within 7 days of injury), bone fracture, laceration with nerve damage",Not just cuts/bruises
+Can you fly in national parks?,NO - National Park Service bans drones,Some exceptions for official use with permit
+Right-of-way rules?,Manned aircraft ALWAYS have right of way over drones,"If you see aircraft, descend and move away immediately"
+Emergency operations?,Can deviate from Part 107 if necessary for safety,Must report deviation to FAA if requested
+What is sUAS?,Small Unmanned Aircraft System - drone + controller + links,Includes all components of system
+Crew Resource Management (CRM)?,"Effective communication and teamwork among crew (PIC, VO, etc.)",Speak up if you see safety issue
+What is aeronautical decision making (ADM)?,Systematic approach to risk assessment and decision making,"PAVE: Pilot, Aircraft, Environment, External pressures"
+Class G typical ceiling?,1200 ft AGL (or 700 ft near airports),Below this = uncontrolled
+Class E typical floor?,700-1200 ft AGL (varies),"Above Class G, below Class A"
+Class B inner ring typical?,"Surface to 10,000 ft MSL (varies by airport)",Busiest airspace
+Class D typical dimensions?,"Surface to 2500 ft AGL, 4-5 nm radius",Towered airport
+Part 107 standard max altitude?,400 ft AGL,Can go higher near tall structures (within 400ft of structure)
+Stadium TFR altitude?,Surface to 3000 ft AGL,1 nm radius
+Class A floor?,"18,000 ft MSL (FL180)",Irrelevant for drones
+What is a temperature inversion?,Temperature increases with altitude (opposite of normal),"Traps pollutants, affects density altitude"
+What is a microburst?,"Intense downdraft from thunderstorm, spreads on ground","Extreme hazard - powerful winds, wind shear"
+What is windshear?,Sudden change in wind speed/direction,"Can flip drone, very dangerous"
+What causes turbulence?,"Wind over obstacles, thermals, weather fronts, rotor from mountains",Gusty winds = turbulence risk
+What is convective activity?,"Rising air from surface heating (thermals, thunderstorms)","Unstable air, turbulence, can carry light drones"
+When are thermals strongest?,"Afternoon, hot days, dark surfaces (pavement, plowed fields)",Morning = calmer typically
+Thunderstorm hazards for drones?,"Extreme turbulence, hail, lightning, microbursts, heavy rain",Don't fly near or under thunderstorms. Ever.
+What is ICING?,Moisture freezing on aircraft,Rare for low-altitude drones but can affect props/motors in winter
+Daylight operations definition?,30 minutes before sunrise to 30 minutes after sunset,Civil twilight. Extended with anti-collision lights now.
+Anti-collision light requirement?,"Visible 3 statute miles, if flying twilight/night","Flashing or steady, meets requirement"
+Can you waive Part 107 rules?,YES - some rules can be waived with FAA approval,"VLOS, operations over people, from moving vehicle - can request waiver"
+How to request waiver?,FAA DroneZone online portal,Requires detailed safety case
+Commercial vs recreational difference?,Commercial = compensation/business. Recreational = hobby only.,Recreational falls under Exception for Recreational Flyers
+Recreational rules (non-107)?,"Must follow CBO guidelines, recreational only, <55 lbs, register if >0.55 lbs",No test required for recreational
+What is a CBO?,Community Based Organization (like AMA - Academy of Model Aeronautics),Recreational flyers must follow CBO safety guidelines
+Can you share footage from recreational flight?,YES - but can't be PAID for it,"YouTube ad revenue = gray area, direct payment = commercial"
+Does Part 107 cover government drones?,"NO - public aircraft (police, fire, govt) have separate rules",Part 107 is for civil (commercial/private) operations
+Part 107 altitude (400ft AGL) vs ham antenna height?,"Both measured AGL (above ground level), not MSL",Ham: higher = better. Drone: 400ft max.
+VLOS requirement is like?,Visual line of sight = must see with unaided eye (like ham radio horizon),Can't operate beyond visual range (like VHF line-of-sight)
+TFR is like ham radio forbidden frequencies?,Absolute prohibition - wildfire TFR = no ops (like restricted spectrum),Check NOTAMs like checking band plan
+LAANC authorization is like?,Automated approval system (like LAANC instant approval vs weeks for manual),Like API vs manual request process
+Sectional chart is like network diagram?,"Visual map of airspace classes, airports, hazards","Like topology map showing routers, subnets, firewalls"
+Airspace classes (B/C/D/E/G) are like?,Security zones or permission levels,"Class B = most restricted, Class G = uncontrolled"
+"Weather minimums (3 SM, cloud clearance) are like?",Minimum viable conditions for operation,"Below minimums = unsafe, don't fly"
+Density altitude effect on drone performance?,Hot/high/humid = reduced lift (same as aircraft performance),"Thin air = less thrust, shorter flight time"
+METAR wind notation (27015G25KT) is like?,Structured data format (270° at 15kt gusting 25kt),"Parse like log files: direction, speed, gusts"
+Preflight inspection is like?,"Pre-deployment checklist (battery, props, links, GPS)",Catch failures before they happen in production
+Return-to-home (RTH) is like?,Failsafe or exception handler (signal loss → RTH),Default safe behavior on error condition
+Geofencing is like?,Software-enforced boundaries (can't fly in restricted areas),Like firewall rules or access control
+Registration requirement (<55 lbs) is like?,Device registration or MAC address tracking,Unique ID for accountability
+Accident reporting threshold is like?,Incident response protocol (>$500 damage or hospitalization),Mandatory reporting for serious events
+PIC responsibility is like?,Root user or admin - ultimately responsible for all actions,Can delegate control but not responsibility
+LiPo battery fire risk is like?,Runaway process or thermal throttling risk,Damaged battery = catastrophic failure (fire/explosion)
+Propeller wash hazard is like?,Exhaust blast or output overflow,40+ mph downward airflow can injure bystanders
+Flyaway (lost control) is like?,Process escaping control or runaway thread,Set RTH as failsafe to recover
+VO (Visual Observer) is like?,Secondary monitoring or redundancy,"Backup eyes, communicates with PIC"
+Right-of-way (manned aircraft) is like?,Priority queue or interrupt handling,"Manned aircraft = highest priority, always yield"
+CRM (Crew Resource Management) is like?,Team communication protocols or agile standup,"Speak up if you see safety issue, regardless of hierarchy"
+"Stadium TFR (1nm, 3000ft, ±1hr) is like?",Temporary resource lock during high-traffic event,Exclusive airspace during game (like DB lock during transaction)
+Wildfire TFR is absolute like?,"Critical system failure - no exceptions, immediate cessation","'If you fly, we can't' - grounds firefighting aircraft"
+NOTAM checking is like?,Polling for system status before operation,Check before EVERY flight (like health check before deployment)
+Daylight ops (30 min before sunrise to after sunset) is like?,Operating hours or scheduled maintenance window,Extended with anti-collision lights (like extended support hours)
+Waiver process is like?,Exception request or policy override,Request approval for operations outside standard rules
+Commercial vs recreational is like?,Production vs dev environment,"Recreational = hobby, commercial = business (requires cert)"
+Bowline - when to use?,"Fixed loop. Rescue, antenna support, guy lines",Won't slip or jam under load
+Clove hitch - when to use?,Quick temporary pole attachment,Can slip under varying load or with slippery rope
+Trucker's hitch advantage?,3:1 mechanical advantage (rope-only pulley),For tensioning guy lines
+Working end vs standing end?,Working = free end you tie. Standing = fixed end,"Working manipulates, standing is anchor"
+Figure-8 knot purpose?,Stopper knot (prevents rope through hole),"Simple, strong, easy to inspect"
+Square knot danger?,Can capsize under load - NOT for critical use,"Only for same-diameter ropes, low load"
+Sheet bend - when to use?,Join ropes of DIFFERENT diameters,More secure than square knot
+Guy line - why 3+ points?,Triangulation provides lateral stability,"3 minimum, 4+ better for tall masts"
+Working Load Limit (WLL)?,10-20% of break strength,Safety margin - never exceed
+Sheet bend (different diameter ropes) is like?,Type coercion or adapter pattern,Connects incompatible types safely
+Trucker's hitch (3:1 mechanical advantage) is like?,Leverage or force multiplication algorithm,Input force × 3 = output tension
+AVPU,"Alert, Verbal, Pain, Unresponsive - scale for consciousness level"
+ABCDE,"Airway: Make sure the mouth, nose, throat, and upper airway are clear of obstructions so the patient can breathe.
+Breathing: Look, listen, and feel for breathing. Are they breathing? Is the breathing labored, easy, deep, shallow, etc.?
+Circulation: Check for a pulse and look for signs of severe bleeding.
+Disability: Making a decision if spine protection is needed (if you didn’t observe the incident, assume disability).
+Expose: Examine your patient for obvious, major injuries, and if needed control bleeding."
+S in SAMPLE,Signs & Symptoms - what patient reports/you observe
+A in SAMPLE,Allergies
+M in SAMPLE,Medications
+P in SAMPLE,Previous / Pertinent history
+L in SAMPLE,"Last intake/output - food, drink, urination, bowel movements"
+E in SAMPLE,Events leading to injury/illness - what happened the last few days?
+S in SOAP,"Subjective: This information is told to you by patients or bystanders, such as the order of events"
+O in SOAP,"Objective: This information is measurable and observable, like vital signs."
+A in SOAP,Assessment: categorizes the patient’s medical concerns as a problem list
+P in SOAP,Plan: Will note treatments for each problem and additional action steps
+CSM,"Circulation
+Sensation
+Movement"
+Hyper-,"Above, excessive"
+Hypo-,"Below, under, deficient"
+Brady-,Slow
+Tachy-,Fast

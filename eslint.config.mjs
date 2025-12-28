@@ -94,6 +94,7 @@ export default createConfigForNuxt({
         useKalshi: 'readonly',
         useCalibration: 'readonly',
         useMouse: 'readonly',
+        useFlashcards: 'readonly',
       },
     },
   },

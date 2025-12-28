@@ -254,7 +254,8 @@ export const tabularClasses = 'tabular-nums font-mono'
  * Get CSS classes for large numeric displays
  * Mobile-optimized: Minimum 20px font size for readability
  */
-export const valueClasses = 'text-xl md:text-2xl font-mono tabular-nums font-bold'
+export const valueClasses =
+  'text-xl md:text-2xl font-mono tabular-nums font-bold'
 
 // Week range formatting (for health/activity stats)
 export const formatWeekRange = (startDate: string, endDate: string): string => {

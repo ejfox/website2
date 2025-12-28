@@ -533,7 +533,6 @@
 </template>
 
 <script setup lang="ts">
-// @ts-nocheck
 // TODO: Stats types have drifted significantly from API responses
 // StatsResponse in useStats.ts needs full audit to match actual /api/stats shape
 // Key mismatches: github.totalCommits, blog.totalPosts, monkeyType.avgWpm, etc.
