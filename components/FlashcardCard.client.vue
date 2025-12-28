@@ -59,13 +59,16 @@ const { width: winWidth, height: winHeight } = useWindowSize()
 const cardSize = computed(() => {
   // Reserve space for header (~60px) and footer (~140px)
   const availableHeight = winHeight.value - 200
-  const availableWidth = winWidth.value - 64 // padding
+
+  // Account for sidebar (~200px on desktop) + padding
+  const sidebarWidth = winWidth.value > 768 ? 200 : 0
+  const availableWidth = winWidth.value - sidebarWidth - 80
 
   // Use 16:10 aspect ratio
   const aspectRatio = 16 / 10
 
   // Calculate dimensions that fit within available space
-  let width = Math.min(availableWidth, 900)
+  let width = Math.min(availableWidth, 800)
   let height = width / aspectRatio
 
   // If height exceeds available, scale down
@@ -75,8 +78,8 @@ const cardSize = computed(() => {
   }
 
   // Minimum sizes
-  width = Math.max(width, 300)
-  height = Math.max(height, 200)
+  width = Math.max(width, 280)
+  height = Math.max(height, 180)
 
   return { width, height }
 })
