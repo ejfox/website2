@@ -1,53 +1,53 @@
 <script setup lang="ts">
-import { csvParseRows } from 'd3-dsv'
+interface Deck {
+  id: string
+  name: string
+  course: string
+  filename: string
+  cards: string[][]
+  cardCount: number
+}
 
 useSeoMeta({
   title: 'Flashcards',
   description: 'Browse and study flashcard collection',
 })
 
-// Fetch CSV data
-const { data: csvText, error } = await useFetch('/api/flashcards')
+// Fetch decks
+const { data: decks, error } = await useFetch<Deck[]>('/api/flashcards')
 
-// Parse cards
-const cards = ref<
-  Array<{ id: number; front: string; back: string; hints: string[] }>
->([])
-const flippedCards = ref<Set<number>>(new Set())
-const searchQuery = ref('')
-
-watchEffect(() => {
-  if (csvText.value) {
-    const rows = csvParseRows(csvText.value as string)
-    cards.value = rows
-      .map((row, i) => ({
-        id: i,
-        front: String(row[0] || '').trim(),
-        back: String(row[1] || '').trim(),
-        hints: row.slice(2).filter((h) => h && h.trim()),
-      }))
-      .filter((card) => card.front !== '')
+// Group by course
+const courseGroups = computed(() => {
+  if (!decks.value) return []
+  const groups: Record<string, Deck[]> = {}
+  for (const deck of decks.value) {
+    if (!groups[deck.course]) groups[deck.course] = []
+    groups[deck.course].push(deck)
   }
+  return Object.entries(groups)
 })
 
-const filteredCards = computed(() => {
-  if (!searchQuery.value.trim()) return cards.value
-  const q = searchQuery.value.toLowerCase()
-  return cards.value.filter(
-    (c) => c.front.toLowerCase().includes(q) || c.back.toLowerCase().includes(q)
-  )
+// Total stats
+const totalCards = computed(() => {
+  if (!decks.value) return 0
+  return decks.value.reduce((sum, d) => sum + d.cardCount, 0)
 })
 
-const toggleFlip = (id: number) => {
-  if (flippedCards.value.has(id)) {
-    flippedCards.value.delete(id)
+const totalDecks = computed(() => decks.value?.length ?? 0)
+
+// Expand/collapse decks
+const expandedDecks = ref<Set<string>>(new Set())
+
+const toggleDeck = (id: string) => {
+  if (expandedDecks.value.has(id)) {
+    expandedDecks.value.delete(id)
   } else {
-    flippedCards.value.add(id)
+    expandedDecks.value.add(id)
   }
-  flippedCards.value = new Set(flippedCards.value)
+  expandedDecks.value = new Set(expandedDecks.value)
 }
 
-const isFlipped = (id: number) => flippedCards.value.has(id)
+const isExpanded = (id: string) => expandedDecks.value.has(id)
 </script>
 
 <template>
@@ -70,44 +70,18 @@ const isFlipped = (id: number) => flippedCards.value.has(id)
               Flashcards
             </h1>
             <p class="font-mono text-xs text-zinc-500 mt-3 tabular-nums">
-              {{ cards.length }} cards
-              <span v-if="searchQuery" class="text-zinc-600">
-                · {{ filteredCards.length }} matching
-              </span>
+              {{ totalCards }} cards across {{ totalDecks }} decks
             </p>
           </div>
 
-          <div class="flex flex-col sm:flex-row gap-3">
-            <!-- Search -->
-            <div class="relative">
-              <input
-                v-model="searchQuery"
-                type="text"
-                placeholder="Search cards..."
-                class="w-full sm:w-64 bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-2.5 text-sm text-zinc-100 placeholder-zinc-600 focus:outline-none focus:border-zinc-600 transition-colors"
-              />
-              <span
-                v-if="searchQuery"
-                class="absolute right-3 top-1/2 -translate-y-1/2"
-              >
-                <button
-                  class="text-zinc-500 hover:text-zinc-300 text-xs"
-                  @click="searchQuery = ''"
-                >
-                  Clear
-                </button>
-              </span>
-            </div>
-
-            <!-- Study button -->
-            <NuxtLink
-              to="/flashcards/study"
-              class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-zinc-100 hover:bg-white text-zinc-900 rounded-lg font-medium text-sm transition-colors"
-            >
-              <span>Study</span>
-              <span class="text-zinc-500">&rarr;</span>
-            </NuxtLink>
-          </div>
+          <!-- Study all button -->
+          <NuxtLink
+            to="/flashcards/study"
+            class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-zinc-100 hover:bg-white text-zinc-900 rounded-lg font-medium text-sm transition-colors"
+          >
+            <span>Study All</span>
+            <span class="text-zinc-500">&rarr;</span>
+          </NuxtLink>
         </div>
       </div>
     </header>
@@ -119,138 +93,168 @@ const isFlipped = (id: number) => flippedCards.value.has(id)
       </div>
     </div>
 
-    <!-- Card Grid -->
+    <!-- Course groups -->
     <main v-else class="max-w-screen-xl mx-auto px-4 md:px-6 py-8 md:py-12">
       <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3"
+        v-for="[course, courseDecks] in courseGroups"
+        :key="course"
+        class="mb-12"
       >
-        <div
-          v-for="card in filteredCards"
-          :key="card.id"
-          class="card-preview group"
-          @click="toggleFlip(card.id)"
-        >
+        <!-- Course header -->
+        <div class="flex items-baseline gap-4 mb-6">
+          <h2 class="text-xl font-light text-zinc-100">{{ course }}</h2>
+          <span class="font-mono text-xs text-zinc-600 tabular-nums">
+            {{
+              courseDecks.reduce((s, d) => s + d.cardCount, 0)
+            }}
+            cards
+          </span>
+        </div>
+
+        <!-- Deck list -->
+        <div class="space-y-2">
           <div
-            class="card-preview-inner"
-            :class="{ flipped: isFlipped(card.id) }"
+            v-for="deck in courseDecks"
+            :key="deck.id"
+            class="deck-item"
           >
-            <!-- Front -->
-            <div class="card-face card-face-front">
-              <span class="card-number">{{ card.id + 1 }}</span>
-              <p class="card-preview-text">{{ card.front }}</p>
+            <!-- Deck header row -->
+            <div
+              class="deck-header"
+              @click="toggleDeck(deck.id)"
+            >
+              <div class="flex items-center gap-3">
+                <span
+                  class="expand-icon"
+                  :class="{ expanded: isExpanded(deck.id) }"
+                >
+                  &rsaquo;
+                </span>
+                <span class="deck-name">{{ deck.name }}</span>
+                <span class="deck-count">{{ deck.cardCount }}</span>
+              </div>
+              <NuxtLink
+                :to="`/flashcards/study?deck=${deck.id}`"
+                class="study-link"
+                @click.stop
+              >
+                Study
+              </NuxtLink>
             </div>
-            <!-- Back -->
-            <div class="card-face card-face-back">
-              <span class="card-number">A</span>
-              <p class="card-preview-text card-preview-answer">
-                {{ card.back }}
-              </p>
+
+            <!-- Expanded cards preview -->
+            <div v-if="isExpanded(deck.id)" class="deck-cards">
+              <div
+                v-for="(card, i) in deck.cards.slice(0, 10)"
+                :key="i"
+                class="card-row"
+              >
+                <span class="card-front">{{ card[0] }}</span>
+                <span class="card-back">{{ card[1] || '—' }}</span>
+              </div>
+              <div
+                v-if="deck.cards.length > 10"
+                class="card-row text-zinc-600"
+              >
+                + {{ deck.cards.length - 10 }} more cards
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- Empty state -->
-      <div
-        v-if="filteredCards.length === 0 && searchQuery"
-        class="text-center py-16"
-      >
-        <p class="text-zinc-500 font-mono text-sm">
-          No cards match "{{ searchQuery }}"
-        </p>
-        <button
-          class="mt-4 text-zinc-400 hover:text-zinc-200 text-sm underline underline-offset-4"
-          @click="searchQuery = ''"
-        >
-          Clear search
-        </button>
       </div>
     </main>
   </div>
 </template>
 
 <style scoped>
-.card-preview {
-  aspect-ratio: 4 / 3;
-  perspective: 1000px;
-  cursor: pointer;
-}
-
-.card-preview-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-preview-inner.flipped {
-  transform: rotateY(180deg);
-}
-
-.card-face {
-  position: absolute;
-  inset: 0;
-  backface-visibility: hidden;
-  border-radius: 12px;
-  padding: 1.25rem;
-  display: flex;
-  flex-direction: column;
-  transition:
-    box-shadow 0.2s,
-    transform 0.2s;
-}
-
-.card-face-front {
-  background: #18181b;
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.04),
-    0 2px 8px -2px rgba(0, 0, 0, 0.3);
-}
-
-.card-face-back {
-  background: linear-gradient(165deg, #27272a 0%, #1f1f22 100%);
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.06),
-    0 2px 8px -2px rgba(0, 0, 0, 0.3);
-  transform: rotateY(180deg);
-}
-
-.card-preview:hover .card-face {
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.08),
-    0 8px 24px -4px rgba(0, 0, 0, 0.4);
-}
-
-.card-preview:hover .card-preview-inner:not(.flipped) {
-  transform: translateY(-2px);
-}
-
-.card-preview:active .card-preview-inner {
-  transform: scale(0.98);
-}
-
-.card-number {
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
-  font-size: 0.625rem;
-  letter-spacing: 0.15em;
-  color: #52525b;
-  margin-bottom: 0.75rem;
-}
-
-.card-preview-text {
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 0.9375rem;
-  line-height: 1.5;
-  color: #e4e4e7;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
+.deck-item {
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
   overflow: hidden;
-  flex: 1;
 }
 
-.card-preview-answer {
+.deck-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.875rem 1rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.deck-header:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.expand-icon {
+  font-size: 1.25rem;
+  color: #52525b;
+  transition: transform 0.2s;
+  width: 1rem;
+  text-align: center;
+}
+
+.expand-icon.expanded {
+  transform: rotate(90deg);
+}
+
+.deck-name {
+  font-size: 0.9375rem;
+  color: #e4e4e7;
+}
+
+.deck-count {
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  font-size: 0.6875rem;
+  color: #52525b;
+  padding: 0.125rem 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+}
+
+.study-link {
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #71717a;
+  padding: 0.375rem 0.75rem;
+  border: 1px solid #27272a;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.study-link:hover {
+  background: #27272a;
+  color: #e4e4e7;
+}
+
+.deck-cards {
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  padding: 0.5rem 1rem;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  font-size: 0.8125rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.card-row:last-child {
+  border-bottom: none;
+}
+
+.card-front {
   color: #a1a1aa;
+}
+
+.card-back {
+  color: #71717a;
+  text-align: right;
 }
 </style>

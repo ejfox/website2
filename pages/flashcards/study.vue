@@ -1,14 +1,24 @@
 <script setup lang="ts">
-import { csvParseRows } from 'd3-dsv'
 import { useEventListener } from '@vueuse/core'
+
+interface Deck {
+  id: string
+  name: string
+  course: string
+  cards: string[][]
+  cardCount: number
+}
 
 useSeoMeta({
   title: 'Study Flashcards',
   description: 'Randomized flashcard study session',
 })
 
-// Fetch CSV data
-const { data: csvText, error } = await useFetch('/api/flashcards')
+const route = useRoute()
+const deckFilter = computed(() => route.query.deck as string | undefined)
+
+// Fetch decks
+const { data: decks, error } = await useFetch<Deck[]>('/api/flashcards')
 
 // Use flashcards composable
 const {
@@ -24,18 +34,42 @@ const {
   flip,
 } = useFlashcards()
 
+// Current deck info
+const currentDeck = computed(() => {
+  if (!deckFilter.value || !decks.value) return null
+  return decks.value.find((d) => d.id === deckFilter.value)
+})
+
+const studyTitle = computed(() => {
+  if (currentDeck.value) {
+    return `${currentDeck.value.course}: ${currentDeck.value.name}`
+  }
+  return 'All Cards'
+})
+
 // Parse and set cards when data loads
 watchEffect(() => {
-  if (csvText.value) {
-    const rows = csvParseRows(csvText.value as string)
-    setCards(rows)
+  if (decks.value) {
+    let allCards: string[][] = []
+
+    if (deckFilter.value) {
+      // Single deck
+      const deck = decks.value.find((d) => d.id === deckFilter.value)
+      if (deck) allCards = deck.cards
+    } else {
+      // All decks combined
+      for (const deck of decks.value) {
+        allCards = allCards.concat(deck.cards)
+      }
+    }
+
+    setCards(allCards)
     shuffle()
   }
 })
 
 // Keyboard navigation
 useEventListener('keydown', (e: KeyboardEvent) => {
-  // Ignore if typing in input
   if ((e.target as HTMLElement).tagName === 'INPUT') return
 
   if (e.key === ' ' || e.key === 'Enter') {
@@ -50,17 +84,9 @@ useEventListener('keydown', (e: KeyboardEvent) => {
   }
 })
 
-// Reshuffle handler
 const handleReshuffle = () => {
   shuffle()
 }
-
-// Completion state
-const _isComplete = computed(() => {
-  return (
-    currentIndex.value === shuffledCards.value.length - 1 && isFlipped.value
-  )
-})
 </script>
 
 <template>
@@ -73,8 +99,10 @@ const _isComplete = computed(() => {
       </NuxtLink>
 
       <div class="header-center">
+        <span class="study-title">{{ studyTitle }}</span>
+        <span class="progress-divider">&middot;</span>
         <span class="progress-text">{{ currentIndex + 1 }}</span>
-        <span class="progress-divider">/</span>
+        <span class="progress-slash">/</span>
         <span class="progress-total">{{ shuffledCards.length }}</span>
       </div>
 
@@ -87,7 +115,7 @@ const _isComplete = computed(() => {
       </button>
     </header>
 
-    <!-- Progress bar - ultra minimal -->
+    <!-- Progress bar -->
     <div class="progress-track">
       <div class="progress-fill" :style="{ width: `${progress}%` }" />
     </div>
@@ -207,20 +235,31 @@ const _isComplete = computed(() => {
   font-family: ui-monospace, 'SF Mono', Monaco, monospace;
   font-size: 0.75rem;
   color: #52525b;
-  font-variant-numeric: tabular-nums;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.progress-text {
+.study-title {
   color: #a1a1aa;
 }
 
 .progress-divider {
-  margin: 0 0.25rem;
+  color: #3f3f46;
+}
+
+.progress-text {
+  color: #71717a;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-slash {
   color: #3f3f46;
 }
 
 .progress-total {
   color: #52525b;
+  font-variant-numeric: tabular-nums;
 }
 
 .shuffle-btn {
@@ -418,6 +457,10 @@ const _isComplete = computed(() => {
   }
 
   .back-text {
+    display: none;
+  }
+
+  .study-title {
     display: none;
   }
 

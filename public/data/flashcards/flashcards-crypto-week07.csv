@@ -1,0 +1,13 @@
+1 Text, 2 Text
+"Three hash function security properties?","Preimage resistance, second preimage resistance, collision resistance."
+"What is preimage resistance?","Given h, hard to find m where H(m) = h."
+"What is collision resistance?","Hard to find any m₁ ≠ m₂ where H(m₁) = H(m₂)."
+"Birthday paradox implication for hashes?","Finding collisions needs ~2^(n/2) work. SHA-256 has 128-bit collision resistance."
+"MD5 output size?","128 bits. Broken—practical collisions exist."
+"SHA-1 output size?","160 bits. Broken—SHAttered demonstrated collisions."
+"SHA-256 output size?","256 bits. Secure. Current standard."
+"Why not use H(K || m) for authentication?","Length extension attack. Knowing H(K||m) allows computing H(K||m||padding||m')."
+"What construction does HMAC use?","H((K ⊕ opad) || H((K ⊕ ipad) || m))."
+"Which hashes are vulnerable to length extension?","Merkle-Damgård: MD5, SHA-1, SHA-256."
+"Which hash resists length extension?","SHA-3 (Keccak). Uses sponge construction."
+"What RFC specifies HMAC?","RFC 2104."

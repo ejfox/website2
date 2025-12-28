@@ -1,0 +1,11 @@
+1 Text, 2 Text
+"What is Fermat's Little Theorem?","a^(p-1) ≡ 1 (mod p) for prime p, when gcd(a,p)=1."
+"What is Euler's Theorem?","a^φ(n) ≡ 1 (mod n) for gcd(a,n)=1. Generalizes Fermat."
+"What is the Discrete Logarithm Problem (DLP)?","Given g, h, n: find x where g^x ≡ h (mod n)."
+"What two hardness assumptions does cryptography rely on?","Integer Factorization (RSA) and Discrete Logarithm (DH, ElGamal, DSA, ECC)."
+"Are factoring and DLP proven hard?","No. Believed hard but not proven. Cryptography rests on computational assumptions."
+"What algorithm tests if a number is prime?","Miller-Rabin (probabilistic primality test)."
+"What is a safe prime?","Prime p where (p-1)/2 is also prime."
+"What would P = NP mean for cryptography?","Many cryptosystems broken. Factoring and DLP would be easy."
+"What is the Fundamental Theorem of Arithmetic?","Every integer has unique prime factorization."
+"What are quadratic residues?","Numbers that are perfect squares mod n. Used in advanced protocols."

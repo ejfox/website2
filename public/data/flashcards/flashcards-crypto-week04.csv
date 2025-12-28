@@ -1,0 +1,11 @@
+1 Text, 2 Text
+"What is perfect secrecy?","Ciphertext provides zero information about plaintext. Pr[E(k,m₀)=c] = Pr[E(k,m₁)=c]."
+"What is the One-Time Pad?","c = m ⊕ k. Random key as long as message. Achieves perfect secrecy."
+"What proved OTP has perfect secrecy?","Shannon (1949). 'Communication Theory of Secrecy Systems'."
+"Shannon's impossibility result?","For perfect secrecy, key must be at least as long as message."
+"What is the OTP key reuse attack?","c₁ ⊕ c₂ = m₁ ⊕ m₂. XORing ciphertexts reveals XOR of plaintexts."
+"What is information-theoretic security?","Unconditional security. No computational assumptions. Requires key ≥ message."
+"What is computational security?","Security against resource-bounded adversaries. Allows short keys. AES, RSA use this."
+"What is entropy?","Measure of uncertainty/randomness. Quantifies security margin."
+"What was VENONA?","NSA project that broke Soviet one-time pads due to key reuse."
+"Why don't we use OTP in practice?","Key distribution problem. Need to securely share key as long as every message."

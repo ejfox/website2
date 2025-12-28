@@ -1,0 +1,11 @@
+1 Text, 2 Text
+"What does a ≡ b (mod n) mean?","a and b have same remainder when divided by n."
+"What is GCD?","Greatest Common Divisor. Largest number dividing both a and b."
+"What does Extended Euclidean Algorithm find?","x, y such that ax + by = gcd(a,b). Used to compute modular inverses."
+"When does a⁻¹ mod n exist?","If and only if gcd(a, n) = 1."
+"What is Euler's totient φ(n)?","Count of integers < n coprime to n."
+"φ(p) for prime p?","p - 1."
+"φ(pq) for distinct primes p, q?","(p-1)(q-1)."
+"Why does 6 have no inverse mod 26?","gcd(6, 26) = 2 ≠ 1."
+"What is 7⁻¹ mod 26?","15. Verify: 7 × 15 = 105 = 4×26 + 1 ≡ 1."
+"How do you efficiently compute a^b mod n?","Repeated squaring. O(log b) multiplications."

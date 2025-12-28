@@ -1,0 +1,13 @@
+1 Text, 2 Text
+"TLS 1.3 handshake messages from client?","ClientHello, Finished."
+"TLS 1.3 handshake messages from server?","ServerHello, EncryptedExtensions, Certificate, CertificateVerify, Finished."
+"TLS 1.3: RSA key exchange removed why?","Mandatory forward secrecy. ECDHE required."
+"TLS 1.3: CBC modes removed why?","No padding oracle attacks."
+"TLS 1.3 handshake RTT?","1-RTT. (0-RTT resumption available with caveats.)"
+"TLS 1.3 cipher suites count?","Only 5 AEAD suites."
+"TLS_AES_128_GCM_SHA256 components?","AEAD: AES-128-GCM. Hash: SHA-256."
+"TLS_CHACHA20_POLY1305_SHA256 components?","AEAD: ChaCha20-Poly1305. Hash: SHA-256."
+"What is HKDF?","HMAC-based Key Derivation Function. Derives multiple keys from shared secret."
+"What is 0-RTT resumption risk?","Replay attacks. Use only for idempotent requests."
+"What RFC specifies TLS 1.3?","RFC 8446."
+"What attack did ROBOT exploit?","RSA key exchange in TLS 1.2. Bleichenbacher variant."

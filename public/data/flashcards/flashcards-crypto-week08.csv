@@ -1,0 +1,13 @@
+1 Text, 2 Text
+"Stream cipher model?","cᵢ = mᵢ ⊕ keystream. PRG generates keystream from key."
+"RC4 status?","Broken. Statistical biases. Don't use."
+"ChaCha20 key/nonce size?","256-bit key, 96-bit nonce."
+"What is AEAD?","Authenticated Encryption with Associated Data. Encryption + integrity."
+"Two main AEAD modes?","AES-GCM and ChaCha20-Poly1305."
+"Encrypt-and-MAC security?","Potentially broken."
+"MAC-then-Encrypt security?","Subtle attacks possible. TLS 1.2 CBC suites used this."
+"Encrypt-then-MAC security?","Provably secure. IPsec uses this."
+"What makes ChaCha20-Poly1305 popular?","Fast without AES hardware. TLS standard."
+"What is AES-GCM-SIV?","Nonce-misuse resistant AEAD. Safer if nonces accidentally reuse."
+"Why encrypt without authenticating fails?","Enables bit-flipping attacks, padding oracles."
+"What RFC specifies ChaCha20-Poly1305?","RFC 8439."
