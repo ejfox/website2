@@ -13,6 +13,7 @@
       <!-- Front face -->
       <div class="flashcard-face flashcard-front">
         <span class="card-label">Q</span>
+        <span v-if="deck" class="card-deck">{{ deck }}</span>
         <div class="card-content">
           <p class="card-text">{{ front }}</p>
         </div>
@@ -22,6 +23,7 @@
       <!-- Back face -->
       <div class="flashcard-face flashcard-back">
         <span class="card-label">A</span>
+        <span v-if="deck" class="card-deck">{{ deck }}</span>
         <div class="card-content">
           <p class="card-text card-text-answer">{{ back }}</p>
           <div v-if="hints && hints.length > 0" class="hints">
@@ -43,6 +45,7 @@ defineProps<{
   back: string
   flipped: boolean
   hints?: string[]
+  deck?: string
 }>()
 
 defineEmits<{
@@ -169,6 +172,17 @@ const containerStyle = computed(() => {
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #52525b;
+}
+
+.card-deck {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3f3f46;
 }
 
 .card-hint {

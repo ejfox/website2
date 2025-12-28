@@ -9,6 +9,11 @@ interface Deck {
   cardCount: number
 }
 
+interface CardWithDeck {
+  card: string[]
+  deckName: string
+}
+
 useSeoMeta({
   title: 'Study Flashcards',
   description: 'Randomized flashcard study session',
@@ -29,10 +34,16 @@ const {
   progress,
   setCards,
   shuffle,
-  next,
-  prev,
+  next: nextCard,
+  prev: prevCard,
   flip,
 } = useFlashcards()
+
+// Track deck names for each card
+const cardDeckMap = ref<Map<number, string>>(new Map())
+
+// Animation direction
+const slideDirection = ref<'left' | 'right'>('right')
 
 // Current deck info
 const currentDeck = computed(() => {
@@ -47,26 +58,54 @@ const studyTitle = computed(() => {
   return 'All Cards'
 })
 
+// Get current card's deck name
+const currentDeckName = computed(() => {
+  if (!currentCard.value) return ''
+  return cardDeckMap.value.get(currentCard.value.id) || ''
+})
+
 // Parse and set cards when data loads
 watchEffect(() => {
   if (decks.value) {
-    let allCards: string[][] = []
+    const allCards: string[][] = []
+    const deckMap = new Map<number, string>()
+    let cardIndex = 0
 
     if (deckFilter.value) {
       // Single deck
       const deck = decks.value.find((d) => d.id === deckFilter.value)
-      if (deck) allCards = deck.cards
+      if (deck) {
+        deck.cards.forEach((card) => {
+          allCards.push(card)
+          deckMap.set(cardIndex++, `${deck.course}: ${deck.name}`)
+        })
+      }
     } else {
       // All decks combined
       for (const deck of decks.value) {
-        allCards = allCards.concat(deck.cards)
+        deck.cards.forEach((card) => {
+          allCards.push(card)
+          deckMap.set(cardIndex++, `${deck.course}: ${deck.name}`)
+        })
       }
     }
 
+    cardDeckMap.value = deckMap
     setCards(allCards)
     shuffle()
   }
 })
+
+// Wrapped navigation with animation direction
+const next = () => {
+  slideDirection.value = 'right'
+  nextCard()
+}
+
+const prev = () => {
+  slideDirection.value = 'left'
+  prevCard()
+}
 
 // Keyboard navigation
 useEventListener('keydown', (e: KeyboardEvent) => {
@@ -127,13 +166,17 @@ const handleReshuffle = () => {
 
     <!-- Card area -->
     <main v-else-if="currentCard" class="card-area">
-      <FlashcardCard
-        :front="currentCard.front"
-        :back="currentCard.back"
-        :hints="currentCard.hints"
-        :flipped="isFlipped"
-        @flip="flip"
-      />
+      <Transition :name="slideDirection === 'right' ? 'slide-right' : 'slide-left'" mode="out-in">
+        <FlashcardCard
+          :key="currentIndex"
+          :front="currentCard.front"
+          :back="currentCard.back"
+          :hints="currentCard.hints"
+          :deck="currentDeckName"
+          :flipped="isFlipped"
+          @flip="flip"
+        />
+      </Transition>
     </main>
 
     <!-- Loading state -->
@@ -488,5 +531,33 @@ const handleReshuffle = () => {
   .keyboard-hints {
     display: none;
   }
+}
+
+/* Card slide transitions */
+.slide-right-enter-active,
+.slide-right-leave-active,
+.slide-left-enter-active,
+.slide-left-leave-active {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.slide-right-enter-from {
+  opacity: 0;
+  transform: translateX(40px) scale(0.95);
+}
+
+.slide-right-leave-to {
+  opacity: 0;
+  transform: translateX(-40px) scale(0.95);
+}
+
+.slide-left-enter-from {
+  opacity: 0;
+  transform: translateX(-40px) scale(0.95);
+}
+
+.slide-left-leave-to {
+  opacity: 0;
+  transform: translateX(40px) scale(0.95);
 }
 </style>
