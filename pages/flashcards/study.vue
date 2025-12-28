@@ -167,15 +167,16 @@ const handleReshuffle = () => {
     <!-- Card area -->
     <main v-else-if="currentCard" class="card-area">
       <Transition :name="slideDirection === 'right' ? 'slide-right' : 'slide-left'" mode="out-in">
-        <FlashcardCard
-          :key="currentIndex"
-          :front="currentCard.front"
-          :back="currentCard.back"
-          :hints="currentCard.hints"
-          :deck="currentDeckName"
-          :flipped="isFlipped"
-          @flip="flip"
-        />
+        <div :key="currentIndex" class="card-wrapper">
+          <FlashcardCard
+            :front="currentCard.front"
+            :back="currentCard.back"
+            :hints="currentCard.hints"
+            :deck="currentDeckName"
+            :flipped="isFlipped"
+            @flip="flip"
+          />
+        </div>
       </Transition>
     </main>
 
@@ -346,6 +347,12 @@ const handleReshuffle = () => {
   justify-content: center;
   padding: 2rem;
   min-height: 0;
+}
+
+.card-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .error-state,
