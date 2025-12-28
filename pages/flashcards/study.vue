@@ -127,7 +127,7 @@ const handleReshuffle = () => {
 
     <!-- Card area -->
     <main v-else-if="currentCard" class="card-area">
-      <FlashcardCardClient
+      <FlashcardCard
         :front="currentCard.front"
         :back="currentCard.back"
         :hints="currentCard.hints"
