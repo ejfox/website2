@@ -55,6 +55,32 @@ const cardRef = ref<HTMLElement | null>(null)
 const { x: mouseX, y: mouseY } = useMouse()
 const { width: winWidth, height: winHeight } = useWindowSize()
 
+// Calculate card size based on available screen space
+const cardSize = computed(() => {
+  // Reserve space for header (~60px) and footer (~140px)
+  const availableHeight = winHeight.value - 200
+  const availableWidth = winWidth.value - 64 // padding
+
+  // Use 16:10 aspect ratio
+  const aspectRatio = 16 / 10
+
+  // Calculate dimensions that fit within available space
+  let width = Math.min(availableWidth, 900)
+  let height = width / aspectRatio
+
+  // If height exceeds available, scale down
+  if (height > availableHeight) {
+    height = availableHeight
+    width = height * aspectRatio
+  }
+
+  // Minimum sizes
+  width = Math.max(width, 300)
+  height = Math.max(height, 200)
+
+  return { width, height }
+})
+
 // 3D transform based on mouse position
 const containerStyle = computed(() => {
   const centerX = winWidth.value / 2
@@ -71,6 +97,8 @@ const containerStyle = computed(() => {
     6
 
   return {
+    width: `${cardSize.value.width}px`,
+    height: `${cardSize.value.height}px`,
     transform: `perspective(1200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px)`,
   }
 })
@@ -78,10 +106,6 @@ const containerStyle = computed(() => {
 
 <style scoped>
 .flashcard-container {
-  width: 100%;
-  max-width: min(90vw, 800px);
-  min-height: 400px;
-  aspect-ratio: 16 / 10;
   cursor: pointer;
   transform-style: preserve-3d;
   transition: transform 0.12s cubic-bezier(0.4, 0, 0.2, 1);
@@ -209,17 +233,12 @@ const containerStyle = computed(() => {
 
 /* Responsive */
 @media (max-width: 640px) {
-  .flashcard-container {
-    max-width: 100%;
-    aspect-ratio: 4 / 5;
-  }
-
   .flashcard-face {
-    padding: 2rem;
+    padding: 1.5rem;
   }
 
   .card-text {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
 
   .card-label {
