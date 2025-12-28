@@ -1,0 +1,353 @@
+,Diode
+,Capacitor
+,Variable capacitor
+,Field effect transformer
+,Antenna
+,Inductor
+,Resistor
+,DC Voltage Source
+,Lamp
+,Battery
+,Ground
+,Switch
+,LED
+,NPN Transistor
+,Transformer
+,Capacitor
+What is voltage (V)?,Electrical pressure/potential difference,Like water pressure. Measured in volts.
+What is current (I or A)?,Flow of electrons,Like water flow rate. Measured in amps.
+What is resistance (R)?,Opposition to current flow,Like pipe friction. Measured in ohms (Ω).
+What is power (P)?,Rate of energy transfer,Measured in watts (W). Energy per second.
+What's the difference between AC and DC?,AC = Alternating (flips polarity). DC = Direct (constant polarity),Batteries are DC. Wall outlet is AC.
+Which direction does current flow (conventional)?,Positive to negative,Opposite of electron flow (negative to positive)
+What is ground?,Reference point for voltage (0V). Also safety connection to Earth.,Like sea level for elevation. Everything measured relative to it.
+What does polarity mean?,Which terminal is positive vs negative,Reversed polarity can damage equipment
+Series connection means?,Components connected end-to-end (single path),Current same through all. Voltages add.
+Parallel connection means?,Components connected side-by-side (multiple paths),Voltage same across all. Currents add.
+What is a short circuit?,Low/zero resistance path (usually accidental),"Causes huge current, blows fuse, dangerous"
+What is an open circuit?,Infinite resistance - broken/disconnected path,No current flows. Like water pipe break.
+What does a resistor do?,"Limits current flow, drops voltage, dissipates power as heat","Passive component, always dissipates energy"
+What does a capacitor do?,"Stores charge, blocks DC, passes AC",Like spring - stores/releases energy
+What does an inductor do?,"Stores energy in magnetic field, resists current changes",Like flywheel - opposes changes in current
+What does a diode do?,Allows current in ONE direction only,Like check valve in plumbing
+What does a transistor do?,Amplifies signal OR acts as electronic switch,Foundation of all modern electronics
+What is impedance (Z)?,AC version of resistance (includes capacitance/inductance effects),Measured in ohms. Z reduces to R at DC.
+What is a load?,Device that consumes power,Antenna is load for transmitter. Light bulb is load.
+Voltage is to current as ___ is to ___?,Pressure is to flow (fluid). Altitude is to gradient (terrain).,V drives I like pressure drives flow
+Series circuit current is like?,Single-threaded execution - same current everywhere,"One path, no branching"
+Parallel circuit current is like?,Multi-threaded execution - current splits across paths,"Multiple paths, load sharing"
+Short circuit is like?,Null pointer dereference or infinite loop - catastrophic failure,Unintended low-resistance path causes failure
+Open circuit is like?,Broken API call or network timeout,"No connection, no data flow"
+Resistor divider is like?,Map/reduce operation - transforms input to scaled output,Voltage in → scaled voltage out
+Capacitor charging curve is like?,Exponential backoff in networking,Approaches full charge asymptotically
+Ground reference is like?,Origin point in coordinate system,All voltages measured relative to ground (like y=0)
+Why 12V for ham radio?,"Matches car electrical, standard battery voltage",Portable ops + vehicle ops
+100W radio on 12V draws how much current?,"~8A calculated, ~20A peak actual (50% amp efficiency)",Always 2× calculated for real-world
+Fuse size for 100W radio?,20-25A (allows for peak draw + safety margin),Not 10A - will blow immediately
+Best battery chemistry for portable?,LiFePO4 (lithium iron phosphate),"Best weight, cycle life, energy density"
+Solar panel sizing rule?,3× daily Wh consumption,"Accounts for weather, angles, losses"
+Anderson Powerpole standard?,Red = positive RIGHT,"Genderless 15-45A connector, ham standard"
+Wire gauge for 10A at 12V?,"14 AWG <10ft, 12 AWG longer",Smaller AWG number = thicker wire
+Voltage drop formula?,"V = (2×L×R×I)/1000, L=feet, R=Ω/1000ft, I=amps",2× because + and - wire. Want <0.5V drop
+HF radio power draw on transmit?,~2× calculated (50-70% amp efficiency),Most power becomes heat
+What is LVD?,Low Voltage Disconnect - protects battery at ~11V,Prevents over-discharge damage
+Battery capacity (Ah) is like?,RAM or storage capacity,7Ah = 7 hours at 1A (like 7GB storage used at 1GB/hr)
+Voltage drop in long wires is like?,Latency in long network cables or API chains,Longer distance = more loss (resistance/impedance)
+Solar panel sizing (3× consumption) is like?,Overprovisioning for peak load,Account for cloudy days (like scaling for traffic spikes)
+Anderson Powerpole standard is like?,USB-C or standardized connector,"Genderless, universal in ham community"
+LVD (Low Voltage Disconnect) is like?,Graceful degradation or circuit breaker,Prevents battery damage (like preventing resource exhaustion)
+Power budget (P = V × I) is like?,Resource allocation or capacity planning,Calculate total power draw to size supply
+2× power draw rule (amp inefficiency) is like?,Overhead in virtualization or abstraction layers,"Calculated 8A, actual 16A (50% efficiency loss)"
+QRL,"I am busy (or I am busy with _________). Are you busy?
+Usually used to see if a frequency is busy."
+QRM,"Your transmission is being interfered with _________
+(1. Nil; 2. Slightly; 3. Moderately; 4. Severely; 5. Extremely.)
+Is my transmission being interfered with?"
+QRZ,"You are being called by _________ (on ______kHz).
+Who is calling me?"
+QSL,"I am acknowledging receipt.
+Can you acknowledge receipt (of a message or transmission)?"
+QSY,"Change to transmission on another frequency (or on ______kHz).
+Shall I change to transmission on another frequency (or on ______kHz)?
+"
+QRO,"Increase power. Shall I increase power?
+"
+QRP,"Decrease power. Shall I decrease power?
+"
+QSB,Your signals are fading. Are my signals fading?
+QRM,"Your transmission is being interfered with _________
+(1. Nil; 2. Slightly; 3. Moderately; 4. Severely; 5. Extremely.)
+Is my transmission being interfered with?"
+What is a frequency?,Number of wave cycles per second (Hertz),1 MHz = 1 million cycles/second
+"What are kHz, MHz, GHz?","kilo (×1000), Mega (×1 million), Giga (×1 billion)","146 MHz = 146,000,000 Hz"
+What is a wavelength?,Physical distance of one complete wave cycle,Inversely related to frequency
+What is a band?,Range of frequencies grouped together,2m band ≈ 144-148 MHz. 70cm band ≈ 420-450 MHz
+HF vs VHF vs UHF - frequency order?,HF (3-30 MHz) < VHF (30-300 MHz) < UHF (300 MHz-3 GHz),"H=High, V=Very high, U=Ultra high"
+What does transmit mean?,Send RF signal out via antenna,Your radio is TXing when you talk
+What does receive mean?,Pick up RF signal via antenna,Your radio is RXing when you listen
+What is simplex?,Both stations transmit/receive on SAME frequency,"Direct radio-to-radio, no repeater"
+What is duplex?,"Transmit on one freq, receive on another",Repeaters use duplex (offset between RX/TX)
+What is a repeater?,Station that receives and retransmits to extend range,"Usually on hilltop, uses duplex operation"
+Repeater offset - what is it?,Frequency difference between input and output,2m typical: +/- 600 kHz. 70cm: +/- 5 MHz
+What is FM (modulation)?,Frequency Modulation - voice varies frequency of carrier,"Most common on VHF/UHF. Simple, noise-resistant"
+What is AM (modulation)?,Amplitude Modulation - voice varies amplitude of carrier,Aircraft band uses AM. Less efficient than FM
+What is SSB?,"Single Sideband - filtered AM, uses less bandwidth",More efficient than AM. Common on HF.
+What is CW?,Continuous Wave - morse code (on/off keying),"Oldest mode, narrowest bandwidth, most efficient"
+What does PEP mean?,Peak Envelope Power - maximum power during modulation,Legal limit measured in PEP
+What is the FCC?,Federal Communications Commission - regulates radio in USA,"Issues ham licenses, enforces rules"
+How often must you ID your station?,Every 10 minutes AND at end of transmission,Use callsign in English (voice or CW)
+What can a Technician license do?,"Full privileges on VHF/UHF (6m and above), limited HF",Most Techs operate 2m/70cm FM
+What can a General license do?,Most HF privileges + all VHF/UHF,Most popular upgrade - unlocks HF
+What can Amateur Extra do?,"All frequencies, all modes, all power","Hardest test, full privileges"
+What is a callsign?,Unique identifier assigned by FCC,"Format: prefix + number + suffix (e.g., KE5ABC)"
+What is QSO?,Two-way radio conversation,'Had a QSO with KE5ABC'
+What is QTH?,Your location / station location,'My QTH is New York'
+What is 73?,'Best regards' - end of conversation,Not '73s' (redundant). Just '73'
+What does CQ mean?,General call for any station to respond,"'CQ CQ CQ, this is KE5ABC calling CQ'"
+Frequency spectrum allocation is like?,Memory segmentation - each band allocated for specific use,VHF/UHF/HF bands like heap/stack/static memory regions
+Simplex vs duplex is like?,Half-duplex vs full-duplex network communication,Simplex = walkie-talkie. Duplex = phone call.
+Repeater network topology is like?,Star topology with relay nodes (like WiFi repeaters),Central infrastructure extends range
+Ham license progression (Tech→General→Extra) is like?,Permission escalation in OS. More privileges = more access.,"Tech=user, General=sudoer, Extra=root"
+Q-codes are like?,Compression algorithm for common phrases,"QSO=conversation, QTH=location. Saves bandwidth/time."
+Callsign format (prefix-number-suffix) is like?,Hierarchical naming scheme (like domain names),"KE5ABC: KE=region, 5=district, ABC=unique ID"
+Can Technician operate on 10m HF?,Yes - limited privileges on 10m (28.000-28.500 MHz),Only Technician HF privilege besides 6m
+Can Technician operate phone (voice) on HF?,Very limited: 10m phone only (28.300-28.500 MHz),Most HF phone requires General license
+Max power for Technician?,"200W PEP (VHF/UHF), 200W PEP (10m), 1500W on other HF if upgraded",Usually 1500W max for most hams
+When can you transmit without ID?,NEVER - must ID every 10 min + end of QSO,"Even in emergency, ID as soon as possible"
+Can you be paid to operate ham radio?,NO - amateur radio is non-commercial,"Exception: instructing, repairing equipment"
+Can you encrypt messages on ham radio?,NO - all transmissions must be plain language,Exception: space/control commands for satellites
+Can you play music on ham radio?,"NO - no broadcasting, no entertainment",Two-way communication only
+What's the penalty for intentional interference?,"FCC fines, license suspension/revocation, criminal charges",Jamming is federal crime
+Can you use ham radio for business?,"NO - personal, non-commercial only",Can coordinate volunteer activities
+Third-party traffic rules?,Can pass messages for non-hams if not business/illegal,Check country agreements for international
+Grace period after license expires?,2 years to renew without retaking test,"After 2 years, must retest"
+How long is a ham license valid?,10 years,Free to renew (no fee)
+ID requirement (every 10 min) is like?,Heartbeat or keepalive packet,Proves you're still authorized operator
+Non-commercial rule is like?,Open source license restrictions,"Personal/educational use OK, commercial requires different license"
+Plain language requirement is like?,No encryption = no obfuscation requirement,All transmissions must be transparent/auditable
+No broadcasting rule is like?,Unicast vs multicast restriction,"Two-way communication only, not one-to-many entertainment"
+Grace period (2 years) is like?,Token expiration with refresh window,Can renew without retest within grace period
+Third-party traffic is like?,Acting as proxy or relay for non-authenticated user,Can pass messages but you're responsible
+National simplex calling frequency (2m)?,146.520 MHz,"Make contact, then QSY (move) to another freq"
+National FM simplex calling (70cm)?,446.000 MHz,Less crowded than 2m
+Typical 2m repeater input/output split?,± 600 kHz,"If output 146.940, input is 146.340 (minus) or 147.540 (plus)"
+Typical 70cm repeater input/output split?,± 5 MHz,"If output 442.000, input is 447.000 (plus)"
+What does 'negative offset' mean?,Input (TX) is LOWER than output (RX),Your radio TXs 600kHz below repeater output
+What does 'positive offset' mean?,Input (TX) is HIGHER than output (RX),Your radio TXs 600kHz above repeater output
+What is CTCSS/PL tone?,Sub-audible tone (67-254 Hz) to access repeater,Prevents interference. Tone must match repeater.
+What is squelch?,Mutes audio when no signal present,Eliminates noise between transmissions
+What is VOX?,Voice-Operated Transmit - TX when you speak (no PTT),Hands-free operation. Needs adjustment to avoid false keys.
+What is PTT?,Push-To-Talk button,"Press to transmit, release to receive"
+Phonetic alphabet for callsign KE5ABC?,Kilo Echo Five Alpha Bravo Charlie,Reduces confusion on poor signals
+CTCSS tone is like?,Authentication token or password,Must match to access repeater (prevents interference)
+Squelch is like?,Noise gate or threshold filter,Mutes output when signal below threshold
+VOX is like?,Voice activation or trigger detection,Auto-transmit when audio detected
+Repeater offset is like?,Port forwarding or NAT translation,"Input freq ≠ output freq, repeater bridges them"
+Simplex calling freq then QSY is like?,"Handshake on well-known port, then switch to dynamic port","146.520 = port 80, then move to avoid congestion"
+Phonetic alphabet is like?,Error correction coding,Redundancy prevents misinterpretation
+What frequency range is VHF?,144-148 MHz (2 meter). Mnemonic: 1-4-4 ascending,VHF = Very High Frequency
+What frequency range is UHF?,420-450 MHz (70 cm). Mnemonic: 4-2-0,UHF = Ultra High Frequency. Line-of-sight propagation.
+Wavelength from frequency formula?,λ = 300 / MHz. Example: 146 MHz = 2.05 meters,300 = speed of light in million m/s
+What propagation mode bounces off ionosphere?,"Skywave (HF bands, 3-30 MHz)","Signal bounces between ionosphere layers (E, F1, F2) and Earth"
+What propagation mode is line-of-sight only?,VHF/UHF (>30 MHz),Direct path only - no ionosphere bounce
+What causes skip zone in HF?,Area between ground wave end and where skywave returns,Dead zone - signal can't reach that region
+HF propagation varies by time of day how?,40m/80m best at night. 20m/15m/10m best during day.,Ionosphere ionization changes with sunlight
+What is SWR?,Standing Wave Ratio - measures impedance mismatch,Want <2:1. Perfect = 1:1. High SWR = reflected power
+What happens if SWR is too high?,"TX shuts down (protection), reduced efficiency, possible damage",Modern radios protect themselves
+Characteristic impedance of coax?,"50Ω (ham radio), 75Ω (TV/video)","Mnemonic: 50 for Sending, 75 for Viewing"
+Ohm's law - solve for voltage?,V = I × R,Mnemonic: VIR sounds like 'veer'
+Ohm's law - solve for current?,I = V / R,Current = pressure / restriction
+Ohm's law - solve for resistance?,R = V / I,Resistance = voltage / current
+Power from voltage and current?,P = V × I,"P for Power, VI for Very Important"
+Power from current and resistance?,P = I²R,Mnemonic: 'I squared R' = watts
+Power from voltage and resistance?,P = V²/R,Used for feedline loss calculations
+"If voltage doubles, power does what?","Quadruples (P = V²/R, so 2² = 4×)",Quadratic relationship
+Battery capacity units?,Amp-hours (Ah) or mAh,"7Ah = 1A for 7hrs, or 7A for 1hr"
+Runtime formula for battery?,Hours = Ah / Amps,7Ah battery at 2A = 3.5 hours
+Power budget formula?,P = V × I,12V × 5A = 60W
+Series resistors total?,R_total = R1 + R2 + R3...,Just add them
+Parallel resistors total?,1/R = 1/R1 + 1/R2 OR (R1×R2)/(R1+R2) for two,Two 100Ω in parallel = 50Ω
+Series capacitors behave opposite how?,Series caps add like parallel resistors (1/C = 1/C1 + 1/C2),Series caps = SMALLER total
+Parallel capacitors behave opposite how?,Parallel caps add like series resistors (C = C1 + C2),Parallel caps = LARGER total
+Capacitor blocks what?,DC (passes AC),High-pass filter behavior
+Inductor blocks what?,AC (passes DC),Low-pass filter behavior. Opposite of capacitor.
+What is resonance?,Frequency where XL = XC (reactances cancel),Signal passes easily at resonant frequency
+Resonant frequency changes how with L or C?,↑L or ↑C → ↓frequency,Inverse relationship
+What is dummy load?,50Ω resistor for testing TX without radiating,"No interference, no FCC violation, safe testing"
+What is balun?,Balanced-to-Unbalanced transformer,Matches antenna (balanced) to coax (unbalanced)
+Common balun ratios?,4:1 or 1:1,Matches dipole (~70Ω) to coax (50Ω)
+Ground wave propagation range?,"HF/MF, ~100 miles max","Follows Earth's curvature, then dies out"
+What is tropospheric ducting?,"Temperature inversion traps VHF/UHF, extends range",Weather-dependent. Can reach hundreds of miles.
+Sporadic E propagation?,"Random E-layer patches enable VHF skip (summer, 6m/10m)",Unpredictable long-distance VHF
+Sunspot cycle effect on HF?,More sunspots = better HF propagation,11-year cycle. High sunspots = more ionization
+What is MUF?,Maximum Usable Frequency that refracts back,"Above MUF, signal escapes to space"
+Critical angle in propagation?,Steepest angle that refracts back (doesn't escape),Too steep = signal lost to space
+Feed line loss increases with what 3 factors?,"Frequency (↑), length (↑), diameter (↓)",Higher freq = more loss. Longer = more loss.
+Best feed line for VHF/UHF?,Hardline or LMR-400,RG-58 too lossy at VHF/UHF
+What is quarter-wave stub?,Feedline segment used as impedance transformer,Open λ/4 = short. Shorted λ/4 = open.
+3dB power rule?,3dB = 2× power (up or down),Every 3dB doubles or halves
+dB formula for power?,dB = 10 × log₁₀(P2/P1),"Know: 3dB=2×, 6dB=4×, 10dB=10×"
+100W + 3dBi antenna gain = ?,~200W ERP (3dB = double),"Gain focuses power, doesn't create it"
+dBi vs dBd?,dBi = vs isotropic. dBd = vs dipole. dBi ≈ dBd + 2.15,dBi numbers are ~2dB higher
+Dipole antenna gain?,~2.15 dBi (0 dBd by definition),Focuses energy horizontally
+What is EIRP?,Effective Isotropic Radiated Power = TX power × antenna gain,Used for legal limit calculations
+Technician power limits?,"200W PEP on VHF/UHF, 1500W PEP on HF (with privileges)",PEP = Peak Envelope Power
+RF duty cycle meaning?,"% of time transmitting (100%=continuous, 50%=half)",Affects average exposure for safety calcs
+RF safety distance increases with what?,"↑Power, ↑duty cycle, varies by frequency",Higher power or longer TX time = farther distance
+What is SAR?,Specific Absorption Rate (W/kg) - RF absorbed by tissue,FCC limits based on frequency-dependent SAR
+Why single-point ground?,"Prevents ground loops (noise, hum)",Star topology - no loops = no circulating currents
+What is ground loop?,Multiple ground paths create current flow and noise,"Want tree structure, not mesh (no cycles)"
+Convert dBm to watts (key values)?,"0dBm=1mW, +30dBm=1W, +40dBm=10W",Every +10dBm = ×10
+Skywave propagation is like?,Packet routing via gateway/relay,Signal bounces off ionosphere (relay node) to reach distant station
+Skip zone is like?,Dead zone in wireless coverage or unreachable subnet,Signal can't reach area between direct and reflected coverage
+Tropospheric ducting is like?,Atmospheric waveguide or fiber optic cable,"Weather traps signal, extends range beyond normal line-of-sight"
+MUF (Maximum Usable Frequency) is like?,Maximum payload size before fragmentation,"Above MUF, signal escapes ionosphere (lost packets)"
+SWR is like?,Impedance mismatch = packet loss or retransmission,High SWR = reflected power (like TCP retransmits)
+Ground loop is like?,Circular dependency or routing loop,Multiple ground paths create noise (like broadcast storm)
+dB scale is logarithmic like?,Big O notation or Richter scale,Each 3dB = 2× power (exponential growth)
+Quarter-wave stub is like?,Impedance transformer or voltage regulator,Transforms impedance via transmission line mathematics
+EIRP calculation (TX power + antenna gain) is like?,Effective throughput (bandwidth × efficiency),Total radiated power = transmitter × antenna focusing
+Duty cycle in RF safety is like?,Average vs peak load or CPU utilization,"100% duty cycle = continuous TX, 50% = half time TX"
+Feed line loss is like?,Resistance in wire or HTTP overhead,Longer cable = more loss (like longer API call chain)
+Balun (balanced-unbalanced) is like?,Protocol adapter or serialization layer,Converts between antenna (balanced) and coax (unbalanced)
+Dummy load testing is like?,Unit testing in isolated environment,Test transmitter without radiating (no side effects)
+Parallel resonance (LC) is like?,Resonance in mechanical system or standing wave,"XL = XC, impedance peaks, signal passes easily"
+What is Part 107?,FAA regulation for commercial drone operations (Remote Pilot Certificate),Required for any commercial/business drone use
+Who needs Part 107?,Anyone flying drone for compensation or business purposes,Hobby = exception (recreational only)
+Part 107 age requirement?,16 years old minimum,Must pass aeronautical knowledge test
+Part 107 validity period?,24 months (2 years),Must pass recurrent test to renew
+Part 107 max altitude?,400 feet AGL (Above Ground Level),"Exception: within 400ft of structure, can go up to 400ft above structure"
+Part 107 max groundspeed?,100 mph (87 knots),Most consumer drones can't reach this anyway
+Can you fly Part 107 at night?,YES - with anti-collision lights visible 3 statute miles,Recent rule change (previously required waiver)
+Part 107 VLOS requirement?,Visual Line Of Sight - must see drone with unaided eye,No FPV-only flight. Observer can help but pilot must maintain VLOS.
+Can you fly over people under Part 107?,"YES - but drone must meet Category 1, 2, or 3 requirements",Most DJI drones need Category 1 (under 0.55 lbs) or propeller guards
+Part 107 weather minimum: visibility?,3 statute miles,Same as Class G airspace VFR minimums
+Part 107 weather minimum: cloud clearance?,"500 feet below, 2000 feet horizontally",Can't fly in clouds or through them
+Part 107 weather minimum: ceiling?,Must operate below clouds,"No specific ceiling, but must maintain cloud clearance"
+Can you fly from a moving vehicle?,YES - but only over sparsely populated area,Common for inspection work from trucks
+Can you fly from a moving aircraft?,NO - absolutely prohibited,"Dangerous, no exceptions"
+"Multiple drones, one pilot?",NO - one pilot per drone during flight,Can operate sequentially but not simultaneously
+Can you carry hazardous materials?,NO - explicitly prohibited,"Includes flammable liquids, explosives, etc."
+Part 107 preflight requirement?,"Check drone, control station, links are functional",Like pre-flight inspection on manned aircraft
+Alcohol limit for Part 107?,"8 hours 'bottle to throttle', BAC must be under 0.04%",Same as manned pilots. Zero tolerance practically.
+Can you drop objects?,YES - but not to cause property damage or injury,Delivery drones allowed with proper planning
+== AIRSPACE FUNDAMENTALS ==,""""
+What is Class A airspace?,"18,000 ft MSL to 60,000 ft MSL (FL180-FL600)",Drones can't operate here (too high)
+What is Class B airspace?,Busiest airports - looks like upside-down wedding cake,Requires ATC authorization (LAANC or manual)
+What is Class C airspace?,Moderately busy airports - typically 2 rings,Requires ATC authorization
+What is Class D airspace?,Towered airports - single cylinder typically 4nm radius,Requires ATC authorization
+What is Class E airspace?,Controlled airspace not A/B/C/D - starts 700 or 1200 ft AGL most places,No authorization needed (below 400ft AGL)
+What is Class G airspace?,Uncontrolled airspace - typically surface to 700/1200 ft AGL,"No authorization needed, most drone ops happen here"
+Airspace mnemonic for authorization?,"BCDΕ - 'Be Cool, Don't Enter' without auth","Class B, C, D, E (some) need authorization"
+What is LAANC?,Low Altitude Authorization and Notification Capability,Automated ATC authorization system (near-instant approval in some areas)
+How to get airspace authorization?,LAANC (instant-ish) or manual FAA request (weeks),LAANC available at many controlled airports
+What is a TFR?,Temporary Flight Restriction - NO drone operations,"Check NOTAMs before every flight. Wildfire, VIP, stadium, etc."
+Stadium TFR rules?,"1 nm radius, surface to 3000 ft AGL, 1 hour before to 1 hour after event","Includes MLB, NFL, NCAA Div 1, NASCAR. >30,000 attendance"
+Wildfire TFR rules?,Drones ABSOLUTELY PROHIBITED within wildfire TFR,"'If you fly, we can't' - grounds firefighting aircraft"
+What is a NOTAM?,Notice to Airmen - temporary flight restrictions/hazards,Check BEFORE every flight. TFRs issued as NOTAMs
+Where to check NOTAMs?,"1800wxbrief.com, B4UFLY app, FAA UAS Data Exchange",Must check before EVERY flight
+What is METAR?,Meteorological Aerodrome Report - weather observation at airport,"Updated hourly, shows current conditions"
+What is TAF?,Terminal Aerodrome Forecast - weather forecast for airport,"Covers 24-30 hours, updated every 6 hours"
+METAR: VRB03KT means?,Variable wind at 3 knots,"Wind direction varying, too light to determine direction"
+METAR: 27015G25KT means?,"Wind from 270° at 15 knots, gusting to 25 knots",270° = west. Gusts = turbulence risk.
+METAR: 10SM means?,Visibility 10 statute miles,Exceeds Part 107 minimum (3 SM)
+METAR: FEW025 SCT050 BKN100 means?,"Clouds: few at 2500ft, scattered at 5000ft, broken at 10,000ft","FEW=1-2 oktas, SCT=3-4, BKN=5-7, OVC=8 (full coverage)"
+METAR: BKN010 means what for Part 107?,Broken clouds at 1000 ft AGL - can't fly above ~500ft,Must stay 500ft below clouds = 500ft max altitude here
+METAR: OVC004 means what for Part 107?,Overcast at 400ft - probably can't fly,"Clouds at 400ft, must stay 500ft below = ground ops only"
+What is density altitude?,Pressure altitude corrected for non-standard temperature,High density altitude = reduced drone performance (less lift)
+When is density altitude a concern?,"Hot, humid, high elevation",Colorado summer day = poor performance
+What does G mean in winds?,Gusts,"15G25KT = sustained 15kt, gusts to 25kt"
+Wind direction in METAR is?,"Magnetic, where wind is FROM",270° = wind from west (blowing toward east)
+What is ATIS?,Automatic Terminal Information Service - recorded airport info,"Weather, active runway, NOTAMs. VHF frequency at towered airports."
+== SECTIONAL CHARTS ==,""""
+What is a sectional chart?,"VFR aeronautical chart showing airspace, airports, hazards","1:500,000 scale, updated every 6 months"
+Magenta dashed circle on sectional?,Class E airspace starting at 700 ft AGL,Controlled airspace starts lower than typical 1200ft
+Blue dashed circle on sectional?,Class D airspace (towered airport),Need authorization for drone ops
+Solid magenta circle on sectional?,Class B or C airspace (busy airport),"Need authorization, multiple altitude tiers"
+What does R- prefix mean on chart?,"Restricted airspace - military ops, hazards","Check if active, often part-time"
+What does P- prefix mean?,Prohibited airspace - NO flight,"Rare, usually around sensitive govt facilities"
+What does MOA mean?,Military Operations Area - caution,Drones allowed but military traffic may be present
+What does MTR mean?,Military Training Route - low-level high-speed jets,VR (VFR) or IR (IFR) routes. Stay alert.
+Magenta airport symbol means?,Towered airport with services,"Probably Class D airspace, need authorization"
+Blue airport symbol means?,Non-towered airport,"Class G or E airspace, usually no authorization needed"
+Numbers next to airport symbol?,Elevation of airport (MSL) and pattern altitude,Helps calculate AGL from MSL
+What is AGL?,Above Ground Level - height above terrain below you,"Part 107 limits are AGL, not MSL"
+What is MSL?,Mean Sea Level - altitude above sea level,Used for airspace boundaries and chart elevations
+What is IMC?,"Instrument Meteorological Conditions - clouds, low vis",Part 107 drones can ONLY fly in VMC
+What is VMC?,Visual Meteorological Conditions - clear enough to see,"Required for Part 107: 3 SM vis, cloud clearance"
+Preflight inspection must check?,"Battery, props, airframe, control links, camera gimbal, GPS signal",Like ABCDE but for drones
+What is geofencing?,Software limits preventing flight in restricted areas,DJI drones use this. Can request unlock for authorized ops.
+What is a battery cell count?,"Number of series cells in LiPo battery (3S, 4S, etc.)",Higher S = higher voltage = more power
+LiPo battery danger?,"Fire/explosion if damaged, overcharged, or short-circuited",Never use puffed/damaged batteries
+LiPo storage voltage?,~3.8V per cell (60-70% charge),Prevents degradation. Full charge = 4.2V/cell
+What is propeller wash?,Downward airflow from props (also called rotor wash),"Can exceed 40mph, injury risk to bystanders"
+What is flyaway?,"Drone loses control link, flies away uncontrolled",Set return-to-home as failsafe. GPS required.
+Return-to-home (RTH) triggers?,"Low battery, signal loss, manual activation",Make sure RTH altitude clears obstacles
+What is lost link procedure?,Drone behavior when control signal lost,"Typically hovers, lands, or returns home (configurable)"
+Gimbal stabilization uses?,IMU (gyroscope/accelerometer) to keep camera level,Allows smooth video in wind/motion
+Who is Remote PIC?,Remote Pilot in Command - responsible person during flight,"Holds Part 107 cert, makes all decisions"
+Who is VO (Visual Observer)?,Person assisting PIC by maintaining visual contact with drone,Optional but helpful. Must communicate with PIC.
+Who is person manipulating controls?,"Can be someone other than PIC, but PIC remains responsible","PIC supervises, holds cert"
+Can VO use binoculars for VLOS?,NO - VLOS must be unaided eye,Binoculars OK to supplement but not replace unaided vision
+Small UAS definition?,Unmanned aircraft <55 lbs,Includes drone + payload
+Registration requirement?,All drones 0.55 lbs to 55 lbs must be registered,"$5, valid 3 years, mark drone with number"
+Where to mark registration number?,Externally visible OR inside battery compartment (with tool access),FAA now allows internal marking
+Accident reporting threshold?,Serious injury OR property damage >$500 (not drone itself),Report within 10 days to FAA
+Serious injury definition?,"Hospitalization >48 hours (within 7 days of injury), bone fracture, laceration with nerve damage",Not just cuts/bruises
+Can you fly in national parks?,NO - National Park Service bans drones,Some exceptions for official use with permit
+Right-of-way rules?,Manned aircraft ALWAYS have right of way over drones,"If you see aircraft, descend and move away immediately"
+Emergency operations?,Can deviate from Part 107 if necessary for safety,Must report deviation to FAA if requested
+What is sUAS?,Small Unmanned Aircraft System - drone + controller + links,Includes all components of system
+Crew Resource Management (CRM)?,"Effective communication and teamwork among crew (PIC, VO, etc.)",Speak up if you see safety issue
+What is aeronautical decision making (ADM)?,Systematic approach to risk assessment and decision making,"PAVE: Pilot, Aircraft, Environment, External pressures"
+Class G typical ceiling?,1200 ft AGL (or 700 ft near airports),Below this = uncontrolled
+Class E typical floor?,700-1200 ft AGL (varies),"Above Class G, below Class A"
+Class B inner ring typical?,"Surface to 10,000 ft MSL (varies by airport)",Busiest airspace
+Class D typical dimensions?,"Surface to 2500 ft AGL, 4-5 nm radius",Towered airport
+Part 107 standard max altitude?,400 ft AGL,Can go higher near tall structures (within 400ft of structure)
+Stadium TFR altitude?,Surface to 3000 ft AGL,1 nm radius
+Class A floor?,"18,000 ft MSL (FL180)",Irrelevant for drones
+What is a temperature inversion?,Temperature increases with altitude (opposite of normal),"Traps pollutants, affects density altitude"
+What is a microburst?,"Intense downdraft from thunderstorm, spreads on ground","Extreme hazard - powerful winds, wind shear"
+What is windshear?,Sudden change in wind speed/direction,"Can flip drone, very dangerous"
+What causes turbulence?,"Wind over obstacles, thermals, weather fronts, rotor from mountains",Gusty winds = turbulence risk
+What is convective activity?,"Rising air from surface heating (thermals, thunderstorms)","Unstable air, turbulence, can carry light drones"
+When are thermals strongest?,"Afternoon, hot days, dark surfaces (pavement, plowed fields)",Morning = calmer typically
+Thunderstorm hazards for drones?,"Extreme turbulence, hail, lightning, microbursts, heavy rain",Don't fly near or under thunderstorms. Ever.
+What is ICING?,Moisture freezing on aircraft,Rare for low-altitude drones but can affect props/motors in winter
+Daylight operations definition?,30 minutes before sunrise to 30 minutes after sunset,Civil twilight. Extended with anti-collision lights now.
+Anti-collision light requirement?,"Visible 3 statute miles, if flying twilight/night","Flashing or steady, meets requirement"
+Can you waive Part 107 rules?,YES - some rules can be waived with FAA approval,"VLOS, operations over people, from moving vehicle - can request waiver"
+How to request waiver?,FAA DroneZone online portal,Requires detailed safety case
+Commercial vs recreational difference?,Commercial = compensation/business. Recreational = hobby only.,Recreational falls under Exception for Recreational Flyers
+Recreational rules (non-107)?,"Must follow CBO guidelines, recreational only, <55 lbs, register if >0.55 lbs",No test required for recreational
+What is a CBO?,Community Based Organization (like AMA - Academy of Model Aeronautics),Recreational flyers must follow CBO safety guidelines
+Can you share footage from recreational flight?,YES - but can't be PAID for it,"YouTube ad revenue = gray area, direct payment = commercial"
+Does Part 107 cover government drones?,"NO - public aircraft (police, fire, govt) have separate rules",Part 107 is for civil (commercial/private) operations
+Part 107 altitude (400ft AGL) vs ham antenna height?,"Both measured AGL (above ground level), not MSL",Ham: higher = better. Drone: 400ft max.
+VLOS requirement is like?,Visual line of sight = must see with unaided eye (like ham radio horizon),Can't operate beyond visual range (like VHF line-of-sight)
+TFR is like ham radio forbidden frequencies?,Absolute prohibition - wildfire TFR = no ops (like restricted spectrum),Check NOTAMs like checking band plan
+LAANC authorization is like?,Automated approval system (like LAANC instant approval vs weeks for manual),Like API vs manual request process
+Sectional chart is like network diagram?,"Visual map of airspace classes, airports, hazards","Like topology map showing routers, subnets, firewalls"
+Airspace classes (B/C/D/E/G) are like?,Security zones or permission levels,"Class B = most restricted, Class G = uncontrolled"
+"Weather minimums (3 SM, cloud clearance) are like?",Minimum viable conditions for operation,"Below minimums = unsafe, don't fly"
+Density altitude effect on drone performance?,Hot/high/humid = reduced lift (same as aircraft performance),"Thin air = less thrust, shorter flight time"
+METAR wind notation (27015G25KT) is like?,Structured data format (270° at 15kt gusting 25kt),"Parse like log files: direction, speed, gusts"
+Preflight inspection is like?,"Pre-deployment checklist (battery, props, links, GPS)",Catch failures before they happen in production
+Return-to-home (RTH) is like?,Failsafe or exception handler (signal loss → RTH),Default safe behavior on error condition
+Geofencing is like?,Software-enforced boundaries (can't fly in restricted areas),Like firewall rules or access control
+Registration requirement (<55 lbs) is like?,Device registration or MAC address tracking,Unique ID for accountability
+Accident reporting threshold is like?,Incident response protocol (>$500 damage or hospitalization),Mandatory reporting for serious events
+PIC responsibility is like?,Root user or admin - ultimately responsible for all actions,Can delegate control but not responsibility
+LiPo battery fire risk is like?,Runaway process or thermal throttling risk,Damaged battery = catastrophic failure (fire/explosion)
+Propeller wash hazard is like?,Exhaust blast or output overflow,40+ mph downward airflow can injure bystanders
+Flyaway (lost control) is like?,Process escaping control or runaway thread,Set RTH as failsafe to recover
+VO (Visual Observer) is like?,Secondary monitoring or redundancy,"Backup eyes, communicates with PIC"
+Right-of-way (manned aircraft) is like?,Priority queue or interrupt handling,"Manned aircraft = highest priority, always yield"
+CRM (Crew Resource Management) is like?,Team communication protocols or agile standup,"Speak up if you see safety issue, regardless of hierarchy"
+"Stadium TFR (1nm, 3000ft, ±1hr) is like?",Temporary resource lock during high-traffic event,Exclusive airspace during game (like DB lock during transaction)
+Wildfire TFR is absolute like?,"Critical system failure - no exceptions, immediate cessation","'If you fly, we can't' - grounds firefighting aircraft"
+NOTAM checking is like?,Polling for system status before operation,Check before EVERY flight (like health check before deployment)
+Daylight ops (30 min before sunrise to after sunset) is like?,Operating hours or scheduled maintenance window,Extended with anti-collision lights (like extended support hours)
+Waiver process is like?,Exception request or policy override,Request approval for operations outside standard rules
+Commercial vs recreational is like?,Production vs dev environment,"Recreational = hobby, commercial = business (requires cert)"

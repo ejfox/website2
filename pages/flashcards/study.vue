@@ -148,6 +148,7 @@ const handleReshuffle = () => {
       <button
         class="shuffle-btn"
         title="Reshuffle (R)"
+        aria-label="Shuffle cards (keyboard: R)"
         @click="handleReshuffle"
       >
         Shuffle
@@ -192,13 +193,18 @@ const handleReshuffle = () => {
           class="nav-btn nav-btn-prev"
           :class="{ disabled: currentIndex === 0 }"
           :disabled="currentIndex === 0"
+          aria-label="Previous card (keyboard: left arrow or H)"
           @click="prev"
         >
           <span class="nav-arrow">&larr;</span>
           <span class="nav-label">Previous</span>
         </button>
 
-        <button class="flip-btn" @click="flip">
+        <button
+          class="flip-btn"
+          aria-label="Flip card (keyboard: Space or Enter)"
+          @click="flip"
+        >
           {{ isFlipped ? 'Hide Answer' : 'Show Answer' }}
         </button>
 
@@ -206,6 +212,7 @@ const handleReshuffle = () => {
           class="nav-btn nav-btn-next"
           :class="{ disabled: currentIndex === shuffledCards.length - 1 }"
           :disabled="currentIndex === shuffledCards.length - 1"
+          aria-label="Next card (keyboard: right arrow or L)"
           @click="next"
         >
           <span class="nav-label">Next</span>
@@ -429,8 +436,15 @@ const handleReshuffle = () => {
 }
 
 .nav-btn.disabled {
-  opacity: 0.3;
+  opacity: 0.35;
   cursor: not-allowed;
+  background: transparent;
+  border-color: #1f1f23;
+  color: #3f3f46;
+}
+
+.nav-btn.disabled .nav-arrow {
+  color: #27272a;
 }
 
 .nav-arrow {

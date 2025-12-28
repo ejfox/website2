@@ -1,0 +1,221 @@
+# Flashcard API Documentation
+
+Base URL: https://ejfox.com
+
+## Overview
+
+A simple flashcard API serving study cards across multiple topics. All endpoints return JSON.
+
+---
+
+## Endpoints
+
+### GET /api/flashcards
+
+Returns all decks with their cards.
+
+**Response:**
+```json
+[
+  {
+    "id": "COMPUTERS",
+    "name": "COMPUTERS",
+    "course": "Other",
+    "filename": "COMPUTERS.csv",
+    "cards": [["question", "answer", "hint1", "hint2"], ...],
+    "cardCount": 393
+  },
+  ...
+]
+```
+
+---
+
+### GET /api/flashcards/stats
+
+Returns statistics about the flashcard collection.
+
+**Response:**
+```json
+{
+  "totalDecks": 5,
+  "totalCards": 1089,
+  "byCourse": {
+    "Other": { "decks": 5, "cards": 1089 }
+  },
+  "largestDeck": { "id": "COMPUTERS", "name": "COMPUTERS", "cards": 393 },
+  "smallestDeck": { "id": "SAR_AND_WILDERNESS", "name": "SAR_AND_WILDERNESS", "cards": 33 },
+  "decks": [
+    { "id": "COMPUTERS", "name": "COMPUTERS", "course": "Other", "cards": 393 },
+    ...
+  ]
+}
+```
+
+---
+
+### GET /api/flashcards/random
+
+Returns a single random flashcard from any deck.
+
+**Response:**
+```json
+{
+  "id": "COMPUTERS-42",
+  "front": "What does O(1) mean?",
+  "back": "Constant time (same speed regardless of input size)",
+  "hints": [],
+  "deckId": "COMPUTERS",
+  "deckName": "COMPUTERS",
+  "course": "Other"
+}
+```
+
+---
+
+### GET /api/flashcards/search?q={query}
+
+Search flashcards by content. Searches front, back, and hints.
+
+**Parameters:**
+- `q` (required): Search query, minimum 2 characters
+- `limit` (optional): Max results, default 20, max 100
+
+**Example:** `/api/flashcards/search?q=vim&limit=10`
+
+**Response:**
+```json
+{
+  "query": "vim",
+  "total": 23,
+  "results": [
+    {
+      "id": "COMPUTERS-0",
+      "front": "How to quit vim?",
+      "back": "q",
+      "hints": ["w", "z", "esc"],
+      "deckId": "COMPUTERS",
+      "deckName": "COMPUTERS",
+      "course": "Other"
+    },
+    ...
+  ]
+}
+```
+
+**Scoring:** Exact matches in front rank highest, then partial front matches, then back matches, then hint matches.
+
+---
+
+### GET /api/flashcards/{deckId}
+
+Returns a single deck by ID with all cards as structured objects.
+
+**Example:** `/api/flashcards/RUBIKS_2x2`
+
+**Response:**
+```json
+{
+  "id": "RUBIKS_2x2",
+  "name": "RUBIKS_2x2",
+  "course": "Other",
+  "cardCount": 82,
+  "cards": [
+    {
+      "id": "RUBIKS_2x2-0",
+      "front": "What color face should be opposite of yellow?",
+      "back": "White",
+      "hints": [],
+      "deckId": "RUBIKS_2x2",
+      "deckName": "RUBIKS_2x2",
+      "course": "Other"
+    },
+    ...
+  ]
+}
+```
+
+**Error (404):** `{"statusMessage": "Deck \"invalid-id\" not found"}`
+
+---
+
+### GET /api/flashcards/random/{deckId}
+
+Returns a single random flashcard from a specific deck.
+
+**Example:** `/api/flashcards/random/COMPUTERS`
+
+**Response:**
+```json
+{
+  "id": "COMPUTERS-127",
+  "front": "What key do you press to open Telescope file finder?",
+  "back": "<Space>ff",
+  "hints": [],
+  "deckId": "COMPUTERS",
+  "deckName": "COMPUTERS",
+  "course": "Other"
+}
+```
+
+---
+
+## Available Decks
+
+| Deck ID | Cards | Topics |
+|---------|-------|--------|
+| COMPUTERS | 393 | Vim, Git, algorithms, data structures, networking, Unix |
+| ELECTRICAL_AND_RADIO | 352 | Ham radio, electronics, FCC regulations, circuits |
+| POLITICS | 326 | US government, political theory, elections |
+| RUBIKS_2x2 | 82 | 2x2 Rubik's cube notation, algorithms, Ortega method |
+| SAR_AND_WILDERNESS | 33 | Search and rescue, wilderness survival |
+
+---
+
+## Card Structure
+
+Each flashcard has:
+- `id`: Unique identifier (`{deckId}-{index}`)
+- `front`: The question/prompt
+- `back`: The answer
+- `hints`: Array of additional hints (may be empty)
+- `deckId`: Which deck this card belongs to
+- `deckName`: Human-readable deck name
+- `course`: Category grouping
+
+---
+
+## Usage Examples
+
+### Fetch a random card for a widget
+```javascript
+const card = await fetch('https://ejfox.com/api/flashcards/random').then(r => r.json())
+console.log(card.front) // "What does TCP stand for?"
+console.log(card.back)  // "Transmission Control Protocol"
+```
+
+### Search for cards about a topic
+```javascript
+const results = await fetch('https://ejfox.com/api/flashcards/search?q=resistor').then(r => r.json())
+console.log(results.total) // 12
+```
+
+### Get all cards from a specific deck
+```javascript
+const deck = await fetch('https://ejfox.com/api/flashcards/RUBIKS_2x2').then(r => r.json())
+console.log(deck.cardCount) // 82
+```
+
+---
+
+## Rate Limits
+
+No rate limits currently enforced. Please be reasonable.
+
+## CORS
+
+All endpoints support CORS for browser-based requests.
+
+---
+
+Last updated: 2024-12-28

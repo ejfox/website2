@@ -1,0 +1,82 @@
+What color face should be opposite of yellow?,White
+What color face should be opposite of white?,Yellow
+What color face should be opposite of blue?,Green
+What color face should be opposite of orange?,Red
+What color should be opposite of red?,Orange
+Which face is “D”?,Down face
+What does U mean in cube notation?,Up face
+What does D mean in cube notation?,Down face
+What does L mean in cube notation?,Left face
+What does R mean in cube notation?,Right face
+What does F mean in cube notation?,Front face
+What does B mean in cube notation?,Back face
+What does the apostrophe mean in R'?,Counterclockwise/prime turn
+What does the 2 mean in U2?,180 degree turn
+How do you notate a clockwise right turn?,R
+How do you notate a counterclockwise right turn?,R'
+How do you notate a 180 degree up turn?,U2
+Is R' the same as R3?,"Yes, both are counterclockwise"
+What direction is a turn without any modifier?,Clockwise
+How many pieces does a 2x2 have?,8 pieces
+What type of pieces are on a 2x2?,All corners (no edges or centers)
+How many stickers are on each 2x2 piece?,3 stickers
+How many colors does each 2x2 corner show?,3 colors
+"On a 3x3, how many colors does a corner show?",3 colors
+"On a 3x3, how many colors does an edge show?",2 colors
+Why is the 2x2 considered all corners?,It has no center or edge pieces
+"If 2x2 = 8 corners, how many corners on a 3x3?",8 corners
+What are the two main aspects of solving a piece?,Orientation and permutation
+What does orientation refer to?,Which direction a piece faces
+What does permutation refer to?,Which position a piece occupies
+"Can you move a piece to the right position, but with wrong orientation?","Yes, this is common"
+Should you generally solve orientation or permutation first?,Orientation first
+"On a 2x2, what piece type has orientation?",Corners (all pieces)
+"On a 3x3, what piece types have orientation?",Corners and edges
+What's the most common solving method for 2x2?,Ortega method
+What are the two main stages of Ortega method?,OLL then PBL
+What does OLL stand for?,Orientation of Last Layer
+What does PBL stand for?,Permutation of Both Layers
+What's the general strategy for 2x2 solving?,Build first layer then solve last layer
+Which layer should you build first on 2x2?,"Either white or yellow, stay consistent"
+After building first layer on 2x2 what comes next?,Orient last layer (OLL)
+After OLL on 2x2 what comes next?,Permutation of both layers (PBL)
+What does F2L stand for on 3x3?,First Two Layers
+How does 2x2 first layer relate to 3x3?,Similar to F2L corner solving
+How does 2x2 OLL relate to 3x3?,Same concept - orient last layer
+How does 2x2 PBL relate to 3x3 PLL?,Very similar - permute last layer
+What's the goal of OLL stage?,Make top face all one color
+What's the goal of PBL stage?,Put all pieces in correct positions
+"During OLL, do you care about piece positions?","No, only top face color"
+"During PBL, are pieces oriented correctly?","Yes, OLL fixed that"
+What are you looking for after OLL is done?,All top face stickers match
+How many OLL cases are there on 2x2?,7 cases (including solved)
+What's an algorithm?,A sequence of moves to achieve a specific result
+Can algorithms be reversed?,Yes - reverse order with opposite turns
+What's an algorithm inverse?,"Same moves backward, opposite directions"
+What's a setup move?,Moves to position pieces before an algorithm
+Why use setup moves?,To apply a known algorithm to a new case
+What are finger tricks?,Efficient ways to execute moves quickly
+Why learn finger tricks?,Speed and muscle memory consistency
+What's a trigger in cubing?,Short common move sequence used in many algorithms
+What's the sexy move?,"R U R' U', a common trigger"
+Should you memorize algorithms or understand them?,Both - memorize for speed but understand for flexibility
+What's a commutator?,Algorithm that moves pieces in a cycle
+What's a conjugate?,"Setup, algorithm, undo setup"
+How many pieces can be solved on a scrambled 2x2?,All 8
+Can you swap just two corners on a 2x2?,"No, impossible parity"
+What's the minimum number of corners affected by any move?,4 corners (on one face)
+"OLL Case: Top face makes a line, which algorithm?",F (R U R' U') F'
+What does F (R U R' U') F' do?,Solves OLL line case
+"OLL Case: No top color on top face, which algorithm?",F (R U R' U') F' U2 F (R U R' U') F'
+"OLL Case: Top face makes L shape, which algorithm?","F (R U R' U') F', potentially with setup"
+"PBL Case: Diagonal swap needed, which algorithm?",F (R U' R' U') (R U R' F') (R U R' U') (R' F R F')
+"PBL Case: Adjacent swap needed, which algorithm?",R U R' U' R' F R2 U' R' U' R U R' F' (T-perm)
+What's the Y-perm used for on 2x2?,PBL diagonal corner swap
+What's the T-perm used for on 2x2?,PBL adjacent corner swap
+Does the Y-perm appear in 3x3 PLL?,"Yes, same algorithm"
+Does the T-perm appear in 3x3 PLL?,"Yes, same algorithm"
+What should you look for during PBL?,Matching adjacent corners or opposite corners
+"If opposite corners match, what PBL case?",Diagonal swap (Y-perm)
+"If adjacent corners match, what PBL case?",Adjacent swap (T-perm)
+"If all corners match, is PBL solved?","Yes, cube is solved"
+How do you recognize OLL cases?,Look at top face color pattern

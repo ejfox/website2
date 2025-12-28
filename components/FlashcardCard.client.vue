@@ -63,9 +63,8 @@ const cardSize = computed(() => {
   // Reserve space for header (~60px) and footer (~140px)
   const availableHeight = winHeight.value - 200
 
-  // Account for sidebar (~200px on desktop) + padding
-  const sidebarWidth = winWidth.value > 768 ? 200 : 0
-  const availableWidth = winWidth.value - sidebarWidth - 80
+  // Account for padding on sides
+  const availableWidth = winWidth.value - 80
 
   // Use 16:10 aspect ratio
   const aspectRatio = 16 / 10
@@ -214,6 +213,8 @@ const containerStyle = computed(() => {
   font-weight: 400;
   margin: 0;
   letter-spacing: -0.01em;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .card-text-answer {
