@@ -315,8 +315,9 @@ const handleReshuffle = () => {
 
 .loading-card {
   width: 100%;
-  max-width: 640px;
-  aspect-ratio: 5 / 3;
+  max-width: min(90vw, 800px);
+  min-height: 400px;
+  aspect-ratio: 16 / 10;
   background: #18181b;
   border-radius: 16px;
   animation: pulse 2s ease-in-out infinite;

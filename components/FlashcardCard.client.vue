@@ -79,8 +79,9 @@ const containerStyle = computed(() => {
 <style scoped>
 .flashcard-container {
   width: 100%;
-  max-width: 640px;
-  aspect-ratio: 5 / 3;
+  max-width: min(90vw, 800px);
+  min-height: 400px;
+  aspect-ratio: 16 / 10;
   cursor: pointer;
   transform-style: preserve-3d;
   transition: transform 0.12s cubic-bezier(0.4, 0, 0.2, 1);
