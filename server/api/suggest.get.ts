@@ -211,30 +211,39 @@ async function searchDirectory(dir: string, posts: BlogPost[], basePath = '') {
   }
 }
 
+interface ContentContext {
+  url?: string
+  title?: string
+  text?: string
+  selectedText?: string
+}
+
 // AI-powered suggestion using OpenRouter
 async function generateAISuggestions(
   content: string,
   availableTags: string[],
-  similarPosts: BlogPost[]
+  similarPosts: BlogPost[],
+  context?: ContentContext
 ): Promise<{ tags: string[]; summary: string; threads: string[] }> {
   const config = useRuntimeConfig()
   const openrouterKey =
     config.OPENROUTER_API_KEY || process.env.OPENROUTER_API_KEY
 
   if (!openrouterKey) {
-    // Fallback to simple keyword matching
-    const words = tokenize(content)
+    // Fallback to simple keyword matching - require 4+ char matches to avoid noise
+    const words = tokenize(content).filter((w) => w.length >= 4)
     const matchedTags = availableTags
-      .filter((tag) =>
-        words.some(
-          (word) =>
-            tag.toLowerCase().includes(word) || word.includes(tag.toLowerCase())
+      .filter((tag) => {
+        const tagLower = tag.toLowerCase()
+        // Only match if tag appears as a word or word contains the full tag
+        return words.some(
+          (word) => word === tagLower || (tagLower.length >= 4 && word.includes(tagLower))
         )
-      )
+      })
       .slice(0, 4)
 
     return {
-      tags: matchedTags,
+      tags: matchedTags.length > 0 ? matchedTags : [], // Don't guess if no matches
       summary: content.substring(0, 200) + '...',
       threads: [],
     }
@@ -249,27 +258,50 @@ async function generateAISuggestions(
     })
     .join('\n')
 
-  const tagsStr = availableTags.slice(0, 50).join(', ')
-  const contentTitle = content.split('\n')[0] || 'No title'
-  const contentText = content.substring(0, 1000)
+  // Use ALL available tags so AI has full vocabulary
+  const tagsStr = availableTags.join(', ')
 
-  const prompt = `You are EJ Fox's AI assistant helping to categorize content for his digital scrapbook.
+  // Build rich content context
+  const urlInfo = context?.url ? `URL: ${context.url}` : ''
+  let domainInfo = ''
+  try {
+    if (context?.url) domainInfo = `Domain: ${new URL(context.url).hostname}`
+  } catch { /* invalid URL */ }
+  const titleInfo = context?.title || content.split('\n')[0] || 'No title'
+  const selectedTextInfo = context?.selectedText ? `User-selected excerpt: "${context.selectedText}"` : ''
+  const contentText = content.substring(0, 2000)
 
-EJ writes about: data visualization, journalism, technology, coding (especially Vue.js/JavaScript), AI/ML, politics, activism, creative tools, photography, music production, automation, and digital culture.
+  const prompt = `You are EJ Fox's AI assistant helping to categorize web content for his digital scrapbook/bookmarks.
 
-Available tags (choose 3-4 from this exact list): ${tagsStr}
+EJ's interests: data visualization, journalism, technology, coding (Vue.js/JavaScript/Python), AI/ML, politics, activism, creative tools, photography, music production, automation, digital culture, outdoor activities, NYC/Hudson Valley local news.
 
-Similar existing content:
-${contextPosts}
+FULL TAG VOCABULARY (prefer these when they fit):
+${tagsStr}
 
-Content to analyze:
-Title: ${contentTitle}
-Text: ${contentText}
+Similar content already saved:
+${contextPosts || 'None found'}
 
-Please respond in this exact JSON format:
-{"tags": ["tag1", "tag2", "tag3"], "summary": "A concise 2-sentence description.", "threads": ["theme1", "theme2"]}
+=== CONTENT TO ANALYZE ===
+${urlInfo}
+${domainInfo}
+Title: ${titleInfo}
+${selectedTextInfo}
 
-Focus on tags that match EJ's interests and writing style.`
+Page content:
+${contentText}
+=== END CONTENT ===
+
+TAGGING RULES:
+1. Actually READ the content - what is it about? News? Tutorial? Tool? Opinion?
+2. Pick 2-4 tags that ACCURATELY describe this specific content
+3. PREFER existing vocabulary tags when they genuinely fit
+4. If no vocabulary tags fit, suggest new lowercase tags (e.g., "hiking", "localnews", "outdoors")
+5. NEVER suggest "activism" or "aboutme" unless the content is actually about those topics
+6. For news articles, consider: the topic (health, outdoors, tech, etc.), the format (news, opinion, longread), geographic relevance (hudsonvalley, nyc)
+7. Generic fallbacks if nothing fits: "reference", "toread", "misc"
+
+Respond ONLY with valid JSON:
+{"tags": ["tag1", "tag2", "tag3"], "summary": "One sentence describing what this content is.", "threads": []}`
 
   try {
     const response = await fetch(
@@ -288,11 +320,11 @@ Focus on tags that match EJ's interests and writing style.`
             {
               role: 'system',
               content:
-                'You are a helpful assistant that returns valid JSON only.',
+                'You are a content categorization assistant. Analyze content carefully and return accurate tags. Always respond with valid JSON only, no markdown.',
             },
             { role: 'user', content: prompt },
           ],
-          temperature: 0.7,
+          temperature: 0.3, // Lower for consistent, accurate tagging
           max_tokens: 300,
         }),
       }
@@ -337,7 +369,7 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
 
   try {
     const query = getQuery(event)
-    const { url, title, text, auth } = query
+    const { url, title, text, auth, description } = query
 
     // Basic auth check - EJ's security! 🔒
     const config = useRuntimeConfig()
@@ -401,7 +433,13 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
     const aiSuggestions = await generateAISuggestions(
       combinedContent,
       availableTags,
-      similarities
+      similarities,
+      {
+        url: url as string | undefined,
+        title: title as string | undefined,
+        text: text as string | undefined,
+        selectedText: description as string | undefined,
+      }
     )
 
     // Build response
@@ -429,11 +467,10 @@ export default defineEventHandler(async (event): Promise<SuggestResponse> => {
   } catch (error) {
     console.error('Suggest endpoint error:', error)
 
-    // Return graceful fallback
+    // Return graceful fallback - empty tags rather than random guesses
     return {
-      suggested_tags: ['tools', 'web', 'automation'],
-      summary:
-        'Content has been processed and added to your digital scrapbook.',
+      suggested_tags: [],
+      summary: 'Unable to analyze content. Add your own tags below.',
       similar_scraps: [],
       active_threads: [],
       processing_time_ms: Date.now() - startTime,
