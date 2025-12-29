@@ -2,19 +2,23 @@
 const principles = [
   {
     title: 'Prototypes over presentations',
-    description: 'I don\'t make slide decks about what I\'m going to build. I build something small and real within the first week. You can click it, break it, react to it.',
+    description:
+      "I don't make slide decks about what I'm going to build. I build something small and real within the first week. You can click it, break it, react to it.",
   },
   {
     title: 'Editorial intent first',
-    description: 'Before any code: what\'s the story? What should the reader feel? What action should they take? The visualization serves the journalism, not the other way around.',
+    description:
+      "Before any code: what's the story? What should the reader feel? What action should they take? The visualization serves the journalism, not the other way around.",
   },
   {
     title: 'Stress-test before launch',
-    description: 'If it\'s going live on election night, we simulate election night. Load testing, failure scenarios, fallback plans. The boring stuff that prevents disasters.',
+    description:
+      "If it's going live on election night, we simulate election night. Load testing, failure scenarios, fallback plans. The boring stuff that prevents disasters.",
   },
   {
     title: 'Documentation as delivery',
-    description: 'You get working code, not a dependency on me. Every project includes documentation your team can actually use after I\'m gone.',
+    description:
+      "You get working code, not a dependency on me. Every project includes documentation your team can actually use after I'm gone.",
   },
 ]
 
@@ -25,7 +29,7 @@ const antiPatterns = [
   },
   {
     bad: 'Building what you asked for literally',
-    good: 'Pushing back when the brief doesn\'t serve the goal',
+    good: "Pushing back when the brief doesn't serve the goal",
   },
   {
     bad: 'Optimizing for "cool" over "clear"',
@@ -39,15 +43,16 @@ const antiPatterns = [
 
 const questions = [
   'What happens if this visualization is wrong?',
-  'Who\'s the least technical person who needs to understand this?',
-  'What\'s the one thing this absolutely must communicate?',
+  "Who's the least technical person who needs to understand this?",
+  "What's the one thing this absolutely must communicate?",
   'How does this hold up when the data is ugly or incomplete?',
   'What does success look like in six months, not just at launch?',
 ]
 
 usePageSeo({
   title: 'How I Work · EJ Fox',
-  description: 'My process for high-stakes data visualization: prototypes over presentations, editorial intent first, stress-tested before launch.',
+  description:
+    'My process for high-stakes data visualization: prototypes over presentations, editorial intent first, stress-tested before launch.',
   type: 'website',
   section: 'Process',
   tags: ['Process', 'Methodology', 'Consulting'],
@@ -59,8 +64,8 @@ usePageSeo({
     <header class="section-spacing-lg">
       <h1 class="heading-1 mb-4">How I Work</h1>
       <p class="font-serif text-lg text-zinc-600 dark:text-zinc-400">
-        After 10+ years building newsroom tools under deadline pressure,
-        I've developed strong opinions about what works.
+        After 10+ years building newsroom tools under deadline pressure, I've
+        developed strong opinions about what works.
       </p>
     </header>
 
@@ -94,7 +99,9 @@ usePageSeo({
         >
           <div class="flex items-start gap-2">
             <span class="text-red-500 mt-0.5">✗</span>
-            <span class="font-serif text-zinc-500 line-through decoration-zinc-300 dark:decoration-zinc-700">
+            <span
+              class="font-serif text-zinc-500 line-through decoration-zinc-300 dark:decoration-zinc-700"
+            >
               {{ a.bad }}
             </span>
           </div>
@@ -115,12 +122,10 @@ usePageSeo({
         Before we write any code, we need clear answers to these:
       </p>
       <ol class="space-y-3">
-        <li
-          v-for="(q, i) in questions"
-          :key="i"
-          class="flex gap-3 font-serif"
-        >
-          <span class="font-mono text-sm text-zinc-400 w-6 shrink-0">{{ i + 1 }}.</span>
+        <li v-for="(q, i) in questions" :key="i" class="flex gap-3 font-serif">
+          <span class="font-mono text-sm text-zinc-400 w-6 shrink-0">
+            {{ i + 1 }}.
+          </span>
           <span class="text-zinc-700 dark:text-zinc-300">{{ q }}</span>
         </li>
       </ol>
@@ -132,24 +137,33 @@ usePageSeo({
       <div class="font-mono text-sm space-y-3">
         <div class="flex gap-4">
           <span class="text-zinc-400 w-20 shrink-0">Week 1</span>
-          <span class="text-zinc-700 dark:text-zinc-300">Discovery, data audit, first prototype</span>
+          <span class="text-zinc-700 dark:text-zinc-300">
+            Discovery, data audit, first prototype
+          </span>
         </div>
         <div class="flex gap-4">
           <span class="text-zinc-400 w-20 shrink-0">Week 2-3</span>
-          <span class="text-zinc-700 dark:text-zinc-300">Core functionality, design iteration</span>
+          <span class="text-zinc-700 dark:text-zinc-300">
+            Core functionality, design iteration
+          </span>
         </div>
         <div class="flex gap-4">
           <span class="text-zinc-400 w-20 shrink-0">Week 4-5</span>
-          <span class="text-zinc-700 dark:text-zinc-300">Polish, edge cases, stress testing</span>
+          <span class="text-zinc-700 dark:text-zinc-300">
+            Polish, edge cases, stress testing
+          </span>
         </div>
         <div class="flex gap-4">
           <span class="text-zinc-400 w-20 shrink-0">Week 6+</span>
-          <span class="text-zinc-700 dark:text-zinc-300">Launch support, documentation, handoff</span>
+          <span class="text-zinc-700 dark:text-zinc-300">
+            Launch support, documentation, handoff
+          </span>
         </div>
       </div>
       <p class="font-serif text-sm text-zinc-500 mt-4 italic">
-        Timelines compress or expand based on scope. Election night systems need more stress testing.
-        Investigative pieces need more data wrangling. We figure this out in the discovery call.
+        Timelines compress or expand based on scope. Election night systems need
+        more stress testing. Investigative pieces need more data wrangling. We
+        figure this out in the discovery call.
       </p>
     </section>
 
@@ -157,7 +171,8 @@ usePageSeo({
     <section class="section-spacing">
       <div class="bg-zinc-50 dark:bg-zinc-800/50 rounded-lg p-6">
         <p class="font-serif text-zinc-700 dark:text-zinc-300 mb-4">
-          If this resonates, let's talk. If it doesn't, we're probably not a fit—and that's fine.
+          If this resonates, let's talk. If it doesn't, we're probably not a
+          fit—and that's fine.
         </p>
         <div class="flex gap-4">
           <NuxtLink

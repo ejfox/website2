@@ -132,7 +132,10 @@ export default defineEventHandler(async (event) => {
     // Fetch single prediction with SSR markdown
     const filePath = await findPredictionFile(id)
     if (!filePath) {
-      throw createError({ statusCode: 404, statusMessage: 'Prediction not found' })
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Prediction not found',
+      })
     }
 
     const content = await fs.readFile(filePath, 'utf-8')
@@ -145,7 +148,9 @@ export default defineEventHandler(async (event) => {
       .use(remarkRehype, { allowDangerousHtml: true })
       .use(rehypeStringify, { allowDangerousHtml: true })
 
-    const evidenceHtml = body.trim() ? String(await processor.process(body)) : null
+    const evidenceHtml = body.trim()
+      ? String(await processor.process(body))
+      : null
     const resolutionHtml = data.resolution
       ? String(await processor.process(data.resolution))
       : null
@@ -178,7 +183,9 @@ export default defineEventHandler(async (event) => {
       )
 
       relatedPredictions = data.related
-        .map((relId: string) => allPredictions.find((p) => p.id === relId || p.slug === relId))
+        .map((relId: string) =>
+          allPredictions.find((p) => p.id === relId || p.slug === relId)
+        )
         .filter(Boolean)
     }
 

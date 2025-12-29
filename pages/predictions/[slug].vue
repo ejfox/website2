@@ -1,7 +1,10 @@
 <template>
   <main v-if="prediction" class="container-main pt-8">
     <!-- Back link -->
-    <NuxtLink to="/predictions" class="font-mono text-xs text-zinc-500 hover:underline">
+    <NuxtLink
+      to="/predictions"
+      class="font-mono text-xs text-zinc-500 hover:underline"
+    >
       ← predictions
     </NuxtLink>
 
@@ -19,20 +22,35 @@
       <!-- Status line -->
       <div class="font-mono text-xs text-zinc-500 flex flex-wrap gap-x-2">
         <span
-          v-if="prediction.status === 'correct' || prediction.status === 'incorrect'"
-          :class="prediction.status === 'correct' ? 'text-success' : 'text-error'"
+          v-if="
+            prediction.status === 'correct' || prediction.status === 'incorrect'
+          "
+          :class="
+            prediction.status === 'correct' ? 'text-success' : 'text-error'
+          "
           class="font-bold"
         >
-          {{ prediction.status === 'correct' ? '✓' : '✗' }} {{ prediction.status }}
+          {{ prediction.status === 'correct' ? '✓' : '✗' }}
+          {{ prediction.status }}
         </span>
         <span v-if="prediction.updates?.length">
-          · {{ prediction.updates.length }} update{{ prediction.updates.length === 1 ? '' : 's' }}
+          · {{ prediction.updates.length }} update{{
+            prediction.updates.length === 1 ? '' : 's'
+          }}
         </span>
         <span v-if="deadline">· {{ deadline }}</span>
         <span v-if="prediction.market" class="text-zinc-400">
           · {{ prediction.market.provider }}
           <template v-if="marketDiff !== null">
-            <span :class="marketDiff > 0 ? 'text-success' : marketDiff < 0 ? 'text-error' : ''">
+            <span
+              :class="
+                marketDiff > 0
+                  ? 'text-success'
+                  : marketDiff < 0
+                    ? 'text-error'
+                    : ''
+              "
+            >
               ({{ marketDiff > 0 ? '+' : '' }}{{ marketDiff }}% vs market)
             </span>
           </template>
@@ -44,22 +62,38 @@
     <section v-if="prediction.resolutionHtml" class="mb-8">
       <h2
         class="font-mono text-xs uppercase tracking-wide mb-2"
-        :class="prediction.status === 'correct' ? 'text-success' : prediction.status === 'incorrect' ? 'text-error' : 'text-zinc-500'"
+        :class="
+          prediction.status === 'correct'
+            ? 'text-success'
+            : prediction.status === 'incorrect'
+              ? 'text-error'
+              : 'text-zinc-500'
+        "
       >
         Resolution
       </h2>
-      <div class="prose prose-sm dark:prose-invert max-w-none" v-html="prediction.resolutionHtml" />
+      <div
+        class="prose prose-sm dark:prose-invert max-w-none"
+        v-html="prediction.resolutionHtml"
+      />
     </section>
 
     <!-- Evidence -->
     <section v-if="prediction.evidenceHtml" class="mb-8">
-      <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-2">Evidence</h2>
-      <div class="prose prose-sm dark:prose-invert max-w-none" v-html="prediction.evidenceHtml" />
+      <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-2">
+        Evidence
+      </h2>
+      <div
+        class="prose prose-sm dark:prose-invert max-w-none"
+        v-html="prediction.evidenceHtml"
+      />
     </section>
 
     <!-- Updates -->
     <section v-if="prediction.updates?.length" class="mb-8">
-      <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-4">Updates</h2>
+      <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-4">
+        Updates
+      </h2>
       <div class="space-y-4">
         <div
           v-for="(update, i) in sortedUpdates"
@@ -68,30 +102,55 @@
         >
           <div class="text-zinc-500 mb-1">
             {{ formatDate(update.timestamp) }}
-            <span v-if="update.confidenceBefore !== undefined && update.confidenceAfter !== undefined" class="tabular-nums">
+            <span
+              v-if="
+                update.confidenceBefore !== undefined &&
+                update.confidenceAfter !== undefined
+              "
+              class="tabular-nums"
+            >
               · {{ update.confidenceBefore }}% → {{ update.confidenceAfter }}%
             </span>
           </div>
-          <div class="text-zinc-700 dark:text-zinc-300 text-sm">{{ update.reasoning }}</div>
+          <div class="text-zinc-700 dark:text-zinc-300 text-sm">
+            {{ update.reasoning }}
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Related (now with statements!) -->
     <section v-if="prediction.relatedPredictions?.length" class="mb-8">
-      <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-2">Related</h2>
+      <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-2">
+        Related
+      </h2>
       <ul class="space-y-2">
-        <li v-for="related in prediction.relatedPredictions" :key="related.id" class="text-sm">
-          <NuxtLink :to="`/predictions/${related.slug}`" class="hover:underline">
-            <span class="font-mono text-zinc-500 tabular-nums">{{ related.confidence }}%</span>
+        <li
+          v-for="related in prediction.relatedPredictions"
+          :key="related.id"
+          class="text-sm"
+        >
+          <NuxtLink
+            :to="`/predictions/${related.slug}`"
+            class="hover:underline"
+          >
+            <span class="font-mono text-zinc-500 tabular-nums">
+              {{ related.confidence }}%
+            </span>
             <span
-              v-if="related.status === 'correct' || related.status === 'incorrect'"
-              :class="related.status === 'correct' ? 'text-success' : 'text-error'"
+              v-if="
+                related.status === 'correct' || related.status === 'incorrect'
+              "
+              :class="
+                related.status === 'correct' ? 'text-success' : 'text-error'
+              "
               class="mx-1"
             >
               {{ related.status === 'correct' ? '✓' : '✗' }}
             </span>
-            <span class="text-zinc-700 dark:text-zinc-300">{{ related.statement }}</span>
+            <span class="text-zinc-700 dark:text-zinc-300">
+              {{ related.statement }}
+            </span>
           </NuxtLink>
         </li>
       </ul>
@@ -101,7 +160,9 @@
   <!-- Error/Loading -->
   <div v-else class="container-main pt-8 font-mono text-xs text-zinc-500">
     {{ error ? 'Prediction not found' : 'Loading...' }}
-    <NuxtLink v-if="error" to="/predictions" class="block mt-2 hover:underline">← back</NuxtLink>
+    <NuxtLink v-if="error" to="/predictions" class="block mt-2 hover:underline">
+      ← back
+    </NuxtLink>
   </div>
 </template>
 
@@ -121,9 +182,20 @@ interface PredictionResponse {
   evidenceHtml?: string
   resolution?: string
   resolutionHtml?: string
-  updates?: Array<{ timestamp: string; confidenceBefore?: number; confidenceAfter?: number; reasoning?: string }>
+  updates?: Array<{
+    timestamp: string
+    confidenceBefore?: number
+    confidenceAfter?: number
+    reasoning?: string
+  }>
   related?: string[]
-  relatedPredictions?: Array<{ id: string; slug: string; statement: string; confidence: number; status?: string }>
+  relatedPredictions?: Array<{
+    id: string
+    slug: string
+    statement: string
+    confidence: number
+    status?: string
+  }>
   market?: { provider: string; slug: string }
 }
 
@@ -137,7 +209,9 @@ const params = route.params as { slug?: string | string[] }
 const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug || ''
 
 // Fetch single prediction with SSR markdown
-const { data: prediction, error } = await useFetch<PredictionResponse>(`/api/predictions/${slug}`)
+const { data: prediction, error } = await useFetch<PredictionResponse>(
+  `/api/predictions/${slug}`
+)
 
 // Fetch market data for diff calculation (only if prediction has market)
 const marketUrl = computed(() => {
@@ -194,7 +268,9 @@ usePageSeo({
   section: 'Forecasting',
   tags: ['Predictions'],
   label1: 'Confidence',
-  data1: computed(() => prediction.value?.confidence ? `${prediction.value.confidence}%` : '—'),
+  data1: computed(() =>
+    prediction.value?.confidence ? `${prediction.value.confidence}%` : '—'
+  ),
   label2: 'Status',
   data2: computed(() => prediction.value?.status || 'Active'),
 })

@@ -12,12 +12,22 @@
       'text-zinc-900 dark:text-zinc-100',
     ]"
   >
-    <div v-if="project.metadata?.client || project.metadata?.industry" class="flex flex-wrap gap-3 mb-3 font-mono text-xs">
-      <span v-if="project.metadata?.client" class="text-zinc-500 uppercase tracking-wide">
+    <div
+      v-if="project.metadata?.client || project.metadata?.industry"
+      class="flex flex-wrap gap-3 mb-3 font-mono text-xs"
+    >
+      <span
+        v-if="project.metadata?.client"
+        class="text-zinc-500 uppercase tracking-wide"
+      >
         {{ project.metadata.client }}
       </span>
       <span v-if="project.metadata?.industry" class="text-zinc-400">
-        {{ Array.isArray(project.metadata.industry) ? project.metadata.industry.join(' · ') : project.metadata.industry }}
+        {{
+          Array.isArray(project.metadata.industry)
+            ? project.metadata.industry.join(' · ')
+            : project.metadata.industry
+        }}
       </span>
     </div>
     <div v-if="featuredImage" class="mb-4">

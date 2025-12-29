@@ -45,19 +45,25 @@
         {{ graphData.links.length }} connections
       </p>
       <div class="flex gap-4 mt-2 font-mono text-xs">
-        <label class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0">
+        <label
+          class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0"
+        >
           <input v-model="showPosts" type="checkbox" class="accent-white" />
           <span :class="showPosts ? 'text-zinc-300' : 'text-zinc-600'">
             posts
           </span>
         </label>
-        <label class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0">
+        <label
+          class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0"
+        >
           <input v-model="showScraps" type="checkbox" class="accent-red-400" />
           <span :class="showScraps ? 'text-red-400' : 'text-zinc-600'">
             scraps
           </span>
         </label>
-        <label class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0">
+        <label
+          class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0"
+        >
           <input v-model="showTags" type="checkbox" class="accent-amber-400" />
           <span :class="showTags ? 'text-amber-400' : 'text-zinc-600'">
             tags
@@ -102,9 +108,9 @@ const COLLISION_RADIUS = {
 }
 
 const NODE_COLOR = {
-  tag: '#fbbf24',    // amber
-  post: '#fafafa',   // white
-  scrap: '#f87171',  // red
+  tag: '#fbbf24', // amber
+  post: '#fafafa', // white
+  scrap: '#f87171', // red
 }
 
 const BLACKLISTED_TAGS = ['video', 'youtube', 'watchlater']
@@ -125,19 +131,21 @@ const posts = computed(() => postsData.value || [])
 const scraps = computed(() => scrapsData.value || [])
 
 // Filtered counts (what actually appears in the graph)
-const filteredPostCount = computed(() =>
-  posts.value.filter(
-    (p) =>
-      (p.title || p.metadata?.title) &&
-      (p.date || p.metadata?.date) &&
-      !p.metadata?.draft
-  ).length
+const filteredPostCount = computed(
+  () =>
+    posts.value.filter(
+      (p) =>
+        (p.title || p.metadata?.title) &&
+        (p.date || p.metadata?.date) &&
+        !p.metadata?.draft
+    ).length
 )
-const filteredScrapCount = computed(() =>
-  scraps.value.filter((s) => {
-    const tags = [...(s.tags || []), ...(s.concept_tags || [])]
-    return tags.length > 0
-  }).length
+const filteredScrapCount = computed(
+  () =>
+    scraps.value.filter((s) => {
+      const tags = [...(s.tags || []), ...(s.concept_tags || [])]
+      return tags.length > 0
+    }).length
 )
 
 const containerRef = ref(null)
@@ -222,7 +230,6 @@ function handleClick() {
   }
 }
 
-
 // Build graph from posts + limited scraps
 function buildGraphData(postsList, scrapsList) {
   const nodes = []
@@ -239,8 +246,9 @@ function buildGraphData(postsList, scrapsList) {
         !p.metadata?.draft
     )
     .forEach((post) => {
-      const tags = (post.tags || post.metadata?.tags || [])
-        .filter((t) => !BLACKLISTED_TAGS.includes(t.toLowerCase()))
+      const tags = (post.tags || post.metadata?.tags || []).filter(
+        (t) => !BLACKLISTED_TAGS.includes(t.toLowerCase())
+      )
       const id = `post-${post.slug}`
       nodeIds.add(id)
       nodes.push({
@@ -257,8 +265,9 @@ function buildGraphData(postsList, scrapsList) {
 
   // Add scraps (only the ones we've loaded so far)
   scrapsList.forEach((scrap) => {
-    const tags = [...(scrap.tags || []), ...(scrap.concept_tags || [])]
-      .filter((t) => !BLACKLISTED_TAGS.includes(t.toLowerCase()))
+    const tags = [...(scrap.tags || []), ...(scrap.concept_tags || [])].filter(
+      (t) => !BLACKLISTED_TAGS.includes(t.toLowerCase())
+    )
     if (tags.length === 0) return
     const id = `scrap-${scrap.id}`
     nodeIds.add(id)
@@ -443,7 +452,10 @@ if (import.meta.client) {
       .force('charge', d3.forceManyBody().strength(-40).distanceMax(400))
       .force('x', d3.forceX(centerX).strength(0.001))
       .force('y', d3.forceY(height / 2).strength(0.0005))
-      .force('collision', d3.forceCollide().radius((d) => COLLISION_RADIUS[d.type]))
+      .force(
+        'collision',
+        d3.forceCollide().radius((d) => COLLISION_RADIUS[d.type])
+      )
       .on('tick', () => {
         boundaryForce()
         // Hard clamp as fallback
@@ -511,7 +523,8 @@ if (import.meta.client) {
       .slice(0, NUM_MAYPOLES)
       .map(([tag, count], i) => {
         // Sine wave offset from center, clamped to safe area
-        const waveOffset = Math.sin((i / (NUM_MAYPOLES - 1)) * Math.PI * 2) * waveAmplitude
+        const waveOffset =
+          Math.sin((i / (NUM_MAYPOLES - 1)) * Math.PI * 2) * waveAmplitude
         const tagX = Math.max(minX, Math.min(maxX, maypoleX + waveOffset))
         return {
           id: `tag-${tag}`,
@@ -527,7 +540,11 @@ if (import.meta.client) {
         }
       })
 
-    const updateGraph = (currentPosts, currentScraps, includeMaypoles = true) => {
+    const updateGraph = (
+      currentPosts,
+      currentScraps,
+      includeMaypoles = true
+    ) => {
       const newData = buildGraphData(currentPosts, currentScraps)
 
       // Preserve positions of existing nodes
@@ -550,11 +567,15 @@ if (import.meta.client) {
           (n.tags || []).includes(t.title)
         )
         const safeSpawnWidth = width - sidebarWidth - rightPadding - padding * 2
-        const safeSpawnHeight = height - headerHeight - bottomPadding - padding * 2
+        const safeSpawnHeight =
+          height - headerHeight - bottomPadding - padding * 2
         let spawnX, spawnY
         if (connectedTag) {
           // Spawn near tag but clamp to safe area
-          spawnX = Math.max(minX, Math.min(maxX, connectedTag.targetX + (Math.random() - 0.5) * 80))
+          spawnX = Math.max(
+            minX,
+            Math.min(maxX, connectedTag.targetX + (Math.random() - 0.5) * 80)
+          )
           spawnY = connectedTag.targetY + (Math.random() - 0.5) * 80
         } else {
           spawnX = sidebarWidth + padding + Math.random() * safeSpawnWidth

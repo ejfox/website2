@@ -28,14 +28,16 @@
             >
               {{ formatBrierScore(calibration.brier_score) }}
             </span>
-            <span class="text-zinc-500 dark:text-zinc-500 text-sm uppercase tracking-wide">
+            <span
+              class="text-zinc-500 dark:text-zinc-500 text-sm uppercase tracking-wide"
+            >
               Brier Score
             </span>
           </div>
           <div class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
             <div>
-              {{ brierScoreLabel(calibration.brier_score) }} ·
-              Based on {{ calibration.summary.resolved }} resolved predictions
+              {{ brierScoreLabel(calibration.brier_score) }} · Based on
+              {{ calibration.summary.resolved }} resolved predictions
             </div>
             <div class="text-xs text-zinc-500">
               0 = perfect · 0.25 = chance · 1 = always wrong
@@ -44,16 +46,31 @@
         </div>
 
         <!-- Verification Summary -->
-        <div class="font-mono text-xs border-t border-zinc-200 dark:border-zinc-800 pt-4">
+        <div
+          class="font-mono text-xs border-t border-zinc-200 dark:border-zinc-800 pt-4"
+        >
           <div class="tabular-nums">
-            <span class="text-zinc-900 dark:text-zinc-100">{{ correctCount }}/{{ correctCount + incorrectCount }}</span>
+            <span class="text-zinc-900 dark:text-zinc-100">
+              {{ correctCount }}/{{ correctCount + incorrectCount }}
+            </span>
             <span class="text-zinc-500 ml-1">correct</span>
             <span class="text-zinc-400 mx-2">·</span>
-            <span class="text-zinc-600 dark:text-zinc-400">{{ pendingCount }}</span>
+            <span class="text-zinc-600 dark:text-zinc-400">
+              {{ pendingCount }}
+            </span>
             <span class="text-zinc-500 ml-1">pending</span>
-            <span v-if="kalshiPositionCount > 0" class="text-zinc-400 mx-2">·</span>
-            <span v-if="kalshiPositionCount > 0" class="text-zinc-600 dark:text-zinc-400">${{ formatExposure(totalKalshiExposure) }}</span>
-            <span v-if="kalshiPositionCount > 0" class="text-zinc-500 ml-1">at stake</span>
+            <span v-if="kalshiPositionCount > 0" class="text-zinc-400 mx-2">
+              ·
+            </span>
+            <span
+              v-if="kalshiPositionCount > 0"
+              class="text-zinc-600 dark:text-zinc-400"
+            >
+              ${{ formatExposure(totalKalshiExposure) }}
+            </span>
+            <span v-if="kalshiPositionCount > 0" class="text-zinc-500 ml-1">
+              at stake
+            </span>
           </div>
         </div>
       </header>
@@ -74,9 +91,15 @@
           <table class="w-full font-mono text-xs border-collapse">
             <thead>
               <tr class="border-b border-zinc-300 dark:border-zinc-700">
-                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">Conf</th>
-                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">Statement</th>
-                <th class="text-right pb-2 font-normal text-zinc-500">Deadline</th>
+                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">
+                  Conf
+                </th>
+                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">
+                  Statement
+                </th>
+                <th class="text-right pb-2 font-normal text-zinc-500">
+                  Deadline
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -86,7 +109,9 @@
                 class="border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
               >
                 <td class="py-3 pr-4 align-top tabular-nums">
-                  <span class="text-lg font-bold">{{ prediction.confidence }}%</span>
+                  <span class="text-lg font-bold">
+                    {{ prediction.confidence }}%
+                  </span>
                 </td>
                 <td class="py-3 pr-4 align-top">
                   <NuxtLink
@@ -96,7 +121,9 @@
                     {{ prediction.statement }}
                   </NuxtLink>
                 </td>
-                <td class="py-3 pr-4 align-top text-right tabular-nums text-zinc-500 whitespace-nowrap">
+                <td
+                  class="py-3 pr-4 align-top text-right tabular-nums text-zinc-500 whitespace-nowrap"
+                >
                   <template v-if="daysUntil(prediction.deadline) !== null">
                     {{ daysUntil(prediction.deadline) }}d
                   </template>
@@ -117,10 +144,18 @@
           <table class="w-full font-mono text-xs border-collapse">
             <thead>
               <tr class="border-b border-zinc-300 dark:border-zinc-700">
-                <th class="text-center pb-2 pr-4 font-normal text-zinc-500"></th>
-                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">Conf</th>
-                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">Statement</th>
-                <th class="text-left pb-2 font-normal text-zinc-500">Resolved</th>
+                <th
+                  class="text-center pb-2 pr-4 font-normal text-zinc-500"
+                ></th>
+                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">
+                  Conf
+                </th>
+                <th class="text-left pb-2 pr-4 font-normal text-zinc-500">
+                  Statement
+                </th>
+                <th class="text-left pb-2 font-normal text-zinc-500">
+                  Resolved
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -130,20 +165,40 @@
                 class="border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
               >
                 <td class="py-3 pr-4 align-top text-center">
-                  <span v-if="prediction.status === 'correct'" class="text-success">✓</span>
-                  <span v-else-if="prediction.status === 'incorrect'" class="text-error">✗</span>
+                  <span
+                    v-if="prediction.status === 'correct'"
+                    class="text-success"
+                  >
+                    ✓
+                  </span>
+                  <span
+                    v-else-if="prediction.status === 'incorrect'"
+                    class="text-error"
+                  >
+                    ✗
+                  </span>
                   <span v-else class="text-zinc-400">—</span>
                 </td>
                 <td class="py-3 pr-4 align-top tabular-nums">
                   <span
                     class="text-lg font-bold"
-                    :class="prediction.status === 'correct' ? 'text-success' : prediction.status === 'incorrect' ? 'text-error' : ''"
-                  >{{ prediction.confidence }}%</span>
+                    :class="
+                      prediction.status === 'correct'
+                        ? 'text-success'
+                        : prediction.status === 'incorrect'
+                          ? 'text-error'
+                          : ''
+                    "
+                  >
+                    {{ prediction.confidence }}%
+                  </span>
                   <span
                     v-if="brierContribution(prediction) !== null"
                     class="text-zinc-400 text-[10px] ml-2"
-                    :title="`Brier: (${prediction.confidence/100} - ${prediction.status === 'correct' ? 1 : 0})² = ${brierContribution(prediction)?.toFixed(3)}`"
-                  >{{ brierContribution(prediction)?.toFixed(2) }}</span>
+                    :title="`Brier: (${prediction.confidence / 100} - ${prediction.status === 'correct' ? 1 : 0})² = ${brierContribution(prediction)?.toFixed(3)}`"
+                  >
+                    {{ brierContribution(prediction)?.toFixed(2) }}
+                  </span>
                 </td>
                 <td class="py-3 pr-4 align-top">
                   <NuxtLink
@@ -153,7 +208,9 @@
                     {{ prediction.statement }}
                   </NuxtLink>
                 </td>
-                <td class="py-3 align-top whitespace-nowrap text-zinc-500 tabular-nums">
+                <td
+                  class="py-3 align-top whitespace-nowrap text-zinc-500 tabular-nums"
+                >
                   {{ formatResolvedDate(prediction.resolved_date) }}
                 </td>
               </tr>
@@ -171,12 +228,37 @@
 
         <!-- Calibration Curve -->
         <div class="mb-6">
-          <svg viewBox="0 0 100 100" class="w-full max-w-xs h-auto aspect-square">
+          <svg
+            viewBox="0 0 100 100"
+            class="w-full max-w-xs h-auto aspect-square"
+          >
             <!-- Grid -->
-            <line x1="0" y1="100" x2="100" y2="100" class="stroke-zinc-300 dark:stroke-zinc-700" stroke-width="0.5" />
-            <line x1="0" y1="0" x2="0" y2="100" class="stroke-zinc-300 dark:stroke-zinc-700" stroke-width="0.5" />
+            <line
+              x1="0"
+              y1="100"
+              x2="100"
+              y2="100"
+              class="stroke-zinc-300 dark:stroke-zinc-700"
+              stroke-width="0.5"
+            />
+            <line
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="100"
+              class="stroke-zinc-300 dark:stroke-zinc-700"
+              stroke-width="0.5"
+            />
             <!-- Perfect calibration line -->
-            <line x1="0" y1="100" x2="100" y2="0" class="stroke-zinc-400 dark:stroke-zinc-600" stroke-width="0.5" stroke-dasharray="2,2" />
+            <line
+              x1="0"
+              y1="100"
+              x2="100"
+              y2="0"
+              class="stroke-zinc-400 dark:stroke-zinc-600"
+              stroke-width="0.5"
+              stroke-dasharray="2,2"
+            />
             <!-- Calibration points -->
             <circle
               v-for="bucket in calibration.calibration"
@@ -184,7 +266,9 @@
               :cx="bucket.expected"
               :cy="100 - bucket.accuracy"
               :r="Math.max(2, Math.min(5, bucket.count))"
-              :class="Math.abs(bucket.delta) <= 10 ? 'fill-success' : 'fill-error'"
+              :class="
+                Math.abs(bucket.delta) <= 10 ? 'fill-success' : 'fill-error'
+              "
               class="opacity-80"
             />
             <!-- Connect points with line -->
@@ -202,7 +286,9 @@
 
         <table class="w-full border-collapse">
           <thead>
-            <tr class="border-b border-zinc-300 dark:border-zinc-700 text-zinc-500">
+            <tr
+              class="border-b border-zinc-300 dark:border-zinc-700 text-zinc-500"
+            >
               <th class="text-left pb-2 pr-4 font-normal">Range</th>
               <th class="text-right pb-2 pr-4 font-normal">Actual</th>
               <th class="text-right pb-2 pr-4 font-normal">Δ</th>
@@ -216,13 +302,21 @@
               class="border-b border-zinc-200 dark:border-zinc-800"
             >
               <td class="py-2 pr-4">{{ bucket.label }}</td>
-              <td class="py-2 pr-4 text-right tabular-nums font-bold" :class="deltaClass(bucket.delta)">
+              <td
+                class="py-2 pr-4 text-right tabular-nums font-bold"
+                :class="deltaClass(bucket.delta)"
+              >
                 {{ bucket.accuracy }}%
               </td>
-              <td class="py-2 pr-4 text-right tabular-nums" :class="bucket.delta >= 0 ? 'text-success' : 'text-error'">
+              <td
+                class="py-2 pr-4 text-right tabular-nums"
+                :class="bucket.delta >= 0 ? 'text-success' : 'text-error'"
+              >
                 {{ bucket.delta >= 0 ? '+' : '' }}{{ bucket.delta }}
               </td>
-              <td class="py-2 text-right tabular-nums text-zinc-500">{{ bucket.count }}</td>
+              <td class="py-2 text-right tabular-nums text-zinc-500">
+                {{ bucket.count }}
+              </td>
             </tr>
           </tbody>
         </table>
@@ -298,15 +392,19 @@ const transformedPredictions = computed(() => {
 const activePredictions = computed(() =>
   transformedPredictions.value
     .filter((p) => !p.resolved)
-    .sort((a, b) => new Date(b.created || 0).getTime() - new Date(a.created || 0).getTime())
+    .sort(
+      (a, b) =>
+        new Date(b.created || 0).getTime() - new Date(a.created || 0).getTime()
+    )
 )
 
 const resolvedPredictions = computed(() =>
   transformedPredictions.value
     .filter((p) => p.resolved)
-    .sort((a, b) =>
-      new Date(b.resolved_date || b.created || 0).getTime() -
-      new Date(a.resolved_date || a.created || 0).getTime()
+    .sort(
+      (a, b) =>
+        new Date(b.resolved_date || b.created || 0).getTime() -
+        new Date(a.resolved_date || a.created || 0).getTime()
     )
 )
 
@@ -315,10 +413,12 @@ const pendingCount = computed(
   () => transformedPredictions.value.filter((p) => !p.resolved).length
 )
 const correctCount = computed(
-  () => transformedPredictions.value.filter((p) => p.status === 'correct').length
+  () =>
+    transformedPredictions.value.filter((p) => p.status === 'correct').length
 )
 const incorrectCount = computed(
-  () => transformedPredictions.value.filter((p) => p.status === 'incorrect').length
+  () =>
+    transformedPredictions.value.filter((p) => p.status === 'incorrect').length
 )
 
 // Kalshi data
@@ -363,7 +463,10 @@ const formatExposure = (value: number) => {
 const calibrationPoints = computed(() => {
   if (!calibration.value?.calibration?.length) return ''
   return calibration.value.calibration
-    .map((b: { expected: number; accuracy: number }) => `${b.expected},${100 - b.accuracy}`)
+    .map(
+      (b: { expected: number; accuracy: number }) =>
+        `${b.expected},${100 - b.accuracy}`
+    )
     .join(' ')
 })
 
@@ -373,14 +476,20 @@ const daysUntil = (deadline: string | undefined): number | null => {
   try {
     const target = new Date(deadline)
     const now = new Date()
-    const diff = Math.ceil((target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24))
+    const diff = Math.ceil(
+      (target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
+    )
     return diff > 0 ? diff : null
   } catch {
     return null
   }
 }
 
-const brierContribution = (prediction: { resolved: boolean; status?: string; confidence: number }): number | null => {
+const brierContribution = (prediction: {
+  resolved: boolean
+  status?: string
+  confidence: number
+}): number | null => {
   if (!prediction.resolved || !prediction.status) return null
   const outcome = prediction.status === 'correct' ? 1 : 0
   const forecast = prediction.confidence / 100

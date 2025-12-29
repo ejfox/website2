@@ -10,11 +10,17 @@
 
     <!-- Posts -->
     <section v-if="posts.length" class="mb-6">
-      <h3 class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2">
+      <h3
+        class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2"
+      >
         Posts
       </h3>
       <div class="space-y-0.5">
-        <div v-for="post in posts" :key="post.slug" class="flex gap-3 text-sm leading-tight">
+        <div
+          v-for="post in posts"
+          :key="post.slug"
+          class="flex gap-3 text-sm leading-tight"
+        >
           <span class="font-mono text-xs text-zinc-600 w-20 shrink-0">
             {{ formatShortDate(post.date || post.metadata?.date) }}
           </span>
@@ -22,8 +28,15 @@
             <NuxtLink
               :to="`/blog/${post.slug}`"
               class="hover:underline underline-offset-2"
-            >{{ post.title || post.metadata?.title }}</NuxtLink>
-            <div class="font-mono text-zinc-600 truncate" style="font-size: 9px; line-height: 1.2">ejfox.com/blog/{{ post.slug }}</div>
+            >
+              {{ post.title || post.metadata?.title }}
+            </NuxtLink>
+            <div
+              class="font-mono text-zinc-600 truncate"
+              style="font-size: 9px; line-height: 1.2"
+            >
+              ejfox.com/blog/{{ post.slug }}
+            </div>
           </div>
           <span class="font-mono text-xs text-zinc-600 shrink-0">
             {{ (post.metadata?.words || post.words || 0).toLocaleString() }}
@@ -34,11 +47,17 @@
 
     <!-- Week Notes -->
     <section v-if="weekNotes.length" class="mb-6">
-      <h3 class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2">
+      <h3
+        class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2"
+      >
         Week Notes
       </h3>
       <div class="space-y-0.5">
-        <div v-for="post in weekNotes" :key="post.slug" class="flex gap-3 text-sm leading-tight">
+        <div
+          v-for="post in weekNotes"
+          :key="post.slug"
+          class="flex gap-3 text-sm leading-tight"
+        >
           <span class="font-mono text-xs text-zinc-600 w-20 shrink-0">
             {{ formatShortDate(post.date || post.metadata?.date) }}
           </span>
@@ -46,8 +65,15 @@
             <NuxtLink
               :to="`/blog/${post.slug}`"
               class="hover:underline underline-offset-2"
-            >{{ post.title || post.metadata?.title }}</NuxtLink>
-            <div class="font-mono text-zinc-600 truncate" style="font-size: 9px; line-height: 1.2">ejfox.com/blog/{{ post.slug }}</div>
+            >
+              {{ post.title || post.metadata?.title }}
+            </NuxtLink>
+            <div
+              class="font-mono text-zinc-600 truncate"
+              style="font-size: 9px; line-height: 1.2"
+            >
+              ejfox.com/blog/{{ post.slug }}
+            </div>
           </div>
           <span class="font-mono text-xs text-zinc-600 shrink-0">
             {{ (post.metadata?.words || post.words || 0).toLocaleString() }}
@@ -58,11 +84,17 @@
 
     <!-- Projects -->
     <section v-if="projects.length" class="mb-6">
-      <h3 class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2">
+      <h3
+        class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2"
+      >
         Projects
       </h3>
       <div class="space-y-0.5">
-        <div v-for="post in projects" :key="post.slug" class="flex gap-3 text-sm leading-tight">
+        <div
+          v-for="post in projects"
+          :key="post.slug"
+          class="flex gap-3 text-sm leading-tight"
+        >
           <span class="font-mono text-xs text-zinc-600 w-20 shrink-0">
             {{ formatShortDate(post.date || post.metadata?.date) }}
           </span>
@@ -70,8 +102,15 @@
             <NuxtLink
               :to="`/blog/${post.slug}`"
               class="hover:underline underline-offset-2"
-            >{{ post.title || post.metadata?.title }}</NuxtLink>
-            <div class="font-mono text-zinc-600 truncate" style="font-size: 9px; line-height: 1.2">ejfox.com/blog/{{ post.slug }}</div>
+            >
+              {{ post.title || post.metadata?.title }}
+            </NuxtLink>
+            <div
+              class="font-mono text-zinc-600 truncate"
+              style="font-size: 9px; line-height: 1.2"
+            >
+              ejfox.com/blog/{{ post.slug }}
+            </div>
           </div>
           <span class="font-mono text-xs text-zinc-600 shrink-0">
             {{ (post.metadata?.words || post.words || 0).toLocaleString() }}
@@ -82,11 +121,17 @@
 
     <!-- Reading -->
     <section v-if="reading.length" class="mb-6">
-      <h3 class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2">
+      <h3
+        class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2"
+      >
         Reading
       </h3>
       <div class="space-y-0.5">
-        <div v-for="post in reading" :key="post.slug" class="flex gap-3 text-sm leading-tight">
+        <div
+          v-for="post in reading"
+          :key="post.slug"
+          class="flex gap-3 text-sm leading-tight"
+        >
           <span class="font-mono text-xs text-zinc-600 w-20 shrink-0">
             {{ formatShortDate(post.date || post.metadata?.date) }}
           </span>
@@ -94,8 +139,15 @@
             <NuxtLink
               :to="`/blog/${post.slug}`"
               class="hover:underline underline-offset-2"
-            >{{ post.title || post.metadata?.title }}</NuxtLink>
-            <div class="font-mono text-zinc-600 truncate" style="font-size: 9px; line-height: 1.2">ejfox.com/blog/{{ post.slug }}</div>
+            >
+              {{ post.title || post.metadata?.title }}
+            </NuxtLink>
+            <div
+              class="font-mono text-zinc-600 truncate"
+              style="font-size: 9px; line-height: 1.2"
+            >
+              ejfox.com/blog/{{ post.slug }}
+            </div>
           </div>
           <span class="font-mono text-xs text-zinc-600 shrink-0">
             {{ (post.metadata?.words || post.words || 0).toLocaleString() }}
@@ -106,17 +158,30 @@
 
     <!-- Scraps -->
     <section v-if="scraps.length">
-      <h3 class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2">
+      <h3
+        class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2"
+      >
         Scraps
       </h3>
       <div class="space-y-0.5">
-        <div v-for="scrap in scraps" :key="scrap.id" class="flex gap-3 text-sm leading-tight">
+        <div
+          v-for="scrap in scraps"
+          :key="scrap.id"
+          class="flex gap-3 text-sm leading-tight"
+        >
           <span class="font-mono text-xs text-zinc-600 w-20 shrink-0">
             {{ formatShortDate(scrap.created_at) }}
           </span>
           <div class="flex-1 min-w-0">
-            <span class="text-zinc-400">{{ scrap.title || scrap.summary || scrap.content?.slice(0, 80) }}</span>
-            <div class="font-mono text-zinc-600 truncate" style="font-size: 9px; line-height: 1.2">scrap/{{ scrap.id }}</div>
+            <span class="text-zinc-400">
+              {{ scrap.title || scrap.summary || scrap.content?.slice(0, 80) }}
+            </span>
+            <div
+              class="font-mono text-zinc-600 truncate"
+              style="font-size: 9px; line-height: 1.2"
+            >
+              scrap/{{ scrap.id }}
+            </div>
           </div>
         </div>
       </div>
@@ -125,7 +190,10 @@
     <!-- Empty state -->
     <div v-if="!posts.length && !scraps.length && !pending" class="py-12">
       <p class="text-zinc-500">No content found with tag "{{ tag }}"</p>
-      <NuxtLink to="/threads" class="text-zinc-500 hover:underline text-sm mt-2 inline-block">
+      <NuxtLink
+        to="/threads"
+        class="text-zinc-500 hover:underline text-sm mt-2 inline-block"
+      >
         Back to threads
       </NuxtLink>
     </div>
@@ -146,10 +214,12 @@ const tag = computed(() => {
 })
 
 // Fetch posts
-const { data: allPosts, pending: postsPending } = await useFetch('/api/manifest')
+const { data: allPosts, pending: postsPending } =
+  await useFetch('/api/manifest')
 
 // Fetch scraps
-const { data: allScraps, pending: scrapsPending } = await useFetch('/api/scraps')
+const { data: allScraps, pending: scrapsPending } =
+  await useFetch('/api/scraps')
 
 const pending = computed(() => postsPending.value || scrapsPending.value)
 
@@ -170,16 +240,16 @@ const allTaggedPosts = computed(() => {
 
 // Categorize by slug prefix
 const posts = computed(() =>
-  allTaggedPosts.value.filter(p => p.slug?.match(/^\d{4}\//))
+  allTaggedPosts.value.filter((p) => p.slug?.match(/^\d{4}\//))
 )
 const weekNotes = computed(() =>
-  allTaggedPosts.value.filter(p => p.slug?.startsWith('week-notes/'))
+  allTaggedPosts.value.filter((p) => p.slug?.startsWith('week-notes/'))
 )
 const reading = computed(() =>
-  allTaggedPosts.value.filter(p => p.slug?.startsWith('reading/'))
+  allTaggedPosts.value.filter((p) => p.slug?.startsWith('reading/'))
 )
 const projects = computed(() =>
-  allTaggedPosts.value.filter(p => p.slug?.startsWith('projects/'))
+  allTaggedPosts.value.filter((p) => p.slug?.startsWith('projects/'))
 )
 
 // Filter scraps by tag
@@ -213,9 +283,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: computed(
-        () => `Posts and scraps tagged with "${tag.value}"`
-      ),
+      content: computed(() => `Posts and scraps tagged with "${tag.value}"`),
     },
   ],
 })

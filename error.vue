@@ -92,8 +92,7 @@ interface ScoredMatch {
 onMounted(async () => {
   try {
     const manifest = await $fetch<ManifestItem[]>('/api/manifest')
-    const items =
-      manifest?.filter((item) => !item.hidden && !item.draft) || []
+    const items = manifest?.filter((item) => !item.hidden && !item.draft) || []
 
     const search = cleanPath.value.toLowerCase()
     if (!search || search.length > 80) return

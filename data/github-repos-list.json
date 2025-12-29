@@ -1,34 +1,5 @@
 [
   {
-    "name": "dotfiles",
-    "description": "Backup of my dotfiles",
-    "url": "https://github.com/ejfox/dotfiles",
-    "homepage": null,
-    "stats": {
-      "stars": 1,
-      "forks": 1,
-      "watchers": 0,
-      "openIssues": 3
-    },
-    "language": "Shell",
-    "languageColor": "#89e051",
-    "languages": {
-      "Shell": 275229,
-      "GLSL": 170261,
-      "Lua": 114467,
-      "Vim Script": 83725,
-      "JavaScript": 8622,
-      "Less": 2089,
-      "CSS": 1367
-    },
-    "diskUsage": 63441,
-    "topics": [],
-    "excerpt": "Backup of my dotfiles",
-    "createdAt": "2019-04-07T22:09:55Z",
-    "updatedAt": "2025-12-23T00:46:58Z",
-    "pushedAt": "2025-12-23T00:46:54Z"
-  },
-  {
     "name": "website2",
     "description": "No description provided",
     "url": "https://github.com/ejfox/website2",
@@ -42,20 +13,100 @@
     "language": "Vue",
     "languageColor": "#41b883",
     "languages": {
-      "Vue": 691405,
-      "TypeScript": 334119,
-      "JavaScript": 221072,
+      "Vue": 719549,
+      "TypeScript": 365332,
+      "JavaScript": 221111,
       "CSS": 35191,
       "Shell": 18074,
       "HTML": 15405,
       "Dockerfile": 794
     },
-    "diskUsage": 89331,
+    "diskUsage": 88453,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-22T01:05:04Z",
-    "pushedAt": "2025-12-22T01:05:01Z"
+    "updatedAt": "2025-12-28T21:12:35Z",
+    "pushedAt": "2025-12-28T21:12:29Z"
+  },
+  {
+    "name": "vulpes-theme-lab",
+    "description": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
+    "url": "https://github.com/ejfox/vulpes-theme-lab",
+    "homepage": "https://ejfox.github.io/vulpes-theme-lab/",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 317227,
+      "TypeScript": 229054,
+      "CSS": 14207,
+      "JavaScript": 3881,
+      "Lua": 14
+    },
+    "diskUsage": 531,
+    "topics": [],
+    "excerpt": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
+    "createdAt": "2025-10-24T21:15:15Z",
+    "updatedAt": "2025-12-28T06:04:58Z",
+    "pushedAt": "2025-12-28T01:56:03Z"
+  },
+  {
+    "name": "hand-midi-controller",
+    "description": "Professional hand tracking MIDI controller with TouchDesigner integration for peak interactive creative tech",
+    "url": "https://github.com/ejfox/hand-midi-controller",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Python",
+    "languageColor": "#3572A5",
+    "languages": {
+      "Python": 133084,
+      "Shell": 1553
+    },
+    "diskUsage": 41,
+    "topics": [],
+    "excerpt": "Professional hand tracking MIDI controller with TouchDesigner integration for peak interactive creative tech",
+    "createdAt": "2025-07-26T18:58:06Z",
+    "updatedAt": "2025-12-26T21:28:04Z",
+    "pushedAt": "2025-07-26T19:32:58Z"
+  },
+  {
+    "name": "dotfiles",
+    "description": "Backup of my dotfiles",
+    "url": "https://github.com/ejfox/dotfiles",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 1,
+      "watchers": 0,
+      "openIssues": 3
+    },
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "languages": {
+      "Shell": 274318,
+      "GLSL": 170261,
+      "Lua": 114575,
+      "Vim Script": 83725,
+      "JavaScript": 8622,
+      "Less": 2089,
+      "CSS": 1367
+    },
+    "diskUsage": 63171,
+    "topics": [],
+    "excerpt": "Backup of my dotfiles",
+    "createdAt": "2019-04-07T22:09:55Z",
+    "updatedAt": "2025-12-23T19:15:50Z",
+    "pushedAt": "2025-12-23T19:15:46Z"
   },
   {
     "name": "SubwayBuilderIssues",
@@ -66,7 +117,7 @@
       "stars": 38,
       "forks": 7,
       "watchers": 0,
-      "openIssues": 356
+      "openIssues": 363
     },
     "language": "Unknown",
     "languageColor": "#666666",
@@ -357,33 +408,6 @@
     "createdAt": "2017-06-11T20:47:18Z",
     "updatedAt": "2025-12-09T13:20:51Z",
     "pushedAt": "2022-12-09T04:48:59Z"
-  },
-  {
-    "name": "vulpes-theme-lab",
-    "description": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
-    "url": "https://github.com/ejfox/vulpes-theme-lab",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 299489,
-      "TypeScript": 224866,
-      "CSS": 13233,
-      "JavaScript": 3513,
-      "Lua": 14
-    },
-    "diskUsage": 496,
-    "topics": [],
-    "excerpt": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
-    "createdAt": "2025-10-24T21:15:15Z",
-    "updatedAt": "2025-12-07T17:58:56Z",
-    "pushedAt": "2025-12-07T17:58:52Z"
   },
   {
     "name": "tweakcc",
@@ -1233,30 +1257,6 @@
     "pushedAt": "2025-06-05T02:02:42Z"
   },
   {
-    "name": "hand-midi-controller",
-    "description": "Professional hand tracking MIDI controller with TouchDesigner integration for peak interactive creative tech",
-    "url": "https://github.com/ejfox/hand-midi-controller",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Python",
-    "languageColor": "#3572A5",
-    "languages": {
-      "Python": 133084,
-      "Shell": 1553
-    },
-    "diskUsage": 41,
-    "topics": [],
-    "excerpt": "Professional hand tracking MIDI controller with TouchDesigner integration for peak interactive creative tech",
-    "createdAt": "2025-07-26T18:58:06Z",
-    "updatedAt": "2025-07-26T19:33:02Z",
-    "pushedAt": "2025-07-26T19:32:58Z"
-  },
-  {
     "name": "code-network-gen",
     "description": "Generate a graph of nodes/edges from your javascript code",
     "url": "https://github.com/ejfox/code-network-gen",
@@ -1300,36 +1300,6 @@
     "createdAt": "2025-04-28T18:55:15Z",
     "updatedAt": "2025-07-24T15:03:20Z",
     "pushedAt": "2025-07-24T15:03:17Z"
-  },
-  {
-    "name": "spacepunk-logi",
-    "description": "No description provided",
-    "url": "https://github.com/ejfox/spacepunk-logi",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 56
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 768840,
-      "Vue": 418113,
-      "Shell": 58165,
-      "PLpgSQL": 27541,
-      "HTML": 19001,
-      "TypeScript": 10242,
-      "CSS": 9937,
-      "Dockerfile": 117
-    },
-    "diskUsage": 39753,
-    "topics": [],
-    "excerpt": "No description provided",
-    "createdAt": "2025-06-15T02:31:56Z",
-    "updatedAt": "2025-07-24T14:51:00Z",
-    "pushedAt": "2025-07-24T14:50:54Z"
   },
   {
     "name": "weddings",

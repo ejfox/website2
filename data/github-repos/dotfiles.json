@@ -12,15 +12,15 @@
   "language": "Shell",
   "languageColor": "#89e051",
   "languages": {
-    "Shell": 275229,
+    "Shell": 274318,
     "GLSL": 170261,
-    "Lua": 114467,
+    "Lua": 114575,
     "Vim Script": 83725,
     "JavaScript": 8622,
     "Less": 2089,
     "CSS": 1367
   },
-  "diskUsage": 63441,
+  "diskUsage": 63171,
   "fileTree": {
     "files": [
       {
@@ -193,7 +193,7 @@
       },
       {
         "path": ".config/ghostty/config",
-        "size": 2304
+        "size": 2335
       },
       {
         "path": ".config/ghostty/shaders/Readme.md",
@@ -489,7 +489,7 @@
       },
       {
         "path": ".config/lazygit/config.yml",
-        "size": 1083
+        "size": 1255
       },
       {
         "path": ".config/lazygit/vulpes-reddishnovember-dark.yml",
@@ -609,7 +609,7 @@
       },
       {
         "path": ".config/nvim/lua/custom/directory-watcher.lua",
-        "size": 2015
+        "size": 2011
       },
       {
         "path": ".config/nvim/lua/custom/git-diff-hotreload.lua",
@@ -617,7 +617,7 @@
       },
       {
         "path": ".config/nvim/lua/custom/hotreload.lua",
-        "size": 3105
+        "size": 3057
       },
       {
         "path": ".config/nvim/lua/plugins/auto-dark-mode.lua",
@@ -625,7 +625,7 @@
       },
       {
         "path": ".config/nvim/lua/plugins/claude-code-workflow.lua",
-        "size": 2889
+        "size": 2794
       },
       {
         "path": ".config/nvim/lua/plugins/colorscheme.lua",
@@ -657,7 +657,7 @@
       },
       {
         "path": ".config/nvim/lua/plugins/minimal-git.lua",
-        "size": 2080
+        "size": 2159
       },
       {
         "path": ".config/nvim/lua/plugins/minimal-statusline.lua",
@@ -714,6 +714,10 @@
       {
         "path": ".config/nvim/lua/plugins/vimbegood.lua",
         "size": 52
+      },
+      {
+        "path": ".config/nvim/lua/plugins/vtsls.lua",
+        "size": 176
       },
       {
         "path": ".config/nvim/lua/plugins/zen-mode.lua",
@@ -1029,7 +1033,7 @@
       },
       {
         "path": ".startup.sh",
-        "size": 18869
+        "size": 17472
       },
       {
         "path": ".subversion/README.txt",
@@ -1081,7 +1085,7 @@
       },
       {
         "path": ".zshrc",
-        "size": 25920
+        "size": 26280
       },
       {
         "path": "CLAUDE.md",
@@ -1132,6 +1136,10 @@
         "size": 636
       },
       {
+        "path": "bin/vtsls-wrapper",
+        "size": 126
+      },
+      {
         "path": "lib/mystical-symbols.sh",
         "size": 14424
       },
@@ -1149,7 +1157,7 @@
       },
       {
         "path": "tips.txt",
-        "size": 18399
+        "size": 18393
       },
       {
         "path": "vulpes-reddish2-dark-tmux.tmux.conf",
@@ -1800,7 +1808,7 @@
                 },
                 {
                   "name": "config",
-                  "size": 2304,
+                  "size": 2335,
                   "path": ".config/ghostty/config"
                 }
               ],
@@ -1844,7 +1852,7 @@
               "children": [
                 {
                   "name": "config.yml",
-                  "size": 1083,
+                  "size": 1255,
                   "path": ".config/lazygit/config.yml"
                 },
                 {
@@ -1975,7 +1983,7 @@
                         },
                         {
                           "name": "directory-watcher.lua",
-                          "size": 2015,
+                          "size": 2011,
                           "path": ".config/nvim/lua/custom/directory-watcher.lua"
                         },
                         {
@@ -1985,7 +1993,7 @@
                         },
                         {
                           "name": "hotreload.lua",
-                          "size": 3105,
+                          "size": 3057,
                           "path": ".config/nvim/lua/custom/hotreload.lua"
                         }
                       ],
@@ -2001,7 +2009,7 @@
                         },
                         {
                           "name": "claude-code-workflow.lua",
-                          "size": 2889,
+                          "size": 2794,
                           "path": ".config/nvim/lua/plugins/claude-code-workflow.lua"
                         },
                         {
@@ -2041,7 +2049,7 @@
                         },
                         {
                           "name": "minimal-git.lua",
-                          "size": 2080,
+                          "size": 2159,
                           "path": ".config/nvim/lua/plugins/minimal-git.lua"
                         },
                         {
@@ -2113,6 +2121,11 @@
                           "name": "vimbegood.lua",
                           "size": 52,
                           "path": ".config/nvim/lua/plugins/vimbegood.lua"
+                        },
+                        {
+                          "name": "vtsls.lua",
+                          "size": 176,
+                          "path": ".config/nvim/lua/plugins/vtsls.lua"
                         },
                         {
                           "name": "zen-mode.lua",
@@ -2716,6 +2729,11 @@
               "name": "tmux-scratch-toggle",
               "size": 636,
               "path": "bin/tmux-scratch-toggle"
+            },
+            {
+              "name": "vtsls-wrapper",
+              "size": 126,
+              "path": "bin/vtsls-wrapper"
             }
           ],
           "path": "bin"
@@ -2824,7 +2842,7 @@
         },
         {
           "name": ".startup.sh",
-          "size": 18869,
+          "size": 17472,
           "path": ".startup.sh"
         },
         {
@@ -2859,7 +2877,7 @@
         },
         {
           "name": ".zshrc",
-          "size": 25920,
+          "size": 26280,
           "path": ".zshrc"
         },
         {
@@ -2904,7 +2922,7 @@
         },
         {
           "name": "tips.txt",
-          "size": 18399,
+          "size": 18393,
           "path": "tips.txt"
         },
         {
@@ -2920,8 +2938,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 284,
-    "totalSize": 20278499
+    "totalFiles": 286,
+    "totalSize": 20277893
   },
   "topics": [],
   "readme": {
@@ -2930,6 +2948,6 @@
     "excerpt": "Minimalist terminal configuration focused on functional beauty, speed-of-thought workflows, and distraction-free computing.\n\n\n- Geometric symbols throughout int..."
   },
   "createdAt": "2019-04-07T22:09:55Z",
-  "updatedAt": "2025-12-23T00:46:58Z",
-  "pushedAt": "2025-12-23T00:46:54Z"
+  "updatedAt": "2025-12-23T19:15:50Z",
+  "pushedAt": "2025-12-23T19:15:46Z"
 }

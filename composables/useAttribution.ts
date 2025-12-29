@@ -33,7 +33,11 @@ function deriveChannel(data: AttributionData): string {
   const referrer = data.referrer?.toLowerCase() || ''
 
   // Paid channels
-  if (medium.includes('cpc') || medium.includes('ppc') || medium.includes('paid')) {
+  if (
+    medium.includes('cpc') ||
+    medium.includes('ppc') ||
+    medium.includes('paid')
+  ) {
     return 'paid'
   }
 
@@ -58,7 +62,10 @@ function deriveChannel(data: AttributionData): string {
   }
 
   // Referral
-  if (medium === 'referral' || (referrer && !referrer.includes('google') && !referrer.includes('bing'))) {
+  if (
+    medium === 'referral' ||
+    (referrer && !referrer.includes('google') && !referrer.includes('bing'))
+  ) {
     return 'referral'
   }
 
@@ -90,7 +97,13 @@ export function useAttribution() {
     const params = new URLSearchParams(window.location.search)
     const utms: Partial<AttributionData> = {}
 
-    const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'] as const
+    const utmKeys = [
+      'utm_source',
+      'utm_medium',
+      'utm_campaign',
+      'utm_content',
+      'utm_term',
+    ] as const
     for (const key of utmKeys) {
       const value = params.get(key)
       if (value) {

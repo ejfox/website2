@@ -54,13 +54,10 @@ export default defineEventHandler(async () => {
       .map((gist) => {
         const fileList = Object.values(gist.files)
         const firstFileName = Object.keys(gist.files)[0] || null
-        const totalLines = fileList.reduce(
-          (sum, file) => {
-            const f = file as { content?: string }
-            return sum + (f.content?.split('\n').length || 0)
-          },
-          0
-        )
+        const totalLines = fileList.reduce((sum, file) => {
+          const f = file as { content?: string }
+          return sum + (f.content?.split('\n').length || 0)
+        }, 0)
 
         return {
           id: gist.id,

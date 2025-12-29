@@ -2,7 +2,7 @@
   "name": "vulpes-theme-lab",
   "description": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
   "url": "https://github.com/ejfox/vulpes-theme-lab",
-  "homepage": null,
+  "homepage": "https://ejfox.github.io/vulpes-theme-lab/",
   "stats": {
     "stars": 0,
     "forks": 0,
@@ -12,13 +12,13 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 299489,
-    "TypeScript": 224866,
-    "CSS": 13233,
-    "JavaScript": 3513,
+    "Vue": 317227,
+    "TypeScript": 229054,
+    "CSS": 14207,
+    "JavaScript": 3881,
     "Lua": 14
   },
-  "diskUsage": 496,
+  "diskUsage": 531,
   "fileTree": {
     "files": [
       {
@@ -103,11 +103,11 @@
       },
       {
         "path": "assets/css/main.css",
-        "size": 12367
+        "size": 12530
       },
       {
         "path": "assets/css/tokens.css",
-        "size": 866
+        "size": 1677
       },
       {
         "path": "components/BaseSlider.vue",
@@ -115,11 +115,11 @@
       },
       {
         "path": "components/CodePreview.vue",
-        "size": 8811
+        "size": 8333
       },
       {
         "path": "components/ColorControls.vue",
-        "size": 25028
+        "size": 20792
       },
       {
         "path": "components/ColorFidelity.vue",
@@ -131,7 +131,7 @@
       },
       {
         "path": "components/ColorSwatches.vue",
-        "size": 8343
+        "size": 8369
       },
       {
         "path": "components/ColorTooltip.vue",
@@ -191,15 +191,19 @@
       },
       {
         "path": "components/MapPreview.vue",
-        "size": 5081
+        "size": 5738
       },
       {
         "path": "components/NvimPreview.vue",
-        "size": 19819
+        "size": 18850
       },
       {
         "path": "components/PresetSelector.vue",
-        "size": 3769
+        "size": 3950
+      },
+      {
+        "path": "components/PresetShowcase.vue",
+        "size": 6156
       },
       {
         "path": "components/PreviewGrid.vue",
@@ -234,8 +238,12 @@
         "size": 472
       },
       {
+        "path": "composables/useShowcaseAnimation.ts",
+        "size": 3303
+      },
+      {
         "path": "composables/useTheme.ts",
-        "size": 38538
+        "size": 37382
       },
       {
         "path": "eslint.config.js",
@@ -243,7 +251,7 @@
       },
       {
         "path": "nuxt.config.ts",
-        "size": 591
+        "size": 1689
       },
       {
         "path": "package-lock.json",
@@ -255,11 +263,11 @@
       },
       {
         "path": "pages/index.vue",
-        "size": 44011
+        "size": 35980
       },
       {
         "path": "pages/showcase.vue",
-        "size": 23293
+        "size": 47725
       },
       {
         "path": "public/favicon.ico",
@@ -288,6 +296,10 @@
       {
         "path": "samples/zsh-example.sh",
         "size": 2889
+      },
+      {
+        "path": "tailwind.config.js",
+        "size": 368
       },
       {
         "path": "test-import.js",
@@ -407,7 +419,7 @@
       },
       {
         "path": "utils/exporters/maplibre.ts",
-        "size": 26427
+        "size": 27370
       },
       {
         "path": "utils/exporters/neomutt.ts",
@@ -525,12 +537,12 @@
               "children": [
                 {
                   "name": "main.css",
-                  "size": 12367,
+                  "size": 12530,
                   "path": "assets/css/main.css"
                 },
                 {
                   "name": "tokens.css",
-                  "size": 866,
+                  "size": 1677,
                   "path": "assets/css/tokens.css"
                 }
               ],
@@ -549,12 +561,12 @@
             },
             {
               "name": "CodePreview.vue",
-              "size": 8811,
+              "size": 8333,
               "path": "components/CodePreview.vue"
             },
             {
               "name": "ColorControls.vue",
-              "size": 25028,
+              "size": 20792,
               "path": "components/ColorControls.vue"
             },
             {
@@ -569,7 +581,7 @@
             },
             {
               "name": "ColorSwatches.vue",
-              "size": 8343,
+              "size": 8369,
               "path": "components/ColorSwatches.vue"
             },
             {
@@ -644,18 +656,23 @@
             },
             {
               "name": "MapPreview.vue",
-              "size": 5081,
+              "size": 5738,
               "path": "components/MapPreview.vue"
             },
             {
               "name": "NvimPreview.vue",
-              "size": 19819,
+              "size": 18850,
               "path": "components/NvimPreview.vue"
             },
             {
               "name": "PresetSelector.vue",
-              "size": 3769,
+              "size": 3950,
               "path": "components/PresetSelector.vue"
+            },
+            {
+              "name": "PresetShowcase.vue",
+              "size": 6156,
+              "path": "components/PresetShowcase.vue"
             },
             {
               "name": "PreviewGrid.vue",
@@ -704,8 +721,13 @@
               "path": "composables/useHighlightedColor.ts"
             },
             {
+              "name": "useShowcaseAnimation.ts",
+              "size": 3303,
+              "path": "composables/useShowcaseAnimation.ts"
+            },
+            {
               "name": "useTheme.ts",
-              "size": 38538,
+              "size": 37382,
               "path": "composables/useTheme.ts"
             }
           ],
@@ -716,12 +738,12 @@
           "children": [
             {
               "name": "index.vue",
-              "size": 44011,
+              "size": 35980,
               "path": "pages/index.vue"
             },
             {
               "name": "showcase.vue",
-              "size": 23293,
+              "size": 47725,
               "path": "pages/showcase.vue"
             }
           ],
@@ -937,7 +959,7 @@
                 },
                 {
                   "name": "maplibre.ts",
-                  "size": 26427,
+                  "size": 27370,
                   "path": "utils/exporters/maplibre.ts"
                 },
                 {
@@ -1149,7 +1171,7 @@
         },
         {
           "name": "nuxt.config.ts",
-          "size": 591,
+          "size": 1689,
           "path": "nuxt.config.ts"
         },
         {
@@ -1161,6 +1183,11 @@
           "name": "package.json",
           "size": 2248,
           "path": "package.json"
+        },
+        {
+          "name": "tailwind.config.js",
+          "size": 368,
+          "path": "tailwind.config.js"
         },
         {
           "name": "test-import.js",
@@ -1180,8 +1207,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 116,
-    "totalSize": 1368005
+    "totalFiles": 119,
+    "totalSize": 1391273
   },
   "topics": [],
   "readme": {
@@ -1190,6 +1217,6 @@
     "excerpt": "🎨 Live Demo — Try it now in your browser\n\na minimal theme builder for ghostty terminal with live previews of nvim, lazygit, htop, and tmux.\n\n\n\ntuftian minimali..."
   },
   "createdAt": "2025-10-24T21:15:15Z",
-  "updatedAt": "2025-12-07T17:58:56Z",
-  "pushedAt": "2025-12-07T17:58:52Z"
+  "updatedAt": "2025-12-28T06:04:58Z",
+  "pushedAt": "2025-12-28T01:56:03Z"
 }

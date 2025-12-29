@@ -118,7 +118,10 @@ export function useElementVisibility(
  * <section ref="el => trackSection('testimonials', el)">...</section>
  */
 export function useSectionTracking() {
-  const sections = new Map<string, { visible: boolean; viewedAt: number | null }>()
+  const sections = new Map<
+    string,
+    { visible: boolean; viewedAt: number | null }
+  >()
 
   function trackSection(name: string, el: HTMLElement | null) {
     if (!el || !import.meta.client) return

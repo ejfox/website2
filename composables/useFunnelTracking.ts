@@ -11,7 +11,10 @@ interface FunnelEvent {
 declare global {
   interface Window {
     umami?: {
-      track: (event: string, data?: Record<string, string | number | boolean>) => void
+      track: (
+        event: string,
+        data?: Record<string, string | number | boolean>
+      ) => void
     }
   }
 }
@@ -39,7 +42,8 @@ export function useFunnelTracking() {
 
     const handleScroll = () => {
       const scrollTop = window.scrollY
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight
       const scrollPercent = Math.round((scrollTop / docHeight) * 100)
 
       for (const threshold of thresholds) {
@@ -140,7 +144,8 @@ export function useFunnelTracking() {
     calEventSelected: () => trackEvent({ name: 'funnel_cal_event_selected' }),
     calTimeSelected: () => trackEvent({ name: 'funnel_cal_time_selected' }),
     calFormStarted: () => trackEvent({ name: 'funnel_cal_form_started' }),
-    calBookingComplete: () => trackEvent({ name: 'funnel_cal_booking_complete' }),
+    calBookingComplete: () =>
+      trackEvent({ name: 'funnel_cal_booking_complete' }),
   }
 
   return {
