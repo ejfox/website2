@@ -197,29 +197,27 @@ function updateCalTheme() {
 }
 
 // ============================================
-// STICKER WALL - Client logos as scattered stickers
+// STICKER WALL - Client logos with Voronoi spacing
 // ============================================
 const chance = new Chance()
 
 const CLIENT_LOGOS = [
-  { name: 'NBC News', logo: '/logos/nbc-news.svg', size: 'h-5' },
-  { name: 'MSNBC', logo: '/logos/msnbc.svg', size: 'h-4' },
-  { name: 'CBS', logo: '/logos/cbs.svg', size: 'h-6' },
-  { name: 'Washington Post', logo: '/logos/wapo.svg', size: 'h-5' },
-  { name: 'The New York Times', logo: '/logos/nytimes.svg', size: 'h-4' },
-  { name: 'Associated Press', logo: '/logos/ap.svg', size: 'h-5' },
-  {
-    name: 'Consumer Reports',
-    logo: '/logos/consumer-reports.svg',
-    size: 'h-5',
-  },
-  { name: 'GitHub', logo: '/logos/github.svg', size: 'h-5' },
-  { name: 'Gothamist', logo: '/logos/gothamist.svg', size: 'h-3' },
-  { name: 'WNYC', logo: '/logos/wnyc.svg', size: 'h-3' },
-  { name: 'Carnegie Mellon', logo: '/logos/cmu.svg', size: 'h-4' },
-  { name: 'Knight Foundation', logo: '/logos/knight.svg', size: 'h-3' },
-  { name: 'Climate TRACE', logo: '/logos/climate-trace.svg', size: 'h-3' },
+  { name: 'NBC News', logo: '/logos/nbc-news.svg' },
+  { name: 'MSNBC', logo: '/logos/msnbc.svg' },
+  { name: 'CBS', logo: '/logos/cbs.svg' },
+  { name: 'Washington Post', logo: '/logos/wapo.svg' },
+  { name: 'The New York Times', logo: '/logos/nytimes.svg' },
+  { name: 'Associated Press', logo: '/logos/ap.svg' },
+  { name: 'Consumer Reports', logo: '/logos/consumer-reports.svg' },
+  { name: 'GitHub', logo: '/logos/github.svg' },
+  { name: 'Gothamist', logo: '/logos/gothamist.svg' },
+  { name: 'WNYC', logo: '/logos/wnyc.svg' },
+  { name: 'Carnegie Mellon', logo: '/logos/cmu.svg' },
+  { name: 'Knight Foundation', logo: '/logos/knight.svg' },
+  { name: 'Climate TRACE', logo: '/logos/climate-trace.svg' },
 ]
+
+const SIZES = ['h-5', 'h-5', 'h-6', 'h-6'] // tighter range, mostly medium-small
 
 interface Sticker {
   name: string
@@ -234,22 +232,91 @@ interface Sticker {
 const stickerContainer = ref<HTMLElement | null>(null)
 const stickerRefs = ref<(HTMLElement | null)[]>([])
 
+// Lloyd's relaxation for even spacing (poor man's Voronoi)
+function lloydRelax(
+  points: [number, number][],
+  width: number,
+  height: number,
+  iterations = 3
+): [number, number][] {
+  let pts = [...points]
+
+  for (let iter = 0; iter < iterations; iter++) {
+    // For each point, push away from neighbors
+    const newPts: [number, number][] = pts.map((p, i) => {
+      let fx = 0,
+        fy = 0
+      // Much larger minimum distance - 1.5x what's needed for even grid
+      const minDist = Math.min(width, height) / Math.sqrt(pts.length) * 1.5
+
+      pts.forEach((other, j) => {
+        if (i === j) return
+        const dx = p[0] - other[0]
+        const dy = p[1] - other[1]
+        const dist = Math.sqrt(dx * dx + dy * dy)
+        if (dist < minDist && dist > 0) {
+          // Stronger repulsion force
+          const force = (minDist - dist) / dist * 0.6
+          fx += dx * force
+          fy += dy * force
+        }
+      })
+
+      // Also push away from edges
+      const margin = 5
+      if (p[0] < margin) fx += (margin - p[0]) * 0.8
+      if (p[0] > width - margin) fx -= (p[0] - (width - margin)) * 0.8
+      if (p[1] < margin) fy += (margin - p[1]) * 0.8
+      if (p[1] > height - margin) fy -= (p[1] - (height - margin)) * 0.8
+
+      return [
+        Math.max(margin, Math.min(width - margin, p[0] + fx)),
+        Math.max(margin, Math.min(height - margin, p[1] + fy)),
+      ] as [number, number]
+    })
+    pts = newPts
+  }
+  return pts
+}
+
 function generateStickerPositions(): Sticker[] {
-  // Grid-based placement with jitter to avoid overlaps
+  const width = 95 // percentage - use more horizontal space
+  const height = 90 // percentage
+
+  // Start with a shuffled grid to ensure better initial distribution
   const cols = 5
   const rows = 3
-  const cellWidth = 80 / cols
-  const cellHeight = 65 / rows
+  const cellW = width / cols
+  const cellH = height / rows
 
-  return CLIENT_LOGOS.map((client, i) => {
+  // Create grid positions with jitter
+  let points: [number, number][] = CLIENT_LOGOS.map((_, i) => {
     const col = i % cols
     const row = Math.floor(i / cols)
+    return [
+      col * cellW + chance.floating({ min: cellW * 0.2, max: cellW * 0.8 }),
+      row * cellH + chance.floating({ min: cellH * 0.15, max: cellH * 0.85 }),
+    ]
+  })
+
+  // Shuffle the points so logos don't always appear in same grid position
+  points = chance.shuffle(points)
+
+  // Light relaxation to smooth out any remaining tight spots
+  points = lloydRelax(points, width, height, 3)
+
+  return CLIENT_LOGOS.map((client, i) => {
+    const size = chance.pickone(SIZES)
+    // Bigger = back (low z), smaller = front (high z)
+    const sizeIndex = SIZES.indexOf(size)
+    const z = (SIZES.length - sizeIndex) * 5 + chance.integer({ min: 0, max: 3 })
     return {
       ...client,
-      x: col * cellWidth + chance.floating({ min: 2, max: cellWidth - 8 }),
-      y: row * cellHeight + chance.floating({ min: 2, max: cellHeight - 5 }),
-      rotation: chance.floating({ min: -6, max: 6 }),
-      z: chance.integer({ min: 1, max: 20 }),
+      size,
+      x: points[i][0],
+      y: points[i][1],
+      rotation: chance.floating({ min: -4, max: 4 }),
+      z,
     }
   })
 }
@@ -300,10 +367,9 @@ const specialties = [
       'Vocativ: 30x output increase (5 graphics/month → 5/day). Dataproofer (Knight Foundation).',
   },
   {
-    title: 'Creative AI',
-    description: "Making AI do things it wasn't designed for.",
-    proof:
-      'Custom AI tools in production. Workflows that save hours, not minutes.',
+    title: 'AI Integration',
+    description: 'Practical AI tools for real workflows.',
+    proof: 'ASU Lenfest AI Fellow. Custom tools shipping in newsrooms.',
   },
   {
     title: 'High-Stakes Systems',
@@ -315,7 +381,7 @@ const specialties = [
 usePageSeo({
   title: 'Consulting · EJ Fox',
   description:
-    "I make computers do things no one's seen before. Rapid prototyping, creative AI, high-stakes systems.",
+    'Custom software for high-stakes moments. Live television, breaking news, mission-critical systems.',
   type: 'website',
   section: 'Consulting',
   tags: ['Consulting', 'Data Visualization', 'Elections', 'Journalism'],
@@ -357,11 +423,11 @@ usePageSeo({
           class="font-serif text-3xl md:text-4xl font-normal mb-6"
           style="letter-spacing: -0.02em"
         >
-          I make computers do things no one's seen before.
+          Custom software for high-stakes moments.
         </h1>
         <p class="font-serif text-lg text-zinc-600 dark:text-zinc-400">
-          You have an idea that doesn't fit in existing tools. A prototype that
-          needs to become real. I build those things.
+          Live television. Breaking news. Mission-critical systems. I build
+          software that can't fail when it matters most.
         </p>
       </header>
 
@@ -433,7 +499,7 @@ usePageSeo({
         </p>
         <div
           ref="stickerContainer"
-          class="relative h-48 md:h-44 cursor-pointer select-none"
+          class="relative h-80 md:h-72 cursor-pointer select-none"
           @click="shuffleStickers"
         >
           <div
