@@ -363,8 +363,7 @@ const specialties = [
   {
     title: 'Newsroom Scale-Up',
     description: 'Systems that multiply team output.',
-    proof:
-      'Vocativ: 30x output increase (5 graphics/month → 5/day). Dataproofer (Knight Foundation).',
+    proof: 'Vocativ graphics pipeline. Dataproofer (Knight Foundation).',
   },
   {
     title: 'AI Integration',
