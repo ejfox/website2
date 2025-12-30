@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useDark, useWindowScroll, useWindowSize } from '@vueuse/core'
-import Chance from 'chance'
 
 // ============================================
 // VIDEO BACKGROUND CONFIG - TWEAK THESE
@@ -115,6 +114,13 @@ const { data: calSlots } = await useFetch('/api/cal/available-slots', {
   default: () => ({ slots: [] }),
 })
 
+// GitHub stats for live repo count
+const { data: stats } = await useFetch('/api/stats', {
+  default: () => ({ github: { stats: { totalRepos: 0 } } }),
+})
+
+const githubRepos = computed(() => stats.value?.github?.stats?.totalRepos || 0)
+
 // Sidebar teleport target
 const tocTarget = ref<Element | null>(null)
 
@@ -197,190 +203,54 @@ function updateCalTheme() {
 }
 
 // ============================================
-// STICKER WALL - Client logos with Voronoi spacing
+// CLIENT LOGOS - Clean professional grid
 // ============================================
-const chance = new Chance()
-
 const CLIENT_LOGOS = [
   { name: 'NBC News', logo: '/logos/nbc-news.svg' },
   { name: 'MSNBC', logo: '/logos/msnbc.svg' },
   { name: 'CBS', logo: '/logos/cbs.svg' },
   { name: 'Washington Post', logo: '/logos/wapo.svg' },
-  { name: 'The New York Times', logo: '/logos/nytimes.svg' },
   { name: 'Associated Press', logo: '/logos/ap.svg' },
   { name: 'Consumer Reports', logo: '/logos/consumer-reports.svg' },
   { name: 'GitHub', logo: '/logos/github.svg' },
   { name: 'Gothamist', logo: '/logos/gothamist.svg' },
   { name: 'WNYC', logo: '/logos/wnyc.svg' },
-  { name: 'Carnegie Mellon', logo: '/logos/cmu.svg' },
   { name: 'Knight Foundation', logo: '/logos/knight.svg' },
   { name: 'Climate TRACE', logo: '/logos/climate-trace.svg' },
+  { name: 'Stamen', logo: '/logos/stamen.svg' },
 ]
-
-const SIZES = ['h-5', 'h-5', 'h-6', 'h-6'] // tighter range, mostly medium-small
-
-interface Sticker {
-  name: string
-  logo: string
-  size: string
-  x: number
-  y: number
-  rotation: number
-  z: number
-}
-
-const stickerContainer = ref<HTMLElement | null>(null)
-const stickerRefs = ref<(HTMLElement | null)[]>([])
-
-// Lloyd's relaxation for even spacing (poor man's Voronoi)
-function lloydRelax(
-  points: [number, number][],
-  width: number,
-  height: number,
-  iterations = 3
-): [number, number][] {
-  let pts = [...points]
-
-  for (let iter = 0; iter < iterations; iter++) {
-    // For each point, push away from neighbors
-    const newPts: [number, number][] = pts.map((p, i) => {
-      let fx = 0,
-        fy = 0
-      // Much larger minimum distance - 1.5x what's needed for even grid
-      const minDist = Math.min(width, height) / Math.sqrt(pts.length) * 1.5
-
-      pts.forEach((other, j) => {
-        if (i === j) return
-        const dx = p[0] - other[0]
-        const dy = p[1] - other[1]
-        const dist = Math.sqrt(dx * dx + dy * dy)
-        if (dist < minDist && dist > 0) {
-          // Stronger repulsion force
-          const force = (minDist - dist) / dist * 0.6
-          fx += dx * force
-          fy += dy * force
-        }
-      })
-
-      // Also push away from edges
-      const margin = 5
-      if (p[0] < margin) fx += (margin - p[0]) * 0.8
-      if (p[0] > width - margin) fx -= (p[0] - (width - margin)) * 0.8
-      if (p[1] < margin) fy += (margin - p[1]) * 0.8
-      if (p[1] > height - margin) fy -= (p[1] - (height - margin)) * 0.8
-
-      return [
-        Math.max(margin, Math.min(width - margin, p[0] + fx)),
-        Math.max(margin, Math.min(height - margin, p[1] + fy)),
-      ] as [number, number]
-    })
-    pts = newPts
-  }
-  return pts
-}
-
-function generateStickerPositions(): Sticker[] {
-  const width = 95 // percentage - use more horizontal space
-  const height = 90 // percentage
-
-  // Start with a shuffled grid to ensure better initial distribution
-  const cols = 5
-  const rows = 3
-  const cellW = width / cols
-  const cellH = height / rows
-
-  // Create grid positions with jitter
-  let points: [number, number][] = CLIENT_LOGOS.map((_, i) => {
-    const col = i % cols
-    const row = Math.floor(i / cols)
-    return [
-      col * cellW + chance.floating({ min: cellW * 0.2, max: cellW * 0.8 }),
-      row * cellH + chance.floating({ min: cellH * 0.15, max: cellH * 0.85 }),
-    ]
-  })
-
-  // Shuffle the points so logos don't always appear in same grid position
-  points = chance.shuffle(points)
-
-  // Light relaxation to smooth out any remaining tight spots
-  points = lloydRelax(points, width, height, 3)
-
-  return CLIENT_LOGOS.map((client, i) => {
-    const size = chance.pickone(SIZES)
-    // Bigger = back (low z), smaller = front (high z)
-    const sizeIndex = SIZES.indexOf(size)
-    const z = (SIZES.length - sizeIndex) * 5 + chance.integer({ min: 0, max: 3 })
-    return {
-      ...client,
-      size,
-      x: points[i][0],
-      y: points[i][1],
-      rotation: chance.floating({ min: -4, max: 4 }),
-      z,
-    }
-  })
-}
-
-const clientStickers = ref<Sticker[]>(generateStickerPositions())
-
-async function shuffleStickers() {
-  if (!import.meta.client) return
-
-  const { animate } = await import('animejs')
-  const newPositions = generateStickerPositions()
-
-  // Animate each sticker to its new position with stagger
-  stickerRefs.value.forEach((el, i) => {
-    if (!el) return
-    const sticker = newPositions[i]
-
-    animate(el, {
-      left: sticker.x + '%',
-      top: sticker.y + '%',
-      rotate: sticker.rotation + 'deg',
-      zIndex: sticker.z,
-      duration: 600,
-      delay: i * 40,
-      ease: 'outElastic(1, 0.5)',
-    })
-  })
-
-  // Update reactive data after animation
-  setTimeout(
-    () => {
-      clientStickers.value = newPositions
-    },
-    600 + CLIENT_LOGOS.length * 40
-  )
-}
 
 const specialties = [
   {
     title: 'Rapid Prototyping',
-    description: 'Ideas to working software in days, not months.',
-    proof: 'NBC Big Board: weekend prototype to 19M viewers, zero crashes.',
+    description:
+      'Napkin sketch to working demo. That moment when it first works? Never gets old.',
+    proof: 'NBC Big Board: weekend prototype → 19M viewers.',
   },
   {
-    title: 'Newsroom Scale-Up',
-    description: 'Systems that multiply team output.',
-    proof: 'Vocativ graphics pipeline. Dataproofer (Knight Foundation).',
+    title: 'Newsroom Tools',
+    description:
+      'Small teams doing important work deserve better tools. Systems that make hard things easier.',
+    proof: 'Vocativ, Gothamist, Dataproofer, ASU Newswell.',
   },
   {
     title: 'AI Integration',
-    description: 'Practical AI tools for real workflows.',
-    proof: 'ASU Lenfest AI Fellow. Custom tools shipping in newsrooms.',
+    description:
+      'Not the hype-y kind. Wired into actual workflows, actually helping people.',
+    proof: 'ASU Lenfest Fellow. Shipping in newsrooms now.',
   },
   {
-    title: 'High-Stakes Systems',
-    description: "When failure isn't an option.",
-    proof: 'CMU COVIDcast, NBC elections, Gothamist investigations.',
+    title: 'Live Systems',
+    description:
+      'When millions are watching and it has to work. Stressful, but thrilling.',
+    proof: 'CMU COVIDcast, NBC elections, investigations.',
   },
 ]
 
 usePageSeo({
   title: 'Consulting · EJ Fox',
   description:
-    'Custom software for high-stakes moments. Live television, breaking news, mission-critical systems.',
+    "The person you call when there's no margin for error. Mission-critical software for election nights, breaking news, and live television. 19M viewers, zero crashes.",
   type: 'website',
   section: 'Consulting',
   tags: ['Consulting', 'Data Visualization', 'Elections', 'Journalism'],
@@ -390,10 +260,7 @@ usePageSeo({
 <template>
   <div class="bg-transparent">
     <!-- Video Background -->
-    <div
-      class="fixed inset-0 overflow-hidden transition-opacity duration-300 pointer-events-none z-0"
-      :style="{ opacity: videoOpacity }"
-    >
+    <div class="video-container" :style="{ opacity: videoOpacity }">
       <video
         ref="videoRef"
         :autoplay="!scrollDriven"
@@ -401,135 +268,108 @@ usePageSeo({
         muted
         playsinline
         preload="auto"
-        class="absolute inset-0 w-full h-full object-cover"
+        class="video-element"
       >
         <source :src="VIDEO_CONFIG.src" type="video/mp4" />
       </video>
-      <!-- Overlay for text readability -->
       <div
-        class="absolute inset-0 bg-zinc-950"
+        class="video-overlay"
         :style="{ opacity: VIDEO_CONFIG.overlayOpacity / 100 }"
-      ></div>
+      />
     </div>
 
     <main class="container-main pt-8 max-w-2xl relative z-10">
       <!-- Hero -->
-      <header class="mb-12">
-        <p class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-4">
-          Consulting
-        </p>
-        <h1
-          class="font-serif text-3xl md:text-4xl font-normal mb-6"
-          style="letter-spacing: -0.02em"
-        >
-          Custom software for high-stakes moments.
+      <header class="section">
+        <p class="hero-label">Let's build something</p>
+        <h1 class="hero-title">
+          I love making computers do things no one's seen before.
         </h1>
-        <p class="font-serif text-lg text-zinc-600 dark:text-zinc-400">
-          Live television. Breaking news. Mission-critical systems. I build
-          software that can't fail when it matters most.
+        <p class="body-lg mb-4">
+          Biotech prototypes, journalism tools, climate dashboards, transit
+          sims, police accountability trackers, AI experiments. Turning
+          half-formed ideas into working software&mdash;whatever the domain.
+        </p>
+        <p class="caption">
+          The world is editable. Let's see what we can make.
         </p>
       </header>
 
       <!-- Photo -->
-      <section class="mb-12">
+      <section class="section">
         <img
           src="https://res.cloudinary.com/ejf/image/upload/v1667919994/IMG_6222.jpg"
           alt="EJ Fox presenting election visualization on NBC's Big Board"
           class="w-full"
         />
-        <p class="font-mono text-xs text-zinc-500 mt-2">
-          Big Board at 30 Rock, election night 2018
+        <p class="caption mt-2">
+          Early Big Board Web prototype at 30 Rock, circa 2018 ·
+          <NuxtLink to="/projects" class="link-underline">
+            See more work
+          </NuxtLink>
         </p>
       </section>
 
       <!-- Testimonial -->
-      <section class="mb-12">
-        <blockquote
-          class="font-serif text-2xl text-zinc-700 dark:text-zinc-300"
-          style="letter-spacing: -0.01em"
-        >
+      <section class="section">
+        <blockquote class="testimonial">
           "First election night where Chuck wasn't frustrated with the app."
         </blockquote>
-        <p class="font-mono text-xs text-zinc-500 mt-4">
+        <p class="testimonial-cite">
           — Producer, Meet the Press · NBC News, 2018
         </p>
       </section>
 
       <!-- Credentials -->
-      <section class="mb-12">
-        <p class="font-serif text-lg text-zinc-600 dark:text-zinc-400 mb-6">
-          ASU Lenfest AI Fellow. Knight Foundation grantee. NBC News, Vocativ,
-          Room 302 Studio. Built the systems that run on live television.
+      <section class="section">
+        <p class="body-lg mb-6">
+          I believe the world is editable&mdash;that most systems can be
+          improved by someone willing to look closely and prototype quickly.
+          That belief has led me to work across newsrooms
+          <span class="aside">(NBC News, Washington Post, Gothamist)</span>,
+          design studios <span class="aside">(Stamen)</span>, research labs
+          <span class="aside">(CMU, ASU's AI fellowship)</span>, climate orgs
+          <span class="aside">(Climate TRACE, Earth Genome)</span>, foundations
+          <span class="aside">(Knight)</span>, and companies I can't name. The
+          common thread: people with a hunch something could be better.
         </p>
-        <div
-          class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center py-6 border-y border-zinc-100 dark:border-zinc-800"
-        >
+        <div class="grid grid-cols-3 gap-6 text-center py-6 divider-y">
           <div>
-            <p class="font-mono text-2xl text-zinc-900 dark:text-zinc-100">
-              13
-            </p>
-            <p class="font-mono text-xs text-zinc-500">years shipping</p>
+            <p class="stat-value">10+</p>
+            <p class="stat-label">industries</p>
           </div>
           <div>
-            <p class="font-mono text-2xl text-zinc-900 dark:text-zinc-100">3</p>
-            <p class="font-mono text-xs text-zinc-500">election cycles</p>
+            <p class="stat-value">13</p>
+            <p class="stat-label">years shipping</p>
           </div>
           <div>
-            <p class="font-mono text-2xl text-zinc-900 dark:text-zinc-100">
-              19M
-            </p>
-            <p class="font-mono text-xs text-zinc-500">viewers, zero crashes</p>
-          </div>
-          <div>
-            <p class="font-mono text-2xl text-zinc-900 dark:text-zinc-100">
-              $35k
-            </p>
-            <p class="font-mono text-xs text-zinc-500">Knight grant</p>
+            <p class="stat-value">{{ githubRepos }}</p>
+            <p class="stat-label">public repos</p>
           </div>
         </div>
       </section>
 
-      <!-- Clients - Sticker Wall -->
-      <section class="mb-16">
-        <p
-          class="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-8"
-        >
-          Past clients
-        </p>
-        <div
-          ref="stickerContainer"
-          class="relative h-80 md:h-72 cursor-pointer select-none"
-          @click="shuffleStickers"
-        >
+      <!-- Clients - Clean Logo Grid -->
+      <section class="section-lg">
+        <p class="section-label-lg">People I've worked with</p>
+        <div class="client-logo-grid">
           <div
-            v-for="(sticker, i) in clientStickers"
-            :key="sticker.name"
-            :ref="(el) => (stickerRefs[i] = el)"
-            class="sticker absolute bg-white rounded-sm shadow-md px-2 py-1 transition-shadow hover:shadow-lg"
-            :style="{
-              left: sticker.x + '%',
-              top: sticker.y + '%',
-              transform: `rotate(${sticker.rotation}deg)`,
-              zIndex: sticker.z,
-            }"
+            v-for="client in CLIENT_LOGOS"
+            :key="client.name"
+            class="client-logo-item"
           >
             <img
-              :src="sticker.logo"
-              :alt="sticker.name"
-              :class="sticker.size"
+              :src="client.logo"
+              :alt="client.name"
+              class="client-logo-img"
             />
           </div>
         </div>
       </section>
 
       <!-- Quick CTA for hot leads -->
-      <section
-        v-if="calSlots?.slots?.length"
-        class="mb-12 py-6 border-y border-zinc-100 dark:border-zinc-800"
-      >
-        <p class="font-serif text-zinc-600 dark:text-zinc-400 mb-4">
-          Ready to talk?
-        </p>
+      <section v-if="calSlots?.slots?.length" class="section py-6 divider-y">
+        <p class="body-md mb-4">Want to chat? Open times:</p>
         <div class="flex flex-wrap gap-3">
           <a
             v-for="slot in calSlots.slots"
@@ -537,145 +377,103 @@ usePageSeo({
             :href="slot.bookingUrl"
             target="_blank"
             rel="noopener"
-            class="px-5 py-3 font-serif text-sm border border-zinc-200 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-zinc-100 transition-all duration-300"
+            class="slot-btn"
           >
-            <span class="text-zinc-900 dark:text-zinc-100">
-              {{ slot.time }}
-            </span>
-            <span class="text-zinc-400 dark:text-zinc-500 ml-1">
-              {{ slot.day }}
-            </span>
+            <span class="slot-btn-text">{{ slot.time }}</span>
+            <span class="slot-btn-day">{{ slot.day }}</span>
+            <span class="slot-btn-date">{{ slot.date }}</span>
           </a>
         </div>
       </section>
 
       <!-- Specialties -->
-      <section class="mb-12">
-        <h2
-          class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-6"
-        >
-          What I Do
-        </h2>
+      <section class="section">
+        <h2 class="section-label">Things I'm good at</h2>
         <div class="space-y-6">
           <article
             v-for="s in specialties"
             :key="s.title"
-            class="border-b border-zinc-200 dark:border-zinc-800 pb-6"
+            class="specialty-card"
           >
-            <h3
-              class="font-serif text-lg text-zinc-900 dark:text-zinc-100 mb-2"
-            >
-              {{ s.title }}
-            </h3>
-            <p class="font-serif text-zinc-600 dark:text-zinc-400 mb-2">
-              {{ s.description }}
-            </p>
-            <p class="font-mono text-xs text-zinc-500">
-              {{ s.proof }}
-            </p>
+            <h3 class="specialty-title">{{ s.title }}</h3>
+            <p class="specialty-desc">{{ s.description }}</p>
+            <p class="specialty-proof">{{ s.proof }}</p>
           </article>
         </div>
       </section>
 
-      <!-- Press -->
-      <section class="mb-12">
-        <h2
-          class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-6"
-        >
-          Press
-        </h2>
-        <div class="space-y-6">
-          <blockquote
-            class="border-l border-zinc-300 dark:border-zinc-700 pl-4"
-          >
-            <p class="font-serif text-zinc-600 dark:text-zinc-400 italic">
-              "A newly juiced-up model of the board that can zoom in on the most
-              obscure House districts"
-            </p>
-            <cite class="font-mono text-xs text-zinc-500 not-italic">
-              — New York Times
-            </cite>
-          </blockquote>
-          <blockquote
-            class="border-l border-zinc-300 dark:border-zinc-700 pl-4"
-          >
-            <p class="font-serif text-zinc-600 dark:text-zinc-400 italic">
-              "Kornacki... looked amazing with the board, panning and zooming"
-            </p>
-            <cite class="font-mono text-xs text-zinc-500 not-italic">
-              — Vulture
-            </cite>
-          </blockquote>
+      <!-- Testimonials -->
+      <section class="section">
+        <h2 class="section-label">Kind words</h2>
+        <div class="space-y-10">
+          <div class="testimonial-card">
+            <blockquote class="blockquote">
+              <p class="blockquote-text">
+                "Instant solutions to tough problems, under intense time pressure"
+              </p>
+              <cite class="blockquote-cite">Michael Small, NBC News</cite>
+            </blockquote>
+          </div>
+          <div class="testimonial-card">
+            <blockquote class="blockquote">
+              <p class="blockquote-text">
+                "Gets things done quickly with an astonishing level of detail"
+              </p>
+              <cite class="blockquote-cite">Erik Hazzard, fmr Meta</cite>
+            </blockquote>
+          </div>
+          <div class="testimonial-card">
+            <blockquote class="blockquote">
+              <p class="blockquote-text">
+                "Build things that would last... not just produce, but take
+                ownership of long-term initiatives"
+              </p>
+              <cite class="blockquote-cite">Markham Nolan, Vocativ</cite>
+            </blockquote>
+          </div>
         </div>
       </section>
 
       <!-- How It Works -->
-      <section class="mb-12">
-        <h2
-          class="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-8"
-        >
-          Process
-        </h2>
+      <section class="section">
+        <h2 class="section-label-lg">How it goes</h2>
         <div class="space-y-8">
-          <div class="flex gap-6">
-            <div
-              class="font-mono text-sm text-zinc-300 dark:text-zinc-600 w-6 shrink-0"
-            >
-              01
-            </div>
+          <div class="process-step">
+            <div class="process-number">01</div>
             <div>
-              <p class="font-serif text-zinc-900 dark:text-zinc-100 mb-1">
-                Consultation
-              </p>
-              <p class="font-serif text-sm text-zinc-500 dark:text-zinc-400">
-                We meet. You describe the problem. I ask questions.
+              <p class="process-title">We talk</p>
+              <p class="process-desc">
+                You tell me what you're trying to do. I ask questions. We figure
+                out if I'm the right fit.
               </p>
             </div>
           </div>
-          <div class="flex gap-6">
-            <div
-              class="font-mono text-sm text-zinc-300 dark:text-zinc-600 w-6 shrink-0"
-            >
-              02
-            </div>
+          <div class="process-step">
+            <div class="process-number">02</div>
             <div>
-              <p class="font-serif text-zinc-900 dark:text-zinc-100 mb-1">
-                Proposal
-              </p>
-              <p class="font-serif text-sm text-zinc-500 dark:text-zinc-400">
-                I write a statement of work. Fixed scope, fixed price. For
-                complex projects, I may request a second meeting to research
-                further.
+              <p class="process-title">Proposal</p>
+              <p class="process-desc">
+                I write up what I understood, what I'd build, and what it costs.
+                Fixed scope, fixed price&mdash;no surprises.
               </p>
             </div>
           </div>
-          <div class="flex gap-6">
-            <div
-              class="font-mono text-sm text-zinc-300 dark:text-zinc-600 w-6 shrink-0"
-            >
-              03
-            </div>
+          <div class="process-step">
+            <div class="process-number">03</div>
             <div>
-              <p class="font-serif text-zinc-900 dark:text-zinc-100 mb-1">
-                Agreement
-              </p>
-              <p class="font-serif text-sm text-zinc-500 dark:text-zinc-400">
-                You review. If it's right, you sign and pay 50% to begin.
+              <p class="process-title">Handshake</p>
+              <p class="process-desc">
+                You review it, we sign, 50% deposit gets us rolling.
               </p>
             </div>
           </div>
-          <div class="flex gap-6">
-            <div
-              class="font-mono text-sm text-zinc-300 dark:text-zinc-600 w-6 shrink-0"
-            >
-              04
-            </div>
+          <div class="process-step">
+            <div class="process-number">04</div>
             <div>
-              <p class="font-serif text-zinc-900 dark:text-zinc-100 mb-1">
-                Build
-              </p>
-              <p class="font-serif text-sm text-zinc-500 dark:text-zinc-400">
-                Work begins. Regular check-ins. Working prototypes early.
+              <p class="process-title">Build</p>
+              <p class="process-desc">
+                Weekly calls, async demo videos, early prototypes. I prefer
+                Slack or Discord over email&mdash;faster feedback, better work.
               </p>
             </div>
           </div>
@@ -683,200 +481,95 @@ usePageSeo({
       </section>
 
       <!-- Pricing -->
-      <section class="mb-12">
-        <h2
-          class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-6"
-        >
-          Pricing
-        </h2>
+      <section class="section">
+        <h2 class="section-label">Engagements</h2>
 
-        <div class="space-y-4 mb-6">
-          <div
-            class="flex justify-between items-baseline border-b border-zinc-200 dark:border-zinc-800 pb-4"
-          >
+        <div class="space-y-4 mb-8">
+          <div class="pricing-row">
             <div>
-              <p class="font-serif text-zinc-900 dark:text-zinc-100">Sprint</p>
-              <p class="font-mono text-xs text-zinc-500">
-                5 days · Proof of concept
-              </p>
+              <p class="pricing-title">Validate</p>
+              <p class="pricing-desc">Prototype you can demo · ~1 week</p>
             </div>
-            <p class="font-mono text-lg text-zinc-900 dark:text-zinc-100">
-              $6,250
-            </p>
+            <p class="price">$6,250</p>
           </div>
-          <div
-            class="flex justify-between items-baseline border-b border-zinc-200 dark:border-zinc-800 pb-4"
-          >
+          <div class="pricing-row">
             <div>
-              <p class="font-serif text-zinc-900 dark:text-zinc-100">
-                Standard
-              </p>
-              <p class="font-mono text-xs text-zinc-500">
-                10 days · Prototype to production
-              </p>
+              <p class="pricing-title">Build</p>
+              <p class="pricing-desc">Production-ready · ~2 weeks</p>
             </div>
-            <p class="font-mono text-lg text-zinc-900 dark:text-zinc-100">
-              $12,500
-            </p>
+            <p class="price">$12,500</p>
           </div>
-          <div
-            class="flex justify-between items-baseline border-b border-zinc-200 dark:border-zinc-800 pb-4"
-          >
+          <div class="pricing-row">
             <div>
-              <p class="font-serif text-zinc-900 dark:text-zinc-100">
-                Deep Dive
-              </p>
-              <p class="font-mono text-xs text-zinc-500">
-                20 days · Full system + support
-              </p>
+              <p class="pricing-title">Transform</p>
+              <p class="pricing-desc">End-to-end system · ~4 weeks</p>
             </div>
-            <p class="font-mono text-lg text-zinc-900 dark:text-zinc-100">
-              $25,000
-            </p>
+            <p class="price">$25,000</p>
+          </div>
+          <div class="pricing-row">
+            <div>
+              <p class="pricing-title">Retained</p>
+              <p class="pricing-desc">Ongoing access · 10&ndash;30 hrs/week</p>
+            </div>
+            <p class="price-muted">Inquire</p>
           </div>
         </div>
 
-        <p class="font-mono text-xs text-zinc-500">
-          50% upfront, 50% on delivery · Hourly available at $175/hr
-        </p>
+        <p class="caption">50% upfront, 50% on delivery · $175/hr</p>
       </section>
 
       <!-- FAQ -->
-      <section class="mb-12">
-        <h2
-          class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-6"
-        >
-          FAQ
-        </h2>
+      <section class="section">
+        <h2 class="section-label">Questions</h2>
         <div class="space-y-6">
           <div>
-            <p class="font-serif text-zinc-900 dark:text-zinc-100 mb-1">
-              What if we're not sure about scope?
-            </p>
-            <p class="font-serif text-sm text-zinc-600 dark:text-zinc-400">
-              That's what the call is for. Come with the problem, not a
-              requirements doc.
+            <p class="faq-question">What if we're not sure about scope?</p>
+            <p class="faq-answer">
+              That's most projects. Come with the problem, not a requirements
+              doc.
             </p>
           </div>
           <div>
-            <p class="font-serif text-zinc-900 dark:text-zinc-100 mb-1">
-              Tech stack?
-            </p>
-            <p class="font-serif text-sm text-zinc-600 dark:text-zinc-400">
-              TypeScript, Vue/Nuxt, D3.js, Node, MapLibre. 13 years of
-              production experience.
+            <p class="faq-question">Tech stack?</p>
+            <p class="faq-answer">
+              TypeScript, Vue/Nuxt, D3.js, Node, MapLibre. Heavy AI tooling.
             </p>
           </div>
           <div>
-            <p class="font-serif text-zinc-900 dark:text-zinc-100 mb-1">
-              What happens after?
+            <p class="faq-question">Communication?</p>
+            <p class="faq-answer">
+              Async default. Loom videos, written updates, calls when needed.
             </p>
-            <p class="font-serif text-sm text-zinc-600 dark:text-zinc-400">
-              You own everything. Full source, docs, handoff.
+          </div>
+          <div>
+            <p class="faq-question">What do I own when we're done?</p>
+            <p class="faq-answer">
+              Everything. Source, docs, handoff. You can maintain it without me.
+            </p>
+          </div>
+          <div>
+            <p class="faq-question">Can you start sooner?</p>
+            <p class="faq-answer">
+              Probably not. Small client load = real attention. But let's talk.
             </p>
           </div>
         </div>
       </section>
 
-      <!-- Availability -->
-      <section class="mb-16">
-        <p
-          class="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-8"
-        >
-          Availability
+      <!-- Book a Call -->
+      <section id="book" class="section scroll-mt-24">
+        <p class="section-label-lg">Let's talk</p>
+        <p class="caption mb-6">
+          60 min · No pitch · Figuring out if I can help
         </p>
-
-        <div class="space-y-6 mb-10">
-          <p class="font-serif text-2xl" style="letter-spacing: -0.01em">
-            <template
-              v-if="availability?.currentQuarter?.status === 'available'"
-            >
-              Currently accepting new clients.
-            </template>
-            <template
-              v-else-if="availability?.currentQuarter?.status === 'limited'"
-            >
-              Limited availability remains.
-            </template>
-            <template
-              v-else-if="availability?.currentQuarter?.status === 'full'"
-            >
-              {{ availability?.currentQuarter?.name }} is fully committed.
-            </template>
-            <template v-else>Inquire about availability.</template>
-          </p>
-
-          <p class="font-serif text-zinc-500 dark:text-zinc-400">
-            I work with {{ availability?.maxClients || 3 }} clients at a time,
-            {{ availability?.hoursPerWeekRange?.[0] || 10 }}&ndash;{{
-              availability?.hoursPerWeekRange?.[1] || 30
-            }}
-            hours per week each.
-            <template
-              v-if="
-                availability?.currentQuarter?.slotsAvailable &&
-                availability?.currentQuarter?.slotsAvailable > 0
-              "
-            >
-              {{
-                availability?.currentQuarter?.slotsAvailable === 1
-                  ? 'One position'
-                  : `${availability?.currentQuarter?.slotsAvailable} positions`
-              }}
-              available for {{ availability?.currentQuarter?.name }}.
-            </template>
-          </p>
-        </div>
-
-        <!-- Capacity indicator - minimal, elegant -->
-        <div
-          class="flex items-center gap-6 mb-10 py-4 border-y border-zinc-100 dark:border-zinc-800"
-        >
-          <div class="flex gap-1.5">
-            <template v-for="i in availability?.maxClients || 3" :key="i">
-              <div
-                class="w-3 h-3 rounded-full transition-colors"
-                :class="
-                  i <= (availability?.activeClientCount || 0)
-                    ? 'bg-zinc-400 dark:bg-zinc-500'
-                    : 'bg-zinc-200 dark:bg-zinc-700'
-                "
-              />
-            </template>
-          </div>
-          <p class="font-mono text-xs text-zinc-400">
-            {{
-              availability?.maxClients - (availability?.activeClientCount || 0)
-            }}
-            of {{ availability?.maxClients || 3 }} positions available
-          </p>
-        </div>
-      </section>
-
-      <!-- Full Calendar -->
-      <section class="mb-12">
-        <p
-          class="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-4"
-        >
-          Schedule a Consultation
-        </p>
-        <p class="font-mono text-xs text-zinc-400 mb-6">
-          60 minutes · No obligation · We discuss your project and determine fit
-        </p>
-        <div
-          id="cal-inline-embed"
-          class="cal-inline-embed border border-zinc-200 dark:border-zinc-800"
-        ></div>
+        <div id="cal-inline-embed" class="cal-inline-embed" />
       </section>
 
       <!-- Footer -->
-      <footer class="pt-6 border-t border-zinc-200 dark:border-zinc-800">
-        <p class="font-mono text-xs text-zinc-500">
-          Quick questions?
-          <a
-            href="mailto:ejfox@ejfox.com"
-            class="underline hover:text-zinc-700 dark:hover:text-zinc-300"
-          >
+      <footer class="pt-6 divider-t">
+        <p class="caption">
+          Questions? Just want to say hi? I'm at
+          <a href="mailto:ejfox@ejfox.com" class="link-underline">
             ejfox@ejfox.com
           </a>
         </p>
@@ -886,38 +579,76 @@ usePageSeo({
     <!-- Sidebar: Availability + CTA -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="pt-6 space-y-4">
-          <!-- Availability status -->
-          <div class="flex items-center gap-2">
-            <div class="flex gap-1">
+        <div class="sidebar-availability">
+          <!-- Status -->
+          <p class="sidebar-label">Availability</p>
+
+          <!-- Capacity row: dots + count -->
+          <div class="sidebar-capacity-row">
+            <div class="capacity-dots">
               <template v-for="i in availability?.maxClients || 3" :key="i">
                 <div
-                  class="w-2 h-2 rounded-full"
+                  v-tooltip="
+                    i <= (availability?.activeClientCount || 0)
+                      ? 'Spot filled'
+                      : 'Open'
+                  "
+                  class="capacity-dot-sm"
                   :class="
                     i <= (availability?.activeClientCount || 0)
-                      ? 'bg-zinc-400 dark:bg-zinc-500'
-                      : 'bg-zinc-200 dark:bg-zinc-700'
+                      ? 'capacity-filled'
+                      : 'capacity-open'
                   "
                 />
               </template>
             </div>
-            <span class="font-mono text-xs text-zinc-500">
-              {{
-                availability?.maxClients -
-                (availability?.activeClientCount || 0)
+            <span
+              v-tooltip="'Max 3 clients so everyone gets real attention'"
+              class="sidebar-capacity-text"
+            >
+              {{ availability?.activeClientCount || 0 }}/{{
+                availability?.maxClients || 3
               }}
-              open
             </span>
           </div>
 
-          <!-- Book a Call CTA -->
-          <a
-            href="#cal-inline-embed"
-            class="block w-full py-2 px-3 text-center font-mono text-xs border border-zinc-300 dark:border-zinc-700 hover:border-zinc-900 dark:hover:border-zinc-100 hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all"
-          >
-            Book a Call
-          </a>
-          <p class="font-mono text-xs text-zinc-400">60 min · No obligation</p>
+          <!-- Status message -->
+          <p class="sidebar-status-line">
+            <template v-if="availability?.nextAvailable">
+              Opens
+              {{
+                new Date(availability.nextAvailable).toLocaleDateString(
+                  'en-US',
+                  { month: 'short', day: 'numeric' }
+                )
+              }}
+            </template>
+            <template
+              v-else-if="
+                (availability?.maxClients || 3) -
+                  (availability?.activeClientCount || 0) >
+                0
+              "
+            >
+              {{
+                (availability?.maxClients || 3) -
+                (availability?.activeClientCount || 0)
+              }}
+              {{
+                (availability?.maxClients || 3) -
+                  (availability?.activeClientCount || 0) ===
+                1
+                  ? 'spot'
+                  : 'spots'
+              }}
+              open
+            </template>
+            <template v-else>Fully booked</template>
+          </p>
+
+          <!-- CTA -->
+          <a href="#cal-inline-embed" class="sidebar-cta">Book a Call</a>
+          <p class="sidebar-cta-note">60 min · Free</p>
         </div>
       </Teleport>
     </ClientOnly>
@@ -925,14 +656,339 @@ usePageSeo({
 </template>
 
 <style scoped>
+/* ============================================
+   LAYOUT & SECTIONS
+   ============================================ */
+.section {
+  @apply mb-12;
+}
+
+.section-lg {
+  @apply mb-16;
+}
+
+.divider-y {
+  @apply border-y border-zinc-100 dark:border-zinc-800;
+}
+
+.divider-b {
+  @apply border-b border-zinc-200 dark:border-zinc-800;
+}
+
+.divider-t {
+  @apply border-t border-zinc-200 dark:border-zinc-800;
+}
+
+/* ============================================
+   TYPOGRAPHY - Labels & Headings
+   ============================================ */
+.section-label {
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wide mb-6;
+}
+
+.section-label-lg {
+  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-8;
+}
+
+.section-label-sm {
+  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-4;
+}
+
+.hero-label {
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wide mb-4;
+}
+
+.hero-title {
+  @apply font-serif text-3xl md:text-4xl font-normal mb-6 text-zinc-900 dark:text-zinc-100;
+  letter-spacing: -0.02em;
+}
+
+.headline-lg {
+  @apply font-serif text-2xl text-zinc-900 dark:text-zinc-100;
+  letter-spacing: -0.01em;
+}
+
+.headline-md {
+  @apply font-serif text-lg text-zinc-900 dark:text-zinc-100;
+}
+
+/* ============================================
+   TYPOGRAPHY - Body Text
+   ============================================ */
+.body-lg {
+  @apply font-serif text-lg text-zinc-600 dark:text-zinc-400;
+}
+
+.body-md {
+  @apply font-serif text-zinc-600 dark:text-zinc-400;
+}
+
+.body-sm {
+  @apply font-serif text-sm text-zinc-600 dark:text-zinc-400;
+}
+
+.body-sm-muted {
+  @apply font-serif text-sm text-zinc-500 dark:text-zinc-400;
+}
+
+.caption {
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400;
+}
+
+.aside {
+  @apply font-mono text-sm text-zinc-400 dark:text-zinc-500;
+}
+
+.caption-success {
+  @apply font-mono text-xs text-emerald-600 dark:text-emerald-400;
+}
+
+/* ============================================
+   STATS & NUMBERS
+   ============================================ */
+.stat-value {
+  @apply font-mono text-2xl text-zinc-900 dark:text-zinc-100;
+}
+
+.stat-label {
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400;
+}
+
+.price {
+  @apply font-mono text-lg text-zinc-900 dark:text-zinc-100;
+}
+
+.price-muted {
+  @apply font-mono text-zinc-500 dark:text-zinc-400;
+}
+
+/* ============================================
+   INTERACTIVE ELEMENTS
+   ============================================ */
+.link-underline {
+  @apply underline hover:text-zinc-700 dark:hover:text-zinc-300;
+}
+
+.slot-btn {
+  @apply px-5 py-3 font-serif text-sm border border-zinc-200 dark:border-zinc-700
+         hover:border-zinc-900 dark:hover:border-zinc-100 transition-all duration-300
+         flex flex-col items-start gap-0.5 rounded-sm
+         bg-zinc-50/50 dark:bg-zinc-800/30 backdrop-blur-sm;
+}
+
+.slot-btn-text {
+  @apply text-zinc-900 dark:text-zinc-100 text-base font-medium;
+}
+
+.slot-btn-day {
+  @apply text-zinc-600 dark:text-zinc-400 text-sm;
+}
+
+.slot-btn-date {
+  @apply text-zinc-400 dark:text-zinc-500 text-xs font-mono;
+}
+
+.sidebar-cta {
+  @apply block w-full py-2.5 px-3 text-center font-mono text-xs
+         border border-zinc-300 dark:border-zinc-700
+         hover:border-zinc-900 dark:hover:border-zinc-100
+         hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all;
+}
+
+/* ============================================
+   CLIENT LOGOS
+   ============================================ */
+.client-logo-grid {
+  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center;
+}
+
+.client-logo-item {
+  @apply flex items-center justify-center h-12 grayscale opacity-60
+         hover:grayscale-0 hover:opacity-100 transition-all duration-300;
+}
+
+.client-logo-img {
+  @apply max-h-full max-w-full object-contain dark:invert;
+}
+
+/* ============================================
+   PROCESS STEPS
+   ============================================ */
+.process-step {
+  @apply flex gap-6;
+}
+
+.process-number {
+  @apply font-mono text-sm text-zinc-300 dark:text-zinc-600 w-6 shrink-0;
+}
+
+.process-title {
+  @apply font-serif text-zinc-900 dark:text-zinc-100 mb-1;
+}
+
+.process-desc {
+  @apply font-serif text-sm text-zinc-500 dark:text-zinc-400;
+}
+
+/* ============================================
+   PRICING ROWS
+   ============================================ */
+.pricing-row {
+  @apply flex justify-between items-start border-b border-zinc-200 dark:border-zinc-800 pb-4;
+}
+
+.pricing-title {
+  @apply font-serif text-zinc-900 dark:text-zinc-100;
+}
+
+.pricing-desc {
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 mt-1;
+}
+
+/* ============================================
+   FAQ ITEMS
+   ============================================ */
+.faq-question {
+  @apply font-serif text-zinc-900 dark:text-zinc-100 mb-1;
+}
+
+.faq-answer {
+  @apply font-serif text-sm text-zinc-600 dark:text-zinc-400;
+}
+
+/* ============================================
+   SPECIALTY CARDS
+   ============================================ */
+.specialty-card {
+  @apply border border-zinc-100 dark:border-zinc-800 p-5 rounded-sm
+         bg-zinc-50/30 dark:bg-zinc-800/20 backdrop-blur-sm;
+}
+
+.specialty-title {
+  @apply font-serif text-lg text-zinc-900 dark:text-zinc-100 mb-2;
+}
+
+.specialty-desc {
+  @apply font-serif text-zinc-600 dark:text-zinc-400 mb-2;
+}
+
+.specialty-proof {
+  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wide;
+}
+
+.testimonial-card {
+  @apply py-5 px-4 rounded-sm bg-zinc-50/30 dark:bg-zinc-800/20 backdrop-blur-sm;
+}
+
+/* ============================================
+   PRESS / BLOCKQUOTES
+   ============================================ */
+.blockquote {
+  @apply border-l border-zinc-300 dark:border-zinc-700 pl-4;
+}
+
+.blockquote-text {
+  @apply font-serif text-zinc-600 dark:text-zinc-400 italic;
+}
+
+.blockquote-cite {
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 not-italic;
+}
+
+.testimonial {
+  @apply font-serif text-2xl text-zinc-700 dark:text-zinc-300;
+  letter-spacing: -0.01em;
+}
+
+.testimonial-cite {
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 mt-4;
+}
+
+/* ============================================
+   AVAILABILITY / CAPACITY
+   ============================================ */
+.capacity-dots {
+  @apply flex gap-1.5;
+}
+
+.capacity-dot {
+  @apply w-3 h-3 rounded-full transition-colors;
+}
+
+.capacity-dot-sm {
+  @apply w-2.5 h-2.5 rounded-full;
+}
+
+.capacity-filled {
+  @apply bg-zinc-400 dark:bg-zinc-500;
+}
+
+.capacity-open {
+  @apply bg-emerald-400 dark:bg-emerald-500;
+}
+
+.availability-callout {
+  @apply mb-6 py-3 px-4 bg-emerald-50 dark:bg-emerald-950/30
+         border border-emerald-200 dark:border-emerald-800 rounded;
+}
+
+.availability-callout-text {
+  @apply font-serif text-sm text-emerald-800 dark:text-emerald-200;
+}
+
+/* ============================================
+   VIDEO BACKGROUND
+   ============================================ */
+.video-container {
+  @apply fixed inset-0 overflow-hidden transition-opacity duration-300 pointer-events-none z-0;
+}
+
+.video-element {
+  @apply absolute inset-0 w-full h-full object-cover;
+}
+
+.video-overlay {
+  @apply absolute inset-0 bg-zinc-950;
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+.sidebar-availability {
+  @apply pt-6 space-y-3 p-4 -m-4 rounded
+         bg-zinc-900/70 backdrop-blur-md;
+}
+
+.sidebar-label {
+  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wide;
+}
+
+.sidebar-capacity-row {
+  @apply flex items-center gap-2;
+}
+
+.sidebar-capacity-text {
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400;
+}
+
+.sidebar-status-line {
+  @apply font-mono text-xs text-emerald-600 dark:text-emerald-400;
+}
+
+.sidebar-cta-note {
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 text-center;
+}
+
+/* ============================================
+   CAL.COM EMBED
+   ============================================ */
 .cal-inline-embed {
-  min-height: 500px;
-  width: 100%;
+  @apply min-h-[500px] w-full border border-zinc-200 dark:border-zinc-800;
 }
 
 @media (min-width: 640px) {
   .cal-inline-embed {
-    min-height: 600px;
+    @apply min-h-[600px];
   }
 }
 </style>
