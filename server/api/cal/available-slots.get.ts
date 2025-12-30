@@ -67,15 +67,23 @@ export default defineEventHandler(async (event) => {
       }
     })
 
-    // Sort by start time and take next 3
+    // Sort by start time, dedupe by datetime, take next 3
+    const seenTimes = new Set<string>()
     const sortedSlots = allSlots
       .filter((slot) => new Date(slot.start) > new Date()) // Only future slots
       .sort((a, b) => new Date(a.start).getTime() - new Date(b.start).getTime())
+      .filter((slot) => {
+        if (seenTimes.has(slot.start)) return false
+        seenTimes.add(slot.start)
+        return true
+      })
       .slice(0, 3)
 
-    // Format for display - natural like "9AM Monday?"
+    // Format for display - verbose date/time info
     const formattedSlots = sortedSlots.map((slot) => {
       const startTime = new Date(slot.start)
+      const now = new Date()
+
       const timeOptions: Intl.DateTimeFormatOptions = {
         timeZone: 'America/New_York',
         hour: 'numeric',
@@ -85,16 +93,34 @@ export default defineEventHandler(async (event) => {
         timeZone: 'America/New_York',
         weekday: 'long',
       }
+      const dateOptions: Intl.DateTimeFormatOptions = {
+        timeZone: 'America/New_York',
+        month: 'short',
+        day: 'numeric',
+      }
 
       const time = startTime
         .toLocaleString('en-US', timeOptions)
         .replace(' ', '')
         .toLowerCase() // "9am"
       const day = startTime.toLocaleString('en-US', dayOptions) // "Monday"
+      const date = startTime.toLocaleString('en-US', dateOptions) // "Jan 1"
+
+      // Calculate relative description
+      const diffDays = Math.floor(
+        (startTime.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
+      )
+      let relative = ''
+      if (diffDays === 0) relative = 'Today'
+      else if (diffDays === 1) relative = 'Tomorrow'
+      else if (diffDays < 7) relative = 'This week'
+      else if (diffDays < 14) relative = 'Next week'
 
       return {
         time,
         day,
+        date, // "Jan 1"
+        relative, // "Tomorrow", "This week", etc.
         naturalTime: `${time} ${day}?`, // "9am Monday?"
         datetime: slot.start,
         bookingUrl: `https://cal.com/ejfox/${eventTypeSlug}?duration=${durationMinutes}&date=${startTime.toISOString().split('T')[0]}&slot=${encodeURIComponent(slot.start)}`,
