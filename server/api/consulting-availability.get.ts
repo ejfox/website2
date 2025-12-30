@@ -25,6 +25,7 @@ interface AvailabilityData {
   maxClients: number
   hoursPerWeekRange: [number, number]
   currentClients: Client[]
+  nextAvailable?: string
   quarters: Record<string, QuarterInfo>
   statusMessages: Record<string, string>
 }
@@ -71,6 +72,7 @@ export default defineEventHandler(async () => {
       hoursPerWeekRange: data.hoursPerWeekRange,
       activeClientCount: activeClients.length,
       totalHoursCommitted,
+      nextAvailable: data.nextAvailable || null,
       currentQuarter: {
         name: currentQuarter,
         ...currentQuarterInfo,
