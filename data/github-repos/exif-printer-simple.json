@@ -12,13 +12,13 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 38555,
-    "TypeScript": 24836,
-    "CSS": 10343,
+    "Vue": 61197,
+    "TypeScript": 25346,
+    "CSS": 11264,
     "Rust": 5426,
     "HTML": 329
   },
-  "diskUsage": 11454,
+  "diskUsage": 11580,
   "fileTree": {
     "files": [
       {
@@ -31,7 +31,7 @@
       },
       {
         "path": ".github/workflows/test.yml",
-        "size": 1378
+        "size": 671
       },
       {
         "path": ".gitignore",
@@ -63,11 +63,11 @@
       },
       {
         "path": "package-lock.json",
-        "size": 398267
+        "size": 209330
       },
       {
         "path": "package.json",
-        "size": 1883
+        "size": 1920
       },
       {
         "path": "public/favicon.ico",
@@ -307,11 +307,11 @@
       },
       {
         "path": "src/App.vue",
-        "size": 27095
+        "size": 49737
       },
       {
         "path": "src/assets/base.css",
-        "size": 2067
+        "size": 102
       },
       {
         "path": "src/assets/logo.svg",
@@ -363,7 +363,7 @@
       },
       {
         "path": "src/composables/__tests__/usePrintSizes.spec.ts",
-        "size": 2525
+        "size": 2677
       },
       {
         "path": "src/composables/__tests__/useTauriIntegration.spec.ts",
@@ -375,11 +375,11 @@
       },
       {
         "path": "src/composables/usePhotoProcessing.ts",
-        "size": 2587
+        "size": 2612
       },
       {
         "path": "src/composables/usePrintSizes.ts",
-        "size": 1293
+        "size": 1626
       },
       {
         "path": "src/main.ts",
@@ -399,7 +399,7 @@
       },
       {
         "path": "src/style.css",
-        "size": 7784
+        "size": 10670
       },
       {
         "path": "src/views/AboutView.vue",
@@ -461,7 +461,7 @@
                 },
                 {
                   "name": "test.yml",
-                  "size": 1378,
+                  "size": 671,
                   "path": ".github/workflows/test.yml"
                 }
               ],
@@ -856,7 +856,7 @@
               "children": [
                 {
                   "name": "base.css",
-                  "size": 2067,
+                  "size": 102,
                   "path": "src/assets/base.css"
                 },
                 {
@@ -948,7 +948,7 @@
                     },
                     {
                       "name": "usePrintSizes.spec.ts",
-                      "size": 2525,
+                      "size": 2677,
                       "path": "src/composables/__tests__/usePrintSizes.spec.ts"
                     },
                     {
@@ -966,12 +966,12 @@
                 },
                 {
                   "name": "usePhotoProcessing.ts",
-                  "size": 2587,
+                  "size": 2612,
                   "path": "src/composables/usePhotoProcessing.ts"
                 },
                 {
                   "name": "usePrintSizes.ts",
-                  "size": 1293,
+                  "size": 1626,
                   "path": "src/composables/usePrintSizes.ts"
                 }
               ],
@@ -1017,7 +1017,7 @@
             },
             {
               "name": "App.vue",
-              "size": 27095,
+              "size": 49737,
               "path": "src/App.vue"
             },
             {
@@ -1032,7 +1032,7 @@
             },
             {
               "name": "style.css",
-              "size": 7784,
+              "size": 10670,
               "path": "src/style.css"
             }
           ],
@@ -1070,12 +1070,12 @@
         },
         {
           "name": "package-lock.json",
-          "size": 398267,
+          "size": 209330,
           "path": "package-lock.json"
         },
         {
           "name": "package.json",
-          "size": 1883,
+          "size": 1920,
           "path": "package.json"
         },
         {
@@ -1112,7 +1112,7 @@
       "path": ""
     },
     "totalFiles": 103,
-    "totalSize": 10235462
+    "totalSize": 10069928
   },
   "topics": [],
   "readme": {
@@ -1121,6 +1121,6 @@
     "excerpt": "A minimal desktop application for creating printable photos with EXIF camera data displayed in clean borders.\n\n\n\n- Drag & Drop Interface - Simply drag photos in..."
   },
   "createdAt": "2025-05-29T02:44:09Z",
-  "updatedAt": "2025-06-06T03:09:03Z",
-  "pushedAt": "2025-07-24T14:55:04Z"
+  "updatedAt": "2025-12-29T04:55:10Z",
+  "pushedAt": "2025-12-29T04:55:07Z"
 }

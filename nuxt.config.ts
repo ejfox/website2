@@ -235,7 +235,7 @@ export default defineNuxtConfig({
           console.log(`✓ Copied content directory to ${dest}`)
         } catch (err) {
           // Ignore ENOENT errors during hot reload race conditions
-          const e = err as NodeJS.ErrnoException
+          const e = err as { code?: string }
           if (e?.code !== 'ENOENT') {
             throw err
           }

@@ -195,7 +195,7 @@
                   <span
                     v-if="brierContribution(prediction) !== null"
                     class="text-zinc-400 text-[10px] ml-2"
-                    :title="`Brier: (${prediction.confidence / 100} - ${prediction.status === 'correct' ? 1 : 0})² = ${brierContribution(prediction)?.toFixed(3)}`"
+                    :title="getBrierTitle(prediction)"
                   >
                     {{ brierContribution(prediction)?.toFixed(2) }}
                   </span>
@@ -494,6 +494,17 @@ const brierContribution = (prediction: {
   const outcome = prediction.status === 'correct' ? 1 : 0
   const forecast = prediction.confidence / 100
   return (forecast - outcome) ** 2
+}
+
+const getBrierTitle = (prediction: {
+  resolved: boolean
+  status?: string
+  confidence: number
+}): string => {
+  const forecast = prediction.confidence / 100
+  const outcome = prediction.status === 'correct' ? 1 : 0
+  const brier = brierContribution(prediction)?.toFixed(3) ?? '—'
+  return `Brier: (${forecast} - ${outcome})² = ${brier}`
 }
 
 // Brier score helpers

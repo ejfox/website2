@@ -12,15 +12,15 @@
   "language": "Shell",
   "languageColor": "#89e051",
   "languages": {
-    "Shell": 274318,
-    "GLSL": 170261,
-    "Lua": 114575,
+    "Shell": 274320,
+    "GLSL": 170263,
+    "Lua": 120280,
     "Vim Script": 83725,
     "JavaScript": 8622,
     "Less": 2089,
     "CSS": 1367
   },
-  "diskUsage": 63171,
+  "diskUsage": 63177,
   "fileTree": {
     "files": [
       {
@@ -113,7 +113,7 @@
       },
       {
         "path": ".claude/settings.json",
-        "size": 490
+        "size": 611
       },
       {
         "path": ".claude/settings.local.json",
@@ -193,7 +193,7 @@
       },
       {
         "path": ".config/ghostty/config",
-        "size": 2335
+        "size": 2412
       },
       {
         "path": ".config/ghostty/shaders/Readme.md",
@@ -213,7 +213,7 @@
       },
       {
         "path": ".config/ghostty/shaders/bloom-vulpes.glsl",
-        "size": 3443
+        "size": 3445
       },
       {
         "path": ".config/ghostty/shaders/bloom.glsl",
@@ -489,7 +489,7 @@
       },
       {
         "path": ".config/lazygit/config.yml",
-        "size": 1255
+        "size": 1083
       },
       {
         "path": ".config/lazygit/vulpes-reddishnovember-dark.yml",
@@ -541,7 +541,7 @@
       },
       {
         "path": ".config/nvim/colors/vulpes-reddishnovember-dark.lua",
-        "size": 18456
+        "size": 18921
       },
       {
         "path": ".config/nvim/colors/vulpes-reddishnovember-light.lua",
@@ -601,7 +601,7 @@
       },
       {
         "path": ".config/nvim/lua/config/options.lua",
-        "size": 3354
+        "size": 3372
       },
       {
         "path": ".config/nvim/lua/custom/clipboard.lua",
@@ -665,7 +665,7 @@
       },
       {
         "path": ".config/nvim/lua/plugins/minimal-telescope.lua",
-        "size": 1269
+        "size": 1266
       },
       {
         "path": ".config/nvim/lua/plugins/noice.lua",
@@ -693,7 +693,7 @@
       },
       {
         "path": ".config/nvim/lua/plugins/snacks.lua",
-        "size": 1933
+        "size": 7158
       },
       {
         "path": ".config/nvim/lua/plugins/surround.lua",
@@ -1049,7 +1049,7 @@
       },
       {
         "path": ".tmux.conf",
-        "size": 9450
+        "size": 9452
       },
       {
         "path": ".tweakcc-apply.sh",
@@ -1157,7 +1157,7 @@
       },
       {
         "path": "tips.txt",
-        "size": 18393
+        "size": 18482
       },
       {
         "path": "vulpes-reddish2-dark-tmux.tmux.conf",
@@ -1294,7 +1294,7 @@
             },
             {
               "name": "settings.json",
-              "size": 490,
+              "size": 611,
               "path": ".claude/settings.json"
             },
             {
@@ -1524,7 +1524,7 @@
                     },
                     {
                       "name": "bloom-vulpes.glsl",
-                      "size": 3443,
+                      "size": 3445,
                       "path": ".config/ghostty/shaders/bloom-vulpes.glsl"
                     },
                     {
@@ -1808,7 +1808,7 @@
                 },
                 {
                   "name": "config",
-                  "size": 2335,
+                  "size": 2412,
                   "path": ".config/ghostty/config"
                 }
               ],
@@ -1852,7 +1852,7 @@
               "children": [
                 {
                   "name": "config.yml",
-                  "size": 1255,
+                  "size": 1083,
                   "path": ".config/lazygit/config.yml"
                 },
                 {
@@ -1898,7 +1898,7 @@
                   "children": [
                     {
                       "name": "vulpes-reddishnovember-dark.lua",
-                      "size": 18456,
+                      "size": 18921,
                       "path": ".config/nvim/colors/vulpes-reddishnovember-dark.lua"
                     },
                     {
@@ -1967,7 +1967,7 @@
                         },
                         {
                           "name": "options.lua",
-                          "size": 3354,
+                          "size": 3372,
                           "path": ".config/nvim/lua/config/options.lua"
                         }
                       ],
@@ -2059,7 +2059,7 @@
                         },
                         {
                           "name": "minimal-telescope.lua",
-                          "size": 1269,
+                          "size": 1266,
                           "path": ".config/nvim/lua/plugins/minimal-telescope.lua"
                         },
                         {
@@ -2094,7 +2094,7 @@
                         },
                         {
                           "name": "snacks.lua",
-                          "size": 1933,
+                          "size": 7158,
                           "path": ".config/nvim/lua/plugins/snacks.lua"
                         },
                         {
@@ -2847,7 +2847,7 @@
         },
         {
           "name": ".tmux.conf",
-          "size": 9450,
+          "size": 9452,
           "path": ".tmux.conf"
         },
         {
@@ -2922,7 +2922,7 @@
         },
         {
           "name": "tips.txt",
-          "size": 18393,
+          "size": 18482,
           "path": "tips.txt"
         },
         {
@@ -2939,7 +2939,7 @@
       "path": ""
     },
     "totalFiles": 286,
-    "totalSize": 20277893
+    "totalSize": 20283717
   },
   "topics": [],
   "readme": {
@@ -2948,6 +2948,6 @@
     "excerpt": "Minimalist terminal configuration focused on functional beauty, speed-of-thought workflows, and distraction-free computing.\n\n\n- Geometric symbols throughout int..."
   },
   "createdAt": "2019-04-07T22:09:55Z",
-  "updatedAt": "2025-12-23T19:15:50Z",
-  "pushedAt": "2025-12-23T19:15:46Z"
+  "updatedAt": "2025-12-29T21:19:40Z",
+  "pushedAt": "2025-12-29T21:19:36Z"
 }

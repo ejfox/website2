@@ -1,0 +1,599 @@
+{
+  "name": "vulpes-browser",
+  "description": "Minimalist web browser. Zig + Swift + Metal.",
+  "url": "https://github.com/ejfox/vulpes-browser",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Swift",
+  "languageColor": "#F05138",
+  "languages": {
+    "Swift": 152265,
+    "Zig": 46850,
+    "Metal": 9635,
+    "C": 8924,
+    "GLSL": 8399,
+    "Shell": 1115
+  },
+  "diskUsage": 202,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 131
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 4385
+      },
+      {
+        "path": "README.md",
+        "size": 1985
+      },
+      {
+        "path": "app/GLSLTranspiler.swift",
+        "size": 18929
+      },
+      {
+        "path": "app/GlyphAtlas.swift",
+        "size": 4062
+      },
+      {
+        "path": "app/Info.plist",
+        "size": 961
+      },
+      {
+        "path": "app/MainWindow.swift",
+        "size": 16829
+      },
+      {
+        "path": "app/MetalView.swift",
+        "size": 76980
+      },
+      {
+        "path": "app/NavigationHistory.swift",
+        "size": 3802
+      },
+      {
+        "path": "app/OpenRouterClient.swift",
+        "size": 5210
+      },
+      {
+        "path": "app/Shaders.metal",
+        "size": 9635
+      },
+      {
+        "path": "app/TitleNormalizer.swift",
+        "size": 1853
+      },
+      {
+        "path": "app/TransitionManager.swift",
+        "size": 6451
+      },
+      {
+        "path": "app/Vulpes-Bridging-Header.h",
+        "size": 405
+      },
+      {
+        "path": "app/VulpesApp.swift",
+        "size": 2403
+      },
+      {
+        "path": "app/VulpesBridge.swift",
+        "size": 5292
+      },
+      {
+        "path": "app/VulpesConfig.swift",
+        "size": 10454
+      },
+      {
+        "path": "build.zig",
+        "size": 4510
+      },
+      {
+        "path": "docs/architecture/libvulpes-core.md",
+        "size": 10260
+      },
+      {
+        "path": "docs/architecture/overview.md",
+        "size": 12782
+      },
+      {
+        "path": "docs/architecture/platform-abstraction.md",
+        "size": 18008
+      },
+      {
+        "path": "docs/architecture/threading-model.md",
+        "size": 9444
+      },
+      {
+        "path": "docs/design-philosophy/inspiration/ghostty.md",
+        "size": 6013
+      },
+      {
+        "path": "docs/design-philosophy/inspiration/ladybird.md",
+        "size": 5690
+      },
+      {
+        "path": "docs/design-philosophy/inspiration/prior-art.md",
+        "size": 7956
+      },
+      {
+        "path": "docs/design-philosophy/keyboard-first.md",
+        "size": 11898
+      },
+      {
+        "path": "docs/design-philosophy/principles.md",
+        "size": 7080
+      },
+      {
+        "path": "docs/design-philosophy/spatial-cards.md",
+        "size": 10931
+      },
+      {
+        "path": "docs/design-philosophy/what-we-wont-build.md",
+        "size": 6717
+      },
+      {
+        "path": "docs/resources/reference-implementations.md",
+        "size": 5603
+      },
+      {
+        "path": "docs/resources/specifications.md",
+        "size": 4952
+      },
+      {
+        "path": "docs/resources/tutorials.md",
+        "size": 5521
+      },
+      {
+        "path": "docs/roadmap/future-ideas.md",
+        "size": 5947
+      },
+      {
+        "path": "docs/roadmap/phase-1-hello-web.md",
+        "size": 9089
+      },
+      {
+        "path": "docs/roadmap/phase-2-actually-useful.md",
+        "size": 12687
+      },
+      {
+        "path": "docs/roadmap/phase-3-beautiful.md",
+        "size": 11897
+      },
+      {
+        "path": "docs/tech-stack.md",
+        "size": 12059
+      },
+      {
+        "path": "docs/technical/css-parsing.md",
+        "size": 13138
+      },
+      {
+        "path": "docs/technical/html-parsing.md",
+        "size": 11959
+      },
+      {
+        "path": "docs/technical/networking.md",
+        "size": 12563
+      },
+      {
+        "path": "docs/technical/rendering.md",
+        "size": 13105
+      },
+      {
+        "path": "docs/technical/text-layout.md",
+        "size": 14829
+      },
+      {
+        "path": "project.yml",
+        "size": 1857
+      },
+      {
+        "path": "scripts/build-release.sh",
+        "size": 1115
+      },
+      {
+        "path": "shaders/error-404.glsl",
+        "size": 2148
+      },
+      {
+        "path": "shaders/error-500.glsl",
+        "size": 2438
+      },
+      {
+        "path": "shaders/transition-70s.glsl",
+        "size": 1807
+      },
+      {
+        "path": "shaders/transition-glitch.glsl",
+        "size": 2006
+      },
+      {
+        "path": "src/html/text_extractor.zig",
+        "size": 24000
+      },
+      {
+        "path": "src/lib.zig",
+        "size": 9432
+      },
+      {
+        "path": "src/main.zig",
+        "size": 1891
+      },
+      {
+        "path": "src/network/http.zig",
+        "size": 7017
+      },
+      {
+        "path": "src/vulpes.h",
+        "size": 8519
+      }
+    ],
+    "tree": {
+      "name": "vulpes-browser",
+      "children": [
+        {
+          "name": "app",
+          "children": [
+            {
+              "name": "GLSLTranspiler.swift",
+              "size": 18929,
+              "path": "app/GLSLTranspiler.swift"
+            },
+            {
+              "name": "GlyphAtlas.swift",
+              "size": 4062,
+              "path": "app/GlyphAtlas.swift"
+            },
+            {
+              "name": "Info.plist",
+              "size": 961,
+              "path": "app/Info.plist"
+            },
+            {
+              "name": "MainWindow.swift",
+              "size": 16829,
+              "path": "app/MainWindow.swift"
+            },
+            {
+              "name": "MetalView.swift",
+              "size": 76980,
+              "path": "app/MetalView.swift"
+            },
+            {
+              "name": "NavigationHistory.swift",
+              "size": 3802,
+              "path": "app/NavigationHistory.swift"
+            },
+            {
+              "name": "OpenRouterClient.swift",
+              "size": 5210,
+              "path": "app/OpenRouterClient.swift"
+            },
+            {
+              "name": "Shaders.metal",
+              "size": 9635,
+              "path": "app/Shaders.metal"
+            },
+            {
+              "name": "TitleNormalizer.swift",
+              "size": 1853,
+              "path": "app/TitleNormalizer.swift"
+            },
+            {
+              "name": "TransitionManager.swift",
+              "size": 6451,
+              "path": "app/TransitionManager.swift"
+            },
+            {
+              "name": "Vulpes-Bridging-Header.h",
+              "size": 405,
+              "path": "app/Vulpes-Bridging-Header.h"
+            },
+            {
+              "name": "VulpesApp.swift",
+              "size": 2403,
+              "path": "app/VulpesApp.swift"
+            },
+            {
+              "name": "VulpesBridge.swift",
+              "size": 5292,
+              "path": "app/VulpesBridge.swift"
+            },
+            {
+              "name": "VulpesConfig.swift",
+              "size": 10454,
+              "path": "app/VulpesConfig.swift"
+            }
+          ],
+          "path": "app"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "architecture",
+              "children": [
+                {
+                  "name": "libvulpes-core.md",
+                  "size": 10260,
+                  "path": "docs/architecture/libvulpes-core.md"
+                },
+                {
+                  "name": "overview.md",
+                  "size": 12782,
+                  "path": "docs/architecture/overview.md"
+                },
+                {
+                  "name": "platform-abstraction.md",
+                  "size": 18008,
+                  "path": "docs/architecture/platform-abstraction.md"
+                },
+                {
+                  "name": "threading-model.md",
+                  "size": 9444,
+                  "path": "docs/architecture/threading-model.md"
+                }
+              ],
+              "path": "docs/architecture"
+            },
+            {
+              "name": "design-philosophy",
+              "children": [
+                {
+                  "name": "inspiration",
+                  "children": [
+                    {
+                      "name": "ghostty.md",
+                      "size": 6013,
+                      "path": "docs/design-philosophy/inspiration/ghostty.md"
+                    },
+                    {
+                      "name": "ladybird.md",
+                      "size": 5690,
+                      "path": "docs/design-philosophy/inspiration/ladybird.md"
+                    },
+                    {
+                      "name": "prior-art.md",
+                      "size": 7956,
+                      "path": "docs/design-philosophy/inspiration/prior-art.md"
+                    }
+                  ],
+                  "path": "docs/design-philosophy/inspiration"
+                },
+                {
+                  "name": "keyboard-first.md",
+                  "size": 11898,
+                  "path": "docs/design-philosophy/keyboard-first.md"
+                },
+                {
+                  "name": "principles.md",
+                  "size": 7080,
+                  "path": "docs/design-philosophy/principles.md"
+                },
+                {
+                  "name": "spatial-cards.md",
+                  "size": 10931,
+                  "path": "docs/design-philosophy/spatial-cards.md"
+                },
+                {
+                  "name": "what-we-wont-build.md",
+                  "size": 6717,
+                  "path": "docs/design-philosophy/what-we-wont-build.md"
+                }
+              ],
+              "path": "docs/design-philosophy"
+            },
+            {
+              "name": "resources",
+              "children": [
+                {
+                  "name": "reference-implementations.md",
+                  "size": 5603,
+                  "path": "docs/resources/reference-implementations.md"
+                },
+                {
+                  "name": "specifications.md",
+                  "size": 4952,
+                  "path": "docs/resources/specifications.md"
+                },
+                {
+                  "name": "tutorials.md",
+                  "size": 5521,
+                  "path": "docs/resources/tutorials.md"
+                }
+              ],
+              "path": "docs/resources"
+            },
+            {
+              "name": "roadmap",
+              "children": [
+                {
+                  "name": "future-ideas.md",
+                  "size": 5947,
+                  "path": "docs/roadmap/future-ideas.md"
+                },
+                {
+                  "name": "phase-1-hello-web.md",
+                  "size": 9089,
+                  "path": "docs/roadmap/phase-1-hello-web.md"
+                },
+                {
+                  "name": "phase-2-actually-useful.md",
+                  "size": 12687,
+                  "path": "docs/roadmap/phase-2-actually-useful.md"
+                },
+                {
+                  "name": "phase-3-beautiful.md",
+                  "size": 11897,
+                  "path": "docs/roadmap/phase-3-beautiful.md"
+                }
+              ],
+              "path": "docs/roadmap"
+            },
+            {
+              "name": "technical",
+              "children": [
+                {
+                  "name": "css-parsing.md",
+                  "size": 13138,
+                  "path": "docs/technical/css-parsing.md"
+                },
+                {
+                  "name": "html-parsing.md",
+                  "size": 11959,
+                  "path": "docs/technical/html-parsing.md"
+                },
+                {
+                  "name": "networking.md",
+                  "size": 12563,
+                  "path": "docs/technical/networking.md"
+                },
+                {
+                  "name": "rendering.md",
+                  "size": 13105,
+                  "path": "docs/technical/rendering.md"
+                },
+                {
+                  "name": "text-layout.md",
+                  "size": 14829,
+                  "path": "docs/technical/text-layout.md"
+                }
+              ],
+              "path": "docs/technical"
+            },
+            {
+              "name": "tech-stack.md",
+              "size": 12059,
+              "path": "docs/tech-stack.md"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "build-release.sh",
+              "size": 1115,
+              "path": "scripts/build-release.sh"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": "shaders",
+          "children": [
+            {
+              "name": "error-404.glsl",
+              "size": 2148,
+              "path": "shaders/error-404.glsl"
+            },
+            {
+              "name": "error-500.glsl",
+              "size": 2438,
+              "path": "shaders/error-500.glsl"
+            },
+            {
+              "name": "transition-70s.glsl",
+              "size": 1807,
+              "path": "shaders/transition-70s.glsl"
+            },
+            {
+              "name": "transition-glitch.glsl",
+              "size": 2006,
+              "path": "shaders/transition-glitch.glsl"
+            }
+          ],
+          "path": "shaders"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "html",
+              "children": [
+                {
+                  "name": "text_extractor.zig",
+                  "size": 24000,
+                  "path": "src/html/text_extractor.zig"
+                }
+              ],
+              "path": "src/html"
+            },
+            {
+              "name": "network",
+              "children": [
+                {
+                  "name": "http.zig",
+                  "size": 7017,
+                  "path": "src/network/http.zig"
+                }
+              ],
+              "path": "src/network"
+            },
+            {
+              "name": "lib.zig",
+              "size": 9432,
+              "path": "src/lib.zig"
+            },
+            {
+              "name": "main.zig",
+              "size": 1891,
+              "path": "src/main.zig"
+            },
+            {
+              "name": "vulpes.h",
+              "size": 8519,
+              "path": "src/vulpes.h"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".gitignore",
+          "size": 131,
+          "path": ".gitignore"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 4385,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "README.md",
+          "size": 1985,
+          "path": "README.md"
+        },
+        {
+          "name": "build.zig",
+          "size": 4510,
+          "path": "build.zig"
+        },
+        {
+          "name": "project.yml",
+          "size": 1857,
+          "path": "project.yml"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 53,
+    "totalSize": 476635
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"vulpes-browser\">Vulpes Browser</h1>\n<p>A minimalist, keyboard-first web browser for macOS. Built with Zig, Swift, and Metal.</p>\n<blockquote>\n<p><strong>Beta Release</strong> - This is early software. Expect rough edges.</p>\n</blockquote>\n<h2 id=\"download\">Download</h2>\n<p>Download the latest release from <a href=\"https://github.com/ejfox/vulpes-browser/releases\">GitHub Releases</a>.</p>\n<p><strong>Requirements:</strong> macOS 14 (Sonoma) or later, Apple Silicon or Intel Mac.</p>\n<h2 id=\"what-it-does\">What It Does</h2>\n<p>Vulpes renders web pages as clean, readable text with GPU-accelerated graphics. No ads, no tracking, no JavaScript.</p>\n<ul>\n<li><strong>Vim-style navigation</strong> - <code>j</code>/<code>k</code> scroll, <code>d</code>/<code>u</code> half-page, <code>G</code>/<code>gg</code> top/bottom</li>\n<li><strong>Link navigation</strong> - Numbers 1-9 follow links, <code>b</code>/<code>f</code> for back/forward</li>\n<li><strong>Metal rendering</strong> - GPU-accelerated text with glyph atlas</li>\n<li><strong>GLSL shaders</strong> - Ghostty/Shadertoy-compatible custom shaders</li>\n<li><strong>Page transitions</strong> - Visual effects when navigating</li>\n</ul>\n<h2 id=\"keyboard-shortcuts\">Keyboard Shortcuts</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody><tr><td><code>j</code> / <code>k</code></td><td>Scroll down / up</td></tr><tr><td><code>d</code> / <code>u</code></td><td>Half-page down / up</td></tr><tr><td><code>G</code> / <code>gg</code></td><td>Bottom / top</td></tr><tr><td><code>b</code> / <code>f</code></td><td>Back / forward</td></tr><tr><td><code>/</code> or <code>Cmd+L</code></td><td>Focus URL bar</td></tr><tr><td><code>1-9</code></td><td>Follow numbered link</td></tr><tr><td><code>Tab</code></td><td>Cycle through links</td></tr><tr><td><code>Enter</code></td><td>Activate focused link</td></tr></tbody></table>\n<h2 id=\"configuration\">Configuration</h2>\n<p>Config file at <code>~/.config/vulpes/config</code>:</p>\n<pre><code>shader = bloom-vulpes\nbloom = true\nscroll_speed = 40\nhome_page = https://example.com\n</code></pre>\n<p>Shaders load from <code>~/.config/ghostty/shaders/</code> for Ghostty compatibility.</p>\n<h2 id=\"building-from-source\">Building from Source</h2>\n<p>Requirements:</p>\n<ul>\n<li>macOS 14+</li>\n<li>Zig 0.15+</li>\n<li>Xcode 15+</li>\n<li>xcodegen (<code>brew install xcodegen</code>)</li>\n</ul>\n<pre><code class=\"language-bash\">zig build\nxcodegen generate\nxcodebuild -project Vulpes.xcodeproj -scheme Vulpes -configuration Release build\n</code></pre>\n<p>The built app will be in <code>~/Library/Developer/Xcode/DerivedData/Vulpes-*/Build/Products/Release/Vulpes.app</code></p>\n<h2 id=\"limitations\">Limitations</h2>\n<p>This is a text-focused browser. It does <strong>not</strong> support:</p>\n<ul>\n<li>JavaScript (SPAs will show minimal content)</li>\n<li>CSS layout (text extraction only)</li>\n<li>Images</li>\n<li>Forms</li>\n</ul>\n<p>This is intentional. Vulpes is for reading, not web apps.</p>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",
+    "raw": "# Vulpes Browser\n\nA minimalist, keyboard-first web browser for macOS. Built with Zig, Swift, and Metal.\n\n> **Beta Release** - This is early software. Expect rough edges.\n\n## Download\n\nDownload the latest release from [GitHub Releases](https://github.com/ejfox/vulpes-browser/releases).\n\n**Requirements:** macOS 14 (Sonoma) or later, Apple Silicon or Intel Mac.\n\n## What It Does\n\nVulpes renders web pages as clean, readable text with GPU-accelerated graphics. No ads, no tracking, no JavaScript.\n\n- **Vim-style navigation** - `j`/`k` scroll, `d`/`u` half-page, `G`/`gg` top/bottom\n- **Link navigation** - Numbers 1-9 follow links, `b`/`f` for back/forward\n- **Metal rendering** - GPU-accelerated text with glyph atlas\n- **GLSL shaders** - Ghostty/Shadertoy-compatible custom shaders\n- **Page transitions** - Visual effects when navigating\n\n## Keyboard Shortcuts\n\n| Key | Action |\n|-----|--------|\n| `j` / `k` | Scroll down / up |\n| `d` / `u` | Half-page down / up |\n| `G` / `gg` | Bottom / top |\n| `b` / `f` | Back / forward |\n| `/` or `Cmd+L` | Focus URL bar |\n| `1-9` | Follow numbered link |\n| `Tab` | Cycle through links |\n| `Enter` | Activate focused link |\n\n## Configuration\n\nConfig file at `~/.config/vulpes/config`:\n\n```\nshader = bloom-vulpes\nbloom = true\nscroll_speed = 40\nhome_page = https://example.com\n```\n\nShaders load from `~/.config/ghostty/shaders/` for Ghostty compatibility.\n\n## Building from Source\n\nRequirements:\n- macOS 14+\n- Zig 0.15+\n- Xcode 15+\n- xcodegen (`brew install xcodegen`)\n\n```bash\nzig build\nxcodegen generate\nxcodebuild -project Vulpes.xcodeproj -scheme Vulpes -configuration Release build\n```\n\nThe built app will be in `~/Library/Developer/Xcode/DerivedData/Vulpes-*/Build/Products/Release/Vulpes.app`\n\n## Limitations\n\nThis is a text-focused browser. It does **not** support:\n- JavaScript (SPAs will show minimal content)\n- CSS layout (text extraction only)\n- Images\n- Forms\n\nThis is intentional. Vulpes is for reading, not web apps.\n\n## License\n\nMIT\n",
+    "excerpt": "A minimalist, keyboard-first web browser for macOS. Built with Zig, Swift, and Metal.\n\n> Beta Release - This is early software. Expect rough edges.\n\n\n\nDownload..."
+  },
+  "createdAt": "2025-12-29T04:31:30Z",
+  "updatedAt": "2025-12-29T21:00:21Z",
+  "pushedAt": "2025-12-29T21:00:33Z"
+}

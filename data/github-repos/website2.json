@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 719549,
-    "TypeScript": 365332,
+    "Vue": 722703,
+    "TypeScript": 367148,
     "JavaScript": 221111,
     "CSS": 35191,
     "Shell": 18074,
     "HTML": 15405,
     "Dockerfile": 794
   },
-  "diskUsage": 88453,
+  "diskUsage": 88582,
   "fileTree": {
     "files": [
       {
@@ -5560,6 +5560,10 @@
         "size": 15907086
       },
       {
+        "path": "data/updates.json",
+        "size": 3929
+      },
+      {
         "path": "data/webmention-moderation.json",
         "size": 331
       },
@@ -5641,7 +5645,7 @@
       },
       {
         "path": "pages/bookmarklet-popup.vue",
-        "size": 19854
+        "size": 19881
       },
       {
         "path": "pages/bookmarklet.vue",
@@ -5653,7 +5657,7 @@
       },
       {
         "path": "pages/changelog.vue",
-        "size": 5362
+        "size": 5635
       },
       {
         "path": "pages/external-links.vue",
@@ -5754,6 +5758,10 @@
       {
         "path": "pages/threads.vue",
         "size": 21788
+      },
+      {
+        "path": "pages/updates.vue",
+        "size": 2854
       },
       {
         "path": "plugins/dark-mode.client.js",
@@ -6049,7 +6057,7 @@
       },
       {
         "path": "public/tags.json",
-        "size": 2280
+        "size": 2358
       },
       {
         "path": "scripts/README.md",
@@ -6473,7 +6481,7 @@
       },
       {
         "path": "server/api/suggest.get.ts",
-        "size": 12808
+        "size": 14624
       },
       {
         "path": "server/api/umami/auth.post.ts",
@@ -13890,6 +13898,11 @@
               "path": "data/tweets.json"
             },
             {
+              "name": "updates.json",
+              "size": 3929,
+              "path": "data/updates.json"
+            },
+            {
               "name": "webmention-moderation.json",
               "size": 331,
               "path": "data/webmention-moderation.json"
@@ -14127,7 +14140,7 @@
             },
             {
               "name": "bookmarklet-popup.vue",
-              "size": 19854,
+              "size": 19881,
               "path": "pages/bookmarklet-popup.vue"
             },
             {
@@ -14142,7 +14155,7 @@
             },
             {
               "name": "changelog.vue",
-              "size": 5362,
+              "size": 5635,
               "path": "pages/changelog.vue"
             },
             {
@@ -14199,6 +14212,11 @@
               "name": "threads.vue",
               "size": 21788,
               "path": "pages/threads.vue"
+            },
+            {
+              "name": "updates.vue",
+              "size": 2854,
+              "path": "pages/updates.vue"
             }
           ],
           "path": "pages"
@@ -14633,7 +14651,7 @@
             },
             {
               "name": "tags.json",
-              "size": 2280,
+              "size": 2358,
               "path": "public/tags.json"
             }
           ],
@@ -15302,7 +15320,7 @@
                 },
                 {
                   "name": "suggest.get.ts",
-                  "size": 12808,
+                  "size": 14624,
                   "path": "server/api/suggest.get.ts"
                 },
                 {
@@ -15585,8 +15603,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 1645,
-    "totalSize": 84394126
+    "totalFiles": 1647,
+    "totalSize": 84403103
   },
   "topics": [],
   "readme": {
@@ -15595,6 +15613,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-28T21:12:35Z",
-  "pushedAt": "2025-12-28T21:12:29Z"
+  "updatedAt": "2025-12-29T21:12:27Z",
+  "pushedAt": "2025-12-29T21:12:23Z"
 }

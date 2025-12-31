@@ -11,7 +11,9 @@ let buildCommit = 'unknown'
 try {
   const buildInfo = JSON.parse(readFileSync('.build-info.json', 'utf8'))
   buildCommit = buildInfo.commit || 'unknown'
-} catch {}
+} catch {
+  // .build-info.json may not exist in dev
+}
 
 export default defineEventHandler(async (event) => {
   try {
