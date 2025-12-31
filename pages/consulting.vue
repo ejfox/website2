@@ -108,10 +108,11 @@ const { data: availability } = await useFetch('/api/consulting-availability', {
   }),
 })
 
-// Next available Cal.com slots for intro calls
-const { data: calSlots } = await useFetch('/api/cal/available-slots', {
+// Next available Cal.com slots for intro calls (lazy - not critical for SSR)
+const { data: calSlots } = useLazyFetch('/api/cal/available-slots', {
   query: { duration: '1hr', days: 21 },
   default: () => ({ slots: [] }),
+  server: false,
 })
 
 // GitHub stats for live repo count (lazy - not critical for SSR)
