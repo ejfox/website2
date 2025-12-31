@@ -103,5 +103,67 @@ DEPLOY_TIME=$((DEPLOY_END - DEPLOY_START))
 
 log "🎉 TURBO: ${DEPLOY_TIME}s"
 
+# Gather commit details for alert
+COMMIT_SHORT="${REMOTE:0:7}"
+PREV_SHORT="${LOCAL:0:7}"
+COMMIT_MSG=$(git log -1 --pretty=format:"%s" 2>/dev/null | head -c 100)
+COMMIT_AUTHOR=$(git log -1 --pretty=format:"%an" 2>/dev/null)
+COMMIT_DATE=$(git log -1 --pretty=format:"%cr" 2>/dev/null)  # relative time
+COMMIT_DATE_FULL=$(git log -1 --pretty=format:"%ci" 2>/dev/null)
+COMMIT_URL="https://github.com/ejfox/website2/commit/${REMOTE}"
+COMPARE_URL="https://github.com/ejfox/website2/compare/${LOCAL}...${REMOTE}"
+
+# Files analysis
+FILES_CHANGED=$(git diff --name-only $LOCAL $REMOTE 2>/dev/null | wc -l)
+FILES_ADDED=$(git diff --name-status $LOCAL $REMOTE 2>/dev/null | grep -c "^A" || echo 0)
+FILES_MODIFIED=$(git diff --name-status $LOCAL $REMOTE 2>/dev/null | grep -c "^M" || echo 0)
+FILES_DELETED=$(git diff --name-status $LOCAL $REMOTE 2>/dev/null | grep -c "^D" || echo 0)
+LINES_ADDED=$(git diff --stat $LOCAL $REMOTE 2>/dev/null | tail -1 | grep -oE '[0-9]+ insertion' | grep -oE '[0-9]+' || echo 0)
+LINES_DELETED=$(git diff --stat $LOCAL $REMOTE 2>/dev/null | tail -1 | grep -oE '[0-9]+ deletion' | grep -oE '[0-9]+' || echo 0)
+
+# Key changed areas
+CHANGED_AREAS=""
+git diff --name-only $LOCAL $REMOTE 2>/dev/null | grep -q "^components/" && CHANGED_AREAS="${CHANGED_AREAS}components "
+git diff --name-only $LOCAL $REMOTE 2>/dev/null | grep -q "^pages/" && CHANGED_AREAS="${CHANGED_AREAS}pages "
+git diff --name-only $LOCAL $REMOTE 2>/dev/null | grep -q "^content/" && CHANGED_AREAS="${CHANGED_AREAS}content "
+git diff --name-only $LOCAL $REMOTE 2>/dev/null | grep -q "^server/" && CHANGED_AREAS="${CHANGED_AREAS}api "
+git diff --name-only $LOCAL $REMOTE 2>/dev/null | grep -q "nuxt.config" && CHANGED_AREAS="${CHANGED_AREAS}config "
+git diff --name-only $LOCAL $REMOTE 2>/dev/null | grep -qE "package.json|yarn.lock" && CHANGED_AREAS="${CHANGED_AREAS}deps "
+[ -z "$CHANGED_AREAS" ] && CHANGED_AREAS="other"
+
+# Build output stats
+OUTPUT_SIZE=$(du -sh .output 2>/dev/null | cut -f1 || echo "?")
+SERVER_SIZE=$(du -sh .output/server 2>/dev/null | cut -f1 || echo "?")
+PUBLIC_SIZE=$(du -sh .output/public 2>/dev/null | cut -f1 || echo "?")
+PRERENDERED=$(find .output/public -name "*.html" 2>/dev/null | wc -l || echo "?")
+
+# Container stats (after deploy)
+sleep 2
+CONTAINER_STATUS=$(docker inspect website2-prod --format '{{.State.Status}}' 2>/dev/null || echo "unknown")
+CONTAINER_HEALTH=$(docker inspect website2-prod --format '{{.State.Health.Status}}' 2>/dev/null || echo "unknown")
+CONTAINER_RESTARTS=$(docker inspect website2-prod --format '{{.RestartCount}}' 2>/dev/null || echo "?")
+CONTAINER_MEM=$(docker stats website2-prod --no-stream --format '{{.MemUsage}}' 2>/dev/null | cut -d'/' -f1 || echo "?")
+
+# Health check result
+HEALTH_OK="❌"
+curl -sf http://localhost:3006/api/healthcheck > /dev/null 2>&1 && HEALTH_OK="✅"
+
+# Timing breakdown
+TIMING_DETAIL=""
+[ "$INSTALL_TIME" -gt 0 ] && TIMING_DETAIL="deps:${INSTALL_TIME}s→"
+TIMING_DETAIL="${TIMING_DETAIL}build:${BUILD_TIME}s→docker:${RELOAD_TIME}s"
+
+# Compose hyper-dense alert message
+ALERT_MSG="**🚀 ejfox.com deployed** ${HEALTH_OK}
+\`${PREV_SHORT}\`→\`${COMMIT_SHORT}\` ${COMMIT_DATE}
+**${COMMIT_MSG}**
+by ${COMMIT_AUTHOR} | [diff](${COMPARE_URL})
+
+**Δ** ${FILES_CHANGED} files (+${LINES_ADDED}/-${LINES_DELETED}) | A:${FILES_ADDED} M:${FILES_MODIFIED} D:${FILES_DELETED}
+**Areas:** ${CHANGED_AREAS}
+**Output:** ${OUTPUT_SIZE} total | server:${SERVER_SIZE} public:${PUBLIC_SIZE} | ${PRERENDERED} pages
+**Container:** ${CONTAINER_STATUS}/${CONTAINER_HEALTH} | mem:${CONTAINER_MEM} | restarts:${CONTAINER_RESTARTS}
+**Timing:** ${TIMING_DETAIL} | **total:${DEPLOY_TIME}s**"
+
 # Alert on successful deploy
-$ALERT website info "Deployed ${LOCAL:0:7}→${REMOTE:0:7} in ${DEPLOY_TIME}s"
+$ALERT website info "$ALERT_MSG"
