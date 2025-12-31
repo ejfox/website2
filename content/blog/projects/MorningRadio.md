@@ -6,19 +6,31 @@ url: https://github.com/ejfox/MorningRadio
 tech: ['Swift', 'iOS', 'Audio Streaming', 'Mobile UX']
 state: doing
 aiInvolvement: ai-assisted
+industry: ['Consumer Apps', 'Digital Wellbeing']
+client: Personal Project
 tags:
   - ios
   - health
 ---
 
-## MorningRadio
+## The Problem
 
-Designed to be a healthy "first screen" in the morning. News summaries, updates, and enough information about the latest events that you don't feel the need to endlessly doomscroll.
+The first thing most people do when they wake up is grab their phone and doom-scroll. News apps are designed to maximize engagement, not inform. Social feeds are designed to maximize time-on-platform, not satisfaction. I wanted something different.
 
-The goal was to repurpose the tik-tok style endless vertical scroll but instead fill it with interesting and useful websites, tools, and news articles (populated through my Pinboard bookmarks)
+## What I'm Building
+
+MorningRadio—an iOS app designed to be a healthy "first screen." Quick news summaries, curated links from my Pinboard bookmarks, and audio briefings. The TikTok-style vertical swipe interaction, but filled with things that actually make your morning better.
 
 ![](http://res.cloudinary.com/ejf/image/upload/v1755098720/screenshot_2025-08-13_at_11.25.04_AM.png)
 
-I even experimented (unsuccessfully) with creating a home screen widget.
+**Design principles:**
+- Finite content—you can reach the end
+- Audio-first for eyes-free consumption
+- Curated sources, not algorithmic feeds
+- Satisfying, not addicting
 
-![https://res.cloudinary.com/ejf/image/upload/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png](https://res.cloudinary.com/ejf/image/upload/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png)
+## Current State
+
+Active development. Experimenting with home screen widgets (harder than expected on iOS) and audio synthesis for spoken briefings.
+
+![](https://res.cloudinary.com/ejf/image/upload/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png)

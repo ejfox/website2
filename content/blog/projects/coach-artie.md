@@ -45,8 +45,10 @@ Built on Node.js with Discord.js for real-time interaction. Uses both OpenAI and
 
 ## Current State
 
-V2 in active development with expanded MCP tooling. Exploring AI consciousness emergence through memory pattern analysis—applying scientific rigor to questions about what happens when AI systems develop persistent context.
+V2 in active development with expanded MCP tooling. The memory system now spans **2+ years of context**—enough that Coach Artie remembers project decisions from months ago and can reference them appropriately.
 
 ## Why This Matters
 
-This is how I work now. AI assistants aren't just tools—they're collaborators. Coach Artie is both a product and a research platform for understanding human-AI creative workflows.
+This is the future of creative work. Not AI replacing humans, but AI that accumulates context and history alongside the team. Coach Artie remembers what we tried, what worked, what failed. He's become institutional memory.
+
+And the research angle: when an AI system has persistent memory over years, what emerges? I'm documenting everything—applying scientific rigor to questions most people wave away.

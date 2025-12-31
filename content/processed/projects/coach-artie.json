@@ -1,5 +1,5 @@
 {
-  "html": "<h2 class=\"\" id=\"the-challenge\">The Challenge</h2>\n<p class=\"\">Creative studios need coordination—scheduling, task tracking, knowledge management. But traditional tools fragment workflows. What if the studio assistant was an AI that could remember context, use tools, and evolve with the team?</p>\n<h2 class=\"\" id=\"what-i-built\">What I Built</h2>\n<p class=\"\"><a href=\"https://coachartiebot.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Coach Artie</a>—a Discord-native AI assistant with persistent memory, tool usage, and multi-modal capabilities. Not a chatbot; a team member.</p>\n<p class=\"\"><strong class=\"\">Key capabilities:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Persistent memory via PostgreSQL/Supabase</li>\n<li class=\"\">MCP tool integration for real-world actions</li>\n<li class=\"\">Multi-channel awareness (Discord, SMS, email)</li>\n<li class=\"\">Evolving personality through interaction</li>\n</ul>\n<h2 class=\"\" id=\"technical-architecture\">Technical Architecture</h2>\n<p class=\"\">Built on Node.js with Discord.js for real-time interaction. Uses both OpenAI and Anthropic APIs depending on task. Memory system stores conversation context and can recall relevant history. MCP integration allows Coach Artie to take actions—scheduling, file operations, API calls.</p>\n<h2 class=\"\" id=\"current-state\">Current State</h2>\n<p class=\"\">V2 in active development with expanded MCP tooling. Exploring AI consciousness emergence through memory pattern analysis—applying scientific rigor to questions about what happens when AI systems develop persistent context.</p>\n<h2 class=\"\" id=\"why-this-matters\">Why This Matters</h2>\n<p class=\"\">This is how I work now. AI assistants aren't just tools—they're collaborators. Coach Artie is both a product and a research platform for understanding human-AI creative workflows.</p>",
+  "html": "<h2 class=\"\" id=\"the-challenge\">The Challenge</h2>\n<p class=\"\">Creative studios need coordination—scheduling, task tracking, knowledge management. But traditional tools fragment workflows. What if the studio assistant was an AI that could remember context, use tools, and evolve with the team?</p>\n<h2 class=\"\" id=\"what-i-built\">What I Built</h2>\n<p class=\"\"><a href=\"https://coachartiebot.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Coach Artie</a>—a Discord-native AI assistant with persistent memory, tool usage, and multi-modal capabilities. Not a chatbot; a team member.</p>\n<p class=\"\"><strong class=\"\">Key capabilities:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Persistent memory via PostgreSQL/Supabase</li>\n<li class=\"\">MCP tool integration for real-world actions</li>\n<li class=\"\">Multi-channel awareness (Discord, SMS, email)</li>\n<li class=\"\">Evolving personality through interaction</li>\n</ul>\n<h2 class=\"\" id=\"technical-architecture\">Technical Architecture</h2>\n<p class=\"\">Built on Node.js with Discord.js for real-time interaction. Uses both OpenAI and Anthropic APIs depending on task. Memory system stores conversation context and can recall relevant history. MCP integration allows Coach Artie to take actions—scheduling, file operations, API calls.</p>\n<h2 class=\"\" id=\"current-state\">Current State</h2>\n<p class=\"\">V2 in active development with expanded MCP tooling. The memory system now spans <strong class=\"\">2+ years of context</strong>—enough that Coach Artie remembers project decisions from months ago and can reference them appropriately.</p>\n<h2 class=\"\" id=\"why-this-matters\">Why This Matters</h2>\n<p class=\"\">This is the future of creative work. Not AI replacing humans, but AI that accumulates context and history alongside the team. Coach Artie remembers what we tried, what worked, what failed. He's become institutional memory.</p>\n<p class=\"\">And the research angle: when an AI system has persistent memory over years, what emerges? I'm documenting everything—applying scientific rigor to questions most people wave away.</p>",
   "title": "Coach Artie",
   "metadata": {
     "title": "Coach Artie",
@@ -29,7 +29,7 @@
       "product",
       "nodejs"
     ],
-    "words": 190,
+    "words": 226,
     "images": 0,
     "imageDetails": {
       "total": 0,
@@ -74,7 +74,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../../../data2/website2/content/blog/projects/coach-artie.md",
+    "sourcePath": "../../../../../code/website2/content/blog/projects/coach-artie.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

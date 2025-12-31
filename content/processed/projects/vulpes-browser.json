@@ -1,0 +1,68 @@
+{
+  "html": "<h2 class=\"\" id=\"the-hypothesis\">The Hypothesis</h2>\n<p class=\"\">What if a web browser was designed purely for reading? No JavaScript, no CSS layout, no images—just text extraction and keyboard navigation. Vim-style browsing for the reader who treats the web as a document archive.</p>\n<h2 class=\"\" id=\"what-im-building\">What I'm Building</h2>\n<p class=\"\">Vulpes—a text-focused browser built from scratch. Swift for the macOS UI, Zig for text processing, Metal for GPU-accelerated rendering with custom shaders.</p>\n<p class=\"\"><strong class=\"\">Navigation:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\"><code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">j/k</code> to scroll, <code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">d/u</code> for half-pages</li>\n<li class=\"\"><code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">G/gg</code> for top/bottom</li>\n<li class=\"\"><code class=\"font-mono text-sm bg-zinc-100 dark:bg-zinc-800 rounded px-1.5 py-0.5\">1-9</code> to follow numbered links</li>\n<li class=\"\">Keyboard-first, mouse-optional</li>\n</ul>\n<p class=\"\"><strong class=\"\">Intentional limitations:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">No JavaScript (SPAs show minimal content—that's the point)</li>\n<li class=\"\">No CSS layout (text extraction only)</li>\n<li class=\"\">No images</li>\n<li class=\"\">No forms</li>\n</ul>\n<h2 class=\"\" id=\"why-this-matters\">Why This Matters</h2>\n<p class=\"\">Most browsers are application platforms that happen to display documents. Vulpes is a document reader that refuses to be an application platform.</p>\n<p class=\"\">It's also a learning project—building a browser from scratch teaches you how much complexity we accept as normal. The answer: too much.</p>\n<h2 class=\"\" id=\"status\">Status</h2>\n<p class=\"\">Beta. Works for text-heavy sites, breaks on modern SPAs (by design). Custom GLSL shader support for visual customization.</p>",
+  "title": "Vulpes Browser",
+  "metadata": {
+    "title": "Vulpes Browser",
+    "date": "2025-12-29T05:00:00.000Z",
+    "url": "https://github.com/ejfox/vulpes-browser",
+    "tech": [
+      "Swift",
+      "Zig",
+      "Metal",
+      "GLSL"
+    ],
+    "state": "doing",
+    "aiInvolvement": "ai-assisted",
+    "industry": [
+      "Developer Tools",
+      "Experimental"
+    ],
+    "client": "Personal Project",
+    "tags": [
+      "browser",
+      "experimental",
+      "zig"
+    ],
+    "words": 179,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 4
+    },
+    "toc": [
+      {
+        "text": "The Hypothesis",
+        "slug": "the-hypothesis",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I'm Building",
+        "slug": "what-im-building",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Why This Matters",
+        "slug": "why-this-matters",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Status",
+        "slug": "status",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/projects/vulpes-browser.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

@@ -9039,8 +9039,20 @@
     ],
     "toc": [
       {
-        "text": "MorningRadio",
-        "slug": "morningradio",
+        "text": "The Problem",
+        "slug": "the-problem",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I'm Building",
+        "slug": "what-im-building",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Current State",
+        "slug": "current-state",
         "level": "h2",
         "children": []
       }
@@ -9058,11 +9070,16 @@
       ],
       "state": "doing",
       "aiInvolvement": "ai-assisted",
+      "industry": [
+        "Consumer Apps",
+        "Digital Wellbeing"
+      ],
+      "client": "Personal Project",
       "tags": [
         "ios",
         "health"
       ],
-      "words": 74,
+      "words": 131,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -9072,12 +9089,24 @@
       "links": 2,
       "codeBlocks": 0,
       "headers": {
-        "h2": 1
+        "h2": 3
       },
       "toc": [
         {
-          "text": "MorningRadio",
-          "slug": "morningradio",
+          "text": "The Problem",
+          "slug": "the-problem",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What I'm Building",
+          "slug": "what-im-building",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Current State",
+          "slug": "current-state",
           "level": "h2",
           "children": []
         }
@@ -9100,7 +9129,32 @@
       "journalism",
       "database"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "The Challenge",
+        "slug": "the-challenge",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I Built",
+        "slug": "what-i-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Validation",
+        "slug": "validation",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Why This Matters",
+        "slug": "why-this-matters",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "title": "Clusters of NYPD Misconduct",
       "date": "2021-06-15T04:00:00.000Z",
@@ -9116,23 +9170,55 @@
       "featured": true,
       "state": "deployed",
       "aiInvolvement": "human-only",
+      "industry": [
+        "Police Accountability",
+        "Investigative Journalism"
+      ],
+      "client": "Gothamist / WNYC",
       "tags": [
         "data",
         "nypd",
         "journalism",
         "database"
       ],
-      "words": 92,
+      "words": 185,
       "images": 1,
       "imageDetails": {
         "total": 1,
         "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 1,
+      "links": 2,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 4
+      },
+      "toc": [
+        {
+          "text": "The Challenge",
+          "slug": "the-challenge",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What I Built",
+          "slug": "what-i-built",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Validation",
+          "slug": "validation",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Why This Matters",
+          "slug": "why-this-matters",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/projects/ccrb-clusters.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -9226,7 +9312,26 @@
       "tools",
       "photography"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "The Problem",
+        "slug": "the-problem",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I Built",
+        "slug": "what-i-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Why Tauri?",
+        "slug": "why-tauri",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "title": "Cloudinary Backup Tool",
       "date": "2025-01-15T05:00:00.000Z",
@@ -9238,11 +9343,16 @@
         "Vite"
       ],
       "modified": "2025-08-13T15:58:10.000Z",
+      "industry": [
+        "Developer Tools",
+        "Photography"
+      ],
+      "client": "Open Source",
       "tags": [
         "tools",
         "photography"
       ],
-      "words": 52,
+      "words": 121,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -9251,8 +9361,29 @@
       },
       "links": 1,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 3
+      },
+      "toc": [
+        {
+          "text": "The Problem",
+          "slug": "the-problem",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What I Built",
+          "slug": "what-i-built",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Why Tauri?",
+          "slug": "why-tauri",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "sourcePath": "../../../../../code/website2/content/blog/projects/cloudinary-backup-tool.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
@@ -9331,7 +9462,7 @@
         "product",
         "nodejs"
       ],
-      "words": 190,
+      "words": 226,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9376,7 +9507,7 @@
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../../../data2/website2/content/blog/projects/coach-artie.md",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/coach-artie.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/coach-artie"
     }
@@ -9796,6 +9927,97 @@
     }
   },
   {
+    "slug": "projects/exif-photo-printer",
+    "title": "EXIF Photo Printer",
+    "date": "2025-05-28T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "photography",
+      "tools",
+      "desktop"
+    ],
+    "toc": [
+      {
+        "text": "The Problem",
+        "slug": "the-problem",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I Built",
+        "slug": "what-i-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Why This Exists",
+        "slug": "why-this-exists",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "title": "EXIF Photo Printer",
+      "date": "2025-05-28T04:00:00.000Z",
+      "url": "https://exifprinter.ejfox.com",
+      "github": "https://github.com/ejfox/exif-printer-simple",
+      "tech": [
+        "Electron",
+        "Vue 3",
+        "Canvas",
+        "EXIF"
+      ],
+      "state": "deployed",
+      "aiInvolvement": "ai-assisted",
+      "industry": [
+        "Photography",
+        "Desktop Apps"
+      ],
+      "client": "Open Source",
+      "tags": [
+        "photography",
+        "tools",
+        "desktop"
+      ],
+      "words": 157,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 3
+      },
+      "toc": [
+        {
+          "text": "The Problem",
+          "slug": "the-problem",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What I Built",
+          "slug": "what-i-built",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Why This Exists",
+          "slug": "why-this-exists",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/exif-photo-printer.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/exif-photo-printer"
+    }
+  },
+  {
     "slug": "projects/nbc-big-board",
     "title": "NBC News Big Board",
     "date": "2016-11-08T05:00:00.000Z",
@@ -10169,6 +10391,392 @@
       "sourcePath": "../../../../../../../data2/website2/content/blog/projects/smallbot-mcp.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/smallbot-mcp"
+    }
+  },
+  {
+    "slug": "projects/subway-builder-mods",
+    "title": "Subway Builder Mods",
+    "date": "2025-12-17T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "games",
+      "transit",
+      "modding"
+    ],
+    "toc": [
+      {
+        "text": "The Context",
+        "slug": "the-context",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I Built",
+        "slug": "what-i-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Also Built",
+        "slug": "also-built",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "title": "Subway Builder Mods",
+      "date": "2025-12-17T05:00:00.000Z",
+      "url": "https://github.com/ejfox/subway-builder-mods",
+      "tech": [
+        "JavaScript",
+        "Game Modding",
+        "Data Visualization",
+        "KML/KMZ"
+      ],
+      "state": "deployed",
+      "aiInvolvement": "ai-assisted",
+      "industry": [
+        "Gaming",
+        "Transit"
+      ],
+      "client": "Open Source (with Colin)",
+      "tags": [
+        "games",
+        "transit",
+        "modding"
+      ],
+      "words": 173,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 3
+      },
+      "toc": [
+        {
+          "text": "The Context",
+          "slug": "the-context",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What I Built",
+          "slug": "what-i-built",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Also Built",
+          "slug": "also-built",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/subway-builder-mods.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/subway-builder-mods"
+    }
+  },
+  {
+    "slug": "projects/towntuner",
+    "title": "TownTuner",
+    "date": "2025-08-16T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "ios",
+      "audio",
+      "app"
+    ],
+    "toc": [
+      {
+        "text": "The Problem",
+        "slug": "the-problem",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I'm Building",
+        "slug": "what-im-building",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Technical Details",
+        "slug": "technical-details",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Why This Exists",
+        "slug": "why-this-exists",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "title": "TownTuner",
+      "date": "2025-08-16T04:00:00.000Z",
+      "url": "https://github.com/ejfox/towntuner",
+      "tech": [
+        "SwiftUI",
+        "iOS",
+        "CloudKit",
+        "AVFoundation",
+        "CarPlay"
+      ],
+      "state": "doing",
+      "aiInvolvement": "ai-assisted",
+      "industry": [
+        "Consumer Apps",
+        "Audio"
+      ],
+      "client": "Personal Project",
+      "tags": [
+        "ios",
+        "audio",
+        "app"
+      ],
+      "words": 208,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 4
+      },
+      "toc": [
+        {
+          "text": "The Problem",
+          "slug": "the-problem",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What I'm Building",
+          "slug": "what-im-building",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Technical Details",
+          "slug": "technical-details",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Why This Exists",
+          "slug": "why-this-exists",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/towntuner.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/towntuner"
+    }
+  },
+  {
+    "slug": "projects/vulpes-browser",
+    "title": "Vulpes Browser",
+    "date": "2025-12-29T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "browser",
+      "experimental",
+      "zig"
+    ],
+    "toc": [
+      {
+        "text": "The Hypothesis",
+        "slug": "the-hypothesis",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I'm Building",
+        "slug": "what-im-building",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Why This Matters",
+        "slug": "why-this-matters",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Status",
+        "slug": "status",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "title": "Vulpes Browser",
+      "date": "2025-12-29T05:00:00.000Z",
+      "url": "https://github.com/ejfox/vulpes-browser",
+      "tech": [
+        "Swift",
+        "Zig",
+        "Metal",
+        "GLSL"
+      ],
+      "state": "doing",
+      "aiInvolvement": "ai-assisted",
+      "industry": [
+        "Developer Tools",
+        "Experimental"
+      ],
+      "client": "Personal Project",
+      "tags": [
+        "browser",
+        "experimental",
+        "zig"
+      ],
+      "words": 179,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 4
+      },
+      "toc": [
+        {
+          "text": "The Hypothesis",
+          "slug": "the-hypothesis",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What I'm Building",
+          "slug": "what-im-building",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Why This Matters",
+          "slug": "why-this-matters",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Status",
+          "slug": "status",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/vulpes-browser.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/vulpes-browser"
+    }
+  },
+  {
+    "slug": "projects/vulpes-theme-lab",
+    "title": "Vulpes Theme Lab",
+    "date": "2025-10-24T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools",
+      "design",
+      "terminal"
+    ],
+    "toc": [
+      {
+        "text": "The Problem",
+        "slug": "the-problem",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I Built",
+        "slug": "what-i-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Design Philosophy",
+        "slug": "design-philosophy",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "title": "Vulpes Theme Lab",
+      "date": "2025-10-24T04:00:00.000Z",
+      "url": "https://github.com/ejfox/vulpes-theme-lab",
+      "tech": [
+        "Vue 3",
+        "Nuxt",
+        "TypeScript",
+        "CodeMirror",
+        "Chroma.js"
+      ],
+      "state": "deployed",
+      "aiInvolvement": "ai-assisted",
+      "industry": [
+        "Developer Tools",
+        "Design"
+      ],
+      "client": "Open Source",
+      "tags": [
+        "tools",
+        "design",
+        "terminal"
+      ],
+      "words": 186,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 3
+      },
+      "toc": [
+        {
+          "text": "The Problem",
+          "slug": "the-problem",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What I Built",
+          "slug": "what-i-built",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Design Philosophy",
+          "slug": "design-philosophy",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/projects/vulpes-theme-lab.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "projects/vulpes-theme-lab"
     }
   },
   {

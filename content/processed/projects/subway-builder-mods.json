@@ -1,0 +1,62 @@
+{
+  "html": "<h2 class=\"\" id=\"the-context\">The Context</h2>\n<p class=\"\"><a href=\"https://subwaybuilder.xyz\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Subway Builder</a> is Colin Rothfels' indie transit sim—think Mini Metro meets real-world transit planning. I've been helping with modding tools and building mods that push what the game can do.</p>\n<h2 class=\"\" id=\"what-i-built\">What I Built</h2>\n<p class=\"\">A collection of mods that add realism, data viz, and NYC flavor:</p>\n<p class=\"\"><strong class=\"\">Day/Night Theme Cycle</strong>\nInterface automatically shifts between light (6am-6pm) and dark themes based on in-game time. Small touch, surprisingly immersive.</p>\n<p class=\"\"><strong class=\"\">Bushwick Express</strong>\nNYC-themed career mission with geographic passenger tracking. Build your network connecting Brooklyn to Manhattan, hit ridership milestones, unlock achievements. Local flavor in a global game.</p>\n<p class=\"\"><strong class=\"\">Commute Sankey</strong>\nReal-time data visualization of passenger flows through your network. See mode-share percentages, route ridership breakdowns. Turns your transit network into a legible data story.</p>\n<p class=\"\"><strong class=\"\">KML/KMZ Export</strong>\nExport your metro designs to Google Earth. Your fantasy subway system, rendered as real geography. Useful for presentations, screenshots, or just seeing how your network would look IRL.</p>\n<h2 class=\"\" id=\"also-built\">Also Built</h2>\n<ul class=\"list-disc\">\n<li class=\"\"><a href=\"https://github.com/ejfox/metro-savefile-doctor\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">metro-savefile-doctor<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12\" class=\"\"></path></svg></a>: TUI tool for editing save files</li>\n<li class=\"\"><a href=\"https://github.com/ejfox/subwaybuilder-mod\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">subwaybuilder-mod template<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12\" class=\"\"></path></svg></a>: Starter template for mod developers</li>\n</ul>",
+  "title": "Subway Builder Mods",
+  "metadata": {
+    "title": "Subway Builder Mods",
+    "date": "2025-12-17T05:00:00.000Z",
+    "url": "https://github.com/ejfox/subway-builder-mods",
+    "tech": [
+      "JavaScript",
+      "Game Modding",
+      "Data Visualization",
+      "KML/KMZ"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "industry": [
+      "Gaming",
+      "Transit"
+    ],
+    "client": "Open Source (with Colin)",
+    "tags": [
+      "games",
+      "transit",
+      "modding"
+    ],
+    "words": 173,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 3
+    },
+    "toc": [
+      {
+        "text": "The Context",
+        "slug": "the-context",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I Built",
+        "slug": "what-i-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Also Built",
+        "slug": "also-built",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/projects/subway-builder-mods.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

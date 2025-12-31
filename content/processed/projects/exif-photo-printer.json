@@ -1,0 +1,63 @@
+{
+  "html": "<h2 class=\"\" id=\"the-problem\">The Problem</h2>\n<p class=\"\">Photo prints hide the technical details that matter to photographers. Every print I order from CVS or Walgreens comes out looking the same—no context about the camera settings, lens, or exposure choices that went into making the image.</p>\n<h2 class=\"\" id=\"what-i-built\">What I Built</h2>\n<p class=\"\"><a href=\"https://exifprinter.ejfox.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">EXIF Photo Printer</a>—a macOS app that adds camera metadata to your photo borders before printing.</p>\n<p class=\"\"><strong class=\"\">Workflow:</strong></p>\n<ol class=\"list-decimal\">\n<li class=\"\">Drag photos into the app</li>\n<li class=\"\">EXIF data is extracted automatically</li>\n<li class=\"\">Pick your print size (4x6, 5x7, 8x10, etc.)</li>\n<li class=\"\">Download print-ready files at 300 DPI</li>\n</ol>\n<p class=\"\"><strong class=\"\">Each print shows:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Camera model and lens</li>\n<li class=\"\">Aperture, shutter speed, ISO</li>\n<li class=\"\">Capture date</li>\n<li class=\"\">Additional metadata when available</li>\n</ul>\n<h2 class=\"\" id=\"why-this-exists\">Why This Exists</h2>\n<p class=\"\">I wanted my printed photos to feel like pages from a field notebook—the technical choices visible alongside the image. Now when I look at a print, I remember <em class=\"\">how</em> I made it, not just what I saw.</p>\n<p class=\"\"><a href=\"https://exifprinter.ejfox.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Download for macOS →</a></p>",
+  "title": "EXIF Photo Printer",
+  "metadata": {
+    "title": "EXIF Photo Printer",
+    "date": "2025-05-28T04:00:00.000Z",
+    "url": "https://exifprinter.ejfox.com",
+    "github": "https://github.com/ejfox/exif-printer-simple",
+    "tech": [
+      "Electron",
+      "Vue 3",
+      "Canvas",
+      "EXIF"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "industry": [
+      "Photography",
+      "Desktop Apps"
+    ],
+    "client": "Open Source",
+    "tags": [
+      "photography",
+      "tools",
+      "desktop"
+    ],
+    "words": 157,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 3
+    },
+    "toc": [
+      {
+        "text": "The Problem",
+        "slug": "the-problem",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I Built",
+        "slug": "what-i-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Why This Exists",
+        "slug": "why-this-exists",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/projects/exif-photo-printer.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

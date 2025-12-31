@@ -1,0 +1,69 @@
+{
+  "html": "<h2 class=\"\" id=\"the-problem\">The Problem</h2>\n<p class=\"\">Harmontown ran for 360 episodes over 7 years. I've been falling asleep to it for a decade. But podcast apps are designed for \"catching up\" - skip around, mark as played, move on. I needed the opposite: a completionist system that tracked <em class=\"\">actually</em> listening to every episode, in order, while half-asleep.</p>\n<h2 class=\"\" id=\"what-im-building\">What I'm Building</h2>\n<p class=\"\">TownTuner - a podcast player built for one show and one use case: falling asleep to Harmontown, night after night, until you've genuinely heard all 360 episodes.</p>\n<p class=\"\"><strong class=\"\">The prestige system:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Episodes only count at 85% completion</li>\n<li class=\"\">Must complete all 360 chronologically to prestige</li>\n<li class=\"\">Smart shuffle plays only unplayed episodes</li>\n<li class=\"\">Sleep timer with automatic fade-out</li>\n</ul>\n<p class=\"\"><strong class=\"\">Designed for half-asleep operation:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Thumb-first navigation (one-handed, eyes closed)</li>\n<li class=\"\">Liquid glass UI with minimal cognitive load</li>\n<li class=\"\">Resume exactly where you fell asleep</li>\n</ul>\n<h2 class=\"\" id=\"technical-details\">Technical Details</h2>\n<p class=\"\">SwiftUI with AVFoundation for audio, CloudKit for cross-device sync. Full CarPlay and AirPlay support. Lock screen controls that actually work. Offline-first so your bedtime routine doesn't depend on WiFi.</p>\n<h2 class=\"\" id=\"why-this-exists\">Why This Exists</h2>\n<p class=\"\">Every podcast app assumes you want to finish and move on. TownTuner assumes you want to live inside one show forever. Different product for a different relationship with audio.</p>",
+  "title": "TownTuner",
+  "metadata": {
+    "title": "TownTuner",
+    "date": "2025-08-16T04:00:00.000Z",
+    "url": "https://github.com/ejfox/towntuner",
+    "tech": [
+      "SwiftUI",
+      "iOS",
+      "CloudKit",
+      "AVFoundation",
+      "CarPlay"
+    ],
+    "state": "doing",
+    "aiInvolvement": "ai-assisted",
+    "industry": [
+      "Consumer Apps",
+      "Audio"
+    ],
+    "client": "Personal Project",
+    "tags": [
+      "ios",
+      "audio",
+      "app"
+    ],
+    "words": 208,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 4
+    },
+    "toc": [
+      {
+        "text": "The Problem",
+        "slug": "the-problem",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I'm Building",
+        "slug": "what-im-building",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Technical Details",
+        "slug": "technical-details",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Why This Exists",
+        "slug": "why-this-exists",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/projects/towntuner.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}
