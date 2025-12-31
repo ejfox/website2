@@ -801,11 +801,11 @@ usePageSeo({
    CLIENT LOGOS
    ============================================ */
 .client-logo-grid {
-  @apply grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 items-center;
+  @apply grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 sm:gap-6 items-center;
 }
 
 .client-logo-item {
-  @apply flex items-center justify-center h-12 grayscale opacity-60
+  @apply flex items-center justify-center h-6 sm:h-10 grayscale opacity-60
          hover:grayscale-0 hover:opacity-100 transition-all duration-300;
 }
 
@@ -957,8 +957,7 @@ usePageSeo({
    SIDEBAR
    ============================================ */
 .sidebar-availability {
-  @apply pt-6 space-y-3 p-4 -m-4 rounded
-         bg-zinc-900/70 backdrop-blur-md;
+  @apply pt-6 space-y-3;
 }
 
 .sidebar-label {

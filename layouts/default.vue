@@ -12,69 +12,12 @@
     </a>
     <NuxtLoadingIndicator color="#999999" :height="1" />
     <section class="flex flex-col md:flex-row min-h-screen relative">
-      <!-- Mobile navigation -->
-      <nav
-        v-if="!isStatsSimple"
-        class="md:hidden fixed top-0 left-0 w-full z-50 bg-zinc-100/80 dark:bg-zinc-900/80 backdrop-blur-lg"
-      >
-        <div class="px-4 py-3 flex justify-between items-center">
-          <NuxtLink
-            class="text-zinc-800 dark:text-zinc-400 text-xl font-bold"
-            to="/"
-          >
-            EJ Fox
-          </NuxtLink>
-          <button
-            class="p-2 -mr-2 text-zinc-800 dark:text-zinc-400 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50 rounded-lg"
-            aria-label="Toggle menu"
-            :aria-expanded="mobileMenuOpen"
-            @click="mobileMenuOpen = !mobileMenuOpen"
-          >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                :d="
-                  mobileMenuOpen
-                    ? 'M6 18L18 6M6 6l12 12'
-                    : 'M4 6h16M4 12h16M4 18h16'
-                "
-              />
-            </svg>
-          </button>
-        </div>
-
-        <div
-          v-if="mobileMenuOpen"
-          class="border-t border-zinc-200 dark:border-zinc-800 px-4 py-2 space-y-1"
-        >
-          <template v-for="item in primaryNav" :key="item.href">
-            <a
-              v-if="item.external"
-              :href="item.href"
-              class="block py-3 px-3 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50"
-              target="_blank"
-              rel="noopener noreferrer"
-              @click="mobileMenuOpen = false"
-            >
-              {{ item.label }}
-            </a>
-            <NuxtLink
-              v-else
-              :to="item.href"
-              class="block py-3 px-3 rounded-lg text-zinc-600 dark:text-zinc-400 hover:bg-zinc-200/50 dark:hover:bg-zinc-800/50"
-              @click="mobileMenuOpen = false"
-            >
-              {{ item.label }}
-            </NuxtLink>
-          </template>
-        </div>
+      <!-- Mobile nav -->
+      <nav v-if="!isStatsSimple" class="md:hidden px-4 py-3 font-mono text-sm flex flex-wrap gap-x-3 gap-y-1 items-baseline">
+        <NuxtLink to="/" class="font-bold text-zinc-800 dark:text-zinc-200">EJ Fox</NuxtLink>
+        <NuxtLink to="/blog/" class="text-zinc-500 dark:text-zinc-400">Blog</NuxtLink>
+        <NuxtLink to="/projects" class="text-zinc-500 dark:text-zinc-400">Projects</NuxtLink>
+        <NuxtLink to="/consulting" class="text-zinc-500 dark:text-zinc-400">Hire Me</NuxtLink>
       </nav>
 
       <!-- Desktop sidebar -->
@@ -133,7 +76,7 @@
         id="main-content"
         :class="[
           'w-full overflow-x-auto',
-          isStatsSimple ? 'mt-0' : 'md:w-4/5 mt-14 md:mt-0',
+          isStatsSimple ? '' : 'md:w-4/5',
         ]"
       >
         <slot />
@@ -146,10 +89,9 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import { getPrimaryNav } from '~/config/navigation'
 
-const mobileMenuOpen = ref(false)
 const route = useRoute()
 const primaryNav = getPrimaryNav()
 
