@@ -114,9 +114,10 @@ const { data: calSlots } = await useFetch('/api/cal/available-slots', {
   default: () => ({ slots: [] }),
 })
 
-// GitHub stats for live repo count
-const { data: stats } = await useFetch('/api/stats', {
+// GitHub stats for live repo count (lazy - not critical for SSR)
+const { data: stats } = useLazyFetch('/api/stats', {
   default: () => ({ github: { stats: { totalRepos: 0 } } }),
+  server: false,
 })
 
 const githubRepos = computed(() => stats.value?.github?.stats?.totalRepos || 0)
