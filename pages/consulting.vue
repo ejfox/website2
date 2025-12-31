@@ -242,7 +242,7 @@ const specialties = [
   {
     title: 'Live Systems',
     description:
-      'When millions are watching and it has to work. Stressful, but thrilling.',
+      'When millions are watching and it has to work. I stay until it does.',
     proof: 'CMU COVIDcast, NBC elections, investigations.',
   },
 ]
@@ -287,8 +287,8 @@ usePageSeo({
         </h1>
         <p class="body-lg mb-4">
           Biotech prototypes, journalism tools, climate dashboards, transit
-          sims, police accountability trackers, AI experiments. Turning
-          half-formed ideas into working software&mdash;whatever the domain.
+          sims, police accountability trackers, AI experiments. Zero to one.
+          Making ideas exist that didn't before.
         </p>
         <p class="caption">
           The world is editable. Let's see what we can make.
@@ -472,8 +472,8 @@ usePageSeo({
             <div>
               <p class="process-title">Build</p>
               <p class="process-desc">
-                Weekly calls, async demo videos, early prototypes. I prefer
-                Slack or Discord over email&mdash;faster feedback, better work.
+                Weekly calls, async demo videos, early prototypes. Slack or
+                Discord over email. I'll be with you the entire way until it ships.
               </p>
             </div>
           </div>
