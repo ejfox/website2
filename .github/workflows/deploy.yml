@@ -16,16 +16,67 @@ jobs:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.VPS_SSH_KEY }}
+        command_timeout: 20m
         script: |
+          set -e
+          DEPLOY_START=$(date +%s)
+          ALERT="/home/debian/scripts/alert.sh"
+
+          # Setup Node 22
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
           cd /data2/website2
           nvm install 22 || true
           nvm use 22
-          node --version
+
+          # Capture before/after commits
+          PREV_COMMIT=$(git rev-parse --short HEAD)
           git fetch origin main
           git reset --hard origin/main
-          rm -rf node_modules .yarn/cache .nuxt .output
-          yarn install --frozen-lockfile --ignore-engines
-          yarn build
+          NEW_COMMIT=$(git rev-parse --short HEAD)
+
+          # Get commit info for alert
+          COMMIT_MSG=$(git log -1 --pretty=format:"%s" | head -c 100)
+          COMMIT_AUTHOR=$(git log -1 --pretty=format:"%an")
+          COMMIT_DATE=$(git log -1 --pretty=format:"%cr")
+          FILES_CHANGED=$(git diff --name-only ${PREV_COMMIT} ${NEW_COMMIT} 2>/dev/null | wc -l || echo "?")
+          COMPARE_URL="https://github.com/ejfox/website2/compare/${PREV_COMMIT}...${NEW_COMMIT}"
+
+          # Clean build with correct preset
+          rm -rf .nuxt .output node_modules/.cache
+
+          # Install deps (skip if lockfile unchanged)
+          INSTALL_START=$(date +%s)
+          yarn install --frozen-lockfile --ignore-engines --prefer-offline
+          INSTALL_TIME=$(($(date +%s) - INSTALL_START))
+
+          # CRITICAL: node-server preset for Docker
+          BUILD_START=$(date +%s)
+          NITRO_PRESET=node-server yarn build
+          BUILD_TIME=$(($(date +%s) - BUILD_START))
+
+          # Docker rebuild
+          DOCKER_START=$(date +%s)
           DOCKER_BUILDKIT=1 docker-compose up -d --build
+          DOCKER_TIME=$(($(date +%s) - DOCKER_START))
+
+          # Wait for healthy
+          sleep 5
+          HEALTH="❌"
+          curl -sf http://localhost:3006/api/healthcheck > /dev/null 2>&1 && HEALTH="✅"
+
+          # Container stats
+          CONTAINER_MEM=$(docker stats website2-prod --no-stream --format '{{.MemUsage}}' 2>/dev/null | cut -d'/' -f1 || echo "?")
+          OUTPUT_SIZE=$(du -sh .output 2>/dev/null | cut -f1 || echo "?")
+
+          DEPLOY_TIME=$(($(date +%s) - DEPLOY_START))
+
+          # Send hyper-dense Discord alert
+          ALERT_MSG="**🚀 ejfox.com deployed** ${HEALTH}
+          \`${PREV_COMMIT}\`→\`${NEW_COMMIT}\` ${COMMIT_DATE}
+          **${COMMIT_MSG}**
+          by ${COMMIT_AUTHOR} | [diff](${COMPARE_URL})
+          **Δ** ${FILES_CHANGED} files | **Output:** ${OUTPUT_SIZE} | **Mem:** ${CONTAINER_MEM}
+          **Timing:** deps:${INSTALL_TIME}s→build:${BUILD_TIME}s→docker:${DOCKER_TIME}s | **total:${DEPLOY_TIME}s**"
+
+          ALERT_FORCE=1 $ALERT website info "$ALERT_MSG"
