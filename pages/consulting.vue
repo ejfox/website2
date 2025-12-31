@@ -5,8 +5,8 @@ import { useDark, useWindowScroll, useWindowSize } from '@vueuse/core'
 // VIDEO BACKGROUND CONFIG - TWEAK THESE
 // ============================================
 const VIDEO_CONFIG = {
-  // Video source
-  src: 'https://res.cloudinary.com/ejf/video/upload/v1730768430/Connectology_Demo01.mp4',
+  // Video source - Cloudinary optimized (f_auto=WebM/MP4, q_auto, vc_auto codec)
+  src: 'https://res.cloudinary.com/ejf/video/upload/f_auto,q_auto,vc_auto/v1730768430/Connectology_Demo01',
 
   // Scroll-driven playback
   scrollDriven: true, // true = NYT-style scroll scrub, false = autoplay loop
