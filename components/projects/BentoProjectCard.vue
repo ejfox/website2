@@ -10,6 +10,12 @@
     :style="{ transform: cardTransform }"
     class="interactive-card block p-4 no-underline min-h-[180px] flex flex-col"
   >
+    <div
+      v-if="project.metadata?.client"
+      class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-1"
+    >
+      {{ project.metadata.client }}
+    </div>
     <h3 class="text-lg font-serif text-zinc-900 dark:text-zinc-100 mb-2">
       {{ projectTitle }}
     </h3>

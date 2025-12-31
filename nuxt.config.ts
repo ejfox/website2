@@ -186,6 +186,7 @@ export default defineNuxtConfig({
     SUPABASE_URL: process.env.SUPABASE_URL || '',
     SUPABASE_KEY: process.env.SUPABASE_KEY || '',
     scrapEnlightenerAuth: process.env.SCRAP_ENLIGHTENER_AUTH || '',
+    calcomApiKey: process.env.CAL_COM_API_KEY || '',
 
     // Public client-accessible vars
     public: {
@@ -197,6 +198,7 @@ export default defineNuxtConfig({
       debug: process.env.DEBUG === 'true',
       debugContent: process.env.DEBUG_CONTENT === 'true',
       nodeEnv: process.env.NODE_ENV || 'development',
+      clarityId: process.env.NUXT_PUBLIC_CLARITY_ID || '',
     },
   },
 

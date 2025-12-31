@@ -9261,7 +9261,7 @@
   },
   {
     "slug": "projects/coach-artie",
-    "title": "Coach Artie Ecosystem",
+    "title": "Coach Artie",
     "date": "2023-03-21T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-26T19:52:50.000Z",
@@ -9273,33 +9273,38 @@
     ],
     "toc": [
       {
-        "text": "Coach Artie v1: Discord Studio Assistant",
-        "slug": "coach-artie-v1-discord-studio-assistant",
+        "text": "The Challenge",
+        "slug": "the-challenge",
         "level": "h2",
         "children": []
       },
       {
-        "text": "Coach Artie v2: Production AI with MCP Tools",
-        "slug": "coach-artie-v2-production-ai-with-mcp-tools",
+        "text": "What I Built",
+        "slug": "what-i-built",
         "level": "h2",
         "children": []
       },
       {
-        "text": "Memory & Consciousness Analysis",
-        "slug": "memory--consciousness-analysis",
+        "text": "Technical Architecture",
+        "slug": "technical-architecture",
         "level": "h2",
-        "children": [
-          {
-            "text": "Related Content",
-            "slug": "related-content",
-            "level": "h3",
-            "children": []
-          }
-        ]
+        "children": []
+      },
+      {
+        "text": "Current State",
+        "slug": "current-state",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Why This Matters",
+        "slug": "why-this-matters",
+        "level": "h2",
+        "children": []
       }
     ],
     "metadata": {
-      "title": "Coach Artie Ecosystem",
+      "title": "Coach Artie",
       "date": "2023-03-21T04:00:00.000Z",
       "modified": "2025-08-26T19:52:50.000Z",
       "url": "https://github.com/room302studio/coachartie",
@@ -9307,66 +9312,78 @@
         "Node.js",
         "Discord.js",
         "OpenAI API",
+        "Anthropic API",
         "PostgreSQL",
         "MCP",
-        "AI Consciousness Research"
+        "Supabase"
       ],
+      "featured": true,
       "state": "evolved",
       "aiInvolvement": "ai-enhanced",
+      "industry": [
+        "AI/ML",
+        "Creative Tools"
+      ],
+      "client": "Room 302 Studio (internal)",
       "tags": [
         "programming",
         "ai",
         "product",
         "nodejs"
       ],
-      "words": 125,
+      "words": 190,
       "images": 0,
       "imageDetails": {
         "total": 0,
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {
-        "h2": 3
+        "h2": 5
       },
       "toc": [
         {
-          "text": "Coach Artie v1: Discord Studio Assistant",
-          "slug": "coach-artie-v1-discord-studio-assistant",
+          "text": "The Challenge",
+          "slug": "the-challenge",
           "level": "h2",
           "children": []
         },
         {
-          "text": "Coach Artie v2: Production AI with MCP Tools",
-          "slug": "coach-artie-v2-production-ai-with-mcp-tools",
+          "text": "What I Built",
+          "slug": "what-i-built",
           "level": "h2",
           "children": []
         },
         {
-          "text": "Memory & Consciousness Analysis",
-          "slug": "memory--consciousness-analysis",
+          "text": "Technical Architecture",
+          "slug": "technical-architecture",
           "level": "h2",
-          "children": [
-            {
-              "text": "Related Content",
-              "slug": "related-content",
-              "level": "h3",
-              "children": []
-            }
-          ]
+          "children": []
+        },
+        {
+          "text": "Current State",
+          "slug": "current-state",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Why This Matters",
+          "slug": "why-this-matters",
+          "level": "h2",
+          "children": []
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/projects/coach-artie.md",
+      "sourcePath": "../../../../../../../data2/website2/content/blog/projects/coach-artie.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/coach-artie"
     }
   },
   {
     "slug": "projects/covidcast",
-    "title": "COVIDcast",
+    "title": "CMU COVIDcast",
     "date": "2020-04-24T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-26T19:53:05.000Z",
@@ -9376,39 +9393,97 @@
       "javascript",
       "health"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "The Challenge",
+        "slug": "the-challenge",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I Built",
+        "slug": "what-i-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Technical Approach",
+        "slug": "technical-approach",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Context",
+        "slug": "context",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
-      "title": "COVIDcast",
+      "title": "CMU COVIDcast",
       "date": "2020-04-24T04:00:00.000Z",
       "modified": "2025-08-26T19:53:05.000Z",
       "url": "https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx",
       "tech": [
-        "Data Visualization",
+        "D3.js",
         "JavaScript",
-        "COVID-19 Data",
-        "Public Health"
+        "Observable",
+        "Force-Directed Graphs",
+        "Public Health Data"
       ],
       "state": "deployed",
       "aiInvolvement": "human-only",
+      "industry": [
+        "Public Health",
+        "Academia"
+      ],
+      "client": "Carnegie Mellon University",
       "tags": [
         "covid",
         "dataviz",
         "javascript",
         "health"
       ],
-      "words": 35,
+      "words": 163,
       "images": 1,
       "imageDetails": {
         "total": 1,
         "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 4,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 4
+      },
+      "toc": [
+        {
+          "text": "The Challenge",
+          "slug": "the-challenge",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What I Built",
+          "slug": "what-i-built",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Technical Approach",
+          "slug": "technical-approach",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Context",
+          "slug": "context",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/projects/covidcast.md",
+      "sourcePath": "../../../../../../../data2/website2/content/blog/projects/covidcast.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/covidcast"
     }
@@ -9561,7 +9636,32 @@
       "tool",
       "journalism"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "The Challenge",
+        "slug": "the-challenge",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What We Built",
+        "slug": "what-we-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "How It Happened",
+        "slug": "how-it-happened",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Results",
+        "slug": "results",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "title": "Dataproofer",
       "date": "2015-11-03T05:00:00.000Z",
@@ -9570,19 +9670,25 @@
       "tech": [
         "JavaScript",
         "Electron",
+        "Node.js",
         "Data Quality",
         "CSV"
       ],
-      "featured": false,
+      "featured": true,
       "state": "deployed",
       "aiInvolvement": "human-only",
+      "industry": [
+        "Journalism",
+        "Data Quality"
+      ],
+      "client": "Vocativ / Knight Foundation",
       "tags": [
         "data",
         "javascript",
         "tool",
         "journalism"
       ],
-      "words": 148,
+      "words": 209,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9591,10 +9697,37 @@
       },
       "links": 2,
       "codeBlocks": 1,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 4
+      },
+      "toc": [
+        {
+          "text": "The Challenge",
+          "slug": "the-challenge",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What We Built",
+          "slug": "what-we-built",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "How It Happened",
+          "slug": "how-it-happened",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Results",
+          "slug": "results",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/projects/dataproofer.md",
+      "sourcePath": "../../../../../../../data2/website2/content/blog/projects/dataproofer.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/dataproofer"
     }
@@ -9674,7 +9807,32 @@
       "javascript",
       "elections"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "The Challenge",
+        "slug": "the-challenge",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I Built",
+        "slug": "what-i-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Technical Details",
+        "slug": "technical-details",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Results",
+        "slug": "results",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "title": "NBC News Big Board",
       "date": "2016-11-08T05:00:00.000Z",
@@ -9682,31 +9840,65 @@
       "tech": [
         "D3.js",
         "JavaScript",
+        "HTML5",
         "Touch Interface",
-        "Election Data"
+        "Election Data",
+        "Chrome Kiosk"
       ],
       "featured": true,
       "state": "deployed",
       "aiInvolvement": "human-only",
+      "industry": [
+        "Broadcast Media",
+        "Elections"
+      ],
+      "client": "NBC News / MSNBC",
       "tags": [
         "d3",
         "dataviz",
         "javascript",
         "elections"
       ],
-      "words": 48,
+      "words": 243,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 5,
+      "links": 7,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 4
+      },
+      "toc": [
+        {
+          "text": "The Challenge",
+          "slug": "the-challenge",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What I Built",
+          "slug": "what-i-built",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Technical Details",
+          "slug": "technical-details",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Results",
+          "slug": "results",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/projects/nbc-big-board.md",
+      "sourcePath": "../../../../../../../data2/website2/content/blog/projects/nbc-big-board.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/nbc-big-board"
     }
@@ -9723,31 +9915,121 @@
       "webdesign",
       "elections"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "The Work",
+        "slug": "the-work",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Selected Projects",
+        "slug": "selected-projects",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Does America Need Another Prison? (2018)",
+            "slug": "does-america-need-another-prison-2018",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Journey of a Bullet (2017)",
+            "slug": "journey-of-a-bullet-2017",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "How Trump Won (2016)",
+            "slug": "how-trump-won-2016",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Other Specials",
+            "slug": "other-specials",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
     "metadata": {
       "title": "NBC News Specials",
       "date": "2016-12-14T20:01:50.000Z",
       "modified": "2025-08-13T16:01:12.000Z",
       "url": "https://nbcnews.com/specials",
+      "tech": [
+        "JavaScript",
+        "D3.js",
+        "Video",
+        "Longform",
+        "Data Visualization"
+      ],
+      "industry": [
+        "Broadcast Media",
+        "Investigative Journalism"
+      ],
+      "client": "NBC News",
       "tags": [
         "dataviz",
         "journalism",
         "webdesign",
         "elections"
       ],
-      "words": 105,
+      "words": 177,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 10,
+      "links": 7,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 2
+      },
+      "toc": [
+        {
+          "text": "The Work",
+          "slug": "the-work",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Selected Projects",
+          "slug": "selected-projects",
+          "level": "h2",
+          "children": [
+            {
+              "text": "Does America Need Another Prison? (2018)",
+              "slug": "does-america-need-another-prison-2018",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Journey of a Bullet (2017)",
+              "slug": "journey-of-a-bullet-2017",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "How Trump Won (2016)",
+              "slug": "how-trump-won-2016",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "Other Specials",
+              "slug": "other-specials",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/projects/nbcnews-specials.md",
+      "sourcePath": "../../../../../../../data2/website2/content/blog/projects/nbcnews-specials.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/nbcnews-specials"
     }
@@ -9805,12 +10087,25 @@
     "modified": "2025-08-13T17:17:13.000Z",
     "tags": [
       "ai",
-      "web"
+      "web",
+      "mcp"
     ],
     "toc": [
       {
-        "text": "Smallbot MCP",
-        "slug": "smallbot-mcp",
+        "text": "The Problem",
+        "slug": "the-problem",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "What I Built",
+        "slug": "what-i-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Why MCP?",
+        "slug": "why-mcp",
         "level": "h2",
         "children": []
       }
@@ -9822,17 +10117,23 @@
       "url": "https://github.com/ejfox/smallbot-mcp",
       "tech": [
         "MCP",
-        "AI",
-        "Web Generation",
-        "Node.js"
+        "TypeScript",
+        "Deno",
+        "AI Tooling"
       ],
       "state": "deployed",
       "aiInvolvement": "ai-enhanced",
+      "industry": [
+        "AI/ML",
+        "Developer Tools"
+      ],
+      "client": "Open Source",
       "tags": [
         "ai",
-        "web"
+        "web",
+        "mcp"
       ],
-      "words": 146,
+      "words": 154,
       "images": 0,
       "imageDetails": {
         "total": 0,
@@ -9842,18 +10143,30 @@
       "links": 4,
       "codeBlocks": 0,
       "headers": {
-        "h2": 1
+        "h2": 3
       },
       "toc": [
         {
-          "text": "Smallbot MCP",
-          "slug": "smallbot-mcp",
+          "text": "The Problem",
+          "slug": "the-problem",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "What I Built",
+          "slug": "what-i-built",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "Why MCP?",
+          "slug": "why-mcp",
           "level": "h2",
           "children": []
         }
       ],
       "type": "post",
-      "sourcePath": "../../../../../code/website2/content/blog/projects/smallbot-mcp.md",
+      "sourcePath": "../../../../../../../data2/website2/content/blog/projects/smallbot-mcp.md",
       "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
       "slug": "projects/smallbot-mcp"
     }

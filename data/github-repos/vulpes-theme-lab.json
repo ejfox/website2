@@ -2,7 +2,7 @@
   "name": "vulpes-theme-lab",
   "description": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
   "url": "https://github.com/ejfox/vulpes-theme-lab",
-  "homepage": null,
+  "homepage": "https://ejfox.github.io/vulpes-theme-lab/",
   "stats": {
     "stars": 0,
     "forks": 0,
@@ -12,13 +12,13 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 299489,
-    "TypeScript": 224866,
-    "CSS": 13233,
-    "JavaScript": 3513,
+    "Vue": 317227,
+    "TypeScript": 229054,
+    "CSS": 14207,
+    "JavaScript": 3881,
     "Lua": 14
   },
-  "diskUsage": 496,
+  "diskUsage": 535,
   "fileTree": {
     "files": [
       {
@@ -83,7 +83,7 @@
       },
       {
         "path": "README.md",
-        "size": 3532
+        "size": 3698
       },
       {
         "path": "THEME_EXPORT_FORMATS.md",
@@ -103,11 +103,11 @@
       },
       {
         "path": "assets/css/main.css",
-        "size": 12367
+        "size": 12530
       },
       {
         "path": "assets/css/tokens.css",
-        "size": 866
+        "size": 1677
       },
       {
         "path": "components/BaseSlider.vue",
@@ -115,11 +115,11 @@
       },
       {
         "path": "components/CodePreview.vue",
-        "size": 8811
+        "size": 8333
       },
       {
         "path": "components/ColorControls.vue",
-        "size": 25028
+        "size": 20792
       },
       {
         "path": "components/ColorFidelity.vue",
@@ -131,7 +131,7 @@
       },
       {
         "path": "components/ColorSwatches.vue",
-        "size": 8343
+        "size": 8369
       },
       {
         "path": "components/ColorTooltip.vue",
@@ -191,15 +191,19 @@
       },
       {
         "path": "components/MapPreview.vue",
-        "size": 5081
+        "size": 5738
       },
       {
         "path": "components/NvimPreview.vue",
-        "size": 19819
+        "size": 18850
       },
       {
         "path": "components/PresetSelector.vue",
-        "size": 3769
+        "size": 3950
+      },
+      {
+        "path": "components/PresetShowcase.vue",
+        "size": 6156
       },
       {
         "path": "components/PreviewGrid.vue",
@@ -234,8 +238,12 @@
         "size": 472
       },
       {
+        "path": "composables/useShowcaseAnimation.ts",
+        "size": 3303
+      },
+      {
         "path": "composables/useTheme.ts",
-        "size": 38538
+        "size": 37382
       },
       {
         "path": "eslint.config.js",
@@ -243,7 +251,7 @@
       },
       {
         "path": "nuxt.config.ts",
-        "size": 591
+        "size": 1689
       },
       {
         "path": "package-lock.json",
@@ -255,11 +263,11 @@
       },
       {
         "path": "pages/index.vue",
-        "size": 44011
+        "size": 35980
       },
       {
         "path": "pages/showcase.vue",
-        "size": 23293
+        "size": 47725
       },
       {
         "path": "public/favicon.ico",
@@ -288,6 +296,10 @@
       {
         "path": "samples/zsh-example.sh",
         "size": 2889
+      },
+      {
+        "path": "tailwind.config.js",
+        "size": 368
       },
       {
         "path": "test-import.js",
@@ -407,7 +419,7 @@
       },
       {
         "path": "utils/exporters/maplibre.ts",
-        "size": 26427
+        "size": 27370
       },
       {
         "path": "utils/exporters/neomutt.ts",
@@ -525,12 +537,12 @@
               "children": [
                 {
                   "name": "main.css",
-                  "size": 12367,
+                  "size": 12530,
                   "path": "assets/css/main.css"
                 },
                 {
                   "name": "tokens.css",
-                  "size": 866,
+                  "size": 1677,
                   "path": "assets/css/tokens.css"
                 }
               ],
@@ -549,12 +561,12 @@
             },
             {
               "name": "CodePreview.vue",
-              "size": 8811,
+              "size": 8333,
               "path": "components/CodePreview.vue"
             },
             {
               "name": "ColorControls.vue",
-              "size": 25028,
+              "size": 20792,
               "path": "components/ColorControls.vue"
             },
             {
@@ -569,7 +581,7 @@
             },
             {
               "name": "ColorSwatches.vue",
-              "size": 8343,
+              "size": 8369,
               "path": "components/ColorSwatches.vue"
             },
             {
@@ -644,18 +656,23 @@
             },
             {
               "name": "MapPreview.vue",
-              "size": 5081,
+              "size": 5738,
               "path": "components/MapPreview.vue"
             },
             {
               "name": "NvimPreview.vue",
-              "size": 19819,
+              "size": 18850,
               "path": "components/NvimPreview.vue"
             },
             {
               "name": "PresetSelector.vue",
-              "size": 3769,
+              "size": 3950,
               "path": "components/PresetSelector.vue"
+            },
+            {
+              "name": "PresetShowcase.vue",
+              "size": 6156,
+              "path": "components/PresetShowcase.vue"
             },
             {
               "name": "PreviewGrid.vue",
@@ -704,8 +721,13 @@
               "path": "composables/useHighlightedColor.ts"
             },
             {
+              "name": "useShowcaseAnimation.ts",
+              "size": 3303,
+              "path": "composables/useShowcaseAnimation.ts"
+            },
+            {
               "name": "useTheme.ts",
-              "size": 38538,
+              "size": 37382,
               "path": "composables/useTheme.ts"
             }
           ],
@@ -716,12 +738,12 @@
           "children": [
             {
               "name": "index.vue",
-              "size": 44011,
+              "size": 35980,
               "path": "pages/index.vue"
             },
             {
               "name": "showcase.vue",
-              "size": 23293,
+              "size": 47725,
               "path": "pages/showcase.vue"
             }
           ],
@@ -937,7 +959,7 @@
                 },
                 {
                   "name": "maplibre.ts",
-                  "size": 26427,
+                  "size": 27370,
                   "path": "utils/exporters/maplibre.ts"
                 },
                 {
@@ -1119,7 +1141,7 @@
         },
         {
           "name": "README.md",
-          "size": 3532,
+          "size": 3698,
           "path": "README.md"
         },
         {
@@ -1149,7 +1171,7 @@
         },
         {
           "name": "nuxt.config.ts",
-          "size": 591,
+          "size": 1689,
           "path": "nuxt.config.ts"
         },
         {
@@ -1161,6 +1183,11 @@
           "name": "package.json",
           "size": 2248,
           "path": "package.json"
+        },
+        {
+          "name": "tailwind.config.js",
+          "size": 368,
+          "path": "tailwind.config.js"
         },
         {
           "name": "test-import.js",
@@ -1180,16 +1207,16 @@
       ],
       "path": ""
     },
-    "totalFiles": 116,
-    "totalSize": 1368005
+    "totalFiles": 119,
+    "totalSize": 1391439
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"vulpes-theme-lab\">vulpes-theme-lab</h1>\n<p>🎨 <strong><a href=\"https://ejfox.github.io/vulpes-theme-lab/\">Live Demo</a></strong> — Try it now in your browser</p>\n<p>a minimal theme builder for ghostty terminal with live previews of nvim, lazygit, htop, and tmux.</p>\n<h2 id=\"design-principles\">design principles</h2>\n<p>tuftian minimalism. hue offset precision ±7° for maximum signal, minimal variation. monochrome mode available for absolute clarity.</p>\n<h2 id=\"features\">features</h2>\n<p>live color controls with real-time preview across multiple terminal scenarios:</p>\n<ul>\n<li>nvim with lsp diagnostics and telescope fuzzy finder</li>\n<li>lazygit interface with branch info and stash panel</li>\n<li>htop system monitor with process details</li>\n<li>tmux multi-pane layouts with realistic content</li>\n<li>codemirror-based code editor</li>\n</ul>\n<p>export both dark and light theme variants for:</p>\n<ul>\n<li>ghostty terminal</li>\n<li>neovim (100+ highlight groups, LSP support)</li>\n<li>bat syntax highlighter</li>\n<li>yazi file manager</li>\n<li>lazygit git ui</li>\n<li>zsh (syntax highlighting + fzf colors + powerlevel10k colors)</li>\n</ul>\n<p><strong><a href=\"./QUICKSTART.md\">🚀 Quick Start Guide</a></strong> — 5-minute setup\n<strong><a href=\"./INSTALLATION.md\">📘 Complete Installation Guide</a></strong> — Full setup instructions for all tools</p>\n<h2 id=\"usage\">usage</h2>\n<pre><code class=\"language-bash\">npm install\nnpm run dev\n</code></pre>\n<p>navigate to <a href=\"http://localhost:3322\">http://localhost:3322</a></p>\n<p>adjust hue, saturation, contrast, and lightness controls. toggle monochrome mode for single-hue themes. export generates both dark and light variants.</p>\n<h2 id=\"theme-generation\">theme generation</h2>\n<p>themes use precise hue offset mathematics:</p>\n<pre><code class=\"language-javascript\">const error = chroma.hsl(baseHue + 7, 0.85, 0.55)\nconst warning = chroma.hsl(baseHue - 7, 0.85, 0.55)\nconst base = chroma.hsl(baseHue, 0.85, 0.5)\n</code></pre>\n<p>minimal variation. maximum signal.</p>\n<h2 id=\"installation\">installation</h2>\n<p>exported themes work across your entire terminal ecosystem:</p>\n<p><strong>auto-switching</strong> (with system appearance):</p>\n<ul>\n<li>ghostty: <code>theme = light:yourtheme-light,dark:yourtheme-dark</code></li>\n<li>neovim: via auto-dark-mode.nvim plugin</li>\n<li>bat: <code>--theme=auto:system</code></li>\n</ul>\n<p><strong>manual switching</strong> (unified theme switcher):</p>\n<ul>\n<li>yazi file manager</li>\n<li>lazygit git ui</li>\n<li>zsh syntax highlighting</li>\n</ul>\n<p>see <strong><a href=\"./INSTALLATION.md\">INSTALLATION.md</a></strong> for complete setup guide including:</p>\n<ul>\n<li>file installation locations</li>\n<li>configuration examples</li>\n<li>unified theme switcher functions</li>\n<li>auto-sync with macos appearance</li>\n<li>troubleshooting guide</li>\n</ul>\n<h2 id=\"sample-exports\">sample exports</h2>\n<p>example theme outputs for all supported TUI targets:</p>\n<ul>\n<li><strong><a href=\"./samples/nvim-example.lua\">nvim-example.lua</a></strong> — Neovim colorscheme with 50+ highlight groups (LSP, syntax, UI)</li>\n<li><strong><a href=\"./samples/bat-example.tmTheme\">bat-example.tmTheme</a></strong> — Bat syntax highlighter (TextMate theme format)</li>\n<li><strong><a href=\"./samples/yazi-example.toml\">yazi-example.toml</a></strong> — Yazi file manager colors (light + dark variants)</li>\n<li><strong><a href=\"./samples/lazygit-example.yml\">lazygit-example.yml</a></strong> — Lazygit Git UI color configuration</li>\n<li><strong><a href=\"./samples/zsh-example.sh\">zsh-example.sh</a></strong> — ZSH syntax highlighting + FZF colors with theme switching functions</li>\n</ul>\n<p>these samples show the exact structure and color mappings for each tool format.</p>\n<h2 id=\"multi-format-export\">multi-format export</h2>\n<p><strong>status: ✓ implemented</strong></p>\n<p>all formats now export in a single download:</p>\n<ul>\n<li>ghostty (dark + light .ghostty files)</li>\n<li>neovim (dark + light .lua colorschemes)</li>\n<li>bat (dark + light .tmTheme files)</li>\n<li>yazi (dark + light .toml themes)</li>\n<li>lazygit (dark + light .yml configs)</li>\n<li>zsh (dark + light .zsh with syntax highlighting, fzf, and p10k colors)</li>\n<li>tweak.cc json reference files</li>\n</ul>\n<p>see <strong><a href=\"./THEME_EXPORT_FORMATS.md\">THEME_EXPORT_FORMATS.md</a></strong> for implementation details.</p>\n<h2 id=\"stack\">stack</h2>\n<ul>\n<li>nuxt 4</li>\n<li>vue 3</li>\n<li>codemirror 6</li>\n<li>chroma-js</li>\n<li>vueuse</li>\n</ul>\n<p>built for terminal aesthetes who value precision over decoration.</p>",
-    "raw": "# vulpes-theme-lab\n\n🎨 **[Live Demo](https://ejfox.github.io/vulpes-theme-lab/)** — Try it now in your browser\n\na minimal theme builder for ghostty terminal with live previews of nvim, lazygit, htop, and tmux.\n\n## design principles\n\ntuftian minimalism. hue offset precision ±7° for maximum signal, minimal variation. monochrome mode available for absolute clarity.\n\n## features\n\nlive color controls with real-time preview across multiple terminal scenarios:\n\n- nvim with lsp diagnostics and telescope fuzzy finder\n- lazygit interface with branch info and stash panel\n- htop system monitor with process details\n- tmux multi-pane layouts with realistic content\n- codemirror-based code editor\n\nexport both dark and light theme variants for:\n\n- ghostty terminal\n- neovim (100+ highlight groups, LSP support)\n- bat syntax highlighter\n- yazi file manager\n- lazygit git ui\n- zsh (syntax highlighting + fzf colors + powerlevel10k colors)\n\n**[🚀 Quick Start Guide](./QUICKSTART.md)** — 5-minute setup\n**[📘 Complete Installation Guide](./INSTALLATION.md)** — Full setup instructions for all tools\n\n## usage\n\n```bash\nnpm install\nnpm run dev\n```\n\nnavigate to http://localhost:3322\n\nadjust hue, saturation, contrast, and lightness controls. toggle monochrome mode for single-hue themes. export generates both dark and light variants.\n\n## theme generation\n\nthemes use precise hue offset mathematics:\n\n```javascript\nconst error = chroma.hsl(baseHue + 7, 0.85, 0.55)\nconst warning = chroma.hsl(baseHue - 7, 0.85, 0.55)\nconst base = chroma.hsl(baseHue, 0.85, 0.5)\n```\n\nminimal variation. maximum signal.\n\n## installation\n\nexported themes work across your entire terminal ecosystem:\n\n**auto-switching** (with system appearance):\n\n- ghostty: `theme = light:yourtheme-light,dark:yourtheme-dark`\n- neovim: via auto-dark-mode.nvim plugin\n- bat: `--theme=auto:system`\n\n**manual switching** (unified theme switcher):\n\n- yazi file manager\n- lazygit git ui\n- zsh syntax highlighting\n\nsee **[INSTALLATION.md](./INSTALLATION.md)** for complete setup guide including:\n\n- file installation locations\n- configuration examples\n- unified theme switcher functions\n- auto-sync with macos appearance\n- troubleshooting guide\n\n## sample exports\n\nexample theme outputs for all supported TUI targets:\n\n- **[nvim-example.lua](./samples/nvim-example.lua)** — Neovim colorscheme with 50+ highlight groups (LSP, syntax, UI)\n- **[bat-example.tmTheme](./samples/bat-example.tmTheme)** — Bat syntax highlighter (TextMate theme format)\n- **[yazi-example.toml](./samples/yazi-example.toml)** — Yazi file manager colors (light + dark variants)\n- **[lazygit-example.yml](./samples/lazygit-example.yml)** — Lazygit Git UI color configuration\n- **[zsh-example.sh](./samples/zsh-example.sh)** — ZSH syntax highlighting + FZF colors with theme switching functions\n\nthese samples show the exact structure and color mappings for each tool format.\n\n## multi-format export\n\n**status: ✓ implemented**\n\nall formats now export in a single download:\n\n- ghostty (dark + light .ghostty files)\n- neovim (dark + light .lua colorschemes)\n- bat (dark + light .tmTheme files)\n- yazi (dark + light .toml themes)\n- lazygit (dark + light .yml configs)\n- zsh (dark + light .zsh with syntax highlighting, fzf, and p10k colors)\n- tweak.cc json reference files\n\nsee **[THEME_EXPORT_FORMATS.md](./THEME_EXPORT_FORMATS.md)** for implementation details.\n\n## stack\n\n- nuxt 4\n- vue 3\n- codemirror 6\n- chroma-js\n- vueuse\n\nbuilt for terminal aesthetes who value precision over decoration.\n",
-    "excerpt": "🎨 Live Demo — Try it now in your browser\n\na minimal theme builder for ghostty terminal with live previews of nvim, lazygit, htop, and tmux.\n\n\n\ntuftian minimali..."
+    "html": "<h1 id=\"vulpes-theme-lab\">vulpes-theme-lab</h1>\n<p>🎨 <strong><a href=\"https://ejfox.github.io/vulpes-theme-lab/\">Live Demo</a></strong> — Try it now in your browser</p>\n<img width=\"898\" height=\"1131\" alt=\"screenshot 2025-12-28 at 5 48 34 PM\" src=\"https://github.com/user-attachments/assets/3843023e-d9b1-41cb-9b23-38ce9e1e8575\" />\n<p>a minimal theme builder for ghostty terminal with live previews of nvim, lazygit, htop, and tmux.</p>\n<h2 id=\"design-principles\">design principles</h2>\n<p>tuftian minimalism. hue offset precision ±7° for maximum signal, minimal variation. monochrome mode available for absolute clarity.</p>\n<h2 id=\"features\">features</h2>\n<p>live color controls with real-time preview across multiple terminal scenarios:</p>\n<ul>\n<li>nvim with lsp diagnostics and telescope fuzzy finder</li>\n<li>lazygit interface with branch info and stash panel</li>\n<li>htop system monitor with process details</li>\n<li>tmux multi-pane layouts with realistic content</li>\n<li>codemirror-based code editor</li>\n</ul>\n<p>export both dark and light theme variants for:</p>\n<ul>\n<li>ghostty terminal</li>\n<li>neovim (100+ highlight groups, LSP support)</li>\n<li>bat syntax highlighter</li>\n<li>yazi file manager</li>\n<li>lazygit git ui</li>\n<li>zsh (syntax highlighting + fzf colors + powerlevel10k colors)</li>\n</ul>\n<p><strong><a href=\"./QUICKSTART.md\">🚀 Quick Start Guide</a></strong> — 5-minute setup\n<strong><a href=\"./INSTALLATION.md\">📘 Complete Installation Guide</a></strong> — Full setup instructions for all tools</p>\n<h2 id=\"usage\">usage</h2>\n<pre><code class=\"language-bash\">npm install\nnpm run dev\n</code></pre>\n<p>navigate to <a href=\"http://localhost:3322\">http://localhost:3322</a></p>\n<p>adjust hue, saturation, contrast, and lightness controls. toggle monochrome mode for single-hue themes. export generates both dark and light variants.</p>\n<h2 id=\"theme-generation\">theme generation</h2>\n<p>themes use precise hue offset mathematics:</p>\n<pre><code class=\"language-javascript\">const error = chroma.hsl(baseHue + 7, 0.85, 0.55)\nconst warning = chroma.hsl(baseHue - 7, 0.85, 0.55)\nconst base = chroma.hsl(baseHue, 0.85, 0.5)\n</code></pre>\n<p>minimal variation. maximum signal.</p>\n<h2 id=\"installation\">installation</h2>\n<p>exported themes work across your entire terminal ecosystem:</p>\n<p><strong>auto-switching</strong> (with system appearance):</p>\n<ul>\n<li>ghostty: <code>theme = light:yourtheme-light,dark:yourtheme-dark</code></li>\n<li>neovim: via auto-dark-mode.nvim plugin</li>\n<li>bat: <code>--theme=auto:system</code></li>\n</ul>\n<p><strong>manual switching</strong> (unified theme switcher):</p>\n<ul>\n<li>yazi file manager</li>\n<li>lazygit git ui</li>\n<li>zsh syntax highlighting</li>\n</ul>\n<p>see <strong><a href=\"./INSTALLATION.md\">INSTALLATION.md</a></strong> for complete setup guide including:</p>\n<ul>\n<li>file installation locations</li>\n<li>configuration examples</li>\n<li>unified theme switcher functions</li>\n<li>auto-sync with macos appearance</li>\n<li>troubleshooting guide</li>\n</ul>\n<h2 id=\"sample-exports\">sample exports</h2>\n<p>example theme outputs for all supported TUI targets:</p>\n<ul>\n<li><strong><a href=\"./samples/nvim-example.lua\">nvim-example.lua</a></strong> — Neovim colorscheme with 50+ highlight groups (LSP, syntax, UI)</li>\n<li><strong><a href=\"./samples/bat-example.tmTheme\">bat-example.tmTheme</a></strong> — Bat syntax highlighter (TextMate theme format)</li>\n<li><strong><a href=\"./samples/yazi-example.toml\">yazi-example.toml</a></strong> — Yazi file manager colors (light + dark variants)</li>\n<li><strong><a href=\"./samples/lazygit-example.yml\">lazygit-example.yml</a></strong> — Lazygit Git UI color configuration</li>\n<li><strong><a href=\"./samples/zsh-example.sh\">zsh-example.sh</a></strong> — ZSH syntax highlighting + FZF colors with theme switching functions</li>\n</ul>\n<p>these samples show the exact structure and color mappings for each tool format.</p>\n<h2 id=\"multi-format-export\">multi-format export</h2>\n<p><strong>status: ✓ implemented</strong></p>\n<p>all formats now export in a single download:</p>\n<ul>\n<li>ghostty (dark + light .ghostty files)</li>\n<li>neovim (dark + light .lua colorschemes)</li>\n<li>bat (dark + light .tmTheme files)</li>\n<li>yazi (dark + light .toml themes)</li>\n<li>lazygit (dark + light .yml configs)</li>\n<li>zsh (dark + light .zsh with syntax highlighting, fzf, and p10k colors)</li>\n<li>tweak.cc json reference files</li>\n</ul>\n<p>see <strong><a href=\"./THEME_EXPORT_FORMATS.md\">THEME_EXPORT_FORMATS.md</a></strong> for implementation details.</p>\n<h2 id=\"stack\">stack</h2>\n<ul>\n<li>nuxt 4</li>\n<li>vue 3</li>\n<li>codemirror 6</li>\n<li>chroma-js</li>\n<li>vueuse</li>\n</ul>\n<p>built for terminal aesthetes who value precision over decoration.</p>",
+    "raw": "# vulpes-theme-lab\n\n🎨 **[Live Demo](https://ejfox.github.io/vulpes-theme-lab/)** — Try it now in your browser\n\n<img width=\"898\" height=\"1131\" alt=\"screenshot 2025-12-28 at 5 48 34 PM\" src=\"https://github.com/user-attachments/assets/3843023e-d9b1-41cb-9b23-38ce9e1e8575\" />\n\n\na minimal theme builder for ghostty terminal with live previews of nvim, lazygit, htop, and tmux.\n\n## design principles\n\ntuftian minimalism. hue offset precision ±7° for maximum signal, minimal variation. monochrome mode available for absolute clarity.\n\n## features\n\nlive color controls with real-time preview across multiple terminal scenarios:\n\n- nvim with lsp diagnostics and telescope fuzzy finder\n- lazygit interface with branch info and stash panel\n- htop system monitor with process details\n- tmux multi-pane layouts with realistic content\n- codemirror-based code editor\n\nexport both dark and light theme variants for:\n\n- ghostty terminal\n- neovim (100+ highlight groups, LSP support)\n- bat syntax highlighter\n- yazi file manager\n- lazygit git ui\n- zsh (syntax highlighting + fzf colors + powerlevel10k colors)\n\n**[🚀 Quick Start Guide](./QUICKSTART.md)** — 5-minute setup\n**[📘 Complete Installation Guide](./INSTALLATION.md)** — Full setup instructions for all tools\n\n## usage\n\n```bash\nnpm install\nnpm run dev\n```\n\nnavigate to http://localhost:3322\n\nadjust hue, saturation, contrast, and lightness controls. toggle monochrome mode for single-hue themes. export generates both dark and light variants.\n\n## theme generation\n\nthemes use precise hue offset mathematics:\n\n```javascript\nconst error = chroma.hsl(baseHue + 7, 0.85, 0.55)\nconst warning = chroma.hsl(baseHue - 7, 0.85, 0.55)\nconst base = chroma.hsl(baseHue, 0.85, 0.5)\n```\n\nminimal variation. maximum signal.\n\n## installation\n\nexported themes work across your entire terminal ecosystem:\n\n**auto-switching** (with system appearance):\n\n- ghostty: `theme = light:yourtheme-light,dark:yourtheme-dark`\n- neovim: via auto-dark-mode.nvim plugin\n- bat: `--theme=auto:system`\n\n**manual switching** (unified theme switcher):\n\n- yazi file manager\n- lazygit git ui\n- zsh syntax highlighting\n\nsee **[INSTALLATION.md](./INSTALLATION.md)** for complete setup guide including:\n\n- file installation locations\n- configuration examples\n- unified theme switcher functions\n- auto-sync with macos appearance\n- troubleshooting guide\n\n## sample exports\n\nexample theme outputs for all supported TUI targets:\n\n- **[nvim-example.lua](./samples/nvim-example.lua)** — Neovim colorscheme with 50+ highlight groups (LSP, syntax, UI)\n- **[bat-example.tmTheme](./samples/bat-example.tmTheme)** — Bat syntax highlighter (TextMate theme format)\n- **[yazi-example.toml](./samples/yazi-example.toml)** — Yazi file manager colors (light + dark variants)\n- **[lazygit-example.yml](./samples/lazygit-example.yml)** — Lazygit Git UI color configuration\n- **[zsh-example.sh](./samples/zsh-example.sh)** — ZSH syntax highlighting + FZF colors with theme switching functions\n\nthese samples show the exact structure and color mappings for each tool format.\n\n## multi-format export\n\n**status: ✓ implemented**\n\nall formats now export in a single download:\n\n- ghostty (dark + light .ghostty files)\n- neovim (dark + light .lua colorschemes)\n- bat (dark + light .tmTheme files)\n- yazi (dark + light .toml themes)\n- lazygit (dark + light .yml configs)\n- zsh (dark + light .zsh with syntax highlighting, fzf, and p10k colors)\n- tweak.cc json reference files\n\nsee **[THEME_EXPORT_FORMATS.md](./THEME_EXPORT_FORMATS.md)** for implementation details.\n\n## stack\n\n- nuxt 4\n- vue 3\n- codemirror 6\n- chroma-js\n- vueuse\n\nbuilt for terminal aesthetes who value precision over decoration.\n",
+    "excerpt": "🎨 Live Demo — Try it now in your browser\n\n<img width=\"898\" height=\"1131\" alt=\"screenshot 2025-12-28 at 5 48 34 PM\" src=\"https://github.com/user-attachments/ass..."
   },
   "createdAt": "2025-10-24T21:15:15Z",
-  "updatedAt": "2025-12-07T17:58:56Z",
-  "pushedAt": "2025-12-07T17:58:52Z"
+  "updatedAt": "2025-12-28T22:49:01Z",
+  "pushedAt": "2025-12-28T22:48:57Z"
 }
