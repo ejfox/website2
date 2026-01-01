@@ -24,7 +24,7 @@ I've been playing with GPT and Large Language Models since my friend Dan first s
 
 From then on I was hooked, and would occasionally intersperse my doomscrolling with talking to the robot and trying to get it to generate different things.
 
-Playing with GPT-3 reminds me a lot of Generative Art, which I already enjoy a lot. [blog/2021/creative-coding|creative-codin](blog/2021/creative-coding|creative-codin)g]]
+Playing with GPT-3 reminds me a lot of Generative Art, which I already enjoy a lot. [[blog/2021/creative-coding]]
 
 I dug up my first tweet mentioning GPT-3 from October 2020: [For my own curiosity, this is the result of prompting GPT-3 to create a conspiracy theory (via AI Dungeon) (first paragraph is prompt)](https://twitter.com/mrejfox/status/1319716459187261441)
 

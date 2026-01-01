@@ -12,7 +12,7 @@ tags:
 
 ## Ten Years of the Computer
 
-In 2011, when I was 19 years old, I made a prescient decision. I was an aspiring data visualization designer working at my first startup, and when I discovered then 4-year-old app [RescueTime](https://www.ycombinator.com/companies/rescuetime) - a sort of self-development introspective spyware, I immediately installed it on all of my computers. (This is [../robots/quantified-self-as-archaeology|tracking as archaeology, not optimizatio](../robots/quantified-self-as-archaeology|tracking-as-archaeology,-not-optimizatio)n]] - capturing data before knowing what questions I'd ask.)
+In 2011, when I was 19 years old, I made a prescient decision. I was an aspiring data visualization designer working at my first startup, and when I discovered then 4-year-old app [RescueTime](https://www.ycombinator.com/companies/rescuetime) - a sort of self-development introspective spyware, I immediately installed it on all of my computers. (This is [[../robots/quantified-self-as-archaeology]] - capturing data before knowing what questions I'd ask.)
 
 Rescuetime would quietly watch me for the next 14 or so years, tracking most of my personal computer usage, with a small gap in 2020 when I bought a new computer a briefly forgot to reinstall RescueTime.
 

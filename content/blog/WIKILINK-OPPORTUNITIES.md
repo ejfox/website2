@@ -21,7 +21,7 @@ This project was deeply inspired by quantified self and the Feltron annual repor
 
 # After
 
-This project was deeply inspired by [quantified-self-as-archaeology|quantified sel](quantified-self-as-archaeology|quantified-sel)f]] and the Feltron annual report
+This project was deeply inspired by [[quantified-self-as-archaeology]] and the Feltron annual report
 ```
 
 **Line 46:** "I still suck but at least it's quantified now"
@@ -29,7 +29,7 @@ This project was deeply inspired by [quantified-self-as-archaeology|quantified s
 ```markdown
 # After this sentence, add:
 
-(More on [quantified-self-as-archaeology|why I track instead of optimiz](quantified-self-as-archaeology|why-i-track-instead-of-optimiz)e]])
+(More on [[quantified-self-as-archaeology]])
 ```
 
 ---
@@ -45,7 +45,7 @@ For the past year when I wake up in the morning and meditate for a little while 
 
 # After
 
-For the past year when I wake up in the morning and meditate for a little while on what my heart truly desires the compass often spins back to a central concept of **[preparation-as-practice|preparatio](preparation-as-practice|preparatio)n]]**.
+For the past year when I wake up in the morning and meditate for a little while on what my heart truly desires the compass often spins back to a central concept of **[[preparation-as-practice]]**.
 ```
 
 **Line 33:** The motorcycle gear quote
@@ -57,7 +57,7 @@ The motorcycle makes you really think through the things you want to carry; spac
 
 # After
 
-The [minimalism-as-technical-practice|motorcycle makes you really think throug](minimalism-as-technical-practice|motorcycle-makes-you-really-think-throug)h]] the things you want to carry; space is limited, and every object needs to be useful in at least two ways
+The [[minimalism-as-technical-practice]] the things you want to carry; space is limited, and every object needs to be useful in at least two ways
 ```
 
 **Line 37:** The minimalist thinking paragraph
@@ -65,7 +65,7 @@ The [minimalism-as-technical-practice|motorcycle makes you really think throug](
 ```markdown
 # After
 
-I like this way of [minimalism-as-technical-practice|minimalist thinkin](minimalism-as-technical-practice|minimalist-thinkin)g]] about the gear I keep on my person
+I like this way of [[minimalism-as-technical-practice]] about the gear I keep on my person
 ```
 
 **Line 41:** The Tufte reference
@@ -77,7 +77,7 @@ I was raised in a generation of designers who admired Dieter Rams and Edward Tuf
 
 # After
 
-I was raised in a generation of designers who admired Dieter Rams and Edward Tufte ([minimalism-as-technical-practice|more on how this applies to cod](minimalism-as-technical-practice|more-on-how-this-applies-to-cod)e]])
+I was raised in a generation of designers who admired Dieter Rams and Edward Tufte ([[minimalism-as-technical-practice]])
 ```
 
 ---
@@ -93,7 +93,7 @@ Central to this development is the concept of multiple "lenses" or interfaces in
 
 # After
 
-Central to this development is the concept of [same-data-many-interfaces|multiple "lenses" or interface](same-data-many-interfaces|multiple-"lenses"-or-interface)s]] into the system.
+Central to this development is the concept of [[same-data-many-interfaces]] into the system.
 ```
 
 **Line 29:** "Alfred workflow enables lightning-fast local searches"
@@ -105,7 +105,7 @@ An Alfred workflow enables lightning-fast local searches
 
 # After
 
-An [same-data-many-interfaces|Alfred workflo](same-data-many-interfaces|alfred-workflo)w]] enables lightning-fast local searches
+An [[same-data-many-interfaces]] enables lightning-fast local searches
 ```
 
 **Line 51-58:** The four interface modes
@@ -113,7 +113,7 @@ An [same-data-many-interfaces|Alfred workflo](same-data-many-interfaces|alfred-w
 ```markdown
 # After listing the interfaces, add:
 
-(See [same-data-many-interfaces|why multiple interfaces matte](same-data-many-interfaces|why-multiple-interfaces-matte)r]] for the same data)
+(See [[same-data-many-interfaces]] for the same data)
 ```
 
 ---
@@ -137,7 +137,7 @@ Add near the end:
 Add in "Connecting to Other Work" section:
 
 ```markdown
-- [minimalism-as-technical-practice|Minimalis](minimalism-as-technical-practice|minimalis)m]] - The philosophy behind deletion
+- [[minimalism-as-technical-practice]] - The philosophy behind deletion
 - [building-tools-for-yoursel](building-tools-for-yoursel)f]] - Why you can delete without consequences
 ```
 
@@ -146,7 +146,7 @@ Add in "Connecting to Other Work" section:
 Add near the ±7° explanation:
 
 ```markdown
-(This connects to [minimalism-as-technical-practice|Tuftian minimalism across all wor](minimalism-as-technical-practice|tuftian-minimalism-across-all-wor)k]])
+(This connects to [[minimalism-as-technical-practice]])
 ```
 
 ### In logbook-analysis-ten-years-tasks.md
@@ -154,7 +154,7 @@ Add near the ±7° explanation:
 Add in intro:
 
 ```markdown
-Part of my [quantified-self-as-archaeology|quantified self practic](quantified-self-as-archaeology|quantified-self-practic)e]] - tracking to reveal patterns, not to optimize.
+Part of my [[quantified-self-as-archaeology]] - tracking to reveal patterns, not to optimize.
 ```
 
 ### In coachartie-multi-interface-ai.md
@@ -162,7 +162,7 @@ Part of my [quantified-self-as-archaeology|quantified self practic](quantified-s
 Add near "The Three Interfaces":
 
 ```markdown
-(More on [same-data-many-interfaces|why multiple interfaces matte](same-data-many-interfaces|why-multiple-interfaces-matte)r]])
+(More on [[same-data-many-interfaces]])
 ```
 
 ### In connectology-network-thinking.md
@@ -178,7 +178,7 @@ Classic [delete-driven-developmen](delete-driven-developmen)t]] in action.
 Add in "The Two Modes":
 
 ```markdown
-Another example of [same-data-many-interfaces|same data, different context](same-data-many-interfaces|same-data,-different-context)s]].
+Another example of [[same-data-many-interfaces]].
 ```
 
 ### In morning-radio-ios-curation.md
@@ -186,7 +186,7 @@ Another example of [same-data-many-interfaces|same data, different context](same
 Add in "6-Factor Priority Scoring":
 
 ```markdown
-Drawing from [quantified-self-as-archaeology|years of tracking what I actually rea](quantified-self-as-archaeology|years-of-tracking-what-i-actually-rea)d]].
+Drawing from [[quantified-self-as-archaeology]].
 ```
 
 ### In website2-obsidian-pipeline.md
@@ -210,23 +210,23 @@ This should link to EVERYTHING:
 ```markdown
 ## The Patterns (with links)
 
-**1. [quantified-self-as-archaeology|Quantified Self Architec](quantified-self-as-archaeology|quantified-self-architec)t]]**
+**1. [[quantified-self-as-archaeology]]**
 
 - logbook-analysis, scrapbook-core, rescuetime-scrape
 
-**2. [minimalism-as-technical-practice|Terminal Aesthet](minimalism-as-technical-practice|terminal-aesthet)e]]**
+**2. [[minimalism-as-technical-practice]]**
 
 - vulpes-theme-lab, tmux tools
 
-**3. [delete-driven-development|Delete-Driven Develope](delete-driven-development|delete-driven-develope)r]]**
+**3. [[delete-driven-development]]**
 
 - NetworkControls refactor, website cleanup
 
-**4. [same-data-many-interfaces|Multi-Modal Thinke](same-data-many-interfaces|multi-modal-thinke)r]]**
+**4. [[same-data-many-interfaces]]**
 
 - scrapbook's 4 interfaces, coachartie's 3
 
-**5. [building-tools-for-yourself|Systems Builder, Not Product Shippe](building-tools-for-yourself|systems-builder,-not-product-shippe)r]]**
+**5. [[building-tools-for-yourself]]**
 
 - All 100 projects
 ```
@@ -238,7 +238,7 @@ Add near lessons:
 ```markdown
 Classic [delete-driven-developmen](delete-driven-developmen)t]] - when in doubt, delete.
 
-Related: [building-tools-for-yourself|Why you can archive without guil](building-tools-for-yourself|why-you-can-archive-without-guil)t]]
+Related: [[building-tools-for-yourself]]
 ```
 
 ### In scrapers-consolidation.md
@@ -248,7 +248,7 @@ Add:
 ```markdown
 Part of [preparation-as-practic](preparation-as-practic)e]] - capture data before you know questions.
 
-Also: [quantified-self-as-archaeology|Why capture beats analysi](quantified-self-as-archaeology|why-capture-beats-analysi)s]]
+Also: [[quantified-self-as-archaeology]]
 ```
 
 ### In minimalism-as-technical-practice.md
@@ -302,7 +302,7 @@ From [hidden-networks-of-warmt](hidden-networks-of-warmt)h]] - preparation as gi
 **Best practice:**
 
 - First mention in a section gets the link
-- Use pipe syntax for natural reading: `[file|display tex](file|display-tex)t]]`
+- Use pipe syntax for natural reading: `[[file]]`
 - Link to deepen, not just connect
 - "See also" sections at end for related threads
 

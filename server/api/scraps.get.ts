@@ -45,11 +45,13 @@ export default defineEventHandler(async (): Promise<Scrap[]> => {
     console.info('🔗 Connecting to Supabase:', config.SUPABASE_URL)
     const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY)
 
-    // Fetch ALL available scrap data from Supabase
+    // Fetch recent scraps with a limit to prevent timeout
+    // The full dataset can be very large; most use cases only need recent items
     const { data, error } = await supabase
       .from('scraps')
       .select('*')
       .order('created_at', { ascending: false })
+      .limit(500)
 
     if (error) {
       console.error('❌ Supabase query error:', error)

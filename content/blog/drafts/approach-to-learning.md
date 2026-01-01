@@ -24,7 +24,7 @@ Learning how to learn is the ultimate meta-skill. As a child, I quickly became d
 
 **Following Joy**: Learn what genuinely interests you. My librarian grandmother taught me to flood myself with primary sources the moment I showed curiosity about anything.
 
-**Batch Related Concepts**: Group related topics. [../robots/preparation-as-practice|HAM radi](../robots/preparation-as-practice|ham-radi)o]] → electrical engineering → electromagnetism. Learning Ohm's Law with Ohm's rejection story creates multiple memory pathways.
+**Batch Related Concepts**: Group related topics. [[../robots/preparation-as-practice]] → electrical engineering → electromagnetism. Learning Ohm's Law with Ohm's rejection story creates multiple memory pathways.
 
 **Read the Fucking Manuals**: Most people skip documentation. Essential knowledge hides in plain sight - nursery rhymes contain profound wisdom, technical manuals contain competitive advantages.
 

@@ -17,7 +17,7 @@ modified: 2025-08-28T16:12:25-04:00
 
 The paranoia hit immediately. A year of digital memories, screenshots of brilliant tweets, photos of questionable life choices—all sitting in someone else’s data center, about to vanish like the brilliant insights of last night’s trip.
 
-So it was time to [../robots/building-tools-for-yourself|whip up a little ap](../robots/building-tools-for-yourself|whip-up-a-little-ap)p]]. Fast.
+So it was time to [[../robots/building-tools-for-yourself]]. Fast.
 
 ### The Stack
 
@@ -44,7 +44,7 @@ The backup tool worked—my anxiety laid to rest, digital life preserved. But it
 
 ### The Aftermath: A Digital Hymn
 
-And there they sit now, inside a drive humming silently on my desk, warm to the touch, containing the [../robots/quantified-self-as-archaeology|digital archaeolog](../robots/quantified-self-as-archaeology|digital-archaeolog)y]] of my existence. Three thousand plus images: screenshots of conversations that made me laugh, photos of sunsets that stopped me mid-stride, documentation of code that actually worked on the first try.
+And there they sit now, inside a drive humming silently on my desk, warm to the touch, containing the [[../robots/quantified-self-as-archaeology]] of my existence. Three thousand plus images: screenshots of conversations that made me laugh, photos of sunsets that stopped me mid-stride, documentation of code that actually worked on the first try.
 
 Cloudinary, bless their well-documented souls, made this possible with an API that didn’t fight me. Clean endpoints, sensible rate limits, pagination that actually works. In a world of hostile APIs and developer contempt, they built something that works. For this small mercy, I am grateful.
 

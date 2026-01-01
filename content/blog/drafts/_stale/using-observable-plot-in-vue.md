@@ -15,7 +15,7 @@ tags:
 
 #dataviz #howto
 
-[Observable Plot](https://observablehq.com/@observablehq/plot) is an awesome tool for quickly sketching and exploring data. It is wonderful when paired with Vue, which can handle user interactions, routing, and state management that can be a bridge between a [blog/2022/2022-prototyping-toolkit|prototyp](blog/2022/2022-prototyping-toolkit|prototyp)e]] and a functional tool.
+[Observable Plot](https://observablehq.com/@observablehq/plot) is an awesome tool for quickly sketching and exploring data. It is wonderful when paired with Vue, which can handle user interactions, routing, and state management that can be a bridge between a [[blog/2022/2022-prototyping-toolkit]] and a functional tool.
 
 > [Observable Plot](https://github.com/observablehq/plot) is a free, open-source JavaScript library to help you quickly visualize tabular data. It has a concise and (hopefully) memorable API to foster fluency — and plenty of examples to learn from and copy-paste.
 

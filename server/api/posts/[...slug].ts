@@ -28,6 +28,24 @@ interface PostData {
 }
 
 /**
+ * Validate slug to prevent malformed requests
+ * Rejects slugs with pipe characters, double dots, or other invalid patterns
+ */
+function isValidSlug(slug: string): boolean {
+  // Reject empty slugs
+  if (!slug || slug.trim() === '') return false
+  // Reject slugs with pipe characters (malformed wikilinks)
+  if (slug.includes('|')) return false
+  // Reject path traversal attempts
+  if (slug.includes('..')) return false
+  // Reject slugs with null bytes or other control characters
+  if (/[\x00-\x1f\x7f]/.test(slug)) return false
+  // Only allow alphanumeric, hyphens, underscores, forward slashes
+  if (!/^[\w\-\/]+$/.test(slug)) return false
+  return true
+}
+
+/**
  * Endpoint handler to fetch and return post content by slug.
  * Post content is read from pre-processed JSON files
  * in the 'content/processed' directory.
@@ -42,6 +60,14 @@ export default defineEventHandler(async (event) => {
 
     if (!slug) {
       throw new Error('Missing slug parameter')
+    }
+
+    // Validate slug format
+    if (!isValidSlug(slug)) {
+      throw createError({
+        statusCode: 400,
+        message: 'Invalid slug format',
+      })
     }
 
     const filePath = path.join(
