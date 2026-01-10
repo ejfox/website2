@@ -237,7 +237,9 @@ async function generateAISuggestions(
         const tagLower = tag.toLowerCase()
         // Only match if tag appears as a word or word contains the full tag
         return words.some(
-          (word) => word === tagLower || (tagLower.length >= 4 && word.includes(tagLower))
+          (word) =>
+            word === tagLower ||
+            (tagLower.length >= 4 && word.includes(tagLower))
         )
       })
       .slice(0, 4)
@@ -266,9 +268,13 @@ async function generateAISuggestions(
   let domainInfo = ''
   try {
     if (context?.url) domainInfo = `Domain: ${new URL(context.url).hostname}`
-  } catch { /* invalid URL */ }
+  } catch {
+    /* invalid URL */
+  }
   const titleInfo = context?.title || content.split('\n')[0] || 'No title'
-  const selectedTextInfo = context?.selectedText ? `User-selected excerpt: "${context.selectedText}"` : ''
+  const selectedTextInfo = context?.selectedText
+    ? `User-selected excerpt: "${context.selectedText}"`
+    : ''
   const contentText = content.substring(0, 2000)
 
   const prompt = `You are EJ Fox's AI assistant helping to categorize web content for his digital scrapbook/bookmarks.

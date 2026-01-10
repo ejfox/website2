@@ -35,7 +35,11 @@ describe('stats-lite endpoint', () => {
     // Check that all values are primitives (no arrays or objects)
     Object.entries(mockResponse).forEach(([key, value]) => {
       const valueType = typeof value
-      if (key !== 'lastUpdated' && key !== 'cached' && key !== 'musicTopArtist') {
+      if (
+        key !== 'lastUpdated' &&
+        key !== 'cached' &&
+        key !== 'musicTopArtist'
+      ) {
         expect(valueType).toBe('number')
       } else {
         expect(['string', 'boolean'].includes(valueType)).toBe(true)

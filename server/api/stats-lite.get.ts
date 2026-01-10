@@ -3,7 +3,7 @@
  * @description Lightweight stats API optimized for iOS Shortcuts and slow cellular connections
  * @endpoint GET /api/stats-lite
  * @returns Minimal, top-level summary stats from all services - no arrays, no verbose nested objects
- * 
+ *
  * Design Philosophy:
  * - Single numbers only, no arrays or complex nested objects
  * - Most recent/current values only, no historical data
@@ -123,13 +123,11 @@ export default defineEventHandler(async (event): Promise<StatsLiteResponse> => {
   ])
 
   // Extract values safely
-  const github =
-    githubResult.status === 'fulfilled' ? githubResult.value : null
+  const github = githubResult.status === 'fulfilled' ? githubResult.value : null
   const chess = chessResult.status === 'fulfilled' ? chessResult.value : null
   const blogStats =
     blogStatsResult.status === 'fulfilled' ? blogStatsResult.value : null
-  const lastfm =
-    lastfmResult.status === 'fulfilled' ? lastfmResult.value : null
+  const lastfm = lastfmResult.status === 'fulfilled' ? lastfmResult.value : null
   const rescueTime =
     rescueTimeResult.status === 'fulfilled' ? rescueTimeResult.value : null
   const gearStats =

@@ -13,11 +13,22 @@
     <NuxtLoadingIndicator color="#999999" :height="1" />
     <section class="flex flex-col md:flex-row min-h-screen relative">
       <!-- Mobile nav -->
-      <nav v-if="!isStatsSimple" class="md:hidden px-4 py-3 font-mono text-sm flex flex-wrap gap-x-3 gap-y-1 items-baseline">
-        <NuxtLink to="/" class="font-bold text-zinc-800 dark:text-zinc-200">EJ Fox</NuxtLink>
-        <NuxtLink to="/blog/" class="text-zinc-500 dark:text-zinc-400">Blog</NuxtLink>
-        <NuxtLink to="/projects" class="text-zinc-500 dark:text-zinc-400">Projects</NuxtLink>
-        <NuxtLink to="/consulting" class="text-zinc-500 dark:text-zinc-400">Hire Me</NuxtLink>
+      <nav
+        v-if="!isStatsSimple"
+        class="md:hidden px-4 py-3 font-mono text-sm flex flex-wrap gap-x-3 gap-y-1 items-baseline"
+      >
+        <NuxtLink to="/" class="font-bold text-zinc-800 dark:text-zinc-200">
+          EJ Fox
+        </NuxtLink>
+        <NuxtLink to="/blog/" class="text-zinc-500 dark:text-zinc-400">
+          Blog
+        </NuxtLink>
+        <NuxtLink to="/projects" class="text-zinc-500 dark:text-zinc-400">
+          Projects
+        </NuxtLink>
+        <NuxtLink to="/consulting" class="text-zinc-500 dark:text-zinc-400">
+          Hire Me
+        </NuxtLink>
       </nav>
 
       <!-- Desktop sidebar -->
@@ -59,7 +70,10 @@
         </div>
 
         <!-- TOC container - always present for teleport targets -->
-        <div id="nav-toc-container" class="mt-4 font-sans w-full overflow-hidden"></div>
+        <div
+          id="nav-toc-container"
+          class="mt-4 font-sans w-full overflow-hidden"
+        ></div>
 
         <div v-if="isBlogPost" class="mt-4">
           <NuxtLink
@@ -74,10 +88,7 @@
 
       <article
         id="main-content"
-        :class="[
-          'w-full overflow-x-auto',
-          isStatsSimple ? '' : 'md:w-4/5',
-        ]"
+        :class="['w-full overflow-x-auto', isStatsSimple ? '' : 'md:w-4/5']"
       >
         <slot />
       </article>
