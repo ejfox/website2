@@ -65,7 +65,14 @@ yarn predict --statement "X will happen" --confidence 75 --deadline 2025-12-31
 
 ### Stats Aggregation
 
-`/api/stats` aggregates: GitHub, YouTube, LastFM, Chess.com, Kalshi
+Two endpoints for personal metrics:
+
+- `/api/stats` - Full stats with arrays and nested data (~2.4KB)
+- `/api/stats-lite` - Lightweight for iOS Shortcuts (~345 bytes, 86% smaller)
+
+Aggregates: GitHub, Chess.com, LastFM, RescueTime, Letterboxd, Discogs, Kalshi
+
+See `docs/STATS-API.md` and `docs/IOS-SHORTCUTS-EXAMPLES.md` for usage
 
 ### Gear Inventory
 
