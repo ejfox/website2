@@ -20,16 +20,16 @@ describe('stats-lite endpoint', () => {
   })
 
   it('response should only contain top-level numbers and strings', () => {
-    // Mock a typical response structure
+    // Mock a typical response structure with new precise naming
     const mockResponse = {
       lastUpdated: '2026-01-10T16:55:18.837Z',
       cached: true,
-      githubContributions: 1250,
-      githubRepos: 42,
-      githubFollowers: 156,
-      chessRapid: 1450,
-      blogPostsThisMonth: 3,
-      musicTopArtist: 'Radiohead',
+      githubContributionsAllTime: 1250,
+      githubReposTotal: 42,
+      githubFollowersCurrent: 156,
+      chessRatingRapid: 1450,
+      blogPostsCalMonth: 3,
+      musicTopArtistAllTime: 'Radiohead',
     }
 
     // Check that all values are primitives (no arrays or objects)
@@ -38,7 +38,7 @@ describe('stats-lite endpoint', () => {
       if (
         key !== 'lastUpdated' &&
         key !== 'cached' &&
-        key !== 'musicTopArtist'
+        key !== 'musicTopArtistAllTime'
       ) {
         expect(valueType).toBe('number')
       } else {
@@ -53,14 +53,14 @@ describe('stats-lite endpoint', () => {
   })
 
   it('response should be significantly smaller than full stats', () => {
-    // Mock responses to test size comparison
+    // Mock responses to test size comparison with new precise naming
     const liteResponse = {
       lastUpdated: '2026-01-10T16:55:18.837Z',
       cached: true,
-      githubContributions: 1250,
-      githubRepos: 42,
-      chessRapid: 1450,
-      blogPostsThisMonth: 3,
+      githubContributionsAllTime: 1250,
+      githubReposTotal: 42,
+      chessRatingRapid: 1450,
+      blogPostsCalMonth: 3,
     }
 
     const fullStatsResponse = {
@@ -152,15 +152,15 @@ describe('stats-lite endpoint', () => {
     ]
 
     const responseFields = [
-      'githubContributions',
-      'chessRapid',
-      'blogPostsThisMonth',
-      'musicTotalScrobbles',
-      'rescueTimeWeekHours',
-      'gearTotalItems',
-      'websitePageviewsMonth',
-      'letterboxdThisYear',
-      'discogsTotal',
+      'githubContributionsAllTime',
+      'chessRatingRapid',
+      'blogPostsCalMonth',
+      'musicScrobblesAllTime',
+      'rescueTimeLast7dHours',
+      'gearItemsTotal',
+      'websitePageviewsCalMonth',
+      'letterboxdFilmsCalYear',
+      'discogsRecordsTotal',
     ]
 
     // Each category should have at least one field

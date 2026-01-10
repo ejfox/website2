@@ -56,76 +56,76 @@ Returns minimal, top-level metrics only:
 {
   "lastUpdated": "2026-01-10T16:55:18.837Z",
   "cached": true,
-  "githubContributions": 1250,
-  "githubRepos": 42,
-  "githubFollowers": 156,
-  "chessRapid": 1450,
-  "chessBlitz": 1380,
-  "chessBullet": 1220,
-  "chessPuzzles": 1650,
-  "chessGamesTotal": 523,
-  "blogPostsThisMonth": 3,
-  "blogPostsTotal": 43,
-  "blogWordsThisMonth": 4200,
-  "musicTotalScrobbles": 52341,
-  "musicTopArtist": "Radiohead",
-  "rescueTimeWeekHours": 42.5,
-  "rescueTimeWeekProductivePercent": 68.3,
-  "gearTotalItems": 70,
-  "gearTotalWeightOz": 1178,
-  "websitePageviewsMonth": 3450,
-  "websiteVisitorsMonth": 1250,
-  "letterboxdThisYear": 42,
-  "letterboxdTotal": 156,
-  "letterboxdAvgRating": 3.8,
-  "discogsTotal": 234,
-  "discogsValue": 4567.89
+  "githubContributionsAllTime": 1250,
+  "githubReposTotal": 42,
+  "githubFollowersCurrent": 156,
+  "chessRatingRapid": 1450,
+  "chessRatingBlitz": 1380,
+  "chessRatingBullet": 1220,
+  "chessRatingPuzzles": 1650,
+  "chessGamesAllTime": 523,
+  "blogPostsCalMonth": 3,
+  "blogPostsAllTime": 43,
+  "blogWordsCalMonth": 4200,
+  "musicScrobblesAllTime": 52341,
+  "musicTopArtistAllTime": "Radiohead",
+  "rescueTimeLast7dHours": 42.5,
+  "rescueTimeLast7dProductivePct": 68.3,
+  "gearItemsTotal": 70,
+  "gearWeightTotalOz": 1178,
+  "websitePageviewsCalMonth": 3450,
+  "websiteVisitorsCalMonth": 1250,
+  "letterboxdFilmsCalYear": 42,
+  "letterboxdFilmsAllTime": 156,
+  "letterboxdRatingAvg": 3.8,
+  "discogsRecordsTotal": 234,
+  "discogsValueTotalUsd": 4567.89
 }
 ```
 
 ## Field Reference
 
 ### GitHub Metrics
-- `githubContributions` - Total contributions (all time)
-- `githubRepos` - Total public repositories
-- `githubFollowers` - Current follower count
+- `githubContributionsAllTime` - Total contributions (all time)
+- `githubReposTotal` - Total public repositories
+- `githubFollowersCurrent` - Current follower count
 
-### Chess.com Metrics
-- `chessRapid` - Current rapid rating
-- `chessBlitz` - Current blitz rating
-- `chessBullet` - Current bullet rating
-- `chessPuzzles` - Current puzzle rating
-- `chessGamesTotal` - Total games played
+### Chess.com Metrics (ELO Ratings)
+- `chessRatingRapid` - Current rapid ELO rating
+- `chessRatingBlitz` - Current blitz ELO rating
+- `chessRatingBullet` - Current bullet ELO rating
+- `chessRatingPuzzles` - Current puzzle ELO rating
+- `chessGamesAllTime` - Total games played (all time)
 
 ### Blog Metrics
-- `blogPostsThisMonth` - Posts published this month
-- `blogPostsTotal` - Total published posts
-- `blogWordsThisMonth` - Words written this month
+- `blogPostsCalMonth` - Posts published in current calendar month
+- `blogPostsAllTime` - Total published posts (all time)
+- `blogWordsCalMonth` - Words written in current calendar month
 
 ### Music (Last.fm) Metrics
-- `musicTotalScrobbles` - Total scrobbles all-time
-- `musicTopArtist` - Most played artist name
+- `musicScrobblesAllTime` - Total scrobbles (all time)
+- `musicTopArtistAllTime` - Most played artist name (all time)
 
 ### Time Tracking (RescueTime) Metrics
-- `rescueTimeWeekHours` - Total hours tracked this week
-- `rescueTimeWeekProductivePercent` - Productive time percentage
+- `rescueTimeLast7dHours` - Total hours tracked in last 7 days
+- `rescueTimeLast7dProductivePct` - Productive time percentage in last 7 days
 
 ### Gear Metrics
-- `gearTotalItems` - Total items in gear inventory
-- `gearTotalWeightOz` - Total weight in ounces
+- `gearItemsTotal` - Total items in gear inventory
+- `gearWeightTotalOz` - Total weight in ounces
 
 ### Website Analytics (Umami) Metrics
-- `websitePageviewsMonth` - Pageviews this month
-- `websiteVisitorsMonth` - Unique visitors this month
+- `websitePageviewsCalMonth` - Pageviews in current calendar month
+- `websiteVisitorsCalMonth` - Unique visitors in current calendar month
 
 ### Movies (Letterboxd) Metrics
-- `letterboxdThisYear` - Films watched this year
-- `letterboxdTotal` - Total films logged
-- `letterboxdAvgRating` - Average rating (out of 5)
+- `letterboxdFilmsCalYear` - Films watched in current calendar year
+- `letterboxdFilmsAllTime` - Total films logged (all time)
+- `letterboxdRatingAvg` - Average rating (0-5 scale)
 
 ### Vinyl Collection (Discogs) Metrics
-- `discogsTotal` - Total records in collection
-- `discogsValue` - Total collection value (USD)
+- `discogsRecordsTotal` - Total records in collection
+- `discogsValueTotalUsd` - Total collection value in USD
 
 ## iOS Shortcuts Usage
 
@@ -139,7 +139,7 @@ The lite endpoint is designed for easy use in iOS Shortcuts:
 **Example Shortcut:**
 ```
 Get Contents of URL: https://ejfox.com/api/stats-lite
-Get Dictionary Value "chessRapid" from Contents of URL
+Get Dictionary Value "chessRatingRapid" from Contents of URL
 Set Variable: ChessRating to Dictionary Value
 Show Notification: "Current Chess Rating: [ChessRating]"
 ```

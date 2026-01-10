@@ -12,7 +12,7 @@ The `/api/stats-lite` endpoint is optimized for iOS Shortcuts with:
 
 ```
 Get Contents of URL: https://ejfox.com/api/stats-lite
-Get Dictionary Value "chessRapid" from Contents of URL
+Get Dictionary Value "chessRatingRapid" from Contents of URL
 Show Notification:
   Title: "Chess Rating"
   Body: "Current Rapid: [Dictionary Value]"
@@ -23,13 +23,13 @@ Show Notification:
 ```
 Get Contents of URL: https://ejfox.com/api/stats-lite
 
-Get Dictionary Value "chessRapid" from Contents
+Get Dictionary Value "chessRatingRapid" from Contents
 Set Variable: ChessRating to Dictionary Value
 
-Get Dictionary Value "blogPostsThisMonth" from Contents
+Get Dictionary Value "blogPostsCalMonth" from Contents
 Set Variable: BlogPosts to Dictionary Value
 
-Get Dictionary Value "gearTotalWeightOz" from Contents
+Get Dictionary Value "gearWeightTotalOz" from Contents
 Set Variable: GearWeight to Dictionary Value
 
 Calculate: [GearWeight] / 16
@@ -50,16 +50,16 @@ Show Notification with Text
 Get Contents of URL: https://ejfox.com/api/stats-lite
 
 # Get multiple values
-Get Dictionary Value "blogPostsThisMonth" from Contents
+Get Dictionary Value "blogPostsCalMonth" from Contents
 Set Variable: Posts
 
-Get Dictionary Value "blogWordsThisMonth" from Contents
+Get Dictionary Value "blogWordsCalMonth" from Contents
 Set Variable: Words
 
-Get Dictionary Value "musicTotalScrobbles" from Contents
+Get Dictionary Value "musicScrobblesAllTime" from Contents
 Set Variable: Scrobbles
 
-Get Dictionary Value "chessGamesTotal" from Contents
+Get Dictionary Value "chessGamesAllTime" from Contents
 Set Variable: Games
 
 # Format as text
@@ -77,7 +77,7 @@ Share with Text
 ```
 Get Contents of URL: https://ejfox.com/api/stats-lite
 
-Get Dictionary Value "gearTotalWeightOz" from Contents
+Get Dictionary Value "gearWeightTotalOz" from Contents
 Set Variable: WeightOz
 
 # Convert to different units
@@ -104,14 +104,14 @@ Show Result with Text
 ```
 Get Contents of URL: https://ejfox.com/api/stats-lite
 
-Get Dictionary Value "rescueTimeWeekHours" from Contents
+Get Dictionary Value "rescueTimeLast7dHours" from Contents
 Set Variable: Hours
 
-Get Dictionary Value "rescueTimeWeekProductivePercent" from Contents
+Get Dictionary Value "rescueTimeLast7dProductivePct" from Contents
 Set Variable: Productive
 
 Text:
-⏰ This Week
+⏰ Last 7 Days
 🕐 [Hours] hours tracked
 ✅ [Productive]% productive
 
@@ -123,13 +123,13 @@ Show Notification with Text
 ```
 Get Contents of URL: https://ejfox.com/api/stats-lite
 
-Get Dictionary Value "musicTopArtist" from Contents
+Get Dictionary Value "musicTopArtistAllTime" from Contents
 Set Variable: TopArtist
 
-Get Dictionary Value "letterboxdThisYear" from Contents
+Get Dictionary Value "letterboxdFilmsCalYear" from Contents
 Set Variable: FilmsThisYear
 
-Get Dictionary Value "discogsTotal" from Contents
+Get Dictionary Value "discogsRecordsTotal" from Contents
 Set Variable: VinylCollection
 
 Text:
@@ -146,17 +146,17 @@ Copy to Clipboard with Text
 ```
 Get Contents of URL: https://ejfox.com/api/stats-lite
 
-Get Dictionary Value "websitePageviewsMonth" from Contents
+Get Dictionary Value "websitePageviewsCalMonth" from Contents
 Set Variable: Pageviews
 
-Get Dictionary Value "websiteVisitorsMonth" from Contents
+Get Dictionary Value "websiteVisitorsCalMonth" from Contents
 Set Variable: Visitors
 
 Calculate: [Pageviews] / [Visitors]
 Set Variable: PagesPerVisitor
 
 Text:
-📊 Website Stats
+📊 Website Stats (This Month)
 👁️ [Pageviews] pageviews
 👤 [Visitors] visitors
 📄 [PagesPerVisitor] pages/visitor
@@ -169,13 +169,13 @@ Show in Quick Look
 ```
 Get Contents of URL: https://ejfox.com/api/stats-lite
 
-Get Dictionary Value "githubContributions" from Contents
+Get Dictionary Value "githubContributionsAllTime" from Contents
 Set Variable: Contributions
 
-Get Dictionary Value "githubRepos" from Contents
+Get Dictionary Value "githubReposTotal" from Contents
 Set Variable: Repos
 
-Get Dictionary Value "githubFollowers" from Contents
+Get Dictionary Value "githubFollowersCurrent" from Contents
 Set Variable: Followers
 
 Text:
@@ -194,16 +194,16 @@ Show Notification with Text
 Get Contents of URL: https://ejfox.com/api/stats-lite
 
 # Build comprehensive dashboard
-Get Dictionary Value "chessRapid" from Contents
+Get Dictionary Value "chessRatingRapid" from Contents
 Set Variable: Chess
 
-Get Dictionary Value "blogPostsThisMonth" from Contents
+Get Dictionary Value "blogPostsCalMonth" from Contents
 Set Variable: Posts
 
-Get Dictionary Value "githubContributions" from Contents
+Get Dictionary Value "githubContributionsAllTime" from Contents
 Set Variable: Contributions
 
-Get Dictionary Value "musicTotalScrobbles" from Contents
+Get Dictionary Value "musicScrobblesAllTime" from Contents
 Set Variable: Scrobbles
 
 # Get current time
@@ -235,10 +235,10 @@ For a widget, you can create a shortcut that:
 Get Contents of URL: https://ejfox.com/api/stats-lite
 
 # Extract key metrics
-Get Dictionary Value "chessRapid" from Contents
+Get Dictionary Value "chessRatingRapid" from Contents
 Set Variable: ChessRating
 
-Get Dictionary Value "blogPostsThisMonth" from Contents
+Get Dictionary Value "blogPostsCalMonth" from Contents
 Set Variable: BlogPosts
 
 # Create JSON for widget
@@ -263,16 +263,33 @@ Save File "stats-cache.json" to iCloud Drive/Shortcuts/
 
 ## Field Reference
 
-Quick reference of available fields:
+Quick reference of available fields (with precise time periods and units):
 
-- `githubContributions`, `githubRepos`, `githubFollowers`
-- `chessRapid`, `chessBlitz`, `chessBullet`, `chessPuzzles`, `chessGamesTotal`
-- `blogPostsThisMonth`, `blogPostsTotal`, `blogWordsThisMonth`
-- `musicTotalScrobbles`, `musicTopArtist`
-- `rescueTimeWeekHours`, `rescueTimeWeekProductivePercent`
-- `gearTotalItems`, `gearTotalWeightOz`
-- `websitePageviewsMonth`, `websiteVisitorsMonth`
-- `letterboxdThisYear`, `letterboxdTotal`, `letterboxdAvgRating`
-- `discogsTotal`, `discogsValue`
+**GitHub (all time)**
+- `githubContributionsAllTime`, `githubReposTotal`, `githubFollowersCurrent`
+
+**Chess.com (current ELO ratings + all time games)**
+- `chessRatingRapid`, `chessRatingBlitz`, `chessRatingBullet`, `chessRatingPuzzles`, `chessGamesAllTime`
+
+**Blog (calendar month + all time)**
+- `blogPostsCalMonth`, `blogPostsAllTime`, `blogWordsCalMonth`
+
+**Last.fm (all time)**
+- `musicScrobblesAllTime`, `musicTopArtistAllTime`
+
+**RescueTime (last 7 days)**
+- `rescueTimeLast7dHours`, `rescueTimeLast7dProductivePct`
+
+**Gear (current totals)**
+- `gearItemsTotal`, `gearWeightTotalOz`
+
+**Website Analytics (calendar month)**
+- `websitePageviewsCalMonth`, `websiteVisitorsCalMonth`
+
+**Letterboxd (calendar year + all time)**
+- `letterboxdFilmsCalYear`, `letterboxdFilmsAllTime`, `letterboxdRatingAvg`
+
+**Discogs (current totals)**
+- `discogsRecordsTotal`, `discogsValueTotalUsd`
 
 All fields are optional and may not be present if data is unavailable.

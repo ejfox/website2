@@ -33,47 +33,47 @@ interface StatsLiteResponse {
   lastUpdated: string
   cached: boolean
 
-  // GitHub - just the essentials
-  githubContributions?: number
-  githubRepos?: number
-  githubFollowers?: number
+  // GitHub - all time totals
+  githubContributionsAllTime?: number
+  githubReposTotal?: number
+  githubFollowersCurrent?: number
 
-  // Chess - current ratings only
-  chessRapid?: number
-  chessBlitz?: number
-  chessBullet?: number
-  chessPuzzles?: number
-  chessGamesTotal?: number
+  // Chess - current ELO ratings and all-time games
+  chessRatingRapid?: number
+  chessRatingBlitz?: number
+  chessRatingBullet?: number
+  chessRatingPuzzles?: number
+  chessGamesAllTime?: number
 
-  // Blog writing
-  blogPostsThisMonth?: number
-  blogPostsTotal?: number
-  blogWordsThisMonth?: number
+  // Blog writing - calendar month and all time
+  blogPostsCalMonth?: number
+  blogPostsAllTime?: number
+  blogWordsCalMonth?: number
 
-  // Music listening
-  musicTotalScrobbles?: number
-  musicTopArtist?: string
+  // Music listening - all time totals
+  musicScrobblesAllTime?: number
+  musicTopArtistAllTime?: string
 
-  // Time tracking
-  rescueTimeWeekHours?: number
-  rescueTimeWeekProductivePercent?: number
+  // Time tracking - last 7 days
+  rescueTimeLast7dHours?: number
+  rescueTimeLast7dProductivePct?: number
 
-  // Gear
-  gearTotalItems?: number
-  gearTotalWeightOz?: number
+  // Gear inventory - current totals
+  gearItemsTotal?: number
+  gearWeightTotalOz?: number
 
-  // Website analytics
-  websitePageviewsMonth?: number
-  websiteVisitorsMonth?: number
+  // Website analytics - calendar month
+  websitePageviewsCalMonth?: number
+  websiteVisitorsCalMonth?: number
 
-  // Movies
-  letterboxdThisYear?: number
-  letterboxdTotal?: number
-  letterboxdAvgRating?: number
+  // Movies - calendar year and all time
+  letterboxdFilmsCalYear?: number
+  letterboxdFilmsAllTime?: number
+  letterboxdRatingAvg?: number
 
-  // Vinyl collection
-  discogsTotal?: number
-  discogsValue?: number
+  // Vinyl collection - current totals
+  discogsRecordsTotal?: number
+  discogsValueTotalUsd?: number
 }
 
 // Helper to safely extract a value with type checking
@@ -147,73 +147,77 @@ export default defineEventHandler(async (event): Promise<StatsLiteResponse> => {
     cached: false,
   }
 
-  // GitHub - just top-level numbers
+  // GitHub - all time totals
   if (github?.stats) {
-    response.githubContributions = safeNumber(github.stats.totalContributions)
-    response.githubRepos = safeNumber(github.stats.totalRepos)
-    response.githubFollowers = safeNumber(github.stats.followers)
+    response.githubContributionsAllTime = safeNumber(
+      github.stats.totalContributions
+    )
+    response.githubReposTotal = safeNumber(github.stats.totalRepos)
+    response.githubFollowersCurrent = safeNumber(github.stats.followers)
   }
 
-  // Chess - current ratings only
+  // Chess - current ELO ratings and all-time games
   if (chess) {
-    response.chessRapid = safeNumber(chess.currentRating?.rapid)
-    response.chessBlitz = safeNumber(chess.currentRating?.blitz)
-    response.chessBullet = safeNumber(chess.currentRating?.bullet)
-    response.chessPuzzles = safeNumber(chess.puzzleStats?.rating)
-    response.chessGamesTotal = safeNumber(chess.gamesPlayed?.total)
+    response.chessRatingRapid = safeNumber(chess.currentRating?.rapid)
+    response.chessRatingBlitz = safeNumber(chess.currentRating?.blitz)
+    response.chessRatingBullet = safeNumber(chess.currentRating?.bullet)
+    response.chessRatingPuzzles = safeNumber(chess.puzzleStats?.rating)
+    response.chessGamesAllTime = safeNumber(chess.gamesPlayed?.total)
   }
 
-  // Blog stats
+  // Blog stats - calendar month and all time
   if (blogStats) {
-    response.blogPostsThisMonth = safeNumber(blogStats.posts?.thisMonth)
-    response.blogPostsTotal = safeNumber(blogStats.posts?.total)
-    response.blogWordsThisMonth = safeNumber(blogStats.words?.thisMonth)
+    response.blogPostsCalMonth = safeNumber(blogStats.posts?.thisMonth)
+    response.blogPostsAllTime = safeNumber(blogStats.posts?.total)
+    response.blogWordsCalMonth = safeNumber(blogStats.words?.thisMonth)
   }
 
-  // Last.fm - just totals and top artist
+  // Last.fm - all time totals and top artist
   if (lastfm) {
-    response.musicTotalScrobbles = safeNumber(lastfm.userInfo?.playcount)
+    response.musicScrobblesAllTime = safeNumber(lastfm.userInfo?.playcount)
     // Get top artist name from topArtists array
     if (lastfm.topArtists?.artists?.[0]?.name) {
-      response.musicTopArtist = safeString(lastfm.topArtists.artists[0].name)
+      response.musicTopArtistAllTime = safeString(
+        lastfm.topArtists.artists[0].name
+      )
     }
   }
 
-  // RescueTime - just weekly summary
+  // RescueTime - last 7 days summary
   if (rescueTime?.week?.summary) {
     const weekHours = rescueTime.week.summary.total?.hoursDecimal
     const productivePercent = rescueTime.week.summary.productive?.percentage
-    response.rescueTimeWeekHours = safeNumber(weekHours)
-    response.rescueTimeWeekProductivePercent = safeNumber(productivePercent)
+    response.rescueTimeLast7dHours = safeNumber(weekHours)
+    response.rescueTimeLast7dProductivePct = safeNumber(productivePercent)
   }
 
-  // Gear stats
+  // Gear stats - current totals
   if (gearStats?.stats) {
-    response.gearTotalItems = safeNumber(gearStats.stats.totalItems)
-    response.gearTotalWeightOz = safeNumber(gearStats.stats.totalWeight)
+    response.gearItemsTotal = safeNumber(gearStats.stats.totalItems)
+    response.gearWeightTotalOz = safeNumber(gearStats.stats.totalWeight)
   }
 
-  // Website stats - current month only
+  // Website stats - calendar month only
   if (websiteStats?.stats) {
-    response.websitePageviewsMonth = safeNumber(
+    response.websitePageviewsCalMonth = safeNumber(
       websiteStats.stats.pageviews?.value
     )
-    response.websiteVisitorsMonth = safeNumber(
+    response.websiteVisitorsCalMonth = safeNumber(
       websiteStats.stats.visitors?.value
     )
   }
 
-  // Letterboxd
+  // Letterboxd - calendar year and all time
   if (letterboxd?.stats) {
-    response.letterboxdThisYear = safeNumber(letterboxd.stats.thisYear)
-    response.letterboxdTotal = safeNumber(letterboxd.stats.totalFilms)
-    response.letterboxdAvgRating = safeNumber(letterboxd.stats.averageRating)
+    response.letterboxdFilmsCalYear = safeNumber(letterboxd.stats.thisYear)
+    response.letterboxdFilmsAllTime = safeNumber(letterboxd.stats.totalFilms)
+    response.letterboxdRatingAvg = safeNumber(letterboxd.stats.averageRating)
   }
 
-  // Discogs
+  // Discogs - current totals with USD
   if (discogs?.stats) {
-    response.discogsTotal = safeNumber(discogs.stats.totalItems)
-    response.discogsValue = safeNumber(discogs.stats.totalValue)
+    response.discogsRecordsTotal = safeNumber(discogs.stats.totalItems)
+    response.discogsValueTotalUsd = safeNumber(discogs.stats.totalValue)
   }
 
   // Cache the response
