@@ -328,12 +328,17 @@ usePageSeo({
           I believe the world is editable&mdash;that most systems can be
           improved by someone willing to look closely and prototype quickly.
           That belief has led me to work across newsrooms
-          <span class="aside">(NBC News, Washington Post, Gothamist)</span>,
-          design studios <span class="aside">(Stamen)</span>, research labs
-          <span class="aside">(CMU, ASU's AI fellowship)</span>, climate orgs
-          <span class="aside">(Climate TRACE, Earth Genome)</span>, foundations
-          <span class="aside">(Knight)</span>, and companies I can't name. The
-          common thread: people with a hunch something could be better.
+          <span class="aside">(NBC News, Washington Post, Gothamist)</span>
+          , design studios
+          <span class="aside">(Stamen)</span>
+          , research labs
+          <span class="aside">(CMU, ASU's AI fellowship)</span>
+          , climate orgs
+          <span class="aside">(Climate TRACE, Earth Genome)</span>
+          , foundations
+          <span class="aside">(Knight)</span>
+          , and companies I can't name. The common thread: people with a hunch
+          something could be better.
         </p>
         <div class="grid grid-cols-3 gap-6 text-center py-6 divider-y">
           <div>
@@ -477,7 +482,8 @@ usePageSeo({
               <p class="process-title">Build</p>
               <p class="process-desc">
                 Weekly calls, async demo videos, early prototypes. Slack or
-                Discord over email. I'll be with you the entire way until it ships.
+                Discord over email. I'll be with you the entire way until it
+                ships.
               </p>
             </div>
           </div>

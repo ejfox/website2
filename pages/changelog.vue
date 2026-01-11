@@ -9,7 +9,10 @@
         </p>
         <p class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mt-2">
           Looking for the human version?
-          <NuxtLink to="/updates" class="underline hover:text-zinc-900 dark:hover:text-zinc-100">
+          <NuxtLink
+            to="/updates"
+            class="underline hover:text-zinc-900 dark:hover:text-zinc-100"
+          >
             What's New
           </NuxtLink>
         </p>

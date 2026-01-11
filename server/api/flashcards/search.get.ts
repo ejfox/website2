@@ -8,7 +8,7 @@ import { getAllCards, type Flashcard } from '~/server/utils/flashcards'
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const q = (query.q as string)?.toLowerCase().trim()
-  const limit = Math.min(parseInt(query.limit as string) || 20, 100)
+  const limit = Math.min(Number.parseInt(query.limit as string) || 20, 100)
 
   if (!q || q.length < 2) {
     throw createError({

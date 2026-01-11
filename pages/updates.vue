@@ -47,9 +47,13 @@
       >
         <p>
           For the commit-by-commit view, see the
-          <NuxtLink to="/changelog" class="underline hover:text-zinc-900 dark:hover:text-zinc-100">
+          <NuxtLink
+            to="/changelog"
+            class="underline hover:text-zinc-900 dark:hover:text-zinc-100"
+          >
             git changelog
-          </NuxtLink>.
+          </NuxtLink>
+          .
         </p>
       </footer>
     </div>
@@ -82,10 +86,20 @@ function formatDate(dateStr: string) {
   // Handle month: "2025-12"
   const [year, month] = dateStr.split('-')
   const months = [
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
   ]
-  return `${months[parseInt(month) - 1]} ${year}`
+  return `${months[Number.parseInt(month) - 1]} ${year}`
 }
 
 usePageSeo({

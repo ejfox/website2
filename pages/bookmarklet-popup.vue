@@ -473,7 +473,13 @@ onMounted(async () => {
 
     // Then fetch suggestions
     const response = await $fetch('/api/suggest', {
-      query: { url: pageUrl, title: pageTitle, text: pageText, description: selectedText, auth },
+      query: {
+        url: pageUrl,
+        title: pageTitle,
+        text: pageText,
+        description: selectedText,
+        auth,
+      },
     })
     loadingStep.value = 3
 

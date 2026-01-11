@@ -28,7 +28,11 @@ export default defineEventHandler(async () => {
     totalCards,
     byCourse,
     largestDeck: sortedBySize[0]
-      ? { id: sortedBySize[0].id, name: sortedBySize[0].name, cards: sortedBySize[0].cardCount }
+      ? {
+          id: sortedBySize[0].id,
+          name: sortedBySize[0].name,
+          cards: sortedBySize[0].cardCount,
+        }
       : null,
     smallestDeck: sortedBySize[sortedBySize.length - 1]
       ? {

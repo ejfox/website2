@@ -167,7 +167,10 @@ const handleReshuffle = () => {
 
     <!-- Card area -->
     <main v-else-if="currentCard" class="card-area">
-      <Transition :name="slideDirection === 'right' ? 'slide-right' : 'slide-left'" mode="out-in">
+      <Transition
+        :name="slideDirection === 'right' ? 'slide-right' : 'slide-left'"
+        mode="out-in"
+      >
         <div :key="currentIndex" class="card-wrapper">
           <FlashcardCard
             :front="currentCard.front"
@@ -553,7 +556,6 @@ const handleReshuffle = () => {
     display: none;
   }
 }
-
 </style>
 
 <style>

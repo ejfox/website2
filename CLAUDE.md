@@ -44,10 +44,16 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
      - `yarn kalshi:templates` - Generate commentary templates for positions
      - `yarn kalshi:calibration` - Run prediction accuracy analysis
 
-3. **Stats Aggregation** (`server/api/stats.get.ts`)
-   - Multi-source API integration: GitHub, YouTube, LastFM, Chess.com, etc.
-   - Caching layer to avoid rate limits
-   - Real-time personal metrics dashboard
+3. **Stats Aggregation**
+   - **Full Stats** (`server/api/stats.get.ts`) - Comprehensive stats with arrays and nested objects (~2.4KB)
+     - Multi-source API integration: GitHub, YouTube, LastFM, Chess.com, etc.
+     - Real-time personal metrics dashboard
+     - Includes historical data, recent items, and detailed breakdowns
+   - **Lite Stats** (`server/api/stats-lite.get.ts`) - Optimized for iOS Shortcuts (~345 bytes, 86% smaller)
+     - Single numbers only, no arrays or nested objects
+     - Top-level metrics from all services
+     - 5-minute caching for cellular optimization
+     - Perfect for iOS Shortcuts, widgets, and slow connections
 
 4. **Gear Inventory System** (`pages/gear/index.vue`)
    - CSV-based gear tracking with weight calculations

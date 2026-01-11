@@ -25,7 +25,10 @@ export interface Flashcard {
 }
 
 // Parse deck info from filename
-export function parseDeckName(filename: string): { course: string; name: string } {
+export function parseDeckName(filename: string): {
+  course: string
+  name: string
+} {
   const base = filename.replace('flashcards-', '').replace('.csv', '')
 
   if (base.startsWith('applied-quant')) {
