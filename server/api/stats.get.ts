@@ -8,7 +8,7 @@ import type { StatsResponse } from '~/composables/useStats'
 import githubHandler from './github.get'
 import monkeyTypeHandler from './monkeytype.get'
 // import photosHandler from './photos.get' // DISABLED: SSL certificate issues
-// import healthHandler from './health.get' // DISABLED: Network fetch failures
+import healthHandler from './health.get' // Re-enabled: using health-webhook.tools.ejfox.com
 import leetcodeHandler from './leetcode.get'
 import chessHandler from './chess.get'
 import rescuetimeHandler from './rescuetime.get'
@@ -207,7 +207,7 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       githubResult,
       monkeyTypeResult,
       // photosResult, // DISABLED: SSL certificate issues
-      // healthResult, // DISABLED: Network fetch failures
+      healthResult,
       leetcodeResult,
       chessResult,
       rescueTimeResult,
@@ -231,10 +231,10 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       //   console.error('❌ Photos API error:', err)
       //   return null
       // }),
-      // healthHandler(event).catch((err) => {
-      //   console.error('❌ Health API error:', err)
-      //   return null
-      // }),
+      healthHandler(event).catch((err) => {
+        console.error('❌ Health API error:', err)
+        return null
+      }),
       leetcodeHandler(event).catch((err) => {
         console.error('❌ LeetCode API error:', err)
         return null
@@ -283,7 +283,7 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
         : undefined,
       monkeyType: getValue(monkeyTypeResult),
       // photos: getValue(photosResult), // DISABLED: SSL certificate issues
-      // health: getValue(healthResult), // DISABLED: Network fetch failures
+      health: getValue(healthResult),
       leetcode: getValue(leetcodeResult),
       chess: getValue(chessResult)
         ? adaptChessStats(getValue(chessResult))
