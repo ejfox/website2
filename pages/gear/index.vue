@@ -9,8 +9,10 @@
     </div>
 
     <header v-else class="section-spacing-sm">
-      <div class="flex-between py-3 section-spacing-sm">
-        <div class="flex items-baseline gap-3">
+      <!-- Mobile: Stack vertically, Desktop: Horizontal layout -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-3 section-spacing-sm">
+        <!-- Title and Stats Section -->
+        <div class="flex flex-col gap-2">
           <h1 class="font-mono text-sm text-zinc-100">GEAR</h1>
           <div class="font-mono text-[10px] text-muted tabular">
             {{ totalItems }} items · {{ displayTotalWeight.value }} ·
@@ -21,7 +23,9 @@
             exports
           </div>
         </div>
-        <div class="flex-gap-3">
+        
+        <!-- Controls Section -->
+        <div class="flex flex-wrap gap-2 sm:gap-3">
           <!-- Weight Unit Selector -->
           <label for="weight-unit" class="sr-only">Weight unit</label>
           <div class="relative">
@@ -51,7 +55,8 @@
       <div class="mb-4">
         <div class="mb-4">
           <h3 class="gear-section-header mb-2">Type Legend</h3>
-          <div class="grid grid-cols-7 gap-2">
+          <!-- Mobile: 2 cols, Tablet: 4 cols, Desktop: 7 cols -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2">
             <div
               v-for="type in typeStats"
               :key="type.name"
@@ -60,8 +65,8 @@
               <span class="text-xs font-medium text-muted">
                 {{ type.symbol }}
               </span>
-              <div class="flex-1">
-                <div class="font-mono text-[10px] text-zinc-400">
+              <div class="flex-1 min-w-0">
+                <div class="font-mono text-[10px] text-zinc-400 truncate">
                   {{ type.name }}
                 </div>
                 <div class="text-[9px] text-muted tabular">
@@ -662,6 +667,49 @@ useHead(() => ({
 </script>
 
 <style>
+/* Missing utility classes */
+.flex-between {
+  @apply flex items-center justify-between;
+}
+
+.flex-gap-3 {
+  @apply flex items-center gap-3;
+}
+
+.flex-gap-0.5 {
+  @apply flex items-center gap-0.5;
+}
+
+.inline-flex-gap-0.5 {
+  @apply inline-flex items-center gap-0.5;
+}
+
+.grid-gear-responsive {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2;
+}
+
+/* Gear page controls */
+.gear-btn {
+  @apply px-3 py-2 text-[10px] font-mono uppercase tracking-wide;
+  @apply text-zinc-300 bg-zinc-900 hover:bg-zinc-800;
+  @apply border border-zinc-700 hover:border-zinc-600;
+  @apply transition-colors duration-200;
+  @apply min-h-[44px] flex items-center justify-center; /* Touch-friendly */
+}
+
+.gear-select {
+  @apply px-3 py-2 pr-8 text-[10px] font-mono uppercase tracking-wide;
+  @apply text-zinc-300 bg-zinc-900 border border-zinc-700;
+  @apply appearance-none cursor-pointer;
+  @apply min-h-[44px]; /* Touch-friendly */
+}
+
+.select-dropdown-arrow {
+  @apply absolute right-3 top-1/2 -translate-y-1/2;
+  @apply text-[8px] text-zinc-500 pointer-events-none;
+}
+
+/* Table styles */
 .gear-th {
   @apply text-center px-1 py-1 font-normal text-zinc-500 text-[8px];
 }
