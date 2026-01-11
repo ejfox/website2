@@ -71,7 +71,7 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
 
   try {
     // Fetch metrics from health-webhook
-    const response = await fetch(`${HEALTH_API}/metrics?days=30`)
+    const response = await fetch(`${HEALTH_API}/api/metrics?days=30`)
     if (!response.ok) {
       throw new Error(`Health API returned ${response.status}`)
     }
