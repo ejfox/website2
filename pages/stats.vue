@@ -345,16 +345,15 @@
             Loading system metrics...
           </div>
 
-          <TransitionGroup name="fade-up" tag="div" class="contents" appear>
-            <!-- Only show sections when stats are actually loaded -->
-            <template
-              v-if="
-                !isLoading &&
-                !errors.fetch &&
-                stats &&
-                Object.keys(stats).length > 0
-              "
-            >
+          <!-- Stats sections (TransitionGroup removed - no CSS defined, just overhead) -->
+          <template
+            v-if="
+              !isLoading &&
+              !errors.fetch &&
+              stats &&
+              Object.keys(stats).length > 0
+            "
+          >
               <!-- GitHub -->
               <StatSection
                 v-if="stats.github?.stats"
@@ -495,19 +494,16 @@
                 <UmamiStats key="umami" :umami-stats="stats.website" />
               </StatSection>
             </template>
-          </TransitionGroup>
         </section>
 
         <!-- Full Width Sections -->
         <section class="col-span-full space-y-2 pt-8">
           <!-- Gear Stats -->
-          <Transition name="fade-up" appear>
-            <div id="gear" class="relative">
-              <StatSection title="GEAR">
-                <GearStats :gear-stats="stats?.gear" />
-              </StatSection>
-            </div>
-          </Transition>
+          <div id="gear" class="relative">
+            <StatSection title="GEAR">
+              <GearStats :gear-stats="stats?.gear" />
+            </StatSection>
+          </div>
 
           <!-- Commit Matrix Art Piece -->
           <ClientOnly>
@@ -520,10 +516,7 @@
                   {{ allCommits.length.toLocaleString() }} commits
                 </p>
               </div>
-              <CommitMatrix
-                :commits="allCommits"
-                :height="commitMatrixHeight"
-              />
+              <CommitMatrix :commits="allCommits" />
             </div>
           </ClientOnly>
         </section>
@@ -536,22 +529,24 @@
 // TODO: Stats types have drifted significantly from API responses
 // StatsResponse in useStats.ts needs full audit to match actual /api/stats shape
 // Key mismatches: github.totalCommits, blog.totalPosts, monkeyType.avgWpm, etc.
-// Import stats components explicitly (Nuxt 4 auto-import issues)
+// Import above-fold stats components eagerly
 import StatSection from '~/components/stats/StatSection.vue'
 import TopStats from '~/components/stats/TopStats.vue'
 import GitHubStats from '~/components/stats/GitHubStats.vue'
 import BlogStats from '~/components/stats/BlogStats.vue'
 import GoodreadsStats from '~/components/stats/GoodreadsStats.vue'
 import RescueTimeStats from '~/components/stats/RescueTimeStats.vue'
-import LeetCodeStats from '~/components/stats/LeetCodeStats.vue'
 import ChessStats from '~/components/stats/ChessStats.vue'
 import MonkeyTypeStats from '~/components/stats/MonkeyTypeStats.vue'
-import GistStats from '~/components/stats/GistStats.vue'
-import LastFmStats from '~/components/stats/LastFmStats.vue'
-import LetterboxdStats from '~/components/stats/LetterboxdStats.vue'
-import DiscogsStats from '~/components/stats/DiscogsStats.vue'
-import UmamiStats from '~/components/stats/UmamiStats.vue'
-import GearStats from '~/components/stats/GearStats.vue'
+
+// Lazy-load below-fold components
+const LeetCodeStats = defineAsyncComponent(() => import('~/components/stats/LeetCodeStats.vue'))
+const GistStats = defineAsyncComponent(() => import('~/components/stats/GistStats.vue'))
+const LastFmStats = defineAsyncComponent(() => import('~/components/stats/LastFmStats.vue'))
+const LetterboxdStats = defineAsyncComponent(() => import('~/components/stats/LetterboxdStats.vue'))
+const DiscogsStats = defineAsyncComponent(() => import('~/components/stats/DiscogsStats.vue'))
+const UmamiStats = defineAsyncComponent(() => import('~/components/stats/UmamiStats.vue'))
+const GearStats = defineAsyncComponent(() => import('~/components/stats/GearStats.vue'))
 import { usePostFilters } from '~/composables/blog/usePostFilters'
 
 // Define stats first - used by computed properties below
@@ -626,20 +621,6 @@ const { data: allCommitsData } = await useFetch('/api/github-commits', {
   lazy: true,
 })
 const allCommits = computed(() => allCommitsData.value || [])
-
-// Calculate height based on time span (roughly 2px per day)
-const commitMatrixHeight = computed(() => {
-  const commits = allCommits.value
-  if (!commits || commits.length === 0) return 1000
-
-  const dates = commits.map((c) => new Date(c.date))
-  const minDate = new Date(Math.min(...dates))
-  const maxDate = new Date(Math.max(...dates))
-  const daySpan = (maxDate - minDate) / (1000 * 60 * 60 * 24)
-
-  // 2 pixels per day gives ~9000px for 13 years
-  return Math.max(1000, Math.round(daySpan * 2))
-})
 
 // Simple mode refs
 const sectionRef = ref(null)

@@ -175,6 +175,15 @@ function adaptGitHubStats(githubData: GitHubData | null) {
     return undefined
   }
 
+  // PERF: Only include last 30 days of commits in stats API
+  // Full commit history is available via /api/github-commits for CommitMatrix
+  const thirtyDaysAgo = new Date()
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
+  const recentCommits = (githubData.detail?.commits || []).filter((commit) => {
+    const commitDate = new Date(commit.occurredAt)
+    return commitDate >= thirtyDaysAgo
+  })
+
   // Map the data to expected format
   return {
     stats: {
@@ -188,7 +197,7 @@ function adaptGitHubStats(githubData: GitHubData | null) {
     contributions: githubData.contributions || [],
     dates: githubData.dates || [],
     detail: {
-      commits: githubData.detail?.commits || [],
+      commits: recentCommits, // Only last 30 days
       commitTypes: githubData.detail?.commitTypes || [],
     },
   }

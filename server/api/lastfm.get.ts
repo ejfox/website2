@@ -247,21 +247,19 @@ export default defineEventHandler(async () => {
     }
 
     // Fetch all data in parallel with error recovery
+    // PERF: Limits match actual component usage (5 recent, 5 artists, 3 tracks)
+    // PERF: topAlbums removed - not used by LastFmStats component
     const results = await Promise.allSettled([
       makeRequest<RecentTracksResponse>('user.getrecenttracks', {
-        limit: '10',
+        limit: '5',
       }),
       makeRequest<TopArtistsResponse>('user.gettopartists', {
         period: '1month',
-        limit: '10',
-      }),
-      makeRequest<TopAlbumsResponse>('user.gettopalbums', {
-        period: '1month',
-        limit: '10',
+        limit: '5',
       }),
       makeRequest<TopTracksResponse>('user.gettoptracks', {
         period: '1month',
-        limit: '10',
+        limit: '3',
       }),
       makeRequest<UserInfoResponse>('user.getinfo'),
     ])
@@ -274,16 +272,12 @@ export default defineEventHandler(async () => {
       results[1].status === 'fulfilled'
         ? results[1].value
         : { topartists: { artist: [] } }
-    const topAlbums =
+    const topTracks =
       results[2].status === 'fulfilled'
         ? results[2].value
-        : { topalbums: { album: [] } }
-    const topTracks =
-      results[3].status === 'fulfilled'
-        ? results[3].value
         : { toptracks: { track: [] } }
     const userInfo: UserInfoResponse =
-      results[4].status === 'fulfilled' ? results[4].value : { user: undefined }
+      results[3].status === 'fulfilled' ? results[3].value : { user: undefined }
 
     // Process recent tracks
     const processedRecentTracks = {
@@ -313,22 +307,6 @@ export default defineEventHandler(async () => {
           image: artist.image || [],
         })) || [],
       total: Number.parseInt(topArtists.topartists?.['@attr']?.total || '0'),
-    }
-
-    // Process top albums
-    const processedTopAlbums = {
-      albums:
-        topAlbums.topalbums?.album?.map((album: LastFmAlbum) => ({
-          name: album.name,
-          playcount: album.playcount,
-          artist: {
-            name: album.artist.name,
-            url: album.artist.url,
-          },
-          url: album.url,
-          image: album.image || [],
-        })) || [],
-      total: Number.parseInt(topAlbums.topalbums?.['@attr']?.total || '0'),
     }
 
     // Process top tracks
@@ -374,7 +352,6 @@ export default defineEventHandler(async () => {
     const result = {
       recentTracks: processedRecentTracks,
       topArtists: processedTopArtists,
-      topAlbums: processedTopAlbums,
       topTracks: processedTopTracks,
       userInfo: processedUserInfo,
       stats: {
@@ -412,10 +389,6 @@ export default defineEventHandler(async () => {
       },
       topArtists: {
         artists: [],
-        total: 0,
-      },
-      topAlbums: {
-        albums: [],
         total: 0,
       },
       topTracks: {

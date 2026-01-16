@@ -132,9 +132,15 @@ const activeCount = computed(() => {
 </script>
 
 <style scoped>
+.activity-calendar {
+  position: relative;
+  overflow: visible;
+}
+
 .activity-grid {
   @apply grid gap-0.5 h-4;
   grid-template-columns: repeat(30, minmax(0, 1fr));
+  overflow: visible;
 }
 
 .activity-cell {
@@ -150,13 +156,22 @@ const activeCount = computed(() => {
   @apply bg-zinc-200/30 dark:bg-zinc-800/30;
 }
 
-.custom-tooltip {
-  bottom: 18px;
+.tooltip-custom {
+  position: absolute;
+  bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
   width: max-content;
   max-width: 150px;
   white-space: nowrap;
+  z-index: 50;
+  background: #18181b;
+  color: #fafafa;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 639px) {

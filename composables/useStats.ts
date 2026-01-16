@@ -3,9 +3,7 @@
  * @description Stats aggregation composable for fetching and computing personal metrics
  * @returns Stats data, loading states, and computed time breakdowns
  */
-import { ref, computed, onMounted } from 'vue'
-
-// DELETED: All caching - direct API calls only
+import { shallowRef, computed } from 'vue'
 
 interface TimeBreakdown {
   seconds: number
@@ -513,10 +511,21 @@ export interface StatsResponse {
 }
 
 export function useStats() {
-  const stats = ref<StatsResponse | null>(null)
-  const isLoading = ref(true)
-  const errors = ref<Record<string, boolean>>({})
-  const hasStaleData = ref(false)
+  // Use Nuxt's useFetch for SSR + caching + automatic error handling
+  // PERF: lazy: true prevents blocking SSR - page renders immediately, stats load after
+  const {
+    data: stats,
+    status,
+    error,
+  } = useFetch<StatsResponse>('/api/stats', {
+    lazy: true,
+    server: false, // Don't fetch during SSR - stats API calls external services
+  })
+
+  // Derived states
+  const isLoading = computed(() => status.value === 'pending')
+  const errors = computed(() => ({ fetch: !!error.value }))
+  const hasStaleData = shallowRef(false)
 
   const hasGithubData = computed(() => {
     return !!(
@@ -538,33 +547,6 @@ export function useStats() {
   const hasLastFmData = computed(() => !!stats.value?.lastfm)
   const hasDiscogsData = computed(() => !!stats.value?.discogs?.stats)
 
-  // DELETED: All caching functions
-
-  const fetchFreshData = async () => {
-    isLoading.value = true
-
-    try {
-      // DELETED: All caching and cache-busting - direct API call
-      const response = await fetch('/api/stats')
-      if (!response.ok) {
-        throw new Error(`Failed to fetch stats: ${response.status}`)
-      }
-      const data = await response.json()
-      stats.value = data
-      hasStaleData.value = false
-    } catch (error) {
-      console.error('Error fetching stats:', error)
-      errors.value.fetch = true
-    } finally {
-      isLoading.value = false
-    }
-  }
-
-  onMounted(async () => {
-    // DELETED: All caching - direct API call only
-    await fetchFreshData()
-  })
-
   return {
     stats,
     isLoading,
@@ -579,6 +561,5 @@ export function useStats() {
     hasRescueTimeData,
     hasLastFmData,
     hasDiscogsData,
-    // DELETED: refresh method - not needed without caching
   }
 }

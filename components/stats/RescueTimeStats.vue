@@ -347,3 +347,11 @@ const sortedCategories = computed(() => {
   }))
 })
 </script>
+
+<style scoped>
+.waffle-grid {
+  display: grid;
+  width: 100%;
+  max-height: 200px;
+}
+</style>
