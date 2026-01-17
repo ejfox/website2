@@ -12,13 +12,13 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 61197,
-    "TypeScript": 25346,
+    "Vue": 70079,
+    "TypeScript": 31741,
     "CSS": 11264,
     "Rust": 5426,
     "HTML": 329
   },
-  "diskUsage": 11580,
+  "diskUsage": 11600,
   "fileTree": {
     "files": [
       {
@@ -44,6 +44,10 @@
       {
         "path": "README.md",
         "size": 2306
+      },
+      {
+        "path": "docs/advanced-margins.md",
+        "size": 5169
       },
       {
         "path": "env.d.ts",
@@ -307,7 +311,7 @@
       },
       {
         "path": "src/App.vue",
-        "size": 49737
+        "size": 58619
       },
       {
         "path": "src/assets/base.css",
@@ -356,6 +360,10 @@
       {
         "path": "src/components/icons/IconTooling.vue",
         "size": 913
+      },
+      {
+        "path": "src/composables/__tests__/useMarginSafety.spec.ts",
+        "size": 6395
       },
       {
         "path": "src/composables/__tests__/usePhotoProcessing.spec.ts",
@@ -480,6 +488,17 @@
             }
           ],
           "path": ".vscode"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "advanced-margins.md",
+              "size": 5169,
+              "path": "docs/advanced-margins.md"
+            }
+          ],
+          "path": "docs"
         },
         {
           "name": "public",
@@ -942,6 +961,11 @@
                   "name": "__tests__",
                   "children": [
                     {
+                      "name": "useMarginSafety.spec.ts",
+                      "size": 6395,
+                      "path": "src/composables/__tests__/useMarginSafety.spec.ts"
+                    },
+                    {
                       "name": "usePhotoProcessing.spec.ts",
                       "size": 4928,
                       "path": "src/composables/__tests__/usePhotoProcessing.spec.ts"
@@ -1017,7 +1041,7 @@
             },
             {
               "name": "App.vue",
-              "size": 49737,
+              "size": 58619,
               "path": "src/App.vue"
             },
             {
@@ -1111,8 +1135,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 103,
-    "totalSize": 10069928
+    "totalFiles": 105,
+    "totalSize": 10090374
   },
   "topics": [],
   "readme": {
@@ -1121,6 +1145,6 @@
     "excerpt": "A minimal desktop application for creating printable photos with EXIF camera data displayed in clean borders.\n\n\n\n- Drag & Drop Interface - Simply drag photos in..."
   },
   "createdAt": "2025-05-29T02:44:09Z",
-  "updatedAt": "2025-12-29T04:55:10Z",
-  "pushedAt": "2025-12-29T04:55:07Z"
+  "updatedAt": "2026-01-11T04:34:13Z",
+  "pushedAt": "2026-01-11T04:34:16Z"
 }

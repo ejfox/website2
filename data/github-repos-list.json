@@ -1,61 +1,53 @@
 [
   {
-    "name": "dotfiles",
-    "description": "Backup of my dotfiles",
-    "url": "https://github.com/ejfox/dotfiles",
-    "homepage": null,
-    "stats": {
-      "stars": 1,
-      "forks": 1,
-      "watchers": 0,
-      "openIssues": 3
-    },
-    "language": "Shell",
-    "languageColor": "#89e051",
-    "languages": {
-      "Shell": 274320,
-      "GLSL": 170263,
-      "Lua": 120280,
-      "Vim Script": 83725,
-      "JavaScript": 8622,
-      "Less": 2089,
-      "CSS": 1367
-    },
-    "diskUsage": 63177,
-    "topics": [],
-    "excerpt": "Backup of my dotfiles",
-    "createdAt": "2019-04-07T22:09:55Z",
-    "updatedAt": "2025-12-29T21:19:40Z",
-    "pushedAt": "2025-12-29T21:19:36Z"
-  },
-  {
-    "name": "website2",
-    "description": "No description provided",
-    "url": "https://github.com/ejfox/website2",
+    "name": "ejthirdbear",
+    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
     "homepage": null,
     "stats": {
       "stars": 0,
       "forks": 0,
-      "watchers": 1,
-      "openIssues": 1
+      "watchers": 0,
+      "openIssues": 0
     },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 722703,
-      "TypeScript": 367148,
-      "JavaScript": 221111,
-      "CSS": 35191,
-      "Shell": 18074,
-      "HTML": 15405,
-      "Dockerfile": 794
-    },
-    "diskUsage": 88582,
+    "language": "Svelte",
+    "languageColor": "#ff3e00",
+    "languages": {},
+    "diskUsage": 19596,
     "topics": [],
-    "excerpt": "No description provided",
-    "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2025-12-29T21:12:27Z",
-    "pushedAt": "2025-12-29T21:12:23Z"
+    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "createdAt": "2025-11-12T20:10:52Z",
+    "updatedAt": "2026-01-16T04:17:29Z",
+    "pushedAt": "2026-01-16T04:17:23Z"
+  },
+  {
+    "name": "metro-savefile-doctor",
+    "description": "If Young Metro don't trust your save file, I'm gon' restore it. TUI tool for editing Subway Builder save files.",
+    "url": "https://github.com/ejfox/metro-savefile-doctor",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "TypeScript",
+    "languageColor": "#3178c6",
+    "languages": {
+      "TypeScript": 65121,
+      "JavaScript": 40333,
+      "Svelte": 33612,
+      "Lua": 3206,
+      "CSS": 2311,
+      "HTML": 622,
+      "Rust": 514
+    },
+    "diskUsage": 348,
+    "topics": [],
+    "excerpt": "If Young Metro don't trust your save file, I'm gon' restore it. TUI tool for editing Subway Builder save files.",
+    "createdAt": "2025-12-10T23:43:16Z",
+    "updatedAt": "2026-01-16T00:54:14Z",
+    "pushedAt": "2026-01-16T00:54:11Z"
   },
   {
     "name": "vulpes-browser",
@@ -71,19 +63,220 @@
     "language": "Swift",
     "languageColor": "#F05138",
     "languages": {
-      "Swift": 152265,
-      "Zig": 46850,
-      "Metal": 9635,
+      "Swift": 191912,
+      "Zig": 54033,
+      "Metal": 11675,
       "C": 8924,
       "GLSL": 8399,
       "Shell": 1115
     },
-    "diskUsage": 202,
+    "diskUsage": 349,
     "topics": [],
     "excerpt": "Minimalist web browser. Zig + Swift + Metal.",
     "createdAt": "2025-12-29T04:31:30Z",
-    "updatedAt": "2025-12-29T21:00:21Z",
-    "pushedAt": "2025-12-29T21:00:33Z"
+    "updatedAt": "2026-01-15T23:12:19Z",
+    "pushedAt": "2026-01-15T23:12:15Z"
+  },
+  {
+    "name": "flipper-space-calculators",
+    "description": "🚀 Minimalist space and physics calculators for Flipper Zero. Interplanetary transfer planner + time dilation calculator. KSP-style orbital mechanics.",
+    "url": "https://github.com/ejfox/flipper-space-calculators",
+    "homepage": null,
+    "stats": {
+      "stars": 3,
+      "forks": 1,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "C",
+    "languageColor": "#555555",
+    "languages": {
+      "C": 46647,
+      "Makefile": 746
+    },
+    "diskUsage": 98,
+    "topics": [],
+    "excerpt": "🚀 Minimalist space and physics calculators for Flipper Zero. Interplanetary transfer planner + time dilation calculator. KSP-style orbital mechanics.",
+    "createdAt": "2025-07-30T20:15:59Z",
+    "updatedAt": "2026-01-15T04:13:21Z",
+    "pushedAt": "2026-01-15T04:13:16Z"
+  },
+  {
+    "name": "dotfiles",
+    "description": "Backup of my dotfiles",
+    "url": "https://github.com/ejfox/dotfiles",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 1,
+      "watchers": 0,
+      "openIssues": 3
+    },
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "languages": {
+      "Shell": 280252,
+      "GLSL": 176199,
+      "Lua": 123408,
+      "Vim Script": 83725,
+      "JavaScript": 8622,
+      "Less": 2089,
+      "CSS": 1367
+    },
+    "diskUsage": 63195,
+    "topics": [],
+    "excerpt": "Backup of my dotfiles",
+    "createdAt": "2019-04-07T22:09:55Z",
+    "updatedAt": "2026-01-12T20:25:10Z",
+    "pushedAt": "2026-01-12T20:25:06Z"
+  },
+  {
+    "name": "glasses-hud",
+    "description": "Prototype AR / lens visualizations and HUDs quickly",
+    "url": "https://github.com/ejfox/glasses-hud",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 40207,
+      "CSS": 901,
+      "HTML": 366
+    },
+    "diskUsage": 1219,
+    "topics": [],
+    "excerpt": "Prototype AR / lens visualizations and HUDs quickly",
+    "createdAt": "2025-08-01T11:00:53Z",
+    "updatedAt": "2026-01-12T20:14:28Z",
+    "pushedAt": "2026-01-12T20:14:24Z"
+  },
+  {
+    "name": "cli-ching",
+    "description": "A CLI tool to guide and interpret I Ching throws",
+    "url": "https://github.com/ejfox/cli-ching",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 12654
+    },
+    "diskUsage": 63,
+    "topics": [],
+    "excerpt": "A CLI tool to guide and interpret I Ching throws",
+    "createdAt": "2024-08-11T17:58:54Z",
+    "updatedAt": "2026-01-12T01:19:36Z",
+    "pushedAt": "2026-01-12T01:19:32Z"
+  },
+  {
+    "name": "website2",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/website2",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 772036,
+      "TypeScript": 422298,
+      "JavaScript": 221111,
+      "CSS": 36438,
+      "HTML": 27082,
+      "Shell": 21676,
+      "Dockerfile": 794
+    },
+    "diskUsage": 88435,
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-10-13T14:09:19Z",
+    "updatedAt": "2026-01-11T21:36:08Z",
+    "pushedAt": "2026-01-11T21:36:04Z"
+  },
+  {
+    "name": "tempo",
+    "description": "My first Pomodoro app",
+    "url": "https://github.com/ejfox/tempo",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Swift",
+    "languageColor": "#F05138",
+    "languages": {
+      "Swift": 67829
+    },
+    "diskUsage": 55,
+    "topics": [],
+    "excerpt": "My first Pomodoro app",
+    "createdAt": "2025-08-16T15:49:37Z",
+    "updatedAt": "2026-01-11T16:30:42Z",
+    "pushedAt": "2026-01-11T16:30:37Z"
+  },
+  {
+    "name": "torchslit-ios",
+    "description": "iOS long-exposure camera with bulb control and torch scripting",
+    "url": "https://github.com/ejfox/torchslit-ios",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Swift",
+    "languageColor": "#F05138",
+    "languages": {
+      "Swift": 43120,
+      "Metal": 2769,
+      "Shell": 1175
+    },
+    "diskUsage": 17,
+    "topics": [],
+    "excerpt": "iOS long-exposure camera with bulb control and torch scripting",
+    "createdAt": "2026-01-11T15:39:23Z",
+    "updatedAt": "2026-01-11T15:39:29Z",
+    "pushedAt": "2026-01-11T15:39:25Z"
+  },
+  {
+    "name": "cli-delta-dojo",
+    "description": "Sharpen your code review skills with CLI-DELTA-DOJO, the terminal-based JSON comparison game",
+    "url": "https://github.com/ejfox/cli-delta-dojo",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 36136
+    },
+    "diskUsage": 2520,
+    "topics": [],
+    "excerpt": "Sharpen your code review skills with CLI-DELTA-DOJO, the terminal-based JSON comparison game",
+    "createdAt": "2024-08-22T20:51:48Z",
+    "updatedAt": "2026-01-11T05:43:29Z",
+    "pushedAt": "2026-01-14T21:16:18Z"
   },
   {
     "name": "exif-printer-simple",
@@ -99,45 +292,39 @@
     "language": "Vue",
     "languageColor": "#41b883",
     "languages": {
-      "Vue": 61197,
-      "TypeScript": 25346,
+      "Vue": 70079,
+      "TypeScript": 31741,
       "CSS": 11264,
       "Rust": 5426,
       "HTML": 329
     },
-    "diskUsage": 11580,
+    "diskUsage": 11600,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2025-05-29T02:44:09Z",
-    "updatedAt": "2025-12-29T04:55:10Z",
-    "pushedAt": "2025-12-29T04:55:07Z"
+    "updatedAt": "2026-01-11T04:34:13Z",
+    "pushedAt": "2026-01-11T04:34:16Z"
   },
   {
-    "name": "vulpes-theme-lab",
-    "description": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
-    "url": "https://github.com/ejfox/vulpes-theme-lab",
-    "homepage": "https://ejfox.github.io/vulpes-theme-lab/",
+    "name": "towntuner",
+    "description": "The podcast app dedicated to Harmontown",
+    "url": "https://github.com/ejfox/towntuner",
+    "homepage": null,
     "stats": {
       "stars": 0,
       "forks": 0,
       "watchers": 0,
-      "openIssues": 0
+      "openIssues": 11
     },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 317227,
-      "TypeScript": 229054,
-      "CSS": 14207,
-      "JavaScript": 3881,
-      "Lua": 14
-    },
-    "diskUsage": 535,
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 118,
     "topics": [],
-    "excerpt": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
-    "createdAt": "2025-10-24T21:15:15Z",
-    "updatedAt": "2025-12-28T22:49:01Z",
-    "pushedAt": "2025-12-28T22:48:57Z"
+    "excerpt": "The podcast app dedicated to Harmontown",
+    "createdAt": "2025-08-16T15:54:56Z",
+    "updatedAt": "2026-01-11T04:25:20Z",
+    "pushedAt": "2026-01-11T04:25:15Z"
   },
   {
     "name": "hand-midi-controller",
@@ -153,15 +340,236 @@
     "language": "Python",
     "languageColor": "#3572A5",
     "languages": {
-      "Python": 133084,
+      "Python": 148411,
       "Shell": 1553
     },
-    "diskUsage": 41,
+    "diskUsage": 109,
     "topics": [],
     "excerpt": "Professional hand tracking MIDI controller with TouchDesigner integration for peak interactive creative tech",
     "createdAt": "2025-07-26T18:58:06Z",
-    "updatedAt": "2025-12-26T21:28:04Z",
-    "pushedAt": "2025-07-26T19:32:58Z"
+    "updatedAt": "2026-01-11T04:21:41Z",
+    "pushedAt": "2026-01-11T04:21:37Z"
+  },
+  {
+    "name": "election-helpers",
+    "description": "A collection of resources, tools, and patterns for election data analysis and viz",
+    "url": "https://github.com/ejfox/election-helpers",
+    "homepage": "https://ejfox.github.io/election-helpers/global.html",
+    "stats": {
+      "stars": 3,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 100928
+    },
+    "diskUsage": 16464,
+    "topics": [
+      "data",
+      "elections",
+      "helpers"
+    ],
+    "excerpt": "A collection of resources, tools, and patterns for election data analysis and viz",
+    "createdAt": "2022-07-04T16:01:43Z",
+    "updatedAt": "2026-01-11T04:21:04Z",
+    "pushedAt": "2026-01-11T04:20:59Z"
+  },
+  {
+    "name": "code-network-gen",
+    "description": "Generate a graph of nodes/edges from your javascript code",
+    "url": "https://github.com/ejfox/code-network-gen",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 32158,
+      "Mermaid": 28135
+    },
+    "diskUsage": 272,
+    "topics": [],
+    "excerpt": "Generate a graph of nodes/edges from your javascript code",
+    "createdAt": "2024-08-14T14:16:03Z",
+    "updatedAt": "2026-01-11T04:19:01Z",
+    "pushedAt": "2026-01-11T04:18:57Z"
+  },
+  {
+    "name": "tmux-link-grab",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/tmux-link-grab",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "languages": {
+      "Shell": 5182
+    },
+    "diskUsage": 31,
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-12-09T17:39:32Z",
+    "updatedAt": "2026-01-11T04:16:38Z",
+    "pushedAt": "2026-01-11T04:16:34Z"
+  },
+  {
+    "name": "vulpino",
+    "description": "JSON → Beautiful iOS Widget in 60 Seconds. Paste a URL, pick your data, choose a template.",
+    "url": "https://github.com/ejfox/vulpino",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Swift",
+    "languageColor": "#F05138",
+    "languages": {
+      "Swift": 139814,
+      "HTML": 11420
+    },
+    "diskUsage": 62,
+    "topics": [],
+    "excerpt": "JSON → Beautiful iOS Widget in 60 Seconds. Paste a URL, pick your data, choose a template.",
+    "createdAt": "2026-01-10T23:15:10Z",
+    "updatedAt": "2026-01-10T23:57:33Z",
+    "pushedAt": "2026-01-10T23:57:29Z"
+  },
+  {
+    "name": "vulpes-theme-lab",
+    "description": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
+    "url": "https://github.com/ejfox/vulpes-theme-lab",
+    "homepage": "https://ejfox.github.io/vulpes-theme-lab/",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 324068,
+      "TypeScript": 238485,
+      "CSS": 14207,
+      "JavaScript": 3881,
+      "Lua": 14
+    },
+    "diskUsage": 550,
+    "topics": [],
+    "excerpt": "minimal ghostty theme builder with live previews. tuftian precision. ±7° hue offset.",
+    "createdAt": "2025-10-24T21:15:15Z",
+    "updatedAt": "2026-01-03T19:30:31Z",
+    "pushedAt": "2026-01-03T19:30:28Z"
+  },
+  {
+    "name": "ps5-tmux",
+    "description": "Control tmux through your ps5 dualsense controller",
+    "url": "https://github.com/ejfox/ps5-tmux",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 4846,
+      "Shell": 2218
+    },
+    "diskUsage": 2771,
+    "topics": [],
+    "excerpt": "Control tmux through your ps5 dualsense controller",
+    "createdAt": "2025-08-13T15:45:22Z",
+    "updatedAt": "2026-01-03T12:18:08Z",
+    "pushedAt": "2025-08-13T15:45:29Z"
+  },
+  {
+    "name": "subway-builder-mods",
+    "description": "Mods for Subway Builder game - including Day/Night theme cycle",
+    "url": "https://github.com/ejfox/subway-builder-mods",
+    "homepage": null,
+    "stats": {
+      "stars": 3,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 37511
+    },
+    "diskUsage": 25,
+    "topics": [],
+    "excerpt": "Mods for Subway Builder game - including Day/Night theme cycle",
+    "createdAt": "2025-12-17T00:02:45Z",
+    "updatedAt": "2026-01-03T04:14:56Z",
+    "pushedAt": "2025-12-31T14:30:42Z"
+  },
+  {
+    "name": "vulpes.nvim",
+    "description": "A cyberpunk neon colorscheme for Neovim",
+    "url": "https://github.com/ejfox/vulpes.nvim",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Lua",
+    "languageColor": "#000080",
+    "languages": {
+      "Lua": 28388,
+      "Vim Script": 2524,
+      "GLSL": 2499,
+      "Shell": 1466
+    },
+    "diskUsage": 46,
+    "topics": [],
+    "excerpt": "A cyberpunk neon colorscheme for Neovim",
+    "createdAt": "2026-01-02T03:14:29Z",
+    "updatedAt": "2026-01-02T03:49:20Z",
+    "pushedAt": "2026-01-02T03:49:17Z"
+  },
+  {
+    "name": "subwaybuilder-mod",
+    "description": "Template for creating Subway Builder mods",
+    "url": "https://github.com/ejfox/subwaybuilder-mod",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 14508
+    },
+    "diskUsage": 20,
+    "topics": [],
+    "excerpt": "Template for creating Subway Builder mods",
+    "createdAt": "2025-12-10T01:11:05Z",
+    "updatedAt": "2025-12-30T18:40:16Z",
+    "pushedAt": "2025-12-30T18:40:12Z"
   },
   {
     "name": "SubwayBuilderIssues",
@@ -170,9 +578,9 @@
     "homepage": null,
     "stats": {
       "stars": 38,
-      "forks": 7,
+      "forks": 8,
       "watchers": 0,
-      "openIssues": 363
+      "openIssues": 382
     },
     "language": "Unknown",
     "languageColor": "#666666",
@@ -183,29 +591,6 @@
     "createdAt": "2025-10-10T21:48:38Z",
     "updatedAt": "2025-12-18T23:19:33Z",
     "pushedAt": "2025-11-25T16:48:22Z"
-  },
-  {
-    "name": "subway-builder-mods",
-    "description": "Mods for Subway Builder game - including Day/Night theme cycle",
-    "url": "https://github.com/ejfox/subway-builder-mods",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 4740
-    },
-    "diskUsage": 3,
-    "topics": [],
-    "excerpt": "Mods for Subway Builder game - including Day/Night theme cycle",
-    "createdAt": "2025-12-17T00:02:45Z",
-    "updatedAt": "2025-12-17T00:33:13Z",
-    "pushedAt": "2025-12-17T00:33:09Z"
   },
   {
     "name": "scrapbook-cli",
@@ -231,75 +616,6 @@
     "createdAt": "2024-06-01T07:35:15Z",
     "updatedAt": "2025-12-16T00:55:59Z",
     "pushedAt": "2025-12-16T00:55:56Z"
-  },
-  {
-    "name": "subwaybuilder-mod",
-    "description": "Template for creating Subway Builder mods",
-    "url": "https://github.com/ejfox/subwaybuilder-mod",
-    "homepage": null,
-    "stats": {
-      "stars": 1,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 0
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 14508
-    },
-    "diskUsage": 15,
-    "topics": [],
-    "excerpt": "Template for creating Subway Builder mods",
-    "createdAt": "2025-12-10T01:11:05Z",
-    "updatedAt": "2025-12-14T07:18:27Z",
-    "pushedAt": "2025-12-10T01:11:06Z"
-  },
-  {
-    "name": "ejthirdbear",
-    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
-    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Svelte",
-    "languageColor": "#ff3e00",
-    "languages": {},
-    "diskUsage": 8613,
-    "topics": [],
-    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
-    "createdAt": "2025-11-12T20:10:52Z",
-    "updatedAt": "2025-12-12T16:10:01Z",
-    "pushedAt": "2025-12-21T01:19:16Z"
-  },
-  {
-    "name": "metro-savefile-doctor",
-    "description": "If Young Metro don't trust your save file, I'm gon' restore it. TUI tool for editing Subway Builder save files.",
-    "url": "https://github.com/ejfox/metro-savefile-doctor",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "TypeScript",
-    "languageColor": "#3178c6",
-    "languages": {
-      "TypeScript": 31323,
-      "JavaScript": 7690,
-      "Lua": 3206
-    },
-    "diskUsage": 18,
-    "topics": [],
-    "excerpt": "If Young Metro don't trust your save file, I'm gon' restore it. TUI tool for editing Subway Builder save files.",
-    "createdAt": "2025-12-10T23:43:16Z",
-    "updatedAt": "2025-12-10T23:43:21Z",
-    "pushedAt": "2025-12-10T23:43:18Z"
   },
   {
     "name": "cli-markdown-tagger",
@@ -328,29 +644,6 @@
     "createdAt": "2024-09-19T21:13:31Z",
     "updatedAt": "2025-12-09T23:58:32Z",
     "pushedAt": "2024-11-24T19:04:31Z"
-  },
-  {
-    "name": "tmux-link-grab",
-    "description": "No description provided",
-    "url": "https://github.com/ejfox/tmux-link-grab",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Shell",
-    "languageColor": "#89e051",
-    "languages": {
-      "Shell": 3076
-    },
-    "diskUsage": 0,
-    "topics": [],
-    "excerpt": "No description provided",
-    "createdAt": "2025-12-09T17:39:32Z",
-    "updatedAt": "2025-12-09T17:59:18Z",
-    "pushedAt": "2025-12-09T17:59:15Z"
   },
   {
     "name": "ghostty",
@@ -533,27 +826,6 @@
     "pushedAt": "2017-05-03T17:22:42Z"
   },
   {
-    "name": "towntuner",
-    "description": "The podcast app dedicated to Harmontown",
-    "url": "https://github.com/ejfox/towntuner",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 11
-    },
-    "language": "Unknown",
-    "languageColor": "#666666",
-    "languages": {},
-    "diskUsage": 88,
-    "topics": [],
-    "excerpt": "The podcast app dedicated to Harmontown",
-    "createdAt": "2025-08-16T15:54:56Z",
-    "updatedAt": "2025-11-04T02:21:45Z",
-    "pushedAt": "2025-11-04T02:21:42Z"
-  },
-  {
     "name": "battlefield6-stats-scraper",
     "description": "Automated Battlefield 6 stats tracker from tracker.gg - exports to CSV for historical analysis",
     "url": "https://github.com/ejfox/battlefield6-stats-scraper",
@@ -602,30 +874,6 @@
     "createdAt": "2024-09-03T19:59:50Z",
     "updatedAt": "2025-10-24T15:47:10Z",
     "pushedAt": "2024-09-03T20:01:50Z"
-  },
-  {
-    "name": "glasses-hud",
-    "description": "Prototype AR / lens visualizations and HUDs quickly",
-    "url": "https://github.com/ejfox/glasses-hud",
-    "homepage": null,
-    "stats": {
-      "stars": 1,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 6476,
-      "TypeScript": 66
-    },
-    "diskUsage": 150,
-    "topics": [],
-    "excerpt": "Prototype AR / lens visualizations and HUDs quickly",
-    "createdAt": "2025-08-01T11:00:53Z",
-    "updatedAt": "2025-10-12T09:41:03Z",
-    "pushedAt": "2025-08-01T19:33:59Z"
   },
   {
     "name": "coachartie2",
@@ -681,7 +929,7 @@
   {
     "name": "vizhub-benchmarks",
     "description": "AI code editing benchmarks for interactive visuals",
-    "url": "https://github.com/vizhub-core/vizhub-benchmarks",
+    "url": "https://github.com/vizhub-studio/vizhub-benchmarks",
     "homepage": null,
     "stats": {
       "stars": 0,
@@ -840,29 +1088,6 @@
     "pushedAt": "2025-08-27T21:17:06Z"
   },
   {
-    "name": "tempo",
-    "description": "My first Pomodoro app",
-    "url": "https://github.com/ejfox/tempo",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Swift",
-    "languageColor": "#F05138",
-    "languages": {
-      "Swift": 74475
-    },
-    "diskUsage": 37,
-    "topics": [],
-    "excerpt": "My first Pomodoro app",
-    "createdAt": "2025-08-16T15:49:37Z",
-    "updatedAt": "2025-08-24T13:04:33Z",
-    "pushedAt": "2025-08-24T13:04:30Z"
-  },
-  {
     "name": "websdr-vcv",
     "description": "stream radio into your modular",
     "url": "https://github.com/ejfox/websdr-vcv",
@@ -885,30 +1110,6 @@
     "createdAt": "2025-08-23T22:56:09Z",
     "updatedAt": "2025-08-24T02:15:13Z",
     "pushedAt": "2025-08-24T02:15:10Z"
-  },
-  {
-    "name": "ps5-tmux",
-    "description": "Control tmux through your ps5 dualsense controller",
-    "url": "https://github.com/ejfox/ps5-tmux",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 4846,
-      "Shell": 2218
-    },
-    "diskUsage": 2771,
-    "topics": [],
-    "excerpt": "Control tmux through your ps5 dualsense controller",
-    "createdAt": "2025-08-13T15:45:22Z",
-    "updatedAt": "2025-08-22T13:05:10Z",
-    "pushedAt": "2025-08-13T15:45:29Z"
   },
   {
     "name": "scrap-enlightener",
@@ -1062,29 +1263,6 @@
     "createdAt": "2025-08-19T15:58:50Z",
     "updatedAt": "2025-08-19T15:58:56Z",
     "pushedAt": "2025-08-19T15:58:52Z"
-  },
-  {
-    "name": "flipper-space-calculators",
-    "description": "🚀 Minimalist space and physics calculators for Flipper Zero. Interplanetary transfer planner + time dilation calculator. KSP-style orbital mechanics.",
-    "url": "https://github.com/ejfox/flipper-space-calculators",
-    "homepage": null,
-    "stats": {
-      "stars": 3,
-      "forks": 1,
-      "watchers": 1,
-      "openIssues": 1
-    },
-    "language": "C",
-    "languageColor": "#555555",
-    "languages": {
-      "C": 28206
-    },
-    "diskUsage": 85,
-    "topics": [],
-    "excerpt": "🚀 Minimalist space and physics calculators for Flipper Zero. Interplanetary transfer planner + time dilation calculator. KSP-style orbital mechanics.",
-    "createdAt": "2025-07-30T20:15:59Z",
-    "updatedAt": "2025-08-18T20:25:21Z",
-    "pushedAt": "2025-07-30T20:16:11Z"
   },
   {
     "name": "sStory",
@@ -1310,30 +1488,6 @@
     "createdAt": "2025-07-27T19:03:10Z",
     "updatedAt": "2025-07-27T19:03:10Z",
     "pushedAt": "2025-06-05T02:02:42Z"
-  },
-  {
-    "name": "code-network-gen",
-    "description": "Generate a graph of nodes/edges from your javascript code",
-    "url": "https://github.com/ejfox/code-network-gen",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 0
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 31869,
-      "Mermaid": 28135
-    },
-    "diskUsage": 202,
-    "topics": [],
-    "excerpt": "Generate a graph of nodes/edges from your javascript code",
-    "createdAt": "2024-08-14T14:16:03Z",
-    "updatedAt": "2025-07-24T22:41:30Z",
-    "pushedAt": "2025-07-24T22:41:27Z"
   },
   {
     "name": "zmk-config",
@@ -1625,56 +1779,6 @@
     "pushedAt": "2025-06-01T20:29:28Z"
   },
   {
-    "name": "cli-delta-dojo",
-    "description": "Sharpen your code review skills with CLI-DELTA-DOJO, the terminal-based JSON comparison game",
-    "url": "https://github.com/ejfox/cli-delta-dojo",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 0
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 5177
-    },
-    "diskUsage": 2451,
-    "topics": [],
-    "excerpt": "Sharpen your code review skills with CLI-DELTA-DOJO, the terminal-based JSON comparison game",
-    "createdAt": "2024-08-22T20:51:48Z",
-    "updatedAt": "2025-06-01T18:24:14Z",
-    "pushedAt": "2025-06-01T18:24:11Z"
-  },
-  {
-    "name": "election-helpers",
-    "description": "A collection of resources, tools, and patterns for election data analysis and viz",
-    "url": "https://github.com/ejfox/election-helpers",
-    "homepage": "https://ejfox.github.io/election-helpers/global.html",
-    "stats": {
-      "stars": 3,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 0
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 99795
-    },
-    "diskUsage": 16298,
-    "topics": [
-      "data",
-      "elections",
-      "helpers"
-    ],
-    "excerpt": "A collection of resources, tools, and patterns for election data analysis and viz",
-    "createdAt": "2022-07-04T16:01:43Z",
-    "updatedAt": "2025-06-01T18:19:05Z",
-    "pushedAt": "2025-06-01T18:19:02Z"
-  },
-  {
     "name": "vulpes-spotify-mcp",
     "description": "No description provided",
     "url": "https://github.com/ejfox/vulpes-spotify-mcp",
@@ -1950,29 +2054,6 @@
     "createdAt": "2023-10-30T01:59:38Z",
     "updatedAt": "2025-02-25T17:22:04Z",
     "pushedAt": "2025-02-25T17:22:00Z"
-  },
-  {
-    "name": "cli-ching",
-    "description": "A CLI tool to guide and interpret I Ching throws",
-    "url": "https://github.com/ejfox/cli-ching",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 0
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 9762
-    },
-    "diskUsage": 33,
-    "topics": [],
-    "excerpt": "A CLI tool to guide and interpret I Ching throws",
-    "createdAt": "2024-08-11T17:58:54Z",
-    "updatedAt": "2025-02-25T17:18:45Z",
-    "pushedAt": "2025-02-25T17:18:41Z"
   },
   {
     "name": "zackgaydos",
@@ -3306,12 +3387,12 @@
       "Vue": 128,
       "TypeScript": 92
     },
-    "diskUsage": 92,
+    "diskUsage": 237,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2022-12-04T23:58:52Z",
     "updatedAt": "2022-12-28T15:50:30Z",
-    "pushedAt": "2022-12-28T15:50:25Z"
+    "pushedAt": "2026-01-04T01:07:08Z"
   },
   {
     "name": "climate-trace-prototypes",

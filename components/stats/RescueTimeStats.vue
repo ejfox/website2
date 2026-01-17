@@ -127,7 +127,7 @@ import type { StatsResponse } from '~/composables/useStats'
 import ActivityCalendar from './ActivityCalendar.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
-import AnimatedNumber from '../AnimatedNumber.vue'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import { format } from 'date-fns/format'
 import { interpolateTurbo } from 'd3-scale-chromatic'
 

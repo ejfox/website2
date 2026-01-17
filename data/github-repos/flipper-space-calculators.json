@@ -12,11 +12,20 @@
   "language": "C",
   "languageColor": "#555555",
   "languages": {
-    "C": 28206
+    "C": 46647,
+    "Makefile": 746
   },
-  "diskUsage": 85,
+  "diskUsage": 98,
   "fileTree": {
     "files": [
+      {
+        "path": ".github/workflows/test-core-functions.yml",
+        "size": 1142
+      },
+      {
+        "path": ".gitignore",
+        "size": 232
+      },
       {
         "path": "DEMO.md",
         "size": 4586
@@ -35,11 +44,15 @@
       },
       {
         "path": "README.md",
-        "size": 2290
+        "size": 3246
       },
       {
         "path": "SUBAGENT_BRIEFING.md",
         "size": 4719
+      },
+      {
+        "path": "_codeql_detected_source_root",
+        "size": 1
       },
       {
         "path": "dilate/.github/workflows/build.yml",
@@ -62,6 +75,14 @@
         "size": 607
       },
       {
+        "path": "dilate/calculations.c",
+        "size": 920
+      },
+      {
+        "path": "dilate/calculations.h",
+        "size": 551
+      },
+      {
         "path": "dilate/dilate.c",
         "size": 10676
       },
@@ -80,6 +101,18 @@
       {
         "path": "dilate/images/.gitkeep",
         "size": 0
+      },
+      {
+        "path": "dilate/tests/Makefile",
+        "size": 373
+      },
+      {
+        "path": "dilate/tests/README.md",
+        "size": 1520
+      },
+      {
+        "path": "dilate/tests/test_calculations.c",
+        "size": 5074
       },
       {
         "path": "space-travel-calculator/.clang-format",
@@ -106,6 +139,14 @@
         "size": 632
       },
       {
+        "path": "space-travel-calculator/calculations.c",
+        "size": 3932
+      },
+      {
+        "path": "space-travel-calculator/calculations.h",
+        "size": 1317
+      },
+      {
         "path": "space-travel-calculator/dist/debug/space_travel_calculator_d.elf",
         "size": 48884
       },
@@ -124,11 +165,40 @@
       {
         "path": "space-travel-calculator/space_travel_calculator.png",
         "size": 220
+      },
+      {
+        "path": "space-travel-calculator/tests/Makefile",
+        "size": 373
+      },
+      {
+        "path": "space-travel-calculator/tests/README.md",
+        "size": 1579
+      },
+      {
+        "path": "space-travel-calculator/tests/test_calculations.c",
+        "size": 6647
       }
     ],
     "tree": {
       "name": "flipper-space-calculators",
       "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "test-core-functions.yml",
+                  "size": 1142,
+                  "path": ".github/workflows/test-core-functions.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
         {
           "name": "dilate",
           "children": [
@@ -194,6 +264,27 @@
               "path": "dilate/images"
             },
             {
+              "name": "tests",
+              "children": [
+                {
+                  "name": "Makefile",
+                  "size": 373,
+                  "path": "dilate/tests/Makefile"
+                },
+                {
+                  "name": "README.md",
+                  "size": 1520,
+                  "path": "dilate/tests/README.md"
+                },
+                {
+                  "name": "test_calculations.c",
+                  "size": 5074,
+                  "path": "dilate/tests/test_calculations.c"
+                }
+              ],
+              "path": "dilate/tests"
+            },
+            {
               "name": "CLAUDE.md",
               "size": 4826,
               "path": "dilate/CLAUDE.md"
@@ -207,6 +298,16 @@
               "name": "application.fam",
               "size": 607,
               "path": "dilate/application.fam"
+            },
+            {
+              "name": "calculations.c",
+              "size": 920,
+              "path": "dilate/calculations.c"
+            },
+            {
+              "name": "calculations.h",
+              "size": 551,
+              "path": "dilate/calculations.h"
             },
             {
               "name": "dilate.c",
@@ -286,6 +387,27 @@
               "path": "space-travel-calculator/images"
             },
             {
+              "name": "tests",
+              "children": [
+                {
+                  "name": "Makefile",
+                  "size": 373,
+                  "path": "space-travel-calculator/tests/Makefile"
+                },
+                {
+                  "name": "README.md",
+                  "size": 1579,
+                  "path": "space-travel-calculator/tests/README.md"
+                },
+                {
+                  "name": "test_calculations.c",
+                  "size": 6647,
+                  "path": "space-travel-calculator/tests/test_calculations.c"
+                }
+              ],
+              "path": "space-travel-calculator/tests"
+            },
+            {
               "name": ".clang-format",
               "size": 6747,
               "path": "space-travel-calculator/.clang-format"
@@ -306,6 +428,16 @@
               "path": "space-travel-calculator/application.fam"
             },
             {
+              "name": "calculations.c",
+              "size": 3932,
+              "path": "space-travel-calculator/calculations.c"
+            },
+            {
+              "name": "calculations.h",
+              "size": 1317,
+              "path": "space-travel-calculator/calculations.h"
+            },
+            {
               "name": "space_travel_calculator.c",
               "size": 17530,
               "path": "space-travel-calculator/space_travel_calculator.c"
@@ -317,6 +449,11 @@
             }
           ],
           "path": "space-travel-calculator"
+        },
+        {
+          "name": ".gitignore",
+          "size": 232,
+          "path": ".gitignore"
         },
         {
           "name": "DEMO.md",
@@ -340,27 +477,32 @@
         },
         {
           "name": "README.md",
-          "size": 2290,
+          "size": 3246,
           "path": "README.md"
         },
         {
           "name": "SUBAGENT_BRIEFING.md",
           "size": 4719,
           "path": "SUBAGENT_BRIEFING.md"
+        },
+        {
+          "name": "_codeql_detected_source_root",
+          "size": 1,
+          "path": "_codeql_detected_source_root"
         }
       ],
       "path": ""
     },
-    "totalFiles": 27,
-    "totalSize": 204107
+    "totalFiles": 40,
+    "totalSize": 228724
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"flipper-space-calculators\">Flipper Space Calculators</h1>\n<p>A collection of minimalist space and physics calculators for the Flipper Zero. No games, no gimmicks - just the essential calculations for when you need them most.</p>\n<h2 id=\"applications\">Applications</h2>\n<h3 id=\"space-travel-calculator\"><a href=\"./space-travel-calculator/\">Space Travel Calculator</a></h3>\n<p>Interplanetary trajectory calculator for planning transfers between planets. Calculates:</p>\n<ul>\n<li>Hohmann transfer orbits</li>\n<li>Delta-v requirements</li>\n<li>Launch windows</li>\n<li>Phase angles</li>\n</ul>\n<p><em>For when you need to know if that Mars window is actually worth taking.</em></p>\n<h3 id=\"dilate\"><a href=\"./dilate/\">Dilate</a></h3>\n<p>Time dilation calculator with two modes:</p>\n<ul>\n<li><strong>Special Relativity</strong>: Time dilation at relativistic velocities</li>\n<li><strong>General Relativity</strong>: Time dilation in gravitational fields</li>\n</ul>\n<p><em>Because sometimes you need to know exactly how much younger you'll be.</em></p>\n<h2 id=\"design-philosophy\">Design Philosophy</h2>\n<p>These calculators follow strict minimalist principles:</p>\n<ul>\n<li>Boot directly to functionality - no splash screens</li>\n<li>Response time &lt;50ms for all interactions</li>\n<li>Numbers only - no unnecessary explanations</li>\n<li>Default system font - no fancy typography</li>\n<li>Metric units - this is space</li>\n</ul>\n<h2 id=\"building\">Building</h2>\n<p>Each application can be built independently from the Flipper firmware root:</p>\n<pre><code class=\"language-bash\"># Space Travel Calculator\n./fbt fap_space_travel_calculator\n\n# Dilate\n./fbt fap_dilate\n</code></pre>\n<h2 id=\"installation\">Installation</h2>\n<p>Copy the <code>.fap</code> files to your Flipper Zero's SD card under <code>/apps/Tools/</code></p>\n<h2 id=\"project-structure\">Project Structure</h2>\n<pre><code>flipper-space-calculators/\n├── README.md                    # This file\n├── space-travel-calculator/     # Orbital transfer calculator\n│   ├── README.md\n│   ├── CLAUDE.md               # Development guide\n│   └── [source files]\n└── dilate/                     # Time dilation calculator\n    ├── README.md\n    ├── CLAUDE.md               # Development guide\n    └── [source files]\n</code></pre>\n<h2 id=\"contributing\">Contributing</h2>\n<p>These tools are designed to do one thing perfectly. If you're thinking of adding features, ask yourself:</p>\n<ol>\n<li>Is it essential to the core calculation?</li>\n<li>Does it maintain &lt;50ms response time?</li>\n<li>Does it follow the minimalist aesthetic?</li>\n</ol>\n<p>If any answer is no, it doesn't belong here.</p>\n<h2 id=\"license\">License</h2>\n<p>These calculators are tools, not toys. Use them wisely.</p>\n<hr />\n<p><em>\"The universe is under no obligation to make sense to you. But your calculator is.\"</em></p>",
-    "raw": "# Flipper Space Calculators\n\nA collection of minimalist space and physics calculators for the Flipper Zero. No games, no gimmicks - just the essential calculations for when you need them most.\n\n## Applications\n\n### [Space Travel Calculator](./space-travel-calculator/)\nInterplanetary trajectory calculator for planning transfers between planets. Calculates:\n- Hohmann transfer orbits\n- Delta-v requirements\n- Launch windows\n- Phase angles\n\n*For when you need to know if that Mars window is actually worth taking.*\n\n### [Dilate](./dilate/)\nTime dilation calculator with two modes:\n- **Special Relativity**: Time dilation at relativistic velocities\n- **General Relativity**: Time dilation in gravitational fields\n\n*Because sometimes you need to know exactly how much younger you'll be.*\n\n## Design Philosophy\n\nThese calculators follow strict minimalist principles:\n- Boot directly to functionality - no splash screens\n- Response time <50ms for all interactions\n- Numbers only - no unnecessary explanations\n- Default system font - no fancy typography\n- Metric units - this is space\n\n## Building\n\nEach application can be built independently from the Flipper firmware root:\n\n```bash\n# Space Travel Calculator\n./fbt fap_space_travel_calculator\n\n# Dilate\n./fbt fap_dilate\n```\n\n## Installation\n\nCopy the `.fap` files to your Flipper Zero's SD card under `/apps/Tools/`\n\n## Project Structure\n\n```\nflipper-space-calculators/\n├── README.md                    # This file\n├── space-travel-calculator/     # Orbital transfer calculator\n│   ├── README.md\n│   ├── CLAUDE.md               # Development guide\n│   └── [source files]\n└── dilate/                     # Time dilation calculator\n    ├── README.md\n    ├── CLAUDE.md               # Development guide\n    └── [source files]\n```\n\n## Contributing\n\nThese tools are designed to do one thing perfectly. If you're thinking of adding features, ask yourself:\n1. Is it essential to the core calculation?\n2. Does it maintain <50ms response time?\n3. Does it follow the minimalist aesthetic?\n\nIf any answer is no, it doesn't belong here.\n\n## License\n\nThese calculators are tools, not toys. Use them wisely.\n\n---\n\n*\"The universe is under no obligation to make sense to you. But your calculator is.\"*",
+    "html": "<h1 id=\"flipper-space-calculators\">Flipper Space Calculators</h1>\n<p>A collection of minimalist space and physics calculators for the Flipper Zero. No games, no gimmicks - just the essential calculations for when you need them most.</p>\n<h2 id=\"applications\">Applications</h2>\n<h3 id=\"space-travel-calculator\"><a href=\"./space-travel-calculator/\">Space Travel Calculator</a></h3>\n<p>Interplanetary trajectory calculator for planning transfers between planets. Calculates:</p>\n<ul>\n<li>Hohmann transfer orbits</li>\n<li>Delta-v requirements</li>\n<li>Launch windows</li>\n<li>Phase angles</li>\n</ul>\n<p><em>For when you need to know if that Mars window is actually worth taking.</em></p>\n<h3 id=\"dilate\"><a href=\"./dilate/\">Dilate</a></h3>\n<p>Time dilation calculator with two modes:</p>\n<ul>\n<li><strong>Special Relativity</strong>: Time dilation at relativistic velocities</li>\n<li><strong>General Relativity</strong>: Time dilation in gravitational fields</li>\n</ul>\n<p><em>Because sometimes you need to know exactly how much younger you'll be.</em></p>\n<h2 id=\"design-philosophy\">Design Philosophy</h2>\n<p>These calculators follow strict minimalist principles:</p>\n<ul>\n<li>Boot directly to functionality - no splash screens</li>\n<li>Response time &lt;50ms for all interactions</li>\n<li>Numbers only - no unnecessary explanations</li>\n<li>Default system font - no fancy typography</li>\n<li>Metric units - this is space</li>\n</ul>\n<h2 id=\"building\">Building</h2>\n<p>Each application can be built independently from the Flipper firmware root:</p>\n<pre><code class=\"language-bash\"># Space Travel Calculator\n./fbt fap_space_travel_calculator\n\n# Dilate\n./fbt fap_dilate\n</code></pre>\n<h2 id=\"installation\">Installation</h2>\n<p>Copy the <code>.fap</code> files to your Flipper Zero's SD card under <code>/apps/Tools/</code></p>\n<h2 id=\"testing\">Testing</h2>\n<p>Both calculators include automated unit tests for their core atomic functions. These tests run in GitHub Actions on every push and pull request, ensuring the physics calculations work correctly without needing a physical Flipper device.</p>\n<p><strong>Test Coverage:</strong></p>\n<ul>\n<li>Space Travel Calculator: 14 tests covering orbital mechanics, Hohmann transfers, and transfer calculations</li>\n<li>Dilate: 15 tests covering Lorentz factor calculations and time dilation formulas</li>\n</ul>\n<p>See the <code>tests/</code> directory in each app for details.</p>\n<h2 id=\"project-structure\">Project Structure</h2>\n<pre><code>flipper-space-calculators/\n├── README.md                           # This file\n├── .github/workflows/                  # GitHub Actions CI\n│   └── test-core-functions.yml        # Automated tests\n├── space-travel-calculator/            # Orbital transfer calculator\n│   ├── README.md\n│   ├── CLAUDE.md                       # Development guide\n│   ├── calculations.h/c                # Core calculation functions\n│   ├── tests/                          # Unit tests\n│   └── [source files]\n└── dilate/                             # Time dilation calculator\n    ├── README.md\n    ├── CLAUDE.md                       # Development guide\n    ├── calculations.h/c                # Core calculation functions\n    ├── tests/                          # Unit tests\n    └── [source files]\n</code></pre>\n<h2 id=\"contributing\">Contributing</h2>\n<p>These tools are designed to do one thing perfectly. If you're thinking of adding features, ask yourself:</p>\n<ol>\n<li>Is it essential to the core calculation?</li>\n<li>Does it maintain &lt;50ms response time?</li>\n<li>Does it follow the minimalist aesthetic?</li>\n</ol>\n<p>If any answer is no, it doesn't belong here.</p>\n<h2 id=\"license\">License</h2>\n<p>These calculators are tools, not toys. Use them wisely.</p>\n<hr />\n<p><em>\"The universe is under no obligation to make sense to you. But your calculator is.\"</em></p>",
+    "raw": "# Flipper Space Calculators\n\nA collection of minimalist space and physics calculators for the Flipper Zero. No games, no gimmicks - just the essential calculations for when you need them most.\n\n## Applications\n\n### [Space Travel Calculator](./space-travel-calculator/)\nInterplanetary trajectory calculator for planning transfers between planets. Calculates:\n- Hohmann transfer orbits\n- Delta-v requirements\n- Launch windows\n- Phase angles\n\n*For when you need to know if that Mars window is actually worth taking.*\n\n### [Dilate](./dilate/)\nTime dilation calculator with two modes:\n- **Special Relativity**: Time dilation at relativistic velocities\n- **General Relativity**: Time dilation in gravitational fields\n\n*Because sometimes you need to know exactly how much younger you'll be.*\n\n## Design Philosophy\n\nThese calculators follow strict minimalist principles:\n- Boot directly to functionality - no splash screens\n- Response time <50ms for all interactions\n- Numbers only - no unnecessary explanations\n- Default system font - no fancy typography\n- Metric units - this is space\n\n## Building\n\nEach application can be built independently from the Flipper firmware root:\n\n```bash\n# Space Travel Calculator\n./fbt fap_space_travel_calculator\n\n# Dilate\n./fbt fap_dilate\n```\n\n## Installation\n\nCopy the `.fap` files to your Flipper Zero's SD card under `/apps/Tools/`\n\n## Testing\n\nBoth calculators include automated unit tests for their core atomic functions. These tests run in GitHub Actions on every push and pull request, ensuring the physics calculations work correctly without needing a physical Flipper device.\n\n**Test Coverage:**\n- Space Travel Calculator: 14 tests covering orbital mechanics, Hohmann transfers, and transfer calculations\n- Dilate: 15 tests covering Lorentz factor calculations and time dilation formulas\n\nSee the `tests/` directory in each app for details.\n\n## Project Structure\n\n```\nflipper-space-calculators/\n├── README.md                           # This file\n├── .github/workflows/                  # GitHub Actions CI\n│   └── test-core-functions.yml        # Automated tests\n├── space-travel-calculator/            # Orbital transfer calculator\n│   ├── README.md\n│   ├── CLAUDE.md                       # Development guide\n│   ├── calculations.h/c                # Core calculation functions\n│   ├── tests/                          # Unit tests\n│   └── [source files]\n└── dilate/                             # Time dilation calculator\n    ├── README.md\n    ├── CLAUDE.md                       # Development guide\n    ├── calculations.h/c                # Core calculation functions\n    ├── tests/                          # Unit tests\n    └── [source files]\n```\n\n## Contributing\n\nThese tools are designed to do one thing perfectly. If you're thinking of adding features, ask yourself:\n1. Is it essential to the core calculation?\n2. Does it maintain <50ms response time?\n3. Does it follow the minimalist aesthetic?\n\nIf any answer is no, it doesn't belong here.\n\n## License\n\nThese calculators are tools, not toys. Use them wisely.\n\n---\n\n*\"The universe is under no obligation to make sense to you. But your calculator is.\"*",
     "excerpt": "A collection of minimalist space and physics calculators for the Flipper Zero. No games, no gimmicks - just the essential calculations for when you need them mo..."
   },
   "createdAt": "2025-07-30T20:15:59Z",
-  "updatedAt": "2025-08-18T20:25:21Z",
-  "pushedAt": "2025-07-30T20:16:11Z"
+  "updatedAt": "2026-01-15T04:13:21Z",
+  "pushedAt": "2026-01-15T04:13:16Z"
 }

@@ -141,7 +141,7 @@
 import { computed } from 'vue'
 import { format } from 'date-fns/format'
 import StatsSectionHeader from './StatsSectionHeader.vue'
-import AnimatedNumber from '../AnimatedNumber.vue'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import { formatNumber } from '~/composables/useNumberFormat'
 import type { StatsResponse } from '~/composables/useStats'
 

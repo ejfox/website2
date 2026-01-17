@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 722703,
-    "TypeScript": 367148,
+    "Vue": 772036,
+    "TypeScript": 422298,
     "JavaScript": 221111,
-    "CSS": 35191,
-    "Shell": 18074,
-    "HTML": 15405,
+    "CSS": 36438,
+    "HTML": 27082,
+    "Shell": 21676,
     "Dockerfile": 794
   },
-  "diskUsage": 88582,
+  "diskUsage": 88435,
   "fileTree": {
     "files": [
       {
@@ -41,7 +41,11 @@
       },
       {
         "path": ".github/workflows/deploy.yml",
-        "size": 813
+        "size": 2983
+      },
+      {
+        "path": ".github/workflows/preview.yml",
+        "size": 1782
       },
       {
         "path": ".github/workflows/send-webmentions.yml",
@@ -77,7 +81,7 @@
       },
       {
         "path": "CLAUDE.md",
-        "size": 12219
+        "size": 12658
       },
       {
         "path": "Dockerfile",
@@ -85,7 +89,7 @@
       },
       {
         "path": "README.md",
-        "size": 3122
+        "size": 3386
       },
       {
         "path": "app.vue",
@@ -93,7 +97,7 @@
       },
       {
         "path": "assets/css/global.css",
-        "size": 29273
+        "size": 30520
       },
       {
         "path": "assets/css/tailwind.css",
@@ -265,11 +269,11 @@
       },
       {
         "path": "components/projects/BentoProjectCard.vue",
-        "size": 3886
+        "size": 4061
       },
       {
         "path": "components/projects/FeaturedProjectCard.vue",
-        "size": 1414
+        "size": 1981
       },
       {
         "path": "components/projects/ProjectCard.vue",
@@ -380,6 +384,10 @@
         "size": 2058
       },
       {
+        "path": "composables/useAttribution.ts",
+        "size": 6696
+      },
+      {
         "path": "composables/useCalibration.ts",
         "size": 341
       },
@@ -388,8 +396,20 @@
         "size": 1632
       },
       {
+        "path": "composables/useElementVisibility.ts",
+        "size": 3776
+      },
+      {
+        "path": "composables/useExitIntent.ts",
+        "size": 3417
+      },
+      {
         "path": "composables/useFlashcards.ts",
         "size": 2295
+      },
+      {
+        "path": "composables/useFunnelTracking.ts",
+        "size": 4370
       },
       {
         "path": "composables/useKalshi.ts",
@@ -402,6 +422,10 @@
       {
         "path": "composables/useMarkdown.ts",
         "size": 956
+      },
+      {
+        "path": "composables/useMicroConversions.ts",
+        "size": 3758
       },
       {
         "path": "composables/useNumberFormat.ts",
@@ -445,7 +469,7 @@
       },
       {
         "path": "config/navigation.ts",
-        "size": 689
+        "size": 690
       },
       {
         "path": "content/blog/2010/photography-2008-2010.md",
@@ -621,7 +645,7 @@
       },
       {
         "path": "content/blog/2023/crypto-ai-colonization.md",
-        "size": 10145
+        "size": 9957
       },
       {
         "path": "content/blog/2023/design-philosophy.md",
@@ -637,7 +661,7 @@
       },
       {
         "path": "content/blog/2023/how-i-built-coach-artie.md",
-        "size": 9955
+        "size": 9897
       },
       {
         "path": "content/blog/2023/livestreaming.md",
@@ -669,15 +693,15 @@
       },
       {
         "path": "content/blog/2025/hidden-networks-of-warmth.md",
-        "size": 13132
+        "size": 12767
       },
       {
         "path": "content/blog/2025/mcp-meta-mapping.md",
-        "size": 5690
+        "size": 5589
       },
       {
         "path": "content/blog/2025/owning-my-cloudinary-photos.md",
-        "size": 4226
+        "size": 4065
       },
       {
         "path": "content/blog/2025/paramilitary-telegram-leaks-001.md",
@@ -685,7 +709,7 @@
       },
       {
         "path": "content/blog/2025/personal-apis.md",
-        "size": 5643
+        "size": 5471
       },
       {
         "path": "content/blog/2025/using-radios.md",
@@ -697,7 +721,7 @@
       },
       {
         "path": "content/blog/WIKILINK-OPPORTUNITIES.md",
-        "size": 9739
+        "size": 7880
       },
       {
         "path": "content/blog/drafts/_stale/adhoc-apis-for-static-sites.md",
@@ -1089,7 +1113,7 @@
       },
       {
         "path": "content/blog/drafts/_stale/using-observable-plot-in-vue.md",
-        "size": 3281
+        "size": 3226
       },
       {
         "path": "content/blog/drafts/_stale/using-polycam-scans-in-three-js.md",
@@ -1129,7 +1153,7 @@
       },
       {
         "path": "content/blog/drafts/approach-to-learning.md",
-        "size": 3903
+        "size": 3849
       },
       {
         "path": "content/blog/drafts/ar-lens-prototyping.md",
@@ -1177,11 +1201,23 @@
       },
       {
         "path": "content/blog/drafts/ten-years-of-the-computer-rescuetime-analysis.md",
-        "size": 6163
+        "size": 6038
       },
       {
         "path": "content/blog/drafts/terminal-based-development-workflow.md",
         "size": 192
+      },
+      {
+        "path": "content/blog/drafts/the-pattern-problem.md",
+        "size": 1722
+      },
+      {
+        "path": "content/blog/drafts/what-50k-buys-you.md",
+        "size": 1731
+      },
+      {
+        "path": "content/blog/drafts/why-election-visualizations-fail.md",
+        "size": 1487
       },
       {
         "path": "content/blog/index.md",
@@ -1193,11 +1229,11 @@
       },
       {
         "path": "content/blog/projects/MorningRadio.md",
-        "size": 1028
+        "size": 1412
       },
       {
         "path": "content/blog/projects/ccrb-clusters.md",
-        "size": 1129
+        "size": 2006
       },
       {
         "path": "content/blog/projects/cli-tools.md",
@@ -1205,15 +1241,15 @@
       },
       {
         "path": "content/blog/projects/cloudinary-backup-tool.md",
-        "size": 618
+        "size": 1126
       },
       {
         "path": "content/blog/projects/coach-artie.md",
-        "size": 1298
+        "size": 2069
       },
       {
         "path": "content/blog/projects/covidcast.md",
-        "size": 789
+        "size": 1958
       },
       {
         "path": "content/blog/projects/creative-interfaces.md",
@@ -1225,19 +1261,23 @@
       },
       {
         "path": "content/blog/projects/dataproofer.md",
-        "size": 1415
+        "size": 1872
       },
       {
         "path": "content/blog/projects/developer-tools.md",
         "size": 1329
       },
       {
+        "path": "content/blog/projects/exif-photo-printer.md",
+        "size": 1332
+      },
+      {
         "path": "content/blog/projects/nbc-big-board.md",
-        "size": 1156
+        "size": 2524
       },
       {
         "path": "content/blog/projects/nbcnews-specials.md",
-        "size": 1543
+        "size": 1997
       },
       {
         "path": "content/blog/projects/photography-tools.md",
@@ -1245,7 +1285,23 @@
       },
       {
         "path": "content/blog/projects/smallbot-mcp.md",
-        "size": 1256
+        "size": 1400
+      },
+      {
+        "path": "content/blog/projects/subway-builder-mods.md",
+        "size": 1673
+      },
+      {
+        "path": "content/blog/projects/towntuner.md",
+        "size": 1610
+      },
+      {
+        "path": "content/blog/projects/vulpes-browser.md",
+        "size": 1466
+      },
+      {
+        "path": "content/blog/projects/vulpes-theme-lab.md",
+        "size": 1614
       },
       {
         "path": "content/blog/reading/Arenberg-Frumin-Congressional Procedure A Practical Guide to the Legislative Process in the U.S. Congress.md",
@@ -1709,7 +1765,7 @@
       },
       {
         "path": "content/blog/week-notes/2024-02.md",
-        "size": 5706
+        "size": 5621
       },
       {
         "path": "content/blog/week-notes/2024-03.md",
@@ -1781,7 +1837,7 @@
       },
       {
         "path": "content/blog/week-notes/2024-31.md",
-        "size": 6584
+        "size": 6514
       },
       {
         "path": "content/blog/week-notes/2024-32.md",
@@ -1801,7 +1857,7 @@
       },
       {
         "path": "content/blog/week-notes/2024-38.md",
-        "size": 4247
+        "size": 4194
       },
       {
         "path": "content/blog/week-notes/2024-41.md",
@@ -1821,7 +1877,7 @@
       },
       {
         "path": "content/blog/week-notes/2024-46.md",
-        "size": 836
+        "size": 787
       },
       {
         "path": "content/blog/week-notes/2024-47.md",
@@ -2468,20 +2524,24 @@
         "size": 1008
       },
       {
+        "path": "content/processed/goodreads-stats.json",
+        "size": 611
+      },
+      {
         "path": "content/processed/index.json",
         "size": 1949
       },
       {
         "path": "content/processed/manifest-lite.json",
-        "size": 759569
+        "size": 780094
       },
       {
         "path": "content/processed/projects/MorningRadio.json",
-        "size": 3130
+        "size": 4041
       },
       {
         "path": "content/processed/projects/ccrb-clusters.json",
-        "size": 2569
+        "size": 5549
       },
       {
         "path": "content/processed/projects/cli-tools.json",
@@ -2489,15 +2549,15 @@
       },
       {
         "path": "content/processed/projects/cloudinary-backup-tool.json",
-        "size": 1853
+        "size": 3087
       },
       {
         "path": "content/processed/projects/coach-artie.json",
-        "size": 4591
+        "size": 3992
       },
       {
         "path": "content/processed/projects/covidcast.json",
-        "size": 2173
+        "size": 5444
       },
       {
         "path": "content/processed/projects/creative-interfaces.json",
@@ -2509,19 +2569,23 @@
       },
       {
         "path": "content/processed/projects/dataproofer.json",
-        "size": 10924
+        "size": 9162
       },
       {
         "path": "content/processed/projects/developer-tools.json",
         "size": 5698
       },
       {
+        "path": "content/processed/projects/exif-photo-printer.json",
+        "size": 3158
+      },
+      {
         "path": "content/processed/projects/nbc-big-board.json",
-        "size": 4426
+        "size": 7718
       },
       {
         "path": "content/processed/projects/nbcnews-specials.json",
-        "size": 12695
+        "size": 10860
       },
       {
         "path": "content/processed/projects/photography-tools.json",
@@ -2529,7 +2593,23 @@
       },
       {
         "path": "content/processed/projects/smallbot-mcp.json",
-        "size": 3877
+        "size": 4928
+      },
+      {
+        "path": "content/processed/projects/subway-builder-mods.json",
+        "size": 5505
+      },
+      {
+        "path": "content/processed/projects/towntuner.json",
+        "size": 3297
+      },
+      {
+        "path": "content/processed/projects/vulpes-browser.json",
+        "size": 3513
+      },
+      {
+        "path": "content/processed/projects/vulpes-theme-lab.json",
+        "size": 6859
       },
       {
         "path": "content/processed/reading/Arenberg-Frumin-Congressional Procedure A Practical Guide to the Legislative Process in the U.S. Congress.json",
@@ -3312,8 +3392,16 @@
         "size": 314
       },
       {
+        "path": "data/consulting-availability.json",
+        "size": 1190
+      },
+      {
+        "path": "data/current-work.json",
+        "size": 460
+      },
+      {
         "path": "data/external_links_final.csv",
-        "size": 87665
+        "size": 88266
       },
       {
         "path": "data/gear.csv",
@@ -3329,7 +3417,7 @@
       },
       {
         "path": "data/github-repos-list.json",
-        "size": 124436
+        "size": 124444
       },
       {
         "path": "data/github-repos/30-data-days.json",
@@ -3549,7 +3637,7 @@
       },
       {
         "path": "data/github-repos/dotfiles.json",
-        "size": 125944
+        "size": 126456
       },
       {
         "path": "data/github-repos/dvs-soti-2022.json",
@@ -3593,7 +3681,7 @@
       },
       {
         "path": "data/github-repos/exif-printer-simple.json",
-        "size": 38566
+        "size": 38564
       },
       {
         "path": "data/github-repos/flipper-generative-art.json",
@@ -4004,12 +4092,16 @@
         "size": 92182
       },
       {
+        "path": "data/github-repos/vulpes-browser.json",
+        "size": 20946
+      },
+      {
         "path": "data/github-repos/vulpes-spotify-mcp.json",
         "size": 15349
       },
       {
         "path": "data/github-repos/vulpes-theme-lab.json",
-        "size": 38176
+        "size": 39273
       },
       {
         "path": "data/github-repos/vzcode.json",
@@ -4037,7 +4129,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 504017
+        "size": 505159
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -4081,7 +4173,7 @@
       },
       {
         "path": "data/on-this-day-index.json",
-        "size": 11360651
+        "size": 11362159
       },
       {
         "path": "data/on-this-day/01-01.json",
@@ -4405,7 +4497,7 @@
       },
       {
         "path": "data/on-this-day/03-21.json",
-        "size": 15667
+        "size": 15657
       },
       {
         "path": "data/on-this-day/03-22.json",
@@ -4541,7 +4633,7 @@
       },
       {
         "path": "data/on-this-day/04-24.json",
-        "size": 25805
+        "size": 25809
       },
       {
         "path": "data/on-this-day/04-25.json",
@@ -4677,7 +4769,7 @@
       },
       {
         "path": "data/on-this-day/05-28.json",
-        "size": 26281
+        "size": 26460
       },
       {
         "path": "data/on-this-day/05-29.json",
@@ -4941,7 +5033,7 @@
       },
       {
         "path": "data/on-this-day/08-02.json",
-        "size": 21502
+        "size": 21508
       },
       {
         "path": "data/on-this-day/08-03.json",
@@ -4997,7 +5089,7 @@
       },
       {
         "path": "data/on-this-day/08-16.json",
-        "size": 20055
+        "size": 20204
       },
       {
         "path": "data/on-this-day/08-17.json",
@@ -5273,7 +5365,7 @@
       },
       {
         "path": "data/on-this-day/10-24.json",
-        "size": 18531
+        "size": 18702
       },
       {
         "path": "data/on-this-day/10-25.json",
@@ -5489,7 +5581,7 @@
       },
       {
         "path": "data/on-this-day/12-17.json",
-        "size": 17595
+        "size": 17772
       },
       {
         "path": "data/on-this-day/12-18.json",
@@ -5537,7 +5629,7 @@
       },
       {
         "path": "data/on-this-day/12-29.json",
-        "size": 27327
+        "size": 27498
       },
       {
         "path": "data/on-this-day/12-30.json",
@@ -5580,6 +5672,10 @@
         "size": 6923
       },
       {
+        "path": "docs/IOS-SHORTCUTS-EXAMPLES.md",
+        "size": 7091
+      },
+      {
         "path": "docs/KALSHI-PREDICTIONS-SYSTEM.md",
         "size": 6918
       },
@@ -5590,6 +5686,14 @@
       {
         "path": "docs/PREDICTIONS.md",
         "size": 7164
+      },
+      {
+        "path": "docs/STATS-API.md",
+        "size": 5717
+      },
+      {
+        "path": "docs/cal-com-funnel-setup.md",
+        "size": 13274
       },
       {
         "path": "error.vue",
@@ -5605,19 +5709,19 @@
       },
       {
         "path": "layouts/default.vue",
-        "size": 5210
+        "size": 3625
       },
       {
         "path": "nuxt.config.ts",
-        "size": 13081
+        "size": 13193
       },
       {
         "path": "package-lock.json",
-        "size": 688492
+        "size": 695930
       },
       {
         "path": "package.json",
-        "size": 4179
+        "size": 4234
       },
       {
         "path": "pages/blog/[...slug].vue",
@@ -5645,7 +5749,7 @@
       },
       {
         "path": "pages/bookmarklet-popup.vue",
-        "size": 19881
+        "size": 19928
       },
       {
         "path": "pages/bookmarklet.vue",
@@ -5653,11 +5757,19 @@
       },
       {
         "path": "pages/calendar.vue",
-        "size": 3185
+        "size": 1823
+      },
+      {
+        "path": "pages/case-study/nbc-big-board.vue",
+        "size": 12441
       },
       {
         "path": "pages/changelog.vue",
-        "size": 5635
+        "size": 5670
+      },
+      {
+        "path": "pages/consulting.vue",
+        "size": 30151
       },
       {
         "path": "pages/external-links.vue",
@@ -5669,7 +5781,7 @@
       },
       {
         "path": "pages/flashcards/study.vue",
-        "size": 11747
+        "size": 11769
       },
       {
         "path": "pages/following.vue",
@@ -5681,7 +5793,7 @@
       },
       {
         "path": "pages/gear/index.vue",
-        "size": 20892
+        "size": 22675
       },
       {
         "path": "pages/gists.vue",
@@ -5718,6 +5830,10 @@
       {
         "path": "pages/predictions/index.vue",
         "size": 18062
+      },
+      {
+        "path": "pages/process.vue",
+        "size": 6966
       },
       {
         "path": "pages/projects/[slug].vue",
@@ -5761,11 +5877,23 @@
       },
       {
         "path": "pages/updates.vue",
-        "size": 2854
+        "size": 2947
+      },
+      {
+        "path": "plugins/attribution.client.ts",
+        "size": 294
+      },
+      {
+        "path": "plugins/clarity.client.ts",
+        "size": 1139
       },
       {
         "path": "plugins/dark-mode.client.js",
         "size": 256
+      },
+      {
+        "path": "plugins/floating-vue.client.ts",
+        "size": 275
       },
       {
         "path": "plugins/footnotes-to-sidenotes.client.ts",
@@ -5825,7 +5953,7 @@
       },
       {
         "path": "public/content-tags.json",
-        "size": 2945
+        "size": 3084
       },
       {
         "path": "public/crypto.txt",
@@ -5866,6 +5994,10 @@
       {
         "path": "public/favicon-32x32.png",
         "size": 3243
+      },
+      {
+        "path": "public/favicon-picker/index.html",
+        "size": 11677
       },
       {
         "path": "public/favicon.ico",
@@ -6024,6 +6156,86 @@
         "size": 3300
       },
       {
+        "path": "public/logos/ap.svg",
+        "size": 1330
+      },
+      {
+        "path": "public/logos/cbs.svg",
+        "size": 499
+      },
+      {
+        "path": "public/logos/climate-trace.svg",
+        "size": 236
+      },
+      {
+        "path": "public/logos/cmu.svg",
+        "size": 9633
+      },
+      {
+        "path": "public/logos/cnn.svg",
+        "size": 1527
+      },
+      {
+        "path": "public/logos/consumer-reports.svg",
+        "size": 3730
+      },
+      {
+        "path": "public/logos/github.svg",
+        "size": 837
+      },
+      {
+        "path": "public/logos/gothamist.svg",
+        "size": 230
+      },
+      {
+        "path": "public/logos/knight.svg",
+        "size": 250
+      },
+      {
+        "path": "public/logos/msnbc.svg",
+        "size": 3900
+      },
+      {
+        "path": "public/logos/nbc-news.svg",
+        "size": 3585
+      },
+      {
+        "path": "public/logos/nbc-peacock.svg",
+        "size": 1076
+      },
+      {
+        "path": "public/logos/nbc.svg",
+        "size": 1076
+      },
+      {
+        "path": "public/logos/nytimes.svg",
+        "size": 4326
+      },
+      {
+        "path": "public/logos/opennews.svg",
+        "size": 210
+      },
+      {
+        "path": "public/logos/oset.svg",
+        "size": 230
+      },
+      {
+        "path": "public/logos/stamen.svg",
+        "size": 181
+      },
+      {
+        "path": "public/logos/vocativ.svg",
+        "size": 230
+      },
+      {
+        "path": "public/logos/wapo.svg",
+        "size": 1061
+      },
+      {
+        "path": "public/logos/wnyc.svg",
+        "size": 234
+      },
+      {
         "path": "public/me.png",
         "size": 152668
       },
@@ -6065,7 +6277,7 @@
       },
       {
         "path": "scripts/auto-update.sh",
-        "size": 3352
+        "size": 6954
       },
       {
         "path": "scripts/blog/create-prediction.mjs",
@@ -6164,6 +6376,10 @@
         "size": 3662
       },
       {
+        "path": "scripts/nginx-preview.conf",
+        "size": 1147
+      },
+      {
         "path": "scripts/perf-analyze.mjs",
         "size": 4690
       },
@@ -6252,6 +6468,10 @@
         "size": 1203
       },
       {
+        "path": "server/api/__tests__/stats-lite.test.ts",
+        "size": 5560
+      },
+      {
         "path": "server/api/blog-stats.get.ts",
         "size": 1518
       },
@@ -6268,8 +6488,12 @@
         "size": 1063
       },
       {
+        "path": "server/api/cal/availability.get.ts",
+        "size": 3291
+      },
+      {
         "path": "server/api/cal/available-slots.get.ts",
-        "size": 3137
+        "size": 4587
       },
       {
         "path": "server/api/calibration.get.ts",
@@ -6282,6 +6506,10 @@
       {
         "path": "server/api/chess.get.ts",
         "size": 7398
+      },
+      {
+        "path": "server/api/consulting-availability.get.ts",
+        "size": 3111
       },
       {
         "path": "server/api/discogs.get.ts",
@@ -6305,15 +6533,15 @@
       },
       {
         "path": "server/api/flashcards/random/[id].get.ts",
-        "size": 882
+        "size": 889
       },
       {
         "path": "server/api/flashcards/search.get.ts",
-        "size": 1483
+        "size": 1490
       },
       {
         "path": "server/api/flashcards/stats.get.ts",
-        "size": 1362
+        "size": 1401
       },
       {
         "path": "server/api/gear-csv.get.ts",
@@ -6354,6 +6582,10 @@
       {
         "path": "server/api/goodreads.get.ts",
         "size": 2060
+      },
+      {
+        "path": "server/api/health.get.ts",
+        "size": 6252
       },
       {
         "path": "server/api/healthcheck.get.ts",
@@ -6413,7 +6645,7 @@
       },
       {
         "path": "server/api/posts/[...slug].ts",
-        "size": 3949
+        "size": 4782
       },
       {
         "path": "server/api/predictions.get.ts",
@@ -6465,7 +6697,7 @@
       },
       {
         "path": "server/api/scraps.get.ts",
-        "size": 3497
+        "size": 3603
       },
       {
         "path": "server/api/scraps/tags.get.ts",
@@ -6476,12 +6708,16 @@
         "size": 7431
       },
       {
+        "path": "server/api/stats-lite.get.ts",
+        "size": 7544
+      },
+      {
         "path": "server/api/stats.get.ts",
-        "size": 9504
+        "size": 9427
       },
       {
         "path": "server/api/suggest.get.ts",
-        "size": 14624
+        "size": 14662
       },
       {
         "path": "server/api/umami/auth.post.ts",
@@ -6490,6 +6726,10 @@
       {
         "path": "server/api/umami/stats.get.ts",
         "size": 3361
+      },
+      {
+        "path": "server/api/webhooks/calcom.post.ts",
+        "size": 3148
       },
       {
         "path": "server/api/webmentions.get.ts",
@@ -6545,7 +6785,7 @@
       },
       {
         "path": "server/utils/flashcards.ts",
-        "size": 4547
+        "size": 4550
       },
       {
         "path": "server/utils/text-processing.ts",
@@ -6609,7 +6849,7 @@
       },
       {
         "path": "yarn.lock",
-        "size": 386648
+        "size": 351946
       }
     ],
     "tree": {
@@ -6640,8 +6880,13 @@
               "children": [
                 {
                   "name": "deploy.yml",
-                  "size": 813,
+                  "size": 2983,
                   "path": ".github/workflows/deploy.yml"
+                },
+                {
+                  "name": "preview.yml",
+                  "size": 1782,
+                  "path": ".github/workflows/preview.yml"
                 },
                 {
                   "name": "send-webmentions.yml",
@@ -6689,7 +6934,7 @@
               "children": [
                 {
                   "name": "global.css",
-                  "size": 29273,
+                  "size": 30520,
                   "path": "assets/css/global.css"
                 },
                 {
@@ -6748,12 +6993,12 @@
               "children": [
                 {
                   "name": "BentoProjectCard.vue",
-                  "size": 3886,
+                  "size": 4061,
                   "path": "components/projects/BentoProjectCard.vue"
                 },
                 {
                   "name": "FeaturedProjectCard.vue",
-                  "size": 1414,
+                  "size": 1981,
                   "path": "components/projects/FeaturedProjectCard.vue"
                 },
                 {
@@ -7105,6 +7350,11 @@
               "path": "composables/README.md"
             },
             {
+              "name": "useAttribution.ts",
+              "size": 6696,
+              "path": "composables/useAttribution.ts"
+            },
+            {
               "name": "useCalibration.ts",
               "size": 341,
               "path": "composables/useCalibration.ts"
@@ -7115,9 +7365,24 @@
               "path": "composables/useDateFormat.ts"
             },
             {
+              "name": "useElementVisibility.ts",
+              "size": 3776,
+              "path": "composables/useElementVisibility.ts"
+            },
+            {
+              "name": "useExitIntent.ts",
+              "size": 3417,
+              "path": "composables/useExitIntent.ts"
+            },
+            {
               "name": "useFlashcards.ts",
               "size": 2295,
               "path": "composables/useFlashcards.ts"
+            },
+            {
+              "name": "useFunnelTracking.ts",
+              "size": 4370,
+              "path": "composables/useFunnelTracking.ts"
             },
             {
               "name": "useKalshi.ts",
@@ -7133,6 +7398,11 @@
               "name": "useMarkdown.ts",
               "size": 956,
               "path": "composables/useMarkdown.ts"
+            },
+            {
+              "name": "useMicroConversions.ts",
+              "size": 3758,
+              "path": "composables/useMicroConversions.ts"
             },
             {
               "name": "useNumberFormat.ts",
@@ -7192,7 +7462,7 @@
           "children": [
             {
               "name": "navigation.ts",
-              "size": 689,
+              "size": 690,
               "path": "config/navigation.ts"
             }
           ],
@@ -7484,7 +7754,7 @@
                     },
                     {
                       "name": "crypto-ai-colonization.md",
-                      "size": 10145,
+                      "size": 9957,
                       "path": "content/blog/2023/crypto-ai-colonization.md"
                     },
                     {
@@ -7504,7 +7774,7 @@
                     },
                     {
                       "name": "how-i-built-coach-artie.md",
-                      "size": 9955,
+                      "size": 9897,
                       "path": "content/blog/2023/how-i-built-coach-artie.md"
                     },
                     {
@@ -7556,17 +7826,17 @@
                   "children": [
                     {
                       "name": "hidden-networks-of-warmth.md",
-                      "size": 13132,
+                      "size": 12767,
                       "path": "content/blog/2025/hidden-networks-of-warmth.md"
                     },
                     {
                       "name": "mcp-meta-mapping.md",
-                      "size": 5690,
+                      "size": 5589,
                       "path": "content/blog/2025/mcp-meta-mapping.md"
                     },
                     {
                       "name": "owning-my-cloudinary-photos.md",
-                      "size": 4226,
+                      "size": 4065,
                       "path": "content/blog/2025/owning-my-cloudinary-photos.md"
                     },
                     {
@@ -7576,7 +7846,7 @@
                     },
                     {
                       "name": "personal-apis.md",
-                      "size": 5643,
+                      "size": 5471,
                       "path": "content/blog/2025/personal-apis.md"
                     },
                     {
@@ -8080,7 +8350,7 @@
                         },
                         {
                           "name": "using-observable-plot-in-vue.md",
-                          "size": 3281,
+                          "size": 3226,
                           "path": "content/blog/drafts/_stale/using-observable-plot-in-vue.md"
                         },
                         {
@@ -8133,7 +8403,7 @@
                     },
                     {
                       "name": "approach-to-learning.md",
-                      "size": 3903,
+                      "size": 3849,
                       "path": "content/blog/drafts/approach-to-learning.md"
                     },
                     {
@@ -8193,13 +8463,28 @@
                     },
                     {
                       "name": "ten-years-of-the-computer-rescuetime-analysis.md",
-                      "size": 6163,
+                      "size": 6038,
                       "path": "content/blog/drafts/ten-years-of-the-computer-rescuetime-analysis.md"
                     },
                     {
                       "name": "terminal-based-development-workflow.md",
                       "size": 192,
                       "path": "content/blog/drafts/terminal-based-development-workflow.md"
+                    },
+                    {
+                      "name": "the-pattern-problem.md",
+                      "size": 1722,
+                      "path": "content/blog/drafts/the-pattern-problem.md"
+                    },
+                    {
+                      "name": "what-50k-buys-you.md",
+                      "size": 1731,
+                      "path": "content/blog/drafts/what-50k-buys-you.md"
+                    },
+                    {
+                      "name": "why-election-visualizations-fail.md",
+                      "size": 1487,
+                      "path": "content/blog/drafts/why-election-visualizations-fail.md"
                     }
                   ],
                   "path": "content/blog/drafts"
@@ -8214,12 +8499,12 @@
                     },
                     {
                       "name": "MorningRadio.md",
-                      "size": 1028,
+                      "size": 1412,
                       "path": "content/blog/projects/MorningRadio.md"
                     },
                     {
                       "name": "ccrb-clusters.md",
-                      "size": 1129,
+                      "size": 2006,
                       "path": "content/blog/projects/ccrb-clusters.md"
                     },
                     {
@@ -8229,17 +8514,17 @@
                     },
                     {
                       "name": "cloudinary-backup-tool.md",
-                      "size": 618,
+                      "size": 1126,
                       "path": "content/blog/projects/cloudinary-backup-tool.md"
                     },
                     {
                       "name": "coach-artie.md",
-                      "size": 1298,
+                      "size": 2069,
                       "path": "content/blog/projects/coach-artie.md"
                     },
                     {
                       "name": "covidcast.md",
-                      "size": 789,
+                      "size": 1958,
                       "path": "content/blog/projects/covidcast.md"
                     },
                     {
@@ -8254,7 +8539,7 @@
                     },
                     {
                       "name": "dataproofer.md",
-                      "size": 1415,
+                      "size": 1872,
                       "path": "content/blog/projects/dataproofer.md"
                     },
                     {
@@ -8263,13 +8548,18 @@
                       "path": "content/blog/projects/developer-tools.md"
                     },
                     {
+                      "name": "exif-photo-printer.md",
+                      "size": 1332,
+                      "path": "content/blog/projects/exif-photo-printer.md"
+                    },
+                    {
                       "name": "nbc-big-board.md",
-                      "size": 1156,
+                      "size": 2524,
                       "path": "content/blog/projects/nbc-big-board.md"
                     },
                     {
                       "name": "nbcnews-specials.md",
-                      "size": 1543,
+                      "size": 1997,
                       "path": "content/blog/projects/nbcnews-specials.md"
                     },
                     {
@@ -8279,8 +8569,28 @@
                     },
                     {
                       "name": "smallbot-mcp.md",
-                      "size": 1256,
+                      "size": 1400,
                       "path": "content/blog/projects/smallbot-mcp.md"
+                    },
+                    {
+                      "name": "subway-builder-mods.md",
+                      "size": 1673,
+                      "path": "content/blog/projects/subway-builder-mods.md"
+                    },
+                    {
+                      "name": "towntuner.md",
+                      "size": 1610,
+                      "path": "content/blog/projects/towntuner.md"
+                    },
+                    {
+                      "name": "vulpes-browser.md",
+                      "size": 1466,
+                      "path": "content/blog/projects/vulpes-browser.md"
+                    },
+                    {
+                      "name": "vulpes-theme-lab.md",
+                      "size": 1614,
+                      "path": "content/blog/projects/vulpes-theme-lab.md"
                     }
                   ],
                   "path": "content/blog/projects"
@@ -8895,7 +9205,7 @@
                     },
                     {
                       "name": "2024-02.md",
-                      "size": 5706,
+                      "size": 5621,
                       "path": "content/blog/week-notes/2024-02.md"
                     },
                     {
@@ -8985,7 +9295,7 @@
                     },
                     {
                       "name": "2024-31.md",
-                      "size": 6584,
+                      "size": 6514,
                       "path": "content/blog/week-notes/2024-31.md"
                     },
                     {
@@ -9010,7 +9320,7 @@
                     },
                     {
                       "name": "2024-38.md",
-                      "size": 4247,
+                      "size": 4194,
                       "path": "content/blog/week-notes/2024-38.md"
                     },
                     {
@@ -9035,7 +9345,7 @@
                     },
                     {
                       "name": "2024-46.md",
-                      "size": 836,
+                      "size": 787,
                       "path": "content/blog/week-notes/2024-46.md"
                     },
                     {
@@ -9298,7 +9608,7 @@
                 },
                 {
                   "name": "WIKILINK-OPPORTUNITIES.md",
-                  "size": 9739,
+                  "size": 7880,
                   "path": "content/blog/WIKILINK-OPPORTUNITIES.md"
                 },
                 {
@@ -9954,12 +10264,12 @@
                   "children": [
                     {
                       "name": "MorningRadio.json",
-                      "size": 3130,
+                      "size": 4041,
                       "path": "content/processed/projects/MorningRadio.json"
                     },
                     {
                       "name": "ccrb-clusters.json",
-                      "size": 2569,
+                      "size": 5549,
                       "path": "content/processed/projects/ccrb-clusters.json"
                     },
                     {
@@ -9969,17 +10279,17 @@
                     },
                     {
                       "name": "cloudinary-backup-tool.json",
-                      "size": 1853,
+                      "size": 3087,
                       "path": "content/processed/projects/cloudinary-backup-tool.json"
                     },
                     {
                       "name": "coach-artie.json",
-                      "size": 4591,
+                      "size": 3992,
                       "path": "content/processed/projects/coach-artie.json"
                     },
                     {
                       "name": "covidcast.json",
-                      "size": 2173,
+                      "size": 5444,
                       "path": "content/processed/projects/covidcast.json"
                     },
                     {
@@ -9994,7 +10304,7 @@
                     },
                     {
                       "name": "dataproofer.json",
-                      "size": 10924,
+                      "size": 9162,
                       "path": "content/processed/projects/dataproofer.json"
                     },
                     {
@@ -10003,13 +10313,18 @@
                       "path": "content/processed/projects/developer-tools.json"
                     },
                     {
+                      "name": "exif-photo-printer.json",
+                      "size": 3158,
+                      "path": "content/processed/projects/exif-photo-printer.json"
+                    },
+                    {
                       "name": "nbc-big-board.json",
-                      "size": 4426,
+                      "size": 7718,
                       "path": "content/processed/projects/nbc-big-board.json"
                     },
                     {
                       "name": "nbcnews-specials.json",
-                      "size": 12695,
+                      "size": 10860,
                       "path": "content/processed/projects/nbcnews-specials.json"
                     },
                     {
@@ -10019,8 +10334,28 @@
                     },
                     {
                       "name": "smallbot-mcp.json",
-                      "size": 3877,
+                      "size": 4928,
                       "path": "content/processed/projects/smallbot-mcp.json"
+                    },
+                    {
+                      "name": "subway-builder-mods.json",
+                      "size": 5505,
+                      "path": "content/processed/projects/subway-builder-mods.json"
+                    },
+                    {
+                      "name": "towntuner.json",
+                      "size": 3297,
+                      "path": "content/processed/projects/towntuner.json"
+                    },
+                    {
+                      "name": "vulpes-browser.json",
+                      "size": 3513,
+                      "path": "content/processed/projects/vulpes-browser.json"
+                    },
+                    {
+                      "name": "vulpes-theme-lab.json",
+                      "size": 6859,
+                      "path": "content/processed/projects/vulpes-theme-lab.json"
                     }
                   ],
                   "path": "content/processed/projects"
@@ -11042,13 +11377,18 @@
                   "path": "content/processed/WIKILINK-OPPORTUNITIES.json"
                 },
                 {
+                  "name": "goodreads-stats.json",
+                  "size": 611,
+                  "path": "content/processed/goodreads-stats.json"
+                },
+                {
                   "name": "index.json",
                   "size": 1949,
                   "path": "content/processed/index.json"
                 },
                 {
                   "name": "manifest-lite.json",
-                  "size": 759569,
+                  "size": 780094,
                   "path": "content/processed/manifest-lite.json"
                 }
               ],
@@ -11345,7 +11685,7 @@
                 },
                 {
                   "name": "dotfiles.json",
-                  "size": 125944,
+                  "size": 126456,
                   "path": "data/github-repos/dotfiles.json"
                 },
                 {
@@ -11400,7 +11740,7 @@
                 },
                 {
                   "name": "exif-printer-simple.json",
-                  "size": 38566,
+                  "size": 38564,
                   "path": "data/github-repos/exif-printer-simple.json"
                 },
                 {
@@ -11914,13 +12254,18 @@
                   "path": "data/github-repos/vulpecula-loom.json"
                 },
                 {
+                  "name": "vulpes-browser.json",
+                  "size": 20946,
+                  "path": "data/github-repos/vulpes-browser.json"
+                },
+                {
                   "name": "vulpes-spotify-mcp.json",
                   "size": 15349,
                   "path": "data/github-repos/vulpes-spotify-mcp.json"
                 },
                 {
                   "name": "vulpes-theme-lab.json",
-                  "size": 38176,
+                  "size": 39273,
                   "path": "data/github-repos/vulpes-theme-lab.json"
                 },
                 {
@@ -11955,7 +12300,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 504017,
+                  "size": 505159,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -12401,7 +12746,7 @@
                 },
                 {
                   "name": "03-21.json",
-                  "size": 15667,
+                  "size": 15657,
                   "path": "data/on-this-day/03-21.json"
                 },
                 {
@@ -12571,7 +12916,7 @@
                 },
                 {
                   "name": "04-24.json",
-                  "size": 25805,
+                  "size": 25809,
                   "path": "data/on-this-day/04-24.json"
                 },
                 {
@@ -12741,7 +13086,7 @@
                 },
                 {
                   "name": "05-28.json",
-                  "size": 26281,
+                  "size": 26460,
                   "path": "data/on-this-day/05-28.json"
                 },
                 {
@@ -13071,7 +13416,7 @@
                 },
                 {
                   "name": "08-02.json",
-                  "size": 21502,
+                  "size": 21508,
                   "path": "data/on-this-day/08-02.json"
                 },
                 {
@@ -13141,7 +13486,7 @@
                 },
                 {
                   "name": "08-16.json",
-                  "size": 20055,
+                  "size": 20204,
                   "path": "data/on-this-day/08-16.json"
                 },
                 {
@@ -13486,7 +13831,7 @@
                 },
                 {
                   "name": "10-24.json",
-                  "size": 18531,
+                  "size": 18702,
                   "path": "data/on-this-day/10-24.json"
                 },
                 {
@@ -13756,7 +14101,7 @@
                 },
                 {
                   "name": "12-17.json",
-                  "size": 17595,
+                  "size": 17772,
                   "path": "data/on-this-day/12-17.json"
                 },
                 {
@@ -13816,7 +14161,7 @@
                 },
                 {
                   "name": "12-29.json",
-                  "size": 27327,
+                  "size": 27498,
                   "path": "data/on-this-day/12-29.json"
                 },
                 {
@@ -13843,8 +14188,18 @@
               "path": "data/calibration-analysis.json"
             },
             {
+              "name": "consulting-availability.json",
+              "size": 1190,
+              "path": "data/consulting-availability.json"
+            },
+            {
+              "name": "current-work.json",
+              "size": 460,
+              "path": "data/current-work.json"
+            },
+            {
               "name": "external_links_final.csv",
-              "size": 87665,
+              "size": 88266,
               "path": "data/external_links_final.csv"
             },
             {
@@ -13864,7 +14219,7 @@
             },
             {
               "name": "github-repos-list.json",
-              "size": 124436,
+              "size": 124444,
               "path": "data/github-repos-list.json"
             },
             {
@@ -13884,7 +14239,7 @@
             },
             {
               "name": "on-this-day-index.json",
-              "size": 11360651,
+              "size": 11362159,
               "path": "data/on-this-day-index.json"
             },
             {
@@ -13924,6 +14279,11 @@
               "path": "docs/ELECTION-PREDICTION-FORMAT.md"
             },
             {
+              "name": "IOS-SHORTCUTS-EXAMPLES.md",
+              "size": 7091,
+              "path": "docs/IOS-SHORTCUTS-EXAMPLES.md"
+            },
+            {
               "name": "KALSHI-PREDICTIONS-SYSTEM.md",
               "size": 6918,
               "path": "docs/KALSHI-PREDICTIONS-SYSTEM.md"
@@ -13937,6 +14297,16 @@
               "name": "PREDICTIONS.md",
               "size": 7164,
               "path": "docs/PREDICTIONS.md"
+            },
+            {
+              "name": "STATS-API.md",
+              "size": 5717,
+              "path": "docs/STATS-API.md"
+            },
+            {
+              "name": "cal-com-funnel-setup.md",
+              "size": 13274,
+              "path": "docs/cal-com-funnel-setup.md"
             }
           ],
           "path": "docs"
@@ -13951,7 +14321,7 @@
             },
             {
               "name": "default.vue",
-              "size": 5210,
+              "size": 3625,
               "path": "layouts/default.vue"
             }
           ],
@@ -14015,6 +14385,17 @@
               "path": "pages/blog"
             },
             {
+              "name": "case-study",
+              "children": [
+                {
+                  "name": "nbc-big-board.vue",
+                  "size": 12441,
+                  "path": "pages/case-study/nbc-big-board.vue"
+                }
+              ],
+              "path": "pages/case-study"
+            },
+            {
               "name": "flashcards",
               "children": [
                 {
@@ -14024,7 +14405,7 @@
                 },
                 {
                   "name": "study.vue",
-                  "size": 11747,
+                  "size": 11769,
                   "path": "pages/flashcards/study.vue"
                 }
               ],
@@ -14040,7 +14421,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 20892,
+                  "size": 22675,
                   "path": "pages/gear/index.vue"
                 }
               ],
@@ -14140,7 +14521,7 @@
             },
             {
               "name": "bookmarklet-popup.vue",
-              "size": 19881,
+              "size": 19928,
               "path": "pages/bookmarklet-popup.vue"
             },
             {
@@ -14150,13 +14531,18 @@
             },
             {
               "name": "calendar.vue",
-              "size": 3185,
+              "size": 1823,
               "path": "pages/calendar.vue"
             },
             {
               "name": "changelog.vue",
-              "size": 5635,
+              "size": 5670,
               "path": "pages/changelog.vue"
+            },
+            {
+              "name": "consulting.vue",
+              "size": 30151,
+              "path": "pages/consulting.vue"
             },
             {
               "name": "external-links.vue",
@@ -14194,6 +14580,11 @@
               "path": "pages/on-this-day.vue"
             },
             {
+              "name": "process.vue",
+              "size": 6966,
+              "path": "pages/process.vue"
+            },
+            {
               "name": "scraps.vue",
               "size": 6655,
               "path": "pages/scraps.vue"
@@ -14215,7 +14606,7 @@
             },
             {
               "name": "updates.vue",
-              "size": 2854,
+              "size": 2947,
               "path": "pages/updates.vue"
             }
           ],
@@ -14225,9 +14616,24 @@
           "name": "plugins",
           "children": [
             {
+              "name": "attribution.client.ts",
+              "size": 294,
+              "path": "plugins/attribution.client.ts"
+            },
+            {
+              "name": "clarity.client.ts",
+              "size": 1139,
+              "path": "plugins/clarity.client.ts"
+            },
+            {
               "name": "dark-mode.client.js",
               "size": 256,
               "path": "plugins/dark-mode.client.js"
+            },
+            {
+              "name": "floating-vue.client.ts",
+              "size": 275,
+              "path": "plugins/floating-vue.client.ts"
             },
             {
               "name": "footnotes-to-sidenotes.client.ts",
@@ -14355,6 +14761,17 @@
                 }
               ],
               "path": "public/data"
+            },
+            {
+              "name": "favicon-picker",
+              "children": [
+                {
+                  "name": "index.html",
+                  "size": 11677,
+                  "path": "public/favicon-picker/index.html"
+                }
+              ],
+              "path": "public/favicon-picker"
             },
             {
               "name": "fonts",
@@ -14545,6 +14962,112 @@
               "path": "public/images"
             },
             {
+              "name": "logos",
+              "children": [
+                {
+                  "name": "ap.svg",
+                  "size": 1330,
+                  "path": "public/logos/ap.svg"
+                },
+                {
+                  "name": "cbs.svg",
+                  "size": 499,
+                  "path": "public/logos/cbs.svg"
+                },
+                {
+                  "name": "climate-trace.svg",
+                  "size": 236,
+                  "path": "public/logos/climate-trace.svg"
+                },
+                {
+                  "name": "cmu.svg",
+                  "size": 9633,
+                  "path": "public/logos/cmu.svg"
+                },
+                {
+                  "name": "cnn.svg",
+                  "size": 1527,
+                  "path": "public/logos/cnn.svg"
+                },
+                {
+                  "name": "consumer-reports.svg",
+                  "size": 3730,
+                  "path": "public/logos/consumer-reports.svg"
+                },
+                {
+                  "name": "github.svg",
+                  "size": 837,
+                  "path": "public/logos/github.svg"
+                },
+                {
+                  "name": "gothamist.svg",
+                  "size": 230,
+                  "path": "public/logos/gothamist.svg"
+                },
+                {
+                  "name": "knight.svg",
+                  "size": 250,
+                  "path": "public/logos/knight.svg"
+                },
+                {
+                  "name": "msnbc.svg",
+                  "size": 3900,
+                  "path": "public/logos/msnbc.svg"
+                },
+                {
+                  "name": "nbc-news.svg",
+                  "size": 3585,
+                  "path": "public/logos/nbc-news.svg"
+                },
+                {
+                  "name": "nbc-peacock.svg",
+                  "size": 1076,
+                  "path": "public/logos/nbc-peacock.svg"
+                },
+                {
+                  "name": "nbc.svg",
+                  "size": 1076,
+                  "path": "public/logos/nbc.svg"
+                },
+                {
+                  "name": "nytimes.svg",
+                  "size": 4326,
+                  "path": "public/logos/nytimes.svg"
+                },
+                {
+                  "name": "opennews.svg",
+                  "size": 210,
+                  "path": "public/logos/opennews.svg"
+                },
+                {
+                  "name": "oset.svg",
+                  "size": 230,
+                  "path": "public/logos/oset.svg"
+                },
+                {
+                  "name": "stamen.svg",
+                  "size": 181,
+                  "path": "public/logos/stamen.svg"
+                },
+                {
+                  "name": "vocativ.svg",
+                  "size": 230,
+                  "path": "public/logos/vocativ.svg"
+                },
+                {
+                  "name": "wapo.svg",
+                  "size": 1061,
+                  "path": "public/logos/wapo.svg"
+                },
+                {
+                  "name": "wnyc.svg",
+                  "size": 234,
+                  "path": "public/logos/wnyc.svg"
+                }
+              ],
+              "path": "public/logos"
+            },
+            {
               "name": "android-chrome-192x192.png",
               "size": 80486,
               "path": "public/android-chrome-192x192.png"
@@ -14566,7 +15089,7 @@
             },
             {
               "name": "content-tags.json",
-              "size": 2945,
+              "size": 3084,
               "path": "public/content-tags.json"
             },
             {
@@ -14803,7 +15326,7 @@
             },
             {
               "name": "auto-update.sh",
-              "size": 3352,
+              "size": 6954,
               "path": "scripts/auto-update.sh"
             },
             {
@@ -14897,6 +15420,11 @@
               "path": "scripts/lighthouse-check.mjs"
             },
             {
+              "name": "nginx-preview.conf",
+              "size": 1147,
+              "path": "scripts/nginx-preview.conf"
+            },
+            {
               "name": "perf-analyze.mjs",
               "size": 4690,
               "path": "scripts/perf-analyze.mjs"
@@ -14946,11 +15474,27 @@
               "name": "api",
               "children": [
                 {
+                  "name": "__tests__",
+                  "children": [
+                    {
+                      "name": "stats-lite.test.ts",
+                      "size": 5560,
+                      "path": "server/api/__tests__/stats-lite.test.ts"
+                    }
+                  ],
+                  "path": "server/api/__tests__"
+                },
+                {
                   "name": "cal",
                   "children": [
                     {
+                      "name": "availability.get.ts",
+                      "size": 3291,
+                      "path": "server/api/cal/availability.get.ts"
+                    },
+                    {
                       "name": "available-slots.get.ts",
-                      "size": 3137,
+                      "size": 4587,
                       "path": "server/api/cal/available-slots.get.ts"
                     }
                   ],
@@ -14964,7 +15508,7 @@
                       "children": [
                         {
                           "name": "[id].get.ts",
-                          "size": 882,
+                          "size": 889,
                           "path": "server/api/flashcards/random/[id].get.ts"
                         }
                       ],
@@ -14982,12 +15526,12 @@
                     },
                     {
                       "name": "search.get.ts",
-                      "size": 1483,
+                      "size": 1490,
                       "path": "server/api/flashcards/search.get.ts"
                     },
                     {
                       "name": "stats.get.ts",
-                      "size": 1362,
+                      "size": 1401,
                       "path": "server/api/flashcards/stats.get.ts"
                     }
                   ],
@@ -15025,7 +15569,7 @@
                   "children": [
                     {
                       "name": "[...slug].ts",
-                      "size": 3949,
+                      "size": 4782,
                       "path": "server/api/posts/[...slug].ts"
                     }
                   ],
@@ -15129,6 +15673,17 @@
                   "path": "server/api/umami"
                 },
                 {
+                  "name": "webhooks",
+                  "children": [
+                    {
+                      "name": "calcom.post.ts",
+                      "size": 3148,
+                      "path": "server/api/webhooks/calcom.post.ts"
+                    }
+                  ],
+                  "path": "server/api/webhooks"
+                },
+                {
                   "name": "blog-stats.get.ts",
                   "size": 1518,
                   "path": "server/api/blog-stats.get.ts"
@@ -15162,6 +15717,11 @@
                   "name": "chess.get.ts",
                   "size": 7398,
                   "path": "server/api/chess.get.ts"
+                },
+                {
+                  "name": "consulting-availability.get.ts",
+                  "size": 3111,
+                  "path": "server/api/consulting-availability.get.ts"
                 },
                 {
                   "name": "discogs.get.ts",
@@ -15222,6 +15782,11 @@
                   "name": "goodreads.get.ts",
                   "size": 2060,
                   "path": "server/api/goodreads.get.ts"
+                },
+                {
+                  "name": "health.get.ts",
+                  "size": 6252,
+                  "path": "server/api/health.get.ts"
                 },
                 {
                   "name": "healthcheck.get.ts",
@@ -15305,7 +15870,7 @@
                 },
                 {
                   "name": "scraps.get.ts",
-                  "size": 3497,
+                  "size": 3603,
                   "path": "server/api/scraps.get.ts"
                 },
                 {
@@ -15314,13 +15879,18 @@
                   "path": "server/api/search.get.ts"
                 },
                 {
+                  "name": "stats-lite.get.ts",
+                  "size": 7544,
+                  "path": "server/api/stats-lite.get.ts"
+                },
+                {
                   "name": "stats.get.ts",
-                  "size": 9504,
+                  "size": 9427,
                   "path": "server/api/stats.get.ts"
                 },
                 {
                   "name": "suggest.get.ts",
-                  "size": 14624,
+                  "size": 14662,
                   "path": "server/api/suggest.get.ts"
                 },
                 {
@@ -15403,7 +15973,7 @@
                 },
                 {
                   "name": "flashcards.ts",
-                  "size": 4547,
+                  "size": 4550,
                   "path": "server/utils/flashcards.ts"
                 },
                 {
@@ -15527,7 +16097,7 @@
         },
         {
           "name": "CLAUDE.md",
-          "size": 12219,
+          "size": 12658,
           "path": "CLAUDE.md"
         },
         {
@@ -15537,7 +16107,7 @@
         },
         {
           "name": "README.md",
-          "size": 3122,
+          "size": 3386,
           "path": "README.md"
         },
         {
@@ -15562,17 +16132,17 @@
         },
         {
           "name": "nuxt.config.ts",
-          "size": 13081,
+          "size": 13193,
           "path": "nuxt.config.ts"
         },
         {
           "name": "package-lock.json",
-          "size": 688492,
+          "size": 695930,
           "path": "package-lock.json"
         },
         {
           "name": "package.json",
-          "size": 4179,
+          "size": 4234,
           "path": "package.json"
         },
         {
@@ -15597,22 +16167,22 @@
         },
         {
           "name": "yarn.lock",
-          "size": 386648,
+          "size": 351946,
           "path": "yarn.lock"
         }
       ],
       "path": ""
     },
-    "totalFiles": 1647,
-    "totalSize": 84403103
+    "totalFiles": 1707,
+    "totalSize": 84658999
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"ej-foxs-website\">EJ Fox's Website</h1>\n<p>Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker</p>\n<h2 id=\"quick-start\">Quick Start</h2>\n<pre><code class=\"language-bash\">yarn install &amp;&amp; yarn blog:import &amp;&amp; yarn blog:process &amp;&amp; yarn dev\n</code></pre>\n<h2 id=\"commands\">Commands</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>yarn dev</code></td><td>Dev server (port 3006)</td></tr><tr><td><code>yarn build</code></td><td>Production build</td></tr><tr><td><code>yarn blog:import</code></td><td>Import from Obsidian</td></tr><tr><td><code>yarn blog:process</code></td><td>Process MD → JSON</td></tr><tr><td><code>yarn predict</code></td><td>Create cryptographic prediction</td></tr><tr><td><code>yarn webmentions</code></td><td>Send webmentions (last 7 days)</td></tr><tr><td><code>yarn webmentions --all</code></td><td>Send all webmentions</td></tr></tbody></table>\n<h2 id=\"features\">Features</h2>\n<h3 id=\"content-pipeline\">Content Pipeline</h3>\n<p>Obsidian → Markdown → Unified/Rehype → JSON → Vue</p>\n<pre><code>content/blog/YYYY/*.md  →  content/processed/YYYY/*.json\n</code></pre>\n<h3 id=\"frontmatter\">Frontmatter</h3>\n<pre><code class=\"language-yaml\">---\ntitle: Post Title\ndate: 2024-01-01\ndek: One-sentence description\ntags: [tag1, tag2]\ndraft: false # Hide from lists\nhidden: false # Skip processing\nreplyTo: https://example.com/post # IndieWeb reply (single or array)\n---\n</code></pre>\n<h3 id=\"indieweb\">IndieWeb</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Feature</th><th>Details</th></tr></thead><tbody><tr><td><strong>Reply posts</strong></td><td><code>replyTo:</code> fetches OG data, shows context, sends webmention</td></tr><tr><td><strong>Webmentions</strong></td><td>Display likes/reposts/replies, moderation via <code>data/webmention-moderation.json</code></td></tr><tr><td><strong>Microformats</strong></td><td>h-entry, h-card, u-in-reply-to on all posts</td></tr><tr><td><strong>WebSub</strong></td><td>Hub at pubsubhubbub.superfeedr.com</td></tr></tbody></table>\n<h3 id=\"predictions-system\">Predictions System</h3>\n<pre><code class=\"language-bash\">yarn predict --statement \"X will happen\" --confidence 75 --deadline 2025-12-31\n</code></pre>\n<ul>\n<li>SHA-256 + Git commit + optional PGP signing</li>\n<li>AI quality analysis via OpenRouter</li>\n<li>See <code>docs/PREDICTIONS.md</code></li>\n</ul>\n<h3 id=\"stats-aggregation\">Stats Aggregation</h3>\n<p><code>/api/stats</code> aggregates: GitHub, YouTube, LastFM, Chess.com, Kalshi</p>\n<h3 id=\"gear-inventory\">Gear Inventory</h3>\n<p>CSV-based gear tracking at <code>/gear</code> with weight calculations, Tuftian visualizations</p>\n<h3 id=\"sidenotes\">Sidenotes</h3>\n<p>Footnotes auto-convert to margin notes on desktop (Tufte-style)</p>\n<h2 id=\"deployment\">Deployment</h2>\n<p>Push to <code>main</code> → GitHub Action SSHs to VPS → pulls, builds, restarts Docker</p>\n<p>Manual: <code>ssh vps \"cd /data2/website2 &amp;&amp; git pull &amp;&amp; yarn build &amp;&amp; docker-compose up -d --build\"</code></p>\n<h2 id=\"environment\">Environment</h2>\n<pre><code class=\"language-bash\">CLOUDINARY_CLOUD_NAME=\nCLOUDINARY_API_KEY=\nCLOUDINARY_API_SECRET=\nYOUTUBE_API_KEY=\nYOUTUBE_CHANNEL_ID=\n</code></pre>\n<h2 id=\"directory-structure\">Directory Structure</h2>\n<pre><code>content/blog/       # Source markdown by year\ncontent/processed/  # Output JSON\nserver/api/         # API endpoints\ncomponents/         # Vue components\nscripts/            # Processing scripts\ndata/               # Config files (moderation, gear CSV)\n</code></pre>\n<h2 id=\"debug\">Debug</h2>\n<pre><code class=\"language-bash\">DEBUG=true yarn blog:process\nCHECK_LINKS=true yarn blog:process  # Link health check\nAUTO_FIX_LINKS=true yarn blog:process  # Auto-fix with archive.org\n</code></pre>\n<hr />\n<p>MIT License</p>",
-    "raw": "# EJ Fox's Website\n\nPersonal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n## Quick Start\n\n```bash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n```\n\n## Commands\n\n| Command                  | Description                     |\n| ------------------------ | ------------------------------- |\n| `yarn dev`               | Dev server (port 3006)          |\n| `yarn build`             | Production build                |\n| `yarn blog:import`       | Import from Obsidian            |\n| `yarn blog:process`      | Process MD → JSON               |\n| `yarn predict`           | Create cryptographic prediction |\n| `yarn webmentions`       | Send webmentions (last 7 days)  |\n| `yarn webmentions --all` | Send all webmentions            |\n\n## Features\n\n### Content Pipeline\n\nObsidian → Markdown → Unified/Rehype → JSON → Vue\n\n```\ncontent/blog/YYYY/*.md  →  content/processed/YYYY/*.json\n```\n\n### Frontmatter\n\n```yaml\n---\ntitle: Post Title\ndate: 2024-01-01\ndek: One-sentence description\ntags: [tag1, tag2]\ndraft: false # Hide from lists\nhidden: false # Skip processing\nreplyTo: https://example.com/post # IndieWeb reply (single or array)\n---\n```\n\n### IndieWeb\n\n| Feature          | Details                                                                         |\n| ---------------- | ------------------------------------------------------------------------------- |\n| **Reply posts**  | `replyTo:` fetches OG data, shows context, sends webmention                     |\n| **Webmentions**  | Display likes/reposts/replies, moderation via `data/webmention-moderation.json` |\n| **Microformats** | h-entry, h-card, u-in-reply-to on all posts                                     |\n| **WebSub**       | Hub at pubsubhubbub.superfeedr.com                                              |\n\n### Predictions System\n\n```bash\nyarn predict --statement \"X will happen\" --confidence 75 --deadline 2025-12-31\n```\n\n- SHA-256 + Git commit + optional PGP signing\n- AI quality analysis via OpenRouter\n- See `docs/PREDICTIONS.md`\n\n### Stats Aggregation\n\n`/api/stats` aggregates: GitHub, YouTube, LastFM, Chess.com, Kalshi\n\n### Gear Inventory\n\nCSV-based gear tracking at `/gear` with weight calculations, Tuftian visualizations\n\n### Sidenotes\n\nFootnotes auto-convert to margin notes on desktop (Tufte-style)\n\n## Deployment\n\nPush to `main` → GitHub Action SSHs to VPS → pulls, builds, restarts Docker\n\nManual: `ssh vps \"cd /data2/website2 && git pull && yarn build && docker-compose up -d --build\"`\n\n## Environment\n\n```bash\nCLOUDINARY_CLOUD_NAME=\nCLOUDINARY_API_KEY=\nCLOUDINARY_API_SECRET=\nYOUTUBE_API_KEY=\nYOUTUBE_CHANNEL_ID=\n```\n\n## Directory Structure\n\n```\ncontent/blog/       # Source markdown by year\ncontent/processed/  # Output JSON\nserver/api/         # API endpoints\ncomponents/         # Vue components\nscripts/            # Processing scripts\ndata/               # Config files (moderation, gear CSV)\n```\n\n## Debug\n\n```bash\nDEBUG=true yarn blog:process\nCHECK_LINKS=true yarn blog:process  # Link health check\nAUTO_FIX_LINKS=true yarn blog:process  # Auto-fix with archive.org\n```\n\n---\n\nMIT License\n",
+    "html": "<h1 id=\"ej-foxs-website\">EJ Fox's Website</h1>\n<p>Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker</p>\n<h2 id=\"quick-start\">Quick Start</h2>\n<pre><code class=\"language-bash\">yarn install &amp;&amp; yarn blog:import &amp;&amp; yarn blog:process &amp;&amp; yarn dev\n</code></pre>\n<h2 id=\"commands\">Commands</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>yarn dev</code></td><td>Dev server (port 3006)</td></tr><tr><td><code>yarn build</code></td><td>Production build</td></tr><tr><td><code>yarn blog:import</code></td><td>Import from Obsidian</td></tr><tr><td><code>yarn blog:process</code></td><td>Process MD → JSON</td></tr><tr><td><code>yarn predict</code></td><td>Create cryptographic prediction</td></tr><tr><td><code>yarn webmentions</code></td><td>Send webmentions (last 7 days)</td></tr><tr><td><code>yarn webmentions --all</code></td><td>Send all webmentions</td></tr></tbody></table>\n<h2 id=\"features\">Features</h2>\n<h3 id=\"content-pipeline\">Content Pipeline</h3>\n<p>Obsidian → Markdown → Unified/Rehype → JSON → Vue</p>\n<pre><code>content/blog/YYYY/*.md  →  content/processed/YYYY/*.json\n</code></pre>\n<h3 id=\"frontmatter\">Frontmatter</h3>\n<pre><code class=\"language-yaml\">---\ntitle: Post Title\ndate: 2024-01-01\ndek: One-sentence description\ntags: [tag1, tag2]\ndraft: false # Hide from lists\nhidden: false # Skip processing\nreplyTo: https://example.com/post # IndieWeb reply (single or array)\n---\n</code></pre>\n<h3 id=\"indieweb\">IndieWeb</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Feature</th><th>Details</th></tr></thead><tbody><tr><td><strong>Reply posts</strong></td><td><code>replyTo:</code> fetches OG data, shows context, sends webmention</td></tr><tr><td><strong>Webmentions</strong></td><td>Display likes/reposts/replies, moderation via <code>data/webmention-moderation.json</code></td></tr><tr><td><strong>Microformats</strong></td><td>h-entry, h-card, u-in-reply-to on all posts</td></tr><tr><td><strong>WebSub</strong></td><td>Hub at pubsubhubbub.superfeedr.com</td></tr></tbody></table>\n<h3 id=\"predictions-system\">Predictions System</h3>\n<pre><code class=\"language-bash\">yarn predict --statement \"X will happen\" --confidence 75 --deadline 2025-12-31\n</code></pre>\n<ul>\n<li>SHA-256 + Git commit + optional PGP signing</li>\n<li>AI quality analysis via OpenRouter</li>\n<li>See <code>docs/PREDICTIONS.md</code></li>\n</ul>\n<h3 id=\"stats-aggregation\">Stats Aggregation</h3>\n<p>Two endpoints for personal metrics:</p>\n<ul>\n<li><code>/api/stats</code> - Full stats with arrays and nested data (~2.4KB)</li>\n<li><code>/api/stats-lite</code> - Lightweight for iOS Shortcuts (~345 bytes, 86% smaller)</li>\n</ul>\n<p>Aggregates: GitHub, Chess.com, LastFM, RescueTime, Letterboxd, Discogs, Kalshi</p>\n<p>See <code>docs/STATS-API.md</code> and <code>docs/IOS-SHORTCUTS-EXAMPLES.md</code> for usage</p>\n<h3 id=\"gear-inventory\">Gear Inventory</h3>\n<p>CSV-based gear tracking at <code>/gear</code> with weight calculations, Tuftian visualizations</p>\n<h3 id=\"sidenotes\">Sidenotes</h3>\n<p>Footnotes auto-convert to margin notes on desktop (Tufte-style)</p>\n<h2 id=\"deployment\">Deployment</h2>\n<p>Push to <code>main</code> → GitHub Action SSHs to VPS → pulls, builds, restarts Docker</p>\n<p>Manual: <code>ssh vps \"cd /data2/website2 &amp;&amp; git pull &amp;&amp; yarn build &amp;&amp; docker-compose up -d --build\"</code></p>\n<h2 id=\"environment\">Environment</h2>\n<pre><code class=\"language-bash\">CLOUDINARY_CLOUD_NAME=\nCLOUDINARY_API_KEY=\nCLOUDINARY_API_SECRET=\nYOUTUBE_API_KEY=\nYOUTUBE_CHANNEL_ID=\n</code></pre>\n<h2 id=\"directory-structure\">Directory Structure</h2>\n<pre><code>content/blog/       # Source markdown by year\ncontent/processed/  # Output JSON\nserver/api/         # API endpoints\ncomponents/         # Vue components\nscripts/            # Processing scripts\ndata/               # Config files (moderation, gear CSV)\n</code></pre>\n<h2 id=\"debug\">Debug</h2>\n<pre><code class=\"language-bash\">DEBUG=true yarn blog:process\nCHECK_LINKS=true yarn blog:process  # Link health check\nAUTO_FIX_LINKS=true yarn blog:process  # Auto-fix with archive.org\n</code></pre>\n<hr />\n<p>MIT License</p>",
+    "raw": "# EJ Fox's Website\n\nPersonal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n## Quick Start\n\n```bash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n```\n\n## Commands\n\n| Command                  | Description                     |\n| ------------------------ | ------------------------------- |\n| `yarn dev`               | Dev server (port 3006)          |\n| `yarn build`             | Production build                |\n| `yarn blog:import`       | Import from Obsidian            |\n| `yarn blog:process`      | Process MD → JSON               |\n| `yarn predict`           | Create cryptographic prediction |\n| `yarn webmentions`       | Send webmentions (last 7 days)  |\n| `yarn webmentions --all` | Send all webmentions            |\n\n## Features\n\n### Content Pipeline\n\nObsidian → Markdown → Unified/Rehype → JSON → Vue\n\n```\ncontent/blog/YYYY/*.md  →  content/processed/YYYY/*.json\n```\n\n### Frontmatter\n\n```yaml\n---\ntitle: Post Title\ndate: 2024-01-01\ndek: One-sentence description\ntags: [tag1, tag2]\ndraft: false # Hide from lists\nhidden: false # Skip processing\nreplyTo: https://example.com/post # IndieWeb reply (single or array)\n---\n```\n\n### IndieWeb\n\n| Feature          | Details                                                                         |\n| ---------------- | ------------------------------------------------------------------------------- |\n| **Reply posts**  | `replyTo:` fetches OG data, shows context, sends webmention                     |\n| **Webmentions**  | Display likes/reposts/replies, moderation via `data/webmention-moderation.json` |\n| **Microformats** | h-entry, h-card, u-in-reply-to on all posts                                     |\n| **WebSub**       | Hub at pubsubhubbub.superfeedr.com                                              |\n\n### Predictions System\n\n```bash\nyarn predict --statement \"X will happen\" --confidence 75 --deadline 2025-12-31\n```\n\n- SHA-256 + Git commit + optional PGP signing\n- AI quality analysis via OpenRouter\n- See `docs/PREDICTIONS.md`\n\n### Stats Aggregation\n\nTwo endpoints for personal metrics:\n\n- `/api/stats` - Full stats with arrays and nested data (~2.4KB)\n- `/api/stats-lite` - Lightweight for iOS Shortcuts (~345 bytes, 86% smaller)\n\nAggregates: GitHub, Chess.com, LastFM, RescueTime, Letterboxd, Discogs, Kalshi\n\nSee `docs/STATS-API.md` and `docs/IOS-SHORTCUTS-EXAMPLES.md` for usage\n\n### Gear Inventory\n\nCSV-based gear tracking at `/gear` with weight calculations, Tuftian visualizations\n\n### Sidenotes\n\nFootnotes auto-convert to margin notes on desktop (Tufte-style)\n\n## Deployment\n\nPush to `main` → GitHub Action SSHs to VPS → pulls, builds, restarts Docker\n\nManual: `ssh vps \"cd /data2/website2 && git pull && yarn build && docker-compose up -d --build\"`\n\n## Environment\n\n```bash\nCLOUDINARY_CLOUD_NAME=\nCLOUDINARY_API_KEY=\nCLOUDINARY_API_SECRET=\nYOUTUBE_API_KEY=\nYOUTUBE_CHANNEL_ID=\n```\n\n## Directory Structure\n\n```\ncontent/blog/       # Source markdown by year\ncontent/processed/  # Output JSON\nserver/api/         # API endpoints\ncomponents/         # Vue components\nscripts/            # Processing scripts\ndata/               # Config files (moderation, gear CSV)\n```\n\n## Debug\n\n```bash\nDEBUG=true yarn blog:process\nCHECK_LINKS=true yarn blog:process  # Link health check\nAUTO_FIX_LINKS=true yarn blog:process  # Auto-fix with archive.org\n```\n\n---\n\nMIT License\n",
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2025-12-29T21:12:27Z",
-  "pushedAt": "2025-12-29T21:12:23Z"
+  "updatedAt": "2026-01-11T21:36:08Z",
+  "pushedAt": "2026-01-11T21:36:04Z"
 }

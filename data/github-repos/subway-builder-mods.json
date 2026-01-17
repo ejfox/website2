@@ -4,7 +4,7 @@
   "url": "https://github.com/ejfox/subway-builder-mods",
   "homepage": null,
   "stats": {
-    "stars": 0,
+    "stars": 3,
     "forks": 0,
     "watchers": 0,
     "openIssues": 0
@@ -12,9 +12,9 @@
   "language": "JavaScript",
   "languageColor": "#f1e05a",
   "languages": {
-    "JavaScript": 4740
+    "JavaScript": 37511
   },
-  "diskUsage": 3,
+  "diskUsage": 25,
   "fileTree": {
     "files": [
       {
@@ -23,7 +23,31 @@
       },
       {
         "path": "README.md",
-        "size": 1186
+        "size": 2995
+      },
+      {
+        "path": "bushwick-express/README.md",
+        "size": 2165
+      },
+      {
+        "path": "bushwick-express/index.js",
+        "size": 4258
+      },
+      {
+        "path": "bushwick-express/manifest.json",
+        "size": 296
+      },
+      {
+        "path": "commute-sankey/README.md",
+        "size": 993
+      },
+      {
+        "path": "commute-sankey/index.js",
+        "size": 11257
+      },
+      {
+        "path": "commute-sankey/manifest.json",
+        "size": 264
       },
       {
         "path": "day-night-cycle/index.js",
@@ -32,11 +56,77 @@
       {
         "path": "day-night-cycle/manifest.json",
         "size": 401
+      },
+      {
+        "path": "kmz-export/README.md",
+        "size": 163
+      },
+      {
+        "path": "kmz-export/index.js",
+        "size": 10391
+      },
+      {
+        "path": "kmz-export/manifest.json",
+        "size": 365
+      },
+      {
+        "path": "rush-hour-remix/README.md",
+        "size": 776
+      },
+      {
+        "path": "rush-hour-remix/manifest.json",
+        "size": 250
+      },
+      {
+        "path": "rush-hour-remix/mod.js",
+        "size": 6865
       }
     ],
     "tree": {
       "name": "subway-builder-mods",
       "children": [
+        {
+          "name": "bushwick-express",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 2165,
+              "path": "bushwick-express/README.md"
+            },
+            {
+              "name": "index.js",
+              "size": 4258,
+              "path": "bushwick-express/index.js"
+            },
+            {
+              "name": "manifest.json",
+              "size": 296,
+              "path": "bushwick-express/manifest.json"
+            }
+          ],
+          "path": "bushwick-express"
+        },
+        {
+          "name": "commute-sankey",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 993,
+              "path": "commute-sankey/README.md"
+            },
+            {
+              "name": "index.js",
+              "size": 11257,
+              "path": "commute-sankey/index.js"
+            },
+            {
+              "name": "manifest.json",
+              "size": 264,
+              "path": "commute-sankey/manifest.json"
+            }
+          ],
+          "path": "commute-sankey"
+        },
         {
           "name": "day-night-cycle",
           "children": [
@@ -54,28 +144,70 @@
           "path": "day-night-cycle"
         },
         {
+          "name": "kmz-export",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 163,
+              "path": "kmz-export/README.md"
+            },
+            {
+              "name": "index.js",
+              "size": 10391,
+              "path": "kmz-export/index.js"
+            },
+            {
+              "name": "manifest.json",
+              "size": 365,
+              "path": "kmz-export/manifest.json"
+            }
+          ],
+          "path": "kmz-export"
+        },
+        {
+          "name": "rush-hour-remix",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 776,
+              "path": "rush-hour-remix/README.md"
+            },
+            {
+              "name": "manifest.json",
+              "size": 250,
+              "path": "rush-hour-remix/manifest.json"
+            },
+            {
+              "name": "mod.js",
+              "size": 6865,
+              "path": "rush-hour-remix/mod.js"
+            }
+          ],
+          "path": "rush-hour-remix"
+        },
+        {
           "name": "LICENSE",
           "size": 1063,
           "path": "LICENSE"
         },
         {
           "name": "README.md",
-          "size": 1186,
+          "size": 2995,
           "path": "README.md"
         }
       ],
       "path": ""
     },
-    "totalFiles": 4,
-    "totalSize": 7390
+    "totalFiles": 16,
+    "totalSize": 47242
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"subway-builder-mods\">Subway Builder Mods</h1>\n<p>A collection of mods for <a href=\"https://subwaybuilder.io\">Subway Builder</a>, a subway/metro simulation game.</p>\n<h2 id=\"installation\">Installation</h2>\n<ol>\n<li>Open Subway Builder</li>\n<li>Go to <strong>Settings &gt; System</strong></li>\n<li>Click <strong>\"Open Saves Folder\"</strong></li>\n<li>Navigate up one level to the <code>metro-maker4/</code> folder</li>\n<li>Create a <code>mods/</code> folder if it doesn't exist</li>\n<li>Copy the mod folder (e.g., <code>day-night-cycle/</code>) into the <code>mods/</code> folder</li>\n<li>Restart the game and enable the mod in <strong>Settings &gt; Mods</strong></li>\n</ol>\n<p><strong>Mods folder locations by platform:</strong></p>\n<ul>\n<li><strong>macOS</strong>: <code>~/Library/Application Support/metro-maker4/mods/</code></li>\n<li><strong>Windows</strong>: <code>%APPDATA%\\metro-maker4\\mods\\</code></li>\n<li><strong>Linux</strong>: <code>~/.config/metro-maker4/mods/</code></li>\n</ul>\n<h2 id=\"available-mods\">Available Mods</h2>\n<h3 id=\"daynight-theme-cycle\">Day/Night Theme Cycle</h3>\n<p>Automatically switches between light and dark theme based on in-game time of day.</p>\n<ul>\n<li><strong>Day (6:00 AM - 5:59 PM)</strong>: Light theme</li>\n<li><strong>Night (6:00 PM - 5:59 AM)</strong>: Dark theme</li>\n</ul>\n<p>Shows a notification when the theme changes at sunrise/sunset.</p>\n<p><strong>Files:</strong> <a href=\"./day-night-cycle/\"><code>day-night-cycle/</code></a></p>\n<h2 id=\"creating-your-own-mods\">Creating Your Own Mods</h2>\n<p>See the <a href=\"https://gist.github.com/ejfox/fcc7dcc4b97d7f6a43800cf384dc694b\">Subway Builder Modding Guide</a> for full documentation on the modding API.</p>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",
-    "raw": "# Subway Builder Mods\n\nA collection of mods for [Subway Builder](https://subwaybuilder.io), a subway/metro simulation game.\n\n## Installation\n\n1. Open Subway Builder\n2. Go to **Settings > System**\n3. Click **\"Open Saves Folder\"**\n4. Navigate up one level to the `metro-maker4/` folder\n5. Create a `mods/` folder if it doesn't exist\n6. Copy the mod folder (e.g., `day-night-cycle/`) into the `mods/` folder\n7. Restart the game and enable the mod in **Settings > Mods**\n\n**Mods folder locations by platform:**\n- **macOS**: `~/Library/Application Support/metro-maker4/mods/`\n- **Windows**: `%APPDATA%\\metro-maker4\\mods\\`\n- **Linux**: `~/.config/metro-maker4/mods/`\n\n## Available Mods\n\n### Day/Night Theme Cycle\n\nAutomatically switches between light and dark theme based on in-game time of day.\n\n- **Day (6:00 AM - 5:59 PM)**: Light theme\n- **Night (6:00 PM - 5:59 AM)**: Dark theme\n\nShows a notification when the theme changes at sunrise/sunset.\n\n**Files:** [`day-night-cycle/`](./day-night-cycle/)\n\n## Creating Your Own Mods\n\nSee the [Subway Builder Modding Guide](https://gist.github.com/ejfox/fcc7dcc4b97d7f6a43800cf384dc694b) for full documentation on the modding API.\n\n## License\n\nMIT\n",
-    "excerpt": "A collection of mods for Subway Builder, a subway/metro simulation game.\n\n\n\n1. Open Subway Builder\n2. Go to Settings > System\n3. Click \"Open Saves Folder\"\n4. Na..."
+    "html": "<h1 id=\"subway-builder-mods\">Subway Builder Mods</h1>\n<p>A collection of ready-to-use mods for <a href=\"https://subwaybuilder.io\">Subway Builder</a>, a subway/metro simulation game.</p>\n<blockquote>\n<p><strong>Looking to create your own mods?</strong> Check out <a href=\"https://github.com/ejfox/subwaybuilder-mod\">subwaybuilder-mod</a> - the official mod template with examples and TypeScript definitions.</p>\n</blockquote>\n<h2 id=\"installation\">Installation</h2>\n<ol>\n<li>Open Subway Builder</li>\n<li>Go to <strong>Settings &gt; System</strong></li>\n<li>Click <strong>\"Open Saves Folder\"</strong></li>\n<li>Navigate up one level to the <code>metro-maker4/</code> folder</li>\n<li>Create a <code>mods/</code> folder if it doesn't exist</li>\n<li>Copy the mod folder (e.g., <code>day-night-cycle/</code>) into the <code>mods/</code> folder</li>\n<li>Restart the game and enable the mod in <strong>Settings &gt; Mods</strong></li>\n</ol>\n<p><strong>Mods folder locations by platform:</strong></p>\n<ul>\n<li><strong>macOS</strong>: <code>~/Library/Application Support/metro-maker4/mods/</code></li>\n<li><strong>Windows</strong>: <code>%APPDATA%\\metro-maker4\\mods\\</code></li>\n<li><strong>Linux</strong>: <code>~/.config/metro-maker4/mods/</code></li>\n</ul>\n<h2 id=\"available-mods\">Available Mods</h2>\n<h3 id=\"daynight-theme-cycle\">Day/Night Theme Cycle</h3>\n<p>Automatically switches between light and dark theme based on in-game time of day.</p>\n<ul>\n<li><strong>Day (6:00 AM - 5:59 PM)</strong>: Light theme</li>\n<li><strong>Night (6:00 PM - 5:59 AM)</strong>: Dark theme</li>\n</ul>\n<p>Shows a notification when the theme changes at sunrise/sunset.</p>\n<p><strong>Files:</strong> <a href=\"./day-night-cycle/\"><code>day-night-cycle/</code></a></p>\n<h3 id=\"bushwick-express\">Bushwick Express</h3>\n<p>Custom NYC career mission that uses <strong>geographic metrics</strong> to track actual passenger flows from Bushwick to Lower Manhattan.</p>\n<ul>\n<li><strong>Star 1</strong>: Build 3 stations in Bushwick/Williamsburg area</li>\n<li><strong>Star 2</strong>: Transport 1,000 passengers from Bushwick to Lower Manhattan</li>\n<li><strong>Star 3</strong>: Transport 5,000 passengers from Bushwick to Lower Manhattan</li>\n</ul>\n<p>Uses bounding box origin-destination tracking to count actual commuters.</p>\n<p><strong>Files:</strong> <a href=\"./bushwick-express/\"><code>bushwick-express/</code></a></p>\n<h3 id=\"rush-hour-remix\">Rush Hour Remix</h3>\n<p>Customize AM/PM commute windows and simulate weekend demand boosts.</p>\n<ul>\n<li>Adds settings sliders for AM/PM commute windows</li>\n<li>Applies custom timing via <code>popTiming.setCommuteTimeRanges</code></li>\n<li>Weekend bonus based on total demand and ticket price</li>\n<li>Optional weekend boost notifications</li>\n</ul>\n<p><strong>Files:</strong> <a href=\"./rush-hour-remix/\"><code>rush-hour-remix/</code></a></p>\n<h3 id=\"commute-sankey\">Commute Sankey</h3>\n<p>Beautiful Sankey diagram showing commuter flow through your transit system.</p>\n<ul>\n<li>Visualizes flow from Commuters → Transport Mode → Routes → Arrived</li>\n<li>Shows transit mode share percentage</li>\n<li>Breaks down transit riders by your top 5 routes</li>\n<li>Real-time updates every 3 seconds</li>\n</ul>\n<p><strong>Files:</strong> <a href=\"./commute-sankey/\"><code>commute-sankey/</code></a></p>\n<h3 id=\"kmlkmz-route-export\">KML/KMZ Route Export</h3>\n<p>Export your metro routes to KML format for importing into Google Maps, Google Earth, and other GIS applications.</p>\n<ul>\n<li>Routes exported as colored polylines with proper track geometry</li>\n<li>Stations exported as labeled point markers with rail icons</li>\n<li>Adds \"Export Routes to KML\" button to escape menu</li>\n<li>Also exposes <code>window.exportMetroRoutesToKML()</code> for console use</li>\n</ul>\n<p><strong>Files:</strong> <a href=\"./kmz-export/\"><code>kmz-export/</code></a></p>\n<h2 id=\"creating-your-own-mods\">Creating Your Own Mods</h2>\n<p>See the <a href=\"https://gist.github.com/ejfox/fcc7dcc4b97d7f6a43800cf384dc694b\">Subway Builder Modding Guide</a> for full documentation on the modding API.</p>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",
+    "raw": "# Subway Builder Mods\n\nA collection of ready-to-use mods for [Subway Builder](https://subwaybuilder.io), a subway/metro simulation game.\n\n> **Looking to create your own mods?** Check out [subwaybuilder-mod](https://github.com/ejfox/subwaybuilder-mod) - the official mod template with examples and TypeScript definitions.\n\n## Installation\n\n1. Open Subway Builder\n2. Go to **Settings > System**\n3. Click **\"Open Saves Folder\"**\n4. Navigate up one level to the `metro-maker4/` folder\n5. Create a `mods/` folder if it doesn't exist\n6. Copy the mod folder (e.g., `day-night-cycle/`) into the `mods/` folder\n7. Restart the game and enable the mod in **Settings > Mods**\n\n**Mods folder locations by platform:**\n- **macOS**: `~/Library/Application Support/metro-maker4/mods/`\n- **Windows**: `%APPDATA%\\metro-maker4\\mods\\`\n- **Linux**: `~/.config/metro-maker4/mods/`\n\n## Available Mods\n\n### Day/Night Theme Cycle\n\nAutomatically switches between light and dark theme based on in-game time of day.\n\n- **Day (6:00 AM - 5:59 PM)**: Light theme\n- **Night (6:00 PM - 5:59 AM)**: Dark theme\n\nShows a notification when the theme changes at sunrise/sunset.\n\n**Files:** [`day-night-cycle/`](./day-night-cycle/)\n\n### Bushwick Express\n\nCustom NYC career mission that uses **geographic metrics** to track actual passenger flows from Bushwick to Lower Manhattan.\n\n- **Star 1**: Build 3 stations in Bushwick/Williamsburg area\n- **Star 2**: Transport 1,000 passengers from Bushwick to Lower Manhattan\n- **Star 3**: Transport 5,000 passengers from Bushwick to Lower Manhattan\n\nUses bounding box origin-destination tracking to count actual commuters.\n\n**Files:** [`bushwick-express/`](./bushwick-express/)\n\n### Rush Hour Remix\n\nCustomize AM/PM commute windows and simulate weekend demand boosts.\n\n- Adds settings sliders for AM/PM commute windows\n- Applies custom timing via `popTiming.setCommuteTimeRanges`\n- Weekend bonus based on total demand and ticket price\n- Optional weekend boost notifications\n\n**Files:** [`rush-hour-remix/`](./rush-hour-remix/)\n\n### Commute Sankey\n\nBeautiful Sankey diagram showing commuter flow through your transit system.\n\n- Visualizes flow from Commuters → Transport Mode → Routes → Arrived\n- Shows transit mode share percentage\n- Breaks down transit riders by your top 5 routes\n- Real-time updates every 3 seconds\n\n**Files:** [`commute-sankey/`](./commute-sankey/)\n\n### KML/KMZ Route Export\n\nExport your metro routes to KML format for importing into Google Maps, Google Earth, and other GIS applications.\n\n- Routes exported as colored polylines with proper track geometry\n- Stations exported as labeled point markers with rail icons\n- Adds \"Export Routes to KML\" button to escape menu\n- Also exposes `window.exportMetroRoutesToKML()` for console use\n\n**Files:** [`kmz-export/`](./kmz-export/)\n\n## Creating Your Own Mods\n\nSee the [Subway Builder Modding Guide](https://gist.github.com/ejfox/fcc7dcc4b97d7f6a43800cf384dc694b) for full documentation on the modding API.\n\n## License\n\nMIT\n",
+    "excerpt": "A collection of ready-to-use mods for Subway Builder, a subway/metro simulation game.\n\n> Looking to create your own mods? Check out subwaybuilder-mod - the offi..."
   },
   "createdAt": "2025-12-17T00:02:45Z",
-  "updatedAt": "2025-12-17T00:33:13Z",
-  "pushedAt": "2025-12-17T00:33:09Z"
+  "updatedAt": "2026-01-03T04:14:56Z",
+  "pushedAt": "2025-12-31T14:30:42Z"
 }

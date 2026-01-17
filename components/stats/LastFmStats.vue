@@ -127,7 +127,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import AnimatedNumber from '../AnimatedNumber.vue'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import StatsDataState from './StatsDataState.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 

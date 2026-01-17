@@ -12,13 +12,13 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 317227,
-    "TypeScript": 229054,
+    "Vue": 324068,
+    "TypeScript": 238485,
     "CSS": 14207,
     "JavaScript": 3881,
     "Lua": 14
   },
-  "diskUsage": 535,
+  "diskUsage": 550,
   "fileTree": {
     "files": [
       {
@@ -167,7 +167,7 @@
       },
       {
         "path": "components/ExportModal.vue",
-        "size": 15043
+        "size": 15116
       },
       {
         "path": "components/FileTreePreview.vue",
@@ -196,6 +196,10 @@
       {
         "path": "components/NvimPreview.vue",
         "size": 18850
+      },
+      {
+        "path": "components/ObsidianPreview.vue",
+        "size": 6538
       },
       {
         "path": "components/PresetSelector.vue",
@@ -263,7 +267,7 @@
       },
       {
         "path": "pages/index.vue",
-        "size": 35980
+        "size": 36210
       },
       {
         "path": "pages/showcase.vue",
@@ -411,7 +415,7 @@
       },
       {
         "path": "utils/exporters/index.ts",
-        "size": 672
+        "size": 760
       },
       {
         "path": "utils/exporters/lazygit.ts",
@@ -428,6 +432,14 @@
       {
         "path": "utils/exporters/nvim.ts",
         "size": 20156
+      },
+      {
+        "path": "utils/exporters/obsidian.ts",
+        "size": 4172
+      },
+      {
+        "path": "utils/exporters/tailwind.ts",
+        "size": 5141
       },
       {
         "path": "utils/exporters/tweakcc.ts",
@@ -491,7 +503,7 @@
       },
       {
         "path": "utils/types.ts",
-        "size": 4684
+        "size": 4714
       },
       {
         "path": "vitest.config.ts",
@@ -626,7 +638,7 @@
             },
             {
               "name": "ExportModal.vue",
-              "size": 15043,
+              "size": 15116,
               "path": "components/ExportModal.vue"
             },
             {
@@ -663,6 +675,11 @@
               "name": "NvimPreview.vue",
               "size": 18850,
               "path": "components/NvimPreview.vue"
+            },
+            {
+              "name": "ObsidianPreview.vue",
+              "size": 6538,
+              "path": "components/ObsidianPreview.vue"
             },
             {
               "name": "PresetSelector.vue",
@@ -738,7 +755,7 @@
           "children": [
             {
               "name": "index.vue",
-              "size": 35980,
+              "size": 36210,
               "path": "pages/index.vue"
             },
             {
@@ -949,7 +966,7 @@
                 },
                 {
                   "name": "index.ts",
-                  "size": 672,
+                  "size": 760,
                   "path": "utils/exporters/index.ts"
                 },
                 {
@@ -971,6 +988,16 @@
                   "name": "nvim.ts",
                   "size": 20156,
                   "path": "utils/exporters/nvim.ts"
+                },
+                {
+                  "name": "obsidian.ts",
+                  "size": 4172,
+                  "path": "utils/exporters/obsidian.ts"
+                },
+                {
+                  "name": "tailwind.ts",
+                  "size": 5141,
+                  "path": "utils/exporters/tailwind.ts"
                 },
                 {
                   "name": "tweakcc.ts",
@@ -1068,7 +1095,7 @@
             },
             {
               "name": "types.ts",
-              "size": 4684,
+              "size": 4714,
               "path": "utils/types.ts"
             }
           ],
@@ -1207,8 +1234,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 119,
-    "totalSize": 1391439
+    "totalFiles": 122,
+    "totalSize": 1407711
   },
   "topics": [],
   "readme": {
@@ -1217,6 +1244,6 @@
     "excerpt": "🎨 Live Demo — Try it now in your browser\n\n<img width=\"898\" height=\"1131\" alt=\"screenshot 2025-12-28 at 5 48 34 PM\" src=\"https://github.com/user-attachments/ass..."
   },
   "createdAt": "2025-10-24T21:15:15Z",
-  "updatedAt": "2025-12-28T22:49:01Z",
-  "pushedAt": "2025-12-28T22:48:57Z"
+  "updatedAt": "2026-01-03T19:30:31Z",
+  "pushedAt": "2026-01-03T19:30:28Z"
 }

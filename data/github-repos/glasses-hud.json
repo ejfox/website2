@@ -9,101 +9,213 @@
     "watchers": 0,
     "openIssues": 0
   },
-  "language": "Vue",
-  "languageColor": "#41b883",
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
   "languages": {
-    "Vue": 6476,
-    "TypeScript": 66
+    "JavaScript": 40207,
+    "CSS": 901,
+    "HTML": 366
   },
-  "diskUsage": 150,
+  "diskUsage": 1219,
   "fileTree": {
     "files": [
       {
         "path": ".gitignore",
-        "size": 462
-      },
-      {
-        "path": "CLAUDE.md",
-        "size": 3405
+        "size": 253
       },
       {
         "path": "README.md",
-        "size": 1164
+        "size": 4850
       },
       {
-        "path": "nuxt.config.ts",
-        "size": 66
+        "path": "eslint.config.js",
+        "size": 758
+      },
+      {
+        "path": "index.html",
+        "size": 366
       },
       {
         "path": "package-lock.json",
-        "size": 460434
+        "size": 150446
       },
       {
         "path": "package.json",
-        "size": 458
+        "size": 977
       },
       {
-        "path": "pages/index.vue",
-        "size": 6476
+        "path": "public/vite.svg",
+        "size": 1497
+      },
+      {
+        "path": "src/App.jsx",
+        "size": 33247
+      },
+      {
+        "path": "src/assets/react.svg",
+        "size": 4126
+      },
+      {
+        "path": "src/components/ui/button.jsx",
+        "size": 1580
+      },
+      {
+        "path": "src/components/ui/input.jsx",
+        "size": 679
+      },
+      {
+        "path": "src/components/ui/select.jsx",
+        "size": 3227
+      },
+      {
+        "path": "src/index.css",
+        "size": 901
+      },
+      {
+        "path": "src/lib/utils.js",
+        "size": 135
+      },
+      {
+        "path": "src/main.jsx",
+        "size": 229
+      },
+      {
+        "path": "vite.config.js",
+        "size": 352
       }
     ],
     "tree": {
       "name": "glasses-hud",
       "children": [
         {
-          "name": "pages",
+          "name": "public",
           "children": [
             {
-              "name": "index.vue",
-              "size": 6476,
-              "path": "pages/index.vue"
+              "name": "vite.svg",
+              "size": 1497,
+              "path": "public/vite.svg"
             }
           ],
-          "path": "pages"
+          "path": "public"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "assets",
+              "children": [
+                {
+                  "name": "react.svg",
+                  "size": 4126,
+                  "path": "src/assets/react.svg"
+                }
+              ],
+              "path": "src/assets"
+            },
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "ui",
+                  "children": [
+                    {
+                      "name": "button.jsx",
+                      "size": 1580,
+                      "path": "src/components/ui/button.jsx"
+                    },
+                    {
+                      "name": "input.jsx",
+                      "size": 679,
+                      "path": "src/components/ui/input.jsx"
+                    },
+                    {
+                      "name": "select.jsx",
+                      "size": 3227,
+                      "path": "src/components/ui/select.jsx"
+                    }
+                  ],
+                  "path": "src/components/ui"
+                }
+              ],
+              "path": "src/components"
+            },
+            {
+              "name": "lib",
+              "children": [
+                {
+                  "name": "utils.js",
+                  "size": 135,
+                  "path": "src/lib/utils.js"
+                }
+              ],
+              "path": "src/lib"
+            },
+            {
+              "name": "App.jsx",
+              "size": 33247,
+              "path": "src/App.jsx"
+            },
+            {
+              "name": "index.css",
+              "size": 901,
+              "path": "src/index.css"
+            },
+            {
+              "name": "main.jsx",
+              "size": 229,
+              "path": "src/main.jsx"
+            }
+          ],
+          "path": "src"
         },
         {
           "name": ".gitignore",
-          "size": 462,
+          "size": 253,
           "path": ".gitignore"
         },
         {
-          "name": "CLAUDE.md",
-          "size": 3405,
-          "path": "CLAUDE.md"
-        },
-        {
           "name": "README.md",
-          "size": 1164,
+          "size": 4850,
           "path": "README.md"
         },
         {
-          "name": "nuxt.config.ts",
-          "size": 66,
-          "path": "nuxt.config.ts"
+          "name": "eslint.config.js",
+          "size": 758,
+          "path": "eslint.config.js"
+        },
+        {
+          "name": "index.html",
+          "size": 366,
+          "path": "index.html"
         },
         {
           "name": "package-lock.json",
-          "size": 460434,
+          "size": 150446,
           "path": "package-lock.json"
         },
         {
           "name": "package.json",
-          "size": 458,
+          "size": 977,
           "path": "package.json"
+        },
+        {
+          "name": "vite.config.js",
+          "size": 352,
+          "path": "vite.config.js"
         }
       ],
       "path": ""
     },
-    "totalFiles": 7,
-    "totalSize": 472465
+    "totalFiles": 16,
+    "totalSize": 203623
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"ar-glasses-hud-prototyper\">AR Glasses HUD Prototyper</h1>\n<p>Simple prototyping tool for AR glasses data visualizations. Built with Nuxt 3 + Vue.</p>\n<h2 id=\"goal\">Goal</h2>\n<p>Quickly prototype ambient data displays and widgets for AR glasses. Test different positions, content types, and visual elements before building real implementations.</p>\n<h2 id=\"setup\">Setup</h2>\n<pre><code class=\"language-bash\">npm install\nnpm run dev\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<ol>\n<li><strong>Select Eye</strong>: Choose left or right lens</li>\n<li><strong>Choose Widget Type</strong>: Text or animated decibel meter</li>\n<li><strong>Pick Position</strong>: Top-left, top-right, bottom-left, bottom-right, or center</li>\n<li><strong>Add Content</strong>: Type text or add visual widgets</li>\n<li><strong>Prototype</strong>: See how it looks in the glasses display</li>\n</ol>\n<h2 id=\"widget-types\">Widget Types</h2>\n<ul>\n<li><strong>Text</strong>: Simple monospace text labels</li>\n<li><strong>Decibel Meter</strong>: 64x4px animated bar chart with real-time oscillation</li>\n</ul>\n<h2 id=\"architecture\">Architecture</h2>\n<ul>\n<li>Single <code>pages/index.vue</code> file with inline styles</li>\n<li>No complex components or abstractions</li>\n<li>Real-time oscillators for dynamic visual widgets</li>\n<li>Simple dropdown controls for rapid prototyping</li>\n</ul>\n<p>Perfect for testing ideas like:</p>\n<ul>\n<li>Notification displays</li>\n<li>Biometric readouts</li>\n<li>Audio level meters</li>\n<li>Status indicators</li>\n<li>Ambient data visualization</li>\n</ul>\n<p>Keep it simple. Prototype fast.</p>",
-    "raw": "# AR Glasses HUD Prototyper\n\nSimple prototyping tool for AR glasses data visualizations. Built with Nuxt 3 + Vue.\n\n## Goal\n\nQuickly prototype ambient data displays and widgets for AR glasses. Test different positions, content types, and visual elements before building real implementations.\n\n## Setup\n\n```bash\nnpm install\nnpm run dev\n```\n\n## Usage\n\n1. **Select Eye**: Choose left or right lens\n2. **Choose Widget Type**: Text or animated decibel meter\n3. **Pick Position**: Top-left, top-right, bottom-left, bottom-right, or center\n4. **Add Content**: Type text or add visual widgets\n5. **Prototype**: See how it looks in the glasses display\n\n## Widget Types\n\n- **Text**: Simple monospace text labels\n- **Decibel Meter**: 64x4px animated bar chart with real-time oscillation\n\n## Architecture\n\n- Single `pages/index.vue` file with inline styles\n- No complex components or abstractions\n- Real-time oscillators for dynamic visual widgets\n- Simple dropdown controls for rapid prototyping\n\nPerfect for testing ideas like:\n- Notification displays\n- Biometric readouts\n- Audio level meters\n- Status indicators\n- Ambient data visualization\n\nKeep it simple. Prototype fast.",
-    "excerpt": "Simple prototyping tool for AR glasses data visualizations. Built with Nuxt 3 + Vue.\n\n\n\nQuickly prototype ambient data displays and widgets for AR glasses. Test..."
+    "html": "<h1 id=\"glasses-hud-prototyping-tool\">Glasses HUD Prototyping Tool</h1>\n<p>A React-based simulator for prototyping AR glasses heads-up displays. Design and preview widget layouts for smart glasses interfaces with realistic, smoothly-animated sensor data.</p>\n<p><strong>Live Demo:</strong> <a href=\"https://ejfox.github.io/glasses-hud/\">https://ejfox.github.io/glasses-hud/</a></p>\n<h2 id=\"why-this-exists\">Why This Exists</h2>\n<p>Designing interfaces for AR glasses is hard without the actual hardware. This tool lets you:</p>\n<ul>\n<li><strong>Prototype layouts</strong> - Place widgets on left/right lenses in 9 positions</li>\n<li><strong>See realistic data</strong> - Sensor values animate smoothly, not randomly</li>\n<li><strong>Test on mobile</strong> - Collapsible controls for fullscreen preview on phones/tablets</li>\n<li><strong>Iterate quickly</strong> - No build step needed for layout changes</li>\n</ul>\n<h2 id=\"features\">Features</h2>\n<h3 id=\"55-widget-types\">55+ Widget Types</h3>\n<p>Organized into 13 categories that mirror real smartwatch/glasses capabilities:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Category</th><th>Widgets</th></tr></thead><tbody><tr><td><strong>Body</strong></td><td>Heart Rate, HRV, Blood Oxygen (SpO2), Stress Level, Calories, Body Temp</td></tr><tr><td><strong>Motion</strong></td><td>Steps, Distance, Speed, Pace, Floors Climbed, Cadence</td></tr><tr><td><strong>Location</strong></td><td>Compass/Bearing, Altitude, Coordinates, GPS Accuracy</td></tr><tr><td><strong>Environment</strong></td><td>Temperature, Humidity, Pressure, UV Index, Air Quality, Light Level, Noise Level</td></tr><tr><td><strong>Device</strong></td><td>Watch Battery, Phone Battery, Signal Strength, WiFi, Storage</td></tr><tr><td><strong>Time</strong></td><td>Clock, Date, Stopwatch, Timer, Sunrise, Sunset</td></tr><tr><td><strong>Messages</strong></td><td>Unread Messages, Emails, Missed Calls, Slack Unread, All Notifications</td></tr><tr><td><strong>Productivity</strong></td><td>Todo Count, Next Todo, Focus Time, Screen Time, Meeting Countdown, Pomodoro Timer</td></tr><tr><td><strong>Media</strong></td><td>Now Playing, Artist, Song BPM, Song Progress, Volume</td></tr><tr><td><strong>Social</strong></td><td>Followers, New Likes, Mentions</td></tr><tr><td><strong>Weather</strong></td><td>Current Weather, Feels Like, Rain Chance, Wind Speed, Visibility</td></tr><tr><td><strong>Navigation</strong></td><td>Distance to Destination, ETA, Next Turn Direction</td></tr><tr><td><strong>Custom</strong></td><td>Custom Text, Labels</td></tr></tbody></table>\n<h3 id=\"realistic-data-simulation\">Realistic Data Simulation</h3>\n<p>Values don't just random-walk. The simulator uses:</p>\n<ul>\n<li><strong>Fractal Brownian Motion (FBM)</strong> - Multi-octave noise for organic, smooth transitions</li>\n<li><strong>Correlated sensors</strong> - Walking increases heart rate, speed, cadence simultaneously</li>\n<li><strong>Activity states</strong> - Simulated walking/resting cycles affect multiple readings</li>\n<li><strong>Temporal patterns</strong> - Some values (UV, meetings) follow time-of-day patterns</li>\n</ul>\n<h3 id=\"mobile-friendly-viewing\">Mobile-Friendly Viewing</h3>\n<ul>\n<li>Collapsible control panel for fullscreen HUD preview</li>\n<li>Larger text on mobile devices</li>\n<li>Dark theme optimized for viewing the display</li>\n<li>Touch-friendly controls</li>\n</ul>\n<h2 id=\"getting-started\">Getting Started</h2>\n<pre><code class=\"language-bash\"># Clone\ngit clone https://github.com/ejfox/glasses-hud.git\ncd glasses-hud\n\n# Install\nnpm install\n\n# Run locally\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Deploy to GitHub Pages\nnpx gh-pages -d dist\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<ol>\n<li><strong>Drag</strong> a widget from the bento grid palette</li>\n<li><strong>Drop</strong> onto left or right lens (ghost preview shows position)</li>\n<li><strong>Drag placed widgets</strong> to reposition (snaps to 5% grid with anime.js)</li>\n<li><strong>Hover + ×</strong> to delete widgets</li>\n<li><strong>Show Grid</strong> reveals Swiss-style alignment guides</li>\n<li><strong>Hide Controls</strong> for fullscreen preview</li>\n</ol>\n<h2 id=\"adding-new-widgets\">Adding New Widgets</h2>\n<p>To add a new widget type:</p>\n<h3 id=\"1-add-to-widget_categories\">1. Add to <code>WIDGET_CATEGORIES</code></h3>\n<pre><code class=\"language-jsx\">{\n  label: '— Your Category —',\n  widgets: [\n    { value: 'yourWidget', label: 'Your Widget' },\n  ]\n}\n</code></pre>\n<h3 id=\"2-add-sensor-data-if-needed\">2. Add sensor data (if needed)</h3>\n<p>In the <code>setSensors()</code> call inside <code>useEffect</code>:</p>\n<pre><code class=\"language-jsx\">setSensors({\n  // ... existing sensors\n  yourValue: n.main.range(t, min, max, speed),\n})\n</code></pre>\n<h3 id=\"3-add-display-handler\">3. Add display handler</h3>\n<p>In the <code>getValue()</code> switch statement:</p>\n<pre><code class=\"language-jsx\">case 'yourWidget': return `${s.yourValue} units`\n</code></pre>\n<h2 id=\"technical-details\">Technical Details</h2>\n<h3 id=\"noise-generation\">Noise Generation</h3>\n<p>The <code>SmoothNoise</code> class generates FBM (Fractal Brownian Motion) noise:</p>\n<pre><code class=\"language-jsx\">const noise = new SmoothNoise(seed)\n// Get value between min-max, animated over time\nconst value = noise.range(time, min, max, speed)\n</code></pre>\n<ul>\n<li><code>seed</code> - Different seeds = different patterns</li>\n<li><code>time</code> - Usually <code>performance.now() / 1000</code></li>\n<li><code>speed</code> - How fast the value changes (0.1 = slow drift, 2 = rapid variation)</li>\n</ul>\n<h3 id=\"walking-simulation\">Walking Simulation</h3>\n<p>The app simulates activity cycles:</p>\n<pre><code class=\"language-jsx\">const walkCycle = noise.range(t * 0.1, 0, 1, 0.5)\nif (walkCycle &gt; 0.7) isWalking = true  // ~30% of time walking\n</code></pre>\n<p>When walking:</p>\n<ul>\n<li>Heart rate increases from ~68 to ~95 BPM</li>\n<li>Speed jumps from ~0 to 3.5-5.5 km/h</li>\n<li>Cadence activates (~110 spm)</li>\n<li>Steps and calories accumulate</li>\n</ul>\n<h3 id=\"positions\">Positions</h3>\n<p>9 widget positions available:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Code</th><th>Position</th></tr></thead><tbody><tr><td><code>tl</code></td><td>Top Left</td></tr><tr><td><code>tc</code></td><td>Top Center</td></tr><tr><td><code>tr</code></td><td>Top Right</td></tr><tr><td><code>ml</code></td><td>Middle Left</td></tr><tr><td><code>c</code></td><td>Center</td></tr><tr><td><code>mr</code></td><td>Middle Right</td></tr><tr><td><code>bl</code></td><td>Bottom Left</td></tr><tr><td><code>bc</code></td><td>Bottom Center</td></tr><tr><td><code>br</code></td><td>Bottom Right</td></tr></tbody></table>\n<h2 id=\"stack\">Stack</h2>\n<ul>\n<li><strong>React 19</strong> - UI framework</li>\n<li><strong>Vite</strong> - Build tool</li>\n<li><strong>Tailwind CSS v4</strong> - Styling</li>\n<li><strong>shadcn/ui</strong> - Component library (Button, Input)</li>\n<li><strong>@dnd-kit</strong> - Drag and drop from palette to lens</li>\n<li><strong>anime.js</strong> - Smooth grid-snap animations</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",
+    "raw": "# Glasses HUD Prototyping Tool\n\nA React-based simulator for prototyping AR glasses heads-up displays. Design and preview widget layouts for smart glasses interfaces with realistic, smoothly-animated sensor data.\n\n**Live Demo:** https://ejfox.github.io/glasses-hud/\n\n## Why This Exists\n\nDesigning interfaces for AR glasses is hard without the actual hardware. This tool lets you:\n\n- **Prototype layouts** - Place widgets on left/right lenses in 9 positions\n- **See realistic data** - Sensor values animate smoothly, not randomly\n- **Test on mobile** - Collapsible controls for fullscreen preview on phones/tablets\n- **Iterate quickly** - No build step needed for layout changes\n\n## Features\n\n### 55+ Widget Types\n\nOrganized into 13 categories that mirror real smartwatch/glasses capabilities:\n\n| Category | Widgets |\n|----------|---------|\n| **Body** | Heart Rate, HRV, Blood Oxygen (SpO2), Stress Level, Calories, Body Temp |\n| **Motion** | Steps, Distance, Speed, Pace, Floors Climbed, Cadence |\n| **Location** | Compass/Bearing, Altitude, Coordinates, GPS Accuracy |\n| **Environment** | Temperature, Humidity, Pressure, UV Index, Air Quality, Light Level, Noise Level |\n| **Device** | Watch Battery, Phone Battery, Signal Strength, WiFi, Storage |\n| **Time** | Clock, Date, Stopwatch, Timer, Sunrise, Sunset |\n| **Messages** | Unread Messages, Emails, Missed Calls, Slack Unread, All Notifications |\n| **Productivity** | Todo Count, Next Todo, Focus Time, Screen Time, Meeting Countdown, Pomodoro Timer |\n| **Media** | Now Playing, Artist, Song BPM, Song Progress, Volume |\n| **Social** | Followers, New Likes, Mentions |\n| **Weather** | Current Weather, Feels Like, Rain Chance, Wind Speed, Visibility |\n| **Navigation** | Distance to Destination, ETA, Next Turn Direction |\n| **Custom** | Custom Text, Labels |\n\n### Realistic Data Simulation\n\nValues don't just random-walk. The simulator uses:\n\n- **Fractal Brownian Motion (FBM)** - Multi-octave noise for organic, smooth transitions\n- **Correlated sensors** - Walking increases heart rate, speed, cadence simultaneously\n- **Activity states** - Simulated walking/resting cycles affect multiple readings\n- **Temporal patterns** - Some values (UV, meetings) follow time-of-day patterns\n\n### Mobile-Friendly Viewing\n\n- Collapsible control panel for fullscreen HUD preview\n- Larger text on mobile devices\n- Dark theme optimized for viewing the display\n- Touch-friendly controls\n\n## Getting Started\n\n```bash\n# Clone\ngit clone https://github.com/ejfox/glasses-hud.git\ncd glasses-hud\n\n# Install\nnpm install\n\n# Run locally\nnpm run dev\n\n# Build for production\nnpm run build\n\n# Deploy to GitHub Pages\nnpx gh-pages -d dist\n```\n\n## Usage\n\n1. **Drag** a widget from the bento grid palette\n2. **Drop** onto left or right lens (ghost preview shows position)\n3. **Drag placed widgets** to reposition (snaps to 5% grid with anime.js)\n4. **Hover + ×** to delete widgets\n5. **Show Grid** reveals Swiss-style alignment guides\n6. **Hide Controls** for fullscreen preview\n\n## Adding New Widgets\n\nTo add a new widget type:\n\n### 1. Add to `WIDGET_CATEGORIES`\n\n```jsx\n{\n  label: '— Your Category —',\n  widgets: [\n    { value: 'yourWidget', label: 'Your Widget' },\n  ]\n}\n```\n\n### 2. Add sensor data (if needed)\n\nIn the `setSensors()` call inside `useEffect`:\n\n```jsx\nsetSensors({\n  // ... existing sensors\n  yourValue: n.main.range(t, min, max, speed),\n})\n```\n\n### 3. Add display handler\n\nIn the `getValue()` switch statement:\n\n```jsx\ncase 'yourWidget': return `${s.yourValue} units`\n```\n\n## Technical Details\n\n### Noise Generation\n\nThe `SmoothNoise` class generates FBM (Fractal Brownian Motion) noise:\n\n```jsx\nconst noise = new SmoothNoise(seed)\n// Get value between min-max, animated over time\nconst value = noise.range(time, min, max, speed)\n```\n\n- `seed` - Different seeds = different patterns\n- `time` - Usually `performance.now() / 1000`\n- `speed` - How fast the value changes (0.1 = slow drift, 2 = rapid variation)\n\n### Walking Simulation\n\nThe app simulates activity cycles:\n\n```jsx\nconst walkCycle = noise.range(t * 0.1, 0, 1, 0.5)\nif (walkCycle > 0.7) isWalking = true  // ~30% of time walking\n```\n\nWhen walking:\n- Heart rate increases from ~68 to ~95 BPM\n- Speed jumps from ~0 to 3.5-5.5 km/h\n- Cadence activates (~110 spm)\n- Steps and calories accumulate\n\n### Positions\n\n9 widget positions available:\n\n| Code | Position |\n|------|----------|\n| `tl` | Top Left |\n| `tc` | Top Center |\n| `tr` | Top Right |\n| `ml` | Middle Left |\n| `c` | Center |\n| `mr` | Middle Right |\n| `bl` | Bottom Left |\n| `bc` | Bottom Center |\n| `br` | Bottom Right |\n\n## Stack\n\n- **React 19** - UI framework\n- **Vite** - Build tool\n- **Tailwind CSS v4** - Styling\n- **shadcn/ui** - Component library (Button, Input)\n- **@dnd-kit** - Drag and drop from palette to lens\n- **anime.js** - Smooth grid-snap animations\n\n## License\n\nMIT\n",
+    "excerpt": "A React-based simulator for prototyping AR glasses heads-up displays. Design and preview widget layouts for smart glasses interfaces with realistic, smoothly-an..."
   },
   "createdAt": "2025-08-01T11:00:53Z",
-  "updatedAt": "2025-10-12T09:41:03Z",
-  "pushedAt": "2025-08-01T19:33:59Z"
+  "updatedAt": "2026-01-12T20:14:28Z",
+  "pushedAt": "2026-01-12T20:14:24Z"
 }

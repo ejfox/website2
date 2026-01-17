@@ -12,19 +12,15 @@
   "language": "JavaScript",
   "languageColor": "#f1e05a",
   "languages": {
-    "JavaScript": 31869,
+    "JavaScript": 32158,
     "Mermaid": 28135
   },
-  "diskUsage": 202,
+  "diskUsage": 272,
   "fileTree": {
     "files": [
       {
-        "path": ".eslintrc.js",
-        "size": 1194
-      },
-      {
         "path": ".gitignore",
-        "size": 36
+        "size": 110
       },
       {
         "path": "CLAUDE.md",
@@ -59,12 +55,16 @@
         "size": 1321
       },
       {
+        "path": "eslint.config.js",
+        "size": 1699
+      },
+      {
         "path": "example.mmd",
         "size": 2361
       },
       {
         "path": "index.js",
-        "size": 30442
+        "size": 30218
       },
       {
         "path": "my_code_network_edges.csv",
@@ -76,11 +76,11 @@
       },
       {
         "path": "package-lock.json",
-        "size": 64892
+        "size": 57611
       },
       {
         "path": "package.json",
-        "size": 1817
+        "size": 1820
       },
       {
         "path": "real_deps_test_edges.csv",
@@ -124,7 +124,7 @@
       },
       {
         "path": "test.js",
-        "size": 70
+        "size": 78
       },
       {
         "path": "test_analysis_edges.csv",
@@ -200,7 +200,7 @@
       },
       {
         "path": "yarn.lock",
-        "size": 40391
+        "size": 34163
       }
     ],
     "tree": {
@@ -218,13 +218,8 @@
           "path": "testdir"
         },
         {
-          "name": ".eslintrc.js",
-          "size": 1194,
-          "path": ".eslintrc.js"
-        },
-        {
           "name": ".gitignore",
-          "size": 36,
+          "size": 110,
           "path": ".gitignore"
         },
         {
@@ -268,13 +263,18 @@
           "path": "deps_test_nodes.csv"
         },
         {
+          "name": "eslint.config.js",
+          "size": 1699,
+          "path": "eslint.config.js"
+        },
+        {
           "name": "example.mmd",
           "size": 2361,
           "path": "example.mmd"
         },
         {
           "name": "index.js",
-          "size": 30442,
+          "size": 30218,
           "path": "index.js"
         },
         {
@@ -289,12 +289,12 @@
         },
         {
           "name": "package-lock.json",
-          "size": 64892,
+          "size": 57611,
           "path": "package-lock.json"
         },
         {
           "name": "package.json",
-          "size": 1817,
+          "size": 1820,
           "path": "package.json"
         },
         {
@@ -349,7 +349,7 @@
         },
         {
           "name": "test.js",
-          "size": 70,
+          "size": 78,
           "path": "test.js"
         },
         {
@@ -439,14 +439,14 @@
         },
         {
           "name": "yarn.lock",
-          "size": 40391,
+          "size": 34163,
           "path": "yarn.lock"
         }
       ],
       "path": ""
     },
     "totalFiles": 46,
-    "totalSize": 1054939
+    "totalSize": 1041796
   },
   "topics": [],
   "readme": {
@@ -455,6 +455,6 @@
     "excerpt": "parses js/vue codebases and outputs function call networks as csv or gexf files. useful for understanding code structure, dependencies, and architectural patter..."
   },
   "createdAt": "2024-08-14T14:16:03Z",
-  "updatedAt": "2025-07-24T22:41:30Z",
-  "pushedAt": "2025-07-24T22:41:27Z"
+  "updatedAt": "2026-01-11T04:19:01Z",
+  "pushedAt": "2026-01-11T04:18:57Z"
 }

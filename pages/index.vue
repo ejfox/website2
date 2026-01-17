@@ -1,7 +1,7 @@
 <script setup>
 // Lazy load calendar component for faster FCP
 const NextAvailableSlot = defineAsyncComponent(
-  () => import('~/components/NextAvailableSlot.vue')
+  () => import('~/components/consulting/NextAvailableSlot.vue')
 )
 
 const runtimeConfig = useRuntimeConfig()
@@ -15,27 +15,6 @@ const homepageDescription =
 const homepageOgImage = computed(
   () => new URL('/og-image.png', baseUrl.value).href
 )
-
-const featuredWork = [
-  {
-    name: 'Newsroom Data Tools',
-    url: 'https://room302.studio',
-    description:
-      'Custom analysis and visualization platforms for modern journalism.',
-  },
-  {
-    name: 'Climate Data Platform',
-    url: 'https://room302.studio',
-    description:
-      'Interactive exploration tools for environmental policy research.',
-  },
-  {
-    name: 'Urban Analytics Dashboard',
-    url: 'https://room302.studio',
-    description:
-      'Real-time visualization systems for city planning and governance.',
-  },
-]
 
 const homepageSchema = computed(() => ({
   '@context': 'https://schema.org',
@@ -53,13 +32,6 @@ const homepageSchema = computed(() => ({
     '@type': 'Thing',
     name: 'Data visualization, investigative journalism, newsroom tooling',
   },
-  hasPart: featuredWork.map((item, index) => ({
-    '@type': 'CreativeWork',
-    position: index + 1,
-    name: item.name,
-    url: item.url,
-    description: item.description,
-  })),
 }))
 
 const { getPostBySlug, getAllPosts: _getAllPosts } = useProcessedMarkdown()
@@ -99,7 +71,6 @@ useSeoMeta(() => ({
   twitterImage: homepageOgImage.value,
   twitterImageAlt: 'Data visualization and storytelling work by EJ Fox',
 }))
-
 useHead({
   link: [{ key: 'canonical', rel: 'canonical', href: baseUrl.value }],
   script: [

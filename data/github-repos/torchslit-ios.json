@@ -1,0 +1,209 @@
+{
+  "name": "torchslit-ios",
+  "description": "iOS long-exposure camera with bulb control and torch scripting",
+  "url": "https://github.com/ejfox/torchslit-ios",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Swift",
+  "languageColor": "#F05138",
+  "languages": {
+    "Swift": 43120,
+    "Metal": 2769,
+    "Shell": 1175
+  },
+  "diskUsage": 17,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 471
+      },
+      {
+        "path": "README.md",
+        "size": 3096
+      },
+      {
+        "path": "Torchslit/Info.plist",
+        "size": 2120
+      },
+      {
+        "path": "Torchslit/Sources/App/TorchslitApp.swift",
+        "size": 299
+      },
+      {
+        "path": "Torchslit/Sources/Engines/BulbCaptureEngine.swift",
+        "size": 8349
+      },
+      {
+        "path": "Torchslit/Sources/Engines/CameraManager.swift",
+        "size": 7217
+      },
+      {
+        "path": "Torchslit/Sources/Engines/LightScriptEngine.swift",
+        "size": 5335
+      },
+      {
+        "path": "Torchslit/Sources/Models/CaptureRecipe.swift",
+        "size": 2932
+      },
+      {
+        "path": "Torchslit/Sources/Models/LightScript.swift",
+        "size": 3792
+      },
+      {
+        "path": "Torchslit/Sources/Shaders/Accumulation.metal",
+        "size": 2769
+      },
+      {
+        "path": "Torchslit/Sources/Views/CameraPreviewView.swift",
+        "size": 1634
+      },
+      {
+        "path": "Torchslit/Sources/Views/ContentView.swift",
+        "size": 7942
+      },
+      {
+        "path": "Torchslit/Sources/Views/SettingsView.swift",
+        "size": 5620
+      },
+      {
+        "path": "setup-xcode.sh",
+        "size": 1175
+      }
+    ],
+    "tree": {
+      "name": "torchslit-ios",
+      "children": [
+        {
+          "name": "Torchslit",
+          "children": [
+            {
+              "name": "Sources",
+              "children": [
+                {
+                  "name": "App",
+                  "children": [
+                    {
+                      "name": "TorchslitApp.swift",
+                      "size": 299,
+                      "path": "Torchslit/Sources/App/TorchslitApp.swift"
+                    }
+                  ],
+                  "path": "Torchslit/Sources/App"
+                },
+                {
+                  "name": "Engines",
+                  "children": [
+                    {
+                      "name": "BulbCaptureEngine.swift",
+                      "size": 8349,
+                      "path": "Torchslit/Sources/Engines/BulbCaptureEngine.swift"
+                    },
+                    {
+                      "name": "CameraManager.swift",
+                      "size": 7217,
+                      "path": "Torchslit/Sources/Engines/CameraManager.swift"
+                    },
+                    {
+                      "name": "LightScriptEngine.swift",
+                      "size": 5335,
+                      "path": "Torchslit/Sources/Engines/LightScriptEngine.swift"
+                    }
+                  ],
+                  "path": "Torchslit/Sources/Engines"
+                },
+                {
+                  "name": "Models",
+                  "children": [
+                    {
+                      "name": "CaptureRecipe.swift",
+                      "size": 2932,
+                      "path": "Torchslit/Sources/Models/CaptureRecipe.swift"
+                    },
+                    {
+                      "name": "LightScript.swift",
+                      "size": 3792,
+                      "path": "Torchslit/Sources/Models/LightScript.swift"
+                    }
+                  ],
+                  "path": "Torchslit/Sources/Models"
+                },
+                {
+                  "name": "Shaders",
+                  "children": [
+                    {
+                      "name": "Accumulation.metal",
+                      "size": 2769,
+                      "path": "Torchslit/Sources/Shaders/Accumulation.metal"
+                    }
+                  ],
+                  "path": "Torchslit/Sources/Shaders"
+                },
+                {
+                  "name": "Views",
+                  "children": [
+                    {
+                      "name": "CameraPreviewView.swift",
+                      "size": 1634,
+                      "path": "Torchslit/Sources/Views/CameraPreviewView.swift"
+                    },
+                    {
+                      "name": "ContentView.swift",
+                      "size": 7942,
+                      "path": "Torchslit/Sources/Views/ContentView.swift"
+                    },
+                    {
+                      "name": "SettingsView.swift",
+                      "size": 5620,
+                      "path": "Torchslit/Sources/Views/SettingsView.swift"
+                    }
+                  ],
+                  "path": "Torchslit/Sources/Views"
+                }
+              ],
+              "path": "Torchslit/Sources"
+            },
+            {
+              "name": "Info.plist",
+              "size": 2120,
+              "path": "Torchslit/Info.plist"
+            }
+          ],
+          "path": "Torchslit"
+        },
+        {
+          "name": ".gitignore",
+          "size": 471,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 3096,
+          "path": "README.md"
+        },
+        {
+          "name": "setup-xcode.sh",
+          "size": 1175,
+          "path": "setup-xcode.sh"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 14,
+    "totalSize": 52751
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"torchslit-vulpes\">Torchslit (Vulpes)</h1>\n<p>iOS \"Bulb + Torch\" Camera for Long-Exposure Photography</p>\n<h2 id=\"what-is-it\">What is it?</h2>\n<p>Torchslit is a camera app that lets you shoot true-feeling bulb-style long exposures on iPhone while precisely scripting the iPhone's rear LED (torch) as a timed light source—tap-to-burst, scheduled bursts, and repeatable \"light scripts\" you can replay.</p>\n<h2 id=\"why\">Why?</h2>\n<p>iPhone's stock camera is missing what long-exposure people actually want:</p>\n<ul>\n<li><strong>Bulb control</strong>: \"start exposure… stop exposure\" (not a fixed shutter time)</li>\n<li><strong>Light control</strong>: timed bursts of light during the exposure (for light painting, selective illumination)</li>\n<li><strong>Repeatability</strong>: save a lighting pattern and reproduce it</li>\n</ul>\n<h2 id=\"core-concept\">Core Concept</h2>\n<p>Two engines running together:</p>\n<ol>\n<li><strong>Bulb Capture Engine</strong> — Captures continuous frames and accumulates them into a single long-exposure image</li>\n<li><strong>Light Script Engine</strong> — Controls the LED: burst for X seconds, follow a timed sequence, repeat at intervals, or live tap/hold</li>\n</ol>\n<h2 id=\"project-structure\">Project Structure</h2>\n<pre><code>Torchslit/\n├── Sources/\n│   ├── App/\n│   │   └── TorchslitApp.swift       # App entry point\n│   ├── Views/\n│   │   ├── ContentView.swift        # Main camera UI\n│   │   ├── CameraPreviewView.swift  # Camera preview layer\n│   │   └── SettingsView.swift       # Settings sheet\n│   ├── Engines/\n│   │   ├── CameraManager.swift      # Central state manager\n│   │   ├── BulbCaptureEngine.swift  # Frame accumulation (Metal)\n│   │   └── LightScriptEngine.swift  # Torch control + timing\n│   ├── Models/\n│   │   ├── LightScript.swift        # Replayable lighting patterns\n│   │   └── CaptureRecipe.swift      # Capture metadata\n│   └── Shaders/\n│       └── Accumulation.metal       # GPU blend modes\n├── Resources/\n└── Info.plist\n</code></pre>\n<h2 id=\"mvp-features\">MVP Features</h2>\n<ul class=\"contains-task-list\">\n<li class=\"task-list-item\"> Bulb start/stop capture</li>\n<li class=\"task-list-item\"> Manual burst (tap to fire torch)</li>\n<li class=\"task-list-item\"> Duration selector (0.25s - 5s)</li>\n<li class=\"task-list-item\"> Intensity slider</li>\n<li class=\"task-list-item\"> Interval burst mode</li>\n<li class=\"task-list-item\"> Three blend modes (Max, Additive, Average)</li>\n<li class=\"task-list-item\"> Thermal state monitoring</li>\n<li class=\"task-list-item\"> Save to Photos with metadata</li>\n<li class=\"task-list-item\"> Recipe sidecar export</li>\n</ul>\n<h2 id=\"v1-features-later\">V1 Features (Later)</h2>\n<ul class=\"contains-task-list\">\n<li class=\"task-list-item\"> Light Script editor UI</li>\n<li class=\"task-list-item\"> Script presets library</li>\n<li class=\"task-list-item\"> Apple Watch remote</li>\n<li class=\"task-list-item\"> Live touch mode (hold = torch on)</li>\n<li class=\"task-list-item\"> Dark frame subtraction</li>\n<li class=\"task-list-item\"> RAW/DNG export</li>\n</ul>\n<h2 id=\"building\">Building</h2>\n<ol>\n<li>Open in Xcode 15+</li>\n<li>Set your development team</li>\n<li>Build and run on device (torch requires real hardware)</li>\n</ol>\n<h2 id=\"technical-notes\">Technical Notes</h2>\n<h3 id=\"frame-accumulation\">Frame Accumulation</h3>\n<p>Uses Metal compute shaders for real-time blending:</p>\n<ul>\n<li><strong>Max</strong>: Brightest pixel wins (light trails, star trails)</li>\n<li><strong>Additive</strong>: Pixels add together (classic long exposure)</li>\n<li><strong>Average</strong>: Running average (water smoothing, traffic)</li>\n</ul>\n<h3 id=\"torch-control\">Torch Control</h3>\n<p>Uses <code>AVCaptureDevice.setTorchModeOn(level:)</code> with safety guards:</p>\n<ul>\n<li>Thermal state monitoring</li>\n<li>Consecutive burst limits</li>\n<li>Cooldown periods</li>\n</ul>\n<h3 id=\"timing\">Timing</h3>\n<p>Uses monotonic clock for consistent timestamps across:</p>\n<ul>\n<li>Shot start/end</li>\n<li>Frame ingestion</li>\n<li>Torch events</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",
+    "raw": "# Torchslit (Vulpes)\n\niOS \"Bulb + Torch\" Camera for Long-Exposure Photography\n\n## What is it?\n\nTorchslit is a camera app that lets you shoot true-feeling bulb-style long exposures on iPhone while precisely scripting the iPhone's rear LED (torch) as a timed light source—tap-to-burst, scheduled bursts, and repeatable \"light scripts\" you can replay.\n\n## Why?\n\niPhone's stock camera is missing what long-exposure people actually want:\n\n- **Bulb control**: \"start exposure… stop exposure\" (not a fixed shutter time)\n- **Light control**: timed bursts of light during the exposure (for light painting, selective illumination)\n- **Repeatability**: save a lighting pattern and reproduce it\n\n## Core Concept\n\nTwo engines running together:\n\n1. **Bulb Capture Engine** — Captures continuous frames and accumulates them into a single long-exposure image\n2. **Light Script Engine** — Controls the LED: burst for X seconds, follow a timed sequence, repeat at intervals, or live tap/hold\n\n## Project Structure\n\n```\nTorchslit/\n├── Sources/\n│   ├── App/\n│   │   └── TorchslitApp.swift       # App entry point\n│   ├── Views/\n│   │   ├── ContentView.swift        # Main camera UI\n│   │   ├── CameraPreviewView.swift  # Camera preview layer\n│   │   └── SettingsView.swift       # Settings sheet\n│   ├── Engines/\n│   │   ├── CameraManager.swift      # Central state manager\n│   │   ├── BulbCaptureEngine.swift  # Frame accumulation (Metal)\n│   │   └── LightScriptEngine.swift  # Torch control + timing\n│   ├── Models/\n│   │   ├── LightScript.swift        # Replayable lighting patterns\n│   │   └── CaptureRecipe.swift      # Capture metadata\n│   └── Shaders/\n│       └── Accumulation.metal       # GPU blend modes\n├── Resources/\n└── Info.plist\n```\n\n## MVP Features\n\n- [x] Bulb start/stop capture\n- [x] Manual burst (tap to fire torch)\n- [x] Duration selector (0.25s - 5s)\n- [x] Intensity slider\n- [x] Interval burst mode\n- [x] Three blend modes (Max, Additive, Average)\n- [x] Thermal state monitoring\n- [ ] Save to Photos with metadata\n- [ ] Recipe sidecar export\n\n## V1 Features (Later)\n\n- [ ] Light Script editor UI\n- [ ] Script presets library\n- [ ] Apple Watch remote\n- [ ] Live touch mode (hold = torch on)\n- [ ] Dark frame subtraction\n- [ ] RAW/DNG export\n\n## Building\n\n1. Open in Xcode 15+\n2. Set your development team\n3. Build and run on device (torch requires real hardware)\n\n## Technical Notes\n\n### Frame Accumulation\n\nUses Metal compute shaders for real-time blending:\n- **Max**: Brightest pixel wins (light trails, star trails)\n- **Additive**: Pixels add together (classic long exposure)\n- **Average**: Running average (water smoothing, traffic)\n\n### Torch Control\n\nUses `AVCaptureDevice.setTorchModeOn(level:)` with safety guards:\n- Thermal state monitoring\n- Consecutive burst limits\n- Cooldown periods\n\n### Timing\n\nUses monotonic clock for consistent timestamps across:\n- Shot start/end\n- Frame ingestion\n- Torch events\n\n## License\n\nMIT\n",
+    "excerpt": "iOS \"Bulb + Torch\" Camera for Long-Exposure Photography\n\n\n\nTorchslit is a camera app that lets you shoot true-feeling bulb-style long exposures on iPhone while..."
+  },
+  "createdAt": "2026-01-11T15:39:23Z",
+  "updatedAt": "2026-01-11T15:39:29Z",
+  "pushedAt": "2026-01-11T15:39:25Z"
+}

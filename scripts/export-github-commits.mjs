@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * @file export-github-commits.mjs
- * @description Export GitHub commits to JSON using Search API (limited to 1000 results) for on-this-day feature
- * @usage node scripts/export-github-commits.mjs
+ * @file export-all-contributions.mjs
+ * @description Fetch ALL GitHub contributions using GraphQL API - includes commits to personal, org, and forked repos
+ * @usage node scripts/export-all-contributions.mjs
  * @env None required - uses gh CLI which must be authenticated
  */
 
@@ -16,90 +16,120 @@ import { fileURLToPath } from 'node:url'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const OUTPUT_FILE = join(__dirname, '../data/github-commits.json')
 const USERNAME = 'ejfox'
-const PER_PAGE = 100
 
-async function fetchCommits() {
-  const allCommits = []
-  let page = 1
-  let hasMore = true
-
-  console.log(`Fetching commits for ${USERNAME}...`)
-
-  while (hasMore) {
-    try {
-      const apiCmd =
-        "gh api '/search/commits?q=author:" +
-        `${USERNAME}` +
-        `&per_page=${PER_PAGE}&page=${page}` +
-        "&sort=author-date&order=desc' 2>/dev/null"
-
-      const result = execSync(apiCmd, {
-        encoding: 'utf-8',
-        maxBuffer: 50 * 1024 * 1024,
-      })
-
-      const data = JSON.parse(result)
-      const commits = data.items || []
-
-      if (commits.length === 0) {
-        hasMore = false
-        break
+function fetchContributionYears() {
+  const query = `
+    query {
+      user(login: "${USERNAME}") {
+        contributionsCollection {
+          contributionYears
+        }
       }
-
-      for (const item of commits) {
-        const date = new Date(item.commit.author.date)
-        allCommits.push({
-          sha: item.sha.substring(0, 7),
-          message: item.commit.message.split('\n')[0], // First line only
-          date: item.commit.author.date,
-          year: date.getFullYear(),
-          month: date.getMonth() + 1,
-          day: date.getDate(),
-          repo: item.repository.name,
-          repoUrl: item.repository.html_url,
-        })
-      }
-
-      const pageMsg = `  Page ${page}: ${commits.length} commits`
-      console.log(`${pageMsg} (total: ${allCommits.length})`)
-
-      // GitHub Search API has 1000 result limit
-      if (allCommits.length >= 1000 || commits.length < PER_PAGE) {
-        hasMore = false
-      }
-
-      page++
-
-      // Rate limit: 30 requests per minute for search API
-      await new Promise((r) => setTimeout(r, 2500))
-    } catch (error) {
-      console.error(`Error on page ${page}:`, error.message)
-      hasMore = false
     }
-  }
+  `
 
-  return allCommits
+  const result = execSync(`gh api graphql -f query='${query}'`, {
+    encoding: 'utf-8',
+  })
+
+  return JSON.parse(result).data.user.contributionsCollection.contributionYears
+}
+
+function fetchYearContributions(year) {
+  const fromDate = `${year}-01-01T00:00:00Z`
+  const toDate = `${year}-12-31T23:59:59Z`
+
+  const query = `
+    query {
+      user(login: "${USERNAME}") {
+        contributionsCollection(from: "${fromDate}", to: "${toDate}") {
+          commitContributionsByRepository {
+            repository {
+              name
+              owner {
+                login
+              }
+            }
+            contributions(first: 100) {
+              nodes {
+                commitCount
+                occurredAt
+                commitCount
+              }
+            }
+          }
+        }
+      }
+    }
+  `
+
+  try {
+    const result = execSync(`gh api graphql -f query='${query}'`, {
+      encoding: 'utf-8',
+      maxBuffer: 50 * 1024 * 1024,
+    })
+
+    const data = JSON.parse(result)
+    return data.data.user.contributionsCollection
+      .commitContributionsByRepository
+  } catch (error) {
+    console.error(`  Error fetching ${year}:`, error.message)
+    return []
+  }
 }
 
 async function main() {
-  console.log('GitHub Commit Export')
-  console.log('====================\n')
+  console.log('GitHub ALL Contributions Export')
+  console.log('===============================\n')
 
-  const commits = await fetchCommits()
+  const years = fetchContributionYears()
+  console.log(`Found contribution years: ${years.join(', ')}\n`)
+
+  const allCommits = []
+
+  for (const year of years) {
+    process.stdout.write(`[${year}] Fetching... `)
+
+    const repos = fetchYearContributions(year)
+    let yearCommits = 0
+
+    for (const repoData of repos) {
+      const repoName = repoData.repository.name
+      const repoOwner = repoData.repository.owner.login
+
+      for (const contribution of repoData.contributions.nodes) {
+        const date = new Date(contribution.occurredAt)
+
+        // Each contribution can have multiple commits
+        for (let i = 0; i < contribution.commitCount; i++) {
+          allCommits.push({
+            sha: `${date.getTime()}-${i}`,
+            message: `Contribution to ${repoName}`,
+            date: contribution.occurredAt,
+            year: date.getFullYear(),
+            month: date.getMonth() + 1,
+            day: date.getDate(),
+            repo: repoName,
+            repoUrl: `https://github.com/${repoOwner}/${repoName}`,
+          })
+          yearCommits++
+        }
+      }
+    }
+
+    console.log(`✓ ${yearCommits} commits`)
+
+    // Rate limit protection
+    await new Promise((r) => setTimeout(r, 1000))
+  }
 
   // Sort by date
-  commits.sort((a, b) => new Date(b.date) - new Date(a.date))
+  allCommits.sort((a, b) => new Date(b.date) - new Date(a.date))
 
   // Write to file
-  writeFileSync(OUTPUT_FILE, JSON.stringify(commits, null, 2))
+  writeFileSync(OUTPUT_FILE, JSON.stringify(allCommits, null, 2))
 
-  // Stats
-  const years = [...new Set(commits.map((c) => c.year))].sort((a, b) => b - a)
-  const repos = [...new Set(commits.map((c) => c.repo))]
-
-  console.log(`\nExported ${commits.length} commits`)
-  console.log(`Years: ${years.join(', ')}`)
-  console.log(`Repos: ${repos.length}`)
+  console.log(`\n✅ Exported ${allCommits.length} total contributions`)
   console.log(`Output: ${OUTPUT_FILE}`)
 }
 

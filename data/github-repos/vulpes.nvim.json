@@ -1,0 +1,306 @@
+{
+  "name": "vulpes.nvim",
+  "description": "A cyberpunk neon colorscheme for Neovim",
+  "url": "https://github.com/ejfox/vulpes.nvim",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Lua",
+  "languageColor": "#000080",
+  "languages": {
+    "Lua": 28388,
+    "Vim Script": 2524,
+    "GLSL": 2499,
+    "Shell": 1466
+  },
+  "diskUsage": 46,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 104
+      },
+      {
+        "path": ".luacheckrc",
+        "size": 137
+      },
+      {
+        "path": "LICENSE",
+        "size": 1384
+      },
+      {
+        "path": "README.md",
+        "size": 7076
+      },
+      {
+        "path": "colors/vulpes-light.vim",
+        "size": 1287
+      },
+      {
+        "path": "colors/vulpes.vim",
+        "size": 1237
+      },
+      {
+        "path": "doc/vulpes.txt",
+        "size": 4528
+      },
+      {
+        "path": "extras/shaders/vulpes-chromatic.glsl",
+        "size": 1791
+      },
+      {
+        "path": "extras/shaders/vulpes-tft.glsl",
+        "size": 708
+      },
+      {
+        "path": "extras/vulpes-alacritty.toml",
+        "size": 744
+      },
+      {
+        "path": "extras/vulpes-bat.tmTheme",
+        "size": 3522
+      },
+      {
+        "path": "extras/vulpes-fzf.sh",
+        "size": 501
+      },
+      {
+        "path": "extras/vulpes-ghostty.conf",
+        "size": 656
+      },
+      {
+        "path": "extras/vulpes-kitty.conf",
+        "size": 773
+      },
+      {
+        "path": "extras/vulpes-lazygit.yml",
+        "size": 887
+      },
+      {
+        "path": "extras/vulpes-maplibre.json",
+        "size": 8020
+      },
+      {
+        "path": "extras/vulpes-wezterm.lua",
+        "size": 1399
+      },
+      {
+        "path": "extras/vulpes-yazi.toml",
+        "size": 2654
+      },
+      {
+        "path": "extras/vulpes.tmux",
+        "size": 965
+      },
+      {
+        "path": "lua/lualine/themes/vulpes.lua",
+        "size": 1147
+      },
+      {
+        "path": "lua/vulpes/config.lua",
+        "size": 1812
+      },
+      {
+        "path": "lua/vulpes/init.lua",
+        "size": 20305
+      },
+      {
+        "path": "lua/vulpes/palette.lua",
+        "size": 3588
+      },
+      {
+        "path": "stylua.toml",
+        "size": 142
+      }
+    ],
+    "tree": {
+      "name": "vulpes.nvim",
+      "children": [
+        {
+          "name": "colors",
+          "children": [
+            {
+              "name": "vulpes-light.vim",
+              "size": 1287,
+              "path": "colors/vulpes-light.vim"
+            },
+            {
+              "name": "vulpes.vim",
+              "size": 1237,
+              "path": "colors/vulpes.vim"
+            }
+          ],
+          "path": "colors"
+        },
+        {
+          "name": "doc",
+          "children": [
+            {
+              "name": "vulpes.txt",
+              "size": 4528,
+              "path": "doc/vulpes.txt"
+            }
+          ],
+          "path": "doc"
+        },
+        {
+          "name": "extras",
+          "children": [
+            {
+              "name": "shaders",
+              "children": [
+                {
+                  "name": "vulpes-chromatic.glsl",
+                  "size": 1791,
+                  "path": "extras/shaders/vulpes-chromatic.glsl"
+                },
+                {
+                  "name": "vulpes-tft.glsl",
+                  "size": 708,
+                  "path": "extras/shaders/vulpes-tft.glsl"
+                }
+              ],
+              "path": "extras/shaders"
+            },
+            {
+              "name": "vulpes-alacritty.toml",
+              "size": 744,
+              "path": "extras/vulpes-alacritty.toml"
+            },
+            {
+              "name": "vulpes-bat.tmTheme",
+              "size": 3522,
+              "path": "extras/vulpes-bat.tmTheme"
+            },
+            {
+              "name": "vulpes-fzf.sh",
+              "size": 501,
+              "path": "extras/vulpes-fzf.sh"
+            },
+            {
+              "name": "vulpes-ghostty.conf",
+              "size": 656,
+              "path": "extras/vulpes-ghostty.conf"
+            },
+            {
+              "name": "vulpes-kitty.conf",
+              "size": 773,
+              "path": "extras/vulpes-kitty.conf"
+            },
+            {
+              "name": "vulpes-lazygit.yml",
+              "size": 887,
+              "path": "extras/vulpes-lazygit.yml"
+            },
+            {
+              "name": "vulpes-maplibre.json",
+              "size": 8020,
+              "path": "extras/vulpes-maplibre.json"
+            },
+            {
+              "name": "vulpes-wezterm.lua",
+              "size": 1399,
+              "path": "extras/vulpes-wezterm.lua"
+            },
+            {
+              "name": "vulpes-yazi.toml",
+              "size": 2654,
+              "path": "extras/vulpes-yazi.toml"
+            },
+            {
+              "name": "vulpes.tmux",
+              "size": 965,
+              "path": "extras/vulpes.tmux"
+            }
+          ],
+          "path": "extras"
+        },
+        {
+          "name": "lua",
+          "children": [
+            {
+              "name": "lualine",
+              "children": [
+                {
+                  "name": "themes",
+                  "children": [
+                    {
+                      "name": "vulpes.lua",
+                      "size": 1147,
+                      "path": "lua/lualine/themes/vulpes.lua"
+                    }
+                  ],
+                  "path": "lua/lualine/themes"
+                }
+              ],
+              "path": "lua/lualine"
+            },
+            {
+              "name": "vulpes",
+              "children": [
+                {
+                  "name": "config.lua",
+                  "size": 1812,
+                  "path": "lua/vulpes/config.lua"
+                },
+                {
+                  "name": "init.lua",
+                  "size": 20305,
+                  "path": "lua/vulpes/init.lua"
+                },
+                {
+                  "name": "palette.lua",
+                  "size": 3588,
+                  "path": "lua/vulpes/palette.lua"
+                }
+              ],
+              "path": "lua/vulpes"
+            }
+          ],
+          "path": "lua"
+        },
+        {
+          "name": ".gitignore",
+          "size": 104,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".luacheckrc",
+          "size": 137,
+          "path": ".luacheckrc"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1384,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 7076,
+          "path": "README.md"
+        },
+        {
+          "name": "stylua.toml",
+          "size": 142,
+          "path": "stylua.toml"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 24,
+    "totalSize": 65367
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"vulpesnvim\">vulpes.nvim</h1>\n<p>A cyberpunk neon single-color(ish) scheme for Neovim (and many other TUIs) that tries to find a balance between vibes and utility.</p>\n<img width=\"1800\" height=\"1131\" alt=\"screenshot 2025-12-24 at 3 28 57 PM\" src=\"https://github.com/user-attachments/assets/77a9fb8e-33d0-4562-83cb-0f8cc11b1499\" />\n<img width=\"1800\" height=\"1169\" alt=\"screenshot 2025-12-22 at 11 30 20 PM\" src=\"https://github.com/user-attachments/assets/d8c588f0-c75d-4d2f-bf21-0837ac536ece\" />\n<h2 id=\"includes\">Includes</h2>\n<pre><code>Neovim         Terminals       TUI Apps        Bonus\n──────         ─────────       ────────        ─────\n◆ 100+ hlgroups   ◆ Ghostty       ◆ tmux          ◆ MapLibre\n◆ Treesitter      ◆ Kitty         ◆ lazygit       ◆ GLSL shaders\n◆ LSP             ◆ Alacritty     ◆ Yazi\n◆ Lualine         ◆ WezTerm       ◆ fzf\n◆ 15+ plugins                     ◆ bat\n</code></pre>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li>Neovim 0.8+</li>\n<li><code>termguicolors</code> enabled</li>\n<li>True color terminal</li>\n</ul>\n<h2 id=\"install\">Install</h2>\n<pre><code class=\"language-lua\">-- lazy.nvim\n{\n  \"ejfox/vulpes.nvim\",\n  lazy = false,\n  priority = 1000,\n  config = function()\n    vim.cmd.colorscheme(\"vulpes\")\n  end,\n}\n</code></pre>\n<pre><code class=\"language-lua\">-- packer\nuse { \"ejfox/vulpes.nvim\" }\n</code></pre>\n<pre><code class=\"language-vim\">\" vim-plug\nPlug 'ejfox/vulpes.nvim'\ncolorscheme vulpes\n</code></pre>\n<h2 id=\"config\">Config</h2>\n<pre><code class=\"language-lua\">require(\"vulpes\").setup({\n  transparent = false,\n  italic_comments = true,\n  italic_keywords = false,\n  bold_functions = false,\n  cursor_color = \"base\",  -- \"base\" (pink) or \"white\"\n  undercurl = true,\n  terminal_colors = true,\n})\n\nvim.cmd.colorscheme(\"vulpes\")\n</code></pre>\n<p>Or via <code>vim.g</code>:</p>\n<pre><code class=\"language-lua\">vim.g.vulpes_transparent = true\nvim.cmd.colorscheme(\"vulpes\")\n</code></pre>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Option</th><th>Default</th><th></th></tr></thead><tbody><tr><td><code>transparent</code></td><td><code>false</code></td><td>transparent bg</td></tr><tr><td><code>italic_comments</code></td><td><code>true</code></td><td></td></tr><tr><td><code>italic_keywords</code></td><td><code>false</code></td><td></td></tr><tr><td><code>bold_functions</code></td><td><code>false</code></td><td></td></tr><tr><td><code>cursor_color</code></td><td><code>\"base\"</code></td><td><code>\"base\"</code> or <code>\"white\"</code></td></tr><tr><td><code>undercurl</code></td><td><code>true</code></td><td>spelling errors</td></tr><tr><td><code>terminal_colors</code></td><td><code>true</code></td><td>ANSI colors in :terminal</td></tr></tbody></table>\n<h2 id=\"lualine\">Lualine</h2>\n<pre><code class=\"language-lua\">require(\"lualine\").setup({\n  options = { theme = \"vulpes\" },\n})\n</code></pre>\n<h2 id=\"extras\">Extras</h2>\n<p>All in <code>extras/</code>:</p>\n<h3 id=\"terminals\">Terminals</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th></th><th>File</th><th>Install</th></tr></thead><tbody><tr><td>Ghostty</td><td><code>vulpes-ghostty.conf</code></td><td><code>cp extras/vulpes-ghostty.conf ~/.config/ghostty/themes/vulpes</code></td></tr><tr><td>Kitty</td><td><code>vulpes-kitty.conf</code></td><td><code>include themes/vulpes.conf</code> in kitty.conf</td></tr><tr><td>Alacritty</td><td><code>vulpes-alacritty.toml</code></td><td>import in alacritty.toml</td></tr><tr><td>WezTerm</td><td><code>vulpes-wezterm.lua</code></td><td><code>cp extras/vulpes-wezterm.lua ~/.config/wezterm/colors/</code></td></tr></tbody></table>\n<h3 id=\"tuis\">TUIs</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th></th><th>File</th><th>Install</th></tr></thead><tbody><tr><td>tmux</td><td><code>vulpes.tmux</code></td><td><code>source-file ~/.config/tmux/vulpes.tmux</code></td></tr><tr><td>Yazi</td><td><code>vulpes-yazi.toml</code></td><td><code>cp extras/vulpes-yazi.toml ~/.config/yazi/theme.toml</code></td></tr><tr><td>lazygit</td><td><code>vulpes-lazygit.yml</code></td><td>merge into <code>~/.config/lazygit/config.yml</code></td></tr><tr><td>fzf</td><td><code>vulpes-fzf.sh</code></td><td>source in shell rc</td></tr><tr><td>bat</td><td><code>vulpes-bat.tmTheme</code></td><td>copy to bat themes, <code>bat cache --build</code></td></tr></tbody></table>\n<h3 id=\"ghostty-shaders\">Ghostty Shaders</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th></th><th>File</th><th>Notes</th></tr></thead><tbody><tr><td>TFT</td><td><code>shaders/vulpes-tft.glsl</code></td><td>subtle LCD subpixel effect</td></tr><tr><td>Chromatic</td><td><code>shaders/vulpes-chromatic.glsl</code></td><td>CRT chromatic aberration (dark mode only)</td></tr></tbody></table>\n<p>Install: <code>cp extras/shaders/*.glsl ~/.config/ghostty/shaders/</code>\nConfig: <code>custom-shader = ~/.config/ghostty/shaders/vulpes-tft.glsl</code></p>\n<h3 id=\"bonus\">Bonus</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th></th><th>File</th><th>Notes</th></tr></thead><tbody><tr><td>MapLibre</td><td><code>vulpes-maplibre.json</code></td><td>cyberpunk map style, replace <code>{key}</code> with Maptiler API key</td></tr></tbody></table>\n<h2 id=\"palette\">Palette</h2>\n<h3 id=\"dark\">Dark</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th></th><th></th><th>Hex</th><th></th></tr></thead><tbody><tr><td>bg</td><td><img src=\"https://img.shields.io/badge/bg-000000?style=flat-square&amp;color=000000\" alt=\"\" /></td><td><code>#000000</code></td><td></td></tr><tr><td>fg</td><td><img src=\"https://img.shields.io/badge/fg-f2cfdf?style=flat-square&amp;color=f2cfdf\" alt=\"\" /></td><td><code>#f2cfdf</code></td><td></td></tr><tr><td>base</td><td><img src=\"https://img.shields.io/badge/base-e60067?style=flat-square&amp;color=e60067\" alt=\"\" /></td><td><code>#e60067</code></td><td>accent pink</td></tr><tr><td>comment</td><td><img src=\"https://img.shields.io/badge/comment-6eedf7?style=flat-square&amp;color=6eedf7\" alt=\"\" /></td><td><code>#6eedf7</code></td><td>teal</td></tr><tr><td>keyword</td><td><img src=\"https://img.shields.io/badge/keyword-ff1aca?style=flat-square&amp;color=ff1aca\" alt=\"\" /></td><td><code>#ff1aca</code></td><td></td></tr><tr><td>string</td><td><img src=\"https://img.shields.io/badge/string-f5f5f5?style=flat-square&amp;color=f5f5f5\" alt=\"\" /></td><td><code>#f5f5f5</code></td><td></td></tr><tr><td>func</td><td><img src=\"https://img.shields.io/badge/func-ffffff?style=flat-square&amp;color=ffffff\" alt=\"\" /></td><td><code>#ffffff</code></td><td></td></tr><tr><td>type</td><td><img src=\"https://img.shields.io/badge/type-ff24ab?style=flat-square&amp;color=ff24ab\" alt=\"\" /></td><td><code>#ff24ab</code></td><td></td></tr><tr><td>number</td><td><img src=\"https://img.shields.io/badge/number-ff33c5?style=flat-square&amp;color=ff33c5\" alt=\"\" /></td><td><code>#ff33c5</code></td><td></td></tr><tr><td>boolean</td><td><img src=\"https://img.shields.io/badge/boolean-ff1043?style=flat-square&amp;color=ff1043\" alt=\"\" /></td><td><code>#ff1043</code></td><td></td></tr><tr><td>variable</td><td><img src=\"https://img.shields.io/badge/variable-ff0a89?style=flat-square&amp;color=ff0a89\" alt=\"\" /></td><td><code>#ff0a89</code></td><td></td></tr><tr><td>property</td><td><img src=\"https://img.shields.io/badge/property-ff0a91?style=flat-square&amp;color=ff0a91\" alt=\"\" /></td><td><code>#ff0a91</code></td><td></td></tr><tr><td>operator</td><td><img src=\"https://img.shields.io/badge/operator-f92c7a?style=flat-square&amp;color=f92c7a\" alt=\"\" /></td><td><code>#f92c7a</code></td><td></td></tr><tr><td>error</td><td><img src=\"https://img.shields.io/badge/error-a0f7fc?style=flat-square&amp;color=a0f7fc\" alt=\"\" /></td><td><code>#a0f7fc</code></td><td>inverted teal</td></tr><tr><td>warning</td><td><img src=\"https://img.shields.io/badge/warning-ffaa00?style=flat-square&amp;color=ffaa00\" alt=\"\" /></td><td><code>#ffaa00</code></td><td></td></tr></tbody></table>\n<h3 id=\"ansi\">ANSI</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th></th><th>Normal</th><th>Bright</th></tr></thead><tbody><tr><td>black</td><td><img src=\"https://img.shields.io/badge/0d0d0d-0d0d0d?style=flat-square&amp;color=0d0d0d\" alt=\"\" /> <code>#0d0d0d</code></td><td><img src=\"https://img.shields.io/badge/735865-735865?style=flat-square&amp;color=735865\" alt=\"\" /> <code>#735865</code></td></tr><tr><td>red</td><td><img src=\"https://img.shields.io/badge/ff001e-ff001e?style=flat-square&amp;color=ff001e\" alt=\"\" /> <code>#ff001e</code></td><td><img src=\"https://img.shields.io/badge/ff2e2e-ff2e2e?style=flat-square&amp;color=ff2e2e\" alt=\"\" /> <code>#ff2e2e</code></td></tr><tr><td>green</td><td><img src=\"https://img.shields.io/badge/ffffff-ffffff?style=flat-square&amp;color=ffffff\" alt=\"\" /> <code>#ffffff</code></td><td><img src=\"https://img.shields.io/badge/ffffff-ffffff?style=flat-square&amp;color=ffffff\" alt=\"\" /> <code>#ffffff</code></td></tr><tr><td>yellow</td><td><img src=\"https://img.shields.io/badge/ffaa00-ffaa00?style=flat-square&amp;color=ffaa00\" alt=\"\" /> <code>#ffaa00</code></td><td><img src=\"https://img.shields.io/badge/ffcc00-ffcc00?style=flat-square&amp;color=ffcc00\" alt=\"\" /> <code>#ffcc00</code></td></tr><tr><td>blue</td><td><img src=\"https://img.shields.io/badge/ff0095-ff0095?style=flat-square&amp;color=ff0095\" alt=\"\" /> <code>#ff0095</code></td><td><img src=\"https://img.shields.io/badge/ff2daf-ff2daf?style=flat-square&amp;color=ff2daf\" alt=\"\" /> <code>#ff2daf</code></td></tr><tr><td>magenta</td><td><img src=\"https://img.shields.io/badge/ff24ab-ff24ab?style=flat-square&amp;color=ff24ab\" alt=\"\" /> <code>#ff24ab</code></td><td><img src=\"https://img.shields.io/badge/ff40c7-ff40c7?style=flat-square&amp;color=ff40c7\" alt=\"\" /> <code>#ff40c7</code></td></tr><tr><td>cyan</td><td><img src=\"https://img.shields.io/badge/6eedf7-6eedf7?style=flat-square&amp;color=6eedf7\" alt=\"\" /> <code>#6eedf7</code></td><td><img src=\"https://img.shields.io/badge/a0f7fc-a0f7fc?style=flat-square&amp;color=a0f7fc\" alt=\"\" /> <code>#a0f7fc</code></td></tr><tr><td>white</td><td><img src=\"https://img.shields.io/badge/f2cfdf-f2cfdf?style=flat-square&amp;color=f2cfdf\" alt=\"\" /> <code>#f2cfdf</code></td><td><img src=\"https://img.shields.io/badge/ffffff-ffffff?style=flat-square&amp;color=ffffff\" alt=\"\" /> <code>#ffffff</code></td></tr></tbody></table>\n<h2 id=\"plugins\">Plugins</h2>\n<p>Highlight groups for: Telescope, Snacks.nvim, nvim-cmp, GitSigns, Which-key, BufferLine, Neo-tree, Lazy.nvim, Mason, Noice, nvim-notify</p>\n<h2 id=\"api\">API</h2>\n<pre><code class=\"language-lua\">local palette = require(\"vulpes.palette\")\nlocal colors = palette.get()     -- current variant\nlocal dark = palette.dark        -- dark palette\nlocal light = palette.light      -- light palette\n</code></pre>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",
+    "raw": "# vulpes.nvim\n\nA cyberpunk neon single-color(ish) scheme for Neovim (and many other TUIs) that tries to find a balance between vibes and utility.\n\n<img width=\"1800\" height=\"1131\" alt=\"screenshot 2025-12-24 at 3 28 57 PM\" src=\"https://github.com/user-attachments/assets/77a9fb8e-33d0-4562-83cb-0f8cc11b1499\" />\n\n<img width=\"1800\" height=\"1169\" alt=\"screenshot 2025-12-22 at 11 30 20 PM\" src=\"https://github.com/user-attachments/assets/d8c588f0-c75d-4d2f-bf21-0837ac536ece\" />\n\n## Includes\n\n```\nNeovim         Terminals       TUI Apps        Bonus\n──────         ─────────       ────────        ─────\n◆ 100+ hlgroups   ◆ Ghostty       ◆ tmux          ◆ MapLibre\n◆ Treesitter      ◆ Kitty         ◆ lazygit       ◆ GLSL shaders\n◆ LSP             ◆ Alacritty     ◆ Yazi\n◆ Lualine         ◆ WezTerm       ◆ fzf\n◆ 15+ plugins                     ◆ bat\n```\n\n## Requirements\n\n- Neovim 0.8+\n- `termguicolors` enabled\n- True color terminal\n\n## Install\n\n```lua\n-- lazy.nvim\n{\n  \"ejfox/vulpes.nvim\",\n  lazy = false,\n  priority = 1000,\n  config = function()\n    vim.cmd.colorscheme(\"vulpes\")\n  end,\n}\n```\n\n```lua\n-- packer\nuse { \"ejfox/vulpes.nvim\" }\n```\n\n```vim\n\" vim-plug\nPlug 'ejfox/vulpes.nvim'\ncolorscheme vulpes\n```\n\n## Config\n\n```lua\nrequire(\"vulpes\").setup({\n  transparent = false,\n  italic_comments = true,\n  italic_keywords = false,\n  bold_functions = false,\n  cursor_color = \"base\",  -- \"base\" (pink) or \"white\"\n  undercurl = true,\n  terminal_colors = true,\n})\n\nvim.cmd.colorscheme(\"vulpes\")\n```\n\nOr via `vim.g`:\n\n```lua\nvim.g.vulpes_transparent = true\nvim.cmd.colorscheme(\"vulpes\")\n```\n\n| Option | Default | |\n|--------|---------|---|\n| `transparent` | `false` | transparent bg |\n| `italic_comments` | `true` | |\n| `italic_keywords` | `false` | |\n| `bold_functions` | `false` | |\n| `cursor_color` | `\"base\"` | `\"base\"` or `\"white\"` |\n| `undercurl` | `true` | spelling errors |\n| `terminal_colors` | `true` | ANSI colors in :terminal |\n\n## Lualine\n\n```lua\nrequire(\"lualine\").setup({\n  options = { theme = \"vulpes\" },\n})\n```\n\n## Extras\n\nAll in `extras/`:\n\n### Terminals\n\n| | File | Install |\n|-|------|---------|\n| Ghostty | `vulpes-ghostty.conf` | `cp extras/vulpes-ghostty.conf ~/.config/ghostty/themes/vulpes` |\n| Kitty | `vulpes-kitty.conf` | `include themes/vulpes.conf` in kitty.conf |\n| Alacritty | `vulpes-alacritty.toml` | import in alacritty.toml |\n| WezTerm | `vulpes-wezterm.lua` | `cp extras/vulpes-wezterm.lua ~/.config/wezterm/colors/` |\n\n### TUIs\n\n| | File | Install |\n|-|------|---------|\n| tmux | `vulpes.tmux` | `source-file ~/.config/tmux/vulpes.tmux` |\n| Yazi | `vulpes-yazi.toml` | `cp extras/vulpes-yazi.toml ~/.config/yazi/theme.toml` |\n| lazygit | `vulpes-lazygit.yml` | merge into `~/.config/lazygit/config.yml` |\n| fzf | `vulpes-fzf.sh` | source in shell rc |\n| bat | `vulpes-bat.tmTheme` | copy to bat themes, `bat cache --build` |\n\n### Ghostty Shaders\n\n| | File | Notes |\n|-|------|-------|\n| TFT | `shaders/vulpes-tft.glsl` | subtle LCD subpixel effect |\n| Chromatic | `shaders/vulpes-chromatic.glsl` | CRT chromatic aberration (dark mode only) |\n\nInstall: `cp extras/shaders/*.glsl ~/.config/ghostty/shaders/`\nConfig: `custom-shader = ~/.config/ghostty/shaders/vulpes-tft.glsl`\n\n### Bonus\n\n| | File | Notes |\n|-|------|-------|\n| MapLibre | `vulpes-maplibre.json` | cyberpunk map style, replace `{key}` with Maptiler API key |\n\n## Palette\n\n### Dark\n\n| | | Hex | |\n|-|-|-----|---|\n| bg | ![](https://img.shields.io/badge/bg-000000?style=flat-square&color=000000) | `#000000` | |\n| fg | ![](https://img.shields.io/badge/fg-f2cfdf?style=flat-square&color=f2cfdf) | `#f2cfdf` | |\n| base | ![](https://img.shields.io/badge/base-e60067?style=flat-square&color=e60067) | `#e60067` | accent pink |\n| comment | ![](https://img.shields.io/badge/comment-6eedf7?style=flat-square&color=6eedf7) | `#6eedf7` | teal |\n| keyword | ![](https://img.shields.io/badge/keyword-ff1aca?style=flat-square&color=ff1aca) | `#ff1aca` | |\n| string | ![](https://img.shields.io/badge/string-f5f5f5?style=flat-square&color=f5f5f5) | `#f5f5f5` | |\n| func | ![](https://img.shields.io/badge/func-ffffff?style=flat-square&color=ffffff) | `#ffffff` | |\n| type | ![](https://img.shields.io/badge/type-ff24ab?style=flat-square&color=ff24ab) | `#ff24ab` | |\n| number | ![](https://img.shields.io/badge/number-ff33c5?style=flat-square&color=ff33c5) | `#ff33c5` | |\n| boolean | ![](https://img.shields.io/badge/boolean-ff1043?style=flat-square&color=ff1043) | `#ff1043` | |\n| variable | ![](https://img.shields.io/badge/variable-ff0a89?style=flat-square&color=ff0a89) | `#ff0a89` | |\n| property | ![](https://img.shields.io/badge/property-ff0a91?style=flat-square&color=ff0a91) | `#ff0a91` | |\n| operator | ![](https://img.shields.io/badge/operator-f92c7a?style=flat-square&color=f92c7a) | `#f92c7a` | |\n| error | ![](https://img.shields.io/badge/error-a0f7fc?style=flat-square&color=a0f7fc) | `#a0f7fc` | inverted teal |\n| warning | ![](https://img.shields.io/badge/warning-ffaa00?style=flat-square&color=ffaa00) | `#ffaa00` | |\n\n### ANSI\n\n| | Normal | Bright |\n|-|--------|--------|\n| black | ![](https://img.shields.io/badge/0d0d0d-0d0d0d?style=flat-square&color=0d0d0d) `#0d0d0d` | ![](https://img.shields.io/badge/735865-735865?style=flat-square&color=735865) `#735865` |\n| red | ![](https://img.shields.io/badge/ff001e-ff001e?style=flat-square&color=ff001e) `#ff001e` | ![](https://img.shields.io/badge/ff2e2e-ff2e2e?style=flat-square&color=ff2e2e) `#ff2e2e` |\n| green | ![](https://img.shields.io/badge/ffffff-ffffff?style=flat-square&color=ffffff) `#ffffff` | ![](https://img.shields.io/badge/ffffff-ffffff?style=flat-square&color=ffffff) `#ffffff` |\n| yellow | ![](https://img.shields.io/badge/ffaa00-ffaa00?style=flat-square&color=ffaa00) `#ffaa00` | ![](https://img.shields.io/badge/ffcc00-ffcc00?style=flat-square&color=ffcc00) `#ffcc00` |\n| blue | ![](https://img.shields.io/badge/ff0095-ff0095?style=flat-square&color=ff0095) `#ff0095` | ![](https://img.shields.io/badge/ff2daf-ff2daf?style=flat-square&color=ff2daf) `#ff2daf` |\n| magenta | ![](https://img.shields.io/badge/ff24ab-ff24ab?style=flat-square&color=ff24ab) `#ff24ab` | ![](https://img.shields.io/badge/ff40c7-ff40c7?style=flat-square&color=ff40c7) `#ff40c7` |\n| cyan | ![](https://img.shields.io/badge/6eedf7-6eedf7?style=flat-square&color=6eedf7) `#6eedf7` | ![](https://img.shields.io/badge/a0f7fc-a0f7fc?style=flat-square&color=a0f7fc) `#a0f7fc` |\n| white | ![](https://img.shields.io/badge/f2cfdf-f2cfdf?style=flat-square&color=f2cfdf) `#f2cfdf` | ![](https://img.shields.io/badge/ffffff-ffffff?style=flat-square&color=ffffff) `#ffffff` |\n\n## Plugins\n\nHighlight groups for: Telescope, Snacks.nvim, nvim-cmp, GitSigns, Which-key, BufferLine, Neo-tree, Lazy.nvim, Mason, Noice, nvim-notify\n\n## API\n\n```lua\nlocal palette = require(\"vulpes.palette\")\nlocal colors = palette.get()     -- current variant\nlocal dark = palette.dark        -- dark palette\nlocal light = palette.light      -- light palette\n```\n\n## License\n\nMIT\n",
+    "excerpt": "A cyberpunk neon single-color(ish) scheme for Neovim (and many other TUIs) that tries to find a balance between vibes and utility.\n\n<img width=\"1800\" height=\"11..."
+  },
+  "createdAt": "2026-01-02T03:14:29Z",
+  "updatedAt": "2026-01-02T03:49:20Z",
+  "pushedAt": "2026-01-02T03:49:17Z"
+}

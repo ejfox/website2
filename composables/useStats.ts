@@ -508,6 +508,24 @@ export interface StatsResponse {
     lastUpdated: string
     error?: string
   }
+  duolingo?: {
+    username: string
+    streak: number
+    totalXp: number
+    courses: Array<{
+      title: string
+      xp: number
+      level: number
+      crowns: number
+    }>
+    currentCourse?: {
+      title: string
+      xp: number
+      level: number
+    }
+    creationDate: number
+    lastUpdated: string
+  }
 }
 
 export function useStats() {

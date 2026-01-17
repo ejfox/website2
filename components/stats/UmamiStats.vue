@@ -151,7 +151,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { format } from 'date-fns/format'
-import AnimatedNumber from '../AnimatedNumber.vue'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 
 interface UmamiStats {

@@ -436,6 +436,17 @@
                 <MonkeyTypeStats key="monkeytype" :stats="stats.monkeyType" />
               </StatSection>
 
+              <!-- Language Learning -->
+              <StatSection
+                v-if="stats.duolingo"
+                id="languages"
+                key="languages-section"
+                title="LANGUAGES"
+                class="break-inside-avoid"
+              >
+                <DuolingoStats key="duolingo" :stats="stats" />
+              </StatSection>
+
               <!-- Code Snippets -->
               <StatSection
                 v-if="stats.gists?.stats"
@@ -538,6 +549,7 @@ import GoodreadsStats from '~/components/stats/GoodreadsStats.vue'
 import RescueTimeStats from '~/components/stats/RescueTimeStats.vue'
 import ChessStats from '~/components/stats/ChessStats.vue'
 import MonkeyTypeStats from '~/components/stats/MonkeyTypeStats.vue'
+import DuolingoStats from '~/components/stats/DuolingoStats.vue'
 
 // Lazy-load below-fold components
 const LeetCodeStats = defineAsyncComponent(() => import('~/components/stats/LeetCodeStats.vue'))
@@ -547,7 +559,7 @@ const LetterboxdStats = defineAsyncComponent(() => import('~/components/stats/Le
 const DiscogsStats = defineAsyncComponent(() => import('~/components/stats/DiscogsStats.vue'))
 const UmamiStats = defineAsyncComponent(() => import('~/components/stats/UmamiStats.vue'))
 const GearStats = defineAsyncComponent(() => import('~/components/stats/GearStats.vue'))
-import { usePostFilters } from '~/composables/blog/usePostFilters'
+import { usePostFilters } from '~/composables/usePostFilters'
 
 // Define stats first - used by computed properties below
 const { stats: rawStats, isLoading, errors } = useStats()

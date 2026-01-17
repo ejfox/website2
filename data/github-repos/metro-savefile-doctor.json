@@ -4,7 +4,7 @@
   "url": "https://github.com/ejfox/metro-savefile-doctor",
   "homepage": null,
   "stats": {
-    "stars": 0,
+    "stars": 1,
     "forks": 0,
     "watchers": 0,
     "openIssues": 0
@@ -12,44 +12,100 @@
   "language": "TypeScript",
   "languageColor": "#3178c6",
   "languages": {
-    "TypeScript": 31323,
-    "JavaScript": 7690,
-    "Lua": 3206
+    "TypeScript": 65121,
+    "JavaScript": 40333,
+    "Svelte": 33612,
+    "Lua": 3206,
+    "CSS": 2311,
+    "HTML": 622,
+    "Rust": 514
   },
-  "diskUsage": 18,
+  "diskUsage": 348,
   "fileTree": {
     "files": [
       {
+        "path": ".github/workflows/release.yml",
+        "size": 4229
+      },
+      {
         "path": ".gitignore",
-        "size": 158
+        "size": 289
       },
       {
         "path": "README.md",
-        "size": 2916
+        "size": 3057
+      },
+      {
+        "path": "TIMELAPSE_ROUTE_BUG.md",
+        "size": 6007
       },
       {
         "path": "cli.tsx",
-        "size": 4696
+        "size": 5689
+      },
+      {
+        "path": "core/package.json",
+        "size": 450
+      },
+      {
+        "path": "core/src/analysis/orphan-analysis.ts",
+        "size": 3323
+      },
+      {
+        "path": "core/src/analysis/route-analysis.ts",
+        "size": 3693
+      },
+      {
+        "path": "core/src/analysis/route-completeness.ts",
+        "size": 2857
+      },
+      {
+        "path": "core/src/analysis/track-coverage.ts",
+        "size": 4325
+      },
+      {
+        "path": "core/src/index.ts",
+        "size": 2092
+      },
+      {
+        "path": "core/src/metro-loader.ts",
+        "size": 7962
+      },
+      {
+        "path": "core/src/types.ts",
+        "size": 1635
+      },
+      {
+        "path": "core/tsconfig.json",
+        "size": 454
       },
       {
         "path": "js-script-runner.ts",
-        "size": 8129
+        "size": 8217
       },
       {
         "path": "metro-loader.ts",
-        "size": 6343
+        "size": 7552
       },
       {
         "path": "package.json",
-        "size": 1072
+        "size": 2166
+      },
+      {
+        "path": "pnpm-lock.yaml",
+        "size": 67491
+      },
+      {
+        "path": "pnpm-workspace.yaml",
+        "size": 45
       },
       {
         "path": "script-runner.ts",
-        "size": 8829
+        "size": 8807
       },
       {
         "path": "scripts/README.md",
-        "size": 5711
+        "size": 5705
       },
       {
         "path": "scripts/change-difficulty.js",
@@ -58,6 +114,14 @@
       {
         "path": "scripts/change-difficulty.lua",
         "size": 579
+      },
+      {
+        "path": "scripts/debug-thumbnail-gen.js",
+        "size": 3183
+      },
+      {
+        "path": "scripts/deep-route-check.js",
+        "size": 2759
       },
       {
         "path": "scripts/fast-forward-time.js",
@@ -84,6 +148,30 @@
         "size": 390
       },
       {
+        "path": "scripts/orphan-analysis.js",
+        "size": 3332
+      },
+      {
+        "path": "scripts/path-format-check.js",
+        "size": 2351
+      },
+      {
+        "path": "scripts/repair-save.js",
+        "size": 1455
+      },
+      {
+        "path": "scripts/route-analysis.js",
+        "size": 3259
+      },
+      {
+        "path": "scripts/route-completeness.js",
+        "size": 2908
+      },
+      {
+        "path": "scripts/route-geometry-check.js",
+        "size": 2819
+      },
+      {
         "path": "scripts/stats-report.js",
         "size": 1152
       },
@@ -92,19 +180,247 @@
         "size": 1364
       },
       {
+        "path": "scripts/stnode-id-compare.js",
+        "size": 3099
+      },
+      {
+        "path": "scripts/track-coverage.js",
+        "size": 4025
+      },
+      {
+        "path": "scripts/track-id-match.js",
+        "size": 2344
+      },
+      {
+        "path": "tauri-app/index.html",
+        "size": 622
+      },
+      {
+        "path": "tauri-app/package.json",
+        "size": 655
+      },
+      {
+        "path": "tauri-app/src-tauri/Cargo.lock",
+        "size": 115326
+      },
+      {
+        "path": "tauri-app/src-tauri/Cargo.toml",
+        "size": 651
+      },
+      {
+        "path": "tauri-app/src-tauri/build.rs",
+        "size": 39
+      },
+      {
+        "path": "tauri-app/src-tauri/capabilities/default.json",
+        "size": 498
+      },
+      {
+        "path": "tauri-app/src-tauri/icons/128x128.png",
+        "size": 621
+      },
+      {
+        "path": "tauri-app/src-tauri/icons/128x128@2x.png",
+        "size": 621
+      },
+      {
+        "path": "tauri-app/src-tauri/icons/32x32.png",
+        "size": 335
+      },
+      {
+        "path": "tauri-app/src-tauri/icons/icon.icns",
+        "size": 248981
+      },
+      {
+        "path": "tauri-app/src-tauri/icons/icon.ico",
+        "size": 2934
+      },
+      {
+        "path": "tauri-app/src-tauri/icons/icon.png",
+        "size": 4489
+      },
+      {
+        "path": "tauri-app/src-tauri/src/lib.rs",
+        "size": 279
+      },
+      {
+        "path": "tauri-app/src-tauri/src/main.rs",
+        "size": 196
+      },
+      {
+        "path": "tauri-app/src-tauri/tauri.conf.json",
+        "size": 1316
+      },
+      {
+        "path": "tauri-app/src/App.svelte",
+        "size": 4610
+      },
+      {
+        "path": "tauri-app/src/app.css",
+        "size": 2311
+      },
+      {
+        "path": "tauri-app/src/lib/components/AnalysisPanel.svelte",
+        "size": 6341
+      },
+      {
+        "path": "tauri-app/src/lib/components/AsciiHeader.svelte",
+        "size": 1807
+      },
+      {
+        "path": "tauri-app/src/lib/components/DropZone.svelte",
+        "size": 10164
+      },
+      {
+        "path": "tauri-app/src/lib/components/NeonButton.svelte",
+        "size": 1358
+      },
+      {
+        "path": "tauri-app/src/lib/components/NeonInput.svelte",
+        "size": 1058
+      },
+      {
+        "path": "tauri-app/src/lib/components/QuickEditPanel.svelte",
+        "size": 3030
+      },
+      {
+        "path": "tauri-app/src/lib/components/SaveInfoCard.svelte",
+        "size": 3022
+      },
+      {
+        "path": "tauri-app/src/lib/components/ScrollingCredits.svelte",
+        "size": 1150
+      },
+      {
+        "path": "tauri-app/src/lib/components/Toast.svelte",
+        "size": 1072
+      },
+      {
+        "path": "tauri-app/src/lib/stores/save.ts",
+        "size": 4186
+      },
+      {
+        "path": "tauri-app/src/lib/stores/ui.ts",
+        "size": 760
+      },
+      {
+        "path": "tauri-app/src/main.ts",
+        "size": 143
+      },
+      {
+        "path": "tauri-app/svelte.config.js",
+        "size": 116
+      },
+      {
+        "path": "tauri-app/tsconfig.json",
+        "size": 445
+      },
+      {
+        "path": "tauri-app/tsconfig.node.json",
+        "size": 191
+      },
+      {
+        "path": "tauri-app/vite.config.ts",
+        "size": 321
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 361
+      },
+      {
         "path": "ui.tsx",
-        "size": 8022
+        "size": 9248
       }
     ],
     "tree": {
       "name": "metro-savefile-doctor",
       "children": [
         {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "release.yml",
+                  "size": 4229,
+                  "path": ".github/workflows/release.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "core",
+          "children": [
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "analysis",
+                  "children": [
+                    {
+                      "name": "orphan-analysis.ts",
+                      "size": 3323,
+                      "path": "core/src/analysis/orphan-analysis.ts"
+                    },
+                    {
+                      "name": "route-analysis.ts",
+                      "size": 3693,
+                      "path": "core/src/analysis/route-analysis.ts"
+                    },
+                    {
+                      "name": "route-completeness.ts",
+                      "size": 2857,
+                      "path": "core/src/analysis/route-completeness.ts"
+                    },
+                    {
+                      "name": "track-coverage.ts",
+                      "size": 4325,
+                      "path": "core/src/analysis/track-coverage.ts"
+                    }
+                  ],
+                  "path": "core/src/analysis"
+                },
+                {
+                  "name": "index.ts",
+                  "size": 2092,
+                  "path": "core/src/index.ts"
+                },
+                {
+                  "name": "metro-loader.ts",
+                  "size": 7962,
+                  "path": "core/src/metro-loader.ts"
+                },
+                {
+                  "name": "types.ts",
+                  "size": 1635,
+                  "path": "core/src/types.ts"
+                }
+              ],
+              "path": "core/src"
+            },
+            {
+              "name": "package.json",
+              "size": 450,
+              "path": "core/package.json"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 454,
+              "path": "core/tsconfig.json"
+            }
+          ],
+          "path": "core"
+        },
+        {
           "name": "scripts",
           "children": [
             {
               "name": "README.md",
-              "size": 5711,
+              "size": 5705,
               "path": "scripts/README.md"
             },
             {
@@ -116,6 +432,16 @@
               "name": "change-difficulty.lua",
               "size": 579,
               "path": "scripts/change-difficulty.lua"
+            },
+            {
+              "name": "debug-thumbnail-gen.js",
+              "size": 3183,
+              "path": "scripts/debug-thumbnail-gen.js"
+            },
+            {
+              "name": "deep-route-check.js",
+              "size": 2759,
+              "path": "scripts/deep-route-check.js"
             },
             {
               "name": "fast-forward-time.js",
@@ -148,6 +474,36 @@
               "path": "scripts/give-trains.lua"
             },
             {
+              "name": "orphan-analysis.js",
+              "size": 3332,
+              "path": "scripts/orphan-analysis.js"
+            },
+            {
+              "name": "path-format-check.js",
+              "size": 2351,
+              "path": "scripts/path-format-check.js"
+            },
+            {
+              "name": "repair-save.js",
+              "size": 1455,
+              "path": "scripts/repair-save.js"
+            },
+            {
+              "name": "route-analysis.js",
+              "size": 3259,
+              "path": "scripts/route-analysis.js"
+            },
+            {
+              "name": "route-completeness.js",
+              "size": 2908,
+              "path": "scripts/route-completeness.js"
+            },
+            {
+              "name": "route-geometry-check.js",
+              "size": 2819,
+              "path": "scripts/route-geometry-check.js"
+            },
+            {
               "name": "stats-report.js",
               "size": 1152,
               "path": "scripts/stats-report.js"
@@ -156,63 +512,317 @@
               "name": "stats-report.lua",
               "size": 1364,
               "path": "scripts/stats-report.lua"
+            },
+            {
+              "name": "stnode-id-compare.js",
+              "size": 3099,
+              "path": "scripts/stnode-id-compare.js"
+            },
+            {
+              "name": "track-coverage.js",
+              "size": 4025,
+              "path": "scripts/track-coverage.js"
+            },
+            {
+              "name": "track-id-match.js",
+              "size": 2344,
+              "path": "scripts/track-id-match.js"
             }
           ],
           "path": "scripts"
         },
         {
+          "name": "tauri-app",
+          "children": [
+            {
+              "name": "src-tauri",
+              "children": [
+                {
+                  "name": "capabilities",
+                  "children": [
+                    {
+                      "name": "default.json",
+                      "size": 498,
+                      "path": "tauri-app/src-tauri/capabilities/default.json"
+                    }
+                  ],
+                  "path": "tauri-app/src-tauri/capabilities"
+                },
+                {
+                  "name": "icons",
+                  "children": [
+                    {
+                      "name": "128x128.png",
+                      "size": 621,
+                      "path": "tauri-app/src-tauri/icons/128x128.png"
+                    },
+                    {
+                      "name": "128x128@2x.png",
+                      "size": 621,
+                      "path": "tauri-app/src-tauri/icons/128x128@2x.png"
+                    },
+                    {
+                      "name": "32x32.png",
+                      "size": 335,
+                      "path": "tauri-app/src-tauri/icons/32x32.png"
+                    },
+                    {
+                      "name": "icon.icns",
+                      "size": 248981,
+                      "path": "tauri-app/src-tauri/icons/icon.icns"
+                    },
+                    {
+                      "name": "icon.ico",
+                      "size": 2934,
+                      "path": "tauri-app/src-tauri/icons/icon.ico"
+                    },
+                    {
+                      "name": "icon.png",
+                      "size": 4489,
+                      "path": "tauri-app/src-tauri/icons/icon.png"
+                    }
+                  ],
+                  "path": "tauri-app/src-tauri/icons"
+                },
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "lib.rs",
+                      "size": 279,
+                      "path": "tauri-app/src-tauri/src/lib.rs"
+                    },
+                    {
+                      "name": "main.rs",
+                      "size": 196,
+                      "path": "tauri-app/src-tauri/src/main.rs"
+                    }
+                  ],
+                  "path": "tauri-app/src-tauri/src"
+                },
+                {
+                  "name": "Cargo.lock",
+                  "size": 115326,
+                  "path": "tauri-app/src-tauri/Cargo.lock"
+                },
+                {
+                  "name": "Cargo.toml",
+                  "size": 651,
+                  "path": "tauri-app/src-tauri/Cargo.toml"
+                },
+                {
+                  "name": "build.rs",
+                  "size": 39,
+                  "path": "tauri-app/src-tauri/build.rs"
+                },
+                {
+                  "name": "tauri.conf.json",
+                  "size": 1316,
+                  "path": "tauri-app/src-tauri/tauri.conf.json"
+                }
+              ],
+              "path": "tauri-app/src-tauri"
+            },
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "lib",
+                  "children": [
+                    {
+                      "name": "components",
+                      "children": [
+                        {
+                          "name": "AnalysisPanel.svelte",
+                          "size": 6341,
+                          "path": "tauri-app/src/lib/components/AnalysisPanel.svelte"
+                        },
+                        {
+                          "name": "AsciiHeader.svelte",
+                          "size": 1807,
+                          "path": "tauri-app/src/lib/components/AsciiHeader.svelte"
+                        },
+                        {
+                          "name": "DropZone.svelte",
+                          "size": 10164,
+                          "path": "tauri-app/src/lib/components/DropZone.svelte"
+                        },
+                        {
+                          "name": "NeonButton.svelte",
+                          "size": 1358,
+                          "path": "tauri-app/src/lib/components/NeonButton.svelte"
+                        },
+                        {
+                          "name": "NeonInput.svelte",
+                          "size": 1058,
+                          "path": "tauri-app/src/lib/components/NeonInput.svelte"
+                        },
+                        {
+                          "name": "QuickEditPanel.svelte",
+                          "size": 3030,
+                          "path": "tauri-app/src/lib/components/QuickEditPanel.svelte"
+                        },
+                        {
+                          "name": "SaveInfoCard.svelte",
+                          "size": 3022,
+                          "path": "tauri-app/src/lib/components/SaveInfoCard.svelte"
+                        },
+                        {
+                          "name": "ScrollingCredits.svelte",
+                          "size": 1150,
+                          "path": "tauri-app/src/lib/components/ScrollingCredits.svelte"
+                        },
+                        {
+                          "name": "Toast.svelte",
+                          "size": 1072,
+                          "path": "tauri-app/src/lib/components/Toast.svelte"
+                        }
+                      ],
+                      "path": "tauri-app/src/lib/components"
+                    },
+                    {
+                      "name": "stores",
+                      "children": [
+                        {
+                          "name": "save.ts",
+                          "size": 4186,
+                          "path": "tauri-app/src/lib/stores/save.ts"
+                        },
+                        {
+                          "name": "ui.ts",
+                          "size": 760,
+                          "path": "tauri-app/src/lib/stores/ui.ts"
+                        }
+                      ],
+                      "path": "tauri-app/src/lib/stores"
+                    }
+                  ],
+                  "path": "tauri-app/src/lib"
+                },
+                {
+                  "name": "App.svelte",
+                  "size": 4610,
+                  "path": "tauri-app/src/App.svelte"
+                },
+                {
+                  "name": "app.css",
+                  "size": 2311,
+                  "path": "tauri-app/src/app.css"
+                },
+                {
+                  "name": "main.ts",
+                  "size": 143,
+                  "path": "tauri-app/src/main.ts"
+                }
+              ],
+              "path": "tauri-app/src"
+            },
+            {
+              "name": "index.html",
+              "size": 622,
+              "path": "tauri-app/index.html"
+            },
+            {
+              "name": "package.json",
+              "size": 655,
+              "path": "tauri-app/package.json"
+            },
+            {
+              "name": "svelte.config.js",
+              "size": 116,
+              "path": "tauri-app/svelte.config.js"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 445,
+              "path": "tauri-app/tsconfig.json"
+            },
+            {
+              "name": "tsconfig.node.json",
+              "size": 191,
+              "path": "tauri-app/tsconfig.node.json"
+            },
+            {
+              "name": "vite.config.ts",
+              "size": 321,
+              "path": "tauri-app/vite.config.ts"
+            }
+          ],
+          "path": "tauri-app"
+        },
+        {
           "name": ".gitignore",
-          "size": 158,
+          "size": 289,
           "path": ".gitignore"
         },
         {
           "name": "README.md",
-          "size": 2916,
+          "size": 3057,
           "path": "README.md"
         },
         {
+          "name": "TIMELAPSE_ROUTE_BUG.md",
+          "size": 6007,
+          "path": "TIMELAPSE_ROUTE_BUG.md"
+        },
+        {
           "name": "cli.tsx",
-          "size": 4696,
+          "size": 5689,
           "path": "cli.tsx"
         },
         {
           "name": "js-script-runner.ts",
-          "size": 8129,
+          "size": 8217,
           "path": "js-script-runner.ts"
         },
         {
           "name": "metro-loader.ts",
-          "size": 6343,
+          "size": 7552,
           "path": "metro-loader.ts"
         },
         {
           "name": "package.json",
-          "size": 1072,
+          "size": 2166,
           "path": "package.json"
         },
         {
+          "name": "pnpm-lock.yaml",
+          "size": 67491,
+          "path": "pnpm-lock.yaml"
+        },
+        {
+          "name": "pnpm-workspace.yaml",
+          "size": 45,
+          "path": "pnpm-workspace.yaml"
+        },
+        {
           "name": "script-runner.ts",
-          "size": 8829,
+          "size": 8807,
           "path": "script-runner.ts"
         },
         {
+          "name": "tsconfig.json",
+          "size": 361,
+          "path": "tsconfig.json"
+        },
+        {
           "name": "ui.tsx",
-          "size": 8022,
+          "size": 9248,
           "path": "ui.tsx"
         }
       ],
       "path": ""
     },
-    "totalFiles": 19,
-    "totalSize": 52076
+    "totalFiles": 77,
+    "totalSize": 613036
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"-subway-builder-savefile-doctor\">🏥 Subway Builder Savefile Doctor</h1>\n<blockquote>\n<p><em>\"If Young Metro don't trust your save file, I'm gon' restore it\"</em></p>\n</blockquote>\n<p>A beautiful TUI (Text User Interface) tool for editing Subway Builder save files. Metro Boomin want some more... trains.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>💰 <strong>Edit Money</strong> - Give yourself unlimited cash</li>\n<li>⏱️ <strong>Edit Game Time</strong> - Change elapsed simulation time</li>\n<li>🚆 <strong>Edit Train Count</strong> - Change owned train count</li>\n<li>🎫 <strong>Edit Transit Cost</strong> - Change ticket price for riders</li>\n<li>💾 <strong>Auto Backup</strong> - Creates backups before modifying</li>\n<li>📦 <strong>Binary Format Support</strong> - Handles both JSON and .metro binary saves</li>\n<li>✨ <strong>Beautiful TUI</strong> - Interactive terminal interface with colors</li>\n</ul>\n<h2 id=\"installation\">Installation</h2>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/metro-savefile-doctor.git\ncd metro-savefile-doctor\nnpm install\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<h3 id=\"basic-usage\">Basic Usage</h3>\n<pre><code class=\"language-bash\"># Edit a .metro binary save file (creates backup automatically)\nnpm start -- ~/Documents/SubwayBuilder/my-save.metro\n\n# Or edit a JSON save file\nnpm start -- ~/path/to/your-save.json\n</code></pre>\n<h3 id=\"advanced-options\">Advanced Options</h3>\n<pre><code class=\"language-bash\"># Save to a different file\nnpm start -- my-save.json --output modified-save.json\n\n# Don't create backup\nnpm start -- my-save.json --no-backup\n\n# Install globally\nnpm link\nmetro-savefile-doctor ~/saves/my-save.json\n</code></pre>\n<h2 id=\"controls\">Controls</h2>\n<ul>\n<li><strong>Arrow Keys</strong> - Navigate menu</li>\n<li><strong>Enter</strong> - Edit selected field</li>\n<li><strong>Escape</strong> - Cancel editing</li>\n<li><strong>s</strong> - Save changes</li>\n<li><strong>q</strong> - Quit (without saving if you haven't pressed 's')</li>\n</ul>\n<h2 id=\"examples\">Examples</h2>\n<h3 id=\"give-yourself-money\">Give Yourself Money</h3>\n<ol>\n<li>Run the tool: <code>npm start -- my-save.metro</code></li>\n<li>Select \"💰 Money\"</li>\n<li>Enter new amount (e.g., <code>999999999</code>)</li>\n<li>Press Enter</li>\n<li>Press 's' to save</li>\n</ol>\n<h3 id=\"fix-train-count\">Fix Train Count</h3>\n<ol>\n<li>Run the tool: <code>npm start -- my-save.metro</code></li>\n<li>Select \"🚆 Owned Trains\"</li>\n<li>Enter new count (e.g., <code>100</code>)</li>\n<li>Press Enter</li>\n<li>Press 's' to save</li>\n</ol>\n<h2 id=\"safety\">Safety</h2>\n<ul>\n<li><strong>Automatic Backups</strong>: By default, creates <code>.backup</code> file before modifying</li>\n<li><strong>Validation</strong>: Checks file format before editing</li>\n<li><strong>Non-Destructive</strong>: Original file preserved unless you save changes</li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li>Node.js 18+</li>\n<li>Subway Builder save file (.metro binary or JSON format)</li>\n</ul>\n<h2 id=\"supported-formats\">Supported Formats</h2>\n<ul>\n<li><strong>📦 .metro files</strong> - Binary format with 4KB header, compressed game data, and metadata</li>\n<li><strong>📄 JSON files</strong> - Plain JSON save files</li>\n</ul>\n<p>The tool automatically detects the format and handles both seamlessly.</p>\n<h2 id=\"troubleshooting\">Troubleshooting</h2>\n<p><strong>\"Invalid save file format\"</strong></p>\n<ul>\n<li>Make sure you're using a Subway Builder save file</li>\n<li>File must be valid JSON with <code>data</code> and <code>version</code> fields</li>\n</ul>\n<p><strong>\"File not found\"</strong></p>\n<ul>\n<li>Check the file path is correct</li>\n<li>Use absolute paths or relative to current directory</li>\n</ul>\n<h2 id=\"technical-details\">Technical Details</h2>\n<p>Built with:</p>\n<ul>\n<li><a href=\"https://github.com/vadimdemedes/ink\">Ink</a> - React for CLIs</li>\n<li><a href=\"https://github.com/chalk/chalk\">Chalk</a> - Terminal colors</li>\n<li><a href=\"https://github.com/sindresorhus/meow\">Meow</a> - CLI argument parsing</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>\n<hr />\n<p><em>Young Metro trusted this repo ✓</em></p>",
-    "raw": "# 🏥 Subway Builder Savefile Doctor\n\n> *\"If Young Metro don't trust your save file, I'm gon' restore it\"*\n\nA beautiful TUI (Text User Interface) tool for editing Subway Builder save files. Metro Boomin want some more... trains.\n\n## Features\n\n- 💰 **Edit Money** - Give yourself unlimited cash\n- ⏱️ **Edit Game Time** - Change elapsed simulation time\n- 🚆 **Edit Train Count** - Change owned train count\n- 🎫 **Edit Transit Cost** - Change ticket price for riders\n- 💾 **Auto Backup** - Creates backups before modifying\n- 📦 **Binary Format Support** - Handles both JSON and .metro binary saves\n- ✨ **Beautiful TUI** - Interactive terminal interface with colors\n\n## Installation\n\n```bash\ngit clone https://github.com/ejfox/metro-savefile-doctor.git\ncd metro-savefile-doctor\nnpm install\n```\n\n## Usage\n\n### Basic Usage\n\n```bash\n# Edit a .metro binary save file (creates backup automatically)\nnpm start -- ~/Documents/SubwayBuilder/my-save.metro\n\n# Or edit a JSON save file\nnpm start -- ~/path/to/your-save.json\n```\n\n### Advanced Options\n\n```bash\n# Save to a different file\nnpm start -- my-save.json --output modified-save.json\n\n# Don't create backup\nnpm start -- my-save.json --no-backup\n\n# Install globally\nnpm link\nmetro-savefile-doctor ~/saves/my-save.json\n```\n\n## Controls\n\n- **Arrow Keys** - Navigate menu\n- **Enter** - Edit selected field\n- **Escape** - Cancel editing\n- **s** - Save changes\n- **q** - Quit (without saving if you haven't pressed 's')\n\n## Examples\n\n### Give Yourself Money\n\n1. Run the tool: `npm start -- my-save.metro`\n2. Select \"💰 Money\"\n3. Enter new amount (e.g., `999999999`)\n4. Press Enter\n5. Press 's' to save\n\n### Fix Train Count\n\n1. Run the tool: `npm start -- my-save.metro`\n2. Select \"🚆 Owned Trains\"\n3. Enter new count (e.g., `100`)\n4. Press Enter\n5. Press 's' to save\n\n## Safety\n\n- **Automatic Backups**: By default, creates `.backup` file before modifying\n- **Validation**: Checks file format before editing\n- **Non-Destructive**: Original file preserved unless you save changes\n\n## Requirements\n\n- Node.js 18+\n- Subway Builder save file (.metro binary or JSON format)\n\n## Supported Formats\n\n- **📦 .metro files** - Binary format with 4KB header, compressed game data, and metadata\n- **📄 JSON files** - Plain JSON save files\n\nThe tool automatically detects the format and handles both seamlessly.\n\n## Troubleshooting\n\n**\"Invalid save file format\"**\n- Make sure you're using a Subway Builder save file\n- File must be valid JSON with `data` and `version` fields\n\n**\"File not found\"**\n- Check the file path is correct\n- Use absolute paths or relative to current directory\n\n## Technical Details\n\nBuilt with:\n- [Ink](https://github.com/vadimdemedes/ink) - React for CLIs\n- [Chalk](https://github.com/chalk/chalk) - Terminal colors\n- [Meow](https://github.com/sindresorhus/meow) - CLI argument parsing\n\n## License\n\nMIT\n\n---\n\n*Young Metro trusted this repo ✓*\n",
-    "excerpt": "> \"If Young Metro don't trust your save file, I'm gon' restore it\"\n\nA beautiful TUI (Text User Interface) tool for editing Subway Builder save files. Metro Boom..."
+    "html": "<h1 id=\"-subway-builder-savefile-doctor\">🏥 Subway Builder Savefile Doctor</h1>\n<p>A beautiful TUI (Text User Interface) tool for editing Subway Builder save files.</p>\n<h2 id=\"desktop-app\">Desktop App</h2>\n<p><strong><a href=\"https://github.com/ejfox/metro-savefile-doctor/releases/latest\">Download the latest release</a></strong></p>\n<p>Cross-platform desktop app with a crackintro aesthetic:</p>\n<ul>\n<li><strong>macOS</strong>: <code>.dmg</code> (Apple Silicon &amp; Intel)</li>\n<li><strong>Windows</strong>: <code>.msi</code> installer</li>\n<li><strong>Linux</strong>: <code>.AppImage</code> / <code>.deb</code> / <code>.rpm</code></li>\n</ul>\n<p>Features drag &amp; drop, quick editing, analysis reports, and auto-backup.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>💰 <strong>Edit Money</strong> - Give yourself unlimited cash</li>\n<li>⏱️ <strong>Edit Game Time</strong> - Change elapsed simulation time</li>\n<li>🚆 <strong>Edit Train Count</strong> - Change owned train count</li>\n<li>🎫 <strong>Edit Transit Cost</strong> - Change ticket price for riders</li>\n<li>💾 <strong>Auto Backup</strong> - Creates backups before modifying</li>\n<li>📦 <strong>Binary Format Support</strong> - Handles both JSON and .metro binary saves</li>\n<li>✨ <strong>Beautiful TUI</strong> - Interactive terminal interface with colors</li>\n</ul>\n<h2 id=\"installation\">Installation</h2>\n<pre><code class=\"language-bash\">cd tools/savefile-doctor\nnpm install\nchmod +x cli.js\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<h3 id=\"basic-usage\">Basic Usage</h3>\n<pre><code class=\"language-bash\"># Edit a .metro binary save file (creates backup automatically)\n./cli.js ~/Documents/SubwayBuilder/my-save.metro\n\n# Or edit a JSON save file\n./cli.js ~/path/to/your-save.json\n</code></pre>\n<h3 id=\"advanced-options\">Advanced Options</h3>\n<pre><code class=\"language-bash\"># Save to a different file\n./cli.js my-save.json --output modified-save.json\n\n# Don't create backup\n./cli.js my-save.json --no-backup\n\n# Install globally\nnpm link\nsavefile-doctor ~/saves/my-save.json\n</code></pre>\n<h2 id=\"controls\">Controls</h2>\n<ul>\n<li><strong>Arrow Keys</strong> - Navigate menu</li>\n<li><strong>Enter</strong> - Edit selected field</li>\n<li><strong>Escape</strong> - Cancel editing</li>\n<li><strong>s</strong> - Save changes</li>\n<li><strong>q</strong> - Quit (without saving if you haven't pressed 's')</li>\n</ul>\n<h2 id=\"examples\">Examples</h2>\n<h3 id=\"give-yourself-money\">Give Yourself Money</h3>\n<ol>\n<li>Run the tool: <code>./cli.js my-save.metro</code></li>\n<li>Select \"💰 Money\"</li>\n<li>Enter new amount (e.g., <code>999999999</code>)</li>\n<li>Press Enter</li>\n<li>Press 's' to save</li>\n</ol>\n<h3 id=\"fix-train-count\">Fix Train Count</h3>\n<ol>\n<li>Run the tool: <code>./cli.js my-save.metro</code></li>\n<li>Select \"🚆 Owned Trains\"</li>\n<li>Enter new count (e.g., <code>100</code>)</li>\n<li>Press Enter</li>\n<li>Press 's' to save</li>\n</ol>\n<h2 id=\"safety\">Safety</h2>\n<ul>\n<li><strong>Automatic Backups</strong>: By default, creates <code>.backup</code> file before modifying</li>\n<li><strong>Validation</strong>: Checks file format before editing</li>\n<li><strong>Non-Destructive</strong>: Original file preserved unless you save changes</li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li>Node.js 18+</li>\n<li>Subway Builder save file (.metro binary or JSON format)</li>\n</ul>\n<h2 id=\"supported-formats\">Supported Formats</h2>\n<ul>\n<li><strong>📦 .metro files</strong> - Binary format with 4KB header, compressed game data, and metadata</li>\n<li><strong>📄 JSON files</strong> - Plain JSON save files</li>\n</ul>\n<p>The tool automatically detects the format and handles both seamlessly.</p>\n<h2 id=\"troubleshooting\">Troubleshooting</h2>\n<p><strong>\"Invalid save file format\"</strong></p>\n<ul>\n<li>Make sure you're using a Subway Builder save file</li>\n<li>File must be valid JSON with <code>data</code> and <code>version</code> fields</li>\n</ul>\n<p><strong>\"File not found\"</strong></p>\n<ul>\n<li>Check the file path is correct</li>\n<li>Use absolute paths or relative to current directory</li>\n</ul>\n<h2 id=\"technical-details\">Technical Details</h2>\n<p>Built with:</p>\n<ul>\n<li><a href=\"https://github.com/vadimdemedes/ink\">Ink</a> - React for CLIs</li>\n<li><a href=\"https://github.com/chalk/chalk\">Chalk</a> - Terminal colors</li>\n<li><a href=\"https://github.com/sindresorhus/meow\">Meow</a> - CLI argument parsing</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",
+    "raw": "# 🏥 Subway Builder Savefile Doctor\n\nA beautiful TUI (Text User Interface) tool for editing Subway Builder save files.\n\n## Desktop App\n\n**[Download the latest release](https://github.com/ejfox/metro-savefile-doctor/releases/latest)**\n\nCross-platform desktop app with a crackintro aesthetic:\n- **macOS**: `.dmg` (Apple Silicon & Intel)\n- **Windows**: `.msi` installer\n- **Linux**: `.AppImage` / `.deb` / `.rpm`\n\nFeatures drag & drop, quick editing, analysis reports, and auto-backup.\n\n## Features\n\n- 💰 **Edit Money** - Give yourself unlimited cash\n- ⏱️ **Edit Game Time** - Change elapsed simulation time\n- 🚆 **Edit Train Count** - Change owned train count\n- 🎫 **Edit Transit Cost** - Change ticket price for riders\n- 💾 **Auto Backup** - Creates backups before modifying\n- 📦 **Binary Format Support** - Handles both JSON and .metro binary saves\n- ✨ **Beautiful TUI** - Interactive terminal interface with colors\n\n## Installation\n\n```bash\ncd tools/savefile-doctor\nnpm install\nchmod +x cli.js\n```\n\n## Usage\n\n### Basic Usage\n\n```bash\n# Edit a .metro binary save file (creates backup automatically)\n./cli.js ~/Documents/SubwayBuilder/my-save.metro\n\n# Or edit a JSON save file\n./cli.js ~/path/to/your-save.json\n```\n\n### Advanced Options\n\n```bash\n# Save to a different file\n./cli.js my-save.json --output modified-save.json\n\n# Don't create backup\n./cli.js my-save.json --no-backup\n\n# Install globally\nnpm link\nsavefile-doctor ~/saves/my-save.json\n```\n\n## Controls\n\n- **Arrow Keys** - Navigate menu\n- **Enter** - Edit selected field\n- **Escape** - Cancel editing\n- **s** - Save changes\n- **q** - Quit (without saving if you haven't pressed 's')\n\n## Examples\n\n### Give Yourself Money\n\n1. Run the tool: `./cli.js my-save.metro`\n2. Select \"💰 Money\"\n3. Enter new amount (e.g., `999999999`)\n4. Press Enter\n5. Press 's' to save\n\n### Fix Train Count\n\n1. Run the tool: `./cli.js my-save.metro`\n2. Select \"🚆 Owned Trains\"\n3. Enter new count (e.g., `100`)\n4. Press Enter\n5. Press 's' to save\n\n## Safety\n\n- **Automatic Backups**: By default, creates `.backup` file before modifying\n- **Validation**: Checks file format before editing\n- **Non-Destructive**: Original file preserved unless you save changes\n\n## Requirements\n\n- Node.js 18+\n- Subway Builder save file (.metro binary or JSON format)\n\n## Supported Formats\n\n- **📦 .metro files** - Binary format with 4KB header, compressed game data, and metadata\n- **📄 JSON files** - Plain JSON save files\n\nThe tool automatically detects the format and handles both seamlessly.\n\n## Troubleshooting\n\n**\"Invalid save file format\"**\n\n- Make sure you're using a Subway Builder save file\n- File must be valid JSON with `data` and `version` fields\n\n**\"File not found\"**\n\n- Check the file path is correct\n- Use absolute paths or relative to current directory\n\n## Technical Details\n\nBuilt with:\n\n- [Ink](https://github.com/vadimdemedes/ink) - React for CLIs\n- [Chalk](https://github.com/chalk/chalk) - Terminal colors\n- [Meow](https://github.com/sindresorhus/meow) - CLI argument parsing\n\n## License\n\nMIT\n",
+    "excerpt": "A beautiful TUI (Text User Interface) tool for editing Subway Builder save files.\n\n\n\nDownload the latest release\n\nCross-platform desktop app with a crackintro a..."
   },
   "createdAt": "2025-12-10T23:43:16Z",
-  "updatedAt": "2025-12-10T23:43:21Z",
-  "pushedAt": "2025-12-10T23:43:18Z"
+  "updatedAt": "2026-01-16T00:54:14Z",
+  "pushedAt": "2026-01-16T00:54:11Z"
 }

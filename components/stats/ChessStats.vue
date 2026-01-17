@@ -132,7 +132,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import StatsDataState from './StatsDataState.vue'
-import AnimatedNumber from '../AnimatedNumber.vue'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import {
   formatNumber,

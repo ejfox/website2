@@ -1,19 +1,19 @@
 <script setup>
 // Lazy load heavy visualization components (d3 + anime.js)
 const GithubForceLayout = defineAsyncComponent(
-  () => import('~/components/GithubForceLayout.client.vue')
+  () => import('~/components/github/GithubForceLayout.client.vue')
 )
 const GitHubRidgeline = defineAsyncComponent(
-  () => import('~/components/GitHubRidgeline.client.vue')
+  () => import('~/components/github/GitHubRidgeline.client.vue')
 )
 const GitHubHistogramGrid = defineAsyncComponent(
-  () => import('~/components/GitHubHistogramGrid.client.vue')
+  () => import('~/components/github/GitHubHistogramGrid.client.vue')
 )
 const GitHubParallelCoords = defineAsyncComponent(
-  () => import('~/components/GitHubParallelCoords.client.vue')
+  () => import('~/components/github/GitHubParallelCoords.client.vue')
 )
 const GitHubRadialTimeline = defineAsyncComponent(
-  () => import('~/components/GitHubRadialTimeline.client.vue')
+  () => import('~/components/github/GitHubRadialTimeline.client.vue')
 )
 
 // Load lightweight repos list (without README HTML for performance)

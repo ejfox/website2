@@ -12,9 +12,9 @@
   "language": "Shell",
   "languageColor": "#89e051",
   "languages": {
-    "Shell": 3076
+    "Shell": 5182
   },
-  "diskUsage": 0,
+  "diskUsage": 31,
   "fileTree": {
     "files": [
       {
@@ -23,7 +23,7 @@
       },
       {
         "path": "CHANGELOG.md",
-        "size": 1225
+        "size": 2335
       },
       {
         "path": "LICENSE",
@@ -31,15 +31,15 @@
       },
       {
         "path": "README.md",
-        "size": 3457
+        "size": 2395
       },
       {
         "path": "grab-links.sh",
-        "size": 2967
+        "size": 4824
       },
       {
         "path": "plugin.tmux",
-        "size": 109
+        "size": 358
       }
     ],
     "tree": {
@@ -52,7 +52,7 @@
         },
         {
           "name": "CHANGELOG.md",
-          "size": 1225,
+          "size": 2335,
           "path": "CHANGELOG.md"
         },
         {
@@ -62,32 +62,32 @@
         },
         {
           "name": "README.md",
-          "size": 3457,
+          "size": 2395,
           "path": "README.md"
         },
         {
           "name": "grab-links.sh",
-          "size": 2967,
+          "size": 4824,
           "path": "grab-links.sh"
         },
         {
           "name": "plugin.tmux",
-          "size": 109,
+          "size": 358,
           "path": "plugin.tmux"
         }
       ],
       "path": ""
     },
     "totalFiles": 6,
-    "totalSize": 8484
+    "totalSize": 10638
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"tmux-link-grab\">tmux-link-grab</h1>\n<p>Elegant seek-mode for URLs and IPs in tmux. Hit <code>prefix + s</code>, numbered list appears, type the number, it copies to clipboard.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li><strong>Zero friction</strong>: One keybinding to access all URLs and IPs</li>\n<li><strong>Smart extraction</strong>: Finds <code>https://</code>, <code>http://</code>, <code>ftp://</code> URLs and IPv4 addresses</li>\n<li><strong>Fast selection</strong>: Number-based picking (like vim's <code>s</code> or neovim's <code>leap.nvim</code>)</li>\n<li><strong>Refined feedback</strong>: Clean message confirmation</li>\n<li><strong>Cross-platform</strong>: Works on macOS (pbcopy), Linux (xclip/wl-copy)</li>\n<li><strong>Bulletproof</strong>: Full error handling, dependency checks, graceful degradation</li>\n<li><strong>Window-wide</strong>: Searches entire window (all panes at once)</li>\n<li><strong>Scrollback aware</strong>: Searches last 100 lines (configurable)</li>\n<li><strong>Idempotent</strong>: Safe to call repeatedly without side effects</li>\n</ul>\n<h2 id=\"install\">Install</h2>\n<h3 id=\"with-tpm-recommended\">With TPM (recommended)</h3>\n<p>Add to <code>~/.tmux.conf</code>:</p>\n<pre><code class=\"language-tmux\">set -g @plugin 'ejfox/tmux-link-grab'\nbind-key s run-shell \"~/.tmux/plugins/tmux-link-grab/grab-links.sh\"\n</code></pre>\n<p>Then in tmux: <code>prefix + I</code> to install.</p>\n<h3 id=\"manual\">Manual</h3>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/tmux-link-grab ~/.tmux/plugins/tmux-link-grab\n</code></pre>\n<p>Add to <code>~/.tmux.conf</code>:</p>\n<pre><code class=\"language-tmux\">bind-key s display-popup -E \"~/.tmux/plugins/tmux-link-grab/grab-links.sh\"\n</code></pre>\n<p>Reload: <code>tmux source-file ~/.tmux.conf</code></p>\n<h2 id=\"usage\">Usage</h2>\n<ol>\n<li>Press <code>prefix + s</code> (or whatever key you bind)</li>\n<li>Numbered list of URLs and IPs appear in fzf</li>\n<li>Type the number to select (or arrow keys + enter)</li>\n<li>Message confirms: <code>✓ Copied: [URL]</code></li>\n</ol>\n<h3 id=\"keyboard-shortcuts-in-fzf-menu\">Keyboard shortcuts in fzf menu</h3>\n<ul>\n<li><strong>Enter</strong> - Copy selected URL</li>\n<li><strong>Esc</strong> - Cancel (return without copying)</li>\n<li><strong>Arrow keys</strong> - Navigate</li>\n<li><strong>Type</strong> - Filter/search</li>\n</ul>\n<h2 id=\"configuration\">Configuration</h2>\n<p>Edit the top of <code>grab-links.sh</code> to customize:</p>\n<pre><code class=\"language-bash\">SCROLLBACK_LINES=100    # Lines to search back through\n</code></pre>\n<h2 id=\"supported-patterns\">Supported Patterns</h2>\n<p><strong>URLs:</strong></p>\n<ul>\n<li><code>https://example.com/path?query=value#fragment</code></li>\n<li><code>http://example.com</code></li>\n<li><code>ftp://example.com</code></li>\n</ul>\n<p><strong>Network:</strong></p>\n<ul>\n<li><code>192.168.1.1</code></li>\n<li><code>10.0.0.1:8080</code></li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li><strong>tmux</strong> (1.9+)</li>\n<li><strong>fzf</strong> - for the selection menu</li>\n<li><strong>grep</strong> - URL/IP extraction</li>\n<li><strong>One of</strong>: <code>pbcopy</code> (macOS), <code>xclip</code> (Linux X11), or <code>wl-copy</code> (Linux Wayland)</li>\n</ul>\n<p>Missing dependencies will be caught and reported with a clear error message.</p>\n<h2 id=\"error-handling\">Error Handling</h2>\n<p>The plugin includes:</p>\n<ul>\n<li>Dependency validation (checks for required tools at runtime)</li>\n<li>Graceful error messages if dependencies are missing</li>\n<li>Cross-platform clipboard detection</li>\n<li>Empty scrollback handling</li>\n<li>User cancellation support (esc key)</li>\n<li>Safe piping with <code>set -euo pipefail</code></li>\n</ul>\n<h2 id=\"troubleshooting\">Troubleshooting</h2>\n<h3 id=\"no-urls-or-ips-found\">\"No URLs or IPs found\"</h3>\n<ul>\n<li>Make sure there are URLs/IPs in the current window's scrollback</li>\n<li>Try scrolling up to add more history</li>\n</ul>\n<h3 id=\"missing-dependencies\">\"Missing dependencies\"</h3>\n<ul>\n<li><strong>macOS</strong>: Should work out of the box with <code>pbcopy</code></li>\n<li><strong>Linux</strong>: Install <code>fzf</code> and either <code>xclip</code> or <code>wl-copy</code>:\n<ul>\n<li>Ubuntu/Debian: <code>sudo apt install fzf xclip</code></li>\n<li>Fedora: <code>sudo dnf install fzf xclip</code></li>\n<li>Wayland: <code>sudo apt install fzf wl-clipboard</code></li>\n</ul>\n</li>\n</ul>\n<h3 id=\"clipboard-not-working\">Clipboard not working</h3>\n<ul>\n<li>Verify your clipboard tool is installed: <code>which pbcopy</code> or <code>which xclip</code></li>\n<li>For SSH sessions, use <code>pbcopy</code> forwarding or remote clipboard tools</li>\n</ul>\n<h2 id=\"performance\">Performance</h2>\n<ul>\n<li>Negligible overhead - works even in large scrollbacks</li>\n<li>Uses efficient <code>grep</code> patterns for extraction</li>\n<li>Non-blocking UI (fzf is highly optimized)</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>GNU General Public License v3 — see LICENSE file</p>\n<h2 id=\"contributing\">Contributing</h2>\n<p>Found a bug or want a feature? Open an issue or PR on <a href=\"https://github.com/ejfox/tmux-link-grab\">GitHub</a>.</p>",
-    "raw": "# tmux-link-grab\n\nElegant seek-mode for URLs and IPs in tmux. Hit `prefix + s`, numbered list appears, type the number, it copies to clipboard.\n\n## Features\n\n- **Zero friction**: One keybinding to access all URLs and IPs\n- **Smart extraction**: Finds `https://`, `http://`, `ftp://` URLs and IPv4 addresses\n- **Fast selection**: Number-based picking (like vim's `s` or neovim's `leap.nvim`)\n- **Refined feedback**: Clean message confirmation\n- **Cross-platform**: Works on macOS (pbcopy), Linux (xclip/wl-copy)\n- **Bulletproof**: Full error handling, dependency checks, graceful degradation\n- **Window-wide**: Searches entire window (all panes at once)\n- **Scrollback aware**: Searches last 100 lines (configurable)\n- **Idempotent**: Safe to call repeatedly without side effects\n\n## Install\n\n### With TPM (recommended)\n\nAdd to `~/.tmux.conf`:\n```tmux\nset -g @plugin 'ejfox/tmux-link-grab'\nbind-key s run-shell \"~/.tmux/plugins/tmux-link-grab/grab-links.sh\"\n```\n\nThen in tmux: `prefix + I` to install.\n\n### Manual\n\n```bash\ngit clone https://github.com/ejfox/tmux-link-grab ~/.tmux/plugins/tmux-link-grab\n```\n\nAdd to `~/.tmux.conf`:\n```tmux\nbind-key s display-popup -E \"~/.tmux/plugins/tmux-link-grab/grab-links.sh\"\n```\n\nReload: `tmux source-file ~/.tmux.conf`\n\n## Usage\n\n1. Press `prefix + s` (or whatever key you bind)\n2. Numbered list of URLs and IPs appear in fzf\n3. Type the number to select (or arrow keys + enter)\n4. Message confirms: `✓ Copied: [URL]`\n\n### Keyboard shortcuts in fzf menu\n\n- **Enter** - Copy selected URL\n- **Esc** - Cancel (return without copying)\n- **Arrow keys** - Navigate\n- **Type** - Filter/search\n\n## Configuration\n\nEdit the top of `grab-links.sh` to customize:\n\n```bash\nSCROLLBACK_LINES=100    # Lines to search back through\n```\n\n## Supported Patterns\n\n**URLs:**\n- `https://example.com/path?query=value#fragment`\n- `http://example.com`\n- `ftp://example.com`\n\n**Network:**\n- `192.168.1.1`\n- `10.0.0.1:8080`\n\n## Requirements\n\n- **tmux** (1.9+)\n- **fzf** - for the selection menu\n- **grep** - URL/IP extraction\n- **One of**: `pbcopy` (macOS), `xclip` (Linux X11), or `wl-copy` (Linux Wayland)\n\nMissing dependencies will be caught and reported with a clear error message.\n\n## Error Handling\n\nThe plugin includes:\n- Dependency validation (checks for required tools at runtime)\n- Graceful error messages if dependencies are missing\n- Cross-platform clipboard detection\n- Empty scrollback handling\n- User cancellation support (esc key)\n- Safe piping with `set -euo pipefail`\n\n## Troubleshooting\n\n### \"No URLs or IPs found\"\n- Make sure there are URLs/IPs in the current window's scrollback\n- Try scrolling up to add more history\n\n### \"Missing dependencies\"\n- **macOS**: Should work out of the box with `pbcopy`\n- **Linux**: Install `fzf` and either `xclip` or `wl-copy`:\n  - Ubuntu/Debian: `sudo apt install fzf xclip`\n  - Fedora: `sudo dnf install fzf xclip`\n  - Wayland: `sudo apt install fzf wl-clipboard`\n\n### Clipboard not working\n- Verify your clipboard tool is installed: `which pbcopy` or `which xclip`\n- For SSH sessions, use `pbcopy` forwarding or remote clipboard tools\n\n## Performance\n\n- Negligible overhead - works even in large scrollbacks\n- Uses efficient `grep` patterns for extraction\n- Non-blocking UI (fzf is highly optimized)\n\n## License\n\nGNU General Public License v3 — see LICENSE file\n\n## Contributing\n\nFound a bug or want a feature? Open an issue or PR on [GitHub](https://github.com/ejfox/tmux-link-grab).\n",
-    "excerpt": "Elegant seek-mode for URLs and IPs in tmux. Hit prefix + s, numbered list appears, type the number, it copies to clipboard.\n\n\n\n- Zero friction: One keybinding t..."
+    "html": "<h1 id=\"tmux-link-grab\">tmux-link-grab</h1>\n<p>Fast URL/IP seeking for tmux. <code>prefix + s</code> → fzf → Enter=copy, Space=open.</p>\n<h2 id=\"what-it-grabs\">What it grabs</h2>\n<ul>\n<li><code>https://</code>, <code>http://</code>, <code>ftp://</code> URLs</li>\n<li><code>localhost:3000</code></li>\n<li><code>192.168.1.1:8080</code></li>\n<li>IPv4 addresses with optional ports</li>\n</ul>\n<h2 id=\"install\">Install</h2>\n<h3 id=\"tpm-recommended\">TPM (Recommended)</h3>\n<p>Add to your <code>~/.tmux.conf</code>:</p>\n<pre><code class=\"language-tmux\">set -g @plugin 'ejfox/tmux-link-grab'\n</code></pre>\n<p>Then press <code>prefix + I</code> to install.</p>\n<h3 id=\"manual\">Manual</h3>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/tmux-link-grab ~/.tmux/plugins/tmux-link-grab\n</code></pre>\n<p>Add to your <code>~/.tmux.conf</code>:</p>\n<pre><code class=\"language-tmux\">run-shell ~/.tmux/plugins/tmux-link-grab/plugin.tmux\n</code></pre>\n<p>Then reload tmux configuration:</p>\n<pre><code class=\"language-bash\">tmux source-file ~/.tmux.conf\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<p>Press <code>prefix + s</code> (default) to open the link grabber. Use fzf to navigate:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody><tr><td>↑/↓</td><td>Navigate links</td></tr><tr><td>Enter</td><td>Copy to clipboard</td></tr><tr><td>Space</td><td>Open in browser</td></tr><tr><td>Esc</td><td>Cancel</td></tr></tbody></table>\n<h2 id=\"configuration\">Configuration</h2>\n<p>Add these options to your <code>~/.tmux.conf</code> before the plugin declaration:</p>\n<pre><code class=\"language-tmux\"># Change the key binding (default: 's')\nset -g @link-grab-key 'u'\n\n# Number of scrollback lines to search (default: 200)\nset -g @link-grab-lines 500\n\n# Browser command (default: $BROWSER or xdg-open)\nset -g @link-grab-browser 'firefox'\n</code></pre>\n<h3 id=\"example-configuration\">Example Configuration</h3>\n<pre><code class=\"language-tmux\"># Customize tmux-link-grab\nset -g @link-grab-key 'u'\nset -g @link-grab-lines 1000\nset -g @link-grab-browser 'chromium'\n\n# Load plugins\nset -g @plugin 'tmux-plugins/tpm'\nset -g @plugin 'ejfox/tmux-link-grab'\n\n# Initialize TPM (keep at bottom)\nrun '~/.tmux/plugins/tpm/tpm'\n</code></pre>\n<h2 id=\"dependencies\">Dependencies</h2>\n<ul>\n<li><strong>fzf</strong> - Required for interactive selection</li>\n<li><strong>Clipboard tool</strong> (one of):\n<ul>\n<li><code>pbcopy</code> (macOS - built-in)</li>\n<li><code>xclip</code> (Linux X11)</li>\n<li><code>wl-copy</code> (Linux Wayland)</li>\n<li>Falls back to tmux buffer if none available</li>\n</ul>\n</li>\n</ul>\n<h2 id=\"troubleshooting\">Troubleshooting</h2>\n<h3 id=\"fzf-is-not-installed\">\"fzf is not installed\"</h3>\n<p>Install fzf:</p>\n<ul>\n<li>macOS: <code>brew install fzf</code></li>\n<li>Debian/Ubuntu: <code>apt install fzf</code></li>\n<li>Fedora: <code>dnf install fzf</code></li>\n</ul>\n<h3 id=\"no-clipboard-tool-found\">\"no clipboard tool found\"</h3>\n<p>Install a clipboard utility:</p>\n<ul>\n<li>Linux X11: <code>apt install xclip</code> or <code>dnf install xclip</code></li>\n<li>Linux Wayland: <code>apt install wl-clipboard</code> or <code>dnf install wl-clipboard</code></li>\n</ul>\n<p>The plugin will still work with tmux's internal buffer if no system clipboard is available.</p>\n<h3 id=\"key-binding-doesnt-work\">Key binding doesn't work</h3>\n<p>Make sure you reload your tmux configuration after installation:</p>\n<pre><code class=\"language-bash\">tmux source-file ~/.tmux.conf\n</code></pre>\n<p>Or restart tmux entirely.</p>\n<h2 id=\"license\">License</h2>\n<p>GNU GPL v3</p>",
+    "raw": "# tmux-link-grab\n\nFast URL/IP seeking for tmux. `prefix + s` → fzf → Enter=copy, Space=open.\n\n## What it grabs\n\n- `https://`, `http://`, `ftp://` URLs\n- `localhost:3000`\n- `192.168.1.1:8080`\n- IPv4 addresses with optional ports\n\n## Install\n\n### TPM (Recommended)\n\nAdd to your `~/.tmux.conf`:\n\n```tmux\nset -g @plugin 'ejfox/tmux-link-grab'\n```\n\nThen press `prefix + I` to install.\n\n### Manual\n\n```bash\ngit clone https://github.com/ejfox/tmux-link-grab ~/.tmux/plugins/tmux-link-grab\n```\n\nAdd to your `~/.tmux.conf`:\n\n```tmux\nrun-shell ~/.tmux/plugins/tmux-link-grab/plugin.tmux\n```\n\nThen reload tmux configuration:\n\n```bash\ntmux source-file ~/.tmux.conf\n```\n\n## Usage\n\nPress `prefix + s` (default) to open the link grabber. Use fzf to navigate:\n\n| Key | Action |\n|-----|--------|\n| ↑/↓ | Navigate links |\n| Enter | Copy to clipboard |\n| Space | Open in browser |\n| Esc | Cancel |\n\n## Configuration\n\nAdd these options to your `~/.tmux.conf` before the plugin declaration:\n\n```tmux\n# Change the key binding (default: 's')\nset -g @link-grab-key 'u'\n\n# Number of scrollback lines to search (default: 200)\nset -g @link-grab-lines 500\n\n# Browser command (default: $BROWSER or xdg-open)\nset -g @link-grab-browser 'firefox'\n```\n\n### Example Configuration\n\n```tmux\n# Customize tmux-link-grab\nset -g @link-grab-key 'u'\nset -g @link-grab-lines 1000\nset -g @link-grab-browser 'chromium'\n\n# Load plugins\nset -g @plugin 'tmux-plugins/tpm'\nset -g @plugin 'ejfox/tmux-link-grab'\n\n# Initialize TPM (keep at bottom)\nrun '~/.tmux/plugins/tpm/tpm'\n```\n\n## Dependencies\n\n- **fzf** - Required for interactive selection\n- **Clipboard tool** (one of):\n  - `pbcopy` (macOS - built-in)\n  - `xclip` (Linux X11)\n  - `wl-copy` (Linux Wayland)\n  - Falls back to tmux buffer if none available\n\n## Troubleshooting\n\n### \"fzf is not installed\"\n\nInstall fzf:\n- macOS: `brew install fzf`\n- Debian/Ubuntu: `apt install fzf`\n- Fedora: `dnf install fzf`\n\n### \"no clipboard tool found\"\n\nInstall a clipboard utility:\n- Linux X11: `apt install xclip` or `dnf install xclip`\n- Linux Wayland: `apt install wl-clipboard` or `dnf install wl-clipboard`\n\nThe plugin will still work with tmux's internal buffer if no system clipboard is available.\n\n### Key binding doesn't work\n\nMake sure you reload your tmux configuration after installation:\n```bash\ntmux source-file ~/.tmux.conf\n```\n\nOr restart tmux entirely.\n\n## License\n\nGNU GPL v3\n",
+    "excerpt": "Fast URL/IP seeking for tmux. prefix + s → fzf → Enter=copy, Space=open.\n\n\n\n- https://, http://, ftp:// URLs\n- localhost:3000\n- 192.168.1.1:8080\n- IPv4 addresse..."
   },
   "createdAt": "2025-12-09T17:39:32Z",
-  "updatedAt": "2025-12-09T17:59:18Z",
-  "pushedAt": "2025-12-09T17:59:15Z"
+  "updatedAt": "2026-01-11T04:16:38Z",
+  "pushedAt": "2026-01-11T04:16:34Z"
 }

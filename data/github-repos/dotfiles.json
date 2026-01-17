@@ -12,15 +12,15 @@
   "language": "Shell",
   "languageColor": "#89e051",
   "languages": {
-    "Shell": 274320,
-    "GLSL": 170263,
-    "Lua": 120280,
+    "Shell": 280252,
+    "GLSL": 176199,
+    "Lua": 123408,
     "Vim Script": 83725,
     "JavaScript": 8622,
     "Less": 2089,
     "CSS": 1367
   },
-  "diskUsage": 63177,
+  "diskUsage": 63195,
   "fileTree": {
     "files": [
       {
@@ -213,7 +213,7 @@
       },
       {
         "path": ".config/ghostty/shaders/bloom-vulpes.glsl",
-        "size": 3445
+        "size": 4266
       },
       {
         "path": ".config/ghostty/shaders/bloom.glsl",
@@ -233,7 +233,7 @@
       },
       {
         "path": ".config/ghostty/shaders/cursor-blaze-vulpes.glsl",
-        "size": 6592
+        "size": 7439
       },
       {
         "path": ".config/ghostty/shaders/cursor-pulse-vulpes.glsl",
@@ -317,7 +317,7 @@
       },
       {
         "path": ".config/ghostty/shaders/mood-ink.glsl",
-        "size": 5631
+        "size": 6529
       },
       {
         "path": ".config/ghostty/shaders/negative.glsl",
@@ -325,7 +325,7 @@
       },
       {
         "path": ".config/ghostty/shaders/phosphor-chromatic-vulpes.glsl",
-        "size": 1791
+        "size": 2617
       },
       {
         "path": ".config/ghostty/shaders/retro-terminal.glsl",
@@ -357,7 +357,7 @@
       },
       {
         "path": ".config/ghostty/shaders/tft-subtle.glsl",
-        "size": 1172
+        "size": 1983
       },
       {
         "path": ".config/ghostty/shaders/tft.glsl",
@@ -413,11 +413,11 @@
       },
       {
         "path": ".config/ghostty/shaders/vignette-subtle.glsl",
-        "size": 1422
+        "size": 2329
       },
       {
         "path": ".config/ghostty/shaders/vignette-vulpes.glsl",
-        "size": 1109
+        "size": 1935
       },
       {
         "path": ".config/ghostty/shaders/vulpes-bloom.glsl",
@@ -541,11 +541,11 @@
       },
       {
         "path": ".config/nvim/colors/vulpes-reddishnovember-dark.lua",
-        "size": 18921
+        "size": 19990
       },
       {
         "path": ".config/nvim/colors/vulpes-reddishnovember-light.lua",
-        "size": 17397
+        "size": 18463
       },
       {
         "path": ".config/nvim/colors/vulpes_greenish_dark.lua",
@@ -656,6 +656,10 @@
         "size": 1209
       },
       {
+        "path": ".config/nvim/lua/plugins/mini-diff.lua",
+        "size": 993
+      },
+      {
         "path": ".config/nvim/lua/plugins/minimal-git.lua",
         "size": 2159
       },
@@ -748,6 +752,10 @@
         "size": 3800
       },
       {
+        "path": ".config/sketchybar/plugins/demos.sh",
+        "size": 2245
+      },
+      {
         "path": ".config/sketchybar/plugins/dev_dashboard.sh",
         "size": 4842
       },
@@ -781,7 +789,7 @@
       },
       {
         "path": ".config/sketchybar/plugins/mutagen.sh",
-        "size": 1308
+        "size": 1378
       },
       {
         "path": ".config/sketchybar/plugins/next_action.sh",
@@ -789,7 +797,11 @@
       },
       {
         "path": ".config/sketchybar/plugins/next_event.sh",
-        "size": 4915
+        "size": 5189
+      },
+      {
+        "path": ".config/sketchybar/plugins/notes.sh",
+        "size": 2256
       },
       {
         "path": ".config/sketchybar/plugins/photos.sh",
@@ -833,7 +845,7 @@
       },
       {
         "path": ".config/sketchybar/sketchybarrc",
-        "size": 5507
+        "size": 5732
       },
       {
         "path": ".config/wireshark/recent",
@@ -1049,7 +1061,7 @@
       },
       {
         "path": ".tmux.conf",
-        "size": 9452
+        "size": 9522
       },
       {
         "path": ".tweakcc-apply.sh",
@@ -1130,6 +1142,10 @@
       {
         "path": "bin/pub",
         "size": 10555
+      },
+      {
+        "path": "bin/tmux-mutagen-status",
+        "size": 792
       },
       {
         "path": "bin/tmux-scratch-toggle",
@@ -1524,7 +1540,7 @@
                     },
                     {
                       "name": "bloom-vulpes.glsl",
-                      "size": 3445,
+                      "size": 4266,
                       "path": ".config/ghostty/shaders/bloom-vulpes.glsl"
                     },
                     {
@@ -1549,7 +1565,7 @@
                     },
                     {
                       "name": "cursor-blaze-vulpes.glsl",
-                      "size": 6592,
+                      "size": 7439,
                       "path": ".config/ghostty/shaders/cursor-blaze-vulpes.glsl"
                     },
                     {
@@ -1654,7 +1670,7 @@
                     },
                     {
                       "name": "mood-ink.glsl",
-                      "size": 5631,
+                      "size": 6529,
                       "path": ".config/ghostty/shaders/mood-ink.glsl"
                     },
                     {
@@ -1664,7 +1680,7 @@
                     },
                     {
                       "name": "phosphor-chromatic-vulpes.glsl",
-                      "size": 1791,
+                      "size": 2617,
                       "path": ".config/ghostty/shaders/phosphor-chromatic-vulpes.glsl"
                     },
                     {
@@ -1704,7 +1720,7 @@
                     },
                     {
                       "name": "tft-subtle.glsl",
-                      "size": 1172,
+                      "size": 1983,
                       "path": ".config/ghostty/shaders/tft-subtle.glsl"
                     },
                     {
@@ -1719,12 +1735,12 @@
                     },
                     {
                       "name": "vignette-subtle.glsl",
-                      "size": 1422,
+                      "size": 2329,
                       "path": ".config/ghostty/shaders/vignette-subtle.glsl"
                     },
                     {
                       "name": "vignette-vulpes.glsl",
-                      "size": 1109,
+                      "size": 1935,
                       "path": ".config/ghostty/shaders/vignette-vulpes.glsl"
                     },
                     {
@@ -1898,12 +1914,12 @@
                   "children": [
                     {
                       "name": "vulpes-reddishnovember-dark.lua",
-                      "size": 18921,
+                      "size": 19990,
                       "path": ".config/nvim/colors/vulpes-reddishnovember-dark.lua"
                     },
                     {
                       "name": "vulpes-reddishnovember-light.lua",
-                      "size": 17397,
+                      "size": 18463,
                       "path": ".config/nvim/colors/vulpes-reddishnovember-light.lua"
                     },
                     {
@@ -2046,6 +2062,11 @@
                           "name": "mini-animate.lua",
                           "size": 1209,
                           "path": ".config/nvim/lua/plugins/mini-animate.lua"
+                        },
+                        {
+                          "name": "mini-diff.lua",
+                          "size": 993,
+                          "path": ".config/nvim/lua/plugins/mini-diff.lua"
                         },
                         {
                           "name": "minimal-git.lua",
@@ -2228,6 +2249,11 @@
                       "path": ".config/sketchybar/plugins/daily_stats.sh"
                     },
                     {
+                      "name": "demos.sh",
+                      "size": 2245,
+                      "path": ".config/sketchybar/plugins/demos.sh"
+                    },
+                    {
                       "name": "dev_dashboard.sh",
                       "size": 4842,
                       "path": ".config/sketchybar/plugins/dev_dashboard.sh"
@@ -2269,7 +2295,7 @@
                     },
                     {
                       "name": "mutagen.sh",
-                      "size": 1308,
+                      "size": 1378,
                       "path": ".config/sketchybar/plugins/mutagen.sh"
                     },
                     {
@@ -2279,8 +2305,13 @@
                     },
                     {
                       "name": "next_event.sh",
-                      "size": 4915,
+                      "size": 5189,
                       "path": ".config/sketchybar/plugins/next_event.sh"
+                    },
+                    {
+                      "name": "notes.sh",
+                      "size": 2256,
+                      "path": ".config/sketchybar/plugins/notes.sh"
                     },
                     {
                       "name": "photos.sh",
@@ -2337,7 +2368,7 @@
                 },
                 {
                   "name": "sketchybarrc",
-                  "size": 5507,
+                  "size": 5732,
                   "path": ".config/sketchybar/sketchybarrc"
                 }
               ],
@@ -2726,6 +2757,11 @@
               "path": "bin/pub"
             },
             {
+              "name": "tmux-mutagen-status",
+              "size": 792,
+              "path": "bin/tmux-mutagen-status"
+            },
+            {
               "name": "tmux-scratch-toggle",
               "size": 636,
               "path": "bin/tmux-scratch-toggle"
@@ -2847,7 +2883,7 @@
         },
         {
           "name": ".tmux.conf",
-          "size": 9452,
+          "size": 9522,
           "path": ".tmux.conf"
         },
         {
@@ -2938,8 +2974,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 286,
-    "totalSize": 20283717
+    "totalFiles": 290,
+    "totalSize": 20298713
   },
   "topics": [],
   "readme": {
@@ -2948,6 +2984,6 @@
     "excerpt": "Minimalist terminal configuration focused on functional beauty, speed-of-thought workflows, and distraction-free computing.\n\n\n- Geometric symbols throughout int..."
   },
   "createdAt": "2019-04-07T22:09:55Z",
-  "updatedAt": "2025-12-29T21:19:40Z",
-  "pushedAt": "2025-12-29T21:19:36Z"
+  "updatedAt": "2026-01-12T20:25:10Z",
+  "pushedAt": "2026-01-12T20:25:06Z"
 }

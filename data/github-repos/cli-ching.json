@@ -12,9 +12,9 @@
   "language": "JavaScript",
   "languageColor": "#f1e05a",
   "languages": {
-    "JavaScript": 9762
+    "JavaScript": 12654
   },
-  "diskUsage": 33,
+  "diskUsage": 63,
   "fileTree": {
     "files": [
       {
@@ -23,7 +23,7 @@
       },
       {
         "path": "README.md",
-        "size": 2528
+        "size": 3582
       },
       {
         "path": "config.js",
@@ -31,7 +31,7 @@
       },
       {
         "path": "index.js",
-        "size": 6123
+        "size": 9015
       },
       {
         "path": "index.mjs",
@@ -39,7 +39,7 @@
       },
       {
         "path": "package-lock.json",
-        "size": 30260
+        "size": 36712
       },
       {
         "path": "package.json",
@@ -47,7 +47,7 @@
       },
       {
         "path": "yarn.lock",
-        "size": 19972
+        "size": 24053
       }
     ],
     "tree": {
@@ -60,7 +60,7 @@
         },
         {
           "name": "README.md",
-          "size": 2528,
+          "size": 3582,
           "path": "README.md"
         },
         {
@@ -70,7 +70,7 @@
         },
         {
           "name": "index.js",
-          "size": 6123,
+          "size": 9015,
           "path": "index.js"
         },
         {
@@ -80,7 +80,7 @@
         },
         {
           "name": "package-lock.json",
-          "size": 30260,
+          "size": 36712,
           "path": "package-lock.json"
         },
         {
@@ -90,22 +90,22 @@
         },
         {
           "name": "yarn.lock",
-          "size": 19972,
+          "size": 24053,
           "path": "yarn.lock"
         }
       ],
       "path": ""
     },
     "totalFiles": 8,
-    "totalSize": 62969
+    "totalSize": 77448
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"cli-ching\">CLI-CHING</h1>\n<p>CLI-CHING is a command-line interface tool for consulting the I Ching (Book of Changes). It provides a digital means of casting hexagrams and receiving interpretations, blending ancient wisdom with modern technology. It does not cast for you, you must bring 3 coins and report their results back to the application, which will help you convert them into the correct line.</p>\n<p><a href=\"https://github.com/user-attachments/assets/133a7d1d-a4bc-4131-b675-4de0b2466ddb\">https://github.com/user-attachments/assets/133a7d1d-a4bc-4131-b675-4de0b2466ddb</a></p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Simple command-line interface</li>\n<li>Flexible coin toss input</li>\n<li>Hexagram visualization</li>\n<li>AI-powered interpretations</li>\n<li>History of recent consultations</li>\n<li>Supports quick queries via command-line arguments</li>\n</ul>\n<h2 id=\"installation\">Installation</h2>\n<ol>\n<li>Ensure you have Node.js installed on your system.</li>\n<li>Clone this repository:\n<pre><code>git clone https://github.com/yourusername/cli-ching.git\ncd cli-ching\n</code></pre>\n</li>\n<li>Install the required dependencies:\n<pre><code>npm install\n</code></pre>\n</li>\n</ol>\n<h2 id=\"usage\">Usage</h2>\n<h3 id=\"basic-usage\">Basic Usage</h3>\n<p>Run the script with:</p>\n<pre><code>node index.js\n</code></pre>\n<p>Follow the prompts to enter your question and coin tosses.</p>\n<h3 id=\"quick-query\">Quick Query</h3>\n<p>You can also start a consultation with a question directly from the command line:</p>\n<pre><code>node index.js -q \"Will my project succeed?\"\n</code></pre>\n<h2 id=\"coin-tossing\">Coin Tossing</h2>\n<p>When prompted, enter the results of your coin tosses using T for tails and H for heads. For example:</p>\n<ul>\n<li>TTT (3 tails)</li>\n<li>TTH, THT, or HTT (2 tails, 1 head)</li>\n<li>THH, HTH, or HHT (1 tail, 2 heads)</li>\n<li>HHH (3 heads)</li>\n</ul>\n<p>The order doesn't matter, so HTT is the same as TTH.</p>\n<h2 id=\"interpreting-results\">Interpreting Results</h2>\n<p>The tool will display your hexagram, including any changing lines. It will then provide an AI-generated interpretation based on your question and the resulting hexagram.</p>\n<h2 id=\"configuration\">Configuration</h2>\n<p>CLI-CHING automatically saves your consultations to a <code>.iching-throws</code> file in your home directory. The three most recent consultations are displayed when you start the tool.</p>\n<h2 id=\"dependencies\">Dependencies</h2>\n<ul>\n<li>axios: For making HTTP requests to the AI interpretation service</li>\n<li>figlet: For generating ASCII art text</li>\n<li>readline: For handling user input (built into Node.js)</li>\n</ul>\n<h2 id=\"ai-interpretation\">AI Interpretation</h2>\n<p>The tool uses a local LLM (Language Model) running on <code>http://localhost:1234</code> for generating interpretations. Ensure your LLM server is running before using the interpretation feature.</p>\n<h2 id=\"customization\">Customization</h2>\n<p>You can modify the <code>getInterpretation</code> function in <code>index.js</code> to use a different AI service or to implement your own interpretation logic.</p>\n<h2 id=\"contributing\">Contributing</h2>\n<p>Contributions are welcome! Please feel free to submit a Pull Request.</p>",
-    "raw": "# CLI-CHING\n\nCLI-CHING is a command-line interface tool for consulting the I Ching (Book of Changes). It provides a digital means of casting hexagrams and receiving interpretations, blending ancient wisdom with modern technology. It does not cast for you, you must bring 3 coins and report their results back to the application, which will help you convert them into the correct line. \n\n\n\nhttps://github.com/user-attachments/assets/133a7d1d-a4bc-4131-b675-4de0b2466ddb\n\n\n\n## Features\n\n- Simple command-line interface\n- Flexible coin toss input\n- Hexagram visualization\n- AI-powered interpretations\n- History of recent consultations\n- Supports quick queries via command-line arguments\n\n## Installation\n\n1. Ensure you have Node.js installed on your system.\n2. Clone this repository:\n   ```\n   git clone https://github.com/yourusername/cli-ching.git\n   cd cli-ching\n   ```\n3. Install the required dependencies:\n   ```\n   npm install\n   ```\n\n## Usage\n\n### Basic Usage\n\nRun the script with:\n\n```\nnode index.js\n```\n\nFollow the prompts to enter your question and coin tosses.\n\n### Quick Query\n\nYou can also start a consultation with a question directly from the command line:\n\n```\nnode index.js -q \"Will my project succeed?\"\n```\n\n## Coin Tossing\n\nWhen prompted, enter the results of your coin tosses using T for tails and H for heads. For example:\n\n- TTT (3 tails)\n- TTH, THT, or HTT (2 tails, 1 head)\n- THH, HTH, or HHT (1 tail, 2 heads)\n- HHH (3 heads)\n\nThe order doesn't matter, so HTT is the same as TTH.\n\n## Interpreting Results\n\nThe tool will display your hexagram, including any changing lines. It will then provide an AI-generated interpretation based on your question and the resulting hexagram.\n\n## Configuration\n\nCLI-CHING automatically saves your consultations to a `.iching-throws` file in your home directory. The three most recent consultations are displayed when you start the tool.\n\n## Dependencies\n\n- axios: For making HTTP requests to the AI interpretation service\n- figlet: For generating ASCII art text\n- readline: For handling user input (built into Node.js)\n\n## AI Interpretation\n\nThe tool uses a local LLM (Language Model) running on `http://localhost:1234` for generating interpretations. Ensure your LLM server is running before using the interpretation feature.\n\n## Customization\n\nYou can modify the `getInterpretation` function in `index.js` to use a different AI service or to implement your own interpretation logic.\n\n## Contributing\n\nContributions are welcome! Please feel free to submit a Pull Request.\n",
+    "html": "<h1 id=\"cli-ching\">CLI-CHING</h1>\n<p>CLI-CHING is a command-line interface tool for consulting the I Ching (Book of Changes). It provides a digital means of casting hexagrams and receiving interpretations, blending ancient wisdom with modern technology. It does not cast for you, you must bring 3 coins and report their results back to the application, which will help you convert them into the correct line.</p>\n<p><a href=\"https://github.com/user-attachments/assets/133a7d1d-a4bc-4131-b675-4de0b2466ddb\">https://github.com/user-attachments/assets/133a7d1d-a4bc-4131-b675-4de0b2466ddb</a></p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Simple command-line interface</li>\n<li>Flexible coin toss input</li>\n<li><strong>Natural RNG Mode</strong>: Automatic hexagram generation using true random numbers from natural processes\n<ul>\n<li>Random.org (atmospheric noise)</li>\n<li>ANU Quantum Random Numbers (quantum phenomena)</li>\n<li>Graceful fallback to pseudo-random if APIs unavailable</li>\n</ul>\n</li>\n<li>Hexagram visualization</li>\n<li>AI-powered interpretations</li>\n<li>History of recent consultations</li>\n<li>Supports quick queries via command-line arguments</li>\n</ul>\n<h2 id=\"installation\">Installation</h2>\n<ol>\n<li>Ensure you have Node.js installed on your system.</li>\n<li>Clone this repository:\n<pre><code>git clone https://github.com/yourusername/cli-ching.git\ncd cli-ching\n</code></pre>\n</li>\n<li>Install the required dependencies:\n<pre><code>npm install\n</code></pre>\n</li>\n</ol>\n<h2 id=\"usage\">Usage</h2>\n<h3 id=\"basic-usage\">Basic Usage</h3>\n<p>Run the script with:</p>\n<pre><code>node index.js\n</code></pre>\n<p>Follow the prompts to enter your question and coin tosses.</p>\n<h3 id=\"quick-query\">Quick Query</h3>\n<p>You can also start a consultation with a question directly from the command line:</p>\n<pre><code>node index.js -q \"Will my project succeed?\"\n</code></pre>\n<h3 id=\"natural-rng-mode-automatic-coin-tosses\">Natural RNG Mode (Automatic Coin Tosses)</h3>\n<p>For a fully automated experience, use the <code>--auto</code> or <code>-a</code> flag to generate hexagrams using true random numbers from natural processes:</p>\n<pre><code>node index.js --auto -q \"What should I focus on today?\"\n</code></pre>\n<p>This mode uses:</p>\n<ol>\n<li><strong>Random.org</strong> - True random numbers generated from atmospheric noise</li>\n<li><strong>ANU Quantum Random Numbers</strong> - Random numbers from quantum phenomena (fallback)</li>\n<li><strong>Pseudo-random generator</strong> - Standard RNG if natural sources are unavailable</li>\n</ol>\n<p>⚠️ <strong>Important Note</strong>: The traditional method of physically throwing coins is considered the proper and preferred way to consult the I Ching. The physical act of casting is an integral part of the divination process. The natural RNG mode should only be used when physical coins are not available.</p>\n<h2 id=\"coin-tossing\">Coin Tossing</h2>\n<p>When prompted, enter the results of your coin tosses using T for tails and H for heads. For example:</p>\n<ul>\n<li>TTT (3 tails)</li>\n<li>TTH, THT, or HTT (2 tails, 1 head)</li>\n<li>THH, HTH, or HHT (1 tail, 2 heads)</li>\n<li>HHH (3 heads)</li>\n</ul>\n<p>The order doesn't matter, so HTT is the same as TTH.</p>\n<h2 id=\"interpreting-results\">Interpreting Results</h2>\n<p>The tool will display your hexagram, including any changing lines. It will then provide an AI-generated interpretation based on your question and the resulting hexagram.</p>\n<h2 id=\"configuration\">Configuration</h2>\n<p>CLI-CHING automatically saves your consultations to a <code>.iching-throws</code> file in your home directory. The three most recent consultations are displayed when you start the tool.</p>\n<h2 id=\"dependencies\">Dependencies</h2>\n<ul>\n<li>axios: For making HTTP requests to the AI interpretation service</li>\n<li>figlet: For generating ASCII art text</li>\n<li>readline: For handling user input (built into Node.js)</li>\n</ul>\n<h2 id=\"ai-interpretation\">AI Interpretation</h2>\n<p>The tool uses a local LLM (Language Model) running on <code>http://localhost:1234</code> for generating interpretations. Ensure your LLM server is running before using the interpretation feature.</p>\n<h2 id=\"customization\">Customization</h2>\n<p>You can modify the <code>getInterpretation</code> function in <code>index.js</code> to use a different AI service or to implement your own interpretation logic.</p>\n<h2 id=\"contributing\">Contributing</h2>\n<p>Contributions are welcome! Please feel free to submit a Pull Request.</p>",
+    "raw": "# CLI-CHING\n\nCLI-CHING is a command-line interface tool for consulting the I Ching (Book of Changes). It provides a digital means of casting hexagrams and receiving interpretations, blending ancient wisdom with modern technology. It does not cast for you, you must bring 3 coins and report their results back to the application, which will help you convert them into the correct line. \n\n\n\nhttps://github.com/user-attachments/assets/133a7d1d-a4bc-4131-b675-4de0b2466ddb\n\n\n\n## Features\n\n- Simple command-line interface\n- Flexible coin toss input\n- **Natural RNG Mode**: Automatic hexagram generation using true random numbers from natural processes\n  - Random.org (atmospheric noise)\n  - ANU Quantum Random Numbers (quantum phenomena)\n  - Graceful fallback to pseudo-random if APIs unavailable\n- Hexagram visualization\n- AI-powered interpretations\n- History of recent consultations\n- Supports quick queries via command-line arguments\n\n## Installation\n\n1. Ensure you have Node.js installed on your system.\n2. Clone this repository:\n   ```\n   git clone https://github.com/yourusername/cli-ching.git\n   cd cli-ching\n   ```\n3. Install the required dependencies:\n   ```\n   npm install\n   ```\n\n## Usage\n\n### Basic Usage\n\nRun the script with:\n\n```\nnode index.js\n```\n\nFollow the prompts to enter your question and coin tosses.\n\n### Quick Query\n\nYou can also start a consultation with a question directly from the command line:\n\n```\nnode index.js -q \"Will my project succeed?\"\n```\n\n### Natural RNG Mode (Automatic Coin Tosses)\n\nFor a fully automated experience, use the `--auto` or `-a` flag to generate hexagrams using true random numbers from natural processes:\n\n```\nnode index.js --auto -q \"What should I focus on today?\"\n```\n\nThis mode uses:\n1. **Random.org** - True random numbers generated from atmospheric noise\n2. **ANU Quantum Random Numbers** - Random numbers from quantum phenomena (fallback)\n3. **Pseudo-random generator** - Standard RNG if natural sources are unavailable\n\n⚠️ **Important Note**: The traditional method of physically throwing coins is considered the proper and preferred way to consult the I Ching. The physical act of casting is an integral part of the divination process. The natural RNG mode should only be used when physical coins are not available.\n\n## Coin Tossing\n\nWhen prompted, enter the results of your coin tosses using T for tails and H for heads. For example:\n\n- TTT (3 tails)\n- TTH, THT, or HTT (2 tails, 1 head)\n- THH, HTH, or HHT (1 tail, 2 heads)\n- HHH (3 heads)\n\nThe order doesn't matter, so HTT is the same as TTH.\n\n## Interpreting Results\n\nThe tool will display your hexagram, including any changing lines. It will then provide an AI-generated interpretation based on your question and the resulting hexagram.\n\n## Configuration\n\nCLI-CHING automatically saves your consultations to a `.iching-throws` file in your home directory. The three most recent consultations are displayed when you start the tool.\n\n## Dependencies\n\n- axios: For making HTTP requests to the AI interpretation service\n- figlet: For generating ASCII art text\n- readline: For handling user input (built into Node.js)\n\n## AI Interpretation\n\nThe tool uses a local LLM (Language Model) running on `http://localhost:1234` for generating interpretations. Ensure your LLM server is running before using the interpretation feature.\n\n## Customization\n\nYou can modify the `getInterpretation` function in `index.js` to use a different AI service or to implement your own interpretation logic.\n\n## Contributing\n\nContributions are welcome! Please feel free to submit a Pull Request.\n",
     "excerpt": "CLI-CHING is a command-line interface tool for consulting the I Ching (Book of Changes). It provides a digital means of casting hexagrams and receiving interpre..."
   },
   "createdAt": "2024-08-11T17:58:54Z",
-  "updatedAt": "2025-02-25T17:18:45Z",
-  "pushedAt": "2025-02-25T17:18:41Z"
+  "updatedAt": "2026-01-12T01:19:36Z",
+  "pushedAt": "2026-01-12T01:19:32Z"
 }

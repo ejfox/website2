@@ -15,7 +15,7 @@ tags:
 
 ## The Context
 
-[Subway Builder](https://subwaybuilder.xyz) is Colin Rothfels' indie transit sim—think Mini Metro meets real-world transit planning. I've been helping with modding tools and building mods that push what the game can do.
+[Subway Builder](https://subwaybuilder.xyz) is Colin's indie transit sim—think Mini Metro meets real-world transit planning. I've been helping with modding tools and building mods that push what the game can do.
 
 ## What I Built
 

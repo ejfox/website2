@@ -1,0 +1,505 @@
+{
+  "name": "vulpino",
+  "description": "JSON → Beautiful iOS Widget in 60 Seconds. Paste a URL, pick your data, choose a template.",
+  "url": "https://github.com/ejfox/vulpino",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Swift",
+  "languageColor": "#F05138",
+  "languages": {
+    "Swift": 139814,
+    "HTML": 11420
+  },
+  "diskUsage": 62,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 271
+      },
+      {
+        "path": ".swiftlint.yml",
+        "size": 1017
+      },
+      {
+        "path": "ETYMOLOGY.md",
+        "size": 2563
+      },
+      {
+        "path": "README.md",
+        "size": 4071
+      },
+      {
+        "path": "Shared/Sources/Formatters.swift",
+        "size": 6564
+      },
+      {
+        "path": "Shared/Sources/JSONValue.swift",
+        "size": 6045
+      },
+      {
+        "path": "Shared/Sources/TemplateViews.swift",
+        "size": 16456
+      },
+      {
+        "path": "Shared/Sources/WidgetConfig.swift",
+        "size": 5592
+      },
+      {
+        "path": "Shared/Sources/WidgetTemplate.swift",
+        "size": 3761
+      },
+      {
+        "path": "Vulpino.xcodeproj/project.pbxproj",
+        "size": 24857
+      },
+      {
+        "path": "VulpinoApp/Assets.xcassets/AccentColor.colorset/Contents.json",
+        "size": 329
+      },
+      {
+        "path": "VulpinoApp/Assets.xcassets/AppIcon.appiconset/Contents.json",
+        "size": 217
+      },
+      {
+        "path": "VulpinoApp/Assets.xcassets/Contents.json",
+        "size": 63
+      },
+      {
+        "path": "VulpinoApp/Assets.xcassets/LaunchBackground.colorset/Contents.json",
+        "size": 695
+      },
+      {
+        "path": "VulpinoApp/Info.plist",
+        "size": 1935
+      },
+      {
+        "path": "VulpinoApp/PrivacyInfo.xcprivacy",
+        "size": 815
+      },
+      {
+        "path": "VulpinoApp/Sources/Services/APIService.swift",
+        "size": 7454
+      },
+      {
+        "path": "VulpinoApp/Sources/Services/HapticService.swift",
+        "size": 1421
+      },
+      {
+        "path": "VulpinoApp/Sources/Services/KeychainService.swift",
+        "size": 3039
+      },
+      {
+        "path": "VulpinoApp/Sources/Services/StorageService.swift",
+        "size": 6841
+      },
+      {
+        "path": "VulpinoApp/Sources/ViewModels/WidgetEditorViewModel.swift",
+        "size": 6340
+      },
+      {
+        "path": "VulpinoApp/Sources/Views/AppIconView.swift",
+        "size": 2934
+      },
+      {
+        "path": "VulpinoApp/Sources/Views/JSONTreeView.swift",
+        "size": 11442
+      },
+      {
+        "path": "VulpinoApp/Sources/Views/OnboardingView.swift",
+        "size": 4086
+      },
+      {
+        "path": "VulpinoApp/Sources/Views/SettingsView.swift",
+        "size": 6659
+      },
+      {
+        "path": "VulpinoApp/Sources/Views/TemplatePickerView.swift",
+        "size": 4390
+      },
+      {
+        "path": "VulpinoApp/Sources/Views/WidgetCreatedView.swift",
+        "size": 5926
+      },
+      {
+        "path": "VulpinoApp/Sources/Views/WidgetEditorView.swift",
+        "size": 23725
+      },
+      {
+        "path": "VulpinoApp/Sources/Views/WidgetListView.swift",
+        "size": 8178
+      },
+      {
+        "path": "VulpinoApp/Sources/VulpinoApp.swift",
+        "size": 998
+      },
+      {
+        "path": "VulpinoApp/Vulpino.entitlements",
+        "size": 413
+      },
+      {
+        "path": "VulpinoWidget/PrivacyInfo.xcprivacy",
+        "size": 598
+      },
+      {
+        "path": "VulpinoWidget/Sources/SelectWidgetIntent.swift",
+        "size": 1865
+      },
+      {
+        "path": "VulpinoWidget/Sources/VulpinoWidget.swift",
+        "size": 6098
+      },
+      {
+        "path": "VulpinoWidget/VulpinoWidget-Info.plist",
+        "size": 938
+      },
+      {
+        "path": "VulpinoWidget/VulpinoWidgetExtension.entitlements",
+        "size": 413
+      },
+      {
+        "path": "appstore/description.md",
+        "size": 2366
+      },
+      {
+        "path": "legal/privacy.html",
+        "size": 4976
+      },
+      {
+        "path": "legal/privacy.md",
+        "size": 2290
+      },
+      {
+        "path": "legal/terms.html",
+        "size": 6444
+      },
+      {
+        "path": "legal/terms.md",
+        "size": 3524
+      }
+    ],
+    "tree": {
+      "name": "vulpino",
+      "children": [
+        {
+          "name": "Shared",
+          "children": [
+            {
+              "name": "Sources",
+              "children": [
+                {
+                  "name": "Formatters.swift",
+                  "size": 6564,
+                  "path": "Shared/Sources/Formatters.swift"
+                },
+                {
+                  "name": "JSONValue.swift",
+                  "size": 6045,
+                  "path": "Shared/Sources/JSONValue.swift"
+                },
+                {
+                  "name": "TemplateViews.swift",
+                  "size": 16456,
+                  "path": "Shared/Sources/TemplateViews.swift"
+                },
+                {
+                  "name": "WidgetConfig.swift",
+                  "size": 5592,
+                  "path": "Shared/Sources/WidgetConfig.swift"
+                },
+                {
+                  "name": "WidgetTemplate.swift",
+                  "size": 3761,
+                  "path": "Shared/Sources/WidgetTemplate.swift"
+                }
+              ],
+              "path": "Shared/Sources"
+            }
+          ],
+          "path": "Shared"
+        },
+        {
+          "name": "Vulpino.xcodeproj",
+          "children": [
+            {
+              "name": "project.pbxproj",
+              "size": 24857,
+              "path": "Vulpino.xcodeproj/project.pbxproj"
+            }
+          ],
+          "path": "Vulpino.xcodeproj"
+        },
+        {
+          "name": "VulpinoApp",
+          "children": [
+            {
+              "name": "Assets.xcassets",
+              "children": [
+                {
+                  "name": "AccentColor.colorset",
+                  "children": [
+                    {
+                      "name": "Contents.json",
+                      "size": 329,
+                      "path": "VulpinoApp/Assets.xcassets/AccentColor.colorset/Contents.json"
+                    }
+                  ],
+                  "path": "VulpinoApp/Assets.xcassets/AccentColor.colorset"
+                },
+                {
+                  "name": "AppIcon.appiconset",
+                  "children": [
+                    {
+                      "name": "Contents.json",
+                      "size": 217,
+                      "path": "VulpinoApp/Assets.xcassets/AppIcon.appiconset/Contents.json"
+                    }
+                  ],
+                  "path": "VulpinoApp/Assets.xcassets/AppIcon.appiconset"
+                },
+                {
+                  "name": "LaunchBackground.colorset",
+                  "children": [
+                    {
+                      "name": "Contents.json",
+                      "size": 695,
+                      "path": "VulpinoApp/Assets.xcassets/LaunchBackground.colorset/Contents.json"
+                    }
+                  ],
+                  "path": "VulpinoApp/Assets.xcassets/LaunchBackground.colorset"
+                },
+                {
+                  "name": "Contents.json",
+                  "size": 63,
+                  "path": "VulpinoApp/Assets.xcassets/Contents.json"
+                }
+              ],
+              "path": "VulpinoApp/Assets.xcassets"
+            },
+            {
+              "name": "Sources",
+              "children": [
+                {
+                  "name": "Services",
+                  "children": [
+                    {
+                      "name": "APIService.swift",
+                      "size": 7454,
+                      "path": "VulpinoApp/Sources/Services/APIService.swift"
+                    },
+                    {
+                      "name": "HapticService.swift",
+                      "size": 1421,
+                      "path": "VulpinoApp/Sources/Services/HapticService.swift"
+                    },
+                    {
+                      "name": "KeychainService.swift",
+                      "size": 3039,
+                      "path": "VulpinoApp/Sources/Services/KeychainService.swift"
+                    },
+                    {
+                      "name": "StorageService.swift",
+                      "size": 6841,
+                      "path": "VulpinoApp/Sources/Services/StorageService.swift"
+                    }
+                  ],
+                  "path": "VulpinoApp/Sources/Services"
+                },
+                {
+                  "name": "ViewModels",
+                  "children": [
+                    {
+                      "name": "WidgetEditorViewModel.swift",
+                      "size": 6340,
+                      "path": "VulpinoApp/Sources/ViewModels/WidgetEditorViewModel.swift"
+                    }
+                  ],
+                  "path": "VulpinoApp/Sources/ViewModels"
+                },
+                {
+                  "name": "Views",
+                  "children": [
+                    {
+                      "name": "AppIconView.swift",
+                      "size": 2934,
+                      "path": "VulpinoApp/Sources/Views/AppIconView.swift"
+                    },
+                    {
+                      "name": "JSONTreeView.swift",
+                      "size": 11442,
+                      "path": "VulpinoApp/Sources/Views/JSONTreeView.swift"
+                    },
+                    {
+                      "name": "OnboardingView.swift",
+                      "size": 4086,
+                      "path": "VulpinoApp/Sources/Views/OnboardingView.swift"
+                    },
+                    {
+                      "name": "SettingsView.swift",
+                      "size": 6659,
+                      "path": "VulpinoApp/Sources/Views/SettingsView.swift"
+                    },
+                    {
+                      "name": "TemplatePickerView.swift",
+                      "size": 4390,
+                      "path": "VulpinoApp/Sources/Views/TemplatePickerView.swift"
+                    },
+                    {
+                      "name": "WidgetCreatedView.swift",
+                      "size": 5926,
+                      "path": "VulpinoApp/Sources/Views/WidgetCreatedView.swift"
+                    },
+                    {
+                      "name": "WidgetEditorView.swift",
+                      "size": 23725,
+                      "path": "VulpinoApp/Sources/Views/WidgetEditorView.swift"
+                    },
+                    {
+                      "name": "WidgetListView.swift",
+                      "size": 8178,
+                      "path": "VulpinoApp/Sources/Views/WidgetListView.swift"
+                    }
+                  ],
+                  "path": "VulpinoApp/Sources/Views"
+                },
+                {
+                  "name": "VulpinoApp.swift",
+                  "size": 998,
+                  "path": "VulpinoApp/Sources/VulpinoApp.swift"
+                }
+              ],
+              "path": "VulpinoApp/Sources"
+            },
+            {
+              "name": "Info.plist",
+              "size": 1935,
+              "path": "VulpinoApp/Info.plist"
+            },
+            {
+              "name": "PrivacyInfo.xcprivacy",
+              "size": 815,
+              "path": "VulpinoApp/PrivacyInfo.xcprivacy"
+            },
+            {
+              "name": "Vulpino.entitlements",
+              "size": 413,
+              "path": "VulpinoApp/Vulpino.entitlements"
+            }
+          ],
+          "path": "VulpinoApp"
+        },
+        {
+          "name": "VulpinoWidget",
+          "children": [
+            {
+              "name": "Sources",
+              "children": [
+                {
+                  "name": "SelectWidgetIntent.swift",
+                  "size": 1865,
+                  "path": "VulpinoWidget/Sources/SelectWidgetIntent.swift"
+                },
+                {
+                  "name": "VulpinoWidget.swift",
+                  "size": 6098,
+                  "path": "VulpinoWidget/Sources/VulpinoWidget.swift"
+                }
+              ],
+              "path": "VulpinoWidget/Sources"
+            },
+            {
+              "name": "PrivacyInfo.xcprivacy",
+              "size": 598,
+              "path": "VulpinoWidget/PrivacyInfo.xcprivacy"
+            },
+            {
+              "name": "VulpinoWidget-Info.plist",
+              "size": 938,
+              "path": "VulpinoWidget/VulpinoWidget-Info.plist"
+            },
+            {
+              "name": "VulpinoWidgetExtension.entitlements",
+              "size": 413,
+              "path": "VulpinoWidget/VulpinoWidgetExtension.entitlements"
+            }
+          ],
+          "path": "VulpinoWidget"
+        },
+        {
+          "name": "appstore",
+          "children": [
+            {
+              "name": "description.md",
+              "size": 2366,
+              "path": "appstore/description.md"
+            }
+          ],
+          "path": "appstore"
+        },
+        {
+          "name": "legal",
+          "children": [
+            {
+              "name": "privacy.html",
+              "size": 4976,
+              "path": "legal/privacy.html"
+            },
+            {
+              "name": "privacy.md",
+              "size": 2290,
+              "path": "legal/privacy.md"
+            },
+            {
+              "name": "terms.html",
+              "size": 6444,
+              "path": "legal/terms.html"
+            },
+            {
+              "name": "terms.md",
+              "size": 3524,
+              "path": "legal/terms.md"
+            }
+          ],
+          "path": "legal"
+        },
+        {
+          "name": ".gitignore",
+          "size": 271,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".swiftlint.yml",
+          "size": 1017,
+          "path": ".swiftlint.yml"
+        },
+        {
+          "name": "ETYMOLOGY.md",
+          "size": 2563,
+          "path": "ETYMOLOGY.md"
+        },
+        {
+          "name": "README.md",
+          "size": 4071,
+          "path": "README.md"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 41,
+    "totalSize": 198609
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"vulpino\">Vulpino</h1>\n<p><strong>JSON → Beautiful Widget in 60 Seconds</strong></p>\n<p>Vulpino turns any JSON API endpoint into a beautiful iOS widget. No code. No design skills. Just paste a URL, pick your data, choose a template, and deploy to your home screen.</p>\n<p><em>Vulpino dice no</em> to customization theater. <em>Vulpino dice sì</em> to your data, presented with respect.</p>\n<hr />\n<h2 id=\"features\">Features</h2>\n<ul>\n<li><strong>Five-tap flow</strong>: URL → Select Data → Template → Customize → Done</li>\n<li><strong>7 typographic templates</strong>: Mono Stat, Dual Stat, Stat Stack, Headline, List, Grid, Timestamp</li>\n<li><strong>All widget sizes</strong>: Small (2×2), Medium (4×2), Large (4×4)</li>\n<li><strong>Secure headers</strong>: API keys stored in Keychain</li>\n<li><strong>Offline-first</strong>: Cached data with stale indicators</li>\n<li><strong>Deep links</strong>: Tap widget to open custom URL or edit in app</li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li>iOS 17.0+</li>\n<li>Xcode 15.0+</li>\n</ul>\n<h2 id=\"building\">Building</h2>\n<ol>\n<li>Clone this repository</li>\n<li>Open <code>Vulpino.xcodeproj</code> in Xcode</li>\n<li>Select your development team in Signing &amp; Capabilities</li>\n<li>Update the App Group identifier if needed (<code>group.com.vulpino.widgets</code>)</li>\n<li>Build and run on device or simulator</li>\n</ol>\n<h3 id=\"app-icon\">App Icon</h3>\n<p>Add a 1024×1024 app icon to <code>VulpinoApp/Assets.xcassets/AppIcon.appiconset/</code>.</p>\n<p>The icon should embody the fox: minimal, geometric, typographic. Black on cream. No gradients.</p>\n<h2 id=\"architecture\">Architecture</h2>\n<pre><code>vulpino/\n├── Shared/                    # Shared between app and widget\n│   └── Sources/\n│       ├── JSONValue.swift    # Recursive JSON parser\n│       ├── WidgetConfig.swift # Widget configuration model\n│       ├── WidgetTemplate.swift\n│       ├── TemplateViews.swift\n│       └── Formatters.swift   # Number/date formatting\n├── VulpinoApp/\n│   └── Sources/\n│       ├── VulpinoApp.swift   # App entry + deep linking\n│       ├── Views/\n│       │   ├── OnboardingView.swift\n│       │   ├── WidgetListView.swift\n│       │   ├── WidgetEditorView.swift\n│       │   ├── WidgetCreatedView.swift\n│       │   ├── JSONTreeView.swift\n│       │   └── TemplatePickerView.swift\n│       ├── ViewModels/\n│       │   └── WidgetEditorViewModel.swift\n│       └── Services/\n│           ├── APIService.swift\n│           ├── StorageService.swift\n│           ├── KeychainService.swift\n│           └── HapticService.swift\n└── VulpinoWidget/\n    └── Sources/\n        ├── VulpinoWidget.swift\n        └── SelectWidgetIntent.swift\n</code></pre>\n<h2 id=\"templates\">Templates</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Template</th><th>Best For</th></tr></thead><tbody><tr><td><strong>Mono Stat</strong></td><td>Single hero number (visitors, revenue, uptime)</td></tr><tr><td><strong>Dual Stat</strong></td><td>Comparing two values (today vs yesterday)</td></tr><tr><td><strong>Stat Stack</strong></td><td>Dashboard summary (3-5 key metrics)</td></tr><tr><td><strong>Headline</strong></td><td>Latest status, most recent entry</td></tr><tr><td><strong>List</strong></td><td>Recent items, top 5, task list</td></tr><tr><td><strong>Grid</strong></td><td>Multi-metric dashboard (2×2 or 3×2)</td></tr><tr><td><strong>Timestamp</strong></td><td>Value with \"as of\" time (stock price, weather)</td></tr></tbody></table>\n<h2 id=\"design-philosophy\">Design Philosophy</h2>\n<blockquote>\n<p>\"The fox sees the scattered data of the forest—every leaf, every shadow, every scent—and knows instantly which path leads to the rabbit. He does not deliberate. He does not customize. He <em>sees</em> and he <em>acts</em>.\"</p>\n</blockquote>\n<p>Typography is the feature. Templates are opinionated. Users pick from well-designed options—they don't pick fonts, colors, or padding. The constraint is the product.</p>\n<p>See <a href=\"ETYMOLOGY.md\">ETYMOLOGY.md</a> for the full story of the brass fox.</p>\n<h2 id=\"example-endpoints\">Example Endpoints</h2>\n<p>Try these public APIs:</p>\n<ul>\n<li><strong>GitHub Status</strong>: <code>https://www.githubstatus.com/api/v2/status.json</code></li>\n<li><strong>Bitcoin Price</strong>: <code>https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&amp;vs_currencies=usd</code></li>\n<li><strong>Cat Facts</strong>: <code>https://catfact.ninja/fact</code></li>\n<li><strong>JSONPlaceholder</strong>: <code>https://jsonplaceholder.typicode.com/todos/1</code></li>\n</ul>\n<h2 id=\"url-scheme\">URL Scheme</h2>\n<p>Vulpino registers the <code>vulpino://</code> URL scheme:</p>\n<ul>\n<li><code>vulpino://</code> — Open app</li>\n<li><code>vulpino://widget/{uuid}</code> — Open widget editor for specific widget</li>\n</ul>\n<p>Widgets use custom tap URLs (configured per widget) or fall back to deep linking into the app.</p>\n<hr />\n<p><em>Room 302 Studio • 2025</em></p>",
+    "raw": "# Vulpino\n\n**JSON → Beautiful Widget in 60 Seconds**\n\nVulpino turns any JSON API endpoint into a beautiful iOS widget. No code. No design skills. Just paste a URL, pick your data, choose a template, and deploy to your home screen.\n\n*Vulpino dice no* to customization theater. *Vulpino dice sì* to your data, presented with respect.\n\n---\n\n## Features\n\n- **Five-tap flow**: URL → Select Data → Template → Customize → Done\n- **7 typographic templates**: Mono Stat, Dual Stat, Stat Stack, Headline, List, Grid, Timestamp\n- **All widget sizes**: Small (2×2), Medium (4×2), Large (4×4)\n- **Secure headers**: API keys stored in Keychain\n- **Offline-first**: Cached data with stale indicators\n- **Deep links**: Tap widget to open custom URL or edit in app\n\n## Requirements\n\n- iOS 17.0+\n- Xcode 15.0+\n\n## Building\n\n1. Clone this repository\n2. Open `Vulpino.xcodeproj` in Xcode\n3. Select your development team in Signing & Capabilities\n4. Update the App Group identifier if needed (`group.com.vulpino.widgets`)\n5. Build and run on device or simulator\n\n### App Icon\n\nAdd a 1024×1024 app icon to `VulpinoApp/Assets.xcassets/AppIcon.appiconset/`.\n\nThe icon should embody the fox: minimal, geometric, typographic. Black on cream. No gradients.\n\n## Architecture\n\n```\nvulpino/\n├── Shared/                    # Shared between app and widget\n│   └── Sources/\n│       ├── JSONValue.swift    # Recursive JSON parser\n│       ├── WidgetConfig.swift # Widget configuration model\n│       ├── WidgetTemplate.swift\n│       ├── TemplateViews.swift\n│       └── Formatters.swift   # Number/date formatting\n├── VulpinoApp/\n│   └── Sources/\n│       ├── VulpinoApp.swift   # App entry + deep linking\n│       ├── Views/\n│       │   ├── OnboardingView.swift\n│       │   ├── WidgetListView.swift\n│       │   ├── WidgetEditorView.swift\n│       │   ├── WidgetCreatedView.swift\n│       │   ├── JSONTreeView.swift\n│       │   └── TemplatePickerView.swift\n│       ├── ViewModels/\n│       │   └── WidgetEditorViewModel.swift\n│       └── Services/\n│           ├── APIService.swift\n│           ├── StorageService.swift\n│           ├── KeychainService.swift\n│           └── HapticService.swift\n└── VulpinoWidget/\n    └── Sources/\n        ├── VulpinoWidget.swift\n        └── SelectWidgetIntent.swift\n```\n\n## Templates\n\n| Template | Best For |\n|----------|----------|\n| **Mono Stat** | Single hero number (visitors, revenue, uptime) |\n| **Dual Stat** | Comparing two values (today vs yesterday) |\n| **Stat Stack** | Dashboard summary (3-5 key metrics) |\n| **Headline** | Latest status, most recent entry |\n| **List** | Recent items, top 5, task list |\n| **Grid** | Multi-metric dashboard (2×2 or 3×2) |\n| **Timestamp** | Value with \"as of\" time (stock price, weather) |\n\n## Design Philosophy\n\n> \"The fox sees the scattered data of the forest—every leaf, every shadow, every scent—and knows instantly which path leads to the rabbit. He does not deliberate. He does not customize. He *sees* and he *acts*.\"\n\nTypography is the feature. Templates are opinionated. Users pick from well-designed options—they don't pick fonts, colors, or padding. The constraint is the product.\n\nSee [ETYMOLOGY.md](ETYMOLOGY.md) for the full story of the brass fox.\n\n## Example Endpoints\n\nTry these public APIs:\n\n- **GitHub Status**: `https://www.githubstatus.com/api/v2/status.json`\n- **Bitcoin Price**: `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd`\n- **Cat Facts**: `https://catfact.ninja/fact`\n- **JSONPlaceholder**: `https://jsonplaceholder.typicode.com/todos/1`\n\n## URL Scheme\n\nVulpino registers the `vulpino://` URL scheme:\n\n- `vulpino://` — Open app\n- `vulpino://widget/{uuid}` — Open widget editor for specific widget\n\nWidgets use custom tap URLs (configured per widget) or fall back to deep linking into the app.\n\n---\n\n*Room 302 Studio • 2025*\n",
+    "excerpt": "JSON → Beautiful Widget in 60 Seconds\n\nVulpino turns any JSON API endpoint into a beautiful iOS widget. No code. No design skills. Just paste a URL, pick your d..."
+  },
+  "createdAt": "2026-01-10T23:15:10Z",
+  "updatedAt": "2026-01-10T23:57:33Z",
+  "pushedAt": "2026-01-10T23:57:29Z"
+}

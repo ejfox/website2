@@ -12,14 +12,14 @@
   "language": "Swift",
   "languageColor": "#F05138",
   "languages": {
-    "Swift": 152265,
-    "Zig": 46850,
-    "Metal": 9635,
+    "Swift": 191912,
+    "Zig": 54033,
+    "Metal": 11675,
     "C": 8924,
     "GLSL": 8399,
     "Shell": 1115
   },
-  "diskUsage": 202,
+  "diskUsage": 349,
   "fileTree": {
     "files": [
       {
@@ -28,7 +28,11 @@
       },
       {
         "path": "CLAUDE.md",
-        "size": 4385
+        "size": 5692
+      },
+      {
+        "path": "ENGINEERING.md",
+        "size": 21314
       },
       {
         "path": "README.md",
@@ -43,6 +47,10 @@
         "size": 4062
       },
       {
+        "path": "app/ImageAtlas.swift",
+        "size": 17061
+      },
+      {
         "path": "app/Info.plist",
         "size": 961
       },
@@ -51,8 +59,44 @@
         "size": 16829
       },
       {
+        "path": "app/MetalView+HintMode.swift",
+        "size": 9396
+      },
+      {
+        "path": "app/MetalView+LinkNavigation.swift",
+        "size": 2450
+      },
+      {
+        "path": "app/MetalView+ParticleSystem.swift",
+        "size": 9176
+      },
+      {
+        "path": "app/MetalView+Rendering.swift",
+        "size": 14988
+      },
+      {
+        "path": "app/MetalView+Scrolling.swift",
+        "size": 894
+      },
+      {
+        "path": "app/MetalView+Setup.swift",
+        "size": 12681
+      },
+      {
+        "path": "app/MetalView+Shaders.swift",
+        "size": 3352
+      },
+      {
+        "path": "app/MetalView+TextRendering.swift",
+        "size": 18628
+      },
+      {
+        "path": "app/MetalView+URLLoading.swift",
+        "size": 6297
+      },
+      {
         "path": "app/MetalView.swift",
-        "size": 76980
+        "size": 21367
       },
       {
         "path": "app/NavigationHistory.swift",
@@ -64,7 +108,7 @@
       },
       {
         "path": "app/Shaders.metal",
-        "size": 9635
+        "size": 11675
       },
       {
         "path": "app/TitleNormalizer.swift",
@@ -88,11 +132,35 @@
       },
       {
         "path": "app/VulpesConfig.swift",
-        "size": 10454
+        "size": 10791
       },
       {
         "path": "build.zig",
         "size": 4510
+      },
+      {
+        "path": "docs/IMAGE_RENDERING.md",
+        "size": 5318
+      },
+      {
+        "path": "docs/IMPLEMENTATION_SUMMARY.md",
+        "size": 8941
+      },
+      {
+        "path": "docs/PERFORMANCE.md",
+        "size": 8745
+      },
+      {
+        "path": "docs/PIPELINE.md",
+        "size": 13613
+      },
+      {
+        "path": "docs/REVIEW_SUMMARY.md",
+        "size": 6422
+      },
+      {
+        "path": "docs/TESTING.md",
+        "size": 7588
       },
       {
         "path": "docs/architecture/libvulpes-core.md",
@@ -191,6 +259,10 @@
         "size": 14829
       },
       {
+        "path": "docs/test-images.html",
+        "size": 2685
+      },
+      {
         "path": "project.yml",
         "size": 1857
       },
@@ -216,7 +288,7 @@
       },
       {
         "path": "src/html/text_extractor.zig",
-        "size": 24000
+        "size": 31074
       },
       {
         "path": "src/lib.zig",
@@ -228,7 +300,7 @@
       },
       {
         "path": "src/network/http.zig",
-        "size": 7017
+        "size": 7126
       },
       {
         "path": "src/vulpes.h",
@@ -252,6 +324,11 @@
               "path": "app/GlyphAtlas.swift"
             },
             {
+              "name": "ImageAtlas.swift",
+              "size": 17061,
+              "path": "app/ImageAtlas.swift"
+            },
+            {
               "name": "Info.plist",
               "size": 961,
               "path": "app/Info.plist"
@@ -262,8 +339,53 @@
               "path": "app/MainWindow.swift"
             },
             {
+              "name": "MetalView+HintMode.swift",
+              "size": 9396,
+              "path": "app/MetalView+HintMode.swift"
+            },
+            {
+              "name": "MetalView+LinkNavigation.swift",
+              "size": 2450,
+              "path": "app/MetalView+LinkNavigation.swift"
+            },
+            {
+              "name": "MetalView+ParticleSystem.swift",
+              "size": 9176,
+              "path": "app/MetalView+ParticleSystem.swift"
+            },
+            {
+              "name": "MetalView+Rendering.swift",
+              "size": 14988,
+              "path": "app/MetalView+Rendering.swift"
+            },
+            {
+              "name": "MetalView+Scrolling.swift",
+              "size": 894,
+              "path": "app/MetalView+Scrolling.swift"
+            },
+            {
+              "name": "MetalView+Setup.swift",
+              "size": 12681,
+              "path": "app/MetalView+Setup.swift"
+            },
+            {
+              "name": "MetalView+Shaders.swift",
+              "size": 3352,
+              "path": "app/MetalView+Shaders.swift"
+            },
+            {
+              "name": "MetalView+TextRendering.swift",
+              "size": 18628,
+              "path": "app/MetalView+TextRendering.swift"
+            },
+            {
+              "name": "MetalView+URLLoading.swift",
+              "size": 6297,
+              "path": "app/MetalView+URLLoading.swift"
+            },
+            {
               "name": "MetalView.swift",
-              "size": 76980,
+              "size": 21367,
               "path": "app/MetalView.swift"
             },
             {
@@ -278,7 +400,7 @@
             },
             {
               "name": "Shaders.metal",
-              "size": 9635,
+              "size": 11675,
               "path": "app/Shaders.metal"
             },
             {
@@ -308,7 +430,7 @@
             },
             {
               "name": "VulpesConfig.swift",
-              "size": 10454,
+              "size": 10791,
               "path": "app/VulpesConfig.swift"
             }
           ],
@@ -469,9 +591,44 @@
               "path": "docs/technical"
             },
             {
+              "name": "IMAGE_RENDERING.md",
+              "size": 5318,
+              "path": "docs/IMAGE_RENDERING.md"
+            },
+            {
+              "name": "IMPLEMENTATION_SUMMARY.md",
+              "size": 8941,
+              "path": "docs/IMPLEMENTATION_SUMMARY.md"
+            },
+            {
+              "name": "PERFORMANCE.md",
+              "size": 8745,
+              "path": "docs/PERFORMANCE.md"
+            },
+            {
+              "name": "PIPELINE.md",
+              "size": 13613,
+              "path": "docs/PIPELINE.md"
+            },
+            {
+              "name": "REVIEW_SUMMARY.md",
+              "size": 6422,
+              "path": "docs/REVIEW_SUMMARY.md"
+            },
+            {
+              "name": "TESTING.md",
+              "size": 7588,
+              "path": "docs/TESTING.md"
+            },
+            {
               "name": "tech-stack.md",
               "size": 12059,
               "path": "docs/tech-stack.md"
+            },
+            {
+              "name": "test-images.html",
+              "size": 2685,
+              "path": "docs/test-images.html"
             }
           ],
           "path": "docs"
@@ -521,7 +678,7 @@
               "children": [
                 {
                   "name": "text_extractor.zig",
-                  "size": 24000,
+                  "size": 31074,
                   "path": "src/html/text_extractor.zig"
                 }
               ],
@@ -532,7 +689,7 @@
               "children": [
                 {
                   "name": "http.zig",
-                  "size": 7017,
+                  "size": 7126,
                   "path": "src/network/http.zig"
                 }
               ],
@@ -563,8 +720,13 @@
         },
         {
           "name": "CLAUDE.md",
-          "size": 4385,
+          "size": 5692,
           "path": "CLAUDE.md"
+        },
+        {
+          "name": "ENGINEERING.md",
+          "size": 21314,
+          "path": "ENGINEERING.md"
         },
         {
           "name": "README.md",
@@ -584,8 +746,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 53,
-    "totalSize": 476635
+    "totalFiles": 71,
+    "totalSize": 601438
   },
   "topics": [],
   "readme": {
@@ -594,6 +756,6 @@
     "excerpt": "A minimalist, keyboard-first web browser for macOS. Built with Zig, Swift, and Metal.\n\n> Beta Release - This is early software. Expect rough edges.\n\n\n\nDownload..."
   },
   "createdAt": "2025-12-29T04:31:30Z",
-  "updatedAt": "2025-12-29T21:00:21Z",
-  "pushedAt": "2025-12-29T21:00:33Z"
+  "updatedAt": "2026-01-15T23:12:19Z",
+  "pushedAt": "2026-01-15T23:12:15Z"
 }

@@ -12,14 +12,30 @@
   "language": "Swift",
   "languageColor": "#F05138",
   "languages": {
-    "Swift": 74475
+    "Swift": 67829
   },
-  "diskUsage": 37,
+  "diskUsage": 55,
   "fileTree": {
     "files": [
       {
+        "path": "BRUTALIST_DESIGN.md",
+        "size": 2816
+      },
+      {
+        "path": "DESIGN_COMPARISON.md",
+        "size": 3113
+      },
+      {
         "path": "README.md",
         "size": 330
+      },
+      {
+        "path": "SUMMARY.md",
+        "size": 5731
+      },
+      {
+        "path": "TESTING_GUIDE.md",
+        "size": 4538
       },
       {
         "path": "Tempo.xcodeproj/project.pbxproj",
@@ -47,7 +63,7 @@
       },
       {
         "path": "Tempo/ContentView.swift",
-        "size": 26284
+        "size": 19638
       },
       {
         "path": "Tempo/Info.plist",
@@ -124,6 +140,10 @@
       {
         "path": "TempoWidgetsLiveActivity_TEMPLATE.swift",
         "size": 3605
+      },
+      {
+        "path": "VISUAL_REFERENCE.md",
+        "size": 5266
       }
     ],
     "tree": {
@@ -234,7 +254,7 @@
             },
             {
               "name": "ContentView.swift",
-              "size": 26284,
+              "size": 19638,
               "path": "Tempo/ContentView.swift"
             },
             {
@@ -363,20 +383,45 @@
           "path": "TempoWidgets"
         },
         {
+          "name": "BRUTALIST_DESIGN.md",
+          "size": 2816,
+          "path": "BRUTALIST_DESIGN.md"
+        },
+        {
+          "name": "DESIGN_COMPARISON.md",
+          "size": 3113,
+          "path": "DESIGN_COMPARISON.md"
+        },
+        {
           "name": "README.md",
           "size": 330,
           "path": "README.md"
         },
         {
+          "name": "SUMMARY.md",
+          "size": 5731,
+          "path": "SUMMARY.md"
+        },
+        {
+          "name": "TESTING_GUIDE.md",
+          "size": 4538,
+          "path": "TESTING_GUIDE.md"
+        },
+        {
           "name": "TempoWidgetsLiveActivity_TEMPLATE.swift",
           "size": 3605,
           "path": "TempoWidgetsLiveActivity_TEMPLATE.swift"
+        },
+        {
+          "name": "VISUAL_REFERENCE.md",
+          "size": 5266,
+          "path": "VISUAL_REFERENCE.md"
         }
       ],
       "path": ""
     },
-    "totalFiles": 27,
-    "totalSize": 113223
+    "totalFiles": 32,
+    "totalSize": 128041
   },
   "topics": [],
   "readme": {
@@ -385,6 +430,6 @@
     "excerpt": "<img width=\"484\" height=\"1030\" alt=\"screenshot 2025-08-16 at 11 51 04 AM\" src=\"https://github.com/user-attachments/assets/a2684407-d7e6-4266-98d7-a2c97e73667c\"..."
   },
   "createdAt": "2025-08-16T15:49:37Z",
-  "updatedAt": "2025-08-24T13:04:33Z",
-  "pushedAt": "2025-08-24T13:04:30Z"
+  "updatedAt": "2026-01-11T16:30:42Z",
+  "pushedAt": "2026-01-11T16:30:37Z"
 }

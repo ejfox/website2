@@ -101,7 +101,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { getPrimaryNav } from '~/config/navigation'
+import { getPrimaryNav } from '~/composables/useNavigation'
 
 const route = useRoute()
 const primaryNav = getPrimaryNav()
