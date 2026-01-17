@@ -28,7 +28,7 @@ const { getSlug } = useProjectSlug()
 const getProjectId = (project) => getSlug(project)
 
 const tocLinkClass =
-  'interactive-link block py-1 text-zinc-600 dark:text-zinc-400'
+  'interactive-link block px-2 py-1 text-zinc-600 dark:text-zinc-400'
 
 // Aggregate metadata for brutalist header display
 const totalWords = computed(() => {

@@ -34,7 +34,7 @@
       <!-- Desktop sidebar -->
       <nav
         v-if="!isStatsSimple"
-        class="hidden md:block sticky w-[180px] shrink-0 h-auto max-h-screen top-0 left-0 z-50 p-4 font-mono overflow-auto"
+        class="hidden md:block sticky w-[200px] shrink-0 h-auto top-0 left-0 z-50 px-3 py-4 font-mono"
       >
         <div class="space-y-2">
           <NuxtLink
@@ -72,7 +72,7 @@
         <!-- TOC container - always present for teleport targets -->
         <div
           id="nav-toc-container"
-          class="mt-4 font-sans w-full overflow-hidden"
+          class="mt-4 font-sans"
         ></div>
 
         <div v-if="isBlogPost" class="mt-4">
