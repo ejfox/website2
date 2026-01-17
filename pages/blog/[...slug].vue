@@ -1,6 +1,12 @@
 <script setup>
 import { useIntersectionObserver } from '@vueuse/core'
 import striptags from 'striptags'
+import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
+import PostNav from '~/components/blog/post/PostNav.vue'
+import PostRelated from '~/components/blog/post/PostRelated.vue'
+import PostTOC from '~/components/blog/post/PostTOC.vue'
+import Webmentions from '~/components/blog/Webmentions.vue'
+import ReplyContext from '~/components/blog/ReplyContext.vue'
 
 // Composables
 const { formatLongDate, formatShortDate } = useDateFormat()
@@ -239,14 +245,20 @@ onMounted(() => {
     <!-- Debug Grid Overlay -->
     <div v-show="showDebugGrid" class="pointer-events-none fixed inset-0 z-[999] debug-grid"></div>
 
+    <!-- Top metadata bar - above everything -->
+    <div v-if="post && !post.redirect" class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900">
+      <PostMetadataBar
+        :date="post?.metadata?.date || post?.date"
+        :stats="readingStats"
+      />
+    </div>
+
     <!-- Reading progress bar -->
     <div v-if="post && !post.redirect" class="progress-bar">
       <div class="progress-inner" :style="`width: ${scrollProgress}%`"></div>
     </div>
 
     <article v-if="post && !post.redirect" class="h-entry w-full px-4 md:px-8 xl:px-16">
-      <!-- Metadata bar -->
-      <BlogPostPostMetadataBar :date="post?.metadata?.date || post?.date" :stats="readingStats" />
 
       <!-- Title -->
       <div class="px-4 md:px-8 xl:px-16 pt-3 pb-2">
@@ -293,10 +305,10 @@ onMounted(() => {
       </div>
 
       <!-- Navigation -->
-      <BlogPostPostNav :prev-post="nextPrevPosts?.prev" :next-post="nextPrevPosts?.next" />
+      <PostNav :prev-post="nextPrevPosts?.prev" :next-post="nextPrevPosts?.next" />
 
       <!-- Related Posts -->
-      <BlogPostPostRelated :related-posts="relatedPosts" />
+      <PostRelated :related-posts="relatedPosts" />
 
       <!-- Tip jar -->
       <BlogTipJar v-if="!post.metadata?.noTips" />
@@ -305,12 +317,10 @@ onMounted(() => {
       <Webmentions :url="postUrl" />
     </article>
 
-    <ErrorPage
-      v-else-if="error"
-      :path="route?.path || 'unknown'"
-      :suggestions="smartSuggestions.filter((s) => s.title !== 'Blog Archive')"
-      :primary-link="{ href: '/blog', text: 'browse all posts' }"
-    />
+    <div v-else-if="error" class="p-8 text-center">
+      <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-4">Post not found</p>
+      <NuxtLink to="/blog" class="text-zinc-500 hover:text-zinc-700 underline">browse all posts</NuxtLink>
+    </div>
 
     <div v-else class="p-4 text-center">
       <p class="text-xl text-zinc-600 dark:text-zinc-400">Loading...</p>
@@ -319,16 +329,16 @@ onMounted(() => {
     <!-- Sidebar TOC -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">
-        <BlogPostPostTOC :toc-children="tocChildren" :active-section="activeSection" />
+        <PostTOC :toc-children="tocChildren" :active-section="activeSection" />
       </teleport>
     </ClientOnly>
   </div>
 </template>
 
 <style lang="postcss">
-/* Progress bar */
+/* Progress bar - just below metadata */
 .progress-bar {
-  @apply fixed top-0 left-0 right-0 h-[2px] sm:h-[1px] bg-zinc-200 dark:bg-zinc-800 z-50;
+  @apply fixed top-10 sm:top-8 left-0 right-0 h-0.5 bg-transparent z-50;
 }
 .progress-inner {
   @apply h-full bg-zinc-600 dark:bg-zinc-400 transition-all duration-200 ease-out;

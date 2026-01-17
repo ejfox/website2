@@ -2,56 +2,27 @@
 
 <template>
   <div>
+    <!-- Top metadata bar - fixed, matching blog posts -->
+    <div class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900">
+      <div class="flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-white uppercase tracking-wider">
+        <span class="whitespace-nowrap">{{ blogStats.postsCount }} entries</span>
+        <span class="text-zinc-600">·</span>
+        <span class="whitespace-nowrap">{{ blogStats.totalWordsK }}K words</span>
+        <span class="text-zinc-600">·</span>
+        <span class="whitespace-nowrap">{{ blogStats.totalReadHours }}hr read</span>
+        <span class="text-zinc-600 hidden sm:inline">·</span>
+        <span class="whitespace-nowrap hidden sm:inline">{{ blogStats.totalLinks }} links</span>
+        <span class="text-zinc-600 hidden sm:inline">·</span>
+        <span class="whitespace-nowrap hidden sm:inline">{{ blogStats.totalImages }} img</span>
+        <span class="text-zinc-600 hidden sm:inline">·</span>
+        <span class="whitespace-nowrap hidden sm:inline">{{ sortedYears?.length || 0 }} years</span>
+      </div>
+    </div>
+
     <!-- Header with consistent metadata styling -->
-    <header class="mb-6 relative pt-8">
+    <header class="mb-6 relative pt-12">
       <!-- Swiss Grid Container matching blog posts -->
       <div class="max-w-screen-xl mx-auto px-4 sm:px-8 xl:px-16">
-        <!-- Compact metadata bar matching blog posts -->
-        <div>
-          <div class="metadata-bar mb-4">
-            <span class="inline-flex gap-1 whitespace-nowrap">
-              <span class="text-zinc-400">ENTRIES</span>
-              <span class="text-zinc-600 dark:text-zinc-300">
-                {{ blogStats.postsCount }}
-              </span>
-            </span>
-            <span class="mx-1 text-divider">·</span>
-            <span class="inline-flex gap-1 whitespace-nowrap">
-              <span class="text-zinc-400">WORDS</span>
-              <span class="text-zinc-600 dark:text-zinc-300">
-                {{ blogStats.totalWordsK }}K
-              </span>
-            </span>
-            <span class="mx-1 text-divider">·</span>
-            <span class="inline-flex gap-1 whitespace-nowrap">
-              <span class="text-zinc-400">READ</span>
-              <span class="text-zinc-600 dark:text-zinc-300">
-                {{ blogStats.totalReadHours }}hr
-              </span>
-            </span>
-            <span class="mx-1 text-divider">·</span>
-            <span class="inline-flex gap-1 whitespace-nowrap">
-              <span class="text-zinc-400">LINKS</span>
-              <span class="text-zinc-600 dark:text-zinc-300">
-                {{ blogStats.totalLinks }}
-              </span>
-            </span>
-            <span class="mx-1 text-divider">·</span>
-            <span class="inline-flex gap-1 whitespace-nowrap">
-              <span class="text-zinc-400">IMAGES</span>
-              <span class="text-zinc-600 dark:text-zinc-300">
-                {{ blogStats.totalImages }}
-              </span>
-            </span>
-            <span class="mx-1 text-divider">·</span>
-            <span class="inline-flex gap-1 whitespace-nowrap">
-              <span class="text-zinc-400">YEARS</span>
-              <span class="text-zinc-600 dark:text-zinc-300">
-                {{ sortedYears?.length || 0 }}
-              </span>
-            </span>
-          </div>
-        </div>
 
         <!-- Title section matching blog posts -->
         <div class="px-4 sm:px-6 pt-4 pb-3">
