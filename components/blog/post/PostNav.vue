@@ -34,7 +34,23 @@ defineProps<{
 </script>
 
 <style scoped>
+.grid-post-nav {
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-4 py-6 border-t border-zinc-200 dark:border-zinc-800;
+}
+
+.post-nav-link {
+  @apply block p-4 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors;
+}
+
+.post-nav-label {
+  @apply block text-xs font-mono text-zinc-500 uppercase tracking-wider mb-1;
+}
+
+.post-nav-title {
+  @apply block font-serif text-base text-zinc-800 dark:text-zinc-200;
+}
+
 .nav-date {
-  @apply block text-sm sm:text-xs font-mono text-zinc-400 leading-5 sm:leading-4 mt-2;
+  @apply block text-xs font-mono text-zinc-400 mt-1;
 }
 </style>

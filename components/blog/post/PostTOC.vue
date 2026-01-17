@@ -20,6 +20,7 @@
                 ? 'text-zinc-900 dark:text-zinc-100 font-medium'
                 : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:translate-x-1',
             ]"
+            @click.prevent="scrollToSection(child.slug)"
           >
             <span
               :class="[
@@ -50,5 +51,12 @@ const props = defineProps<{
 
 function isActive(slug: string): boolean {
   return props.activeSection === slug
+}
+
+function scrollToSection(slug: string) {
+  const el = document.getElementById(slug)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 }
 </script>

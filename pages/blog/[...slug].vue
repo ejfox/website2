@@ -198,6 +198,10 @@ onMounted(() => {
   // Scroll progress
   const handleScroll = () => {
     const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
+    if (scrollHeight <= 0 || window.scrollY <= 0) {
+      scrollProgress.value = 0
+      return
+    }
     scrollProgress.value = Math.min((window.scrollY / scrollHeight) * 100, 100)
   }
 
@@ -338,10 +342,10 @@ onMounted(() => {
 <style lang="postcss">
 /* Progress bar - just below metadata */
 .progress-bar {
-  @apply fixed top-10 sm:top-8 left-0 right-0 h-0.5 bg-transparent z-50;
+  @apply fixed top-0 left-0 right-0 h-px z-[101];
 }
 .progress-inner {
-  @apply h-full bg-zinc-600 dark:bg-zinc-400 transition-all duration-200 ease-out;
+  @apply h-full bg-white/60;
 }
 
 /* Tags */
@@ -365,7 +369,7 @@ onMounted(() => {
 .blog-post-content {
   --body-size: 1rem;
   --body-line: 1.5rem;
-  --body-margin: 1.25rem;
+  --body-margin: 1.5rem;
   --h1-size: 1.75rem;
   --h1-line: 2rem;
   --h1-margin-top: 2rem;
@@ -385,7 +389,7 @@ onMounted(() => {
   .blog-post-content {
     --body-size: 1.125rem;
     --body-line: 1.75rem;
-    --body-margin: 1rem;
+    --body-margin: 1.25rem;
     --h1-size: 2rem;
     --h1-line: 2.5rem;
     --h1-margin-top: 3rem;
