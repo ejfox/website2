@@ -66,6 +66,8 @@ module.exports = {
           'serif',
         ],
         mono: [
+          'Monaspace Neon',
+          'Monaspace Argon',
           'SFMono-Regular',
           'Menlo',
           'Monaco',

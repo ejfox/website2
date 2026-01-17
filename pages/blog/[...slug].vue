@@ -265,7 +265,7 @@ onMounted(() => {
     <article v-if="post && !post.redirect" class="h-entry w-full px-4 md:px-8 xl:px-16">
 
       <!-- Title -->
-      <div class="px-4 md:px-8 xl:px-16 pt-3 pb-2">
+      <div class="pt-3 pb-2">
         <h1
           v-if="postTitle"
           class="post-title-hero text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-black"
@@ -288,12 +288,12 @@ onMounted(() => {
       <a :href="postUrl" class="u-url hidden">{{ postUrl }}</a>
 
       <!-- Reply Context -->
-      <div v-if="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']" class="px-4 md:px-8 xl:px-16">
+      <div v-if="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']">
         <ReplyContext :reply-to="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']" />
       </div>
 
       <!-- Article Content -->
-      <div ref="articleContent" class="px-4 md:px-8 xl:px-16 pt-3 pb-6">
+      <div ref="articleContent" class="pt-3 pb-6">
         <article v-if="post?.html" class="blog-post-content e-content font-serif" v-html="post.html"></article>
         <div v-else-if="post?.content" class="blog-post-content e-content font-serif" v-html="post.content"></div>
         <div v-else class="text-center text-red-500">No content available</div>
@@ -380,8 +380,8 @@ onMounted(() => {
   --h3-line: 2rem;
   --h4-size: 1.25rem;
   --h4-line: 1.5rem;
-  --code-size: 0.875rem;
-  --code-line: 1.25rem;
+  --code-size: 1rem;
+  --code-line: 1.5rem;
   @apply font-serif;
 }
 
@@ -434,6 +434,11 @@ onMounted(() => {
   .blog-post-content ol {
     padding-left: 2rem;
   }
+}
+
+/* Hide first H1 - we have hero title */
+.blog-post-content > h1:first-child {
+  @apply hidden;
 }
 
 .blog-post-content h1 {
@@ -508,8 +513,21 @@ onMounted(() => {
 }
 
 .blog-post-content img {
-  @apply w-full max-w-none rounded-lg;
-  margin: 1.5rem 0;
+  @apply w-full rounded-lg;
+  max-width: none !important;
+  margin: 2rem 0;
+}
+
+/* Images in figures should also be full width */
+.blog-post-content figure {
+  @apply w-full;
+  max-width: none !important;
+  margin: 2rem 0;
+}
+
+.blog-post-content figure img {
+  @apply w-full rounded-lg;
+  margin: 0;
 }
 
 .blog-post-content hr {
