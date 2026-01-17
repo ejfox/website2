@@ -62,7 +62,7 @@
       </nav>
 
       <!-- PGP + Build info -->
-      <div class="space-y-2 text-xs text-zinc-500 dark:text-zinc-500">
+      <div class="space-y-2 text-2xs text-zinc-500 dark:text-zinc-400">
         <div>
           <a href="/pgp.txt" class="interactive-link">
             PGP: E207 8E65 3FE3 89CD

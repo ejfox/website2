@@ -12,7 +12,7 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 741046,
+    "Vue": 740381,
     "TypeScript": 394416,
     "JavaScript": 205706,
     "CSS": 36438,
@@ -20,7 +20,7 @@
     "HTML": 11677,
     "Dockerfile": 794
   },
-  "diskUsage": 88665,
+  "diskUsage": 89092,
   "fileTree": {
     "files": [
       {
@@ -337,7 +337,7 @@
       },
       {
         "path": "components/ui/SupportLinks.vue",
-        "size": 3810
+        "size": 3109
       },
       {
         "path": "components/ui/WebVitalsReporter.vue",
@@ -3589,7 +3589,7 @@
       },
       {
         "path": "data/github-repos/ejfox.json",
-        "size": 3074
+        "size": 3399
       },
       {
         "path": "data/github-repos/ejfox.news.json",
@@ -4073,7 +4073,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 518935
+        "size": 512644
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -5645,7 +5645,7 @@
       },
       {
         "path": "layouts/default.vue",
-        "size": 3633
+        "size": 3598
       },
       {
         "path": "nuxt.config.ts",
@@ -5705,7 +5705,7 @@
       },
       {
         "path": "pages/consulting.vue",
-        "size": 30225
+        "size": 30327
       },
       {
         "path": "pages/external-links.vue",
@@ -5745,7 +5745,7 @@
       },
       {
         "path": "pages/index.vue",
-        "size": 4255
+        "size": 4219
       },
       {
         "path": "pages/kalshi.vue",
@@ -5777,7 +5777,7 @@
       },
       {
         "path": "pages/projects/index.vue",
-        "size": 6500
+        "size": 6505
       },
       {
         "path": "pages/reading/[slug].vue",
@@ -7132,7 +7132,7 @@
                 },
                 {
                   "name": "SupportLinks.vue",
-                  "size": 3810,
+                  "size": 3109,
                   "path": "components/ui/SupportLinks.vue"
                 },
                 {
@@ -11480,7 +11480,7 @@
                 },
                 {
                   "name": "ejfox.json",
-                  "size": 3074,
+                  "size": 3399,
                   "path": "data/github-repos/ejfox.json"
                 },
                 {
@@ -12085,7 +12085,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 518935,
+                  "size": 512644,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -14091,7 +14091,7 @@
             },
             {
               "name": "default.vue",
-              "size": 3633,
+              "size": 3598,
               "path": "layouts/default.vue"
             }
           ],
@@ -14239,7 +14239,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 6500,
+                  "size": 6505,
                   "path": "pages/projects/index.vue"
                 }
               ],
@@ -14311,7 +14311,7 @@
             },
             {
               "name": "consulting.vue",
-              "size": 30225,
+              "size": 30327,
               "path": "pages/consulting.vue"
             },
             {
@@ -14331,7 +14331,7 @@
             },
             {
               "name": "index.vue",
-              "size": 4255,
+              "size": 4219,
               "path": "pages/index.vue"
             },
             {
@@ -15793,7 +15793,7 @@
       "path": ""
     },
     "totalFiles": 1668,
-    "totalSize": 84143983
+    "totalSize": 84137352
   },
   "topics": [],
   "readme": {
@@ -15802,6 +15802,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2026-01-17T18:25:59Z",
-  "pushedAt": "2026-01-17T18:25:55Z"
+  "updatedAt": "2026-01-17T20:49:23Z",
+  "pushedAt": "2026-01-17T20:49:19Z"
 }

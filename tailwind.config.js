@@ -12,31 +12,23 @@ module.exports = {
   theme: {
     extend: {
       fontSize: {
-        // Swiss grid: 8px baseline unit
-        // Minimum 10px for Tuftian data density with increased contrast
-        '5xs': [
-          '0.625rem',
-          { lineHeight: '0.75rem', letterSpacing: '0.025em' },
-        ], // 10px/12px - inline symbols
-        '4xs': [
-          '0.625rem',
-          { lineHeight: '0.75rem', letterSpacing: '0.025em' },
-        ], // 10px/12px - ultra-dense labels
-        '3xs': ['0.625rem', { lineHeight: '0.75rem', letterSpacing: '0.02em' }], // 10px/12px - dense stats
-        '2xs': ['0.6875rem', { lineHeight: '1rem', letterSpacing: '0.015em' }], // 11px/16px - compact data
-        // Larger standard sizes create more contrast with dense data
-        xs: ['0.875rem', '1.25rem'], // 14px/20px - up from 12px
-        sm: ['1rem', '1.5rem'], // 16px/24px - up from 14px
-        base: ['1.125rem', '1.75rem'], // 18px/28px - up from 16px
-        lg: ['1.375rem', '2rem'], // 22px/32px - up from 20px
-        xl: ['1.75rem', '2.25rem'], // 28px/36px - up from 24px
-        '2xl': ['2rem', '2.5rem'], // 32px/40px (5 units)
-        '3xl': ['2.5rem', '3rem'], // 40px/48px (6 units)
-        '4xl': ['3rem', '3.5rem'], // 48px/56px (7 units)
-        '5xl': ['3.5rem', '4rem'], // 56px/64px (8 units)
-        '6xl': ['4.5rem', '5rem'], // 72px/80px (10 units)
-        '7xl': ['5.5rem', '6rem'], // 88px/96px (12 units)
-        '8xl': ['7rem', '7rem'], // 112px/112px (14 units)
+        // Typography scale: 2px font increments, 4px line-height grid
+        // Dense sizes for data-heavy UI
+        '3xs': ['0.625rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],    // 10px/16px - dense stats
+        '2xs': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.01em' }],     // 12px/16px - small labels
+        // Standard sizes
+        xs: ['0.875rem', '1.25rem'],   // 14px/20px - captions
+        sm: ['1rem', '1.5rem'],        // 16px/24px - body small
+        base: ['1.125rem', '1.75rem'], // 18px/28px - body
+        lg: ['1.25rem', '2rem'],       // 20px/32px - lead
+        xl: ['1.5rem', '2rem'],        // 24px/32px - h4
+        '2xl': ['1.75rem', '2.25rem'], // 28px/36px - h3
+        '3xl': ['2rem', '2.5rem'],     // 32px/40px - h2
+        '4xl': ['2.5rem', '3rem'],     // 40px/48px - h1
+        '5xl': ['3rem', '3.5rem'],     // 48px/56px - display
+        '6xl': ['4rem', '4.5rem'],     // 64px/72px - hero
+        '7xl': ['5rem', '5.5rem'],     // 80px/88px - jumbo
+        '8xl': ['6rem', '6rem'],       // 96px/96px - massive
       },
       spacing: {
         // 2, 4, 8 rhythm (based on 8px unit)

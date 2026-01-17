@@ -12,7 +12,7 @@
     >
       <div class="flex items-center gap-0.5.5">
         <span class="truncate flex-1 text-3xs">{{ item.Name }}</span>
-        <span v-if="item.Notes" class="text-zinc-700 text-5xs">•</span>
+        <span v-if="item.Notes" class="text-zinc-700 text-3xs">•</span>
       </div>
     </td>
     <td class="px-1 py-0.5 text-center">
@@ -27,24 +27,24 @@
       >
         BUY
       </a>
-      <span v-else class="text-zinc-800 text-4xs">—</span>
+      <span v-else class="text-zinc-800 text-3xs">—</span>
     </td>
     <td class="px-1 py-0.5 text-center text-zinc-500 text-2xs">
       {{ getTypeSymbol(item.Type) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 text-4xs">
+    <td class="px-1 py-0.5 text-center text-zinc-600 text-3xs">
       {{ getCategoryAbbr(item.Category) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 text-4xs">
+    <td class="px-1 py-0.5 text-center text-zinc-600 text-3xs">
       {{ getWaterproofSymbol(item.Waterproof) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 text-4xs">
+    <td class="px-1 py-0.5 text-center text-zinc-600 text-3xs">
       {{ getPrioritySymbol(item.Priority) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 text-4xs">
+    <td class="px-1 py-0.5 text-center text-zinc-600 text-3xs">
       {{ getConditionSymbol(item.Condition) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 tabular-nums text-4xs">
+    <td class="px-1 py-0.5 text-center text-zinc-600 tabular-nums text-3xs">
       {{ getDaysSinceUsed(item.Last_Used) }}
     </td>
     <td class="px-1 py-0.5 text-right text-zinc-300 tabular-nums pr-2">

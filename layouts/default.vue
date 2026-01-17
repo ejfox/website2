@@ -59,10 +59,10 @@
             </NuxtLink>
           </template>
 
-          <div class="pt-4 px-2 text-xs text-zinc-500 dark:text-zinc-500">
+          <div class="pt-4 px-2 text-2xs text-zinc-500 dark:text-zinc-400">
             <a
               href="/pgp.txt"
-              class="hover:text-zinc-700 dark:hover:text-zinc-300"
+              class="hover:text-zinc-700 dark:hover:text-zinc-200"
             >
               PGP: E207 8E65
             </a>
