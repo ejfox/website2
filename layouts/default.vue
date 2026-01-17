@@ -59,7 +59,7 @@
             </NuxtLink>
           </template>
 
-          <div class="pt-4 text-xs text-zinc-500 dark:text-zinc-500">
+          <div class="pt-4 px-2 text-xs text-zinc-500 dark:text-zinc-500">
             <a
               href="/pgp.txt"
               class="hover:text-zinc-700 dark:hover:text-zinc-300"
@@ -94,8 +94,8 @@
       </article>
     </section>
 
-    <Footer />
-    <WebVitalsReporter />
+    <UiFooter />
+    <UiWebVitalsReporter />
   </div>
 </template>
 
