@@ -953,6 +953,7 @@ usePageSeo({
    ============================================ */
 .video-container {
   @apply fixed inset-0 overflow-hidden transition-opacity duration-300 pointer-events-none z-0;
+  @apply hidden md:block; /* Hide on mobile - video + text inversion looks broken on small screens */
 }
 
 .video-element {

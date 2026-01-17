@@ -1,72 +1,85 @@
 <!--
   @file SupportLinks.vue
-  @description Compact support/sponsor links for sidebars - GitHub Sponsors + crypto toggle
+  @description Compact hire/sponsor links for sidebars - Book a call + GitHub Sponsors
   @props variant: 'sidebar' | 'inline' - display style (default: sidebar)
 -->
 <template>
   <div :class="containerClasses">
     <h3 v-if="variant === 'sidebar'" class="label-uppercase-mono text-xs mb-3">
-      Support
+      Work with me
     </h3>
 
-    <div :class="linksClasses">
+    <div class="space-y-2">
+      <!-- Book a call - primary CTA -->
       <a
-        href="https://github.com/sponsors/ejfox"
+        href="https://cal.com/ejfox/30min"
         target="_blank"
         rel="noopener"
-        class="support-link"
+        class="cta-link group"
       >
         <svg
-          class="w-4 h-4"
-          viewBox="0 0 16 16"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"
-          />
-        </svg>
-        <span>Sponsor</span>
-      </a>
-
-      <button class="support-link" @click="showCrypto = !showCrypto">
-        <svg
-          class="w-4 h-4"
+          class="w-4 h-4 text-blue-500"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
           aria-hidden="true"
         >
-          <circle cx="12" cy="12" r="10" />
-          <path d="M12 6v12M6 12h12" />
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="3" y1="10" x2="21" y2="10" />
         </svg>
-        <span>Crypto</span>
-      </button>
-    </div>
+        <span>Book a call</span>
+        <span class="text-zinc-400 dark:text-zinc-600 text-xs ml-auto">30min</span>
+      </a>
 
-    <!-- Crypto addresses dropdown -->
-    <div v-if="showCrypto" class="mt-3 space-y-1">
-      <div
-        v-for="(address, coin) in cryptoAddresses"
-        :key="coin"
-        class="crypto-row"
+      <!-- Consulting page -->
+      <NuxtLink
+        to="/consulting"
+        class="cta-link group"
       >
-        <span class="crypto-label">{{ coin }}</span>
-        <button
-          class="crypto-address"
-          :title="address"
-          @click="copyAddress(address, coin)"
+        <svg
+          class="w-4 h-4 text-emerald-500"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
         >
-          {{ copied === coin ? 'copied!' : truncate(address) }}
-        </button>
-      </div>
+          <path d="M20 7h-9" />
+          <path d="M14 17H5" />
+          <circle cx="17" cy="17" r="3" />
+          <circle cx="7" cy="7" r="3" />
+        </svg>
+        <span>Hire me</span>
+        <span class="text-zinc-400 dark:text-zinc-600 text-xs ml-auto">consulting</span>
+      </NuxtLink>
+
+      <!-- GitHub Sponsors -->
+      <a
+        href="https://github.com/sponsors/ejfox"
+        target="_blank"
+        rel="noopener"
+        class="cta-link group"
+      >
+        <svg
+          class="w-4 h-4 text-pink-500"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        </svg>
+        <span>Sponsor</span>
+        <span class="text-zinc-400 dark:text-zinc-600 text-xs ml-auto">GitHub</span>
+      </a>
     </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps({
   variant: {
@@ -80,70 +93,20 @@ const containerClasses = computed(() => {
   if (props.variant === 'sidebar') {
     return 'pt-6 border-t border-zinc-200 dark:border-zinc-800'
   }
-  return 'inline-flex items-center gap-3'
+  return ''
 })
-
-const linksClasses = computed(() => {
-  return 'flex items-center gap-3'
-})
-
-const cryptoAddresses = ref({})
-const copied = ref('')
-const showCrypto = ref(false)
-
-const truncate = (addr) => {
-  if (!addr || addr.length < 16) return addr
-  return `${addr.slice(0, 6)}...${addr.slice(-4)}`
-}
-
-onMounted(async () => {
-  try {
-    const response = await fetch('/crypto.txt')
-    const text = await response.text()
-    const lines = text.split('\n').filter((line) => line.includes('='))
-
-    lines.forEach((line) => {
-      const [coin, address] = line.split('=')
-      if (coin && address) {
-        cryptoAddresses.value[coin] = address.trim()
-      }
-    })
-  } catch {
-    // Silent fail - crypto addresses are optional
-  }
-})
-
-const copyAddress = async (address, coin) => {
-  try {
-    await navigator.clipboard.writeText(address)
-    copied.value = coin
-    setTimeout(() => {
-      copied.value = ''
-    }, 2000)
-  } catch {
-    // Silent fail
-  }
-}
 </script>
 
 <style scoped>
-.support-link {
-  @apply flex items-center gap-1.5 text-xs;
-  @apply text-zinc-500 dark:text-zinc-500;
+.cta-link {
+  @apply flex items-center gap-2 text-sm py-1.5;
+  @apply text-zinc-600 dark:text-zinc-400;
   @apply hover:text-zinc-900 dark:hover:text-zinc-100;
   @apply transition-colors duration-150;
 }
 
-.crypto-row {
-  @apply flex items-center justify-between text-xs font-mono;
-}
-
-.crypto-label {
-  @apply text-zinc-400 dark:text-zinc-600 lowercase;
-}
-
-.crypto-address {
-  @apply text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300;
-  @apply transition-colors duration-150;
+.cta-link:hover svg {
+  @apply scale-110;
+  transition: transform 150ms ease;
 }
 </style>

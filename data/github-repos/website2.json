@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 737105,
-    "TypeScript": 421480,
+    "Vue": 741046,
+    "TypeScript": 394416,
     "JavaScript": 205706,
     "CSS": 36438,
-    "HTML": 27082,
     "Shell": 16156,
+    "HTML": 11677,
     "Dockerfile": 794
   },
-  "diskUsage": 88450,
+  "diskUsage": 88665,
   "fileTree": {
     "files": [
       {
@@ -157,7 +157,7 @@
       },
       {
         "path": "components/github/CommitMatrix.client.vue",
-        "size": 5887
+        "size": 5945
       },
       {
         "path": "components/github/FileSizeDistribution.vue",
@@ -237,7 +237,7 @@
       },
       {
         "path": "components/stats/DuolingoStats.vue",
-        "size": 3590
+        "size": 3624
       },
       {
         "path": "components/stats/GearStats.vue",
@@ -336,6 +336,10 @@
         "size": 342
       },
       {
+        "path": "components/ui/SupportLinks.vue",
+        "size": 3810
+      },
+      {
         "path": "components/ui/WebVitalsReporter.vue",
         "size": 1815
       },
@@ -360,36 +364,12 @@
         "size": 1632
       },
       {
-        "path": "composables/useElementVisibility.ts",
-        "size": 3776
-      },
-      {
-        "path": "composables/useExitIntent.ts",
-        "size": 3417
-      },
-      {
         "path": "composables/useFlashcards.ts",
         "size": 2295
       },
       {
-        "path": "composables/useFunnelTracking.ts",
-        "size": 4370
-      },
-      {
-        "path": "composables/useKalshi.ts",
-        "size": 458
-      },
-      {
         "path": "composables/useLanguageColors.ts",
         "size": 1222
-      },
-      {
-        "path": "composables/useMarkdown.ts",
-        "size": 956
-      },
-      {
-        "path": "composables/useMicroConversions.ts",
-        "size": 3758
       },
       {
         "path": "composables/useNavigation.ts",
@@ -416,24 +396,12 @@
         "size": 549
       },
       {
-        "path": "composables/useReadingTime.ts",
-        "size": 771
-      },
-      {
         "path": "composables/useStats.ts",
-        "size": 12631
-      },
-      {
-        "path": "composables/useStatusFormatting.ts",
-        "size": 3359
+        "size": 12683
       },
       {
         "path": "composables/useTOC.ts",
         "size": 306
-      },
-      {
-        "path": "composables/useTooltip.ts",
-        "size": 1567
       },
       {
         "path": "composables/useWeightCalculations.ts",
@@ -3364,10 +3332,6 @@
         "size": 1190
       },
       {
-        "path": "data/current-work.json",
-        "size": 460
-      },
-      {
         "path": "data/external_links_final.csv",
         "size": 88266
       },
@@ -3997,7 +3961,7 @@
       },
       {
         "path": "data/github-repos/tmux-link-grab.json",
-        "size": 8245
+        "size": 7606
       },
       {
         "path": "data/github-repos/tmux-mutagen-indicator.json",
@@ -4109,7 +4073,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 522380
+        "size": 518935
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -4146,10 +4110,6 @@
       {
         "path": "data/linkrot-report.json",
         "size": 71335
-      },
-      {
-        "path": "data/lockpicking.json",
-        "size": 2901
       },
       {
         "path": "data/on-this-day-index.json",
@@ -5640,10 +5600,6 @@
         "size": 331
       },
       {
-        "path": "data/worldview-themes.json",
-        "size": 972
-      },
-      {
         "path": "docker-compose.yml",
         "size": 1096
       },
@@ -5693,15 +5649,15 @@
       },
       {
         "path": "nuxt.config.ts",
-        "size": 13193
+        "size": 13172
       },
       {
         "path": "package-lock.json",
-        "size": 695930
+        "size": 694484
       },
       {
         "path": "package.json",
-        "size": 4234
+        "size": 4119
       },
       {
         "path": "pages/blog/[...slug].vue",
@@ -5737,7 +5693,7 @@
       },
       {
         "path": "pages/calendar.vue",
-        "size": 1823
+        "size": 2045
       },
       {
         "path": "pages/case-study/nbc-big-board.vue",
@@ -5749,7 +5705,7 @@
       },
       {
         "path": "pages/consulting.vue",
-        "size": 30151
+        "size": 30225
       },
       {
         "path": "pages/external-links.vue",
@@ -5761,7 +5717,7 @@
       },
       {
         "path": "pages/flashcards/study.vue",
-        "size": 11769
+        "size": 11770
       },
       {
         "path": "pages/following.vue",
@@ -5773,7 +5729,7 @@
       },
       {
         "path": "pages/gear/index.vue",
-        "size": 22675
+        "size": 22826
       },
       {
         "path": "pages/gists.vue",
@@ -5817,7 +5773,7 @@
       },
       {
         "path": "pages/projects/[slug].vue",
-        "size": 7206
+        "size": 7274
       },
       {
         "path": "pages/projects/index.vue",
@@ -5845,7 +5801,7 @@
       },
       {
         "path": "pages/stats.vue",
-        "size": 38425
+        "size": 37948
       },
       {
         "path": "pages/tag/[...slug].vue",
@@ -5861,7 +5817,7 @@
       },
       {
         "path": "plugins/attribution.client.ts",
-        "size": 294
+        "size": 324
       },
       {
         "path": "plugins/clarity.client.ts",
@@ -5894,26 +5850,6 @@
       {
         "path": "public/.well-known/security.txt",
         "size": 285
-      },
-      {
-        "path": "public/ai2html/thorn-hill/ThornHill-Artboard_1.jpg",
-        "size": 186146
-      },
-      {
-        "path": "public/ai2html/thorn-hill/index.html",
-        "size": 1050
-      },
-      {
-        "path": "public/ai2html/tokenization/Tokenization-Artboard_1.png",
-        "size": 69739
-      },
-      {
-        "path": "public/ai2html/tokenization/Tokenization-Artboard_4.png",
-        "size": 44386
-      },
-      {
-        "path": "public/ai2html/tokenization/index.html",
-        "size": 14355
       },
       {
         "path": "public/android-chrome-192x192.png",
@@ -5986,10 +5922,6 @@
       {
         "path": "public/flashcards.txt",
         "size": 4589
-      },
-      {
-        "path": "public/fonts/MonaspaceNeon.woff2",
-        "size": 275632
       },
       {
         "path": "public/fox_logo_white.svg",
@@ -6416,6 +6348,18 @@
         "size": 5560
       },
       {
+        "path": "server/api/agent/meta.get.ts",
+        "size": 5012
+      },
+      {
+        "path": "server/api/agent/timeline.get.ts",
+        "size": 7247
+      },
+      {
+        "path": "server/api/apple-health.get.ts",
+        "size": 9128
+      },
+      {
         "path": "server/api/blog-stats.get.ts",
         "size": 1518
       },
@@ -6457,7 +6401,7 @@
       },
       {
         "path": "server/api/duolingo.get.ts",
-        "size": 2231
+        "size": 2229
       },
       {
         "path": "server/api/external-links.get.ts",
@@ -6469,7 +6413,7 @@
       },
       {
         "path": "server/api/flashcards/[id].get.ts",
-        "size": 732
+        "size": 768
       },
       {
         "path": "server/api/flashcards/random.get.ts",
@@ -6477,11 +6421,11 @@
       },
       {
         "path": "server/api/flashcards/random/[id].get.ts",
-        "size": 889
+        "size": 906
       },
       {
         "path": "server/api/flashcards/search.get.ts",
-        "size": 1490
+        "size": 1498
       },
       {
         "path": "server/api/flashcards/stats.get.ts",
@@ -6528,10 +6472,6 @@
         "size": 2060
       },
       {
-        "path": "server/api/health.get.ts",
-        "size": 6252
-      },
-      {
         "path": "server/api/healthcheck.get.ts",
         "size": 1770
       },
@@ -6541,11 +6481,11 @@
       },
       {
         "path": "server/api/kalshi.get.ts",
-        "size": 19852
+        "size": 19860
       },
       {
         "path": "server/api/lastfm.get.ts",
-        "size": 11727
+        "size": 11728
       },
       {
         "path": "server/api/leetcode.get.ts",
@@ -6553,7 +6493,7 @@
       },
       {
         "path": "server/api/letterboxd.get.ts",
-        "size": 4763
+        "size": 4735
       },
       {
         "path": "server/api/manifest.ts",
@@ -6572,10 +6512,6 @@
         "size": 4244
       },
       {
-        "path": "server/api/now.get.ts",
-        "size": 1330
-      },
-      {
         "path": "server/api/og.get.ts",
         "size": 5476
       },
@@ -6584,12 +6520,8 @@
         "size": 2674
       },
       {
-        "path": "server/api/photos.get.ts",
-        "size": 751
-      },
-      {
         "path": "server/api/posts/[...slug].ts",
-        "size": 4782
+        "size": 4829
       },
       {
         "path": "server/api/predictions.get.ts",
@@ -6628,14 +6560,6 @@
         "size": 6666
       },
       {
-        "path": "server/api/robot/meta.get.ts",
-        "size": 5012
-      },
-      {
-        "path": "server/api/robot/timeline.get.ts",
-        "size": 7247
-      },
-      {
         "path": "server/api/robots/[...slug].ts",
         "size": 2247
       },
@@ -6657,7 +6581,7 @@
       },
       {
         "path": "server/api/stats.get.ts",
-        "size": 10073
+        "size": 10079
       },
       {
         "path": "server/api/suggest.get.ts",
@@ -6669,11 +6593,11 @@
       },
       {
         "path": "server/api/umami/stats.get.ts",
-        "size": 3361
+        "size": 3345
       },
       {
         "path": "server/api/webhooks/calcom.post.ts",
-        "size": 3148
+        "size": 3302
       },
       {
         "path": "server/api/webmentions.get.ts",
@@ -6709,7 +6633,7 @@
       },
       {
         "path": "server/routes/tags.json.ts",
-        "size": 2060
+        "size": 2055
       },
       {
         "path": "server/tsconfig.json",
@@ -6718,10 +6642,6 @@
       {
         "path": "server/types/kalshi.ts",
         "size": 4015
-      },
-      {
-        "path": "server/utils/apiHelpers.ts",
-        "size": 3353
       },
       {
         "path": "server/utils/fetch.ts",
@@ -6761,19 +6681,11 @@
       },
       {
         "path": "unlighthouse.config.ts",
-        "size": 605
-      },
-      {
-        "path": "utils/dateFormatters.ts",
-        "size": 1837
+        "size": 576
       },
       {
         "path": "utils/dateUtils.ts",
         "size": 2695
-      },
-      {
-        "path": "utils/helpers.ts",
-        "size": 495
       },
       {
         "path": "vitest.config.ts",
@@ -6781,7 +6693,7 @@
       },
       {
         "path": "yarn.lock",
-        "size": 351946
+        "size": 349521
       }
     ],
     "tree": {
@@ -6971,7 +6883,7 @@
                 },
                 {
                   "name": "CommitMatrix.client.vue",
-                  "size": 5887,
+                  "size": 5945,
                   "path": "components/github/CommitMatrix.client.vue"
                 },
                 {
@@ -7089,7 +7001,7 @@
                 },
                 {
                   "name": "DuolingoStats.vue",
-                  "size": 3590,
+                  "size": 3624,
                   "path": "components/stats/DuolingoStats.vue"
                 },
                 {
@@ -7219,6 +7131,11 @@
                   "path": "components/ui/StaticContent.server.vue"
                 },
                 {
+                  "name": "SupportLinks.vue",
+                  "size": 3810,
+                  "path": "components/ui/SupportLinks.vue"
+                },
+                {
                   "name": "WebVitalsReporter.vue",
                   "size": 1815,
                   "path": "components/ui/WebVitalsReporter.vue"
@@ -7264,44 +7181,14 @@
               "path": "composables/useDateFormat.ts"
             },
             {
-              "name": "useElementVisibility.ts",
-              "size": 3776,
-              "path": "composables/useElementVisibility.ts"
-            },
-            {
-              "name": "useExitIntent.ts",
-              "size": 3417,
-              "path": "composables/useExitIntent.ts"
-            },
-            {
               "name": "useFlashcards.ts",
               "size": 2295,
               "path": "composables/useFlashcards.ts"
             },
             {
-              "name": "useFunnelTracking.ts",
-              "size": 4370,
-              "path": "composables/useFunnelTracking.ts"
-            },
-            {
-              "name": "useKalshi.ts",
-              "size": 458,
-              "path": "composables/useKalshi.ts"
-            },
-            {
               "name": "useLanguageColors.ts",
               "size": 1222,
               "path": "composables/useLanguageColors.ts"
-            },
-            {
-              "name": "useMarkdown.ts",
-              "size": 956,
-              "path": "composables/useMarkdown.ts"
-            },
-            {
-              "name": "useMicroConversions.ts",
-              "size": 3758,
-              "path": "composables/useMicroConversions.ts"
             },
             {
               "name": "useNavigation.ts",
@@ -7334,29 +7221,14 @@
               "path": "composables/useProjectSlug.ts"
             },
             {
-              "name": "useReadingTime.ts",
-              "size": 771,
-              "path": "composables/useReadingTime.ts"
-            },
-            {
               "name": "useStats.ts",
-              "size": 12631,
+              "size": 12683,
               "path": "composables/useStats.ts"
-            },
-            {
-              "name": "useStatusFormatting.ts",
-              "size": 3359,
-              "path": "composables/useStatusFormatting.ts"
             },
             {
               "name": "useTOC.ts",
               "size": 306,
               "path": "composables/useTOC.ts"
-            },
-            {
-              "name": "useTooltip.ts",
-              "size": 1567,
-              "path": "composables/useTooltip.ts"
             },
             {
               "name": "useWeightCalculations.ts",
@@ -12073,7 +11945,7 @@
                 },
                 {
                   "name": "tmux-link-grab.json",
-                  "size": 8245,
+                  "size": 7606,
                   "path": "data/github-repos/tmux-link-grab.json"
                 },
                 {
@@ -12213,7 +12085,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 522380,
+                  "size": 518935,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -14106,11 +13978,6 @@
               "path": "data/consulting-availability.json"
             },
             {
-              "name": "current-work.json",
-              "size": 460,
-              "path": "data/current-work.json"
-            },
-            {
               "name": "external_links_final.csv",
               "size": 88266,
               "path": "data/external_links_final.csv"
@@ -14146,11 +14013,6 @@
               "path": "data/linkrot-report.json"
             },
             {
-              "name": "lockpicking.json",
-              "size": 2901,
-              "path": "data/lockpicking.json"
-            },
-            {
               "name": "on-this-day-index.json",
               "size": 11362159,
               "path": "data/on-this-day-index.json"
@@ -14174,11 +14036,6 @@
               "name": "webmention-moderation.json",
               "size": 331,
               "path": "data/webmention-moderation.json"
-            },
-            {
-              "name": "worldview-themes.json",
-              "size": 972,
-              "path": "data/worldview-themes.json"
             }
           ],
           "path": "data"
@@ -14318,7 +14175,7 @@
                 },
                 {
                   "name": "study.vue",
-                  "size": 11769,
+                  "size": 11770,
                   "path": "pages/flashcards/study.vue"
                 }
               ],
@@ -14334,7 +14191,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 22675,
+                  "size": 22826,
                   "path": "pages/gear/index.vue"
                 }
               ],
@@ -14377,7 +14234,7 @@
               "children": [
                 {
                   "name": "[slug].vue",
-                  "size": 7206,
+                  "size": 7274,
                   "path": "pages/projects/[slug].vue"
                 },
                 {
@@ -14444,7 +14301,7 @@
             },
             {
               "name": "calendar.vue",
-              "size": 1823,
+              "size": 2045,
               "path": "pages/calendar.vue"
             },
             {
@@ -14454,7 +14311,7 @@
             },
             {
               "name": "consulting.vue",
-              "size": 30151,
+              "size": 30225,
               "path": "pages/consulting.vue"
             },
             {
@@ -14509,7 +14366,7 @@
             },
             {
               "name": "stats.vue",
-              "size": 38425,
+              "size": 37948,
               "path": "pages/stats.vue"
             },
             {
@@ -14530,7 +14387,7 @@
           "children": [
             {
               "name": "attribution.client.ts",
-              "size": 294,
+              "size": 324,
               "path": "plugins/attribution.client.ts"
             },
             {
@@ -14584,49 +14441,6 @@
                 }
               ],
               "path": "public/.well-known"
-            },
-            {
-              "name": "ai2html",
-              "children": [
-                {
-                  "name": "thorn-hill",
-                  "children": [
-                    {
-                      "name": "ThornHill-Artboard_1.jpg",
-                      "size": 186146,
-                      "path": "public/ai2html/thorn-hill/ThornHill-Artboard_1.jpg"
-                    },
-                    {
-                      "name": "index.html",
-                      "size": 1050,
-                      "path": "public/ai2html/thorn-hill/index.html"
-                    }
-                  ],
-                  "path": "public/ai2html/thorn-hill"
-                },
-                {
-                  "name": "tokenization",
-                  "children": [
-                    {
-                      "name": "Tokenization-Artboard_1.png",
-                      "size": 69739,
-                      "path": "public/ai2html/tokenization/Tokenization-Artboard_1.png"
-                    },
-                    {
-                      "name": "Tokenization-Artboard_4.png",
-                      "size": 44386,
-                      "path": "public/ai2html/tokenization/Tokenization-Artboard_4.png"
-                    },
-                    {
-                      "name": "index.html",
-                      "size": 14355,
-                      "path": "public/ai2html/tokenization/index.html"
-                    }
-                  ],
-                  "path": "public/ai2html/tokenization"
-                }
-              ],
-              "path": "public/ai2html"
             },
             {
               "name": "data",
@@ -14685,17 +14499,6 @@
                 }
               ],
               "path": "public/favicon-picker"
-            },
-            {
-              "name": "fonts",
-              "children": [
-                {
-                  "name": "MonaspaceNeon.woff2",
-                  "size": 275632,
-                  "path": "public/fonts/MonaspaceNeon.woff2"
-                }
-              ],
-              "path": "public/fonts"
             },
             {
               "name": "images",
@@ -15341,6 +15144,22 @@
                   "path": "server/api/__tests__"
                 },
                 {
+                  "name": "agent",
+                  "children": [
+                    {
+                      "name": "meta.get.ts",
+                      "size": 5012,
+                      "path": "server/api/agent/meta.get.ts"
+                    },
+                    {
+                      "name": "timeline.get.ts",
+                      "size": 7247,
+                      "path": "server/api/agent/timeline.get.ts"
+                    }
+                  ],
+                  "path": "server/api/agent"
+                },
+                {
                   "name": "cal",
                   "children": [
                     {
@@ -15364,7 +15183,7 @@
                       "children": [
                         {
                           "name": "[id].get.ts",
-                          "size": 889,
+                          "size": 906,
                           "path": "server/api/flashcards/random/[id].get.ts"
                         }
                       ],
@@ -15372,7 +15191,7 @@
                     },
                     {
                       "name": "[id].get.ts",
-                      "size": 732,
+                      "size": 768,
                       "path": "server/api/flashcards/[id].get.ts"
                     },
                     {
@@ -15382,7 +15201,7 @@
                     },
                     {
                       "name": "search.get.ts",
-                      "size": 1490,
+                      "size": 1498,
                       "path": "server/api/flashcards/search.get.ts"
                     },
                     {
@@ -15425,7 +15244,7 @@
                   "children": [
                     {
                       "name": "[...slug].ts",
-                      "size": 4782,
+                      "size": 4829,
                       "path": "server/api/posts/[...slug].ts"
                     }
                   ],
@@ -15475,22 +15294,6 @@
                   "path": "server/api/repos"
                 },
                 {
-                  "name": "robot",
-                  "children": [
-                    {
-                      "name": "meta.get.ts",
-                      "size": 5012,
-                      "path": "server/api/robot/meta.get.ts"
-                    },
-                    {
-                      "name": "timeline.get.ts",
-                      "size": 7247,
-                      "path": "server/api/robot/timeline.get.ts"
-                    }
-                  ],
-                  "path": "server/api/robot"
-                },
-                {
                   "name": "robots",
                   "children": [
                     {
@@ -15522,7 +15325,7 @@
                     },
                     {
                       "name": "stats.get.ts",
-                      "size": 3361,
+                      "size": 3345,
                       "path": "server/api/umami/stats.get.ts"
                     }
                   ],
@@ -15533,11 +15336,16 @@
                   "children": [
                     {
                       "name": "calcom.post.ts",
-                      "size": 3148,
+                      "size": 3302,
                       "path": "server/api/webhooks/calcom.post.ts"
                     }
                   ],
                   "path": "server/api/webhooks"
+                },
+                {
+                  "name": "apple-health.get.ts",
+                  "size": 9128,
+                  "path": "server/api/apple-health.get.ts"
                 },
                 {
                   "name": "blog-stats.get.ts",
@@ -15581,7 +15389,7 @@
                 },
                 {
                   "name": "duolingo.get.ts",
-                  "size": 2231,
+                  "size": 2229,
                   "path": "server/api/duolingo.get.ts"
                 },
                 {
@@ -15640,11 +15448,6 @@
                   "path": "server/api/goodreads.get.ts"
                 },
                 {
-                  "name": "health.get.ts",
-                  "size": 6252,
-                  "path": "server/api/health.get.ts"
-                },
-                {
                   "name": "healthcheck.get.ts",
                   "size": 1770,
                   "path": "server/api/healthcheck.get.ts"
@@ -15656,12 +15459,12 @@
                 },
                 {
                   "name": "kalshi.get.ts",
-                  "size": 19852,
+                  "size": 19860,
                   "path": "server/api/kalshi.get.ts"
                 },
                 {
                   "name": "lastfm.get.ts",
-                  "size": 11727,
+                  "size": 11728,
                   "path": "server/api/lastfm.get.ts"
                 },
                 {
@@ -15671,7 +15474,7 @@
                 },
                 {
                   "name": "letterboxd.get.ts",
-                  "size": 4763,
+                  "size": 4735,
                   "path": "server/api/letterboxd.get.ts"
                 },
                 {
@@ -15685,11 +15488,6 @@
                   "path": "server/api/monkeytype.get.ts"
                 },
                 {
-                  "name": "now.get.ts",
-                  "size": 1330,
-                  "path": "server/api/now.get.ts"
-                },
-                {
                   "name": "og.get.ts",
                   "size": 5476,
                   "path": "server/api/og.get.ts"
@@ -15698,11 +15496,6 @@
                   "name": "on-this-day.get.ts",
                   "size": 2674,
                   "path": "server/api/on-this-day.get.ts"
-                },
-                {
-                  "name": "photos.get.ts",
-                  "size": 751,
-                  "path": "server/api/photos.get.ts"
                 },
                 {
                   "name": "predictions.get.ts",
@@ -15741,7 +15534,7 @@
                 },
                 {
                   "name": "stats.get.ts",
-                  "size": 10073,
+                  "size": 10079,
                   "path": "server/api/stats.get.ts"
                 },
                 {
@@ -15797,7 +15590,7 @@
                 },
                 {
                   "name": "tags.json.ts",
-                  "size": 2060,
+                  "size": 2055,
                   "path": "server/routes/tags.json.ts"
                 }
               ],
@@ -15817,11 +15610,6 @@
             {
               "name": "utils",
               "children": [
-                {
-                  "name": "apiHelpers.ts",
-                  "size": 3353,
-                  "path": "server/utils/apiHelpers.ts"
-                },
                 {
                   "name": "fetch.ts",
                   "size": 1773,
@@ -15884,19 +15672,9 @@
           "name": "utils",
           "children": [
             {
-              "name": "dateFormatters.ts",
-              "size": 1837,
-              "path": "utils/dateFormatters.ts"
-            },
-            {
               "name": "dateUtils.ts",
               "size": 2695,
               "path": "utils/dateUtils.ts"
-            },
-            {
-              "name": "helpers.ts",
-              "size": 495,
-              "path": "utils/helpers.ts"
             }
           ],
           "path": "utils"
@@ -15973,17 +15751,17 @@
         },
         {
           "name": "nuxt.config.ts",
-          "size": 13193,
+          "size": 13172,
           "path": "nuxt.config.ts"
         },
         {
           "name": "package-lock.json",
-          "size": 695930,
+          "size": 694484,
           "path": "package-lock.json"
         },
         {
           "name": "package.json",
-          "size": 4234,
+          "size": 4119,
           "path": "package.json"
         },
         {
@@ -15998,7 +15776,7 @@
         },
         {
           "name": "unlighthouse.config.ts",
-          "size": 605,
+          "size": 576,
           "path": "unlighthouse.config.ts"
         },
         {
@@ -16008,14 +15786,14 @@
         },
         {
           "name": "yarn.lock",
-          "size": 351946,
+          "size": 349521,
           "path": "yarn.lock"
         }
       ],
       "path": ""
     },
-    "totalFiles": 1690,
-    "totalSize": 84770817
+    "totalFiles": 1668,
+    "totalSize": 84143983
   },
   "topics": [],
   "readme": {
@@ -16024,6 +15802,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2026-01-17T05:13:03Z",
-  "pushedAt": "2026-01-17T05:12:59Z"
+  "updatedAt": "2026-01-17T18:25:59Z",
+  "pushedAt": "2026-01-17T18:25:55Z"
 }
