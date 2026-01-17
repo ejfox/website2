@@ -4,7 +4,7 @@
  * @endpoint GET /api/letterboxd
  * @returns Film data with list of watched films, ratings, rewatch status, and calculated statistics (yearly/monthly counts, average rating)
  */
-/* eslint-disable no-console */
+
 export default defineEventHandler(async (_event) => {
   try {
     // Fetch RSS feed (much more reliable than HTML scraping!)
@@ -80,7 +80,7 @@ export default defineEventHandler(async (_event) => {
       }
     }
 
-    console.log(`Parsed ${films.length} films from RSS feed`)
+    // console.log(`Parsed ${films.length} films from RSS feed`)
 
     // Calculate stats
     const now = new Date()

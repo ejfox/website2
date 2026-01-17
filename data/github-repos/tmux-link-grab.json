@@ -12,9 +12,9 @@
   "language": "Shell",
   "languageColor": "#89e051",
   "languages": {
-    "Shell": 5182
+    "Shell": 5660
   },
-  "diskUsage": 31,
+  "diskUsage": 42,
   "fileTree": {
     "files": [
       {
@@ -23,7 +23,7 @@
       },
       {
         "path": "CHANGELOG.md",
-        "size": 2335
+        "size": 2890
       },
       {
         "path": "LICENSE",
@@ -31,15 +31,15 @@
       },
       {
         "path": "README.md",
-        "size": 2395
+        "size": 2165
       },
       {
         "path": "grab-links.sh",
-        "size": 4824
+        "size": 5222
       },
       {
         "path": "plugin.tmux",
-        "size": 358
+        "size": 438
       }
     ],
     "tree": {
@@ -52,7 +52,7 @@
         },
         {
           "name": "CHANGELOG.md",
-          "size": 2335,
+          "size": 2890,
           "path": "CHANGELOG.md"
         },
         {
@@ -62,32 +62,32 @@
         },
         {
           "name": "README.md",
-          "size": 2395,
+          "size": 2165,
           "path": "README.md"
         },
         {
           "name": "grab-links.sh",
-          "size": 4824,
+          "size": 5222,
           "path": "grab-links.sh"
         },
         {
           "name": "plugin.tmux",
-          "size": 358,
+          "size": 438,
           "path": "plugin.tmux"
         }
       ],
       "path": ""
     },
     "totalFiles": 6,
-    "totalSize": 10638
+    "totalSize": 11441
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"tmux-link-grab\">tmux-link-grab</h1>\n<p>Fast URL/IP seeking for tmux. <code>prefix + s</code> → fzf → Enter=copy, Space=open.</p>\n<h2 id=\"what-it-grabs\">What it grabs</h2>\n<ul>\n<li><code>https://</code>, <code>http://</code>, <code>ftp://</code> URLs</li>\n<li><code>localhost:3000</code></li>\n<li><code>192.168.1.1:8080</code></li>\n<li>IPv4 addresses with optional ports</li>\n</ul>\n<h2 id=\"install\">Install</h2>\n<h3 id=\"tpm-recommended\">TPM (Recommended)</h3>\n<p>Add to your <code>~/.tmux.conf</code>:</p>\n<pre><code class=\"language-tmux\">set -g @plugin 'ejfox/tmux-link-grab'\n</code></pre>\n<p>Then press <code>prefix + I</code> to install.</p>\n<h3 id=\"manual\">Manual</h3>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/tmux-link-grab ~/.tmux/plugins/tmux-link-grab\n</code></pre>\n<p>Add to your <code>~/.tmux.conf</code>:</p>\n<pre><code class=\"language-tmux\">run-shell ~/.tmux/plugins/tmux-link-grab/plugin.tmux\n</code></pre>\n<p>Then reload tmux configuration:</p>\n<pre><code class=\"language-bash\">tmux source-file ~/.tmux.conf\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<p>Press <code>prefix + s</code> (default) to open the link grabber. Use fzf to navigate:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody><tr><td>↑/↓</td><td>Navigate links</td></tr><tr><td>Enter</td><td>Copy to clipboard</td></tr><tr><td>Space</td><td>Open in browser</td></tr><tr><td>Esc</td><td>Cancel</td></tr></tbody></table>\n<h2 id=\"configuration\">Configuration</h2>\n<p>Add these options to your <code>~/.tmux.conf</code> before the plugin declaration:</p>\n<pre><code class=\"language-tmux\"># Change the key binding (default: 's')\nset -g @link-grab-key 'u'\n\n# Number of scrollback lines to search (default: 200)\nset -g @link-grab-lines 500\n\n# Browser command (default: $BROWSER or xdg-open)\nset -g @link-grab-browser 'firefox'\n</code></pre>\n<h3 id=\"example-configuration\">Example Configuration</h3>\n<pre><code class=\"language-tmux\"># Customize tmux-link-grab\nset -g @link-grab-key 'u'\nset -g @link-grab-lines 1000\nset -g @link-grab-browser 'chromium'\n\n# Load plugins\nset -g @plugin 'tmux-plugins/tpm'\nset -g @plugin 'ejfox/tmux-link-grab'\n\n# Initialize TPM (keep at bottom)\nrun '~/.tmux/plugins/tpm/tpm'\n</code></pre>\n<h2 id=\"dependencies\">Dependencies</h2>\n<ul>\n<li><strong>fzf</strong> - Required for interactive selection</li>\n<li><strong>Clipboard tool</strong> (one of):\n<ul>\n<li><code>pbcopy</code> (macOS - built-in)</li>\n<li><code>xclip</code> (Linux X11)</li>\n<li><code>wl-copy</code> (Linux Wayland)</li>\n<li>Falls back to tmux buffer if none available</li>\n</ul>\n</li>\n</ul>\n<h2 id=\"troubleshooting\">Troubleshooting</h2>\n<h3 id=\"fzf-is-not-installed\">\"fzf is not installed\"</h3>\n<p>Install fzf:</p>\n<ul>\n<li>macOS: <code>brew install fzf</code></li>\n<li>Debian/Ubuntu: <code>apt install fzf</code></li>\n<li>Fedora: <code>dnf install fzf</code></li>\n</ul>\n<h3 id=\"no-clipboard-tool-found\">\"no clipboard tool found\"</h3>\n<p>Install a clipboard utility:</p>\n<ul>\n<li>Linux X11: <code>apt install xclip</code> or <code>dnf install xclip</code></li>\n<li>Linux Wayland: <code>apt install wl-clipboard</code> or <code>dnf install wl-clipboard</code></li>\n</ul>\n<p>The plugin will still work with tmux's internal buffer if no system clipboard is available.</p>\n<h3 id=\"key-binding-doesnt-work\">Key binding doesn't work</h3>\n<p>Make sure you reload your tmux configuration after installation:</p>\n<pre><code class=\"language-bash\">tmux source-file ~/.tmux.conf\n</code></pre>\n<p>Or restart tmux entirely.</p>\n<h2 id=\"license\">License</h2>\n<p>GNU GPL v3</p>",
-    "raw": "# tmux-link-grab\n\nFast URL/IP seeking for tmux. `prefix + s` → fzf → Enter=copy, Space=open.\n\n## What it grabs\n\n- `https://`, `http://`, `ftp://` URLs\n- `localhost:3000`\n- `192.168.1.1:8080`\n- IPv4 addresses with optional ports\n\n## Install\n\n### TPM (Recommended)\n\nAdd to your `~/.tmux.conf`:\n\n```tmux\nset -g @plugin 'ejfox/tmux-link-grab'\n```\n\nThen press `prefix + I` to install.\n\n### Manual\n\n```bash\ngit clone https://github.com/ejfox/tmux-link-grab ~/.tmux/plugins/tmux-link-grab\n```\n\nAdd to your `~/.tmux.conf`:\n\n```tmux\nrun-shell ~/.tmux/plugins/tmux-link-grab/plugin.tmux\n```\n\nThen reload tmux configuration:\n\n```bash\ntmux source-file ~/.tmux.conf\n```\n\n## Usage\n\nPress `prefix + s` (default) to open the link grabber. Use fzf to navigate:\n\n| Key | Action |\n|-----|--------|\n| ↑/↓ | Navigate links |\n| Enter | Copy to clipboard |\n| Space | Open in browser |\n| Esc | Cancel |\n\n## Configuration\n\nAdd these options to your `~/.tmux.conf` before the plugin declaration:\n\n```tmux\n# Change the key binding (default: 's')\nset -g @link-grab-key 'u'\n\n# Number of scrollback lines to search (default: 200)\nset -g @link-grab-lines 500\n\n# Browser command (default: $BROWSER or xdg-open)\nset -g @link-grab-browser 'firefox'\n```\n\n### Example Configuration\n\n```tmux\n# Customize tmux-link-grab\nset -g @link-grab-key 'u'\nset -g @link-grab-lines 1000\nset -g @link-grab-browser 'chromium'\n\n# Load plugins\nset -g @plugin 'tmux-plugins/tpm'\nset -g @plugin 'ejfox/tmux-link-grab'\n\n# Initialize TPM (keep at bottom)\nrun '~/.tmux/plugins/tpm/tpm'\n```\n\n## Dependencies\n\n- **fzf** - Required for interactive selection\n- **Clipboard tool** (one of):\n  - `pbcopy` (macOS - built-in)\n  - `xclip` (Linux X11)\n  - `wl-copy` (Linux Wayland)\n  - Falls back to tmux buffer if none available\n\n## Troubleshooting\n\n### \"fzf is not installed\"\n\nInstall fzf:\n- macOS: `brew install fzf`\n- Debian/Ubuntu: `apt install fzf`\n- Fedora: `dnf install fzf`\n\n### \"no clipboard tool found\"\n\nInstall a clipboard utility:\n- Linux X11: `apt install xclip` or `dnf install xclip`\n- Linux Wayland: `apt install wl-clipboard` or `dnf install wl-clipboard`\n\nThe plugin will still work with tmux's internal buffer if no system clipboard is available.\n\n### Key binding doesn't work\n\nMake sure you reload your tmux configuration after installation:\n```bash\ntmux source-file ~/.tmux.conf\n```\n\nOr restart tmux entirely.\n\n## License\n\nGNU GPL v3\n",
-    "excerpt": "Fast URL/IP seeking for tmux. prefix + s → fzf → Enter=copy, Space=open.\n\n\n\n- https://, http://, ftp:// URLs\n- localhost:3000\n- 192.168.1.1:8080\n- IPv4 addresse..."
+    "html": "<h1 id=\"tmux-link-grab\">tmux-link-grab</h1>\n<p>Fast URL seeking for tmux with fzf. <code>prefix + s</code> → pick URL → open in browser.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li><strong>Flexible scope</strong> - search current pane, window, session, or history</li>\n<li><strong>Pane labels</strong> - see which pane each URL came from (e.g. <code>[nvim] https://...</code>)</li>\n<li><strong>Persistent history</strong> - access previously opened URLs even after scrollback is gone</li>\n<li><strong>Proper tmux citizen</strong> - configure via tmux options, respects your copy-command</li>\n<li><strong>fzf interface</strong> - j/k navigation, fuzzy search</li>\n</ul>\n<h2 id=\"install\">Install</h2>\n<h3 id=\"tpm-recommended\">TPM (recommended)</h3>\n<pre><code class=\"language-tmux\">set -g @plugin 'ejfox/tmux-link-grab'\n</code></pre>\n<p>Then <code>prefix + I</code> to install. Keybinding is set up automatically.</p>\n<h3 id=\"manual\">Manual</h3>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/tmux-link-grab ~/.tmux/plugins/tmux-link-grab\n</code></pre>\n<p>Add to <code>.tmux.conf</code>:</p>\n<pre><code class=\"language-tmux\">run-shell ~/.tmux/plugins/tmux-link-grab/plugin.tmux\n</code></pre>\n<h2 id=\"config\">Config</h2>\n<p>All options go in your <code>.tmux.conf</code> <strong>before</strong> the plugin line:</p>\n<pre><code class=\"language-tmux\"># Key binding (default: s)\nset -g @link-grab-key \"s\"\n\n# Scope: \"pane\", \"window\", \"session\", or \"history\" (default: window)\nset -g @link-grab-scope \"window\"\n\n# Action: \"open\", \"copy\", or \"buffer\" (default: open)\nset -g @link-grab-action \"open\"\n\n# Show pane labels (default: true)\nset -g @link-grab-labels \"true\"\n\n# Scrollback lines to search (default: 200)\nset -g @link-grab-lines \"200\"\n\n# History file (default: ~/.tmux-link-history, set \"\" to disable)\nset -g @link-grab-history \"$HOME/.tmux-link-history\"\nset -g @link-grab-history-max \"100\"\n\n# Load plugin\nset -g @plugin 'ejfox/tmux-link-grab'\n</code></pre>\n<h2 id=\"actions\">Actions</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Action</th><th>Behavior</th></tr></thead><tbody><tr><td><code>open</code></td><td>Open URL in browser</td></tr><tr><td><code>copy</code></td><td>Copy to system clipboard (respects your <code>copy-command</code>)</td></tr><tr><td><code>buffer</code></td><td>Save to tmux paste buffer (<code>prefix + ]</code> to paste)</td></tr></tbody></table>\n<h2 id=\"keys\">Keys</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Key</th><th>Action</th></tr></thead><tbody><tr><td>Enter</td><td>Execute action</td></tr><tr><td>Space</td><td>Execute action</td></tr><tr><td>j/k</td><td>Navigate</td></tr><tr><td>Esc</td><td>Cancel</td></tr></tbody></table>\n<h2 id=\"feedback\">Feedback</h2>\n<p>Actions show confirmation in tmux status line:</p>\n<ul>\n<li><code>Opened: github.com</code></li>\n<li><code>Copied: https://example.com/path...</code></li>\n<li><code>Saved to tmux buffer</code></li>\n<li><code>No URLs found</code></li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li>tmux 3.0+ (for display-popup)</li>\n<li>fzf</li>\n<li><code>open</code> (macOS) or <code>xdg-open</code> (Linux)</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>GNU GPL v3</p>",
+    "raw": "# tmux-link-grab\n\nFast URL seeking for tmux with fzf. `prefix + s` → pick URL → open in browser.\n\n## Features\n\n- **Flexible scope** - search current pane, window, session, or history\n- **Pane labels** - see which pane each URL came from (e.g. `[nvim] https://...`)\n- **Persistent history** - access previously opened URLs even after scrollback is gone\n- **Proper tmux citizen** - configure via tmux options, respects your copy-command\n- **fzf interface** - j/k navigation, fuzzy search\n\n## Install\n\n### TPM (recommended)\n\n```tmux\nset -g @plugin 'ejfox/tmux-link-grab'\n```\n\nThen `prefix + I` to install. Keybinding is set up automatically.\n\n### Manual\n\n```bash\ngit clone https://github.com/ejfox/tmux-link-grab ~/.tmux/plugins/tmux-link-grab\n```\n\nAdd to `.tmux.conf`:\n\n```tmux\nrun-shell ~/.tmux/plugins/tmux-link-grab/plugin.tmux\n```\n\n## Config\n\nAll options go in your `.tmux.conf` **before** the plugin line:\n\n```tmux\n# Key binding (default: s)\nset -g @link-grab-key \"s\"\n\n# Scope: \"pane\", \"window\", \"session\", or \"history\" (default: window)\nset -g @link-grab-scope \"window\"\n\n# Action: \"open\", \"copy\", or \"buffer\" (default: open)\nset -g @link-grab-action \"open\"\n\n# Show pane labels (default: true)\nset -g @link-grab-labels \"true\"\n\n# Scrollback lines to search (default: 200)\nset -g @link-grab-lines \"200\"\n\n# History file (default: ~/.tmux-link-history, set \"\" to disable)\nset -g @link-grab-history \"$HOME/.tmux-link-history\"\nset -g @link-grab-history-max \"100\"\n\n# Load plugin\nset -g @plugin 'ejfox/tmux-link-grab'\n```\n\n## Actions\n\n| Action | Behavior |\n|--------|----------|\n| `open` | Open URL in browser |\n| `copy` | Copy to system clipboard (respects your `copy-command`) |\n| `buffer` | Save to tmux paste buffer (`prefix + ]` to paste) |\n\n## Keys\n\n| Key | Action |\n|-----|--------|\n| Enter | Execute action |\n| Space | Execute action |\n| j/k | Navigate |\n| Esc | Cancel |\n\n## Feedback\n\nActions show confirmation in tmux status line:\n- `Opened: github.com`\n- `Copied: https://example.com/path...`\n- `Saved to tmux buffer`\n- `No URLs found`\n\n## Requirements\n\n- tmux 3.0+ (for display-popup)\n- fzf\n- `open` (macOS) or `xdg-open` (Linux)\n\n## License\n\nGNU GPL v3\n",
+    "excerpt": "Fast URL seeking for tmux with fzf. prefix + s → pick URL → open in browser.\n\n\n\n- Flexible scope - search current pane, window, session, or history\n- Pane label..."
   },
   "createdAt": "2025-12-09T17:39:32Z",
-  "updatedAt": "2026-01-11T04:16:38Z",
-  "pushedAt": "2026-01-11T04:16:34Z"
+  "updatedAt": "2026-01-16T20:18:37Z",
+  "pushedAt": "2026-01-16T20:18:33Z"
 }

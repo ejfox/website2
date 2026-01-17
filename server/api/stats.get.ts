@@ -8,7 +8,7 @@ import type { StatsResponse } from '~/composables/useStats'
 import githubHandler from './github.get'
 import monkeyTypeHandler from './monkeytype.get'
 // import photosHandler from './photos.get' // DISABLED: SSL certificate issues
-import healthHandler from './health.get' // Re-enabled: using health-webhook.tools.ejfox.com
+import healthHandler from './apple-health.get' // Re-enabled: using health-webhook.tools.ejfox.com
 import leetcodeHandler from './leetcode.get'
 import chessHandler from './chess.get'
 import rescuetimeHandler from './rescuetime.get'

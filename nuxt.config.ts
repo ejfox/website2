@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 async function _getScrapTags() {
   try {
     if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
@@ -13,7 +11,7 @@ async function _getScrapTags() {
       process.env.SUPABASE_KEY
     )
 
-    console.log('🔍 Discovering unique tags for prerendering...')
+    // console.log('🔍 Discovering unique tags for prerendering...')
     // Only select tags field for faster query, not all data
     const { data, error } = await supabase
       .from('scraps')
@@ -33,7 +31,7 @@ async function _getScrapTags() {
     })
 
     const tags = Array.from(tagSet).sort()
-    console.log(`✅ Discovered ${tags.length} unique tags for prerendering`)
+    // console.log(`✅ Discovered ${tags.length} unique tags for prerendering`)
 
     return tags
   } catch (error) {
@@ -76,7 +74,7 @@ async function getBlogRoutes(): Promise<string[]> {
       })
       .map((post: ManifestPost) => `/blog/${post.slug}`)
 
-    console.log(`📝 Found ${routes.length} blog posts to prerender`)
+    // console.log(`📝 Found ${routes.length} blog posts to prerender`)
     return routes
   } catch (error) {
     console.error('❌ Error reading blog manifest:', error)
@@ -232,7 +230,7 @@ export default defineNuxtConfig({
             errorOnExist: false,
             force: true,
           })
-          console.log(`✓ Copied content directory to ${dest}`)
+          // console.log(`✓ Copied content directory to ${dest}`)
         } catch (err) {
           // Ignore ENOENT errors during hot reload race conditions
           const e = err as { code?: string }

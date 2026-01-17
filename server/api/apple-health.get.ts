@@ -1,7 +1,7 @@
 /**
- * @file health.get.ts
- * @description Fetches health statistics from health-webhook.tools.ejfox.com
- * @endpoint GET /api/health
+ * @file apple-health.get.ts
+ * @description Fetches Apple Health statistics from health-webhook.tools.ejfox.com
+ * @endpoint GET /api/apple-health
  * @returns Health stats including steps, heart rate, exercise, sleep data
  */
 import { defineEventHandler } from 'h3'
@@ -48,9 +48,24 @@ interface HealthStats {
     flightsClimbed: number
   }
   trends: {
-    daily: { dates: string[]; steps: number[]; exercise: number[]; distance: number[] }
-    weekly: { dates: string[]; steps: number[]; exercise: number[]; distance: number[] }
-    monthly: { dates: string[]; steps: number[]; exercise: number[]; distance: number[] }
+    daily: {
+      dates: string[]
+      steps: number[]
+      exercise: number[]
+      distance: number[]
+    }
+    weekly: {
+      dates: string[]
+      steps: number[]
+      exercise: number[]
+      distance: number[]
+    }
+    monthly: {
+      dates: string[]
+      steps: number[]
+      exercise: number[]
+      distance: number[]
+    }
   }
   lastUpdated: string
 }
@@ -83,7 +98,10 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
     const getLatest = (name: string): number => {
       const found = metrics
         .filter((m: MetricRecord) => m.name === name)
-        .sort((a: MetricRecord, b: MetricRecord) => new Date(b.date).getTime() - new Date(a.date).getTime())[0]
+        .sort(
+          (a: MetricRecord, b: MetricRecord) =>
+            new Date(b.date).getTime() - new Date(a.date).getTime()
+        )[0]
       return found?.value || found?.qty || found?.avg || 0
     }
 
@@ -92,8 +110,13 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
       const cutoff = new Date()
       cutoff.setDate(cutoff.getDate() - daysBack)
       return metrics
-        .filter((m: MetricRecord) => m.name === name && new Date(m.date) >= cutoff)
-        .reduce((sum: number, m: MetricRecord) => sum + (m.value || m.qty || 0), 0)
+        .filter(
+          (m: MetricRecord) => m.name === name && new Date(m.date) >= cutoff
+        )
+        .reduce(
+          (sum: number, m: MetricRecord) => sum + (m.value || m.qty || 0),
+          0
+        )
     }
 
     // Helper to average values for a metric
@@ -101,9 +124,13 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
       const cutoff = new Date()
       cutoff.setDate(cutoff.getDate() - daysBack)
       const values = metrics
-        .filter((m: MetricRecord) => m.name === name && new Date(m.date) >= cutoff)
+        .filter(
+          (m: MetricRecord) => m.name === name && new Date(m.date) >= cutoff
+        )
         .map((m: MetricRecord) => m.value || m.qty || m.avg || 0)
-      return values.length ? values.reduce((a: number, b: number) => a + b, 0) / values.length : 0
+      return values.length
+        ? values.reduce((a: number, b: number) => a + b, 0) / values.length
+        : 0
     }
 
     // Build trends (last 7 days for daily)
@@ -118,11 +145,89 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
       const dateStr = date.toISOString().split('T')[0]
       dailyDates.push(dateStr)
 
-      const dayMetrics = metrics.filter((m: MetricRecord) => m.date.startsWith(dateStr))
-      dailySteps.push(dayMetrics.find((m: MetricRecord) => m.name === 'step_count')?.value || 0)
-      dailyExercise.push(dayMetrics.find((m: MetricRecord) => m.name === 'apple_exercise_time')?.value || 0)
-      dailyDistance.push(dayMetrics.find((m: MetricRecord) => m.name === 'walking_running_distance')?.value || 0)
+      const dayMetrics = metrics.filter((m: MetricRecord) =>
+        m.date.startsWith(dateStr)
+      )
+      dailySteps.push(
+        dayMetrics.find((m: MetricRecord) => m.name === 'step_count')?.value ||
+          0
+      )
+      dailyExercise.push(
+        dayMetrics.find((m: MetricRecord) => m.name === 'apple_exercise_time')
+          ?.value || 0
+      )
+      dailyDistance.push(
+        dayMetrics.find(
+          (m: MetricRecord) => m.name === 'walking_running_distance'
+        )?.value || 0
+      )
     }
+
+    // Build weekly trends (last 4 weeks)
+    const weeklyDates: string[] = []
+    const weeklySteps: number[] = []
+    const weeklyExercise: number[] = []
+    const weeklyDistance: number[] = []
+
+    for (let w = 3; w >= 0; w--) {
+      const weekStart = new Date()
+      weekStart.setDate(weekStart.getDate() - w * 7 - 6)
+      const weekEnd = new Date()
+      weekEnd.setDate(weekEnd.getDate() - w * 7)
+
+      const weekLabel = `${weekStart.toISOString().split('T')[0]}`
+      weeklyDates.push(weekLabel)
+
+      const weekMetrics = metrics.filter((m: MetricRecord) => {
+        const mDate = new Date(m.date)
+        return mDate >= weekStart && mDate <= weekEnd
+      })
+
+      weeklySteps.push(
+        weekMetrics
+          .filter((m: MetricRecord) => m.name === 'step_count')
+          .reduce((sum: number, m: MetricRecord) => sum + (m.value || 0), 0)
+      )
+      weeklyExercise.push(
+        weekMetrics
+          .filter((m: MetricRecord) => m.name === 'apple_exercise_time')
+          .reduce((sum: number, m: MetricRecord) => sum + (m.value || 0), 0)
+      )
+      weeklyDistance.push(
+        weekMetrics
+          .filter((m: MetricRecord) => m.name === 'walking_running_distance')
+          .reduce((sum: number, m: MetricRecord) => sum + (m.value || 0), 0)
+      )
+    }
+
+    // Build monthly trends (limited by 30-day API window)
+    const monthlyDates: string[] = []
+    const monthlySteps: number[] = []
+    const monthlyExercise: number[] = []
+    const monthlyDistance: number[] = []
+
+    const currentMonth = new Date()
+    const monthLabel = `${currentMonth.getFullYear()}-${String(currentMonth.getMonth() + 1).padStart(2, '0')}`
+    monthlyDates.push(monthLabel)
+
+    const monthMetrics = metrics.filter((m: MetricRecord) =>
+      m.date.startsWith(monthLabel)
+    )
+    monthlySteps.push(
+      monthMetrics
+        .filter((m: MetricRecord) => m.name === 'step_count')
+        .reduce((sum: number, m: MetricRecord) => sum + (m.value || 0), 0)
+    )
+    monthlyExercise.push(
+      monthMetrics
+        .filter((m: MetricRecord) => m.name === 'apple_exercise_time')
+        .reduce((sum: number, m: MetricRecord) => sum + (m.value || 0), 0)
+    )
+    monthlyDistance.push(
+      monthMetrics
+        .filter((m: MetricRecord) => m.name === 'walking_running_distance')
+        .reduce((sum: number, m: MetricRecord) => sum + (m.value || 0), 0)
+    )
 
     return {
       today: {
@@ -166,9 +271,24 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
         flightsClimbed: sumMetric('flights_climbed', 30),
       },
       trends: {
-        daily: { dates: dailyDates, steps: dailySteps, exercise: dailyExercise, distance: dailyDistance },
-        weekly: { dates: [], steps: [], exercise: [], distance: [] }, // TODO: aggregate weekly
-        monthly: { dates: [], steps: [], exercise: [], distance: [] }, // TODO: aggregate monthly
+        daily: {
+          dates: dailyDates,
+          steps: dailySteps,
+          exercise: dailyExercise,
+          distance: dailyDistance,
+        },
+        weekly: {
+          dates: weeklyDates,
+          steps: weeklySteps,
+          exercise: weeklyExercise,
+          distance: weeklyDistance,
+        },
+        monthly: {
+          dates: monthlyDates,
+          steps: monthlySteps,
+          exercise: monthlyExercise,
+          distance: monthlyDistance,
+        },
       },
       lastUpdated: new Date().toISOString(),
     }

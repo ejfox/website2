@@ -4,7 +4,7 @@
  * @endpoint GET /api/kalshi
  * @returns KalshiApiResponse with balance, positions, fills, orders, market details, user commentaries, and portfolio P&L statistics
  */
-/* eslint-disable no-console */
+
 import { Configuration, PortfolioApi, EventsApi } from 'kalshi-typescript'
 import { readFile, readdir } from 'node:fs/promises'
 import { join } from 'node:path'
@@ -259,14 +259,14 @@ async function fetchEvents(
   }
 
   if (needsFetch.length === 0) {
-    console.log(`[Kalshi] All ${eventTickers.length} events served from cache`)
+    // console.log(`[Kalshi] All ${eventTickers.length} events served from cache`)
     return result
   }
 
-  const fetchMsg =
-    `[Kalshi] Fetching ${needsFetch.length}/` +
-    `${eventTickers.length} events from API`
-  console.log(fetchMsg)
+  // const fetchMsg =
+  //   `[Kalshi] Fetching ${needsFetch.length}/` +
+  //   `${eventTickers.length} events from API`
+  // console.log(fetchMsg)
 
   // Fetch missing events in parallel
   const eventResults = await Promise.allSettled(
@@ -297,12 +297,12 @@ async function fetchEvents(
   }
 
   if (resolved404Count > 0) {
-    const msg = `${resolved404Count}/${needsFetch.length} events`
-    console.log(`[Kalshi] ${msg} returned 404 (resolved/removed)`)
-    console.log(
-      `[Kalshi] Falling back to commentary files for titles.`,
-      `Run: node scripts/generate-commentary-templates.mjs`
-    )
+    // const msg = `${resolved404Count}/${needsFetch.length} events`
+    // console.log(`[Kalshi] ${msg} returned 404 (resolved/removed)`)
+    // console.log(
+    //   `[Kalshi] Falling back to commentary files for titles.`,
+    //   `Run: node scripts/generate-commentary-templates.mjs`
+    // )
   }
 
   return result
@@ -357,7 +357,7 @@ export default defineEventHandler(
       now - portfolioCache.timestamp < PORTFOLIO_CACHE_DURATION
 
     if (portfolioCacheValid) {
-      console.log('[Kalshi] Serving from cache')
+      // console.log('[Kalshi] Serving from cache')
 
       // Still need to recalculate derived data with fresh commentary
       const commentaries = await loadCommentaries()
@@ -481,7 +481,7 @@ export default defineEventHandler(
     }
 
     // Fetch fresh portfolio data
-    console.log('[Kalshi] Fetching fresh portfolio data from API')
+    // console.log('[Kalshi] Fetching fresh portfolio data from API')
     const config = useRuntimeConfig()
 
     try {

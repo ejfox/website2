@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 export default {
   site: 'http://localhost:3006',
   debug: true,
@@ -15,7 +14,7 @@ export default {
   },
   hooks: {
     'report:generate': () => {
-      console.log('📊 Performance report generated!')
+      // console.log('📊 Performance report generated!')
     },
   },
   scanner: {

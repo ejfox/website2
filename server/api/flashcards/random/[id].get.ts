@@ -3,11 +3,8 @@
  * @description Returns a random flashcard from a specific deck
  * @endpoint GET /api/flashcards/random/:id
  */
-import {
-  loadDeck,
-  cardToFlashcard,
-  randomItem,
-} from '~/server/utils/flashcards'
+import { loadDeck, cardToFlashcard } from '~/server/utils/flashcards'
+import { getRouterParam } from 'h3'
 
 export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id')

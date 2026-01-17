@@ -193,6 +193,7 @@ export interface StatsResponse {
       testsCompleted: number
       bestAccuracy: number
       bestConsistency: number
+      averageWpm: number
       recentTests: Array<{
         timestamp: string
         wpm: number
@@ -204,6 +205,7 @@ export interface StatsResponse {
   github?: {
     stats: {
       totalRepos: number
+      totalCommits: number
       totalContributions: number
       followers: number
       following: number

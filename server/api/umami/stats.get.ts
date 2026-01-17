@@ -5,7 +5,7 @@
  * @params url: string - URL to fetch page view statistics for
  * @returns Page views for specific URL and overall website statistics from Umami
  */
-/* eslint-disable no-console */
+
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const { url } = query
@@ -33,11 +33,11 @@ export default defineEventHandler(async (event) => {
     }
 
     // Debug logging
-    console.log('Umami auth attempt:', {
-      username: username,
-      hasPassword: !!password,
-      passwordLength: password?.length,
-    })
+    // console.log('Umami auth attempt:', {
+    //   username: username,
+    //   hasPassword: !!password,
+    //   passwordLength: password?.length,
+    // })
 
     // First, authenticate to get token
     const authResponse = await fetch(

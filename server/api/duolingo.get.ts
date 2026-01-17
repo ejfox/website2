@@ -43,7 +43,7 @@ export default defineEventHandler(async (): Promise<DuolingoUser | null> => {
       {
         headers: {
           'User-Agent': 'Mozilla/5.0 (compatible; StatsBot/1.0)',
-          'Accept': 'application/json',
+          Accept: 'application/json',
         },
       }
     )

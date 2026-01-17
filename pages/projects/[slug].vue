@@ -1,5 +1,5 @@
 <script setup>
-import BlogPostContent from '~/components/BlogPostContent.vue'
+import BlogPostContent from '~/components/blog/BlogPostContent.vue'
 import { useIntersectionObserver } from '@vueuse/core'
 
 const { formatLongDate } = useDateFormat()
@@ -175,6 +175,9 @@ onMounted(() => {
               </a>
             </div>
           </div>
+
+          <!-- Support Links -->
+          <UiSupportLinks />
 
           <!-- TOC -->
           <div v-if="tocChildren.length > 0" class="toc">

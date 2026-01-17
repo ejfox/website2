@@ -52,6 +52,6 @@ export default defineEventHandler(async (event) => {
   return {
     query: q,
     total: results.length,
-    results: results.slice(0, limit).map(({ score, ...card }) => card),
+    results: results.slice(0, limit).map(({ score: _score, ...card }) => card),
   }
 })

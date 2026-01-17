@@ -138,8 +138,10 @@ function handleMouseMove(event) {
       mouseY < cellY + CELL_SIZE
     ) {
       hoveredCommit.value = item.commit
-      tooltipX.value = event.clientX - containerRef.value.getBoundingClientRect().left + 10
-      tooltipY.value = event.clientY - containerRef.value.getBoundingClientRect().top - 40
+      tooltipX.value =
+        event.clientX - containerRef.value.getBoundingClientRect().left + 10
+      tooltipY.value =
+        event.clientY - containerRef.value.getBoundingClientRect().top - 40
       return
     }
   }
@@ -191,9 +193,15 @@ watch(() => props.commits, draw)
   border-radius: 1px;
 }
 
-.legend-dot--recent { background: #3f3f46; }
-.legend-dot--year { background: #71717a; }
-.legend-dot--older { background: #a1a1aa; }
+.legend-dot--recent {
+  background: #3f3f46;
+}
+.legend-dot--year {
+  background: #71717a;
+}
+.legend-dot--older {
+  background: #a1a1aa;
+}
 
 .canvas-container {
   padding: 0.5rem;
@@ -224,15 +232,28 @@ watch(() => props.commits, draw)
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.tooltip-date { font-weight: 500; margin-bottom: 2px; }
-.tooltip-repo { color: #71717a; }
+.tooltip-date {
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.tooltip-repo {
+  color: #71717a;
+}
 
 @media (prefers-color-scheme: dark) {
-  .legend-dot--recent { background: #fafafa; }
-  .legend-dot--year { background: #a1a1aa; }
-  .legend-dot--older { background: #52525b; }
+  .legend-dot--recent {
+    background: #fafafa;
+  }
+  .legend-dot--year {
+    background: #a1a1aa;
+  }
+  .legend-dot--older {
+    background: #52525b;
+  }
 
-  .canvas-container { background: #18181b; }
+  .canvas-container {
+    background: #18181b;
+  }
 
   .commit-tooltip {
     background: rgba(24, 24, 27, 0.95);
@@ -240,6 +261,8 @@ watch(() => props.commits, draw)
     border-color: #3f3f46;
   }
 
-  .tooltip-repo { color: #a1a1aa; }
+  .tooltip-repo {
+    color: #a1a1aa;
+  }
 }
 </style>

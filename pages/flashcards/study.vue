@@ -9,7 +9,7 @@ interface Deck {
   cardCount: number
 }
 
-interface CardWithDeck {
+interface _CardWithDeck {
   card: string[]
   deckName: string
 }

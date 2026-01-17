@@ -71,7 +71,6 @@
     "typescript": "^5.x.x",
     "unified": "^11.0.5",
     "vitest": "^4.0.15",
-    "vue-eslint-parser": "^10.2.0",
     "zod": "^4.0.17"
   },
   "dependencies": {
@@ -81,12 +80,9 @@
     "@vueuse/core": "^14.1.0",
     "animejs": "^4.2.2",
     "chalk": "^5.3.0",
-    "chance": "^1.1.13",
-    "chroma-js": "^3.2.0",
     "d3": "^7.9.0",
     "d3-scale-chromatic": "^3.1.0",
     "date-fns": "^4.1.0",
-    "dompurify": "^3.3.0",
     "dotenv": "^17.0.1",
     "floating-vue": "^5.2.2",
     "github-slugger": "^2.0.0",

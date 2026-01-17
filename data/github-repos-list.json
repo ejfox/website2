@@ -1,5 +1,86 @@
 [
   {
+    "name": "website2",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/website2",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 1,
+      "openIssues": 1
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 737105,
+      "TypeScript": 421480,
+      "JavaScript": 205706,
+      "CSS": 36438,
+      "HTML": 27082,
+      "Shell": 16156,
+      "Dockerfile": 794
+    },
+    "diskUsage": 88450,
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2024-10-13T14:09:19Z",
+    "updatedAt": "2026-01-17T05:13:03Z",
+    "pushedAt": "2026-01-17T05:12:59Z"
+  },
+  {
+    "name": "dotfiles",
+    "description": "Backup of my dotfiles",
+    "url": "https://github.com/ejfox/dotfiles",
+    "homepage": null,
+    "stats": {
+      "stars": 1,
+      "forks": 1,
+      "watchers": 0,
+      "openIssues": 3
+    },
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "languages": {
+      "Shell": 280192,
+      "GLSL": 176199,
+      "Lua": 123408,
+      "Vim Script": 83725,
+      "JavaScript": 8622,
+      "Less": 2089,
+      "CSS": 1367
+    },
+    "diskUsage": 63213,
+    "topics": [],
+    "excerpt": "Backup of my dotfiles",
+    "createdAt": "2019-04-07T22:09:55Z",
+    "updatedAt": "2026-01-16T20:18:45Z",
+    "pushedAt": "2026-01-16T20:18:39Z"
+  },
+  {
+    "name": "tmux-link-grab",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/tmux-link-grab",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Shell",
+    "languageColor": "#89e051",
+    "languages": {
+      "Shell": 5660
+    },
+    "diskUsage": 42,
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-12-09T17:39:32Z",
+    "updatedAt": "2026-01-16T20:18:37Z",
+    "pushedAt": "2026-01-16T20:18:33Z"
+  },
+  {
     "name": "ejthirdbear",
     "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
     "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
@@ -102,35 +183,6 @@
     "pushedAt": "2026-01-15T04:13:16Z"
   },
   {
-    "name": "dotfiles",
-    "description": "Backup of my dotfiles",
-    "url": "https://github.com/ejfox/dotfiles",
-    "homepage": null,
-    "stats": {
-      "stars": 1,
-      "forks": 1,
-      "watchers": 0,
-      "openIssues": 3
-    },
-    "language": "Shell",
-    "languageColor": "#89e051",
-    "languages": {
-      "Shell": 280252,
-      "GLSL": 176199,
-      "Lua": 123408,
-      "Vim Script": 83725,
-      "JavaScript": 8622,
-      "Less": 2089,
-      "CSS": 1367
-    },
-    "diskUsage": 63195,
-    "topics": [],
-    "excerpt": "Backup of my dotfiles",
-    "createdAt": "2019-04-07T22:09:55Z",
-    "updatedAt": "2026-01-12T20:25:10Z",
-    "pushedAt": "2026-01-12T20:25:06Z"
-  },
-  {
     "name": "glasses-hud",
     "description": "Prototype AR / lens visualizations and HUDs quickly",
     "url": "https://github.com/ejfox/glasses-hud",
@@ -177,35 +229,6 @@
     "createdAt": "2024-08-11T17:58:54Z",
     "updatedAt": "2026-01-12T01:19:36Z",
     "pushedAt": "2026-01-12T01:19:32Z"
-  },
-  {
-    "name": "website2",
-    "description": "No description provided",
-    "url": "https://github.com/ejfox/website2",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 1,
-      "openIssues": 1
-    },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 772036,
-      "TypeScript": 422298,
-      "JavaScript": 221111,
-      "CSS": 36438,
-      "HTML": 27082,
-      "Shell": 21676,
-      "Dockerfile": 794
-    },
-    "diskUsage": 88435,
-    "topics": [],
-    "excerpt": "No description provided",
-    "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2026-01-11T21:36:08Z",
-    "pushedAt": "2026-01-11T21:36:04Z"
   },
   {
     "name": "tempo",
@@ -400,29 +423,6 @@
     "createdAt": "2024-08-14T14:16:03Z",
     "updatedAt": "2026-01-11T04:19:01Z",
     "pushedAt": "2026-01-11T04:18:57Z"
-  },
-  {
-    "name": "tmux-link-grab",
-    "description": "No description provided",
-    "url": "https://github.com/ejfox/tmux-link-grab",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Shell",
-    "languageColor": "#89e051",
-    "languages": {
-      "Shell": 5182
-    },
-    "diskUsage": 31,
-    "topics": [],
-    "excerpt": "No description provided",
-    "createdAt": "2025-12-09T17:39:32Z",
-    "updatedAt": "2026-01-11T04:16:38Z",
-    "pushedAt": "2026-01-11T04:16:34Z"
   },
   {
     "name": "vulpino",

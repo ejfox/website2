@@ -1,7 +1,7 @@
 /**
- * @file robot/timeline.get.ts
+ * @file agent/timeline.get.ts
  * @description Chronological aggregation of all life events including blog posts, predictions, prediction updates, and reading annotations
- * @endpoint GET /api/robot/timeline
+ * @endpoint GET /api/agent/timeline
  * @params from: string - Start date (YYYY-MM-DD), to: string - End date (YYYY-MM-DD), limit: number - Maximum events (default: 100)
  * @returns Sorted timeline events with stats grouped by type and year
  */
@@ -214,7 +214,7 @@ export default defineEventHandler(async (event) => {
 
   return {
     meta: {
-      endpoint: '/api/robot/timeline',
+      endpoint: '/api/agent/timeline',
       timestamp: new Date().toISOString(),
       count: filteredEvents.slice(0, limit).length,
       totalEvents: events.length,

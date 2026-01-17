@@ -1,4 +1,6 @@
+<!-- eslint-disable max-len, vue/max-len -->
 <script setup lang="ts">
+/* eslint-disable max-len */
 import { useDark, useWindowScroll, useWindowSize } from '@vueuse/core'
 
 // ============================================

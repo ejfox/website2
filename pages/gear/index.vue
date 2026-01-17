@@ -10,7 +10,9 @@
 
     <header v-else class="section-spacing-sm">
       <!-- Mobile: Stack vertically, Desktop: Horizontal layout -->
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-3 section-spacing-sm">
+      <div
+        class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-3 section-spacing-sm"
+      >
         <!-- Title and Stats Section -->
         <div class="flex flex-col gap-2">
           <h1 class="font-mono text-sm text-zinc-100">GEAR</h1>
@@ -23,13 +25,19 @@
             exports
           </div>
         </div>
-        
+
         <!-- Controls Section -->
-        <div class="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-3 w-full sm:w-auto">
+        <div
+          class="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-3 w-full sm:w-auto"
+        >
           <!-- Weight Unit Selector -->
           <label for="weight-unit" class="sr-only">Weight unit</label>
           <div class="relative w-full sm:w-auto">
-            <select id="weight-unit" v-model="weightUnit" class="gear-select w-full sm:w-auto">
+            <select
+              id="weight-unit"
+              v-model="weightUnit"
+              class="gear-select w-full sm:w-auto"
+            >
               <option value="metric">KG/G</option>
               <option value="imperial">LB/OZ</option>
             </select>
@@ -45,7 +53,11 @@
             </span>
             {{ sortBy === 'weight' ? 'Weight' : 'Name' }}
           </button>
-          <a href="/gear.csv" download class="gear-btn inline-flex-gap-0.5 w-full sm:w-auto">
+          <a
+            href="/gear.csv"
+            download
+            class="gear-btn inline-flex-gap-0.5 w-full sm:w-auto"
+          >
             <span>↓</span>
             CSV
           </a>
@@ -56,7 +68,9 @@
         <div class="mb-4">
           <h3 class="gear-section-header mb-2">Type Legend</h3>
           <!-- Mobile: 2 cols, Tablet: 4 cols, Desktop: 7 cols -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2">
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2"
+          >
             <div
               v-for="type in typeStats"
               :key="type.name"

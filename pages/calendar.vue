@@ -15,6 +15,8 @@ usePageSeo({
 })
 
 onMounted(() => {
+  // Cal.com embed script (third-party, do not modify)
+  /* eslint-disable prefer-rest-params, @typescript-eslint/no-unused-expressions */
   ;(function (C, A, L) {
     const p = function (a, ar) {
       a.q.push(ar)
@@ -45,6 +47,7 @@ onMounted(() => {
         p(cal, ar)
       }
   })(window, 'https://app.cal.com/embed/embed.js', 'init')
+  /* eslint-enable prefer-rest-params, @typescript-eslint/no-unused-expressions */
 
   window.Cal('init', { origin: 'https://cal.com' })
 

@@ -32,11 +32,16 @@
     <div v-if="duolingo.currentCourse" class="mt-4">
       <StatsSectionHeader title="CURRENT COURSE" />
       <div class="flex items-center gap-2 mt-2">
-        <span class="text-lg">{{ getLanguageFlag(duolingo.currentCourse.title) }}</span>
+        <span class="text-lg">
+          {{ getLanguageFlag(duolingo.currentCourse.title) }}
+        </span>
         <div>
-          <div class="text-sm font-medium">{{ duolingo.currentCourse.title }}</div>
+          <div class="text-sm font-medium">
+            {{ duolingo.currentCourse.title }}
+          </div>
           <div class="text-xs text-zinc-500">
-            Level {{ duolingo.currentCourse.level }} &middot; {{ duolingo.currentCourse.xp.toLocaleString() }} XP
+            Level {{ duolingo.currentCourse.level }} &middot;
+            {{ duolingo.currentCourse.xp.toLocaleString() }} XP
           </div>
         </div>
       </div>
@@ -53,7 +58,9 @@
         >
           <div class="flex items-center gap-2">
             <span>{{ getLanguageFlag(course.title) }}</span>
-            <span class="text-zinc-700 dark:text-zinc-300">{{ course.title }}</span>
+            <span class="text-zinc-700 dark:text-zinc-300">
+              {{ course.title }}
+            </span>
           </div>
           <div class="text-zinc-500 tabular-nums">
             {{ course.xp.toLocaleString() }} XP
@@ -62,7 +69,11 @@
       </div>
     </div>
   </div>
-  <StatsDataState v-else state="unavailable" message="DUOLINGO_DATA_UNAVAILABLE" />
+  <StatsDataState
+    v-else
+    state="unavailable"
+    message="DUOLINGO_DATA_UNAVAILABLE"
+  />
 </template>
 
 <script setup lang="ts">
@@ -80,39 +91,39 @@ const duolingo = computed(() => props.stats.duolingo)
 
 // Map language names to flag emojis
 const languageFlags: Record<string, string> = {
-  'Spanish': '🇪🇸',
-  'French': '🇫🇷',
-  'German': '🇩🇪',
-  'Italian': '🇮🇹',
-  'Portuguese': '🇧🇷',
-  'Japanese': '🇯🇵',
-  'Korean': '🇰🇷',
-  'Chinese': '🇨🇳',
-  'Russian': '🇷🇺',
-  'Arabic': '🇸🇦',
-  'Hindi': '🇮🇳',
-  'Dutch': '🇳🇱',
-  'Swedish': '🇸🇪',
-  'Norwegian': '🇳🇴',
-  'Danish': '🇩🇰',
-  'Polish': '🇵🇱',
-  'Turkish': '🇹🇷',
-  'Greek': '🇬🇷',
-  'Hebrew': '🇮🇱',
-  'Vietnamese': '🇻🇳',
-  'Indonesian': '🇮🇩',
-  'Ukrainian': '🇺🇦',
-  'Czech': '🇨🇿',
-  'Romanian': '🇷🇴',
-  'Hungarian': '🇭🇺',
-  'Welsh': '🏴󠁧󠁢󠁷󠁬󠁳󠁿',
-  'Irish': '🇮🇪',
-  'Finnish': '🇫🇮',
-  'Esperanto': '🌍',
-  'Swahili': '🇰🇪',
-  'Latin': '🏛️',
+  Spanish: '🇪🇸',
+  French: '🇫🇷',
+  German: '🇩🇪',
+  Italian: '🇮🇹',
+  Portuguese: '🇧🇷',
+  Japanese: '🇯🇵',
+  Korean: '🇰🇷',
+  Chinese: '🇨🇳',
+  Russian: '🇷🇺',
+  Arabic: '🇸🇦',
+  Hindi: '🇮🇳',
+  Dutch: '🇳🇱',
+  Swedish: '🇸🇪',
+  Norwegian: '🇳🇴',
+  Danish: '🇩🇰',
+  Polish: '🇵🇱',
+  Turkish: '🇹🇷',
+  Greek: '🇬🇷',
+  Hebrew: '🇮🇱',
+  Vietnamese: '🇻🇳',
+  Indonesian: '🇮🇩',
+  Ukrainian: '🇺🇦',
+  Czech: '🇨🇿',
+  Romanian: '🇷🇴',
+  Hungarian: '🇭🇺',
+  Welsh: '🏴󠁧󠁢󠁷󠁬󠁳󠁿',
+  Irish: '🇮🇪',
+  Finnish: '🇫🇮',
+  Esperanto: '🌍',
+  Swahili: '🇰🇪',
+  Latin: '🏛️',
   'High Valyrian': '🐉',
-  'Klingon': '🖖',
+  Klingon: '🖖',
 }
 
 const getLanguageFlag = (language: string): string => {

@@ -1,7 +1,7 @@
 /**
- * @file robot/meta.get.ts
+ * @file agent/meta.get.ts
  * @description Machine-readable API schema and capabilities discovery for AI agents to query personal data
- * @endpoint GET /api/robot/meta
+ * @endpoint GET /api/agent/meta
  * @returns Complete API documentation including available endpoints, schemas, data availability, usage guidelines, and philosophical principles
  */
 
@@ -23,12 +23,12 @@ export default defineEventHandler(async () => {
     capabilities: {
       endpoints: [
         {
-          path: '/api/robot/meta',
+          path: '/api/agent/meta',
           description: 'This endpoint. Describes available data and schemas.',
           format: 'application/json',
         },
         {
-          path: '/api/robot/timeline',
+          path: '/api/agent/timeline',
           description: 'Chronological life events and milestones',
           format: 'application/json',
           parameters: {
@@ -143,7 +143,7 @@ export default defineEventHandler(async () => {
       rateLimit: 'None currently - please be respectful',
       authentication: 'None required for public endpoints',
       cors: 'Enabled for all origins',
-      caching: 'CDN cached, 5min for /api/*, 1hr for /api/robot/*',
+      caching: 'CDN cached, 5min for /api/*, 1hr for /api/agent/*',
       safety:
         'Only publicly-published content. No real-time location, contact info, or private data.',
     },

@@ -12,7 +12,7 @@
   "language": "Shell",
   "languageColor": "#89e051",
   "languages": {
-    "Shell": 280252,
+    "Shell": 280192,
     "GLSL": 176199,
     "Lua": 123408,
     "Vim Script": 83725,
@@ -20,7 +20,7 @@
     "Less": 2089,
     "CSS": 1367
   },
-  "diskUsage": 63195,
+  "diskUsage": 63213,
   "fileTree": {
     "files": [
       {
@@ -1061,7 +1061,7 @@
       },
       {
         "path": ".tmux.conf",
-        "size": 9522
+        "size": 9462
       },
       {
         "path": ".tweakcc-apply.sh",
@@ -2883,7 +2883,7 @@
         },
         {
           "name": ".tmux.conf",
-          "size": 9522,
+          "size": 9462,
           "path": ".tmux.conf"
         },
         {
@@ -2975,7 +2975,7 @@
       "path": ""
     },
     "totalFiles": 290,
-    "totalSize": 20298713
+    "totalSize": 20298653
   },
   "topics": [],
   "readme": {
@@ -2984,6 +2984,6 @@
     "excerpt": "Minimalist terminal configuration focused on functional beauty, speed-of-thought workflows, and distraction-free computing.\n\n\n- Geometric symbols throughout int..."
   },
   "createdAt": "2019-04-07T22:09:55Z",
-  "updatedAt": "2026-01-12T20:25:10Z",
-  "pushedAt": "2026-01-12T20:25:06Z"
+  "updatedAt": "2026-01-16T20:18:45Z",
+  "pushedAt": "2026-01-16T20:18:39Z"
 }

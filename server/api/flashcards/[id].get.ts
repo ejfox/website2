@@ -4,6 +4,7 @@
  * @endpoint GET /api/flashcards/:id
  */
 import { loadDeck, cardToFlashcard } from '~/server/utils/flashcards'
+import { getRouterParam } from 'h3'
 
 export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id')

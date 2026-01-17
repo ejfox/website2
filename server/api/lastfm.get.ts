@@ -63,7 +63,7 @@ interface TopArtistsResponse {
   }
 }
 
-interface TopAlbumsResponse {
+interface _TopAlbumsResponse {
   topalbums?: {
     album?: LastFmAlbum[]
     '@attr'?: { total: string }

@@ -1,3 +1,4 @@
+<!-- eslint-disable max-len -->
 <template>
   <div class="font-mono overflow-hidden">
     <!-- Stats TOC - ClientOnly to fix SSR hydration -->
@@ -283,7 +284,7 @@
     </section>
 
     <!-- Full Mode (default) -->
-    <div v-else class="relative overflow-hidden pt-8">
+    <div v-else class="">
       <!-- Main Content -->
       <section class="min-w-0 w-full mx-auto max-w-none">
         <!-- Header -->
@@ -354,157 +355,157 @@
               Object.keys(stats).length > 0
             "
           >
-              <!-- GitHub -->
-              <StatSection
-                v-if="stats.github?.stats"
-                id="github"
-                key="github-section"
-                title="GITHUB"
-                class="break-inside-avoid"
-              >
-                <GitHubStats key="github" :stats="stats.github" />
-              </StatSection>
+            <!-- GitHub -->
+            <StatSection
+              v-if="stats.github?.stats"
+              id="github"
+              key="github-section"
+              title="GITHUB"
+              class="break-inside-avoid"
+            >
+              <GitHubStats key="github" :stats="stats.github" />
+            </StatSection>
 
-              <!-- Writing -->
-              <StatSection
-                v-if="stats.blog"
-                id="writing"
-                key="writing-section"
-                title="WRITING"
-                class="break-inside-avoid"
-              >
-                <BlogStats key="blog" :stats="stats.blog" />
-              </StatSection>
+            <!-- Writing -->
+            <StatSection
+              v-if="stats.blog"
+              id="writing"
+              key="writing-section"
+              title="WRITING"
+              class="break-inside-avoid"
+            >
+              <BlogStats key="blog" :stats="stats.blog" />
+            </StatSection>
 
-              <!-- Reading -->
-              <StatSection
-                v-if="stats.goodreads?.stats"
-                id="reading"
-                key="reading-section"
-                title="READING"
-                class="break-inside-avoid"
-              >
-                <GoodreadsStats key="goodreads" :data="stats.goodreads" />
-              </StatSection>
+            <!-- Reading -->
+            <StatSection
+              v-if="stats.goodreads?.stats"
+              id="reading"
+              key="reading-section"
+              title="READING"
+              class="break-inside-avoid"
+            >
+              <GoodreadsStats key="goodreads" :data="stats.goodreads" />
+            </StatSection>
 
-              <!-- Productivity -->
-              <StatSection
-                v-if="stats.rescueTime"
-                id="productivity"
-                key="productivity-section"
-                title="PRODUCTIVITY"
-                class="break-inside-avoid"
-              >
-                <RescueTimeStats key="rescuetime" :stats="stats" />
-              </StatSection>
+            <!-- Productivity -->
+            <StatSection
+              v-if="stats.rescueTime"
+              id="productivity"
+              key="productivity-section"
+              title="PRODUCTIVITY"
+              class="break-inside-avoid"
+            >
+              <RescueTimeStats key="rescuetime" :stats="stats" />
+            </StatSection>
 
-              <!-- LeetCode -->
-              <StatSection
-                v-if="
-                  stats.leetcode?.submissionStats &&
-                  (stats.leetcode.submissionStats.easy.count > 0 ||
-                    stats.leetcode.submissionStats.medium.count > 0 ||
-                    stats.leetcode.submissionStats.hard.count > 0)
-                "
-                id="leetcode"
-                key="leetcode-section"
-                title="LEETCODE"
-                class="break-inside-avoid"
-              >
-                <LeetCodeStats key="leetcode" :stats="stats.leetcode" />
-              </StatSection>
+            <!-- LeetCode -->
+            <StatSection
+              v-if="
+                stats.leetcode?.submissionStats &&
+                (stats.leetcode.submissionStats.easy.count > 0 ||
+                  stats.leetcode.submissionStats.medium.count > 0 ||
+                  stats.leetcode.submissionStats.hard.count > 0)
+              "
+              id="leetcode"
+              key="leetcode-section"
+              title="LEETCODE"
+              class="break-inside-avoid"
+            >
+              <LeetCodeStats key="leetcode" :stats="stats.leetcode" />
+            </StatSection>
 
-              <!-- Chess -->
-              <StatSection
-                v-if="stats.chess"
-                id="chess"
-                key="chess-section"
-                title="CHESS"
-                class="break-inside-avoid"
-              >
-                <ChessStats key="chess" :stats="stats.chess" />
-              </StatSection>
+            <!-- Chess -->
+            <StatSection
+              v-if="stats.chess"
+              id="chess"
+              key="chess-section"
+              title="CHESS"
+              class="break-inside-avoid"
+            >
+              <ChessStats key="chess" :stats="stats.chess" />
+            </StatSection>
 
-              <!-- Typing -->
-              <StatSection
-                v-if="stats.monkeyType?.typingStats"
-                id="typing"
-                key="typing-section"
-                title="TYPING"
-                class="break-inside-avoid"
-              >
-                <MonkeyTypeStats key="monkeytype" :stats="stats.monkeyType" />
-              </StatSection>
+            <!-- Typing -->
+            <StatSection
+              v-if="stats.monkeyType?.typingStats"
+              id="typing"
+              key="typing-section"
+              title="TYPING"
+              class="break-inside-avoid"
+            >
+              <MonkeyTypeStats key="monkeytype" :stats="stats.monkeyType" />
+            </StatSection>
 
-              <!-- Language Learning -->
-              <StatSection
-                v-if="stats.duolingo"
-                id="languages"
-                key="languages-section"
-                title="LANGUAGES"
-                class="break-inside-avoid"
-              >
-                <DuolingoStats key="duolingo" :stats="stats" />
-              </StatSection>
+            <!-- Language Learning -->
+            <StatSection
+              v-if="stats.duolingo"
+              id="languages"
+              key="languages-section"
+              title="LANGUAGES"
+              class="break-inside-avoid"
+            >
+              <DuolingoStats key="duolingo" :stats="stats" />
+            </StatSection>
 
-              <!-- Code Snippets -->
-              <StatSection
-                v-if="stats.gists?.stats"
-                id="gists"
-                key="gists-section"
-                title="CODE"
-                class="break-inside-avoid"
-              >
-                <GistStats key="gists" :gist-stats="stats.gists" />
-              </StatSection>
+            <!-- Code Snippets -->
+            <StatSection
+              v-if="stats.gists?.stats"
+              id="gists"
+              key="gists-section"
+              title="CODE"
+              class="break-inside-avoid"
+            >
+              <GistStats key="gists" :gist-stats="stats.gists" />
+            </StatSection>
 
-              <!-- Music -->
-              <StatSection
-                v-if="stats.lastfm"
-                id="music"
-                key="music-section"
-                title="MUSIC"
-                class="break-inside-avoid"
-              >
-                <LastFmStats key="lastfm" :stats="stats.lastfm" />
-              </StatSection>
+            <!-- Music -->
+            <StatSection
+              v-if="stats.lastfm"
+              id="music"
+              key="music-section"
+              title="MUSIC"
+              class="break-inside-avoid"
+            >
+              <LastFmStats key="lastfm" :stats="stats.lastfm" />
+            </StatSection>
 
-              <!-- Vinyl -->
-              <StatSection
-                v-if="stats.discogs?.stats"
-                id="vinyl"
-                key="vinyl-section"
-                title="VINYL"
-                class="break-inside-avoid"
-              >
-                <DiscogsStats key="discogs" :stats="stats.discogs" />
-              </StatSection>
+            <!-- Vinyl -->
+            <StatSection
+              v-if="stats.discogs?.stats"
+              id="vinyl"
+              key="vinyl-section"
+              title="VINYL"
+              class="break-inside-avoid"
+            >
+              <DiscogsStats key="discogs" :stats="stats.discogs" />
+            </StatSection>
 
-              <!-- Films -->
-              <StatSection
-                v-if="stats.letterboxd?.stats"
-                id="films"
-                key="films-section"
-                title="FILMS"
-                class="break-inside-avoid"
-              >
-                <LetterboxdStats
-                  key="letterboxd"
-                  :letterboxd-stats="stats.letterboxd"
-                />
-              </StatSection>
+            <!-- Films -->
+            <StatSection
+              v-if="stats.letterboxd?.stats"
+              id="films"
+              key="films-section"
+              title="FILMS"
+              class="break-inside-avoid"
+            >
+              <LetterboxdStats
+                key="letterboxd"
+                :letterboxd-stats="stats.letterboxd"
+              />
+            </StatSection>
 
-              <!-- Analytics -->
-              <StatSection
-                v-if="stats.website?.stats"
-                id="website"
-                key="website-section"
-                title="ANALYTICS"
-                class="break-inside-avoid"
-              >
-                <UmamiStats key="umami" :umami-stats="stats.website" />
-              </StatSection>
-            </template>
+            <!-- Analytics -->
+            <StatSection
+              v-if="stats.website?.stats"
+              id="website"
+              key="website-section"
+              title="ANALYTICS"
+              class="break-inside-avoid"
+            >
+              <UmamiStats key="umami" :umami-stats="stats.website" />
+            </StatSection>
+          </template>
         </section>
 
         <!-- Full Width Sections -->
@@ -537,9 +538,6 @@
 </template>
 
 <script setup lang="ts">
-// TODO: Stats types have drifted significantly from API responses
-// StatsResponse in useStats.ts needs full audit to match actual /api/stats shape
-// Key mismatches: github.totalCommits, blog.totalPosts, monkeyType.avgWpm, etc.
 // Import above-fold stats components eagerly
 import StatSection from '~/components/stats/StatSection.vue'
 import TopStats from '~/components/stats/TopStats.vue'
@@ -550,16 +548,30 @@ import RescueTimeStats from '~/components/stats/RescueTimeStats.vue'
 import ChessStats from '~/components/stats/ChessStats.vue'
 import MonkeyTypeStats from '~/components/stats/MonkeyTypeStats.vue'
 import DuolingoStats from '~/components/stats/DuolingoStats.vue'
+import { usePostFilters } from '~/composables/usePostFilters'
 
 // Lazy-load below-fold components
-const LeetCodeStats = defineAsyncComponent(() => import('~/components/stats/LeetCodeStats.vue'))
-const GistStats = defineAsyncComponent(() => import('~/components/stats/GistStats.vue'))
-const LastFmStats = defineAsyncComponent(() => import('~/components/stats/LastFmStats.vue'))
-const LetterboxdStats = defineAsyncComponent(() => import('~/components/stats/LetterboxdStats.vue'))
-const DiscogsStats = defineAsyncComponent(() => import('~/components/stats/DiscogsStats.vue'))
-const UmamiStats = defineAsyncComponent(() => import('~/components/stats/UmamiStats.vue'))
-const GearStats = defineAsyncComponent(() => import('~/components/stats/GearStats.vue'))
-import { usePostFilters } from '~/composables/usePostFilters'
+const LeetCodeStats = defineAsyncComponent(
+  () => import('~/components/stats/LeetCodeStats.vue')
+)
+const GistStats = defineAsyncComponent(
+  () => import('~/components/stats/GistStats.vue')
+)
+const LastFmStats = defineAsyncComponent(
+  () => import('~/components/stats/LastFmStats.vue')
+)
+const LetterboxdStats = defineAsyncComponent(
+  () => import('~/components/stats/LetterboxdStats.vue')
+)
+const DiscogsStats = defineAsyncComponent(
+  () => import('~/components/stats/DiscogsStats.vue')
+)
+const UmamiStats = defineAsyncComponent(
+  () => import('~/components/stats/UmamiStats.vue')
+)
+const GearStats = defineAsyncComponent(
+  () => import('~/components/stats/GearStats.vue')
+)
 
 // Define stats first - used by computed properties below
 const { stats: rawStats, isLoading, errors } = useStats()

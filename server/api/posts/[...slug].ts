@@ -39,6 +39,7 @@ function isValidSlug(slug: string): boolean {
   // Reject path traversal attempts
   if (slug.includes('..')) return false
   // Reject slugs with null bytes or other control characters
+  // eslint-disable-next-line no-control-regex
   if (/[\x00-\x1F\x7F]/.test(slug)) return false
   // Only allow alphanumeric, hyphens, underscores, forward slashes
   if (!/^[\w\-/]+$/.test(slug)) return false

@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 772036,
-    "TypeScript": 422298,
-    "JavaScript": 221111,
+    "Vue": 737105,
+    "TypeScript": 421480,
+    "JavaScript": 205706,
     "CSS": 36438,
     "HTML": 27082,
-    "Shell": 21676,
+    "Shell": 16156,
     "Dockerfile": 794
   },
-  "diskUsage": 88435,
+  "diskUsage": 88450,
   "fileTree": {
     "files": [
       {
@@ -58,10 +58,6 @@
       {
         "path": ".gitignore",
         "size": 716
-      },
-      {
-        "path": ".lighthouseci/flags-3c04849f-5463-4523-8053-20bcdbfb9c94.json",
-        "size": 37
       },
       {
         "path": ".npmrc",
@@ -104,152 +100,40 @@
         "size": 5918
       },
       {
-        "path": "components/AnimatedNumber.vue",
-        "size": 3088
-      },
-      {
-        "path": "components/BlogPostContent.vue",
+        "path": "components/blog/BlogPostContent.vue",
         "size": 397
       },
       {
-        "path": "components/BlogSparkline.vue",
+        "path": "components/blog/BlogSparkline.vue",
         "size": 8708
       },
       {
-        "path": "components/Breadcrumb.vue",
-        "size": 1255
-      },
-      {
-        "path": "components/CalendarTOC.vue",
-        "size": 4658
-      },
-      {
-        "path": "components/CommitCard.vue",
-        "size": 3657
-      },
-      {
-        "path": "components/CommitMatrix.client.vue",
-        "size": 7201
-      },
-      {
-        "path": "components/DataTable.vue",
-        "size": 7525
-      },
-      {
-        "path": "components/DebugGrid.vue",
-        "size": 1797
-      },
-      {
-        "path": "components/DotField.vue",
-        "size": 2933
-      },
-      {
-        "path": "components/FileSizeDistribution.vue",
-        "size": 2318
-      },
-      {
-        "path": "components/FlashcardCard.client.vue",
-        "size": 6131
-      },
-      {
-        "path": "components/Footer.vue",
-        "size": 3457
-      },
-      {
-        "path": "components/GistPreview.vue",
-        "size": 6216
-      },
-      {
-        "path": "components/GitHubHistogramGrid.client.vue",
-        "size": 5482
-      },
-      {
-        "path": "components/GitHubParallelCoords.client.vue",
-        "size": 7465
-      },
-      {
-        "path": "components/GitHubRadialTimeline.client.vue",
-        "size": 7938
-      },
-      {
-        "path": "components/GitHubRidgeline.client.vue",
-        "size": 2210
-      },
-      {
-        "path": "components/GitHubScrollViz.client.vue",
-        "size": 7864
-      },
-      {
-        "path": "components/GithubForceLayout.client.vue",
-        "size": 9283
-      },
-      {
-        "path": "components/GithubRepoCard.vue",
-        "size": 3277
-      },
-      {
-        "path": "components/LanguageBar.vue",
-        "size": 2838
-      },
-      {
-        "path": "components/NewsletterSignup.vue",
-        "size": 5913
-      },
-      {
-        "path": "components/NextAvailableSlot.vue",
-        "size": 2633
-      },
-      {
-        "path": "components/PostMetadata.vue",
+        "path": "components/blog/PostMetadata.vue",
         "size": 5164
       },
       {
-        "path": "components/ReplyContext.vue",
+        "path": "components/blog/ReplyContext.vue",
         "size": 870
       },
       {
-        "path": "components/ReplyContextItem.vue",
+        "path": "components/blog/ReplyContextItem.vue",
         "size": 3978
-      },
-      {
-        "path": "components/RepoMetrics.vue",
-        "size": 3895
-      },
-      {
-        "path": "components/RepoSparkline.client.vue",
-        "size": 2020
-      },
-      {
-        "path": "components/ScrobbleCard.vue",
-        "size": 2194
-      },
-      {
-        "path": "components/SitemapLink.vue",
-        "size": 1710
-      },
-      {
-        "path": "components/SparklineScaled.vue",
-        "size": 4965
-      },
-      {
-        "path": "components/StaticContent.server.vue",
-        "size": 342
-      },
-      {
-        "path": "components/TweetCard.vue",
-        "size": 5467
-      },
-      {
-        "path": "components/WebVitalsReporter.vue",
-        "size": 1815
-      },
-      {
-        "path": "components/Webmentions.vue",
-        "size": 6354
       },
       {
         "path": "components/blog/TipJar.vue",
         "size": 3161
+      },
+      {
+        "path": "components/blog/Webmentions.vue",
+        "size": 6354
+      },
+      {
+        "path": "components/consulting/NextAvailableSlot.vue",
+        "size": 2633
+      },
+      {
+        "path": "components/flashcards/FlashcardCard.client.vue",
+        "size": 6131
       },
       {
         "path": "components/gear/GearCard3D.client.vue",
@@ -266,6 +150,58 @@
       {
         "path": "components/gear/GearTableRow.client.vue",
         "size": 6963
+      },
+      {
+        "path": "components/github/CommitCard.vue",
+        "size": 3657
+      },
+      {
+        "path": "components/github/CommitMatrix.client.vue",
+        "size": 5887
+      },
+      {
+        "path": "components/github/FileSizeDistribution.vue",
+        "size": 2318
+      },
+      {
+        "path": "components/github/GistPreview.vue",
+        "size": 6216
+      },
+      {
+        "path": "components/github/GitHubHistogramGrid.client.vue",
+        "size": 5482
+      },
+      {
+        "path": "components/github/GitHubParallelCoords.client.vue",
+        "size": 7465
+      },
+      {
+        "path": "components/github/GitHubRadialTimeline.client.vue",
+        "size": 7938
+      },
+      {
+        "path": "components/github/GitHubRidgeline.client.vue",
+        "size": 2210
+      },
+      {
+        "path": "components/github/GithubForceLayout.client.vue",
+        "size": 9283
+      },
+      {
+        "path": "components/github/GithubRepoCard.vue",
+        "size": 3277
+      },
+      {
+        "path": "components/github/LanguageBar.vue",
+        "size": 2838
+      },
+      {
+        "path": "components/github/RepoMetrics.vue",
+        "size": 3895
+      },
+      {
+        "path": "components/github/RepoSparkline.client.vue",
+        "size": 2020
       },
       {
         "path": "components/projects/BentoProjectCard.vue",
@@ -285,7 +221,7 @@
       },
       {
         "path": "components/stats/ActivityCalendar.vue",
-        "size": 4023
+        "size": 4330
       },
       {
         "path": "components/stats/BlogStats.vue",
@@ -293,11 +229,15 @@
       },
       {
         "path": "components/stats/ChessStats.vue",
-        "size": 9970
+        "size": 9973
       },
       {
         "path": "components/stats/DiscogsStats.vue",
-        "size": 6616
+        "size": 6619
+      },
+      {
+        "path": "components/stats/DuolingoStats.vue",
+        "size": 3590
       },
       {
         "path": "components/stats/GearStats.vue",
@@ -305,11 +245,7 @@
       },
       {
         "path": "components/stats/GistStats.vue",
-        "size": 4780
-      },
-      {
-        "path": "components/stats/GitHubMiniContributions.vue",
-        "size": 3599
+        "size": 4783
       },
       {
         "path": "components/stats/GitHubStats.vue",
@@ -320,32 +256,24 @@
         "size": 3691
       },
       {
-        "path": "components/stats/IndividualStat.vue",
-        "size": 6506
-      },
-      {
         "path": "components/stats/LastFmStats.vue",
-        "size": 5800
+        "size": 5803
       },
       {
         "path": "components/stats/LeetCodeStats.vue",
-        "size": 6581
+        "size": 6584
       },
       {
         "path": "components/stats/LetterboxdStats.vue",
-        "size": 6840
+        "size": 6843
       },
       {
         "path": "components/stats/MonkeyTypeStats.vue",
-        "size": 7048
-      },
-      {
-        "path": "components/stats/PhotoStats.vue",
-        "size": 3645
+        "size": 7051
       },
       {
         "path": "components/stats/RescueTimeStats.vue",
-        "size": 10325
+        "size": 10423
       },
       {
         "path": "components/stats/StatRow.vue",
@@ -365,11 +293,51 @@
       },
       {
         "path": "components/stats/TopStats.vue",
-        "size": 7058
+        "size": 7061
       },
       {
         "path": "components/stats/UmamiStats.vue",
-        "size": 8391
+        "size": 8394
+      },
+      {
+        "path": "components/ui/AnimatedNumber.vue",
+        "size": 3088
+      },
+      {
+        "path": "components/ui/Breadcrumb.vue",
+        "size": 1255
+      },
+      {
+        "path": "components/ui/DataTable.vue",
+        "size": 7525
+      },
+      {
+        "path": "components/ui/DebugGrid.vue",
+        "size": 1797
+      },
+      {
+        "path": "components/ui/Footer.vue",
+        "size": 3457
+      },
+      {
+        "path": "components/ui/NewsletterSignup.vue",
+        "size": 5913
+      },
+      {
+        "path": "components/ui/SitemapLink.vue",
+        "size": 1710
+      },
+      {
+        "path": "components/ui/SparklineScaled.vue",
+        "size": 4965
+      },
+      {
+        "path": "components/ui/StaticContent.server.vue",
+        "size": 342
+      },
+      {
+        "path": "components/ui/WebVitalsReporter.vue",
+        "size": 1815
       },
       {
         "path": "components/visualizations/RhythmicSparklines.vue",
@@ -378,10 +346,6 @@
       {
         "path": "composables/README.md",
         "size": 5659
-      },
-      {
-        "path": "composables/blog/usePostFilters.ts",
-        "size": 2058
       },
       {
         "path": "composables/useAttribution.ts",
@@ -428,12 +392,20 @@
         "size": 3758
       },
       {
+        "path": "composables/useNavigation.ts",
+        "size": 690
+      },
+      {
         "path": "composables/useNumberFormat.ts",
         "size": 14312
       },
       {
         "path": "composables/usePageSeo.ts",
         "size": 3039
+      },
+      {
+        "path": "composables/usePostFilters.ts",
+        "size": 2058
       },
       {
         "path": "composables/useProcessedMarkdown.ts",
@@ -449,7 +421,7 @@
       },
       {
         "path": "composables/useStats.ts",
-        "size": 12749
+        "size": 12631
       },
       {
         "path": "composables/useStatusFormatting.ts",
@@ -466,10 +438,6 @@
       {
         "path": "composables/useWeightCalculations.ts",
         "size": 4754
-      },
-      {
-        "path": "config/navigation.ts",
-        "size": 690
       },
       {
         "path": "content/blog/2010/photography-2008-2010.md",
@@ -1289,7 +1257,7 @@
       },
       {
         "path": "content/blog/projects/subway-builder-mods.md",
-        "size": 1673
+        "size": 1665
       },
       {
         "path": "content/blog/projects/towntuner.md",
@@ -2525,7 +2493,7 @@
       },
       {
         "path": "content/processed/goodreads-stats.json",
-        "size": 611
+        "size": 49424
       },
       {
         "path": "content/processed/index.json",
@@ -3413,11 +3381,11 @@
       },
       {
         "path": "data/github-repos-index.json",
-        "size": 3551
+        "size": 3600
       },
       {
         "path": "data/github-repos-list.json",
-        "size": 124444
+        "size": 126648
       },
       {
         "path": "data/github-repos/30-data-days.json",
@@ -3469,7 +3437,7 @@
       },
       {
         "path": "data/github-repos/ai-art-coach.json",
-        "size": 5267
+        "size": 5268
       },
       {
         "path": "data/github-repos/arena-cards.json",
@@ -3525,7 +3493,7 @@
       },
       {
         "path": "data/github-repos/cli-ching.json",
-        "size": 8260
+        "size": 10644
       },
       {
         "path": "data/github-repos/cli-content.json",
@@ -3537,7 +3505,7 @@
       },
       {
         "path": "data/github-repos/cli-delta-dojo.json",
-        "size": 5824
+        "size": 4157
       },
       {
         "path": "data/github-repos/cli-markdown-tagger.json",
@@ -3573,7 +3541,7 @@
       },
       {
         "path": "data/github-repos/code-network-gen.json",
-        "size": 31784
+        "size": 31798
       },
       {
         "path": "data/github-repos/comeup-app.json",
@@ -3637,7 +3605,7 @@
       },
       {
         "path": "data/github-repos/dotfiles.json",
-        "size": 126456
+        "size": 127566
       },
       {
         "path": "data/github-repos/dvs-soti-2022.json",
@@ -3665,11 +3633,11 @@
       },
       {
         "path": "data/github-repos/ejthirdbear.json",
-        "size": 4616
+        "size": 4514
       },
       {
         "path": "data/github-repos/election-helpers.json",
-        "size": 15310
+        "size": 18629
       },
       {
         "path": "data/github-repos/emoji-update.json",
@@ -3681,7 +3649,7 @@
       },
       {
         "path": "data/github-repos/exif-printer-simple.json",
-        "size": 38564
+        "size": 39232
       },
       {
         "path": "data/github-repos/flipper-generative-art.json",
@@ -3689,7 +3657,7 @@
       },
       {
         "path": "data/github-repos/flipper-space-calculators.json",
-        "size": 15300
+        "size": 21140
       },
       {
         "path": "data/github-repos/food-security.json",
@@ -3725,7 +3693,7 @@
       },
       {
         "path": "data/github-repos/glasses-hud.json",
-        "size": 5196
+        "size": 17614
       },
       {
         "path": "data/github-repos/gpt-browser.json",
@@ -3733,7 +3701,7 @@
       },
       {
         "path": "data/github-repos/hand-midi-controller.json",
-        "size": 18600
+        "size": 29977
       },
       {
         "path": "data/github-repos/handtrack-websockets.json",
@@ -3789,7 +3757,7 @@
       },
       {
         "path": "data/github-repos/metro-savefile-doctor.json",
-        "size": 12531
+        "size": 30533
       },
       {
         "path": "data/github-repos/motorcycle-path.json",
@@ -3993,11 +3961,11 @@
       },
       {
         "path": "data/github-repos/subway-builder-mods.json",
-        "size": 4928
+        "size": 12423
       },
       {
         "path": "data/github-repos/subwaybuilder-mod.json",
-        "size": 18337
+        "size": 21331
       },
       {
         "path": "data/github-repos/supabase.json",
@@ -4013,7 +3981,7 @@
       },
       {
         "path": "data/github-repos/tempo.json",
-        "size": 12137
+        "size": 13119
       },
       {
         "path": "data/github-repos/test.json",
@@ -4029,15 +3997,19 @@
       },
       {
         "path": "data/github-repos/tmux-link-grab.json",
-        "size": 10885
+        "size": 8245
       },
       {
         "path": "data/github-repos/tmux-mutagen-indicator.json",
         "size": 12334
       },
       {
+        "path": "data/github-repos/torchslit-ios.json",
+        "size": 13599
+      },
+      {
         "path": "data/github-repos/towntuner.json",
-        "size": 16394
+        "size": 17303
       },
       {
         "path": "data/github-repos/tribulations.json",
@@ -4093,7 +4065,7 @@
       },
       {
         "path": "data/github-repos/vulpes-browser.json",
-        "size": 20946
+        "size": 25199
       },
       {
         "path": "data/github-repos/vulpes-spotify-mcp.json",
@@ -4101,7 +4073,15 @@
       },
       {
         "path": "data/github-repos/vulpes-theme-lab.json",
-        "size": 39273
+        "size": 40020
+      },
+      {
+        "path": "data/github-repos/vulpes.nvim.json",
+        "size": 26165
+      },
+      {
+        "path": "data/github-repos/vulpino.json",
+        "size": 24241
       },
       {
         "path": "data/github-repos/vzcode.json",
@@ -4129,7 +4109,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 505159
+        "size": 522380
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -5709,7 +5689,7 @@
       },
       {
         "path": "layouts/default.vue",
-        "size": 3625
+        "size": 3633
       },
       {
         "path": "nuxt.config.ts",
@@ -5729,7 +5709,7 @@
       },
       {
         "path": "pages/blog/index.vue",
-        "size": 23011
+        "size": 23006
       },
       {
         "path": "pages/blog/robots/[...slug].vue",
@@ -5805,11 +5785,11 @@
       },
       {
         "path": "pages/github/index.vue",
-        "size": 6707
+        "size": 6742
       },
       {
         "path": "pages/index.vue",
-        "size": 4970
+        "size": 4255
       },
       {
         "path": "pages/kalshi.vue",
@@ -5865,7 +5845,7 @@
       },
       {
         "path": "pages/stats.vue",
-        "size": 38521
+        "size": 38425
       },
       {
         "path": "pages/tag/[...slug].vue",
@@ -6316,24 +6296,8 @@
         "size": 1403
       },
       {
-        "path": "scripts/dev/test-robot-apis.sh",
-        "size": 706
-      },
-      {
-        "path": "scripts/dev/uploadSecrets.sh",
-        "size": 359
-      },
-      {
-        "path": "scripts/export-all-contributions.mjs",
-        "size": 3711
-      },
-      {
-        "path": "scripts/export-all-github-commits.mjs",
-        "size": 3289
-      },
-      {
         "path": "scripts/export-github-commits.mjs",
-        "size": 2994
+        "size": 3711
       },
       {
         "path": "scripts/export-github-repos.mjs",
@@ -6346,14 +6310,6 @@
       {
         "path": "scripts/fetch-my-events.mjs",
         "size": 1831
-      },
-      {
-        "path": "scripts/fix-date-fns-imports.mjs",
-        "size": 2544
-      },
-      {
-        "path": "scripts/fix-vueuse-imports.mjs",
-        "size": 2689
       },
       {
         "path": "scripts/generate-build-info.mjs",
@@ -6424,16 +6380,8 @@
         "size": 22015
       },
       {
-        "path": "scripts/predictions/sign-prediction.mjs",
-        "size": 2947
-      },
-      {
         "path": "scripts/processMarkdown.mjs",
         "size": 39699
-      },
-      {
-        "path": "scripts/publish_blog_automator.sh",
-        "size": 4455
       },
       {
         "path": "scripts/security-performance-audit.js",
@@ -6450,10 +6398,6 @@
       {
         "path": "scripts/utils/backup.mjs",
         "size": 786
-      },
-      {
-        "path": "scripts/utils/config.mjs",
-        "size": 942
       },
       {
         "path": "scripts/utils/helpers.mjs",
@@ -6478,10 +6422,6 @@
       {
         "path": "server/api/blogroll.get.ts",
         "size": 2197
-      },
-      {
-        "path": "server/api/bookmarks.get.ts",
-        "size": 2899
       },
       {
         "path": "server/api/build-info.get.ts",
@@ -6514,6 +6454,10 @@
       {
         "path": "server/api/discogs.get.ts",
         "size": 8894
+      },
+      {
+        "path": "server/api/duolingo.get.ts",
+        "size": 2231
       },
       {
         "path": "server/api/external-links.get.ts",
@@ -6601,7 +6545,7 @@
       },
       {
         "path": "server/api/lastfm.get.ts",
-        "size": 12405
+        "size": 11727
       },
       {
         "path": "server/api/leetcode.get.ts",
@@ -6713,7 +6657,7 @@
       },
       {
         "path": "server/api/stats.get.ts",
-        "size": 9427
+        "size": 10073
       },
       {
         "path": "server/api/suggest.get.ts",
@@ -6798,18 +6742,6 @@
       {
         "path": "themes/ayu-mirage.json",
         "size": 21423
-      },
-      {
-        "path": "themes/ayu.json",
-        "size": 21456
-      },
-      {
-        "path": "themes/vulpes-reddish.json",
-        "size": 4785
-      },
-      {
-        "path": "themes/vulpes-reddishnovember-dark.json",
-        "size": 5618
       },
       {
         "path": "tsconfig.json",
@@ -6905,17 +6837,6 @@
           "path": ".github"
         },
         {
-          "name": ".lighthouseci",
-          "children": [
-            {
-              "name": "flags-3c04849f-5463-4523-8053-20bcdbfb9c94.json",
-              "size": 37,
-              "path": ".lighthouseci/flags-3c04849f-5463-4523-8053-20bcdbfb9c94.json"
-            }
-          ],
-          "path": ".lighthouseci"
-        },
-        {
           "name": ".vscode",
           "children": [
             {
@@ -6955,12 +6876,64 @@
               "name": "blog",
               "children": [
                 {
+                  "name": "BlogPostContent.vue",
+                  "size": 397,
+                  "path": "components/blog/BlogPostContent.vue"
+                },
+                {
+                  "name": "BlogSparkline.vue",
+                  "size": 8708,
+                  "path": "components/blog/BlogSparkline.vue"
+                },
+                {
+                  "name": "PostMetadata.vue",
+                  "size": 5164,
+                  "path": "components/blog/PostMetadata.vue"
+                },
+                {
+                  "name": "ReplyContext.vue",
+                  "size": 870,
+                  "path": "components/blog/ReplyContext.vue"
+                },
+                {
+                  "name": "ReplyContextItem.vue",
+                  "size": 3978,
+                  "path": "components/blog/ReplyContextItem.vue"
+                },
+                {
                   "name": "TipJar.vue",
                   "size": 3161,
                   "path": "components/blog/TipJar.vue"
+                },
+                {
+                  "name": "Webmentions.vue",
+                  "size": 6354,
+                  "path": "components/blog/Webmentions.vue"
                 }
               ],
               "path": "components/blog"
+            },
+            {
+              "name": "consulting",
+              "children": [
+                {
+                  "name": "NextAvailableSlot.vue",
+                  "size": 2633,
+                  "path": "components/consulting/NextAvailableSlot.vue"
+                }
+              ],
+              "path": "components/consulting"
+            },
+            {
+              "name": "flashcards",
+              "children": [
+                {
+                  "name": "FlashcardCard.client.vue",
+                  "size": 6131,
+                  "path": "components/flashcards/FlashcardCard.client.vue"
+                }
+              ],
+              "path": "components/flashcards"
             },
             {
               "name": "gear",
@@ -6987,6 +6960,77 @@
                 }
               ],
               "path": "components/gear"
+            },
+            {
+              "name": "github",
+              "children": [
+                {
+                  "name": "CommitCard.vue",
+                  "size": 3657,
+                  "path": "components/github/CommitCard.vue"
+                },
+                {
+                  "name": "CommitMatrix.client.vue",
+                  "size": 5887,
+                  "path": "components/github/CommitMatrix.client.vue"
+                },
+                {
+                  "name": "FileSizeDistribution.vue",
+                  "size": 2318,
+                  "path": "components/github/FileSizeDistribution.vue"
+                },
+                {
+                  "name": "GistPreview.vue",
+                  "size": 6216,
+                  "path": "components/github/GistPreview.vue"
+                },
+                {
+                  "name": "GitHubHistogramGrid.client.vue",
+                  "size": 5482,
+                  "path": "components/github/GitHubHistogramGrid.client.vue"
+                },
+                {
+                  "name": "GitHubParallelCoords.client.vue",
+                  "size": 7465,
+                  "path": "components/github/GitHubParallelCoords.client.vue"
+                },
+                {
+                  "name": "GitHubRadialTimeline.client.vue",
+                  "size": 7938,
+                  "path": "components/github/GitHubRadialTimeline.client.vue"
+                },
+                {
+                  "name": "GitHubRidgeline.client.vue",
+                  "size": 2210,
+                  "path": "components/github/GitHubRidgeline.client.vue"
+                },
+                {
+                  "name": "GithubForceLayout.client.vue",
+                  "size": 9283,
+                  "path": "components/github/GithubForceLayout.client.vue"
+                },
+                {
+                  "name": "GithubRepoCard.vue",
+                  "size": 3277,
+                  "path": "components/github/GithubRepoCard.vue"
+                },
+                {
+                  "name": "LanguageBar.vue",
+                  "size": 2838,
+                  "path": "components/github/LanguageBar.vue"
+                },
+                {
+                  "name": "RepoMetrics.vue",
+                  "size": 3895,
+                  "path": "components/github/RepoMetrics.vue"
+                },
+                {
+                  "name": "RepoSparkline.client.vue",
+                  "size": 2020,
+                  "path": "components/github/RepoSparkline.client.vue"
+                }
+              ],
+              "path": "components/github"
             },
             {
               "name": "projects",
@@ -7025,7 +7069,7 @@
               "children": [
                 {
                   "name": "ActivityCalendar.vue",
-                  "size": 4023,
+                  "size": 4330,
                   "path": "components/stats/ActivityCalendar.vue"
                 },
                 {
@@ -7035,13 +7079,18 @@
                 },
                 {
                   "name": "ChessStats.vue",
-                  "size": 9970,
+                  "size": 9973,
                   "path": "components/stats/ChessStats.vue"
                 },
                 {
                   "name": "DiscogsStats.vue",
-                  "size": 6616,
+                  "size": 6619,
                   "path": "components/stats/DiscogsStats.vue"
+                },
+                {
+                  "name": "DuolingoStats.vue",
+                  "size": 3590,
+                  "path": "components/stats/DuolingoStats.vue"
                 },
                 {
                   "name": "GearStats.vue",
@@ -7050,13 +7099,8 @@
                 },
                 {
                   "name": "GistStats.vue",
-                  "size": 4780,
+                  "size": 4783,
                   "path": "components/stats/GistStats.vue"
-                },
-                {
-                  "name": "GitHubMiniContributions.vue",
-                  "size": 3599,
-                  "path": "components/stats/GitHubMiniContributions.vue"
                 },
                 {
                   "name": "GitHubStats.vue",
@@ -7069,38 +7113,28 @@
                   "path": "components/stats/GoodreadsStats.vue"
                 },
                 {
-                  "name": "IndividualStat.vue",
-                  "size": 6506,
-                  "path": "components/stats/IndividualStat.vue"
-                },
-                {
                   "name": "LastFmStats.vue",
-                  "size": 5800,
+                  "size": 5803,
                   "path": "components/stats/LastFmStats.vue"
                 },
                 {
                   "name": "LeetCodeStats.vue",
-                  "size": 6581,
+                  "size": 6584,
                   "path": "components/stats/LeetCodeStats.vue"
                 },
                 {
                   "name": "LetterboxdStats.vue",
-                  "size": 6840,
+                  "size": 6843,
                   "path": "components/stats/LetterboxdStats.vue"
                 },
                 {
                   "name": "MonkeyTypeStats.vue",
-                  "size": 7048,
+                  "size": 7051,
                   "path": "components/stats/MonkeyTypeStats.vue"
                 },
                 {
-                  "name": "PhotoStats.vue",
-                  "size": 3645,
-                  "path": "components/stats/PhotoStats.vue"
-                },
-                {
                   "name": "RescueTimeStats.vue",
-                  "size": 10325,
+                  "size": 10423,
                   "path": "components/stats/RescueTimeStats.vue"
                 },
                 {
@@ -7125,16 +7159,72 @@
                 },
                 {
                   "name": "TopStats.vue",
-                  "size": 7058,
+                  "size": 7061,
                   "path": "components/stats/TopStats.vue"
                 },
                 {
                   "name": "UmamiStats.vue",
-                  "size": 8391,
+                  "size": 8394,
                   "path": "components/stats/UmamiStats.vue"
                 }
               ],
               "path": "components/stats"
+            },
+            {
+              "name": "ui",
+              "children": [
+                {
+                  "name": "AnimatedNumber.vue",
+                  "size": 3088,
+                  "path": "components/ui/AnimatedNumber.vue"
+                },
+                {
+                  "name": "Breadcrumb.vue",
+                  "size": 1255,
+                  "path": "components/ui/Breadcrumb.vue"
+                },
+                {
+                  "name": "DataTable.vue",
+                  "size": 7525,
+                  "path": "components/ui/DataTable.vue"
+                },
+                {
+                  "name": "DebugGrid.vue",
+                  "size": 1797,
+                  "path": "components/ui/DebugGrid.vue"
+                },
+                {
+                  "name": "Footer.vue",
+                  "size": 3457,
+                  "path": "components/ui/Footer.vue"
+                },
+                {
+                  "name": "NewsletterSignup.vue",
+                  "size": 5913,
+                  "path": "components/ui/NewsletterSignup.vue"
+                },
+                {
+                  "name": "SitemapLink.vue",
+                  "size": 1710,
+                  "path": "components/ui/SitemapLink.vue"
+                },
+                {
+                  "name": "SparklineScaled.vue",
+                  "size": 4965,
+                  "path": "components/ui/SparklineScaled.vue"
+                },
+                {
+                  "name": "StaticContent.server.vue",
+                  "size": 342,
+                  "path": "components/ui/StaticContent.server.vue"
+                },
+                {
+                  "name": "WebVitalsReporter.vue",
+                  "size": 1815,
+                  "path": "components/ui/WebVitalsReporter.vue"
+                }
+              ],
+              "path": "components/ui"
             },
             {
               "name": "visualizations",
@@ -7146,186 +7236,6 @@
                 }
               ],
               "path": "components/visualizations"
-            },
-            {
-              "name": "AnimatedNumber.vue",
-              "size": 3088,
-              "path": "components/AnimatedNumber.vue"
-            },
-            {
-              "name": "BlogPostContent.vue",
-              "size": 397,
-              "path": "components/BlogPostContent.vue"
-            },
-            {
-              "name": "BlogSparkline.vue",
-              "size": 8708,
-              "path": "components/BlogSparkline.vue"
-            },
-            {
-              "name": "Breadcrumb.vue",
-              "size": 1255,
-              "path": "components/Breadcrumb.vue"
-            },
-            {
-              "name": "CalendarTOC.vue",
-              "size": 4658,
-              "path": "components/CalendarTOC.vue"
-            },
-            {
-              "name": "CommitCard.vue",
-              "size": 3657,
-              "path": "components/CommitCard.vue"
-            },
-            {
-              "name": "CommitMatrix.client.vue",
-              "size": 7201,
-              "path": "components/CommitMatrix.client.vue"
-            },
-            {
-              "name": "DataTable.vue",
-              "size": 7525,
-              "path": "components/DataTable.vue"
-            },
-            {
-              "name": "DebugGrid.vue",
-              "size": 1797,
-              "path": "components/DebugGrid.vue"
-            },
-            {
-              "name": "DotField.vue",
-              "size": 2933,
-              "path": "components/DotField.vue"
-            },
-            {
-              "name": "FileSizeDistribution.vue",
-              "size": 2318,
-              "path": "components/FileSizeDistribution.vue"
-            },
-            {
-              "name": "FlashcardCard.client.vue",
-              "size": 6131,
-              "path": "components/FlashcardCard.client.vue"
-            },
-            {
-              "name": "Footer.vue",
-              "size": 3457,
-              "path": "components/Footer.vue"
-            },
-            {
-              "name": "GistPreview.vue",
-              "size": 6216,
-              "path": "components/GistPreview.vue"
-            },
-            {
-              "name": "GitHubHistogramGrid.client.vue",
-              "size": 5482,
-              "path": "components/GitHubHistogramGrid.client.vue"
-            },
-            {
-              "name": "GitHubParallelCoords.client.vue",
-              "size": 7465,
-              "path": "components/GitHubParallelCoords.client.vue"
-            },
-            {
-              "name": "GitHubRadialTimeline.client.vue",
-              "size": 7938,
-              "path": "components/GitHubRadialTimeline.client.vue"
-            },
-            {
-              "name": "GitHubRidgeline.client.vue",
-              "size": 2210,
-              "path": "components/GitHubRidgeline.client.vue"
-            },
-            {
-              "name": "GitHubScrollViz.client.vue",
-              "size": 7864,
-              "path": "components/GitHubScrollViz.client.vue"
-            },
-            {
-              "name": "GithubForceLayout.client.vue",
-              "size": 9283,
-              "path": "components/GithubForceLayout.client.vue"
-            },
-            {
-              "name": "GithubRepoCard.vue",
-              "size": 3277,
-              "path": "components/GithubRepoCard.vue"
-            },
-            {
-              "name": "LanguageBar.vue",
-              "size": 2838,
-              "path": "components/LanguageBar.vue"
-            },
-            {
-              "name": "NewsletterSignup.vue",
-              "size": 5913,
-              "path": "components/NewsletterSignup.vue"
-            },
-            {
-              "name": "NextAvailableSlot.vue",
-              "size": 2633,
-              "path": "components/NextAvailableSlot.vue"
-            },
-            {
-              "name": "PostMetadata.vue",
-              "size": 5164,
-              "path": "components/PostMetadata.vue"
-            },
-            {
-              "name": "ReplyContext.vue",
-              "size": 870,
-              "path": "components/ReplyContext.vue"
-            },
-            {
-              "name": "ReplyContextItem.vue",
-              "size": 3978,
-              "path": "components/ReplyContextItem.vue"
-            },
-            {
-              "name": "RepoMetrics.vue",
-              "size": 3895,
-              "path": "components/RepoMetrics.vue"
-            },
-            {
-              "name": "RepoSparkline.client.vue",
-              "size": 2020,
-              "path": "components/RepoSparkline.client.vue"
-            },
-            {
-              "name": "ScrobbleCard.vue",
-              "size": 2194,
-              "path": "components/ScrobbleCard.vue"
-            },
-            {
-              "name": "SitemapLink.vue",
-              "size": 1710,
-              "path": "components/SitemapLink.vue"
-            },
-            {
-              "name": "SparklineScaled.vue",
-              "size": 4965,
-              "path": "components/SparklineScaled.vue"
-            },
-            {
-              "name": "StaticContent.server.vue",
-              "size": 342,
-              "path": "components/StaticContent.server.vue"
-            },
-            {
-              "name": "TweetCard.vue",
-              "size": 5467,
-              "path": "components/TweetCard.vue"
-            },
-            {
-              "name": "WebVitalsReporter.vue",
-              "size": 1815,
-              "path": "components/WebVitalsReporter.vue"
-            },
-            {
-              "name": "Webmentions.vue",
-              "size": 6354,
-              "path": "components/Webmentions.vue"
             }
           ],
           "path": "components"
@@ -7333,17 +7243,6 @@
         {
           "name": "composables",
           "children": [
-            {
-              "name": "blog",
-              "children": [
-                {
-                  "name": "usePostFilters.ts",
-                  "size": 2058,
-                  "path": "composables/blog/usePostFilters.ts"
-                }
-              ],
-              "path": "composables/blog"
-            },
             {
               "name": "README.md",
               "size": 5659,
@@ -7405,6 +7304,11 @@
               "path": "composables/useMicroConversions.ts"
             },
             {
+              "name": "useNavigation.ts",
+              "size": 690,
+              "path": "composables/useNavigation.ts"
+            },
+            {
               "name": "useNumberFormat.ts",
               "size": 14312,
               "path": "composables/useNumberFormat.ts"
@@ -7413,6 +7317,11 @@
               "name": "usePageSeo.ts",
               "size": 3039,
               "path": "composables/usePageSeo.ts"
+            },
+            {
+              "name": "usePostFilters.ts",
+              "size": 2058,
+              "path": "composables/usePostFilters.ts"
             },
             {
               "name": "useProcessedMarkdown.ts",
@@ -7431,7 +7340,7 @@
             },
             {
               "name": "useStats.ts",
-              "size": 12749,
+              "size": 12631,
               "path": "composables/useStats.ts"
             },
             {
@@ -7456,17 +7365,6 @@
             }
           ],
           "path": "composables"
-        },
-        {
-          "name": "config",
-          "children": [
-            {
-              "name": "navigation.ts",
-              "size": 690,
-              "path": "config/navigation.ts"
-            }
-          ],
-          "path": "config"
         },
         {
           "name": "content",
@@ -8574,7 +8472,7 @@
                     },
                     {
                       "name": "subway-builder-mods.md",
-                      "size": 1673,
+                      "size": 1665,
                       "path": "content/blog/projects/subway-builder-mods.md"
                     },
                     {
@@ -11378,7 +11276,7 @@
                 },
                 {
                   "name": "goodreads-stats.json",
-                  "size": 611,
+                  "size": 49424,
                   "path": "content/processed/goodreads-stats.json"
                 },
                 {
@@ -11475,7 +11373,7 @@
                 },
                 {
                   "name": "ai-art-coach.json",
-                  "size": 5267,
+                  "size": 5268,
                   "path": "data/github-repos/ai-art-coach.json"
                 },
                 {
@@ -11545,7 +11443,7 @@
                 },
                 {
                   "name": "cli-ching.json",
-                  "size": 8260,
+                  "size": 10644,
                   "path": "data/github-repos/cli-ching.json"
                 },
                 {
@@ -11560,7 +11458,7 @@
                 },
                 {
                   "name": "cli-delta-dojo.json",
-                  "size": 5824,
+                  "size": 4157,
                   "path": "data/github-repos/cli-delta-dojo.json"
                 },
                 {
@@ -11605,7 +11503,7 @@
                 },
                 {
                   "name": "code-network-gen.json",
-                  "size": 31784,
+                  "size": 31798,
                   "path": "data/github-repos/code-network-gen.json"
                 },
                 {
@@ -11685,7 +11583,7 @@
                 },
                 {
                   "name": "dotfiles.json",
-                  "size": 126456,
+                  "size": 127566,
                   "path": "data/github-repos/dotfiles.json"
                 },
                 {
@@ -11720,12 +11618,12 @@
                 },
                 {
                   "name": "ejthirdbear.json",
-                  "size": 4616,
+                  "size": 4514,
                   "path": "data/github-repos/ejthirdbear.json"
                 },
                 {
                   "name": "election-helpers.json",
-                  "size": 15310,
+                  "size": 18629,
                   "path": "data/github-repos/election-helpers.json"
                 },
                 {
@@ -11740,7 +11638,7 @@
                 },
                 {
                   "name": "exif-printer-simple.json",
-                  "size": 38564,
+                  "size": 39232,
                   "path": "data/github-repos/exif-printer-simple.json"
                 },
                 {
@@ -11750,7 +11648,7 @@
                 },
                 {
                   "name": "flipper-space-calculators.json",
-                  "size": 15300,
+                  "size": 21140,
                   "path": "data/github-repos/flipper-space-calculators.json"
                 },
                 {
@@ -11795,7 +11693,7 @@
                 },
                 {
                   "name": "glasses-hud.json",
-                  "size": 5196,
+                  "size": 17614,
                   "path": "data/github-repos/glasses-hud.json"
                 },
                 {
@@ -11805,7 +11703,7 @@
                 },
                 {
                   "name": "hand-midi-controller.json",
-                  "size": 18600,
+                  "size": 29977,
                   "path": "data/github-repos/hand-midi-controller.json"
                 },
                 {
@@ -11875,7 +11773,7 @@
                 },
                 {
                   "name": "metro-savefile-doctor.json",
-                  "size": 12531,
+                  "size": 30533,
                   "path": "data/github-repos/metro-savefile-doctor.json"
                 },
                 {
@@ -12130,12 +12028,12 @@
                 },
                 {
                   "name": "subway-builder-mods.json",
-                  "size": 4928,
+                  "size": 12423,
                   "path": "data/github-repos/subway-builder-mods.json"
                 },
                 {
                   "name": "subwaybuilder-mod.json",
-                  "size": 18337,
+                  "size": 21331,
                   "path": "data/github-repos/subwaybuilder-mod.json"
                 },
                 {
@@ -12155,7 +12053,7 @@
                 },
                 {
                   "name": "tempo.json",
-                  "size": 12137,
+                  "size": 13119,
                   "path": "data/github-repos/tempo.json"
                 },
                 {
@@ -12175,7 +12073,7 @@
                 },
                 {
                   "name": "tmux-link-grab.json",
-                  "size": 10885,
+                  "size": 8245,
                   "path": "data/github-repos/tmux-link-grab.json"
                 },
                 {
@@ -12184,8 +12082,13 @@
                   "path": "data/github-repos/tmux-mutagen-indicator.json"
                 },
                 {
+                  "name": "torchslit-ios.json",
+                  "size": 13599,
+                  "path": "data/github-repos/torchslit-ios.json"
+                },
+                {
                   "name": "towntuner.json",
-                  "size": 16394,
+                  "size": 17303,
                   "path": "data/github-repos/towntuner.json"
                 },
                 {
@@ -12255,7 +12158,7 @@
                 },
                 {
                   "name": "vulpes-browser.json",
-                  "size": 20946,
+                  "size": 25199,
                   "path": "data/github-repos/vulpes-browser.json"
                 },
                 {
@@ -12265,8 +12168,18 @@
                 },
                 {
                   "name": "vulpes-theme-lab.json",
-                  "size": 39273,
+                  "size": 40020,
                   "path": "data/github-repos/vulpes-theme-lab.json"
+                },
+                {
+                  "name": "vulpes.nvim.json",
+                  "size": 26165,
+                  "path": "data/github-repos/vulpes.nvim.json"
+                },
+                {
+                  "name": "vulpino.json",
+                  "size": 24241,
+                  "path": "data/github-repos/vulpino.json"
                 },
                 {
                   "name": "vzcode.json",
@@ -12300,7 +12213,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 505159,
+                  "size": 522380,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -14214,12 +14127,12 @@
             },
             {
               "name": "github-repos-index.json",
-              "size": 3551,
+              "size": 3600,
               "path": "data/github-repos-index.json"
             },
             {
               "name": "github-repos-list.json",
-              "size": 124444,
+              "size": 126648,
               "path": "data/github-repos-list.json"
             },
             {
@@ -14321,7 +14234,7 @@
             },
             {
               "name": "default.vue",
-              "size": 3625,
+              "size": 3633,
               "path": "layouts/default.vue"
             }
           ],
@@ -14378,7 +14291,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 23011,
+                  "size": 23006,
                   "path": "pages/blog/index.vue"
                 }
               ],
@@ -14437,7 +14350,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 6707,
+                  "size": 6742,
                   "path": "pages/github/index.vue"
                 }
               ],
@@ -14561,7 +14474,7 @@
             },
             {
               "name": "index.vue",
-              "size": 4970,
+              "size": 4255,
               "path": "pages/index.vue"
             },
             {
@@ -14596,7 +14509,7 @@
             },
             {
               "name": "stats.vue",
-              "size": 38521,
+              "size": 38425,
               "path": "pages/stats.vue"
             },
             {
@@ -15210,22 +15123,6 @@
               "path": "scripts/blog"
             },
             {
-              "name": "dev",
-              "children": [
-                {
-                  "name": "test-robot-apis.sh",
-                  "size": 706,
-                  "path": "scripts/dev/test-robot-apis.sh"
-                },
-                {
-                  "name": "uploadSecrets.sh",
-                  "size": 359,
-                  "path": "scripts/dev/uploadSecrets.sh"
-                }
-              ],
-              "path": "scripts/dev"
-            },
-            {
               "name": "plugins",
               "children": [
                 {
@@ -15283,28 +15180,12 @@
               "path": "scripts/plugins"
             },
             {
-              "name": "predictions",
-              "children": [
-                {
-                  "name": "sign-prediction.mjs",
-                  "size": 2947,
-                  "path": "scripts/predictions/sign-prediction.mjs"
-                }
-              ],
-              "path": "scripts/predictions"
-            },
-            {
               "name": "utils",
               "children": [
                 {
                   "name": "backup.mjs",
                   "size": 786,
                   "path": "scripts/utils/backup.mjs"
-                },
-                {
-                  "name": "config.mjs",
-                  "size": 942,
-                  "path": "scripts/utils/config.mjs"
                 },
                 {
                   "name": "helpers.mjs",
@@ -15355,18 +15236,8 @@
               "path": "scripts/dev-with-perf.mjs"
             },
             {
-              "name": "export-all-contributions.mjs",
-              "size": 3711,
-              "path": "scripts/export-all-contributions.mjs"
-            },
-            {
-              "name": "export-all-github-commits.mjs",
-              "size": 3289,
-              "path": "scripts/export-all-github-commits.mjs"
-            },
-            {
               "name": "export-github-commits.mjs",
-              "size": 2994,
+              "size": 3711,
               "path": "scripts/export-github-commits.mjs"
             },
             {
@@ -15383,16 +15254,6 @@
               "name": "fetch-my-events.mjs",
               "size": 1831,
               "path": "scripts/fetch-my-events.mjs"
-            },
-            {
-              "name": "fix-date-fns-imports.mjs",
-              "size": 2544,
-              "path": "scripts/fix-date-fns-imports.mjs"
-            },
-            {
-              "name": "fix-vueuse-imports.mjs",
-              "size": 2689,
-              "path": "scripts/fix-vueuse-imports.mjs"
             },
             {
               "name": "generate-build-info.mjs",
@@ -15438,11 +15299,6 @@
               "name": "processMarkdown.mjs",
               "size": 39699,
               "path": "scripts/processMarkdown.mjs"
-            },
-            {
-              "name": "publish_blog_automator.sh",
-              "size": 4455,
-              "path": "scripts/publish_blog_automator.sh"
             },
             {
               "name": "security-performance-audit.js",
@@ -15694,11 +15550,6 @@
                   "path": "server/api/blogroll.get.ts"
                 },
                 {
-                  "name": "bookmarks.get.ts",
-                  "size": 2899,
-                  "path": "server/api/bookmarks.get.ts"
-                },
-                {
                   "name": "build-info.get.ts",
                   "size": 1063,
                   "path": "server/api/build-info.get.ts"
@@ -15727,6 +15578,11 @@
                   "name": "discogs.get.ts",
                   "size": 8894,
                   "path": "server/api/discogs.get.ts"
+                },
+                {
+                  "name": "duolingo.get.ts",
+                  "size": 2231,
+                  "path": "server/api/duolingo.get.ts"
                 },
                 {
                   "name": "external-links.get.ts",
@@ -15805,7 +15661,7 @@
                 },
                 {
                   "name": "lastfm.get.ts",
-                  "size": 12405,
+                  "size": 11727,
                   "path": "server/api/lastfm.get.ts"
                 },
                 {
@@ -15885,7 +15741,7 @@
                 },
                 {
                   "name": "stats.get.ts",
-                  "size": 9427,
+                  "size": 10073,
                   "path": "server/api/stats.get.ts"
                 },
                 {
@@ -15999,21 +15855,6 @@
               "name": "ayu-mirage.json",
               "size": 21423,
               "path": "themes/ayu-mirage.json"
-            },
-            {
-              "name": "ayu.json",
-              "size": 21456,
-              "path": "themes/ayu.json"
-            },
-            {
-              "name": "vulpes-reddish.json",
-              "size": 4785,
-              "path": "themes/vulpes-reddish.json"
-            },
-            {
-              "name": "vulpes-reddishnovember-dark.json",
-              "size": 5618,
-              "path": "themes/vulpes-reddishnovember-dark.json"
             }
           ],
           "path": "themes"
@@ -16173,8 +16014,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 1707,
-    "totalSize": 84658999
+    "totalFiles": 1690,
+    "totalSize": 84770817
   },
   "topics": [],
   "readme": {
@@ -16183,6 +16024,6 @@
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2026-01-11T21:36:08Z",
-  "pushedAt": "2026-01-11T21:36:04Z"
+  "updatedAt": "2026-01-17T05:13:03Z",
+  "pushedAt": "2026-01-17T05:12:59Z"
 }
