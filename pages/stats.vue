@@ -512,7 +512,7 @@
                   {{ allCommits.length.toLocaleString() }} commits
                 </p>
               </div>
-              <CommitMatrix :commits="allCommits" />
+              <GithubCommitMatrix :commits="allCommits" />
             </div>
           </ClientOnly>
         </section>
@@ -553,6 +553,9 @@ const UmamiStats = defineAsyncComponent(
 )
 const GearStats = defineAsyncComponent(
   () => import('~/components/stats/GearStats.vue')
+)
+const GithubCommitMatrix = defineAsyncComponent(
+  () => import('~/components/github/CommitMatrix.client.vue')
 )
 
 // Define stats first - used by computed properties below
@@ -637,7 +640,7 @@ const { formatNumber } = useNumberFormat()
 const { isValidPost } = usePostFilters()
 
 // Load all commits for the matrix visualization (lazy: below-the-fold, 868KB)
-const { data: allCommitsData } = await useFetch('/api/github-commits', {
+const { data: allCommitsData } = useFetch('/api/github-commits', {
   lazy: true,
 })
 const allCommits = computed(() => allCommitsData.value || [])
