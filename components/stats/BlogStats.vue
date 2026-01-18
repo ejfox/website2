@@ -10,23 +10,23 @@
       <div class="text-center">
         <div class="text-2xl font-bold">{{ stats.posts.total || 'N/A' }}</div>
         <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
-          TOTAL POSTS
+          BLOG TOTAL POSTS
         </div>
       </div>
       <div class="text-center">
         <div class="text-2xl font-bold">{{ stats.posts.thisMonth }}</div>
         <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
-          THIS MONTH
+          POSTS THIS MONTH
         </div>
       </div>
     </div>
 
     <!-- Simple Stats -->
-    <StatsSectionHeader title="STATISTICS" />
+    <StatsSectionHeader title="BLOG STATS" />
     <div class="space-y-2">
       <div class="flex items-center justify-between">
         <span class="text-zinc-500 uppercase tracking-widest text-xs">
-          WORDS THIS MONTH
+          BLOG WORDS THIS MONTH
         </span>
         <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-sm">
           {{ formatNumber(stats.words.thisMonth) }}
@@ -34,7 +34,7 @@
       </div>
       <div class="flex items-center justify-between">
         <span class="text-zinc-500 uppercase tracking-widest text-xs">
-          AVG WORDS/POST
+          BLOG AVG WORDS/POST
         </span>
         <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-sm">
           {{ stats.words.avgPerPost }}
@@ -42,7 +42,7 @@
       </div>
       <div class="flex items-center justify-between">
         <span class="text-zinc-500 uppercase tracking-widest text-xs">
-          CURRENT MONTH
+          BLOG CURRENT MONTH
         </span>
         <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-sm">
           {{ stats.month }} {{ stats.year }}
@@ -51,7 +51,7 @@
     </div>
 
     <!-- Recent Posts -->
-    <StatsSectionHeader title="RECENT POSTS" />
+    <StatsSectionHeader title="RECENT BLOG POSTS" />
     <div class="space-y-2">
       <div
         v-for="post in stats.recentPosts.slice(0, 5)"

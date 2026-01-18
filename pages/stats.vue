@@ -339,12 +339,18 @@
           </div>
 
           <!-- Loading state -->
-          <div
-            v-else-if="isLoading"
-            class="col-span-full text-center py-8 font-mono text-zinc-500"
-          >
-            Loading system metrics...
-          </div>
+          <template v-else-if="isLoading">
+            <div
+              v-for="section in loadingSections"
+              :key="section.title"
+              class="break-inside-avoid"
+            >
+              <StatsSectionSkeleton
+                :title="section.title"
+                :rows="section.rows"
+              />
+            </div>
+          </template>
 
           <!-- Stats sections (TransitionGroup removed - no CSS defined, just overhead) -->
           <template
@@ -366,37 +372,15 @@
               <GitHubStats key="github" :stats="stats.github" />
             </StatSection>
 
-            <!-- Writing -->
+            <!-- Code Snippets -->
             <StatSection
-              v-if="stats.blog"
-              id="writing"
-              key="writing-section"
-              title="WRITING"
+              v-if="stats.gists?.stats"
+              id="gists"
+              key="gists-section"
+              title="CODE"
               class="break-inside-avoid"
             >
-              <BlogStats key="blog" :stats="stats.blog" />
-            </StatSection>
-
-            <!-- Reading -->
-            <StatSection
-              v-if="stats.goodreads?.stats"
-              id="reading"
-              key="reading-section"
-              title="READING"
-              class="break-inside-avoid"
-            >
-              <GoodreadsStats key="goodreads" :data="stats.goodreads" />
-            </StatSection>
-
-            <!-- Productivity -->
-            <StatSection
-              v-if="stats.rescueTime"
-              id="productivity"
-              key="productivity-section"
-              title="PRODUCTIVITY"
-              class="break-inside-avoid"
-            >
-              <RescueTimeStats key="rescuetime" :stats="stats" />
+              <GistStats key="gists" :gist-stats="stats.gists" />
             </StatSection>
 
             <!-- LeetCode -->
@@ -415,6 +399,17 @@
               <LeetCodeStats key="leetcode" :stats="stats.leetcode" />
             </StatSection>
 
+            <!-- Typing -->
+            <StatSection
+              v-if="stats.monkeyType?.typingStats"
+              id="typing"
+              key="typing-section"
+              title="TYPING"
+              class="break-inside-avoid"
+            >
+              <MonkeyTypeStats key="monkeytype" :stats="stats.monkeyType" />
+            </StatSection>
+
             <!-- Chess -->
             <StatSection
               v-if="stats.chess"
@@ -426,15 +421,26 @@
               <ChessStats key="chess" :stats="stats.chess" />
             </StatSection>
 
-            <!-- Typing -->
+            <!-- Writing -->
             <StatSection
-              v-if="stats.monkeyType?.typingStats"
-              id="typing"
-              key="typing-section"
-              title="TYPING"
+              v-if="stats.blog"
+              id="writing"
+              key="writing-section"
+              title="WRITING"
               class="break-inside-avoid"
             >
-              <MonkeyTypeStats key="monkeytype" :stats="stats.monkeyType" />
+              <BlogStats key="blog" :stats="stats.blog" />
+            </StatSection>
+
+            <!-- Productivity -->
+            <StatSection
+              v-if="stats.rescueTime"
+              id="productivity"
+              key="productivity-section"
+              title="PRODUCTIVITY"
+              class="break-inside-avoid"
+            >
+              <RescueTimeStats key="rescuetime" :stats="stats" />
             </StatSection>
 
             <!-- Language Learning -->
@@ -448,17 +454,6 @@
               <DuolingoStats key="duolingo" :stats="stats" />
             </StatSection>
 
-            <!-- Code Snippets -->
-            <StatSection
-              v-if="stats.gists?.stats"
-              id="gists"
-              key="gists-section"
-              title="CODE"
-              class="break-inside-avoid"
-            >
-              <GistStats key="gists" :gist-stats="stats.gists" />
-            </StatSection>
-
             <!-- Music -->
             <StatSection
               v-if="stats.lastfm"
@@ -468,17 +463,6 @@
               class="break-inside-avoid"
             >
               <LastFmStats key="lastfm" :stats="stats.lastfm" />
-            </StatSection>
-
-            <!-- Vinyl -->
-            <StatSection
-              v-if="stats.discogs?.stats"
-              id="vinyl"
-              key="vinyl-section"
-              title="VINYL"
-              class="break-inside-avoid"
-            >
-              <DiscogsStats key="discogs" :stats="stats.discogs" />
             </StatSection>
 
             <!-- Films -->
@@ -548,6 +532,7 @@ import RescueTimeStats from '~/components/stats/RescueTimeStats.vue'
 import ChessStats from '~/components/stats/ChessStats.vue'
 import MonkeyTypeStats from '~/components/stats/MonkeyTypeStats.vue'
 import DuolingoStats from '~/components/stats/DuolingoStats.vue'
+import StatsSectionSkeleton from '~/components/stats/StatsSectionSkeleton.vue'
 import { usePostFilters } from '~/composables/usePostFilters'
 
 // Lazy-load below-fold components
@@ -563,9 +548,6 @@ const LastFmStats = defineAsyncComponent(
 const LetterboxdStats = defineAsyncComponent(
   () => import('~/components/stats/LetterboxdStats.vue')
 )
-const DiscogsStats = defineAsyncComponent(
-  () => import('~/components/stats/DiscogsStats.vue')
-)
 const UmamiStats = defineAsyncComponent(
   () => import('~/components/stats/UmamiStats.vue')
 )
@@ -575,6 +557,20 @@ const GearStats = defineAsyncComponent(
 
 // Define stats first - used by computed properties below
 const { stats: rawStats, isLoading, errors } = useStats()
+
+const loadingSections = [
+  { title: 'GITHUB', rows: 4 },
+  { title: 'CODE', rows: 3 },
+  { title: 'LEETCODE', rows: 3 },
+  { title: 'TYPING', rows: 4 },
+  { title: 'CHESS', rows: 3 },
+  { title: 'WRITING', rows: 4 },
+  { title: 'PRODUCTIVITY', rows: 4 },
+  { title: 'LANGUAGES', rows: 3 },
+  { title: 'MUSIC', rows: 4 },
+  { title: 'FILMS', rows: 3 },
+  { title: 'ANALYTICS', rows: 3 },
+]
 const stats = computed(() => rawStats.value)
 
 const statsDescription = computed(() => {
@@ -1069,15 +1065,14 @@ const isSimpleMode = computed(() => route.query.simple !== undefined)
 const statsSections = [
   { id: 'overview', text: 'Overview' },
   { id: 'github', text: 'GitHub' },
-  { id: 'writing', text: 'Writing' },
-  { id: 'reading', text: 'Reading' },
-  { id: 'productivity', text: 'Productivity' },
-  { id: 'leetcode', text: 'LeetCode' },
-  { id: 'chess', text: 'Chess' },
-  { id: 'typing', text: 'Typing' },
   { id: 'gists', text: 'Code' },
+  { id: 'leetcode', text: 'LeetCode' },
+  { id: 'typing', text: 'Typing' },
+  { id: 'chess', text: 'Chess' },
+  { id: 'writing', text: 'Writing' },
+  { id: 'productivity', text: 'Productivity' },
+  { id: 'languages', text: 'Languages' },
   { id: 'music', text: 'Music' },
-  { id: 'vinyl', text: 'Vinyl' },
   { id: 'films', text: 'Films' },
   { id: 'website', text: 'Analytics' },
   { id: 'gear', text: 'Gear' },

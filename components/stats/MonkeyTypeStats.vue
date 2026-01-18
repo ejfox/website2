@@ -13,9 +13,9 @@
           <div class="stat-value">
             {{ Math.round(stats.typingStats.bestWPM) }}
           </div>
-          <div class="stat-label">BEST WPM</div>
+          <div class="stat-label">TYPING BEST WPM</div>
           <div class="stat-details">
-            {{ stats.typingStats.testsCompleted }} TESTS ·
+            {{ stats.typingStats.testsCompleted }} TESTS COMPLETED ·
             {{ Math.round(stats.typingStats.bestAccuracy) }}% ACC
           </div>
         </div>
@@ -40,7 +40,7 @@
 
     <!-- Recent Tests -->
     <div v-if="hasRecentTests" ref="recentTestsRef" class="mt-8 space-y-8">
-      <StatsSectionHeader title="RECENT TESTS" />
+      <StatsSectionHeader title="RECENT TYPING TESTS" />
 
       <div class="space-y-2">
         <div v-for="test in recentTests" :key="test.timestamp" class="test-row">
@@ -79,7 +79,7 @@
 
     <!-- Performance Metrics -->
     <div v-if="stats.typingStats" ref="performanceRef" class="mt-8 space-y-8">
-      <StatsSectionHeader title="PERFORMANCE" />
+      <StatsSectionHeader title="TYPING PERFORMANCE" />
 
       <div class="grid grid-cols-2 gap-2">
         <div class="stat-item">
@@ -120,6 +120,44 @@
         </div>
       </div>
     </div>
+
+    <!-- Language Breakdown -->
+    <div v-if="hasLanguageBreakdown" class="mt-8 space-y-8">
+      <StatsSectionHeader title="TYPING LANGUAGES" />
+
+      <div class="space-y-2">
+        <div
+          v-for="lang in topLanguages"
+          :key="lang.language"
+          class="language-row"
+        >
+          <div class="language-name">
+            {{ formatLanguageLabel(lang.language) }}
+          </div>
+          <div class="ml-auto flex items-center gap-2">
+            <span class="language-metric">
+              <AnimatedNumber
+                :value="lang.bestWpm"
+                format="default"
+                :duration="700"
+                priority="tertiary"
+              />
+              <span class="metric-label">BEST</span>
+            </span>
+            <span class="language-metric">
+              <AnimatedNumber
+                :value="lang.averageWpm"
+                format="default"
+                :duration="700"
+                priority="tertiary"
+              />
+              <span class="metric-label">AVG</span>
+            </span>
+            <span class="language-tests">{{ lang.tests }} TESTS</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -152,6 +190,12 @@ interface MonkeyTypeStats {
     averageWPM?: number
     recentTests?: Array<MonkeyTypeTest>
     testTypeDistribution?: Record<string, number>
+    languageBreakdown?: Array<{
+      language: string
+      tests: number
+      averageWpm: number
+      bestWpm: number
+    }>
   }
 }
 
@@ -175,6 +219,22 @@ const recentTests = computed(() => {
     .slice(0, 5)
 })
 
+const languageBreakdown = computed(
+  () => props.stats.typingStats?.languageBreakdown || []
+)
+
+const hasLanguageBreakdown = computed(
+  () => languageBreakdown.value.length > 0
+)
+
+const topLanguages = computed(() =>
+  [...languageBreakdown.value]
+    .sort((a, b) =>
+      b.tests === a.tests ? b.bestWpm - a.bestWpm : b.tests - a.tests
+    )
+    .slice(0, 6)
+)
+
 // Format utilities for minimal date display
 const formatDateMinimal = (timestamp: string): string => {
   const date = new Date(timestamp)
@@ -197,6 +257,9 @@ const formatTestTypeMinimal = (test: MonkeyTypeTest): string => {
   }
   return ''
 }
+
+const formatLanguageLabel = (language: string): string =>
+  language.replace(/[_-]+/g, ' ').trim().toUpperCase()
 
 // Add a computed property to check if we have stats
 const hasStats = computed(() => {
@@ -240,6 +303,30 @@ onMounted(() => {})
 
 .accuracy-value {
   @apply text-zinc-500 tabular-nums w-12 text-right;
+}
+
+.language-row {
+  @apply flex items-center text-xs;
+}
+
+.language-name {
+  @apply text-zinc-500 tracking-wide;
+  font-size: 0.6rem;
+  line-height: 1rem;
+}
+
+.language-metric {
+  @apply flex items-baseline gap-1 text-zinc-700 dark:text-zinc-400 tabular-nums font-medium;
+}
+
+.metric-label {
+  @apply text-zinc-500;
+  font-size: 0.6rem;
+}
+
+.language-tests {
+  @apply text-zinc-500;
+  font-size: 0.6rem;
 }
 
 /* Stat item styles for performance section */

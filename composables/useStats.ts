@@ -198,6 +198,13 @@ export interface StatsResponse {
         timestamp: string
         wpm: number
         accuracy: number
+        language?: string
+      }>
+      languageBreakdown?: Array<{
+        language: string
+        tests: number
+        averageWpm: number
+        bestWpm: number
       }>
     } | null
     lastUpdated: string

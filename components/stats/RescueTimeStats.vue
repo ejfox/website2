@@ -15,7 +15,7 @@
           priority="primary"
         />
       </div>
-      <div class="section-header-xs mt-2">HOURS THIS MONTH</div>
+      <div class="section-header-xs mt-2">RESCUETIME HOURS THIS MONTH</div>
       <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mt-4">
         <AnimatedNumber
           :value="monthlyProductivePercent"
@@ -23,19 +23,19 @@
           :duration="800"
           priority="secondary"
         />
-        PRODUCTIVE
+        RESCUETIME PRODUCTIVE
       </div>
     </div>
 
     <!-- Activity Calendar -->
     <ActivityCalendar
-      title="ACTIVITY"
+      title="RESCUETIME ACTIVITY"
       :active-dates="activityDates"
       :active-color="'#71717a'"
     />
 
     <!-- Time Distribution Waffle Chart -->
-    <StatsSectionHeader title="TIME DISTRIBUTION" />
+    <StatsSectionHeader title="RESCUETIME TIME DISTRIBUTION" />
     <div
       class="waffle-grid"
       style="
@@ -69,7 +69,7 @@
     </div>
 
     <!-- Categories -->
-    <StatsSectionHeader title="CATEGORIES" />
+    <StatsSectionHeader title="RESCUETIME CATEGORIES" />
     <div class="space-y-2">
       <div
         v-for="category in sortedCategories.slice(0, 10)"

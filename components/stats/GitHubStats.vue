@@ -42,7 +42,7 @@
           <div
             class="stat-label text-xs text-zinc-500 uppercase tracking-widest mt-2"
           >
-            REPOS
+            TOTAL REPOS
           </div>
           <!-- eslint-enable max-len,vue/max-len -->
         </div>
@@ -51,7 +51,7 @@
 
     <!-- Activity Calendar -->
     <div v-if="hasCommits" class="col-span-full">
-      <StatsSectionHeader title="COMMIT ACTIVITY" />
+      <StatsSectionHeader title="GITHUB COMMIT ACTIVITY" />
       <div class="text-zinc-500 mb-2 text-xs leading-[10px]">
         PAST 30 DAYS · {{ commitActivityDates.length }} ACTIVE DAYS
       </div>
@@ -63,7 +63,7 @@
 
     <!-- Recent Commits -->
     <div v-if="hasCommits" class="break-inside-avoid overflow-hidden min-w-0">
-      <StatsSectionHeader title="RECENT COMMITS" />
+      <StatsSectionHeader title="RECENT GITHUB COMMITS" />
       <div class="space-y-2">
         <div
           v-for="project in recentProjects.slice(0, 10)"
@@ -96,7 +96,7 @@
 
     <!-- Contribution Streak -->
     <div v-if="hasCommits" class="break-inside-avoid overflow-hidden min-w-0">
-      <StatsSectionHeader title="LATEST STREAK" />
+      <StatsSectionHeader title="GITHUB STREAK" />
       <div class="text-2xl font-bold text-zinc-700 dark:text-zinc-300">
         {{ getContributionStreak }} days
       </div>

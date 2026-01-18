@@ -15,7 +15,7 @@
           priority="primary"
         />
       </div>
-      <div class="stat-label">PROBLEMS SOLVED</div>
+      <div class="stat-label">LEETCODE PROBLEMS SOLVED</div>
       <div class="stat-details">
         <AnimatedNumber
           :value="stats.submissionStats.easy.count"
@@ -85,7 +85,7 @@
 
     <!-- Language Stats -->
     <div v-if="hasLanguageStats" class="mt-8">
-      <StatsSectionHeader title="LANGUAGES" />
+      <StatsSectionHeader title="LEETCODE LANGUAGES" />
       <div class="space-y-2">
         <div
           v-for="(item, index) in topLanguages"
@@ -109,7 +109,7 @@
 
     <!-- Recent Submissions -->
     <div v-if="recentAcceptedSubmissions.length" class="mt-8">
-      <StatsSectionHeader title="RECENT SOLUTIONS" />
+      <StatsSectionHeader title="RECENT LEETCODE SOLUTIONS" />
       <div class="space-y-2">
         <div
           v-for="submission in recentAcceptedSubmissions"

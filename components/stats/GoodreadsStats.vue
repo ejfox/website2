@@ -12,7 +12,7 @@
           <div class="stat-value">
             {{ data.stats.totalRead || 0 }}
           </div>
-          <div class="stat-label">READ</div>
+          <div class="stat-label">BOOKS READ</div>
         </div>
         <div class="metric-card">
           <div class="stat-value">
@@ -24,20 +24,20 @@
           <div class="stat-value">
             {{ data.stats.topRatedBooks?.length || 0 }}
           </div>
-          <div class="stat-label">5-STAR</div>
+          <div class="stat-label">5-STAR BOOKS</div>
         </div>
         <div class="metric-card">
           <div class="stat-value">
             {{ data.stats.thisYear || 0 }}
           </div>
-          <div class="stat-label">THIS YEAR</div>
+          <div class="stat-label">BOOKS THIS YEAR</div>
         </div>
       </div>
     </div>
 
     <!-- Currently reading - typographic approach -->
     <div v-if="data?.books?.currentlyReading?.length">
-      <StatsSectionHeader title="READING NOW" />
+      <StatsSectionHeader title="GOODREADS CURRENTLY READING" />
       <div class="space-y-1">
         <div
           v-for="book in data.books.currentlyReading"
@@ -52,7 +52,7 @@
 
     <!-- Recent reads - pure typography -->
     <div v-if="recentBooks.length">
-      <StatsSectionHeader title="RECENT" />
+      <StatsSectionHeader title="GOODREADS RECENT READS" />
       <div class="text-xs space-y-0.5">
         <div
           v-for="book in recentBooks.slice(0, 12)"

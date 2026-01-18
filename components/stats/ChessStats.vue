@@ -73,7 +73,7 @@
 
     <!-- Performance Stats -->
     <div v-if="hasGameStats">
-      <StatsSectionHeader title="PERFORMANCE" />
+      <StatsSectionHeader title="CHESS PERFORMANCE" />
       <div class="space-y-2">
         <div
           v-for="metric in performanceMetrics"
@@ -92,7 +92,7 @@
 
     <!-- Recent Matches (This Month Only) -->
     <div v-if="thisMonthGames.length">
-      <StatsSectionHeader title="RECENT GAMES" />
+      <StatsSectionHeader title="RECENT CHESS GAMES" />
       <div class="space-y-1">
         <div
           v-for="game in thisMonthGames.slice(0, 10)"

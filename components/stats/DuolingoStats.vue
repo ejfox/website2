@@ -15,7 +15,7 @@
           priority="primary"
         />
       </div>
-      <div class="section-header-xs mt-2">DAY STREAK</div>
+      <div class="section-header-xs mt-2">DUOLINGO DAY STREAK</div>
 
       <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mt-4">
         <AnimatedNumber
@@ -24,13 +24,13 @@
           :duration="1000"
           priority="secondary"
         />
-        TOTAL XP
+        DUOLINGO TOTAL XP
       </div>
     </div>
 
     <!-- Current Course -->
     <div v-if="duolingo.currentCourse" class="mt-4">
-      <StatsSectionHeader title="CURRENT COURSE" />
+      <StatsSectionHeader title="DUOLINGO COURSE" />
       <div class="flex items-center gap-2 mt-2">
         <span class="text-lg">
           {{ getLanguageFlag(duolingo.currentCourse.title) }}
@@ -49,7 +49,7 @@
 
     <!-- All Courses -->
     <div v-if="duolingo.courses?.length > 1">
-      <StatsSectionHeader title="LANGUAGES" />
+      <StatsSectionHeader title="DUOLINGO LANGUAGES" />
       <div class="space-y-2 mt-2">
         <div
           v-for="course in duolingo.courses.slice(0, 5)"

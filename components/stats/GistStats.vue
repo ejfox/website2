@@ -16,7 +16,7 @@
         />
       </div>
       <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
-        CODE SNIPPETS
+        GISTS
       </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
         <AnimatedNumber
@@ -33,13 +33,13 @@
           :duration="400"
           priority="tertiary"
         />
-        AVG
+        AVG FILES/GIST
       </div>
     </div>
 
     <!-- Language Distribution -->
     <div class="space-y-2">
-      <StatsSectionHeader title="LANGUAGES" />
+      <StatsSectionHeader title="GIST LANGUAGES" />
       <div class="grid grid-cols-2 gap-x-8 gap-y-2 text-xs">
         <div
           v-for="lang in stats.topLanguages.slice(0, 6)"

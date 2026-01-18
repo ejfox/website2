@@ -48,7 +48,34 @@ const contentClass = computed(() => (props.grid ? 'grid-2col' : 'div'))
 </script>
 
 <style scoped>
+.stats-section {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
 .stats-section-title-hover {
-  @apply text-xs tracking-[0.2em] font-mono text-zinc-500;
+  @apply tracking-[0.24em] font-mono text-zinc-500;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left top;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+@media (max-width: 640px) {
+  .stats-section {
+    padding-left: 0;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+
+  .stats-section-title-hover {
+    position: static;
+    transform: none;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
 }
 </style>

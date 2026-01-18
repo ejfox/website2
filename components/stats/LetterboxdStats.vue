@@ -16,7 +16,7 @@
         />
       </div>
       <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
-        FILMS WATCHED
+        LETTERBOXD FILMS WATCHED
       </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2 space-y-1">
         <div>
@@ -63,7 +63,7 @@
 
     <!-- Recent Films - Enhanced -->
     <div v-if="recentFilms.length" class="space-y-2">
-      <StatsSectionHeader title="RECENT" />
+      <StatsSectionHeader title="RECENT FILMS" />
       <div class="space-y-2">
         <a
           v-for="film in recentFilms.slice(0, 8)"
@@ -115,7 +115,7 @@
 
     <!-- Top Rated - If we have any -->
     <div v-if="stats.topRatedFilms.length > 0" class="space-y-2">
-      <StatsSectionHeader title="TOP RATED" />
+      <StatsSectionHeader title="TOP RATED FILMS" />
       <div class="space-y-1">
         <a
           v-for="film in stats.topRatedFilms.slice(0, 5)"

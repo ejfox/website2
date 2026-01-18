@@ -16,7 +16,7 @@
         />
       </div>
       <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
-        PAGEVIEWS
+        WEBSITE PAGEVIEWS
       </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
         <AnimatedNumber
@@ -38,7 +38,7 @@
 
     <!-- Key Metrics -->
     <div>
-      <StatsSectionHeader title="ENGAGEMENT" />
+      <StatsSectionHeader title="WEBSITE ENGAGEMENT" />
       <div class="space-y-2">
         <div class="flex items-center justify-between text-xs">
           <span class="text-zinc-500 uppercase tracking-widest text-xs">
@@ -75,7 +75,7 @@
 
     <!-- Growth Metrics -->
     <div>
-      <StatsSectionHeader title="GROWTH (VS PREV 30 DAYS)" />
+      <StatsSectionHeader title="WEBSITE GROWTH (VS PREV 30 DAYS)" />
       <div class="space-y-2">
         <div class="flex items-center justify-between text-xs">
           <span class="text-zinc-500 uppercase tracking-widest text-xs">
@@ -106,7 +106,7 @@
 
     <!-- Traffic Quality -->
     <div>
-      <h4 class="section-label-tracked">TRAFFIC QUALITY</h4>
+      <h4 class="section-label-tracked">WEBSITE TRAFFIC QUALITY</h4>
       <div class="space-y-2">
         <div class="flex items-center justify-between text-xs">
           <span class="text-zinc-500 uppercase tracking-widest text-xs">
