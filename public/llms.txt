@@ -42,6 +42,8 @@ The goal is technology for joy, not just profit. AI that serves communities, not
 - [/tags.json](https://ejfox.com/tags.json): Tag vocabulary ordered by usage frequency
 - [/api/stats](https://ejfox.com/api/stats): Aggregated personal metrics (JSON)
 - [/api/gists](https://ejfox.com/api/gists): Recent GitHub gists (JSON)
+- [/api/cal/available-slots](https://ejfox.com/api/cal/available-slots?days=7): Next 3 available meeting slots with natural language formatting and booking URLs. Query params: `days` (default 14), `duration` (30min or 1hr)
+- [/api/cal/availability](https://ejfox.com/api/cal/availability): Quarterly consulting availability status (spots open/booked)
 
 ## Contact
 

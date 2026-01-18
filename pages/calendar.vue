@@ -1,6 +1,13 @@
 <template>
   <div class="calendar-page">
     <div id="cal-embed" class="cal-embed-container"></div>
+
+    <div class="api-section">
+      <h2>curl my availability</h2>
+      <div class="code-block">
+        <pre><code>curl -s ejfox.com/api/cal/available-slots | jq -r '.slots[]|"\(.naturalTime)\t\(.bookingUrl)"' | fzf | cut -f2 | xargs open</code></pre>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -11,7 +18,8 @@ const isDark = useDark()
 
 usePageSeo({
   title: 'Book time with EJ Fox | Calendar',
-  description: 'Schedule time with EJ Fox.',
+  description:
+    'Schedule time with EJ Fox. curl my availability or let your agent grab a booking link.',
 })
 
 onMounted(() => {
@@ -88,5 +96,41 @@ function updateCalTheme() {
 .cal-embed-container {
   width: 100%;
   min-height: calc(100vh - 4rem);
+}
+
+.api-section {
+  max-width: 36rem;
+  margin: 3rem auto 1rem;
+  padding: 1rem 0;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.api-section:hover {
+  opacity: 0.8;
+}
+
+.api-section h2 {
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-secondary, #666);
+}
+
+.code-block pre {
+  margin: 0;
+  padding: 0.75rem 1rem;
+  background: transparent;
+  border: 1px solid var(--color-border, #222);
+  border-radius: 0.25rem;
+  overflow-x: auto;
+}
+
+.code-block code {
+  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary, #666);
 }
 </style>
