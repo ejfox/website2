@@ -1,0 +1,111 @@
+{
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h1 class=\"\" id=\"the-2026-nvim--claude-code--tmux-workflow\">The 2026 nvim + Claude Code + tmux Workflow</h1>\n<h2 class=\"\" id=\"the-problem\">The Problem</h2>\n<p class=\"\">After ~1 year of Claude Code writing most of my code, I notice:</p>\n<ul class=\"list-disc\">\n<li class=\"\">Muscle memory atrophying (typing, vim motions, patterns)</li>\n<li class=\"\">Less time \"in the code\" - more time reviewing</li>\n<li class=\"\">The \"hand it off\" paradigm vs \"pair programming\" paradigm</li>\n</ul>\n<h2 class=\"\" id=\"the-spectrum\">The Spectrum</h2>\n<pre class=\"md-pre\"><code class=\"md-inline-code\">[Full Manual] ←――――――――――――――――――――――――――→ [Full AI]\n     ↑                    ↑                    ↑\n  typing every         copilot            \"claude, write\n   character         ghost text            the whole thing\"\n</code></pre>\n<p class=\"\"><strong class=\"\">Where I want to be:</strong> Somewhere in the middle. Copilot for the obvious stuff, Claude Code for the big refactors, but ME driving and understanding.</p>\n<h2 class=\"\" id=\"the-setup\">The Setup</h2>\n<h3 class=\"\" id=\"physical-layout\">Physical Layout</h3>\n<pre class=\"md-pre\"><code class=\"md-inline-code\">┌─────────────────────────────────────────────────────────────┐\n│ tmux window                                                 │\n│ ┌─────────────────────────┬───────────────────────────────┐ │\n│ │                         │                               │ │\n│ │      nvim               │      Claude Code              │ │\n│ │   (left pane)           │      (right pane)             │ │\n│ │                         │                               │ │\n│ │   - editing             │   - big refactors             │ │\n│ │   - navigation          │   - research                  │ │\n│ │   - copilot ghost text  │   - questions                 │ │\n│ │   - git diffs           │   - multi-file changes        │ │\n│ │                         │                               │ │\n│ └─────────────────────────┴───────────────────────────────┘ │\n│ ┌─────────────────────────────────────────────────────────┐ │\n│ │  dev server / logs (bottom pane, optional)              │ │\n│ └─────────────────────────────────────────────────────────┘ │\n└─────────────────────────────────────────────────────────────┘\n</code></pre>\n<h3 class=\"\" id=\"the-flow\">The Flow</h3>\n<h4 class=\"\" id=\"small-changes-stay-in-nvim\">Small changes (stay in nvim):</h4>\n<ol class=\"list-decimal\">\n<li class=\"\">Navigate to the spot (<code class=\"md-inline-code\">gd</code>, <code class=\"md-inline-code\">gr</code>, <code class=\"md-inline-code\">&#x3C;leader>ff</code>)</li>\n<li class=\"\">Let Copilot suggest (<code class=\"md-inline-code\">Tab</code> to accept, <code class=\"md-inline-code\">]s</code> to cycle)</li>\n<li class=\"\">Type it yourself if Copilot is wrong</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;leader>gs</code> to stage, lazygit to commit</li>\n</ol>\n<h4 class=\"\" id=\"medium-changes-nvim--claude-code\">Medium changes (nvim + Claude Code):</h4>\n<ol class=\"list-decimal\">\n<li class=\"\">Select code in nvim, <code class=\"md-inline-code\">&#x3C;leader>yr</code> to yank with path</li>\n<li class=\"\">Paste in Claude Code: \"refactor this to...\"</li>\n<li class=\"\">Claude writes, nvim auto-reloads (hotreload.lua)</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;leader>gd</code> to review diff in snacks picker</li>\n<li class=\"\">Stage hunks with <code class=\"md-inline-code\">&#x3C;Tab></code>, commit in lazygit</li>\n</ol>\n<h4 class=\"\" id=\"big-changes-claude-code-drives\">Big changes (Claude Code drives):</h4>\n<ol class=\"list-decimal\">\n<li class=\"\">Describe what I want in Claude Code</li>\n<li class=\"\">Let it write across multiple files</li>\n<li class=\"\">Review with <code class=\"md-inline-code\">&#x3C;leader>gd</code> (snacks git diff)</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;Tab></code> to stage good hunks, <code class=\"md-inline-code\">&#x3C;C-r></code> to discard bad ones</li>\n<li class=\"\">Test, iterate</li>\n</ol>\n<h3 class=\"\" id=\"key-bindings-i-actually-use\">Key Bindings I Actually Use</h3>\n<h4 class=\"\" id=\"navigation\">Navigation</h4>\n<ul class=\"list-disc\">\n<li class=\"\"><code class=\"md-inline-code\">gd</code> - goto definition</li>\n<li class=\"\"><code class=\"md-inline-code\">gr</code> - find references</li>\n<li class=\"\"><code class=\"md-inline-code\">gai</code> - who calls this? (incoming calls)</li>\n<li class=\"\"><code class=\"md-inline-code\">gao</code> - what does this call? (outgoing calls)</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;leader>ss</code> - symbols in file</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;leader>ff</code> - find files</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;leader>fg</code> - live grep</li>\n</ul>\n<h4 class=\"\" id=\"git-snacks-pickers\">Git (snacks pickers)</h4>\n<ul class=\"list-disc\">\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;leader>gd</code> - git diff (hunks) ← THE MAIN ONE</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;leader>gs</code> - git status</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;leader>gl</code> - git log</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;leader>gi</code> - github issues</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;leader>gp</code> - github PRs</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;leader>gg</code> - lazygit</li>\n</ul>\n<h4 class=\"\" id=\"in-snacks-git-diff\">In snacks git diff:</h4>\n<ul class=\"list-disc\">\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;Tab></code> - stage/unstage hunk</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;C-r></code> - restore (discard) change</li>\n<li class=\"\"><code class=\"md-inline-code\">&#x3C;CR></code> - jump to hunk</li>\n<li class=\"\"><code class=\"md-inline-code\">j/k</code> - navigate</li>\n</ul>\n<h4 class=\"\" id=\"copilot\">Copilot</h4>\n<ul class=\"list-disc\">\n<li class=\"\"><code class=\"md-inline-code\">Tab</code> - accept suggestion</li>\n<li class=\"\"><code class=\"md-inline-code\">]s</code> / <code class=\"md-inline-code\">[s</code> - next/prev suggestion</li>\n<li class=\"\"><code class=\"md-inline-code\">C-Right</code> - accept one word</li>\n<li class=\"\"><code class=\"md-inline-code\">C-l</code> - accept one line</li>\n</ul>\n<h4 class=\"\" id=\"tmux\">tmux</h4>\n<ul class=\"list-disc\">\n<li class=\"\"><code class=\"md-inline-code\">M-c</code> - INSTANT copy entire pane (no prefix!)</li>\n<li class=\"\"><code class=\"md-inline-code\">M-v</code> - copy visible portion</li>\n<li class=\"\"><code class=\"md-inline-code\">C-a g</code> - lazygit popup</li>\n<li class=\"\"><code class=\"md-inline-code\">C-a Space</code> - copy mode</li>\n<li class=\"\"><code class=\"md-inline-code\">C-h/j/k/l</code> - navigate panes (seamless with nvim)</li>\n</ul>\n<h3 class=\"\" id=\"anti-atrophy-practices\">Anti-Atrophy Practices</h3>\n<ol class=\"list-decimal\">\n<li class=\"\"><strong class=\"\">Typing practice</strong> - monkeytype sessions, keep WPM up</li>\n<li class=\"\"><strong class=\"\">Manual coding days</strong> - sometimes disable Copilot, write it yourself</li>\n<li class=\"\"><strong class=\"\">Review everything</strong> - don't just accept Claude's code, read it</li>\n<li class=\"\"><strong class=\"\">Understand before committing</strong> - if you can't explain it, don't ship it</li>\n<li class=\"\"><strong class=\"\">Use the quiz</strong> - <code class=\"md-inline-code\">tips</code> command, keep the muscle memory fresh</li>\n</ol>\n<h3 class=\"\" id=\"the-philosophy\">The Philosophy</h3>\n<blockquote class=\"md-blockquote\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">\"a computer is a meta-tool — a tool for making tools. defaults are for everyone, meaning no one. yours should be useless to others, perfect for you.\"</p>\n</blockquote>\n<p class=\"\">Claude Code is a tool. Copilot is a tool. nvim is a tool. The goal is not to be replaced by them, but to be amplified by them.</p>\n<p class=\"\">The best flow keeps you:</p>\n<ul class=\"list-disc\">\n<li class=\"\"><strong class=\"\">Engaged</strong> - you're thinking, not just approving</li>\n<li class=\"\"><strong class=\"\">Learning</strong> - you understand what's being written</li>\n<li class=\"\"><strong class=\"\">Fast</strong> - the tools accelerate you, not replace you</li>\n<li class=\"\"><strong class=\"\">In control</strong> - you can always drop to manual</li>\n</ul>\n<h2 class=\"\" id=\"the-ctrl-space-revelation-incremental-selection\">The Ctrl-Space Revelation (Incremental Selection)</h2>\n<p class=\"\">Treesitter parses code into an AST. <code class=\"md-inline-code\">&#x3C;C-space></code> lets you SELECT by structure, not by lines/chars.</p>\n<pre class=\"md-pre\"><code class=\"md-inline-code\">Cursor here: |\n                    ↓\n&#x3C;div class=\"card\">\n  &#x3C;span>Hello |world&#x3C;/span>    ← start: selects \"world\"\n&#x3C;/div>\n\n&#x3C;C-space> → selects \"Hello world\"\n&#x3C;C-space> → selects &#x3C;span>Hello world&#x3C;/span>\n&#x3C;C-space> → selects the whole &#x3C;div>...&#x3C;/div>\n&#x3C;C-space> → selects the parent component\n&#x3C;BS> → back down to the div\n</code></pre>\n<p class=\"\"><strong class=\"\">This is semantic zoom. Not lines, not characters - MEANING.</strong></p>\n<h3 class=\"\" id=\"the-moves\">The Moves</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table class=\"md-table\"><thead class=\"\"><tr class=\"\"><th class=\"md-th\">Keys</th><th class=\"md-th\">Action</th></tr></thead><tbody class=\"\"><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\"><code class=\"md-inline-code\">&#x3C;C-space></code></td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Start/expand selection to parent node</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\"><code class=\"md-inline-code\">&#x3C;BS></code></td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Shrink selection to child (in visual mode)</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\"><code class=\"md-inline-code\">&#x3C;C-space>&#x3C;C-space>d</code></td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Delete grandparent element</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\"><code class=\"md-inline-code\">&#x3C;C-space>&#x3C;C-space>y</code></td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Yank grandparent element</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\"><code class=\"md-inline-code\">&#x3C;C-space>&#x3C;C-space>c</code></td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Change grandparent element</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\"><code class=\"md-inline-code\">&#x3C;C-space>&#x3C;C-space>></code></td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Indent grandparent block</td></tr></tbody></table>\n<h3 class=\"\" id=\"block-level-text-objects\">Block-Level Text Objects</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table class=\"md-table\"><thead class=\"\"><tr class=\"\"><th class=\"md-th\">Keys</th><th class=\"md-th\">Selects</th></tr></thead><tbody class=\"\"><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\"><code class=\"md-inline-code\">vaf</code> / <code class=\"md-inline-code\">daf</code></td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Around function (with signature)</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\"><code class=\"md-inline-code\">vif</code> / <code class=\"md-inline-code\">dif</code></td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Inside function (body only)</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\"><code class=\"md-inline-code\">vat</code> / <code class=\"md-inline-code\">dat</code></td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Around HTML tag (whole element)</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\"><code class=\"md-inline-code\">vit</code> / <code class=\"md-inline-code\">dit</code></td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Inside tag (contents only)</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\"><code class=\"md-inline-code\">vaa</code> / <code class=\"md-inline-code\">via</code></td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Around/inside argument</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\"><code class=\"md-inline-code\">vac</code> / <code class=\"md-inline-code\">vic</code></td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Around/inside class</td></tr></tbody></table>\n<h3 class=\"\" id=\"why-this-matters\">Why This Matters</h3>\n<p class=\"\">This is <strong class=\"\">motorcycle coding</strong>. You're not describing \"delete the parent div\" in English to Claude. You're <em class=\"\">reaching out and grabbing it</em> with your hands.</p>\n<p class=\"\">The composable grammar: <strong class=\"\">selection + operator = action</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Selection: <code class=\"md-inline-code\">&#x3C;C-space></code>, <code class=\"md-inline-code\">vaf</code>, <code class=\"md-inline-code\">vat</code>, etc.</li>\n<li class=\"\">Operator: <code class=\"md-inline-code\">d</code> (cut), <code class=\"md-inline-code\">y</code> (copy), <code class=\"md-inline-code\">c</code> (change), <code class=\"md-inline-code\">></code> (indent)</li>\n</ul>\n<p class=\"\">Five keystrokes to move an entire component. No mouse, no shift-clicking, no \"wait I missed a bracket\".</p>\n<h2 class=\"\" id=\"todo\">TODO</h2>\n<ul class=\"contains-task-list list-disc\">\n<li class=\"task-list-item\"><input type=\"checkbox\" disabled class=\"\"> Document the snacks git diff workflow in tips.txt</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" disabled class=\"\"> Try <code class=\"md-inline-code\">base = \"main\"</code> for PR reviews</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" disabled class=\"\"> Experiment with Copilot panel (<code class=\"md-inline-code\">M-Enter</code>) more</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" disabled class=\"\"> Set up a \"manual mode\" toggle that disables AI?</li>\n<li class=\"task-list-item\"><input type=\"checkbox\" disabled class=\"\"> Drill: 20 reps of C-space selection daily until muscle memory</li>\n</ul>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<p class=\"\"><em class=\"\">Started: 2026-01-17</em>\n<em class=\"\">Status: draft</em></p>",
+  "title": "The 2026 nvim + Claude Code + tmux Workflow",
+  "metadata": {
+    "words": 1012,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 3,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "The 2026 nvim + Claude Code + tmux Workflow",
+        "slug": "the-2026-nvim--claude-code--tmux-workflow",
+        "level": "h1",
+        "children": [
+          {
+            "text": "The Problem",
+            "slug": "the-problem",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "The Spectrum",
+            "slug": "the-spectrum",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "The Setup",
+            "slug": "the-setup",
+            "level": "h2",
+            "children": [
+              {
+                "text": "Physical Layout",
+                "slug": "physical-layout",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "The Flow",
+                "slug": "the-flow",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Key Bindings I Actually Use",
+                "slug": "key-bindings-i-actually-use",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Anti-Atrophy Practices",
+                "slug": "anti-atrophy-practices",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "The Philosophy",
+                "slug": "the-philosophy",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "The Ctrl-Space Revelation (Incremental Selection)",
+            "slug": "the-ctrl-space-revelation-incremental-selection",
+            "level": "h2",
+            "children": [
+              {
+                "text": "The Moves",
+                "slug": "the-moves",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Block-Level Text Objects",
+                "slug": "block-level-text-objects",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Why This Matters",
+                "slug": "why-this-matters",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "TODO",
+            "slug": "todo",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/2026-nvim-claude-code-workflow.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

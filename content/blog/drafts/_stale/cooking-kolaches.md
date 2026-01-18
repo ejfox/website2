@@ -10,9 +10,8 @@ tags:
   - food
   - recipe
 ---
-
 # Cooking: Kolaches
 
 #cooking
 
-[cookin](cookin)g]]
+[[cooking]]

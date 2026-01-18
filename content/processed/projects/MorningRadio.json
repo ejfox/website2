@@ -1,5 +1,6 @@
 {
-  "html": "<h2 class=\"\" id=\"the-problem\">The Problem</h2>\n<p class=\"\">The first thing most people do when they wake up is grab their phone and doom-scroll. News apps are designed to maximize engagement, not inform. Social feeds are designed to maximize time-on-platform, not satisfaction. I wanted something different.</p>\n<h2 class=\"\" id=\"what-im-building\">What I'm Building</h2>\n<p class=\"\">MorningRadio—an iOS app designed to be a healthy \"first screen.\" Quick news summaries, curated links from my Pinboard bookmarks, and audio briefings. The TikTok-style vertical swipe interaction, but filled with things that actually make your morning better.</p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755098720/screenshot_2025-08-13_at_11.25.04_AM.png\" alt=\"\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755098720/screenshot_2025-08-13_at_11.25.04_AM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755098720/screenshot_2025-08-13_at_11.25.04_AM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755098720/screenshot_2025-08-13_at_11.25.04_AM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>\n<p class=\"\"><strong class=\"\">Design principles:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Finite content—you can reach the end</li>\n<li class=\"\">Audio-first for eyes-free consumption</li>\n<li class=\"\">Curated sources, not algorithmic feeds</li>\n<li class=\"\">Satisfying, not addicting</li>\n</ul>\n<h2 class=\"\" id=\"current-state\">Current State</h2>\n<p class=\"\">Active development. Experimenting with home screen widgets (harder than expected on iOS) and audio synthesis for spoken briefings.</p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png\" alt=\"\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>",
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h2 class=\"\" id=\"morningradio\">MorningRadio</h2>\n<p class=\"\">Designed to be a healthy \"first screen\" in the morning. News summaries, updates, and enough information about the latest events that you don't feel the need to endlessly doomscroll.</p>\n<p class=\"\">The goal was to repurpose the tik-tok style endless vertical scroll but instead fill it with interesting and useful websites, tools, and news articles (populated through my Pinboard bookmarks)</p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755098720/screenshot_2025-08-13_at_11.25.04_AM.png\" alt=\"\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755098720/screenshot_2025-08-13_at_11.25.04_AM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755098720/screenshot_2025-08-13_at_11.25.04_AM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755098720/screenshot_2025-08-13_at_11.25.04_AM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>\n<p class=\"\">I even experimented (unsuccessfully) with creating a home screen widget.</p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png\" alt=\"https://res.cloudinary.com/ejf/image/upload/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>",
   "title": "MorningRadio",
   "metadata": {
     "title": "MorningRadio",
@@ -14,16 +15,11 @@
     ],
     "state": "doing",
     "aiInvolvement": "ai-assisted",
-    "industry": [
-      "Consumer Apps",
-      "Digital Wellbeing"
-    ],
-    "client": "Personal Project",
     "tags": [
       "ios",
       "health"
     ],
-    "words": 131,
+    "words": 74,
     "images": 2,
     "imageDetails": {
       "total": 2,
@@ -33,24 +29,12 @@
     "links": 2,
     "codeBlocks": 0,
     "headers": {
-      "h2": 3
+      "h2": 1
     },
     "toc": [
       {
-        "text": "The Problem",
-        "slug": "the-problem",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "What I'm Building",
-        "slug": "what-im-building",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Current State",
-        "slug": "current-state",
+        "text": "MorningRadio",
+        "slug": "morningradio",
         "level": "h2",
         "children": []
       }

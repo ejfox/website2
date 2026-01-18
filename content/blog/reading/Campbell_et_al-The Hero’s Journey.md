@@ -12,37 +12,35 @@ kindle-sync:
 date: 2025-08-28T16:10:28-04:00
 modified: 2025-08-31T18:40:04-04:00
 ---
-
 ## The Hero’s Journey
 
-- ISBN: 1608681890
+* ISBN: 1608681890
 
 ### Highlights
 
-> The pipe is a kind of portable altar, and when it’s lighted it’s not being smoked for fun, typically, but as a sacred act. When it is lighted the incense is, as it were, going to heaven. The pipe stem is lifted so that the sun smokes first, then it’s addressed to the four quarters so you know where you are: the central mountain is right here, which is everywhere. And the celebrant smokes and then the pipe is passed around. This orientation of the quarters, I guess one could say, is the basic high cultural myth form: the center, the quarters. And then wherever you go: find the center. That establishes the sacred point, where the high point is, and then you have the four quarters. ^ref-37052
+>The pipe is a kind of portable altar, and when it’s lighted it’s not being smoked for fun, typically, but as a sacred act. When it is lighted the incense is, as it were, going to heaven. The pipe stem is lifted so that the sun smokes first, then it’s addressed to the four quarters so you know where you are: the central mountain is right here, which is everywhere. And the celebrant smokes and then the pipe is passed around. This orientation of the quarters, I guess one could say, is the basic high cultural myth form: the center, the quarters. And then wherever you go: find the center. That establishes the sacred point, where the high point is, and then you have the four quarters. ^ref-37052
 
 ---
 
-> And yet this other thing had been built in. The problem was to work it out without losing the symbols. Joyce helped release me into an understanding of the universal sense of these symbols, the deep human sense. Not the anecdotal historical symbolization of the sense of these great universal symbols that come to us through our Christian heritage. But on the wings of art, an opening out of a mythological reading of these symbols. ^ref-65380
+>And yet this other thing had been built in. The problem was to work it out without losing the symbols. Joyce helped release me into an understanding of the universal sense of these symbols, the deep human sense. Not the anecdotal historical symbolization of the sense of these great universal symbols that come to us through our Christian heritage. But on the wings of art, an opening out of a mythological reading of these symbols. ^ref-65380
 
 ---
 
-> Reading what you want, and having one book lead to the next, is the way I found my discipline. I’ve suggested this to many of my students: When you find a writer who really is saying something to you, read everything that writer has written and you will get more education and depth of understanding out of that than reading a scrap here and a scrap there and elsewhere. Then go to people who influenced that writer, or those who were related to him, and your world builds together in an organic way that is really marvelous. Whereas the way these things are taught normally in college and school is a sampler of what this one wrote and that one wrote and you’re asked to be more interested in the date of the publication of Keats’s sonnets than in what’s in them. ^ref-45450
+>Reading what you want, and having one book lead to the next, is the way I found my discipline. I’ve suggested this to many of my students: When you find a writer who really is saying something to you, read everything that writer has written and you will get more education and depth of understanding out of that than reading a scrap here and a scrap there and elsewhere. Then go to people who influenced that writer, or those who were related to him, and your world builds together in an organic way that is really marvelous. Whereas the way these things are taught normally in college and school is a sampler of what this one wrote and that one wrote and you’re asked to be more interested in the date of the publication of Keats’s sonnets than in what’s in them. ^ref-45450
 
 ---
 
-> And I didn’t have to write a thesis. I didn’t have to write anything. All I did was underline sentences and take notes. It’s funny, I spent about forty years taking notes—I have fourteen file drawers packed full of notes—and I never bother with them now anymore. The thing comes in that way. ^ref-43271
+>And I didn’t have to write a thesis. I didn’t have to write anything. All I did was underline sentences and take notes. It’s funny, I spent about forty years taking notes—I have fourteen file drawers packed full of notes—and I never bother with them now anymore. The thing comes in that way. ^ref-43271
 
 ---
 
-> CAMPBELL: An artist is not in the field to achieve, to realize, but to become fulfilled. It’s a life-fulfilling, totally different structure. ^ref-31755
+>CAMPBELL: An artist is not in the field to achieve, to realize, but to become fulfilled. It’s a life-fulfilling, totally different structure. ^ref-31755
 
 ---
 
 ### Metadata
-
-- Author: [Joseph Campbell, Phil Cousineau, David Kudler, and Stuart L. Brown](https://www.amazon.comundefined)
-- ASIN: B07K5KBWGZ
-- ISBN: 1608681890
-- Reference: <https://www.amazon.com/dp/B07K5KBWGZ>
-- [Kindle link](kindle://book?action=open&asin=B07K5KBWGZ)
+* Author: [Joseph Campbell, Phil Cousineau, David Kudler, and Stuart L. Brown](https://www.amazon.comundefined)
+* ASIN: B07K5KBWGZ
+* ISBN: 1608681890
+* Reference: <https://www.amazon.com/dp/B07K5KBWGZ>
+* [Kindle link](kindle://book?action=open&asin=B07K5KBWGZ)

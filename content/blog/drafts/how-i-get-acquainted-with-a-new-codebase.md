@@ -8,6 +8,8 @@ tags:
   - coding
   - programming
   - workflow
+  - fdc/005
+  - fdc/153
 ## How I get acquainted with a new codebase
 ---
 

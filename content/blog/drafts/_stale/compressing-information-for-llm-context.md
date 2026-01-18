@@ -13,5 +13,4 @@ tags:
 hidden: true
 draft: true
 ---
-
 ## How To Give an LLM As Much Context In As Little Tokens As Possible

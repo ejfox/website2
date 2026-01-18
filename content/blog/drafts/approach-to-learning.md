@@ -11,20 +11,22 @@ tags:
   - learning
   - personal
   - process
+  - fdc/001
+  - fdc/153
 ---
 
 ## How I Learn New Things
 
 Learning how to learn is the ultimate meta-skill. As a child, I quickly became disillusioned with traditional education, so I dropped out of high school and went straight to startup work. Since then I've had to reverse-engineer effective learning without the benefits of a direct teacher. Luckily I grew up in the age of the internet.
 
-> In the beginner's mind there are many possibilities; in the expert's mind there are few.
-> [Suzuki-Chadwick-Zen Mind, Beginners Mind](Suzuki-Chadwick-Zen%20Mind,%20Beginners%20Mind.md)
+>In the beginner's mind there are many possibilities; in the expert's mind there are few.
+>[Suzuki-Chadwick-Zen Mind, Beginners Mind](Suzuki-Chadwick-Zen%20Mind,%20Beginners%20Mind.md)
 
 ### Core Framework
 
 **Following Joy**: Learn what genuinely interests you. My librarian grandmother taught me to flood myself with primary sources the moment I showed curiosity about anything.
 
-**Batch Related Concepts**: Group related topics. [[../robots/preparation-as-practice]] → electrical engineering → electromagnetism. Learning Ohm's Law with Ohm's rejection story creates multiple memory pathways.
+**Batch Related Concepts**: Group related topics. [[../robots/preparation-as-practice|HAM radio]] → electrical engineering → electromagnetism. Learning Ohm's Law with Ohm's rejection story creates multiple memory pathways.
 
 **Read the Fucking Manuals**: Most people skip documentation. Essential knowledge hides in plain sight - nursery rhymes contain profound wisdom, technical manuals contain competitive advantages.
 

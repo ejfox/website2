@@ -8,7 +8,6 @@ tags:
 hidden: true
 draft: true
 ---
-
 ## Minecraft is the Metaverse: The Future Has Already Arrived (It's Just Unevenly Distributed to 8-Year-Olds)
 
 While Mark Zuckerberg burns through billions trying to convince adults to strap VR headsets to their faces and attend virtual meetings, millions of kids are already living in a fully-realized metaverse that launched over a decade ago. They're building cities, running economies, creating art, and forming communities in persistent virtual worlds that make Meta's sterile conference rooms look like a PowerPoint presentation.
@@ -24,10 +23,10 @@ Meta has spent more on metaverse development since 2021 than most countries' GDP
 ### What Makes a Metaverse?
 
 - Define the key characteristics that make up a Metaverse
-  - Immersive Experience
-  - User-Generated Content
-  - Social Interaction
-  - Economic Transactions
+    - Immersive Experience
+    - User-Generated Content
+    - Social Interaction
+    - Economic Transactions
 
 ---
 

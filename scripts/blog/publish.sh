@@ -91,7 +91,14 @@ main() {
     log "ERROR: Import failed"
     exit 1
   fi
-  
+
+  # Process markdown into JSON
+  log "Processing markdown..."
+  if ! node scripts/processMarkdown.mjs; then
+    log "ERROR: Markdown processing failed"
+    exit 1
+  fi
+
   # Build site
   log "Building site..."
   if ! yarn build; then

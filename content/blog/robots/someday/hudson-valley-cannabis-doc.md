@@ -7,9 +7,7 @@ tags:
   - photography
   - america
 ---
-
 ## Hudson Valley Cannabis: Growing a New Legacy
-
 ### Documentary Series Proposal for Hudsy.tv
 
 #### Project Overview
@@ -17,7 +15,6 @@ tags:
 A documentary series exploring the emerging cannabis industry in New York's Hudson Valley through intimate portraits of farmers, business owners, and their communities. This series will capture the historic transformation of the region's agricultural landscape while highlighting the personal journeys of those pioneering this new frontier.
 
 #### Series Format
-
 - 6-8 episode series
 - Each episode: 22-25 minutes
 - Release schedule: Weekly or bi-weekly
@@ -26,7 +23,6 @@ A documentary series exploring the emerging cannabis industry in New York's Huds
 #### Production Approach
 
 ##### Visual Style
-
 - Primary coverage using two-camera documentary interview setups
 - Cinema verité style facility tours and community interactions
 - Environmental portraits shot on medium format digital
@@ -34,7 +30,6 @@ A documentary series exploring the emerging cannabis industry in New York's Huds
 - Natural lighting emphasized with minimal supplemental lighting
 
 ##### Interview Strategy
-
 - In-depth personal histories of owners and key staff
 - Focus on their transition into cannabis industry
 - Family farming legacy connections
@@ -115,14 +110,12 @@ A documentary series exploring the emerging cannabis industry in New York's Huds
 [Rest of proposal remains the same]
 
 ##### Production Schedule
-
 - Pre-production: 6 weeks
 - Principal photography: 12 weeks
 - Post-production: 16 weeks
 - Total project timeline: 34 weeks
 
 ##### Crew Requirements
-
 - Director/Producer
 - Director of Photography
 - Sound Recordist
@@ -132,7 +125,6 @@ A documentary series exploring the emerging cannabis industry in New York's Huds
 - Color Grader
 
 #### Deliverables
-
 1. 6-8 complete episodes
 2. Photo essays for each featured business
 3. Extended interview transcripts
@@ -141,7 +133,6 @@ A documentary series exploring the emerging cannabis industry in New York's Huds
 6. Promotional stills
 
 #### Target Audience
-
 - Hudson Valley residents
 - Cannabis industry professionals
 - Agricultural community
@@ -150,7 +141,6 @@ A documentary series exploring the emerging cannabis industry in New York's Huds
 - New York State policy makers
 
 #### Distribution Strategy
-
 - Primary: Hudsy.tv platform
 - Secondary: Film festivals
 - Educational screenings
@@ -158,7 +148,6 @@ A documentary series exploring the emerging cannabis industry in New York's Huds
 - Social media platforms
 
 #### Impact Goals
-
 1. Document this historic transition in Hudson Valley agriculture
 2. Humanize cannabis industry professionals
 3. Educate viewers about regulated cannabis cultivation
@@ -176,7 +165,6 @@ $80,000 - $125,000 total production budget
 - Marketing/Distribution: 10%
 
 #### Potential Funding Sources
-
 1. Hudsy.tv production budget
 2. New York State film grants
 3. Cannabis industry sponsorship
@@ -185,7 +173,6 @@ $80,000 - $125,000 total production budget
 6. Regional economic development funds
 
 #### Initial Production Timeline
-
 - Month 1-2: Research and pre-production
 - Month 3-5: Principal photography
 - Month 6-7: Edit and rough cuts
@@ -210,7 +197,6 @@ Pre-Production Phase 1: Building Your Case (2-3 weeks)
    - Local business networks
 
 2. Create concise outreach email template:
-
 ```
 Subject: Documentary Project - Hudson Valley Cannabis Pioneers
 
@@ -244,10 +230,10 @@ Pre-Production Phase 2: Building Your Team (Parallel to Phase 1)
    - DP comfortable with X-Pro3s, documentary style
    - Sound recordist with own basic kit
    - Both must have:
-     - Own transportation
-     - Documentary experience
-     - Flexible schedule
-     - Interest in long-term project
+      - Own transportation
+      - Documentary experience
+      - Flexible schedule
+      - Interest in long-term project
 
 Strategic Decision Point:
 
@@ -386,3 +372,4 @@ Essential Prep Items:
    - Environmental
    - Details
    - Community context
+

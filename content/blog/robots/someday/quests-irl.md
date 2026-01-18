@@ -7,7 +7,6 @@ tags:
   - projects
   - games
 ---
-
 ## QuestsIRL (MVP Scope)
 
 ### OVERVIEW:
@@ -64,24 +63,25 @@ TRUE MVP NEEDS:
    - Matrix wake-up
    - 2 Kaoss pads
    - Initial tree generation
-     That's it. No maze yet.
+   That's it. No maze yet.
 
 2. SKILL TREE
    - Basic visualization
    - Simple interactions
    - 3 starter paths
-     Ship it. Add complexity later.
+   Ship it. Add complexity later.
 
 3. PROGRESS
    - Natural language check-ins
    - Basic validation
-     Start simple.
+   Start simple.
 
-## CYBERPUNK SKILL DISCOVERY
 
+CYBERPUNK SKILL DISCOVERY
+------------------------
 1. THE WAKE UP [30s]
 
-   > "Ready to change your life?"\_
+   >"Ready to change your life?"_
    - Matrix-style boot sequence
 
    - System coming online
@@ -92,7 +92,7 @@ TRUE MVP NEEDS:
    - "What keeps you up at night?"
    - "When you dream, what do you create?"
    - "In chaos, do you seek patterns or action?"
-     [Subtle tree begins forming in background]
+   [Subtle tree begins forming in background]
 
 3. KAOSS PAD PHASE [1.5min]
    Two clean XY interfaces:
@@ -114,7 +114,7 @@ TRUE MVP NEEDS:
    - Appears as "system calibration"
    - Actually validates initial reads
    - Subtle, almost an afterthought
-     [Tree crystallizes based on performance]
+   [Tree crystallizes based on performance]
 
 ---
 
@@ -167,28 +167,25 @@ Conversation Starters:
 
 EVIDENCE CLASSIFICATION MATRIX:
 
-| Confidence Level | Low          | Medium         | High               |
-| ---------------- | ------------ | -------------- | ------------------ |
-| Technical Terms  | Used vaguely | Used correctly | Explains to others |
-| Time Details     | General      | Specific       | Detailed logs      |
-| Problem-Solving  | Memorized    | Understood     | Novel solutions    |
-| Physical Details | Abstract     | Sensory        | Muscle memory      |
-| Tool Usage       | Named        | Described      | Compared/critiqued |
+Confidence Level | Low | Medium | High
+-----------------|-----|---------|------
+Technical Terms  | Used vaguely | Used correctly | Explains to others
+Time Details     | General | Specific | Detailed logs
+Problem-Solving  | Memorized | Understood | Novel solutions
+Physical Details | Abstract | Sensory | Muscle memory
+Tool Usage       | Named | Described | Compared/critiqued
 
 1. EVIDENCE GATHERING
-
 - Extract specific phrases
 - Map to evidence types
 - Assign confidence levels
 
 2. PATTERN MATCHING
-
 - Look for combinations of evidence
 - Weight different types appropriately
 - Flag inconsistent patterns
 
 3. VALIDATION RULES
-
 - Minimum evidence thresholds
 - Required combinations
 - Automatic disqualifiers
@@ -286,9 +283,9 @@ FLOW:
 
 1. Terminal Intro
 
-   > Ready to change your life?\_
-   > [yes] ->Matrix-style wake-up sequence
-   > [no] ->"Maybe you're not ready for the truth" _window closes_
+   >Ready to change your life?_
+   [yes] ->Matrix-style wake-up sequence
+   [no] ->"Maybe you're not ready for the truth" *window closes*
 
 2. Digital Sensei Scan
    - No boring forms
@@ -328,67 +325,69 @@ XY PAD QUESTIONS:
    Y axis: Solo ↕ Collaborative
    X axis: Study ↔ Experience
 
+
 ---
 
 GAME OPTIONS:
 
 1. RHYTHM DOT
 
-- Immediate feedback
++ Immediate feedback
 
-- Tests multiple skills
++ Tests multiple skills
 
-* Might favor musical people
+- Might favor musical people
 
 2. PATTERN COMPLETION
 
-- Deep insight into thinking
++ Deep insight into thinking
 
-- Multiple solve paths
++ Multiple solve paths
 
-* Could be too abstract
+- Could be too abstract
 
 3. UNTANGLE
 
-- Shows problem-solving style
++ Shows problem-solving style
 
-- Satisfying to complete
++ Satisfying to complete
 
-* Might frustrate some users
+- Might frustrate some users
 
 4. MIRROR DRAW
 
-- Clear learning curve
++ Clear learning curve
 
-- Tests adaptation
++ Tests adaptation
 
-* Could be too challenging
+- Could be too challenging
 
 5. RESOURCE BALANCE
 
-- Rich behavioral data
++ Rich behavioral data
 
-- Tests real-world skills
++ Tests real-world skills
 
-* Might feel like work
+- Might feel like work
 
 6. LOCK PICKING
 
-- Engaging metaphor
++ Engaging metaphor
 
-- Tests patience/precision
++ Tests patience/precision
 
-* Might take too long
+- Might take too long
 
 ---
 
-## QUESTSIRL ONBOARDING FLOW
+QUESTSIRL ONBOARDING FLOW
+------------------------
 
 1. MATRIX WAKE-UP SEQUENCE
 
-   > "Ready to change your life?"\_
-   > [yes] ->continue
-   > [no] ->window closes
+   >"Ready to change your life?"_
+   [yes] ->continue
+   [no] ->window closes
    - Glitch effects (minimal)
 
    - Terminal aesthetic
@@ -429,6 +428,7 @@ GAME OPTIONS:
    L8-10: Master patterns
 
    METRICS:
+
    - Time per level
    - Restart frequency
    - Movement precision
@@ -461,7 +461,8 @@ VISUAL AESTHETIC:
 
 ---
 
-## NEURAL INTERFACE
+NEURAL INTERFACE
+---------------
 
 [CORE VIEW]
 
@@ -532,6 +533,7 @@ VISUAL AESTHETIC:
     └── animations.js             // Basic effects
 ```
 
+
 ```
 CREATE TABLE skills (
     -- Core Fields
@@ -539,30 +541,30 @@ CREATE TABLE skills (
     parent_id UUID REFERENCES skills(id),
     title TEXT NOT NULL,
     description TEXT,
-
+    
     -- Classification
     level INTEGER NOT NULL,
     category TEXT NOT NULL,      -- 'electronics', 'radio', 'climbing'
     type TEXT NOT NULL,          -- 'technical', 'physical', 'knowledge'
-
+    
     -- Visual/UI
     icon TEXT,                   -- icon identifier
     color TEXT,                  -- hex for node color
     position_x INTEGER,          -- for manual tree layout tweaks
     position_y INTEGER,
-
+    
     -- Progress Tracking
     status TEXT DEFAULT 'locked',
     started_at TIMESTAMP WITH TIME ZONE,
     completed_at TIMESTAMP WITH TIME ZONE,
-
+    
     -- User Association
     user_id UUID,               -- null for template skills
-
+    
     -- Metadata
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-
+    
     -- The Good Stuff
     prerequisites JSONB,         -- array of skill IDs needed
     validation_rules JSONB,      -- what counts as "done"
@@ -584,7 +586,7 @@ export interface SkillNode {
     status: string;      // simple status tracking
     position_x?: number;
     position_y?: number;
-
+    
     // Keep it flexible for LLM
     prerequisites?: string[];
     custom_data?: Record<string, unknown>;
@@ -625,6 +627,7 @@ export function transformToD3Format(skills: SkillNode[]): D3TreeData {
 }
 ```
 
+
 ---
 
 ## QuestsIRL Development Plan
@@ -636,7 +639,6 @@ QuestsIRL is a gamified skill development platform that creates personalized lea
 ### Architecture Components
 
 #### 1. Frontend: Nuxt.js
-
 - **Framework:** Utilize Nuxt.js for its Vue.js foundation, enabling server-side rendering (SSR) for improved performance and SEO.
 - **Features:**
   - **User Onboarding:** Implement RPG-style initial paths to engage users from the start.
@@ -645,7 +647,6 @@ QuestsIRL is a gamified skill development platform that creates personalized lea
   - **Responsive Design:** Ensure the application is fully responsive for both mobile and desktop users.
 
 #### 2. Backend: Supabase
-
 - **Services:**
   - **Database:** Leverage Supabase’s PostgreSQL for structured and scalable data storage.
   - **Authentication:** Use Supabase Auth to handle user sign-ups, logins, and session management securely.
@@ -653,7 +654,6 @@ QuestsIRL is a gamified skill development platform that creates personalized lea
   - **Storage:** Manage user-generated content and media files efficiently.
 
 #### 3. Hosting & Edge Computing: Cloudflare
-
 - **Cloudflare Workers:**
   - **API Handling:** Manage API requests and serverless functions to ensure low latency and high performance.
   - **LLM Integration:** Connect with OpenAI GPT-4 for generating personalized learning paths and validating user progress.
@@ -663,13 +663,11 @@ QuestsIRL is a gamified skill development platform that creates personalized lea
   - **Offline Support:** Enable users to interact with their skill trees offline, with seamless synchronization when back online.
 
 #### 4. LLM Generation: OpenAI GPT-4 via Cloudflare Workers
-
 - **Functions:**
   - **Personalized Learning Paths:** Generate customized learning plans based on user interactions and preferences.
   - **Progress Validation:** Use natural language processing to assess and validate user progress through conversations.
 
 #### 5. Authentication: Supabase Auth
-
 - **Features:**
   - **OAuth Integration:** Support for social logins such as Google and GitHub.
   - **Email Verification & Password Recovery:** Ensure secure account creation and easy password management.
@@ -743,23 +741,19 @@ QuestsIRL is a gamified skill development platform that creates personalized lea
 ### Detailed Cloudflare Integration Guide
 
 #### Step 1: Create Cloudflare Account and Set Up Wrangler CLI
-
 - **Sign Up:** Visit Cloudflare’s website and create an account.
 - **Install Wrangler:** Use npm to install the Wrangler CLI tool.
 - **Login to Wrangler:** Authenticate the CLI with your Cloudflare account using the provided commands.
 
 #### Step 2: Initialize Cloudflare Workers in Your Project
-
 - **Initialize Worker:** Use Wrangler to set up a new Worker project within your Nuxt.js application.
 - **Configure `wrangler.toml`:** Update the configuration file with your Cloudflare account ID, Workers settings, and routing patterns to manage traffic effectively.
 
 #### Step 3: Deploy Nuxt.js to Cloudflare Pages
-
 - **Build Project:** Run the build and generate commands to prepare your Nuxt.js project for deployment.
 - **Deploy via Cloudflare Pages:** Connect your GitHub repository to Cloudflare Pages, set the build command to `npm run generate`, and specify the output directory as `dist`. Follow Cloudflare’s prompts to complete the deployment.
 
 #### Step 4: Set Up Durable Objects with SQLite-in-DO
-
 - **Configure Durable Objects:** Define Durable Objects in the `wrangler.toml` file to manage individual SQLite databases for each user.
 - **Develop Durable Object Classes:** Create classes that handle data operations, ensuring efficient access and synchronization.
 - **Deploy Workers:** Use Wrangler to publish the Workers, ensuring Durable Objects are correctly set up and accessible.
@@ -785,12 +779,10 @@ QuestsIRL is a gamified skill development platform that creates personalized lea
 - **Resource Management:** Monitor and manage the resource utilization of Durable Objects to ensure efficient operation, especially under varying user loads.
 
 #### Step 5: Connect Nuxt.js Frontend with Cloudflare Workers
-
 - **API Integration:** Implement communication between the Nuxt.js frontend and Cloudflare Workers by using fetch or Axios to interact with API endpoints.
 - **Data Handling:** Ensure that data fetched from Cloudflare Workers is correctly integrated into the frontend components, maintaining real-time updates and synchronization.
 
 #### Step 6: Implement Bindings in Nuxt.js
-
 - **Set Up Bindings for Local Development:** Use the `nitro-cloudflare-dev` module in Nuxt.js to emulate Cloudflare bindings during development.
 - **Configure Bindings in Cloudflare Dashboard:** Define necessary bindings such as Durable Objects and KV namespaces within the Cloudflare dashboard to enable seamless interaction with backend services.
 - **Access Bindings in Nuxt.js:** Utilize server-side code within Nuxt.js to interact with Cloudflare bindings through the provided context object, ensuring efficient data access and manipulation.
@@ -823,4 +815,4 @@ QuestsIRL is a gamified skill development platform that creates personalized lea
 
 ---
 
-_Let's make QuestsIRL a seamless, engaging, and highly performant experience for our users. Remember, YOLO but thoughtful! _
+*Let's make QuestsIRL a seamless, engaging, and highly performant experience for our users. Remember, YOLO but thoughtful! *

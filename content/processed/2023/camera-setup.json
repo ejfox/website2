@@ -1,5 +1,6 @@
 {
-  "html": "<h2 class=\"\" id=\"camera-setup\">Camera Setup</h2>\n<h2 class=\"\" id=\"street-photography\">Street Photography</h2>\n<h3 class=\"\" id=\"fujifilm-x-pro-3\">Fujifilm X-Pro 3</h3>\n<h4 class=\"\" id=\"lenses\">Lenses</h4>\n<ul class=\"list-disc\">\n<li class=\"\">18mm f2</li>\n<li class=\"\">56mm f1.2</li>\n<li class=\"\">35mm f2</li>\n<li class=\"\">23mm f2</li>\n</ul>\n<h3 class=\"\" id=\"n90s\">N90s</h3>\n<h4 class=\"\" id=\"50mm-nikkor-lens\">50mm Nikkor Lens</h4>\n<h3 class=\"\" id=\"olympus-xa-2\">Olympus XA 2</h3>\n<h3 class=\"\" id=\"black--white-film\">Black &#x26; White Film</h3>\n<p class=\"\">For my film development process see: <a href=\"blog/2023/film-developmen\" class=\"text-blue-600 dark:text-blue-400\">blog/2023/film-developmen</a>t]]</p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h3 class=\"\" id=\"appendix\">Appendix</h3>\n<h4 class=\"\" id=\"video-settings\">Video settings</h4>\n<p class=\"\">When shooting video:</p>\n<ul class=\"list-disc\">\n<li class=\"\">f-log</li>\n<li class=\"\">24fps</li>\n<li class=\"\">1080p</li>\n<li class=\"\">4k used sparingly for large shots, to crop/zoom later</li>\n<li class=\"\">4:3 ratio (????)</li>\n</ul>\n<p class=\"\">When creating animations</p>\n<ul class=\"list-disc\">\n<li class=\"\">4k</li>\n<li class=\"\">12fps or 24fps</li>\n</ul>\n<p class=\"\">#setup</p>",
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h2 class=\"\" id=\"camera-setup\">Camera Setup</h2>\n<h2 class=\"\" id=\"street-photography\">Street Photography</h2>\n<h3 class=\"\" id=\"fujifilm-x-pro-3\">Fujifilm X-Pro 3</h3>\n<h4 class=\"\" id=\"lenses\">Lenses</h4>\n<ul class=\"list-disc\">\n<li class=\"\">18mm f2</li>\n<li class=\"\">56mm f1.2</li>\n<li class=\"\">35mm f2</li>\n<li class=\"\">23mm f2</li>\n</ul>\n<h3 class=\"\" id=\"n90s\">N90s</h3>\n<h4 class=\"\" id=\"50mm-nikkor-lens\">50mm Nikkor Lens</h4>\n<h3 class=\"\" id=\"olympus-xa-2\">Olympus XA 2</h3>\n<h3 class=\"\" id=\"black--white-film\">Black &#x26; White Film</h3>\n<p class=\"\">For my film development process see: <a href=\"/blog/2023/film-development\" class=\"internal-link text-blue-600 dark:text-blue-400\">Blog/2023/film Development</a></p>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h3 class=\"\" id=\"appendix\">Appendix</h3>\n<h4 class=\"\" id=\"video-settings\">Video settings</h4>\n<p class=\"\">When shooting video:</p>\n<ul class=\"list-disc\">\n<li class=\"\">f-log</li>\n<li class=\"\">24fps</li>\n<li class=\"\">1080p</li>\n<li class=\"\">4k used sparingly for large shots, to crop/zoom later</li>\n<li class=\"\">4:3 ratio (????)</li>\n</ul>\n<p class=\"\">When creating animations</p>\n<ul class=\"list-disc\">\n<li class=\"\">4k</li>\n<li class=\"\">12fps or 24fps</li>\n</ul>\n<p class=\"\">#setup</p>",
   "title": "Camera Setup",
   "metadata": {
     "inprogress": true,
@@ -17,7 +18,7 @@
       "cloudinary": 0,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 0,
     "codeBlocks": 0,
     "headers": {
       "h2": 2
@@ -68,7 +69,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/2023/camera-setup.md",
+    "sourcePath": "../../../../../code/website2/content/blog/blog/2023/camera-setup.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

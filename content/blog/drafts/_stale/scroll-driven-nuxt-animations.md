@@ -11,7 +11,6 @@ tags:
 hidden: true
 draft: true
 ---
-
 ## Scroll Animations in Nuxt
 
 I like adding subtle animations that respond to scroll. Not the overdone parallax stuff, just gentle movements that make pages feel alive.
@@ -32,10 +31,7 @@ const { stop } = useIntersectionObserver(target, ([{ isIntersecting }]) => {
 </script>
 
 <template>
-  <div
-    ref="target"
-    class="opacity-0 translate-y-8 transition-all duration-700 ease-out"
-  >
+  <div ref="target" class="opacity-0 translate-y-8 transition-all duration-700 ease-out">
     <p>This fades in when scrolled into view</p>
   </div>
 </template>
@@ -79,7 +75,7 @@ const animateOnScroll = () => {
     opacity: [0, 1],
     delay: anime.stagger(100),
     duration: 800,
-    easing: 'easeOutExpo',
+    easing: 'easeOutExpo'
   })
 }
 ```
@@ -107,31 +103,26 @@ Add `will-change: transform` to elements that will animate, but remove it when d
 ### Library Tradeoffs
 
 **Vanilla Intersection Observer + CSS**
-
 - **Pros**: Native browser API, best performance, no bundle size
 - **Cons**: More boilerplate, no complex sequencing
 - **Use when**: Simple fade-ins, basic scroll triggers
 
-**VueUse (useIntersectionObserver, useScroll)**
-
+**VueUse (useIntersectionObserver, useScroll)**  
 - **Pros**: Vue-optimized, composition API, reactive values
 - **Cons**: Extra dependency, less control than vanilla
 - **Use when**: Vue 3 projects, need reactive scroll values
 
 **anime.js**
-
 - **Pros**: Powerful sequencing, 60fps animations, small size (~14kb)
-- **Cons**: Another dependency, overkill for simple effects
+- **Cons**: Another dependency, overkill for simple effects  
 - **Use when**: Complex choreography, timeline animations
 
 **Scrollama**
-
 - **Pros**: Built for scrollytelling, handles complex step-based interactions
 - **Cons**: Specific use case, larger bundle (~20kb)
 - **Use when**: Story-driven pages, step-by-step reveals
 
 **GSAP ScrollTrigger**
-
 - **Pros**: Industry standard, handles everything, professional features
 - **Cons**: Large bundle (~100kb), overkill for most sites
 - **Use when**: Complex commercial sites, heavy animation needs
@@ -147,9 +138,8 @@ CSS transforms are ~10x faster than animating layout properties. Stick to `trans
 Beyond basic fade-ins, there's a whole vocabulary of scroll-driven interactions for data visualization and storytelling:
 
 #### **Progressive Disclosure**
-
 - **Data Drawing In**: Charts animate from empty state as you scroll (bars grow, lines draw, points appear)
-- **SVG Path Animation**: Lines/paths draw stroke-by-stroke using `stroke-dashoffset`
+- **SVG Path Animation**: Lines/paths draw stroke-by-stroke using `stroke-dashoffset` 
 - **Generative Art Ticks**: Algorithmic art that generates one element per scroll increment
 - **Typewriter Effects**: Text appears letter-by-letter or word-by-word tied to scroll position
 - **Layered Reveals**: Start with simple chart, add complexity layer by layer
@@ -157,36 +147,31 @@ Beyond basic fade-ins, there's a whole vocabulary of scroll-driven interactions 
 - **Annotation Stepping**: Show explanatory text/arrows tied to scroll position
 
 #### **Scale & Perspective Shifts**
-
-- **Zoom Transitions**: Start zoomed out (world map), scroll to zoom in (city level)
+- **Zoom Transitions**: Start zoomed out (world map), scroll to zoom in (city level)  
 - **Scale Updates**: Scatterplot axes rescale at scroll breakpoints to show different relationships
 - **Time Scrubbing**: Scroll controls time slider in animated charts
 - **Video Frame Scrubbing**: Each scroll pixel = one video frame (like Apple product demos)
 - **Dimensional Shifts**: 2D chart transforms to 3D, or vice versa
 
 #### **Narrative Sequences**
-
 - **Before/After States**: Scroll between two versions of same data (pre/post policy change)
 - **Scenario Branching**: User scroll choice determines which data path to explore
 - **Comparative Reveals**: Multiple charts appear/disappear to show relationships
 - **Process Visualization**: Manufacturing pipeline, data flow diagrams that animate through stages
 
 #### **Interactive Data Exploration**
-
 - **Scroll-Controlled Filters**: Scroll position determines which data subset is visible
-- **Progressive Aggregation**: Start with individual points, scroll to see grouped/summarized views
+- **Progressive Aggregation**: Start with individual points, scroll to see grouped/summarized views  
 - **Threshold Animations**: Data points highlight/hide as you scroll past certain values
 - **Category Cycling**: Scroll through different data categories in same chart space
 
 #### **Spatial Metaphors**
-
 - **Journey Maps**: Scroll follows a path through geographic or conceptual space
 - **Depth Scrolling**: Parallax that feels like moving through 3D data landscape
 - **Microscope Effect**: Scroll "zooms into" increasingly detailed data views
 - **Timeline Traversal**: Horizontal timeline controlled by vertical scroll
 
 #### **Award-Winning Techniques**
-
 - **Morphing Visualizations**: One chart type transforms into another (NYT election needles → bar charts)
 - **Sticky Element Choreography**: Fixed elements that update content as background scrolls (Bloomberg scrollytelling)
 - **Particle System Control**: Scroll drives physics simulations (falling leaves, data points clustering)
@@ -198,7 +183,6 @@ Beyond basic fade-ins, there's a whole vocabulary of scroll-driven interactions 
 - **Scroll Velocity Physics**: Fast scrolling triggers different animations than slow scrolling
 
 #### **Performance Considerations**
-
 - **Static Keyframes**: Pre-calculate animation states, interpolate between them
 - **Canvas vs SVG**: Canvas for many elements, SVG for interactive precision
 - **Throttled Updates**: Don't recalculate on every scroll event

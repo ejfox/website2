@@ -10,7 +10,6 @@ tags:
   - visualization
   - tools
 ---
-
 ## The Hidden Networks Are Everywhere (Now You Can Actually See Them)
 
 Everything is connected to everything else, but most of the time we can't see how. Social networks, supply chains, idea flows, collaboration patterns, conspiracy theories, protein interactions—the world runs on relationships that are invisible until someone takes the time to map them out.

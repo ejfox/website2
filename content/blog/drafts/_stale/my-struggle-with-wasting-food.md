@@ -9,7 +9,6 @@ tags:
 hidden: true
 draft: true
 ---
-
 ## My Struggle With Being A Food Waster
 
 1. Introduction

@@ -1,6 +1,6 @@
 ---
 date: 2025-08-06T12:53:07-04:00
-modified: 2025-11-08T15:10:47-05:00
+modified: 2026-01-03T14:45:26-05:00
 tags:
   - dataviz
   - quantifiedself
@@ -8,11 +8,12 @@ tags:
   - data
   - analytics
   - productivity
+  - fdc/519
+  - fdc/005
 ---
-
 ## Ten Years of the Computer
 
-In 2011, when I was 19 years old, I made a prescient decision. I was an aspiring data visualization designer working at my first startup, and when I discovered then 4-year-old app [RescueTime](https://www.ycombinator.com/companies/rescuetime) - a sort of self-development introspective spyware, I immediately installed it on all of my computers. (This is [[../robots/quantified-self-as-archaeology]] - capturing data before knowing what questions I'd ask.)
+In 2011, when I was 19 years old, I made a prescient decision. I was an aspiring data visualization designer working at my first startup, and when I discovered then 4-year-old app [RescueTime](https://www.ycombinator.com/companies/rescuetime) - a sort of self-development introspective spyware, I immediately installed it on all of my computers. (This is [[../robots/quantified-self-as-archaeology|tracking as archaeology, not optimization]] - capturing data before knowing what questions I'd ask.)
 
 Rescuetime would quietly watch me for the next 14 or so years, tracking most of my personal computer usage, with a small gap in 2020 when I bought a new computer a briefly forgot to reinstall RescueTime.
 
@@ -26,10 +27,10 @@ On [RescueTime's settings page](https://www.rescuetime.com/rtx/settings/data) yo
 
 The data that was most useful to me was a 448.9MB `rescuetime_data.json` file, and I promptly broke it down into .csvs for each year in the dataset, for more intricate analysis. I also converted the data to a [parquet](https://parquet.apache.org) file so it can easily be loaded into the browser with DuckDB for on-the-fly analysis and visualization.
 
-- 22,380 hours tracked over 14 years (2.6 years of straight computer usage)
-- 31,516 different apps and websites tracked
-- 3,827 days of data across 5,115 total days
-- 932 days worth of pure screen time
+  - 22,380 hours tracked over 14 years (2.6 years of straight computer usage)
+  - 31,516 different apps and websites tracked
+  - 3,827 days of data across 5,115 total days
+  - 932 days worth of pure screen time
 
 ### What the Data Revealed
 
@@ -49,18 +50,16 @@ With nowhere to go and endless time, I accidentally conducted the largest educat
 The data captured my transition from digital music production to physical instruments and analog gear:
 
 **2014 - Peak Digital Era:**
-
 - Logic Pro X: 118 hours (building production skills)
 - Traktor: 197 hours (digital DJing obsession)
 - Total: 393 hours making music on computers
 
 **2016 - The Turning Point:**
-
 - Logic Pro X peaked at 169 hours
 - Traktor crashed to 26 hours (the hardware bug was biting)
 
 **2017-2020 - The Great Migration:**
-The software hours disappeared as I moved to hardware synthesizers, drum machines, and analog mixers that aren't trackable with RescueTime. What looks like "giving up music" in the data was actually me getting _more_ serious about it - just away from the computer.
+The software hours disappeared as I moved to hardware synthesizers, drum machines, and analog mixers that aren't trackable with RescueTime. What looks like "giving up music" in the data was actually me getting *more* serious about it - just away from the computer.
 
 #### The Social Media Roller Coaster
 
@@ -82,44 +81,44 @@ Then Elon bought Twitter and I noped out entirely. 327 hours to zero overnight. 
 
 2. 2014: The Creative Supernova
 
-Design peak: 508.5 hours (1.4 hours every single day)
+  Design peak: 508.5 hours (1.4 hours every single day)
 
-- Traktor: 197h (digital DJing mastery)
-- Logic Pro X: 118h (music production peak)
-- Adobe After Effects: 24h (motion graphics)
-- Illustrator CS6: 21h (classic design work)
+  - Traktor: 197h (digital DJing mastery)
+  - Logic Pro X: 118h (music production peak)
+  - Adobe After Effects: 24h (motion graphics)
+  - Illustrator CS6: 21h (classic design work)
 
-2014 wasn't the end of my design career - it was the absolute zenith.
+  2014 wasn't the end of my design career - it was the absolute zenith.
 
-The Terminal Renaissance
+  The Terminal Renaissance
 
-2021: 42.3 hours (breakthrough year)
+  2021: 42.3 hours (breakthrough year)
 
-2024: 62.9 hours (peak command-line mastery)
+  2024: 62.9 hours (peak command-line mastery)
 
-But here's the twist: terminal usage peaked the same year as my design renaissance. 2024 saw:
+  But here's the twist: terminal usage peaked the same year as my design renaissance. 2024 saw:
 
-- Engineering: 776.5h (career high)
-- Design: 132.4h (strongest since 2017)
+  - Engineering: 776.5h (career high)
+  - Design: 132.4h (strongest since 2017)
 
-I didn't choose engineering over design. I chose both, simultaneously.
+  I didn't choose engineering over design. I chose both, simultaneously.
 
-The Hybrid Reality
+  The Hybrid Reality
 
-Recent years (2022-2025):
+  Recent years (2022-2025):
 
-- Engineering: 1,603 hours
-- Design: 372 hours
-- Ratio: 4.3:1
+  - Engineering: 1,603 hours
+  - Design: 372 hours
+  - Ratio: 4.3:1
 
-Even in my "full engineering" phase, I maintained 93 hours of design work annually. That's nearly 2 hours per week of
+  Even in my "full engineering" phase, I maintained 93 hours of design work annually. That's nearly 2 hours per week of
 
-creative work that's invisible to the "engineer" narrative.
+  creative work that's invisible to the "engineer" narrative.
 
-The Real Story
+  The Real Story
 
-The data reveals something unprecedented: a professional shape-shifter who refused to pick a lane.
+  The data reveals something unprecedented: a professional shape-shifter who refused to pick a lane.
 
-- 2014: Creative peak (508h design, 136h engineering)
-- 2019: Engineering peak (179h engineering, 5h design)
-- 2024: Hybrid peak (777h engineering, 132h design)
+  - 2014: Creative peak (508h design, 136h engineering)
+  - 2019: Engineering peak (179h engineering, 5h design)
+  - 2024: Hybrid peak (777h engineering, 132h design)

@@ -38,7 +38,6 @@ Whether you ride or not, the principles here apply to anyone interested in maint
 ## Primary Systems
 
 ### CONTAINER HIERARCHY
-
 - Rush 24 (128oz) - Main urban/wilderness capacity
 - WLF Enduro (70.5oz) - Motorcycle-specific kit
 - Timbuk2 Waist (70.5oz loaded) - Active access layer
@@ -98,7 +97,6 @@ Each system designed for:
 A Framework for Equipment Classification and Storage Optimization
 
 ### Core Principles
-
 1. Equipment should be stored at the furthest accessible tier that doesn't compromise its utility
 2. Each tier move inward approximately doubles the importance of weight/space efficiency
 3. Multi-use items may occupy different tiers based on primary function
@@ -109,50 +107,45 @@ A Framework for Equipment Classification and Storage Optimization
 Rate each item on a scale of 1-5 in each category:
 
 #### Time Criticality (T)
-
 5. Immediate (< 5 minutes)
-6. Very Soon (< 1 hour)
-7. Same Day (< 24 hours)
-8. This Week (< 7 days)
-9. Eventually (> 7 days)
+4. Very Soon (< 1 hour)
+3. Same Day (< 24 hours)
+2. This Week (< 7 days)
+1. Eventually (> 7 days)
 
 #### Consequence Severity (C)
-
 5. Life-threatening if absent
-6. Major health/safety impact
-7. Significant discomfort/limitation
-8. Notable inconvenience
-9. Minor inconvenience
+4. Major health/safety impact
+3. Significant discomfort/limitation
+2. Notable inconvenience
+1. Minor inconvenience
 
 #### Weight/Space Penalty (W)
-
 5. Negligible
-6. Light/Small
-7. Moderate
-8. Heavy/Bulky
-9. Very Heavy/Bulky
+4. Light/Small
+3. Moderate
+2. Heavy/Bulky
+1. Very Heavy/Bulky
 
 #### Multi-Use Factor (M)
-
 5. Critical in 3+ scenarios
-6. Important in 2+ scenarios
-7. Critical in 1 scenario
-8. Useful in multiple scenarios
-9. Single specific use
+4. Important in 2+ scenarios
+3. Critical in 1 scenario
+2. Useful in multiple scenarios
+1. Single specific use
 
 ### Tier Classification Formula
 
 Total Score = (T × 2) + (C × 2) + (W × 1.5) + (M × 1)
 
 #### Tier Placement
-
 - Tier 1 (On-Person): 35-47.5 points
 - Tier 2 (Vehicle/Pack): 25-34.5 points
 - Tier 3 (Base Cache): < 25 points
 
 ### Tier Definitions
 
-#### TIER 1: ON-PERSON KIT
+####  TIER 1: ON-PERSON KIT
 
 "The No-Question Layer"
 
@@ -169,8 +162,8 @@ Storm10 Shell
 - Consequence: 5 (hypothermia risk)
 - Weight: 4 (light/packable)
 - Multi-use: 5 (critical in multiple scenarios)
-  Score: (5×2) + (5×2) + (4×1.5) + (5×1) = 28.5
-  VERDICT: Tier 1
+Score: (5×2) + (5×2) + (4×1.5) + (5×1) = 28.5
+VERDICT: Tier 1
 
 #### 🎒 TIER 2: VEHICLE/PACK KIT
 
@@ -189,8 +182,8 @@ Sleep System
 - Consequence: 4 (major comfort/safety)
 - Weight: 2 (bulky)
 - Multi-use: 4 (multiple scenarios)
-  Score: (3×2) + (4×2) + (2×1.5) + (4×1) = 21
-  VERDICT: Tier 2
+Score: (3×2) + (4×2) + (2×1.5) + (4×1) = 21
+VERDICT: Tier 2
 
 #### 🏠 TIER 3: BASE CACHE
 
@@ -209,8 +202,8 @@ Zipper Repair Kit
 - Consequence: 2 (inconvenience)
 - Weight: 4 (small)
 - Multi-use: 2 (specific uses)
-  Score: (1×2) + (2×2) + (4×1.5) + (2×1) = 12
-  VERDICT: Tier 3
+Score: (1×2) + (2×2) + (4×1.5) + (2×1) = 12
+VERDICT: Tier 3
 
 ### Modifiers and Special Considerations
 
@@ -381,7 +374,6 @@ T2: 6-8 bars
 T3: Bulk nutrition supplies
 
 #### Weight Distribution Target
-
 - Tier 1: < 15% of body weight
 - Tier 2: < 25% of body weight
 - Tier 3: No specific limit
@@ -405,7 +397,6 @@ v1.0 - Initial framework development
 - Emphasizes modular system approach
 
 ---
-
 ```mermaid
 mindmap
 

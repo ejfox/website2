@@ -4,7 +4,6 @@ modified: 2024-11-08T16:19:49-05:00
 share: true
 tags: [development, projects, tools]
 ---
-
 ## ejfox.news Phase 1: Core Development Plan
 
 ### Overview
@@ -12,7 +11,6 @@ tags: [development, projects, tools]
 Clean, focused news reader for !news tagged items from ejfox's scrapbook. iOS-native feel, static builds, edge delivery.
 
 ### Technical Stack
-
 - **Frontend**: Nuxt 3, Tailwind, Nuxt UI
 - **Data**: Supabase
 - **Deployment**: GitHub Actions → Cloudflare Pages
@@ -21,7 +19,6 @@ Clean, focused news reader for !news tagged items from ejfox's scrapbook. iOS-na
 ### Development Phases
 
 #### 1. Foundation (Day 1-2)
-
 - [ ] Setup Nuxt 3 project with Tailwind/Nuxt UI
 - [ ] Configure GitHub Actions workflow
 - [ ] Implement basic Supabase connection
@@ -29,7 +26,6 @@ Clean, focused news reader for !news tagged items from ejfox's scrapbook. iOS-na
 - [ ] Configure environment variables/secrets
 
 #### 2. Data Layer (Day 2-3)
-
 - [ ] Create Supabase query for !news items
 - [ ] Implement data fetching in build process
 - [ ] Setup edge caching strategy
@@ -37,7 +33,6 @@ Clean, focused news reader for !news tagged items from ejfox's scrapbook. iOS-na
 - [ ] Test build trigger webhook
 
 #### 3. Core Interface (Day 3-4)
-
 - [ ] Implement single column feed layout
 - [ ] Create article card component
 - [ ] Style typography (System/Inter)
@@ -45,7 +40,6 @@ Clean, focused news reader for !news tagged items from ejfox's scrapbook. iOS-na
 - [ ] Implement AI summary expansion
 
 #### 4. Routes & Pages (Day 4-5)
-
 - [ ] Setup `/p/[id]` article routes
 - [ ] Create article permalink pages
 - [ ] Implement mobile-responsive layouts
@@ -53,7 +47,6 @@ Clean, focused news reader for !news tagged items from ejfox's scrapbook. iOS-na
 - [ ] Setup 404 handling
 
 #### 5. Polish & Launch (Day 5)
-
 - [ ] Performance optimization
 - [ ] Cross-device testing
 - [ ] Final visual QA
@@ -62,14 +55,12 @@ Clean, focused news reader for !news tagged items from ejfox's scrapbook. iOS-na
 ### Success Criteria
 
 #### Performance
-
 - [ ] Lighthouse performance score >90
 - [ ] First contentful paint <1s
 - [ ] No layout shifts
 - [ ] Clean iOS feel
 
 #### Functionality
-
 - [ ] Articles display correctly
 - [ ] Share sheet works
 - [ ] Links function properly
@@ -77,14 +68,12 @@ Clean, focused news reader for !news tagged items from ejfox's scrapbook. iOS-na
 - [ ] Builds run automatically
 
 #### Content
-
 - [ ] !news items sync correctly
 - [ ] Summaries display properly
 - [ ] URLs resolve correctly
 - [ ] Source domains clean
 
 ### Won't Do (MVP)
-
 - User accounts
 - Comments
 - Search
@@ -96,20 +85,17 @@ Clean, focused news reader for !news tagged items from ejfox's scrapbook. iOS-na
 - Dark mode toggle
 
 ### Next Steps After MVP
-
 1. Gather initial user feedback
 2. Monitor performance
 3. Plan Phase 2 features
 4. Document learnings
 
 ### Emergency Contacts
-
 - Alex (Lead): [contact]
 - Marina (Design): [contact]
 - Kai (Community): [contact]
 
 ### Deployment URLs
-
 - Production: ejfox.news
 - Staging: staging.ejfox.news
 - Development: dev.ejfox.news
@@ -123,7 +109,6 @@ Clean, focused news reader for !news tagged items from ejfox's scrapbook. iOS-na
 Add IndieWeb integration, specialized desktop view, and enhanced reading features while maintaining the clean, focused experience of MVP.
 
 ### New Technical Components
-
 - Webmention Endpoint (Cloudflare Worker)
 - Desktop Layout System
 - RSS Feed Generation
@@ -132,7 +117,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
 ### Development Phases
 
 #### 1. IndieWeb Integration
-
 - [ ] Webmention Endpoint
   - Setup Cloudflare Worker
   - Implement webmention verification
@@ -148,7 +132,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
   - Response counter
 
 #### 2. Enhanced Desktop Experience
-
 - [ ] Desktop-Specific Layout (>1024px)
   - Two-column reading view
   - Persistent navigation
@@ -161,7 +144,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
   - Reading time estimate
 
 #### 3. Discovery Features
-
 - [ ] RSS Feed
   - Generate feed at build time
   - Add to site meta
@@ -176,7 +158,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
   - Recent searches
 
 #### 4. Social Tutorial System
-
 - [ ] Reply Documentation
   - How to reply from Bluesky
   - How to reply from Threads
@@ -193,25 +174,21 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
 ### Success Criteria
 
 #### Social Integration
-
 - Webmentions received & displayed
 - Social posts correctly backfed
 - Tutorial system helps users engage
 
 #### Desktop Experience
-
 - Clean, enhanced layout >1024px
 - Improved reading experience
 - Maintains performance metrics
 
 #### Discovery
-
 - RSS feed validates
 - Tag system aids exploration
 - Search returns relevant results
 
 ### Won't Do (Phase 2)
-
 - User accounts/auth
 - Direct commenting system
 - Advanced analytics
@@ -220,14 +197,12 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
 - Mobile app features
 
 ### Migration Notes
-
 - Zero downtime deployment
 - Backwards compatible APIs
 - Preserve MVP performance
 - No breaking URL changes
 
 ### Monitoring
-
 - Webmention endpoint health
 - Social API status
 - Build process timing
@@ -235,7 +210,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
 - Error rates
 
 ### Rollout Strategy
-
 1. Deploy webmention endpoint
 2. Add social backfeed
 3. Release desktop layout
@@ -243,7 +217,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
 5. Launch tutorial system
 
 ### Emergency Procedures
-
 - Social API fallbacks
 - Cache invalidation process
 - Manual build triggers
@@ -254,7 +227,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
 ## ejfox.news Launch Burndown List
 
 ### Technical Readiness
-
 - [ ] Production deployment verified
   - [ ] Domain active & SSL valid
   - [ ] Edge caching tested
@@ -275,7 +247,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
   - [ ] Dark mode verified
 
 ### Content Readiness
-
 - [ ] Initial content seeded
   - [ ] Minimum 10 articles
   - [ ] AI summaries working
@@ -288,7 +259,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
   - [ ] Social previews work
 
 ### Launch Infrastructure
-
 - [ ] Invite system ready
   - [ ] Unique invite links working
   - [ ] Visit tracking setup
@@ -300,7 +270,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
   - [ ] Usage dashboard
 
 ### Friend Launch Prep
-
 - [ ] Initial invitees selected
   - [ ] List of 5-10 friends
   - [ ] Personal notes for each
@@ -312,7 +281,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
   - [ ] Feedback channel setup
 
 ### Documentation
-
 - [ ] Public documentation
   - [ ] Basic usage guide
   - [ ] Project philosophy
@@ -324,7 +292,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
   - [ ] Recovery procedures
 
 ### Pre-Launch Final Check
-
 - [ ] Fresh test deploy
 - [ ] All invite links tested
 - [ ] Monitoring active
@@ -333,7 +300,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
 - [ ] Screenshots archived
 
 ### Launch Day Schedule
-
 1. [ ] Morning systems check
 2. [ ] Deploy final version
 3. [ ] Verify all systems
@@ -342,7 +308,6 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
 6. [ ] Collect early feedback
 
 ### Success Metrics
-
 - [ ] 80%+ invite links used
 - [ ] No major errors
 - [ ] Positive friend feedback
@@ -351,13 +316,11 @@ Add IndieWeb integration, specialized desktop view, and enhanced reading feature
 ---
 
 ### Emergency Contacts
-
 - Technical: Alex [contact]
 - Design: Marina [contact]
 - Community: Kai [contact]
 
 ### Recovery Procedures
-
 1. Build issues: Manual trigger
 2. Cache problems: Full purge
 3. Content sync: Force rebuild

@@ -5,7 +5,6 @@ tags:
 date: 2024-10-05T12:05:41-04:00
 modified: 2024-10-05T12:06:18-04:00
 ---
-
 ## Meal Log - {{date:YYYY-MM-DD}}
 
 ### Meal: {{time}} (e.g., Breakfast, Lunch, Snack)

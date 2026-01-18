@@ -6,12 +6,11 @@ tags:
   - callofduty
   - data
 ---
-
 ## Stats From The Virtual War: What My Call of Duty Data Revealed (Before They Took It All Away)
 
 Back when Call of Duty had an actual usable API—before Activision decided that even basic statistics were too much to give players—I was deep into analyzing my gameplay patterns. 4,874 matches played across nearly 626 hours (26 days in-game) of screen time—more than most people spend on vacation in a year. After all that I had a[0.94 overall K/D ratio alongside a 77.5% win rate](https://observablehq.com/d/ebcb9d412e80ee68). I'm saying I have the data proving I don't suck, is all.
 
-But here's the thing: I can't get any of this data anymore. Not the detailed weapon breakdowns, not the mode-specific stats, not even the basic accolades that used to be available. This entire analysis is a fossil from a time when Call of Duty actually let you see what you accomplished in their game. Now? You get a basic K/D and maybe some challenges completed. That's it. This is what we _used_ to have access to—imagine that.
+But here's the thing: I can't get any of this data anymore. Not the detailed weapon breakdowns, not the mode-specific stats, not even the basic accolades that used to be available. This entire analysis is a fossil from a time when Call of Duty actually let you see what you accomplished in their game. Now? You get a basic K/D and maybe some challenges completed. That's it. This is what we *used* to have access to—imagine that.
 
 ### The Hardcore Search & Destroy Obsession (Remember When You Could Actually See This?)
 
@@ -41,7 +40,7 @@ The riot shield is basically a giant bulletproof rectangle that you carry instea
 
 The shield forces a playstyle based on patience, positioning, and game IQ rather than the usual run-and-gun tactics. You become the team's mobile cover, creating angles for teammates, blocking off chokepoints, soaking up damage while someone else gets the actual kills. In Search and Destroy, when you're defending a planted bomb, having someone with a riot shield hold an angle can be the difference between a round win and a heartbreaking loss.
 
-It's also psychological warfare. Nothing tilts aggressive players quite like getting "booped" to death by someone with a shield. People have called me terrible things. The weapon usage data shows I was committed to this bit for _years_.
+It's also psychological warfare. Nothing tilts aggressive players quite like getting "booped" to death by someone with a shield. People have called me terrible things. The weapon usage data shows I was committed to this bit for *years*.
 
 My riot shield stats are absolutely brutal: 1,610 kills but 6,559 deaths, giving me a catastrophic 0.25 K/D ratio with the shield. Every death while holding the shield was time bought for teammates, angles created, enemy attention diverted. And you know what would be amazing? If I could correlate those shield deaths with teammate success rates, or track how often my "sacrifice" plays actually won rounds, but unfortunately that data just isn't available anymore.
 
@@ -61,23 +60,23 @@ The win-loss ratio tells the story I'm most proud of: 2,007 wins against 2,591 l
 
 Forget the raw numbers—the ratios tell the real story of how I actually played this game:
 
-| Category         | Metric                 | Raw Numbers                    | Ratio/Rate | What It Reveals                      |
-| ---------------- | ---------------------- | ------------------------------ | ---------- | ------------------------------------ |
-| **Weapons**      | Riot Shield K/D        | 1,610 kills / 6,559 deaths     | 0.25       | Pure sacrifice - absorbing 4x damage |
-|                  | Desert Eagle K/D       | 5,094 kills / 4,442 deaths     | 1.15       | Sidearm mastery                      |
-|                  | Desert Eagle Accuracy  | 4,949 hits / 18,765 shots      | 26.4%      | Deliberate precision shooting        |
-|                  | .357 Revolver K/D      | 400 kills / 376 deaths         | 1.06       | Consistent with skill weapons        |
-| **Team Play**    | Overall Win Rate       | 2,007 wins / 2,591 losses      | 77.5%      | Team success priority                |
-|                  | HC S&D Win Rate        | Data from focused mode         | Higher     | Specialization pays off              |
-|                  | Plant:Defuse Ratio     | 1,165 plants / 220 defuses     | 5.3:1      | Aggressive objective play            |
-| **Combat Style** | Hipfire vs ADS         | 348 hipfire / 125 ADS kills    | 2.8:1      | Close-quarters reactive              |
-|                  | Overall Accuracy       | 38,477 hits / 347,118 shots    | 11.1%      | Positioning > precision              |
-|                  | Headshot Rate          | 4,097 headshots / 30,451 kills | 13.5%      | Quality shots when counted           |
-| **Utility**      | Smoke Usage            | 761 smokes used                | High       | Battlefield control                  |
-|                  | Snapshot Grenades      | 203 landed                     | High       | Intel gathering                      |
-|                  | Shield Damage Absorbed | 707 absorbed                   | N/A        | Human damage sponge                  |
-| **Style Points** | Throwing Knives        | 246 kills                      | N/A        | Style over practicality              |
-|                  | Comeback Kills         | 322 kills                      | N/A        | Situational awareness                |
+| Category | Metric | Raw Numbers | Ratio/Rate | What It Reveals |
+|----------|--------|-------------|------------|-------------|
+| **Weapons** | Riot Shield K/D | 1,610 kills / 6,559 deaths | 0.25 | Pure sacrifice - absorbing 4x damage |
+| | Desert Eagle K/D | 5,094 kills / 4,442 deaths | 1.15 | Sidearm mastery |
+| | Desert Eagle Accuracy | 4,949 hits / 18,765 shots | 26.4% | Deliberate precision shooting |
+| | .357 Revolver K/D | 400 kills / 376 deaths | 1.06 | Consistent with skill weapons |
+| **Team Play** | Overall Win Rate | 2,007 wins / 2,591 losses | 77.5% | Team success priority |
+| | HC S&D Win Rate | Data from focused mode | Higher | Specialization pays off |
+| | Plant:Defuse Ratio | 1,165 plants / 220 defuses | 5.3:1 | Aggressive objective play |
+| **Combat Style** | Hipfire vs ADS | 348 hipfire / 125 ADS kills | 2.8:1 | Close-quarters reactive |
+| | Overall Accuracy | 38,477 hits / 347,118 shots | 11.1% | Positioning > precision |
+| | Headshot Rate | 4,097 headshots / 30,451 kills | 13.5% | Quality shots when counted |
+| **Utility** | Smoke Usage | 761 smokes used | High | Battlefield control |
+| | Snapshot Grenades | 203 landed | High | Intel gathering |
+| | Shield Damage Absorbed | 707 absorbed | N/A | Human damage sponge |
+| **Style Points** | Throwing Knives | 246 kills | N/A | Style over practicality |
+| | Comeback Kills | 322 kills | N/A | Situational awareness |
 
 ### The Art of Tactical Support: What the Ratios Reveal
 

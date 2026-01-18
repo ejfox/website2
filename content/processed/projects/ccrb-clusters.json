@@ -1,5 +1,6 @@
 {
-  "html": "<h2 class=\"\" id=\"the-challenge\">The Challenge</h2>\n<p class=\"\">Gothamist/WNYC had obtained a massive dataset of NYPD civilian complaints—years of misconduct allegations, but no way to see the patterns. The question wasn't just \"which officers have complaints?\" It was: do certain officers influence others to misbehave?</p>\n<h2 class=\"\" id=\"what-i-built\">What I Built</h2>\n<p class=\"\">A network graph connecting <strong class=\"\">29,915 officers</strong> through <strong class=\"\">159,671 relationships</strong>—shared complaints, shared precincts, shared incidents. Built with Neo4j for graph queries and Gephi for visualization.</p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg\" alt=\"\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\" width=\"1280\"></p>\n<p class=\"\"><strong class=\"\">The analysis revealed:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Officers cluster into groups with similar complaint patterns</li>\n<li class=\"\">Certain \"catalyst\" officers appear connected to spikes in misconduct among nearby officers</li>\n<li class=\"\">Transfer patterns sometimes spread problematic behavior to new precincts</li>\n</ul>\n<h2 class=\"\" id=\"validation\">Validation</h2>\n<p class=\"\">When Gothamist reporter George Joseph interviewed victims, they confirmed what the network showed—certain officers were known as \"leaders\" who other officers followed into misconduct. The math matched the reality on the ground.</p>\n<h2 class=\"\" id=\"why-this-matters\">Why This Matters</h2>\n<p class=\"\">I documented the <a href=\"https://github.com/ejfox/nypd-ccrb-complaints-network\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">complete methodology<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12\" class=\"\"></path></svg></a> so other journalists can replicate this analysis for their own police departments. The same techniques work anywhere you have officer complaint data—which, thanks to state transparency laws, is increasingly common.</p>\n<p class=\"\">Open-source accountability tools. That's the point.</p>",
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg\" alt=\"\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\" width=\"1280\"></p>\n<p class=\"\">In 2021, I got my hands on a massive NYPD complaint dataset from Gothamist/WNYC and immediately went down a data rabbit hole. Built a network of 29,915 officer nodes with 159,671 relationships using Neo4j and Gephi (love-hate relationship with Gephi, but unrivaled for networks).</p>\n<p class=\"\">When Gothamist reporter George Joseph interviewed victims, they confirmed what the network showed - certain officers were \"catalysts\" who other officers \"followed\" into misconduct. Math and reality matched up! I documented everything in excruciating detail so others could replicate it for their own police departments.</p>",
   "title": "Clusters of NYPD Misconduct",
   "metadata": {
     "title": "Clusters of NYPD Misconduct",
@@ -16,55 +17,23 @@
     "featured": true,
     "state": "deployed",
     "aiInvolvement": "human-only",
-    "industry": [
-      "Police Accountability",
-      "Investigative Journalism"
-    ],
-    "client": "Gothamist / WNYC",
     "tags": [
       "data",
       "nypd",
       "journalism",
       "database"
     ],
-    "words": 185,
+    "words": 91,
     "images": 1,
     "imageDetails": {
       "total": 1,
       "cloudinary": 1,
       "withDimensions": 0
     },
-    "links": 2,
+    "links": 1,
     "codeBlocks": 0,
-    "headers": {
-      "h2": 4
-    },
-    "toc": [
-      {
-        "text": "The Challenge",
-        "slug": "the-challenge",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "What I Built",
-        "slug": "what-i-built",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Validation",
-        "slug": "validation",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Why This Matters",
-        "slug": "why-this-matters",
-        "level": "h2",
-        "children": []
-      }
-    ],
+    "headers": {},
+    "toc": [],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/projects/ccrb-clusters.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

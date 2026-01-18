@@ -1,0 +1,77 @@
+{
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h2 class=\"\" id=\"pico-8-demakes\">PICO-8 Demakes</h2>\n<h3 class=\"\" id=\"the-idea\">The Idea</h3>\n<p class=\"\">Small PICO-8 carts and experiments - taking game concepts and shrinking them down to 128x128 pixels and 8192 tokens.</p>\n<h3 class=\"\" id=\"the-games\">The Games</h3>\n<h4 class=\"\" id=\"christmas-demake\">Christmas Demake</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Minimalist stop-timing train game</li>\n<li class=\"\">A to depart, B to brake</li>\n<li class=\"\">Nail the platform sweet spot</li>\n<li class=\"\">Combos, streaks, turbo mode</li>\n<li class=\"\">Ultimate rewards for precision</li>\n</ul>\n<h4 class=\"\" id=\"city-council\">City Council</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Balance/grind-style minigame</li>\n<li class=\"\">D-pad left/right to balance</li>\n<li class=\"\">Survive the timer to win</li>\n<li class=\"\">Jump unlocks at higher levels</li>\n<li class=\"\">Council meeting as game mechanic</li>\n</ul>\n<h4 class=\"\" id=\"signal-sprint\">Signal Sprint</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Crossing-signal quickplay</li>\n<li class=\"\">A toggles top signal</li>\n<li class=\"\">B toggles left signal</li>\n<li class=\"\">Prevent collisions as trains speed up</li>\n<li class=\"\">Reaction time challenge</li>\n</ul>\n<h3 class=\"\" id=\"why-pico-8\">Why PICO-8?</h3>\n<h4 class=\"\" id=\"the-fantasy-console\">The Fantasy Console</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Fixed constraints (128x128, 16 colors, 8192 tokens)</li>\n<li class=\"\">Built-in sprite/map/sound editors</li>\n<li class=\"\">Shareable as tiny HTML or PNG</li>\n</ul>\n<h4 class=\"\" id=\"constraints-as-creativity\">Constraints as Creativity</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Can't over-engineer when you have 8K tokens</li>\n<li class=\"\">Every byte matters</li>\n<li class=\"\">Forces clarity of design</li>\n</ul>\n<h4 class=\"\" id=\"the-demake-philosophy\">The Demake Philosophy</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Take a big idea</li>\n<li class=\"\">Strip it to the core mechanic</li>\n<li class=\"\">What's the essence of the game?</li>\n</ul>\n<h3 class=\"\" id=\"technical-notes\">Technical Notes</h3>\n<ul class=\"list-disc\">\n<li class=\"\">SFX/music authored in PICO-8 directly</li>\n<li class=\"\">Lua with strict token limits</li>\n<li class=\"\">60fps gameplay in tiny footprint</li>\n</ul>\n<h3 class=\"\" id=\"screenshots\">Screenshots</h3>\n<p class=\"\">[Add .p8.png cart images]</p>\n<h3 class=\"\" id=\"links\">Links</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Play in browser: [Lexaloffle BBS links]</li>\n<li class=\"\">Related: Metro Maker 4 (the \"full\" game)</li>\n</ul>",
+  "title": "PICO-8 Demakes",
+  "metadata": {
+    "date": "2026-01-17T21:45:00.000Z",
+    "dek": "Making tiny games in PICO-8 - demakes, minigames, and the joy of constraints",
+    "tags": [
+      "gamedev",
+      "pico8",
+      "retro",
+      "programming"
+    ],
+    "inprogress": true,
+    "modified": "2026-01-17T21:53:21.000Z",
+    "words": 231,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "PICO-8 Demakes",
+        "slug": "pico-8-demakes",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The Idea",
+            "slug": "the-idea",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Games",
+            "slug": "the-games",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Why PICO-8?",
+            "slug": "why-pico-8",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Technical Notes",
+            "slug": "technical-notes",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Screenshots",
+            "slug": "screenshots",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Links",
+            "slug": "links",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/pico8-demakes.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

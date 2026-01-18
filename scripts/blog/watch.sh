@@ -42,7 +42,12 @@ run_import() {
   log "Changes detected, running import..."
   
   if node scripts/blog/import.mjs; then
-    notify "Import completed successfully"
+    log "Import completed, processing markdown..."
+    if node scripts/processMarkdown.mjs; then
+      notify "Import + processing completed successfully"
+    else
+      notify "Processing failed - check console" "Blog Watcher Error"
+    fi
   else
     notify "Import failed - check console" "Blog Watcher Error"
   fi

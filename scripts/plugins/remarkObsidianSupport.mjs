@@ -15,6 +15,53 @@ function generateSlug(str) {
     .replace(/^-+|-+$/g, '')
 }
 
+function encodePath(pathValue) {
+  return pathValue
+    .split('/')
+    .filter(Boolean)
+    .map((segment) => encodeURIComponent(segment))
+    .join('/')
+}
+
+function normalizeTarget(rawTarget) {
+  if (!rawTarget) return ''
+  let target = rawTarget.trim().replace(/\\/g, '/')
+
+  if (target.startsWith('/')) target = target.slice(1)
+  if (target.endsWith('.md')) target = target.slice(0, -3)
+
+  while (target.startsWith('../')) {
+    target = target.slice(3)
+  }
+  if (target.startsWith('./')) target = target.slice(2)
+
+  target = target.replace(/\/{2,}/g, '/')
+  return target
+}
+
+function buildInternalHref(target) {
+  const normalized = normalizeTarget(target)
+  const lower = normalized.toLowerCase()
+
+  if (lower.startsWith('reading/')) {
+    return `/reading/${encodePath(normalized.slice('reading/'.length))}`
+  }
+  if (lower.startsWith('projects/')) {
+    return `/projects/${encodePath(normalized.slice('projects/'.length))}`
+  }
+  if (lower.startsWith('robots/')) {
+    return `/blog/robots/${encodePath(normalized.slice('robots/'.length))}`
+  }
+  if (lower.startsWith('week-notes/')) {
+    return `/blog/week-notes/${encodePath(normalized.slice('week-notes/'.length))}`
+  }
+  if (lower.startsWith('blog/')) {
+    return `/blog/${encodePath(normalized.slice('blog/'.length))}`
+  }
+
+  return `/blog/${encodePath(normalized)}`
+}
+
 export function remarkObsidianSupport() {
   return async (tree) => {
     // Handle [[wikilinks]]
@@ -39,12 +86,15 @@ export function remarkObsidianSupport() {
         }
 
         const linkParts = linkText.split('|')
-        const target = linkParts[0].split('#')[0]
-        const alias = linkParts[1] || (await getTitleFromFrontmatter(target))
-        const heading = linkParts[0].split('#')[1]
+        const targetWithHeading = linkParts[0].trim()
+        const [rawTarget, rawHeading] = targetWithHeading.split('#')
+        const target = normalizeTarget(rawTarget)
+        const alias =
+          linkParts[1]?.trim() || (await getTitleFromFrontmatter(target))
+        const heading = rawHeading?.trim()
 
         // Generate the URL
-        let url = `/blog/${encodeURIComponent(target)}`
+        let url = buildInternalHref(target)
         if (heading) {
           url += `#${generateSlug(heading)}`
         }

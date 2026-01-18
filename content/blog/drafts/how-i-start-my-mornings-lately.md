@@ -7,6 +7,7 @@ tags:
   - inspiration
   - productivity
   - morning
+  - fdc/150
 ---
 
 There are a few people who, when I watch their videos, fill me with motivation and inspiration.

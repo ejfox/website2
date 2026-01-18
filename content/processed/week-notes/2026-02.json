@@ -1,0 +1,60 @@
+{
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h1 class=\"\" id=\"2026-02\">2026-02</h1>\n<blockquote class=\"md-blockquote\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Screenshots auto-append to <a href=\"/blog/2026-02-raw\" class=\"internal-link text-blue-600 dark:text-blue-400\">2026 02 Raw</a> — review those for memory jogs, write here for publishing.</p>\n</blockquote>\n<h2 class=\"\" id=\"what-happened-this-week\">What happened this week</h2>\n<p class=\"\">What happened this week\nFlew to Phoenix for the ASU journalism/AI conference. Gave a 5-minute Ignite talk about the Newswell newspaper automation work—terrified internally, but apparently didn’t show it. On the train down Monday, got an email with the obituary for David Chivers, the leader of the Lenfest group, who died by suicide on New Year’s Day. Spent the week at the conference he’d organized, without him. The engineering cohort doubled down on connecting and building trust in his memory. Also got the “your mortgage is approved” email mid-conference—rate locked, just waiting on final paperwork and a closing date. Very close but not real until it’s real.</p>\n<h2 class=\"\" id=\"what-i-made--shipped\">What I made / shipped</h2>\n<pre class=\"md-pre\"><code class=\"md-inline-code\">∙\tDelivered Ignite talk on AI newspaper automation and our “only replace the chores” philosophy—off the dome, no notes, maybe 7/10\n∙\tFirst week with no GitHub commits in ages; laptop stayed closed the whole trip\n∙\tClaude Code autonomous agents running in background spun out a constellation of OSINT monitoring sites: riverwatch, skywatch, camwatch, anomalywatch, and more at tools.ejfox.com\n</code></pre>\n<h2 class=\"\" id=\"what-i-learned\">What I learned</h2>\n<h2 class=\"\" id=\"-media-consumed\">📚 Media consumed</h2>\n<!-- Books, articles, movies, TV shows, podcasts -->",
+  "title": "2026-02",
+  "metadata": {
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "words": 212,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "2026-02",
+        "slug": "2026-02",
+        "level": "h1",
+        "children": [
+          {
+            "text": "What happened this week",
+            "slug": "what-happened-this-week",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "What I made / shipped",
+            "slug": "what-i-made--shipped",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "What I learned",
+            "slug": "what-i-learned",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "📚 Media consumed",
+            "slug": "-media-consumed",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2026-02.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

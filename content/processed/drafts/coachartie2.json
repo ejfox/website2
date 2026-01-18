@@ -1,0 +1,114 @@
+{
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h1 class=\"\" id=\"coach-artie-2\">Coach Artie 2</h1>\n<h2 class=\"\" id=\"the-idea\">The Idea</h2>\n<p class=\"\">A multi-interface AI assistant. Discord, SMS, web. Same brain, multiple bodies.</p>\n<h2 class=\"\" id=\"outline\">Outline</h2>\n<h3 class=\"\" id=\"the-architecture\">The Architecture</h3>\n<pre class=\"md-pre\"><code class=\"md-inline-code\">Discord/SMS → Capabilities (47324) → Redis → LLM → Response\n                     ↓\n                 SQLite (state, memory, config)\n</code></pre>\n<h3 class=\"\" id=\"why-multi-interface\">Why Multi-Interface?</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Meet people where they are</li>\n<li class=\"\">Discord for communities</li>\n<li class=\"\">SMS for mobile/urgent</li>\n<li class=\"\">Web for dashboard/config</li>\n<li class=\"\">Same personality across all</li>\n</ul>\n<h3 class=\"\" id=\"the-monorepo-structure\">The Monorepo Structure</h3>\n<p class=\"\"><strong class=\"\">Packages:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\"><code class=\"md-inline-code\">capabilities</code> - The orchestrator brain</li>\n<li class=\"\"><code class=\"md-inline-code\">discord</code> - Discord.js integration</li>\n<li class=\"\"><code class=\"md-inline-code\">sms</code> - Twilio SMS handling</li>\n<li class=\"\"><code class=\"md-inline-code\">brain</code> - Web UI dashboard</li>\n<li class=\"\"><code class=\"md-inline-code\">shared</code> - Common utilities</li>\n</ul>\n<h3 class=\"\" id=\"technical-stack\">Technical Stack</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Node.js 20 + TypeScript</li>\n<li class=\"\">Turborepo for monorepo management</li>\n<li class=\"\">pnpm for package management</li>\n<li class=\"\">Redis for state/queuing</li>\n<li class=\"\">SQLite for persistence</li>\n<li class=\"\">OpenRouter for LLM access</li>\n</ul>\n<h3 class=\"\" id=\"the-capabilities-system\">The Capabilities System</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Modular skill system</li>\n<li class=\"\">Each capability is a focused function</li>\n<li class=\"\">Orchestrator decides which to invoke</li>\n<li class=\"\">Extensible without core changes</li>\n</ul>\n<h3 class=\"\" id=\"memory--state\">Memory &#x26; State</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Conversation history in SQLite</li>\n<li class=\"\">Cross-platform memory (Discord context available in SMS)</li>\n<li class=\"\">Config per-user, per-guild</li>\n</ul>\n<h3 class=\"\" id=\"cost-optimization\">Cost Optimization</h3>\n<ul class=\"list-disc\">\n<li class=\"\">OpenRouter for model flexibility</li>\n<li class=\"\">~$0.01 per message</li>\n<li class=\"\">$5 free credit to start</li>\n</ul>\n<h2 class=\"\" id=\"screenshots\">Screenshots</h2>\n<p class=\"\">[Add Discord/web UI screenshots]</p>\n<h2 class=\"\" id=\"lessons-learned\">Lessons Learned</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Multi-interface complexity</li>\n<li class=\"\">State management across platforms</li>\n<li class=\"\">Making AI feel consistent</li>\n</ul>\n<h2 class=\"\" id=\"links\">Links</h2>\n<ul class=\"list-disc\">\n<li class=\"\">OpenRouter: <a href=\"https://openrouter.ai\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://openrouter.ai</a></li>\n<li class=\"\">Discord Developer Portal setup guide included</li>\n</ul>",
+  "title": "Coach Artie 2",
+  "metadata": {
+    "date": "2026-01-17T21:45:00.000Z",
+    "dek": "Building a multi-interface AI assistant that lives in Discord, SMS, and the web",
+    "tags": [
+      "ai",
+      "programming",
+      "discord",
+      "chatbots",
+      "typescript"
+    ],
+    "inprogress": true,
+    "words": 231,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 1,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Coach Artie 2",
+        "slug": "coach-artie-2",
+        "level": "h1",
+        "children": [
+          {
+            "text": "The Idea",
+            "slug": "the-idea",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Outline",
+            "slug": "outline",
+            "level": "h2",
+            "children": [
+              {
+                "text": "The Architecture",
+                "slug": "the-architecture",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Why Multi-Interface?",
+                "slug": "why-multi-interface",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "The Monorepo Structure",
+                "slug": "the-monorepo-structure",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Technical Stack",
+                "slug": "technical-stack",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "The Capabilities System",
+                "slug": "the-capabilities-system",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Memory & State",
+                "slug": "memory--state",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Cost Optimization",
+                "slug": "cost-optimization",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Screenshots",
+            "slug": "screenshots",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Lessons Learned",
+            "slug": "lessons-learned",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Links",
+            "slug": "links",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/coachartie2.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

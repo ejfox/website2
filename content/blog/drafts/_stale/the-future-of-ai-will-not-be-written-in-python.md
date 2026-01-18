@@ -10,7 +10,6 @@ tags:
 hidden: true
 draft: true
 ---
-
 ## The Future of AI Will Not Be Written in Python
 
 Here's a prediction that will age either brilliantly or terribly: the companies that win the next phase of AI development won't be the ones with the best Python models. They'll be the ones that figured out how to ship those models in languages that actual users can interact with at scale.

@@ -1,0 +1,102 @@
+{
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h1 class=\"\" id=\"spacepunk-logistics\">Spacepunk Logistics</h1>\n<h2 class=\"\" id=\"the-idea\">The Idea</h2>\n<p class=\"\">A server-authoritative space trucking game where you manage the corporate nightmare of interstellar logistics through deliberately terrible enterprise software.</p>\n<h2 class=\"\" id=\"outline\">Outline</h2>\n<h3 class=\"\" id=\"the-concept\">The concept</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Space trucking sim meets corporate satire</li>\n<li class=\"\">The UI is intentionally bad enterprise software</li>\n<li class=\"\">Managing logistics through forms and approvals</li>\n<li class=\"\">The horror of space bureaucracy</li>\n</ul>\n<h3 class=\"\" id=\"why-deliberately-terrible\">Why \"deliberately terrible\"?</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Satire of enterprise software</li>\n<li class=\"\">The game mechanic IS the frustration</li>\n<li class=\"\">Making mundane work feel epic (and awful)</li>\n</ul>\n<h3 class=\"\" id=\"technical-architecture\">Technical architecture</h3>\n<pre class=\"md-pre\"><code class=\"md-inline-code\">Discord/SMS → Capabilities → Redis → LLM → Response\n</code></pre>\n<ul class=\"list-disc\">\n<li class=\"\">Server-authoritative design</li>\n<li class=\"\">SQLite for state (no Docker needed!)</li>\n<li class=\"\">Tauri for cross-platform desktop app</li>\n<li class=\"\">WebSocket for real-time updates</li>\n</ul>\n<h3 class=\"\" id=\"god-mode-dashboard\">God Mode Dashboard</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Development oversight panel</li>\n<li class=\"\">Watching the simulation run</li>\n<li class=\"\">Debugging the corporate nightmare</li>\n</ul>\n<h3 class=\"\" id=\"the-aesthetic\">The aesthetic</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Brutalist UI</li>\n<li class=\"\">Forms within forms</li>\n<li class=\"\">Loading spinners that lie</li>\n<li class=\"\">Error messages that blame you</li>\n</ul>\n<h2 class=\"\" id=\"screenshots\">Screenshots</h2>\n<p class=\"\">[Add screenshots of the deliberately bad UI]</p>\n<h2 class=\"\" id=\"the-meta-joke\">The meta-joke</h2>\n<p class=\"\">[How the game comments on real enterprise software]</p>\n<h2 class=\"\" id=\"links\">Links</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Local dev: <code class=\"md-inline-code\">./run.sh</code> (THAT'S IT. NOTHING ELSE. EVER.)</li>\n</ul>",
+  "title": "Spacepunk Logistics",
+  "metadata": {
+    "date": "2026-01-17T21:45:00.000Z",
+    "dek": "A space trucking game where the real enemy is enterprise software",
+    "tags": [
+      "gamedev",
+      "programming",
+      "satire",
+      "tauri",
+      "typescript"
+    ],
+    "inprogress": true,
+    "words": 189,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 1,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Spacepunk Logistics",
+        "slug": "spacepunk-logistics",
+        "level": "h1",
+        "children": [
+          {
+            "text": "The Idea",
+            "slug": "the-idea",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Outline",
+            "slug": "outline",
+            "level": "h2",
+            "children": [
+              {
+                "text": "The concept",
+                "slug": "the-concept",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Why \"deliberately terrible\"?",
+                "slug": "why-deliberately-terrible",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Technical architecture",
+                "slug": "technical-architecture",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "God Mode Dashboard",
+                "slug": "god-mode-dashboard",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "The aesthetic",
+                "slug": "the-aesthetic",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Screenshots",
+            "slug": "screenshots",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "The meta-joke",
+            "slug": "the-meta-joke",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Links",
+            "slug": "links",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/spacepunk-logistics.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

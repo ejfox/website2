@@ -1,0 +1,108 @@
+{
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h1 class=\"\" id=\"morning-radio\">Morning Radio</h1>\n<h2 class=\"\" id=\"the-idea\">The Idea</h2>\n<p class=\"\">Your intentional start to the day — a smart, kind iOS companion that thoughtfully curates your morning reading experience.</p>\n<h2 class=\"\" id=\"outline\">Outline</h2>\n<h3 class=\"\" id=\"the-problem-with-feeds\">The Problem with Feeds</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Everything demands attention equally</li>\n<li class=\"\">Infinite scroll encourages mindless consumption</li>\n<li class=\"\">No hierarchy, no curation, no calm</li>\n</ul>\n<h3 class=\"\" id=\"the-6-factor-priority-scoring-algorithm\">The 6-Factor Priority Scoring Algorithm</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table class=\"md-table\"><thead class=\"\"><tr class=\"\"><th class=\"md-th\">Factor</th><th class=\"md-th\">Points</th><th class=\"md-th\">What It Measures</th></tr></thead><tbody class=\"\"><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Recency</td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">0-30</td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Fresh content priority</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Source Quality</td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">0-20</td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Premium sources stand out</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Media Richness</td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">0-15</td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Visual content valued</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Temporal Relevance</td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">0-15</td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Content from similar times</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Tag Signals</td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">0-10</td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Priority indicators</td></tr><tr class=\"\"><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Completeness</td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">0-10</td><td class=\"border-b border-zinc-200 dark:border-zinc-700 px-4 py-2\">Rich metadata bonus</td></tr></tbody></table>\n<h3 class=\"\" id=\"the-morning-brief\">The Morning Brief</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Top 3 curated items</li>\n<li class=\"\">Elegant askew tiles (like newspaper clippings)</li>\n<li class=\"\">Shows <em class=\"\">why</em> each was chosen (transparency)</li>\n</ul>\n<h3 class=\"\" id=\"design-philosophy\">Design Philosophy</h3>\n<p class=\"\"><strong class=\"\">Intentionality Over Algorithm</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Don't show everything, show what matters</li>\n<li class=\"\">Every piece scored with transparency</li>\n</ul>\n<p class=\"\"><strong class=\"\">Organic Over Robotic</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Askew tiles, staggered animations</li>\n<li class=\"\">Natural spring physics</li>\n</ul>\n<p class=\"\"><strong class=\"\">Calm Technology</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Intentionally slow animations (0.5s stagger)</li>\n<li class=\"\">Encourage mindful consumption</li>\n</ul>\n<h3 class=\"\" id=\"historical-patterns\">Historical Patterns</h3>\n<ul class=\"list-disc\">\n<li class=\"\">\"On this day\" across your archive</li>\n<li class=\"\">Temporal connections to past reading</li>\n</ul>\n<h3 class=\"\" id=\"technical-architecture\">Technical Architecture</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Feature-based SwiftUI organization</li>\n<li class=\"\">Supabase backend</li>\n<li class=\"\">iOS 17+ modern features</li>\n<li class=\"\">Zero lint warnings policy</li>\n</ul>\n<h2 class=\"\" id=\"screenshots\">Screenshots</h2>\n<p class=\"\">[Add Morning Brief screenshots]</p>\n<h2 class=\"\" id=\"the-onboarding\">The Onboarding</h2>\n<ul class=\"list-disc\">\n<li class=\"\">7-second introduction sequence</li>\n<li class=\"\">Slowed symbol effects (0.5x)</li>\n<li class=\"\">4-second shimmer across title</li>\n<li class=\"\">Luxurious and intentional</li>\n</ul>\n<h2 class=\"\" id=\"links\">Links</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Supabase for backend</li>\n<li class=\"\">Designed for mindful morning routines</li>\n</ul>",
+  "title": "Morning Radio",
+  "metadata": {
+    "date": "2026-01-17T21:45:00.000Z",
+    "dek": "An iOS app that curates your morning reading with a 6-factor priority scoring algorithm",
+    "tags": [
+      "ios",
+      "swiftui",
+      "intentional-technology",
+      "rss",
+      "design"
+    ],
+    "inprogress": true,
+    "words": 268,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Morning Radio",
+        "slug": "morning-radio",
+        "level": "h1",
+        "children": [
+          {
+            "text": "The Idea",
+            "slug": "the-idea",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Outline",
+            "slug": "outline",
+            "level": "h2",
+            "children": [
+              {
+                "text": "The Problem with Feeds",
+                "slug": "the-problem-with-feeds",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "The 6-Factor Priority Scoring Algorithm",
+                "slug": "the-6-factor-priority-scoring-algorithm",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "The Morning Brief",
+                "slug": "the-morning-brief",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Design Philosophy",
+                "slug": "design-philosophy",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Historical Patterns",
+                "slug": "historical-patterns",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Technical Architecture",
+                "slug": "technical-architecture",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Screenshots",
+            "slug": "screenshots",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "The Onboarding",
+            "slug": "the-onboarding",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Links",
+            "slug": "links",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/morning-radio.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

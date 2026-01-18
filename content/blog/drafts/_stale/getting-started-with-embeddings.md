@@ -27,8 +27,8 @@ async function memoryToEmbedding(memory) {
   const embedding = openai.createEmbedding({
     model: 'text-embedding-ada-002',
     input: memory,
-  })
-  return embedding
+  });
+  return embedding;
 }
 ```
 
@@ -80,11 +80,10 @@ as $$
 $$;
 ```
 
-> pgvector introduces 3 new operators that can be used to calculate similarity:
-
-    - `<->` Euclidean distance
-    - `<#>` Negative inner product
-    - `<=>` Cosine distance
+>pgvector introduces 3 new operators that can be used to calculate similarity:
+	- `<->` Euclidean distance
+	- `<#>` Negative inner product
+	- `<=>` Cosine distance
 
 ```js
 async function getRelevantMemories(queryString, limit = 5) {
@@ -97,15 +96,15 @@ async function getRelevantMemories(queryString, limit = 5) {
   const [{ embedding }] = embeddingResponse.data.data
 
   // query the database for the most relevant memories
-  const { data, error } = await supabase.rpc('match_documents', {
+  const { data, error } = await supabase.rpc('match_documents', { 
     query_embedding: embedding,
     match_threshold: 0.78,
-    match_count: limit,
-  })
+    match_count: limit
+  });
 
   if (error) {
-    console.error('Error fetching relevant user memory:', error)
-    return null
+    console.error("Error fetching relevant user memory:", error);
+    return null;
   }
 
   return data

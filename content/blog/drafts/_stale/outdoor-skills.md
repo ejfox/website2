@@ -6,7 +6,6 @@ draft: true
 tags:
   - camping
 ---
-
 ## Search and Rescue / Ropes & Rappelling
 
 ## Canyoneering / Rappelling

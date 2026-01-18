@@ -1,17 +1,8 @@
 ---
-title: 'Developer Tools & Deployment'
+title: "Developer Tools & Deployment"
 date: 2024-05-01T00:00:00-04:00
 modified: 2025-08-13T11:30:24-04:00
-tech:
-  [
-    'Docker',
-    'Deployment',
-    'GitHub',
-    'DevOps',
-    'Nuxt',
-    'ZMK',
-    'Keyboard Firmware',
-  ]
+tech: ["Docker", "Deployment", "GitHub", "DevOps", "Nuxt", "ZMK", "Keyboard Firmware"]
 state: deployed
 aiInvolvement: ai-assisted
 tags:

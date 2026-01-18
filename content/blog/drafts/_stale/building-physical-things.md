@@ -8,7 +8,6 @@ hidden: true
 tags:
   - woodworking
 ---
-
 # Experiments in woodworking + sculpture spring 2022
 
-Part of the motivation for [woodworking-setu](woodworking-setu)p]]
+Part of the motivation for [[woodworking-setup]]

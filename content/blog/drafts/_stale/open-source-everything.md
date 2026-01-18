@@ -8,5 +8,4 @@ tags:
 hidden: true
 draft: true
 ---
-
 ## Open Source at Room 302: Behind Our Decision to Share Everything

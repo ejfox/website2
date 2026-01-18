@@ -7,9 +7,9 @@
 // Remark plugins
 export { remarkEnhanceLinks } from './remarkEnhanceLinks.mjs'
 export { remarkObsidianSupport } from './remarkObsidianSupport.mjs'
-export { remarkObsidianEnhanced } from './remarkObsidianEnhanced.mjs'
 export { remarkExtractToc } from './remarkExtractToc.mjs'
 export { remarkAi2htmlEmbed } from './remarkAi2htmlEmbed.mjs'
+export { remarkEnhanceImages } from './remarkEnhanceImages.mjs'
 
 // Rehype plugins
 export { rehypeAddClassToParagraphs } from './rehypeAddClassToParagraphs.mjs'
@@ -18,8 +18,8 @@ export { rehypeAddClassToParagraphs } from './rehypeAddClassToParagraphs.mjs'
 export const DEFAULT_PLUGINS = [
   'remarkEnhanceLinks',
   'remarkObsidianSupport',
-  'remarkObsidianEnhanced', // Added enhanced support
   'remarkExtractToc',
   'remarkAi2htmlEmbed',
+  'remarkEnhanceImages',
   'rehypeAddClassToParagraphs',
 ]

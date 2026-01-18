@@ -8,7 +8,6 @@ tags:
   - hudsonvalley
   - travel
 ---
-
 Turbo Overpass Query
 
 ```
@@ -17,9 +16,9 @@ Turbo Overpass Query
 
 <https://gist.github.com/ejfox/89eed83d2974eeb8857784614bfa0921>
 
-![Screenshot 2023-12-20 at 8.18.39 PM.pn](screenshot-2023-12-20-at-8.18.39-pm.pn)g]]
+![[Screenshot 2023-12-20 at 8.18.39 PM.png]]
 
-![Screenshot 2023-12-20 at 8.19.15 PM.pn](screenshot-2023-12-20-at-8.19.15-pm.pn)g]]
+![[Screenshot 2023-12-20 at 8.19.15 PM.png]]
 
 <https://hvmag.com/best/best-of-hudson-valley-2023/winners-food-drink/>
 
@@ -29,7 +28,7 @@ Turbo Overpass Query
 
 <https://www.theinfatuation.com/hudson-valley/guides/hudson-valley-restaurants>
 
-<http://web.archive.org/web/20250207124502/https://www.tripadvisor.com/Restaurants-g2663029-Hudson_River_Valley_New_York.html _[archived 2025-02-07]_>
+<https://www.tripadvisor.com/Restaurants-g2663029-Hudson_River_Valley_New_York.html>
 
 <https://hvfarmhub.org/resources/>
 
@@ -37,7 +36,7 @@ Turbo Overpass Query
 
 <https://inhabit.corcoran.com/the-recs-12-tasteful-hudson-valley-farm-stands/>
 
-<http://web.archive.org/web/20230209132517/https://www.michelinman.com/auto/why-michelin/travel/new-york/hudson-valley-day-trip-guide _[archived 2023-02-09]_>
+<https://www.michelinman.com/auto/why-michelin/travel/new-york/hudson-valley-day-trip-guide>
 
 <https://hvmag.com/food/hudson-valley-chefs-james-beard-awards/>
 

@@ -13,7 +13,6 @@ I'll create a detailed walkthrough of how we got this stack working:
 ## Setting up Smallweb with Cloudflare Tunnel and Caddy
 
 ### Stack Overview
-
 - Smallweb serving on port 7777
 - Datasette running on port 8002 (as an example of another service)
 - Caddy as the local reverse proxy on port 80
@@ -23,20 +22,16 @@ I'll create a detailed walkthrough of how we got this stack working:
 ### Configuration Steps
 
 #### 1. Initial Setup
-
 - Created `~/smallweb` directory
 - Created `~/smallweb/.smallweb/config.json` with:
-
 ```json
 {
   "domain": "tools.ejfox.com"
 }
 ```
-
 - Smallweb process running as debian user: `/home/debian/.local/bin/smallweb up --cron`
 
 #### 2. Cloudflare Tunnel Configuration
-
 - Created tunnel named `ejfox.com` through Cloudflare dashboard
 - Set up public hostname:
   - Subdomain: `*.tools`
@@ -73,27 +68,22 @@ http://*.tools.ejfox.com {
 ```
 
 #### 4. Running the Services
-
 1. Started smallweb:
-
 ```bash
 /home/debian/.local/bin/smallweb up --cron
 ```
 
 2. Started Caddy:
-
 ```bash
 sudo systemctl restart caddy
 ```
 
 3. Started Cloudflare Tunnel:
-
 ```bash
 sudo cloudflared --no-autoupdate tunnel run --token <tunnel-token>
 ```
 
 ### Key Learnings & Notes
-
 1. Smallweb binds to both IPv4 and IPv6 (`:::7777`)
 2. Using Caddy as the central router allows for easy addition of new services
 3. The stack allows for dynamic subdomain routing without modifying Cloudflare config
@@ -101,7 +91,6 @@ sudo cloudflared --no-autoupdate tunnel run --token <tunnel-token>
 5. Cloudflare Tunnel configuration needs to point to Caddy (port 80) rather than directly to smallweb
 
 ### Verification
-
 ```bash
 # Check services
 sudo netstat -tlpn | grep -E ':(80|8002|7777)'
@@ -119,7 +108,6 @@ curl https://datasette.tools.ejfox.com  # Returns Datasette interface
 ```
 
 ### Final Result
-
 - All traffic encrypted via Cloudflare
 - Dynamic subdomain routing working
 - Multiple services running behind single domain

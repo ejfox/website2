@@ -7,7 +7,6 @@ tags:
   - metadata
 draft: true
 ---
-
 ## Printing Photos With EXIF Data
 
 I want my printed photos to include the technical details - camera settings, date, maybe location. Not because it looks cool, but because I forget this stuff and it's useful to remember what worked.
@@ -40,6 +39,6 @@ Could batch process entire folders. Could let you choose which fields to include
 
 ### Why Bother
 
-When I look at old prints, I want to remember not just what I saw but how I captured it. What lens did I use for that shot? What were the light conditions?
+When I look at old prints, I want to remember not just what I saw but how I captured it. What lens did I use for that shot? What were the light conditions? 
 
 Physical prints with this data become a kind of analog database of photographic decisions.

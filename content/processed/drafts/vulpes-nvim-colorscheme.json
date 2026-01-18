@@ -1,0 +1,102 @@
+{
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h1 class=\"\" id=\"making-vulpesnvim\">Making vulpes.nvim</h1>\n<h2 class=\"\" id=\"the-idea\">The Idea</h2>\n<p class=\"\">A cyberpunk neon single-color(ish) scheme for Neovim that tries to find a balance between vibes and utility.</p>\n<h2 class=\"\" id=\"outline\">Outline</h2>\n<h3 class=\"\" id=\"the-aesthetic-goal\">The Aesthetic Goal</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Cyberpunk neon</li>\n<li class=\"\">Mostly monochromatic with accent colors</li>\n<li class=\"\">Readable, not just pretty</li>\n<li class=\"\">Works in dark environments</li>\n</ul>\n<h3 class=\"\" id=\"the-palette\">The Palette</h3>\n<p class=\"\"><strong class=\"\">Core Colors:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Background: Pure black (<code class=\"md-inline-code\">#000000</code>)</li>\n<li class=\"\">Foreground: Soft pink (<code class=\"md-inline-code\">#f2cfdf</code>)</li>\n<li class=\"\">Base accent: Hot pink (<code class=\"md-inline-code\">#e60067</code>)</li>\n<li class=\"\">Comments: Teal (<code class=\"md-inline-code\">#6eedf7</code>)</li>\n</ul>\n<p class=\"\"><strong class=\"\">Why these choices:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">High contrast for readability</li>\n<li class=\"\">Accent colors that pop without overwhelming</li>\n<li class=\"\">Teal comments stand out but don't distract</li>\n</ul>\n<h3 class=\"\" id=\"whats-included\">What's Included</h3>\n<pre class=\"md-pre\"><code class=\"md-inline-code\">Neovim         Terminals       TUI Apps        Bonus\n──────         ─────────       ────────        ─────\n◆ 100+ hlgroups   ◆ Ghostty       ◆ tmux          ◆ MapLibre\n◆ Treesitter      ◆ Kitty         ◆ lazygit       ◆ GLSL shaders\n◆ LSP             ◆ Alacritty     ◆ Yazi\n◆ Lualine         ◆ WezTerm       ◆ fzf\n◆ 15+ plugins                     ◆ bat\n</code></pre>\n<h3 class=\"\" id=\"the-extras\">The Extras</h3>\n<p class=\"\"><strong class=\"\">Terminal configs:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Ghostty, Kitty, Alacritty, WezTerm</li>\n<li class=\"\">All with matching ANSI colors</li>\n</ul>\n<p class=\"\"><strong class=\"\">TUI configs:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">tmux statusline</li>\n<li class=\"\">lazygit theme</li>\n<li class=\"\">Yazi file manager</li>\n<li class=\"\">fzf colors</li>\n<li class=\"\">bat syntax highlighting</li>\n</ul>\n<p class=\"\"><strong class=\"\">Shaders:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\"><code class=\"md-inline-code\">vulpes-tft.glsl</code> - subtle LCD subpixel effect</li>\n<li class=\"\"><code class=\"md-inline-code\">vulpes-chromatic.glsl</code> - CRT chromatic aberration</li>\n</ul>\n<p class=\"\"><strong class=\"\">MapLibre:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Cyberpunk map style for geographic visualizations</li>\n</ul>\n<h3 class=\"\" id=\"design-decisions\">Design Decisions</h3>\n<p class=\"\"><strong class=\"\">Why pure black background?</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">OLED friendly</li>\n<li class=\"\">Maximum contrast</li>\n<li class=\"\">True dark mode</li>\n</ul>\n<p class=\"\"><strong class=\"\">Why pink/magenta accent?</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Distinctive</li>\n<li class=\"\">Works with most syntax</li>\n<li class=\"\">Cyberpunk aesthetic</li>\n</ul>\n<p class=\"\"><strong class=\"\">Why teal for comments?</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Complementary to pink</li>\n<li class=\"\">Stands out without screaming</li>\n<li class=\"\">Easy to scan</li>\n</ul>\n<h3 class=\"\" id=\"configuration-options\">Configuration Options</h3>\n<figure class=\"md-pre\" data-rehype-pretty-code-figure=\"\"><pre style=\"background-color:#09090b;color:#cccac2\" tabindex=\"0\" data-language=\"lua\" data-theme=\"\"><code data-language=\"lua\" data-theme=\"\" style=\"display: grid;\"><span data-line=\"\"><span style=\"color:#F28779\">require</span><span style=\"color:#CCCAC2\">(</span><span style=\"color:#D5FF80\">\"vulpes\"</span><span style=\"color:#CCCAC2\">).</span><span style=\"color:#F28779\">setup</span><span style=\"color:#CCCAC2\">({</span></span>\n<span data-line=\"\"><span style=\"color:#CCCAC2\">  transparent </span><span style=\"color:#F29E74\">=</span><span style=\"color:#DFBFFF\"> false</span><span style=\"color:#CCCAC2\">,</span></span>\n<span data-line=\"\"><span style=\"color:#CCCAC2\">  italic_comments </span><span style=\"color:#F29E74\">=</span><span style=\"color:#DFBFFF\"> true</span><span style=\"color:#CCCAC2\">,</span></span>\n<span data-line=\"\"><span style=\"color:#CCCAC2\">  cursor_color </span><span style=\"color:#F29E74\">=</span><span style=\"color:#D5FF80\"> \"base\"</span><span style=\"color:#CCCAC2\">,  </span><span style=\"color:#B8CFE680;font-style:italic\">-- \"base\" (pink) or \"white\"</span></span>\n<span data-line=\"\"><span style=\"color:#CCCAC2\">})</span></span><button type=\"button\" title=\"Copy code\" aria-label=\"Copy code\" data=\"require(&#x22;vulpes&#x22;).setup({\n  transparent = false,\n  italic_comments = true,\n  cursor_color = &#x22;base&#x22;,  -- &#x22;base&#x22; (pink) or &#x22;white&#x22;\n})\" class=\"rehype-pretty-copy\" onclick=\"navigator.clipboard.writeText(this.attributes.data.value);this.classList.add(&#x27;rehype-pretty-copied&#x27;);window.setTimeout(() => this.classList.remove(&#x27;rehype-pretty-copied&#x27;), 3000);\"><span class=\"ready\"></span><span class=\"success\"></span></button><style>:root {--copy-icon: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23adadad' d='M16.187 9.5H12.25a1.75 1.75 0 0 0-1.75 1.75v28.5c0 .967.784 1.75 1.75 1.75h23.5a1.75 1.75 0 0 0 1.75-1.75v-28.5a1.75 1.75 0 0 0-1.75-1.75h-3.937a4.25 4.25 0 0 1-4.063 3h-7.5a4.25 4.25 0 0 1-4.063-3M31.813 7h3.937A4.25 4.25 0 0 1 40 11.25v28.5A4.25 4.25 0 0 1 35.75 44h-23.5A4.25 4.25 0 0 1 8 39.75v-28.5A4.25 4.25 0 0 1 12.25 7h3.937a4.25 4.25 0 0 1 4.063-3h7.5a4.25 4.25 0 0 1 4.063 3M18.5 8.25c0 .966.784 1.75 1.75 1.75h7.5a1.75 1.75 0 1 0 0-3.5h-7.5a1.75 1.75 0 0 0-1.75 1.75'/%3E%3C/svg%3E\");--success-icon: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2366ff85' d='M9 16.17L5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41z'/%3E%3C/svg%3E\");}pre:has(code) {position: relative;}pre button.rehype-pretty-copy {right: 1px;padding: 0;width: 24px;height: 24px;display: flex;margin-top: 2px;margin-right: 8px;position: absolute;border-radius: 25%;backdrop-filter: blur(3px);& span {width: 100%;aspect-ratio: 1 / 1;}& .ready {background-image: var(--copy-icon);}& .success {display: none; background-image: var(--success-icon);}}&.rehype-pretty-copied {& .success {display: block;} & .ready {display: none;}}pre button.rehype-pretty-copy.rehype-pretty-copied {opacity: 1;& .ready { display: none; }& .success { display: block; }}</style></code></pre></figure>\n<h2 class=\"\" id=\"screenshots\">Screenshots</h2>\n<p class=\"\">[Add Neovim screenshots with different filetypes]</p>\n<h2 class=\"\" id=\"links\">Links</h2>\n<ul class=\"list-disc\">\n<li class=\"\">GitHub: <a href=\"https://github.com/ejfox/vulpes.nvim\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">https://github.com/ejfox/vulpes.nvim</a></li>\n<li class=\"\">Install: <code class=\"md-inline-code\">{ \"ejfox/vulpes.nvim\" }</code></li>\n</ul>",
+  "title": "Making vulpes.nvim",
+  "metadata": {
+    "date": "2026-01-17T21:45:00.000Z",
+    "dek": "Creating a cyberpunk neon colorscheme for Neovim that balances vibes with utility",
+    "tags": [
+      "neovim",
+      "colorscheme",
+      "design",
+      "tools",
+      "programming"
+    ],
+    "inprogress": true,
+    "words": 290,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 2,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Making vulpes.nvim",
+        "slug": "making-vulpesnvim",
+        "level": "h1",
+        "children": [
+          {
+            "text": "The Idea",
+            "slug": "the-idea",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Outline",
+            "slug": "outline",
+            "level": "h2",
+            "children": [
+              {
+                "text": "The Aesthetic Goal",
+                "slug": "the-aesthetic-goal",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "The Palette",
+                "slug": "the-palette",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "What's Included",
+                "slug": "whats-included",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "The Extras",
+                "slug": "the-extras",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Design Decisions",
+                "slug": "design-decisions",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Configuration Options",
+                "slug": "configuration-options",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Screenshots",
+            "slug": "screenshots",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Links",
+            "slug": "links",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/vulpes-nvim-colorscheme.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

@@ -8,7 +8,6 @@ tags:
 hidden: true
 draft: true
 ---
-
 ## From Scale to Sustainability: My Silicon Valley Epiphany
 
 ### Chasing Giants: A Silicon Valley Dream
@@ -34,5 +33,4 @@ When I was 18 I drove my car from New York to San Francisco to work at a start-u
 ### A Balanced Future: The Intersection of Scale and Sustainability
 
 ### My Ongoing Journey: Committing to Sustainable Tech
-
 ---

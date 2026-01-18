@@ -1,5 +1,6 @@
 {
-  "html": "<h2 class=\"\" id=\"the-problem\">The Problem</h2>\n<p class=\"\">Cloudinary's admin panel lets you download files one at a time. I had 15,000+ photos stored there. The CLI tools exist but require setup. I just wanted to click a button and get my photos back.</p>\n<h2 class=\"\" id=\"what-i-built\">What I Built</h2>\n<p class=\"\">A desktop app built with Tauri (Rust backend, web frontend) that downloads your entire Cloudinary library to a local folder.</p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png\" alt=\"\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>\n<p class=\"\"><strong class=\"\">Features:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Resume interrupted downloads</li>\n<li class=\"\">Batch processing without memory bloat (unlike Electron)</li>\n<li class=\"\">Progress tracking and error handling</li>\n<li class=\"\">Cross-platform (macOS, Windows, Linux)</li>\n</ul>\n<h2 class=\"\" id=\"why-tauri\">Why Tauri?</h2>\n<p class=\"\">Electron apps are memory hogs. Tauri gives you native performance with a web UI. For a tool that might run for hours downloading thousands of files, that matters.</p>",
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<p class=\"\">I needed to backup thousands of photos from Cloudinary, and couldn't find an easy standalone tool to do so. So I built a little desktop app with Tauri. It handles batch downloads without eating all your RAM (vs an Electron app) and lets you resume if something goes wrong.</p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png\" alt=\"\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>",
   "title": "Cloudinary Backup Tool",
   "metadata": {
     "title": "Cloudinary Backup Tool",
@@ -12,16 +13,11 @@
       "Vite"
     ],
     "modified": "2025-08-13T15:58:10.000Z",
-    "industry": [
-      "Developer Tools",
-      "Photography"
-    ],
-    "client": "Open Source",
     "tags": [
       "tools",
       "photography"
     ],
-    "words": 121,
+    "words": 52,
     "images": 1,
     "imageDetails": {
       "total": 1,
@@ -30,29 +26,8 @@
     },
     "links": 1,
     "codeBlocks": 0,
-    "headers": {
-      "h2": 3
-    },
-    "toc": [
-      {
-        "text": "The Problem",
-        "slug": "the-problem",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "What I Built",
-        "slug": "what-i-built",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Why Tauri?",
-        "slug": "why-tauri",
-        "level": "h2",
-        "children": []
-      }
-    ],
+    "headers": {},
+    "toc": [],
     "type": "post",
     "sourcePath": "../../../../../code/website2/content/blog/projects/cloudinary-backup-tool.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"

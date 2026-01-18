@@ -4,42 +4,42 @@ dek: In which we discover pandemic soap-making with mom, the art of scent mixolo
 date: 2023-01-19T00:39:28-05:00
 modified: 2025-08-29T16:41:01-04:00
 tags:
-  - making
-  - pandemic
-  - family
-  - gifts
-  - chemistry
-  - analog
-  - craft
+- making
+- pandemic
+- family
+- gifts
+- chemistry
+- analog
+- craft
 ---
 
 ## Pandemic Soap-Making with Mom
 
-_We spent the pandemic making soap together. It taught me about physical making, always having a gift to give someone, and the strange alchemy of scent._
+*We spent the pandemic making soap together. It taught me about physical making, always having a gift to give someone, and the strange alchemy of scent.*
 
 ## The Lockdown Laboratory
 
-_[Write about how soap-making became your pandemic project - something creative and purposeful to do together when the world felt crazy]_
+*[Write about how soap-making became your pandemic project - something creative and purposeful to do together when the world felt crazy]*
 
 ## Scent Mixology
 
-_[Explore the art of blending fragrances - developing your perfumer's nose, learning how different oils interact, creating signature scent combinations]_
+*[Explore the art of blending fragrances - developing your perfumer's nose, learning how different oils interact, creating signature scent combinations]*
 
 ## Real Chemistry, Real Consequences
 
-_[Compare working with lye (actually dangerous!) to digital work - no undo button, timing critical, physical reactions happening. The satisfaction of mastering something with real stakes]_
+*[Compare working with lye (actually dangerous!) to digital work - no undo button, timing critical, physical reactions happening. The satisfaction of mastering something with real stakes]*
 
 ## The Gift Economy
 
-_[Write about building a stockpile of handmade soap as your go-to present - always having something meaningful to give, the joy of gifting utility that's also beautiful]_
+*[Write about building a stockpile of handmade soap as your go-to present - always having something meaningful to give, the joy of gifting utility that's also beautiful]*
 
 ## What Physical Making Teaches
 
-_[Reflect on lessons learned: precision, patience, working with materials that have their own properties, the difference between digital and analog creation]_
+*[Reflect on lessons learned: precision, patience, working with materials that have their own properties, the difference between digital and analog creation]*
 
 ## Why We Stopped (And Maybe Should Start Again)
 
-_[Explore why the soap-making ended - pandemic over, life moved on? What would it mean to pick it back up now?]_
+*[Explore why the soap-making ended - pandemic over, life moved on? What would it mean to pick it back up now?]*
 
 ---
 

@@ -33,7 +33,6 @@ Just as fungal networks quietly and persistently weave through the underground, 
 This approach offers a powerful tool for building autonomous, resilient information sources. By creating and sharing these maps, they not only strengthen their own local capacities, but also contribute to a larger ecology of resistance and mutual aid.
 
 ### 1. Scoping & Requirements Gathering
-
 - [ ] Define project area (Hudson Valley region)
 - [ ] Identify primary use cases and user groups
   - Hikers, Search & Rescue, Emergency Preparedness
@@ -43,7 +42,6 @@ This approach offers a powerful tool for building autonomous, resilient informat
 - [ ] Choose print specs (paper, inks, folding, etc)
 
 ### 2. Data Acquisition & Processing
-
 - [ ] Acquire base datasets
   - [ ] Digital Elevation Model (DEM) - 1m resolution
   - [ ] OpenStreetMap (OSM) data - roads, trails, POIs
@@ -62,7 +60,6 @@ This approach offers a powerful tool for building autonomous, resilient informat
   - [ ] Offline copies of comms plans and protocols
 
 ### 3. Cartographic Design & Layout
-
 - [ ] Develop map template for each use case
   - [ ] Define page size, margins, legend placement
   - [ ] Choose fonts, colors, and symbology
@@ -76,7 +73,6 @@ This approach offers a powerful tool for building autonomous, resilient informat
   - [ ] Create overview maps for context and navigation between sheets
 
 ### 4. Review & Refinement
-
 - [ ] Internal review of draft maps
   - [ ] Check for completeness and accuracy
   - [ ] Proofread all text elements
@@ -94,7 +90,6 @@ This approach offers a powerful tool for building autonomous, resilient informat
   - [ ] Optimize and troubleshoot print production (folds, inks, etc)
 
 ### 5. Production & Distribution
-
 - [ ] Final quality assurance check
   - [ ] Review proofs from printer
   - [ ] Check alignment, colors, text
@@ -112,8 +107,9 @@ This approach offers a powerful tool for building autonomous, resilient informat
 
 ---
 
-1. Project Setup:
 
+
+1. Project Setup:
 ```
 - Create new QGIS project
 - Set CRS to EPSG:26918 (UTM Zone 18N, good for Hudson Valley)
@@ -121,7 +117,6 @@ This approach offers a powerful tool for building autonomous, resilient informat
 ```
 
 2. OSM Data (using QuickOSM plugin):
-
 ```
 - Key queries to run:
   - "highway" (gets roads and trails)
@@ -133,7 +128,6 @@ This approach offers a powerful tool for building autonomous, resilient informat
 ```
 
 3. DEM Data (best source for Storm King):
-
 ```
 - Download from NYS GIS Clearinghouse
   (http://gis.ny.gov/elevation/NYC-LiDAR.htm)
@@ -142,7 +136,6 @@ This approach offers a powerful tool for building autonomous, resilient informat
 ```
 
 4. Basic Styling:
-
 ```
 - DEM: Use "Hillshade" renderer
   - Altitude: 45°
@@ -153,6 +146,7 @@ This approach offers a powerful tool for building autonomous, resilient informat
   - Interval: 20m
 ```
 
+
 ### Hudson Valley Radio & Trail Mapping Project
 
 - DEM: Check NYS GIS Clearinghouse quarterly for updates
@@ -161,20 +155,17 @@ This approach offers a powerful tool for building autonomous, resilient informat
 #### Layer Organization
 
 ##### Base Layers
-
 1. DEM Hillshade
 2. Contours (multiple resolutions)
 3. OSM Base Features
 
 ##### Radio Layers
-
 1. Repeater Locations
 2. Coverage Predictions
 3. Field Reports
 4. Dead Zones
 
 ##### Trail Layers
-
 1. Official Trails
 2. Unofficial Routes
 3. Access Points
@@ -183,21 +174,18 @@ This approach offers a powerful tool for building autonomous, resilient informat
 #### Workflow for Updates
 
 ##### Regular Maintenance
-
 1. Monthly OSM data refresh
 2. Add field observations after each trip
 3. Update radio coverage based on actual tests
 4. Backup project files
 
 ##### Field Data Collection
-
 1. Record GPS tracks
 2. Note signal strength points
 3. Mark potential emergency setup locations
 4. Document trail conditions
 
 ##### Style Management
-
 - Save styles separately for each layer type
 - Document color schemes & symbols
 - Keep style history for seasonal variations
@@ -205,7 +193,6 @@ This approach offers a powerful tool for building autonomous, resilient informat
 #### Documentation Practice
 
 ##### For Each Session
-
 1. Date of work
 2. Data sources updated
 3. New areas added
@@ -213,7 +200,6 @@ This approach offers a powerful tool for building autonomous, resilient informat
 5. Problems encountered
 
 ##### For Field Observations
-
 1. Date & conditions
 2. Equipment used
 3. Signal reports
@@ -223,13 +209,11 @@ This approach offers a powerful tool for building autonomous, resilient informat
 #### Future-Proofing
 
 ##### Data Export Schedule
-
 - Monthly: Full project backup
 - After major updates: Style files
 - Quarterly: Full data archive
 
 ##### Compatibility Notes
-
 - Keep original source files
 - Document coordinate systems
 - Note QGIS version for each major update
@@ -238,7 +222,6 @@ This approach offers a powerful tool for building autonomous, resilient informat
 #### Emergency Preparedness Elements
 
 ##### Critical Locations
-
 1. High points for radio coverage
 2. Emergency access routes
 3. Helicopter landing zones
@@ -246,7 +229,6 @@ This approach offers a powerful tool for building autonomous, resilient informat
 5. Safe zones
 
 ##### Communications Data
-
 1. Repeater coverage maps
 2. Backup frequencies
 3. Emergency channels
@@ -255,20 +237,17 @@ This approach offers a powerful tool for building autonomous, resilient informat
 #### Project Goals & Metrics
 
 ##### Short Term
-
 - Complete base mapping for Storm King area
 - Establish basic layer structure
 - Document initial radio coverage
 
 ##### Long Term
-
 - Full Hudson Valley coverage
 - Verified radio propagation models
 - Comprehensive emergency response points
 - Seasonal variation documentation
 
 #### Resources & References
-
 - ARRL repeater database
 - Local club frequencies
 - Emergency services channels
@@ -294,7 +273,6 @@ This structure allows you to:
 ---
 
 ### **The Forestpunk Approach to OSM**
-
 1. **Decentralized Knowledge**: Your updates make critical local data accessible to anyone, breaking reliance on centralized systems.
 2. **Regenerative Action**: Each contribution enhances the land’s role as a resource for safety, exploration, and mutual support.
 3. **Radical Connection**: By mapping, you weave the forest and digital realms together, ensuring technology whispers rather than controls.
@@ -302,7 +280,6 @@ This structure allows you to:
 ---
 
 ### **How To Start Contributing**
-
 1. **Create an Account**:
    - Visit [openstreetmap.org](https://openstreetmap.org) and sign up.
 2. **Learn the Basics**:
@@ -320,7 +297,6 @@ This structure allows you to:
 ---
 
 ### **Contributing With Purpose**
-
 - **Trails**: Map every path, junction, and reroute—add tags for visibility, difficulty, and seasonal conditions.
 - **Emergency Resources**: Mark radio repeaters, helispots, and water sources for SAR and preparedness.
 - **Local Knowledge**: Share the wisdom of the land—POIs, shelters, or hazards.

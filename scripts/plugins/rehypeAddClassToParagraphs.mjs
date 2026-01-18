@@ -25,15 +25,7 @@ export function rehypeAddClassToParagraphs() {
           break
 
         case 'blockquote':
-          addClasses(node, [
-            'pl-4',
-            'border-l-4',
-            'border-zinc-300',
-            'dark:border-zinc-700',
-            'my-4',
-            'max-w-prose',
-            'mx-auto',
-          ])
+          addClasses(node, ['md-blockquote'])
           break
 
         case 'hr':
@@ -84,67 +76,29 @@ export function rehypeAddClassToParagraphs() {
           break
 
         case 'code':
-          if (node.properties.className?.includes('language-')) {
+          if (
+            node.properties?.className?.includes('language-') ||
+            node.properties?.dataLanguage ||
+            node.properties?.['data-language']
+          ) {
             // Code block - match body text size with proper padding
-            addClasses(node, [
-              'block',
-              'text-base',
-              'rounded-lg',
-              'bg-zinc-100',
-              'dark:bg-zinc-800',
-              'p-6',
-              'my-4',
-              'overflow-x-auto',
-              'font-mono',
-            ])
+            addClasses(node, ['md-codeblock'])
           } else {
             // Inline code - keep smaller
-            addClasses(node, [
-              'font-mono',
-              'text-sm',
-              'bg-zinc-100',
-              'dark:bg-zinc-800',
-              'rounded',
-              'px-1.5',
-              'py-0.5',
-            ])
+            addClasses(node, ['md-inline-code'])
           }
           break
 
         case 'pre':
-          addClasses(node, [
-            'relative',
-            'rounded-lg',
-            'overflow-hidden',
-            'shadow-sm',
-            'max-w-prose',
-            'mx-auto',
-          ])
+          addClasses(node, ['md-pre'])
           break
 
         case 'table':
-          addClasses(node, [
-            'prose-sm',
-            'min-w-full',
-            'border-collapse',
-            'table-auto',
-            'my-4',
-            'text-sm',
-          ])
+          addClasses(node, ['md-table'])
           break
 
         case 'th':
-          addClasses(node, [
-            'border-b',
-            'border-zinc-200',
-            'dark:border-zinc-700',
-            'bg-zinc-50',
-            'dark:bg-zinc-800',
-            'px-4',
-            'py-2',
-            'text-left',
-            'font-medium',
-          ])
+          addClasses(node, ['md-th'])
           break
 
         case 'td':

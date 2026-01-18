@@ -1,6 +1,6 @@
 ---
 date: 2025-07-25T08:14:05-04:00
-modified: 2025-08-30T11:07:09-04:00
+modified: 2026-01-03T14:45:29-05:00
 draft: true
 dek: In which we discover that finding the sweet spot between effort and quality is like learning to wheelie - it's all about finding the balance point
 tags:
@@ -10,6 +10,7 @@ tags:
   - balance
   - personal
   - inspiration
+  - fdc/150
 ---
 
 ## Finding the Balance Point

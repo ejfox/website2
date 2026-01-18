@@ -6,10 +6,9 @@ hidden: true
 tags:
   - chess
 ---
-
 ## I am really bad at chess
 
-I've played chess my entire life and hover around 1200 rating on chess.com.
+I've played chess my entire life and hover around 1200 rating on chess.com. 
 
 ### Different Types of Learning
 

@@ -1,16 +1,8 @@
 ---
-title: 'Data Visualization & Analysis Suite'
+title: "Data Visualization & Analysis Suite"
 date: 2024-06-01
 modified: 2025-01-15T12:00:00-05:00
-tech:
-  [
-    'Data Visualization',
-    'Machine Learning',
-    'JavaScript',
-    'Python',
-    'UMAP',
-    'Embeddings',
-  ]
+tech: ["Data Visualization", "Machine Learning", "JavaScript", "Python", "UMAP", "Embeddings"]
 state: deployed
 aiInvolvement: ai-collaborative
 tags:
@@ -23,7 +15,6 @@ After years of making data visualizations for major newsrooms and clients, I kep
 What started as a need to understand my own research archive evolved into a suite of tools for mapping everything from film aesthetics to code relationships. Each project explores the intersection of machine learning, interface design, and human cognition—taking complex algorithms and making them visually intuitive and actionable.
 
 ### Related Content
-
 - [Browser Tabs to VR: Creating my Digital Memory Palace](https://youtube.com/@ejfox) - Unity-based 3D visualization of bookmarks with spatial organization
 - [Turning My Bookmarks Into A Knowledge Graph](https://youtube.com/@ejfox) - Building structured relationship data from web content
 

@@ -7,15 +7,12 @@ modified: '2024-05-07T18:11:34.000Z'
 hidden: true
 tags: []
 ---
-
 #motorcycle #hudsonvalley
 
 ## Hudson Valley Motorcycle Rides and Spots to Visit
 
 ### How I track my ride data
-
 #### GPX data from iPhone
-
 #### GPX data from Garmin
 
 ### Fahnestock / 301

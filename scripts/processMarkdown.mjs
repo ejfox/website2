@@ -22,7 +22,6 @@ import remarkGfm from 'remark-gfm'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeRaw from 'rehype-raw'
 import matter from 'gray-matter'
-import { visit } from 'unist-util-visit'
 import { transformerCopyButton } from '@rehype-pretty/transformers'
 import dotenv from 'dotenv'
 import * as shiki from 'shiki'
@@ -36,6 +35,7 @@ import {
   remarkObsidianSupport,
   rehypeAddClassToParagraphs,
   remarkEnhanceLinks,
+  remarkEnhanceImages,
   remarkExtractToc,
 } from './plugins/index.mjs'
 
@@ -49,6 +49,8 @@ const SOURCE_DIR =
   process.env.OBSIDIAN_VAULT_PATH ||
   '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/' +
     'ejfox/'
+
+const CACHE_VERSION = '2026-01-18-md-class-consolidation-v2'
 
 const paths = {
   contentDir: config.dirs.content,
@@ -85,7 +87,6 @@ const processor = unified()
   .use(remarkAi2htmlEmbed)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
-  .use(rehypeAddClassToParagraphs)
   .use(rehypePrettyCode, {
     theme: JSON.parse(await fs.readFile('./themes/ayu-mirage.json', 'utf-8')),
     onVisitLine(node) {
@@ -103,6 +104,7 @@ const processor = unified()
       transformerCopyButton({ visibility: 'always', feedbackDuration: 3000 }),
     ],
   })
+  .use(rehypeAddClassToParagraphs)
   // .use(rehypeMermaid, { strategy: 'inline-svg' }) // DELETED - 64MB bloat
   .use(rehypeSlug)
   .use(rehypeStringify, { allowDangerousHtml: true })
@@ -205,6 +207,7 @@ async function processMarkdown(content, filePath) {
     const sourceInfo = SOURCE_DIR ? { sourcePath, sourceDir: SOURCE_DIR } : {}
 
     return {
+      cacheVersion: CACHE_VERSION,
       html,
       title: extractedTitle,
       metadata: {
@@ -676,86 +679,6 @@ const printSummary = (files) => {
     .forEach(([tag, count]) => console.log(`${tag.padEnd(20)} ${count}`))
 }
 
-const enhanceImageUrl = (url) => {
-  if (!url.includes('cloudinary.com/ejf/')) return url
-  url = url.replace(/^http:\/\//i, 'https://')
-  const base = url.split('/upload/')[0] + '/upload/'
-  const path = url.split('/upload/')[1]
-
-  // Extract dimensions from URL if present (e.g., w_1920,h_1080)
-  const widthMatch = url.match(/w_(\d+)/)
-  const heightMatch = url.match(/h_(\d+)/)
-  const width = widthMatch ? Number.parseInt(widthMatch[1]) : null
-  const height = heightMatch ? Number.parseInt(heightMatch[1]) : null
-
-  const srcset = [
-    `${base}c_scale,f_auto,q_auto:good,w_400/${path} 400w`,
-    `${base}c_scale,f_auto,q_auto:good,w_800/${path} 800w`,
-    `${base}c_scale,f_auto,q_auto:good,w_1200/${path} 1200w`,
-  ].join(', ')
-
-  return {
-    src: `${base}c_scale,f_auto,q_auto:good,w_800/${path}`,
-    srcset,
-    sizes: '(min-width: 768px) 80vw, 100vw',
-    // Removed blur placeholder - user doesn't want blurred images
-    // placeholder: `${base}c_scale,f_auto,q_1,w_20,e_blur:1000/${path}`,
-    width,
-    height,
-  }
-}
-
-function remarkEnhanceImages() {
-  return (tree) => {
-    visit(tree, 'image', (node) => {
-      if (node.url) {
-        // Always add loading/decoding to ALL images (performance optimization)
-        node.data = node.data || {}
-        node.data.hProperties = node.data.hProperties || {}
-        node.data.hProperties.loading = 'lazy'
-        node.data.hProperties.decoding = 'async'
-
-        const enhanced = enhanceImageUrl(node.url)
-        if (enhanced !== node.url) {
-          node.data.hProperties.srcset = enhanced.srcset
-          node.data.hProperties.sizes = enhanced.sizes
-          node.url = enhanced.src
-
-          // Grid-based image classes
-          const classes = ['img-full', 'my-8', 'rounded-sm']
-
-          // Detect aspect ratio from dimensions
-          if (enhanced.width && enhanced.height) {
-            const ratio = enhanced.width / enhanced.height
-            node.data.hProperties['data-dimensions'] =
-              `${enhanced.width}×${enhanced.height}`
-
-            if (Math.abs(ratio - 1) < 0.1) {
-              classes.push('aspect-square')
-            } else if (Math.abs(ratio - 16 / 9) < 0.1) {
-              classes.push('aspect-video')
-            } else if (Math.abs(ratio - 3 / 4) < 0.1) {
-              classes.push('aspect-[3/4]')
-            }
-          }
-
-          // Removed blur placeholder - user doesn't want blurred images
-          // if (enhanced.placeholder) {
-          //   node.data.hProperties['data-placeholder'] = enhanced.placeholder
-          //   node.data.hProperties['data-loading'] = 'lazy'
-          // }
-
-          node.data.hProperties.className = classes.join(' ')
-          node.data.hProperties.crossorigin = 'anonymous'
-
-          // Add dimensions if available
-          if (enhanced.width) node.data.hProperties.width = enhanced.width
-          if (enhanced.height) node.data.hProperties.height = enhanced.height
-        }
-      }
-    })
-  }
-}
 
 // Build on-this-day index from tweets + blog posts + scrobbles + commits
 // Outputs 366 individual JSON files for fast loading
@@ -1049,16 +972,20 @@ async function processAllFiles() {
               // Output is newer - use cached version
               const cachedData = await fs.readFile(outputPath, 'utf-8')
               result = JSON.parse(cachedData)
-              cached = true
-              cachedCount++
+              if (result?.cacheVersion === CACHE_VERSION) {
+                cached = true
+                cachedCount++
+              }
 
-              const baseName = path.basename(filePath).padEnd(40)
-              const pct2 = Math.round(
-                (processStats.filesProcessed / processStats.totalFiles) * 100
-              )
-              process.stdout.write(
-                `\r${chalk.gray(`Cached:     ${baseName}`)}${pct2}%`
-              )
+              if (cached) {
+                const baseName = path.basename(filePath).padEnd(40)
+                const pct2 = Math.round(
+                  (processStats.filesProcessed / processStats.totalFiles) * 100
+                )
+                process.stdout.write(
+                  `\r${chalk.gray(`Cached:     ${baseName}`)}${pct2}%`
+                )
+              }
             }
           } catch (_err) {
             // Corrupted cache or stat error - re-process

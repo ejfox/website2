@@ -1,0 +1,50 @@
+{
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h2 class=\"\" id=\"2025-49\">2025-49</h2>\n<h3 class=\"\" id=\"daily-check-in--reflections\">Daily Check-In &#x26; Reflections</h3>\n<h3 class=\"\" id=\"-learning--media\">📚 Learning &#x26; Media</h3>\n<!-- Books, articles, movies, TV shows, podcasts consumed -->",
+  "title": "2025-49",
+  "metadata": {
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "date": "2025-12-01T20:16:57.000Z",
+    "modified": "2025-12-08T02:34:18.000Z",
+    "words": 22,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "2025-49",
+        "slug": "2025-49",
+        "level": "h2",
+        "children": [
+          {
+            "text": "Daily Check-In & Reflections",
+            "slug": "daily-check-in--reflections",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Learning & Media",
+            "slug": "-learning--media",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2025-49.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

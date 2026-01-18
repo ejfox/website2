@@ -1,0 +1,85 @@
+{
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h2 class=\"\" id=\"the-osint-tools-suite\">The OSINT Tools Suite</h2>\n<h3 class=\"\" id=\"the-idea\">The Idea</h3>\n<p class=\"\">A collection of monitoring tools that aggregate public data into a personal intelligence dashboard. Flight tracking, SEC filings, campaign finance, website changes - all in one place.</p>\n<h3 class=\"\" id=\"the-tools\">The Tools</h3>\n<h4 class=\"\" id=\"skywatch\">SKYWATCH</h4>\n<ul class=\"list-disc\">\n<li class=\"\">ADS-B flight tracking for a geographic area</li>\n<li class=\"\">OpenSky Network integration</li>\n<li class=\"\">Track interesting aircraft movements</li>\n</ul>\n<h4 class=\"\" id=\"egoscan\">EGOSCAN</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Identity &#x26; exposure monitoring</li>\n<li class=\"\">Have I Been Pwned for breaches</li>\n<li class=\"\">Typosquat detection</li>\n<li class=\"\">DNS monitoring</li>\n<li class=\"\">Shodan for network exposure</li>\n</ul>\n<h4 class=\"\" id=\"changewatch\">CHANGEWATCH</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Website change detection</li>\n<li class=\"\">Diff tracking over time</li>\n<li class=\"\">Catch when pages update</li>\n</ul>\n<h4 class=\"\" id=\"filingwatch\">FILINGWATCH</h4>\n<ul class=\"list-disc\">\n<li class=\"\">SEC EDGAR filings</li>\n<li class=\"\">CourtListener for court records</li>\n<li class=\"\">Track legal/financial movements</li>\n</ul>\n<h4 class=\"\" id=\"auctionwatch\">AUCTIONWATCH</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Government surplus auction monitoring</li>\n<li class=\"\">GSA Auctions, GovPlanet</li>\n<li class=\"\">Find deals on weird government stuff</li>\n</ul>\n<h4 class=\"\" id=\"contractwatch\">CONTRACTWATCH</h4>\n<ul class=\"list-disc\">\n<li class=\"\">USASpending.gov tracking</li>\n<li class=\"\">Federal contracts database</li>\n<li class=\"\">Follow the money</li>\n</ul>\n<h4 class=\"\" id=\"donorwatch\">DONORWATCH</h4>\n<ul class=\"list-disc\">\n<li class=\"\">FEC campaign finance</li>\n<li class=\"\">Track political contributions</li>\n<li class=\"\">Who's funding whom</li>\n</ul>\n<h4 class=\"\" id=\"countywatch\">COUNTYWATCH</h4>\n<ul class=\"list-disc\">\n<li class=\"\">County records aggregation</li>\n<li class=\"\">Local news monitoring</li>\n<li class=\"\">Hyperlocal intelligence</li>\n</ul>\n<h4 class=\"\" id=\"omnisearch\">OMNISEARCH</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Meta-search across all databases</li>\n<li class=\"\">Unified query interface</li>\n</ul>\n<h3 class=\"\" id=\"technical-stack\">Technical Stack</h3>\n<ul class=\"list-disc\">\n<li class=\"\"><strong class=\"\">Deno</strong> runtime</li>\n<li class=\"\"><strong class=\"\">Hono</strong> framework</li>\n<li class=\"\"><strong class=\"\">SQLite</strong> for each tool</li>\n<li class=\"\"><strong class=\"\">Smallweb</strong> hosting with wildcard subdomains</li>\n<li class=\"\">Cyberpunk CSS aesthetic</li>\n</ul>\n<h3 class=\"\" id=\"the-philosophy\">The Philosophy</h3>\n<ul class=\"list-disc\">\n<li class=\"\">All data sources are public/free</li>\n<li class=\"\">Self-hosted, no cloud dependencies</li>\n<li class=\"\">Cron-based automated monitoring</li>\n<li class=\"\">Personal sovereignty over information</li>\n</ul>\n<h3 class=\"\" id=\"use-cases\">Use Cases</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Journalism research</li>\n<li class=\"\">Personal security monitoring</li>\n<li class=\"\">Civic engagement</li>\n<li class=\"\">Curiosity</li>\n</ul>\n<h3 class=\"\" id=\"ethical-considerations\">Ethical Considerations</h3>\n<p class=\"\">[Discuss responsible use of OSINT tools]</p>\n<h3 class=\"\" id=\"links\">Links</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Each tool runs on its own subdomain</li>\n<li class=\"\">Consistent API: <code class=\"md-inline-code\">/check</code>, <code class=\"md-inline-code\">/api/stats</code>, <code class=\"md-inline-code\">/api/search</code></li>\n</ul>",
+  "title": "The OSINT Tools Suite",
+  "metadata": {
+    "date": "2026-01-17T21:45:00.000Z",
+    "dek": "Building a personal intelligence network with Deno, Hono, and public data sources",
+    "tags": [
+      "programming",
+      "osint",
+      "journalism",
+      "deno",
+      "privacy",
+      "tools"
+    ],
+    "inprogress": true,
+    "modified": "2026-01-17T21:53:26.000Z",
+    "words": 271,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "The OSINT Tools Suite",
+        "slug": "the-osint-tools-suite",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The Idea",
+            "slug": "the-idea",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Tools",
+            "slug": "the-tools",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Technical Stack",
+            "slug": "technical-stack",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Philosophy",
+            "slug": "the-philosophy",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Use Cases",
+            "slug": "use-cases",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Ethical Considerations",
+            "slug": "ethical-considerations",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Links",
+            "slug": "links",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/osint-tools-suite.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

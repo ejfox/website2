@@ -8,7 +8,6 @@ hidden: true
 tags:
   - music
 ---
-
 ## My approach to making music
 
-See also [blog/2022/experiments-with-live-looping-performanc](blog/2022/experiments-with-live-looping-performanc)e]]
+See also [[blog/2022/experiments-with-live-looping-performance]]

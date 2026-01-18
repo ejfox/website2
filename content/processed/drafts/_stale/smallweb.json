@@ -1,4 +1,5 @@
 {
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
   "html": "<ul class=\"list-disc\">\n<li class=\"\">Publishing Nuxt apps via smallweb (how to build + cp properly)</li>\n<li class=\"\"></li>\n</ul>",
   "title": "Smallweb",
   "metadata": {
@@ -8,7 +9,7 @@
       "web",
       "deployment"
     ],
-    "words": 15,
+    "words": 14,
     "images": 0,
     "imageDetails": {
       "total": 0,

@@ -1,4 +1,5 @@
 {
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
   "html": "<h2 class=\"\" id=\"i-love-n8n\">I Love n8n</h2>\n<h2 class=\"\" id=\"daily-email-summary\">Daily Email Summary</h2>\n<h2 class=\"\" id=\"daily-news-summary\">Daily News Summary</h2>\n<h2 class=\"\" id=\"news-to-audio-to-phone-call\">News To Audio To Phone Call</h2>\n<h2 class=\"\" id=\"screenshots-to-cloudinary\">Screenshots to Cloudinary</h2>\n<h3 class=\"\" id=\"automatic-screenshot-content-summary\">Automatic Screenshot Content Summary</h3>\n<h2 class=\"\" id=\"bookmark-to-scrapbook-processing\">Bookmark to Scrapbook Processing</h2>",
   "title": "I Love n8n",
   "metadata": {

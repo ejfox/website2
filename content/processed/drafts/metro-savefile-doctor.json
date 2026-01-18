@@ -1,0 +1,114 @@
+{
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h1 class=\"\" id=\"metro-savefile-doctor\">Metro Savefile Doctor</h1>\n<h2 class=\"\" id=\"the-idea\">The Idea</h2>\n<p class=\"\">A beautiful TUI tool for editing Subway Builder save files, featuring a crackintro aesthetic and automatic backup.</p>\n<h2 class=\"\" id=\"outline\">Outline</h2>\n<h3 class=\"\" id=\"the-problem\">The Problem</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Subway Builder saves are binary blobs</li>\n<li class=\"\">Want to edit money, trains, game time</li>\n<li class=\"\">No official editor exists</li>\n</ul>\n<h3 class=\"\" id=\"reverse-engineering-the-format\">Reverse Engineering the Format</h3>\n<ul class=\"list-disc\">\n<li class=\"\"><code class=\"md-inline-code\">.metro</code> files: 4KB header + compressed data + metadata</li>\n<li class=\"\">Also supports plain JSON saves</li>\n<li class=\"\">How I figured out the structure</li>\n</ul>\n<h3 class=\"\" id=\"the-features\">The Features</h3>\n<ul class=\"list-disc\">\n<li class=\"\">💰 Edit Money</li>\n<li class=\"\">⏱️ Edit Game Time</li>\n<li class=\"\">🚆 Edit Train Count</li>\n<li class=\"\">🎫 Edit Transit Cost</li>\n<li class=\"\">💾 Auto Backup (before every modification)</li>\n</ul>\n<h3 class=\"\" id=\"the-crackintro-aesthetic\">The Crackintro Aesthetic</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Why TUIs are cool again</li>\n<li class=\"\">Retro vibes with modern tooling</li>\n<li class=\"\">Ink (React for CLIs) + Chalk</li>\n</ul>\n<h3 class=\"\" id=\"building-the-tui\">Building the TUI</h3>\n<figure class=\"md-pre\" data-rehype-pretty-code-figure=\"\"><pre style=\"background-color:#09090b;color:#cccac2\" tabindex=\"0\" data-language=\"bash\" data-theme=\"\"><code data-language=\"bash\" data-theme=\"\" style=\"display: grid;\"><span data-line=\"\"><span style=\"color:#73D0FF\">./cli.js</span><span style=\"color:#D5FF80\"> my-save.metro</span></span><button type=\"button\" title=\"Copy code\" aria-label=\"Copy code\" data=\"./cli.js my-save.metro\" class=\"rehype-pretty-copy\" onclick=\"navigator.clipboard.writeText(this.attributes.data.value);this.classList.add(&#x27;rehype-pretty-copied&#x27;);window.setTimeout(() => this.classList.remove(&#x27;rehype-pretty-copied&#x27;), 3000);\"><span class=\"ready\"></span><span class=\"success\"></span></button><style>:root {--copy-icon: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Cpath fill='%23adadad' d='M16.187 9.5H12.25a1.75 1.75 0 0 0-1.75 1.75v28.5c0 .967.784 1.75 1.75 1.75h23.5a1.75 1.75 0 0 0 1.75-1.75v-28.5a1.75 1.75 0 0 0-1.75-1.75h-3.937a4.25 4.25 0 0 1-4.063 3h-7.5a4.25 4.25 0 0 1-4.063-3M31.813 7h3.937A4.25 4.25 0 0 1 40 11.25v28.5A4.25 4.25 0 0 1 35.75 44h-23.5A4.25 4.25 0 0 1 8 39.75v-28.5A4.25 4.25 0 0 1 12.25 7h3.937a4.25 4.25 0 0 1 4.063-3h7.5a4.25 4.25 0 0 1 4.063 3M18.5 8.25c0 .966.784 1.75 1.75 1.75h7.5a1.75 1.75 0 1 0 0-3.5h-7.5a1.75 1.75 0 0 0-1.75 1.75'/%3E%3C/svg%3E\");--success-icon: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%2366ff85' d='M9 16.17L5.53 12.7a.996.996 0 1 0-1.41 1.41l4.18 4.18c.39.39 1.02.39 1.41 0L20.29 7.71a.996.996 0 1 0-1.41-1.41z'/%3E%3C/svg%3E\");}pre:has(code) {position: relative;}pre button.rehype-pretty-copy {right: 1px;padding: 0;width: 24px;height: 24px;display: flex;margin-top: 2px;margin-right: 8px;position: absolute;border-radius: 25%;backdrop-filter: blur(3px);& span {width: 100%;aspect-ratio: 1 / 1;}& .ready {background-image: var(--copy-icon);}& .success {display: none; background-image: var(--success-icon);}}&.rehype-pretty-copied {& .success {display: block;} & .ready {display: none;}}pre button.rehype-pretty-copy.rehype-pretty-copied {opacity: 1;& .ready { display: none; }& .success { display: block; }}</style></code></pre></figure>\n<p class=\"\"><strong class=\"\">Controls:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Arrow keys to navigate</li>\n<li class=\"\">Enter to edit</li>\n<li class=\"\"><code class=\"md-inline-code\">s</code> to save</li>\n<li class=\"\"><code class=\"md-inline-code\">q</code> to quit</li>\n</ul>\n<h3 class=\"\" id=\"cross-platform-desktop-app\">Cross-Platform Desktop App</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Tauri wrapper</li>\n<li class=\"\">Drag &#x26; drop support</li>\n<li class=\"\">Analysis reports</li>\n</ul>\n<h3 class=\"\" id=\"technical-details\">Technical Details</h3>\n<ul class=\"list-disc\">\n<li class=\"\">Node.js 18+</li>\n<li class=\"\">Ink for React-style TUI</li>\n<li class=\"\">Binary format parsing</li>\n<li class=\"\">Automatic backup system</li>\n</ul>\n<h2 class=\"\" id=\"screenshots\">Screenshots</h2>\n<p class=\"\">[Add TUI screenshots]</p>\n<h2 class=\"\" id=\"what-i-learned\">What I Learned</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Binary file format reverse engineering</li>\n<li class=\"\">Building delightful CLI experiences</li>\n<li class=\"\">The joy of crackintro aesthetics</li>\n</ul>\n<h2 class=\"\" id=\"links\">Links</h2>\n<ul class=\"list-disc\">\n<li class=\"\">GitHub releases for desktop app</li>\n<li class=\"\">macOS, Windows, Linux support</li>\n</ul>",
+  "title": "Metro Savefile Doctor",
+  "metadata": {
+    "date": "2026-01-17T21:45:00.000Z",
+    "dek": "Reverse engineering game save files and building a TUI editor with crackintro aesthetics",
+    "tags": [
+      "programming",
+      "gamedev",
+      "reverse-engineering",
+      "tui",
+      "tools"
+    ],
+    "inprogress": true,
+    "words": 230,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 1,
+    "headers": {
+      "h1": 1
+    },
+    "toc": [
+      {
+        "text": "Metro Savefile Doctor",
+        "slug": "metro-savefile-doctor",
+        "level": "h1",
+        "children": [
+          {
+            "text": "The Idea",
+            "slug": "the-idea",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Outline",
+            "slug": "outline",
+            "level": "h2",
+            "children": [
+              {
+                "text": "The Problem",
+                "slug": "the-problem",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Reverse Engineering the Format",
+                "slug": "reverse-engineering-the-format",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "The Features",
+                "slug": "the-features",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "The Crackintro Aesthetic",
+                "slug": "the-crackintro-aesthetic",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Building the TUI",
+                "slug": "building-the-tui",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Cross-Platform Desktop App",
+                "slug": "cross-platform-desktop-app",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Technical Details",
+                "slug": "technical-details",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Screenshots",
+            "slug": "screenshots",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "What I Learned",
+            "slug": "what-i-learned",
+            "level": "h2",
+            "children": []
+          },
+          {
+            "text": "Links",
+            "slug": "links",
+            "level": "h2",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/metro-savefile-doctor.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

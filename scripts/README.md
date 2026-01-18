@@ -401,6 +401,7 @@ scripts/
 │   └── publish.sh
 ├── plugins/          # Remark/Rehype plugins for markdown processing
 │   ├── remarkEnhanceLinks.mjs
+│   ├── remarkEnhanceImages.mjs
 │   ├── remarkObsidianSupport.mjs
 │   ├── remarkExtractToc.mjs
 │   ├── remarkAi2htmlEmbed.mjs
@@ -432,8 +433,8 @@ The `plugins/` directory contains all remark and rehype plugins used in markdown
 - `remarkObsidianSupport.mjs` - Adds support for Obsidian-style wikilinks
 - `remarkExtractToc.mjs` - Extracts table of contents
 - `remarkAi2htmlEmbed.mjs` - Embeds AI2HTML graphics
+- `remarkEnhanceImages.mjs` - Adds image loading hints and Cloudinary srcset/sizing (caches metadata in `data/cloudinary-image-cache.json`)
 - `rehypeAddClassToParagraphs.mjs` - Adds classes to paragraphs
-- `rehypeDefaultClasses.mjs` - Adds default classes to HTML elements
 
 ## Utils
 

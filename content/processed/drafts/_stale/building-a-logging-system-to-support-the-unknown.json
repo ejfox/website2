@@ -1,4 +1,5 @@
 {
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
   "html": "<h2 class=\"\" id=\"building-a-vps-to-support-the-unknown\">Building a VPS to support the unknown</h2>",
   "title": "Building a VPS to support the unknown",
   "metadata": {
@@ -8,7 +9,7 @@
       "infrastructure",
       "tools"
     ],
-    "words": 10,
+    "words": 9,
     "images": 0,
     "imageDetails": {
       "total": 0,

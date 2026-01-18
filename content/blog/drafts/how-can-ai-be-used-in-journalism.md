@@ -7,6 +7,8 @@ tags:
   - machinelearning
   - tech
   - media
+  - fdc/006.3
+  - fdc/070
 ---
 
 Imagine we had a big whiteboard, and we sat for a while and thought of the actual real applications of what everyone wants to call "AI".
@@ -74,7 +76,6 @@ These accountability projects show how AI can flip the surveillance script—usi
 ---
 
 **Further reading:**
-
 - [AI for Data Journalism - Simon Willison](https://simonwillison.net/2024/Apr/17/ai-for-data-journalism/)
 - [New AI Tools for Journalists - GIJN](https://gijn.org/stories/new-ai-large-language-model-tools-journalists/)
 - [Amazon Mining Watch](https://amazonminingwatch.org/en/about)

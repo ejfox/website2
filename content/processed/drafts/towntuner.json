@@ -1,0 +1,72 @@
+{
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h2 class=\"\" id=\"towntuner\">TownTuner</h2>\n<h3 class=\"\" id=\"the-idea\">The Idea</h3>\n<p class=\"\">A dedicated podcast player for all 360 episodes of Harmontown, designed specifically for nightly sleep listening with gamification elements.</p>\n<h3 class=\"\" id=\"outline\">Outline</h3>\n<h4 class=\"\" id=\"the-problem\">The problem</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Generic podcast apps aren't designed for sleep</li>\n<li class=\"\">Harmontown has 360 episodes - a journey</li>\n<li class=\"\">Falling asleep to podcasts is a specific use case</li>\n<li class=\"\">\"Would I use this at 2 AM with a cat on my chest?\"</li>\n</ul>\n<h4 class=\"\" id=\"the-prestige-system\">The Prestige System</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Complete all 360 episodes chronologically</li>\n<li class=\"\">Episodes marked complete at 85% playback</li>\n<li class=\"\">Completing all = 1 Prestige level</li>\n<li class=\"\">Counter permanently displayed</li>\n<li class=\"\">Episodes reset upon prestiging</li>\n<li class=\"\">Gamification that respects the content</li>\n</ul>\n<h4 class=\"\" id=\"sleep-first-design\">Sleep-First Design</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Thumb-first UI (right thumb reachable)</li>\n<li class=\"\">Automatic fade-out sleep timer</li>\n<li class=\"\">Designed for barely conscious operation</li>\n<li class=\"\">Smart shuffle (only unplayed from current prestige)</li>\n</ul>\n<h4 class=\"\" id=\"brutalist-glass-aesthetic\">Brutalist Glass Aesthetic</h4>\n<ul class=\"list-disc\">\n<li class=\"\">iOS 18+ liquid glass effects</li>\n<li class=\"\">Monochrome design</li>\n<li class=\"\">Ultra-thin material backgrounds</li>\n<li class=\"\">Spring physics animations (1.4s duration, 0.25 bounce)</li>\n</ul>\n<h4 class=\"\" id=\"technical-details\">Technical Details</h4>\n<ul class=\"list-disc\">\n<li class=\"\">SwiftUI with iOS 18+ features</li>\n<li class=\"\">AVFoundation for background playback</li>\n<li class=\"\">CloudKit for cross-device sync</li>\n<li class=\"\">Lock screen controls with custom artwork</li>\n</ul>\n<h4 class=\"\" id=\"planned-features\">Planned Features</h4>\n<ul class=\"list-disc\">\n<li class=\"\">Vodka bottle clicker mini-game (credits screen)</li>\n<li class=\"\">TownTuner Wrapped (annual stats)</li>\n<li class=\"\">Guest search functionality</li>\n<li class=\"\">Apple Watch companion</li>\n</ul>\n<h3 class=\"\" id=\"screenshots\">Screenshots</h3>\n<p class=\"\">[Add app screenshots]</p>\n<h3 class=\"\" id=\"the-philosophy\">The Philosophy</h3>\n<p class=\"\">\"This is a labor of love, not money. No ads, no IAP, no bullshit.\"</p>\n<h3 class=\"\" id=\"links\">Links</h3>\n<ul class=\"list-disc\">\n<li class=\"\">App Store: [coming soon]</li>\n</ul>",
+  "title": "TownTuner",
+  "metadata": {
+    "date": "2026-01-17T05:00:00.000Z",
+    "dek": "Building a podcast player for sleep listening with a prestige system, because Harmontown deserves better",
+    "tags": [
+      "ios",
+      "swiftui",
+      "podcasts",
+      "gamedev",
+      "sleep"
+    ],
+    "inprogress": true,
+    "modified": "2026-01-17T21:43:24.000Z",
+    "words": 241,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "TownTuner",
+        "slug": "towntuner",
+        "level": "h2",
+        "children": [
+          {
+            "text": "The Idea",
+            "slug": "the-idea",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Outline",
+            "slug": "outline",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Screenshots",
+            "slug": "screenshots",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "The Philosophy",
+            "slug": "the-philosophy",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "Links",
+            "slug": "links",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/towntuner.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

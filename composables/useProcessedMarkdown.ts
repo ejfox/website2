@@ -324,36 +324,6 @@ export const useProcessedMarkdown = () => {
     }
   }
 
-  const getNextPrevPosts = async (currentSlug: string) => {
-    const manifest = await getManifestLite()
-    const filteredPosts = manifest
-      .filter(isRegularBlogPost)
-      .sort((a: Post, b: Post) => compareDates(b.date, a.date))
-
-    if (filteredPosts.length === 0) {
-      console.warn('No regular blog posts found')
-      return { next: null, prev: null }
-    }
-
-    const currentIndex = filteredPosts.findIndex(
-      (post) => post.slug === currentSlug
-    )
-    if (currentIndex === -1) {
-      console.warn(
-        `Post with slug "${currentSlug}" not found in regular blog posts`
-      )
-      return { next: null, prev: null }
-    }
-
-    return {
-      next: currentIndex > 0 ? filteredPosts[currentIndex - 1] : null,
-      prev:
-        currentIndex < filteredPosts.length - 1
-          ? filteredPosts[currentIndex + 1]
-          : null,
-    }
-  }
-
   // Specialized content type getters using the unified filter function
   const getDrafts = async (): Promise<Post[]> => {
     const manifest = await getManifestLite()
@@ -384,6 +354,42 @@ export const useProcessedMarkdown = () => {
     )
   }
 
+  const getNextPrevPosts = async (currentSlug: string) => {
+    const manifest = await getManifestLite()
+    const now = Date.now()
+    const filteredPosts = manifest
+      .filter(isRegularBlogPost)
+      .filter((post: Post) => {
+        const dateValue = post.metadata?.date || post.date
+        if (!dateValue) return true
+        const timestamp = new Date(dateValue).getTime()
+        return Number.isNaN(timestamp) || timestamp <= now
+      })
+      .sort((a: Post, b: Post) => compareDates(b.date, a.date))
+
+    if (filteredPosts.length === 0) {
+      console.warn('No regular blog posts found')
+      return { next: null, prev: null }
+    }
+
+    const currentIndex = filteredPosts.findIndex(
+      (post) => post.slug === currentSlug
+    )
+    if (currentIndex === -1) {
+      console.warn(
+        `Post with slug "${currentSlug}" not found in regular blog posts`
+      )
+      return { next: null, prev: null }
+    }
+
+    return {
+      next: currentIndex > 0 ? filteredPosts[currentIndex - 1] : null,
+      prev:
+        currentIndex < filteredPosts.length - 1
+          ? filteredPosts[currentIndex + 1]
+          : null,
+    }
+  }
   const getProjectPosts = async (): Promise<Post[]> => {
     const projectsLite = await getProjectPostsLite()
     const projectsWithContent = await Promise.all(

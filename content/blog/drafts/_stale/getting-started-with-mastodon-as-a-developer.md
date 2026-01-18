@@ -7,7 +7,6 @@ tags:
   - tech
   - howto
 ---
-
 # Getting started with Mastodon
 
-#tech #howto
+#tech #howto 

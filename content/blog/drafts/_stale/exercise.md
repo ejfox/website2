@@ -8,7 +8,6 @@ tags:
   - health
   - quantifiedself
 ---
-
 ## Exercise
 
 #personal #health #quantifiedself
@@ -49,7 +48,7 @@ Finally, I'm going to make sure that I take time to rest and recover after each 
 
 #### Objective improvement through practice
 
-I like watching numbers go in the right direction. One of the interesting things about exercise is that there are objective measurements that you can record and watch yourself improve over time. See [quantified-sel](quantified-sel)f]]
+I like watching numbers go in the right direction. One of the interesting things about exercise is that there are objective measurements that you can record and watch yourself improve over time. See [[quantified-self]]
 
 This motivates me a lot. I want to use the momentum that comes from doing 1 more rep, or cutting a few seconds off a time and keep building on that.
 

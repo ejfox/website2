@@ -1,11 +1,17 @@
 ---
+title: Chess Course
 date: 2024-10-15T17:05:33-04:00
 modified: 2024-11-24T17:19:45-05:00
 share: true
 tags:
   - learning
   - games
+  - fdc/794.1
+  - fdc/793
+  - fdc/153
+  - syllabus
 ---
+
 
 ## Week 1: Chess Fundamentals and Effective Study Techniques
 

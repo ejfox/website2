@@ -9,7 +9,6 @@ tags:
   - education
   - games
 ---
-
 ## FPV Simulator Training Program
 
 ### Setting Up for Uncrashed
@@ -17,20 +16,20 @@ tags:
 #### Initial Configuration
 
 1. USB Connection:
-   - Plug your Boxer into your computer
-   - It should appear as a game controller
-   - No special drivers needed for simulator use
+    - Plug your Boxer into your computer
+    - It should appear as a game controller
+    - No special drivers needed for simulator use
 2. Uncrashed Settings:
-   - Launch Uncrashed
-   - Go to Controller Configuration
-   - Select "Game Controller" or "DirectInput"
-   - Calibrate sticks through full range of motion
+    - Launch Uncrashed
+    - Go to Controller Configuration
+    - Select "Game Controller" or "DirectInput"
+    - Calibrate sticks through full range of motion
 3. Channel Mapping:
-   - Throttle: Axis 3
-   - Yaw: Axis 4
-   - Pitch: Axis 2
-   - Roll: Axis 1
-   - Verify directions match stick movement
+    - Throttle: Axis 3
+    - Yaw: Axis 4
+    - Pitch: Axis 2
+    - Roll: Axis 1
+    - Verify directions match stick movement
 
 #### Recommended Beginner Settings
 
@@ -109,7 +108,6 @@ Common Terminology:
 - Common FPV terms and their meanings
 
 #### Setup Tasks
-
 1. Install and configure simulator software
 2. Set up Radiomaster Boxer for simulator use
 3. Configure rates to beginner-friendly settings
@@ -132,7 +130,6 @@ Evening Session (30 minutes):
 - 15 min: Control theory study
 
 #### Specific Skills Focus
-
 1. Throttle Control:
    - Maintaining steady altitude
    - Smooth altitude changes
@@ -146,7 +143,6 @@ Evening Session (30 minutes):
    - Coordinated movement
 
 #### Success Criteria
-
 - Maintain hover within 1m cube for 30 seconds
 - Complete basic square pattern
 - Execute controlled takeoff and landing
@@ -167,7 +163,6 @@ Evening Session (30 minutes):
 - 15 min: Advanced control theory study
 
 #### Specific Skills Focus
-
 1. Orientation Training:
    - Nose-in hovering
    - Side-in hovering
@@ -181,7 +176,6 @@ Evening Session (30 minutes):
    - Basic line practice
 
 #### Success Criteria
-
 - Complete figure-8 in all orientations
 - Maintain orientation during pattern work
 - Execute smooth transitions between patterns
@@ -202,7 +196,6 @@ Evening Session (30 minutes):
 - 10 min: Advanced flight theory study
 
 #### Specific Skills Focus
-
 1. Advanced Pattern Work:
    - Complex geometric patterns
    - Varying speed patterns
@@ -216,7 +209,6 @@ Evening Session (30 minutes):
    - Momentum management
 
 #### Success Criteria
-
 - Execute complex patterns at varying speeds
 - Demonstrate precise speed control
 - Complete advanced geometric patterns
@@ -237,7 +229,6 @@ Evening Session (30 minutes):
 - 10 min: Race theory study
 
 #### Specific Skills Focus
-
 1. Racing Fundamentals:
    - Racing lines
    - Gate approaches
@@ -251,7 +242,6 @@ Evening Session (30 minutes):
    - Quick direction changes
 
 #### Success Criteria
-
 - Complete race track without crashes
 - Execute basic freestyle maneuvers
 - Navigate technical obstacles
@@ -265,17 +255,16 @@ Daily Practice Log:
 Date: YYYY-MM-DD
 Session Duration: XX minutes
 Skills Practiced:
-
 - List specific exercises
 - Note progress on each
-  Knowledge Review:
+Knowledge Review:
 - Flash card topics covered
 - New concepts learned
-  Performance Metrics:
+Performance Metrics:
 - Hover stability time
 - Pattern completion success rate
 - New skills attempted
-  Goals for Next Session:
+Goals for Next Session:
 - Specific skills to focus on
 - Areas needing improvement
 ```
@@ -331,6 +320,7 @@ Remember:
 - Analysis ensures progress
 - Patience ensures success
 
+
 ---
 
 ## Uncrashed Basic Benchmark Course
@@ -338,7 +328,6 @@ Remember:
 ### Course Design Instructions
 
 #### Initial Setup
-
 1. Open Uncrashed Track Editor
 2. Select "Empty Track" as your starting point
 3. Set environment to "Daytime Clear" for consistent visibility
@@ -355,14 +344,12 @@ Create a simple figure-8 pattern:
 6. Finish Gate: Return to start position
 
 #### Checkpoint Configuration
-
 - Set all gates to standard size (3m x 3m)
 - Enable checkpoint tracking
 - Set minimum height requirement to 2m
 - Enable timing system
 
 #### Course Features
-
 - Total length: Approximately 100m
 - Minimum flight height: 2m
 - Maximum flight height: 5m
@@ -372,13 +359,11 @@ Create a simple figure-8 pattern:
 ### Training Protocol
 
 #### Warm-up Phase
-
 1. Load "Hover Practice" from Basic Training
 2. Complete 2-minute hover challenge
 3. Run Figure-8 training once
 
 #### Benchmark Attempts
-
 1. Three attempts at custom course
 2. Record:
    - Total time
@@ -387,7 +372,6 @@ Create a simple figure-8 pattern:
    - Optimal line adherence
 
 #### Cool-down Challenge
-
 1. One slow, perfect form run
 2. Focus on smooth stick movements
 3. Record stick input smoothness
@@ -395,7 +379,6 @@ Create a simple figure-8 pattern:
 ### Progress Tracking
 
 #### Daily Log Format
-
 ```
 Date: [YYYY-MM-DD]
 Session: [AM/PM]
@@ -426,25 +409,21 @@ Track:
 ### Progression Metrics
 
 #### Beginner Phase
-
 - Complete course without DNF
 - All gates clean
 - Time under 90 seconds
 
 #### Intermediate Phase
-
 - Clean runs consistently
 - Time under 60 seconds
 - Smooth stick inputs
 
 #### Advanced Phase
-
 - Time under 45 seconds
 - Perfect racing line
 - No height violations
 
 #### Expert Phase
-
 - Time under 30 seconds
 - Optimal racing line
 - Consistent clean runs
@@ -463,14 +442,12 @@ Record these after each session to build a complete picture of your progress.
 ### Training Integration
 
 #### Morning Session
-
 1. Complete hover challenge
 2. Run Figure-8 trainer
 3. Three attempts at benchmark course
 4. Record all metrics
 
 #### Evening Session
-
 1. Review morning scores
 2. Focus on technical elements from basic training
 3. Two attempts at benchmark course
@@ -491,6 +468,8 @@ Remember:
 - Use built-in telemetry
 - Save replay files of best runs
 - Track progress systematically
+
+
 
 1. Drones:
 
@@ -622,7 +601,7 @@ Additional Accessories:
 
 Investing in these high-quality accessories will enhance your FPV experience, providing reliability, safety, and convenience during both flight sessions and maintenance activities.
 
-> Old set up that has 25min flight times during long range flights in warm weather and low wind. Not a DJI but close.
+>Old set up that has 25min flight times during long range flights in warm weather and low wind. Not a DJI but close.
 >
-> Flight controller - iFlight F7 TwinG V2.1 ESC - iFlight Sussex 50amp: Motors - Brother Hobby Avenger 2806.5 1300kv: Fpv cam - Runcam Micro Eagle V3 GPS - BrainFPV GPS VTX - Rush Tank Ultimate Plus: VTX antenna - True RC singularity: Tx - TBS crossfire nano Tx V2 at 500mw:
-> <https://www.reddit.com/r/fpv/comments/1i4fpp1/comment/m7v77ak/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button>
+>Flight controller - iFlight F7 TwinG V2.1 ESC - iFlight Sussex 50amp: Motors - Brother Hobby Avenger 2806.5 1300kv: Fpv cam - Runcam Micro Eagle V3 GPS - BrainFPV GPS VTX - Rush Tank Ultimate Plus: VTX antenna - True RC singularity: Tx - TBS crossfire nano Tx V2 at 500mw:
+<https://www.reddit.com/r/fpv/comments/1i4fpp1/comment/m7v77ak/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button>

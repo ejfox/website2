@@ -5,6 +5,5 @@ tags:
   - web
   - deployment
 ---
-
 - Publishing Nuxt apps via smallweb (how to build + cp properly)
--
+- 

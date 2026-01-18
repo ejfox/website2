@@ -19,7 +19,7 @@ I keep coming back to ramen. Not just because it's cheap—though when you're bo
 
 Then there's the anime factor. Those perfectly steamy bowls in Cowboy Bebop, the way characters slurp noodles while contemplating existence or planning their next move. Ramen becomes this symbol of simple pleasures amid chaos, of making the best of whatever you've got.
 
-But let's be real: I've also been hella poor. Like, counting-change-for-groceries poor. In those moments, a quick trip to the store for a pack of ramen and an egg becomes this small salvation. You're looking forward to that bowl—the noodles, the fried egg on top—knowing that at least you can eat _something_ tonight. There's a spirit of persistence that ramen unlocks for you, a reminder that you can make it through another day with just the basics.
+But let's be real: I've also been hella poor. Like, counting-change-for-groceries poor. In those moments, a quick trip to the store for a pack of ramen and an egg becomes this small salvation. You're looking forward to that bowl—the noodles, the fried egg on top—knowing that at least you can eat *something* tonight. There's a spirit of persistence that ramen unlocks for you, a reminder that you can make it through another day with just the basics.
 
 For me, it's all about learning to "Make Hell Fun"—a core concept I keep coming back to, even from the most humble ingredients. You start with the basics: a $1 packet of noodles and some bouillon. But then you start experimenting. A little sesame oil here, some tahini there, maybe some furikake, good soy sauce, fresh ginger, a drizzle of honey.
 
@@ -31,7 +31,7 @@ Then there are my ongoing experiments with buldak—those Korean fire noodles th
 
 Ramen is this perfect playground for experimentation. Low stakes, high reward. If you mess up, you're out a dollar and five minutes. If you nail it, you've discovered something that could become your signature midnight meal.
 
-_[Photos of various ramen experiments would go here - the golden egg ribbons, the bright red buldak variations, the carefully arranged toppings]_
+*[Photos of various ramen experiments would go here - the golden egg ribbons, the bright red buldak variations, the carefully arranged toppings]*
 
 ### Making Hell Fun: Beyond the Bowl
 

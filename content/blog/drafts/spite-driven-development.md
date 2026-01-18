@@ -10,6 +10,8 @@ tags:
   - psychology
   - development
   - ethics
+  - fdc/150
+  - fdc/005
 ---
 
 ## Spite-Driven Development: Anger as Creative Fuel

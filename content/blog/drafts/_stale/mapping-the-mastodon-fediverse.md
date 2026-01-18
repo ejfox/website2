@@ -19,7 +19,6 @@ tags:
 ## Mapping The Mastodon Fediverse
 
 ### Questions
-
 - How many Mastodon instances are there?
 - Which instances have the most users?
 - What do the inter-instance networks look like?
@@ -27,7 +26,5 @@ tags:
 - Are there particularly interesting
 
 ### How do we gather our data?
-
 #### How does Mastodon work?
-
 #### How can we automate scraping the info we need?

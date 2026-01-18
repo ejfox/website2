@@ -12,10 +12,9 @@ tags:
 
 tags:
 
-- machinelearning
-- howto
-- tech
-
+  - machinelearning
+  - howto
+  - tech
 ## Why?
 
 ## How?

@@ -9,6 +9,8 @@ tags:
   - patterns
   - visualization
   - data
+  - fdc/005
+  - fdc/519
 ---
 
 ## Dataviz Fingerprints: When Complex Systems Need Simple Signatures

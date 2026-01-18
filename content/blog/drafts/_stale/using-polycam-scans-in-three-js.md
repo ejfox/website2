@@ -26,7 +26,6 @@ Here's how I'm building this ridiculous but delightful experience using Polycam 
 The goal is simple: every piece of gear gets its own spinning 3D model that you can interact with. Think of classic RPG inventories where items rotate in their slots, but instead of fantasy weapons, it's my actual MSR camping stove and Patagonia jacket.
 
 Each item should:
-
 - Spin slowly by default (because spinning things are mesmerizing)
 - Respond to mouse interaction for closer inspection
 - Show gear stats and details on hover or click
@@ -61,7 +60,6 @@ The files are still going to be several megabytes each, so this isn't for dial-u
 The basic idea is straightforward: scan gear with Polycam, export 3D models, display them with Three.js in a grid that feels like a video game inventory. But like most things that sound simple, the devil is in the details.
 
 The main technical hurdles:
-
 - Getting good Polycam scans (lighting, background, scanning technique)
 - Optimizing file sizes for web delivery
 - Setting up Three.js to render multiple models without killing performance
@@ -72,7 +70,6 @@ The main technical hurdles:
 The key to making this feel like an actual RPG inventory rather than just a fancy product showcase:
 
 **RPG-style stats**: Instead of boring product specs, present gear info like game stats:
-
 - Weight: 2.3 lbs
 - Durability: 95/100 (based on wear/age)
 - Temperature Rating: -10°F
@@ -93,7 +90,6 @@ Sometimes the best reason to build something is because it would make you smile 
 ---
 
 **Tools used:**
-
 - [Polycam](https://poly.cam/) for 3D scanning
 - [Three.js](https://threejs.org/) for web 3D rendering
 - [GLTFLoader](https://threejs.org/docs/#examples/en/loaders/GLTFLoader) for model loading

@@ -8,6 +8,9 @@ tags:
 
 ## Ways To Visualize Embeddings
 
+
+
+
 ---
 
 Project Outline: “Exploring Embeddings: A Visual Guide to 20+ Visualization Methods”---1. Introduction

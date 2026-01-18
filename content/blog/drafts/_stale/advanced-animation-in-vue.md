@@ -11,7 +11,6 @@ tags:
 hidden: true
 draft: true
 ---
-
 ## Advanced Animations and Transitions in Vue
 
 ## Properly keying is essential

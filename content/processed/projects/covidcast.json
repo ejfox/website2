@@ -1,71 +1,39 @@
 {
-  "html": "<h2 class=\"\" id=\"the-challenge\">The Challenge</h2>\n<p class=\"\">In April 2020, the public needed to understand COVID-19 spread at the local level—but existing dashboards were either too complex for general audiences or too simplified to be useful. CMU's Delphi research group had the data; they needed ways to make it legible.</p>\n<h2 class=\"\" id=\"what-i-built\">What I Built</h2>\n<p class=\"\">Prototyped interactive visualizations for <a href=\"https://delphi.cmu.edu/epidemic-signals/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">CMU's COVIDcast project</a>, exploring different approaches to showing hospitalization rates, transmission patterns, and movement data across U.S. counties.</p>\n<p class=\"\"><strong class=\"\">Key explorations:</strong></p>\n<ul class=\"list-disc\">\n<li class=\"\">Force-directed county bubbles sized by population, colored by case rates</li>\n<li class=\"\">Time-series animations showing spread patterns</li>\n<li class=\"\">Annotation-friendly layouts for public health communications</li>\n</ul>\n<h2 class=\"\" id=\"technical-approach\">Technical Approach</h2>\n<p class=\"\">Built exploratory prototypes on <a href=\"https://observablehq.com/@ejfox/cmu-covidcast-api-bubbles-textures-for-hand-annotation\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">Observable<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 20q-1.597 0-2.77-.696a4.7 4.7 0 0 1-1.794-1.89a10 10 0 0 1-.916-2.53A13.6 13.6 0 0 1 6.23 12q0-1.149.152-2.2q.15-1.049.556-2.132A6.8 6.8 0 0 1 7.98 5.79a4.7 4.7 0 0 1 1.668-1.293Q10.681 4 12 4q1.597 0 2.77.696a4.7 4.7 0 0 1 1.794 1.89q.627 1.193.916 2.53T17.77 12q0 1.149-.152 2.2a9.8 9.8 0 0 1-.567 2.132a7.2 7.2 0 0 1-1.042 1.878q-.627.796-1.657 1.293q-1.031.498-2.352.497m2.037-5.882c.551-.554.858-1.32.848-2.118q0-1.236-.827-2.118Q13.23 9 12 9t-2.058.882A3 3 0 0 0 9.115 12q0 1.236.827 2.118Q10.77 15 12 15t2.037-.882M12 24c6.372 0 11.538-5.373 11.538-12S18.372 0 12 0S.462 5.373.462 12S5.628 24 12 24\" class=\"\"></path></svg></a>, using D3's force simulation to create bubble layouts where each county is represented proportionally. Color scales mapped daily COVID cases per 100k population.</p>\n<h2 class=\"\" id=\"context\">Context</h2>\n<p class=\"\">Part of a broader effort during the early pandemic to help newsrooms and public health officials visualize uncertainty—work that also informed my <a href=\"https://www.osetinstitute.org/blog/2020/10/20/visualizing-election-uncertainty\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">OSET Institute collaboration</a> on election data visualization.</p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png\" alt=\"\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>",
-  "title": "CMU COVIDcast",
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<p class=\"\">During the early COVID-19 pandemic, I worked with Carnegie Mellon University's <a href=\"https://delphi.cmu.edu/epidemic-signals/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\">COVIDcast project</a>, prototyping data visualizations and user interactions to help the public understand hospitalization, transmission, and movement trends across the country.</p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png\" alt=\"\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_400/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 400w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_800/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 800w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1200/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 1200w\" sizes=\"(min-width: 768px) 80vw, 100vw\" class=\"img-full my-8 rounded-sm w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>",
+  "title": "COVIDcast",
   "metadata": {
-    "title": "CMU COVIDcast",
+    "title": "COVIDcast",
     "date": "2020-04-24T04:00:00.000Z",
     "modified": "2025-08-26T19:53:05.000Z",
     "url": "https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx",
     "tech": [
-      "D3.js",
+      "Data Visualization",
       "JavaScript",
-      "Observable",
-      "Force-Directed Graphs",
-      "Public Health Data"
+      "COVID-19 Data",
+      "Public Health"
     ],
     "state": "deployed",
     "aiInvolvement": "human-only",
-    "industry": [
-      "Public Health",
-      "Academia"
-    ],
-    "client": "Carnegie Mellon University",
     "tags": [
       "covid",
       "dataviz",
       "javascript",
       "health"
     ],
-    "words": 163,
+    "words": 34,
     "images": 1,
     "imageDetails": {
       "total": 1,
       "cloudinary": 1,
       "withDimensions": 0
     },
-    "links": 4,
+    "links": 2,
     "codeBlocks": 0,
-    "headers": {
-      "h2": 4
-    },
-    "toc": [
-      {
-        "text": "The Challenge",
-        "slug": "the-challenge",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "What I Built",
-        "slug": "what-i-built",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Technical Approach",
-        "slug": "technical-approach",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Context",
-        "slug": "context",
-        "level": "h2",
-        "children": []
-      }
-    ],
+    "headers": {},
+    "toc": [],
     "type": "post",
-    "sourcePath": "../../../../../../../data2/website2/content/blog/projects/covidcast.md",
+    "sourcePath": "../../../../../code/website2/content/blog/projects/covidcast.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

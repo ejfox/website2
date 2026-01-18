@@ -9,15 +9,14 @@ tags:
   - cooking
 hidden: true
 ---
-
 ## Cooking
 
-[blog/2022/foo](blog/2022/foo)d]]
+[[blog/2022/food]]
 
-[espress](espress)o]]
+[[espresso]]
 
-Kolaches: [cooking-kolache](cooking-kolache)s]]
+Kolaches: [[cooking-kolaches]]
 
-Ramen: [drafts/\_stale/cooking-ramen-experiment](drafts/_stale/cooking-ramen-experiment)s]]
+Ramen: [[drafts/_stale/cooking-ramen-experiments]]
 
-Seitan: [cooking-seita](cooking-seita)n]]
+Seitan: [[cooking-seitan]]

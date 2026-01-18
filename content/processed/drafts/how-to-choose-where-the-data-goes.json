@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
+  "html": "<h2 class=\"\" id=\"how-do-i-choose-which-type-of-data-to-use\">How do I choose which type of data to use?</h2>\n<ul class=\"list-disc\">\n<li class=\"\"></li>\n</ul>",
+  "title": "How do I choose which type of data to use?",
+  "metadata": {
+    "date": "2025-12-12T17:08:49.000Z",
+    "modified": "2025-12-15T23:58:07.000Z",
+    "tags": [
+      "fdc/005.7"
+    ],
+    "words": 13,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "How do I choose which type of data to use?",
+        "slug": "how-do-i-choose-which-type-of-data-to-use",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post",
+    "sourcePath": "../../../../../code/website2/content/blog/drafts/how-to-choose-where-the-data-goes.md",
+    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+  }
+}

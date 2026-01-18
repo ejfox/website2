@@ -1,4 +1,5 @@
 {
+  "cacheVersion": "2026-01-18-md-class-consolidation-v2",
   "html": "<h2 class=\"\" id=\"building-a-vps-for-business-and-pleasure\">Building A VPS For Business and Pleasure</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Smallweb</li>\n<li class=\"\">Caddy</li>\n<li class=\"\">DNS</li>\n<li class=\"\">Cloudflare Tunnel</li>\n<li class=\"\">PM2</li>\n<li class=\"\">SSH Certificates / Termius</li>\n<li class=\"\">Loki</li>\n<li class=\"\">Grafana</li>\n<li class=\"\">Uptime Kuma</li>\n<li class=\"\">n8n</li>\n</ul>",
   "title": "Building A VPS For Business and Pleasure",
   "metadata": {

@@ -69,15 +69,6 @@ const getWeekNoteDate = (slug) => {
   return date.toISOString()
 }
 
-const fixWikiLinks = (content) =>
-  content
-    .replace(/\[\[([^\]]+)(?!\]\])/g, '[[$1]]')
-    .replace(
-      /\[\[([^\]]+)\]\]/g,
-      (_, p1) =>
-        `[${p1.trim()}](${p1.trim().toLowerCase().replace(/\s+/g, '-')})`
-    )
-
 async function processFile(filePath, isDryRun = false) {
   const relativePath = path.relative(SOURCE_DIR, filePath)
 
@@ -120,7 +111,7 @@ async function processFile(filePath, isDryRun = false) {
       .catch(() => false))
 
     await fs.mkdir(path.dirname(outputPath), { recursive: true })
-    await fs.writeFile(outputPath, fixWikiLinks(content))
+    await fs.writeFile(outputPath, content)
 
     console.log(
       isNew

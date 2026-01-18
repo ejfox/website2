@@ -8,7 +8,7 @@ tags:
   - motorcycle
 ---
 
-[quantified-sel](quantified-sel)f]]
+[[quantified-self]]
 
 ## Motorcycle for personal vehicle
 
@@ -21,3 +21,4 @@ tags:
 ## Avoid air travel
 
 ## Avoid red meat
+

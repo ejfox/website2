@@ -23,7 +23,6 @@ I've been working that way for eleven years now. Every team I run, it's one of t
 Most people use GitHub Issues like a basic bug tracker. GitHub uses Issues as the foundational communication layer for everything:
 
 **Every conversation gets an Issue:**
-
 - New feature ideas
 - Bug reports
 - Questions about architecture
@@ -38,7 +37,6 @@ Most people use GitHub Issues like a basic bug tracker. GitHub uses Issues as th
 Here's what most people miss - Issues aren't just for tracking bugs. They're your project management system:
 
 **Use labels as workflow states:**
-
 - `backlog` - Ideas we might do someday
 - `ready` - Defined and ready to start
 - `in-progress` - Currently being worked on
@@ -52,7 +50,6 @@ Here's what most people miss - Issues aren't just for tracking bugs. They're you
 This is where it gets powerful - every Issue becomes a decision thread:
 
 **Document the why, not just the what:**
-
 - Attach screenshots, mockups, error logs
 - Link to related Issues and PRs
 - Tag people for input (`@username what do you think about…`)
@@ -65,7 +62,6 @@ This is where it gets powerful - every Issue becomes a decision thread:
 After eleven years, I can predict how stressful a project will be just by looking at their GitHub usage:
 
 **Red flags (high stress teams):**
-
 - Empty or generic Issue descriptions
 - No labels or organization system
 - Decision making happens in private Slack/email
@@ -73,7 +69,6 @@ After eleven years, I can predict how stressful a project will be just by lookin
 - No clear workflow states
 
 **Green flags (smooth teams):**
-
 - Detailed Issue descriptions with context
 - Consistent labeling and milestone usage
 - Active discussion in Issue comments
@@ -91,14 +86,12 @@ They treat GitHub like just a code repository instead of a project operating sys
 ### Setting Up the GitHub Way
 
 **Start small:**
-
 1. Create Issue templates for common types (bug, feature, question)
 2. Set up basic labels (backlog, ready, in-progress, review, done)
 3. Use one Project board to visualize your workflow
 4. Connect to your chat app for notifications, and move product decisions out of chat and*onto GitHub with intention* so they are recorded properly
 
 **Build the habit:**
-
 - Every conversation that leads to a decision gets an Issue
 - Every new feature or screen is captured by an issue, somewhere, somehow
 - Link Issues to Pull Requests when you implement

@@ -36,7 +36,7 @@ It's like seeing a well-maintained vintage motorcycle or a properly sharpened kn
 
 ### Coffee as Creative Fuel
 
-I am a big fan of espresso as part of a well-rounded diet, including [drafts/spliff-and-espress](drafts/spliff-and-espress)o]]. But beyond the caffeine, coffee shops became my external brain. Different locations for different kinds of work: the counter at Blue Bottle for quick email responses, the back corner at Madman for longer writing sessions, the communal table somewhere new when I needed to think differently.
+I am a big fan of espresso as part of a well-rounded diet, including [[drafts/spliff-and-espresso]]. But beyond the caffeine, coffee shops became my external brain. Different locations for different kinds of work: the counter at Blue Bottle for quick email responses, the back corner at Madman for longer writing sessions, the communal table somewhere new when I needed to think differently.
 
 The best coffee places understand they're selling more than drinks—they're selling atmosphere, routine, and the social infrastructure that makes creative work possible. The coffee is the entry fee, but the real product is the space to think.
 
