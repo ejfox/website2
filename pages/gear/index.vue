@@ -54,7 +54,7 @@
             {{ sortBy === 'weight' ? 'Weight' : 'Name' }}
           </button>
           <a
-            href="/gear.csv"
+            href="/api/gear-csv"
             download
             class="gear-btn inline-flex-gap-0.5 w-full sm:w-auto"
           >

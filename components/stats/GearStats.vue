@@ -441,7 +441,7 @@ const _conversionsRef = ref<HTMLElement | null>(null)
 // Load gear data and setup animations
 onMounted(async () => {
   try {
-    const response = await fetch('/gear.csv')
+    const response = await fetch('/api/gear-csv')
     const csvText = await response.text()
     gearItems.value = d3.csvParse(csvText) as GearItem[]
   } catch (_error) {
