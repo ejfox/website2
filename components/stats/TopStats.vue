@@ -4,7 +4,7 @@
   @props stats: Object - All statistics data from API
 -->
 <template>
-  <div class="flex flex-wrap justify-between gap-2 sm:gap-2 md:gap-2">
+  <div class="flex flex-wrap justify-center sm:justify-between gap-2">
     <!-- GitHub Contributions -->
     <div
       v-if="stats.github?.stats"
@@ -257,7 +257,8 @@ const postsThisMonth = computed(() => {
 <style scoped>
 /* Subtle top stats card styling - with anime.js custom properties */
 .top-stat-card {
-  @apply text-center p-4 flex-1 min-w-0;
+  @apply text-center p-4 flex-1;
+  min-width: 100px;
   --card-glow: 0%;
   background: radial-gradient(
     circle at center,
