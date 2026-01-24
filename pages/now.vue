@@ -101,6 +101,60 @@ const now = computed(() => {
     }
   }
 
+  // Goodreads currently reading
+  if (stats.value?.goodreads?.currentlyReading?.length) {
+    const book = stats.value.goodreads.currentlyReading[0]
+    result.goodreads = {
+      title: book.title,
+      author: book.author,
+      cover: book.imageUrl,
+      url: book.goodreadsUrl,
+      numPages: book.numPages,
+      totalReading: stats.value.goodreads.currentlyReading.length,
+    }
+  }
+
+  // Duolingo streak
+  if (stats.value?.duolingo?.streak > 0) {
+    result.duolingo = {
+      streak: stats.value.duolingo.streak,
+      currentCourse: stats.value.duolingo.currentCourse?.title,
+      totalXp: stats.value.duolingo.totalXp,
+    }
+  }
+
+  // MonkeyType typing speed
+  if (stats.value?.monkeyType?.typingStats) {
+    const typing = stats.value.monkeyType.typingStats
+    result.typing = {
+      averageWpm: Math.round(typing.averageWpm),
+      bestWpm: Math.round(typing.bestWPM),
+      testsCompleted: typing.testsCompleted,
+    }
+  }
+
+  // LeetCode recent problem
+  if (stats.value?.leetcode?.recentSubmissions?.[0]) {
+    const recent = stats.value.leetcode.recentSubmissions.find(
+      (s) => s.statusDisplay === 'Accepted'
+    )
+    if (recent) {
+      const submissionStats = stats.value.leetcode.submissionStats
+      const totalSolved = submissionStats
+        ? (submissionStats.easy?.count || 0) +
+          (submissionStats.medium?.count || 0) +
+          (submissionStats.hard?.count || 0)
+        : null
+      result.leetcode = {
+        title: recent.title,
+        slug: recent.titleSlug,
+        timestamp: Number(recent.timestamp),
+        lang: recent.lang,
+        totalSolved,
+      }
+    }
+  }
+
   return result
 })
 
@@ -174,8 +228,8 @@ usePageSeo({
         moment.
       </p>
       <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mt-2">
-        Updated {{ nowUpdated }} · sources: GitHub commits, Last.fm, Kindle
-        sync, predictions
+        Updated {{ nowUpdated }} · sources: GitHub, Last.fm, Kindle, Goodreads,
+        predictions
       </div>
     </header>
 
@@ -262,7 +316,7 @@ usePageSeo({
         </a>
       </section>
 
-      <!-- Reading -->
+      <!-- Reading (Kindle) -->
       <section
         v-if="now.reading"
         class="border-b border-zinc-200 dark:border-zinc-800 pb-6"
@@ -294,6 +348,49 @@ usePageSeo({
         </NuxtLink>
       </section>
 
+      <!-- Goodreads Currently Reading -->
+      <section
+        v-if="now.goodreads"
+        class="border-b border-zinc-200 dark:border-zinc-800 pb-6"
+      >
+        <div class="activity-section-label">
+          On My Shelf
+          <span
+            v-if="now.goodreads.totalReading > 1"
+            class="text-zinc-400 dark:text-zinc-600"
+          >
+            · {{ now.goodreads.totalReading }} books
+          </span>
+        </div>
+        <a
+          :href="now.goodreads.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-start gap-4 group"
+        >
+          <img
+            v-if="now.goodreads.cover"
+            :src="now.goodreads.cover"
+            :alt="`Book cover for ${now.goodreads.title}`"
+            class="w-12 h-16 rounded-sm flex-shrink-0 object-cover"
+          />
+          <div class="flex-1 min-w-0">
+            <div class="activity-title-lg line-clamp-2 group-hover:underline">
+              {{ now.goodreads.title }}
+            </div>
+            <div class="font-serif text-sm text-zinc-600 dark:text-zinc-400">
+              {{ now.goodreads.author }}
+            </div>
+            <div
+              v-if="now.goodreads.numPages"
+              class="font-mono text-xs text-zinc-500 mt-1"
+            >
+              {{ now.goodreads.numPages }} pages
+            </div>
+          </div>
+        </a>
+      </section>
+
       <!-- Thinking -->
       <section
         v-if="now.thinking"
@@ -321,7 +418,10 @@ usePageSeo({
       </section>
 
       <!-- Chess -->
-      <section v-if="now.chess" class="pb-6">
+      <section
+        v-if="now.chess"
+        class="border-b border-zinc-200 dark:border-zinc-800 pb-6"
+      >
         <div class="activity-section-label">Chess Rating</div>
         <div class="flex items-baseline gap-2">
           <span class="chess-rating">
@@ -331,6 +431,79 @@ usePageSeo({
             blitz
           </span>
         </div>
+      </section>
+
+      <!-- Duolingo -->
+      <section
+        v-if="now.duolingo"
+        class="border-b border-zinc-200 dark:border-zinc-800 pb-6"
+      >
+        <div class="activity-section-label">Language Learning</div>
+        <div class="flex items-baseline gap-2">
+          <span class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 tabular-nums">
+            {{ now.duolingo.streak }}
+          </span>
+          <span class="font-mono text-xs text-zinc-500 dark:text-zinc-500">
+            day streak
+          </span>
+          <span
+            v-if="now.duolingo.currentCourse"
+            class="font-mono text-xs text-zinc-400 dark:text-zinc-600"
+          >
+            · {{ now.duolingo.currentCourse }}
+          </span>
+        </div>
+      </section>
+
+      <!-- MonkeyType -->
+      <section
+        v-if="now.typing"
+        class="border-b border-zinc-200 dark:border-zinc-800 pb-6"
+      >
+        <div class="activity-section-label">Typing Speed</div>
+        <div class="flex items-baseline gap-3">
+          <div class="flex items-baseline gap-1">
+            <span class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 tabular-nums">
+              {{ now.typing.averageWpm }}
+            </span>
+            <span class="font-mono text-xs text-zinc-500 dark:text-zinc-500">
+              avg wpm
+            </span>
+          </div>
+          <span class="text-zinc-300 dark:text-zinc-700">·</span>
+          <div class="flex items-baseline gap-1">
+            <span class="font-mono text-lg text-zinc-600 dark:text-zinc-400 tabular-nums">
+              {{ now.typing.bestWpm }}
+            </span>
+            <span class="font-mono text-xs text-zinc-500 dark:text-zinc-500">
+              best
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <!-- LeetCode -->
+      <section v-if="now.leetcode" class="pb-6">
+        <div class="activity-section-label">
+          Last LeetCode
+          <span class="text-zinc-400 dark:text-zinc-600">
+            · {{ formatTime(now.leetcode.timestamp) }}
+          </span>
+        </div>
+        <a
+          :href="`https://leetcode.com/problems/${now.leetcode.slug}/`"
+          target="_blank"
+          class="block group"
+        >
+          <div class="activity-title-base group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">
+            {{ now.leetcode.title }}
+          </div>
+          <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mt-1">
+            <span v-if="now.leetcode.lang">{{ now.leetcode.lang }}</span>
+            <span v-if="now.leetcode.lang && now.leetcode.totalSolved"> · </span>
+            <span v-if="now.leetcode.totalSolved">{{ now.leetcode.totalSolved }} solved</span>
+          </div>
+        </a>
       </section>
     </div>
 

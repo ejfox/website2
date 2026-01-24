@@ -479,6 +479,20 @@
               />
             </StatSection>
 
+            <!-- Books -->
+            <StatSection
+              v-if="stats.goodreads?.stats"
+              id="books"
+              key="books-section"
+              title="BOOKS"
+              class="break-inside-avoid"
+            >
+              <GoodreadsStats
+                key="goodreads"
+                :goodreads-stats="stats.goodreads"
+              />
+            </StatSection>
+
             <!-- Analytics -->
             <StatSection
               v-if="stats.website?.stats"
@@ -572,6 +586,7 @@ const loadingSections = [
   { title: 'LANGUAGES', rows: 3 },
   { title: 'MUSIC', rows: 4 },
   { title: 'FILMS', rows: 3 },
+  { title: 'BOOKS', rows: 4 },
   { title: 'ANALYTICS', rows: 3 },
 ]
 const stats = computed(() => rawStats.value)
@@ -1077,6 +1092,7 @@ const statsSections = [
   { id: 'languages', text: 'Languages' },
   { id: 'music', text: 'Music' },
   { id: 'films', text: 'Films' },
+  { id: 'books', text: 'Books' },
   { id: 'website', text: 'Analytics' },
   { id: 'gear', text: 'Gear' },
 ]

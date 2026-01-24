@@ -535,6 +535,46 @@ export interface StatsResponse {
     creationDate: number
     lastUpdated: string
   }
+  goodreads?: {
+    currentlyReading: Array<{
+      id: string
+      title: string
+      author: string
+      rating: number | null
+      averageRating: number | null
+      numPages: number | null
+      dateRead: string | null
+      dateAdded: string | null
+      shelf: string
+      imageUrl: string | null
+      goodreadsUrl: string
+    }>
+    recentlyRead: Array<{
+      id: string
+      title: string
+      author: string
+      rating: number | null
+      averageRating: number | null
+      numPages: number | null
+      dateRead: string | null
+      dateAdded: string | null
+      shelf: string
+      imageUrl: string | null
+      goodreadsUrl: string
+    }>
+    stats: {
+      totalRead: number
+      booksThisYear: number
+      booksThisMonth: number
+      averageRating: number
+      pagesReadThisYear: number
+      currentlyReading: number
+      profileUrl: string
+    }
+    lastUpdated: string
+    source: string
+    error?: string
+  }
 }
 
 export function useStats() {
@@ -573,6 +613,7 @@ export function useStats() {
   const hasRescueTimeData = computed(() => !!stats.value?.rescueTime)
   const hasLastFmData = computed(() => !!stats.value?.lastfm)
   const hasDiscogsData = computed(() => !!stats.value?.discogs?.stats)
+  const hasGoodreadsData = computed(() => !!stats.value?.goodreads?.stats)
 
   return {
     stats,
@@ -588,5 +629,6 @@ export function useStats() {
     hasRescueTimeData,
     hasLastFmData,
     hasDiscogsData,
+    hasGoodreadsData,
   }
 }
