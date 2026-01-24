@@ -10,48 +10,40 @@ import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import { stripHtml, tokenize } from '~/server/utils/text-processing'
 
-// Calculate TF-IDF-like scoring
-function calculateRelevanceScore(
-  searchTerms: string[],
-  content: string,
-  title: string,
-  tags: string[] = []
-): number {
-  const contentTokens = tokenize(content)
-  const titleTokens = tokenize(title)
-  const tagTokens = tags.flatMap((tag) => tokenize(tag))
+const BM25_CONFIG = {
+  k1: 1.5,
+  b: 0.75,
+}
 
+function calculateBm25Score({
+  termFreqs,
+  docFreqs,
+  docLength,
+  avgDocLength,
+  docCount,
+  searchTerms,
+}: {
+  termFreqs: Record<string, number>
+  docFreqs: Record<string, number>
+  docLength: number
+  avgDocLength: number
+  docCount: number
+  searchTerms: string[]
+}): number {
   let score = 0
 
-  searchTerms.forEach((term) => {
-    // Title matches are worth more
-    const titleMatches = titleTokens.filter((token) =>
-      token.includes(term)
-    ).length
-    score += titleMatches * 10
+  for (const term of searchTerms) {
+    const tf = termFreqs[term] || 0
+    if (tf === 0) continue
 
-    // Tag matches are worth more than content
-    const tagMatches = tagTokens.filter((token) => token.includes(term)).length
-    score += tagMatches * 5
+    const df = docFreqs[term] || 0
+    const idf = Math.log(1 + (docCount - df + 0.5) / (df + 0.5))
+    const normalization =
+      BM25_CONFIG.k1 *
+      (1 - BM25_CONFIG.b + BM25_CONFIG.b * (docLength / avgDocLength))
+    const termScore = idf * ((tf * (BM25_CONFIG.k1 + 1)) / (tf + normalization))
 
-    // Content matches
-    const contentMatches = contentTokens.filter((token) =>
-      token.includes(term)
-    ).length
-    score += contentMatches
-
-    // Exact phrase bonus
-    if (content.toLowerCase().includes(term)) {
-      score += 2
-    }
-    if (title.toLowerCase().includes(term)) {
-      score += 5
-    }
-  })
-
-  // Boost for shorter content (density matters)
-  if (contentTokens.length > 0) {
-    score = score / Math.log(contentTokens.length + 1)
+    score += termScore
   }
 
   return score
@@ -116,7 +108,8 @@ export default defineEventHandler(async (event) => {
       }
     }
 
-    const searchTerms = tokenize(searchQuery)
+    const rawTerms = tokenize(searchQuery)
+    const searchTerms = Array.from(new Set(rawTerms))
     if (searchTerms.length === 0) {
       return {
         query: searchQuery,
@@ -141,6 +134,23 @@ export default defineEventHandler(async (event) => {
       words: number
     }
     const results: SearchResult[] = []
+    const docFreqs: Record<string, number> = {}
+    const documents: Array<{
+      title: string
+      slug: string
+      url: string
+      content: string
+      textContent: string
+      tags: string[]
+      date?: string
+      type: string
+      words: number
+      docLength: number
+      termFreqs: Record<string, number>
+      titleTokens: string[]
+      tagTokens: string[]
+    }> = []
+    let totalDocLength = 0
 
     // Function to recursively search directories
     async function searchDirectory(dir: string, basePath = '') {
@@ -173,8 +183,10 @@ export default defineEventHandler(async (event) => {
             const fileContent = await readFile(fullPath, 'utf-8')
             const data = JSON.parse(fileContent)
 
+            const contentSource = data.content || data.html || ''
+
             // Skip if no content, hidden, or private content types
-            if (!data.content || data.metadata?.hidden) continue
+            if (!contentSource || data.metadata?.hidden) continue
 
             // Additional content filtering
             const slug = relativePath.replace('.json', '').replace(/\\/g, '/')
@@ -191,31 +203,52 @@ export default defineEventHandler(async (event) => {
             )
               continue
 
-            const textContent = stripHtml(data.content)
+            const textContent = stripHtml(contentSource)
             const title = data.title || 'Untitled'
-            const tags = data.metadata?.tags || []
+            const tags = Array.isArray(data.metadata?.tags)
+              ? data.metadata?.tags
+              : []
+            const titleTokens = tokenize(title)
+            const tagTokens = tags.flatMap((tag) => tokenize(tag))
+            const contentTokens = tokenize(textContent)
+            const docTokens = [...titleTokens, ...tagTokens, ...contentTokens]
+            const termFreqs: Record<string, number> = {}
+            let hasTermMatch = false
 
-            // Calculate relevance score
-            const score = calculateRelevanceScore(
-              searchTerms,
-              textContent,
-              title,
-              tags
-            )
-
-            if (score > 0) {
-              results.push({
-                title,
-                slug,
-                url: `/blog/${slug}`,
-                snippet: extractSnippet(data.content, searchTerms),
-                score,
-                date: data.metadata?.date,
-                tags: tags.slice(0, 5), // Limit tags shown
-                type: data.metadata?.type || 'post',
-                words: data.metadata?.words || 0,
-              })
+            for (const token of docTokens) {
+              for (const term of searchTerms) {
+                if (!token.includes(term)) continue
+                termFreqs[term] = (termFreqs[term] || 0) + 1
+                hasTermMatch = true
+              }
             }
+
+            if (!hasTermMatch) continue
+
+            for (const term of searchTerms) {
+              if (termFreqs[term]) {
+                docFreqs[term] = (docFreqs[term] || 0) + 1
+              }
+            }
+
+            const docLength = docTokens.length || 1
+            totalDocLength += docLength
+
+            documents.push({
+              title,
+              slug,
+              url: `/blog/${slug}`,
+              content: contentSource,
+              textContent,
+              tags,
+              date: data.metadata?.date,
+              type: data.metadata?.type || 'post',
+              words: data.metadata?.words || 0,
+              docLength,
+              termFreqs,
+              titleTokens,
+              tagTokens,
+            })
           } catch (error) {
             console.error(`Error processing ${fullPath}:`, error)
           }
@@ -224,6 +257,48 @@ export default defineEventHandler(async (event) => {
     }
 
     await searchDirectory(processedDir)
+
+    const docCount = documents.length
+    const avgDocLength = docCount > 0 ? totalDocLength / docCount : 1
+
+    for (const doc of documents) {
+      let score = calculateBm25Score({
+        termFreqs: doc.termFreqs,
+        docFreqs,
+        docLength: doc.docLength,
+        avgDocLength,
+        docCount,
+        searchTerms,
+      })
+
+      // Boost title and tag matches to keep intent obvious
+      for (const term of searchTerms) {
+        const titleMatches = doc.titleTokens.filter((token) =>
+          token.includes(term)
+        ).length
+        const tagMatches = doc.tagTokens.filter((token) =>
+          token.includes(term)
+        ).length
+
+        if (titleMatches > 0) score += titleMatches * 1.5
+        if (tagMatches > 0) score += tagMatches * 1.25
+        if (doc.title.toLowerCase().includes(term)) score += 0.75
+      }
+
+      if (score <= 0) continue
+
+      results.push({
+        title: doc.title,
+        slug: doc.slug,
+        url: doc.url,
+        snippet: extractSnippet(doc.content, searchTerms),
+        score,
+        date: doc.date,
+        tags: doc.tags.slice(0, 5),
+        type: doc.type,
+        words: doc.words,
+      })
+    }
 
     // Sort by relevance score (descending)
     results.sort((a, b) => b.score - a.score)

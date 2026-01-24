@@ -32,6 +32,13 @@
         <NuxtLink to="/consulting" class="text-zinc-500 dark:text-zinc-400">
           Hire Me
         </NuxtLink>
+        <button
+          type="button"
+          class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200"
+          @click="openPalette"
+        >
+          Search <span class="text-xs">⌘K</span>
+        </button>
       </nav>
 
       <!-- Desktop sidebar -->
@@ -105,6 +112,7 @@
     </section>
 
     <UiFooter />
+    <UiCommandPalette />
     <UiWebVitalsReporter />
   </div>
 </template>
@@ -112,9 +120,11 @@
 <script setup>
 import { computed } from 'vue'
 import { getPrimaryNav } from '~/composables/useNavigation'
+import { useCommandPalette } from '~/composables/useCommandPalette'
 
 const route = useRoute()
 const primaryNav = getPrimaryNav()
+const { openPalette } = useCommandPalette()
 
 const isBlogPost = computed(() => {
   return route.path.startsWith('/blog/') && route.path !== '/blog/'
