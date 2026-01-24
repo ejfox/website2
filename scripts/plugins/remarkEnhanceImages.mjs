@@ -67,7 +67,7 @@ function isTransformSegment(segment) {
 function extractCloudinaryInfo(url) {
   const cleanUrl = url.split(/[?#]/)[0]
   const match = cleanUrl.match(
-    /https?:\/\/res\\.cloudinary\\.com\\/([^/]+)\\/image\\/upload\\/(.+)$/i
+    /https?:\/\/res\.cloudinary\.com\/([^/]+)\/image\/upload\/(.+)$/i
   )
   if (!match) return null
 

@@ -102,6 +102,9 @@ const heroImage = computed(() =>
 const articleTags = computed(() => post.value?.metadata?.tags || post.value?.tags || [])
 const articleSection = computed(() => post.value?.metadata?.section || articleTags.value[0] || 'Writing')
 
+// Draft detection
+const isDraft = computed(() => post.value?.metadata?.draft || post.value?.draft)
+
 const publishedDateISO = computed(() => {
   const d = post.value?.metadata?.date || post.value?.date
   if (!d) return undefined
@@ -255,6 +258,11 @@ onMounted(() => {
         :date="post?.metadata?.date || post?.date"
         :stats="readingStats"
       />
+      <!-- Draft banner - inside same container, stacks below metadata -->
+      <div v-if="isDraft" class="draft-banner">
+        <span class="draft-banner-text">DRAFT</span>
+        <span class="draft-banner-subtext">Work in progress · Not for distribution</span>
+      </div>
     </div>
 
     <!-- Reading progress bar -->
@@ -262,7 +270,7 @@ onMounted(() => {
       <div class="progress-inner" :style="`width: ${scrollProgress}%`"></div>
     </div>
 
-    <article v-if="post && !post.redirect" class="h-entry w-full px-4 md:px-8 xl:px-16">
+    <article v-if="post && !post.redirect" :class="['h-entry w-full px-4 md:px-8 xl:px-16', { 'is-draft': isDraft }]">
 
       <!-- Title -->
       <div class="pt-3 pb-2">
@@ -593,5 +601,105 @@ onMounted(() => {
   0%, 40% { opacity: 0.85; }
   50%, 90% { opacity: 0; }
   100% { opacity: 0.85; }
+}
+
+/* ===========================================
+   DRAFT MODE - The Orchestra Effect
+   Banner + Watermark + Typography shift
+   =========================================== */
+
+/* High-contrast minimalist banner */
+.draft-banner {
+  @apply flex items-center justify-center gap-4 py-1.5;
+  background: #fafafa;
+}
+
+@media (prefers-color-scheme: dark) {
+  .draft-banner {
+    background: #18181b;
+    border-bottom-color: #27272a;
+  }
+}
+
+.draft-banner-text {
+  @apply font-mono text-sm font-bold tracking-[0.3em] uppercase;
+  color: #09090b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .draft-banner-text {
+    color: #fafafa;
+  }
+}
+
+.draft-banner-subtext {
+  @apply font-mono text-xs opacity-50;
+  color: #09090b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .draft-banner-subtext {
+    color: #fafafa;
+  }
+}
+
+/* Draft article wrapper - watermark + shifted styles */
+article.is-draft {
+  position: relative;
+  padding-top: 3rem; /* Account for banner */
+}
+
+/* Watermark effect */
+article.is-draft::before {
+  content: 'DRAFT';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  color: rgba(0, 0, 0, 0.03);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+  user-select: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  article.is-draft::before {
+    color: rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* Typography shift: serif → monospace for drafts */
+article.is-draft .blog-post-content {
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace !important;
+}
+
+article.is-draft .blog-post-content p,
+article.is-draft .blog-post-content li {
+  font-family: inherit;
+  letter-spacing: -0.01em;
+}
+
+article.is-draft .blog-post-content h1,
+article.is-draft .blog-post-content h2,
+article.is-draft .blog-post-content h3,
+article.is-draft .blog-post-content h4,
+article.is-draft .blog-post-content h5,
+article.is-draft .blog-post-content h6 {
+  font-family: inherit;
+}
+
+/* Draft title also gets monospace treatment */
+article.is-draft .post-title-hero {
+  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+}
+
+/* Subtle desaturation on draft content */
+article.is-draft .blog-post-content {
+  filter: saturate(0.85);
 }
 </style>
