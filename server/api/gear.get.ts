@@ -10,10 +10,31 @@ import * as d3 from 'd3'
 
 interface GearItem {
   Name?: string
-  Type?: string
-  'Base Weight ()'?: string
+  Weight_oz?: string
   'Parent Container'?: string
+  Type?: string
+  Category?: string
+  Subcategory?: string
+  Priority?: string
+  Waterproof?: string
+  Worn?: string
+  Qty?: string
+  Consumable?: string
+  Star?: string
   Notes?: string
+  Tags?: string
+  Condition?: string
+  Amazon_URL?: string
+  Last_Used?: string
+  Purchase_Date?: string
+  Purchase_Price?: string
+  Photo_URL?: string
+  Scan_3D_URL?: string
+  Serial_Number?: string
+  Model_Number?: string
+  Brand?: string
+  Location_Room?: string
+  Location_Detail?: string
 }
 
 interface GearItemWithSlug extends GearItem {

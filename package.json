@@ -29,6 +29,8 @@
     "kalshi:test": "node scripts/kalshi-test.mjs",
     "kalshi:templates": "node scripts/generate-commentary-templates.mjs",
     "kalshi:calibration": "node scripts/calibration-analysis.mjs",
+    "gear:lint": "node scripts/lint-gear.mjs",
+    "gear:fix": "node scripts/lint-gear.mjs --fix",
     "webmention": "node scripts/send-webmentions.mjs",
     "webmention:dry": "node scripts/send-webmentions.mjs --dry",
     "webmention:all": "node scripts/send-webmentions.mjs --all",
