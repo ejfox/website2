@@ -67,7 +67,11 @@ const relatedPosts = computed(() => {
     .map((p) => {
       const tags = p.metadata?.tags || p.tags || []
       const overlappingTags = tags.filter((t) => currentTags.includes(t))
-      return { post: p, score: overlappingTags.length, overlappingTags }
+      return {
+        post: p,
+        score: overlappingTags.length,
+        overlappingTags,
+      }
     })
     .filter((item) => item.score > 0)
     .sort((a, b) => b.score - a.score)
