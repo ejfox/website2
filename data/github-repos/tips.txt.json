@@ -1,0 +1,75 @@
+{
+  "name": "tips.txt",
+  "description": "Show random tips when you cd into directories",
+  "url": "https://github.com/ejfox/tips.txt",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Shell",
+  "languageColor": "#89e051",
+  "languages": {
+    "Shell": 1599
+  },
+  "diskUsage": 6,
+  "fileTree": {
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 1063
+      },
+      {
+        "path": "README.md",
+        "size": 1129
+      },
+      {
+        "path": "tips.txt.example",
+        "size": 119
+      },
+      {
+        "path": "tips.txt.plugin.zsh",
+        "size": 1599
+      }
+    ],
+    "tree": {
+      "name": "tips.txt",
+      "children": [
+        {
+          "name": "LICENSE",
+          "size": 1063,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 1129,
+          "path": "README.md"
+        },
+        {
+          "name": "tips.txt.example",
+          "size": 119,
+          "path": "tips.txt.example"
+        },
+        {
+          "name": "tips.txt.plugin.zsh",
+          "size": 1599,
+          "path": "tips.txt.plugin.zsh"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 4,
+    "totalSize": 3910
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"tipstxt\">tips.txt</h1>\n<p>shows a random tip when you cd into a directory. pulls from tips.txt files and TODOs in your code.</p>\n<pre><code>💡 TODO: ./src/api.ts:42: // TODO: add rate limiting\n</code></pre>\n<h2 id=\"install\">install</h2>\n<p>oh-my-zsh:</p>\n<pre><code>git clone https://github.com/ejfox/tips.txt ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/tips.txt\n</code></pre>\n<p>add <code>tips.txt</code> to plugins in .zshrc</p>\n<p>manual:</p>\n<pre><code>source ~/path/to/tips.txt.plugin.zsh\n</code></pre>\n<h2 id=\"config\">config</h2>\n<p>all optional. set in .zshrc before loading the plugin.</p>\n<pre><code class=\"language-zsh\">export TIPSTXT_SOURCES=\"tips todos\"    # sources to use (space-separated)\nexport TIPSTXT_ICON=\"💡\"               # prefix icon\nexport TIPSTXT_COLOR=\"90\"              # ansi color (90=dim, 33=yellow, 32=green)\nexport TIPSTXT_TODO_EXTENSIONS=\"js,ts,py,rs,go\"  # file types to scan for todos\nexport TIPSTXT_SHOW_ON_LOAD=\"false\"    # disable tip on shell start\n</code></pre>\n<h2 id=\"usage\">usage</h2>\n<p>drop a tips.txt in any project:</p>\n<pre><code>echo \"run make test before committing\" &gt;&gt; tips.txt\n</code></pre>\n<p>or just let it find your TODOs.</p>\n<p>see <a href=\"tips.txt.example\">tips.txt.example</a> for ideas.</p>\n<h2 id=\"contributing\">contributing</h2>\n<p>it's ~50 lines of zsh. add a source, tweak the colors, whatever. PRs welcome.</p>\n<p>MIT license.</p>",
+    "raw": "# tips.txt\n\nshows a random tip when you cd into a directory. pulls from tips.txt files and TODOs in your code.\n\n```\n💡 TODO: ./src/api.ts:42: // TODO: add rate limiting\n```\n\n## install\n\noh-my-zsh:\n```\ngit clone https://github.com/ejfox/tips.txt ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/tips.txt\n```\nadd `tips.txt` to plugins in .zshrc\n\nmanual:\n```\nsource ~/path/to/tips.txt.plugin.zsh\n```\n\n## config\n\nall optional. set in .zshrc before loading the plugin.\n\n```zsh\nexport TIPSTXT_SOURCES=\"tips todos\"    # sources to use (space-separated)\nexport TIPSTXT_ICON=\"💡\"               # prefix icon\nexport TIPSTXT_COLOR=\"90\"              # ansi color (90=dim, 33=yellow, 32=green)\nexport TIPSTXT_TODO_EXTENSIONS=\"js,ts,py,rs,go\"  # file types to scan for todos\nexport TIPSTXT_SHOW_ON_LOAD=\"false\"    # disable tip on shell start\n```\n\n## usage\n\ndrop a tips.txt in any project:\n```\necho \"run make test before committing\" >> tips.txt\n```\n\nor just let it find your TODOs.\n\nsee [tips.txt.example](tips.txt.example) for ideas.\n\n## contributing\n\nit's ~50 lines of zsh. add a source, tweak the colors, whatever. PRs welcome.\n\nMIT license.\n",
+    "excerpt": "shows a random tip when you cd into a directory. pulls from tips.txt files and TODOs in your code.\n\n\n💡 TODO: ./src/api.ts:42: // TODO: add rate limiting\n\n\n\n\noh..."
+  },
+  "createdAt": "2026-01-24T14:37:09Z",
+  "updatedAt": "2026-01-24T15:02:09Z",
+  "pushedAt": "2026-01-24T15:02:06Z"
+}

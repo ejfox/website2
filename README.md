@@ -117,6 +117,14 @@ CHECK_LINKS=true yarn blog:process  # Link health check
 AUTO_FIX_LINKS=true yarn blog:process  # Auto-fix with archive.org
 ```
 
+## TODO
+
+- Rerun `node scripts/hydrate-cloudinary-cache.mjs` until it reports `0 missing metadata` (it resumes from cache).
+- Investigate remaining `x` failures in the hydrator output (missing assets vs permissions).
+- Document the hydrator runtime/usage and add it to the Commands table once stable.
+- Rerun the hydrator to reduce the remaining ~331 missing entries (current baseline).
+- Clean malformed Cloudinary URLs in markdown (e.g. `...png)![Screenshot`) so they can be hydrated.
+
 ---
 
 MIT License

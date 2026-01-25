@@ -106,23 +106,74 @@ function buildSvgPlaceholder(width, height, primary, secondary) {
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
 }
 
+function hasMeaningfulMeta(meta) {
+  if (!meta || typeof meta !== 'object') return false
+  return Boolean(
+    meta.width ||
+      meta.height ||
+      (Array.isArray(meta.colors) && meta.colors.length > 0) ||
+      meta.avgColor ||
+      meta.secondaryColor
+  )
+}
+
+const limiter = (() => {
+  const queue = []
+  let activeCount = 0
+  let lastStart = 0
+  const concurrency = 3
+  const minTime = 150
+
+  const schedule = (task) =>
+    new Promise((resolve, reject) => {
+      queue.push({ task, resolve, reject })
+      runNext()
+    })
+
+  const runNext = () => {
+    if (activeCount >= concurrency || queue.length === 0) return
+    const now = Date.now()
+    const wait = Math.max(0, minTime - (now - lastStart))
+
+    const { task, resolve, reject } = queue.shift()
+    activeCount += 1
+    lastStart = now + wait
+
+    setTimeout(async () => {
+      try {
+        const result = await task()
+        resolve(result)
+      } catch (error) {
+        reject(error)
+      } finally {
+        activeCount -= 1
+        runNext()
+      }
+    }, wait)
+  }
+
+  return schedule
+})()
+
 async function fetchCloudinaryMeta(url, cache) {
-  if (cache[url]) return cache[url]
+  if (hasMeaningfulMeta(cache[url])) return cache[url]
   const infoUrl = buildGetInfoUrl(url)
   if (!infoUrl) return null
 
   try {
-    const res = await fetch(infoUrl)
+    const res = await limiter(() => fetch(infoUrl))
     if (!res.ok) return null
     const json = await res.json()
-    const palette = pickPalette(json.colors)
+    const colors = json.colors || json.output?.colors || null
+    const palette = pickPalette(colors)
     const meta = {
-      width: json.width || null,
-      height: json.height || null,
-      colors: json.colors || null,
+      width: json.output?.width || json.input?.width || null,
+      height: json.output?.height || json.input?.height || null,
+      colors,
       avgColor: palette?.primary || null,
       secondaryColor: palette?.secondary || null,
     }
+    if (!hasMeaningfulMeta(meta)) return null
     cache[url] = meta
     await saveCache(cache)
     return meta

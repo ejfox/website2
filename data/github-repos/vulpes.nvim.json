@@ -12,12 +12,12 @@
   "language": "Lua",
   "languageColor": "#000080",
   "languages": {
-    "Lua": 28388,
+    "Lua": 28753,
     "Vim Script": 2524,
     "GLSL": 2499,
     "Shell": 1466
   },
-  "diskUsage": 46,
+  "diskUsage": 47,
   "fileTree": {
     "files": [
       {
@@ -110,7 +110,7 @@
       },
       {
         "path": "lua/vulpes/palette.lua",
-        "size": 3588
+        "size": 3953
       },
       {
         "path": "stylua.toml",
@@ -254,7 +254,7 @@
                 },
                 {
                   "name": "palette.lua",
-                  "size": 3588,
+                  "size": 3953,
                   "path": "lua/vulpes/palette.lua"
                 }
               ],
@@ -292,7 +292,7 @@
       "path": ""
     },
     "totalFiles": 24,
-    "totalSize": 65367
+    "totalSize": 65732
   },
   "topics": [],
   "readme": {
@@ -301,6 +301,6 @@
     "excerpt": "A cyberpunk neon single-color(ish) scheme for Neovim (and many other TUIs) that tries to find a balance between vibes and utility.\n\n<img width=\"1800\" height=\"11..."
   },
   "createdAt": "2026-01-02T03:14:29Z",
-  "updatedAt": "2026-01-02T03:49:20Z",
-  "pushedAt": "2026-01-02T03:49:17Z"
+  "updatedAt": "2026-01-18T16:03:28Z",
+  "pushedAt": "2026-01-18T16:03:25Z"
 }

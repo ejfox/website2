@@ -12,14 +12,14 @@
   "language": "Swift",
   "languageColor": "#F05138",
   "languages": {
-    "Swift": 191912,
+    "Swift": 207212,
     "Zig": 54033,
     "Metal": 11675,
     "C": 8924,
     "GLSL": 8399,
     "Shell": 1115
   },
-  "diskUsage": 349,
+  "diskUsage": 370,
   "fileTree": {
     "files": [
       {
@@ -32,7 +32,7 @@
       },
       {
         "path": "ENGINEERING.md",
-        "size": 21314
+        "size": 21413
       },
       {
         "path": "README.md",
@@ -56,7 +56,7 @@
       },
       {
         "path": "app/MainWindow.swift",
-        "size": 16829
+        "size": 19532
       },
       {
         "path": "app/MetalView+HintMode.swift",
@@ -64,7 +64,7 @@
       },
       {
         "path": "app/MetalView+LinkNavigation.swift",
-        "size": 2450
+        "size": 2179
       },
       {
         "path": "app/MetalView+ParticleSystem.swift",
@@ -76,7 +76,7 @@
       },
       {
         "path": "app/MetalView+Scrolling.swift",
-        "size": 894
+        "size": 3308
       },
       {
         "path": "app/MetalView+Setup.swift",
@@ -88,15 +88,15 @@
       },
       {
         "path": "app/MetalView+TextRendering.swift",
-        "size": 18628
+        "size": 20369
       },
       {
         "path": "app/MetalView+URLLoading.swift",
-        "size": 6297
+        "size": 12955
       },
       {
         "path": "app/MetalView.swift",
-        "size": 21367
+        "size": 21635
       },
       {
         "path": "app/NavigationHistory.swift",
@@ -128,11 +128,11 @@
       },
       {
         "path": "app/VulpesBridge.swift",
-        "size": 5292
+        "size": 6409
       },
       {
         "path": "app/VulpesConfig.swift",
-        "size": 10791
+        "size": 11461
       },
       {
         "path": "build.zig",
@@ -335,7 +335,7 @@
             },
             {
               "name": "MainWindow.swift",
-              "size": 16829,
+              "size": 19532,
               "path": "app/MainWindow.swift"
             },
             {
@@ -345,7 +345,7 @@
             },
             {
               "name": "MetalView+LinkNavigation.swift",
-              "size": 2450,
+              "size": 2179,
               "path": "app/MetalView+LinkNavigation.swift"
             },
             {
@@ -360,7 +360,7 @@
             },
             {
               "name": "MetalView+Scrolling.swift",
-              "size": 894,
+              "size": 3308,
               "path": "app/MetalView+Scrolling.swift"
             },
             {
@@ -375,17 +375,17 @@
             },
             {
               "name": "MetalView+TextRendering.swift",
-              "size": 18628,
+              "size": 20369,
               "path": "app/MetalView+TextRendering.swift"
             },
             {
               "name": "MetalView+URLLoading.swift",
-              "size": 6297,
+              "size": 12955,
               "path": "app/MetalView+URLLoading.swift"
             },
             {
               "name": "MetalView.swift",
-              "size": 21367,
+              "size": 21635,
               "path": "app/MetalView.swift"
             },
             {
@@ -425,12 +425,12 @@
             },
             {
               "name": "VulpesBridge.swift",
-              "size": 5292,
+              "size": 6409,
               "path": "app/VulpesBridge.swift"
             },
             {
               "name": "VulpesConfig.swift",
-              "size": 10791,
+              "size": 11461,
               "path": "app/VulpesConfig.swift"
             }
           ],
@@ -725,7 +725,7 @@
         },
         {
           "name": "ENGINEERING.md",
-          "size": 21314,
+          "size": 21413,
           "path": "ENGINEERING.md"
         },
         {
@@ -747,7 +747,7 @@
       "path": ""
     },
     "totalFiles": 71,
-    "totalSize": 601438
+    "totalSize": 616837
   },
   "topics": [],
   "readme": {
@@ -756,6 +756,6 @@
     "excerpt": "A minimalist, keyboard-first web browser for macOS. Built with Zig, Swift, and Metal.\n\n> Beta Release - This is early software. Expect rough edges.\n\n\n\nDownload..."
   },
   "createdAt": "2025-12-29T04:31:30Z",
-  "updatedAt": "2026-01-15T23:12:19Z",
-  "pushedAt": "2026-01-15T23:12:15Z"
+  "updatedAt": "2026-01-20T19:11:08Z",
+  "pushedAt": "2026-01-20T19:11:03Z"
 }

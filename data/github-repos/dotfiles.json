@@ -12,15 +12,15 @@
   "language": "Shell",
   "languageColor": "#89e051",
   "languages": {
-    "Shell": 280192,
+    "Shell": 291463,
     "GLSL": 176199,
-    "Lua": 123408,
+    "Lua": 126106,
     "Vim Script": 83725,
     "JavaScript": 8622,
     "Less": 2089,
     "CSS": 1367
   },
-  "diskUsage": 63213,
+  "diskUsage": 60943,
   "fileTree": {
     "files": [
       {
@@ -193,7 +193,7 @@
       },
       {
         "path": ".config/ghostty/config",
-        "size": 2412
+        "size": 3593
       },
       {
         "path": ".config/ghostty/shaders/Readme.md",
@@ -541,11 +541,11 @@
       },
       {
         "path": ".config/nvim/colors/vulpes-reddishnovember-dark.lua",
-        "size": 19990
+        "size": 20805
       },
       {
         "path": ".config/nvim/colors/vulpes-reddishnovember-light.lua",
-        "size": 18463
+        "size": 20005
       },
       {
         "path": ".config/nvim/colors/vulpes_greenish_dark.lua",
@@ -577,7 +577,7 @@
       },
       {
         "path": ".config/nvim/lazy-lock.json",
-        "size": 5831
+        "size": 6012
       },
       {
         "path": ".config/nvim/lazyvim.json",
@@ -625,7 +625,7 @@
       },
       {
         "path": ".config/nvim/lua/plugins/claude-code-workflow.lua",
-        "size": 2794
+        "size": 1805
       },
       {
         "path": ".config/nvim/lua/plugins/colorscheme.lua",
@@ -657,15 +657,15 @@
       },
       {
         "path": ".config/nvim/lua/plugins/mini-diff.lua",
-        "size": 993
+        "size": 1239
       },
       {
         "path": ".config/nvim/lua/plugins/minimal-git.lua",
-        "size": 2159
+        "size": 1985
       },
       {
         "path": ".config/nvim/lua/plugins/minimal-statusline.lua",
-        "size": 4960
+        "size": 4518
       },
       {
         "path": ".config/nvim/lua/plugins/minimal-telescope.lua",
@@ -692,12 +692,16 @@
         "size": 1608
       },
       {
+        "path": ".config/nvim/lua/plugins/oil-git-status.lua",
+        "size": 1219
+      },
+      {
         "path": ".config/nvim/lua/plugins/oil.lua",
-        "size": 2048
+        "size": 2159
       },
       {
         "path": ".config/nvim/lua/plugins/snacks.lua",
-        "size": 7158
+        "size": 7528
       },
       {
         "path": ".config/nvim/lua/plugins/surround.lua",
@@ -956,14 +960,6 @@
         "size": 2986
       },
       {
-        "path": ".docker/config.json",
-        "size": 37
-      },
-      {
-        "path": ".electrum/config",
-        "size": 349
-      },
-      {
         "path": ".gitattributes",
         "size": 66
       },
@@ -972,8 +968,12 @@
         "size": 1155
       },
       {
+        "path": ".githooks/pre-commit",
+        "size": 5701
+      },
+      {
         "path": ".gitignore",
-        "size": 407
+        "size": 2487
       },
       {
         "path": ".gitmodules",
@@ -992,10 +992,6 @@
         "size": 1360
       },
       {
-        "path": ".httpie/config.json",
-        "size": 176
-      },
-      {
         "path": ".irssi/config",
         "size": 10320
       },
@@ -1010,10 +1006,6 @@
       {
         "path": ".mbsyncrc",
         "size": 472
-      },
-      {
-        "path": ".netrc",
-        "size": 190
       },
       {
         "path": ".nuxtrc",
@@ -1061,7 +1053,7 @@
       },
       {
         "path": ".tmux.conf",
-        "size": 9462
+        "size": 9475
       },
       {
         "path": ".tweakcc-apply.sh",
@@ -1132,6 +1124,10 @@
         "size": 3103
       },
       {
+        "path": "bin/dotfiles-audit",
+        "size": 5557
+      },
+      {
         "path": "bin/morning-ritual",
         "size": 15561
       },
@@ -1173,7 +1169,7 @@
       },
       {
         "path": "tips.txt",
-        "size": 18482
+        "size": 18337
       },
       {
         "path": "vulpes-reddish2-dark-tmux.tmux.conf",
@@ -1824,7 +1820,7 @@
                 },
                 {
                   "name": "config",
-                  "size": 2412,
+                  "size": 3593,
                   "path": ".config/ghostty/config"
                 }
               ],
@@ -1914,12 +1910,12 @@
                   "children": [
                     {
                       "name": "vulpes-reddishnovember-dark.lua",
-                      "size": 19990,
+                      "size": 20805,
                       "path": ".config/nvim/colors/vulpes-reddishnovember-dark.lua"
                     },
                     {
                       "name": "vulpes-reddishnovember-light.lua",
-                      "size": 18463,
+                      "size": 20005,
                       "path": ".config/nvim/colors/vulpes-reddishnovember-light.lua"
                     },
                     {
@@ -2025,7 +2021,7 @@
                         },
                         {
                           "name": "claude-code-workflow.lua",
-                          "size": 2794,
+                          "size": 1805,
                           "path": ".config/nvim/lua/plugins/claude-code-workflow.lua"
                         },
                         {
@@ -2065,17 +2061,17 @@
                         },
                         {
                           "name": "mini-diff.lua",
-                          "size": 993,
+                          "size": 1239,
                           "path": ".config/nvim/lua/plugins/mini-diff.lua"
                         },
                         {
                           "name": "minimal-git.lua",
-                          "size": 2159,
+                          "size": 1985,
                           "path": ".config/nvim/lua/plugins/minimal-git.lua"
                         },
                         {
                           "name": "minimal-statusline.lua",
-                          "size": 4960,
+                          "size": 4518,
                           "path": ".config/nvim/lua/plugins/minimal-statusline.lua"
                         },
                         {
@@ -2109,13 +2105,18 @@
                           "path": ".config/nvim/lua/plugins/obsidian.lua"
                         },
                         {
+                          "name": "oil-git-status.lua",
+                          "size": 1219,
+                          "path": ".config/nvim/lua/plugins/oil-git-status.lua"
+                        },
+                        {
                           "name": "oil.lua",
-                          "size": 2048,
+                          "size": 2159,
                           "path": ".config/nvim/lua/plugins/oil.lua"
                         },
                         {
                           "name": "snacks.lua",
-                          "size": 7158,
+                          "size": 7528,
                           "path": ".config/nvim/lua/plugins/snacks.lua"
                         },
                         {
@@ -2201,7 +2202,7 @@
                 },
                 {
                   "name": "lazy-lock.json",
-                  "size": 5831,
+                  "size": 6012,
                   "path": ".config/nvim/lazy-lock.json"
                 },
                 {
@@ -2572,26 +2573,15 @@
           "path": ".config"
         },
         {
-          "name": ".docker",
+          "name": ".githooks",
           "children": [
             {
-              "name": "config.json",
-              "size": 37,
-              "path": ".docker/config.json"
+              "name": "pre-commit",
+              "size": 5701,
+              "path": ".githooks/pre-commit"
             }
           ],
-          "path": ".docker"
-        },
-        {
-          "name": ".electrum",
-          "children": [
-            {
-              "name": "config",
-              "size": 349,
-              "path": ".electrum/config"
-            }
-          ],
-          "path": ".electrum"
+          "path": ".githooks"
         },
         {
           "name": ".gnupg",
@@ -2613,17 +2603,6 @@
             }
           ],
           "path": ".gnupg"
-        },
-        {
-          "name": ".httpie",
-          "children": [
-            {
-              "name": "config.json",
-              "size": 176,
-              "path": ".httpie/config.json"
-            }
-          ],
-          "path": ".httpie"
         },
         {
           "name": ".irssi",
@@ -2742,6 +2721,11 @@
               "path": "bin/ai-commit"
             },
             {
+              "name": "dotfiles-audit",
+              "size": 5557,
+              "path": "bin/dotfiles-audit"
+            },
+            {
               "name": "morning-ritual",
               "size": 15561,
               "path": "bin/morning-ritual"
@@ -2833,7 +2817,7 @@
         },
         {
           "name": ".gitignore",
-          "size": 407,
+          "size": 2487,
           "path": ".gitignore"
         },
         {
@@ -2850,11 +2834,6 @@
           "name": ".mbsyncrc",
           "size": 472,
           "path": ".mbsyncrc"
-        },
-        {
-          "name": ".netrc",
-          "size": 190,
-          "path": ".netrc"
         },
         {
           "name": ".nuxtrc",
@@ -2883,7 +2862,7 @@
         },
         {
           "name": ".tmux.conf",
-          "size": 9462,
+          "size": 9475,
           "path": ".tmux.conf"
         },
         {
@@ -2958,7 +2937,7 @@
         },
         {
           "name": "tips.txt",
-          "size": 18482,
+          "size": 18337,
           "path": "tips.txt"
         },
         {
@@ -2974,8 +2953,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 290,
-    "totalSize": 20298653
+    "totalFiles": 289,
+    "totalSize": 20315167
   },
   "topics": [],
   "readme": {
@@ -2984,6 +2963,6 @@
     "excerpt": "Minimalist terminal configuration focused on functional beauty, speed-of-thought workflows, and distraction-free computing.\n\n\n- Geometric symbols throughout int..."
   },
   "createdAt": "2019-04-07T22:09:55Z",
-  "updatedAt": "2026-01-16T20:18:45Z",
-  "pushedAt": "2026-01-16T20:18:39Z"
+  "updatedAt": "2026-01-24T17:09:28Z",
+  "pushedAt": "2026-01-24T17:09:22Z"
 }

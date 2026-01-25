@@ -41,8 +41,8 @@ function isValidSlug(slug: string): boolean {
   // Reject slugs with null bytes or other control characters
   // eslint-disable-next-line no-control-regex
   if (/[\x00-\x1F\x7F]/.test(slug)) return false
-  // Only allow alphanumeric, hyphens, underscores, forward slashes
-  if (!/^[\w\-/]+$/.test(slug)) return false
+  // Allow letters/numbers plus common punctuation seen in reading slugs
+  if (!/^[\p{L}\p{N}_\-\/ .,'’&()]+$/u.test(slug)) return false
   return true
 }
 
@@ -55,9 +55,18 @@ export default defineEventHandler(async (event) => {
   // console.log('API: Request received:', event.context.params)
 
   try {
-    const slug = Array.isArray(event.context.params?.slug)
+    const rawSlug = Array.isArray(event.context.params?.slug)
       ? event.context.params.slug.join('/')
       : event.context.params?.slug
+
+    const slug = (() => {
+      if (!rawSlug) return rawSlug
+      try {
+        return decodeURIComponent(rawSlug)
+      } catch {
+        return rawSlug
+      }
+    })()
 
     if (!slug) {
       throw new Error('Missing slug parameter')

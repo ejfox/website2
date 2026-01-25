@@ -9,207 +9,67 @@
     "watchers": 0,
     "openIssues": 0
   },
-  "language": "Vue",
-  "languageColor": "#41b883",
+  "language": "TypeScript",
+  "languageColor": "#3178c6",
   "languages": {
-    "Vue": 11391,
-    "TypeScript": 2104,
-    "JavaScript": 785
+    "TypeScript": 19096
   },
-  "diskUsage": 122,
+  "diskUsage": 129,
   "fileTree": {
     "files": [
       {
-        "path": ".gitignore",
-        "size": 193
+        "path": ".env.example",
+        "size": 149
       },
       {
-        "path": "DEPLOY.md",
-        "size": 1488
+        "path": ".gitignore",
+        "size": 20
       },
       {
         "path": "README.md",
-        "size": 822
+        "size": 881
       },
       {
-        "path": "app/app.vue",
-        "size": 651
-      },
-      {
-        "path": "components/AudioPlayer.vue",
-        "size": 4907
-      },
-      {
-        "path": "components/MusicPlayer.vue",
-        "size": 5833
-      },
-      {
-        "path": "ecosystem.config.js",
-        "size": 308
-      },
-      {
-        "path": "nuxt.config.ts",
-        "size": 616
-      },
-      {
-        "path": "package-lock.json",
-        "size": 513395
-      },
-      {
-        "path": "package.json",
-        "size": 858
-      },
-      {
-        "path": "public/favicon.ico",
-        "size": 4286
-      },
-      {
-        "path": "public/robots.txt",
-        "size": 24
-      },
-      {
-        "path": "public/tracks.json",
-        "size": 6911
-      },
-      {
-        "path": "server/api/tracks.get.ts",
-        "size": 1488
-      },
-      {
-        "path": "tailwind.config.js",
-        "size": 477
-      },
-      {
-        "path": "tsconfig.json",
-        "size": 320
+        "path": "main.ts",
+        "size": 19096
       }
     ],
     "tree": {
       "name": "music-player",
       "children": [
         {
-          "name": "app",
-          "children": [
-            {
-              "name": "app.vue",
-              "size": 651,
-              "path": "app/app.vue"
-            }
-          ],
-          "path": "app"
-        },
-        {
-          "name": "components",
-          "children": [
-            {
-              "name": "AudioPlayer.vue",
-              "size": 4907,
-              "path": "components/AudioPlayer.vue"
-            },
-            {
-              "name": "MusicPlayer.vue",
-              "size": 5833,
-              "path": "components/MusicPlayer.vue"
-            }
-          ],
-          "path": "components"
-        },
-        {
-          "name": "public",
-          "children": [
-            {
-              "name": "favicon.ico",
-              "size": 4286,
-              "path": "public/favicon.ico"
-            },
-            {
-              "name": "robots.txt",
-              "size": 24,
-              "path": "public/robots.txt"
-            },
-            {
-              "name": "tracks.json",
-              "size": 6911,
-              "path": "public/tracks.json"
-            }
-          ],
-          "path": "public"
-        },
-        {
-          "name": "server",
-          "children": [
-            {
-              "name": "api",
-              "children": [
-                {
-                  "name": "tracks.get.ts",
-                  "size": 1488,
-                  "path": "server/api/tracks.get.ts"
-                }
-              ],
-              "path": "server/api"
-            }
-          ],
-          "path": "server"
+          "name": ".env.example",
+          "size": 149,
+          "path": ".env.example"
         },
         {
           "name": ".gitignore",
-          "size": 193,
+          "size": 20,
           "path": ".gitignore"
         },
         {
-          "name": "DEPLOY.md",
-          "size": 1488,
-          "path": "DEPLOY.md"
-        },
-        {
           "name": "README.md",
-          "size": 822,
+          "size": 881,
           "path": "README.md"
         },
         {
-          "name": "ecosystem.config.js",
-          "size": 308,
-          "path": "ecosystem.config.js"
-        },
-        {
-          "name": "nuxt.config.ts",
-          "size": 616,
-          "path": "nuxt.config.ts"
-        },
-        {
-          "name": "package-lock.json",
-          "size": 513395,
-          "path": "package-lock.json"
-        },
-        {
-          "name": "package.json",
-          "size": 858,
-          "path": "package.json"
-        },
-        {
-          "name": "tailwind.config.js",
-          "size": 477,
-          "path": "tailwind.config.js"
-        },
-        {
-          "name": "tsconfig.json",
-          "size": 320,
-          "path": "tsconfig.json"
+          "name": "main.ts",
+          "size": 19096,
+          "path": "main.ts"
         }
       ],
       "path": ""
     },
-    "totalFiles": 16,
-    "totalSize": 542577
+    "totalFiles": 4,
+    "totalSize": 20146
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"nuxt-minimal-starter\">Nuxt Minimal Starter</h1>\n<p>Look at the <a href=\"https://nuxt.com/docs/getting-started/introduction\">Nuxt documentation</a> to learn more.</p>\n<h2 id=\"setup\">Setup</h2>\n<p>Make sure to install dependencies:</p>\n<pre><code class=\"language-bash\"># npm\nnpm install\n\n# pnpm\npnpm install\n\n# yarn\nyarn install\n\n# bun\nbun install\n</code></pre>\n<h2 id=\"development-server\">Development Server</h2>\n<p>Start the development server on <code>http://localhost:3000</code>:</p>\n<pre><code class=\"language-bash\"># npm\nnpm run dev\n\n# pnpm\npnpm dev\n\n# yarn\nyarn dev\n\n# bun\nbun run dev\n</code></pre>\n<h2 id=\"production\">Production</h2>\n<p>Build the application for production:</p>\n<pre><code class=\"language-bash\"># npm\nnpm run build\n\n# pnpm\npnpm build\n\n# yarn\nyarn build\n\n# bun\nbun run build\n</code></pre>\n<p>Locally preview production build:</p>\n<pre><code class=\"language-bash\"># npm\nnpm run preview\n\n# pnpm\npnpm preview\n\n# yarn\nyarn preview\n\n# bun\nbun run preview\n</code></pre>\n<p>Check out the <a href=\"https://nuxt.com/docs/getting-started/deployment\">deployment documentation</a> for more information.</p>",
-    "raw": "# Nuxt Minimal Starter\n\nLook at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.\n\n## Setup\n\nMake sure to install dependencies:\n\n```bash\n# npm\nnpm install\n\n# pnpm\npnpm install\n\n# yarn\nyarn install\n\n# bun\nbun install\n```\n\n## Development Server\n\nStart the development server on `http://localhost:3000`:\n\n```bash\n# npm\nnpm run dev\n\n# pnpm\npnpm dev\n\n# yarn\nyarn dev\n\n# bun\nbun run dev\n```\n\n## Production\n\nBuild the application for production:\n\n```bash\n# npm\nnpm run build\n\n# pnpm\npnpm build\n\n# yarn\nyarn build\n\n# bun\nbun run build\n```\n\nLocally preview production build:\n\n```bash\n# npm\nnpm run preview\n\n# pnpm\npnpm preview\n\n# yarn\nyarn preview\n\n# bun\nbun run preview\n```\n\nCheck out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.\n",
-    "excerpt": "Look at the Nuxt documentation to learn more.\n\n\n\nMake sure to install dependencies:\n\nbash\n\nnpm install\n\n\npnpm install\n\n\nyarn install\n\n\nbun install\n\n\n\n\nStart the..."
+    "html": "<h1 id=\"music\">music</h1>\n<p>A minimal music player for Cloudflare R2-hosted MP3s. Built for <a href=\"https://smallweb.run\">smallweb</a>.</p>\n<p>Live: <a href=\"https://music.ejfox.com\">https://music.ejfox.com</a></p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Lists MP3s from R2 bucket</li>\n<li>Real-time audio visualizer</li>\n<li>Unicode waveform display (crowdsourced from clients)</li>\n<li>Keyboard shortcuts: <code>space</code> play/pause, <code>n</code> next, <code>p</code> prev, <code>s</code> shuffle</li>\n<li>Shareable track URLs</li>\n</ul>\n<h2 id=\"setup\">Setup</h2>\n<pre><code class=\"language-bash\">cp .env.example .env\n# Edit .env with your R2 credentials\n</code></pre>\n<h2 id=\"environment-variables\">Environment Variables</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Variable</th><th>Description</th></tr></thead><tbody><tr><td><code>R2_ACCOUNT_ID</code></td><td>Cloudflare account ID</td></tr><tr><td><code>R2_ACCESS_KEY_ID</code></td><td>R2 API access key</td></tr><tr><td><code>R2_SECRET_ACCESS_KEY</code></td><td>R2 API secret key</td></tr><tr><td><code>R2_BUCKET_NAME</code></td><td>R2 bucket name (default: <code>ejfox-personal</code>)</td></tr></tbody></table>\n<h2 id=\"run\">Run</h2>\n<pre><code class=\"language-bash\">deno run --allow-net --allow-env --allow-read --allow-write main.ts\n</code></pre>\n<p>Or with smallweb, just drop in a folder and set env vars in <code>.env</code>.</p>",
+    "raw": "# music\n\nA minimal music player for Cloudflare R2-hosted MP3s. Built for [smallweb](https://smallweb.run).\n\nLive: https://music.ejfox.com\n\n## Features\n\n- Lists MP3s from R2 bucket\n- Real-time audio visualizer\n- Unicode waveform display (crowdsourced from clients)\n- Keyboard shortcuts: `space` play/pause, `n` next, `p` prev, `s` shuffle\n- Shareable track URLs\n\n## Setup\n\n```bash\ncp .env.example .env\n# Edit .env with your R2 credentials\n```\n\n## Environment Variables\n\n| Variable | Description |\n|----------|-------------|\n| `R2_ACCOUNT_ID` | Cloudflare account ID |\n| `R2_ACCESS_KEY_ID` | R2 API access key |\n| `R2_SECRET_ACCESS_KEY` | R2 API secret key |\n| `R2_BUCKET_NAME` | R2 bucket name (default: `ejfox-personal`) |\n\n## Run\n\n```bash\ndeno run --allow-net --allow-env --allow-read --allow-write main.ts\n```\n\nOr with smallweb, just drop in a folder and set env vars in `.env`.\n",
+    "excerpt": "A minimal music player for Cloudflare R2-hosted MP3s. Built for smallweb.\n\nLive: https://music.ejfox.com\n\n\n\n- Lists MP3s from R2 bucket\n- Real-time audio visual..."
   },
   "createdAt": "2025-09-23T13:58:12Z",
-  "updatedAt": "2025-09-23T13:58:19Z",
-  "pushedAt": "2025-09-23T13:58:16Z"
+  "updatedAt": "2026-01-24T13:11:33Z",
+  "pushedAt": "2026-01-24T13:11:30Z"
 }
