@@ -2,17 +2,17 @@
   "books": {
     "currentlyReading": [
       {
-        "title": "Almost a Miracle: The American Victory in the War of Independence",
-        "author": "John Ferling",
+        "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+        "author": "Yuval Noah Harari",
         "rating": null,
         "shelf": "currently-reading",
-        "link": "https://www.goodreads.com/review/show/8152592862?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1479228618l/9464244._SY475_.jpg",
-        "dateAdded": "2025-12-17T04:20:24.000Z",
-        "dateRead": "2025-12-17T04:20:24.000Z",
-        "bookId": "9464244",
-        "numPages": 693,
-        "pubYear": 2007
+        "link": "https://www.goodreads.com/review/show/7755658751?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1709986452l/204927599._SY475_.jpg",
+        "dateAdded": "2026-01-24T23:38:36.000Z",
+        "dateRead": "2025-07-20T18:24:08.000Z",
+        "bookId": "204927599",
+        "numPages": 528,
+        "pubYear": 2024
       },
       {
         "title": "Consent Laid Bare: Sex, Entitlement & the Distortion of Desire",
@@ -21,7 +21,7 @@
         "shelf": "currently-reading",
         "link": "https://www.goodreads.com/review/show/8129763721?utm_medium=api&utm_source=rss",
         "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1687736452l/174992245._SX318_.jpg",
-        "dateAdded": "2025-12-08T03:27:24.000Z",
+        "dateAdded": "2026-01-24T23:38:27.000Z",
         "dateRead": "2025-12-08T03:27:23.000Z",
         "bookId": "174992245",
         "numPages": 271,
@@ -41,19 +41,6 @@
         "pubYear": 2025
       },
       {
-        "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
-        "author": "Yuval Noah Harari",
-        "rating": null,
-        "shelf": "currently-reading",
-        "link": "https://www.goodreads.com/review/show/7755658751?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1709986452l/204927599._SY475_.jpg",
-        "dateAdded": "2025-10-31T17:46:19.000Z",
-        "dateRead": "2025-07-20T18:24:08.000Z",
-        "bookId": "204927599",
-        "numPages": 528,
-        "pubYear": 2024
-      },
-      {
         "title": "Tracers in the Dark: The Global Hunt for the Crime Lords of Cryptocurrency",
         "author": "Andy Greenberg",
         "rating": null,
@@ -65,19 +52,6 @@
         "bookId": "60808316",
         "numPages": 512,
         "pubYear": null
-      },
-      {
-        "title": "Grokking Algorithms, Second Edition",
-        "author": "Aditya Y. Bhargava",
-        "rating": null,
-        "shelf": "currently-reading",
-        "link": "https://www.goodreads.com/review/show/7781933325?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1711211758l/204305350._SX318_.jpg",
-        "dateAdded": "2025-07-29T14:11:52.000Z",
-        "dateRead": "2025-07-29T14:11:52.000Z",
-        "bookId": "204305350",
-        "numPages": 320,
-        "pubYear": 2015
       },
       {
         "title": "1491: New Revelations of the Americas Before Columbus",
@@ -291,6 +265,32 @@
       }
     ],
     "toRead": [
+      {
+        "title": "Grokking Algorithms, Second Edition",
+        "author": "Aditya Y. Bhargava",
+        "rating": null,
+        "shelf": "to-read",
+        "link": "https://www.goodreads.com/review/show/7781933325?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1711211758l/204305350._SX318_.jpg",
+        "dateAdded": "2026-01-24T23:38:58.000Z",
+        "dateRead": "2025-07-29T14:11:52.000Z",
+        "bookId": "204305350",
+        "numPages": 320,
+        "pubYear": 2015
+      },
+      {
+        "title": "Almost a Miracle: The American Victory in the War of Independence",
+        "author": "John Ferling",
+        "rating": null,
+        "shelf": "to-read",
+        "link": "https://www.goodreads.com/review/show/8152592862?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1479228618l/9464244._SY475_.jpg",
+        "dateAdded": "2026-01-24T23:37:53.000Z",
+        "dateRead": "2025-12-17T04:20:24.000Z",
+        "bookId": "9464244",
+        "numPages": 693,
+        "pubYear": 2007
+      },
       {
         "title": "Across the Board: How Games Make Us Human",
         "author": "Tim Clare",
@@ -513,7 +513,7 @@
         "pubYear": 2011
       },
       {
-        "title": "The Road to Reality: A Complete Guide to the Laws of the Universe",
+        "title": "The Road to Reality: A Complete Guide to the Laws of the Universe (Vintage)",
         "author": "Roger Penrose",
         "rating": null,
         "shelf": "to-read",
@@ -654,39 +654,13 @@
         "bookId": "9411327",
         "numPages": 400,
         "pubYear": 2010
-      },
-      {
-        "title": "The 1619 Project: A New Origin Story",
-        "author": "Nikole Hannah-Jones",
-        "rating": null,
-        "shelf": "to-read",
-        "link": "https://www.goodreads.com/review/show/7065453791?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1652703065l/57717410.jpg",
-        "dateAdded": "2024-12-07T21:02:13.000Z",
-        "dateRead": "2024-12-07T21:02:13.000Z",
-        "bookId": "57717410",
-        "numPages": 590,
-        "pubYear": 2019
-      },
-      {
-        "title": "Origin: A Genetic History of the Americas",
-        "author": "Jennifer Raff",
-        "rating": null,
-        "shelf": "to-read",
-        "link": "https://www.goodreads.com/review/show/7065453219?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1639384597l/53916158.jpg",
-        "dateAdded": "2024-12-07T21:01:58.000Z",
-        "dateRead": "2024-12-07T21:01:58.000Z",
-        "bookId": "53916158",
-        "numPages": 368,
-        "pubYear": 2022
       }
     ]
   },
   "stats": {
     "totalRead": 74,
-    "currentlyReading": 7,
-    "toRead": 106,
+    "currentlyReading": 5,
+    "toRead": 108,
     "thisYear": 0,
     "thisMonth": 0,
     "averageRating": 3.6,
@@ -1178,5 +1152,5 @@
     ],
     "profileUrl": "https://www.goodreads.com/user/show/9273959"
   },
-  "lastUpdated": "2026-01-17T21:52:02.259Z"
+  "lastUpdated": "2026-01-24T23:46:20.654Z"
 }
