@@ -17,11 +17,32 @@ const FIX_MODE = process.argv.includes('--fix')
 
 // Expected columns in order
 const EXPECTED_COLUMNS = [
-  'Name', 'Weight_oz', 'Parent Container', 'Type', 'Category', 'Subcategory',
-  'Priority', 'Waterproof', 'Worn', 'Qty', 'Consumable', 'Star', 'Notes',
-  'Tags', 'Condition', 'Amazon_URL', 'Last_Used', 'Purchase_Date',
-  'Purchase_Price', 'Photo_URL', 'Scan_3D_URL', 'Serial_Number',
-  'Model_Number', 'Brand', 'Location_Room', 'Location_Detail'
+  'Name',
+  'Weight_oz',
+  'Parent Container',
+  'Type',
+  'Category',
+  'Subcategory',
+  'Priority',
+  'Waterproof',
+  'Worn',
+  'Qty',
+  'Consumable',
+  'Star',
+  'Notes',
+  'Tags',
+  'Condition',
+  'Amazon_URL',
+  'Last_Used',
+  'Purchase_Date',
+  'Purchase_Price',
+  'Photo_URL',
+  'Scan_3D_URL',
+  'Serial_Number',
+  'Model_Number',
+  'Brand',
+  'Location_Room',
+  'Location_Detail',
 ]
 
 // Valid values for enum-like fields
@@ -31,7 +52,7 @@ const VALID_VALUES = {
   Worn: ['Yes', 'No', ''],
   Consumable: ['Yes', 'No', ''],
   Star: ['Yes', 'No', ''],
-  Condition: ['Good', 'Fair', 'Poor', 'New', '']
+  Condition: ['Good', 'Fair', 'Poor', 'New', ''],
 }
 
 // Parse CSV (handles quoted fields with commas)
@@ -67,14 +88,24 @@ function parseCSV(text) {
 
 // Convert rows back to CSV
 function toCSV(rows) {
-  return rows.map(row =>
-    row.map(cell => {
-      if (cell.includes(',') || cell.includes('"') || cell.includes('\n')) {
-        return `"${cell.replace(/"/g, '""')}"`
-      }
-      return cell
-    }).join(',')
-  ).join('\n') + '\n'
+  return (
+    rows
+      .map((row) =>
+        row
+          .map((cell) => {
+            if (
+              cell.includes(',') ||
+              cell.includes('"') ||
+              cell.includes('\n')
+            ) {
+              return `"${cell.replace(/"/g, '""')}"`
+            }
+            return cell
+          })
+          .join(',')
+      )
+      .join('\n') + '\n'
+  )
 }
 
 // Main linting logic
@@ -91,28 +122,32 @@ function lintGear() {
   }
 
   // Trim all headers
-  const headers = rows[0].map(h => h.trim())
+  const headers = rows[0].map((h) => h.trim())
   rows[0] = headers
 
   // Check columns
-  console.log('\n📋 Checking columns...')
+  console.info('\n📋 Checking columns...')
 
   if (headers.length !== EXPECTED_COLUMNS.length) {
-    issues.push(`Column count mismatch: got ${headers.length}, expected ${EXPECTED_COLUMNS.length}`)
+    issues.push(
+      `Column count mismatch: got ${headers.length}, expected ${EXPECTED_COLUMNS.length}`
+    )
   }
 
   for (let i = 0; i < EXPECTED_COLUMNS.length; i++) {
     if (headers[i] !== EXPECTED_COLUMNS[i]) {
-      issues.push(`Column ${i + 1}: got "${headers[i]}", expected "${EXPECTED_COLUMNS[i]}"`)
+      issues.push(
+        `Column ${i + 1}: got "${headers[i]}", expected "${EXPECTED_COLUMNS[i]}"`
+      )
     }
   }
 
   // Create column index map
   const colIndex = {}
-  headers.forEach((h, i) => colIndex[h] = i)
+  headers.forEach((h, i) => (colIndex[h] = i))
 
   // Check each row
-  console.log('🔍 Checking rows...')
+  console.info('🔍 Checking rows...')
 
   for (let i = 1; i < rows.length; i++) {
     const row = rows[i]
@@ -121,7 +156,9 @@ function lintGear() {
 
     // Column count
     if (row.length !== headers.length) {
-      issues.push(`Row ${rowNum} "${name}": column count ${row.length}, expected ${headers.length}`)
+      issues.push(
+        `Row ${rowNum} "${name}": column count ${row.length}, expected ${headers.length}`
+      )
     }
 
     // Name required
@@ -131,16 +168,18 @@ function lintGear() {
 
     // Weight_oz should be numeric or empty
     const weight = row[colIndex['Weight_oz']]
-    if (weight && weight.trim() && isNaN(parseFloat(weight))) {
+    if (weight && weight.trim() && Number.isNaN(Number.parseFloat(weight))) {
       issues.push(`Row ${rowNum} "${name}": Invalid Weight_oz "${weight}"`)
     }
 
     // Qty should be positive integer or empty
     const qty = row[colIndex['Qty']]
     if (qty && qty.trim()) {
-      const qtyNum = parseInt(qty, 10)
-      if (isNaN(qtyNum) || qtyNum < 1) {
-        issues.push(`Row ${rowNum} "${name}": Invalid Qty "${qty}" (should be positive integer)`)
+      const qtyNum = Number.parseInt(qty, 10)
+      if (Number.isNaN(qtyNum) || qtyNum < 1) {
+        issues.push(
+          `Row ${rowNum} "${name}": Invalid Qty "${qty}" (should be positive integer)`
+        )
         if (FIX_MODE) {
           rows[i][colIndex['Qty']] = '1'
           fixes.push(`Row ${rowNum} "${name}": Set Qty to 1`)
@@ -160,12 +199,18 @@ function lintGear() {
       const value = row[idx]?.trim() || ''
       if (value && !validValues.includes(value)) {
         // Try case-insensitive match for auto-fix
-        const match = validValues.find(v => v.toLowerCase() === value.toLowerCase())
+        const match = validValues.find(
+          (v) => v.toLowerCase() === value.toLowerCase()
+        )
         if (match && FIX_MODE) {
           rows[i][idx] = match
-          fixes.push(`Row ${rowNum} "${name}": Fixed ${field} "${value}" → "${match}"`)
+          fixes.push(
+            `Row ${rowNum} "${name}": Fixed ${field} "${value}" → "${match}"`
+          )
         } else {
-          issues.push(`Row ${rowNum} "${name}": Invalid ${field} "${value}" (valid: ${validValues.filter(v => v).join(', ')})`)
+          issues.push(
+            `Row ${rowNum} "${name}": Invalid ${field} "${value}" (valid: ${validValues.filter((v) => v).join(', ')})`
+          )
         }
       }
     }
@@ -198,47 +243,59 @@ function lintGear() {
         rows[i][colIndex['Name']] = nameVal.trim()
         fixes.push(`Row ${rowNum}: Trimmed whitespace from Name`)
       } else {
-        issues.push(`Row ${rowNum} "${name}": Name has leading/trailing whitespace`)
+        issues.push(
+          `Row ${rowNum} "${name}": Name has leading/trailing whitespace`
+        )
       }
     }
   }
 
   // Summary
-  console.log('\n' + '='.repeat(50))
+  console.info('\n' + '='.repeat(50))
 
   if (issues.length === 0) {
-    console.log('✅ No issues found!')
+    console.info('✅ No issues found!')
   } else {
-    console.log(`\n⚠️  Found ${issues.length} issue(s):\n`)
-    issues.forEach(issue => console.log(`  • ${issue}`))
+    console.info(`\n⚠️  Found ${issues.length} issue(s):\n`)
+    issues.forEach((issue) => console.info(`  • ${issue}`))
   }
 
   if (FIX_MODE && fixes.length > 0) {
-    console.log(`\n🔧 Applied ${fixes.length} fix(es):\n`)
-    fixes.forEach(fix => console.log(`  • ${fix}`))
+    console.info(`\n🔧 Applied ${fixes.length} fix(es):\n`)
+    fixes.forEach((fix) => console.info(`  • ${fix}`))
 
     writeFileSync(CSV_PATH, toCSV(rows))
-    console.log(`\n💾 Saved changes to ${CSV_PATH}`)
+    console.info(`\n💾 Saved changes to ${CSV_PATH}`)
   } else if (fixes.length === 0 && FIX_MODE) {
-    console.log('\n✨ Nothing to fix!')
+    console.info('\n✨ Nothing to fix!')
   } else if (issues.length > 0) {
-    console.log('\n💡 Run with --fix to auto-fix some issues')
+    console.info('\n💡 Run with --fix to auto-fix some issues')
   }
 
   // Stats
   const dataRows = rows.length - 1
-  const withWeight = rows.slice(1).filter(r => r[colIndex['Weight_oz']]?.trim()).length
-  const starred = rows.slice(1).filter(r => r[colIndex['Star']]?.toLowerCase() === 'yes').length
-  const worn = rows.slice(1).filter(r => r[colIndex['Worn']]?.toLowerCase() === 'yes').length
-  const consumable = rows.slice(1).filter(r => r[colIndex['Consumable']]?.toLowerCase() === 'yes').length
+  const withWeight = rows
+    .slice(1)
+    .filter((r) => r[colIndex['Weight_oz']]?.trim()).length
+  const starred = rows
+    .slice(1)
+    .filter((r) => r[colIndex['Star']]?.toLowerCase() === 'yes').length
+  const worn = rows
+    .slice(1)
+    .filter((r) => r[colIndex['Worn']]?.toLowerCase() === 'yes').length
+  const consumable = rows
+    .slice(1)
+    .filter((r) => r[colIndex['Consumable']]?.toLowerCase() === 'yes').length
 
-  console.log('\n📊 Stats:')
-  console.log(`  • ${dataRows} items total`)
-  console.log(`  • ${withWeight} with weight (${dataRows - withWeight} missing)`)
-  console.log(`  • ${starred} starred (Big 3)`)
-  console.log(`  • ${worn} worn`)
-  console.log(`  • ${consumable} consumable`)
-  console.log('')
+  console.info('\n📊 Stats:')
+  console.info(`  • ${dataRows} items total`)
+  console.info(
+    `  • ${withWeight} with weight (${dataRows - withWeight} missing)`
+  )
+  console.info(`  • ${starred} starred (Big 3)`)
+  console.info(`  • ${worn} worn`)
+  console.info(`  • ${consumable} consumable`)
+  console.info('')
 
   process.exit(issues.length > 0 ? 1 : 0)
 }

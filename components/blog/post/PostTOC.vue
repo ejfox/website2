@@ -15,10 +15,15 @@
           <a
             :href="`#${child.slug}`"
             :class="[
-              'flex items-baseline text-sm transition-all duration-200 no-underline py-2 gap-2',
+              'flex items-baseline text-sm transition-all duration-200',
+              'no-underline py-2 gap-2',
               isActive(child.slug)
                 ? 'text-zinc-900 dark:text-zinc-100 font-medium'
-                : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 hover:translate-x-1',
+                : [
+                    'text-zinc-600 dark:text-zinc-400',
+                    'hover:text-zinc-900 dark:hover:text-zinc-100',
+                    'hover:translate-x-1',
+                  ],
             ]"
             @click.prevent="scrollToSection(child.slug)"
           >

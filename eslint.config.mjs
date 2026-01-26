@@ -151,6 +151,12 @@ export default createConfigForNuxt({
       'no-empty': 'error',
 
       // ============================================================
+      // COMPLEXITY: Keep code flat and modular
+      // ============================================================
+      // Max nesting depth - forces extraction into functions/composables
+      'max-depth': ['error', 4],
+
+      // ============================================================
       // LINE LENGTH (STRICT)
       // ============================================================
       'max-len': [
@@ -163,9 +169,9 @@ export default createConfigForNuxt({
           ignoreTemplateLiterals: true,
           ignoreRegExpLiterals: true,
           ignoreComments: true, // Allow long JSDoc headers
-          // Ignore: SVG paths, class attrs, JSDoc tags in HTML comments
+          // Ignore: SVG paths, class attrs, JSDoc tags, font-family declarations
           ignorePattern:
-            '^\\s*d="|^\\s*<path|class="|:class=|^\\s*\\*|@file|@description|@props|@returns|@param|@endpoint|@usage|@env',
+            '^\\s*d="|^\\s*<path|class="|:class=|^\\s*\\*|@file|@description|@props|@returns|@param|@endpoint|@usage|@env|font-family:',
         },
       ],
 
@@ -209,9 +215,9 @@ export default createConfigForNuxt({
           ignoreStrings: true,
           ignoreTemplateLiterals: true,
           ignoreHTMLTextContents: true,
-          // Ignore: SVG paths, class attrs, JSDoc tags in HTML comments
+          // Ignore: SVG paths, class attrs, JSDoc tags, font-family declarations
           ignorePattern:
-            '^\\s*d="|^\\s*<path|class=|@file|@description|@props|@returns|@param|@endpoint|@usage|@env|@emits',
+            '^\\s*d="|^\\s*<path|class=|@file|@description|@props|@returns|@param|@endpoint|@usage|@env|@emits|font-family:',
         },
       ],
 

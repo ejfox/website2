@@ -24,6 +24,23 @@ function extractImageUrls(html: string): string[] {
   return [...new Set(matches)]
 }
 
+// Extract images from a post file
+async function getPostImages(
+  slug: string,
+  fs: typeof import('node:fs/promises'),
+  path: typeof import('node:path')
+): Promise<string[]> {
+  try {
+    const postPath = path.join(process.cwd(), `content/processed/${slug}.json`)
+    const postData = await fs.readFile(postPath, 'utf-8')
+    const postJson = JSON.parse(postData)
+    return extractImageUrls(postJson.html).slice(0, 3)
+  } catch {
+    // Post file not found, skip images
+    return []
+  }
+}
+
 export default defineEventHandler(async (event: H3Event) => {
   const baseUrl = 'https://ejfox.com'
 
@@ -89,20 +106,10 @@ export default defineEventHandler(async (event: H3Event) => {
         const lastmod = post.modified || post.date
 
         // Extract images from post HTML if available
-        let imageUrls: string[] = []
-        if (post.metadata?.images > 0) {
-          try {
-            const postPath = path.join(
-              process.cwd(),
-              `content/processed/${post.slug}.json`
-            )
-            const postData = await fs.readFile(postPath, 'utf-8')
-            const postJson = JSON.parse(postData)
-            imageUrls = extractImageUrls(postJson.html).slice(0, 3)
-          } catch {
-            // Post file not found, skip images
-          }
-        }
+        const imageUrls =
+          post.metadata?.images > 0
+            ? await getPostImages(post.slug, fs, path)
+            : []
 
         sitemap += `  <url>
     <loc>${escapeXml(`${baseUrl}/blog/${post.slug}`)}</loc>

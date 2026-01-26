@@ -7,9 +7,11 @@ import PostRelated from '~/components/blog/post/PostRelated.vue'
 import PostTOC from '~/components/blog/post/PostTOC.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
 import ReplyContext from '~/components/blog/ReplyContext.vue'
+import { useReadingStats } from '~/composables/useReadingStats'
+import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 // Composables
-const { formatLongDate, formatShortDate } = useDateFormat()
+const { formatLongDate } = useDateFormat()
 const config = useRuntimeConfig()
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
@@ -39,19 +41,24 @@ if (post.value?.redirect && route.path !== post.value.redirect) {
 
 const { data: nextPrevPosts } = await useAsyncData(
   `next-prev-${route.params.slug.join('-')}`,
-  () => processedMarkdown.getNextPrevPosts(route.params.slug.join('/')).catch(() => ({ next: null, prev: null }))
+  () =>
+    processedMarkdown
+      .getNextPrevPosts(route.params.slug.join('/'))
+      .catch(() => ({ next: null, prev: null }))
 )
 
-const { data: allPosts } = await useAsyncData(
-  'all-posts-for-related',
-  () => processedMarkdown.getAllPosts(false, false).catch(() => [])
+const { data: allPosts } = await useAsyncData('all-posts-for-related', () =>
+  processedMarkdown.getAllPosts(false, false).catch(() => [])
 )
 
 // --- Computed Values ---
 const { stats: readingStats } = useReadingStats(post)
 
-const postTitle = computed(() => post.value?.metadata?.title || post.value?.title || '')
-const { renderedHtml: renderedTitle, startAnimation } = useTypingAnimation(postTitle)
+const postTitle = computed(
+  () => post.value?.metadata?.title || post.value?.title || ''
+)
+const { renderedHtml: renderedTitle, startAnimation } =
+  useTypingAnimation(postTitle)
 
 const relatedPosts = computed(() => {
   if (!allPosts.value || !post.value) return []
@@ -62,7 +69,13 @@ const relatedPosts = computed(() => {
   return allPosts.value
     .filter((p) => {
       const slug = p.slug || p.metadata?.slug
-      return slug !== currentSlug && !p.draft && !p.metadata?.draft && !p.hidden && !p.metadata?.hidden
+      return (
+        slug !== currentSlug &&
+        !p.draft &&
+        !p.metadata?.draft &&
+        !p.hidden &&
+        !p.metadata?.hidden
+      )
     })
     .map((p) => {
       const tags = p.metadata?.tags || p.tags || []
@@ -78,8 +91,11 @@ const relatedPosts = computed(() => {
     .slice(0, 3)
 })
 
-const tocChildren = computed(() =>
-  post.value?.toc?.[0]?.children || post.value?.metadata?.toc?.[0]?.children || []
+const tocChildren = computed(
+  () =>
+    post.value?.toc?.[0]?.children ||
+    post.value?.metadata?.toc?.[0]?.children ||
+    []
 )
 
 // --- Refs & State ---
@@ -90,21 +106,33 @@ const showDebugGrid = ref(false)
 
 // --- URL & SEO ---
 const baseURL = config.public?.baseURL || 'https://ejfox.com'
-const postUrl = computed(() => new URL(`/blog/${route.params.slug.join('/')}`, baseURL).href)
+const postUrl = computed(
+  () => new URL(`/blog/${route.params.slug.join('/')}`, baseURL).href
+)
 
 const postDescription = computed(() => {
   const dek = post.value?.metadata?.dek || post.value?.dek
   if (dek) return dek
-  const text = striptags(post.value?.html || '').replace(/\s+/g, ' ').trim()
+  const text = striptags(post.value?.html || '')
+    .replace(/\s+/g, ' ')
+    .trim()
   return text.length > 160 ? text.substring(0, 157) + '...' : text
 })
 
-const heroImage = computed(() =>
-  post.value?.metadata?.image || post.value?.metadata?.ogImage || post.value?.coverImage || `${baseURL}/og-image.png`
+const heroImage = computed(
+  () =>
+    post.value?.metadata?.image ||
+    post.value?.metadata?.ogImage ||
+    post.value?.coverImage ||
+    `${baseURL}/og-image.png`
 )
 
-const articleTags = computed(() => post.value?.metadata?.tags || post.value?.tags || [])
-const articleSection = computed(() => post.value?.metadata?.section || articleTags.value[0] || 'Writing')
+const articleTags = computed(
+  () => post.value?.metadata?.tags || post.value?.tags || []
+)
+const articleSection = computed(
+  () => post.value?.metadata?.section || articleTags.value[0] || 'Writing'
+)
 
 // Draft detection
 const isDraft = computed(() => post.value?.metadata?.draft || post.value?.draft)
@@ -112,13 +140,24 @@ const isDraft = computed(() => post.value?.metadata?.draft || post.value?.draft)
 const publishedDateISO = computed(() => {
   const d = post.value?.metadata?.date || post.value?.date
   if (!d) return undefined
-  try { return new Date(d).toISOString() } catch { return undefined }
+  try {
+    return new Date(d).toISOString()
+  } catch {
+    return undefined
+  }
 })
 
 const modifiedDateISO = computed(() => {
-  const d = post.value?.metadata?.lastUpdated || post.value?.metadata?.date || post.value?.date
+  const d =
+    post.value?.metadata?.lastUpdated ||
+    post.value?.metadata?.date ||
+    post.value?.date
   if (!d) return undefined
-  try { return new Date(d).toISOString() } catch { return undefined }
+  try {
+    return new Date(d).toISOString()
+  } catch {
+    return undefined
+  }
 })
 
 const articleSchema = computed(() => ({
@@ -151,52 +190,72 @@ usePageSeo({
   label1: 'Reading time',
   data1: computed(() => `${readingStats.value.readingTime} min`),
   label2: 'Word count',
-  data2: computed(() => `${readingStats.value.words?.toLocaleString() || 0} words`),
+  data2: computed(
+    () => `${readingStats.value.words?.toLocaleString() || 0} words`
+  ),
 })
 
 useHead(() => ({
-  script: [{ type: 'application/ld+json', children: JSON.stringify(articleSchema.value) }],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(articleSchema.value),
+    },
+  ],
   htmlAttrs: { lang: 'en' },
 }))
 
 // --- Smart 404 Suggestions ---
 const smartSuggestions = ref([])
 
-watch(error, async (err) => {
-  if (!err) return
-  try {
-    const posts = await $fetch('/api/manifest')
-    const path = route.path.replace(/^\/blog\//, '').toLowerCase()
-    const distance = (a, b) => {
-      if (!a || !b) return 999
-      const [l1, l2] = [a.length, b.length]
-      if (!l1) return l2
-      if (!l2) return l1
-      let prev = Array.from({ length: l2 + 1 }, (_, i) => i)
-      for (let i = 1; i <= l1; i++) {
-        const curr = [i]
-        for (let j = 1; j <= l2; j++) {
-          curr[j] = a[i - 1] === b[j - 1] ? prev[j - 1] : Math.min(prev[j - 1], prev[j], curr[j - 1]) + 1
+watch(
+  error,
+  async (err) => {
+    if (!err) return
+    try {
+      const posts = await $fetch('/api/manifest')
+      const path = route.path.replace(/^\/blog\//, '').toLowerCase()
+      const distance = (a, b) => {
+        if (!a || !b) return 999
+        const [l1, l2] = [a.length, b.length]
+        if (!l1) return l2
+        if (!l2) return l1
+        let prev = Array.from({ length: l2 + 1 }, (_, i) => i)
+        for (let i = 1; i <= l1; i++) {
+          const curr = [i]
+          for (let j = 1; j <= l2; j++) {
+            curr[j] =
+              a[i - 1] === b[j - 1]
+                ? prev[j - 1]
+                : Math.min(prev[j - 1], prev[j], curr[j - 1]) + 1
+          }
+          prev = curr
         }
-        prev = curr
+        return prev[l2]
       }
-      return prev[l2]
+      const matches =
+        posts
+          ?.filter((p) => !p.hidden && !p.draft)
+          .map((p) => ({
+            title: p.title,
+            path: `/blog/${p.slug}`,
+            score: Math.max(
+              50 - distance(p.slug || '', path),
+              30 - distance(p.title?.toLowerCase().replace(/\s+/g, '-'), path)
+            ),
+          }))
+          .filter((p) => p.score > 10)
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 3) || []
+      smartSuggestions.value = matches.length
+        ? matches
+        : [{ title: 'Blog Archive', path: '/blog' }]
+    } catch {
+      smartSuggestions.value = [{ title: 'Blog Archive', path: '/blog' }]
     }
-    const matches = posts
-      ?.filter((p) => !p.hidden && !p.draft)
-      .map((p) => ({
-        title: p.title,
-        path: `/blog/${p.slug}`,
-        score: Math.max(50 - distance(p.slug || '', path), 30 - distance(p.title?.toLowerCase().replace(/\s+/g, '-'), path)),
-      }))
-      .filter((p) => p.score > 10)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 3) || []
-    smartSuggestions.value = matches.length ? matches : [{ title: 'Blog Archive', path: '/blog' }]
-  } catch {
-    smartSuggestions.value = [{ title: 'Blog Archive', path: '/blog' }]
-  }
-}, { immediate: true })
+  },
+  { immediate: true }
+)
 
 // --- Lifecycle ---
 onMounted(() => {
@@ -204,7 +263,8 @@ onMounted(() => {
 
   // Scroll progress
   const handleScroll = () => {
-    const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
+    const scrollHeight =
+      document.documentElement.scrollHeight - window.innerHeight
     if (scrollHeight <= 0 || window.scrollY <= 0) {
       scrollProgress.value = 0
       return
@@ -230,11 +290,15 @@ onMounted(() => {
   // TOC intersection observer
   nextTick(() => {
     if (!articleContent.value) return
-    const headings = Array.from(articleContent.value.querySelectorAll('h2, h3, h4'))
+    const headings = Array.from(
+      articleContent.value.querySelectorAll('h2, h3, h4')
+    )
     headings.forEach((heading) => {
       const { stop } = useIntersectionObserver(
         heading,
-        ([{ isIntersecting }]) => { if (isIntersecting) activeSection.value = heading.id },
+        ([{ isIntersecting }]) => {
+          if (isIntersecting) activeSection.value = heading.id
+        },
         { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
       )
       heading._stopObserver = stop
@@ -249,15 +313,25 @@ onMounted(() => {
     <Head>
       <Meta
         name="robots"
-        :content="post?.metadata?.draft || post?.draft ? 'noindex, nofollow' : 'index, follow'"
+        :content="
+          post?.metadata?.draft || post?.draft
+            ? 'noindex, nofollow'
+            : 'index, follow'
+        "
       />
     </Head>
 
     <!-- Debug Grid Overlay -->
-    <div v-show="showDebugGrid" class="pointer-events-none fixed inset-0 z-[999] debug-grid"></div>
+    <div
+      v-show="showDebugGrid"
+      class="pointer-events-none fixed inset-0 z-[999] debug-grid"
+    ></div>
 
     <!-- Top metadata bar - above everything -->
-    <div v-if="post && !post.redirect" class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900">
+    <div
+      v-if="post && !post.redirect"
+      class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900"
+    >
       <PostMetadataBar
         :date="post?.metadata?.date || post?.date"
         :stats="readingStats"
@@ -265,7 +339,9 @@ onMounted(() => {
       <!-- Draft banner - inside same container, stacks below metadata -->
       <div v-if="isDraft" class="draft-banner">
         <span class="draft-banner-text">DRAFT</span>
-        <span class="draft-banner-subtext">Work in progress · Not for distribution</span>
+        <span class="draft-banner-subtext">
+          Work in progress · Not for distribution
+        </span>
       </div>
     </div>
 
@@ -274,8 +350,10 @@ onMounted(() => {
       <div class="progress-inner" :style="`width: ${scrollProgress}%`"></div>
     </div>
 
-    <article v-if="post && !post.redirect" :class="['h-entry w-full px-4 md:px-8 xl:px-16', { 'is-draft': isDraft }]">
-
+    <article
+      v-if="post && !post.redirect"
+      :class="['h-entry w-full px-4 md:px-8 xl:px-16', { 'is-draft': isDraft }]"
+    >
       <!-- Title -->
       <div class="pt-3 pb-2">
         <h1
@@ -290,7 +368,11 @@ onMounted(() => {
       </div>
 
       <!-- Microformats (hidden) -->
-      <time v-if="post?.metadata?.date" :datetime="post.metadata.date" class="dt-published hidden">
+      <time
+        v-if="post?.metadata?.date"
+        :datetime="post.metadata.date"
+        class="dt-published hidden"
+      >
         {{ formatLongDate(post.metadata.date) }}
       </time>
       <div class="p-author h-card hidden">
@@ -301,27 +383,45 @@ onMounted(() => {
 
       <!-- Reply Context -->
       <div v-if="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']">
-        <ReplyContext :reply-to="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']" />
+        <ReplyContext
+          :reply-to="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']"
+        />
       </div>
 
       <!-- Article Content -->
       <div ref="articleContent" class="pt-3 pb-6">
-        <article v-if="post?.html" class="blog-post-content e-content font-serif" v-html="post.html"></article>
-        <div v-else-if="post?.content" class="blog-post-content e-content font-serif" v-html="post.content"></div>
+        <article
+          v-if="post?.html"
+          class="blog-post-content e-content font-serif"
+          v-html="post.html"
+        ></article>
+        <div
+          v-else-if="post?.content"
+          class="blog-post-content e-content font-serif"
+          v-html="post.content"
+        ></div>
         <div v-else class="text-center text-red-500">No content available</div>
       </div>
 
       <!-- Tags -->
       <div v-if="post.tags || post.metadata?.tags" class="tags-container">
         <div class="flex flex-wrap gap-3 sm:gap-2">
-          <a v-for="tag in post.tags || post.metadata?.tags" :key="tag" :href="`/blog/tag/${tag}`" class="post-tag">
+          <a
+            v-for="tag in post.tags || post.metadata?.tags"
+            :key="tag"
+            :href="`/blog/tag/${tag}`"
+            class="post-tag"
+          >
             {{ tag }}
           </a>
         </div>
       </div>
 
       <!-- Navigation -->
-      <PostNav :prev-post="nextPrevPosts?.prev" :next-post="nextPrevPosts?.next" />
+      <PostNav
+        :prev-post="nextPrevPosts?.prev"
+        :next-post="nextPrevPosts?.next"
+      />
 
       <!-- Related Posts -->
       <PostRelated :related-posts="relatedPosts" />
@@ -334,8 +434,12 @@ onMounted(() => {
     </article>
 
     <div v-else-if="error" class="p-8 text-center">
-      <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-4">Post not found</p>
-      <NuxtLink to="/blog" class="text-zinc-500 hover:text-zinc-700 underline">browse all posts</NuxtLink>
+      <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-4">
+        Post not found
+      </p>
+      <NuxtLink to="/blog" class="text-zinc-500 hover:text-zinc-700 underline">
+        browse all posts
+      </NuxtLink>
     </div>
 
     <div v-else class="p-4 text-center">
@@ -362,15 +466,30 @@ onMounted(() => {
 
 /* Tags */
 .tags-container {
-  @apply px-4 md:px-6 py-4 md:py-3 border-t border-zinc-200 dark:border-zinc-800;
+  @apply px-4 md:px-6 py-4 md:py-3;
+  @apply border-t border-zinc-200 dark:border-zinc-800;
 }
 
 /* Debug grid */
 .debug-grid {
   background-image:
-    repeating-linear-gradient(to bottom, transparent, transparent 7px, rgba(59, 130, 246, 0.1) 7px, rgba(59, 130, 246, 0.1) 8px),
-    repeating-linear-gradient(to bottom, transparent, transparent 31px, rgba(59, 130, 246, 0.2) 31px, rgba(59, 130, 246, 0.2) 32px);
-  background-size: 100% 8px, 100% 32px;
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 7px,
+      rgba(59, 130, 246, 0.1) 7px,
+      rgba(59, 130, 246, 0.1) 8px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 31px,
+      rgba(59, 130, 246, 0.2) 31px,
+      rgba(59, 130, 246, 0.2) 32px
+    );
+  background-size:
+    100% 8px,
+    100% 32px;
 }
 
 /* ===========================================
@@ -602,9 +721,17 @@ onMounted(() => {
 }
 
 @keyframes blink {
-  0%, 40% { opacity: 0.85; }
-  50%, 90% { opacity: 0; }
-  100% { opacity: 0.85; }
+  0%,
+  40% {
+    opacity: 0.85;
+  }
+  50%,
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.85;
+  }
 }
 
 /* ===========================================
@@ -660,7 +787,8 @@ article.is-draft::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
-  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace;
   font-size: clamp(4rem, 15vw, 12rem);
   font-weight: 900;
   letter-spacing: 0.2em;
@@ -679,7 +807,9 @@ article.is-draft::before {
 
 /* Typography shift: serif → monospace for drafts */
 article.is-draft .blog-post-content {
-  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace !important;
+  /* stylelint-disable-next-line max-line-length */
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
 }
 
 article.is-draft .blog-post-content p,
@@ -699,7 +829,8 @@ article.is-draft .blog-post-content h6 {
 
 /* Draft title also gets monospace treatment */
 article.is-draft .post-title-hero {
-  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-family:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace;
 }
 
 /* Subtle desaturation on draft content */

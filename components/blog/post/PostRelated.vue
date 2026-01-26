@@ -12,15 +12,14 @@
       Related Posts
     </h2>
     <div class="space-y-4">
-      <div
-        v-for="{ post, overlappingTags } in relatedPosts"
-        :key="post.slug"
-      >
+      <div v-for="{ post, overlappingTags } in relatedPosts" :key="post.slug">
         <NuxtLink :to="`/blog/${post.slug}`" class="block no-underline">
           <div class="text-base text-zinc-900 dark:text-zinc-100 leading-snug">
             {{ post.title || post.metadata?.title }}
           </div>
-          <div class="mt-1 flex flex-wrap items-center gap-2 text-xs text-zinc-500">
+          <div
+            class="mt-1 flex flex-wrap items-center gap-2 text-xs text-zinc-500"
+          >
             <span>{{ formatLongDate(post.date || post.metadata?.date) }}</span>
             <span>·</span>
             <div class="flex flex-wrap gap-1.5">

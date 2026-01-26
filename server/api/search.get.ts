@@ -15,6 +15,44 @@ const BM25_CONFIG = {
   b: 0.75,
 }
 
+/**
+ * Calculate term frequencies for a document's tokens against search terms
+ * Extracted to reduce nesting depth in searchDirectory
+ */
+function calculateTermFrequencies(
+  docTokens: string[],
+  searchTerms: string[]
+): { termFreqs: Record<string, number>; hasTermMatch: boolean } {
+  const termFreqs: Record<string, number> = {}
+  let hasTermMatch = false
+
+  for (const token of docTokens) {
+    for (const term of searchTerms) {
+      if (!token.includes(term)) continue
+      termFreqs[term] = (termFreqs[term] || 0) + 1
+      hasTermMatch = true
+    }
+  }
+
+  return { termFreqs, hasTermMatch }
+}
+
+/**
+ * Update document frequency counts for terms that appear in current document
+ * Extracted to reduce nesting depth in searchDirectory
+ */
+function updateDocumentFrequencies(
+  docFreqs: Record<string, number>,
+  termFreqs: Record<string, number>,
+  searchTerms: string[]
+): void {
+  for (const term of searchTerms) {
+    if (termFreqs[term]) {
+      docFreqs[term] = (docFreqs[term] || 0) + 1
+    }
+  }
+}
+
 function calculateBm25Score({
   termFreqs,
   docFreqs,
@@ -212,24 +250,14 @@ export default defineEventHandler(async (event) => {
             const tagTokens = tags.flatMap((tag) => tokenize(tag))
             const contentTokens = tokenize(textContent)
             const docTokens = [...titleTokens, ...tagTokens, ...contentTokens]
-            const termFreqs: Record<string, number> = {}
-            let hasTermMatch = false
-
-            for (const token of docTokens) {
-              for (const term of searchTerms) {
-                if (!token.includes(term)) continue
-                termFreqs[term] = (termFreqs[term] || 0) + 1
-                hasTermMatch = true
-              }
-            }
+            const { termFreqs, hasTermMatch } = calculateTermFrequencies(
+              docTokens,
+              searchTerms
+            )
 
             if (!hasTermMatch) continue
 
-            for (const term of searchTerms) {
-              if (termFreqs[term]) {
-                docFreqs[term] = (docFreqs[term] || 0) + 1
-              }
-            }
+            updateDocumentFrequencies(docFreqs, termFreqs, searchTerms)
 
             const docLength = docTokens.length || 1
             totalDocLength += docLength

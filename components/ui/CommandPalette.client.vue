@@ -18,8 +18,12 @@
         <div
           class="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-zinc-200/80 bg-white font-sans shadow-2xl shadow-zinc-900/20 dark:border-zinc-800/80 dark:bg-zinc-900"
         >
-          <div class="flex items-center gap-3 border-b border-zinc-100 px-4 py-3 dark:border-zinc-800">
-            <span class="text-xs font-mono uppercase tracking-[0.2em] text-zinc-400">
+          <div
+            class="flex items-center gap-3 border-b border-zinc-100 px-4 py-3 dark:border-zinc-800"
+          >
+            <span
+              class="text-xs font-mono uppercase tracking-[0.2em] text-zinc-400"
+            >
               Command
             </span>
             <input
@@ -29,13 +33,18 @@
               placeholder="Search posts, pages, or actions..."
               class="flex-1 bg-transparent text-base text-zinc-900 outline-none placeholder:text-zinc-400 dark:text-zinc-100"
             />
-            <span class="rounded-full border border-zinc-200 px-2 py-1 text-[11px] font-mono text-zinc-400 dark:border-zinc-700">
+            <span
+              class="rounded-full border border-zinc-200 px-2 py-1 text-[11px] font-mono text-zinc-400 dark:border-zinc-700"
+            >
               ⌘K
             </span>
           </div>
 
           <div class="max-h-[60vh] overflow-y-auto px-2 py-3 sm:max-h-[65vh]">
-            <div v-if="sections.length === 0" class="px-4 py-10 text-center text-sm text-zinc-500">
+            <div
+              v-if="sections.length === 0"
+              class="px-4 py-10 text-center text-sm text-zinc-500"
+            >
               Start typing to search the site.
             </div>
 
@@ -44,20 +53,24 @@
               :key="section.title"
               class="mb-4 last:mb-0"
             >
-              <div class="px-3 pb-2 text-[11px] font-mono uppercase tracking-[0.25em] text-zinc-400">
+              <div
+                class="px-3 pb-2 text-[11px] font-mono uppercase tracking-[0.25em] text-zinc-400"
+              >
                 {{ section.title }}
               </div>
               <ul class="space-y-1">
-                <li
-                  v-for="item in section.items"
-                  :key="item.id"
-                >
+                <li v-for="item in section.items" :key="item.id">
                   <button
                     type="button"
                     class="flex w-full items-start gap-3 rounded-xl px-3 py-2 text-left transition-colors"
-                    :class="item.id === activeItemId
-                      ? 'bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100'
-                      : 'text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800/70'"
+                    :class="[
+                      item.id === activeItemId
+                        ? 'bg-zinc-100 text-zinc-900 dark:bg-zinc-800'
+                        : 'text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900',
+                      item.id === activeItemId
+                        ? 'dark:text-zinc-100'
+                        : 'dark:text-zinc-300 dark:hover:bg-zinc-800/70',
+                    ]"
                     @mouseenter="setActiveItem(item.id)"
                     @click="selectItem(item)"
                   >
@@ -84,7 +97,10 @@
                         class="mt-1 text-xs text-zinc-500 dark:text-zinc-400"
                         v-html="item.description"
                       ></p>
-                      <div v-if="item.tags?.length" class="mt-2 flex flex-wrap gap-1.5">
+                      <div
+                        v-if="item.tags?.length"
+                        class="mt-2 flex flex-wrap gap-1.5"
+                      >
                         <span
                           v-for="tag in item.tags"
                           :key="tag"
@@ -113,7 +129,9 @@
             </div>
           </div>
 
-          <div class="flex items-center justify-between border-t border-zinc-100 px-4 py-3 text-xs text-zinc-500 dark:border-zinc-800">
+          <div
+            class="flex items-center justify-between border-t border-zinc-100 px-4 py-3 text-xs text-zinc-500 dark:border-zinc-800"
+          >
             <span class="font-mono">Enter to open · Esc to close</span>
             <span class="font-mono">↑ ↓ to navigate</span>
           </div>
@@ -152,8 +170,16 @@ const staticActions = computed(() => {
     { label: 'Threads', href: '/threads', meta: 'Page' },
     { label: 'RSS Feed', href: 'https://ejfox.com/rss.xml', external: true },
     { label: 'GitHub', href: 'https://github.com/ejfox', external: true },
-    { label: 'Twitter / X', href: 'https://twitter.com/mrejfox', external: true },
-    { label: 'Mastodon', href: 'https://mastodon.social/@ejfox', external: true },
+    {
+      label: 'Twitter / X',
+      href: 'https://twitter.com/mrejfox',
+      external: true,
+    },
+    {
+      label: 'Mastodon',
+      href: 'https://mastodon.social/@ejfox',
+      external: true,
+    },
     { label: 'Email', href: 'mailto:ejfox@ejfox.com', external: true },
   ]
 
@@ -241,8 +267,11 @@ function onKeydown(event) {
     event.preventDefault()
     const items = flatItems.value
     if (items.length === 0) return
-    const currentIndex = items.findIndex((item) => item.id === activeItemId.value)
-    const nextIndex = currentIndex === -1 ? 0 : (currentIndex + 1) % items.length
+    const currentIndex = items.findIndex(
+      (item) => item.id === activeItemId.value
+    )
+    const nextIndex =
+      currentIndex === -1 ? 0 : (currentIndex + 1) % items.length
     activeItemId.value = items[nextIndex].id
     return
   }
@@ -251,7 +280,9 @@ function onKeydown(event) {
     event.preventDefault()
     const items = flatItems.value
     if (items.length === 0) return
-    const currentIndex = items.findIndex((item) => item.id === activeItemId.value)
+    const currentIndex = items.findIndex(
+      (item) => item.id === activeItemId.value
+    )
     const nextIndex =
       currentIndex <= 0 ? items.length - 1 : (currentIndex - 1) % items.length
     activeItemId.value = items[nextIndex].id
@@ -259,7 +290,9 @@ function onKeydown(event) {
   }
 
   if (event.key === 'Enter') {
-    const active = flatItems.value.find((item) => item.id === activeItemId.value)
+    const active = flatItems.value.find(
+      (item) => item.id === activeItemId.value
+    )
     if (!active) return
     event.preventDefault()
     selectItem(active)
@@ -333,7 +366,7 @@ watch(
         isLoading.value = false
         const firstItem = flatItems.value[0]?.id
         activeItemId.value = firstItem || ''
-      } catch (error) {
+      } catch (_error) {
         if (token !== searchToken) return
         isLoading.value = false
         errorMessage.value = 'Search failed. Try again.'
@@ -343,18 +376,15 @@ watch(
   { immediate: true }
 )
 
-watch(
-  isOpen,
-  async (value) => {
-    if (value) {
-      resetState()
-      await nextTick()
-      inputRef.value?.focus()
-    } else {
-      resetState()
-    }
+watch(isOpen, async (value) => {
+  if (value) {
+    resetState()
+    await nextTick()
+    inputRef.value?.focus()
+  } else {
+    resetState()
   }
-)
+})
 
 onMounted(() => {
   window.addEventListener('keydown', onGlobalKeydown)

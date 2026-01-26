@@ -16,10 +16,7 @@ const CLOUDINARY_URL_RE =
   /https?:\/\/res\.cloudinary\.com\/[^/\s"'<>]+\/image\/upload\/[^\s"'<>]+/gi
 
 function isTransformSegment(segment) {
-  return (
-    segment.includes(',') ||
-    /^(c|w|h|f|q|g|e|t)_[^/]+/.test(segment)
-  )
+  return segment.includes(',') || /^[cwhfqget]_[^/]+/.test(segment)
 }
 
 function extractCloudinaryInfo(url) {
@@ -59,10 +56,10 @@ function hasMeaningfulMeta(meta) {
   if (!meta || typeof meta !== 'object') return false
   return Boolean(
     meta.width ||
-      meta.height ||
-      (Array.isArray(meta.colors) && meta.colors.length > 0) ||
-      meta.avgColor ||
-      meta.secondaryColor
+    meta.height ||
+    (Array.isArray(meta.colors) && meta.colors.length > 0) ||
+    meta.avgColor ||
+    meta.secondaryColor
   )
 }
 
@@ -126,13 +123,8 @@ const limiter = (() => {
   const concurrency = 3
   const minTime = 150
 
-  const schedule = (task) =>
-    new Promise((resolve, reject) => {
-      queue.push({ task, resolve, reject })
-      runNext()
-    })
-
-  const runNext = () => {
+  // Hoisted function declaration to avoid use-before-define
+  function runNext() {
     if (activeCount >= concurrency || queue.length === 0) return
     const now = Date.now()
     const wait = Math.max(0, minTime - (now - lastStart))
@@ -153,6 +145,12 @@ const limiter = (() => {
       }
     }, wait)
   }
+
+  const schedule = (task) =>
+    new Promise((resolve, reject) => {
+      queue.push({ task, resolve, reject })
+      runNext()
+    })
 
   return schedule
 })()
@@ -206,7 +204,7 @@ async function main() {
   const targets = urls.filter(
     (url) => isLikelyValidUrl(url) && !hasMeaningfulMeta(cache[url])
   )
-  console.log(`Found ${urls.length} URLs, ${targets.length} missing metadata`)
+  console.info(`Found ${urls.length} URLs, ${targets.length} missing metadata`)
 
   let index = 0
   let processed = 0
@@ -219,13 +217,13 @@ async function main() {
         const meta = await fetchMeta(current)
         if (hasMeaningfulMeta(meta)) {
           cache[current] = meta
-          console.log(`✓ ${current}`)
+          console.info(`✓ ${current}`)
           updated += 1
         } else {
-          console.log(`- ${current}`)
+          console.info(`- ${current}`)
         }
       } catch {
-        console.log(`x ${current}`)
+        console.info(`x ${current}`)
       }
       processed += 1
       if (processed % 50 === 0 && updated > 0) {
@@ -236,7 +234,7 @@ async function main() {
 
   await Promise.all(workers)
   await saveCache(cache)
-  console.log(`Saved cache to ${CACHE_PATH}`)
+  console.info(`Saved cache to ${CACHE_PATH}`)
 }
 
 main().catch((error) => {

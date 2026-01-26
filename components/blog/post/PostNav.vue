@@ -35,11 +35,13 @@ defineProps<{
 
 <style scoped>
 .grid-post-nav {
-  @apply grid grid-cols-1 sm:grid-cols-2 gap-4 py-6 border-t border-zinc-200 dark:border-zinc-800;
+  @apply grid grid-cols-1 sm:grid-cols-2 gap-4 py-6;
+  @apply border-t border-zinc-200 dark:border-zinc-800;
 }
 
 .post-nav-link {
-  @apply block p-4 rounded hover:bg-zinc-100 dark:hover:bg-zinc-800 transition-colors;
+  @apply block p-4 rounded transition-colors;
+  @apply hover:bg-zinc-100 dark:hover:bg-zinc-800;
 }
 
 .post-nav-label {

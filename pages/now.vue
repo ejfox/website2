@@ -440,7 +440,9 @@ usePageSeo({
       >
         <div class="activity-section-label">Language Learning</div>
         <div class="flex items-baseline gap-2">
-          <span class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 tabular-nums">
+          <span
+            class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 tabular-nums"
+          >
             {{ now.duolingo.streak }}
           </span>
           <span class="font-mono text-xs text-zinc-500 dark:text-zinc-500">
@@ -463,7 +465,9 @@ usePageSeo({
         <div class="activity-section-label">Typing Speed</div>
         <div class="flex items-baseline gap-3">
           <div class="flex items-baseline gap-1">
-            <span class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 tabular-nums">
+            <span
+              class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 tabular-nums"
+            >
               {{ now.typing.averageWpm }}
             </span>
             <span class="font-mono text-xs text-zinc-500 dark:text-zinc-500">
@@ -472,7 +476,9 @@ usePageSeo({
           </div>
           <span class="text-zinc-300 dark:text-zinc-700">·</span>
           <div class="flex items-baseline gap-1">
-            <span class="font-mono text-lg text-zinc-600 dark:text-zinc-400 tabular-nums">
+            <span
+              class="font-mono text-lg text-zinc-600 dark:text-zinc-400 tabular-nums"
+            >
               {{ now.typing.bestWpm }}
             </span>
             <span class="font-mono text-xs text-zinc-500 dark:text-zinc-500">
@@ -495,13 +501,17 @@ usePageSeo({
           target="_blank"
           class="block group"
         >
-          <div class="activity-title-base group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors">
+          <div
+            class="activity-title-base group-hover:text-zinc-600 dark:group-hover:text-zinc-300 transition-colors"
+          >
             {{ now.leetcode.title }}
           </div>
           <div class="font-mono text-xs text-zinc-500 dark:text-zinc-500 mt-1">
             <span v-if="now.leetcode.lang">{{ now.leetcode.lang }}</span>
-            <span v-if="now.leetcode.lang && now.leetcode.totalSolved"> · </span>
-            <span v-if="now.leetcode.totalSolved">{{ now.leetcode.totalSolved }} solved</span>
+            <span v-if="now.leetcode.lang && now.leetcode.totalSolved">·</span>
+            <span v-if="now.leetcode.totalSolved">
+              {{ now.leetcode.totalSolved }} solved
+            </span>
           </div>
         </a>
       </section>

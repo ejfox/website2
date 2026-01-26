@@ -5,6 +5,13 @@
  * @returns Film data with list of watched films, ratings, rewatch status, and calculated statistics (yearly/monthly counts, average rating)
  */
 
+// Extract film slug from Letterboxd URL
+function extractSlugFromLink(link: string | null | undefined): string {
+  if (!link) return ''
+  const slugMatch = link.match(/\/film\/([^/]+)\//)
+  return slugMatch ? slugMatch[1] : ''
+}
+
 export default defineEventHandler(async (_event) => {
   try {
     // Fetch RSS feed (much more reliable than HTML scraping!)
@@ -57,13 +64,7 @@ export default defineEventHandler(async (_event) => {
 
         // Extract slug from link
         // e.g., https://letterboxd.com/ejfox/film/friendship-2024/
-        let slug = ''
-        if (linkMatch) {
-          const slugMatch = linkMatch[1].match(/\/film\/([^/]+)\//)
-          if (slugMatch) {
-            slug = slugMatch[1]
-          }
-        }
+        const slug = extractSlugFromLink(linkMatch?.[1])
 
         films.push({
           title: year ? `${title} (${year})` : title,

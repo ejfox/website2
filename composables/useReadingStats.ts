@@ -3,6 +3,8 @@
  * @description Computes reading statistics from post HTML content
  */
 
+import { type Ref, type ComputedRef, computed, unref } from 'vue'
+
 interface ReadingStats {
   words: number
   images: number

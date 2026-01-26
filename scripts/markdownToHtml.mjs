@@ -30,7 +30,10 @@ import {
 } from './plugins/index.mjs'
 
 // Load theme once - use absolute path for compatibility with eval scripts
-const themePath = path.join(path.dirname(new URL(import.meta.url).pathname), '../themes/ayu-mirage.json')
+const themePath = path.join(
+  path.dirname(new URL(import.meta.url).pathname),
+  '../themes/ayu-mirage.json'
+)
 const theme = JSON.parse(await fs.readFile(themePath, 'utf-8'))
 
 // Create highlighter once
@@ -84,7 +87,7 @@ const formatTitle = (filename) => {
  * Convert markdown content to HTML using the EXACT same pipeline as the blog
  * @param {string} content - Raw markdown content (including frontmatter)
  * @param {string} filename - Filename for title extraction
- * @returns {Promise<{html: string, title: string, metadata: object}>}
+ * @returns {Promise<{html: string, title: string, metadata: object}>} Converted result
  */
 export async function convertMarkdown(content, filename = 'preview.md') {
   const { data: frontmatter, content: markdownContent } = matter(content)

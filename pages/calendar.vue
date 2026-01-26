@@ -5,7 +5,9 @@
     <div class="api-section">
       <h2>curl my availability</h2>
       <div class="code-block">
-        <pre><code>curl -s ejfox.com/api/cal/available-slots | jq -r '.slots[]|"\(.naturalTime)\t\(.bookingUrl)"' | fzf | cut -f2 | xargs open</code></pre>
+        <pre><code>curl -s ejfox.com/api/cal/available-slots \
+  | jq -r '.slots[]|"\(.naturalTime)\t\(.bookingUrl)"' \
+  | fzf | cut -f2 | xargs open</code></pre>
       </div>
     </div>
   </div>

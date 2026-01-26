@@ -80,7 +80,8 @@ function parseRssFeed(xml: string, shelf: string): GoodreadsBook[] {
         averageRating: avgRating,
         numPages: numPages && numPages > 0 ? numPages : null,
         dateRead: stripCdata(readAtMatch ? readAtMatch[1] : null) || null,
-        dateAdded: stripCdata(dateAddedMatch ? dateAddedMatch[1] : null) || null,
+        dateAdded:
+          stripCdata(dateAddedMatch ? dateAddedMatch[1] : null) || null,
         shelf: shelf,
         imageUrl: stripCdata(imageMatch ? imageMatch[1] : null) || null,
         goodreadsUrl: stripCdata(linkMatch ? linkMatch[1] : null) || '',

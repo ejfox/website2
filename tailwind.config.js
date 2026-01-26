@@ -14,21 +14,21 @@ module.exports = {
       fontSize: {
         // Typography scale: 2px font increments, 4px line-height grid
         // Dense sizes for data-heavy UI
-        '3xs': ['0.625rem', { lineHeight: '1rem', letterSpacing: '0.02em' }],    // 10px/16px - dense stats
-        '2xs': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.01em' }],     // 12px/16px - small labels
+        '3xs': ['0.625rem', { lineHeight: '1rem', letterSpacing: '0.02em' }], // 10px/16px - dense stats
+        '2xs': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.01em' }], // 12px/16px - small labels
         // Standard sizes
-        xs: ['0.875rem', '1.25rem'],   // 14px/20px - captions
-        sm: ['1rem', '1.5rem'],        // 16px/24px - body small
+        xs: ['0.875rem', '1.25rem'], // 14px/20px - captions
+        sm: ['1rem', '1.5rem'], // 16px/24px - body small
         base: ['1.125rem', '1.75rem'], // 18px/28px - body
-        lg: ['1.25rem', '2rem'],       // 20px/32px - lead
-        xl: ['1.5rem', '2rem'],        // 24px/32px - h4
+        lg: ['1.25rem', '2rem'], // 20px/32px - lead
+        xl: ['1.5rem', '2rem'], // 24px/32px - h4
         '2xl': ['1.75rem', '2.25rem'], // 28px/36px - h3
-        '3xl': ['2rem', '2.5rem'],     // 32px/40px - h2
-        '4xl': ['2.5rem', '3rem'],     // 40px/48px - h1
-        '5xl': ['3rem', '3.5rem'],     // 48px/56px - display
-        '6xl': ['4rem', '4.5rem'],     // 64px/72px - hero
-        '7xl': ['5rem', '5.5rem'],     // 80px/88px - jumbo
-        '8xl': ['6rem', '6rem'],       // 96px/96px - massive
+        '3xl': ['2rem', '2.5rem'], // 32px/40px - h2
+        '4xl': ['2.5rem', '3rem'], // 40px/48px - h1
+        '5xl': ['3rem', '3.5rem'], // 48px/56px - display
+        '6xl': ['4rem', '4.5rem'], // 64px/72px - hero
+        '7xl': ['5rem', '5.5rem'], // 80px/88px - jumbo
+        '8xl': ['6rem', '6rem'], // 96px/96px - massive
       },
       spacing: {
         // 2, 4, 8 rhythm (based on 8px unit)

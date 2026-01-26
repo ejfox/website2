@@ -16,8 +16,9 @@
       <nav
         v-if="!isStatsSimple"
         :class="[
-          'md:hidden px-4 py-3 font-mono text-sm flex flex-wrap gap-x-3 gap-y-1 items-baseline',
-          isBlogPost ? 'mt-10 sm:mt-8' : ''
+          'md:hidden px-4 py-3 font-mono text-sm',
+          'flex flex-wrap gap-x-3 gap-y-1 items-baseline',
+          isBlogPost ? 'mt-10 sm:mt-8' : '',
         ]"
       >
         <NuxtLink to="/" class="font-bold text-zinc-800 dark:text-zinc-200">
@@ -37,7 +38,8 @@
           class="text-zinc-500 dark:text-zinc-400 hover:text-zinc-800 dark:hover:text-zinc-200"
           @click="openPalette"
         >
-          Search <span class="text-xs">⌘K</span>
+          Search
+          <span class="text-xs">⌘K</span>
         </button>
       </nav>
 
@@ -45,8 +47,9 @@
       <nav
         v-if="!isStatsSimple"
         :class="[
-          'hidden md:block sticky w-[200px] shrink-0 h-auto left-0 z-50 px-3 py-4 font-mono',
-          isBlogPost ? 'top-10 sm:top-8' : 'top-0'
+          'hidden md:block sticky w-[200px] shrink-0 h-auto',
+          'left-0 z-50 px-3 py-4 font-mono',
+          isBlogPost ? 'top-10 sm:top-8' : 'top-0',
         ]"
       >
         <div class="space-y-2">
@@ -83,10 +86,7 @@
         </div>
 
         <!-- TOC container - always present for teleport targets -->
-        <div
-          id="nav-toc-container"
-          class="mt-4 font-sans"
-        ></div>
+        <div id="nav-toc-container" class="mt-4 font-sans"></div>
 
         <div v-if="isBlogPost" class="mt-4">
           <NuxtLink
@@ -104,7 +104,7 @@
         :class="[
           'w-full overflow-x-auto',
           isStatsSimple ? '' : 'md:w-4/5',
-          isBlogPost ? 'md:pt-10 lg:pt-8' : ''
+          isBlogPost ? 'md:pt-10 lg:pt-8' : '',
         ]"
       >
         <slot />

@@ -110,8 +110,8 @@ useHead({
         <!-- Static content rendered directly -->
         <div
           id="index-content"
-          v-html="indexContent.html"
           class="font-serif prose prose-zinc dark:prose-invert max-w-none"
+          v-html="indexContent.html"
         />
       </template>
     </div>

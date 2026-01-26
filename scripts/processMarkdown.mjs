@@ -72,6 +72,105 @@ const formatTitle = (filename) => {
     .join(' ')
 }
 
+// ============================================================================
+// Helper functions to reduce nesting depth (extracted for ESLint max-depth)
+// ============================================================================
+
+/**
+ * Fix a single broken link in a source file by replacing with archived version
+ * @returns {boolean} true if file was modified
+ */
+async function fixLinkInSourceFile(link, source, contentDir) {
+  const archivedUrl = link.archived.url
+  const archivedDate = link.archived.timestamp.substring(0, 8) // YYYYMMDD
+
+  // Format date as YYYY-MM-DD
+  const year = archivedDate.substring(0, 4)
+  const month = archivedDate.substring(4, 6)
+  const day = archivedDate.substring(6, 8)
+  const formattedDate = `${year}-${month}-${day}`
+
+  const filePath = path.join(contentDir, `${source}.md`)
+
+  try {
+    let content = await fs.readFile(filePath, 'utf-8')
+    const originalContent = content
+
+    // Replace the broken link with archived version + indicator
+    const escapedUrl = link.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+    // Replace in markdown links [text](broken-url)
+    const mdLinkRegex = new RegExp(`(\\[[^\\]]+\\])\\(${escapedUrl}\\)`, 'g')
+    content = content.replace(
+      mdLinkRegex,
+      `$1(${archivedUrl}) *[archived ${formattedDate}]*`
+    )
+
+    // Replace bare URLs
+    const bareUrlRegex = new RegExp(`(?<!\\()${escapedUrl}(?!\\))`, 'g')
+    content = content.replace(
+      bareUrlRegex,
+      `${archivedUrl} *[archived ${formattedDate}]*`
+    )
+
+    // Only write if content changed
+    if (content !== originalContent) {
+      await fs.writeFile(filePath, content, 'utf-8')
+      return true
+    }
+    return false
+  } catch {
+    // Skip files we can't fix
+    return false
+  }
+}
+
+/**
+ * Check if a file should use cache based on modification times
+ * @returns {'cache' | 'process'} whether to use cache or process the file
+ */
+function getFileCacheStatus(filePath, outputPath) {
+  if (!existsSync(outputPath)) {
+    return 'process'
+  }
+
+  try {
+    const sourceStats = statSync(filePath)
+    const outputStats = statSync(outputPath)
+    return outputStats.mtime > sourceStats.mtime ? 'cache' : 'process'
+  } catch {
+    return 'process'
+  }
+}
+
+/**
+ * Try to load a processed result from cache
+ * @returns {{ result: object, cached: boolean } | null} cached result or null if cache miss
+ */
+async function tryLoadCachedResult(outputPath, cacheVersion) {
+  try {
+    const cachedData = await fs.readFile(outputPath, 'utf-8')
+    const result = JSON.parse(cachedData)
+    if (result?.cacheVersion === cacheVersion) {
+      return { result, cached: true }
+    }
+    return null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Write processed result to output file (for non-draft content only)
+ */
+async function writeProcessedResult(result, outputPath) {
+  if (result.metadata?.draft === true) {
+    return
+  }
+  await fs.mkdir(path.dirname(outputPath), { recursive: true })
+  await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
+}
+
 const normalizeSlug = (slug) => {
   // Strip leading 'blog/' prefix if it exists
   return slug.startsWith('blog/') ? slug.slice(5) : slug
@@ -519,52 +618,15 @@ async function autoFixBrokenLinks(brokenLinks) {
     for (const link of brokenLinks) {
       if (!link.archived) continue
 
-      const archivedUrl = link.archived.url
-      const archivedDate = link.archived.timestamp.substring(0, 8) // YYYYMMDD
-
-      // Format date as YYYY-MM-DD
-      const year = archivedDate.substring(0, 4)
-      const month = archivedDate.substring(4, 6)
-      const day = archivedDate.substring(6, 8)
-      const formattedDate = `${year}-${month}-${day}`
-
       for (const source of link.sources) {
-        const filePath = path.join(paths.contentDir, `${source}.md`)
-
-        try {
-          let content = await fs.readFile(filePath, 'utf-8')
-          const originalContent = content
-
-          // Replace the broken link with archived version + indicator
-          // Match both markdown links [text](url) and bare URLs
-          const escapedUrl = link.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-
-          // Replace in markdown links [text](broken-url)
-          const mdLinkRegex = new RegExp(
-            `(\\[[^\\]]+\\])\\(${escapedUrl}\\)`,
-            'g'
-          )
-          content = content.replace(
-            mdLinkRegex,
-            `$1(${archivedUrl}) *[archived ${formattedDate}]*`
-          )
-
-          // Replace bare URLs
-          const bareUrlRegex = new RegExp(`(?<!\\()${escapedUrl}(?!\\))`, 'g')
-          content = content.replace(
-            bareUrlRegex,
-            `${archivedUrl} *[archived ${formattedDate}]*`
-          )
-
-          // Only write if content changed
-          if (content !== originalContent) {
-            await fs.writeFile(filePath, content, 'utf-8')
-            totalFixed++
-            fixedByFile[source] = (fixedByFile[source] || 0) + 1
-          }
-        } catch {
-          // Skip files we can't fix
-          continue
+        const wasFixed = await fixLinkInSourceFile(
+          link,
+          source,
+          paths.contentDir
+        )
+        if (wasFixed) {
+          totalFixed++
+          fixedByFile[source] = (fixedByFile[source] || 0) + 1
         }
       }
     }
@@ -678,7 +740,6 @@ const printSummary = (files) => {
     .slice(0, 10)
     .forEach(([tag, count]) => console.log(`${tag.padEnd(20)} ${count}`))
 }
-
 
 // Build on-this-day index from tweets + blog posts + scrobbles + commits
 // Outputs 366 individual JSON files for fast loading
@@ -920,20 +981,9 @@ async function processAllFiles() {
       const normalizedPath = normalizeSlug(relativePath.replace(/\.md$/, ''))
       const outputPath = path.join(paths.outputDir, `${normalizedPath}.json`)
 
-      if (existsSync(outputPath)) {
-        try {
-          const sourceStats = statSync(filePath)
-          const outputStats = statSync(outputPath)
-          if (outputStats.mtime > sourceStats.mtime) {
-            willCache++
-          } else {
-            willProcess++
-            filesToProcess.push(path.basename(filePath))
-          }
-        } catch {
-          willProcess++
-          filesToProcess.push(path.basename(filePath))
-        }
+      const cacheStatus = getFileCacheStatus(filePath, outputPath)
+      if (cacheStatus === 'cache') {
+        willCache++
       } else {
         willProcess++
         filesToProcess.push(path.basename(filePath))
@@ -959,63 +1009,44 @@ async function processAllFiles() {
         const normalizedPath = normalizeSlug(relativePath.replace(/\.md$/, ''))
         const outputPath = path.join(paths.outputDir, `${normalizedPath}.json`)
 
-        // 🚀 SMART CACHING: Check if output exists and is newer than source
-        let result
-        let cached = false
+        // 🚀 SMART CACHING: Try cache first, then process if needed
+        const cacheStatus = getFileCacheStatus(filePath, outputPath)
+        const cacheResult =
+          cacheStatus === 'cache'
+            ? await tryLoadCachedResult(outputPath, CACHE_VERSION)
+            : null
 
-        if (existsSync(outputPath)) {
-          try {
-            const sourceStats = statSync(filePath)
-            const outputStats = statSync(outputPath)
-
-            if (outputStats.mtime > sourceStats.mtime) {
-              // Output is newer - use cached version
-              const cachedData = await fs.readFile(outputPath, 'utf-8')
-              result = JSON.parse(cachedData)
-              if (result?.cacheVersion === CACHE_VERSION) {
-                cached = true
-                cachedCount++
-              }
-
-              if (cached) {
-                const baseName = path.basename(filePath).padEnd(40)
-                const pct2 = Math.round(
-                  (processStats.filesProcessed / processStats.totalFiles) * 100
-                )
-                process.stdout.write(
-                  `\r${chalk.gray(`Cached:     ${baseName}`)}${pct2}%`
-                )
-              }
-            }
-          } catch (_err) {
-            // Corrupted cache or stat error - re-process
-            cached = false
-          }
-        }
-
-        if (!cached) {
-          // Process file normally
-          result = await processMarkdown(
-            await fs.readFile(filePath, 'utf8'),
-            filePath
-          )
-          fetchedCount++
-
+        // Handle cached file
+        if (cacheResult) {
+          cachedCount++
           const baseName = path.basename(filePath).padEnd(40)
           const pct2 = Math.round(
             (processStats.filesProcessed / processStats.totalFiles) * 100
           )
           process.stdout.write(
-            `\r${chalk.gray(`Processing: ${baseName}`)}${pct2}%`
+            `\r${chalk.gray(`Cached:     ${baseName}`)}${pct2}%`
           )
-
-          // Only write JSON files for non-draft content
-          if (result.metadata?.draft !== true) {
-            await fs.mkdir(path.dirname(outputPath), { recursive: true })
-            await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
-          }
+          results.push(cacheResult.result)
+          processStats.filesProcessed++
+          continue
         }
 
+        // Process file (not cached)
+        const result = await processMarkdown(
+          await fs.readFile(filePath, 'utf8'),
+          filePath
+        )
+        fetchedCount++
+
+        const baseName = path.basename(filePath).padEnd(40)
+        const pct2 = Math.round(
+          (processStats.filesProcessed / processStats.totalFiles) * 100
+        )
+        process.stdout.write(
+          `\r${chalk.gray(`Processing: ${baseName}`)}${pct2}%`
+        )
+
+        await writeProcessedResult(result, outputPath)
         results.push(result)
         processStats.filesProcessed++
       } catch (error) {

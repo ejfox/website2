@@ -5,11 +5,13 @@
  * animation reveals them via opacity transitions.
  */
 
+import { type Ref, type ComputedRef, computed, reactive, unref } from 'vue'
+
 interface AnimationState {
   isAnimating: boolean
   typedCount: number
   hasStarted: boolean
-  errorChar: string | null  // Current typo character being shown
+  errorChar: string | null // Current typo character being shown
 }
 
 export function useTypingAnimation(text: Ref<string> | ComputedRef<string>) {
@@ -32,25 +34,27 @@ export function useTypingAnimation(text: Ref<string> | ComputedRef<string>) {
     const showCursor = state.isAnimating
 
     // ALWAYS render with spans to prevent layout shift when animation starts
-    return chars.value.map((char, i) => {
-      if (char === ' ') {
-        // Spaces always visible, in document flow
-        return ' '
-      }
+    return chars.value
+      .map((char, i) => {
+        if (char === ' ') {
+          // Spaces always visible, in document flow
+          return ' '
+        }
 
-      // Before animation: all visible. During: reveal one by one
-      const isVisible = !state.hasStarted || i < state.typedCount
-      const isCursorPos = showCursor && i === state.typedCount
-      const cursor = isCursorPos ? '<span class="cursor"></span>' : ''
+        // Before animation: all visible. During: reveal one by one
+        const isVisible = !state.hasStarted || i < state.typedCount
+        const isCursorPos = showCursor && i === state.typedCount
+        const cursor = isCursorPos ? '<span class="cursor"></span>' : ''
 
-      // Show typo character if we're at the error position
-      if (state.errorChar && i === state.typedCount - 1) {
-        return `<span class="typing-char typed">${escapeHtml(state.errorChar)}${cursor}</span>`
-      }
+        // Show typo character if we're at the error position
+        if (state.errorChar && i === state.typedCount - 1) {
+          return `<span class="typing-char typed">${escapeHtml(state.errorChar)}${cursor}</span>`
+        }
 
-      // Character always takes up space; opacity reveals it
-      return `<span class="typing-char${isVisible ? ' typed' : ''}">${escapeHtml(char)}${cursor}</span>`
-    }).join('')
+        // Character always takes up space; opacity reveals it
+        return `<span class="typing-char${isVisible ? ' typed' : ''}">${escapeHtml(char)}${cursor}</span>`
+      })
+      .join('')
   })
 
   async function animate() {
@@ -106,10 +110,11 @@ export function useTypingAnimation(text: Ref<string> | ComputedRef<string>) {
         delay = Math.round(delay * jitter)
 
         // TYPO SIMULATION: 2% chance, but not on spaces/punctuation, not if recent error
-        const shouldError = !recentError &&
-                           char !== ' ' &&
-                           !/[.,!?;:\-"']/.test(char) &&
-                           Math.random() < errorRate
+        const shouldError =
+          !recentError &&
+          char !== ' ' &&
+          !/[.,!?;:\-"']/.test(char) &&
+          Math.random() < errorRate
 
         if (shouldError) {
           recentError = true
@@ -121,7 +126,9 @@ export function useTypingAnimation(text: Ref<string> | ComputedRef<string>) {
           await new Promise((resolve) => setTimeout(resolve, delay))
 
           // "Oh shit" pause - realize the mistake
-          await new Promise((resolve) => setTimeout(resolve, 150 + Math.random() * 100))
+          await new Promise((resolve) =>
+            setTimeout(resolve, 150 + Math.random() * 100)
+          )
 
           // Backspace - remove the error
           state.errorChar = null
@@ -133,7 +140,9 @@ export function useTypingAnimation(text: Ref<string> | ComputedRef<string>) {
           await new Promise((resolve) => setTimeout(resolve, delay * 0.9))
 
           // Reset error flag after a few chars
-          setTimeout(() => { recentError = false }, 500)
+          setTimeout(() => {
+            recentError = false
+          }, 500)
         } else {
           await new Promise((resolve) => setTimeout(resolve, delay))
         }
@@ -148,17 +157,32 @@ export function useTypingAnimation(text: Ref<string> | ComputedRef<string>) {
   // Get an adjacent key on QWERTY for realistic typos
   function getAdjacentKey(char: string): string {
     const adjacentKeys: Record<string, string[]> = {
-      'a': ['s', 'q', 'z'], 'b': ['v', 'n', 'g', 'h'], 'c': ['x', 'v', 'd', 'f'],
-      'd': ['s', 'f', 'e', 'r', 'x', 'c'], 'e': ['w', 'r', 'd', 's'],
-      'f': ['d', 'g', 'r', 't', 'c', 'v'], 'g': ['f', 'h', 't', 'y', 'v', 'b'],
-      'h': ['g', 'j', 'y', 'u', 'b', 'n'], 'i': ['u', 'o', 'k', 'j'],
-      'j': ['h', 'k', 'u', 'i', 'n', 'm'], 'k': ['j', 'l', 'i', 'o', 'm'],
-      'l': ['k', 'o', 'p'], 'm': ['n', 'j', 'k'], 'n': ['b', 'm', 'h', 'j'],
-      'o': ['i', 'p', 'k', 'l'], 'p': ['o', 'l'], 'q': ['w', 'a'],
-      'r': ['e', 't', 'd', 'f'], 's': ['a', 'd', 'w', 'e', 'z', 'x'],
-      't': ['r', 'y', 'f', 'g'], 'u': ['y', 'i', 'h', 'j'],
-      'v': ['c', 'b', 'f', 'g'], 'w': ['q', 'e', 'a', 's'],
-      'x': ['z', 'c', 's', 'd'], 'y': ['t', 'u', 'g', 'h'], 'z': ['a', 'x', 's'],
+      a: ['s', 'q', 'z'],
+      b: ['v', 'n', 'g', 'h'],
+      c: ['x', 'v', 'd', 'f'],
+      d: ['s', 'f', 'e', 'r', 'x', 'c'],
+      e: ['w', 'r', 'd', 's'],
+      f: ['d', 'g', 'r', 't', 'c', 'v'],
+      g: ['f', 'h', 't', 'y', 'v', 'b'],
+      h: ['g', 'j', 'y', 'u', 'b', 'n'],
+      i: ['u', 'o', 'k', 'j'],
+      j: ['h', 'k', 'u', 'i', 'n', 'm'],
+      k: ['j', 'l', 'i', 'o', 'm'],
+      l: ['k', 'o', 'p'],
+      m: ['n', 'j', 'k'],
+      n: ['b', 'm', 'h', 'j'],
+      o: ['i', 'p', 'k', 'l'],
+      p: ['o', 'l'],
+      q: ['w', 'a'],
+      r: ['e', 't', 'd', 'f'],
+      s: ['a', 'd', 'w', 'e', 'z', 'x'],
+      t: ['r', 'y', 'f', 'g'],
+      u: ['y', 'i', 'h', 'j'],
+      v: ['c', 'b', 'f', 'g'],
+      w: ['q', 'e', 'a', 's'],
+      x: ['z', 'c', 's', 'd'],
+      y: ['t', 'u', 'g', 'h'],
+      z: ['a', 'x', 's'],
     }
     const lower = char.toLowerCase()
     const options = adjacentKeys[lower] || ['e', 't', 'a', 'o', 'i', 'n']

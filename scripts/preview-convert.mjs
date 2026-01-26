@@ -18,11 +18,13 @@ if (!filePath) {
 try {
   const content = await fs.readFile(filePath, 'utf-8')
   const result = await convertMarkdown(content, filePath)
-  console.log(JSON.stringify({
-    html: result.html,
-    title: result.title,
-    toc: result.metadata.toc || []
-  }))
+  console.info(
+    JSON.stringify({
+      html: result.html,
+      title: result.title,
+      toc: result.metadata.toc || [],
+    })
+  )
 } catch (error) {
   console.error(JSON.stringify({ error: error.message }))
   process.exit(1)

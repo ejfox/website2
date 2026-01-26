@@ -1,3 +1,5 @@
+import { useState } from '#imports'
+
 export const useCommandPalette = () => {
   const isOpen = useState('command-palette-open', () => false)
 

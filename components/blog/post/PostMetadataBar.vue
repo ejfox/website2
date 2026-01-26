@@ -4,19 +4,27 @@
   @props date, stats - post date and reading statistics
 -->
 <template>
-  <div class="flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-white uppercase tracking-wider">
+  <div
+    class="flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-white uppercase tracking-wider"
+  >
     <span class="whitespace-nowrap">{{ formattedDate }}</span>
     <span class="text-zinc-600">·</span>
     <span class="whitespace-nowrap">{{ stats.readingTime }}min read</span>
     <span class="text-zinc-600">·</span>
-    <span class="whitespace-nowrap">{{ formatCompact(stats.words) }} words</span>
+    <span class="whitespace-nowrap">
+      {{ formatCompact(stats.words) }} words
+    </span>
     <template v-if="stats.images > 0">
       <span class="text-zinc-600 hidden sm:inline">·</span>
-      <span class="whitespace-nowrap hidden sm:inline">{{ stats.images }} img</span>
+      <span class="whitespace-nowrap hidden sm:inline">
+        {{ stats.images }} img
+      </span>
     </template>
     <template v-if="stats.links > 0">
       <span class="text-zinc-600 hidden sm:inline">·</span>
-      <span class="whitespace-nowrap hidden sm:inline">{{ stats.links }} links</span>
+      <span class="whitespace-nowrap hidden sm:inline">
+        {{ stats.links }} links
+      </span>
     </template>
   </div>
 </template>

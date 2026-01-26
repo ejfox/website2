@@ -4,18 +4,32 @@
   <div>
     <!-- Top metadata bar - fixed, matching blog posts -->
     <div class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900">
-      <div class="flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-white uppercase tracking-wider">
-        <span class="whitespace-nowrap">{{ blogStats.postsCount }} entries</span>
+      <div
+        class="flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-white uppercase tracking-wider"
+      >
+        <span class="whitespace-nowrap">
+          {{ blogStats.postsCount }} entries
+        </span>
         <span class="text-zinc-600">·</span>
-        <span class="whitespace-nowrap">{{ blogStats.totalWordsK }}K words</span>
+        <span class="whitespace-nowrap">
+          {{ blogStats.totalWordsK }}K words
+        </span>
         <span class="text-zinc-600">·</span>
-        <span class="whitespace-nowrap">{{ blogStats.totalReadHours }}hr read</span>
+        <span class="whitespace-nowrap">
+          {{ blogStats.totalReadHours }}hr read
+        </span>
         <span class="text-zinc-600 hidden sm:inline">·</span>
-        <span class="whitespace-nowrap hidden sm:inline">{{ blogStats.totalLinks }} links</span>
+        <span class="whitespace-nowrap hidden sm:inline">
+          {{ blogStats.totalLinks }} links
+        </span>
         <span class="text-zinc-600 hidden sm:inline">·</span>
-        <span class="whitespace-nowrap hidden sm:inline">{{ blogStats.totalImages }} img</span>
+        <span class="whitespace-nowrap hidden sm:inline">
+          {{ blogStats.totalImages }} img
+        </span>
         <span class="text-zinc-600 hidden sm:inline">·</span>
-        <span class="whitespace-nowrap hidden sm:inline">{{ sortedYears?.length || 0 }} years</span>
+        <span class="whitespace-nowrap hidden sm:inline">
+          {{ sortedYears?.length || 0 }} years
+        </span>
       </div>
     </div>
 
@@ -23,7 +37,6 @@
     <header class="mb-6 relative pt-12">
       <!-- Swiss Grid Container matching blog posts -->
       <div class="max-w-screen-xl mx-auto px-4 sm:px-8 xl:px-16">
-
         <!-- Title section matching blog posts -->
         <div class="px-4 sm:px-6 pt-4 pb-3">
           <h1 class="blog-title">Blog</h1>

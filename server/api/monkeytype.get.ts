@@ -195,9 +195,8 @@ export default defineEventHandler(async () => {
     const getTestWpm = (test: MonkeyTypeTest | MonkeyTypeResult): number =>
       test.wpm ?? test.rawWpm ?? test.raw ?? 0
 
-    const getTestAccuracy = (
-      test: MonkeyTypeTest | MonkeyTypeResult
-    ): number => test.acc ?? test.accuracy ?? 0
+    const getTestAccuracy = (test: MonkeyTypeTest | MonkeyTypeResult): number =>
+      test.acc ?? test.accuracy ?? 0
 
     const getTestTimestamp = (
       test: MonkeyTypeTest | MonkeyTypeResult

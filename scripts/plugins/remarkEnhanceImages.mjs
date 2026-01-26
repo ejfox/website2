@@ -58,10 +58,7 @@ async function saveCache(cache) {
 }
 
 function isTransformSegment(segment) {
-  return (
-    segment.includes(',') ||
-    /^(c|w|h|f|q|g|e|t)_[^/]+/.test(segment)
-  )
+  return segment.includes(',') || /^[cwhfqget]_[^/]+/.test(segment)
 }
 
 function extractCloudinaryInfo(url) {
@@ -102,7 +99,7 @@ function buildSvgPlaceholder(width, height, primary, secondary) {
   const safeHeight = Number.isFinite(height) ? height : 800
   const p1 = primary || '#222222'
   const p2 = secondary || primary || '#333333'
-  const svg = `<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"${safeWidth}\" height=\"${safeHeight}\" viewBox=\"0 0 ${safeWidth} ${safeHeight}\" preserveAspectRatio=\"none\"><defs><linearGradient id=\"g\" x1=\"0\" y1=\"0\" x2=\"1\" y2=\"1\"><stop offset=\"0%\" stop-color=\"${p1}\"/><stop offset=\"100%\" stop-color=\"${p2}\"/></linearGradient></defs><rect width=\"100%\" height=\"100%\" fill=\"url(#g)\"/></svg>`
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${safeWidth}" height="${safeHeight}" viewBox="0 0 ${safeWidth} ${safeHeight}" preserveAspectRatio="none"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${p1}"/><stop offset="100%" stop-color="${p2}"/></linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/></svg>`
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
 }
 
@@ -110,10 +107,10 @@ function hasMeaningfulMeta(meta) {
   if (!meta || typeof meta !== 'object') return false
   return Boolean(
     meta.width ||
-      meta.height ||
-      (Array.isArray(meta.colors) && meta.colors.length > 0) ||
-      meta.avgColor ||
-      meta.secondaryColor
+    meta.height ||
+    (Array.isArray(meta.colors) && meta.colors.length > 0) ||
+    meta.avgColor ||
+    meta.secondaryColor
   )
 }
 
@@ -124,13 +121,8 @@ const limiter = (() => {
   const concurrency = 3
   const minTime = 150
 
-  const schedule = (task) =>
-    new Promise((resolve, reject) => {
-      queue.push({ task, resolve, reject })
-      runNext()
-    })
-
-  const runNext = () => {
+  // Hoisted function declaration to avoid use-before-define
+  function runNext() {
     if (activeCount >= concurrency || queue.length === 0) return
     const now = Date.now()
     const wait = Math.max(0, minTime - (now - lastStart))
@@ -151,6 +143,12 @@ const limiter = (() => {
       }
     }, wait)
   }
+
+  const schedule = (task) =>
+    new Promise((resolve, reject) => {
+      queue.push({ task, resolve, reject })
+      runNext()
+    })
 
   return schedule
 })()
@@ -217,7 +215,7 @@ export function remarkEnhanceImages() {
             cloudMeta.avgColor,
             cloudMeta.secondaryColor
           )
-          const style = `background-color:${cloudMeta.avgColor || '#222222'};background-image:url(\"${placeholder}\");background-size:cover;background-position:center;`
+          const style = `background-color:${cloudMeta.avgColor || '#222222'};background-image:url("${placeholder}");background-size:cover;background-position:center;`
 
           const existingStyle = node.data.hProperties.style || ''
           const prefix =

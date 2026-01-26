@@ -223,9 +223,7 @@ const languageBreakdown = computed(
   () => props.stats.typingStats?.languageBreakdown || []
 )
 
-const hasLanguageBreakdown = computed(
-  () => languageBreakdown.value.length > 0
-)
+const hasLanguageBreakdown = computed(() => languageBreakdown.value.length > 0)
 
 const topLanguages = computed(() =>
   [...languageBreakdown.value]
@@ -316,7 +314,8 @@ onMounted(() => {})
 }
 
 .language-metric {
-  @apply flex items-baseline gap-1 text-zinc-700 dark:text-zinc-400 tabular-nums font-medium;
+  @apply flex items-baseline gap-1 tabular-nums font-medium;
+  @apply text-zinc-700 dark:text-zinc-400;
 }
 
 .metric-label {

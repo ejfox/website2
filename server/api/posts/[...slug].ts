@@ -42,7 +42,7 @@ function isValidSlug(slug: string): boolean {
   // eslint-disable-next-line no-control-regex
   if (/[\x00-\x1F\x7F]/.test(slug)) return false
   // Allow letters/numbers plus common punctuation seen in reading slugs
-  if (!/^[\p{L}\p{N}_\-\/ .,'’&()]+$/u.test(slug)) return false
+  if (!/^[\p{L}\p{N}_\-/ .,'’&()]+$/u.test(slug)) return false
   return true
 }
 

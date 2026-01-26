@@ -59,6 +59,22 @@ function deriveEventTicker(marketTicker: string): string {
 }
 
 /**
+ * Find event ticker for a fill by checking existing mappings first, then deriving
+ * Extracted to reduce nesting depth in main handler
+ */
+function findEventTickerForFill(
+  fillTicker: string,
+  tickerToEvent: Map<string, string>
+): string {
+  for (const [_, eventTicker] of tickerToEvent.entries()) {
+    if (fillTicker.startsWith(eventTicker)) {
+      return eventTicker
+    }
+  }
+  return deriveEventTicker(fillTicker)
+}
+
+/**
  * Calculate portfolio P&L with proper YES/NO position handling
  */
 function calculatePortfolioPnL(
@@ -401,20 +417,11 @@ export default defineEventHandler(
         }
       }
 
-      // Handle fills
+      // Handle fills - map unmapped fill tickers to their event tickers
       for (const fill of fills.slice(0, 20)) {
         if (!tickerToEvent.has(fill.ticker)) {
-          let found = false
-          for (const [_, eventTicker] of tickerToEvent.entries()) {
-            if (fill.ticker.startsWith(eventTicker)) {
-              tickerToEvent.set(fill.ticker, eventTicker)
-              found = true
-              break
-            }
-          }
-          if (!found) {
-            tickerToEvent.set(fill.ticker, deriveEventTicker(fill.ticker))
-          }
+          const eventTicker = findEventTickerForFill(fill.ticker, tickerToEvent)
+          tickerToEvent.set(fill.ticker, eventTicker)
         }
       }
 
@@ -546,22 +553,11 @@ export default defineEventHandler(
         }
       }
 
-      // Handle fills (use event mapping if exists, otherwise derive)
+      // Handle fills - map unmapped fill tickers to their event tickers
       for (const fill of fills.slice(0, 20)) {
         if (!tickerToEvent.has(fill.ticker)) {
-          // Try to find event from existing mappings
-          let found = false
-          for (const [_marketTicker, eventTicker] of tickerToEvent.entries()) {
-            if (fill.ticker.startsWith(eventTicker)) {
-              tickerToEvent.set(fill.ticker, eventTicker)
-              found = true
-              break
-            }
-          }
-          if (!found) {
-            const eventTicker = deriveEventTicker(fill.ticker)
-            tickerToEvent.set(fill.ticker, eventTicker)
-          }
+          const eventTicker = findEventTickerForFill(fill.ticker, tickerToEvent)
+          tickerToEvent.set(fill.ticker, eventTicker)
         }
       }
 

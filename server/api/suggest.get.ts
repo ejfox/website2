@@ -158,6 +158,38 @@ async function loadBlogPosts(): Promise<BlogPost[]> {
   return posts || []
 }
 
+// Process a single JSON file and return BlogPost or null
+async function processJsonFile(
+  fullPath: string,
+  relativePath: string
+): Promise<BlogPost | null> {
+  try {
+    const fileContent = await readFile(fullPath, 'utf-8')
+    const data = JSON.parse(fileContent)
+
+    // Filter out private/draft content
+    const isHiddenOrDraft =
+      !data.content ||
+      data.metadata?.hidden ||
+      data.metadata?.private === true ||
+      data.metadata?.type === 'draft'
+
+    if (isHiddenOrDraft) return null
+
+    const slug = relativePath.replace('.json', '').replace(/\\/g, '/')
+
+    return {
+      title: data.title || 'Untitled',
+      content: stripHtml(data.content),
+      slug,
+      metadata: data.metadata,
+    }
+  } catch {
+    // Skip malformed files
+    return null
+  }
+}
+
 async function searchDirectory(dir: string, posts: BlogPost[], basePath = '') {
   try {
     const items = await readdir(dir, { withFileTypes: true })
@@ -168,43 +200,21 @@ async function searchDirectory(dir: string, posts: BlogPost[], basePath = '') {
 
       if (item.isDirectory()) {
         // Skip certain directories - keep it clean! *swoosh*
-        if (
-          ['backup', '_stale', 'week-notes', 'robots', 'prompts'].includes(
-            item.name
-          )
-        )
-          continue
+        const skipDirs = ['backup', '_stale', 'week-notes', 'robots', 'prompts']
+        if (skipDirs.includes(item.name)) continue
         await searchDirectory(fullPath, posts, relativePath)
-      } else if (
+        continue
+      }
+
+      const isJsonFile =
         item.name.endsWith('.json') &&
         item.name !== 'manifest-lite.json' &&
         item.name !== 'index.json'
-      ) {
-        try {
-          const fileContent = await readFile(fullPath, 'utf-8')
-          const data = JSON.parse(fileContent)
 
-          // Filter out private/draft content
-          if (
-            !data.content ||
-            data.metadata?.hidden ||
-            data.metadata?.private === true ||
-            data.metadata?.type === 'draft'
-          )
-            continue
+      if (!isJsonFile) continue
 
-          const slug = relativePath.replace('.json', '').replace(/\\/g, '/')
-
-          posts.push({
-            title: data.title || 'Untitled',
-            content: stripHtml(data.content),
-            slug,
-            metadata: data.metadata,
-          })
-        } catch {
-          // Skip malformed files *whoosh*
-        }
-      }
+      const post = await processJsonFile(fullPath, relativePath)
+      if (post) posts.push(post)
     }
   } catch {
     // Directory might not exist, that's ok! *zoom*
