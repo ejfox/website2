@@ -167,12 +167,15 @@ async function processJsonFile(
     const fileContent = await readFile(fullPath, 'utf-8')
     const data = JSON.parse(fileContent)
 
-    // Filter out private/draft content
+    // Filter out private/draft/unlisted/password-protected content
     const isHiddenOrDraft =
       !data.content ||
       data.metadata?.hidden ||
       data.metadata?.private === true ||
-      data.metadata?.type === 'draft'
+      data.metadata?.type === 'draft' ||
+      data.metadata?.unlisted === true ||
+      data.metadata?.password ||
+      data.metadata?.passwordHash
 
     if (isHiddenOrDraft) return null
 

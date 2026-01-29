@@ -12,40 +12,18 @@
   "language": "Shell",
   "languageColor": "#89e051",
   "languages": {
-    "Shell": 291463,
-    "GLSL": 176199,
-    "Lua": 126106,
-    "Vim Script": 83725,
-    "JavaScript": 8622,
-    "Less": 2089,
-    "CSS": 1367
+    "Shell": 302372,
+    "GLSL": 188468,
+    "Lua": 138448,
+    "JavaScript": 33095,
+    "CSS": 1942
   },
-  "diskUsage": 60943,
+  "diskUsage": 61010,
   "fileTree": {
     "files": [
       {
         "path": ".CLAUDE-CLEANUP-METHODOLOGY.txt",
         "size": 52
-      },
-      {
-        "path": ".DS_Store",
-        "size": 6148
-      },
-      {
-        "path": ".atom/config (mb417's conflicted copy 2019-03-23).cson",
-        "size": 1370
-      },
-      {
-        "path": ".atom/config.cson",
-        "size": 1263
-      },
-      {
-        "path": ".atom/keymap.cson",
-        "size": 134
-      },
-      {
-        "path": ".atom/styles.less",
-        "size": 2089
       },
       {
         "path": ".bash_profile",
@@ -113,7 +91,7 @@
       },
       {
         "path": ".claude/settings.json",
-        "size": 611
+        "size": 1187
       },
       {
         "path": ".claude/settings.local.json",
@@ -157,7 +135,7 @@
       },
       {
         "path": ".config/btop/btop.conf",
-        "size": 8500
+        "size": 8856
       },
       {
         "path": ".config/btop/btop.log",
@@ -169,7 +147,7 @@
       },
       {
         "path": ".config/btop/themes/vulpes-reddish2-light-btop.theme",
-        "size": 1201
+        "size": 1360
       },
       {
         "path": ".config/claude/mcp-servers/.gitignore",
@@ -192,8 +170,20 @@
         "size": 1634
       },
       {
+        "path": ".config/ghostty/audit-ghostty-theme.mjs",
+        "size": 5894
+      },
+      {
         "path": ".config/ghostty/config",
         "size": 3593
+      },
+      {
+        "path": ".config/ghostty/find-vulpes-greens-v2.mjs",
+        "size": 5154
+      },
+      {
+        "path": ".config/ghostty/find-vulpes-greens.mjs",
+        "size": 6707
       },
       {
         "path": ".config/ghostty/shaders/Readme.md",
@@ -205,7 +195,7 @@
       },
       {
         "path": ".config/ghostty/shaders/bettercrt.glsl",
-        "size": 1256
+        "size": 1276
       },
       {
         "path": ".config/ghostty/shaders/bloom-subtle.glsl",
@@ -214,6 +204,10 @@
       {
         "path": ".config/ghostty/shaders/bloom-vulpes.glsl",
         "size": 4266
+      },
+      {
+        "path": ".config/ghostty/shaders/bloom-wide-soft.glsl",
+        "size": 1607
       },
       {
         "path": ".config/ghostty/shaders/bloom.glsl",
@@ -266,6 +260,10 @@
       {
         "path": ".config/ghostty/shaders/drunkard.glsl",
         "size": 2274
+      },
+      {
+        "path": ".config/ghostty/shaders/film-grain-subtle.glsl",
+        "size": 1491
       },
       {
         "path": ".config/ghostty/shaders/fireworks-rockets.glsl",
@@ -332,6 +330,10 @@
         "size": 1368
       },
       {
+        "path": ".config/ghostty/shaders/scanline-flicker.glsl",
+        "size": 1167
+      },
+      {
         "path": ".config/ghostty/shaders/sin-interference.glsl",
         "size": 1122
       },
@@ -356,56 +358,16 @@
         "size": 3229
       },
       {
+        "path": ".config/ghostty/shaders/synesthaxia.glsl",
+        "size": 7984
+      },
+      {
         "path": ".config/ghostty/shaders/tft-subtle.glsl",
         "size": 1983
       },
       {
         "path": ".config/ghostty/shaders/tft.glsl",
         "size": 572
-      },
-      {
-        "path": ".config/ghostty/shaders/theme/bettercrt.png",
-        "size": 809500
-      },
-      {
-        "path": ".config/ghostty/shaders/theme/bloom.png",
-        "size": 1010525
-      },
-      {
-        "path": ".config/ghostty/shaders/theme/cineShader-Lava.png",
-        "size": 1027189
-      },
-      {
-        "path": ".config/ghostty/shaders/theme/crt.png",
-        "size": 5346685
-      },
-      {
-        "path": ".config/ghostty/shaders/theme/cubes.png",
-        "size": 624516
-      },
-      {
-        "path": ".config/ghostty/shaders/theme/dither.png",
-        "size": 310857
-      },
-      {
-        "path": ".config/ghostty/shaders/theme/drunkard.png",
-        "size": 1079478
-      },
-      {
-        "path": ".config/ghostty/shaders/theme/fireworks-rocket.png",
-        "size": 367245
-      },
-      {
-        "path": ".config/ghostty/shaders/theme/fireworks.png",
-        "size": 622770
-      },
-      {
-        "path": ".config/ghostty/shaders/theme/gears-and-belts.png",
-        "size": 913926
-      },
-      {
-        "path": ".config/ghostty/shaders/theme/glitchy.png",
-        "size": 6968585
       },
       {
         "path": ".config/ghostty/shaders/underwater.glsl",
@@ -449,7 +411,7 @@
       },
       {
         "path": ".config/ghostty/themes/vulpes-reddishnovember-light",
-        "size": 555
+        "size": 586
       },
       {
         "path": ".config/ghostty/themes/vulpes_greenish_dark",
@@ -488,12 +450,20 @@
         "size": 3325
       },
       {
+        "path": ".config/lazygit/audit-theme.mjs",
+        "size": 6718
+      },
+      {
         "path": ".config/lazygit/config.yml",
         "size": 1083
       },
       {
         "path": ".config/lazygit/vulpes-reddishnovember-dark.yml",
         "size": 1083
+      },
+      {
+        "path": ".config/lazygit/vulpes-reddishnovember-light-improved.yml",
+        "size": 965
       },
       {
         "path": ".config/lazygit/vulpes-reddishnovember-light.yml",
@@ -526,14 +496,6 @@
       {
         "path": ".config/nvim/LICENSE",
         "size": 11357
-      },
-      {
-        "path": ".config/nvim/PLUGINS.md",
-        "size": 13539
-      },
-      {
-        "path": ".config/nvim/SETUP-COMPLETE.md",
-        "size": 5350
       },
       {
         "path": ".config/nvim/check-plugins.sh",
@@ -577,7 +539,7 @@
       },
       {
         "path": ".config/nvim/lazy-lock.json",
-        "size": 6012
+        "size": 5833
       },
       {
         "path": ".config/nvim/lazyvim.json",
@@ -585,7 +547,7 @@
       },
       {
         "path": ".config/nvim/lua/config/autocmds.lua",
-        "size": 1009
+        "size": 1291
       },
       {
         "path": ".config/nvim/lua/config/diagnostics.lua",
@@ -593,19 +555,15 @@
       },
       {
         "path": ".config/nvim/lua/config/keymaps.lua",
-        "size": 1358
+        "size": 1941
       },
       {
         "path": ".config/nvim/lua/config/lazy.lua",
-        "size": 1989
+        "size": 3603
       },
       {
         "path": ".config/nvim/lua/config/options.lua",
-        "size": 3372
-      },
-      {
-        "path": ".config/nvim/lua/custom/clipboard.lua",
-        "size": 528
+        "size": 6736
       },
       {
         "path": ".config/nvim/lua/custom/directory-watcher.lua",
@@ -620,64 +578,36 @@
         "size": 3057
       },
       {
-        "path": ".config/nvim/lua/plugins/auto-dark-mode.lua",
-        "size": 495
-      },
-      {
         "path": ".config/nvim/lua/plugins/claude-code-workflow.lua",
-        "size": 1805
-      },
-      {
-        "path": ".config/nvim/lua/plugins/colorscheme.lua",
-        "size": 261
+        "size": 1716
       },
       {
         "path": ".config/nvim/lua/plugins/copilot-inline.lua",
         "size": 1565
       },
       {
-        "path": ".config/nvim/lua/plugins/formatting.lua",
-        "size": 172
+        "path": ".config/nvim/lua/plugins/focus.lua",
+        "size": 1961
       },
       {
-        "path": ".config/nvim/lua/plugins/hardtime.lua",
-        "size": 3289
+        "path": ".config/nvim/lua/plugins/git.lua",
+        "size": 2446
       },
       {
-        "path": ".config/nvim/lua/plugins/harpoon.lua",
-        "size": 1244
-      },
-      {
-        "path": ".config/nvim/lua/plugins/kulala.lua",
-        "size": 1521
-      },
-      {
-        "path": ".config/nvim/lua/plugins/mini-animate.lua",
-        "size": 1209
-      },
-      {
-        "path": ".config/nvim/lua/plugins/mini-diff.lua",
-        "size": 1239
-      },
-      {
-        "path": ".config/nvim/lua/plugins/minimal-git.lua",
-        "size": 1985
+        "path": ".config/nvim/lua/plugins/mini.lua",
+        "size": 1718
       },
       {
         "path": ".config/nvim/lua/plugins/minimal-statusline.lua",
-        "size": 4518
+        "size": 4527
       },
       {
         "path": ".config/nvim/lua/plugins/minimal-telescope.lua",
         "size": 1266
       },
       {
-        "path": ".config/nvim/lua/plugins/noice.lua",
-        "size": 359
-      },
-      {
-        "path": ".config/nvim/lua/plugins/notify.lua",
-        "size": 1080
+        "path": ".config/nvim/lua/plugins/notifications.lua",
+        "size": 1216
       },
       {
         "path": ".config/nvim/lua/plugins/nvim-cmp-lean.lua",
@@ -688,48 +618,40 @@
         "size": 2802
       },
       {
+        "path": ".config/nvim/lua/plugins/nvim-ufo.lua",
+        "size": 1987
+      },
+      {
         "path": ".config/nvim/lua/plugins/obsidian.lua",
         "size": 1608
       },
       {
-        "path": ".config/nvim/lua/plugins/oil-git-status.lua",
-        "size": 1219
-      },
-      {
         "path": ".config/nvim/lua/plugins/oil.lua",
-        "size": 2159
+        "size": 3304
       },
       {
         "path": ".config/nvim/lua/plugins/snacks.lua",
         "size": 7528
       },
       {
-        "path": ".config/nvim/lua/plugins/surround.lua",
-        "size": 858
-      },
-      {
         "path": ".config/nvim/lua/plugins/svelte.lua",
         "size": 1202
       },
       {
-        "path": ".config/nvim/lua/plugins/twilight.lua",
-        "size": 196
+        "path": ".config/nvim/lua/plugins/theming.lua",
+        "size": 3429
       },
       {
-        "path": ".config/nvim/lua/plugins/vim-tmux-navigator.lua",
-        "size": 677
+        "path": ".config/nvim/lua/plugins/usage-logging.lua",
+        "size": 5562
       },
       {
-        "path": ".config/nvim/lua/plugins/vimbegood.lua",
-        "size": 52
+        "path": ".config/nvim/lua/plugins/utilities.lua",
+        "size": 1897
       },
       {
-        "path": ".config/nvim/lua/plugins/vtsls.lua",
-        "size": 176
-      },
-      {
-        "path": ".config/nvim/lua/plugins/zen-mode.lua",
-        "size": 296
+        "path": ".config/nvim/lua/plugins/vue-lsp.lua",
+        "size": 1647
       },
       {
         "path": ".config/nvim/stylua.toml",
@@ -865,11 +787,7 @@
       },
       {
         "path": ".config/yazi/keymap.toml",
-        "size": 2724
-      },
-      {
-        "path": ".config/yazi/keymap.toml-1765208928951273",
-        "size": 2856
+        "size": 4057
       },
       {
         "path": ".config/yazi/package.toml",
@@ -897,7 +815,7 @@
       },
       {
         "path": ".config/yazi/plugins/git.yazi/main.lua",
-        "size": 5872
+        "size": 6299
       },
       {
         "path": ".config/yazi/plugins/glow.yazi/LICENSE",
@@ -932,24 +850,16 @@
         "size": 58
       },
       {
-        "path": ".config/yazi/theme.toml-1765208928969876",
-        "size": 2828
-      },
-      {
         "path": ".config/yazi/vulpes-reddishnovember-dark.toml",
-        "size": 2824
+        "size": 3149
       },
       {
         "path": ".config/yazi/vulpes-reddishnovember-light.toml",
-        "size": 2829
+        "size": 3141
       },
       {
         "path": ".config/yazi/yazi.toml",
-        "size": 697
-      },
-      {
-        "path": ".config/yazi/yazi.toml-1765208928947316",
-        "size": 701
+        "size": 857
       },
       {
         "path": ".config/zsh/themes/vulpes-reddishnovember-dark.zsh",
@@ -965,7 +875,7 @@
       },
       {
         "path": ".gitconfig",
-        "size": 1155
+        "size": 1255
       },
       {
         "path": ".githooks/pre-commit",
@@ -1013,15 +923,15 @@
       },
       {
         "path": ".obsidian-config/community-plugins.json",
-        "size": 205
+        "size": 234
       },
       {
         "path": ".obsidian-config/hotkeys.json",
-        "size": 1695
+        "size": 2258
       },
       {
         "path": ".obsidian-config/snippets/text.css",
-        "size": 1367
+        "size": 1942
       },
       {
         "path": ".p10k.zsh",
@@ -1037,39 +947,15 @@
       },
       {
         "path": ".startup.sh",
-        "size": 17472
-      },
-      {
-        "path": ".subversion/README.txt",
-        "size": 4276
-      },
-      {
-        "path": ".subversion/config",
-        "size": 8358
-      },
-      {
-        "path": ".subversion/servers",
-        "size": 8168
+        "size": 17654
       },
       {
         "path": ".tmux.conf",
-        "size": 9475
+        "size": 11318
       },
       {
         "path": ".tweakcc-apply.sh",
         "size": 1386
-      },
-      {
-        "path": ".vim/autoload/pathogen.vim",
-        "size": 8848
-      },
-      {
-        "path": ".vim/autoload/plug.vim",
-        "size": 74434
-      },
-      {
-        "path": ".vimrc",
-        "size": 443
       },
       {
         "path": ".vscode/settings.json",
@@ -1093,11 +979,7 @@
       },
       {
         "path": "CLAUDE.md",
-        "size": 29317
-      },
-      {
-        "path": "HISTORY.md",
-        "size": 21505
+        "size": 40225
       },
       {
         "path": "LICENSE",
@@ -1105,23 +987,19 @@
       },
       {
         "path": "README.md",
-        "size": 15322
-      },
-      {
-        "path": "STARTUP_DOCS.md",
-        "size": 7404
-      },
-      {
-        "path": "TWEAKCC_SETUP.md",
-        "size": 3357
-      },
-      {
-        "path": "WORKFLOWS.md",
-        "size": 5650
+        "size": 6228
       },
       {
         "path": "bin/ai-commit",
         "size": 3103
+      },
+      {
+        "path": "bin/appearance-watcher",
+        "size": 1166
+      },
+      {
+        "path": "bin/btop",
+        "size": 932
       },
       {
         "path": "bin/dotfiles-audit",
@@ -1141,23 +1019,67 @@
       },
       {
         "path": "bin/tmux-mutagen-status",
-        "size": 792
+        "size": 776
       },
       {
         "path": "bin/tmux-scratch-toggle",
         "size": 636
       },
       {
+        "path": "bin/usage-analyze",
+        "size": 2940
+      },
+      {
+        "path": "bin/usage-log",
+        "size": 801
+      },
+      {
+        "path": "bin/usage-summary",
+        "size": 842
+      },
+      {
+        "path": "bin/vps",
+        "size": 394
+      },
+      {
         "path": "bin/vtsls-wrapper",
         "size": 126
+      },
+      {
+        "path": "docs/HISTORY.md",
+        "size": 21505
+      },
+      {
+        "path": "docs/STARTUP_DOCS.md",
+        "size": 7404
+      },
+      {
+        "path": "docs/TWEAKCC_SETUP.md",
+        "size": 3357
+      },
+      {
+        "path": "docs/WORKFLOWS.md",
+        "size": 5650
+      },
+      {
+        "path": "docs/tips.txt",
+        "size": 19709
       },
       {
         "path": "lib/mystical-symbols.sh",
         "size": 14424
       },
       {
+        "path": "lib/shell-usage-logging.zsh",
+        "size": 1825
+      },
+      {
         "path": "lib/tmux-mystical.sh",
         "size": 396
+      },
+      {
+        "path": "lib/tmux-usage-logging.conf",
+        "size": 1996
       },
       {
         "path": "scripts/setup-vps-mosh.sh",
@@ -1168,47 +1090,17 @@
         "size": 890
       },
       {
-        "path": "tips.txt",
-        "size": 18337
-      },
-      {
         "path": "vulpes-reddish2-dark-tmux.tmux.conf",
         "size": 674
       },
       {
         "path": "vulpes-reddish2-light-tmux.tmux.conf",
-        "size": 624
+        "size": 685
       }
     ],
     "tree": {
       "name": "dotfiles",
       "children": [
-        {
-          "name": ".atom",
-          "children": [
-            {
-              "name": "config (mb417's conflicted copy 2019-03-23).cson",
-              "size": 1370,
-              "path": ".atom/config (mb417's conflicted copy 2019-03-23).cson"
-            },
-            {
-              "name": "config.cson",
-              "size": 1263,
-              "path": ".atom/config.cson"
-            },
-            {
-              "name": "keymap.cson",
-              "size": 134,
-              "path": ".atom/keymap.cson"
-            },
-            {
-              "name": "styles.less",
-              "size": 2089,
-              "path": ".atom/styles.less"
-            }
-          ],
-          "path": ".atom"
-        },
         {
           "name": ".claude",
           "children": [
@@ -1306,7 +1198,7 @@
             },
             {
               "name": "settings.json",
-              "size": 611,
+              "size": 1187,
               "path": ".claude/settings.json"
             },
             {
@@ -1391,7 +1283,7 @@
                     },
                     {
                       "name": "vulpes-reddish2-light-btop.theme",
-                      "size": 1201,
+                      "size": 1360,
                       "path": ".config/btop/themes/vulpes-reddish2-light-btop.theme"
                     }
                   ],
@@ -1399,7 +1291,7 @@
                 },
                 {
                   "name": "btop.conf",
-                  "size": 8500,
+                  "size": 8856,
                   "path": ".config/btop/btop.conf"
                 },
                 {
@@ -1454,67 +1346,6 @@
                   "name": "shaders",
                   "children": [
                     {
-                      "name": "theme",
-                      "children": [
-                        {
-                          "name": "bettercrt.png",
-                          "size": 809500,
-                          "path": ".config/ghostty/shaders/theme/bettercrt.png"
-                        },
-                        {
-                          "name": "bloom.png",
-                          "size": 1010525,
-                          "path": ".config/ghostty/shaders/theme/bloom.png"
-                        },
-                        {
-                          "name": "cineShader-Lava.png",
-                          "size": 1027189,
-                          "path": ".config/ghostty/shaders/theme/cineShader-Lava.png"
-                        },
-                        {
-                          "name": "crt.png",
-                          "size": 5346685,
-                          "path": ".config/ghostty/shaders/theme/crt.png"
-                        },
-                        {
-                          "name": "cubes.png",
-                          "size": 624516,
-                          "path": ".config/ghostty/shaders/theme/cubes.png"
-                        },
-                        {
-                          "name": "dither.png",
-                          "size": 310857,
-                          "path": ".config/ghostty/shaders/theme/dither.png"
-                        },
-                        {
-                          "name": "drunkard.png",
-                          "size": 1079478,
-                          "path": ".config/ghostty/shaders/theme/drunkard.png"
-                        },
-                        {
-                          "name": "fireworks-rocket.png",
-                          "size": 367245,
-                          "path": ".config/ghostty/shaders/theme/fireworks-rocket.png"
-                        },
-                        {
-                          "name": "fireworks.png",
-                          "size": 622770,
-                          "path": ".config/ghostty/shaders/theme/fireworks.png"
-                        },
-                        {
-                          "name": "gears-and-belts.png",
-                          "size": 913926,
-                          "path": ".config/ghostty/shaders/theme/gears-and-belts.png"
-                        },
-                        {
-                          "name": "glitchy.png",
-                          "size": 6968585,
-                          "path": ".config/ghostty/shaders/theme/glitchy.png"
-                        }
-                      ],
-                      "path": ".config/ghostty/shaders/theme"
-                    },
-                    {
                       "name": "Readme.md",
                       "size": 429,
                       "path": ".config/ghostty/shaders/Readme.md"
@@ -1526,7 +1357,7 @@
                     },
                     {
                       "name": "bettercrt.glsl",
-                      "size": 1256,
+                      "size": 1276,
                       "path": ".config/ghostty/shaders/bettercrt.glsl"
                     },
                     {
@@ -1538,6 +1369,11 @@
                       "name": "bloom-vulpes.glsl",
                       "size": 4266,
                       "path": ".config/ghostty/shaders/bloom-vulpes.glsl"
+                    },
+                    {
+                      "name": "bloom-wide-soft.glsl",
+                      "size": 1607,
+                      "path": ".config/ghostty/shaders/bloom-wide-soft.glsl"
                     },
                     {
                       "name": "bloom.glsl",
@@ -1603,6 +1439,11 @@
                       "name": "drunkard.glsl",
                       "size": 2274,
                       "path": ".config/ghostty/shaders/drunkard.glsl"
+                    },
+                    {
+                      "name": "film-grain-subtle.glsl",
+                      "size": 1491,
+                      "path": ".config/ghostty/shaders/film-grain-subtle.glsl"
                     },
                     {
                       "name": "fireworks-rockets.glsl",
@@ -1685,6 +1526,11 @@
                       "path": ".config/ghostty/shaders/retro-terminal.glsl"
                     },
                     {
+                      "name": "scanline-flicker.glsl",
+                      "size": 1167,
+                      "path": ".config/ghostty/shaders/scanline-flicker.glsl"
+                    },
+                    {
                       "name": "sin-interference.glsl",
                       "size": 1122,
                       "path": ".config/ghostty/shaders/sin-interference.glsl"
@@ -1713,6 +1559,11 @@
                       "name": "starfield.glsl",
                       "size": 3229,
                       "path": ".config/ghostty/shaders/starfield.glsl"
+                    },
+                    {
+                      "name": "synesthaxia.glsl",
+                      "size": 7984,
+                      "path": ".config/ghostty/shaders/synesthaxia.glsl"
                     },
                     {
                       "name": "tft-subtle.glsl",
@@ -1782,7 +1633,7 @@
                     },
                     {
                       "name": "vulpes-reddishnovember-light",
-                      "size": 555,
+                      "size": 586,
                       "path": ".config/ghostty/themes/vulpes-reddishnovember-light"
                     },
                     {
@@ -1819,9 +1670,24 @@
                   "path": ".config/ghostty/themes"
                 },
                 {
+                  "name": "audit-ghostty-theme.mjs",
+                  "size": 5894,
+                  "path": ".config/ghostty/audit-ghostty-theme.mjs"
+                },
+                {
                   "name": "config",
                   "size": 3593,
                   "path": ".config/ghostty/config"
+                },
+                {
+                  "name": "find-vulpes-greens-v2.mjs",
+                  "size": 5154,
+                  "path": ".config/ghostty/find-vulpes-greens-v2.mjs"
+                },
+                {
+                  "name": "find-vulpes-greens.mjs",
+                  "size": 6707,
+                  "path": ".config/ghostty/find-vulpes-greens.mjs"
                 }
               ],
               "path": ".config/ghostty"
@@ -1863,6 +1729,11 @@
               "name": "lazygit",
               "children": [
                 {
+                  "name": "audit-theme.mjs",
+                  "size": 6718,
+                  "path": ".config/lazygit/audit-theme.mjs"
+                },
+                {
                   "name": "config.yml",
                   "size": 1083,
                   "path": ".config/lazygit/config.yml"
@@ -1871,6 +1742,11 @@
                   "name": "vulpes-reddishnovember-dark.yml",
                   "size": 1083,
                   "path": ".config/lazygit/vulpes-reddishnovember-dark.yml"
+                },
+                {
+                  "name": "vulpes-reddishnovember-light-improved.yml",
+                  "size": 965,
+                  "path": ".config/lazygit/vulpes-reddishnovember-light-improved.yml"
                 },
                 {
                   "name": "vulpes-reddishnovember-light.yml",
@@ -1959,7 +1835,7 @@
                       "children": [
                         {
                           "name": "autocmds.lua",
-                          "size": 1009,
+                          "size": 1291,
                           "path": ".config/nvim/lua/config/autocmds.lua"
                         },
                         {
@@ -1969,17 +1845,17 @@
                         },
                         {
                           "name": "keymaps.lua",
-                          "size": 1358,
+                          "size": 1941,
                           "path": ".config/nvim/lua/config/keymaps.lua"
                         },
                         {
                           "name": "lazy.lua",
-                          "size": 1989,
+                          "size": 3603,
                           "path": ".config/nvim/lua/config/lazy.lua"
                         },
                         {
                           "name": "options.lua",
-                          "size": 3372,
+                          "size": 6736,
                           "path": ".config/nvim/lua/config/options.lua"
                         }
                       ],
@@ -1988,11 +1864,6 @@
                     {
                       "name": "custom",
                       "children": [
-                        {
-                          "name": "clipboard.lua",
-                          "size": 528,
-                          "path": ".config/nvim/lua/custom/clipboard.lua"
-                        },
                         {
                           "name": "directory-watcher.lua",
                           "size": 2011,
@@ -2015,19 +1886,9 @@
                       "name": "plugins",
                       "children": [
                         {
-                          "name": "auto-dark-mode.lua",
-                          "size": 495,
-                          "path": ".config/nvim/lua/plugins/auto-dark-mode.lua"
-                        },
-                        {
                           "name": "claude-code-workflow.lua",
-                          "size": 1805,
+                          "size": 1716,
                           "path": ".config/nvim/lua/plugins/claude-code-workflow.lua"
-                        },
-                        {
-                          "name": "colorscheme.lua",
-                          "size": 261,
-                          "path": ".config/nvim/lua/plugins/colorscheme.lua"
                         },
                         {
                           "name": "copilot-inline.lua",
@@ -2035,43 +1896,23 @@
                           "path": ".config/nvim/lua/plugins/copilot-inline.lua"
                         },
                         {
-                          "name": "formatting.lua",
-                          "size": 172,
-                          "path": ".config/nvim/lua/plugins/formatting.lua"
+                          "name": "focus.lua",
+                          "size": 1961,
+                          "path": ".config/nvim/lua/plugins/focus.lua"
                         },
                         {
-                          "name": "hardtime.lua",
-                          "size": 3289,
-                          "path": ".config/nvim/lua/plugins/hardtime.lua"
+                          "name": "git.lua",
+                          "size": 2446,
+                          "path": ".config/nvim/lua/plugins/git.lua"
                         },
                         {
-                          "name": "harpoon.lua",
-                          "size": 1244,
-                          "path": ".config/nvim/lua/plugins/harpoon.lua"
-                        },
-                        {
-                          "name": "kulala.lua",
-                          "size": 1521,
-                          "path": ".config/nvim/lua/plugins/kulala.lua"
-                        },
-                        {
-                          "name": "mini-animate.lua",
-                          "size": 1209,
-                          "path": ".config/nvim/lua/plugins/mini-animate.lua"
-                        },
-                        {
-                          "name": "mini-diff.lua",
-                          "size": 1239,
-                          "path": ".config/nvim/lua/plugins/mini-diff.lua"
-                        },
-                        {
-                          "name": "minimal-git.lua",
-                          "size": 1985,
-                          "path": ".config/nvim/lua/plugins/minimal-git.lua"
+                          "name": "mini.lua",
+                          "size": 1718,
+                          "path": ".config/nvim/lua/plugins/mini.lua"
                         },
                         {
                           "name": "minimal-statusline.lua",
-                          "size": 4518,
+                          "size": 4527,
                           "path": ".config/nvim/lua/plugins/minimal-statusline.lua"
                         },
                         {
@@ -2080,14 +1921,9 @@
                           "path": ".config/nvim/lua/plugins/minimal-telescope.lua"
                         },
                         {
-                          "name": "noice.lua",
-                          "size": 359,
-                          "path": ".config/nvim/lua/plugins/noice.lua"
-                        },
-                        {
-                          "name": "notify.lua",
-                          "size": 1080,
-                          "path": ".config/nvim/lua/plugins/notify.lua"
+                          "name": "notifications.lua",
+                          "size": 1216,
+                          "path": ".config/nvim/lua/plugins/notifications.lua"
                         },
                         {
                           "name": "nvim-cmp-lean.lua",
@@ -2100,18 +1936,18 @@
                           "path": ".config/nvim/lua/plugins/nvim-dap.lua"
                         },
                         {
+                          "name": "nvim-ufo.lua",
+                          "size": 1987,
+                          "path": ".config/nvim/lua/plugins/nvim-ufo.lua"
+                        },
+                        {
                           "name": "obsidian.lua",
                           "size": 1608,
                           "path": ".config/nvim/lua/plugins/obsidian.lua"
                         },
                         {
-                          "name": "oil-git-status.lua",
-                          "size": 1219,
-                          "path": ".config/nvim/lua/plugins/oil-git-status.lua"
-                        },
-                        {
                           "name": "oil.lua",
-                          "size": 2159,
+                          "size": 3304,
                           "path": ".config/nvim/lua/plugins/oil.lua"
                         },
                         {
@@ -2120,39 +1956,29 @@
                           "path": ".config/nvim/lua/plugins/snacks.lua"
                         },
                         {
-                          "name": "surround.lua",
-                          "size": 858,
-                          "path": ".config/nvim/lua/plugins/surround.lua"
-                        },
-                        {
                           "name": "svelte.lua",
                           "size": 1202,
                           "path": ".config/nvim/lua/plugins/svelte.lua"
                         },
                         {
-                          "name": "twilight.lua",
-                          "size": 196,
-                          "path": ".config/nvim/lua/plugins/twilight.lua"
+                          "name": "theming.lua",
+                          "size": 3429,
+                          "path": ".config/nvim/lua/plugins/theming.lua"
                         },
                         {
-                          "name": "vim-tmux-navigator.lua",
-                          "size": 677,
-                          "path": ".config/nvim/lua/plugins/vim-tmux-navigator.lua"
+                          "name": "usage-logging.lua",
+                          "size": 5562,
+                          "path": ".config/nvim/lua/plugins/usage-logging.lua"
                         },
                         {
-                          "name": "vimbegood.lua",
-                          "size": 52,
-                          "path": ".config/nvim/lua/plugins/vimbegood.lua"
+                          "name": "utilities.lua",
+                          "size": 1897,
+                          "path": ".config/nvim/lua/plugins/utilities.lua"
                         },
                         {
-                          "name": "vtsls.lua",
-                          "size": 176,
-                          "path": ".config/nvim/lua/plugins/vtsls.lua"
-                        },
-                        {
-                          "name": "zen-mode.lua",
-                          "size": 296,
-                          "path": ".config/nvim/lua/plugins/zen-mode.lua"
+                          "name": "vue-lsp.lua",
+                          "size": 1647,
+                          "path": ".config/nvim/lua/plugins/vue-lsp.lua"
                         }
                       ],
                       "path": ".config/nvim/lua/plugins"
@@ -2181,16 +2007,6 @@
                   "path": ".config/nvim/LICENSE"
                 },
                 {
-                  "name": "PLUGINS.md",
-                  "size": 13539,
-                  "path": ".config/nvim/PLUGINS.md"
-                },
-                {
-                  "name": "SETUP-COMPLETE.md",
-                  "size": 5350,
-                  "path": ".config/nvim/SETUP-COMPLETE.md"
-                },
-                {
                   "name": "check-plugins.sh",
                   "size": 691,
                   "path": ".config/nvim/check-plugins.sh"
@@ -2202,7 +2018,7 @@
                 },
                 {
                   "name": "lazy-lock.json",
-                  "size": 6012,
+                  "size": 5833,
                   "path": ".config/nvim/lazy-lock.json"
                 },
                 {
@@ -2433,7 +2249,7 @@
                         },
                         {
                           "name": "main.lua",
-                          "size": 5872,
+                          "size": 6299,
                           "path": ".config/yazi/plugins/git.yazi/main.lua"
                         }
                       ],
@@ -2491,13 +2307,8 @@
                 },
                 {
                   "name": "keymap.toml",
-                  "size": 2724,
+                  "size": 4057,
                   "path": ".config/yazi/keymap.toml"
-                },
-                {
-                  "name": "keymap.toml-1765208928951273",
-                  "size": 2856,
-                  "path": ".config/yazi/keymap.toml-1765208928951273"
                 },
                 {
                   "name": "package.toml",
@@ -2515,29 +2326,19 @@
                   "path": ".config/yazi/theme.toml"
                 },
                 {
-                  "name": "theme.toml-1765208928969876",
-                  "size": 2828,
-                  "path": ".config/yazi/theme.toml-1765208928969876"
-                },
-                {
                   "name": "vulpes-reddishnovember-dark.toml",
-                  "size": 2824,
+                  "size": 3149,
                   "path": ".config/yazi/vulpes-reddishnovember-dark.toml"
                 },
                 {
                   "name": "vulpes-reddishnovember-light.toml",
-                  "size": 2829,
+                  "size": 3141,
                   "path": ".config/yazi/vulpes-reddishnovember-light.toml"
                 },
                 {
                   "name": "yazi.toml",
-                  "size": 697,
+                  "size": 857,
                   "path": ".config/yazi/yazi.toml"
-                },
-                {
-                  "name": "yazi.toml-1765208928947316",
-                  "size": 701,
-                  "path": ".config/yazi/yazi.toml-1765208928947316"
                 }
               ],
               "path": ".config/yazi"
@@ -2634,7 +2435,7 @@
               "children": [
                 {
                   "name": "text.css",
-                  "size": 1367,
+                  "size": 1942,
                   "path": ".obsidian-config/snippets/text.css"
                 }
               ],
@@ -2642,64 +2443,16 @@
             },
             {
               "name": "community-plugins.json",
-              "size": 205,
+              "size": 234,
               "path": ".obsidian-config/community-plugins.json"
             },
             {
               "name": "hotkeys.json",
-              "size": 1695,
+              "size": 2258,
               "path": ".obsidian-config/hotkeys.json"
             }
           ],
           "path": ".obsidian-config"
-        },
-        {
-          "name": ".subversion",
-          "children": [
-            {
-              "name": "README.txt",
-              "size": 4276,
-              "path": ".subversion/README.txt"
-            },
-            {
-              "name": "config",
-              "size": 8358,
-              "path": ".subversion/config"
-            },
-            {
-              "name": "servers",
-              "size": 8168,
-              "path": ".subversion/servers"
-            }
-          ],
-          "path": ".subversion"
-        },
-        {
-          "name": ".vim",
-          "children": [
-            {
-              "name": "autoload",
-              "children": [
-                {
-                  "name": "pathogen.vim",
-                  "size": 8848,
-                  "path": ".vim/autoload/pathogen.vim"
-                },
-                {
-                  "name": "plug.vim",
-                  "size": 74434,
-                  "path": ".vim/autoload/plug.vim"
-                }
-              ],
-              "path": ".vim/autoload"
-            },
-            {
-              "name": "bundle",
-              "children": [],
-              "path": ".vim/bundle"
-            }
-          ],
-          "path": ".vim"
         },
         {
           "name": ".vscode",
@@ -2719,6 +2472,16 @@
               "name": "ai-commit",
               "size": 3103,
               "path": "bin/ai-commit"
+            },
+            {
+              "name": "appearance-watcher",
+              "size": 1166,
+              "path": "bin/appearance-watcher"
+            },
+            {
+              "name": "btop",
+              "size": 932,
+              "path": "bin/btop"
             },
             {
               "name": "dotfiles-audit",
@@ -2742,13 +2505,33 @@
             },
             {
               "name": "tmux-mutagen-status",
-              "size": 792,
+              "size": 776,
               "path": "bin/tmux-mutagen-status"
             },
             {
               "name": "tmux-scratch-toggle",
               "size": 636,
               "path": "bin/tmux-scratch-toggle"
+            },
+            {
+              "name": "usage-analyze",
+              "size": 2940,
+              "path": "bin/usage-analyze"
+            },
+            {
+              "name": "usage-log",
+              "size": 801,
+              "path": "bin/usage-log"
+            },
+            {
+              "name": "usage-summary",
+              "size": 842,
+              "path": "bin/usage-summary"
+            },
+            {
+              "name": "vps",
+              "size": 394,
+              "path": "bin/vps"
             },
             {
               "name": "vtsls-wrapper",
@@ -2759,6 +2542,37 @@
           "path": "bin"
         },
         {
+          "name": "docs",
+          "children": [
+            {
+              "name": "HISTORY.md",
+              "size": 21505,
+              "path": "docs/HISTORY.md"
+            },
+            {
+              "name": "STARTUP_DOCS.md",
+              "size": 7404,
+              "path": "docs/STARTUP_DOCS.md"
+            },
+            {
+              "name": "TWEAKCC_SETUP.md",
+              "size": 3357,
+              "path": "docs/TWEAKCC_SETUP.md"
+            },
+            {
+              "name": "WORKFLOWS.md",
+              "size": 5650,
+              "path": "docs/WORKFLOWS.md"
+            },
+            {
+              "name": "tips.txt",
+              "size": 19709,
+              "path": "docs/tips.txt"
+            }
+          ],
+          "path": "docs"
+        },
+        {
           "name": "lib",
           "children": [
             {
@@ -2767,9 +2581,19 @@
               "path": "lib/mystical-symbols.sh"
             },
             {
+              "name": "shell-usage-logging.zsh",
+              "size": 1825,
+              "path": "lib/shell-usage-logging.zsh"
+            },
+            {
               "name": "tmux-mystical.sh",
               "size": 396,
               "path": "lib/tmux-mystical.sh"
+            },
+            {
+              "name": "tmux-usage-logging.conf",
+              "size": 1996,
+              "path": "lib/tmux-usage-logging.conf"
             }
           ],
           "path": "lib"
@@ -2796,11 +2620,6 @@
           "path": ".CLAUDE-CLEANUP-METHODOLOGY.txt"
         },
         {
-          "name": ".DS_Store",
-          "size": 6148,
-          "path": ".DS_Store"
-        },
-        {
           "name": ".bash_profile",
           "size": 1081,
           "path": ".bash_profile"
@@ -2812,7 +2631,7 @@
         },
         {
           "name": ".gitconfig",
-          "size": 1155,
+          "size": 1255,
           "path": ".gitconfig"
         },
         {
@@ -2857,23 +2676,18 @@
         },
         {
           "name": ".startup.sh",
-          "size": 17472,
+          "size": 17654,
           "path": ".startup.sh"
         },
         {
           "name": ".tmux.conf",
-          "size": 9475,
+          "size": 11318,
           "path": ".tmux.conf"
         },
         {
           "name": ".tweakcc-apply.sh",
           "size": 1386,
           "path": ".tweakcc-apply.sh"
-        },
-        {
-          "name": ".vimrc",
-          "size": 443,
-          "path": ".vimrc"
         },
         {
           "name": ".zen-mode.sh",
@@ -2897,13 +2711,8 @@
         },
         {
           "name": "CLAUDE.md",
-          "size": 29317,
+          "size": 40225,
           "path": "CLAUDE.md"
-        },
-        {
-          "name": "HISTORY.md",
-          "size": 21505,
-          "path": "HISTORY.md"
         },
         {
           "name": "LICENSE",
@@ -2912,33 +2721,13 @@
         },
         {
           "name": "README.md",
-          "size": 15322,
+          "size": 6228,
           "path": "README.md"
-        },
-        {
-          "name": "STARTUP_DOCS.md",
-          "size": 7404,
-          "path": "STARTUP_DOCS.md"
-        },
-        {
-          "name": "TWEAKCC_SETUP.md",
-          "size": 3357,
-          "path": "TWEAKCC_SETUP.md"
-        },
-        {
-          "name": "WORKFLOWS.md",
-          "size": 5650,
-          "path": "WORKFLOWS.md"
         },
         {
           "name": "sync-dotfiles.sh",
           "size": 890,
           "path": "sync-dotfiles.sh"
-        },
-        {
-          "name": "tips.txt",
-          "size": 18337,
-          "path": "tips.txt"
         },
         {
           "name": "vulpes-reddish2-dark-tmux.tmux.conf",
@@ -2947,22 +2736,22 @@
         },
         {
           "name": "vulpes-reddish2-light-tmux.tmux.conf",
-          "size": 624,
+          "size": 685,
           "path": "vulpes-reddish2-light-tmux.tmux.conf"
         }
       ],
       "path": ""
     },
-    "totalFiles": 289,
-    "totalSize": 20315167
+    "totalFiles": 269,
+    "totalSize": 1163627
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"-dotfiles\">◆ Dotfiles</h1>\n<p>Minimalist terminal configuration focused on functional beauty, speed-of-thought workflows, and distraction-free computing.</p>\n<h2 id=\"core-philosophy\">Core Philosophy</h2>\n<ul>\n<li><strong>Geometric symbols</strong> throughout interface (◆ ◇ ○ ▪ ─)</li>\n<li><strong>Theme-agnostic</strong> design (works in light/dark mode)</li>\n<li><strong>Zen mode</strong> for deep focus</li>\n<li><strong>Modern CLI tools</strong> replacing legacy commands</li>\n<li><strong>Single-buffer workflows</strong> (oil.nvim, pane-based tmux)</li>\n<li><strong>Speed-of-thought</strong> fuzzy finding and navigation</li>\n</ul>\n<h2 id=\"installation\">Installation</h2>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/dotfiles.git ~/.dotfiles\ncd ~/.dotfiles\ngit submodule update --init --recursive  # Initialize tmux-link-grab submodule\n./sync-dotfiles.sh\n```git clone https://github.com/ejfox/dotfiles.git ~/.dotfiles\ncd ~/.dotfiles\n./sync-dotfiles.sh\n</code></pre>\n<h2 id=\"whats-included\">What's Included</h2>\n<h3 id=\"-shell--terminal\">🔧 <strong>Shell &amp; Terminal</strong></h3>\n<ul>\n<li><code>.zshrc</code> - Modern shell with LLM integration + fuzzy finder aliases</li>\n<li><code>.startup.sh</code> - AI-powered MOTD with I Ching Oracle passages</li>\n<li><code>lib/mystical-symbols.sh</code> - Daily I Ching hexagrams, moon phases, cosmic symbols</li>\n<li><code>.zen-mode.sh</code> - Toggle minimal UI mode across all apps</li>\n<li><code>.p10k.zsh</code> - Minimal Powerlevel10k prompt configuration</li>\n<li><code>tips.txt</code> - Comprehensive reference for all custom shortcuts (videogame loading screen style)</li>\n</ul>\n<h3 id=\"️-terminal-multiplexer-tmux\">⌨️ <strong>Terminal Multiplexer (Tmux)</strong></h3>\n<ul>\n<li><code>.tmux.conf</code> - Pane-based workflow with popup integrations</li>\n<li><strong>Plugins</strong>:\n<ul>\n<li><code>vim-tmux-navigator</code> - Seamless C-h/j/k/l navigation between nvim and tmux</li>\n<li><code>tmux-thumbs</code> - Vimium-style hints for copying text (Rust, fast)</li>\n<li><code>tmux-menus</code> - Visual TUI menu (Ctrl-) for all tmux functions</li>\n<li><code>tmux-fzf</code> - Fuzzy finder for sessions/windows/panes</li>\n<li><code>tmux-resurrect</code> + <code>tmux-continuum</code> - Auto-save/restore sessions with smart process resurrection</li>\n</ul>\n</li>\n</ul>\n<h3 id=\"-editor-neovim-0115\">📝 <strong>Editor (Neovim 0.11.5)</strong></h3>\n<ul>\n<li>LazyVim-based config with 45+ plugins</li>\n<li><strong>Essential plugins</strong>:\n<ul>\n<li><code>oil.nvim</code> - Filesystem-as-buffer editing (delete line = delete file)</li>\n<li><code>nvim-dap</code> - Full debugging for TS/JS/Vue</li>\n<li><code>kulala.nvim</code> - HTTP client in <code>.http</code> files</li>\n<li><code>git-conflict.nvim</code> - Visual merge conflict resolution</li>\n<li>Virtual lines diagnostics (Neovim 0.11 feature)</li>\n</ul>\n</li>\n<li>Native LSP bindings (gd, gr, gI, gy)</li>\n<li>Transparent backgrounds for Ghostty integration</li>\n<li>See <a href=\"./.config/nvim/PLUGINS.md\">PLUGINS.md</a> for complete list</li>\n</ul>\n<h3 id=\"-applications\">🎨 <strong>Applications</strong></h3>\n<ul>\n<li><code>ghostty/</code> - Terminal with opacity + blur effects</li>\n<li><code>yazi/</code> - File manager with fzf search and bookmarks</li>\n<li><code>btop/</code> - System monitor with transparent background</li>\n<li><code>sketchybar/</code> - macOS menu bar with CIPHER coach (LLM-powered task selection)</li>\n</ul>\n<h3 id=\"-development\">🔄 <strong>Development</strong></h3>\n<ul>\n<li><code>.gitconfig</code> - Clean git setup with LFS support</li>\n<li><code>.npmrc</code> - Node package manager configuration</li>\n<li>Modern CLI replacements: <code>lsd</code>, <code>bat</code>, <code>dust</code>, <code>duf</code>, <code>btop</code>, <code>fd</code>, <code>ripgrep</code>, <code>zoxide</code></li>\n</ul>\n<h2 id=\"key-features--workflows\">Key Features &amp; Workflows</h2>\n<h3 id=\"speed-of-thought-file-access\">Speed-of-Thought File Access</h3>\n<pre><code class=\"language-bash\">v           # Open nvim\nn           # Browse current directory with oil.nvim\nvs          # Fuzzy find files with bat preview\nvg          # Grep file contents and jump to matching lines\no           # Instantly access Obsidian vault (sorted by recency)\nr           # Recent files across ALL ~/code projects\ntip         # Show random tip from tips.txt (loading screen vibes)\n</code></pre>\n<h3 id=\"oilnvim---filesystem-as-a-buffer\">Oil.nvim - Filesystem as a Buffer</h3>\n<p><strong>The Workflow</strong>: Press <code>-</code> from any file to open parent directory in oil.nvim</p>\n<ul>\n<li>Delete a line → delete file</li>\n<li>Edit a line → rename file</li>\n<li>Visual select + <code>:d</code> → bulk delete</li>\n<li>Press <code>-</code> again → go up a level</li>\n<li>Single-buffer workflow, no file tree sidebar</li>\n</ul>\n<h3 id=\"tmux-popup-workflows-pane-based\">Tmux Popup Workflows (Pane-Based)</h3>\n<pre><code class=\"language-bash\">C-a g       # Lazygit popup (floats over panes, perfect for quick commits)\nC-a K       # Yazi file manager popup\nC-a S       # Scratch terminal toggle (persistent)\nC-\\         # tmux-menus (visual TUI for all functions, no memorizing)\nC-a Space   # tmux-thumbs (vimium hints for copying text)\nC-a C-y     # Yank entire pane scrollback to clipboard\nC-a M-y     # Yank last 200 lines to clipboard\nC-a C-s     # Save session manually\nC-a C-r     # Restore session manually\n</code></pre>\n<h3 id=\"tmux-session-resurrection\">Tmux Session Resurrection</h3>\n<p><strong>Auto-save</strong>: Every 15 minutes (via tmux-continuum)\n<strong>Auto-restore</strong>: On tmux startup (if enabled)\n<strong>Save location</strong>: <code>~/.local/share/tmux/resurrect/</code></p>\n<p><strong>Smart process restoration</strong> (based on actual usage patterns):</p>\n<ul>\n<li><strong>Editors</strong>: <code>nvim</code>, <code>vim</code>, <code>vi</code></li>\n<li><strong>Viewers</strong>: <code>man</code>, <code>less</code>, <code>more</code>, <code>tail</code></li>\n<li><strong>TUIs</strong>: <code>neomutt</code>, <code>yazi</code>, <code>lazygit</code>, <code>codex</code>, <code>toot</code></li>\n<li><strong>REPLs</strong>: <code>node</code>, <code>psql</code></li>\n<li><strong>Dev servers</strong>: Restores exact commands like <code>npm run dev</code>, <code>yarn dev</code>, <code>pnpm dev</code></li>\n<li><strong>Claude Code</strong>: Restores with <code>--dangerously-skip-permissions</code> flag intact</li>\n</ul>\n<p>When you restore a session, all these processes restart in their original panes with the same working directories. Dev servers auto-start, editors reopen, database connections restore.</p>\n<h3 id=\"neovim-daily-driver-plugins\">Neovim Daily Driver Plugins</h3>\n<p><strong>oil.nvim</strong> - Filesystem editing</p>\n<ul>\n<li><code>-</code> → Open parent directory</li>\n<li><code>&lt;CR&gt;</code> → Open file/directory</li>\n<li>Edit line → Rename file</li>\n<li>Delete line → Delete file</li>\n</ul>\n<p><strong>nvim-dap</strong> - Debugging</p>\n<ul>\n<li><code>&lt;leader&gt;db</code> → Toggle breakpoint</li>\n<li><code>&lt;leader&gt;dc</code> → Start/continue debugging</li>\n<li><code>&lt;leader&gt;du</code> → Toggle debug UI</li>\n</ul>\n<p><strong>kulala.nvim</strong> - HTTP client</p>\n<ul>\n<li>Create <code>.http</code> files with requests</li>\n<li><code>&lt;CR&gt;</code> → Execute request under cursor</li>\n<li><code>[r</code> / <code>]r</code> → Jump between requests</li>\n</ul>\n<p><strong>git-conflict.nvim</strong> - Merge conflicts</p>\n<ul>\n<li><code>co</code> → Choose ours (current branch)</li>\n<li><code>ct</code> → Choose theirs (incoming)</li>\n<li><code>cb</code> → Choose both</li>\n<li><code>[x</code> / <code>]x</code> → Jump between conflicts</li>\n</ul>\n<h3 id=\"daily-i-ching-oracle\">Daily I Ching Oracle</h3>\n<p>Your terminal greets you with ancient wisdom every morning via <code>.startup.sh</code>:</p>\n<p><strong>Daily Hexagram System</strong> (<code>lib/mystical-symbols.sh</code>):</p>\n<ul>\n<li>One hexagram per day, deterministic from date: <code>(YYYYMMDD % 64)</code></li>\n<li>Same hexagram all day across all terminals</li>\n<li>Automatically changes at midnight</li>\n<li>64 hexagrams with names and wisdom phrases</li>\n</ul>\n<p><strong>Oracle Passage</strong> (LLM-generated):</p>\n<ul>\n<li>Synthesizes all MOTD context into contemplative I Ching-style wisdom</li>\n<li>References your actual tasks, calendar, repos, inbox subjects</li>\n<li>Non-rhyming, observational style (not poetry)</li>\n<li>Uses <code>gpt-4o-mini</code> for nuanced language generation</li>\n</ul>\n<p>Example:</p>\n<pre><code>䷄ Waiting\n  Wait with patience\n\nFOCUS\n  1) Figure out documents for IRS\n  2) File 2023 taxes\n  ...\n\n䷄ ORACLE\n  The hexagram invites a pause amidst the flurry of tasks.\n  Documents for the IRS lie before you, a testament to diligence.\n\n  Action required on the edges of the inbox whispers caution.\n  While the repositories accumulate like branches in a grove,\n  The moon waxes gibbous, guiding reflection and steady choice.\n</code></pre>\n<h3 id=\"sketchybar-cipher-coach\">Sketchybar CIPHER Coach</h3>\n<p>Intelligent calendar + task integration:</p>\n<ul>\n<li>Shows next timed event with countdown (\"in 15m\", \"at 3:00\")</li>\n<li>When no events: Reads Things tasks and highlights most joyful/appealing one</li>\n<li>\"Supportive coach, not taskmaster\" tone</li>\n<li>Caches messages to avoid excessive API calls</li>\n<li>Updates only when hour changes, tasks change, or completions change</li>\n</ul>\n<h3 id=\"tipstxt---reference-system\">Tips.txt - Reference System</h3>\n<p>Comprehensive shortcuts organized by category:</p>\n<ul>\n<li>Nvim aliases and oil.nvim usage</li>\n<li>Tmux keybindings (all popups, navigation, copy mode)</li>\n<li>LSP navigation (gd, gr, gI, gy)</li>\n<li>Merge conflict resolution</li>\n<li>Git/GitHub utilities</li>\n<li>Advanced features (marks, telescope, yanky)</li>\n<li>All with app context prefixes (zsh/tmux/nvim)</li>\n</ul>\n<h2 id=\"essential-keybindings\">Essential Keybindings</h2>\n<h3 id=\"tmux-navigation\">Tmux Navigation</h3>\n<pre><code>C-a          # Prefix key\nC-h/j/k/l    # Navigate panes (works in nvim too!)\nM-1 to M-9   # Select pane by number\nM-h/M-l      # Previous/next window\nC-a -        # Split vertically (current path)\nC-a _        # Split horizontally (current path)\nC-a H/J/K/L  # Resize pane\n</code></pre>\n<h3 id=\"tmux-copy-mode\">Tmux Copy Mode</h3>\n<pre><code>C-a [        # Enter copy mode\nv            # Start visual selection\ny            # Yank selection to clipboard\nq            # Quit copy mode\n/            # Search forward\n?            # Search backward\n</code></pre>\n<h3 id=\"nvim-lsp-navigation\">Nvim LSP Navigation</h3>\n<pre><code>gd           # Goto definition (native LSP)\ngr           # Goto references\ngI           # Goto implementation\ngy           # Goto type definition\n&lt;leader&gt;ss   # Document symbols\n&lt;leader&gt;sS   # Workspace symbols\n</code></pre>\n<h3 id=\"nvim-oilnvim\">Nvim Oil.nvim</h3>\n<pre><code>-            # Open parent directory / go up a level\n&lt;CR&gt;         # Open file/directory\n&lt;C-s&gt;        # Open in vertical split\ng.           # Toggle hidden files\n</code></pre>\n<h2 id=\"modern-cli-tools\">Modern CLI Tools</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Old</th><th>New</th><th>Purpose</th></tr></thead><tbody><tr><td><code>ls</code></td><td><code>lsd</code></td><td>Better directory listings</td></tr><tr><td><code>cat</code></td><td><code>bat</code></td><td>Syntax highlighting</td></tr><tr><td><code>grep</code></td><td><code>ripgrep</code></td><td>Way faster, regex by default</td></tr><tr><td><code>find</code></td><td><code>fd</code></td><td>Blazing fast Rust find alternative</td></tr><tr><td><code>du</code></td><td><code>dust</code></td><td>Disk usage visualization</td></tr><tr><td><code>df</code></td><td><code>duf</code></td><td>Disk free visualization</td></tr><tr><td><code>top</code></td><td><code>btop</code></td><td>System monitoring</td></tr><tr><td><code>cd</code></td><td><code>zoxide</code></td><td>Jump to frequently used directories</td></tr></tbody></table>\n<h2 id=\"configuration-coverage\">Configuration Coverage</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Application</th><th>Config Location</th><th>Description</th></tr></thead><tbody><tr><td><strong>Shell (Zsh)</strong></td><td><code>.zshrc</code> (447 lines)</td><td>Main shell config with fuzzy finder aliases, PATH setup</td></tr><tr><td><strong>Startup MOTD</strong></td><td><code>.startup.sh</code></td><td>AI-powered MOTD with daily I Ching Oracle</td></tr><tr><td><strong>Mystical Symbols</strong></td><td><code>lib/mystical-symbols.sh</code></td><td>Reusable library: I Ching hexagrams, moon phases, cosmic glyphs</td></tr><tr><td><strong>Powerlevel10k</strong></td><td><code>.p10k.zsh</code></td><td>Terminal prompt theme</td></tr><tr><td><strong>Neovim</strong></td><td><code>.config/nvim/</code></td><td>LazyVim with 45+ plugins <a href=\"./.config/nvim/PLUGINS.md\">See PLUGINS.md</a></td></tr><tr><td><strong>Tmux</strong></td><td><code>.tmux.conf</code> (200 lines)</td><td>Pane-based workflow with popups</td></tr><tr><td><strong>Vim</strong></td><td><code>.vimrc</code> (19 lines)</td><td>Basic vim config</td></tr><tr><td><strong>Ghostty</strong></td><td><code>.config/ghostty/</code></td><td>Terminal with transparent backgrounds</td></tr><tr><td><strong>Sketchybar</strong></td><td><code>.config/sketchybar/</code></td><td>macOS menu bar with CIPHER coach</td></tr><tr><td><strong>Yazi</strong></td><td><code>.config/yazi/</code></td><td>File manager with fzf + bookmarks</td></tr><tr><td><strong>Tips</strong></td><td><code>tips.txt</code></td><td>Reference system for all shortcuts</td></tr><tr><td><strong>Git</strong></td><td><code>.gitconfig</code>, <code>.gitignore</code></td><td>Version control settings</td></tr></tbody></table>\n<h2 id=\"-obsidian-publishing-pipeline\">🧠 Obsidian Publishing Pipeline</h2>\n<p>Seamless bridge between knowledge base (Obsidian) and blog (website2) with CLI tools.</p>\n<h3 id=\"obs---obsidian-vault-cli\"><code>obs</code> - Obsidian Vault CLI</h3>\n<p>Direct access to vault from terminal:</p>\n<pre><code class=\"language-bash\">obs print index.md            # Read note content\nobs search \"draft\"            # Fuzzy search note titles\nobs content \"publish\"         # Search within note contents\nobs export-ready              # Bulk export notes from year folders (not /drafts)\nobs export-by-tag \"blog\"      # Export notes with specific tag\nobs tags                       # List all tags with frequency\nobs daily                      # Create/open today's daily note\nobs open \"note-name\"          # Open in Obsidian GUI\n</code></pre>\n<p><strong>Configuration</strong>:</p>\n<ul>\n<li>Built on <a href=\"https://github.com/Yakitrak/obsidian-cli\">obsidian-cli</a> (Go, single binary)</li>\n<li>Configured for: <code>/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox</code></li>\n<li>Portable across vaults via <code>--vault</code> flag</li>\n</ul>\n<p><strong>Export Ready Convention</strong>:</p>\n<ul>\n<li>Notes in year folders (<code>2025/</code>, <code>2024/</code>, etc.) are export-ready</li>\n<li>Notes in <code>/drafts/</code> are never export-ready</li>\n<li>Location-based = simple to understand and enforces workflow naturally</li>\n</ul>\n<h3 id=\"pub---publishing-workflow-orchestration\"><code>pub</code> - Publishing Workflow Orchestration</h3>\n<p>Full pipeline from vault to live site:</p>\n<pre><code class=\"language-bash\">pub status                    # Dashboard: vault stats, git status, site health\npub import                    # Pull from Obsidian → website2 content\npub watch                     # Auto-import on vault changes\npub publish                   # Full workflow: import → build → git push\npub preview blog              # Quick look at blog posts\npub info filename.md          # Show file metadata\n</code></pre>\n<p><strong>Dashboard</strong> (<code>pub status</code>):</p>\n<ul>\n<li>📚 Vault stats (size, file count, word count, breakdown by type)</li>\n<li>🔧 Git status (branch, commits, working tree, recent changes)</li>\n<li>📄 Published content counts and recent updates</li>\n<li>🌐 Site health check (HTTP status + response time via curl)</li>\n<li>🚀 Deployment info (node_modules, build size, scripts)</li>\n<li>📊 Recent activity in vault</li>\n</ul>\n<p><strong>Architecture</strong>:</p>\n<ul>\n<li>Bridges Obsidian ↔ website2</li>\n<li>Integrates with existing <code>scripts/blog/import.mjs</code> pipeline</li>\n<li>Watches vault for changes via <code>fswatch</code></li>\n<li>Builds site with <code>yarn build</code></li>\n<li>Publishes via git commits</li>\n</ul>\n<h3 id=\"obsidian-configuration-as-code\">Obsidian Configuration as Code</h3>\n<p>Your Obsidian settings are backed up and symlinked:</p>\n<pre><code>~/.dotfiles/.obsidian-config/\n├── hotkeys.json              # Custom keybindings\n├── community-plugins.json    # Installed plugins\n└── snippets/text.css         # Custom CSS tweaks\n</code></pre>\n<p><strong>Benefits</strong>:</p>\n<ul>\n<li>Version control your settings</li>\n<li>Replicate across vaults</li>\n<li>Changes in Obsidian auto-sync to dotfiles</li>\n<li>Review keybind changes in git diff</li>\n</ul>\n<p><strong>Installed Plugins</strong> (9 active):</p>\n<ul>\n<li>obsidian-linter - Auto-format markdown</li>\n<li>oz-image-plugin - Image handling</li>\n<li>better-word-count - Word stats</li>\n<li>obsidian-hider - Hide UI elements</li>\n<li>obsidian-minimal-settings - Theme customization</li>\n<li>cm-editor-syntax-highlight - Syntax highlighting</li>\n<li>file-tree-alternative - Better file explorer</li>\n<li>published-url - Publish link management</li>\n<li>obsidian-minimal-settings - Theme tweaker</li>\n</ul>\n<h3 id=\"typical-workflow\">Typical Workflow</h3>\n<pre><code>1. Write in Obsidian (vault auto-syncs via iCloud)\n2. obs print \"draft\" to preview how it looks\n3. pub import to sync to website2\n4. pub watch for auto-import while iterating\n5. pub publish when ready (builds + pushes)\n6. pub status to verify everything shipped\n</code></pre>\n<h3 id=\"tips\">Tips</h3>\n<ul>\n<li><code>obs search &lt;term&gt;</code> finds things in seconds (fuzzy)</li>\n<li><code>pub status</code> is your dashboard - run anytime</li>\n<li><code>pub watch</code> is great for iterating on posts</li>\n<li>Settings symlinks mean one edit applies everywhere</li>\n<li>All content is version-controlled in git</li>\n</ul>\n<h2 id=\"security-notes\">Security Notes</h2>\n<p><strong>Secrets handling:</strong></p>\n<ul>\n<li>All API keys moved to <code>~/.env</code> (gitignored)</li>\n<li>Never commit <code>.env</code> files</li>\n<li>Scrubbed 9 API keys from git history (Nov 15, 2025)</li>\n<li>Improved <code>.gitignore</code> to prevent future leaks</li>\n</ul>\n<p><strong>Action required if pulling old commits:</strong></p>\n<ul>\n<li>Rotate any exposed API keys</li>\n<li>Check GitHub security alerts</li>\n</ul>\n<h2 id=\"performance\">Performance</h2>\n<ul>\n<li><strong>Neovim startup</strong>: &lt; 100ms (45+ plugins, all lazy-loaded)</li>\n<li><strong>Tmux popups</strong>: Instant (lazygit, yazi, scratch terminal)</li>\n<li><strong>Fuzzy finders</strong>: Rust-based (fd, ripgrep) for speed</li>\n<li><strong>Oil.nvim</strong>: Single-buffer workflow, no sidebar overhead</li>\n</ul>\n<h2 id=\"related-documentation\">Related Documentation</h2>\n<ul>\n<li><strong>Nvim plugins</strong>: <a href=\"./.config/nvim/PLUGINS.md\">PLUGINS.md</a> - Complete plugin inventory</li>\n<li><strong>Memory</strong>: <a href=\"./CLAUDE.md\">CLAUDE.md</a> - Claude Code session memory</li>\n<li><strong>Tips</strong>: <code>tips.txt</code> - All shortcuts and keybindings</li>\n</ul>\n<hr />\n<p><em>Every pixel serves a purpose. Maximum functionality, minimum distraction.</em></p>\n<h3 id=\"tmux-link-grab---elegant-seek-mode-for-urls--ips\">tmux-link-grab - Elegant Seek Mode for URLs &amp; IPs</h3>\n<p><strong>Keybinding</strong>: <code>C-a s</code></p>\n<p>One of the most useful recent additions. Opens an interactive popup where you can instantly grab any URL or IP from your window's scrollback:</p>\n<pre><code class=\"language-bash\">C-a s       # Enter seek mode\n            # Fzf popup shows all URLs &amp; IPs from window, numbered\n1           # Type a number to select\n↵           # Enter - URL copied to clipboard, status bar flashes\n</code></pre>\n<p><strong>What it captures:</strong></p>\n<ul>\n<li><code>https://example.com/path?query=value</code> - URLs with full protocols</li>\n<li><code>ftp://files.server.com</code> - FTP links</li>\n<li><code>192.168.1.1</code> - IPv4 addresses</li>\n<li><code>10.0.0.1:8080</code> - IPs with ports</li>\n</ul>\n<p><strong>Why it's good:</strong></p>\n<ul>\n<li>Searches <strong>entire window</strong> (all panes) not just current pane</li>\n<li>Searches <strong>last 100 lines</strong> of scrollback</li>\n<li>Number-based selection (like vim's <code>s</code> keybinding)</li>\n<li>Visual feedback (status bar flashes on copy)</li>\n<li>Works across macOS/Linux (detects pbcopy/xclip/wl-copy)</li>\n</ul>\n<p><strong>See</strong>: <a href=\"https://github.com/ejfox/tmux-link-grab\">tmux-link-grab</a> repository for details</p>",
-    "raw": "# ◆ Dotfiles\n\nMinimalist terminal configuration focused on functional beauty, speed-of-thought workflows, and distraction-free computing.\n\n## Core Philosophy\n- **Geometric symbols** throughout interface (◆ ◇ ○ ▪ ─)\n- **Theme-agnostic** design (works in light/dark mode)\n- **Zen mode** for deep focus\n- **Modern CLI tools** replacing legacy commands\n- **Single-buffer workflows** (oil.nvim, pane-based tmux)\n- **Speed-of-thought** fuzzy finding and navigation\n\n## Installation\n\n```bash\ngit clone https://github.com/ejfox/dotfiles.git ~/.dotfiles\ncd ~/.dotfiles\ngit submodule update --init --recursive  # Initialize tmux-link-grab submodule\n./sync-dotfiles.sh\n```git clone https://github.com/ejfox/dotfiles.git ~/.dotfiles\ncd ~/.dotfiles\n./sync-dotfiles.sh\n```\n\n## What's Included\n\n### 🔧 **Shell & Terminal**\n- `.zshrc` - Modern shell with LLM integration + fuzzy finder aliases\n- `.startup.sh` - AI-powered MOTD with I Ching Oracle passages\n- `lib/mystical-symbols.sh` - Daily I Ching hexagrams, moon phases, cosmic symbols\n- `.zen-mode.sh` - Toggle minimal UI mode across all apps\n- `.p10k.zsh` - Minimal Powerlevel10k prompt configuration\n- `tips.txt` - Comprehensive reference for all custom shortcuts (videogame loading screen style)\n\n### ⌨️ **Terminal Multiplexer (Tmux)**\n- `.tmux.conf` - Pane-based workflow with popup integrations\n- **Plugins**:\n  - `vim-tmux-navigator` - Seamless C-h/j/k/l navigation between nvim and tmux\n  - `tmux-thumbs` - Vimium-style hints for copying text (Rust, fast)\n  - `tmux-menus` - Visual TUI menu (Ctrl-\\) for all tmux functions\n  - `tmux-fzf` - Fuzzy finder for sessions/windows/panes\n  - `tmux-resurrect` + `tmux-continuum` - Auto-save/restore sessions with smart process resurrection\n\n### 📝 **Editor (Neovim 0.11.5)**\n- LazyVim-based config with 45+ plugins\n- **Essential plugins**:\n  - `oil.nvim` - Filesystem-as-buffer editing (delete line = delete file)\n  - `nvim-dap` - Full debugging for TS/JS/Vue\n  - `kulala.nvim` - HTTP client in `.http` files\n  - `git-conflict.nvim` - Visual merge conflict resolution\n  - Virtual lines diagnostics (Neovim 0.11 feature)\n- Native LSP bindings (gd, gr, gI, gy)\n- Transparent backgrounds for Ghostty integration\n- See [PLUGINS.md](./.config/nvim/PLUGINS.md) for complete list\n\n### 🎨 **Applications**\n- `ghostty/` - Terminal with opacity + blur effects\n- `yazi/` - File manager with fzf search and bookmarks\n- `btop/` - System monitor with transparent background\n- `sketchybar/` - macOS menu bar with CIPHER coach (LLM-powered task selection)\n\n### 🔄 **Development**\n- `.gitconfig` - Clean git setup with LFS support\n- `.npmrc` - Node package manager configuration\n- Modern CLI replacements: `lsd`, `bat`, `dust`, `duf`, `btop`, `fd`, `ripgrep`, `zoxide`\n\n## Key Features & Workflows\n\n### Speed-of-Thought File Access\n```bash\nv           # Open nvim\nn           # Browse current directory with oil.nvim\nvs          # Fuzzy find files with bat preview\nvg          # Grep file contents and jump to matching lines\no           # Instantly access Obsidian vault (sorted by recency)\nr           # Recent files across ALL ~/code projects\ntip         # Show random tip from tips.txt (loading screen vibes)\n```\n\n### Oil.nvim - Filesystem as a Buffer\n**The Workflow**: Press `-` from any file to open parent directory in oil.nvim\n- Delete a line → delete file\n- Edit a line → rename file\n- Visual select + `:d` → bulk delete\n- Press `-` again → go up a level\n- Single-buffer workflow, no file tree sidebar\n\n### Tmux Popup Workflows (Pane-Based)\n```bash\nC-a g       # Lazygit popup (floats over panes, perfect for quick commits)\nC-a K       # Yazi file manager popup\nC-a S       # Scratch terminal toggle (persistent)\nC-\\         # tmux-menus (visual TUI for all functions, no memorizing)\nC-a Space   # tmux-thumbs (vimium hints for copying text)\nC-a C-y     # Yank entire pane scrollback to clipboard\nC-a M-y     # Yank last 200 lines to clipboard\nC-a C-s     # Save session manually\nC-a C-r     # Restore session manually\n```\n\n### Tmux Session Resurrection\n**Auto-save**: Every 15 minutes (via tmux-continuum)\n**Auto-restore**: On tmux startup (if enabled)\n**Save location**: `~/.local/share/tmux/resurrect/`\n\n**Smart process restoration** (based on actual usage patterns):\n- **Editors**: `nvim`, `vim`, `vi`\n- **Viewers**: `man`, `less`, `more`, `tail`\n- **TUIs**: `neomutt`, `yazi`, `lazygit`, `codex`, `toot`\n- **REPLs**: `node`, `psql`\n- **Dev servers**: Restores exact commands like `npm run dev`, `yarn dev`, `pnpm dev`\n- **Claude Code**: Restores with `--dangerously-skip-permissions` flag intact\n\nWhen you restore a session, all these processes restart in their original panes with the same working directories. Dev servers auto-start, editors reopen, database connections restore.\n\n### Neovim Daily Driver Plugins\n**oil.nvim** - Filesystem editing\n- `-` → Open parent directory\n- `<CR>` → Open file/directory\n- Edit line → Rename file\n- Delete line → Delete file\n\n**nvim-dap** - Debugging\n- `<leader>db` → Toggle breakpoint\n- `<leader>dc` → Start/continue debugging\n- `<leader>du` → Toggle debug UI\n\n**kulala.nvim** - HTTP client\n- Create `.http` files with requests\n- `<CR>` → Execute request under cursor\n- `[r` / `]r` → Jump between requests\n\n**git-conflict.nvim** - Merge conflicts\n- `co` → Choose ours (current branch)\n- `ct` → Choose theirs (incoming)\n- `cb` → Choose both\n- `[x` / `]x` → Jump between conflicts\n\n### Daily I Ching Oracle\nYour terminal greets you with ancient wisdom every morning via `.startup.sh`:\n\n**Daily Hexagram System** (`lib/mystical-symbols.sh`):\n- One hexagram per day, deterministic from date: `(YYYYMMDD % 64)`\n- Same hexagram all day across all terminals\n- Automatically changes at midnight\n- 64 hexagrams with names and wisdom phrases\n\n**Oracle Passage** (LLM-generated):\n- Synthesizes all MOTD context into contemplative I Ching-style wisdom\n- References your actual tasks, calendar, repos, inbox subjects\n- Non-rhyming, observational style (not poetry)\n- Uses `gpt-4o-mini` for nuanced language generation\n\nExample:\n```\n䷄ Waiting\n  Wait with patience\n\nFOCUS\n  1) Figure out documents for IRS\n  2) File 2023 taxes\n  ...\n\n䷄ ORACLE\n  The hexagram invites a pause amidst the flurry of tasks.\n  Documents for the IRS lie before you, a testament to diligence.\n\n  Action required on the edges of the inbox whispers caution.\n  While the repositories accumulate like branches in a grove,\n  The moon waxes gibbous, guiding reflection and steady choice.\n```\n\n### Sketchybar CIPHER Coach\nIntelligent calendar + task integration:\n- Shows next timed event with countdown (\"in 15m\", \"at 3:00\")\n- When no events: Reads Things tasks and highlights most joyful/appealing one\n- \"Supportive coach, not taskmaster\" tone\n- Caches messages to avoid excessive API calls\n- Updates only when hour changes, tasks change, or completions change\n\n### Tips.txt - Reference System\nComprehensive shortcuts organized by category:\n- Nvim aliases and oil.nvim usage\n- Tmux keybindings (all popups, navigation, copy mode)\n- LSP navigation (gd, gr, gI, gy)\n- Merge conflict resolution\n- Git/GitHub utilities\n- Advanced features (marks, telescope, yanky)\n- All with app context prefixes (zsh/tmux/nvim)\n\n## Essential Keybindings\n\n### Tmux Navigation\n```\nC-a          # Prefix key\nC-h/j/k/l    # Navigate panes (works in nvim too!)\nM-1 to M-9   # Select pane by number\nM-h/M-l      # Previous/next window\nC-a -        # Split vertically (current path)\nC-a _        # Split horizontally (current path)\nC-a H/J/K/L  # Resize pane\n```\n\n### Tmux Copy Mode\n```\nC-a [        # Enter copy mode\nv            # Start visual selection\ny            # Yank selection to clipboard\nq            # Quit copy mode\n/            # Search forward\n?            # Search backward\n```\n\n### Nvim LSP Navigation\n```\ngd           # Goto definition (native LSP)\ngr           # Goto references\ngI           # Goto implementation\ngy           # Goto type definition\n<leader>ss   # Document symbols\n<leader>sS   # Workspace symbols\n```\n\n### Nvim Oil.nvim\n```\n-            # Open parent directory / go up a level\n<CR>         # Open file/directory\n<C-s>        # Open in vertical split\ng.           # Toggle hidden files\n```\n\n## Modern CLI Tools\n\n| Old | New | Purpose |\n|-----|-----|---------|\n| `ls` | `lsd` | Better directory listings |\n| `cat` | `bat` | Syntax highlighting |\n| `grep` | `ripgrep` | Way faster, regex by default |\n| `find` | `fd` | Blazing fast Rust find alternative |\n| `du` | `dust` | Disk usage visualization |\n| `df` | `duf` | Disk free visualization |\n| `top` | `btop` | System monitoring |\n| `cd` | `zoxide` | Jump to frequently used directories |\n\n## Configuration Coverage\n\n| Application | Config Location | Description |\n|------------|-----------------|-------------|\n| **Shell (Zsh)** | `.zshrc` (447 lines) | Main shell config with fuzzy finder aliases, PATH setup |\n| **Startup MOTD** | `.startup.sh` | AI-powered MOTD with daily I Ching Oracle |\n| **Mystical Symbols** | `lib/mystical-symbols.sh` | Reusable library: I Ching hexagrams, moon phases, cosmic glyphs |\n| **Powerlevel10k** | `.p10k.zsh` | Terminal prompt theme |\n| **Neovim** | `.config/nvim/` | LazyVim with 45+ plugins [See PLUGINS.md](./.config/nvim/PLUGINS.md) |\n| **Tmux** | `.tmux.conf` (200 lines) | Pane-based workflow with popups |\n| **Vim** | `.vimrc` (19 lines) | Basic vim config |\n| **Ghostty** | `.config/ghostty/` | Terminal with transparent backgrounds |\n| **Sketchybar** | `.config/sketchybar/` | macOS menu bar with CIPHER coach |\n| **Yazi** | `.config/yazi/` | File manager with fzf + bookmarks |\n| **Tips** | `tips.txt` | Reference system for all shortcuts |\n| **Git** | `.gitconfig`, `.gitignore` | Version control settings |\n\n## 🧠 Obsidian Publishing Pipeline\n\nSeamless bridge between knowledge base (Obsidian) and blog (website2) with CLI tools.\n\n### `obs` - Obsidian Vault CLI\n\nDirect access to vault from terminal:\n\n```bash\nobs print index.md            # Read note content\nobs search \"draft\"            # Fuzzy search note titles\nobs content \"publish\"         # Search within note contents\nobs export-ready              # Bulk export notes from year folders (not /drafts)\nobs export-by-tag \"blog\"      # Export notes with specific tag\nobs tags                       # List all tags with frequency\nobs daily                      # Create/open today's daily note\nobs open \"note-name\"          # Open in Obsidian GUI\n```\n\n**Configuration**:\n- Built on [obsidian-cli](https://github.com/Yakitrak/obsidian-cli) (Go, single binary)\n- Configured for: `/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox`\n- Portable across vaults via `--vault` flag\n\n**Export Ready Convention**:\n- Notes in year folders (`2025/`, `2024/`, etc.) are export-ready\n- Notes in `/drafts/` are never export-ready\n- Location-based = simple to understand and enforces workflow naturally\n\n### `pub` - Publishing Workflow Orchestration\n\nFull pipeline from vault to live site:\n\n```bash\npub status                    # Dashboard: vault stats, git status, site health\npub import                    # Pull from Obsidian → website2 content\npub watch                     # Auto-import on vault changes\npub publish                   # Full workflow: import → build → git push\npub preview blog              # Quick look at blog posts\npub info filename.md          # Show file metadata\n```\n\n**Dashboard** (`pub status`):\n- 📚 Vault stats (size, file count, word count, breakdown by type)\n- 🔧 Git status (branch, commits, working tree, recent changes)\n- 📄 Published content counts and recent updates\n- 🌐 Site health check (HTTP status + response time via curl)\n- 🚀 Deployment info (node_modules, build size, scripts)\n- 📊 Recent activity in vault\n\n**Architecture**:\n- Bridges Obsidian ↔ website2\n- Integrates with existing `scripts/blog/import.mjs` pipeline\n- Watches vault for changes via `fswatch`\n- Builds site with `yarn build`\n- Publishes via git commits\n\n### Obsidian Configuration as Code\n\nYour Obsidian settings are backed up and symlinked:\n\n```\n~/.dotfiles/.obsidian-config/\n├── hotkeys.json              # Custom keybindings\n├── community-plugins.json    # Installed plugins\n└── snippets/text.css         # Custom CSS tweaks\n```\n\n**Benefits**:\n- Version control your settings\n- Replicate across vaults\n- Changes in Obsidian auto-sync to dotfiles\n- Review keybind changes in git diff\n\n**Installed Plugins** (9 active):\n- obsidian-linter - Auto-format markdown\n- oz-image-plugin - Image handling\n- better-word-count - Word stats\n- obsidian-hider - Hide UI elements\n- obsidian-minimal-settings - Theme customization\n- cm-editor-syntax-highlight - Syntax highlighting\n- file-tree-alternative - Better file explorer\n- published-url - Publish link management\n- obsidian-minimal-settings - Theme tweaker\n\n### Typical Workflow\n\n```\n1. Write in Obsidian (vault auto-syncs via iCloud)\n2. obs print \"draft\" to preview how it looks\n3. pub import to sync to website2\n4. pub watch for auto-import while iterating\n5. pub publish when ready (builds + pushes)\n6. pub status to verify everything shipped\n```\n\n### Tips\n\n- `obs search <term>` finds things in seconds (fuzzy)\n- `pub status` is your dashboard - run anytime\n- `pub watch` is great for iterating on posts\n- Settings symlinks mean one edit applies everywhere\n- All content is version-controlled in git\n\n## Security Notes\n\n**Secrets handling:**\n- All API keys moved to `~/.env` (gitignored)\n- Never commit `.env` files\n- Scrubbed 9 API keys from git history (Nov 15, 2025)\n- Improved `.gitignore` to prevent future leaks\n\n**Action required if pulling old commits:**\n- Rotate any exposed API keys\n- Check GitHub security alerts\n\n## Performance\n\n- **Neovim startup**: < 100ms (45+ plugins, all lazy-loaded)\n- **Tmux popups**: Instant (lazygit, yazi, scratch terminal)\n- **Fuzzy finders**: Rust-based (fd, ripgrep) for speed\n- **Oil.nvim**: Single-buffer workflow, no sidebar overhead\n\n## Related Documentation\n\n- **Nvim plugins**: [PLUGINS.md](./.config/nvim/PLUGINS.md) - Complete plugin inventory\n- **Memory**: [CLAUDE.md](./CLAUDE.md) - Claude Code session memory\n- **Tips**: `tips.txt` - All shortcuts and keybindings\n\n---\n\n*Every pixel serves a purpose. Maximum functionality, minimum distraction.*\n\n### tmux-link-grab - Elegant Seek Mode for URLs & IPs\n**Keybinding**: `C-a s`\n\nOne of the most useful recent additions. Opens an interactive popup where you can instantly grab any URL or IP from your window's scrollback:\n\n```bash\nC-a s       # Enter seek mode\n            # Fzf popup shows all URLs & IPs from window, numbered\n1           # Type a number to select\n↵           # Enter - URL copied to clipboard, status bar flashes\n```\n\n**What it captures:**\n- `https://example.com/path?query=value` - URLs with full protocols\n- `ftp://files.server.com` - FTP links\n- `192.168.1.1` - IPv4 addresses\n- `10.0.0.1:8080` - IPs with ports\n\n**Why it's good:**\n- Searches **entire window** (all panes) not just current pane\n- Searches **last 100 lines** of scrollback\n- Number-based selection (like vim's `s` keybinding)\n- Visual feedback (status bar flashes on copy)\n- Works across macOS/Linux (detects pbcopy/xclip/wl-copy)\n\n**See**: [tmux-link-grab](https://github.com/ejfox/tmux-link-grab) repository for details\n",
-    "excerpt": "Minimalist terminal configuration focused on functional beauty, speed-of-thought workflows, and distraction-free computing.\n\n\n- Geometric symbols throughout int..."
+    "html": "<h1 id=\"ejfoxs-dotfiles\">ejfox's dotfiles</h1>\n<p>Terminal-first development environment optimized for speed-of-thought computing. Everything is fuzzy-searchable, keyboard-driven, and designed to get out of your way.</p>\n<h2 id=\"quick-start\">Quick Start</h2>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/dotfiles.git ~/.dotfiles\ncd ~/.dotfiles\n./sync-dotfiles.sh\n</code></pre>\n<p><strong>Dependencies</strong> (install via homebrew):</p>\n<pre><code class=\"language-bash\">brew install neovim tmux zsh fzf ripgrep fd bat lsd zoxide\nbrew install --cask ghostty\n</code></pre>\n<h2 id=\"whats-here\">What's Here</h2>\n<pre><code>~/.dotfiles/\n├── .zshrc              # Shell config (aliases, PATH, prompt)\n├── .tmux.conf          # Terminal multiplexer\n├── .config/\n│   ├── nvim/           # Neovim (LazyVim-based)\n│   ├── ghostty/        # Terminal emulator\n│   ├── yazi/           # File manager\n│   └── ...\n├── bin/                # Custom scripts\n└── tips.txt            # Cheatsheet (shown randomly on startup)\n</code></pre>\n<hr />\n<h2 id=\"philosophy\">Philosophy</h2>\n<h3 id=\"why-these-tools\">Why These Tools?</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Tool</th><th>Why Not the Alternative</th></tr></thead><tbody><tr><td><strong>Neovim</strong></td><td>VS Code is slow and not terminal-native</td></tr><tr><td><strong>Tmux</strong></td><td>Terminal tabs don't persist across restarts</td></tr><tr><td><strong>Zsh</strong></td><td>Fish isn't POSIX-compatible, Bash lacks features</td></tr><tr><td><strong>Ghostty</strong></td><td>Fast (Zig), GPU-accelerated, good defaults</td></tr><tr><td><strong>LazyVim</strong></td><td>Sensible defaults, easy to customize, well-maintained</td></tr></tbody></table>\n<h3 id=\"core-ideas\">Core Ideas</h3>\n<p><strong>Fuzzy find everything.</strong> Don't navigate folder trees—search. <code>vs</code> finds files, <code>vg</code> searches content, <code>o</code> opens notes.</p>\n<p><strong>Pane-based workflow.</strong> One tmux session, multiple panes visible at once. Editor, terminal, logs, server—all on screen together.</p>\n<p><strong>Popup workflows.</strong> <code>C-a g</code> opens lazygit floating over your panes. Do your thing, close it, layout untouched.</p>\n<p><strong>Single-buffer file management.</strong> oil.nvim opens directories as editable buffers. Delete a line = delete the file. No sidebar.</p>\n<p><strong>Same keys everywhere.</strong> <code>C-h/j/k/l</code> moves between vim splits AND tmux panes seamlessly.</p>\n<hr />\n<h2 id=\"daily-workflow\">Daily Workflow</h2>\n<h3 id=\"opening-files\">Opening Files</h3>\n<pre><code class=\"language-bash\">v              # Open neovim\nvs             # Fuzzy find files (with preview)\nvg             # Grep file contents, jump to match\no              # Fuzzy find Obsidian notes\nr              # Recent files across all projects\n</code></pre>\n<h3 id=\"file-management-oilnvim\">File Management (oil.nvim)</h3>\n<p>From any file in neovim:</p>\n<pre><code>-              # Open parent directory\n&lt;CR&gt;           # Open file/directory\n(edit line)    # Rename file\n(delete line)  # Delete file\ng.             # Toggle hidden files\n</code></pre>\n<p>This is the key insight: the filesystem IS the buffer. Vim motions work on files.</p>\n<h3 id=\"tmux-essentials\">Tmux Essentials</h3>\n<pre><code>C-a            # Prefix key (not C-b, easier to reach)\nC-h/j/k/l      # Move between panes (works in vim too!)\nC-a g          # Lazygit popup\nC-a S          # Scratch terminal popup\nC-a Space      # tmux-thumbs (copy any text with hints)\nC-a -          # Split pane vertically\nC-a _          # Split pane horizontally\n</code></pre>\n<h3 id=\"git\">Git</h3>\n<pre><code class=\"language-bash\">C-a g          # Lazygit popup (preferred)\ngs             # git status\nga             # git add\ngc             # git commit\ngp             # git push\n</code></pre>\n<p>In lazygit, press <code>a</code> for AI-generated commit messages (uses Claude).</p>\n<h3 id=\"lsp-navigation-neovim\">LSP Navigation (Neovim)</h3>\n<pre><code>gd             # Go to definition\ngr             # Go to references\nK              # Hover documentation\n&lt;leader&gt;ca     # Code actions\n&lt;leader&gt;rn     # Rename symbol\n</code></pre>\n<hr />\n<h2 id=\"key-config-decisions\">Key Config Decisions</h2>\n<h3 id=\"tmux-c-a-prefix-instead-of-c-b\">Tmux: C-a prefix instead of C-b</h3>\n<p><code>C-b</code> requires moving your hand off home row. <code>C-a</code> is right there. To go to beginning of line (normally C-a in shell), use <code>C-a a</code>.</p>\n<h3 id=\"neovim-native-lsp-not-wrapped-in-telescope\">Neovim: Native LSP, not wrapped in Telescope</h3>\n<p>Many configs route <code>gd</code> through fuzzy finders. This config uses <code>vim.lsp.buf.definition</code> directly. Fewer layers = faster and more reliable.</p>\n<h3 id=\"oilnvim-instead-of-file-tree-sidebar\">oil.nvim instead of file tree sidebar</h3>\n<p>File trees (NERDTree, neo-tree) eat screen space and encourage \"browsing.\" oil.nvim encourages \"acting\"—you're always in a buffer using vim motions.</p>\n<h3 id=\"vim-tmux-navigator\">vim-tmux-navigator</h3>\n<p>Same <code>C-h/j/k/l</code> keys navigate both vim splits and tmux panes. No mental overhead about which context you're in.</p>\n<h3 id=\"lazy-loading-everything\">Lazy loading everything</h3>\n<p>Neovim starts in &lt;100ms despite 40+ plugins. Everything loads on first use, not startup.</p>\n<hr />\n<h2 id=\"llm-integration\">LLM Integration</h2>\n<p>AI is used as suggestion engine, not autopilot:</p>\n<ul>\n<li><strong>ai-commit</strong>: Generates 3 commit message options, you pick one</li>\n<li><strong>morning-ritual</strong>: Suggests pomodoros ranked by priority, you select</li>\n<li><strong>startup oracle</strong>: Daily I Ching-style wisdom based on your tasks</li>\n</ul>\n<p>All outputs are cached to avoid slow/expensive repeated API calls.</p>\n<hr />\n<h2 id=\"customization\">Customization</h2>\n<h3 id=\"adding-aliases\">Adding aliases</h3>\n<p>Edit <code>~/.dotfiles/.zshrc</code>, then <code>source ~/.zshrc</code>.</p>\n<h3 id=\"adding-neovim-plugins\">Adding Neovim plugins</h3>\n<p>Create a file in <code>~/.config/nvim/lua/plugins/your-plugin.lua</code>:</p>\n<pre><code class=\"language-lua\">return {\n  {\n    \"author/plugin-name\",\n    event = \"VeryLazy\",  -- lazy load\n    opts = {\n      -- config here\n    },\n  },\n}\n</code></pre>\n<h3 id=\"changing-tmux-bindings\">Changing tmux bindings</h3>\n<p>Edit <code>~/.dotfiles/.tmux.conf</code>, then <code>tmux source ~/.tmux.conf</code>.</p>\n<hr />\n<h2 id=\"secrets\">Secrets</h2>\n<p>API keys go in <code>~/.env</code> (gitignored), never in dotfiles:</p>\n<pre><code class=\"language-bash\"># ~/.env\nexport ANTHROPIC_API_KEY=\"sk-...\"\nexport OPENAI_API_KEY=\"sk-...\"\n</code></pre>\n<p>The <code>.zshrc</code> sources this file automatically.</p>\n<hr />\n<h2 id=\"troubleshooting\">Troubleshooting</h2>\n<p><strong>Neovim plugins not loading</strong>: Run <code>:Lazy sync</code></p>\n<p><strong>Tmux changes not applying</strong>: Run <code>tmux source ~/.tmux.conf</code></p>\n<p><strong>LSP not working</strong>: Check <code>:LspInfo</code> and <code>:Mason</code> for missing servers</p>\n<p><strong>\"Command not found\"</strong>: Ensure <code>/opt/homebrew/bin</code> is in PATH</p>\n<hr />\n<h2 id=\"file-reference\">File Reference</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>File</th><th>Purpose</th></tr></thead><tbody><tr><td><code>.zshrc</code></td><td>Shell aliases, PATH, prompt config</td></tr><tr><td><code>.tmux.conf</code></td><td>Tmux keybindings, plugins, appearance</td></tr><tr><td><code>.config/nvim/</code></td><td>Neovim config (LazyVim + custom plugins)</td></tr><tr><td><code>.config/ghostty/</code></td><td>Terminal appearance, shaders</td></tr><tr><td><code>.startup.sh</code></td><td>MOTD shown on terminal open</td></tr><tr><td><code>bin/</code></td><td>Custom scripts (ai-commit, morning-ritual, etc)</td></tr><tr><td><code>tips.txt</code></td><td>Cheatsheet, shown randomly on startup</td></tr><tr><td><code>CLAUDE.md</code></td><td>Context for AI assistants working on this repo</td></tr></tbody></table>\n<hr />\n<h2 id=\"other-docs\">Other Docs</h2>\n<ul>\n<li><code>CLAUDE.md</code> - Detailed notes for AI pair programming</li>\n<li><code>tips.txt</code> - All keybindings and shortcuts</li>\n<li><code>WORKFLOWS.md</code> - Advanced CLI pipelines (obs, pub, llm)</li>\n<li><code>STARTUP_DOCS.md</code> - How the startup script works</li>\n</ul>\n<hr />\n<p><em>Minimal config, maximum velocity.</em></p>",
+    "raw": "# ejfox's dotfiles\n\nTerminal-first development environment optimized for speed-of-thought computing. Everything is fuzzy-searchable, keyboard-driven, and designed to get out of your way.\n\n## Quick Start\n\n```bash\ngit clone https://github.com/ejfox/dotfiles.git ~/.dotfiles\ncd ~/.dotfiles\n./sync-dotfiles.sh\n```\n\n**Dependencies** (install via homebrew):\n```bash\nbrew install neovim tmux zsh fzf ripgrep fd bat lsd zoxide\nbrew install --cask ghostty\n```\n\n## What's Here\n\n```\n~/.dotfiles/\n├── .zshrc              # Shell config (aliases, PATH, prompt)\n├── .tmux.conf          # Terminal multiplexer\n├── .config/\n│   ├── nvim/           # Neovim (LazyVim-based)\n│   ├── ghostty/        # Terminal emulator\n│   ├── yazi/           # File manager\n│   └── ...\n├── bin/                # Custom scripts\n└── tips.txt            # Cheatsheet (shown randomly on startup)\n```\n\n---\n\n## Philosophy\n\n### Why These Tools?\n\n| Tool | Why Not the Alternative |\n|------|------------------------|\n| **Neovim** | VS Code is slow and not terminal-native |\n| **Tmux** | Terminal tabs don't persist across restarts |\n| **Zsh** | Fish isn't POSIX-compatible, Bash lacks features |\n| **Ghostty** | Fast (Zig), GPU-accelerated, good defaults |\n| **LazyVim** | Sensible defaults, easy to customize, well-maintained |\n\n### Core Ideas\n\n**Fuzzy find everything.** Don't navigate folder trees—search. `vs` finds files, `vg` searches content, `o` opens notes.\n\n**Pane-based workflow.** One tmux session, multiple panes visible at once. Editor, terminal, logs, server—all on screen together.\n\n**Popup workflows.** `C-a g` opens lazygit floating over your panes. Do your thing, close it, layout untouched.\n\n**Single-buffer file management.** oil.nvim opens directories as editable buffers. Delete a line = delete the file. No sidebar.\n\n**Same keys everywhere.** `C-h/j/k/l` moves between vim splits AND tmux panes seamlessly.\n\n---\n\n## Daily Workflow\n\n### Opening Files\n\n```bash\nv              # Open neovim\nvs             # Fuzzy find files (with preview)\nvg             # Grep file contents, jump to match\no              # Fuzzy find Obsidian notes\nr              # Recent files across all projects\n```\n\n### File Management (oil.nvim)\n\nFrom any file in neovim:\n```\n-              # Open parent directory\n<CR>           # Open file/directory\n(edit line)    # Rename file\n(delete line)  # Delete file\ng.             # Toggle hidden files\n```\n\nThis is the key insight: the filesystem IS the buffer. Vim motions work on files.\n\n### Tmux Essentials\n\n```\nC-a            # Prefix key (not C-b, easier to reach)\nC-h/j/k/l      # Move between panes (works in vim too!)\nC-a g          # Lazygit popup\nC-a S          # Scratch terminal popup\nC-a Space      # tmux-thumbs (copy any text with hints)\nC-a -          # Split pane vertically\nC-a _          # Split pane horizontally\n```\n\n### Git\n\n```bash\nC-a g          # Lazygit popup (preferred)\ngs             # git status\nga             # git add\ngc             # git commit\ngp             # git push\n```\n\nIn lazygit, press `a` for AI-generated commit messages (uses Claude).\n\n### LSP Navigation (Neovim)\n\n```\ngd             # Go to definition\ngr             # Go to references\nK              # Hover documentation\n<leader>ca     # Code actions\n<leader>rn     # Rename symbol\n```\n\n---\n\n## Key Config Decisions\n\n### Tmux: C-a prefix instead of C-b\n\n`C-b` requires moving your hand off home row. `C-a` is right there. To go to beginning of line (normally C-a in shell), use `C-a a`.\n\n### Neovim: Native LSP, not wrapped in Telescope\n\nMany configs route `gd` through fuzzy finders. This config uses `vim.lsp.buf.definition` directly. Fewer layers = faster and more reliable.\n\n### oil.nvim instead of file tree sidebar\n\nFile trees (NERDTree, neo-tree) eat screen space and encourage \"browsing.\" oil.nvim encourages \"acting\"—you're always in a buffer using vim motions.\n\n### vim-tmux-navigator\n\nSame `C-h/j/k/l` keys navigate both vim splits and tmux panes. No mental overhead about which context you're in.\n\n### Lazy loading everything\n\nNeovim starts in <100ms despite 40+ plugins. Everything loads on first use, not startup.\n\n---\n\n## LLM Integration\n\nAI is used as suggestion engine, not autopilot:\n\n- **ai-commit**: Generates 3 commit message options, you pick one\n- **morning-ritual**: Suggests pomodoros ranked by priority, you select\n- **startup oracle**: Daily I Ching-style wisdom based on your tasks\n\nAll outputs are cached to avoid slow/expensive repeated API calls.\n\n---\n\n## Customization\n\n### Adding aliases\n\nEdit `~/.dotfiles/.zshrc`, then `source ~/.zshrc`.\n\n### Adding Neovim plugins\n\nCreate a file in `~/.config/nvim/lua/plugins/your-plugin.lua`:\n\n```lua\nreturn {\n  {\n    \"author/plugin-name\",\n    event = \"VeryLazy\",  -- lazy load\n    opts = {\n      -- config here\n    },\n  },\n}\n```\n\n### Changing tmux bindings\n\nEdit `~/.dotfiles/.tmux.conf`, then `tmux source ~/.tmux.conf`.\n\n---\n\n## Secrets\n\nAPI keys go in `~/.env` (gitignored), never in dotfiles:\n\n```bash\n# ~/.env\nexport ANTHROPIC_API_KEY=\"sk-...\"\nexport OPENAI_API_KEY=\"sk-...\"\n```\n\nThe `.zshrc` sources this file automatically.\n\n---\n\n## Troubleshooting\n\n**Neovim plugins not loading**: Run `:Lazy sync`\n\n**Tmux changes not applying**: Run `tmux source ~/.tmux.conf`\n\n**LSP not working**: Check `:LspInfo` and `:Mason` for missing servers\n\n**\"Command not found\"**: Ensure `/opt/homebrew/bin` is in PATH\n\n---\n\n## File Reference\n\n| File | Purpose |\n|------|---------|\n| `.zshrc` | Shell aliases, PATH, prompt config |\n| `.tmux.conf` | Tmux keybindings, plugins, appearance |\n| `.config/nvim/` | Neovim config (LazyVim + custom plugins) |\n| `.config/ghostty/` | Terminal appearance, shaders |\n| `.startup.sh` | MOTD shown on terminal open |\n| `bin/` | Custom scripts (ai-commit, morning-ritual, etc) |\n| `tips.txt` | Cheatsheet, shown randomly on startup |\n| `CLAUDE.md` | Context for AI assistants working on this repo |\n\n---\n\n## Other Docs\n\n- `CLAUDE.md` - Detailed notes for AI pair programming\n- `tips.txt` - All keybindings and shortcuts\n- `WORKFLOWS.md` - Advanced CLI pipelines (obs, pub, llm)\n- `STARTUP_DOCS.md` - How the startup script works\n\n---\n\n*Minimal config, maximum velocity.*\n",
+    "excerpt": "Terminal-first development environment optimized for speed-of-thought computing. Everything is fuzzy-searchable, keyboard-driven, and designed to get out of you..."
   },
   "createdAt": "2019-04-07T22:09:55Z",
-  "updatedAt": "2026-01-24T17:09:28Z",
-  "pushedAt": "2026-01-24T17:09:22Z"
+  "updatedAt": "2026-01-26T16:51:00Z",
+  "pushedAt": "2026-01-26T16:50:53Z"
 }

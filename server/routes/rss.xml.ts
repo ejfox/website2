@@ -71,6 +71,9 @@ export default defineEventHandler(async (event) => {
     tags?: string[]
     draft?: boolean
     hidden?: boolean
+    unlisted?: boolean
+    password?: string
+    passwordHash?: string
     type?: string
   }
 
@@ -96,9 +99,11 @@ export default defineEventHandler(async (event) => {
     // Skip posts without a valid slug
     if (!slug) continue
 
-    // Skip drafts, hidden posts, and system files
+    // Skip drafts, hidden, unlisted, password-protected posts, and system files
     const isDraft = post.draft || metadata.draft
     const isHidden = post.hidden || metadata.hidden
+    const isUnlisted = post.unlisted || metadata.unlisted
+    const hasPassword = !!(post.password || post.passwordHash || metadata.password || metadata.passwordHash)
     const isSystemFile =
       slug.startsWith('!') || slug.startsWith('_') || slug === 'index'
     const isSpecialSection =
@@ -107,7 +112,7 @@ export default defineEventHandler(async (event) => {
       slug.includes('prompts/')
     // Only include posts with paths (e.g., 2025/post-name)
     const hasPath = slug.includes('/')
-    if (isDraft || isHidden || isSystemFile || isSpecialSection || !hasPath)
+    if (isDraft || isHidden || isUnlisted || hasPassword || isSystemFile || isSpecialSection || !hasPath)
       continue
 
     const postDate = parseISO(date)

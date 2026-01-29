@@ -53,16 +53,34 @@ async function getBlogRoutes(): Promise<string[]> {
     const manifestData = await fs.readFile(manifestPath, 'utf-8')
     const manifest = JSON.parse(manifestData)
 
-    // Filter out draft posts and generate routes
+    // Filter out draft, unlisted, and password-protected posts from prerendering
     interface ManifestPost {
       slug?: string
       draft?: boolean
+      hidden?: boolean
+      unlisted?: boolean
+      password?: string
+      passwordHash?: string
+      metadata?: {
+        draft?: boolean
+        hidden?: boolean
+        unlisted?: boolean
+        password?: string
+        passwordHash?: string
+      }
     }
     const routes = manifest
       .filter((post: ManifestPost) => {
         // Skip posts without slugs or that are drafts
         if (!post.slug) return false
-        if (post.draft === true) return false
+        if (post.draft === true || post.metadata?.draft === true) return false
+        // Skip hidden posts
+        if (post.hidden === true || post.metadata?.hidden === true) return false
+        // Skip unlisted posts - they shouldn't be in pre-rendered routes
+        if (post.unlisted === true || post.metadata?.unlisted === true) return false
+        // Skip password-protected posts - they need dynamic handling
+        const hasPassword = !!(post.password || post.passwordHash || post.metadata?.password || post.metadata?.passwordHash)
+        if (hasPassword) return false
         // Skip system files like CLAUDE.md, WIKILINK-OPPORTUNITIES.md
         if (post.slug === post.slug.toUpperCase()) return false
         // Week-notes are fine now that DOMPurify is fixed

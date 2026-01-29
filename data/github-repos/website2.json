@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 751213,
-    "TypeScript": 413084,
-    "JavaScript": 217580,
+    "Vue": 759904,
+    "TypeScript": 419883,
+    "JavaScript": 231198,
     "CSS": 37202,
     "Shell": 16523,
     "HTML": 11677,
     "Dockerfile": 794
   },
-  "diskUsage": 92694,
+  "diskUsage": 93005,
   "fileTree": {
     "files": [
       {
@@ -85,7 +85,7 @@
       },
       {
         "path": "README.md",
-        "size": 3386
+        "size": 3874
       },
       {
         "path": "app.vue",
@@ -129,11 +129,11 @@
       },
       {
         "path": "components/blog/post/PostMetadataBar.vue",
-        "size": 1604
+        "size": 1655
       },
       {
         "path": "components/blog/post/PostNav.vue",
-        "size": 1741
+        "size": 1761
       },
       {
         "path": "components/blog/post/PostRelated.vue",
@@ -141,7 +141,7 @@
       },
       {
         "path": "components/blog/post/PostTOC.vue",
-        "size": 1868
+        "size": 1974
       },
       {
         "path": "components/consulting/NextAvailableSlot.vue",
@@ -269,7 +269,7 @@
       },
       {
         "path": "components/stats/GoodreadsStats.vue",
-        "size": 3741
+        "size": 4081
       },
       {
         "path": "components/stats/LastFmStats.vue",
@@ -285,7 +285,7 @@
       },
       {
         "path": "components/stats/MonkeyTypeStats.vue",
-        "size": 9290
+        "size": 9296
       },
       {
         "path": "components/stats/RescueTimeStats.vue",
@@ -329,7 +329,7 @@
       },
       {
         "path": "components/ui/CommandPalette.client.vue",
-        "size": 11796
+        "size": 12208
       },
       {
         "path": "components/ui/DataTable.vue",
@@ -361,7 +361,7 @@
       },
       {
         "path": "components/ui/SupportLinks.vue",
-        "size": 3109
+        "size": 3168
       },
       {
         "path": "components/ui/WebVitalsReporter.vue",
@@ -385,7 +385,7 @@
       },
       {
         "path": "composables/useCommandPalette.ts",
-        "size": 378
+        "size": 415
       },
       {
         "path": "composables/useDateFormat.ts",
@@ -425,11 +425,11 @@
       },
       {
         "path": "composables/useReadingStats.ts",
-        "size": 1336
+        "size": 1403
       },
       {
         "path": "composables/useStats.ts",
-        "size": 12850
+        "size": 13893
       },
       {
         "path": "composables/useTOC.ts",
@@ -437,15 +437,11 @@
       },
       {
         "path": "composables/useTypingAnimation.ts",
-        "size": 6804
+        "size": 6966
       },
       {
         "path": "composables/useWeightCalculations.ts",
         "size": 4754
-      },
-      {
-        "path": "content/blog/2026/vulpes-browser.md",
-        "size": 1639
       },
       {
         "path": "content/blog/blog/2010/photography-2008-2010.md",
@@ -692,540 +688,8 @@
         "size": 8690
       },
       {
-        "path": "content/blog/drafts/2026-nvim-claude-code-workflow.md",
-        "size": 7427
-      },
-      {
-        "path": "content/blog/drafts/_stale/adhoc-apis-for-static-sites.md",
-        "size": 607
-      },
-      {
-        "path": "content/blog/drafts/_stale/advanced-animation-in-vue.md",
-        "size": 3542
-      },
-      {
-        "path": "content/blog/drafts/_stale/an-automated-toolkit-for-schools.md",
-        "size": 284
-      },
-      {
-        "path": "content/blog/drafts/_stale/approach-to-making-music.md",
-        "size": 243
-      },
-      {
-        "path": "content/blog/drafts/_stale/approach-to-problem-solving.md",
-        "size": 143
-      },
-      {
-        "path": "content/blog/drafts/_stale/beacon-main-street.md",
-        "size": 9596
-      },
-      {
-        "path": "content/blog/drafts/_stale/best-ios-apps-for-creativity.md",
-        "size": 367
-      },
-      {
-        "path": "content/blog/drafts/_stale/black-ops-6.md",
-        "size": 266
-      },
-      {
-        "path": "content/blog/drafts/_stale/book-of-changes.md",
-        "size": 2751
-      },
-      {
-        "path": "content/blog/drafts/_stale/building-a-logging-system-to-support-the-unknown.md",
-        "size": 153
-      },
-      {
-        "path": "content/blog/drafts/_stale/building-physical-things.md",
-        "size": 259
-      },
-      {
-        "path": "content/blog/drafts/_stale/call-of-duty-data-analysis.md",
-        "size": 12006
-      },
-      {
-        "path": "content/blog/drafts/_stale/catskills-hiking.md",
-        "size": 76
-      },
-      {
-        "path": "content/blog/drafts/_stale/changing-my-mind-on-scale.md",
-        "size": 1054
-      },
-      {
-        "path": "content/blog/drafts/_stale/chess.md",
-        "size": 1402
-      },
-      {
-        "path": "content/blog/drafts/_stale/coach-artie-one-year.md",
-        "size": 9408
-      },
-      {
-        "path": "content/blog/drafts/_stale/coachartie_2025_refactor.md",
-        "size": 880
-      },
-      {
-        "path": "content/blog/drafts/_stale/compressing-information-for-llm-context.md",
-        "size": 385
-      },
-      {
-        "path": "content/blog/drafts/_stale/cooking-kolaches.md",
-        "size": 215
-      },
-      {
-        "path": "content/blog/drafts/_stale/cooking-ramen-experiments.md",
-        "size": 3832
-      },
-      {
-        "path": "content/blog/drafts/_stale/cooking-seitan.md",
-        "size": 897
-      },
-      {
-        "path": "content/blog/drafts/_stale/cooking.md",
-        "size": 371
-      },
-      {
-        "path": "content/blog/drafts/_stale/core-principles.md",
-        "size": 8781
-      },
-      {
-        "path": "content/blog/drafts/_stale/current-computer-setup.md",
-        "size": 1666
-      },
-      {
-        "path": "content/blog/drafts/_stale/cursor-rules-and-smallbot.md",
-        "size": 139
-      },
-      {
-        "path": "content/blog/drafts/_stale/data-as-design-tool.md",
-        "size": 235
-      },
-      {
-        "path": "content/blog/drafts/_stale/election-data-analysis.md",
-        "size": 2951
-      },
-      {
-        "path": "content/blog/drafts/_stale/electology-vision.md",
-        "size": 9376
-      },
-      {
-        "path": "content/blog/drafts/_stale/elon-musk-is-a-bad-man.md",
-        "size": 415
-      },
-      {
-        "path": "content/blog/drafts/_stale/espresso.md",
-        "size": 3985
-      },
-      {
-        "path": "content/blog/drafts/_stale/exercise.md",
-        "size": 7854
-      },
-      {
-        "path": "content/blog/drafts/_stale/experiments-in-bookbinding.md",
-        "size": 1927
-      },
-      {
-        "path": "content/blog/drafts/_stale/experiments-in-pottery.md",
-        "size": 195
-      },
-      {
-        "path": "content/blog/drafts/_stale/falun-gong-upstate-ny.md",
-        "size": 1237
-      },
-      {
-        "path": "content/blog/drafts/_stale/food-log.md",
-        "size": 712
-      },
-      {
-        "path": "content/blog/drafts/_stale/future-of-design-room302-prediction.md",
-        "size": 214
-      },
-      {
-        "path": "content/blog/drafts/_stale/garment-dying-experiments.md",
-        "size": 2134
-      },
-      {
-        "path": "content/blog/drafts/_stale/getting-started-with-amateur-radio.md",
-        "size": 3500
-      },
-      {
-        "path": "content/blog/drafts/_stale/getting-started-with-embeddings.md",
-        "size": 2761
-      },
-      {
-        "path": "content/blog/drafts/_stale/getting-started-with-mastodon-as-a-developer.md",
-        "size": 175
-      },
-      {
-        "path": "content/blog/drafts/_stale/ham-study.md",
-        "size": 99
-      },
-      {
-        "path": "content/blog/drafts/_stale/how-i-use-diagrams.md",
-        "size": 1969
-      },
-      {
-        "path": "content/blog/drafts/_stale/how-i-use-github.md",
-        "size": 4603
-      },
-      {
-        "path": "content/blog/drafts/_stale/how-i-use-illustrator.md",
-        "size": 2796
-      },
-      {
-        "path": "content/blog/drafts/_stale/how-i-use-netlify.md",
-        "size": 200
-      },
-      {
-        "path": "content/blog/drafts/_stale/how-to-decide-if-an-idea-is-worth-pursuing.md",
-        "size": 196
-      },
-      {
-        "path": "content/blog/drafts/_stale/how-to-get-started-with-data-analysis-visualization.md",
-        "size": 6997
-      },
-      {
-        "path": "content/blog/drafts/_stale/how-to-make-an-infographic.md",
-        "size": 2878
-      },
-      {
-        "path": "content/blog/drafts/_stale/hudson-valley-food-and-farms.md",
-        "size": 2437
-      },
-      {
-        "path": "content/blog/drafts/_stale/hudson-valley-motorcycle-rides.md",
-        "size": 449
-      },
-      {
-        "path": "content/blog/drafts/_stale/hudson-valley-politics.md",
-        "size": 239
-      },
-      {
-        "path": "content/blog/drafts/_stale/i-just-do-what-my-calendar-says.md",
-        "size": 5653
-      },
-      {
-        "path": "content/blog/drafts/_stale/idiots-guide-finetuning-llm.md",
-        "size": 267
-      },
-      {
-        "path": "content/blog/drafts/_stale/innovation-roi-quantifying-success.md",
-        "size": 224
-      },
-      {
-        "path": "content/blog/drafts/_stale/intro-to-abstract-syntax-trees.md",
-        "size": 509
-      },
-      {
-        "path": "content/blog/drafts/_stale/introducing-connectology.md",
-        "size": 6995
-      },
-      {
-        "path": "content/blog/drafts/_stale/learning-blender.md",
-        "size": 221
-      },
-      {
-        "path": "content/blog/drafts/_stale/mapping-the-mastodon-fediverse.md",
-        "size": 754
-      },
-      {
-        "path": "content/blog/drafts/_stale/media-diet.md",
-        "size": 2504
-      },
-      {
-        "path": "content/blog/drafts/_stale/mental-model-of-robot-brains.md",
-        "size": 201
-      },
-      {
-        "path": "content/blog/drafts/_stale/minecraft-is-the-metaverse.md",
-        "size": 3010
-      },
-      {
-        "path": "content/blog/drafts/_stale/motorcycle-pico-8-game.md",
-        "size": 12932
-      },
-      {
-        "path": "content/blog/drafts/_stale/my-struggle-with-wasting-food.md",
-        "size": 507
-      },
-      {
-        "path": "content/blog/drafts/_stale/og-images-with-genart.md",
-        "size": 256
-      },
-      {
-        "path": "content/blog/drafts/_stale/open-source-everything.md",
-        "size": 219
-      },
-      {
-        "path": "content/blog/drafts/_stale/outdoor-skills.md",
-        "size": 1371
-      },
-      {
-        "path": "content/blog/drafts/_stale/paywalling-your-nuxt-app.md",
-        "size": 4746
-      },
-      {
-        "path": "content/blog/drafts/_stale/personal-automation-patterns.md",
-        "size": 354
-      },
-      {
-        "path": "content/blog/drafts/_stale/photoblog-with-cloudinary-nuxt.md",
-        "size": 18897
-      },
-      {
-        "path": "content/blog/drafts/_stale/pico8-exploration.md",
-        "size": 5530
-      },
-      {
-        "path": "content/blog/drafts/_stale/printing-photos-with-exif-data.md",
-        "size": 1786
-      },
-      {
-        "path": "content/blog/drafts/_stale/quantified-self.md",
-        "size": 1590
-      },
-      {
-        "path": "content/blog/drafts/_stale/rapid-prototyping-24-hour-product.md",
-        "size": 207
-      },
-      {
-        "path": "content/blog/drafts/_stale/rapid-prototyping-at-room302.md",
-        "size": 4711
-      },
-      {
-        "path": "content/blog/drafts/_stale/reducing-my-carbon-footprint.md",
-        "size": 320
-      },
-      {
-        "path": "content/blog/drafts/_stale/risk-and-reward-fearless-experimentation.md",
-        "size": 220
-      },
-      {
-        "path": "content/blog/drafts/_stale/room302-cross-disciplinary-teams.md",
-        "size": 240
-      },
-      {
-        "path": "content/blog/drafts/_stale/room302-day-in-the-life.md",
-        "size": 215
-      },
-      {
-        "path": "content/blog/drafts/_stale/room302-failures-and-what-we-learned.md",
-        "size": 207
-      },
-      {
-        "path": "content/blog/drafts/_stale/room302-integrity.md",
-        "size": 237
-      },
-      {
-        "path": "content/blog/drafts/_stale/room302-livestream-learning.md",
-        "size": 3265
-      },
-      {
-        "path": "content/blog/drafts/_stale/room302-studio-year-one.md",
-        "size": 2862
-      },
-      {
-        "path": "content/blog/drafts/_stale/scroll-driven-nuxt-animations.md",
-        "size": 7821
-      },
-      {
-        "path": "content/blog/drafts/_stale/skins-tv-show.md",
-        "size": 435
-      },
-      {
-        "path": "content/blog/drafts/_stale/smallweb.md",
-        "size": 172
-      },
-      {
-        "path": "content/blog/drafts/_stale/soapmaking.md",
-        "size": 4290
-      },
-      {
-        "path": "content/blog/drafts/_stale/sound-reactive-generative-art.md",
-        "size": 331
-      },
-      {
-        "path": "content/blog/drafts/_stale/speedrunning-making-websites.md",
-        "size": 225
-      },
-      {
-        "path": "content/blog/drafts/_stale/spliff-and-espresso.md",
-        "size": 5460
-      },
-      {
-        "path": "content/blog/drafts/_stale/staunch-defenders-of-the-status-quo.md",
-        "size": 325
-      },
-      {
-        "path": "content/blog/drafts/_stale/suvs-and-climate-change.md",
-        "size": 1818
-      },
-      {
-        "path": "content/blog/drafts/_stale/technology-mutual-aid.md",
-        "size": 2482
-      },
-      {
-        "path": "content/blog/drafts/_stale/techs-anti-humanist-wave.md",
-        "size": 6338
-      },
-      {
-        "path": "content/blog/drafts/_stale/the-future-of-ai-will-not-be-written-in-python.md",
-        "size": 6571
-      },
-      {
-        "path": "content/blog/drafts/_stale/the-rise-of-bespoke-tech.md",
-        "size": 6455
-      },
-      {
-        "path": "content/blog/drafts/_stale/triangulation-of-truth.md",
-        "size": 2808
-      },
-      {
-        "path": "content/blog/drafts/_stale/truth-terminal.md",
-        "size": 23069
-      },
-      {
-        "path": "content/blog/drafts/_stale/using-observable-plot-in-vue.md",
-        "size": 3168
-      },
-      {
-        "path": "content/blog/drafts/_stale/using-polycam-scans-in-three-js.md",
-        "size": 4874
-      },
-      {
-        "path": "content/blog/drafts/_stale/vps-micro-endpoints-smallweb.md",
-        "size": 368
-      },
-      {
-        "path": "content/blog/drafts/_stale/vue-vs-react.md",
-        "size": 7717
-      },
-      {
-        "path": "content/blog/drafts/_stale/wardrobe-essentials.md",
-        "size": 198
-      },
-      {
-        "path": "content/blog/drafts/_stale/ways-to-viz-embeddings.md",
-        "size": 7070
-      },
-      {
-        "path": "content/blog/drafts/_stale/week-schedule-and-to-do-list.md",
-        "size": 1698
-      },
-      {
-        "path": "content/blog/drafts/_stale/what-can-i-do-here.md",
-        "size": 290
-      },
-      {
-        "path": "content/blog/drafts/_stale/what-is-data-visualization.md",
-        "size": 272
-      },
-      {
-        "path": "content/blog/drafts/_stale/woodworking-setup.md",
-        "size": 3885
-      },
-      {
-        "path": "content/blog/drafts/approach-to-learning.md",
-        "size": 3880
-      },
-      {
-        "path": "content/blog/drafts/ascii-fox-nvim-dashboard.md",
-        "size": 11173
-      },
-      {
-        "path": "content/blog/drafts/automating-podcast-editing.md",
-        "size": 2037
-      },
-      {
-        "path": "content/blog/drafts/coachartie2.md",
-        "size": 1741
-      },
-      {
-        "path": "content/blog/drafts/data-driven-llm-sentences.md",
-        "size": 2788
-      },
-      {
-        "path": "content/blog/drafts/dataviz-fingerprints.md",
-        "size": 5907
-      },
-      {
-        "path": "content/blog/drafts/finding-the-balance-point.md",
-        "size": 2536
-      },
-      {
-        "path": "content/blog/drafts/how-can-ai-be-used-in-journalism.md",
-        "size": 6129
-      },
-      {
-        "path": "content/blog/drafts/how-i-get-acquainted-with-a-new-codebase.md",
-        "size": 5240
-      },
-      {
-        "path": "content/blog/drafts/how-i-start-my-mornings-lately.md",
-        "size": 959
-      },
-      {
-        "path": "content/blog/drafts/how-to-choose-where-the-data-goes.md",
-        "size": 145
-      },
-      {
-        "path": "content/blog/drafts/hudsonvalley-archival-footage.md",
-        "size": 13575
-      },
-      {
-        "path": "content/blog/drafts/irl-photo-editing-workflow.md",
-        "size": 464
-      },
-      {
-        "path": "content/blog/drafts/kingston-simon-foil.md",
-        "size": 12042
-      },
-      {
-        "path": "content/blog/drafts/metro-savefile-doctor.md",
-        "size": 1550
-      },
-      {
-        "path": "content/blog/drafts/morning-radio.md",
-        "size": 1937
-      },
-      {
-        "path": "content/blog/drafts/nvim-and-nuxt.md",
-        "size": 441
-      },
-      {
-        "path": "content/blog/drafts/osint-tools-suite.md",
-        "size": 2074
-      },
-      {
-        "path": "content/blog/drafts/pico8-demakes.md",
-        "size": 1582
-      },
-      {
-        "path": "content/blog/drafts/spacepunk-logistics.md",
-        "size": 1426
-      },
-      {
-        "path": "content/blog/drafts/spite-driven-development.md",
-        "size": 3039
-      },
-      {
-        "path": "content/blog/drafts/ten-years-of-the-computer-rescuetime-analysis.md",
-        "size": 6158
-      },
-      {
-        "path": "content/blog/drafts/terminal-based-development-workflow.md",
-        "size": 206
-      },
-      {
-        "path": "content/blog/drafts/towntuner.md",
-        "size": 1784
-      },
-      {
-        "path": "content/blog/drafts/vulpes-browser.md",
-        "size": 1512
-      },
-      {
-        "path": "content/blog/drafts/vulpes-nvim-colorscheme.md",
-        "size": 2333
+        "path": "content/blog/blog/2026/vulpes-browser.md",
+        "size": 1639
       },
       {
         "path": "content/blog/index.md",
@@ -2625,7 +2089,7 @@
       },
       {
         "path": "content/processed/goodreads-stats.json",
-        "size": 49424
+        "size": 48303
       },
       {
         "path": "content/processed/index.json",
@@ -3552,6 +3016,10 @@
         "size": 314
       },
       {
+        "path": "data/cloudinary-image-cache.json",
+        "size": 229285
+      },
+      {
         "path": "data/consulting-availability.json",
         "size": 1190
       },
@@ -3569,11 +3037,11 @@
       },
       {
         "path": "data/github-repos-index.json",
-        "size": 3600
+        "size": 3630
       },
       {
         "path": "data/github-repos-list.json",
-        "size": 126648
+        "size": 127939
       },
       {
         "path": "data/github-repos/30-data-days.json",
@@ -3793,7 +3261,7 @@
       },
       {
         "path": "data/github-repos/dotfiles.json",
-        "size": 127566
+        "size": 127316
       },
       {
         "path": "data/github-repos/dvs-soti-2022.json",
@@ -3920,6 +3388,10 @@
         "size": 17786
       },
       {
+        "path": "data/github-repos/journo-llm.json",
+        "size": 3470
+      },
+      {
         "path": "data/github-repos/know-hv.json",
         "size": 116213
       },
@@ -3957,7 +3429,7 @@
       },
       {
         "path": "data/github-repos/music-player.json",
-        "size": 6848
+        "size": 3987
       },
       {
         "path": "data/github-repos/newsdivide.json",
@@ -4184,6 +3656,10 @@
         "size": 10009
       },
       {
+        "path": "data/github-repos/tips.txt.json",
+        "size": 4297
+      },
+      {
         "path": "data/github-repos/tmux-link-grab.json",
         "size": 7606
       },
@@ -4253,7 +3729,7 @@
       },
       {
         "path": "data/github-repos/vulpes-browser.json",
-        "size": 25199
+        "size": 25203
       },
       {
         "path": "data/github-repos/vulpes-spotify-mcp.json",
@@ -4297,7 +3773,7 @@
       },
       {
         "path": "data/github-repos/website2.json",
-        "size": 512644
+        "size": 532878
       },
       {
         "path": "data/github-repos/weddings.json",
@@ -5861,7 +5337,7 @@
       },
       {
         "path": "eslint.config.mjs",
-        "size": 7486
+        "size": 7826
       },
       {
         "path": "layouts/bookmarklet.vue",
@@ -5869,7 +5345,7 @@
       },
       {
         "path": "layouts/default.vue",
-        "size": 4201
+        "size": 4211
       },
       {
         "path": "nuxt.config.ts",
@@ -5885,11 +5361,11 @@
       },
       {
         "path": "pages/blog/[...slug].vue",
-        "size": 20211
+        "size": 21274
       },
       {
         "path": "pages/blog/index.vue",
-        "size": 22104
+        "size": 22238
       },
       {
         "path": "pages/blog/robots/[...slug].vue",
@@ -5917,7 +5393,7 @@
       },
       {
         "path": "pages/calendar.vue",
-        "size": 3060
+        "size": 3068
       },
       {
         "path": "pages/case-study/nbc-big-board.vue",
@@ -5977,7 +5453,7 @@
       },
       {
         "path": "pages/now.vue",
-        "size": 11664
+        "size": 17685
       },
       {
         "path": "pages/on-this-day.vue",
@@ -6025,7 +5501,7 @@
       },
       {
         "path": "pages/stats.vue",
-        "size": 37901
+        "size": 38362
       },
       {
         "path": "pages/tag/[...slug].vue",
@@ -6476,6 +5952,10 @@
         "size": 2912
       },
       {
+        "path": "scripts/hydrate-cloudinary-cache.mjs",
+        "size": 6298
+      },
+      {
         "path": "scripts/index.mjs",
         "size": 772
       },
@@ -6489,7 +5969,11 @@
       },
       {
         "path": "scripts/lint-gear.mjs",
-        "size": 7723
+        "size": 8177
+      },
+      {
+        "path": "scripts/markdownToHtml.mjs",
+        "size": 3959
       },
       {
         "path": "scripts/nginx-preview.conf",
@@ -6517,7 +6001,7 @@
       },
       {
         "path": "scripts/plugins/remarkEnhanceImages.mjs",
-        "size": 7046
+        "size": 8285
       },
       {
         "path": "scripts/plugins/remarkEnhanceLinks.mjs",
@@ -6544,8 +6028,12 @@
         "size": 22015
       },
       {
+        "path": "scripts/preview-convert.mjs",
+        "size": 780
+      },
+      {
         "path": "scripts/processMarkdown.mjs",
-        "size": 36957
+        "size": 37560
       },
       {
         "path": "scripts/security-performance-audit.js",
@@ -6701,7 +6189,7 @@
       },
       {
         "path": "server/api/goodreads.get.ts",
-        "size": 2060
+        "size": 6140
       },
       {
         "path": "server/api/healthcheck.get.ts",
@@ -6713,7 +6201,7 @@
       },
       {
         "path": "server/api/kalshi.get.ts",
-        "size": 19860
+        "size": 19719
       },
       {
         "path": "server/api/lastfm.get.ts",
@@ -6725,7 +6213,7 @@
       },
       {
         "path": "server/api/letterboxd.get.ts",
-        "size": 4735
+        "size": 4826
       },
       {
         "path": "server/api/manifest.ts",
@@ -6741,7 +6229,7 @@
       },
       {
         "path": "server/api/monkeytype.get.ts",
-        "size": 9313
+        "size": 9307
       },
       {
         "path": "server/api/og.get.ts",
@@ -6753,7 +6241,7 @@
       },
       {
         "path": "server/api/posts/[...slug].ts",
-        "size": 4829
+        "size": 5030
       },
       {
         "path": "server/api/predictions.get.ts",
@@ -6805,7 +6293,7 @@
       },
       {
         "path": "server/api/search.get.ts",
-        "size": 9552
+        "size": 10239
       },
       {
         "path": "server/api/stats-lite.get.ts",
@@ -6813,11 +6301,11 @@
       },
       {
         "path": "server/api/stats.get.ts",
-        "size": 10079
+        "size": 10325
       },
       {
         "path": "server/api/suggest.get.ts",
-        "size": 14662
+        "size": 14867
       },
       {
         "path": "server/api/umami/auth.post.ts",
@@ -6861,7 +6349,7 @@
       },
       {
         "path": "server/routes/sitemap.xml.ts",
-        "size": 5228
+        "size": 5355
       },
       {
         "path": "server/routes/tags.json.ts",
@@ -6889,7 +6377,7 @@
       },
       {
         "path": "tailwind.config.js",
-        "size": 2930
+        "size": 2875
       },
       {
         "path": "themes/ayu-mirage.json",
@@ -7024,12 +6512,12 @@
                   "children": [
                     {
                       "name": "PostMetadataBar.vue",
-                      "size": 1604,
+                      "size": 1655,
                       "path": "components/blog/post/PostMetadataBar.vue"
                     },
                     {
                       "name": "PostNav.vue",
-                      "size": 1741,
+                      "size": 1761,
                       "path": "components/blog/post/PostNav.vue"
                     },
                     {
@@ -7039,7 +6527,7 @@
                     },
                     {
                       "name": "PostTOC.vue",
-                      "size": 1868,
+                      "size": 1974,
                       "path": "components/blog/post/PostTOC.vue"
                     }
                   ],
@@ -7279,7 +6767,7 @@
                 },
                 {
                   "name": "GoodreadsStats.vue",
-                  "size": 3741,
+                  "size": 4081,
                   "path": "components/stats/GoodreadsStats.vue"
                 },
                 {
@@ -7299,7 +6787,7 @@
                 },
                 {
                   "name": "MonkeyTypeStats.vue",
-                  "size": 9290,
+                  "size": 9296,
                   "path": "components/stats/MonkeyTypeStats.vue"
                 },
                 {
@@ -7360,7 +6848,7 @@
                 },
                 {
                   "name": "CommandPalette.client.vue",
-                  "size": 11796,
+                  "size": 12208,
                   "path": "components/ui/CommandPalette.client.vue"
                 },
                 {
@@ -7400,7 +6888,7 @@
                 },
                 {
                   "name": "SupportLinks.vue",
-                  "size": 3109,
+                  "size": 3168,
                   "path": "components/ui/SupportLinks.vue"
                 },
                 {
@@ -7445,7 +6933,7 @@
             },
             {
               "name": "useCommandPalette.ts",
-              "size": 378,
+              "size": 415,
               "path": "composables/useCommandPalette.ts"
             },
             {
@@ -7495,12 +6983,12 @@
             },
             {
               "name": "useReadingStats.ts",
-              "size": 1336,
+              "size": 1403,
               "path": "composables/useReadingStats.ts"
             },
             {
               "name": "useStats.ts",
-              "size": 12850,
+              "size": 13893,
               "path": "composables/useStats.ts"
             },
             {
@@ -7510,7 +6998,7 @@
             },
             {
               "name": "useTypingAnimation.ts",
-              "size": 6804,
+              "size": 6966,
               "path": "composables/useTypingAnimation.ts"
             },
             {
@@ -7527,17 +7015,6 @@
             {
               "name": "blog",
               "children": [
-                {
-                  "name": "2026",
-                  "children": [
-                    {
-                      "name": "vulpes-browser.md",
-                      "size": 1639,
-                      "path": "content/blog/2026/vulpes-browser.md"
-                    }
-                  ],
-                  "path": "content/blog/2026"
-                },
                 {
                   "name": "blog",
                   "children": [
@@ -7923,691 +7400,20 @@
                         }
                       ],
                       "path": "content/blog/blog/2025"
+                    },
+                    {
+                      "name": "2026",
+                      "children": [
+                        {
+                          "name": "vulpes-browser.md",
+                          "size": 1639,
+                          "path": "content/blog/blog/2026/vulpes-browser.md"
+                        }
+                      ],
+                      "path": "content/blog/blog/2026"
                     }
                   ],
                   "path": "content/blog/blog"
-                },
-                {
-                  "name": "drafts",
-                  "children": [
-                    {
-                      "name": "_stale",
-                      "children": [
-                        {
-                          "name": "adhoc-apis-for-static-sites.md",
-                          "size": 607,
-                          "path": "content/blog/drafts/_stale/adhoc-apis-for-static-sites.md"
-                        },
-                        {
-                          "name": "advanced-animation-in-vue.md",
-                          "size": 3542,
-                          "path": "content/blog/drafts/_stale/advanced-animation-in-vue.md"
-                        },
-                        {
-                          "name": "an-automated-toolkit-for-schools.md",
-                          "size": 284,
-                          "path": "content/blog/drafts/_stale/an-automated-toolkit-for-schools.md"
-                        },
-                        {
-                          "name": "approach-to-making-music.md",
-                          "size": 243,
-                          "path": "content/blog/drafts/_stale/approach-to-making-music.md"
-                        },
-                        {
-                          "name": "approach-to-problem-solving.md",
-                          "size": 143,
-                          "path": "content/blog/drafts/_stale/approach-to-problem-solving.md"
-                        },
-                        {
-                          "name": "beacon-main-street.md",
-                          "size": 9596,
-                          "path": "content/blog/drafts/_stale/beacon-main-street.md"
-                        },
-                        {
-                          "name": "best-ios-apps-for-creativity.md",
-                          "size": 367,
-                          "path": "content/blog/drafts/_stale/best-ios-apps-for-creativity.md"
-                        },
-                        {
-                          "name": "black-ops-6.md",
-                          "size": 266,
-                          "path": "content/blog/drafts/_stale/black-ops-6.md"
-                        },
-                        {
-                          "name": "book-of-changes.md",
-                          "size": 2751,
-                          "path": "content/blog/drafts/_stale/book-of-changes.md"
-                        },
-                        {
-                          "name": "building-a-logging-system-to-support-the-unknown.md",
-                          "size": 153,
-                          "path": "content/blog/drafts/_stale/building-a-logging-system-to-support-the-unknown.md"
-                        },
-                        {
-                          "name": "building-physical-things.md",
-                          "size": 259,
-                          "path": "content/blog/drafts/_stale/building-physical-things.md"
-                        },
-                        {
-                          "name": "call-of-duty-data-analysis.md",
-                          "size": 12006,
-                          "path": "content/blog/drafts/_stale/call-of-duty-data-analysis.md"
-                        },
-                        {
-                          "name": "catskills-hiking.md",
-                          "size": 76,
-                          "path": "content/blog/drafts/_stale/catskills-hiking.md"
-                        },
-                        {
-                          "name": "changing-my-mind-on-scale.md",
-                          "size": 1054,
-                          "path": "content/blog/drafts/_stale/changing-my-mind-on-scale.md"
-                        },
-                        {
-                          "name": "chess.md",
-                          "size": 1402,
-                          "path": "content/blog/drafts/_stale/chess.md"
-                        },
-                        {
-                          "name": "coach-artie-one-year.md",
-                          "size": 9408,
-                          "path": "content/blog/drafts/_stale/coach-artie-one-year.md"
-                        },
-                        {
-                          "name": "coachartie_2025_refactor.md",
-                          "size": 880,
-                          "path": "content/blog/drafts/_stale/coachartie_2025_refactor.md"
-                        },
-                        {
-                          "name": "compressing-information-for-llm-context.md",
-                          "size": 385,
-                          "path": "content/blog/drafts/_stale/compressing-information-for-llm-context.md"
-                        },
-                        {
-                          "name": "cooking-kolaches.md",
-                          "size": 215,
-                          "path": "content/blog/drafts/_stale/cooking-kolaches.md"
-                        },
-                        {
-                          "name": "cooking-ramen-experiments.md",
-                          "size": 3832,
-                          "path": "content/blog/drafts/_stale/cooking-ramen-experiments.md"
-                        },
-                        {
-                          "name": "cooking-seitan.md",
-                          "size": 897,
-                          "path": "content/blog/drafts/_stale/cooking-seitan.md"
-                        },
-                        {
-                          "name": "cooking.md",
-                          "size": 371,
-                          "path": "content/blog/drafts/_stale/cooking.md"
-                        },
-                        {
-                          "name": "core-principles.md",
-                          "size": 8781,
-                          "path": "content/blog/drafts/_stale/core-principles.md"
-                        },
-                        {
-                          "name": "current-computer-setup.md",
-                          "size": 1666,
-                          "path": "content/blog/drafts/_stale/current-computer-setup.md"
-                        },
-                        {
-                          "name": "cursor-rules-and-smallbot.md",
-                          "size": 139,
-                          "path": "content/blog/drafts/_stale/cursor-rules-and-smallbot.md"
-                        },
-                        {
-                          "name": "data-as-design-tool.md",
-                          "size": 235,
-                          "path": "content/blog/drafts/_stale/data-as-design-tool.md"
-                        },
-                        {
-                          "name": "election-data-analysis.md",
-                          "size": 2951,
-                          "path": "content/blog/drafts/_stale/election-data-analysis.md"
-                        },
-                        {
-                          "name": "electology-vision.md",
-                          "size": 9376,
-                          "path": "content/blog/drafts/_stale/electology-vision.md"
-                        },
-                        {
-                          "name": "elon-musk-is-a-bad-man.md",
-                          "size": 415,
-                          "path": "content/blog/drafts/_stale/elon-musk-is-a-bad-man.md"
-                        },
-                        {
-                          "name": "espresso.md",
-                          "size": 3985,
-                          "path": "content/blog/drafts/_stale/espresso.md"
-                        },
-                        {
-                          "name": "exercise.md",
-                          "size": 7854,
-                          "path": "content/blog/drafts/_stale/exercise.md"
-                        },
-                        {
-                          "name": "experiments-in-bookbinding.md",
-                          "size": 1927,
-                          "path": "content/blog/drafts/_stale/experiments-in-bookbinding.md"
-                        },
-                        {
-                          "name": "experiments-in-pottery.md",
-                          "size": 195,
-                          "path": "content/blog/drafts/_stale/experiments-in-pottery.md"
-                        },
-                        {
-                          "name": "falun-gong-upstate-ny.md",
-                          "size": 1237,
-                          "path": "content/blog/drafts/_stale/falun-gong-upstate-ny.md"
-                        },
-                        {
-                          "name": "food-log.md",
-                          "size": 712,
-                          "path": "content/blog/drafts/_stale/food-log.md"
-                        },
-                        {
-                          "name": "future-of-design-room302-prediction.md",
-                          "size": 214,
-                          "path": "content/blog/drafts/_stale/future-of-design-room302-prediction.md"
-                        },
-                        {
-                          "name": "garment-dying-experiments.md",
-                          "size": 2134,
-                          "path": "content/blog/drafts/_stale/garment-dying-experiments.md"
-                        },
-                        {
-                          "name": "getting-started-with-amateur-radio.md",
-                          "size": 3500,
-                          "path": "content/blog/drafts/_stale/getting-started-with-amateur-radio.md"
-                        },
-                        {
-                          "name": "getting-started-with-embeddings.md",
-                          "size": 2761,
-                          "path": "content/blog/drafts/_stale/getting-started-with-embeddings.md"
-                        },
-                        {
-                          "name": "getting-started-with-mastodon-as-a-developer.md",
-                          "size": 175,
-                          "path": "content/blog/drafts/_stale/getting-started-with-mastodon-as-a-developer.md"
-                        },
-                        {
-                          "name": "ham-study.md",
-                          "size": 99,
-                          "path": "content/blog/drafts/_stale/ham-study.md"
-                        },
-                        {
-                          "name": "how-i-use-diagrams.md",
-                          "size": 1969,
-                          "path": "content/blog/drafts/_stale/how-i-use-diagrams.md"
-                        },
-                        {
-                          "name": "how-i-use-github.md",
-                          "size": 4603,
-                          "path": "content/blog/drafts/_stale/how-i-use-github.md"
-                        },
-                        {
-                          "name": "how-i-use-illustrator.md",
-                          "size": 2796,
-                          "path": "content/blog/drafts/_stale/how-i-use-illustrator.md"
-                        },
-                        {
-                          "name": "how-i-use-netlify.md",
-                          "size": 200,
-                          "path": "content/blog/drafts/_stale/how-i-use-netlify.md"
-                        },
-                        {
-                          "name": "how-to-decide-if-an-idea-is-worth-pursuing.md",
-                          "size": 196,
-                          "path": "content/blog/drafts/_stale/how-to-decide-if-an-idea-is-worth-pursuing.md"
-                        },
-                        {
-                          "name": "how-to-get-started-with-data-analysis-visualization.md",
-                          "size": 6997,
-                          "path": "content/blog/drafts/_stale/how-to-get-started-with-data-analysis-visualization.md"
-                        },
-                        {
-                          "name": "how-to-make-an-infographic.md",
-                          "size": 2878,
-                          "path": "content/blog/drafts/_stale/how-to-make-an-infographic.md"
-                        },
-                        {
-                          "name": "hudson-valley-food-and-farms.md",
-                          "size": 2437,
-                          "path": "content/blog/drafts/_stale/hudson-valley-food-and-farms.md"
-                        },
-                        {
-                          "name": "hudson-valley-motorcycle-rides.md",
-                          "size": 449,
-                          "path": "content/blog/drafts/_stale/hudson-valley-motorcycle-rides.md"
-                        },
-                        {
-                          "name": "hudson-valley-politics.md",
-                          "size": 239,
-                          "path": "content/blog/drafts/_stale/hudson-valley-politics.md"
-                        },
-                        {
-                          "name": "i-just-do-what-my-calendar-says.md",
-                          "size": 5653,
-                          "path": "content/blog/drafts/_stale/i-just-do-what-my-calendar-says.md"
-                        },
-                        {
-                          "name": "idiots-guide-finetuning-llm.md",
-                          "size": 267,
-                          "path": "content/blog/drafts/_stale/idiots-guide-finetuning-llm.md"
-                        },
-                        {
-                          "name": "innovation-roi-quantifying-success.md",
-                          "size": 224,
-                          "path": "content/blog/drafts/_stale/innovation-roi-quantifying-success.md"
-                        },
-                        {
-                          "name": "intro-to-abstract-syntax-trees.md",
-                          "size": 509,
-                          "path": "content/blog/drafts/_stale/intro-to-abstract-syntax-trees.md"
-                        },
-                        {
-                          "name": "introducing-connectology.md",
-                          "size": 6995,
-                          "path": "content/blog/drafts/_stale/introducing-connectology.md"
-                        },
-                        {
-                          "name": "learning-blender.md",
-                          "size": 221,
-                          "path": "content/blog/drafts/_stale/learning-blender.md"
-                        },
-                        {
-                          "name": "mapping-the-mastodon-fediverse.md",
-                          "size": 754,
-                          "path": "content/blog/drafts/_stale/mapping-the-mastodon-fediverse.md"
-                        },
-                        {
-                          "name": "media-diet.md",
-                          "size": 2504,
-                          "path": "content/blog/drafts/_stale/media-diet.md"
-                        },
-                        {
-                          "name": "mental-model-of-robot-brains.md",
-                          "size": 201,
-                          "path": "content/blog/drafts/_stale/mental-model-of-robot-brains.md"
-                        },
-                        {
-                          "name": "minecraft-is-the-metaverse.md",
-                          "size": 3010,
-                          "path": "content/blog/drafts/_stale/minecraft-is-the-metaverse.md"
-                        },
-                        {
-                          "name": "motorcycle-pico-8-game.md",
-                          "size": 12932,
-                          "path": "content/blog/drafts/_stale/motorcycle-pico-8-game.md"
-                        },
-                        {
-                          "name": "my-struggle-with-wasting-food.md",
-                          "size": 507,
-                          "path": "content/blog/drafts/_stale/my-struggle-with-wasting-food.md"
-                        },
-                        {
-                          "name": "og-images-with-genart.md",
-                          "size": 256,
-                          "path": "content/blog/drafts/_stale/og-images-with-genart.md"
-                        },
-                        {
-                          "name": "open-source-everything.md",
-                          "size": 219,
-                          "path": "content/blog/drafts/_stale/open-source-everything.md"
-                        },
-                        {
-                          "name": "outdoor-skills.md",
-                          "size": 1371,
-                          "path": "content/blog/drafts/_stale/outdoor-skills.md"
-                        },
-                        {
-                          "name": "paywalling-your-nuxt-app.md",
-                          "size": 4746,
-                          "path": "content/blog/drafts/_stale/paywalling-your-nuxt-app.md"
-                        },
-                        {
-                          "name": "personal-automation-patterns.md",
-                          "size": 354,
-                          "path": "content/blog/drafts/_stale/personal-automation-patterns.md"
-                        },
-                        {
-                          "name": "photoblog-with-cloudinary-nuxt.md",
-                          "size": 18897,
-                          "path": "content/blog/drafts/_stale/photoblog-with-cloudinary-nuxt.md"
-                        },
-                        {
-                          "name": "pico8-exploration.md",
-                          "size": 5530,
-                          "path": "content/blog/drafts/_stale/pico8-exploration.md"
-                        },
-                        {
-                          "name": "printing-photos-with-exif-data.md",
-                          "size": 1786,
-                          "path": "content/blog/drafts/_stale/printing-photos-with-exif-data.md"
-                        },
-                        {
-                          "name": "quantified-self.md",
-                          "size": 1590,
-                          "path": "content/blog/drafts/_stale/quantified-self.md"
-                        },
-                        {
-                          "name": "rapid-prototyping-24-hour-product.md",
-                          "size": 207,
-                          "path": "content/blog/drafts/_stale/rapid-prototyping-24-hour-product.md"
-                        },
-                        {
-                          "name": "rapid-prototyping-at-room302.md",
-                          "size": 4711,
-                          "path": "content/blog/drafts/_stale/rapid-prototyping-at-room302.md"
-                        },
-                        {
-                          "name": "reducing-my-carbon-footprint.md",
-                          "size": 320,
-                          "path": "content/blog/drafts/_stale/reducing-my-carbon-footprint.md"
-                        },
-                        {
-                          "name": "risk-and-reward-fearless-experimentation.md",
-                          "size": 220,
-                          "path": "content/blog/drafts/_stale/risk-and-reward-fearless-experimentation.md"
-                        },
-                        {
-                          "name": "room302-cross-disciplinary-teams.md",
-                          "size": 240,
-                          "path": "content/blog/drafts/_stale/room302-cross-disciplinary-teams.md"
-                        },
-                        {
-                          "name": "room302-day-in-the-life.md",
-                          "size": 215,
-                          "path": "content/blog/drafts/_stale/room302-day-in-the-life.md"
-                        },
-                        {
-                          "name": "room302-failures-and-what-we-learned.md",
-                          "size": 207,
-                          "path": "content/blog/drafts/_stale/room302-failures-and-what-we-learned.md"
-                        },
-                        {
-                          "name": "room302-integrity.md",
-                          "size": 237,
-                          "path": "content/blog/drafts/_stale/room302-integrity.md"
-                        },
-                        {
-                          "name": "room302-livestream-learning.md",
-                          "size": 3265,
-                          "path": "content/blog/drafts/_stale/room302-livestream-learning.md"
-                        },
-                        {
-                          "name": "room302-studio-year-one.md",
-                          "size": 2862,
-                          "path": "content/blog/drafts/_stale/room302-studio-year-one.md"
-                        },
-                        {
-                          "name": "scroll-driven-nuxt-animations.md",
-                          "size": 7821,
-                          "path": "content/blog/drafts/_stale/scroll-driven-nuxt-animations.md"
-                        },
-                        {
-                          "name": "skins-tv-show.md",
-                          "size": 435,
-                          "path": "content/blog/drafts/_stale/skins-tv-show.md"
-                        },
-                        {
-                          "name": "smallweb.md",
-                          "size": 172,
-                          "path": "content/blog/drafts/_stale/smallweb.md"
-                        },
-                        {
-                          "name": "soapmaking.md",
-                          "size": 4290,
-                          "path": "content/blog/drafts/_stale/soapmaking.md"
-                        },
-                        {
-                          "name": "sound-reactive-generative-art.md",
-                          "size": 331,
-                          "path": "content/blog/drafts/_stale/sound-reactive-generative-art.md"
-                        },
-                        {
-                          "name": "speedrunning-making-websites.md",
-                          "size": 225,
-                          "path": "content/blog/drafts/_stale/speedrunning-making-websites.md"
-                        },
-                        {
-                          "name": "spliff-and-espresso.md",
-                          "size": 5460,
-                          "path": "content/blog/drafts/_stale/spliff-and-espresso.md"
-                        },
-                        {
-                          "name": "staunch-defenders-of-the-status-quo.md",
-                          "size": 325,
-                          "path": "content/blog/drafts/_stale/staunch-defenders-of-the-status-quo.md"
-                        },
-                        {
-                          "name": "suvs-and-climate-change.md",
-                          "size": 1818,
-                          "path": "content/blog/drafts/_stale/suvs-and-climate-change.md"
-                        },
-                        {
-                          "name": "technology-mutual-aid.md",
-                          "size": 2482,
-                          "path": "content/blog/drafts/_stale/technology-mutual-aid.md"
-                        },
-                        {
-                          "name": "techs-anti-humanist-wave.md",
-                          "size": 6338,
-                          "path": "content/blog/drafts/_stale/techs-anti-humanist-wave.md"
-                        },
-                        {
-                          "name": "the-future-of-ai-will-not-be-written-in-python.md",
-                          "size": 6571,
-                          "path": "content/blog/drafts/_stale/the-future-of-ai-will-not-be-written-in-python.md"
-                        },
-                        {
-                          "name": "the-rise-of-bespoke-tech.md",
-                          "size": 6455,
-                          "path": "content/blog/drafts/_stale/the-rise-of-bespoke-tech.md"
-                        },
-                        {
-                          "name": "triangulation-of-truth.md",
-                          "size": 2808,
-                          "path": "content/blog/drafts/_stale/triangulation-of-truth.md"
-                        },
-                        {
-                          "name": "truth-terminal.md",
-                          "size": 23069,
-                          "path": "content/blog/drafts/_stale/truth-terminal.md"
-                        },
-                        {
-                          "name": "using-observable-plot-in-vue.md",
-                          "size": 3168,
-                          "path": "content/blog/drafts/_stale/using-observable-plot-in-vue.md"
-                        },
-                        {
-                          "name": "using-polycam-scans-in-three-js.md",
-                          "size": 4874,
-                          "path": "content/blog/drafts/_stale/using-polycam-scans-in-three-js.md"
-                        },
-                        {
-                          "name": "vps-micro-endpoints-smallweb.md",
-                          "size": 368,
-                          "path": "content/blog/drafts/_stale/vps-micro-endpoints-smallweb.md"
-                        },
-                        {
-                          "name": "vue-vs-react.md",
-                          "size": 7717,
-                          "path": "content/blog/drafts/_stale/vue-vs-react.md"
-                        },
-                        {
-                          "name": "wardrobe-essentials.md",
-                          "size": 198,
-                          "path": "content/blog/drafts/_stale/wardrobe-essentials.md"
-                        },
-                        {
-                          "name": "ways-to-viz-embeddings.md",
-                          "size": 7070,
-                          "path": "content/blog/drafts/_stale/ways-to-viz-embeddings.md"
-                        },
-                        {
-                          "name": "week-schedule-and-to-do-list.md",
-                          "size": 1698,
-                          "path": "content/blog/drafts/_stale/week-schedule-and-to-do-list.md"
-                        },
-                        {
-                          "name": "what-can-i-do-here.md",
-                          "size": 290,
-                          "path": "content/blog/drafts/_stale/what-can-i-do-here.md"
-                        },
-                        {
-                          "name": "what-is-data-visualization.md",
-                          "size": 272,
-                          "path": "content/blog/drafts/_stale/what-is-data-visualization.md"
-                        },
-                        {
-                          "name": "woodworking-setup.md",
-                          "size": 3885,
-                          "path": "content/blog/drafts/_stale/woodworking-setup.md"
-                        }
-                      ],
-                      "path": "content/blog/drafts/_stale"
-                    },
-                    {
-                      "name": "2026-nvim-claude-code-workflow.md",
-                      "size": 7427,
-                      "path": "content/blog/drafts/2026-nvim-claude-code-workflow.md"
-                    },
-                    {
-                      "name": "approach-to-learning.md",
-                      "size": 3880,
-                      "path": "content/blog/drafts/approach-to-learning.md"
-                    },
-                    {
-                      "name": "ascii-fox-nvim-dashboard.md",
-                      "size": 11173,
-                      "path": "content/blog/drafts/ascii-fox-nvim-dashboard.md"
-                    },
-                    {
-                      "name": "automating-podcast-editing.md",
-                      "size": 2037,
-                      "path": "content/blog/drafts/automating-podcast-editing.md"
-                    },
-                    {
-                      "name": "coachartie2.md",
-                      "size": 1741,
-                      "path": "content/blog/drafts/coachartie2.md"
-                    },
-                    {
-                      "name": "data-driven-llm-sentences.md",
-                      "size": 2788,
-                      "path": "content/blog/drafts/data-driven-llm-sentences.md"
-                    },
-                    {
-                      "name": "dataviz-fingerprints.md",
-                      "size": 5907,
-                      "path": "content/blog/drafts/dataviz-fingerprints.md"
-                    },
-                    {
-                      "name": "finding-the-balance-point.md",
-                      "size": 2536,
-                      "path": "content/blog/drafts/finding-the-balance-point.md"
-                    },
-                    {
-                      "name": "how-can-ai-be-used-in-journalism.md",
-                      "size": 6129,
-                      "path": "content/blog/drafts/how-can-ai-be-used-in-journalism.md"
-                    },
-                    {
-                      "name": "how-i-get-acquainted-with-a-new-codebase.md",
-                      "size": 5240,
-                      "path": "content/blog/drafts/how-i-get-acquainted-with-a-new-codebase.md"
-                    },
-                    {
-                      "name": "how-i-start-my-mornings-lately.md",
-                      "size": 959,
-                      "path": "content/blog/drafts/how-i-start-my-mornings-lately.md"
-                    },
-                    {
-                      "name": "how-to-choose-where-the-data-goes.md",
-                      "size": 145,
-                      "path": "content/blog/drafts/how-to-choose-where-the-data-goes.md"
-                    },
-                    {
-                      "name": "hudsonvalley-archival-footage.md",
-                      "size": 13575,
-                      "path": "content/blog/drafts/hudsonvalley-archival-footage.md"
-                    },
-                    {
-                      "name": "irl-photo-editing-workflow.md",
-                      "size": 464,
-                      "path": "content/blog/drafts/irl-photo-editing-workflow.md"
-                    },
-                    {
-                      "name": "kingston-simon-foil.md",
-                      "size": 12042,
-                      "path": "content/blog/drafts/kingston-simon-foil.md"
-                    },
-                    {
-                      "name": "metro-savefile-doctor.md",
-                      "size": 1550,
-                      "path": "content/blog/drafts/metro-savefile-doctor.md"
-                    },
-                    {
-                      "name": "morning-radio.md",
-                      "size": 1937,
-                      "path": "content/blog/drafts/morning-radio.md"
-                    },
-                    {
-                      "name": "nvim-and-nuxt.md",
-                      "size": 441,
-                      "path": "content/blog/drafts/nvim-and-nuxt.md"
-                    },
-                    {
-                      "name": "osint-tools-suite.md",
-                      "size": 2074,
-                      "path": "content/blog/drafts/osint-tools-suite.md"
-                    },
-                    {
-                      "name": "pico8-demakes.md",
-                      "size": 1582,
-                      "path": "content/blog/drafts/pico8-demakes.md"
-                    },
-                    {
-                      "name": "spacepunk-logistics.md",
-                      "size": 1426,
-                      "path": "content/blog/drafts/spacepunk-logistics.md"
-                    },
-                    {
-                      "name": "spite-driven-development.md",
-                      "size": 3039,
-                      "path": "content/blog/drafts/spite-driven-development.md"
-                    },
-                    {
-                      "name": "ten-years-of-the-computer-rescuetime-analysis.md",
-                      "size": 6158,
-                      "path": "content/blog/drafts/ten-years-of-the-computer-rescuetime-analysis.md"
-                    },
-                    {
-                      "name": "terminal-based-development-workflow.md",
-                      "size": 206,
-                      "path": "content/blog/drafts/terminal-based-development-workflow.md"
-                    },
-                    {
-                      "name": "towntuner.md",
-                      "size": 1784,
-                      "path": "content/blog/drafts/towntuner.md"
-                    },
-                    {
-                      "name": "vulpes-browser.md",
-                      "size": 1512,
-                      "path": "content/blog/drafts/vulpes-browser.md"
-                    },
-                    {
-                      "name": "vulpes-nvim-colorscheme.md",
-                      "size": 2333,
-                      "path": "content/blog/drafts/vulpes-nvim-colorscheme.md"
-                    }
-                  ],
-                  "path": "content/blog/drafts"
                 },
                 {
                   "name": "projects",
@@ -11678,7 +10484,7 @@
                 },
                 {
                   "name": "goodreads-stats.json",
-                  "size": 49424,
+                  "size": 48303,
                   "path": "content/processed/goodreads-stats.json"
                 },
                 {
@@ -11985,7 +10791,7 @@
                 },
                 {
                   "name": "dotfiles.json",
-                  "size": 127566,
+                  "size": 127316,
                   "path": "data/github-repos/dotfiles.json"
                 },
                 {
@@ -12144,6 +10950,11 @@
                   "path": "data/github-repos/issuebuilder.json"
                 },
                 {
+                  "name": "journo-llm.json",
+                  "size": 3470,
+                  "path": "data/github-repos/journo-llm.json"
+                },
+                {
                   "name": "know-hv.json",
                   "size": 116213,
                   "path": "data/github-repos/know-hv.json"
@@ -12190,7 +11001,7 @@
                 },
                 {
                   "name": "music-player.json",
-                  "size": 6848,
+                  "size": 3987,
                   "path": "data/github-repos/music-player.json"
                 },
                 {
@@ -12474,6 +11285,11 @@
                   "path": "data/github-repos/thenation-homelessness-story.json"
                 },
                 {
+                  "name": "tips.txt.json",
+                  "size": 4297,
+                  "path": "data/github-repos/tips.txt.json"
+                },
+                {
                   "name": "tmux-link-grab.json",
                   "size": 7606,
                   "path": "data/github-repos/tmux-link-grab.json"
@@ -12560,7 +11376,7 @@
                 },
                 {
                   "name": "vulpes-browser.json",
-                  "size": 25199,
+                  "size": 25203,
                   "path": "data/github-repos/vulpes-browser.json"
                 },
                 {
@@ -12615,7 +11431,7 @@
                 },
                 {
                   "name": "website2.json",
-                  "size": 512644,
+                  "size": 532878,
                   "path": "data/github-repos/website2.json"
                 },
                 {
@@ -14503,6 +13319,11 @@
               "path": "data/calibration-analysis.json"
             },
             {
+              "name": "cloudinary-image-cache.json",
+              "size": 229285,
+              "path": "data/cloudinary-image-cache.json"
+            },
+            {
               "name": "consulting-availability.json",
               "size": 1190,
               "path": "data/consulting-availability.json"
@@ -14524,12 +13345,12 @@
             },
             {
               "name": "github-repos-index.json",
-              "size": 3600,
+              "size": 3630,
               "path": "data/github-repos-index.json"
             },
             {
               "name": "github-repos-list.json",
-              "size": 126648,
+              "size": 127939,
               "path": "data/github-repos-list.json"
             },
             {
@@ -14621,7 +13442,7 @@
             },
             {
               "name": "default.vue",
-              "size": 4201,
+              "size": 4211,
               "path": "layouts/default.vue"
             }
           ],
@@ -14673,12 +13494,12 @@
                 },
                 {
                   "name": "[...slug].vue",
-                  "size": 20211,
+                  "size": 21274,
                   "path": "pages/blog/[...slug].vue"
                 },
                 {
                   "name": "index.vue",
-                  "size": 22104,
+                  "size": 22238,
                   "path": "pages/blog/index.vue"
                 }
               ],
@@ -14831,7 +13652,7 @@
             },
             {
               "name": "calendar.vue",
-              "size": 3060,
+              "size": 3068,
               "path": "pages/calendar.vue"
             },
             {
@@ -14871,7 +13692,7 @@
             },
             {
               "name": "now.vue",
-              "size": 11664,
+              "size": 17685,
               "path": "pages/now.vue"
             },
             {
@@ -14896,7 +13717,7 @@
             },
             {
               "name": "stats.vue",
-              "size": 37901,
+              "size": 38362,
               "path": "pages/stats.vue"
             },
             {
@@ -15486,7 +14307,7 @@
                 },
                 {
                   "name": "remarkEnhanceImages.mjs",
-                  "size": 7046,
+                  "size": 8285,
                   "path": "scripts/plugins/remarkEnhanceImages.mjs"
                 },
                 {
@@ -15604,6 +14425,11 @@
               "path": "scripts/generate-commentary-templates.mjs"
             },
             {
+              "name": "hydrate-cloudinary-cache.mjs",
+              "size": 6298,
+              "path": "scripts/hydrate-cloudinary-cache.mjs"
+            },
+            {
               "name": "index.mjs",
               "size": 772,
               "path": "scripts/index.mjs"
@@ -15620,8 +14446,13 @@
             },
             {
               "name": "lint-gear.mjs",
-              "size": 7723,
+              "size": 8177,
               "path": "scripts/lint-gear.mjs"
+            },
+            {
+              "name": "markdownToHtml.mjs",
+              "size": 3959,
+              "path": "scripts/markdownToHtml.mjs"
             },
             {
               "name": "nginx-preview.conf",
@@ -15639,8 +14470,13 @@
               "path": "scripts/predict-pro.mjs"
             },
             {
+              "name": "preview-convert.mjs",
+              "size": 780,
+              "path": "scripts/preview-convert.mjs"
+            },
+            {
               "name": "processMarkdown.mjs",
-              "size": 36957,
+              "size": 37560,
               "path": "scripts/processMarkdown.mjs"
             },
             {
@@ -15784,7 +14620,7 @@
                   "children": [
                     {
                       "name": "[...slug].ts",
-                      "size": 4829,
+                      "size": 5030,
                       "path": "server/api/posts/[...slug].ts"
                     }
                   ],
@@ -15984,7 +14820,7 @@
                 },
                 {
                   "name": "goodreads.get.ts",
-                  "size": 2060,
+                  "size": 6140,
                   "path": "server/api/goodreads.get.ts"
                 },
                 {
@@ -15999,7 +14835,7 @@
                 },
                 {
                   "name": "kalshi.get.ts",
-                  "size": 19860,
+                  "size": 19719,
                   "path": "server/api/kalshi.get.ts"
                 },
                 {
@@ -16014,7 +14850,7 @@
                 },
                 {
                   "name": "letterboxd.get.ts",
-                  "size": 4735,
+                  "size": 4826,
                   "path": "server/api/letterboxd.get.ts"
                 },
                 {
@@ -16024,7 +14860,7 @@
                 },
                 {
                   "name": "monkeytype.get.ts",
-                  "size": 9313,
+                  "size": 9307,
                   "path": "server/api/monkeytype.get.ts"
                 },
                 {
@@ -16064,7 +14900,7 @@
                 },
                 {
                   "name": "search.get.ts",
-                  "size": 9552,
+                  "size": 10239,
                   "path": "server/api/search.get.ts"
                 },
                 {
@@ -16074,12 +14910,12 @@
                 },
                 {
                   "name": "stats.get.ts",
-                  "size": 10079,
+                  "size": 10325,
                   "path": "server/api/stats.get.ts"
                 },
                 {
                   "name": "suggest.get.ts",
-                  "size": 14662,
+                  "size": 14867,
                   "path": "server/api/suggest.get.ts"
                 },
                 {
@@ -16125,7 +14961,7 @@
                 },
                 {
                   "name": "sitemap.xml.ts",
-                  "size": 5228,
+                  "size": 5355,
                   "path": "server/routes/sitemap.xml.ts"
                 },
                 {
@@ -16266,7 +15102,7 @@
         },
         {
           "name": "README.md",
-          "size": 3386,
+          "size": 3874,
           "path": "README.md"
         },
         {
@@ -16286,7 +15122,7 @@
         },
         {
           "name": "eslint.config.mjs",
-          "size": 7486,
+          "size": 7826,
           "path": "eslint.config.mjs"
         },
         {
@@ -16306,7 +15142,7 @@
         },
         {
           "name": "tailwind.config.js",
-          "size": 2930,
+          "size": 2875,
           "path": "tailwind.config.js"
         },
         {
@@ -16332,16 +15168,16 @@
       ],
       "path": ""
     },
-    "totalFiles": 1726,
-    "totalSize": 84285018
+    "totalFiles": 1598,
+    "totalSize": 84169901
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"ej-foxs-website\">EJ Fox's Website</h1>\n<p>Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker</p>\n<h2 id=\"quick-start\">Quick Start</h2>\n<pre><code class=\"language-bash\">yarn install &amp;&amp; yarn blog:import &amp;&amp; yarn blog:process &amp;&amp; yarn dev\n</code></pre>\n<h2 id=\"commands\">Commands</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>yarn dev</code></td><td>Dev server (port 3006)</td></tr><tr><td><code>yarn build</code></td><td>Production build</td></tr><tr><td><code>yarn blog:import</code></td><td>Import from Obsidian</td></tr><tr><td><code>yarn blog:process</code></td><td>Process MD → JSON</td></tr><tr><td><code>yarn predict</code></td><td>Create cryptographic prediction</td></tr><tr><td><code>yarn webmentions</code></td><td>Send webmentions (last 7 days)</td></tr><tr><td><code>yarn webmentions --all</code></td><td>Send all webmentions</td></tr></tbody></table>\n<h2 id=\"features\">Features</h2>\n<h3 id=\"content-pipeline\">Content Pipeline</h3>\n<p>Obsidian → Markdown → Unified/Rehype → JSON → Vue</p>\n<pre><code>content/blog/YYYY/*.md  →  content/processed/YYYY/*.json\n</code></pre>\n<h3 id=\"frontmatter\">Frontmatter</h3>\n<pre><code class=\"language-yaml\">---\ntitle: Post Title\ndate: 2024-01-01\ndek: One-sentence description\ntags: [tag1, tag2]\ndraft: false # Hide from lists\nhidden: false # Skip processing\nreplyTo: https://example.com/post # IndieWeb reply (single or array)\n---\n</code></pre>\n<h3 id=\"indieweb\">IndieWeb</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Feature</th><th>Details</th></tr></thead><tbody><tr><td><strong>Reply posts</strong></td><td><code>replyTo:</code> fetches OG data, shows context, sends webmention</td></tr><tr><td><strong>Webmentions</strong></td><td>Display likes/reposts/replies, moderation via <code>data/webmention-moderation.json</code></td></tr><tr><td><strong>Microformats</strong></td><td>h-entry, h-card, u-in-reply-to on all posts</td></tr><tr><td><strong>WebSub</strong></td><td>Hub at pubsubhubbub.superfeedr.com</td></tr></tbody></table>\n<h3 id=\"predictions-system\">Predictions System</h3>\n<pre><code class=\"language-bash\">yarn predict --statement \"X will happen\" --confidence 75 --deadline 2025-12-31\n</code></pre>\n<ul>\n<li>SHA-256 + Git commit + optional PGP signing</li>\n<li>AI quality analysis via OpenRouter</li>\n<li>See <code>docs/PREDICTIONS.md</code></li>\n</ul>\n<h3 id=\"stats-aggregation\">Stats Aggregation</h3>\n<p>Two endpoints for personal metrics:</p>\n<ul>\n<li><code>/api/stats</code> - Full stats with arrays and nested data (~2.4KB)</li>\n<li><code>/api/stats-lite</code> - Lightweight for iOS Shortcuts (~345 bytes, 86% smaller)</li>\n</ul>\n<p>Aggregates: GitHub, Chess.com, LastFM, RescueTime, Letterboxd, Discogs, Kalshi</p>\n<p>See <code>docs/STATS-API.md</code> and <code>docs/IOS-SHORTCUTS-EXAMPLES.md</code> for usage</p>\n<h3 id=\"gear-inventory\">Gear Inventory</h3>\n<p>CSV-based gear tracking at <code>/gear</code> with weight calculations, Tuftian visualizations</p>\n<h3 id=\"sidenotes\">Sidenotes</h3>\n<p>Footnotes auto-convert to margin notes on desktop (Tufte-style)</p>\n<h2 id=\"deployment\">Deployment</h2>\n<p>Push to <code>main</code> → GitHub Action SSHs to VPS → pulls, builds, restarts Docker</p>\n<p>Manual: <code>ssh vps \"cd /data2/website2 &amp;&amp; git pull &amp;&amp; yarn build &amp;&amp; docker-compose up -d --build\"</code></p>\n<h2 id=\"environment\">Environment</h2>\n<pre><code class=\"language-bash\">CLOUDINARY_CLOUD_NAME=\nCLOUDINARY_API_KEY=\nCLOUDINARY_API_SECRET=\nYOUTUBE_API_KEY=\nYOUTUBE_CHANNEL_ID=\n</code></pre>\n<h2 id=\"directory-structure\">Directory Structure</h2>\n<pre><code>content/blog/       # Source markdown by year\ncontent/processed/  # Output JSON\nserver/api/         # API endpoints\ncomponents/         # Vue components\nscripts/            # Processing scripts\ndata/               # Config files (moderation, gear CSV)\n</code></pre>\n<h2 id=\"debug\">Debug</h2>\n<pre><code class=\"language-bash\">DEBUG=true yarn blog:process\nCHECK_LINKS=true yarn blog:process  # Link health check\nAUTO_FIX_LINKS=true yarn blog:process  # Auto-fix with archive.org\n</code></pre>\n<hr />\n<p>MIT License</p>",
-    "raw": "# EJ Fox's Website\n\nPersonal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n## Quick Start\n\n```bash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n```\n\n## Commands\n\n| Command                  | Description                     |\n| ------------------------ | ------------------------------- |\n| `yarn dev`               | Dev server (port 3006)          |\n| `yarn build`             | Production build                |\n| `yarn blog:import`       | Import from Obsidian            |\n| `yarn blog:process`      | Process MD → JSON               |\n| `yarn predict`           | Create cryptographic prediction |\n| `yarn webmentions`       | Send webmentions (last 7 days)  |\n| `yarn webmentions --all` | Send all webmentions            |\n\n## Features\n\n### Content Pipeline\n\nObsidian → Markdown → Unified/Rehype → JSON → Vue\n\n```\ncontent/blog/YYYY/*.md  →  content/processed/YYYY/*.json\n```\n\n### Frontmatter\n\n```yaml\n---\ntitle: Post Title\ndate: 2024-01-01\ndek: One-sentence description\ntags: [tag1, tag2]\ndraft: false # Hide from lists\nhidden: false # Skip processing\nreplyTo: https://example.com/post # IndieWeb reply (single or array)\n---\n```\n\n### IndieWeb\n\n| Feature          | Details                                                                         |\n| ---------------- | ------------------------------------------------------------------------------- |\n| **Reply posts**  | `replyTo:` fetches OG data, shows context, sends webmention                     |\n| **Webmentions**  | Display likes/reposts/replies, moderation via `data/webmention-moderation.json` |\n| **Microformats** | h-entry, h-card, u-in-reply-to on all posts                                     |\n| **WebSub**       | Hub at pubsubhubbub.superfeedr.com                                              |\n\n### Predictions System\n\n```bash\nyarn predict --statement \"X will happen\" --confidence 75 --deadline 2025-12-31\n```\n\n- SHA-256 + Git commit + optional PGP signing\n- AI quality analysis via OpenRouter\n- See `docs/PREDICTIONS.md`\n\n### Stats Aggregation\n\nTwo endpoints for personal metrics:\n\n- `/api/stats` - Full stats with arrays and nested data (~2.4KB)\n- `/api/stats-lite` - Lightweight for iOS Shortcuts (~345 bytes, 86% smaller)\n\nAggregates: GitHub, Chess.com, LastFM, RescueTime, Letterboxd, Discogs, Kalshi\n\nSee `docs/STATS-API.md` and `docs/IOS-SHORTCUTS-EXAMPLES.md` for usage\n\n### Gear Inventory\n\nCSV-based gear tracking at `/gear` with weight calculations, Tuftian visualizations\n\n### Sidenotes\n\nFootnotes auto-convert to margin notes on desktop (Tufte-style)\n\n## Deployment\n\nPush to `main` → GitHub Action SSHs to VPS → pulls, builds, restarts Docker\n\nManual: `ssh vps \"cd /data2/website2 && git pull && yarn build && docker-compose up -d --build\"`\n\n## Environment\n\n```bash\nCLOUDINARY_CLOUD_NAME=\nCLOUDINARY_API_KEY=\nCLOUDINARY_API_SECRET=\nYOUTUBE_API_KEY=\nYOUTUBE_CHANNEL_ID=\n```\n\n## Directory Structure\n\n```\ncontent/blog/       # Source markdown by year\ncontent/processed/  # Output JSON\nserver/api/         # API endpoints\ncomponents/         # Vue components\nscripts/            # Processing scripts\ndata/               # Config files (moderation, gear CSV)\n```\n\n## Debug\n\n```bash\nDEBUG=true yarn blog:process\nCHECK_LINKS=true yarn blog:process  # Link health check\nAUTO_FIX_LINKS=true yarn blog:process  # Auto-fix with archive.org\n```\n\n---\n\nMIT License\n",
+    "html": "<h1 id=\"ej-foxs-website\">EJ Fox's Website</h1>\n<p>Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker</p>\n<h2 id=\"quick-start\">Quick Start</h2>\n<pre><code class=\"language-bash\">yarn install &amp;&amp; yarn blog:import &amp;&amp; yarn blog:process &amp;&amp; yarn dev\n</code></pre>\n<h2 id=\"commands\">Commands</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Command</th><th>Description</th></tr></thead><tbody><tr><td><code>yarn dev</code></td><td>Dev server (port 3006)</td></tr><tr><td><code>yarn build</code></td><td>Production build</td></tr><tr><td><code>yarn blog:import</code></td><td>Import from Obsidian</td></tr><tr><td><code>yarn blog:process</code></td><td>Process MD → JSON</td></tr><tr><td><code>yarn predict</code></td><td>Create cryptographic prediction</td></tr><tr><td><code>yarn webmentions</code></td><td>Send webmentions (last 7 days)</td></tr><tr><td><code>yarn webmentions --all</code></td><td>Send all webmentions</td></tr></tbody></table>\n<h2 id=\"features\">Features</h2>\n<h3 id=\"content-pipeline\">Content Pipeline</h3>\n<p>Obsidian → Markdown → Unified/Rehype → JSON → Vue</p>\n<pre><code>content/blog/YYYY/*.md  →  content/processed/YYYY/*.json\n</code></pre>\n<h3 id=\"frontmatter\">Frontmatter</h3>\n<pre><code class=\"language-yaml\">---\ntitle: Post Title\ndate: 2024-01-01\ndek: One-sentence description\ntags: [tag1, tag2]\ndraft: false # Hide from lists\nhidden: false # Skip processing\nreplyTo: https://example.com/post # IndieWeb reply (single or array)\n---\n</code></pre>\n<h3 id=\"indieweb\">IndieWeb</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Feature</th><th>Details</th></tr></thead><tbody><tr><td><strong>Reply posts</strong></td><td><code>replyTo:</code> fetches OG data, shows context, sends webmention</td></tr><tr><td><strong>Webmentions</strong></td><td>Display likes/reposts/replies, moderation via <code>data/webmention-moderation.json</code></td></tr><tr><td><strong>Microformats</strong></td><td>h-entry, h-card, u-in-reply-to on all posts</td></tr><tr><td><strong>WebSub</strong></td><td>Hub at pubsubhubbub.superfeedr.com</td></tr></tbody></table>\n<h3 id=\"predictions-system\">Predictions System</h3>\n<pre><code class=\"language-bash\">yarn predict --statement \"X will happen\" --confidence 75 --deadline 2025-12-31\n</code></pre>\n<ul>\n<li>SHA-256 + Git commit + optional PGP signing</li>\n<li>AI quality analysis via OpenRouter</li>\n<li>See <code>docs/PREDICTIONS.md</code></li>\n</ul>\n<h3 id=\"stats-aggregation\">Stats Aggregation</h3>\n<p>Two endpoints for personal metrics:</p>\n<ul>\n<li><code>/api/stats</code> - Full stats with arrays and nested data (~2.4KB)</li>\n<li><code>/api/stats-lite</code> - Lightweight for iOS Shortcuts (~345 bytes, 86% smaller)</li>\n</ul>\n<p>Aggregates: GitHub, Chess.com, LastFM, RescueTime, Letterboxd, Discogs, Kalshi</p>\n<p>See <code>docs/STATS-API.md</code> and <code>docs/IOS-SHORTCUTS-EXAMPLES.md</code> for usage</p>\n<h3 id=\"gear-inventory\">Gear Inventory</h3>\n<p>CSV-based gear tracking at <code>/gear</code> with weight calculations, Tuftian visualizations</p>\n<h3 id=\"sidenotes\">Sidenotes</h3>\n<p>Footnotes auto-convert to margin notes on desktop (Tufte-style)</p>\n<h2 id=\"deployment\">Deployment</h2>\n<p>Push to <code>main</code> → GitHub Action SSHs to VPS → pulls, builds, restarts Docker</p>\n<p>Manual: <code>ssh vps \"cd /data2/website2 &amp;&amp; git pull &amp;&amp; yarn build &amp;&amp; docker-compose up -d --build\"</code></p>\n<h2 id=\"environment\">Environment</h2>\n<pre><code class=\"language-bash\">CLOUDINARY_CLOUD_NAME=\nCLOUDINARY_API_KEY=\nCLOUDINARY_API_SECRET=\nYOUTUBE_API_KEY=\nYOUTUBE_CHANNEL_ID=\n</code></pre>\n<h2 id=\"directory-structure\">Directory Structure</h2>\n<pre><code>content/blog/       # Source markdown by year\ncontent/processed/  # Output JSON\nserver/api/         # API endpoints\ncomponents/         # Vue components\nscripts/            # Processing scripts\ndata/               # Config files (moderation, gear CSV)\n</code></pre>\n<h2 id=\"debug\">Debug</h2>\n<pre><code class=\"language-bash\">DEBUG=true yarn blog:process\nCHECK_LINKS=true yarn blog:process  # Link health check\nAUTO_FIX_LINKS=true yarn blog:process  # Auto-fix with archive.org\n</code></pre>\n<h2 id=\"todo\">TODO</h2>\n<ul>\n<li>Rerun <code>node scripts/hydrate-cloudinary-cache.mjs</code> until it reports <code>0 missing metadata</code> (it resumes from cache).</li>\n<li>Investigate remaining <code>x</code> failures in the hydrator output (missing assets vs permissions).</li>\n<li>Document the hydrator runtime/usage and add it to the Commands table once stable.</li>\n<li>Rerun the hydrator to reduce the remaining ~331 missing entries (current baseline).</li>\n<li>Clean malformed Cloudinary URLs in markdown (e.g. <code>...png)![Screenshot</code>) so they can be hydrated.</li>\n</ul>\n<hr />\n<p>MIT License</p>",
+    "raw": "# EJ Fox's Website\n\nPersonal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n## Quick Start\n\n```bash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n```\n\n## Commands\n\n| Command                  | Description                     |\n| ------------------------ | ------------------------------- |\n| `yarn dev`               | Dev server (port 3006)          |\n| `yarn build`             | Production build                |\n| `yarn blog:import`       | Import from Obsidian            |\n| `yarn blog:process`      | Process MD → JSON               |\n| `yarn predict`           | Create cryptographic prediction |\n| `yarn webmentions`       | Send webmentions (last 7 days)  |\n| `yarn webmentions --all` | Send all webmentions            |\n\n## Features\n\n### Content Pipeline\n\nObsidian → Markdown → Unified/Rehype → JSON → Vue\n\n```\ncontent/blog/YYYY/*.md  →  content/processed/YYYY/*.json\n```\n\n### Frontmatter\n\n```yaml\n---\ntitle: Post Title\ndate: 2024-01-01\ndek: One-sentence description\ntags: [tag1, tag2]\ndraft: false # Hide from lists\nhidden: false # Skip processing\nreplyTo: https://example.com/post # IndieWeb reply (single or array)\n---\n```\n\n### IndieWeb\n\n| Feature          | Details                                                                         |\n| ---------------- | ------------------------------------------------------------------------------- |\n| **Reply posts**  | `replyTo:` fetches OG data, shows context, sends webmention                     |\n| **Webmentions**  | Display likes/reposts/replies, moderation via `data/webmention-moderation.json` |\n| **Microformats** | h-entry, h-card, u-in-reply-to on all posts                                     |\n| **WebSub**       | Hub at pubsubhubbub.superfeedr.com                                              |\n\n### Predictions System\n\n```bash\nyarn predict --statement \"X will happen\" --confidence 75 --deadline 2025-12-31\n```\n\n- SHA-256 + Git commit + optional PGP signing\n- AI quality analysis via OpenRouter\n- See `docs/PREDICTIONS.md`\n\n### Stats Aggregation\n\nTwo endpoints for personal metrics:\n\n- `/api/stats` - Full stats with arrays and nested data (~2.4KB)\n- `/api/stats-lite` - Lightweight for iOS Shortcuts (~345 bytes, 86% smaller)\n\nAggregates: GitHub, Chess.com, LastFM, RescueTime, Letterboxd, Discogs, Kalshi\n\nSee `docs/STATS-API.md` and `docs/IOS-SHORTCUTS-EXAMPLES.md` for usage\n\n### Gear Inventory\n\nCSV-based gear tracking at `/gear` with weight calculations, Tuftian visualizations\n\n### Sidenotes\n\nFootnotes auto-convert to margin notes on desktop (Tufte-style)\n\n## Deployment\n\nPush to `main` → GitHub Action SSHs to VPS → pulls, builds, restarts Docker\n\nManual: `ssh vps \"cd /data2/website2 && git pull && yarn build && docker-compose up -d --build\"`\n\n## Environment\n\n```bash\nCLOUDINARY_CLOUD_NAME=\nCLOUDINARY_API_KEY=\nCLOUDINARY_API_SECRET=\nYOUTUBE_API_KEY=\nYOUTUBE_CHANNEL_ID=\n```\n\n## Directory Structure\n\n```\ncontent/blog/       # Source markdown by year\ncontent/processed/  # Output JSON\nserver/api/         # API endpoints\ncomponents/         # Vue components\nscripts/            # Processing scripts\ndata/               # Config files (moderation, gear CSV)\n```\n\n## Debug\n\n```bash\nDEBUG=true yarn blog:process\nCHECK_LINKS=true yarn blog:process  # Link health check\nAUTO_FIX_LINKS=true yarn blog:process  # Auto-fix with archive.org\n```\n\n## TODO\n\n- Rerun `node scripts/hydrate-cloudinary-cache.mjs` until it reports `0 missing metadata` (it resumes from cache).\n- Investigate remaining `x` failures in the hydrator output (missing assets vs permissions).\n- Document the hydrator runtime/usage and add it to the Commands table once stable.\n- Rerun the hydrator to reduce the remaining ~331 missing entries (current baseline).\n- Clean malformed Cloudinary URLs in markdown (e.g. `...png)![Screenshot`) so they can be hydrated.\n\n---\n\nMIT License\n",
     "excerpt": "Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker\n\n\n\nbash\nyarn install && yarn blog:import && yarn blog:process && yarn dev\n\n\n\n\n| Command..."
   },
   "createdAt": "2024-10-13T14:09:19Z",
-  "updatedAt": "2026-01-24T23:03:22Z",
-  "pushedAt": "2026-01-24T23:03:18Z"
+  "updatedAt": "2026-01-26T19:03:53Z",
+  "pushedAt": "2026-01-26T19:03:49Z"
 }

@@ -12,13 +12,13 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 70079,
+    "Vue": 77286,
     "TypeScript": 31741,
-    "CSS": 11264,
+    "CSS": 12149,
     "Rust": 5426,
     "HTML": 329
   },
-  "diskUsage": 11600,
+  "diskUsage": 11755,
   "fileTree": {
     "files": [
       {
@@ -311,7 +311,7 @@
       },
       {
         "path": "src/App.vue",
-        "size": 58619
+        "size": 62222
       },
       {
         "path": "src/assets/base.css",
@@ -342,8 +342,24 @@
         "size": 330
       },
       {
+        "path": "src/components/icons/IconCamera.vue",
+        "size": 317
+      },
+      {
+        "path": "src/components/icons/IconCheck.vue",
+        "size": 242
+      },
+      {
+        "path": "src/components/icons/IconClose.vue",
+        "size": 266
+      },
+      {
         "path": "src/components/icons/IconCommunity.vue",
         "size": 1054
+      },
+      {
+        "path": "src/components/icons/IconDocument.vue",
+        "size": 365
       },
       {
         "path": "src/components/icons/IconDocumentation.vue",
@@ -354,12 +370,40 @@
         "size": 1977
       },
       {
+        "path": "src/components/icons/IconExport.vue",
+        "size": 329
+      },
+      {
+        "path": "src/components/icons/IconFolder.vue",
+        "size": 301
+      },
+      {
+        "path": "src/components/icons/IconImage.vue",
+        "size": 337
+      },
+      {
+        "path": "src/components/icons/IconSave.vue",
+        "size": 347
+      },
+      {
+        "path": "src/components/icons/IconSliders.vue",
+        "size": 472
+      },
+      {
+        "path": "src/components/icons/IconSpinner.vue",
+        "size": 251
+      },
+      {
         "path": "src/components/icons/IconSupport.vue",
         "size": 288
       },
       {
         "path": "src/components/icons/IconTooling.vue",
         "size": 913
+      },
+      {
+        "path": "src/components/icons/IconTrash.vue",
+        "size": 377
       },
       {
         "path": "src/composables/__tests__/useMarginSafety.spec.ts",
@@ -407,7 +451,7 @@
       },
       {
         "path": "src/style.css",
-        "size": 10670
+        "size": 11555
       },
       {
         "path": "src/views/AboutView.vue",
@@ -909,9 +953,29 @@
                   "name": "icons",
                   "children": [
                     {
+                      "name": "IconCamera.vue",
+                      "size": 317,
+                      "path": "src/components/icons/IconCamera.vue"
+                    },
+                    {
+                      "name": "IconCheck.vue",
+                      "size": 242,
+                      "path": "src/components/icons/IconCheck.vue"
+                    },
+                    {
+                      "name": "IconClose.vue",
+                      "size": 266,
+                      "path": "src/components/icons/IconClose.vue"
+                    },
+                    {
                       "name": "IconCommunity.vue",
                       "size": 1054,
                       "path": "src/components/icons/IconCommunity.vue"
+                    },
+                    {
+                      "name": "IconDocument.vue",
+                      "size": 365,
+                      "path": "src/components/icons/IconDocument.vue"
                     },
                     {
                       "name": "IconDocumentation.vue",
@@ -924,6 +988,36 @@
                       "path": "src/components/icons/IconEcosystem.vue"
                     },
                     {
+                      "name": "IconExport.vue",
+                      "size": 329,
+                      "path": "src/components/icons/IconExport.vue"
+                    },
+                    {
+                      "name": "IconFolder.vue",
+                      "size": 301,
+                      "path": "src/components/icons/IconFolder.vue"
+                    },
+                    {
+                      "name": "IconImage.vue",
+                      "size": 337,
+                      "path": "src/components/icons/IconImage.vue"
+                    },
+                    {
+                      "name": "IconSave.vue",
+                      "size": 347,
+                      "path": "src/components/icons/IconSave.vue"
+                    },
+                    {
+                      "name": "IconSliders.vue",
+                      "size": 472,
+                      "path": "src/components/icons/IconSliders.vue"
+                    },
+                    {
+                      "name": "IconSpinner.vue",
+                      "size": 251,
+                      "path": "src/components/icons/IconSpinner.vue"
+                    },
+                    {
                       "name": "IconSupport.vue",
                       "size": 288,
                       "path": "src/components/icons/IconSupport.vue"
@@ -932,6 +1026,11 @@
                       "name": "IconTooling.vue",
                       "size": 913,
                       "path": "src/components/icons/IconTooling.vue"
+                    },
+                    {
+                      "name": "IconTrash.vue",
+                      "size": 377,
+                      "path": "src/components/icons/IconTrash.vue"
                     }
                   ],
                   "path": "src/components/icons"
@@ -1041,7 +1140,7 @@
             },
             {
               "name": "App.vue",
-              "size": 58619,
+              "size": 62222,
               "path": "src/App.vue"
             },
             {
@@ -1056,7 +1155,7 @@
             },
             {
               "name": "style.css",
-              "size": 10670,
+              "size": 11555,
               "path": "src/style.css"
             }
           ],
@@ -1135,8 +1234,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 105,
-    "totalSize": 10090374
+    "totalFiles": 116,
+    "totalSize": 10098466
   },
   "topics": [],
   "readme": {
@@ -1145,6 +1244,6 @@
     "excerpt": "A minimal desktop application for creating printable photos with EXIF camera data displayed in clean borders.\n\n\n\n- Drag & Drop Interface - Simply drag photos in..."
   },
   "createdAt": "2025-05-29T02:44:09Z",
-  "updatedAt": "2026-01-11T04:34:13Z",
-  "pushedAt": "2026-01-11T04:34:16Z"
+  "updatedAt": "2026-01-26T13:42:43Z",
+  "pushedAt": "2026-01-26T13:43:07Z"
 }

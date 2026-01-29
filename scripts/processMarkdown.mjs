@@ -11,6 +11,7 @@
 /* eslint-disable no-console */
 // Markdown → HTML Processing Pipeline
 import { promises as fs, existsSync, statSync } from 'node:fs'
+import { createHash } from 'node:crypto'
 import path from 'node:path'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -70,6 +71,14 @@ const formatTitle = (filename) => {
     .split('-')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
+}
+
+/**
+ * Hash a password using SHA-256
+ * Matches the client-side hashing in PasswordGate.vue
+ */
+const hashPassword = (password) => {
+  return createHash('sha256').update(password).digest('hex')
 }
 
 // ============================================================================
@@ -305,15 +314,22 @@ async function processMarkdown(content, filePath) {
     const sourcePath = SOURCE_DIR ? path.relative(SOURCE_DIR, filePath) : null
     const sourceInfo = SOURCE_DIR ? { sourcePath, sourceDir: SOURCE_DIR } : {}
 
+    // Handle password protection - hash password, never store plaintext
+    const passwordHash = frontmatter.password
+      ? hashPassword(frontmatter.password)
+      : undefined
+    const { password: _rawPassword, ...safeFrontmatter } = frontmatter
+
     return {
       cacheVersion: CACHE_VERSION,
       html,
       title: extractedTitle,
       metadata: {
-        ...frontmatter,
+        ...safeFrontmatter,
         ...stats,
         toc,
-        type: frontmatter.type || getPostType(filePath),
+        type: safeFrontmatter.type || getPostType(filePath),
+        ...(passwordHash && { passwordHash }),
         ...sourceInfo,
       },
     }

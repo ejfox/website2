@@ -17,14 +17,16 @@ import { dirs } from '../config.mjs'
 
 const SOURCE_DIR =
   '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/'
+// SECURITY: Only folders that should be published go here
+// drafts/ is INTENTIONALLY EXCLUDED - it's private thinking space
 const WHITELISTED_FOLDERS = [
   'blog',
-  'week-notes',
+  // 'week-notes', // DISABLED: Caused chilling effect - enable explicitly if needed
   'robots',
   'reading',
   'projects',
   'prompts',
-  'drafts',
+  // 'drafts', // NEVER include - private by design
   '2025',
   '2024',
   '2023',

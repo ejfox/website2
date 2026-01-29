@@ -16,6 +16,9 @@ interface ManifestPost {
   date?: string
   draft?: boolean
   hidden?: boolean
+  unlisted?: boolean
+  password?: string
+  passwordHash?: string
 }
 
 export default defineEventHandler(async () => {
@@ -28,17 +31,20 @@ export default defineEventHandler(async () => {
     const manifestContent = await readFile(manifestPath, 'utf8')
     const manifest = JSON.parse(manifestContent)
 
-    // Filter for project posts, excluding drafts, hidden, and those starting with !
+    // Filter for project posts, excluding drafts, hidden, unlisted, password-protected, and those starting with !
     const projectPosts = manifest.filter((post: ManifestPost) => {
-      const isDraft =
-        post.draft || (post.metadata as Record<string, unknown>)?.draft
-      const isHidden =
-        post.hidden || (post.metadata as Record<string, unknown>)?.hidden
+      const metadata = post.metadata as Record<string, unknown>
+      const isDraft = post.draft || metadata?.draft
+      const isHidden = post.hidden || metadata?.hidden
+      const isUnlisted = post.unlisted || metadata?.unlisted
+      const hasPassword = !!(post.password || post.passwordHash || metadata?.password || metadata?.passwordHash)
       return (
         post.slug?.startsWith('projects/') &&
         !post.slug.includes('/!') &&
         !isDraft &&
-        !isHidden
+        !isHidden &&
+        !isUnlisted &&
+        !hasPassword
       )
     })
 

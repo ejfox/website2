@@ -108,6 +108,7 @@ const metadataFields = computed(() => {
   const fields = {
     // Only include relevant fields in a specific order
     type: note.value.metadata.type,
+    model: note.value.metadata.model, // LLM model that helped write this
     date: note.value.metadata.date,
     modified: note.value.metadata.modified,
     words: note.value.metadata.words,
@@ -200,11 +201,16 @@ onMounted(() => {
   // Title animation removed - delete-driven development
 })
 
-// Alert description
-const robotAlertDescription =
-  "This note was written by or with the assistance of AI. While I've " +
-  'reviewed and edited the content, you might notice some quirks in the ' +
-  'writing style or reasoning, and it may not all be factually accurate.'
+// Alert description - dynamically includes model name if present
+const robotAlertDescription = computed(() => {
+  const model = note.value?.metadata?.model
+  const modelText = model ? ` (${model})` : ''
+  return (
+    `This note was written by or with the assistance of AI${modelText}. While I've ` +
+    'reviewed and edited the content, you might notice some quirks in the ' +
+    'writing style or reasoning, and it may not all be factually accurate.'
+  )
+})
 
 // Metadata box styling
 const metadataBoxClass =
@@ -248,6 +254,14 @@ const proseClasses =
             <div class="text-zinc-700 dark:text-zinc-300 capitalize">
               {{ metadataFields.type }}
             </div>
+
+            <!-- Model (LLM that helped write this) -->
+            <template v-if="metadataFields.model">
+              <div class="text-zinc-500 dark:text-zinc-400">model:</div>
+              <div class="text-zinc-700 dark:text-zinc-300">
+                {{ metadataFields.model }}
+              </div>
+            </template>
 
             <!-- Date -->
             <div class="text-zinc-500 dark:text-zinc-400">published:</div>

@@ -41,6 +41,10 @@ interface PostMetadata {
   description?: string
   tags?: string[]
   firstHeading?: string
+  // Visibility controls
+  unlisted?: boolean
+  password?: string
+  passwordHash?: string
 }
 
 interface ProcessedHTML {
@@ -54,6 +58,10 @@ interface Post extends PostMetadata {
   content?: string
   html?: string
   processedContent?: ProcessedHTML
+  // Visibility controls (can be at root or in metadata)
+  unlisted?: boolean
+  password?: string
+  passwordHash?: string
 }
 
 interface ManifestItem extends Post {
@@ -136,9 +144,32 @@ function isHidden(post: Post): boolean {
   )
 }
 
+// Check if post is unlisted (visible at URL but not in listings)
+function isUnlisted(post: Post): boolean {
+  return (
+    post?.unlisted === true ||
+    post?.metadata?.unlisted === true
+  )
+}
+
+// Check if post is password-protected
+function isPasswordProtected(post: Post): boolean {
+  return !!(
+    post?.password ||
+    post?.passwordHash ||
+    post?.metadata?.password ||
+    post?.metadata?.passwordHash
+  )
+}
+
+// Check if post should be excluded from public listings
+function isExcludedFromListings(post: Post): boolean {
+  return isHidden(post) || isUnlisted(post) || isPasswordProtected(post)
+}
+
 function isRegularBlogPost(post: Post): boolean {
   const slug = post?.metadata?.slug || post?.slug
-  return !isSystemFile(slug) && !isSpecialSection(slug) && !isHidden(post)
+  return !isSystemFile(slug) && !isSpecialSection(slug) && !isExcludedFromListings(post)
 }
 
 // Enhanced filtering function that accepts custom filters
@@ -171,8 +202,8 @@ function filterAndSortPosts(
         if (!isShared) return false
       }
 
-      // Apply hidden filter
-      if (filters.excludeHidden && isHidden(post)) {
+      // Apply hidden filter (includes unlisted and password-protected)
+      if (filters.excludeHidden && isExcludedFromListings(post)) {
         return false
       }
 
@@ -246,7 +277,8 @@ export const useProcessedMarkdown = () => {
       return manifest
         .filter((post: Post) => {
           if (isSystemFile(post.slug)) return false
-          if (!includeDrafts && isHidden(post)) return false
+          // Filter out hidden, unlisted, and password-protected posts from listings
+          if (!includeDrafts && isExcludedFromListings(post)) return false
           if (isSpecialSection(post.slug)) {
             // Handle week notes special case
             if (post.slug.includes('week-notes/')) return includeWeekNotes

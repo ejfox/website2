@@ -7,6 +7,7 @@ import PostRelated from '~/components/blog/post/PostRelated.vue'
 import PostTOC from '~/components/blog/post/PostTOC.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
 import ReplyContext from '~/components/blog/ReplyContext.vue'
+import PasswordGate from '~/components/blog/PasswordGate.vue'
 import { useReadingStats } from '~/composables/useReadingStats'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
@@ -134,8 +135,20 @@ const articleSection = computed(
   () => post.value?.metadata?.section || articleTags.value[0] || 'Writing'
 )
 
-// Draft detection
+// Visibility detection
 const isDraft = computed(() => post.value?.metadata?.draft || post.value?.draft)
+const isUnlisted = computed(() => post.value?.metadata?.unlisted || post.value?.unlisted)
+const passwordHash = computed(() => post.value?.metadata?.passwordHash || post.value?.passwordHash)
+const isPasswordProtected = computed(() => !!passwordHash.value)
+const shouldNoIndex = computed(() => isDraft.value || isUnlisted.value || isPasswordProtected.value)
+
+// Password gate state
+const isUnlocked = ref(false)
+const showContent = computed(() => !isPasswordProtected.value || isUnlocked.value)
+
+function handleUnlocked() {
+  isUnlocked.value = true
+}
 
 const publishedDateISO = computed(() => {
   const d = post.value?.metadata?.date || post.value?.date
@@ -313,11 +326,7 @@ onMounted(() => {
     <Head>
       <Meta
         name="robots"
-        :content="
-          post?.metadata?.draft || post?.draft
-            ? 'noindex, nofollow'
-            : 'index, follow'
-        "
+        :content="shouldNoIndex ? 'noindex, nofollow' : 'index, follow'"
       />
     </Head>
 
@@ -350,8 +359,16 @@ onMounted(() => {
       <div class="progress-inner" :style="`width: ${scrollProgress}%`"></div>
     </div>
 
+    <!-- Password Gate -->
+    <PasswordGate
+      v-if="post && !post.redirect && isPasswordProtected && !isUnlocked"
+      :password-hash="passwordHash"
+      :post-title="postTitle"
+      @unlocked="handleUnlocked"
+    />
+
     <article
-      v-if="post && !post.redirect"
+      v-if="post && !post.redirect && showContent"
       :class="['h-entry w-full px-4 md:px-8 xl:px-16', { 'is-draft': isDraft }]"
     >
       <!-- Title -->

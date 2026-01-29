@@ -223,8 +223,12 @@ export default defineEventHandler(async (event) => {
 
             const contentSource = data.content || data.html || ''
 
-            // Skip if no content, hidden, or private content types
+            // Skip if no content, hidden, unlisted, password-protected, or private content types
             if (!contentSource || data.metadata?.hidden) continue
+
+            // Skip unlisted and password-protected posts
+            if (data.metadata?.unlisted === true) continue
+            if (data.metadata?.password || data.metadata?.passwordHash) continue
 
             // Additional content filtering
             const slug = relativePath.replace('.json', '').replace(/\\/g, '/')

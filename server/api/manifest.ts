@@ -14,9 +14,17 @@ interface Post {
   title?: string
   hidden?: boolean
   draft?: boolean
+  unlisted?: boolean
+  password?: string
+  passwordHash?: string
   metadata?: {
     type?: string
     slug?: string
+    hidden?: boolean
+    draft?: boolean
+    unlisted?: boolean
+    password?: string
+    passwordHash?: string
   }
 }
 
@@ -24,15 +32,17 @@ export default defineEventHandler(async () => {
   try {
     const manifest = await readManifest()
 
-    // Filter out drafts and hidden posts - they're "hidden in plain sight"
-    // (URLs work but they don't appear in listings)
-    const publicPosts = manifest.filter(
-      (p: Post) =>
-        !p.draft &&
-        !p.hidden &&
-        !p.metadata?.draft &&
-        !p.slug?.startsWith('drafts/')
-    )
+    // Filter out drafts, hidden, unlisted, and password-protected posts
+    // These posts exist at their URLs but don't appear in listings
+    const publicPosts = manifest.filter((p: Post) => {
+      const isDraft = p.draft || p.metadata?.draft
+      const isHidden = p.hidden || p.metadata?.hidden
+      const isUnlisted = p.unlisted || p.metadata?.unlisted
+      const hasPassword = !!(p.password || p.passwordHash || p.metadata?.password || p.metadata?.passwordHash)
+      const isDraftsFolder = p.slug?.startsWith('drafts/')
+
+      return !isDraft && !isHidden && !isUnlisted && !hasPassword && !isDraftsFolder
+    })
 
     return publicPosts
   } catch (error) {

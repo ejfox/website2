@@ -1,5 +1,71 @@
 [
   {
+    "name": "SubwayBuilderIssues",
+    "description": "Where you report issues and bugs for Subway Builder",
+    "url": "https://github.com/colindm/SubwayBuilderIssues",
+    "homepage": null,
+    "stats": {
+      "stars": 39,
+      "forks": 8,
+      "watchers": 0,
+      "openIssues": 390
+    },
+    "language": "Unknown",
+    "languageColor": "#666666",
+    "languages": {},
+    "diskUsage": 12,
+    "topics": [],
+    "excerpt": "Where you report issues and bugs for Subway Builder",
+    "createdAt": "2025-10-10T21:48:38Z",
+    "updatedAt": "2026-01-27T22:54:33Z",
+    "pushedAt": "2025-11-25T16:48:22Z"
+  },
+  {
+    "name": "ejthirdbear",
+    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Svelte",
+    "languageColor": "#ff3e00",
+    "languages": {},
+    "diskUsage": 22491,
+    "topics": [],
+    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+    "createdAt": "2025-11-12T20:10:52Z",
+    "updatedAt": "2026-01-27T17:38:10Z",
+    "pushedAt": "2026-01-27T17:36:57Z"
+  },
+  {
+    "name": "ps5-tmux",
+    "description": "Control tmux through your ps5 dualsense controller",
+    "url": "https://github.com/ejfox/ps5-tmux",
+    "homepage": null,
+    "stats": {
+      "stars": 2,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "JavaScript",
+    "languageColor": "#f1e05a",
+    "languages": {
+      "JavaScript": 4846,
+      "Shell": 2218
+    },
+    "diskUsage": 2771,
+    "topics": [],
+    "excerpt": "Control tmux through your ps5 dualsense controller",
+    "createdAt": "2025-08-13T15:45:22Z",
+    "updatedAt": "2026-01-27T16:32:35Z",
+    "pushedAt": "2025-08-13T15:45:29Z"
+  },
+  {
     "name": "website2",
     "description": "No description provided",
     "url": "https://github.com/ejfox/website2",
@@ -13,20 +79,20 @@
     "language": "Vue",
     "languageColor": "#41b883",
     "languages": {
-      "Vue": 751213,
-      "TypeScript": 413084,
-      "JavaScript": 217580,
+      "Vue": 759904,
+      "TypeScript": 419883,
+      "JavaScript": 231198,
       "CSS": 37202,
       "Shell": 16523,
       "HTML": 11677,
       "Dockerfile": 794
     },
-    "diskUsage": 92694,
+    "diskUsage": 93005,
     "topics": [],
     "excerpt": "No description provided",
     "createdAt": "2024-10-13T14:09:19Z",
-    "updatedAt": "2026-01-24T23:03:22Z",
-    "pushedAt": "2026-01-24T23:03:18Z"
+    "updatedAt": "2026-01-26T19:03:53Z",
+    "pushedAt": "2026-01-26T19:03:49Z"
   },
   {
     "name": "dotfiles",
@@ -42,20 +108,74 @@
     "language": "Shell",
     "languageColor": "#89e051",
     "languages": {
-      "Shell": 291463,
-      "GLSL": 176199,
-      "Lua": 126106,
-      "Vim Script": 83725,
-      "JavaScript": 8622,
-      "Less": 2089,
-      "CSS": 1367
+      "Shell": 302372,
+      "GLSL": 188468,
+      "Lua": 138448,
+      "JavaScript": 33095,
+      "CSS": 1942
     },
-    "diskUsage": 60943,
+    "diskUsage": 61010,
     "topics": [],
     "excerpt": "Backup of my dotfiles",
     "createdAt": "2019-04-07T22:09:55Z",
-    "updatedAt": "2026-01-24T17:09:28Z",
-    "pushedAt": "2026-01-24T17:09:22Z"
+    "updatedAt": "2026-01-26T16:51:00Z",
+    "pushedAt": "2026-01-26T16:50:53Z"
+  },
+  {
+    "name": "website-dispatch",
+    "description": "Tauri app for publishing Obsidian notes to ejfox.com",
+    "url": "https://github.com/ejfox/website-dispatch",
+    "homepage": null,
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 84074,
+      "Rust": 64876,
+      "JavaScript": 12682,
+      "Python": 5338,
+      "Shell": 2201,
+      "HTML": 565,
+      "TypeScript": 493
+    },
+    "diskUsage": 541,
+    "topics": [],
+    "excerpt": "Tauri app for publishing Obsidian notes to ejfox.com",
+    "createdAt": "2026-01-24T23:53:42Z",
+    "updatedAt": "2026-01-26T16:40:29Z",
+    "pushedAt": "2026-01-26T16:40:26Z"
+  },
+  {
+    "name": "exif-printer-simple",
+    "description": "No description provided",
+    "url": "https://github.com/ejfox/exif-printer-simple",
+    "homepage": "https://ejfox.github.io/exif-photo-printer-website/",
+    "stats": {
+      "stars": 0,
+      "forks": 0,
+      "watchers": 0,
+      "openIssues": 0
+    },
+    "language": "Vue",
+    "languageColor": "#41b883",
+    "languages": {
+      "Vue": 77286,
+      "TypeScript": 31741,
+      "CSS": 12149,
+      "Rust": 5426,
+      "HTML": 329
+    },
+    "diskUsage": 11755,
+    "topics": [],
+    "excerpt": "No description provided",
+    "createdAt": "2025-05-29T02:44:09Z",
+    "updatedAt": "2026-01-26T13:42:43Z",
+    "pushedAt": "2026-01-26T13:43:07Z"
   },
   {
     "name": "tips.txt",
@@ -102,27 +222,6 @@
     "createdAt": "2025-09-23T13:58:12Z",
     "updatedAt": "2026-01-24T13:11:33Z",
     "pushedAt": "2026-01-24T13:11:30Z"
-  },
-  {
-    "name": "ejthirdbear",
-    "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
-    "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
-    "homepage": null,
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Svelte",
-    "languageColor": "#ff3e00",
-    "languages": {},
-    "diskUsage": 22304,
-    "topics": [],
-    "excerpt": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
-    "createdAt": "2025-11-12T20:10:52Z",
-    "updatedAt": "2026-01-23T16:49:28Z",
-    "pushedAt": "2026-01-23T16:49:25Z"
   },
   {
     "name": "vulpes-browser",
@@ -444,33 +543,6 @@
     "pushedAt": "2026-01-14T21:16:18Z"
   },
   {
-    "name": "exif-printer-simple",
-    "description": "No description provided",
-    "url": "https://github.com/ejfox/exif-printer-simple",
-    "homepage": "https://ejfox.github.io/exif-photo-printer-website/",
-    "stats": {
-      "stars": 0,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "Vue",
-    "languageColor": "#41b883",
-    "languages": {
-      "Vue": 70079,
-      "TypeScript": 31741,
-      "CSS": 11264,
-      "Rust": 5426,
-      "HTML": 329
-    },
-    "diskUsage": 11600,
-    "topics": [],
-    "excerpt": "No description provided",
-    "createdAt": "2025-05-29T02:44:09Z",
-    "updatedAt": "2026-01-11T04:34:13Z",
-    "pushedAt": "2026-01-11T04:34:16Z"
-  },
-  {
     "name": "towntuner",
     "description": "The podcast app dedicated to Harmontown",
     "url": "https://github.com/ejfox/towntuner",
@@ -618,30 +690,6 @@
     "pushedAt": "2026-01-03T19:30:28Z"
   },
   {
-    "name": "ps5-tmux",
-    "description": "Control tmux through your ps5 dualsense controller",
-    "url": "https://github.com/ejfox/ps5-tmux",
-    "homepage": null,
-    "stats": {
-      "stars": 1,
-      "forks": 0,
-      "watchers": 0,
-      "openIssues": 0
-    },
-    "language": "JavaScript",
-    "languageColor": "#f1e05a",
-    "languages": {
-      "JavaScript": 4846,
-      "Shell": 2218
-    },
-    "diskUsage": 2771,
-    "topics": [],
-    "excerpt": "Control tmux through your ps5 dualsense controller",
-    "createdAt": "2025-08-13T15:45:22Z",
-    "updatedAt": "2026-01-03T12:18:08Z",
-    "pushedAt": "2025-08-13T15:45:29Z"
-  },
-  {
     "name": "subway-builder-mods",
     "description": "Mods for Subway Builder game - including Day/Night theme cycle",
     "url": "https://github.com/ejfox/subway-builder-mods",
@@ -686,27 +734,6 @@
     "createdAt": "2025-12-10T01:11:05Z",
     "updatedAt": "2025-12-30T18:40:16Z",
     "pushedAt": "2025-12-30T18:40:12Z"
-  },
-  {
-    "name": "SubwayBuilderIssues",
-    "description": "Where you report issues and bugs for Subway Builder",
-    "url": "https://github.com/colindm/SubwayBuilderIssues",
-    "homepage": null,
-    "stats": {
-      "stars": 38,
-      "forks": 8,
-      "watchers": 0,
-      "openIssues": 387
-    },
-    "language": "Unknown",
-    "languageColor": "#666666",
-    "languages": {},
-    "diskUsage": 12,
-    "topics": [],
-    "excerpt": "Where you report issues and bugs for Subway Builder",
-    "createdAt": "2025-10-10T21:48:38Z",
-    "updatedAt": "2025-12-18T23:19:33Z",
-    "pushedAt": "2025-11-25T16:48:22Z"
   },
   {
     "name": "scrapbook-cli",
