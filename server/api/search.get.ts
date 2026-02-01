@@ -10,6 +10,35 @@ import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import { stripHtml, tokenize } from '~/server/utils/text-processing'
 
+/**
+ * Format a slug into a display title
+ * Handles date-based slugs (YYYY-MM-DD) specially - keeps dashes
+ */
+function formatTitleFromSlug(slug: string): string {
+  const baseName = slug.split('/').pop() || slug
+  const datePattern = /^(\d{4}-\d{2}-\d{2})(-.*)?$/
+  const dateMatch = baseName.match(datePattern)
+
+  if (dateMatch) {
+    const datePart = dateMatch[1]
+    const suffix = dateMatch[2]
+    if (suffix) {
+      const suffixTitle = suffix
+        .slice(1)
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+      return `${datePart} ${suffixTitle}`
+    }
+    return datePart
+  }
+
+  return baseName
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}
+
 const BM25_CONFIG = {
   k1: 1.5,
   b: 0.75,
@@ -246,7 +275,7 @@ export default defineEventHandler(async (event) => {
               continue
 
             const textContent = stripHtml(contentSource)
-            const title = data.title || 'Untitled'
+            const title = data.title || formatTitleFromSlug(slug)
             const tags = Array.isArray(data.metadata?.tags)
               ? data.metadata?.tags
               : []

@@ -328,6 +328,25 @@ const processedMarkdown = useProcessedMarkdown()
 const formatTitle = (slug) => {
   if (!slug) return 'Untitled'
   const lastPart = slug.split('/').pop()
+
+  // Detect date-based filenames (YYYY-MM-DD or YYYY-MM-DD-suffix)
+  // Keep dashes for these - they're intentional
+  const datePattern = /^(\d{4}-\d{2}-\d{2})(-.*)?$/
+  const dateMatch = lastPart.match(datePattern)
+  if (dateMatch) {
+    const datePart = dateMatch[1]
+    const suffix = dateMatch[2]
+    if (suffix) {
+      const suffixTitle = suffix
+        .slice(1)
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+      return `${datePart} ${suffixTitle}`
+    }
+    return datePart
+  }
+
   return lastPart
     .replace(/-/g, ' ')
     .replace(/\b\w/g, (char) => char.toUpperCase())

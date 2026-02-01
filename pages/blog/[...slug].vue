@@ -55,8 +55,25 @@ const { data: allPosts } = await useAsyncData('all-posts-for-related', () =>
 // --- Computed Values ---
 const { stats: readingStats } = useReadingStats(post)
 
+// Format a slug into a display title (handles date-based slugs)
+const formatTitle = (slug) => {
+  if (!slug) return ''
+  const lastPart = slug.split('/').pop()
+  const datePattern = /^(\d{4}-\d{2}-\d{2})(-.*)?$/
+  const dateMatch = lastPart.match(datePattern)
+  if (dateMatch) {
+    const datePart = dateMatch[1]
+    const suffix = dateMatch[2]
+    if (suffix) {
+      return `${datePart} ${suffix.slice(1).split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}`
+    }
+    return datePart
+  }
+  return lastPart.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+}
+
 const postTitle = computed(
-  () => post.value?.metadata?.title || post.value?.title || ''
+  () => post.value?.metadata?.title || post.value?.title || formatTitle(route.params.slug?.join('/'))
 )
 const { renderedHtml: renderedTitle, startAnimation } =
   useTypingAnimation(postTitle)

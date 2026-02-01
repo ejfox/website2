@@ -95,6 +95,26 @@ function getValidDate(date: string | Date | undefined): string {
 
 function formatTitle(filename: string): string {
   const baseName = filename.split('/').pop() || filename
+
+  // Detect date-based filenames (YYYY-MM-DD or YYYY-MM-DD-suffix)
+  // Keep dashes for these - they're intentional
+  const datePattern = /^(\d{4}-\d{2}-\d{2})(-.*)?$/
+  const dateMatch = baseName.match(datePattern)
+  if (dateMatch) {
+    const datePart = dateMatch[1] // e.g., "2026-01-25"
+    const suffix = dateMatch[2] // e.g., "-my-thoughts" or undefined
+    if (suffix) {
+      const suffixTitle = suffix
+        .slice(1) // remove leading dash
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+      return `${datePart} ${suffixTitle}`
+    }
+    return datePart
+  }
+
+  // Standard title case for non-date filenames
   return baseName
     .split('-')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
