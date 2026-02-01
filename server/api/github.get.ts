@@ -199,7 +199,7 @@ async function fetchContributions(
             defaultBranchRef {
               target {
                 ... on Commit {
-                  history(first: 100) {
+                  history(first: 15) {
                     nodes {
                       message
                       committedDate

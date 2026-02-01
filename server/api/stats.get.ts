@@ -181,10 +181,21 @@ function adaptGitHubStats(githubData: GitHubData | null) {
   // Full commit history is available via /api/github-commits for CommitMatrix
   const thirtyDaysAgo = new Date()
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
-  const recentCommits = (githubData.detail?.commits || []).filter((commit) => {
+  const allRecentCommits = (githubData.detail?.commits || []).filter((commit) => {
     const commitDate = new Date(commit.occurredAt)
     return commitDate >= thirtyDaysAgo
   })
+
+  // PERF: Limit to 50 most recent commits and trim message length
+  const trimmedCommits = allRecentCommits
+    .sort((a, b) => new Date(b.occurredAt).getTime() - new Date(a.occurredAt).getTime())
+    .slice(0, 50)
+    .map((commit) => ({
+      repository: { name: commit.repository.name }, // Drop URL to save space
+      message: commit.message.split('\n')[0].slice(0, 80), // First line, max 80 chars
+      occurredAt: commit.occurredAt,
+      type: commit.type,
+    }))
 
   // Map the data to expected format
   return {
@@ -194,12 +205,12 @@ function adaptGitHubStats(githubData: GitHubData | null) {
       totalRepos: githubData.stats.totalRepos || 0,
       followers: githubData.stats.followers || 0,
       following: githubData.stats.following || 0,
+      // Add commit count for the period
+      commitsThisPeriod: allRecentCommits.length,
     },
-    // Include these required properties
-    contributions: githubData.contributions || [],
-    dates: githubData.dates || [],
+    // Remove empty arrays that aren't used
     detail: {
-      commits: recentCommits, // Only last 30 days
+      commits: trimmedCommits,
       commitTypes: githubData.detail?.commitTypes || [],
     },
   }
@@ -298,27 +309,77 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       }),
     ])
 
+    // Build adapted data
+    const githubData = getValue(githubResult)
+      ? adaptGitHubStats(getValue(githubResult))
+      : undefined
+    const chessData = getValue(chessResult)
+      ? adaptChessStats(getValue(chessResult))
+      : undefined
+    const rescueTimeData = getValue(rescueTimeResult)
+    const healthData = getValue(healthResult)
+    const lastfmData = getValue(lastfmResult)
+    const letterboxdData = getValue(letterboxdStatsResult)
+    const blogData = getValue(blogStatsResult)
+    const duolingoData = getValue(duolingoResult)
+    const goodreadsData = getValue(goodreadsResult)
+
+    // Build weekly summary - the key metrics for "what did I do this week"
+    const weeklySummary = {
+      // Time tracking
+      productiveHours: rescueTimeData?.week?.summary?.productive?.time?.hoursDecimal || 0,
+      totalTrackedHours: rescueTimeData?.week?.summary?.total?.hoursDecimal || 0,
+      productivityPercent: rescueTimeData?.week?.summary?.productive?.percentage || 0,
+      topActivity: rescueTimeData?.week?.activities?.[0]?.name || null,
+
+      // Coding
+      commits: githubData?.detail?.commits?.length || 0,
+      topRepos: [...new Set(githubData?.detail?.commits?.map(c => c.repository.name) || [])].slice(0, 5),
+      commitTypes: githubData?.detail?.commitTypes?.slice(0, 3) || [],
+
+      // Health
+      stepsThisWeek: healthData?.thisWeek?.steps || 0,
+      exerciseMinutesThisWeek: healthData?.thisWeek?.exerciseMinutes || 0,
+      avgDailySteps: healthData?.averages?.dailySteps || 0,
+
+      // Media consumed
+      moviesWatched: letterboxdData?.stats?.thisMonth || 0,
+      recentMovies: letterboxdData?.films?.slice(0, 3)?.map((f: { title: string; rating: number | null }) => ({ title: f.title, rating: f.rating })) || [],
+      topArtists: lastfmData?.topArtists?.artists?.slice(0, 3)?.map((a: { name: string; playcount: string }) => ({ name: a.name, plays: parseInt(a.playcount) })) || [],
+      scrobblesThisWeek: lastfmData?.stats?.averagePerDay ? Math.round(lastfmData.stats.averagePerDay * 7) : 0,
+
+      // Learning
+      duolingoStreak: duolingoData?.streak || 0,
+      chessGamesThisWeek: chessData?.recentGames?.length || 0,
+      chessRating: chessData?.currentRating?.blitz || chessData?.currentRating?.rapid || 0,
+
+      // Writing
+      wordsWritten: blogData?.words?.thisMonth || 0,
+      postsPublished: blogData?.posts?.thisMonth || 0,
+
+      // Books
+      currentlyReading: goodreadsData?.currentlyReading?.map((b: { title: string; author: string }) => ({ title: b.title, author: b.author })) || [],
+      booksThisMonth: goodreadsData?.stats?.booksThisMonth || 0,
+    }
+
     const response: StatsResponse = {
-      github: getValue(githubResult)
-        ? adaptGitHubStats(getValue(githubResult))
-        : undefined,
+      weeklySummary,
+      github: githubData,
       monkeyType: getValue(monkeyTypeResult),
       // photos: getValue(photosResult), // DISABLED: SSL certificate issues
-      health: getValue(healthResult),
+      health: healthData,
       leetcode: getValue(leetcodeResult),
-      chess: getValue(chessResult)
-        ? adaptChessStats(getValue(chessResult))
-        : undefined,
-      rescueTime: getValue(rescueTimeResult),
-      lastfm: getValue(lastfmResult),
+      chess: chessData,
+      rescueTime: rescueTimeData,
+      lastfm: lastfmData,
       gear: getValue(gearStatsResult),
       gists: getValue(gistStatsResult),
       website: getValue(websiteStatsResult),
-      letterboxd: getValue(letterboxdStatsResult),
-      blog: getValue(blogStatsResult),
+      letterboxd: letterboxdData,
+      blog: blogData,
       discogs: getValue(discogsResult),
-      duolingo: getValue(duolingoResult),
-      goodreads: getValue(goodreadsResult),
+      duolingo: duolingoData,
+      goodreads: goodreadsData,
     }
 
     return response

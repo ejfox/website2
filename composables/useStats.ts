@@ -38,7 +38,45 @@ interface _HealthDataRecord {
   [key: string]: string | number | Record<string, unknown> | undefined
 }
 
+export interface WeeklySummary {
+  // Time tracking
+  productiveHours: number
+  totalTrackedHours: number
+  productivityPercent: number
+  topActivity: string | null
+
+  // Coding
+  commits: number
+  topRepos: string[]
+  commitTypes: Array<{ type: string; count: number; percentage: number }>
+
+  // Health
+  stepsThisWeek: number
+  exerciseMinutesThisWeek: number
+  avgDailySteps: number
+
+  // Media consumed
+  moviesWatched: number
+  recentMovies: Array<{ title: string; rating: number | null }>
+  topArtists: Array<{ name: string; plays: number }>
+  scrobblesThisWeek: number
+
+  // Learning
+  duolingoStreak: number
+  chessGamesThisWeek: number
+  chessRating: number
+
+  // Writing
+  wordsWritten: number
+  postsPublished: number
+
+  // Books
+  currentlyReading: Array<{ title: string; author: string }>
+  booksThisMonth: number
+}
+
 export interface StatsResponse {
+  weeklySummary?: WeeklySummary
   lastfm?: {
     recentTracks: {
       tracks: Array<{
@@ -216,19 +254,13 @@ export interface StatsResponse {
       totalContributions: number
       followers: number
       following: number
+      commitsThisPeriod?: number
     }
-    contributions: number[] // Daily contribution counts
-    dates: string[] // Corresponding dates for contributions
     detail: {
       commits: Array<{
-        // Recent commits (last 7 days)
-        repository: {
-          name: string
-          url: string
-        }
-        message: string
+        repository: { name: string }
+        message: string // First line, truncated to 80 chars
         occurredAt: string
-        url: string
         type: string
       }>
       commitTypes: Array<{
