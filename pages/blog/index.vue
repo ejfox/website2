@@ -34,7 +34,7 @@
     </div>
 
     <!-- Header with consistent metadata styling -->
-    <header class="mb-6 relative pt-12">
+    <header class="mb-6 relative pt-2">
       <!-- Swiss Grid Container matching blog posts -->
       <div class="max-w-screen-xl mx-auto px-4 sm:px-8 xl:px-16">
         <!-- Title section matching blog posts -->
@@ -44,29 +44,6 @@
             Thoughts, projects, and explorations in technology, design, and
             making.
           </p>
-        </div>
-
-        <!-- 12-Month Activity Small Multiples -->
-        <div v-if="monthlyActivity.length" class="px-4 sm:px-6 pb-6 pt-2">
-          <div class="flex items-end gap-[2px] h-8">
-            <div
-              v-for="month in monthlyActivity"
-              :key="month.key"
-              class="flex-1 flex flex-col items-center group cursor-default"
-              :title="
-                `${month.month} ${month.year}: ` +
-                `${month.count} posts, ${Math.round(month.words / 1000)}K words`
-              "
-            >
-              <div
-                class="w-full bg-zinc-300 dark:bg-zinc-600 transition-colors group-hover:bg-zinc-500 dark:group-hover:bg-zinc-400"
-                :style="{
-                  height: `${Math.max(month.height, month.count > 0 ? 8 : 2)}%`,
-                  opacity: month.count > 0 ? 1 : 0.3,
-                }"
-              ></div>
-            </div>
-          </div>
         </div>
 
         <!-- Main content - h-feed microformat for IndieWeb -->
