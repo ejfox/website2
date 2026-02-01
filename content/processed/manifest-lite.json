@@ -5121,6 +5121,35 @@
     }
   },
   {
+    "slug": "2026/2026-01-25",
+    "title": "2026-01-25",
+    "date": "2026-01-25T16:20:39.000Z",
+    "type": "post",
+    "dek": "In which the author feels a bit overwhelmed by the news",
+    "modified": "2026-02-01T00:51:40.000Z",
+    "toc": [],
+    "metadata": {
+      "date": "2026-01-25T16:20:39.000Z",
+      "modified": "2026-02-01T00:51:40.000Z",
+      "dek": "In which the author feels a bit overwhelmed by the news",
+      "words": 842,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 17,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "sourcePath": "../../../../../code/website2/content/blog/2026/2026-01-25.md",
+      "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/",
+      "slug": "2026/2026-01-25"
+    }
+  },
+  {
     "slug": "2026/vulpes-browser",
     "title": "Building Vulpes Browser",
     "date": "2026-01-17T21:45:00.000Z",
