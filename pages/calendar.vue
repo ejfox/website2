@@ -4,10 +4,21 @@
 
     <div class="api-section">
       <h2>curl my availability</h2>
+      <p class="api-note">Super-vanilla (no deps):</p>
       <div class="code-block">
-        <pre><code>curl -s ejfox.com/api/cal/available-slots \
+        <pre><code>curl -s https://ejfox.com/api/cal/available-slots</code></pre>
+      </div>
+      <p class="api-note">Pick a slot (requires `jq` + `fzf`):</p>
+      <div class="code-block">
+        <pre><code>curl -s https://ejfox.com/api/cal/available-slots \
   | jq -r '.slots[]|"\(.naturalTime)\t\(.bookingUrl)"' \
   | fzf | cut -f2 | xargs open</code></pre>
+      </div>
+      <p class="api-note">Linux version:</p>
+      <div class="code-block">
+        <pre><code>curl -s https://ejfox.com/api/cal/available-slots \
+  | jq -r '.slots[]|"\(.naturalTime)\t\(.bookingUrl)"' \
+  | fzf | cut -f2 | xargs xdg-open</code></pre>
       </div>
     </div>
   </div>
@@ -118,6 +129,13 @@ function updateCalTheme() {
   font-weight: 400;
   margin-bottom: 0.5rem;
   color: var(--color-text-secondary, #666);
+}
+
+.api-note {
+  font-family: monospace;
+  font-size: 0.7rem;
+  margin: 0.75rem 0 0.4rem;
+  color: var(--color-text-secondary, #777);
 }
 
 .code-block pre {
