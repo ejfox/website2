@@ -3,7 +3,6 @@ import sanitizeHtml from 'sanitize-html'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { parseISO, isValid, compareDesc, formatISO } from 'date-fns'
 
-// RSS item type
 interface RSSCustomElement {
   [key: string]: string | { _cdata: string }
 }
@@ -19,11 +18,8 @@ interface RSSItemOptions {
   custom_elements?: RSSCustomElement[]
 }
 
-// Helper to create a short excerpt
 function createExcerpt(html: string, length = 280): string {
-  // Remove HTML tags and get plain text
   const text = sanitizeHtml(html, { allowedTags: [] })
-  // Truncate to length and add ellipsis if needed
   return text.length > length ? `${text.slice(0, length)}...` : text
 }
 
@@ -32,13 +28,11 @@ export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig()
   const siteUrl = (config.public.siteUrl as string) || 'https://ejfox.com'
 
-  // Initialize RSS feed with enhanced metadata
   const feed = new RSS({
-    title: 'EJ Fox',
-    description:
-      'Hacker-journalist using code and art to uncover hidden patterns.',
-    feed_url: `${siteUrl}/rss.xml`,
-    site_url: siteUrl,
+    title: 'EJ Fox - Week Notes',
+    description: 'Weekly notes and reflections from EJ Fox.',
+    feed_url: `${siteUrl}/week-notes-rss.xml`,
+    site_url: `${siteUrl}/week-notes`,
     image_url: `${siteUrl}/icon.png`,
     language: 'en',
     pubDate: new Date().toUTCString(),
@@ -48,17 +42,12 @@ export default defineEventHandler(async (event) => {
     ttl: 60,
   })
 
-  // Get all published posts WITH FULL CONTENT and sort by date (newest first)
-  // Use getPostsWithContent to fetch full HTML for each post
   const posts = await getPostsWithContent(50, 0, false, false)
   const sortedPosts = posts.sort((a, b) => {
     const dateA = parseISO(a.metadata?.date || a.date || '')
     const dateB = parseISO(b.metadata?.date || b.date || '')
-
-    // If either date is invalid, push it to the end
     if (!isValid(dateA)) return 1
     if (!isValid(dateB)) return -1
-
     return compareDesc(dateA, dateB)
   })
 
@@ -70,16 +59,19 @@ export default defineEventHandler(async (event) => {
     description?: string
     tags?: string[]
     draft?: boolean
-    hidden?: boolean
-    unlisted?: boolean
-    password?: string
-    passwordHash?: string
     type?: string
   }
 
-  // Add items to feed
   for (const post of sortedPosts) {
     const metadata = (post.metadata || {}) as PostMetadata
+
+    // ONLY include week-notes
+    const isWeekNote = metadata.type === 'week-note' || post.slug?.includes('week-notes/')
+    if (!isWeekNote) continue
+
+    // Skip drafts
+    if (post.draft || metadata.draft) continue
+
     const parsedContent = post.html || ''
     const html = sanitizeHtml(parsedContent, {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(['img']),
@@ -89,38 +81,17 @@ export default defineEventHandler(async (event) => {
       },
     })
 
-    // Title and slug can be at root level or in metadata
     const title = post.title || metadata.title || 'No title'
     const slug = post.slug || metadata.slug
     const date = post.date || metadata.date || ''
     const description = post.dek || metadata.dek || metadata.description || ''
     const tags = post.tags || metadata.tags || []
 
-    // Skip posts without a valid slug
     if (!slug) continue
-
-    // Skip drafts, hidden, unlisted, password-protected posts, and system files
-    const isDraft = post.draft || metadata.draft
-    const isHidden = post.hidden || metadata.hidden
-    const isUnlisted = post.unlisted || metadata.unlisted
-    const hasPassword = !!(post.password || post.passwordHash || metadata.password || metadata.passwordHash)
-    const isSystemFile =
-      slug.startsWith('!') || slug.startsWith('_') || slug === 'index'
-    const isSpecialSection =
-      slug.includes('drafts/') ||
-      slug.includes('robots/') ||
-      slug.includes('prompts/') ||
-      slug.includes('week-notes/')
-    const isWeekNote = metadata.type === 'week-note'
-    // Only include posts with paths (e.g., 2025/post-name)
-    const hasPath = slug.includes('/')
-    if (isDraft || isHidden || isUnlisted || hasPassword || isSystemFile || isSpecialSection || isWeekNote || !hasPath)
-      continue
 
     const postDate = parseISO(date)
     const postUrl = `${siteUrl}/blog/${slug}`
 
-    // Create feed item with enhanced metadata
     const feedItem: RSSItemOptions = {
       title,
       description: description || createExcerpt(html),
@@ -131,16 +102,13 @@ export default defineEventHandler(async (event) => {
       date: isValid(postDate) ? postDate : new Date(),
       custom_elements: [
         { 'content:encoded': { _cdata: html } },
-        {
-          'atom:updated': formatISO(isValid(postDate) ? postDate : new Date()),
-        },
+        { 'atom:updated': formatISO(isValid(postDate) ? postDate : new Date()) },
       ],
     }
 
     feed.item(feedItem as Parameters<typeof feed.item>[0])
   }
 
-  // Set response headers with longer cache for production
   const isProd = process.env.NODE_ENV === 'production'
   event.node.res.setHeader('content-type', 'application/xml')
   event.node.res.setHeader(

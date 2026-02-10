@@ -32,7 +32,9 @@ export function isWeekNote(post: Post): boolean {
   const lastPart = slug.split('/').pop()
   return (
     type === 'weekNote' ||
+    type === 'week-note' ||
     slug.startsWith('week-notes/') ||
+    slug.includes('/week-notes/') ||
     /^\d{4}-\d{2}$/.test(lastPart || '')
   )
 }
