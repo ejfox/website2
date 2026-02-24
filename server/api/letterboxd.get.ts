@@ -1,135 +1,152 @@
 /**
  * @file letterboxd.get.ts
- * @description Fetches Letterboxd film diary via RSS feed parsing to extract watched films, ratings, and viewing statistics
+ * @description Fetches Letterboxd film diary via RSS feed (the official data access method)
  * @endpoint GET /api/letterboxd
- * @returns Film data with list of watched films, ratings, rewatch status, and calculated statistics (yearly/monthly counts, average rating)
+ * @returns Film data with watched films, ratings, poster images, TMDB IDs, and computed statistics
+ *
+ * Letterboxd API is invite-only and not available for personal projects.
+ * RSS feed at https://letterboxd.com/ejfox/rss/ is the supported access method.
+ * Feed includes letterboxd: and tmdb: namespaced elements with rich metadata.
  */
 
-// Extract film slug from Letterboxd URL
-function extractSlugFromLink(link: string | null | undefined): string {
+import NodeCache from 'node-cache'
+import { XMLParser } from 'fast-xml-parser'
+
+// Cache RSS results for 15 minutes
+const cache = new NodeCache({ stdTTL: 900, checkperiod: 120 })
+const CACHE_KEY = 'letterboxd-rss'
+const RSS_URL = 'https://letterboxd.com/ejfox/rss/'
+
+const parser = new XMLParser({
+  ignoreAttributes: false,
+  processEntities: true,
+  // Preserve namespace prefixes so we get letterboxd:filmTitle etc.
+  removeNSPrefix: false,
+})
+
+interface LetterboxdFilm {
+  title: string
+  year: string
+  slug: string
+  rating: number | null
+  liked: boolean
+  isRewatch: boolean
+  watchedDate: string | null
+  letterboxdUrl: string
+  tmdbId: string | null
+  posterUrl: string | null
+}
+
+function extractPosterFromHtml(description: string | undefined): string | null {
+  if (!description || typeof description !== 'string') return null
+  // The description CDATA contains an <img> tag with the poster
+  const doc = description.split('src="')[1]
+  if (!doc) return null
+  const url = doc.split('"')[0]
+  return url || null
+}
+
+function extractSlug(link: string | undefined): string {
   if (!link) return ''
-  const slugMatch = link.match(/\/film\/([^/]+)\//)
-  return slugMatch ? slugMatch[1] : ''
+  const parts = link.split('/film/')
+  if (parts.length < 2) return ''
+  return parts[1].replace(/\/$/, '')
+}
+
+function parseItem(item: Record<string, unknown>): LetterboxdFilm | null {
+  const filmTitle = item['letterboxd:filmTitle']
+  if (!filmTitle || typeof filmTitle !== 'string') return null
+
+  const filmYear = String(item['letterboxd:filmYear'] || '')
+  const link = String(item['link'] || '')
+  const slug = extractSlug(link)
+
+  const ratingVal = item['letterboxd:memberRating']
+  const rating = ratingVal !== undefined ? Number(ratingVal) : null
+
+  return {
+    title: filmYear ? `${filmTitle} (${filmYear})` : filmTitle,
+    year: filmYear,
+    slug,
+    rating: rating !== null && !Number.isNaN(rating) ? rating : null,
+    liked: item['letterboxd:memberLike'] === 'Yes',
+    isRewatch: item['letterboxd:rewatch'] === 'Yes',
+    watchedDate: item['letterboxd:watchedDate'] ? String(item['letterboxd:watchedDate']) : null,
+    letterboxdUrl: link || `https://letterboxd.com/film/${slug}/`,
+    tmdbId: item['tmdb:movieId'] !== undefined ? String(item['tmdb:movieId']) : null,
+    posterUrl: extractPosterFromHtml(item['description'] as string),
+  }
+}
+
+function computeStats(films: LetterboxdFilm[]) {
+  const now = new Date()
+  const currentYear = now.getFullYear()
+  const currentMonth = now.getMonth()
+
+  const thisYear = films.filter(
+    (f) => f.watchedDate && new Date(f.watchedDate).getFullYear() === currentYear
+  ).length
+
+  const thisMonth = films.filter((f) => {
+    if (!f.watchedDate) return false
+    const d = new Date(f.watchedDate)
+    return d.getFullYear() === currentYear && d.getMonth() === currentMonth
+  }).length
+
+  const ratedFilms = films.filter((f) => f.rating !== null)
+  const averageRating =
+    ratedFilms.length > 0
+      ? ratedFilms.reduce((sum, f) => sum + (f.rating || 0), 0) / ratedFilms.length
+      : 0
+
+  return {
+    totalFilms: films.length,
+    thisYear,
+    thisMonth,
+    averageRating: Math.round(averageRating * 10) / 10,
+    rewatches: films.filter((f) => f.isRewatch).length,
+    liked: films.filter((f) => f.liked).length,
+    topRatedFilms: films.filter((f) => f.rating && f.rating >= 4),
+    recentFilms: films.slice(0, 10),
+    filmsByMonth: {} as Record<string, number>,
+  }
 }
 
 export default defineEventHandler(async (_event) => {
-  try {
-    // Fetch RSS feed (much more reliable than HTML scraping!)
-    const rssUrl = 'https://letterboxd.com/ejfox/rss/'
+  const cached = cache.get(CACHE_KEY)
+  if (cached) return cached
 
-    const rssResponse = await $fetch(rssUrl, {
+  try {
+    const xml = await $fetch<string>(RSS_URL, {
       responseType: 'text',
-      headers: {
-        'User-Agent': 'Mozilla/5.0 (compatible; EJFox Website Bot)',
-      },
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EJFox Website Bot)' },
     })
 
-    const xml = rssResponse as string
-    const films = []
+    const parsed = parser.parse(xml)
+    const rawItems = parsed?.rss?.channel?.item
+    // Normalize to array (single item comes back as object, not array)
+    const items: Record<string, unknown>[] = Array.isArray(rawItems)
+      ? rawItems
+      : rawItems
+        ? [rawItems]
+        : []
 
-    // Parse RSS XML for film entries
-    // Each item has: <letterboxd:filmTitle>, <letterboxd:filmYear>,
-    // <letterboxd:watchedDate>, <letterboxd:memberRating>,
-    // <letterboxd:rewatch>
-    const itemPattern = /<item>([\s\S]*?)<\/item>/g
-    let itemMatch
+    const films: LetterboxdFilm[] = items
+      .map(parseItem)
+      .filter((f): f is LetterboxdFilm => f !== null)
 
-    while ((itemMatch = itemPattern.exec(xml)) !== null) {
-      const itemXml = itemMatch[1]
-
-      try {
-        // Extract film data from RSS item
-        const titleMatch = itemXml.match(
-          /<letterboxd:filmTitle>(.*?)<\/letterboxd:filmTitle>/
-        )
-        const yearMatch = itemXml.match(
-          /<letterboxd:filmYear>(.*?)<\/letterboxd:filmYear>/
-        )
-        const watchedDateMatch = itemXml.match(
-          /<letterboxd:watchedDate>(.*?)<\/letterboxd:watchedDate>/
-        )
-        const ratingMatch = itemXml.match(
-          /<letterboxd:memberRating>(.*?)<\/letterboxd:memberRating>/
-        )
-        const rewatchMatch = itemXml.match(
-          /<letterboxd:rewatch>(.*?)<\/letterboxd:rewatch>/
-        )
-        const linkMatch = itemXml.match(/<link>(.*?)<\/link>/)
-
-        const title = titleMatch ? titleMatch[1] : ''
-        const year = yearMatch ? yearMatch[1] : ''
-        const watchedDate = watchedDateMatch ? watchedDateMatch[1] : null
-        const rating = ratingMatch ? Number.parseFloat(ratingMatch[1]) : null
-        const isRewatch = rewatchMatch ? rewatchMatch[1] === 'Yes' : false
-
-        // Extract slug from link
-        // e.g., https://letterboxd.com/ejfox/film/friendship-2024/
-        const slug = extractSlugFromLink(linkMatch?.[1])
-
-        films.push({
-          title: year ? `${title} (${year})` : title,
-          slug: slug,
-          rating: rating,
-          letterboxdUrl: linkMatch
-            ? linkMatch[1]
-            : `https://letterboxd.com/film/${slug}/`,
-          watchedDate: watchedDate,
-          isRewatch: isRewatch,
-        })
-      } catch (err) {
-        console.warn('Failed to parse RSS item:', err)
-      }
-    }
-
-    // console.log(`Parsed ${films.length} films from RSS feed`)
-
-    // Calculate stats
-    const now = new Date()
-    const thisYear = films.filter(
-      (f) =>
-        f.watchedDate &&
-        new Date(f.watchedDate).getFullYear() === now.getFullYear()
-    ).length
-
-    const thisMonth = films.filter((f) => {
-      if (!f.watchedDate) return false
-      const filmDate = new Date(f.watchedDate)
-      return (
-        filmDate.getFullYear() === now.getFullYear() &&
-        filmDate.getMonth() === now.getMonth()
-      )
-    }).length
-
-    const ratedFilms = films.filter((f) => f.rating !== null)
-    const averageRating =
-      ratedFilms.length > 0
-        ? ratedFilms.reduce((sum, f) => sum + (f.rating || 0), 0) /
-          ratedFilms.length
-        : 0
-
-    const rewatches = films.filter((f) => f.isRewatch).length
-
-    const stats = {
-      totalFilms: films.length,
-      thisYear: thisYear,
-      thisMonth: thisMonth,
-      averageRating: Math.round(averageRating * 10) / 10,
-      rewatches: rewatches,
-      topRatedFilms: films.filter((f) => f.rating && f.rating >= 4),
-      recentFilms: films.slice(0, 10), // Most recent 10 films
-      filmsByMonth: {},
-    }
-
-    return {
+    const result = {
       films,
-      stats,
+      stats: computeStats(films),
       lastUpdated: new Date().toISOString(),
       source: 'RSS feed',
     }
-  } catch (error) {
-    console.error('Letterboxd RSS parsing error:', error)
 
-    // Return empty stats with error info
+    cache.set(CACHE_KEY, result)
+    return result
+  } catch (error) {
+    console.error('Letterboxd RSS error:', error)
+
     return {
       films: [],
       stats: {
@@ -138,14 +155,13 @@ export default defineEventHandler(async (_event) => {
         thisMonth: 0,
         averageRating: 0,
         rewatches: 0,
+        liked: 0,
         topRatedFilms: [],
         recentFilms: [],
         filmsByMonth: {},
       },
       lastUpdated: new Date().toISOString(),
-      error:
-        'RSS parsing failed - ' +
-        (error instanceof Error ? error.message : 'Unknown error'),
+      error: 'RSS parsing failed - ' + (error instanceof Error ? error.message : 'Unknown error'),
       source: 'RSS feed',
     }
   }
