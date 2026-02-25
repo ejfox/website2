@@ -77,9 +77,15 @@ async function getBlogRoutes(): Promise<string[]> {
         // Skip hidden posts
         if (post.hidden === true || post.metadata?.hidden === true) return false
         // Skip unlisted posts - they shouldn't be in pre-rendered routes
-        if (post.unlisted === true || post.metadata?.unlisted === true) return false
+        if (post.unlisted === true || post.metadata?.unlisted === true)
+          return false
         // Skip password-protected posts - they need dynamic handling
-        const hasPassword = !!(post.password || post.passwordHash || post.metadata?.password || post.metadata?.passwordHash)
+        const hasPassword = !!(
+          post.password ||
+          post.passwordHash ||
+          post.metadata?.password ||
+          post.metadata?.passwordHash
+        )
         if (hasPassword) return false
         // Skip system files like CLAUDE.md, WIKILINK-OPPORTUNITIES.md
         if (post.slug === post.slug.toUpperCase()) return false

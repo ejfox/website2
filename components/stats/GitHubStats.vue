@@ -122,11 +122,11 @@ interface GitHubRepo {
 interface GitHubCommit {
   repository: {
     name: string
-    url: string
+    url?: string
   }
   message: string
   occurredAt: string
-  url: string
+  url?: string
   type: string
 }
 

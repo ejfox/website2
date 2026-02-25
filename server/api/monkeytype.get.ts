@@ -9,7 +9,9 @@ import { defineEventHandler, createError } from 'h3'
 interface MonkeyTypeTest {
   wpm: number
   raw: number
+  rawWpm?: number
   acc: number
+  accuracy?: number
   timestamp: number
   consistency: number
   language?: string

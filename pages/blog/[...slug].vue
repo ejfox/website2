@@ -65,7 +65,11 @@ const formatTitle = (slug) => {
     const datePart = dateMatch[1]
     const suffix = dateMatch[2]
     if (suffix) {
-      return `${datePart} ${suffix.slice(1).split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}`
+      return `${datePart} ${suffix
+        .slice(1)
+        .split('-')
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(' ')}`
     }
     return datePart
   }
@@ -73,7 +77,10 @@ const formatTitle = (slug) => {
 }
 
 const postTitle = computed(
-  () => post.value?.metadata?.title || post.value?.title || formatTitle(route.params.slug?.join('/'))
+  () =>
+    post.value?.metadata?.title ||
+    post.value?.title ||
+    formatTitle(route.params.slug?.join('/'))
 )
 const { renderedHtml: renderedTitle, startAnimation } =
   useTypingAnimation(postTitle)
@@ -154,14 +161,22 @@ const articleSection = computed(
 
 // Visibility detection
 const isDraft = computed(() => post.value?.metadata?.draft || post.value?.draft)
-const isUnlisted = computed(() => post.value?.metadata?.unlisted || post.value?.unlisted)
-const passwordHash = computed(() => post.value?.metadata?.passwordHash || post.value?.passwordHash)
+const isUnlisted = computed(
+  () => post.value?.metadata?.unlisted || post.value?.unlisted
+)
+const passwordHash = computed(
+  () => post.value?.metadata?.passwordHash || post.value?.passwordHash
+)
 const isPasswordProtected = computed(() => !!passwordHash.value)
-const shouldNoIndex = computed(() => isDraft.value || isUnlisted.value || isPasswordProtected.value)
+const shouldNoIndex = computed(
+  () => isDraft.value || isUnlisted.value || isPasswordProtected.value
+)
 
 // Password gate state
 const isUnlocked = ref(false)
-const showContent = computed(() => !isPasswordProtected.value || isUnlocked.value)
+const showContent = computed(
+  () => !isPasswordProtected.value || isUnlocked.value
+)
 
 function handleUnlocked() {
   isUnlocked.value = true

@@ -66,7 +66,8 @@ export default defineEventHandler(async (event) => {
     const metadata = (post.metadata || {}) as PostMetadata
 
     // ONLY include week-notes
-    const isWeekNote = metadata.type === 'week-note' || post.slug?.includes('week-notes/')
+    const isWeekNote =
+      metadata.type === 'week-note' || post.slug?.includes('week-notes/')
     if (!isWeekNote) continue
 
     // Skip drafts
@@ -102,7 +103,9 @@ export default defineEventHandler(async (event) => {
       date: isValid(postDate) ? postDate : new Date(),
       custom_elements: [
         { 'content:encoded': { _cdata: html } },
-        { 'atom:updated': formatISO(isValid(postDate) ? postDate : new Date()) },
+        {
+          'atom:updated': formatISO(isValid(postDate) ? postDate : new Date()),
+        },
       ],
     }
 

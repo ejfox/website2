@@ -96,19 +96,37 @@ const videoOpacity = computed(() => {
 })
 
 // Consulting availability (hand-edited JSON)
-const { data: availability } = await useFetch('/api/consulting-availability', {
-  default: () => ({
-    currentQuarter: {
-      name: 'Q1 2025',
-      status: 'unknown',
-      message: 'Loading...',
-    },
-    nextQuarter: { name: 'Q2 2025', status: 'unknown', message: 'Loading...' },
-    allQuarters: [],
-    activeClientCount: 0,
-    maxClients: 3,
-  }),
-})
+interface ConsultingAvailability {
+  currentQuarter: { name: string; status: string; message: string }
+  nextQuarter: { name: string; status: string; message: string }
+  allQuarters: any[]
+  activeClientCount: number
+  maxClients: number
+  nextAvailable?: string | null
+  error?: string
+  [key: string]: unknown
+}
+const { data: availability } = await useFetch<ConsultingAvailability>(
+  '/api/consulting-availability',
+  {
+    default: () => ({
+      currentQuarter: {
+        name: 'Q1 2025',
+        status: 'unknown',
+        message: 'Loading...',
+      },
+      nextQuarter: {
+        name: 'Q2 2025',
+        status: 'unknown',
+        message: 'Loading...',
+      },
+      allQuarters: [],
+      activeClientCount: 0,
+      maxClients: 3,
+      nextAvailable: null,
+    }),
+  }
+)
 
 // Next available Cal.com slots for intro calls (lazy - not critical for SSR)
 const { data: calSlots } = useLazyFetch('/api/cal/available-slots', {
@@ -148,7 +166,7 @@ function initCalEmbed() {
       (C as Window & { Cal?: unknown }).Cal ||
       function () {
         const cal = (
-          C as Window & {
+          C as unknown as Window & {
             Cal: { loaded?: boolean; ns: Record<string, unknown>; q: unknown[] }
           }
         ).Cal

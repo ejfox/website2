@@ -55,7 +55,12 @@ export default defineEventHandler(async () => {
       // Exclude unlisted posts
       if (post.unlisted || post.metadata?.unlisted) return false
       // Exclude password-protected posts
-      const hasPassword = !!(post.password || post.passwordHash || post.metadata?.password || post.metadata?.passwordHash)
+      const hasPassword = !!(
+        post.password ||
+        post.passwordHash ||
+        post.metadata?.password ||
+        post.metadata?.passwordHash
+      )
       if (hasPassword) return false
       if (post.slug.startsWith('drafts/')) return false
       // Only count posts in yearly folders (2018/, 2019/, etc.) as blog posts

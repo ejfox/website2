@@ -258,9 +258,10 @@ export interface StatsResponse {
     }
     detail: {
       commits: Array<{
-        repository: { name: string }
+        repository: { name: string; url?: string }
         message: string // First line, truncated to 80 chars
         occurredAt: string
+        url?: string
         type: string
       }>
       commitTypes: Array<{
@@ -413,6 +414,8 @@ export interface StatsResponse {
       rating: number
       totalSolved: number
       bestRating: number
+      lowestRating?: number
+      lastUpdated?: number
     }
     recentGames: Array<{
       id: string
@@ -483,8 +486,20 @@ export interface StatsResponse {
       thisMonth: number
       averageRating: number
       rewatches: number
-      topRatedFilms: Record<string, unknown>[]
-      recentFilms: Record<string, unknown>[]
+      topRatedFilms: Array<{
+        title: string
+        slug: string
+        rating: number | null
+        letterboxdUrl: string
+        watchedDate: string | null
+      }>
+      recentFilms: Array<{
+        title: string
+        slug: string
+        rating: number | null
+        letterboxdUrl: string
+        watchedDate: string | null
+      }>
       filmsByMonth: Record<string, number>
     }
     lastUpdated: string

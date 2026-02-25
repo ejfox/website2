@@ -38,10 +38,17 @@ export default defineEventHandler(async () => {
       const isDraft = p.draft || p.metadata?.draft
       const isHidden = p.hidden || p.metadata?.hidden
       const isUnlisted = p.unlisted || p.metadata?.unlisted
-      const hasPassword = !!(p.password || p.passwordHash || p.metadata?.password || p.metadata?.passwordHash)
+      const hasPassword = !!(
+        p.password ||
+        p.passwordHash ||
+        p.metadata?.password ||
+        p.metadata?.passwordHash
+      )
       const isDraftsFolder = p.slug?.startsWith('drafts/')
 
-      return !isDraft && !isHidden && !isUnlisted && !hasPassword && !isDraftsFolder
+      return (
+        !isDraft && !isHidden && !isUnlisted && !hasPassword && !isDraftsFolder
+      )
     })
 
     return publicPosts

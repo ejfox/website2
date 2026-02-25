@@ -20,31 +20,50 @@ const CONTENT_DIR = path.join(process.cwd(), 'content/blog')
 
 // Known valid frontmatter fields
 const VALID_FIELDS = new Set([
-  'title', 'date', 'modified', 'dek', 'description', 'tags', 'image',
-  'unlisted', 'password', 'draft', 'hidden', 'share', 'type', 'model',
-  'replyTo', 'in-reply-to', 'slug', 'aliases'
+  'title',
+  'date',
+  'modified',
+  'dek',
+  'description',
+  'tags',
+  'image',
+  'unlisted',
+  'password',
+  'draft',
+  'hidden',
+  'share',
+  'type',
+  'model',
+  'replyTo',
+  'in-reply-to',
+  'slug',
+  'aliases',
 ])
 
 // Common typos for visibility fields
 const TYPO_PATTERNS = {
-  'unlsted': 'unlisted',
-  'unlited': 'unlisted',
-  'unlistd': 'unlisted',
-  'pasword': 'password',
-  'passowrd': 'password',
-  'passwrod': 'password',
-  'drat': 'draft',
-  'drft': 'draft',
-  'hiden': 'hidden',
-  'hiddn': 'hidden',
-  'shar': 'share',
-  'sahre': 'share',
+  unlsted: 'unlisted',
+  unlited: 'unlisted',
+  unlistd: 'unlisted',
+  pasword: 'password',
+  passowrd: 'password',
+  passwrod: 'password',
+  drat: 'draft',
+  drft: 'draft',
+  hiden: 'hidden',
+  hiddn: 'hidden',
+  shar: 'share',
+  sahre: 'share',
 }
 
 // Deprecated fields that might cause confusion
 const DEPRECATED_FIELDS = [
-  'published', 'status', 'inprogress', 'hidetimestamp',
-  'bgcolorclass', 'textcolorclass'
+  'published',
+  'status',
+  'inprogress',
+  'hidetimestamp',
+  'bgcolorclass',
+  'textcolorclass',
 ]
 
 const issues = {
@@ -63,7 +82,7 @@ async function lintFile(filePath) {
   } catch (e) {
     issues.errors.push({
       file: relativePath,
-      message: `Invalid frontmatter: ${e.message}`
+      message: `Invalid frontmatter: ${e.message}`,
     })
     return
   }
@@ -77,7 +96,7 @@ async function lintFile(filePath) {
       issues.errors.push({
         file: relativePath,
         message: `Typo detected: "${field}" should be "${TYPO_PATTERNS[lowerField]}"`,
-        severity: 'error'
+        severity: 'error',
       })
     }
   }
@@ -171,7 +190,9 @@ async function main() {
   try {
     await fs.access(CONTENT_DIR)
   } catch {
-    console.log(chalk.yellow('No content/blog directory found. Run after import.'))
+    console.log(
+      chalk.yellow('No content/blog directory found. Run after import.')
+    )
     process.exit(0)
   }
 
@@ -184,7 +205,11 @@ async function main() {
 
   // Print results
   if (issues.errors.length > 0) {
-    console.log(chalk.red.bold(`\n❌ ${issues.errors.length} ERRORS (potential accidental exposure)\n`))
+    console.log(
+      chalk.red.bold(
+        `\n❌ ${issues.errors.length} ERRORS (potential accidental exposure)\n`
+      )
+    )
     for (const issue of issues.errors) {
       console.log(chalk.red(`  ${issue.file}`))
       console.log(chalk.red(`    → ${issue.message}\n`))

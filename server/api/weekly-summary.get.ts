@@ -135,17 +135,17 @@ function parseWeekParam(weekParam: string): WeekRange {
   if (weekParam.includes('W')) {
     // ISO format: 2026-W05
     const parts = weekParam.split('-W')
-    year = parseInt(parts[0])
-    weekNumber = parseInt(parts[1])
+    year = Number.parseInt(parts[0])
+    weekNumber = Number.parseInt(parts[1])
   } else if (weekParam.includes('-')) {
     // Simple format: 2026-05
     const parts = weekParam.split('-')
-    year = parseInt(parts[0])
-    weekNumber = parseInt(parts[1])
+    year = Number.parseInt(parts[0])
+    weekNumber = Number.parseInt(parts[1])
   } else {
     // Just week number, assume current year
     year = now.getFullYear()
-    weekNumber = parseInt(weekParam)
+    weekNumber = Number.parseInt(weekParam)
   }
 
   // Calculate Monday of that ISO week
@@ -195,7 +195,15 @@ function isInWeek(dateStr: string, weekRange: WeekRange): boolean {
  * Get day name from date
  */
 function getDayName(dateStr: string): string {
-  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  const days = [
+    'Sunday',
+    'Monday',
+    'Tuesday',
+    'Wednesday',
+    'Thursday',
+    'Friday',
+    'Saturday',
+  ]
   return days[new Date(dateStr).getDay()]
 }
 
@@ -206,7 +214,7 @@ export default defineEventHandler(async (event): Promise<WeeklySummary> => {
   let weekRange: WeekRange
   try {
     weekRange = parseWeekParam(weekParam)
-  } catch (e) {
+  } catch (_e) {
     throw createError({
       statusCode: 400,
       message: `Invalid week format: ${weekParam}. Use YYYY-WW or YYYY-W##`,
@@ -214,9 +222,10 @@ export default defineEventHandler(async (event): Promise<WeeklySummary> => {
   }
 
   // Fetch all data sources in parallel
-  const baseUrl = process.env.NODE_ENV === 'development'
-    ? 'http://localhost:3000'
-    : 'https://ejfox.com'
+  const baseUrl =
+    process.env.NODE_ENV === 'development'
+      ? 'http://localhost:3000'
+      : 'https://ejfox.com'
 
   const results = await Promise.allSettled([
     $fetch(`${baseUrl}/api/github`).catch(() => null),
@@ -231,15 +240,33 @@ export default defineEventHandler(async (event): Promise<WeeklySummary> => {
   ])
 
   // Extract results with fallbacks
-  const github = results[0].status === 'fulfilled' ? results[0].value : null
-  const rescuetime = results[1].status === 'fulfilled' ? results[1].value : null
-  const lastfm = results[2].status === 'fulfilled' ? results[2].value : null
-  const letterboxd = results[3].status === 'fulfilled' ? results[3].value : null
-  const goodreads = results[4].status === 'fulfilled' ? results[4].value : null
-  const health = results[5].status === 'fulfilled' ? results[5].value : null
-  const chess = results[6].status === 'fulfilled' ? results[6].value : null
-  const blogStats = results[7].status === 'fulfilled' ? results[7].value : null
-  const duolingo = results[8].status === 'fulfilled' ? results[8].value : null
+  const github = (
+    results[0].status === 'fulfilled' ? results[0].value : null
+  ) as any
+  const rescuetime = (
+    results[1].status === 'fulfilled' ? results[1].value : null
+  ) as any
+  const lastfm = (
+    results[2].status === 'fulfilled' ? results[2].value : null
+  ) as any
+  const letterboxd = (
+    results[3].status === 'fulfilled' ? results[3].value : null
+  ) as any
+  const goodreads = (
+    results[4].status === 'fulfilled' ? results[4].value : null
+  ) as any
+  const health = (
+    results[5].status === 'fulfilled' ? results[5].value : null
+  ) as any
+  const chess = (
+    results[6].status === 'fulfilled' ? results[6].value : null
+  ) as any
+  const blogStats = (
+    results[7].status === 'fulfilled' ? results[7].value : null
+  ) as any
+  const duolingo = (
+    results[8].status === 'fulfilled' ? results[8].value : null
+  ) as any
 
   // Process GitHub data - filter commits to this week
   const githubData = (() => {
@@ -315,14 +342,16 @@ export default defineEventHandler(async (event): Promise<WeeklySummary> => {
 
     return {
       totalScrobbles: lastfm.stats?.totalScrobbles || 0,
-      topArtists: (lastfm.topArtists?.artists || []).slice(0, 5).map((a: any) => ({
-        name: a.name,
-        plays: parseInt(a.playcount) || 0,
-      })),
+      topArtists: (lastfm.topArtists?.artists || [])
+        .slice(0, 5)
+        .map((a: any) => ({
+          name: a.name,
+          plays: Number.parseInt(a.playcount) || 0,
+        })),
       topTracks: (lastfm.topTracks?.tracks || []).slice(0, 5).map((t: any) => ({
         name: t.name,
         artist: t.artist?.name || '',
-        plays: parseInt(t.playcount) || 0,
+        plays: Number.parseInt(t.playcount) || 0,
       })),
     }
   })()
@@ -366,7 +395,9 @@ export default defineEventHandler(async (event): Promise<WeeklySummary> => {
       totalSteps: health.thisWeek?.steps || 0,
       avgStepsPerDay: Math.round((health.thisWeek?.steps || 0) / 7),
       totalExerciseMinutes: health.thisWeek?.exerciseMinutes || 0,
-      avgExercisePerDay: Math.round((health.thisWeek?.exerciseMinutes || 0) / 7),
+      avgExercisePerDay: Math.round(
+        (health.thisWeek?.exerciseMinutes || 0) / 7
+      ),
       restingHeartRate: health.heartRate?.resting || 0,
     }
   })()
@@ -385,8 +416,10 @@ export default defineEventHandler(async (event): Promise<WeeklySummary> => {
     }
 
     // Filter recent games to this week
-    const weekGames = (chess.recentGames || []).filter((g: any) =>
-      g.timestamp && isInWeek(new Date(g.timestamp * 1000).toISOString(), weekRange)
+    const weekGames = (chess.recentGames || []).filter(
+      (g: any) =>
+        g.timestamp &&
+        isInWeek(new Date(g.timestamp * 1000).toISOString(), weekRange)
     )
 
     const wins = weekGames.filter((g: any) => g.result === 'win').length
@@ -399,7 +432,8 @@ export default defineEventHandler(async (event): Promise<WeeklySummary> => {
       losses,
       draws,
       ratingChange: 0, // Would need start/end comparison
-      currentRating: chess.ratings?.rapid?.current || chess.ratings?.blitz?.current || 0,
+      currentRating:
+        chess.ratings?.rapid?.current || chess.ratings?.blitz?.current || 0,
     }
   })()
 
@@ -410,13 +444,16 @@ export default defineEventHandler(async (event): Promise<WeeklySummary> => {
     }
 
     // Filter posts to this week
-    const weekPosts = (blogStats.recentPosts || []).filter((p: any) =>
-      p.date && isInWeek(p.date, weekRange)
+    const weekPosts = (blogStats.recentPosts || []).filter(
+      (p: any) => p.date && isInWeek(p.date, weekRange)
     )
 
     return {
       postsPublished: weekPosts.length,
-      wordsWritten: weekPosts.reduce((sum: number, p: any) => sum + (p.wordCount || 0), 0),
+      wordsWritten: weekPosts.reduce(
+        (sum: number, p: any) => sum + (p.wordCount || 0),
+        0
+      ),
       posts: weekPosts.map((p: any) => ({
         title: p.title,
         slug: p.slug,
@@ -443,16 +480,20 @@ export default defineEventHandler(async (event): Promise<WeeklySummary> => {
     const dateStr = date.toISOString().split('T')[0]
 
     // Filter GitHub commits for this day
-    const dayCommits = github?.detail?.commits?.filter((c: any) =>
-      c.occurredAt.startsWith(dateStr)
-    ) || []
+    const dayCommits: any[] =
+      github?.detail?.commits?.filter((c: any) =>
+        c.occurredAt.startsWith(dateStr)
+      ) || []
 
-    const dayRepos = [...new Set(dayCommits.map((c: any) => c.repository.name))]
+    const dayRepos: string[] = [
+      ...new Set(dayCommits.map((c: any) => c.repository.name)),
+    ]
 
     // Get health data for this day from trends
     const dayIndex = health?.trends?.daily?.dates?.indexOf(dateStr) ?? -1
     const daySteps = dayIndex >= 0 ? health.trends.daily.steps[dayIndex] : 0
-    const dayExercise = dayIndex >= 0 ? health.trends.daily.exercise[dayIndex] : 0
+    const dayExercise =
+      dayIndex >= 0 ? health.trends.daily.exercise[dayIndex] : 0
 
     days.push({
       date: dateStr,
@@ -460,7 +501,9 @@ export default defineEventHandler(async (event): Promise<WeeklySummary> => {
       github: {
         commits: dayCommits.length,
         repos: dayRepos,
-        messages: dayCommits.map((c: any) => c.message.split('\n')[0]).slice(0, 3),
+        messages: dayCommits
+          .map((c: any) => c.message.split('\n')[0])
+          .slice(0, 3),
       },
       rescuetime: {
         totalHours: 0, // RescueTime API doesn't give daily breakdown easily

@@ -175,7 +175,7 @@ interface ChessStats {
     rating: number
     totalSolved: number
     bestRating: number
-    lowestRating: number
+    lowestRating?: number
     lastUpdated?: number
   }
   recentPuzzles?: Array<{

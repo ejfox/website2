@@ -37,7 +37,12 @@ export default defineEventHandler(async () => {
       const isDraft = post.draft || metadata?.draft
       const isHidden = post.hidden || metadata?.hidden
       const isUnlisted = post.unlisted || metadata?.unlisted
-      const hasPassword = !!(post.password || post.passwordHash || metadata?.password || metadata?.passwordHash)
+      const hasPassword = !!(
+        post.password ||
+        post.passwordHash ||
+        metadata?.password ||
+        metadata?.passwordHash
+      )
       return (
         post.slug?.startsWith('projects/') &&
         !post.slug.includes('/!') &&

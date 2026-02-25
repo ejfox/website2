@@ -485,7 +485,7 @@ const _postCountByYear = computed(() => {
   return Object.values(years)
 })
 
-const monthlyActivity = computed(() => {
+const _monthlyActivity = computed(() => {
   if (!posts.value) return []
   // Get last 12 months of activity with rich data
   const monthNames = [

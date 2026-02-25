@@ -53,7 +53,8 @@ export function isValidPost(
 ): boolean {
   const isHidden = post?.hidden === true || post?.metadata?.hidden === true
   const isDraft = post?.draft === true || post?.metadata?.draft === true
-  const isUnlisted = post?.unlisted === true || post?.metadata?.unlisted === true
+  const isUnlisted =
+    post?.unlisted === true || post?.metadata?.unlisted === true
   const hasPassword = !!(post?.password || post?.metadata?.password)
   const postDate = post?.date || post?.metadata?.date
   const isFuturePost = postDate && new Date(postDate) > currentDate
@@ -62,11 +63,24 @@ export function isValidPost(
   // Unlisted and password-protected posts should not appear in listings
   // (password implies unlisted)
   if (includeWeekNotes)
-    return weekNote && !isHidden && !isDraft && !isUnlisted && !hasPassword && !isFuturePost
+    return (
+      weekNote &&
+      !isHidden &&
+      !isDraft &&
+      !isUnlisted &&
+      !hasPassword &&
+      !isFuturePost
+    )
 
   const isRegularBlogPost = /^(?:blog\/)?\d{4}\/[^/]+$/.test(post?.slug || '')
   return (
-    !weekNote && isRegularBlogPost && !isHidden && !isDraft && !isUnlisted && !hasPassword && !isFuturePost
+    !weekNote &&
+    isRegularBlogPost &&
+    !isHidden &&
+    !isDraft &&
+    !isUnlisted &&
+    !hasPassword &&
+    !isFuturePost
   )
 }
 

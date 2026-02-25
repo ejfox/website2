@@ -136,10 +136,10 @@ export default defineEventHandler(async (event): Promise<StatsLiteResponse> => {
     websiteStatsResult.status === 'fulfilled' ? websiteStatsResult.value : null
   const letterboxd =
     letterboxdStatsResult.status === 'fulfilled'
-      ? letterboxdStatsResult.value
+      ? (letterboxdStatsResult.value as any)
       : null
   const discogs =
-    discogsResult.status === 'fulfilled' ? discogsResult.value : null
+    discogsResult.status === 'fulfilled' ? (discogsResult.value as any) : null
 
   // Build minimal response
   const response: StatsLiteResponse = {

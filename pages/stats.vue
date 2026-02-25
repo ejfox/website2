@@ -254,7 +254,7 @@
               >
                 <div class="truncate">{{ index + 1 }}. {{ artist.name }}</div>
                 <div class="text-zinc-500 tabular-nums">
-                  {{ formatNumber(artist.playcount) }}x
+                  {{ formatNumber(Number(artist.playcount)) }}x
                 </div>
               </div>
             </div>
@@ -274,7 +274,7 @@
               >
                 <div class="truncate">{{ index + 1 }}. {{ track.name }}</div>
                 <div class="text-zinc-500 tabular-nums">
-                  {{ formatNumber(track.playcount) }}x
+                  {{ formatNumber(Number(track.playcount)) }}x
                 </div>
               </div>
             </div>
@@ -597,12 +597,18 @@ const statsDescription = computed(() => {
     return 'Live personal metrics from GitHub, Chess.com, Monkeytype, Last.fm, and writing output.'
 
   const parts = []
-  if (s.github?.totalCommits) parts.push(`${s.github.totalCommits} commits`)
-  if (s.chess?.blitzRating) parts.push(`${s.chess.blitzRating} chess`)
-  if (s.monkeyType?.avgWpm)
-    parts.push(`${Math.round(s.monkeyType.avgWpm)}wpm typing`)
-  if (s.leetcode?.solved) parts.push(`${s.leetcode.solved} problems`)
-  if (s.blog?.totalPosts) parts.push(`${s.blog.totalPosts} posts`)
+  if (s.github?.stats?.totalCommits)
+    parts.push(`${s.github.stats.totalCommits} commits`)
+  if (s.chess?.currentRating?.blitz)
+    parts.push(`${s.chess.currentRating.blitz} chess`)
+  if (s.monkeyType?.typingStats?.averageWpm)
+    parts.push(`${Math.round(s.monkeyType.typingStats.averageWpm)}wpm typing`)
+  const leetcodeSolved =
+    (s.leetcode?.submissionStats?.easy?.count || 0) +
+    (s.leetcode?.submissionStats?.medium?.count || 0) +
+    (s.leetcode?.submissionStats?.hard?.count || 0)
+  if (leetcodeSolved) parts.push(`${leetcodeSolved} problems`)
+  if (s.blog?.posts?.total) parts.push(`${s.blog.posts.total} posts`)
 
   return parts.length > 0
     ? `${parts.join(' • ')} — GitHub, Chess.com, Monkeytype, Last.fm, RescueTime`
@@ -613,12 +619,13 @@ const statsUpdated = computed(() => {
   const dates: number[] = []
   const s = stats.value
   if (!s) return ''
-  if (s.github?.detail?.lastCommitDate)
-    dates.push(new Date(s.github.detail.lastCommitDate).getTime())
+  const lastCommit = s.github?.detail?.commits?.[0]?.occurredAt
+  if (lastCommit) dates.push(new Date(lastCommit).getTime())
   if (s.chess?.lastUpdated) dates.push(new Date(s.chess.lastUpdated).getTime())
   if (s.monkeyType?.lastUpdated)
     dates.push(new Date(s.monkeyType.lastUpdated).getTime())
-  if (s.blog?.lastUpdated) dates.push(new Date(s.blog.lastUpdated).getTime())
+  if (s.lastfm?.lastUpdated)
+    dates.push(new Date(s.lastfm.lastUpdated).getTime())
   if (!dates.length) return ''
   return new Date(Math.max(...dates)).toISOString().split('T')[0]
 })
@@ -630,16 +637,20 @@ usePageSeo({
   tags: ['Personal analytics', 'Writing stats', 'Typing speed', 'GitHub'],
   label1: 'Writing output',
   data1: computed(() => {
-    const words = stats.value?.blog?.totalWords || 0
-    const posts = stats.value?.blog?.totalPosts || 0
+    const avgWords = stats.value?.blog?.words?.avgPerPost || 0
+    const postCount = stats.value?.blog?.posts?.total || 0
+    const words = avgWords * postCount
+    const posts = postCount
     const wordsFormatted = new Intl.NumberFormat('en-US').format(words)
     return `${posts} posts · ${wordsFormatted} words`
   }),
   label2: 'Live signals',
   data2: computed(() => {
     const parts = []
-    if (stats.value?.monkeyType?.avgWpm) {
-      parts.push(`${Math.round(stats.value.monkeyType.avgWpm)} wpm typing`)
+    if (stats.value?.monkeyType?.typingStats?.averageWpm) {
+      parts.push(
+        `${Math.round(stats.value.monkeyType.typingStats.averageWpm)} wpm typing`
+      )
     }
     if (stats.value?.github?.stats?.totalCommits) {
       parts.push(`${stats.value.github.stats.totalCommits} commits`)
@@ -691,7 +702,7 @@ interface BlogStatsData {
   postsByMonth: Record<string, number>
 }
 const blogStats = ref<BlogStatsData | null>(null)
-const cachedPosts = shallowRef<Array<Record<string, unknown>> | null>(null)
+const cachedPosts = shallowRef<any[] | null>(null)
 
 // DELETED: Heavy external service data - components load on-demand
 

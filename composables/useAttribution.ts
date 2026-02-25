@@ -199,8 +199,8 @@ export function useAttribution() {
     }
 
     // Track to Umami if we have UTMs
-    if (current.utm_source && window.umami) {
-      window.umami.track('attribution_captured', {
+    if (current.utm_source && (window as any).umami) {
+      ;(window as any).umami.track('attribution_captured', {
         source: current.utm_source,
         medium: current.utm_medium || 'none',
         campaign: current.utm_campaign || 'none',

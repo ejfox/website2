@@ -166,10 +166,7 @@ function isHidden(post: Post): boolean {
 
 // Check if post is unlisted (visible at URL but not in listings)
 function isUnlisted(post: Post): boolean {
-  return (
-    post?.unlisted === true ||
-    post?.metadata?.unlisted === true
-  )
+  return post?.unlisted === true || post?.metadata?.unlisted === true
 }
 
 // Check if post is password-protected
@@ -189,7 +186,11 @@ function isExcludedFromListings(post: Post): boolean {
 
 function isRegularBlogPost(post: Post): boolean {
   const slug = post?.metadata?.slug || post?.slug
-  return !isSystemFile(slug) && !isSpecialSection(slug) && !isExcludedFromListings(post)
+  return (
+    !isSystemFile(slug) &&
+    !isSpecialSection(slug) &&
+    !isExcludedFromListings(post)
+  )
 }
 
 // Enhanced filtering function that accepts custom filters

@@ -181,14 +181,19 @@ function adaptGitHubStats(githubData: GitHubData | null) {
   // Full commit history is available via /api/github-commits for CommitMatrix
   const thirtyDaysAgo = new Date()
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30)
-  const allRecentCommits = (githubData.detail?.commits || []).filter((commit) => {
-    const commitDate = new Date(commit.occurredAt)
-    return commitDate >= thirtyDaysAgo
-  })
+  const allRecentCommits = (githubData.detail?.commits || []).filter(
+    (commit) => {
+      const commitDate = new Date(commit.occurredAt)
+      return commitDate >= thirtyDaysAgo
+    }
+  )
 
   // PERF: Limit to 50 most recent commits and trim message length
   const trimmedCommits = allRecentCommits
-    .sort((a, b) => new Date(b.occurredAt).getTime() - new Date(a.occurredAt).getTime())
+    .sort(
+      (a, b) =>
+        new Date(b.occurredAt).getTime() - new Date(a.occurredAt).getTime()
+    )
     .slice(0, 50)
     .map((commit) => ({
       repository: { name: commit.repository.name }, // Drop URL to save space
@@ -316,25 +321,32 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
     const chessData = getValue(chessResult)
       ? adaptChessStats(getValue(chessResult))
       : undefined
-    const rescueTimeData = getValue(rescueTimeResult)
-    const healthData = getValue(healthResult)
-    const lastfmData = getValue(lastfmResult)
-    const letterboxdData = getValue(letterboxdStatsResult)
-    const blogData = getValue(blogStatsResult)
-    const duolingoData = getValue(duolingoResult)
-    const goodreadsData = getValue(goodreadsResult)
+    const rescueTimeData = getValue(rescueTimeResult) as any
+    const healthData = getValue(healthResult) as any
+    const lastfmData = getValue(lastfmResult) as any
+    const letterboxdData = getValue(letterboxdStatsResult) as any
+    const blogData = getValue(blogStatsResult) as any
+    const duolingoData = getValue(duolingoResult) as any
+    const goodreadsData = getValue(goodreadsResult) as any
 
     // Build weekly summary - the key metrics for "what did I do this week"
     const weeklySummary = {
       // Time tracking
-      productiveHours: rescueTimeData?.week?.summary?.productive?.time?.hoursDecimal || 0,
-      totalTrackedHours: rescueTimeData?.week?.summary?.total?.hoursDecimal || 0,
-      productivityPercent: rescueTimeData?.week?.summary?.productive?.percentage || 0,
+      productiveHours:
+        rescueTimeData?.week?.summary?.productive?.time?.hoursDecimal || 0,
+      totalTrackedHours:
+        rescueTimeData?.week?.summary?.total?.hoursDecimal || 0,
+      productivityPercent:
+        rescueTimeData?.week?.summary?.productive?.percentage || 0,
       topActivity: rescueTimeData?.week?.activities?.[0]?.name || null,
 
       // Coding
       commits: githubData?.detail?.commits?.length || 0,
-      topRepos: [...new Set(githubData?.detail?.commits?.map(c => c.repository.name) || [])].slice(0, 5),
+      topRepos: [
+        ...new Set(
+          githubData?.detail?.commits?.map((c) => c.repository.name) || []
+        ),
+      ].slice(0, 5),
       commitTypes: githubData?.detail?.commitTypes?.slice(0, 3) || [],
 
       // Health
@@ -344,21 +356,42 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
 
       // Media consumed
       moviesWatched: letterboxdData?.stats?.thisMonth || 0,
-      recentMovies: letterboxdData?.films?.slice(0, 3)?.map((f: { title: string; rating: number | null }) => ({ title: f.title, rating: f.rating })) || [],
-      topArtists: lastfmData?.topArtists?.artists?.slice(0, 3)?.map((a: { name: string; playcount: string }) => ({ name: a.name, plays: parseInt(a.playcount) })) || [],
-      scrobblesThisWeek: lastfmData?.stats?.averagePerDay ? Math.round(lastfmData.stats.averagePerDay * 7) : 0,
+      recentMovies:
+        letterboxdData?.films
+          ?.slice(0, 3)
+          ?.map((f: { title: string; rating: number | null }) => ({
+            title: f.title,
+            rating: f.rating,
+          })) || [],
+      topArtists:
+        lastfmData?.topArtists?.artists
+          ?.slice(0, 3)
+          ?.map((a: { name: string; playcount: string }) => ({
+            name: a.name,
+            plays: Number.parseInt(a.playcount),
+          })) || [],
+      scrobblesThisWeek: lastfmData?.stats?.averagePerDay
+        ? Math.round(lastfmData.stats.averagePerDay * 7)
+        : 0,
 
       // Learning
       duolingoStreak: duolingoData?.streak || 0,
       chessGamesThisWeek: chessData?.recentGames?.length || 0,
-      chessRating: chessData?.currentRating?.blitz || chessData?.currentRating?.rapid || 0,
+      chessRating:
+        chessData?.currentRating?.blitz || chessData?.currentRating?.rapid || 0,
 
       // Writing
       wordsWritten: blogData?.words?.thisMonth || 0,
       postsPublished: blogData?.posts?.thisMonth || 0,
 
       // Books
-      currentlyReading: goodreadsData?.currentlyReading?.map((b: { title: string; author: string }) => ({ title: b.title, author: b.author })) || [],
+      currentlyReading:
+        goodreadsData?.currentlyReading?.map(
+          (b: { title: string; author: string }) => ({
+            title: b.title,
+            author: b.author,
+          })
+        ) || [],
       booksThisMonth: goodreadsData?.stats?.booksThisMonth || 0,
     }
 

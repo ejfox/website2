@@ -46,7 +46,12 @@ export default defineEventHandler(async (event) => {
     const isDraft = post.draft || metadata.draft
     const isHidden = post.hidden || metadata.hidden
     const isUnlisted = post.unlisted || metadata.unlisted
-    const hasPassword = !!(post.password || post.passwordHash || metadata.password || metadata.passwordHash)
+    const hasPassword = !!(
+      post.password ||
+      post.passwordHash ||
+      metadata.password ||
+      metadata.passwordHash
+    )
     const isSystemFile =
       slug.startsWith('!') || slug.startsWith('_') || slug === 'index'
     const isSpecialSection =
@@ -55,7 +60,15 @@ export default defineEventHandler(async (event) => {
       slug.includes('prompts/')
     const hasPath = slug.includes('/')
 
-    if (isDraft || isHidden || isUnlisted || hasPassword || isSystemFile || isSpecialSection || !hasPath)
+    if (
+      isDraft ||
+      isHidden ||
+      isUnlisted ||
+      hasPassword ||
+      isSystemFile ||
+      isSpecialSection ||
+      !hasPath
+    )
       continue
 
     const postDate = parseISO(date)

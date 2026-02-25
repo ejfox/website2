@@ -100,6 +100,15 @@ export default defineEventHandler(async () => {
         status: 'unknown',
         message: 'Check back soon',
       },
+      nextQuarter: {
+        name: 'Q2 2025',
+        status: 'unknown',
+        message: 'Check back soon',
+      },
+      allQuarters: [],
+      activeClientCount: 0,
+      maxClients: 3,
+      nextAvailable: null,
     }
   }
 })

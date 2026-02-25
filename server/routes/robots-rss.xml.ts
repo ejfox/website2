@@ -22,11 +22,22 @@ export default defineEventHandler(async (event) => {
       // Filter out drafts
       .filter((post: { draft?: boolean }) => !post.draft)
       // Filter out unlisted posts
-      .filter((post: { unlisted?: boolean; metadata?: { unlisted?: boolean } }) =>
-        !post.unlisted && !post.metadata?.unlisted)
+      .filter(
+        (post: { unlisted?: boolean; metadata?: { unlisted?: boolean } }) =>
+          !post.unlisted && !post.metadata?.unlisted
+      )
       // Filter out password-protected posts
-      .filter((post: { password?: string; passwordHash?: string; metadata?: { password?: string; passwordHash?: string } }) =>
-        !post.password && !post.passwordHash && !post.metadata?.password && !post.metadata?.passwordHash)
+      .filter(
+        (post: {
+          password?: string
+          passwordHash?: string
+          metadata?: { password?: string; passwordHash?: string }
+        }) =>
+          !post.password &&
+          !post.passwordHash &&
+          !post.metadata?.password &&
+          !post.metadata?.passwordHash
+      )
       .sort(
         (a: { date: string }, b: { date: string }) =>
           new Date(b.date).getTime() - new Date(a.date).getTime()

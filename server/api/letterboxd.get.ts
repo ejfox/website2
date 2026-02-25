@@ -71,9 +71,12 @@ function parseItem(item: Record<string, unknown>): LetterboxdFilm | null {
     rating: rating !== null && !Number.isNaN(rating) ? rating : null,
     liked: item['letterboxd:memberLike'] === 'Yes',
     isRewatch: item['letterboxd:rewatch'] === 'Yes',
-    watchedDate: item['letterboxd:watchedDate'] ? String(item['letterboxd:watchedDate']) : null,
+    watchedDate: item['letterboxd:watchedDate']
+      ? String(item['letterboxd:watchedDate'])
+      : null,
     letterboxdUrl: link || `https://letterboxd.com/film/${slug}/`,
-    tmdbId: item['tmdb:movieId'] !== undefined ? String(item['tmdb:movieId']) : null,
+    tmdbId:
+      item['tmdb:movieId'] !== undefined ? String(item['tmdb:movieId']) : null,
     posterUrl: extractPosterFromHtml(item['description'] as string),
   }
 }
@@ -84,7 +87,8 @@ function computeStats(films: LetterboxdFilm[]) {
   const currentMonth = now.getMonth()
 
   const thisYear = films.filter(
-    (f) => f.watchedDate && new Date(f.watchedDate).getFullYear() === currentYear
+    (f) =>
+      f.watchedDate && new Date(f.watchedDate).getFullYear() === currentYear
   ).length
 
   const thisMonth = films.filter((f) => {
@@ -96,7 +100,8 @@ function computeStats(films: LetterboxdFilm[]) {
   const ratedFilms = films.filter((f) => f.rating !== null)
   const averageRating =
     ratedFilms.length > 0
-      ? ratedFilms.reduce((sum, f) => sum + (f.rating || 0), 0) / ratedFilms.length
+      ? ratedFilms.reduce((sum, f) => sum + (f.rating || 0), 0) /
+        ratedFilms.length
       : 0
 
   return {
@@ -161,7 +166,9 @@ export default defineEventHandler(async (_event) => {
         filmsByMonth: {},
       },
       lastUpdated: new Date().toISOString(),
-      error: 'RSS parsing failed - ' + (error instanceof Error ? error.message : 'Unknown error'),
+      error:
+        'RSS parsing failed - ' +
+        (error instanceof Error ? error.message : 'Unknown error'),
       source: 'RSS feed',
     }
   }
