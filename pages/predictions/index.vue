@@ -1,6 +1,5 @@
 <template>
   <main class="container-main pt-8">
-    <!-- Error State -->
     <div
       v-if="predictionsError"
       class="text-center py-8 text-red-600 dark:text-red-400"
@@ -9,67 +8,32 @@
     </div>
 
     <template v-else>
-      <!-- HERO: Brier Score -->
+      <!-- Header: Plain English Track Record -->
       <header class="section-spacing-lg">
-        <h1 class="heading-1 mb-6">Predictions</h1>
+        <h1 class="heading-1 mb-4">Predictions</h1>
 
-        <!-- Brier Score Hero -->
         <div
-          v-if="calibration && calibration.summary.resolved > 0"
-          class="mb-8"
+          class="font-mono text-sm text-zinc-600 dark:text-zinc-400 space-y-1"
         >
-          <div class="flex items-baseline gap-4 mb-2">
-            <span
-              class="font-mono tabular-nums font-bold"
-              :class="[
-                brierScoreClass(calibration.brier_score),
-                'text-6xl md:text-8xl',
-              ]"
-            >
-              {{ formatBrierScore(calibration.brier_score) }}
+          <div>
+            {{ transformedPredictions.length }} predictions ·
+            {{ resolvedPredictions.length }} resolved ·
+            <span v-if="correctCount > 0" class="text-success">
+              {{ correctCount }} correct
             </span>
-            <span
-              class="text-zinc-500 dark:text-zinc-500 text-sm uppercase tracking-wider"
-            >
-              Brier Score
+            <span v-if="incorrectCount > 0">
+              ,
+              <span class="text-error">{{ incorrectCount }} wrong</span>
             </span>
           </div>
-          <div class="text-sm text-zinc-600 dark:text-zinc-400 space-y-1">
-            <div>
-              {{ brierScoreLabel(calibration.brier_score) }} · Based on
-              {{ calibration.summary.resolved }} resolved predictions
-            </div>
-            <div class="text-xs text-zinc-500">
-              0 = perfect · 0.25 = chance · 1 = always wrong
-            </div>
-          </div>
-        </div>
-
-        <!-- Verification Summary -->
-        <div
-          class="font-mono text-xs border-t border-zinc-200 dark:border-zinc-800 pt-4"
-        >
-          <div class="tabular-nums">
-            <span class="text-zinc-900 dark:text-zinc-100">
-              {{ correctCount }}/{{ correctCount + incorrectCount }}
-            </span>
-            <span class="text-zinc-500 ml-1">correct</span>
-            <span class="text-zinc-400 mx-2">·</span>
-            <span class="text-zinc-600 dark:text-zinc-400">
-              {{ pendingCount }}
-            </span>
-            <span class="text-zinc-500 ml-1">pending</span>
-            <span v-if="kalshiPositionCount > 0" class="text-zinc-400 mx-2">
-              ·
-            </span>
-            <span
-              v-if="kalshiPositionCount > 0"
-              class="text-zinc-600 dark:text-zinc-400"
-            >
-              ${{ formatExposure(totalKalshiExposure) }}
-            </span>
-            <span v-if="kalshiPositionCount > 0" class="text-zinc-500 ml-1">
-              at stake
+          <div
+            v-if="calibration?.brier_score != null"
+            class="text-xs text-zinc-500"
+          >
+            Brier score: {{ calibration.brier_score.toFixed(3) }}
+            <span class="text-zinc-400">
+              ({{ brierScoreLabel(calibration.brier_score) }}, 0 = perfect, 0.25
+              = coin flip)
             </span>
           </div>
         </div>
@@ -77,14 +41,10 @@
 
       <!-- Zero State -->
       <section v-if="transformedPredictions.length === 0" class="card-padding">
-        <div class="text-primary mb-2 uppercase">No predictions yet</div>
-        <p class="text-secondary">
-          Cryptographically verified predictions with SHA-256 hashing, PGP
-          signatures, and git-based version control.
-        </p>
+        <p class="text-secondary">No predictions yet.</p>
       </section>
 
-      <!-- Dense Table View: Active Predictions -->
+      <!-- Active Predictions -->
       <section v-if="activePredictions.length > 0" class="section-spacing">
         <h2 class="heading-2 mb-4">Active</h2>
         <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
@@ -137,7 +97,7 @@
         </div>
       </section>
 
-      <!-- Dense Table View: Resolved Predictions -->
+      <!-- Resolved Predictions -->
       <section v-if="resolvedPredictions.length > 0" class="section-spacing">
         <h2 class="heading-2 mb-4">Resolved</h2>
         <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
@@ -192,13 +152,6 @@
                   >
                     {{ prediction.confidence }}%
                   </span>
-                  <span
-                    v-if="brierContribution(prediction) !== null"
-                    class="text-zinc-400 text-3xs ml-2"
-                    :title="getBrierTitle(prediction)"
-                  >
-                    {{ brierContribution(prediction)?.toFixed(2) }}
-                  </span>
                 </td>
                 <td class="py-3 pr-4 align-top">
                   <NuxtLink
@@ -224,7 +177,11 @@
         v-if="calibration?.calibration?.length"
         class="section-spacing font-mono text-xs"
       >
-        <h2 class="heading-2 mb-4">Calibration</h2>
+        <h2 class="heading-2 mb-2">Calibration</h2>
+        <p class="text-zinc-500 mb-4 text-xs">
+          When I say X%, does it happen X% of the time? Dots on the diagonal =
+          well calibrated.
+        </p>
 
         <!-- Calibration Curve -->
         <div class="mb-6">
@@ -232,7 +189,6 @@
             viewBox="0 0 100 100"
             class="w-full max-w-xs h-auto aspect-square"
           >
-            <!-- Grid -->
             <line
               x1="0"
               y1="100"
@@ -271,7 +227,6 @@
               "
               class="opacity-80"
             />
-            <!-- Connect points with line -->
             <polyline
               :points="calibrationPoints"
               fill="none"
@@ -320,6 +275,26 @@
             </tr>
           </tbody>
         </table>
+
+        <!-- Plain English calibration summary -->
+        <div class="mt-4 text-xs text-zinc-500 space-y-1">
+          <div
+            v-for="bucket in calibration.calibration"
+            :key="bucket.label + '-text'"
+          >
+            When I say {{ bucket.label }}, it happens {{ bucket.accuracy }}% of
+            the time
+            <span v-if="Math.abs(bucket.delta) <= 5" class="text-success">
+              (well calibrated)
+            </span>
+            <span v-else-if="bucket.delta > 5" class="text-zinc-400">
+              (overconfident by {{ bucket.delta }}pp)
+            </span>
+            <span v-else class="text-zinc-400">
+              (underconfident by {{ Math.abs(bucket.delta) }}pp)
+            </span>
+          </div>
+        </div>
       </section>
 
       <!-- Footer -->
@@ -333,11 +308,8 @@
 </template>
 
 <script setup lang="ts">
-import { formatBrierScore } from '~/composables/useNumberFormat'
 import { format } from 'date-fns'
-import type { KalshiApiResponse } from '~/server/types/kalshi'
 
-// Type definitions for predictions API
 interface Prediction {
   id: string
   slug: string
@@ -352,14 +324,7 @@ interface Prediction {
   status?: 'correct' | 'incorrect' | 'pending' | 'resolved'
   evidence?: string
   resolution?: string
-  related?: string[]
   updates?: Array<{ timestamp: string; content?: string }>
-  updatedAt?: string
-  market?: {
-    provider: 'polymarket' | 'kalshi'
-    slug: string
-    autoResolve?: boolean
-  }
   hash?: string
   gitCommit?: string
 }
@@ -367,17 +332,10 @@ interface Prediction {
 const commitHistoryUrl =
   'https://github.com/ejfox/website2/commits/main/content/predictions/'
 
-// Fetch predictions data
 const { data: predictions, error: predictionsError } =
   await useFetch<Prediction[]>('/api/predictions')
 const { data: calibration } = useCalibration()
 
-// Fetch Kalshi data for financial verification
-const { data: kalshiData } = await useFetch<KalshiApiResponse>('/api/kalshi', {
-  default: () => null,
-})
-
-// Transform and filter predictions
 const transformedPredictions = computed(() => {
   if (!predictions.value) return []
   return predictions.value
@@ -388,7 +346,6 @@ const transformedPredictions = computed(() => {
     }))
 })
 
-// Separate active and resolved
 const activePredictions = computed(() =>
   transformedPredictions.value
     .filter((p) => !p.resolved)
@@ -408,10 +365,6 @@ const resolvedPredictions = computed(() =>
     )
 )
 
-// Counts
-const pendingCount = computed(
-  () => transformedPredictions.value.filter((p) => !p.resolved).length
-)
 const correctCount = computed(
   () =>
     transformedPredictions.value.filter((p) => p.status === 'correct').length
@@ -421,19 +374,6 @@ const incorrectCount = computed(
     transformedPredictions.value.filter((p) => p.status === 'incorrect').length
 )
 
-// Kalshi data
-const kalshiPositionCount = computed(
-  () => kalshiData.value?.positions?.length || 0
-)
-const totalKalshiExposure = computed(() => {
-  if (!kalshiData.value?.positions) return 0
-  return kalshiData.value.positions.reduce(
-    (sum, p) => sum + (p.market_exposure_dollars || 0),
-    0
-  )
-})
-
-// Formatting helpers
 const formatDeadline = (deadline: string | undefined) => {
   if (!deadline) return '—'
   try {
@@ -452,14 +392,6 @@ const formatResolvedDate = (date: string | undefined) => {
   }
 }
 
-const formatExposure = (value: number) => {
-  if (value >= 1000) {
-    return (value / 1000).toFixed(1) + 'K'
-  }
-  return value.toFixed(0)
-}
-
-// Calibration curve points for SVG polyline
 const calibrationPoints = computed(() => {
   if (!calibration.value?.calibration?.length) return ''
   return calibration.value.calibration
@@ -470,7 +402,6 @@ const calibrationPoints = computed(() => {
     .join(' ')
 })
 
-// Utilitarian helpers
 const daysUntil = (deadline: string | undefined): number | null => {
   if (!deadline) return null
   try {
@@ -485,43 +416,12 @@ const daysUntil = (deadline: string | undefined): number | null => {
   }
 }
 
-const brierContribution = (prediction: {
-  resolved: boolean
-  status?: string
-  confidence: number
-}): number | null => {
-  if (!prediction.resolved || !prediction.status) return null
-  const outcome = prediction.status === 'correct' ? 1 : 0
-  const forecast = prediction.confidence / 100
-  return (forecast - outcome) ** 2
-}
-
-const getBrierTitle = (prediction: {
-  resolved: boolean
-  status?: string
-  confidence: number
-}): string => {
-  const forecast = prediction.confidence / 100
-  const outcome = prediction.status === 'correct' ? 1 : 0
-  const brier = brierContribution(prediction)?.toFixed(3) ?? '—'
-  return `Brier: (${forecast} - ${outcome})² = ${brier}`
-}
-
-// Brier score helpers
-const brierScoreClass = (score: number | null) => {
-  if (score === null) return 'text-zinc-500'
-  if (score < 0.15) return 'text-success'
-  if (score < 0.2) return 'text-green-600 dark:text-green-500'
-  if (score < 0.25) return 'text-zinc-900 dark:text-zinc-100'
-  return 'text-error'
-}
-
 const brierScoreLabel = (score: number | null) => {
   if (score === null) return ''
-  if (score < 0.15) return 'Excellent calibration'
-  if (score < 0.2) return 'Good calibration'
-  if (score < 0.25) return 'Better than chance'
-  return 'Needs improvement'
+  if (score < 0.15) return 'excellent'
+  if (score < 0.2) return 'good'
+  if (score < 0.25) return 'better than chance'
+  return 'needs work'
 }
 
 const deltaClass = (delta: number) => {
@@ -531,11 +431,6 @@ const deltaClass = (delta: number) => {
   return 'text-error'
 }
 
-// SEO
-const totalPredictions = computed(
-  () => predictions.value?.filter((p) => p.visibility === 'public').length || 0
-)
-
 usePageSeo({
   title: 'Predictions · EJ Fox',
   description:
@@ -543,13 +438,5 @@ usePageSeo({
   type: 'article',
   section: 'Forecasting',
   tags: ['Predictions', 'Forecasting', 'Calibration', 'Probability'],
-  label1: 'Public predictions',
-  data1: computed(() => `${totalPredictions.value} total`),
-  label2: 'Brier Score',
-  data2: computed(() =>
-    calibration.value?.brier_score
-      ? formatBrierScore(calibration.value.brier_score)
-      : '—'
-  ),
 })
 </script>

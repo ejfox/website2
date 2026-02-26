@@ -1,16 +1,50 @@
 {
-  "generated_at": "2025-11-14T22:52:41.604Z",
+  "generated_at": "2026-02-26T04:24:46.746Z",
   "summary": {
-    "total_predictions": 0,
-    "resolved": 0,
-    "pending": 0,
-    "correct": 0,
+    "total_predictions": 10,
+    "resolved": 1,
+    "pending": 9,
+    "correct": 1,
     "incorrect": 0,
-    "accuracy": null
+    "accuracy": 100
   },
-  "brier_score": null,
-  "calibration": [],
-  "by_category": [],
-  "update_analysis": null,
-  "market_comparison": null
+  "brier_score": 0.04,
+  "calibration": [
+    {
+      "min": 80,
+      "max": 89,
+      "label": "80-89%",
+      "count": 1,
+      "correct": 1,
+      "accuracy": 100,
+      "expected": 85,
+      "delta": 16
+    }
+  ],
+  "by_category": [
+    {
+      "category": "politics",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "nyc",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "elections",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "progressive",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    }
+  ]
 }

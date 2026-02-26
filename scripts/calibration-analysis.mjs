@@ -3,28 +3,42 @@
 /**
  * Calibration Analysis for Predictions
  *
- * Analyzes all resolved predictions and calculates:
+ * Reads prediction markdown files directly and calculates:
  * - Brier score (lower is better, 0 = perfect)
  * - Calibration by confidence bucket
- * - Performance vs Kalshi markets
- * - Prediction update patterns
+ * - Category breakdown
  *
- * Run: node scripts/calibration-analysis.mjs
+ * Run: yarn calibrate
  * Output: data/calibration-analysis.json
  */
 
-import { readFile, writeFile } from 'node:fs/promises'
+import { readFile, writeFile, readdir } from 'node:fs/promises'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+import matter from 'gray-matter'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
+const predictionsDir = join(__dirname, '..', 'content', 'predictions')
+
+async function loadPredictions() {
+  const files = await readdir(predictionsDir)
+  const mdFiles = files.filter((f) => f.endsWith('.md'))
+
+  const predictions = []
+  for (const file of mdFiles) {
+    const raw = await readFile(join(predictionsDir, file), 'utf-8')
+    const { data } = matter(raw)
+    predictions.push(data)
+  }
+
+  return predictions
+}
+
 /**
- * Calculate Brier score for a set of predictions
  * Brier score = average of (prediction - outcome)^2
  * Range: 0 (perfect) to 1 (worst)
- * < 0.25 = good, < 0.20 = excellent
  */
 function calculateBrierScore(predictions) {
   const resolved = predictions.filter(
@@ -37,7 +51,7 @@ function calculateBrierScore(predictions) {
   if (resolved.length === 0) return null
 
   const scores = resolved.map((p) => {
-    const predicted = p.confidence / 100 // Convert to 0-1
+    const predicted = p.confidence / 100
     const outcome = p.status === 'correct' ? 1 : 0
     return Math.pow(predicted - outcome, 2)
   })
@@ -46,8 +60,7 @@ function calculateBrierScore(predictions) {
 }
 
 /**
- * Group predictions into calibration buckets
- * e.g., "Did my 70-79% predictions actually happen 70-79% of the time?"
+ * "When I say 70%, does it happen ~70% of the time?"
  */
 function calculateCalibration(predictions) {
   const resolved = predictions.filter(
@@ -91,9 +104,6 @@ function calculateCalibration(predictions) {
     .filter(Boolean)
 }
 
-/**
- * Analyze performance by category
- */
 function analyzeByCategory(predictions) {
   const resolved = predictions.filter(
     (p) => p.resolved && (p.status === 'correct' || p.status === 'incorrect')
@@ -101,7 +111,6 @@ function analyzeByCategory(predictions) {
 
   if (resolved.length === 0) return []
 
-  // Group by category
   const byCategory = {}
   resolved.forEach((p) => {
     const cats = p.categories || ['uncategorized']
@@ -124,124 +133,19 @@ function analyzeByCategory(predictions) {
     .sort((a, b) => b.total - a.total)
 }
 
-/**
- * Analyze prediction updates
- */
-function analyzeUpdates(predictions) {
-  const withUpdates = predictions.filter(
-    (p) => p.updates && p.updates.length > 0
-  )
-
-  if (withUpdates.length === 0) return null
-
-  const updateCounts = withUpdates.map((p) => p.updates.length)
-  const totalUpdates = updateCounts.reduce((sum, c) => sum + c, 0)
-  const avgUpdates = totalUpdates / withUpdates.length
-
-  // Analyze confidence changes
-  const confidenceDeltas = []
-  withUpdates.forEach((p) => {
-    p.updates.forEach((update) => {
-      if (update.confidenceBefore && update.confidenceAfter) {
-        confidenceDeltas.push(update.confidenceAfter - update.confidenceBefore)
-      }
-    })
-  })
-
-  const avgDelta =
-    confidenceDeltas.length > 0
-      ? confidenceDeltas.reduce((sum, d) => sum + d, 0) /
-        confidenceDeltas.length
-      : 0
-
-  return {
-    predictionsWithUpdates: withUpdates.length,
-    totalUpdates,
-    avgUpdatesPerPrediction: Math.round(avgUpdates * 10) / 10,
-    avgConfidenceChange: Math.round(avgDelta * 10) / 10,
-  }
-}
-
-/**
- * Compare to market baseline (Kalshi positions)
- */
-function compareToMarket(predictions, kalshiData) {
-  // Find predictions that have corresponding Kalshi positions
-  const withMarket = predictions.filter(
-    (p) =>
-      p.resolved &&
-      (p.status === 'correct' || p.status === 'incorrect') &&
-      p.market?.ticker &&
-      kalshiData?.commentaries?.[p.market.ticker]
-  )
-
-  if (withMarket.length === 0) return null
-
-  // Calculate accuracy for predictions where you disagreed with market
-  const disagreements = withMarket.filter((p) => {
-    const marketProb =
-      kalshiData.commentaries[p.market.ticker]?.market_comparison?.kalshi_price
-    const yourProb = p.confidence / 100
-    return marketProb && Math.abs(yourProb - marketProb) > 0.1 // >10% diff
-  })
-
-  if (disagreements.length === 0) return null
-
-  const correctDisagreements = disagreements.filter(
-    (p) => p.status === 'correct'
-  ).length
-
-  return {
-    total: withMarket.length,
-    disagreements: disagreements.length,
-    correctWhenDisagreed: correctDisagreements,
-    accuracyWhenDisagreed: Math.round(
-      (correctDisagreements / disagreements.length) * 100
-    ),
-  }
-}
-
 async function main() {
   try {
-    console.log('📊 Running calibration analysis...\n')
+    console.log('Running calibration analysis...\n')
 
-    // Load predictions
-    const predictionsPath = join(
-      __dirname,
-      '..',
-      'public',
-      'data',
-      'predictions.json'
-    )
-    let predictions = []
-    try {
-      const data = await readFile(predictionsPath, 'utf-8')
-      predictions = JSON.parse(data)
-      console.log(`✓ Loaded ${predictions.length} predictions`)
-    } catch {
-      console.error('⚠️  Could not load predictions.json, using empty set')
-    }
+    const predictions = await loadPredictions()
+    console.log(`Loaded ${predictions.length} predictions from markdown files`)
 
-    // Load Kalshi data if available
-    let kalshiData = null
-    try {
-      const response = await fetch('http://localhost:3006/api/kalshi')
-      kalshiData = await response.json()
-      const posCount = kalshiData.positions?.length || 0
-      console.log(`✓ Loaded Kalshi data (${posCount} positions)`)
-    } catch {
-      console.log(
-        '⚠️  Could not fetch Kalshi data ' + '(server may not be running)'
-      )
-    }
-
-    // Calculate metrics
     const resolved = predictions.filter((p) => p.resolved)
+    const correct = predictions.filter((p) => p.status === 'correct')
+    const incorrect = predictions.filter((p) => p.status === 'incorrect')
     const brierScore = calculateBrierScore(predictions)
     const calibration = calculateCalibration(predictions)
     const byCategory = analyzeByCategory(predictions)
-    const updateAnalysis = analyzeUpdates(predictions)
-    const marketComparison = compareToMarket(predictions, kalshiData)
 
     const analysis = {
       generated_at: new Date().toISOString(),
@@ -249,25 +153,18 @@ async function main() {
         total_predictions: predictions.length,
         resolved: resolved.length,
         pending: predictions.length - resolved.length,
-        correct: predictions.filter((p) => p.status === 'correct').length,
-        incorrect: predictions.filter((p) => p.status === 'incorrect').length,
+        correct: correct.length,
+        incorrect: incorrect.length,
         accuracy:
           resolved.length > 0
-            ? Math.round(
-                (predictions.filter((p) => p.status === 'correct').length /
-                  resolved.length) *
-                  100
-              )
+            ? Math.round((correct.length / resolved.length) * 100)
             : null,
       },
       brier_score: brierScore ? Math.round(brierScore * 1000) / 1000 : null,
-      calibration: calibration,
+      calibration,
       by_category: byCategory,
-      update_analysis: updateAnalysis,
-      market_comparison: marketComparison,
     }
 
-    // Save results
     const outputPath = join(
       __dirname,
       '..',
@@ -277,34 +174,37 @@ async function main() {
     await writeFile(outputPath, JSON.stringify(analysis, null, 2))
 
     // Print summary
-    console.log('\n📈 Analysis Complete:\n')
-    console.log(`Total Predictions: ${analysis.summary.total_predictions}`)
+    console.log(`\nTotal: ${analysis.summary.total_predictions}`)
     console.log(`Resolved: ${analysis.summary.resolved}`)
+    console.log(`Correct: ${analysis.summary.correct}`)
+    console.log(`Incorrect: ${analysis.summary.incorrect}`)
+    console.log(`Pending: ${analysis.summary.pending}`)
+
     if (analysis.summary.accuracy !== null) {
       console.log(`Accuracy: ${analysis.summary.accuracy}%`)
     }
+
     if (brierScore !== null) {
-      const scoreQuality =
+      const quality =
         brierScore < 0.2
           ? '(excellent)'
           : brierScore < 0.25
             ? '(good)'
             : '(needs work)'
-      console.log(`Brier Score: ${brierScore.toFixed(3)} ${scoreQuality}`)
+      console.log(`Brier Score: ${brierScore.toFixed(3)} ${quality}`)
     }
 
     if (calibration.length > 0) {
       console.log('\nCalibration:')
       calibration.forEach((bucket) => {
         const delta = bucket.delta >= 0 ? `+${bucket.delta}` : bucket.delta
-        const msg =
-          `  ${bucket.label}: ${bucket.accuracy}% actual ` +
-          `(expected ${bucket.expected}%, ${delta}pp) [n=${bucket.count}]`
-        console.log(msg)
+        console.log(
+          `  ${bucket.label}: ${bucket.accuracy}% actual (expected ${bucket.expected}%, ${delta}pp) [n=${bucket.count}]`
+        )
       })
     }
 
-    console.log(`\n✓ Saved to data/calibration-analysis.json`)
+    console.log(`\nSaved to data/calibration-analysis.json`)
   } catch (error) {
     console.error('Error:', error)
     process.exit(1)

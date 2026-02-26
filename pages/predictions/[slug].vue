@@ -39,22 +39,6 @@
           }}
         </span>
         <span v-if="deadline">· {{ deadline }}</span>
-        <span v-if="prediction.market" class="text-zinc-400">
-          · {{ prediction.market.provider }}
-          <template v-if="marketDiff !== null">
-            <span
-              :class="
-                marketDiff > 0
-                  ? 'text-success'
-                  : marketDiff < 0
-                    ? 'text-error'
-                    : ''
-              "
-            >
-              ({{ marketDiff > 0 ? '+' : '' }}{{ marketDiff }}% vs market)
-            </span>
-          </template>
-        </span>
       </div>
     </header>
 
@@ -196,12 +180,6 @@ interface PredictionResponse {
     confidence: number
     status?: string
   }>
-  market?: { provider: string; slug: string }
-}
-
-interface MarketDataResponse {
-  currentProb?: number
-  [key: string]: unknown
 }
 
 const route = useRoute()
@@ -212,23 +190,6 @@ const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug || ''
 const { data: prediction, error } = await useFetch<PredictionResponse>(
   `/api/predictions/${slug}`
 )
-
-// Fetch market data for diff calculation (only if prediction has market)
-const marketUrl = computed(() => {
-  const m = prediction.value?.market
-  if (!m?.provider || !m?.slug) return null
-  return `/api/markets/${m.provider}?slug=${m.slug}`
-})
-const { data: marketData } = await useFetch<MarketDataResponse>(marketUrl, {
-  watch: [marketUrl],
-  immediate: !!prediction.value?.market,
-})
-
-// Market diff: your confidence vs current market price
-const marketDiff = computed(() => {
-  if (!prediction.value?.market || !marketData.value?.currentProb) return null
-  return Math.round(prediction.value.confidence - marketData.value.currentProb)
-})
 
 // Sorted updates (newest first)
 const sortedUpdates = computed(() => {

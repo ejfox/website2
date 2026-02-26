@@ -42,7 +42,6 @@ export default defineEventHandler(async () => {
           related: data.related || [],
           updates: data.updates || [],
           updatedAt: data.updatedAt,
-          market: data.market,
         }
       })
     )

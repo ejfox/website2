@@ -29,20 +29,11 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
    - Structure: !special-tags first, then by usage count, then unused base tags
 
 2. **Predictions System**
-   - **PGP Predictions**: CLI tool `yarn predict` for cryptographic predictions
-     - SHA-256 hashing + Git commits + optional PGP signing
-     - Storage: `content/predictions/` as Markdown with verification data
-   - **Kalshi Integration**: Real-money prediction market positions
-     - Live API integration: `server/api/kalshi.get.ts`
-     - Multi-layer smart caching (portfolio: 2min, events: 1hr, commentary: 10min)
-     - Commentary system: `content/kalshi/*.md` for position analysis
-     - Calibration tracking: Brier scores, calibration curves (`scripts/calibration-analysis.mjs`)
-     - Portfolio P&L: Real-time open/closed position tracking
-     - Type-safe API consumer with full schema definitions (`server/types/kalshi.ts`)
-   - **Scripts**:
-     - `yarn kalshi:test` - Fetch current Kalshi portfolio data
-     - `yarn kalshi:templates` - Generate commentary templates for positions
-     - `yarn kalshi:calibration` - Run prediction accuracy analysis
+   - CLI tool `yarn predict` for personal predictions
+     - SHA-256 hashing + Git commits for verification
+     - Storage: `content/predictions/` as Markdown with YAML frontmatter
+   - Calibration tracking: `yarn calibrate` generates Brier scores + calibration curves
+   - Simple pipeline: make prediction → wait → resolve → track accuracy
 
 3. **Stats Aggregation**
    - **Full Stats** (`server/api/stats.get.ts`) - Comprehensive stats with arrays and nested objects (~2.4KB)

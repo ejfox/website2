@@ -209,7 +209,6 @@ export default defineEventHandler(async (event) => {
       resolutionHtml,
       updates: data.updates || [],
       relatedPredictions,
-      market: data.market,
     }
   }
 
