@@ -15,7 +15,7 @@
           priority="primary"
         />
       </div>
-      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
+      <div class="text-xs text-zinc-500 uppercase tracking-wider mt-2">
         CHESS RATING
       </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
@@ -41,7 +41,7 @@
         :key="variant.name"
         class="flex items-center gap-2 text-xs"
       >
-        <span class="text-zinc-500 uppercase tracking-widest w-12 text-xs">
+        <span class="text-zinc-500 uppercase tracking-wider w-12 text-xs">
           {{ variant.name }}
         </span>
         <!-- Rating bar visualization -->
@@ -80,7 +80,7 @@
           :key="metric.label"
           class="flex items-center justify-between text-xs"
         >
-          <span class="text-zinc-500 uppercase tracking-widest text-xs">
+          <span class="text-zinc-500 uppercase tracking-wider text-xs">
             {{ metric.label }}
           </span>
           <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">

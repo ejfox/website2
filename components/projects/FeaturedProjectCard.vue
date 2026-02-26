@@ -18,7 +18,7 @@
     >
       <span
         v-if="project.metadata?.client"
-        class="text-zinc-500 uppercase tracking-wide"
+        class="text-zinc-500 uppercase tracking-wider"
       >
         {{ project.metadata.client }}
       </span>

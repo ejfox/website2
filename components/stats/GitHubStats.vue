@@ -23,7 +23,7 @@
           </div>
           <!-- eslint-disable max-len,vue/max-len -->
           <div
-            class="stat-label text-xs text-zinc-500 uppercase tracking-widest mt-2"
+            class="stat-label text-xs text-zinc-500 uppercase tracking-wider mt-2"
           >
             GITHUB COMMITS
           </div>
@@ -40,7 +40,7 @@
           </div>
           <!-- eslint-disable max-len,vue/max-len -->
           <div
-            class="stat-label text-xs text-zinc-500 uppercase tracking-widest mt-2"
+            class="stat-label text-xs text-zinc-500 uppercase tracking-wider mt-2"
           >
             TOTAL REPOS
           </div>

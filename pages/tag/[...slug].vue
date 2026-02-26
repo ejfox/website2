@@ -11,7 +11,7 @@
     <!-- Posts -->
     <section v-if="posts.length" class="mb-6">
       <h3
-        class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2"
+        class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-2"
       >
         Posts
       </h3>
@@ -48,7 +48,7 @@
     <!-- Week Notes -->
     <section v-if="weekNotes.length" class="mb-6">
       <h3
-        class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2"
+        class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-2"
       >
         Week Notes
       </h3>
@@ -85,7 +85,7 @@
     <!-- Projects -->
     <section v-if="projects.length" class="mb-6">
       <h3
-        class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2"
+        class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-2"
       >
         Projects
       </h3>
@@ -122,7 +122,7 @@
     <!-- Reading -->
     <section v-if="reading.length" class="mb-6">
       <h3
-        class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2"
+        class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-2"
       >
         Reading
       </h3>
@@ -159,7 +159,7 @@
     <!-- Scraps -->
     <section v-if="scraps.length">
       <h3
-        class="font-mono text-[10px] text-zinc-600 uppercase tracking-wider mb-2"
+        class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-2"
       >
         Scraps
       </h3>

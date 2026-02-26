@@ -29,7 +29,7 @@
               {{ formatBrierScore(calibration.brier_score) }}
             </span>
             <span
-              class="text-zinc-500 dark:text-zinc-500 text-sm uppercase tracking-wide"
+              class="text-zinc-500 dark:text-zinc-500 text-sm uppercase tracking-wider"
             >
               Brier Score
             </span>
@@ -194,7 +194,7 @@
                   </span>
                   <span
                     v-if="brierContribution(prediction) !== null"
-                    class="text-zinc-400 text-[10px] ml-2"
+                    class="text-zinc-400 text-3xs ml-2"
                     :title="getBrierTitle(prediction)"
                   >
                     {{ brierContribution(prediction)?.toFixed(2) }}
@@ -279,7 +279,7 @@
               stroke-width="1"
             />
           </svg>
-          <div class="text-[10px] text-zinc-500 mt-1">
+          <div class="text-3xs text-zinc-500 mt-1">
             x: predicted · y: actual · dashed: perfect
           </div>
         </div>

@@ -61,7 +61,7 @@
     <!-- Resolution -->
     <section v-if="prediction.resolutionHtml" class="mb-8">
       <h2
-        class="font-mono text-xs uppercase tracking-wide mb-2"
+        class="font-mono text-xs uppercase tracking-wider mb-2"
         :class="
           prediction.status === 'correct'
             ? 'text-success'
@@ -80,7 +80,7 @@
 
     <!-- Evidence -->
     <section v-if="prediction.evidenceHtml" class="mb-8">
-      <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-2">
+      <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-2">
         Evidence
       </h2>
       <div
@@ -91,7 +91,7 @@
 
     <!-- Updates -->
     <section v-if="prediction.updates?.length" class="mb-8">
-      <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-4">
+      <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-4">
         Updates
       </h2>
       <div class="space-y-4">
@@ -121,7 +121,7 @@
 
     <!-- Related (now with statements!) -->
     <section v-if="prediction.relatedPredictions?.length" class="mb-8">
-      <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-2">
+      <h2 class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-2">
         Related
       </h2>
       <ul class="space-y-2">

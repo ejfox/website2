@@ -115,22 +115,22 @@ usePageSeo({
         <div class="stats-grid mb-6">
           <div class="stat-card">
             <div class="stat-value">{{ repos.length }}</div>
-            <div class="stat-label">REPOSITORIES</div>
+            <div class="github-stat-label">REPOSITORIES</div>
           </div>
 
           <div class="stat-card">
             <div class="stat-value">{{ totalStars }}</div>
-            <div class="stat-label">STARS</div>
+            <div class="github-stat-label">STARS</div>
           </div>
 
           <div class="stat-card">
             <div class="stat-value">{{ totalForks }}</div>
-            <div class="stat-label">FORKS</div>
+            <div class="github-stat-label">FORKS</div>
           </div>
 
           <div class="stat-card">
             <div class="stat-value">{{ languages.length - 1 }}</div>
-            <div class="stat-label">LANGUAGES</div>
+            <div class="github-stat-label">LANGUAGES</div>
           </div>
         </div>
 
@@ -210,12 +210,11 @@ usePageSeo({
   margin-bottom: 4px;
 }
 
-.stat-label {
-  @apply font-mono text-[10px] uppercase tracking-wider;
+.github-stat-label {
+  @apply font-mono text-3xs uppercase tracking-wider;
   @apply text-zinc-500 dark:text-zinc-500;
   /* 8px rhythm */
   line-height: 16px;
-  letter-spacing: 0.1em;
 }
 
 /* Utilitarian filters - minimal */

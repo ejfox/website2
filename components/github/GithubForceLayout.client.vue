@@ -280,7 +280,7 @@ onMounted(() => {
     <!-- Tooltip - brutalist minimal -->
     <div
       v-if="tooltip.show && tooltip.repo"
-      class="fixed z-50 pointer-events-none bg-white dark:bg-zinc-900 border border-zinc-900 dark:border-zinc-100 px-2 py-1 text-[10px] font-mono"
+      class="fixed z-50 pointer-events-none bg-white dark:bg-zinc-900 border border-zinc-900 dark:border-zinc-100 px-2 py-1 text-3xs font-mono"
       :style="{
         left: tooltip.x + 'px',
         top: tooltip.y + 'px',

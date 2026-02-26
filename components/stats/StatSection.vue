@@ -54,7 +54,7 @@ const contentClass = computed(() => (props.grid ? 'grid-2col' : 'div'))
 }
 
 .stats-section-title-hover {
-  @apply tracking-[0.24em] font-mono text-zinc-500;
+  @apply tracking-wider font-mono text-zinc-500;
   position: absolute;
   left: 0;
   top: 50%;

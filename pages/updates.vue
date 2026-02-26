@@ -14,7 +14,7 @@
         <article v-for="update in updates" :key="update.date + update.title">
           <div class="flex items-center gap-2">
             <time
-              class="font-mono text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-wide"
+              class="font-mono text-xs text-zinc-500 dark:text-zinc-500 uppercase tracking-wider"
             >
               {{ formatDate(update.date) }}
             </time>

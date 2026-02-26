@@ -29,7 +29,7 @@
       <div class="flex items-baseline gap-2 flex-wrap mb-2">
         <span
           v-if="showLabel"
-          class="text-xs font-mono uppercase tracking-wide text-zinc-500 dark:text-zinc-400"
+          class="text-xs font-mono uppercase tracking-wider text-zinc-500 dark:text-zinc-400"
         >
           In reply to
         </span>

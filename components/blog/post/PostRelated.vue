@@ -8,7 +8,7 @@
     v-if="relatedPosts.length > 0"
     class="px-4 md:px-6 py-8 border-t border-zinc-200 dark:border-zinc-800"
   >
-    <h2 class="text-xs uppercase tracking-[0.2em] text-zinc-500 mb-3">
+    <h2 class="text-xs uppercase tracking-wider text-zinc-500 mb-3">
       Related Posts
     </h2>
     <div class="space-y-4">
@@ -26,7 +26,7 @@
               <span
                 v-for="tag in overlappingTags"
                 :key="tag"
-                class="rounded-full border border-zinc-200 px-2 py-0.5 text-[10px] uppercase tracking-[0.2em] text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
+                class="rounded-full border border-zinc-200 px-2 py-0.5 text-3xs uppercase tracking-wider text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
               >
                 {{ tag }}
               </span>

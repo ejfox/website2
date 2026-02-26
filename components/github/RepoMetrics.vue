@@ -117,7 +117,7 @@ const _activityColors = {
 
 /* Compact: inline metrics */
 .metrics-compact {
-  @apply flex items-center gap-0.5 text-[10px];
+  @apply flex items-center gap-0.5 text-3xs;
   @apply text-zinc-600 dark:text-zinc-400;
 }
 
@@ -126,7 +126,7 @@ const _activityColors = {
 }
 
 .metric-unit {
-  @apply text-[9px] opacity-50;
+  @apply text-3xs opacity-50;
 }
 
 .metric-sep {
@@ -150,7 +150,7 @@ const _activityColors = {
 }
 
 .metric-label {
-  @apply text-[10px];
+  @apply text-3xs;
   @apply text-zinc-500 dark:text-zinc-500;
 }
 </style>

@@ -23,7 +23,7 @@
         </div>
         <div class="flex items-center gap-3">
           <kbd
-            class="text-[10px] font-mono text-zinc-300 dark:text-zinc-700 px-1 py-0.5 border border-zinc-200 dark:border-zinc-800 rounded"
+            class="text-3xs font-mono text-zinc-300 dark:text-zinc-700 px-1 py-0.5 border border-zinc-200 dark:border-zinc-800 rounded"
           >
             esc
           </kbd>
@@ -160,7 +160,7 @@
         <section v-if="suggestions.suggested_tags?.length" class="space-y-2">
           <div class="flex items-center gap-2">
             <span
-              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 text-[10px] font-mono"
+              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 text-3xs font-mono"
             >
               1
             </span>
@@ -207,14 +207,12 @@
         <section class="space-y-2">
           <div class="flex items-center gap-2">
             <span
-              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-[10px] font-mono"
+              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-3xs font-mono"
             >
               2
             </span>
             <span class="text-meta">ADD CUSTOM</span>
-            <span
-              class="text-[10px] font-mono text-zinc-300 dark:text-zinc-700"
-            >
+            <span class="text-3xs font-mono text-zinc-300 dark:text-zinc-700">
               optional
             </span>
           </div>
@@ -235,7 +233,7 @@
         <section v-if="selectedTags.length" class="space-y-2">
           <div class="flex items-center gap-2">
             <span
-              class="flex items-center justify-center w-5 h-5 rounded-full bg-green-500 text-white text-[10px] font-mono"
+              class="flex items-center justify-center w-5 h-5 rounded-full bg-green-500 text-white text-3xs font-mono"
             >
               {{ selectedTags.length }}
             </span>
@@ -280,7 +278,7 @@
         >
           <div class="flex items-center gap-2 mb-3">
             <span
-              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-[10px] font-mono"
+              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-3xs font-mono"
             >
               3
             </span>
@@ -297,7 +295,7 @@
                 }}
               </span>
               <kbd
-                class="text-[10px] opacity-50 hidden sm:inline px-1 py-0.5 bg-zinc-800 dark:bg-zinc-200 rounded"
+                class="text-3xs opacity-50 hidden sm:inline px-1 py-0.5 bg-zinc-800 dark:bg-zinc-200 rounded"
               >
                 ⌘↵
               </kbd>
@@ -314,7 +312,7 @@
 
         <!-- Footer info -->
         <div
-          class="flex items-center justify-between text-[10px] font-mono text-zinc-300 dark:text-zinc-700 pl-7"
+          class="flex items-center justify-between text-3xs font-mono text-zinc-300 dark:text-zinc-700 pl-7"
         >
           <span v-if="suggestions.processing_time_ms">
             analyzed in {{ suggestions.processing_time_ms }}ms

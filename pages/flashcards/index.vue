@@ -60,7 +60,7 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
         >
           <div>
             <p
-              class="font-mono text-[10px] tracking-[0.2em] text-zinc-500 uppercase mb-2"
+              class="font-mono text-3xs tracking-wider text-zinc-500 uppercase mb-2"
             >
               Collection
             </p>

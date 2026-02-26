@@ -56,7 +56,7 @@
               {{ book.title }}
             </div>
             <div class="text-muted truncate">{{ book.author }}</div>
-            <div v-if="book.numPages" class="text-muted text-[10px]">
+            <div v-if="book.numPages" class="text-muted text-3xs">
               {{ book.numPages }} pages
             </div>
           </div>

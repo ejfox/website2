@@ -24,7 +24,7 @@
       <section v-for="yearData in data.years" :key="yearData.year" class="mb-8">
         <!-- Year header -->
         <h2
-          class="font-mono text-xs text-zinc-400 uppercase tracking-widest mb-4"
+          class="font-mono text-xs text-zinc-400 uppercase tracking-wider mb-4"
         >
           {{ yearData.year }}
           <span class="text-zinc-300 dark:text-zinc-600">/</span>

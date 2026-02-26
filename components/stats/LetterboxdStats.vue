@@ -15,7 +15,7 @@
           priority="primary"
         />
       </div>
-      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
+      <div class="text-xs text-zinc-500 uppercase tracking-wider mt-2">
         LETTERBOXD FILMS WATCHED
       </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2 space-y-1">
@@ -90,7 +90,7 @@
                 ↻
               </span>
             </div>
-            <div class="text-zinc-500 text-[10px]">
+            <div class="text-zinc-500 text-3xs">
               {{ formatDate(film.watchedDate) }}
             </div>
           </div>
@@ -245,7 +245,7 @@ const renderStars = (rating: number | null) => {
     stars.push({
       id: id++,
       char: '½',
-      class: 'text-zinc-700 dark:text-zinc-300 text-[9px] -ml-[1px]',
+      class: 'text-zinc-700 dark:text-zinc-300 text-3xs -ml-[1px]',
     })
   }
 

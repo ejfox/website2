@@ -22,7 +22,7 @@
             class="flex items-center gap-3 border-b border-zinc-100 px-4 py-3 dark:border-zinc-800"
           >
             <span
-              class="text-xs font-mono uppercase tracking-[0.2em] text-zinc-400"
+              class="text-xs font-mono uppercase tracking-wider text-zinc-400"
             >
               Command
             </span>
@@ -34,7 +34,7 @@
               class="flex-1 bg-transparent text-base text-zinc-900 outline-none placeholder:text-zinc-400 dark:text-zinc-100"
             />
             <span
-              class="rounded-full border border-zinc-200 px-2 py-1 text-[11px] font-mono text-zinc-400 dark:border-zinc-700"
+              class="rounded-full border border-zinc-200 px-2 py-1 text-3xs font-mono text-zinc-400 dark:border-zinc-700"
             >
               ⌘K
             </span>
@@ -54,7 +54,7 @@
               class="mb-4 last:mb-0"
             >
               <div
-                class="px-3 pb-2 text-[11px] font-mono uppercase tracking-[0.25em] text-zinc-400"
+                class="px-3 pb-2 text-3xs font-mono uppercase tracking-[0.25em] text-zinc-400"
               >
                 {{ section.title }}
               </div>
@@ -81,7 +81,7 @@
                         </span>
                         <span
                           v-if="item.meta"
-                          class="text-[11px] font-mono text-zinc-400"
+                          class="text-3xs font-mono text-zinc-400"
                         >
                           {{ item.meta }}
                         </span>
@@ -104,7 +104,7 @@
                         <span
                           v-for="tag in item.tags"
                           :key="tag"
-                          class="rounded-full border border-zinc-200 px-2 py-0.5 text-[11px] text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
+                          class="rounded-full border border-zinc-200 px-2 py-0.5 text-3xs text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
                         >
                           {{ tag }}
                         </span>
@@ -112,7 +112,7 @@
                     </div>
                     <span
                       v-if="item.hint"
-                      class="text-[11px] font-mono text-zinc-400"
+                      class="text-3xs font-mono text-zinc-400"
                     >
                       {{ item.hint }}
                     </span>

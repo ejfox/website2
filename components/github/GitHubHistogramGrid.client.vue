@@ -219,7 +219,7 @@ const formatValue = (val, unit) => {
 }
 
 .cell-stats {
-  @apply text-[10px] font-mono tabular-nums;
+  @apply text-3xs font-mono tabular-nums;
   @apply text-zinc-500 dark:text-zinc-500;
   @apply flex items-center gap-0.5;
 }

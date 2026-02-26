@@ -15,7 +15,7 @@
           priority="primary"
         />
       </div>
-      <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
+      <div class="text-xs text-zinc-500 uppercase tracking-wider mt-2">
         GISTS
       </div>
       <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">

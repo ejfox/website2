@@ -308,7 +308,7 @@ onMounted(() => {})
 }
 
 .language-name {
-  @apply text-zinc-500 tracking-wide;
+  @apply text-zinc-500 tracking-wider;
   font-size: 0.6rem;
   line-height: 1rem;
 }
@@ -331,10 +331,6 @@ onMounted(() => {})
 /* Stat item styles for performance section */
 .stat-item {
   @apply space-y-1 text-center;
-}
-
-.stat-item .stat-label {
-  @apply text-xs tracking-widest text-zinc-500;
 }
 
 .stat-item .stat-value {

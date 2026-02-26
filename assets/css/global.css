@@ -166,7 +166,7 @@ p,
 }
 
 .text-meta {
-  @apply font-mono text-xs uppercase tracking-widest text-zinc-500;
+  @apply font-mono text-xs uppercase tracking-wider text-zinc-500;
 }
 
 .header {
@@ -222,7 +222,23 @@ p,
 
 /* Section Headers */
 .section-header {
-  @apply text-xs font-normal uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-500;
+  @apply font-mono text-xs font-normal uppercase tracking-wider text-zinc-500 dark:text-zinc-500;
+}
+
+.section-header-xs {
+  @apply font-mono text-xs font-medium uppercase tracking-wider text-zinc-500 dark:text-zinc-400;
+}
+
+.section-header-mono {
+  @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400;
+}
+
+.sticky-label-header {
+  @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 sticky top-0 bg-white dark:bg-zinc-950 z-10 py-2;
+}
+
+.label-uppercase-mono {
+  @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400;
 }
 
 /* Project Components */
@@ -280,11 +296,11 @@ p,
 }
 
 .project-date {
-  @apply font-mono text-xs uppercase tracking-widest text-zinc-500;
+  @apply font-mono text-xs uppercase tracking-wider text-zinc-500;
 }
 
 .project-github-link {
-  @apply font-mono text-xs uppercase tracking-widest text-zinc-500;
+  @apply font-mono text-xs uppercase tracking-wider text-zinc-500;
 }
 
 /* Mobile touch-friendly GitHub links - 48px minimum for Android */
@@ -403,7 +419,7 @@ p,
 
 /* Primary labels - consistent across ALL components */
 .stat-label {
-  @apply text-xs tracking-[0.2em] text-zinc-500 dark:text-zinc-400 font-medium uppercase;
+  @apply font-mono text-xs tracking-wider text-zinc-500 dark:text-zinc-400 font-medium uppercase;
 }
 
 /* Secondary details under main stats */
@@ -458,7 +474,7 @@ p,
 
 /* Deprecated - use .stat-label instead */
 .metric-label {
-  @apply text-xs tracking-[0.2em] text-zinc-500 dark:text-zinc-400 font-medium uppercase;
+  @apply font-mono text-xs tracking-wider text-zinc-500 dark:text-zinc-400 font-medium uppercase;
 }
 
 .status-indicator {

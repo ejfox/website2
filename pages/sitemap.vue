@@ -7,7 +7,7 @@
         <p class="text-zinc-600 dark:text-zinc-400 mt-2">
           Complete navigation of ejfox.com — find everything here
         </p>
-        <p class="text-zinc-500 dark:text-zinc-500 font-mono text-[11px]">
+        <p class="text-zinc-500 dark:text-zinc-500 font-mono text-3xs">
           Updated {{ lastUpdated || 'live' }}
         </p>
       </div>
@@ -186,25 +186,25 @@
             <div class="stat-value">
               {{ totalPosts }}
             </div>
-            <div class="stat-label">Blog Posts</div>
+            <div class="stat-label mt-2">Blog Posts</div>
           </div>
           <div class="stat-card">
             <div class="stat-value">
               {{ totalProjects }}
             </div>
-            <div class="stat-label">Projects</div>
+            <div class="stat-label mt-2">Projects</div>
           </div>
           <div class="stat-card">
             <div class="stat-value">
               {{ totalTags }}
             </div>
-            <div class="stat-label">Tags</div>
+            <div class="stat-label mt-2">Tags</div>
           </div>
           <div class="stat-card">
             <div class="stat-value">
               {{ yearsActive }}
             </div>
-            <div class="stat-label">Years Online</div>
+            <div class="stat-label mt-2">Years Online</div>
           </div>
         </div>
       </section>
@@ -306,7 +306,7 @@ usePageSeo({
 }
 
 .sitemap-section-header {
-  @apply text-xs font-mono uppercase tracking-widest text-zinc-500 mb-4;
+  @apply text-xs font-mono uppercase tracking-wider text-zinc-500 mb-4;
 }
 
 .stat-card {
@@ -315,9 +315,5 @@ usePageSeo({
 
 .stat-value {
   @apply text-2xl font-bold text-zinc-900 dark:text-zinc-100;
-}
-
-.stat-label {
-  @apply text-xs text-zinc-500 mt-2;
 }
 </style>

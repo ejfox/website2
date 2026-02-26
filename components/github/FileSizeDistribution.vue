@@ -72,12 +72,12 @@ const formatSize = (bytes) => {
     </div>
 
     <!-- Direct labels - Tuftian style -->
-    <div class="flex justify-between font-mono text-[10px] text-zinc-500">
+    <div class="flex justify-between font-mono text-3xs text-zinc-500">
       <span>{{ formatSize(Math.min(...sizes)) }}</span>
       <span class="text-right">{{ formatSize(Math.max(...sizes)) }}</span>
     </div>
   </div>
-  <div v-else class="font-mono text-[9px] text-zinc-500 dark:text-zinc-500">
+  <div v-else class="font-mono text-3xs text-zinc-500 dark:text-zinc-500">
     No file data
   </div>
 </template>

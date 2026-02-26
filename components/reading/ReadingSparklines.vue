@@ -55,7 +55,7 @@
             :y="40 - (item.count / maxBooksPerYear) * 35 - 3"
             text-anchor="middle"
             :class="[
-              'font-mono text-[9px] font-bold fill-zinc-900',
+              'font-mono text-3xs font-bold fill-zinc-900',
               'dark:fill-zinc-100',
             ]"
           >
@@ -65,7 +65,7 @@
       </svg>
       <div
         :class="[
-          'font-mono text-[9px] text-zinc-400 dark:text-zinc-600',
+          'font-mono text-3xs text-zinc-400 dark:text-zinc-600',
           'mt-2 flex justify-between',
         ]"
       >
@@ -103,7 +103,7 @@
       </svg>
       <div
         :class="[
-          'font-mono text-[9px] text-zinc-400 dark:text-zinc-600',
+          'font-mono text-3xs text-zinc-400 dark:text-zinc-600',
           'mt-2 flex justify-between',
         ]"
       >
@@ -127,7 +127,7 @@
       </div>
       <div
         :class="[
-          'font-mono text-[9px] text-zinc-400 dark:text-zinc-600',
+          'font-mono text-3xs text-zinc-400 dark:text-zinc-600',
           'mt-2 flex justify-between',
         ]"
       >

@@ -3,7 +3,7 @@
     <!-- Header -->
     <div>
       <div class="font-bold tracking-wider uppercase">Scraps</div>
-      <div class="text-[10px] text-zinc-500 dark:text-zinc-500 space-y-1">
+      <div class="text-3xs text-zinc-500 dark:text-zinc-500 space-y-1">
         <div>
           {{ scraps.length }} items · {{ uniqueTags }} tags ·
           {{ uniqueSources }}
@@ -61,7 +61,7 @@
         <!-- Summary -->
         <div
           v-if="scrap.summary"
-          class="text-[9px] text-zinc-600 dark:text-zinc-400 line-clamp-2 xl:line-clamp-3 break-words"
+          class="text-3xs text-zinc-600 dark:text-zinc-400 line-clamp-2 xl:line-clamp-3 break-words"
         >
           {{ scrap.summary }}
         </div>

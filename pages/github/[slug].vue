@@ -128,13 +128,13 @@ useHead(() => ({
 
       <!-- File size distribution (small multiple) -->
       <div v-if="repo.fileTree?.files" class="max-w-md">
-        <div class="font-mono text-[9px] text-zinc-500 mb-2">File sizes</div>
+        <div class="font-mono text-3xs text-zinc-500 mb-2">File sizes</div>
         <FileSizeDistribution :files="repo.fileTree.files" :buckets="10" />
       </div>
 
       <!-- Related repos -->
       <div v-if="relatedRepos.length > 0" class="space-y-2">
-        <div class="font-mono text-[9px] text-zinc-500 uppercase tracking-wide">
+        <div class="font-mono text-3xs text-zinc-500 uppercase tracking-wider">
           Related repositories
         </div>
         <div class="space-y-0 border-l border-zinc-800 pl-3">
@@ -145,7 +145,7 @@ useHead(() => ({
             class="block font-mono text-xs text-zinc-400 hover:text-zinc-100 py-1"
           >
             {{ related.name }}
-            <span class="text-zinc-600 text-[10px] ml-2">
+            <span class="text-zinc-600 text-3xs ml-2">
               {{ related.language }}
             </span>
           </NuxtLink>
@@ -181,7 +181,7 @@ useHead(() => ({
                   class="language-indicator"
                   :style="{ backgroundColor: repo.languageColor }"
                 ></span>
-                <span class="sidebar-value text-[10px]">
+                <span class="sidebar-value text-3xs">
                   {{ repo.language }}
                 </span>
               </div>
@@ -290,7 +290,7 @@ useHead(() => ({
 }
 
 .sidebar-item {
-  @apply text-[10px] font-mono;
+  @apply text-3xs font-mono;
 }
 
 .language-display {
@@ -314,7 +314,7 @@ useHead(() => ({
 }
 
 .tech-badge {
-  @apply font-mono text-[9px] text-zinc-500;
+  @apply font-mono text-3xs text-zinc-500;
 }
 
 .tech-badge:not(:last-child)::after {
@@ -323,7 +323,7 @@ useHead(() => ({
 }
 
 .github-link {
-  @apply text-[10px] font-mono text-zinc-500;
+  @apply text-3xs font-mono text-zinc-500;
   @apply hover:text-zinc-100;
 }
 

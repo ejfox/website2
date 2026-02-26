@@ -285,7 +285,7 @@ const formatDate = (dateStr) => {
 }
 
 .year-label {
-  @apply text-[10px] font-mono;
+  @apply text-3xs font-mono;
   @apply fill-zinc-400 dark:fill-zinc-600;
 }
 

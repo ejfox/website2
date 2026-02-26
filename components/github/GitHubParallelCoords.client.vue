@@ -275,7 +275,7 @@ const handleMouseLeave = () => {
 }
 
 .tick-label {
-  @apply text-[10px] font-mono;
+  @apply text-3xs font-mono;
   @apply fill-zinc-500 dark:fill-zinc-500;
 }
 

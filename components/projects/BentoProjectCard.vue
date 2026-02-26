@@ -12,7 +12,7 @@
   >
     <div
       v-if="project.metadata?.client"
-      class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-1"
+      class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-1"
     >
       {{ project.metadata.client }}
     </div>

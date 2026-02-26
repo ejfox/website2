@@ -42,7 +42,7 @@ const rows = computed(() => props.rows ?? 4)
 }
 
 .stats-section-title-hover {
-  @apply tracking-[0.24em] font-mono text-zinc-500;
+  @apply tracking-wider font-mono text-zinc-500;
   position: absolute;
   left: 0;
   top: 50%;

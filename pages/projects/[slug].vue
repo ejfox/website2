@@ -134,7 +134,7 @@ onMounted(() => {
     <!-- Metadata and TOC for sidebar -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="space-y-6">
+        <div class="space-y-6 pt-8 pb-4">
           <!-- Project Metadata -->
           <div
             class="space-y-3 pb-6 border-b border-zinc-200 dark:border-zinc-800"
@@ -142,7 +142,7 @@ onMounted(() => {
             <h3 class="label-uppercase-mono text-xs mb-4">Project Info</h3>
 
             <!-- Date -->
-            <div v-if="project.metadata?.date" class="text-sm">
+            <div v-if="project.metadata?.date" class="text-xs">
               <div class="metadata-label">Date</div>
               <time class="tabular-nums text-zinc-900 dark:text-zinc-100">
                 {{ formatLongDate(project.metadata.date) }}
@@ -150,7 +150,7 @@ onMounted(() => {
             </div>
 
             <!-- Tech Stack -->
-            <div v-if="project.metadata?.tech?.length" class="text-sm">
+            <div v-if="project.metadata?.tech?.length" class="text-xs">
               <div class="metadata-label">Tech</div>
               <div class="flex flex-wrap gap-0.5">
                 <span
@@ -164,7 +164,7 @@ onMounted(() => {
             </div>
 
             <!-- GitHub Link -->
-            <div v-if="project.metadata?.github" class="text-sm">
+            <div v-if="project.metadata?.github" class="text-xs">
               <div class="metadata-label">Source</div>
               <a
                 :href="project.metadata.github"
@@ -182,7 +182,7 @@ onMounted(() => {
           <!-- TOC -->
           <div v-if="tocChildren.length > 0" class="toc">
             <h3 class="label-uppercase-mono text-xs mb-4">Contents</h3>
-            <div class="py-4 pl-0 relative">
+            <div class="pl-0 relative">
               <ul class="space-y-0">
                 <li
                   v-for="(child, index) in tocChildren"
@@ -248,8 +248,8 @@ onMounted(() => {
 }
 
 .toc-link {
-  @apply flex items-baseline text-sm transition-all duration-200;
-  @apply no-underline py-2 gap-2;
+  @apply flex items-baseline text-xs transition-all duration-200;
+  @apply no-underline py-1.5 gap-2;
 }
 
 .toc-number {

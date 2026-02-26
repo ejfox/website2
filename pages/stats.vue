@@ -31,7 +31,7 @@
         <div>FOX_STATS</div>
         <div ref="progressRef">{{ displayDayOfYear }}/{{ daysInYear }}</div>
       </div>
-      <div class="text-[10px] text-zinc-500 dark:text-zinc-500 px-2">
+      <div class="text-3xs text-zinc-500 dark:text-zinc-500 px-2">
         Updated {{ statsUpdated || 'live' }} · sources: GitHub, Chess.com,
         Monkeytype, Last.fm, RescueTime
       </div>
@@ -519,7 +519,7 @@
           <ClientOnly>
             <div id="commits-art" class="relative pt-16">
               <div class="text-center mb-8">
-                <h2 class="text-sm font-mono uppercase tracking-widest">
+                <h2 class="text-sm font-mono uppercase tracking-wider">
                   Every commit I have ever made (publicly)
                 </h2>
                 <p class="text-xs text-zinc-500 dark:text-zinc-500 mt-2">

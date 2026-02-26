@@ -10,7 +10,7 @@ usePageSeo({
   <main class="container-main pt-8 max-w-2xl">
     <!-- Header -->
     <header class="section-spacing-lg">
-      <p class="font-mono text-xs text-zinc-500 uppercase tracking-wide mb-3">
+      <p class="font-mono text-xs text-zinc-500 uppercase tracking-wider mb-3">
         Case Study
       </p>
       <h1

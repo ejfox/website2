@@ -713,19 +713,19 @@ usePageSeo({
    TYPOGRAPHY - Labels & Headings
    ============================================ */
 .section-label {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wide mb-6;
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-6;
 }
 
 .section-label-lg {
-  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-8;
+  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider mb-8;
 }
 
 .section-label-sm {
-  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-widest mb-4;
+  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider mb-4;
 }
 
 .hero-label {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wide mb-4;
+  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400 uppercase tracking-wider mb-4;
 }
 
 .hero-title {
@@ -778,10 +778,6 @@ usePageSeo({
    ============================================ */
 .stat-value {
   @apply font-mono text-2xl text-zinc-900 dark:text-zinc-100;
-}
-
-.stat-label {
-  @apply font-mono text-xs text-zinc-500 dark:text-zinc-400;
 }
 
 .price {
@@ -903,7 +899,7 @@ usePageSeo({
 }
 
 .specialty-proof {
-  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wide;
+  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider;
 }
 
 .testimonial-card {
@@ -990,7 +986,7 @@ usePageSeo({
 }
 
 .sidebar-label {
-  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wide;
+  @apply font-mono text-xs text-zinc-400 dark:text-zinc-500 uppercase tracking-wider;
 }
 
 .sidebar-capacity-row {

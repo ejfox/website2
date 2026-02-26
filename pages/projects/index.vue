@@ -157,7 +157,7 @@ useHead(() => ({
       >
         Selected Work
       </h1>
-      <div class="font-mono text-[11px] text-zinc-500 dark:text-zinc-500">
+      <div class="font-mono text-3xs text-zinc-500 dark:text-zinc-500">
         Updated {{ lastUpdated || 'live' }} · sources: project frontmatter + API
       </div>
 

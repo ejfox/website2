@@ -72,7 +72,7 @@ const xScale = computed(() => {
         <text
           :x="105 + xScale(d.count)"
           :y="barHeight * 0.6"
-          class="text-[10px] font-mono fill-zinc-500"
+          class="text-3xs font-mono fill-zinc-500"
         >
           {{ d.count }}
         </text>

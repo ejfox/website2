@@ -4,8 +4,8 @@
   @props tocChildren - array of { slug, text }, activeSection - current section id
 -->
 <template>
-  <div v-if="tocChildren.length > 0" class="toc">
-    <div class="py-4 pl-0 relative">
+  <div v-if="tocChildren.length > 0" class="toc pt-8 pb-4">
+    <div class="pl-0 relative">
       <ul class="space-y-0">
         <li
           v-for="(child, index) in tocChildren"
@@ -15,30 +15,26 @@
           <a
             :href="`#${child.slug}`"
             :class="[
-              'flex items-baseline text-sm transition-all duration-200',
-              'no-underline py-2 gap-2',
+              'flex items-baseline text-3xs font-mono transition-all duration-200',
+              'no-underline py-1 gap-2',
               isActive(child.slug)
-                ? 'text-zinc-900 dark:text-zinc-100 font-medium'
+                ? 'text-zinc-900 dark:text-zinc-100'
                 : [
-                    'text-zinc-600 dark:text-zinc-400',
+                    'text-zinc-500 dark:text-zinc-500',
                     'hover:text-zinc-900 dark:hover:text-zinc-100',
-                    'hover:translate-x-1',
                   ],
             ]"
             @click.prevent="scrollToSection(child.slug)"
           >
             <span
               :class="[
-                'font-mono text-xs tabular-nums w-4 text-right flex-shrink-0',
-                isActive(child.slug) ? 'opacity-70' : 'opacity-40',
+                'tabular-nums w-4 text-right flex-shrink-0',
+                isActive(child.slug) ? 'opacity-70' : 'opacity-30',
               ]"
             >
               {{ String(index + 1).padStart(2, '0') }}
             </span>
-            <span
-              class="font-serif leading-relaxed"
-              :class="isActive(child.slug) ? 'font-medium' : 'font-normal'"
-            >
+            <span class="leading-snug">
               {{ child.text }}
             </span>
           </a>

@@ -360,10 +360,6 @@ usePageSeo({
   font-variant-numeric: tabular-nums;
 }
 
-.stat-label {
-  @apply text-xs uppercase tracking-wide text-zinc-500 dark:text-zinc-500;
-}
-
 .domain-chip {
   @apply text-sm cursor-pointer;
   @apply text-zinc-700 dark:text-zinc-300;

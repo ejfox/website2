@@ -3,7 +3,7 @@
     <!-- Header -->
     <div>
       <div class="font-bold tracking-wider uppercase">Scraps: {{ tag }}</div>
-      <div class="text-[10px] text-zinc-500 dark:text-zinc-500 space-y-1">
+      <div class="text-3xs text-zinc-500 dark:text-zinc-500 space-y-1">
         <div v-if="filteredScraps">{{ filteredScraps.length }} items</div>
       </div>
     </div>
@@ -58,7 +58,7 @@
         <!-- Summary -->
         <div
           v-if="scrap.summary"
-          class="text-[9px] text-zinc-600 dark:text-zinc-400 line-clamp-3"
+          class="text-3xs text-zinc-600 dark:text-zinc-400 line-clamp-3"
         >
           {{ scrap.summary }}
         </div>

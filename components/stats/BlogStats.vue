@@ -9,13 +9,13 @@
     <div class="flex justify-around items-start gap-2 py-2">
       <div class="text-center">
         <div class="text-2xl font-bold">{{ stats.posts.total || 'N/A' }}</div>
-        <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
+        <div class="text-xs text-zinc-500 uppercase tracking-wider mt-2">
           BLOG TOTAL POSTS
         </div>
       </div>
       <div class="text-center">
         <div class="text-2xl font-bold">{{ stats.posts.thisMonth }}</div>
-        <div class="text-xs text-zinc-500 uppercase tracking-widest mt-2">
+        <div class="text-xs text-zinc-500 uppercase tracking-wider mt-2">
           POSTS THIS MONTH
         </div>
       </div>
@@ -25,7 +25,7 @@
     <StatsSectionHeader title="BLOG STATS" />
     <div class="space-y-2">
       <div class="flex items-center justify-between">
-        <span class="text-zinc-500 uppercase tracking-widest text-xs">
+        <span class="text-zinc-500 uppercase tracking-wider text-xs">
           BLOG WORDS THIS MONTH
         </span>
         <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-sm">
@@ -33,7 +33,7 @@
         </span>
       </div>
       <div class="flex items-center justify-between">
-        <span class="text-zinc-500 uppercase tracking-widest text-xs">
+        <span class="text-zinc-500 uppercase tracking-wider text-xs">
           BLOG AVG WORDS/POST
         </span>
         <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-sm">
@@ -41,7 +41,7 @@
         </span>
       </div>
       <div class="flex items-center justify-between">
-        <span class="text-zinc-500 uppercase tracking-widest text-xs">
+        <span class="text-zinc-500 uppercase tracking-wider text-xs">
           BLOG CURRENT MONTH
         </span>
         <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-sm">

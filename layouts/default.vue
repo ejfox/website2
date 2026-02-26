@@ -78,7 +78,7 @@
         </div>
 
         <!-- TOC container - always present for teleport targets -->
-        <div id="nav-toc-container" class="mt-4 font-sans"></div>
+        <div id="nav-toc-container" class="mt-4"></div>
 
         <div v-if="isBlogPost" class="mt-4">
           <NuxtLink
