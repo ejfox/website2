@@ -75,24 +75,44 @@ const socialPlatforms = {
   'arxiv.org': 'cib:arxiv',
 }
 
-const fetchIcon = async (name) => {
+const fetchIcon = async (name, retries = 2) => {
   const cached = iconCache.get(name)
   if (cached) return cached
 
-  try {
-    const res = await fetch(`https://api.iconify.design/${name}.svg`)
-    const svg = await res.text()
-    const processed = svg.replace(
-      '<svg',
-      '<svg class="inline-block w-4 h-4 ml-1 opacity-50 ' +
-        'dark:opacity-75 group-hover:opacity-100 ' +
-        'transition-opacity align-text-bottom"'
-    )
-    iconCache.set(name, processed)
-    return processed
-  } catch {
-    return null
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(`https://api.iconify.design/${name}.svg`)
+      if (!res.ok) {
+        if (attempt < retries) {
+          await new Promise((r) => setTimeout(r, 500 * (attempt + 1)))
+          continue
+        }
+        console.warn(`[remarkEnhanceLinks] Failed to fetch icon ${name}: HTTP ${res.status}`)
+        return null
+      }
+      const svg = await res.text()
+      if (!svg.includes('<svg')) {
+        console.warn(`[remarkEnhanceLinks] Invalid SVG response for ${name}`)
+        return null
+      }
+      const processed = svg.replace(
+        '<svg',
+        '<svg class="inline-block w-4 h-4 ml-1 opacity-50 ' +
+          'dark:opacity-75 group-hover:opacity-100 ' +
+          'transition-opacity align-text-bottom"'
+      )
+      iconCache.set(name, processed)
+      return processed
+    } catch (err) {
+      if (attempt < retries) {
+        await new Promise((r) => setTimeout(r, 500 * (attempt + 1)))
+        continue
+      }
+      console.warn(`[remarkEnhanceLinks] Error fetching icon ${name}: ${err.message}`)
+      return null
+    }
   }
+  return null
 }
 
 export function remarkEnhanceLinks() {
