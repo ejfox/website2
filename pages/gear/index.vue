@@ -102,8 +102,8 @@
             <div
               v-for="c in containerComparison"
               :key="c.name"
-              class="flex-1 flex flex-col items-center group cursor-default"
-              :title="`${c.name}: ${c.items} items, ${c.weight}`"
+              class="flex-1 h-full flex flex-col justify-end items-center group cursor-default"
+              v-tooltip="`${c.name}: ${c.items} items, ${c.weight}`"
             >
               <div
                 class="w-full bg-zinc-300 dark:bg-zinc-600 transition-colors"
@@ -147,17 +147,17 @@
           </div>
           <div class="mt-2">
             <!-- Weight distribution bar -->
-            <div class="flex h-0.5 bg-zinc-900">
+            <div class="flex items-end h-4 bg-zinc-900/30 rounded-sm">
               <div
                 v-for="item in items.slice(0, 20)"
                 :key="item.Name"
-                class="bg-zinc-700"
+                class="bg-zinc-600 h-0.5 hover:h-full hover:bg-zinc-400 transition-all duration-100 cursor-default"
+                v-tooltip="`${item.Name}: ${formatItemWeight(item)}`"
                 :style="{
                   width: `${getWeightPercentage(item, items)}%`,
                   opacity:
                     0.3 + getItemWeightInOunces(item) / getMaxWeight(items),
                 }"
-                :title="`${item.Name}: ${formatItemWeight(item)}`"
               ></div>
             </div>
             <div class="gear-weight-range">
@@ -169,7 +169,7 @@
       </div>
     </div>
 
-    <div class="space-y-12">
+    <div ref="gearReveal" class="space-y-12">
       <section
         v-for="[container, items] in groupedGear"
         :id="container.toLowerCase().replace(/\s+/g, '-')"
@@ -199,7 +199,7 @@
                 :key="i"
                 class="gear-histogram"
                 :style="{ height: `${bucket.height}%` }"
-                :title="`${bucket.count} items: ${bucket.range}`"
+                v-tooltip="`${bucket.count} items: ${bucket.range}`"
               ></div>
             </div>
           </div>
@@ -237,7 +237,7 @@
     <!-- Sidebar teleport -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="pt-8 pb-4 space-y-4">
+        <div class="space-y-4">
           <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
             Containers
           </div>
@@ -294,6 +294,7 @@ const _escapeHtml = (text) => {
 }
 
 const { tocTarget } = useTOC()
+const { revealContainer: gearReveal } = useScrollReveal({ selector: 'tbody tr', staggerDelay: 10, translateY: 3, duration: 120 })
 
 const scrollToContainer = (container) => {
   const id = container.toLowerCase().replace(/\s+/g, '-')

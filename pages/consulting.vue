@@ -998,7 +998,7 @@ usePageSeo({
    SIDEBAR
    ============================================ */
 .sidebar-availability {
-  @apply pt-6 space-y-3;
+  @apply space-y-3;
 }
 
 .sidebar-label {

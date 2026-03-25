@@ -35,6 +35,7 @@ const homepageSchema = computed(() => ({
 }))
 
 const { getPostBySlug, getAllPosts: _getAllPosts } = useProcessedMarkdown()
+const { revealContainer: homeReveal } = useScrollReveal({ selector: ':scope > *', staggerDelay: 40, translateY: 6, duration: 250 })
 
 const { data: indexContent, pending: _indexPending } = await useAsyncData(
   'index-content',
@@ -86,7 +87,7 @@ useHead({
 <template>
   <main class="container-main h-card pt-8">
     <!-- Content -->
-    <div style="max-width: 65ch">
+    <div ref="homeReveal" style="max-width: 65ch">
       <template v-if="indexContent">
         <!-- Data overlay -->
         <div class="mono-xs text-secondary mb-4 tabular">

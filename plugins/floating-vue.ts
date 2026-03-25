@@ -5,8 +5,9 @@ export default defineNuxtPlugin((nuxtApp) => {
   nuxtApp.vueApp.use(FloatingVue, {
     themes: {
       tooltip: {
-        delay: { show: 200, hide: 0 },
-        distance: 8,
+        delay: { show: 300, hide: 0 },
+        distance: 6,
+        placement: 'top',
       },
     },
   })

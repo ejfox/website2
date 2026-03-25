@@ -173,7 +173,7 @@ useHead(() => ({
 
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="sidebar-container pt-8">
+        <div class="sidebar-container">
           <div class="sidebar-section">
             <div v-if="repo.language" class="sidebar-item">
               <div class="language-display">

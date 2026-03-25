@@ -50,7 +50,7 @@
               width: `${difficultyPercentages.easy}%`,
               backgroundColor: '#a1a1aa',
             }"
-            :title="`Easy: ${formatNumber(
+            v-tooltip="`Easy: ${formatNumber(
               stats.submissionStats.easy.count
             )} problems`"
           ></div>
@@ -60,7 +60,7 @@
               width: `${difficultyPercentages.medium}%`,
               backgroundColor: '#71717a',
             }"
-            :title="`Medium: ${formatNumber(
+            v-tooltip="`Medium: ${formatNumber(
               stats.submissionStats.medium.count
             )} problems`"
           ></div>
@@ -70,7 +70,7 @@
               width: `${difficultyPercentages.hard}%`,
               backgroundColor: '#3f3f46',
             }"
-            :title="`Hard: ${formatNumber(
+            v-tooltip="`Hard: ${formatNumber(
               stats.submissionStats.hard.count
             )} problems`"
           ></div>

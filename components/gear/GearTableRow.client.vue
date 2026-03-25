@@ -17,13 +17,14 @@
     <!-- Tabular layout like a spreadsheet row -->
     <div :class="rowGridClasses">
       <!-- Item Name - Primary content, highest contrast -->
-      <div class="col-span-7 truncate" :title="item.Name">
+      <div class="col-span-7 truncate">
         <div class="flex items-center gap-2">
-          <span
-            class="text-zinc-950 dark:text-zinc-50 font-medium tracking-tight"
-          >
-            {{ item.Name }}
-          </span>
+          <div class="inline-flex">
+            <span
+              v-tooltip="item.Notes || null"
+              class="text-zinc-950 dark:text-zinc-50 font-medium tracking-tight"
+            >{{ item.Name }}</span>
+          </div>
 
           <!-- Inline buy link -->
           <a
@@ -41,35 +42,35 @@
             <span
               v-if="itemAge < 365"
               class="text-xs text-zinc-400 dark:text-zinc-600"
-              title="New — less than 1 year old"
+              v-tooltip="'New — less than 1 year old'"
             >
               ✦
             </span>
             <span
               v-else-if="itemAge < 730"
               class="text-xs text-zinc-500 dark:text-zinc-500"
-              title="Broken in — 1-2 years old"
+              v-tooltip="'Broken in — 1-2 years old'"
             >
               ✧
             </span>
             <span
               v-else-if="itemAge < 1095"
               class="text-xs text-zinc-600 dark:text-zinc-400"
-              title="Seasoned — 2-3 years old"
+              v-tooltip="'Seasoned — 2-3 years old'"
             >
               ◈
             </span>
             <span
               v-else-if="itemAge < 1825"
               class="text-xs text-zinc-700 dark:text-zinc-300"
-              title="Weathered — 3-5 years old"
+              v-tooltip="'Weathered — 3-5 years old'"
             >
               ◇
             </span>
             <span
               v-else
               class="text-xs text-zinc-800 dark:text-zinc-200"
-              title="Veteran — 5+ years of service"
+              v-tooltip="'Veteran — 5+ years of service'"
             >
               ◆
             </span>
@@ -78,8 +79,8 @@
       </div>
 
       <!-- Type - Secondary info -->
-      <div class="gear-type-cell" :title="item.Type">
-        <span class="group-hover/type:hidden">
+      <div class="gear-type-cell">
+        <span v-tooltip="item.Type" class="group-hover/type:hidden cursor-default">
           {{ getTypeSymbol(item.Type) }}
         </span>
         <span :class="typeHoverClasses">{{ item.Type || '—' }}</span>
@@ -102,7 +103,6 @@
             :style="{
               height: `${Math.max(2, Math.min(12, weightInGrams / 100))}px`,
             }"
-            :title="`${weightInGrams}g`"
           ></div>
           <span :class="weightTextClasses">{{ weightInGrams }}g</span>
         </div>
@@ -110,12 +110,6 @@
       </div>
     </div>
 
-    <!-- Notes - show on hover, full width -->
-    <div v-if="item.Notes" class="tooltip-slide-up">
-      <p class="note-box">
-        {{ item.Notes }}
-      </p>
-    </div>
   </div>
 </template>
 

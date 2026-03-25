@@ -92,7 +92,7 @@
     <!-- Sidebar teleport -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="pt-8 pb-4 space-y-4">
+        <div class="space-y-4">
           <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
             Graph
           </div>

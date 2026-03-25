@@ -56,7 +56,7 @@
             <a class="u-url" href="https://ejfox.com">ejfox.com</a>
           </span>
           <!-- Main column -->
-          <section class="blog-main-column">
+          <section ref="postsReveal" class="blog-main-column">
             <!-- Error state -->
             <div v-if="postsError" class="error-box">
               <h2 class="font-bold">Failed to Load Blog Posts</h2>
@@ -210,7 +210,7 @@
     <!-- Sidebar teleport -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="pt-8 pb-4 space-y-4">
+        <div class="space-y-4">
           <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
             Archive
           </div>
@@ -264,6 +264,7 @@ import { isValidPost } from '~/composables/usePostFilters'
 const { formatShortDate } = useDateFormat()
 const processedMarkdown = useProcessedMarkdown()
 const { tocTarget } = useTOC()
+const { revealContainer: postsReveal } = useScrollReveal({ selector: 'article, .year-marker', staggerDelay: 15, translateY: 4, duration: 180 })
 
 const activeYear = ref('')
 

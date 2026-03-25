@@ -134,7 +134,7 @@ onMounted(() => {
     <!-- Metadata and TOC for sidebar -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="space-y-6 pt-8 pb-4">
+        <div class="space-y-6">
           <!-- Project Metadata -->
           <div
             class="space-y-3 pb-6 border-b border-zinc-200 dark:border-zinc-800"

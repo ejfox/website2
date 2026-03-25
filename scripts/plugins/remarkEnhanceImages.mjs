@@ -27,13 +27,14 @@ const enhanceImageUrl = (url) => {
   const height = heightMatch ? Number.parseInt(heightMatch[1]) : null
 
   const srcset = [
-    `${base}c_scale,dpr_auto,f_auto,q_auto:good,w_400/${pathPart} 400w`,
-    `${base}c_scale,dpr_auto,f_auto,q_auto:good,w_800/${pathPart} 800w`,
-    `${base}c_scale,dpr_auto,f_auto,q_auto:good,w_1200/${pathPart} 1200w`,
+    `${base}c_scale,f_auto,q_auto:good,w_640/${pathPart} 640w`,
+    `${base}c_scale,f_auto,q_auto:good,w_960/${pathPart} 960w`,
+    `${base}c_scale,f_auto,q_auto:good,w_1280/${pathPart} 1280w`,
+    `${base}c_scale,f_auto,q_auto:good,w_1920/${pathPart} 1920w`,
   ].join(', ')
 
   return {
-    src: `${base}c_scale,dpr_auto,f_auto,q_auto:good,w_800/${pathPart}`,
+    src: `${base}c_scale,f_auto,q_auto:good,w_1280/${pathPart}`,
     srcset,
     sizes: '(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px',
     // Removed blur placeholder - user doesn't want blurred images

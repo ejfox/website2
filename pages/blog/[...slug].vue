@@ -44,6 +44,18 @@ if (post.value?.redirect && route.path !== post.value.redirect) {
 const postDate = computed(() => post.value?.metadata?.date || post.value?.date)
 const { context: temporalContext, hasContext: hasTemporalContext } = useTemporalContext(postDate)
 
+// Tag-matched scraps: "related research" from scrapbook
+const postTags = computed(() => {
+  const tags = post.value?.metadata?.tags || post.value?.tags || []
+  return tags.filter((t) => !t.startsWith('!')).join(',')
+})
+const { data: relatedScraps } = useFetch('/api/scraps/by-tags', {
+  query: { tags: postTags, limit: 5 },
+  watch: [postTags],
+  lazy: true,
+  server: false,
+})
+
 const { data: nextPrevPosts } = await useAsyncData(
   `next-prev-${route.params.slug.join('-')}`,
   () =>
@@ -132,6 +144,21 @@ const articleContent = ref(null)
 const activeSection = ref('')
 const scrollProgress = ref(0)
 const showDebugGrid = ref(false)
+const postLinks = ref([])
+
+// How many links to show — adapt to sidebar fullness
+const visibleLinks = computed(() => {
+  const total = postLinks.value.length
+  if (total < 3) return []
+  const sidebarBusy =
+    (temporalContext.value?.reading?.length || 0) +
+    (temporalContext.value?.predictions?.length || 0) +
+    (temporalContext.value?.scraps?.length || 0) +
+    (relatedScraps.value?.length || 0)
+  // Sparse sidebar: show more links. Busy sidebar: show fewer.
+  const max = sidebarBusy > 4 ? 4 : sidebarBusy > 0 ? 6 : 8
+  return postLinks.value.slice(0, max)
+})
 
 // --- URL & SEO ---
 const baseURL = config.public?.baseURL || 'https://ejfox.com'
@@ -336,7 +363,7 @@ onMounted(() => {
     window.removeEventListener('keydown', handleKeydown)
   })
 
-  // TOC intersection observer
+  // TOC intersection observer + link extraction
   nextTick(() => {
     if (!articleContent.value) return
     const headings = Array.from(
@@ -353,6 +380,86 @@ onMounted(() => {
       heading._stopObserver = stop
     })
     onUnmounted(() => headings.forEach((h) => h._stopObserver?.()))
+
+    // Extract outbound links from post content
+    const anchors = Array.from(articleContent.value.querySelectorAll('a[href]'))
+    const seen = new Set()
+    postLinks.value = anchors
+      .map((a) => {
+        const href = a.getAttribute('href') || ''
+        const text = a.textContent?.trim() || ''
+        return { href, text }
+      })
+      .filter(({ href }) => {
+        // Only external links, skip anchors/internal/duplicate
+        if (!href || href.startsWith('#') || href.startsWith('/') || href.startsWith('mailto:')) return false
+        try {
+          const host = new URL(href).hostname
+          if (host.endsWith('ejfox.com')) return false
+        } catch { return false }
+        if (seen.has(href)) return false
+        seen.add(href)
+        return true
+      })
+      .map(({ href, text }) => {
+        let hostname = ''
+        try { hostname = new URL(href).hostname.replace(/^www\./, '') } catch { /* */ }
+        // Use link text only if it looks like a proper label, not a sentence fragment
+        let label = hostname
+        if (text.length > 0 && text.length <= 50) {
+          const isUrl = text.startsWith('http')
+          const isSentenceFragment = /\s/.test(text) && /^[a-z]/.test(text)
+          const endsWithPunctuation = /[.,;:!]$/.test(text)
+          if (!isUrl && !isSentenceFragment && !endsWithPunctuation) {
+            label = text
+          }
+        }
+        return { href, label, hostname }
+      })
+    // Deduplicate by label, cap at 8
+    const seenLabels = new Set()
+    postLinks.value = postLinks.value
+      .filter(({ label }) => {
+        if (seenLabels.has(label)) return false
+        seenLabels.add(label)
+        return true
+      })
+      .slice(0, 8)
+
+    // Scroll reveal for content elements (headings, images, blockquotes, code)
+    const revealTargets = Array.from(
+      articleContent.value.querySelectorAll('h2, h3, h4, figure, img, blockquote, pre')
+    )
+    if (revealTargets.length) {
+      import('animejs').then(({ animate }) => {
+        const revealSeen = new WeakSet()
+        revealTargets.forEach((el) => {
+          // Only animate elements below the fold
+          if (el.getBoundingClientRect().top < window.innerHeight) return
+          const htmlEl = el
+          htmlEl.style.opacity = '0'
+          htmlEl.style.transform = 'translateY(6px)'
+
+          const obs = new IntersectionObserver(([entry]) => {
+            if (entry.isIntersecting && !revealSeen.has(el)) {
+              revealSeen.add(el)
+              obs.disconnect()
+              animate(htmlEl, {
+                opacity: [0, 1],
+                translateY: [6, 0],
+                duration: 180,
+                ease: 'outQuad',
+                onComplete: () => {
+                  htmlEl.style.opacity = ''
+                  htmlEl.style.transform = ''
+                },
+              })
+            }
+          }, { threshold: 0.01 })
+          obs.observe(el)
+        })
+      })
+    }
   })
 })
 </script>
@@ -508,69 +615,88 @@ onMounted(() => {
       <teleport v-if="tocTarget" to="#nav-toc-container">
         <PostTOC :toc-children="tocChildren" :active-section="activeSection" />
 
-        <!-- Around this time -->
-        <div v-if="hasTemporalContext" class="pt-4 mt-4 border-t border-zinc-800 space-y-3">
-          <div class="font-mono text-3xs uppercase tracking-wider text-zinc-600">
-            Around this time
-          </div>
+        <!-- Contextual sidebar -->
+        <div v-if="hasTemporalContext || relatedScraps?.length || visibleLinks.length" class="mt-4">
 
-          <!-- Reading -->
-          <div v-if="temporalContext?.reading?.length">
-            <div class="font-mono text-3xs text-zinc-600 mb-1">Reading</div>
-            <div class="space-y-1">
+          <template v-if="hasTemporalContext">
+            <div v-if="temporalContext?.reading?.length" class="mb-3">
+              <div class="font-mono text-3xs text-zinc-600 mb-0.5">Reading</div>
               <NuxtLink
                 v-for="book in temporalContext.reading"
                 :key="book.slug"
                 :to="`/reading/${book.slug}`"
-                class="block font-serif text-3xs text-zinc-500 hover:text-zinc-300 transition-colors leading-snug"
+                v-tooltip="book.title"
+                class="block font-serif text-3xs text-zinc-600 leading-snug truncate"
               >
-                {{ book.title?.slice(0, 35) }}{{ book.title?.length > 35 ? '...' : '' }}
+                {{ book.title?.slice(0, 40) }}{{ book.title?.length > 40 ? '…' : '' }}
               </NuxtLink>
             </div>
-          </div>
 
-          <!-- Predictions -->
-          <div v-if="temporalContext?.predictions?.length">
-            <div class="font-mono text-3xs text-zinc-600 mb-1">Predicting</div>
-            <div class="space-y-1">
+            <div v-if="temporalContext?.predictions?.length" class="mb-3">
+              <div class="font-mono text-3xs text-zinc-600 mb-0.5">Predicting</div>
               <NuxtLink
                 v-for="pred in temporalContext.predictions"
                 :key="pred.slug"
                 :to="`/predictions/${pred.slug}`"
-                class="flex gap-1 font-mono text-3xs text-zinc-500 hover:text-zinc-300 transition-colors"
+                v-tooltip="pred.statement"
+                class="flex gap-1 font-mono text-3xs text-zinc-600 leading-snug"
               >
                 <span class="tabular-nums shrink-0">{{ pred.confidence }}%</span>
                 <span
                   v-if="pred.status === 'correct' || pred.status === 'incorrect'"
-                  :class="pred.status === 'correct' ? 'text-green-600' : 'text-red-600'"
+                  :class="pred.status === 'correct' ? 'text-green-700' : 'text-red-700'"
                   class="shrink-0"
-                >
-                  {{ pred.status === 'correct' ? '✓' : '✗' }}
-                </span>
-                <span class="truncate">{{ pred.statement?.slice(0, 30) }}...</span>
+                >{{ pred.status === 'correct' ? '✓' : '✗' }}</span>
+                <span class="truncate">{{ pred.statement?.slice(0, 30) }}…</span>
               </NuxtLink>
             </div>
-          </div>
 
-          <!-- Scraps -->
-          <div v-if="temporalContext?.scraps?.length">
-            <div class="font-mono text-3xs text-zinc-600 mb-1">Saving</div>
-            <div class="space-y-1">
-              <div
+            <div v-if="temporalContext?.scraps?.length" class="mb-3">
+              <div class="font-mono text-3xs text-zinc-600 mb-0.5">Saving</div>
+              <a
                 v-for="(scrap, i) in temporalContext.scraps"
                 :key="i"
-                class="font-mono text-3xs text-zinc-500 leading-snug truncate"
-                :title="scrap.title"
+                :href="scrap.url || undefined"
+                :target="scrap.url ? '_blank' : undefined"
+                rel="noopener noreferrer"
+                class="block font-serif text-3xs text-zinc-600 leading-snug truncate"
+                v-tooltip="scrap.title"
               >
-                {{ scrap.title?.slice(0, 35) }}{{ scrap.title?.length > 35 ? '...' : '' }}
-              </div>
+                {{ scrap.title?.slice(0, 40) }}{{ scrap.title?.length > 40 ? '…' : '' }}
+              </a>
             </div>
+
+            <div v-if="temporalContext?.commits" class="mb-3 font-mono text-3xs text-zinc-700 tabular-nums">
+              {{ temporalContext.commits }} commits that month
+            </div>
+          </template>
+
+          <div v-if="relatedScraps?.length" class="mb-3">
+            <div class="font-mono text-3xs text-zinc-600 mb-0.5">Research</div>
+            <a
+              v-for="(scrap, i) in relatedScraps"
+              :key="i"
+              :href="scrap.url || undefined"
+              :target="scrap.url ? '_blank' : undefined"
+              rel="noopener noreferrer"
+              class="block font-serif text-3xs text-zinc-600 leading-snug truncate"
+              :title="scrap.title"
+            >
+              {{ scrap.title?.slice(0, 40) }}{{ scrap.title?.length > 40 ? '…' : '' }}
+            </a>
           </div>
 
-          <!-- Commits -->
-          <div v-if="temporalContext?.commits" class="font-mono text-3xs tabular-nums">
-            <span class="text-zinc-600">Commits</span>
-            <span class="text-zinc-500 ml-1">{{ temporalContext.commits }} that month</span>
+          <div v-if="visibleLinks.length">
+            <div class="font-mono text-3xs text-zinc-600 mb-0.5">Links <span class="text-zinc-700 tabular-nums">{{ postLinks.length }}</span></div>
+            <a
+              v-for="(link, i) in visibleLinks"
+              :key="i"
+              :href="link.href"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block font-mono text-3xs text-zinc-700 truncate leading-snug"
+              v-tooltip="link.href"
+            >{{ link.label }}</a>
           </div>
         </div>
       </teleport>

@@ -39,8 +39,8 @@
       <nav
         v-if="!isStatsSimple"
         :class="[
-          'hidden md:block sticky w-[200px] shrink-0 h-auto',
-          'left-0 z-50 px-3 py-4 font-mono',
+          'hidden md:block sticky w-[200px] shrink-0',
+          'left-0 z-50 px-3 py-4 font-mono max-h-screen overflow-y-auto',
           isBlogPost ? 'top-10 sm:top-8' : 'top-0',
         ]"
       >
@@ -77,8 +77,8 @@
           </div>
         </div>
 
-        <!-- TOC container - always present for teleport targets -->
-        <div id="nav-toc-container" class="mt-4"></div>
+        <!-- TOC container - padding lives here, teleports contribute zero padding -->
+        <div id="nav-toc-container" class="mt-4 px-2 pt-6 pb-4"></div>
 
         <div v-if="isBlogPost" class="mt-4">
           <NuxtLink
@@ -94,7 +94,7 @@
       <article
         id="main-content"
         :class="[
-          'w-full min-w-0 overflow-x-hidden',
+          'w-full min-w-0 overflow-x-clip',
           isStatsSimple ? '' : 'md:w-4/5',
           isBlogPost ? 'md:pt-10 lg:pt-8' : '',
         ]"

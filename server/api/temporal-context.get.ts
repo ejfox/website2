@@ -123,11 +123,22 @@ export default defineEventHandler(async (event) => {
         .limit(5)
 
       if (scraps?.length) {
-        results.scraps = scraps.map((s) => ({
-          title: s.title || (s.url ? new URL(s.url).hostname : 'Untitled'),
-          tags: (s.tags || []).filter((t: string) => !t.startsWith('!')).slice(0, 3),
-          url: s.url,
-        }))
+        results.scraps = scraps
+          .filter((s) => s.title || s.url) // skip scraps with no title and no URL
+          .map((s) => {
+            // Clean AI-generated title prefixes
+            let title = s.title || ''
+            const aiPrefixes = ['Main Thesis:', 'Breaking News:', 'Summary:', 'The article ', '**Summary', '• ']
+            const isAiTitle = aiPrefixes.some((p) => title.startsWith(p))
+            if (!title || isAiTitle) {
+              try { title = s.url ? new URL(s.url).hostname.replace(/^www\./, '') : 'Untitled' } catch { title = 'Untitled' }
+            }
+            return {
+              title,
+              tags: (s.tags || []).filter((t: string) => !t.startsWith('!')).slice(0, 3),
+              url: s.url,
+            }
+          })
       }
     }
   } catch { /* supabase may not be configured */ }

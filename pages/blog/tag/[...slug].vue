@@ -55,6 +55,15 @@
               </span>
             </span>
             <span class="mx-1 text-zinc-300 dark:text-zinc-700">·</span>
+            <span v-if="tagScraps?.length" class="flex items-center gap-0.5 whitespace-nowrap">
+              <span class="text-zinc-400">SCRAPS</span>
+              <span class="text-zinc-600 dark:text-zinc-300">
+                {{ tagScraps.length }}
+              </span>
+            </span>
+            <template v-if="tagScraps?.length">
+              <span class="mx-1 text-zinc-300 dark:text-zinc-700">&middot;</span>
+            </template>
             <span class="flex items-center gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">TAG</span>
               <span class="text-zinc-600 dark:text-zinc-300 lowercase">
@@ -158,11 +167,44 @@
         </p>
         <NuxtLink to="/blog" class="link-blue">← Back to all posts</NuxtLink>
       </div>
+
+      <!-- Scraps matching this tag -->
+      <div v-if="tagScraps?.length" class="mt-8 pt-6">
+        <div
+          class="section-header-mono mb-3"
+          style="line-height: 16px"
+        >
+          Scraps <span class="text-zinc-400 dark:text-zinc-600 tabular-nums">{{ tagScraps.length }}</span>
+        </div>
+        <div class="space-y-2">
+          <a
+            v-for="(scrap, i) in tagScraps"
+            :key="i"
+            :href="scrap.url || undefined"
+            :target="scrap.url ? '_blank' : undefined"
+            rel="noopener noreferrer"
+            class="block"
+          >
+            <div class="font-serif text-sm text-zinc-600 dark:text-zinc-400 line-clamp-1" style="line-height: 1.3">
+              {{ scrap.title }}
+            </div>
+            <div v-if="scrap.hostname" class="post-metadata">
+              <span>{{ scrap.hostname }}</span>
+              <template v-if="scrap.created_at">
+                <span class="mx-1 text-zinc-300 dark:text-zinc-700">&middot;</span>
+                <span>{{ formatScrapDate(scrap.created_at) }}</span>
+              </template>
+            </div>
+          </a>
+        </div>
+      </div>
     </main>
   </div>
 </template>
 
 <script setup>
+import { format, parseISO } from 'date-fns'
+
 const { formatShortDate } = useDateFormat()
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
@@ -209,6 +251,22 @@ const { data: allPosts } = useAsyncData('all-posts-for-tag', async () => {
     return []
   }
 })
+
+// Fetch scraps matching this tag
+const { data: tagScraps } = useFetch('/api/scraps/by-tags', {
+  query: { tags: tag, limit: 12 },
+  watch: [tag],
+  lazy: true,
+  server: false,
+})
+
+const formatScrapDate = (dateStr) => {
+  try {
+    return format(parseISO(dateStr), 'MMM d, yyyy')
+  } catch {
+    return ''
+  }
+}
 
 // Filter posts by tag
 const filteredPosts = computed(() => {

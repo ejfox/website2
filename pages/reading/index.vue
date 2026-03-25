@@ -54,7 +54,7 @@
       </div>
 
       <!-- Books Grid -->
-      <div v-else-if="books?.length" :class="booksGridClass">
+      <div v-else-if="books?.length" ref="booksReveal" :class="booksGridClass">
         <NuxtLink
           v-for="book in books"
           :key="book.slug"
@@ -126,7 +126,7 @@
     <!-- Sidebar teleport -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="pt-8 pb-4 space-y-4">
+        <div class="space-y-4">
           <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
             Library
           </div>
@@ -138,7 +138,7 @@
             </div>
             <NuxtLink
               :to="`/reading/${currentlyReading.slug}`"
-              class="block font-serif text-xs text-zinc-300 hover:text-zinc-100 transition-colors leading-snug"
+              class="block font-serif text-3xs text-zinc-300 leading-snug"
             >
               {{ currentlyReading.metadata?.['kindle-sync']?.title || currentlyReading.title }}
             </NuxtLink>
@@ -196,6 +196,7 @@
 
 <script setup>
 const { tocTarget } = useTOC()
+const { revealContainer: booksReveal } = useScrollReveal({ selector: ':scope > a', staggerDelay: 12, translateY: 3, duration: 150 })
 
 // Fetch reading list
 const { data: books, pending, error } = await useFetch('/api/reading')

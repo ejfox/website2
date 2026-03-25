@@ -69,7 +69,7 @@ const segments = computed(() => {
           backgroundColor: segment.color,
           width: `${segment.percentage}%`,
         }"
-        :title="`${segment.lang}: ${segment.percentage.toFixed(1)}%`"
+        v-tooltip="`${segment.lang}: ${segment.percentage.toFixed(1)}%`"
       ></div>
     </div>
 
@@ -100,7 +100,12 @@ const segments = computed(() => {
 }
 
 .bar-segment {
-  @apply h-full transition-all duration-300;
+  @apply h-full transition-all duration-100 cursor-default;
+}
+
+.bar-segment:hover {
+  opacity: 1 !important;
+  filter: brightness(1.3);
 }
 
 .labels {

@@ -45,7 +45,7 @@
       </section>
 
       <!-- Active Predictions -->
-      <section v-if="activePredictions.length > 0" data-section="active" class="section-spacing">
+      <section v-if="activePredictions.length > 0" ref="activeReveal" data-section="active" class="section-spacing">
         <h2 class="heading-2 mb-4">Active</h2>
         <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
           <table class="w-full font-mono text-xs border-collapse">
@@ -96,7 +96,7 @@
       </section>
 
       <!-- Resolved Predictions -->
-      <section v-if="resolvedPredictions.length > 0" data-section="resolved" class="section-spacing">
+      <section v-if="resolvedPredictions.length > 0" ref="resolvedReveal" data-section="resolved" class="section-spacing">
         <h2 class="heading-2 mb-4">Resolved</h2>
         <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
           <table class="w-full font-mono text-xs border-collapse">
@@ -220,8 +220,10 @@
               :class="
                 Math.abs(bucket.delta) <= 10 ? 'fill-success' : 'fill-error'
               "
-              class="opacity-80"
-            />
+              class="opacity-80 cursor-default"
+            >
+              <title>{{ bucket.label }}: {{ bucket.accuracy }}% actual (n={{ bucket.count }})</title>
+            </circle>
             <polyline
               :points="calibrationPoints"
               fill="none"
@@ -303,7 +305,7 @@
     <!-- Sidebar teleport -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="pt-8 pb-4 space-y-4">
+        <div class="space-y-4">
           <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
             Track Record
           </div>
@@ -401,6 +403,8 @@
 import { format } from 'date-fns'
 
 const { tocTarget } = useTOC()
+const { revealContainer: activeReveal } = useScrollReveal({ selector: 'tbody tr', staggerDelay: 15, translateY: 3, duration: 150 })
+const { revealContainer: resolvedReveal } = useScrollReveal({ selector: 'tbody tr', staggerDelay: 15, translateY: 3, duration: 150 })
 
 const scrollToEl = (id: string) => {
   const section = document.querySelector(`[data-section="${id}"]`)

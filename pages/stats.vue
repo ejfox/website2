@@ -4,8 +4,8 @@
     <!-- Stats TOC - ClientOnly to fix SSR hydration -->
     <ClientOnly>
       <teleport v-if="tocTarget && !isSimpleMode" to="#nav-toc-container">
-        <div class="pt-8 pb-4">
-          <ul class="space-y-1 font-mono text-xs list-none pl-0">
+        <div>
+          <ul class="space-y-0.5 font-mono text-3xs list-none pl-0">
             <li v-for="section in statsSections" :key="section.id">
               <a
                 :href="`#${section.id}`"

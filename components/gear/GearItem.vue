@@ -8,10 +8,12 @@
   <tr :class="rowClasses">
     <td
       class="px-1 py-0.5 text-zinc-100 truncate max-w-[300px]"
-      :title="item.Name + (item.Notes ? '\n\n' + item.Notes : '')"
     >
       <div class="flex items-center gap-0.5.5">
-        <span class="truncate flex-1 text-3xs">{{ item.Name }}</span>
+        <span
+          v-tooltip="item.Notes"
+          class="truncate flex-1 text-3xs"
+        >{{ item.Name }}</span>
         <span v-if="item.Notes" class="text-zinc-700 text-3xs">•</span>
       </div>
     </td>
@@ -22,7 +24,7 @@
         target="_blank"
         rel="nofollow noopener"
         class="badge-orange-hover"
-        title="Buy on Amazon"
+        v-tooltip="'Buy on Amazon'"
         @click.stop
       >
         BUY

@@ -152,7 +152,7 @@
   <!-- Sidebar teleport -->
   <ClientOnly>
     <Teleport v-if="tocTarget && prediction" to="#nav-toc-container">
-      <div class="pt-8 pb-4 space-y-4">
+      <div class="space-y-4">
         <!-- Confidence display -->
         <div class="space-y-0.5">
           <div class="font-mono text-2xl font-bold tabular-nums text-zinc-100">
