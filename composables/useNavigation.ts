@@ -12,6 +12,7 @@ export const navigationItems: NavItem[] = [
   { label: 'Home', href: '/', primary: true },
   { label: 'Blog', href: '/blog/', primary: true },
   { label: 'Projects', href: '/projects', primary: true },
+  { label: 'Photos', href: '/photos', primary: true },
   { label: 'Hire Me', href: '/consulting', primary: true }, // 💰 Money maker
 ]
 
