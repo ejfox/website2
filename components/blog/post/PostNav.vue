@@ -40,7 +40,7 @@ defineProps<{
 }
 
 .post-nav-link {
-  @apply block p-4 rounded transition-colors;
+  @apply block p-4 rounded transition-colors duration-200;
   @apply hover:bg-zinc-100 dark:hover:bg-zinc-800;
 }
 
@@ -49,10 +49,10 @@ defineProps<{
 }
 
 .post-nav-title {
-  @apply block font-serif text-base text-zinc-800 dark:text-zinc-200;
+  @apply block font-serif text-base text-zinc-800 dark:text-zinc-200 text-pretty transition-colors duration-200;
 }
 
 .nav-date {
-  @apply block text-xs font-mono text-zinc-400 mt-1;
+  @apply block text-xs font-mono text-zinc-400 mt-1 tabular-nums slashed-zero;
 }
 </style>

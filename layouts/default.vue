@@ -94,7 +94,7 @@
       <article
         id="main-content"
         :class="[
-          'w-full overflow-x-auto',
+          'w-full min-w-0 overflow-x-hidden',
           isStatsSimple ? '' : 'md:w-4/5',
           isBlogPost ? 'md:pt-10 lg:pt-8' : '',
         ]"

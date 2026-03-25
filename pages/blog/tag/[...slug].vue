@@ -17,7 +17,7 @@
 
         <!-- Compact metadata bar matching blog posts -->
         <div class="border-b border-zinc-200 dark:border-zinc-800">
-          <div class="metadata-bar">
+          <div class="flex flex-wrap items-center gap-1 px-4 py-2 font-mono text-3xs text-zinc-500 uppercase tracking-wider">
             <span class="flex items-center gap-0.5 whitespace-nowrap">
               <span class="text-zinc-400">ENTRIES</span>
               <span class="text-zinc-600 dark:text-zinc-300">

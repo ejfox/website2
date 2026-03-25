@@ -3,9 +3,9 @@
 <template>
   <div>
     <!-- Top metadata bar - fixed, matching blog posts -->
-    <div class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900">
+    <div class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden">
       <div
-        class="flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-white uppercase tracking-wider"
+        class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-white uppercase tracking-wider"
       >
         <span class="whitespace-nowrap">
           {{ blogStats.postsCount }} entries
@@ -87,7 +87,7 @@
                 :key="post?.slug"
               >
                 <!-- Year marker (inline, only for first post) -->
-                <div v-if="index === 0" class="year-marker leading-[12px]">
+                <div v-if="index === 0" :data-year="year" class="year-marker leading-[12px] scroll-mt-4">
                   {{ year }}
                 </div>
 
@@ -203,103 +203,97 @@
             </div>
           </section>
 
-          <!-- Sidebar sections (simplified) -->
-          <aside class="blog-sidebar">
-            <!-- Data stats footer -->
-            <div class="data-footer">
-              <div>
-                <span class="text-zinc-500">TTL_WORDS</span>
-                <br />
-                <span>{{ blogStats.totalWordsK }}k</span>
-              </div>
-              <div>
-                <span class="text-zinc-500">AVG_POST</span>
-                <br />
-                <span>{{ blogStats.avgWords }}w</span>
-              </div>
-              <div>
-                <span class="text-zinc-500">MEDIA</span>
-                <br />
-                <span>{{ blogStats.totalImages }}img</span>
-              </div>
-            </div>
-            <div class="mt-8 space-y-8">
-              <!-- Week Notes -->
-              <section v-if="sortedWeekNotes.length">
-                <h2 class="section-header-xs">
-                  Week Notes
-                  <span
-                    class="mono-xs text-zinc-400 normal-case tracking-normal"
-                  >
-                    [{{ sortedWeekNotes.length }}]
-                  </span>
-                </h2>
-                <div class="stack-2">
-                  <article
-                    v-for="weekNote in sortedWeekNotes"
-                    :key="weekNote.slug"
-                    class="group"
-                  >
-                    <NuxtLink :to="`/blog/${weekNote.slug}`" class="block">
-                      <div class="card-title">
-                        Week {{ weekNote.slug.split('/')[1] }}
-                      </div>
-                      <p class="font-serif text-xs text-zinc-500">
-                        {{ weekNote.metadata?.dek || weekNote.dek }}
-                      </p>
-                    </NuxtLink>
-                  </article>
-                </div>
-              </section>
-
-              <!-- Recently Updated -->
-              <section v-if="recentlyUpdatedPosts.length">
-                <h2 class="section-header-xs">
-                  Recently Updated
-                  <span
-                    class="mono-xs text-zinc-400 normal-case tracking-normal"
-                  >
-                    [{{ recentlyUpdatedPosts.length }}]
-                  </span>
-                </h2>
-                <div class="stack-2">
-                  <article
-                    v-for="post in recentlyUpdatedPosts"
-                    :key="post.slug"
-                    class="group"
-                  >
-                    <NuxtLink :to="`/blog/${post.slug}`" class="block">
-                      <div class="card-title">
-                        {{ post.title }}
-                      </div>
-                      <div class="mono-xs text-zinc-500">
-                        {{
-                          formatShortDate(
-                            post?.metadata?.lastUpdated ||
-                              post?.metadata?.date ||
-                              post?.date
-                          )
-                        }}
-                      </div>
-                    </NuxtLink>
-                  </article>
-                </div>
-              </section>
-            </div>
-          </aside>
         </div>
       </div>
     </header>
+
+    <!-- Sidebar teleport -->
+    <ClientOnly>
+      <Teleport v-if="tocTarget" to="#nav-toc-container">
+        <div class="pt-8 pb-4 space-y-4">
+          <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
+            Archive
+          </div>
+
+          <!-- Year nav -->
+          <div class="space-y-0.5">
+            <a
+              v-for="year in sortedYears"
+              :key="`nav-${year}`"
+              href="#"
+              class="flex justify-between font-mono text-3xs tabular-nums transition-colors"
+              :class="activeYear === String(year)
+                ? 'text-zinc-100'
+                : 'text-zinc-500 hover:text-zinc-300'"
+              @click.prevent="scrollToYear(year)"
+            >
+              <span>{{ year }}</span>
+              <span class="text-zinc-600">{{ blogPostsByYear[year]?.length }}</span>
+            </a>
+          </div>
+
+          <!-- Totals -->
+          <div class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums">
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Posts</span>
+              <span class="text-zinc-300">{{ blogStats.postsCount }}</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Words</span>
+              <span class="text-zinc-300">{{ blogStats.totalWordsK }}K</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Read time</span>
+              <span class="text-zinc-300">{{ blogStats.totalReadHours }}hr</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Avg post</span>
+              <span class="text-zinc-300">{{ blogStats.avgWords }} words</span>
+            </div>
+          </div>
+        </div>
+      </Teleport>
+    </ClientOnly>
   </div>
 </template>
 
 <script setup>
-import { subMonths, startOfWeek } from '~/utils/dateUtils'
 import { formatNumber } from '~/composables/useNumberFormat'
 import { isValidPost } from '~/composables/usePostFilters'
 
 const { formatShortDate } = useDateFormat()
 const processedMarkdown = useProcessedMarkdown()
+const { tocTarget } = useTOC()
+
+const activeYear = ref('')
+
+const scrollToYear = (year) => {
+  const el = document.querySelector(`[data-year="${year}"]`)
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
+// Track which year is in view
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeYear.value = entry.target.getAttribute('data-year') || ''
+        }
+      })
+    },
+    { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
+  )
+
+  // Observe year markers after data loads
+  watch(sortedYears, () => {
+    nextTick(() => {
+      document.querySelectorAll('[data-year]').forEach((el) => observer.observe(el))
+    })
+  }, { immediate: true })
+
+  onBeforeUnmount(() => observer.disconnect())
+})
 
 // Helper functions
 const formatTitle = (slug) => {
@@ -361,30 +355,6 @@ const { data: posts, error: postsError } = useAsyncData(
       return result.filter((post) => isValidPost(post)).map(processPost)
     } catch (err) {
       console.error('Error in blog index:', err)
-      return []
-    }
-  }
-)
-
-const { data: notes, error: _notesError } = useAsyncData(
-  'week-notes',
-  async () => {
-    try {
-      const result = await processedMarkdown.getAllPosts(false, true)
-      return (
-        result
-          ?.filter((post) => isValidPost(post, true))
-          .map((note) => ({
-            ...note,
-            metadata: note?.metadata || {},
-            slug: note?.slug || note?.metadata?.slug,
-            dek: note?.dek || note?.metadata?.dek,
-            date: note?.date || note?.metadata?.date,
-            type: note?.type || note?.metadata?.type || 'weekNote',
-          })) || []
-      )
-    } catch (err) {
-      console.error('Error fetching week notes:', err)
       return []
     }
   }
@@ -535,42 +505,6 @@ const _monthlyActivity = computed(() => {
   return result
 })
 
-const sortedWeekNotes = computed(() => {
-  if (!notes.value) return []
-
-  const eightWeeksAgo = new Date()
-  eightWeeksAgo.setDate(eightWeeksAgo.getDate() - 56) // 8 weeks
-
-  return notes.value
-    .map((note) => {
-      const processedNote = { ...note }
-      const weekMatch = note?.slug?.match(/(\d{4})-(\d{2})/)
-
-      if (weekMatch) {
-        const [, year, week] = weekMatch
-        const date = startOfWeek(new Date(+year, 0, 1), { weekStartsOn: 1 })
-        processedNote.actualDate = new Date(
-          date.setDate(date.getDate() + (+week - 1) * 7)
-        )
-      } else {
-        const noteDate = note?.date || note?.metadata?.date
-        if (noteDate) processedNote.actualDate = new Date(noteDate)
-      }
-      return processedNote
-    })
-    .filter(
-      (note) =>
-        note?.actualDate &&
-        note?.actualDate > eightWeeksAgo &&
-        note?.slug &&
-        (note?.dek || note?.metadata?.dek) &&
-        !note?.hidden &&
-        !note?.metadata?.hidden
-    )
-    .sort((a, b) => b.actualDate - a.actualDate)
-    .slice(0, 4)
-})
-
 const blogPostsByYear = computed(() => {
   if (!posts.value?.length) return {}
 
@@ -602,47 +536,6 @@ const sortedYears = computed(() => {
   return Object.keys(years).sort((a, b) => b - a)
 })
 
-const recentlyUpdatedPosts = computed(() => {
-  if (!posts.value) return []
-  const oneMonthAgo = subMonths(new Date(), 1)
-  return [...posts.value]
-    .filter((post) => {
-      const metadata = post?.metadata || post
-      return (
-        !metadata?.hidden &&
-        !metadata?.draft &&
-        new Date(metadata?.lastUpdated || metadata?.date) > oneMonthAgo
-      )
-    })
-    .sort((a, b) => {
-      const metaA = a?.metadata || a
-      const metaB = b?.metadata || b
-      return (
-        new Date(metaB?.lastUpdated || metaB?.date) -
-        new Date(metaA?.lastUpdated || metaA?.date)
-      )
-    })
-    .slice(0, 5)
-})
-
-const _blogPosts = computed(() => posts.value || [])
-
-const _createPostMetadata = (post) => {
-  const metadata = post?.metadata || {}
-  return {
-    title: post?.title || metadata?.title,
-    slug: post?.slug || metadata?.slug,
-    date: post?.date || metadata?.date,
-    tags: post?.tags || metadata?.tags,
-    draft: post?.draft || metadata?.draft,
-    words: post?.words || metadata?.words,
-    images: post?.images || metadata?.images,
-    links: post?.links || metadata?.links,
-    dek: post?.dek || metadata?.dek,
-    metadata,
-  }
-}
-
 // Blog description paragraph styling
 const blogDescriptionClass =
   'font-serif text-base md:text-lg text-zinc-600 ' +
@@ -651,33 +544,22 @@ const blogDescriptionClass =
 // Post dek paragraph styling
 const postDekClass =
   'font-serif text-sm text-zinc-600 dark:text-zinc-400 ' +
-  'mt-0.5 p-summary leading-[1.4]'
+  'mt-0.5 p-summary leading-[1.4] line-clamp-2 hyphens-auto'
 </script>
 
 <style scoped>
 .blog-title {
-  @apply font-serif font-light mb-2.5 tracking-tight;
+  @apply font-serif font-light mb-2.5 tracking-tight text-balance;
   @apply leading-[1.1];
   @apply text-3xl md:text-4xl lg:text-5xl;
 }
 
 .blog-grid {
   @apply relative px-4 sm:px-6;
-  @apply lg:grid lg:grid-cols-12 lg:gap-16 xl:gap-20;
 }
 
 .blog-main-column {
   @apply max-w-3xl;
-  @apply lg:max-w-none lg:col-span-8 lg:min-w-0;
-  @apply lg:pt-2 lg:pr-14 xl:pr-20;
-}
-
-.blog-sidebar {
-  @apply mt-8 pt-4 border-t;
-  @apply border-zinc-200 dark:border-zinc-800;
-  @apply lg:mt-0 lg:pt-2 lg:border-t-0 lg:col-span-4;
-  @apply lg:sticky lg:top-24 lg:min-w-[260px];
-  @apply lg:pl-12 xl:pl-16;
 }
 
 .error-box {

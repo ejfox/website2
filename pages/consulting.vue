@@ -1,7 +1,7 @@
 <!-- eslint-disable max-len, vue/max-len -->
 <script setup lang="ts">
 /* eslint-disable max-len */
-import { useDark, useWindowScroll, useWindowSize } from '@vueuse/core'
+import { useDark, useElementVisibility, useWindowScroll, useWindowSize } from '@vueuse/core'
 
 // ============================================
 // VIDEO BACKGROUND CONFIG - TWEAK THESE
@@ -143,6 +143,10 @@ const { data: stats } = useLazyFetch('/api/stats', {
 
 const githubRepos = computed(() => stats.value?.github?.stats?.totalRepos || 0)
 
+// Track when #book section is visible — hide floating CTA
+const bookSection = ref<HTMLElement | null>(null)
+const bookVisible = useElementVisibility(bookSection)
+
 // Sidebar teleport target
 const tocTarget = ref<Element | null>(null)
 
@@ -246,25 +250,25 @@ const specialties = [
   {
     title: 'Rapid Prototyping',
     description:
-      'Napkin sketch to working demo. That moment when it first works? Never gets old.',
-    proof: 'NBC Big Board: weekend prototype → 19M viewers.',
+      'Napkin sketch Monday, working demo Friday. That moment when it first works? Never gets old.',
+    proof: 'NBC Big Board: weekend hack → 19M viewers on air.',
   },
   {
     title: 'Newsroom Tools',
     description:
-      'Small teams doing important work deserve better tools. Systems that make hard things easier.',
+      'Small teams doing important work deserve sharp tools. I build the systems that make impossible deadlines survivable.',
     proof: 'Vocativ, Gothamist, Dataproofer, ASU Newswell.',
   },
   {
     title: 'AI Integration',
     description:
-      'Not the hype-y kind. Wired into actual workflows, actually helping people.',
+      'Not the hype-y kind. I wire models into real workflows where they actually save people time. Heavy Claude, heavy local.',
     proof: 'ASU Lenfest Fellow. Shipping in newsrooms now.',
   },
   {
     title: 'Live Systems',
     description:
-      'When millions are watching and it has to work. I stay until it does.',
+      'Election nights, breaking news, live television. When millions are watching and it has to work, I stay until it does.',
     proof: 'CMU COVIDcast, NBC elections, investigations.',
   },
 ]
@@ -272,7 +276,7 @@ const specialties = [
 usePageSeo({
   title: 'Consulting · EJ Fox',
   description:
-    "The person you call when there's no margin for error. Mission-critical software for election nights, breaking news, and live television. 19M viewers, zero crashes.",
+    "I ship fast, bend computers toward hard problems, and don't stop until it works. Prototypes, newsroom tools, AI integration, live systems. 19M viewers, zero crashes.",
   type: 'website',
   section: 'Consulting',
   tags: ['Consulting', 'Data Visualization', 'Elections', 'Journalism'],
@@ -308,9 +312,9 @@ usePageSeo({
           I love making computers do things no one's seen before.
         </h1>
         <p class="body-lg mb-4">
-          Biotech prototypes, journalism tools, climate dashboards, transit
-          sims, police accountability trackers, AI experiments. Zero to one.
-          Making ideas exist that didn't before.
+          Newsroom tools, climate dashboards, police accountability trackers,
+          AI experiments, biotech prototypes. Zero to one. The thing that
+          didn't exist Tuesday is demoing Friday.
         </p>
         <p class="caption">
           The world is editable. Let's see what we can make.
@@ -345,9 +349,8 @@ usePageSeo({
       <!-- Credentials -->
       <section class="section">
         <p class="body-lg mb-6">
-          I believe the world is editable&mdash;that most systems can be
-          improved by someone willing to look closely and prototype quickly.
-          That belief has led me to work across newsrooms
+          I write code fast, think in prototypes, and don't stop until it
+          ships. That's taken me through newsrooms
           <span class="aside">(NBC News, Washington Post, Gothamist)</span>
           , design studios
           <span class="aside">(Stamen)</span>
@@ -357,8 +360,8 @@ usePageSeo({
           <span class="aside">(Climate TRACE, Earth Genome)</span>
           , foundations
           <span class="aside">(Knight)</span>
-          , and companies I can't name. The common thread: people with a hunch
-          something could be better.
+          , and companies I can't name. The common thread: people with a hard
+          problem and not enough time.
         </p>
         <div class="grid grid-cols-3 gap-6 text-center py-6 divider-y">
           <div>
@@ -472,8 +475,8 @@ usePageSeo({
             <div>
               <p class="process-title">We talk</p>
               <p class="process-desc">
-                You tell me what you're trying to do. I ask questions. We figure
-                out if I'm the right fit.
+                You tell me what you're trying to build. I ask hard questions.
+                We figure out if I'm the right person to make it real.
               </p>
             </div>
           </div>
@@ -501,9 +504,8 @@ usePageSeo({
             <div>
               <p class="process-title">Build</p>
               <p class="process-desc">
-                Weekly calls, async demo videos, early prototypes. Slack or
-                Discord over email. I'll be with you the entire way until it
-                ships.
+                Async demo videos, early prototypes, Slack over email.
+                You'll see working code before you expect to.
               </p>
             </div>
           </div>
@@ -563,6 +565,7 @@ usePageSeo({
             <p class="faq-question">Tech stack?</p>
             <p class="faq-answer">
               TypeScript, Vue/Nuxt, D3.js, Node, MapLibre. Heavy AI tooling.
+              Neovim on Sundays.
             </p>
           </div>
           <div>
@@ -580,14 +583,15 @@ usePageSeo({
           <div>
             <p class="faq-question">Can you start sooner?</p>
             <p class="faq-answer">
-              Probably not. Small client load = real attention. But let's talk.
+              Maybe. I keep the client list small so everyone gets real
+              attention. But I move fast once we start.
             </p>
           </div>
         </div>
       </section>
 
       <!-- Book a Call -->
-      <section id="book" class="section scroll-mt-24">
+      <section id="book" ref="bookSection" class="section scroll-mt-24">
         <p class="section-label-lg">Let's talk</p>
         <p class="caption mb-6">
           60 min · No pitch · Figuring out if I can help
@@ -605,6 +609,18 @@ usePageSeo({
         </p>
       </footer>
     </main>
+
+    <!-- Floating CTA - visible between hero and booking section -->
+    <Transition name="cta-fade">
+      <a
+        v-if="scrollY > 600 && !bookVisible"
+        href="#book"
+        class="floating-cta"
+      >
+        <span class="floating-cta-text">Book a call</span>
+        <span class="floating-cta-sub">60 min &middot; Free</span>
+      </a>
+    </Transition>
 
     <!-- Sidebar: Availability + CTA -->
     <ClientOnly>
@@ -1016,5 +1032,46 @@ usePageSeo({
   .cal-inline-embed {
     @apply min-h-[600px];
   }
+}
+
+/* ============================================
+   FLOATING CTA
+   ============================================ */
+.floating-cta {
+  @apply fixed bottom-6 right-6 z-50
+         flex flex-col items-end gap-0.5
+         px-4 py-2.5
+         bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm
+         border border-zinc-200 dark:border-zinc-700
+         font-mono text-xs
+         shadow-sm
+         transition-all duration-300 ease-out
+         hover:border-zinc-400 dark:hover:border-zinc-500
+         hover:shadow-md;
+  text-decoration: none;
+}
+
+.floating-cta-text {
+  @apply text-zinc-800 dark:text-zinc-200 tracking-wider uppercase;
+}
+
+.floating-cta-sub {
+  @apply text-zinc-400 dark:text-zinc-500 text-[10px] tracking-normal;
+}
+
+/* Transition */
+.cta-fade-enter-active {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.cta-fade-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.cta-fade-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.cta-fade-leave-to {
+  opacity: 0;
+  transform: translateY(4px);
 }
 </style>

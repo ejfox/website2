@@ -5,7 +5,7 @@
 -->
 <template>
   <div
-    class="flex items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-white uppercase tracking-wider"
+    class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-white uppercase tracking-wider"
   >
     <span class="whitespace-nowrap">{{ formattedDate }}</span>
     <span class="text-zinc-600">·</span>

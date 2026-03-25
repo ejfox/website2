@@ -40,6 +40,10 @@ if (post.value?.redirect && route.path !== post.value.redirect) {
   navigateTo(post.value.redirect, { replace: true })
 }
 
+// Temporal cross-reference: "around this time" context (must be after post fetch)
+const postDate = computed(() => post.value?.metadata?.date || post.value?.date)
+const { context: temporalContext, hasContext: hasTemporalContext } = useTemporalContext(postDate)
+
 const { data: nextPrevPosts } = await useAsyncData(
   `next-prev-${route.params.slug.join('-')}`,
   () =>
@@ -371,7 +375,7 @@ onMounted(() => {
     <!-- Top metadata bar - above everything -->
     <div
       v-if="post && !post.redirect"
-      class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900"
+      class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
     >
       <PostMetadataBar
         :date="post?.metadata?.date || post?.date"
@@ -387,7 +391,7 @@ onMounted(() => {
     </div>
 
     <!-- Reading progress bar -->
-    <div v-if="post && !post.redirect" class="progress-bar">
+    <div v-if="post && !post.redirect" class="progress-bar print:hidden">
       <div class="progress-inner" :style="`width: ${scrollProgress}%`"></div>
     </div>
 
@@ -407,7 +411,7 @@ onMounted(() => {
       <div class="pt-3 pb-2">
         <h1
           v-if="postTitle"
-          class="post-title-hero text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-black"
+          class="post-title-hero text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-balance print:text-4xl"
           style="line-height: 1.1; letter-spacing: -0.03em"
           v-html="renderedTitle"
         ></h1>
@@ -466,20 +470,24 @@ onMounted(() => {
         </div>
       </div>
 
+      <!-- Consulting CTA -->
+      <BlogConsultingCTA class="print:hidden" />
+
       <!-- Navigation -->
       <PostNav
+        class="print:hidden"
         :prev-post="nextPrevPosts?.prev"
         :next-post="nextPrevPosts?.next"
       />
 
       <!-- Related Posts -->
-      <PostRelated :related-posts="relatedPosts" />
+      <PostRelated class="print:hidden" :related-posts="relatedPosts" />
 
       <!-- Tip jar -->
-      <BlogTipJar v-if="!post.metadata?.noTips" />
+      <BlogTipJar v-if="!post.metadata?.noTips" class="print:hidden" />
 
       <!-- Webmentions -->
-      <Webmentions :url="postUrl" />
+      <Webmentions class="print:hidden" :url="postUrl" />
     </article>
 
     <div v-else-if="error" class="p-8 text-center">
@@ -495,10 +503,76 @@ onMounted(() => {
       <p class="text-xl text-zinc-600 dark:text-zinc-400">Loading...</p>
     </div>
 
-    <!-- Sidebar TOC -->
+    <!-- Sidebar TOC + Temporal Context -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">
         <PostTOC :toc-children="tocChildren" :active-section="activeSection" />
+
+        <!-- Around this time -->
+        <div v-if="hasTemporalContext" class="pt-4 mt-4 border-t border-zinc-800 space-y-3">
+          <div class="font-mono text-3xs uppercase tracking-wider text-zinc-600">
+            Around this time
+          </div>
+
+          <!-- Reading -->
+          <div v-if="temporalContext?.reading?.length">
+            <div class="font-mono text-3xs text-zinc-600 mb-1">Reading</div>
+            <div class="space-y-1">
+              <NuxtLink
+                v-for="book in temporalContext.reading"
+                :key="book.slug"
+                :to="`/reading/${book.slug}`"
+                class="block font-serif text-3xs text-zinc-500 hover:text-zinc-300 transition-colors leading-snug"
+              >
+                {{ book.title?.slice(0, 35) }}{{ book.title?.length > 35 ? '...' : '' }}
+              </NuxtLink>
+            </div>
+          </div>
+
+          <!-- Predictions -->
+          <div v-if="temporalContext?.predictions?.length">
+            <div class="font-mono text-3xs text-zinc-600 mb-1">Predicting</div>
+            <div class="space-y-1">
+              <NuxtLink
+                v-for="pred in temporalContext.predictions"
+                :key="pred.slug"
+                :to="`/predictions/${pred.slug}`"
+                class="flex gap-1 font-mono text-3xs text-zinc-500 hover:text-zinc-300 transition-colors"
+              >
+                <span class="tabular-nums shrink-0">{{ pred.confidence }}%</span>
+                <span
+                  v-if="pred.status === 'correct' || pred.status === 'incorrect'"
+                  :class="pred.status === 'correct' ? 'text-green-600' : 'text-red-600'"
+                  class="shrink-0"
+                >
+                  {{ pred.status === 'correct' ? '✓' : '✗' }}
+                </span>
+                <span class="truncate">{{ pred.statement?.slice(0, 30) }}...</span>
+              </NuxtLink>
+            </div>
+          </div>
+
+          <!-- Scraps -->
+          <div v-if="temporalContext?.scraps?.length">
+            <div class="font-mono text-3xs text-zinc-600 mb-1">Saving</div>
+            <div class="space-y-1">
+              <div
+                v-for="(scrap, i) in temporalContext.scraps"
+                :key="i"
+                class="font-mono text-3xs text-zinc-500 leading-snug truncate"
+                :title="scrap.title"
+              >
+                {{ scrap.title?.slice(0, 35) }}{{ scrap.title?.length > 35 ? '...' : '' }}
+              </div>
+            </div>
+          </div>
+
+          <!-- Commits -->
+          <div v-if="temporalContext?.commits" class="font-mono text-3xs tabular-nums">
+            <span class="text-zinc-600">Commits</span>
+            <span class="text-zinc-500 ml-1">{{ temporalContext.commits }} that month</span>
+          </div>
+        </div>
       </teleport>
     </ClientOnly>
   </div>
@@ -511,6 +585,7 @@ onMounted(() => {
 }
 .progress-inner {
   @apply h-full bg-white/60;
+  transition: width 75ms ease-out;
 }
 
 /* Tags */
@@ -563,6 +638,7 @@ onMounted(() => {
   --code-size: 1rem;
   --code-line: 1.5rem;
   @apply font-serif;
+  font-variant-numeric: oldstyle-nums;
 }
 
 @media (min-width: 640px) {
@@ -631,7 +707,7 @@ onMounted(() => {
 }
 
 .blog-post-content h2 {
-  @apply font-serif font-normal max-w-prose;
+  @apply font-serif font-normal max-w-prose text-balance;
   font-size: var(--h2-size);
   line-height: var(--h2-line);
   margin-top: var(--h2-margin-top);
@@ -640,7 +716,7 @@ onMounted(() => {
 }
 
 .blog-post-content h3 {
-  @apply font-serif font-normal max-w-prose;
+  @apply font-serif font-normal max-w-prose text-balance;
   font-size: var(--h3-size);
   line-height: var(--h3-line);
   margin-top: 3rem;
@@ -665,7 +741,7 @@ onMounted(() => {
 }
 
 .blog-post-content blockquote {
-  @apply italic border-l-4 border-zinc-300 dark:border-zinc-700 max-w-prose;
+  @apply italic border-l-4 border-zinc-300 dark:border-zinc-700 max-w-prose text-pretty;
   font-size: var(--body-size);
   line-height: var(--body-line);
   margin: 1rem 0;
@@ -716,12 +792,11 @@ onMounted(() => {
 }
 
 .blog-post-content a {
-  @apply text-zinc-700 dark:text-zinc-300 underline;
-  text-underline-offset: 2px;
+  @apply text-zinc-700 dark:text-zinc-300 underline underline-offset-2 decoration-1 decoration-zinc-400/40 dark:decoration-zinc-500/40 transition-colors duration-150;
 }
 
 .blog-post-content a:hover {
-  @apply text-zinc-900 dark:text-zinc-100;
+  @apply text-zinc-900 dark:text-zinc-100 decoration-zinc-600 dark:decoration-zinc-300;
 }
 
 .blog-post-content .external-link {
@@ -780,6 +855,17 @@ onMounted(() => {
   }
   100% {
     opacity: 0.85;
+  }
+}
+
+/* Reduced motion: skip typing animation, hide cursor */
+@media (prefers-reduced-motion: reduce) {
+  .post-title-hero .typing-char {
+    opacity: 1 !important;
+    transition: none;
+  }
+  .post-title-hero .cursor {
+    display: none;
   }
 }
 

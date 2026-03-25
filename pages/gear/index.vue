@@ -234,6 +234,46 @@
         </div>
       </section>
     </div>
+    <!-- Sidebar teleport -->
+    <ClientOnly>
+      <Teleport v-if="tocTarget" to="#nav-toc-container">
+        <div class="pt-8 pb-4 space-y-4">
+          <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
+            Containers
+          </div>
+
+          <!-- Container list as TOC -->
+          <div class="space-y-0.5">
+            <a
+              v-for="[container, items] in groupedGear"
+              :key="`nav-${container}`"
+              :href="`#${container.toLowerCase().replace(/\s+/g, '-')}`"
+              class="flex justify-between font-mono text-3xs tabular-nums text-zinc-500 hover:text-zinc-300 transition-colors"
+              @click.prevent="scrollToContainer(container)"
+            >
+              <span class="truncate mr-2">{{ container }}</span>
+              <span class="text-zinc-600 whitespace-nowrap">{{ formatWeight(items) }}</span>
+            </a>
+          </div>
+
+          <!-- Totals -->
+          <div class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums">
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Items</span>
+              <span class="text-zinc-300">{{ totalItems }}</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Total</span>
+              <span class="text-zinc-300">{{ displayTotalWeight.value }}</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Bags</span>
+              <span class="text-zinc-300">{{ containerCount }}</span>
+            </div>
+          </div>
+        </div>
+      </Teleport>
+    </ClientOnly>
   </main>
 </template>
 
@@ -251,6 +291,14 @@ const _escapeHtml = (text) => {
     "'": '&#039;',
   }
   return String(text).replace(/[&<>"']/g, (m) => map[m])
+}
+
+const { tocTarget } = useTOC()
+
+const scrollToContainer = (container) => {
+  const id = container.toLowerCase().replace(/\s+/g, '-')
+  const el = document.getElementById(id)
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
 const { calculateTotalWeight, calculateAverageWeight, getItemWeightInOunces } =

@@ -122,10 +122,81 @@
         </p>
       </div>
     </div>
+
+    <!-- Sidebar teleport -->
+    <ClientOnly>
+      <Teleport v-if="tocTarget" to="#nav-toc-container">
+        <div class="pt-8 pb-4 space-y-4">
+          <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
+            Library
+          </div>
+
+          <!-- Currently reading (most recently annotated) -->
+          <div v-if="currentlyReading" class="space-y-1">
+            <div class="font-mono text-3xs text-zinc-600 uppercase tracking-wider">
+              Last Read
+            </div>
+            <NuxtLink
+              :to="`/reading/${currentlyReading.slug}`"
+              class="block font-serif text-xs text-zinc-300 hover:text-zinc-100 transition-colors leading-snug"
+            >
+              {{ currentlyReading.metadata?.['kindle-sync']?.title || currentlyReading.title }}
+            </NuxtLink>
+            <div class="font-mono text-3xs text-zinc-500">
+              {{ currentlyReading.metadata?.['kindle-sync']?.author }}
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums">
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Books</span>
+              <span class="text-zinc-300">{{ books?.length || 0 }}</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Highlights</span>
+              <span class="text-zinc-300">{{ totalHighlights }}</span>
+            </div>
+            <div v-if="avgHighlights > 0" class="flex justify-between">
+              <span class="text-zinc-500">Avg/book</span>
+              <span class="text-zinc-300">{{ avgHighlights }}</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Updated</span>
+              <span class="text-zinc-300">{{ lastUpdated }}</span>
+            </div>
+          </div>
+
+          <!-- Top highlighted books -->
+          <div v-if="topHighlighted.length > 0">
+            <div class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-1.5">
+              Most Highlighted
+            </div>
+            <div class="space-y-1">
+              <NuxtLink
+                v-for="book in topHighlighted"
+                :key="book.slug"
+                :to="`/reading/${book.slug}`"
+                class="flex justify-between font-mono text-3xs text-zinc-500 hover:text-zinc-300 transition-colors"
+              >
+                <span class="truncate mr-2">
+                  {{ (book.metadata?.['kindle-sync']?.title || book.title)?.slice(0, 25) }}
+                </span>
+                <span class="text-zinc-600 whitespace-nowrap">
+                  {{ book.metadata?.['kindle-sync']?.highlightsCount }}
+                </span>
+              </NuxtLink>
+            </div>
+          </div>
+        </div>
+      </Teleport>
+    </ClientOnly>
   </div>
 </template>
 
 <script setup>
+const { tocTarget } = useTOC()
+
 // Fetch reading list
 const { data: books, pending, error } = await useFetch('/api/reading')
 
@@ -158,6 +229,31 @@ const lastUpdated = computed(() => {
   if (dates.length === 0) return 'Unknown'
 
   return formatDate(dates[dates.length - 1])
+})
+
+const avgHighlights = computed(() => {
+  if (!books.value?.length || !totalHighlights.value) return 0
+  return Math.round(totalHighlights.value / books.value.length)
+})
+
+const currentlyReading = computed(() => {
+  if (!books.value?.length) return null
+  return [...books.value].sort((a, b) => {
+    const aDate = a.metadata?.['kindle-sync']?.lastAnnotatedDate || ''
+    const bDate = b.metadata?.['kindle-sync']?.lastAnnotatedDate || ''
+    return bDate.localeCompare(aDate)
+  })[0]
+})
+
+const topHighlighted = computed(() => {
+  if (!books.value?.length) return []
+  return [...books.value]
+    .filter((b) => b.metadata?.['kindle-sync']?.highlightsCount > 0)
+    .sort((a, b) =>
+      (b.metadata?.['kindle-sync']?.highlightsCount || 0) -
+      (a.metadata?.['kindle-sync']?.highlightsCount || 0)
+    )
+    .slice(0, 5)
 })
 
 // SEO

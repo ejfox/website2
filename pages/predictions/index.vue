@@ -45,7 +45,7 @@
       </section>
 
       <!-- Active Predictions -->
-      <section v-if="activePredictions.length > 0" class="section-spacing">
+      <section v-if="activePredictions.length > 0" data-section="active" class="section-spacing">
         <h2 class="heading-2 mb-4">Active</h2>
         <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
           <table class="w-full font-mono text-xs border-collapse">
@@ -69,17 +69,15 @@
                 class="border-b border-zinc-200 dark:border-zinc-800 hover:bg-zinc-50 dark:hover:bg-zinc-900/50"
               >
                 <td class="py-3 pr-4 align-top tabular-nums">
-                  <span class="text-lg font-bold">
-                    {{ prediction.confidence }}%
-                  </span>
-                </td>
-                <td class="py-3 pr-4 align-top">
                   <NuxtLink
                     :to="`/predictions/${prediction.slug}`"
-                    class="text-zinc-900 dark:text-zinc-100 hover:underline font-serif text-sm leading-snug"
+                    class="text-lg font-bold hover:underline"
                   >
-                    {{ prediction.statement }}
+                    {{ prediction.confidence }}%
                   </NuxtLink>
+                </td>
+                <td class="py-3 pr-4 align-top font-serif text-sm leading-snug text-zinc-900 dark:text-zinc-100">
+                  {{ prediction.statement }}
                 </td>
                 <td
                   class="py-3 pr-4 align-top text-right tabular-nums text-zinc-500 whitespace-nowrap"
@@ -98,7 +96,7 @@
       </section>
 
       <!-- Resolved Predictions -->
-      <section v-if="resolvedPredictions.length > 0" class="section-spacing">
+      <section v-if="resolvedPredictions.length > 0" data-section="resolved" class="section-spacing">
         <h2 class="heading-2 mb-4">Resolved</h2>
         <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
           <table class="w-full font-mono text-xs border-collapse">
@@ -140,8 +138,9 @@
                   <span v-else class="text-zinc-400">—</span>
                 </td>
                 <td class="py-3 pr-4 align-top tabular-nums">
-                  <span
-                    class="text-lg font-bold"
+                  <NuxtLink
+                    :to="`/predictions/${prediction.slug}`"
+                    class="text-lg font-bold hover:underline"
                     :class="
                       prediction.status === 'correct'
                         ? 'text-success'
@@ -151,15 +150,10 @@
                     "
                   >
                     {{ prediction.confidence }}%
-                  </span>
-                </td>
-                <td class="py-3 pr-4 align-top">
-                  <NuxtLink
-                    :to="`/predictions/${prediction.slug}`"
-                    class="text-zinc-900 dark:text-zinc-100 hover:underline font-serif text-sm leading-snug"
-                  >
-                    {{ prediction.statement }}
                   </NuxtLink>
+                </td>
+                <td class="py-3 pr-4 align-top font-serif text-sm leading-snug text-zinc-900 dark:text-zinc-100">
+                  {{ prediction.statement }}
                 </td>
                 <td
                   class="py-3 align-top whitespace-nowrap text-zinc-500 tabular-nums"
@@ -175,6 +169,7 @@
       <!-- Calibration -->
       <section
         v-if="calibration?.calibration?.length"
+        data-section="calibration"
         class="section-spacing font-mono text-xs"
       >
         <h2 class="heading-2 mb-2">Calibration</h2>
@@ -304,11 +299,113 @@
         </a>
       </footer>
     </template>
+
+    <!-- Sidebar teleport -->
+    <ClientOnly>
+      <Teleport v-if="tocTarget" to="#nav-toc-container">
+        <div class="pt-8 pb-4 space-y-4">
+          <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
+            Track Record
+          </div>
+
+          <!-- Brier score -->
+          <div v-if="calibration?.brier_score != null" class="space-y-0.5">
+            <div class="font-mono text-lg font-bold tabular-nums text-zinc-100">
+              {{ calibration.brier_score.toFixed(3) }}
+            </div>
+            <div class="font-mono text-3xs text-zinc-500">
+              Brier score · {{ brierScoreLabel(calibration.brier_score) }}
+            </div>
+          </div>
+
+          <!-- Resolution stats -->
+          <div class="space-y-1 font-mono text-3xs tabular-nums">
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Total</span>
+              <span class="text-zinc-300">{{ transformedPredictions.length }}</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Resolved</span>
+              <span class="text-zinc-300">{{ resolvedPredictions.length }}</span>
+            </div>
+            <div v-if="correctCount > 0" class="flex justify-between">
+              <span class="text-zinc-500">Correct</span>
+              <span class="text-success">{{ correctCount }}</span>
+            </div>
+            <div v-if="incorrectCount > 0" class="flex justify-between">
+              <span class="text-zinc-500">Wrong</span>
+              <span class="text-error">{{ incorrectCount }}</span>
+            </div>
+            <div v-if="resolvedPredictions.length > 0" class="flex justify-between">
+              <span class="text-zinc-500">Accuracy</span>
+              <span class="text-zinc-300">
+                {{ Math.round((correctCount / resolvedPredictions.length) * 100) }}%
+              </span>
+            </div>
+          </div>
+
+          <!-- Calibration by bucket -->
+          <div v-if="calibration?.calibration?.length">
+            <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500 mb-1.5">
+              By Confidence
+            </div>
+            <div class="space-y-0.5 font-mono text-3xs tabular-nums">
+              <div
+                v-for="bucket in calibration.calibration"
+                :key="bucket.label"
+                class="flex justify-between"
+              >
+                <span class="text-zinc-500">{{ bucket.label }}</span>
+                <span :class="Math.abs(bucket.delta) <= 10 ? 'text-zinc-300' : 'text-error'">
+                  {{ bucket.accuracy }}%
+                  <span class="text-zinc-600">n={{ bucket.count }}</span>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Section nav -->
+          <div class="space-y-1 pt-2 border-t border-zinc-800">
+            <a
+              v-if="activePredictions.length > 0"
+              href="#"
+              class="block font-mono text-3xs text-zinc-500 hover:text-zinc-300 transition-colors"
+              @click.prevent="scrollToEl('active')"
+            >
+              Active · {{ activePredictions.length }}
+            </a>
+            <a
+              v-if="resolvedPredictions.length > 0"
+              href="#"
+              class="block font-mono text-3xs text-zinc-500 hover:text-zinc-300 transition-colors"
+              @click.prevent="scrollToEl('resolved')"
+            >
+              Resolved · {{ resolvedPredictions.length }}
+            </a>
+            <a
+              v-if="calibration?.calibration?.length"
+              href="#"
+              class="block font-mono text-3xs text-zinc-500 hover:text-zinc-300 transition-colors"
+              @click.prevent="scrollToEl('calibration')"
+            >
+              Calibration
+            </a>
+          </div>
+        </div>
+      </Teleport>
+    </ClientOnly>
   </main>
 </template>
 
 <script setup lang="ts">
 import { format } from 'date-fns'
+
+const { tocTarget } = useTOC()
+
+const scrollToEl = (id: string) => {
+  const section = document.querySelector(`[data-section="${id}"]`)
+  if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
 interface Prediction {
   id: string
