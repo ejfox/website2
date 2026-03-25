@@ -15,7 +15,41 @@ categories:
   - ai
   - legal
 created: 2025-01-20T19:45:00.000Z
+updatedAt: '2026-03-24T00:00:00.000Z'
 visibility: public
+updates:
+  - timestamp: '2026-03-24T00:00:00.000Z'
+    confidenceBefore: 80
+    confidenceAfter: 80
+    reasoning: >-
+      Holding at 80%. The crimes are happening at scale — $1.1B in deepfake
+      fraud losses in 2025, individual incidents routinely exceeding $10M (Arup
+      $25.6M, Hong Kong syndicate $46M). The bottleneck is prosecution, not
+      occurrence. Key developments since prediction was made: (1) Arup $25.6M
+      deepfake CFO scam (Feb 2024) remains under investigation, no arrests; (2)
+      Hong Kong police arrested 27 in $46M deepfake romance syndicate (Oct
+      2024), no convictions yet; (3) Second HK ring, 31 arrested for $4.37M in
+      deepfake scams (Jan 2025), awaiting trial; (4) TAKE IT DOWN Act signed
+      May 2025, first federal statute criminalizing deepfake distribution; (5)
+      U.S. Sentencing Commission actively building federal sentencing guidelines
+      for deepfake crimes (2025-2026); (6) DEFIANCE Act passed Senate Jan 2026
+      enabling civil suits up to $250K. The legal infrastructure is being built
+      now. With 21 months remaining and multiple $10M+ cases in the arrest/
+      prosecution pipeline, the conviction pipeline catching up to the crime
+      wave remains the likely outcome. Sources: (1) CNN: "Arup revealed as
+      victim of $25 million deepfake scam" https://www.cnn.com/2024/05/16/tech/arup-deepfake-scam-loss-hong-kong-intl-hnk
+      (2) WEF: "Lessons learned from a $25m deepfake attack"
+      https://www.weforum.org/stories/2025/02/deepfake-ai-cybercrime-arup/
+      (3) Biometric Update: "Deepfake ring in Hong Kong busted for $4.37M"
+      https://www.biometricupdate.com/202501/deepfake-ring-in-hong-kong-busted-for-us4-37m-in-romance-investment-scams
+      (4) Security Magazine: "Deepfake-enabled fraud caused more than $200
+      million in losses" https://www.securitymagazine.com/articles/101559-deepfake-enabled-fraud-caused-more-than-200-million-in-losses
+      (5) CyberScoop: "U.S. Sentencing Commission seeks input on criminal
+      penalties for deepfakes" https://cyberscoop.com/us-sentencing-guidelines-take-it-down-act-deepfake-law/
+      (6) Washington Times: "Senate unanimously passes bill to allow deepfake
+      victims to sue for damages" https://www.washingtontimes.com/news/2026/jan/13/senate-unanimously-passes-bill-allow-deepfake-victims-sue-damages/
+      (7) Fortune: "2026 will be the year you get fooled by a deepfake"
+      https://fortune.com/2025/12/27/2026-deepfakes-outlook-forecast/
 evidence: >-
   Deepfake technology becoming increasingly accessible, existing cases of CEO
   fraud via voice cloning with millions in losses, growing sophistication of

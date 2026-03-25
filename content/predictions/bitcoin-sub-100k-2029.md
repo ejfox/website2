@@ -15,6 +15,41 @@ categories:
   - markets
 created: 2025-01-20T20:00:00.000Z
 visibility: public
+resolved: true
+resolved_date: '2026-03-24T00:00:00.000Z'
+status: correct
+resolution: >-
+  **CORRECT** — Bitcoin traded below $100,000 for far longer than 7 consecutive
+  days on multiple occasions, decisively meeting all resolution criteria.
+
+
+  **First qualifying streak (Mar 24 – May 7, 2025, ~45 consecutive days)**:
+  BTC/USD closed below $100,000 from approximately March 24, 2025 ($87,328)
+  through May 7, 2025 ($97,026), recovering above $100K on May 8 at ~$103,076.
+  This alone satisfies the 7-day requirement by a factor of 6x.
+
+
+  **Second qualifying streak (Nov 14, 2025 – present, 130+ consecutive days)**:
+  Bitcoin dropped below $100K on November 14, 2025 ($97,849) after a summer
+  rally that peaked near $123,865 in October 2025. It has not recovered since.
+  Subsequent prices: $84,171 (Nov 22), $88,104 (Dec 19), $93,753 (Jan 18, 2026),
+  $67,489 (Feb 17, 2026), ~$70,237 (Mar 24, 2026).
+
+
+  **Current price**: ~$70,237 USD as of March 24, 2026, well below the $100K
+  threshold and showing no near-term recovery trend.
+
+
+  **Sources**:
+
+  1. CoinGecko BTC/USD historical daily closing prices
+  (https://www.coingecko.com/en/coins/bitcoin)
+
+  2. CoinMarketCap Bitcoin historical data
+  (https://coinmarketcap.com/currencies/bitcoin/)
+
+  3. Yahoo Finance BTC-USD historical prices
+  (https://finance.yahoo.com/quote/BTC-USD/history/)
 evidence: >-
   Crypto market's historical boom-bust cycles, potential regulatory crackdowns,
   macroeconomic factors like interest rate changes, and the high volatility

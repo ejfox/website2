@@ -16,6 +16,53 @@ categories:
   - government
 created: 2025-01-20T19:40:00.000Z
 visibility: public
+resolved: true
+resolved_date: '2026-03-24T00:00:00.000Z'
+status: correct
+resolution: >-
+  **CORRECT** — Italy, a G20 member, banned DeepSeek by name on January 30,
+  2025, meeting all resolution criteria.
+
+
+  **The ban**: Italy's data protection authority (Garante per la protezione dei
+  dati personali) ordered DeepSeek blocked from Italian app stores and barred
+  from processing Italian users' personal data. The order specifically named
+  "DeepSeek" — not a generic capability class. DeepSeek was removed from both
+  the Italian Apple App Store and Google Play Store.
+
+
+  **Legal basis**: The Garante acted under GDPR enforcement powers, issuing a
+  legally binding order (not a recommendation or guideline). DeepSeek had failed
+  to provide adequate information about how it processes Italian users' data,
+  where data is stored, and what legal basis it relies on for processing.
+
+
+  **Still in effect**: As of March 2026, the ban remains active. DeepSeek has
+  not satisfied Italy's GDPR requirements. The web version may still be
+  accessible to some Italian users, but the official government order prohibiting
+  deployment stands.
+
+
+  **Additional G20 actions (not required for resolution but noted)**:
+  South Korea (G20 member) also removed DeepSeek from app stores in February
+  2025, though this ban was lifted in April 2025 after a privacy policy update.
+  Australia (G20 member) banned DeepSeek on all government devices in February
+  2025.
+
+
+  **Sources**:
+
+  1. The Record: "Italy blocks Chinese AI tool DeepSeek"
+  (https://therecord.media/italy-blocks-chinese-ai-tool-deepseek-over-privacy-concerns)
+
+  2. Al Jazeera: "Which countries have banned DeepSeek and why?"
+  (https://www.aljazeera.com/news/2025/2/6/which-countries-have-banned-deepseek-and-why)
+
+  3. TechCrunch: "DeepSeek — the countries and agencies that have banned it"
+  (https://techcrunch.com/2025/02/03/deepseek-the-countries-and-agencies-that-have-banned-the-ai-companys-tech/)
+
+  4. Aitechtonic: "DeepSeek AI Banned Countries 2026"
+  (https://aitechtonic.com/deepseek-ai-banned-countries/)
 evidence: >-
   Growing AI safety concerns, existing precedents for technology bans (TikTok,
   Huawei), EU AI Act providing regulatory framework, and increasing geopolitical
