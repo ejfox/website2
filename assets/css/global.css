@@ -961,7 +961,8 @@ blockquote a {
 }
 
 /* Ruby annotations (furigana, pronunciation guides) */
-.prose ruby {
+.prose ruby,
+.blog-post-content ruby {
   display: inline-block;
   position: relative;
   vertical-align: baseline;
@@ -969,13 +970,15 @@ blockquote a {
   margin: 0 0.1em;
 }
 
-.prose ruby rb {
+.prose ruby rb,
+.blog-post-content ruby rb {
   display: inline-block;
   font-size: inherit;
   line-height: 1.4;
 }
 
-.prose ruby rt {
+.prose ruby rt,
+.blog-post-content ruby rt {
   display: block;
   font-size: 0.6em; /* Smaller annotation text */
   line-height: 1.2;
@@ -991,7 +994,9 @@ blockquote a {
 }
 
 .prose ruby rt::before,
-.prose ruby rt::after {
+.prose ruby rt::after,
+.blog-post-content ruby rt::before,
+.blog-post-content ruby rt::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -1309,4 +1314,77 @@ img[data-loading='lazy']::before {
   opacity: 0;
   transition: opacity 0.1s ease-in;
 }
+
+/* =============================================
+   BLOG POST CONTENT TYPOGRAPHY (global)
+   Shared by catch-all and crowned posts
+   ============================================= */
+
+.blog-post-content {
+  --body-size: 1rem;
+  --body-line: 1.5rem;
+  --body-margin: 1.5rem;
+  --h1-size: 1.75rem;
+  --h1-line: 2rem;
+  --h1-margin-top: 2rem;
+  --h2-size: 1.5rem;
+  --h2-line: 1.75rem;
+  --h2-margin-top: 2.5rem;
+  --h3-size: 1.5rem;
+  --h3-line: 2rem;
+  --h4-size: 1.25rem;
+  --h4-line: 1.5rem;
+  --code-size: 1rem;
+  --code-line: 1.5rem;
+  font-variant-numeric: oldstyle-nums;
+}
+
+@media (min-width: 640px) {
+  .blog-post-content {
+    --body-size: 1.125rem;
+    --body-line: 1.75rem;
+    --body-margin: 1.25rem;
+    --h1-size: 2rem;
+    --h1-line: 2.5rem;
+    --h1-margin-top: 3rem;
+    --h2-size: 1.75rem;
+    --h2-line: 2rem;
+    --h2-margin-top: 3.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .blog-post-content {
+    --h1-size: 2.5rem;
+    --h1-line: 3rem;
+    --h1-margin-top: 4rem;
+    --h2-size: 2rem;
+    --h2-line: 2.5rem;
+    --h2-margin-top: 4rem;
+  }
+}
+
+.blog-post-content p,
+.blog-post-content ul,
+.blog-post-content ol {
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  margin-bottom: var(--body-margin);
+}
+
+.blog-post-content li {
+  line-height: var(--body-line);
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-content .external-link { display: inline; }
+.blog-post-content .external-link svg {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  vertical-align: super;
+  margin-left: 2px;
+  opacity: 0.5;
+}
+.blog-post-content a:hover .external-link svg { opacity: 0.8; }
 
