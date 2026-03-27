@@ -7,6 +7,7 @@
  */
 
 import chroma from 'chroma-js'
+import { type Ref } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
 import striptags from 'striptags'
 import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
@@ -35,10 +36,62 @@ const palette = {
   textMuted:   chroma.hcl(BASE_HUE, 4, 40).css(),
 }
 
-// --- All sync composable calls BEFORE any await ---
+// --- ALL Nuxt composable calls BEFORE any await ---
+// This is critical for SSR — the Nuxt instance is lost after await
 const config = useRuntimeConfig()
+const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
 const baseURL = config.public?.baseURL || 'https://ejfox.com'
+
+// Reactive refs that get populated after data loads — defined now so
+// usePageSeo/useHead can reference them synchronously
+const post = ref(null) as Ref<any>
+const allPosts = ref([]) as Ref<any[]>
+const nextPrevPosts = ref({ next: null, prev: null }) as Ref<any>
+
+const postTitle = computed(() =>
+  post.value?.metadata?.title || post.value?.title || 'The Mystery of Peter Todd'
+)
+const postDescription = computed(() => {
+  const dek = post.value?.metadata?.dek || post.value?.dek
+  if (dek) return dek
+  const text = striptags(post.value?.html || '').replace(/\s+/g, ' ').trim()
+  return text.length > 160 ? text.substring(0, 157) + '...' : text
+})
+const heroImage = computed(() =>
+  post.value?.metadata?.image || post.value?.metadata?.ogImage || `${baseURL}/og-image.png`
+)
+const articleTags = computed(() => post.value?.metadata?.tags || post.value?.tags || [])
+const postUrl = computed(() => `${baseURL}/blog/2024/the-mystery-of-peter-todd`)
+const relatedPosts = computed(() => {
+  if (!allPosts.value?.length || !post.value) return []
+  const currentTags = post.value.metadata?.tags || post.value.tags || []
+  if (!currentTags.length) return []
+  return allPosts.value
+    .filter((p) => {
+      const s = p.slug || p.metadata?.slug
+      return s !== '2024/the-mystery-of-peter-todd' && !p.draft && !p.metadata?.draft && !p.hidden && !p.metadata?.hidden
+    })
+    .map((p) => {
+      const tags = p.metadata?.tags || p.tags || []
+      const overlappingTags = tags.filter((t) => currentTags.includes(t))
+      return { post: p, score: overlappingTags.length, overlappingTags }
+    })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+})
+const { stats: readingStats } = useReadingStats(post)
+const { renderedHtml: renderedTitle, startAnimation } = useTypingAnimation(postTitle)
+
+// SEO + Head — called synchronously, reactive to post data loading later
+usePageSeo({
+  title: postTitle,
+  description: postDescription,
+  type: 'article',
+  tags: articleTags,
+  image: heroImage,
+})
 
 useHead({
   htmlAttrs: { lang: 'en' },
@@ -62,64 +115,26 @@ useHead({
   }],
 })
 
-// --- Async data fetching ---
-const { data: post } = await useAsyncData(
+// --- NOW safe to await ---
+const { data: postData } = await useAsyncData(
   'post-2024-the-mystery-of-peter-todd',
   () => $fetch('/api/posts/2024/the-mystery-of-peter-todd')
 )
+post.value = postData.value
+watch(postData, (v) => { post.value = v })
 
-const { data: nextPrevPosts } = await useAsyncData(
+const { data: navData } = await useAsyncData(
   'next-prev-peter-todd',
   () => processedMarkdown.getNextPrevPosts('2024/the-mystery-of-peter-todd').catch(() => ({ next: null, prev: null }))
 )
+nextPrevPosts.value = navData.value
+watch(navData, (v) => { nextPrevPosts.value = v })
 
-const { data: allPosts } = await useAsyncData('all-posts-for-related-pt', () =>
+const { data: allData } = await useAsyncData('all-posts-for-related-pt', () =>
   processedMarkdown.getAllPosts(false, false).catch(() => [])
 )
-
-// --- Post-await computed values ---
-const { stats: readingStats } = useReadingStats(post)
-const postTitle = computed(() =>
-  post.value?.metadata?.title || post.value?.title || 'The Mystery of Peter Todd'
-)
-const { renderedHtml: renderedTitle, startAnimation } = useTypingAnimation(postTitle)
-const postUrl = computed(() => `${baseURL}/blog/2024/the-mystery-of-peter-todd`)
-const postDescription = computed(() => {
-  const dek = post.value?.metadata?.dek || post.value?.dek
-  if (dek) return dek
-  const text = striptags(post.value?.html || '').replace(/\s+/g, ' ').trim()
-  return text.length > 160 ? text.substring(0, 157) + '...' : text
-})
-const heroImage = computed(() =>
-  post.value?.metadata?.image || post.value?.metadata?.ogImage || `${baseURL}/og-image.png`
-)
-const articleTags = computed(() => post.value?.metadata?.tags || post.value?.tags || [])
-const relatedPosts = computed(() => {
-  if (!allPosts.value || !post.value) return []
-  const currentTags = post.value.metadata?.tags || post.value.tags || []
-  if (!currentTags.length) return []
-  return allPosts.value
-    .filter((p) => {
-      const s = p.slug || p.metadata?.slug
-      return s !== '2024/the-mystery-of-peter-todd' && !p.draft && !p.metadata?.draft && !p.hidden && !p.metadata?.hidden
-    })
-    .map((p) => {
-      const tags = p.metadata?.tags || p.tags || []
-      const overlappingTags = tags.filter((t) => currentTags.includes(t))
-      return { post: p, score: overlappingTags.length, overlappingTags }
-    })
-    .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score)
-    .slice(0, 3)
-})
-
-usePageSeo({
-  title: postTitle,
-  description: postDescription,
-  type: 'article',
-  tags: articleTags,
-  image: heroImage,
-})
+allPosts.value = allData.value || []
+watch(allData, (v) => { allPosts.value = v || [] })
 
 // --- Glitch token data ---
 const GLITCH_TOKENS = [
