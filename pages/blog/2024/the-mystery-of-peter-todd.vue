@@ -44,7 +44,9 @@ const baseURL = config.public?.baseURL || 'https://ejfox.com'
 
 // Reactive refs that get populated after data loads — defined now so
 // usePageSeo/useHead can reference them synchronously
-const post = ref(null) const allPosts = ref([]) const nextPrevPosts = ref({ next: null, prev: null }) 
+const post = ref(null)
+const allPosts = ref([])
+const nextPrevPosts = ref({ next: null, prev: null })
 const postTitle = computed(() =>
   post.value?.metadata?.title || post.value?.title || 'The Mystery of Peter Todd'
 )
