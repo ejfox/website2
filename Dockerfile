@@ -10,7 +10,8 @@ RUN apk add --no-cache \
 # Bust cache when commit changes
 ARG COMMIT_HASH=unknown
 
-# Copy pre-built output (contents, not directory)
+# Copy pre-built output — fails fast if build wasn't run
+COPY .output/server/index.mjs ./server/index.mjs
 COPY .output/ ./
 COPY content ./content
 COPY data ./data
