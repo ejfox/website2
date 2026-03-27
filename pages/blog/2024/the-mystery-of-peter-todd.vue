@@ -7,7 +7,6 @@
  */
 
 import chroma from 'chroma-js'
-import { type Ref } from 'vue'
 import { useIntersectionObserver } from '@vueuse/core'
 import striptags from 'striptags'
 import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
@@ -45,10 +44,7 @@ const baseURL = config.public?.baseURL || 'https://ejfox.com'
 
 // Reactive refs that get populated after data loads — defined now so
 // usePageSeo/useHead can reference them synchronously
-const post = ref(null) as Ref<any>
-const allPosts = ref([]) as Ref<any[]>
-const nextPrevPosts = ref({ next: null, prev: null }) as Ref<any>
-
+const post = ref(null) const allPosts = ref([]) const nextPrevPosts = ref({ next: null, prev: null }) 
 const postTitle = computed(() =>
   post.value?.metadata?.title || post.value?.title || 'The Mystery of Peter Todd'
 )
