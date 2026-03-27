@@ -33,6 +33,7 @@
     "webmention": "node scripts/send-webmentions.mjs",
     "webmention:dry": "node scripts/send-webmentions.mjs --dry",
     "webmention:all": "node scripts/send-webmentions.mjs --all",
+    "crown": "node scripts/crown.mjs",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
