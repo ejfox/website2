@@ -3,29 +3,122 @@
  * CROWNED POST: The Mystery of Peter Todd
  *
  * First coronation — dark, glitchy, mysterious.
- * Uses useCrownedPost() for all boilerplate.
- * One-offs: GlitchTokenExplorer, ambient background, glitch effects
+ * Inline data fetching (not composable) for SSR compatibility.
  */
 
 import chroma from 'chroma-js'
 import { useIntersectionObserver } from '@vueuse/core'
+import striptags from 'striptags'
 import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
 import PostNav from '~/components/blog/post/PostNav.vue'
 import PostRelated from '~/components/blog/post/PostRelated.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
+import { useReadingStats } from '~/composables/useReadingStats'
+import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 const BASE_HUE = 275
 
-const {
-  post, nextPrevPosts, relatedPosts, readingStats,
-  postTitle, postUrl, articleTags,
-  renderedTitle, startAnimation,
-  palette,
-} = await useCrownedPost({
-  slug: '2024/the-mystery-of-peter-todd',
-  bodyClass: 'peter-todd-takeover',
-  hue: BASE_HUE,
-  fallbackTitle: 'The Mystery of Peter Todd',
+// --- Palette (sync, no Nuxt instance needed) ---
+const palette = {
+  accent:      chroma.hcl(BASE_HUE, 40, 60).css(),
+  accentDim:   chroma.hcl(BASE_HUE, 25, 40).css(),
+  accentGlow:  chroma.hcl(BASE_HUE, 50, 70).css(),
+  accentFaint: chroma.hcl(BASE_HUE, 15, 30).alpha(0.15).css(),
+  warm:        chroma.hcl(BASE_HUE + 40, 30, 55).css(),
+  cool:        chroma.hcl(BASE_HUE - 30, 25, 50).css(),
+  eerie:       chroma.hcl(BASE_HUE - 60, 35, 45).css(),
+  bg:          '#050508',
+  surface:     chroma.hcl(BASE_HUE, 5, 12).css(),
+  surfaceHi:   chroma.hcl(BASE_HUE, 8, 18).css(),
+  text:        chroma.hcl(BASE_HUE, 8, 78).css(),
+  textDim:     chroma.hcl(BASE_HUE, 6, 58).css(),
+  textMuted:   chroma.hcl(BASE_HUE, 4, 40).css(),
+}
+
+// --- All sync composable calls BEFORE any await ---
+const config = useRuntimeConfig()
+const processedMarkdown = useProcessedMarkdown()
+const baseURL = config.public?.baseURL || 'https://ejfox.com'
+
+useHead({
+  htmlAttrs: { lang: 'en' },
+  bodyAttrs: { class: 'peter-todd-takeover' },
+  style: [{
+    innerHTML: `:root {
+      --pt-accent: ${palette.accent};
+      --pt-accent-dim: ${palette.accentDim};
+      --pt-accent-glow: ${palette.accentGlow};
+      --pt-accent-faint: ${palette.accentFaint};
+      --pt-warm: ${palette.warm};
+      --pt-cool: ${palette.cool};
+      --pt-eerie: ${palette.eerie};
+      --pt-bg: ${palette.bg};
+      --pt-surface: ${palette.surface};
+      --pt-surface-hi: ${palette.surfaceHi};
+      --pt-text: ${palette.text};
+      --pt-text-dim: ${palette.textDim};
+      --pt-text-muted: ${palette.textMuted};
+    }`
+  }],
+})
+
+// --- Async data fetching ---
+const { data: post } = await useAsyncData(
+  'post-2024-the-mystery-of-peter-todd',
+  () => $fetch('/api/posts/2024/the-mystery-of-peter-todd')
+)
+
+const { data: nextPrevPosts } = await useAsyncData(
+  'next-prev-peter-todd',
+  () => processedMarkdown.getNextPrevPosts('2024/the-mystery-of-peter-todd').catch(() => ({ next: null, prev: null }))
+)
+
+const { data: allPosts } = await useAsyncData('all-posts-for-related-pt', () =>
+  processedMarkdown.getAllPosts(false, false).catch(() => [])
+)
+
+// --- Post-await computed values ---
+const { stats: readingStats } = useReadingStats(post)
+const postTitle = computed(() =>
+  post.value?.metadata?.title || post.value?.title || 'The Mystery of Peter Todd'
+)
+const { renderedHtml: renderedTitle, startAnimation } = useTypingAnimation(postTitle)
+const postUrl = computed(() => `${baseURL}/blog/2024/the-mystery-of-peter-todd`)
+const postDescription = computed(() => {
+  const dek = post.value?.metadata?.dek || post.value?.dek
+  if (dek) return dek
+  const text = striptags(post.value?.html || '').replace(/\s+/g, ' ').trim()
+  return text.length > 160 ? text.substring(0, 157) + '...' : text
+})
+const heroImage = computed(() =>
+  post.value?.metadata?.image || post.value?.metadata?.ogImage || `${baseURL}/og-image.png`
+)
+const articleTags = computed(() => post.value?.metadata?.tags || post.value?.tags || [])
+const relatedPosts = computed(() => {
+  if (!allPosts.value || !post.value) return []
+  const currentTags = post.value.metadata?.tags || post.value.tags || []
+  if (!currentTags.length) return []
+  return allPosts.value
+    .filter((p) => {
+      const s = p.slug || p.metadata?.slug
+      return s !== '2024/the-mystery-of-peter-todd' && !p.draft && !p.metadata?.draft && !p.hidden && !p.metadata?.hidden
+    })
+    .map((p) => {
+      const tags = p.metadata?.tags || p.tags || []
+      const overlappingTags = tags.filter((t) => currentTags.includes(t))
+      return { post: p, score: overlappingTags.length, overlappingTags }
+    })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+})
+
+usePageSeo({
+  title: postTitle,
+  description: postDescription,
+  type: 'article',
+  tags: articleTags,
+  image: heroImage,
 })
 
 // --- Glitch token data ---
