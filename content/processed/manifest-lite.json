@@ -2523,7 +2523,7 @@
         "coding",
         "media"
       ],
-      "words": 1582,
+      "words": 1595,
       "images": 5,
       "imageDetails": {
         "total": 5,
@@ -2980,7 +2980,7 @@
         "project",
         "coding"
       ],
-      "words": 2443,
+      "words": 2457,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -4210,7 +4210,7 @@
         "howto",
         "politics"
       ],
-      "words": 2131,
+      "words": 2188,
       "images": 12,
       "imageDetails": {
         "total": 12,
@@ -4587,7 +4587,7 @@
       ],
       "date": "2025-03-25T04:12:41.000Z",
       "modified": "2025-03-27T20:12:50.000Z",
-      "words": 763,
+      "words": 803,
       "images": 8,
       "imageDetails": {
         "total": 8,
@@ -4793,7 +4793,7 @@
         "journalism",
         "politics"
       ],
-      "words": 725,
+      "words": 769,
       "images": 6,
       "imageDetails": {
         "total": 6,
@@ -5217,7 +5217,7 @@
         "ios",
         "health"
       ],
-      "words": 74,
+      "words": 95,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -5397,7 +5397,7 @@
         "tools",
         "photography"
       ],
-      "words": 52,
+      "words": 69,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -5935,7 +5935,7 @@
         "photography",
         "tools"
       ],
-      "words": 108,
+      "words": 126,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -17892,7 +17892,7 @@
       "date": "2022-12-26T16:57:44.000Z",
       "modified": "2024-12-31T21:07:10.000Z",
       "dek": "In which the author undertakes various personal and professional pursuits, from creating a photography website and scripting screenshot uploads to exploring new creative outlets and engaging in community initiatives.",
-      "words": 798,
+      "words": 845,
       "images": 4,
       "imageDetails": {
         "total": 4,
@@ -18080,7 +18080,7 @@
       "date": "2022-12-26T16:57:44.000Z",
       "modified": "2024-10-14T23:52:43.000Z",
       "dek": "In which the author navigates the complexities of balancing project management, coding challenges, and personal AI development while exploring new ways to showcase the Hudson Valley and enhance personal organization.",
-      "words": 876,
+      "words": 904,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -19179,7 +19179,7 @@
       "modified": "2024-10-14T23:51:32.000Z",
       "date": "2022-12-26T16:57:44.000Z",
       "dek": "In which the author contemplates a potential move, works on creative projects, achieves technical milestones, delves into video transcription methods, enjoys entertainment, focuses on personal health, and sets goals for the future.",
-      "words": 289,
+      "words": 311,
       "images": 3,
       "imageDetails": {
         "total": 3,
@@ -19369,7 +19369,7 @@
       "modified": "2024-10-14T23:51:10.000Z",
       "date": "2022-12-26T16:57:44.000Z",
       "dek": "In which the author explores the realms of memory and creativity through scrapbooking, pottery-making, and technical innovations, culminating in a showcase of projects and a foray into pricing models.",
-      "words": 476,
+      "words": 550,
       "images": 5,
       "imageDetails": {
         "total": 5,
@@ -19492,7 +19492,7 @@
       "modified": "2024-10-14T23:50:54.000Z",
       "date": "2024-06-03T16:56:06.000Z",
       "dek": "In which the author explores technology, political analysis, and personal productivity during a busy week of client work before a summer break.",
-      "words": 295,
+      "words": 492,
       "images": 12,
       "imageDetails": {
         "total": 12,
@@ -19608,7 +19608,7 @@
       "modified": "2024-10-14T23:50:34.000Z",
       "date": "2024-06-10T21:39:36.000Z",
       "dek": "In which the author embarked on creative projects, recorded coding tutorials, and set goals for future storytelling endeavors.",
-      "words": 217,
+      "words": 231,
       "images": 4,
       "imageDetails": {
         "total": 4,
@@ -19712,7 +19712,7 @@
       "modified": "2024-10-14T23:50:25.000Z",
       "date": "2024-06-25T01:39:23.000Z",
       "dek": "In which the author recounts a delightful week spent camping at Lake George in the company of friends and family, capturing cherished moments through picturesque snapshots and videos.",
-      "words": 50,
+      "words": 118,
       "images": 6,
       "imageDetails": {
         "total": 6,
@@ -19758,7 +19758,7 @@
       ],
       "modified": "2024-07-08T16:35:06.000Z",
       "date": "2024-07-01T06:37:01.000Z",
-      "words": 46,
+      "words": 157,
       "images": 11,
       "imageDetails": {
         "total": 11,
@@ -19838,11 +19838,11 @@
       ],
       "modified": "2025-08-28T19:08:25.000Z",
       "date": "2024-07-08T16:35:05.000Z",
-      "words": 78,
+      "words": 166,
       "images": 7,
       "imageDetails": {
         "total": 7,
-        "cloudinary": 7,
+        "cloudinary": 6,
         "withDimensions": 0
       },
       "links": 7,
@@ -20001,7 +20001,7 @@
       "modified": "2024-10-14T23:50:20.000Z",
       "date": "2024-07-17T14:53:14.000Z",
       "dek": "In which the author embarked on a week of creative endeavors in music, projects in coding, and personal growth while house-sitting and planning for the future.",
-      "words": 398,
+      "words": 561,
       "images": 12,
       "imageDetails": {
         "total": 12,
@@ -20111,7 +20111,7 @@
         "visualization",
         "photography"
       ],
-      "words": 38,
+      "words": 166,
       "images": 9,
       "imageDetails": {
         "total": 9,
@@ -20184,7 +20184,7 @@
       "modified": "2025-08-28T19:08:25.000Z",
       "date": "2024-07-30T18:56:51.000Z",
       "dek": "In which the author reflects on building a Scrapbook system, experiments with a modular synth, and efficiently uploads videos to their blog posts via Cloudinary.",
-      "words": 638,
+      "words": 872,
       "images": 19,
       "imageDetails": {
         "total": 19,
@@ -20504,11 +20504,11 @@
       ],
       "modified": "2024-10-01T22:55:12.000Z",
       "date": "2024-09-03T17:03:11.000Z",
-      "words": 88,
+      "words": 299,
       "images": 21,
       "imageDetails": {
         "total": 21,
-        "cloudinary": 21,
+        "cloudinary": 20,
         "withDimensions": 0
       },
       "links": 21,
@@ -20563,7 +20563,7 @@
       ],
       "modified": "2024-09-23T13:52:21.000Z",
       "date": "2024-09-09T14:55:30.000Z",
-      "words": 139,
+      "words": 357,
       "images": 27,
       "imageDetails": {
         "total": 27,
@@ -20657,7 +20657,7 @@
       "modified": "2025-08-28T19:08:25.000Z",
       "date": "2024-09-16T12:51:03.000Z",
       "dek": "In which the protagonist embarked on a week of creative endeavors, coding projects, and collaborations, culminating in a flurry of digital creations and video recordings.",
-      "words": 475,
+      "words": 551,
       "images": 9,
       "imageDetails": {
         "total": 9,
@@ -21431,7 +21431,7 @@
       ],
       "modified": "2024-11-27T18:11:32.000Z",
       "date": "2024-11-18T16:51:40.000Z",
-      "words": 217,
+      "words": 274,
       "images": 7,
       "imageDetails": {
         "total": 7,
@@ -21540,7 +21540,7 @@
       ],
       "modified": "2025-09-12T13:12:56.000Z",
       "date": "2024-11-25T13:58:52.000Z",
-      "words": 261,
+      "words": 335,
       "images": 12,
       "imageDetails": {
         "total": 12,
@@ -21619,11 +21619,11 @@
       ],
       "date": "2024-12-02T15:03:56.000Z",
       "modified": "2024-12-09T15:00:45.000Z",
-      "words": 418,
+      "words": 555,
       "images": 14,
       "imageDetails": {
         "total": 14,
-        "cloudinary": 14,
+        "cloudinary": 12,
         "withDimensions": 0
       },
       "links": 18,
@@ -21698,7 +21698,7 @@
       ],
       "date": "2024-12-09T15:00:45.000Z",
       "modified": "2024-12-23T22:23:28.000Z",
-      "words": 314,
+      "words": 566,
       "images": 29,
       "imageDetails": {
         "total": 29,
@@ -21753,11 +21753,11 @@
       "tags": [
         "development"
       ],
-      "words": 192,
+      "words": 390,
       "images": 19,
       "imageDetails": {
         "total": 19,
-        "cloudinary": 19,
+        "cloudinary": 18,
         "withDimensions": 0
       },
       "links": 19,
@@ -21857,7 +21857,7 @@
       ],
       "date": "2025-01-01T15:28:29.000Z",
       "modified": "2025-01-05T00:07:17.000Z",
-      "words": 63,
+      "words": 80,
       "images": 3,
       "imageDetails": {
         "total": 3,
@@ -21942,7 +21942,7 @@
         "reflections",
         "progress"
       ],
-      "words": 145,
+      "words": 226,
       "images": 11,
       "imageDetails": {
         "total": 11,
@@ -22130,7 +22130,7 @@
         "development",
         "personal"
       ],
-      "words": 92,
+      "words": 160,
       "images": 9,
       "imageDetails": {
         "total": 9,
@@ -22165,11 +22165,11 @@
         "development",
         "personal"
       ],
-      "words": 152,
+      "words": 305,
       "images": 15,
       "imageDetails": {
         "total": 15,
-        "cloudinary": 15,
+        "cloudinary": 14,
         "withDimensions": 0
       },
       "links": 15,
@@ -22222,7 +22222,7 @@
       ],
       "date": "2025-02-03T17:34:45.000Z",
       "modified": "2025-02-15T15:24:38.000Z",
-      "words": 150,
+      "words": 244,
       "images": 10,
       "imageDetails": {
         "total": 10,
@@ -22285,7 +22285,7 @@
         "programming",
         "personal"
       ],
-      "words": 787,
+      "words": 952,
       "images": 16,
       "imageDetails": {
         "total": 16,
@@ -22342,7 +22342,7 @@
       ],
       "date": "2025-02-17T22:29:35.000Z",
       "modified": "2025-02-27T14:47:30.000Z",
-      "words": 682,
+      "words": 893,
       "images": 25,
       "imageDetails": {
         "total": 25,
@@ -22397,7 +22397,7 @@
       "tags": [
         "development"
       ],
-      "words": 163,
+      "words": 348,
       "images": 16,
       "imageDetails": {
         "total": 16,
@@ -22454,7 +22454,7 @@
       ],
       "date": "2025-03-03T17:35:18.000Z",
       "modified": "2025-03-12T01:44:37.000Z",
-      "words": 499,
+      "words": 859,
       "images": 45,
       "imageDetails": {
         "total": 45,
@@ -22518,11 +22518,11 @@
         "development",
         "personal"
       ],
-      "words": 189,
+      "words": 279,
       "images": 10,
       "imageDetails": {
         "total": 10,
-        "cloudinary": 10,
+        "cloudinary": 8,
         "withDimensions": 0
       },
       "links": 10,
@@ -22584,7 +22584,7 @@
         "reflections",
         "progress"
       ],
-      "words": 93,
+      "words": 161,
       "images": 6,
       "imageDetails": {
         "total": 6,
@@ -22663,7 +22663,7 @@
       ],
       "date": "2025-03-24T07:54:19.000Z",
       "modified": "2025-04-02T04:12:52.000Z",
-      "words": 231,
+      "words": 358,
       "images": 15,
       "imageDetails": {
         "total": 15,
@@ -22720,7 +22720,7 @@
         "development",
         "personal"
       ],
-      "words": 183,
+      "words": 323,
       "images": 18,
       "imageDetails": {
         "total": 18,
@@ -22777,7 +22777,7 @@
       ],
       "date": "2025-04-07T04:27:52.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
-      "words": 222,
+      "words": 396,
       "images": 19,
       "imageDetails": {
         "total": 19,
@@ -22832,7 +22832,7 @@
       "tags": [
         "development"
       ],
-      "words": 161,
+      "words": 352,
       "images": 16,
       "imageDetails": {
         "total": 16,
@@ -22889,7 +22889,7 @@
       ],
       "date": "2025-04-21T20:22:04.000Z",
       "modified": "2025-05-03T00:41:05.000Z",
-      "words": 164,
+      "words": 241,
       "images": 12,
       "imageDetails": {
         "total": 12,
@@ -22946,7 +22946,7 @@
         "development",
         "personal"
       ],
-      "words": 115,
+      "words": 186,
       "images": 7,
       "imageDetails": {
         "total": 7,
@@ -23003,7 +23003,7 @@
       ],
       "date": "2025-05-05T23:55:46.000Z",
       "modified": "2025-06-10T22:34:44.000Z",
-      "words": 52,
+      "words": 80,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -23060,7 +23060,7 @@
         "development",
         "personal"
       ],
-      "words": 162,
+      "words": 316,
       "images": 16,
       "imageDetails": {
         "total": 16,
@@ -23095,7 +23095,7 @@
         "development",
         "personal"
       ],
-      "words": 42,
+      "words": 87,
       "images": 4,
       "imageDetails": {
         "total": 4,
@@ -23130,11 +23130,11 @@
         "development",
         "screenshots"
       ],
-      "words": 133,
+      "words": 248,
       "images": 13,
       "imageDetails": {
         "total": 13,
-        "cloudinary": 13,
+        "cloudinary": 12,
         "withDimensions": 0
       },
       "links": 13,
@@ -23165,7 +23165,7 @@
         "development",
         "screenshots"
       ],
-      "words": 144,
+      "words": 272,
       "images": 14,
       "imageDetails": {
         "total": 14,
@@ -23222,11 +23222,11 @@
       ],
       "date": "2025-06-09T18:20:48.000Z",
       "modified": "2025-06-17T18:01:34.000Z",
-      "words": 405,
+      "words": 666,
       "images": 27,
       "imageDetails": {
         "total": 27,
-        "cloudinary": 27,
+        "cloudinary": 26,
         "withDimensions": 0
       },
       "links": 27,
@@ -23301,7 +23301,7 @@
       ],
       "date": "2025-06-17T15:30:58.000Z",
       "modified": "2025-06-29T19:00:04.000Z",
-      "words": 203,
+      "words": 309,
       "images": 13,
       "imageDetails": {
         "total": 13,
@@ -23380,7 +23380,7 @@
       ],
       "date": "2025-06-23T14:33:22.000Z",
       "modified": "2025-07-01T12:48:27.000Z",
-      "words": 157,
+      "words": 287,
       "images": 12,
       "imageDetails": {
         "total": 12,
@@ -23787,7 +23787,7 @@
       ],
       "date": "2025-08-05T21:46:56.000Z",
       "modified": "2025-08-12T15:05:25.000Z",
-      "words": 102,
+      "words": 188,
       "images": 8,
       "imageDetails": {
         "total": 8,
@@ -23866,11 +23866,11 @@
       ],
       "date": "2025-08-11T12:28:42.000Z",
       "modified": "2025-10-30T17:32:51.000Z",
-      "words": 356,
+      "words": 680,
       "images": 30,
       "imageDetails": {
         "total": 30,
-        "cloudinary": 30,
+        "cloudinary": 28,
         "withDimensions": 0
       },
       "links": 30,
@@ -23945,7 +23945,7 @@
       ],
       "date": "2025-08-18T22:58:25.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
-      "words": 162,
+      "words": 313,
       "images": 14,
       "imageDetails": {
         "total": 14,
@@ -24002,7 +24002,7 @@
         "development",
         "personal"
       ],
-      "words": 280,
+      "words": 492,
       "images": 27,
       "imageDetails": {
         "total": 27,
@@ -24029,11 +24029,11 @@
     "metadata": {
       "date": "2025-09-01T13:58:07.000Z",
       "modified": "2025-09-24T05:30:29.000Z",
-      "words": 251,
+      "words": 474,
       "images": 25,
       "imageDetails": {
         "total": 25,
-        "cloudinary": 25,
+        "cloudinary": 24,
         "withDimensions": 0
       },
       "links": 25,
@@ -24052,11 +24052,11 @@
     "type": "post",
     "toc": [],
     "metadata": {
-      "words": 592,
+      "words": 1192,
       "images": 59,
       "imageDetails": {
         "total": 59,
-        "cloudinary": 59,
+        "cloudinary": 57,
         "withDimensions": 0
       },
       "links": 59,
@@ -24075,7 +24075,7 @@
     "type": "post",
     "toc": [],
     "metadata": {
-      "words": 253,
+      "words": 552,
       "images": 25,
       "imageDetails": {
         "total": 25,
@@ -24102,11 +24102,11 @@
     "metadata": {
       "date": "2025-09-22T16:32:39.000Z",
       "modified": "2025-10-01T22:11:59.000Z",
-      "words": 832,
+      "words": 1648,
       "images": 83,
       "imageDetails": {
         "total": 83,
-        "cloudinary": 83,
+        "cloudinary": 82,
         "withDimensions": 0
       },
       "links": 83,
@@ -24129,11 +24129,11 @@
     "metadata": {
       "date": "2025-09-29T16:13:44.000Z",
       "modified": "2025-10-04T19:25:00.000Z",
-      "words": 858,
+      "words": 1448,
       "images": 86,
       "imageDetails": {
         "total": 86,
-        "cloudinary": 59,
+        "cloudinary": 58,
         "withDimensions": 0
       },
       "links": 86,
