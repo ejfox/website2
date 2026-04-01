@@ -54,13 +54,14 @@ if [ -n "$DEPS_CHANGED" ]; then
   log "   ${INSTALL_TIME}s"
 fi
 
-# OPT 2: Parallel content processing
+# OPT 2: Content processing BEFORE build (uses mtime cache, only reprocesses changed files)
 PROCESS_TIME=0
 if [ -n "$CONTENT_CHANGED" ]; then
   log "📝 Process..."
   STEP_START=$(date +%s)
-  yarn blog:process >> "$LOG_FILE" 2>&1 &
-  PROCESS_PID=$!
+  yarn blog:process >> "$LOG_FILE" 2>&1 || { log "ERROR: Process failed"; exit 1; }
+  PROCESS_TIME=$(($(date +%s) - STEP_START))
+  log "   ${PROCESS_TIME}s"
 fi
 
 # OPT 3: Clean build with correct preset
@@ -72,12 +73,6 @@ rm -rf .nuxt .output node_modules/.cache
 NITRO_PRESET=node-server NODE_ENV=production yarn build --quiet >> "$LOG_FILE" 2>&1 || { log "ERROR: Build failed"; exit 1; }
 BUILD_TIME=$(($(date +%s) - STEP_START))
 log "   ${BUILD_TIME}s"
-
-# Wait for processing
-if [ -n "$CONTENT_CHANGED" ]; then
-  wait $PROCESS_PID 2>/dev/null || true
-  PROCESS_TIME=$(($(date +%s) - STEP_START))
-fi
 
 # OPT 4: Docker rebuild (always needed - .output is copied into image)
 log "🐳 Docker..."

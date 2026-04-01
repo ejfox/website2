@@ -50,6 +50,17 @@ jobs:
           yarn install --frozen-lockfile --ignore-engines --prefer-offline
           INSTALL_TIME=$(($(date +%s) - INSTALL_START))
 
+          # Process markdown -> JSON (uses mtime cache, only reprocesses changed files)
+          PROCESS_START=$(date +%s)
+          yarn blog:process
+          PROCESS_TIME=$(($(date +%s) - PROCESS_START))
+
+          # Commit processed JSON if changed (so next deploy has warm cache)
+          if [ -n "$(git status --porcelain content/processed/)" ]; then
+            git add content/processed/ public/content-tags.json
+            git commit -m "ci: reprocess content [skip ci]" --no-verify || true
+          fi
+
           # CRITICAL: node-server preset for Docker
           BUILD_START=$(date +%s)
           NITRO_PRESET=node-server yarn build
@@ -77,6 +88,6 @@ jobs:
           **${COMMIT_MSG}**
           by ${COMMIT_AUTHOR} | [diff](${COMPARE_URL})
           **Δ** ${FILES_CHANGED} files | **Output:** ${OUTPUT_SIZE} | **Mem:** ${CONTAINER_MEM}
-          **Timing:** deps:${INSTALL_TIME}s→build:${BUILD_TIME}s→docker:${DOCKER_TIME}s | **total:${DEPLOY_TIME}s**"
+          **Timing:** deps:${INSTALL_TIME}s→process:${PROCESS_TIME}s→build:${BUILD_TIME}s→docker:${DOCKER_TIME}s | **total:${DEPLOY_TIME}s**"
 
           ALERT_FORCE=1 $ALERT website info "$ALERT_MSG"
