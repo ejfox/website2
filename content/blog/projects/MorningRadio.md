@@ -17,7 +17,7 @@ Designed to be a healthy "first screen" in the morning. News summaries, updates,
 
 The goal was to repurpose the tik-tok style endless vertical scroll but instead fill it with interesting and useful websites, tools, and news articles (populated through my Pinboard bookmarks)
 
-![](http://res.cloudinary.com/ejf/image/upload/v1755098720/screenshot_2025-08-13_at_11.25.04_AM.png)
+![NOAA notice announcing permanent decommissioning of NOAA-18 satellite on June 6, 2025 due to transmitter failure, with transition guidance to JPSS satellites.](http://res.cloudinary.com/ejf/image/upload/v1755098720/screenshot_2025-08-13_at_11.25.04_AM.png)
 
 I even experimented (unsuccessfully) with creating a home screen widget.
 

@@ -16,7 +16,7 @@ tags:
 
 #travel #personal
 
-![](https://res.cloudinary.com/ejf/image/upload/v1679587768/3556900738_An_illustration_of_a_traveler_in_a_whimsical_landscape__carrying_a_backpack_filled_with_souvenirs_an.png)
+![Hiker with backpack walking through colorful rolling hills toward a rainbow under a bright sun.](https://res.cloudinary.com/ejf/image/upload/v1679587768/3556900738_An_illustration_of_a_traveler_in_a_whimsical_landscape__carrying_a_backpack_filled_with_souvenirs_an.png)
 
 #travel
 

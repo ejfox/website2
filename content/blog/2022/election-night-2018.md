@@ -57,6 +57,6 @@ I scarfed down my bacon pancake, gratefully, and went back to the studio to fini
 
 ---
 
-![](https://res.cloudinary.com/ejf/image/upload/v1667920116/IMG_6305.jpg)
+![Man window washing on high-rise building misidentified as congressional candidate providing high-resolution headshot photo.](https://res.cloudinary.com/ejf/image/upload/v1667920116/IMG_6305.jpg)
 
 ![](https://res.cloudinary.com/ejf/video/upload/v1667920277/IMG_6795.mov)

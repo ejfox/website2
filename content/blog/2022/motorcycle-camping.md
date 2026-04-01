@@ -25,7 +25,7 @@ Let's start by talking about how to stay organized on the road. There will come 
 
 To help avoid confusion, lay out your gear before you head out and get in the habit of labeling bags or containers so you can find them when needed. Everything should have precisely one place where it belongs. You should be able to envision that place in your mind’s eye and find it in the dark.
 
-![](https://res.cloudinary.com/ejf/image/upload/v1691608713/Screenshot_2023-08-09_at_3.17.33_PM.png)
+![Flat lay of a photographer's travel gear: cameras, lenses, memory cards, tripod, lighting equipment, notebooks, and personal items organized on wooden deck.](https://res.cloudinary.com/ejf/image/upload/v1691608713/Screenshot_2023-08-09_at_3.17.33_PM.png)
 
 Start by packing all of your gear into tiers; with essential items within easiest reach - this way, you won't have to fumble around for them when you need them.
 

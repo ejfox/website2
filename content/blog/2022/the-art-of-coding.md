@@ -14,7 +14,7 @@ tags:
 
 #programming #personal #process
 
-![](https://res.cloudinary.com/ejf/image/upload/v1679587770/610144184_A_curious_man_in_a_flatbrim_baseball_cap_and_a_short_cropped_brown_beard__flying_over_a_sea_of_blog_.png)
+![Architect surrounded by architectural floor plans and material samples, reviewing design layouts and building specifications.](https://res.cloudinary.com/ejf/image/upload/v1679587770/610144184_A_curious_man_in_a_flatbrim_baseball_cap_and_a_short_cropped_brown_beard__flying_over_a_sea_of_blog_.png)
 
 From personal projects to collaborations, paid work to passion projects, lets explore how I write code to achieve specific goals. We'll discuss the importance of clear goals, user stories, acceptance criteria, deadlines, and our core guiding principles.
 

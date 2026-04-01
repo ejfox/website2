@@ -21,7 +21,7 @@ This leak was made possible through the incredible bravery of [John Williams](ht
 
 I hadn't heard of such a dump before, and immediately sent Micah an email offering to help with any dataviz.
 
-![](https://res.cloudinary.com/ejf/image/upload/v1741542940/Screenshot_2025-03-09_at_1.55.27_PM.png)
+![Email from journalist EJ Fox proposing interactive graphics collaboration to visualize a large paramilitary dataset using network analysis techniques.](https://res.cloudinary.com/ejf/image/upload/v1741542940/Screenshot_2025-03-09_at_1.55.27_PM.png)
 
 ## From SQLite to Parquet: Processing Telegram Leaks for Fast Web Visualization
 
@@ -33,7 +33,7 @@ I hadn't heard of such a dump before, and immediately sent Micah an email offeri
 3. Make it quickly accessible for visualization
 4. Cache it for fast loading across browsers
 
-![Screenshot - 2025-03-05 23:49:03 - Screenshot 2025-03-05 at 11.48.45 PM.png](https://res.cloudinary.com/ejf/image/upload/v1741236542/Screenshot_2025-03-05_at_11.48.45_PM.png)
+![Torrent client downloading conspiracy-related files including election terrorism claims, state leaders chats, and constitutional IRS documents.](https://res.cloudinary.com/ejf/image/upload/v1741236542/Screenshot_2025-03-05_at_11.48.45_PM.png)
 
 ### The Workflow
 
@@ -113,9 +113,9 @@ limit 101
 
 Because so much information is in these media files, I took a stab at having Gemini write data transcriptions of each photo so they could be indexed for text search later.
 
-![Screenshot - 2025-03-07 15:06:40 - Screenshot 2025-03-07 at 3.06.14 PM.png](https://res.cloudinary.com/ejf/image/upload/v1741377995/Screenshot_2025-03-07_at_3.06.14_PM.png)
+![Man in Santa Claus costume making peace sign in a lobby, wearing traditional red suit with white fur trim and black belt.](https://res.cloudinary.com/ejf/image/upload/v1741377995/Screenshot_2025-03-07_at_3.06.14_PM.png)
 
-![Screenshot - 2025-03-07 15:08:31 - Screenshot 2025-03-07 at 3.08.18 PM.png](https://res.cloudinary.com/ejf/image/upload/v1741378110/Screenshot_2025-03-07_at_3.08.18_PM.png)
+![CSV spreadsheet cataloging visual media assets with detailed descriptions of photographs depicting outdoor scenes, people, animals, and landscapes.](https://res.cloudinary.com/ejf/image/upload/v1741378110/Screenshot_2025-03-07_at_3.08.18_PM.png)
 
 This experiment went pretty well, but I shelved it to come back to, there's enough to analyze here without involving LLMs and prompt engineering.
 

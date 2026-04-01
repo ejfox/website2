@@ -11,4 +11,4 @@ tags:
 
 I needed to backup thousands of photos from Cloudinary, and couldn't find an easy standalone tool to do so. So I built a little desktop app with Tauri. It handles batch downloads without eating all your RAM (vs an Electron app) and lets you resume if something goes wrong.
 
-![](http://res.cloudinary.com/ejf/image/upload/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png)
+![Setup instructions for Cloudinary Backup tool requesting cloud name, API key, and API secret credentials to download photos.](http://res.cloudinary.com/ejf/image/upload/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png)

@@ -28,6 +28,7 @@
 import { useDark } from '@vueuse/core'
 
 const isDark = useDark()
+const route = useRoute()
 
 usePageSeo({
   title: 'Book time with EJ Fox | Calendar',
@@ -72,11 +73,21 @@ onMounted(() => {
 
   window.Cal('init', { origin: 'https://cal.com' })
 
-  window.Cal('inline', {
+  // Build cal.com config from URL params
+  // Supported: ?date=2026-04-15 ?duration=30 ?month=2026-04
+  const calConfig = {
     elementOrSelector: '#cal-embed',
-    calLink: 'ejfox/30min',
+    calLink: route.query.type ? `ejfox/${route.query.type}` : 'ejfox/30min',
     layout: 'month_view',
-  })
+    config: {},
+  }
+  if (route.query.date) calConfig.config.date = route.query.date
+  if (route.query.month) calConfig.config.month = route.query.month
+  if (route.query.duration) calConfig.config.duration = route.query.duration
+  if (route.query.name) calConfig.config.name = route.query.name
+  if (route.query.email) calConfig.config.email = route.query.email
+
+  window.Cal('inline', calConfig)
 
   setTimeout(() => updateCalTheme(), 100)
 
