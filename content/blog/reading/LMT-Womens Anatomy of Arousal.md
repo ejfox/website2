@@ -22,7 +22,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Sheri Winston CNM. RN. BSN. LMT](https://www.amazon.comundefined)
+* Author: Sheri Winston CNM. RN. BSN. LMT
 * ASIN: B075DT1N3C
 * ISBN: 057803395X
 * Reference: https://www.amazon.com/dp/B075DT1N3C

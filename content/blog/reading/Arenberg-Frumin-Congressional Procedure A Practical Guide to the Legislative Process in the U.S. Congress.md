@@ -23,7 +23,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Richard A. Arenberg and Alan S. Frumin](https://www.amazon.comundefined)
+* Author: Richard A. Arenberg and Alan S. Frumin
 * ASIN: B07JYRPJ7S
 * ISBN: 158733299X
 * Reference: https://www.amazon.com/dp/B07JYRPJ7S

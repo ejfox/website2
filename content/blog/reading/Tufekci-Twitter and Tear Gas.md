@@ -25,7 +25,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Zeynep Tufekci](https://www.amazon.comundefined)
+* Author: Zeynep Tufekci
 * ASIN: B06XR259MG
 * ISBN: 0300215126
 * Reference: https://www.amazon.com/dp/B06XR259MG

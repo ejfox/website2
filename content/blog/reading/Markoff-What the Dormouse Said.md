@@ -38,7 +38,7 @@ modified: 2025-08-24T19:54:42-04:00
 ---
 
 ### Metadata
-* Author: [John Markoff](https://www.amazon.comundefined)
+* Author: John Markoff
 * ASIN: B000OCXFYM
 * ISBN: B000IOEU90
 * Reference: <https://www.amazon.com/dp/B000OCXFYM>

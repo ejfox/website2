@@ -30,7 +30,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [David Graeber](https://www.amazon.comundefined)
+* Author: David Graeber
 * ASIN: B00MKZ0QZ2
 * ISBN: 1612193749
 * Reference: https://www.amazon.com/dp/B00MKZ0QZ2

@@ -73,7 +73,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Nicole LePera](https://www.amazon.comundefined)
+* Author: Nicole LePera
 * ASIN: B089SZ9JKW
 * ISBN: 006301209X
 * Reference: https://www.amazon.com/dp/B089SZ9JKW

@@ -37,7 +37,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Michael Hastings](https://www.amazon.comundefined)
+* Author: Michael Hastings
 * ASIN: B00G3L7TRM
 * ISBN: 0399169946
 * Reference: https://www.amazon.com/dp/B00G3L7TRM

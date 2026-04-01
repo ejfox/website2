@@ -22,7 +22,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Jillian C. York](https://www.amazon.comundefined)
+* Author: Jillian C. York
 * ASIN: B089S6JCYN
 * ISBN: 1788738802
 * Reference: https://www.amazon.com/dp/B089S6JCYN

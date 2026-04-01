@@ -24,7 +24,7 @@ We are creative creatures navigating the complex collision of man-made machines 
 
 Many times, you don't even need a traditional CMS at all: just use your computer's existing filesystem and tools.
 
-![A digital artist working with multiple screens: Develop an image of a digital artist or content creator surrounded by multiple screens, each displaying a different CMS platform or aspect of content management (e.g., writing in Markdown, managing media assets, or monitoring website performance). This image would showcase the complexity of selecting and working with a modern CMS and emphasize the importance of considering various factors when making a choice](edited_142288951_A%20hipster%20digital%20artist%20working%20with%20multiple%20scr_xl-beta-v2-2-2.png)
+![A digital artist working with multiple screens: Develop an image of a digital artist or content creator surrounded by multiple screens, each displaying a different CMS platform or aspect of content management (e.g., writing in Markdown, managing media assets, or monitoring website performance). This image would showcase the complexity of selecting and working with a modern CMS and emphasize the importance of considering various factors when making a choice](https://res.cloudinary.com/ejf/image/upload/v1680634868/edited_142288951_A_hipster_digital_artist_working_with_multiple_scr_xl-beta-v2-2-2.png_xl-beta-v2-2-2.png)
 
 My experience with Content Management Systems has primarily been within the bustling world of news organizations and startups, where work is often birthed in familiar tools like Word or Google Docs before being shepherded into a CMS for finalization, and time is of the essence.
 

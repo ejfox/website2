@@ -44,7 +44,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [William B. Helmreich](https://www.amazon.comundefined)
+* Author: William B. Helmreich
 * ASIN: B00F8MIIP4
 * ISBN: 0691144052
 * Reference: https://www.amazon.com/dp/B00F8MIIP4

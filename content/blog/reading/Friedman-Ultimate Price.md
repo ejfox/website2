@@ -38,7 +38,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Howard Steven Friedman](https://www.amazon.comundefined)
+* Author: Howard Steven Friedman
 * ASIN: B084WQSDD8
 * Reference: https://www.amazon.com/dp/B084WQSDD8
 * [Kindle link](kindle://book?action=open&asin=B084WQSDD8)

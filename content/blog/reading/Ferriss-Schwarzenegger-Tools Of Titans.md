@@ -45,7 +45,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Timothy Ferriss and Arnold Schwarzenegger](https://www.amazon.comundefined)
+* Author: Timothy Ferriss and Arnold Schwarzenegger
 * ASIN: B01HSMRWNU
 * ISBN: 1785041274
 * Reference: https://www.amazon.com/dp/B01HSMRWNU

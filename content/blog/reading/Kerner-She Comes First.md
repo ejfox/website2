@@ -34,7 +34,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Ian Kerner](https://www.amazon.comundefined)
+* Author: Ian Kerner
 * ASIN: B000FC1PRK
 * ISBN: 0060538252
 * Reference: https://www.amazon.com/dp/B000FC1PRK

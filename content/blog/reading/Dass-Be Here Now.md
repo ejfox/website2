@@ -22,7 +22,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Ram Dass](https://www.amazon.comundefined)
+* Author: Ram Dass
 * ASIN: B005R9HK8O
 * ISBN: 0517543052
 * Reference: https://www.amazon.com/dp/B005R9HK8O

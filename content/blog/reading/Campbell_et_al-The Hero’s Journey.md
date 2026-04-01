@@ -39,7 +39,7 @@ modified: 2025-08-31T18:40:04-04:00
 ---
 
 ### Metadata
-* Author: [Joseph Campbell, Phil Cousineau, David Kudler, and Stuart L. Brown](https://www.amazon.comundefined)
+* Author: Joseph Campbell, Phil Cousineau, David Kudler, and Stuart L. Brown
 * ASIN: B07K5KBWGZ
 * ISBN: 1608681890
 * Reference: <https://www.amazon.com/dp/B07K5KBWGZ>

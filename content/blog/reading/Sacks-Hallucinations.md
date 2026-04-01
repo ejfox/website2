@@ -25,7 +25,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Oliver Sacks](https://www.amazon.comundefined)
+* Author: Oliver Sacks
 * ASIN: B0082XLY6G
 * Reference: https://www.amazon.com/dp/B0082XLY6G
 * [Kindle link](kindle://book?action=open&asin=B0082XLY6G)

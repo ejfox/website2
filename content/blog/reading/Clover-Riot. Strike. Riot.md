@@ -23,7 +23,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Joshua Clover](https://www.amazon.comundefined)
+* Author: Joshua Clover
 * ASIN: B013NI8WB4
 * ISBN: 1784780596
 * Reference: https://www.amazon.com/dp/B013NI8WB4

@@ -34,7 +34,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Donella H. Meadows and Diana Wright](https://www.amazon.comundefined)
+* Author: Donella H. Meadows and Diana Wright
 * ASIN: B005VSRFEA
 * Reference: https://www.amazon.com/dp/B005VSRFEA
 * [Kindle link](kindle://book?action=open&asin=B005VSRFEA)

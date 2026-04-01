@@ -27,7 +27,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [John Lewis Gaddis](https://www.amazon.comundefined)
+* Author: John Lewis Gaddis
 * ASIN: B073QZX7YX
 * ISBN: 0241333121
 * Reference: https://www.amazon.com/dp/B073QZX7YX

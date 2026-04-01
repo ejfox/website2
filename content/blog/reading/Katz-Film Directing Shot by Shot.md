@@ -25,7 +25,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Steven Katz](https://www.amazon.comundefined)
+* Author: Steven Katz
 * ASIN: B00570IROE
 * Reference: https://www.amazon.com/dp/B00570IROE
 * [Kindle link](kindle://book?action=open&asin=B00570IROE)

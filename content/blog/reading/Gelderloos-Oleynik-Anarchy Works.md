@@ -102,7 +102,7 @@ tags:
 ---
 
 ### Metadata
-* Author: [Peter Gelderloos and Vladimir Oleynik](https://www.amazon.comundefined)
+* Author: Peter Gelderloos and Vladimir Oleynik
 * ASIN: B018SN4HT0
 * Reference: <https://www.amazon.com/dp/B018SN4HT0>
 * [Kindle link](kindle://book?action=open&asin=B018SN4HT0)

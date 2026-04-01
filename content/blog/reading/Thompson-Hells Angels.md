@@ -22,7 +22,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Hunter S. Thompson](https://www.amazon.comundefined)
+* Author: Hunter S. Thompson
 * ASIN: B008IU9IVG
 * ISBN: 0345410084
 * Reference: https://www.amazon.com/dp/B008IU9IVG

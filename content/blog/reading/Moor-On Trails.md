@@ -122,7 +122,7 @@ tags:
 ---
 
 ### Metadata
-* Author: [Robert Moor](https://www.amazon.comundefined)
+* Author: Robert Moor
 * ASIN: B0176M3ZG0
 * ISBN: 1476739218
 * Reference: <https://www.amazon.com/dp/B0176M3ZG0>

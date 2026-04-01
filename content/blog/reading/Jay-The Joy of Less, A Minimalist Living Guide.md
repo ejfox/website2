@@ -33,7 +33,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Francine Jay](https://www.amazon.comundefined)
+* Author: Francine Jay
 * ASIN: B003UNJX4S
 * ISBN: 1452155186
 * Reference: https://www.amazon.com/dp/B003UNJX4S

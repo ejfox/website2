@@ -59,7 +59,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Melissa Broder](https://www.amazon.comundefined)
+* Author: Melissa Broder
 * ASIN: B011J4H1NO
 * ISBN: 1455562726
 * Reference: https://www.amazon.com/dp/B011J4H1NO

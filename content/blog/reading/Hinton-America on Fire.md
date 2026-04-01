@@ -35,7 +35,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Elizabeth Hinton](https://www.amazon.comundefined)
+* Author: Elizabeth Hinton
 * ASIN: B08L6ZNW43
 * ISBN: 1631498908
 * Reference: https://www.amazon.com/dp/B08L6ZNW43

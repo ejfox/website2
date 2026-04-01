@@ -22,7 +22,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Ursula K. Le Guin and Karen Joy Fowler](https://www.amazon.comundefined)
+* Author: Ursula K. Le Guin and Karen Joy Fowler
 * ASIN: B000FC11GA
 * ISBN: 006051275X
 * Reference: https://www.amazon.com/dp/B000FC11GA

@@ -31,7 +31,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Charlie Kaufman](https://www.amazon.comundefined)
+* Author: Charlie Kaufman
 * ASIN: B07Y7J61HZ
 * ISBN: 0593229150
 * Reference: https://www.amazon.com/dp/B07Y7J61HZ

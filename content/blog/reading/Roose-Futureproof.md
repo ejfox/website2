@@ -28,7 +28,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Kevin Roose](https://www.amazon.comundefined)
+* Author: Kevin Roose
 * ASIN: B07ZN3TDWH
 * ISBN: 059313334X
 * Reference: https://www.amazon.com/dp/B07ZN3TDWH

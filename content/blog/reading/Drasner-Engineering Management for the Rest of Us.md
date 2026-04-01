@@ -45,7 +45,7 @@ tags:
 ---
 
 ### Metadata
-* Author: [Sarah Drasner](https://www.amazon.comundefined)
+* Author: Sarah Drasner
 * ASIN: B0BGYVDX35
 * Reference: <https://www.amazon.com/dp/B0BGYVDX35>
 * [Kindle link](kindle://book?action=open&asin=B0BGYVDX35)

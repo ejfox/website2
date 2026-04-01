@@ -69,7 +69,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Carolyn Elliott PhD](https://www.amazon.comundefined)
+* Author: Carolyn Elliott PhD
 * ASIN: B07XMG4BWN
 * ISBN: 1578636477
 * Reference: https://www.amazon.com/dp/B07XMG4BWN

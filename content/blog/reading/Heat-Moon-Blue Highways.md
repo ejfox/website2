@@ -28,7 +28,7 @@ tags: [book, travel, america]
 ---
 
 ## Metadata
-* Author: [William Least Heat-Moon](https://www.amazon.comundefined)
+* Author: William Least Heat-Moon
 * ASIN: B006BAW16O
 * ISBN: 0316353299
 * Reference: https://www.amazon.com/dp/B006BAW16O

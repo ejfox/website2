@@ -22,7 +22,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Carl T. Bergstrom and Jevin D. West](https://www.amazon.comundefined)
+* Author: Carl T. Bergstrom and Jevin D. West
 * ASIN: B08191DV5T
 * ISBN: 0593229762
 * Reference: https://www.amazon.com/dp/B08191DV5T

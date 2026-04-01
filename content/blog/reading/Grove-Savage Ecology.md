@@ -68,7 +68,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Jairus Victor Grove](https://www.amazon.comundefined)
+* Author: Jairus Victor Grove
 * ASIN: B07V5V2P1V
 * ISBN: 1478004215
 * Reference: https://www.amazon.com/dp/B07V5V2P1V

@@ -61,7 +61,7 @@ tags: [book, writing]
 ---
 
 ## Metadata
-* Author: [Charles Bukowski](https://www.amazon.comundefined)
+* Author: Charles Bukowski
 * ASIN: B000W94FWS
 * ISBN: 0876853904
 * Reference: https://www.amazon.com/dp/B000W94FWS

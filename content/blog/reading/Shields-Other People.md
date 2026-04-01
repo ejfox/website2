@@ -31,7 +31,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [David Shields](https://www.amazon.comundefined)
+* Author: David Shields
 * ASIN: B01G0GD0WC
 * ISBN: 0385351992
 * Reference: https://www.amazon.com/dp/B01G0GD0WC

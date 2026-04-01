@@ -29,7 +29,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Clary Illian and Charles Metzger](https://www.amazon.comundefined)
+* Author: Clary Illian and Charles Metzger
 * ASIN: B008XOF5K0
 * ISBN: B007CZJGL0
 * Reference: https://www.amazon.com/dp/B008XOF5K0

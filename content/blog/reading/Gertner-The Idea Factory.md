@@ -66,7 +66,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Jon Gertner](https://www.amazon.comundefined)
+* Author: Jon Gertner
 * ASIN: B005GSZIWG
 * ISBN: B00I0GEN7W
 * Reference: https://www.amazon.com/dp/B005GSZIWG

@@ -33,7 +33,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Michael Rank](https://www.amazon.comundefined)
+* Author: Michael Rank
 * ASIN: B00FYRKZRM
 * ISBN: 1493676121
 * Reference: https://www.amazon.com/dp/B00FYRKZRM

@@ -25,7 +25,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Jeff Warren](https://www.amazon.comundefined)
+* Author: Jeff Warren
 * ASIN: B000W917RY
 * Reference: https://www.amazon.com/dp/B000W917RY
 * [Kindle link](kindle://book?action=open&asin=B000W917RY)

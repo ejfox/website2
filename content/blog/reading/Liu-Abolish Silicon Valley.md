@@ -28,7 +28,7 @@ tags: [book, tech, politics]
 ---
 
 ## Metadata
-* Author: [Wendy Liu](https://www.amazon.comundefined)
+* Author: Wendy Liu
 * ASIN: B07V9B4MC9
 * ISBN: 1912248700
 * Reference: https://www.amazon.com/dp/B07V9B4MC9

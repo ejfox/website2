@@ -26,7 +26,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Nathan Yau](https://www.amazon.comundefined)
+* Author: Nathan Yau
 * ASIN: B005CCT19M
 * Reference: https://www.amazon.com/dp/B005CCT19M
 * [Kindle link](kindle://book?action=open&asin=B005CCT19M)

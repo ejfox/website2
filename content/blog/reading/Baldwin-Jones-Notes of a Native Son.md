@@ -26,7 +26,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [James Baldwin and Edward P. Jones](https://www.amazon.comundefined)
+* Author: James Baldwin and Edward P. Jones
 * ASIN: B007WKEN4U
 * ISBN: 0807006238
 * Reference: https://www.amazon.com/dp/B007WKEN4U

@@ -38,7 +38,7 @@ tags:
 ---
 
 ### Metadata
-* Author: [Kyle Chayka](https://www.amazon.comundefined)
+* Author: Kyle Chayka
 * ASIN: B0C2PDRHZ9
 * ISBN: 1788708547
 * Reference: <https://www.amazon.com/dp/B0C2PDRHZ9>

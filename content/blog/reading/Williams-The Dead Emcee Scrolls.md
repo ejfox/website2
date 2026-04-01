@@ -47,7 +47,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Saul Williams](https://www.amazon.comundefined)
+* Author: Saul Williams
 * ASIN: B000FCKROM
 * ISBN: 1416516328
 * Reference: https://www.amazon.com/dp/B000FCKROM

@@ -35,7 +35,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Tim Collins and Amanda Zito](https://www.amazon.comundefined)
+* Author: Tim Collins and Amanda Zito
 * ASIN: B08HX77KVM
 * Reference: https://www.amazon.com/dp/B08HX77KVM
 * [Kindle link](kindle://book?action=open&asin=B08HX77KVM)

@@ -45,7 +45,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Arin Murphy-Hiscock](https://www.amazon.comundefined)
+* Author: Arin Murphy-Hiscock
 * ASIN: B071XSVBQC
 * ISBN: 150720471X
 * Reference: https://www.amazon.com/dp/B071XSVBQC

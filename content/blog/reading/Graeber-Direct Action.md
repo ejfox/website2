@@ -19,7 +19,7 @@ tags: [book, activism, protest]
 ---
 
 ## Metadata
-* Author: [David Graeber](https://www.amazon.comundefined)
+* Author: David Graeber
 * ASIN: B0051QH31W
 * ISBN: 1904859798
 * Reference: https://www.amazon.com/dp/B0051QH31W

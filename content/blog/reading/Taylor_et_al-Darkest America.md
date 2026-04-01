@@ -38,7 +38,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Yuval Taylor, Jake Austen, and Mel Watkins](https://www.amazon.comundefined)
+* Author: Yuval Taylor, Jake Austen, and Mel Watkins
 * ASIN: B007HXFLOI
 * ISBN: 0393070980
 * Reference: https://www.amazon.com/dp/B007HXFLOI

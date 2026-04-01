@@ -22,7 +22,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Steven Levy](https://www.amazon.comundefined)
+* Author: Steven Levy
 * ASIN: B003UYUP6M
 * ISBN: 1416596593
 * Reference: https://www.amazon.com/dp/B003UYUP6M

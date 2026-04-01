@@ -78,7 +78,7 @@ tags: [book, writing, art]
 ---
 
 ### Metadata
-* Author: [David Shields](https://www.amazon.comundefined)
+* Author: David Shields
 * ASIN: B0036S49D2
 * ISBN: 0307273539
 * Reference: <https://www.amazon.com/dp/B0036S49D2>

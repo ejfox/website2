@@ -28,7 +28,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Maria Konnikova](https://www.amazon.comundefined)
+* Author: Maria Konnikova
 * ASIN: B008EKOSXS
 * ISBN: 1782111743
 * Reference: https://www.amazon.com/dp/B008EKOSXS

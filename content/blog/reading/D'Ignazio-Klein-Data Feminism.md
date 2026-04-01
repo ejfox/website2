@@ -33,7 +33,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Catherine D'Ignazio and Lauren F. Klein](https://www.amazon.comundefined)
+* Author: Catherine D'Ignazio and Lauren F. Klein
 * ASIN: B08BT3SY5N
 * ISBN: 0262044005
 * Reference: https://www.amazon.com/dp/B08BT3SY5N

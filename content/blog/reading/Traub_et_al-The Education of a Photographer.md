@@ -25,7 +25,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Charles H. Traub, Steven Heller, Adam B. Bell, and Charles Traub](https://www.amazon.comundefined)
+* Author: Charles H. Traub, Steven Heller, Adam B. Bell, and Charles Traub
 * ASIN: B0041IXRM0
 * ISBN: 158115450X
 * Reference: https://www.amazon.com/dp/B0041IXRM0

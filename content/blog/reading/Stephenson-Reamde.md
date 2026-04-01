@@ -22,7 +22,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Neal Stephenson](https://www.amazon.comundefined)
+* Author: Neal Stephenson
 * ASIN: B004XVN0WW
 * ISBN: 0061977969
 * Reference: https://www.amazon.com/dp/B004XVN0WW

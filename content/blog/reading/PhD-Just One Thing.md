@@ -31,7 +31,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Rick Hanson PhD](https://www.amazon.comundefined)
+* Author: Rick Hanson PhD
 * ASIN: B005LQ6UNO
 * ISBN: 1608820319
 * Reference: https://www.amazon.com/dp/B005LQ6UNO

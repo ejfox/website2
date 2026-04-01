@@ -43,7 +43,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [David Shields](https://www.amazon.comundefined)
+* Author: David Shields
 * ASIN: B07MT424DM
 * ISBN: 0814255191
 * Reference: https://www.amazon.com/dp/B07MT424DM

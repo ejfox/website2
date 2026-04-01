@@ -52,7 +52,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Matt Taibbi and Molly Crabapple](https://www.amazon.comundefined)
+* Author: Matt Taibbi and Molly Crabapple
 * ASIN: B00EBRUB02
 * ISBN: 0812983637
 * Reference: https://www.amazon.com/dp/B00EBRUB02

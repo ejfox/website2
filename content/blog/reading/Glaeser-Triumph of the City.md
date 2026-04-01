@@ -27,7 +27,7 @@ modified: 2025-09-23T08:04:35-04:00
 ---
 
 ### Metadata
-* Author: [Edward Glaeser](https://www.amazon.comundefined)
+* Author: Edward Glaeser
 * ASIN: B0049U4HTW
 * ISBN: B00D08DNQC
 * Reference: <https://www.amazon.com/dp/B0049U4HTW>

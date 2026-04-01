@@ -28,7 +28,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Robert O. Self](https://www.amazon.comundefined)
+* Author: Robert O. Self
 * ASIN: B00GYW96C6
 * Reference: https://www.amazon.com/dp/B00GYW96C6
 * [Kindle link](kindle://book?action=open&asin=B00GYW96C6)

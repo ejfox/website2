@@ -61,7 +61,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Richard Erdoes and Alfonso Ortiz](https://www.amazon.comundefined)
+* Author: Richard Erdoes and Alfonso Ortiz
 * ASIN: B00GEYN1CK
 * ISBN: 0394740181
 * Reference: https://www.amazon.com/dp/B00GEYN1CK

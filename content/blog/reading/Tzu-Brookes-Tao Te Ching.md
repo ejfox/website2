@@ -34,7 +34,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Lao Tzu and Robert Brookes](https://www.amazon.comundefined)
+* Author: Lao Tzu and Robert Brookes
 * ASIN: B009WA8ZKG
 * Reference: https://www.amazon.com/dp/B009WA8ZKG
 * [Kindle link](kindle://book?action=open&asin=B009WA8ZKG)

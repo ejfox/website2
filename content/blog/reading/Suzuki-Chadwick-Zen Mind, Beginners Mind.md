@@ -114,7 +114,7 @@ modified: 2025-08-24T18:30:46-04:00
 ---
 
 ### Metadata
-* Author: [Shunryu Suzuki and David Chadwick](https://www.amazon.comundefined)
+* Author: Shunryu Suzuki and David Chadwick
 * ASIN: B004R9QFGS
 * Reference: <https://www.amazon.com/dp/B004R9QFGS>
 * [Kindle link](kindle://book?action=open&asin=B004R9QFGS)

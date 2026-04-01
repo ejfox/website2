@@ -27,7 +27,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Jenny Sansouci and Frank Lipman Md](https://www.amazon.comundefined)
+* Author: Jenny Sansouci and Frank Lipman Md
 * ASIN: B082H2P7KL
 * ISBN: 1974809986
 * Reference: https://www.amazon.com/dp/B082H2P7KL

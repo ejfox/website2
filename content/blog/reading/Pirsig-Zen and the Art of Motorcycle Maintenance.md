@@ -44,7 +44,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Robert M. Pirsig](https://www.amazon.comundefined)
+* Author: Robert M. Pirsig
 * ASIN: B0026772N8
 * Reference: https://www.amazon.com/dp/B0026772N8
 * [Kindle link](kindle://book?action=open&asin=B0026772N8)

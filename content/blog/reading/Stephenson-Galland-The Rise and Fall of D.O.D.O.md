@@ -40,7 +40,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Neal Stephenson and Nicole Galland](https://www.amazon.comundefined)
+* Author: Neal Stephenson and Nicole Galland
 * ASIN: B01M0HPHR6
 * ISBN: 0008132569
 * Reference: https://www.amazon.com/dp/B01M0HPHR6

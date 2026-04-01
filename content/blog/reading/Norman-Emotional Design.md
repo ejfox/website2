@@ -22,7 +22,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Donald A. Norman](https://www.amazon.comundefined)
+* Author: Donald A. Norman
 * ASIN: B005GKIYD4
 * Reference: https://www.amazon.com/dp/B005GKIYD4
 * [Kindle link](kindle://book?action=open&asin=B005GKIYD4)

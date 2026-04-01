@@ -34,7 +34,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [David Sedaris](https://www.amazon.comundefined)
+* Author: David Sedaris
 * ASIN: B01LZD935U
 * ISBN: 0316154733
 * Reference: https://www.amazon.com/dp/B01LZD935U

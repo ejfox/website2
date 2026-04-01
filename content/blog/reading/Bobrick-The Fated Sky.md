@@ -58,7 +58,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Benson Bobrick](https://www.amazon.comundefined)
+* Author: Benson Bobrick
 * ASIN: B000FCKKXA
 * ISBN: 0743224825
 * Reference: https://www.amazon.com/dp/B000FCKKXA

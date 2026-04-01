@@ -12,7 +12,7 @@ tags:
 ---
 ## Into the Wild: Motorcycle Camping Gearlist
 
-![](D8231DDA-80DE-4E33-B72F-200E0B78E999.jpeg)
+<!-- image lost: D8231DDA-80DE-4E33-B72F-200E0B78E999.jpeg -->
 
 I've spent countless hours researching, testing out different methods, and developing a reliable motorcycle camping setup that I want to share so that anyone can make their dreams a reality.
 
@@ -33,7 +33,7 @@ In certain scenarios, it might be helpful to pull off subsets of your bags. For 
 
 Consider using dry bags clipped together or attached to your bags with carabiners so everything stays together no matter what kind of terrain or weather follows you on your journey.
 
-![My bags for Island camping at Lake George](F5B356FA-79CC-4139-8F70-162F31D045F9_1_105_c.jpeg)
+<!-- image lost: F5B356FA-79CC-4139-8F70-162F31D045F9_1_105_c.jpeg -->
 
 >You see things vacationing on a motorcycle in a way that is completely different from any other. In a car you’re always in a compartment, and because you’re used to it you don’t realize that through that car window everything you see is just more TV. You’re a passive observer and it is all moving by you boringly in a frame.
 >[Pirsig-Zen and the Art of Motorcycle Maintenance](Pirsig-Zen%20and%20the%20Art%20of%20Motorcycle%20Maintenance.md)
@@ -50,7 +50,7 @@ The Kawasaki Versys X 300 fits all my requirements.
 - Curb Weight: 386 lbs (175 kg)
 - Seat Height: 32.1 in (815mm)
 
-![](ADD924AF-D7C4-4F8B-ABD9-4D7EB4EBF026.jpeg)
+<!-- image lost: ADD924AF-D7C4-4F8B-ABD9-4D7EB4EBF026.jpeg -->
 
 #### What I looked for in a bike
 - Weight: I need to be able to pick it up and take it on single track
@@ -69,7 +69,7 @@ My setup:
 - Boots: Forma ADV
 - GPS: Garmin Zumo XT
 
-![](6986CDD3-930A-410E-9300-40BD7751A357_1_105_c.jpeg)
+<!-- image lost: 6986CDD3-930A-410E-9300-40BD7751A357_1_105_c.jpeg -->
 
 ### Gear Up Your Motorcycle
 
@@ -81,7 +81,7 @@ You should be prepared to ride in the rain. It will happen at the most inopportu
 
 I also carry an art kit and a Jetboil with fuel for coffee in the morning.
 
-![This is definitely Too Much Stuff, but she handled it like a champ](EBF62C4D-364E-44F2-9486-691705B62C8A_1_105_c.jpeg)
+<!-- image lost: EBF62C4D-364E-44F2-9486-691705B62C8A_1_105_c.jpeg -->
 
 ### Bags
 - Main bag: 5.11 Rush 24
@@ -108,13 +108,13 @@ I love the Marmot Tungsten 2P Tent—a lightweight but versatile option that set
 
 [Marmot Tungsten 2P Tent](https://www.rei.com/product/110883/marmot-tungsten-2p-tent-with-footprint)
 
-![](IMG_0010.jpeg)
+<!-- image lost: IMG_0010.jpeg -->
 
 ### Campsite Considerations
 
 Camping off a motorcycle requires finding gear that can be condensed down to the smallest possible form. Look for items with versatile features and lightweight construction and consider your space limitations when selecting items. We love the Marmot Tungsten 2P Tent - a lightweight but versatile option.
 
-![](E1730FDB-741A-4788-AB0E-767EF47B3D63_1_105_c.jpeg)
+<!-- image lost: E1730FDB-741A-4788-AB0E-767EF47B3D63_1_105_c.jpeg -->
 
 You should also consider a campsite layout to help keep your gear safe and organized while still giving you plenty of space to explore. Take a look at our diagram below to get an idea of how you can setup your campsite for maximum enjoyment and convenience.
 

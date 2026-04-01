@@ -123,7 +123,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Joseph Menn](https://www.amazon.comundefined)
+* Author: Joseph Menn
 * ASIN: B07J54F9KR
 * ISBN: 154176238X
 * Reference: https://www.amazon.com/dp/B07J54F9KR

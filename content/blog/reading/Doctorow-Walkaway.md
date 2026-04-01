@@ -50,7 +50,7 @@ tags: [book, tech, anarchism]
 ---
 
 ### Metadata
-* Author: [Cory Doctorow](https://www.amazon.comundefined)
+* Author: Cory Doctorow
 * ASIN: B01FQQ47OC
 * Reference: <https://www.amazon.com/dp/B01FQQ47OC>
 * [Kindle link](kindle://book?action=open&asin=B01FQQ47OC)

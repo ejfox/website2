@@ -25,7 +25,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Moshe Kasher](https://www.amazon.comundefined)
+* Author: Moshe Kasher
 * ASIN: B004RCNGSA
 * ISBN: 0446584274
 * Reference: https://www.amazon.com/dp/B004RCNGSA

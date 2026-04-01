@@ -34,7 +34,7 @@ modified: 2025-08-24T18:30:58-04:00
 ---
 
 ### Metadata
-* Author: [C. G. Jung, Richard Wilhelm, Hellmut Wilhelm, and Cary F. Baynes](https://www.amazon.comundefined)
+* Author: C. G. Jung, Richard Wilhelm, Hellmut Wilhelm, and Cary F. Baynes
 * ASIN: B004S6QSYO
 * Reference: <https://www.amazon.com/dp/B004S6QSYO>
 * [Kindle link](kindle://book?action=open&asin=B004S6QSYO)

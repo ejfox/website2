@@ -32,7 +32,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Daniel Gordis](https://www.amazon.comundefined)
+* Author: Daniel Gordis
 * ASIN: B01B19O4FA
 * ISBN: 0062368745
 * Reference: https://www.amazon.com/dp/B01B19O4FA

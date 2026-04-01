@@ -55,7 +55,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Matthew Engelke](https://www.amazon.comundefined)
+* Author: Matthew Engelke
 * ASIN: B076ZYFFTX
 * ISBN: 0691193134
 * Reference: https://www.amazon.com/dp/B076ZYFFTX

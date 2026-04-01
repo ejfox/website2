@@ -17,7 +17,7 @@ tags:
 
 I am always on the lookout for tools that can enhance my creative process and help me organize my thoughts more efficiently. When I discovered Obsidian, it was as if I had found the perfect companion for the way my brain works. I want to share my love for Obsidian, highlighting its features, customization options, and how it has revolutionized the way I work.
 
-![A screenshot of my Obsidian workspace: the top left pane has a list of files, the bottom left pane has a local network graph of notes and tags related to this one, the main pane has the content of this post, the top right pane has Smart Connection-powered similar articles, and the bottom right pane has an outline of the table of contents](Screenshot%202023-04-04%20at%202.44.48%20PM.png)
+![A screenshot of my Obsidian workspace: the top left pane has a list of files, the bottom left pane has a local network graph of notes and tags related to this one, the main pane has the content of this post, the top right pane has Smart Connection-powered similar articles, and the bottom right pane has an outline of the table of contents](https://res.cloudinary.com/ejf/image/upload/v1680634865/Screenshot_2023-04-04_at_2.44.48_PM.png)
 
 ### The power of Markdown
 

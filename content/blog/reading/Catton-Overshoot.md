@@ -31,7 +31,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [William R. Catton](https://www.amazon.comundefined)
+* Author: William R. Catton
 * ASIN: B00VVH4UGG
 * ISBN: 0252009886
 * Reference: https://www.amazon.com/dp/B00VVH4UGG

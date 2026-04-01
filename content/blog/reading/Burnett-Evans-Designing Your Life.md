@@ -25,7 +25,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Bill Burnett and Dave Evans](https://www.amazon.comundefined)
+* Author: Bill Burnett and Dave Evans
 * ASIN: B01BJSRSEC
 * ISBN: B0CDQNGNTP
 * Reference: https://www.amazon.com/dp/B01BJSRSEC

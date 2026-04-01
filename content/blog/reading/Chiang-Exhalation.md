@@ -22,7 +22,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Ted Chiang](https://www.amazon.comundefined)
+* Author: Ted Chiang
 * ASIN: B07GD46PQZ
 * ISBN: 1529014484
 * Reference: https://www.amazon.com/dp/B07GD46PQZ

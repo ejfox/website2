@@ -173,7 +173,7 @@ tags:
 ---
 
 ### Metadata
-* Author: [Malcolm Harris](https://www.amazon.comundefined)
+* Author: Malcolm Harris
 * ASIN: B06XFTVQFK
 * ISBN: 0316510866
 * Reference: <https://www.amazon.com/dp/B06XFTVQFK>

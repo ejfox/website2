@@ -88,7 +88,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Ursula K. Le Guin](https://www.amazon.comundefined)
+* Author: Ursula K. Le Guin
 * ASIN: B007V3FMDY
 * ISBN: 1611807247
 * Reference: https://www.amazon.com/dp/B007V3FMDY

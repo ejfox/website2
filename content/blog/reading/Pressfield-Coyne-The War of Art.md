@@ -40,7 +40,7 @@ tags: [book, art, advice]
 ---
 
 ## Metadata
-* Author: [Steven Pressfield and Shawn Coyne](https://www.amazon.comundefined)
+* Author: Steven Pressfield and Shawn Coyne
 * ASIN: B007A4SDCG
 * ISBN: 0446691437
 * Reference: https://www.amazon.com/dp/B007A4SDCG

@@ -52,7 +52,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Terry Eagleton](https://www.amazon.comundefined)
+* Author: Terry Eagleton
 * ASIN: B004V9IFDA
 * Reference: https://www.amazon.com/dp/B004V9IFDA
 * [Kindle link](kindle://book?action=open&asin=B004V9IFDA)

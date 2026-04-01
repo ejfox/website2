@@ -26,7 +26,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Glenn Greenwald](https://www.amazon.comundefined)
+* Author: Glenn Greenwald
 * ASIN: B00E0CZX0G
 * ISBN: 1250062586
 * Reference: https://www.amazon.com/dp/B00E0CZX0G

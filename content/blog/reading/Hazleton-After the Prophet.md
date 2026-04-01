@@ -28,7 +28,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Lesley Hazleton](https://www.amazon.comundefined)
+* Author: Lesley Hazleton
 * ASIN: B002NXOR6A
 * Reference: https://www.amazon.com/dp/B002NXOR6A
 * [Kindle link](kindle://book?action=open&asin=B002NXOR6A)

@@ -31,7 +31,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Paul Jarvis](https://www.amazon.comundefined)
+* Author: Paul Jarvis
 * ASIN: B078962RHQ
 * ISBN: 0358213258
 * Reference: https://www.amazon.com/dp/B078962RHQ

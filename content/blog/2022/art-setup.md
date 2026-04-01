@@ -17,7 +17,7 @@ tags:
 
 ## Making Space to Make Dope Shit
 
-![[4168054398_Isometric_3D_rendering_of_a_studio_setup__vibrant_colors__cartoon_style__plants__tools__cabinets__sh.png]]
+![Isometric 3D rendering of a colorful creative studio with plants, art supplies, cabinets, and shelving](https://res.cloudinary.com/ejf/image/upload/v1679587769/4168054398_Isometric_3D_rendering_of_a_studio_setup__vibrant_colors__cartoon_style__plants__tools__cabinets__sh.png)
 
 Creating a studio for your creative endeavors doesn't have to break the bank. When you know your shit, it's easy to turn any space - big or small - into a place for your transformative ideas to come to life. Here's an insider look at my current setup.
 

@@ -22,7 +22,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Jessica Stern and J. M. Berger](https://www.amazon.comundefined)
+* Author: Jessica Stern and J. M. Berger
 * ASIN: B00NVLS3CM
 * ISBN: 0062395548
 * Reference: https://www.amazon.com/dp/B00NVLS3CM

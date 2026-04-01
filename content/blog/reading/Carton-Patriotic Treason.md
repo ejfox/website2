@@ -56,7 +56,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Evan Carton](https://www.amazon.comundefined)
+* Author: Evan Carton
 * ASIN: B000JMKS7Y
 * ISBN: 074327136X
 * Reference: https://www.amazon.com/dp/B000JMKS7Y

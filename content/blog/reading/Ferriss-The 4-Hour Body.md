@@ -40,7 +40,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Timothy Ferriss](https://www.amazon.comundefined)
+* Author: Timothy Ferriss
 * ASIN: B003EI2EH2
 * ISBN: 030746363X
 * Reference: https://www.amazon.com/dp/B003EI2EH2

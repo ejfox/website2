@@ -26,7 +26,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Mason Currey](https://www.amazon.comundefined)
+* Author: Mason Currey
 * ASIN: B009Y4I4OM
 * Reference: https://www.amazon.com/dp/B009Y4I4OM
 * [Kindle link](kindle://book?action=open&asin=B009Y4I4OM)

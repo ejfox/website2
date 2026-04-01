@@ -22,7 +22,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Aki Kamozawa and Alexander H. Talbot](https://www.amazon.comundefined)
+* Author: Aki Kamozawa and Alexander H. Talbot
 * ASIN: B003F3PL9E
 * ISBN: 0307717402
 * Reference: https://www.amazon.com/dp/B003F3PL9E

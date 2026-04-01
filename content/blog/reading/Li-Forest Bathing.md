@@ -22,7 +22,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Dr Qing  Li](https://www.amazon.comundefined)
+* Author: Dr Qing  Li
 * ASIN: B077CQKQRR
 * ISBN: 052555985X
 * Reference: https://www.amazon.com/dp/B077CQKQRR

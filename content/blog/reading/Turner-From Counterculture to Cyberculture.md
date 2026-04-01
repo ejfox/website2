@@ -36,7 +36,7 @@ kindle-sync:
 ---
 
 ## Metadata
-* Author: [Fred Turner](https://www.amazon.comundefined)
+* Author: Fred Turner
 * ASIN: B004BKJVYG
 * Reference: https://www.amazon.com/dp/B004BKJVYG
 * [Kindle link](kindle://book?action=open&asin=B004BKJVYG)

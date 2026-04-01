@@ -25,7 +25,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Raph Koster](https://www.amazon.comundefined)
+* Author: Raph Koster
 * ASIN: B00GK5SRFY
 * Reference: https://www.amazon.com/dp/B00GK5SRFY
 * [Kindle link](kindle://book?action=open&asin=B00GK5SRFY)

@@ -28,7 +28,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [David Shields](https://www.amazon.comundefined)
+* Author: David Shields
 * ASIN: B0DGLSSTL3
 * Reference: https://www.amazon.com/dp/B0DGLSSTL3
 * [Kindle link](kindle://book?action=open&asin=B0DGLSSTL3)

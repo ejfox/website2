@@ -28,7 +28,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Francis Fukuyama](https://www.amazon.comundefined)
+* Author: Francis Fukuyama
 * ASIN: B00457X7VI
 * ISBN: 1846682568
 * Reference: https://www.amazon.com/dp/B00457X7VI

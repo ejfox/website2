@@ -42,7 +42,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Mark Kramer and Wendy Call](https://www.amazon.comundefined)
+* Author: Mark Kramer and Wendy Call
 * ASIN: B000SEH1KK
 * Reference: https://www.amazon.com/dp/B000SEH1KK
 * [Kindle link](kindle://book?action=open&asin=B000SEH1KK)

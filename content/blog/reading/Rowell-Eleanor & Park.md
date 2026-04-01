@@ -22,7 +22,7 @@ tags:
 ---
 
 ## Metadata
-* Author: [Rainbow Rowell](https://www.amazon.comundefined)
+* Author: Rainbow Rowell
 * ASIN: B008SAZHLQ
 * ISBN: 1250012570
 * Reference: https://www.amazon.com/dp/B008SAZHLQ
