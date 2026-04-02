@@ -48,7 +48,7 @@ This intuitively seems like the type of problem that LLMs could be helpful for.
 
 ## Retrieving my data
 
-The first thing I did was build a [scraper to get all my Pinboard bookmarks](https://github.com/ejfox/scrapbook-core/blob/main/scripts/dl_pinboard.mjs) - then I did the same for [are.na blocks](https://github.com/ejfox/scrapbook-core/blob/main/scripts/dl_arena.mjs), [public GitHub actions](https://github.com/ejfox/scrapbook-core/blob/main/scripts/dl_github.mjs), and [Mastodon Posts](https://github.com/ejfox/scrapbook-core/blob/main/scripts/dl_mastodon.mjs) - all coordinated in [my index file](https://github.com/ejfox/scrapbook-core/blob/main/scripts/index.mjs) that handles rate limiting, sequencing, and the CLI options.
+The first thing I did was build a scraper to get all my Pinboard bookmarks - then I did the same for are.na blocks, public GitHub actions, and Mastodon Posts - all coordinated in my index file that handles rate limiting, sequencing, and the CLI options.
 
 ![Data pipeline workflow fetching GitHub, Are.na, Mastodon, and Pinboard data with rate limiting, then processing results into database upserts.](https://res.cloudinary.com/ejf/image/upload/v1719800138/Screenshot_2024-06-30_at_10.15.26_PM.png)
 
@@ -97,25 +97,25 @@ The robot and I created a [command-line tool to explore my scraps](https://githu
 
 ![](https://res.cloudinary.com/ejf/video/upload/q_auto/w_768/e_loop/v1722610907/Screen_Recording_2024-08-02_at_11.00.13_AM.gif)
 
-I've also been itching to replace my doomscrolling with something productive, and I wish that in the moments I caught myself aimlessly wading through brainrot videos, I was instead doing something creative. Going back through my research isn't exactly the same as *making something*, but it's definitely better than other ways I spend my time. So I decided to create an [infinite-scrolling interface for my scraps called scrapscroller](https://github.com/ejfox/scrapscroller).
+I've also been itching to replace my doomscrolling with something productive, and I wish that in the moments I caught myself aimlessly wading through brainrot videos, I was instead doing something creative. Going back through my research isn't exactly the same as *making something*, but it's definitely better than other ways I spend my time. So I decided to create an infinite-scrolling interface for my scraps called scrapscroller.
 
 ![](http://res.cloudinary.com/ejf/video/upload/q_auto/w_768/e_loop/v1722611463/Screen_Recording_2024-08-02_at_11.10.26_AM.gif)
 
 ## Quickly recalling my research
 
-I created an [Alfred workflow](https://github.com/ejfox/scrapbook-core/blob/main/Local%20Scrap%20Search.1.1.alfredworkflow.zip) that makes it really easy to search through a local sqliteDB mirror of my scrap database [through a .js file](https://github.com/ejfox/scrapbook-core/blob/main/scripts/search_sqlite_scraps.js). In order to do this, I had to write some scripts to [set up the sqlite table](https://github.com/ejfox/scrapbook-core/blob/main/scripts/setup_sqlite.mjs) and another to [fetch my bookmarks into it](https://github.com/ejfox/scrapbook-core/blob/main/scripts/sync_supabase_to_sqlite.mjs) - but with that all done, the result is near-instantaneous and feels quite magical.
+I created an Alfred workflow that makes it really easy to search through a local sqliteDB mirror of my scrap database through a .js file. In order to do this, I had to write some scripts to set up the sqlite table and another to fetch my bookmarks into it - but with that all done, the result is near-instantaneous and feels quite magical.
 
 ![Search results for 'scrap clig' showing Command Line Interface Guidelines, Google search option, local scraps, and Pinboard results.](https://res.cloudinary.com/ejf/image/upload/v1722573787/Screenshot_2024-08-02_at_12.42.54_AM.png)
 
 ## Sharing with others
 
-I also created the [/scrapbook](https://ejfox.com/scrapbook/) section of my website, that shows all of my recent internet actions all in one place, primarily for my own consumption. Theoretically, if you cared enough, you could watch me work through things in real time; gathering inspiration, thinking through ideas, writing code, and making things. I do this for a bunch of reasons. I do it to be accountable, to make promises in public, to share knowledge, to send to friends after a conversation, and to simply remember it all later.
+I also created the /scrapbook section of my website, that shows all of my recent internet actions all in one place, primarily for my own consumption. Theoretically, if you cared enough, you could watch me work through things in real time; gathering inspiration, thinking through ideas, writing code, and making things. I do this for a bunch of reasons. I do it to be accountable, to make promises in public, to share knowledge, to send to friends after a conversation, and to simply remember it all later.
 
-[/scrapbook/verbose/](https://ejfox.com/scrapbook/verbose/) is a table-style, information-dense view of all of my recent scraps with the goal of making it easy to see a lot at once, in order to see patterns / links over a larger period of time, since only 1 or 2 scraps fit into a screen in the normal view.
+/scrapbook/verbose/ is a table-style, information-dense view of all of my recent scraps with the goal of making it easy to see a lot at once, in order to see patterns / links over a larger period of time, since only 1 or 2 scraps fit into a screen in the normal view.
 
 ![Scrapbook log of pinboard and mastodon posts from July-August 2024, tracking URLs, timestamps, and content topics including politics, technology, crime, and local news.](http://res.cloudinary.com/ejf/image/upload/v1722612330/Screenshot_2024-08-02_at_11.25.18_AM.png)
 
-[/scrapbook/graph/](https://ejfox.com/scrapbook/graph/) is the foundation of a network-based view of my scraps, beginning with tying each scrap together sequentially and placing them on the screen horizontally based on the day they were saved. But I am hoping eventually the network of scraps can be explored through shared tags, references, and entity relationships.
+/scrapbook/graph/ is the foundation of a network-based view of my scraps, beginning with tying each scrap together sequentially and placing them on the screen horizontally based on the day they were saved. But I am hoping eventually the network of scraps can be explored through shared tags, references, and entity relationships.
 
 ![](http://res.cloudinary.com/ejf/image/upload/v1722612365/Screenshot_2024-08-02_at_11.25.53_AM.png)
 

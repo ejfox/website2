@@ -12,7 +12,7 @@ tags:
 ---
 ## Into the Wild: Motorcycle Camping Gearlist
 
-<!-- image lost: D8231DDA-80DE-4E33-B72F-200E0B78E999.jpeg -->
+![Kawasaki Versys-X 300 loaded with Mosko Moto bags, parked lakeside with green hills behind](https://res.cloudinary.com/ejf/image/upload/v1775148863/motorcycle-camping-hero.jpg)
 
 I've spent countless hours researching, testing out different methods, and developing a reliable motorcycle camping setup that I want to share so that anyone can make their dreams a reality.
 
@@ -33,7 +33,7 @@ In certain scenarios, it might be helpful to pull off subsets of your bags. For 
 
 Consider using dry bags clipped together or attached to your bags with carabiners so everything stays together no matter what kind of terrain or weather follows you on your journey.
 
-<!-- image lost: F5B356FA-79CC-4139-8F70-162F31D045F9_1_105_c.jpeg -->
+![Motorcycle bags leaned against a tree at a Lake George island campsite with water visible behind](https://res.cloudinary.com/ejf/image/upload/v1775148865/motorcycle-camping-bags-lake-george.jpg)
 
 >You see things vacationing on a motorcycle in a way that is completely different from any other. In a car you’re always in a compartment, and because you’re used to it you don’t realize that through that car window everything you see is just more TV. You’re a passive observer and it is all moving by you boringly in a frame.
 >[Pirsig-Zen and the Art of Motorcycle Maintenance](Pirsig-Zen%20and%20the%20Art%20of%20Motorcycle%20Maintenance.md)
@@ -50,7 +50,7 @@ The Kawasaki Versys X 300 fits all my requirements.
 - Curb Weight: 386 lbs (175 kg)
 - Seat Height: 32.1 in (815mm)
 
-<!-- image lost: ADD924AF-D7C4-4F8B-ABD9-4D7EB4EBF026.jpeg -->
+![Kawasaki Versys-X 300 parked on a gravel overlook against a clear blue sky](https://res.cloudinary.com/ejf/image/upload/v1775148866/motorcycle-camping-versys-portrait.jpg)
 
 #### What I looked for in a bike
 - Weight: I need to be able to pick it up and take it on single track
@@ -69,19 +69,19 @@ My setup:
 - Boots: Forma ADV
 - GPS: Garmin Zumo XT
 
-<!-- image lost: 6986CDD3-930A-410E-9300-40BD7751A357_1_105_c.jpeg -->
+![Cockpit view showing Garmin Zumo XT GPS mounted on the windscreen with instrument cluster visible](https://res.cloudinary.com/ejf/image/upload/v1775148868/motorcycle-camping-gps-cockpit.jpg)
 
 ### Gear Up Your Motorcycle
 
 It’s just as important to your gear up your motorcycle as it is to gear up yourself. You’ll need a variety of bags, depending on the length of your trips. Having an excuse to have a variety of bags may be one of my favorite reasons to travel.
 
-With a system like the [Mosko Moto Reckless 80L Motorcycle Luggage System](https://moskomoto.com/products/reckless-80l) you have a main bag, two 25L side bags and two 4L auxiliary bags for maximum organization. Look for bags with durable material, waterproof construction and straps to keep your things secure.
+With a system like the Mosko Moto Reckless 80L Motorcycle Luggage System you have a main bag, two 25L side bags and two 4L auxiliary bags for maximum organization. Look for bags with durable material, waterproof construction and straps to keep your things secure.
 
 You should be prepared to ride in the rain. It will happen at the most inopportune time, so all of your gear should be able to get wet along with you. Your main bag should include a dry bags for at least clothing and a first aid kit, while your side dry bags and auxiliary bags should house your camping gear such as a tent, hammock, sleeping bag, liner and pillow.
 
 I also carry an art kit and a Jetboil with fuel for coffee in the morning.
 
-<!-- image lost: EBF62C4D-364E-44F2-9486-691705B62C8A_1_105_c.jpeg -->
+![Rear view of the bike fully loaded with bags, bungees, and cargo netting](https://res.cloudinary.com/ejf/image/upload/v1775148869/motorcycle-camping-fully-loaded.jpg)
 
 ### Bags
 - Main bag: 5.11 Rush 24
@@ -94,7 +94,7 @@ I also carry an art kit and a Jetboil with fuel for coffee in the morning.
 
 *exploded bags diagram*
 
-[Mosko Moto Reckless 80L Motorcycle Luggage System](https://moskomoto.com/products/reckless-80l)
+Mosko Moto Reckless 80L Motorcycle Luggage System
 
 #### How to find anything (what bag is it in?)
 
@@ -108,13 +108,13 @@ I love the Marmot Tungsten 2P Tent—a lightweight but versatile option that set
 
 [Marmot Tungsten 2P Tent](https://www.rei.com/product/110883/marmot-tungsten-2p-tent-with-footprint)
 
-<!-- image lost: IMG_0010.jpeg -->
+![Annotated photo of the loaded motorcycle with hand-drawn labels for main backpack, GPS, cooler, sleep setup, camp setup, water, and clothes](https://res.cloudinary.com/ejf/image/upload/v1775148871/motorcycle-camping-annotated-diagram.jpg)
 
 ### Campsite Considerations
 
 Camping off a motorcycle requires finding gear that can be condensed down to the smallest possible form. Look for items with versatile features and lightweight construction and consider your space limitations when selecting items. We love the Marmot Tungsten 2P Tent - a lightweight but versatile option.
 
-<!-- image lost: E1730FDB-741A-4788-AB0E-767EF47B3D63_1_105_c.jpeg -->
+![Night campsite with red hammock strung between trees, illuminated by a lantern in dark woods](https://res.cloudinary.com/ejf/image/upload/v1775148873/motorcycle-camping-night-campsite.jpg)
 
 You should also consider a campsite layout to help keep your gear safe and organized while still giving you plenty of space to explore. Take a look at our diagram below to get an idea of how you can setup your campsite for maximum enjoyment and convenience.
 

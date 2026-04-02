@@ -13,7 +13,7 @@ tags:
 
 # Video Mixes
 
-I've always really loved visuals combined with music or audio that can set a tone or a mood really powerfully. They seem to combine into something bigger. I fell in love with [ODDSAC](https://youtu.be/tC-0yVR6uSI?t=14m44s) the Animal Collective / Danny Perez film, as well as stuff like Harmony Korine's [Spring Breakers](https://www.youtube.com/watch?v=imDML4om8z8) and MTV's [Liquid Television](https://youtu.be/u98s7c8IGxs?t=10m3s), which is the source of one of the [first video samples I ever used](https://vimeo.com/21134302) in 2011.
+I've always really loved visuals combined with music or audio that can set a tone or a mood really powerfully. They seem to combine into something bigger. I fell in love with ODDSAC the Animal Collective / Danny Perez film, as well as stuff like Harmony Korine's [Spring Breakers](https://www.youtube.com/watch?v=imDML4om8z8) and MTV's [Liquid Television](https://youtu.be/u98s7c8IGxs?t=10m3s), which is the source of one of the [first video samples I ever used](https://vimeo.com/21134302) in 2011.
 
 These are some of my experiments in combining audio and visuals. Most are DJ mixes with visuals thrown together afterwards to set a vibe in the background, while Aerial, M88 and Shadow Garden are visual albums carefully made with original visuals and music weaved together.
 

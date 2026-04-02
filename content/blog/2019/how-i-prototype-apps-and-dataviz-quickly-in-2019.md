@@ -30,7 +30,7 @@ I [recorded a video of myself spinning up a prototype](https://www.youtube.com/w
 
 In my old starter project, I would pull in data with [d3.queue](https://github.com/ejfox/starter/blob/master/src/coffee/app.coffee#L19) which was super easy and very little code.
 
-With Vue as my default framework, I’ve moved over to using the [pattern of using axios to update objects in the component’s data](https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html) which is also super easy and very little code. Check out [this super-simple example of axios+vue](https://github.com/ejfox/website/blob/master/pages/vibes.vue#L42) which powers [ejfox.com/vibes](https://ejfox.com/vibes).
+With Vue as my default framework, I’ve moved over to using the [pattern of using axios to update objects in the component’s data](https://vuejs.org/v2/cookbook/using-axios-to-consume-apis.html) which is also super easy and very little code. Check out this super-simple example of axios+vue which powers ejfox.com/vibes.
 
 When I’m pulling data from an API, it’s as simple as setting up the keys, building the API call, looking at the returned data in the Vue Chrome Devtools Inspector, and then building out the DOM elements with Vue’s [v-if and v-for](https://vuejs.org/v2/guide/list.html) directives.
 

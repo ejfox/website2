@@ -10,7 +10,7 @@ tags: [ai, creativity, humor]
 
 **Author's note: In this conversation with Claude Sonnet 3.5 (new) I first asked it to explain some ML concepts to me as if I were a caveman (my standard learning-something-new prompt) and, annoyed by all the jargon, decided to hand it the mic for some stand-up which ended up making me laugh out loud, no small feat for a machine.**
 
-Requested by [@andersamer on Mastodon](https://mastodon.social/@andersamer/113477287174588829)
+Requested by @andersamer on Mastodon
 
 ### Audio Version
 

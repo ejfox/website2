@@ -24,7 +24,7 @@ What started as a need to understand my own research archive evolved into a suit
 
 2. [code-network-gen](https://github.com/ejfox/code-network-gen): Generate a graph of nodes/edges from your javascript code. Visualizes codebases as interconnected networks treating software architecture as explorable graphs.
 
-3. [connectology](https://github.com/ejfox/connectology): Network visualization tool with an 11-page README for those who think in connections and need to see how everything relates to everything else.
+3. connectology: Network visualization tool with an 11-page README for those who think in connections and need to see how everything relates to everything else.
 
 4. [latent-scope](https://github.com/ejfox/latent-scope): A scientific instrument for investigating latent spaces. Democratizes advanced ML visualization with extensive documentation making complex embeddings accessible to non-experts.
 

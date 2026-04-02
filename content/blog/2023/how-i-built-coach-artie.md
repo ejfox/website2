@@ -125,7 +125,7 @@ It is really surprising how effective GPT-4 is at acting as any character you gi
 
 ---
 
-[Coach Artie's source code can be found here](https://github.com/ejfox/coachartie_discord/blob/master/index.js)
+[Coach Artie's source code can be found here](https://github.com/room302studio/coachartie)
 
 [You can also follow Coach Artie on Twitter](https://twitter.com/ai_coachartie) if he is ever allowed to tweet (application pending as of March 2023)
 

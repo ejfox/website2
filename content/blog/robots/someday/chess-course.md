@@ -42,22 +42,22 @@ Objective: Build a solid foundation by learning how to read chess notation and a
 ### YouTube Lectures
 
 - Understanding Notation:
-  - [“How to Read and Write Chess Moves (Algebraic Notation)” – ChessNetwork](https://www.youtube.com/watch?v=el8kZjBYw2A): A comprehensive guide to understanding and using algebraic notation.
-  - [“Chess Notation Explained for Beginners” – The Chess Website](https://www.youtube.com/watch?v=OH3m0w-H01Q): Simplified explanation of recording chess moves.
+  - “How to Read and Write Chess Moves (Algebraic Notation)” – ChessNetwork: A comprehensive guide to understanding and using algebraic notation.
+  - “Chess Notation Explained for Beginners” – The Chess Website: Simplified explanation of recording chess moves.
 
 - Effective Study Habits:
-  - [“Chess Study Habits: The Best Way to Improve” – Saint Louis Chess Club](https://www.youtube.com/watch?v=4OD7J9B4dEg): Insights into effective study practices and routines.
-  - [“How to Analyze Your Own Games” – Hanging Pawns](https://www.youtube.com/watch?v=mhj4RtGggH0): Techniques for self-analysis to identify and correct mistakes.
+  - “Chess Study Habits: The Best Way to Improve” – Saint Louis Chess Club: Insights into effective study practices and routines.
+  - “How to Analyze Your Own Games” – Hanging Pawns: Techniques for self-analysis to identify and correct mistakes.
 
 ### Recommended Resources
 
 - Chess Notation:
-  - [“Learn to Read and Write Chess Notation” – Chess.com](https://www.chess.com/article/view/chess-notation): Detailed article on chess notation with examples and exercises.
-  - [“Chess Notation Guide” – Lichess.org](https://lichess.org/learn#/): Interactive lessons on reading and writing moves.
+  - “Learn to Read and Write Chess Notation” – Chess.com: Detailed article on chess notation with examples and exercises.
+  - “Chess Notation Guide” – Lichess.org: Interactive lessons on reading and writing moves.
 
 - Study Techniques:
-  - [“Effective Ways to Study Chess” – Chessable Blog](https://www.chessable.com/blog/effective-ways-to-study-chess/): Tips on maximizing study time and retaining information.
-  - [“Guide to Creating a Chess Study Plan” – Lichess.org](https://lichess.org/@/NM_JeremyKane/blog/guide-to-creating-a-chess-study-plan/za6RjNUE): Steps to develop a personalized study routine.
+  - “Effective Ways to Study Chess” – Chessable Blog: Tips on maximizing study time and retaining information.
+  - “Guide to Creating a Chess Study Plan” – Lichess.org: Steps to develop a personalized study routine.
 
 ### Practice Recommendations
 
@@ -70,7 +70,7 @@ Objective: Build a solid foundation by learning how to read chess notation and a
   - Start a chess journal to note down key learnings, mistakes, and areas for improvement after each game.
 
 - Beginner Puzzles:
-  - Solve basic tactical puzzles on platforms like [Lichess.org Puzzles](https://lichess.org/training) or [Chess.com Puzzles](https://www.chess.com/puzzles) to start developing tactical vision.
+  - Solve basic tactical puzzles on platforms like Lichess.org Puzzles or Chess.com Puzzles to start developing tactical vision.
 
 ---
 
@@ -130,27 +130,27 @@ Objective: Develop a deep understanding of opening principles, emphasizing the R
 ### YouTube Lectures
 
 - Opening Principles:
-  - [“Chess Opening Principles” – GothamChess](https://www.youtube.com/watch?v=2MKm-p5dB_A): Fundamentals of opening theory and common mistakes to avoid.
-  - [“Top 10 Opening Principles” – Saint Louis Chess Club](https://www.youtube.com/watch?v=Gm3WA7veR3g): Key principles explained with examples.
+  - “Chess Opening Principles” – GothamChess: Fundamentals of opening theory and common mistakes to avoid.
+  - “Top 10 Opening Principles” – Saint Louis Chess Club: Key principles explained with examples.
 
 - Réti Opening:
-  - [“Réti Opening: The Main Setup for White” – Bad Bishop Chess Channel](https://www.youtube.com/watch?v=qb2whAVTTBQ): Detailed exploration of the Réti Opening's main setups and strategies.
-  - [“How to Play the Réti Opening in Chess” – The Chess Website](https://www.youtube.com/watch?v=iudxP0hRfJk): Step-by-step guide on executing the Réti Opening effectively.
+  - “Réti Opening: The Main Setup for White” – Bad Bishop Chess Channel: Detailed exploration of the Réti Opening's main setups and strategies.
+  - “How to Play the Réti Opening in Chess” – The Chess Website: Step-by-step guide on executing the Réti Opening effectively.
 
 - Scandinavian Defense:
-  - [“Scandinavian Defense Simplified” – ChessNetwork](https://www.youtube.com/watch?v=3GlASaE0iFo): Practical lines and strategies in the Scandinavian Defense.
-  - [“Crush White with the Scandinavian Defense” – GothamChess](https://www.youtube.com/watch?v=YJtbB31Rgrw): Aggressive approaches and tactical ideas.
+  - “Scandinavian Defense Simplified” – ChessNetwork: Practical lines and strategies in the Scandinavian Defense.
+  - “Crush White with the Scandinavian Defense” – GothamChess: Aggressive approaches and tactical ideas.
 
 ### Recommended Resources
 
 - Réti Opening:
-  - [“The Réti Opening – A Complete Beginner's Guide” – CHESS KLUB](https://chessklub.com/reti-opening/): Comprehensive guide covering the theory, history, and variations.
-  - [“The Réti Opening: Basics, Middlegame, and Traps” – SmartyChess](https://smartychess.com/the-reti-opening/): Insights into the opening's fundamentals, middlegame strategies, and common traps.
-  - [“Réti Opening” – Chess.com](https://www.chess.com/openings/Reti-Opening): Overview and additional resources.
+  - “The Réti Opening – A Complete Beginner's Guide” – CHESS KLUB: Comprehensive guide covering the theory, history, and variations.
+  - “The Réti Opening: Basics, Middlegame, and Traps” – SmartyChess: Insights into the opening's fundamentals, middlegame strategies, and common traps.
+  - “Réti Opening” – Chess.com: Overview and additional resources.
 
 - Scandinavian Defense:
-  - [“Scandinavian Defense” – Chessable Course](https://www.chessable.com/scandinavian-defense/course/56374/): Interactive course with detailed analysis.
-  - [“Understanding the Scandinavian Defense” – Lichess Study](https://lichess.org/study/H5K7frtA): Collection of annotated games and key concepts.
+  - “Scandinavian Defense” – Chessable Course: Interactive course with detailed analysis.
+  - “Understanding the Scandinavian Defense” – Lichess Study: Collection of annotated games and key concepts.
 
 ### Practice Recommendations
 
@@ -196,22 +196,22 @@ Objective: Develop the ability to balance speed and calculation under time press
 ### YouTube Lectures
 
 - Time Management:
-  - [“How to Play Faster in Blitz Chess” – IM Andras Toth](https://www.youtube.com/watch?v=g5-ibEw92do): Tips on improving speed without sacrificing accuracy.
-  - [“How to Think Fast in Chess” – GothamChess](https://www.youtube.com/watch?v=ZkSCaTP7Lq0): Strategies for balancing speed and calculation.
+  - “How to Play Faster in Blitz Chess” – IM Andras Toth: Tips on improving speed without sacrificing accuracy.
+  - “How to Think Fast in Chess” – GothamChess: Strategies for balancing speed and calculation.
 
 - Nimzowitsch Defense:
-  - [“Winning with the Nimzowitsch Defense: A Complete Guide” – The Blunder Master](https://www.youtube.com/watch?v=GdJzIV08xrA): Comprehensive strategies and tactical ideas.
-  - [“Nimzowitsch Defense Explained” – Hanging Pawns](https://www.youtube.com/watch?v=7e4E0A4YwV4): Understanding the key concepts and plans.
+  - “Winning with the Nimzowitsch Defense: A Complete Guide” – The Blunder Master: Comprehensive strategies and tactical ideas.
+  - “Nimzowitsch Defense Explained” – Hanging Pawns: Understanding the key concepts and plans.
 
 ### Recommended Resources
 
 - Time Management:
-  - [“Blitz and Bullet Time Management” – Chess.com](https://www.chess.com/lessons/blitz-bullet-time-management): Advanced strategies for managing time in fast games.
-  - [“Improving Decision Making in Chess” – Chessable Blog](https://www.chessable.com/blog/improving-decision-making-in-chess/): Techniques to enhance quick thinking.
+  - “Blitz and Bullet Time Management” – Chess.com: Advanced strategies for managing time in fast games.
+  - “Improving Decision Making in Chess” – Chessable Blog: Techniques to enhance quick thinking.
 
 - Nimzowitsch Defense:
-  - [“Nimzowitsch Defense – 1...Nc6 | How Should You React?” – ChessMood](https://chessmood.com/blog/nimzowitsch-defense): Insights into handling and playing the Nimzowitsch Defense.
-  - [“The Nimzowitsch Defense: A Comprehensive Guide” – MyChessTutor](https://www.mychesstutor.com/learn/nimzowitsch-defense): In-depth analysis and strategies.
+  - “Nimzowitsch Defense – 1...Nc6 | How Should You React?” – ChessMood: Insights into handling and playing the Nimzowitsch Defense.
+  - “The Nimzowitsch Defense: A Comprehensive Guide” – MyChessTutor: In-depth analysis and strategies.
 
 ### Practice Recommendations
 
@@ -257,18 +257,18 @@ Objective: Sharpen your tactical vision for both classical and blitz formats to 
 ### YouTube Lectures
 
 - Essential Tactics:
-  - [“Top 5 Chess Tactics Every Player Should Know” – GothamChess](https://www.youtube.com/watch?v=SHXXDO0zzQY): Learn essential tactical ideas with examples.
-  - [“Chess Tactics Explained: Forks, Pins, and Skewers” – MatoJelic](https://www.youtube.com/watch?v=OQ0eSLxjGGk): Detailed explanations of basic tactics.
+  - “Top 5 Chess Tactics Every Player Should Know” – GothamChess: Learn essential tactical ideas with examples.
+  - “Chess Tactics Explained: Forks, Pins, and Skewers” – MatoJelic: Detailed explanations of basic tactics.
 
 - Tactical Play in the Scandinavian Defense:
-  - [“Scandinavian Defense Tactical Opportunities” – Hanging Pawns](https://www.youtube.com/watch?v=IoR9_2KMn7o): Tactical motifs specific to the Scandinavian Defense.
-  - [“Aggressive Tactics in the Scandinavian” – ChessNetwork](https://www.youtube.com/watch?v=ZcB0RZ6bF8o): How to seize initiative and create threats.
+  - “Scandinavian Defense Tactical Opportunities” – Hanging Pawns: Tactical motifs specific to the Scandinavian Defense.
+  - “Aggressive Tactics in the Scandinavian” – ChessNetwork: How to seize initiative and create threats.
 
 ### Recommended Resources
 
 - Tactics Training:
-  - [“Chess Tactics Trainer” – Lichess.org](https://lichess.org/training): Practice puzzles under time pressure to enhance your tactical vision.
-  - [“Chess.com Tactics” – Chess.com](https://www.chess.com/tactics): Thousands of puzzles tailored to your rating level.
+  - “Chess Tactics Trainer” – Lichess.org: Practice puzzles under time pressure to enhance your tactical vision.
+  - “Chess.com Tactics” – Chess.com: Thousands of puzzles tailored to your rating level.
 
 - Books:
   - "Bobby Fischer Teaches Chess" – An excellent resource for beginners to understand basic tactics.
@@ -319,20 +319,20 @@ Objective: Develop clear plans and piece coordination for a strong middlegame, e
 ### YouTube Lectures
 
 - Middlegame Strategies:
-  - [“How to Attack in the Middle Game” – Hanging Pawns](https://www.youtube.com/watch?v=VZEsnPZkcWs): Strategic guidance for effective attacks.
-  - [“Planning in Chess: How to Formulate a Winning Plan” – Saint Louis Chess Club](https://www.youtube.com/watch?v=vyxvlN6WSrI): Techniques for creating and executing plans.
+  - “How to Attack in the Middle Game” – Hanging Pawns: Strategic guidance for effective attacks.
+  - “Planning in Chess: How to Formulate a Winning Plan” – Saint Louis Chess Club: Techniques for creating and executing plans.
 
 - Middlegame Transitions from the Réti Opening:
-  - [“Middlegame Ideas in the Réti Opening” – Hanging Pawns](https://www.youtube.com/watch?v=5QLZCgU7CrY): Specific ideas for positions arising from the Réti.
+  - “Middlegame Ideas in the Réti Opening” – Hanging Pawns: Specific ideas for positions arising from the Réti.
 
 ### Recommended Resources
 
 - Middlegame Strategy:
-  - [“The 10 Golden Rules of the Middlegame” – Chess.com](https://www.chess.com/article/view/the-10-golden-rules-of-the-middlegame): Rules and tips for effective play.
+  - “The 10 Golden Rules of the Middlegame” – Chess.com: Rules and tips for effective play.
   - "The Art of the Middle Game" by Paul Keres and Alexander Kotov – A classic book exploring key middlegame concepts.
 
 - Positional Play:
-  - [“Mastering Positional Chess” – Chess24](https://chess24.com/en/learn/advanced/middlegame/mastering-positional-chess): Lessons on improving positional understanding.
+  - “Mastering Positional Chess” – Chess24: Lessons on improving positional understanding.
 
 ### Practice Recommendations
 
@@ -377,18 +377,18 @@ Objective: Master key endgame techniques that save time and secure wins, enablin
 ### YouTube Lectures
 
 - Essential Endgames:
-  - [“Essential Endgames for Blitz Chess” – GothamChess](https://www.youtube.com/watch?v=5UNkBYHk87I): Common blitz endgames and practical tips.
-  - [“Endgame Tricks for Blitz” – Hanging Pawns](https://www.youtube.com/watch?v=Jr9gAyeNdCw): Techniques tailored for speed chess.
+  - “Essential Endgames for Blitz Chess” – GothamChess: Common blitz endgames and practical tips.
+  - “Endgame Tricks for Blitz” – Hanging Pawns: Techniques tailored for speed chess.
 
 - Basic Checkmates:
-  - [“How to Checkmate with King and Queen” – Chess.com](https://www.youtube.com/watch?v=K3KO5S8Vh44): Step-by-step guide.
-  - [“Rook and King vs. King Endgame” – The Chess Website](https://www.youtube.com/watch?v=7GkeS62TnFA): Fundamental mating patterns.
+  - “How to Checkmate with King and Queen” – Chess.com: Step-by-step guide.
+  - “Rook and King vs. King Endgame” – The Chess Website: Fundamental mating patterns.
 
 ### Recommended Resources
 
 - Endgame Practice:
-  - [“Endgame Trainer” – Lichess.org](https://lichess.org/practice): Interactive modules to train key endgames.
-  - [“Chess Endgames” – Chess.com Lessons](https://www.chess.com/lessons/endgames): Structured lessons from basic to advanced.
+  - “Endgame Trainer” – Lichess.org: Interactive modules to train key endgames.
+  - “Chess Endgames” – Chess.com Lessons: Structured lessons from basic to advanced.
 
 - Books:
   - "Silman's Complete Endgame Course" by Jeremy Silman – Endgames categorized by rating level, making it easy to focus on what's most relevant.
@@ -437,22 +437,22 @@ Objective: Analyze your games to spot weaknesses and refine strategies, ensuring
 ### YouTube Lectures
 
 - Game Analysis Techniques:
-  - [“How to Analyze Your Blitz Games” – Hanging Pawns](https://www.youtube.com/watch?v=mhj4RtGggH0): Step-by-step guide to improving through game review.
-  - [“Analyzing Your Own Games” – IM Eric Rosen](https://www.youtube.com/watch?v=hDSRtujwz_s): Insights into self-analysis and identifying patterns.
+  - “How to Analyze Your Blitz Games” – Hanging Pawns: Step-by-step guide to improving through game review.
+  - “Analyzing Your Own Games” – IM Eric Rosen: Insights into self-analysis and identifying patterns.
 
 - Training Routines:
-  - [“Blitz Chess Training Routine” – IM Eric Rosen](https://www.youtube.com/watch?v=v1xVb4UB0Uc): Structuring your training for maximum impact.
-  - [“Chess Improvement Plan for Busy People” – Saint Louis Chess Club](https://www.youtube.com/watch?v=Urfhu0XxuuI): Strategies for effective study with limited time.
+  - “Blitz Chess Training Routine” – IM Eric Rosen: Structuring your training for maximum impact.
+  - “Chess Improvement Plan for Busy People” – Saint Louis Chess Club: Strategies for effective study with limited time.
 
 ### Recommended Resources
 
 - Analysis Tools:
-  - [“Game Analysis” – Lichess.org](https://lichess.org/analysis): Analyze your games with engine support.
-  - [“Review and Learn from Your Games” – Chess.com](https://www.chess.com/analysis): Tools for in-depth analysis.
+  - “Game Analysis” – Lichess.org: Analyze your games with engine support.
+  - “Review and Learn from Your Games” – Chess.com: Tools for in-depth analysis.
 
 - Chess Community Engagement:
-  - [“Chess Forums and Clubs” – Chess.com](https://www.chess.com/clubs): Join discussions and find study partners.
-  - [“Lichess Study Groups” – Lichess.org](https://lichess.org/study): Collaborate on studies and share insights.
+  - “Chess Forums and Clubs” – Chess.com: Join discussions and find study partners.
+  - “Lichess Study Groups” – Lichess.org: Collaborate on studies and share insights.
 
 ### Practice Recommendations
 

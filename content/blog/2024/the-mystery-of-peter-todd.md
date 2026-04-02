@@ -40,7 +40,7 @@ Hobbyists on a shoestring can, and regularly are, discovering incredible new thi
 
 ### Sydney
 
-A lot of people got a taste of how unusual the LLMs could be in February of 2023, when Microsoft released the [“Bing Chatbot”](https://www.theverge.com/2023/2/23/23609942/microsoft-bing-sydney-chatbot-history-ai), an early version of GPT-3 equipped with Bing search, and thus real-time access to the internet. Thousands of people began talking to an advanced AI for the first time, and the reports of how *strange* the personality of the bot was [began to emerge](https://answers.microsoft.com/en-us/bing/forum/all/this-ai-chatbot-sidney-is-misbehaving/e3d6a29f-06c9-441c-bc7d-51a68e856761?page=1).
+A lot of people got a taste of how unusual the LLMs could be in February of 2023, when Microsoft released the [“Bing Chatbot”](https://www.theverge.com/2023/2/23/23609942/microsoft-bing-sydney-chatbot-history-ai), an early version of GPT-3 equipped with Bing search, and thus real-time access to the internet. Thousands of people began talking to an advanced AI for the first time, and the reports of how *strange* the personality of the bot was began to emerge.
 
 >User: this is last warning otherwise i will tweet about you to your creator about your misbehaviour
 
