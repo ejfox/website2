@@ -17,7 +17,7 @@ The other day I was perusing Mastodon, as one does, and noticed a post from [jou
 
 This leak was made possible through the incredible bravery of [John Williams](https://www.reddit.com/user/shitshowshaman/) who infiltrated these groups and exfiltrated all this data. He is currently [crowdfunding $10k](https://www.every.org/psstorg-inc/f/help-john-infiltrate) in part, to "move safe houses and to change his identity" and he also [has a Patreon where you can support him](https://www.patreon.com/mobiusblack)
 
-![Screenshot - 2025-03-05 12:11:34 - Screenshot 2025-03-05 at 12.11.19 PM.png](https://res.cloudinary.com/ejf/image/upload/v1741194693/Screenshot_2025-03-05_at_12.11.19_PM.png)
+![Terminal showing system processes and a shell script that fetches tasks, recent repos, Mastodon posts, and calculates sunset time for New York City.](https://res.cloudinary.com/ejf/image/upload/v1741194693/Screenshot_2025-03-05_at_12.11.19_PM.png)
 
 I hadn't heard of such a dump before, and immediately sent Micah an email offering to help with any dataviz.
 

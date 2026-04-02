@@ -133,7 +133,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 32,
+      "links": 31,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -439,7 +439,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 5,
+      "links": 4,
       "codeBlocks": 0,
       "headers": {
         "h1": 1
@@ -815,7 +815,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {
         "h1": 1
@@ -1155,7 +1155,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 15,
+      "links": 13,
       "codeBlocks": 3,
       "headers": {
         "h2": 1
@@ -1625,7 +1625,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 13,
+      "links": 12,
       "codeBlocks": 0,
       "headers": {
         "h2": 3
@@ -1959,7 +1959,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 73,
+      "links": 71,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -2297,7 +2297,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 17,
+      "links": 16,
       "codeBlocks": 24,
       "headers": {
         "h2": 1
@@ -4210,14 +4210,14 @@
         "howto",
         "politics"
       ],
-      "words": 2188,
+      "words": 2203,
       "images": 12,
       "imageDetails": {
         "total": 12,
         "cloudinary": 12,
         "withDimensions": 0
       },
-      "links": 44,
+      "links": 31,
       "codeBlocks": 1,
       "headers": {
         "h2": 8
@@ -4375,7 +4375,7 @@
         "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 48,
+      "links": 47,
       "codeBlocks": 0,
       "headers": {
         "h2": 3
@@ -4587,7 +4587,7 @@
       ],
       "date": "2025-03-25T04:12:41.000Z",
       "modified": "2025-03-27T20:12:50.000Z",
-      "words": 803,
+      "words": 825,
       "images": 8,
       "imageDetails": {
         "total": 8,
@@ -4793,7 +4793,7 @@
         "journalism",
         "politics"
       ],
-      "words": 769,
+      "words": 782,
       "images": 6,
       "imageDetails": {
         "total": 6,
@@ -5551,7 +5551,7 @@
         "javascript",
         "health"
       ],
-      "words": 34,
+      "words": 56,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -5679,7 +5679,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 7,
+      "links": 6,
       "codeBlocks": 0,
       "headers": {
         "h3": 2
@@ -14761,7 +14761,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 54,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {
         "h2": 7
@@ -16024,7 +16024,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {
         "h2": 4
@@ -19009,7 +19009,7 @@
       "modified": "2024-10-14T23:51:41.000Z",
       "date": "2022-12-26T16:57:44.000Z",
       "dek": "In which the author embarks on creative endeavors in pottery, updates personal projects, and enhances backend functionalities for Coach Artie & Brain View.",
-      "words": 252,
+      "words": 271,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -19608,7 +19608,7 @@
       "modified": "2024-10-14T23:50:34.000Z",
       "date": "2024-06-10T21:39:36.000Z",
       "dek": "In which the author embarked on creative projects, recorded coding tutorials, and set goals for future storytelling endeavors.",
-      "words": 231,
+      "words": 277,
       "images": 4,
       "imageDetails": {
         "total": 4,
@@ -19758,7 +19758,7 @@
       ],
       "modified": "2024-07-08T16:35:06.000Z",
       "date": "2024-07-01T06:37:01.000Z",
-      "words": 157,
+      "words": 171,
       "images": 11,
       "imageDetails": {
         "total": 11,
@@ -20001,7 +20001,7 @@
       "modified": "2024-10-14T23:50:20.000Z",
       "date": "2024-07-17T14:53:14.000Z",
       "dek": "In which the author embarked on a week of creative endeavors in music, projects in coding, and personal growth while house-sitting and planning for the future.",
-      "words": 561,
+      "words": 575,
       "images": 12,
       "imageDetails": {
         "total": 12,
@@ -20184,7 +20184,7 @@
       "modified": "2025-08-28T19:08:25.000Z",
       "date": "2024-07-30T18:56:51.000Z",
       "dek": "In which the author reflects on building a Scrapbook system, experiments with a modular synth, and efficiently uploads videos to their blog posts via Cloudinary.",
-      "words": 872,
+      "words": 904,
       "images": 19,
       "imageDetails": {
         "total": 19,
@@ -20504,7 +20504,7 @@
       ],
       "modified": "2024-10-01T22:55:12.000Z",
       "date": "2024-09-03T17:03:11.000Z",
-      "words": 299,
+      "words": 314,
       "images": 21,
       "imageDetails": {
         "total": 21,
@@ -20563,7 +20563,7 @@
       ],
       "modified": "2024-09-23T13:52:21.000Z",
       "date": "2024-09-09T14:55:30.000Z",
-      "words": 357,
+      "words": 442,
       "images": 27,
       "imageDetails": {
         "total": 27,
@@ -20657,7 +20657,7 @@
       "modified": "2025-08-28T19:08:25.000Z",
       "date": "2024-09-16T12:51:03.000Z",
       "dek": "In which the protagonist embarked on a week of creative endeavors, coding projects, and collaborations, culminating in a flurry of digital creations and video recordings.",
-      "words": 551,
+      "words": 565,
       "images": 9,
       "imageDetails": {
         "total": 9,
@@ -20876,7 +20876,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -21540,7 +21540,7 @@
       ],
       "modified": "2025-09-12T13:12:56.000Z",
       "date": "2024-11-25T13:58:52.000Z",
-      "words": 335,
+      "words": 344,
       "images": 12,
       "imageDetails": {
         "total": 12,
@@ -21619,7 +21619,7 @@
       ],
       "date": "2024-12-02T15:03:56.000Z",
       "modified": "2024-12-09T15:00:45.000Z",
-      "words": 555,
+      "words": 565,
       "images": 14,
       "imageDetails": {
         "total": 14,
@@ -21698,7 +21698,7 @@
       ],
       "date": "2024-12-09T15:00:45.000Z",
       "modified": "2024-12-23T22:23:28.000Z",
-      "words": 566,
+      "words": 584,
       "images": 29,
       "imageDetails": {
         "total": 29,
@@ -22130,7 +22130,7 @@
         "development",
         "personal"
       ],
-      "words": 160,
+      "words": 177,
       "images": 9,
       "imageDetails": {
         "total": 9,
@@ -22165,7 +22165,7 @@
         "development",
         "personal"
       ],
-      "words": 305,
+      "words": 317,
       "images": 15,
       "imageDetails": {
         "total": 15,
@@ -22454,7 +22454,7 @@
       ],
       "date": "2025-03-03T17:35:18.000Z",
       "modified": "2025-03-12T01:44:37.000Z",
-      "words": 859,
+      "words": 887,
       "images": 45,
       "imageDetails": {
         "total": 45,
@@ -22518,7 +22518,7 @@
         "development",
         "personal"
       ],
-      "words": 279,
+      "words": 287,
       "images": 10,
       "imageDetails": {
         "total": 10,
@@ -22777,7 +22777,7 @@
       ],
       "date": "2025-04-07T04:27:52.000Z",
       "modified": "2025-08-28T19:08:25.000Z",
-      "words": 396,
+      "words": 407,
       "images": 19,
       "imageDetails": {
         "total": 19,
@@ -23130,7 +23130,7 @@
         "development",
         "screenshots"
       ],
-      "words": 248,
+      "words": 254,
       "images": 13,
       "imageDetails": {
         "total": 13,
@@ -23866,7 +23866,7 @@
       ],
       "date": "2025-08-11T12:28:42.000Z",
       "modified": "2025-10-30T17:32:51.000Z",
-      "words": 680,
+      "words": 685,
       "images": 30,
       "imageDetails": {
         "total": 30,
@@ -24002,7 +24002,7 @@
         "development",
         "personal"
       ],
-      "words": 492,
+      "words": 530,
       "images": 27,
       "imageDetails": {
         "total": 27,
@@ -24029,7 +24029,7 @@
     "metadata": {
       "date": "2025-09-01T13:58:07.000Z",
       "modified": "2025-09-24T05:30:29.000Z",
-      "words": 474,
+      "words": 473,
       "images": 25,
       "imageDetails": {
         "total": 25,
@@ -24102,7 +24102,7 @@
     "metadata": {
       "date": "2025-09-22T16:32:39.000Z",
       "modified": "2025-10-01T22:11:59.000Z",
-      "words": 1648,
+      "words": 1646,
       "images": 83,
       "imageDetails": {
         "total": 83,
@@ -24129,7 +24129,7 @@
     "metadata": {
       "date": "2025-09-29T16:13:44.000Z",
       "modified": "2025-10-04T19:25:00.000Z",
-      "words": 1448,
+      "words": 1469,
       "images": 86,
       "imageDetails": {
         "total": 86,

@@ -41,7 +41,7 @@ From here we can run a number of clustering algorithms, created by people much s
 
 When I used to shoot film photos I had my own darkroom, and one of the crucial steps in printing a roll of film is first printing a contact sheet, little thumbnails of the entire roll. In many ways we are recreating this process but with a machine, a camera that humanity has yet to perfect or even understand. Thats what makes it fun.
 
-![](http://res.cloudinary.com/ejf/image/upload/v1742920150/IMG_3168.jpg)
+![Three contact sheets of black and white film negatives showing various scenes from what appears to be a documentary or artistic photo project.](http://res.cloudinary.com/ejf/image/upload/v1742920150/IMG_3168.jpg)
 
 ![Clustering algorithm comparisons showing HDBSCAN with varying minimum cluster sizes and KMeans with different cluster counts applied to UMAP-reduced data.](http://res.cloudinary.com/ejf/image/upload/v1742920633/Screenshot_2025-03-25_at_12.37.00_PM.png)
 

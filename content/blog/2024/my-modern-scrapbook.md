@@ -24,7 +24,7 @@ Sometimes when I think about something, I’ll tweet out my thought process in p
 
 I'm constantly taking screenshots; of inspiration, of works in progress, weird glitches, and things that inspire me. This forms an interesting visual historical record of what I am working on at a particular time, and allows me to quickly reference moodboards and inspiration for different projects, like my channel of [teapot inspiration](https://www.are.na/ej-fox/teapots-f_pi17ebgzq) or [print/lino work](https://www.are.na/ej-fox/print-lino-inspiration) or [information graphics](https://www.are.na/ej-fox/information-graphics-p_tbc8ske6g). Looking back through my screenshots lets me piece together retrospectively what I've been working on from a birds-eye view.
 
-![](http://res.cloudinary.com/ejf/image/upload/v1722609820/Screenshot_2024-08-02_at_10.43.12_AM.png)
+![Finder window displaying thumbnail grid of code editor and terminal screenshots, mostly showing dark-themed programming environments.](http://res.cloudinary.com/ejf/image/upload/v1722609820/Screenshot_2024-08-02_at_10.43.12_AM.png)
 
 Lately, I've been talking to lots of different [robots](https://en.wikipedia.org/wiki/Large_language_model)– and I find myself wanting to give them context about my worldview or reference a piece of information. It would be even better if the robot would stay up to date on my most recent 10 bookmarks, as they are usually directly related to the things I am curious about in a particular moment.
 
