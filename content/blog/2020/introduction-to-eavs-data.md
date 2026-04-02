@@ -66,7 +66,7 @@ Some reasons for removal are broad and can cover a variety of situations. Becaus
 
 _Graphic showing breakdown of reasons for voter removal: ideally sankey, could also be unit chart_
 
-Let’s look at some specific examples. Maricopa County in Arizona, which includes the city of Phoenix had the largest number of voters removed (223,369) by a single county in the EAVS data. Maricopa County was [recently called out in an article by The Hill](https://thehill.com/homenews/state-watch/459832-the-10-counties-that-will-decide-the-2020-election) as one of 10 counties that will decide the 2020 election.
+Let’s look at some specific examples. Maricopa County in Arizona, which includes the city of Phoenix had the largest number of voters removed (223,369) by a single county in the EAVS data. Maricopa County was [recently called out in an article by The Hill](http://web.archive.org/web/20260221200417/https://thehill.com/homenews/state-watch/459832-the-10-counties-that-will-decide-the-2020-election/) as one of 10 counties that will decide the 2020 election.
 
 >As partisan politics increasingly break down along urban and rural lines, Arizona Republicans are becoming more nervous. Arizona is the most urbanized state in the Republican column, and its most urban county, Maricopa, shows signs of inching left.
 >In 2016, Trump beat Clinton in Maricopa County by just 3 percentage points, a slightly lower margin than his statewide edge. Only one Republican in recent history has won a statewide election without winning Maricopa County.
