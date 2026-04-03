@@ -14,7 +14,7 @@ tags:
   - database
 ---
 
-![](https://res.cloudinary.com/ejf/image/upload/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg)
+![Force-directed network graph of NYPD civilian complaint clusters showing officers connected by shared misconduct patterns](https://res.cloudinary.com/ejf/image/upload/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg)
 
 In 2021, I got my hands on a massive NYPD complaint dataset from Gothamist/WNYC and immediately went down a data rabbit hole. Built a network of 29,915 officer nodes with 159,671 relationships using Neo4j and Gephi (love-hate relationship with Gephi, but unrivaled for networks).
 

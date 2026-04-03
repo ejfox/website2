@@ -4210,7 +4210,7 @@
         "howto",
         "politics"
       ],
-      "words": 2203,
+      "words": 2227,
       "images": 12,
       "imageDetails": {
         "total": 12,
@@ -5277,7 +5277,7 @@
         "journalism",
         "database"
       ],
-      "words": 91,
+      "words": 105,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -20563,11 +20563,11 @@
       ],
       "modified": "2024-09-23T13:52:21.000Z",
       "date": "2024-09-09T14:55:30.000Z",
-      "words": 442,
+      "words": 560,
       "images": 27,
       "imageDetails": {
         "total": 27,
-        "cloudinary": 27,
+        "cloudinary": 26,
         "withDimensions": 0
       },
       "links": 27,
@@ -22720,7 +22720,7 @@
         "development",
         "personal"
       ],
-      "words": 323,
+      "words": 331,
       "images": 18,
       "imageDetails": {
         "total": 18,
@@ -22889,7 +22889,7 @@
       ],
       "date": "2025-04-21T20:22:04.000Z",
       "modified": "2025-05-03T00:41:05.000Z",
-      "words": 241,
+      "words": 248,
       "images": 12,
       "imageDetails": {
         "total": 12,
@@ -23222,7 +23222,7 @@
       ],
       "date": "2025-06-09T18:20:48.000Z",
       "modified": "2025-06-17T18:01:34.000Z",
-      "words": 666,
+      "words": 671,
       "images": 27,
       "imageDetails": {
         "total": 27,
@@ -24002,7 +24002,7 @@
         "development",
         "personal"
       ],
-      "words": 530,
+      "words": 539,
       "images": 27,
       "imageDetails": {
         "total": 27,
@@ -24129,7 +24129,7 @@
     "metadata": {
       "date": "2025-09-29T16:13:44.000Z",
       "modified": "2025-10-04T19:25:00.000Z",
-      "words": 1469,
+      "words": 1476,
       "images": 86,
       "imageDetails": {
         "total": 86,

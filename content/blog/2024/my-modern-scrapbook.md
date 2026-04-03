@@ -117,7 +117,7 @@ I also created the /scrapbook section of my website, that shows all of my recent
 
 /scrapbook/graph/ is the foundation of a network-based view of my scraps, beginning with tying each scrap together sequentially and placing them on the screen horizontally based on the day they were saved. But I am hoping eventually the network of scraps can be explored through shared tags, references, and entity relationships.
 
-![](http://res.cloudinary.com/ejf/image/upload/v1722612365/Screenshot_2024-08-02_at_11.25.53_AM.png)
+![Browser bookmarks or saved links timeline from late July to August 2024, including articles about marijuana laws, Satoshi Nakamoto, Instagram API, and food vending trailers.](http://res.cloudinary.com/ejf/image/upload/v1722612365/Screenshot_2024-08-02_at_11.25.53_AM.png)
 
 ### Public bibliography
 
