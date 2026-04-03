@@ -1,0 +1,198 @@
+[
+  {
+    "version": "3.1",
+    "date": "2026-04",
+    "title": "The Great Alt Text Campaign",
+    "body": "Added AI-generated descriptions to 881 images because every reader deserves to know what they're looking at. Used Claude's vision API with a content-first prompt, confidence scoring, and a manual review queue for the tricky ones. Also restored 87 dead Cloudinary images from backups and replaced 10 dead links with Internet Archive URLs. Accessibility isn't a feature, it's the floor.",
+    "stats": { "commits": 12, "filesChanged": 168 },
+    "tags": ["accessibility", "ai"],
+    "stack": ["Claude Haiku", "Cloudinary API", "Node.js"]
+  },
+  {
+    "version": "3.0",
+    "date": "2025-12",
+    "title": "Flashcard System",
+    "body": "Built a full spaced repetition flashcard system because I kept forgetting things I'd already written about. 3D card flip animations, multi-deck support, the whole deal. There's something deeply satisfying about turning your own blog posts into study material. API endpoints for learning data so I can track what sticks.",
+    "stats": { "commits": 8, "filesChanged": 12 },
+    "tags": ["learning", "interactive"],
+    "stack": ["Vue 3", "CSS 3D transforms"],
+    "link": "/flashcards"
+  },
+  {
+    "version": "2.9",
+    "date": "2025-12",
+    "title": "Threads Visualization",
+    "body": "D3 force-directed graph showing how posts, scraps, and tags actually connect to each other. You scroll through 350vh of interconnected content and watch the relationships emerge. Top 25 tags pinned as maypoles down the page in a sine wave. It's the kind of thing that makes you realize how much you've written about the same three topics.",
+    "stats": { "commits": 15, "filesChanged": 8 },
+    "tags": ["visualization", "d3"],
+    "stack": ["D3.js", "Canvas API", "anime.js"],
+    "link": "/threads"
+  },
+  {
+    "version": "2.8",
+    "date": "2025-12",
+    "title": "Scraps Browser",
+    "body": "New page for browsing the Supabase scraps collection. Tag filtering, metadata display, the whole archival experience. Scraps are the stuff that doesn't quite make it into a blog post but is too good to lose -- bookmarks, notes, fragments of ideas. Now they have a proper home.",
+    "stats": { "commits": 6, "filesChanged": 5 },
+    "tags": ["content", "archive"],
+    "stack": ["Supabase", "Vue 3"],
+    "link": "/scraps"
+  },
+  {
+    "version": "2.7",
+    "date": "2025-11",
+    "title": "Kalshi Predictions Integration",
+    "body": "Live prediction market portfolio tracking with real-time P&L, calibration analysis, and position commentary. I wanted to put my money where my forecasts are, literally. Tracks how well-calibrated my bets are against my stated confidence levels. The calibration curve is humbling.",
+    "stats": { "commits": 10, "filesChanged": 14 },
+    "tags": ["predictions", "finance"],
+    "stack": ["Kalshi API", "D3.js"],
+    "link": "/predictions"
+  },
+  {
+    "version": "2.6",
+    "date": "2025-11",
+    "title": "Gear Inventory Overhaul",
+    "body": "Rebuilt the gear page with smart unit conversion, favorites, weight-per-category stats, and Tuftian data visualizations. Every piece of gear I own, weighed and categorized. The histogram of weight distribution by category is chef's kiss. 8px baseline grid, ultra-dense tables, sparklines inline. Edward Tufte would approve (I hope).",
+    "stats": { "commits": 20, "filesChanged": 9 },
+    "tags": ["data-viz", "design"],
+    "stack": ["CSV", "D3.js", "Tailwind CSS"],
+    "link": "/gear"
+  },
+  {
+    "version": "2.5",
+    "date": "2025-10",
+    "title": "Tufte-Style Sidenotes",
+    "body": "Major typography overhaul. Footnotes now appear as margin notes on desktop, the way Tufte intended. Replaced an 800-line complex sidenotes system with a 113-line client-side plugin that just works. Delete-driven development at its finest. Georgia serif, proper vertical rhythm, the whole editorial treatment.",
+    "stats": { "commits": 14, "filesChanged": 22 },
+    "tags": ["typography", "design"],
+    "stack": ["CSS", "TypeScript plugin"],
+    "link": "/blog"
+  },
+  {
+    "version": "2.4",
+    "date": "2025-08",
+    "title": "Dynamic Tags System",
+    "body": "Tags endpoint with journalist pyramid ordering -- most important and frequently used tags surface first, like a newsroom would prioritize stories. Also added llms.txt for AI crawlers because the robots should know what they're reading too.",
+    "stats": { "commits": 7, "filesChanged": 6 },
+    "tags": ["api", "content"],
+    "stack": ["TypeScript", "Nuxt server routes"],
+    "link": "/tags.json"
+  },
+  {
+    "version": "2.3",
+    "date": "2025-07",
+    "title": "Cryptographic Predictions",
+    "body": "10 PGP-signed predictions for 2025-2029 with SHA-256 hashing and git commits for verifiable forecasting. The idea is simple: write down what you think will happen, cryptographically commit to it, then come back later and see how wrong you were. Accountability through math.",
+    "stats": { "commits": 9, "filesChanged": 15 },
+    "tags": ["predictions", "crypto"],
+    "stack": ["PGP", "SHA-256", "Git"],
+    "link": "/predictions"
+  },
+  {
+    "version": "2.2",
+    "date": "2025-06",
+    "title": "Scrapbook View",
+    "body": "Data-dense scrapbook view with tag filtering and an enhanced Pinboard bookmarklet with smart tag suggestions. The bookmarklet auto-suggests tags based on the page content, which is the kind of small automation that saves you 3 seconds a hundred times a day.",
+    "stats": { "commits": 5, "filesChanged": 8 },
+    "tags": ["bookmarks", "tools"],
+    "stack": ["Pinboard API", "JavaScript bookmarklet"]
+  },
+  {
+    "version": "2.1",
+    "date": "2025-05",
+    "title": "Predictions API",
+    "body": "Built the foundation for the forecasting section. Predictions system with cryptographic verification -- SHA-256 hashes locked into git commits so you can't retroactively claim you predicted something you didn't. Honest futures.",
+    "stats": { "commits": 6, "filesChanged": 10 },
+    "tags": ["predictions", "api"],
+    "stack": ["Node.js", "SHA-256"]
+  },
+  {
+    "version": "2.0",
+    "date": "2024-10",
+    "title": "Stats Dashboard",
+    "body": "Personal metrics aggregating GitHub, YouTube, LastFM, Chess.com, and a bunch of other APIs into one dense dashboard. Two versions: full stats for the web (~2.4KB) and a lite version optimized for iOS Shortcuts (~345 bytes). Because sometimes you want to know your chess rating from your watch.",
+    "stats": { "commits": 18, "filesChanged": 12 },
+    "tags": ["api", "data-viz"],
+    "stack": ["GitHub API", "YouTube API", "LastFM API", "Chess.com API"],
+    "link": "/stats"
+  },
+  {
+    "version": "1.0",
+    "date": "2024-09",
+    "title": "website2 Launch",
+    "body": "Complete rebuild from scratch. Nuxt 3, Docker deployment, new markdown processing pipeline. Fresh start after 6 years on the old stack. The content pipeline goes Obsidian -> processMarkdown.mjs -> structured JSON -> Vue components. Write in your editor, publish with a git push. The way it should be.",
+    "stats": { "commits": 150, "filesChanged": 200 },
+    "tags": ["launch", "infrastructure"],
+    "stack": ["Nuxt 3", "Docker", "TypeScript", "Tailwind CSS"]
+  },
+  {
+    "version": "0.9",
+    "date": "2024-Q2",
+    "title": "Pottery Shop & RSS",
+    "body": "Added a pottery page with Stripe checkout because apparently I make ceramics now. Also RSS feed and a public tags.json endpoint. The pottery page was mostly an excuse to learn Stripe's API, but people actually bought things.",
+    "stats": { "commits": 8, "filesChanged": 10 },
+    "tags": ["commerce", "rss"],
+    "stack": ["Stripe", "RSS"],
+    "era": "website v1"
+  },
+  {
+    "version": "0.8",
+    "date": "2024-Q2",
+    "title": "Scrap Graph View",
+    "body": "Interactive graph visualization of scraps with Supabase backend integration. The precursor to the threads visualization -- same impulse to see how ideas connect, just rougher around the edges.",
+    "stats": { "commits": 5, "filesChanged": 6 },
+    "tags": ["visualization", "data"],
+    "stack": ["D3.js", "Supabase"],
+    "era": "website v1"
+  },
+  {
+    "version": "0.7",
+    "date": "2023-Q4",
+    "title": "Tailwind Redesign",
+    "body": "Ripped out Tachyons and replaced it with Tailwind CSS + Nuxt UI. Added 3D canvas experiments and GitHub data integration. The Tachyons-to-Tailwind migration was one of those things that took a weekend but paid off for years.",
+    "stats": { "commits": 25, "filesChanged": 40 },
+    "tags": ["design", "infrastructure"],
+    "stack": ["Tailwind CSS", "Nuxt UI", "Three.js"],
+    "era": "website v1"
+  },
+  {
+    "version": "0.5",
+    "date": "2021",
+    "title": "Art Section",
+    "body": "Added dedicated art pages and updated projects with NBC News and CCRB journalism pieces. The site started pulling double duty as portfolio and blog around this point.",
+    "stats": { "commits": 10, "filesChanged": 8 },
+    "tags": ["content", "portfolio"],
+    "stack": ["Vue.js"],
+    "era": "website v1"
+  },
+  {
+    "version": "0.4",
+    "date": "2020",
+    "title": "Dark Mode & Photoblog",
+    "body": "Implemented dark mode toggle and automated photoblog system. 2020 was the year everyone added dark mode. I also automated photo uploads because life's too short to manually resize images.",
+    "stats": { "commits": 12, "filesChanged": 15 },
+    "tags": ["design", "automation"],
+    "stack": ["CSS custom properties", "Node.js"],
+    "era": "website v1"
+  },
+  {
+    "version": "0.3",
+    "date": "2019",
+    "title": "Markdown Pipeline",
+    "body": "Rebuilt the content system with markdown-it parser, table of contents generation, and JSON resume integration. This was the first time the site felt like a real publishing system instead of a bunch of HTML files.",
+    "stats": { "commits": 15, "filesChanged": 20 },
+    "tags": ["content", "infrastructure"],
+    "stack": ["markdown-it", "JSON Resume"],
+    "era": "website v1"
+  },
+  {
+    "version": "0.1",
+    "date": "2018",
+    "title": "Original Site Launch",
+    "body": "First version with Tachyons CSS, audio player for DJ mixes, Pinboard bookmarks integration, Are.na vibes section, and a shop. The whole thing was held together with good intentions and functional CSS. It worked, somehow.",
+    "stats": { "commits": 50, "filesChanged": 30 },
+    "tags": ["launch"],
+    "stack": ["Tachyons CSS", "Vue.js", "Pinboard API", "Are.na API"],
+    "era": "website v1"
+  }
+]
