@@ -80,6 +80,7 @@ function auditFile(filePath, content, cloudCache) {
   const body = stripCodeBlocks(rawBody)
 
   const issues = []
+  const images = []
   const stats = { images: 0, imagesGood: 0, imagesJunk: 0, imagesEmpty: 0, imagesBroken: 0, links: 0, linksExternal: 0, words: 0 }
 
   // --- Frontmatter ---
@@ -95,19 +96,32 @@ function auditFile(filePath, content, cloudCache) {
     stats.images++
 
     const isVideo = VIDEO_RE.test(url)
+    let quality = 'good'
 
     if (!alt && isVideo) {
-      // Videos with empty alt are expected — not an error
+      quality = 'video'
       stats.imagesGood++
     } else if (!alt) {
+      quality = 'empty'
       stats.imagesEmpty++
       issues.push({ type: 'alt', severity: 'error', msg: `Empty alt text`, url: url.slice(0, 80) })
     } else if (isJunkAlt(alt)) {
+      quality = 'junk'
       stats.imagesJunk++
       issues.push({ type: 'alt', severity: 'warn', msg: `Junk alt: "${alt.slice(0, 40)}"`, url: url.slice(0, 80) })
     } else {
       stats.imagesGood++
     }
+
+    // Build thumbnail URL for Cloudinary images
+    let thumb = null
+    if (url.includes('cloudinary') && url.includes('/image/upload/')) {
+      const u = url.replace(/^http:\/\//i, 'https://')
+      const parts = u.split('/upload/')
+      if (parts.length === 2) thumb = `${parts[0]}/upload/c_fill,w_160,h_112,f_auto,q_auto/${parts[1]}`
+    }
+
+    images.push({ url: url.slice(0, 200), alt: alt || '', quality, thumb, isVideo })
 
     // Check for local/broken refs
     if (!url.startsWith('http') && !url.startsWith('//')) {
@@ -155,7 +169,7 @@ function auditFile(filePath, content, cloudCache) {
     grade = 'A+'
   }
 
-  return { file: relPath, grade, issues, stats, frontmatter: { date: fm.date, tags: fm.tags, draft: !!fm.draft, hidden: !!fm.hidden } }
+  return { file: relPath, grade, issues, images, stats, frontmatter: { date: fm.date, tags: fm.tags, draft: !!fm.draft, hidden: !!fm.hidden } }
 }
 
 // ---------------------------------------------------------------------------
@@ -270,7 +284,7 @@ async function main() {
 
 function buildReportHtml(report) {
   const data = JSON.stringify(report)
-  return `<!DOCTYPE html>
+  return `<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -330,6 +344,12 @@ function buildReportHtml(report) {
   .expand-issues { font-size: 10px; color: var(--text2); }
   .expand-issues div { padding: 2px 0; }
   .expand-issues .severity-error { color: var(--red); } .expand-issues .severity-warn { color: var(--yellow); } .expand-issues .severity-info { color: var(--text3); }
+  .img-gallery { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+  .img-card { border: 2px solid; border-radius: 6px; overflow: hidden; width: 160px; background: var(--surface); }
+  .img-thumb { width: 160px; height: 112px; overflow: hidden; background: #0d0d0f; display:flex; align-items:center; justify-content:center; }
+  .img-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .no-thumb { font-size: 10px; color: var(--text3); }
+  .img-alt { padding: 6px 8px; font-size: 9px; line-height: 1.3; color: var(--text2); max-height: 48px; overflow: hidden; }
   .hidden { display: none; }
   .footer { text-align: center; padding: 2rem 0; font-size: 10px; color: var(--text3); }
 </style>
@@ -416,8 +436,20 @@ function renderTable() {
     var warns = p.issues.filter(function(i){return i.severity==='warn'}).length
     var infos = p.issues.filter(function(i){return i.severity==='info'}).length
     var pills = [errs>0?'<span class="issue-pill error">'+errs+' err</span>':'', warns>0?'<span class="issue-pill warn">'+warns+' warn</span>':'', infos>0?'<span class="issue-pill info">'+infos+' info</span>':''].filter(Boolean).join('')
-    var details = p.issues.map(function(i){return '<div class="severity-'+i.severity+'">'+(i.severity==='error'?'!':i.severity==='warn'?'~':'-')+' ['+i.type+'] '+i.msg+'</div>'}).join('')
-    return '<tr class="expandable" onclick="toggleExpand('+i+')"><td><span class="grade-badge '+cls+'">'+p.grade+'</span></td><td><span class="post-link">'+slug.split('/').pop()+'</span></td><td class="img-ratio">'+imgR+'</td><td><div class="issue-pills">'+(pills||'<span style="color:var(--text3)">-</span>')+'</div></td><td style="color:var(--text3)">'+p.stats.words.toLocaleString()+'</td></tr><tr class="expand-row hidden" id="expand-'+i+'"><td colspan="5"><div class="expand-issues">'+(details||'No issues')+'</div></td></tr>'
+    var details = p.issues.filter(function(i){return i.type!=='sync'}).map(function(i){return '<div class="severity-'+i.severity+'">'+(i.severity==='error'?'!':i.severity==='warn'?'~':'-')+' ['+i.type+'] '+i.msg+'</div>'}).join('')
+
+    // Image gallery
+    var gallery = ''
+    if (p.images && p.images.length > 0) {
+      gallery = '<div class="img-gallery">' + p.images.map(function(img) {
+        var border = img.quality === 'good' ? 'var(--green)' : img.quality === 'junk' ? 'var(--yellow)' : img.quality === 'empty' ? 'var(--red)' : 'var(--text3)'
+        var label = img.quality === 'good' ? img.alt : img.quality === 'junk' ? '<span style="color:var(--yellow)">' + (img.alt||'').substring(0,50) + '</span>' : img.quality === 'empty' ? '<span style="color:var(--red)">no alt text</span>' : '<span style="color:var(--text3)">video</span>'
+        var thumbHtml = img.thumb ? '<img src="' + img.thumb + '" loading="lazy" onerror="this.style.display=\'none\'">' : '<div class="no-thumb">' + (img.isVideo ? 'vid' : '?') + '</div>'
+        return '<div class="img-card" style="border-color:'+border+'"><div class="img-thumb">' + thumbHtml + '</div><div class="img-alt">' + label + '</div></div>'
+      }).join('') + '</div>'
+    }
+
+    return '<tr class="expandable" onclick="toggleExpand('+i+')"><td><span class="grade-badge '+cls+'">'+p.grade+'</span></td><td><span class="post-link">'+slug.split('/').pop()+'</span></td><td class="img-ratio">'+imgR+'</td><td><div class="issue-pills">'+(pills||'<span style="color:var(--text3)">-</span>')+'</div></td><td style="color:var(--text3)">'+p.stats.words.toLocaleString()+'</td></tr><tr class="expand-row hidden" id="expand-'+i+'"><td colspan="5">' + gallery + '<div class="expand-issues">'+(details||'No issues')+'</div></td></tr>'
   }).join('')
 }
 function toggleExpand(i) { document.getElementById('expand-'+i).classList.toggle('hidden') }
