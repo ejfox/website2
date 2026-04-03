@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-03-23-fix-external-link-icons",
+  "cacheVersion": "2026-04-01-add-data-preview-url",
   "html": "",
   "title": "2026 02 Raw",
   "metadata": {
@@ -15,7 +15,7 @@
     "headers": {},
     "toc": [],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2026-02-raw.md",
+    "sourcePath": "../../../../../code/website2/.claude/worktrees/agent-a9552506/content/blog/week-notes/2026-02-raw.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

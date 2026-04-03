@@ -130,6 +130,7 @@ export function remarkEnhanceLinks() {
       node.data.hProperties.rel = 'noopener noreferrer'
       node.data.hProperties.class =
         'external-link group inline-flex items-center'
+      node.data.hProperties['data-preview-url'] = node.url
 
       // Try to add social icon
       try {
