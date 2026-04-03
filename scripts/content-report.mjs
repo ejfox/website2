@@ -444,7 +444,7 @@ function renderTable() {
       gallery = '<div class="img-gallery">' + p.images.map(function(img) {
         var border = img.quality === 'good' ? 'var(--green)' : img.quality === 'junk' ? 'var(--yellow)' : img.quality === 'empty' ? 'var(--red)' : 'var(--text3)'
         var label = img.quality === 'good' ? img.alt : img.quality === 'junk' ? '<span style="color:var(--yellow)">' + (img.alt||'').substring(0,50) + '</span>' : img.quality === 'empty' ? '<span style="color:var(--red)">no alt text</span>' : '<span style="color:var(--text3)">video</span>'
-        var thumbHtml = img.thumb ? '<img src="' + img.thumb + '" loading="lazy" onerror="this.style.display=\'none\'">' : '<div class="no-thumb">' + (img.isVideo ? 'vid' : '?') + '</div>'
+        var thumbHtml = img.thumb ? '<img src="' + img.thumb + '" loading="lazy" onerror="this.hidden=true">' : '<div class="no-thumb">' + (img.isVideo ? 'vid' : '?') + '</div>'
         return '<div class="img-card" style="border-color:'+border+'"><div class="img-thumb">' + thumbHtml + '</div><div class="img-alt">' + label + '</div></div>'
       }).join('') + '</div>'
     }
