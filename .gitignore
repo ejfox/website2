@@ -46,3 +46,7 @@ content/backup/drafts/_stale/*
 .cursor/*
 .claude/settings.local.json
 .build-info.json
+
+# Local-only content report viewer
+data/content-report.html
+data/content-report.json
