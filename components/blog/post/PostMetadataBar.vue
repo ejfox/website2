@@ -26,6 +26,10 @@
         {{ stats.links }} links
       </span>
     </template>
+    <template v-if="sourceUrl">
+      <span class="text-zinc-600">·</span>
+      <a :href="sourceUrl" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap hover:text-zinc-300 transition-colors hidden sm:inline">view source</a>
+    </template>
   </div>
 </template>
 
@@ -40,7 +44,13 @@ const props = defineProps<{
     images: number
     links: number
   }
+  slug?: string
 }>()
+
+const sourceUrl = computed(() => {
+  if (!props.slug) return null
+  return `https://github.com/ejfox/website2/blob/main/content/blog/${props.slug}.md`
+})
 
 const formattedDate = computed(() => {
   const d = formatShortDate(props.date)

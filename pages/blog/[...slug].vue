@@ -487,6 +487,7 @@ onMounted(() => {
       <PostMetadataBar
         :date="post?.metadata?.date || post?.date"
         :stats="readingStats"
+        :slug="route.params.slug.join('/')"
       />
       <!-- Draft banner - inside same container, stacks below metadata -->
       <div v-if="isDraft" class="draft-banner">
