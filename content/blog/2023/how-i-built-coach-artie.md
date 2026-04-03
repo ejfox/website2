@@ -91,7 +91,7 @@ Then I asked Artie to write me a poem about my favorite things, and the results 
 
 ["I just hooked up GPT-4 to a database where it can store memories (I have another prompt where I feed it the conversation and ask it whether it wants to remember anything) and it is truly magical https://t.co/c2ZH6NaU0S" / Twitter](https://twitter.com/mrejfox/status/1636974679310082053)
 
-![](https://res.cloudinary.com/ejf/image/upload/v1679587767/Screenshot%202023-03-22%20at%209.13.29%20PM.png)
+![Coach Artie conversation interface showing the AI assistant responding to creative goals and daily check-ins](https://res.cloudinary.com/ejf/image/upload/v1679587767/Screenshot%202023-03-22%20at%209.13.29%20PM.png)
 
 ### Examples
 
