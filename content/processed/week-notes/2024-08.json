@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-03-23-fix-external-link-icons",
+  "cacheVersion": "2026-04-01-add-data-preview-url",
   "html": "<h2 class=\"\" id=\"overview-of-the-week\">Overview of the Week</h2>\n<ul class=\"list-disc\">\n<li class=\"\">launched new studio site</li>\n<li class=\"\">Worked on Electology plans</li>\n<li class=\"\">Went to the gym, got first personal training session</li>\n</ul>",
   "title": "Overview of the Week",
   "metadata": {
@@ -32,7 +32,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2024-08.md",
+    "sourcePath": "../../../../../code/website2/.claude/worktrees/agent-a9552506/content/blog/week-notes/2024-08.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

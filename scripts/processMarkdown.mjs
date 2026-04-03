@@ -51,7 +51,7 @@ const SOURCE_DIR =
   '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/' +
     'ejfox/'
 
-const CACHE_VERSION = '2026-03-23-fix-external-link-icons'
+const CACHE_VERSION = '2026-04-01-add-data-preview-url'
 
 const paths = {
   contentDir: config.dirs.content,
