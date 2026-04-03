@@ -30,6 +30,8 @@ if (!CLOUD_NAME || !API_KEY || !API_SECRET) {
 
 const args = process.argv.slice(2)
 const WRITE_MODE = args.includes('--write')
+const FROM_CACHE = args.includes('--from-cache')
+const CACHE_PATH = path.resolve(__dirname, '..', 'data', 'cloudinary-image-cache.json')
 
 const ALL_IMAGES_RE = /!\[([^\]]*)\]\(([^)]+)\)/g
 const DELAY_MS = 200
@@ -109,28 +111,38 @@ async function main() {
   console.log(`\n☁️  Sync Alt Text to Cloudinary`)
   console.log(`Mode: ${WRITE_MODE ? '✏️  WRITE' : '👀 DRY RUN'}\n`)
 
-  const files = await findMarkdownFiles(CONTENT_DIR)
-
-  // Collect all image -> alt text mappings (dedupe by public_id, last write wins)
   const altMap = new Map()
 
-  for (const filePath of files) {
-    const content = await fs.readFile(filePath, 'utf8')
-    for (const match of content.matchAll(ALL_IMAGES_RE)) {
-      const alt = match[1].trim()
-      const url = match[2]
-
-      if (!alt || !isCloudinaryUrl(url) || isVideoUrl(url)) continue
-
+  if (FROM_CACHE) {
+    // Read from the image cache (populated by remarkEnhanceImages during blog:process)
+    console.log('Reading from cloudinary-image-cache.json...')
+    const cache = JSON.parse(await fs.readFile(CACHE_PATH, 'utf8'))
+    for (const [url, meta] of Object.entries(cache)) {
+      if (!meta.alt || !isCloudinaryUrl(url) || isVideoUrl(url)) continue
       const publicId = extractPublicId(url)
-      if (!publicId) continue
+      if (publicId) altMap.set(publicId, { alt: meta.alt, url })
+    }
+  } else {
+    // Scan markdown files
+    const files = await findMarkdownFiles(CONTENT_DIR)
+    for (const filePath of files) {
+      const content = await fs.readFile(filePath, 'utf8')
+      for (const match of content.matchAll(ALL_IMAGES_RE)) {
+        const alt = match[1].trim()
+        const url = match[2]
 
-      // Skip junk alt text
-      if (/^(Screenshot|Screen Shot|IMG_|DSC|Pasted image)/i.test(alt)) continue
-      if (/^[A-Za-z0-9_.-]+\.(png|jpe?g|gif)$/i.test(alt)) continue
-      if (/^\d{4}-\d{2}-\d{2}/.test(alt)) continue
+        if (!alt || !isCloudinaryUrl(url) || isVideoUrl(url)) continue
 
-      altMap.set(publicId, { alt, url })
+        const publicId = extractPublicId(url)
+        if (!publicId) continue
+
+        if (/^(Screenshot|Screen Shot|IMG_|DSC|Pasted image)/i.test(alt)) continue
+        if (/^[A-Za-z0-9_.-]+\.(png|jpe?g|gif)$/i.test(alt)) continue
+        if (/^\d{4}-\d{2}-\d{2}/.test(alt)) continue
+        if (/^https?:\/\//.test(alt)) continue
+
+        altMap.set(publicId, { alt, url })
+      }
     }
   }
 

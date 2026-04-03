@@ -1,6 +1,8 @@
 /**
  * @file plugins/remarkEnhanceImages.mjs
- * @description Adds lazy-loading and Cloudinary srcset/sizing + placeholder data
+ * @description Adds lazy-loading, Cloudinary srcset/sizing, placeholder data,
+ *   semantic figure/figcaption wrapping, and alt text fallback from Cloudinary
+ *   context metadata.
  * @usage .use(remarkEnhanceImages)
  */
 
@@ -14,13 +16,34 @@ const CACHE_PATH = path.resolve(
   'cloudinary-image-cache.json'
 )
 
+// ---------------------------------------------------------------------------
+// Junk alt text detection (same patterns as generate-alt-text.mjs)
+// ---------------------------------------------------------------------------
+
+const JUNK_ALT_PATTERNS = [
+  /^Screenshot/i, /^Screen Shot/i, /^Pasted image/i, /^IMG_/i, /^DSC/,
+  /^DJI_/, /^DSCF/, /^Photo /i, /^CleanShot/i, /^Untitled/i, /^image\d*/i,
+  /^[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}/,
+  /^[A-Za-z0-9_.-]+\.(png|jpe?g|gif|webp|svg|tiff?)$/i,
+  /^\d{4}-\d{2}-\d{2}/,
+  /^https?:\/\//,  // URL used as alt text
+]
+
+function isJunkAlt(alt) {
+  if (!alt || alt.trim().length === 0) return true
+  return JUNK_ALT_PATTERNS.some(p => p.test(alt.trim()))
+}
+
+// ---------------------------------------------------------------------------
+// Cloudinary URL helpers
+// ---------------------------------------------------------------------------
+
 const enhanceImageUrl = (url) => {
   if (!url.includes('res.cloudinary.com/')) return url
   url = url.replace(/^http:\/\//i, 'https://')
   const base = url.split('/upload/')[0] + '/upload/'
   const pathPart = url.split('/upload/')[1]
 
-  // Extract dimensions from URL if present (e.g., w_1920,h_1080)
   const widthMatch = url.match(/w_(\d+)/)
   const heightMatch = url.match(/h_(\d+)/)
   const width = widthMatch ? Number.parseInt(widthMatch[1]) : null
@@ -37,12 +60,14 @@ const enhanceImageUrl = (url) => {
     src: `${base}c_scale,f_auto,q_auto:good,w_1280/${pathPart}`,
     srcset,
     sizes: '(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px',
-    // Removed blur placeholder - user doesn't want blurred images
-    // placeholder: `${base}c_scale,f_auto,q_1,w_20,e_blur:1000/${path}`,
     width,
     height,
   }
 }
+
+// ---------------------------------------------------------------------------
+// Cache
+// ---------------------------------------------------------------------------
 
 async function loadCache() {
   try {
@@ -57,6 +82,10 @@ async function saveCache(cache) {
   await fs.mkdir(path.dirname(CACHE_PATH), { recursive: true })
   await fs.writeFile(CACHE_PATH, JSON.stringify(cache, null, 2))
 }
+
+// ---------------------------------------------------------------------------
+// Cloudinary metadata extraction
+// ---------------------------------------------------------------------------
 
 function isTransformSegment(segment) {
   return segment.includes(',') || /^[cwhfqget]_[^/]+/.test(segment)
@@ -78,6 +107,8 @@ function extractCloudinaryInfo(url) {
   return {
     cloudName,
     publicPath: parts.join('/'),
+    // public_id without extension for admin API lookups
+    publicId: parts.join('/').replace(/\.(jpg|jpeg|png|gif|webp|svg|tiff?|bmp)$/i, ''),
   }
 }
 
@@ -86,6 +117,10 @@ function buildGetInfoUrl(url) {
   if (!info) return null
   return `https://res.cloudinary.com/${info.cloudName}/image/upload/fl_getinfo/${info.publicPath}`
 }
+
+// ---------------------------------------------------------------------------
+// Palette + placeholder
+// ---------------------------------------------------------------------------
 
 function pickPalette(colors) {
   if (!Array.isArray(colors) || colors.length === 0) return null
@@ -115,6 +150,10 @@ function hasMeaningfulMeta(meta) {
   )
 }
 
+// ---------------------------------------------------------------------------
+// Rate limiter
+// ---------------------------------------------------------------------------
+
 const limiter = (() => {
   const queue = []
   let activeCount = 0
@@ -122,7 +161,6 @@ const limiter = (() => {
   const concurrency = 3
   const minTime = 150
 
-  // Hoisted function declaration to avoid use-before-define
   function runNext() {
     if (activeCount >= concurrency || queue.length === 0) return
     const now = Date.now()
@@ -154,6 +192,10 @@ const limiter = (() => {
   return schedule
 })()
 
+// ---------------------------------------------------------------------------
+// Cloudinary metadata fetch (dimensions, colors, AND context alt/caption)
+// ---------------------------------------------------------------------------
+
 async function fetchCloudinaryMeta(url, cache) {
   if (hasMeaningfulMeta(cache[url])) return cache[url]
   const infoUrl = buildGetInfoUrl(url)
@@ -171,6 +213,9 @@ async function fetchCloudinaryMeta(url, cache) {
       colors,
       avgColor: palette?.primary || null,
       secondaryColor: palette?.secondary || null,
+      // Preserve existing alt/caption if already in cache
+      alt: cache[url]?.alt || null,
+      caption: cache[url]?.caption || null,
     }
     if (!hasMeaningfulMeta(meta)) return null
     cache[url] = meta
@@ -181,20 +226,24 @@ async function fetchCloudinaryMeta(url, cache) {
   }
 }
 
+// ---------------------------------------------------------------------------
+// The remark plugin
+// ---------------------------------------------------------------------------
+
 export function remarkEnhanceImages() {
   return async (tree) => {
     const cache = await loadCache()
     const nodes = []
 
-    visit(tree, 'image', (node) => {
+    visit(tree, 'image', (node, index, parent) => {
       if (node.url) {
-        nodes.push(node)
+        nodes.push({ node, index, parent })
       }
     })
 
     await Promise.all(
-      nodes.map(async (node) => {
-        // Always add loading/decoding to ALL images (performance optimization)
+      nodes.map(async ({ node, index, parent }) => {
+        // Always add loading/decoding to ALL images
         node.data = node.data || {}
         node.data.hProperties = node.data.hProperties || {}
         node.data.hProperties.loading = 'lazy'
@@ -209,6 +258,33 @@ export function remarkEnhanceImages() {
         }
 
         const cloudMeta = await fetchCloudinaryMeta(originalUrl, cache)
+
+        // -----------------------------------------------------------------
+        // Alt text resolution: markdown > cloudinary cache > empty
+        // -----------------------------------------------------------------
+        let resolvedAlt = node.alt || ''
+
+        if (isJunkAlt(resolvedAlt) && cloudMeta?.alt) {
+          // Markdown alt is junk but Cloudinary has a real description
+          resolvedAlt = cloudMeta.alt
+          node.alt = resolvedAlt
+        }
+
+        // If markdown has good alt but Cloudinary doesn't, stash it for sync
+        if (!isJunkAlt(resolvedAlt) && cloudMeta && !cloudMeta.alt) {
+          cloudMeta.alt = resolvedAlt
+          cloudMeta.caption = resolvedAlt
+          cache[originalUrl] = cloudMeta
+        }
+
+        // Set title attribute (shows on hover) if we have meaningful alt
+        if (!isJunkAlt(resolvedAlt)) {
+          node.data.hProperties.title = resolvedAlt
+        }
+
+        // -----------------------------------------------------------------
+        // Cloudinary visual metadata (dimensions, placeholders)
+        // -----------------------------------------------------------------
         if (cloudMeta) {
           const placeholder = buildSvgPlaceholder(
             cloudMeta.width,
@@ -231,10 +307,8 @@ export function remarkEnhanceImages() {
         }
 
         if (enhanced !== originalUrl) {
-          // Grid-based image classes
           const classes = ['img-full', 'my-8', 'rounded-sm']
 
-          // Detect aspect ratio from dimensions
           const width = cloudMeta?.width || enhanced.width
           const height = cloudMeta?.height || enhanced.height
           if (width && height) {
@@ -253,7 +327,35 @@ export function remarkEnhanceImages() {
           node.data.hProperties.className = classes.join(' ')
           node.data.hProperties.crossorigin = 'anonymous'
         }
+
+        // -----------------------------------------------------------------
+        // Wrap in <figure> + <figcaption> for semantic HTML
+        // Only when we have meaningful alt text on a Cloudinary image
+        // -----------------------------------------------------------------
+        if (!isJunkAlt(resolvedAlt) && enhanced !== originalUrl && parent && index !== undefined) {
+          // Create a figcaption node
+          const figcaption = {
+            type: 'html',
+            value: `<figcaption>${resolvedAlt}</figcaption>`,
+          }
+
+          // Wrap the image node in a figure
+          const figure = {
+            type: 'html',
+            value: `<figure role="figure" aria-label="${resolvedAlt.replace(/"/g, '&quot;')}">`,
+          }
+          const figureClose = {
+            type: 'html',
+            value: '</figure>',
+          }
+
+          // Replace the image node with figure > img + figcaption
+          parent.children.splice(index, 1, figure, node, figcaption, figureClose)
+        }
       })
     )
+
+    // Save cache with any alt text updates
+    await saveCache(cache)
   }
 }
