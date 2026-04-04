@@ -137,9 +137,11 @@ async function main() {
       const { htmlPath } = await saveVariants(SLUG, variants)
       console.log(`\n  Preview: ${htmlPath}`)
 
-      // Auto-open
-      const { exec } = await import('node:child_process')
-      exec(`open "${htmlPath}"`)
+      // Auto-open only with --open flag
+      if (args.includes('--open')) {
+        const { exec } = await import('node:child_process')
+        exec(`open "${htmlPath}"`)
+      }
     }
   }
 }

@@ -14,108 +14,121 @@ export function layoutCards(slug, content) {
   const rng = createRng(slug)
   const cards = []
 
-  // Camera look direction — varies per variant
-  const camRotX = randRange(rng, -0.15, 0.15)
-  const camRotY = randRange(rng, -0.2, 0.2)
+  // Camera offset — slightly off-center for natural feel
+  const camOffX = randRange(rng, -80, 80)
+  const camOffY = randRange(rng, -30, 30)
 
-  // Helper: place a card somewhere AROUND the viewer
-  // Uses spherical-ish coordinates so cards surround you
-  function placeAround(opts) {
-    // angle: where around you (radians, -PI to PI)
-    // elevation: up/down (-1 to 1)
-    // distance: how far (z-depth)
-    const angle = opts.angle || randRange(rng, -Math.PI, Math.PI)
-    const elevation = opts.elevation || randRange(rng, -0.8, 0.8)
-    const distance = opts.distance || randRange(rng, 0.3, 2.0)
+  // The "room" — cards sit on virtual surfaces around the viewer:
+  //   - Back wall: directly ahead, various x/y positions
+  //   - Left wall: far left, angled inward
+  //   - Right wall: far right, angled inward
+  //   - Floor cards: below eye level, receding into depth
+  //   - Ceiling floaters: above, further back
+  //
+  // Each surface has a base z-depth and x-range.
 
+  const WALLS = {
+    backCenter: { xMin: -200, xMax: 200, yMin: -120, yMax: 120, z: 0.8, zSpread: 0.4 },
+    left:       { xMin: -700, xMax: -300, yMin: -180, yMax: 180, z: 0.5, zSpread: 0.6 },
+    right:      { xMin: 300, xMax: 700, yMin: -180, yMax: 180, z: 0.5, zSpread: 0.6 },
+    floor:      { xMin: -500, xMax: 500, yMin: 150, yMax: 350, z: 0.6, zSpread: 0.8 },
+    ceiling:    { xMin: -400, xMax: 400, yMin: -350, yMax: -180, z: 1.0, zSpread: 0.5 },
+    far:        { xMin: -600, xMax: 600, yMin: -250, yMax: 250, z: 1.8, zSpread: 0.8 },
+  }
+
+  const wallNames = Object.keys(WALLS)
+
+  function placeOnWall(wallName) {
+    const wall = wallName ? WALLS[wallName] : WALLS[randPick(rng, wallNames)]
     return {
-      // Convert to screen-space: angle drives x, elevation drives y
-      x: Math.sin(angle + camRotY) * distance * 800,
-      y: elevation * distance * 400 + camRotX * 200,
-      z: Math.cos(angle) * distance * 0.5 + distance * 0.5,
+      x: camOffX + randRange(rng, wall.xMin, wall.xMax),
+      y: camOffY + randRange(rng, wall.yMin, wall.yMax),
+      z: wall.z + randRange(rng, 0, wall.zSpread),
     }
   }
 
-  // Title card — dead center, closest
-  const titlePos = placeAround({ angle: randRange(rng, -0.3, 0.3), elevation: randRange(rng, -0.15, 0.15), distance: 0.15 })
+  // Title card — front and center on the back wall
   cards.push({
     type: 'title',
     text: content.title,
-    ...titlePos,
+    ...placeOnWall('backCenter'),
+    z: 0.15 + randRange(rng, 0, 0.1), // override: always closest
     width: 700,
     height: 140,
-    rotation: randRange(rng, -4, 4),
+    rotation: randRange(rng, -3, 3),
     importance: 1.0,
   })
 
-  // Heading cards — scattered around the room
-  for (const heading of content.headings) {
-    const pos = placeAround({ distance: randRange(rng, 0.4, 1.5) })
-    cards.push({
-      type: 'heading',
-      text: heading,
-      ...pos,
-      width: 280 + heading.length * 3,
-      height: 52,
-      rotation: randRange(rng, -20, 20),
-      importance: 0.6,
-    })
-  }
-
-  // Blockquote cards
-  for (const quote of content.blockquotes) {
-    const pos = placeAround({ distance: randRange(rng, 0.5, 1.8) })
-    cards.push({
-      type: 'quote',
-      text: quote.slice(0, 80),
-      ...pos,
-      width: 280,
-      height: 65,
-      rotation: randRange(rng, -15, 15),
-      importance: 0.5,
-    })
-  }
-
-  // Image cards — BIG, like posters on the walls
-  for (const url of content.imageUrls) {
-    const pos = placeAround({ distance: randRange(rng, 0.3, 1.2) })
+  // Image cards — BIG posters on left and right walls
+  const imageWalls = ['left', 'right', 'backCenter', 'floor']
+  for (let i = 0; i < content.imageUrls.length; i++) {
+    const wall = imageWalls[i % imageWalls.length]
     cards.push({
       type: 'image',
       text: '',
-      imageUrl: url,
-      ...pos,
+      imageUrl: content.imageUrls[i],
+      ...placeOnWall(wall),
       width: 320,
       height: 220,
-      rotation: randRange(rng, -22, 22),
+      rotation: randRange(rng, -18, 18),
       importance: 0.4,
     })
   }
 
-  // Tag pills — floating at various depths
-  for (const tag of content.tags) {
-    const pos = placeAround({ distance: randRange(rng, 0.6, 2.5) })
+  // Heading cards — distributed across walls
+  const headingWalls = ['left', 'right', 'ceiling', 'far', 'backCenter']
+  for (let i = 0; i < content.headings.length; i++) {
+    const wall = headingWalls[i % headingWalls.length]
+    cards.push({
+      type: 'heading',
+      text: content.headings[i],
+      ...placeOnWall(wall),
+      width: 280 + content.headings[i].length * 3,
+      height: 52,
+      rotation: randRange(rng, -15, 15),
+      importance: 0.6,
+    })
+  }
+
+  // Blockquote cards — on the far wall or floor
+  for (const quote of content.blockquotes) {
+    const wall = rng() > 0.5 ? 'far' : 'floor'
+    cards.push({
+      type: 'quote',
+      text: quote.slice(0, 80),
+      ...placeOnWall(wall),
+      width: 280,
+      height: 65,
+      rotation: randRange(rng, -12, 12),
+      importance: 0.5,
+    })
+  }
+
+  // Tag pills — scattered everywhere, mostly far
+  const tagWalls = ['ceiling', 'floor', 'far', 'left', 'right']
+  for (let i = 0; i < content.tags.length; i++) {
+    const wall = tagWalls[i % tagWalls.length]
     cards.push({
       type: 'tag',
-      text: tag,
-      ...pos,
-      width: 80 + tag.length * 9,
+      text: content.tags[i],
+      ...placeOnWall(wall),
+      width: 80 + content.tags[i].length * 9,
       height: 30,
-      rotation: randRange(rng, -8, 8),
+      rotation: randRange(rng, -6, 6),
       importance: 0.2,
     })
   }
 
-  // Stats card
+  // Stats card — on the floor
   if (content.stats.words > 0) {
     const statsText = `${content.stats.words}w · ${content.stats.images}img · ${content.stats.links}links`
-    const pos = placeAround({ elevation: randRange(rng, 0.4, 0.9), distance: randRange(rng, 0.8, 1.5) })
     cards.push({
       type: 'stats',
       text: statsText,
-      ...pos,
+      ...placeOnWall('floor'),
       width: 220,
       height: 28,
-      rotation: randRange(rng, -3, 3),
+      rotation: randRange(rng, -2, 2),
       importance: 0.1,
     })
   }
