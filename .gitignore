@@ -50,3 +50,4 @@ content/backup/drafts/_stale/*
 # Local-only content report viewer
 data/content-report.html
 data/content-report.json
+data/og-previews/
