@@ -14,13 +14,17 @@ export function layoutCards(slug, content) {
   const rng = createRng(slug)
   const cards = []
 
+  // Camera offset — varies per variant, gives each a different "viewpoint"
+  const camOffsetX = randRange(rng, -120, 120)
+  const camOffsetY = randRange(rng, -60, 60)
+
   // Title card — front and center, slightly elevated
   cards.push({
     type: 'title',
     text: content.title,
-    x: randRange(rng, -40, 40),
-    y: randRange(rng, -60, -20),
-    z: randRange(rng, 0.6, 1.2),
+    x: camOffsetX + randRange(rng, -80, 80),
+    y: camOffsetY + randRange(rng, -80, -10),
+    z: randRange(rng, 0.3, 1.0),
     width: 420,
     height: 80,
     rotation: randRange(rng, -3, 3),
@@ -32,12 +36,12 @@ export function layoutCards(slug, content) {
     cards.push({
       type: 'heading',
       text: heading,
-      x: randRange(rng, -300, 300),
-      y: randRange(rng, -180, 180),
-      z: randRange(rng, 1.0, 3.5),
+      x: camOffsetX + randRange(rng, -450, 450),
+      y: camOffsetY + randRange(rng, -250, 250),
+      z: randRange(rng, 0.5, 4.0),
       width: 240 + heading.length * 2,
       height: 44,
-      rotation: randRange(rng, -6, 6),
+      rotation: randRange(rng, -15, 15),
       importance: 0.6,
     })
   }
@@ -47,12 +51,12 @@ export function layoutCards(slug, content) {
     cards.push({
       type: 'quote',
       text: quote.slice(0, 80),
-      x: randRange(rng, -280, 280),
-      y: randRange(rng, -140, 140),
-      z: randRange(rng, 1.5, 4.0),
+      x: camOffsetX + randRange(rng, -400, 400),
+      y: camOffsetY + randRange(rng, -200, 200),
+      z: randRange(rng, 0.8, 4.5),
       width: 260,
       height: 60,
-      rotation: randRange(rng, -4, 4),
+      rotation: randRange(rng, -12, 12),
       importance: 0.5,
     })
   }
@@ -63,12 +67,12 @@ export function layoutCards(slug, content) {
       type: 'image',
       text: '',
       imageUrl: url,
-      x: randRange(rng, -320, 320),
-      y: randRange(rng, -160, 160),
-      z: randRange(rng, 0.8, 3.0),
+      x: camOffsetX + randRange(rng, -450, 450),
+      y: camOffsetY + randRange(rng, -220, 220),
+      z: randRange(rng, 0.4, 3.5),
       width: 160,
       height: 100,
-      rotation: randRange(rng, -8, 8),
+      rotation: randRange(rng, -18, 18),
       importance: 0.4,
     })
   }
@@ -78,9 +82,9 @@ export function layoutCards(slug, content) {
     cards.push({
       type: 'tag',
       text: tag,
-      x: randRange(rng, -350, 350),
-      y: randRange(rng, -200, 200),
-      z: randRange(rng, 2.0, 4.5),
+      x: camOffsetX + randRange(rng, -500, 500),
+      y: camOffsetY + randRange(rng, -280, 280),
+      z: randRange(rng, 1.5, 5.0),
       width: 60 + tag.length * 7,
       height: 22,
       rotation: randRange(rng, -5, 5),
@@ -94,9 +98,9 @@ export function layoutCards(slug, content) {
     cards.push({
       type: 'stats',
       text: statsText,
-      x: randRange(rng, -100, 100),
-      y: randRange(rng, 100, 180),
-      z: randRange(rng, 2.5, 3.5),
+      x: camOffsetX + randRange(rng, -200, 200),
+      y: camOffsetY + randRange(rng, 120, 250),
+      z: randRange(rng, 2.0, 4.0),
       width: 220,
       height: 28,
       rotation: randRange(rng, -2, 2),

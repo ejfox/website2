@@ -6,7 +6,7 @@
 import { createCanvas } from '@napi-rs/canvas'
 import { createNoise2D } from 'simplex-noise'
 import { createRng } from './seed.mjs'
-import { project3D, sortByDepth, depthBlur } from './project.mjs'
+import { project3D, sortByDepth, depthBlur, perspectiveSkew } from './project.mjs'
 import { ZINC, rgba, rgb } from './palette.mjs'
 import { drawPixelText } from './font.mjs'
 import { applyDither } from './dither.mjs'
@@ -37,7 +37,7 @@ export async function renderScene(content, scene, slug, variant = 0) {
   const bgImageData = ctx.getImageData(0, 0, WIDTH, HEIGHT)
   for (let y = 0; y < HEIGHT; y += 2) {
     for (let x = 0; x < WIDTH; x += 2) {
-      const n = noise(x * 0.008, y * 0.008) * 8
+      const n = noise(x * 0.06, y * 0.06) * 18
       const i = (y * WIDTH + x) * 4
       bgImageData.data[i] += n
       bgImageData.data[i + 1] += n
@@ -88,32 +88,53 @@ export async function renderScene(content, scene, slug, variant = 0) {
 
     ctx.save()
 
-    // Rotation
-    if (card.rotation) {
-      ctx.translate(proj.screenX, proj.screenY)
-      ctx.rotate((card.rotation * Math.PI) / 180)
-      ctx.translate(-proj.screenX, -proj.screenY)
-    }
+    // Perspective skew
+    const skew = perspectiveSkew(card, proj)
 
-    // Depth-based opacity (far cards fade)
-    const depthAlpha = Math.max(0.15, 1 - card.z * 0.2)
+    ctx.translate(proj.screenX, proj.screenY)
+    ctx.rotate((card.rotation * Math.PI) / 180)
+    // Apply horizontal skew for 3D tilt effect
+    ctx.transform(1, skew.skewX * 0.003, skew.skewX * 0.002, 1, 0, 0)
+    ctx.translate(-proj.screenX, -proj.screenY)
+
+    // Depth-based opacity (far cards fade more aggressively)
+    const depthAlpha = Math.max(0.08, 1 - card.z * 0.25)
+
+    // Tapered card shape (trapezoid for perspective)
+    const topW = w * skew.taperTop
+    const botW = w * skew.taperBottom
+    const topOffset = (w - topW) / 2
+    const botOffset = (w - botW) / 2
 
     // Card shadow
-    ctx.fillStyle = rgba([0, 0, 0], 0.15 * depthAlpha)
-    ctx.fillRect(cx + 3, cy + 3, w, h)
+    ctx.fillStyle = rgba([0, 0, 0], 0.2 * depthAlpha)
+    ctx.beginPath()
+    ctx.moveTo(cx + topOffset + 4, cy + 4)
+    ctx.lineTo(cx + topOffset + topW + 4, cy + 4)
+    ctx.lineTo(cx + botOffset + botW + 4, cy + h + 4)
+    ctx.lineTo(cx + botOffset + 4, cy + h + 4)
+    ctx.closePath()
+    ctx.fill()
 
-    // Card background
+    // Card background (trapezoid)
     ctx.fillStyle = rgba(ZINC.card, 0.85 * depthAlpha)
-    ctx.fillRect(cx, cy, w, h)
+    ctx.beginPath()
+    ctx.moveTo(cx + topOffset, cy)
+    ctx.lineTo(cx + topOffset + topW, cy)
+    ctx.lineTo(cx + botOffset + botW, cy + h)
+    ctx.lineTo(cx + botOffset, cy + h)
+    ctx.closePath()
+    ctx.fill()
 
-    // Card border — red for the title (most important), zinc for everything else
+    // Card border — red for the title, zinc for everything else
     if (card.importance >= 1.0) {
       ctx.strokeStyle = rgba(ZINC.accent, 0.7 * depthAlpha)
+      ctx.lineWidth = 1.5
     } else {
       ctx.strokeStyle = rgba(ZINC.cardBorder, 0.5 * depthAlpha)
+      ctx.lineWidth = 0.5
     }
-    ctx.lineWidth = card.importance >= 1.0 ? 1.5 : 0.5
-    ctx.strokeRect(cx, cy, w, h)
+    ctx.stroke()
 
     // Card content
     const textAlpha = depthAlpha
