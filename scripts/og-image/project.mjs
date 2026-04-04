@@ -3,15 +3,14 @@
  * Pure math, no GL. The whole pseudo-3D engine.
  */
 
-const FOV = 300 // tighter FOV = more dramatic perspective
+const FOV = 400
 
 /**
  * Project a 3D point to 2D screen coordinates.
- * Aggressive perspective — close things are BIG, far things are tiny.
  */
 export function project3D(x, y, z, width, height) {
   const depth = Math.max(z, 0.1)
-  const scale = FOV / (FOV + depth * 300) // stronger depth scaling
+  const scale = FOV / (FOV + depth * 150)
   return {
     screenX: x * scale + width / 2,
     screenY: y * scale + height / 2,

@@ -25,8 +25,8 @@ export function layoutCards(slug, content) {
     x: camOffsetX + randRange(rng, -80, 80),
     y: camOffsetY + randRange(rng, -80, -10),
     z: randRange(rng, 0.3, 1.0),
-    width: 420,
-    height: 80,
+    width: 520,
+    height: 90,
     rotation: randRange(rng, -3, 3),
     importance: 1.0, // highest — gets the red accent
   })

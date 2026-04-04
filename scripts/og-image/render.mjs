@@ -37,7 +37,7 @@ export async function renderScene(content, scene, slug, variant = 0) {
   const bgImageData = ctx.getImageData(0, 0, WIDTH, HEIGHT)
   for (let y = 0; y < HEIGHT; y += 2) {
     for (let x = 0; x < WIDTH; x += 2) {
-      const n = noise(x * 0.06, y * 0.06) * 18
+      const n = noise(x * 0.03, y * 0.03) * 6
       const i = (y * WIDTH + x) * 4
       bgImageData.data[i] += n
       bgImageData.data[i + 1] += n
@@ -97,8 +97,8 @@ export async function renderScene(content, scene, slug, variant = 0) {
     ctx.transform(1, skew.skewX * 0.003, skew.skewX * 0.002, 1, 0, 0)
     ctx.translate(-proj.screenX, -proj.screenY)
 
-    // Depth-based opacity (far cards fade more aggressively)
-    const depthAlpha = Math.max(0.08, 1 - card.z * 0.25)
+    // Depth-based opacity (far cards fade but stay visible)
+    const depthAlpha = Math.max(0.25, 1 - card.z * 0.15)
 
     // Tapered card shape (trapezoid for perspective)
     const topW = w * skew.taperTop
@@ -116,8 +116,8 @@ export async function renderScene(content, scene, slug, variant = 0) {
     ctx.closePath()
     ctx.fill()
 
-    // Card background (trapezoid)
-    ctx.fillStyle = rgba(ZINC.card, 0.85 * depthAlpha)
+    // Card background (trapezoid) — brighter than bg for contrast
+    ctx.fillStyle = rgba([50, 50, 56], 0.9 * depthAlpha)
     ctx.beginPath()
     ctx.moveTo(cx + topOffset, cy)
     ctx.lineTo(cx + topOffset + topW, cy)
@@ -142,9 +142,13 @@ export async function renderScene(content, scene, slug, variant = 0) {
 
     switch (card.type) {
       case 'title': {
-        // Pixel font for title — red accent
-        const pixelSize = Math.max(2, Math.round(3 * proj.scale))
-        drawPixelText(ctx, card.text.slice(0, 30), cx + 8, cy + h / 2 - pixelSize * 3.5, pixelSize, rgba(ZINC.accent, textAlpha))
+        // Pixel font for title — red accent. Auto-size to fit card.
+        const maxChars = Math.min(card.text.length, 40)
+        const textWidth = maxChars * 6 // 6 units per char at pixelSize=1
+        let pixelSize = Math.max(2, Math.min(4, Math.floor(w * 0.85 / textWidth)))
+        pixelSize = Math.max(2, Math.round(pixelSize * proj.scale))
+        const displayText = card.text.slice(0, Math.floor(w / (pixelSize * 6)))
+        drawPixelText(ctx, displayText, cx + 10, cy + h / 2 - pixelSize * 3.5, pixelSize, rgba(ZINC.accent, textAlpha))
         break
       }
       case 'heading': {
@@ -206,7 +210,7 @@ export async function renderScene(content, scene, slug, variant = 0) {
   applyGodRays(imgData, lightX, lightY, 0.10, 14, 0.96)
 
   // Dither pass
-  applyDither(imgData, 0.30, ZINC.bg, ZINC.text)
+  applyDither(imgData, 0.20, ZINC.bg, ZINC.text)
 
   ctx.putImageData(imgData, 0, 0)
 
