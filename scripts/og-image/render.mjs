@@ -3,7 +3,7 @@
  * Uses pseudo-3D projection, depth of field, god rays, and dithering.
  */
 
-import { createCanvas } from '@napi-rs/canvas'
+import { createCanvas, loadImage } from '@napi-rs/canvas'
 import { createNoise2D } from 'simplex-noise'
 import { createRng } from './seed.mjs'
 import { project3D, sortByDepth, depthBlur, perspectiveSkew } from './project.mjs'
@@ -37,7 +37,7 @@ export async function renderScene(content, scene, slug, variant = 0) {
   const bgImageData = ctx.getImageData(0, 0, WIDTH, HEIGHT)
   for (let y = 0; y < HEIGHT; y += 2) {
     for (let x = 0; x < WIDTH; x += 2) {
-      const n = noise(x * 0.03, y * 0.03) * 6
+      const n = noise(x * 0.002, y * 0.002) * 12
       const i = (y * WIDTH + x) * 4
       bgImageData.data[i] += n
       bgImageData.data[i + 1] += n
@@ -58,142 +58,189 @@ export async function renderScene(content, scene, slug, variant = 0) {
   // ----- Connections (thin lines between cards) -----
   const sortedCards = sortByDepth(scene.cards)
 
+  // ----- Preload images from Cloudinary (monochrome thumbnails) -----
+  const imageCache = new Map()
+  for (const card of scene.cards) {
+    if (card.type === 'image' && card.imageUrl) {
+      try {
+        // Get a small grayscale version via Cloudinary transforms
+        let thumbUrl = card.imageUrl.replace(/^http:\/\//i, 'https://')
+        const parts = thumbUrl.split('/upload/')
+        if (parts.length === 2) {
+          thumbUrl = `${parts[0]}/upload/c_fill,w_200,h_140,f_jpg,q_auto,e_grayscale/${parts[1]}`
+        }
+        const img = await loadImage(thumbUrl)
+        imageCache.set(card.imageUrl, img)
+      } catch {
+        // Failed to load — will use placeholder
+      }
+    }
+  }
+
+  // ----- Connections (brighter, more visible) -----
   for (const conn of scene.connections) {
     const a = scene.cards[conn.from]
     const b = scene.cards[conn.to]
     const pa = project3D(a.x, a.y, a.z, WIDTH, HEIGHT)
     const pb = project3D(b.x, b.y, b.z, WIDTH, HEIGHT)
     const avgDepth = (a.z + b.z) / 2
-    const alpha = Math.max(0.02, 0.12 - avgDepth * 0.03)
+    const alpha = Math.max(0.05, 0.2 - avgDepth * 0.04)
 
     ctx.beginPath()
     ctx.moveTo(pa.screenX, pa.screenY)
     ctx.lineTo(pb.screenX, pb.screenY)
     ctx.strokeStyle = rgba(ZINC.dim, alpha)
-    ctx.lineWidth = 0.5
+    ctx.lineWidth = 1
     ctx.stroke()
   }
 
-  // ----- Render cards back to front -----
-  for (const card of sortedCards) {
+  // ----- Render cards back to front, title LAST (always on top) -----
+  const titleCards = sortedCards.filter(c => c.type === 'title')
+  const otherCards = sortedCards.filter(c => c.type !== 'title')
+  const renderOrder = [...otherCards, ...titleCards]
+
+  for (const card of renderOrder) {
     const proj = project3D(card.x, card.y, card.z, WIDTH, HEIGHT)
     const w = card.width * proj.scale
     const h = card.height * proj.scale
     const cx = proj.screenX - w / 2
     const cy = proj.screenY - h / 2
-    const blur = depthBlur(card.z)
 
-    // Skip if off-screen
+    // Skip tiny or off-screen cards
+    if (w < 15 || h < 8) continue
     if (cx + w < -50 || cx > WIDTH + 50 || cy + h < -50 || cy > HEIGHT + 50) continue
 
     ctx.save()
 
     // Perspective skew
     const skew = perspectiveSkew(card, proj)
-
     ctx.translate(proj.screenX, proj.screenY)
     ctx.rotate((card.rotation * Math.PI) / 180)
-    // Apply horizontal skew for 3D tilt effect
     ctx.transform(1, skew.skewX * 0.003, skew.skewX * 0.002, 1, 0, 0)
     ctx.translate(-proj.screenX, -proj.screenY)
 
-    // Depth-based opacity (far cards fade but stay visible)
-    const depthAlpha = Math.max(0.25, 1 - card.z * 0.15)
+    // Depth-based opacity — much higher floor so far cards stay readable
+    const depthAlpha = Math.max(0.4, 1 - card.z * 0.12)
 
-    // Tapered card shape (trapezoid for perspective)
+    // Tapered card shape
     const topW = w * skew.taperTop
     const botW = w * skew.taperBottom
     const topOffset = (w - topW) / 2
     const botOffset = (w - botW) / 2
 
-    // Card shadow
-    ctx.fillStyle = rgba([0, 0, 0], 0.2 * depthAlpha)
-    ctx.beginPath()
-    ctx.moveTo(cx + topOffset + 4, cy + 4)
-    ctx.lineTo(cx + topOffset + topW + 4, cy + 4)
-    ctx.lineTo(cx + botOffset + botW + 4, cy + h + 4)
-    ctx.lineTo(cx + botOffset + 4, cy + h + 4)
-    ctx.closePath()
+    // Helper: draw card trapezoid path
+    function cardPath(ox = 0, oy = 0) {
+      ctx.beginPath()
+      ctx.moveTo(cx + topOffset + ox, cy + oy)
+      ctx.lineTo(cx + topOffset + topW + ox, cy + oy)
+      ctx.lineTo(cx + botOffset + botW + ox, cy + h + oy)
+      ctx.lineTo(cx + botOffset + ox, cy + h + oy)
+      ctx.closePath()
+    }
+
+    // Shadow (bigger, softer)
+    ctx.fillStyle = rgba([0, 0, 0], 0.35 * depthAlpha)
+    cardPath(6, 6)
     ctx.fill()
 
-    // Card background (trapezoid) — brighter than bg for contrast
-    ctx.fillStyle = rgba([50, 50, 56], 0.9 * depthAlpha)
-    ctx.beginPath()
-    ctx.moveTo(cx + topOffset, cy)
-    ctx.lineTo(cx + topOffset + topW, cy)
-    ctx.lineTo(cx + botOffset + botW, cy + h)
-    ctx.lineTo(cx + botOffset, cy + h)
-    ctx.closePath()
+    // Card background — MUCH brighter than bg
+    // Near cards are brighter, far cards dimmer but still visible
+    const cardBrightness = Math.round(40 + (1 - card.z * 0.1) * 30)
+    ctx.fillStyle = rgba([cardBrightness, cardBrightness, cardBrightness + 4], 0.95 * depthAlpha)
+    cardPath()
     ctx.fill()
 
-    // Card border — red for the title, zinc for everything else
+    // Card border
     if (card.importance >= 1.0) {
-      ctx.strokeStyle = rgba(ZINC.accent, 0.7 * depthAlpha)
-      ctx.lineWidth = 1.5
+      ctx.strokeStyle = rgba(ZINC.accent, 0.9 * depthAlpha)
+      ctx.lineWidth = 2
     } else {
-      ctx.strokeStyle = rgba(ZINC.cardBorder, 0.5 * depthAlpha)
-      ctx.lineWidth = 0.5
+      ctx.strokeStyle = rgba([100, 100, 108], 0.6 * depthAlpha)
+      ctx.lineWidth = 1
     }
     ctx.stroke()
 
-    // Card content
-    const textAlpha = depthAlpha
-    const fontSize = Math.max(8, Math.round(12 * proj.scale))
+    // Card content — text needs to be BRIGHT
+    const fontSize = Math.max(9, Math.round(13 * proj.scale))
 
     switch (card.type) {
       case 'title': {
-        // Pixel font for title — red accent. Auto-size to fit card.
-        const maxChars = Math.min(card.text.length, 40)
-        const textWidth = maxChars * 6 // 6 units per char at pixelSize=1
-        let pixelSize = Math.max(2, Math.min(4, Math.floor(w * 0.85 / textWidth)))
-        pixelSize = Math.max(2, Math.round(pixelSize * proj.scale))
-        const displayText = card.text.slice(0, Math.floor(w / (pixelSize * 6)))
-        drawPixelText(ctx, displayText, cx + 10, cy + h / 2 - pixelSize * 3.5, pixelSize, rgba(ZINC.accent, textAlpha))
+        // Pixel font title — two lines if needed
+        const charWidth = 6
+        const pixelSize = 3
+        const charsPerLine = Math.floor((w - 24) / (pixelSize * charWidth))
+        const words = card.text.split(' ')
+        const lines = []
+        let current = ''
+        for (const word of words) {
+          const test = current ? `${current} ${word}` : word
+          if (test.length > charsPerLine && current) {
+            lines.push(current)
+            current = word
+          } else {
+            current = test
+          }
+        }
+        if (current) lines.push(current)
+        const lineHeight = pixelSize * 9
+        const startY = cy + h / 2 - (lines.length * lineHeight) / 2
+        for (let li = 0; li < Math.min(lines.length, 3); li++) {
+          drawPixelText(ctx, lines[li], cx + 12, startY + li * lineHeight, pixelSize, rgba(ZINC.accent, depthAlpha))
+        }
         break
       }
       case 'heading': {
-        ctx.font = `${fontSize}px monospace`
-        ctx.fillStyle = rgba(ZINC.text, textAlpha * 0.9)
-        ctx.fillText(card.text.slice(0, 35), cx + 6, cy + h / 2 + fontSize / 3)
+        ctx.font = `bold ${fontSize}px monospace`
+        ctx.fillStyle = rgba([220, 220, 225], depthAlpha)
+        ctx.fillText(card.text.slice(0, 30), cx + 8, cy + h / 2 + fontSize / 3)
         break
       }
       case 'quote': {
-        // Left border accent
-        ctx.fillStyle = rgba(ZINC.dim, 0.5 * textAlpha)
-        ctx.fillRect(cx + 3, cy + 4, 2, h - 8)
-        // Italic text
-        ctx.font = `italic ${Math.max(8, fontSize - 1)}px Georgia, serif`
-        ctx.fillStyle = rgba(ZINC.text, textAlpha * 0.7)
-        ctx.fillText(card.text.slice(0, 50), cx + 10, cy + h / 2 + fontSize / 3)
+        // Left border accent line
+        ctx.fillStyle = rgba([140, 140, 150], 0.7 * depthAlpha)
+        ctx.fillRect(cx + 4, cy + 5, 2, h - 10)
+        ctx.font = `italic ${Math.max(9, fontSize - 1)}px Georgia, serif`
+        ctx.fillStyle = rgba([190, 190, 195], depthAlpha * 0.85)
+        ctx.fillText(card.text.slice(0, 40), cx + 12, cy + h / 2 + fontSize / 3)
         break
       }
       case 'image': {
-        // Placeholder rectangle representing the image
-        ctx.fillStyle = rgba(ZINC.dim, 0.3 * textAlpha)
-        ctx.fillRect(cx + 4, cy + 4, w - 8, h - 8)
-        // Small cross in center (like a broken image icon but aesthetic)
-        const mx = cx + w / 2
-        const my = cy + h / 2
-        ctx.strokeStyle = rgba(ZINC.text, 0.15 * textAlpha)
-        ctx.lineWidth = 0.5
-        ctx.beginPath()
-        ctx.moveTo(mx - 8, my - 8); ctx.lineTo(mx + 8, my + 8)
-        ctx.moveTo(mx + 8, my - 8); ctx.lineTo(mx - 8, my + 8)
-        ctx.stroke()
+        const loadedImg = imageCache.get(card.imageUrl)
+        if (loadedImg) {
+          // Draw actual image, desaturated + dimmed to match scene
+          ctx.globalAlpha = depthAlpha * 0.7
+          ctx.drawImage(loadedImg, cx + 3, cy + 3, w - 6, h - 6)
+          ctx.globalAlpha = 1
+          // Dark overlay to reduce contrast and blend with scene
+          ctx.fillStyle = rgba(ZINC.bg, 0.3)
+          ctx.fillRect(cx + 3, cy + 3, w - 6, h - 6)
+        } else {
+          // Fallback: diagonal lines placeholder
+          ctx.fillStyle = rgba([60, 60, 66], 0.5 * depthAlpha)
+          ctx.fillRect(cx + 4, cy + 4, w - 8, h - 8)
+          ctx.strokeStyle = rgba([90, 90, 96], 0.3 * depthAlpha)
+          ctx.lineWidth = 0.5
+          for (let d = 0; d < w + h; d += 14) {
+            ctx.beginPath()
+            ctx.moveTo(cx + 4 + d, cy + 4)
+            ctx.lineTo(cx + 4, cy + 4 + d)
+            ctx.stroke()
+          }
+        }
         break
       }
       case 'tag': {
-        const tagFontSize = Math.max(7, Math.round(9 * proj.scale))
+        const tagFontSize = Math.max(8, Math.round(10 * proj.scale))
         ctx.font = `${tagFontSize}px monospace`
-        ctx.fillStyle = rgba(ZINC.dim, textAlpha * 0.8)
-        ctx.fillText(`#${card.text}`, cx + 4, cy + h / 2 + tagFontSize / 3)
+        ctx.fillStyle = rgba([160, 160, 170], depthAlpha * 0.9)
+        ctx.fillText(`#${card.text}`, cx + 5, cy + h / 2 + tagFontSize / 3)
         break
       }
       case 'stats': {
-        const statsFontSize = Math.max(7, Math.round(9 * proj.scale))
+        const statsFontSize = Math.max(8, Math.round(10 * proj.scale))
         ctx.font = `${statsFontSize}px monospace`
-        ctx.fillStyle = rgba(ZINC.dim, textAlpha * 0.5)
-        ctx.fillText(card.text, cx + 4, cy + h / 2 + statsFontSize / 3)
+        ctx.fillStyle = rgba([120, 120, 130], depthAlpha * 0.7)
+        ctx.fillText(card.text, cx + 5, cy + h / 2 + statsFontSize / 3)
         break
       }
     }
