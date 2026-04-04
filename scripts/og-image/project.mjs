@@ -3,14 +3,14 @@
  * Pure math, no GL. The whole pseudo-3D engine.
  */
 
-const FOV = 400
+const FOV = 200
 
 /**
  * Project a 3D point to 2D screen coordinates.
  */
 export function project3D(x, y, z, width, height) {
   const depth = Math.max(z, 0.1)
-  const scale = FOV / (FOV + depth * 150)
+  const scale = FOV / (FOV + depth * 80)
   return {
     screenX: x * scale + width / 2,
     screenY: y * scale + height / 2,
