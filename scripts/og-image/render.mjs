@@ -138,27 +138,34 @@ export async function renderScene(content, scene, slug, variant = 0) {
       ctx.closePath()
     }
 
-    // Shadow (bigger, softer)
-    ctx.fillStyle = rgba([0, 0, 0], 0.35 * depthAlpha)
-    cardPath(6, 6)
-    ctx.fill()
+    // Only draw card backgrounds for image cards — text floats naked
+    const drawCardBg = card.type === 'image'
 
-    // Card background — MUCH brighter than bg
-    // Near cards are brighter, far cards dimmer but still visible
-    const cardBrightness = Math.round(40 + (1 - card.z * 0.1) * 30)
-    ctx.fillStyle = rgba([cardBrightness, cardBrightness, cardBrightness + 4], 0.95 * depthAlpha)
-    cardPath()
-    ctx.fill()
+    if (drawCardBg) {
+      // Shadow
+      ctx.fillStyle = rgba([0, 0, 0], 0.35 * depthAlpha)
+      cardPath(6, 6)
+      ctx.fill()
 
-    // Card border
-    if (card.importance >= 1.0) {
-      ctx.strokeStyle = rgba(ZINC.accent, 0.9 * depthAlpha)
-      ctx.lineWidth = 2
-    } else {
+      // Card background
+      const cardBrightness = Math.round(40 + (1 - card.z * 0.1) * 30)
+      ctx.fillStyle = rgba([cardBrightness, cardBrightness, cardBrightness + 4], 0.95 * depthAlpha)
+      cardPath()
+      ctx.fill()
+
+      // Card border
       ctx.strokeStyle = rgba([100, 100, 108], 0.6 * depthAlpha)
       ctx.lineWidth = 1
+      ctx.stroke()
     }
-    ctx.stroke()
+
+    // Title gets just the red border, no fill
+    if (card.importance >= 1.0) {
+      ctx.strokeStyle = rgba(ZINC.accent, 0.5 * depthAlpha)
+      ctx.lineWidth = 1
+      cardPath()
+      ctx.stroke()
+    }
 
     // Card content — text needs to be BRIGHT
     const fontSize = Math.max(9, Math.round(13 * proj.scale))
