@@ -3,7 +3,7 @@
  * Uses seeded PRNG so the same slug always produces the same layout.
  */
 
-import { createRng, randRange } from './seed.mjs'
+import { createRng, randRange, randPick } from './seed.mjs'
 
 /**
  * @param {string} slug
