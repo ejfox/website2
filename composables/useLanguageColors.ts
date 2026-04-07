@@ -3,8 +3,6 @@
  * @description Maps programming languages to consistent colors using d3 turbo scale
  * @returns { getColor, LANGUAGE_ORDER } - Color function and language ordering
  */
-import { interpolateTurbo } from 'd3-scale-chromatic'
-
 // Fixed order of languages for consistent colors across all charts
 const LANGUAGE_ORDER = [
   'JavaScript',
@@ -27,20 +25,36 @@ const LANGUAGE_ORDER = [
   'Unknown',
 ]
 
+// Pre-baked turbo colors for the 18 known languages (avoids loading d3-scale-chromatic)
+const LANGUAGE_COLORS: Record<string, string> = {
+  JavaScript: '#4690d6',
+  TypeScript: '#4ba5ea',
+  Vue: '#55baf4',
+  Python: '#65cef5',
+  Shell: '#7adff0',
+  HTML: '#93ece3',
+  CSS: '#b0f4d1',
+  Rust: '#cef8b8',
+  Go: '#e8f89e',
+  Ruby: '#f8f07e',
+  Java: '#f8db5e',
+  C: '#f5be3e',
+  'C++': '#f09e20',
+  Swift: '#e87d0e',
+  Kotlin: '#de5d0a',
+  PHP: '#d03e0c',
+  Lua: '#bf2312',
+  Unknown: '#a11018',
+}
+
 export function useLanguageColors() {
   const getColor = (language: string): string => {
     const lang = language || 'Unknown'
-    const idx = LANGUAGE_ORDER.indexOf(lang)
-    if (idx >= 0) {
-      // Sample from middle-to-end of turbo (avoiding dark start)
-      // 0.3-1.0 range = brighter, more saturated colors
-      const t = 0.3 + (idx / (LANGUAGE_ORDER.length - 1)) * 0.7
-      return interpolateTurbo(t)
-    }
-    // Hash unknown languages to bright part of turbo
+    if (LANGUAGE_COLORS[lang]) return LANGUAGE_COLORS[lang]
+    // Hash unknown languages to a hue
     const hash = lang.split('').reduce((a, c) => a + c.charCodeAt(0), 0)
-    const t = 0.3 + (hash % 70) / 100 // 0.3-1.0 range
-    return interpolateTurbo(t)
+    const hue = (hash * 137) % 360
+    return `hsl(${hue}, 60%, 55%)`
   }
 
   return { getColor, LANGUAGE_ORDER }

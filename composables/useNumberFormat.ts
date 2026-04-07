@@ -3,7 +3,6 @@
  * @description Centralized number formatting utilities using d3-format
  * @exports formatNumber, formatPercent, formatCurrency, formatCompact, smartFormat, etc.
  */
-import { format } from 'd3-format'
 import {
   format as formatDate,
   differenceInDays,
@@ -11,21 +10,38 @@ import {
   differenceInMinutes,
 } from 'date-fns'
 
+// Lazy-loaded d3-format to avoid pulling it into the initial bundle
+let _d3Format: typeof import('d3-format') | null = null
+async function getD3Format() {
+  if (!_d3Format) _d3Format = await import('d3-format')
+  return _d3Format
+}
+
+// Synchronous fallback formatters (no d3 dependency)
+function fallbackFormat(value: number): string {
+  return value.toLocaleString('en-US')
+}
+
 // Basic number formatting with thousands separators
-export const formatNumber = format(',d')
+export const formatNumber = (value: number): string => fallbackFormat(value)
 
 // Percentage formatting with one decimal place
-export const formatPercent = (value: number) => format('.1%')(value / 100)
+export const formatPercent = (value: number) => `${(value / 100 * 100).toFixed(1)}%`
 
 // Currency formatting
-export const formatCurrency = format('$,.0f')
+export const formatCurrency = (value: number): string =>
+  `$${Math.round(value).toLocaleString('en-US')}`
 
 // Compact number formatting (e.g., 1.2M, 450K)
-export const formatCompact = format('.2~s')
+export const formatCompact = (value: number): string => {
+  if (Math.abs(value) >= 1_000_000) return (value / 1_000_000).toFixed(1) + 'M'
+  if (Math.abs(value) >= 1_000) return (value / 1_000).toFixed(1) + 'K'
+  return value.toString()
+}
 
 // Decimal number with configurable precision
 export const formatDecimal = (precision: number = 1) =>
-  format(`,.${precision}f`)
+  (value: number): string => value.toFixed(precision)
 
 // Smart number formatting that adapts based on magnitude
 export function smartFormat(value: number): string {

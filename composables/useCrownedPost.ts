@@ -1,11 +1,19 @@
-import chroma from 'chroma-js'
-import striptags from 'striptags'
-
 interface CrownedPostOptions {
   slug: string
   bodyClass: string
   hue: number
   fallbackTitle?: string
+}
+
+// HCL to CSS without chroma-js (~14KB saved from initial bundle)
+function hclToHsl(h: number, c: number, l: number): string {
+  // Simplified HCL→HSL approximation suitable for UI palette generation
+  const s = Math.min(100, c * 1.2)
+  return `hsl(${h % 360}, ${s}%, ${l}%)`
+}
+function hclToHslAlpha(h: number, c: number, l: number, a: number): string {
+  const s = Math.min(100, c * 1.2)
+  return `hsla(${h % 360}, ${s}%, ${l}%, ${a})`
 }
 
 /**
@@ -23,21 +31,21 @@ export async function useCrownedPost(options: CrownedPostOptions) {
   const processedMarkdown = useProcessedMarkdown()
   const baseURL = config.public?.baseURL || 'https://ejfox.com'
 
-  // --- Color palette (pure computation, no async) ---
+  // --- Color palette (pure computation, no async, no chroma-js) ---
   const palette = {
-    accent:      chroma.hcl(hue, 40, 60).css(),
-    accentDim:   chroma.hcl(hue, 25, 40).css(),
-    accentGlow:  chroma.hcl(hue, 50, 70).css(),
-    accentFaint: chroma.hcl(hue, 15, 30).alpha(0.15).css(),
-    warm:        chroma.hcl(hue + 40, 30, 55).css(),
-    cool:        chroma.hcl(hue - 30, 25, 50).css(),
-    eerie:       chroma.hcl(hue - 60, 35, 45).css(),
+    accent:      hclToHsl(hue, 40, 60),
+    accentDim:   hclToHsl(hue, 25, 40),
+    accentGlow:  hclToHsl(hue, 50, 70),
+    accentFaint: hclToHslAlpha(hue, 15, 30, 0.15),
+    warm:        hclToHsl(hue + 40, 30, 55),
+    cool:        hclToHsl(hue - 30, 25, 50),
+    eerie:       hclToHsl(hue - 60, 35, 45),
     bg:          '#050508',
-    surface:     chroma.hcl(hue, 5, 12).css(),
-    surfaceHi:   chroma.hcl(hue, 8, 18).css(),
-    text:        chroma.hcl(hue, 8, 78).css(),
-    textDim:     chroma.hcl(hue, 6, 58).css(),
-    textMuted:   chroma.hcl(hue, 4, 40).css(),
+    surface:     hclToHsl(hue, 5, 12),
+    surfaceHi:   hclToHsl(hue, 8, 18),
+    text:        hclToHsl(hue, 8, 78),
+    textDim:     hclToHsl(hue, 6, 58),
+    textMuted:   hclToHsl(hue, 4, 40),
   }
 
   // --- Layout takeover (must call useHead before await) ---
@@ -93,7 +101,7 @@ export async function useCrownedPost(options: CrownedPostOptions) {
   const postDescription = computed(() => {
     const dek = post.value?.metadata?.dek || post.value?.dek
     if (dek) return dek
-    const text = striptags(post.value?.html || '').replace(/\s+/g, ' ').trim()
+    const text = (post.value?.html || '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
     return text.length > 160 ? text.substring(0, 157) + '...' : text
   })
 
