@@ -156,11 +156,7 @@ export default defineNuxtConfig({
           crossorigin: '',
         },
         { rel: 'dns-prefetch', href: 'https://res.cloudinary.com' },
-        {
-          rel: 'preconnect',
-          href: 'https://static.cloudflareinsights.com',
-          crossorigin: '',
-        },
+        // Cloudflare beacon preconnect removed — let it load after LCP
         // IndieAuth authorization endpoint
         { rel: 'authorization_endpoint', href: 'https://indieauth.com/auth' },
         // IndieAuth token endpoint
