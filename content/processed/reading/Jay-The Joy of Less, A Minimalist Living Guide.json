@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-04-01-add-data-preview-url",
+  "cacheVersion": "2026-04-07-og-image-support",
   "html": "<h1 class=\"\" id=\"the-joy-of-less-a-minimalist-living-guide\">The Joy of Less, A Minimalist Living Guide</h1>\n<ul class=\"list-disc\">\n<li class=\"\">ISBN: 1452155186</li>\n</ul>\n<h2 class=\"\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"md-blockquote\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Generally speaking, our stuff can be divided into three categories: useful stuff, beautiful stuff, and emotional stuff. ^ref-45373</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"md-blockquote\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Cultivating an attitude of gratitude is far more conducive to a minimalist lifestyle. If we recognize the abundance in our lives, and appreciate what we have, we will not want for more. We simply need to focus on what we have, rather than what we don’t have. ^ref-35452</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"md-blockquote\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">house ^ref-29734</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"md-blockquote\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">commit to ^ref-8847</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Author: Francine Jay</li>\n<li class=\"\">ASIN: B003UNJX4S</li>\n<li class=\"\">ISBN: 1452155186</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B003UNJX4S\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://www.amazon.com/dp/B003UNJX4S\">https://www.amazon.com/dp/B003UNJX4S</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B003UNJX4S\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "title": "The Joy of Less, A Minimalist Living Guide",
   "metadata": {
@@ -51,7 +51,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/.claude/worktrees/agent-a9552506/content/blog/reading/Jay-The Joy of Less, A Minimalist Living Guide.md",
+    "sourcePath": "../../../../../code/website2/content/blog/reading/Jay-The Joy of Less, A Minimalist Living Guide.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "cacheVersion": "2026-04-01-add-data-preview-url",
+  "cacheVersion": "2026-04-07-og-image-support",
   "html": "<h1 class=\"\" id=\"theory-of-fun-for-game-design\">Theory of Fun for Game Design</h1>\n<h2 class=\"\" id=\"highlights\">Highlights</h2>\n<blockquote class=\"md-blockquote\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Noise is any pattern we don’t understand. ^ref-13571</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<blockquote class=\"md-blockquote\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">They are on the same order as learning to drive a car, play the mandolin, or multiply seven times seven. We learn the underlying patterns, grok them fully, and file them away so that they can be rerun as needed. The only real difference between games and reality is that the stakes are lower with games. ^ref-24004</p>\n</blockquote>\n<svg class=\"mx-auto my-8 w-full max-w-prose\" height=\"1\">\n  <line x1=\"0\" y1=\"0\" x2=\"100%\" y2=\"0\" stroke=\"currentColor\" stroke-width=\"1\" stroke-dasharray=\"2,4\" />\n</svg>\n<h2 class=\"\" id=\"metadata\">Metadata</h2>\n<ul class=\"list-disc\">\n<li class=\"\">Author: Raph Koster</li>\n<li class=\"\">ASIN: B00GK5SRFY</li>\n<li class=\"\">Reference: <a href=\"https://www.amazon.com/dp/B00GK5SRFY\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://www.amazon.com/dp/B00GK5SRFY\">https://www.amazon.com/dp/B00GK5SRFY</a></li>\n<li class=\"\"><a href=\"kindle://book?action=open&#x26;asin=B00GK5SRFY\" class=\"text-blue-600 dark:text-blue-400\">Kindle link</a></li>\n</ul>",
   "title": "Theory of Fun for Game Design",
   "metadata": {
@@ -51,7 +51,7 @@
       }
     ],
     "type": "post",
-    "sourcePath": "../../../../../code/website2/.claude/worktrees/agent-a9552506/content/blog/reading/Koster-Theory of Fun for Game Design.md",
+    "sourcePath": "../../../../../code/website2/content/blog/reading/Koster-Theory of Fun for Game Design.md",
     "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
   }
 }

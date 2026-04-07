@@ -51,7 +51,15 @@ const SOURCE_DIR =
   '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/' +
     'ejfox/'
 
-const CACHE_VERSION = '2026-04-01-add-data-preview-url'
+const CACHE_VERSION = '2026-04-07-og-image-support'
+
+// OG image mapping — populated by Dispatch OG picker, maps slug → Cloudinary URL
+let ogImageMap = {}
+try {
+  ogImageMap = JSON.parse(
+    await fs.readFile(path.join(process.cwd(), 'data', 'og-images.json'), 'utf8')
+  )
+} catch { /* no OG images yet */ }
 
 const paths = {
   contentDir: config.dirs.content,
@@ -334,6 +342,7 @@ async function processMarkdown(content, filePath) {
 
     const sourcePath = SOURCE_DIR ? path.relative(SOURCE_DIR, filePath) : null
     const sourceInfo = SOURCE_DIR ? { sourcePath, sourceDir: SOURCE_DIR } : {}
+    const slug = normalizeSlug(path.relative(path.join(process.cwd(), 'content', 'blog'), filePath).replace(/\.md$/, ''))
 
     // Handle password protection - hash password, never store plaintext
     const passwordHash = frontmatter.password
@@ -352,6 +361,8 @@ async function processMarkdown(content, filePath) {
         type: safeFrontmatter.type || getPostType(filePath),
         ...(passwordHash && { passwordHash }),
         ...sourceInfo,
+        // OG image from data/og-images.json (set by Dispatch OG picker)
+        ...(ogImageMap[slug] && { ogImage: ogImageMap[slug] }),
       },
     }
   } catch (error) {
