@@ -1,5 +1,24 @@
 /* Swiss Design System - Minimal, Clear, Functional */
 
+/* Vault Alarm - Display Sans-Serif */
+@font-face {
+  font-family: 'Vault Alarm';
+  src: url('/fonts/VaultAlarm-Regular.woff2') format('woff2'),
+       url('/fonts/VaultAlarm-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vault Alarm';
+  src: url('/fonts/VaultAlarm-Sharp.woff2') format('woff2'),
+       url('/fonts/VaultAlarm-Sharp.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Centralized Touch-Friendly Interactions */
 .interactive-link {
   transition: transform 0.3s cubic-bezier(0.45, 0, 0.55, 1);
@@ -94,9 +113,10 @@ body {
 
 
 /* Typography System - Serif for human content, Mono for data */
+/* Vault Alarm for display/headings, Georgia for body */
 .text-display {
-  @apply font-serif text-4xl md:text-6xl font-light leading-tight text-zinc-900 dark:text-zinc-100;
-  /* Optical sizing: tighter tracking for large text */
+  @apply text-4xl md:text-6xl font-light leading-tight text-zinc-900 dark:text-zinc-100;
+  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
   letter-spacing: -0.03em;
 }
 
@@ -105,18 +125,21 @@ h1,
 .text-8xl,
 .text-7xl,
 .text-6xl {
+  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
   letter-spacing: -0.035em;
 }
 
 h2,
 .text-5xl,
 .text-4xl {
+  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
   letter-spacing: -0.025em;
 }
 
 h3,
 .text-3xl,
 .text-2xl {
+  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
   letter-spacing: -0.015em;
 }
 
@@ -749,12 +772,21 @@ blockquote a {
     serif !important;
 }
 
-/* Force serif fonts on all blog content */
+/* Force serif fonts on all blog content (except headings → Vault Alarm) */
 .blog-post-content,
-.blog-post-content * {
+.blog-post-content *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) {
   font-family:
     'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
     serif;
+}
+
+.blog-post-content h1,
+.blog-post-content h2,
+.blog-post-content h3,
+.blog-post-content h4,
+.blog-post-content h5,
+.blog-post-content h6 {
+  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif !important;
 }
 
 .blog-post-content pre,
@@ -770,19 +802,12 @@ blockquote a {
 .prose h5,
 .prose h6 {
   @apply font-light;
-  font-family:
-    'Georgia', 'Times New Roman', 'Droid Serif', 'Times', 'Source Serif Pro',
-    serif !important;
+  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif !important;
   letter-spacing: -0.02em;
   margin-left: 0;
-  /* Lining numerals for headings, swash for elegance */
   font-feature-settings:
     'kern' 1,
-    'liga' 1,
-    'lnum' 1,      /* Lining numerals in headings */
-    'swsh' 1,      /* Swash characters */
-    'smcp' 1;      /* Small caps for acronyms in headings */
-  font-variant-numeric: lining-nums;
+    'liga' 1;
 }
 
 .prose h1 {
