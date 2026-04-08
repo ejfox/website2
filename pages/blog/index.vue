@@ -550,9 +550,10 @@ const postDekClass =
 
 <style scoped>
 .blog-title {
-  @apply font-serif font-light mb-2.5 tracking-tight text-balance;
+  @apply font-light mb-2.5 tracking-tight text-balance;
   @apply leading-[1.1];
   @apply text-3xl md:text-4xl lg:text-5xl;
+  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
 }
 
 .blog-grid {
