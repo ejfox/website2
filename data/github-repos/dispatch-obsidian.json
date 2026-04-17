@@ -1,0 +1,95 @@
+{
+  "name": "dispatch-obsidian",
+  "description": "Obsidian companion plugin for Dispatch publishing app",
+  "url": "https://github.com/ejfox/dispatch-obsidian",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "TypeScript",
+  "languageColor": "#3178c6",
+  "languages": {
+    "TypeScript": 62167,
+    "CSS": 11138,
+    "JavaScript": 732
+  },
+  "diskUsage": 24,
+  "fileTree": {
+    "files": [
+      {
+        "path": "esbuild.config.mjs",
+        "size": 732
+      },
+      {
+        "path": "main.ts",
+        "size": 62167
+      },
+      {
+        "path": "manifest.json",
+        "size": 316
+      },
+      {
+        "path": "package.json",
+        "size": 456
+      },
+      {
+        "path": "styles.css",
+        "size": 11138
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 357
+      }
+    ],
+    "tree": {
+      "name": "dispatch-obsidian",
+      "children": [
+        {
+          "name": "esbuild.config.mjs",
+          "size": 732,
+          "path": "esbuild.config.mjs"
+        },
+        {
+          "name": "main.ts",
+          "size": 62167,
+          "path": "main.ts"
+        },
+        {
+          "name": "manifest.json",
+          "size": 316,
+          "path": "manifest.json"
+        },
+        {
+          "name": "package.json",
+          "size": 456,
+          "path": "package.json"
+        },
+        {
+          "name": "styles.css",
+          "size": 11138,
+          "path": "styles.css"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 357,
+          "path": "tsconfig.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 6,
+    "totalSize": 75166
+  },
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2026-02-08T23:38:24Z",
+  "updatedAt": "2026-02-08T23:59:30Z",
+  "pushedAt": "2026-02-08T23:59:27Z"
+}

@@ -2,10 +2,8 @@
 import { useIntersectionObserver } from '@vueuse/core'
 import striptags from 'striptags'
 import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
-import PostNav from '~/components/blog/post/PostNav.vue'
-import PostRelated from '~/components/blog/post/PostRelated.vue'
+import PostFooter from '~/components/blog/post/PostFooter.vue'
 import PostTOC from '~/components/blog/post/PostTOC.vue'
-import Webmentions from '~/components/blog/Webmentions.vue'
 import ReplyContext from '~/components/blog/ReplyContext.vue'
 import PasswordGate from '~/components/blog/PasswordGate.vue'
 import { useReadingStats } from '~/composables/useReadingStats'
@@ -578,24 +576,12 @@ onMounted(() => {
         </div>
       </div>
 
-      <!-- Consulting CTA -->
-      <BlogConsultingCTA class="print:hidden" />
-
-      <!-- Navigation -->
-      <PostNav
-        class="print:hidden"
+      <!-- Footer: Prev / Related / Next — three columns, gwerny -->
+      <PostFooter
         :prev-post="nextPrevPosts?.prev"
         :next-post="nextPrevPosts?.next"
+        :related-posts="relatedPosts"
       />
-
-      <!-- Related Posts -->
-      <PostRelated class="print:hidden" :related-posts="relatedPosts" />
-
-      <!-- Tip jar -->
-      <BlogTipJar v-if="!post.metadata?.noTips" class="print:hidden" />
-
-      <!-- Webmentions -->
-      <Webmentions class="print:hidden" :url="postUrl" />
     </article>
 
     <div v-else-if="error" class="p-8 text-center">

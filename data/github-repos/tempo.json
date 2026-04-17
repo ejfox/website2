@@ -12,9 +12,9 @@
   "language": "Swift",
   "languageColor": "#F05138",
   "languages": {
-    "Swift": 67829
+    "Swift": 241530
   },
-  "diskUsage": 55,
+  "diskUsage": 150,
   "fileTree": {
     "files": [
       {
@@ -38,16 +38,32 @@
         "size": 4538
       },
       {
+        "path": "TODO.md",
+        "size": 2754
+      },
+      {
         "path": "Tempo.xcodeproj/project.pbxproj",
-        "size": 31011
+        "size": 36682
       },
       {
         "path": "Tempo.xcodeproj/project.xcworkspace/contents.xcworkspacedata",
         "size": 135
       },
       {
+        "path": "Tempo.xcodeproj/xcshareddata/xcschemes/Tempo.xcscheme",
+        "size": 2863
+      },
+      {
+        "path": "Tempo.xcodeproj/xcshareddata/xcschemes/TempoWatch.xcscheme",
+        "size": 3461
+      },
+      {
+        "path": "Tempo.xcodeproj/xcshareddata/xcschemes/TempoWidgetsExtension.xcscheme",
+        "size": 4110
+      },
+      {
         "path": "Tempo.xcodeproj/xcuserdata/ejfox.xcuserdatad/xcschemes/xcschememanagement.plist",
-        "size": 463
+        "size": 904
       },
       {
         "path": "Tempo/Assets.xcassets/AccentColor.colorset/Contents.json",
@@ -62,8 +78,20 @@
         "size": 63
       },
       {
+        "path": "Tempo/Constants.swift",
+        "size": 1500
+      },
+      {
         "path": "Tempo/ContentView.swift",
-        "size": 19638
+        "size": 10540
+      },
+      {
+        "path": "Tempo/EdgeTraceProgress.swift",
+        "size": 2586
+      },
+      {
+        "path": "Tempo/HistoryView.swift",
+        "size": 5499
       },
       {
         "path": "Tempo/Info.plist",
@@ -71,11 +99,27 @@
       },
       {
         "path": "Tempo/Persistence.swift",
-        "size": 9389
+        "size": 10598
+      },
+      {
+        "path": "Tempo/PomodoroSession.swift",
+        "size": 14689
+      },
+      {
+        "path": "Tempo/PrivacyInfo.xcprivacy",
+        "size": 598
+      },
+      {
+        "path": "Tempo/SessionComponents.swift",
+        "size": 7372
+      },
+      {
+        "path": "Tempo/SettingsView.swift",
+        "size": 5614
       },
       {
         "path": "Tempo/Tempo.entitlements",
-        "size": 735
+        "size": 785
       },
       {
         "path": "Tempo/Tempo.xcdatamodeld/.xccurrentversion",
@@ -86,8 +130,20 @@
         "size": 2615
       },
       {
+        "path": "Tempo/TempoActivityAttributes.swift",
+        "size": 543
+      },
+      {
         "path": "Tempo/TempoApp.swift",
-        "size": 14736
+        "size": 13345
+      },
+      {
+        "path": "Tempo/UserSettings.swift",
+        "size": 8265
+      },
+      {
+        "path": "Tempo/iOSHaptics.swift",
+        "size": 3450
       },
       {
         "path": "TempoTests/TempoTests.swift",
@@ -100,6 +156,114 @@
       {
         "path": "TempoUITests/TempoUITestsLaunchTests.swift",
         "size": 805
+      },
+      {
+        "path": "TempoWatch/Assets.xcassets/AccentColor.colorset/Contents.json",
+        "size": 123
+      },
+      {
+        "path": "TempoWatch/Assets.xcassets/AppIcon.appiconset/Contents.json",
+        "size": 151
+      },
+      {
+        "path": "TempoWatch/Assets.xcassets/Contents.json",
+        "size": 63
+      },
+      {
+        "path": "TempoWatch/CelebrationView.swift",
+        "size": 2733
+      },
+      {
+        "path": "TempoWatch/Constants.swift",
+        "size": 1648
+      },
+      {
+        "path": "TempoWatch/EdgeTraceProgress.swift",
+        "size": 2875
+      },
+      {
+        "path": "TempoWatch/IntentEnums.swift",
+        "size": 1261
+      },
+      {
+        "path": "TempoWatch/SessionComponents.swift",
+        "size": 4408
+      },
+      {
+        "path": "TempoWatch/SettingsView.swift",
+        "size": 9271
+      },
+      {
+        "path": "TempoWatch/StartPomodoroIntent.swift",
+        "size": 9328
+      },
+      {
+        "path": "TempoWatch/TempoShortcuts.swift",
+        "size": 2587
+      },
+      {
+        "path": "TempoWatch/TempoWatch.entitlements",
+        "size": 411
+      },
+      {
+        "path": "TempoWatch/TempoWatchApp.swift",
+        "size": 867
+      },
+      {
+        "path": "TempoWatch/WatchContentView.swift",
+        "size": 16393
+      },
+      {
+        "path": "TempoWatch/WatchHaptics.swift",
+        "size": 3684
+      },
+      {
+        "path": "TempoWatch/WatchPomodoroSession.swift",
+        "size": 16493
+      },
+      {
+        "path": "TempoWatch/WatchSessionManager.swift",
+        "size": 14786
+      },
+      {
+        "path": "TempoWatch/WatchSettings.swift",
+        "size": 9923
+      },
+      {
+        "path": "TempoWatchWidgets/AutoWidget.swift",
+        "size": 2513
+      },
+      {
+        "path": "TempoWatchWidgets/ComplicationComponents.swift",
+        "size": 2085
+      },
+      {
+        "path": "TempoWatchWidgets/CurrentWidget.swift",
+        "size": 6618
+      },
+      {
+        "path": "TempoWatchWidgets/DayWidget.swift",
+        "size": 4187
+      },
+      {
+        "path": "TempoWatchWidgets/StreakWidget.swift",
+        "size": 4332
+      },
+      {
+        "path": "TempoWatchWidgets/TempoComplicationData.swift",
+        "size": 4024
+      },
+      {
+        "path": "TempoWatchWidgets/TempoTimelineEntry.swift",
+        "size": 1193
+      },
+      {
+        "path": "TempoWatchWidgets/TempoWatchWidgets.entitlements",
+        "size": 411
+      },
+      {
+        "path": "TempoWatchWidgets/TempoWatchWidgetsBundle.swift",
+        "size": 330
       },
       {
         "path": "TempoWidgets/Assets.xcassets/AccentColor.colorset/Contents.json",
@@ -122,20 +286,28 @@
         "size": 318
       },
       {
+        "path": "TempoWidgets/PrivacyInfo.xcprivacy",
+        "size": 598
+      },
+      {
+        "path": "TempoWidgets/TempoWidgets.entitlements",
+        "size": 296
+      },
+      {
         "path": "TempoWidgets/TempoWidgets.swift",
-        "size": 2328
+        "size": 9928
       },
       {
         "path": "TempoWidgets/TempoWidgetsBundle.swift",
-        "size": 295
+        "size": 263
       },
       {
         "path": "TempoWidgets/TempoWidgetsControl.swift",
-        "size": 1347
+        "size": 1663
       },
       {
         "path": "TempoWidgets/TempoWidgetsLiveActivity.swift",
-        "size": 5892
+        "size": 9932
       },
       {
         "path": "TempoWidgetsLiveActivity_TEMPLATE.swift",
@@ -164,6 +336,33 @@
               "path": "Tempo.xcodeproj/project.xcworkspace"
             },
             {
+              "name": "xcshareddata",
+              "children": [
+                {
+                  "name": "xcschemes",
+                  "children": [
+                    {
+                      "name": "Tempo.xcscheme",
+                      "size": 2863,
+                      "path": "Tempo.xcodeproj/xcshareddata/xcschemes/Tempo.xcscheme"
+                    },
+                    {
+                      "name": "TempoWatch.xcscheme",
+                      "size": 3461,
+                      "path": "Tempo.xcodeproj/xcshareddata/xcschemes/TempoWatch.xcscheme"
+                    },
+                    {
+                      "name": "TempoWidgetsExtension.xcscheme",
+                      "size": 4110,
+                      "path": "Tempo.xcodeproj/xcshareddata/xcschemes/TempoWidgetsExtension.xcscheme"
+                    }
+                  ],
+                  "path": "Tempo.xcodeproj/xcshareddata/xcschemes"
+                }
+              ],
+              "path": "Tempo.xcodeproj/xcshareddata"
+            },
+            {
               "name": "xcuserdata",
               "children": [
                 {
@@ -174,7 +373,7 @@
                       "children": [
                         {
                           "name": "xcschememanagement.plist",
-                          "size": 463,
+                          "size": 904,
                           "path": "Tempo.xcodeproj/xcuserdata/ejfox.xcuserdatad/xcschemes/xcschememanagement.plist"
                         }
                       ],
@@ -188,7 +387,7 @@
             },
             {
               "name": "project.pbxproj",
-              "size": 31011,
+              "size": 36682,
               "path": "Tempo.xcodeproj/project.pbxproj"
             }
           ],
@@ -253,9 +452,24 @@
               "path": "Tempo/Tempo.xcdatamodeld"
             },
             {
+              "name": "Constants.swift",
+              "size": 1500,
+              "path": "Tempo/Constants.swift"
+            },
+            {
               "name": "ContentView.swift",
-              "size": 19638,
+              "size": 10540,
               "path": "Tempo/ContentView.swift"
+            },
+            {
+              "name": "EdgeTraceProgress.swift",
+              "size": 2586,
+              "path": "Tempo/EdgeTraceProgress.swift"
+            },
+            {
+              "name": "HistoryView.swift",
+              "size": 5499,
+              "path": "Tempo/HistoryView.swift"
             },
             {
               "name": "Info.plist",
@@ -264,18 +478,53 @@
             },
             {
               "name": "Persistence.swift",
-              "size": 9389,
+              "size": 10598,
               "path": "Tempo/Persistence.swift"
             },
             {
+              "name": "PomodoroSession.swift",
+              "size": 14689,
+              "path": "Tempo/PomodoroSession.swift"
+            },
+            {
+              "name": "PrivacyInfo.xcprivacy",
+              "size": 598,
+              "path": "Tempo/PrivacyInfo.xcprivacy"
+            },
+            {
+              "name": "SessionComponents.swift",
+              "size": 7372,
+              "path": "Tempo/SessionComponents.swift"
+            },
+            {
+              "name": "SettingsView.swift",
+              "size": 5614,
+              "path": "Tempo/SettingsView.swift"
+            },
+            {
               "name": "Tempo.entitlements",
-              "size": 735,
+              "size": 785,
               "path": "Tempo/Tempo.entitlements"
             },
             {
+              "name": "TempoActivityAttributes.swift",
+              "size": 543,
+              "path": "Tempo/TempoActivityAttributes.swift"
+            },
+            {
               "name": "TempoApp.swift",
-              "size": 14736,
+              "size": 13345,
               "path": "Tempo/TempoApp.swift"
+            },
+            {
+              "name": "UserSettings.swift",
+              "size": 8265,
+              "path": "Tempo/UserSettings.swift"
+            },
+            {
+              "name": "iOSHaptics.swift",
+              "size": 3450,
+              "path": "Tempo/iOSHaptics.swift"
             }
           ],
           "path": "Tempo"
@@ -306,6 +555,171 @@
             }
           ],
           "path": "TempoUITests"
+        },
+        {
+          "name": "TempoWatch",
+          "children": [
+            {
+              "name": "Assets.xcassets",
+              "children": [
+                {
+                  "name": "AccentColor.colorset",
+                  "children": [
+                    {
+                      "name": "Contents.json",
+                      "size": 123,
+                      "path": "TempoWatch/Assets.xcassets/AccentColor.colorset/Contents.json"
+                    }
+                  ],
+                  "path": "TempoWatch/Assets.xcassets/AccentColor.colorset"
+                },
+                {
+                  "name": "AppIcon.appiconset",
+                  "children": [
+                    {
+                      "name": "Contents.json",
+                      "size": 151,
+                      "path": "TempoWatch/Assets.xcassets/AppIcon.appiconset/Contents.json"
+                    }
+                  ],
+                  "path": "TempoWatch/Assets.xcassets/AppIcon.appiconset"
+                },
+                {
+                  "name": "Contents.json",
+                  "size": 63,
+                  "path": "TempoWatch/Assets.xcassets/Contents.json"
+                }
+              ],
+              "path": "TempoWatch/Assets.xcassets"
+            },
+            {
+              "name": "CelebrationView.swift",
+              "size": 2733,
+              "path": "TempoWatch/CelebrationView.swift"
+            },
+            {
+              "name": "Constants.swift",
+              "size": 1648,
+              "path": "TempoWatch/Constants.swift"
+            },
+            {
+              "name": "EdgeTraceProgress.swift",
+              "size": 2875,
+              "path": "TempoWatch/EdgeTraceProgress.swift"
+            },
+            {
+              "name": "IntentEnums.swift",
+              "size": 1261,
+              "path": "TempoWatch/IntentEnums.swift"
+            },
+            {
+              "name": "SessionComponents.swift",
+              "size": 4408,
+              "path": "TempoWatch/SessionComponents.swift"
+            },
+            {
+              "name": "SettingsView.swift",
+              "size": 9271,
+              "path": "TempoWatch/SettingsView.swift"
+            },
+            {
+              "name": "StartPomodoroIntent.swift",
+              "size": 9328,
+              "path": "TempoWatch/StartPomodoroIntent.swift"
+            },
+            {
+              "name": "TempoShortcuts.swift",
+              "size": 2587,
+              "path": "TempoWatch/TempoShortcuts.swift"
+            },
+            {
+              "name": "TempoWatch.entitlements",
+              "size": 411,
+              "path": "TempoWatch/TempoWatch.entitlements"
+            },
+            {
+              "name": "TempoWatchApp.swift",
+              "size": 867,
+              "path": "TempoWatch/TempoWatchApp.swift"
+            },
+            {
+              "name": "WatchContentView.swift",
+              "size": 16393,
+              "path": "TempoWatch/WatchContentView.swift"
+            },
+            {
+              "name": "WatchHaptics.swift",
+              "size": 3684,
+              "path": "TempoWatch/WatchHaptics.swift"
+            },
+            {
+              "name": "WatchPomodoroSession.swift",
+              "size": 16493,
+              "path": "TempoWatch/WatchPomodoroSession.swift"
+            },
+            {
+              "name": "WatchSessionManager.swift",
+              "size": 14786,
+              "path": "TempoWatch/WatchSessionManager.swift"
+            },
+            {
+              "name": "WatchSettings.swift",
+              "size": 9923,
+              "path": "TempoWatch/WatchSettings.swift"
+            }
+          ],
+          "path": "TempoWatch"
+        },
+        {
+          "name": "TempoWatchWidgets",
+          "children": [
+            {
+              "name": "AutoWidget.swift",
+              "size": 2513,
+              "path": "TempoWatchWidgets/AutoWidget.swift"
+            },
+            {
+              "name": "ComplicationComponents.swift",
+              "size": 2085,
+              "path": "TempoWatchWidgets/ComplicationComponents.swift"
+            },
+            {
+              "name": "CurrentWidget.swift",
+              "size": 6618,
+              "path": "TempoWatchWidgets/CurrentWidget.swift"
+            },
+            {
+              "name": "DayWidget.swift",
+              "size": 4187,
+              "path": "TempoWatchWidgets/DayWidget.swift"
+            },
+            {
+              "name": "StreakWidget.swift",
+              "size": 4332,
+              "path": "TempoWatchWidgets/StreakWidget.swift"
+            },
+            {
+              "name": "TempoComplicationData.swift",
+              "size": 4024,
+              "path": "TempoWatchWidgets/TempoComplicationData.swift"
+            },
+            {
+              "name": "TempoTimelineEntry.swift",
+              "size": 1193,
+              "path": "TempoWatchWidgets/TempoTimelineEntry.swift"
+            },
+            {
+              "name": "TempoWatchWidgets.entitlements",
+              "size": 411,
+              "path": "TempoWatchWidgets/TempoWatchWidgets.entitlements"
+            },
+            {
+              "name": "TempoWatchWidgetsBundle.swift",
+              "size": 330,
+              "path": "TempoWatchWidgets/TempoWatchWidgetsBundle.swift"
+            }
+          ],
+          "path": "TempoWatchWidgets"
         },
         {
           "name": "TempoWidgets",
@@ -360,23 +774,33 @@
               "path": "TempoWidgets/Info.plist"
             },
             {
+              "name": "PrivacyInfo.xcprivacy",
+              "size": 598,
+              "path": "TempoWidgets/PrivacyInfo.xcprivacy"
+            },
+            {
+              "name": "TempoWidgets.entitlements",
+              "size": 296,
+              "path": "TempoWidgets/TempoWidgets.entitlements"
+            },
+            {
               "name": "TempoWidgets.swift",
-              "size": 2328,
+              "size": 9928,
               "path": "TempoWidgets/TempoWidgets.swift"
             },
             {
               "name": "TempoWidgetsBundle.swift",
-              "size": 295,
+              "size": 263,
               "path": "TempoWidgets/TempoWidgetsBundle.swift"
             },
             {
               "name": "TempoWidgetsControl.swift",
-              "size": 1347,
+              "size": 1663,
               "path": "TempoWidgets/TempoWidgetsControl.swift"
             },
             {
               "name": "TempoWidgetsLiveActivity.swift",
-              "size": 5892,
+              "size": 9932,
               "path": "TempoWidgets/TempoWidgetsLiveActivity.swift"
             }
           ],
@@ -408,6 +832,11 @@
           "path": "TESTING_GUIDE.md"
         },
         {
+          "name": "TODO.md",
+          "size": 2754,
+          "path": "TODO.md"
+        },
+        {
           "name": "TempoWidgetsLiveActivity_TEMPLATE.swift",
           "size": 3605,
           "path": "TempoWidgetsLiveActivity_TEMPLATE.swift"
@@ -420,8 +849,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 32,
-    "totalSize": 128041
+    "totalFiles": 75,
+    "totalSize": 323743
   },
   "topics": [],
   "readme": {
@@ -430,6 +859,6 @@
     "excerpt": "<img width=\"484\" height=\"1030\" alt=\"screenshot 2025-08-16 at 11 51 04 AM\" src=\"https://github.com/user-attachments/assets/a2684407-d7e6-4266-98d7-a2c97e73667c\"..."
   },
   "createdAt": "2025-08-16T15:49:37Z",
-  "updatedAt": "2026-01-11T16:30:42Z",
-  "pushedAt": "2026-01-11T16:30:37Z"
+  "updatedAt": "2026-04-13T14:08:59Z",
+  "pushedAt": "2026-04-13T14:08:54Z"
 }

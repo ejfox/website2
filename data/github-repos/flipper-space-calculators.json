@@ -12,10 +12,10 @@
   "language": "C",
   "languageColor": "#555555",
   "languages": {
-    "C": 46647,
+    "C": 46449,
     "Makefile": 746
   },
-  "diskUsage": 98,
+  "diskUsage": 103,
   "fileTree": {
     "files": [
       {
@@ -44,7 +44,7 @@
       },
       {
         "path": "README.md",
-        "size": 3246
+        "size": 3258
       },
       {
         "path": "SUBAGENT_BRIEFING.md",
@@ -84,7 +84,7 @@
       },
       {
         "path": "dilate/dilate.c",
-        "size": 10676
+        "size": 10447
       },
       {
         "path": "dilate/dilate.png",
@@ -160,7 +160,7 @@
       },
       {
         "path": "space-travel-calculator/space_travel_calculator.c",
-        "size": 17530
+        "size": 17561
       },
       {
         "path": "space-travel-calculator/space_travel_calculator.png",
@@ -311,7 +311,7 @@
             },
             {
               "name": "dilate.c",
-              "size": 10676,
+              "size": 10447,
               "path": "dilate/dilate.c"
             },
             {
@@ -439,7 +439,7 @@
             },
             {
               "name": "space_travel_calculator.c",
-              "size": 17530,
+              "size": 17561,
               "path": "space-travel-calculator/space_travel_calculator.c"
             },
             {
@@ -477,7 +477,7 @@
         },
         {
           "name": "README.md",
-          "size": 3246,
+          "size": 3258,
           "path": "README.md"
         },
         {
@@ -494,15 +494,15 @@
       "path": ""
     },
     "totalFiles": 40,
-    "totalSize": 228724
+    "totalSize": 228538
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"flipper-space-calculators\">Flipper Space Calculators</h1>\n<p>A collection of minimalist space and physics calculators for the Flipper Zero. No games, no gimmicks - just the essential calculations for when you need them most.</p>\n<h2 id=\"applications\">Applications</h2>\n<h3 id=\"space-travel-calculator\"><a href=\"./space-travel-calculator/\">Space Travel Calculator</a></h3>\n<p>Interplanetary trajectory calculator for planning transfers between planets. Calculates:</p>\n<ul>\n<li>Hohmann transfer orbits</li>\n<li>Delta-v requirements</li>\n<li>Launch windows</li>\n<li>Phase angles</li>\n</ul>\n<p><em>For when you need to know if that Mars window is actually worth taking.</em></p>\n<h3 id=\"dilate\"><a href=\"./dilate/\">Dilate</a></h3>\n<p>Time dilation calculator with two modes:</p>\n<ul>\n<li><strong>Special Relativity</strong>: Time dilation at relativistic velocities</li>\n<li><strong>General Relativity</strong>: Time dilation in gravitational fields</li>\n</ul>\n<p><em>Because sometimes you need to know exactly how much younger you'll be.</em></p>\n<h2 id=\"design-philosophy\">Design Philosophy</h2>\n<p>These calculators follow strict minimalist principles:</p>\n<ul>\n<li>Boot directly to functionality - no splash screens</li>\n<li>Response time &lt;50ms for all interactions</li>\n<li>Numbers only - no unnecessary explanations</li>\n<li>Default system font - no fancy typography</li>\n<li>Metric units - this is space</li>\n</ul>\n<h2 id=\"building\">Building</h2>\n<p>Each application can be built independently from the Flipper firmware root:</p>\n<pre><code class=\"language-bash\"># Space Travel Calculator\n./fbt fap_space_travel_calculator\n\n# Dilate\n./fbt fap_dilate\n</code></pre>\n<h2 id=\"installation\">Installation</h2>\n<p>Copy the <code>.fap</code> files to your Flipper Zero's SD card under <code>/apps/Tools/</code></p>\n<h2 id=\"testing\">Testing</h2>\n<p>Both calculators include automated unit tests for their core atomic functions. These tests run in GitHub Actions on every push and pull request, ensuring the physics calculations work correctly without needing a physical Flipper device.</p>\n<p><strong>Test Coverage:</strong></p>\n<ul>\n<li>Space Travel Calculator: 14 tests covering orbital mechanics, Hohmann transfers, and transfer calculations</li>\n<li>Dilate: 15 tests covering Lorentz factor calculations and time dilation formulas</li>\n</ul>\n<p>See the <code>tests/</code> directory in each app for details.</p>\n<h2 id=\"project-structure\">Project Structure</h2>\n<pre><code>flipper-space-calculators/\n├── README.md                           # This file\n├── .github/workflows/                  # GitHub Actions CI\n│   └── test-core-functions.yml        # Automated tests\n├── space-travel-calculator/            # Orbital transfer calculator\n│   ├── README.md\n│   ├── CLAUDE.md                       # Development guide\n│   ├── calculations.h/c                # Core calculation functions\n│   ├── tests/                          # Unit tests\n│   └── [source files]\n└── dilate/                             # Time dilation calculator\n    ├── README.md\n    ├── CLAUDE.md                       # Development guide\n    ├── calculations.h/c                # Core calculation functions\n    ├── tests/                          # Unit tests\n    └── [source files]\n</code></pre>\n<h2 id=\"contributing\">Contributing</h2>\n<p>These tools are designed to do one thing perfectly. If you're thinking of adding features, ask yourself:</p>\n<ol>\n<li>Is it essential to the core calculation?</li>\n<li>Does it maintain &lt;50ms response time?</li>\n<li>Does it follow the minimalist aesthetic?</li>\n</ol>\n<p>If any answer is no, it doesn't belong here.</p>\n<h2 id=\"license\">License</h2>\n<p>These calculators are tools, not toys. Use them wisely.</p>\n<hr />\n<p><em>\"The universe is under no obligation to make sense to you. But your calculator is.\"</em></p>",
-    "raw": "# Flipper Space Calculators\n\nA collection of minimalist space and physics calculators for the Flipper Zero. No games, no gimmicks - just the essential calculations for when you need them most.\n\n## Applications\n\n### [Space Travel Calculator](./space-travel-calculator/)\nInterplanetary trajectory calculator for planning transfers between planets. Calculates:\n- Hohmann transfer orbits\n- Delta-v requirements\n- Launch windows\n- Phase angles\n\n*For when you need to know if that Mars window is actually worth taking.*\n\n### [Dilate](./dilate/)\nTime dilation calculator with two modes:\n- **Special Relativity**: Time dilation at relativistic velocities\n- **General Relativity**: Time dilation in gravitational fields\n\n*Because sometimes you need to know exactly how much younger you'll be.*\n\n## Design Philosophy\n\nThese calculators follow strict minimalist principles:\n- Boot directly to functionality - no splash screens\n- Response time <50ms for all interactions\n- Numbers only - no unnecessary explanations\n- Default system font - no fancy typography\n- Metric units - this is space\n\n## Building\n\nEach application can be built independently from the Flipper firmware root:\n\n```bash\n# Space Travel Calculator\n./fbt fap_space_travel_calculator\n\n# Dilate\n./fbt fap_dilate\n```\n\n## Installation\n\nCopy the `.fap` files to your Flipper Zero's SD card under `/apps/Tools/`\n\n## Testing\n\nBoth calculators include automated unit tests for their core atomic functions. These tests run in GitHub Actions on every push and pull request, ensuring the physics calculations work correctly without needing a physical Flipper device.\n\n**Test Coverage:**\n- Space Travel Calculator: 14 tests covering orbital mechanics, Hohmann transfers, and transfer calculations\n- Dilate: 15 tests covering Lorentz factor calculations and time dilation formulas\n\nSee the `tests/` directory in each app for details.\n\n## Project Structure\n\n```\nflipper-space-calculators/\n├── README.md                           # This file\n├── .github/workflows/                  # GitHub Actions CI\n│   └── test-core-functions.yml        # Automated tests\n├── space-travel-calculator/            # Orbital transfer calculator\n│   ├── README.md\n│   ├── CLAUDE.md                       # Development guide\n│   ├── calculations.h/c                # Core calculation functions\n│   ├── tests/                          # Unit tests\n│   └── [source files]\n└── dilate/                             # Time dilation calculator\n    ├── README.md\n    ├── CLAUDE.md                       # Development guide\n    ├── calculations.h/c                # Core calculation functions\n    ├── tests/                          # Unit tests\n    └── [source files]\n```\n\n## Contributing\n\nThese tools are designed to do one thing perfectly. If you're thinking of adding features, ask yourself:\n1. Is it essential to the core calculation?\n2. Does it maintain <50ms response time?\n3. Does it follow the minimalist aesthetic?\n\nIf any answer is no, it doesn't belong here.\n\n## License\n\nThese calculators are tools, not toys. Use them wisely.\n\n---\n\n*\"The universe is under no obligation to make sense to you. But your calculator is.\"*",
-    "excerpt": "A collection of minimalist space and physics calculators for the Flipper Zero. No games, no gimmicks - just the essential calculations for when you need them mo..."
+    "html": "<h1 id=\"flipper-space-calculators\">Flipper Space Calculators</h1>\n<p>A pair of minimalist space and physics calculators for the Flipper Zero. No games, no splash screens -- just the numbers.</p>\n<h2 id=\"applications\">Applications</h2>\n<h3 id=\"space-travel-calculator\"><a href=\"./space-travel-calculator/\">Space Travel Calculator</a></h3>\n<p>Interplanetary trajectory planner with real-time orbital visualization. Select a destination (Mars, Venus, Jupiter, Europa, Titan, and more), scroll through launch dates, and see Hohmann transfer orbits drawn on screen. Outputs delta-v requirements, flight time, and phase angles.</p>\n<h3 id=\"dilate\"><a href=\"./dilate/\">Dilate</a></h3>\n<p>Time dilation calculator for special relativity. Set a velocity (fraction of c) and a duration, and see how much time passes for you versus an observer on Earth. Auto-scales units from seconds to years.</p>\n<h2 id=\"installation\">Installation</h2>\n<h3 id=\"pre-built-fap-files-easiest\">Pre-built .fap files (easiest)</h3>\n<ol>\n<li>Download <code>space_travel_calculator.fap</code> and/or <code>dilate.fap</code> from the <a href=\"https://github.com/ejfox/flipper-space-calculators/releases/latest\">latest release</a>.</li>\n<li>Connect your Flipper Zero via qFlipper or mount the SD card directly.</li>\n<li>Copy the <code>.fap</code> files to <code>SD Card/apps/Tools/</code> on the Flipper.</li>\n<li>On the Flipper, open <strong>Apps &gt; Tools</strong> and select the calculator you want.</li>\n</ol>\n<h3 id=\"firmware-compatibility\">Firmware compatibility</h3>\n<p>The pre-built <code>.fap</code> files in releases are compiled for <strong>Momentum firmware mntm-009</strong> (API 79.2). If you are running a different firmware or API version, you will need to build from source (see below).</p>\n<h2 id=\"building-from-source\">Building from Source</h2>\n<p>The recommended way to build Flipper Zero apps is with <a href=\"https://github.com/flipperdevices/flipperzero-ufbt\">ufbt</a> (micro Flipper Build Tool).</p>\n<h3 id=\"1-install-ufbt\">1. Install ufbt</h3>\n<pre><code class=\"language-bash\">pip install ufbt\n</code></pre>\n<h3 id=\"2-set-up-the-sdk\">2. Set up the SDK</h3>\n<p>For <strong>Momentum firmware</strong> (recommended if you use Momentum):</p>\n<pre><code class=\"language-bash\">ufbt update --index-url=https://up.momentum-fw.dev/firmware/directory.json\n</code></pre>\n<p>For <strong>stock Flipper firmware</strong>:</p>\n<pre><code class=\"language-bash\">ufbt update\n</code></pre>\n<h3 id=\"3-clone-and-build\">3. Clone and build</h3>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/flipper-space-calculators.git\ncd flipper-space-calculators\n</code></pre>\n<p>Each app is built separately from its own directory:</p>\n<pre><code class=\"language-bash\"># Space Travel Calculator\ncd space-travel-calculator\nufbt\ncd ..\n\n# Dilate\ncd dilate\nufbt\ncd ..\n</code></pre>\n<p>Compiled <code>.fap</code> files will be in each app's <code>dist/</code> directory.</p>\n<h3 id=\"4-deploy-directly-to-flipper-optional\">4. Deploy directly to Flipper (optional)</h3>\n<p>From inside either app directory:</p>\n<pre><code class=\"language-bash\">ufbt launch\n</code></pre>\n<h2 id=\"testing\">Testing</h2>\n<p>Both calculators include unit tests for their core calculation functions, run via GitHub Actions on every push and PR.</p>\n<ul>\n<li>Space Travel Calculator: 14 tests (orbital mechanics, Hohmann transfers)</li>\n<li>Dilate: 15 tests (Lorentz factor, time dilation)</li>\n</ul>\n<p>Run tests locally from each app's directory:</p>\n<pre><code class=\"language-bash\">cd space-travel-calculator &amp;&amp; make -C tests &amp;&amp; cd ..\ncd dilate &amp;&amp; make -C tests &amp;&amp; cd ..\n</code></pre>\n<h2 id=\"project-structure\">Project Structure</h2>\n<pre><code>flipper-space-calculators/\n  space-travel-calculator/    # Orbital transfer calculator\n    application.fam\n    calculations.h/c          # Core physics functions\n    tests/                    # Unit tests\n    ...\n  dilate/                     # Time dilation calculator\n    application.fam\n    calculations.h/c          # Core physics functions\n    tests/                    # Unit tests\n    ...\n  .github/workflows/          # CI test runner\n</code></pre>\n<h2 id=\"license\">License</h2>\n<p>MIT where applicable. See individual app directories.</p>",
+    "raw": "# Flipper Space Calculators\n\nA pair of minimalist space and physics calculators for the Flipper Zero. No games, no splash screens -- just the numbers.\n\n## Applications\n\n### [Space Travel Calculator](./space-travel-calculator/)\n\nInterplanetary trajectory planner with real-time orbital visualization. Select a destination (Mars, Venus, Jupiter, Europa, Titan, and more), scroll through launch dates, and see Hohmann transfer orbits drawn on screen. Outputs delta-v requirements, flight time, and phase angles.\n\n### [Dilate](./dilate/)\n\nTime dilation calculator for special relativity. Set a velocity (fraction of c) and a duration, and see how much time passes for you versus an observer on Earth. Auto-scales units from seconds to years.\n\n## Installation\n\n### Pre-built .fap files (easiest)\n\n1. Download `space_travel_calculator.fap` and/or `dilate.fap` from the [latest release](https://github.com/ejfox/flipper-space-calculators/releases/latest).\n2. Connect your Flipper Zero via qFlipper or mount the SD card directly.\n3. Copy the `.fap` files to `SD Card/apps/Tools/` on the Flipper.\n4. On the Flipper, open **Apps > Tools** and select the calculator you want.\n\n### Firmware compatibility\n\nThe pre-built `.fap` files in releases are compiled for **Momentum firmware mntm-009** (API 79.2). If you are running a different firmware or API version, you will need to build from source (see below).\n\n## Building from Source\n\nThe recommended way to build Flipper Zero apps is with [ufbt](https://github.com/flipperdevices/flipperzero-ufbt) (micro Flipper Build Tool).\n\n### 1. Install ufbt\n\n```bash\npip install ufbt\n```\n\n### 2. Set up the SDK\n\nFor **Momentum firmware** (recommended if you use Momentum):\n\n```bash\nufbt update --index-url=https://up.momentum-fw.dev/firmware/directory.json\n```\n\nFor **stock Flipper firmware**:\n\n```bash\nufbt update\n```\n\n### 3. Clone and build\n\n```bash\ngit clone https://github.com/ejfox/flipper-space-calculators.git\ncd flipper-space-calculators\n```\n\nEach app is built separately from its own directory:\n\n```bash\n# Space Travel Calculator\ncd space-travel-calculator\nufbt\ncd ..\n\n# Dilate\ncd dilate\nufbt\ncd ..\n```\n\nCompiled `.fap` files will be in each app's `dist/` directory.\n\n### 4. Deploy directly to Flipper (optional)\n\nFrom inside either app directory:\n\n```bash\nufbt launch\n```\n\n## Testing\n\nBoth calculators include unit tests for their core calculation functions, run via GitHub Actions on every push and PR.\n\n- Space Travel Calculator: 14 tests (orbital mechanics, Hohmann transfers)\n- Dilate: 15 tests (Lorentz factor, time dilation)\n\nRun tests locally from each app's directory:\n\n```bash\ncd space-travel-calculator && make -C tests && cd ..\ncd dilate && make -C tests && cd ..\n```\n\n## Project Structure\n\n```\nflipper-space-calculators/\n  space-travel-calculator/    # Orbital transfer calculator\n    application.fam\n    calculations.h/c          # Core physics functions\n    tests/                    # Unit tests\n    ...\n  dilate/                     # Time dilation calculator\n    application.fam\n    calculations.h/c          # Core physics functions\n    tests/                    # Unit tests\n    ...\n  .github/workflows/          # CI test runner\n```\n\n## License\n\nMIT where applicable. See individual app directories.\n",
+    "excerpt": "A pair of minimalist space and physics calculators for the Flipper Zero. No games, no splash screens -- just the numbers.\n\n\n\n\n\nInterplanetary trajectory planner..."
   },
   "createdAt": "2025-07-30T20:15:59Z",
-  "updatedAt": "2026-01-15T04:13:21Z",
-  "pushedAt": "2026-01-15T04:13:16Z"
+  "updatedAt": "2026-03-23T03:41:21Z",
+  "pushedAt": "2026-03-23T03:41:58Z"
 }

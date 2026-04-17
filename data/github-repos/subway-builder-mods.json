@@ -4,17 +4,17 @@
   "url": "https://github.com/ejfox/subway-builder-mods",
   "homepage": null,
   "stats": {
-    "stars": 3,
-    "forks": 0,
+    "stars": 5,
+    "forks": 1,
     "watchers": 0,
     "openIssues": 0
   },
   "language": "JavaScript",
   "languageColor": "#f1e05a",
   "languages": {
-    "JavaScript": 37511
+    "JavaScript": 79695
   },
-  "diskUsage": 25,
+  "diskUsage": 34,
   "fileTree": {
     "files": [
       {
@@ -24,6 +24,14 @@
       {
         "path": "README.md",
         "size": 2995
+      },
+      {
+        "path": "api-audit/index.js",
+        "size": 14575
+      },
+      {
+        "path": "api-audit/manifest.json",
+        "size": 259
       },
       {
         "path": "bushwick-express/README.md",
@@ -36,6 +44,14 @@
       {
         "path": "bushwick-express/manifest.json",
         "size": 296
+      },
+      {
+        "path": "canary/index.js",
+        "size": 27609
+      },
+      {
+        "path": "canary/manifest.json",
+        "size": 266
       },
       {
         "path": "commute-sankey/README.md",
@@ -86,6 +102,22 @@
       "name": "subway-builder-mods",
       "children": [
         {
+          "name": "api-audit",
+          "children": [
+            {
+              "name": "index.js",
+              "size": 14575,
+              "path": "api-audit/index.js"
+            },
+            {
+              "name": "manifest.json",
+              "size": 259,
+              "path": "api-audit/manifest.json"
+            }
+          ],
+          "path": "api-audit"
+        },
+        {
           "name": "bushwick-express",
           "children": [
             {
@@ -105,6 +137,22 @@
             }
           ],
           "path": "bushwick-express"
+        },
+        {
+          "name": "canary",
+          "children": [
+            {
+              "name": "index.js",
+              "size": 27609,
+              "path": "canary/index.js"
+            },
+            {
+              "name": "manifest.json",
+              "size": 266,
+              "path": "canary/manifest.json"
+            }
+          ],
+          "path": "canary"
         },
         {
           "name": "commute-sankey",
@@ -198,8 +246,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 16,
-    "totalSize": 47242
+    "totalFiles": 20,
+    "totalSize": 89951
   },
   "topics": [],
   "readme": {
@@ -208,6 +256,6 @@
     "excerpt": "A collection of ready-to-use mods for Subway Builder, a subway/metro simulation game.\n\n> Looking to create your own mods? Check out subwaybuilder-mod - the offi..."
   },
   "createdAt": "2025-12-17T00:02:45Z",
-  "updatedAt": "2026-01-03T04:14:56Z",
-  "pushedAt": "2025-12-31T14:30:42Z"
+  "updatedAt": "2026-03-21T18:32:26Z",
+  "pushedAt": "2026-01-30T17:21:45Z"
 }

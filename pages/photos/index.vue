@@ -1,90 +1,54 @@
-<template>
-  <main class="px-4 md:px-6 lg:px-8 max-w-full min-h-screen pt-8">
-    <header class="section-spacing-sm">
-      <div class="flex flex-col gap-2 py-3">
-        <h1 class="font-mono text-sm text-zinc-100">PHOTOS</h1>
-        <div v-if="data" class="font-mono text-[10px] text-muted tabular">
-          {{ data.total }} photographs · Fujifilm
-        </div>
-      </div>
-    </header>
-
-    <!-- Loading -->
-    <div
-      v-if="pending"
-      class="font-mono text-xs text-zinc-600 py-12"
-    >
-      Loading photographs...
-    </div>
-
-    <!-- Error -->
-    <div
-      v-else-if="error"
-      class="text-center py-8 text-red-600 dark:text-red-400"
-    >
-      Failed to load photos
-    </div>
-
-    <!-- Photo Grid -->
-    <div v-else-if="data?.photos?.length" class="photo-grid">
-      <a
-        v-for="photo in data.photos"
-        :key="photo.id"
-        :href="`/photos/${encodeURIComponent(photo.id)}`"
-        class="photo-item group"
-        :style="{
-          aspectRatio: photo.aspect,
-          backgroundImage: `url(${placeholderUrl(photo)})`,
-          backgroundSize: 'cover',
-        }"
-      >
-        <img
-          :src="thumbUrl(photo, 1200)"
-          :srcset="`${thumbUrl(photo, 640)} 640w, ${thumbUrl(photo, 1200)} 1200w, ${thumbUrl(photo, 1920)} 1920w`"
-          sizes="(max-width: 768px) 95vw, 48vw"
-          :width="photo.width"
-          :height="photo.height"
-          :alt="photo.description || 'Photograph'"
-          loading="lazy"
-          decoding="async"
-          class="photo-img"
-        />
-
-        <!-- EXIF overlay on hover -->
-        <div class="photo-meta">
-          <span v-if="photo.camera" class="photo-exif">{{ shortCamera(photo.camera) }}</span>
-          <span v-if="photo.focalLength" class="photo-exif">{{ photo.focalLength }}mm</span>
-          <span v-if="photo.aperture" class="photo-exif">f/{{ photo.aperture }}</span>
-          <span v-if="photo.shutter" class="photo-exif">{{ photo.shutter }}s</span>
-          <span v-if="photo.iso" class="photo-exif">ISO {{ photo.iso }}</span>
-        </div>
-
-        <!-- Date -->
-        <div class="photo-date">
-          {{ formatDate(photo.dateTaken || photo.date) }}
-        </div>
-      </a>
-    </div>
-
-    <!-- Empty -->
-    <div
-      v-else
-      class="font-mono text-xs text-zinc-600 py-12"
-    >
-      No photographs found
-    </div>
-  </main>
-</template>
-
 <script setup>
-const { data, pending, error } = await useFetch('/api/photos', {
-  lazy: true,
+import PhotoStack from '~/components/photos/PhotoStack.vue'
+
+// Both feeds in parallel
+const { data: photosData, pending: photosPending } = await useFetch('/api/photos', { lazy: true })
+const { data: postsData, pending: postsPending } = await useFetch('/api/photo-posts', { lazy: true })
+
+const pending = computed(() => photosPending.value || postsPending.value)
+
+// Merge into one chronological feed: individual photos + post-stacks
+// Stacks break out of the masonry columns (column-span: all), so we interleave
+// in-place by date and CSS handles the layout.
+const feed = computed(() => {
+  const items = []
+
+  for (const photo of photosData.value?.photos || []) {
+    const date = photo.dateTaken || photo.date
+    items.push({
+      kind: 'photo',
+      date,
+      timestamp: toTimestamp(date),
+      photo,
+    })
+  }
+
+  for (const post of postsData.value?.posts || []) {
+    items.push({
+      kind: 'stack',
+      date: post.date,
+      timestamp: toTimestamp(post.date),
+      post,
+    })
+  }
+
+  items.sort((a, b) => b.timestamp - a.timestamp)
+  return items
 })
+
+function toTimestamp(dateStr) {
+  if (!dateStr) return 0
+  try {
+    const normalized = String(dateStr).replace(/^(\d{4}):(\d{2}):(\d{2})/, '$1-$2-$3')
+    return new Date(normalized).getTime() || 0
+  } catch {
+    return 0
+  }
+}
 
 const thumbUrl = (photo, width) => {
   const base = photo.url.split('/upload/')[0] + '/upload/'
   const path = photo.url.split('/upload/')[1]
-  // Strip any existing transforms from the path
   const cleanPath = path.replace(/^v\d+\//, '')
   const version = path.match(/^(v\d+\/)/)?.[1] || ''
   return `${base}c_scale,f_auto,fl_progressive,q_auto:good,w_${width}/${version}${cleanPath}`
@@ -100,44 +64,123 @@ const placeholderUrl = (photo) => {
 
 const shortCamera = (model) => {
   if (!model) return ''
-  return model
-    .replace('FUJIFILM ', '')
-    .replace('Canon ', '')
-    .replace('NIKON ', '')
-    .replace('Sony ', '')
+  return model.replace('FUJIFILM ', '').replace('Canon ', '').replace('NIKON ', '').replace('Sony ', '')
 }
 
 const formatDate = (dateStr) => {
   if (!dateStr) return ''
   try {
-    // Handle EXIF date format "2025:09:13 13:14:29"
     const normalized = dateStr.replace(/^(\d{4}):(\d{2}):(\d{2})/, '$1-$2-$3')
-    const d = new Date(normalized)
-    return d.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-    })
+    return new Date(normalized).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })
   } catch {
     return ''
   }
 }
 
-useHead({
-  title: 'Photos — EJ Fox',
-})
+useHead({ title: 'Photos — EJ Fox' })
 </script>
 
+<template>
+  <main class="photos-page">
+    <header class="photos-page__header">
+      <h1 class="photos-page__title">Photos</h1>
+      <p v-if="!pending" class="photos-page__sub">
+        {{ feed.length }} items · {{ postsData?.total ?? 0 }} posts
+      </p>
+    </header>
+
+    <div v-if="pending" class="photos-page__status">Loading…</div>
+
+    <!-- Interleaved feed: masonry columns; stacks span full width -->
+    <div v-else-if="feed.length" class="photo-grid">
+      <template v-for="item in feed" :key="item.kind + (item.photo?.id || item.post?.slug)">
+        <!-- Individual photo -->
+        <a
+          v-if="item.kind === 'photo'"
+          :href="`/photos/${encodeURIComponent(item.photo.id)}`"
+          class="photo-item"
+          :style="{
+            aspectRatio: item.photo.aspect,
+            backgroundImage: `url(${placeholderUrl(item.photo)})`,
+            backgroundSize: 'cover',
+          }"
+        >
+          <img
+            :src="thumbUrl(item.photo, 1200)"
+            :srcset="`${thumbUrl(item.photo, 640)} 640w, ${thumbUrl(item.photo, 1200)} 1200w, ${thumbUrl(item.photo, 1920)} 1920w`"
+            sizes="(max-width: 768px) 95vw, 48vw"
+            :width="item.photo.width"
+            :height="item.photo.height"
+            :alt="item.photo.description || 'Photograph'"
+            loading="lazy"
+            decoding="async"
+            class="photo-img"
+          />
+          <div class="photo-meta">
+            <span v-if="item.photo.camera" class="photo-exif">{{ shortCamera(item.photo.camera) }}</span>
+            <span v-if="item.photo.focalLength" class="photo-exif">{{ item.photo.focalLength }}mm</span>
+            <span v-if="item.photo.aperture" class="photo-exif">f/{{ item.photo.aperture }}</span>
+            <span v-if="item.photo.shutter" class="photo-exif">{{ item.photo.shutter }}s</span>
+            <span v-if="item.photo.iso" class="photo-exif">ISO {{ item.photo.iso }}</span>
+          </div>
+          <div class="photo-date">{{ formatDate(item.photo.dateTaken || item.photo.date) }}</div>
+        </a>
+
+        <!-- Photo-post stack: a column-flow card that breaks out when expanded -->
+        <PhotoStack v-else :post="item.post" />
+      </template>
+    </div>
+
+    <div v-else class="photos-page__status">No photographs</div>
+  </main>
+</template>
+
 <style scoped>
+.photos-page {
+  padding: 3rem 1rem 6rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.photos-page__header {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
+}
+.photos-page__title {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 2rem;
+  line-height: 1;
+  margin: 0;
+}
+.photos-page__sub {
+  margin: 0;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.5;
+}
+.photos-page__status {
+  padding: 3rem 0;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.8rem;
+  opacity: 0.5;
+}
+
+/* ---- Masonry columns for individual photos ---- */
 .photo-grid {
   columns: 1;
   column-gap: 12px;
-  max-width: 1400px;
 }
-
 @media (min-width: 768px) {
-  .photo-grid {
-    columns: 2;
-  }
+  .photo-grid { columns: 2; }
+}
+@media (min-width: 1280px) {
+  .photo-grid { columns: 3; }
 }
 
 .photo-item {
@@ -147,23 +190,17 @@ useHead({
   position: relative;
   overflow: hidden;
 }
-
 .photo-img {
   width: 100%;
   height: auto;
   display: block;
   transition: opacity 0.2s ease;
 }
-
-.photo-item:hover .photo-img {
-  opacity: 0.92;
-}
+.photo-item:hover .photo-img { opacity: 0.92; }
 
 .photo-meta {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  bottom: 0; left: 0; right: 0;
   padding: 4px 6px;
   display: flex;
   gap: 8px;
@@ -171,22 +208,16 @@ useHead({
   transition: opacity 0.15s ease;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
 }
-
-.photo-item:hover .photo-meta {
-  opacity: 1;
-}
-
+.photo-item:hover .photo-meta { opacity: 1; }
 .photo-exif {
   font-family: ui-monospace, monospace;
   font-size: 9px;
   color: rgba(255, 255, 255, 0.8);
   letter-spacing: 0.02em;
 }
-
 .photo-date {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 0; right: 0;
   padding: 3px 6px;
   font-family: ui-monospace, monospace;
   font-size: 9px;
@@ -195,8 +226,6 @@ useHead({
   transition: opacity 0.15s ease;
   background: linear-gradient(rgba(0, 0, 0, 0.4), transparent);
 }
+.photo-item:hover .photo-date { opacity: 1; }
 
-.photo-item:hover .photo-date {
-  opacity: 1;
-}
 </style>

@@ -1,0 +1,501 @@
+{
+  "name": "tldraw-livestream",
+  "description": "tldraw plugin for collaborative livestream canvases with moderation — let your audience draw with you",
+  "url": "https://github.com/ejfox/tldraw-livestream",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "TypeScript",
+  "languageColor": "#3178c6",
+  "languages": {
+    "TypeScript": 106188
+  },
+  "diskUsage": 92,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 49
+      },
+      {
+        "path": "LICENSE",
+        "size": 1063
+      },
+      {
+        "path": "README.md",
+        "size": 9177
+      },
+      {
+        "path": "package-lock.json",
+        "size": 198713
+      },
+      {
+        "path": "package.json",
+        "size": 504
+      },
+      {
+        "path": "packages/client/package.json",
+        "size": 1050
+      },
+      {
+        "path": "packages/client/src/components/ChatOverlay.tsx",
+        "size": 6749
+      },
+      {
+        "path": "packages/client/src/components/FreezeOverlay.tsx",
+        "size": 2918
+      },
+      {
+        "path": "packages/client/src/components/ModToolbar.tsx",
+        "size": 9828
+      },
+      {
+        "path": "packages/client/src/components/NamePicker.tsx",
+        "size": 7520
+      },
+      {
+        "path": "packages/client/src/components/SpectatorBar.tsx",
+        "size": 8307
+      },
+      {
+        "path": "packages/client/src/components/SpotlightOverlay.tsx",
+        "size": 1266
+      },
+      {
+        "path": "packages/client/src/components/StreamOverlay.tsx",
+        "size": 7803
+      },
+      {
+        "path": "packages/client/src/index.ts",
+        "size": 1624
+      },
+      {
+        "path": "packages/client/src/moderation/useRateLimiter.ts",
+        "size": 1576
+      },
+      {
+        "path": "packages/client/src/moderation/useRoleEnforcement.ts",
+        "size": 2285
+      },
+      {
+        "path": "packages/client/src/overrides/livestreamActions.ts",
+        "size": 1003
+      },
+      {
+        "path": "packages/client/src/overrides/livestreamComponents.tsx",
+        "size": 1327
+      },
+      {
+        "path": "packages/client/src/plugin/LivestreamPlugin.tsx",
+        "size": 5953
+      },
+      {
+        "path": "packages/client/src/plugin/useLivestreamContext.ts",
+        "size": 1766
+      },
+      {
+        "path": "packages/client/src/snapshots/SnapshotManager.ts",
+        "size": 1748
+      },
+      {
+        "path": "packages/client/src/types.ts",
+        "size": 948
+      },
+      {
+        "path": "packages/client/tsconfig.json",
+        "size": 137
+      },
+      {
+        "path": "packages/client/tsup.config.ts",
+        "size": 258
+      },
+      {
+        "path": "packages/server/package.json",
+        "size": 801
+      },
+      {
+        "path": "packages/server/src/__tests__/BanList.test.ts",
+        "size": 1271
+      },
+      {
+        "path": "packages/server/src/__tests__/LivestreamMiddleware.test.ts",
+        "size": 16760
+      },
+      {
+        "path": "packages/server/src/__tests__/RateLimiter.test.ts",
+        "size": 1670
+      },
+      {
+        "path": "packages/server/src/index.ts",
+        "size": 945
+      },
+      {
+        "path": "packages/server/src/middleware/BanList.ts",
+        "size": 956
+      },
+      {
+        "path": "packages/server/src/middleware/LivestreamMiddleware.ts",
+        "size": 14582
+      },
+      {
+        "path": "packages/server/src/middleware/RateLimiter.ts",
+        "size": 1091
+      },
+      {
+        "path": "packages/server/src/middleware/RoleStore.ts",
+        "size": 1227
+      },
+      {
+        "path": "packages/server/src/types.ts",
+        "size": 1237
+      },
+      {
+        "path": "packages/server/tsconfig.json",
+        "size": 376
+      },
+      {
+        "path": "packages/server/tsup.config.ts",
+        "size": 192
+      },
+      {
+        "path": "packages/shared/package.json",
+        "size": 647
+      },
+      {
+        "path": "packages/shared/src/index.ts",
+        "size": 3044
+      },
+      {
+        "path": "packages/shared/tsconfig.json",
+        "size": 376
+      },
+      {
+        "path": "packages/shared/tsup.config.ts",
+        "size": 192
+      },
+      {
+        "path": "tsconfig.base.json",
+        "size": 378
+      },
+      {
+        "path": "vitest.config.ts",
+        "size": 142
+      }
+    ],
+    "tree": {
+      "name": "tldraw-livestream",
+      "children": [
+        {
+          "name": "packages",
+          "children": [
+            {
+              "name": "client",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "components",
+                      "children": [
+                        {
+                          "name": "ChatOverlay.tsx",
+                          "size": 6749,
+                          "path": "packages/client/src/components/ChatOverlay.tsx"
+                        },
+                        {
+                          "name": "FreezeOverlay.tsx",
+                          "size": 2918,
+                          "path": "packages/client/src/components/FreezeOverlay.tsx"
+                        },
+                        {
+                          "name": "ModToolbar.tsx",
+                          "size": 9828,
+                          "path": "packages/client/src/components/ModToolbar.tsx"
+                        },
+                        {
+                          "name": "NamePicker.tsx",
+                          "size": 7520,
+                          "path": "packages/client/src/components/NamePicker.tsx"
+                        },
+                        {
+                          "name": "SpectatorBar.tsx",
+                          "size": 8307,
+                          "path": "packages/client/src/components/SpectatorBar.tsx"
+                        },
+                        {
+                          "name": "SpotlightOverlay.tsx",
+                          "size": 1266,
+                          "path": "packages/client/src/components/SpotlightOverlay.tsx"
+                        },
+                        {
+                          "name": "StreamOverlay.tsx",
+                          "size": 7803,
+                          "path": "packages/client/src/components/StreamOverlay.tsx"
+                        }
+                      ],
+                      "path": "packages/client/src/components"
+                    },
+                    {
+                      "name": "moderation",
+                      "children": [
+                        {
+                          "name": "useRateLimiter.ts",
+                          "size": 1576,
+                          "path": "packages/client/src/moderation/useRateLimiter.ts"
+                        },
+                        {
+                          "name": "useRoleEnforcement.ts",
+                          "size": 2285,
+                          "path": "packages/client/src/moderation/useRoleEnforcement.ts"
+                        }
+                      ],
+                      "path": "packages/client/src/moderation"
+                    },
+                    {
+                      "name": "overrides",
+                      "children": [
+                        {
+                          "name": "livestreamActions.ts",
+                          "size": 1003,
+                          "path": "packages/client/src/overrides/livestreamActions.ts"
+                        },
+                        {
+                          "name": "livestreamComponents.tsx",
+                          "size": 1327,
+                          "path": "packages/client/src/overrides/livestreamComponents.tsx"
+                        }
+                      ],
+                      "path": "packages/client/src/overrides"
+                    },
+                    {
+                      "name": "plugin",
+                      "children": [
+                        {
+                          "name": "LivestreamPlugin.tsx",
+                          "size": 5953,
+                          "path": "packages/client/src/plugin/LivestreamPlugin.tsx"
+                        },
+                        {
+                          "name": "useLivestreamContext.ts",
+                          "size": 1766,
+                          "path": "packages/client/src/plugin/useLivestreamContext.ts"
+                        }
+                      ],
+                      "path": "packages/client/src/plugin"
+                    },
+                    {
+                      "name": "snapshots",
+                      "children": [
+                        {
+                          "name": "SnapshotManager.ts",
+                          "size": 1748,
+                          "path": "packages/client/src/snapshots/SnapshotManager.ts"
+                        }
+                      ],
+                      "path": "packages/client/src/snapshots"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 1624,
+                      "path": "packages/client/src/index.ts"
+                    },
+                    {
+                      "name": "types.ts",
+                      "size": 948,
+                      "path": "packages/client/src/types.ts"
+                    }
+                  ],
+                  "path": "packages/client/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 1050,
+                  "path": "packages/client/package.json"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "size": 137,
+                  "path": "packages/client/tsconfig.json"
+                },
+                {
+                  "name": "tsup.config.ts",
+                  "size": 258,
+                  "path": "packages/client/tsup.config.ts"
+                }
+              ],
+              "path": "packages/client"
+            },
+            {
+              "name": "server",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "__tests__",
+                      "children": [
+                        {
+                          "name": "BanList.test.ts",
+                          "size": 1271,
+                          "path": "packages/server/src/__tests__/BanList.test.ts"
+                        },
+                        {
+                          "name": "LivestreamMiddleware.test.ts",
+                          "size": 16760,
+                          "path": "packages/server/src/__tests__/LivestreamMiddleware.test.ts"
+                        },
+                        {
+                          "name": "RateLimiter.test.ts",
+                          "size": 1670,
+                          "path": "packages/server/src/__tests__/RateLimiter.test.ts"
+                        }
+                      ],
+                      "path": "packages/server/src/__tests__"
+                    },
+                    {
+                      "name": "middleware",
+                      "children": [
+                        {
+                          "name": "BanList.ts",
+                          "size": 956,
+                          "path": "packages/server/src/middleware/BanList.ts"
+                        },
+                        {
+                          "name": "LivestreamMiddleware.ts",
+                          "size": 14582,
+                          "path": "packages/server/src/middleware/LivestreamMiddleware.ts"
+                        },
+                        {
+                          "name": "RateLimiter.ts",
+                          "size": 1091,
+                          "path": "packages/server/src/middleware/RateLimiter.ts"
+                        },
+                        {
+                          "name": "RoleStore.ts",
+                          "size": 1227,
+                          "path": "packages/server/src/middleware/RoleStore.ts"
+                        }
+                      ],
+                      "path": "packages/server/src/middleware"
+                    },
+                    {
+                      "name": "index.ts",
+                      "size": 945,
+                      "path": "packages/server/src/index.ts"
+                    },
+                    {
+                      "name": "types.ts",
+                      "size": 1237,
+                      "path": "packages/server/src/types.ts"
+                    }
+                  ],
+                  "path": "packages/server/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 801,
+                  "path": "packages/server/package.json"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "size": 376,
+                  "path": "packages/server/tsconfig.json"
+                },
+                {
+                  "name": "tsup.config.ts",
+                  "size": 192,
+                  "path": "packages/server/tsup.config.ts"
+                }
+              ],
+              "path": "packages/server"
+            },
+            {
+              "name": "shared",
+              "children": [
+                {
+                  "name": "src",
+                  "children": [
+                    {
+                      "name": "index.ts",
+                      "size": 3044,
+                      "path": "packages/shared/src/index.ts"
+                    }
+                  ],
+                  "path": "packages/shared/src"
+                },
+                {
+                  "name": "package.json",
+                  "size": 647,
+                  "path": "packages/shared/package.json"
+                },
+                {
+                  "name": "tsconfig.json",
+                  "size": 376,
+                  "path": "packages/shared/tsconfig.json"
+                },
+                {
+                  "name": "tsup.config.ts",
+                  "size": 192,
+                  "path": "packages/shared/tsup.config.ts"
+                }
+              ],
+              "path": "packages/shared"
+            }
+          ],
+          "path": "packages"
+        },
+        {
+          "name": ".gitignore",
+          "size": 49,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1063,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 9177,
+          "path": "README.md"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 198713,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 504,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.base.json",
+          "size": 378,
+          "path": "tsconfig.base.json"
+        },
+        {
+          "name": "vitest.config.ts",
+          "size": 142,
+          "path": "vitest.config.ts"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 42,
+    "totalSize": 319459
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"tldraw-livestream\">tldraw-livestream</h1>\n<p>A plugin for <a href=\"https://tldraw.dev\">tldraw</a> that adds collaborative livestream canvas features with moderation — let your audience draw together with you.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li><strong>Easy join</strong> — viewers get a link, pick a name and color, start drawing</li>\n<li><strong>Role-based permissions</strong> — Host, Moderator, Editor, Viewer</li>\n<li><strong>Canvas freeze</strong> — instantly lock editing for non-moderators</li>\n<li><strong>Kick/ban</strong> — remove disruptive users</li>\n<li><strong>Rate limiting</strong> — prevent shape spam (server-authoritative, separate limits for shapes and chat)</li>\n<li><strong>Snapshots &amp; rollback</strong> — save/restore canvas state</li>\n<li><strong>Spotlight</strong> — host can highlight areas for viewers to see</li>\n<li><strong>Chat overlay</strong> — built-in chat on the canvas</li>\n<li><strong>Spectator bar</strong> — live viewer count, role badges, user avatars</li>\n<li><strong>OBS stream overlay</strong> — standalone transparent overlay component for OBS browser source</li>\n</ul>\n<h2 id=\"architecture\">Architecture</h2>\n<p>Three packages in a monorepo:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Package</th><th>Purpose</th></tr></thead><tbody><tr><td><code>@tldraw-livestream/shared</code></td><td>Shared types, role utilities, and WS protocol definitions</td></tr><tr><td><code>@tldraw-livestream/client</code></td><td>React components + tldraw hooks for the frontend</td></tr><tr><td><code>@tldraw-livestream/server</code></td><td>WebSocket middleware for server-authoritative moderation</td></tr></tbody></table>\n<p>The <strong>client</strong> provides UX and optimistic enforcement (disables tools for viewers, shows overlays). The <strong>server</strong> is the authoritative enforcer — a malicious client can't bypass role checks. Both import types from <strong>shared</strong> so protocol definitions are always in sync.</p>\n<h2 id=\"quick-start\">Quick Start</h2>\n<h3 id=\"install\">Install</h3>\n<pre><code class=\"language-bash\">npm install @tldraw-livestream/client @tldraw-livestream/server\n</code></pre>\n<h3 id=\"client-setup\">Client Setup</h3>\n<p>The plugin has two layers:</p>\n<ol>\n<li><code>&lt;LivestreamPlugin&gt;</code> — wraps your app, provides context and handles WS messages</li>\n<li><code>useRoleEnforcement()</code> / <code>useRateLimiter()</code> — must be called <strong>inside</strong> the <code>&lt;Tldraw&gt;</code> component tree (they need <code>useEditor()</code>)</li>\n</ol>\n<pre><code class=\"language-tsx\">import { useState } from 'react';\nimport { Tldraw } from 'tldraw';\nimport {\n  LivestreamPlugin,\n  livestreamComponents,\n  livestreamOverrides,\n  useRoleEnforcement,\n  useRateLimiter,\n  NamePicker,\n} from '@tldraw-livestream/client';\n\nfunction App() {\n  const [joined, setJoined] = useState(false);\n  const [ws, setWs] = useState&lt;WebSocket | null&gt;(null);\n  const [userId] = useState(() =&gt; crypto.randomUUID());\n\n  const handleJoin = (name: string, color: string) =&gt; {\n    const socket = new WebSocket(`wss://your-server.com/ws/my-room?name=${name}`);\n    socket.onopen = () =&gt; {\n      socket.send(JSON.stringify({ type: 'livestream:join', name, color }));\n      setWs(socket);\n      setJoined(true);\n    };\n  };\n\n  if (!joined) return &lt;NamePicker onJoin={handleJoin} roomName=\"My Livestream\" /&gt;;\n\n  return (\n    &lt;LivestreamPlugin ws={ws} userId={userId} onKicked={() =&gt; setJoined(false)}&gt;\n      &lt;Tldraw\n        components={livestreamComponents}\n        overrides={[livestreamOverrides]}\n      &gt;\n        {/* This component MUST be a child of &lt;Tldraw&gt; — it calls useEditor() */}\n        &lt;LivestreamEnforcement /&gt;\n      &lt;/Tldraw&gt;\n    &lt;/LivestreamPlugin&gt;\n  );\n}\n\n/**\n * Mounts inside &lt;Tldraw&gt; to enforce roles on the editor instance.\n * Without this, role checks only happen server-side (which is still safe,\n * but the client UX won't reflect the restrictions).\n */\nfunction LivestreamEnforcement() {\n  useRoleEnforcement(); // sets readonly for viewers, blocks edits when frozen\n  useRateLimiter();     // warns when approaching server-side rate limit\n  return null;\n}\n</code></pre>\n<h3 id=\"server-setup\">Server Setup</h3>\n<p>Wrap your WebSocket message handler:</p>\n<pre><code class=\"language-ts\">import { createLivestreamMiddleware } from '@tldraw-livestream/server';\n\nconst livestream = createLivestreamMiddleware({\n  defaultRole: 'editor',       // new users can draw by default\n  hostToken: 'my-secret-123',  // pass this token to become host\n  rateLimitMax: 50,             // max 50 shape ops per 10 seconds\n  rateLimitWindow: 10_000,\n});\n\n// When a client connects:\nconst connectResult = livestream.onConnect(roomId, clientId, {\n  name: userName,\n  color: userColor,\n  hostToken: queryParams.hostToken,\n  ip: request.ip, // optional, used for IP bans\n});\n// Send connectResult.sendTo messages, broadcast connectResult.broadcast\n\n// When a message arrives:\nconst result = livestream.onMessage(roomId, clientId, parsedMessage);\n\nif (!result.allowed) {\n  // Send result.respondToSender back to the client if present\n  // Broadcast result.broadcast to all room clients if present\n  // Disconnect result.disconnect clients if present\n  return; // don't pass to your sync handler\n}\n\n// Process result.transformed || parsedMessage through your normal sync\n// Also handle result.broadcast / result.sendTo if present\n\n// When a client disconnects:\nconst disconnectResult = livestream.onDisconnect(roomId, clientId);\n// Broadcast disconnectResult.broadcast\n</code></pre>\n<h3 id=\"obs-stream-overlay\">OBS Stream Overlay</h3>\n<p>For streamers, <code>StreamOverlay</code> is designed as a standalone OBS browser source. It renders on a transparent background with just the LIVE badge, viewer count, and join/leave toasts:</p>\n<pre><code class=\"language-tsx\">import { LivestreamPlugin, StreamOverlay } from '@tldraw-livestream/client';\n\n// Mount this on a separate route (e.g., /stream-overlay) and add as OBS browser source\nfunction StreamOverlayPage() {\n  return (\n    &lt;LivestreamPlugin ws={ws} userId=\"overlay\"&gt;\n      &lt;StreamOverlay position=\"top-right\" showActivity showJoinLeave /&gt;\n    &lt;/LivestreamPlugin&gt;\n  );\n}\n</code></pre>\n<h2 id=\"roles\">Roles</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Role</th><th>Can draw</th><th>Can moderate</th><th>Can change roles</th></tr></thead><tbody><tr><td><strong>Host</strong></td><td>Yes</td><td>Yes</td><td>Yes</td></tr><tr><td><strong>Moderator</strong></td><td>Yes</td><td>Yes (can't kick mods)</td><td>No</td></tr><tr><td><strong>Editor</strong></td><td>Yes</td><td>No</td><td>No</td></tr><tr><td><strong>Viewer</strong></td><td>No (readonly)</td><td>No</td><td>No</td></tr></tbody></table>\n<p>The first user to connect with the correct <code>hostToken</code> becomes host. If no <code>hostToken</code> is configured, the first user is automatically host.</p>\n<h2 id=\"components\">Components</h2>\n<p>All components are individually importable for custom layouts:</p>\n<pre><code class=\"language-tsx\">import {\n  SpectatorBar,     // Viewer count, role badge, avatars, join toasts\n  ModToolbar,       // Host/mod panel: freeze, kick, snapshots, role management\n  ChatOverlay,      // Chat panel with slide-in messages\n  FreezeOverlay,    // Scan line + \"canvas frozen\" banner\n  SpotlightOverlay, // Host highlight rectangle\n  NamePicker,       // Pre-join lobby: name + color picker\n  StreamOverlay,    // OBS-ready transparent overlay (LIVE badge + count)\n} from '@tldraw-livestream/client';\n</code></pre>\n<p>Or use the pre-composed <code>livestreamComponents</code> which maps them to tldraw's <code>TopPanel</code>, <code>InFrontOfTheCanvas</code>, and <code>SharePanel</code> slots.</p>\n<h2 id=\"keyboard-shortcuts\">Keyboard Shortcuts</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Shortcut</th><th>Action</th><th>Requires</th></tr></thead><tbody><tr><td><code>Ctrl+Shift+F</code></td><td>Toggle canvas freeze</td><td>Host or Moderator</td></tr><tr><td><code>Ctrl+Shift+S</code></td><td>Save snapshot</td><td>Host or Moderator</td></tr></tbody></table>\n<h2 id=\"protocol\">Protocol</h2>\n<p>The plugin extends whatever WebSocket protocol you use with <code>livestream:*</code> message types. See <a href=\"packages/shared/src/index.ts\">shared/src/index.ts</a> for the full protocol definition.</p>\n<h2 id=\"configuration\">Configuration</h2>\n<p>Client and server have separate config interfaces that share a common base:</p>\n<pre><code class=\"language-ts\">// Client config (@tldraw-livestream/client)\ninterface LivestreamConfig {\n  defaultRole?: Role;          // Default: 'editor'\n  rateLimitMax?: number;       // Default: 50\n  rateLimitWindow?: number;    // Default: 10000 (ms)\n  snapshotInterval?: number;   // Default: 60000 (ms, 0 to disable)\n  maxSnapshots?: number;       // Default: 20\n  enableChat?: boolean;        // Default: true (client only)\n  enableSpotlight?: boolean;   // Default: true (client only)\n}\n\n// Server config (@tldraw-livestream/server)\ninterface LivestreamConfig {\n  defaultRole?: Role;          // Default: 'editor'\n  rateLimitMax?: number;       // Default: 50\n  rateLimitWindow?: number;    // Default: 10000 (ms)\n  snapshotInterval?: number;   // Default: 60000 (ms, 0 to disable)\n  maxSnapshots?: number;       // Default: 20\n  hostToken?: string;          // Secret for host authentication (server only)\n  onBan?: (userId, ip?) =&gt; void;   // Ban persistence callback (server only)\n  isBanned?: (userId, ip?) =&gt; boolean; // Ban check callback (server only)\n}\n</code></pre>\n<h2 id=\"security\">Security</h2>\n<ul>\n<li><strong>Server-authoritative</strong>: All role checks, rate limiting, and freeze enforcement happen server-side. Client enforcement is UX sugar.</li>\n<li><strong>Input sanitization</strong>: Names are stripped of HTML tags and control characters. Colors are validated as hex format. Role values are validated against an enum.</li>\n<li><strong>Rate limiting</strong>: Shape edits and chat messages have separate rate limit pools so chat spam can't block drawing.</li>\n<li><strong>Timing-safe token comparison</strong>: <code>hostToken</code> is compared using constant-time comparison to prevent timing attacks.</li>\n<li><strong>Room limits</strong>: Server caps at 10,000 concurrent rooms to prevent memory exhaustion.</li>\n<li><strong>Re-join protection</strong>: Already-connected clients can't re-send <code>livestream:join</code> to re-assert a host role.</li>\n</ul>\n<h2 id=\"known-limitations\">Known Limitations</h2>\n<ul>\n<li><strong>Bans are in-memory by default.</strong> They don't survive server restarts and are scoped per room instance. Use the <code>onBan</code>/<code>isBanned</code> callbacks to persist bans to your own storage (database, Redis, etc.).</li>\n<li><strong>No per-room config.</strong> All rooms share the same middleware config. If you need different rate limits per room, create multiple middleware instances.</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",
+    "raw": "# tldraw-livestream\n\nA plugin for [tldraw](https://tldraw.dev) that adds collaborative livestream canvas features with moderation — let your audience draw together with you.\n\n## Features\n\n- **Easy join** — viewers get a link, pick a name and color, start drawing\n- **Role-based permissions** — Host, Moderator, Editor, Viewer\n- **Canvas freeze** — instantly lock editing for non-moderators\n- **Kick/ban** — remove disruptive users\n- **Rate limiting** — prevent shape spam (server-authoritative, separate limits for shapes and chat)\n- **Snapshots & rollback** — save/restore canvas state\n- **Spotlight** — host can highlight areas for viewers to see\n- **Chat overlay** — built-in chat on the canvas\n- **Spectator bar** — live viewer count, role badges, user avatars\n- **OBS stream overlay** — standalone transparent overlay component for OBS browser source\n\n## Architecture\n\nThree packages in a monorepo:\n\n| Package | Purpose |\n|---------|---------|\n| `@tldraw-livestream/shared` | Shared types, role utilities, and WS protocol definitions |\n| `@tldraw-livestream/client` | React components + tldraw hooks for the frontend |\n| `@tldraw-livestream/server` | WebSocket middleware for server-authoritative moderation |\n\nThe **client** provides UX and optimistic enforcement (disables tools for viewers, shows overlays). The **server** is the authoritative enforcer — a malicious client can't bypass role checks. Both import types from **shared** so protocol definitions are always in sync.\n\n## Quick Start\n\n### Install\n\n```bash\nnpm install @tldraw-livestream/client @tldraw-livestream/server\n```\n\n### Client Setup\n\nThe plugin has two layers:\n\n1. `<LivestreamPlugin>` — wraps your app, provides context and handles WS messages\n2. `useRoleEnforcement()` / `useRateLimiter()` — must be called **inside** the `<Tldraw>` component tree (they need `useEditor()`)\n\n```tsx\nimport { useState } from 'react';\nimport { Tldraw } from 'tldraw';\nimport {\n  LivestreamPlugin,\n  livestreamComponents,\n  livestreamOverrides,\n  useRoleEnforcement,\n  useRateLimiter,\n  NamePicker,\n} from '@tldraw-livestream/client';\n\nfunction App() {\n  const [joined, setJoined] = useState(false);\n  const [ws, setWs] = useState<WebSocket | null>(null);\n  const [userId] = useState(() => crypto.randomUUID());\n\n  const handleJoin = (name: string, color: string) => {\n    const socket = new WebSocket(`wss://your-server.com/ws/my-room?name=${name}`);\n    socket.onopen = () => {\n      socket.send(JSON.stringify({ type: 'livestream:join', name, color }));\n      setWs(socket);\n      setJoined(true);\n    };\n  };\n\n  if (!joined) return <NamePicker onJoin={handleJoin} roomName=\"My Livestream\" />;\n\n  return (\n    <LivestreamPlugin ws={ws} userId={userId} onKicked={() => setJoined(false)}>\n      <Tldraw\n        components={livestreamComponents}\n        overrides={[livestreamOverrides]}\n      >\n        {/* This component MUST be a child of <Tldraw> — it calls useEditor() */}\n        <LivestreamEnforcement />\n      </Tldraw>\n    </LivestreamPlugin>\n  );\n}\n\n/**\n * Mounts inside <Tldraw> to enforce roles on the editor instance.\n * Without this, role checks only happen server-side (which is still safe,\n * but the client UX won't reflect the restrictions).\n */\nfunction LivestreamEnforcement() {\n  useRoleEnforcement(); // sets readonly for viewers, blocks edits when frozen\n  useRateLimiter();     // warns when approaching server-side rate limit\n  return null;\n}\n```\n\n### Server Setup\n\nWrap your WebSocket message handler:\n\n```ts\nimport { createLivestreamMiddleware } from '@tldraw-livestream/server';\n\nconst livestream = createLivestreamMiddleware({\n  defaultRole: 'editor',       // new users can draw by default\n  hostToken: 'my-secret-123',  // pass this token to become host\n  rateLimitMax: 50,             // max 50 shape ops per 10 seconds\n  rateLimitWindow: 10_000,\n});\n\n// When a client connects:\nconst connectResult = livestream.onConnect(roomId, clientId, {\n  name: userName,\n  color: userColor,\n  hostToken: queryParams.hostToken,\n  ip: request.ip, // optional, used for IP bans\n});\n// Send connectResult.sendTo messages, broadcast connectResult.broadcast\n\n// When a message arrives:\nconst result = livestream.onMessage(roomId, clientId, parsedMessage);\n\nif (!result.allowed) {\n  // Send result.respondToSender back to the client if present\n  // Broadcast result.broadcast to all room clients if present\n  // Disconnect result.disconnect clients if present\n  return; // don't pass to your sync handler\n}\n\n// Process result.transformed || parsedMessage through your normal sync\n// Also handle result.broadcast / result.sendTo if present\n\n// When a client disconnects:\nconst disconnectResult = livestream.onDisconnect(roomId, clientId);\n// Broadcast disconnectResult.broadcast\n```\n\n### OBS Stream Overlay\n\nFor streamers, `StreamOverlay` is designed as a standalone OBS browser source. It renders on a transparent background with just the LIVE badge, viewer count, and join/leave toasts:\n\n```tsx\nimport { LivestreamPlugin, StreamOverlay } from '@tldraw-livestream/client';\n\n// Mount this on a separate route (e.g., /stream-overlay) and add as OBS browser source\nfunction StreamOverlayPage() {\n  return (\n    <LivestreamPlugin ws={ws} userId=\"overlay\">\n      <StreamOverlay position=\"top-right\" showActivity showJoinLeave />\n    </LivestreamPlugin>\n  );\n}\n```\n\n## Roles\n\n| Role | Can draw | Can moderate | Can change roles |\n|------|----------|-------------|-----------------|\n| **Host** | Yes | Yes | Yes |\n| **Moderator** | Yes | Yes (can't kick mods) | No |\n| **Editor** | Yes | No | No |\n| **Viewer** | No (readonly) | No | No |\n\nThe first user to connect with the correct `hostToken` becomes host. If no `hostToken` is configured, the first user is automatically host.\n\n## Components\n\nAll components are individually importable for custom layouts:\n\n```tsx\nimport {\n  SpectatorBar,     // Viewer count, role badge, avatars, join toasts\n  ModToolbar,       // Host/mod panel: freeze, kick, snapshots, role management\n  ChatOverlay,      // Chat panel with slide-in messages\n  FreezeOverlay,    // Scan line + \"canvas frozen\" banner\n  SpotlightOverlay, // Host highlight rectangle\n  NamePicker,       // Pre-join lobby: name + color picker\n  StreamOverlay,    // OBS-ready transparent overlay (LIVE badge + count)\n} from '@tldraw-livestream/client';\n```\n\nOr use the pre-composed `livestreamComponents` which maps them to tldraw's `TopPanel`, `InFrontOfTheCanvas`, and `SharePanel` slots.\n\n## Keyboard Shortcuts\n\n| Shortcut | Action | Requires |\n|----------|--------|----------|\n| `Ctrl+Shift+F` | Toggle canvas freeze | Host or Moderator |\n| `Ctrl+Shift+S` | Save snapshot | Host or Moderator |\n\n## Protocol\n\nThe plugin extends whatever WebSocket protocol you use with `livestream:*` message types. See [shared/src/index.ts](packages/shared/src/index.ts) for the full protocol definition.\n\n## Configuration\n\nClient and server have separate config interfaces that share a common base:\n\n```ts\n// Client config (@tldraw-livestream/client)\ninterface LivestreamConfig {\n  defaultRole?: Role;          // Default: 'editor'\n  rateLimitMax?: number;       // Default: 50\n  rateLimitWindow?: number;    // Default: 10000 (ms)\n  snapshotInterval?: number;   // Default: 60000 (ms, 0 to disable)\n  maxSnapshots?: number;       // Default: 20\n  enableChat?: boolean;        // Default: true (client only)\n  enableSpotlight?: boolean;   // Default: true (client only)\n}\n\n// Server config (@tldraw-livestream/server)\ninterface LivestreamConfig {\n  defaultRole?: Role;          // Default: 'editor'\n  rateLimitMax?: number;       // Default: 50\n  rateLimitWindow?: number;    // Default: 10000 (ms)\n  snapshotInterval?: number;   // Default: 60000 (ms, 0 to disable)\n  maxSnapshots?: number;       // Default: 20\n  hostToken?: string;          // Secret for host authentication (server only)\n  onBan?: (userId, ip?) => void;   // Ban persistence callback (server only)\n  isBanned?: (userId, ip?) => boolean; // Ban check callback (server only)\n}\n```\n\n## Security\n\n- **Server-authoritative**: All role checks, rate limiting, and freeze enforcement happen server-side. Client enforcement is UX sugar.\n- **Input sanitization**: Names are stripped of HTML tags and control characters. Colors are validated as hex format. Role values are validated against an enum.\n- **Rate limiting**: Shape edits and chat messages have separate rate limit pools so chat spam can't block drawing.\n- **Timing-safe token comparison**: `hostToken` is compared using constant-time comparison to prevent timing attacks.\n- **Room limits**: Server caps at 10,000 concurrent rooms to prevent memory exhaustion.\n- **Re-join protection**: Already-connected clients can't re-send `livestream:join` to re-assert a host role.\n\n## Known Limitations\n\n- **Bans are in-memory by default.** They don't survive server restarts and are scoped per room instance. Use the `onBan`/`isBanned` callbacks to persist bans to your own storage (database, Redis, etc.).\n- **No per-room config.** All rooms share the same middleware config. If you need different rate limits per room, create multiple middleware instances.\n\n## License\n\nMIT\n",
+    "excerpt": "A plugin for tldraw that adds collaborative livestream canvas features with moderation — let your audience draw together with you.\n\n\n\n- Easy join — viewers get..."
+  },
+  "createdAt": "2026-03-24T15:52:12Z",
+  "updatedAt": "2026-03-24T17:15:57Z",
+  "pushedAt": "2026-03-24T17:15:54Z"
+}

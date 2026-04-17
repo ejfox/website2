@@ -1,0 +1,90 @@
+{
+  "name": "dynamicDemand",
+  "description": "A dynamic demand mod for Subway Builder",
+  "url": "https://github.com/ejfox/dynamicDemand",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 4731
+  },
+  "diskUsage": 42,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gh-assets/.gitkeep",
+        "size": 1
+      },
+      {
+        "path": ".gh-assets/UI_element.png",
+        "size": 31945
+      },
+      {
+        "path": "README.md",
+        "size": 1459
+      },
+      {
+        "path": "index.js",
+        "size": 4731
+      },
+      {
+        "path": "manifest.json",
+        "size": 228
+      }
+    ],
+    "tree": {
+      "name": "dynamicDemand",
+      "children": [
+        {
+          "name": ".gh-assets",
+          "children": [
+            {
+              "name": ".gitkeep",
+              "size": 1,
+              "path": ".gh-assets/.gitkeep"
+            },
+            {
+              "name": "UI_element.png",
+              "size": 31945,
+              "path": ".gh-assets/UI_element.png"
+            }
+          ],
+          "path": ".gh-assets"
+        },
+        {
+          "name": "README.md",
+          "size": 1459,
+          "path": "README.md"
+        },
+        {
+          "name": "index.js",
+          "size": 4731,
+          "path": "index.js"
+        },
+        {
+          "name": "manifest.json",
+          "size": 228,
+          "path": "manifest.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 5,
+    "totalSize": 38364
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h2 id=\"dynamic-demand\">Dynamic Demand</h2>\n<p>Dynamic Demand is a mod for Subway Builder that enables changing demand data on some schedule.  To accomplish this, it uses a calendar system, where the game is assumed to begin on Monday, January 1.  Currently, all years are 365 days with no consideration of leap days, but this may change in the future if people want that level of detail.</p>\n<p>At present, the modding API is not correctly fetching demand data files, so this mod is a glorified calendar system right now.  But, it will be fixed soon, at which point this will become a real mod that actually does something more than add a date.</p>\n<p>You will be able to use this mod to</p>\n<ul>\n<li>differentiate weekday vs. weekend demand</li>\n<li>change demand seasonally</li>\n<li>include day-to-day variability</li>\n<li>add demand for specific days of the year</li>\n</ul>\n<p>Keep in mind that, for larger maps, demand files can be a dozen or more MB in size, so using many different demand data files can add up to be hundreds of MBs.</p>\n<p><img src=\"./.gh-assets/UI_element.png\" alt=\"Day of week and date UI element\" /></p>\n<h2 id=\"installation\">Installation</h2>\n<ol>\n<li>Download this repo.</li>\n<li>Place the dynamicDemand folder inside your Subway Builder mods folder:\n<ul>\n<li>Linux: ~/.config/metro-maker4/mods/</li>\n<li>Mac: ~/Library/Application Support/metro-maker4/mods/</li>\n<li>Windows: %APPDATA%\\metro-maker4\\mods\\</li>\n</ul>\n</li>\n<li>Launch the game.  Go into Settings &gt; Mod Manager &gt; Ensure that \"Dynamic Demand\" is active.</li>\n</ol>\n<h2 id=\"bugs-feedback-requests\">Bugs? Feedback? Requests?</h2>\n<p>Open an issue here on GitHub, or share it on the Discord.</p>",
+    "raw": "## Dynamic Demand\n\nDynamic Demand is a mod for Subway Builder that enables changing demand data on some schedule.  To accomplish this, it uses a calendar system, where the game is assumed to begin on Monday, January 1.  Currently, all years are 365 days with no consideration of leap days, but this may change in the future if people want that level of detail.\n\nAt present, the modding API is not correctly fetching demand data files, so this mod is a glorified calendar system right now.  But, it will be fixed soon, at which point this will become a real mod that actually does something more than add a date.\n\nYou will be able to use this mod to \n- differentiate weekday vs. weekend demand\n- change demand seasonally\n- include day-to-day variability\n- add demand for specific days of the year\n\nKeep in mind that, for larger maps, demand files can be a dozen or more MB in size, so using many different demand data files can add up to be hundreds of MBs.\n\n![Day of week and date UI element](./.gh-assets/UI_element.png)\n\n\n## Installation\n\n1. Download this repo.\n2. Place the dynamicDemand folder inside your Subway Builder mods folder:\n\t- Linux: ~/.config/metro-maker4/mods/\n\t- Mac: ~/Library/Application Support/metro-maker4/mods/\n\t- Windows: %APPDATA%\\metro-maker4\\mods\\\n3. Launch the game.  Go into Settings > Mod Manager > Ensure that \"Dynamic Demand\" is active.\n\n\n## Bugs? Feedback? Requests?\n\nOpen an issue here on GitHub, or share it on the Discord.\n",
+    "excerpt": "Dynamic Demand is a mod for Subway Builder that enables changing demand data on some schedule.  To accomplish this, it uses a calendar system, where the game is..."
+  },
+  "createdAt": "2026-02-10T16:25:23Z",
+  "updatedAt": "2026-02-10T16:25:24Z",
+  "pushedAt": "2026-02-10T17:01:12Z"
+}

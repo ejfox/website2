@@ -19,6 +19,7 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
 import remarkGfm from 'remark-gfm'
+import remarkDirective from 'remark-directive'
 // import rehypeMermaid from 'rehype-mermaid' // DELETED - 64MB bloat
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeRaw from 'rehype-raw'
@@ -33,6 +34,7 @@ import { config } from './config.mjs'
 
 import {
   remarkAi2htmlEmbed,
+  remarkPredictionRef,
   remarkObsidianSupport,
   rehypeAddClassToParagraphs,
   remarkEnhanceLinks,
@@ -51,7 +53,7 @@ const SOURCE_DIR =
   '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/' +
     'ejfox/'
 
-const CACHE_VERSION = '2026-04-07-og-image-support'
+const CACHE_VERSION = '2026-04-16-lqip-trim'
 
 // OG image mapping — populated by Dispatch OG picker, maps slug → Cloudinary URL
 let ogImageMap = {}
@@ -217,11 +219,13 @@ const normalizeSlug = (slug) => {
 const processor = unified()
   .use(remarkParse)
   .use(remarkGfm) // Process footnotes FIRST before other plugins
+  .use(remarkDirective)
   .use(remarkExtractToc)
   .use(remarkObsidianSupport)
   .use(remarkEnhanceImages)
   .use(remarkEnhanceLinks)
   .use(remarkAi2htmlEmbed)
+  .use(remarkPredictionRef)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
   .use(rehypePrettyCode, {

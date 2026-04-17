@@ -12,15 +12,15 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 84074,
-    "Rust": 64876,
+    "Vue": 125627,
+    "Rust": 84506,
     "JavaScript": 12682,
     "Python": 5338,
     "Shell": 2201,
     "HTML": 565,
     "TypeScript": 493
   },
-  "diskUsage": 541,
+  "diskUsage": 2186,
   "fileTree": {
     "files": [
       {
@@ -28,8 +28,12 @@
         "size": 49
       },
       {
+        "path": "CLAUDE.md",
+        "size": 8742
+      },
+      {
         "path": "README.md",
-        "size": 1086
+        "size": 1753
       },
       {
         "path": "index.html",
@@ -37,11 +41,11 @@
       },
       {
         "path": "package-lock.json",
-        "size": 47143
+        "size": 109372
       },
       {
         "path": "package.json",
-        "size": 762
+        "size": 797
       },
       {
         "path": "preview-server.mjs",
@@ -69,19 +73,35 @@
       },
       {
         "path": "src-tauri/icons/128x128.png",
-        "size": 1478
+        "size": 12153
+      },
+      {
+        "path": "src-tauri/icons/256x256.png",
+        "size": 31280
       },
       {
         "path": "src-tauri/icons/32x32.png",
-        "size": 673
+        "size": 2052
+      },
+      {
+        "path": "src-tauri/icons/512x512.png",
+        "size": 91644
       },
       {
         "path": "src-tauri/icons/icon.icns",
-        "size": 514774
+        "size": 959600
+      },
+      {
+        "path": "src-tauri/icons/icon.svg",
+        "size": 3044
       },
       {
         "path": "src-tauri/icons/tray.png",
-        "size": 397
+        "size": 324
+      },
+      {
+        "path": "src-tauri/icons/tray.svg",
+        "size": 491
       },
       {
         "path": "src-tauri/src/asset_usage.rs",
@@ -93,7 +113,7 @@
       },
       {
         "path": "src-tauri/src/main.rs",
-        "size": 13969
+        "size": 23814
       },
       {
         "path": "src-tauri/src/obsidian.rs",
@@ -105,11 +125,11 @@
       },
       {
         "path": "src-tauri/src/publish.rs",
-        "size": 7400
+        "size": 11583
       },
       {
         "path": "src-tauri/src/vault.rs",
-        "size": 10113
+        "size": 15715
       },
       {
         "path": "src-tauri/tauri.conf.json",
@@ -117,23 +137,35 @@
       },
       {
         "path": "src/App.vue",
-        "size": 19527
+        "size": 30139
       },
       {
         "path": "src/components/FileList.vue",
-        "size": 8717
+        "size": 15253
       },
       {
         "path": "src/components/FilePreview.vue",
-        "size": 18476
+        "size": 40440
       },
       {
         "path": "src/components/LocalMediaFixer.vue",
         "size": 12446
       },
       {
-        "path": "src/components/MediaLibraryModal.vue",
-        "size": 24908
+        "path": "src/components/Media/MediaLibraryDetail.vue",
+        "size": 6064
+      },
+      {
+        "path": "src/components/Media/MediaLibraryGrid.vue",
+        "size": 4419
+      },
+      {
+        "path": "src/components/Media/MediaLibraryModal.vue",
+        "size": 13206
+      },
+      {
+        "path": "src/components/Media/MediaLibrarySidebar.vue",
+        "size": 3660
       },
       {
         "path": "src/main.ts",
@@ -183,23 +215,43 @@
               "children": [
                 {
                   "name": "128x128.png",
-                  "size": 1478,
+                  "size": 12153,
                   "path": "src-tauri/icons/128x128.png"
                 },
                 {
+                  "name": "256x256.png",
+                  "size": 31280,
+                  "path": "src-tauri/icons/256x256.png"
+                },
+                {
                   "name": "32x32.png",
-                  "size": 673,
+                  "size": 2052,
                   "path": "src-tauri/icons/32x32.png"
                 },
                 {
+                  "name": "512x512.png",
+                  "size": 91644,
+                  "path": "src-tauri/icons/512x512.png"
+                },
+                {
                   "name": "icon.icns",
-                  "size": 514774,
+                  "size": 959600,
                   "path": "src-tauri/icons/icon.icns"
                 },
                 {
+                  "name": "icon.svg",
+                  "size": 3044,
+                  "path": "src-tauri/icons/icon.svg"
+                },
+                {
                   "name": "tray.png",
-                  "size": 397,
+                  "size": 324,
                   "path": "src-tauri/icons/tray.png"
+                },
+                {
+                  "name": "tray.svg",
+                  "size": 491,
+                  "path": "src-tauri/icons/tray.svg"
                 }
               ],
               "path": "src-tauri/icons"
@@ -219,7 +271,7 @@
                 },
                 {
                   "name": "main.rs",
-                  "size": 13969,
+                  "size": 23814,
                   "path": "src-tauri/src/main.rs"
                 },
                 {
@@ -234,12 +286,12 @@
                 },
                 {
                   "name": "publish.rs",
-                  "size": 7400,
+                  "size": 11583,
                   "path": "src-tauri/src/publish.rs"
                 },
                 {
                   "name": "vault.rs",
-                  "size": 10113,
+                  "size": 15715,
                   "path": "src-tauri/src/vault.rs"
                 }
               ],
@@ -275,31 +327,52 @@
               "name": "components",
               "children": [
                 {
+                  "name": "Media",
+                  "children": [
+                    {
+                      "name": "MediaLibraryDetail.vue",
+                      "size": 6064,
+                      "path": "src/components/Media/MediaLibraryDetail.vue"
+                    },
+                    {
+                      "name": "MediaLibraryGrid.vue",
+                      "size": 4419,
+                      "path": "src/components/Media/MediaLibraryGrid.vue"
+                    },
+                    {
+                      "name": "MediaLibraryModal.vue",
+                      "size": 13206,
+                      "path": "src/components/Media/MediaLibraryModal.vue"
+                    },
+                    {
+                      "name": "MediaLibrarySidebar.vue",
+                      "size": 3660,
+                      "path": "src/components/Media/MediaLibrarySidebar.vue"
+                    }
+                  ],
+                  "path": "src/components/Media"
+                },
+                {
                   "name": "FileList.vue",
-                  "size": 8717,
+                  "size": 15253,
                   "path": "src/components/FileList.vue"
                 },
                 {
                   "name": "FilePreview.vue",
-                  "size": 18476,
+                  "size": 40440,
                   "path": "src/components/FilePreview.vue"
                 },
                 {
                   "name": "LocalMediaFixer.vue",
                   "size": 12446,
                   "path": "src/components/LocalMediaFixer.vue"
-                },
-                {
-                  "name": "MediaLibraryModal.vue",
-                  "size": 24908,
-                  "path": "src/components/MediaLibraryModal.vue"
                 }
               ],
               "path": "src/components"
             },
             {
               "name": "App.vue",
-              "size": 19527,
+              "size": 30139,
               "path": "src/App.vue"
             },
             {
@@ -321,8 +394,13 @@
           "path": ".gitignore"
         },
         {
+          "name": "CLAUDE.md",
+          "size": 8742,
+          "path": "CLAUDE.md"
+        },
+        {
           "name": "README.md",
-          "size": 1086,
+          "size": 1753,
           "path": "README.md"
         },
         {
@@ -332,12 +410,12 @@
         },
         {
           "name": "package-lock.json",
-          "size": 47143,
+          "size": 109372,
           "path": "package-lock.json"
         },
         {
           "name": "package.json",
-          "size": 762,
+          "size": 797,
           "path": "package.json"
         },
         {
@@ -363,16 +441,16 @@
       ],
       "path": ""
     },
-    "totalFiles": 33,
-    "totalSize": 885306
+    "totalFiles": 41,
+    "totalSize": 1601428
   },
   "topics": [],
   "readme": {
-    "html": "<h1 id=\"dispatch\">Dispatch</h1>\n<p>Tauri desktop app for publishing Obsidian notes to ejfox.com.</p>\n<img width=\"900\" height=\"1131\" alt=\"screenshot 2026-01-26 at 11 40 14 AM\" src=\"https://github.com/user-attachments/assets/6964af9d-aa81-4184-85d3-e0a8ef27c27f\" />\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Scans Obsidian vault (<code>blog/</code> and <code>drafts/</code> folders)</li>\n<li>Live preview using exact website markdown pipeline</li>\n<li>One-click publish with git commit/push</li>\n<li>Tracks LIVE / MODIFIED / draft status via content diff</li>\n<li>Keyboard-driven navigation (j/k, gg/G, 1-9, ? for help)</li>\n<li>Filter: All / Live / Drafts</li>\n<li>Sort: Modified / Created / Title / Words</li>\n<li>Native preview window with hot-reload</li>\n</ul>\n<h2 id=\"stack\">Stack</h2>\n<ul>\n<li><strong>Backend:</strong> Tauri (Rust)</li>\n<li><strong>Frontend:</strong> Vue 3 + TypeScript</li>\n<li><strong>Preview:</strong> Node.js server using website2's remark/rehype pipeline</li>\n</ul>\n<h2 id=\"development\">Development</h2>\n<pre><code class=\"language-bash\">npm install\nnpm run tauri dev\n</code></pre>\n<h2 id=\"build\">Build</h2>\n<pre><code class=\"language-bash\">npm run tauri build\n</code></pre>\n<p>Output: <code>src-tauri/target/release/bundle/dmg/Dispatch_x.x.x_aarch64.dmg</code></p>\n<h2 id=\"config\">Config</h2>\n<p>Edit <code>src-tauri/src/main.rs</code> to change:</p>\n<ul>\n<li><code>vault_path</code> - Obsidian vault location</li>\n<li><code>website_repo</code> - website2 repo location</li>\n</ul>",
-    "raw": "# Dispatch\n\nTauri desktop app for publishing Obsidian notes to ejfox.com.\n\n<img width=\"900\" height=\"1131\" alt=\"screenshot 2026-01-26 at 11 40 14 AM\" src=\"https://github.com/user-attachments/assets/6964af9d-aa81-4184-85d3-e0a8ef27c27f\" />\n\n## Features\n\n- Scans Obsidian vault (`blog/` and `drafts/` folders)\n- Live preview using exact website markdown pipeline\n- One-click publish with git commit/push\n- Tracks LIVE / MODIFIED / draft status via content diff\n- Keyboard-driven navigation (j/k, gg/G, 1-9, ? for help)\n- Filter: All / Live / Drafts\n- Sort: Modified / Created / Title / Words\n- Native preview window with hot-reload\n\n## Stack\n\n- **Backend:** Tauri (Rust)\n- **Frontend:** Vue 3 + TypeScript\n- **Preview:** Node.js server using website2's remark/rehype pipeline\n\n## Development\n\n```bash\nnpm install\nnpm run tauri dev\n```\n\n## Build\n\n```bash\nnpm run tauri build\n```\n\nOutput: `src-tauri/target/release/bundle/dmg/Dispatch_x.x.x_aarch64.dmg`\n\n## Config\n\nEdit `src-tauri/src/main.rs` to change:\n- `vault_path` - Obsidian vault location\n- `website_repo` - website2 repo location\n",
+    "html": "<h1 id=\"dispatch\">Dispatch</h1>\n<p>Tauri desktop app for publishing Obsidian notes to ejfox.com.</p>\n<img width=\"900\" height=\"1131\" alt=\"screenshot 2026-01-26 at 11 40 14 AM\" src=\"https://github.com/user-attachments/assets/6964af9d-aa81-4184-85d3-e0a8ef27c27f\" />\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Scans Obsidian vault (<code>blog/</code> and <code>drafts/</code> folders)</li>\n<li>Live preview using exact website markdown pipeline</li>\n<li>One-click publish with git commit/push</li>\n<li>Tracks LIVE / MODIFIED / draft status via content diff</li>\n<li>Keyboard-driven navigation (j/k, gg/G, 1-9, ? for help)</li>\n<li>Filter: All / Live / Drafts</li>\n<li>Sort: Modified / Created / Title / Words</li>\n<li>Native preview window with hot-reload</li>\n</ul>\n<h2 id=\"stack\">Stack</h2>\n<ul>\n<li><strong>Backend:</strong> Tauri (Rust)</li>\n<li><strong>Frontend:</strong> Vue 3 + TypeScript</li>\n<li><strong>Preview:</strong> Node.js server using website2's remark/rehype pipeline</li>\n</ul>\n<h2 id=\"media-library-components\">Media Library Components</h2>\n<p>The Cloudinary media library UI was split into a dedicated folder to make it easier to extend into a full-featured media management tool. The modal stays as the stateful container (loading, keyboard handling, selection, Cloudinary calls), and the UI is broken into focused subcomponents (sidebar, grid, detail). This keeps behavior centralized while letting the UI evolve without a single monolithic file.</p>\n<ul>\n<li>Container: <code>src/components/Media/MediaLibraryModal.vue</code></li>\n<li>Sidebar: <code>src/components/Media/MediaLibrarySidebar.vue</code></li>\n<li>Grid: <code>src/components/Media/MediaLibraryGrid.vue</code></li>\n<li>Detail panel: <code>src/components/Media/MediaLibraryDetail.vue</code></li>\n</ul>\n<h2 id=\"development\">Development</h2>\n<pre><code class=\"language-bash\">npm install\nnpm run tauri dev\n</code></pre>\n<h2 id=\"build\">Build</h2>\n<pre><code class=\"language-bash\">npm run tauri build\n</code></pre>\n<p>Output: <code>src-tauri/target/release/bundle/dmg/Dispatch_x.x.x_aarch64.dmg</code></p>\n<h2 id=\"config\">Config</h2>\n<p>Edit <code>src-tauri/src/main.rs</code> to change:</p>\n<ul>\n<li><code>vault_path</code> - Obsidian vault location</li>\n<li><code>website_repo</code> - website2 repo location</li>\n</ul>",
+    "raw": "# Dispatch\n\nTauri desktop app for publishing Obsidian notes to ejfox.com.\n\n<img width=\"900\" height=\"1131\" alt=\"screenshot 2026-01-26 at 11 40 14 AM\" src=\"https://github.com/user-attachments/assets/6964af9d-aa81-4184-85d3-e0a8ef27c27f\" />\n\n## Features\n\n- Scans Obsidian vault (`blog/` and `drafts/` folders)\n- Live preview using exact website markdown pipeline\n- One-click publish with git commit/push\n- Tracks LIVE / MODIFIED / draft status via content diff\n- Keyboard-driven navigation (j/k, gg/G, 1-9, ? for help)\n- Filter: All / Live / Drafts\n- Sort: Modified / Created / Title / Words\n- Native preview window with hot-reload\n\n## Stack\n\n- **Backend:** Tauri (Rust)\n- **Frontend:** Vue 3 + TypeScript\n- **Preview:** Node.js server using website2's remark/rehype pipeline\n\n## Media Library Components\n\nThe Cloudinary media library UI was split into a dedicated folder to make it easier to extend into a full-featured media management tool. The modal stays as the stateful container (loading, keyboard handling, selection, Cloudinary calls), and the UI is broken into focused subcomponents (sidebar, grid, detail). This keeps behavior centralized while letting the UI evolve without a single monolithic file.\n\n- Container: `src/components/Media/MediaLibraryModal.vue`\n- Sidebar: `src/components/Media/MediaLibrarySidebar.vue`\n- Grid: `src/components/Media/MediaLibraryGrid.vue`\n- Detail panel: `src/components/Media/MediaLibraryDetail.vue`\n\n## Development\n\n```bash\nnpm install\nnpm run tauri dev\n```\n\n## Build\n\n```bash\nnpm run tauri build\n```\n\nOutput: `src-tauri/target/release/bundle/dmg/Dispatch_x.x.x_aarch64.dmg`\n\n## Config\n\nEdit `src-tauri/src/main.rs` to change:\n- `vault_path` - Obsidian vault location\n- `website_repo` - website2 repo location\n",
     "excerpt": "Tauri desktop app for publishing Obsidian notes to ejfox.com.\n\n<img width=\"900\" height=\"1131\" alt=\"screenshot 2026-01-26 at 11 40 14 AM\" src=\"https://github.com..."
   },
   "createdAt": "2026-01-24T23:53:42Z",
-  "updatedAt": "2026-01-26T16:40:29Z",
-  "pushedAt": "2026-01-26T16:40:26Z"
+  "updatedAt": "2026-02-01T16:07:40Z",
+  "pushedAt": "2026-04-13T15:13:49Z"
 }

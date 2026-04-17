@@ -12,13 +12,13 @@
   "language": "Vue",
   "languageColor": "#41b883",
   "languages": {
-    "Vue": 324068,
-    "TypeScript": 238485,
-    "CSS": 14207,
+    "Vue": 373052,
+    "TypeScript": 257363,
+    "CSS": 14253,
     "JavaScript": 3881,
     "Lua": 14
   },
-  "diskUsage": 550,
+  "diskUsage": 592,
   "fileTree": {
     "files": [
       {
@@ -103,7 +103,7 @@
       },
       {
         "path": "assets/css/main.css",
-        "size": 12530
+        "size": 12576
       },
       {
         "path": "assets/css/tokens.css",
@@ -190,8 +190,32 @@
         "size": 17037
       },
       {
+        "path": "components/MapColorInput.vue",
+        "size": 1922
+      },
+      {
+        "path": "components/MapEditorSidebar.vue",
+        "size": 29514
+      },
+      {
+        "path": "components/MapInteractive.vue",
+        "size": 4773
+      },
+      {
+        "path": "components/MapLayerToggles.vue",
+        "size": 2634
+      },
+      {
+        "path": "components/MapLocationPresets.vue",
+        "size": 1631
+      },
+      {
         "path": "components/MapPreview.vue",
         "size": 5738
+      },
+      {
+        "path": "components/MapTypographyControls.vue",
+        "size": 4033
       },
       {
         "path": "components/NvimPreview.vue",
@@ -227,7 +251,7 @@
       },
       {
         "path": "components/ThemeSidebar.vue",
-        "size": 5531
+        "size": 5841
       },
       {
         "path": "components/TmuxPreview.vue",
@@ -242,12 +266,16 @@
         "size": 472
       },
       {
+        "path": "composables/useMapTheme.ts",
+        "size": 11506
+      },
+      {
         "path": "composables/useShowcaseAnimation.ts",
         "size": 3303
       },
       {
         "path": "composables/useTheme.ts",
-        "size": 37382
+        "size": 37804
       },
       {
         "path": "eslint.config.js",
@@ -255,7 +283,7 @@
       },
       {
         "path": "nuxt.config.ts",
-        "size": 1689
+        "size": 1855
       },
       {
         "path": "package-lock.json",
@@ -268,6 +296,10 @@
       {
         "path": "pages/index.vue",
         "size": 36210
+      },
+      {
+        "path": "pages/map.vue",
+        "size": 4167
       },
       {
         "path": "pages/showcase.vue",
@@ -415,7 +447,7 @@
       },
       {
         "path": "utils/exporters/index.ts",
-        "size": 760
+        "size": 774
       },
       {
         "path": "utils/exporters/lazygit.ts",
@@ -423,7 +455,7 @@
       },
       {
         "path": "utils/exporters/maplibre.ts",
-        "size": 27370
+        "size": 33087
       },
       {
         "path": "utils/exporters/neomutt.ts",
@@ -503,7 +535,7 @@
       },
       {
         "path": "utils/types.ts",
-        "size": 4714
+        "size": 5767
       },
       {
         "path": "vitest.config.ts",
@@ -549,7 +581,7 @@
               "children": [
                 {
                   "name": "main.css",
-                  "size": 12530,
+                  "size": 12576,
                   "path": "assets/css/main.css"
                 },
                 {
@@ -667,9 +699,39 @@
               "path": "components/ImportModal.vue"
             },
             {
+              "name": "MapColorInput.vue",
+              "size": 1922,
+              "path": "components/MapColorInput.vue"
+            },
+            {
+              "name": "MapEditorSidebar.vue",
+              "size": 29514,
+              "path": "components/MapEditorSidebar.vue"
+            },
+            {
+              "name": "MapInteractive.vue",
+              "size": 4773,
+              "path": "components/MapInteractive.vue"
+            },
+            {
+              "name": "MapLayerToggles.vue",
+              "size": 2634,
+              "path": "components/MapLayerToggles.vue"
+            },
+            {
+              "name": "MapLocationPresets.vue",
+              "size": 1631,
+              "path": "components/MapLocationPresets.vue"
+            },
+            {
               "name": "MapPreview.vue",
               "size": 5738,
               "path": "components/MapPreview.vue"
+            },
+            {
+              "name": "MapTypographyControls.vue",
+              "size": 4033,
+              "path": "components/MapTypographyControls.vue"
             },
             {
               "name": "NvimPreview.vue",
@@ -713,7 +775,7 @@
             },
             {
               "name": "ThemeSidebar.vue",
-              "size": 5531,
+              "size": 5841,
               "path": "components/ThemeSidebar.vue"
             },
             {
@@ -738,13 +800,18 @@
               "path": "composables/useHighlightedColor.ts"
             },
             {
+              "name": "useMapTheme.ts",
+              "size": 11506,
+              "path": "composables/useMapTheme.ts"
+            },
+            {
               "name": "useShowcaseAnimation.ts",
               "size": 3303,
               "path": "composables/useShowcaseAnimation.ts"
             },
             {
               "name": "useTheme.ts",
-              "size": 37382,
+              "size": 37804,
               "path": "composables/useTheme.ts"
             }
           ],
@@ -757,6 +824,11 @@
               "name": "index.vue",
               "size": 36210,
               "path": "pages/index.vue"
+            },
+            {
+              "name": "map.vue",
+              "size": 4167,
+              "path": "pages/map.vue"
             },
             {
               "name": "showcase.vue",
@@ -966,7 +1038,7 @@
                 },
                 {
                   "name": "index.ts",
-                  "size": 760,
+                  "size": 774,
                   "path": "utils/exporters/index.ts"
                 },
                 {
@@ -976,7 +1048,7 @@
                 },
                 {
                   "name": "maplibre.ts",
-                  "size": 27370,
+                  "size": 33087,
                   "path": "utils/exporters/maplibre.ts"
                 },
                 {
@@ -1095,7 +1167,7 @@
             },
             {
               "name": "types.ts",
-              "size": 4714,
+              "size": 5767,
               "path": "utils/types.ts"
             }
           ],
@@ -1198,7 +1270,7 @@
         },
         {
           "name": "nuxt.config.ts",
-          "size": 1689,
+          "size": 1855,
           "path": "nuxt.config.ts"
         },
         {
@@ -1234,8 +1306,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 122,
-    "totalSize": 1407711
+    "totalFiles": 130,
+    "totalSize": 1475619
   },
   "topics": [],
   "readme": {
@@ -1244,6 +1316,6 @@
     "excerpt": "🎨 Live Demo — Try it now in your browser\n\n<img width=\"898\" height=\"1131\" alt=\"screenshot 2025-12-28 at 5 48 34 PM\" src=\"https://github.com/user-attachments/ass..."
   },
   "createdAt": "2025-10-24T21:15:15Z",
-  "updatedAt": "2026-01-03T19:30:31Z",
-  "pushedAt": "2026-01-03T19:30:28Z"
+  "updatedAt": "2026-04-15T03:28:41Z",
+  "pushedAt": "2026-04-15T03:28:37Z"
 }

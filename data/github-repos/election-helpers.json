@@ -12,9 +12,9 @@
   "language": "JavaScript",
   "languageColor": "#f1e05a",
   "languages": {
-    "JavaScript": 100928
+    "JavaScript": 99676
   },
-  "diskUsage": 16464,
+  "diskUsage": 16547,
   "fileTree": {
     "files": [
       {
@@ -119,7 +119,7 @@
       },
       {
         "path": "package-lock.json",
-        "size": 297713
+        "size": 297794
       },
       {
         "path": "package.json",
@@ -131,7 +131,7 @@
       },
       {
         "path": "src/geographic.js",
-        "size": 9250
+        "size": 7297
       },
       {
         "path": "src/party-normalizer.js",
@@ -139,11 +139,11 @@
       },
       {
         "path": "src/universal-helpers.js",
-        "size": 23357
+        "size": 23575
       },
       {
         "path": "test/index.test.js",
-        "size": 19801
+        "size": 20284
       },
       {
         "path": "vitest.config.js",
@@ -151,7 +151,7 @@
       },
       {
         "path": "yarn.lock",
-        "size": 158680
+        "size": 158632
       }
     ],
     "tree": {
@@ -268,7 +268,7 @@
             },
             {
               "name": "geographic.js",
-              "size": 9250,
+              "size": 7297,
               "path": "src/geographic.js"
             },
             {
@@ -278,7 +278,7 @@
             },
             {
               "name": "universal-helpers.js",
-              "size": 23357,
+              "size": 23575,
               "path": "src/universal-helpers.js"
             }
           ],
@@ -289,7 +289,7 @@
           "children": [
             {
               "name": "index.test.js",
-              "size": 19801,
+              "size": 20284,
               "path": "test/index.test.js"
             }
           ],
@@ -357,7 +357,7 @@
         },
         {
           "name": "package-lock.json",
-          "size": 297713,
+          "size": 297794,
           "path": "package-lock.json"
         },
         {
@@ -372,14 +372,14 @@
         },
         {
           "name": "yarn.lock",
-          "size": 158680,
+          "size": 158632,
           "path": "yarn.lock"
         }
       ],
       "path": ""
     },
     "totalFiles": 34,
-    "totalSize": 894320
+    "totalSize": 893101
   },
   "topics": [
     "data",
@@ -392,6 +392,6 @@
     "excerpt": "![npm version](https://www.npmjs.com/package/election-helpers)\n![codecov](https://codecov.io/gh/ejfox/election-helpers)\n\nView on NPM\n\n\n\nelection-helpers is a li..."
   },
   "createdAt": "2022-07-04T16:01:43Z",
-  "updatedAt": "2026-01-11T04:21:04Z",
-  "pushedAt": "2026-01-11T04:20:59Z"
+  "updatedAt": "2026-03-23T15:22:53Z",
+  "pushedAt": "2026-03-23T15:22:42Z"
 }

@@ -13,12 +13,12 @@
   "languageColor": "#e34c26",
   "languages": {
     "HTML": 7430063,
-    "Vue": 285803,
+    "Vue": 275777,
     "CSS": 15225,
-    "JavaScript": 6678,
-    "TypeScript": 2037
+    "JavaScript": 12046,
+    "TypeScript": 2005
   },
-  "diskUsage": 54774,
+  "diskUsage": 54859,
   "fileTree": {
     "files": [
       {
@@ -47,7 +47,7 @@
       },
       {
         "path": ".nvmrc",
-        "size": 9
+        "size": 3
       },
       {
         "path": ".output/nitro.json",
@@ -866,14 +866,6 @@
         "size": 553
       },
       {
-        "path": "components/CalendarBooking.vue",
-        "size": 364
-      },
-      {
-        "path": "components/ContactForm.vue",
-        "size": 5954
-      },
-      {
         "path": "components/DataTimeline.vue",
         "size": 7981
       },
@@ -883,19 +875,15 @@
       },
       {
         "path": "components/GlobalFooter.vue",
-        "size": 5447
+        "size": 5388
       },
       {
         "path": "components/HomepageCaseStudy.vue",
-        "size": 4512
+        "size": 4328
       },
       {
         "path": "components/Logo.vue",
-        "size": 160
-      },
-      {
-        "path": "components/MailchimpSignupForm.vue",
-        "size": 2667
+        "size": 207
       },
       {
         "path": "components/MemberBio.vue",
@@ -927,7 +915,7 @@
       },
       {
         "path": "composables/useOgMetadata.js",
-        "size": 2481
+        "size": 2569
       },
       {
         "path": "content/.obsidian/app.json",
@@ -947,35 +935,35 @@
       },
       {
         "path": "content/blog/coach-artie-webhooks-cron-and-advanced-reflection.md",
-        "size": 10100
+        "size": 10236
       },
       {
         "path": "content/blog/discord-community.md",
-        "size": 1284
+        "size": 1444
       },
       {
         "path": "content/blog/how-to-give-credit.md",
-        "size": 9808
+        "size": 9989
       },
       {
         "path": "content/blog/livestreaming-our-process.md",
-        "size": 3252
+        "size": 3482
       },
       {
         "path": "content/blog/starting-a-studio-introducing-room-302.md",
-        "size": 4070
+        "size": 4315
       },
       {
         "path": "content/blog/state-of-the-studio-2024.md",
-        "size": 2554
+        "size": 2749
       },
       {
         "path": "content/members/curran-kelleher.md",
-        "size": 882
+        "size": 590
       },
       {
         "path": "content/members/ej-fox.md",
-        "size": 754
+        "size": 520
       },
       {
         "path": "content/members/elena-haliczer.md",
@@ -987,7 +975,7 @@
       },
       {
         "path": "content/members/israel-gonzalez.md",
-        "size": 837
+        "size": 532
       },
       {
         "path": "content/members/sam-vogt.md",
@@ -995,27 +983,43 @@
       },
       {
         "path": "content/our-work/client-work/apnews-2024.md",
-        "size": 735
+        "size": 688
       },
       {
         "path": "content/our-work/client-work/coralreefs.md",
-        "size": 2943
+        "size": 1932
       },
       {
         "path": "content/our-work/client-work/themargin.md",
-        "size": 2809
+        "size": 2863
       },
       {
         "path": "content/our-work/client-work/ukrainegrain.md",
-        "size": 3039
+        "size": 2874
       },
       {
         "path": "content/our-work/internal/coachartie.md",
-        "size": 1386
+        "size": 1515
+      },
+      {
+        "path": "content/our-work/internal/connectology.md",
+        "size": 928
+      },
+      {
+        "path": "content/our-work/internal/hexagram-news.md",
+        "size": 491
+      },
+      {
+        "path": "content/our-work/internal/issuebuilder.md",
+        "size": 947
+      },
+      {
+        "path": "content/our-work/internal/subway-builder.md",
+        "size": 1812
       },
       {
         "path": "content/process.md",
-        "size": 2011
+        "size": 1260
       },
       {
         "path": "error.vue",
@@ -1038,28 +1042,24 @@
         "size": 604
       },
       {
-        "path": "netlify.tml",
-        "size": 64
-      },
-      {
         "path": "nuxt.config.ts",
-        "size": 1945
+        "size": 1913
       },
       {
         "path": "package.json",
-        "size": 1106
+        "size": 1152
       },
       {
         "path": "pages/approach.vue",
-        "size": 1055
+        "size": 1041
       },
       {
         "path": "pages/blog/[...slug].vue",
-        "size": 7728
+        "size": 7725
       },
       {
         "path": "pages/blog/index.vue",
-        "size": 5742
+        "size": 5736
       },
       {
         "path": "pages/contact-success.vue",
@@ -1067,23 +1067,23 @@
       },
       {
         "path": "pages/contact.vue",
-        "size": 2567
+        "size": 2554
       },
       {
         "path": "pages/events.vue",
-        "size": 420
+        "size": 523
       },
       {
         "path": "pages/for-ceos.vue",
-        "size": 8977
+        "size": 8970
       },
       {
         "path": "pages/for-data-analysts.vue",
-        "size": 9099
+        "size": 8963
       },
       {
         "path": "pages/index.vue",
-        "size": 23635
+        "size": 23161
       },
       {
         "path": "pages/lab/gradients.vue",
@@ -1091,7 +1091,7 @@
       },
       {
         "path": "pages/lab/index.vue",
-        "size": 23985
+        "size": 23986
       },
       {
         "path": "pages/members.vue",
@@ -1099,7 +1099,7 @@
       },
       {
         "path": "pages/og_generator.vue",
-        "size": 10989
+        "size": 10979
       },
       {
         "path": "pages/our-work/client-work/[...slug].vue",
@@ -1107,7 +1107,7 @@
       },
       {
         "path": "pages/our-work/index.vue",
-        "size": 15023
+        "size": 15658
       },
       {
         "path": "pages/our-work/internal/[...slug].vue",
@@ -1115,15 +1115,15 @@
       },
       {
         "path": "pages/process.vue",
-        "size": 23320
+        "size": 23123
       },
       {
         "path": "pages/services.vue",
-        "size": 13186
+        "size": 12790
       },
       {
         "path": "pages/toolkit.vue",
-        "size": 30277
+        "size": 29949
       },
       {
         "path": "plugins/umami.client.js",
@@ -1298,12 +1298,20 @@
         "size": 516220
       },
       {
+        "path": "public/robots.txt",
+        "size": 68
+      },
+      {
         "path": "public/room302-logo.svg",
         "size": 14783
       },
       {
         "path": "public/twitter-image.jpg",
         "size": 210420
+      },
+      {
+        "path": "scripts/new-content.mjs",
+        "size": 5280
       },
       {
         "path": "tailwind.config.js",
@@ -1323,7 +1331,7 @@
       },
       {
         "path": "yarn.lock",
-        "size": 419131
+        "size": 438700
       }
     ],
     "tree": {
@@ -2575,16 +2583,6 @@
               "path": "components/content"
             },
             {
-              "name": "CalendarBooking.vue",
-              "size": 364,
-              "path": "components/CalendarBooking.vue"
-            },
-            {
-              "name": "ContactForm.vue",
-              "size": 5954,
-              "path": "components/ContactForm.vue"
-            },
-            {
               "name": "DataTimeline.vue",
               "size": 7981,
               "path": "components/DataTimeline.vue"
@@ -2596,23 +2594,18 @@
             },
             {
               "name": "GlobalFooter.vue",
-              "size": 5447,
+              "size": 5388,
               "path": "components/GlobalFooter.vue"
             },
             {
               "name": "HomepageCaseStudy.vue",
-              "size": 4512,
+              "size": 4328,
               "path": "components/HomepageCaseStudy.vue"
             },
             {
               "name": "Logo.vue",
-              "size": 160,
+              "size": 207,
               "path": "components/Logo.vue"
-            },
-            {
-              "name": "MailchimpSignupForm.vue",
-              "size": 2667,
-              "path": "components/MailchimpSignupForm.vue"
             },
             {
               "name": "MemberBio.vue",
@@ -2652,7 +2645,7 @@
           "children": [
             {
               "name": "useOgMetadata.js",
-              "size": 2481,
+              "size": 2569,
               "path": "composables/useOgMetadata.js"
             }
           ],
@@ -2692,32 +2685,32 @@
               "children": [
                 {
                   "name": "coach-artie-webhooks-cron-and-advanced-reflection.md",
-                  "size": 10100,
+                  "size": 10236,
                   "path": "content/blog/coach-artie-webhooks-cron-and-advanced-reflection.md"
                 },
                 {
                   "name": "discord-community.md",
-                  "size": 1284,
+                  "size": 1444,
                   "path": "content/blog/discord-community.md"
                 },
                 {
                   "name": "how-to-give-credit.md",
-                  "size": 9808,
+                  "size": 9989,
                   "path": "content/blog/how-to-give-credit.md"
                 },
                 {
                   "name": "livestreaming-our-process.md",
-                  "size": 3252,
+                  "size": 3482,
                   "path": "content/blog/livestreaming-our-process.md"
                 },
                 {
                   "name": "starting-a-studio-introducing-room-302.md",
-                  "size": 4070,
+                  "size": 4315,
                   "path": "content/blog/starting-a-studio-introducing-room-302.md"
                 },
                 {
                   "name": "state-of-the-studio-2024.md",
-                  "size": 2554,
+                  "size": 2749,
                   "path": "content/blog/state-of-the-studio-2024.md"
                 }
               ],
@@ -2728,12 +2721,12 @@
               "children": [
                 {
                   "name": "curran-kelleher.md",
-                  "size": 882,
+                  "size": 590,
                   "path": "content/members/curran-kelleher.md"
                 },
                 {
                   "name": "ej-fox.md",
-                  "size": 754,
+                  "size": 520,
                   "path": "content/members/ej-fox.md"
                 },
                 {
@@ -2748,7 +2741,7 @@
                 },
                 {
                   "name": "israel-gonzalez.md",
-                  "size": 837,
+                  "size": 532,
                   "path": "content/members/israel-gonzalez.md"
                 },
                 {
@@ -2767,22 +2760,22 @@
                   "children": [
                     {
                       "name": "apnews-2024.md",
-                      "size": 735,
+                      "size": 688,
                       "path": "content/our-work/client-work/apnews-2024.md"
                     },
                     {
                       "name": "coralreefs.md",
-                      "size": 2943,
+                      "size": 1932,
                       "path": "content/our-work/client-work/coralreefs.md"
                     },
                     {
                       "name": "themargin.md",
-                      "size": 2809,
+                      "size": 2863,
                       "path": "content/our-work/client-work/themargin.md"
                     },
                     {
                       "name": "ukrainegrain.md",
-                      "size": 3039,
+                      "size": 2874,
                       "path": "content/our-work/client-work/ukrainegrain.md"
                     }
                   ],
@@ -2793,8 +2786,28 @@
                   "children": [
                     {
                       "name": "coachartie.md",
-                      "size": 1386,
+                      "size": 1515,
                       "path": "content/our-work/internal/coachartie.md"
+                    },
+                    {
+                      "name": "connectology.md",
+                      "size": 928,
+                      "path": "content/our-work/internal/connectology.md"
+                    },
+                    {
+                      "name": "hexagram-news.md",
+                      "size": 491,
+                      "path": "content/our-work/internal/hexagram-news.md"
+                    },
+                    {
+                      "name": "issuebuilder.md",
+                      "size": 947,
+                      "path": "content/our-work/internal/issuebuilder.md"
+                    },
+                    {
+                      "name": "subway-builder.md",
+                      "size": 1812,
+                      "path": "content/our-work/internal/subway-builder.md"
                     }
                   ],
                   "path": "content/our-work/internal"
@@ -2804,7 +2817,7 @@
             },
             {
               "name": "process.md",
-              "size": 2011,
+              "size": 1260,
               "path": "content/process.md"
             }
           ],
@@ -2844,12 +2857,12 @@
               "children": [
                 {
                   "name": "[...slug].vue",
-                  "size": 7728,
+                  "size": 7725,
                   "path": "pages/blog/[...slug].vue"
                 },
                 {
                   "name": "index.vue",
-                  "size": 5742,
+                  "size": 5736,
                   "path": "pages/blog/index.vue"
                 }
               ],
@@ -2865,7 +2878,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 23985,
+                  "size": 23986,
                   "path": "pages/lab/index.vue"
                 }
               ],
@@ -2898,7 +2911,7 @@
                 },
                 {
                   "name": "index.vue",
-                  "size": 15023,
+                  "size": 15658,
                   "path": "pages/our-work/index.vue"
                 }
               ],
@@ -2906,7 +2919,7 @@
             },
             {
               "name": "approach.vue",
-              "size": 1055,
+              "size": 1041,
               "path": "pages/approach.vue"
             },
             {
@@ -2916,27 +2929,27 @@
             },
             {
               "name": "contact.vue",
-              "size": 2567,
+              "size": 2554,
               "path": "pages/contact.vue"
             },
             {
               "name": "events.vue",
-              "size": 420,
+              "size": 523,
               "path": "pages/events.vue"
             },
             {
               "name": "for-ceos.vue",
-              "size": 8977,
+              "size": 8970,
               "path": "pages/for-ceos.vue"
             },
             {
               "name": "for-data-analysts.vue",
-              "size": 9099,
+              "size": 8963,
               "path": "pages/for-data-analysts.vue"
             },
             {
               "name": "index.vue",
-              "size": 23635,
+              "size": 23161,
               "path": "pages/index.vue"
             },
             {
@@ -2946,22 +2959,22 @@
             },
             {
               "name": "og_generator.vue",
-              "size": 10989,
+              "size": 10979,
               "path": "pages/og_generator.vue"
             },
             {
               "name": "process.vue",
-              "size": 23320,
+              "size": 23123,
               "path": "pages/process.vue"
             },
             {
               "name": "services.vue",
-              "size": 13186,
+              "size": 12790,
               "path": "pages/services.vue"
             },
             {
               "name": "toolkit.vue",
-              "size": 30277,
+              "size": 29949,
               "path": "pages/toolkit.vue"
             }
           ],
@@ -3228,6 +3241,11 @@
               "path": "public/og-image.jpg"
             },
             {
+              "name": "robots.txt",
+              "size": 68,
+              "path": "public/robots.txt"
+            },
+            {
               "name": "room302-logo.svg",
               "size": 14783,
               "path": "public/room302-logo.svg"
@@ -3239,6 +3257,17 @@
             }
           ],
           "path": "public"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "new-content.mjs",
+              "size": 5280,
+              "path": "scripts/new-content.mjs"
+            }
+          ],
+          "path": "scripts"
         },
         {
           "name": "types",
@@ -3273,7 +3302,7 @@
         },
         {
           "name": ".nvmrc",
-          "size": 9,
+          "size": 3,
           "path": ".nvmrc"
         },
         {
@@ -3297,18 +3326,13 @@
           "path": "error.vue"
         },
         {
-          "name": "netlify.tml",
-          "size": 64,
-          "path": "netlify.tml"
-        },
-        {
           "name": "nuxt.config.ts",
-          "size": 1945,
+          "size": 1913,
           "path": "nuxt.config.ts"
         },
         {
           "name": "package.json",
-          "size": 1106,
+          "size": 1152,
           "path": "package.json"
         },
         {
@@ -3328,14 +3352,14 @@
         },
         {
           "name": "yarn.lock",
-          "size": 419131,
+          "size": 438700,
           "path": "yarn.lock"
         }
       ],
       "path": ""
     },
-    "totalFiles": 326,
-    "totalSize": 64888842
+    "totalFiles": 328,
+    "totalSize": 64906468
   },
   "topics": [],
   "readme": {
@@ -3344,6 +3368,6 @@
     "excerpt": "Look at the Nuxt 3 documentation to learn more.\n\n\n\nMake sure to install the dependencies:\n\nbash\n\nyarn install\n\n\nnpm install\n\n\npnpm install\n\n\n\n\nStart the develop..."
   },
   "createdAt": "2023-03-24T23:37:28Z",
-  "updatedAt": "2025-07-07T15:02:44Z",
-  "pushedAt": "2025-11-04T02:00:28Z"
+  "updatedAt": "2026-03-24T17:43:37Z",
+  "pushedAt": "2026-03-24T17:43:34Z"
 }

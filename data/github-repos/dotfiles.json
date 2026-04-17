@@ -12,13 +12,15 @@
   "language": "Shell",
   "languageColor": "#89e051",
   "languages": {
-    "Shell": 302372,
+    "Shell": 326401,
     "GLSL": 188468,
-    "Lua": 138448,
+    "Lua": 143373,
     "JavaScript": 33095,
+    "Talon": 8399,
+    "Python": 6955,
     "CSS": 1942
   },
-  "diskUsage": 61010,
+  "diskUsage": 61155,
   "fileTree": {
     "files": [
       {
@@ -27,7 +29,7 @@
       },
       {
         "path": ".bash_profile",
-        "size": 1081
+        "size": 267
       },
       {
         "path": ".claude/MCP-RESTORE.md",
@@ -91,11 +93,11 @@
       },
       {
         "path": ".claude/settings.json",
-        "size": 1187
+        "size": 1439
       },
       {
         "path": ".claude/settings.local.json",
-        "size": 1215
+        "size": 1541
       },
       {
         "path": ".claude/skills/delegate-to-human.md",
@@ -175,7 +177,7 @@
       },
       {
         "path": ".config/ghostty/config",
-        "size": 3593
+        "size": 3710
       },
       {
         "path": ".config/ghostty/find-vulpes-greens-v2.mjs",
@@ -407,11 +409,11 @@
       },
       {
         "path": ".config/ghostty/themes/vulpes-reddishnovember-dark",
-        "size": 554
+        "size": 611
       },
       {
         "path": ".config/ghostty/themes/vulpes-reddishnovember-light",
-        "size": 586
+        "size": 796
       },
       {
         "path": ".config/ghostty/themes/vulpes_greenish_dark",
@@ -447,7 +449,7 @@
       },
       {
         "path": ".config/karabiner/karabiner.json",
-        "size": 3325
+        "size": 6141
       },
       {
         "path": ".config/lazygit/audit-theme.mjs",
@@ -503,7 +505,7 @@
       },
       {
         "path": ".config/nvim/colors/vulpes-reddishnovember-dark.lua",
-        "size": 20805
+        "size": 20830
       },
       {
         "path": ".config/nvim/colors/vulpes-reddishnovember-light.lua",
@@ -539,11 +541,11 @@
       },
       {
         "path": ".config/nvim/lazy-lock.json",
-        "size": 5833
+        "size": 5847
       },
       {
         "path": ".config/nvim/lazyvim.json",
-        "size": 505
+        "size": 595
       },
       {
         "path": ".config/nvim/lua/config/autocmds.lua",
@@ -563,7 +565,7 @@
       },
       {
         "path": ".config/nvim/lua/config/options.lua",
-        "size": 6736
+        "size": 6340
       },
       {
         "path": ".config/nvim/lua/custom/directory-watcher.lua",
@@ -595,11 +597,11 @@
       },
       {
         "path": ".config/nvim/lua/plugins/mini.lua",
-        "size": 1718
+        "size": 378
       },
       {
         "path": ".config/nvim/lua/plugins/minimal-statusline.lua",
-        "size": 4527
+        "size": 7540
       },
       {
         "path": ".config/nvim/lua/plugins/minimal-telescope.lua",
@@ -611,7 +613,7 @@
       },
       {
         "path": ".config/nvim/lua/plugins/nvim-cmp-lean.lua",
-        "size": 2269
+        "size": 3474
       },
       {
         "path": ".config/nvim/lua/plugins/nvim-dap.lua",
@@ -619,7 +621,7 @@
       },
       {
         "path": ".config/nvim/lua/plugins/nvim-ufo.lua",
-        "size": 1987
+        "size": 2248
       },
       {
         "path": ".config/nvim/lua/plugins/obsidian.lua",
@@ -627,23 +629,31 @@
       },
       {
         "path": ".config/nvim/lua/plugins/oil.lua",
-        "size": 3304
+        "size": 3786
       },
       {
         "path": ".config/nvim/lua/plugins/snacks.lua",
-        "size": 7528
+        "size": 7936
+      },
+      {
+        "path": ".config/nvim/lua/plugins/statuscolumn-tens.lua",
+        "size": 1239
       },
       {
         "path": ".config/nvim/lua/plugins/svelte.lua",
         "size": 1202
       },
       {
+        "path": ".config/nvim/lua/plugins/tailwind.lua",
+        "size": 614
+      },
+      {
         "path": ".config/nvim/lua/plugins/theming.lua",
-        "size": 3429
+        "size": 3147
       },
       {
         "path": ".config/nvim/lua/plugins/usage-logging.lua",
-        "size": 5562
+        "size": 5258
       },
       {
         "path": ".config/nvim/lua/plugins/utilities.lua",
@@ -659,7 +669,7 @@
       },
       {
         "path": ".config/sketchybar/plugins/battery.sh",
-        "size": 4164
+        "size": 4125
       },
       {
         "path": ".config/sketchybar/plugins/cipher.sh",
@@ -672,6 +682,10 @@
       {
         "path": ".config/sketchybar/plugins/clock.sh",
         "size": 243
+      },
+      {
+        "path": ".config/sketchybar/plugins/creative.sh",
+        "size": 2780
       },
       {
         "path": ".config/sketchybar/plugins/daily_stats.sh",
@@ -712,6 +726,10 @@
       {
         "path": ".config/sketchybar/plugins/last_repo.sh",
         "size": 421
+      },
+      {
+        "path": ".config/sketchybar/plugins/mic.sh",
+        "size": 286
       },
       {
         "path": ".config/sketchybar/plugins/mutagen.sh",
@@ -771,7 +789,7 @@
       },
       {
         "path": ".config/sketchybar/sketchybarrc",
-        "size": 5732
+        "size": 5570
       },
       {
         "path": ".config/wireshark/recent",
@@ -851,7 +869,7 @@
       },
       {
         "path": ".config/yazi/vulpes-reddishnovember-dark.toml",
-        "size": 3149
+        "size": 2732
       },
       {
         "path": ".config/yazi/vulpes-reddishnovember-light.toml",
@@ -859,15 +877,15 @@
       },
       {
         "path": ".config/yazi/yazi.toml",
-        "size": 857
+        "size": 921
       },
       {
         "path": ".config/zsh/themes/vulpes-reddishnovember-dark.zsh",
-        "size": 3000
+        "size": 3541
       },
       {
         "path": ".config/zsh/themes/vulpes-reddishnovember-light.zsh",
-        "size": 2986
+        "size": 3557
       },
       {
         "path": ".gitattributes",
@@ -875,7 +893,7 @@
       },
       {
         "path": ".gitconfig",
-        "size": 1255
+        "size": 1437
       },
       {
         "path": ".githooks/pre-commit",
@@ -884,10 +902,6 @@
       {
         "path": ".gitignore",
         "size": 2487
-      },
-      {
-        "path": ".gitmodules",
-        "size": 125
       },
       {
         "path": ".gnupg/gpg-agent.conf",
@@ -935,7 +949,7 @@
       },
       {
         "path": ".p10k.zsh",
-        "size": 92622
+        "size": 92515
       },
       {
         "path": ".profile",
@@ -947,15 +961,15 @@
       },
       {
         "path": ".startup.sh",
-        "size": 17654
+        "size": 10915
       },
       {
         "path": ".tmux.conf",
-        "size": 11318
+        "size": 11992
       },
       {
         "path": ".tweakcc-apply.sh",
-        "size": 1386
+        "size": 1387
       },
       {
         "path": ".vscode/settings.json",
@@ -967,23 +981,27 @@
       },
       {
         "path": ".zprofile",
-        "size": 429
+        "size": 376
       },
       {
         "path": ".zshenv",
-        "size": 21
+        "size": 480
       },
       {
         "path": ".zshrc",
-        "size": 26280
+        "size": 26859
       },
       {
         "path": "CLAUDE.md",
-        "size": 40225
+        "size": 43083
       },
       {
         "path": "LICENSE",
         "size": 1209
+      },
+      {
+        "path": "LaunchAgents/com.ejfox.cipher-daily.plist",
+        "size": 794
       },
       {
         "path": "README.md",
@@ -1002,8 +1020,28 @@
         "size": 932
       },
       {
+        "path": "bin/cipher-daily",
+        "size": 3933
+      },
+      {
+        "path": "bin/claude-say",
+        "size": 3897
+      },
+      {
         "path": "bin/dotfiles-audit",
         "size": 5557
+      },
+      {
+        "path": "bin/dotfiles-verify",
+        "size": 7595
+      },
+      {
+        "path": "bin/email-summary",
+        "size": 2282
+      },
+      {
+        "path": "bin/mic-toggle",
+        "size": 384
       },
       {
         "path": "bin/morning-ritual",
@@ -1016,6 +1054,14 @@
       {
         "path": "bin/pub",
         "size": 10555
+      },
+      {
+        "path": "bin/send-to-canvas",
+        "size": 5111
+      },
+      {
+        "path": "bin/tmux-focus-color",
+        "size": 740
       },
       {
         "path": "bin/tmux-mutagen-status",
@@ -1063,7 +1109,7 @@
       },
       {
         "path": "docs/tips.txt",
-        "size": 19709
+        "size": 21444
       },
       {
         "path": "lib/mystical-symbols.sh",
@@ -1071,7 +1117,7 @@
       },
       {
         "path": "lib/shell-usage-logging.zsh",
-        "size": 1825
+        "size": 1864
       },
       {
         "path": "lib/tmux-mystical.sh",
@@ -1082,16 +1128,80 @@
         "size": 1996
       },
       {
+        "path": "scripts/macos-defaults.sh",
+        "size": 813
+      },
+      {
         "path": "scripts/setup-vps-mosh.sh",
         "size": 1310
       },
       {
         "path": "sync-dotfiles.sh",
-        "size": 890
+        "size": 2148
+      },
+      {
+        "path": "talon-overrides/apps.py",
+        "size": 592
+      },
+      {
+        "path": "talon-overrides/cursor.talon",
+        "size": 140
+      },
+      {
+        "path": "talon-overrides/custom_keys.talon",
+        "size": 408
+      },
+      {
+        "path": "talon-overrides/ejfox_subtitles.py",
+        "size": 1883
+      },
+      {
+        "path": "talon-overrides/ghostty.talon",
+        "size": 89
+      },
+      {
+        "path": "talon-overrides/macos_nav.talon",
+        "size": 1518
+      },
+      {
+        "path": "talon-overrides/mic_toggle.py",
+        "size": 948
+      },
+      {
+        "path": "talon-overrides/mode_line.py",
+        "size": 1681
+      },
+      {
+        "path": "talon-overrides/nato_alphabet.py",
+        "size": 551
+      },
+      {
+        "path": "talon-overrides/settings.talon",
+        "size": 379
+      },
+      {
+        "path": "talon-overrides/terminal_commands.talon",
+        "size": 4488
+      },
+      {
+        "path": "talon-overrides/terminal_pop.talon",
+        "size": 135
+      },
+      {
+        "path": "talon-overrides/tmux.talon",
+        "size": 1242
+      },
+      {
+        "path": "talon-overrides/usage_logging.py",
+        "size": 1300
+      },
+      {
+        "path": "talon-overrides/vocabulary.talon-list",
+        "size": 3986
       },
       {
         "path": "vulpes-reddish2-dark-tmux.tmux.conf",
-        "size": 674
+        "size": 656
       },
       {
         "path": "vulpes-reddish2-light-tmux.tmux.conf",
@@ -1198,12 +1308,12 @@
             },
             {
               "name": "settings.json",
-              "size": 1187,
+              "size": 1439,
               "path": ".claude/settings.json"
             },
             {
               "name": "settings.local.json",
-              "size": 1215,
+              "size": 1541,
               "path": ".claude/settings.local.json"
             }
           ],
@@ -1628,12 +1738,12 @@
                     },
                     {
                       "name": "vulpes-reddishnovember-dark",
-                      "size": 554,
+                      "size": 611,
                       "path": ".config/ghostty/themes/vulpes-reddishnovember-dark"
                     },
                     {
                       "name": "vulpes-reddishnovember-light",
-                      "size": 586,
+                      "size": 796,
                       "path": ".config/ghostty/themes/vulpes-reddishnovember-light"
                     },
                     {
@@ -1676,7 +1786,7 @@
                 },
                 {
                   "name": "config",
-                  "size": 3593,
+                  "size": 3710,
                   "path": ".config/ghostty/config"
                 },
                 {
@@ -1719,7 +1829,7 @@
                 },
                 {
                   "name": "karabiner.json",
-                  "size": 3325,
+                  "size": 6141,
                   "path": ".config/karabiner/karabiner.json"
                 }
               ],
@@ -1786,7 +1896,7 @@
                   "children": [
                     {
                       "name": "vulpes-reddishnovember-dark.lua",
-                      "size": 20805,
+                      "size": 20830,
                       "path": ".config/nvim/colors/vulpes-reddishnovember-dark.lua"
                     },
                     {
@@ -1855,7 +1965,7 @@
                         },
                         {
                           "name": "options.lua",
-                          "size": 6736,
+                          "size": 6340,
                           "path": ".config/nvim/lua/config/options.lua"
                         }
                       ],
@@ -1907,12 +2017,12 @@
                         },
                         {
                           "name": "mini.lua",
-                          "size": 1718,
+                          "size": 378,
                           "path": ".config/nvim/lua/plugins/mini.lua"
                         },
                         {
                           "name": "minimal-statusline.lua",
-                          "size": 4527,
+                          "size": 7540,
                           "path": ".config/nvim/lua/plugins/minimal-statusline.lua"
                         },
                         {
@@ -1927,7 +2037,7 @@
                         },
                         {
                           "name": "nvim-cmp-lean.lua",
-                          "size": 2269,
+                          "size": 3474,
                           "path": ".config/nvim/lua/plugins/nvim-cmp-lean.lua"
                         },
                         {
@@ -1937,7 +2047,7 @@
                         },
                         {
                           "name": "nvim-ufo.lua",
-                          "size": 1987,
+                          "size": 2248,
                           "path": ".config/nvim/lua/plugins/nvim-ufo.lua"
                         },
                         {
@@ -1947,13 +2057,18 @@
                         },
                         {
                           "name": "oil.lua",
-                          "size": 3304,
+                          "size": 3786,
                           "path": ".config/nvim/lua/plugins/oil.lua"
                         },
                         {
                           "name": "snacks.lua",
-                          "size": 7528,
+                          "size": 7936,
                           "path": ".config/nvim/lua/plugins/snacks.lua"
+                        },
+                        {
+                          "name": "statuscolumn-tens.lua",
+                          "size": 1239,
+                          "path": ".config/nvim/lua/plugins/statuscolumn-tens.lua"
                         },
                         {
                           "name": "svelte.lua",
@@ -1961,13 +2076,18 @@
                           "path": ".config/nvim/lua/plugins/svelte.lua"
                         },
                         {
+                          "name": "tailwind.lua",
+                          "size": 614,
+                          "path": ".config/nvim/lua/plugins/tailwind.lua"
+                        },
+                        {
                           "name": "theming.lua",
-                          "size": 3429,
+                          "size": 3147,
                           "path": ".config/nvim/lua/plugins/theming.lua"
                         },
                         {
                           "name": "usage-logging.lua",
-                          "size": 5562,
+                          "size": 5258,
                           "path": ".config/nvim/lua/plugins/usage-logging.lua"
                         },
                         {
@@ -2018,12 +2138,12 @@
                 },
                 {
                   "name": "lazy-lock.json",
-                  "size": 5833,
+                  "size": 5847,
                   "path": ".config/nvim/lazy-lock.json"
                 },
                 {
                   "name": "lazyvim.json",
-                  "size": 505,
+                  "size": 595,
                   "path": ".config/nvim/lazyvim.json"
                 },
                 {
@@ -2042,7 +2162,7 @@
                   "children": [
                     {
                       "name": "battery.sh",
-                      "size": 4164,
+                      "size": 4125,
                       "path": ".config/sketchybar/plugins/battery.sh"
                     },
                     {
@@ -2059,6 +2179,11 @@
                       "name": "clock.sh",
                       "size": 243,
                       "path": ".config/sketchybar/plugins/clock.sh"
+                    },
+                    {
+                      "name": "creative.sh",
+                      "size": 2780,
+                      "path": ".config/sketchybar/plugins/creative.sh"
                     },
                     {
                       "name": "daily_stats.sh",
@@ -2109,6 +2234,11 @@
                       "name": "last_repo.sh",
                       "size": 421,
                       "path": ".config/sketchybar/plugins/last_repo.sh"
+                    },
+                    {
+                      "name": "mic.sh",
+                      "size": 286,
+                      "path": ".config/sketchybar/plugins/mic.sh"
                     },
                     {
                       "name": "mutagen.sh",
@@ -2185,7 +2315,7 @@
                 },
                 {
                   "name": "sketchybarrc",
-                  "size": 5732,
+                  "size": 5570,
                   "path": ".config/sketchybar/sketchybarrc"
                 }
               ],
@@ -2327,7 +2457,7 @@
                 },
                 {
                   "name": "vulpes-reddishnovember-dark.toml",
-                  "size": 3149,
+                  "size": 2732,
                   "path": ".config/yazi/vulpes-reddishnovember-dark.toml"
                 },
                 {
@@ -2337,7 +2467,7 @@
                 },
                 {
                   "name": "yazi.toml",
-                  "size": 857,
+                  "size": 921,
                   "path": ".config/yazi/yazi.toml"
                 }
               ],
@@ -2351,12 +2481,12 @@
                   "children": [
                     {
                       "name": "vulpes-reddishnovember-dark.zsh",
-                      "size": 3000,
+                      "size": 3541,
                       "path": ".config/zsh/themes/vulpes-reddishnovember-dark.zsh"
                     },
                     {
                       "name": "vulpes-reddishnovember-light.zsh",
-                      "size": 2986,
+                      "size": 3557,
                       "path": ".config/zsh/themes/vulpes-reddishnovember-light.zsh"
                     }
                   ],
@@ -2466,6 +2596,17 @@
           "path": ".vscode"
         },
         {
+          "name": "LaunchAgents",
+          "children": [
+            {
+              "name": "com.ejfox.cipher-daily.plist",
+              "size": 794,
+              "path": "LaunchAgents/com.ejfox.cipher-daily.plist"
+            }
+          ],
+          "path": "LaunchAgents"
+        },
+        {
           "name": "bin",
           "children": [
             {
@@ -2484,9 +2625,34 @@
               "path": "bin/btop"
             },
             {
+              "name": "cipher-daily",
+              "size": 3933,
+              "path": "bin/cipher-daily"
+            },
+            {
+              "name": "claude-say",
+              "size": 3897,
+              "path": "bin/claude-say"
+            },
+            {
               "name": "dotfiles-audit",
               "size": 5557,
               "path": "bin/dotfiles-audit"
+            },
+            {
+              "name": "dotfiles-verify",
+              "size": 7595,
+              "path": "bin/dotfiles-verify"
+            },
+            {
+              "name": "email-summary",
+              "size": 2282,
+              "path": "bin/email-summary"
+            },
+            {
+              "name": "mic-toggle",
+              "size": 384,
+              "path": "bin/mic-toggle"
             },
             {
               "name": "morning-ritual",
@@ -2502,6 +2668,16 @@
               "name": "pub",
               "size": 10555,
               "path": "bin/pub"
+            },
+            {
+              "name": "send-to-canvas",
+              "size": 5111,
+              "path": "bin/send-to-canvas"
+            },
+            {
+              "name": "tmux-focus-color",
+              "size": 740,
+              "path": "bin/tmux-focus-color"
             },
             {
               "name": "tmux-mutagen-status",
@@ -2566,7 +2742,7 @@
             },
             {
               "name": "tips.txt",
-              "size": 19709,
+              "size": 21444,
               "path": "docs/tips.txt"
             }
           ],
@@ -2582,7 +2758,7 @@
             },
             {
               "name": "shell-usage-logging.zsh",
-              "size": 1825,
+              "size": 1864,
               "path": "lib/shell-usage-logging.zsh"
             },
             {
@@ -2602,6 +2778,11 @@
           "name": "scripts",
           "children": [
             {
+              "name": "macos-defaults.sh",
+              "size": 813,
+              "path": "scripts/macos-defaults.sh"
+            },
+            {
               "name": "setup-vps-mosh.sh",
               "size": 1310,
               "path": "scripts/setup-vps-mosh.sh"
@@ -2610,9 +2791,85 @@
           "path": "scripts"
         },
         {
-          "name": "tmux-plugins",
-          "children": [],
-          "path": "tmux-plugins"
+          "name": "talon-overrides",
+          "children": [
+            {
+              "name": "apps.py",
+              "size": 592,
+              "path": "talon-overrides/apps.py"
+            },
+            {
+              "name": "cursor.talon",
+              "size": 140,
+              "path": "talon-overrides/cursor.talon"
+            },
+            {
+              "name": "custom_keys.talon",
+              "size": 408,
+              "path": "talon-overrides/custom_keys.talon"
+            },
+            {
+              "name": "ejfox_subtitles.py",
+              "size": 1883,
+              "path": "talon-overrides/ejfox_subtitles.py"
+            },
+            {
+              "name": "ghostty.talon",
+              "size": 89,
+              "path": "talon-overrides/ghostty.talon"
+            },
+            {
+              "name": "macos_nav.talon",
+              "size": 1518,
+              "path": "talon-overrides/macos_nav.talon"
+            },
+            {
+              "name": "mic_toggle.py",
+              "size": 948,
+              "path": "talon-overrides/mic_toggle.py"
+            },
+            {
+              "name": "mode_line.py",
+              "size": 1681,
+              "path": "talon-overrides/mode_line.py"
+            },
+            {
+              "name": "nato_alphabet.py",
+              "size": 551,
+              "path": "talon-overrides/nato_alphabet.py"
+            },
+            {
+              "name": "settings.talon",
+              "size": 379,
+              "path": "talon-overrides/settings.talon"
+            },
+            {
+              "name": "terminal_commands.talon",
+              "size": 4488,
+              "path": "talon-overrides/terminal_commands.talon"
+            },
+            {
+              "name": "terminal_pop.talon",
+              "size": 135,
+              "path": "talon-overrides/terminal_pop.talon"
+            },
+            {
+              "name": "tmux.talon",
+              "size": 1242,
+              "path": "talon-overrides/tmux.talon"
+            },
+            {
+              "name": "usage_logging.py",
+              "size": 1300,
+              "path": "talon-overrides/usage_logging.py"
+            },
+            {
+              "name": "vocabulary.talon-list",
+              "size": 3986,
+              "path": "talon-overrides/vocabulary.talon-list"
+            }
+          ],
+          "path": "talon-overrides"
         },
         {
           "name": ".CLAUDE-CLEANUP-METHODOLOGY.txt",
@@ -2621,7 +2878,7 @@
         },
         {
           "name": ".bash_profile",
-          "size": 1081,
+          "size": 267,
           "path": ".bash_profile"
         },
         {
@@ -2631,18 +2888,13 @@
         },
         {
           "name": ".gitconfig",
-          "size": 1255,
+          "size": 1437,
           "path": ".gitconfig"
         },
         {
           "name": ".gitignore",
           "size": 2487,
           "path": ".gitignore"
-        },
-        {
-          "name": ".gitmodules",
-          "size": 125,
-          "path": ".gitmodules"
         },
         {
           "name": ".llm-persona.txt",
@@ -2661,7 +2913,7 @@
         },
         {
           "name": ".p10k.zsh",
-          "size": 92622,
+          "size": 92515,
           "path": ".p10k.zsh"
         },
         {
@@ -2676,17 +2928,17 @@
         },
         {
           "name": ".startup.sh",
-          "size": 17654,
+          "size": 10915,
           "path": ".startup.sh"
         },
         {
           "name": ".tmux.conf",
-          "size": 11318,
+          "size": 11992,
           "path": ".tmux.conf"
         },
         {
           "name": ".tweakcc-apply.sh",
-          "size": 1386,
+          "size": 1387,
           "path": ".tweakcc-apply.sh"
         },
         {
@@ -2696,22 +2948,22 @@
         },
         {
           "name": ".zprofile",
-          "size": 429,
+          "size": 376,
           "path": ".zprofile"
         },
         {
           "name": ".zshenv",
-          "size": 21,
+          "size": 480,
           "path": ".zshenv"
         },
         {
           "name": ".zshrc",
-          "size": 26280,
+          "size": 26859,
           "path": ".zshrc"
         },
         {
           "name": "CLAUDE.md",
-          "size": 40225,
+          "size": 43083,
           "path": "CLAUDE.md"
         },
         {
@@ -2726,12 +2978,12 @@
         },
         {
           "name": "sync-dotfiles.sh",
-          "size": 890,
+          "size": 2148,
           "path": "sync-dotfiles.sh"
         },
         {
           "name": "vulpes-reddish2-dark-tmux.tmux.conf",
-          "size": 674,
+          "size": 656,
           "path": "vulpes-reddish2-dark-tmux.tmux.conf"
         },
         {
@@ -2742,8 +2994,8 @@
       ],
       "path": ""
     },
-    "totalFiles": 269,
-    "totalSize": 1163627
+    "totalFiles": 296,
+    "totalSize": 1220876
   },
   "topics": [],
   "readme": {
@@ -2752,6 +3004,6 @@
     "excerpt": "Terminal-first development environment optimized for speed-of-thought computing. Everything is fuzzy-searchable, keyboard-driven, and designed to get out of you..."
   },
   "createdAt": "2019-04-07T22:09:55Z",
-  "updatedAt": "2026-01-26T16:51:00Z",
-  "pushedAt": "2026-01-26T16:50:53Z"
+  "updatedAt": "2026-04-09T01:58:08Z",
+  "pushedAt": "2026-04-09T01:58:01Z"
 }

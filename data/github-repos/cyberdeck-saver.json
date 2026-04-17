@@ -1,0 +1,140 @@
+{
+  "name": "cyberdeck-saver",
+  "description": "Native macOS screensaver (.saver) built with Swift + Metal. Real-time OSINT feeds, personal API data, and vulpes shader effects in a cyberpunk command center aesthetic.",
+  "url": "https://github.com/ejfox/cyberdeck-saver",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Swift",
+  "languageColor": "#F05138",
+  "languages": {
+    "Swift": 50193,
+    "Metal": 9409,
+    "Makefile": 2778
+  },
+  "diskUsage": 20,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 34
+      },
+      {
+        "path": "Makefile",
+        "size": 2778
+      },
+      {
+        "path": "README.md",
+        "size": 5197
+      },
+      {
+        "path": "Resources/Info.plist",
+        "size": 787
+      },
+      {
+        "path": "Shaders/Shaders.metal",
+        "size": 9409
+      },
+      {
+        "path": "Sources/CyberdeckSaverView.swift",
+        "size": 5614
+      },
+      {
+        "path": "Sources/Renderer.swift",
+        "size": 7000
+      },
+      {
+        "path": "Sources/Streams.swift",
+        "size": 25357
+      },
+      {
+        "path": "Sources/TextEngine.swift",
+        "size": 12222
+      }
+    ],
+    "tree": {
+      "name": "cyberdeck-saver",
+      "children": [
+        {
+          "name": "Resources",
+          "children": [
+            {
+              "name": "Info.plist",
+              "size": 787,
+              "path": "Resources/Info.plist"
+            }
+          ],
+          "path": "Resources"
+        },
+        {
+          "name": "Shaders",
+          "children": [
+            {
+              "name": "Shaders.metal",
+              "size": 9409,
+              "path": "Shaders/Shaders.metal"
+            }
+          ],
+          "path": "Shaders"
+        },
+        {
+          "name": "Sources",
+          "children": [
+            {
+              "name": "CyberdeckSaverView.swift",
+              "size": 5614,
+              "path": "Sources/CyberdeckSaverView.swift"
+            },
+            {
+              "name": "Renderer.swift",
+              "size": 7000,
+              "path": "Sources/Renderer.swift"
+            },
+            {
+              "name": "Streams.swift",
+              "size": 25357,
+              "path": "Sources/Streams.swift"
+            },
+            {
+              "name": "TextEngine.swift",
+              "size": 12222,
+              "path": "Sources/TextEngine.swift"
+            }
+          ],
+          "path": "Sources"
+        },
+        {
+          "name": ".gitignore",
+          "size": 34,
+          "path": ".gitignore"
+        },
+        {
+          "name": "Makefile",
+          "size": 2778,
+          "path": "Makefile"
+        },
+        {
+          "name": "README.md",
+          "size": 5197,
+          "path": "README.md"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 9,
+    "totalSize": 68398
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"cyberdeck-screensaver\">Cyberdeck Screensaver</h1>\n<p>A native macOS screensaver (.saver bundle) built with Swift + Metal that displays real-time data from personal APIs and OSINT feeds in a cyberpunk command center aesthetic.</p>\n<h2 id=\"what-it-does\">What It Does</h2>\n<p>16 data panels type themselves out independently across a 4x4 grid, each pulling from a real data source. No fake data — every byte on screen comes from an actual API or system call.</p>\n<h3 id=\"data-sources\">Data Sources</h3>\n<p><strong>VPS OSINT Feeds</strong> (from tools.ejfox.com):</p>\n<ul>\n<li><strong>SKYWATCH</strong> — Hudson Valley airspace surveillance (134K+ tracked flights, military aircraft detection)</li>\n<li><strong>ANOMALY</strong> — Cross-source anomaly detection (10K+ signals, active investigations)</li>\n<li><strong>BRIEFING</strong> — Daily intelligence briefings (investigations, local governance, pattern analysis)</li>\n<li><strong>OVERWATCH</strong> — Facility monitoring and activity tracking</li>\n</ul>\n<p><strong>Personal APIs</strong> (from ejfox.com/api):</p>\n<ul>\n<li><strong>SIGINT</strong> — GitHub activity (commits, repos, recent events via /api/stats)</li>\n<li><strong>ACINT</strong> — Last.fm music feed (now playing, recent tracks, 147K+ scrobbles)</li>\n<li><strong>BIOMETRIC</strong> — Apple Health data (steps, exercise, stand hours, HRV)</li>\n<li><strong>COMINT</strong> — Mastodon posts from @<a href=\"mailto:ejfox@mastodon.social\">ejfox@mastodon.social</a></li>\n<li><strong>PRODINT</strong> — RescueTime productivity tracking (weekly categories, hours)</li>\n<li><strong>METRICS</strong> — Aggregated weekly summary (productive hours, efficiency)</li>\n<li><strong>GAMEINT</strong> — Chess.com ratings (rapid, blitz, bullet, win rate)</li>\n<li><strong>KEYINT</strong> — MonkeyType stats (WPM, accuracy, tests completed)</li>\n<li><strong>CODEINT</strong> — LeetCode progress (problems solved by difficulty)</li>\n<li><strong>OSINT-W</strong> — Written output tracking (words this month)</li>\n</ul>\n<p><strong>Local System Data:</strong></p>\n<ul>\n<li><strong>CMD</strong> — Real-time clock, uptime, session status (refreshes every second)</li>\n<li><strong>SYSINFO</strong> — Hostname, OS version, CPU cores, memory, thermal state</li>\n</ul>\n<h3 id=\"visual-effects-metal-shaders\">Visual Effects (Metal Shaders)</h3>\n<p>All shaders ported from EJ's Ghostty terminal vulpes shader stack:</p>\n<ul>\n<li><strong>Bloom</strong> — Red-selective neon glow using 24-point Fibonacci sphere sampling. Only blooms pink/red pixels (#e60067) for that cyberpunk neon bleed. <em>Apple Silicon only.</em></li>\n<li><strong>TFT</strong> — LCD subpixel simulation at 3px resolution, 26% strength. <em>Apple Silicon only.</em></li>\n<li><strong>Vignette</strong> — Subtle edge darkening (15% strength, 1.2 radius) like an old CRT bezel.</li>\n<li><strong>Scanline Flicker</strong> — Gentle CRT warmth with slow drift + fast pulse.</li>\n<li><strong>Glitch</strong> — Chromatic aberration + analog distortion (available but off by default).</li>\n</ul>\n<h3 id=\"performance-modes\">Performance Modes</h3>\n<p>The renderer auto-detects the GPU:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>GPU</th><th>Mode</th><th>FPS</th><th>Shader Chain</th></tr></thead><tbody><tr><td>Apple Silicon</td><td>Full</td><td>30</td><td>Bloom → TFT → Vignette → Scanline</td></tr><tr><td>Intel/AMD</td><td>Lite</td><td>20</td><td>Vignette → Scanline only</td></tr></tbody></table>\n<p>The bloom shader (24 texture samples per pixel at retina resolution) is skipped on Intel to prevent fan spin.</p>\n<h3 id=\"colors-vulpes-palette\">Colors (Vulpes Palette)</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Color</th><th>Hex</th><th>Usage</th></tr></thead><tbody><tr><td>Hot Pink</td><td>#e60067</td><td>Headers, cursors, alerts — glows under bloom</td></tr><tr><td>Teal</td><td>#6eedf7</td><td>Primary data labels</td></tr><tr><td>Light Pink</td><td>#f2cfdf</td><td>Data values</td></tr><tr><td>Muted Magenta</td><td>#73264a</td><td>Separators, dates</td></tr><tr><td>Muted</td><td>#735865</td><td>Secondary text</td></tr></tbody></table>\n<h2 id=\"building\">Building</h2>\n<p>Requires Xcode with Metal Toolchain:</p>\n<pre><code class=\"language-bash\"># First time only — download Metal command-line compiler\nxcodebuild -downloadComponent MetalToolchain\n\n# Build universal binary (arm64 + x86_64)\nmake\n\n# Build and install locally\nmake install\n\n# Build zip for AirDrop to another Mac\nmake zip\n\n# Rebuild everything\nmake reinstall\n</code></pre>\n<h2 id=\"installing\">Installing</h2>\n<h3 id=\"local\">Local</h3>\n<pre><code class=\"language-bash\">make install\n</code></pre>\n<p>Then: System Settings → Screen Saver → scroll to \"Other\" → select <strong>Cyberdeck</strong>.</p>\n<h3 id=\"another-mac-airdrop\">Another Mac (AirDrop)</h3>\n<pre><code class=\"language-bash\">make zip\n# AirDrop build/CyberdeckSaver.saver.zip\n# On target: unzip → double-click .saver → Install\n</code></pre>\n<h2 id=\"architecture\">Architecture</h2>\n<pre><code>Sources/\n├── CyberdeckSaverView.swift  — ScreenSaverView subclass, Metal layer setup\n├── Renderer.swift             — Metal pipeline, shader chain, GPU detection\n├── TextEngine.swift           — Text buffer, typewriter animation, Core Text → texture\n└── Streams.swift              — All data stream implementations (API fetching + formatting)\n\nShaders/\n└── Shaders.metal              — All Metal fragment shaders (bloom, tft, vignette, scanline, glitch)\n\nResources/\n└── Info.plist                 — Bundle metadata (NSPrincipalClass, identifier)\n</code></pre>\n<h3 id=\"rendering-pipeline\">Rendering Pipeline</h3>\n<ol>\n<li>Each panel independently fetches data and types characters at its own speed</li>\n<li>Text is drawn into a CGContext (Core Text) backed by a shared memory buffer</li>\n<li>The buffer is uploaded to a Metal texture</li>\n<li>Metal shader chain applies post-processing effects</li>\n<li>Final result presented to CAMetalLayer drawable</li>\n</ol>\n<p>Only redraws when content changes (new characters typed or data fetched). The Metal shaders run every frame for animation (scanline flicker), but the expensive CPU text rendering is skipped when idle.</p>\n<h3 id=\"macos-compatibility\">macOS Compatibility</h3>\n<ul>\n<li>Requires macOS 14.0+</li>\n<li>Handles Sonoma/Sequoia <code>stopAnimation()</code> bug via <code>com.apple.screensaver.willstop</code> distributed notification</li>\n<li>Uses <code>Bundle(for: type(of: self))</code> for resource loading (not <code>Bundle.main</code>, which points to System Preferences)</li>\n<li>Ad-hoc signed with sealed resources</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>Personal project by EJ Fox.</p>",
+    "raw": "# Cyberdeck Screensaver\n\nA native macOS screensaver (.saver bundle) built with Swift + Metal that displays real-time data from personal APIs and OSINT feeds in a cyberpunk command center aesthetic.\n\n## What It Does\n\n16 data panels type themselves out independently across a 4x4 grid, each pulling from a real data source. No fake data — every byte on screen comes from an actual API or system call.\n\n### Data Sources\n\n**VPS OSINT Feeds** (from tools.ejfox.com):\n- **SKYWATCH** — Hudson Valley airspace surveillance (134K+ tracked flights, military aircraft detection)\n- **ANOMALY** — Cross-source anomaly detection (10K+ signals, active investigations)\n- **BRIEFING** — Daily intelligence briefings (investigations, local governance, pattern analysis)\n- **OVERWATCH** — Facility monitoring and activity tracking\n\n**Personal APIs** (from ejfox.com/api):\n- **SIGINT** — GitHub activity (commits, repos, recent events via /api/stats)\n- **ACINT** — Last.fm music feed (now playing, recent tracks, 147K+ scrobbles)\n- **BIOMETRIC** — Apple Health data (steps, exercise, stand hours, HRV)\n- **COMINT** — Mastodon posts from @ejfox@mastodon.social\n- **PRODINT** — RescueTime productivity tracking (weekly categories, hours)\n- **METRICS** — Aggregated weekly summary (productive hours, efficiency)\n- **GAMEINT** — Chess.com ratings (rapid, blitz, bullet, win rate)\n- **KEYINT** — MonkeyType stats (WPM, accuracy, tests completed)\n- **CODEINT** — LeetCode progress (problems solved by difficulty)\n- **OSINT-W** — Written output tracking (words this month)\n\n**Local System Data:**\n- **CMD** — Real-time clock, uptime, session status (refreshes every second)\n- **SYSINFO** — Hostname, OS version, CPU cores, memory, thermal state\n\n### Visual Effects (Metal Shaders)\n\nAll shaders ported from EJ's Ghostty terminal vulpes shader stack:\n\n- **Bloom** — Red-selective neon glow using 24-point Fibonacci sphere sampling. Only blooms pink/red pixels (#e60067) for that cyberpunk neon bleed. *Apple Silicon only.*\n- **TFT** — LCD subpixel simulation at 3px resolution, 26% strength. *Apple Silicon only.*\n- **Vignette** — Subtle edge darkening (15% strength, 1.2 radius) like an old CRT bezel.\n- **Scanline Flicker** — Gentle CRT warmth with slow drift + fast pulse.\n- **Glitch** — Chromatic aberration + analog distortion (available but off by default).\n\n### Performance Modes\n\nThe renderer auto-detects the GPU:\n\n| GPU | Mode | FPS | Shader Chain |\n|-----|------|-----|-------------|\n| Apple Silicon | Full | 30 | Bloom → TFT → Vignette → Scanline |\n| Intel/AMD | Lite | 20 | Vignette → Scanline only |\n\nThe bloom shader (24 texture samples per pixel at retina resolution) is skipped on Intel to prevent fan spin.\n\n### Colors (Vulpes Palette)\n\n| Color | Hex | Usage |\n|-------|-----|-------|\n| Hot Pink | #e60067 | Headers, cursors, alerts — glows under bloom |\n| Teal | #6eedf7 | Primary data labels |\n| Light Pink | #f2cfdf | Data values |\n| Muted Magenta | #73264a | Separators, dates |\n| Muted | #735865 | Secondary text |\n\n## Building\n\nRequires Xcode with Metal Toolchain:\n\n```bash\n# First time only — download Metal command-line compiler\nxcodebuild -downloadComponent MetalToolchain\n\n# Build universal binary (arm64 + x86_64)\nmake\n\n# Build and install locally\nmake install\n\n# Build zip for AirDrop to another Mac\nmake zip\n\n# Rebuild everything\nmake reinstall\n```\n\n## Installing\n\n### Local\n```bash\nmake install\n```\nThen: System Settings → Screen Saver → scroll to \"Other\" → select **Cyberdeck**.\n\n### Another Mac (AirDrop)\n```bash\nmake zip\n# AirDrop build/CyberdeckSaver.saver.zip\n# On target: unzip → double-click .saver → Install\n```\n\n## Architecture\n\n```\nSources/\n├── CyberdeckSaverView.swift  — ScreenSaverView subclass, Metal layer setup\n├── Renderer.swift             — Metal pipeline, shader chain, GPU detection\n├── TextEngine.swift           — Text buffer, typewriter animation, Core Text → texture\n└── Streams.swift              — All data stream implementations (API fetching + formatting)\n\nShaders/\n└── Shaders.metal              — All Metal fragment shaders (bloom, tft, vignette, scanline, glitch)\n\nResources/\n└── Info.plist                 — Bundle metadata (NSPrincipalClass, identifier)\n```\n\n### Rendering Pipeline\n\n1. Each panel independently fetches data and types characters at its own speed\n2. Text is drawn into a CGContext (Core Text) backed by a shared memory buffer\n3. The buffer is uploaded to a Metal texture\n4. Metal shader chain applies post-processing effects\n5. Final result presented to CAMetalLayer drawable\n\nOnly redraws when content changes (new characters typed or data fetched). The Metal shaders run every frame for animation (scanline flicker), but the expensive CPU text rendering is skipped when idle.\n\n### macOS Compatibility\n\n- Requires macOS 14.0+\n- Handles Sonoma/Sequoia `stopAnimation()` bug via `com.apple.screensaver.willstop` distributed notification\n- Uses `Bundle(for: type(of: self))` for resource loading (not `Bundle.main`, which points to System Preferences)\n- Ad-hoc signed with sealed resources\n\n## License\n\nPersonal project by EJ Fox.\n",
+    "excerpt": "A native macOS screensaver (.saver bundle) built with Swift + Metal that displays real-time data from personal APIs and OSINT feeds in a cyberpunk command cente..."
+  },
+  "createdAt": "2026-03-26T23:10:56Z",
+  "updatedAt": "2026-03-26T23:11:01Z",
+  "pushedAt": "2026-03-26T23:10:57Z"
+}

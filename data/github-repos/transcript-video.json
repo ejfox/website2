@@ -1,0 +1,94 @@
+{
+  "name": "transcript-video",
+  "description": "Generate synced transcript videos from audio files with audio-reactive visualizations, concept tagging, and instrument panel dataviz",
+  "url": "https://github.com/ejfox/transcript-video",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "HTML",
+  "languageColor": "#e34c26",
+  "languages": {
+    "HTML": 34820,
+    "JavaScript": 15181
+  },
+  "diskUsage": 18,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 45
+      },
+      {
+        "path": "README.md",
+        "size": 4266
+      },
+      {
+        "path": "cli.mjs",
+        "size": 15181
+      },
+      {
+        "path": "default-tags.json",
+        "size": 615
+      },
+      {
+        "path": "package.json",
+        "size": 523
+      },
+      {
+        "path": "template.html",
+        "size": 34820
+      }
+    ],
+    "tree": {
+      "name": "transcript-video",
+      "children": [
+        {
+          "name": ".gitignore",
+          "size": 45,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 4266,
+          "path": "README.md"
+        },
+        {
+          "name": "cli.mjs",
+          "size": 15181,
+          "path": "cli.mjs"
+        },
+        {
+          "name": "default-tags.json",
+          "size": 615,
+          "path": "default-tags.json"
+        },
+        {
+          "name": "package.json",
+          "size": 523,
+          "path": "package.json"
+        },
+        {
+          "name": "template.html",
+          "size": 34820,
+          "path": "template.html"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 6,
+    "totalSize": 55450
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"transcript-video\">transcript-video</h1>\n<p>Generate synced transcript videos from audio files. Word-by-word text synchronized to audio with semantic phrase splitting, concept highlighting, and audio-reactive instrument panel visualizations.</p>\n<p><a href=\"https://github.com/ejfox/transcript-video\">https://github.com/ejfox/transcript-video</a></p>\n<p><img src=\"https://img.shields.io/badge/1080p-h264%2Baac-blue\" alt=\"transcript-video demo\" /> <img src=\"https://img.shields.io/badge/license-MIT-green\" alt=\"MIT\" /></p>\n<h2 id=\"what-it-does\">What it does</h2>\n<p>Give it an audio file. Get back a 1080p video with:</p>\n<ul>\n<li><strong>Synced transcript</strong> — words appear timed to speech, split on natural phrase boundaries</li>\n<li><strong>Concept tagging</strong> — highlight key terms in color (everything else is monochrome)</li>\n<li><strong>Audio visualizations</strong> — spectrogram, waveforms, oscilloscopes at multiple time scales, Lissajous phase scope, EKG history strips, waterfall display</li>\n<li><strong>QR codes</strong> — scannable provenance metadata per phrase (speaker, timestamp, context)</li>\n<li><strong>Instrument panel layout</strong> — labeled modules with metadata (timebase, gain, frequency range, live dBFS readout)</li>\n</ul>\n<p>Designed for video essay production — turn podcast clips, interviews, and lectures into footage you can drop into your NLE.</p>\n<h2 id=\"install\">Install</h2>\n<pre><code class=\"language-bash\">npm install -g transcript-video\n\n# Or clone and link\ngit clone https://github.com/ejfox/transcript-video.git\ncd transcript-video\nnpm install\nnpx playwright install chromium\nnpm link\n</code></pre>\n<p><strong>Requirements:</strong></p>\n<ul>\n<li>Node.js 18+</li>\n<li>ffmpeg</li>\n<li><code>OPENAI_API_KEY</code> env var (for Whisper word-level timestamps, ~$0.006/min)</li>\n</ul>\n<h2 id=\"usage\">Usage</h2>\n<pre><code class=\"language-bash\"># Basic — transcribe + render\ntranscript-video interview.mp3\n\n# With a speaker label\ntranscript-video podcast.mp3 --speaker \"ERIK DAVIS — HARVARD CSWR\"\n\n# First 5 minutes only\ntranscript-video lecture.mp3 --duration 300\n\n# 4K output\ntranscript-video clip.mp3 --width 3840 --height 2160\n\n# Preview in browser (no render)\ntranscript-video clip.mp3 --preview\n\n# Use pre-existing word timestamps (skip API call)\ntranscript-video clip.mp3 --words clip-words.json\n\n# Custom concept tags\ntranscript-video clip.mp3 --tags my-tags.json\n</code></pre>\n<h2 id=\"concept-tags\">Concept tags</h2>\n<p>Create a JSON file with word clusters to highlight. Only tagged words get color — everything else stays monochrome.</p>\n<pre><code class=\"language-json\">[\n  {\n    \"label\": \"consciousness\",\n    \"color\": \"#6eedf7\",\n    \"words\": [\"consciousness\", \"sentient\", \"aware\", \"mind\", \"qualia\"]\n  },\n  {\n    \"label\": \"technical\",\n    \"color\": \"#ffaa00\",\n    \"words\": [\"model\", \"training\", \"alignment\", \"neural\", \"parameter\"]\n  }\n]\n</code></pre>\n<p>Pass it with <code>--tags my-tags.json</code>. Word matching is case-insensitive and supports partial stems (e.g., <code>\"meditat\"</code> matches \"meditation\", \"meditative\", \"meditating\").</p>\n<h2 id=\"how-it-works\">How it works</h2>\n<ol>\n<li><strong>Transcription</strong> — Sends audio to OpenAI Whisper API with <code>timestamp_granularities[]=word</code> to get per-word timing</li>\n<li><strong>Phrase splitting</strong> — Groups words into natural phrases based on pauses, punctuation, and clause boundaries (not mechanical N-word chunks)</li>\n<li><strong>Frame rendering</strong> — Playwright opens the template in headless Chrome, steps through time frame-by-frame, injects pre-decoded PCM audio data into the visualization engine, and screenshots each frame</li>\n<li><strong>Encoding</strong> — ffmpeg assembles frames + original audio into h264/aac MP4</li>\n</ol>\n<p>Render speed is ~20-25fps (a 10-minute clip takes ~12 minutes to render).</p>\n<h2 id=\"options\">Options</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Flag</th><th>Default</th><th>Description</th></tr></thead><tbody><tr><td><code>--words &lt;file&gt;</code></td><td>auto</td><td>Pre-computed word timestamps JSON</td></tr><tr><td><code>--tags &lt;file&gt;</code></td><td>built-in</td><td>Concept tag definitions</td></tr><tr><td><code>--speaker \"LABEL\"</code></td><td>filename</td><td>Speaker label on screen</td></tr><tr><td><code>--duration &lt;sec&gt;</code></td><td>full</td><td>Render only first N seconds</td></tr><tr><td><code>--width &lt;px&gt;</code></td><td>1920</td><td>Output width</td></tr><tr><td><code>--height &lt;px&gt;</code></td><td>1080</td><td>Output height</td></tr><tr><td><code>--fps &lt;num&gt;</code></td><td>30</td><td>Frames per second</td></tr><tr><td><code>--output &lt;file&gt;</code></td><td><code>&lt;input&gt;-transcript.mp4</code></td><td>Output path</td></tr><tr><td><code>--preview</code></td><td>false</td><td>Open in browser instead of rendering</td></tr></tbody></table>\n<h2 id=\"design\">Design</h2>\n<ul>\n<li><strong>Monochrome</strong> — all visualizations are white-on-black. Color is reserved exclusively for concept-tagged words</li>\n<li><strong>Instrument panel</strong> — each visualization module is a labeled panel with metadata annotations (timebase, gain, frequency range)</li>\n<li><strong>Fonts</strong> — Archivo Black (display), Monaspace Xenon (prose), Monaspace Krypton (labels) via CDN</li>\n<li><strong>16:9 locked</strong> — always renders at correct aspect ratio for YouTube/FCP</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",
+    "raw": "# transcript-video\n\nGenerate synced transcript videos from audio files. Word-by-word text synchronized to audio with semantic phrase splitting, concept highlighting, and audio-reactive instrument panel visualizations.\n\nhttps://github.com/ejfox/transcript-video\n\n![transcript-video demo](https://img.shields.io/badge/1080p-h264%2Baac-blue) ![MIT](https://img.shields.io/badge/license-MIT-green)\n\n## What it does\n\nGive it an audio file. Get back a 1080p video with:\n\n- **Synced transcript** — words appear timed to speech, split on natural phrase boundaries\n- **Concept tagging** — highlight key terms in color (everything else is monochrome)\n- **Audio visualizations** — spectrogram, waveforms, oscilloscopes at multiple time scales, Lissajous phase scope, EKG history strips, waterfall display\n- **QR codes** — scannable provenance metadata per phrase (speaker, timestamp, context)\n- **Instrument panel layout** — labeled modules with metadata (timebase, gain, frequency range, live dBFS readout)\n\nDesigned for video essay production — turn podcast clips, interviews, and lectures into footage you can drop into your NLE.\n\n## Install\n\n```bash\nnpm install -g transcript-video\n\n# Or clone and link\ngit clone https://github.com/ejfox/transcript-video.git\ncd transcript-video\nnpm install\nnpx playwright install chromium\nnpm link\n```\n\n**Requirements:**\n- Node.js 18+\n- ffmpeg\n- `OPENAI_API_KEY` env var (for Whisper word-level timestamps, ~$0.006/min)\n\n## Usage\n\n```bash\n# Basic — transcribe + render\ntranscript-video interview.mp3\n\n# With a speaker label\ntranscript-video podcast.mp3 --speaker \"ERIK DAVIS — HARVARD CSWR\"\n\n# First 5 minutes only\ntranscript-video lecture.mp3 --duration 300\n\n# 4K output\ntranscript-video clip.mp3 --width 3840 --height 2160\n\n# Preview in browser (no render)\ntranscript-video clip.mp3 --preview\n\n# Use pre-existing word timestamps (skip API call)\ntranscript-video clip.mp3 --words clip-words.json\n\n# Custom concept tags\ntranscript-video clip.mp3 --tags my-tags.json\n```\n\n## Concept tags\n\nCreate a JSON file with word clusters to highlight. Only tagged words get color — everything else stays monochrome.\n\n```json\n[\n  {\n    \"label\": \"consciousness\",\n    \"color\": \"#6eedf7\",\n    \"words\": [\"consciousness\", \"sentient\", \"aware\", \"mind\", \"qualia\"]\n  },\n  {\n    \"label\": \"technical\",\n    \"color\": \"#ffaa00\",\n    \"words\": [\"model\", \"training\", \"alignment\", \"neural\", \"parameter\"]\n  }\n]\n```\n\nPass it with `--tags my-tags.json`. Word matching is case-insensitive and supports partial stems (e.g., `\"meditat\"` matches \"meditation\", \"meditative\", \"meditating\").\n\n## How it works\n\n1. **Transcription** — Sends audio to OpenAI Whisper API with `timestamp_granularities[]=word` to get per-word timing\n2. **Phrase splitting** — Groups words into natural phrases based on pauses, punctuation, and clause boundaries (not mechanical N-word chunks)\n3. **Frame rendering** — Playwright opens the template in headless Chrome, steps through time frame-by-frame, injects pre-decoded PCM audio data into the visualization engine, and screenshots each frame\n4. **Encoding** — ffmpeg assembles frames + original audio into h264/aac MP4\n\nRender speed is ~20-25fps (a 10-minute clip takes ~12 minutes to render).\n\n## Options\n\n| Flag | Default | Description |\n|------|---------|-------------|\n| `--words <file>` | auto | Pre-computed word timestamps JSON |\n| `--tags <file>` | built-in | Concept tag definitions |\n| `--speaker \"LABEL\"` | filename | Speaker label on screen |\n| `--duration <sec>` | full | Render only first N seconds |\n| `--width <px>` | 1920 | Output width |\n| `--height <px>` | 1080 | Output height |\n| `--fps <num>` | 30 | Frames per second |\n| `--output <file>` | `<input>-transcript.mp4` | Output path |\n| `--preview` | false | Open in browser instead of rendering |\n\n## Design\n\n- **Monochrome** — all visualizations are white-on-black. Color is reserved exclusively for concept-tagged words\n- **Instrument panel** — each visualization module is a labeled panel with metadata annotations (timebase, gain, frequency range)\n- **Fonts** — Archivo Black (display), Monaspace Xenon (prose), Monaspace Krypton (labels) via CDN\n- **16:9 locked** — always renders at correct aspect ratio for YouTube/FCP\n\n## License\n\nMIT\n",
+    "excerpt": "Generate synced transcript videos from audio files. Word-by-word text synchronized to audio with semantic phrase splitting, concept highlighting, and audio-reac..."
+  },
+  "createdAt": "2026-04-09T15:50:04Z",
+  "updatedAt": "2026-04-09T15:50:11Z",
+  "pushedAt": "2026-04-09T15:50:07Z"
+}

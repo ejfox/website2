@@ -35,6 +35,31 @@ function isJunkAlt(alt) {
 }
 
 // ---------------------------------------------------------------------------
+// Deterministic "splayed on a table" transforms — rotation/scale derived from
+// a stable hash of the image src so each image picks its own angle and stays
+// put across reloads.
+// ---------------------------------------------------------------------------
+
+function hashString(str) {
+  let h = 2166136261
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i)
+    h = Math.imul(h, 16777619)
+  }
+  return h >>> 0
+}
+
+function splayTransform(src) {
+  const h = hashString(src)
+  // Rotation: ±3°, biased away from zero so nothing sits perfectly square
+  const rotRaw = ((h & 0xffff) / 0xffff) * 6 - 3
+  const rotation = (rotRaw >= 0 ? Math.max(rotRaw, 0.6) : Math.min(rotRaw, -0.6))
+  return {
+    rotation: Number(rotation.toFixed(2)),
+  }
+}
+
+// ---------------------------------------------------------------------------
 // Cloudinary URL helpers
 // ---------------------------------------------------------------------------
 
@@ -139,6 +164,34 @@ function buildSvgPlaceholder(width, height, primary, secondary) {
   return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
 }
 
+// ---------------------------------------------------------------------------
+// LQIP — fetch a 20px blurred JPEG from Cloudinary, inline as base64 so it
+// paints instantly before the real image loads. Cached per-URL.
+// ---------------------------------------------------------------------------
+
+function buildLqipUrl(url) {
+  if (!url.includes('res.cloudinary.com/')) return null
+  const base = url.split('/upload/')[0] + '/upload/'
+  const pathPart = url.split('/upload/')[1]
+  if (!pathPart) return null
+  return `${base}c_scale,e_blur:1000,f_jpg,q_20,w_20/${pathPart}`
+}
+
+async function fetchLqip(url) {
+  const lqipUrl = buildLqipUrl(url)
+  if (!lqipUrl) return null
+  try {
+    const res = await limiter(() => fetch(lqipUrl))
+    if (!res.ok) return null
+    const buf = Buffer.from(await res.arrayBuffer())
+    // Sanity cap: something went wrong if a tiny blur is >8KB
+    if (buf.length > 8 * 1024) return null
+    return `data:image/jpeg;base64,${buf.toString('base64')}`
+  } catch {
+    return null
+  }
+}
+
 function hasMeaningfulMeta(meta) {
   if (!meta || typeof meta !== 'object') return false
   return Boolean(
@@ -197,32 +250,46 @@ const limiter = (() => {
 // ---------------------------------------------------------------------------
 
 async function fetchCloudinaryMeta(url, cache) {
-  if (hasMeaningfulMeta(cache[url])) return cache[url]
+  const cached = cache[url]
+  const needsMeta = !hasMeaningfulMeta(cached)
+  const needsLqip = !cached?.lqip
+
+  if (!needsMeta && !needsLqip) return cached
+
   const infoUrl = buildGetInfoUrl(url)
-  if (!infoUrl) return null
+  if (!infoUrl) return cached || null
 
   try {
-    const res = await limiter(() => fetch(infoUrl))
-    if (!res.ok) return null
-    const json = await res.json()
-    const colors = json.colors || json.output?.colors || null
-    const palette = pickPalette(colors)
-    const meta = {
-      width: json.output?.width || json.input?.width || null,
-      height: json.output?.height || json.input?.height || null,
-      colors,
-      avgColor: palette?.primary || null,
-      secondaryColor: palette?.secondary || null,
-      // Preserve existing alt/caption if already in cache
-      alt: cache[url]?.alt || null,
-      caption: cache[url]?.caption || null,
+    let meta = cached || null
+    if (needsMeta) {
+      const res = await limiter(() => fetch(infoUrl))
+      if (res.ok) {
+        const json = await res.json()
+        const colors = json.colors || json.output?.colors || null
+        const palette = pickPalette(colors)
+        meta = {
+          width: json.output?.width || json.input?.width || null,
+          height: json.output?.height || json.input?.height || null,
+          colors,
+          avgColor: palette?.primary || null,
+          secondaryColor: palette?.secondary || null,
+          alt: cached?.alt || null,
+          caption: cached?.caption || null,
+          lqip: cached?.lqip || null,
+        }
+      }
     }
-    if (!hasMeaningfulMeta(meta)) return null
+
+    if (meta && needsLqip) {
+      meta.lqip = await fetchLqip(url)
+    }
+
+    if (!meta || (!hasMeaningfulMeta(meta) && !meta.lqip)) return cached || null
     cache[url] = meta
     await saveCache(cache)
     return meta
   } catch {
-    return null
+    return cached || null
   }
 }
 
@@ -286,7 +353,9 @@ export function remarkEnhanceImages() {
         // Cloudinary visual metadata (dimensions, placeholders)
         // -----------------------------------------------------------------
         if (cloudMeta) {
-          const placeholder = buildSvgPlaceholder(
+          // Prefer Cloudinary LQIP (actual blurred thumbnail); fall back to
+          // a 2-color SVG gradient if LQIP fetch failed.
+          const placeholder = cloudMeta.lqip || buildSvgPlaceholder(
             cloudMeta.width,
             cloudMeta.height,
             cloudMeta.avgColor,
@@ -300,14 +369,18 @@ export function remarkEnhanceImages() {
               ? `${existingStyle};`
               : existingStyle
           node.data.hProperties.style = `${prefix}${style}`
-          node.data.hProperties['data-placeholder'] = placeholder
-          node.data.hProperties['data-average-color'] = cloudMeta.avgColor
           if (cloudMeta.width) node.data.hProperties.width = cloudMeta.width
           if (cloudMeta.height) node.data.hProperties.height = cloudMeta.height
         }
 
         if (enhanced !== originalUrl) {
-          const classes = ['img-full', 'my-8', 'rounded-sm']
+          const classes = ['img-full', 'my-8', 'rounded-sm', 'img-splay']
+
+          const { rotation } = splayTransform(originalUrl)
+          const splayStyle = `--splay-rot:${rotation}deg;`
+          const currentStyle = node.data.hProperties.style || ''
+          const joiner = currentStyle && !currentStyle.trim().endsWith(';') ? ';' : ''
+          node.data.hProperties.style = `${currentStyle}${joiner}${splayStyle}`
 
           const width = cloudMeta?.width || enhanced.width
           const height = cloudMeta?.height || enhanced.height
