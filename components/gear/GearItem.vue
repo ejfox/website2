@@ -7,14 +7,14 @@
 <template>
   <tr :class="rowClasses">
     <td
-      class="px-1 py-0.5 text-zinc-100 truncate max-w-[300px]"
+      class="px-1 py-0.5 text-zinc-800 dark:text-zinc-100 truncate max-w-[300px]"
     >
-      <div class="flex items-center gap-0.5.5">
+      <div class="flex items-center gap-1">
         <span
           v-tooltip="item.Notes"
           class="truncate flex-1 text-3xs"
         >{{ item.Name }}</span>
-        <span v-if="item.Notes" class="text-zinc-700 text-3xs">•</span>
+        <span v-if="item.Notes" class="text-zinc-400 dark:text-zinc-700 text-3xs">•</span>
       </div>
     </td>
     <td class="px-1 py-0.5 text-center">
@@ -29,27 +29,27 @@
       >
         BUY
       </a>
-      <span v-else class="text-zinc-800 text-3xs">—</span>
+      <span v-else class="text-zinc-400 dark:text-zinc-800 text-3xs">—</span>
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-500 text-2xs">
+    <td class="px-1 py-0.5 text-center text-zinc-600 dark:text-zinc-500 text-2xs">
       {{ getTypeSymbol(item.Type) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 text-3xs">
+    <td class="px-1 py-0.5 text-center text-zinc-500 dark:text-zinc-600 text-3xs">
       {{ getCategoryAbbr(item.Category) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 text-3xs">
+    <td class="px-1 py-0.5 text-center text-zinc-500 dark:text-zinc-600 text-3xs">
       {{ getWaterproofSymbol(item.Waterproof) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 text-3xs">
+    <td class="px-1 py-0.5 text-center text-zinc-500 dark:text-zinc-600 text-3xs">
       {{ getPrioritySymbol(item.Priority) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 text-3xs">
+    <td class="px-1 py-0.5 text-center text-zinc-500 dark:text-zinc-600 text-3xs">
       {{ getConditionSymbol(item.Condition) }}
     </td>
-    <td class="px-1 py-0.5 text-center text-zinc-600 tabular-nums text-3xs">
+    <td class="px-1 py-0.5 text-center text-zinc-500 dark:text-zinc-600 tabular-nums text-3xs">
       {{ getDaysSinceUsed(item.Last_Used) }}
     </td>
-    <td class="px-1 py-0.5 text-right text-zinc-300 tabular-nums pr-2">
+    <td class="px-1 py-0.5 text-right text-zinc-700 dark:text-zinc-300 tabular-nums pr-2">
       <span class="text-3xs font-medium">
         {{ formatWeight(item.Weight_oz) }}
       </span>
@@ -81,9 +81,11 @@ const typeSymbols = {
 
 const rowClasses = {
   group: true,
-  'hover:bg-zinc-900/40': true,
+  'hover:bg-zinc-100': true,
+  'dark:hover:bg-zinc-900/40': true,
   'cursor-pointer': true,
-  'even:bg-zinc-900/20': true,
+  'even:bg-zinc-50': true,
+  'dark:even:bg-zinc-900/20': true,
   relative: true,
 }
 

@@ -8,10 +8,10 @@
     <!-- Form -->
     <form
       ref="formRef"
-      class="flex items-center gap-0.5.5 relative"
+      class="flex items-center gap-1 relative"
       @submit.prevent="submitForm"
     >
-      <div class="flex-1 flex items-center gap-0.5.5 min-w-0">
+      <div class="flex-1 flex items-center gap-1 min-w-0">
         <label for="newsletter-email" class="sr-only">Email address</label>
         <input
           id="newsletter-email"
@@ -29,7 +29,7 @@
         <div
           ref="nameFieldsContainer"
           :class="[
-            'flex gap-0.5.5 overflow-hidden transition-all duration-300',
+            'flex gap-1 overflow-hidden transition-all duration-300',
             'ease-out shrink-0',
             showNameFields ? 'w-auto opacity-100' : 'w-0 opacity-0',
           ]"

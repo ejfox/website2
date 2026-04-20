@@ -1,7 +1,7 @@
 <template>
   <div
     id="app-container"
-    class="w-full min-h-screen bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
+    class="w-full min-h-screen bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
   >
     <!-- Skip to main content link for accessibility -->
     <a

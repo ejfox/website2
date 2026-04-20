@@ -15,7 +15,7 @@
     >
       <button
         v-if="likes.length > 0"
-        class="flex items-center gap-0.5.5"
+        class="flex items-center gap-1"
         @click="showLikes = !showLikes"
       >
         <span>{{ likes.length }}</span>
@@ -24,14 +24,14 @@
 
       <button
         v-if="reposts.length > 0"
-        class="flex items-center gap-0.5.5"
+        class="flex items-center gap-1"
         @click="showReposts = !showReposts"
       >
         <span>{{ reposts.length }}</span>
         <span class="text-green-500">↻</span>
       </button>
 
-      <span v-if="replies.length > 0" class="flex items-center gap-0.5.5">
+      <span v-if="replies.length > 0" class="flex items-center gap-1">
         <span>{{ replies.length }}</span>
         <span>💬</span>
       </span>

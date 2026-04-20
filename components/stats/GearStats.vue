@@ -73,7 +73,7 @@
         :key="container.name"
         class="row-hover-gap"
       >
-        <div class="flex items-baseline gap-0.5.5 min-w-0 flex-1">
+        <div class="flex items-baseline gap-1 min-w-0 flex-1">
           <span class="text-zinc-500 text-3xs">
             {{ container.type.substring(0, 3) }}
           </span>
@@ -186,7 +186,7 @@
         <span class="text-zinc-700 dark:text-zinc-300 truncate">
           {{ item.Name }}
         </span>
-        <div class="flex items-baseline gap-0.5.5">
+        <div class="flex items-baseline gap-1">
           <span class="text-zinc-500 text-3xs">{{ item.Last_Used }}</span>
           <span class="text-zinc-500 tabular-nums flex-shrink-0">
             {{ formatWeight(parseFloat(item.Weight_oz || '0')) }}

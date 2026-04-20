@@ -35,7 +35,12 @@ const homepageSchema = computed(() => ({
 }))
 
 const { getPostBySlug, getAllPosts: _getAllPosts } = useProcessedMarkdown()
-const { revealContainer: homeReveal } = useScrollReveal({ selector: ':scope > *', staggerDelay: 40, translateY: 6, duration: 250 })
+const { revealContainer: homeReveal } = useScrollReveal({
+  selector: ':scope > *',
+  staggerDelay: 40,
+  translateY: 6,
+  duration: 250,
+})
 
 const { data: indexContent, pending: _indexPending } = await useAsyncData(
   'index-content',

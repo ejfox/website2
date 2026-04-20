@@ -162,11 +162,11 @@ p,
 }
 
 .text-caption {
-  @apply font-mono text-xs leading-normal text-zinc-500;
+  @apply font-mono text-xs leading-normal text-zinc-500 dark:text-zinc-400;
 }
 
 .text-meta {
-  @apply font-mono text-xs uppercase tracking-wider text-zinc-500;
+  @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400;
 }
 
 .header {
@@ -208,7 +208,7 @@ p,
 }
 
 .text-muted {
-  @apply text-zinc-500 dark:text-zinc-500;
+  @apply text-zinc-500 dark:text-zinc-400;
 }
 
 /* Links - Minimal */
@@ -222,7 +222,7 @@ p,
 
 /* Section Headers */
 .section-header {
-  @apply font-mono text-xs font-normal uppercase tracking-wider text-zinc-500 dark:text-zinc-500;
+  @apply font-mono text-xs font-normal uppercase tracking-wider text-zinc-500 dark:text-zinc-400;
 }
 
 .section-header-xs {
@@ -1208,6 +1208,10 @@ img[data-loading='lazy']::before {
     overflow-wrap: break-word;
     margin-bottom: 16px;
   }
+
+  .dark .sidenote {
+    color: #a1a1aa;
+  }
 }
 
 @media (min-width: 1536px) {
@@ -1297,12 +1301,15 @@ img[data-loading='lazy']::before {
   border-color: var(--v-popper-bg);
 }
 
-/* Light mode override */
-@media (prefers-color-scheme: light) {
-  .v-popper--theme-tooltip {
-    --v-popper-bg: #18181b;
-    --v-popper-color: #fafafa;
-  }
+/* Light mode override (class-based for VueUse dark mode) */
+:root:not(.dark) .v-popper--theme-tooltip {
+  --v-popper-bg: #fafafa;
+  --v-popper-color: #18181b;
+}
+
+:root:not(.dark) .v-popper--theme-tooltip .v-popper__inner {
+  border-color: #e4e4e7;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 /* Animation */
@@ -1408,3 +1415,15 @@ img[data-loading='lazy']::before {
   }
 }
 
+/* ========================================
+   DARK MODE TYPOGRAPHY (class-based)
+   VueUse uses .dark class, not media query
+   ======================================== */
+.dark body, .dark {
+  letter-spacing: 0.005em;
+  font-weight: 375;
+}
+
+.dark .text-sm, .dark .text-xs, .dark .text-2xs, .dark .text-3xs {
+  letter-spacing: 0.02em;
+}
