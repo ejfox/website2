@@ -5,19 +5,11 @@
 -->
 <template>
   <span class="next-available-slot group relative inline">
-    <!-- Prevent hydration mismatch by showing fallback initially -->
     <ClientOnly>
-      <!-- Loading state -->
-      <span
-        v-if="pending"
-        class="animate-pulse text-blue-600 dark:text-blue-400"
-      >
-        what about...
-      </span>
-
-      <!-- Available slot - inline magic link -->
+      <!-- Available slot - inline magic link. Renders nothing otherwise so
+           the surrounding "grab some time on my calendar" link stands alone. -->
       <a
-        v-else-if="nextSlot"
+        v-if="nextSlot"
         :href="nextSlot.bookingUrl"
         target="_blank"
         class="link-blue-underline"
@@ -25,29 +17,6 @@
       >
         ({{ nextSlot.naturalTime }})
       </a>
-
-      <!-- Fallback to static calendar link -->
-      <a
-        v-else
-        href="https://cal.com/ejfox/30min"
-        target="_blank"
-        class="link-blue-underline"
-        title="Book a 30min chat"
-      >
-        find some time on my calendar
-      </a>
-
-      <!-- Fallback for SSR -->
-      <template #fallback>
-        <a
-          href="https://cal.com/ejfox/30min"
-          target="_blank"
-          class="link-blue-underline"
-          title="Book a 30min chat"
-        >
-          find some time on my calendar
-        </a>
-      </template>
     </ClientOnly>
   </span>
 </template>

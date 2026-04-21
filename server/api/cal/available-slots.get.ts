@@ -44,6 +44,7 @@ export default defineEventHandler(async (event) => {
         start: startISO,
         end: endISO,
         timeZone: 'America/New_York',
+        duration: durationMinutes,
         format: 'range',
       },
     })) as { data?: Record<string, Array<{ start: string; end?: string }>> }
