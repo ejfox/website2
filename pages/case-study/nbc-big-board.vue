@@ -281,7 +281,7 @@ usePageSeo({
             Messy data, network visualization, investigative journalism
           </p>
         </NuxtLink>
-        <NuxtLink to="/blog/projects/covidcast" class="block group">
+        <NuxtLink to="/projects/covidcast" class="block group">
           <h3
             class="font-serif text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-300"
           >
