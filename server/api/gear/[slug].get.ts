@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
 
     // Find the item by converting name to slug
     const foundItem = gearItems.find((item: d3.DSVRowString) => {
-      const itemSlug = item.Name?.toLowerCase().replace(/[^a-z0-9]+/g, '-')
+      const itemSlug = item.Name ? createGearSlug(item.Name) : ''
       return itemSlug === slug
     })
 

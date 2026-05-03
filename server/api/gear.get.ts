@@ -41,10 +41,6 @@ interface GearItemWithSlug extends GearItem {
   slug: string
 }
 
-function createSlug(name: string): string {
-  return name.toLowerCase().replace(/[^a-z0-9]+/g, '-')
-}
-
 export default defineEventHandler(async (_event) => {
   try {
     // Read the CSV file from data directory
@@ -59,7 +55,7 @@ export default defineEventHandler(async (_event) => {
       .filter((item) => item.Name && item.Name.trim() !== '')
       .map((item) => ({
         ...item,
-        slug: createSlug(item.Name!),
+        slug: createGearSlug(item.Name!),
       }))
       .sort((a, b) => (a.Name || '').localeCompare(b.Name || ''))
 
