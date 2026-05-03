@@ -87,7 +87,6 @@ export default createConfigForNuxt({
         useWeightCalculations: 'readonly',
         useLazyFetch: 'readonly',
         useDateFormat: 'readonly',
-        useProjectSlug: 'readonly',
         useMarkdown: 'readonly',
         useNumberFormat: 'readonly',
         useStats: 'readonly',

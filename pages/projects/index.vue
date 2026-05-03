@@ -23,11 +23,10 @@ const regularProjects = computed(
 )
 
 const { tocTarget } = useTOC()
-const { getSlug } = useProjectSlug()
 const { revealContainer: featuredReveal } = useScrollReveal({ selector: ':scope > *', staggerDelay: 50, translateY: 6, duration: 250 })
 const { revealContainer: gridReveal } = useScrollReveal({ selector: ':scope > *', staggerDelay: 20, translateY: 4, duration: 150 })
 
-const getProjectId = (project) => getSlug(project)
+const getProjectSlug = (project) => project.slug?.replace(/^projects\//, '') || ''
 
 const tocLinkClass =
   'block text-zinc-600 dark:text-zinc-400 truncate'
@@ -112,7 +111,7 @@ const projectsSchema = computed(() => ({
     projects.value?.slice(0, 20).map((p, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      url: `https://ejfox.com/projects/${getSlug(p)}`,
+      url: `https://ejfox.com/projects/${getProjectSlug(p)}`,
       name: p.metadata?.title || p.title,
     })) || [],
 }))
@@ -186,7 +185,7 @@ useHead(() => ({
     <div v-if="featuredProjects.length" ref="featuredReveal" class="mb-12 space-y-8">
       <FeaturedProjectCard
         v-for="(project, index) in featuredProjects"
-        :id="getProjectId(project)"
+        :id="getProjectSlug(project)"
         :key="project.slug"
         :project="project"
         :index="index"
@@ -202,7 +201,7 @@ useHead(() => ({
     >
       <BentoProjectCard
         v-for="project in regularProjects"
-        :id="getProjectId(project)"
+        :id="getProjectSlug(project)"
         :key="project.slug"
         :project="project"
       />
@@ -214,7 +213,7 @@ useHead(() => ({
         <div>
           <ul class="space-y-0.5 font-mono text-3xs list-none pl-0">
             <li v-for="project in projects" :key="project.slug">
-              <a :href="`#${getProjectId(project)}`" :class="tocLinkClass">
+              <a :href="`#${getProjectSlug(project)}`" :class="tocLinkClass">
                 {{ project.title || project.metadata?.title }}
               </a>
             </li>

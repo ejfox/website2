@@ -64,7 +64,6 @@
 
 <script setup>
 const { formatYearOnly } = useDateFormat()
-const { getSlug } = useProjectSlug()
 
 const props = defineProps({
   project: {
@@ -79,7 +78,7 @@ const props = defineProps({
 
 const formatDate = formatYearOnly
 
-const projectSlug = computed(() => getSlug(props.project))
+const projectSlug = computed(() => props.project.slug?.replace(/^projects\//, '') || '')
 
 const _projectTitle = computed(
   () => props.project.title || props.project.metadata?.title || ''
