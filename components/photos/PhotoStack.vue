@@ -39,6 +39,10 @@ const toggle = () => {
   }
 }
 
+function onSplayEnter(el: Element) {
+  el.dispatchEvent(new CustomEvent('splay:rescan', { bubbles: true }))
+}
+
 const stackImages = computed(() => props.post.images.slice(0, 3))
 
 function hashStr(s: string) {
@@ -106,7 +110,7 @@ function thumbUrl(src: string, w = 560) {
       </div>
     </button>
 
-    <Transition name="splay" @after-enter="$event.dispatchEvent(new CustomEvent('splay:rescan', { bubbles: true }))">
+    <Transition name="splay" @after-enter="onSplayEnter">
       <div v-show="expanded" class="photo-stack__body">
         <p v-if="post.dek" class="photo-stack__dek">{{ post.dek }}</p>
         <div v-if="loadingBody && !bodyHtml" class="photo-stack__loading">loading…</div>
