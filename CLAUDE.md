@@ -6,7 +6,7 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 
 ## Current Status: ✅ Production Ready
 
-- Docker containerized, health checks working
+- Runs under **pm2** on the VPS (process name `website2`, port 3006). Docker was retired 2026-05-06 — see "Deployment" section below.
 - Dynamic tags system with journalist pyramid ordering
 - Cryptographic predictions system with PGP signing
 - Multi-source API aggregation for personal stats
@@ -85,9 +85,10 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 
 ### Configuration Files
 
-- `nuxt.config.ts` - Nuxt configuration with Docker preset
+- `nuxt.config.ts` - Nuxt configuration (Node server preset)
 - `.env` - Environment variables (create from examples in README)
-- `Dockerfile` + `docker-compose.yml` - Container deployment
+- `ecosystem.config.cjs` - pm2 production config (used on VPS, not in dev)
+- `Dockerfile` + `docker-compose.yml` - **deprecated**, kept for reference only
 
 ### Content Structure
 
@@ -119,7 +120,7 @@ Applied throughout codebase for:
 1. **Write** in Obsidian with YAML frontmatter + tags
 2. **Process** via `yarn blog:process` → generates JSON + usage counts
 3. **Serve** via dynamic routes consuming processed JSON
-4. **Deploy** via Docker container with health checks
+4. **Deploy** via `git pull && yarn build && pm2 reload website2` on the VPS
 
 ## Common Operations
 
@@ -145,20 +146,34 @@ yarn dev
 
 # Build for production
 yarn build
-
-# Docker development
-docker-compose up --build
 ```
 
 ### Deployment
 
-```bash
-# Restart after .env changes
-docker-compose restart
+Production runs under **pm2** as `website2` on `vps-pub`, listening on `localhost:3006`.
+Cloudflare Tunnel `tools-tunnel` routes `ejfox.com` → `localhost:3006`.
 
-# Full rebuild
-docker-compose down && docker-compose up -d --build
+```bash
+# From the VPS (~15 sec, zero-downtime reload)
+ssh vps-pub
+cd /data2/website2
+git pull
+yarn build              # ~3.5 min — runs prebuild scripts (changelog, blogroll snapshot, github/goodreads exports) + nitro build
+pm2 reload website2     # graceful: spawns new process, drains old one
+
+# After .env changes only (no code change)
+pm2 reload website2
+
+# Live logs
+pm2 logs website2
+
+# Rollback to docker (image still on disk as `website2:latest`)
+pm2 stop website2
+cd /data2/website2 && sudo docker compose up -d
 ```
+
+**Pm2 config**: `/data2/website2/ecosystem.config.cjs`. Loads env from `.env`, max 1G memory.
+**Pm2 state persisted**: `~/.pm2/dump.pm2` (saved via `pm2 save`).
 
 ## Troubleshooting
 
@@ -186,17 +201,26 @@ cat content/processed/2025/post-name.json | jq .metadata
 cat content/processed/manifest-lite.json | jq 'length'
 ```
 
-### Docker Issues
+### Production Issues (pm2)
 
 ```bash
-# Health check
-curl http://localhost:3006/api/healthcheck
+# Health check (external)
+curl https://ejfox.com/api/healthcheck
 
-# Container logs
-docker logs website2-container
+# Process status + memory
+ssh vps-pub 'pm2 list | grep website2'
 
-# Rebuild everything
-docker-compose down --volumes && docker-compose up --build
+# Live logs (Ctrl-C to exit)
+ssh vps-pub 'pm2 logs website2'
+
+# Last 100 log lines
+ssh vps-pub 'pm2 logs website2 --lines 100 --nostream'
+
+# Restart (kills + respawns; drops in-memory caches like monkeytype)
+ssh vps-pub 'pm2 restart website2'
+
+# Reload (graceful; preserves in-memory caches across version cutover)
+ssh vps-pub 'pm2 reload website2'
 ```
 
 ### Gear Page Issues
@@ -212,7 +236,7 @@ docker-compose down --volumes && docker-compose up --build
 
 - **Build System**: Clean, zero ESLint errors after DELETE-DRIVEN cleanup
 - **Content Pipeline**: Obsidian → JSON processing working smoothly
-- **Docker**: Production-ready with health checks
+- **Runtime**: pm2 on VPS (formerly docker; retired 2026-05-06)
 - **Dynamic Tags**: Journalist pyramid ordering operational
 - **Predictions**: Cryptographic verification system functional
 - **Root Folder**: Professional, no build artifacts or test debris
@@ -294,7 +318,7 @@ Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-si
 2. **Static Generation**: Prefer build-time processing over runtime complexity
 3. **Journalist Pyramid**: Most important/frequent data first (tags, content)
 4. **Type Safety**: Full TypeScript coverage with strict checking
-5. **Docker First**: Container-based deployment and development
+5. **Boring Infra**: pm2 + git pull deploys. No containers, no orchestration. The site is a single Node process — read its logs, reload it, move on.
 6. **Tuftian Data Density**: Maximum data-ink ratio, minimal chrome
 7. **8px Baseline Grid**: Consistent vertical rhythm throughout typography
 8. **Dark-First Design**: Primary dark theme with zinc color palette
