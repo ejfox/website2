@@ -5,6 +5,8 @@
  * @returns Typing statistics with best WPM, average WPM, tests completed, accuracy, consistency, and recent test results
  */
 import { defineEventHandler, createError } from 'h3'
+import { readFile, writeFile, mkdir } from 'node:fs/promises'
+import { dirname, join } from 'node:path'
 
 interface MonkeyTypeTest {
   wpm: number
@@ -63,12 +65,50 @@ interface MonkeyTypeHistory {
 // from every request — caching keeps us under the threshold and survives
 // upstream blips. lastGoodResponse never expires; freshExpiresAt gates the
 // "is the current cache fresh enough to serve without re-fetching" check.
+//
+// Persisted to disk so cold container restarts don't reset to null. The cache
+// path defaults to .cache/monkeytype-last-good.json relative to cwd; in Docker
+// this should be a mounted volume so it survives container rebuilds (see
+// docker-compose.yml volumes for the runtime-cache mount).
 const FRESH_TTL_MS = 5 * 60 * 1000
+const CACHE_FILE =
+  process.env.MONKEYTYPE_CACHE_PATH ||
+  join(process.cwd(), '.cache', 'monkeytype-last-good.json')
+
 let lastGoodResponse: {
   typingStats: unknown
   lastUpdated: string
 } | null = null
 let freshExpiresAt = 0
+let diskCacheLoaded = false
+
+const loadDiskCache = async () => {
+  if (diskCacheLoaded) return
+  diskCacheLoaded = true
+  try {
+    const data = await readFile(CACHE_FILE, 'utf-8')
+    const parsed = JSON.parse(data)
+    if (parsed && parsed.typingStats) {
+      lastGoodResponse = parsed
+      console.warn(
+        `MonkeyType: loaded persisted cache from ${parsed.lastUpdated}`
+      )
+    }
+  } catch {
+    // No cache file yet — first run after deploy. Will be created on first
+    // successful upstream fetch.
+  }
+}
+
+const persistDiskCache = async () => {
+  if (!lastGoodResponse) return
+  try {
+    await mkdir(dirname(CACHE_FILE), { recursive: true })
+    await writeFile(CACHE_FILE, JSON.stringify(lastGoodResponse))
+  } catch (err) {
+    console.warn('MonkeyType: failed to persist cache:', err)
+  }
+}
 
 const staleOrNull = (reason: string) => {
   if (lastGoodResponse) {
@@ -82,6 +122,11 @@ const staleOrNull = (reason: string) => {
 }
 
 export default defineEventHandler(async () => {
+  // First request after process start: hydrate in-memory cache from disk so
+  // container restarts don't drop us back to null until the next successful
+  // upstream fetch.
+  await loadDiskCache()
+
   // Serve fresh cache without a network call when within TTL
   if (lastGoodResponse && Date.now() < freshExpiresAt) {
     return lastGoodResponse
@@ -309,6 +354,8 @@ export default defineEventHandler(async () => {
     }
     lastGoodResponse = response
     freshExpiresAt = Date.now() + FRESH_TTL_MS
+    // Fire-and-forget disk persistence — don't block the response on filesystem.
+    void persistDiskCache()
     return response
   } catch (error) {
     console.error('MonkeyType API error details:', error)
