@@ -32,6 +32,9 @@ services:
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
+      # Runtime cache for stale-while-error fallbacks (e.g. MonkeyType API)
+      # so cold container restarts don't reset cached responses to null.
+      - ./.runtime-cache:/app/.cache
     tmpfs:
       - /tmp
     security_opt:
