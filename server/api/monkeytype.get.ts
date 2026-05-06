@@ -58,12 +58,17 @@ interface MonkeyTypeHistory {
 
 // Unused interface MonkeyTypeResponse removed
 
-// Stale-while-error cache: keep last good payload in module memory so a transient
-// upstream failure doesn't poison the response with `typingStats: null`.
+// Stale-while-error cache + 5-minute TTL.
+// MonkeyType ApeKey rate-limits aggressively (HTTP 479) when we hit /users/*
+// from every request — caching keeps us under the threshold and survives
+// upstream blips. lastGoodResponse never expires; freshExpiresAt gates the
+// "is the current cache fresh enough to serve without re-fetching" check.
+const FRESH_TTL_MS = 5 * 60 * 1000
 let lastGoodResponse: {
   typingStats: unknown
   lastUpdated: string
 } | null = null
+let freshExpiresAt = 0
 
 const staleOrNull = (reason: string) => {
   if (lastGoodResponse) {
@@ -77,47 +82,17 @@ const staleOrNull = (reason: string) => {
 }
 
 export default defineEventHandler(async () => {
+  // Serve fresh cache without a network call when within TTL
+  if (lastGoodResponse && Date.now() < freshExpiresAt) {
+    return lastGoodResponse
+  }
+
   const config = useRuntimeConfig()
   const token = config.MONKEYTYPE_TOKEN
 
   if (!token?.trim()) {
     console.warn('MonkeyType token not configured')
     return staleOrNull('token not configured')
-  }
-
-  const makeRequest = async <T>(
-    url: string,
-    params?: Record<string, string>
-  ): Promise<T> => {
-    const queryString = params
-      ? '?' + new URLSearchParams(params).toString()
-      : ''
-    const response = await fetch(
-      `https://api.monkeytype.com${url}${queryString}`,
-      {
-        headers: {
-          Authorization: `ApeKey ${token.trim()}`,
-          Accept: 'application/json',
-        },
-      }
-    )
-
-    if (!response.ok) {
-      console.error(
-        `MonkeyType API error: ${response.status} ${response.statusText}`
-      )
-      const error = await response
-        .json()
-        .catch(() => ({ message: 'Unknown error' }))
-      throw createError({
-        statusCode: response.status,
-        message:
-          error.message || `MonkeyType API error: ${response.statusText}`,
-      })
-    }
-
-    const data = await response.json()
-    return data as T
   }
 
   const makeOptionalRequest = async <T>(
@@ -138,7 +113,16 @@ export default defineEventHandler(async () => {
     )
 
     if (!response.ok) {
-      if (response.status === 404) return null
+      // 404 = no data (e.g. user hasn't enabled results endpoint)
+      // 429/479 = ApeKey rate-limited; fall back to whatever we have cached
+      // rather than poisoning the response with an exception.
+      if (
+        response.status === 404 ||
+        response.status === 429 ||
+        response.status === 479
+      ) {
+        return null
+      }
       console.error(
         `MonkeyType API error: ${response.status} ${response.statusText}`
       )
@@ -159,9 +143,13 @@ export default defineEventHandler(async () => {
   try {
     // Fetch all data in parallel with error recovery
     const results = await Promise.allSettled([
-      makeRequest<MonkeyTypeStats>('/users/stats'),
-      makeRequest<MonkeyTypePB>('/users/personalBests', { mode: 'time' }),
-      makeRequest<MonkeyTypePB>('/users/personalBests', { mode: 'words' }),
+      makeOptionalRequest<MonkeyTypeStats>('/users/stats'),
+      makeOptionalRequest<MonkeyTypePB>('/users/personalBests', {
+        mode: 'time',
+      }),
+      makeOptionalRequest<MonkeyTypePB>('/users/personalBests', {
+        mode: 'words',
+      }),
       makeOptionalRequest<MonkeyTypeHistory>('/users/results', {
         limit: '200',
       }),
@@ -320,6 +308,7 @@ export default defineEventHandler(async () => {
       lastUpdated: new Date().toISOString(),
     }
     lastGoodResponse = response
+    freshExpiresAt = Date.now() + FRESH_TTL_MS
     return response
   } catch (error) {
     console.error('MonkeyType API error details:', error)
