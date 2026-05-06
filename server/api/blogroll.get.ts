@@ -16,10 +16,21 @@ interface Feed {
   domain: string
 }
 
+// Build-time snapshot lives in data/blogroll.urls; fall back to local newsboat
+// config in dev so changes to the running list don't require a rebuild.
+async function readBlogrollFile(): Promise<string> {
+  const bundled = join(process.cwd(), 'data', 'blogroll.urls')
+  try {
+    return await fs.readFile(bundled, 'utf-8')
+  } catch {
+    const home = join(homedir(), '.newsboat', 'urls')
+    return await fs.readFile(home, 'utf-8')
+  }
+}
+
 export default defineEventHandler(async () => {
   try {
-    const newsboatPath = join(homedir(), '.newsboat', 'urls')
-    const content = await fs.readFile(newsboatPath, 'utf-8')
+    const content = await readBlogrollFile()
 
     const feeds: Feed[] = []
     const lines = content

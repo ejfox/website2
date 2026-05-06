@@ -52,7 +52,35 @@ interface LeetCodeGraphQLResponse {
   }
 }
 
-export default defineEventHandler(async () => {
+interface LeetCodeResponse {
+  contestStats: {
+    attendedContestsCount: number
+    rating: number
+    globalRanking: number
+    totalParticipants: number
+    topPercentage: number
+  } | null
+  recentSubmissions: {
+    title: string
+    titleSlug: string
+    timestamp: string
+    statusDisplay: string
+    lang: string
+  }[]
+  submissionStats: {
+    easy: { count: number; submissions: number }
+    medium: { count: number; submissions: number }
+    hard: { count: number; submissions: number }
+  }
+  lastUpdated: string
+}
+
+// Stale-while-error cache: leetcode.com appears to throttle/block our VPS IP
+// intermittently, returning timeouts or 5xx. Serve the last good response
+// instead of failing the whole stats aggregator when that happens.
+let lastGoodResponse: LeetCodeResponse | null = null
+
+export default defineEventHandler(async (): Promise<LeetCodeResponse> => {
   const username = 'ejfox'
 
   const makeRequest = async <T>(_url: string): Promise<T> => {
@@ -146,9 +174,14 @@ export default defineEventHandler(async () => {
       )
     }
 
+    lastGoodResponse = response
     return response
   } catch (error) {
     console.error('LeetCode API error:', error)
+    if (lastGoodResponse) {
+      console.warn('LeetCode serving stale response (upstream failed)')
+      return lastGoodResponse
+    }
     const err = error as Error
     throw createError({
       statusCode: 500,

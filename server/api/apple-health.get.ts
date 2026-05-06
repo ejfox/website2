@@ -83,10 +83,18 @@ interface MetricRecord {
 
 export default defineEventHandler(async (): Promise<HealthStats> => {
   const HEALTH_API = 'https://health-webhook.tools.ejfox.com'
+  const config = useRuntimeConfig()
+  const secret = (config.HEALTH_WEBHOOK_SECRET ||
+    process.env.HEALTH_WEBHOOK_SECRET ||
+    '') as string
 
   try {
-    // Fetch metrics from health-webhook
-    const response = await fetch(`${HEALTH_API}/api/metrics?days=30`)
+    // Fetch metrics from health-webhook (auth required)
+    const headers: Record<string, string> = {}
+    if (secret) headers['x-webhook-secret'] = secret
+    const response = await fetch(`${HEALTH_API}/api/metrics?days=30`, {
+      headers,
+    })
     if (!response.ok) {
       throw new Error(`Health API returned ${response.status}`)
     }

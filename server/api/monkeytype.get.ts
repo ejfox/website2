@@ -58,16 +58,31 @@ interface MonkeyTypeHistory {
 
 // Unused interface MonkeyTypeResponse removed
 
+// Stale-while-error cache: keep last good payload in module memory so a transient
+// upstream failure doesn't poison the response with `typingStats: null`.
+let lastGoodResponse: {
+  typingStats: unknown
+  lastUpdated: string
+} | null = null
+
+const staleOrNull = (reason: string) => {
+  if (lastGoodResponse) {
+    console.warn(`MonkeyType serving stale response (${reason})`)
+    return { ...lastGoodResponse, stale: true }
+  }
+  return {
+    typingStats: null,
+    lastUpdated: new Date().toISOString(),
+  }
+}
+
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   const token = config.MONKEYTYPE_TOKEN
 
   if (!token?.trim()) {
     console.warn('MonkeyType token not configured')
-    return {
-      typingStats: null,
-      lastUpdated: new Date().toISOString(),
-    }
+    return staleOrNull('token not configured')
   }
 
   const makeRequest = async <T>(
@@ -174,10 +189,7 @@ export default defineEventHandler(async () => {
 
     if (!allTests.length || !statsData?.data) {
       console.warn('No MonkeyType test data found')
-      return {
-        typingStats: null,
-        lastUpdated: new Date().toISOString(),
-      }
+      return staleOrNull('upstream returned no test data')
     }
 
     const bestWPM = allTests.reduce((max, test) => Math.max(max, test.wpm), 0)
@@ -210,6 +222,20 @@ export default defineEventHandler(async () => {
 
     const historyTests = extractHistoryTests(historyData)
 
+    // MonkeyType omits the `language` field entirely when the test was in
+    // english (the account default), so a missing field means english — not
+    // unknown. Without this, ~85% of typical histories silently drop out of
+    // the language breakdown.
+    const getTestLanguage = (
+      test: MonkeyTypeTest | MonkeyTypeResult
+    ): string => {
+      const raw =
+        ('language' in test && test.language) ||
+        ('lang' in test && test.lang) ||
+        ''
+      return raw.trim() || 'english'
+    }
+
     // Get recent tests from history when available
     const recentTestsSource = historyTests.length ? historyTests : allTests
     const recentTests = [...recentTestsSource]
@@ -219,35 +245,17 @@ export default defineEventHandler(async () => {
         timestamp: new Date(getTestTimestamp(test)).toISOString(),
         wpm: getTestWpm(test),
         accuracy: getTestAccuracy(test),
-        language:
-          'language' in test
-            ? test.language
-            : 'lang' in test
-              ? test.lang
-              : undefined,
+        language: getTestLanguage(test),
       }))
-
-    const parseLanguageFromKey = (key: string): string | null => {
-      if (!/[a-z]/i.test(key)) return null
-      const cleaned = key
-        .replace(/[_-]+/g, ' ')
-        .replace(/\b\d+\b/g, '')
-        .replace(/\s+/g, ' ')
-        .trim()
-      return cleaned.length ? cleaned : null
-    }
 
     const languageMap = new Map<
       string,
       { language: string; tests: number; totalWpm: number; bestWpm: number }
     >()
 
-    const addLanguageStat = (language: string | null, wpm: number) => {
-      if (!language) return
-      const normalized = language.trim()
-      if (!normalized) return
-      const entry = languageMap.get(normalized) || {
-        language: normalized,
+    const addLanguageStat = (language: string, wpm: number) => {
+      const entry = languageMap.get(language) || {
+        language,
         tests: 0,
         totalWpm: 0,
         bestWpm: 0,
@@ -255,30 +263,26 @@ export default defineEventHandler(async () => {
       entry.tests += 1
       entry.totalWpm += wpm
       entry.bestWpm = Math.max(entry.bestWpm, wpm)
-      languageMap.set(normalized, entry)
+      languageMap.set(language, entry)
     }
 
     historyTests.forEach((test) =>
-      addLanguageStat(test.language || test.lang || null, getTestWpm(test))
+      addLanguageStat(getTestLanguage(test), getTestWpm(test))
     )
 
+    // Fallback: PB data carries `language` reliably on every entry. Use it
+    // when /results is unavailable.
     if (!languageMap.size) {
       const addFromPersonalBests = (pb: MonkeyTypePB | null) => {
-        Object.entries(pb?.data || {}).forEach(([key, tests]) => {
-          const language = parseLanguageFromKey(key)
-          if (!language) return
-          tests.forEach((test) => addLanguageStat(language, test.wpm))
+        Object.values(pb?.data || {}).forEach((tests) => {
+          tests.forEach((test) =>
+            addLanguageStat(getTestLanguage(test), test.wpm)
+          )
         })
       }
 
       addFromPersonalBests(timeTests)
       addFromPersonalBests(wordTests)
-    }
-
-    if (!languageMap.size) {
-      recentTests.forEach((test) =>
-        addLanguageStat(test.language || null, test.wpm)
-      )
     }
 
     const languageBreakdown = Array.from(languageMap.values())
@@ -301,7 +305,7 @@ export default defineEventHandler(async () => {
           )
         : 0
 
-    return {
+    const response = {
       typingStats: {
         bestWPM,
         testsCompleted: statsData.data.completedTests,
@@ -315,12 +319,10 @@ export default defineEventHandler(async () => {
       },
       lastUpdated: new Date().toISOString(),
     }
+    lastGoodResponse = response
+    return response
   } catch (error) {
     console.error('MonkeyType API error details:', error)
-    // Only return null if we actually failed to fetch data
-    return {
-      typingStats: null,
-      lastUpdated: new Date().toISOString(),
-    }
+    return staleOrNull('upstream threw')
   }
 })

@@ -197,10 +197,15 @@ export default defineNuxtConfig({
     LASTFM_SHARED_SECRET: process.env.LASTFM_SHARED_SECRET || '',
     MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN || '',
     OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY || '',
+    EDITOR_CONTEXT_TOKEN: process.env.EDITOR_CONTEXT_TOKEN || '',
+    UMAMI_URL: process.env.UMAMI_URL || 'https://umami.tools.ejfox.com',
     UMAMI_USERNAME: process.env.UMAMI_USERNAME || 'admin',
     UMAMI_PASSWORD: process.env.UMAMI_PASSWORD || '',
+    UMAMI_WEBSITE_ID:
+      process.env.UMAMI_WEBSITE_ID || '165590cb-c361-4ad8-9459-6c6390744c64',
     SUPABASE_URL: process.env.SUPABASE_URL || '',
     SUPABASE_KEY: process.env.SUPABASE_KEY || '',
+    HEALTH_WEBHOOK_SECRET: process.env.HEALTH_WEBHOOK_SECRET || '',
     scrapEnlightenerAuth: process.env.SCRAP_ENLIGHTENER_AUTH || '',
     calcomApiKey: process.env.CAL_COM_API_KEY || '',
 

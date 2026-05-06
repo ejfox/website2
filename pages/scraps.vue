@@ -5,7 +5,7 @@
       <div class="font-bold tracking-wider uppercase">Scraps</div>
       <div class="text-3xs text-zinc-500 dark:text-zinc-500 space-y-1">
         <div>
-          {{ scraps.length }} items · {{ uniqueTags }} tags ·
+          {{ scraps?.length || 0 }} items · {{ uniqueTags }} tags ·
           {{ uniqueSources }}
         </div>
       </div>
@@ -28,7 +28,7 @@
 
     <!-- Empty State -->
     <div
-      v-else-if="!scraps.length"
+      v-else-if="!scraps?.length"
       class="text-zinc-500 dark:text-zinc-500 text-center py-8"
     >
       No scraps yet
@@ -191,7 +191,7 @@ const {
 const { revealContainer: scrapsReveal } = useScrollReveal({ selector: ':scope > div', staggerDelay: 8, translateY: 3, duration: 100 })
 
 const _stats = computed(() => {
-  if (!scraps.value.length) return null
+  if (!scraps.value?.length) return null
   return {
     total: scraps.value.length,
   }
@@ -199,7 +199,7 @@ const _stats = computed(() => {
 
 const uniqueTags = computed(() => {
   const tags = new Set<string>()
-  scraps.value.forEach((s) => {
+  scraps.value?.forEach((s) => {
     s.tags?.forEach((t) => tags.add(t))
   })
   return tags.size
@@ -207,7 +207,7 @@ const uniqueTags = computed(() => {
 
 const uniqueSources = computed(() => {
   const sources = new Set<string>()
-  scraps.value.forEach((s) => {
+  scraps.value?.forEach((s) => {
     if (s.source) sources.add(s.source)
   })
   return Array.from(sources).join(', ') || 'unknown'
