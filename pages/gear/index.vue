@@ -127,6 +127,14 @@
       </div>
     </header>
 
+    <!-- 3D Scan Gallery -->
+    <ClientOnly>
+      <div v-if="scannedItems.length > 0" class="mb-8">
+        <h2 class="gear-section-header mb-4">3D Scans</h2>
+        <Gear3DGallery :items="scannedItems" />
+      </div>
+    </ClientOnly>
+
     <div class="mb-8">
       <h2 class="gear-section-header mb-4">Containers</h2>
       <div class="grid-gear-responsive">
@@ -205,12 +213,14 @@
           </div>
         </div>
 
+        <GearSpecimenPlate v-if="items.length >= 2" :items="items.slice(0, 6)" class="mb-4" />
+
         <div class="relative overflow-x-auto">
           <table class="w-full text-[9px] font-mono">
             <thead
               class="sticky top-0 bg-white dark:bg-zinc-950 backdrop-blur-sm"
             >
-              <tr class="/30">
+              <tr class="border-b border-zinc-200/30 dark:border-zinc-700/30">
                 <th class="gear-th-left">Item</th>
                 <th class="gear-th"></th>
                 <th class="gear-th">Type</th>
@@ -454,6 +464,10 @@ watchEffect(() => {
   }
 })
 
+const scannedItems = computed(() =>
+  gearItems.value.filter((item) => item.Scan_3D_URL?.trim())
+)
+
 const totalItems = computed(() => gearItems.value?.length || 0)
 const totalWeight = computed(() => {
   const total = calculateTotalWeight(gearItems.value || [])
@@ -622,7 +636,9 @@ const getWeightPercentage = (item, allItems) => {
 }
 
 const getMaxWeight = (items) => {
-  return Math.max(...items.map((item) => getItemWeightInOunces(item)))
+  if (!items?.length) return 1
+  const max = Math.max(...items.map((item) => getItemWeightInOunces(item)))
+  return max > 0 ? max : 1
 }
 
 const formatItemWeight = (item) => {
@@ -812,5 +828,9 @@ useHead(() => ({
 
 .gear-container-header {
   @apply flex items-baseline justify-between pb-2 mb-4;
+}
+
+.gear-footer-date {
+  @apply font-mono text-3xs uppercase tracking-[0.1em] text-zinc-400 dark:text-zinc-600 mt-2;
 }
 </style>

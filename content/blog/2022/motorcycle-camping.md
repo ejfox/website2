@@ -9,6 +9,8 @@ tags:
   - camping
   - travel
   - hudsonvalley
+gear:
+  - moletta-lionsteel-folding-black-knife
 ---
 ## Into the Wild: Motorcycle Camping Gearlist
 

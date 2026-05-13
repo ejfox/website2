@@ -92,8 +92,8 @@
   </div>
 </template>
 
-<script setup>
-import { useMouse } from '~/composables/useOptimizedVueUse'
+<script setup lang="ts">
+import { useMouse } from '@vueuse/core'
 
 const props = defineProps({
   gearItem: {
@@ -171,9 +171,13 @@ const itemTier = computed(() => {
 
 const amazonUrl = computed(() => {
   if (!props.gearItem?.amazon) return '#'
-  const url = new URL(props.gearItem.amazon)
-  url.searchParams.set('tag', 'ejfox0c-20')
-  return url.toString()
+  try {
+    const url = new URL(props.gearItem.amazon)
+    url.searchParams.set('tag', 'ejfox0c-20')
+    return url.toString()
+  } catch {
+    return props.gearItem.amazon
+  }
 })
 
 const gearImagePath = computed(() => {
@@ -184,7 +188,8 @@ const gearImagePath = computed(() => {
 })
 
 const itemDetails = computed(() => {
-  const details = {}
+  if (!props.gearItem || typeof props.gearItem !== 'object') return {}
+  const details: Record<string, string> = {}
   Object.keys(props.gearItem).forEach((key) => {
     const value = props.gearItem[key]
     if (value && value.toString().trim() !== '') {
@@ -198,8 +203,10 @@ const itemDetails = computed(() => {
 const { x: mouseX, y: mouseY } = useMouse()
 
 const cardTransform = computed(() => {
-  const centerX = window.innerWidth / 2
-  const centerY = window.innerHeight / 2
+  if (import.meta.server) return {}
+  const centerX = (window?.innerWidth ?? 0) / 2
+  const centerY = (window?.innerHeight ?? 0) / 2
+  if (!centerX || !centerY) return {}
 
   const rotateX = -((mouseY.value - centerY) / centerY) * 20
   const rotateY = ((mouseX.value - centerX) / centerX) * 20
@@ -209,27 +216,11 @@ const cardTransform = computed(() => {
     15
 
   return {
-    transform: `perspective(1000px) rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg) translateZ(${translateZ}px)`,
+    transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(${translateZ}px)`,
     transition: 'transform 0.3s ease-out',
     filter: 'blur(0px)',
   }
 })
-
-// Epic gear card reveal sequence (disabled)
-const _animateGearCardReveal = async () => {
-  if (import.meta.server || !cardRef.value) return
-  await nextTick()
-  // No animations
-}
-
-// Stage 4: Ambient detail pulse - DISABLED (causing looping animations)
-// setTimeout(() => {
-//   const details = cardRef.value?.querySelectorAll(
-//     '.text-lg, .text-3xl, .text-2xl'
-//   )
-//   if (details?.length) {
-//     const pulseDetails = () => {
 
 // Expose the exit function to parent components
 const triggerExit = () => {
@@ -273,4 +264,16 @@ defineExpose({
   transform-style: preserve-3d;
   will-change: transform, opacity, filter;
 }
+
+/* Missing utility classes used in template */
+.gear-img-square { @apply w-[120px] h-[120px] overflow-hidden rounded-sm; }
+.btn-inline-flex {
+  @apply inline-flex items-center px-3 py-1 font-mono text-xs uppercase tracking-wider
+         border border-zinc-300 dark:border-zinc-600
+         text-zinc-700 dark:text-zinc-300
+         hover:bg-zinc-100 dark:hover:bg-zinc-800
+         transition-colors duration-150 no-underline;
+}
+.label-tracked-md { @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-3; }
+.row-bordered { @apply flex justify-between items-baseline border-b border-zinc-100 dark:border-zinc-800 py-1; }
 </style>

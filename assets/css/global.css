@@ -191,7 +191,7 @@ p,
 }
 
 .md-table {
-  @apply prose-sm min-w-full border-collapse table-auto my-4 text-sm;
+  @apply min-w-full border-collapse table-auto my-4 text-sm;
 }
 
 .md-th {
@@ -280,7 +280,11 @@ p,
 }
 
 .project-description {
-  @apply prose prose-zinc dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed font-serif prose-p:m-0 prose-p:mb-3;
+  @apply prose prose-zinc dark:prose-invert max-w-none text-zinc-600 dark:text-zinc-400 leading-relaxed font-serif;
+}
+
+.project-description p {
+  margin: 0 0 0.75rem;
 }
 
 /* Ensure images within project descriptions stay contained */
@@ -292,7 +296,7 @@ p,
 }
 
 .project-description-regular {
-  @apply prose-sm;
+  @apply prose prose-sm;
 }
 
 .project-date {

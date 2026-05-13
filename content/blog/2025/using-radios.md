@@ -8,6 +8,8 @@ tags:
   - tech
   - howto
   - hardware
+gear:
+  - moletta-lionsteel-folding-black-knife
 ---
 ## How To Use Radios
 
@@ -79,6 +81,8 @@ You can (if you feel so inclined) explore ham radio and its eccentric way of spe
 Ask yourself: Could I have been more precise? Is there more information I could have included up front? If people are asking follow-ups all the time, are there ways I could include that information from the start?
 
 Here's a real example: I was on a motorcycle ride with a buddy, letting him know when turns were coming up. I had to ask him to confirm he'd heard me with a "copy"—not for cosplay or military LARPing, but for my actual safety. I needed to know the communication was complete so I wasn't constantly checking mirrors and could focus on the road ahead.
+
+::gear{slug="moletta-lionsteel-folding-black-knife"}
 
 The principles are simple:
 

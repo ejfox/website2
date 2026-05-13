@@ -35,6 +35,7 @@ import { config } from './config.mjs'
 import {
   remarkAi2htmlEmbed,
   remarkPredictionRef,
+  remarkGearCard,
   remarkObsidianSupport,
   rehypeAddClassToParagraphs,
   remarkEnhanceLinks,
@@ -53,7 +54,7 @@ const SOURCE_DIR =
   '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/' +
     'ejfox/'
 
-const CACHE_VERSION = '2026-04-16-lqip-trim'
+const CACHE_VERSION = '2026-05-13-gear-cards'
 
 // OG image mapping — populated by Dispatch OG picker, maps slug → Cloudinary URL
 let ogImageMap = {}
@@ -226,6 +227,7 @@ const processor = unified()
   .use(remarkEnhanceLinks)
   .use(remarkAi2htmlEmbed)
   .use(remarkPredictionRef)
+  .use(remarkGearCard)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
   .use(rehypePrettyCode, {

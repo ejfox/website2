@@ -16,7 +16,6 @@ export default defineEventHandler(async (): Promise<string[]> => {
       return []
     }
 
-    console.info('🔗 Fetching unique tags from Supabase')
     const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY)
 
     // Fetch all scraps to extract unique tags
@@ -36,7 +35,6 @@ export default defineEventHandler(async (): Promise<string[]> => {
     })
 
     const tags = Array.from(tagSet).sort()
-    console.info(`✅ Fetched ${tags.length} unique tags`)
 
     return tags
   } catch (error) {

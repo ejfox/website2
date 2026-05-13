@@ -1,92 +1,61 @@
-<!--
-  @file GearCard3D.client.vue
-  @description 3D gear card with mouse-tracking parallax effect showing item details, weight, tier, and photo
-  @props gearItem: Object - Gear item with Name, Type, Weight_oz, Tier, Waterproof, imageUrl, amazon, etc.
--->
 <template>
-  <div ref="cardRef" class="gear-card-container" :style="cardTransform">
+  <div class="gear-card-container" :style="tilt">
     <!-- Header -->
-    <div class="text-center mb-8">
-      <div class="text-4xl mb-2">
-        {{ getTypeSymbol(gearItem.Type) }}
-      </div>
-      <h1 class="text-2xl font-light text-zinc-900 dark:text-zinc-100 mb-2">
-        {{ gearItem.Name }}
-      </h1>
-      <div :class="headerLabelClass">
-        {{ gearItem.Type }}
-      </div>
+    <div class="card-header">
+      <div class="text-2xl mb-2">{{ TYPE_SYMBOLS[gearItem.Type] || '—' }}</div>
+      <h1 class="text-xl font-light text-primary mb-1">{{ gearItem.Name }}</h1>
+      <div class="label-uppercase">{{ gearItem.Type }}</div>
     </div>
 
-    <!-- Photo Section -->
-    <div v-if="gearImagePath" class="mb-8 flex justify-center">
+    <!-- Photo -->
+    <div v-if="photoUrl" class="photo-wrap">
       <div class="gear-img-square">
-        <img
-          :src="gearImagePath"
-          :alt="`Photo of ${gearItem.Name}`"
-          class="w-full h-full object-cover"
-          loading="lazy"
-          width="480"
-          height="480"
-          style="image-rendering: pixelated"
-        />
+        <img :src="photoUrl" :alt="`Photo of ${gearItem.Name}`"
+          class="w-full h-full object-cover" loading="lazy"
+          width="480" height="480" style="image-rendering: pixelated" />
       </div>
     </div>
 
-    <!-- Weight - Hero stat -->
-    <div class="text-center mb-8 p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-xl">
-      <div :class="weightDisplayClass">{{ displayWeight }}g</div>
-      <div :class="weightLabelClass">Weight</div>
+    <!-- Weight hero -->
+    <div class="section text-center">
+      <div class="stat-value">{{ displayWeight }}g</div>
+      <div class="label-uppercase">Weight</div>
     </div>
 
-    <!-- Stats Grid -->
-    <div class="grid grid-cols-2 gap-4 mb-8">
-      <div class="text-center p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
-        <div class="text-lg font-normal text-zinc-900 dark:text-zinc-100">
-          T{{ itemTier }}
-        </div>
-        <div :class="tierLabelClass">Tier</div>
+    <!-- H₂O + Priority -->
+    <div class="section section-grid">
+      <div class="text-center">
+        <div class="text-sm font-mono text-primary">{{ gearItem.Waterproof || '—' }}</div>
+        <div class="label-uppercase">H₂O</div>
       </div>
-      <div class="text-center p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
-        <div class="text-lg font-normal text-zinc-900 dark:text-zinc-100">
-          {{ gearItem.Waterproof || '—' }}
-        </div>
-        <div :class="tierLabelClass">H₂O</div>
+      <div class="text-center">
+        <div class="text-sm font-mono text-primary tracking-tighter">{{ PRIORITY_PIPS[gearItem.Priority] || '—' }}</div>
+        <div class="label-uppercase">Priority</div>
       </div>
     </div>
 
-    <!-- Container -->
-    <div class="text-center text-sm text-zinc-600 dark:text-zinc-400">
-      <span class="uppercase tracking-widest">
-        {{ gearItem['Parent Container'] || 'Unassigned' }}
-      </span>
+    <!-- Container breadcrumb -->
+    <div class="section text-center">
+      <span class="label-uppercase">{{ (gearItem['Parent Container'] || 'Unassigned').toUpperCase() }} › ●</span>
     </div>
 
-    <!-- Buy link if available -->
-    <div v-if="gearItem.amazon" class="text-center mt-8">
-      <a
-        :href="amazonUrl"
-        target="_blank"
-        rel="nofollow noopener"
-        class="btn-inline-flex"
-      >
-        Buy
-      </a>
+    <!-- Notes callout -->
+    <div v-if="gearItem.Notes" class="callout">
+      <span class="text-3xs text-secondary italic">{{ gearItem.Notes }}</span>
     </div>
 
-    <!-- Item Details Table -->
-    <div class="mt-8 border-t border-zinc-200 dark:border-zinc-700 pt-8">
+    <!-- Buy link -->
+    <div v-if="gearItem.amazon" class="text-center mt-3">
+      <a :href="amazonUrl" target="_blank" rel="nofollow noopener" class="btn-inline-flex">Buy</a>
+    </div>
+
+    <!-- Details table -->
+    <div class="details-section">
       <h3 class="label-tracked-md">Item Details</h3>
       <div class="grid grid-cols-1 gap-2 text-xs">
-        <div
-          v-for="(value, key) in itemDetails"
-          :key="key"
-          class="row-bordered"
-        >
-          <span :class="fieldLabelClass">{{ formatFieldName(key) }}</span>
-          <span :class="fieldValueClass" :title="value">
-            {{ value || '—' }}
-          </span>
+        <div v-for="(value, key) in itemDetails" :key="key" class="row-bordered">
+          <span class="detail-key">{{ humanize(key) }}</span>
+          <span class="detail-val" :title="value">{{ value || '—' }}</span>
         </div>
       </div>
     </div>
@@ -94,193 +63,83 @@
 </template>
 
 <script setup>
-import { useMouse } from '@vueuse/core'
+import { useMouse, useWindowSize } from '@vueuse/core'
 
-const props = defineProps({
-  gearItem: {
-    type: Object,
-    default: () => ({}),
-  },
-})
+const props = defineProps({ gearItem: { type: Object, default: () => ({}) } })
 
 const { getItemWeightInGrams } = useWeightCalculations()
+const { TYPE_SYMBOLS, PRIORITY_PIPS } = useGearUI()
 
-// Animation refs
-const cardRef = ref(null)
+// Mouse-tracking 3D tilt
+const { x: mx, y: my } = useMouse()
+const { width: winW, height: winH } = useWindowSize()
 
-// Type symbols
-const typeSymbols = {
-  Tech: '▲',
-  Utility: '⬟',
-  Comfort: '○',
-  Sleep: '☽',
-  Bag: '▣',
-  Safety: '◆',
-  Creativity: '✧',
-}
-
-// Helper functions
-const getTypeSymbol = (type) => typeSymbols[type] || '—'
-
-const formatFieldName = (fieldName) => {
-  return fieldName
-    .replace(/([A-Z])/g, ' $1')
-    .replace(/[()]/g, '')
-    .replace(/^\w/, (c) => c.toUpperCase())
-    .trim()
-}
-
-// Class strings
-const headerLabelClass =
-  'text-sm uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const weightDisplayClass =
-  'text-3xl font-bold font-mono mb-2 text-zinc-900 dark:text-zinc-100'
-const weightLabelClass =
-  'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const tierLabelClass =
-  'text-xs font-mono uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const fieldLabelClass =
-  'flex-shrink-0 uppercase tracking-widest text-zinc-600 dark:text-zinc-400'
-const fieldValueClass =
-  'font-mono text-right truncate ml-2 min-w-0 text-zinc-900 dark:text-zinc-100'
-
-// Computed properties
-const displayWeight = computed(() => {
-  // If both weight fields are empty, show "?" instead of 0
-  const baseWeight = props.gearItem['Base Weight ()']
-  const loadedWeight = props.gearItem['Loaded Weight ()']
-
-  if (!baseWeight && !loadedWeight) {
-    return '?'
-  }
-
-  return getItemWeightInGrams(props.gearItem) || 0
-})
-
-const itemTier = computed(() => {
-  const T = Number(props.gearItem['Time Criticality (T)']) || 0
-  const C = Number(props.gearItem['Consequence Severity (C)']) || 0
-  const W = Number(props.gearItem['Weight/Space Penalty (W)']) || 0
-  const M = Number(props.gearItem['Multi-Use Factor (M)']) || 0
-  const score = 2 * T + 2 * C + 1.5 * W + M
-
-  if (score >= 35) return 1
-  if (score >= 25) return 2
-  return 3
-})
-
-const amazonUrl = computed(() => {
-  if (!props.gearItem?.amazon) return '#'
-  const url = new URL(props.gearItem.amazon)
-  url.searchParams.set('tag', 'ejfox0c-20')
-  return url.toString()
-})
-
-const gearImagePath = computed(() => {
-  if (props.gearItem.imageUrl && props.gearItem.imageUrl.trim() !== '') {
-    return props.gearItem.imageUrl
-  }
-  return null
-})
-
-const itemDetails = computed(() => {
-  const details = {}
-  Object.keys(props.gearItem).forEach((key) => {
-    const value = props.gearItem[key]
-    if (value && value.toString().trim() !== '') {
-      details[key] = value
-    }
-  })
-  return details
-})
-
-// 3D mouse tracking
-const { x: mouseX, y: mouseY } = useMouse()
-
-// Cache window dimensions to prevent recalc flashes
-const windowDimensions = ref({ width: 0, height: 0 })
-
-const updateDimensions = () => {
-  if (typeof window !== 'undefined') {
-    windowDimensions.value = {
-      width: window.innerWidth,
-      height: window.innerHeight,
-    }
-  }
-}
-
-const cardTransform = computed(() => {
-  // Use cached dimensions, fallback gracefully
-  const centerX = (windowDimensions.value.width || 1920) / 2
-  const centerY = (windowDimensions.value.height || 1080) / 2
-
-  const rotateX = -((mouseY.value - centerY) / centerY) * 20
-  const rotateY = ((mouseX.value - centerX) / centerX) * 20
-  const translateZ =
-    (Math.abs(mouseX.value - centerX) / centerX +
-      Math.abs(mouseY.value - centerY) / centerY) *
-    15
-
+const tilt = computed(() => {
+  const cx = winW.value / 2, cy = winH.value / 2
+  const rx = -((my.value - cy) / cy) * 20
+  const ry = ((mx.value - cx) / cx) * 20
+  const tz = (Math.abs(mx.value - cx) / cx + Math.abs(my.value - cy) / cy) * 15
   return {
-    transform: `perspective(1000px) rotateX(${rotateX}deg)
-      rotateY(${rotateY}deg) translateZ(${translateZ}px)`,
+    transform: `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(${tz}px)`,
     transition: 'transform 0.15s cubic-bezier(0.4, 0, 0.2, 1)',
     transformOrigin: 'center center',
     willChange: 'transform',
   }
 })
 
-// Simple card mount effect
-const animateGearCardReveal = async () => {
-  if (import.meta.server || !cardRef.value || !window.anime) return
-  await nextTick()
-  // Card naturally animates via CSS transitions
-}
+const photoUrl = computed(() => props.gearItem.imageUrl?.trim() || null)
 
-// Single onMounted combining all setup
-onMounted(() => {
-  updateDimensions()
-  window.addEventListener('resize', updateDimensions)
-  animateGearCardReveal()
+const displayWeight = computed(() => {
+  if (!props.gearItem['Base Weight ()'] && !props.gearItem['Loaded Weight ()']) return '?'
+  return getItemWeightInGrams(props.gearItem) || 0
 })
 
-onUnmounted(() => {
-  window.removeEventListener('resize', updateDimensions)
+const amazonUrl = computed(() => {
+  if (!props.gearItem?.amazon) return '#'
+  try {
+    const url = new URL(props.gearItem.amazon)
+    url.searchParams.set('tag', 'ejfox0c-20')
+    return url.toString()
+  } catch {
+    return props.gearItem.amazon
+  }
 })
 
-// Card is self-contained, no exposed methods needed
+const itemDetails = computed(() => {
+  if (!props.gearItem || typeof props.gearItem !== 'object') return {}
+  return Object.fromEntries(
+    Object.entries(props.gearItem).filter(([, v]) => v?.toString().trim())
+  )
+})
+
+const humanize = (key) =>
+  key.replace(/([A-Z])/g, ' $1').replace(/[()]/g, '').replace(/^\w/, c => c.toUpperCase()).trim()
 </script>
 
 <style scoped>
-.gear-card {
-  transform-style: preserve-3d;
-  will-change: transform, opacity, filter, scale;
-  backface-visibility: hidden;
-  perspective: 1500px;
-  transform-origin: center center;
-  /* Start more subtle for simultaneous transitions */
-  opacity: 0.3;
-  /* Less dramatic initial state for faster transitions */
-  transform: perspective(1500px) rotateX(-90deg) rotateY(45deg) rotateZ(-20deg)
-    scale(0.4) translateZ(-200px);
-  filter: blur(4px) brightness(0.3) contrast(0.8);
-}
+.gear-card-container { transform-style: preserve-3d; backface-visibility: hidden; }
 
-/* Ensure no blur remains after animations */
-.gear-card[style*='filter: none'],
-.gear-card:not([style*='filter']) {
-  filter: none !important;
-}
+.card-header  { @apply text-center mb-3; }
+.photo-wrap   { @apply mb-3 flex justify-center; }
 
-/* Enhanced 3D container */
-.min-h-screen {
-  perspective: 2000px;
-  transform-style: preserve-3d;
-}
+.section      { @apply border-t border-zinc-200 dark:border-zinc-700 pt-3 mt-3; }
+.section-grid { @apply grid grid-cols-2; }
 
-/* 3D context for child elements */
-.gear-card > * {
-  transform-style: preserve-3d;
-  will-change: transform, opacity, filter;
+.callout      { @apply border-l-2 border-zinc-300 dark:border-zinc-700 pl-3 mt-3; }
+
+.details-section { @apply mt-8 border-t border-zinc-200 dark:border-zinc-700 pt-8; }
+.detail-key   { @apply flex-shrink-0 uppercase tracking-widest text-zinc-600 dark:text-zinc-400; }
+.detail-val   { @apply font-mono text-right truncate ml-2 min-w-0 text-zinc-900 dark:text-zinc-100; }
+
+/* Missing utility classes used in template */
+.gear-img-square { @apply w-[120px] h-[120px] overflow-hidden rounded-sm; }
+.btn-inline-flex {
+  @apply inline-flex items-center px-3 py-1 font-mono text-xs uppercase tracking-wider
+         border border-zinc-300 dark:border-zinc-600
+         text-zinc-700 dark:text-zinc-300
+         hover:bg-zinc-100 dark:hover:bg-zinc-800
+         transition-colors duration-150 no-underline;
 }
+.label-tracked-md { @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-3; }
+.row-bordered { @apply flex justify-between items-baseline border-b border-zinc-100 dark:border-zinc-800 py-1; }
 </style>

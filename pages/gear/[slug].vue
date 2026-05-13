@@ -1,5 +1,15 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center p-8 pb-32">
+  <div class="min-h-screen flex flex-col items-center justify-center p-8 pb-32 gap-8">
+    <!-- 3D Model Viewer (when scan available) -->
+    <ClientOnly>
+      <GearModelViewer
+        v-if="data?.Scan_3D_URL?.trim()"
+        :model-url="data.Scan_3D_URL"
+        :height="'500px'"
+        class="w-full max-w-2xl"
+      />
+    </ClientOnly>
+
     <!-- Main gear card -->
     <GearCard3D v-if="data" :gear-item="data" class="gear-card-entrance" />
 
@@ -14,13 +24,69 @@
       </p>
       <NuxtLink to="/gear" class="btn-primary">← Browse All Gear</NuxtLink>
     </div>
+
+    <!-- Related blog posts -->
+    <div
+      v-if="relatedPosts?.length"
+      class="w-full max-w-sm border-t border-zinc-200 dark:border-zinc-800 pt-6"
+    >
+      <div class="label-uppercase mb-4 text-zinc-400 dark:text-zinc-600">
+        Written About This
+      </div>
+      <ul class="flex flex-col gap-4">
+        <li
+          v-for="post in relatedPosts"
+          :key="post.slug"
+          class="flex flex-col gap-0.5"
+        >
+          <NuxtLink
+            :to="`/blog/${post.slug}`"
+            class="font-mono text-xs text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors leading-snug"
+          >
+            {{ post.title }}
+          </NuxtLink>
+          <div class="flex items-center gap-2">
+            <span
+              v-if="post.date"
+              class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
+            >
+              {{ formatPostDate(post.date) }}
+            </span>
+            <span
+              v-if="post.dek"
+              class="font-mono text-3xs text-zinc-500 dark:text-zinc-500 leading-snug"
+            >
+              {{ post.dek }}
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+const formatPostDate = (dateStr?: string) => {
+  if (!dateStr) return ''
+  try {
+    return new Date(dateStr).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    })
+  } catch {
+    return dateStr
+  }
+}
+
 const route = useRoute()
-const { data, _pending, error } = await useFetch(
+const { data, error } = await useFetch(
   `/api/gear/${route.params.slug}`
+)
+
+const { data: relatedPosts } = await useFetch(
+  `/api/gear-posts/${route.params.slug}`,
+  { default: () => [] }
 )
 
 // Handle errors properly
@@ -104,47 +170,13 @@ definePageMeta({
 </script>
 
 <style scoped>
-/* Epic hexagon loading animation */
-.loading-container {
-  @apply flex flex-col items-center justify-center;
-}
-
-.loading-hexagon {
-  width: 60px;
-  height: 60px;
-  position: relative;
-  transform: rotate(30deg);
-  animation: hexRotate 0.8s linear infinite;
-}
-
-.hex-inner {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, #3b82f6, #06b6d4, #8b5cf6);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  animation: hexPulse 0.6s ease-in-out infinite alternate;
-}
-
-@keyframes hexRotate {
-  0% {
-    transform: rotate(30deg);
-  }
-  100% {
-    transform: rotate(390deg);
-  }
-}
-
-@keyframes hexPulse {
-  0% {
-    opacity: 0.6;
-    transform: scale(0.8);
-    filter: blur(1px);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.1);
-    filter: blur(0px);
-  }
+/* Primary button - used in not-found state */
+.btn-primary {
+  @apply inline-flex items-center px-4 py-2 font-mono text-xs uppercase tracking-wider
+         border border-zinc-300 dark:border-zinc-600
+         text-zinc-700 dark:text-zinc-300
+         hover:bg-zinc-100 dark:hover:bg-zinc-800
+         transition-colors duration-150 no-underline rounded-sm;
 }
 
 /* BLOODHOUND FIX: Gear card now visible immediately - no animation */

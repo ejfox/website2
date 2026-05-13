@@ -4,7 +4,7 @@
  * @endpoint GET /api/scraps
  * @returns Array of scrap objects with content, tags, source info, geolocation, screenshots, and metadata, sorted by creation date descending
  */
-import { defineEventHandler, createError } from 'h3'
+import { defineEventHandler } from 'h3'
 import { createClient } from '@supabase/supabase-js'
 
 interface Scrap {
@@ -32,27 +32,16 @@ interface Scrap {
   metadata: Record<string, unknown> | null
 }
 
-// Stale-while-error cache so a transient Supabase blip doesn't poison the
-// page with an empty list when the previous fetch had real data.
-let lastGoodScraps: Scrap[] | null = null
-
 export default defineEventHandler(async (): Promise<Scrap[]> => {
-  const config = useRuntimeConfig()
-
-  // Misconfiguration is a deployment problem, not a transient one — fail
-  // loudly so it shows up in monitoring instead of silently returning [].
-  if (!config.SUPABASE_URL || !config.SUPABASE_KEY) {
-    console.error('❌ Supabase credentials not configured')
-    if (lastGoodScraps) return lastGoodScraps
-    throw createError({
-      statusCode: 503,
-      statusMessage: 'Supabase not configured',
-      message:
-        'SUPABASE_URL and SUPABASE_KEY must be set in the runtime environment',
-    })
-  }
-
   try {
+    const config = useRuntimeConfig()
+
+    // Check if Supabase credentials are configured
+    if (!config.SUPABASE_URL || !config.SUPABASE_KEY) {
+      console.warn('❌ Supabase credentials not configured')
+      return []
+    }
+
     const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY)
 
     // Fetch recent scraps with a limit to prevent timeout
@@ -65,15 +54,8 @@ export default defineEventHandler(async (): Promise<Scrap[]> => {
 
     if (error) {
       console.error('❌ Supabase query error:', error)
-      if (lastGoodScraps) return lastGoodScraps
-      throw createError({
-        statusCode: 502,
-        statusMessage: 'Supabase query failed',
-        message: error.message,
-      })
+      return []
     }
-
-    console.info(`✅ Fetched ${data?.length || 0} scraps from Supabase`)
 
     // Map and clean the data, preserving all fields
     // Cast Supabase data to expected shape - the select('*') returns the table row
@@ -106,21 +88,9 @@ export default defineEventHandler(async (): Promise<Scrap[]> => {
       metadata: (scrap.metadata as Record<string, unknown>) || null,
     }))
 
-    // Only cache non-empty results — an empty list during outage shouldn't
-    // overwrite a previously-good cache.
-    if (scraps.length > 0) lastGoodScraps = scraps
     return scraps
   } catch (error) {
-    // h3 errors (createError) bubble through unchanged so callers still see
-    // the proper status code.
-    if (error && typeof error === 'object' && 'statusCode' in error) throw error
     console.error('❌ Error fetching scraps:', error)
-    if (lastGoodScraps) return lastGoodScraps
-    const err = error as Error
-    throw createError({
-      statusCode: 502,
-      statusMessage: 'Failed to fetch scraps',
-      message: err.message,
-    })
+    return []
   }
 })
