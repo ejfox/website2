@@ -61,23 +61,21 @@ jobs:
             git commit -m "ci: reprocess content [skip ci]" --no-verify || true
           fi
 
-          # CRITICAL: node-server preset for Docker
+          # Build (pm2 preset)
           BUILD_START=$(date +%s)
-          NITRO_PRESET=node-server yarn build
+          yarn build
           BUILD_TIME=$(($(date +%s) - BUILD_START))
 
-          # Docker rebuild
-          DOCKER_START=$(date +%s)
-          DOCKER_BUILDKIT=1 docker-compose up -d --build
-          DOCKER_TIME=$(($(date +%s) - DOCKER_START))
+          # Graceful reload via pm2
+          pm2 reload website2
 
           # Wait for healthy
           sleep 5
           HEALTH="❌"
           curl -sf http://localhost:3006/api/healthcheck > /dev/null 2>&1 && HEALTH="✅"
 
-          # Container stats
-          CONTAINER_MEM=$(docker stats website2-prod --no-stream --format '{{.MemUsage}}' 2>/dev/null | cut -d'/' -f1 || echo "?")
+          # Process stats
+          PROCESS_MEM=$(pm2 info website2 2>/dev/null | grep -i memory | head -1 | awk '{print $NF}' || echo "?")
           OUTPUT_SIZE=$(du -sh .output 2>/dev/null | cut -f1 || echo "?")
 
           DEPLOY_TIME=$(($(date +%s) - DEPLOY_START))
@@ -87,7 +85,7 @@ jobs:
           \`${PREV_COMMIT}\`→\`${NEW_COMMIT}\` ${COMMIT_DATE}
           **${COMMIT_MSG}**
           by ${COMMIT_AUTHOR} | [diff](${COMPARE_URL})
-          **Δ** ${FILES_CHANGED} files | **Output:** ${OUTPUT_SIZE} | **Mem:** ${CONTAINER_MEM}
-          **Timing:** deps:${INSTALL_TIME}s→process:${PROCESS_TIME}s→build:${BUILD_TIME}s→docker:${DOCKER_TIME}s | **total:${DEPLOY_TIME}s**"
+          **Δ** ${FILES_CHANGED} files | **Output:** ${OUTPUT_SIZE} | **Mem:** ${PROCESS_MEM}
+          **Timing:** deps:${INSTALL_TIME}s→process:${PROCESS_TIME}s→build:${BUILD_TIME}s | **total:${DEPLOY_TIME}s**"
 
           ALERT_FORCE=1 $ALERT website info "$ALERT_MSG"

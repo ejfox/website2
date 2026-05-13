@@ -2,6 +2,19 @@
   "books": {
     "currentlyReading": [
       {
+        "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+        "author": "Yuval Noah Harari",
+        "rating": null,
+        "shelf": "currently-reading",
+        "link": "https://www.goodreads.com/review/show/7755658751?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1709986452l/204927599._SY475_.jpg",
+        "dateAdded": "2026-04-17T03:18:13.000Z",
+        "dateRead": "2025-07-20T18:24:08.000Z",
+        "bookId": "204927599",
+        "numPages": 528,
+        "pubYear": 2024
+      },
+      {
         "title": "The Revolt Eclipses Whatever the World Has to Offer (Semiotext(e) / Intervention Series)",
         "author": "Idris Robinson",
         "rating": null,
@@ -55,6 +68,19 @@
       }
     ],
     "read": [
+      {
+        "title": "The Eye of the Master: A Social History of Artificial Intelligence",
+        "author": "Matteo Pasquinelli",
+        "rating": 5,
+        "shelf": "read",
+        "link": "https://www.goodreads.com/review/show/8591777368?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1688426869l/139183078.jpg",
+        "dateAdded": "2026-05-11T03:20:43.000Z",
+        "dateRead": "2026-05-11T03:13:30.000Z",
+        "bookId": "139183078",
+        "numPages": 272,
+        "pubYear": null
+      },
       {
         "title": "Inventing the Future: Postcapitalism and a World Without Work",
         "author": "Nick Srnicek",
@@ -236,22 +262,22 @@
         "bookId": "10249801",
         "numPages": 0,
         "pubYear": null
-      },
-      {
-        "title": "The Comfort Crisis: Embrace Discomfort To Reclaim Your Wild, Happy, Healthy Self",
-        "author": "Michael Easter",
-        "rating": 3,
-        "shelf": "read",
-        "link": "https://www.goodreads.com/review/show/7065445164?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1601481119l/55120630._SY475_.jpg",
-        "dateAdded": "2025-07-20T18:22:57.000Z",
-        "dateRead": "2024-12-07T20:58:40.000Z",
-        "bookId": "55120630",
-        "numPages": 304,
-        "pubYear": 2021
       }
     ],
     "toRead": [
+      {
+        "title": "The I Ching and the Genetic Code: The Hidden Key to Life",
+        "author": "Martin Schonberger",
+        "rating": null,
+        "shelf": "to-read",
+        "link": "https://www.goodreads.com/review/show/8595213396?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1348832834l/78369.jpg",
+        "dateAdded": "2026-05-12T12:22:24.000Z",
+        "dateRead": "2026-05-12T12:22:24.000Z",
+        "bookId": "78369",
+        "numPages": 160,
+        "pubYear": 1978
+      },
       {
         "title": "Kill All Normies: Online Culture Wars From 4Chan and Tumblr to Trump and the Alt-Right",
         "author": "Angela Nagle",
@@ -318,19 +344,6 @@
         "pubYear": null
       },
       {
-        "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
-        "author": "Yuval Noah Harari",
-        "rating": null,
-        "shelf": "to-read",
-        "link": "https://www.goodreads.com/review/show/7755658751?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1709986452l/204927599._SY475_.jpg",
-        "dateAdded": "2026-03-07T16:38:23.000Z",
-        "dateRead": "2025-07-20T18:24:08.000Z",
-        "bookId": "204927599",
-        "numPages": 528,
-        "pubYear": 2024
-      },
-      {
         "title": "Consent Laid Bare: Sex, Entitlement & the Distortion of Desire",
         "author": "Chanel Contos",
         "rating": null,
@@ -344,7 +357,7 @@
         "pubYear": null
       },
       {
-        "title": "Grokking Algorithms, Second Edition",
+        "title": "Grokking Algorithms, Second Edition: An illustrated guide for programmers and other curious people",
         "author": "Aditya Y. Bhargava",
         "rating": null,
         "shelf": "to-read",
@@ -645,20 +658,20 @@
     ]
   },
   "stats": {
-    "totalRead": 77,
-    "currentlyReading": 4,
+    "totalRead": 78,
+    "currentlyReading": 5,
     "toRead": 115,
-    "thisYear": 3,
-    "thisMonth": 0,
-    "averageRating": 3.6,
+    "thisYear": 4,
+    "thisMonth": 1,
+    "averageRating": 3.7,
     "ratingDistribution": {
       "1": 0,
       "2": 11,
       "3": 20,
       "4": 27,
-      "5": 16
+      "5": 17
     },
-    "totalPagesRead": 24117,
+    "totalPagesRead": 24452,
     "avgPagesPerBook": 313,
     "topAuthors": [
       {
@@ -686,6 +699,10 @@
         "count": 2
       },
       {
+        "author": "Matteo Pasquinelli",
+        "count": 1
+      },
+      {
         "author": "Nick Srnicek",
         "count": 1
       },
@@ -696,13 +713,10 @@
       {
         "author": "Mark Fisher",
         "count": 1
-      },
-      {
-        "author": "Robin Wall Kimmerer",
-        "count": 1
       }
     ],
     "readingByMonth": {
+      "2026-05": 1,
       "2026-03": 3,
       "2025-10": 1,
       "2025-09": 1,
@@ -743,9 +757,22 @@
       "2023": 1,
       "2024": 1,
       "2025": 14,
-      "2026": 3
+      "2026": 4
     },
     "topRatedBooks": [
+      {
+        "title": "The Eye of the Master: A Social History of Artificial Intelligence",
+        "author": "Matteo Pasquinelli",
+        "rating": 5,
+        "shelf": "read",
+        "link": "https://www.goodreads.com/review/show/8591777368?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1688426869l/139183078.jpg",
+        "dateAdded": "2026-05-11T03:20:43.000Z",
+        "dateRead": "2026-05-11T03:13:30.000Z",
+        "bookId": "139183078",
+        "numPages": 272,
+        "pubYear": null
+      },
       {
         "title": "Inventing the Future: Postcapitalism and a World Without Work",
         "author": "Nick Srnicek",
@@ -773,7 +800,7 @@
         "pubYear": null
       },
       {
-        "title": "TechGnosis: Myth, Magic & Mysticism in the Age of Information",
+        "title": "Techgnosis: Myth, Magic & Mysticism in the Age of Information",
         "author": "Erik              Davis",
         "rating": 5,
         "shelf": "read",
@@ -782,7 +809,7 @@
         "dateAdded": "2025-07-17T16:59:38.000Z",
         "dateRead": "2025-06-01T03:56:57.000Z",
         "bookId": "206998",
-        "numPages": 372,
+        "numPages": 435,
         "pubYear": 1998
       },
       {
@@ -927,22 +954,22 @@
         "bookId": "29588",
         "numPages": 315,
         "pubYear": 2005
-      },
-      {
-        "title": "Sound Reporting: The NPR Guide to Audio Journalism and Production",
-        "author": "Jonathan Kern",
-        "rating": 5,
-        "shelf": "read",
-        "link": "https://www.goodreads.com/review/show/323887882?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1328831309l/3259355.jpg",
-        "dateAdded": "2012-05-04T21:01:16.000Z",
-        "dateRead": "2012-05-04T21:01:16.000Z",
-        "bookId": "3259355",
-        "numPages": 380,
-        "pubYear": 2008
       }
     ],
     "recentReads": [
+      {
+        "title": "The Eye of the Master: A Social History of Artificial Intelligence",
+        "author": "Matteo Pasquinelli",
+        "rating": 5,
+        "shelf": "read",
+        "link": "https://www.goodreads.com/review/show/8591777368?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1688426869l/139183078.jpg",
+        "dateAdded": "2026-05-11T03:20:43.000Z",
+        "dateRead": "2026-05-11T03:13:30.000Z",
+        "bookId": "139183078",
+        "numPages": 272,
+        "pubYear": null
+      },
       {
         "title": "Inventing the Future: Postcapitalism and a World Without Work",
         "author": "Nick Srnicek",
@@ -1124,22 +1151,9 @@
         "bookId": "10249801",
         "numPages": 0,
         "pubYear": null
-      },
-      {
-        "title": "The Comfort Crisis: Embrace Discomfort To Reclaim Your Wild, Happy, Healthy Self",
-        "author": "Michael Easter",
-        "rating": 3,
-        "shelf": "read",
-        "link": "https://www.goodreads.com/review/show/7065445164?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1601481119l/55120630._SY475_.jpg",
-        "dateAdded": "2025-07-20T18:22:57.000Z",
-        "dateRead": "2024-12-07T20:58:40.000Z",
-        "bookId": "55120630",
-        "numPages": 304,
-        "pubYear": 2021
       }
     ],
     "profileUrl": "https://www.goodreads.com/user/show/9273959"
   },
-  "lastUpdated": "2026-04-17T01:09:28.925Z"
+  "lastUpdated": "2026-05-13T22:31:40.004Z"
 }
