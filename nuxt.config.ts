@@ -110,10 +110,10 @@ export default defineNuxtConfig({
   // Lock in current Nitro behavior (silences warning)
   compatibilityDate: '2025-12-14',
 
-  // Enable Nuxt 4 compatibility mode
-  future: {
-    compatibilityVersion: 4,
-  },
+  // Nuxt 4 compat mode disabled — it overrides nitro preset to nitro-prerender
+  // future: {
+  //   compatibilityVersion: 4,
+  // },
 
   // Force SSR mode for consistency
   ssr: true,

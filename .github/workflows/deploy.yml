@@ -61,9 +61,9 @@ jobs:
             git commit -m "ci: reprocess content [skip ci]" --no-verify || true
           fi
 
-          # Build (pm2 preset)
+          # Build (node-server preset for pm2)
           BUILD_START=$(date +%s)
-          yarn build
+          NUXT_NITRO_PRESET=node-server yarn build
           BUILD_TIME=$(($(date +%s) - BUILD_START))
 
           # Graceful reload via pm2
