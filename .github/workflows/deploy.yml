@@ -38,29 +38,17 @@ jobs:
         fi
         echo "Build OK: $(du -sh .output | cut -f1)"
 
-    - name: Package build output
-      run: tar czf /tmp/website2-output.tar.gz .output
-
-    - name: Deploy to VPS
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.VPS_SSH_KEY }}
-        command_timeout: 5m
-        script: |
-          # Prepare for incoming build
-          mkdir -p /tmp/website2-deploy
+    - name: Setup SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/deploy_key
+        chmod 600 ~/.ssh/deploy_key
+        ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
 
     - name: Upload build to VPS
-      uses: appleboy/scp-action@v0.1.7
-      with:
-        host: ${{ secrets.VPS_HOST }}
-        username: ${{ secrets.VPS_USER }}
-        key: ${{ secrets.VPS_SSH_KEY }}
-        source: /tmp/website2-output.tar.gz
-        target: /tmp/website2-deploy/
-        strip_components: 2
+      run: |
+        tar czf /tmp/website2-output.tar.gz .output
+        scp -i ~/.ssh/deploy_key /tmp/website2-output.tar.gz ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/tmp/website2-output.tar.gz
 
     - name: Deploy and reload
       uses: appleboy/ssh-action@v1.0.3
@@ -91,8 +79,8 @@ jobs:
 
           # Extract pre-built output from GH runner
           rm -rf .output
-          tar xzf /tmp/website2-deploy/website2-output.tar.gz
-          rm -f /tmp/website2-deploy/website2-output.tar.gz
+          tar xzf /tmp/website2-output.tar.gz
+          rm -f /tmp/website2-output.tar.gz
 
           # Verify
           if [ ! -f .output/server/index.mjs ]; then
@@ -101,13 +89,9 @@ jobs:
             exit 1
           fi
 
-          # Install production deps on VPS (for native modules if any)
+          # Graceful reload via pm2
           export NVM_DIR="$HOME/.nvm"
           [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-          nvm use 22 2>/dev/null || nvm install 22
-          yarn install --frozen-lockfile --ignore-engines --prefer-offline --production 2>/dev/null || true
-
-          # Graceful reload via pm2
           pm2 reload website2
 
           # Wait for healthy
