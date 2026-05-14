@@ -120,7 +120,7 @@ Applied throughout codebase for:
 1. **Write** in Obsidian with YAML frontmatter + tags
 2. **Process** via `yarn blog:process` → generates JSON + usage counts
 3. **Serve** via dynamic routes consuming processed JSON
-4. **Deploy** via `git pull && yarn build && pm2 reload website2` on the VPS
+4. **Deploy** via `git push origin main` (GH Actions builds + deploys automatically)
 
 ## Common Operations
 
@@ -150,30 +150,37 @@ yarn build
 
 ### Deployment
 
-Production runs under **pm2** as `website2` on `vps-pub`, listening on `localhost:3006`.
+Production runs under **pm2** as `website2` on the VPS (`ssh vps`), listening on `localhost:3006`.
 Cloudflare Tunnel `tools-tunnel` routes `ejfox.com` → `localhost:3006`.
 
+**GitHub Actions** (`.github/workflows/deploy.yml`) handles automated deploys on push to `main`:
+1. Builds on the GH runner (not the VPS — the VPS has a Nitro build bug)
+2. Packages `.output/` as tarball
+3. Uploads via `appleboy/scp-action`
+4. SSHs in to extract, reload pm2, health check, send Discord alert
+
 ```bash
-# From the VPS (~15 sec, zero-downtime reload)
-ssh vps-pub
-cd /data2/website2
-git pull
-yarn build              # ~3.5 min — runs prebuild scripts (changelog, blogroll snapshot, github/goodreads exports) + nitro build
-pm2 reload website2     # graceful: spawns new process, drains old one
+# Automated deploy: just push to main
+git push origin main    # triggers GH Actions, ~3 min end-to-end
+
+# Manual deploy (build locally, scp to VPS)
+NITRO_PRESET=node-server yarn build
+tar czf /tmp/website2-output.tar.gz .output
+scp /tmp/website2-output.tar.gz vps:/tmp/
+ssh vps 'cd /data2/website2 && rm -rf .output && tar xzf /tmp/website2-output.tar.gz && pm2 reload website2'
 
 # After .env changes only (no code change)
-pm2 reload website2
+ssh vps 'pm2 reload website2'
 
 # Live logs
-pm2 logs website2
-
-# Rollback to docker (image still on disk as `website2:latest`)
-pm2 stop website2
-cd /data2/website2 && sudo docker compose up -d
+ssh vps 'pm2 logs website2'
 ```
+
+**IMPORTANT**: Do NOT build on the VPS directly. Nitro 2.12.x has a heisenbug where `buildProduction()` silently skips the rollup step, producing `nitro-prerender` output instead of `node-server`. Always build locally or on GH runner and transfer `.output/`.
 
 **Pm2 config**: `/data2/website2/ecosystem.config.cjs`. Loads env from `.env`, max 1G memory.
 **Pm2 state persisted**: `~/.pm2/dump.pm2` (saved via `pm2 save`).
+**SSH alias**: `ssh vps` (NOT `vps-pub`).
 
 ## Troubleshooting
 
@@ -208,19 +215,19 @@ cat content/processed/manifest-lite.json | jq 'length'
 curl https://ejfox.com/api/healthcheck
 
 # Process status + memory
-ssh vps-pub 'pm2 list | grep website2'
+ssh vps 'pm2 list | grep website2'
 
 # Live logs (Ctrl-C to exit)
-ssh vps-pub 'pm2 logs website2'
+ssh vps 'pm2 logs website2'
 
 # Last 100 log lines
-ssh vps-pub 'pm2 logs website2 --lines 100 --nostream'
+ssh vps 'pm2 logs website2 --lines 100 --nostream'
 
 # Restart (kills + respawns; drops in-memory caches like monkeytype)
-ssh vps-pub 'pm2 restart website2'
+ssh vps 'pm2 restart website2'
 
 # Reload (graceful; preserves in-memory caches across version cutover)
-ssh vps-pub 'pm2 reload website2'
+ssh vps 'pm2 reload website2'
 ```
 
 ### Gear Page Issues
@@ -235,6 +242,8 @@ ssh vps-pub 'pm2 reload website2'
 ## Current System Status
 
 - **Build System**: Clean, zero ESLint errors after DELETE-DRIVEN cleanup
+- **Build Location**: GH Actions runner (NOT the VPS — Nitro heisenbug)
+- **Deploy Pipeline**: Push to main → GH Actions builds → scp to VPS → pm2 reload (~3 min)
 - **Content Pipeline**: Obsidian → JSON processing working smoothly
 - **Runtime**: pm2 on VPS (formerly docker; retired 2026-05-06)
 - **Dynamic Tags**: Journalist pyramid ordering operational
@@ -245,6 +254,7 @@ ssh vps-pub 'pm2 reload website2'
 - **Data Tables**: Ultra-dense Tuftian design with inline sparklines
 - **Sidenotes**: Ultra-simple 113-line client plugin, Tufte CSS approach
 - **Layout**: Editorial left-aligned within max-w-screen-xl container
+- **Privacy**: PII stripped from processed JSON, API routes hardened, backup/drafts excluded from build
 
 ## Sidenotes System (2025-09-29)
 
@@ -312,13 +322,43 @@ Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-si
 - [ ] Verify no layout shift on slower connections
 - [ ] Cross-browser testing (Safari, Firefox, Chrome)
 
+## Security & Privacy (2026-05-14)
+
+### Build Output Privacy
+
+The `nuxt.config.ts` `compiled` hook copies `content/` to `.output/content/` for API routes. It **excludes** `content/backup/` and `content/drafts/` via a filter to prevent private content from being served.
+
+### Content Processing Privacy
+
+`scripts/processMarkdown.mjs` does NOT emit `sourcePath` or `sourceDir` in processed JSON. These were stripped in 2026-05 to prevent filesystem path leaks. Do not re-add them.
+
+### API Route Hardening
+
+All API routes that read from `manifest-lite.json` MUST filter out:
+- `draft === true`
+- `hidden === true`
+- `unlisted === true`
+- `password` or `passwordHash` present
+
+Routes that are hardened: `/api/manifest`, `/api/agent/timeline`, `/api/photo-posts`.
+The `/api/scraps` endpoint filters by `shared === true` in Supabase.
+
+### PII Checklist (run before publishing new content)
+
+- No street addresses or house numbers in blog posts
+- No `[[home/...]]` wikilinks that leak address slugs
+- No `/Users/ejfox/` filesystem paths in code snippets (use `~/` instead)
+- No `sourcePath` or `sourceDir` in processed JSON
+- `content/backup/` and `content/drafts/` excluded from `.output/`
+- Phone number in `public/resume.json` is intentionally public
+
 ## Key Design Principles
 
 1. **Delete-Driven Development**: Remove complexity, don't add it
 2. **Static Generation**: Prefer build-time processing over runtime complexity
 3. **Journalist Pyramid**: Most important/frequent data first (tags, content)
 4. **Type Safety**: Full TypeScript coverage with strict checking
-5. **Boring Infra**: pm2 + git pull deploys. No containers, no orchestration. The site is a single Node process — read its logs, reload it, move on.
+5. **Boring Infra**: pm2 + GH Actions deploys. No containers, no orchestration. The site is a single Node process — read its logs, reload it, move on.
 6. **Tuftian Data Density**: Maximum data-ink ratio, minimal chrome
 7. **8px Baseline Grid**: Consistent vertical rhythm throughout typography
 8. **Dark-First Design**: Primary dark theme with zinc color palette
