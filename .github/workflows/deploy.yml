@@ -30,25 +30,23 @@ jobs:
       env:
         NODE_ENV: production
 
-    - name: Verify server build
+    - name: Verify and package build
       run: |
         if [ ! -f .output/server/index.mjs ]; then
           echo "ERROR: .output/server/index.mjs not found after build!"
           exit 1
         fi
         echo "Build OK: $(du -sh .output | cut -f1)"
-
-    - name: Setup SSH key
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/deploy_key
-        chmod 600 ~/.ssh/deploy_key
-        ssh-keyscan -H ${{ secrets.VPS_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
+        tar czf website2-output.tar.gz .output
 
     - name: Upload build to VPS
-      run: |
-        tar czf /tmp/website2-output.tar.gz .output
-        scp -i ~/.ssh/deploy_key /tmp/website2-output.tar.gz ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }}:/tmp/website2-output.tar.gz
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        source: website2-output.tar.gz
+        target: /tmp/
 
     - name: Deploy and reload
       uses: appleboy/ssh-action@v1.0.3
