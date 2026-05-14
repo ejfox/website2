@@ -63,8 +63,15 @@ jobs:
 
           # Build (node-server preset for pm2)
           BUILD_START=$(date +%s)
-          NUXT_NITRO_PRESET=node-server yarn build
+          NITRO_PRESET=node-server NUXT_NITRO_PRESET=node-server yarn build
           BUILD_TIME=$(($(date +%s) - BUILD_START))
+
+          # Verify server was built (fail-safe: don't reload pm2 with broken build)
+          if [ ! -f .output/server/index.mjs ]; then
+            echo "ERROR: .output/server/index.mjs not found after build!"
+            ALERT_FORCE=1 $ALERT website error "**❌ Deploy FAILED** — server build missing .output/server/index.mjs"
+            exit 1
+          fi
 
           # Graceful reload via pm2
           pm2 reload website2
