@@ -63,7 +63,7 @@ export default defineEventHandler(async (event) => {
     const posts = JSON.parse(manifestContent)
 
     posts
-      .filter((p: ManifestPost) => !p.draft && p.date)
+      .filter((p: ManifestPost & { hidden?: boolean; unlisted?: boolean; password?: string; passwordHash?: string }) => !p.draft && !p.hidden && !p.unlisted && !p.password && !p.passwordHash && p.date)
       .forEach((post: ManifestPost) => {
         events.push({
           timestamp: post.date,

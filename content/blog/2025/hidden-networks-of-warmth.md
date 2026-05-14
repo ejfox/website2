@@ -88,4 +88,4 @@ Putting in the effort to gather and prepare the fire isn’t just about warming 
 
 ---
 
-*Update 2025-12: The house is now under contract. See [[home/14pinest|14 Pine St]] for the physical manifestation of these principles.*
+*Update 2025-12: The house is now under contract — the physical manifestation of these principles.*

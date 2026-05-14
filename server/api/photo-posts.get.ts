@@ -45,7 +45,7 @@ export default defineCachedEventHandler(
       const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf-8'))
 
       const photoPosts = manifest.filter(
-        (p: any) => p.type === 'photos' || p.type === 'photo'
+        (p: any) => (p.type === 'photos' || p.type === 'photo') && !p.draft && !p.hidden && !p.unlisted && !p.password && !p.passwordHash
       )
 
       const results: PhotoPost[] = []

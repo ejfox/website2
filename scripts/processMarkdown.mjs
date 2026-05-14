@@ -346,8 +346,7 @@ async function processMarkdown(content, filePath) {
       `\r${chalk.gray(`Processing: ${filename.padEnd(40)}`)}${badges}${' '.repeat(Math.max(0, 20 - badges.length))}${pct}%`
     )
 
-    const sourcePath = SOURCE_DIR ? path.relative(SOURCE_DIR, filePath) : null
-    const sourceInfo = SOURCE_DIR ? { sourcePath, sourceDir: SOURCE_DIR } : {}
+    // sourcePath/sourceDir stripped for privacy — no filesystem paths in output
     const slug = normalizeSlug(path.relative(path.join(process.cwd(), 'content', 'blog'), filePath).replace(/\.md$/, ''))
 
     // Handle password protection - hash password, never store plaintext
@@ -366,7 +365,6 @@ async function processMarkdown(content, filePath) {
         toc,
         type: safeFrontmatter.type || getPostType(filePath),
         ...(passwordHash && { passwordHash }),
-        ...sourceInfo,
         // OG image from data/og-images.json (set by Dispatch OG picker)
         ...(ogImageMap[slug] && { ogImage: ogImageMap[slug] }),
       },

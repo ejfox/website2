@@ -6,28 +6,75 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node 22
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: yarn
+
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile --ignore-engines
+
+    - name: Process markdown
+      run: yarn blog:process
+
+    - name: Build (node-server preset)
+      run: NITRO_PRESET=node-server yarn build
+      env:
+        NODE_ENV: production
+
+    - name: Verify server build
+      run: |
+        if [ ! -f .output/server/index.mjs ]; then
+          echo "ERROR: .output/server/index.mjs not found after build!"
+          exit 1
+        fi
+        echo "Build OK: $(du -sh .output | cut -f1)"
+
+    - name: Package build output
+      run: tar czf /tmp/website2-output.tar.gz .output
+
     - name: Deploy to VPS
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.VPS_HOST }}
         username: ${{ secrets.VPS_USER }}
         key: ${{ secrets.VPS_SSH_KEY }}
-        command_timeout: 20m
+        command_timeout: 5m
+        script: |
+          # Prepare for incoming build
+          mkdir -p /tmp/website2-deploy
+
+    - name: Upload build to VPS
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        source: /tmp/website2-output.tar.gz
+        target: /tmp/website2-deploy/
+        strip_components: 2
+
+    - name: Deploy and reload
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        command_timeout: 5m
         script: |
           set -e
           DEPLOY_START=$(date +%s)
           ALERT="/home/debian/scripts/alert.sh"
 
-          # Setup Node 22
-          export NVM_DIR="$HOME/.nvm"
-          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
           cd /data2/website2
-          nvm install 22 || true
-          nvm use 22
 
           # Capture before/after commits
           PREV_COMMIT=$(git rev-parse --short HEAD)
@@ -42,36 +89,23 @@ jobs:
           FILES_CHANGED=$(git diff --name-only ${PREV_COMMIT} ${NEW_COMMIT} 2>/dev/null | wc -l || echo "?")
           COMPARE_URL="https://github.com/ejfox/website2/compare/${PREV_COMMIT}...${NEW_COMMIT}"
 
-          # Clean build with correct preset
-          rm -rf .nuxt .output node_modules/.cache
+          # Extract pre-built output from GH runner
+          rm -rf .output
+          tar xzf /tmp/website2-deploy/website2-output.tar.gz
+          rm -f /tmp/website2-deploy/website2-output.tar.gz
 
-          # Install deps (skip if lockfile unchanged)
-          INSTALL_START=$(date +%s)
-          yarn install --frozen-lockfile --ignore-engines --prefer-offline
-          INSTALL_TIME=$(($(date +%s) - INSTALL_START))
-
-          # Process markdown -> JSON (uses mtime cache, only reprocesses changed files)
-          PROCESS_START=$(date +%s)
-          yarn blog:process
-          PROCESS_TIME=$(($(date +%s) - PROCESS_START))
-
-          # Commit processed JSON if changed (so next deploy has warm cache)
-          if [ -n "$(git status --porcelain content/processed/)" ]; then
-            git add content/processed/ public/content-tags.json
-            git commit -m "ci: reprocess content [skip ci]" --no-verify || true
-          fi
-
-          # Build (node-server preset for pm2)
-          BUILD_START=$(date +%s)
-          NITRO_PRESET=node-server NUXT_NITRO_PRESET=node-server yarn build
-          BUILD_TIME=$(($(date +%s) - BUILD_START))
-
-          # Verify server was built (fail-safe: don't reload pm2 with broken build)
+          # Verify
           if [ ! -f .output/server/index.mjs ]; then
-            echo "ERROR: .output/server/index.mjs not found after build!"
-            ALERT_FORCE=1 $ALERT website error "**❌ Deploy FAILED** — server build missing .output/server/index.mjs"
+            echo "ERROR: .output/server/index.mjs not found!"
+            ALERT_FORCE=1 $ALERT website error "**❌ Deploy FAILED** — server build missing after transfer"
             exit 1
           fi
+
+          # Install production deps on VPS (for native modules if any)
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+          nvm use 22 2>/dev/null || nvm install 22
+          yarn install --frozen-lockfile --ignore-engines --prefer-offline --production 2>/dev/null || true
 
           # Graceful reload via pm2
           pm2 reload website2
@@ -93,6 +127,6 @@ jobs:
           **${COMMIT_MSG}**
           by ${COMMIT_AUTHOR} | [diff](${COMPARE_URL})
           **Δ** ${FILES_CHANGED} files | **Output:** ${OUTPUT_SIZE} | **Mem:** ${PROCESS_MEM}
-          **Timing:** deps:${INSTALL_TIME}s→process:${PROCESS_TIME}s→build:${BUILD_TIME}s | **total:${DEPLOY_TIME}s**"
+          **Built on GH runner** | **total:${DEPLOY_TIME}s**"
 
           ALERT_FORCE=1 $ALERT website info "$ALERT_MSG"

@@ -44,11 +44,11 @@ export default defineEventHandler(async (): Promise<Scrap[]> => {
 
     const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY)
 
-    // Fetch recent scraps with a limit to prevent timeout
-    // The full dataset can be very large; most use cases only need recent items
+    // Fetch recent shared scraps with a limit to prevent timeout
     const { data, error } = await supabase
       .from('scraps')
       .select('*')
+      .eq('shared', true)
       .order('created_at', { ascending: false })
       .limit(500)
 
@@ -83,8 +83,7 @@ export default defineEventHandler(async (): Promise<Scrap[]> => {
       relationships: (scrap.relationships as unknown[]) || null,
       extraction_confidence:
         (scrap.extraction_confidence as Record<string, unknown>) || null,
-      financial_analysis:
-        (scrap.financial_analysis as Record<string, unknown>) || null,
+      financial_analysis: null,
       metadata: (scrap.metadata as Record<string, unknown>) || null,
     }))
 

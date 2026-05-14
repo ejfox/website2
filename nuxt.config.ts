@@ -246,12 +246,15 @@ export default defineNuxtConfig({
         const source = path.join(nitro.options.rootDir, 'content')
         const dest = path.join(nitro.options.output.dir, 'content')
 
-        // Recursively copy content directory
+        // Recursively copy content directory (exclude private dirs)
+        const excludeDirs = ['backup', 'drafts']
         try {
           await fs.cp(source, dest, {
             recursive: true,
             errorOnExist: false,
             force: true,
+            filter: (src: string) =>
+              !excludeDirs.some((d) => src.includes(`/${d}/`) || src.endsWith(`/${d}`)),
           })
           // console.log(`✓ Copied content directory to ${dest}`)
         } catch (err) {
