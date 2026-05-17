@@ -3,24 +3,6 @@
   @description Inline calendar slot component showing next available booking time with auto-refresh
   @props None - fetches data from /api/cal/available-slots endpoint
 -->
-<template>
-  <span class="next-available-slot group relative inline">
-    <ClientOnly>
-      <!-- Available slot - inline magic link. Renders nothing otherwise so
-           the surrounding "grab some time on my calendar" link stands alone. -->
-      <a
-        v-if="nextSlot"
-        :href="nextSlot.bookingUrl"
-        target="_blank"
-        class="link-blue-underline"
-        :title="`Book ${nextSlot.naturalTime} - 30min chat`"
-      >
-        ({{ nextSlot.naturalTime }})
-      </a>
-    </ClientOnly>
-  </span>
-</template>
-
 <script setup>
 import { computed } from 'vue'
 
@@ -57,6 +39,24 @@ onMounted(() => {
   })
 })
 </script>
+
+<template>
+  <span class="next-available-slot group relative inline">
+    <ClientOnly>
+      <!-- Available slot - inline magic link. Renders nothing otherwise so
+           the surrounding "grab some time on my calendar" link stands alone. -->
+      <a
+        v-if="nextSlot"
+        :href="nextSlot.bookingUrl"
+        target="_blank"
+        class="link-blue-underline"
+        :title="`Book ${nextSlot.naturalTime} - 30min chat`"
+      >
+        ({{ nextSlot.naturalTime }})
+      </a>
+    </ClientOnly>
+  </span>
+</template>
 
 <style scoped>
 .next-available-slot {

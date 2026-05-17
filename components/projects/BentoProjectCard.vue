@@ -4,6 +4,69 @@
   @props project: Object - Project with title, metadata (date, tech), html content, stats
   @props index: number - Card index for stagger animation
 -->
+<script setup>
+const props = defineProps({
+  project: { type: Object, required: true },
+})
+
+const { formatYearOnly } = useDateFormat()
+const projectSlug = computed(
+  () => props.project.slug?.replace(/^projects\//, '') || ''
+)
+
+const projectTitle = computed(
+  () => props.project.title || props.project.metadata?.title || 'Untitled'
+)
+
+const excerpt = computed(() => {
+  if (!props.project.html) return null
+  const text = props.project.html
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  return text.length > 120 ? text.substring(0, 120) + '…' : text
+})
+
+// Seed-based consistent rotation for organic feel
+const seededRotation = computed(() => {
+  const seed = projectTitle.value
+    .split('')
+    .reduce((a, b) => a + b.charCodeAt(0), 0)
+  return ((seed % 7) - 3) * 0.4 // -1.2deg to +1.2deg
+})
+
+const cardTransform = computed(() => `rotate(${seededRotation.value}deg)`)
+
+// Dense metadata extraction - maximalist data display
+const wordCount = computed(() => {
+  if (!props.project.html) return 0
+  const text = props.project.html.replace(/<[^>]*>/g, '').trim()
+  return text.split(/\s+/).filter((w) => w.length > 0).length
+})
+
+const charCount = computed(() => {
+  if (!props.project.html) return 0
+  return props.project.html.replace(/<[^>]*>/g, '').replace(/\s+/g, '').length
+})
+
+const imageCount = computed(() => {
+  if (!props.project.html) return 0
+  return (props.project.html.match(/<img/g) || []).length
+})
+
+const linkCount = computed(() => {
+  if (!props.project.html) return 0
+  return (props.project.html.match(/<a /g) || []).length
+})
+
+const readingMinutes = computed(() => {
+  if (!wordCount.value) return 0
+  return Math.max(1, Math.ceil(wordCount.value / 200))
+})
+
+const techCount = computed(() => props.project.metadata?.tech?.length || 0)
+</script>
+
 <template>
   <NuxtLink
     :to="`/projects/${projectSlug}`"
@@ -64,64 +127,3 @@
     </div>
   </NuxtLink>
 </template>
-
-<script setup>
-const props = defineProps({
-  project: { type: Object, required: true },
-})
-
-const { formatYearOnly } = useDateFormat()
-const projectSlug = computed(() => props.project.slug?.replace(/^projects\//, '') || '')
-
-const projectTitle = computed(
-  () => props.project.title || props.project.metadata?.title || 'Untitled'
-)
-
-const excerpt = computed(() => {
-  if (!props.project.html) return null
-  const text = props.project.html
-    .replace(/<[^>]*>/g, '')
-    .replace(/\s+/g, ' ')
-    .trim()
-  return text.length > 120 ? text.substring(0, 120) + '…' : text
-})
-
-// Seed-based consistent rotation for organic feel
-const seededRotation = computed(() => {
-  const seed = projectTitle.value
-    .split('')
-    .reduce((a, b) => a + b.charCodeAt(0), 0)
-  return ((seed % 7) - 3) * 0.4 // -1.2deg to +1.2deg
-})
-
-const cardTransform = computed(() => `rotate(${seededRotation.value}deg)`)
-
-// Dense metadata extraction - maximalist data display
-const wordCount = computed(() => {
-  if (!props.project.html) return 0
-  const text = props.project.html.replace(/<[^>]*>/g, '').trim()
-  return text.split(/\s+/).filter((w) => w.length > 0).length
-})
-
-const charCount = computed(() => {
-  if (!props.project.html) return 0
-  return props.project.html.replace(/<[^>]*>/g, '').replace(/\s+/g, '').length
-})
-
-const imageCount = computed(() => {
-  if (!props.project.html) return 0
-  return (props.project.html.match(/<img/g) || []).length
-})
-
-const linkCount = computed(() => {
-  if (!props.project.html) return 0
-  return (props.project.html.match(/<a /g) || []).length
-})
-
-const readingMinutes = computed(() => {
-  if (!wordCount.value) return 0
-  return Math.max(1, Math.ceil(wordCount.value / 200))
-})
-
-const techCount = computed(() => props.project.metadata?.tech?.length || 0)
-</script>

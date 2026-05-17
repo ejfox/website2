@@ -6,15 +6,6 @@
   @props format: string - Format type (number, percentage, decimal, raw)
   @props decimals: number - Decimal places (default: 0)
 -->
-<template>
-  <div class="flex-between">
-    <div class="text-muted">{{ label }}</div>
-    <div class="text-primary tabular">
-      <slot>{{ formattedValue }}</slot>
-    </div>
-  </div>
-</template>
-
 <script setup>
 const props = defineProps({
   label: {
@@ -55,3 +46,12 @@ const formattedValue = computed(() => {
   }
 })
 </script>
+
+<template>
+  <div class="flex-between">
+    <div class="text-muted">{{ label }}</div>
+    <div class="text-primary tabular">
+      <slot>{{ formattedValue }}</slot>
+    </div>
+  </div>
+</template>

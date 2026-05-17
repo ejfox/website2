@@ -1,3 +1,69 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import { format, parseISO } from 'date-fns'
+
+interface Scrap {
+  id: string
+  title: string | null
+  summary: string | null
+  url: string | null
+  content: string | null
+  created_at: string
+  updated_at: string | null
+  published_at: string | null
+  tags: string[] | null
+  concept_tags: string[] | null
+  type: string | null
+  source: string | null
+  content_type: string | null
+  location: string | null
+  latitude: number | null
+  longitude: number | null
+  screenshot_url: string | null
+  shared: boolean
+  relationships: Array<{ id: string; type?: string }> | null
+  extraction_confidence: { tags?: number; summary?: number } | null
+  financial_analysis: Record<string, unknown> | null
+  metadata: Record<string, unknown> | null
+}
+
+const route = useRoute()
+const tag = computed(() => {
+  const slug = (route.params as { slug?: string | string[] }).slug || ''
+  return Array.isArray(slug) ? slug[0] : decodeURIComponent(slug)
+})
+
+// SSR-friendly data fetching: fetch all scraps once, cache aggressively
+const {
+  data: scraps,
+  pending,
+  error,
+} = await useFetch<Scrap[]>('/api/scraps', {
+  key: 'scraps-all',
+  transform: (data) => {
+    // Filter for this tag server-side during SSR
+    return data.filter((s) => s.tags?.includes(tag.value))
+  },
+})
+
+const filteredScraps = computed(() => scraps.value || [])
+
+const formatDate = (dateStr: string) => {
+  try {
+    return format(parseISO(dateStr), 'MMM d, yyyy')
+  } catch {
+    return 'unknown'
+  }
+}
+
+usePageSeo({
+  title: `Tag: ${tag.value}`,
+  description: `Scraps tagged with ${tag.value}`,
+  type: 'website',
+  section: 'Content',
+})
+</script>
+
 <template>
   <div class="font-mono text-xs space-y-2">
     <!-- Header -->
@@ -142,69 +208,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-import { format, parseISO } from 'date-fns'
-
-interface Scrap {
-  id: string
-  title: string | null
-  summary: string | null
-  url: string | null
-  content: string | null
-  created_at: string
-  updated_at: string | null
-  published_at: string | null
-  tags: string[] | null
-  concept_tags: string[] | null
-  type: string | null
-  source: string | null
-  content_type: string | null
-  location: string | null
-  latitude: number | null
-  longitude: number | null
-  screenshot_url: string | null
-  shared: boolean
-  relationships: Array<{ id: string; type?: string }> | null
-  extraction_confidence: { tags?: number; summary?: number } | null
-  financial_analysis: Record<string, unknown> | null
-  metadata: Record<string, unknown> | null
-}
-
-const route = useRoute()
-const tag = computed(() => {
-  const slug = (route.params as { slug?: string | string[] }).slug || ''
-  return Array.isArray(slug) ? slug[0] : decodeURIComponent(slug)
-})
-
-// SSR-friendly data fetching: fetch all scraps once, cache aggressively
-const {
-  data: scraps,
-  pending,
-  error,
-} = await useFetch<Scrap[]>('/api/scraps', {
-  key: 'scraps-all',
-  transform: (data) => {
-    // Filter for this tag server-side during SSR
-    return data.filter((s) => s.tags?.includes(tag.value))
-  },
-})
-
-const filteredScraps = computed(() => scraps.value || [])
-
-const formatDate = (dateStr: string) => {
-  try {
-    return format(parseISO(dateStr), 'MMM d, yyyy')
-  } catch {
-    return 'unknown'
-  }
-}
-
-usePageSeo({
-  title: `Tag: ${tag.value}`,
-  description: `Scraps tagged with ${tag.value}`,
-  type: 'website',
-  section: 'Content',
-})
-</script>

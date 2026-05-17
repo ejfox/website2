@@ -9,17 +9,6 @@
   @props class: string - CSS classes to apply
   @props style: string | object - Inline styles to apply
 -->
-<template>
-  <span
-    ref="numberRef"
-    :class="props.class"
-    :style="props.style"
-    :aria-live="debug ? 'polite' : 'off'"
-  >
-    {{ formatter(displayValue) }}
-  </span>
-</template>
-
 <script setup lang="ts">
 import { format as d3Format } from 'd3-format'
 
@@ -111,3 +100,14 @@ onMounted(() => {
   displayValue.value = props.value
 })
 </script>
+
+<template>
+  <span
+    ref="numberRef"
+    :class="props.class"
+    :style="props.style"
+    :aria-live="debug ? 'polite' : 'off'"
+  >
+    {{ formatter(displayValue) }}
+  </span>
+</template>

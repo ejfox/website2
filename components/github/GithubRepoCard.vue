@@ -9,40 +9,6 @@
   @props forks: number - Fork count (default: 0)
   @props repo: Repo - Full repository object with languages, stats (optional)
 -->
-<template>
-  <NuxtLink :to="`/github/${name}`" class="repo-card group block">
-    <article>
-      <!-- Title and language inline -->
-      <div class="title-row">
-        <h3 class="repo-title">{{ name }}</h3>
-        <span v-if="language" class="language-label">{{ language }}</span>
-      </div>
-
-      <!-- Description -->
-      <p v-if="description" class="repo-description">
-        {{ description }}
-      </p>
-
-      <!-- Language bar - Tuftian micro-viz -->
-      <LanguageBar
-        v-if="repo?.languages && Object.keys(repo.languages).length > 0"
-        :languages="repo.languages"
-        :height="3"
-        class="language-bar"
-      />
-
-      <!-- Stats row - pure typography, no backgrounds -->
-      <div class="repo-stats">
-        <span v-if="stars > 0" class="stat">{{ stars }} stars</span>
-        <span v-if="forks > 0" class="stat">{{ forks }} forks</span>
-        <span v-if="repo?.stats.watchers > 0" class="stat">
-          {{ repo.stats.watchers }} watching
-        </span>
-      </div>
-    </article>
-  </NuxtLink>
-</template>
-
 <script setup lang="ts">
 interface Repo {
   name: string
@@ -79,6 +45,40 @@ withDefaults(defineProps<Props>(), {
   repo: undefined,
 })
 </script>
+
+<template>
+  <NuxtLink :to="`/github/${name}`" class="repo-card group block">
+    <article>
+      <!-- Title and language inline -->
+      <div class="title-row">
+        <h3 class="repo-title">{{ name }}</h3>
+        <span v-if="language" class="language-label">{{ language }}</span>
+      </div>
+
+      <!-- Description -->
+      <p v-if="description" class="repo-description">
+        {{ description }}
+      </p>
+
+      <!-- Language bar - Tuftian micro-viz -->
+      <LanguageBar
+        v-if="repo?.languages && Object.keys(repo.languages).length > 0"
+        :languages="repo.languages"
+        :height="3"
+        class="language-bar"
+      />
+
+      <!-- Stats row - pure typography, no backgrounds -->
+      <div class="repo-stats">
+        <span v-if="stars > 0" class="stat">{{ stars }} stars</span>
+        <span v-if="forks > 0" class="stat">{{ forks }} forks</span>
+        <span v-if="repo?.stats.watchers > 0" class="stat">
+          {{ repo.stats.watchers }} watching
+        </span>
+      </div>
+    </article>
+  </NuxtLink>
+</template>
 
 <style scoped>
 /* Magazine-style stacked list - pure typography, no backgrounds */

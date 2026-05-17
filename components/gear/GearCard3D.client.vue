@@ -1,67 +1,3 @@
-<template>
-  <div class="gear-card-container" :style="tilt">
-    <!-- Header -->
-    <div class="card-header">
-      <div class="text-2xl mb-2">{{ TYPE_SYMBOLS[gearItem.Type] || '—' }}</div>
-      <h1 class="text-xl font-light text-primary mb-1">{{ gearItem.Name }}</h1>
-      <div class="label-uppercase">{{ gearItem.Type }}</div>
-    </div>
-
-    <!-- Photo -->
-    <div v-if="photoUrl" class="photo-wrap">
-      <div class="gear-img-square">
-        <img :src="photoUrl" :alt="`Photo of ${gearItem.Name}`"
-          class="w-full h-full object-cover" loading="lazy"
-          width="480" height="480" style="image-rendering: pixelated" />
-      </div>
-    </div>
-
-    <!-- Weight hero -->
-    <div class="section text-center">
-      <div class="stat-value">{{ displayWeight }}g</div>
-      <div class="label-uppercase">Weight</div>
-    </div>
-
-    <!-- H₂O + Priority -->
-    <div class="section section-grid">
-      <div class="text-center">
-        <div class="text-sm font-mono text-primary">{{ gearItem.Waterproof || '—' }}</div>
-        <div class="label-uppercase">H₂O</div>
-      </div>
-      <div class="text-center">
-        <div class="text-sm font-mono text-primary tracking-tighter">{{ PRIORITY_PIPS[gearItem.Priority] || '—' }}</div>
-        <div class="label-uppercase">Priority</div>
-      </div>
-    </div>
-
-    <!-- Container breadcrumb -->
-    <div class="section text-center">
-      <span class="label-uppercase">{{ (gearItem['Parent Container'] || 'Unassigned').toUpperCase() }} › ●</span>
-    </div>
-
-    <!-- Notes callout -->
-    <div v-if="gearItem.Notes" class="callout">
-      <span class="text-3xs text-secondary italic">{{ gearItem.Notes }}</span>
-    </div>
-
-    <!-- Buy link -->
-    <div v-if="gearItem.amazon" class="text-center mt-3">
-      <a :href="amazonUrl" target="_blank" rel="nofollow noopener" class="btn-inline-flex">Buy</a>
-    </div>
-
-    <!-- Details table -->
-    <div class="details-section">
-      <h3 class="label-tracked-md">Item Details</h3>
-      <div class="grid grid-cols-1 gap-2 text-xs">
-        <div v-for="(value, key) in itemDetails" :key="key" class="row-bordered">
-          <span class="detail-key">{{ humanize(key) }}</span>
-          <span class="detail-val" :title="value">{{ value || '—' }}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { useMouse, useWindowSize } from '@vueuse/core'
 
@@ -75,7 +11,8 @@ const { x: mx, y: my } = useMouse()
 const { width: winW, height: winH } = useWindowSize()
 
 const tilt = computed(() => {
-  const cx = winW.value / 2, cy = winH.value / 2
+  const cx = winW.value / 2,
+    cy = winH.value / 2
   const rx = -((my.value - cy) / cy) * 20
   const ry = ((mx.value - cx) / cx) * 20
   const tz = (Math.abs(mx.value - cx) / cx + Math.abs(my.value - cy) / cy) * 15
@@ -90,7 +27,8 @@ const tilt = computed(() => {
 const photoUrl = computed(() => props.gearItem.imageUrl?.trim() || null)
 
 const displayWeight = computed(() => {
-  if (!props.gearItem['Base Weight ()'] && !props.gearItem['Loaded Weight ()']) return '?'
+  if (!props.gearItem['Base Weight ()'] && !props.gearItem['Loaded Weight ()'])
+    return '?'
   return getItemWeightInGrams(props.gearItem) || 0
 })
 
@@ -113,26 +51,138 @@ const itemDetails = computed(() => {
 })
 
 const humanize = (key) =>
-  key.replace(/([A-Z])/g, ' $1').replace(/[()]/g, '').replace(/^\w/, c => c.toUpperCase()).trim()
+  key
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/[()]/g, '')
+    .replace(/^\w/, (c) => c.toUpperCase())
+    .trim()
 </script>
 
+<template>
+  <div class="gear-card-container" :style="tilt">
+    <!-- Header -->
+    <div class="card-header">
+      <div class="text-2xl mb-2">{{ TYPE_SYMBOLS[gearItem.Type] || '—' }}</div>
+      <h1 class="text-xl font-light text-primary mb-1">{{ gearItem.Name }}</h1>
+      <div class="label-uppercase">{{ gearItem.Type }}</div>
+    </div>
+
+    <!-- Photo -->
+    <div v-if="photoUrl" class="photo-wrap">
+      <div class="gear-img-square">
+        <img
+          :src="photoUrl"
+          :alt="`Photo of ${gearItem.Name}`"
+          class="w-full h-full object-cover"
+          loading="lazy"
+          width="480"
+          height="480"
+          style="image-rendering: pixelated"
+        />
+      </div>
+    </div>
+
+    <!-- Weight hero -->
+    <div class="section text-center">
+      <div class="stat-value">{{ displayWeight }}g</div>
+      <div class="label-uppercase">Weight</div>
+    </div>
+
+    <!-- H₂O + Priority -->
+    <div class="section section-grid">
+      <div class="text-center">
+        <div class="text-sm font-mono text-primary">
+          {{ gearItem.Waterproof || '—' }}
+        </div>
+        <div class="label-uppercase">H₂O</div>
+      </div>
+      <div class="text-center">
+        <div class="text-sm font-mono text-primary tracking-tighter">
+          {{ PRIORITY_PIPS[gearItem.Priority] || '—' }}
+        </div>
+        <div class="label-uppercase">Priority</div>
+      </div>
+    </div>
+
+    <!-- Container breadcrumb -->
+    <div class="section text-center">
+      <span class="label-uppercase">
+        {{ (gearItem['Parent Container'] || 'Unassigned').toUpperCase() }} › ●
+      </span>
+    </div>
+
+    <!-- Notes callout -->
+    <div v-if="gearItem.Notes" class="callout">
+      <span class="text-3xs text-secondary italic">{{ gearItem.Notes }}</span>
+    </div>
+
+    <!-- Buy link -->
+    <div v-if="gearItem.amazon" class="text-center mt-3">
+      <a
+        :href="amazonUrl"
+        target="_blank"
+        rel="nofollow noopener"
+        class="btn-inline-flex"
+      >
+        Buy
+      </a>
+    </div>
+
+    <!-- Details table -->
+    <div class="details-section">
+      <h3 class="label-tracked-md">Item Details</h3>
+      <div class="grid grid-cols-1 gap-2 text-xs">
+        <div
+          v-for="(value, key) in itemDetails"
+          :key="key"
+          class="row-bordered"
+        >
+          <span class="detail-key">{{ humanize(key) }}</span>
+          <span class="detail-val" :title="value">{{ value || '—' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <style scoped>
-.gear-card-container { transform-style: preserve-3d; backface-visibility: hidden; }
+.gear-card-container {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
 
-.card-header  { @apply text-center mb-3; }
-.photo-wrap   { @apply mb-3 flex justify-center; }
+.card-header {
+  @apply text-center mb-3;
+}
+.photo-wrap {
+  @apply mb-3 flex justify-center;
+}
 
-.section      { @apply border-t border-zinc-200 dark:border-zinc-700 pt-3 mt-3; }
-.section-grid { @apply grid grid-cols-2; }
+.section {
+  @apply border-t border-zinc-200 dark:border-zinc-700 pt-3 mt-3;
+}
+.section-grid {
+  @apply grid grid-cols-2;
+}
 
-.callout      { @apply border-l-2 border-zinc-300 dark:border-zinc-700 pl-3 mt-3; }
+.callout {
+  @apply border-l-2 border-zinc-300 dark:border-zinc-700 pl-3 mt-3;
+}
 
-.details-section { @apply mt-8 border-t border-zinc-200 dark:border-zinc-700 pt-8; }
-.detail-key   { @apply flex-shrink-0 uppercase tracking-widest text-zinc-600 dark:text-zinc-400; }
-.detail-val   { @apply font-mono text-right truncate ml-2 min-w-0 text-zinc-900 dark:text-zinc-100; }
+.details-section {
+  @apply mt-8 border-t border-zinc-200 dark:border-zinc-700 pt-8;
+}
+.detail-key {
+  @apply flex-shrink-0 uppercase tracking-widest text-zinc-600 dark:text-zinc-400;
+}
+.detail-val {
+  @apply font-mono text-right truncate ml-2 min-w-0 text-zinc-900 dark:text-zinc-100;
+}
 
 /* Missing utility classes used in template */
-.gear-img-square { @apply w-[120px] h-[120px] overflow-hidden rounded-sm; }
+.gear-img-square {
+  @apply w-[120px] h-[120px] overflow-hidden rounded-sm;
+}
 .btn-inline-flex {
   @apply inline-flex items-center px-3 py-1 font-mono text-xs uppercase tracking-wider
          border border-zinc-300 dark:border-zinc-600
@@ -140,6 +190,10 @@ const humanize = (key) =>
          hover:bg-zinc-100 dark:hover:bg-zinc-800
          transition-colors duration-150 no-underline;
 }
-.label-tracked-md { @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-3; }
-.row-bordered { @apply flex justify-between items-baseline border-b border-zinc-100 dark:border-zinc-800 py-1; }
+.label-tracked-md {
+  @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-3;
+}
+.row-bordered {
+  @apply flex justify-between items-baseline border-b border-zinc-100 dark:border-zinc-800 py-1;
+}
 </style>

@@ -20,7 +20,9 @@ const stateClass = computed(() => {
 })
 
 const confidence = computed(() =>
-  typeof props.payload.confidence === 'number' ? `${props.payload.confidence}%` : ''
+  typeof props.payload.confidence === 'number'
+    ? `${props.payload.confidence}%`
+    : ''
 )
 
 const truncated = computed(() => {
@@ -37,20 +39,49 @@ const deadline = computed(() =>
 )
 
 const resolvedDate = computed(() =>
-  props.payload.resolved_date ? String(props.payload.resolved_date).slice(0, 10) : null
+  props.payload.resolved_date
+    ? String(props.payload.resolved_date).slice(0, 10)
+    : null
 )
 
 const href = computed(() => `/predictions/${props.payload.id}`)
 </script>
 
 <template>
-  <span class="prediction-ref-wrap" @mouseenter="open = true" @mouseleave="open = false" @focusin="open = true" @focusout="open = false">
-    <a :href="href" :class="['prediction-ref', stateClass]" :aria-describedby="`pred-${payload.id}-pop`">
-      <span class="prediction-ref__glyph" :class="{ 'is-pulsing': !payload.resolved }">{{ glyph }}</span>
-      <span class="prediction-ref__confidence" :class="{ 'is-scarred': payload.resolved && payload.status === 'incorrect' }">{{ confidence }}</span>
+  <span
+    class="prediction-ref-wrap"
+    @mouseenter="open = true"
+    @mouseleave="open = false"
+    @focusin="open = true"
+    @focusout="open = false"
+  >
+    <a
+      :href="href"
+      :class="['prediction-ref', stateClass]"
+      :aria-describedby="`pred-${payload.id}-pop`"
+    >
+      <span
+        class="prediction-ref__glyph"
+        :class="{ 'is-pulsing': !payload.resolved }"
+      >
+        {{ glyph }}
+      </span>
+      <span
+        class="prediction-ref__confidence"
+        :class="{
+          'is-scarred': payload.resolved && payload.status === 'incorrect',
+        }"
+      >
+        {{ confidence }}
+      </span>
       <span class="prediction-ref__statement">{{ truncated }}</span>
     </a>
-    <span v-if="open" :id="`pred-${payload.id}-pop`" class="prediction-ref__popover" role="tooltip">
+    <span
+      v-if="open"
+      :id="`pred-${payload.id}-pop`"
+      class="prediction-ref__popover"
+      role="tooltip"
+    >
       <span class="pop__label">prediction</span>
       <span class="pop__statement">{{ payload.statement }}</span>
       <span class="pop__meta">
@@ -58,10 +89,18 @@ const href = computed(() => `/predictions/${props.payload.id}`)
         <span v-if="deadline" class="pop__sep">·</span>
         <span v-if="deadline">by {{ deadline }}</span>
       </span>
-      <span v-if="payload.resolved && payload.resolution" class="pop__resolution">
+      <span
+        v-if="payload.resolved && payload.resolution"
+        class="pop__resolution"
+      >
         <span class="pop__label">resolution</span>
-        <span>{{ payload.resolution.slice(0, 220) }}{{ payload.resolution.length > 220 ? '…' : '' }}</span>
-        <span v-if="resolvedDate" class="pop__meta">resolved {{ resolvedDate }}</span>
+        <span>
+          {{ payload.resolution.slice(0, 220)
+          }}{{ payload.resolution.length > 220 ? '…' : '' }}
+        </span>
+        <span v-if="resolvedDate" class="pop__meta">
+          resolved {{ resolvedDate }}
+        </span>
       </span>
       <span v-if="hashShort" class="pop__hash">sha256 · {{ hashShort }}</span>
     </span>
@@ -137,13 +176,24 @@ const href = computed(() => `/predictions/${props.payload.id}`)
 .state-pending {
   color: #6b7280;
 }
-:root.dark .state-correct { color: #4ade80; }
-:root.dark .state-incorrect { color: #f87171; }
-:root.dark .state-pending { color: #9ca3af; }
+:root.dark .state-correct {
+  color: #4ade80;
+}
+:root.dark .state-incorrect {
+  color: #f87171;
+}
+:root.dark .state-pending {
+  color: #9ca3af;
+}
 
 @keyframes pred-pulse {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .prediction-ref__popover {
@@ -160,7 +210,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   color: #18181b;
   border: 1px solid #e4e4e7;
   border-radius: 3px;
-  box-shadow: 0 8px 24px -8px rgba(0,0,0,0.2);
+  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.2);
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 0.875rem;
   line-height: 1.4;

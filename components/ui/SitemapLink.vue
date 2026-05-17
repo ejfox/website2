@@ -6,6 +6,27 @@
   @props description: string - Link description
   @props external: boolean - Whether link is external (default: false)
 -->
+<script setup>
+defineProps({
+  to: {
+    type: String,
+    required: true,
+  },
+  title: {
+    type: String,
+    required: true,
+  },
+  description: {
+    type: String,
+    required: true,
+  },
+  external: {
+    type: Boolean,
+    default: false,
+  },
+})
+</script>
+
 <template>
   <div :class="['group', 'rounded-lg p-4 -m-4']">
     <component
@@ -42,24 +63,3 @@
     </component>
   </div>
 </template>
-
-<script setup>
-defineProps({
-  to: {
-    type: String,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
-  external: {
-    type: Boolean,
-    default: false,
-  },
-})
-</script>

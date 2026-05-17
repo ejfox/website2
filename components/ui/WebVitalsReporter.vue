@@ -3,24 +3,6 @@
   @description Web vitals performance overlay showing LCP, FID, CLS metrics (dev/debug mode only)
   @props None - listens to window web-vitals events
 -->
-<template>
-  <div v-if="showVitals && vitals.length" class="fixed bottom-4 left-4 z-50">
-    <div
-      class="bg-white/90 dark:bg-black/80 text-zinc-900 dark:text-white border border-zinc-200 dark:border-transparent text-xs p-2 rounded-lg font-mono max-w-xs"
-    >
-      <div class="font-bold mb-2">Web Vitals</div>
-      <div
-        v-for="vital in vitals"
-        :key="vital.name"
-        class="flex justify-between"
-      >
-        <span>{{ vital.name }}:</span>
-        <span :class="getVitalClass(vital)">{{ formatValue(vital) }}</span>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 const vitals = ref([])
 const showVitals = ref(false)
@@ -62,3 +44,21 @@ const formatValue = (vital) => {
   return Math.round(vital.value) + 'ms'
 }
 </script>
+
+<template>
+  <div v-if="showVitals && vitals.length" class="fixed bottom-4 left-4 z-50">
+    <div
+      class="bg-white/90 dark:bg-black/80 text-zinc-900 dark:text-white border border-zinc-200 dark:border-transparent text-xs p-2 rounded-lg font-mono max-w-xs"
+    >
+      <div class="font-bold mb-2">Web Vitals</div>
+      <div
+        v-for="vital in vitals"
+        :key="vital.name"
+        class="flex justify-between"
+      >
+        <span>{{ vital.name }}:</span>
+        <span :class="getVitalClass(vital)">{{ formatValue(vital) }}</span>
+      </div>
+    </div>
+  </div>
+</template>

@@ -40,7 +40,8 @@ if (post.value?.redirect && route.path !== post.value.redirect) {
 
 // Temporal cross-reference: "around this time" context (must be after post fetch)
 const postDate = computed(() => post.value?.metadata?.date || post.value?.date)
-const { context: temporalContext, hasContext: hasTemporalContext } = useTemporalContext(postDate)
+const { context: temporalContext, hasContext: hasTemporalContext } =
+  useTemporalContext(postDate)
 
 // Tag-matched scraps: "related research" from scrapbook
 const postTags = computed(() => {
@@ -390,18 +391,30 @@ onMounted(() => {
       })
       .filter(({ href }) => {
         // Only external links, skip anchors/internal/duplicate
-        if (!href || href.startsWith('#') || href.startsWith('/') || href.startsWith('mailto:')) return false
+        if (
+          !href ||
+          href.startsWith('#') ||
+          href.startsWith('/') ||
+          href.startsWith('mailto:')
+        )
+          return false
         try {
           const host = new URL(href).hostname
           if (host.endsWith('ejfox.com')) return false
-        } catch { return false }
+        } catch {
+          return false
+        }
         if (seen.has(href)) return false
         seen.add(href)
         return true
       })
       .map(({ href, text }) => {
         let hostname = ''
-        try { hostname = new URL(href).hostname.replace(/^www\./, '') } catch { /* */ }
+        try {
+          hostname = new URL(href).hostname.replace(/^www\./, '')
+        } catch {
+          /* */
+        }
         // Use link text only if it looks like a proper label, not a sentence fragment
         let label = hostname
         if (text.length > 0 && text.length <= 50) {
@@ -426,7 +439,9 @@ onMounted(() => {
 
     // Scroll reveal for content elements (headings, images, blockquotes, code)
     const revealTargets = Array.from(
-      articleContent.value.querySelectorAll('h2, h3, h4, figure, img, blockquote, pre')
+      articleContent.value.querySelectorAll(
+        'h2, h3, h4, figure, img, blockquote, pre'
+      )
     )
     if (revealTargets.length) {
       import('animejs').then(({ animate }) => {
@@ -438,22 +453,25 @@ onMounted(() => {
           htmlEl.style.opacity = '0'
           htmlEl.style.transform = 'translateY(6px)'
 
-          const obs = new IntersectionObserver(([entry]) => {
-            if (entry.isIntersecting && !revealSeen.has(el)) {
-              revealSeen.add(el)
-              obs.disconnect()
-              animate(htmlEl, {
-                opacity: [0, 1],
-                translateY: [6, 0],
-                duration: 180,
-                ease: 'outQuad',
-                onComplete: () => {
-                  htmlEl.style.opacity = ''
-                  htmlEl.style.transform = ''
-                },
-              })
-            }
-          }, { threshold: 0.01 })
+          const obs = new IntersectionObserver(
+            ([entry]) => {
+              if (entry.isIntersecting && !revealSeen.has(el)) {
+                revealSeen.add(el)
+                obs.disconnect()
+                animate(htmlEl, {
+                  opacity: [0, 1],
+                  translateY: [6, 0],
+                  duration: 180,
+                  ease: 'outQuad',
+                  onComplete: () => {
+                    htmlEl.style.opacity = ''
+                    htmlEl.style.transform = ''
+                  },
+                })
+              }
+            },
+            { threshold: 0.01 }
+          )
           obs.observe(el)
         })
       })
@@ -603,38 +621,57 @@ onMounted(() => {
         <PostTOC :toc-children="tocChildren" :active-section="activeSection" />
 
         <!-- Contextual sidebar -->
-        <div v-if="hasTemporalContext || relatedScraps?.length || visibleLinks.length" class="mt-4">
-
+        <div
+          v-if="
+            hasTemporalContext || relatedScraps?.length || visibleLinks.length
+          "
+          class="mt-4"
+        >
           <template v-if="hasTemporalContext">
             <div v-if="temporalContext?.reading?.length" class="mb-3">
               <div class="font-mono text-3xs text-zinc-600 mb-0.5">Reading</div>
               <NuxtLink
                 v-for="book in temporalContext.reading"
                 :key="book.slug"
-                :to="`/reading/${book.slug}`"
                 v-tooltip="book.title"
+                :to="`/reading/${book.slug}`"
                 class="block font-serif text-3xs text-zinc-600 leading-snug truncate"
               >
-                {{ book.title?.slice(0, 40) }}{{ book.title?.length > 40 ? '…' : '' }}
+                {{ book.title?.slice(0, 40)
+                }}{{ book.title?.length > 40 ? '…' : '' }}
               </NuxtLink>
             </div>
 
             <div v-if="temporalContext?.predictions?.length" class="mb-3">
-              <div class="font-mono text-3xs text-zinc-600 mb-0.5">Predicting</div>
+              <div class="font-mono text-3xs text-zinc-600 mb-0.5">
+                Predicting
+              </div>
               <NuxtLink
                 v-for="pred in temporalContext.predictions"
                 :key="pred.slug"
-                :to="`/predictions/${pred.slug}`"
                 v-tooltip="pred.statement"
+                :to="`/predictions/${pred.slug}`"
                 class="flex gap-1 font-mono text-3xs text-zinc-600 leading-snug"
               >
-                <span class="tabular-nums shrink-0">{{ pred.confidence }}%</span>
+                <span class="tabular-nums shrink-0">
+                  {{ pred.confidence }}%
+                </span>
                 <span
-                  v-if="pred.status === 'correct' || pred.status === 'incorrect'"
-                  :class="pred.status === 'correct' ? 'text-green-700' : 'text-red-700'"
+                  v-if="
+                    pred.status === 'correct' || pred.status === 'incorrect'
+                  "
+                  :class="
+                    pred.status === 'correct'
+                      ? 'text-green-700'
+                      : 'text-red-700'
+                  "
                   class="shrink-0"
-                >{{ pred.status === 'correct' ? '✓' : '✗' }}</span>
-                <span class="truncate">{{ pred.statement?.slice(0, 30) }}…</span>
+                >
+                  {{ pred.status === 'correct' ? '✓' : '✗' }}
+                </span>
+                <span class="truncate">
+                  {{ pred.statement?.slice(0, 30) }}…
+                </span>
               </NuxtLink>
             </div>
 
@@ -643,17 +680,21 @@ onMounted(() => {
               <a
                 v-for="(scrap, i) in temporalContext.scraps"
                 :key="i"
+                v-tooltip="scrap.title"
                 :href="scrap.url || undefined"
                 :target="scrap.url ? '_blank' : undefined"
                 rel="noopener noreferrer"
                 class="block font-serif text-3xs text-zinc-600 leading-snug truncate"
-                v-tooltip="scrap.title"
               >
-                {{ scrap.title?.slice(0, 40) }}{{ scrap.title?.length > 40 ? '…' : '' }}
+                {{ scrap.title?.slice(0, 40)
+                }}{{ scrap.title?.length > 40 ? '…' : '' }}
               </a>
             </div>
 
-            <div v-if="temporalContext?.commits" class="mb-3 font-mono text-3xs text-zinc-700 tabular-nums">
+            <div
+              v-if="temporalContext?.commits"
+              class="mb-3 font-mono text-3xs text-zinc-700 tabular-nums"
+            >
               {{ temporalContext.commits }} commits that month
             </div>
           </template>
@@ -669,21 +710,29 @@ onMounted(() => {
               class="block font-serif text-3xs text-zinc-600 leading-snug truncate"
               :title="scrap.title"
             >
-              {{ scrap.title?.slice(0, 40) }}{{ scrap.title?.length > 40 ? '…' : '' }}
+              {{ scrap.title?.slice(0, 40)
+              }}{{ scrap.title?.length > 40 ? '…' : '' }}
             </a>
           </div>
 
           <div v-if="visibleLinks.length">
-            <div class="font-mono text-3xs text-zinc-600 mb-0.5">Links <span class="text-zinc-700 tabular-nums">{{ postLinks.length }}</span></div>
+            <div class="font-mono text-3xs text-zinc-600 mb-0.5">
+              Links
+              <span class="text-zinc-700 tabular-nums">
+                {{ postLinks.length }}
+              </span>
+            </div>
             <a
               v-for="(link, i) in visibleLinks"
               :key="i"
+              v-tooltip="link.href"
               :href="link.href"
               target="_blank"
               rel="noopener noreferrer"
               class="block font-mono text-3xs text-zinc-700 truncate leading-snug"
-              v-tooltip="link.href"
-            >{{ link.label }}</a>
+            >
+              {{ link.label }}
+            </a>
           </div>
         </div>
       </teleport>

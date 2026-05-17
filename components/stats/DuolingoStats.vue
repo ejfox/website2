@@ -3,6 +3,61 @@
   @description Duolingo language learning statistics
   @props stats: Object - Stats data from API
 -->
+<script setup lang="ts">
+import { computed } from 'vue'
+import type { StatsResponse } from '~/composables/useStats'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import StatsDataState from './StatsDataState.vue'
+
+const props = defineProps<{
+  stats: StatsResponse
+}>()
+
+const duolingo = computed(() => props.stats.duolingo)
+
+// Map language names to flag emojis
+const languageFlags: Record<string, string> = {
+  Spanish: '🇪🇸',
+  French: '🇫🇷',
+  German: '🇩🇪',
+  Italian: '🇮🇹',
+  Portuguese: '🇧🇷',
+  Japanese: '🇯🇵',
+  Korean: '🇰🇷',
+  Chinese: '🇨🇳',
+  Russian: '🇷🇺',
+  Arabic: '🇸🇦',
+  Hindi: '🇮🇳',
+  Dutch: '🇳🇱',
+  Swedish: '🇸🇪',
+  Norwegian: '🇳🇴',
+  Danish: '🇩🇰',
+  Polish: '🇵🇱',
+  Turkish: '🇹🇷',
+  Greek: '🇬🇷',
+  Hebrew: '🇮🇱',
+  Vietnamese: '🇻🇳',
+  Indonesian: '🇮🇩',
+  Ukrainian: '🇺🇦',
+  Czech: '🇨🇿',
+  Romanian: '🇷🇴',
+  Hungarian: '🇭🇺',
+  Welsh: '🏴󠁧󠁢󠁷󠁬󠁳󠁿',
+  Irish: '🇮🇪',
+  Finnish: '🇫🇮',
+  Esperanto: '🌍',
+  Swahili: '🇰🇪',
+  Latin: '🏛️',
+  'High Valyrian': '🐉',
+  Klingon: '🖖',
+}
+
+const getLanguageFlag = (language: string): string => {
+  return languageFlags[language] || '🌐'
+}
+</script>
+
 <template>
   <div v-if="duolingo" class="space-y-4 font-mono">
     <!-- Primary Stats -->
@@ -75,58 +130,3 @@
     message="DUOLINGO_DATA_UNAVAILABLE"
   />
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-import type { StatsResponse } from '~/composables/useStats'
-import AnimatedNumber from '../ui/AnimatedNumber.vue'
-import StatsSectionHeader from './StatsSectionHeader.vue'
-import StatsDataState from './StatsDataState.vue'
-
-const props = defineProps<{
-  stats: StatsResponse
-}>()
-
-const duolingo = computed(() => props.stats.duolingo)
-
-// Map language names to flag emojis
-const languageFlags: Record<string, string> = {
-  Spanish: '🇪🇸',
-  French: '🇫🇷',
-  German: '🇩🇪',
-  Italian: '🇮🇹',
-  Portuguese: '🇧🇷',
-  Japanese: '🇯🇵',
-  Korean: '🇰🇷',
-  Chinese: '🇨🇳',
-  Russian: '🇷🇺',
-  Arabic: '🇸🇦',
-  Hindi: '🇮🇳',
-  Dutch: '🇳🇱',
-  Swedish: '🇸🇪',
-  Norwegian: '🇳🇴',
-  Danish: '🇩🇰',
-  Polish: '🇵🇱',
-  Turkish: '🇹🇷',
-  Greek: '🇬🇷',
-  Hebrew: '🇮🇱',
-  Vietnamese: '🇻🇳',
-  Indonesian: '🇮🇩',
-  Ukrainian: '🇺🇦',
-  Czech: '🇨🇿',
-  Romanian: '🇷🇴',
-  Hungarian: '🇭🇺',
-  Welsh: '🏴󠁧󠁢󠁷󠁬󠁳󠁿',
-  Irish: '🇮🇪',
-  Finnish: '🇫🇮',
-  Esperanto: '🌍',
-  Swahili: '🇰🇪',
-  Latin: '🏛️',
-  'High Valyrian': '🐉',
-  Klingon: '🖖',
-}
-
-const getLanguageFlag = (language: string): string => {
-  return languageFlags[language] || '🌐'
-}
-</script>

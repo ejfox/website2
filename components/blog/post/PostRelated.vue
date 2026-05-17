@@ -3,6 +3,17 @@
   @description Related posts section based on overlapping tags
   @props relatedPosts - array of { post, overlappingTags }
 -->
+<script setup lang="ts">
+defineProps<{
+  relatedPosts: Array<{
+    post: { slug: string; title?: string; date?: string; metadata?: any }
+    overlappingTags: string[]
+  }>
+}>()
+
+const { formatLongDate } = useDateFormat()
+</script>
+
 <template>
   <div
     v-if="relatedPosts.length > 0"
@@ -37,14 +48,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const { formatLongDate } = useDateFormat()
-
-defineProps<{
-  relatedPosts: Array<{
-    post: { slug: string; title?: string; date?: string; metadata?: any }
-    overlappingTags: string[]
-  }>
-}>()
-</script>

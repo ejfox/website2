@@ -42,7 +42,9 @@ const sparkPath = computed(() => {
     y: h - ((p - minY) / (maxY - minY)) * h,
   }))
 
-  const line = coords.map((c, i) => `${i === 0 ? 'M' : 'L'}${c.x.toFixed(1)},${c.y.toFixed(1)}`).join(' ')
+  const line = coords
+    .map((c, i) => `${i === 0 ? 'M' : 'L'}${c.x.toFixed(1)},${c.y.toFixed(1)}`)
+    .join(' ')
   return { line, coords, width: w, height: h }
 })
 
@@ -50,7 +52,9 @@ const deadline = computed(() =>
   props.payload.deadline ? String(props.payload.deadline).slice(0, 10) : null
 )
 const resolvedDate = computed(() =>
-  props.payload.resolved_date ? String(props.payload.resolved_date).slice(0, 10) : null
+  props.payload.resolved_date
+    ? String(props.payload.resolved_date).slice(0, 10)
+    : null
 )
 const hashShort = computed(() =>
   props.payload.hash ? props.payload.hash.slice(0, 12) : null
@@ -62,8 +66,14 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   <aside :class="['prediction-card', stateClass]">
     <header class="card__header">
       <span class="card__glyph">{{ glyph }}</span>
-      <span class="card__confidence" :class="{ 'is-scarred': payload.resolved && payload.status === 'incorrect' }">
-        {{ confidence }}<span v-if="confidence !== null" class="card__pct">%</span>
+      <span
+        class="card__confidence"
+        :class="{
+          'is-scarred': payload.resolved && payload.status === 'incorrect',
+        }"
+      >
+        {{ confidence }}
+        <span v-if="confidence !== null" class="card__pct">%</span>
       </span>
       <span class="card__label">prediction</span>
       <a :href="href" class="card__link">open →</a>
@@ -72,8 +82,19 @@ const href = computed(() => `/predictions/${props.payload.id}`)
     <p class="card__statement">{{ payload.statement }}</p>
 
     <div v-if="sparkPath" class="card__sparkline">
-      <svg :viewBox="`0 0 ${sparkPath.width} ${sparkPath.height}`" :width="sparkPath.width" :height="sparkPath.height" preserveAspectRatio="none" aria-label="confidence over time">
-        <path :d="sparkPath.line" fill="none" stroke="currentColor" stroke-width="1.25" />
+      <svg
+        :viewBox="`0 0 ${sparkPath.width} ${sparkPath.height}`"
+        :width="sparkPath.width"
+        :height="sparkPath.height"
+        preserveAspectRatio="none"
+        aria-label="confidence over time"
+      >
+        <path
+          :d="sparkPath.line"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.25"
+        />
         <circle
           v-for="(c, i) in sparkPath.coords"
           :key="i"
@@ -93,9 +114,13 @@ const href = computed(() => `/predictions/${props.payload.id}`)
 
     <footer class="card__footer">
       <span v-if="!payload.resolved && deadline">awaiting {{ deadline }}</span>
-      <span v-if="payload.resolved && resolvedDate">resolved {{ resolvedDate }}</span>
+      <span v-if="payload.resolved && resolvedDate">
+        resolved {{ resolvedDate }}
+      </span>
       <span v-if="hashShort" class="card__hash">sha256 · {{ hashShort }}</span>
-      <span v-if="payload.gitCommit" class="card__commit">git · {{ payload.gitCommit.slice(0, 7) }}</span>
+      <span v-if="payload.gitCommit" class="card__commit">
+        git · {{ payload.gitCommit.slice(0, 7) }}
+      </span>
     </footer>
   </aside>
 </template>
@@ -111,12 +136,24 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   font-family: Georgia, 'Times New Roman', serif;
 }
 
-.state-correct { color: #16a34a; }
-.state-incorrect { color: #dc2626; }
-.state-pending { color: #6b7280; }
-:root.dark .state-correct { color: #4ade80; }
-:root.dark .state-incorrect { color: #f87171; }
-:root.dark .state-pending { color: #9ca3af; }
+.state-correct {
+  color: #16a34a;
+}
+.state-incorrect {
+  color: #dc2626;
+}
+.state-pending {
+  color: #6b7280;
+}
+:root.dark .state-correct {
+  color: #4ade80;
+}
+:root.dark .state-incorrect {
+  color: #f87171;
+}
+:root.dark .state-pending {
+  color: #9ca3af;
+}
 
 .card__header {
   display: flex;
@@ -136,7 +173,10 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   font-variant-numeric: tabular-nums;
   font-weight: 600;
 }
-.card__pct { font-size: 0.7em; opacity: 0.6; }
+.card__pct {
+  font-size: 0.7em;
+  opacity: 0.6;
+}
 
 .card__confidence.is-scarred {
   text-decoration: line-through;
@@ -156,7 +196,9 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   color: inherit;
   opacity: 0.7;
 }
-.card__link:hover { opacity: 1; }
+.card__link:hover {
+  opacity: 1;
+}
 
 .card__statement {
   font-size: 1.125rem;
@@ -207,7 +249,8 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   opacity: 0.5;
 }
 
-.card__hash, .card__commit {
+.card__hash,
+.card__commit {
   font-variant-numeric: tabular-nums;
 }
 </style>

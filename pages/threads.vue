@@ -1,157 +1,3 @@
-<template>
-  <div class="relative" :style="{ height: `${CANVAS_HEIGHT_VH}vh` }">
-    <!-- Canvas behind everything, scrollable -->
-    <ClientOnly>
-      <div
-        ref="containerRef"
-        class="absolute inset-0 w-full h-full"
-        style="z-index: 0"
-      >
-        <canvas
-          ref="canvasRef"
-          class="w-full h-full"
-          @mousemove="handleMouseMove"
-          @mouseleave="hoveredNode = null"
-          @click="handleClick"
-        />
-      </div>
-      <template #fallback>
-        <div class="absolute inset-0 bg-zinc-950" />
-      </template>
-    </ClientOnly>
-
-    <!-- UI overlay -->
-    <header ref="headerRef" class="relative z-10 px-4 md:px-8 pt-8 pb-4">
-      <h1 class="header-item font-serif text-2xl mb-1 opacity-0">Threads</h1>
-      <p class="header-item font-mono text-xs text-zinc-500 opacity-0">
-        <span
-          :class="{
-            'animate-pulse': isStreaming && loadedPostCount < filteredPostCount,
-          }"
-        >
-          {{ loadedPostCount }}/{{ filteredPostCount }}
-        </span>
-        posts ·
-        <span
-          :class="{
-            'animate-pulse':
-              isStreaming && loadedScrapCount < filteredScrapCount,
-          }"
-        >
-          {{ loadedScrapCount }}/{{ filteredScrapCount }}
-        </span>
-        scraps ·
-        {{ graphData.nodes.filter((n) => n.type === 'tag').length }} tags ·
-        {{ graphData.links.length }} connections
-      </p>
-      <div class="flex gap-4 mt-2 font-mono text-xs">
-        <label
-          class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0"
-        >
-          <input v-model="showPosts" type="checkbox" class="accent-white" />
-          <span :class="showPosts ? 'text-zinc-300' : 'text-zinc-600'">
-            posts
-          </span>
-        </label>
-        <label
-          class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0"
-        >
-          <input v-model="showScraps" type="checkbox" class="accent-red-400" />
-          <span :class="showScraps ? 'text-red-400' : 'text-zinc-600'">
-            scraps
-          </span>
-        </label>
-        <label
-          class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0"
-        >
-          <input v-model="showTags" type="checkbox" class="accent-amber-400" />
-          <span :class="showTags ? 'text-amber-400' : 'text-zinc-600'">
-            tags
-          </span>
-        </label>
-      </div>
-    </header>
-
-    <!-- Tooltip (fixed position) -->
-    <div
-      v-if="hoveredNode"
-      ref="tooltipRef"
-      class="tooltip"
-      :style="tooltipStyle"
-    >
-      <div class="tooltip-type">{{ hoveredNode.type }}</div>
-      <div class="tooltip-title">{{ hoveredNode.title }}</div>
-      <div v-if="hoveredNode.type === 'tag'" class="tooltip-tags">
-        {{ hoveredNode.count }} items
-      </div>
-      <div v-else-if="hoveredNode.tags?.length" class="tooltip-tags">
-        {{ hoveredNode.tags.slice(0, 4).join(' · ') }}
-      </div>
-    </div>
-
-    <!-- Sidebar teleport -->
-    <ClientOnly>
-      <Teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="space-y-4">
-          <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
-            Graph
-          </div>
-
-          <!-- Stats -->
-          <div class="space-y-1 font-mono text-3xs tabular-nums">
-            <div class="flex justify-between">
-              <span class="text-zinc-500">Posts</span>
-              <span class="text-zinc-300">{{ loadedPostCount }}/{{ filteredPostCount }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-zinc-500">Scraps</span>
-              <span class="text-zinc-300">{{ loadedScrapCount }}/{{ filteredScrapCount }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-zinc-500">Tags</span>
-              <span class="text-zinc-300">{{ graphData.nodes.filter((n) => n.type === 'tag').length }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-zinc-500">Links</span>
-              <span class="text-zinc-300">{{ graphData.links.length }}</span>
-            </div>
-          </div>
-
-          <!-- Filters -->
-          <div class="space-y-1.5 pt-2 border-t border-zinc-800">
-            <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500 mb-1">
-              Filter
-            </div>
-            <label class="flex items-center gap-2 cursor-pointer select-none">
-              <input v-model="showPosts" type="checkbox" class="accent-white w-3 h-3" />
-              <span class="font-mono text-3xs" :class="showPosts ? 'text-zinc-300' : 'text-zinc-600'">
-                Posts
-              </span>
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer select-none">
-              <input v-model="showScraps" type="checkbox" class="accent-red-400 w-3 h-3" />
-              <span class="font-mono text-3xs" :class="showScraps ? 'text-red-400' : 'text-zinc-600'">
-                Scraps
-              </span>
-            </label>
-            <label class="flex items-center gap-2 cursor-pointer select-none">
-              <input v-model="showTags" type="checkbox" class="accent-amber-400 w-3 h-3" />
-              <span class="font-mono text-3xs" :class="showTags ? 'text-amber-400' : 'text-zinc-600'">
-                Tags
-              </span>
-            </label>
-          </div>
-
-          <!-- Streaming indicator -->
-          <div v-if="isStreaming" class="font-mono text-3xs text-zinc-600 animate-pulse">
-            Loading nodes...
-          </div>
-        </div>
-      </Teleport>
-    </ClientOnly>
-  </div>
-</template>
-
 <script setup>
 const { tocTarget } = useTOC()
 
@@ -787,6 +633,194 @@ if (import.meta.client) {
   })
 }
 </script>
+
+<template>
+  <div class="relative" :style="{ height: `${CANVAS_HEIGHT_VH}vh` }">
+    <!-- Canvas behind everything, scrollable -->
+    <ClientOnly>
+      <div
+        ref="containerRef"
+        class="absolute inset-0 w-full h-full"
+        style="z-index: 0"
+      >
+        <canvas
+          ref="canvasRef"
+          class="w-full h-full"
+          @mousemove="handleMouseMove"
+          @mouseleave="hoveredNode = null"
+          @click="handleClick"
+        />
+      </div>
+      <template #fallback>
+        <div class="absolute inset-0 bg-zinc-950" />
+      </template>
+    </ClientOnly>
+
+    <!-- UI overlay -->
+    <header ref="headerRef" class="relative z-10 px-4 md:px-8 pt-8 pb-4">
+      <h1 class="header-item font-serif text-2xl mb-1 opacity-0">Threads</h1>
+      <p class="header-item font-mono text-xs text-zinc-500 opacity-0">
+        <span
+          :class="{
+            'animate-pulse': isStreaming && loadedPostCount < filteredPostCount,
+          }"
+        >
+          {{ loadedPostCount }}/{{ filteredPostCount }}
+        </span>
+        posts ·
+        <span
+          :class="{
+            'animate-pulse':
+              isStreaming && loadedScrapCount < filteredScrapCount,
+          }"
+        >
+          {{ loadedScrapCount }}/{{ filteredScrapCount }}
+        </span>
+        scraps ·
+        {{ graphData.nodes.filter((n) => n.type === 'tag').length }} tags ·
+        {{ graphData.links.length }} connections
+      </p>
+      <div class="flex gap-4 mt-2 font-mono text-xs">
+        <label
+          class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0"
+        >
+          <input v-model="showPosts" type="checkbox" class="accent-white" />
+          <span :class="showPosts ? 'text-zinc-300' : 'text-zinc-600'">
+            posts
+          </span>
+        </label>
+        <label
+          class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0"
+        >
+          <input v-model="showScraps" type="checkbox" class="accent-red-400" />
+          <span :class="showScraps ? 'text-red-400' : 'text-zinc-600'">
+            scraps
+          </span>
+        </label>
+        <label
+          class="header-item filter-item flex items-center gap-1 cursor-pointer select-none opacity-0"
+        >
+          <input v-model="showTags" type="checkbox" class="accent-amber-400" />
+          <span :class="showTags ? 'text-amber-400' : 'text-zinc-600'">
+            tags
+          </span>
+        </label>
+      </div>
+    </header>
+
+    <!-- Tooltip (fixed position) -->
+    <div
+      v-if="hoveredNode"
+      ref="tooltipRef"
+      class="tooltip"
+      :style="tooltipStyle"
+    >
+      <div class="tooltip-type">{{ hoveredNode.type }}</div>
+      <div class="tooltip-title">{{ hoveredNode.title }}</div>
+      <div v-if="hoveredNode.type === 'tag'" class="tooltip-tags">
+        {{ hoveredNode.count }} items
+      </div>
+      <div v-else-if="hoveredNode.tags?.length" class="tooltip-tags">
+        {{ hoveredNode.tags.slice(0, 4).join(' · ') }}
+      </div>
+    </div>
+
+    <!-- Sidebar teleport -->
+    <ClientOnly>
+      <Teleport v-if="tocTarget" to="#nav-toc-container">
+        <div class="space-y-4">
+          <div
+            class="font-mono text-3xs uppercase tracking-wider text-zinc-500"
+          >
+            Graph
+          </div>
+
+          <!-- Stats -->
+          <div class="space-y-1 font-mono text-3xs tabular-nums">
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Posts</span>
+              <span class="text-zinc-300">
+                {{ loadedPostCount }}/{{ filteredPostCount }}
+              </span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Scraps</span>
+              <span class="text-zinc-300">
+                {{ loadedScrapCount }}/{{ filteredScrapCount }}
+              </span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Tags</span>
+              <span class="text-zinc-300">
+                {{ graphData.nodes.filter((n) => n.type === 'tag').length }}
+              </span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Links</span>
+              <span class="text-zinc-300">{{ graphData.links.length }}</span>
+            </div>
+          </div>
+
+          <!-- Filters -->
+          <div class="space-y-1.5 pt-2 border-t border-zinc-800">
+            <div
+              class="font-mono text-3xs uppercase tracking-wider text-zinc-500 mb-1"
+            >
+              Filter
+            </div>
+            <label class="flex items-center gap-2 cursor-pointer select-none">
+              <input
+                v-model="showPosts"
+                type="checkbox"
+                class="accent-white w-3 h-3"
+              />
+              <span
+                class="font-mono text-3xs"
+                :class="showPosts ? 'text-zinc-300' : 'text-zinc-600'"
+              >
+                Posts
+              </span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer select-none">
+              <input
+                v-model="showScraps"
+                type="checkbox"
+                class="accent-red-400 w-3 h-3"
+              />
+              <span
+                class="font-mono text-3xs"
+                :class="showScraps ? 'text-red-400' : 'text-zinc-600'"
+              >
+                Scraps
+              </span>
+            </label>
+            <label class="flex items-center gap-2 cursor-pointer select-none">
+              <input
+                v-model="showTags"
+                type="checkbox"
+                class="accent-amber-400 w-3 h-3"
+              />
+              <span
+                class="font-mono text-3xs"
+                :class="showTags ? 'text-amber-400' : 'text-zinc-600'"
+              >
+                Tags
+              </span>
+            </label>
+          </div>
+
+          <!-- Streaming indicator -->
+          <div
+            v-if="isStreaming"
+            class="font-mono text-3xs text-zinc-600 animate-pulse"
+          >
+            Loading nodes...
+          </div>
+        </div>
+      </Teleport>
+    </ClientOnly>
+  </div>
+</template>
 
 <style scoped>
 .tooltip {

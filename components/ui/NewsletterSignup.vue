@@ -3,96 +3,6 @@
   @description Newsletter subscription form with animated name field reveal and loading states
   @props None - form submits to /api/newsletter-signup endpoint
 -->
-<template>
-  <div ref="signupContainer" class="newsletter-signup">
-    <!-- Form -->
-    <form
-      ref="formRef"
-      class="flex items-center gap-1 relative"
-      @submit.prevent="submitForm"
-    >
-      <div class="flex-1 flex items-center gap-1 min-w-0">
-        <label for="newsletter-email" class="sr-only">Email address</label>
-        <input
-          id="newsletter-email"
-          ref="emailInputRef"
-          v-model="email"
-          type="email"
-          placeholder="your@email.com"
-          required
-          class="input-full"
-          :disabled="state.loading"
-          @input="revealNameFields"
-        />
-
-        <!-- Name fields that slide out -->
-        <div
-          ref="nameFieldsContainer"
-          :class="[
-            'flex gap-1 overflow-hidden transition-all duration-300',
-            'ease-out shrink-0',
-            showNameFields ? 'w-auto opacity-100' : 'w-0 opacity-0',
-          ]"
-        >
-          <label for="newsletter-first-name" class="sr-only">First name</label>
-          <input
-            id="newsletter-first-name"
-            v-model="firstName"
-            type="text"
-            placeholder="First"
-            class="input-numeric"
-            :disabled="state.loading"
-          />
-          <label for="newsletter-last-name" class="sr-only">Last name</label>
-          <input
-            id="newsletter-last-name"
-            v-model="lastName"
-            type="text"
-            placeholder="Last"
-            class="input-numeric"
-            :disabled="state.loading"
-          />
-        </div>
-      </div>
-
-      <button
-        ref="buttonRef"
-        type="submit"
-        class="btn-filter"
-        :disabled="state.loading"
-      >
-        <span v-if="!state.loading">Subscribe →</span>
-        <span v-else class="loading-dots">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
-        </span>
-      </button>
-    </form>
-
-    <!-- Success/Error messages that slide down -->
-    <Transition
-      enter-active-class="transition-all duration-300 ease-out"
-      enter-from-class="transform -translate-y-1 opacity-0"
-      enter-to-class="transform translate-y-0 opacity-100"
-      leave-active-class="transition-all duration-200 ease-in"
-      leave-from-class="transform translate-y-0 opacity-100"
-      leave-to-class="transform -translate-y-1 opacity-0"
-    >
-      <div
-        v-if="state.success || state.error"
-        class="absolute left-0 right-0 mt-2.5 text-xs"
-        :class="{
-          'text-green-600 dark:text-green-400': state.success,
-          'text-red-600 dark:text-red-400': state.error,
-        }"
-      >
-        {{ state.message }}
-      </div>
-    </Transition>
-  </div>
-</template>
-
 <script setup>
 import { ref, reactive, onMounted } from 'vue'
 // import { animate, stagger as _stagger } from '~/anime.esm.js'
@@ -191,6 +101,96 @@ onMounted(() => {
   // No animations - just show content immediately
 })
 </script>
+
+<template>
+  <div ref="signupContainer" class="newsletter-signup">
+    <!-- Form -->
+    <form
+      ref="formRef"
+      class="flex items-center gap-1 relative"
+      @submit.prevent="submitForm"
+    >
+      <div class="flex-1 flex items-center gap-1 min-w-0">
+        <label for="newsletter-email" class="sr-only">Email address</label>
+        <input
+          id="newsletter-email"
+          ref="emailInputRef"
+          v-model="email"
+          type="email"
+          placeholder="your@email.com"
+          required
+          class="input-full"
+          :disabled="state.loading"
+          @input="revealNameFields"
+        />
+
+        <!-- Name fields that slide out -->
+        <div
+          ref="nameFieldsContainer"
+          :class="[
+            'flex gap-1 overflow-hidden transition-all duration-300',
+            'ease-out shrink-0',
+            showNameFields ? 'w-auto opacity-100' : 'w-0 opacity-0',
+          ]"
+        >
+          <label for="newsletter-first-name" class="sr-only">First name</label>
+          <input
+            id="newsletter-first-name"
+            v-model="firstName"
+            type="text"
+            placeholder="First"
+            class="input-numeric"
+            :disabled="state.loading"
+          />
+          <label for="newsletter-last-name" class="sr-only">Last name</label>
+          <input
+            id="newsletter-last-name"
+            v-model="lastName"
+            type="text"
+            placeholder="Last"
+            class="input-numeric"
+            :disabled="state.loading"
+          />
+        </div>
+      </div>
+
+      <button
+        ref="buttonRef"
+        type="submit"
+        class="btn-filter"
+        :disabled="state.loading"
+      >
+        <span v-if="!state.loading">Subscribe →</span>
+        <span v-else class="loading-dots">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </span>
+      </button>
+    </form>
+
+    <!-- Success/Error messages that slide down -->
+    <Transition
+      enter-active-class="transition-all duration-300 ease-out"
+      enter-from-class="transform -translate-y-1 opacity-0"
+      enter-to-class="transform translate-y-0 opacity-100"
+      leave-active-class="transition-all duration-200 ease-in"
+      leave-from-class="transform translate-y-0 opacity-100"
+      leave-to-class="transform -translate-y-1 opacity-0"
+    >
+      <div
+        v-if="state.success || state.error"
+        class="absolute left-0 right-0 mt-2.5 text-xs"
+        :class="{
+          'text-green-600 dark:text-green-400': state.success,
+          'text-red-600 dark:text-red-400': state.error,
+        }"
+      >
+        {{ state.message }}
+      </div>
+    </Transition>
+  </div>
+</template>
 
 <style scoped>
 .loading-dots {

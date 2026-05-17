@@ -64,12 +64,12 @@ const segments = computed(() => {
       <div
         v-for="segment in segments"
         :key="segment.lang"
+        v-tooltip="`${segment.lang}: ${segment.percentage.toFixed(1)}%`"
         class="bar-segment"
         :style="{
           backgroundColor: segment.color,
           width: `${segment.percentage}%`,
         }"
-        v-tooltip="`${segment.lang}: ${segment.percentage.toFixed(1)}%`"
       ></div>
     </div>
 

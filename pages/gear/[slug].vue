@@ -1,70 +1,3 @@
-<template>
-  <div class="min-h-screen flex flex-col items-center justify-center p-8 pb-32 gap-8">
-    <!-- 3D Model Viewer (when scan available) -->
-    <ClientOnly>
-      <GearModelViewer
-        v-if="data?.Scan_3D_URL?.trim()"
-        :model-url="data.Scan_3D_URL"
-        :height="'500px'"
-        class="w-full max-w-2xl"
-      />
-    </ClientOnly>
-
-    <!-- Main gear card -->
-    <GearCard3D v-if="data" :gear-item="data" class="gear-card-entrance" />
-
-    <!-- Not found state -->
-    <div v-else class="text-center max-w-md mx-auto">
-      <div class="text-6xl mb-8">⬟</div>
-      <h1 class="text-3xl font-light text-zinc-900 dark:text-zinc-100 mb-4">
-        Gear Not Found
-      </h1>
-      <p class="text-zinc-600 dark:text-zinc-400 mb-8">
-        This gear item doesn't exist in our inventory.
-      </p>
-      <NuxtLink to="/gear" class="btn-primary">← Browse All Gear</NuxtLink>
-    </div>
-
-    <!-- Related blog posts -->
-    <div
-      v-if="relatedPosts?.length"
-      class="w-full max-w-sm border-t border-zinc-200 dark:border-zinc-800 pt-6"
-    >
-      <div class="label-uppercase mb-4 text-zinc-400 dark:text-zinc-600">
-        Written About This
-      </div>
-      <ul class="flex flex-col gap-4">
-        <li
-          v-for="post in relatedPosts"
-          :key="post.slug"
-          class="flex flex-col gap-0.5"
-        >
-          <NuxtLink
-            :to="`/blog/${post.slug}`"
-            class="font-mono text-xs text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors leading-snug"
-          >
-            {{ post.title }}
-          </NuxtLink>
-          <div class="flex items-center gap-2">
-            <span
-              v-if="post.date"
-              class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
-            >
-              {{ formatPostDate(post.date) }}
-            </span>
-            <span
-              v-if="post.dek"
-              class="font-mono text-3xs text-zinc-500 dark:text-zinc-500 leading-snug"
-            >
-              {{ post.dek }}
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const formatPostDate = (dateStr?: string) => {
   if (!dateStr) return ''
@@ -80,9 +13,7 @@ const formatPostDate = (dateStr?: string) => {
 }
 
 const route = useRoute()
-const { data, error } = await useFetch(
-  `/api/gear/${route.params.slug}`
-)
+const { data, error } = await useFetch(`/api/gear/${route.params.slug}`)
 
 const { data: relatedPosts } = await useFetch(
   `/api/gear-posts/${route.params.slug}`,
@@ -168,6 +99,75 @@ definePageMeta({
   },
 })
 </script>
+
+<template>
+  <div
+    class="min-h-screen flex flex-col items-center justify-center p-8 pb-32 gap-8"
+  >
+    <!-- 3D Model Viewer (when scan available) -->
+    <ClientOnly>
+      <GearModelViewer
+        v-if="data?.Scan_3D_URL?.trim()"
+        :model-url="data.Scan_3D_URL"
+        :height="'500px'"
+        class="w-full max-w-2xl"
+      />
+    </ClientOnly>
+
+    <!-- Main gear card -->
+    <GearCard3D v-if="data" :gear-item="data" class="gear-card-entrance" />
+
+    <!-- Not found state -->
+    <div v-else class="text-center max-w-md mx-auto">
+      <div class="text-6xl mb-8">⬟</div>
+      <h1 class="text-3xl font-light text-zinc-900 dark:text-zinc-100 mb-4">
+        Gear Not Found
+      </h1>
+      <p class="text-zinc-600 dark:text-zinc-400 mb-8">
+        This gear item doesn't exist in our inventory.
+      </p>
+      <NuxtLink to="/gear" class="btn-primary">← Browse All Gear</NuxtLink>
+    </div>
+
+    <!-- Related blog posts -->
+    <div
+      v-if="relatedPosts?.length"
+      class="w-full max-w-sm border-t border-zinc-200 dark:border-zinc-800 pt-6"
+    >
+      <div class="label-uppercase mb-4 text-zinc-400 dark:text-zinc-600">
+        Written About This
+      </div>
+      <ul class="flex flex-col gap-4">
+        <li
+          v-for="post in relatedPosts"
+          :key="post.slug"
+          class="flex flex-col gap-0.5"
+        >
+          <NuxtLink
+            :to="`/blog/${post.slug}`"
+            class="font-mono text-xs text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors leading-snug"
+          >
+            {{ post.title }}
+          </NuxtLink>
+          <div class="flex items-center gap-2">
+            <span
+              v-if="post.date"
+              class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
+            >
+              {{ formatPostDate(post.date) }}
+            </span>
+            <span
+              v-if="post.dek"
+              class="font-mono text-3xs text-zinc-500 dark:text-zinc-500 leading-snug"
+            >
+              {{ post.dek }}
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 /* Primary button - used in not-found state */

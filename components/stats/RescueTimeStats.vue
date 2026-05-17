@@ -3,124 +3,6 @@
   @description RescueTime productivity statistics
   @props stats: Object - RescueTime data from API
 -->
-<template>
-  <div v-if="hasData" class="space-y-2 font-mono">
-    <!-- Primary Stats -->
-    <div class="py-2">
-      <div class="text-2xl font-bold">
-        <AnimatedNumber
-          :value="monthlyHours"
-          format="commas"
-          :duration="1600"
-          priority="primary"
-        />
-      </div>
-      <div class="section-header-xs mt-2">RESCUETIME HOURS THIS MONTH</div>
-      <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mt-4">
-        <AnimatedNumber
-          :value="monthlyProductivePercent"
-          format="percent"
-          :duration="800"
-          priority="secondary"
-        />
-        RESCUETIME PRODUCTIVE
-      </div>
-    </div>
-
-    <!-- Activity Calendar -->
-    <ActivityCalendar
-      title="RESCUETIME ACTIVITY"
-      :active-dates="activityDates"
-      :active-color="'#71717a'"
-    />
-
-    <!-- Time Distribution Waffle Chart -->
-    <StatsSectionHeader title="RESCUETIME TIME DISTRIBUTION" />
-    <div
-      class="waffle-grid"
-      style="
-        grid-template-columns: repeat(20, 1fr);
-        grid-auto-rows: 1fr;
-        aspect-ratio: 4 / 1;
-      "
-      @mouseenter="isHovering = true"
-      @mouseleave="isHovering = false"
-    >
-      <div
-        v-for="(cell, i) in waffleCells"
-        :key="i"
-        class="transition-all duration-300 w-full h-full"
-        :style="{
-          backgroundColor: cell.turboColor,
-          opacity: isHovering ? 1 : 0.7,
-          borderRight: shouldShowBorder(i, 'right')
-            ? '1px solid rgba(0,0,0,0.15)'
-            : 'none',
-          borderBottom: shouldShowBorder(i, 'bottom')
-            ? '1px solid rgba(0,0,0,0.15)'
-            : 'none',
-        }"
-        v-tooltip="cell.title"
-      ></div>
-    </div>
-    <div class="flex justify-between text-zinc-500 mt-4 text-xs leading-[12px]">
-      <span>{{ uniqueActivitiesCount }} TRACKED ACTIVITIES</span>
-      <span>SQUARE = 1% OF TOTAL TIME</span>
-    </div>
-
-    <!-- Categories -->
-    <StatsSectionHeader title="RESCUETIME CATEGORIES" />
-    <div class="space-y-2">
-      <div
-        v-for="category in sortedCategories.slice(0, 10)"
-        :key="category.name"
-        class="flex items-center gap-0.5"
-      >
-        <div
-          class="w-2 h-2 flex-shrink-0 rounded-sm"
-          :style="{ backgroundColor: category.color }"
-        ></div>
-        <div class="flex-1 min-w-0">
-          <div class="flex justify-between items-center gap-0.5">
-            <!-- eslint-disable max-len,vue/max-len -->
-            <span
-              class="text-zinc-700 dark:text-zinc-300 truncate text-xs leading-[12px]"
-            >
-              {{ category.name }}
-            </span>
-            <!-- eslint-enable max-len,vue/max-len -->
-            <!-- eslint-disable max-len,vue/max-len -->
-            <span
-              class="text-zinc-500 tabular-nums flex-shrink-0 text-xs leading-[12px]"
-            >
-              {{ category.percentageOfTotal }}%
-            </span>
-            <!-- eslint-enable max-len,vue/max-len -->
-          </div>
-          <!-- eslint-disable max-len,vue/max-len -->
-          <div
-            class="h-1 rounded-sm overflow-hidden bg-transparent dark:bg-zinc-800/10 border-b border-zinc-200/10 dark:border-zinc-800/30 mt-0.5"
-          >
-            <!-- eslint-enable max-len,vue/max-len -->
-            <div
-              class="h-full rounded-sm"
-              :style="{
-                width: `${category.percentageOfTotal}%`,
-                backgroundColor: category.color,
-              }"
-            ></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <StatsDataState
-    v-else
-    state="unavailable"
-    message="RESCUETIME_DATA_UNAVAILABLE"
-  />
-</template>
-
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import type { StatsResponse } from '~/composables/useStats'
@@ -347,6 +229,124 @@ const sortedCategories = computed(() => {
   }))
 })
 </script>
+
+<template>
+  <div v-if="hasData" class="space-y-2 font-mono">
+    <!-- Primary Stats -->
+    <div class="py-2">
+      <div class="text-2xl font-bold">
+        <AnimatedNumber
+          :value="monthlyHours"
+          format="commas"
+          :duration="1600"
+          priority="primary"
+        />
+      </div>
+      <div class="section-header-xs mt-2">RESCUETIME HOURS THIS MONTH</div>
+      <div class="font-mono text-sm text-zinc-600 dark:text-zinc-400 mt-4">
+        <AnimatedNumber
+          :value="monthlyProductivePercent"
+          format="percent"
+          :duration="800"
+          priority="secondary"
+        />
+        RESCUETIME PRODUCTIVE
+      </div>
+    </div>
+
+    <!-- Activity Calendar -->
+    <ActivityCalendar
+      title="RESCUETIME ACTIVITY"
+      :active-dates="activityDates"
+      :active-color="'#71717a'"
+    />
+
+    <!-- Time Distribution Waffle Chart -->
+    <StatsSectionHeader title="RESCUETIME TIME DISTRIBUTION" />
+    <div
+      class="waffle-grid"
+      style="
+        grid-template-columns: repeat(20, 1fr);
+        grid-auto-rows: 1fr;
+        aspect-ratio: 4 / 1;
+      "
+      @mouseenter="isHovering = true"
+      @mouseleave="isHovering = false"
+    >
+      <div
+        v-for="(cell, i) in waffleCells"
+        :key="i"
+        v-tooltip="cell.title"
+        class="transition-all duration-300 w-full h-full"
+        :style="{
+          backgroundColor: cell.turboColor,
+          opacity: isHovering ? 1 : 0.7,
+          borderRight: shouldShowBorder(i, 'right')
+            ? '1px solid rgba(0,0,0,0.15)'
+            : 'none',
+          borderBottom: shouldShowBorder(i, 'bottom')
+            ? '1px solid rgba(0,0,0,0.15)'
+            : 'none',
+        }"
+      ></div>
+    </div>
+    <div class="flex justify-between text-zinc-500 mt-4 text-xs leading-[12px]">
+      <span>{{ uniqueActivitiesCount }} TRACKED ACTIVITIES</span>
+      <span>SQUARE = 1% OF TOTAL TIME</span>
+    </div>
+
+    <!-- Categories -->
+    <StatsSectionHeader title="RESCUETIME CATEGORIES" />
+    <div class="space-y-2">
+      <div
+        v-for="category in sortedCategories.slice(0, 10)"
+        :key="category.name"
+        class="flex items-center gap-0.5"
+      >
+        <div
+          class="w-2 h-2 flex-shrink-0 rounded-sm"
+          :style="{ backgroundColor: category.color }"
+        ></div>
+        <div class="flex-1 min-w-0">
+          <div class="flex justify-between items-center gap-0.5">
+            <!-- eslint-disable max-len,vue/max-len -->
+            <span
+              class="text-zinc-700 dark:text-zinc-300 truncate text-xs leading-[12px]"
+            >
+              {{ category.name }}
+            </span>
+            <!-- eslint-enable max-len,vue/max-len -->
+            <!-- eslint-disable max-len,vue/max-len -->
+            <span
+              class="text-zinc-500 tabular-nums flex-shrink-0 text-xs leading-[12px]"
+            >
+              {{ category.percentageOfTotal }}%
+            </span>
+            <!-- eslint-enable max-len,vue/max-len -->
+          </div>
+          <!-- eslint-disable max-len,vue/max-len -->
+          <div
+            class="h-1 rounded-sm overflow-hidden bg-transparent dark:bg-zinc-800/10 border-b border-zinc-200/10 dark:border-zinc-800/30 mt-0.5"
+          >
+            <!-- eslint-enable max-len,vue/max-len -->
+            <div
+              class="h-full rounded-sm"
+              :style="{
+                width: `${category.percentageOfTotal}%`,
+                backgroundColor: category.color,
+              }"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <StatsDataState
+    v-else
+    state="unavailable"
+    message="RESCUETIME_DATA_UNAVAILABLE"
+  />
+</template>
 
 <style scoped>
 .waffle-grid {

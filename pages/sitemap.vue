@@ -1,3 +1,72 @@
+<script setup>
+const { formatShortDate: formatDate } = useDateFormat()
+
+// Fetch blog posts from manifest
+const { data: manifest, error: manifestError } = await useFetch('/api/manifest')
+
+// Fetch tags for counting
+const { data: tags, error: tagsError } = await useFetch('/tags.json')
+
+const lastUpdated = computed(() => {
+  const dates = []
+  if (manifest.value?.length) {
+    manifest.value.forEach((item) => {
+      if (item?.date) {
+        const timestamp = new Date(item.date).getTime()
+        if (!Number.isNaN(timestamp)) dates.push(timestamp)
+      }
+    })
+  }
+  if (!dates.length) return ''
+  return new Date(Math.max(...dates)).toISOString().split('T')[0]
+})
+
+// Process recent posts
+const recentPosts = computed(() => {
+  if (!manifest.value) return []
+  return manifest.value
+    .filter((post) => !post.hidden && !post.draft)
+    .sort((a, b) => new Date(b.date) - new Date(a.date))
+    .slice(0, 10)
+})
+
+// Calculate stats
+const totalPosts = computed(() => {
+  if (!manifest.value) return 0
+  return manifest.value.filter((post) => !post.hidden && !post.draft).length
+})
+
+const totalProjects = computed(() => {
+  if (!manifest.value) return 0
+  return manifest.value.filter((post) => post.slug?.includes('projects/'))
+    .length
+})
+
+const totalTags = computed(() => {
+  if (!tags.value || !Array.isArray(tags.value)) return 0
+  return tags.value.filter(
+    (tag) => tag && typeof tag === 'string' && !tag.startsWith('!')
+  ).length
+})
+
+const yearsActive = computed(() => {
+  const startYear = 2018 // When the blog started
+  const currentYear = new Date().getFullYear()
+  return currentYear - startYear
+})
+
+usePageSeo({
+  title: 'Site Map | ejfox.com',
+  description:
+    'Complete navigation and overview of ejfox.com pages, tools, and collections.',
+  type: 'website',
+  section: 'Meta',
+  tags: ['Sitemap', 'Navigation', 'Site index'],
+  label1: 'Posts indexed',
+  data1: computed(() => `${totalPosts.value} articles`),
+})
+</script>
+
 <template>
   <main class="max-w-4xl mx-auto px-4 pt-8">
     <!-- Header -->
@@ -230,75 +299,6 @@
     </footer>
   </main>
 </template>
-
-<script setup>
-const { formatShortDate: formatDate } = useDateFormat()
-
-// Fetch blog posts from manifest
-const { data: manifest, error: manifestError } = await useFetch('/api/manifest')
-
-// Fetch tags for counting
-const { data: tags, error: tagsError } = await useFetch('/tags.json')
-
-const lastUpdated = computed(() => {
-  const dates = []
-  if (manifest.value?.length) {
-    manifest.value.forEach((item) => {
-      if (item?.date) {
-        const timestamp = new Date(item.date).getTime()
-        if (!Number.isNaN(timestamp)) dates.push(timestamp)
-      }
-    })
-  }
-  if (!dates.length) return ''
-  return new Date(Math.max(...dates)).toISOString().split('T')[0]
-})
-
-// Process recent posts
-const recentPosts = computed(() => {
-  if (!manifest.value) return []
-  return manifest.value
-    .filter((post) => !post.hidden && !post.draft)
-    .sort((a, b) => new Date(b.date) - new Date(a.date))
-    .slice(0, 10)
-})
-
-// Calculate stats
-const totalPosts = computed(() => {
-  if (!manifest.value) return 0
-  return manifest.value.filter((post) => !post.hidden && !post.draft).length
-})
-
-const totalProjects = computed(() => {
-  if (!manifest.value) return 0
-  return manifest.value.filter((post) => post.slug?.includes('projects/'))
-    .length
-})
-
-const totalTags = computed(() => {
-  if (!tags.value || !Array.isArray(tags.value)) return 0
-  return tags.value.filter(
-    (tag) => tag && typeof tag === 'string' && !tag.startsWith('!')
-  ).length
-})
-
-const yearsActive = computed(() => {
-  const startYear = 2018 // When the blog started
-  const currentYear = new Date().getFullYear()
-  return currentYear - startYear
-})
-
-usePageSeo({
-  title: 'Site Map | ejfox.com',
-  description:
-    'Complete navigation and overview of ejfox.com pages, tools, and collections.',
-  type: 'website',
-  section: 'Meta',
-  tags: ['Sitemap', 'Navigation', 'Site index'],
-  label1: 'Posts indexed',
-  data1: computed(() => `${totalPosts.value} articles`),
-})
-</script>
 
 <style scoped>
 .sitemap-title {

@@ -4,6 +4,36 @@
   @props project: Object - Project with title, html, metadata
   @props index: number - Card index
 -->
+<script setup>
+const props = defineProps({
+  project: { type: Object, required: true },
+  index: { type: Number, required: true },
+})
+
+const projectSlug = computed(
+  () => props.project.slug?.replace(/^projects\//, '') || ''
+)
+
+const projectTitle = computed(
+  () => props.project.title || props.project.metadata?.title || ''
+)
+
+const featuredImage = computed(() => {
+  if (!props.project.html) return null
+  const imgMatch = props.project.html.match(/<img[^>]+src="([^"]+)"/)
+  return imgMatch ? imgMatch[1] : null
+})
+
+const excerpt = computed(() => {
+  if (!props.project.html) return null
+  const text = props.project.html
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  return text.length > 200 ? text.substring(0, 200) + '…' : text
+})
+</script>
+
 <template>
   <NuxtLink
     :to="`/projects/${projectSlug}`"
@@ -43,31 +73,3 @@
     </p>
   </NuxtLink>
 </template>
-
-<script setup>
-const props = defineProps({
-  project: { type: Object, required: true },
-  index: { type: Number, required: true },
-})
-
-const projectSlug = computed(() => props.project.slug?.replace(/^projects\//, '') || '')
-
-const projectTitle = computed(
-  () => props.project.title || props.project.metadata?.title || ''
-)
-
-const featuredImage = computed(() => {
-  if (!props.project.html) return null
-  const imgMatch = props.project.html.match(/<img[^>]+src="([^"]+)"/)
-  return imgMatch ? imgMatch[1] : null
-})
-
-const excerpt = computed(() => {
-  if (!props.project.html) return null
-  const text = props.project.html
-    .replace(/<[^>]*>/g, '')
-    .replace(/\s+/g, ' ')
-    .trim()
-  return text.length > 200 ? text.substring(0, 200) + '…' : text
-})
-</script>

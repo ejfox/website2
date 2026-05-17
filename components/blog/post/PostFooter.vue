@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const { formatLongDate } = useDateFormat()
-
 defineProps<{
   prevPost?: { slug: string; title: string; date: string } | null
   nextPost?: { slug: string; title: string; date: string } | null
@@ -9,6 +7,8 @@ defineProps<{
     overlappingTags?: string[]
   }>
 }>()
+
+const { formatLongDate } = useDateFormat()
 </script>
 
 <template>
@@ -25,7 +25,9 @@ defineProps<{
             <NuxtLink :to="`/blog/${prevPost.slug}`">
               {{ prevPost.title }}
             </NuxtLink>
-            <span class="post-footer__date">{{ formatLongDate(prevPost.date) }}</span>
+            <span class="post-footer__date">
+              {{ formatLongDate(prevPost.date) }}
+            </span>
           </li>
         </ul>
         <p v-else class="post-footer__empty">—</p>
@@ -35,14 +37,13 @@ defineProps<{
       <section>
         <h2 class="post-footer__label">Related</h2>
         <ul v-if="relatedPosts.length" class="post-footer__list">
-          <li
-            v-for="{ post } in relatedPosts.slice(0, 6)"
-            :key="post.slug"
-          >
+          <li v-for="{ post } in relatedPosts.slice(0, 6)" :key="post.slug">
             <NuxtLink :to="`/blog/${post.slug}`">
               {{ post.title || post.metadata?.title }}
             </NuxtLink>
-            <span class="post-footer__date">{{ formatLongDate(post.date || post.metadata?.date) }}</span>
+            <span class="post-footer__date">
+              {{ formatLongDate(post.date || post.metadata?.date) }}
+            </span>
           </li>
         </ul>
         <p v-else class="post-footer__empty">—</p>
@@ -56,7 +57,9 @@ defineProps<{
             <NuxtLink :to="`/blog/${nextPost.slug}`">
               {{ nextPost.title }}
             </NuxtLink>
-            <span class="post-footer__date">{{ formatLongDate(nextPost.date) }}</span>
+            <span class="post-footer__date">
+              {{ formatLongDate(nextPost.date) }}
+            </span>
           </li>
         </ul>
         <p v-else class="post-footer__empty">—</p>

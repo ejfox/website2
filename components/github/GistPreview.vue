@@ -6,29 +6,6 @@
   @props expanded: boolean - Whether code is expanded
   @emits toggle - When expand/collapse button is clicked
 -->
-<template>
-  <div ref="gistRef" class="gist-preview">
-    <div ref="containerRef" class="code-container" :class="{ expanded }">
-      <div ref="codeRef" class="code-content" v-html="highlightedCode" />
-
-      <!-- Expand/Collapse button at bottom -->
-      <div v-if="lineCount > 10" ref="overlayRef" class="gradient-fade-bottom">
-        <button ref="buttonRef" class="action-button" @click="handleToggle">
-          <span ref="iconRef" class="button-icon">
-            {{ expanded ? '▼' : '▶' }}
-          </span>
-          <span>
-            {{ expanded ? 'Collapse' : 'Expand' }} ({{
-              formatNumber(lineCount)
-            }}
-            lines)
-          </span>
-        </button>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { formatNumber } from '~/composables/useNumberFormat'
 
@@ -165,6 +142,29 @@ const handleToggle = () => {
 
 // No animations needed - handled by CSS transitions
 </script>
+
+<template>
+  <div ref="gistRef" class="gist-preview">
+    <div ref="containerRef" class="code-container" :class="{ expanded }">
+      <div ref="codeRef" class="code-content" v-html="highlightedCode" />
+
+      <!-- Expand/Collapse button at bottom -->
+      <div v-if="lineCount > 10" ref="overlayRef" class="gradient-fade-bottom">
+        <button ref="buttonRef" class="action-button" @click="handleToggle">
+          <span ref="iconRef" class="button-icon">
+            {{ expanded ? '▼' : '▶' }}
+          </span>
+          <span>
+            {{ expanded ? 'Collapse' : 'Expand' }} ({{
+              formatNumber(lineCount)
+            }}
+            lines)
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .gist-preview {

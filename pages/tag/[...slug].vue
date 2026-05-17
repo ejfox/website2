@@ -1,3 +1,87 @@
+<script setup>
+const route = useRoute()
+
+const tag = computed(() => {
+  const slugArray = route.params.slug
+  return Array.isArray(slugArray) ? slugArray.join('/') : slugArray
+})
+
+// Fetch posts
+const { data: allPosts, pending: postsPending } =
+  await useFetch('/api/manifest')
+
+// Fetch scraps
+const { data: allScraps, pending: scrapsPending } =
+  await useFetch('/api/scraps')
+
+const pending = computed(() => postsPending.value || scrapsPending.value)
+
+// Filter posts by tag and categorize
+const allTaggedPosts = computed(() => {
+  if (!allPosts.value || !tag.value) return []
+  return allPosts.value
+    .filter((post) => {
+      const postTags = post.tags || post.metadata?.tags || []
+      return postTags.includes(tag.value)
+    })
+    .sort((a, b) => {
+      const dateA = new Date(a.date || a.metadata?.date || 0)
+      const dateB = new Date(b.date || b.metadata?.date || 0)
+      return dateB - dateA
+    })
+})
+
+// Categorize by slug prefix
+const posts = computed(() =>
+  allTaggedPosts.value.filter((p) => p.slug?.match(/^\d{4}\//))
+)
+const weekNotes = computed(() =>
+  allTaggedPosts.value.filter((p) => p.slug?.startsWith('week-notes/'))
+)
+const reading = computed(() =>
+  allTaggedPosts.value.filter((p) => p.slug?.startsWith('reading/'))
+)
+const projects = computed(() =>
+  allTaggedPosts.value.filter((p) => p.slug?.startsWith('projects/'))
+)
+
+// Filter scraps by tag
+const scraps = computed(() => {
+  if (!allScraps.value || !tag.value) return []
+  return allScraps.value
+    .filter((scrap) => {
+      const scrapTags = [...(scrap.tags || []), ...(scrap.concept_tags || [])]
+      return scrapTags.includes(tag.value)
+    })
+    .sort((a, b) => {
+      const dateA = new Date(a.created_at || 0)
+      const dateB = new Date(b.created_at || 0)
+      return dateB - dateA
+    })
+})
+
+// Format date (compact)
+const formatShortDate = (dateStr) => {
+  if (!dateStr) return '—'
+  const date = new Date(dateStr)
+  const y = date.getFullYear().toString().slice(-2)
+  const m = (date.getMonth() + 1).toString().padStart(2, '0')
+  const d = date.getDate().toString().padStart(2, '0')
+  return `${y}-${m}-${d}`
+}
+
+// SEO
+useHead({
+  title: computed(() => `${tag.value} | EJ Fox`),
+  meta: [
+    {
+      name: 'description',
+      content: computed(() => `Posts and scraps tagged with "${tag.value}"`),
+    },
+  ],
+})
+</script>
+
 <template>
   <div class="max-w-4xl mx-auto px-4 py-8">
     <!-- Header -->
@@ -204,87 +288,3 @@
     </div>
   </div>
 </template>
-
-<script setup>
-const route = useRoute()
-
-const tag = computed(() => {
-  const slugArray = route.params.slug
-  return Array.isArray(slugArray) ? slugArray.join('/') : slugArray
-})
-
-// Fetch posts
-const { data: allPosts, pending: postsPending } =
-  await useFetch('/api/manifest')
-
-// Fetch scraps
-const { data: allScraps, pending: scrapsPending } =
-  await useFetch('/api/scraps')
-
-const pending = computed(() => postsPending.value || scrapsPending.value)
-
-// Filter posts by tag and categorize
-const allTaggedPosts = computed(() => {
-  if (!allPosts.value || !tag.value) return []
-  return allPosts.value
-    .filter((post) => {
-      const postTags = post.tags || post.metadata?.tags || []
-      return postTags.includes(tag.value)
-    })
-    .sort((a, b) => {
-      const dateA = new Date(a.date || a.metadata?.date || 0)
-      const dateB = new Date(b.date || b.metadata?.date || 0)
-      return dateB - dateA
-    })
-})
-
-// Categorize by slug prefix
-const posts = computed(() =>
-  allTaggedPosts.value.filter((p) => p.slug?.match(/^\d{4}\//))
-)
-const weekNotes = computed(() =>
-  allTaggedPosts.value.filter((p) => p.slug?.startsWith('week-notes/'))
-)
-const reading = computed(() =>
-  allTaggedPosts.value.filter((p) => p.slug?.startsWith('reading/'))
-)
-const projects = computed(() =>
-  allTaggedPosts.value.filter((p) => p.slug?.startsWith('projects/'))
-)
-
-// Filter scraps by tag
-const scraps = computed(() => {
-  if (!allScraps.value || !tag.value) return []
-  return allScraps.value
-    .filter((scrap) => {
-      const scrapTags = [...(scrap.tags || []), ...(scrap.concept_tags || [])]
-      return scrapTags.includes(tag.value)
-    })
-    .sort((a, b) => {
-      const dateA = new Date(a.created_at || 0)
-      const dateB = new Date(b.created_at || 0)
-      return dateB - dateA
-    })
-})
-
-// Format date (compact)
-const formatShortDate = (dateStr) => {
-  if (!dateStr) return '—'
-  const date = new Date(dateStr)
-  const y = date.getFullYear().toString().slice(-2)
-  const m = (date.getMonth() + 1).toString().padStart(2, '0')
-  const d = date.getDate().toString().padStart(2, '0')
-  return `${y}-${m}-${d}`
-}
-
-// SEO
-useHead({
-  title: computed(() => `${tag.value} | EJ Fox`),
-  meta: [
-    {
-      name: 'description',
-      content: computed(() => `Posts and scraps tagged with "${tag.value}"`),
-    },
-  ],
-})
-</script>

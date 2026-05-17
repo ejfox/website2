@@ -1,146 +1,3 @@
-<template>
-  <Teleport to="body">
-    <transition name="command-palette-fade">
-      <div
-        v-if="isOpen"
-        class="fixed inset-0 z-[100] flex items-start justify-center px-4 pb-12 pt-6 sm:pt-12"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Command palette"
-        @keydown.capture="onKeydown"
-      >
-        <button
-          class="absolute inset-0 bg-zinc-950/60 backdrop-blur-sm"
-          type="button"
-          aria-label="Close command palette"
-          @click="closePalette"
-        ></button>
-        <div
-          class="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-zinc-200/80 bg-white font-sans shadow-2xl shadow-zinc-900/20 dark:border-zinc-800/80 dark:bg-zinc-900"
-        >
-          <div
-            class="flex items-center gap-3 border-b border-zinc-100 px-4 py-3 dark:border-zinc-800"
-          >
-            <span
-              class="text-xs font-mono uppercase tracking-wider text-zinc-400"
-            >
-              Command
-            </span>
-            <input
-              ref="inputRef"
-              v-model="query"
-              type="text"
-              placeholder="Search posts, pages, or actions..."
-              class="flex-1 bg-transparent text-base text-zinc-900 outline-none placeholder:text-zinc-400 dark:text-zinc-100"
-            />
-            <span
-              class="rounded-full border border-zinc-200 px-2 py-1 text-3xs font-mono text-zinc-400 dark:border-zinc-700"
-            >
-              ⌘K
-            </span>
-          </div>
-
-          <div class="max-h-[60vh] overflow-y-auto px-2 py-3 sm:max-h-[65vh]">
-            <div
-              v-if="sections.length === 0"
-              class="px-4 py-10 text-center text-sm text-zinc-500"
-            >
-              Start typing to search the site.
-            </div>
-
-            <div
-              v-for="section in sections"
-              :key="section.title"
-              class="mb-4 last:mb-0"
-            >
-              <div
-                class="px-3 pb-2 text-3xs font-mono uppercase tracking-[0.25em] text-zinc-400"
-              >
-                {{ section.title }}
-              </div>
-              <ul class="space-y-1">
-                <li v-for="item in section.items" :key="item.id">
-                  <button
-                    type="button"
-                    class="flex w-full items-start gap-3 rounded-xl px-3 py-2 text-left transition-colors"
-                    :class="[
-                      item.id === activeItemId
-                        ? 'bg-zinc-100 text-zinc-900 dark:bg-zinc-800'
-                        : 'text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900',
-                      item.id === activeItemId
-                        ? 'dark:text-zinc-100'
-                        : 'dark:text-zinc-300 dark:hover:bg-zinc-800/70',
-                    ]"
-                    @mouseenter="setActiveItem(item.id)"
-                    @click="selectItem(item)"
-                  >
-                    <div class="flex-1">
-                      <div class="flex items-center gap-2">
-                        <span class="font-medium">
-                          {{ item.label }}
-                        </span>
-                        <span
-                          v-if="item.meta"
-                          class="text-3xs font-mono text-zinc-400"
-                        >
-                          {{ item.meta }}
-                        </span>
-                      </div>
-                      <BlogPostMetadata
-                        v-if="item.doc"
-                        :doc="item.doc"
-                        compact
-                        class="mt-1"
-                      />
-                      <p
-                        v-if="item.description"
-                        class="mt-1 text-xs text-zinc-500 dark:text-zinc-400"
-                        v-html="item.description"
-                      ></p>
-                      <div
-                        v-if="item.tags?.length"
-                        class="mt-2 flex flex-wrap gap-1.5"
-                      >
-                        <span
-                          v-for="tag in item.tags"
-                          :key="tag"
-                          class="rounded-full border border-zinc-200 px-2 py-0.5 text-3xs text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
-                        >
-                          {{ tag }}
-                        </span>
-                      </div>
-                    </div>
-                    <span
-                      v-if="item.hint"
-                      class="text-3xs font-mono text-zinc-400"
-                    >
-                      {{ item.hint }}
-                    </span>
-                  </button>
-                </li>
-              </ul>
-            </div>
-
-            <div v-if="isLoading" class="px-4 py-4 text-xs text-zinc-400">
-              Searching with BM25...
-            </div>
-            <div v-if="errorMessage" class="px-4 py-4 text-xs text-red-500">
-              {{ errorMessage }}
-            </div>
-          </div>
-
-          <div
-            class="flex items-center justify-between border-t border-zinc-100 px-4 py-3 text-xs text-zinc-500 dark:border-zinc-800"
-          >
-            <span class="font-mono">Enter to open · Esc to close</span>
-            <span class="font-mono">↑ ↓ to navigate</span>
-          </div>
-        </div>
-      </div>
-    </transition>
-  </Teleport>
-</template>
-
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
@@ -394,6 +251,149 @@ onBeforeUnmount(() => {
   window.removeEventListener('keydown', onGlobalKeydown)
 })
 </script>
+
+<template>
+  <Teleport to="body">
+    <transition name="command-palette-fade">
+      <div
+        v-if="isOpen"
+        class="fixed inset-0 z-[100] flex items-start justify-center px-4 pb-12 pt-6 sm:pt-12"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Command palette"
+        @keydown.capture="onKeydown"
+      >
+        <button
+          class="absolute inset-0 bg-zinc-950/60 backdrop-blur-sm"
+          type="button"
+          aria-label="Close command palette"
+          @click="closePalette"
+        ></button>
+        <div
+          class="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-zinc-200/80 bg-white font-sans shadow-2xl shadow-zinc-900/20 dark:border-zinc-800/80 dark:bg-zinc-900"
+        >
+          <div
+            class="flex items-center gap-3 border-b border-zinc-100 px-4 py-3 dark:border-zinc-800"
+          >
+            <span
+              class="text-xs font-mono uppercase tracking-wider text-zinc-400"
+            >
+              Command
+            </span>
+            <input
+              ref="inputRef"
+              v-model="query"
+              type="text"
+              placeholder="Search posts, pages, or actions..."
+              class="flex-1 bg-transparent text-base text-zinc-900 outline-none placeholder:text-zinc-400 dark:text-zinc-100"
+            />
+            <span
+              class="rounded-full border border-zinc-200 px-2 py-1 text-3xs font-mono text-zinc-400 dark:border-zinc-700"
+            >
+              ⌘K
+            </span>
+          </div>
+
+          <div class="max-h-[60vh] overflow-y-auto px-2 py-3 sm:max-h-[65vh]">
+            <div
+              v-if="sections.length === 0"
+              class="px-4 py-10 text-center text-sm text-zinc-500"
+            >
+              Start typing to search the site.
+            </div>
+
+            <div
+              v-for="section in sections"
+              :key="section.title"
+              class="mb-4 last:mb-0"
+            >
+              <div
+                class="px-3 pb-2 text-3xs font-mono uppercase tracking-[0.25em] text-zinc-400"
+              >
+                {{ section.title }}
+              </div>
+              <ul class="space-y-1">
+                <li v-for="item in section.items" :key="item.id">
+                  <button
+                    type="button"
+                    class="flex w-full items-start gap-3 rounded-xl px-3 py-2 text-left transition-colors"
+                    :class="[
+                      item.id === activeItemId
+                        ? 'bg-zinc-100 text-zinc-900 dark:bg-zinc-800'
+                        : 'text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900',
+                      item.id === activeItemId
+                        ? 'dark:text-zinc-100'
+                        : 'dark:text-zinc-300 dark:hover:bg-zinc-800/70',
+                    ]"
+                    @mouseenter="setActiveItem(item.id)"
+                    @click="selectItem(item)"
+                  >
+                    <div class="flex-1">
+                      <div class="flex items-center gap-2">
+                        <span class="font-medium">
+                          {{ item.label }}
+                        </span>
+                        <span
+                          v-if="item.meta"
+                          class="text-3xs font-mono text-zinc-400"
+                        >
+                          {{ item.meta }}
+                        </span>
+                      </div>
+                      <BlogPostMetadata
+                        v-if="item.doc"
+                        :doc="item.doc"
+                        compact
+                        class="mt-1"
+                      />
+                      <p
+                        v-if="item.description"
+                        class="mt-1 text-xs text-zinc-500 dark:text-zinc-400"
+                        v-html="item.description"
+                      ></p>
+                      <div
+                        v-if="item.tags?.length"
+                        class="mt-2 flex flex-wrap gap-1.5"
+                      >
+                        <span
+                          v-for="tag in item.tags"
+                          :key="tag"
+                          class="rounded-full border border-zinc-200 px-2 py-0.5 text-3xs text-zinc-500 dark:border-zinc-700 dark:text-zinc-400"
+                        >
+                          {{ tag }}
+                        </span>
+                      </div>
+                    </div>
+                    <span
+                      v-if="item.hint"
+                      class="text-3xs font-mono text-zinc-400"
+                    >
+                      {{ item.hint }}
+                    </span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+
+            <div v-if="isLoading" class="px-4 py-4 text-xs text-zinc-400">
+              Searching with BM25...
+            </div>
+            <div v-if="errorMessage" class="px-4 py-4 text-xs text-red-500">
+              {{ errorMessage }}
+            </div>
+          </div>
+
+          <div
+            class="flex items-center justify-between border-t border-zinc-100 px-4 py-3 text-xs text-zinc-500 dark:border-zinc-800"
+          >
+            <span class="font-mono">Enter to open · Esc to close</span>
+            <span class="font-mono">↑ ↓ to navigate</span>
+          </div>
+        </div>
+      </div>
+    </transition>
+  </Teleport>
+</template>
 
 <style scoped>
 .command-palette-fade-enter-active,

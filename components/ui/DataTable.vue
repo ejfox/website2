@@ -8,6 +8,117 @@
   @props initialSort: string - Initial sort column key (optional)
   @props initialSortDirection: string - Initial sort direction: 'asc' or 'desc' (default: 'asc')
 -->
+<script setup>
+import { ref, computed } from 'vue'
+
+const props = defineProps({
+  columns: {
+    type: Array,
+    required: true,
+    // Expected format:
+    // [
+    //   { key: 'name', label: 'Name', type: 'text', sortable: true },
+    //   { key: 'count', label: 'Count', type: 'numeric', align: 'right' },
+    //   { key: 'date', label: 'Date', type: 'date' },
+    //   { key: 'url', label: 'Link', type: 'link', linkText: 'title' }
+    // ]
+  },
+  rows: {
+    type: Array,
+    required: true,
+  },
+  dense: {
+    type: Boolean,
+    default: false,
+  },
+  showStats: {
+    type: Boolean,
+    default: true,
+  },
+  initialSort: {
+    type: String,
+    default: null,
+  },
+  initialSortDirection: {
+    type: String,
+    default: 'asc',
+    validator: (value) => ['asc', 'desc'].includes(value),
+  },
+})
+
+const sortColumn = ref(props.initialSort)
+const sortDirection = ref(props.initialSortDirection)
+
+const sort = (column) => {
+  if (sortColumn.value === column) {
+    // Toggle direction
+    sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc'
+  } else {
+    sortColumn.value = column
+    sortDirection.value = 'asc'
+  }
+}
+
+const sortedRows = computed(() => {
+  if (!sortColumn.value) return props.rows
+
+  const column = props.columns.find((c) => c.key === sortColumn.value)
+  if (!column) return props.rows
+
+  return [...props.rows].sort((a, b) => {
+    let aVal = a[sortColumn.value]
+    let bVal = b[sortColumn.value]
+
+    // Handle null/undefined
+    if (aVal === null) return sortDirection.value === 'asc' ? 1 : -1
+    if (bVal === null) return sortDirection.value === 'asc' ? -1 : 1
+
+    // Type-specific sorting
+    if (column.type === 'numeric') {
+      aVal = Number.parseFloat(aVal) || 0
+      bVal = Number.parseFloat(bVal) || 0
+    } else if (column.type === 'date') {
+      aVal = new Date(aVal).getTime()
+      bVal = new Date(bVal).getTime()
+    } else {
+      // String comparison
+      aVal = String(aVal).toLowerCase()
+      bVal = String(bVal).toLowerCase()
+    }
+
+    if (aVal < bVal) return sortDirection.value === 'asc' ? -1 : 1
+    if (aVal > bVal) return sortDirection.value === 'asc' ? 1 : -1
+    return 0
+  })
+})
+
+// Formatting helpers
+const formatDate = (dateString) => {
+  if (!dateString) return '—'
+  const date = new Date(dateString)
+  if (Number.isNaN(date.getTime())) return dateString
+  return date.toISOString().split('T')[0]
+}
+
+const formatNumber = (value, format) => {
+  if (value === null) return '—'
+  const num = Number.parseFloat(value)
+  if (Number.isNaN(num)) return value
+
+  if (format === 'percentage') {
+    return `${(num * 100).toFixed(1)}%`
+  } else if (format === 'currency') {
+    return `$${num.toFixed(2)}`
+  } else if (format === 'compact') {
+    if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`
+    if (num >= 1000) return `${(num / 1000).toFixed(1)}K`
+    return num.toString()
+  }
+
+  return num.toLocaleString()
+}
+</script>
+
 <template>
   <div class="table-container">
     <!-- Data overlay -->
@@ -124,117 +235,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { ref, computed } from 'vue'
-
-const props = defineProps({
-  columns: {
-    type: Array,
-    required: true,
-    // Expected format:
-    // [
-    //   { key: 'name', label: 'Name', type: 'text', sortable: true },
-    //   { key: 'count', label: 'Count', type: 'numeric', align: 'right' },
-    //   { key: 'date', label: 'Date', type: 'date' },
-    //   { key: 'url', label: 'Link', type: 'link', linkText: 'title' }
-    // ]
-  },
-  rows: {
-    type: Array,
-    required: true,
-  },
-  dense: {
-    type: Boolean,
-    default: false,
-  },
-  showStats: {
-    type: Boolean,
-    default: true,
-  },
-  initialSort: {
-    type: String,
-    default: null,
-  },
-  initialSortDirection: {
-    type: String,
-    default: 'asc',
-    validator: (value) => ['asc', 'desc'].includes(value),
-  },
-})
-
-const sortColumn = ref(props.initialSort)
-const sortDirection = ref(props.initialSortDirection)
-
-const sort = (column) => {
-  if (sortColumn.value === column) {
-    // Toggle direction
-    sortDirection.value = sortDirection.value === 'asc' ? 'desc' : 'asc'
-  } else {
-    sortColumn.value = column
-    sortDirection.value = 'asc'
-  }
-}
-
-const sortedRows = computed(() => {
-  if (!sortColumn.value) return props.rows
-
-  const column = props.columns.find((c) => c.key === sortColumn.value)
-  if (!column) return props.rows
-
-  return [...props.rows].sort((a, b) => {
-    let aVal = a[sortColumn.value]
-    let bVal = b[sortColumn.value]
-
-    // Handle null/undefined
-    if (aVal === null) return sortDirection.value === 'asc' ? 1 : -1
-    if (bVal === null) return sortDirection.value === 'asc' ? -1 : 1
-
-    // Type-specific sorting
-    if (column.type === 'numeric') {
-      aVal = Number.parseFloat(aVal) || 0
-      bVal = Number.parseFloat(bVal) || 0
-    } else if (column.type === 'date') {
-      aVal = new Date(aVal).getTime()
-      bVal = new Date(bVal).getTime()
-    } else {
-      // String comparison
-      aVal = String(aVal).toLowerCase()
-      bVal = String(bVal).toLowerCase()
-    }
-
-    if (aVal < bVal) return sortDirection.value === 'asc' ? -1 : 1
-    if (aVal > bVal) return sortDirection.value === 'asc' ? 1 : -1
-    return 0
-  })
-})
-
-// Formatting helpers
-const formatDate = (dateString) => {
-  if (!dateString) return '—'
-  const date = new Date(dateString)
-  if (Number.isNaN(date.getTime())) return dateString
-  return date.toISOString().split('T')[0]
-}
-
-const formatNumber = (value, format) => {
-  if (value === null) return '—'
-  const num = Number.parseFloat(value)
-  if (Number.isNaN(num)) return value
-
-  if (format === 'percentage') {
-    return `${(num * 100).toFixed(1)}%`
-  } else if (format === 'currency') {
-    return `$${num.toFixed(2)}`
-  } else if (format === 'compact') {
-    if (num >= 1000000) return `${(num / 1000000).toFixed(1)}M`
-    if (num >= 1000) return `${(num / 1000).toFixed(1)}K`
-    return num.toString()
-  }
-
-  return num.toLocaleString()
-}
-</script>
 
 <style scoped>
 /* Additional component-specific styles if needed */

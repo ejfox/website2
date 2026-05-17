@@ -2,8 +2,14 @@
 import PhotoStack from '~/components/photos/PhotoStack.vue'
 
 // Both feeds in parallel
-const { data: photosData, pending: photosPending } = await useFetch('/api/photos', { lazy: true })
-const { data: postsData, pending: postsPending } = await useFetch('/api/photo-posts', { lazy: true })
+const { data: photosData, pending: photosPending } = await useFetch(
+  '/api/photos',
+  { lazy: true }
+)
+const { data: postsData, pending: postsPending } = await useFetch(
+  '/api/photo-posts',
+  { lazy: true }
+)
 
 const pending = computed(() => photosPending.value || postsPending.value)
 
@@ -39,7 +45,10 @@ const feed = computed(() => {
 function toTimestamp(dateStr) {
   if (!dateStr) return 0
   try {
-    const normalized = String(dateStr).replace(/^(\d{4}):(\d{2}):(\d{2})/, '$1-$2-$3')
+    const normalized = String(dateStr).replace(
+      /^(\d{4}):(\d{2}):(\d{2})/,
+      '$1-$2-$3'
+    )
     return new Date(normalized).getTime() || 0
   } catch {
     return 0
@@ -64,14 +73,21 @@ const placeholderUrl = (photo) => {
 
 const shortCamera = (model) => {
   if (!model) return ''
-  return model.replace('FUJIFILM ', '').replace('Canon ', '').replace('NIKON ', '').replace('Sony ', '')
+  return model
+    .replace('FUJIFILM ', '')
+    .replace('Canon ', '')
+    .replace('NIKON ', '')
+    .replace('Sony ', '')
 }
 
 const formatDate = (dateStr) => {
   if (!dateStr) return ''
   try {
     const normalized = dateStr.replace(/^(\d{4}):(\d{2}):(\d{2})/, '$1-$2-$3')
-    return new Date(normalized).toLocaleDateString('en-US', { year: 'numeric', month: 'short' })
+    return new Date(normalized).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+    })
   } catch {
     return ''
   }
@@ -93,7 +109,10 @@ useHead({ title: 'Photos — EJ Fox' })
 
     <!-- Interleaved feed: masonry columns; stacks span full width -->
     <div v-else-if="feed.length" class="photo-grid">
-      <template v-for="item in feed" :key="item.kind + (item.photo?.id || item.post?.slug)">
+      <template
+        v-for="item in feed"
+        :key="item.kind + (item.photo?.id || item.post?.slug)"
+      >
         <!-- Individual photo -->
         <a
           v-if="item.kind === 'photo'"
@@ -117,13 +136,25 @@ useHead({ title: 'Photos — EJ Fox' })
             class="photo-img"
           />
           <div class="photo-meta">
-            <span v-if="item.photo.camera" class="photo-exif">{{ shortCamera(item.photo.camera) }}</span>
-            <span v-if="item.photo.focalLength" class="photo-exif">{{ item.photo.focalLength }}mm</span>
-            <span v-if="item.photo.aperture" class="photo-exif">f/{{ item.photo.aperture }}</span>
-            <span v-if="item.photo.shutter" class="photo-exif">{{ item.photo.shutter }}s</span>
-            <span v-if="item.photo.iso" class="photo-exif">ISO {{ item.photo.iso }}</span>
+            <span v-if="item.photo.camera" class="photo-exif">
+              {{ shortCamera(item.photo.camera) }}
+            </span>
+            <span v-if="item.photo.focalLength" class="photo-exif">
+              {{ item.photo.focalLength }}mm
+            </span>
+            <span v-if="item.photo.aperture" class="photo-exif">
+              f/{{ item.photo.aperture }}
+            </span>
+            <span v-if="item.photo.shutter" class="photo-exif">
+              {{ item.photo.shutter }}s
+            </span>
+            <span v-if="item.photo.iso" class="photo-exif">
+              ISO {{ item.photo.iso }}
+            </span>
           </div>
-          <div class="photo-date">{{ formatDate(item.photo.dateTaken || item.photo.date) }}</div>
+          <div class="photo-date">
+            {{ formatDate(item.photo.dateTaken || item.photo.date) }}
+          </div>
         </a>
 
         <!-- Photo-post stack: a column-flow card that breaks out when expanded -->
@@ -177,10 +208,14 @@ useHead({ title: 'Photos — EJ Fox' })
   column-gap: 12px;
 }
 @media (min-width: 768px) {
-  .photo-grid { columns: 2; }
+  .photo-grid {
+    columns: 2;
+  }
 }
 @media (min-width: 1280px) {
-  .photo-grid { columns: 3; }
+  .photo-grid {
+    columns: 3;
+  }
 }
 
 .photo-item {
@@ -196,11 +231,15 @@ useHead({ title: 'Photos — EJ Fox' })
   display: block;
   transition: opacity 0.2s ease;
 }
-.photo-item:hover .photo-img { opacity: 0.92; }
+.photo-item:hover .photo-img {
+  opacity: 0.92;
+}
 
 .photo-meta {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   padding: 4px 6px;
   display: flex;
   gap: 8px;
@@ -208,7 +247,9 @@ useHead({ title: 'Photos — EJ Fox' })
   transition: opacity 0.15s ease;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
 }
-.photo-item:hover .photo-meta { opacity: 1; }
+.photo-item:hover .photo-meta {
+  opacity: 1;
+}
 .photo-exif {
   font-family: ui-monospace, monospace;
   font-size: 9px;
@@ -217,7 +258,8 @@ useHead({ title: 'Photos — EJ Fox' })
 }
 .photo-date {
   position: absolute;
-  top: 0; right: 0;
+  top: 0;
+  right: 0;
   padding: 3px 6px;
   font-family: ui-monospace, monospace;
   font-size: 9px;
@@ -226,6 +268,7 @@ useHead({ title: 'Photos — EJ Fox' })
   transition: opacity 0.15s ease;
   background: linear-gradient(rgba(0, 0, 0, 0.4), transparent);
 }
-.photo-item:hover .photo-date { opacity: 1; }
-
+.photo-item:hover .photo-date {
+  opacity: 1;
+}
 </style>

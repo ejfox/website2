@@ -8,54 +8,6 @@
   @props width: number - SVG width in pixels (default: 60)
   @props height: number - SVG height in pixels (default: 16)
 -->
-<template>
-  <svg
-    :class="variantClass"
-    :width="width"
-    :height="height"
-    :viewBox="`0 0 ${width} ${height}`"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-    role="img"
-    aria-label="Activity sparkline"
-  >
-    <!-- Baseline reference line (subtle) -->
-    <line
-      v-if="baseline !== null"
-      :x1="0"
-      :y1="scaleY(baseline)"
-      :x2="width"
-      :y2="scaleY(baseline)"
-      :stroke="baselineColor"
-      stroke-width="0.5"
-      opacity="0.3"
-    />
-
-    <!-- Area fill under the line -->
-    <path v-if="areaPath" :d="areaPath" :fill="areaFill" opacity="0.15" />
-
-    <!-- Main sparkline path -->
-    <polyline
-      :points="points"
-      :stroke="lineColor"
-      :stroke-width="strokeWidth"
-      fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-
-    <!-- Peak indicator (highest point) -->
-    <circle
-      v-if="showPeak && peakPoint"
-      :cx="peakPoint.x"
-      :cy="peakPoint.y"
-      :r="dotRadius"
-      :fill="peakColor"
-      opacity="0.8"
-    />
-  </svg>
-</template>
-
 <script setup>
 const props = defineProps({
   data: {
@@ -159,6 +111,54 @@ const peakPoint = computed(() => {
   }
 })
 </script>
+
+<template>
+  <svg
+    :class="variantClass"
+    :width="width"
+    :height="height"
+    :viewBox="`0 0 ${width} ${height}`"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    role="img"
+    aria-label="Activity sparkline"
+  >
+    <!-- Baseline reference line (subtle) -->
+    <line
+      v-if="baseline !== null"
+      :x1="0"
+      :y1="scaleY(baseline)"
+      :x2="width"
+      :y2="scaleY(baseline)"
+      :stroke="baselineColor"
+      stroke-width="0.5"
+      opacity="0.3"
+    />
+
+    <!-- Area fill under the line -->
+    <path v-if="areaPath" :d="areaPath" :fill="areaFill" opacity="0.15" />
+
+    <!-- Main sparkline path -->
+    <polyline
+      :points="points"
+      :stroke="lineColor"
+      :stroke-width="strokeWidth"
+      fill="none"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+
+    <!-- Peak indicator (highest point) -->
+    <circle
+      v-if="showPeak && peakPoint"
+      :cx="peakPoint.x"
+      :cy="peakPoint.y"
+      :r="dotRadius"
+      :fill="peakColor"
+      opacity="0.8"
+    />
+  </svg>
+</template>
 
 <style scoped>
 /* Subtle opacity transitions on hover */
