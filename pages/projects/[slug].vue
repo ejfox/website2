@@ -69,6 +69,12 @@ usePageSeo({
   data2: computed(() => project.value?.metadata?.status || 'Shipped'),
 })
 
+// Project year
+const projectYear = computed(() => {
+  const date = project.value?.metadata?.date || project.value?.date
+  return date ? new Date(date).getFullYear() : ''
+})
+
 // TOC target for teleport
 const { tocTarget } = useTOC()
 
@@ -118,14 +124,43 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container-main" style="max-width: 65ch">
+  <div class="container-main max-w-4xl">
+    <div
+      v-if="project"
+      class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
+    >
+      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-zinc-800 dark:text-white uppercase tracking-wider">
+        <span class="whitespace-nowrap">{{ projectYear }}</span>
+        <template v-if="project.metadata?.tech?.length">
+          <span class="text-zinc-400 dark:text-zinc-600">·</span>
+          <span class="whitespace-nowrap">{{ project.metadata.tech.slice(0, 3).join(' + ') }}</span>
+        </template>
+        <template v-if="project.metadata?.state">
+          <span class="text-zinc-400 dark:text-zinc-600">·</span>
+          <span class="whitespace-nowrap">{{ project.metadata.state }}</span>
+        </template>
+        <template v-if="project.metadata?.aiInvolvement">
+          <span class="text-zinc-400 dark:text-zinc-600 hidden sm:inline">·</span>
+          <span class="whitespace-nowrap hidden sm:inline">{{ project.metadata.aiInvolvement }}</span>
+        </template>
+        <template v-if="project.metadata?.url">
+          <span class="text-zinc-400 dark:text-zinc-600">·</span>
+          <a :href="project.metadata.url" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap hover:text-zinc-300 transition-colors">view project ↗</a>
+        </template>
+      </div>
+    </div>
+
     <article v-if="project" class="pt-8 md:pt-16">
-      <!-- Content (title is extracted and removed by markdown processor) -->
-      <BlogPostContent :content="project.html" />
+      <h1
+        class="text-4xl md:text-5xl font-serif font-light tracking-tight leading-tight mb-6"
+      >
+        {{ title }}
+      </h1>
+      <BlogPostContent :content="project.html" class="project-content" />
 
       <!-- Back link -->
-      <div class="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-        <NuxtLink to="/projects" class="interactive-link back-link">
+      <div class="mt-12 pt-6">
+        <NuxtLink to="/projects" class="back-link">
           ← Back to Projects
         </NuxtLink>
       </div>
@@ -134,15 +169,13 @@ onMounted(() => {
     <!-- Metadata and TOC for sidebar -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="space-y-6">
+        <div class="space-y-4">
           <!-- Project Metadata -->
-          <div
-            class="space-y-3 pb-6 border-b border-zinc-200 dark:border-zinc-800"
-          >
-            <h3 class="label-uppercase-mono text-xs mb-4">Project Info</h3>
+          <div class="space-y-2">
+            <h3 class="label-uppercase-mono text-2xs mb-2">Project Info</h3>
 
             <!-- Date -->
-            <div v-if="project.metadata?.date" class="text-xs">
+            <div v-if="project.metadata?.date" class="text-2xs">
               <div class="metadata-label">Date</div>
               <time class="tabular-nums text-zinc-900 dark:text-zinc-100">
                 {{ formatLongDate(project.metadata.date) }}
@@ -150,7 +183,7 @@ onMounted(() => {
             </div>
 
             <!-- Tech Stack -->
-            <div v-if="project.metadata?.tech?.length" class="text-xs">
+            <div v-if="project.metadata?.tech?.length" class="text-2xs">
               <div class="metadata-label">Tech</div>
               <div class="flex flex-wrap gap-0.5">
                 <span
@@ -164,7 +197,7 @@ onMounted(() => {
             </div>
 
             <!-- GitHub Link -->
-            <div v-if="project.metadata?.github" class="text-xs">
+            <div v-if="project.metadata?.github" class="text-2xs">
               <div class="metadata-label">Source</div>
               <a
                 :href="project.metadata.github"
@@ -228,17 +261,43 @@ onMounted(() => {
   </div>
 </template>
 
+<style>
+/* Project page: wide images, prose-width text */
+.project-content :deep(p),
+.project-content :deep(ul),
+.project-content :deep(ol),
+.project-content :deep(blockquote),
+.project-content :deep(h2),
+.project-content :deep(h3),
+.project-content :deep(h4) {
+  @apply max-w-prose;
+}
+
+.project-content :deep(figure) {
+  @apply max-w-none w-full mb-8;
+}
+
+.project-content :deep(img) {
+  @apply max-w-none w-full rounded;
+  transform: none !important;
+}
+
+.project-content :deep(figcaption) {
+  @apply text-xs text-zinc-500 dark:text-zinc-400 mt-2 font-mono;
+}
+</style>
+
 <style scoped>
 .back-link {
   @apply text-sm text-zinc-600 dark:text-zinc-400;
 }
 
 .metadata-label {
-  @apply text-zinc-500 dark:text-zinc-500 text-xs uppercase tracking-wider mb-2;
+  @apply text-zinc-500 dark:text-zinc-500 text-2xs uppercase tracking-wider mb-1;
 }
 
 .tech-badge {
-  @apply font-mono text-xs px-2 py-1 rounded;
+  @apply font-mono text-2xs px-1.5 py-0.5 rounded;
   @apply bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300;
 }
 

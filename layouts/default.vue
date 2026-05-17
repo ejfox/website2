@@ -39,7 +39,7 @@
       <nav
         v-if="!isStatsSimple"
         :class="[
-          'hidden md:block sticky w-[200px] shrink-0',
+          'hidden md:flex md:flex-col sticky w-[200px] shrink-0',
           'left-0 z-50 px-3 py-4 font-mono max-h-screen overflow-y-auto',
           isBlogPost ? 'top-10 sm:top-8' : 'top-0',
         ]"
@@ -67,18 +67,10 @@
             </NuxtLink>
           </template>
 
-          <div class="pt-4 px-2 text-2xs text-zinc-500 dark:text-zinc-400">
-            <a
-              href="/pgp.txt"
-              class="hover:text-zinc-700 dark:hover:text-zinc-200"
-            >
-              PGP: E207 8E65
-            </a>
-          </div>
         </div>
 
         <!-- TOC container - padding lives here, teleports contribute zero padding -->
-        <div id="nav-toc-container" class="mt-4 px-2 pt-6 pb-4"></div>
+        <div id="nav-toc-container" class="mt-4 px-2 pt-4 pb-4"></div>
 
         <div v-if="isBlogPost" class="mt-4">
           <NuxtLink
@@ -88,6 +80,15 @@
             <span>&larr;</span>
             <span>Back to Blog</span>
           </NuxtLink>
+        </div>
+
+        <div class="mt-auto pt-4 px-2 text-2xs text-zinc-500 dark:text-zinc-400">
+          <a
+            href="/pgp.txt"
+            class="hover:text-zinc-700 dark:hover:text-zinc-200"
+          >
+            PGP: E207 8E65
+          </a>
         </div>
       </nav>
 

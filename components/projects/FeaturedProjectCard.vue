@@ -37,7 +37,10 @@
         class="w-full h-auto rounded"
       />
     </div>
-    <div class="prose dark:prose-invert max-w-none" v-html="projectContent" />
+    <h3 class="text-xl font-serif mb-2">{{ projectTitle }}</h3>
+    <p v-if="excerpt" class="text-sm text-zinc-600 dark:text-zinc-400">
+      {{ excerpt }}
+    </p>
   </NuxtLink>
 </template>
 
@@ -59,11 +62,12 @@ const featuredImage = computed(() => {
   return imgMatch ? imgMatch[1] : null
 })
 
-const projectContent = computed(() => {
-  if (!props.project.html) return ''
-  if (featuredImage.value) {
-    return props.project.html.replace(/<img[^>]*>/, '')
-  }
-  return props.project.html
+const excerpt = computed(() => {
+  if (!props.project.html) return null
+  const text = props.project.html
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  return text.length > 200 ? text.substring(0, 200) + '…' : text
 })
 </script>

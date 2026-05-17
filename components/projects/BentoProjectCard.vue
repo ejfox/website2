@@ -55,15 +55,12 @@
         </span>
       </div>
 
-      <a
+      <span
         v-if="project.metadata?.github"
-        :href="project.metadata.github"
-        target="_blank"
         class="inline-block text-xs text-zinc-500"
-        @click.stop
       >
         GitHub ↗
-      </a>
+      </span>
     </div>
   </NuxtLink>
 </template>

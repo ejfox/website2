@@ -302,6 +302,16 @@ export function remarkEnhanceImages() {
     const cache = await loadCache()
     const nodes = []
 
+    // Build a parent map so we can look up grandparents for paragraph unwrapping
+    const parentMap = new Map()
+    visit(tree, (node) => {
+      if (node.children) {
+        for (const child of node.children) {
+          parentMap.set(child, node)
+        }
+      }
+    })
+
     visit(tree, 'image', (node, index, parent) => {
       if (node.url) {
         nodes.push({ node, index, parent })
@@ -350,25 +360,9 @@ export function remarkEnhanceImages() {
         }
 
         // -----------------------------------------------------------------
-        // Cloudinary visual metadata (dimensions, placeholders)
+        // Cloudinary dimensions (no placeholder backgrounds)
         // -----------------------------------------------------------------
         if (cloudMeta) {
-          // Prefer Cloudinary LQIP (actual blurred thumbnail); fall back to
-          // a 2-color SVG gradient if LQIP fetch failed.
-          const placeholder = cloudMeta.lqip || buildSvgPlaceholder(
-            cloudMeta.width,
-            cloudMeta.height,
-            cloudMeta.avgColor,
-            cloudMeta.secondaryColor
-          )
-          const style = `background-color:${cloudMeta.avgColor || '#222222'};background-image:url("${placeholder}");background-size:cover;background-position:center;`
-
-          const existingStyle = node.data.hProperties.style || ''
-          const prefix =
-            existingStyle && !existingStyle.trim().endsWith(';')
-              ? `${existingStyle};`
-              : existingStyle
-          node.data.hProperties.style = `${prefix}${style}`
           if (cloudMeta.width) node.data.hProperties.width = cloudMeta.width
           if (cloudMeta.height) node.data.hProperties.height = cloudMeta.height
         }
@@ -420,6 +414,22 @@ export function remarkEnhanceImages() {
           const figureClose = {
             type: 'html',
             value: '</figure>',
+          }
+
+          // If the image is the sole child of a paragraph, replace the
+          // paragraph itself so we don't end up with <p><figure>…</figure></p>
+          // which browsers split into empty <p></p> around the figure.
+          const grandparent = parentMap.get(parent)
+          if (
+            grandparent &&
+            parent.type === 'paragraph' &&
+            parent.children.length === 1
+          ) {
+            const parentIndex = grandparent.children.indexOf(parent)
+            if (parentIndex !== -1) {
+              grandparent.children.splice(parentIndex, 1, figure, node, figcaption, figureClose)
+              return
+            }
           }
 
           // Replace the image node with figure > img + figcaption

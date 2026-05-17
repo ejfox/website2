@@ -280,6 +280,12 @@ async function processMarkdown(content, filePath) {
 
     let html = processor.stringify(result)
 
+    // Clean up empty <p> tags produced by remark wrapping standalone images
+    // in paragraphs before figure-wrapping can unwrap them
+    html = html
+      .replace(/<p[^>]*>\s*<\/p>\s*(?=<figure)/g, '')
+      .replace(/(<\/figure>)\s*<p[^>]*>\s*<\/p>/g, '$1')
+
     const extractedTitle =
       frontmatter.title ||
       firstHeading ||
