@@ -129,23 +129,38 @@ onMounted(() => {
       v-if="project"
       class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
     >
-      <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-zinc-800 dark:text-white uppercase tracking-wider">
+      <div
+        class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-zinc-800 dark:text-white uppercase tracking-wider"
+      >
         <span class="whitespace-nowrap">{{ projectYear }}</span>
         <template v-if="project.metadata?.tech?.length">
           <span class="text-zinc-400 dark:text-zinc-600">·</span>
-          <span class="whitespace-nowrap">{{ project.metadata.tech.slice(0, 3).join(' + ') }}</span>
+          <span class="whitespace-nowrap">
+            {{ project.metadata.tech.slice(0, 3).join(' + ') }}
+          </span>
         </template>
         <template v-if="project.metadata?.state">
           <span class="text-zinc-400 dark:text-zinc-600">·</span>
           <span class="whitespace-nowrap">{{ project.metadata.state }}</span>
         </template>
         <template v-if="project.metadata?.aiInvolvement">
-          <span class="text-zinc-400 dark:text-zinc-600 hidden sm:inline">·</span>
-          <span class="whitespace-nowrap hidden sm:inline">{{ project.metadata.aiInvolvement }}</span>
+          <span class="text-zinc-400 dark:text-zinc-600 hidden sm:inline">
+            ·
+          </span>
+          <span class="whitespace-nowrap hidden sm:inline">
+            {{ project.metadata.aiInvolvement }}
+          </span>
         </template>
         <template v-if="project.metadata?.url">
           <span class="text-zinc-400 dark:text-zinc-600">·</span>
-          <a :href="project.metadata.url" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap hover:text-zinc-300 transition-colors">view project ↗</a>
+          <a
+            :href="project.metadata.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="whitespace-nowrap hover:text-zinc-300 transition-colors"
+          >
+            view project ↗
+          </a>
         </template>
       </div>
     </div>
@@ -160,9 +175,7 @@ onMounted(() => {
 
       <!-- Back link -->
       <div class="mt-12 pt-6">
-        <NuxtLink to="/projects" class="back-link">
-          ← Back to Projects
-        </NuxtLink>
+        <NuxtLink to="/projects" class="back-link">← Back to Projects</NuxtLink>
       </div>
     </article>
 
