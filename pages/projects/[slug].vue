@@ -121,7 +121,7 @@ onMounted(() => {
   <div class="container-main" style="max-width: 65ch">
     <article v-if="project" class="pt-8 md:pt-16">
       <!-- Content (title is extracted and removed by markdown processor) -->
-      <BlogPostContent :html="project.html" />
+      <BlogPostContent :content="project.html" />
 
       <!-- Back link -->
       <div class="mt-16 pt-8 border-t border-zinc-200 dark:border-zinc-800">
