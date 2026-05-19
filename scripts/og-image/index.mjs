@@ -30,24 +30,39 @@ const UPLOAD = args.includes('--upload')
 const ALL = args.includes('--all')
 const VARIANTS = 4
 
-async function generateVariants(slug) {
-  console.log(`\n  Generating OG image for: ${slug}`)
+/**
+ * Slugs from Dispatch may carry a `:batchN` suffix used purely to vary
+ * the random seed across rerolls. The actual post lives under the bare
+ * slug; the suffix only travels into the layout seed.
+ */
+function splitBatch(rawSlug) {
+  const m = rawSlug.match(/^(.+?):batch(\d+)$/)
+  if (m) return { slug: m[1], batch: parseInt(m[2], 10) }
+  return { slug: rawSlug, batch: 0 }
+}
 
-  // Extract content
+async function generateVariants(rawSlug) {
+  const { slug, batch } = splitBatch(rawSlug)
+  console.log(`\n  Generating OG image for: ${slug}${batch ? ` (batch ${batch})` : ''}`)
+
+  // Extract content from the real post — never with the :batchN suffix.
   const content = await extractContent(slug)
   console.log(`  Content: "${content.title}" — ${content.headings.length} headings, ${content.blockquotes.length} quotes, ${content.imageUrls.length} images, ${content.tags.length} tags`)
 
-  // Generate 4 variants with different seeds
+  // Seed varies per batch so rerolls produce visually different scenes.
+  const seedBase = batch ? `${slug}:batch${batch}` : slug
+
   const variants = []
   for (let v = 0; v < VARIANTS; v++) {
-    const scene = layoutCards(`${slug}:v${v}`, content)
+    const scene = layoutCards(`${seedBase}:v${v}`, content)
     const png = await renderScene(content, scene, slug, v)
     variants.push(png)
     process.stdout.write(`  Variant ${v}: ${(png.length / 1024).toFixed(0)}KB `)
     process.stdout.write('done\n')
   }
 
-  return { content, variants }
+  // Return the canonical slug so callers write to the right output dir.
+  return { content, variants, slug }
 }
 
 async function saveVariants(slug, variants) {
@@ -118,23 +133,23 @@ async function main() {
   await fs.mkdir(OUTPUT_DIR, { recursive: true })
 
   if (SLUG) {
-    const { content, variants } = await generateVariants(SLUG)
+    const { content, variants, slug } = await generateVariants(SLUG)
 
     if (PICK !== null) {
       // User picked a specific variant
       if (UPLOAD) {
         console.log(`\n  Uploading variant ${PICK} to Cloudinary...`)
-        const url = await uploadToCloudinary(SLUG, variants[PICK])
+        const url = await uploadToCloudinary(slug, variants[PICK])
         console.log(`  Uploaded: ${url}`)
       } else {
-        const outPath = path.join(OUTPUT_DIR, `${SLUG.replace(/\//g, '-')}-final.png`)
+        const outPath = path.join(OUTPUT_DIR, `${slug.replace(/\//g, '-')}-final.png`)
         await fs.mkdir(path.dirname(outPath), { recursive: true })
         await fs.writeFile(outPath, variants[PICK])
         console.log(`  Saved: ${outPath}`)
       }
     } else {
       // Show all 4 variants for preview
-      const { htmlPath } = await saveVariants(SLUG, variants)
+      const { htmlPath } = await saveVariants(slug, variants)
       console.log(`\n  Preview: ${htmlPath}`)
 
       // Auto-open only with --open flag
