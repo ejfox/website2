@@ -11,6 +11,40 @@ const ROOT = path.resolve(import.meta.dirname, '../..')
 const PROCESSED_DIR = path.join(ROOT, 'content', 'processed')
 const BLOG_DIR = path.join(ROOT, 'content', 'blog')
 
+// Number of image cards to feed into the 3D scene. The renderer + layout
+// happily handle more than 3; the old cap was conservative.
+const MAX_IMAGES = 6
+const CLOUDINARY_RE = /https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^\s"')]+/g
+
+/**
+ * Pull Cloudinary URLs out of frontmatter fields a writer might use
+ * (`cover`, `image`, `og_image`, or an `images:` array). Anything that
+ * doesn't look like a Cloudinary URL is ignored — the 3D renderer
+ * specifically wants those.
+ */
+function imagesFromFrontmatter(fm) {
+  const candidates = [
+    fm.cover,
+    fm.image,
+    fm.og_image,
+    fm.ogImage,
+    fm.hero,
+    ...(Array.isArray(fm.images) ? fm.images : []),
+  ].filter(Boolean)
+  const urls = []
+  for (const c of candidates) {
+    const s = typeof c === 'string' ? c : c?.url
+    if (!s) continue
+    const matches = s.match(CLOUDINARY_RE)
+    if (matches) urls.push(...matches)
+  }
+  return urls
+}
+
+function dedupe(arr) {
+  return [...new Set(arr)]
+}
+
 /**
  * Best-effort fragment extraction from a raw markdown file. Used when the
  * processed JSON doesn't exist yet (drafts, in-progress posts).
@@ -40,12 +74,14 @@ async function extractFromMarkdown(slug) {
     if (blockquotes.length >= 3) break
   }
 
-  // Cloudinary image URLs.
-  const imageUrls = []
-  for (const m of content.matchAll(/!\[[^\]]*]\((https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^)]+)\)/g)) {
-    imageUrls.push(m[1])
-    if (imageUrls.length >= 3) break
-  }
+  // Cloudinary image URLs — frontmatter first (cover/hero stays prominent),
+  // then body markdown refs.
+  const imageUrls = dedupe([
+    ...imagesFromFrontmatter(fm),
+    ...Array.from(
+      content.matchAll(/!\[[^\]]*]\((https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^)]+)\)/g),
+    ).map((m) => m[1]),
+  ]).slice(0, MAX_IMAGES)
 
   // First real paragraph (skip frontmatter, headings, blockquotes, images, lists).
   const lines = content.split('\n')
@@ -119,13 +155,14 @@ export async function extractContent(slug) {
     }
   }
 
-  // Extract Cloudinary image URLs from HTML
-  const imageUrls = []
-  const imgRe = /src="(https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^"]+)"/gi
-  for (const m of html.matchAll(imgRe)) {
-    imageUrls.push(m[1])
-    if (imageUrls.length >= 3) break
-  }
+  // Extract Cloudinary image URLs — frontmatter (cover/hero/og_image first
+  // so they stay prominent) then HTML src= attributes.
+  const imageUrls = dedupe([
+    ...imagesFromFrontmatter(meta),
+    ...Array.from(
+      html.matchAll(/src="(https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^"]+)"/gi),
+    ).map((m) => m[1]),
+  ]).slice(0, MAX_IMAGES)
 
   // Extract first paragraph
   const pRe = /<p[^>]*>([\s\S]*?)<\/p>/i
