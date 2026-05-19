@@ -49,9 +49,29 @@ function dedupe(arr) {
  * Best-effort fragment extraction from a raw markdown file. Used when the
  * processed JSON doesn't exist yet (drafts, in-progress posts).
  */
+/**
+ * Try multiple candidate paths for a slug's source markdown. The website
+ * repo has the synced copies; Dispatch sets DISPATCH_VAULT_PATH when
+ * generating from a draft that only lives in the Obsidian vault.
+ */
+async function readMarkdownForSlug(slug) {
+  const candidates = [path.join(BLOG_DIR, `${slug}.md`)]
+  if (process.env.DISPATCH_VAULT_PATH) {
+    candidates.push(path.join(process.env.DISPATCH_VAULT_PATH, 'blog', `${slug}.md`))
+  }
+  let lastErr
+  for (const p of candidates) {
+    try {
+      return { raw: await fs.readFile(p, 'utf8'), path: p }
+    } catch (e) {
+      lastErr = e
+    }
+  }
+  throw lastErr
+}
+
 async function extractFromMarkdown(slug) {
-  const mdPath = path.join(BLOG_DIR, `${slug}.md`)
-  const raw = await fs.readFile(mdPath, 'utf8')
+  const { raw } = await readMarkdownForSlug(slug)
   const { data: fm, content } = matter(raw)
 
   // Title: first H1 (## or #), else filename
