@@ -59,6 +59,12 @@ function buildInternalHref(target) {
     return `/blog/${encodePath(normalized.slice('blog/'.length))}`
   }
 
+  // Bare wikilinks (no folder prefix, no slash) are topic/tag references,
+  // not file paths. Route to the tag page instead of a non-existent /blog/Name.
+  if (!normalized.includes('/')) {
+    return `/tag/${generateSlug(normalized)}`
+  }
+
   return `/blog/${encodePath(normalized)}`
 }
 

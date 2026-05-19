@@ -41,6 +41,7 @@ import {
   remarkEnhanceLinks,
   remarkEnhanceImages,
   remarkExtractToc,
+  remarkMermaid,
 } from './plugins/index.mjs'
 
 import { getPostType } from './utils/helpers.mjs'
@@ -228,6 +229,7 @@ const processor = unified()
   .use(remarkAi2htmlEmbed)
   .use(remarkPredictionRef)
   .use(remarkGearCard)
+  .use(remarkMermaid)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
   .use(rehypePrettyCode, {

@@ -27,6 +27,7 @@ import {
   remarkEnhanceLinks,
   remarkEnhanceImages,
   remarkExtractToc,
+  remarkMermaid,
 } from './plugins/index.mjs'
 
 // Load theme once - use absolute path for compatibility with eval scripts
@@ -51,6 +52,7 @@ const processor = unified()
   .use(remarkEnhanceImages)
   .use(remarkEnhanceLinks)
   .use(remarkAi2htmlEmbed)
+  .use(remarkMermaid)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
   .use(rehypePrettyCode, {
