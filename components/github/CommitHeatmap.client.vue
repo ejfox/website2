@@ -1,8 +1,9 @@
 <!--
   @file CommitHeatmap.client.vue
-  @description Year × week activity heatmap. Columns = years, rows = ISO weeks.
-               Each cell is colored by the language of the repo with the most
-               commits that week, opacity scaled by commit count.
+  @description Year × week activity heatmap. Rows = years (top-to-bottom),
+               columns = ISO weeks (left-to-right, Jan → Dec). Each cell is
+               colored by the language of the repo with the most commits that
+               week, opacity scaled by commit count.
 -->
 <script setup>
 import { ref, computed, watch } from 'vue'
@@ -24,7 +25,6 @@ const { width } = useElementSize(container)
 const hoveredCell = ref(null)
 const selectedYear = ref(null)
 
-// Group weeks by year for O(1) lookup
 const weeksByYearKey = computed(() => {
   const map = new Map()
   for (const w of props.weeks) {
@@ -37,7 +37,7 @@ const maxCommitsInWeek = computed(() =>
   Math.max(...props.weeks.map((w) => w.commits), 1)
 )
 
-// Logarithmic opacity for better contrast across small + large weeks
+// Logarithmic opacity so small commit weeks remain visible alongside outliers
 const cellOpacity = (commits) => {
   if (commits <= 0) return 0
   const t = Math.log1p(commits) / Math.log1p(maxCommitsInWeek.value)
@@ -45,15 +45,15 @@ const cellOpacity = (commits) => {
 }
 
 const WEEKS_PER_YEAR = 53
-const MIN_CELL = 8
-const MAX_CELL = 18
-const PADDING_LEFT = 36 // for week-of-month labels
-const PADDING_TOP = 18 // for year labels
+const MIN_CELL = 10
+const MAX_CELL = 26
+const PADDING_LEFT = 28 // for year row labels
+const PADDING_TOP = 18 // for month column labels
 
 const cellSize = computed(() => {
   if (!width.value) return MIN_CELL
   const available = width.value - PADDING_LEFT
-  const size = available / props.years.length
+  const size = available / WEEKS_PER_YEAR
   return Math.max(MIN_CELL, Math.min(MAX_CELL, Math.floor(size)))
 })
 
@@ -61,10 +61,10 @@ const dims = computed(() => {
   const cs = cellSize.value
   return {
     cellSize: cs,
-    gridWidth: cs * props.years.length,
-    gridHeight: cs * WEEKS_PER_YEAR,
-    svgWidth: cs * props.years.length + PADDING_LEFT,
-    svgHeight: cs * WEEKS_PER_YEAR + PADDING_TOP,
+    gridWidth: cs * WEEKS_PER_YEAR,
+    gridHeight: cs * props.years.length,
+    svgWidth: cs * WEEKS_PER_YEAR + PADDING_LEFT,
+    svgHeight: cs * props.years.length + PADDING_TOP,
   }
 })
 
@@ -77,8 +77,8 @@ const cells = computed(() => {
       const lang = data?.topRepoLang || 'Unknown'
       out.push({
         key: `${y}-${w}`,
-        x: PADDING_LEFT + yi * cs,
-        y: PADDING_TOP + w * cs,
+        x: PADDING_LEFT + w * cs,
+        y: PADDING_TOP + yi * cs,
         size: cs - 1,
         year: y,
         week: w,
@@ -94,7 +94,7 @@ const cells = computed(() => {
   return out
 })
 
-// Month markers along the Y axis
+// Month markers along the X axis (approximate week number per month start)
 const monthMarkers = [
   { week: 0, label: 'Jan' },
   { week: 9, label: 'Mar' },
@@ -160,37 +160,37 @@ watch(selectedYear, (v) => emit('select', { year: v }))
       :height="dims.svgHeight"
       class="block"
     >
-      <!-- Year column headers -->
+      <!-- Month column headers across the top -->
       <g
         class="font-mono"
         font-size="9"
         fill="currentColor"
-        text-anchor="middle"
+        text-anchor="start"
       >
+        <text
+          v-for="m in monthMarkers"
+          :key="`m-${m.label}`"
+          :x="PADDING_LEFT + m.week * dims.cellSize"
+          y="10"
+          class="text-zinc-400 dark:text-zinc-600"
+        >
+          {{ m.label }}
+        </text>
+      </g>
+
+      <!-- Year row labels down the left side -->
+      <g class="font-mono" font-size="9" fill="currentColor" text-anchor="end">
         <text
           v-for="(y, yi) in years"
           :key="`yr-${y}`"
-          :x="PADDING_LEFT + yi * dims.cellSize + dims.cellSize / 2"
-          y="10"
+          :x="PADDING_LEFT - 6"
+          :y="PADDING_TOP + yi * dims.cellSize + dims.cellSize / 2 + 3"
           class="text-zinc-600 dark:text-zinc-400"
           :class="{
             'font-bold text-zinc-900 dark:text-zinc-100': selectedYear === y,
           }"
         >
           {{ String(y).slice(2) }}
-        </text>
-      </g>
-
-      <!-- Month row markers -->
-      <g class="font-mono" font-size="9" fill="currentColor" text-anchor="end">
-        <text
-          v-for="m in monthMarkers"
-          :key="`m-${m.label}`"
-          :x="PADDING_LEFT - 6"
-          :y="PADDING_TOP + m.week * dims.cellSize + dims.cellSize / 2 + 3"
-          class="text-zinc-400 dark:text-zinc-600"
-        >
-          {{ m.label }}
         </text>
       </g>
 
