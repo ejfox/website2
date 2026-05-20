@@ -495,10 +495,11 @@ onMounted(() => {
       class="pointer-events-none fixed inset-0 z-[999] debug-grid"
     ></div>
 
-    <!-- Top metadata bar - above everything -->
+    <!-- Top metadata bar — sticky lives in flow so the layout's mobile nav -->
+    <!-- and desktop sidebar can sit alongside without manual clearance. -->
     <div
       v-if="post && !post.redirect"
-      class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
+      class="sticky top-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
     >
       <PostMetadataBar
         :date="post?.metadata?.date || post?.date"

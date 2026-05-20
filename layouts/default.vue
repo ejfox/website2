@@ -15,11 +15,7 @@
       <!-- Mobile nav -->
       <nav
         v-if="!isStatsSimple"
-        :class="[
-          'md:hidden px-4 py-3 font-mono text-sm',
-          'flex flex-wrap gap-x-3 gap-y-1 items-baseline',
-          isBlogPost ? 'mt-10 sm:mt-8' : '',
-        ]"
+        class="md:hidden px-4 py-3 font-mono text-sm flex flex-wrap gap-x-3 gap-y-1 items-baseline"
       >
         <NuxtLink to="/" class="font-bold text-zinc-800 dark:text-zinc-200">
           EJ Fox
@@ -38,11 +34,7 @@
       <!-- Desktop sidebar -->
       <nav
         v-if="!isStatsSimple"
-        :class="[
-          'hidden md:flex md:flex-col sticky w-[200px] shrink-0',
-          'left-0 z-50 px-3 py-4 font-mono max-h-screen overflow-y-auto',
-          isBlogPost ? 'top-10 sm:top-8' : 'top-0',
-        ]"
+        class="hidden md:flex md:flex-col sticky top-0 left-0 z-50 w-[200px] shrink-0 px-3 py-4 font-mono max-h-screen overflow-y-auto"
       >
         <div class="space-y-2">
           <NuxtLink
@@ -98,7 +90,6 @@
         :class="[
           'w-full min-w-0 overflow-x-clip',
           isStatsSimple ? '' : 'md:w-4/5',
-          isBlogPost ? 'md:pt-10 lg:pt-8' : '',
         ]"
       >
         <slot />
