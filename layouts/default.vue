@@ -16,12 +16,12 @@
     <NuxtLoadingIndicator color="#999999" :height="1" />
 
     <!-- Page-chrome bar slot. Blog posts (and any future pages) teleport
-         their fixed-position chrome into this slot. Empty on non-blog
-         routes — the grid row auto-collapses to 0. -->
+         their chrome into this slot. Empty on non-blog routes — the grid
+         row auto-collapses to 0. -->
     <header
       v-if="!isStatsSimple"
       id="layout-bar"
-      class="layout-bar print:hidden"
+      class="layout-bar sticky top-0 z-[100] print:hidden"
     ></header>
 
     <!-- Mobile nav -->
@@ -46,7 +46,7 @@
     <!-- Desktop sidebar -->
     <nav
       v-if="!isStatsSimple"
-      class="layout-sidebar hidden md:flex md:flex-col w-[200px] px-3 py-4 font-mono"
+      class="layout-sidebar hidden md:flex md:flex-col w-[200px] px-3 py-4 font-mono sticky top-0 self-start max-h-screen overflow-y-auto z-50"
     >
       <div class="space-y-2">
         <NuxtLink
@@ -125,8 +125,9 @@ const linkClasses =
 
 <style scoped>
 /*
- * Mobile-first single column. Each row auto-sizes; the bar row collapses
- * to 0 when the slot is empty (non-blog pages).
+ * Scoped CSS holds the one thing Tailwind can't express cleanly: named
+ * grid-template-areas. Each element opts into its area below; positioning,
+ * spacing, and colors stay in Tailwind utilities on the elements themselves.
  */
 .layout-grid {
   display: grid;
@@ -143,8 +144,8 @@ const linkClasses =
   .layout-grid {
     grid-template-columns: 200px minmax(0, 1fr);
     grid-template-rows: auto minmax(0, 1fr) auto;
-    /* Sidebar spans both bar + main rows so it gets full viewport height;
-       bar sits over the main column only. */
+    /* Sidebar spans bar + main rows so it gets full viewport height while
+       the bar sits over only the main column. */
     grid-template-areas:
       'sidebar bar'
       'sidebar main'
@@ -154,9 +155,6 @@ const linkClasses =
 
 .layout-bar {
   grid-area: bar;
-  position: sticky;
-  top: 0;
-  z-index: 100;
 }
 
 .layout-mobile-nav {
@@ -165,17 +163,10 @@ const linkClasses =
 
 .layout-sidebar {
   grid-area: sidebar;
-  position: sticky;
-  top: 0;
-  align-self: start;
-  max-height: 100vh;
-  overflow-y: auto;
-  z-index: 50;
 }
 
 .layout-main {
   grid-area: main;
-  min-width: 0;
 }
 
 .layout-footer {
