@@ -1,0 +1,1 @@
+{"meta":{"pushedAt":"2019-03-31T20:57:47Z","generatedAt":"2026-05-20T15:16:50.827Z","nodeCount":1,"edgeCount":1},"nodes":[{"id":"cli.js:writeHtmlFile","label":"writeHtmlFile","type":"function","lines":"[47-55]","file":"cli.js"}],"edges":[{"source":"cli.js:global","target":"cli.js:writeHtmlFile","type":"calls"}]}

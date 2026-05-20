@@ -1,0 +1,1 @@
+{"meta":{"pushedAt":"2025-08-13T15:45:29Z","generatedAt":"2026-05-20T15:17:45.649Z","nodeCount":1,"edgeCount":1},"nodes":[{"id":"vibe-controller.js:initController","label":"initController","type":"function","lines":"[19-48]","file":"vibe-controller.js"}],"edges":[{"source":"vibe-controller.js:global","target":"vibe-controller.js:initController","type":"calls"}]}
