@@ -495,25 +495,24 @@ onMounted(() => {
       class="pointer-events-none fixed inset-0 z-[999] debug-grid"
     ></div>
 
-    <!-- Top metadata bar — sticky lives in flow so the layout's mobile nav -->
-    <!-- and desktop sidebar can sit alongside without manual clearance. -->
-    <div
-      v-if="post && !post.redirect"
-      class="sticky top-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
-    >
-      <PostMetadataBar
-        :date="post?.metadata?.date || post?.date"
-        :stats="readingStats"
-        :slug="route.params.slug.join('/')"
-      />
-      <!-- Draft banner - inside same container, stacks below metadata -->
-      <div v-if="isDraft" class="draft-banner">
-        <span class="draft-banner-text">DRAFT</span>
-        <span class="draft-banner-subtext">
-          Work in progress · Not for distribution
-        </span>
+    <!-- Top metadata bar — teleported into the layout's #layout-bar slot
+         so it lives as a sibling of the navs in the layout grid, not buried
+         inside this page. Sticky behavior is on the layout slot itself. -->
+    <Teleport v-if="post && !post.redirect" to="#layout-bar">
+      <div class="bg-zinc-900/90 backdrop-blur-sm">
+        <PostMetadataBar
+          :date="post?.metadata?.date || post?.date"
+          :stats="readingStats"
+          :slug="route.params.slug.join('/')"
+        />
+        <div v-if="isDraft" class="draft-banner">
+          <span class="draft-banner-text">DRAFT</span>
+          <span class="draft-banner-subtext">
+            Work in progress · Not for distribution
+          </span>
+        </div>
       </div>
-    </div>
+    </Teleport>
 
     <!-- Reading progress bar -->
     <div v-if="post && !post.redirect" class="progress-bar print:hidden">
