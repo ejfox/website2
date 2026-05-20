@@ -93,7 +93,9 @@
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="space-y-4">
-          <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
+          <div
+            class="font-mono text-3xs uppercase tracking-wider text-zinc-500"
+          >
             Graph
           </div>
 
@@ -101,15 +103,21 @@
           <div class="space-y-1 font-mono text-3xs tabular-nums">
             <div class="flex justify-between">
               <span class="text-zinc-500">Posts</span>
-              <span class="text-zinc-300">{{ loadedPostCount }}/{{ filteredPostCount }}</span>
+              <span class="text-zinc-300">
+                {{ loadedPostCount }}/{{ filteredPostCount }}
+              </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Scraps</span>
-              <span class="text-zinc-300">{{ loadedScrapCount }}/{{ filteredScrapCount }}</span>
+              <span class="text-zinc-300">
+                {{ loadedScrapCount }}/{{ filteredScrapCount }}
+              </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Tags</span>
-              <span class="text-zinc-300">{{ graphData.nodes.filter((n) => n.type === 'tag').length }}</span>
+              <span class="text-zinc-300">
+                {{ graphData.nodes.filter((n) => n.type === 'tag').length }}
+              </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Links</span>
@@ -119,31 +127,57 @@
 
           <!-- Filters -->
           <div class="space-y-1.5 pt-2 border-t border-zinc-800">
-            <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500 mb-1">
+            <div
+              class="font-mono text-3xs uppercase tracking-wider text-zinc-500 mb-1"
+            >
               Filter
             </div>
             <label class="flex items-center gap-2 cursor-pointer select-none">
-              <input v-model="showPosts" type="checkbox" class="accent-white w-3 h-3" />
-              <span class="font-mono text-3xs" :class="showPosts ? 'text-zinc-300' : 'text-zinc-600'">
+              <input
+                v-model="showPosts"
+                type="checkbox"
+                class="accent-white w-3 h-3"
+              />
+              <span
+                class="font-mono text-3xs"
+                :class="showPosts ? 'text-zinc-300' : 'text-zinc-600'"
+              >
                 Posts
               </span>
             </label>
             <label class="flex items-center gap-2 cursor-pointer select-none">
-              <input v-model="showScraps" type="checkbox" class="accent-red-400 w-3 h-3" />
-              <span class="font-mono text-3xs" :class="showScraps ? 'text-red-400' : 'text-zinc-600'">
+              <input
+                v-model="showScraps"
+                type="checkbox"
+                class="accent-red-400 w-3 h-3"
+              />
+              <span
+                class="font-mono text-3xs"
+                :class="showScraps ? 'text-red-400' : 'text-zinc-600'"
+              >
                 Scraps
               </span>
             </label>
             <label class="flex items-center gap-2 cursor-pointer select-none">
-              <input v-model="showTags" type="checkbox" class="accent-amber-400 w-3 h-3" />
-              <span class="font-mono text-3xs" :class="showTags ? 'text-amber-400' : 'text-zinc-600'">
+              <input
+                v-model="showTags"
+                type="checkbox"
+                class="accent-amber-400 w-3 h-3"
+              />
+              <span
+                class="font-mono text-3xs"
+                :class="showTags ? 'text-amber-400' : 'text-zinc-600'"
+              >
                 Tags
               </span>
             </label>
           </div>
 
           <!-- Streaming indicator -->
-          <div v-if="isStreaming" class="font-mono text-3xs text-zinc-600 animate-pulse">
+          <div
+            v-if="isStreaming"
+            class="font-mono text-3xs text-zinc-600 animate-pulse"
+          >
             Loading nodes...
           </div>
         </div>

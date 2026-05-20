@@ -28,7 +28,14 @@
     </template>
     <template v-if="sourceUrl">
       <span class="text-zinc-400 dark:text-zinc-600">·</span>
-      <a :href="sourceUrl" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors hidden sm:inline">view source</a>
+      <a
+        :href="sourceUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="whitespace-nowrap hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors hidden sm:inline"
+      >
+        view source
+      </a>
     </template>
   </div>
 </template>

@@ -188,7 +188,12 @@ const {
   error,
 } = await useFetch<Scrap[]>('/api/scraps')
 
-const { revealContainer: scrapsReveal } = useScrollReveal({ selector: ':scope > div', staggerDelay: 8, translateY: 3, duration: 100 })
+const { revealContainer: scrapsReveal } = useScrollReveal({
+  selector: ':scope > div',
+  staggerDelay: 8,
+  translateY: 3,
+  duration: 100,
+})
 
 const _stats = computed(() => {
   if (!scraps.value?.length) return null

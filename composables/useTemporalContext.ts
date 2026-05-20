@@ -2,10 +2,22 @@
  * Fetches "around this time" context for a given date.
  * Returns reading, predictions, and commit count from the same period.
  */
-export function useTemporalContext(date: Ref<string | undefined> | ComputedRef<string | undefined>) {
+export function useTemporalContext(
+  date: Ref<string | undefined> | ComputedRef<string | undefined>
+) {
   const context = ref<{
-    reading: Array<{ title: string; author: string; slug: string; highlights: number }>
-    predictions: Array<{ statement: string; confidence: number; status: string; slug: string }>
+    reading: Array<{
+      title: string
+      author: string
+      slug: string
+      highlights: number
+    }>
+    predictions: Array<{
+      statement: string
+      confidence: number
+      status: string
+      slug: string
+    }>
     scraps: Array<{ title: string; tags: string[]; url: string | null }>
     commits: number | null
   } | null>(null)

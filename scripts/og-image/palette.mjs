@@ -4,13 +4,13 @@
  */
 
 export const ZINC = {
-  bg: [24, 24, 27],        // #18181b
-  card: [39, 39, 42],      // #27272a
+  bg: [24, 24, 27], // #18181b
+  card: [39, 39, 42], // #27272a
   cardBorder: [63, 63, 70], // #3f3f46
-  text: [228, 228, 231],   // #e4e4e7
-  dim: [82, 82, 91],       // #52525b
-  faint: [39, 39, 42],     // #27272a
-  accent: [239, 68, 68],   // #ef4444 — red, used sparingly
+  text: [228, 228, 231], // #e4e4e7
+  dim: [82, 82, 91], // #52525b
+  faint: [39, 39, 42], // #27272a
+  accent: [239, 68, 68], // #ef4444 — red, used sparingly
 }
 
 export function rgba(color, alpha = 1) {

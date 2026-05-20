@@ -30,11 +30,21 @@ defineProps({
 }
 
 @keyframes scroll-pulse {
-  0%, 100% { opacity: 0.3; transform: scaleY(0.8); }
-  50% { opacity: 1; transform: scaleY(1); }
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scaleY(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .scroll-line { animation: none; opacity: 0.5; }
+  .scroll-line {
+    animation: none;
+    opacity: 0.5;
+  }
 }
 </style>

@@ -27,7 +27,10 @@ const CONTENT_DIR = path.resolve(__dirname, '..', 'content', 'blog')
 
 const args = process.argv.slice(2)
 const providerIdx = args.indexOf('--provider')
-const PROVIDER = providerIdx !== -1 ? args[providerIdx + 1] : (process.env.ALT_TEXT_PROVIDER || 'anthropic')
+const PROVIDER =
+  providerIdx !== -1
+    ? args[providerIdx + 1]
+    : process.env.ALT_TEXT_PROVIDER || 'anthropic'
 
 const PROVIDERS = {
   anthropic: {
@@ -48,7 +51,9 @@ if (!providerConfig) {
 
 const API_KEY = process.env[providerConfig.envKey]
 if (!API_KEY) {
-  console.error(`Error: ${providerConfig.envKey} environment variable is required`)
+  console.error(
+    `Error: ${providerConfig.envKey} environment variable is required`
+  )
   process.exit(1)
 }
 
@@ -91,16 +96,19 @@ async function callAnthropic(imageUrl) {
     body: JSON.stringify({
       model: providerConfig.model,
       max_tokens: 200,
-      messages: [{
-        role: 'user',
-        content: [
-          { type: 'image', source: { type: 'url', url: imageUrl } },
-          { type: 'text', text: ALT_TEXT_PROMPT },
-        ],
-      }],
+      messages: [
+        {
+          role: 'user',
+          content: [
+            { type: 'image', source: { type: 'url', url: imageUrl } },
+            { type: 'text', text: ALT_TEXT_PROMPT },
+          ],
+        },
+      ],
     }),
   })
-  if (!response.ok) throw new Error(`Anthropic ${response.status}: ${await response.text()}`)
+  if (!response.ok)
+    throw new Error(`Anthropic ${response.status}: ${await response.text()}`)
   const data = await response.json()
   return data.content[0].text.trim()
 }
@@ -110,21 +118,24 @@ async function callOpenAI(imageUrl) {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${API_KEY}`,
+      Authorization: `Bearer ${API_KEY}`,
     },
     body: JSON.stringify({
       model: providerConfig.model,
       max_tokens: 200,
-      messages: [{
-        role: 'user',
-        content: [
-          { type: 'image_url', image_url: { url: imageUrl, detail: 'low' } },
-          { type: 'text', text: ALT_TEXT_PROMPT },
-        ],
-      }],
+      messages: [
+        {
+          role: 'user',
+          content: [
+            { type: 'image_url', image_url: { url: imageUrl, detail: 'low' } },
+            { type: 'text', text: ALT_TEXT_PROMPT },
+          ],
+        },
+      ],
     }),
   })
-  if (!response.ok) throw new Error(`OpenAI ${response.status}: ${await response.text()}`)
+  if (!response.ok)
+    throw new Error(`OpenAI ${response.status}: ${await response.text()}`)
   const data = await response.json()
   return data.choices[0].message.content.trim()
 }
@@ -145,22 +156,37 @@ const CONFIDENCE_THRESHOLD = 0.8
 const DELAY_MS = 600
 
 const JUNK_ALT_PATTERNS = [
-  /^Screenshot/i, /^Screen Shot/i, /^Pasted image/i, /^IMG_/, /^DSC/, /^DJI_/,
-  /^DSCF/, /^Photo /i, /^CleanShot/i, /^Untitled/i, /^image\d*/i,
-  /^[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}/,
-  /^[A-Za-z0-9_.-]+\.(png|jpe?g|gif|webp|svg|tiff?)$/i,
+  /^Screenshot/i,
+  /^Screen Shot/i,
+  /^Pasted image/i,
+  /^IMG_/,
+  /^DSC/,
+  /^DJI_/,
+  /^DSCF/,
+  /^Photo /i,
+  /^CleanShot/i,
+  /^Untitled/i,
+  /^image\d*/i,
+  /^[A-F0-9]{8}-[A-F0-9]{4}/i,
+  /^[\w.-]+\.(png|jpe?g|gif|webp|svg|tiff?)$/i,
   /^\d{4}-\d{2}-\d{2}/,
 ]
 
 function isJunkAlt(alt) {
   if (!alt || alt.trim().length === 0) return true
-  return JUNK_ALT_PATTERNS.some(p => p.test(alt.trim()))
+  return JUNK_ALT_PATTERNS.some((p) => p.test(alt.trim()))
 }
 
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)) }
-function isCloudinaryUrl(url) { return url.includes('res.cloudinary.com/') }
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms))
+}
+function isCloudinaryUrl(url) {
+  return url.includes('res.cloudinary.com/')
+}
 function isVideoUrl(url) {
-  return /\.(mp4|webm|mov|gif)(\?|$)/i.test(url) || url.includes('/video/upload/')
+  return (
+    /\.(mp4|webm|mov|gif)(\?|$)/i.test(url) || url.includes('/video/upload/')
+  )
 }
 
 function getImageUrl(url) {
@@ -173,13 +199,20 @@ function getImageUrl(url) {
 
 function parseAltResponse(raw) {
   try {
-    const cleaned = raw.replace(/^```json?\n?/, '').replace(/\n?```$/, '').trim()
+    const cleaned = raw
+      .replace(/^```json?\n?/, '')
+      .replace(/\n?```$/, '')
+      .trim()
     const parsed = JSON.parse(cleaned)
     const altText = parsed.alt.trim().replace(/\[/g, '(').replace(/\]/g, ')')
-    const confidence = typeof parsed.confidence === 'number' ? parsed.confidence : 0.5
+    const confidence =
+      typeof parsed.confidence === 'number' ? parsed.confidence : 0.5
     return { altText, confidence }
   } catch {
-    return { altText: raw.replace(/\[/g, '(').replace(/\]/g, ')'), confidence: 0.5 }
+    return {
+      altText: raw.replace(/\[/g, '(').replace(/\]/g, ')'),
+      confidence: 0.5,
+    }
   }
 }
 
@@ -207,17 +240,27 @@ async function findMarkdownFiles(dir) {
 async function processFile(filePath) {
   const content = await fs.readFile(filePath, 'utf8')
   const matches = [...content.matchAll(ALL_IMAGES_RE)]
-  if (matches.length === 0) return { file: filePath, changes: 0, skipped: 0, total: 0, needsReview: [] }
+  if (matches.length === 0)
+    return { file: filePath, changes: 0, skipped: 0, total: 0, needsReview: [] }
 
-  const needsFix = matches.filter(m => {
+  const needsFix = matches.filter((m) => {
     const alt = m[1]
     if (EMPTY_ONLY) return !alt || alt.trim().length === 0
     return isJunkAlt(alt)
   })
-  if (needsFix.length === 0) return { file: filePath, changes: 0, skipped: 0, total: matches.length, needsReview: [] }
+  if (needsFix.length === 0)
+    return {
+      file: filePath,
+      changes: 0,
+      skipped: 0,
+      total: matches.length,
+      needsReview: [],
+    }
 
   const relPath = path.relative(path.resolve(__dirname, '..'), filePath)
-  console.log(`\n📄 ${relPath} — ${needsFix.length}/${matches.length} image(s) need alt text`)
+  console.log(
+    `\n📄 ${relPath} — ${needsFix.length}/${matches.length} image(s) need alt text`
+  )
 
   let newContent = content
   let changes = 0
@@ -229,8 +272,14 @@ async function processFile(filePath) {
     const oldAlt = match[1]
     const imageUrl = match[2]
 
-    if (isVideoUrl(imageUrl)) { skipped++; continue }
-    if (!isCloudinaryUrl(imageUrl)) { skipped++; continue }
+    if (isVideoUrl(imageUrl)) {
+      skipped++
+      continue
+    }
+    if (!isCloudinaryUrl(imageUrl)) {
+      skipped++
+      continue
+    }
 
     try {
       const label = oldAlt ? `(was: "${oldAlt.slice(0, 40)}...")` : '(empty)'
@@ -239,17 +288,30 @@ async function processFile(filePath) {
       const conf = (confidence * 100).toFixed(0)
 
       if (confidence >= CONFIDENCE_THRESHOLD) {
-        console.log(`✅ [${conf}%] "${altText.slice(0, 80)}${altText.length > 80 ? '...' : ''}"`)
+        console.log(
+          `✅ [${conf}%] "${altText.slice(0, 80)}${altText.length > 80 ? '...' : ''}"`
+        )
         const replacement = `![${altText}](${imageUrl})`
         const idx = newContent.indexOf(fullMatch)
         if (idx !== -1) {
-          newContent = newContent.slice(0, idx) + replacement + newContent.slice(idx + fullMatch.length)
+          newContent =
+            newContent.slice(0, idx) +
+            replacement +
+            newContent.slice(idx + fullMatch.length)
         }
         changes++
       } else {
-        console.log(`⚠️  [${conf}%] "${altText.slice(0, 80)}${altText.length > 80 ? '...' : ''}"`)
+        console.log(
+          `⚠️  [${conf}%] "${altText.slice(0, 80)}${altText.length > 80 ? '...' : ''}"`
+        )
         const lines = content.slice(0, content.indexOf(fullMatch)).split('\n')
-        needsReview.push({ file: relPath, line: lines.length, url: imageUrl.slice(0, 100), suggested: altText, confidence })
+        needsReview.push({
+          file: relPath,
+          line: lines.length,
+          url: imageUrl.slice(0, 100),
+          suggested: altText,
+          confidence,
+        })
       }
       await sleep(DELAY_MS)
     } catch (err) {
@@ -262,12 +324,22 @@ async function processFile(filePath) {
     await fs.writeFile(filePath, newContent, 'utf8')
     console.log(`  💾 Wrote ${changes} change(s)`)
   } else if (changes > 0) {
-    console.log(`  🏜  Dry run — ${changes} change(s) would be written (use --write to apply)`)
+    console.log(
+      `  🏜  Dry run — ${changes} change(s) would be written (use --write to apply)`
+    )
   }
   if (needsReview.length > 0) {
-    console.log(`  👁  ${needsReview.length} need manual review (confidence < ${CONFIDENCE_THRESHOLD * 100}%)`)
+    console.log(
+      `  👁  ${needsReview.length} need manual review (confidence < ${CONFIDENCE_THRESHOLD * 100}%)`
+    )
   }
-  return { file: filePath, changes, skipped, total: matches.length, needsReview }
+  return {
+    file: filePath,
+    changes,
+    skipped,
+    total: matches.length,
+    needsReview,
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -278,12 +350,19 @@ async function main() {
   console.log(`\n🖼  Alt Text Generator`)
   console.log(`Provider: ${PROVIDER} (${providerConfig.model})`)
   console.log(`Mode: ${WRITE_MODE ? '✏️  WRITE' : '👀 DRY RUN'}`)
-  console.log(`Scope: ${EMPTY_ONLY ? 'Empty alt text only' : 'Empty + junk (filenames, timestamps, UUIDs)'}`)
+  console.log(
+    `Scope: ${EMPTY_ONLY ? 'Empty alt text only' : 'Empty + junk (filenames, timestamps, UUIDs)'}`
+  )
   console.log(`Source: ${SINGLE_FILE || CONTENT_DIR}\n`)
 
-  const files = SINGLE_FILE ? [path.resolve(SINGLE_FILE)] : await findMarkdownFiles(CONTENT_DIR)
+  const files = SINGLE_FILE
+    ? [path.resolve(SINGLE_FILE)]
+    : await findMarkdownFiles(CONTENT_DIR)
 
-  let totalImages = 0, totalChanges = 0, totalSkipped = 0, filesModified = 0
+  let totalImages = 0,
+    totalChanges = 0,
+    totalSkipped = 0,
+    filesModified = 0
   const allNeedsReview = []
 
   for (const file of files) {
@@ -299,15 +378,26 @@ async function main() {
   console.log(`   Provider: ${PROVIDER} (${providerConfig.model})`)
   console.log(`   Files scanned: ${files.length}`)
   console.log(`   Total images found: ${totalImages}`)
-  console.log(`   Auto-applied (≥${CONFIDENCE_THRESHOLD * 100}%): ${totalChanges} across ${filesModified} files`)
-  console.log(`   Needs manual review (<${CONFIDENCE_THRESHOLD * 100}%): ${allNeedsReview.length}`)
+  console.log(
+    `   Auto-applied (≥${CONFIDENCE_THRESHOLD * 100}%): ${totalChanges} across ${filesModified} files`
+  )
+  console.log(
+    `   Needs manual review (<${CONFIDENCE_THRESHOLD * 100}%): ${allNeedsReview.length}`
+  )
   console.log(`   Skipped (video/local/error): ${totalSkipped}`)
 
   if (allNeedsReview.length > 0) {
-    const reviewPath = path.resolve(__dirname, '..', 'data', 'alt-text-review.json')
+    const reviewPath = path.resolve(
+      __dirname,
+      '..',
+      'data',
+      'alt-text-review.json'
+    )
     await fs.mkdir(path.dirname(reviewPath), { recursive: true })
     await fs.writeFile(reviewPath, JSON.stringify(allNeedsReview, null, 2))
-    console.log(`\n👁  Review file written: ${path.relative(path.resolve(__dirname, '..'), reviewPath)}`)
+    console.log(
+      `\n👁  Review file written: ${path.relative(path.resolve(__dirname, '..'), reviewPath)}`
+    )
     console.log(`   Open it, fix the "suggested" fields, then run:`)
     console.log(`   node scripts/generate-alt-text.mjs --apply-review`)
   }
@@ -317,10 +407,19 @@ async function main() {
 }
 
 async function applyReview() {
-  const reviewPath = path.resolve(__dirname, '..', 'data', 'alt-text-review.json')
+  const reviewPath = path.resolve(
+    __dirname,
+    '..',
+    'data',
+    'alt-text-review.json'
+  )
   let items
-  try { items = JSON.parse(await fs.readFile(reviewPath, 'utf8')) }
-  catch { console.error('No review file found at data/alt-text-review.json'); process.exit(1) }
+  try {
+    items = JSON.parse(await fs.readFile(reviewPath, 'utf8'))
+  } catch {
+    console.error('No review file found at data/alt-text-review.json')
+    process.exit(1)
+  }
 
   console.log(`\n📝 Applying ${items.length} reviewed alt text entries...\n`)
 
@@ -346,7 +445,9 @@ async function applyReview() {
       }
     }
     await fs.writeFile(filePath, content, 'utf8')
-    console.log(`  💾 ${path.relative(path.resolve(__dirname, '..'), filePath)} — ${fileItems.length} entries`)
+    console.log(
+      `  💾 ${path.relative(path.resolve(__dirname, '..'), filePath)} — ${fileItems.length} entries`
+    )
   }
   console.log(`\n✅ Applied ${applied} alt text entries`)
   await fs.unlink(reviewPath)
@@ -354,7 +455,13 @@ async function applyReview() {
 }
 
 if (args.includes('--apply-review')) {
-  applyReview().catch(err => { console.error('Fatal error:', err); process.exit(1) })
+  applyReview().catch((err) => {
+    console.error('Fatal error:', err)
+    process.exit(1)
+  })
 } else {
-  main().catch(err => { console.error('Fatal error:', err); process.exit(1) })
+  main().catch((err) => {
+    console.error('Fatal error:', err)
+    process.exit(1)
+  })
 }

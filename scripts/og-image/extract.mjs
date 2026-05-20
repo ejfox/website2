@@ -14,7 +14,8 @@ const BLOG_DIR = path.join(ROOT, 'content', 'blog')
 // Number of image cards to feed into the 3D scene. The renderer + layout
 // happily handle more than 3; the old cap was conservative.
 const MAX_IMAGES = 6
-const CLOUDINARY_RE = /https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^\s"')]+/g
+const CLOUDINARY_RE =
+  /https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^\s"')]+/g
 
 /**
  * Pull Cloudinary URLs out of frontmatter fields a writer might use
@@ -57,7 +58,9 @@ function dedupe(arr) {
 async function readMarkdownForSlug(slug) {
   const candidates = [path.join(BLOG_DIR, `${slug}.md`)]
   if (process.env.DISPATCH_VAULT_PATH) {
-    candidates.push(path.join(process.env.DISPATCH_VAULT_PATH, 'blog', `${slug}.md`))
+    candidates.push(
+      path.join(process.env.DISPATCH_VAULT_PATH, 'blog', `${slug}.md`)
+    )
   }
   let lastErr
   for (const p of candidates) {
@@ -99,7 +102,9 @@ async function extractFromMarkdown(slug) {
   const imageUrls = dedupe([
     ...imagesFromFrontmatter(fm),
     ...Array.from(
-      content.matchAll(/!\[[^\]]*]\((https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^)]+)\)/g),
+      content.matchAll(
+        /!\[[^\]]*\]\((https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^)]+)\)/g
+      )
     ).map((m) => m[1]),
   ]).slice(0, MAX_IMAGES)
 
@@ -161,7 +166,7 @@ export async function extractContent(slug) {
 
   // Extract headings from TOC
   const headings = (meta.toc || [])
-    .map(h => h.text)
+    .map((h) => h.text)
     .filter(Boolean)
     .slice(0, 5)
 
@@ -180,7 +185,9 @@ export async function extractContent(slug) {
   const imageUrls = dedupe([
     ...imagesFromFrontmatter(meta),
     ...Array.from(
-      html.matchAll(/src="(https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^"]+)"/gi),
+      html.matchAll(
+        /src="(https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^"]+)"/gi
+      )
     ).map((m) => m[1]),
   ]).slice(0, MAX_IMAGES)
 
@@ -188,7 +195,10 @@ export async function extractContent(slug) {
   const pRe = /<p[^>]*>([\s\S]*?)<\/p>/i
   const pMatch = html.match(pRe)
   const firstParagraph = pMatch
-    ? pMatch[1].replace(/<[^>]+>/g, '').trim().slice(0, 120)
+    ? pMatch[1]
+        .replace(/<[^>]+>/g, '')
+        .trim()
+        .slice(0, 120)
     : null
 
   return {

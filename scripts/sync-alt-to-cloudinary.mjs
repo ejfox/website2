@@ -23,7 +23,9 @@ const API_KEY = process.env.CLOUDINARY_API_KEY
 const API_SECRET = process.env.CLOUDINARY_API_SECRET
 
 if (!CLOUD_NAME || !API_KEY || !API_SECRET) {
-  console.error('Error: CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET required')
+  console.error(
+    'Error: CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, and CLOUDINARY_API_SECRET required'
+  )
   console.error('Set them in your environment or .env file')
   process.exit(1)
 }
@@ -31,16 +33,27 @@ if (!CLOUD_NAME || !API_KEY || !API_SECRET) {
 const args = process.argv.slice(2)
 const WRITE_MODE = args.includes('--write')
 const FROM_CACHE = args.includes('--from-cache')
-const CACHE_PATH = path.resolve(__dirname, '..', 'data', 'cloudinary-image-cache.json')
+const CACHE_PATH = path.resolve(
+  __dirname,
+  '..',
+  'data',
+  'cloudinary-image-cache.json'
+)
 
 const ALL_IMAGES_RE = /!\[([^\]]*)\]\(([^)]+)\)/g
 const DELAY_MS = 200
 
-function sleep(ms) { return new Promise(r => setTimeout(r, ms)) }
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms))
+}
 
-function isCloudinaryUrl(url) { return url.includes('res.cloudinary.com/') }
+function isCloudinaryUrl(url) {
+  return url.includes('res.cloudinary.com/')
+}
 function isVideoUrl(url) {
-  return /\.(mp4|webm|mov|gif)(\?|$)/i.test(url) || url.includes('/video/upload/')
+  return (
+    /\.(mp4|webm|mov|gif)(\?|$)/i.test(url) || url.includes('/video/upload/')
+  )
 }
 
 /**
@@ -54,7 +67,7 @@ function extractPublicId(url) {
 
   const parts = match[1].split('/')
   // Skip transform segments and version
-  const filtered = parts.filter(p => {
+  const filtered = parts.filter((p) => {
     if (/^v\d+$/.test(p)) return false
     if (p.includes(',') || /^[cwhfqget]_/.test(p)) return false
     return true
@@ -62,13 +75,20 @@ function extractPublicId(url) {
 
   const joined = filtered.join('/')
   // Remove file extension
-  return joined.replace(/\.(jpg|jpeg|png|gif|webp|svg|tiff?|bmp|mp4|webm|mov)$/i, '')
+  return joined.replace(
+    /\.(jpg|jpeg|png|gif|webp|svg|tiff?|bmp|mp4|webm|mov)$/i,
+    ''
+  )
 }
 
 /**
  * Push alt text to Cloudinary's context metadata via the explicit API.
  */
-async function updateCloudinaryContext(publicId, altText, resourceType = 'image') {
+async function updateCloudinaryContext(
+  publicId,
+  altText,
+  resourceType = 'image'
+) {
   const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/${resourceType}/explicit`
   const auth = Buffer.from(`${API_KEY}:${API_SECRET}`).toString('base64')
 
@@ -79,7 +99,7 @@ async function updateCloudinaryContext(publicId, altText, resourceType = 'image'
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Basic ${auth}`,
+      Authorization: `Basic ${auth}`,
     },
     body: JSON.stringify({
       public_id: publicId,
@@ -136,8 +156,9 @@ async function main() {
         const publicId = extractPublicId(url)
         if (!publicId) continue
 
-        if (/^(Screenshot|Screen Shot|IMG_|DSC|Pasted image)/i.test(alt)) continue
-        if (/^[A-Za-z0-9_.-]+\.(png|jpe?g|gif)$/i.test(alt)) continue
+        if (/^(Screenshot|Screen Shot|IMG_|DSC|Pasted image)/i.test(alt))
+          continue
+        if (/^[\w.-]+\.(png|jpe?g|gif)$/i.test(alt)) continue
         if (/^\d{4}-\d{2}-\d{2}/.test(alt)) continue
         if (/^https?:\/\//.test(alt)) continue
 
@@ -177,4 +198,7 @@ async function main() {
   }
 }
 
-main().catch(err => { console.error('Fatal error:', err); process.exit(1) })
+main().catch((err) => {
+  console.error('Fatal error:', err)
+  process.exit(1)
+})

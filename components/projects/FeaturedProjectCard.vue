@@ -50,7 +50,9 @@ const props = defineProps({
   index: { type: Number, required: true },
 })
 
-const projectSlug = computed(() => props.project.slug?.replace(/^projects\//, '') || '')
+const projectSlug = computed(
+  () => props.project.slug?.replace(/^projects\//, '') || ''
+)
 
 const projectTitle = computed(
   () => props.project.title || props.project.metadata?.title || ''

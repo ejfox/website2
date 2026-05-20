@@ -3,7 +3,9 @@
 <template>
   <div>
     <!-- Top metadata bar - fixed, matching blog posts -->
-    <div class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden">
+    <div
+      class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
+    >
       <div
         class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-white uppercase tracking-wider"
       >
@@ -87,7 +89,11 @@
                 :key="post?.slug"
               >
                 <!-- Year marker (inline, only for first post) -->
-                <div v-if="index === 0" :data-year="year" class="year-marker leading-[12px] scroll-mt-4">
+                <div
+                  v-if="index === 0"
+                  :data-year="year"
+                  class="year-marker leading-[12px] scroll-mt-4"
+                >
                   {{ year }}
                 </div>
 
@@ -202,7 +208,6 @@
               </template>
             </div>
           </section>
-
         </div>
       </div>
     </header>
@@ -211,7 +216,9 @@
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="space-y-4">
-          <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
+          <div
+            class="font-mono text-3xs uppercase tracking-wider text-zinc-500"
+          >
             Archive
           </div>
 
@@ -222,18 +229,24 @@
               :key="`nav-${year}`"
               href="#"
               class="flex justify-between font-mono text-3xs tabular-nums transition-colors"
-              :class="activeYear === String(year)
-                ? 'text-zinc-100'
-                : 'text-zinc-500 hover:text-zinc-300'"
+              :class="
+                activeYear === String(year)
+                  ? 'text-zinc-100'
+                  : 'text-zinc-500 hover:text-zinc-300'
+              "
               @click.prevent="scrollToYear(year)"
             >
               <span>{{ year }}</span>
-              <span class="text-zinc-600">{{ blogPostsByYear[year]?.length }}</span>
+              <span class="text-zinc-600">
+                {{ blogPostsByYear[year]?.length }}
+              </span>
             </a>
           </div>
 
           <!-- Totals -->
-          <div class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums">
+          <div
+            class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums"
+          >
             <div class="flex justify-between">
               <span class="text-zinc-500">Posts</span>
               <span class="text-zinc-300">{{ blogStats.postsCount }}</span>
@@ -244,7 +257,9 @@
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Read time</span>
-              <span class="text-zinc-300">{{ blogStats.totalReadHours }}hr</span>
+              <span class="text-zinc-300">
+                {{ blogStats.totalReadHours }}hr
+              </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Avg post</span>
@@ -264,7 +279,12 @@ import { isValidPost } from '~/composables/usePostFilters'
 const { formatShortDate } = useDateFormat()
 const processedMarkdown = useProcessedMarkdown()
 const { tocTarget } = useTOC()
-const { revealContainer: postsReveal } = useScrollReveal({ selector: 'article, .year-marker', staggerDelay: 15, translateY: 4, duration: 180 })
+const { revealContainer: postsReveal } = useScrollReveal({
+  selector: 'article, .year-marker',
+  staggerDelay: 15,
+  translateY: 4,
+  duration: 180,
+})
 
 const activeYear = ref('')
 
@@ -287,11 +307,17 @@ onMounted(() => {
   )
 
   // Observe year markers after data loads
-  watch(sortedYears, () => {
-    nextTick(() => {
-      document.querySelectorAll('[data-year]').forEach((el) => observer.observe(el))
-    })
-  }, { immediate: true })
+  watch(
+    sortedYears,
+    () => {
+      nextTick(() => {
+        document
+          .querySelectorAll('[data-year]')
+          .forEach((el) => observer.observe(el))
+      })
+    },
+    { immediate: true }
+  )
 
   onBeforeUnmount(() => observer.disconnect())
 })

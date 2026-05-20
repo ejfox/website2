@@ -13,12 +13,17 @@ import { createClient } from '@supabase/supabase-js'
 
 const WINDOW_DAYS = 30 // ±30 days from the target date
 
-function withinWindow(target: Date, candidate: string | undefined, days = WINDOW_DAYS): boolean {
+function withinWindow(
+  target: Date,
+  candidate: string | undefined,
+  days = WINDOW_DAYS
+): boolean {
   if (!candidate) return false
   try {
     const d = new Date(candidate)
     if (isNaN(d.getTime())) return false
-    const diff = Math.abs(target.getTime() - d.getTime()) / (1000 * 60 * 60 * 24)
+    const diff =
+      Math.abs(target.getTime() - d.getTime()) / (1000 * 60 * 60 * 24)
     return diff <= days
   } catch {
     return false
@@ -33,8 +38,18 @@ export default defineEventHandler(async (event) => {
   if (isNaN(targetDate.getTime())) return { error: 'invalid date' }
 
   const results: {
-    reading: Array<{ title: string; author: string; slug: string; highlights: number }>
-    predictions: Array<{ statement: string; confidence: number; status: string; slug: string }>
+    reading: Array<{
+      title: string
+      author: string
+      slug: string
+      highlights: number
+    }>
+    predictions: Array<{
+      statement: string
+      confidence: number
+      status: string
+      slug: string
+    }>
     scraps: Array<{ title: string; tags: string[]; url: string | null }>
     commits: number | null
   } = {
@@ -57,18 +72,25 @@ export default defineEventHandler(async (event) => {
         const annotatedDate = book.metadata?.['kindle-sync']?.lastAnnotatedDate
         if (withinWindow(targetDate, annotatedDate, 60)) {
           results.reading.push({
-            title: book.metadata?.['kindle-sync']?.title || book.title || file.replace('.json', ''),
+            title:
+              book.metadata?.['kindle-sync']?.title ||
+              book.title ||
+              file.replace('.json', ''),
             author: book.metadata?.['kindle-sync']?.author || '',
             slug: file.replace('.json', ''),
             highlights: book.metadata?.['kindle-sync']?.highlightsCount || 0,
           })
         }
-      } catch { /* skip bad files */ }
+      } catch {
+        /* skip bad files */
+      }
     }
     // Sort by highlights descending, take top 3
     results.reading.sort((a, b) => b.highlights - a.highlights)
     results.reading = results.reading.slice(0, 3)
-  } catch { /* reading dir may not exist */ }
+  } catch {
+    /* reading dir may not exist */
+  }
 
   // --- Predictions: active or recently resolved around this time ---
   try {
@@ -89,8 +111,13 @@ export default defineEventHandler(async (event) => {
         // Active means: created before target AND (deadline after target OR resolved near target)
         const createdDate = created ? new Date(created) : null
         const deadlineDate = deadline ? new Date(deadline) : null
-        const wasCreatedBefore = createdDate && createdDate.getTime() <= targetDate.getTime() + (WINDOW_DAYS * 86400000)
-        const deadlineAfter = deadlineDate && deadlineDate.getTime() >= targetDate.getTime() - (WINDOW_DAYS * 86400000)
+        const wasCreatedBefore =
+          createdDate &&
+          createdDate.getTime() <= targetDate.getTime() + WINDOW_DAYS * 86400000
+        const deadlineAfter =
+          deadlineDate &&
+          deadlineDate.getTime() >=
+            targetDate.getTime() - WINDOW_DAYS * 86400000
         const resolvedNear = withinWindow(targetDate, resolved, 60)
 
         if (wasCreatedBefore && (deadlineAfter || resolvedNear || !deadline)) {
@@ -101,18 +128,26 @@ export default defineEventHandler(async (event) => {
             slug: file.replace(/\.md$/, ''),
           })
         }
-      } catch { /* skip */ }
+      } catch {
+        /* skip */
+      }
     }
     results.predictions = results.predictions.slice(0, 3)
-  } catch { /* predictions dir may not exist */ }
+  } catch {
+    /* predictions dir may not exist */
+  }
 
   // --- Scraps: bookmarks/clippings saved around this time ---
   try {
     const config = useRuntimeConfig()
     if (config.SUPABASE_URL && config.SUPABASE_KEY) {
       const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY)
-      const windowStart = new Date(targetDate.getTime() - (WINDOW_DAYS * 86400000)).toISOString()
-      const windowEnd = new Date(targetDate.getTime() + (WINDOW_DAYS * 86400000)).toISOString()
+      const windowStart = new Date(
+        targetDate.getTime() - WINDOW_DAYS * 86400000
+      ).toISOString()
+      const windowEnd = new Date(
+        targetDate.getTime() + WINDOW_DAYS * 86400000
+      ).toISOString()
 
       const { data: scraps } = await supabase
         .from('scraps')
@@ -128,20 +163,37 @@ export default defineEventHandler(async (event) => {
           .map((s) => {
             // Clean AI-generated title prefixes
             let title = s.title || ''
-            const aiPrefixes = ['Main Thesis:', 'Breaking News:', 'Summary:', 'The article ', '**Summary', '• ']
+            const aiPrefixes = [
+              'Main Thesis:',
+              'Breaking News:',
+              'Summary:',
+              'The article ',
+              '**Summary',
+              '• ',
+            ]
             const isAiTitle = aiPrefixes.some((p) => title.startsWith(p))
             if (!title || isAiTitle) {
-              try { title = s.url ? new URL(s.url).hostname.replace(/^www\./, '') : 'Untitled' } catch { title = 'Untitled' }
+              try {
+                title = s.url
+                  ? new URL(s.url).hostname.replace(/^www\./, '')
+                  : 'Untitled'
+              } catch {
+                title = 'Untitled'
+              }
             }
             return {
               title,
-              tags: (s.tags || []).filter((t: string) => !t.startsWith('!')).slice(0, 3),
+              tags: (s.tags || [])
+                .filter((t: string) => !t.startsWith('!'))
+                .slice(0, 3),
               url: s.url,
             }
           })
       }
     }
-  } catch { /* supabase may not be configured */ }
+  } catch {
+    /* supabase may not be configured */
+  }
 
   // --- Git commits: count for that month ---
   try {
@@ -155,7 +207,9 @@ export default defineEventHandler(async (event) => {
         return c.date?.startsWith(targetMonth)
       }).length
     }
-  } catch { /* commits file may not exist */ }
+  } catch {
+    /* commits file may not exist */
+  }
 
   return results
 })

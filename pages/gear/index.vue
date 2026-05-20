@@ -102,8 +102,8 @@
             <div
               v-for="c in containerComparison"
               :key="c.name"
-              class="flex-1 h-full flex flex-col justify-end items-center group cursor-default"
               v-tooltip="`${c.name}: ${c.items} items, ${c.weight}`"
+              class="flex-1 h-full flex flex-col justify-end items-center group cursor-default"
             >
               <div
                 class="w-full bg-zinc-300 dark:bg-zinc-600 transition-colors"
@@ -159,8 +159,8 @@
               <div
                 v-for="item in items.slice(0, 20)"
                 :key="item.Name"
-                class="bg-zinc-600 h-0.5 hover:h-full hover:bg-zinc-400 transition-all duration-100 cursor-default"
                 v-tooltip="`${item.Name}: ${formatItemWeight(item)}`"
+                class="bg-zinc-600 h-0.5 hover:h-full hover:bg-zinc-400 transition-all duration-100 cursor-default"
                 :style="{
                   width: `${getWeightPercentage(item, items)}%`,
                   opacity:
@@ -205,15 +205,19 @@
               <div
                 v-for="(bucket, i) in getWeightHistogram(items)"
                 :key="i"
+                v-tooltip="`${bucket.count} items: ${bucket.range}`"
                 class="gear-histogram"
                 :style="{ height: `${bucket.height}%` }"
-                v-tooltip="`${bucket.count} items: ${bucket.range}`"
               ></div>
             </div>
           </div>
         </div>
 
-        <GearSpecimenPlate v-if="items.length >= 2" :items="items.slice(0, 6)" class="mb-4" />
+        <GearSpecimenPlate
+          v-if="items.length >= 2"
+          :items="items.slice(0, 6)"
+          class="mb-4"
+        />
 
         <div class="relative overflow-x-auto">
           <table class="w-full text-[9px] font-mono">
@@ -248,7 +252,9 @@
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="space-y-4">
-          <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
+          <div
+            class="font-mono text-3xs uppercase tracking-wider text-zinc-500"
+          >
             Containers
           </div>
 
@@ -262,12 +268,16 @@
               @click.prevent="scrollToContainer(container)"
             >
               <span class="truncate mr-2">{{ container }}</span>
-              <span class="text-zinc-600 whitespace-nowrap">{{ formatWeight(items) }}</span>
+              <span class="text-zinc-600 whitespace-nowrap">
+                {{ formatWeight(items) }}
+              </span>
             </a>
           </div>
 
           <!-- Totals -->
-          <div class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums">
+          <div
+            class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums"
+          >
             <div class="flex justify-between">
               <span class="text-zinc-500">Items</span>
               <span class="text-zinc-300">{{ totalItems }}</span>
@@ -304,7 +314,12 @@ const _escapeHtml = (text) => {
 }
 
 const { tocTarget } = useTOC()
-const { revealContainer: gearReveal } = useScrollReveal({ selector: 'tbody tr', staggerDelay: 10, translateY: 3, duration: 120 })
+const { revealContainer: gearReveal } = useScrollReveal({
+  selector: 'tbody tr',
+  staggerDelay: 10,
+  translateY: 3,
+  duration: 120,
+})
 
 const scrollToContainer = (container) => {
   const id = container.toLowerCase().replace(/\s+/g, '-')

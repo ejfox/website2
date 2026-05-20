@@ -45,7 +45,12 @@
       </section>
 
       <!-- Active Predictions -->
-      <section v-if="activePredictions.length > 0" ref="activeReveal" data-section="active" class="section-spacing">
+      <section
+        v-if="activePredictions.length > 0"
+        ref="activeReveal"
+        data-section="active"
+        class="section-spacing"
+      >
         <h2 class="heading-2 mb-4">Active</h2>
         <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
           <table class="w-full font-mono text-xs border-collapse">
@@ -76,7 +81,9 @@
                     {{ prediction.confidence }}%
                   </NuxtLink>
                 </td>
-                <td class="py-3 pr-4 align-top font-serif text-sm leading-snug text-zinc-900 dark:text-zinc-100">
+                <td
+                  class="py-3 pr-4 align-top font-serif text-sm leading-snug text-zinc-900 dark:text-zinc-100"
+                >
                   {{ prediction.statement }}
                 </td>
                 <td
@@ -96,7 +103,12 @@
       </section>
 
       <!-- Resolved Predictions -->
-      <section v-if="resolvedPredictions.length > 0" ref="resolvedReveal" data-section="resolved" class="section-spacing">
+      <section
+        v-if="resolvedPredictions.length > 0"
+        ref="resolvedReveal"
+        data-section="resolved"
+        class="section-spacing"
+      >
         <h2 class="heading-2 mb-4">Resolved</h2>
         <div class="overflow-x-auto -mx-4 px-4 md:mx-0 md:px-0">
           <table class="w-full font-mono text-xs border-collapse">
@@ -152,7 +164,9 @@
                     {{ prediction.confidence }}%
                   </NuxtLink>
                 </td>
-                <td class="py-3 pr-4 align-top font-serif text-sm leading-snug text-zinc-900 dark:text-zinc-100">
+                <td
+                  class="py-3 pr-4 align-top font-serif text-sm leading-snug text-zinc-900 dark:text-zinc-100"
+                >
                   {{ prediction.statement }}
                 </td>
                 <td
@@ -222,7 +236,11 @@
               "
               class="opacity-80 cursor-default"
             >
-              <title>{{ bucket.label }}: {{ bucket.accuracy }}% actual (n={{ bucket.count }})</title>
+              <title>
+                {{ bucket.label }}: {{ bucket.accuracy }}% actual (n={{
+                  bucket.count
+                }})
+              </title>
             </circle>
             <polyline
               :points="calibrationPoints"
@@ -306,7 +324,9 @@
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="space-y-4">
-          <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
+          <div
+            class="font-mono text-3xs uppercase tracking-wider text-zinc-500"
+          >
             Track Record
           </div>
 
@@ -324,11 +344,15 @@
           <div class="space-y-1 font-mono text-3xs tabular-nums">
             <div class="flex justify-between">
               <span class="text-zinc-500">Total</span>
-              <span class="text-zinc-300">{{ transformedPredictions.length }}</span>
+              <span class="text-zinc-300">
+                {{ transformedPredictions.length }}
+              </span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Resolved</span>
-              <span class="text-zinc-300">{{ resolvedPredictions.length }}</span>
+              <span class="text-zinc-300">
+                {{ resolvedPredictions.length }}
+              </span>
             </div>
             <div v-if="correctCount > 0" class="flex justify-between">
               <span class="text-zinc-500">Correct</span>
@@ -338,17 +362,24 @@
               <span class="text-zinc-500">Wrong</span>
               <span class="text-error">{{ incorrectCount }}</span>
             </div>
-            <div v-if="resolvedPredictions.length > 0" class="flex justify-between">
+            <div
+              v-if="resolvedPredictions.length > 0"
+              class="flex justify-between"
+            >
               <span class="text-zinc-500">Accuracy</span>
               <span class="text-zinc-300">
-                {{ Math.round((correctCount / resolvedPredictions.length) * 100) }}%
+                {{
+                  Math.round((correctCount / resolvedPredictions.length) * 100)
+                }}%
               </span>
             </div>
           </div>
 
           <!-- Calibration by bucket -->
           <div v-if="calibration?.calibration?.length">
-            <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500 mb-1.5">
+            <div
+              class="font-mono text-3xs uppercase tracking-wider text-zinc-500 mb-1.5"
+            >
               By Confidence
             </div>
             <div class="space-y-0.5 font-mono text-3xs tabular-nums">
@@ -358,7 +389,13 @@
                 class="flex justify-between"
               >
                 <span class="text-zinc-500">{{ bucket.label }}</span>
-                <span :class="Math.abs(bucket.delta) <= 10 ? 'text-zinc-300' : 'text-error'">
+                <span
+                  :class="
+                    Math.abs(bucket.delta) <= 10
+                      ? 'text-zinc-300'
+                      : 'text-error'
+                  "
+                >
                   {{ bucket.accuracy }}%
                   <span class="text-zinc-600">n={{ bucket.count }}</span>
                 </span>
@@ -403,8 +440,18 @@
 import { format } from 'date-fns'
 
 const { tocTarget } = useTOC()
-const { revealContainer: activeReveal } = useScrollReveal({ selector: 'tbody tr', staggerDelay: 15, translateY: 3, duration: 150 })
-const { revealContainer: resolvedReveal } = useScrollReveal({ selector: 'tbody tr', staggerDelay: 15, translateY: 3, duration: 150 })
+const { revealContainer: activeReveal } = useScrollReveal({
+  selector: 'tbody tr',
+  staggerDelay: 15,
+  translateY: 3,
+  duration: 150,
+})
+const { revealContainer: resolvedReveal } = useScrollReveal({
+  selector: 'tbody tr',
+  staggerDelay: 15,
+  translateY: 3,
+  duration: 150,
+})
 
 const scrollToEl = (id: string) => {
   const section = document.querySelector(`[data-section="${id}"]`)

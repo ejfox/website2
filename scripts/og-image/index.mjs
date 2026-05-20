@@ -25,7 +25,7 @@ const args = process.argv.slice(2)
 const slugIdx = args.indexOf('--slug')
 const SLUG = slugIdx !== -1 ? args[slugIdx + 1] : null
 const pickIdx = args.indexOf('--pick')
-const PICK = pickIdx !== -1 ? parseInt(args[pickIdx + 1]) : null
+const PICK = pickIdx !== -1 ? Number.parseInt(args[pickIdx + 1]) : null
 const UPLOAD = args.includes('--upload')
 const ALL = args.includes('--all')
 const VARIANTS = 4
@@ -37,17 +37,21 @@ const VARIANTS = 4
  */
 function splitBatch(rawSlug) {
   const m = rawSlug.match(/^(.+?):batch(\d+)$/)
-  if (m) return { slug: m[1], batch: parseInt(m[2], 10) }
+  if (m) return { slug: m[1], batch: Number.parseInt(m[2], 10) }
   return { slug: rawSlug, batch: 0 }
 }
 
 async function generateVariants(rawSlug) {
   const { slug, batch } = splitBatch(rawSlug)
-  console.log(`\n  Generating OG image for: ${slug}${batch ? ` (batch ${batch})` : ''}`)
+  console.log(
+    `\n  Generating OG image for: ${slug}${batch ? ` (batch ${batch})` : ''}`
+  )
 
   // Extract content from the real post — never with the :batchN suffix.
   const content = await extractContent(slug)
-  console.log(`  Content: "${content.title}" — ${content.headings.length} headings, ${content.blockquotes.length} quotes, ${content.imageUrls.length} images, ${content.tags.length} tags`)
+  console.log(
+    `  Content: "${content.title}" — ${content.headings.length} headings, ${content.blockquotes.length} quotes, ${content.imageUrls.length} images, ${content.tags.length} tags`
+  )
 
   // Seed varies per batch so rerolls produce visually different scenes.
   const seedBase = batch ? `${slug}:batch${batch}` : slug
@@ -125,7 +129,9 @@ async function uploadToCloudinary(slug, pngBuffer) {
 
 async function main() {
   if (!SLUG && !ALL) {
-    console.error('Usage: node scripts/og-image/index.mjs --slug 2025/post-name')
+    console.error(
+      'Usage: node scripts/og-image/index.mjs --slug 2025/post-name'
+    )
     console.error('       node scripts/og-image/index.mjs --all')
     process.exit(1)
   }
@@ -142,7 +148,10 @@ async function main() {
         const url = await uploadToCloudinary(slug, variants[PICK])
         console.log(`  Uploaded: ${url}`)
       } else {
-        const outPath = path.join(OUTPUT_DIR, `${slug.replace(/\//g, '-')}-final.png`)
+        const outPath = path.join(
+          OUTPUT_DIR,
+          `${slug.replace(/\//g, '-')}-final.png`
+        )
         await fs.mkdir(path.dirname(outPath), { recursive: true })
         await fs.writeFile(outPath, variants[PICK])
         console.log(`  Saved: ${outPath}`)
@@ -161,4 +170,7 @@ async function main() {
   }
 }
 
-main().catch(err => { console.error(err); process.exit(1) })
+main().catch((err) => {
+  console.error(err)
+  process.exit(1)
+})

@@ -8,7 +8,9 @@ export default defineNuxtPlugin(() => {
   const mounted = new WeakSet<Element>()
 
   const hydrate = () => {
-    const nodes = document.querySelectorAll<HTMLElement>('[data-prediction-ref]')
+    const nodes = document.querySelectorAll<HTMLElement>(
+      '[data-prediction-ref]'
+    )
     nodes.forEach((el) => {
       if (mounted.has(el)) return
       const raw = el.getAttribute('data-payload')
@@ -25,7 +27,9 @@ export default defineNuxtPlugin(() => {
       const Component = display === 'block' ? PredictionCard : PredictionRef
 
       // Replace element with mount container matching its tag
-      const container = document.createElement(display === 'block' ? 'div' : 'span')
+      const container = document.createElement(
+        display === 'block' ? 'div' : 'span'
+      )
       container.className = el.className
       el.replaceWith(container)
 

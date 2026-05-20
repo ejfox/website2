@@ -1,7 +1,12 @@
 <!-- eslint-disable max-len, vue/max-len -->
 <script setup lang="ts">
 /* eslint-disable max-len */
-import { useDark, useElementVisibility, useWindowScroll, useWindowSize } from '@vueuse/core'
+import {
+  useDark,
+  useElementVisibility,
+  useWindowScroll,
+  useWindowSize,
+} from '@vueuse/core'
 
 // ============================================
 // VIDEO BACKGROUND CONFIG - TWEAK THESE
@@ -312,9 +317,9 @@ usePageSeo({
           I love making computers do things no one's seen before.
         </h1>
         <p class="body-lg mb-4">
-          Newsroom tools, climate dashboards, police accountability trackers,
-          AI experiments, biotech prototypes. Zero to one. The thing that
-          didn't exist Tuesday is demoing Friday.
+          Newsroom tools, climate dashboards, police accountability trackers, AI
+          experiments, biotech prototypes. Zero to one. The thing that didn't
+          exist Tuesday is demoing Friday.
         </p>
         <p class="caption">
           The world is editable. Let's see what we can make.
@@ -349,8 +354,8 @@ usePageSeo({
       <!-- Credentials -->
       <section class="section">
         <p class="body-lg mb-6">
-          I write code fast, think in prototypes, and don't stop until it
-          ships. That's taken me through newsrooms
+          I write code fast, think in prototypes, and don't stop until it ships.
+          That's taken me through newsrooms
           <span class="aside">(NBC News, Washington Post, Gothamist)</span>
           , design studios
           <span class="aside">(Stamen)</span>
@@ -504,8 +509,8 @@ usePageSeo({
             <div>
               <p class="process-title">Build</p>
               <p class="process-desc">
-                Async demo videos, early prototypes, Slack over email.
-                You'll see working code before you expect to.
+                Async demo videos, early prototypes, Slack over email. You'll
+                see working code before you expect to.
               </p>
             </div>
           </div>
@@ -612,11 +617,7 @@ usePageSeo({
 
     <!-- Floating CTA - visible between hero and booking section -->
     <Transition name="cta-fade">
-      <a
-        v-if="scrollY > 600 && !bookVisible"
-        href="#book"
-        class="floating-cta"
-      >
+      <a v-if="scrollY > 600 && !bookVisible" href="#book" class="floating-cta">
         <span class="floating-cta-text">Book a call</span>
         <span class="floating-cta-sub">60 min &middot; Free</span>
       </a>
@@ -1061,10 +1062,14 @@ usePageSeo({
 
 /* Transition */
 .cta-fade-enter-active {
-  transition: opacity 0.4s ease, transform 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
 }
 .cta-fade-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 .cta-fade-enter-from {
   opacity: 0;

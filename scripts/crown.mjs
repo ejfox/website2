@@ -7,8 +7,8 @@
  *   yarn crown 2026/my-new-post --hue 200
  */
 
-import { existsSync, mkdirSync, writeFileSync } from 'fs'
-import { dirname, join } from 'path'
+import { existsSync, mkdirSync, writeFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
 
 const slug = process.argv[2]
 if (!slug) {
@@ -19,14 +19,16 @@ if (!slug) {
 let hue = 220
 for (let i = 3; i < process.argv.length; i++) {
   if (process.argv[i] === '--hue' && process.argv[i + 1]) {
-    hue = parseInt(process.argv[i + 1], 10)
+    hue = Number.parseInt(process.argv[i + 1], 10)
     i++
   }
 }
 
 const slugParts = slug.split('/')
 const name = slugParts[slugParts.length - 1]
-const titleCase = name.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+const titleCase = name
+  .replace(/-/g, ' ')
+  .replace(/\b\w/g, (c) => c.toUpperCase())
 const bodyClass = name + '-takeover'
 const cssClass = name + '-page'
 const outPath = join('pages', 'blog', ...slugParts) + '.vue'
@@ -167,14 +169,22 @@ const lines = [
   '/* Layout takeover */',
   'body.' + bodyClass + ' { background: var(--pt-bg) !important; }',
   'body.' + bodyClass + ' #app-container,',
-  'body.' + bodyClass + ' #app-container > section { background: var(--pt-bg) !important; }',
+  'body.' +
+    bodyClass +
+    ' #app-container > section { background: var(--pt-bg) !important; }',
   'body.' + bodyClass + ' nav.sticky,',
   'body.' + bodyClass + ' nav.md\\:hidden { display: none !important; }',
-  'body.' + bodyClass + ' #main-content { width: 100% !important; padding-top: 0 !important; }',
-  'body.' + bodyClass + ' footer { background: var(--pt-bg) !important; border-color: transparent !important; }',
+  'body.' +
+    bodyClass +
+    ' #main-content { width: 100% !important; padding-top: 0 !important; }',
+  'body.' +
+    bodyClass +
+    ' footer { background: var(--pt-bg) !important; border-color: transparent !important; }',
   'body.' + bodyClass + ' .blog-post-content blockquote::before,',
   'body.' + bodyClass + ' .prose blockquote::before,',
-  'body.' + bodyClass + ' blockquote::before { content: none !important; display: none !important; }',
+  'body.' +
+    bodyClass +
+    ' blockquote::before { content: none !important; display: none !important; }',
   '',
   '.' + cssClass + ' {',
   '  position: relative; min-height: 100vh;',
@@ -197,7 +207,7 @@ const lines = [
   '  font-size: clamp(2.5rem, 8vw, 5.5rem); font-weight: 900; line-height: 1.05;',
   '  letter-spacing: -0.03em; color: var(--pt-text); overflow-wrap: break-word;',
   '}',
-  ".crowned-title .typing-char { display: inline; opacity: 0; transition: opacity 0.06s ease-out; }",
+  '.crowned-title .typing-char { display: inline; opacity: 0; transition: opacity 0.06s ease-out; }',
   '.crowned-title .typing-char.typed { opacity: 1; }',
   '.crowned-title .cursor {',
   '  display: inline-block; width: 3px; height: 0.85em; margin-left: 1px;',
@@ -221,12 +231,18 @@ const lines = [
   '.' + cssClass + ' .blog-post-content li { color: var(--pt-text-dim); }',
   '',
   '.' + cssClass + ' .blog-post-content h1,',
-  '.' + cssClass + ' .blog-post-content h2 { color: var(--pt-text); border: none !important; }',
+  '.' +
+    cssClass +
+    ' .blog-post-content h2 { color: var(--pt-text); border: none !important; }',
   '.' + cssClass + ' .blog-post-content h3,',
   '.' + cssClass + ' .blog-post-content h4 { color: var(--pt-text-dim); }',
   '',
-  '.' + cssClass + ' .blog-post-content a { color: var(--pt-accent); text-decoration-color: var(--pt-accent-faint); }',
-  '.' + cssClass + ' .blog-post-content a:hover { color: var(--pt-accent-glow); text-shadow: 0 0 12px var(--pt-accent-faint); }',
+  '.' +
+    cssClass +
+    ' .blog-post-content a { color: var(--pt-accent); text-decoration-color: var(--pt-accent-faint); }',
+  '.' +
+    cssClass +
+    ' .blog-post-content a:hover { color: var(--pt-accent-glow); text-shadow: 0 0 12px var(--pt-accent-faint); }',
   '',
   '.' + cssClass + ' .blog-post-content blockquote {',
   '  border-left: 2px solid var(--pt-accent-faint) !important;',
@@ -234,11 +250,19 @@ const lines = [
   '  color: var(--pt-text-dim);',
   '}',
   '',
-  '.' + cssClass + ' .blog-post-content code { background: var(--pt-surface); color: var(--pt-accent-glow); border: 1px solid var(--pt-accent-faint); }',
-  '.' + cssClass + ' .blog-post-content pre { background: var(--pt-surface); border: none; }',
-  '.' + cssClass + ' .blog-post-content pre code { background: transparent; border: none; }',
+  '.' +
+    cssClass +
+    ' .blog-post-content code { background: var(--pt-surface); color: var(--pt-accent-glow); border: 1px solid var(--pt-accent-faint); }',
+  '.' +
+    cssClass +
+    ' .blog-post-content pre { background: var(--pt-surface); border: none; }',
+  '.' +
+    cssClass +
+    ' .blog-post-content pre code { background: transparent; border: none; }',
   '.' + cssClass + ' .blog-post-content img { border-radius: 6px; }',
-  '.' + cssClass + ' .blog-post-content hr { border: none; height: 1px; margin: 4rem 0; background: linear-gradient(90deg, transparent, var(--pt-accent-dim), transparent); }',
+  '.' +
+    cssClass +
+    ' .blog-post-content hr { border: none; height: 1px; margin: 4rem 0; background: linear-gradient(90deg, transparent, var(--pt-accent-dim), transparent); }',
   '',
   '/* Tags */',
   '.crowned-tags { max-width: 900px; margin: 0 auto; padding: 1rem 2rem 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }',
@@ -257,7 +281,9 @@ const lines = [
   '',
   '@media print {',
   '  .crowned-progress { display: none !important; }',
-  '  .' + cssClass + ' { background: white !important; color: black !important; }',
+  '  .' +
+    cssClass +
+    ' { background: white !important; color: black !important; }',
   '}',
   '</style>',
 ]

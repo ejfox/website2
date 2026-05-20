@@ -28,9 +28,7 @@ export default defineNuxtPlugin(() => {
     const spaceAbove = anchorRect.top
     const positionBelow = spaceAbove < 200
 
-    const top = positionBelow
-      ? anchorRect.bottom + 8
-      : anchorRect.top - 8
+    const top = positionBelow ? anchorRect.bottom + 8 : anchorRect.top - 8
     const transformOrigin = positionBelow ? 'top left' : 'bottom left'
     const translateY = positionBelow ? '0' : '-100%'
 
@@ -65,8 +63,18 @@ export default defineNuxtPlugin(() => {
     const parts: string[] = []
 
     // Header row: favicon + site name
-    const faviconSrc = data.favicon || `https://www.google.com/s2/favicons?domain=${new URL(data.url || '').hostname}&sz=32`
-    const siteName = data.siteName || (() => { try { return new URL(data.url || '').hostname } catch { return '' } })()
+    const faviconSrc =
+      data.favicon ||
+      `https://www.google.com/s2/favicons?domain=${new URL(data.url || '').hostname}&sz=32`
+    const siteName =
+      data.siteName ||
+      (() => {
+        try {
+          return new URL(data.url || '').hostname
+        } catch {
+          return ''
+        }
+      })()
     if (siteName) {
       parts.push(`
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
@@ -78,17 +86,23 @@ export default defineNuxtPlugin(() => {
 
     // Title
     if (data.title) {
-      parts.push(`<div style="font-family:Georgia,serif;font-weight:bold;font-size:14px;margin-bottom:4px;color:rgb(250 250 250);">${escapeHtml(data.title)}</div>`)
+      parts.push(
+        `<div style="font-family:Georgia,serif;font-weight:bold;font-size:14px;margin-bottom:4px;color:rgb(250 250 250);">${escapeHtml(data.title)}</div>`
+      )
     }
 
     // Description (2 lines max)
     if (data.description) {
-      parts.push(`<div style="color:rgb(161 161 170);font-size:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${escapeHtml(data.description)}</div>`)
+      parts.push(
+        `<div style="color:rgb(161 161 170);font-size:12px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">${escapeHtml(data.description)}</div>`
+      )
     }
 
     // OG image
     if (data.image) {
-      parts.push(`<img src="${data.image}" style="width:100%;height:auto;max-height:160px;object-fit:cover;border-radius:3px;margin-top:8px;" onerror="this.style.display='none'" />`)
+      parts.push(
+        `<img src="${data.image}" style="width:100%;height:auto;max-height:160px;object-fit:cover;border-radius:3px;margin-top:8px;" onerror="this.style.display='none'" />`
+      )
     }
 
     // Fallback if nothing useful came back
@@ -119,7 +133,11 @@ export default defineNuxtPlugin(() => {
   }
 
   const escapeHtml = (str: string) =>
-    str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
+    str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
 
   const fetchOg = async (url: string) => {
     if (ogCache.has(url)) return ogCache.get(url)
@@ -142,7 +160,9 @@ export default defineNuxtPlugin(() => {
     const container = document.querySelector('.blog-post-content')
     if (!container) return
 
-    const links = container.querySelectorAll<HTMLAnchorElement>('a[data-preview-url]')
+    const links = container.querySelectorAll<HTMLAnchorElement>(
+      'a[data-preview-url]'
+    )
     links.forEach((link) => {
       // Skip if already initialized
       if (link.dataset.previewInit) return

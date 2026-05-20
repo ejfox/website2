@@ -266,7 +266,9 @@ defineExpose({
 }
 
 /* Missing utility classes used in template */
-.gear-img-square { @apply w-[120px] h-[120px] overflow-hidden rounded-sm; }
+.gear-img-square {
+  @apply w-[120px] h-[120px] overflow-hidden rounded-sm;
+}
 .btn-inline-flex {
   @apply inline-flex items-center px-3 py-1 font-mono text-xs uppercase tracking-wider
          border border-zinc-300 dark:border-zinc-600
@@ -274,6 +276,10 @@ defineExpose({
          hover:bg-zinc-100 dark:hover:bg-zinc-800
          transition-colors duration-150 no-underline;
 }
-.label-tracked-md { @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-3; }
-.row-bordered { @apply flex justify-between items-baseline border-b border-zinc-100 dark:border-zinc-800 py-1; }
+.label-tracked-md {
+  @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-3;
+}
+.row-bordered {
+  @apply flex justify-between items-baseline border-b border-zinc-100 dark:border-zinc-800 py-1;
+}
 </style>

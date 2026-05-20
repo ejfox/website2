@@ -26,7 +26,8 @@ function fallbackFormat(value: number): string {
 export const formatNumber = (value: number): string => fallbackFormat(value)
 
 // Percentage formatting with one decimal place
-export const formatPercent = (value: number) => `${(value / 100 * 100).toFixed(1)}%`
+export const formatPercent = (value: number) =>
+  `${((value / 100) * 100).toFixed(1)}%`
 
 // Currency formatting
 export const formatCurrency = (value: number): string =>
@@ -40,8 +41,10 @@ export const formatCompact = (value: number): string => {
 }
 
 // Decimal number with configurable precision
-export const formatDecimal = (precision: number = 1) =>
-  (value: number): string => value.toFixed(precision)
+export const formatDecimal =
+  (precision: number = 1) =>
+  (value: number): string =>
+    value.toFixed(precision)
 
 // Smart number formatting that adapts based on magnitude
 export function smartFormat(value: number): string {

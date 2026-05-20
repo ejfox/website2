@@ -254,7 +254,9 @@ export default defineNuxtConfig({
             errorOnExist: false,
             force: true,
             filter: (src: string) =>
-              !excludeDirs.some((d) => src.includes(`/${d}/`) || src.endsWith(`/${d}`)),
+              !excludeDirs.some(
+                (d) => src.includes(`/${d}/`) || src.endsWith(`/${d}`)
+              ),
           })
           // console.log(`✓ Copied content directory to ${dest}`)
         } catch (err) {

@@ -20,7 +20,9 @@ async function ensureBody() {
   if (bodyHtml.value !== null || loadingBody.value) return
   loadingBody.value = true
   try {
-    const post = await $fetch<{ html?: string }>(`/api/posts/${props.post.slug}`)
+    const post = await $fetch<{ html?: string }>(
+      `/api/posts/${props.post.slug}`
+    )
     bodyHtml.value = post?.html || ''
   } catch {
     bodyHtml.value = ''
@@ -58,8 +60,8 @@ function thumbStyle(url: string, i: number) {
   const h = hashStr(url + i)
   const rotRaw = ((h & 0xffff) / 0xffff) * 14 - 7
   const rot = rotRaw >= 0 ? Math.max(rotRaw, 2.5) : Math.min(rotRaw, -2.5)
-  const offX = ((h >>> 16) & 0xff) / 0xff * 10 - 5
-  const offY = ((h >>> 24) & 0xff) / 0xff * 8 - 4
+  const offX = (((h >>> 16) & 0xff) / 0xff) * 10 - 5
+  const offY = (((h >>> 24) & 0xff) / 0xff) * 8 - 4
   return {
     '--rot': `${rot.toFixed(2)}deg`,
     '--off-x': `${offX.toFixed(1)}px`,
@@ -79,9 +81,9 @@ function thumbUrl(src: string, w = 560) {
 
 <template>
   <article
+    :id="`stack-${post.slug}`"
     class="photo-stack"
     :class="{ 'is-expanded': expanded }"
-    :id="`stack-${post.slug}`"
   >
     <button
       class="photo-stack__trigger"
@@ -113,15 +115,21 @@ function thumbUrl(src: string, w = 560) {
     <Transition name="splay" @after-enter="onSplayEnter">
       <div v-show="expanded" class="photo-stack__body">
         <p v-if="post.dek" class="photo-stack__dek">{{ post.dek }}</p>
-        <div v-if="loadingBody && !bodyHtml" class="photo-stack__loading">loading…</div>
+        <div v-if="loadingBody && !bodyHtml" class="photo-stack__loading">
+          loading…
+        </div>
         <div
           v-else
           class="photo-stack__content blog-post-content"
           v-html="bodyHtml"
         />
         <div class="photo-stack__foot">
-          <NuxtLink :to="`/blog/${post.slug}`" class="photo-stack__permalink">open full post →</NuxtLink>
-          <button type="button" class="photo-stack__close" @click="toggle">close</button>
+          <NuxtLink :to="`/blog/${post.slug}`" class="photo-stack__permalink">
+            open full post →
+          </NuxtLink>
+          <button type="button" class="photo-stack__close" @click="toggle">
+            close
+          </button>
         </div>
       </div>
     </Transition>
@@ -173,8 +181,7 @@ function thumbUrl(src: string, w = 560) {
   height: 72%;
   object-fit: cover;
   transform-origin: center center;
-  transform:
-    translate(var(--off-x, 0), var(--off-y, 0))
+  transform: translate(var(--off-x, 0), var(--off-y, 0))
     rotate(var(--rot, 0deg));
   box-shadow:
     0 8px 18px -8px rgba(0, 0, 0, 0.5),
@@ -185,9 +192,15 @@ function thumbUrl(src: string, w = 560) {
 }
 
 /* Collapse stagger: outer thumbs fall back into the stack first, then inner. */
-.photo-stack__pile img:nth-child(3) { transition-delay: 0ms; }
-.photo-stack__pile img:nth-child(2) { transition-delay: 80ms; }
-.photo-stack__pile img:nth-child(1) { transition-delay: 160ms; }
+.photo-stack__pile img:nth-child(3) {
+  transition-delay: 0ms;
+}
+.photo-stack__pile img:nth-child(2) {
+  transition-delay: 80ms;
+}
+.photo-stack__pile img:nth-child(1) {
+  transition-delay: 160ms;
+}
 
 /* Expanded: splay the three thumbs outward, staggered like dealing cards
    off the top of a pile. Splay is sized to column width — thumbs may
@@ -250,7 +263,9 @@ function thumbUrl(src: string, w = 560) {
   letter-spacing: 0.1em;
   opacity: 0.5;
 }
-.photo-stack__sub .sep { opacity: 0.6; }
+.photo-stack__sub .sep {
+  opacity: 0.6;
+}
 
 /* ---- Expanded body: breaks OUT of the column to span full grid width,
        while the stack card itself stays in the column so surrounding

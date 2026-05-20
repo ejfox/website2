@@ -35,7 +35,8 @@ export default defineCachedEventHandler(
           bytes: r.bytes as number,
           aspect: (r.width as number) / (r.height as number),
           tags: tags.filter((t) => t !== 'photo-blog'),
-          description: ctx?.custom?.ai_description || ctx?.custom?.caption || null,
+          description:
+            ctx?.custom?.ai_description || ctx?.custom?.caption || null,
         }
       })
 

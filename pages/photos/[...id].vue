@@ -1,19 +1,16 @@
 <template>
   <div class="min-h-screen bg-zinc-900 text-zinc-100">
     <!-- Loading -->
-    <div
-      v-if="pending"
-      class="font-mono text-xs text-zinc-600 py-12 px-8"
-    >
+    <div v-if="pending" class="font-mono text-xs text-zinc-600 py-12 px-8">
       Loading...
     </div>
 
     <!-- Error / not found -->
-    <div
-      v-else-if="error || !photo"
-      class="px-8 py-12"
-    >
-      <NuxtLink to="/photos" class="font-mono text-xs text-zinc-500 hover:text-zinc-300">
+    <div v-else-if="error || !photo" class="px-8 py-12">
+      <NuxtLink
+        to="/photos"
+        class="font-mono text-xs text-zinc-500 hover:text-zinc-300"
+      >
         &larr; back to photos
       </NuxtLink>
       <div class="font-mono text-xs text-red-400 mt-4">Photo not found</div>
@@ -22,9 +19,7 @@
     <!-- Photo -->
     <div v-else>
       <!-- Hero: placeholder behind, full image fades in on top -->
-      <div
-        :class="isPortrait ? 'flex justify-center' : ''"
-      >
+      <div :class="isPortrait ? 'flex justify-center' : ''">
         <div
           class="relative"
           :class="isPortrait ? 'max-h-[90vh]' : 'w-full'"
@@ -60,7 +55,9 @@
       <!-- Info below photo -->
       <div class="max-w-2xl mx-auto px-4 py-6 space-y-4">
         <!-- EXIF line -->
-        <div class="flex flex-wrap justify-center gap-x-6 gap-y-1 font-mono text-[10px] text-zinc-500 tabular-nums">
+        <div
+          class="flex flex-wrap justify-center gap-x-6 gap-y-1 font-mono text-[10px] text-zinc-500 tabular-nums"
+        >
           <span v-if="exif?.camera">{{ shortCamera(exif.camera) }}</span>
           <span v-if="exif?.lens">{{ shortLens(exif.lens) }}</span>
           <span v-if="exif?.focalLength">{{ exif.focalLength }}mm</span>
@@ -92,10 +89,17 @@
         <!-- Identity — for strangers -->
         <div class="pt-4 border-t border-zinc-800 text-center space-y-2">
           <div class="font-mono text-xs text-zinc-400">
-            Photo by <NuxtLink to="/" class="text-zinc-300 hover:text-zinc-100">EJ Fox</NuxtLink>
+            Photo by
+            <NuxtLink to="/" class="text-zinc-300 hover:text-zinc-100">
+              EJ Fox
+            </NuxtLink>
           </div>
-          <div class="flex justify-center gap-4 font-mono text-[10px] text-zinc-600">
-            <NuxtLink to="/photos" class="hover:text-zinc-400">All photos</NuxtLink>
+          <div
+            class="flex justify-center gap-4 font-mono text-[10px] text-zinc-600"
+          >
+            <NuxtLink to="/photos" class="hover:text-zinc-400">
+              All photos
+            </NuxtLink>
             <NuxtLink to="/blog/" class="hover:text-zinc-400">Blog</NuxtLink>
             <NuxtLink to="/" class="hover:text-zinc-400">ejfox.com</NuxtLink>
           </div>
@@ -118,8 +122,8 @@ const { data, pending, error } = await useFetch('/api/photos')
 
 const allPhotos = computed(() => data.value?.photos || [])
 
-const photo = computed(() =>
-  allPhotos.value.find((p) => p.id === photoId.value) || null
+const photo = computed(
+  () => allPhotos.value.find((p) => p.id === photoId.value) || null
 )
 
 const isPortrait = computed(() =>
@@ -178,7 +182,9 @@ const placeholderUrl = (p) => {
 
 const imageLoaded = ref(false)
 const heroImg = ref(null)
-const onImageLoad = () => { imageLoaded.value = true }
+const onImageLoad = () => {
+  imageLoaded.value = true
+}
 
 // Catch already-cached images that fire load before Vue binds
 onMounted(() => {
@@ -186,10 +192,18 @@ onMounted(() => {
 })
 
 const shortCamera = (model) =>
-  model?.replace('FUJIFILM ', '').replace('Canon ', '').replace('NIKON ', '').replace('Sony ', '') || ''
+  model
+    ?.replace('FUJIFILM ', '')
+    .replace('Canon ', '')
+    .replace('NIKON ', '')
+    .replace('Sony ', '') || ''
 
 const shortLens = (lens) =>
-  lens?.replace('FUJIFILM ', '').replace('XF', 'XF ').replace(/\s+/g, ' ').trim() || ''
+  lens
+    ?.replace('FUJIFILM ', '')
+    .replace('XF', 'XF ')
+    .replace(/\s+/g, ' ')
+    .trim() || ''
 
 const formatBytes = (bytes) => {
   if (bytes >= 1048576) return `${(bytes / 1048576).toFixed(1)}MB`
@@ -214,14 +228,13 @@ onMounted(() => {
 
 useHead({
   title: computed(() =>
-    photo.value
-      ? `${displayDate.value || 'Photo'} — EJ Fox`
-      : 'Photo — EJ Fox'
+    photo.value ? `${displayDate.value || 'Photo'} — EJ Fox` : 'Photo — EJ Fox'
   ),
 })
 // Reset loaded state on nav
-watch(photoId, () => { imageLoaded.value = false })
+watch(photoId, () => {
+  imageLoaded.value = false
+})
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

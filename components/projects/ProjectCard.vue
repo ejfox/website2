@@ -78,7 +78,9 @@ const props = defineProps({
 
 const formatDate = formatYearOnly
 
-const projectSlug = computed(() => props.project.slug?.replace(/^projects\//, '') || '')
+const projectSlug = computed(
+  () => props.project.slug?.replace(/^projects\//, '') || ''
+)
 
 const _projectTitle = computed(
   () => props.project.title || props.project.metadata?.title || ''

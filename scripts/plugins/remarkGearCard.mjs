@@ -16,7 +16,11 @@ import { visit } from 'unist-util-visit'
 
 /** Escape a string for safe use inside an HTML attribute value (double-quoted). */
 const escapeAttr = (str) =>
-  str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+  str
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
 
 /** Validate that a slug contains only URL-safe characters. */
 const isValidSlug = (str) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(str)
@@ -28,7 +32,6 @@ export function remarkGearCard() {
 
       const rawSlug = node.attributes?.slug?.trim()
       if (!rawSlug) {
-        // eslint-disable-next-line no-console
         console.warn(
           `[remarkGearCard] ::gear directive missing slug attribute` +
             ` (in ${file?.path || 'unknown'})`
@@ -37,7 +40,6 @@ export function remarkGearCard() {
       }
 
       if (!isValidSlug(rawSlug)) {
-        // eslint-disable-next-line no-console
         console.warn(
           `[remarkGearCard] ::gear slug "${rawSlug}" contains unexpected characters` +
             ` (in ${file?.path || 'unknown'}) — skipping`

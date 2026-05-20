@@ -27,7 +27,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   const renderAll = async () => {
     const blocks = document.querySelectorAll<HTMLElement>(
-      'pre.mermaid:not([data-mermaid-processed])',
+      'pre.mermaid:not([data-mermaid-processed])'
     )
     if (!blocks.length) return
 

@@ -45,34 +45,36 @@
       <div class="mt-4">
         <div class="difficulty-bar">
           <div
+            v-tooltip="
+              `Easy: ${formatNumber(stats.submissionStats.easy.count)} problems`
+            "
             class="easy-bar"
             :style="{
               width: `${difficultyPercentages.easy}%`,
               backgroundColor: '#a1a1aa',
             }"
-            v-tooltip="`Easy: ${formatNumber(
-              stats.submissionStats.easy.count
-            )} problems`"
           ></div>
           <div
+            v-tooltip="
+              `Medium: ${formatNumber(
+                stats.submissionStats.medium.count
+              )} problems`
+            "
             class="medium-bar"
             :style="{
               width: `${difficultyPercentages.medium}%`,
               backgroundColor: '#71717a',
             }"
-            v-tooltip="`Medium: ${formatNumber(
-              stats.submissionStats.medium.count
-            )} problems`"
           ></div>
           <div
+            v-tooltip="
+              `Hard: ${formatNumber(stats.submissionStats.hard.count)} problems`
+            "
             class="hard-bar"
             :style="{
               width: `${difficultyPercentages.hard}%`,
               backgroundColor: '#3f3f46',
             }"
-            v-tooltip="`Hard: ${formatNumber(
-              stats.submissionStats.hard.count
-            )} problems`"
           ></div>
         </div>
         <div class="flex justify-between text-2xs text-zinc-500 mt-2">

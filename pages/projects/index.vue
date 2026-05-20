@@ -23,13 +23,23 @@ const regularProjects = computed(
 )
 
 const { tocTarget } = useTOC()
-const { revealContainer: featuredReveal } = useScrollReveal({ selector: ':scope > *', staggerDelay: 50, translateY: 6, duration: 250 })
-const { revealContainer: gridReveal } = useScrollReveal({ selector: ':scope > *', staggerDelay: 20, translateY: 4, duration: 150 })
+const { revealContainer: featuredReveal } = useScrollReveal({
+  selector: ':scope > *',
+  staggerDelay: 50,
+  translateY: 6,
+  duration: 250,
+})
+const { revealContainer: gridReveal } = useScrollReveal({
+  selector: ':scope > *',
+  staggerDelay: 20,
+  translateY: 4,
+  duration: 150,
+})
 
-const getProjectSlug = (project) => project.slug?.replace(/^projects\//, '') || ''
+const getProjectSlug = (project) =>
+  project.slug?.replace(/^projects\//, '') || ''
 
-const tocLinkClass =
-  'block text-zinc-600 dark:text-zinc-400 truncate'
+const tocLinkClass = 'block text-zinc-600 dark:text-zinc-400 truncate'
 
 // Aggregate metadata for brutalist header display
 const totalWords = computed(() => {
@@ -182,7 +192,11 @@ useHead(() => ({
     </div>
 
     <!-- Featured Projects -->
-    <div v-if="featuredProjects.length" ref="featuredReveal" class="mb-12 space-y-8">
+    <div
+      v-if="featuredProjects.length"
+      ref="featuredReveal"
+      class="mb-12 space-y-8"
+    >
       <FeaturedProjectCard
         v-for="(project, index) in featuredProjects"
         :id="getProjectSlug(project)"

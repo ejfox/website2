@@ -64,7 +64,9 @@ export default defineEventHandler(async (event) => {
 
   const commits: Commit[] = file.commits
     .filter((c) =>
-      sinceTime ? !Number.isNaN(sinceTime) && c.timestamp * 1000 >= sinceTime : true
+      sinceTime
+        ? !Number.isNaN(sinceTime) && c.timestamp * 1000 >= sinceTime
+        : true
     )
     .slice(0, limit)
     .map((c) => ({

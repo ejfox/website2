@@ -23,7 +23,9 @@
             <span
               v-tooltip="item.Notes || null"
               class="text-zinc-950 dark:text-zinc-50 font-medium tracking-tight"
-            >{{ item.Name }}</span>
+            >
+              {{ item.Name }}
+            </span>
           </div>
 
           <!-- Inline buy link -->
@@ -41,36 +43,36 @@
           <div v-if="item['Purchase Date']" :class="ageIndicatorClasses">
             <span
               v-if="itemAge < 365"
-              class="text-xs text-zinc-400 dark:text-zinc-600"
               v-tooltip="'New — less than 1 year old'"
+              class="text-xs text-zinc-400 dark:text-zinc-600"
             >
               ✦
             </span>
             <span
               v-else-if="itemAge < 730"
-              class="text-xs text-zinc-500 dark:text-zinc-500"
               v-tooltip="'Broken in — 1-2 years old'"
+              class="text-xs text-zinc-500 dark:text-zinc-500"
             >
               ✧
             </span>
             <span
               v-else-if="itemAge < 1095"
-              class="text-xs text-zinc-600 dark:text-zinc-400"
               v-tooltip="'Seasoned — 2-3 years old'"
+              class="text-xs text-zinc-600 dark:text-zinc-400"
             >
               ◈
             </span>
             <span
               v-else-if="itemAge < 1825"
-              class="text-xs text-zinc-700 dark:text-zinc-300"
               v-tooltip="'Weathered — 3-5 years old'"
+              class="text-xs text-zinc-700 dark:text-zinc-300"
             >
               ◇
             </span>
             <span
               v-else
-              class="text-xs text-zinc-800 dark:text-zinc-200"
               v-tooltip="'Veteran — 5+ years of service'"
+              class="text-xs text-zinc-800 dark:text-zinc-200"
             >
               ◆
             </span>
@@ -80,7 +82,10 @@
 
       <!-- Type - Secondary info -->
       <div class="gear-type-cell">
-        <span v-tooltip="item.Type" class="group-hover/type:hidden cursor-default">
+        <span
+          v-tooltip="item.Type"
+          class="group-hover/type:hidden cursor-default"
+        >
           {{ getTypeSymbol(item.Type) }}
         </span>
         <span :class="typeHoverClasses">{{ item.Type || '—' }}</span>
@@ -109,7 +114,6 @@
         <span v-else class="text-zinc-300 dark:text-zinc-700">—</span>
       </div>
     </div>
-
   </div>
 </template>
 

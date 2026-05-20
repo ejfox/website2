@@ -37,7 +37,16 @@ export default defineCachedEventHandler(
         colors: detail.colors || [],
       }
     } catch {
-      return { camera: null, lens: null, aperture: null, iso: null, shutter: null, focalLength: null, dateTaken: null, colors: [] }
+      return {
+        camera: null,
+        lens: null,
+        aperture: null,
+        iso: null,
+        shutter: null,
+        focalLength: null,
+        dateTaken: null,
+        colors: [],
+      }
     }
   },
   { maxAge: 86400 } // EXIF doesn't change — cache 24h

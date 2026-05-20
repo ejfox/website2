@@ -66,7 +66,6 @@
               {{ item.label }}
             </NuxtLink>
           </template>
-
         </div>
 
         <!-- TOC container - padding lives here, teleports contribute zero padding -->
@@ -82,7 +81,9 @@
           </NuxtLink>
         </div>
 
-        <div class="mt-auto pt-4 px-2 text-2xs text-zinc-500 dark:text-zinc-400">
+        <div
+          class="mt-auto pt-4 px-2 text-2xs text-zinc-500 dark:text-zinc-400"
+        >
           <a
             href="/pgp.txt"
             class="hover:text-zinc-700 dark:hover:text-zinc-200"

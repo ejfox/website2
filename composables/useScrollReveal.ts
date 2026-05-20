@@ -126,7 +126,9 @@ export function useScrollReveal(options: ScrollRevealOptions = {}) {
  * useRevealOnce — simpler version, just fades in a single element when it enters view
  * Good for hero sections, images, standalone blocks
  */
-export function useRevealOnce(options: { duration?: number; translateY?: number } = {}) {
+export function useRevealOnce(
+  options: { duration?: number; translateY?: number } = {}
+) {
   const { duration = 200, translateY = 6 } = options
   const el: Ref<HTMLElement | null> = ref(null)
 

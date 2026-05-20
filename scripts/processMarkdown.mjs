@@ -61,9 +61,14 @@ const CACHE_VERSION = '2026-05-13-gear-cards'
 let ogImageMap = {}
 try {
   ogImageMap = JSON.parse(
-    await fs.readFile(path.join(process.cwd(), 'data', 'og-images.json'), 'utf8')
+    await fs.readFile(
+      path.join(process.cwd(), 'data', 'og-images.json'),
+      'utf8'
+    )
   )
-} catch { /* no OG images yet */ }
+} catch {
+  /* no OG images yet */
+}
 
 const paths = {
   contentDir: config.dirs.content,
@@ -355,7 +360,11 @@ async function processMarkdown(content, filePath) {
     )
 
     // sourcePath/sourceDir stripped for privacy — no filesystem paths in output
-    const slug = normalizeSlug(path.relative(path.join(process.cwd(), 'content', 'blog'), filePath).replace(/\.md$/, ''))
+    const slug = normalizeSlug(
+      path
+        .relative(path.join(process.cwd(), 'content', 'blog'), filePath)
+        .replace(/\.md$/, '')
+    )
 
     // Handle password protection - hash password, never store plaintext
     const passwordHash = frontmatter.password

@@ -49,6 +49,7 @@
       <div
         v-for="(cell, i) in waffleCells"
         :key="i"
+        v-tooltip="cell.title"
         class="transition-all duration-300 w-full h-full"
         :style="{
           backgroundColor: cell.turboColor,
@@ -60,7 +61,6 @@
             ? '1px solid rgba(0,0,0,0.15)'
             : 'none',
         }"
-        v-tooltip="cell.title"
       ></div>
     </div>
     <div class="flex justify-between text-zinc-500 mt-4 text-xs leading-[12px]">

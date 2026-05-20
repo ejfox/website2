@@ -8,10 +8,7 @@
 import { visit } from 'unist-util-visit'
 
 const escapeHtml = (s) =>
-  s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
 
 export function remarkMermaid() {
   return (tree) => {

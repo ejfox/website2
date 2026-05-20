@@ -4,7 +4,10 @@ export default defineEventHandler((event) => {
   const { resource } = getQuery(event)
 
   if (!resource) {
-    throw createError({ statusCode: 400, statusMessage: 'Missing resource parameter' })
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Missing resource parameter',
+    })
   }
 
   const accepted = [

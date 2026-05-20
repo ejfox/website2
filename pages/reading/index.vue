@@ -127,20 +127,27 @@
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="space-y-4">
-          <div class="font-mono text-3xs uppercase tracking-wider text-zinc-500">
+          <div
+            class="font-mono text-3xs uppercase tracking-wider text-zinc-500"
+          >
             Library
           </div>
 
           <!-- Currently reading (most recently annotated) -->
           <div v-if="currentlyReading" class="space-y-1">
-            <div class="font-mono text-3xs text-zinc-600 uppercase tracking-wider">
+            <div
+              class="font-mono text-3xs text-zinc-600 uppercase tracking-wider"
+            >
               Last Read
             </div>
             <NuxtLink
               :to="`/reading/${currentlyReading.slug}`"
               class="block font-serif text-3xs text-zinc-300 leading-snug"
             >
-              {{ currentlyReading.metadata?.['kindle-sync']?.title || currentlyReading.title }}
+              {{
+                currentlyReading.metadata?.['kindle-sync']?.title ||
+                currentlyReading.title
+              }}
             </NuxtLink>
             <div class="font-mono text-3xs text-zinc-500">
               {{ currentlyReading.metadata?.['kindle-sync']?.author }}
@@ -148,7 +155,9 @@
           </div>
 
           <!-- Stats -->
-          <div class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums">
+          <div
+            class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums"
+          >
             <div class="flex justify-between">
               <span class="text-zinc-500">Books</span>
               <span class="text-zinc-300">{{ books?.length || 0 }}</span>
@@ -169,7 +178,9 @@
 
           <!-- Top highlighted books -->
           <div v-if="topHighlighted.length > 0">
-            <div class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-1.5">
+            <div
+              class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-1.5"
+            >
               Most Highlighted
             </div>
             <div class="space-y-1">
@@ -180,7 +191,11 @@
                 class="flex justify-between font-mono text-3xs text-zinc-500 hover:text-zinc-300 transition-colors"
               >
                 <span class="truncate mr-2">
-                  {{ (book.metadata?.['kindle-sync']?.title || book.title)?.slice(0, 25) }}
+                  {{
+                    (
+                      book.metadata?.['kindle-sync']?.title || book.title
+                    )?.slice(0, 25)
+                  }}
                 </span>
                 <span class="text-zinc-600 whitespace-nowrap">
                   {{ book.metadata?.['kindle-sync']?.highlightsCount }}
@@ -196,7 +211,12 @@
 
 <script setup>
 const { tocTarget } = useTOC()
-const { revealContainer: booksReveal } = useScrollReveal({ selector: ':scope > a', staggerDelay: 12, translateY: 3, duration: 150 })
+const { revealContainer: booksReveal } = useScrollReveal({
+  selector: ':scope > a',
+  staggerDelay: 12,
+  translateY: 3,
+  duration: 150,
+})
 
 // Fetch reading list
 const { data: books, pending, error } = await useFetch('/api/reading')
@@ -250,9 +270,10 @@ const topHighlighted = computed(() => {
   if (!books.value?.length) return []
   return [...books.value]
     .filter((b) => b.metadata?.['kindle-sync']?.highlightsCount > 0)
-    .sort((a, b) =>
-      (b.metadata?.['kindle-sync']?.highlightsCount || 0) -
-      (a.metadata?.['kindle-sync']?.highlightsCount || 0)
+    .sort(
+      (a, b) =>
+        (b.metadata?.['kindle-sync']?.highlightsCount || 0) -
+        (a.metadata?.['kindle-sync']?.highlightsCount || 0)
     )
     .slice(0, 5)
 })

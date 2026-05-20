@@ -1,5 +1,7 @@
 <template>
-  <div class="min-h-screen flex flex-col items-center justify-center p-8 pb-32 gap-8">
+  <div
+    class="min-h-screen flex flex-col items-center justify-center p-8 pb-32 gap-8"
+  >
     <!-- 3D Model Viewer (when scan available) -->
     <ClientOnly>
       <GearModelViewer
@@ -80,9 +82,7 @@ const formatPostDate = (dateStr?: string) => {
 }
 
 const route = useRoute()
-const { data, error } = await useFetch(
-  `/api/gear/${route.params.slug}`
-)
+const { data, error } = await useFetch(`/api/gear/${route.params.slug}`)
 
 const { data: relatedPosts } = await useFetch(
   `/api/gear-posts/${route.params.slug}`,
