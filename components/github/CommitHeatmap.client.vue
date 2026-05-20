@@ -125,6 +125,11 @@ function onCellClick(cell) {
   emit('select', { year: selectedYear.value })
 }
 
+function clearSelection() {
+  selectedYear.value = null
+  emit('select', { year: null })
+}
+
 // Year totals
 const yearTotals = computed(() => {
   const totals = new Map()
@@ -236,10 +241,7 @@ watch(selectedYear, (v) => emit('select', { year: v }))
         <button
           type="button"
           class="underline-offset-2 hover:underline"
-          @click="
-            selectedYear = null
-            emit('select', { year: null })
-          "
+          @click="clearSelection"
         >
           clear
         </button>

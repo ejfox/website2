@@ -1,4 +1,6 @@
 import { defineEventHandler } from 'h3'
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
+import { join, dirname } from 'node:path'
 
 // GraphQL response types
 interface GistFile {
@@ -40,6 +42,31 @@ const siteName = 'EJ Fox - Code Snippets & Gists'
 const siteDescription =
   'A collection of useful code snippets, experiments, and tools.'
 const CACHE_DURATION = 3600
+// Disk-cache the last successful XML so the feed keeps serving when GitHub's
+// API is down, the token is missing, or we're rate-limited.
+const DISK_CACHE_PATH = join(
+  process.cwd(),
+  'data/cache/gists-rss.xml'
+)
+
+function readDiskCache(): string | null {
+  try {
+    return existsSync(DISK_CACHE_PATH)
+      ? readFileSync(DISK_CACHE_PATH, 'utf-8')
+      : null
+  } catch {
+    return null
+  }
+}
+
+function writeDiskCache(xml: string): void {
+  try {
+    mkdirSync(dirname(DISK_CACHE_PATH), { recursive: true })
+    writeFileSync(DISK_CACHE_PATH, xml)
+  } catch {
+    /* best effort */
+  }
+}
 
 export default defineEventHandler(async (event): Promise<string> => {
   try {
@@ -193,10 +220,20 @@ export default defineEventHandler(async (event): Promise<string> => {
 </rss>`
 
     event.node.res.setHeader('Content-Type', 'application/xml')
+    // Persist a copy so future requests can serve it even if GitHub is down
+    writeDiskCache(rss)
     return rss
   } catch (error) {
     console.error(`Error generating gists RSS feed:`, error)
-    event.node.res.statusCode = 500
-    return '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Error</title><description>Error generating gists RSS feed</description></channel></rss>'
+    // Serve last known good copy if we have one (200, not 500)
+    const cached = readDiskCache()
+    if (cached) {
+      event.node.res.setHeader('Content-Type', 'application/xml')
+      event.node.res.setHeader('X-Gists-Cache', 'stale-on-error')
+      return cached
+    }
+    event.node.res.statusCode = 503
+    event.node.res.setHeader('Content-Type', 'application/xml')
+    return '<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>Gists feed temporarily unavailable</title><description>Live GitHub data is currently unavailable and no cached copy exists yet. Try again shortly.</description></channel></rss>'
   }
 })
