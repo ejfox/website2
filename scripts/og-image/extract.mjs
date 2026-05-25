@@ -51,26 +51,79 @@ function dedupe(arr) {
  * processed JSON doesn't exist yet (drafts, in-progress posts).
  */
 /**
- * Try multiple candidate paths for a slug's source markdown. The website
- * repo has the synced copies; Dispatch sets DISPATCH_VAULT_PATH when
- * generating from a draft that only lives in the Obsidian vault.
+ * Try multiple candidate paths for a slug's source markdown. Posts live in
+ * `blog/`, `blog/YYYY/`, or `blog/week-notes/` depending on type — and the
+ * slug alone doesn't tell us which. We probe the likely roots and, as a
+ * final fallback, walk the blog tree looking for `<slug>.md`.
+ *
+ * Website repo has the synced copies; Dispatch sets DISPATCH_VAULT_PATH
+ * when generating from a draft that only lives in the Obsidian vault.
  */
 async function readMarkdownForSlug(slug) {
-  const candidates = [path.join(BLOG_DIR, `${slug}.md`)]
+  // Search roots, in priority order. The vault root is included because
+  // `week-notes/` is a sibling of `blog/` in EJ's vault, not nested inside.
+  const roots = [BLOG_DIR]
   if (process.env.DISPATCH_VAULT_PATH) {
-    candidates.push(
-      path.join(process.env.DISPATCH_VAULT_PATH, 'blog', `${slug}.md`)
+    roots.push(
+      path.join(process.env.DISPATCH_VAULT_PATH, 'blog'),
+      process.env.DISPATCH_VAULT_PATH
     )
   }
-  let lastErr
-  for (const p of candidates) {
-    try {
-      return { raw: await fs.readFile(p, 'utf8'), path: p }
-    } catch (e) {
-      lastErr = e
+
+  // Subdirs probed under each root before falling back to a tree walk.
+  // Year inferred from a `YYYY-...` slug prefix.
+  const subdirs = ['', 'week-notes']
+  const yearMatch = slug.match(/^(\d{4})-/)
+  if (yearMatch) subdirs.push(yearMatch[1])
+
+  const tried = []
+  for (const root of roots) {
+    for (const sub of subdirs) {
+      const p = path.join(root, sub, `${slug}.md`)
+      try {
+        return { raw: await fs.readFile(p, 'utf8'), path: p }
+      } catch {
+        tried.push(p)
+      }
     }
   }
-  throw lastErr
+
+  // Last resort: shallow walk of each root for `<slug>.md` anywhere
+  // beneath it. Vault has ~dozens of dirs; this stays cheap.
+  for (const root of roots) {
+    const found = await findMarkdownInTree(root, `${slug}.md`)
+    if (found) return { raw: await fs.readFile(found, 'utf8'), path: found }
+  }
+
+  const err = new Error(
+    `Could not find ${slug}.md under ${roots.join(' or ')} (tried: ${tried.join(', ')})`
+  )
+  err.code = 'ENOENT'
+  throw err
+}
+
+/**
+ * Shallow-recursive search for `filename` under `root`. Returns the first
+ * match or null. Skips hidden dirs and node_modules out of paranoia.
+ */
+async function findMarkdownInTree(root, filename) {
+  let entries
+  try {
+    entries = await fs.readdir(root, { withFileTypes: true })
+  } catch {
+    return null
+  }
+  // Direct hit before descending.
+  for (const e of entries) {
+    if (e.isFile() && e.name === filename) return path.join(root, filename)
+  }
+  for (const e of entries) {
+    if (!e.isDirectory()) continue
+    if (e.name.startsWith('.') || e.name === 'node_modules') continue
+    const hit = await findMarkdownInTree(path.join(root, e.name), filename)
+    if (hit) return hit
+  }
+  return null
 }
 
 async function extractFromMarkdown(slug) {
