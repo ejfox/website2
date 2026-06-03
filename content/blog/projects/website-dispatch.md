@@ -18,5 +18,3 @@ tags:
 A Tauri desktop app for publishing Obsidian notes straight to ejfox.com — keyboard-driven, fast, and built around the exact markdown pipeline this site uses. Scans the vault for `blog/` and `drafts/`, tracks LIVE / MODIFIED / draft status by content diff, previews with the real website renderer, and publishes with a one-click git commit + push. Supports scheduled publishing (`publish_at`) and visibility controls (public / unlisted / password-protected).
 
 ![Dispatch — keyboard-driven Obsidian-to-website publishing app](https://res.cloudinary.com/ejf/image/upload/v1780065760/projects/website-dispatch/1.png)
-
-![Drafts and live posts with status tracking, a real-renderer preview pane, and one-click publish](https://res.cloudinary.com/ejf/image/upload/projects/website-dispatch/app.png)
