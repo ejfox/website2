@@ -143,14 +143,6 @@ onMounted(() => {
           <span class="text-zinc-400 dark:text-zinc-600">·</span>
           <span class="whitespace-nowrap">{{ project.metadata.state }}</span>
         </template>
-        <template v-if="project.metadata?.aiInvolvement">
-          <span class="text-zinc-400 dark:text-zinc-600 hidden sm:inline">
-            ·
-          </span>
-          <span class="whitespace-nowrap hidden sm:inline">
-            {{ project.metadata.aiInvolvement }}
-          </span>
-        </template>
         <template v-if="project.metadata?.url">
           <span class="text-zinc-400 dark:text-zinc-600">·</span>
           <a

@@ -43,10 +43,13 @@ export default defineEventHandler(async () => {
         metadata?.password ||
         metadata?.passwordHash
       )
+      // Show drafts on the local dev server so works-in-progress are
+      // previewable; production still hides them.
+      const allowDrafts = import.meta.dev
       return (
         post.slug?.startsWith('projects/') &&
         !post.slug.includes('/!') &&
-        !isDraft &&
+        (allowDrafts || !isDraft) &&
         !isHidden &&
         !isUnlisted &&
         !hasPassword
@@ -94,6 +97,34 @@ export default defineEventHandler(async () => {
         }
       })
     )
+
+    // DEV ONLY: also surface draft projects (which the manifest omits) by
+    // reading the processed JSON files directly, so works-in-progress are
+    // previewable locally. Production never reaches this branch.
+    if (import.meta.dev) {
+      try {
+        const { readdir } = await import('node:fs/promises')
+        const projectsDir = resolve(process.cwd(), 'content/processed/projects')
+        const seen = new Set(projectPosts.map((p: ManifestPost) => p.slug))
+        const files = await readdir(projectsDir)
+        for (const file of files) {
+          if (!file.endsWith('.json')) continue
+          const slug = `projects/${file.replace(/\.json$/, '')}`
+          if (seen.has(slug) || file.startsWith('!')) continue
+          const full = JSON.parse(
+            await readFile(resolve(projectsDir, file), 'utf8')
+          )
+          projectsWithContent.push({
+            slug,
+            title: full.title,
+            html: full.html,
+            metadata: full.metadata,
+          })
+        }
+      } catch (err) {
+        console.error('dev draft-project preview failed:', err)
+      }
+    }
 
     // Sort by date descending
     const sorted = projectsWithContent.sort((a, b) => {

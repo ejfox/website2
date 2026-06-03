@@ -14,8 +14,7 @@
   >
     <div class="flex items-baseline justify-between gap-4 mb-2">
       <h3
-        class="font-serif font-light tracking-tight leading-tight group-hover:underline decoration-1 underline-offset-4"
-        :class="featured ? 'text-3xl md:text-4xl' : 'text-2xl md:text-3xl'"
+        class="font-serif font-light tracking-tight leading-tight group-hover:underline decoration-1 underline-offset-4 text-2xl md:text-3xl"
       >
         {{ projectTitle }}
         <span
@@ -26,28 +25,25 @@
         </span>
       </h3>
       <span class="shrink-0 flex items-baseline gap-2 font-mono text-xs">
+        <span class="uppercase tracking-wider" :class="contextTag.class">
+          {{ contextTag.label }}
+        </span>
         <span
           v-if="project.metadata?.draft"
-          class="uppercase tracking-wider text-amber-600 dark:text-amber-500 border border-amber-600/40 rounded px-1"
+          class="uppercase tracking-wider text-zinc-400 dark:text-zinc-600"
         >
           draft
         </span>
-        <span
-          v-if="stateChip"
-          class="uppercase tracking-wider border rounded px-1"
-          :class="stateChip.class"
-        >
-          {{ stateChip.label }}
-        </span>
-        <span
-          v-if="aiGlyph"
-          class="uppercase tracking-wider text-zinc-500 tabular-nums"
-          :title="`AI involvement: ${aiGlyph.label}`"
-        >
-          <span aria-hidden="true">{{ aiGlyph.glyph }}</span>
-          {{ aiGlyph.label }}
-        </span>
         <time v-if="year" class="text-zinc-500 tabular-nums">{{ year }}</time>
+        <span
+          v-if="projectUrl"
+          class="text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+          :title="`Open ${projectUrl}`"
+          role="link"
+          @click.stop.prevent="openExternal"
+        >
+          ↗
+        </span>
       </span>
     </div>
 
@@ -85,20 +81,22 @@
       @mouseenter="onHoverEnter"
       @mouseleave="onHoverLeave"
     />
+    <!-- Uniform tile grid: every image the same size (3:2), cropped to fill,
+         so rows read evenly instead of a ragged natural-aspect masonry. -->
     <div
       v-else-if="images.length > 1"
-      class="columns-1 sm:columns-2 lg:columns-3 2xl:columns-4 gap-4"
+      class="grid grid-cols-2 lg:grid-cols-3 gap-3"
       @mouseenter="onHoverEnter"
       @mouseleave="onHoverLeave"
     >
       <img
         v-for="(src, i) in visibleImages"
         :key="i"
-        :src="src"
+        :src="tile(src, 900)"
         :alt="`${projectTitle} screenshot ${i + 1}`"
         loading="lazy"
         decoding="async"
-        class="w-auto max-w-full h-auto max-h-[50vh] mb-4 block break-inside-avoid rounded transition-opacity duration-500"
+        class="w-full aspect-[3/2] object-cover rounded transition-opacity duration-500"
         :class="tileOpacityClass(i)"
       />
     </div>
@@ -127,6 +125,19 @@ const projectTitle = computed(
 
 const client = computed(() => props.project.metadata?.client || '')
 
+// --- Context: client / collaborative / personal --------------------------------
+// Defaults to "personal" — only client & collaborative projects set `context` in
+// frontmatter. client/collaborative read slightly brighter; personal sits back.
+const contextTag = computed(() => {
+  const c = props.project.metadata?.context || 'personal'
+  const map = {
+    client: { label: 'client', class: 'text-zinc-500 dark:text-zinc-300' },
+    collaborative: { label: 'collaborative', class: 'text-zinc-500 dark:text-zinc-300' },
+    personal: { label: 'personal', class: 'text-zinc-400 dark:text-zinc-600' },
+  }
+  return map[c] || map.personal
+})
+
 const year = computed(() => {
   const date = props.project.metadata?.date || props.project.date
   if (!date) return ''
@@ -135,45 +146,13 @@ const year = computed(() => {
 })
 
 // --- State chip --------------------------------------------------------------
-const stateChip = computed(() => {
-  const s = props.project.metadata?.state
-  if (!s) return null
-  const map = {
-    deployed: {
-      label: 'deployed',
-      class: 'text-emerald-600 dark:text-emerald-500 border-emerald-600/40',
-    },
-    archived: {
-      label: 'archived',
-      class: 'text-zinc-500 border-zinc-500/40',
-    },
-    prototype: {
-      label: 'prototype',
-      class: 'text-sky-600 dark:text-sky-400 border-sky-500/40',
-    },
-    draft: {
-      label: 'draft',
-      class: 'text-amber-600 dark:text-amber-500 border-amber-600/40',
-    },
-  }
-  // Skip "draft" here — already rendered by the dedicated draft pill above.
-  if (s === 'draft') return null
-  return map[s] || null
-})
-
-// --- AI involvement glyph ----------------------------------------------------
-// Values seen: solo, pair, ai-assisted, human-only. Treat human-only as solo.
-const aiGlyph = computed(() => {
-  const a = props.project.metadata?.aiInvolvement
-  if (!a) return null
-  const norm = a === 'human-only' ? 'solo' : a
-  const map = {
-    solo: { glyph: '◯', label: 'solo' },
-    pair: { glyph: '◐', label: 'pair' },
-    'ai-assisted': { glyph: '●', label: 'ai-assisted' },
-  }
-  return map[norm] || null
-})
+// --- External link ----------------------------------------------------------
+// The whole row is a NuxtLink to the detail page; the ↗ opens the project's own
+// URL in a new tab without triggering that navigation. Quieter than a state chip.
+const projectUrl = computed(() => props.project.metadata?.url || '')
+const openExternal = () => {
+  if (projectUrl.value) window.open(projectUrl.value, '_blank', 'noopener')
+}
 
 // --- Tech stack stripe -------------------------------------------------------
 const tech = computed(() => {
@@ -182,21 +161,28 @@ const tech = computed(() => {
   return t.map((x) => String(x).toLowerCase()).filter(Boolean)
 })
 
-// --- Images & Cloudinary thumbnailing ---------------------------------------
-const thumb = (src, width) => {
+// --- Images & Cloudinary transforms -----------------------------------------
+// Inject the transform right after /upload/ so it works on BOTH versioned
+// (/upload/v123/…) and unversioned (/upload/projects/…) URLs.
+const cld = (src, transform) => {
   if (!src) return src
   const url = src.replace(/^http:/, 'https:')
-  if (!url.includes('res.cloudinary.com')) return url
-  return url.replace(/\/(v\d+)\//, `/c_limit,w_${width},q_auto,f_auto/$1/`)
+  if (!url.includes('/image/upload/')) return url
+  return url.replace('/image/upload/', `/image/upload/${transform}/`)
 }
+// Hero: keep full aspect, just cap size. Tile: uniform 3:2 with NO crop —
+// pad to the aspect using the page background color (zinc-900 #18181b) so the
+// padding is invisible. Portraits float whole, landscapes fill; every tile the
+// same size and nothing gets butchered.
+const thumb = (src, width) => cld(src, `c_limit,w_${width},q_auto,f_auto`)
+const tile = (src, width) =>
+  cld(src, `c_pad,ar_3:2,b_rgb:18181b,w_${width},q_auto,f_auto`)
 
 const images = computed(() => {
   if (!props.project.html) return []
-  const all = [...props.project.html.matchAll(/<img[^>]+src="([^"]+)"/g)].map(
-    (m) => m[1]
+  return [...props.project.html.matchAll(/<img[^>]+src="([^"]+)"/g)].map(
+    (m) => m[1].replace(/^http:/, 'https:')
   )
-  const w = all.length === 1 ? 1500 : 900
-  return all.map((src) => thumb(src, w))
 })
 
 const IMAGE_CAP = 6
@@ -242,7 +228,7 @@ onBeforeUnmount(stopCycle)
 // Single-image rows: cycle src on the hero img element.
 const heroSrc = computed(() => {
   if (!images.value.length) return ''
-  return images.value[cycleIndex.value] || images.value[0]
+  return thumb(images.value[cycleIndex.value] || images.value[0], 1500)
 })
 
 // Multi-image masonry: shift opacity stagger across tiles so the currently
@@ -269,3 +255,14 @@ const excerpt = computed(() => {
   )
 })
 </script>
+
+<style scoped>
+/* The lede sits in a calm reading measure and a quiet size so it reads as
+   subordinate to the title — not a second competing block of large serif.
+   Scoped specificity holds the measure against global paragraph widths. */
+.project-row p {
+  max-width: 56ch;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+</style>
