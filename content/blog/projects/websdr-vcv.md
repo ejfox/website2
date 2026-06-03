@@ -17,3 +17,5 @@ tags:
 A VCV Rack / Cardinal plugin — a C++ Eurorack module — that streams real radio from KiwiSDR servers into a modular synth.
 
 ![The WebSDR module patched into a modular synth rack](https://res.cloudinary.com/ejf/image/upload/projects/websdr-vcv/rack.png)
+
+![The Eurorack module in C++ — presets and KiwiSDR resampling](https://res.cloudinary.com/ejf/image/upload/projects/websdr-vcv/code.png)

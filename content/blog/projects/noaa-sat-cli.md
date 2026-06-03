@@ -15,3 +15,5 @@ tags:
 An Earth-observation command line: grab the latest NOAA satellite imagery, pull every active satellite at once, browse an archive, or drop into NASA's deep-space EPIC view — all behind a cyberpunk terminal menu.
 
 ![EARTH OBSERVATION CLI — grab latest, mass capture, archive, and NASA deep-space views](https://res.cloudinary.com/ejf/image/upload/projects/noaa-sat-cli/tui.png)
+
+![The TUI behind the menu — satellite, channel, and resolution prompts](https://res.cloudinary.com/ejf/image/upload/projects/noaa-sat-cli/code.png)

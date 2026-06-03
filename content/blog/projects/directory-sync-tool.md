@@ -17,3 +17,5 @@ tags:
 A directory comparison and syncing tool — point it at a source and target tree and reconcile what differs, from the terminal.
 
 ![dstool usage — source/target options](https://res.cloudinary.com/ejf/image/upload/projects/directory-sync-tool/help.png)
+
+![Inside dstool — playback cues and the hidden easter-egg path](https://res.cloudinary.com/ejf/image/upload/projects/directory-sync-tool/code.png)

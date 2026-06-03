@@ -17,3 +17,5 @@ tags:
 A self-hosted deployment daemon: push to GitHub and your code deploys to a Docker VPS automatically — push-to-deploy without a CI platform. Auto-detects project type and deployment strategy, and reports status back to GitHub and Discord. Comes with a dashboard for watching deployments, projects, and logs.
 
 ![The dockrune dashboard — push-to-deploy, smart detection, and real-time status](https://res.cloudinary.com/ejf/image/upload/projects/dockrune/dashboard.png)
+
+![The deploy worker — queued deployments processed in Go](https://res.cloudinary.com/ejf/image/upload/projects/dockrune/code.png)

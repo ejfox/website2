@@ -17,3 +17,5 @@ tags:
 A terminal reflex game for training your eye to spot differences: two values flash up, you call them *Different* or *Same* as fast as you can — and the system is watching the clock.
 
 ![CLI Delta Dojo title screen](https://res.cloudinary.com/ejf/image/upload/projects/cli-delta-dojo/title.png)
+
+![Under the hood — Solana wallet handling and entry-fee logic](https://res.cloudinary.com/ejf/image/upload/projects/cli-delta-dojo/code.png)
