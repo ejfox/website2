@@ -18,7 +18,9 @@ Designed to be a healthy "first screen" in the morning. News summaries, updates,
 The goal was to repurpose the tik-tok style endless vertical scroll but instead fill it with interesting and useful websites, tools, and news articles (populated through my Pinboard bookmarks)
 
 ![Home — an audio digest up top, then "Top Picks" and a recent feed pulled from my Pinboard bookmarks](https://res.cloudinary.com/ejf/image/upload/projects/morning-radio/home.png)
+
 ![The morning audio briefing — a generated "Morning Radio" segment with scrubber and skip controls](https://res.cloudinary.com/ejf/image/upload/projects/morning-radio/player.png)
+
 ![A single card in the vertical scroll — full article with source, tags, and summary](https://res.cloudinary.com/ejf/image/upload/projects/morning-radio/reader.png)
 
 I even experimented (unsuccessfully) with creating a home screen widget.

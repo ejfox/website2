@@ -17,4 +17,5 @@ tags:
 A Vue app that captures live speech and renders it as decaying typographic "echoes," with a font and weight captured per utterance.
 
 ![Live speech rendered as decaying typographic echoes](https://res.cloudinary.com/ejf/image/upload/projects/opencv-talk-typography/echo-1.png)
+
 ![Words accumulating and fading around the speaker](https://res.cloudinary.com/ejf/image/upload/projects/opencv-talk-typography/echo-2.png)

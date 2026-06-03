@@ -17,5 +17,7 @@ tags:
 A TUI (and cross-platform Tauri desktop app) tool for editing Subway Builder save files, supporting both JSON and `.metro` binary formats with auto-backup. Lets you edit money, game time, train count, and ticket price through an interactive terminal interface with a crackintro aesthetic.
 
 ![Metro Savefile Doctor — current game analysis](https://res.cloudinary.com/ejf/image/upload/projects/metro-savefile-doctor/ui-1.png)
+
 ![Editing a save file's stats](https://res.cloudinary.com/ejf/image/upload/projects/metro-savefile-doctor/ui-2.png)
+
 ![Crackintro-aesthetic terminal UI](https://res.cloudinary.com/ejf/image/upload/projects/metro-savefile-doctor/ui-3.png)

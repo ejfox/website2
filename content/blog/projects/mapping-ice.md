@@ -17,4 +17,5 @@ tags:
 A dark, terminal-aesthetic map of publicly available ICE and immigration-enforcement facilities. Sources are graded using the NATO Admiralty intelligence code, built with MapLibre and Vite.
 
 ![Detention Infrastructure overview — custody counts, spend, and new facilities](https://res.cloudinary.com/ejf/image/upload/projects/mapping-ice/overview.png)
+
 ![Facility records under development, with status tags](https://res.cloudinary.com/ejf/image/upload/projects/mapping-ice/facilities.png)

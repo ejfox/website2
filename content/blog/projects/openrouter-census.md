@@ -15,4 +15,5 @@ tags:
 A complete census of the 316+ AI models on OpenRouter — scrapes them all in seconds and renders an interactive dashboard of Observable Plot charts: pricing distribution, the context-vs-price paradox, provider market share, and capability breakdowns.
 
 ![OpenRouter Model Census — the dashboard: pricing distribution + the context-price paradox across 376 models](https://res.cloudinary.com/ejf/image/upload/projects/openrouter-census/dashboard.png)
+
 ![The companion interactive CLI](https://res.cloudinary.com/ejf/image/upload/projects/openrouter-census/tui.png)

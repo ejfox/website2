@@ -19,5 +19,7 @@ tags:
 3Blue1Brown-style animated explainers of the I Ching — the 64 hexagrams, the binary structure Leibniz saw in them, the coin-toss probabilities — rendered as precise mathematical motion graphics in the vulpes monochrome palette with Manim.
 
 ![The full grid of 64 hexagrams](https://res.cloudinary.com/ejf/image/upload/projects/hexagram/grid.jpg)
+
 ![A hexagram built line by line — the loom](https://res.cloudinary.com/ejf/image/upload/projects/hexagram/loom.jpg)
+
 ![Coin-toss probabilities behind a changing line](https://res.cloudinary.com/ejf/image/upload/projects/hexagram/coins.jpg)

@@ -18,4 +18,5 @@ tags:
 A brutalist Pomodoro timer for iPhone and Apple Watch — edge-trace progress around the screen, adaptive themes, and session-lifecycle webhooks.
 
 ![Tempo on iPhone](https://res.cloudinary.com/ejf/image/upload/v1780065003/projects/tempo/1.png)
+
 ![Tempo session view](https://res.cloudinary.com/ejf/image/upload/v1780065005/projects/tempo/2.png)

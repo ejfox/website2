@@ -20,5 +20,7 @@ tags:
 Deep work on Subway Builder — a transit-simulation game: designing train types with realistic acceleration, capacity, and cost parameters; laying networks over real-world geography; and building construction and analysis tooling. (Also spun off `subway-builder-mods` and a Pico-8 demake.)
 
 ![Subway Builder construction mode — laying track in an isometric city](https://res.cloudinary.com/ejf/image/upload/v1780066321/projects/subway-builder/build.png)
+
 ![A subway network laid over real geography](https://res.cloudinary.com/ejf/image/upload/v1780066322/projects/subway-builder/map.png)
+
 ![Train-type editor with full simulation parameters](https://res.cloudinary.com/ejf/image/upload/v1780066323/projects/subway-builder/trains.png)

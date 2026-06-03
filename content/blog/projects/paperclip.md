@@ -20,5 +20,7 @@ A minimal, friends-only "presence" app: broadcast your vibe with a single emoji 
 ![paperclip — one-emoji friends-only presence](https://res.cloudinary.com/ejf/image/upload/v1780065877/projects/paperclip/promo.png)
 
 ![Sign in — "No chat. Just vibes."](https://res.cloudinary.com/ejf/image/upload/projects/paperclip/signin.png)
+
 ![A friend's contact card — pinned emoji, notifications, and a scrolling emoji history](https://res.cloudinary.com/ejf/image/upload/projects/paperclip/contact.png)
+
 ![Launch screen](https://res.cloudinary.com/ejf/image/upload/projects/paperclip/splash.png)

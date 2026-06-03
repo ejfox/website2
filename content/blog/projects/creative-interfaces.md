@@ -13,6 +13,7 @@ tags:
 These are my attempts to make computers that respond to the way humans actually move and gesture—exploring the design space between human intuition and machine capability. Each project pushes beyond traditional HCI constraints to find new interaction models. Some of these work better than others, but they all represent steps toward interfaces that feel more like extensions of thought than barriers to it.
 
 ![Playing Super Mario Bros. through the hand-tracking MIDI controller](https://res.cloudinary.com/ejf/image/upload/projects/creative-interfaces/mario.png)
+
 ![Turning a backyard crow's movements into music](https://res.cloudinary.com/ejf/image/upload/projects/creative-interfaces/crows.png)
 
 ## Projects

@@ -19,5 +19,7 @@ tags:
 A scientific instrument for investigating latent spaces — ingest a dataset, embed it, project with UMAP, cluster, and explore, all in one tool.
 
 ![latent-scope UMAP projection](https://res.cloudinary.com/ejf/image/upload/v1780065007/projects/latent-scope/umap.png)
+
 ![latent-scope cluster view](https://res.cloudinary.com/ejf/image/upload/v1780065008/projects/latent-scope/cluster.png)
+
 ![latent-scope explore view](https://res.cloudinary.com/ejf/image/upload/v1780065006/projects/latent-scope/explore.png)

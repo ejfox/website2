@@ -15,4 +15,5 @@ tags:
 grind through javascript documentation. build muscle memory. ship better code. A reading app that turns MDN's JavaScript docs into timed sessions, exercises, and a streak you can grind — DuoLingo energy for the standard library.
 
 ![docgrind — session/chapters/exercises/progress, with reading stats](https://res.cloudinary.com/ejf/image/upload/projects/docgrind/landing.png)
+
 ![Practice exercises — coding challenges drawn from the docs you just read](https://res.cloudinary.com/ejf/image/upload/projects/docgrind/exercises.png)
