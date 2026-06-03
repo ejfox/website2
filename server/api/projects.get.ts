@@ -114,6 +114,10 @@ export default defineEventHandler(async () => {
           const full = JSON.parse(
             await readFile(resolve(projectsDir, file), 'utf8')
           )
+          // Drafts are intentionally previewable in dev, but hidden/unlisted/
+          // password-protected projects stay excluded everywhere.
+          const m = full.metadata || {}
+          if (m.hidden || m.unlisted || m.password || m.passwordHash) continue
           projectsWithContent.push({
             slug,
             title: full.title,
