@@ -77,17 +77,13 @@
       :alt="`${projectTitle} screenshot`"
       loading="lazy"
       decoding="async"
-      class="w-auto max-w-full h-auto max-h-[50vh] rounded transition-opacity duration-500"
-      @mouseenter="onHoverEnter"
-      @mouseleave="onHoverLeave"
+      class="w-auto max-w-full h-auto max-h-[50vh] rounded"
     />
     <!-- Uniform tile grid: every image the same size (3:2), cropped to fill,
          so rows read evenly instead of a ragged natural-aspect masonry. -->
     <div
       v-else-if="images.length > 1"
       class="grid grid-cols-2 lg:grid-cols-3 gap-3"
-      @mouseenter="onHoverEnter"
-      @mouseleave="onHoverLeave"
     >
       <img
         v-for="(src, i) in visibleImages"
@@ -96,8 +92,7 @@
         :alt="`${projectTitle} screenshot ${i + 1}`"
         loading="lazy"
         decoding="async"
-        class="w-full aspect-[3/2] object-cover rounded transition-opacity duration-500"
-        :class="tileOpacityClass(i)"
+        class="w-full aspect-[3/2] object-cover rounded"
       />
     </div>
 
@@ -108,8 +103,6 @@
 </template>
 
 <script setup>
-import { usePreferredReducedMotion, useMediaQuery } from '@vueuse/core'
-
 const props = defineProps({
   project: { type: Object, required: true },
   featured: { type: Boolean, default: false },
@@ -189,58 +182,10 @@ const IMAGE_CAP = 6
 const visibleImages = computed(() => images.value.slice(0, IMAGE_CAP))
 const hiddenCount = computed(() => Math.max(0, images.value.length - IMAGE_CAP))
 
-// --- Hover filmstrip (desktop only, respects reduced-motion) -----------------
-const reducedMotion = usePreferredReducedMotion()
-const isDesktop = useMediaQuery('(min-width: 768px)')
-
-const cycleIndex = ref(0)
-let cycleTimer = null
-
-const stopCycle = () => {
-  if (cycleTimer) {
-    clearInterval(cycleTimer)
-    cycleTimer = null
-  }
-}
-
-const startCycle = () => {
-  stopCycle()
-  if (reducedMotion.value !== 'no-preference') return
-  if (!isDesktop.value) return
-  if (images.value.length < 2) return
-  cycleTimer = setInterval(() => {
-    cycleIndex.value = (cycleIndex.value + 1) % images.value.length
-  }, 800)
-}
-
-const onHoverEnter = () => {
-  if (typeof window === 'undefined') return
-  startCycle()
-}
-
-const onHoverLeave = () => {
-  stopCycle()
-  cycleIndex.value = 0
-}
-
-onBeforeUnmount(stopCycle)
-
-// Single-image rows: cycle src on the hero img element.
-const heroSrc = computed(() => {
-  if (!images.value.length) return ''
-  return thumb(images.value[cycleIndex.value] || images.value[0], 1500)
-})
-
-// Multi-image masonry: shift opacity stagger across tiles so the currently
-// "lit" tile reads as the focus and the rest dim gently. Reduced motion or
-// non-desktop falls back to a flat hover state.
-const tileOpacityClass = (i) => {
-  if (!cycleTimer) return ''
-  // Highlight cycleIndex tile, dim the rest.
-  return i === cycleIndex.value % visibleImages.value.length
-    ? 'opacity-100'
-    : 'opacity-60'
-}
+// Single-image rows: one static hero, no cycling.
+const heroSrc = computed(() =>
+  images.value.length ? thumb(images.value[0], 1500) : ''
+)
 
 // --- Excerpt ----------------------------------------------------------------
 const excerpt = computed(() => {
