@@ -71,16 +71,20 @@
 
     <!-- One image: a generous hero.
          Several: a masonry wall, capped at 6 with an overflow link. -->
+    <!-- Single hero: natural aspect, no crop, no bars. -->
     <img
       v-if="images.length === 1"
       :src="heroSrc"
+      :srcset="`${thumb(images[0], 900)} 900w, ${thumb(images[0], 1500)} 1500w`"
+      sizes="(min-width: 768px) 75vw, 100vw"
       :alt="`${projectTitle} screenshot`"
-      loading="lazy"
+      :loading="eager ? 'eager' : 'lazy'"
+      :fetchpriority="eager ? 'high' : undefined"
       decoding="async"
-      class="w-auto max-w-full h-auto max-h-[50vh] rounded"
+      class="w-auto max-w-full h-auto max-h-[60vh] rounded"
     />
-    <!-- Uniform tile grid: every image the same size (3:2), cropped to fill,
-         so rows read evenly instead of a ragged natural-aspect masonry. -->
+    <!-- Uniform tile grid: every image the same size (3:2), padded to fill,
+         so rows read evenly and reserve their space (no layout shift). -->
     <div
       v-else-if="images.length > 1"
       class="grid grid-cols-2 lg:grid-cols-3 gap-3"
@@ -89,8 +93,13 @@
         v-for="(src, i) in visibleImages"
         :key="i"
         :src="tile(src, 900)"
+        :srcset="`${tile(src, 500)} 500w, ${tile(src, 900)} 900w`"
+        sizes="(min-width: 1024px) 33vw, 50vw"
         :alt="`${projectTitle} screenshot ${i + 1}`"
-        loading="lazy"
+        width="900"
+        height="600"
+        :loading="eager && i === 0 ? 'eager' : 'lazy'"
+        :fetchpriority="eager && i === 0 ? 'high' : undefined"
         decoding="async"
         class="w-full aspect-[3/2] object-cover rounded"
       />
@@ -106,6 +115,8 @@
 const props = defineProps({
   project: { type: Object, required: true },
   featured: { type: Boolean, default: false },
+  // Eager-load + high-priority the first row's image (the LCP candidate).
+  eager: { type: Boolean, default: false },
 })
 
 const projectSlug = computed(
@@ -169,7 +180,7 @@ const cld = (src, transform) => {
 // same size and nothing gets butchered.
 const thumb = (src, width) => cld(src, `c_limit,w_${width},q_auto,f_auto`)
 const tile = (src, width) =>
-  cld(src, `c_pad,ar_3:2,b_rgb:18181b,w_${width},q_auto,f_auto`)
+  cld(src, `c_fill,ar_3:2,g_auto,w_${width},q_auto,f_auto`)
 
 const images = computed(() => {
   if (!props.project.html) return []

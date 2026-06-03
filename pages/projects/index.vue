@@ -303,13 +303,14 @@ useHead(() => ({
       class="mb-16 -mx-4 sm:-mx-6 xl:-mx-8 px-4 sm:px-8 xl:px-16 space-y-16"
     >
       <template
-        v-for="project in featuredProjects"
+        v-for="(project, i) in featuredProjects"
         :key="project.slug"
       >
         <ProjectRow
           :id="getProjectSlug(project)"
           :project="project"
           featured
+          :eager="i === 0"
         />
       </template>
     </div>
