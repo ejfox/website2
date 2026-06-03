@@ -14,4 +14,6 @@ tags:
 
 Terminal CLI for managing the audio that powers music.tools.ejfox.com and the radio — list, move, upload, convert, and tag tracks straight from the shell. Reads hit Cloudflare R2 directly; writes go through wrangler.
 
-![The command reference — track management, a radio scheduler, and setup/watcher commands](https://res.cloudinary.com/ejf/image/upload/projects/music-cli/help.png)
+![The command reference — track management, a radio scheduler, and setup/watcher commands](https://res.cloudinary.com/ejf/image/upload/projects/music-cli/cli.png)
+
+![Inside the CLI — album-grouped track listing straight from Cloudflare R2](https://res.cloudinary.com/ejf/image/upload/projects/music-cli/code.png)
