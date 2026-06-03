@@ -1,6 +1,6 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">A SwiftUI iOS podcast player dedicated entirely to Harmontown — all ~360 episodes, built for sleep-listening, with a \"prestige\" progression system and a brutalist monochrome / liquid-glass UI.</p>\n<figure role=\"figure\" aria-label=\"towntuner — a Harmontown-only podcast player\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065876/projects/towntuner/1.png\" alt=\"towntuner — a Harmontown-only podcast player\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780065876/projects/towntuner/1.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780065876/projects/towntuner/1.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065876/projects/towntuner/1.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780065876/projects/towntuner/1.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"towntuner — a Harmontown-only podcast player\" width=\"988\" height=\"2108\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"988×2108\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">towntuner — a Harmontown-only podcast player</figcaption>\n</figure>",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">A SwiftUI iOS podcast player dedicated entirely to Harmontown — all ~360 episodes, built for sleep-listening, with a \"prestige\" progression system and a brutalist monochrome / liquid-glass UI.</p>\n<figure role=\"figure\" aria-label=\"towntuner — a Harmontown-only podcast player\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065876/projects/towntuner/1.png\" alt=\"towntuner — a Harmontown-only podcast player\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780065876/projects/towntuner/1.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780065876/projects/towntuner/1.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065876/projects/towntuner/1.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780065876/projects/towntuner/1.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"towntuner — a Harmontown-only podcast player\" width=\"988\" height=\"2108\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"988×2108\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">towntuner — a Harmontown-only podcast player</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"TownTuner on iPhone — the episode browser with prestige progression\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/towntuner/2.png\" alt=\"TownTuner on iPhone — the episode browser with prestige progression\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/towntuner/2.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/towntuner/2.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/towntuner/2.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/towntuner/2.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"TownTuner on iPhone — the episode browser with prestige progression\" width=\"988\" height=\"2108\" style=\"--splay-rot:1.51deg;\" data-dimensions=\"988×2108\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">TownTuner on iPhone — the episode browser with prestige progression</figcaption>\n</figure>",
   "title": "towntuner",
   "metadata": {
     "title": "towntuner",
@@ -19,14 +19,14 @@
       "app",
       "audio"
     ],
-    "words": 48,
-    "images": 1,
+    "words": 58,
+    "images": 2,
     "imageDetails": {
-      "total": 1,
-      "cloudinary": 1,
+      "total": 2,
+      "cloudinary": 2,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

@@ -19,3 +19,5 @@ tags:
 Show your webcam as ASCII art in the terminal — customizable cyberpunk 3D scenes, gradient palettes, and Floyd–Steinberg dithering.
 
 ![ascii_webcam rendering a cyberpunk 3D ASCII scene in the terminal](https://res.cloudinary.com/ejf/image/upload/v1743884268/Screenshot_2025-04-05_at_4.17.34_PM.png)
+
+![ascii_webcam turning a live scene into terminal ASCII](https://res.cloudinary.com/ejf/image/upload/projects/ascii_webcam/demo.png)

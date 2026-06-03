@@ -17,3 +17,5 @@ tags:
 A SwiftUI iOS podcast player dedicated entirely to Harmontown — all ~360 episodes, built for sleep-listening, with a "prestige" progression system and a brutalist monochrome / liquid-glass UI.
 
 ![towntuner — a Harmontown-only podcast player](https://res.cloudinary.com/ejf/image/upload/v1780065876/projects/towntuner/1.png)
+
+![TownTuner on iPhone — the episode browser with prestige progression](https://res.cloudinary.com/ejf/image/upload/projects/towntuner/2.png)
