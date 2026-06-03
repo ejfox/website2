@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">Terminal CLI for managing the audio that powers music.tools.ejfox.com and the radio — list, move, upload, convert, and tag tracks straight from the shell. Reads hit Cloudflare R2 directly; writes go through wrangler.</p>\n<figure role=\"figure\" aria-label=\"The command reference — track management, a radio scheduler, and setup/watcher commands\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/music-cli/help.png\" alt=\"The command reference — track management, a radio scheduler, and setup/watcher commands\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/music-cli/help.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/music-cli/help.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/music-cli/help.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/music-cli/help.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The command reference — track management, a radio scheduler, and setup/watcher commands\" width=\"964\" height=\"901\" style=\"--splay-rot:1.87deg;\" data-dimensions=\"964×901\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The command reference — track management, a radio scheduler, and setup/watcher commands</figcaption>\n</figure>",
+  "title": "Music CLI",
+  "metadata": {
+    "title": "Music CLI",
+    "date": "2026-05-18T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/music-cli",
+    "tech": [
+      "Shell"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 59,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

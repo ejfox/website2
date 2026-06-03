@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice + an image. Capture: iOS simulator / device screenshot. Draft until imaged. -->\n<p class=\"\">JSON → Beautiful iOS Widget in 60 Seconds. Paste a URL, pick your data, choose a template.</p>\n<figure role=\"figure\" aria-label=\"The widget editor — a SwiftUI step flow from URL to data to template to customize\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpino/code.png\" alt=\"The widget editor — a SwiftUI step flow from URL to data to template to customize\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpino/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpino/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpino/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpino/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The widget editor — a SwiftUI step flow from URL to data to template to customize\" width=\"1400\" height=\"900\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The widget editor — a SwiftUI step flow from URL to data to template to customize</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"The typographic design system behind the widgets — opinionated, minimal, restrained\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpino/code2.png\" alt=\"The typographic design system behind the widgets — opinionated, minimal, restrained\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpino/code2.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpino/code2.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpino/code2.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpino/code2.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The typographic design system behind the widgets — opinionated, minimal, restrained\" width=\"1400\" height=\"900\" style=\"--splay-rot:-1.36deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The typographic design system behind the widgets — opinionated, minimal, restrained</figcaption>\n</figure>",
+  "title": "Vulpino",
+  "metadata": {
+    "title": "Vulpino",
+    "date": "2026-01-10T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/vulpino",
+    "tech": [
+      "Swift"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 65,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. The image is a generative view of\n     the scrap corpus (golden-angle phyllotaxis of screenshots). Draft until ready. -->\n<p class=\"\">The engine behind my scrapbook: it pulls scraps from a dozen sources, normalizes and analyzes them, and lands them in one database — the substrate everything else (the CLI, the scrollers) reads from.</p>\n<figure role=\"figure\" aria-label=\"A phyllotaxis of the scrap corpus — every screenshot placed by the golden angle, the way a sunflower packs its seeds\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/scrapbook-core/phyllotaxis.png\" alt=\"A phyllotaxis of the scrap corpus — every screenshot placed by the golden angle, the way a sunflower packs its seeds\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/scrapbook-core/phyllotaxis.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/scrapbook-core/phyllotaxis.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/scrapbook-core/phyllotaxis.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/scrapbook-core/phyllotaxis.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A phyllotaxis of the scrap corpus — every screenshot placed by the golden angle, the way a sunflower packs its seeds\" width=\"1600\" height=\"1600\" style=\"--splay-rot:1.18deg;\" data-dimensions=\"1600×1600\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">A phyllotaxis of the scrap corpus — every screenshot placed by the golden angle, the way a sunflower packs its seeds</figcaption>\n</figure>",
+  "title": "Scrapbook Core",
+  "metadata": {
+    "title": "Scrapbook Core",
+    "date": "2026-05-05T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/scrapbook-core",
+    "tech": [
+      "JavaScript"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 82,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

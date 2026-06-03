@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">An Earth-observation command line: grab the latest NOAA satellite imagery, pull every active satellite at once, browse an archive, or drop into NASA's deep-space EPIC view — all behind a cyberpunk terminal menu.</p>\n<figure role=\"figure\" aria-label=\"EARTH OBSERVATION CLI — grab latest, mass capture, archive, and NASA deep-space views\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/noaa-sat-cli/tui.png\" alt=\"EARTH OBSERVATION CLI — grab latest, mass capture, archive, and NASA deep-space views\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/noaa-sat-cli/tui.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/noaa-sat-cli/tui.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/noaa-sat-cli/tui.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/noaa-sat-cli/tui.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"EARTH OBSERVATION CLI — grab latest, mass capture, archive, and NASA deep-space views\" width=\"1200\" height=\"820\" style=\"--splay-rot:1.66deg;\" data-dimensions=\"1200×820\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">EARTH OBSERVATION CLI — grab latest, mass capture, archive, and NASA deep-space views</figcaption>\n</figure>",
+  "title": "NOAA Satellite CLI",
+  "metadata": {
+    "title": "NOAA Satellite CLI",
+    "date": "2025-06-09T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/noaa-sat-cli",
+    "tech": [
+      "TypeScript"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 60,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

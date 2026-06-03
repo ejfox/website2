@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">A self-hosted deployment daemon: push to GitHub and your code deploys to a Docker VPS automatically — push-to-deploy without a CI platform. Auto-detects project type and deployment strategy, and reports status back to GitHub and Discord. Comes with a dashboard for watching deployments, projects, and logs.</p>\n<figure role=\"figure\" aria-label=\"The dockrune dashboard — push-to-deploy, smart detection, and real-time status\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/dockrune/dashboard.png\" alt=\"The dockrune dashboard — push-to-deploy, smart detection, and real-time status\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/dockrune/dashboard.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/dockrune/dashboard.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/dockrune/dashboard.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/dockrune/dashboard.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The dockrune dashboard — push-to-deploy, smart detection, and real-time status\" width=\"1440\" height=\"947\" style=\"--splay-rot:2.88deg;\" data-dimensions=\"1440×947\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The dockrune dashboard — push-to-deploy, smart detection, and real-time status</figcaption>\n</figure>",
+  "title": "dockrune",
+  "metadata": {
+    "title": "dockrune",
+    "date": "2025-03-01T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/dockrune",
+    "tech": [
+      "Go",
+      "Docker",
+      "Deployment",
+      "DevOps"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools",
+      "deployment",
+      "devops"
+    ],
+    "words": 70,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

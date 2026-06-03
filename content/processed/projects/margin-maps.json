@@ -1,0 +1,38 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice + the real story titles/links. Factual stub. Draft. -->\n<p class=\"\">Interactive map stories for The Margin, a non-profit news outlet — satellite-based scrollytelling that pairs reporting with custom cartography. Shown here: a historical map of Memphis registered over present-day satellite imagery, and a feature on the Skagit River's hydroelectric dams and Indigenous \"Indian Power.\"</p>\n<figure role=\"figure\" aria-label=\"Memphis — a historical city map registered over present-day satellite imagery\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1666630398/project-images/margin_memphis.png\" alt=\"Memphis — a historical city map registered over present-day satellite imagery\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1666630398/project-images/margin_memphis.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1666630398/project-images/margin_memphis.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1666630398/project-images/margin_memphis.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1666630398/project-images/margin_memphis.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Memphis — a historical city map registered over present-day satellite imagery\" width=\"5001\" height=\"2625\" style=\"--splay-rot:2.87deg;\" data-dimensions=\"5001×2625\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figure role=\"figure\" aria-label=\"Skagit River — a satellite-based feature on hydroelectric dams\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1666630398/project-images/margin_skagit.png\" alt=\"Skagit River — a satellite-based feature on hydroelectric dams\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1666630398/project-images/margin_skagit.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1666630398/project-images/margin_skagit.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1666630398/project-images/margin_skagit.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1666630398/project-images/margin_skagit.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Skagit River — a satellite-based feature on hydroelectric dams\" width=\"5000\" height=\"2625\" style=\"--splay-rot:-1.11deg;\" data-dimensions=\"5000×2625\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">Skagit River — a satellite-based feature on hydroelectric dams</figcaption></figure></figure>\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1666630398/project-images/margin_skagit.png\" alt=\"Skagit River — a satellite-based feature on hydroelectric dams\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1666630398/project-images/margin_skagit.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1666630398/project-images/margin_skagit.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1666630398/project-images/margin_skagit.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1666630398/project-images/margin_skagit.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Skagit River — a satellite-based feature on hydroelectric dams\" width=\"5000\" height=\"2625\" style=\"--splay-rot:-1.11deg;\" data-dimensions=\"5000×2625\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><p class=\"\"></p>",
+  "title": "The Margin",
+  "metadata": {
+    "title": "The Margin",
+    "date": "2022-06-01T04:00:00.000Z",
+    "draft": true,
+    "client": "The Margin",
+    "tech": [
+      "Mapping",
+      "Satellite Imagery",
+      "Scrollytelling",
+      "Data Visualization"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "human-only",
+    "context": "client",
+    "tags": [
+      "maps",
+      "dataviz",
+      "journalism",
+      "interactive"
+    ],
+    "words": 81,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

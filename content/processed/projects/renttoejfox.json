@@ -1,0 +1,33 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->\n<p class=\"\">A one-page pitch site making the case for renting me a place in Beacon — the renter's version of a portfolio. Who I am, why I'm a good tenant, references, the whole earnest-but-tongue-in-cheek package, as a single scrollable landing page.</p>\n<figure role=\"figure\" aria-label=\"Rent to EJ Fox — &#x22;Hi, I&#x27;m EJ Fox, I&#x27;d like to rent your Beacon property&#x22;\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/renttoejfox/hero.png\" alt=\"Rent to EJ Fox — &#x22;Hi, I&#x27;m EJ Fox, I&#x27;d like to rent your Beacon property&#x22;\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/renttoejfox/hero.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/renttoejfox/hero.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/renttoejfox/hero.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/renttoejfox/hero.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Rent to EJ Fox — &#x22;Hi, I&#x27;m EJ Fox, I&#x27;d like to rent your Beacon property&#x22;\" width=\"1440\" height=\"1050\" style=\"--splay-rot:-0.69deg;\" data-dimensions=\"1440×1050\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Rent to EJ Fox — \"Hi, I'm EJ Fox, I'd like to rent your Beacon property\"</figcaption>\n</figure>",
+  "title": "Rent to EJ Fox",
+  "metadata": {
+    "title": "Rent to EJ Fox",
+    "date": "2025-06-01T04:00:00.000Z",
+    "draft": true,
+    "tech": [
+      "Nuxt",
+      "Vue"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "web",
+      "personal",
+      "fun"
+    ],
+    "words": 71,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. Shows the tool only, public market\n     symbols (SPY), no personal positions. Draft until ready. -->\n<p class=\"\">A live quantitative-analysis notebook built on Observable Plot — a four-panel workspace (cumulative returns with drawdown, rolling volatility, price action, and a custom-strategy slot) where each panel is an editable code cell you can re-run against any symbol. It's a personal research instrument for market data, vim-mode and all.</p>\n<figure role=\"figure\" aria-label=\"Finance Prism — the live Observable Plot notebook: returns, volatility, price action, custom analysis\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/finance-prism/notebook.png\" alt=\"Finance Prism — the live Observable Plot notebook: returns, volatility, price action, custom analysis\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/finance-prism/notebook.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/finance-prism/notebook.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/finance-prism/notebook.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/finance-prism/notebook.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Finance Prism — the live Observable Plot notebook: returns, volatility, price action, custom analysis\" width=\"1440\" height=\"813\" style=\"--splay-rot:-2.74deg;\" data-dimensions=\"1440×813\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Finance Prism — the live Observable Plot notebook: returns, volatility, price action, custom analysis</figcaption>\n</figure>",
+  "title": "Finance Prism",
+  "metadata": {
+    "title": "Finance Prism",
+    "date": "2025-12-10T05:00:00.000Z",
+    "draft": true,
+    "tech": [
+      "Observable Plot",
+      "JavaScript",
+      "Data Visualization",
+      "Finance"
+    ],
+    "state": "doing",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "dataviz",
+      "data",
+      "finance",
+      "tools"
+    ],
+    "words": 89,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

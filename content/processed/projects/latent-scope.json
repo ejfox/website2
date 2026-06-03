@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): split from \"Latent Space Tools\". IMPORTANT: this is Ian Johnson's\n     (@enjalot) project — clarify your actual contribution before publishing so\n     it's not miscredited. Screenshots below are from the project docs. Draft. -->\n<p class=\"\">A scientific instrument for investigating latent spaces — ingest a dataset, embed it, project with UMAP, cluster, and explore, all in one tool.</p>\n<figure role=\"figure\" aria-label=\"latent-scope UMAP projection\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065007/projects/latent-scope/umap.png\" alt=\"latent-scope UMAP projection\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780065007/projects/latent-scope/umap.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780065007/projects/latent-scope/umap.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065007/projects/latent-scope/umap.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780065007/projects/latent-scope/umap.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"latent-scope UMAP projection\" width=\"3130\" height=\"3414\" style=\"--splay-rot:-2.1deg;\" data-dimensions=\"3130×3414\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\"><figure role=\"figure\" aria-label=\"latent-scope cluster view\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065008/projects/latent-scope/cluster.png\" alt=\"latent-scope cluster view\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780065008/projects/latent-scope/cluster.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780065008/projects/latent-scope/cluster.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065008/projects/latent-scope/cluster.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780065008/projects/latent-scope/cluster.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"latent-scope cluster view\" width=\"3130\" height=\"3414\" style=\"--splay-rot:2.51deg;\" data-dimensions=\"3130×3414\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\"><figure role=\"figure\" aria-label=\"latent-scope explore view\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065006/projects/latent-scope/explore.png\" alt=\"latent-scope explore view\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780065006/projects/latent-scope/explore.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780065006/projects/latent-scope/explore.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065006/projects/latent-scope/explore.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780065006/projects/latent-scope/explore.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"latent-scope explore view\" width=\"3130\" height=\"3414\" style=\"--splay-rot:-2.54deg;\" data-dimensions=\"3130×3414\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">latent-scope explore view</figcaption></figure></figure></figure>\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065008/projects/latent-scope/cluster.png\" alt=\"latent-scope cluster view\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780065008/projects/latent-scope/cluster.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780065008/projects/latent-scope/cluster.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065008/projects/latent-scope/cluster.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780065008/projects/latent-scope/cluster.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"latent-scope cluster view\" width=\"3130\" height=\"3414\" style=\"--splay-rot:2.51deg;\" data-dimensions=\"3130×3414\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065006/projects/latent-scope/explore.png\" alt=\"latent-scope explore view\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780065006/projects/latent-scope/explore.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780065006/projects/latent-scope/explore.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065006/projects/latent-scope/explore.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780065006/projects/latent-scope/explore.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"latent-scope explore view\" width=\"3130\" height=\"3414\" style=\"--splay-rot:-2.54deg;\" data-dimensions=\"3130×3414\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\"><p class=\"\"></p>",
+  "title": "latent-scope",
+  "metadata": {
+    "title": "latent-scope",
+    "date": "2024-06-01T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/latent-scope",
+    "tech": [
+      "JavaScript",
+      "Embeddings",
+      "UMAP",
+      "Machine Learning"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-collaborative",
+    "tags": [
+      "dataviz",
+      "ai",
+      "data"
+    ],
+    "words": 69,
+    "images": 3,
+    "imageDetails": {
+      "total": 3,
+      "cloudinary": 3,
+      "withDimensions": 0
+    },
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

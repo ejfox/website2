@@ -1,6 +1,6 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<p class=\"\">During the early COVID-19 pandemic, I worked with Carnegie Mellon University's <a href=\"https://delphi.cmu.edu/epidemic-signals/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://delphi.cmu.edu/epidemic-signals/\">COVIDcast project</a>, prototyping data visualizations and user interactions to help the public understand hospitalization, transmission, and movement trends across the country.</p>\n<figure role=\"figure\" aria-label=\"Population density map of the United States with circles sized by population, colored white to red indicating concentration in the Midwest and Northeast.\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png\" alt=\"Population density map of the United States with circles sized by population, colored white to red indicating concentration in the Midwest and Northeast.\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Population density map of the United States with circles sized by population, colored white to red indicating concentration in the Midwest and Northeast.\" width=\"1576\" height=\"1110\" style=\"--splay-rot:1.95deg;\" data-dimensions=\"1576×1110\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Population density map of the United States with circles sized by population, colored white to red indicating concentration in the Midwest and Northeast.</figcaption>\n</figure>",
+  "html": "<p class=\"\">During the early COVID-19 pandemic, I worked with Carnegie Mellon University's <a href=\"https://delphi.cmu.edu/epidemic-signals/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://delphi.cmu.edu/epidemic-signals/\">COVIDcast project</a>, prototyping data visualizations and user interactions to help the public understand hospitalization, transmission, and movement trends across the country.</p>\n<figure role=\"figure\" aria-label=\"COVIDcast dashboard: weekly case, hospitalization, and death rates above an interactive county-level map\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1666630395/project-images/cmu_covidcast.png\" alt=\"COVIDcast dashboard: weekly case, hospitalization, and death rates above an interactive county-level map\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1666630395/project-images/cmu_covidcast.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1666630395/project-images/cmu_covidcast.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1666630395/project-images/cmu_covidcast.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1666630395/project-images/cmu_covidcast.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"COVIDcast dashboard: weekly case, hospitalization, and death rates above an interactive county-level map\" width=\"5001\" height=\"2625\" style=\"--splay-rot:0.92deg;\" data-dimensions=\"5001×2625\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">COVIDcast dashboard: weekly case, hospitalization, and death rates above an interactive county-level map</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Population density map of the United States with circles sized by population, colored white to red indicating concentration in the Midwest and Northeast.\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png\" alt=\"Population density map of the United States with circles sized by population, colored white to red indicating concentration in the Midwest and Northeast.\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Population density map of the United States with circles sized by population, colored white to red indicating concentration in the Midwest and Northeast.\" width=\"1576\" height=\"1110\" style=\"--splay-rot:1.95deg;\" data-dimensions=\"1576×1110\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Population density map of the United States with circles sized by population, colored white to red indicating concentration in the Midwest and Northeast.</figcaption>\n</figure>",
   "title": "COVIDcast",
   "metadata": {
     "title": "COVIDcast",
@@ -15,20 +15,21 @@
     ],
     "state": "deployed",
     "aiInvolvement": "human-only",
+    "context": "client",
     "tags": [
       "covid",
       "dataviz",
       "javascript",
       "health"
     ],
-    "words": 56,
-    "images": 1,
+    "words": 69,
+    "images": 2,
     "imageDetails": {
-      "total": 1,
-      "cloudinary": 1,
+      "total": 2,
+      "cloudinary": 2,
       "withDimensions": 0
     },
-    "links": 2,
+    "links": 3,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

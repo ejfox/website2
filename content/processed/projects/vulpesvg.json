@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">A native visual SVG editor (Tauri + Vue) — draw rectangles, circles, and paths on a canvas and edit each element's geometry through a properties inspector. Part of the <a href=\"/tag/vulpes-nvim\" class=\"internal-link text-blue-600 dark:text-blue-400\">Vulpes Nvim</a> toolset.</p>\n<figure role=\"figure\" aria-label=\"The element inspector — live geometry editing for each SVG primitive\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpesvg/code.png\" alt=\"The element inspector — live geometry editing for each SVG primitive\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpesvg/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpesvg/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpesvg/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpesvg/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The element inspector — live geometry editing for each SVG primitive\" width=\"1400\" height=\"900\" style=\"--splay-rot:-1.38deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The element inspector — live geometry editing for each SVG primitive</figcaption>\n</figure>",
+  "title": "VulpeSVG",
+  "metadata": {
+    "title": "VulpeSVG",
+    "date": "2026-02-20T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/vulpesvg",
+    "tech": [
+      "Tauri",
+      "Rust",
+      "Vue",
+      "SVG"
+    ],
+    "state": "prototype",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools",
+      "design",
+      "svg"
+    ],
+    "words": 56,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

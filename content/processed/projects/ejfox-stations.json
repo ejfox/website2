@@ -1,0 +1,37 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->\n<p class=\"\">A pair of personal audio tools living at their own subdomains. <strong class=\"\">radio.ejfox</strong> is a one-button personal radio station — an always-on, \"ON AIR\" stream of shuffled music in the Vulpes aesthetic. <strong class=\"\">music.tools</strong> is the companion library for browsing and managing the catalog behind it.</p>\n<figure role=\"figure\" aria-label=\"radio.ejfox — a personal &#x22;on air&#x22; radio station\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/ejfox-stations/radio.png\" alt=\"radio.ejfox — a personal &#x22;on air&#x22; radio station\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/ejfox-stations/radio.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/ejfox-stations/radio.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/ejfox-stations/radio.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/ejfox-stations/radio.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"radio.ejfox — a personal &#x22;on air&#x22; radio station\" width=\"1440\" height=\"813\" style=\"--splay-rot:-1.84deg;\" data-dimensions=\"1440×813\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\"><figure role=\"figure\" aria-label=\"music.tools — browsing the catalog\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/ejfox-stations/music.png\" alt=\"music.tools — browsing the catalog\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/ejfox-stations/music.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/ejfox-stations/music.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/ejfox-stations/music.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/ejfox-stations/music.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"music.tools — browsing the catalog\" width=\"1440\" height=\"4574\" style=\"--splay-rot:1.49deg;\" data-dimensions=\"1440×4574\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">music.tools — browsing the catalog</figcaption></figure></figure>\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/ejfox-stations/music.png\" alt=\"music.tools — browsing the catalog\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/ejfox-stations/music.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/ejfox-stations/music.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/ejfox-stations/music.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/ejfox-stations/music.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"music.tools — browsing the catalog\" width=\"1440\" height=\"4574\" style=\"--splay-rot:1.49deg;\" data-dimensions=\"1440×4574\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><p class=\"\"></p>",
+  "title": "Radio & Music Tools",
+  "metadata": {
+    "title": "Radio & Music Tools",
+    "date": "2026-05-15T04:00:00.000Z",
+    "draft": true,
+    "url": "https://radio.tools.ejfox.com",
+    "tech": [
+      "Nuxt",
+      "TypeScript",
+      "Audio",
+      "Cloudflare"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools",
+      "audio",
+      "music",
+      "radio"
+    ],
+    "words": 72,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

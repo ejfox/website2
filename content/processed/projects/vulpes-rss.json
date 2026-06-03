@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">A TUI RSS reader that renders feed images <em class=\"\">inline</em> in the terminal — no browser, no separate image viewer — by implementing the Kitty Graphics Protocol in pure Rust. Part of the <a href=\"/tag/vulpes-nvim\" class=\"internal-link text-blue-600 dark:text-blue-400\">Vulpes Nvim</a> aesthetic, for reading the web without leaving the terminal.</p>\n<figure role=\"figure\" aria-label=\"The Kitty Graphics Protocol implementation in Rust — loading and streaming images straight into the terminal\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-rss/code.png\" alt=\"The Kitty Graphics Protocol implementation in Rust — loading and streaming images straight into the terminal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpes-rss/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpes-rss/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-rss/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpes-rss/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The Kitty Graphics Protocol implementation in Rust — loading and streaming images straight into the terminal\" width=\"1400\" height=\"900\" style=\"--splay-rot:-2.9deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The Kitty Graphics Protocol implementation in Rust — loading and streaming images straight into the terminal</figcaption>\n</figure>",
+  "title": "Vulpes RSS",
+  "metadata": {
+    "title": "Vulpes RSS",
+    "date": "2026-02-15T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/vulpes-rss",
+    "tech": [
+      "Rust",
+      "TUI",
+      "Kitty Graphics Protocol"
+    ],
+    "state": "doing",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "cli",
+      "terminal",
+      "rust"
+    ],
+    "words": 72,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

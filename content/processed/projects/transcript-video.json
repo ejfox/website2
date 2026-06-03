@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — this is a factual stub, not your words. NEEDS A HERO IMAGE: a sample render. Draft until ready. -->\n<p class=\"\">Generates 1080p synced transcript videos from audio with word-level timing and concept color-tagging. Includes audio-reactive data visualizations: a spectrogram, oscilloscopes, and a Lissajous phase scope.</p>\n<figure role=\"figure\" aria-label=\"The canvas render — bordered instrument panels with section IDs, scale info, and Monaspace labels\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/transcript-video/code.png\" alt=\"The canvas render — bordered instrument panels with section IDs, scale info, and Monaspace labels\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/transcript-video/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/transcript-video/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/transcript-video/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/transcript-video/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The canvas render — bordered instrument panels with section IDs, scale info, and Monaspace labels\" width=\"1400\" height=\"900\" style=\"--splay-rot:1.7deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The canvas render — bordered instrument panels with section IDs, scale info, and Monaspace labels</figcaption>\n</figure>",
+  "title": "Transcript Video",
+  "metadata": {
+    "title": "Transcript Video",
+    "date": "2026-04-01T00:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/transcript-video",
+    "tech": [
+      "HTML",
+      "JavaScript",
+      "Canvas",
+      "Audio"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "video",
+      "dataviz",
+      "audio"
+    ],
+    "words": 68,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

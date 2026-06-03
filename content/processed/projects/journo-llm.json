@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice + an image. Capture: terminal or web screenshot. Draft until imaged. -->\n<p class=\"\">A hand-made LLM for journalists, by journalists. Truthfulness, harm reduction, accountability.</p>\n<figure role=\"figure\" aria-label=\"The Modal training rig — fine-tuning gpt-oss-20b on serverless A100s\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/journo-llm/code.png\" alt=\"The Modal training rig — fine-tuning gpt-oss-20b on serverless A100s\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/journo-llm/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/journo-llm/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/journo-llm/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/journo-llm/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The Modal training rig — fine-tuning gpt-oss-20b on serverless A100s\" width=\"1400\" height=\"900\" style=\"--splay-rot:2.4deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The Modal training rig — fine-tuning gpt-oss-20b on serverless A100s</figcaption>\n</figure>",
+  "title": "Journo LLM",
+  "metadata": {
+    "title": "Journo LLM",
+    "date": "2026-01-17T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/journo-llm",
+    "tech": [
+      "Python"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 41,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

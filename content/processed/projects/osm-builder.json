@@ -1,0 +1,34 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — this is a factual stub, not your words. Draft until ready. -->\n<p class=\"\">A hex-grid city-builder where buildings, roads, and parks use the real OpenStreetMap schema, and terrain is generated from geological first principles (bedrock to elevation to water table). It exposes 50 sliders and exports valid .osm files.</p>\n<figure role=\"figure\" aria-label=\"The terrain generator — presets, geology controls, and the hex world\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/osm-builder/ui.png\" alt=\"The terrain generator — presets, geology controls, and the hex world\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/osm-builder/ui.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/osm-builder/ui.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/osm-builder/ui.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/osm-builder/ui.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The terrain generator — presets, geology controls, and the hex world\" width=\"3120\" height=\"2360\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"3120×2360\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">The terrain generator — presets, geology controls, and the hex world</figcaption></figure>\n<figure role=\"figure\" aria-label=\"A generated hex-grid terrain\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/osm-builder/terrain.png\" alt=\"A generated hex-grid terrain\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/osm-builder/terrain.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/osm-builder/terrain.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/osm-builder/terrain.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/osm-builder/terrain.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A generated hex-grid terrain\" width=\"2480\" height=\"2120\" style=\"--splay-rot:1.34deg;\" data-dimensions=\"2480×2120\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">A generated hex-grid terrain</figcaption></figure>",
+  "title": "OSM Builder",
+  "metadata": {
+    "title": "OSM Builder",
+    "date": "2026-03-01T00:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/osm-builder",
+    "tech": [
+      "TypeScript",
+      "OpenStreetMap"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "maps",
+      "simulation",
+      "generative"
+    ],
+    "words": 72,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

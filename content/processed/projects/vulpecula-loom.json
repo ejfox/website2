@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->\n<p class=\"\">A desktop AI chat app with deep Obsidian integration and OpenRouter support — bring your own models, keep your conversations woven into your vault.</p>\n<figure role=\"figure\" aria-label=\"Vulpecula Loom landing page\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpecula-loom/landing.png\" alt=\"Vulpecula Loom landing page\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpecula-loom/landing.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpecula-loom/landing.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpecula-loom/landing.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpecula-loom/landing.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Vulpecula Loom landing page\" width=\"2880\" height=\"1900\" style=\"--splay-rot:1.17deg;\" data-dimensions=\"2880×1900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Vulpecula Loom landing page</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"The chat itself — bring-your-own-model via OpenRouter, with live token and cost tracking per message\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpecula-loom/app.png\" alt=\"The chat itself — bring-your-own-model via OpenRouter, with live token and cost tracking per message\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpecula-loom/app.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpecula-loom/app.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpecula-loom/app.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpecula-loom/app.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The chat itself — bring-your-own-model via OpenRouter, with live token and cost tracking per message\" width=\"2856\" height=\"1678\" style=\"--splay-rot:2.52deg;\" data-dimensions=\"2856×1678\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The chat itself — bring-your-own-model via OpenRouter, with live token and cost tracking per message</figcaption>\n</figure>",
+  "title": "Vulpecula Loom",
+  "metadata": {
+    "title": "Vulpecula Loom",
+    "date": "2025-06-01T04:00:00.000Z",
+    "draft": true,
+    "url": "https://ejfox.github.io/vulpecula-loom/",
+    "tech": [
+      "Electron",
+      "Vue",
+      "OpenRouter",
+      "Obsidian"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "ai",
+      "app",
+      "desktop"
+    ],
+    "words": 58,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}
