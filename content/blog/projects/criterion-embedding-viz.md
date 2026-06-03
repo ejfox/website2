@@ -17,3 +17,5 @@ tags:
 Vector embeddings for every Criterion Collection film, projected into an explorable 2D map — search by theme ("films about existentialism") instead of by keyword.
 
 ![Criterion film embeddings explored as a 2D map](https://res.cloudinary.com/ejf/image/upload/v1780060622/projects/data-visualization-suite/gh-4.png)
+
+![The embedding pipeline — load, cache, and rate-limited fetch](https://res.cloudinary.com/ejf/image/upload/projects/criterion-embedding-viz/code.png)

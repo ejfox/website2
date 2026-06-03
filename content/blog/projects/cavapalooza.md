@@ -17,3 +17,5 @@ tags:
 A little hub site for Cavapalooza — the gathering of the cavapoos. A single, photo-forward landing page for the event/community.
 
 ![Cavapalooza](https://res.cloudinary.com/ejf/image/upload/projects/cavapalooza/landing.png)
+
+![Inside the dashboard — Jeopardy question submission and validation](https://res.cloudinary.com/ejf/image/upload/projects/cavapalooza/code.png)

@@ -1,6 +1,6 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice — factual stub. Captured via headless boot; re-crop\n     if the framing's off. Draft until ready. -->\n<p class=\"\">A community platform for Hudson Valley residents to track Central Hudson billing problems and organize to hold the utility accountable.</p>\n<figure role=\"figure\" aria-label=\"Fix Central Hudson — hold your utility accountable\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/fixcentralhudson/landing.png\" alt=\"Fix Central Hudson — hold your utility accountable\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/fixcentralhudson/landing.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/fixcentralhudson/landing.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/fixcentralhudson/landing.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/fixcentralhudson/landing.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Fix Central Hudson — hold your utility accountable\" width=\"2880\" height=\"1900\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"2880×1900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Fix Central Hudson — hold your utility accountable</figcaption>\n</figure>",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. Captured via headless boot; re-crop\n     if the framing's off. Draft until ready. -->\n<p class=\"\">A community platform for Hudson Valley residents to track Central Hudson billing problems and organize to hold the utility accountable.</p>\n<figure role=\"figure\" aria-label=\"Fix Central Hudson — hold your utility accountable\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/fixcentralhudson/landing.png\" alt=\"Fix Central Hudson — hold your utility accountable\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/fixcentralhudson/landing.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/fixcentralhudson/landing.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/fixcentralhudson/landing.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/fixcentralhudson/landing.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Fix Central Hudson — hold your utility accountable\" width=\"2880\" height=\"1900\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"2880×1900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Fix Central Hudson — hold your utility accountable</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Bill-entry logic — local draft state saved as residents fill it out\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/fixcentralhudson/code.png\" alt=\"Bill-entry logic — local draft state saved as residents fill it out\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/fixcentralhudson/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/fixcentralhudson/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/fixcentralhudson/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/fixcentralhudson/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Bill-entry logic — local draft state saved as residents fill it out\" width=\"1400\" height=\"980\" style=\"--splay-rot:-1.36deg;\" data-dimensions=\"1400×980\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Bill-entry logic — local draft state saved as residents fill it out</figcaption>\n</figure>",
   "title": "Fix Central Hudson",
   "metadata": {
     "title": "Fix Central Hudson",
@@ -19,14 +19,14 @@
       "web",
       "community"
     ],
-    "words": 52,
-    "images": 1,
+    "words": 64,
+    "images": 2,
     "imageDetails": {
-      "total": 1,
-      "cloudinary": 1,
+      "total": 2,
+      "cloudinary": 2,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

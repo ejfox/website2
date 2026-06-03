@@ -18,3 +18,5 @@ tags:
 A community platform for Hudson Valley residents to track Central Hudson billing problems and organize to hold the utility accountable.
 
 ![Fix Central Hudson — hold your utility accountable](https://res.cloudinary.com/ejf/image/upload/projects/fixcentralhudson/landing.png)
+
+![Bill-entry logic — local draft state saved as residents fill it out](https://res.cloudinary.com/ejf/image/upload/projects/fixcentralhudson/code.png)
