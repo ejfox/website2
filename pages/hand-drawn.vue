@@ -105,6 +105,67 @@
         </Demo>
       </section>
 
+      <!-- ===== ORGANIC USAGE: how they actually weave in ===== -->
+      <section class="mb-28">
+        <h2 class="text-2xl font-semibold mb-3">Weaving them in</h2>
+        <p class="text-zinc-500 dark:text-zinc-400 mb-12 max-w-prose">
+          The point isn't a gallery — it's that they disappear into the writing, the
+          UI, and the charts. Three hooks do that: an <code class="text-sm">:hd{}</code>
+          directive for prose, automatic upgrades of existing markup (footnotes, dividers),
+          and a <code class="text-sm">&lt;HandDrawnAnnotation&gt;</code> for dataviz.
+        </p>
+
+        <div class="space-y-24">
+          <!-- dataviz annotation over a real chart -->
+          <Demo n="A" title="Dataviz annotations"
+                blurb="Point, circle, label — anchored to coordinates over any chart (SVG or canvas). The vocabulary of a marked-up printout.">
+            <div class="relative inline-block w-full max-w-[560px] text-zinc-800 dark:text-zinc-200">
+              <svg :viewBox="`0 0 ${CH.w} ${CH.h}`" class="w-full">
+                <line :x1="CH.left" :y1="CH.base" :x2="CH.w - CH.left" :y2="CH.base"
+                      stroke="currentColor" stroke-width="1" opacity="0.3" />
+                <rect v-for="b in bars" :key="b.i" :x="b.x" :y="b.y" :width="b.bw" :height="b.h"
+                      rx="1" fill="currentColor" :opacity="b.i === peak.i ? 0.9 : 0.32" />
+              </svg>
+              <HandDrawnAnnotation :x="pct(peak.cx + 6, 'x')" :y="pct(peak.y - 46, 'y')" name="arrow-down"
+                                   size="2.4rem" label="all-time high" label-side="right" class="text-rose-500" />
+              <HandDrawnAnnotation :x="pct(note.cx, 'x')" :y="pct(note.cy, 'y')" name="circle-md"
+                                   size="2.8rem" class="text-amber-500" />
+              <HandDrawnAnnotation :x="pct(CH.left, 'x')" :y="pct(CH.base + 20, 'y')" name="badge-1k"
+                                   size="2rem" anchor="tip" class="text-zinc-400" />
+            </div>
+          </Demo>
+
+          <!-- automatic: footnotes + dividers, no new syntax -->
+          <Demo n="B" title="Automatic — no new syntax"
+                blurb="A client plugin upgrades existing markup inside posts: footnote markers become circled numbers, <hr> becomes a hand-drawn rule. Old posts get it for free.">
+            <div class="max-w-prose text-lg leading-loose">
+              <p>
+                Boring infra wins<a class="hd-footnote-ref text-rose-500" href="#"><HandDrawn name="circled-1" size="1.25em" /></a>
+                — pm2, a single node process, read-the-logs-and-reload<a class="hd-footnote-ref text-rose-500" href="#"><HandDrawn name="circled-2" size="1.25em" /></a>.
+              </p>
+              <div class="hd-divider my-8 flex justify-center text-zinc-400 dark:text-zinc-600">
+                <HandDrawn name="bead-chain" size="14px" style="width:132px" />
+              </div>
+              <p class="text-base text-zinc-500">…and the divider above was just a plain <code>---</code>.</p>
+            </div>
+          </Demo>
+
+          <!-- intentional: the :hd directive -->
+          <Demo n="C" title="Intentional — the :hd directive"
+                blurb="Drop a specific mark exactly where you want it, right in the markdown. Mirrors your :prediction / ::gear directives.">
+            <div class="space-y-5 max-w-prose">
+              <pre class="text-xs bg-zinc-100 dark:bg-zinc-900 rounded-lg p-4 overflow-x-auto"><code>The deploy is just pm2 reload :hd{name="arrow-bend-down-right"}
+read the logs, reload it, move on.</code></pre>
+              <p class="text-lg leading-loose flex items-center flex-wrap gap-x-1">
+                <span>The deploy is just pm2 reload</span>
+                <HandDrawn name="arrow-bend-down-right" size="2rem" class="text-zinc-500" />
+                <span>read the logs, reload it, move on.</span>
+              </p>
+            </div>
+          </Demo>
+        </div>
+      </section>
+
       <!-- ===== FULL LIBRARY ===== -->
       <section>
         <h2 class="text-2xl font-semibold mb-2">The library</h2>
@@ -176,6 +237,27 @@ const stats = [
   { asset: 'badge-100k', label: 'words' },
   { asset: 'num-7', label: 'languages' }
 ]
+
+// little bar chart for the dataviz-annotation demo
+const CH = { w: 560, h: 220, base: 190, top: 30, left: 28 }
+const chartData = [3, 5, 4, 8, 6, 9, 5, 7]
+const bars = computed(() => {
+  const max = Math.max(...chartData)
+  const slot = (CH.w - CH.left * 2) / chartData.length
+  const bw = slot * 0.62
+  return chartData.map((v, i) => {
+    const h = (v / max) * (CH.base - CH.top)
+    const x = CH.left + i * slot + (slot - bw) / 2
+    return { i, v, x, bw, h, y: CH.base - h, cx: x + bw / 2 }
+  })
+})
+// annotations position in % so they track the responsively-scaled chart SVG
+const pct = (v, axis) => `${(v / (axis === 'x' ? CH.w : CH.h)) * 100}%`
+const peak = computed(() => bars.value.reduce((a, b) => (b.v > a.v ? b : a), bars.value[0]))
+const note = computed(() => {
+  const b = bars.value[3] // circle this one
+  return { cx: b.cx, cy: (b.y + CH.base) / 2, size: `${Math.round(b.bw + 26)}px` }
+})
 
 // taxonomy: group -> ordered subgroups. Anything unlisted falls to the end.
 const groupLabels = {

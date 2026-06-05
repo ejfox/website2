@@ -1431,3 +1431,26 @@ img[data-loading='lazy']::before {
 .dark .text-sm, .dark .text-xs, .dark .text-2xs, .dark .text-3xs {
   letter-spacing: 0.02em;
 }
+
+/* Hand-drawn kit: content enhancements (see plugins/hand-drawn.client.ts) */
+.hd-divider {
+  display: flex;
+  justify-content: center;
+  margin: 2.5rem 0;
+  color: #a1a1aa;
+}
+.dark .hd-divider {
+  color: #52525b;
+}
+.hd-divider .hand-drawn {
+  width: 132px;
+  opacity: 0.9;
+}
+/* circled-number footnote markers keep the link color but lose the underline */
+.hd-footnote-ref {
+  text-decoration: none;
+}
+.hd-inline {
+  display: inline-flex;
+  align-items: center;
+}

@@ -18,6 +18,36 @@ inline components.
 - `size` sets the height (number → px, string → any CSS length). Width follows the aspect ratio.
 - Browse the whole library + integration demos at **`/hand-drawn`**.
 
+## Using them organically (three hooks)
+
+**1. In prose — the `:hd` directive** (build-time, like `:prediction` / `::gear`):
+
+```md
+The deploy is just pm2 reload :hd{name="arrow-bend-down-right"} read the logs.
+Big year :hd[record]{name="badge-100k" size="3rem"}.
+```
+
+`remarkHandDrawn` turns it into `<span data-hd="…">`; `plugins/hand-drawn.client.ts`
+swaps in the SVG. After editing markdown, run `yarn blog:process`.
+
+**2. Automatic — no new syntax.** `plugins/hand-drawn.client.ts` upgrades existing
+markup inside `.blog-post-content`: footnote markers ¹²³ → circled numbers ①②③
+(1–12), and `<hr>` (`---`) → a hand-drawn divider. Old posts get it for free.
+
+**3. On charts — `<HandDrawnAnnotation>`.** Point / circle / label coordinates over
+any viz (SVG or canvas). Put it in a `position:relative` wrapper; use **%** for x/y
+so marks track a responsively-scaled chart.
+
+```vue
+<div class="relative">
+  <MyChart />
+  <HandDrawnAnnotation x="67%" y="14%" name="arrow-down" label="all-time high" />
+  <HandDrawnAnnotation x="40%" y="55%" name="circle-md" size="3rem" class="text-amber-500" />
+</div>
+```
+
+`rotate`/`flipX` aim arrows; `anchor` ("center" | "tip" | "tail") sets how (x,y) maps to the mark.
+
 ## How it works (and how to add assets)
 
 The 962-path sheet is **not** sliced into files. The full geometry lives once in
