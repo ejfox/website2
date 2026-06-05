@@ -30,20 +30,73 @@
           title="Footnote & sidenote markers"
           blurb="Swap the plain superscript ¹²³ in the sidenotes system for your own circled numbers — unmistakably yours."
         >
-          <p class="text-lg leading-loose max-w-prose">
+          <p v-inview class="hd-anim text-lg leading-loose max-w-prose">
             Delete-driven development is the house style<HandDrawn name="circled-1" size="1.05em" class="mx-0.5 align-baseline" />
             and the sidenotes plugin is only 113 lines<HandDrawn name="circled-2" size="1.05em" class="mx-0.5" />
             because complexity is the enemy<HandDrawn name="circled-3" size="1.05em" class="mx-0.5" />.
           </p>
         </Demo>
 
-        <!-- 2. numbered steps -->
+        <!-- 2. THE MONEY SHOT — a marked-up draft -->
         <Demo
           n="2"
-          title="Numbered steps & ordered lists"
-          blurb="Circled numbers as list bullets turn a dry ordered list into something that reads like a marked-up page."
+          title="A marked-up draft"
+          blurb="The whole vocabulary at once — circle a word, underline a phrase, point from the margin, star a line. The page someone red-penned."
         >
-          <ol class="space-y-4 max-w-prose list-none pl-0">
+          <div v-inview class="hd-anim relative max-w-prose text-lg leading-loose pl-10 pr-12">
+            <!-- margin marks -->
+            <HandDrawn name="star-5pt" size="1.3rem" class="absolute left-0 top-1 text-amber-500" />
+            <HandDrawnAnnotation x="-0.2rem" y="5.4rem" name="arrow-right" size="1.9rem"
+                                 anchor="tip" class="text-rose-500" :rotate="8" />
+            <HandDrawn name="marks-cluster" size="2.6rem" class="absolute right-0 top-10 text-zinc-400" />
+            <p>
+              We retired Docker and moved the whole site to
+              <HandDrawnMark name="circle-md" tone="#f43f5e">one node process</HandDrawnMark>
+              under pm2. The deploy is a <code class="text-base">git pull</code> and a reload —
+              <HandDrawnMark placement="under" name="scribble" tone="#3b82f6">no containers, no orchestration.</HandDrawnMark>
+              It is gloriously boring, and it has not gone down since.
+            </p>
+          </div>
+        </Demo>
+
+        <!-- 3. inline annotation, tightened -->
+        <Demo
+          n="3"
+          title="Inline annotation"
+          blurb="Circle the thing that matters. Point at the next thing. The marks actually hug the words now."
+        >
+          <div v-inview class="hd-anim text-lg leading-loose max-w-prose space-y-7">
+            <p>
+              When it hangs, <HandDrawnMark name="circle-md" tone="#f43f5e">delete code</HandDrawnMark>
+              until it works — no clever fixes.
+            </p>
+            <p class="flex items-center gap-3 text-zinc-500">
+              <HandDrawn name="arrow-bend-down-right" size="2.1rem" class="text-rose-500 shrink-0" />
+              <span class="text-base">simple beats complex, working beats perfect</span>
+            </p>
+          </div>
+        </Demo>
+
+        <!-- 4. inline stats in a sentence -->
+        <Demo
+          n="4"
+          title="Stats, woven into a sentence"
+          blurb="Magnitude badges read inline like words. A stat line that feels written, not dashboarded."
+        >
+          <p v-inview class="hd-anim text-xl md:text-2xl leading-loose max-w-prose">
+            This week I shipped <HandDrawn name="badge-1k" size="2.1em" class="align-middle mx-1" /> commits,
+            logged <HandDrawn name="badge-10k" size="2.1em" class="align-middle mx-1" /> plays,
+            and wrote <HandDrawn name="badge-100k" size="2.1em" class="align-middle mx-1" /> words.
+          </p>
+        </Demo>
+
+        <!-- 5. numbered steps -->
+        <Demo
+          n="5"
+          title="Numbered steps"
+          blurb="Circled numbers as bullets turn a dry ordered list into something that reads like a marked-up page."
+        >
+          <ol v-inview class="hd-anim space-y-4 max-w-prose list-none pl-0">
             <li v-for="(step, i) in steps" :key="i" class="flex items-start gap-4">
               <HandDrawn :name="`circled-bold-${i + 1}`" size="2.1rem" class="shrink-0 mt-0.5" />
               <span class="text-lg leading-snug pt-1">{{ step }}</span>
@@ -51,51 +104,31 @@
           </ol>
         </Demo>
 
-        <!-- 3. stat badges -->
+        <!-- 6. flow diagram -->
         <Demo
-          n="3"
-          title="Stat dashboard accents"
-          blurb="The magnitude badges and display numerals were practically built for the stats pages."
+          n="6"
+          title="A little flow diagram"
+          blurb="Circled numbers and arrows compose into a hand-sketched pipeline — the kind you'd draw on a whiteboard."
         >
-          <div class="flex flex-wrap gap-x-12 gap-y-8">
-            <div v-for="s in stats" :key="s.label" class="flex flex-col items-center gap-2">
-              <HandDrawn :name="s.asset" size="4.5rem" />
-              <span class="text-xs uppercase tracking-wider text-zinc-400">{{ s.label }}</span>
-            </div>
-          </div>
-        </Demo>
-
-        <!-- 4. inline annotation -->
-        <Demo
-          n="4"
-          title="Inline annotation"
-          blurb="Point at things. Circle the thing that matters. The vocabulary of a marked-up draft, in the browser."
-        >
-          <div class="text-lg leading-loose max-w-prose space-y-6">
-            <p>
-              The deploy is just
-              <span class="relative inline-block font-medium">
-                pm2 reload
-                <HandDrawn name="circle-md" size="2.4em"
-                  class="absolute -left-3 -top-2 text-rose-500/80 pointer-events-none" />
+          <div v-inview class="hd-anim flex flex-wrap items-center gap-x-3 gap-y-4 text-sm">
+            <template v-for="(node, i) in flow" :key="node">
+              <span class="flex items-center gap-2">
+                <HandDrawn :name="`circled-bold-${i + 1}`" size="1.9rem" />
+                <span class="font-medium">{{ node }}</span>
               </span>
-              — no containers, no orchestration.
-            </p>
-            <p class="flex items-center gap-3">
-              <HandDrawn name="arrow-bend-down-right" size="2.2rem" class="text-zinc-400" />
-              <span class="text-base text-zinc-500">read the logs, reload it, move on</span>
-            </p>
+              <HandDrawn v-if="i < flow.length - 1" name="arrow-right" size="1.6rem" class="text-zinc-400" />
+            </template>
           </div>
         </Demo>
 
-        <!-- 5. callout frame -->
+        <!-- 7. callout frame -->
         <Demo
-          n="5"
+          n="7"
           title="Hand-drawn callout frames"
-          blurb="A traced box around a pull-quote or note feels handmade in a way a CSS border never will."
+          blurb="A traced box around a pull-quote feels handmade in a way a CSS border never will."
         >
-          <div class="relative max-w-prose px-8 py-7">
-            <HandDrawn name="box-xl" size="100%" :stretch="true"
+          <div v-inview class="hd-anim relative max-w-prose px-8 py-7">
+            <HandDrawn name="box-xl" :stretch="true"
               class="absolute inset-0 w-full h-full text-zinc-800 dark:text-zinc-200" />
             <p class="relative text-lg italic leading-relaxed">
               “When the system hangs, delete code until it works. Simple beats complex.
@@ -187,7 +220,7 @@ read the logs, reload it, move on.</code></pre>
                 v-for="a in sg.items"
                 :key="a.name"
                 :title="a.desc"
-                class="group flex flex-col items-center justify-center gap-2 aspect-square rounded-lg border border-zinc-100 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors p-3"
+                class="gallery-tile group flex flex-col items-center justify-center gap-2 aspect-square rounded-lg border border-zinc-100 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors p-3"
                 @click="copyTag(a.name)"
               >
                 <div class="flex-1 flex items-center justify-center w-full min-h-0">
@@ -237,6 +270,29 @@ const stats = [
   { asset: 'badge-100k', label: 'words' },
   { asset: 'num-7', label: 'languages' }
 ]
+
+const flow = ['write', 'process', 'serve', 'deploy']
+
+// draw marks in when they scroll into view (stamp + slight settle, staggered).
+// Failsafe: never leave a block hidden — if the observer misses it (fast scroll
+// past, or it loaded above the fold), reveal it anyway after a beat.
+const vInview = {
+  mounted(el) {
+    const reveal = () => el.classList.add('is-inview')
+    if (typeof IntersectionObserver === 'undefined') { reveal(); return }
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) { reveal(); io.unobserve(el) }
+      }),
+      { rootMargin: '0px 0px -12% 0px', threshold: 0.15 }
+    )
+    io.observe(el)
+    el._hdFailsafe = setTimeout(reveal, 1100)
+  },
+  unmounted(el) {
+    if (el._hdFailsafe) clearTimeout(el._hdFailsafe)
+  }
+}
 
 // little bar chart for the dataviz-annotation demo
 const CH = { w: 560, h: 220, base: 190, top: 30, left: 28 }
@@ -308,3 +364,32 @@ function copyTag(name) {
 
 useHead({ title: 'Hand-drawn asset kit' })
 </script>
+
+<style scoped>
+/* marks "draw" themselves in when their block scrolls into view */
+.hd-anim :deep(.hand-drawn) {
+  opacity: 0;
+  transform: translateY(3px) scale(0.84) rotate(-5deg);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hd-anim :deep(.hand-drawn) { opacity: 1; transform: none; }
+}
+.hd-anim.is-inview :deep(.hand-drawn) {
+  animation: hd-stamp 0.5s cubic-bezier(0.18, 0.7, 0.2, 1.2) forwards;
+}
+/* gentle stagger so a row of marks lands one-after-another */
+.hd-anim.is-inview :deep(.hand-drawn:nth-child(1)) { animation-delay: 0.02s; }
+.hd-anim.is-inview :deep(.hand-drawn:nth-child(2)) { animation-delay: 0.09s; }
+.hd-anim.is-inview :deep(.hand-drawn:nth-child(3)) { animation-delay: 0.16s; }
+.hd-anim.is-inview :deep(.hand-drawn:nth-child(4)) { animation-delay: 0.23s; }
+.hd-anim.is-inview :deep(.hand-drawn:nth-child(n + 5)) { animation-delay: 0.3s; }
+@keyframes hd-stamp {
+  60% { opacity: 1; transform: translateY(0) scale(1.04) rotate(1deg); }
+  100% { opacity: 1; transform: none; }
+}
+
+/* little life on hover — gallery tiles get a hand-jitter (scoped here so the
+   transition never fights the stamp-in animation on the demo marks) */
+.gallery-tile :deep(.hand-drawn) { transition: transform 0.18s ease; }
+.gallery-tile:hover :deep(.hand-drawn) { transform: rotate(-3deg) scale(1.08); }
+</style>
