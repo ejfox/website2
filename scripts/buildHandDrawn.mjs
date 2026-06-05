@@ -4,22 +4,22 @@
  *
  * Source of truth: assets/hand-drawn/master.svg — a single sheet of notebook
  * marginalia (arrows, circled numbers, badges, boxes, numerals) traced in
- * Illustrator. Rather than physically slice 962 paths into ~100 files, we keep
- * ALL the geometry in one sprite and address each asset as a viewBox rectangle
- * into that shared coordinate space. Cheap, lossless, and a new asset is 4 numbers.
+ * Illustrator — plus assets/hand-drawn/catalog.json, the curated taxonomy that
+ * names every shape and its bounding box.
  *
- * Inputs (committed alongside master.svg):
- *   - regions.csv : `id,x,y,w,h,n` bounding boxes for every cluster of ink,
- *                   computed once from the browser via element.getBBox().
- *   - names.json  : which clusters to publish, their names + categories, plus
- *                   hand-tuned rects for the tight glyph rows (circled numbers).
+ * Rather than physically slice 962 paths into ~120 files, we keep ALL the
+ * geometry in one sprite and address each asset as a viewBox rectangle into that
+ * shared coordinate space. Cheap, lossless, and a new asset is four numbers.
+ *
+ * catalog.json entry: { name, group, sub, desc, x, y, w, h }
+ *   group: arrows | numbers | circled | magnitudes | boxes | circles | letters | words | textures
  *
  * Outputs:
- *   - assets/hand-drawn/manifest.json : [{ name, cat, x, y, w, h }] (imported by the component)
+ *   - assets/hand-drawn/manifest.json : the catalog padded + sorted (imported by the component)
  *   - public/hand-drawn/sprite.svg    : the shared geometry, recolored to currentColor
  *
- * To add an asset: find its cluster id in regions.csv (or eyeball x/y/w/h),
- * add a line to names.json, and re-run `node scripts/buildHandDrawn.mjs`.
+ * Add/rename an asset: edit catalog.json, then `node scripts/buildHandDrawn.mjs`.
+ * (regions.csv / element bounding boxes came from the browser via element.getBBox().)
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'fs'
 import { fileURLToPath } from 'url'
@@ -29,26 +29,26 @@ const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const HD = join(ROOT, 'assets/hand-drawn')
 
 const master = readFileSync(join(HD, 'master.svg'), 'utf8')
-const csv = readFileSync(join(HD, 'regions.csv'), 'utf8').trim()
-const names = JSON.parse(readFileSync(join(HD, 'names.json'), 'utf8'))
-
-const cb = {}
-csv.split(';').forEach((s) => {
-  const [id, x, y, w, h] = s.split(',').map(Number)
-  cb[id] = { x, y, w, h }
-})
+const catalog = JSON.parse(readFileSync(join(HD, 'catalog.json'), 'utf8'))
 
 const PAD = 4 // breathing room around each crop
-const assets = []
-for (const [id, [name, cat]] of Object.entries(names.fromClusters)) {
-  const b = cb[id]
-  if (!b) { console.warn('! no bbox for cluster', id, '(' + name + ')'); continue }
-  assets.push({ name, cat, x: b.x - PAD, y: b.y - PAD, w: b.w + PAD * 2, h: b.h + PAD * 2 })
+const assets = catalog.map((a) => ({
+  name: a.name,
+  group: a.group,
+  sub: a.sub || '',
+  desc: a.desc || '',
+  x: a.x - PAD,
+  y: a.y - PAD,
+  w: a.w + PAD * 2,
+  h: a.h + PAD * 2
+}))
+
+// dupe-name guard
+const seen = new Set()
+for (const a of assets) {
+  if (seen.has(a.name)) console.warn('! duplicate name:', a.name)
+  seen.add(a.name)
 }
-const addRects = (list, prefix, cat) =>
-  list.forEach((r, i) => assets.push({ name: `${prefix}${i + 1}`, cat, x: r[0] - PAD, y: r[1] - PAD, w: r[2] + PAD * 2, h: r[3] + PAD * 2 }))
-addRects(names.circledThin || [], 'circled-', 'circled')
-addRects(names.circledBold || [], 'circled-bold-', 'circled')
 
 writeFileSync(join(HD, 'manifest.json'), JSON.stringify(assets, null, 2) + '\n')
 
@@ -71,4 +71,6 @@ ${style}
 mkdirSync(join(ROOT, 'public/hand-drawn'), { recursive: true })
 writeFileSync(join(ROOT, 'public/hand-drawn/sprite.svg'), sprite)
 
-console.log(`✓ ${assets.length} assets → manifest.json, sprite.svg (${(sprite.length / 1024).toFixed(0)}KB)`)
+const byGroup = assets.reduce((m, a) => ((m[a.group] = (m[a.group] || 0) + 1), m), {})
+console.log(`✓ ${assets.length} assets → manifest.json, sprite.svg`)
+console.log('  ' + Object.entries(byGroup).map(([g, n]) => `${g}:${n}`).join('  '))

@@ -31,16 +31,27 @@ Files:
 | file | role |
 |------|------|
 | `master.svg` | source art (traced sheet) — source of truth |
-| `regions.csv` | `id,x,y,w,h,n` bounding boxes for every ink cluster (from browser `getBBox`) |
-| `names.json` | which clusters to publish + names/categories, plus hand-tuned circled-number rects |
-| `manifest.json` | **generated** — `[{name,cat,x,y,w,h}]`, imported by the component |
+| `catalog.json` | **the curated taxonomy** — `{name,group,sub,desc,x,y,w,h}` per asset |
+| `CATALOG.md` | human-readable listing of every shape, grouped (generated) |
+| `element-bboxes.csv` | raw per-element `x,y,w,h` from the browser `getBBox()` — provenance for the rects |
+| `manifest.json` | **generated** — the catalog padded + carried into the app |
 | `../../public/hand-drawn/sprite.svg` | **generated** — recolored shared geometry |
 
-To add or rename an asset: find the region in `regions.csv` (or eyeball x/y/w/h against
-`master.svg`), edit `names.json`, then:
+To add or rename an asset: find its region in `element-bboxes.csv` (or eyeball x/y/w/h
+against `master.svg`), add/edit a line in `catalog.json`, then:
 
 ```bash
-node scripts/buildHandDrawn.mjs
+node scripts/buildHandDrawn.mjs   # rewrites manifest.json + sprite.svg
 ```
 
-Categories: `arrow`, `circled`, `number`, `box`, `shape`, `word`, `letter`, `texture`.
+Groups (and their subgroups):
+
+- **arrows** — straight · curved · bent · special · study
+- **circled** — thin · bold  (circled numbers ①–⑫)
+- **numbers** — display · script · teens
+- **magnitudes** — text (100…100k) · badge (circled 1k/10k/100k)
+- **boxes** — rect · square
+- **circles** — ring · dot
+- **letters** — set (A–Z) · circled · boxed
+- **words** — cardinal (ONE–TEN)
+- **textures** — star · fill (stipple/blobs) · divider · marks

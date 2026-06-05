@@ -112,24 +112,31 @@
           Click any asset to copy its <code>&lt;HandDrawn&gt;</code> tag.
         </p>
 
-        <div v-for="group in groups" :key="group.cat" class="mb-14">
-          <h3 class="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 mb-5 border-b border-zinc-100 dark:border-zinc-800 pb-2">
-            {{ group.label }} <span class="text-zinc-300 dark:text-zinc-600">· {{ group.items.length }}</span>
+        <div v-for="group in groups" :key="group.group" class="mb-16">
+          <h3 class="text-xs uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500 mb-6 border-b border-zinc-100 dark:border-zinc-800 pb-2">
+            {{ group.label }} <span class="text-zinc-300 dark:text-zinc-600">· {{ group.count }}</span>
           </h3>
-          <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
-            <button
-              v-for="a in group.items"
-              :key="a.name"
-              class="group flex flex-col items-center justify-center gap-2 aspect-square rounded-lg border border-zinc-100 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors p-3"
-              @click="copyTag(a.name)"
-            >
-              <div class="flex-1 flex items-center justify-center w-full">
-                <HandDrawn :name="a.name" size="2.6rem" />
-              </div>
-              <span class="text-[10px] font-mono text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 truncate max-w-full">
-                {{ copied === a.name ? 'copied!' : a.name }}
-              </span>
-            </button>
+
+          <div v-for="sg in group.subs" :key="sg.sub" class="mb-7">
+            <div v-if="group.subs.length > 1" class="text-[11px] font-medium text-zinc-400 dark:text-zinc-500 mb-3 pl-1">
+              {{ sg.label }}
+            </div>
+            <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
+              <button
+                v-for="a in sg.items"
+                :key="a.name"
+                :title="a.desc"
+                class="group flex flex-col items-center justify-center gap-2 aspect-square rounded-lg border border-zinc-100 dark:border-zinc-800 hover:border-zinc-300 dark:hover:border-zinc-600 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors p-3"
+                @click="copyTag(a.name)"
+              >
+                <div class="flex-1 flex items-center justify-center w-full min-h-0">
+                  <HandDrawn :name="a.name" size="2.6rem" />
+                </div>
+                <span class="text-[10px] font-mono text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 truncate max-w-full">
+                  {{ copied === a.name ? 'copied!' : a.name }}
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -170,21 +177,43 @@ const stats = [
   { asset: 'num-7', label: 'languages' }
 ]
 
-const catLabels = {
-  arrow: 'Arrows',
+// taxonomy: group -> ordered subgroups. Anything unlisted falls to the end.
+const groupLabels = {
+  arrows: 'Arrows',
   circled: 'Circled numbers',
-  number: 'Numerals & badges',
-  box: 'Boxes & frames',
-  shape: 'Circles',
-  word: 'Number words',
-  letter: 'Letters',
-  texture: 'Textures'
+  numbers: 'Numerals',
+  magnitudes: 'Magnitudes & badges',
+  boxes: 'Boxes & frames',
+  circles: 'Circles & dots',
+  letters: 'Letters',
+  words: 'Number words',
+  textures: 'Textures & marks'
 }
-const order = ['arrow', 'circled', 'number', 'box', 'shape', 'word', 'letter', 'texture']
+const subLabels = {
+  straight: 'Straight', curved: 'Curved', bent: 'Bent', special: 'Special', study: 'Studies',
+  display: 'Display', script: 'Script', teens: 'Teens',
+  thin: 'Thin', bold: 'Bold',
+  text: 'Written', badge: 'Badges',
+  rect: 'Rectangles', square: 'Squares',
+  ring: 'Rings', dot: 'Dots',
+  set: 'Alphabet', circled: 'Circled', boxed: 'Boxed',
+  cardinal: 'One–Ten',
+  star: 'Stars', fill: 'Fills', divider: 'Dividers', marks: 'Marks'
+}
+const order = ['arrows', 'circled', 'numbers', 'magnitudes', 'boxes', 'circles', 'letters', 'words', 'textures']
 const groups = computed(() =>
   order
-    .map((cat) => ({ cat, label: catLabels[cat] || cat, items: manifest.filter((a) => a.cat === cat) }))
-    .filter((g) => g.items.length)
+    .map((g) => {
+      const items = manifest.filter((a) => a.group === g)
+      const subKeys = [...new Set(items.map((a) => a.sub))]
+      const subs = subKeys.map((s) => ({
+        sub: s,
+        label: subLabels[s] || s,
+        items: items.filter((a) => a.sub === s)
+      }))
+      return { group: g, label: groupLabels[g] || g, count: items.length, subs }
+    })
+    .filter((g) => g.count)
 )
 
 const copied = ref('')
