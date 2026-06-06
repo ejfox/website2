@@ -51,8 +51,11 @@ ensureHandDrawnSprite()
   vertical-align: -0.18em;
   color: inherit;
   /* MUST clip: <use> pulls the whole sprite; the viewBox crop only shows through
-     because the outer SVG clips everything outside it. */
+     because the outer SVG clips everything outside it. overflow:hidden covers
+     Chrome/Firefox; clip-path forces it in Safari, which otherwise leaks
+     out-of-viewBox <use> content (neighbouring marks bleed into the crop). */
   overflow: hidden;
+  clip-path: inset(0);
 }
 .hand-drawn-missing {
   font-family: ui-monospace, monospace;

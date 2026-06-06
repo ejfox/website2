@@ -1,18 +1,18 @@
 # Hand-drawn kit — catalog
 
-136 assets, grouped. Names are `<HandDrawn name="…">`. Browse live at `/hand-drawn`.
+140 assets, grouped. Names are `<HandDrawn name="…">`. Browse live at `/hand-drawn`.
 
 | group | count |
 |---|---|
 | Arrows | 29 |
 | Circled numbers | 22 |
 | Numerals | 23 |
-| Magnitudes & badges | 9 |
+| Magnitudes & badges | 10 |
 | Boxes & frames | 14 |
 | Circles & dots | 6 |
 | Letters | 11 |
 | Number words | 10 |
-| Textures & marks | 12 |
+| Textures & marks | 15 |
 
 ## Arrows
 
@@ -42,7 +42,7 @@
 
 ## Magnitudes & badges
 
-**text** — `mag-100` (100), `mag-1000` (1,000), `mag-10000` (10,000), `mag-100000` (100,000), `mag-1k` (1k), `mag-10k` (10k)
+**text** — `mag-100` (100), `mag-1000` (1,000), `mag-10000` (10,000), `mag-100000` (100,000), `mag-1k` (1k), `mag-10k` (10k), `mag-100k` (100k)
 
 **badge** — `badge-1k` (circled 1k), `badge-10k` (circled 10k), `badge-100k` (circled 100k)
 
@@ -78,5 +78,5 @@
 
 **divider** — `bead-chain` (row of beads), `scribble` (scribble strike)
 
-**marks** — `marks-cluster` (dashes ! ? marks), `plus-minus` (plus / minus), `plus-minus-2` (plus / minus)
+**marks** — `marks-cluster` (dashes ! ? study), `mark-exclamation` (exclamation !), `mark-question` (question ?), `mark-dash` (double dash), `plus-minus` (plus / minus), `plus-minus-2` (plus / minus)
 

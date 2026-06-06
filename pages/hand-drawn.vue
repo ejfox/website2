@@ -84,9 +84,9 @@
           blurb="Magnitude badges read inline like words. A stat line that feels written, not dashboarded."
         >
           <p v-inview class="hd-anim text-xl md:text-2xl leading-loose max-w-prose">
-            This week I shipped <HandDrawn name="badge-1k" size="2.1em" class="align-middle mx-1" /> commits,
-            logged <HandDrawn name="badge-10k" size="2.1em" class="align-middle mx-1" /> plays,
-            and wrote <HandDrawn name="badge-100k" size="2.1em" class="align-middle mx-1" /> words.
+            This week I shipped <HandDrawn name="badge-1k" size="2em" :style="badgeStyle" /> commits,
+            logged <HandDrawn name="badge-10k" size="2em" :style="badgeStyle" /> plays,
+            and wrote <HandDrawn name="badge-100k" size="2em" :style="badgeStyle" /> words.
           </p>
         </Demo>
 
@@ -187,12 +187,10 @@
           <Demo n="C" title="Intentional — the :hd directive"
                 blurb="Drop a specific mark exactly where you want it, right in the markdown. Mirrors your :prediction / ::gear directives.">
             <div class="space-y-5 max-w-prose">
-              <pre class="text-xs bg-zinc-100 dark:bg-zinc-900 rounded-lg p-4 overflow-x-auto"><code>The deploy is just pm2 reload :hd{name="arrow-bend-down-right"}
-read the logs, reload it, move on.</code></pre>
-              <p class="text-lg leading-loose flex items-center flex-wrap gap-x-1">
-                <span>The deploy is just pm2 reload</span>
-                <HandDrawn name="arrow-bend-down-right" size="2rem" class="text-zinc-500" />
-                <span>read the logs, reload it, move on.</span>
+              <pre class="text-xs bg-zinc-100 dark:bg-zinc-900 rounded-lg p-4 whitespace-pre-wrap break-words"><code>The deploy is just pm2 reload :hd{name="arrow-right-long"}
+then read the logs and move on.</code></pre>
+              <p class="text-lg leading-loose">
+                The deploy is just pm2 reload<HandDrawn name="arrow-right-long" size="1.4rem" class="text-zinc-500 mx-1.5" />then read the logs and move on.
               </p>
             </div>
           </Demo>
@@ -226,7 +224,7 @@ read the logs, reload it, move on.</code></pre>
                 <div class="flex-1 flex items-center justify-center w-full min-h-0">
                   <HandDrawn :name="a.name" size="2.6rem" />
                 </div>
-                <span class="text-[10px] font-mono text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 truncate max-w-full">
+                <span class="text-[10px] font-mono text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 max-w-full text-center leading-tight break-all">
                   {{ copied === a.name ? 'copied!' : a.name }}
                 </span>
               </button>
@@ -272,6 +270,9 @@ const stats = [
 ]
 
 const flow = ['write', 'process', 'serve', 'deploy']
+
+// big inline badges sit high on the line by default — drop them onto the baseline
+const badgeStyle = { verticalAlign: '-0.72em', margin: '0 0.15em' }
 
 // draw marks in when they scroll into view (stamp + slight settle, staggered).
 // Failsafe: never leave a block hidden — if the observer misses it (fast scroll

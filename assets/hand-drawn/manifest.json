@@ -774,10 +774,10 @@
     "group": "magnitudes",
     "sub": "text",
     "desc": "100,000",
-    "x": 412,
+    "x": 428,
     "y": 3873,
-    "w": 144,
-    "h": 73
+    "w": 128,
+    "h": 35
   },
   {
     "name": "mag-1k",
@@ -798,6 +798,16 @@
     "y": 3916,
     "w": 68,
     "h": 31
+  },
+  {
+    "name": "mag-100k",
+    "group": "magnitudes",
+    "sub": "text",
+    "desc": "100k",
+    "x": 412,
+    "y": 3912,
+    "w": 87,
+    "h": 34
   },
   {
     "name": "badge-1k",
@@ -1333,11 +1343,41 @@
     "name": "marks-cluster",
     "group": "textures",
     "sub": "marks",
-    "desc": "dashes ! ? marks",
+    "desc": "dashes ! ? study",
     "x": 478,
     "y": 2671,
     "w": 95,
     "h": 82
+  },
+  {
+    "name": "mark-exclamation",
+    "group": "textures",
+    "sub": "marks",
+    "desc": "exclamation !",
+    "x": 515,
+    "y": 2703,
+    "w": 19,
+    "h": 32
+  },
+  {
+    "name": "mark-question",
+    "group": "textures",
+    "sub": "marks",
+    "desc": "question ?",
+    "x": 554,
+    "y": 2726,
+    "w": 20,
+    "h": 27
+  },
+  {
+    "name": "mark-dash",
+    "group": "textures",
+    "sub": "marks",
+    "desc": "double dash",
+    "x": 501,
+    "y": 2686,
+    "w": 58,
+    "h": 17
   },
   {
     "name": "plus-minus",

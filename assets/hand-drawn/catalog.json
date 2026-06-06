@@ -86,9 +86,10 @@
   { "name": "mag-100",     "group": "magnitudes", "sub": "text",  "desc": "100",     "x": 84,  "y": 3883, "w": 44,  "h": 26 },
   { "name": "mag-1000",    "group": "magnitudes", "sub": "text",  "desc": "1,000",   "x": 175, "y": 3879, "w": 76,  "h": 26 },
   { "name": "mag-10000",   "group": "magnitudes", "sub": "text",  "desc": "10,000",  "x": 296, "y": 3879, "w": 104, "h": 27 },
-  { "name": "mag-100000",  "group": "magnitudes", "sub": "text",  "desc": "100,000", "x": 416, "y": 3877, "w": 136, "h": 65 },
+  { "name": "mag-100000",  "group": "magnitudes", "sub": "text",  "desc": "100,000", "x": 432, "y": 3877, "w": 120, "h": 27 },
   { "name": "mag-1k",      "group": "magnitudes", "sub": "text",  "desc": "1k",      "x": 173, "y": 3922, "w": 51,  "h": 23 },
   { "name": "mag-10k",     "group": "magnitudes", "sub": "text",  "desc": "10k",     "x": 293, "y": 3920, "w": 60,  "h": 23 },
+  { "name": "mag-100k",    "group": "magnitudes", "sub": "text",  "desc": "100k",    "x": 416, "y": 3916, "w": 79,  "h": 26 },
   { "name": "badge-1k",    "group": "magnitudes", "sub": "badge", "desc": "circled 1k",   "x": 152, "y": 3983, "w": 84,  "h": 88 },
   { "name": "badge-10k",   "group": "magnitudes", "sub": "badge", "desc": "circled 10k",  "x": 262, "y": 3978, "w": 88,  "h": 96 },
   { "name": "badge-100k",  "group": "magnitudes", "sub": "badge", "desc": "circled 100k", "x": 374, "y": 3982, "w": 109, "h": 90 },
@@ -147,7 +148,10 @@
   { "name": "blob-cluster",  "group": "textures", "sub": "fill",    "desc": "bubble cluster",     "x": 293, "y": 2604, "w": 143, "h": 190 },
   { "name": "bead-chain",    "group": "textures", "sub": "divider", "desc": "row of beads",       "x": 165, "y": 2761, "w": 72,  "h": 7 },
   { "name": "scribble",      "group": "textures", "sub": "divider", "desc": "scribble strike",    "x": 484, "y": 2765, "w": 76,  "h": 20 },
-  { "name": "marks-cluster", "group": "textures", "sub": "marks",   "desc": "dashes ! ? marks",   "x": 482, "y": 2675, "w": 87,  "h": 74 },
+  { "name": "marks-cluster", "group": "textures", "sub": "marks",   "desc": "dashes ! ? study",   "x": 482, "y": 2675, "w": 87,  "h": 74 },
+  { "name": "mark-exclamation","group": "textures","sub": "marks",  "desc": "exclamation !",      "x": 519, "y": 2707, "w": 11,  "h": 24 },
+  { "name": "mark-question", "group": "textures", "sub": "marks",   "desc": "question ?",         "x": 558, "y": 2730, "w": 12,  "h": 19 },
+  { "name": "mark-dash",     "group": "textures", "sub": "marks",   "desc": "double dash",        "x": 505, "y": 2690, "w": 50,  "h": 9 },
   { "name": "plus-minus",    "group": "textures", "sub": "marks",   "desc": "plus / minus",       "x": 486, "y": 2627, "w": 33,  "h": 15 },
   { "name": "plus-minus-2",  "group": "textures", "sub": "marks",   "desc": "plus / minus",       "x": 547, "y": 2618, "w": 37,  "h": 16 }
 ]

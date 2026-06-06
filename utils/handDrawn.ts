@@ -75,6 +75,7 @@ export function createHandDrawnEl(
   svg.style.display = 'inline-block'
   svg.style.verticalAlign = '-0.18em'
   svg.style.overflow = 'hidden'
+  svg.style.clipPath = 'inset(0)' // Safari: clip out-of-viewBox <use> content
   svg.style.color = 'inherit'
   if (opts.title) {
     svg.setAttribute('role', 'img')
