@@ -41,20 +41,19 @@
         <Demo
           n="2"
           title="A marked-up draft"
-          blurb="The whole vocabulary at once — circle a word, underline a phrase, point from the margin, star a line. The page someone red-penned."
+          blurb="The whole vocabulary at once — point at the thing, circle it, underline a word, star the line. The page someone red-penned."
         >
-          <div v-inview class="hd-anim relative max-w-prose text-lg leading-loose pl-10 pr-12">
-            <!-- margin marks -->
-            <HandDrawn name="star-5pt" size="1.3rem" class="absolute left-0 top-1 text-amber-500" />
-            <HandDrawnAnnotation x="-0.2rem" y="5.4rem" name="arrow-right" size="1.9rem"
-                                 anchor="tip" class="text-rose-500" :rotate="8" />
-            <HandDrawn name="marks-cluster" size="2.6rem" class="absolute right-0 top-10 text-zinc-400" />
+          <div v-inview class="hd-anim relative max-w-prose text-lg leading-loose pl-10 pr-10">
+            <!-- margin marks, anchored to the top so wrapping can't misplace them -->
+            <HandDrawn name="star-5pt" size="1.4rem" class="absolute left-0 top-2 text-amber-500" />
+            <HandDrawn name="mark-question" size="1.9rem" class="absolute right-0 top-1.5 text-zinc-500" />
             <p>
-              We retired Docker and moved the whole site to
-              <HandDrawnMark name="circle-md" tone="#f43f5e">one node process</HandDrawnMark>
-              under pm2. The deploy is a <code class="text-base">git pull</code> and a reload —
-              <HandDrawnMark placement="under" name="scribble" tone="#3b82f6">no containers, no orchestration.</HandDrawnMark>
-              It is gloriously boring, and it has not gone down since.
+              We moved the whole site to
+              <HandDrawn name="arrow-right" size="1.25rem" class="text-rose-500 mx-1.5" /><HandDrawnMark name="circle-md" tone="#f43f5e">one node process</HandDrawnMark>
+              under pm2 — a <code class="text-base">git pull</code> and a reload, no containers,
+              no orchestration. It is gloriously
+              <HandDrawnMark placement="under" name="scribble" tone="#3b82f6">boring</HandDrawnMark>,
+              and it hasn't gone down since.
             </p>
           </div>
         </Demo>

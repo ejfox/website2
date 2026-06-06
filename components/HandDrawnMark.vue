@@ -53,12 +53,13 @@ defineProps({
   top: -0.14em;
   bottom: -0.1em;
 }
-/* sit just below the baseline */
+/* sit just below the baseline — keep it shallow so a wide stretch reads as a
+   line, not a sprawl */
 .hd-mark--under .hd-mark__ink {
-  left: -0.1em;
-  right: -0.1em;
+  left: -0.05em;
+  right: -0.05em;
   top: 100%;
-  height: 0.55em;
-  margin-top: -0.06em;
+  height: 0.32em;
+  margin-top: -0.04em;
 }
 </style>
