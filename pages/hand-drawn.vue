@@ -197,6 +197,91 @@ then read the logs and move on.</code></pre>
         </div>
       </section>
 
+      <!-- ===== IN THE WILD: realistic scenes ===== -->
+      <section class="mb-28">
+        <h2 class="text-2xl font-semibold mb-3">In the wild</h2>
+        <p class="text-zinc-500 dark:text-zinc-400 mb-14 max-w-prose">
+          Dropped into the kind of UI and writing they'd actually live in.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-x-12 gap-y-20">
+
+          <!-- stat dashboard card -->
+          <div>
+            <p class="text-[11px] uppercase tracking-[0.16em] text-zinc-400 mb-5">Stats dashboard</p>
+            <div v-inview class="hd-anim rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6 w-full max-w-xs">
+              <div class="text-[11px] uppercase tracking-[0.15em] text-zinc-400 mb-5">commits this week</div>
+              <div class="flex items-center gap-4 mb-2">
+                <HandDrawnMark name="circle-md" tone="#f43f5e" class="text-5xl font-semibold tracking-tight">128</HandDrawnMark>
+                <HandDrawn name="arrow-up-thick" size="1.7rem" class="text-emerald-500" />
+              </div>
+              <div class="text-sm text-zinc-500">up 22% — best week this month</div>
+              <hr class="my-5 border-zinc-100 dark:border-zinc-800">
+              <div class="text-sm text-zinc-500 leading-relaxed">
+                <HandDrawn name="badge-1k" size="1.7em" :style="badgeStyle" /> commits all-time,
+                across <HandDrawn name="num-7" size="1.4em" class="align-baseline mx-0.5" /> languages.
+              </div>
+            </div>
+          </div>
+
+          <!-- analytics chart with a "what happened" annotation -->
+          <div>
+            <p class="text-[11px] uppercase tracking-[0.16em] text-zinc-400 mb-5">Analytics annotation</p>
+            <div v-inview class="hd-anim relative w-full text-emerald-600/70 dark:text-emerald-400/60">
+              <svg :viewBox="`0 0 ${TR.w} ${TR.h}`" class="w-full">
+                <path :d="trendPath.area" fill="currentColor" opacity="0.12" />
+                <path :d="trendPath.line" fill="none" stroke="currentColor" stroke-width="2.5"
+                      stroke-linejoin="round" stroke-linecap="round" />
+              </svg>
+              <HandDrawnAnnotation x="66%" y="20%" name="circle-md" size="2.8rem" class="text-rose-500" />
+              <span class="absolute flex items-center gap-1.5 text-xs font-medium text-rose-500 whitespace-nowrap"
+                    style="left: 70%; top: 2%">
+                shipped v2 <HandDrawn name="arrow-down" size="1.2rem" />
+              </span>
+            </div>
+          </div>
+
+          <!-- prediction card: circled number as a confidence rating -->
+          <div>
+            <p class="text-[11px] uppercase tracking-[0.16em] text-zinc-400 mb-5">Prediction</p>
+            <div v-inview class="hd-anim relative px-8 py-7 w-full max-w-md">
+              <HandDrawn name="box-l" :stretch="true"
+                class="absolute inset-0 w-full h-full text-zinc-800 dark:text-zinc-200" />
+              <div class="relative">
+                <div class="text-[11px] uppercase tracking-[0.15em] text-zinc-400 mb-3">Prediction · resolves 2028</div>
+                <p class="text-lg font-medium leading-snug mb-5">
+                  Local-first apps overtake cloud-first for indie devs.
+                </p>
+                <div class="flex items-center gap-2 text-sm text-zinc-500">
+                  <span>confidence</span>
+                  <HandDrawn name="circled-bold-7" size="1.7rem" class="text-rose-500" />
+                  <span>/ 10</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- changelog with circled version markers + inline "X → Y" arrows -->
+          <div>
+            <p class="text-[11px] uppercase tracking-[0.16em] text-zinc-400 mb-5">Changelog</p>
+            <ol v-inview class="hd-anim space-y-6 list-none pl-0">
+              <li v-for="(r, i) in releases" :key="i" class="flex items-start gap-4">
+                <HandDrawn :name="`circled-bold-${i + 1}`" size="1.9rem" class="shrink-0 mt-0.5" />
+                <div class="min-w-0">
+                  <div class="font-medium leading-tight">{{ r.title }}</div>
+                  <div class="text-sm text-zinc-500 mt-1 leading-snug">
+                    {{ r.from }}
+                    <HandDrawn name="arrow-right" size="0.95rem" class="text-zinc-400 mx-1" />
+                    {{ r.to }}
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div>
+
+        </div>
+      </section>
+
       <!-- ===== FULL LIBRARY ===== -->
       <section>
         <h2 class="text-2xl font-semibold mb-2">The library</h2>
@@ -273,6 +358,26 @@ const flow = ['write', 'process', 'serve', 'deploy']
 
 // big inline badges sit high on the line by default — drop them onto the baseline
 const badgeStyle = { verticalAlign: '-0.72em', margin: '0 0.15em' }
+
+// --- "in the wild" realistic scenes ---
+// a little analytics area chart with a launch spike to annotate
+const TR = { w: 480, h: 150, pad: 12 }
+const trend = [18, 22, 20, 26, 24, 30, 58, 64, 60, 66]
+const trendPath = computed(() => {
+  const max = Math.max(...trend)
+  const n = trend.length
+  const xs = (i) => TR.pad + (i / (n - 1)) * (TR.w - TR.pad * 2)
+  const ys = (v) => TR.h - TR.pad - (v / max) * (TR.h - TR.pad * 2.2)
+  const line = trend.map((v, i) => `${i ? 'L' : 'M'}${xs(i).toFixed(1)} ${ys(v).toFixed(1)}`).join(' ')
+  const area = `${line} L${xs(n - 1).toFixed(1)} ${TR.h - TR.pad} L${xs(0).toFixed(1)} ${TR.h - TR.pad} Z`
+  return { line, area }
+})
+
+const releases = [
+  { title: 'Sidenotes, rewritten', from: 'an 800-line system', to: 'a 113-line client plugin' },
+  { title: 'Docker → pm2', from: 'containers + orchestration', to: 'one boring node process' },
+  { title: 'Hand-drawn kit', from: 'a flat SVG sheet', to: '140 inline components' }
+]
 
 // draw marks in when they scroll into view (stamp + slight settle, staggered).
 // Failsafe: never leave a block hidden — if the observer misses it (fast scroll
