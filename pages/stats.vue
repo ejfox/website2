@@ -286,7 +286,7 @@
     <!-- Full Mode (default) -->
     <div v-else class="">
       <!-- Main Content -->
-      <section class="min-w-0 w-full mx-auto max-w-none">
+      <section class="min-w-0 w-full mx-auto max-w-none pr-6 sm:pr-10 lg:pr-16">
         <!-- Header -->
         <header class="pb-8">
           <div style="max-width: 65ch">
@@ -523,7 +523,7 @@
                   Every commit I have ever made (publicly)
                 </h2>
                 <p class="text-xs text-zinc-500 dark:text-zinc-500 mt-2">
-                  {{ allCommits.length.toLocaleString() }} commits
+                  <HandDrawnMark>{{ allCommits.length.toLocaleString() }}</HandDrawnMark> commits
                 </p>
               </div>
               <GithubCommitMatrix :commits="allCommits" />

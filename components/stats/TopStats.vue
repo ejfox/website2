@@ -4,7 +4,22 @@
   @props stats: Object - All statistics data from API
 -->
 <template>
-  <div class="flex flex-wrap justify-center sm:justify-between gap-2">
+  <div class="relative flex flex-wrap justify-center sm:justify-between gap-2">
+    <!-- overlaid pointer at the biggest lifetime number -->
+    <HandDrawnAnnotation
+      x="48%"
+      y="9%"
+      name="arrow-down"
+      size="2rem"
+      class="text-rose-500"
+    />
+    <span
+      class="absolute -translate-x-1/2 whitespace-nowrap text-[11px] font-medium uppercase tracking-wider text-rose-500"
+      style="left: 48%; top: -6%"
+    >
+      all-time
+    </span>
+
     <!-- GitHub Contributions -->
     <div
       v-if="stats.github?.stats"
@@ -66,13 +81,15 @@
     <!-- Total Words -->
     <div v-if="blogStats" class="top-stat-card" :style="{ '--stat-index': 2 }">
       <div class="stat-value">
-        <AnimatedNumber
-          :value="blogStats.totalWords"
-          format="commas"
-          :duration="1600"
-          priority="primary"
-          :decimals="0"
-        />
+        <HandDrawnMark>
+          <AnimatedNumber
+            :value="blogStats.totalWords"
+            format="commas"
+            :duration="1600"
+            priority="primary"
+            :decimals="0"
+          />
+        </HandDrawnMark>
       </div>
       <div class="stat-label">WORDS</div>
       <div class="stat-details">

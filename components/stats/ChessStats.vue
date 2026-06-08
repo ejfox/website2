@@ -8,12 +8,14 @@
     <!-- Primary Rating -->
     <div class="text-center py-2">
       <div class="text-2xl font-bold">
-        <AnimatedNumber
-          :value="highestActiveRating"
-          format="commas"
-          :duration="1600"
-          priority="primary"
-        />
+        <HandDrawnMark>
+          <AnimatedNumber
+            :value="highestActiveRating"
+            format="commas"
+            :duration="1600"
+            priority="primary"
+          />
+        </HandDrawnMark>
       </div>
       <div class="text-xs text-zinc-500 uppercase tracking-wider mt-2">
         CHESS RATING
