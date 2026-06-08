@@ -31,17 +31,21 @@ const HD = join(ROOT, 'assets/hand-drawn')
 const master = readFileSync(join(HD, 'master.svg'), 'utf8')
 const catalog = JSON.parse(readFileSync(join(HD, 'catalog.json'), 'utf8'))
 
-const PAD = 4 // breathing room around each crop
-const assets = catalog.map((a) => ({
-  name: a.name,
-  group: a.group,
-  sub: a.sub || '',
-  desc: a.desc || '',
-  x: a.x - PAD,
-  y: a.y - PAD,
-  w: a.w + PAD * 2,
-  h: a.h + PAD * 2
-}))
+const PAD = 4 // default breathing room around each crop; override per-entry with `pad`
+            // (e.g. the stipple dots sit ~7px apart and need pad:0 to avoid bleed)
+const assets = catalog.map((a) => {
+  const pad = a.pad ?? PAD
+  return {
+    name: a.name,
+    group: a.group,
+    sub: a.sub || '',
+    desc: a.desc || '',
+    x: a.x - pad,
+    y: a.y - pad,
+    w: a.w + pad * 2,
+    h: a.h + pad * 2
+  }
+})
 
 // dupe-name guard
 const seen = new Set()

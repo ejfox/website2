@@ -14,6 +14,11 @@ import { createHandDrawnEl, ensureHandDrawnSprite } from '~/utils/handDrawn'
 export default defineNuxtPlugin(() => {
   if (import.meta.server) return
 
+  // Kick the sprite download the instant the client boots — not at onNuxtReady,
+  // which is after hydration. Until #hd-ink is in the DOM every <use> is empty,
+  // so the sooner this starts the sooner marks paint.
+  ensureHandDrawnSprite()
+
   // 1. Intentional inline marks, anywhere on the page
   const hydrateInline = () => {
     document.querySelectorAll<HTMLElement>('span[data-hd]:not([data-hd-done])').forEach((el) => {

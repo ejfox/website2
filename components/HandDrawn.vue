@@ -49,7 +49,8 @@ ensureHandDrawnSprite()
 .hand-drawn {
   display: inline-block;
   vertical-align: -0.18em;
-  color: inherit;
+  /* no `color: inherit` — its scoped [data-v] specificity beats utility color
+     classes like text-amber-400; color inherits by default anyway */
   /* MUST clip: <use> pulls the whole sprite; the viewBox crop only shows through
      because the outer SVG clips everything outside it. overflow:hidden covers
      Chrome/Firefox; clip-path forces it in Safari, which otherwise leaks

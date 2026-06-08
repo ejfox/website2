@@ -68,7 +68,8 @@ const labelStyle = computed(() => ({
   gap: 0.4em;
   pointer-events: none;
   white-space: nowrap;
-  color: inherit;
+  /* no `color: inherit` here — its scoped [data-v] specificity would beat a
+     `text-rose-500` utility passed via class and silently ink the accent. */
 }
 .hd-annotation__mark {
   transform-origin: center;

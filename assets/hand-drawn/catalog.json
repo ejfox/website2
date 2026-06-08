@@ -153,5 +153,20 @@
   { "name": "mark-question", "group": "textures", "sub": "marks",   "desc": "question ?",         "x": 558, "y": 2730, "w": 12,  "h": 19 },
   { "name": "mark-dash",     "group": "textures", "sub": "marks",   "desc": "double dash",        "x": 505, "y": 2690, "w": 50,  "h": 9 },
   { "name": "plus-minus",    "group": "textures", "sub": "marks",   "desc": "plus / minus",       "x": 486, "y": 2627, "w": 33,  "h": 15 },
-  { "name": "plus-minus-2",  "group": "textures", "sub": "marks",   "desc": "plus / minus",       "x": 547, "y": 2618, "w": 37,  "h": 16 }
+  { "name": "plus-minus-2",  "group": "textures", "sub": "marks",   "desc": "plus / minus",       "x": 547, "y": 2618, "w": 37,  "h": 16 },
+
+  { "name": "stipple-1",  "group": "textures", "sub": "unit", "desc": "unit dot", "x": 167, "y": 2661, "w": 4, "h": 4, "pad": 0 },
+  { "name": "stipple-2",  "group": "textures", "sub": "unit", "desc": "unit dot", "x": 182, "y": 2661, "w": 5, "h": 4, "pad": 0 },
+  { "name": "stipple-3",  "group": "textures", "sub": "unit", "desc": "unit dot", "x": 190, "y": 2660, "w": 3, "h": 5, "pad": 0 },
+  { "name": "stipple-4",  "group": "textures", "sub": "unit", "desc": "unit dot", "x": 204, "y": 2661, "w": 4, "h": 3, "pad": 0 },
+  { "name": "stipple-5",  "group": "textures", "sub": "unit", "desc": "unit dot", "x": 174, "y": 2671, "w": 3, "h": 3, "pad": 0 },
+  { "name": "stipple-6",  "group": "textures", "sub": "unit", "desc": "unit dot", "x": 211, "y": 2671, "w": 5, "h": 4, "pad": 0 },
+  { "name": "stipple-7",  "group": "textures", "sub": "unit", "desc": "unit dot", "x": 229, "y": 2682, "w": 4, "h": 4, "pad": 0 },
+  { "name": "stipple-8",  "group": "textures", "sub": "unit", "desc": "unit dot", "x": 205, "y": 2690, "w": 4, "h": 3, "pad": 0 },
+  { "name": "stipple-9",  "group": "textures", "sub": "unit", "desc": "unit dot", "x": 190, "y": 2691, "w": 5, "h": 4, "pad": 0 },
+  { "name": "stipple-10", "group": "textures", "sub": "unit", "desc": "unit dot", "x": 182, "y": 2710, "w": 4, "h": 5, "pad": 0 },
+  { "name": "stipple-11", "group": "textures", "sub": "unit", "desc": "unit dot", "x": 204, "y": 2711, "w": 4, "h": 5, "pad": 0 },
+  { "name": "stipple-12", "group": "textures", "sub": "unit", "desc": "unit dot", "x": 167, "y": 2721, "w": 4, "h": 4, "pad": 0 },
+
+  { "name": "comma", "group": "numbers", "sub": "punct", "desc": "thousands comma", "x": 185, "y": 3893, "w": 7.5, "h": 14, "pad": 0 }
 ]
