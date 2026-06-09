@@ -9,7 +9,18 @@
     :aria-hidden="title ? undefined : 'true'"
     :preserveAspectRatio="stretch ? 'none' : 'xMidYMid meet'"
   >
-    <use href="#hd-ink" />
+    <filter
+      v-if="erode > 0"
+      :id="erodeId"
+      filterUnits="userSpaceOnUse"
+      :x="region.x"
+      :y="region.y"
+      :width="region.w"
+      :height="region.h"
+    >
+      <feMorphology operator="erode" :radius="erode" />
+    </filter>
+    <use href="#hd-ink" :filter="erode > 0 ? `url(#${erodeId})` : undefined" />
   </svg>
   <span v-else class="hand-drawn-missing" :title="`unknown hand-drawn asset: ${name}`">⟨{{ name }}?⟩</span>
 </template>
@@ -28,11 +39,25 @@ const props = defineProps({
   // fill the parent box (used for frames around content); distorts to fit
   stretch: { type: Boolean, default: false },
   // accessible label; when set the mark is exposed as an image instead of decoration
-  title: { type: String, default: '' }
+  title: { type: String, default: '' },
+  // erode (thin) the filled ink inward by N viewBox units via feMorphology — the
+  // Illustrator "make it thinner" move. Shape/size stay put; the line gets finer.
+  // 0 = off; ~0.5–2.5 reads as a progressively finer pen. Fully dynamic.
+  erode: { type: Number, default: 0 }
 })
 
 const asset = computed(() => findHandDrawnAsset(props.name))
 const viewBox = computed(() => (asset.value ? handDrawnViewBox(asset.value) : '0 0 1 1'))
+// filter region = the cropped asset window, so feMorphology only rasterises the
+// crop (not the whole sprite that `<use>` pulls in)
+const region = computed(() => {
+  const [x, y, w, h] = viewBox.value.split(' ').map(Number)
+  return { x, y, w, h }
+})
+// deterministic (SSR-safe) id; identical erode on the same asset shares one def
+const erodeId = computed(
+  () => `hde-${props.name.replace(/[^a-z0-9-]/gi, '')}-${String(props.erode).replace('.', '_')}`
+)
 const ratio = computed(() => (asset.value ? asset.value.w / asset.value.h : 1))
 const heightCss = computed(() => (typeof props.size === 'number' ? `${props.size}px` : props.size))
 const dims = computed(() =>
