@@ -73,7 +73,7 @@
           class="flex items-baseline justify-between text-xs"
         >
           <span class="text-zinc-700 dark:text-zinc-300 text-xs">
-<HandDrawn :name="`circled-${index + 1}`" size="1.3em" class="align-text-bottom mr-1" />{{ genre.name }}
+<HandDrawn :name="`circled-bold-${index + 1}`" size="1.3em" class="align-text-bottom mr-1" />{{ genre.name }}
           </span>
           <span class="text-zinc-500 tabular-nums text-xs">
             <AnimatedNumber
@@ -99,7 +99,7 @@
         >
           <div class="flex items-baseline gap-2 min-w-0 flex-1">
             <span class="text-zinc-700 dark:text-zinc-300 truncate text-xs">
-<HandDrawn :name="`circled-${index + 1}`" size="1.3em" class="align-text-bottom mr-1" />{{ track.name }}
+<HandDrawn :name="`num-${index + 1}`" size="1.3em" class="align-text-bottom mr-1" />{{ track.name }}
             </span>
             <span class="text-zinc-500 truncate text-xs">
               {{ track.artist?.name || track.artist }}

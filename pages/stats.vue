@@ -523,7 +523,7 @@
                   Every commit I have ever made (publicly)
                 </h2>
                 <p class="text-xs text-zinc-500 dark:text-zinc-500 mt-2">
-                  <HandDrawnMark>{{ allCommits.length.toLocaleString() }}</HandDrawnMark> commits
+                  <HandDrawnMark ink-class="text-yellow-600">{{ allCommits.length.toLocaleString() }}</HandDrawnMark> commits
                 </p>
               </div>
               <GithubCommitMatrix :commits="allCommits" />

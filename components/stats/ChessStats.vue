@@ -8,7 +8,7 @@
     <!-- Primary Rating -->
     <div class="text-center py-2">
       <div class="text-2xl font-bold">
-        <HandDrawnMark>
+        <HandDrawnMark ink-class="text-yellow-600">
           <AnimatedNumber
             :value="highestActiveRating"
             format="commas"
