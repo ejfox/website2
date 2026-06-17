@@ -21,6 +21,7 @@ import blogStatsHandler from './blog-stats.get'
 import discogsHandler from './discogs.get'
 import duolingoHandler from './duolingo.get'
 import goodreadsHandler from './goodreads.get'
+import youtubeHandler from './youtube.get'
 
 // Chess types (matching chess.get.ts)
 interface ChessGameResult {
@@ -247,6 +248,7 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       discogsResult,
       duolingoResult,
       goodreadsResult,
+      youtubeResult,
     ] = await Promise.allSettled([
       githubHandler(event).catch((err) => {
         console.error('❌ GitHub API error:', err)
@@ -310,6 +312,10 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       }),
       goodreadsHandler(event).catch((err) => {
         console.error('❌ Goodreads API error:', err)
+        return null
+      }),
+      youtubeHandler(event).catch((err) => {
+        console.error('❌ YouTube API error:', err)
         return null
       }),
     ])
@@ -413,6 +419,7 @@ export default defineEventHandler(async (event): Promise<StatsResponse> => {
       discogs: getValue(discogsResult),
       duolingo: duolingoData,
       goodreads: goodreadsData,
+      youtube: getValue(youtubeResult),
     }
 
     return response

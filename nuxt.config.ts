@@ -221,6 +221,8 @@ export default defineNuxtConfig({
     LASTFM_API_KEY: process.env.LASTFM_API_KEY || '',
     LASTFM_SHARED_SECRET: process.env.LASTFM_SHARED_SECRET || '',
     MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN || '',
+    YOUTUBE_API_KEY: process.env.YOUTUBE_API_KEY || '',
+    YOUTUBE_CHANNEL_ID: process.env.YOUTUBE_CHANNEL_ID || '',
     OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY || '',
     EDITOR_CONTEXT_TOKEN: process.env.EDITOR_CONTEXT_TOKEN || '',
     UMAMI_URL: process.env.UMAMI_URL || 'https://umami.tools.ejfox.com',

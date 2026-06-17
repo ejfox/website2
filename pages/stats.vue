@@ -23,6 +23,9 @@ const GistStats = defineAsyncComponent(
 const LastFmStats = defineAsyncComponent(
   () => import('~/components/stats/LastFmStats.vue')
 )
+const YouTubeStats = defineAsyncComponent(
+  () => import('~/components/stats/YouTubeStats.vue')
+)
 const LetterboxdStats = defineAsyncComponent(
   () => import('~/components/stats/LetterboxdStats.vue')
 )
@@ -566,6 +569,7 @@ const statsSections = [
   { id: 'productivity', text: 'Productivity' },
   { id: 'languages', text: 'Languages' },
   { id: 'music', text: 'Music' },
+  { id: 'youtube', text: 'YouTube' },
   { id: 'films', text: 'Films' },
   { id: 'books', text: 'Books' },
   { id: 'website', text: 'Analytics' },
@@ -1101,6 +1105,17 @@ definePageMeta({
               class="break-inside-avoid"
             >
               <LastFmStats key="lastfm" :stats="stats.lastfm" />
+            </StatSection>
+
+            <!-- YouTube -->
+            <StatSection
+              v-if="stats.youtube"
+              id="youtube"
+              key="youtube-section"
+              title="YOUTUBE"
+              class="break-inside-avoid"
+            >
+              <YouTubeStats key="youtube" :stats="stats.youtube" />
             </StatSection>
 
             <!-- Films -->
