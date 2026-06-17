@@ -141,6 +141,38 @@ usePageSeo({
   label2: 'Latest topic',
   data2: computed(() => posts.value?.[0]?.tags?.[0] || 'Mixed topics'),
 })
+
+// JSON-LD Blog schema (structured data for search engines)
+const blogSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'Blog',
+  name: 'EJ Fox Blog',
+  url: 'https://ejfox.com/blog',
+  description:
+    'Thoughts, projects, and explorations in technology, design, and making.',
+  inLanguage: 'en-US',
+  dateModified: postDate(posts.value?.[0]) || new Date().toISOString(),
+  isPartOf: {
+    '@type': 'WebSite',
+    name: 'EJ Fox',
+    url: 'https://ejfox.com',
+  },
+  blogPost: (posts.value || []).slice(0, 10).map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.title || post.metadata?.title,
+    datePublished: postDate(post),
+    url: `https://ejfox.com/blog/${post.slug}`,
+  })),
+}))
+
+useHead(() => ({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(blogSchema.value),
+    },
+  ],
+}))
 </script>
 
 <template>

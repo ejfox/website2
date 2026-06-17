@@ -79,6 +79,30 @@ usePageSeo({
     () => `${projectStats.value.earliestYear}–${projectStats.value.latestYear}`
   ),
 })
+
+// JSON-LD ItemList schema (structured data for search engines)
+const projectsSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Projects',
+  numberOfItems: projects.value?.length || 0,
+  itemListElement:
+    projects.value?.slice(0, 20).map((p, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `https://ejfox.com/projects/${getProjectSlug(p)}`,
+      name: p.metadata?.title || p.title,
+    })) || [],
+}))
+
+useHead(() => ({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(projectsSchema.value),
+    },
+  ],
+}))
 </script>
 
 <template>
