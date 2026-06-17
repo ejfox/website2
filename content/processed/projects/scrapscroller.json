@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice + an image. Capture: boot in your env — deploy is down. Draft until imaged. -->\n<p class=\"\">Doomscrolling, but, for good.</p>\n<figure role=\"figure\" aria-label=\"The scrap card component — hover transforms and source/date detailing\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/scrapscroller/code.png\" alt=\"The scrap card component — hover transforms and source/date detailing\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/scrapscroller/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/scrapscroller/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/scrapscroller/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/scrapscroller/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The scrap card component — hover transforms and source/date detailing\" width=\"1400\" height=\"900\" style=\"--splay-rot:1.23deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The scrap card component — hover transforms and source/date detailing</figcaption>\n</figure>",
+  "title": "Scrapscroller",
+  "metadata": {
+    "title": "Scrapscroller",
+    "date": "2025-02-27T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/scrapscroller",
+    "tech": [
+      "JavaScript"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 38,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

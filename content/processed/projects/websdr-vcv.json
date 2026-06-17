@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — this is a factual stub, not your words. NEEDS A HERO IMAGE: the module panel / a patch. Draft until ready. -->\n<p class=\"\">A VCV Rack / Cardinal plugin — a C++ Eurorack module — that streams real radio from KiwiSDR servers into a modular synth.</p>\n<figure role=\"figure\" aria-label=\"The WebSDR module patched into a modular synth rack\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/websdr-vcv/rack.png\" alt=\"The WebSDR module patched into a modular synth rack\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/websdr-vcv/rack.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/websdr-vcv/rack.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/websdr-vcv/rack.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/websdr-vcv/rack.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The WebSDR module patched into a modular synth rack\" width=\"1572\" height=\"1156\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1572×1156\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The WebSDR module patched into a modular synth rack</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"The Eurorack module in C++ — presets and KiwiSDR resampling\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/websdr-vcv/code.png\" alt=\"The Eurorack module in C++ — presets and KiwiSDR resampling\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/websdr-vcv/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/websdr-vcv/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/websdr-vcv/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/websdr-vcv/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The Eurorack module in C++ — presets and KiwiSDR resampling\" width=\"1400\" height=\"980\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"1400×980\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The Eurorack module in C++ — presets and KiwiSDR resampling</figcaption>\n</figure>",
+  "title": "WebSDR VCV",
+  "metadata": {
+    "title": "WebSDR VCV",
+    "date": "2025-08-01T00:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/websdr-vcv",
+    "tech": [
+      "C++",
+      "VCV Rack",
+      "Cardinal"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "audio",
+      "radio",
+      "hardware"
+    ],
+    "words": 73,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

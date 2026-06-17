@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">A from-idea-to-publishable-project setup wizard for room302.studio projects. Checks your toolchain (Node, Supabase CLI, GitHub CLI, Docker), then prompts through the choices — OpenAI, @nuxt/ui, Nuxt Content, Tailwind, Supabase — and scaffolds the repo, wires git, creates the GitHub repo, commits, and opens your editor. Character even in the boilerplate.</p>\n<figure role=\"figure\" aria-label=\"The setup wizard — toolchain checks and the project-scaffolding steps\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/room302-template/code.png\" alt=\"The setup wizard — toolchain checks and the project-scaffolding steps\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/room302-template/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/room302-template/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/room302-template/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/room302-template/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The setup wizard — toolchain checks and the project-scaffolding steps\" width=\"1400\" height=\"900\" style=\"--splay-rot:2.81deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The setup wizard — toolchain checks and the project-scaffolding steps</figcaption>\n</figure>",
+  "title": "room302-template",
+  "metadata": {
+    "title": "room302-template",
+    "date": "2023-09-01T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/room302-template",
+    "tech": [
+      "Nuxt",
+      "Vue",
+      "Template"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools",
+      "web",
+      "nuxt"
+    ],
+    "words": 73,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

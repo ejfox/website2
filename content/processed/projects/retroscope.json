@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice + an image. Capture: boot / on-device screenshot. Draft until imaged. -->\n<p class=\"\">Use an AI to generate text descriptions of all your screenshots in Cloudinary.</p>\n<figure role=\"figure\" aria-label=\"The pipeline — Cloudinary images through Gemini Vision, descriptions written back into metadata\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/retroscope/code.png\" alt=\"The pipeline — Cloudinary images through Gemini Vision, descriptions written back into metadata\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/retroscope/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/retroscope/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/retroscope/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/retroscope/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The pipeline — Cloudinary images through Gemini Vision, descriptions written back into metadata\" width=\"1400\" height=\"900\" style=\"--splay-rot:1.01deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The pipeline — Cloudinary images through Gemini Vision, descriptions written back into metadata</figcaption>\n</figure>",
+  "title": "Retroscope",
+  "metadata": {
+    "title": "Retroscope",
+    "date": "2025-08-02T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/retroscope",
+    "tech": [
+      "JavaScript"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 46,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

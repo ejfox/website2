@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub — the renders folder has 56 finished\n     clips, so there's a LOT more to pull from. Draft until ready. -->\n<p class=\"\">3Blue1Brown-style animated explainers of the I Ching — the 64 hexagrams, the binary structure Leibniz saw in them, the coin-toss probabilities — rendered as precise mathematical motion graphics in the vulpes monochrome palette with Manim.</p>\n<figure role=\"figure\" aria-label=\"The full grid of 64 hexagrams\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/hexagram/grid.jpg\" alt=\"The full grid of 64 hexagrams\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/hexagram/grid.jpg 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/hexagram/grid.jpg 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/hexagram/grid.jpg 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/hexagram/grid.jpg 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The full grid of 64 hexagrams\" width=\"854\" height=\"480\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"854×480\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The full grid of 64 hexagrams</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"A hexagram built line by line — the loom\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/hexagram/loom.jpg\" alt=\"A hexagram built line by line — the loom\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/hexagram/loom.jpg 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/hexagram/loom.jpg 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/hexagram/loom.jpg 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/hexagram/loom.jpg 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A hexagram built line by line — the loom\" width=\"854\" height=\"480\" style=\"--splay-rot:0.83deg;\" data-dimensions=\"854×480\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">A hexagram built line by line — the loom</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Coin-toss probabilities behind a changing line\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/hexagram/coins.jpg\" alt=\"Coin-toss probabilities behind a changing line\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/hexagram/coins.jpg 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/hexagram/coins.jpg 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/hexagram/coins.jpg 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/hexagram/coins.jpg 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Coin-toss probabilities behind a changing line\" width=\"854\" height=\"480\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"854×480\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Coin-toss probabilities behind a changing line</figcaption>\n</figure>",
+  "title": "I Ching Motion Graphics",
+  "metadata": {
+    "title": "I Ching Motion Graphics",
+    "date": "2026-05-01T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/hexagram-motion-graphics",
+    "tech": [
+      "Python",
+      "Manim",
+      "Motion Graphics"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "art",
+      "math",
+      "motion-graphics",
+      "generative"
+    ],
+    "words": 86,
+    "images": 3,
+    "imageDetails": {
+      "total": 3,
+      "cloudinary": 3,
+      "withDimensions": 0
+    },
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

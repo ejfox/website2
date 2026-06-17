@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): brand-new project page. Add your voice — this is a factual stub,\n     not your words. Draft until you're happy with it. -->\n<p class=\"\">A brutalist Pomodoro timer for iPhone and Apple Watch — edge-trace progress around the screen, adaptive themes, and session-lifecycle webhooks.</p>\n<figure role=\"figure\" aria-label=\"Tempo on iPhone\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065003/projects/tempo/1.png\" alt=\"Tempo on iPhone\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780065003/projects/tempo/1.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780065003/projects/tempo/1.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065003/projects/tempo/1.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780065003/projects/tempo/1.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Tempo on iPhone\" width=\"968\" height=\"2060\" style=\"--splay-rot:2.4deg;\" data-dimensions=\"968×2060\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Tempo on iPhone</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Tempo session view\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065005/projects/tempo/2.png\" alt=\"Tempo session view\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780065005/projects/tempo/2.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780065005/projects/tempo/2.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065005/projects/tempo/2.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780065005/projects/tempo/2.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Tempo session view\" width=\"968\" height=\"2060\" style=\"--splay-rot:-0.63deg;\" data-dimensions=\"968×2060\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Tempo session view</figcaption>\n</figure>",
+  "title": "Tempo",
+  "metadata": {
+    "title": "Tempo",
+    "date": "2026-04-01T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/tempo-ios",
+    "tech": [
+      "Swift",
+      "SwiftUI",
+      "iOS",
+      "watchOS"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "ios",
+      "app",
+      "design"
+    ],
+    "words": 53,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

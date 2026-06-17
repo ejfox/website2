@@ -1,0 +1,38 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">A minimal, friends-only \"presence\" app: broadcast your vibe with a single emoji — no chat, no feed, no metrics. Monochrome by design, built native on both platforms (SwiftUI + Jetpack Compose) over Supabase.</p>\n<figure role=\"figure\" aria-label=\"paperclip — one-emoji friends-only presence\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065877/projects/paperclip/promo.png\" alt=\"paperclip — one-emoji friends-only presence\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780065877/projects/paperclip/promo.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780065877/projects/paperclip/promo.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065877/projects/paperclip/promo.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780065877/projects/paperclip/promo.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"paperclip — one-emoji friends-only presence\" width=\"1230\" height=\"760\" style=\"--splay-rot:2.61deg;\" data-dimensions=\"1230×760\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">paperclip — one-emoji friends-only presence</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Sign in — &#x22;No chat. Just vibes.&#x22;\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/paperclip/signin.png\" alt=\"Sign in — &#x22;No chat. Just vibes.&#x22;\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/paperclip/signin.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/paperclip/signin.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/paperclip/signin.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/paperclip/signin.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Sign in — &#x22;No chat. Just vibes.&#x22;\" width=\"1206\" height=\"2622\" style=\"--splay-rot:-0.65deg;\" data-dimensions=\"1206×2622\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Sign in — \"No chat. Just vibes.\"</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"A friend&#x27;s contact card — pinned emoji, notifications, and a scrolling emoji history\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/paperclip/contact.png\" alt=\"A friend&#x27;s contact card — pinned emoji, notifications, and a scrolling emoji history\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/paperclip/contact.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/paperclip/contact.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/paperclip/contact.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/paperclip/contact.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A friend&#x27;s contact card — pinned emoji, notifications, and a scrolling emoji history\" width=\"902\" height=\"1924\" style=\"--splay-rot:2.99deg;\" data-dimensions=\"902×1924\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">A friend's contact card — pinned emoji, notifications, and a scrolling emoji history</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Launch screen\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/paperclip/splash.png\" alt=\"Launch screen\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/paperclip/splash.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/paperclip/splash.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/paperclip/splash.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/paperclip/splash.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Launch screen\" width=\"902\" height=\"1924\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"902×1924\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Launch screen</figcaption>\n</figure>",
+  "title": "paperclip",
+  "metadata": {
+    "title": "paperclip",
+    "date": "2025-11-01T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/paperclip",
+    "tech": [
+      "Swift",
+      "SwiftUI",
+      "Kotlin",
+      "Jetpack Compose",
+      "Supabase"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "ios",
+      "android",
+      "app",
+      "social"
+    ],
+    "words": 74,
+    "images": 4,
+    "imageDetails": {
+      "total": 4,
+      "cloudinary": 4,
+      "withDimensions": 0
+    },
+    "links": 4,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

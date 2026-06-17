@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice + the real name/link. Factual stub built from the\n     screenshots. (You confirmed this can be shared.) Draft. -->\n<p class=\"\">An interactive visualizer for energy-asset ownership built on Global Energy Monitor data — trace who owns a given power station or pipeline through its corporate ownership network (down to stakes held by the likes of BlackRock and EDF), and browse the largest assets by capacity.</p>\n<figure role=\"figure\" aria-label=\"Every energy asset in the Global Energy Monitor database, mapped\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/gem-viz/worldmap.png\" alt=\"Every energy asset in the Global Energy Monitor database, mapped\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/gem-viz/worldmap.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/gem-viz/worldmap.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/gem-viz/worldmap.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/gem-viz/worldmap.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Every energy asset in the Global Energy Monitor database, mapped\" width=\"2880\" height=\"1800\" style=\"--splay-rot:0.97deg;\" data-dimensions=\"2880×1800\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Every energy asset in the Global Energy Monitor database, mapped</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Ownership network for the Sines power station\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/gem-viz/sines.png\" alt=\"Ownership network for the Sines power station\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/gem-viz/sines.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/gem-viz/sines.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/gem-viz/sines.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/gem-viz/sines.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Ownership network for the Sines power station\" width=\"2880\" height=\"1800\" style=\"--splay-rot:-1.47deg;\" data-dimensions=\"2880×1800\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Ownership network for the Sines power station</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Tracing a power station up to Bank of America\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/gem-viz/drax.png\" alt=\"Tracing a power station up to Bank of America\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/gem-viz/drax.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/gem-viz/drax.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/gem-viz/drax.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/gem-viz/drax.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Tracing a power station up to Bank of America\" width=\"1042\" height=\"516\" style=\"--splay-rot:-1.91deg;\" data-dimensions=\"1042×516\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Tracing a power station up to Bank of America</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"An asset&#x27;s corporate ownership graph\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/gem-viz/network.png\" alt=\"An asset&#x27;s corporate ownership graph\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/gem-viz/network.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/gem-viz/network.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/gem-viz/network.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/gem-viz/network.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"An asset&#x27;s corporate ownership graph\" width=\"2400\" height=\"2262\" style=\"--splay-rot:2.09deg;\" data-dimensions=\"2400×2262\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">An asset's corporate ownership graph</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Drilling into the owners of a binational pipeline\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/gem-viz/owners.png\" alt=\"Drilling into the owners of a binational pipeline\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/gem-viz/owners.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/gem-viz/owners.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/gem-viz/owners.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/gem-viz/owners.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Drilling into the owners of a binational pipeline\" width=\"1310\" height=\"1204\" style=\"--splay-rot:2.21deg;\" data-dimensions=\"1310×1204\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Drilling into the owners of a binational pipeline</figcaption>\n</figure>",
+  "title": "GEM Ownership Viz",
+  "metadata": {
+    "title": "GEM Ownership Viz",
+    "date": "2026-05-01T04:00:00.000Z",
+    "draft": true,
+    "tech": [
+      "D3.js",
+      "Network Analysis",
+      "Data Visualization"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "dataviz",
+      "network",
+      "energy",
+      "climate"
+    ],
+    "words": 110,
+    "images": 5,
+    "imageDetails": {
+      "total": 5,
+      "cloudinary": 5,
+      "withDimensions": 0
+    },
+    "links": 5,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

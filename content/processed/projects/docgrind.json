@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->\n<p class=\"\">grind through javascript documentation. build muscle memory. ship better code. A reading app that turns MDN's JavaScript docs into timed sessions, exercises, and a streak you can grind — DuoLingo energy for the standard library.</p>\n<figure role=\"figure\" aria-label=\"docgrind — session/chapters/exercises/progress, with reading stats\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/docgrind/landing.png\" alt=\"docgrind — session/chapters/exercises/progress, with reading stats\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/docgrind/landing.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/docgrind/landing.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/docgrind/landing.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/docgrind/landing.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"docgrind — session/chapters/exercises/progress, with reading stats\" width=\"1440\" height=\"1012\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1440×1012\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">docgrind — session/chapters/exercises/progress, with reading stats</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Practice exercises — coding challenges drawn from the docs you just read\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/docgrind/exercises.png\" alt=\"Practice exercises — coding challenges drawn from the docs you just read\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/docgrind/exercises.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/docgrind/exercises.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/docgrind/exercises.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/docgrind/exercises.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Practice exercises — coding challenges drawn from the docs you just read\" width=\"1440\" height=\"900\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1440×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Practice exercises — coding challenges drawn from the docs you just read</figcaption>\n</figure>",
+  "title": "Docgrind",
+  "metadata": {
+    "title": "Docgrind",
+    "date": "2025-08-02T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/docgrind",
+    "tech": [
+      "Vue"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 68,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

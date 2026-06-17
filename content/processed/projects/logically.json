@@ -1,0 +1,47 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): your intro / role / what you actually did here. Draft until you\n     fill this in — published prose should be in your voice, not mine. -->\n<p class=\"\">For <a href=\"https://www.logically.ai/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://www.logically.ai/\">Logically</a>, I produced data visualizations for investigations into online disinformation movements.</p>\n<h2 class=\"\" id=\"the-rise-of-qlobal-change--querdenken_711\">The Rise of Qlobal Change &#x26; Querdenken_711</h2>\n<p class=\"\">A force-directed map of the Telegram universe around Querdenken_711 — the channel at the center of Germany's \"Querdenken\" anti-lockdown movement — paired with an audience-growth timeline keyed to the start of the pandemic, the August 2020 protests, and the January 6th US Capitol insurgency. (Reporting: Jordan Wildon / Logically.)</p>\n<figure role=\"figure\" aria-label=\"The Rise of Qlobal Change &#x26; Querdenken_711 — audience growth chart beside the Telegram network map\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1666630397/project-images/ll_querdenken.png\" alt=\"The Rise of Qlobal Change &#x26; Querdenken_711 — audience growth chart beside the Telegram network map\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1666630397/project-images/ll_querdenken.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1666630397/project-images/ll_querdenken.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1666630397/project-images/ll_querdenken.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1666630397/project-images/ll_querdenken.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The Rise of Qlobal Change &#x26; Querdenken_711 — audience growth chart beside the Telegram network map\" width=\"5001\" height=\"2625\" style=\"--splay-rot:1.24deg;\" data-dimensions=\"5001×2625\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The Rise of Qlobal Change &#x26; Querdenken_711 — audience growth chart beside the Telegram network map</figcaption>\n</figure>\n<!-- TODO (EJ): what was this piece? Looks like a scrollytelling video feature\n     (a freediver). Add the real title / story / link. -->\n<figure role=\"figure\" aria-label=\"Logically scrollytelling feature\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1666630397/project-images/ll_diver.png\" alt=\"Logically scrollytelling feature\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1666630397/project-images/ll_diver.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1666630397/project-images/ll_diver.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1666630397/project-images/ll_diver.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1666630397/project-images/ll_diver.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Logically scrollytelling feature\" width=\"5000\" height=\"2625\" style=\"--splay-rot:-2.93deg;\" data-dimensions=\"5000×2625\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Logically scrollytelling feature</figcaption>\n</figure>",
+  "title": "Logically: Mapping Disinformation Networks",
+  "metadata": {
+    "title": "Logically: Mapping Disinformation Networks",
+    "date": "2022-06-01T04:00:00.000Z",
+    "draft": true,
+    "client": "Logically",
+    "tech": [
+      "Network Analysis",
+      "Data Visualization",
+      "Gephi",
+      "D3.js"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "human-only",
+    "context": "client",
+    "tags": [
+      "data",
+      "dataviz",
+      "journalism",
+      "investigations"
+    ],
+    "words": 144,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "The Rise of Qlobal Change & Querdenken_711",
+        "slug": "the-rise-of-qlobal-change--querdenken_711",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post"
+  }
+}

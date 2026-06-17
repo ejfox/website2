@@ -17,8 +17,12 @@ Designed to be a healthy "first screen" in the morning. News summaries, updates,
 
 The goal was to repurpose the tik-tok style endless vertical scroll but instead fill it with interesting and useful websites, tools, and news articles (populated through my Pinboard bookmarks)
 
-![NOAA notice announcing permanent decommissioning of NOAA-18 satellite on June 6, 2025 due to transmitter failure, with transition guidance to JPSS satellites.](http://res.cloudinary.com/ejf/image/upload/v1755098720/screenshot_2025-08-13_at_11.25.04_AM.png)
+![Home — an audio digest up top, then "Top Picks" and a recent feed pulled from my Pinboard bookmarks](https://res.cloudinary.com/ejf/image/upload/projects/morning-radio/home.png)
+
+![The morning audio briefing — a generated "Morning Radio" segment with scrubber and skip controls](https://res.cloudinary.com/ejf/image/upload/projects/morning-radio/player.png)
+
+![A single card in the vertical scroll — full article with source, tags, and summary](https://res.cloudinary.com/ejf/image/upload/projects/morning-radio/reader.png)
 
 I even experimented (unsuccessfully) with creating a home screen widget.
 
-![https://res.cloudinary.com/ejf/image/upload/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png](https://res.cloudinary.com/ejf/image/upload/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png)
+![Home screen widget experiment](https://res.cloudinary.com/ejf/image/upload/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png)

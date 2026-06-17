@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice + an image. Capture: boot in your env (globe + scatter dataviz) — headless boot failed on deps. Draft until imaged. -->\n<p class=\"\">Companion website for the book Outlast — curated DB of 100+ year old businesses. Nuxt 3 + DuckDB-WASM.</p>\n<figure role=\"figure\" aria-label=\"The deck.gl globe and the typed data model behind the map\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/outlast/code.png\" alt=\"The deck.gl globe and the typed data model behind the map\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/outlast/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/outlast/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/outlast/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/outlast/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The deck.gl globe and the typed data model behind the map\" width=\"1400\" height=\"900\" style=\"--splay-rot:1.47deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The deck.gl globe and the typed data model behind the map</figcaption>\n</figure>",
+  "title": "Outlast",
+  "metadata": {
+    "title": "Outlast",
+    "date": "2026-05-29T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/outlast",
+    "tech": [
+      "Vue"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 59,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

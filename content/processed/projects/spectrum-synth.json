@@ -1,0 +1,37 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice + an on-device screenshot of the analyzer running\n     (it's on the Photo Day list — the live 2.4GHz waterfall is the shot). Draft. -->\n<p class=\"\">A WiFi spectrum analyzer for the Flipper Zero, paired with an ESP32-S2 dev board — sweep the 2.4GHz band and watch the channel activity on the Flipper's screen.</p>\n<figure role=\"figure\" aria-label=\"The Flipper firmware — UART from the ESP32-S2 into real-time spectrum bars and a waterfall on the 128×64 screen\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/spectrum-synth/code.png\" alt=\"The Flipper firmware — UART from the ESP32-S2 into real-time spectrum bars and a waterfall on the 128×64 screen\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/spectrum-synth/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/spectrum-synth/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/spectrum-synth/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/spectrum-synth/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The Flipper firmware — UART from the ESP32-S2 into real-time spectrum bars and a waterfall on the 128×64 screen\" width=\"1400\" height=\"900\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The Flipper firmware — UART from the ESP32-S2 into real-time spectrum bars and a waterfall on the 128×64 screen</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"The render internals — screen layout, 30 FPS waterfall history, and a Bayer dither matrix for the 1-bit display\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/spectrum-synth/code2.png\" alt=\"The render internals — screen layout, 30 FPS waterfall history, and a Bayer dither matrix for the 1-bit display\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/spectrum-synth/code2.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/spectrum-synth/code2.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/spectrum-synth/code2.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/spectrum-synth/code2.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The render internals — screen layout, 30 FPS waterfall history, and a Bayer dither matrix for the 1-bit display\" width=\"1400\" height=\"900\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The render internals — screen layout, 30 FPS waterfall history, and a Bayer dither matrix for the 1-bit display</figcaption>\n</figure>",
+  "title": "Spectrum Synth",
+  "metadata": {
+    "title": "Spectrum Synth",
+    "date": "2025-02-01T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/spectrum-synth",
+    "tech": [
+      "Flipper Zero",
+      "ESP32-S2",
+      "C",
+      "WiFi"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "flipper",
+      "hardware",
+      "device",
+      "radio"
+    ],
+    "words": 98,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

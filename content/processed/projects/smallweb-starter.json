@@ -1,0 +1,34 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): split from \"Deploy & Dev Tools\" — add your voice + a screenshot.\n     Draft. -->\n<p class=\"\">A lightweight application starter for Smallweb — rejecting bloated modern build complexity in favor of focused simplicity.</p>\n<figure role=\"figure\" aria-label=\"The starter&#x27;s entry point — Hono with rate limiting, Loki logging, and Supabase\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/smallweb-starter/code.png\" alt=\"The starter&#x27;s entry point — Hono with rate limiting, Loki logging, and Supabase\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/smallweb-starter/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/smallweb-starter/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/smallweb-starter/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/smallweb-starter/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The starter&#x27;s entry point — Hono with rate limiting, Loki logging, and Supabase\" width=\"1400\" height=\"900\" style=\"--splay-rot:2.06deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The starter's entry point — Hono with rate limiting, Loki logging, and Supabase</figcaption>\n</figure>",
+  "title": "smallweb-starter",
+  "metadata": {
+    "title": "smallweb-starter",
+    "date": "2024-08-01T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/smallweb-starter",
+    "tech": [
+      "TypeScript",
+      "Deno",
+      "Smallweb"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools",
+      "web"
+    ],
+    "words": 50,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

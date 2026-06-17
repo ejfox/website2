@@ -1,0 +1,37 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. (You confirmed this can be shared.) Draft. -->\n<p class=\"\">A browser-based newspaper layout tool — a WordPress plugin, Nuxt web editor, and Slack bot — built to replace InDesign for small newsrooms. The editor offers a drag-drop frame-based layout system on a six-column grid with WordPress article import and AI-powered headline suggestions.</p>\n<figure role=\"figure\" aria-label=\"Newswell Studio — drag-drop frame layout on the six-column grid\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/newswell/layout-1.png\" alt=\"Newswell Studio — drag-drop frame layout on the six-column grid\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/newswell/layout-1.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/newswell/layout-1.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/newswell/layout-1.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/newswell/layout-1.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Newswell Studio — drag-drop frame layout on the six-column grid\" width=\"3600\" height=\"2262\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"3600×2262\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Newswell Studio — drag-drop frame layout on the six-column grid</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Article trimming and page export\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/newswell/layout-2.png\" alt=\"Article trimming and page export\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/newswell/layout-2.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/newswell/layout-2.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/newswell/layout-2.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/newswell/layout-2.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Article trimming and page export\" width=\"3600\" height=\"2262\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"3600×2262\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Article trimming and page export</figcaption>\n</figure>",
+  "title": "Newswell Studio",
+  "metadata": {
+    "title": "Newswell Studio",
+    "date": "2025-10-01T00:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/newswell",
+    "tech": [
+      "Nuxt 4",
+      "Vue",
+      "WordPress",
+      "PHP",
+      "GPT-4"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools",
+      "journalism",
+      "dataviz"
+    ],
+    "words": 77,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

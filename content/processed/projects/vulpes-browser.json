@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice + an image. Capture: macOS app screenshot. Draft until imaged. -->\n<p class=\"\">Minimalist web browser. Zig + Swift + Metal — rendered entirely on the GPU, with particle effects, link glow, and a two-pass bloom.</p>\n<figure role=\"figure\" aria-label=\"The vulpes browser rendering ejfox.com\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes/browser.png\" alt=\"The vulpes browser rendering ejfox.com\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpes/browser.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpes/browser.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes/browser.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpes/browser.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The vulpes browser rendering ejfox.com\" width=\"2400\" height=\"1656\" style=\"--splay-rot:2.75deg;\" data-dimensions=\"2400×1656\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The vulpes browser rendering ejfox.com</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"The Metal render pipeline — solid, glyph, particle, glow, and a two-pass bloom\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-browser/code.png\" alt=\"The Metal render pipeline — solid, glyph, particle, glow, and a two-pass bloom\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpes-browser/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpes-browser/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-browser/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpes-browser/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The Metal render pipeline — solid, glyph, particle, glow, and a two-pass bloom\" width=\"1400\" height=\"900\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The Metal render pipeline — solid, glyph, particle, glow, and a two-pass bloom</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"The GPU image atlas — texture packing, zero-copy Metal textures, and an LRU cache for fast image rendering\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-browser/atlas.png\" alt=\"The GPU image atlas — texture packing, zero-copy Metal textures, and an LRU cache for fast image rendering\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpes-browser/atlas.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpes-browser/atlas.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-browser/atlas.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpes-browser/atlas.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The GPU image atlas — texture packing, zero-copy Metal textures, and an LRU cache for fast image rendering\" width=\"1400\" height=\"900\" style=\"--splay-rot:0.79deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The GPU image atlas — texture packing, zero-copy Metal textures, and an LRU cache for fast image rendering</figcaption>\n</figure>",
+  "title": "Vulpes Browser",
+  "metadata": {
+    "title": "Vulpes Browser",
+    "date": "2026-01-20T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/vulpes-browser",
+    "tech": [
+      "Swift"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 78,
+    "images": 3,
+    "imageDetails": {
+      "total": 3,
+      "cloudinary": 3,
+      "withDimensions": 0
+    },
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

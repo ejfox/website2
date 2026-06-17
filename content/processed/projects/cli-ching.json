@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->\n<p class=\"\">A CLI tool to guide and interpret I Ching throws — it walks you through six coin tosses, builds your hexagram, and interprets the reading, keeping a history of past throws.</p>\n<figure role=\"figure\" aria-label=\"cli-ching — the I Ching oracle in the terminal, with throw history and the coin-toss prompt\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-ching/reading.png\" alt=\"cli-ching — the I Ching oracle in the terminal, with throw history and the coin-toss prompt\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/cli-ching/reading.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/cli-ching/reading.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-ching/reading.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/cli-ching/reading.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"cli-ching — the I Ching oracle in the terminal, with throw history and the coin-toss prompt\" width=\"1200\" height=\"1000\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"1200×1000\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">cli-ching — the I Ching oracle in the terminal, with throw history and the coin-toss prompt</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Building a hexagram — six guided coin tosses, with your question and recent throws\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-ching/oracle.png\" alt=\"Building a hexagram — six guided coin tosses, with your question and recent throws\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/cli-ching/oracle.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/cli-ching/oracle.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-ching/oracle.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/cli-ching/oracle.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Building a hexagram — six guided coin tosses, with your question and recent throws\" width=\"1790\" height=\"2232\" style=\"--splay-rot:1.9deg;\" data-dimensions=\"1790×2232\" class=\"img-full my-8 rounded-sm img-splay aspect-[3/4] w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Building a hexagram — six guided coin tosses, with your question and recent throws</figcaption>\n</figure>",
+  "title": "CLI Ching",
+  "metadata": {
+    "title": "CLI Ching",
+    "date": "2026-01-12T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/cli-ching",
+    "tech": [
+      "JavaScript"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 76,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

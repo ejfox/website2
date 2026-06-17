@@ -1,0 +1,39 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. (You confirmed this can be shared.) Draft. -->\n<p class=\"\">A network visualization and management app where users build graphs of nodes and links, then analyze the resulting structure with force-directed layout and graph metrics. The v2 rebuild adds AI-powered node generation and multiple import formats (Obsidian, Mermaid, CSV).</p>\n<figure role=\"figure\" aria-label=\"A dense ownership network built and explored in Connectology\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/connectology/network.png\" alt=\"A dense ownership network built and explored in Connectology\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/connectology/network.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/connectology/network.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/connectology/network.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/connectology/network.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A dense ownership network built and explored in Connectology\" width=\"1736\" height=\"1556\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"1736×1556\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">A dense ownership network built and explored in Connectology</figcaption>\n</figure>",
+  "title": "Connectology",
+  "metadata": {
+    "title": "Connectology",
+    "date": "2026-03-01T00:00:00.000Z",
+    "draft": true,
+    "url": "https://connectology.room302.studio/",
+    "tech": [
+      "Nuxt 3",
+      "Vue 3",
+      "D3",
+      "graphology",
+      "SQLite",
+      "Clerk"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "context": "collaborative",
+    "tags": [
+      "dataviz",
+      "network",
+      "web"
+    ],
+    "words": 67,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

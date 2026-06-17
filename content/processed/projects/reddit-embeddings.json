@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. The map shows topic clusters only,\n     no post thumbnails. Draft until ready. -->\n<p class=\"\">What is r/dataisbeautiful <em class=\"\">about</em>? I pulled the top 1,000 posts, embedded each one with OpenAI, and clustered the result into 50 themes — then laid them out as a map. The whole subreddit's preoccupations at a glance: US politics dataviz, COVID and mortality, Google search trends, climate, creative visualizations, personal-finance charts.</p>\n<figure role=\"figure\" aria-label=\"r/dataisbeautiful embedded — 1,000 posts clustered into 50 thematic bubbles, sized by count\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/reddit-embeddings/map.png\" alt=\"r/dataisbeautiful embedded — 1,000 posts clustered into 50 thematic bubbles, sized by count\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/reddit-embeddings/map.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/reddit-embeddings/map.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/reddit-embeddings/map.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/reddit-embeddings/map.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"r/dataisbeautiful embedded — 1,000 posts clustered into 50 thematic bubbles, sized by count\" width=\"1440\" height=\"953\" style=\"--splay-rot:-2.1deg;\" data-dimensions=\"1440×953\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">r/dataisbeautiful embedded — 1,000 posts clustered into 50 thematic bubbles, sized by count</figcaption>\n</figure>",
+  "title": "r/dataisbeautiful, Embedded",
+  "metadata": {
+    "title": "r/dataisbeautiful, Embedded",
+    "date": "2023-04-14T04:00:00.000Z",
+    "draft": true,
+    "tech": [
+      "OpenAI Embeddings",
+      "Clustering",
+      "D3.js",
+      "Data Visualization"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-collaborative",
+    "tags": [
+      "dataviz",
+      "data",
+      "ai",
+      "embeddings"
+    ],
+    "words": 88,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

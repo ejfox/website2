@@ -1,17 +1,26 @@
 ---
-title: Coach Artie Ecosystem
+title: "Coach Artie"
 date: 2023-03-21T00:00:00-04:00
 modified: 2025-08-26T15:52:50-04:00
 url: https://github.com/room302studio/coachartie
 tech: ["Node.js", "Discord.js", "OpenAI API", "PostgreSQL", "MCP", "AI Consciousness Research"]
 state: evolved
 aiInvolvement: ai-enhanced
+context: collaborative
 tags:
   - programming
   - ai
   - product
   - nodejs
 ---
+
+![Coach Artie landing page — "Why Coach Artie?"](https://res.cloudinary.com/ejf/image/upload/v1743818370/Screenshot_2025-04-04_at_9.59.08_PM.png)
+
+![Coach Artie interface](https://res.cloudinary.com/ejf/image/upload/v1743818354/Screenshot_2025-04-04_at_9.59.00_PM.png)
+
+![Coach Artie in conversation](https://res.cloudinary.com/ejf/image/upload/v1757894550/screenshot_2025-09-14_at_8.02.18_PM.png)
+
+![Coach Artie ecosystem view](https://res.cloudinary.com/ejf/image/upload/v1740247476/Screenshot_2025-02-22_at_1.04.24_PM.png)
 
 ## Coach Artie v1: Discord Studio Assistant
 

@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub, not your words. Draft until ready. -->\n<p class=\"\">An IRC-style terminal interface for LLM conversations — talk to models in the same channel-and-buffer idiom you already live in, with vim-style modes and keybindings for navigating threads.</p>\n<figure role=\"figure\" aria-label=\"The vim-mode controller — mode changes, command handling, and thread navigation\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-ai-chat/code.png\" alt=\"The vim-mode controller — mode changes, command handling, and thread navigation\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/cli-ai-chat/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/cli-ai-chat/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-ai-chat/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/cli-ai-chat/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The vim-mode controller — mode changes, command handling, and thread navigation\" width=\"1400\" height=\"900\" style=\"--splay-rot:-1.81deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The vim-mode controller — mode changes, command handling, and thread navigation</figcaption>\n</figure>",
+  "title": "CLI AI Chat",
+  "metadata": {
+    "title": "CLI AI Chat",
+    "date": "2024-10-12T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/cli-ai-chat",
+    "tech": [
+      "Node.js",
+      "CLI",
+      "AI"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "cli",
+      "tool",
+      "ai"
+    ],
+    "words": 57,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

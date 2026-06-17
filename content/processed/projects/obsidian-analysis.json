@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub, not your words. Draft until ready. -->\n<p class=\"\">Embed an entire Obsidian vault — ~2,000 notes — with local Nomic embeddings via LM Studio, then explore the whole thing as a semantic map. Every note is a point; nearby points are related thoughts. You can search in natural language and re-color by semantics, recency, size, or link density.</p>\n<figure role=\"figure\" aria-label=\"~2,000 notes embedded into a single semantic map — search and filter by SEMANTIC / TEMPORAL / SIZE / LINKS\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/obsidian-analysis/map.png\" alt=\"~2,000 notes embedded into a single semantic map — search and filter by SEMANTIC / TEMPORAL / SIZE / LINKS\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/obsidian-analysis/map.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/obsidian-analysis/map.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/obsidian-analysis/map.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/obsidian-analysis/map.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"~2,000 notes embedded into a single semantic map — search and filter by SEMANTIC / TEMPORAL / SIZE / LINKS\" width=\"1440\" height=\"813\" style=\"--splay-rot:2.44deg;\" data-dimensions=\"1440×813\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">~2,000 notes embedded into a single semantic map — search and filter by SEMANTIC / TEMPORAL / SIZE / LINKS</figcaption>\n</figure>\n<p class=\"\">UMAP has a lot of knobs, so I also built a grid that runs 64 parameter combinations side by side — a way to <em class=\"\">see</em> how <code class=\"md-inline-code\">n_neighbors</code> and <code class=\"md-inline-code\">min_dist</code> reshape the same data.</p>\n<figure role=\"figure\" aria-label=\"A 64-combination UMAP parameter grid — the same vault laid out 64 different ways\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/obsidian-analysis/grid.png\" alt=\"A 64-combination UMAP parameter grid — the same vault laid out 64 different ways\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/obsidian-analysis/grid.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/obsidian-analysis/grid.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/obsidian-analysis/grid.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/obsidian-analysis/grid.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A 64-combination UMAP parameter grid — the same vault laid out 64 different ways\" width=\"1440\" height=\"813\" style=\"--splay-rot:1.59deg;\" data-dimensions=\"1440×813\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">A 64-combination UMAP parameter grid — the same vault laid out 64 different ways</figcaption>\n</figure>",
+  "title": "Obsidian Analysis",
+  "metadata": {
+    "title": "Obsidian Analysis",
+    "date": "2024-06-01T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/obsidian-analysis",
+    "tech": [
+      "Python",
+      "Embeddings",
+      "UMAP",
+      "LM Studio"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-collaborative",
+    "tags": [
+      "data",
+      "visualization",
+      "ai"
+    ],
+    "words": 135,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

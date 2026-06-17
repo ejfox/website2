@@ -1,0 +1,38 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. NEEDS A HERO — a screenshot of the dashboard\n     running (spectrum + map). Draft until captured. -->\n<p class=\"\">A realtime dashboard for a Meshtastic mesh network and HackRF SDR — a spectrum waterfall, a geographic node map with RSSI, and mesh chat, all in dense Tufte-academic styling. Nuxt 3 + D3 over a Nitro WebSocket.</p>\n<figure role=\"figure\" aria-label=\"Transmitting a real APRS beacon over HackRF — Bell 202 AFSK modulated into narrowband-FM IQ\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/groundwave/code.png\" alt=\"Transmitting a real APRS beacon over HackRF — Bell 202 AFSK modulated into narrowband-FM IQ\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/groundwave/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/groundwave/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/groundwave/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/groundwave/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Transmitting a real APRS beacon over HackRF — Bell 202 AFSK modulated into narrowband-FM IQ\" width=\"1400\" height=\"900\" style=\"--splay-rot:-1.8deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Transmitting a real APRS beacon over HackRF — Bell 202 AFSK modulated into narrowband-FM IQ</figcaption>\n</figure>",
+  "title": "groundwave",
+  "metadata": {
+    "title": "groundwave",
+    "date": "2026-05-24T04:00:00.000Z",
+    "draft": true,
+    "hidden": true,
+    "url": "https://github.com/ejfox/groundwave",
+    "tech": [
+      "Nuxt 3",
+      "D3.js",
+      "WebSockets",
+      "Meshtastic",
+      "SDR"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "hardware",
+      "dataviz",
+      "radio"
+    ],
+    "words": 77,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

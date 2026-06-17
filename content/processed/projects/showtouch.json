@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): split from \"Terminal Tools\" — add your voice + a still image.\n     README only has a .mov demo, which the filmstrip can't show yet. Draft. -->\n<p class=\"\">For presentations and livestreaming: show every key you press as large ASCII art on screen, so an audience can follow along.</p>\n<figure role=\"figure\" aria-label=\"How it works — pynput captures keys, pyfiglet renders them as centered ASCII art\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/showtouch/code.png\" alt=\"How it works — pynput captures keys, pyfiglet renders them as centered ASCII art\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/showtouch/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/showtouch/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/showtouch/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/showtouch/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"How it works — pynput captures keys, pyfiglet renders them as centered ASCII art\" width=\"1400\" height=\"900\" style=\"--splay-rot:-2.45deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">How it works — pynput captures keys, pyfiglet renders them as centered ASCII art</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"showtouch displaying a keystroke as full-screen centered ASCII art\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/showtouch/demo.png\" alt=\"showtouch displaying a keystroke as full-screen centered ASCII art\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/showtouch/demo.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/showtouch/demo.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/showtouch/demo.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/showtouch/demo.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"showtouch displaying a keystroke as full-screen centered ASCII art\" width=\"1750\" height=\"1880\" style=\"--splay-rot:-1.16deg;\" data-dimensions=\"1750×1880\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">showtouch displaying a keystroke as full-screen centered ASCII art</figcaption>\n</figure>",
+  "title": "showtouch",
+  "metadata": {
+    "title": "showtouch",
+    "date": "2024-10-01T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/showtouch",
+    "tech": [
+      "Python",
+      "ASCII Art",
+      "Terminal"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "cli",
+      "terminal",
+      "programming"
+    ],
+    "words": 75,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

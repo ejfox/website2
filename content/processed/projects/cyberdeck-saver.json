@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. NEEDS A HERO — a screen recording of the\n     screensaver running would be spectacular. Draft until captured. -->\n<p class=\"\">A native macOS screensaver (<code class=\"md-inline-code\">.saver</code>) in Swift + Metal: a 5×5 grid of terminal panels typing out real-time data from your personal APIs and OSINT feeds, run through a CRT shader chain in the vulpes palette. A cyberpunk command center on your idle screen — and no fake data.</p>\n<figure role=\"figure\" aria-label=\"The Metal fragment shader behind the screensaver&#x27;s CRT look\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cyberdeck-saver/code.png\" alt=\"The Metal fragment shader behind the screensaver&#x27;s CRT look\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/cyberdeck-saver/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/cyberdeck-saver/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cyberdeck-saver/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/cyberdeck-saver/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The Metal fragment shader behind the screensaver&#x27;s CRT look\" width=\"1400\" height=\"900\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The Metal fragment shader behind the screensaver's CRT look</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"The data streams — each terminal panel fetches and parses its own feed; here, haversine math for scrapbook distances\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cyberdeck-saver/streams.png\" alt=\"The data streams — each terminal panel fetches and parses its own feed; here, haversine math for scrapbook distances\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/cyberdeck-saver/streams.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/cyberdeck-saver/streams.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cyberdeck-saver/streams.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/cyberdeck-saver/streams.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The data streams — each terminal panel fetches and parses its own feed; here, haversine math for scrapbook distances\" width=\"1400\" height=\"900\" style=\"--splay-rot:-1.95deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The data streams — each terminal panel fetches and parses its own feed; here, haversine math for scrapbook distances</figcaption>\n</figure>",
+  "title": "cyberdeck-saver",
+  "metadata": {
+    "title": "cyberdeck-saver",
+    "date": "2026-04-20T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/cyberdeck-saver",
+    "tech": [
+      "Swift",
+      "Metal",
+      "macOS",
+      "OSINT"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "macos",
+      "osint",
+      "design"
+    ],
+    "words": 103,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): the facts/architecture below are pulled straight from the code and\n     are accurate — but the *why* is yours. Add your voice on top whenever you want.\n     Draft until then. -->\n<p class=\"\">I take a lot of screenshots — about 1,700 of them sitting in <code class=\"md-inline-code\">~/screenshots</code>. <strong class=\"\">Screenshot Space</strong> turns that pile into a single searchable WebGL map: every screenshot is placed by what it <em class=\"\">looks like</em> and what <em class=\"\">text</em> it contains, clustered into the projects I was actually working on, and then <strong class=\"\">colored by how productive RescueTime says I was the hour I took it.</strong> It's a map of my screen life, and the RescueTime layer is what makes it an analysis instead of just a pretty constellation.</p>\n<p class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/screenshot-space/productivity.png\" alt=\"Screenshot Space — 1,554 screenshots placed by visual + OCR similarity, tinted teal where RescueTime logged a productive hour and pink where it logged a distracting one\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/screenshot-space/productivity.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/screenshot-space/productivity.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/screenshot-space/productivity.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/screenshot-space/productivity.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" width=\"1440\" height=\"813\" style=\"--splay-rot:-1.92deg;\" data-dimensions=\"1440×813\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\"></p>\n<h2 class=\"\" id=\"the-rescuetime-layer\">The RescueTime layer</h2>\n<p class=\"\">This is the part I care about most. Every screenshot's file modification time gets bucketed to the hour and joined against my local RescueTime SQLite database (<code class=\"md-inline-code\">rescuetime.db</code>). For each hour I pull <code class=\"md-inline-code\">total_sec</code> and <code class=\"md-inline-code\">productive_sec</code>, so every screenshot carries a <strong class=\"\">productive fraction</strong> — <code class=\"md-inline-code\">productive_sec / total_sec</code> for the hour it was captured.</p>\n<p class=\"\">In the viz (press <strong class=\"\"><code class=\"md-inline-code\">P</code></strong>) that fraction becomes the tint: <strong class=\"\">teal for productive hours, pink/magenta for distracting ones,</strong> and tiles from hours with no RescueTime data get dimmed instead of colored. Suddenly the clusters tell on me — you can see which projects happened during focused stretches and which ones were what I was doing <em class=\"\">instead</em> of focusing.</p>\n<p class=\"\">The strip along the bottom is the same data aggregated per day: a calendar histogram of screenshot volume, each bar tinted by that day's average productivity. RescueTime tracking only kicks in partway through the timeline, which is why the early bars are grey and the later ones light up teal/pink.</p>\n<figure role=\"figure\" aria-label=\"Per-day timeline: screenshot volume by day, each bar tinted by that day&#x27;s average RescueTime productivity. The grey stretch is before RescueTime tracking started; the colored stretch is after.\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/screenshot-space/timeline.png\" alt=\"Per-day timeline: screenshot volume by day, each bar tinted by that day&#x27;s average RescueTime productivity. The grey stretch is before RescueTime tracking started; the colored stretch is after.\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/screenshot-space/timeline.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/screenshot-space/timeline.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/screenshot-space/timeline.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/screenshot-space/timeline.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Per-day timeline: screenshot volume by day, each bar tinted by that day&#x27;s average RescueTime productivity. The grey stretch is before RescueTime tracking started; the colored stretch is after.\" width=\"1440\" height=\"70\" style=\"--splay-rot:-0.63deg;\" data-dimensions=\"1440×70\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Per-day timeline: screenshot volume by day, each bar tinted by that day's average RescueTime productivity. The grey stretch is before RescueTime tracking started; the colored stretch is after.</figcaption>\n</figure>\n<p class=\"\">Each point also gets its <strong class=\"\">dominant RescueTime activity</strong> for that hour and the <strong class=\"\">number of GitHub commits I made that calendar day</strong> (harvested across all my repos), so hovering a screenshot tells you when it was taken, what app dominated that hour, and whether it was a commit-heavy day.</p>\n<h2 class=\"\" id=\"how-the-map-gets-built\">How the map gets built</h2>\n<p class=\"\">The layout isn't hand-arranged — it falls out of an embedding pipeline:</p>\n<ol class=\"list-decimal\">\n<li class=\"\"><strong class=\"\">Embed every screenshot</strong> (on a rented GPU pod). Each image gets a <strong class=\"\">SigLIP</strong> visual embedding (<code class=\"md-inline-code\">google/siglip-base-patch16-256</code>, 768-d), <strong class=\"\">easyOCR</strong> pulls out any on-screen text, and that text gets its own <strong class=\"\">sentence-transformer</strong> embedding (<code class=\"md-inline-code\">all-MiniLM-L6-v2</code>, 384-d). Output is a single resumable <code class=\"md-inline-code\">embeddings.parquet</code>.</li>\n<li class=\"\"><strong class=\"\">Project to 2D</strong> with <strong class=\"\">UMAP</strong> over a weighted blend of the visual and text vectors (default 60% visual / 40% OCR text, cosine metric). Visual similarity pulls lookalike UIs together; the text weight makes sure two screens <em class=\"\">about</em> the same thing land near each other even if they look different.</li>\n<li class=\"\"><strong class=\"\">Cluster and name.</strong> HDBSCAN finds the dense regions, and an LLM names each one from its OCR contents. The result is clusters that read like a list of what I actually do: <em class=\"\">Website2, Subway Builder, GEM Viz, DDHQ Election, Newswell Studio, Social Media</em> — plus an honest <em class=\"\">Unreadable OCR</em> cluster for the junk.</li>\n</ol>\n<figure role=\"figure\" aria-label=\"The raw map before any tint — 1,554 screenshot thumbnails as GPU-instanced tiles at their UMAP positions, with LLM-named cluster labels overlaid\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/screenshot-space/map.png\" alt=\"The raw map before any tint — 1,554 screenshot thumbnails as GPU-instanced tiles at their UMAP positions, with LLM-named cluster labels overlaid\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/screenshot-space/map.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/screenshot-space/map.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/screenshot-space/map.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/screenshot-space/map.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The raw map before any tint — 1,554 screenshot thumbnails as GPU-instanced tiles at their UMAP positions, with LLM-named cluster labels overlaid\" width=\"1440\" height=\"813\" style=\"--splay-rot:2.62deg;\" data-dimensions=\"1440×813\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The raw map before any tint — 1,554 screenshot thumbnails as GPU-instanced tiles at their UMAP positions, with LLM-named cluster labels overlaid</figcaption>\n</figure>\n<h2 class=\"\" id=\"exploring-it\">Exploring it</h2>\n<p class=\"\">The front end is hand-written WebGL (no chart library) so it can hold ~1,550 textured tiles at 60fps:</p>\n<ul class=\"list-disc\">\n<li class=\"\"><strong class=\"\">Drag</strong> to pan, <strong class=\"\">wheel</strong> to zoom, <strong class=\"\">click</strong> a tile to open it, <strong class=\"\"><code class=\"md-inline-code\">R</code></strong> to reset to the full bounds.</li>\n<li class=\"\"><strong class=\"\">Semantic search</strong> — the search box finds screenshots by what's <em class=\"\">in</em> them, not by filename (filenames are just timestamps).</li>\n<li class=\"\"><strong class=\"\"><code class=\"md-inline-code\">L</code></strong> drops a magnifier <strong class=\"\">lens</strong> over the cursor for reading a dense neighborhood without zooming.</li>\n<li class=\"\"><strong class=\"\"><code class=\"md-inline-code\">T</code></strong> switches to a <strong class=\"\">recency tint</strong> — newest screenshots glow, old ones recede — so you can watch the map fill in over time.</li>\n<li class=\"\"><strong class=\"\"><code class=\"md-inline-code\">P</code></strong> is the RescueTime productivity tint described above.</li>\n<li class=\"\"><strong class=\"\">Hover</strong> any tile for a tooltip with its timestamp, that hour's RescueTime activity, and an OCR preview.</li>\n</ul>\n<figure role=\"figure\" aria-label=\"Recency mode (T): the same map tinted by age instead of productivity — newer screenshots light up, older ones fade back\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/screenshot-space/recency.png\" alt=\"Recency mode (T): the same map tinted by age instead of productivity — newer screenshots light up, older ones fade back\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/screenshot-space/recency.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/screenshot-space/recency.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/screenshot-space/recency.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/screenshot-space/recency.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Recency mode (T): the same map tinted by age instead of productivity — newer screenshots light up, older ones fade back\" width=\"1440\" height=\"813\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"1440×813\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Recency mode (T): the same map tinted by age instead of productivity — newer screenshots light up, older ones fade back</figcaption>\n</figure>\n<h2 class=\"\" id=\"infrastructure\">Infrastructure</h2>\n<p class=\"\">The embedding step is too heavy for a laptop, so it runs on a rented GPU pod: a setup script provisions the box, <code class=\"md-inline-code\">embed.py</code> chews through the screenshots (resumable, so a dropped connection doesn't restart it), and the resulting parquet comes home for the local UMAP / clustering / enrichment steps. The dataset is backed up to <strong class=\"\">Cloudflare R2</strong>, and a <strong class=\"\">launchd</strong> job (<code class=\"md-inline-code\">morning_check</code>) keeps the whole thing current as new screenshots accumulate.</p>",
+  "title": "Screenshot Space",
+  "metadata": {
+    "title": "Screenshot Space",
+    "date": "2026-05-17T04:00:00.000Z",
+    "draft": true,
+    "tech": [
+      "WebGL",
+      "UMAP",
+      "SigLIP",
+      "HDBSCAN",
+      "Python",
+      "RescueTime",
+      "easyOCR",
+      "sentence-transformers"
+    ],
+    "state": "doing",
+    "aiInvolvement": "ai-collaborative",
+    "tags": [
+      "dataviz",
+      "data",
+      "ai",
+      "embeddings",
+      "quantified-self"
+    ],
+    "words": 799,
+    "images": 4,
+    "imageDetails": {
+      "total": 4,
+      "cloudinary": 3,
+      "withDimensions": 0
+    },
+    "links": 4,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 4
+    },
+    "toc": [
+      {
+        "text": "The RescueTime layer",
+        "slug": "the-rescuetime-layer",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "How the map gets built",
+        "slug": "how-the-map-gets-built",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Exploring it",
+        "slug": "exploring-it",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "Infrastructure",
+        "slug": "infrastructure",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post"
+  }
+}

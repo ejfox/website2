@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. The graph below is real output —\n     this site's own content-pipeline scripts (207 nodes, 269 calls). Draft. -->\n<p class=\"\">Generate a node/edge graph from a JavaScript codebase — visualize software architecture as an explorable network instead of a file tree.</p>\n<figure role=\"figure\" aria-label=\"Real output — every script in this site&#x27;s content pipeline as a call-constellation (pink hub = file scope, teal = functions, edges = calls)\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/code-network-gen/graph.png\" alt=\"Real output — every script in this site&#x27;s content pipeline as a call-constellation (pink hub = file scope, teal = functions, edges = calls)\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/code-network-gen/graph.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/code-network-gen/graph.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/code-network-gen/graph.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/code-network-gen/graph.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Real output — every script in this site&#x27;s content pipeline as a call-constellation (pink hub = file scope, teal = functions, edges = calls)\" width=\"1677\" height=\"1000\" style=\"--splay-rot:-0.94deg;\" data-dimensions=\"1677×1000\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Real output — every script in this site's content pipeline as a call-constellation (pink hub = file scope, teal = functions, edges = calls)</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Under the hood — walking the AST with acorn + babel to build the node/edge graph\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/code-network-gen/code.png\" alt=\"Under the hood — walking the AST with acorn + babel to build the node/edge graph\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/code-network-gen/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/code-network-gen/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/code-network-gen/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/code-network-gen/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Under the hood — walking the AST with acorn + babel to build the node/edge graph\" width=\"1400\" height=\"900\" style=\"--splay-rot:2.31deg;\" data-dimensions=\"1400×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Under the hood — walking the AST with acorn + babel to build the node/edge graph</figcaption>\n</figure>",
+  "title": "code-network-gen",
+  "metadata": {
+    "title": "code-network-gen",
+    "date": "2024-06-01T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/code-network-gen",
+    "tech": [
+      "JavaScript",
+      "Network Analysis",
+      "Data Visualization"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "dataviz",
+      "programming",
+      "data"
+    ],
+    "words": 89,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

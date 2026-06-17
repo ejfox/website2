@@ -5167,14 +5167,14 @@
         "ios",
         "health"
       ],
-      "words": 95,
-      "images": 2,
+      "words": 125,
+      "images": 4,
       "imageDetails": {
-        "total": 2,
-        "cloudinary": 2,
+        "total": 4,
+        "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 4,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -5219,100 +5219,26 @@
       "featured": true,
       "state": "deployed",
       "aiInvolvement": "human-only",
+      "context": "client",
       "tags": [
         "data",
         "nypd",
         "journalism",
         "database"
       ],
-      "words": 105,
-      "images": 1,
+      "words": 114,
+      "images": 2,
       "imageDetails": {
-        "total": 1,
-        "cloudinary": 1,
+        "total": 2,
+        "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 1,
+      "links": 2,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
       "type": "post",
       "slug": "projects/ccrb-clusters"
-    }
-  },
-  {
-    "slug": "projects/cli-tools",
-    "title": "CLI Tools Collection",
-    "date": "2024-10-12T04:00:00.000Z",
-    "type": "post",
-    "modified": "2025-08-13T16:35:57.000Z",
-    "tags": [
-      "cli",
-      "programming",
-      "nodejs",
-      "tool"
-    ],
-    "toc": [
-      {
-        "text": "Featured Tools",
-        "slug": "featured-tools",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Related Content",
-        "slug": "related-content",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "metadata": {
-      "title": "CLI Tools Collection",
-      "date": "2024-10-12T04:00:00.000Z",
-      "modified": "2025-08-13T16:35:57.000Z",
-      "tech": [
-        "Node.js",
-        "CLI",
-        "ASCII Art",
-        "Git",
-        "AI"
-      ],
-      "state": "deployed",
-      "aiInvolvement": "ai-assisted",
-      "tags": [
-        "cli",
-        "programming",
-        "nodejs",
-        "tool"
-      ],
-      "words": 182,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 8,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 2
-      },
-      "toc": [
-        {
-          "text": "Featured Tools",
-          "slug": "featured-tools",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Related Content",
-          "slug": "related-content",
-          "level": "h2",
-          "children": []
-        }
-      ],
-      "type": "post",
-      "slug": "projects/cli-tools"
     }
   },
   {
@@ -5341,14 +5267,14 @@
         "tools",
         "photography"
       ],
-      "words": 69,
-      "images": 1,
+      "words": 87,
+      "images": 3,
       "imageDetails": {
-        "total": 1,
-        "cloudinary": 1,
+        "total": 3,
+        "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 1,
+      "links": 3,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5358,7 +5284,7 @@
   },
   {
     "slug": "projects/coach-artie",
-    "title": "Coach Artie Ecosystem",
+    "title": "Coach Artie",
     "date": "2023-03-21T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-26T19:52:50.000Z",
@@ -5396,7 +5322,7 @@
       }
     ],
     "metadata": {
-      "title": "Coach Artie Ecosystem",
+      "title": "Coach Artie",
       "date": "2023-03-21T04:00:00.000Z",
       "modified": "2025-08-26T19:52:50.000Z",
       "url": "https://github.com/room302studio/coachartie",
@@ -5410,20 +5336,21 @@
       ],
       "state": "evolved",
       "aiInvolvement": "ai-enhanced",
+      "context": "collaborative",
       "tags": [
         "programming",
         "ai",
         "product",
         "nodejs"
       ],
-      "words": 124,
-      "images": 0,
+      "words": 143,
+      "images": 4,
       "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
+        "total": 4,
+        "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 7,
       "codeBlocks": 0,
       "headers": {
         "h2": 3
@@ -5485,20 +5412,21 @@
       ],
       "state": "deployed",
       "aiInvolvement": "human-only",
+      "context": "client",
       "tags": [
         "covid",
         "dataviz",
         "javascript",
         "health"
       ],
-      "words": 56,
-      "images": 1,
+      "words": 69,
+      "images": 2,
       "imageDetails": {
-        "total": 1,
-        "cloudinary": 1,
+        "total": 2,
+        "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 3,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5508,7 +5436,7 @@
   },
   {
     "slug": "projects/creative-interfaces",
-    "title": "Creative Interfaces & Digital Art",
+    "title": "Hand-Tracking & Generative Art",
     "date": "2024-07-01T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-13T15:46:54.000Z",
@@ -5525,7 +5453,7 @@
       }
     ],
     "metadata": {
-      "title": "Creative Interfaces & Digital Art",
+      "title": "Hand-Tracking & Generative Art",
       "date": "2024-07-01T04:00:00.000Z",
       "modified": "2025-08-13T15:46:54.000Z",
       "tech": [
@@ -5542,14 +5470,14 @@
         "creativity",
         "interfaces"
       ],
-      "words": 170,
-      "images": 0,
+      "words": 186,
+      "images": 2,
       "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
+        "total": 2,
+        "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 4,
+      "links": 6,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -5564,78 +5492,6 @@
       ],
       "type": "post",
       "slug": "projects/creative-interfaces"
-    }
-  },
-  {
-    "slug": "projects/data-visualization-suite",
-    "title": "Data Visualization & Analysis Suite",
-    "date": "2024-06-01T00:00:00.000Z",
-    "type": "post",
-    "modified": "2025-01-15T17:00:00.000Z",
-    "tags": [
-      "visualization",
-      "data"
-    ],
-    "toc": [
-      {
-        "text": "Related Content",
-        "slug": "related-content",
-        "level": "h3",
-        "children": []
-      },
-      {
-        "text": "Project List",
-        "slug": "project-list",
-        "level": "h3",
-        "children": []
-      }
-    ],
-    "metadata": {
-      "title": "Data Visualization & Analysis Suite",
-      "date": "2024-06-01T00:00:00.000Z",
-      "modified": "2025-01-15T17:00:00.000Z",
-      "tech": [
-        "Data Visualization",
-        "Machine Learning",
-        "JavaScript",
-        "Python",
-        "UMAP",
-        "Embeddings"
-      ],
-      "state": "deployed",
-      "aiInvolvement": "ai-collaborative",
-      "tags": [
-        "visualization",
-        "data"
-      ],
-      "words": 268,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 6,
-      "codeBlocks": 0,
-      "headers": {
-        "h3": 2
-      },
-      "toc": [
-        {
-          "text": "Related Content",
-          "slug": "related-content",
-          "level": "h3",
-          "children": []
-        },
-        {
-          "text": "Project List",
-          "slug": "project-list",
-          "level": "h3",
-          "children": []
-        }
-      ],
-      "type": "post",
-      "slug": "projects/data-visualization-suite"
     }
   },
   {
@@ -5665,86 +5521,26 @@
       "featured": false,
       "state": "deployed",
       "aiInvolvement": "human-only",
+      "context": "collaborative",
       "tags": [
         "data",
         "javascript",
         "tool",
         "journalism"
       ],
-      "words": 147,
-      "images": 0,
+      "words": 157,
+      "images": 1,
       "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
+        "total": 1,
+        "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 3,
       "codeBlocks": 1,
       "headers": {},
       "toc": [],
       "type": "post",
       "slug": "projects/dataproofer"
-    }
-  },
-  {
-    "slug": "projects/developer-tools",
-    "title": "Developer Tools & Deployment",
-    "date": "2024-05-01T04:00:00.000Z",
-    "type": "post",
-    "modified": "2025-08-13T15:30:24.000Z",
-    "tags": [
-      "tools",
-      "deployment"
-    ],
-    "toc": [
-      {
-        "text": "Project List",
-        "slug": "project-list",
-        "level": "h2",
-        "children": []
-      }
-    ],
-    "metadata": {
-      "title": "Developer Tools & Deployment",
-      "date": "2024-05-01T04:00:00.000Z",
-      "modified": "2025-08-13T15:30:24.000Z",
-      "tech": [
-        "Docker",
-        "Deployment",
-        "GitHub",
-        "DevOps",
-        "Nuxt",
-        "ZMK",
-        "Keyboard Firmware"
-      ],
-      "state": "deployed",
-      "aiInvolvement": "ai-assisted",
-      "tags": [
-        "tools",
-        "deployment"
-      ],
-      "words": 134,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 3,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "Project List",
-          "slug": "project-list",
-          "level": "h2",
-          "children": []
-        }
-      ],
-      "type": "post",
-      "slug": "projects/developer-tools"
     }
   },
   {
@@ -5773,20 +5569,21 @@
       "featured": true,
       "state": "deployed",
       "aiInvolvement": "human-only",
+      "context": "client",
       "tags": [
         "d3",
         "dataviz",
         "javascript",
         "elections"
       ],
-      "words": 47,
-      "images": 3,
+      "words": 95,
+      "images": 4,
       "imageDetails": {
-        "total": 3,
-        "cloudinary": 3,
+        "total": 4,
+        "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 5,
+      "links": 6,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5812,6 +5609,7 @@
       "date": "2016-12-14T20:01:50.000Z",
       "modified": "2025-08-13T16:01:12.000Z",
       "url": "https://nbcnews.com/specials",
+      "context": "client",
       "tags": [
         "dataviz",
         "journalism",
@@ -5835,7 +5633,7 @@
   },
   {
     "slug": "projects/photography-tools",
-    "title": "Photography & Visual Creation",
+    "title": "EXIF Printer",
     "date": "2024-04-01T04:00:00.000Z",
     "type": "post",
     "modified": "2025-08-13T15:20:07.000Z",
@@ -5845,7 +5643,7 @@
     ],
     "toc": [],
     "metadata": {
-      "title": "Photography & Visual Creation",
+      "title": "EXIF Printer",
       "date": "2024-04-01T04:00:00.000Z",
       "modified": "2025-08-13T15:20:07.000Z",
       "tech": [
@@ -5861,14 +5659,14 @@
         "photography",
         "tools"
       ],
-      "words": 126,
-      "images": 1,
+      "words": 132,
+      "images": 2,
       "imageDetails": {
-        "total": 1,
-        "cloudinary": 1,
+        "total": 2,
+        "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 3,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5911,14 +5709,14 @@
         "ai",
         "web"
       ],
-      "words": 145,
-      "images": 0,
+      "words": 159,
+      "images": 2,
       "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
+        "total": 2,
+        "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 4,
+      "links": 6,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -24573,6 +24371,107 @@
       ],
       "type": "post",
       "slug": "week-notes/2026-03"
+    }
+  },
+  {
+    "slug": "week-notes/2026-21",
+    "title": "2026-21",
+    "date": "2026-05-18T14:00:00.000Z",
+    "type": "post",
+    "modified": "2026-05-18T14:00:00.000Z",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [
+      {
+        "text": "2026-21",
+        "slug": "2026-21",
+        "level": "h2",
+        "children": [
+          {
+            "text": "What happened this week",
+            "slug": "what-happened-this-week",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What I made / shipped",
+            "slug": "what-i-made--shipped",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What I learned",
+            "slug": "what-i-learned",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Media consumed",
+            "slug": "-media-consumed",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "date": "2026-05-18T14:00:00.000Z",
+      "modified": "2026-05-18T14:00:00.000Z",
+      "words": 588,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "2026-21",
+          "slug": "2026-21",
+          "level": "h2",
+          "children": [
+            {
+              "text": "What happened this week",
+              "slug": "what-happened-this-week",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "What I made / shipped",
+              "slug": "what-i-made--shipped",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "What I learned",
+              "slug": "what-i-learned",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📚 Media consumed",
+              "slug": "-media-consumed",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "slug": "week-notes/2026-21"
     }
   }
 ]

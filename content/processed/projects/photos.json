@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->\n<p class=\"\">My photo blog — a custom media-organizing and publishing app (Nuxt + Cloudinary, fed by bash scripts and Apple Automator) for getting photographs from camera to web.</p>\n<figure role=\"figure\" aria-label=\"A frame from the photo blog\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/photos/hero.png\" alt=\"A frame from the photo blog\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/photos/hero.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/photos/hero.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/photos/hero.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/photos/hero.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A frame from the photo blog\" width=\"1440\" height=\"900\" style=\"--splay-rot:-1.7deg;\" data-dimensions=\"1440×900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">A frame from the photo blog</figcaption>\n</figure>",
+  "title": "Photos",
+  "metadata": {
+    "title": "Photos",
+    "date": "2025-08-27T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/photos",
+    "tech": [
+      "JavaScript"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 48,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

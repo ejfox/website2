@@ -1,0 +1,37 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. Public investigative work; the shot\n     is the explorer UI, no source/subject data exposed. Draft until ready. -->\n<p class=\"\">A frontend for searching and exploring a large leaked-document set — an investigative-journalism tool that makes a sprawling dump navigable: full-text search, filters, and a dense visual index of what's in the corpus. A collaborative effort led by Micah Lee.</p>\n<figure role=\"figure\" aria-label=\"The leak explorer — search + a dense visual index of the document set\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/paramilitary-leaks/explorer.png\" alt=\"The leak explorer — search + a dense visual index of the document set\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/paramilitary-leaks/explorer.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/paramilitary-leaks/explorer.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/paramilitary-leaks/explorer.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/paramilitary-leaks/explorer.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The leak explorer — search + a dense visual index of the document set\" width=\"1440\" height=\"1209\" style=\"--splay-rot:1.5deg;\" data-dimensions=\"1440×1209\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The leak explorer — search + a dense visual index of the document set</figcaption>\n</figure>",
+  "title": "Paramilitary Leaks",
+  "metadata": {
+    "title": "Paramilitary Leaks",
+    "date": "2025-09-01T04:00:00.000Z",
+    "draft": true,
+    "tech": [
+      "Nuxt",
+      "Vue",
+      "Search",
+      "Data Visualization"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "context": "collaborative",
+    "tags": [
+      "journalism",
+      "data",
+      "osint",
+      "tools"
+    ],
+    "words": 82,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

@@ -213,7 +213,12 @@ async function tryLoadCachedResult(outputPath, cacheVersion) {
  */
 async function writeProcessedResult(result, outputPath) {
   if (result.metadata?.draft === true) {
-    return
+    // Draft PROJECTS are written so the local dev server can preview them.
+    // (The manifest still excludes all drafts, so production never lists them.)
+    // Other draft content stays unwritten — drafts can hold private material.
+    if (!outputPath.includes('/projects/')) {
+      return
+    }
   }
   await fs.mkdir(path.dirname(outputPath), { recursive: true })
   await fs.writeFile(outputPath, JSON.stringify(result, null, 2))

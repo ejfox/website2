@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. These shots are captured from the running app; the\n     DREAM hero is still a real photo of phones laid in a row playing one piece —\n     grab that whenever you can and drop it on top. Draft until then. -->\n<p class=\"\">Lay your phones in a row, all press-and-hold together, and a single composition plays across every screen in sync — each phone showing its slice of a wider piece. A browser-based collaborative video toy for 2–8 phones. It only works when you're together.</p>\n<figure role=\"figure\" aria-label=\"phone-stack — lay your phones in a row, tap together, watch one piece flow across them\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/phone-stack/landing.png\" alt=\"phone-stack — lay your phones in a row, tap together, watch one piece flow across them\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/phone-stack/landing.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/phone-stack/landing.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/phone-stack/landing.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/phone-stack/landing.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"phone-stack — lay your phones in a row, tap together, watch one piece flow across them\" width=\"1440\" height=\"813\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"1440×813\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">phone-stack — lay your phones in a row, tap together, watch one piece flow across them</figcaption>\n</figure>\n<p class=\"\">The hard part isn't the video — it's the clock. Every phone joins a room by QR code and then continuously measures its <strong class=\"\">offset, round-trip time, and drift</strong> against the host so all the screens stay frame-aligned; the host \"locks\" the room once everyone's in, and the piece plays as one wide canvas sliced across the devices. The built-in simulator spins up any number of virtual phones so you can watch the sync handshake without rounding up friends.</p>\n<figure role=\"figure\" aria-label=\"The simulator: virtual phones negotiating clock offset / RTT / drift, joining by QR, waiting for the host to lock the room\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/phone-stack/simulator.png\" alt=\"The simulator: virtual phones negotiating clock offset / RTT / drift, joining by QR, waiting for the host to lock the room\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/phone-stack/simulator.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/phone-stack/simulator.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/phone-stack/simulator.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/phone-stack/simulator.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The simulator: virtual phones negotiating clock offset / RTT / drift, joining by QR, waiting for the host to lock the room\" width=\"1440\" height=\"813\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1440×813\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The simulator: virtual phones negotiating clock offset / RTT / drift, joining by QR, waiting for the host to lock the room</figcaption>\n</figure>",
+  "title": "phone-stack",
+  "metadata": {
+    "title": "phone-stack",
+    "date": "2026-04-20T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/phone-stack",
+    "tech": [
+      "JavaScript",
+      "WebSockets",
+      "Browser"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "web",
+      "experiment",
+      "multiplayer"
+    ],
+    "words": 207,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}
