@@ -1,3 +1,122 @@
+<script setup>
+const { tocTarget } = useTOC()
+const { revealContainer: booksReveal } = useScrollReveal({
+  selector: ':scope > a',
+  staggerDelay: 12,
+  translateY: 3,
+  duration: 150,
+})
+
+// Fetch reading list
+const { data: books, pending, error } = await useFetch('/api/reading')
+
+// CSS Classes
+const booksGridClass = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
+const bookCardClass = 'interactive-card group block'
+const bookCoverClass =
+  'max-h-full max-w-full object-contain rounded-sm shadow-sm'
+const bookTitleClass = 'card-title-group-hover'
+
+// Computed properties for stats
+const totalHighlights = computed(() => {
+  if (!books.value) return 0
+  return books.value.reduce((total, book) => {
+    return total + (book.metadata?.['kindle-sync']?.highlightsCount || 0)
+  }, 0)
+})
+
+const lastUpdated = computed(() => {
+  if (!books.value?.length) return 'Never'
+
+  const dates = books.value
+    .map(
+      (book) =>
+        book.metadata?.['kindle-sync']?.lastAnnotatedDate || book.metadata?.date
+    )
+    .filter(Boolean)
+    .sort()
+
+  if (dates.length === 0) return 'Unknown'
+
+  return formatDate(dates[dates.length - 1])
+})
+
+const avgHighlights = computed(() => {
+  if (!books.value?.length || !totalHighlights.value) return 0
+  return Math.round(totalHighlights.value / books.value.length)
+})
+
+const currentlyReading = computed(() => {
+  if (!books.value?.length) return null
+  return [...books.value].sort((a, b) => {
+    const aDate = a.metadata?.['kindle-sync']?.lastAnnotatedDate || ''
+    const bDate = b.metadata?.['kindle-sync']?.lastAnnotatedDate || ''
+    return bDate.localeCompare(aDate)
+  })[0]
+})
+
+const topHighlighted = computed(() => {
+  if (!books.value?.length) return []
+  return [...books.value]
+    .filter((b) => b.metadata?.['kindle-sync']?.highlightsCount > 0)
+    .sort(
+      (a, b) =>
+        (b.metadata?.['kindle-sync']?.highlightsCount || 0) -
+        (a.metadata?.['kindle-sync']?.highlightsCount || 0)
+    )
+    .slice(0, 5)
+})
+
+// SEO
+usePageSeo({
+  title: 'Reading Collection - EJ Fox',
+  description:
+    'Reading log with Kindle-synced highlights, counts, and notes across my digital library.',
+  type: 'article',
+  section: 'Reading',
+  tags: ['Reading list', 'Books', 'Highlights', 'Notes'],
+  label1: 'Library',
+  data1: computed(() => `${books.value?.length || 0} books`),
+  label2: 'Highlights',
+  data2: computed(() => `${totalHighlights.value} saved`),
+})
+
+const readingSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Reading Collection',
+  numberOfItems: books.value?.length || 0,
+  itemListElement:
+    books.value?.slice(0, 30).map((book, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: `https://ejfox.com/reading/${book.slug}`,
+      name:
+        book.metadata?.['kindle-sync']?.title ||
+        book.title ||
+        book.metadata?.title,
+    })) || [],
+}))
+
+useHead(() => ({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(readingSchema.value),
+    },
+  ],
+}))
+
+// Helper function
+function formatDate(dateString) {
+  return new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  })
+}
+</script>
+
 <template>
   <div class="min-h-screen pt-8">
     <div class="px-4 md:px-8 xl:px-16" style="max-width: 65ch">
@@ -208,125 +327,6 @@
     </ClientOnly>
   </div>
 </template>
-
-<script setup>
-const { tocTarget } = useTOC()
-const { revealContainer: booksReveal } = useScrollReveal({
-  selector: ':scope > a',
-  staggerDelay: 12,
-  translateY: 3,
-  duration: 150,
-})
-
-// Fetch reading list
-const { data: books, pending, error } = await useFetch('/api/reading')
-
-// CSS Classes
-const booksGridClass = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
-const bookCardClass = 'interactive-card group block'
-const bookCoverClass =
-  'max-h-full max-w-full object-contain rounded-sm shadow-sm'
-const bookTitleClass = 'card-title-group-hover'
-
-// Computed properties for stats
-const totalHighlights = computed(() => {
-  if (!books.value) return 0
-  return books.value.reduce((total, book) => {
-    return total + (book.metadata?.['kindle-sync']?.highlightsCount || 0)
-  }, 0)
-})
-
-const lastUpdated = computed(() => {
-  if (!books.value?.length) return 'Never'
-
-  const dates = books.value
-    .map(
-      (book) =>
-        book.metadata?.['kindle-sync']?.lastAnnotatedDate || book.metadata?.date
-    )
-    .filter(Boolean)
-    .sort()
-
-  if (dates.length === 0) return 'Unknown'
-
-  return formatDate(dates[dates.length - 1])
-})
-
-const avgHighlights = computed(() => {
-  if (!books.value?.length || !totalHighlights.value) return 0
-  return Math.round(totalHighlights.value / books.value.length)
-})
-
-const currentlyReading = computed(() => {
-  if (!books.value?.length) return null
-  return [...books.value].sort((a, b) => {
-    const aDate = a.metadata?.['kindle-sync']?.lastAnnotatedDate || ''
-    const bDate = b.metadata?.['kindle-sync']?.lastAnnotatedDate || ''
-    return bDate.localeCompare(aDate)
-  })[0]
-})
-
-const topHighlighted = computed(() => {
-  if (!books.value?.length) return []
-  return [...books.value]
-    .filter((b) => b.metadata?.['kindle-sync']?.highlightsCount > 0)
-    .sort(
-      (a, b) =>
-        (b.metadata?.['kindle-sync']?.highlightsCount || 0) -
-        (a.metadata?.['kindle-sync']?.highlightsCount || 0)
-    )
-    .slice(0, 5)
-})
-
-// SEO
-usePageSeo({
-  title: 'Reading Collection - EJ Fox',
-  description:
-    'Reading log with Kindle-synced highlights, counts, and notes across my digital library.',
-  type: 'article',
-  section: 'Reading',
-  tags: ['Reading list', 'Books', 'Highlights', 'Notes'],
-  label1: 'Library',
-  data1: computed(() => `${books.value?.length || 0} books`),
-  label2: 'Highlights',
-  data2: computed(() => `${totalHighlights.value} saved`),
-})
-
-const readingSchema = computed(() => ({
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Reading Collection',
-  numberOfItems: books.value?.length || 0,
-  itemListElement:
-    books.value?.slice(0, 30).map((book, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      url: `https://ejfox.com/reading/${book.slug}`,
-      name:
-        book.metadata?.['kindle-sync']?.title ||
-        book.title ||
-        book.metadata?.title,
-    })) || [],
-}))
-
-useHead(() => ({
-  script: [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify(readingSchema.value),
-    },
-  ],
-}))
-
-// Helper function
-function formatDate(dateString) {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  })
-}
-</script>
 
 <style scoped>
 .line-clamp-2 {

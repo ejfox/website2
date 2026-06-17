@@ -3,6 +3,33 @@
   @description Site footer with h-card microformat, navigation links, PGP key, and build info
   @props None - fetches build info from /api/build-info endpoint
 -->
+<script setup lang="ts">
+import { computed } from 'vue'
+
+const avatarUrl =
+  'https://res.cloudinary.com/ejf/image/upload/' +
+  'w_128,f_webp/v1733606048/me_full.png'
+
+const { data: buildInfo } = await useFetch('/api/build-info')
+
+const navClasses =
+  'flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm ' +
+  'text-zinc-600 dark:text-zinc-400'
+
+const navLinkClasses = 'interactive-link'
+
+const buildUrl = computed(
+  () =>
+    `https://github.com/ejfox/website2/commit/${buildInfo.value?.commitLong}`
+)
+
+const buildTitle = computed(() => {
+  if (!buildInfo.value) return ''
+  const date = new Date(buildInfo.value.buildDate).toLocaleString()
+  return `Built from ${buildInfo.value.branch} on ${date}`
+})
+</script>
+
 <template>
   <footer class="py-8 mt-8">
     <div class="max-w-4xl mx-auto px-4 space-y-8 text-center">
@@ -83,30 +110,3 @@
     </div>
   </footer>
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-
-const avatarUrl =
-  'https://res.cloudinary.com/ejf/image/upload/' +
-  'w_128,f_webp/v1733606048/me_full.png'
-
-const { data: buildInfo } = await useFetch('/api/build-info')
-
-const navClasses =
-  'flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm ' +
-  'text-zinc-600 dark:text-zinc-400'
-
-const navLinkClasses = 'interactive-link'
-
-const buildUrl = computed(
-  () =>
-    `https://github.com/ejfox/website2/commit/${buildInfo.value?.commitLong}`
-)
-
-const buildTitle = computed(() => {
-  if (!buildInfo.value) return ''
-  const date = new Date(buildInfo.value.buildDate).toLocaleString()
-  return `Built from ${buildInfo.value.branch} on ${date}`
-})
-</script>

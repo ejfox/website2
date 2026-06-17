@@ -1,6 +1,4 @@
 <script setup lang="ts">
-const { formatLongDate } = useDateFormat()
-
 defineProps<{
   prevPost?: { slug: string; title: string; date: string } | null
   nextPost?: { slug: string; title: string; date: string } | null
@@ -9,6 +7,8 @@ defineProps<{
     overlappingTags?: string[]
   }>
 }>()
+
+const { formatLongDate } = useDateFormat()
 </script>
 
 <template>

@@ -2,41 +2,6 @@
   @file FlashcardCard.client.vue
   @description Minimal 3D flashcard with mouse-tracking parallax and smooth flip
 -->
-<template>
-  <div
-    ref="cardRef"
-    class="flashcard-container"
-    :style="containerStyle"
-    @click="$emit('flip')"
-  >
-    <div class="flashcard" :class="{ flipped: flipped }">
-      <!-- Front face -->
-      <div class="flashcard-face flashcard-front">
-        <span class="card-label">Q</span>
-        <span v-if="deck" class="card-deck">{{ deck }}</span>
-        <div class="card-content">
-          <p class="card-text">{{ front }}</p>
-        </div>
-        <span class="card-hint">click to reveal</span>
-      </div>
-
-      <!-- Back face -->
-      <div class="flashcard-face flashcard-back">
-        <span class="card-label">A</span>
-        <span v-if="deck" class="card-deck">{{ deck }}</span>
-        <div class="card-content">
-          <p class="card-text card-text-answer">{{ back }}</p>
-          <div v-if="hints && hints.length > 0" class="hints">
-            <p v-for="(hint, i) in hints" :key="i" class="hint-text">
-              {{ hint }}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { useMouse, useWindowSize } from '@vueuse/core'
 
@@ -108,6 +73,41 @@ const containerStyle = computed(() => {
   }
 })
 </script>
+
+<template>
+  <div
+    ref="cardRef"
+    class="flashcard-container"
+    :style="containerStyle"
+    @click="$emit('flip')"
+  >
+    <div class="flashcard" :class="{ flipped: flipped }">
+      <!-- Front face -->
+      <div class="flashcard-face flashcard-front">
+        <span class="card-label">Q</span>
+        <span v-if="deck" class="card-deck">{{ deck }}</span>
+        <div class="card-content">
+          <p class="card-text">{{ front }}</p>
+        </div>
+        <span class="card-hint">click to reveal</span>
+      </div>
+
+      <!-- Back face -->
+      <div class="flashcard-face flashcard-back">
+        <span class="card-label">A</span>
+        <span v-if="deck" class="card-deck">{{ deck }}</span>
+        <div class="card-content">
+          <p class="card-text card-text-answer">{{ back }}</p>
+          <div v-if="hints && hints.length > 0" class="hints">
+            <p v-for="(hint, i) in hints" :key="i" class="hint-text">
+              {{ hint }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .flashcard-container {

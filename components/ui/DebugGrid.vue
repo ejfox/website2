@@ -3,27 +3,6 @@
   @description Debug overlay showing 8px baseline grid and 12-column layout (toggle with Ctrl/Cmd+G)
   @props None - uses VueUse useMagicKeys for keyboard shortcut
 -->
-<template>
-  <div
-    v-show="showGrid"
-    class="pointer-events-none fixed inset-0 z-[999]"
-    :style="gridStyle"
-  >
-    <!-- Sidebar column indicator -->
-    <div class="debug-grid-sidebar"></div>
-    <!-- Main content area indicator -->
-    <div class="max-w-screen-xl mx-auto h-full relative">
-      <div class="grid grid-cols-12 h-full">
-        <div
-          v-for="i in 12"
-          :key="i"
-          style="border-right: 1px solid rgba(34, 197, 94, 0.1)"
-        ></div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { useMagicKeys } from '@vueuse/core'
 
@@ -58,6 +37,27 @@ const gridStyle = {
   backgroundSize: '100% 8px, 100% 32px',
 }
 </script>
+
+<template>
+  <div
+    v-show="showGrid"
+    class="pointer-events-none fixed inset-0 z-[999]"
+    :style="gridStyle"
+  >
+    <!-- Sidebar column indicator -->
+    <div class="debug-grid-sidebar"></div>
+    <!-- Main content area indicator -->
+    <div class="max-w-screen-xl mx-auto h-full relative">
+      <div class="grid grid-cols-12 h-full">
+        <div
+          v-for="i in 12"
+          :key="i"
+          style="border-right: 1px solid rgba(34, 197, 94, 0.1)"
+        ></div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .debug-grid-sidebar {

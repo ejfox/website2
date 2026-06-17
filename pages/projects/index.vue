@@ -2,26 +2,6 @@
 import FeaturedProjectCard from '~/components/projects/FeaturedProjectCard.vue'
 import BentoProjectCard from '~/components/projects/BentoProjectCard.vue'
 
-const { data: projects } = await useAsyncData(
-  'projects-page-data',
-  async () => {
-    try {
-      return await $fetch('/api/projects')
-    } catch (error) {
-      console.error('Failed to fetch projects:', error)
-      return []
-    }
-  }
-)
-
-const featuredProjects = computed(
-  () => projects.value?.filter((p) => p.metadata?.featured) || []
-)
-
-const regularProjects = computed(
-  () => projects.value?.filter((p) => !p.metadata?.featured) || []
-)
-
 const { tocTarget } = useTOC()
 const { revealContainer: featuredReveal } = useScrollReveal({
   selector: ':scope > *',
@@ -36,82 +16,71 @@ const { revealContainer: gridReveal } = useScrollReveal({
   duration: 150,
 })
 
+// Fetch projects
+const { data: projects } = await useAsyncData('projects-page-data', () =>
+  $fetch('/api/projects')
+)
+
+const featuredProjects = computed(
+  () => projects.value?.filter((p) => p.metadata?.featured) || []
+)
+const regularProjects = computed(
+  () => projects.value?.filter((p) => !p.metadata?.featured) || []
+)
+
 const getProjectSlug = (project) =>
   project.slug?.replace(/^projects\//, '') || ''
 
-const tocLinkClass = 'block text-zinc-600 dark:text-zinc-400 truncate'
-
-// Aggregate metadata for brutalist header display
-const totalWords = computed(() => {
-  if (!projects.value) return 0
-  return projects.value.reduce((sum, p) => {
-    if (!p.html) return sum
-    const text = p.html.replace(/<[^>]*>/g, '').trim()
-    const words = text.split(/\s+/).filter((w) => w.length > 0).length
-    return sum + words
-  }, 0)
-})
-
-const totalImages = computed(() => {
-  if (!projects.value) return 0
-  return projects.value.reduce((sum, p) => {
-    if (!p.html) return sum
-    return sum + (p.html.match(/<img/g) || []).length
-  }, 0)
-})
-
-const totalLinks = computed(() => {
-  if (!projects.value) return 0
-  return projects.value.reduce((sum, p) => {
-    if (!p.html) return sum
-    return sum + (p.html.match(/<a /g) || []).length
-  }, 0)
-})
-
-const totalTech = computed(() => {
-  if (!projects.value) return 0
+// Aggregate stats
+const projectStats = computed(() => {
+  const all = projects.value || []
   const techSet = new Set()
-  projects.value.forEach((p) => {
-    if (p.metadata?.tech) {
-      p.metadata.tech.forEach((t) => techSet.add(t))
+  let words = 0
+  let images = 0
+
+  all.forEach((p) => {
+    if (p.html) {
+      const text = p.html.replace(/<[^>]*>/g, '').trim()
+      words += text.split(/\s+/).filter((w) => w).length
+      images += (p.html.match(/<img/g) || []).length
     }
+    p.metadata?.tech?.forEach((t) => techSet.add(t))
   })
-  return techSet.size
-})
 
-const earliestYear = computed(() => {
-  if (!projects.value?.length) return new Date().getFullYear()
-  const years = projects.value
+  const years = all
     .map((p) => {
-      const date = p.metadata?.date || p.date
-      return date ? new Date(date).getFullYear() : new Date().getFullYear()
+      const d = p.metadata?.date || p.date
+      return d ? new Date(d).getFullYear() : null
     })
-    .filter((y) => !Number.isNaN(y))
-  return Math.min(...years)
+    .filter((y) => y && !Number.isNaN(y))
+
+  return {
+    count: all.length,
+    featured: all.filter((p) => p.metadata?.featured).length,
+    words,
+    images,
+    techCount: techSet.size,
+    earliestYear: years.length ? Math.min(...years) : '',
+    latestYear: years.length ? Math.max(...years) : '',
+  }
 })
 
-const latestYear = computed(() => {
-  if (!projects.value?.length) return new Date().getFullYear()
-  const years = projects.value
-    .map((p) => {
-      const date = p.metadata?.date || p.date
-      return date ? new Date(date).getFullYear() : new Date().getFullYear()
-    })
-    .filter((y) => !Number.isNaN(y))
-  return Math.max(...years)
+// SEO
+usePageSeo({
+  title: 'Projects · EJ Fox',
+  description:
+    'Selected work: data visualizations, newsroom tooling, and investigative dashboards.',
+  type: 'article',
+  section: 'Projects',
+  label1: 'Projects',
+  data1: computed(() => `${projects.value?.length || 0} total`),
+  label2: 'Span',
+  data2: computed(
+    () => `${projectStats.value.earliestYear}–${projectStats.value.latestYear}`
+  ),
 })
 
-const lastUpdated = computed(() => {
-  if (!projects.value?.length) return ''
-  const dates = projects.value
-    .map((p) => p.metadata?.lastUpdated || p.metadata?.date || p.date)
-    .filter(Boolean)
-    .map((d) => new Date(d).getTime())
-    .filter((t) => !Number.isNaN(t))
-  if (!dates.length) return ''
-  return new Date(Math.max(...dates)).toISOString().split('T')[0]
-})
-
+// JSON-LD ItemList schema (structured data for search engines)
 const projectsSchema = computed(() => ({
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -125,24 +94,6 @@ const projectsSchema = computed(() => ({
       name: p.metadata?.title || p.title,
     })) || [],
 }))
-
-usePageSeo({
-  title: 'Projects · EJ Fox',
-  description:
-    'Selected work: data visualizations, newsroom tooling, and investigative dashboards shipped via room302.studio and EJ Fox.',
-  type: 'article',
-  section: 'Projects',
-  tags: [
-    'Data visualization',
-    'Newsroom tooling',
-    'Investigations',
-    'Dashboards',
-  ],
-  label1: 'Projects',
-  data1: computed(() => `${projects.value?.length || 0} total`),
-  label2: 'Featured span',
-  data2: computed(() => `${earliestYear.value}–${latestYear.value}`),
-})
 
 useHead(() => ({
   script: [
@@ -160,7 +111,8 @@ useHead(() => ({
       <div
         class="font-mono text-xs text-zinc-500 mb-4 uppercase tracking-wider"
       >
-        INDEX / PROJECTS / {{ earliestYear }}–{{ latestYear }}
+        INDEX / PROJECTS /
+        {{ projectStats.earliestYear }}–{{ projectStats.latestYear }}
       </div>
 
       <h1
@@ -168,22 +120,17 @@ useHead(() => ({
       >
         Selected Work
       </h1>
-      <div class="font-mono text-3xs text-zinc-500 dark:text-zinc-500">
-        Updated {{ lastUpdated || 'live' }} · sources: project frontmatter + API
-      </div>
 
       <div
         class="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-zinc-500 tabular-nums"
       >
         <span class="text-zinc-900 dark:text-zinc-100">
-          {{ projects?.length || 0 }} projects
+          {{ projectStats.count }} projects
         </span>
-        <span>{{ featuredProjects.length }} featured</span>
-        <span>{{ totalWords.toLocaleString() }} words</span>
-        <span>{{ totalImages }} images</span>
-        <span>{{ totalLinks }} links</span>
-        <span>{{ totalTech }} technologies</span>
-        <span>{{ Math.ceil(totalWords / 200) }}min read</span>
+        <span>{{ projectStats.featured }} featured</span>
+        <span>{{ projectStats.words.toLocaleString() }} words</span>
+        <span>{{ projectStats.images }} images</span>
+        <span>{{ projectStats.techCount }} technologies</span>
       </div>
     </header>
 
@@ -206,7 +153,7 @@ useHead(() => ({
       />
     </div>
 
-    <!-- Regular Projects - Simple Grid -->
+    <!-- Regular Projects -->
     <div
       v-if="regularProjects.length"
       ref="gridReveal"
@@ -221,18 +168,19 @@ useHead(() => ({
       />
     </div>
 
-    <!-- TOC -->
+    <!-- Sidebar TOC -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">
-        <div>
-          <ul class="space-y-0.5 font-mono text-3xs list-none pl-0">
-            <li v-for="project in projects" :key="project.slug">
-              <a :href="`#${getProjectSlug(project)}`" :class="tocLinkClass">
-                {{ project.title || project.metadata?.title }}
-              </a>
-            </li>
-          </ul>
-        </div>
+        <ul class="space-y-0.5 font-mono text-3xs list-none pl-0">
+          <li v-for="project in projects" :key="project.slug">
+            <a
+              :href="`#${getProjectSlug(project)}`"
+              class="block text-zinc-600 dark:text-zinc-400 truncate"
+            >
+              {{ project.title || project.metadata?.title }}
+            </a>
+          </li>
+        </ul>
       </teleport>
     </ClientOnly>
   </div>

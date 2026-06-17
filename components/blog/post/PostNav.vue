@@ -3,6 +3,15 @@
   @description Previous/Next post navigation for blog posts
   @props prevPost, nextPost - post objects with slug, title, date
 -->
+<script setup lang="ts">
+defineProps<{
+  prevPost?: { slug: string; title: string; date: string } | null
+  nextPost?: { slug: string; title: string; date: string } | null
+}>()
+
+const { formatLongDate } = useDateFormat()
+</script>
+
 <template>
   <div v-if="prevPost || nextPost" class="grid-post-nav">
     <div v-if="prevPost" class="order-2 sm:order-1">
@@ -23,15 +32,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const { formatLongDate } = useDateFormat()
-
-defineProps<{
-  prevPost?: { slug: string; title: string; date: string } | null
-  nextPost?: { slug: string; title: string; date: string } | null
-}>()
-</script>
 
 <style scoped>
 .grid-post-nav {

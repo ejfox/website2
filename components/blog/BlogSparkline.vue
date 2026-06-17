@@ -11,81 +11,6 @@
   @props showLabel: boolean - Whether to show text label (default: false)
   @props color: string - Custom fill color (optional)
 -->
-<template>
-  <div class="sparkline-container" :title="tooltip">
-    <svg
-      :width="width"
-      :height="height"
-      :aria-label="tooltip"
-      role="img"
-      class="sparkline fill-zinc-300 dark:fill-zinc-700"
-    >
-      <title>{{ tooltip }}</title>
-      <!-- Inline bars visualization (default for blog index) -->
-      <g v-if="type === 'bars'">
-        <rect
-          v-for="(item, i) in inlineBarData"
-          :key="`bar-${i}`"
-          :x="item.x"
-          :y="item.y"
-          :width="item.width"
-          :height="item.height"
-          :fill="item.fill"
-          :opacity="item.opacity"
-          class="sparkline-bar"
-        />
-      </g>
-
-      <!-- Single horizontal bar -->
-      <g v-else-if="type === 'bar'">
-        <rect
-          v-for="(item, i) in barData"
-          :key="`bar-${i}`"
-          :x="item.x"
-          :y="item.y"
-          :width="item.width"
-          :height="item.height"
-          :fill="item.fill"
-          class="sparkline-bar"
-        />
-      </g>
-
-      <!-- Dots visualization -->
-      <g v-else-if="type === 'dots'">
-        <rect
-          v-for="(item, i) in dotData"
-          :key="`dot-${i}`"
-          :x="item.x"
-          :y="item.y"
-          :width="1"
-          :height="1"
-          :fill="item.fill"
-          :opacity="item.opacity"
-          class="sparkline-dot"
-        />
-      </g>
-
-      <!-- Grid visualization -->
-      <g v-else-if="type === 'grid'">
-        <rect
-          v-for="(item, i) in gridData"
-          :key="`grid-${i}`"
-          :x="item.x"
-          :y="item.y"
-          :width="squareSize"
-          :height="squareSize"
-          :fill="item.fill"
-          :opacity="item.opacity"
-          class="sparkline-square"
-        />
-      </g>
-    </svg>
-    <span v-if="showLabel" class="sparkline-label">{{ label }}</span>
-    <!-- Text alternative for text-only browsers -->
-    <span class="sr-only">{{ tooltip }}</span>
-  </div>
-</template>
-
 <script setup>
 import { computed } from 'vue'
 
@@ -312,6 +237,81 @@ const tooltip = computed(() => {
   }
 })
 </script>
+
+<template>
+  <div class="sparkline-container" :title="tooltip">
+    <svg
+      :width="width"
+      :height="height"
+      :aria-label="tooltip"
+      role="img"
+      class="sparkline fill-zinc-300 dark:fill-zinc-700"
+    >
+      <title>{{ tooltip }}</title>
+      <!-- Inline bars visualization (default for blog index) -->
+      <g v-if="type === 'bars'">
+        <rect
+          v-for="(item, i) in inlineBarData"
+          :key="`bar-${i}`"
+          :x="item.x"
+          :y="item.y"
+          :width="item.width"
+          :height="item.height"
+          :fill="item.fill"
+          :opacity="item.opacity"
+          class="sparkline-bar"
+        />
+      </g>
+
+      <!-- Single horizontal bar -->
+      <g v-else-if="type === 'bar'">
+        <rect
+          v-for="(item, i) in barData"
+          :key="`bar-${i}`"
+          :x="item.x"
+          :y="item.y"
+          :width="item.width"
+          :height="item.height"
+          :fill="item.fill"
+          class="sparkline-bar"
+        />
+      </g>
+
+      <!-- Dots visualization -->
+      <g v-else-if="type === 'dots'">
+        <rect
+          v-for="(item, i) in dotData"
+          :key="`dot-${i}`"
+          :x="item.x"
+          :y="item.y"
+          :width="1"
+          :height="1"
+          :fill="item.fill"
+          :opacity="item.opacity"
+          class="sparkline-dot"
+        />
+      </g>
+
+      <!-- Grid visualization -->
+      <g v-else-if="type === 'grid'">
+        <rect
+          v-for="(item, i) in gridData"
+          :key="`grid-${i}`"
+          :x="item.x"
+          :y="item.y"
+          :width="squareSize"
+          :height="squareSize"
+          :fill="item.fill"
+          :opacity="item.opacity"
+          class="sparkline-square"
+        />
+      </g>
+    </svg>
+    <span v-if="showLabel" class="sparkline-label">{{ label }}</span>
+    <!-- Text alternative for text-only browsers -->
+    <span class="sr-only">{{ tooltip }}</span>
+  </div>
+</template>
 
 <style scoped>
 .sparkline-container {

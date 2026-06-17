@@ -1,3 +1,207 @@
+<script setup>
+const route = useRoute()
+const container = ref(null)
+const customInput = ref(null)
+const loading = ref(true)
+const loadingStep = ref(0)
+const suggestions = ref(null)
+const error = ref('')
+const selectedTags = ref([])
+const customTagInput = ref('')
+const officialTags = ref([])
+const readLater = ref(false)
+const toast = ref('')
+const favicon = ref('')
+
+const pageUrl = route.query.url || ''
+const pageTitle = route.query.title || 'Untitled'
+const pageText = route.query.text || ''
+const selectedText = route.query.description || ''
+const auth = route.query.auth || ''
+
+// Get favicon from URL
+if (pageUrl) {
+  try {
+    const domain = new URL(pageUrl).hostname
+    favicon.value = `https://www.google.com/s2/favicons?domain=${domain}&sz=32`
+  } catch {
+    // Invalid URL - skip favicon
+  }
+}
+
+const truncateUrl = (url, max) => {
+  if (!url || url.length <= max) return url
+  try {
+    const parsed = new URL(url)
+    const path = parsed.pathname + parsed.search
+    const domain = parsed.hostname.replace('www.', '')
+    if (domain.length + path.length <= max) return domain + path
+    return domain + path.substring(0, max - domain.length - 3) + '...'
+  } catch {
+    return url.substring(0, max) + '...'
+  }
+}
+
+const showToast = (msg) => {
+  toast.value = msg
+  setTimeout(() => {
+    toast.value = ''
+  }, 1500)
+}
+
+const isOfficialTag = (tag) => officialTags.value.includes(tag)
+
+const isTagSelected = (tagObj) => {
+  const tag = typeof tagObj === 'string' ? tagObj : tagObj.tag
+  return selectedTags.value.includes(tag)
+}
+
+const tagClasses = (tagObj) => {
+  const base = 'px-2 py-1 text-xs font-mono rounded transition-all duration-150'
+  if (isTagSelected(tagObj)) {
+    return (
+      `${base} bg-zinc-900 text-zinc-100 scale-105 ` +
+      'dark:bg-zinc-100 dark:text-zinc-900'
+    )
+  }
+  return (
+    `${base} bg-zinc-100 text-zinc-600 hover:bg-zinc-200 ` +
+    'dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700'
+  )
+}
+
+onMounted(async () => {
+  // Focus container for keyboard shortcuts
+  container.value?.focus()
+
+  if (!pageUrl || !auth) {
+    error.value = 'Missing required parameters'
+    loading.value = false
+    return
+  }
+
+  // Step 1: Start loading
+  loadingStep.value = 1
+
+  try {
+    // Fetch tags first
+    const tags = await $fetch('/tags.json').catch(() => [])
+    officialTags.value = tags || []
+    loadingStep.value = 2
+
+    // Then fetch suggestions
+    const response = await $fetch('/api/suggest', {
+      query: {
+        url: pageUrl,
+        title: pageTitle,
+        text: pageText,
+        description: selectedText,
+        auth,
+      },
+    })
+    loadingStep.value = 3
+
+    // Small delay to show completion
+    await new Promise((r) => setTimeout(r, 300))
+
+    suggestions.value = response
+
+    // Select ALL suggested tags by default so user can just hit save
+    if (response.suggested_tags?.length) {
+      selectedTags.value = response.suggested_tags.map((t) =>
+        typeof t === 'string' ? t : t.tag
+      )
+    }
+
+    // Auto-focus custom input after load
+    await nextTick()
+    customInput.value?.focus()
+  } catch (err) {
+    error.value = err.data?.message || 'Failed to load suggestions'
+  } finally {
+    loading.value = false
+  }
+})
+
+const toggleTag = (tag) => {
+  const idx = selectedTags.value.indexOf(tag)
+  if (idx > -1) selectedTags.value.splice(idx, 1)
+  else selectedTags.value.push(tag)
+}
+
+const removeTag = (tag) => {
+  const idx = selectedTags.value.indexOf(tag)
+  if (idx > -1) selectedTags.value.splice(idx, 1)
+}
+
+const addCustomTag = () => {
+  const tags = customTagInput.value.trim().split(/\s+/).filter(Boolean)
+  let added = 0
+  tags.forEach((tag) => {
+    if (!selectedTags.value.includes(tag)) {
+      selectedTags.value.push(tag)
+      added++
+    }
+  })
+  customTagInput.value = ''
+  if (added) showToast(`+${added} tag${added > 1 ? 's' : ''}`)
+}
+
+const selectAllSuggested = () => {
+  let added = 0
+  suggestions.value?.suggested_tags?.forEach((tagObj) => {
+    const tag = typeof tagObj === 'string' ? tagObj : tagObj.tag
+    if (!selectedTags.value.includes(tag)) {
+      selectedTags.value.push(tag)
+      added++
+    }
+  })
+  if (added) showToast(`+${added} tags`)
+}
+
+const clearAllTags = () => {
+  const count = selectedTags.value.length
+  selectedTags.value = []
+  if (count) showToast('cleared')
+}
+
+const copyTagsFromScrap = (scrap) => {
+  const tags = scrap.allTags || scrap.tags || []
+  let added = 0
+  tags.forEach((tag) => {
+    if (!selectedTags.value.includes(tag)) {
+      selectedTags.value.push(tag)
+      added++
+    }
+  })
+  if (added) showToast(`+${added} from "${scrap.title?.substring(0, 20)}..."`)
+}
+
+const saveToPinboard = (useEnhancedTags = false) => {
+  const params = new URLSearchParams({ url: pageUrl, title: pageTitle })
+  if (selectedText) params.append('description', selectedText)
+  if (useEnhancedTags && selectedTags.value.length) {
+    params.append('tags', selectedTags.value.join(' '))
+  }
+  if (readLater.value) params.append('toread', 'yes')
+  window.location.href = `https://pinboard.in/add?${params.toString()}`
+}
+
+definePageMeta({ layout: 'bookmarklet' })
+
+usePageSeo({
+  title: 'Pinboard enhancement popup',
+  description: 'Lightweight popup for smart tagging before saving to Pinboard.',
+  type: 'website',
+  section: 'Tools',
+  tags: ['Pinboard', 'Bookmarklet', 'Tags'],
+})
+
+useHead({
+  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
+})
+</script>
+
 <template>
   <div
     ref="container"
@@ -377,210 +581,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-const route = useRoute()
-const container = ref(null)
-const customInput = ref(null)
-const loading = ref(true)
-const loadingStep = ref(0)
-const suggestions = ref(null)
-const error = ref('')
-const selectedTags = ref([])
-const customTagInput = ref('')
-const officialTags = ref([])
-const readLater = ref(false)
-const toast = ref('')
-const favicon = ref('')
-
-const pageUrl = route.query.url || ''
-const pageTitle = route.query.title || 'Untitled'
-const pageText = route.query.text || ''
-const selectedText = route.query.description || ''
-const auth = route.query.auth || ''
-
-// Get favicon from URL
-if (pageUrl) {
-  try {
-    const domain = new URL(pageUrl).hostname
-    favicon.value = `https://www.google.com/s2/favicons?domain=${domain}&sz=32`
-  } catch {
-    // Invalid URL - skip favicon
-  }
-}
-
-const truncateUrl = (url, max) => {
-  if (!url || url.length <= max) return url
-  try {
-    const parsed = new URL(url)
-    const path = parsed.pathname + parsed.search
-    const domain = parsed.hostname.replace('www.', '')
-    if (domain.length + path.length <= max) return domain + path
-    return domain + path.substring(0, max - domain.length - 3) + '...'
-  } catch {
-    return url.substring(0, max) + '...'
-  }
-}
-
-const showToast = (msg) => {
-  toast.value = msg
-  setTimeout(() => {
-    toast.value = ''
-  }, 1500)
-}
-
-const isOfficialTag = (tag) => officialTags.value.includes(tag)
-
-const isTagSelected = (tagObj) => {
-  const tag = typeof tagObj === 'string' ? tagObj : tagObj.tag
-  return selectedTags.value.includes(tag)
-}
-
-const tagClasses = (tagObj) => {
-  const base = 'px-2 py-1 text-xs font-mono rounded transition-all duration-150'
-  if (isTagSelected(tagObj)) {
-    return (
-      `${base} bg-zinc-900 text-zinc-100 scale-105 ` +
-      'dark:bg-zinc-100 dark:text-zinc-900'
-    )
-  }
-  return (
-    `${base} bg-zinc-100 text-zinc-600 hover:bg-zinc-200 ` +
-    'dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700'
-  )
-}
-
-onMounted(async () => {
-  // Focus container for keyboard shortcuts
-  container.value?.focus()
-
-  if (!pageUrl || !auth) {
-    error.value = 'Missing required parameters'
-    loading.value = false
-    return
-  }
-
-  // Step 1: Start loading
-  loadingStep.value = 1
-
-  try {
-    // Fetch tags first
-    const tags = await $fetch('/tags.json').catch(() => [])
-    officialTags.value = tags || []
-    loadingStep.value = 2
-
-    // Then fetch suggestions
-    const response = await $fetch('/api/suggest', {
-      query: {
-        url: pageUrl,
-        title: pageTitle,
-        text: pageText,
-        description: selectedText,
-        auth,
-      },
-    })
-    loadingStep.value = 3
-
-    // Small delay to show completion
-    await new Promise((r) => setTimeout(r, 300))
-
-    suggestions.value = response
-
-    // Select ALL suggested tags by default so user can just hit save
-    if (response.suggested_tags?.length) {
-      selectedTags.value = response.suggested_tags.map((t) =>
-        typeof t === 'string' ? t : t.tag
-      )
-    }
-
-    // Auto-focus custom input after load
-    await nextTick()
-    customInput.value?.focus()
-  } catch (err) {
-    error.value = err.data?.message || 'Failed to load suggestions'
-  } finally {
-    loading.value = false
-  }
-})
-
-const toggleTag = (tag) => {
-  const idx = selectedTags.value.indexOf(tag)
-  if (idx > -1) selectedTags.value.splice(idx, 1)
-  else selectedTags.value.push(tag)
-}
-
-const removeTag = (tag) => {
-  const idx = selectedTags.value.indexOf(tag)
-  if (idx > -1) selectedTags.value.splice(idx, 1)
-}
-
-const addCustomTag = () => {
-  const tags = customTagInput.value.trim().split(/\s+/).filter(Boolean)
-  let added = 0
-  tags.forEach((tag) => {
-    if (!selectedTags.value.includes(tag)) {
-      selectedTags.value.push(tag)
-      added++
-    }
-  })
-  customTagInput.value = ''
-  if (added) showToast(`+${added} tag${added > 1 ? 's' : ''}`)
-}
-
-const selectAllSuggested = () => {
-  let added = 0
-  suggestions.value?.suggested_tags?.forEach((tagObj) => {
-    const tag = typeof tagObj === 'string' ? tagObj : tagObj.tag
-    if (!selectedTags.value.includes(tag)) {
-      selectedTags.value.push(tag)
-      added++
-    }
-  })
-  if (added) showToast(`+${added} tags`)
-}
-
-const clearAllTags = () => {
-  const count = selectedTags.value.length
-  selectedTags.value = []
-  if (count) showToast('cleared')
-}
-
-const copyTagsFromScrap = (scrap) => {
-  const tags = scrap.allTags || scrap.tags || []
-  let added = 0
-  tags.forEach((tag) => {
-    if (!selectedTags.value.includes(tag)) {
-      selectedTags.value.push(tag)
-      added++
-    }
-  })
-  if (added) showToast(`+${added} from "${scrap.title?.substring(0, 20)}..."`)
-}
-
-const saveToPinboard = (useEnhancedTags = false) => {
-  const params = new URLSearchParams({ url: pageUrl, title: pageTitle })
-  if (selectedText) params.append('description', selectedText)
-  if (useEnhancedTags && selectedTags.value.length) {
-    params.append('tags', selectedTags.value.join(' '))
-  }
-  if (readLater.value) params.append('toread', 'yes')
-  window.location.href = `https://pinboard.in/add?${params.toString()}`
-}
-
-definePageMeta({ layout: 'bookmarklet' })
-
-usePageSeo({
-  title: 'Pinboard enhancement popup',
-  description: 'Lightweight popup for smart tagging before saving to Pinboard.',
-  type: 'website',
-  section: 'Tools',
-  tags: ['Pinboard', 'Bookmarklet', 'Tags'],
-})
-
-useHead({
-  meta: [{ name: 'robots', content: 'noindex, nofollow' }],
-})
-</script>
 
 <style scoped>
 .animate-in {

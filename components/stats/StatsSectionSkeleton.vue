@@ -4,6 +4,17 @@
   @props title: string - Section title
   @props rows: number - Number of placeholder rows
 -->
+<script setup lang="ts">
+const props = defineProps<{
+  title: string
+  rows?: number
+}>()
+
+const rowWidths = [90, 70, 80, 60, 85, 65]
+
+const rows = computed(() => props.rows ?? 4)
+</script>
+
 <template>
   <div class="stats-section space-y-4">
     <div class="stats-section-title-hover">
@@ -23,17 +34,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const props = defineProps<{
-  title: string
-  rows?: number
-}>()
-
-const rowWidths = [90, 70, 80, 60, 85, 65]
-
-const rows = computed(() => props.rows ?? 4)
-</script>
 
 <style scoped>
 .stats-section {

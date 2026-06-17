@@ -1,3 +1,74 @@
+<script setup>
+definePageMeta({
+  layout: 'bookmarklet',
+})
+
+const copied = ref(false)
+const passphrase = ref('')
+const showPassword = ref(false)
+
+const steps = [
+  'Saves to Pinboard immediately',
+  'Analyzes page content in background',
+  'Suggests tags from your existing bookmarks',
+  'One click to update with better tags',
+]
+
+const bookmarkletCode = computed(() => {
+  if (!passphrase.value) return '#'
+
+  const windowOpts =
+    'toolbar=no,location=no,directories=no,status=no,menubar=no,' +
+    'scrollbars=yes,resizable=yes,width=800,height=700'
+
+  return `javascript:(function(){
+  var d=document,w=window,e=w.getSelection,k=d.getSelection,x=d.selection,
+  s=(e?e():(k)?k():(x?x.createRange().text:'')),
+  l=d.location.href,
+  bodyText=d.body.innerText||d.body.textContent||'',
+  truncatedText=bodyText.substring(0,5000);
+
+  if(l.indexOf('http')!==0){
+    alert('This bookmarklet only works on web pages!');
+    return;
+  }
+
+  var popupUrl='https://ejfox.com/bookmarklet-popup?'+
+    'url='+encodeURIComponent(l)+
+    '&title='+encodeURIComponent(d.title)+
+    '&text='+encodeURIComponent(truncatedText)+
+    '&auth='+encodeURIComponent('${passphrase.value}');
+
+  if(s)popupUrl+='&description='+encodeURIComponent(s);
+
+  var popup=w.open(popupUrl,'pinboard_enhanced','${windowOpts}');
+
+  if(popup)popup.focus();
+  else alert('Popup blocked! Please allow popups for this site.');
+})();`.replace(/\n\s*/g, '')
+})
+
+const copyCode = async () => {
+  try {
+    await navigator.clipboard.writeText(bookmarkletCode.value)
+    copied.value = true
+    setTimeout(() => {
+      copied.value = false
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy:', err)
+  }
+}
+
+usePageSeo({
+  title: 'Pinboard Bookmarklet',
+  description: 'Save to Pinboard instantly with smart tag suggestions.',
+  type: 'website',
+  section: 'Tools',
+  tags: ['Bookmarklet', 'Pinboard', 'Tagging'],
+})
+</script>
+
 <template>
   <div class="max-w-2xl mx-auto px-4 py-12">
     <header class="mb-12">
@@ -79,74 +150,3 @@
     </details>
   </div>
 </template>
-
-<script setup>
-definePageMeta({
-  layout: 'bookmarklet',
-})
-
-const copied = ref(false)
-const passphrase = ref('')
-const showPassword = ref(false)
-
-const steps = [
-  'Saves to Pinboard immediately',
-  'Analyzes page content in background',
-  'Suggests tags from your existing bookmarks',
-  'One click to update with better tags',
-]
-
-const bookmarkletCode = computed(() => {
-  if (!passphrase.value) return '#'
-
-  const windowOpts =
-    'toolbar=no,location=no,directories=no,status=no,menubar=no,' +
-    'scrollbars=yes,resizable=yes,width=800,height=700'
-
-  return `javascript:(function(){
-  var d=document,w=window,e=w.getSelection,k=d.getSelection,x=d.selection,
-  s=(e?e():(k)?k():(x?x.createRange().text:'')),
-  l=d.location.href,
-  bodyText=d.body.innerText||d.body.textContent||'',
-  truncatedText=bodyText.substring(0,5000);
-
-  if(l.indexOf('http')!==0){
-    alert('This bookmarklet only works on web pages!');
-    return;
-  }
-
-  var popupUrl='https://ejfox.com/bookmarklet-popup?'+
-    'url='+encodeURIComponent(l)+
-    '&title='+encodeURIComponent(d.title)+
-    '&text='+encodeURIComponent(truncatedText)+
-    '&auth='+encodeURIComponent('${passphrase.value}');
-
-  if(s)popupUrl+='&description='+encodeURIComponent(s);
-
-  var popup=w.open(popupUrl,'pinboard_enhanced','${windowOpts}');
-
-  if(popup)popup.focus();
-  else alert('Popup blocked! Please allow popups for this site.');
-})();`.replace(/\n\s*/g, '')
-})
-
-const copyCode = async () => {
-  try {
-    await navigator.clipboard.writeText(bookmarkletCode.value)
-    copied.value = true
-    setTimeout(() => {
-      copied.value = false
-    }, 2000)
-  } catch (err) {
-    console.error('Failed to copy:', err)
-  }
-}
-
-usePageSeo({
-  title: 'Pinboard Bookmarklet',
-  description: 'Save to Pinboard instantly with smart tag suggestions.',
-  type: 'website',
-  section: 'Tools',
-  tags: ['Bookmarklet', 'Pinboard', 'Tagging'],
-})
-</script>

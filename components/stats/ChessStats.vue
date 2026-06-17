@@ -3,132 +3,6 @@
   @description Chess.com statistics showing ratings, games, and performance metrics
   @props stats: Object - Chess statistics from Chess.com API
 -->
-<template>
-  <div v-if="stats" class="space-y-2 font-mono">
-    <!-- Primary Rating -->
-    <div class="text-center py-2">
-      <div class="text-2xl font-bold">
-        <AnimatedNumber
-          :value="highestActiveRating"
-          format="commas"
-          :duration="1600"
-          priority="primary"
-        />
-      </div>
-      <div class="text-xs text-zinc-500 uppercase tracking-wider mt-2">
-        CHESS RATING
-      </div>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
-        <AnimatedNumber
-          :value="bestRating"
-          format="commas"
-          priority="secondary"
-        />
-        PEAK ·
-        <AnimatedNumber
-          :value="Math.round(winRate)"
-          format="commas"
-          priority="tertiary"
-        />
-        % WIN RATE
-      </div>
-    </div>
-
-    <!-- Variant Ratings Small Multiples -->
-    <div class="space-y-2 mb-4">
-      <div
-        v-for="variant in variantStatsWithBars"
-        :key="variant.name"
-        class="flex items-center gap-2 text-xs"
-      >
-        <span class="text-zinc-500 uppercase tracking-wider w-12 text-xs">
-          {{ variant.name }}
-        </span>
-        <!-- Rating bar visualization -->
-        <div class="flex-1 h-2 bg-zinc-200 dark:bg-zinc-800 rounded-sm">
-          <div
-            class="h-full bg-zinc-400 dark:bg-zinc-500 rounded-sm transition-all"
-            :style="{ width: `${variant.barPct}%` }"
-          ></div>
-        </div>
-        <span
-          class="text-zinc-700 dark:text-zinc-300 tabular-nums w-12 text-right"
-        >
-          {{ variant.current }}
-        </span>
-        <span
-          v-if="variant.delta !== 0"
-          :class="
-            variant.delta > 0
-              ? 'text-green-600 dark:text-green-400'
-              : 'text-red-600 dark:text-red-400'
-          "
-          class="tabular-nums text-xs w-8"
-        >
-          {{ variant.delta > 0 ? '+' : '' }}{{ variant.delta }}
-        </span>
-        <span v-else class="w-8"></span>
-      </div>
-    </div>
-
-    <!-- Performance Stats -->
-    <div v-if="hasGameStats">
-      <StatsSectionHeader title="CHESS PERFORMANCE" />
-      <div class="space-y-2">
-        <div
-          v-for="metric in performanceMetrics"
-          :key="metric.label"
-          class="flex items-center justify-between text-xs"
-        >
-          <span class="text-zinc-500 uppercase tracking-wider text-xs">
-            {{ metric.label }}
-          </span>
-          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
-            {{ metric.value }}
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Recent Matches (This Month Only) -->
-    <div v-if="thisMonthGames.length">
-      <StatsSectionHeader title="RECENT CHESS GAMES" />
-      <div class="space-y-1">
-        <div
-          v-for="game in thisMonthGames.slice(0, 10)"
-          :key="game.id || game.url"
-          class="flex items-center justify-between text-xs"
-        >
-          <div class="flex items-center gap-2">
-            <span class="text-zinc-500 uppercase text-xs font-medium">
-              {{ formatGameTypeMinimal(game.timeControl) }}
-            </span>
-            <span class="font-bold text-zinc-600 dark:text-zinc-400 text-xs">
-              {{
-                game.result === 'win' ? 'W' : game.result === 'loss' ? 'L' : 'D'
-              }}
-            </span>
-            <span class="text-zinc-500 text-xs">
-              {{ formatTimeAgo(game.timestamp) }}
-            </span>
-          </div>
-          <div class="flex items-center gap-0.5">
-            <span class="tabular-nums font-medium">{{ game.rating }}</span>
-            <span
-              v-if="game.ratingDiff && game.ratingDiff !== 0"
-              class="tabular-nums text-xs"
-              :class="getRatingDiffClass(game.ratingDiff)"
-            >
-              {{ formatRatingDiff(game.ratingDiff) }}
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <StatsDataState v-else message="Chess data unavailable" />
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 import StatsDataState from './StatsDataState.vue'
@@ -343,3 +217,129 @@ const performanceMetrics = computed(() => [
   },
 ])
 </script>
+
+<template>
+  <div v-if="stats" class="space-y-2 font-mono">
+    <!-- Primary Rating -->
+    <div class="text-center py-2">
+      <div class="text-2xl font-bold">
+        <AnimatedNumber
+          :value="highestActiveRating"
+          format="commas"
+          :duration="1600"
+          priority="primary"
+        />
+      </div>
+      <div class="text-xs text-zinc-500 uppercase tracking-wider mt-2">
+        CHESS RATING
+      </div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+        <AnimatedNumber
+          :value="bestRating"
+          format="commas"
+          priority="secondary"
+        />
+        PEAK ·
+        <AnimatedNumber
+          :value="Math.round(winRate)"
+          format="commas"
+          priority="tertiary"
+        />
+        % WIN RATE
+      </div>
+    </div>
+
+    <!-- Variant Ratings Small Multiples -->
+    <div class="space-y-2 mb-4">
+      <div
+        v-for="variant in variantStatsWithBars"
+        :key="variant.name"
+        class="flex items-center gap-2 text-xs"
+      >
+        <span class="text-zinc-500 uppercase tracking-wider w-12 text-xs">
+          {{ variant.name }}
+        </span>
+        <!-- Rating bar visualization -->
+        <div class="flex-1 h-2 bg-zinc-200 dark:bg-zinc-800 rounded-sm">
+          <div
+            class="h-full bg-zinc-400 dark:bg-zinc-500 rounded-sm transition-all"
+            :style="{ width: `${variant.barPct}%` }"
+          ></div>
+        </div>
+        <span
+          class="text-zinc-700 dark:text-zinc-300 tabular-nums w-12 text-right"
+        >
+          {{ variant.current }}
+        </span>
+        <span
+          v-if="variant.delta !== 0"
+          :class="
+            variant.delta > 0
+              ? 'text-green-600 dark:text-green-400'
+              : 'text-red-600 dark:text-red-400'
+          "
+          class="tabular-nums text-xs w-8"
+        >
+          {{ variant.delta > 0 ? '+' : '' }}{{ variant.delta }}
+        </span>
+        <span v-else class="w-8"></span>
+      </div>
+    </div>
+
+    <!-- Performance Stats -->
+    <div v-if="hasGameStats">
+      <StatsSectionHeader title="CHESS PERFORMANCE" />
+      <div class="space-y-2">
+        <div
+          v-for="metric in performanceMetrics"
+          :key="metric.label"
+          class="flex items-center justify-between text-xs"
+        >
+          <span class="text-zinc-500 uppercase tracking-wider text-xs">
+            {{ metric.label }}
+          </span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+            {{ metric.value }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Matches (This Month Only) -->
+    <div v-if="thisMonthGames.length">
+      <StatsSectionHeader title="RECENT CHESS GAMES" />
+      <div class="space-y-1">
+        <div
+          v-for="game in thisMonthGames.slice(0, 10)"
+          :key="game.id || game.url"
+          class="flex items-center justify-between text-xs"
+        >
+          <div class="flex items-center gap-2">
+            <span class="text-zinc-500 uppercase text-xs font-medium">
+              {{ formatGameTypeMinimal(game.timeControl) }}
+            </span>
+            <span class="font-bold text-zinc-600 dark:text-zinc-400 text-xs">
+              {{
+                game.result === 'win' ? 'W' : game.result === 'loss' ? 'L' : 'D'
+              }}
+            </span>
+            <span class="text-zinc-500 text-xs">
+              {{ formatTimeAgo(game.timestamp) }}
+            </span>
+          </div>
+          <div class="flex items-center gap-0.5">
+            <span class="tabular-nums font-medium">{{ game.rating }}</span>
+            <span
+              v-if="game.ratingDiff && game.ratingDiff !== 0"
+              class="tabular-nums text-xs"
+              :class="getRatingDiffClass(game.ratingDiff)"
+            >
+              {{ formatRatingDiff(game.ratingDiff) }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <StatsDataState v-else message="Chess data unavailable" />
+</template>

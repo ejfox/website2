@@ -1,3 +1,156 @@
+<script setup lang="ts">
+import { format } from 'date-fns'
+
+const { tocTarget } = useTOC()
+const { revealContainer: activeReveal } = useScrollReveal({
+  selector: 'tbody tr',
+  staggerDelay: 15,
+  translateY: 3,
+  duration: 150,
+})
+const { revealContainer: resolvedReveal } = useScrollReveal({
+  selector: 'tbody tr',
+  staggerDelay: 15,
+  translateY: 3,
+  duration: 150,
+})
+
+const scrollToEl = (id: string) => {
+  const section = document.querySelector(`[data-section="${id}"]`)
+  if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
+
+interface Prediction {
+  id: string
+  slug: string
+  statement: string
+  confidence: number
+  deadline?: string
+  categories?: string[]
+  visibility: string
+  created?: string
+  resolved: boolean
+  resolved_date?: string
+  status?: 'correct' | 'incorrect' | 'pending' | 'resolved'
+  evidence?: string
+  resolution?: string
+  updates?: Array<{ timestamp: string; content?: string }>
+  hash?: string
+  gitCommit?: string
+}
+
+const commitHistoryUrl =
+  'https://github.com/ejfox/website2/commits/main/content/predictions/'
+
+const { data: predictions, error: predictionsError } =
+  await useFetch<Prediction[]>('/api/predictions')
+const { data: calibration } = useCalibration()
+
+const transformedPredictions = computed(() => {
+  if (!predictions.value) return []
+  return predictions.value
+    .filter((p) => p.visibility === 'public')
+    .map((p) => ({
+      ...p,
+      status: p.status || (p.resolved ? 'resolved' : 'pending'),
+    }))
+})
+
+const activePredictions = computed(() =>
+  transformedPredictions.value
+    .filter((p) => !p.resolved)
+    .sort(
+      (a, b) =>
+        new Date(b.created || 0).getTime() - new Date(a.created || 0).getTime()
+    )
+)
+
+const resolvedPredictions = computed(() =>
+  transformedPredictions.value
+    .filter((p) => p.resolved)
+    .sort(
+      (a, b) =>
+        new Date(b.resolved_date || b.created || 0).getTime() -
+        new Date(a.resolved_date || a.created || 0).getTime()
+    )
+)
+
+const correctCount = computed(
+  () =>
+    transformedPredictions.value.filter((p) => p.status === 'correct').length
+)
+const incorrectCount = computed(
+  () =>
+    transformedPredictions.value.filter((p) => p.status === 'incorrect').length
+)
+
+const formatDeadline = (deadline: string | undefined) => {
+  if (!deadline) return '—'
+  try {
+    return format(new Date(deadline), 'MMM d, yyyy')
+  } catch {
+    return '—'
+  }
+}
+
+const formatResolvedDate = (date: string | undefined) => {
+  if (!date) return '—'
+  try {
+    return format(new Date(date), 'MMM yyyy')
+  } catch {
+    return '—'
+  }
+}
+
+const calibrationPoints = computed(() => {
+  if (!calibration.value?.calibration?.length) return ''
+  return calibration.value.calibration
+    .map(
+      (b: { expected: number; accuracy: number }) =>
+        `${b.expected},${100 - b.accuracy}`
+    )
+    .join(' ')
+})
+
+const daysUntil = (deadline: string | undefined): number | null => {
+  if (!deadline) return null
+  try {
+    const target = new Date(deadline)
+    const now = new Date()
+    const diff = Math.ceil(
+      (target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
+    )
+    return diff > 0 ? diff : null
+  } catch {
+    return null
+  }
+}
+
+const brierScoreLabel = (score: number | null) => {
+  if (score === null) return ''
+  if (score < 0.15) return 'excellent'
+  if (score < 0.2) return 'good'
+  if (score < 0.25) return 'better than chance'
+  return 'needs work'
+}
+
+const deltaClass = (delta: number) => {
+  const abs = Math.abs(delta)
+  if (abs <= 5) return 'text-success'
+  if (abs <= 10) return 'text-zinc-900 dark:text-zinc-100'
+  return 'text-error'
+}
+
+usePageSeo({
+  title: 'Predictions · EJ Fox',
+  description:
+    'Public, timestamped predictions with SHA-256 hashes and calibration tracking.',
+  type: 'article',
+  section: 'Forecasting',
+  tags: ['Predictions', 'Forecasting', 'Calibration', 'Probability'],
+})
+</script>
+
 <template>
   <main class="container-main pt-8">
     <div
@@ -435,156 +588,3 @@
     </ClientOnly>
   </main>
 </template>
-
-<script setup lang="ts">
-import { format } from 'date-fns'
-
-const { tocTarget } = useTOC()
-const { revealContainer: activeReveal } = useScrollReveal({
-  selector: 'tbody tr',
-  staggerDelay: 15,
-  translateY: 3,
-  duration: 150,
-})
-const { revealContainer: resolvedReveal } = useScrollReveal({
-  selector: 'tbody tr',
-  staggerDelay: 15,
-  translateY: 3,
-  duration: 150,
-})
-
-const scrollToEl = (id: string) => {
-  const section = document.querySelector(`[data-section="${id}"]`)
-  if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' })
-}
-
-interface Prediction {
-  id: string
-  slug: string
-  statement: string
-  confidence: number
-  deadline?: string
-  categories?: string[]
-  visibility: string
-  created?: string
-  resolved: boolean
-  resolved_date?: string
-  status?: 'correct' | 'incorrect' | 'pending' | 'resolved'
-  evidence?: string
-  resolution?: string
-  updates?: Array<{ timestamp: string; content?: string }>
-  hash?: string
-  gitCommit?: string
-}
-
-const commitHistoryUrl =
-  'https://github.com/ejfox/website2/commits/main/content/predictions/'
-
-const { data: predictions, error: predictionsError } =
-  await useFetch<Prediction[]>('/api/predictions')
-const { data: calibration } = useCalibration()
-
-const transformedPredictions = computed(() => {
-  if (!predictions.value) return []
-  return predictions.value
-    .filter((p) => p.visibility === 'public')
-    .map((p) => ({
-      ...p,
-      status: p.status || (p.resolved ? 'resolved' : 'pending'),
-    }))
-})
-
-const activePredictions = computed(() =>
-  transformedPredictions.value
-    .filter((p) => !p.resolved)
-    .sort(
-      (a, b) =>
-        new Date(b.created || 0).getTime() - new Date(a.created || 0).getTime()
-    )
-)
-
-const resolvedPredictions = computed(() =>
-  transformedPredictions.value
-    .filter((p) => p.resolved)
-    .sort(
-      (a, b) =>
-        new Date(b.resolved_date || b.created || 0).getTime() -
-        new Date(a.resolved_date || a.created || 0).getTime()
-    )
-)
-
-const correctCount = computed(
-  () =>
-    transformedPredictions.value.filter((p) => p.status === 'correct').length
-)
-const incorrectCount = computed(
-  () =>
-    transformedPredictions.value.filter((p) => p.status === 'incorrect').length
-)
-
-const formatDeadline = (deadline: string | undefined) => {
-  if (!deadline) return '—'
-  try {
-    return format(new Date(deadline), 'MMM d, yyyy')
-  } catch {
-    return '—'
-  }
-}
-
-const formatResolvedDate = (date: string | undefined) => {
-  if (!date) return '—'
-  try {
-    return format(new Date(date), 'MMM yyyy')
-  } catch {
-    return '—'
-  }
-}
-
-const calibrationPoints = computed(() => {
-  if (!calibration.value?.calibration?.length) return ''
-  return calibration.value.calibration
-    .map(
-      (b: { expected: number; accuracy: number }) =>
-        `${b.expected},${100 - b.accuracy}`
-    )
-    .join(' ')
-})
-
-const daysUntil = (deadline: string | undefined): number | null => {
-  if (!deadline) return null
-  try {
-    const target = new Date(deadline)
-    const now = new Date()
-    const diff = Math.ceil(
-      (target.getTime() - now.getTime()) / (1000 * 60 * 60 * 24)
-    )
-    return diff > 0 ? diff : null
-  } catch {
-    return null
-  }
-}
-
-const brierScoreLabel = (score: number | null) => {
-  if (score === null) return ''
-  if (score < 0.15) return 'excellent'
-  if (score < 0.2) return 'good'
-  if (score < 0.25) return 'better than chance'
-  return 'needs work'
-}
-
-const deltaClass = (delta: number) => {
-  const abs = Math.abs(delta)
-  if (abs <= 5) return 'text-success'
-  if (abs <= 10) return 'text-zinc-900 dark:text-zinc-100'
-  return 'text-error'
-}
-
-usePageSeo({
-  title: 'Predictions · EJ Fox',
-  description:
-    'Public, timestamped predictions with SHA-256 hashes and calibration tracking.',
-  type: 'article',
-  section: 'Forecasting',
-  tags: ['Predictions', 'Forecasting', 'Calibration', 'Probability'],
-})
-</script>

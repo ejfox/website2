@@ -6,17 +6,6 @@
   @props show: boolean - Whether to show section (default: true)
   @props grid: boolean - Use grid layout (default: false)
 -->
-<template>
-  <div v-if="show" :id="id" :class="wrapperClass">
-    <component :is="headerTag" :class="headerClass">
-      {{ title }}
-    </component>
-    <div :class="contentClass">
-      <slot />
-    </div>
-  </div>
-</template>
-
 <script setup>
 const props = defineProps({
   title: {
@@ -46,6 +35,17 @@ const wrapperClass = computed(() =>
 )
 const contentClass = computed(() => (props.grid ? 'grid-2col' : 'div'))
 </script>
+
+<template>
+  <div v-if="show" :id="id" :class="wrapperClass">
+    <component :is="headerTag" :class="headerClass">
+      {{ title }}
+    </component>
+    <div :class="contentClass">
+      <slot />
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .stats-section {

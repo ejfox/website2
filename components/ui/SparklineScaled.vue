@@ -9,44 +9,6 @@
   @props color: string - Base color (default: '#3b82f6')
   @props metric: string - Metric type for specialized scaling: 'words', 'size', 'time', 'images' (optional)
 -->
-<template>
-  <svg :width="width" :height="height" class="sparkline-scaled">
-    <g v-if="type === 'squares'">
-      <rect
-        v-for="(d, i) in data"
-        :key="i"
-        :x="xScale(i)"
-        :y="yScale(Math.floor(i / columns))"
-        :width="sizeScale(d)"
-        :height="sizeScale(d)"
-        :fill="colorScale(d)"
-        :opacity="opacityScale(d)"
-      />
-    </g>
-
-    <g v-else-if="type === 'line'">
-      <path
-        :d="linePath"
-        fill="none"
-        :stroke="color"
-        :stroke-width="strokeScale(Math.max(...values))"
-      />
-    </g>
-
-    <g v-else-if="type === 'bars'">
-      <rect
-        v-for="(d, i) in data"
-        :key="i"
-        :x="xScale(i)"
-        :y="yScale(d)"
-        :width="bandwidth"
-        :height="height - yScale(d)"
-        :fill="colorScale(d)"
-      />
-    </g>
-  </svg>
-</template>
-
 <script setup>
 import { computed } from 'vue'
 import * as d3 from 'd3'
@@ -188,6 +150,44 @@ const data = computed(() => {
   return props.values
 })
 </script>
+
+<template>
+  <svg :width="width" :height="height" class="sparkline-scaled">
+    <g v-if="type === 'squares'">
+      <rect
+        v-for="(d, i) in data"
+        :key="i"
+        :x="xScale(i)"
+        :y="yScale(Math.floor(i / columns))"
+        :width="sizeScale(d)"
+        :height="sizeScale(d)"
+        :fill="colorScale(d)"
+        :opacity="opacityScale(d)"
+      />
+    </g>
+
+    <g v-else-if="type === 'line'">
+      <path
+        :d="linePath"
+        fill="none"
+        :stroke="color"
+        :stroke-width="strokeScale(Math.max(...values))"
+      />
+    </g>
+
+    <g v-else-if="type === 'bars'">
+      <rect
+        v-for="(d, i) in data"
+        :key="i"
+        :x="xScale(i)"
+        :y="yScale(d)"
+        :width="bandwidth"
+        :height="height - yScale(d)"
+        :fill="colorScale(d)"
+      />
+    </g>
+  </svg>
+</template>
 
 <style scoped>
 .sparkline-scaled {

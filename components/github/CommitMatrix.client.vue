@@ -3,36 +3,6 @@
   @description Canvas-based unit chart visualization - renders 20K+ commits efficiently
   @props commits: Array - Array of commit objects with date, repo properties
 -->
-<template>
-  <div ref="containerRef" class="commit-matrix">
-    <!-- Legend -->
-    <div class="matrix-legend">
-      <span class="legend-dot legend-dot--recent"></span>
-      <span class="legend-dot legend-dot--year"></span>
-      <span class="legend-dot legend-dot--older"></span>
-    </div>
-
-    <!-- Canvas-based unit chart -->
-    <div class="canvas-container">
-      <canvas
-        ref="canvasRef"
-        @mousemove="handleMouseMove"
-        @mouseleave="hideTooltip"
-      ></canvas>
-    </div>
-
-    <!-- Tooltip -->
-    <div
-      v-if="hoveredCommit"
-      class="commit-tooltip"
-      :style="{ left: `${tooltipX}px`, top: `${tooltipY}px` }"
-    >
-      <div class="tooltip-date">{{ formatDate(hoveredCommit.date) }}</div>
-      <div class="tooltip-repo">{{ hoveredCommit.repo }}</div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 const props = defineProps({
   commits: {
@@ -172,6 +142,36 @@ onUnmounted(() => {
 
 watch(() => props.commits, draw)
 </script>
+
+<template>
+  <div ref="containerRef" class="commit-matrix">
+    <!-- Legend -->
+    <div class="matrix-legend">
+      <span class="legend-dot legend-dot--recent"></span>
+      <span class="legend-dot legend-dot--year"></span>
+      <span class="legend-dot legend-dot--older"></span>
+    </div>
+
+    <!-- Canvas-based unit chart -->
+    <div class="canvas-container">
+      <canvas
+        ref="canvasRef"
+        @mousemove="handleMouseMove"
+        @mouseleave="hideTooltip"
+      ></canvas>
+    </div>
+
+    <!-- Tooltip -->
+    <div
+      v-if="hoveredCommit"
+      class="commit-tooltip"
+      :style="{ left: `${tooltipX}px`, top: `${tooltipY}px` }"
+    >
+      <div class="tooltip-date">{{ formatDate(hoveredCommit.date) }}</div>
+      <div class="tooltip-repo">{{ hoveredCommit.repo }}</div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .commit-matrix {
