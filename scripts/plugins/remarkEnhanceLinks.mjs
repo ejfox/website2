@@ -87,7 +87,9 @@ const fetchIcon = async (name, retries = 2) => {
           await new Promise((r) => setTimeout(r, 500 * (attempt + 1)))
           continue
         }
-        console.warn(`[remarkEnhanceLinks] Failed to fetch icon ${name}: HTTP ${res.status}`)
+        console.warn(
+          `[remarkEnhanceLinks] Failed to fetch icon ${name}: HTTP ${res.status}`
+        )
         return null
       }
       const svg = await res.text()
@@ -108,7 +110,9 @@ const fetchIcon = async (name, retries = 2) => {
         await new Promise((r) => setTimeout(r, 500 * (attempt + 1)))
         continue
       }
-      console.warn(`[remarkEnhanceLinks] Error fetching icon ${name}: ${err.message}`)
+      console.warn(
+        `[remarkEnhanceLinks] Error fetching icon ${name}: ${err.message}`
+      )
       return null
     }
   }

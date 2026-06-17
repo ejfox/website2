@@ -1,63 +1,3 @@
-<script setup>
-import { useMouse, useWindowSize } from '@vueuse/core'
-
-const props = defineProps({ gearItem: { type: Object, default: () => ({}) } })
-
-const { getItemWeightInGrams } = useWeightCalculations()
-const { TYPE_SYMBOLS, PRIORITY_PIPS } = useGearUI()
-
-// Mouse-tracking 3D tilt
-const { x: mx, y: my } = useMouse()
-const { width: winW, height: winH } = useWindowSize()
-
-const tilt = computed(() => {
-  const cx = winW.value / 2,
-    cy = winH.value / 2
-  const rx = -((my.value - cy) / cy) * 20
-  const ry = ((mx.value - cx) / cx) * 20
-  const tz = (Math.abs(mx.value - cx) / cx + Math.abs(my.value - cy) / cy) * 15
-  return {
-    transform: `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(${tz}px)`,
-    transition: 'transform 0.15s cubic-bezier(0.4, 0, 0.2, 1)',
-    transformOrigin: 'center center',
-    willChange: 'transform',
-  }
-})
-
-const photoUrl = computed(() => props.gearItem.imageUrl?.trim() || null)
-
-const displayWeight = computed(() => {
-  if (!props.gearItem['Base Weight ()'] && !props.gearItem['Loaded Weight ()'])
-    return '?'
-  return getItemWeightInGrams(props.gearItem) || 0
-})
-
-const amazonUrl = computed(() => {
-  if (!props.gearItem?.amazon) return '#'
-  try {
-    const url = new URL(props.gearItem.amazon)
-    url.searchParams.set('tag', 'ejfox0c-20')
-    return url.toString()
-  } catch {
-    return props.gearItem.amazon
-  }
-})
-
-const itemDetails = computed(() => {
-  if (!props.gearItem || typeof props.gearItem !== 'object') return {}
-  return Object.fromEntries(
-    Object.entries(props.gearItem).filter(([, v]) => v?.toString().trim())
-  )
-})
-
-const humanize = (key) =>
-  key
-    .replace(/([A-Z])/g, ' $1')
-    .replace(/[()]/g, '')
-    .replace(/^\w/, (c) => c.toUpperCase())
-    .trim()
-</script>
-
 <template>
   <div class="gear-card-container" :style="tilt">
     <!-- Header -->
@@ -144,6 +84,110 @@ const humanize = (key) =>
     </div>
   </div>
 </template>
+
+<script setup>
+import { useMouse, useWindowSize, useRafFn } from '@vueuse/core'
+import { ref, onMounted } from 'vue'
+
+const props = defineProps({ gearItem: { type: Object, default: () => ({}) } })
+
+const { getItemWeightInGrams } = useWeightCalculations()
+const { TYPE_SYMBOLS, PRIORITY_PIPS } = useGearUI()
+
+// Mouse-tracking 3D tilt.
+//
+// Three things used to conflict and produce visible jitter:
+//   1. `useMouse()` fires on every mousemove (60+/s) and the transform
+//      was being recomputed + reactively flushed to inline `style` each
+//      time.
+//   2. A `transition: transform 0.15s` on the same element kept starting
+//      new 150ms transitions before the previous one finished, so the
+//      browser was racing transitions against fresh inline-style writes.
+//   3. The parent page's `gear-slide` 600ms transition writes its own
+//      transform to the same element's ancestor, which composes with the
+//      tilt — during entry, every mousemove broke the slide-in.
+//
+// Fix: drive the transform via `useRafFn` so updates batch to one per
+// animation frame (and don't recompute on every mousemove), drop the
+// CSS transition (RAF at 60fps is inherently smooth, no transitions to
+// interrupt), and skip the tilt during the ~600ms page-transition window
+// so the entry animation plays clean.
+const { x: mx, y: my } = useMouse({ touch: false })
+const { width: winW, height: winH } = useWindowSize()
+
+// `tilt` is BOUND TO `:style` — emitting an empty object while we're in
+// the grace period leaves the inline transform unset, which lets the
+// page-transition CSS rules win cleanly. Once the grace period ends,
+// `useRafFn` starts populating real transform values from the mouse.
+const tiltStyle = ref({})
+const tiltReady = ref(false)
+
+// Respect prefers-reduced-motion — skip the tilt entirely for users who
+// have it on.
+const prefersReducedMotion =
+  typeof window !== 'undefined' &&
+  window.matchMedia &&
+  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+onMounted(() => {
+  if (prefersReducedMotion) return
+  // 700ms = page-transition duration (600ms) + small easing-settle buffer.
+  setTimeout(() => {
+    tiltReady.value = true
+  }, 700)
+})
+
+useRafFn(() => {
+  if (!tiltReady.value || prefersReducedMotion) return
+  const cx = winW.value / 2
+  const cy = winH.value / 2
+  if (!cx || !cy) return
+  const rx = -((my.value - cy) / cy) * 20
+  const ry = ((mx.value - cx) / cx) * 20
+  const tz = (Math.abs(mx.value - cx) / cx + Math.abs(my.value - cy) / cy) * 15
+  tiltStyle.value = {
+    transform: `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(${tz}px)`,
+    transformOrigin: 'center center',
+    willChange: 'transform',
+  }
+})
+
+// Backward-compatible name for the template binding.
+const tilt = tiltStyle
+
+const photoUrl = computed(() => props.gearItem.imageUrl?.trim() || null)
+
+const displayWeight = computed(() => {
+  if (!props.gearItem['Base Weight ()'] && !props.gearItem['Loaded Weight ()'])
+    return '?'
+  return getItemWeightInGrams(props.gearItem) || 0
+})
+
+const amazonUrl = computed(() => {
+  if (!props.gearItem?.amazon) return '#'
+  try {
+    const url = new URL(props.gearItem.amazon)
+    url.searchParams.set('tag', 'ejfox0c-20')
+    return url.toString()
+  } catch {
+    return props.gearItem.amazon
+  }
+})
+
+const itemDetails = computed(() => {
+  if (!props.gearItem || typeof props.gearItem !== 'object') return {}
+  return Object.fromEntries(
+    Object.entries(props.gearItem).filter(([, v]) => v?.toString().trim())
+  )
+})
+
+const humanize = (key) =>
+  key
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/[()]/g, '')
+    .replace(/^\w/, (c) => c.toUpperCase())
+    .trim()
+</script>
 
 <style scoped>
 .gear-card-container {

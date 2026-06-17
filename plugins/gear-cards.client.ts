@@ -66,7 +66,10 @@ export default defineNuxtPlugin((nuxtApp) => {
       // @ts-expect-error: _context is internal but stable across Vue 3.x
       const parentProvides = nuxtApp.vueApp._context.provides
       Object.keys(parentProvides).forEach((key) => {
-        app.provide(key as any, parentProvides[key as keyof typeof parentProvides])
+        app.provide(
+          key as any,
+          parentProvides[key as keyof typeof parentProvides]
+        )
       })
 
       app.mount(el)

@@ -6,9 +6,10 @@
     "node": ">=20.0.0"
   },
   "scripts": {
-    "prebuild": "node scripts/generate-build-info.mjs && node scripts/generate-changelog.mjs && node scripts/copy-blogroll.mjs && (node scripts/export-github-repos.mjs || echo 'GitHub export failed, using cached data') && (node scripts/fetch-goodreads.mjs || echo 'Goodreads fetch failed, using cached data')",
+    "prebuild": "node scripts/generate-build-info.mjs && node scripts/generate-changelog.mjs && node scripts/copy-blogroll.mjs && (node scripts/export-github-repos.mjs || echo 'GitHub export failed, using cached data') && (node scripts/export-github-networks.mjs || echo 'Network export failed, using cached data') && (node scripts/fetch-goodreads.mjs || echo 'Goodreads fetch failed, using cached data')",
     "build": "nuxt build",
     "github:export": "node scripts/export-github-repos.mjs",
+    "github:networks": "node scripts/export-github-networks.mjs",
     "goodreads:fetch": "node scripts/fetch-goodreads.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -96,6 +97,7 @@
     "github-slugger": "^2.0.0",
     "glob": "^11.0.3",
     "h3": "^1.13.0",
+    "mermaid": "^11.15.0",
     "node-cache": "^5.1.2",
     "node-fetch": "^3.3.0",
     "ora": "^9.0.0",

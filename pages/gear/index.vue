@@ -1,3 +1,302 @@
+<template>
+  <main class="px-4 md:px-6 lg:px-8 max-w-full min-h-screen pt-8">
+    <!-- Error State -->
+    <div
+      v-if="csvError"
+      class="text-center py-8 text-red-600 dark:text-red-400"
+    >
+      Failed to load data
+    </div>
+
+    <header v-else class="section-spacing-sm">
+      <!-- Mobile: Stack vertically, Desktop: Horizontal layout -->
+      <div
+        class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-3 section-spacing-sm"
+      >
+        <!-- Title and Stats Section -->
+        <div class="flex flex-col gap-2">
+          <h1 class="font-mono text-sm text-zinc-100">GEAR</h1>
+          <div class="font-mono text-[10px] text-muted tabular">
+            {{ totalItems }} items · {{ displayTotalWeight.value }} ·
+            {{ containerCount }} bags
+          </div>
+          <div class="font-mono text-[10px] text-zinc-500">
+            Updated {{ lastUpdated || currentDate }} · source: gear sheet
+            exports
+          </div>
+        </div>
+
+        <!-- Controls Section -->
+        <div
+          class="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-3 w-full sm:w-auto"
+        >
+          <!-- Weight Unit Selector -->
+          <label for="weight-unit" class="sr-only">Weight unit</label>
+          <div class="relative w-full sm:w-auto">
+            <select
+              id="weight-unit"
+              v-model="weightUnit"
+              class="gear-select w-full sm:w-auto"
+            >
+              <option value="metric">KG/G</option>
+              <option value="imperial">LB/OZ</option>
+            </select>
+            <span class="select-dropdown-arrow">▼</span>
+          </div>
+          <button
+            title="Toggle sort"
+            class="gear-btn flex-gap-0.5 w-full sm:w-auto"
+            @click="toggleSort"
+          >
+            <span class="text-[8px]">
+              {{ sortBy === 'weight' ? '↓' : '↑' }}
+            </span>
+            {{ sortBy === 'weight' ? 'Weight' : 'Name' }}
+          </button>
+          <a
+            href="/api/gear-csv"
+            download
+            class="gear-btn inline-flex-gap-0.5 w-full sm:w-auto"
+          >
+            <span>↓</span>
+            CSV
+          </a>
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <div class="mb-4">
+          <h3 class="gear-section-header mb-2">Type Legend</h3>
+          <!-- Mobile: 2 cols, Tablet: 4 cols, Desktop: 7 cols -->
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2"
+          >
+            <div
+              v-for="type in typeStats"
+              :key="type.name"
+              class="flex-gap-0.5"
+            >
+              <span class="text-xs font-medium text-muted">
+                {{ type.symbol }}
+              </span>
+              <div class="flex-1 min-w-0">
+                <div class="font-mono text-[10px] text-zinc-400 truncate">
+                  {{ type.name }}
+                </div>
+                <div class="text-[9px] text-muted tabular">
+                  {{ type.count }} · {{ type.weight }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gear-footer-date">
+          <span class="uppercase tracking-[0.1em]">{{ currentDate }}</span>
+        </div>
+
+        <!-- Container Weight Comparison Small Multiples -->
+        <div v-if="containerComparison.length" class="mt-4">
+          <h3 class="gear-section-header mb-2">Weight by Container</h3>
+          <div class="flex items-end gap-1 h-12">
+            <div
+              v-for="c in containerComparison"
+              :key="c.name"
+              v-tooltip="`${c.name}: ${c.items} items, ${c.weight}`"
+              class="flex-1 h-full flex flex-col justify-end items-center group cursor-default"
+            >
+              <div
+                class="w-full bg-zinc-300 dark:bg-zinc-600 transition-colors"
+                :class="{ 'group-hover:bg-zinc-500': true }"
+                :style="{ height: `${c.heightPct}%`, minHeight: '2px' }"
+              ></div>
+            </div>
+          </div>
+          <div class="flex gap-1 mt-1">
+            <div
+              v-for="c in containerComparison"
+              :key="`lbl-${c.name}`"
+              class="flex-1 text-center overflow-hidden"
+            >
+              <span class="text-[7px] font-mono text-zinc-500 truncate block">
+                {{ c.short }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3D Scan Gallery -->
+    <ClientOnly>
+      <div v-if="scannedItems.length > 0" class="mb-8">
+        <h2 class="gear-section-header mb-4">3D Scans</h2>
+        <Gear3DGallery :items="scannedItems" />
+      </div>
+    </ClientOnly>
+
+    <div class="mb-8">
+      <h2 class="gear-section-header mb-4">Containers</h2>
+      <div class="grid-gear-responsive">
+        <a
+          v-for="[container, items] in groupedGear"
+          :key="container"
+          :href="`#${container.toLowerCase().replace(/\s+/g, '-')}`"
+          class="gear-container-card group"
+        >
+          <div class="flex items-baseline justify-between">
+            <span class="font-mono text-[10px] text-zinc-200">
+              {{ container }}
+            </span>
+            <div class="text-[8px] text-zinc-600 tabular-nums">
+              <span>{{ items.length }}×</span>
+              <span class="text-zinc-500">{{ getAvgItemWeight(items) }}</span>
+            </div>
+          </div>
+          <div class="mt-2">
+            <!-- Weight distribution bar -->
+            <div class="flex items-end h-4 bg-zinc-900/30 rounded-sm">
+              <div
+                v-for="item in items.slice(0, 20)"
+                :key="item.Name"
+                v-tooltip="`${item.Name}: ${formatItemWeight(item)}`"
+                class="bg-zinc-600 h-0.5 hover:h-full hover:bg-zinc-400 transition-all duration-100 cursor-default"
+                :style="{
+                  width: `${getWeightPercentage(item, items)}%`,
+                  opacity:
+                    0.3 + getItemWeightInOunces(item) / getMaxWeight(items),
+                }"
+              ></div>
+            </div>
+            <div class="gear-weight-range">
+              <span>{{ formatWeight(items) }}</span>
+              <span>{{ getWeightRange(items) }}</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div ref="gearReveal" class="space-y-12">
+      <section
+        v-for="[container, items] in groupedGear"
+        :id="container.toLowerCase().replace(/\s+/g, '-')"
+        :key="container"
+        class="scroll-mt-4"
+      >
+        <div class="gear-container-header">
+          <div class="flex items-baseline gap-3">
+            <h2 class="text-[11px] font-mono text-zinc-200">
+              {{ container }}
+            </h2>
+            <span class="text-[8px] text-zinc-600">
+              {{ items.length }}×{{ getAvgItemWeight(items) }}
+            </span>
+            <span class="text-[8px] text-zinc-600">
+              {{ getWeightRange(items) }}
+            </span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-[8px] font-mono text-zinc-500 tabular-nums">
+              {{ formatWeight(items) }}
+            </span>
+            <!-- Mini histogram -->
+            <div class="flex items-end gap-px h-3">
+              <div
+                v-for="(bucket, i) in getWeightHistogram(items)"
+                :key="i"
+                v-tooltip="`${bucket.count} items: ${bucket.range}`"
+                class="gear-histogram"
+                :style="{ height: `${bucket.height}%` }"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <GearSpecimenPlate
+          v-if="items.length >= 2"
+          :items="items.slice(0, 6)"
+          class="mb-4"
+        />
+
+        <div class="relative overflow-x-auto">
+          <table class="w-full text-[9px] font-mono">
+            <thead
+              class="sticky top-0 bg-white dark:bg-zinc-950 backdrop-blur-sm"
+            >
+              <tr class="border-b border-zinc-200/30 dark:border-zinc-700/30">
+                <th class="gear-th-left">Item</th>
+                <th class="gear-th"></th>
+                <th class="gear-th">Type</th>
+                <th class="gear-th">Cat</th>
+                <th class="gear-th">H₂O</th>
+                <th class="gear-th">Pri</th>
+                <th class="gear-th">⚡</th>
+                <th class="gear-th">Age</th>
+                <th class="gear-th-right">g/oz</th>
+              </tr>
+            </thead>
+            <tbody>
+              <GearItem
+                v-for="item in sortItems(items)"
+                :key="item.Name"
+                :item="item"
+                :weight-unit="weightUnit"
+              />
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+    <!-- Sidebar teleport -->
+    <ClientOnly>
+      <Teleport v-if="tocTarget" to="#nav-toc-container">
+        <div class="space-y-4">
+          <div
+            class="font-mono text-3xs uppercase tracking-wider text-zinc-500"
+          >
+            Containers
+          </div>
+
+          <!-- Container list as TOC -->
+          <div class="space-y-0.5">
+            <a
+              v-for="[container, items] in groupedGear"
+              :key="`nav-${container}`"
+              :href="`#${container.toLowerCase().replace(/\s+/g, '-')}`"
+              class="flex justify-between font-mono text-3xs tabular-nums text-zinc-500 hover:text-zinc-300 transition-colors"
+              @click.prevent="scrollToContainer(container)"
+            >
+              <span class="truncate mr-2">{{ container }}</span>
+              <span class="text-zinc-600 whitespace-nowrap">
+                {{ formatWeight(items) }}
+              </span>
+            </a>
+          </div>
+
+          <!-- Totals -->
+          <div
+            class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums"
+          >
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Items</span>
+              <span class="text-zinc-300">{{ totalItems }}</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Total</span>
+              <span class="text-zinc-300">{{ displayTotalWeight.value }}</span>
+            </div>
+            <div class="flex justify-between">
+              <span class="text-zinc-500">Bags</span>
+              <span class="text-zinc-300">{{ containerCount }}</span>
+            </div>
+          </div>
+        </div>
+      </Teleport>
+    </ClientOnly>
+  </main>
+</template>
+
 <script setup>
 import { csvParse } from 'd3-dsv' // Only used CSV parser (~2KB)
 
@@ -460,305 +759,6 @@ useHead(() => ({
   ],
 }))
 </script>
-
-<template>
-  <main class="px-4 md:px-6 lg:px-8 max-w-full min-h-screen pt-8">
-    <!-- Error State -->
-    <div
-      v-if="csvError"
-      class="text-center py-8 text-red-600 dark:text-red-400"
-    >
-      Failed to load data
-    </div>
-
-    <header v-else class="section-spacing-sm">
-      <!-- Mobile: Stack vertically, Desktop: Horizontal layout -->
-      <div
-        class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-3 section-spacing-sm"
-      >
-        <!-- Title and Stats Section -->
-        <div class="flex flex-col gap-2">
-          <h1 class="font-mono text-sm text-zinc-100">GEAR</h1>
-          <div class="font-mono text-[10px] text-muted tabular">
-            {{ totalItems }} items · {{ displayTotalWeight.value }} ·
-            {{ containerCount }} bags
-          </div>
-          <div class="font-mono text-[10px] text-zinc-500">
-            Updated {{ lastUpdated || currentDate }} · source: gear sheet
-            exports
-          </div>
-        </div>
-
-        <!-- Controls Section -->
-        <div
-          class="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-3 w-full sm:w-auto"
-        >
-          <!-- Weight Unit Selector -->
-          <label for="weight-unit" class="sr-only">Weight unit</label>
-          <div class="relative w-full sm:w-auto">
-            <select
-              id="weight-unit"
-              v-model="weightUnit"
-              class="gear-select w-full sm:w-auto"
-            >
-              <option value="metric">KG/G</option>
-              <option value="imperial">LB/OZ</option>
-            </select>
-            <span class="select-dropdown-arrow">▼</span>
-          </div>
-          <button
-            title="Toggle sort"
-            class="gear-btn flex-gap-0.5 w-full sm:w-auto"
-            @click="toggleSort"
-          >
-            <span class="text-[8px]">
-              {{ sortBy === 'weight' ? '↓' : '↑' }}
-            </span>
-            {{ sortBy === 'weight' ? 'Weight' : 'Name' }}
-          </button>
-          <a
-            href="/api/gear-csv"
-            download
-            class="gear-btn inline-flex-gap-0.5 w-full sm:w-auto"
-          >
-            <span>↓</span>
-            CSV
-          </a>
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <div class="mb-4">
-          <h3 class="gear-section-header mb-2">Type Legend</h3>
-          <!-- Mobile: 2 cols, Tablet: 4 cols, Desktop: 7 cols -->
-          <div
-            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-2"
-          >
-            <div
-              v-for="type in typeStats"
-              :key="type.name"
-              class="flex-gap-0.5"
-            >
-              <span class="text-xs font-medium text-muted">
-                {{ type.symbol }}
-              </span>
-              <div class="flex-1 min-w-0">
-                <div class="font-mono text-[10px] text-zinc-400 truncate">
-                  {{ type.name }}
-                </div>
-                <div class="text-[9px] text-muted tabular">
-                  {{ type.count }} · {{ type.weight }}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="gear-footer-date">
-          <span class="uppercase tracking-[0.1em]">{{ currentDate }}</span>
-        </div>
-
-        <!-- Container Weight Comparison Small Multiples -->
-        <div v-if="containerComparison.length" class="mt-4">
-          <h3 class="gear-section-header mb-2">Weight by Container</h3>
-          <div class="flex items-end gap-1 h-12">
-            <div
-              v-for="c in containerComparison"
-              :key="c.name"
-              v-tooltip="`${c.name}: ${c.items} items, ${c.weight}`"
-              class="flex-1 h-full flex flex-col justify-end items-center group cursor-default"
-            >
-              <div
-                class="w-full bg-zinc-300 dark:bg-zinc-600 transition-colors"
-                :class="{ 'group-hover:bg-zinc-500': true }"
-                :style="{ height: `${c.heightPct}%`, minHeight: '2px' }"
-              ></div>
-            </div>
-          </div>
-          <div class="flex gap-1 mt-1">
-            <div
-              v-for="c in containerComparison"
-              :key="`lbl-${c.name}`"
-              class="flex-1 text-center overflow-hidden"
-            >
-              <span class="text-[7px] font-mono text-zinc-500 truncate block">
-                {{ c.short }}
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- 3D Scan Gallery -->
-    <ClientOnly>
-      <div v-if="scannedItems.length > 0" class="mb-8">
-        <h2 class="gear-section-header mb-4">3D Scans</h2>
-        <Gear3DGallery :items="scannedItems" />
-      </div>
-    </ClientOnly>
-
-    <div class="mb-8">
-      <h2 class="gear-section-header mb-4">Containers</h2>
-      <div class="grid-gear-responsive">
-        <a
-          v-for="[container, items] in groupedGear"
-          :key="container"
-          :href="`#${container.toLowerCase().replace(/\s+/g, '-')}`"
-          class="gear-container-card group"
-        >
-          <div class="flex items-baseline justify-between">
-            <span class="font-mono text-[10px] text-zinc-200">
-              {{ container }}
-            </span>
-            <div class="text-[8px] text-zinc-600 tabular-nums">
-              <span>{{ items.length }}×</span>
-              <span class="text-zinc-500">{{ getAvgItemWeight(items) }}</span>
-            </div>
-          </div>
-          <div class="mt-2">
-            <!-- Weight distribution bar -->
-            <div class="flex items-end h-4 bg-zinc-900/30 rounded-sm">
-              <div
-                v-for="item in items.slice(0, 20)"
-                :key="item.Name"
-                v-tooltip="`${item.Name}: ${formatItemWeight(item)}`"
-                class="bg-zinc-600 h-0.5 hover:h-full hover:bg-zinc-400 transition-all duration-100 cursor-default"
-                :style="{
-                  width: `${getWeightPercentage(item, items)}%`,
-                  opacity:
-                    0.3 + getItemWeightInOunces(item) / getMaxWeight(items),
-                }"
-              ></div>
-            </div>
-            <div class="gear-weight-range">
-              <span>{{ formatWeight(items) }}</span>
-              <span>{{ getWeightRange(items) }}</span>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-
-    <div ref="gearReveal" class="space-y-12">
-      <section
-        v-for="[container, items] in groupedGear"
-        :id="container.toLowerCase().replace(/\s+/g, '-')"
-        :key="container"
-        class="scroll-mt-4"
-      >
-        <div class="gear-container-header">
-          <div class="flex items-baseline gap-3">
-            <h2 class="text-[11px] font-mono text-zinc-200">
-              {{ container }}
-            </h2>
-            <span class="text-[8px] text-zinc-600">
-              {{ items.length }}×{{ getAvgItemWeight(items) }}
-            </span>
-            <span class="text-[8px] text-zinc-600">
-              {{ getWeightRange(items) }}
-            </span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-[8px] font-mono text-zinc-500 tabular-nums">
-              {{ formatWeight(items) }}
-            </span>
-            <!-- Mini histogram -->
-            <div class="flex items-end gap-px h-3">
-              <div
-                v-for="(bucket, i) in getWeightHistogram(items)"
-                :key="i"
-                v-tooltip="`${bucket.count} items: ${bucket.range}`"
-                class="gear-histogram"
-                :style="{ height: `${bucket.height}%` }"
-              ></div>
-            </div>
-          </div>
-        </div>
-
-        <GearSpecimenPlate
-          v-if="items.length >= 2"
-          :items="items.slice(0, 6)"
-          class="mb-4"
-        />
-
-        <div class="relative overflow-x-auto">
-          <table class="w-full text-[9px] font-mono">
-            <thead
-              class="sticky top-0 bg-white dark:bg-zinc-950 backdrop-blur-sm"
-            >
-              <tr class="border-b border-zinc-200/30 dark:border-zinc-700/30">
-                <th class="gear-th-left">Item</th>
-                <th class="gear-th"></th>
-                <th class="gear-th">Type</th>
-                <th class="gear-th">Cat</th>
-                <th class="gear-th">H₂O</th>
-                <th class="gear-th">Pri</th>
-                <th class="gear-th">⚡</th>
-                <th class="gear-th">Age</th>
-                <th class="gear-th-right">g/oz</th>
-              </tr>
-            </thead>
-            <tbody>
-              <GearItem
-                v-for="item in sortItems(items)"
-                :key="item.Name"
-                :item="item"
-                :weight-unit="weightUnit"
-              />
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </div>
-    <!-- Sidebar teleport -->
-    <ClientOnly>
-      <Teleport v-if="tocTarget" to="#nav-toc-container">
-        <div class="space-y-4">
-          <div
-            class="font-mono text-3xs uppercase tracking-wider text-zinc-500"
-          >
-            Containers
-          </div>
-
-          <!-- Container list as TOC -->
-          <div class="space-y-0.5">
-            <a
-              v-for="[container, items] in groupedGear"
-              :key="`nav-${container}`"
-              :href="`#${container.toLowerCase().replace(/\s+/g, '-')}`"
-              class="flex justify-between font-mono text-3xs tabular-nums text-zinc-500 hover:text-zinc-300 transition-colors"
-              @click.prevent="scrollToContainer(container)"
-            >
-              <span class="truncate mr-2">{{ container }}</span>
-              <span class="text-zinc-600 whitespace-nowrap">
-                {{ formatWeight(items) }}
-              </span>
-            </a>
-          </div>
-
-          <!-- Totals -->
-          <div
-            class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums"
-          >
-            <div class="flex justify-between">
-              <span class="text-zinc-500">Items</span>
-              <span class="text-zinc-300">{{ totalItems }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-zinc-500">Total</span>
-              <span class="text-zinc-300">{{ displayTotalWeight.value }}</span>
-            </div>
-            <div class="flex justify-between">
-              <span class="text-zinc-500">Bags</span>
-              <span class="text-zinc-300">{{ containerCount }}</span>
-            </div>
-          </div>
-        </div>
-      </Teleport>
-    </ClientOnly>
-  </main>
-</template>
 
 <style>
 /* Missing utility classes */

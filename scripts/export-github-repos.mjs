@@ -248,6 +248,20 @@ async function fetchRepositories() {
               color
             }
             diskUsage
+            defaultBranchRef {
+              name
+            }
+            licenseInfo {
+              spdxId
+              name
+              url
+            }
+            latestRelease {
+              name
+              tagName
+              publishedAt
+              url
+            }
             repositoryTopics(first: 10) {
               nodes {
                 topic {
@@ -369,10 +383,15 @@ async function exportRepository(repo) {
   const outputFile = join(OUTPUT_DIR, `${safeName}.json`)
 
   // 🚀 SMART CACHING: Check if repo unchanged since last export
+  // Force rebuild if cached entry is missing fields added in newer script versions
   if (existsSync(outputFile)) {
     try {
       const cached = JSON.parse(readFileSync(outputFile, 'utf-8'))
-      if (cached.pushedAt === repo.pushedAt) {
+      const hasNewFields =
+        Object.prototype.hasOwnProperty.call(cached, 'license') &&
+        Object.prototype.hasOwnProperty.call(cached, 'latestRelease') &&
+        Object.prototype.hasOwnProperty.call(cached, 'defaultBranch')
+      if (cached.pushedAt === repo.pushedAt && hasNewFields) {
         console.log(
           `  ✓ ${safeName} (cached, unchanged since ${repo.pushedAt})`
         )
@@ -411,6 +430,22 @@ async function exportRepository(repo) {
     languages, // Language breakdown by bytes
     diskUsage: repo.diskUsage || 0, // Total KB
     fileTree, // File tree with sizes
+    defaultBranch: repo.defaultBranchRef?.name || null,
+    license: repo.licenseInfo
+      ? {
+          spdxId: repo.licenseInfo.spdxId,
+          name: repo.licenseInfo.name,
+          url: repo.licenseInfo.url,
+        }
+      : null,
+    latestRelease: repo.latestRelease
+      ? {
+          name: repo.latestRelease.name,
+          tagName: repo.latestRelease.tagName,
+          publishedAt: repo.latestRelease.publishedAt,
+          url: repo.latestRelease.url,
+        }
+      : null,
     topics: repo.repositoryTopics.nodes.map((t) => t.topic.name),
     readme,
     createdAt: repo.createdAt,

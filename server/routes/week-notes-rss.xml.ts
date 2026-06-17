@@ -42,7 +42,8 @@ export default defineEventHandler(async (event) => {
     ttl: 60,
   })
 
-  const posts = await getPostsWithContent(50, 0, false, false)
+  // Pull week-notes specifically — the default getPostsWithContent excludes them
+  const posts = await getPostsWithContent(50, 0, false, true)
   const sortedPosts = posts.sort((a, b) => {
     const dateA = parseISO(a.metadata?.date || a.date || '')
     const dateB = parseISO(b.metadata?.date || b.date || '')

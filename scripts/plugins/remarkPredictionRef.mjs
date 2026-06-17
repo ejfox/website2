@@ -19,9 +19,7 @@ const predictionCache = new Map()
 async function loadPrediction(id) {
   if (predictionCache.has(id)) return predictionCache.get(id)
 
-  const tryPaths = [
-    path.join(PREDICTIONS_DIR, `${id}.md`),
-  ]
+  const tryPaths = [path.join(PREDICTIONS_DIR, `${id}.md`)]
   // Support year-prefixed ids: 2025-foo-bar → content/predictions/2025/foo-bar.md
   if (/^\d{4}-/.test(id)) {
     const [year, ...rest] = id.split('-')
@@ -87,14 +85,17 @@ function renderInlineHtml(id, data) {
   const payload = buildPayload(id, data)
   const payloadJson = escapeHtml(JSON.stringify(payload))
   const glyph = statusGlyph(data)
-  const confidence = typeof data.confidence === 'number' ? `${data.confidence}%` : ''
+  const confidence =
+    typeof data.confidence === 'number' ? `${data.confidence}%` : ''
   const statement = truncate(data.statement, 60)
   const resolvedWrong = data.resolved && data.status === 'incorrect'
   const classes = [
     'prediction-ref',
     `prediction-ref--${data.resolved ? data.status || 'resolved' : 'pending'}`,
     resolvedWrong ? 'prediction-ref--wrong' : '',
-  ].filter(Boolean).join(' ')
+  ]
+    .filter(Boolean)
+    .join(' ')
 
   return `<a href="/predictions/${escapeHtml(payload.id)}" class="${classes}" data-prediction-ref="inline" data-payload="${payloadJson}"><span class="prediction-ref__glyph">${glyph}</span><span class="prediction-ref__confidence">${escapeHtml(confidence)}</span><span class="prediction-ref__statement">${escapeHtml(statement)}</span></a>`
 }
@@ -103,7 +104,8 @@ function renderBlockHtml(id, data) {
   const payload = buildPayload(id, data)
   const payloadJson = escapeHtml(JSON.stringify(payload))
   const glyph = statusGlyph(data)
-  const confidence = typeof data.confidence === 'number' ? `${data.confidence}%` : ''
+  const confidence =
+    typeof data.confidence === 'number' ? `${data.confidence}%` : ''
   const statement = escapeHtml(data.statement || '')
   const resolution = data.resolved
     ? escapeHtml(truncate(data.resolution, 240))
@@ -132,7 +134,8 @@ export function remarkPredictionRef() {
 
     visit(tree, (node) => {
       const isInline = node.type === 'textDirective'
-      const isBlock = node.type === 'leafDirective' || node.type === 'containerDirective'
+      const isBlock =
+        node.type === 'leafDirective' || node.type === 'containerDirective'
       if (!isInline && !isBlock) return
       if (node.name !== 'prediction') return
       const id = node.attributes?.id
@@ -143,15 +146,19 @@ export function remarkPredictionRef() {
     for (const { node, id, display } of targets) {
       const data = await loadPrediction(id)
       if (!data) {
-        // eslint-disable-next-line no-console
-        console.warn(`[remarkPredictionRef] prediction not found: ${id} (in ${file?.path || 'unknown'})`)
+        console.warn(
+          `[remarkPredictionRef] prediction not found: ${id} (in ${file?.path || 'unknown'})`
+        )
         node.type = 'html'
         node.value = renderMissingHtml(id, display)
         node.children = []
         continue
       }
       node.type = 'html'
-      node.value = display === 'block' ? renderBlockHtml(id, data) : renderInlineHtml(id, data)
+      node.value =
+        display === 'block'
+          ? renderBlockHtml(id, data)
+          : renderInlineHtml(id, data)
       node.children = []
     }
   }

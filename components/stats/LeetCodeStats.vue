@@ -3,79 +3,6 @@
   @description LeetCode coding challenge statistics
   @props stats: Object - LeetCode stats from API
 -->
-<script setup lang="ts">
-import { computed } from 'vue'
-import { format } from 'date-fns/format'
-import StatsSectionHeader from './StatsSectionHeader.vue'
-import AnimatedNumber from '../ui/AnimatedNumber.vue'
-import { formatNumber } from '~/composables/useNumberFormat'
-import type { StatsResponse } from '~/composables/useStats'
-
-type LeetCodeStats = NonNullable<StatsResponse['leetcode']>
-
-const props = defineProps<{
-  stats: LeetCodeStats
-}>()
-
-// Total problems solved
-const totalSolved = computed(() => {
-  if (!props.stats.submissionStats) return 0
-  return (
-    props.stats.submissionStats.easy.count +
-    props.stats.submissionStats.medium.count +
-    props.stats.submissionStats.hard.count
-  )
-})
-
-// Difficulty distribution
-const difficultyPercentages = computed(() => {
-  if (totalSolved.value === 0) return { easy: 33.3, medium: 33.3, hard: 33.3 }
-
-  return {
-    easy: (props.stats.submissionStats.easy.count / totalSolved.value) * 100,
-    medium:
-      (props.stats.submissionStats.medium.count / totalSolved.value) * 100,
-    hard: (props.stats.submissionStats.hard.count / totalSolved.value) * 100,
-  }
-})
-
-// Language statistics - top 3 only
-const topLanguages = computed(() => {
-  const stats: Record<string, number> = {}
-
-  props.stats.recentSubmissions
-    .filter((s) => s.statusDisplay === 'Accepted')
-    .forEach((submission) => {
-      const lang = submission.lang
-      stats[lang] = (stats[lang] || 0) + 1
-    })
-
-  return Object.entries(stats)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 3)
-    .map(([language, count]) => ({ language, count }))
-})
-
-const hasLanguageStats = computed(() => topLanguages.value.length > 0)
-
-// Recent submissions - top 3 only
-const recentAcceptedSubmissions = computed(() => {
-  return props.stats.recentSubmissions
-    .filter((s) => s.statusDisplay === 'Accepted')
-    .slice(0, 3)
-})
-
-// Format utilities
-const formatDateMinimal = (timestamp: string): string => {
-  const date = new Date(Number.parseInt(timestamp) * 1000)
-  return format(date, 'MM.dd')
-}
-
-const truncateTitle = (title: string): string => {
-  return title.length > 25 ? title.substring(0, 23) + '...' : title
-}
-</script>
-
 <template>
   <div class="font-mono">
     <!-- Main Stats -->
@@ -211,6 +138,79 @@ const truncateTitle = (title: string): string => {
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { computed } from 'vue'
+import { format } from 'date-fns/format'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
+import { formatNumber } from '~/composables/useNumberFormat'
+import type { StatsResponse } from '~/composables/useStats'
+
+type LeetCodeStats = NonNullable<StatsResponse['leetcode']>
+
+const props = defineProps<{
+  stats: LeetCodeStats
+}>()
+
+// Total problems solved
+const totalSolved = computed(() => {
+  if (!props.stats.submissionStats) return 0
+  return (
+    props.stats.submissionStats.easy.count +
+    props.stats.submissionStats.medium.count +
+    props.stats.submissionStats.hard.count
+  )
+})
+
+// Difficulty distribution
+const difficultyPercentages = computed(() => {
+  if (totalSolved.value === 0) return { easy: 33.3, medium: 33.3, hard: 33.3 }
+
+  return {
+    easy: (props.stats.submissionStats.easy.count / totalSolved.value) * 100,
+    medium:
+      (props.stats.submissionStats.medium.count / totalSolved.value) * 100,
+    hard: (props.stats.submissionStats.hard.count / totalSolved.value) * 100,
+  }
+})
+
+// Language statistics - top 3 only
+const topLanguages = computed(() => {
+  const stats: Record<string, number> = {}
+
+  props.stats.recentSubmissions
+    .filter((s) => s.statusDisplay === 'Accepted')
+    .forEach((submission) => {
+      const lang = submission.lang
+      stats[lang] = (stats[lang] || 0) + 1
+    })
+
+  return Object.entries(stats)
+    .sort((a, b) => b[1] - a[1])
+    .slice(0, 3)
+    .map(([language, count]) => ({ language, count }))
+})
+
+const hasLanguageStats = computed(() => topLanguages.value.length > 0)
+
+// Recent submissions - top 3 only
+const recentAcceptedSubmissions = computed(() => {
+  return props.stats.recentSubmissions
+    .filter((s) => s.statusDisplay === 'Accepted')
+    .slice(0, 3)
+})
+
+// Format utilities
+const formatDateMinimal = (timestamp: string): string => {
+  const date = new Date(Number.parseInt(timestamp) * 1000)
+  return format(date, 'MM.dd')
+}
+
+const truncateTitle = (title: string): string => {
+  return title.length > 25 ? title.substring(0, 23) + '...' : title
+}
+</script>
 
 <style scoped>
 .individual-stat-large {

@@ -24,7 +24,7 @@ export function project3D(x, y, z, width, height) {
  * to make the card look like it's angled in 3D.
  */
 export function perspectiveSkew(card, proj) {
-  const angle = (card.rotation || 0) * Math.PI / 180
+  const angle = ((card.rotation || 0) * Math.PI) / 180
   const tilt = card.z * 0.15 // deeper cards tilt more
   return {
     // Horizontal skew from rotation

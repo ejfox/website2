@@ -21,17 +21,26 @@ const CACHE_PATH = path.resolve(
 // ---------------------------------------------------------------------------
 
 const JUNK_ALT_PATTERNS = [
-  /^Screenshot/i, /^Screen Shot/i, /^Pasted image/i, /^IMG_/i, /^DSC/,
-  /^DJI_/, /^DSCF/, /^Photo /i, /^CleanShot/i, /^Untitled/i, /^image\d*/i,
-  /^[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}/,
-  /^[A-Za-z0-9_.-]+\.(png|jpe?g|gif|webp|svg|tiff?)$/i,
+  /^Screenshot/i,
+  /^Screen Shot/i,
+  /^Pasted image/i,
+  /^IMG_/i,
+  /^DSC/,
+  /^DJI_/,
+  /^DSCF/,
+  /^Photo /i,
+  /^CleanShot/i,
+  /^Untitled/i,
+  /^image\d*/i,
+  /^[A-F0-9]{8}-[A-F0-9]{4}/i,
+  /^[\w.-]+\.(png|jpe?g|gif|webp|svg|tiff?)$/i,
   /^\d{4}-\d{2}-\d{2}/,
-  /^https?:\/\//,  // URL used as alt text
+  /^https?:\/\//, // URL used as alt text
 ]
 
 function isJunkAlt(alt) {
   if (!alt || alt.trim().length === 0) return true
-  return JUNK_ALT_PATTERNS.some(p => p.test(alt.trim()))
+  return JUNK_ALT_PATTERNS.some((p) => p.test(alt.trim()))
 }
 
 // ---------------------------------------------------------------------------
@@ -53,7 +62,7 @@ function splayTransform(src) {
   const h = hashString(src)
   // Rotation: ±3°, biased away from zero so nothing sits perfectly square
   const rotRaw = ((h & 0xffff) / 0xffff) * 6 - 3
-  const rotation = (rotRaw >= 0 ? Math.max(rotRaw, 0.6) : Math.min(rotRaw, -0.6))
+  const rotation = rotRaw >= 0 ? Math.max(rotRaw, 0.6) : Math.min(rotRaw, -0.6)
   return {
     rotation: Number(rotation.toFixed(2)),
   }
@@ -133,7 +142,9 @@ function extractCloudinaryInfo(url) {
     cloudName,
     publicPath: parts.join('/'),
     // public_id without extension for admin API lookups
-    publicId: parts.join('/').replace(/\.(jpg|jpeg|png|gif|webp|svg|tiff?|bmp)$/i, ''),
+    publicId: parts
+      .join('/')
+      .replace(/\.(jpg|jpeg|png|gif|webp|svg|tiff?|bmp)$/i, ''),
   }
 }
 
@@ -373,7 +384,8 @@ export function remarkEnhanceImages() {
           const { rotation } = splayTransform(originalUrl)
           const splayStyle = `--splay-rot:${rotation}deg;`
           const currentStyle = node.data.hProperties.style || ''
-          const joiner = currentStyle && !currentStyle.trim().endsWith(';') ? ';' : ''
+          const joiner =
+            currentStyle && !currentStyle.trim().endsWith(';') ? ';' : ''
           node.data.hProperties.style = `${currentStyle}${joiner}${splayStyle}`
 
           const width = cloudMeta?.width || enhanced.width
@@ -399,7 +411,12 @@ export function remarkEnhanceImages() {
         // Wrap in <figure> + <figcaption> for semantic HTML
         // Only when we have meaningful alt text on a Cloudinary image
         // -----------------------------------------------------------------
-        if (!isJunkAlt(resolvedAlt) && enhanced !== originalUrl && parent && index !== undefined) {
+        if (
+          !isJunkAlt(resolvedAlt) &&
+          enhanced !== originalUrl &&
+          parent &&
+          index !== undefined
+        ) {
           // Create a figcaption node
           const figcaption = {
             type: 'html',
@@ -427,13 +444,27 @@ export function remarkEnhanceImages() {
           ) {
             const parentIndex = grandparent.children.indexOf(parent)
             if (parentIndex !== -1) {
-              grandparent.children.splice(parentIndex, 1, figure, node, figcaption, figureClose)
+              grandparent.children.splice(
+                parentIndex,
+                1,
+                figure,
+                node,
+                figcaption,
+                figureClose
+              )
               return
             }
           }
 
           // Replace the image node with figure > img + figcaption
-          parent.children.splice(index, 1, figure, node, figcaption, figureClose)
+          parent.children.splice(
+            index,
+            1,
+            figure,
+            node,
+            figcaption,
+            figureClose
+          )
         }
       })
     )

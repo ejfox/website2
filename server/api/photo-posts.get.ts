@@ -23,7 +23,10 @@ interface PhotoPost {
 const PROCESSED_DIR = path.join(process.cwd(), 'content/processed')
 const PREVIEW_IMAGES = 3 // enough for the stack pile
 
-function extractImageSrcs(html: string, limit: number): { srcs: string[]; total: number } {
+function extractImageSrcs(
+  html: string,
+  limit: number
+): { srcs: string[]; total: number } {
   if (!html) return { srcs: [], total: 0 }
   const seen = new Set<string>()
   const srcs: string[] = []
@@ -45,7 +48,13 @@ export default defineCachedEventHandler(
       const manifest = JSON.parse(await fs.readFile(manifestPath, 'utf-8'))
 
       const photoPosts = manifest.filter(
-        (p: any) => (p.type === 'photos' || p.type === 'photo') && !p.draft && !p.hidden && !p.unlisted && !p.password && !p.passwordHash
+        (p: any) =>
+          (p.type === 'photos' || p.type === 'photo') &&
+          !p.draft &&
+          !p.hidden &&
+          !p.unlisted &&
+          !p.password &&
+          !p.passwordHash
       )
 
       const results: PhotoPost[] = []

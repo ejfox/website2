@@ -4,48 +4,6 @@
   @props project: Object - Project with html, metadata (date, github), activity data
   @props index: number - Card index for stagger animation
 -->
-<script setup>
-const props = defineProps({
-  project: {
-    type: Object,
-    required: true,
-  },
-  index: {
-    type: Number,
-    required: true,
-  },
-})
-
-const { formatYearOnly } = useDateFormat()
-
-const formatDate = formatYearOnly
-
-const projectSlug = computed(
-  () => props.project.slug?.replace(/^projects\//, '') || ''
-)
-
-const _projectTitle = computed(
-  () => props.project.title || props.project.metadata?.title || ''
-)
-
-// Generate mock activity data based on project metadata
-// In a real app, this could come from GitHub API (commits, stars, etc.)
-const projectActivity = computed(() => {
-  if (!props.project.metadata?.date) return []
-
-  // Generate 6 months of mock activity data
-  const months = 6
-  const activity = []
-  for (let i = 0; i < months; i++) {
-    // Simulate activity with randomness,
-    // weighted toward recent activity
-    const recentBoost = i < 2 ? 2 : 1
-    activity.push(Math.floor(Math.random() * 8 * recentBoost) + 1)
-  }
-  return activity
-})
-</script>
-
 <template>
   <article
     :id="projectSlug"
@@ -103,6 +61,48 @@ const projectActivity = computed(() => {
     </div>
   </article>
 </template>
+
+<script setup>
+const { formatYearOnly } = useDateFormat()
+
+const props = defineProps({
+  project: {
+    type: Object,
+    required: true,
+  },
+  index: {
+    type: Number,
+    required: true,
+  },
+})
+
+const formatDate = formatYearOnly
+
+const projectSlug = computed(
+  () => props.project.slug?.replace(/^projects\//, '') || ''
+)
+
+const _projectTitle = computed(
+  () => props.project.title || props.project.metadata?.title || ''
+)
+
+// Generate mock activity data based on project metadata
+// In a real app, this could come from GitHub API (commits, stars, etc.)
+const projectActivity = computed(() => {
+  if (!props.project.metadata?.date) return []
+
+  // Generate 6 months of mock activity data
+  const months = 6
+  const activity = []
+  for (let i = 0; i < months; i++) {
+    // Simulate activity with randomness,
+    // weighted toward recent activity
+    const recentBoost = i < 2 ? 2 : 1
+    activity.push(Math.floor(Math.random() * 8 * recentBoost) + 1)
+  }
+  return activity
+})
+</script>
 
 <style scoped>
 /* Mobile active state (already defined in global.css) */

@@ -4,48 +4,10 @@
   @props name: string - Repository name
   @props description: string - Repository description (optional)
   @props language: string - Primary language (default: 'Unknown')
-  @props languageColor: string - Primary language color (optional)
   @props stars: number - Star count (default: 0)
   @props forks: number - Fork count (default: 0)
   @props repo: Repo - Full repository object with languages, stats (optional)
 -->
-<script setup lang="ts">
-interface Repo {
-  name: string
-  description?: string
-  language?: string
-  languageColor?: string
-  languages?: Record<string, number>
-  diskUsage?: number
-  stats: {
-    stars: number
-    forks: number
-    watchers: number
-    openIssues: number
-  }
-  pushedAt: string
-}
-
-interface Props {
-  name: string
-  description?: string
-  language?: string
-  languageColor?: string
-  stars?: number
-  forks?: number
-  repo?: Repo
-}
-
-withDefaults(defineProps<Props>(), {
-  description: '',
-  language: 'Unknown',
-  languageColor: '#666666',
-  stars: 0,
-  forks: 0,
-  repo: undefined,
-})
-</script>
-
 <template>
   <NuxtLink :to="`/github/${name}`" class="repo-card group block">
     <article>
@@ -53,6 +15,20 @@ withDefaults(defineProps<Props>(), {
       <div class="title-row">
         <h3 class="repo-title">{{ name }}</h3>
         <span v-if="language" class="language-label">{{ language }}</span>
+        <svg
+          v-if="hasNetwork"
+          class="network-glyph"
+          viewBox="0 0 12 12"
+          aria-label="Function-call graph available"
+        >
+          <title>Function-call graph available</title>
+          <circle cx="2.5" cy="2.5" r="1.4" />
+          <circle cx="9.5" cy="3" r="1.4" />
+          <circle cx="6" cy="9" r="1.4" />
+          <line x1="2.5" y1="2.5" x2="9.5" y2="3" stroke-width="0.7" />
+          <line x1="2.5" y1="2.5" x2="6" y2="9" stroke-width="0.7" />
+          <line x1="9.5" y1="3" x2="6" y2="9" stroke-width="0.7" />
+        </svg>
       </div>
 
       <!-- Description -->
@@ -61,7 +37,7 @@ withDefaults(defineProps<Props>(), {
       </p>
 
       <!-- Language bar - Tuftian micro-viz -->
-      <LanguageBar
+      <GithubLanguageBar
         v-if="repo?.languages && Object.keys(repo.languages).length > 0"
         :languages="repo.languages"
         :height="3"
@@ -79,6 +55,42 @@ withDefaults(defineProps<Props>(), {
     </article>
   </NuxtLink>
 </template>
+
+<script setup lang="ts">
+interface Repo {
+  name: string
+  description?: string
+  language?: string
+  languages?: Record<string, number>
+  diskUsage?: number
+  stats: {
+    stars: number
+    forks: number
+    watchers: number
+    openIssues: number
+  }
+  pushedAt: string
+}
+
+interface Props {
+  name: string
+  description?: string
+  language?: string
+  stars?: number
+  forks?: number
+  hasNetwork?: boolean
+  repo?: Repo
+}
+
+withDefaults(defineProps<Props>(), {
+  description: '',
+  language: 'Unknown',
+  stars: 0,
+  forks: 0,
+  hasNetwork: false,
+  repo: undefined,
+})
+</script>
 
 <style scoped>
 /* Magazine-style stacked list - pure typography, no backgrounds */
@@ -109,6 +121,17 @@ withDefaults(defineProps<Props>(), {
   @apply font-mono text-xs uppercase tracking-wider;
   @apply text-zinc-500 dark:text-zinc-500;
   letter-spacing: 0.1em;
+}
+
+.network-glyph {
+  @apply w-3 h-3 text-zinc-400 dark:text-zinc-500;
+  fill: currentColor;
+  stroke: currentColor;
+  stroke-opacity: 0.6;
+}
+
+.repo-card:hover .network-glyph {
+  @apply text-zinc-900 dark:text-zinc-100;
 }
 
 .repo-description {

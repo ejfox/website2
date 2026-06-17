@@ -33,27 +33,28 @@ export async function useCrownedPost(options: CrownedPostOptions) {
 
   // --- Color palette (pure computation, no async, no chroma-js) ---
   const palette = {
-    accent:      hclToHsl(hue, 40, 60),
-    accentDim:   hclToHsl(hue, 25, 40),
-    accentGlow:  hclToHsl(hue, 50, 70),
+    accent: hclToHsl(hue, 40, 60),
+    accentDim: hclToHsl(hue, 25, 40),
+    accentGlow: hclToHsl(hue, 50, 70),
     accentFaint: hclToHslAlpha(hue, 15, 30, 0.15),
-    warm:        hclToHsl(hue + 40, 30, 55),
-    cool:        hclToHsl(hue - 30, 25, 50),
-    eerie:       hclToHsl(hue - 60, 35, 45),
-    bg:          '#050508',
-    surface:     hclToHsl(hue, 5, 12),
-    surfaceHi:   hclToHsl(hue, 8, 18),
-    text:        hclToHsl(hue, 8, 78),
-    textDim:     hclToHsl(hue, 6, 58),
-    textMuted:   hclToHsl(hue, 4, 40),
+    warm: hclToHsl(hue + 40, 30, 55),
+    cool: hclToHsl(hue - 30, 25, 50),
+    eerie: hclToHsl(hue - 60, 35, 45),
+    bg: '#050508',
+    surface: hclToHsl(hue, 5, 12),
+    surfaceHi: hclToHsl(hue, 8, 18),
+    text: hclToHsl(hue, 8, 78),
+    textDim: hclToHsl(hue, 6, 58),
+    textMuted: hclToHsl(hue, 4, 40),
   }
 
   // --- Layout takeover (must call useHead before await) ---
   useHead({
     htmlAttrs: { lang: 'en' },
     bodyAttrs: { class: bodyClass },
-    style: [{
-      innerHTML: `:root {
+    style: [
+      {
+        innerHTML: `:root {
         --pt-accent: ${palette.accent};
         --pt-accent-dim: ${palette.accentDim};
         --pt-accent-glow: ${palette.accentGlow};
@@ -67,19 +68,22 @@ export async function useCrownedPost(options: CrownedPostOptions) {
         --pt-text: ${palette.text};
         --pt-text-dim: ${palette.textDim};
         --pt-text-muted: ${palette.textMuted};
-      }`
-    }],
+      }`,
+      },
+    ],
   })
 
   // --- Data fetching (await calls) ---
-  const { data: post } = await useAsyncData(
-    `post-${cacheKey}`,
-    () => $fetch(`/api/posts/${slug}`)
+  const { data: post } = await useAsyncData(`post-${cacheKey}`, () =>
+    $fetch(`/api/posts/${slug}`)
   )
 
   const { data: nextPrevPosts } = await useAsyncData(
     `next-prev-${cacheKey}`,
-    () => processedMarkdown.getNextPrevPosts(slug).catch(() => ({ next: null, prev: null }))
+    () =>
+      processedMarkdown
+        .getNextPrevPosts(slug)
+        .catch(() => ({ next: null, prev: null }))
   )
 
   const { data: allPosts } = await useAsyncData(
@@ -90,26 +94,40 @@ export async function useCrownedPost(options: CrownedPostOptions) {
   // --- Computed metadata (after data is available) ---
   const { stats: readingStats } = useReadingStats(post)
 
-  const postTitle = computed(() =>
-    post.value?.metadata?.title || post.value?.title || fallbackTitle || slug.split('/').pop()?.replace(/-/g, ' ') || ''
+  const postTitle = computed(
+    () =>
+      post.value?.metadata?.title ||
+      post.value?.title ||
+      fallbackTitle ||
+      slug.split('/').pop()?.replace(/-/g, ' ') ||
+      ''
   )
 
-  const { renderedHtml: renderedTitle, startAnimation } = useTypingAnimation(postTitle)
+  const { renderedHtml: renderedTitle, startAnimation } =
+    useTypingAnimation(postTitle)
 
   const postUrl = computed(() => `${baseURL}/blog/${slug}`)
 
   const postDescription = computed(() => {
     const dek = post.value?.metadata?.dek || post.value?.dek
     if (dek) return dek
-    const text = (post.value?.html || '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim()
+    const text = (post.value?.html || '')
+      .replace(/<[^>]*>/g, '')
+      .replace(/\s+/g, ' ')
+      .trim()
     return text.length > 160 ? text.substring(0, 157) + '...' : text
   })
 
-  const heroImage = computed(() =>
-    post.value?.metadata?.image || post.value?.metadata?.ogImage || `${baseURL}/og-image.png`
+  const heroImage = computed(
+    () =>
+      post.value?.metadata?.image ||
+      post.value?.metadata?.ogImage ||
+      `${baseURL}/og-image.png`
   )
 
-  const articleTags = computed(() => post.value?.metadata?.tags || post.value?.tags || [])
+  const articleTags = computed(
+    () => post.value?.metadata?.tags || post.value?.tags || []
+  )
 
   const relatedPosts = computed(() => {
     if (!allPosts.value || !post.value) return []
@@ -118,11 +136,19 @@ export async function useCrownedPost(options: CrownedPostOptions) {
     return allPosts.value
       .filter((p: any) => {
         const pSlug = p.slug || p.metadata?.slug
-        return pSlug !== slug && !p.draft && !p.metadata?.draft && !p.hidden && !p.metadata?.hidden
+        return (
+          pSlug !== slug &&
+          !p.draft &&
+          !p.metadata?.draft &&
+          !p.hidden &&
+          !p.metadata?.hidden
+        )
       })
       .map((p: any) => {
         const tags = p.metadata?.tags || p.tags || []
-        const overlappingTags = tags.filter((t: string) => currentTags.includes(t))
+        const overlappingTags = tags.filter((t: string) =>
+          currentTags.includes(t)
+        )
         return { post: p, score: overlappingTags.length, overlappingTags }
       })
       .filter((item: any) => item.score > 0)
@@ -140,9 +166,19 @@ export async function useCrownedPost(options: CrownedPostOptions) {
   })
 
   return {
-    post, nextPrevPosts, relatedPosts, readingStats,
-    postTitle, postUrl, postDescription, heroImage, articleTags,
-    renderedTitle, startAnimation,
-    palette, hue, baseURL,
+    post,
+    nextPrevPosts,
+    relatedPosts,
+    readingStats,
+    postTitle,
+    postUrl,
+    postDescription,
+    heroImage,
+    articleTags,
+    renderedTitle,
+    startAnimation,
+    palette,
+    hue,
+    baseURL,
   }
 }

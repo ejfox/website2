@@ -28,12 +28,47 @@ export function layoutCards(slug, content) {
   // Each surface has a base z-depth and x-range.
 
   const WALLS = {
-    backCenter: { xMin: -200, xMax: 200, yMin: -120, yMax: 120, z: 0.8, zSpread: 0.4 },
-    left:       { xMin: -700, xMax: -300, yMin: -180, yMax: 180, z: 0.5, zSpread: 0.6 },
-    right:      { xMin: 300, xMax: 700, yMin: -180, yMax: 180, z: 0.5, zSpread: 0.6 },
-    floor:      { xMin: -500, xMax: 500, yMin: 150, yMax: 350, z: 0.6, zSpread: 0.8 },
-    ceiling:    { xMin: -400, xMax: 400, yMin: -350, yMax: -180, z: 1.0, zSpread: 0.5 },
-    far:        { xMin: -600, xMax: 600, yMin: -250, yMax: 250, z: 1.8, zSpread: 0.8 },
+    backCenter: {
+      xMin: -200,
+      xMax: 200,
+      yMin: -120,
+      yMax: 120,
+      z: 0.8,
+      zSpread: 0.4,
+    },
+    left: {
+      xMin: -700,
+      xMax: -300,
+      yMin: -180,
+      yMax: 180,
+      z: 0.5,
+      zSpread: 0.6,
+    },
+    right: {
+      xMin: 300,
+      xMax: 700,
+      yMin: -180,
+      yMax: 180,
+      z: 0.5,
+      zSpread: 0.6,
+    },
+    floor: {
+      xMin: -500,
+      xMax: 500,
+      yMin: 150,
+      yMax: 350,
+      z: 0.6,
+      zSpread: 0.8,
+    },
+    ceiling: {
+      xMin: -400,
+      xMax: 400,
+      yMin: -350,
+      yMax: -180,
+      z: 1.0,
+      zSpread: 0.5,
+    },
+    far: { xMin: -600, xMax: 600, yMin: -250, yMax: 250, z: 1.8, zSpread: 0.8 },
   }
 
   const wallNames = Object.keys(WALLS)

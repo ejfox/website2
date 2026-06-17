@@ -19,23 +19,37 @@ const AI_TITLE_PREFIXES = [
 function cleanTitle(title: string | null, url: string | null): string {
   if (!title) {
     if (!url) return ''
-    try { return new URL(url).hostname.replace(/^www\./, '') } catch { return '' }
+    try {
+      return new URL(url).hostname.replace(/^www\./, '')
+    } catch {
+      return ''
+    }
   }
 
   // If the title looks like an AI summary, fall back to hostname
   const isAiTitle = AI_TITLE_PREFIXES.some((p) => title.startsWith(p))
   if (isAiTitle && url) {
-    try { return new URL(url).hostname.replace(/^www\./, '') } catch { /* */ }
+    try {
+      return new URL(url).hostname.replace(/^www\./, '')
+    } catch {
+      /* */
+    }
   }
 
   return title
 }
 
 export default defineEventHandler(async (event) => {
-  const { tags, limit = '8' } = getQuery(event) as { tags?: string; limit?: string }
+  const { tags, limit = '8' } = getQuery(event) as {
+    tags?: string
+    limit?: string
+  }
   if (!tags) return []
 
-  const tagList = tags.split(',').map((t) => t.trim()).filter(Boolean)
+  const tagList = tags
+    .split(',')
+    .map((t) => t.trim())
+    .filter(Boolean)
   if (!tagList.length) return []
 
   const config = useRuntimeConfig()
@@ -58,7 +72,7 @@ export default defineEventHandler(async (event) => {
     }
 
     const tagSet = new Set(tagList)
-    const maxResults = parseInt(limit) || 8
+    const maxResults = Number.parseInt(limit) || 8
     const matched = (data || [])
       .filter((s) => {
         // Must have at least a title or URL to be displayable
@@ -71,7 +85,11 @@ export default defineEventHandler(async (event) => {
     return matched.map((s) => {
       let hostname = ''
       if (s.url) {
-        try { hostname = new URL(s.url).hostname.replace(/^www\./, '') } catch { /* */ }
+        try {
+          hostname = new URL(s.url).hostname.replace(/^www\./, '')
+        } catch {
+          /* */
+        }
       }
       return {
         title: cleanTitle(s.title, s.url),

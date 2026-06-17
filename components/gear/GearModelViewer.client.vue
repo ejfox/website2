@@ -1,3 +1,22 @@
+<template>
+  <div ref="container" class="viewer" :style="{ height }">
+    <canvas ref="canvas" class="canvas" />
+    <div
+      v-if="status !== 'ready'"
+      class="overlay"
+      role="status"
+      aria-live="polite"
+    >
+      <div
+        v-if="status === 'loading'"
+        class="spinner"
+        aria-label="Loading 3D model"
+      />
+      <span v-else class="error-label">3D UNAVAILABLE</span>
+    </div>
+  </div>
+</template>
+
 <script setup>
 import { useElementSize } from '@vueuse/core'
 import * as THREE from 'three'
@@ -102,25 +121,6 @@ onBeforeUnmount(() => {
   renderer?.dispose()
 })
 </script>
-
-<template>
-  <div ref="container" class="viewer" :style="{ height }">
-    <canvas ref="canvas" class="canvas" />
-    <div
-      v-if="status !== 'ready'"
-      class="overlay"
-      role="status"
-      aria-live="polite"
-    >
-      <div
-        v-if="status === 'loading'"
-        class="spinner"
-        aria-label="Loading 3D model"
-      />
-      <span v-else class="error-label">3D UNAVAILABLE</span>
-    </div>
-  </div>
-</template>
 
 <style scoped>
 .viewer {

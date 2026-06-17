@@ -4,6 +4,119 @@
   @props item: Object - Gear item with Name, Type, Waterproof, Weight_oz, amazon, Purchase Date, Notes
   @props createViz: Function - Optional visualization creation function
 -->
+<template>
+  <div
+    class="gear-row"
+    role="button"
+    tabindex="0"
+    :aria-label="`${item.Name} - View details`"
+    @click="navigateToItem"
+    @keydown.enter="navigateToItem"
+    @keydown.space="navigateToItem"
+  >
+    <!-- Tabular layout like a spreadsheet row -->
+    <div :class="rowGridClasses">
+      <!-- Item Name - Primary content, highest contrast -->
+      <div class="col-span-7 truncate">
+        <div class="flex items-center gap-2">
+          <div class="inline-flex">
+            <span
+              v-tooltip="item.Notes || null"
+              class="text-zinc-950 dark:text-zinc-50 font-medium tracking-tight"
+            >
+              {{ item.Name }}
+            </span>
+          </div>
+
+          <!-- Inline buy link -->
+          <a
+            v-if="item.amazon"
+            :href="amazonAffiliateUrl"
+            target="_blank"
+            rel="nofollow noopener"
+            class="gear-link"
+          >
+            buy
+          </a>
+
+          <!-- Age indicator - patina system -->
+          <div v-if="item['Purchase Date']" :class="ageIndicatorClasses">
+            <span
+              v-if="itemAge < 365"
+              v-tooltip="'New — less than 1 year old'"
+              class="text-xs text-zinc-400 dark:text-zinc-600"
+            >
+              ✦
+            </span>
+            <span
+              v-else-if="itemAge < 730"
+              v-tooltip="'Broken in — 1-2 years old'"
+              class="text-xs text-zinc-500 dark:text-zinc-500"
+            >
+              ✧
+            </span>
+            <span
+              v-else-if="itemAge < 1095"
+              v-tooltip="'Seasoned — 2-3 years old'"
+              class="text-xs text-zinc-600 dark:text-zinc-400"
+            >
+              ◈
+            </span>
+            <span
+              v-else-if="itemAge < 1825"
+              v-tooltip="'Weathered — 3-5 years old'"
+              class="text-xs text-zinc-700 dark:text-zinc-300"
+            >
+              ◇
+            </span>
+            <span
+              v-else
+              v-tooltip="'Veteran — 5+ years of service'"
+              class="text-xs text-zinc-800 dark:text-zinc-200"
+            >
+              ◆
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Type - Secondary info -->
+      <div class="gear-type-cell">
+        <span
+          v-tooltip="item.Type"
+          class="group-hover/type:hidden cursor-default"
+        >
+          {{ getTypeSymbol(item.Type) }}
+        </span>
+        <span :class="typeHoverClasses">{{ item.Type || '—' }}</span>
+      </div>
+
+      <!-- Waterproof - Secondary data -->
+      <div :class="waterproofClasses">
+        {{ item.Waterproof || '—' }}
+      </div>
+
+      <!-- Weight - Primary data with mini viz -->
+      <div class="col-span-1 text-right">
+        <div
+          v-if="baseWeight > 0"
+          class="flex items-center justify-end gap-0.5"
+        >
+          <!-- Mini weight indicator -->
+          <div
+            :class="weightIndicatorClasses"
+            :style="{
+              height: `${Math.max(2, Math.min(12, weightInGrams / 100))}px`,
+            }"
+          ></div>
+          <span :class="weightTextClasses">{{ weightInGrams }}g</span>
+        </div>
+        <span v-else class="text-zinc-300 dark:text-zinc-700">—</span>
+      </div>
+    </div>
+  </div>
+</template>
+
 <script setup>
 const props = defineProps({
   item: {
@@ -142,119 +255,6 @@ const itemAge = computed(() => {
   return diffDays
 })
 </script>
-
-<template>
-  <div
-    class="gear-row"
-    role="button"
-    tabindex="0"
-    :aria-label="`${item.Name} - View details`"
-    @click="navigateToItem"
-    @keydown.enter="navigateToItem"
-    @keydown.space="navigateToItem"
-  >
-    <!-- Tabular layout like a spreadsheet row -->
-    <div :class="rowGridClasses">
-      <!-- Item Name - Primary content, highest contrast -->
-      <div class="col-span-7 truncate">
-        <div class="flex items-center gap-2">
-          <div class="inline-flex">
-            <span
-              v-tooltip="item.Notes || null"
-              class="text-zinc-950 dark:text-zinc-50 font-medium tracking-tight"
-            >
-              {{ item.Name }}
-            </span>
-          </div>
-
-          <!-- Inline buy link -->
-          <a
-            v-if="item.amazon"
-            :href="amazonAffiliateUrl"
-            target="_blank"
-            rel="nofollow noopener"
-            class="gear-link"
-          >
-            buy
-          </a>
-
-          <!-- Age indicator - patina system -->
-          <div v-if="item['Purchase Date']" :class="ageIndicatorClasses">
-            <span
-              v-if="itemAge < 365"
-              v-tooltip="'New — less than 1 year old'"
-              class="text-xs text-zinc-400 dark:text-zinc-600"
-            >
-              ✦
-            </span>
-            <span
-              v-else-if="itemAge < 730"
-              v-tooltip="'Broken in — 1-2 years old'"
-              class="text-xs text-zinc-500 dark:text-zinc-500"
-            >
-              ✧
-            </span>
-            <span
-              v-else-if="itemAge < 1095"
-              v-tooltip="'Seasoned — 2-3 years old'"
-              class="text-xs text-zinc-600 dark:text-zinc-400"
-            >
-              ◈
-            </span>
-            <span
-              v-else-if="itemAge < 1825"
-              v-tooltip="'Weathered — 3-5 years old'"
-              class="text-xs text-zinc-700 dark:text-zinc-300"
-            >
-              ◇
-            </span>
-            <span
-              v-else
-              v-tooltip="'Veteran — 5+ years of service'"
-              class="text-xs text-zinc-800 dark:text-zinc-200"
-            >
-              ◆
-            </span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Type - Secondary info -->
-      <div class="gear-type-cell">
-        <span
-          v-tooltip="item.Type"
-          class="group-hover/type:hidden cursor-default"
-        >
-          {{ getTypeSymbol(item.Type) }}
-        </span>
-        <span :class="typeHoverClasses">{{ item.Type || '—' }}</span>
-      </div>
-
-      <!-- Waterproof - Secondary data -->
-      <div :class="waterproofClasses">
-        {{ item.Waterproof || '—' }}
-      </div>
-
-      <!-- Weight - Primary data with mini viz -->
-      <div class="col-span-1 text-right">
-        <div
-          v-if="baseWeight > 0"
-          class="flex items-center justify-end gap-0.5"
-        >
-          <!-- Mini weight indicator -->
-          <div
-            :class="weightIndicatorClasses"
-            :style="{
-              height: `${Math.max(2, Math.min(12, weightInGrams / 100))}px`,
-            }"
-          ></div>
-          <span :class="weightTextClasses">{{ weightInGrams }}g</span>
-        </div>
-        <span v-else class="text-zinc-300 dark:text-zinc-700">—</span>
-      </div>
-    </div>
-  </div>
-</template>
 
 <style>
 ruby {

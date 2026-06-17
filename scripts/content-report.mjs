@@ -36,17 +36,26 @@ const QUICK = args.includes('--quick')
 // Junk alt patterns (shared with generate-alt-text.mjs)
 // ---------------------------------------------------------------------------
 const JUNK_ALT_PATTERNS = [
-  /^Screenshot/i, /^Screen Shot/i, /^Pasted image/i, /^IMG_/i, /^DSC/,
-  /^DJI_/, /^DSCF/, /^Photo /i, /^CleanShot/i, /^Untitled/i, /^image\d*/i,
-  /^[A-Fa-f0-9]{8}-[A-Fa-f0-9]{4}/,
-  /^[A-Za-z0-9_.-]+\.(png|jpe?g|gif|webp|svg|tiff?)$/i,
+  /^Screenshot/i,
+  /^Screen Shot/i,
+  /^Pasted image/i,
+  /^IMG_/i,
+  /^DSC/,
+  /^DJI_/,
+  /^DSCF/,
+  /^Photo /i,
+  /^CleanShot/i,
+  /^Untitled/i,
+  /^image\d*/i,
+  /^[A-F0-9]{8}-[A-F0-9]{4}/i,
+  /^[\w.-]+\.(png|jpe?g|gif|webp|svg|tiff?)$/i,
   /^\d{4}-\d{2}-\d{2}/,
   /^https?:\/\//,
 ]
 
 function isJunkAlt(alt) {
   if (!alt || alt.trim().length === 0) return true
-  return JUNK_ALT_PATTERNS.some(p => p.test(alt.trim()))
+  return JUNK_ALT_PATTERNS.some((p) => p.test(alt.trim()))
 }
 
 // ---------------------------------------------------------------------------
@@ -81,13 +90,30 @@ function auditFile(filePath, content, cloudCache) {
 
   const issues = []
   const images = []
-  const stats = { images: 0, imagesGood: 0, imagesJunk: 0, imagesEmpty: 0, imagesBroken: 0, links: 0, linksExternal: 0, words: 0 }
+  const stats = {
+    images: 0,
+    imagesGood: 0,
+    imagesJunk: 0,
+    imagesEmpty: 0,
+    imagesBroken: 0,
+    links: 0,
+    linksExternal: 0,
+    words: 0,
+  }
 
   // --- Frontmatter ---
-  if (!fm.date) issues.push({ type: 'frontmatter', severity: 'warn', msg: 'No date' })
-  if (!fm.tags || fm.tags.length === 0) issues.push({ type: 'frontmatter', severity: 'info', msg: 'No tags' })
-  if (!fm.dek && !fm.draft) issues.push({ type: 'frontmatter', severity: 'info', msg: 'No dek/subtitle' })
-  if (fm.draft) issues.push({ type: 'frontmatter', severity: 'info', msg: 'Draft' })
+  if (!fm.date)
+    issues.push({ type: 'frontmatter', severity: 'warn', msg: 'No date' })
+  if (!fm.tags || fm.tags.length === 0)
+    issues.push({ type: 'frontmatter', severity: 'info', msg: 'No tags' })
+  if (!fm.dek && !fm.draft)
+    issues.push({
+      type: 'frontmatter',
+      severity: 'info',
+      msg: 'No dek/subtitle',
+    })
+  if (fm.draft)
+    issues.push({ type: 'frontmatter', severity: 'info', msg: 'Draft' })
 
   // --- Images ---
   for (const m of body.matchAll(IMAGE_RE)) {
@@ -104,11 +130,21 @@ function auditFile(filePath, content, cloudCache) {
     } else if (!alt) {
       quality = 'empty'
       stats.imagesEmpty++
-      issues.push({ type: 'alt', severity: 'error', msg: `Empty alt text`, url: url.slice(0, 80) })
+      issues.push({
+        type: 'alt',
+        severity: 'error',
+        msg: `Empty alt text`,
+        url: url.slice(0, 80),
+      })
     } else if (isJunkAlt(alt)) {
       quality = 'junk'
       stats.imagesJunk++
-      issues.push({ type: 'alt', severity: 'warn', msg: `Junk alt: "${alt.slice(0, 40)}"`, url: url.slice(0, 80) })
+      issues.push({
+        type: 'alt',
+        severity: 'warn',
+        msg: `Junk alt: "${alt.slice(0, 40)}"`,
+        url: url.slice(0, 80),
+      })
     } else {
       stats.imagesGood++
     }
@@ -118,15 +154,26 @@ function auditFile(filePath, content, cloudCache) {
     if (url.includes('cloudinary') && url.includes('/image/upload/')) {
       const u = url.replace(/^http:\/\//i, 'https://')
       const parts = u.split('/upload/')
-      if (parts.length === 2) thumb = `${parts[0]}/upload/c_fill,w_160,h_112,f_auto,q_auto/${parts[1]}`
+      if (parts.length === 2)
+        thumb = `${parts[0]}/upload/c_fill,w_160,h_112,f_auto,q_auto/${parts[1]}`
     }
 
-    images.push({ url: url.slice(0, 200), alt: alt || '', quality, thumb, isVideo })
+    images.push({
+      url: url.slice(0, 200),
+      alt: alt || '',
+      quality,
+      thumb,
+      isVideo,
+    })
 
     // Check for local/broken refs
     if (!url.startsWith('http') && !url.startsWith('//')) {
       stats.imagesBroken++
-      issues.push({ type: 'image', severity: 'error', msg: `Local image ref: ${url.slice(0, 60)}` })
+      issues.push({
+        type: 'image',
+        severity: 'error',
+        msg: `Local image ref: ${url.slice(0, 60)}`,
+      })
     }
 
     // Check if Cloudinary image has cached metadata
@@ -134,7 +181,11 @@ function auditFile(filePath, content, cloudCache) {
       const normalized = url.replace(/^http:\/\//i, 'https://')
       const entry = cloudCache[normalized]
       if (entry && !entry.alt && !isJunkAlt(alt) && alt) {
-        issues.push({ type: 'sync', severity: 'info', msg: 'Alt not synced to Cloudinary cache' })
+        issues.push({
+          type: 'sync',
+          severity: 'info',
+          msg: 'Alt not synced to Cloudinary cache',
+        })
       }
     }
   }
@@ -145,19 +196,27 @@ function auditFile(filePath, content, cloudCache) {
     stats.links++
     if (url.startsWith('http')) stats.linksExternal++
     if (url === '' || url === '#' || url.includes('undefined')) {
-      issues.push({ type: 'link', severity: 'error', msg: `Broken link: ${url || '(empty)'}` })
+      issues.push({
+        type: 'link',
+        severity: 'error',
+        msg: `Broken link: ${url || '(empty)'}`,
+      })
     }
   }
 
   // --- Content quality ---
   stats.words = body.split(/\s+/).filter(Boolean).length
   if (stats.words < 50 && !fm.draft && !fm.hidden) {
-    issues.push({ type: 'content', severity: 'info', msg: `Very short (${stats.words} words)` })
+    issues.push({
+      type: 'content',
+      severity: 'info',
+      msg: `Very short (${stats.words} words)`,
+    })
   }
 
   // --- Compute grade ---
-  const errors = issues.filter(i => i.severity === 'error').length
-  const warns = issues.filter(i => i.severity === 'warn').length
+  const errors = issues.filter((i) => i.severity === 'error').length
+  const warns = issues.filter((i) => i.severity === 'warn').length
   let grade = 'A'
   if (errors > 0) grade = 'F'
   else if (warns > 3) grade = 'D'
@@ -165,11 +224,30 @@ function auditFile(filePath, content, cloudCache) {
   else if (warns > 0) grade = 'B'
 
   // Boost for completeness
-  if (grade === 'A' && fm.tags?.length > 0 && fm.dek && fm.date && stats.images > 0 && stats.imagesGood === stats.images) {
+  if (
+    grade === 'A' &&
+    fm.tags?.length > 0 &&
+    fm.dek &&
+    fm.date &&
+    stats.images > 0 &&
+    stats.imagesGood === stats.images
+  ) {
     grade = 'A+'
   }
 
-  return { file: relPath, grade, issues, images, stats, frontmatter: { date: fm.date, tags: fm.tags, draft: !!fm.draft, hidden: !!fm.hidden } }
+  return {
+    file: relPath,
+    grade,
+    issues,
+    images,
+    stats,
+    frontmatter: {
+      date: fm.date,
+      tags: fm.tags,
+      draft: !!fm.draft,
+      hidden: !!fm.hidden,
+    },
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -180,7 +258,9 @@ async function main() {
 
   const files = await walk(CONTENT_DIR)
   let cloudCache = {}
-  try { cloudCache = JSON.parse(await fs.readFile(CACHE_PATH, 'utf8')) } catch {}
+  try {
+    cloudCache = JSON.parse(await fs.readFile(CACHE_PATH, 'utf8'))
+  } catch {}
 
   const reports = []
   for (const f of files) {
@@ -190,8 +270,14 @@ async function main() {
 
   // --- Aggregate ---
   const grades = { 'A+': 0, A: 0, B: 0, C: 0, D: 0, F: 0 }
-  let totalImages = 0, goodAlt = 0, junkAlt = 0, emptyAlt = 0, brokenImages = 0
-  let totalIssues = 0, totalErrors = 0, totalWarns = 0
+  let totalImages = 0,
+    goodAlt = 0,
+    junkAlt = 0,
+    emptyAlt = 0,
+    brokenImages = 0
+  let totalIssues = 0,
+    totalErrors = 0,
+    totalWarns = 0
   const issuesByType = {}
 
   for (const r of reports) {
@@ -209,17 +295,34 @@ async function main() {
     }
   }
 
-  const altCoverage = totalImages > 0 ? ((goodAlt / totalImages) * 100).toFixed(1) : '0'
-  const overallGrade = totalErrors > 10 ? 'D' : totalErrors > 0 ? 'C' : totalWarns > 20 ? 'B' : 'A'
+  const altCoverage =
+    totalImages > 0 ? ((goodAlt / totalImages) * 100).toFixed(1) : '0'
+  const overallGrade =
+    totalErrors > 10 ? 'D' : totalErrors > 0 ? 'C' : totalWarns > 20 ? 'B' : 'A'
 
   const summary = {
     generated: new Date().toISOString(),
     overallGrade,
     posts: reports.length,
     grades,
-    images: { total: totalImages, goodAlt, junkAlt, emptyAlt, broken: brokenImages, altCoverage: `${altCoverage}%` },
-    issues: { total: totalIssues, errors: totalErrors, warnings: totalWarns, byType: issuesByType },
-    cloudinaryCache: { entries: Object.keys(cloudCache).length, withAlt: Object.values(cloudCache).filter(v => v.alt).length },
+    images: {
+      total: totalImages,
+      goodAlt,
+      junkAlt,
+      emptyAlt,
+      broken: brokenImages,
+      altCoverage: `${altCoverage}%`,
+    },
+    issues: {
+      total: totalIssues,
+      errors: totalErrors,
+      warnings: totalWarns,
+      byType: issuesByType,
+    },
+    cloudinaryCache: {
+      entries: Object.keys(cloudCache).length,
+      withAlt: Object.values(cloudCache).filter((v) => v.alt).length,
+    },
   }
 
   const report = { summary, posts: reports }
@@ -232,7 +335,9 @@ async function main() {
   console.log(`  Overall Grade: ${overallGrade}`)
   console.log(`  Posts: ${reports.length}`)
   console.log()
-  console.log(`  Grades:  A+:${grades['A+']}  A:${grades.A}  B:${grades.B}  C:${grades.C}  D:${grades.D}  F:${grades.F}`)
+  console.log(
+    `  Grades:  A+:${grades['A+']}  A:${grades.A}  B:${grades.B}  C:${grades.C}  D:${grades.D}  F:${grades.F}`
+  )
   console.log()
   console.log(`  Images:`)
   console.log(`    Total: ${totalImages}`)
@@ -241,27 +346,40 @@ async function main() {
   console.log(`    Empty alt: ${emptyAlt}`)
   console.log(`    Broken refs: ${brokenImages}`)
   console.log()
-  console.log(`  Issues: ${totalIssues} (${totalErrors} errors, ${totalWarns} warnings)`)
-  for (const [type, count] of Object.entries(issuesByType).sort((a, b) => b[1] - a[1])) {
+  console.log(
+    `  Issues: ${totalIssues} (${totalErrors} errors, ${totalWarns} warnings)`
+  )
+  for (const [type, count] of Object.entries(issuesByType).sort(
+    (a, b) => b[1] - a[1]
+  )) {
     console.log(`    ${type}: ${count}`)
   }
   console.log()
-  console.log(`  Cloudinary cache: ${Object.keys(cloudCache).length} entries, ${Object.values(cloudCache).filter(v => v.alt).length} with alt`)
+  console.log(
+    `  Cloudinary cache: ${Object.keys(cloudCache).length} entries, ${Object.values(cloudCache).filter((v) => v.alt).length} with alt`
+  )
   console.log()
 
   // Show worst offenders
-  const failing = reports.filter(r => r.grade === 'F').sort((a, b) => b.issues.length - a.issues.length)
+  const failing = reports
+    .filter((r) => r.grade === 'F')
+    .sort((a, b) => b.issues.length - a.issues.length)
   if (failing.length > 0) {
     console.log(`  Failing posts (${failing.length}):`)
     for (const r of failing.slice(0, 10)) {
-      const errs = r.issues.filter(i => i.severity === 'error').length
-      console.log(`    ${r.grade} [${errs}err] ${r.file.split('/').slice(-2).join('/')}`)
+      const errs = r.issues.filter((i) => i.severity === 'error').length
+      console.log(
+        `    ${r.grade} [${errs}err] ${r.file.split('/').slice(-2).join('/')}`
+      )
     }
-    if (failing.length > 10) console.log(`    ... and ${failing.length - 10} more`)
+    if (failing.length > 10)
+      console.log(`    ... and ${failing.length - 10} more`)
   }
 
   // Write self-contained HTML report (inline the JSON)
-  const htmlTemplate = await fs.readFile(REPORT_HTML_PATH, 'utf8').catch(() => null)
+  const htmlTemplate = await fs
+    .readFile(REPORT_HTML_PATH, 'utf8')
+    .catch(() => null)
   if (!htmlTemplate) {
     // Generate the HTML viewer with inline data
     const html = buildReportHtml(report)
@@ -283,7 +401,9 @@ async function main() {
 }
 
 function buildReportHtml(report) {
-  const html = '<!doctype html>' + `
+  const html =
+    '<!doctype html>' +
+    `
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -467,4 +587,7 @@ render()
   return html.replace('REPORT_JSON_PLACEHOLDER', safeJson)
 }
 
-main().catch(err => { console.error(err); process.exit(1) })
+main().catch((err) => {
+  console.error(err)
+  process.exit(1)
+})

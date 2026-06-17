@@ -1,25 +1,3 @@
-<script setup>
-const props = defineProps({ items: { type: Array, required: true } })
-
-const { TYPE_SYMBOLS, PRIORITY_PIPS } = useGearUI()
-const { getItemWeightInOunces, calculateTotalWeight } = useWeightCalculations()
-
-const toGrams = (item) => {
-  const oz = getItemWeightInOunces(item)
-  if (!oz || isNaN(oz)) return 0
-  return Math.round(oz * 28.3495)
-}
-
-const totalGrams = computed(() =>
-  Math.round(calculateTotalWeight(props.items).grams)
-)
-const totalLabel = computed(() =>
-  totalGrams.value >= 1000
-    ? `${(totalGrams.value / 1000).toFixed(1)}kg total`
-    : `${totalGrams.value}g total`
-)
-</script>
-
 <template>
   <div>
     <div class="plate-header">
@@ -57,6 +35,28 @@ const totalLabel = computed(() =>
     </div>
   </div>
 </template>
+
+<script setup>
+const props = defineProps({ items: { type: Array, required: true } })
+
+const { TYPE_SYMBOLS, PRIORITY_PIPS } = useGearUI()
+const { getItemWeightInOunces, calculateTotalWeight } = useWeightCalculations()
+
+const toGrams = (item) => {
+  const oz = getItemWeightInOunces(item)
+  if (!oz || isNaN(oz)) return 0
+  return Math.round(oz * 28.3495)
+}
+
+const totalGrams = computed(() =>
+  Math.round(calculateTotalWeight(props.items).grams)
+)
+const totalLabel = computed(() =>
+  totalGrams.value >= 1000
+    ? `${(totalGrams.value / 1000).toFixed(1)}kg total`
+    : `${totalGrams.value}g total`
+)
+</script>
 
 <style scoped>
 .plate-header {

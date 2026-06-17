@@ -12,6 +12,7 @@ export { remarkAi2htmlEmbed } from './remarkAi2htmlEmbed.mjs'
 export { remarkPredictionRef } from './remarkPredictionRef.mjs'
 export { remarkEnhanceImages } from './remarkEnhanceImages.mjs'
 export { remarkGearCard } from './remarkGearCard.mjs'
+export { remarkMermaid } from './remarkMermaid.mjs'
 
 // Rehype plugins
 export { rehypeAddClassToParagraphs } from './rehypeAddClassToParagraphs.mjs'

@@ -1,16 +1,3 @@
-<script setup>
-defineProps({ items: { type: Array, required: true } })
-
-const { TYPE_SYMBOLS, slugifyGear } = useGearUI()
-const { getItemWeightInOunces } = useWeightCalculations()
-
-const formatOz = (item) => {
-  const oz = getItemWeightInOunces(item)
-  if (!oz || isNaN(oz)) return '—'
-  return oz > 16 ? `${(oz / 16).toFixed(1)}lb` : `${oz.toFixed(1)}oz`
-}
-</script>
-
 <template>
   <div>
     <div class="showroom-label font-mono">
@@ -36,6 +23,19 @@ const formatOz = (item) => {
     </div>
   </div>
 </template>
+
+<script setup>
+defineProps({ items: { type: Array, required: true } })
+
+const { TYPE_SYMBOLS, slugifyGear } = useGearUI()
+const { getItemWeightInOunces } = useWeightCalculations()
+
+const formatOz = (item) => {
+  const oz = getItemWeightInOunces(item)
+  if (!oz || isNaN(oz)) return '—'
+  return oz > 16 ? `${(oz / 16).toFixed(1)}lb` : `${oz.toFixed(1)}oz`
+}
+</script>
 
 <style scoped>
 .showroom-label {

@@ -56,3 +56,6 @@ data/og-previews/
 data/changelog.json
 data/blogroll.urls
 .runtime-cache/
+
+# Cloned tool used by export-github-networks.mjs
+data/_tool-cache/

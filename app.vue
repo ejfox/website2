@@ -96,8 +96,18 @@ useHead({
       name: 'twitter:image:alt',
       content: 'Selected data visualization work by EJ Fox',
     },
-    { key: 'theme-color-dark', name: 'theme-color', content: '#18181b', media: '(prefers-color-scheme: dark)' },
-    { key: 'theme-color-light', name: 'theme-color', content: '#ffffff', media: '(prefers-color-scheme: light)' },
+    {
+      key: 'theme-color-dark',
+      name: 'theme-color',
+      content: '#18181b',
+      media: '(prefers-color-scheme: dark)',
+    },
+    {
+      key: 'theme-color-light',
+      name: 'theme-color',
+      content: '#ffffff',
+      media: '(prefers-color-scheme: light)',
+    },
   ],
   link: [{ key: 'canonical', rel: 'canonical', href: canonicalUrl.value }],
   script: [

@@ -170,6 +170,31 @@ export default defineNuxtConfig({
         { rel: 'pingback', href: 'https://webmention.io/ejfox.com/xmlrpc' },
         // WebSub hub for real-time feed notifications
         { rel: 'hub', href: 'https://pubsubhubbub.superfeedr.com' },
+        // Feed auto-discovery — lets feed readers find these from any page
+        {
+          rel: 'alternate',
+          type: 'application/rss+xml',
+          title: 'EJ Fox · Blog',
+          href: 'https://ejfox.com/rss.xml',
+        },
+        {
+          rel: 'alternate',
+          type: 'application/rss+xml',
+          title: 'EJ Fox · Week notes',
+          href: 'https://ejfox.com/week-notes-rss.xml',
+        },
+        {
+          rel: 'alternate',
+          type: 'application/rss+xml',
+          title: 'EJ Fox · Gists',
+          href: 'https://ejfox.com/gists-rss.xml',
+        },
+        {
+          rel: 'alternate',
+          type: 'application/feed+json',
+          title: 'EJ Fox · JSON Feed',
+          href: 'https://ejfox.com/feed.json',
+        },
       ],
     },
   },
@@ -254,7 +279,9 @@ export default defineNuxtConfig({
             errorOnExist: false,
             force: true,
             filter: (src: string) =>
-              !excludeDirs.some((d) => src.includes(`/${d}/`) || src.endsWith(`/${d}`)),
+              !excludeDirs.some(
+                (d) => src.includes(`/${d}/`) || src.endsWith(`/${d}`)
+              ),
           })
           // console.log(`✓ Copied content directory to ${dest}`)
         } catch (err) {

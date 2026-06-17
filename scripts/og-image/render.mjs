@@ -29,7 +29,7 @@ const HEIGHT = 630
 async function preloadImages(cards) {
   const cache = new Map()
   const loads = cards
-    .filter(c => c.type === 'image' && c.imageUrl)
+    .filter((c) => c.type === 'image' && c.imageUrl)
     .map(async (card) => {
       try {
         let url = card.imageUrl.replace(/^http:\/\//i, 'https://')
@@ -38,7 +38,9 @@ async function preloadImages(cards) {
           url = `${parts[0]}/upload/c_fill,w_320,h_220,f_jpg,q_auto,e_grayscale/${parts[1]}`
         }
         cache.set(card.imageUrl, await loadImage(url))
-      } catch { /* placeholder fallback */ }
+      } catch {
+        /* placeholder fallback */
+      }
     })
   await Promise.all(loads)
   return cache
@@ -176,7 +178,14 @@ const cardRenderers = {
     const lineHeight = pixelSize * 9
     const startY = cy + h / 2 - (Math.min(lines.length, 3) * lineHeight) / 2
     for (let i = 0; i < Math.min(lines.length, 3); i++) {
-      drawPixelText(ctx, lines[i], cx + 12, startY + i * lineHeight, pixelSize, rgba(ZINC.accent, depthAlpha))
+      drawPixelText(
+        ctx,
+        lines[i],
+        cx + 12,
+        startY + i * lineHeight,
+        pixelSize,
+        rgba(ZINC.accent, depthAlpha)
+      )
     }
   },
 
@@ -250,8 +259,12 @@ const cardRenderers = {
 /** Subtle vignette darkening at edges */
 function applyVignette(ctx) {
   const gradient = ctx.createRadialGradient(
-    WIDTH / 2, HEIGHT / 2, HEIGHT * 0.3,
-    WIDTH / 2, HEIGHT / 2, WIDTH * 0.7
+    WIDTH / 2,
+    HEIGHT / 2,
+    HEIGHT * 0.3,
+    WIDTH / 2,
+    HEIGHT / 2,
+    WIDTH * 0.7
   )
   gradient.addColorStop(0, 'rgba(0,0,0,0)')
   gradient.addColorStop(1, 'rgba(0,0,0,0.4)')
@@ -281,8 +294,8 @@ export async function renderScene(content, scene, slug, variant = 0) {
 
   // 5. Cards (back to front, title last)
   const sorted = sortByDepth(scene.cards)
-  const titleCards = sorted.filter(c => c.type === 'title')
-  const otherCards = sorted.filter(c => c.type !== 'title')
+  const titleCards = sorted.filter((c) => c.type === 'title')
+  const otherCards = sorted.filter((c) => c.type !== 'title')
   const renderOrder = [...otherCards, ...titleCards]
 
   for (const card of renderOrder) {
@@ -293,7 +306,8 @@ export async function renderScene(content, scene, slug, variant = 0) {
     const cy = proj.screenY - h / 2
 
     if (w < 12 || h < 6) continue
-    if (cx + w < -80 || cx > WIDTH + 80 || cy + h < -80 || cy > HEIGHT + 80) continue
+    if (cx + w < -80 || cx > WIDTH + 80 || cy + h < -80 || cy > HEIGHT + 80)
+      continue
 
     ctx.save()
 
@@ -323,7 +337,14 @@ export async function renderScene(content, scene, slug, variant = 0) {
   ctx.putImageData(imgData, 0, 0)
 
   // 7. URL watermark
-  drawPixelText(ctx, 'ejfox.com', WIDTH - 9 * 18 - 16, HEIGHT - 28, 2, rgba(ZINC.dim, 0.4))
+  drawPixelText(
+    ctx,
+    'ejfox.com',
+    WIDTH - 9 * 18 - 16,
+    HEIGHT - 28,
+    2,
+    rgba(ZINC.dim, 0.4)
+  )
 
   return canvas.toBuffer('image/png')
 }

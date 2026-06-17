@@ -1,0 +1,1 @@
+{"meta":{"pushedAt":"2025-11-02T18:04:02Z","generatedAt":"2026-05-20T15:16:50.491Z","nodeCount":1,"edgeCount":1},"nodes":[{"id":"scraper.js:scrapeBF6Stats","label":"scrapeBF6Stats","type":"function","lines":"[19-263]","file":"scraper.js"}],"edges":[{"source":"scraper.js:global","target":"scraper.js:scrapeBF6Stats","type":"calls"}]}

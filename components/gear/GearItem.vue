@@ -1,3 +1,55 @@
+<template>
+  <tr class="row group">
+    <td class="cell-name">
+      <div class="name-inner">
+        <NuxtLink
+          v-tooltip="item.Notes"
+          :to="`/gear/${slugifyGear(item.Name)}`"
+          class="name-link"
+          @click.stop
+        >
+          {{ item.Name }}
+        </NuxtLink>
+        <span v-if="item.Notes" class="note-dot">•</span>
+      </div>
+    </td>
+    <td class="cell-buy">
+      <a
+        v-if="item.Amazon_URL"
+        v-tooltip="'Buy on Amazon'"
+        :href="affiliateUrl(item.Amazon_URL)"
+        target="_blank"
+        rel="nofollow noopener"
+        class="badge-orange-hover"
+        @click.stop
+      >
+        BUY
+      </a>
+      <span v-else class="empty">—</span>
+    </td>
+    <td class="cell cell-sym">{{ TYPE_SYMBOLS[item.Type] || '—' }}</td>
+    <td class="cell">{{ categoryAbbr(item.Category) }}</td>
+    <td class="cell">{{ waterproofDot(item.Waterproof) }}</td>
+    <td class="cell">
+      <span class="priority-pips">
+        {{ PRIORITY_PIPS[item.Priority] || '—' }}
+      </span>
+    </td>
+    <td class="cell" :class="conditionClass(item.Condition)">
+      <span v-if="item.Condition">●</span>
+      <span v-else class="empty">—</span>
+    </td>
+    <td class="cell tabular-nums" :class="ageClass(item.Last_Used)">
+      {{ ageLabel(item.Last_Used) }}
+    </td>
+    <td class="cell-weight">
+      <span class="text-3xs font-medium">
+        {{ formatWeight(item.Weight_oz) }}
+      </span>
+    </td>
+  </tr>
+</template>
+
 <script setup lang="ts">
 const props = defineProps({
   item: { type: Object, required: true },
@@ -75,58 +127,6 @@ const affiliateUrl = (url: string) => {
   }
 }
 </script>
-
-<template>
-  <tr class="row group">
-    <td class="cell-name">
-      <div class="name-inner">
-        <NuxtLink
-          v-tooltip="item.Notes"
-          :to="`/gear/${slugifyGear(item.Name)}`"
-          class="name-link"
-          @click.stop
-        >
-          {{ item.Name }}
-        </NuxtLink>
-        <span v-if="item.Notes" class="note-dot">•</span>
-      </div>
-    </td>
-    <td class="cell-buy">
-      <a
-        v-if="item.Amazon_URL"
-        v-tooltip="'Buy on Amazon'"
-        :href="affiliateUrl(item.Amazon_URL)"
-        target="_blank"
-        rel="nofollow noopener"
-        class="badge-orange-hover"
-        @click.stop
-      >
-        BUY
-      </a>
-      <span v-else class="empty">—</span>
-    </td>
-    <td class="cell cell-sym">{{ TYPE_SYMBOLS[item.Type] || '—' }}</td>
-    <td class="cell">{{ categoryAbbr(item.Category) }}</td>
-    <td class="cell">{{ waterproofDot(item.Waterproof) }}</td>
-    <td class="cell">
-      <span class="priority-pips">
-        {{ PRIORITY_PIPS[item.Priority] || '—' }}
-      </span>
-    </td>
-    <td class="cell" :class="conditionClass(item.Condition)">
-      <span v-if="item.Condition">●</span>
-      <span v-else class="empty">—</span>
-    </td>
-    <td class="cell tabular-nums" :class="ageClass(item.Last_Used)">
-      {{ ageLabel(item.Last_Used) }}
-    </td>
-    <td class="cell-weight">
-      <span class="text-3xs font-medium">
-        {{ formatWeight(item.Weight_oz) }}
-      </span>
-    </td>
-  </tr>
-</template>
 
 <style scoped>
 .row {
