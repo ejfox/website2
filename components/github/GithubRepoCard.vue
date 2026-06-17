@@ -8,6 +8,42 @@
   @props forks: number - Fork count (default: 0)
   @props repo: Repo - Full repository object with languages, stats (optional)
 -->
+<script setup lang="ts">
+interface Repo {
+  name: string
+  description?: string
+  language?: string
+  languages?: Record<string, number>
+  diskUsage?: number
+  stats: {
+    stars: number
+    forks: number
+    watchers: number
+    openIssues: number
+  }
+  pushedAt: string
+}
+
+interface Props {
+  name: string
+  description?: string
+  language?: string
+  stars?: number
+  forks?: number
+  hasNetwork?: boolean
+  repo?: Repo
+}
+
+withDefaults(defineProps<Props>(), {
+  description: '',
+  language: 'Unknown',
+  stars: 0,
+  forks: 0,
+  hasNetwork: false,
+  repo: undefined,
+})
+</script>
+
 <template>
   <NuxtLink :to="`/github/${name}`" class="repo-card group block">
     <article>
@@ -55,42 +91,6 @@
     </article>
   </NuxtLink>
 </template>
-
-<script setup lang="ts">
-interface Repo {
-  name: string
-  description?: string
-  language?: string
-  languages?: Record<string, number>
-  diskUsage?: number
-  stats: {
-    stars: number
-    forks: number
-    watchers: number
-    openIssues: number
-  }
-  pushedAt: string
-}
-
-interface Props {
-  name: string
-  description?: string
-  language?: string
-  stars?: number
-  forks?: number
-  hasNetwork?: boolean
-  repo?: Repo
-}
-
-withDefaults(defineProps<Props>(), {
-  description: '',
-  language: 'Unknown',
-  stars: 0,
-  forks: 0,
-  hasNetwork: false,
-  repo: undefined,
-})
-</script>
 
 <style scoped>
 /* Magazine-style stacked list - pure typography, no backgrounds */

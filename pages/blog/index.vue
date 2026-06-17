@@ -25,8 +25,7 @@ onMounted(() => {
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          activeYear.value =
-            entry.target.getAttribute('data-year') || ''
+          activeYear.value = entry.target.getAttribute('data-year') || ''
         }
       })
     },
@@ -50,12 +49,9 @@ onMounted(() => {
 
 // Post data helpers
 const postDate = (post) => post?.metadata?.date || post?.date
-const postWords = (post) =>
-  post?.metadata?.words || post?.words || 0
-const postImages = (post) =>
-  post?.metadata?.images || post?.images || 0
-const postLinks = (post) =>
-  post?.metadata?.links || post?.links || 0
+const postWords = (post) => post?.metadata?.words || post?.words || 0
+const postImages = (post) => post?.metadata?.images || post?.images || 0
+const postLinks = (post) => post?.metadata?.links || post?.links || 0
 const readingTime = (words) => (words ? Math.ceil(words / 200) : 0)
 
 const formatTitle = (slug) => {
@@ -75,27 +71,19 @@ const formatTitle = (slug) => {
     return dateMatch[1]
   }
 
-  return lastPart
-    .replace(/-/g, ' ')
-    .replace(/\b\w/g, (c) => c.toUpperCase())
+  return lastPart.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 }
 
 // Fetch posts
 const { data: posts, error: postsError } = useAsyncData(
   'blog-posts',
   async () => {
-    const result = await processedMarkdown.getAllPosts(
-      false,
-      false
-    )
+    const result = await processedMarkdown.getAllPosts(false, false)
     return result
       .filter((post) => isValidPost(post))
       .map((post) => ({
         ...post,
-        title:
-          post.title ||
-          post?.metadata?.title ||
-          formatTitle(post.slug),
+        title: post.title || post?.metadata?.title || formatTitle(post.slug),
       }))
   }
 )
@@ -103,22 +91,14 @@ const { data: posts, error: postsError } = useAsyncData(
 // Aggregate stats
 const blogStats = computed(() => {
   const all = posts.value || []
-  const totalWords = all.reduce(
-    (sum, p) => sum + postWords(p),
-    0
-  )
+  const totalWords = all.reduce((sum, p) => sum + postWords(p), 0)
   return {
     postsCount: all.length,
     totalWordsK: Math.floor(totalWords / 1000),
     totalReadHours: Math.floor(totalWords / 200 / 60),
-    avgWords: all.length
-      ? Math.floor(totalWords / all.length)
-      : 0,
+    avgWords: all.length ? Math.floor(totalWords / all.length) : 0,
     totalLinks: all.reduce((sum, p) => sum + postLinks(p), 0),
-    totalImages: all.reduce(
-      (sum, p) => sum + postImages(p),
-      0
-    ),
+    totalImages: all.reduce((sum, p) => sum + postImages(p), 0),
   }
 })
 
@@ -138,9 +118,7 @@ const blogPostsByYear = computed(() => {
   })
 
   Object.values(grouped).forEach((yearPosts) => {
-    yearPosts.sort(
-      (a, b) => new Date(postDate(b)) - new Date(postDate(a))
-    )
+    yearPosts.sort((a, b) => new Date(postDate(b)) - new Date(postDate(a)))
   })
 
   return grouped
@@ -157,20 +135,11 @@ usePageSeo({
     'Thoughts, projects, and explorations in technology, design, and making.',
   type: 'article',
   section: 'Writing',
-  tags: [
-    'Blog',
-    'Data visualization',
-    'Investigations',
-    'Notes',
-  ],
+  tags: ['Blog', 'Data visualization', 'Investigations', 'Notes'],
   label1: 'Posts',
-  data1: computed(
-    () => `${posts.value?.length || 0} published`
-  ),
+  data1: computed(() => `${posts.value?.length || 0} published`),
   label2: 'Latest topic',
-  data2: computed(
-    () => posts.value?.[0]?.tags?.[0] || 'Mixed topics'
-  ),
+  data2: computed(() => posts.value?.[0]?.tags?.[0] || 'Mixed topics'),
 })
 </script>
 
@@ -215,30 +184,24 @@ usePageSeo({
         <div class="px-4 sm:px-6 pt-4 pb-3">
           <h1 class="blog-title">Blog</h1>
           <p class="blog-description">
-            Thoughts, projects, and explorations in
-            technology, design, and making.
+            Thoughts, projects, and explorations in technology, design, and
+            making.
           </p>
         </div>
 
         <!-- h-feed microformat -->
         <div class="blog-grid h-feed">
-          <a class="u-url hidden" href="https://ejfox.com/blog">
-            Blog
-          </a>
+          <a class="u-url hidden" href="https://ejfox.com/blog">Blog</a>
           <span class="p-name hidden">EJ Fox's Blog</span>
           <span class="p-author h-card hidden">
             <span class="p-name">EJ Fox</span>
-            <a class="u-url" href="https://ejfox.com">
-              ejfox.com
-            </a>
+            <a class="u-url" href="https://ejfox.com">ejfox.com</a>
           </span>
 
           <section ref="postsReveal" class="max-w-3xl">
             <!-- Error state -->
             <div v-if="postsError" class="error-box">
-              <h2 class="font-bold">
-                Failed to Load Blog Posts
-              </h2>
+              <h2 class="font-bold">Failed to Load Blog Posts</h2>
               <p class="text-sm">
                 {{
                   postsError.message ||
@@ -253,20 +216,14 @@ usePageSeo({
               </a>
             </div>
 
-            <div
-              v-else-if="!sortedYears.length"
-              class="text-center py-8"
-            >
+            <div v-else-if="!sortedYears.length" class="text-center py-8">
               <p class="text-zinc-600 dark:text-zinc-400 text-sm">
                 No blog posts found.
               </p>
             </div>
 
             <!-- Posts grouped by year -->
-            <div
-              v-for="year in sortedYears"
-              :key="`blog-${year}`"
-            >
+            <div v-for="year in sortedYears" :key="`blog-${year}`">
               <template
                 v-for="(post, index) in blogPostsByYear[year]"
                 :key="post?.slug"
@@ -290,16 +247,11 @@ usePageSeo({
                   </h3>
 
                   <div class="post-metadata">
-                    <time
-                      class="dt-published"
-                      :datetime="postDate(post)"
-                    >
+                    <time class="dt-published" :datetime="postDate(post)">
                       {{ formatShortDate(postDate(post)) }}
                     </time>
                     <span class="mx-1 text-divider">·</span>
-                    <span>
-                      {{ readingTime(postWords(post)) }}min
-                    </span>
+                    <span>{{ readingTime(postWords(post)) }}min</span>
 
                     <span
                       v-if="postWords(post)"
@@ -331,9 +283,7 @@ usePageSeo({
                           type="dots"
                         />
                       </ClientOnly>
-                      <span>
-                        {{ postImages(post) }} images
-                      </span>
+                      <span>{{ postImages(post) }} images</span>
                     </span>
 
                     <span
@@ -348,9 +298,7 @@ usePageSeo({
                           type="bars"
                         />
                       </ClientOnly>
-                      <span>
-                        {{ postLinks(post) }} links
-                      </span>
+                      <span>{{ postLinks(post) }} links</span>
                     </span>
                   </div>
 
@@ -409,9 +357,7 @@ usePageSeo({
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Words</span>
-              <span class="text-zinc-300">
-                {{ blogStats.totalWordsK }}K
-              </span>
+              <span class="text-zinc-300">{{ blogStats.totalWordsK }}K</span>
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Read time</span>
@@ -421,9 +367,7 @@ usePageSeo({
             </div>
             <div class="flex justify-between">
               <span class="text-zinc-500">Avg post</span>
-              <span class="text-zinc-300">
-                {{ blogStats.avgWords }} words
-              </span>
+              <span class="text-zinc-300">{{ blogStats.avgWords }} words</span>
             </div>
           </div>
         </div>

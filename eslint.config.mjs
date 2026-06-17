@@ -181,20 +181,13 @@ export default createConfigForNuxt({
       'vue/no-multiple-template-root': 'off', // Vue 3
 
       // SFC structure: <script> → <template> → <style>
-      'vue/block-order': [
-        'error',
-        { order: ['script', 'template', 'style'] },
-      ],
+      'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
 
       // Macro ordering: defineProps → defineEmits → defineSlots
       'vue/define-macros-order': [
         'error',
         {
-          order: [
-            'defineProps',
-            'defineEmits',
-            'defineSlots',
-          ],
+          order: ['defineProps', 'defineEmits', 'defineSlots'],
           defineExposeLast: true,
         },
       ],

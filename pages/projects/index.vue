@@ -17,18 +17,15 @@ const { revealContainer: gridReveal } = useScrollReveal({
 })
 
 // Fetch projects
-const { data: projects } = await useAsyncData(
-  'projects-page-data',
-  () => $fetch('/api/projects')
+const { data: projects } = await useAsyncData('projects-page-data', () =>
+  $fetch('/api/projects')
 )
 
 const featuredProjects = computed(
-  () =>
-    projects.value?.filter((p) => p.metadata?.featured) || []
+  () => projects.value?.filter((p) => p.metadata?.featured) || []
 )
 const regularProjects = computed(
-  () =>
-    projects.value?.filter((p) => !p.metadata?.featured) || []
+  () => projects.value?.filter((p) => !p.metadata?.featured) || []
 )
 
 const getProjectSlug = (project) =>
@@ -76,13 +73,10 @@ usePageSeo({
   type: 'article',
   section: 'Projects',
   label1: 'Projects',
-  data1: computed(
-    () => `${projects.value?.length || 0} total`
-  ),
+  data1: computed(() => `${projects.value?.length || 0} total`),
   label2: 'Span',
   data2: computed(
-    () =>
-      `${projectStats.value.earliestYear}–${projectStats.value.latestYear}`
+    () => `${projectStats.value.earliestYear}–${projectStats.value.latestYear}`
   ),
 })
 </script>
@@ -110,9 +104,7 @@ usePageSeo({
           {{ projectStats.count }} projects
         </span>
         <span>{{ projectStats.featured }} featured</span>
-        <span>
-          {{ projectStats.words.toLocaleString() }} words
-        </span>
+        <span>{{ projectStats.words.toLocaleString() }} words</span>
         <span>{{ projectStats.images }} images</span>
         <span>{{ projectStats.techCount }} technologies</span>
       </div>
@@ -142,12 +134,7 @@ usePageSeo({
       v-if="regularProjects.length"
       ref="gridReveal"
       class="grid gap-4"
-      style="
-        grid-template-columns: repeat(
-          auto-fill,
-          minmax(280px, 1fr)
-        );
-      "
+      style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr))"
     >
       <BentoProjectCard
         v-for="project in regularProjects"
@@ -160,13 +147,8 @@ usePageSeo({
     <!-- Sidebar TOC -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">
-        <ul
-          class="space-y-0.5 font-mono text-3xs list-none pl-0"
-        >
-          <li
-            v-for="project in projects"
-            :key="project.slug"
-          >
+        <ul class="space-y-0.5 font-mono text-3xs list-none pl-0">
+          <li v-for="project in projects" :key="project.slug">
             <a
               :href="`#${getProjectSlug(project)}`"
               class="block text-zinc-600 dark:text-zinc-400 truncate"

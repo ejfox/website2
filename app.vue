@@ -1,9 +1,3 @@
-<template>
-  <NuxtLayout>
-    <NuxtPage />
-  </NuxtLayout>
-</template>
-
 <script setup>
 const route = useRoute()
 const runtimeConfig = useRuntimeConfig()
@@ -140,3 +134,9 @@ useHead({
   ],
 })
 </script>
+
+<template>
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
+</template>
