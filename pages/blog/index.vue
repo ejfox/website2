@@ -356,7 +356,7 @@ usePageSeo({
 
                   <p
                     v-if="post?.metadata?.dek || post?.dek"
-                    class="post-dek"
+                    class="post-dek p-summary"
                   >
                     {{ post?.metadata?.dek || post?.dek }}
                   </p>
@@ -449,7 +449,7 @@ usePageSeo({
 }
 
 .post-dek {
-  @apply font-serif text-sm leading-snug mt-0.5 p-summary;
+  @apply font-serif text-sm leading-snug mt-0.5;
   @apply text-zinc-600 dark:text-zinc-400;
   @apply line-clamp-2 hyphens-auto;
 }
