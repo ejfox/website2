@@ -14,7 +14,7 @@ tags:
 
 #programming #personal #process
 
-![](https://res.cloudinary.com/ejf/image/upload/v1679587770/610144184_A_curious_man_in_a_flatbrim_baseball_cap_and_a_short_cropped_brown_beard__flying_over_a_sea_of_blog_.png)
+![Architect surrounded by architectural floor plans and material samples, reviewing design layouts and building specifications.](https://res.cloudinary.com/ejf/image/upload/v1679587770/610144184_A_curious_man_in_a_flatbrim_baseball_cap_and_a_short_cropped_brown_beard__flying_over_a_sea_of_blog_.png)
 
 From personal projects to collaborations, paid work to passion projects, lets explore how I write code to achieve specific goals. We'll discuss the importance of clear goals, user stories, acceptance criteria, deadlines, and our core guiding principles.
 
@@ -25,13 +25,13 @@ The rough shape of the project changes depending on a few factors:
 - Fast vs slow
 - Public vs private
 
-For more less-technical specifics around project management in general (not just code): [how-to-run-a-projec](how-to-run-a-projec)t]]
+For more less-technical specifics around project management in general (not just code): [[how-to-run-a-project]]
 
-For design philosophy [design-philosoph](design-philosoph)y]] and work philosophy [joy-driven-developmen](joy-driven-developmen)t]]
+For design philosophy [[blog/2023/design-philosophy]] and work philosophy [[blog/2022/joy-driven-development]]
 
-The tools I use to prototype quickly: [2022-prototyping-toolki](2022-prototyping-toolki)t]]
+The tools I use to prototype quickly: [[blog/2022/2022-prototyping-toolkit]]
 
-My coding setup, including theme and plugins: [my-vscode-setu](my-vscode-setu)p]]
+My coding setup, including theme and plugins: [[blog/2022/my-vscode-setup]]
 
 ## Establish a clear goal
 
@@ -53,7 +53,7 @@ You can usually only accomplish a few of those goals, and knowing the bounds of 
 
 ### User stories
 
-User stories are essential to writing software that will be used by people. I talk more about user stories in [how-to-run-a-projec](how-to-run-a-projec)t]]
+User stories are essential to writing software that will be used by people. I talk more about user stories in [[how-to-run-a-project]]
 
 #### tl;dr
 
@@ -76,7 +76,7 @@ Deadlines, while sometimes stressful, actually serve an important role in managi
 
 ### Core principles
 
-[joy-driven-developmen](joy-driven-developmen)t]]
+[[blog/2022/joy-driven-development]]
 
 ### Gather context
 #### Stakeholder Needs

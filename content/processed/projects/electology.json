@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub, not your words. Draft until ready. -->\n<p class=\"\">A year-round election-analysis platform built on atomic data units (candidates, races, precincts), spun out of EJ's NBC Big Board work. It shipped alongside two open-source helpers: <code class=\"md-inline-code\">election-helpers</code> (npm) and an election-data-generator (Observable).</p>\n<figure role=\"figure\" aria-label=\"Precinct-level election results as an interactive choropleth\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/electology/map.png\" alt=\"Precinct-level election results as an interactive choropleth\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/electology/map.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/electology/map.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/electology/map.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/electology/map.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Precinct-level election results as an interactive choropleth\" width=\"2396\" height=\"2262\" style=\"--splay-rot:1.1deg;\" data-dimensions=\"2396×2262\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Precinct-level election results as an interactive choropleth</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"election-helpers — open-source election data tooling\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/electology/helpers.png\" alt=\"election-helpers — open-source election data tooling\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/electology/helpers.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/electology/helpers.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/electology/helpers.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/electology/helpers.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"election-helpers — open-source election data tooling\" width=\"2880\" height=\"1900\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"2880×1900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">election-helpers — open-source election data tooling</figcaption>\n</figure>",
+  "title": "Electology",
+  "metadata": {
+    "title": "Electology",
+    "date": "2025-01-01T00:00:00.000Z",
+    "draft": true,
+    "url": "https://electology.co",
+    "tech": [
+      "JavaScript",
+      "D3.js",
+      "Observable"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "elections",
+      "dataviz",
+      "data",
+      "product"
+    ],
+    "words": 63,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

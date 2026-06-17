@@ -1,0 +1,108 @@
+{
+  "name": "cli-delta-dojo",
+  "description": "Sharpen your code review skills with CLI-DELTA-DOJO, the terminal-based JSON comparison game",
+  "url": "https://github.com/ejfox/cli-delta-dojo",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 36136
+  },
+  "diskUsage": 2520,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 23
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "README.md",
+        "size": 658
+      },
+      {
+        "path": "chain.mjs",
+        "size": 12909
+      },
+      {
+        "path": "index.mjs",
+        "size": 23227
+      },
+      {
+        "path": "package-lock.json",
+        "size": 26432
+      },
+      {
+        "path": "package.json",
+        "size": 614
+      }
+    ],
+    "tree": {
+      "name": "cli-delta-dojo",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": ".gitignore",
+          "size": 23,
+          "path": ".gitignore"
+        },
+        {
+          "name": "README.md",
+          "size": 658,
+          "path": "README.md"
+        },
+        {
+          "name": "chain.mjs",
+          "size": 12909,
+          "path": "chain.mjs"
+        },
+        {
+          "name": "index.mjs",
+          "size": 23227,
+          "path": "index.mjs"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 26432,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 614,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 7,
+    "totalSize": 64130
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"delta-dojo\">delta-dojo</h1>\n<p>JSON diff trainer for the terminal. Compare two objects, spot the differences.</p>\n<h2 id=\"install\">Install</h2>\n<pre><code class=\"language-bash\">npm install\n</code></pre>\n<h2 id=\"run\">Run</h2>\n<pre><code class=\"language-bash\">node index.mjs\n</code></pre>\n<h2 id=\"controls\">Controls</h2>\n<ul>\n<li><code>←</code> - Objects are different</li>\n<li><code>→</code> - Objects are the same</li>\n<li><code>q</code> - Quit</li>\n</ul>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Character-level diff highlighting</li>\n<li>True color support</li>\n<li>Ghostty/Kitty styled underlines (curly, dashed)</li>\n<li>Responsive layout (side-by-side or stacked)</li>\n<li>Multiple data types (user profiles, server configs, transactions, API responses)</li>\n<li>Difficulty scaling based on streak</li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li>Node.js 18+</li>\n<li>Terminal with true color support (Ghostty, Kitty, iTerm2, etc.)</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT</p>",
+    "raw": "# delta-dojo\n\nJSON diff trainer for the terminal. Compare two objects, spot the differences.\n\n## Install\n\n```bash\nnpm install\n```\n\n## Run\n\n```bash\nnode index.mjs\n```\n\n## Controls\n\n- `←` - Objects are different\n- `→` - Objects are the same\n- `q` - Quit\n\n## Features\n\n- Character-level diff highlighting\n- True color support\n- Ghostty/Kitty styled underlines (curly, dashed)\n- Responsive layout (side-by-side or stacked)\n- Multiple data types (user profiles, server configs, transactions, API responses)\n- Difficulty scaling based on streak\n\n## Requirements\n\n- Node.js 18+\n- Terminal with true color support (Ghostty, Kitty, iTerm2, etc.)\n\n## License\n\nMIT\n",
+    "excerpt": "JSON diff trainer for the terminal. Compare two objects, spot the differences.\n\n\n\nbash\nnpm install\n\n\n\n\nbash\nnode index.mjs\n\n\n\n\n- ← - Objects are different\n- → -..."
+  },
+  "createdAt": "2024-08-22T20:51:48Z",
+  "updatedAt": "2026-01-11T05:43:29Z",
+  "pushedAt": "2026-01-14T21:16:18Z"
+}

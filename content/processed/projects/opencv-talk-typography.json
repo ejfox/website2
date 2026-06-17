@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — this is a factual stub, not your words. NEEDS A HERO IMAGE: a screen recording of the live effect. Draft until ready. -->\n<p class=\"\">A Vue app that captures live speech and renders it as decaying typographic \"echoes,\" with a font and weight captured per utterance.</p>\n<figure role=\"figure\" aria-label=\"Live speech rendered as decaying typographic echoes\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/opencv-talk-typography/echo-1.png\" alt=\"Live speech rendered as decaying typographic echoes\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/opencv-talk-typography/echo-1.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/opencv-talk-typography/echo-1.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/opencv-talk-typography/echo-1.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/opencv-talk-typography/echo-1.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Live speech rendered as decaying typographic echoes\" width=\"3258\" height=\"2262\" style=\"--splay-rot:-1.24deg;\" data-dimensions=\"3258×2262\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Live speech rendered as decaying typographic echoes</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Words accumulating and fading around the speaker\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/opencv-talk-typography/echo-2.png\" alt=\"Words accumulating and fading around the speaker\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/opencv-talk-typography/echo-2.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/opencv-talk-typography/echo-2.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/opencv-talk-typography/echo-2.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/opencv-talk-typography/echo-2.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Words accumulating and fading around the speaker\" width=\"3258\" height=\"2262\" style=\"--splay-rot:0.83deg;\" data-dimensions=\"3258×2262\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Words accumulating and fading around the speaker</figcaption>\n</figure>",
+  "title": "Speech Echoes",
+  "metadata": {
+    "title": "Speech Echoes",
+    "date": "2026-04-01T00:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/opencv-talk-typography",
+    "tech": [
+      "Vue",
+      "p5",
+      "MediaPipe",
+      "d3-force"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "typography",
+      "creative-coding",
+      "interface"
+    ],
+    "words": 68,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

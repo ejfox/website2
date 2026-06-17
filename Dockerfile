@@ -1,84 +1,40 @@
-# syntax=docker/dockerfile:1
-ARG NODE_VERSION=20
-ARG TARGETPLATFORM
-ARG BUILDPLATFORM
-
-# Build stage
-FROM node:${NODE_VERSION}-alpine AS build
+# SIMPLE SINGLE-STAGE BUILD - No complexity, just works
+FROM node:22-alpine
 
 WORKDIR /app
 
-# Install dependencies needed for native modules like canvas
-# Use specific versions to ensure consistency across platforms
+# Install minimal runtime dependencies
 RUN apk add --no-cache \
-    git \
-    python3 \
-    make \
-    g++ \
-    pkgconfig \
-    cairo-dev \
-    jpeg-dev \
-    pango-dev \
-    musl-dev \
-    giflib-dev \
-    pixman-dev \
-    pangomm-dev \
-    libjpeg-turbo-dev \
-    freetype-dev \
-    fontconfig-dev
+    curl
 
-# Copy package files first for better caching
-COPY package*.json ./
-COPY yarn.lock ./
+# Bust cache when commit changes
+ARG COMMIT_HASH=unknown
 
-# Install dependencies with better error handling
-RUN yarn install --frozen-lockfile --network-timeout 600000
+# Copy pre-built output — fails fast if build wasn't run
+COPY .output/server/index.mjs ./server/index.mjs
+COPY .output/ ./
+COPY content ./content
+COPY data ./data
+COPY public ./public
+COPY .build-info.json ./
 
-# Copy source code
-COPY . .
-
-# Build the application
-RUN yarn build
-
-# Production stage
-FROM node:${NODE_VERSION}-alpine AS production
-
-WORKDIR /app
-
-# Install runtime dependencies for canvas
-RUN apk add --no-cache \
-    cairo \
-    jpeg \
-    pango \
-    musl \
-    giflib \
-    pixman \
-    pangomm \
-    libjpeg-turbo \
-    freetype \
-    fontconfig \
-    ttf-dejavu
-
-# Copy only the built output
-COPY --from=build --chown=1001:1001 /app/.output ./.output
-
-# Set environment variables
-ENV HOST=0.0.0.0
-ENV PORT=3000
-ENV NODE_ENV=production
-
-# Create non-root user and set permissions
+# Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S nuxt -u 1001 -G nodejs && \
     chown -R nuxt:nodejs /app
 
 USER nuxt
 
+# Environment
+ENV NODE_ENV=production
+ENV PORT=3000
+ENV HOST=0.0.0.0
+
 EXPOSE 3000
 
-# Health check with better error handling
-HEALTHCHECK --interval=30s --timeout=10s --start-period=40s --retries=3 \
-  CMD node -e "const http = require('http'); const options = { hostname: 'localhost', port: 3000, path: '/api/healthcheck', timeout: 3000 }; const req = http.get(options, (res) => { process.exit(res.statusCode === 200 ? 0 : 1); }); req.on('error', () => process.exit(1)); req.on('timeout', () => { req.destroy(); process.exit(1); });"
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+    CMD curl -f http://localhost:3000/ || exit 1
 
-# Start the server
-CMD ["node", ".output/server/index.mjs"]
+# Start application
+CMD ["node", "server/index.mjs"]

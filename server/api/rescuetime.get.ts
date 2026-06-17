@@ -1,3 +1,9 @@
+/**
+ * @file rescuetime.get.ts
+ * @description Fetches RescueTime productivity tracking data for the current week and month with activity breakdowns
+ * @endpoint GET /api/rescuetime
+ * @returns Time tracking data with categories, activities, and productivity summary (productive/distracting/neutral time)
+ */
 import { defineEventHandler, createError } from 'h3'
 
 interface RescueTimeRow {
@@ -16,37 +22,7 @@ interface TimeBreakdown {
   formatted: string
 }
 
-interface ProcessedData {
-  categories: Array<{
-    name: string
-    time: TimeBreakdown
-    percentageOfTotal: number
-    productivity: number
-  }>
-  activities: Array<{
-    name: string
-    time: TimeBreakdown
-    percentageOfTotal: number
-    category: string
-    productivity: number
-  }>
-  summary: {
-    total: TimeBreakdown
-    productive: {
-      time: TimeBreakdown
-      percentage: number
-    }
-    distracting: {
-      time: TimeBreakdown
-      percentage: number
-    }
-    neutral: {
-      time: TimeBreakdown
-      percentage: number
-    }
-  }
-  lastUpdated: string
-}
+// Unused interface ProcessedData removed
 
 interface RescueTimeResponse {
   rows: Array<[string, number, number, string, string, number]>
@@ -61,7 +37,7 @@ function calculateTimeBreakdown(seconds: number): TimeBreakdown {
     hoursDecimal: Math.round((seconds / 3600) * 100) / 100,
     formatted: `${Math.floor(seconds / 3600)}h ${Math.floor(
       (seconds % 3600) / 60
-    )}m`
+    )}m`,
   }
 }
 
@@ -69,15 +45,15 @@ export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   const token = config.RESCUETIME_TOKEN
 
-  console.log('RescueTime config:', {
-    hasToken: !!token,
-    tokenLength: token?.length
-  })
+  // console.log('RescueTime config:', {
+  //   hasToken: !!token,
+  //   tokenLength: token?.length
+  // })
 
   if (!token) {
     throw createError({
       statusCode: 500,
-      message: 'RescueTime token not configured'
+      message: 'RescueTime token not configured',
     })
   }
 
@@ -92,49 +68,56 @@ export default defineEventHandler(async () => {
 
     const monthStart = new Date(now.getFullYear(), now.getMonth(), 1)
 
-    console.log('RescueTime date ranges:', {
-      weekStart: weekStart.toISOString(),
-      monthStart: monthStart.toISOString(),
-      now: now.toISOString()
-    })
+    // console.log('RescueTime date ranges:', {
+    //   weekStart: weekStart.toISOString(),
+    //   monthStart: monthStart.toISOString(),
+    //   now: now.toISOString()
+    // })
 
     // Format dates as YYYY-MM-DD
     const formatDate = (date: Date) => {
       return date.toISOString().split('T')[0]
     }
 
-    // Fetch both week and month data in parallel
-    const [weekData, monthData] = await Promise.all([
+    // Fetch week and month data in parallel with error recovery
+    const results = await Promise.allSettled([
       $fetch<RescueTimeResponse>('https://www.rescuetime.com/anapi/data', {
         params: {
           key: token,
           format: 'json',
-          perspective: 'rank',
-          restrict_kind: 'overview',
+          perspective: 'interval',
+          restrict_kind: 'activity',
           restrict_begin: formatDate(weekStart),
-          restrict_end: formatDate(now)
-        }
+          restrict_end: formatDate(now),
+        },
       }),
       $fetch<RescueTimeResponse>('https://www.rescuetime.com/anapi/data', {
         params: {
           key: token,
           format: 'json',
-          perspective: 'rank',
-          restrict_kind: 'overview',
+          perspective: 'interval',
+          restrict_kind: 'activity',
           restrict_begin: formatDate(monthStart),
-          restrict_end: formatDate(now)
-        }
-      })
+          restrict_end: formatDate(now),
+        },
+      }),
     ])
+
+    const weekData = (
+      results[0].status === 'fulfilled' ? results[0].value : { rows: [] }
+    ) as RescueTimeResponse
+    const monthData = (
+      results[1].status === 'fulfilled' ? results[1].value : { rows: [] }
+    ) as RescueTimeResponse
 
     // Process week data
     const processData = (response: RescueTimeResponse) => {
-      const rows: RescueTimeRow[] = response.rows.map((row: any[]) => ({
+      const rows: RescueTimeRow[] = response.rows.map((row) => ({
         date: row[0],
         seconds: row[1],
         activity: row[3],
         category: row[4],
-        productivity: row[5]
+        productivity: row[5],
       }))
 
       const totalSeconds = rows.reduce((sum, row) => sum + row.seconds, 0)
@@ -146,7 +129,7 @@ export default defineEventHandler(async () => {
           categoryMap.set(row.category, {
             name: row.category,
             seconds: 0,
-            productivity: row.productivity
+            productivity: row.productivity,
           })
         }
         const cat = categoryMap.get(row.category)
@@ -161,7 +144,7 @@ export default defineEventHandler(async () => {
             name: row.activity,
             seconds: 0,
             category: row.category,
-            productivity: row.productivity
+            productivity: row.productivity,
           })
         }
         const act = activityMap.get(row.activity)
@@ -177,7 +160,7 @@ export default defineEventHandler(async () => {
           time: calculateTimeBreakdown(act.seconds),
           percentageOfTotal: Math.round((act.seconds / totalSeconds) * 100),
           category: act.category,
-          productivity: act.productivity
+          productivity: act.productivity,
         }))
 
       // Process categories
@@ -187,7 +170,7 @@ export default defineEventHandler(async () => {
           name: cat.name,
           time: calculateTimeBreakdown(cat.seconds),
           percentageOfTotal: Math.round((cat.seconds / totalSeconds) * 100),
-          productivity: cat.productivity
+          productivity: cat.productivity,
         }))
 
       // Calculate summary
@@ -210,30 +193,32 @@ export default defineEventHandler(async () => {
           total: calculateTimeBreakdown(totalSeconds),
           productive: {
             time: calculateTimeBreakdown(productiveSeconds),
-            percentage: Math.round((productiveSeconds / totalSeconds) * 100)
+            percentage: Math.round((productiveSeconds / totalSeconds) * 100),
           },
           distracting: {
             time: calculateTimeBreakdown(distractingSeconds),
-            percentage: Math.round((distractingSeconds / totalSeconds) * 100)
+            percentage: Math.round((distractingSeconds / totalSeconds) * 100),
           },
           neutral: {
             time: calculateTimeBreakdown(neutralSeconds),
-            percentage: Math.round((neutralSeconds / totalSeconds) * 100)
-          }
-        }
+            percentage: Math.round((neutralSeconds / totalSeconds) * 100),
+          },
+        },
       }
     }
 
     return {
       week: processData(weekData),
       month: processData(monthData),
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
-  } catch (error: any) {
+  } catch (error) {
     console.error('RescueTime API error:', error)
+    const err = error as Error
+    const errorMsg = `Failed to fetch RescueTime data: ${err.message}`
     throw createError({
       statusCode: 500,
-      message: `Failed to fetch RescueTime data: ${error.message}`
+      message: errorMsg,
     })
   }
 })

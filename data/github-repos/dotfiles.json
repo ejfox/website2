@@ -1,0 +1,3009 @@
+{
+  "name": "dotfiles",
+  "description": "Backup of my dotfiles",
+  "url": "https://github.com/ejfox/dotfiles",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 1,
+    "watchers": 0,
+    "openIssues": 3
+  },
+  "language": "Shell",
+  "languageColor": "#89e051",
+  "languages": {
+    "Shell": 326401,
+    "GLSL": 188468,
+    "Lua": 143373,
+    "JavaScript": 33095,
+    "Talon": 8399,
+    "Python": 6955,
+    "CSS": 1942
+  },
+  "diskUsage": 61155,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".CLAUDE-CLEANUP-METHODOLOGY.txt",
+        "size": 52
+      },
+      {
+        "path": ".bash_profile",
+        "size": 267
+      },
+      {
+        "path": ".claude/MCP-RESTORE.md",
+        "size": 3369
+      },
+      {
+        "path": ".claude/ROBOT-HUMAN-PROTOCOL.md",
+        "size": 3676
+      },
+      {
+        "path": ".claude/agents/ada-quality-engineer.md",
+        "size": 4915
+      },
+      {
+        "path": ".claude/agents/clarence-janitor-sage.md",
+        "size": 4466
+      },
+      {
+        "path": ".claude/agents/diesel-infrastructure-mechanic.md",
+        "size": 5372
+      },
+      {
+        "path": ".claude/agents/ghost-chen-security.md",
+        "size": 5503
+      },
+      {
+        "path": ".claude/agents/marcus-product-strategist.md",
+        "size": 5525
+      },
+      {
+        "path": ".claude/agents/mobile-maria-ux.md",
+        "size": 5410
+      },
+      {
+        "path": ".claude/agents/murphy-chaos-clown.md",
+        "size": 4001
+      },
+      {
+        "path": ".claude/agents/sage-kitchen-witch.md",
+        "size": 7831
+      },
+      {
+        "path": ".claude/agents/sales-sam-tech-bro.md",
+        "size": 4824
+      },
+      {
+        "path": ".claude/agents/sarah-systems-architect.md",
+        "size": 5941
+      },
+      {
+        "path": ".claude/agents/speed-demon-dev.md",
+        "size": 5668
+      },
+      {
+        "path": ".claude/agents/tmux-pane-wizard.md",
+        "size": 6692
+      },
+      {
+        "path": ".claude/mcp-servers-backup.json",
+        "size": 493
+      },
+      {
+        "path": ".claude/settings.json",
+        "size": 1439
+      },
+      {
+        "path": ".claude/settings.local.json",
+        "size": 1541
+      },
+      {
+        "path": ".claude/skills/delegate-to-human.md",
+        "size": 3251
+      },
+      {
+        "path": ".config/atuin/config.toml",
+        "size": 10354
+      },
+      {
+        "path": ".config/bat/config",
+        "size": 234
+      },
+      {
+        "path": ".config/bat/themes/Catppuccin Latte.tmTheme",
+        "size": 65907
+      },
+      {
+        "path": ".config/bat/themes/Catppuccin Mocha.tmTheme",
+        "size": 65906
+      },
+      {
+        "path": ".config/bat/themes/vulpes-reddish2-dark-bat.tmTheme",
+        "size": 4526
+      },
+      {
+        "path": ".config/bat/themes/vulpes-reddish2-light-bat.tmTheme",
+        "size": 4527
+      },
+      {
+        "path": ".config/bat/themes/vulpes-reddishnovember-dark.tmTheme",
+        "size": 6884
+      },
+      {
+        "path": ".config/bat/themes/vulpes-reddishnovember-light.tmTheme",
+        "size": 6886
+      },
+      {
+        "path": ".config/btop/btop.conf",
+        "size": 8856
+      },
+      {
+        "path": ".config/btop/btop.log",
+        "size": 179
+      },
+      {
+        "path": ".config/btop/themes/vulpes-reddish2-dark-btop.theme",
+        "size": 1199
+      },
+      {
+        "path": ".config/btop/themes/vulpes-reddish2-light-btop.theme",
+        "size": 1360
+      },
+      {
+        "path": ".config/claude/mcp-servers/.gitignore",
+        "size": 14
+      },
+      {
+        "path": ".config/claude/mcp-servers/package-lock.json",
+        "size": 5687
+      },
+      {
+        "path": ".config/claude/mcp-servers/package.json",
+        "size": 271
+      },
+      {
+        "path": ".config/claude/mcp-servers/tmux-server.js",
+        "size": 8622
+      },
+      {
+        "path": ".config/claude/statusline.sh",
+        "size": 1634
+      },
+      {
+        "path": ".config/ghostty/audit-ghostty-theme.mjs",
+        "size": 5894
+      },
+      {
+        "path": ".config/ghostty/config",
+        "size": 3710
+      },
+      {
+        "path": ".config/ghostty/find-vulpes-greens-v2.mjs",
+        "size": 5154
+      },
+      {
+        "path": ".config/ghostty/find-vulpes-greens.mjs",
+        "size": 6707
+      },
+      {
+        "path": ".config/ghostty/shaders/Readme.md",
+        "size": 429
+      },
+      {
+        "path": ".config/ghostty/shaders/animated-gradient-shader.glsl",
+        "size": 1448
+      },
+      {
+        "path": ".config/ghostty/shaders/bettercrt.glsl",
+        "size": 1276
+      },
+      {
+        "path": ".config/ghostty/shaders/bloom-subtle.glsl",
+        "size": 2410
+      },
+      {
+        "path": ".config/ghostty/shaders/bloom-vulpes.glsl",
+        "size": 4266
+      },
+      {
+        "path": ".config/ghostty/shaders/bloom-wide-soft.glsl",
+        "size": 1607
+      },
+      {
+        "path": ".config/ghostty/shaders/bloom.glsl",
+        "size": 2304
+      },
+      {
+        "path": ".config/ghostty/shaders/cineShader-Lava.glsl",
+        "size": 2260
+      },
+      {
+        "path": ".config/ghostty/shaders/crt.glsl",
+        "size": 9161
+      },
+      {
+        "path": ".config/ghostty/shaders/cubes.glsl",
+        "size": 3490
+      },
+      {
+        "path": ".config/ghostty/shaders/cursor-blaze-vulpes.glsl",
+        "size": 7439
+      },
+      {
+        "path": ".config/ghostty/shaders/cursor-pulse-vulpes.glsl",
+        "size": 2357
+      },
+      {
+        "path": ".config/ghostty/shaders/cursor_blaze.glsl",
+        "size": 5724
+      },
+      {
+        "path": ".config/ghostty/shaders/debug-time-bars.glsl",
+        "size": 2418
+      },
+      {
+        "path": ".config/ghostty/shaders/debug-time-display-text.glsl",
+        "size": 4602
+      },
+      {
+        "path": ".config/ghostty/shaders/debug-time-display.glsl",
+        "size": 3629
+      },
+      {
+        "path": ".config/ghostty/shaders/debug-time-of-day.glsl",
+        "size": 1040
+      },
+      {
+        "path": ".config/ghostty/shaders/dither.glsl",
+        "size": 970
+      },
+      {
+        "path": ".config/ghostty/shaders/drunkard.glsl",
+        "size": 2274
+      },
+      {
+        "path": ".config/ghostty/shaders/film-grain-subtle.glsl",
+        "size": 1491
+      },
+      {
+        "path": ".config/ghostty/shaders/fireworks-rockets.glsl",
+        "size": 3240
+      },
+      {
+        "path": ".config/ghostty/shaders/fireworks.glsl",
+        "size": 3147
+      },
+      {
+        "path": ".config/ghostty/shaders/galaxy.glsl",
+        "size": 5919
+      },
+      {
+        "path": ".config/ghostty/shaders/gears-and-belts.glsl",
+        "size": 8907
+      },
+      {
+        "path": ".config/ghostty/shaders/glitchy.glsl",
+        "size": 3646
+      },
+      {
+        "path": ".config/ghostty/shaders/glow-rgbsplit-twitchy.glsl",
+        "size": 5725
+      },
+      {
+        "path": ".config/ghostty/shaders/gradient-background.glsl",
+        "size": 1075
+      },
+      {
+        "path": ".config/ghostty/shaders/in-game-crt.glsl",
+        "size": 10021
+      },
+      {
+        "path": ".config/ghostty/shaders/inside-the-matrix.glsl",
+        "size": 16060
+      },
+      {
+        "path": ".config/ghostty/shaders/just-snow.glsl",
+        "size": 1859
+      },
+      {
+        "path": ".config/ghostty/shaders/matrix-hallway.glsl",
+        "size": 1252
+      },
+      {
+        "path": ".config/ghostty/shaders/mnoise.glsl",
+        "size": 3980
+      },
+      {
+        "path": ".config/ghostty/shaders/mood-ink.glsl",
+        "size": 6529
+      },
+      {
+        "path": ".config/ghostty/shaders/negative.glsl",
+        "size": 219
+      },
+      {
+        "path": ".config/ghostty/shaders/phosphor-chromatic-vulpes.glsl",
+        "size": 2617
+      },
+      {
+        "path": ".config/ghostty/shaders/retro-terminal.glsl",
+        "size": 1368
+      },
+      {
+        "path": ".config/ghostty/shaders/scanline-flicker.glsl",
+        "size": 1167
+      },
+      {
+        "path": ".config/ghostty/shaders/sin-interference.glsl",
+        "size": 1122
+      },
+      {
+        "path": ".config/ghostty/shaders/smoke-and-ghost.glsl",
+        "size": 7460
+      },
+      {
+        "path": ".config/ghostty/shaders/sparks-from-fire.glsl",
+        "size": 7035
+      },
+      {
+        "path": ".config/ghostty/shaders/spotlight.glsl",
+        "size": 1650
+      },
+      {
+        "path": ".config/ghostty/shaders/starfield-colors.glsl",
+        "size": 3891
+      },
+      {
+        "path": ".config/ghostty/shaders/starfield.glsl",
+        "size": 3229
+      },
+      {
+        "path": ".config/ghostty/shaders/synesthaxia.glsl",
+        "size": 7984
+      },
+      {
+        "path": ".config/ghostty/shaders/tft-subtle.glsl",
+        "size": 1983
+      },
+      {
+        "path": ".config/ghostty/shaders/tft.glsl",
+        "size": 572
+      },
+      {
+        "path": ".config/ghostty/shaders/underwater.glsl",
+        "size": 2523
+      },
+      {
+        "path": ".config/ghostty/shaders/vignette-subtle.glsl",
+        "size": 2329
+      },
+      {
+        "path": ".config/ghostty/shaders/vignette-vulpes.glsl",
+        "size": 1935
+      },
+      {
+        "path": ".config/ghostty/shaders/vulpes-bloom.glsl",
+        "size": 2765
+      },
+      {
+        "path": ".config/ghostty/shaders/vulpes-cursor-blaze.glsl",
+        "size": 5355
+      },
+      {
+        "path": ".config/ghostty/shaders/vulpes-tft.glsl",
+        "size": 708
+      },
+      {
+        "path": ".config/ghostty/shaders/water.glsl",
+        "size": 1030
+      },
+      {
+        "path": ".config/ghostty/themes/catppuccin_latte",
+        "size": 662
+      },
+      {
+        "path": ".config/ghostty/themes/catppuccin_mocha",
+        "size": 669
+      },
+      {
+        "path": ".config/ghostty/themes/vulpes-reddishnovember-dark",
+        "size": 611
+      },
+      {
+        "path": ".config/ghostty/themes/vulpes-reddishnovember-light",
+        "size": 796
+      },
+      {
+        "path": ".config/ghostty/themes/vulpes_greenish_dark",
+        "size": 535
+      },
+      {
+        "path": ".config/ghostty/themes/vulpes_greenish_light",
+        "size": 536
+      },
+      {
+        "path": ".config/ghostty/themes/vulpes_reddish2_dark",
+        "size": 607
+      },
+      {
+        "path": ".config/ghostty/themes/vulpes_reddish2_light",
+        "size": 608
+      },
+      {
+        "path": ".config/ghostty/themes/vulpes_reddish_dark",
+        "size": 534
+      },
+      {
+        "path": ".config/ghostty/themes/vulpes_reddish_light",
+        "size": 535
+      },
+      {
+        "path": ".config/htop/htoprc",
+        "size": 1372
+      },
+      {
+        "path": ".config/karabiner/automatic_backups/karabiner_20250601.json",
+        "size": 14020
+      },
+      {
+        "path": ".config/karabiner/karabiner.json",
+        "size": 6141
+      },
+      {
+        "path": ".config/lazygit/audit-theme.mjs",
+        "size": 6718
+      },
+      {
+        "path": ".config/lazygit/config.yml",
+        "size": 1083
+      },
+      {
+        "path": ".config/lazygit/vulpes-reddishnovember-dark.yml",
+        "size": 1083
+      },
+      {
+        "path": ".config/lazygit/vulpes-reddishnovember-light-improved.yml",
+        "size": 965
+      },
+      {
+        "path": ".config/lazygit/vulpes-reddishnovember-light.yml",
+        "size": 1084
+      },
+      {
+        "path": ".config/minimal-prompt.zsh",
+        "size": 697
+      },
+      {
+        "path": ".config/neofetch/config.conf",
+        "size": 18211
+      },
+      {
+        "path": ".config/neomutt/neomuttrc",
+        "size": 2221
+      },
+      {
+        "path": ".config/nvim/.gitignore",
+        "size": 51
+      },
+      {
+        "path": ".config/nvim/.neoconf.json",
+        "size": 183
+      },
+      {
+        "path": ".config/nvim/CLAUDE-CODE-WORKFLOW.md",
+        "size": 2960
+      },
+      {
+        "path": ".config/nvim/LICENSE",
+        "size": 11357
+      },
+      {
+        "path": ".config/nvim/check-plugins.sh",
+        "size": 691
+      },
+      {
+        "path": ".config/nvim/colors/vulpes-reddishnovember-dark.lua",
+        "size": 20830
+      },
+      {
+        "path": ".config/nvim/colors/vulpes-reddishnovember-light.lua",
+        "size": 20005
+      },
+      {
+        "path": ".config/nvim/colors/vulpes_greenish_dark.lua",
+        "size": 2003
+      },
+      {
+        "path": ".config/nvim/colors/vulpes_greenish_light.lua",
+        "size": 2006
+      },
+      {
+        "path": ".config/nvim/colors/vulpes_reddish2_dark.lua",
+        "size": 4420
+      },
+      {
+        "path": ".config/nvim/colors/vulpes_reddish2_light.lua",
+        "size": 2054
+      },
+      {
+        "path": ".config/nvim/colors/vulpes_reddish_dark.lua",
+        "size": 2001
+      },
+      {
+        "path": ".config/nvim/colors/vulpes_reddish_light.lua",
+        "size": 2004
+      },
+      {
+        "path": ".config/nvim/init.lua",
+        "size": 72
+      },
+      {
+        "path": ".config/nvim/lazy-lock.json",
+        "size": 5847
+      },
+      {
+        "path": ".config/nvim/lazyvim.json",
+        "size": 595
+      },
+      {
+        "path": ".config/nvim/lua/config/autocmds.lua",
+        "size": 1291
+      },
+      {
+        "path": ".config/nvim/lua/config/diagnostics.lua",
+        "size": 1020
+      },
+      {
+        "path": ".config/nvim/lua/config/keymaps.lua",
+        "size": 1941
+      },
+      {
+        "path": ".config/nvim/lua/config/lazy.lua",
+        "size": 3603
+      },
+      {
+        "path": ".config/nvim/lua/config/options.lua",
+        "size": 6340
+      },
+      {
+        "path": ".config/nvim/lua/custom/directory-watcher.lua",
+        "size": 2011
+      },
+      {
+        "path": ".config/nvim/lua/custom/git-diff-hotreload.lua",
+        "size": 1554
+      },
+      {
+        "path": ".config/nvim/lua/custom/hotreload.lua",
+        "size": 3057
+      },
+      {
+        "path": ".config/nvim/lua/plugins/claude-code-workflow.lua",
+        "size": 1716
+      },
+      {
+        "path": ".config/nvim/lua/plugins/copilot-inline.lua",
+        "size": 1565
+      },
+      {
+        "path": ".config/nvim/lua/plugins/focus.lua",
+        "size": 1961
+      },
+      {
+        "path": ".config/nvim/lua/plugins/git.lua",
+        "size": 2446
+      },
+      {
+        "path": ".config/nvim/lua/plugins/mini.lua",
+        "size": 378
+      },
+      {
+        "path": ".config/nvim/lua/plugins/minimal-statusline.lua",
+        "size": 7540
+      },
+      {
+        "path": ".config/nvim/lua/plugins/minimal-telescope.lua",
+        "size": 1266
+      },
+      {
+        "path": ".config/nvim/lua/plugins/notifications.lua",
+        "size": 1216
+      },
+      {
+        "path": ".config/nvim/lua/plugins/nvim-cmp-lean.lua",
+        "size": 3474
+      },
+      {
+        "path": ".config/nvim/lua/plugins/nvim-dap.lua",
+        "size": 2802
+      },
+      {
+        "path": ".config/nvim/lua/plugins/nvim-ufo.lua",
+        "size": 2248
+      },
+      {
+        "path": ".config/nvim/lua/plugins/obsidian.lua",
+        "size": 1608
+      },
+      {
+        "path": ".config/nvim/lua/plugins/oil.lua",
+        "size": 3786
+      },
+      {
+        "path": ".config/nvim/lua/plugins/snacks.lua",
+        "size": 7936
+      },
+      {
+        "path": ".config/nvim/lua/plugins/statuscolumn-tens.lua",
+        "size": 1239
+      },
+      {
+        "path": ".config/nvim/lua/plugins/svelte.lua",
+        "size": 1202
+      },
+      {
+        "path": ".config/nvim/lua/plugins/tailwind.lua",
+        "size": 614
+      },
+      {
+        "path": ".config/nvim/lua/plugins/theming.lua",
+        "size": 3147
+      },
+      {
+        "path": ".config/nvim/lua/plugins/usage-logging.lua",
+        "size": 5258
+      },
+      {
+        "path": ".config/nvim/lua/plugins/utilities.lua",
+        "size": 1897
+      },
+      {
+        "path": ".config/nvim/lua/plugins/vue-lsp.lua",
+        "size": 1647
+      },
+      {
+        "path": ".config/nvim/stylua.toml",
+        "size": 58
+      },
+      {
+        "path": ".config/sketchybar/plugins/battery.sh",
+        "size": 4125
+      },
+      {
+        "path": ".config/sketchybar/plugins/cipher.sh",
+        "size": 8864
+      },
+      {
+        "path": ".config/sketchybar/plugins/claude_usage.sh",
+        "size": 596
+      },
+      {
+        "path": ".config/sketchybar/plugins/clock.sh",
+        "size": 243
+      },
+      {
+        "path": ".config/sketchybar/plugins/creative.sh",
+        "size": 2780
+      },
+      {
+        "path": ".config/sketchybar/plugins/daily_stats.sh",
+        "size": 3800
+      },
+      {
+        "path": ".config/sketchybar/plugins/demos.sh",
+        "size": 2245
+      },
+      {
+        "path": ".config/sketchybar/plugins/dev_dashboard.sh",
+        "size": 4842
+      },
+      {
+        "path": ".config/sketchybar/plugins/doc_reminder.sh",
+        "size": 2245
+      },
+      {
+        "path": ".config/sketchybar/plugins/front_app.sh",
+        "size": 375
+      },
+      {
+        "path": ".config/sketchybar/plugins/git.sh",
+        "size": 2665
+      },
+      {
+        "path": ".config/sketchybar/plugins/git_click.sh",
+        "size": 677
+      },
+      {
+        "path": ".config/sketchybar/plugins/github_repos.sh",
+        "size": 340
+      },
+      {
+        "path": ".config/sketchybar/plugins/iching.sh",
+        "size": 374
+      },
+      {
+        "path": ".config/sketchybar/plugins/last_repo.sh",
+        "size": 421
+      },
+      {
+        "path": ".config/sketchybar/plugins/mic.sh",
+        "size": 286
+      },
+      {
+        "path": ".config/sketchybar/plugins/mutagen.sh",
+        "size": 1378
+      },
+      {
+        "path": ".config/sketchybar/plugins/next_action.sh",
+        "size": 1746
+      },
+      {
+        "path": ".config/sketchybar/plugins/next_event.sh",
+        "size": 5189
+      },
+      {
+        "path": ".config/sketchybar/plugins/notes.sh",
+        "size": 2256
+      },
+      {
+        "path": ".config/sketchybar/plugins/photos.sh",
+        "size": 371
+      },
+      {
+        "path": ".config/sketchybar/plugins/productivity.sh",
+        "size": 1296
+      },
+      {
+        "path": ".config/sketchybar/plugins/space.sh",
+        "size": 294
+      },
+      {
+        "path": ".config/sketchybar/plugins/sunset.sh",
+        "size": 311
+      },
+      {
+        "path": ".config/sketchybar/plugins/tailscale-status.sh",
+        "size": 767
+      },
+      {
+        "path": ".config/sketchybar/plugins/tasks.sh",
+        "size": 479
+      },
+      {
+        "path": ".config/sketchybar/plugins/top_task.sh",
+        "size": 4110
+      },
+      {
+        "path": ".config/sketchybar/plugins/typing.sh",
+        "size": 1088
+      },
+      {
+        "path": ".config/sketchybar/plugins/volume.sh",
+        "size": 411
+      },
+      {
+        "path": ".config/sketchybar/plugins/words.sh",
+        "size": 626
+      },
+      {
+        "path": ".config/sketchybar/sketchybarrc",
+        "size": 5570
+      },
+      {
+        "path": ".config/wireshark/recent",
+        "size": 2481
+      },
+      {
+        "path": ".config/wireshark/recent_common",
+        "size": 1607
+      },
+      {
+        "path": ".config/yazi/Catppuccin-mocha.tmTheme",
+        "size": 14
+      },
+      {
+        "path": ".config/yazi/keymap.toml",
+        "size": 4057
+      },
+      {
+        "path": ".config/yazi/package.toml",
+        "size": 619
+      },
+      {
+        "path": ".config/yazi/plugins/diff.yazi/LICENSE",
+        "size": 1064
+      },
+      {
+        "path": ".config/yazi/plugins/diff.yazi/README.md",
+        "size": 608
+      },
+      {
+        "path": ".config/yazi/plugins/diff.yazi/main.lua",
+        "size": 843
+      },
+      {
+        "path": ".config/yazi/plugins/git.yazi/LICENSE",
+        "size": 1068
+      },
+      {
+        "path": ".config/yazi/plugins/git.yazi/README.md",
+        "size": 879
+      },
+      {
+        "path": ".config/yazi/plugins/git.yazi/main.lua",
+        "size": 6299
+      },
+      {
+        "path": ".config/yazi/plugins/glow.yazi/LICENSE",
+        "size": 1084
+      },
+      {
+        "path": ".config/yazi/plugins/glow.yazi/README.md",
+        "size": 801
+      },
+      {
+        "path": ".config/yazi/plugins/glow.yazi/main.lua",
+        "size": 1306
+      },
+      {
+        "path": ".config/yazi/plugins/ouch.yazi/LICENSE",
+        "size": 1065
+      },
+      {
+        "path": ".config/yazi/plugins/ouch.yazi/README.md",
+        "size": 2418
+      },
+      {
+        "path": ".config/yazi/plugins/ouch.yazi/main.lua",
+        "size": 3767
+      },
+      {
+        "path": ".config/yazi/theme-light.toml",
+        "size": 2800
+      },
+      {
+        "path": ".config/yazi/theme.toml",
+        "size": 58
+      },
+      {
+        "path": ".config/yazi/vulpes-reddishnovember-dark.toml",
+        "size": 2732
+      },
+      {
+        "path": ".config/yazi/vulpes-reddishnovember-light.toml",
+        "size": 3141
+      },
+      {
+        "path": ".config/yazi/yazi.toml",
+        "size": 921
+      },
+      {
+        "path": ".config/zsh/themes/vulpes-reddishnovember-dark.zsh",
+        "size": 3541
+      },
+      {
+        "path": ".config/zsh/themes/vulpes-reddishnovember-light.zsh",
+        "size": 3557
+      },
+      {
+        "path": ".gitattributes",
+        "size": 66
+      },
+      {
+        "path": ".gitconfig",
+        "size": 1437
+      },
+      {
+        "path": ".githooks/pre-commit",
+        "size": 5701
+      },
+      {
+        "path": ".gitignore",
+        "size": 2487
+      },
+      {
+        "path": ".gnupg/gpg-agent.conf",
+        "size": 41
+      },
+      {
+        "path": ".gnupg/gpg.conf",
+        "size": 106
+      },
+      {
+        "path": ".gnupg/trustdb.gpg",
+        "size": 1360
+      },
+      {
+        "path": ".irssi/config",
+        "size": 10320
+      },
+      {
+        "path": ".irssi/themes/cracked.theme",
+        "size": 4584
+      },
+      {
+        "path": ".llm-persona.txt",
+        "size": 2952
+      },
+      {
+        "path": ".mbsyncrc",
+        "size": 472
+      },
+      {
+        "path": ".nuxtrc",
+        "size": 23
+      },
+      {
+        "path": ".obsidian-config/community-plugins.json",
+        "size": 234
+      },
+      {
+        "path": ".obsidian-config/hotkeys.json",
+        "size": 2258
+      },
+      {
+        "path": ".obsidian-config/snippets/text.css",
+        "size": 1942
+      },
+      {
+        "path": ".p10k.zsh",
+        "size": 92515
+      },
+      {
+        "path": ".profile",
+        "size": 201
+      },
+      {
+        "path": ".startup-old.sh",
+        "size": 12549
+      },
+      {
+        "path": ".startup.sh",
+        "size": 10915
+      },
+      {
+        "path": ".tmux.conf",
+        "size": 11992
+      },
+      {
+        "path": ".tweakcc-apply.sh",
+        "size": 1387
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": ".zen-mode.sh",
+        "size": 487
+      },
+      {
+        "path": ".zprofile",
+        "size": 376
+      },
+      {
+        "path": ".zshenv",
+        "size": 480
+      },
+      {
+        "path": ".zshrc",
+        "size": 26859
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 43083
+      },
+      {
+        "path": "LICENSE",
+        "size": 1209
+      },
+      {
+        "path": "LaunchAgents/com.ejfox.cipher-daily.plist",
+        "size": 794
+      },
+      {
+        "path": "README.md",
+        "size": 6228
+      },
+      {
+        "path": "bin/ai-commit",
+        "size": 3103
+      },
+      {
+        "path": "bin/appearance-watcher",
+        "size": 1166
+      },
+      {
+        "path": "bin/btop",
+        "size": 932
+      },
+      {
+        "path": "bin/cipher-daily",
+        "size": 3933
+      },
+      {
+        "path": "bin/claude-say",
+        "size": 3897
+      },
+      {
+        "path": "bin/dotfiles-audit",
+        "size": 5557
+      },
+      {
+        "path": "bin/dotfiles-verify",
+        "size": 7595
+      },
+      {
+        "path": "bin/email-summary",
+        "size": 2282
+      },
+      {
+        "path": "bin/mic-toggle",
+        "size": 384
+      },
+      {
+        "path": "bin/morning-ritual",
+        "size": 15561
+      },
+      {
+        "path": "bin/obs",
+        "size": 3496
+      },
+      {
+        "path": "bin/pub",
+        "size": 10555
+      },
+      {
+        "path": "bin/send-to-canvas",
+        "size": 5111
+      },
+      {
+        "path": "bin/tmux-focus-color",
+        "size": 740
+      },
+      {
+        "path": "bin/tmux-mutagen-status",
+        "size": 776
+      },
+      {
+        "path": "bin/tmux-scratch-toggle",
+        "size": 636
+      },
+      {
+        "path": "bin/usage-analyze",
+        "size": 2940
+      },
+      {
+        "path": "bin/usage-log",
+        "size": 801
+      },
+      {
+        "path": "bin/usage-summary",
+        "size": 842
+      },
+      {
+        "path": "bin/vps",
+        "size": 394
+      },
+      {
+        "path": "bin/vtsls-wrapper",
+        "size": 126
+      },
+      {
+        "path": "docs/HISTORY.md",
+        "size": 21505
+      },
+      {
+        "path": "docs/STARTUP_DOCS.md",
+        "size": 7404
+      },
+      {
+        "path": "docs/TWEAKCC_SETUP.md",
+        "size": 3357
+      },
+      {
+        "path": "docs/WORKFLOWS.md",
+        "size": 5650
+      },
+      {
+        "path": "docs/tips.txt",
+        "size": 21444
+      },
+      {
+        "path": "lib/mystical-symbols.sh",
+        "size": 14424
+      },
+      {
+        "path": "lib/shell-usage-logging.zsh",
+        "size": 1864
+      },
+      {
+        "path": "lib/tmux-mystical.sh",
+        "size": 396
+      },
+      {
+        "path": "lib/tmux-usage-logging.conf",
+        "size": 1996
+      },
+      {
+        "path": "scripts/macos-defaults.sh",
+        "size": 813
+      },
+      {
+        "path": "scripts/setup-vps-mosh.sh",
+        "size": 1310
+      },
+      {
+        "path": "sync-dotfiles.sh",
+        "size": 2148
+      },
+      {
+        "path": "talon-overrides/apps.py",
+        "size": 592
+      },
+      {
+        "path": "talon-overrides/cursor.talon",
+        "size": 140
+      },
+      {
+        "path": "talon-overrides/custom_keys.talon",
+        "size": 408
+      },
+      {
+        "path": "talon-overrides/ejfox_subtitles.py",
+        "size": 1883
+      },
+      {
+        "path": "talon-overrides/ghostty.talon",
+        "size": 89
+      },
+      {
+        "path": "talon-overrides/macos_nav.talon",
+        "size": 1518
+      },
+      {
+        "path": "talon-overrides/mic_toggle.py",
+        "size": 948
+      },
+      {
+        "path": "talon-overrides/mode_line.py",
+        "size": 1681
+      },
+      {
+        "path": "talon-overrides/nato_alphabet.py",
+        "size": 551
+      },
+      {
+        "path": "talon-overrides/settings.talon",
+        "size": 379
+      },
+      {
+        "path": "talon-overrides/terminal_commands.talon",
+        "size": 4488
+      },
+      {
+        "path": "talon-overrides/terminal_pop.talon",
+        "size": 135
+      },
+      {
+        "path": "talon-overrides/tmux.talon",
+        "size": 1242
+      },
+      {
+        "path": "talon-overrides/usage_logging.py",
+        "size": 1300
+      },
+      {
+        "path": "talon-overrides/vocabulary.talon-list",
+        "size": 3986
+      },
+      {
+        "path": "vulpes-reddish2-dark-tmux.tmux.conf",
+        "size": 656
+      },
+      {
+        "path": "vulpes-reddish2-light-tmux.tmux.conf",
+        "size": 685
+      }
+    ],
+    "tree": {
+      "name": "dotfiles",
+      "children": [
+        {
+          "name": ".claude",
+          "children": [
+            {
+              "name": "agents",
+              "children": [
+                {
+                  "name": "ada-quality-engineer.md",
+                  "size": 4915,
+                  "path": ".claude/agents/ada-quality-engineer.md"
+                },
+                {
+                  "name": "clarence-janitor-sage.md",
+                  "size": 4466,
+                  "path": ".claude/agents/clarence-janitor-sage.md"
+                },
+                {
+                  "name": "diesel-infrastructure-mechanic.md",
+                  "size": 5372,
+                  "path": ".claude/agents/diesel-infrastructure-mechanic.md"
+                },
+                {
+                  "name": "ghost-chen-security.md",
+                  "size": 5503,
+                  "path": ".claude/agents/ghost-chen-security.md"
+                },
+                {
+                  "name": "marcus-product-strategist.md",
+                  "size": 5525,
+                  "path": ".claude/agents/marcus-product-strategist.md"
+                },
+                {
+                  "name": "mobile-maria-ux.md",
+                  "size": 5410,
+                  "path": ".claude/agents/mobile-maria-ux.md"
+                },
+                {
+                  "name": "murphy-chaos-clown.md",
+                  "size": 4001,
+                  "path": ".claude/agents/murphy-chaos-clown.md"
+                },
+                {
+                  "name": "sage-kitchen-witch.md",
+                  "size": 7831,
+                  "path": ".claude/agents/sage-kitchen-witch.md"
+                },
+                {
+                  "name": "sales-sam-tech-bro.md",
+                  "size": 4824,
+                  "path": ".claude/agents/sales-sam-tech-bro.md"
+                },
+                {
+                  "name": "sarah-systems-architect.md",
+                  "size": 5941,
+                  "path": ".claude/agents/sarah-systems-architect.md"
+                },
+                {
+                  "name": "speed-demon-dev.md",
+                  "size": 5668,
+                  "path": ".claude/agents/speed-demon-dev.md"
+                },
+                {
+                  "name": "tmux-pane-wizard.md",
+                  "size": 6692,
+                  "path": ".claude/agents/tmux-pane-wizard.md"
+                }
+              ],
+              "path": ".claude/agents"
+            },
+            {
+              "name": "skills",
+              "children": [
+                {
+                  "name": "delegate-to-human.md",
+                  "size": 3251,
+                  "path": ".claude/skills/delegate-to-human.md"
+                }
+              ],
+              "path": ".claude/skills"
+            },
+            {
+              "name": "MCP-RESTORE.md",
+              "size": 3369,
+              "path": ".claude/MCP-RESTORE.md"
+            },
+            {
+              "name": "ROBOT-HUMAN-PROTOCOL.md",
+              "size": 3676,
+              "path": ".claude/ROBOT-HUMAN-PROTOCOL.md"
+            },
+            {
+              "name": "mcp-servers-backup.json",
+              "size": 493,
+              "path": ".claude/mcp-servers-backup.json"
+            },
+            {
+              "name": "settings.json",
+              "size": 1439,
+              "path": ".claude/settings.json"
+            },
+            {
+              "name": "settings.local.json",
+              "size": 1541,
+              "path": ".claude/settings.local.json"
+            }
+          ],
+          "path": ".claude"
+        },
+        {
+          "name": ".config",
+          "children": [
+            {
+              "name": "atuin",
+              "children": [
+                {
+                  "name": "config.toml",
+                  "size": 10354,
+                  "path": ".config/atuin/config.toml"
+                }
+              ],
+              "path": ".config/atuin"
+            },
+            {
+              "name": "bat",
+              "children": [
+                {
+                  "name": "themes",
+                  "children": [
+                    {
+                      "name": "Catppuccin Latte.tmTheme",
+                      "size": 65907,
+                      "path": ".config/bat/themes/Catppuccin Latte.tmTheme"
+                    },
+                    {
+                      "name": "Catppuccin Mocha.tmTheme",
+                      "size": 65906,
+                      "path": ".config/bat/themes/Catppuccin Mocha.tmTheme"
+                    },
+                    {
+                      "name": "vulpes-reddish2-dark-bat.tmTheme",
+                      "size": 4526,
+                      "path": ".config/bat/themes/vulpes-reddish2-dark-bat.tmTheme"
+                    },
+                    {
+                      "name": "vulpes-reddish2-light-bat.tmTheme",
+                      "size": 4527,
+                      "path": ".config/bat/themes/vulpes-reddish2-light-bat.tmTheme"
+                    },
+                    {
+                      "name": "vulpes-reddishnovember-dark.tmTheme",
+                      "size": 6884,
+                      "path": ".config/bat/themes/vulpes-reddishnovember-dark.tmTheme"
+                    },
+                    {
+                      "name": "vulpes-reddishnovember-light.tmTheme",
+                      "size": 6886,
+                      "path": ".config/bat/themes/vulpes-reddishnovember-light.tmTheme"
+                    }
+                  ],
+                  "path": ".config/bat/themes"
+                },
+                {
+                  "name": "config",
+                  "size": 234,
+                  "path": ".config/bat/config"
+                }
+              ],
+              "path": ".config/bat"
+            },
+            {
+              "name": "btop",
+              "children": [
+                {
+                  "name": "themes",
+                  "children": [
+                    {
+                      "name": "vulpes-reddish2-dark-btop.theme",
+                      "size": 1199,
+                      "path": ".config/btop/themes/vulpes-reddish2-dark-btop.theme"
+                    },
+                    {
+                      "name": "vulpes-reddish2-light-btop.theme",
+                      "size": 1360,
+                      "path": ".config/btop/themes/vulpes-reddish2-light-btop.theme"
+                    }
+                  ],
+                  "path": ".config/btop/themes"
+                },
+                {
+                  "name": "btop.conf",
+                  "size": 8856,
+                  "path": ".config/btop/btop.conf"
+                },
+                {
+                  "name": "btop.log",
+                  "size": 179,
+                  "path": ".config/btop/btop.log"
+                }
+              ],
+              "path": ".config/btop"
+            },
+            {
+              "name": "claude",
+              "children": [
+                {
+                  "name": "mcp-servers",
+                  "children": [
+                    {
+                      "name": ".gitignore",
+                      "size": 14,
+                      "path": ".config/claude/mcp-servers/.gitignore"
+                    },
+                    {
+                      "name": "package-lock.json",
+                      "size": 5687,
+                      "path": ".config/claude/mcp-servers/package-lock.json"
+                    },
+                    {
+                      "name": "package.json",
+                      "size": 271,
+                      "path": ".config/claude/mcp-servers/package.json"
+                    },
+                    {
+                      "name": "tmux-server.js",
+                      "size": 8622,
+                      "path": ".config/claude/mcp-servers/tmux-server.js"
+                    }
+                  ],
+                  "path": ".config/claude/mcp-servers"
+                },
+                {
+                  "name": "statusline.sh",
+                  "size": 1634,
+                  "path": ".config/claude/statusline.sh"
+                }
+              ],
+              "path": ".config/claude"
+            },
+            {
+              "name": "ghostty",
+              "children": [
+                {
+                  "name": "shaders",
+                  "children": [
+                    {
+                      "name": "Readme.md",
+                      "size": 429,
+                      "path": ".config/ghostty/shaders/Readme.md"
+                    },
+                    {
+                      "name": "animated-gradient-shader.glsl",
+                      "size": 1448,
+                      "path": ".config/ghostty/shaders/animated-gradient-shader.glsl"
+                    },
+                    {
+                      "name": "bettercrt.glsl",
+                      "size": 1276,
+                      "path": ".config/ghostty/shaders/bettercrt.glsl"
+                    },
+                    {
+                      "name": "bloom-subtle.glsl",
+                      "size": 2410,
+                      "path": ".config/ghostty/shaders/bloom-subtle.glsl"
+                    },
+                    {
+                      "name": "bloom-vulpes.glsl",
+                      "size": 4266,
+                      "path": ".config/ghostty/shaders/bloom-vulpes.glsl"
+                    },
+                    {
+                      "name": "bloom-wide-soft.glsl",
+                      "size": 1607,
+                      "path": ".config/ghostty/shaders/bloom-wide-soft.glsl"
+                    },
+                    {
+                      "name": "bloom.glsl",
+                      "size": 2304,
+                      "path": ".config/ghostty/shaders/bloom.glsl"
+                    },
+                    {
+                      "name": "cineShader-Lava.glsl",
+                      "size": 2260,
+                      "path": ".config/ghostty/shaders/cineShader-Lava.glsl"
+                    },
+                    {
+                      "name": "crt.glsl",
+                      "size": 9161,
+                      "path": ".config/ghostty/shaders/crt.glsl"
+                    },
+                    {
+                      "name": "cubes.glsl",
+                      "size": 3490,
+                      "path": ".config/ghostty/shaders/cubes.glsl"
+                    },
+                    {
+                      "name": "cursor-blaze-vulpes.glsl",
+                      "size": 7439,
+                      "path": ".config/ghostty/shaders/cursor-blaze-vulpes.glsl"
+                    },
+                    {
+                      "name": "cursor-pulse-vulpes.glsl",
+                      "size": 2357,
+                      "path": ".config/ghostty/shaders/cursor-pulse-vulpes.glsl"
+                    },
+                    {
+                      "name": "cursor_blaze.glsl",
+                      "size": 5724,
+                      "path": ".config/ghostty/shaders/cursor_blaze.glsl"
+                    },
+                    {
+                      "name": "debug-time-bars.glsl",
+                      "size": 2418,
+                      "path": ".config/ghostty/shaders/debug-time-bars.glsl"
+                    },
+                    {
+                      "name": "debug-time-display-text.glsl",
+                      "size": 4602,
+                      "path": ".config/ghostty/shaders/debug-time-display-text.glsl"
+                    },
+                    {
+                      "name": "debug-time-display.glsl",
+                      "size": 3629,
+                      "path": ".config/ghostty/shaders/debug-time-display.glsl"
+                    },
+                    {
+                      "name": "debug-time-of-day.glsl",
+                      "size": 1040,
+                      "path": ".config/ghostty/shaders/debug-time-of-day.glsl"
+                    },
+                    {
+                      "name": "dither.glsl",
+                      "size": 970,
+                      "path": ".config/ghostty/shaders/dither.glsl"
+                    },
+                    {
+                      "name": "drunkard.glsl",
+                      "size": 2274,
+                      "path": ".config/ghostty/shaders/drunkard.glsl"
+                    },
+                    {
+                      "name": "film-grain-subtle.glsl",
+                      "size": 1491,
+                      "path": ".config/ghostty/shaders/film-grain-subtle.glsl"
+                    },
+                    {
+                      "name": "fireworks-rockets.glsl",
+                      "size": 3240,
+                      "path": ".config/ghostty/shaders/fireworks-rockets.glsl"
+                    },
+                    {
+                      "name": "fireworks.glsl",
+                      "size": 3147,
+                      "path": ".config/ghostty/shaders/fireworks.glsl"
+                    },
+                    {
+                      "name": "galaxy.glsl",
+                      "size": 5919,
+                      "path": ".config/ghostty/shaders/galaxy.glsl"
+                    },
+                    {
+                      "name": "gears-and-belts.glsl",
+                      "size": 8907,
+                      "path": ".config/ghostty/shaders/gears-and-belts.glsl"
+                    },
+                    {
+                      "name": "glitchy.glsl",
+                      "size": 3646,
+                      "path": ".config/ghostty/shaders/glitchy.glsl"
+                    },
+                    {
+                      "name": "glow-rgbsplit-twitchy.glsl",
+                      "size": 5725,
+                      "path": ".config/ghostty/shaders/glow-rgbsplit-twitchy.glsl"
+                    },
+                    {
+                      "name": "gradient-background.glsl",
+                      "size": 1075,
+                      "path": ".config/ghostty/shaders/gradient-background.glsl"
+                    },
+                    {
+                      "name": "in-game-crt.glsl",
+                      "size": 10021,
+                      "path": ".config/ghostty/shaders/in-game-crt.glsl"
+                    },
+                    {
+                      "name": "inside-the-matrix.glsl",
+                      "size": 16060,
+                      "path": ".config/ghostty/shaders/inside-the-matrix.glsl"
+                    },
+                    {
+                      "name": "just-snow.glsl",
+                      "size": 1859,
+                      "path": ".config/ghostty/shaders/just-snow.glsl"
+                    },
+                    {
+                      "name": "matrix-hallway.glsl",
+                      "size": 1252,
+                      "path": ".config/ghostty/shaders/matrix-hallway.glsl"
+                    },
+                    {
+                      "name": "mnoise.glsl",
+                      "size": 3980,
+                      "path": ".config/ghostty/shaders/mnoise.glsl"
+                    },
+                    {
+                      "name": "mood-ink.glsl",
+                      "size": 6529,
+                      "path": ".config/ghostty/shaders/mood-ink.glsl"
+                    },
+                    {
+                      "name": "negative.glsl",
+                      "size": 219,
+                      "path": ".config/ghostty/shaders/negative.glsl"
+                    },
+                    {
+                      "name": "phosphor-chromatic-vulpes.glsl",
+                      "size": 2617,
+                      "path": ".config/ghostty/shaders/phosphor-chromatic-vulpes.glsl"
+                    },
+                    {
+                      "name": "retro-terminal.glsl",
+                      "size": 1368,
+                      "path": ".config/ghostty/shaders/retro-terminal.glsl"
+                    },
+                    {
+                      "name": "scanline-flicker.glsl",
+                      "size": 1167,
+                      "path": ".config/ghostty/shaders/scanline-flicker.glsl"
+                    },
+                    {
+                      "name": "sin-interference.glsl",
+                      "size": 1122,
+                      "path": ".config/ghostty/shaders/sin-interference.glsl"
+                    },
+                    {
+                      "name": "smoke-and-ghost.glsl",
+                      "size": 7460,
+                      "path": ".config/ghostty/shaders/smoke-and-ghost.glsl"
+                    },
+                    {
+                      "name": "sparks-from-fire.glsl",
+                      "size": 7035,
+                      "path": ".config/ghostty/shaders/sparks-from-fire.glsl"
+                    },
+                    {
+                      "name": "spotlight.glsl",
+                      "size": 1650,
+                      "path": ".config/ghostty/shaders/spotlight.glsl"
+                    },
+                    {
+                      "name": "starfield-colors.glsl",
+                      "size": 3891,
+                      "path": ".config/ghostty/shaders/starfield-colors.glsl"
+                    },
+                    {
+                      "name": "starfield.glsl",
+                      "size": 3229,
+                      "path": ".config/ghostty/shaders/starfield.glsl"
+                    },
+                    {
+                      "name": "synesthaxia.glsl",
+                      "size": 7984,
+                      "path": ".config/ghostty/shaders/synesthaxia.glsl"
+                    },
+                    {
+                      "name": "tft-subtle.glsl",
+                      "size": 1983,
+                      "path": ".config/ghostty/shaders/tft-subtle.glsl"
+                    },
+                    {
+                      "name": "tft.glsl",
+                      "size": 572,
+                      "path": ".config/ghostty/shaders/tft.glsl"
+                    },
+                    {
+                      "name": "underwater.glsl",
+                      "size": 2523,
+                      "path": ".config/ghostty/shaders/underwater.glsl"
+                    },
+                    {
+                      "name": "vignette-subtle.glsl",
+                      "size": 2329,
+                      "path": ".config/ghostty/shaders/vignette-subtle.glsl"
+                    },
+                    {
+                      "name": "vignette-vulpes.glsl",
+                      "size": 1935,
+                      "path": ".config/ghostty/shaders/vignette-vulpes.glsl"
+                    },
+                    {
+                      "name": "vulpes-bloom.glsl",
+                      "size": 2765,
+                      "path": ".config/ghostty/shaders/vulpes-bloom.glsl"
+                    },
+                    {
+                      "name": "vulpes-cursor-blaze.glsl",
+                      "size": 5355,
+                      "path": ".config/ghostty/shaders/vulpes-cursor-blaze.glsl"
+                    },
+                    {
+                      "name": "vulpes-tft.glsl",
+                      "size": 708,
+                      "path": ".config/ghostty/shaders/vulpes-tft.glsl"
+                    },
+                    {
+                      "name": "water.glsl",
+                      "size": 1030,
+                      "path": ".config/ghostty/shaders/water.glsl"
+                    }
+                  ],
+                  "path": ".config/ghostty/shaders"
+                },
+                {
+                  "name": "themes",
+                  "children": [
+                    {
+                      "name": "catppuccin_latte",
+                      "size": 662,
+                      "path": ".config/ghostty/themes/catppuccin_latte"
+                    },
+                    {
+                      "name": "catppuccin_mocha",
+                      "size": 669,
+                      "path": ".config/ghostty/themes/catppuccin_mocha"
+                    },
+                    {
+                      "name": "vulpes-reddishnovember-dark",
+                      "size": 611,
+                      "path": ".config/ghostty/themes/vulpes-reddishnovember-dark"
+                    },
+                    {
+                      "name": "vulpes-reddishnovember-light",
+                      "size": 796,
+                      "path": ".config/ghostty/themes/vulpes-reddishnovember-light"
+                    },
+                    {
+                      "name": "vulpes_greenish_dark",
+                      "size": 535,
+                      "path": ".config/ghostty/themes/vulpes_greenish_dark"
+                    },
+                    {
+                      "name": "vulpes_greenish_light",
+                      "size": 536,
+                      "path": ".config/ghostty/themes/vulpes_greenish_light"
+                    },
+                    {
+                      "name": "vulpes_reddish2_dark",
+                      "size": 607,
+                      "path": ".config/ghostty/themes/vulpes_reddish2_dark"
+                    },
+                    {
+                      "name": "vulpes_reddish2_light",
+                      "size": 608,
+                      "path": ".config/ghostty/themes/vulpes_reddish2_light"
+                    },
+                    {
+                      "name": "vulpes_reddish_dark",
+                      "size": 534,
+                      "path": ".config/ghostty/themes/vulpes_reddish_dark"
+                    },
+                    {
+                      "name": "vulpes_reddish_light",
+                      "size": 535,
+                      "path": ".config/ghostty/themes/vulpes_reddish_light"
+                    }
+                  ],
+                  "path": ".config/ghostty/themes"
+                },
+                {
+                  "name": "audit-ghostty-theme.mjs",
+                  "size": 5894,
+                  "path": ".config/ghostty/audit-ghostty-theme.mjs"
+                },
+                {
+                  "name": "config",
+                  "size": 3710,
+                  "path": ".config/ghostty/config"
+                },
+                {
+                  "name": "find-vulpes-greens-v2.mjs",
+                  "size": 5154,
+                  "path": ".config/ghostty/find-vulpes-greens-v2.mjs"
+                },
+                {
+                  "name": "find-vulpes-greens.mjs",
+                  "size": 6707,
+                  "path": ".config/ghostty/find-vulpes-greens.mjs"
+                }
+              ],
+              "path": ".config/ghostty"
+            },
+            {
+              "name": "htop",
+              "children": [
+                {
+                  "name": "htoprc",
+                  "size": 1372,
+                  "path": ".config/htop/htoprc"
+                }
+              ],
+              "path": ".config/htop"
+            },
+            {
+              "name": "karabiner",
+              "children": [
+                {
+                  "name": "automatic_backups",
+                  "children": [
+                    {
+                      "name": "karabiner_20250601.json",
+                      "size": 14020,
+                      "path": ".config/karabiner/automatic_backups/karabiner_20250601.json"
+                    }
+                  ],
+                  "path": ".config/karabiner/automatic_backups"
+                },
+                {
+                  "name": "karabiner.json",
+                  "size": 6141,
+                  "path": ".config/karabiner/karabiner.json"
+                }
+              ],
+              "path": ".config/karabiner"
+            },
+            {
+              "name": "lazygit",
+              "children": [
+                {
+                  "name": "audit-theme.mjs",
+                  "size": 6718,
+                  "path": ".config/lazygit/audit-theme.mjs"
+                },
+                {
+                  "name": "config.yml",
+                  "size": 1083,
+                  "path": ".config/lazygit/config.yml"
+                },
+                {
+                  "name": "vulpes-reddishnovember-dark.yml",
+                  "size": 1083,
+                  "path": ".config/lazygit/vulpes-reddishnovember-dark.yml"
+                },
+                {
+                  "name": "vulpes-reddishnovember-light-improved.yml",
+                  "size": 965,
+                  "path": ".config/lazygit/vulpes-reddishnovember-light-improved.yml"
+                },
+                {
+                  "name": "vulpes-reddishnovember-light.yml",
+                  "size": 1084,
+                  "path": ".config/lazygit/vulpes-reddishnovember-light.yml"
+                }
+              ],
+              "path": ".config/lazygit"
+            },
+            {
+              "name": "neofetch",
+              "children": [
+                {
+                  "name": "config.conf",
+                  "size": 18211,
+                  "path": ".config/neofetch/config.conf"
+                }
+              ],
+              "path": ".config/neofetch"
+            },
+            {
+              "name": "neomutt",
+              "children": [
+                {
+                  "name": "neomuttrc",
+                  "size": 2221,
+                  "path": ".config/neomutt/neomuttrc"
+                }
+              ],
+              "path": ".config/neomutt"
+            },
+            {
+              "name": "nvim",
+              "children": [
+                {
+                  "name": "colors",
+                  "children": [
+                    {
+                      "name": "vulpes-reddishnovember-dark.lua",
+                      "size": 20830,
+                      "path": ".config/nvim/colors/vulpes-reddishnovember-dark.lua"
+                    },
+                    {
+                      "name": "vulpes-reddishnovember-light.lua",
+                      "size": 20005,
+                      "path": ".config/nvim/colors/vulpes-reddishnovember-light.lua"
+                    },
+                    {
+                      "name": "vulpes_greenish_dark.lua",
+                      "size": 2003,
+                      "path": ".config/nvim/colors/vulpes_greenish_dark.lua"
+                    },
+                    {
+                      "name": "vulpes_greenish_light.lua",
+                      "size": 2006,
+                      "path": ".config/nvim/colors/vulpes_greenish_light.lua"
+                    },
+                    {
+                      "name": "vulpes_reddish2_dark.lua",
+                      "size": 4420,
+                      "path": ".config/nvim/colors/vulpes_reddish2_dark.lua"
+                    },
+                    {
+                      "name": "vulpes_reddish2_light.lua",
+                      "size": 2054,
+                      "path": ".config/nvim/colors/vulpes_reddish2_light.lua"
+                    },
+                    {
+                      "name": "vulpes_reddish_dark.lua",
+                      "size": 2001,
+                      "path": ".config/nvim/colors/vulpes_reddish_dark.lua"
+                    },
+                    {
+                      "name": "vulpes_reddish_light.lua",
+                      "size": 2004,
+                      "path": ".config/nvim/colors/vulpes_reddish_light.lua"
+                    }
+                  ],
+                  "path": ".config/nvim/colors"
+                },
+                {
+                  "name": "lua",
+                  "children": [
+                    {
+                      "name": "config",
+                      "children": [
+                        {
+                          "name": "autocmds.lua",
+                          "size": 1291,
+                          "path": ".config/nvim/lua/config/autocmds.lua"
+                        },
+                        {
+                          "name": "diagnostics.lua",
+                          "size": 1020,
+                          "path": ".config/nvim/lua/config/diagnostics.lua"
+                        },
+                        {
+                          "name": "keymaps.lua",
+                          "size": 1941,
+                          "path": ".config/nvim/lua/config/keymaps.lua"
+                        },
+                        {
+                          "name": "lazy.lua",
+                          "size": 3603,
+                          "path": ".config/nvim/lua/config/lazy.lua"
+                        },
+                        {
+                          "name": "options.lua",
+                          "size": 6340,
+                          "path": ".config/nvim/lua/config/options.lua"
+                        }
+                      ],
+                      "path": ".config/nvim/lua/config"
+                    },
+                    {
+                      "name": "custom",
+                      "children": [
+                        {
+                          "name": "directory-watcher.lua",
+                          "size": 2011,
+                          "path": ".config/nvim/lua/custom/directory-watcher.lua"
+                        },
+                        {
+                          "name": "git-diff-hotreload.lua",
+                          "size": 1554,
+                          "path": ".config/nvim/lua/custom/git-diff-hotreload.lua"
+                        },
+                        {
+                          "name": "hotreload.lua",
+                          "size": 3057,
+                          "path": ".config/nvim/lua/custom/hotreload.lua"
+                        }
+                      ],
+                      "path": ".config/nvim/lua/custom"
+                    },
+                    {
+                      "name": "plugins",
+                      "children": [
+                        {
+                          "name": "claude-code-workflow.lua",
+                          "size": 1716,
+                          "path": ".config/nvim/lua/plugins/claude-code-workflow.lua"
+                        },
+                        {
+                          "name": "copilot-inline.lua",
+                          "size": 1565,
+                          "path": ".config/nvim/lua/plugins/copilot-inline.lua"
+                        },
+                        {
+                          "name": "focus.lua",
+                          "size": 1961,
+                          "path": ".config/nvim/lua/plugins/focus.lua"
+                        },
+                        {
+                          "name": "git.lua",
+                          "size": 2446,
+                          "path": ".config/nvim/lua/plugins/git.lua"
+                        },
+                        {
+                          "name": "mini.lua",
+                          "size": 378,
+                          "path": ".config/nvim/lua/plugins/mini.lua"
+                        },
+                        {
+                          "name": "minimal-statusline.lua",
+                          "size": 7540,
+                          "path": ".config/nvim/lua/plugins/minimal-statusline.lua"
+                        },
+                        {
+                          "name": "minimal-telescope.lua",
+                          "size": 1266,
+                          "path": ".config/nvim/lua/plugins/minimal-telescope.lua"
+                        },
+                        {
+                          "name": "notifications.lua",
+                          "size": 1216,
+                          "path": ".config/nvim/lua/plugins/notifications.lua"
+                        },
+                        {
+                          "name": "nvim-cmp-lean.lua",
+                          "size": 3474,
+                          "path": ".config/nvim/lua/plugins/nvim-cmp-lean.lua"
+                        },
+                        {
+                          "name": "nvim-dap.lua",
+                          "size": 2802,
+                          "path": ".config/nvim/lua/plugins/nvim-dap.lua"
+                        },
+                        {
+                          "name": "nvim-ufo.lua",
+                          "size": 2248,
+                          "path": ".config/nvim/lua/plugins/nvim-ufo.lua"
+                        },
+                        {
+                          "name": "obsidian.lua",
+                          "size": 1608,
+                          "path": ".config/nvim/lua/plugins/obsidian.lua"
+                        },
+                        {
+                          "name": "oil.lua",
+                          "size": 3786,
+                          "path": ".config/nvim/lua/plugins/oil.lua"
+                        },
+                        {
+                          "name": "snacks.lua",
+                          "size": 7936,
+                          "path": ".config/nvim/lua/plugins/snacks.lua"
+                        },
+                        {
+                          "name": "statuscolumn-tens.lua",
+                          "size": 1239,
+                          "path": ".config/nvim/lua/plugins/statuscolumn-tens.lua"
+                        },
+                        {
+                          "name": "svelte.lua",
+                          "size": 1202,
+                          "path": ".config/nvim/lua/plugins/svelte.lua"
+                        },
+                        {
+                          "name": "tailwind.lua",
+                          "size": 614,
+                          "path": ".config/nvim/lua/plugins/tailwind.lua"
+                        },
+                        {
+                          "name": "theming.lua",
+                          "size": 3147,
+                          "path": ".config/nvim/lua/plugins/theming.lua"
+                        },
+                        {
+                          "name": "usage-logging.lua",
+                          "size": 5258,
+                          "path": ".config/nvim/lua/plugins/usage-logging.lua"
+                        },
+                        {
+                          "name": "utilities.lua",
+                          "size": 1897,
+                          "path": ".config/nvim/lua/plugins/utilities.lua"
+                        },
+                        {
+                          "name": "vue-lsp.lua",
+                          "size": 1647,
+                          "path": ".config/nvim/lua/plugins/vue-lsp.lua"
+                        }
+                      ],
+                      "path": ".config/nvim/lua/plugins"
+                    }
+                  ],
+                  "path": ".config/nvim/lua"
+                },
+                {
+                  "name": ".gitignore",
+                  "size": 51,
+                  "path": ".config/nvim/.gitignore"
+                },
+                {
+                  "name": ".neoconf.json",
+                  "size": 183,
+                  "path": ".config/nvim/.neoconf.json"
+                },
+                {
+                  "name": "CLAUDE-CODE-WORKFLOW.md",
+                  "size": 2960,
+                  "path": ".config/nvim/CLAUDE-CODE-WORKFLOW.md"
+                },
+                {
+                  "name": "LICENSE",
+                  "size": 11357,
+                  "path": ".config/nvim/LICENSE"
+                },
+                {
+                  "name": "check-plugins.sh",
+                  "size": 691,
+                  "path": ".config/nvim/check-plugins.sh"
+                },
+                {
+                  "name": "init.lua",
+                  "size": 72,
+                  "path": ".config/nvim/init.lua"
+                },
+                {
+                  "name": "lazy-lock.json",
+                  "size": 5847,
+                  "path": ".config/nvim/lazy-lock.json"
+                },
+                {
+                  "name": "lazyvim.json",
+                  "size": 595,
+                  "path": ".config/nvim/lazyvim.json"
+                },
+                {
+                  "name": "stylua.toml",
+                  "size": 58,
+                  "path": ".config/nvim/stylua.toml"
+                }
+              ],
+              "path": ".config/nvim"
+            },
+            {
+              "name": "sketchybar",
+              "children": [
+                {
+                  "name": "plugins",
+                  "children": [
+                    {
+                      "name": "battery.sh",
+                      "size": 4125,
+                      "path": ".config/sketchybar/plugins/battery.sh"
+                    },
+                    {
+                      "name": "cipher.sh",
+                      "size": 8864,
+                      "path": ".config/sketchybar/plugins/cipher.sh"
+                    },
+                    {
+                      "name": "claude_usage.sh",
+                      "size": 596,
+                      "path": ".config/sketchybar/plugins/claude_usage.sh"
+                    },
+                    {
+                      "name": "clock.sh",
+                      "size": 243,
+                      "path": ".config/sketchybar/plugins/clock.sh"
+                    },
+                    {
+                      "name": "creative.sh",
+                      "size": 2780,
+                      "path": ".config/sketchybar/plugins/creative.sh"
+                    },
+                    {
+                      "name": "daily_stats.sh",
+                      "size": 3800,
+                      "path": ".config/sketchybar/plugins/daily_stats.sh"
+                    },
+                    {
+                      "name": "demos.sh",
+                      "size": 2245,
+                      "path": ".config/sketchybar/plugins/demos.sh"
+                    },
+                    {
+                      "name": "dev_dashboard.sh",
+                      "size": 4842,
+                      "path": ".config/sketchybar/plugins/dev_dashboard.sh"
+                    },
+                    {
+                      "name": "doc_reminder.sh",
+                      "size": 2245,
+                      "path": ".config/sketchybar/plugins/doc_reminder.sh"
+                    },
+                    {
+                      "name": "front_app.sh",
+                      "size": 375,
+                      "path": ".config/sketchybar/plugins/front_app.sh"
+                    },
+                    {
+                      "name": "git.sh",
+                      "size": 2665,
+                      "path": ".config/sketchybar/plugins/git.sh"
+                    },
+                    {
+                      "name": "git_click.sh",
+                      "size": 677,
+                      "path": ".config/sketchybar/plugins/git_click.sh"
+                    },
+                    {
+                      "name": "github_repos.sh",
+                      "size": 340,
+                      "path": ".config/sketchybar/plugins/github_repos.sh"
+                    },
+                    {
+                      "name": "iching.sh",
+                      "size": 374,
+                      "path": ".config/sketchybar/plugins/iching.sh"
+                    },
+                    {
+                      "name": "last_repo.sh",
+                      "size": 421,
+                      "path": ".config/sketchybar/plugins/last_repo.sh"
+                    },
+                    {
+                      "name": "mic.sh",
+                      "size": 286,
+                      "path": ".config/sketchybar/plugins/mic.sh"
+                    },
+                    {
+                      "name": "mutagen.sh",
+                      "size": 1378,
+                      "path": ".config/sketchybar/plugins/mutagen.sh"
+                    },
+                    {
+                      "name": "next_action.sh",
+                      "size": 1746,
+                      "path": ".config/sketchybar/plugins/next_action.sh"
+                    },
+                    {
+                      "name": "next_event.sh",
+                      "size": 5189,
+                      "path": ".config/sketchybar/plugins/next_event.sh"
+                    },
+                    {
+                      "name": "notes.sh",
+                      "size": 2256,
+                      "path": ".config/sketchybar/plugins/notes.sh"
+                    },
+                    {
+                      "name": "photos.sh",
+                      "size": 371,
+                      "path": ".config/sketchybar/plugins/photos.sh"
+                    },
+                    {
+                      "name": "productivity.sh",
+                      "size": 1296,
+                      "path": ".config/sketchybar/plugins/productivity.sh"
+                    },
+                    {
+                      "name": "space.sh",
+                      "size": 294,
+                      "path": ".config/sketchybar/plugins/space.sh"
+                    },
+                    {
+                      "name": "sunset.sh",
+                      "size": 311,
+                      "path": ".config/sketchybar/plugins/sunset.sh"
+                    },
+                    {
+                      "name": "tailscale-status.sh",
+                      "size": 767,
+                      "path": ".config/sketchybar/plugins/tailscale-status.sh"
+                    },
+                    {
+                      "name": "tasks.sh",
+                      "size": 479,
+                      "path": ".config/sketchybar/plugins/tasks.sh"
+                    },
+                    {
+                      "name": "top_task.sh",
+                      "size": 4110,
+                      "path": ".config/sketchybar/plugins/top_task.sh"
+                    },
+                    {
+                      "name": "typing.sh",
+                      "size": 1088,
+                      "path": ".config/sketchybar/plugins/typing.sh"
+                    },
+                    {
+                      "name": "volume.sh",
+                      "size": 411,
+                      "path": ".config/sketchybar/plugins/volume.sh"
+                    },
+                    {
+                      "name": "words.sh",
+                      "size": 626,
+                      "path": ".config/sketchybar/plugins/words.sh"
+                    }
+                  ],
+                  "path": ".config/sketchybar/plugins"
+                },
+                {
+                  "name": "sketchybarrc",
+                  "size": 5570,
+                  "path": ".config/sketchybar/sketchybarrc"
+                }
+              ],
+              "path": ".config/sketchybar"
+            },
+            {
+              "name": "wireshark",
+              "children": [
+                {
+                  "name": "recent",
+                  "size": 2481,
+                  "path": ".config/wireshark/recent"
+                },
+                {
+                  "name": "recent_common",
+                  "size": 1607,
+                  "path": ".config/wireshark/recent_common"
+                }
+              ],
+              "path": ".config/wireshark"
+            },
+            {
+              "name": "yazi",
+              "children": [
+                {
+                  "name": "plugins",
+                  "children": [
+                    {
+                      "name": "diff.yazi",
+                      "children": [
+                        {
+                          "name": "LICENSE",
+                          "size": 1064,
+                          "path": ".config/yazi/plugins/diff.yazi/LICENSE"
+                        },
+                        {
+                          "name": "README.md",
+                          "size": 608,
+                          "path": ".config/yazi/plugins/diff.yazi/README.md"
+                        },
+                        {
+                          "name": "main.lua",
+                          "size": 843,
+                          "path": ".config/yazi/plugins/diff.yazi/main.lua"
+                        }
+                      ],
+                      "path": ".config/yazi/plugins/diff.yazi"
+                    },
+                    {
+                      "name": "git.yazi",
+                      "children": [
+                        {
+                          "name": "LICENSE",
+                          "size": 1068,
+                          "path": ".config/yazi/plugins/git.yazi/LICENSE"
+                        },
+                        {
+                          "name": "README.md",
+                          "size": 879,
+                          "path": ".config/yazi/plugins/git.yazi/README.md"
+                        },
+                        {
+                          "name": "main.lua",
+                          "size": 6299,
+                          "path": ".config/yazi/plugins/git.yazi/main.lua"
+                        }
+                      ],
+                      "path": ".config/yazi/plugins/git.yazi"
+                    },
+                    {
+                      "name": "glow.yazi",
+                      "children": [
+                        {
+                          "name": "LICENSE",
+                          "size": 1084,
+                          "path": ".config/yazi/plugins/glow.yazi/LICENSE"
+                        },
+                        {
+                          "name": "README.md",
+                          "size": 801,
+                          "path": ".config/yazi/plugins/glow.yazi/README.md"
+                        },
+                        {
+                          "name": "main.lua",
+                          "size": 1306,
+                          "path": ".config/yazi/plugins/glow.yazi/main.lua"
+                        }
+                      ],
+                      "path": ".config/yazi/plugins/glow.yazi"
+                    },
+                    {
+                      "name": "ouch.yazi",
+                      "children": [
+                        {
+                          "name": "LICENSE",
+                          "size": 1065,
+                          "path": ".config/yazi/plugins/ouch.yazi/LICENSE"
+                        },
+                        {
+                          "name": "README.md",
+                          "size": 2418,
+                          "path": ".config/yazi/plugins/ouch.yazi/README.md"
+                        },
+                        {
+                          "name": "main.lua",
+                          "size": 3767,
+                          "path": ".config/yazi/plugins/ouch.yazi/main.lua"
+                        }
+                      ],
+                      "path": ".config/yazi/plugins/ouch.yazi"
+                    }
+                  ],
+                  "path": ".config/yazi/plugins"
+                },
+                {
+                  "name": "Catppuccin-mocha.tmTheme",
+                  "size": 14,
+                  "path": ".config/yazi/Catppuccin-mocha.tmTheme"
+                },
+                {
+                  "name": "keymap.toml",
+                  "size": 4057,
+                  "path": ".config/yazi/keymap.toml"
+                },
+                {
+                  "name": "package.toml",
+                  "size": 619,
+                  "path": ".config/yazi/package.toml"
+                },
+                {
+                  "name": "theme-light.toml",
+                  "size": 2800,
+                  "path": ".config/yazi/theme-light.toml"
+                },
+                {
+                  "name": "theme.toml",
+                  "size": 58,
+                  "path": ".config/yazi/theme.toml"
+                },
+                {
+                  "name": "vulpes-reddishnovember-dark.toml",
+                  "size": 2732,
+                  "path": ".config/yazi/vulpes-reddishnovember-dark.toml"
+                },
+                {
+                  "name": "vulpes-reddishnovember-light.toml",
+                  "size": 3141,
+                  "path": ".config/yazi/vulpes-reddishnovember-light.toml"
+                },
+                {
+                  "name": "yazi.toml",
+                  "size": 921,
+                  "path": ".config/yazi/yazi.toml"
+                }
+              ],
+              "path": ".config/yazi"
+            },
+            {
+              "name": "zsh",
+              "children": [
+                {
+                  "name": "themes",
+                  "children": [
+                    {
+                      "name": "vulpes-reddishnovember-dark.zsh",
+                      "size": 3541,
+                      "path": ".config/zsh/themes/vulpes-reddishnovember-dark.zsh"
+                    },
+                    {
+                      "name": "vulpes-reddishnovember-light.zsh",
+                      "size": 3557,
+                      "path": ".config/zsh/themes/vulpes-reddishnovember-light.zsh"
+                    }
+                  ],
+                  "path": ".config/zsh/themes"
+                }
+              ],
+              "path": ".config/zsh"
+            },
+            {
+              "name": "minimal-prompt.zsh",
+              "size": 697,
+              "path": ".config/minimal-prompt.zsh"
+            }
+          ],
+          "path": ".config"
+        },
+        {
+          "name": ".githooks",
+          "children": [
+            {
+              "name": "pre-commit",
+              "size": 5701,
+              "path": ".githooks/pre-commit"
+            }
+          ],
+          "path": ".githooks"
+        },
+        {
+          "name": ".gnupg",
+          "children": [
+            {
+              "name": "gpg-agent.conf",
+              "size": 41,
+              "path": ".gnupg/gpg-agent.conf"
+            },
+            {
+              "name": "gpg.conf",
+              "size": 106,
+              "path": ".gnupg/gpg.conf"
+            },
+            {
+              "name": "trustdb.gpg",
+              "size": 1360,
+              "path": ".gnupg/trustdb.gpg"
+            }
+          ],
+          "path": ".gnupg"
+        },
+        {
+          "name": ".irssi",
+          "children": [
+            {
+              "name": "themes",
+              "children": [
+                {
+                  "name": "cracked.theme",
+                  "size": 4584,
+                  "path": ".irssi/themes/cracked.theme"
+                }
+              ],
+              "path": ".irssi/themes"
+            },
+            {
+              "name": "config",
+              "size": 10320,
+              "path": ".irssi/config"
+            }
+          ],
+          "path": ".irssi"
+        },
+        {
+          "name": ".obsidian-config",
+          "children": [
+            {
+              "name": "snippets",
+              "children": [
+                {
+                  "name": "text.css",
+                  "size": 1942,
+                  "path": ".obsidian-config/snippets/text.css"
+                }
+              ],
+              "path": ".obsidian-config/snippets"
+            },
+            {
+              "name": "community-plugins.json",
+              "size": 234,
+              "path": ".obsidian-config/community-plugins.json"
+            },
+            {
+              "name": "hotkeys.json",
+              "size": 2258,
+              "path": ".obsidian-config/hotkeys.json"
+            }
+          ],
+          "path": ".obsidian-config"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "LaunchAgents",
+          "children": [
+            {
+              "name": "com.ejfox.cipher-daily.plist",
+              "size": 794,
+              "path": "LaunchAgents/com.ejfox.cipher-daily.plist"
+            }
+          ],
+          "path": "LaunchAgents"
+        },
+        {
+          "name": "bin",
+          "children": [
+            {
+              "name": "ai-commit",
+              "size": 3103,
+              "path": "bin/ai-commit"
+            },
+            {
+              "name": "appearance-watcher",
+              "size": 1166,
+              "path": "bin/appearance-watcher"
+            },
+            {
+              "name": "btop",
+              "size": 932,
+              "path": "bin/btop"
+            },
+            {
+              "name": "cipher-daily",
+              "size": 3933,
+              "path": "bin/cipher-daily"
+            },
+            {
+              "name": "claude-say",
+              "size": 3897,
+              "path": "bin/claude-say"
+            },
+            {
+              "name": "dotfiles-audit",
+              "size": 5557,
+              "path": "bin/dotfiles-audit"
+            },
+            {
+              "name": "dotfiles-verify",
+              "size": 7595,
+              "path": "bin/dotfiles-verify"
+            },
+            {
+              "name": "email-summary",
+              "size": 2282,
+              "path": "bin/email-summary"
+            },
+            {
+              "name": "mic-toggle",
+              "size": 384,
+              "path": "bin/mic-toggle"
+            },
+            {
+              "name": "morning-ritual",
+              "size": 15561,
+              "path": "bin/morning-ritual"
+            },
+            {
+              "name": "obs",
+              "size": 3496,
+              "path": "bin/obs"
+            },
+            {
+              "name": "pub",
+              "size": 10555,
+              "path": "bin/pub"
+            },
+            {
+              "name": "send-to-canvas",
+              "size": 5111,
+              "path": "bin/send-to-canvas"
+            },
+            {
+              "name": "tmux-focus-color",
+              "size": 740,
+              "path": "bin/tmux-focus-color"
+            },
+            {
+              "name": "tmux-mutagen-status",
+              "size": 776,
+              "path": "bin/tmux-mutagen-status"
+            },
+            {
+              "name": "tmux-scratch-toggle",
+              "size": 636,
+              "path": "bin/tmux-scratch-toggle"
+            },
+            {
+              "name": "usage-analyze",
+              "size": 2940,
+              "path": "bin/usage-analyze"
+            },
+            {
+              "name": "usage-log",
+              "size": 801,
+              "path": "bin/usage-log"
+            },
+            {
+              "name": "usage-summary",
+              "size": 842,
+              "path": "bin/usage-summary"
+            },
+            {
+              "name": "vps",
+              "size": 394,
+              "path": "bin/vps"
+            },
+            {
+              "name": "vtsls-wrapper",
+              "size": 126,
+              "path": "bin/vtsls-wrapper"
+            }
+          ],
+          "path": "bin"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "HISTORY.md",
+              "size": 21505,
+              "path": "docs/HISTORY.md"
+            },
+            {
+              "name": "STARTUP_DOCS.md",
+              "size": 7404,
+              "path": "docs/STARTUP_DOCS.md"
+            },
+            {
+              "name": "TWEAKCC_SETUP.md",
+              "size": 3357,
+              "path": "docs/TWEAKCC_SETUP.md"
+            },
+            {
+              "name": "WORKFLOWS.md",
+              "size": 5650,
+              "path": "docs/WORKFLOWS.md"
+            },
+            {
+              "name": "tips.txt",
+              "size": 21444,
+              "path": "docs/tips.txt"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "lib",
+          "children": [
+            {
+              "name": "mystical-symbols.sh",
+              "size": 14424,
+              "path": "lib/mystical-symbols.sh"
+            },
+            {
+              "name": "shell-usage-logging.zsh",
+              "size": 1864,
+              "path": "lib/shell-usage-logging.zsh"
+            },
+            {
+              "name": "tmux-mystical.sh",
+              "size": 396,
+              "path": "lib/tmux-mystical.sh"
+            },
+            {
+              "name": "tmux-usage-logging.conf",
+              "size": 1996,
+              "path": "lib/tmux-usage-logging.conf"
+            }
+          ],
+          "path": "lib"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "macos-defaults.sh",
+              "size": 813,
+              "path": "scripts/macos-defaults.sh"
+            },
+            {
+              "name": "setup-vps-mosh.sh",
+              "size": 1310,
+              "path": "scripts/setup-vps-mosh.sh"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": "talon-overrides",
+          "children": [
+            {
+              "name": "apps.py",
+              "size": 592,
+              "path": "talon-overrides/apps.py"
+            },
+            {
+              "name": "cursor.talon",
+              "size": 140,
+              "path": "talon-overrides/cursor.talon"
+            },
+            {
+              "name": "custom_keys.talon",
+              "size": 408,
+              "path": "talon-overrides/custom_keys.talon"
+            },
+            {
+              "name": "ejfox_subtitles.py",
+              "size": 1883,
+              "path": "talon-overrides/ejfox_subtitles.py"
+            },
+            {
+              "name": "ghostty.talon",
+              "size": 89,
+              "path": "talon-overrides/ghostty.talon"
+            },
+            {
+              "name": "macos_nav.talon",
+              "size": 1518,
+              "path": "talon-overrides/macos_nav.talon"
+            },
+            {
+              "name": "mic_toggle.py",
+              "size": 948,
+              "path": "talon-overrides/mic_toggle.py"
+            },
+            {
+              "name": "mode_line.py",
+              "size": 1681,
+              "path": "talon-overrides/mode_line.py"
+            },
+            {
+              "name": "nato_alphabet.py",
+              "size": 551,
+              "path": "talon-overrides/nato_alphabet.py"
+            },
+            {
+              "name": "settings.talon",
+              "size": 379,
+              "path": "talon-overrides/settings.talon"
+            },
+            {
+              "name": "terminal_commands.talon",
+              "size": 4488,
+              "path": "talon-overrides/terminal_commands.talon"
+            },
+            {
+              "name": "terminal_pop.talon",
+              "size": 135,
+              "path": "talon-overrides/terminal_pop.talon"
+            },
+            {
+              "name": "tmux.talon",
+              "size": 1242,
+              "path": "talon-overrides/tmux.talon"
+            },
+            {
+              "name": "usage_logging.py",
+              "size": 1300,
+              "path": "talon-overrides/usage_logging.py"
+            },
+            {
+              "name": "vocabulary.talon-list",
+              "size": 3986,
+              "path": "talon-overrides/vocabulary.talon-list"
+            }
+          ],
+          "path": "talon-overrides"
+        },
+        {
+          "name": ".CLAUDE-CLEANUP-METHODOLOGY.txt",
+          "size": 52,
+          "path": ".CLAUDE-CLEANUP-METHODOLOGY.txt"
+        },
+        {
+          "name": ".bash_profile",
+          "size": 267,
+          "path": ".bash_profile"
+        },
+        {
+          "name": ".gitattributes",
+          "size": 66,
+          "path": ".gitattributes"
+        },
+        {
+          "name": ".gitconfig",
+          "size": 1437,
+          "path": ".gitconfig"
+        },
+        {
+          "name": ".gitignore",
+          "size": 2487,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".llm-persona.txt",
+          "size": 2952,
+          "path": ".llm-persona.txt"
+        },
+        {
+          "name": ".mbsyncrc",
+          "size": 472,
+          "path": ".mbsyncrc"
+        },
+        {
+          "name": ".nuxtrc",
+          "size": 23,
+          "path": ".nuxtrc"
+        },
+        {
+          "name": ".p10k.zsh",
+          "size": 92515,
+          "path": ".p10k.zsh"
+        },
+        {
+          "name": ".profile",
+          "size": 201,
+          "path": ".profile"
+        },
+        {
+          "name": ".startup-old.sh",
+          "size": 12549,
+          "path": ".startup-old.sh"
+        },
+        {
+          "name": ".startup.sh",
+          "size": 10915,
+          "path": ".startup.sh"
+        },
+        {
+          "name": ".tmux.conf",
+          "size": 11992,
+          "path": ".tmux.conf"
+        },
+        {
+          "name": ".tweakcc-apply.sh",
+          "size": 1387,
+          "path": ".tweakcc-apply.sh"
+        },
+        {
+          "name": ".zen-mode.sh",
+          "size": 487,
+          "path": ".zen-mode.sh"
+        },
+        {
+          "name": ".zprofile",
+          "size": 376,
+          "path": ".zprofile"
+        },
+        {
+          "name": ".zshenv",
+          "size": 480,
+          "path": ".zshenv"
+        },
+        {
+          "name": ".zshrc",
+          "size": 26859,
+          "path": ".zshrc"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 43083,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1209,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 6228,
+          "path": "README.md"
+        },
+        {
+          "name": "sync-dotfiles.sh",
+          "size": 2148,
+          "path": "sync-dotfiles.sh"
+        },
+        {
+          "name": "vulpes-reddish2-dark-tmux.tmux.conf",
+          "size": 656,
+          "path": "vulpes-reddish2-dark-tmux.tmux.conf"
+        },
+        {
+          "name": "vulpes-reddish2-light-tmux.tmux.conf",
+          "size": 685,
+          "path": "vulpes-reddish2-light-tmux.tmux.conf"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 296,
+    "totalSize": 1220876
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"ejfoxs-dotfiles\">ejfox's dotfiles</h1>\n<p>Terminal-first development environment optimized for speed-of-thought computing. Everything is fuzzy-searchable, keyboard-driven, and designed to get out of your way.</p>\n<h2 id=\"quick-start\">Quick Start</h2>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/dotfiles.git ~/.dotfiles\ncd ~/.dotfiles\n./sync-dotfiles.sh\n</code></pre>\n<p><strong>Dependencies</strong> (install via homebrew):</p>\n<pre><code class=\"language-bash\">brew install neovim tmux zsh fzf ripgrep fd bat lsd zoxide\nbrew install --cask ghostty\n</code></pre>\n<h2 id=\"whats-here\">What's Here</h2>\n<pre><code>~/.dotfiles/\n├── .zshrc              # Shell config (aliases, PATH, prompt)\n├── .tmux.conf          # Terminal multiplexer\n├── .config/\n│   ├── nvim/           # Neovim (LazyVim-based)\n│   ├── ghostty/        # Terminal emulator\n│   ├── yazi/           # File manager\n│   └── ...\n├── bin/                # Custom scripts\n└── tips.txt            # Cheatsheet (shown randomly on startup)\n</code></pre>\n<hr />\n<h2 id=\"philosophy\">Philosophy</h2>\n<h3 id=\"why-these-tools\">Why These Tools?</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Tool</th><th>Why Not the Alternative</th></tr></thead><tbody><tr><td><strong>Neovim</strong></td><td>VS Code is slow and not terminal-native</td></tr><tr><td><strong>Tmux</strong></td><td>Terminal tabs don't persist across restarts</td></tr><tr><td><strong>Zsh</strong></td><td>Fish isn't POSIX-compatible, Bash lacks features</td></tr><tr><td><strong>Ghostty</strong></td><td>Fast (Zig), GPU-accelerated, good defaults</td></tr><tr><td><strong>LazyVim</strong></td><td>Sensible defaults, easy to customize, well-maintained</td></tr></tbody></table>\n<h3 id=\"core-ideas\">Core Ideas</h3>\n<p><strong>Fuzzy find everything.</strong> Don't navigate folder trees—search. <code>vs</code> finds files, <code>vg</code> searches content, <code>o</code> opens notes.</p>\n<p><strong>Pane-based workflow.</strong> One tmux session, multiple panes visible at once. Editor, terminal, logs, server—all on screen together.</p>\n<p><strong>Popup workflows.</strong> <code>C-a g</code> opens lazygit floating over your panes. Do your thing, close it, layout untouched.</p>\n<p><strong>Single-buffer file management.</strong> oil.nvim opens directories as editable buffers. Delete a line = delete the file. No sidebar.</p>\n<p><strong>Same keys everywhere.</strong> <code>C-h/j/k/l</code> moves between vim splits AND tmux panes seamlessly.</p>\n<hr />\n<h2 id=\"daily-workflow\">Daily Workflow</h2>\n<h3 id=\"opening-files\">Opening Files</h3>\n<pre><code class=\"language-bash\">v              # Open neovim\nvs             # Fuzzy find files (with preview)\nvg             # Grep file contents, jump to match\no              # Fuzzy find Obsidian notes\nr              # Recent files across all projects\n</code></pre>\n<h3 id=\"file-management-oilnvim\">File Management (oil.nvim)</h3>\n<p>From any file in neovim:</p>\n<pre><code>-              # Open parent directory\n&lt;CR&gt;           # Open file/directory\n(edit line)    # Rename file\n(delete line)  # Delete file\ng.             # Toggle hidden files\n</code></pre>\n<p>This is the key insight: the filesystem IS the buffer. Vim motions work on files.</p>\n<h3 id=\"tmux-essentials\">Tmux Essentials</h3>\n<pre><code>C-a            # Prefix key (not C-b, easier to reach)\nC-h/j/k/l      # Move between panes (works in vim too!)\nC-a g          # Lazygit popup\nC-a S          # Scratch terminal popup\nC-a Space      # tmux-thumbs (copy any text with hints)\nC-a -          # Split pane vertically\nC-a _          # Split pane horizontally\n</code></pre>\n<h3 id=\"git\">Git</h3>\n<pre><code class=\"language-bash\">C-a g          # Lazygit popup (preferred)\ngs             # git status\nga             # git add\ngc             # git commit\ngp             # git push\n</code></pre>\n<p>In lazygit, press <code>a</code> for AI-generated commit messages (uses Claude).</p>\n<h3 id=\"lsp-navigation-neovim\">LSP Navigation (Neovim)</h3>\n<pre><code>gd             # Go to definition\ngr             # Go to references\nK              # Hover documentation\n&lt;leader&gt;ca     # Code actions\n&lt;leader&gt;rn     # Rename symbol\n</code></pre>\n<hr />\n<h2 id=\"key-config-decisions\">Key Config Decisions</h2>\n<h3 id=\"tmux-c-a-prefix-instead-of-c-b\">Tmux: C-a prefix instead of C-b</h3>\n<p><code>C-b</code> requires moving your hand off home row. <code>C-a</code> is right there. To go to beginning of line (normally C-a in shell), use <code>C-a a</code>.</p>\n<h3 id=\"neovim-native-lsp-not-wrapped-in-telescope\">Neovim: Native LSP, not wrapped in Telescope</h3>\n<p>Many configs route <code>gd</code> through fuzzy finders. This config uses <code>vim.lsp.buf.definition</code> directly. Fewer layers = faster and more reliable.</p>\n<h3 id=\"oilnvim-instead-of-file-tree-sidebar\">oil.nvim instead of file tree sidebar</h3>\n<p>File trees (NERDTree, neo-tree) eat screen space and encourage \"browsing.\" oil.nvim encourages \"acting\"—you're always in a buffer using vim motions.</p>\n<h3 id=\"vim-tmux-navigator\">vim-tmux-navigator</h3>\n<p>Same <code>C-h/j/k/l</code> keys navigate both vim splits and tmux panes. No mental overhead about which context you're in.</p>\n<h3 id=\"lazy-loading-everything\">Lazy loading everything</h3>\n<p>Neovim starts in &lt;100ms despite 40+ plugins. Everything loads on first use, not startup.</p>\n<hr />\n<h2 id=\"llm-integration\">LLM Integration</h2>\n<p>AI is used as suggestion engine, not autopilot:</p>\n<ul>\n<li><strong>ai-commit</strong>: Generates 3 commit message options, you pick one</li>\n<li><strong>morning-ritual</strong>: Suggests pomodoros ranked by priority, you select</li>\n<li><strong>startup oracle</strong>: Daily I Ching-style wisdom based on your tasks</li>\n</ul>\n<p>All outputs are cached to avoid slow/expensive repeated API calls.</p>\n<hr />\n<h2 id=\"customization\">Customization</h2>\n<h3 id=\"adding-aliases\">Adding aliases</h3>\n<p>Edit <code>~/.dotfiles/.zshrc</code>, then <code>source ~/.zshrc</code>.</p>\n<h3 id=\"adding-neovim-plugins\">Adding Neovim plugins</h3>\n<p>Create a file in <code>~/.config/nvim/lua/plugins/your-plugin.lua</code>:</p>\n<pre><code class=\"language-lua\">return {\n  {\n    \"author/plugin-name\",\n    event = \"VeryLazy\",  -- lazy load\n    opts = {\n      -- config here\n    },\n  },\n}\n</code></pre>\n<h3 id=\"changing-tmux-bindings\">Changing tmux bindings</h3>\n<p>Edit <code>~/.dotfiles/.tmux.conf</code>, then <code>tmux source ~/.tmux.conf</code>.</p>\n<hr />\n<h2 id=\"secrets\">Secrets</h2>\n<p>API keys go in <code>~/.env</code> (gitignored), never in dotfiles:</p>\n<pre><code class=\"language-bash\"># ~/.env\nexport ANTHROPIC_API_KEY=\"sk-...\"\nexport OPENAI_API_KEY=\"sk-...\"\n</code></pre>\n<p>The <code>.zshrc</code> sources this file automatically.</p>\n<hr />\n<h2 id=\"troubleshooting\">Troubleshooting</h2>\n<p><strong>Neovim plugins not loading</strong>: Run <code>:Lazy sync</code></p>\n<p><strong>Tmux changes not applying</strong>: Run <code>tmux source ~/.tmux.conf</code></p>\n<p><strong>LSP not working</strong>: Check <code>:LspInfo</code> and <code>:Mason</code> for missing servers</p>\n<p><strong>\"Command not found\"</strong>: Ensure <code>/opt/homebrew/bin</code> is in PATH</p>\n<hr />\n<h2 id=\"file-reference\">File Reference</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>File</th><th>Purpose</th></tr></thead><tbody><tr><td><code>.zshrc</code></td><td>Shell aliases, PATH, prompt config</td></tr><tr><td><code>.tmux.conf</code></td><td>Tmux keybindings, plugins, appearance</td></tr><tr><td><code>.config/nvim/</code></td><td>Neovim config (LazyVim + custom plugins)</td></tr><tr><td><code>.config/ghostty/</code></td><td>Terminal appearance, shaders</td></tr><tr><td><code>.startup.sh</code></td><td>MOTD shown on terminal open</td></tr><tr><td><code>bin/</code></td><td>Custom scripts (ai-commit, morning-ritual, etc)</td></tr><tr><td><code>tips.txt</code></td><td>Cheatsheet, shown randomly on startup</td></tr><tr><td><code>CLAUDE.md</code></td><td>Context for AI assistants working on this repo</td></tr></tbody></table>\n<hr />\n<h2 id=\"other-docs\">Other Docs</h2>\n<ul>\n<li><code>CLAUDE.md</code> - Detailed notes for AI pair programming</li>\n<li><code>tips.txt</code> - All keybindings and shortcuts</li>\n<li><code>WORKFLOWS.md</code> - Advanced CLI pipelines (obs, pub, llm)</li>\n<li><code>STARTUP_DOCS.md</code> - How the startup script works</li>\n</ul>\n<hr />\n<p><em>Minimal config, maximum velocity.</em></p>",
+    "raw": "# ejfox's dotfiles\n\nTerminal-first development environment optimized for speed-of-thought computing. Everything is fuzzy-searchable, keyboard-driven, and designed to get out of your way.\n\n## Quick Start\n\n```bash\ngit clone https://github.com/ejfox/dotfiles.git ~/.dotfiles\ncd ~/.dotfiles\n./sync-dotfiles.sh\n```\n\n**Dependencies** (install via homebrew):\n```bash\nbrew install neovim tmux zsh fzf ripgrep fd bat lsd zoxide\nbrew install --cask ghostty\n```\n\n## What's Here\n\n```\n~/.dotfiles/\n├── .zshrc              # Shell config (aliases, PATH, prompt)\n├── .tmux.conf          # Terminal multiplexer\n├── .config/\n│   ├── nvim/           # Neovim (LazyVim-based)\n│   ├── ghostty/        # Terminal emulator\n│   ├── yazi/           # File manager\n│   └── ...\n├── bin/                # Custom scripts\n└── tips.txt            # Cheatsheet (shown randomly on startup)\n```\n\n---\n\n## Philosophy\n\n### Why These Tools?\n\n| Tool | Why Not the Alternative |\n|------|------------------------|\n| **Neovim** | VS Code is slow and not terminal-native |\n| **Tmux** | Terminal tabs don't persist across restarts |\n| **Zsh** | Fish isn't POSIX-compatible, Bash lacks features |\n| **Ghostty** | Fast (Zig), GPU-accelerated, good defaults |\n| **LazyVim** | Sensible defaults, easy to customize, well-maintained |\n\n### Core Ideas\n\n**Fuzzy find everything.** Don't navigate folder trees—search. `vs` finds files, `vg` searches content, `o` opens notes.\n\n**Pane-based workflow.** One tmux session, multiple panes visible at once. Editor, terminal, logs, server—all on screen together.\n\n**Popup workflows.** `C-a g` opens lazygit floating over your panes. Do your thing, close it, layout untouched.\n\n**Single-buffer file management.** oil.nvim opens directories as editable buffers. Delete a line = delete the file. No sidebar.\n\n**Same keys everywhere.** `C-h/j/k/l` moves between vim splits AND tmux panes seamlessly.\n\n---\n\n## Daily Workflow\n\n### Opening Files\n\n```bash\nv              # Open neovim\nvs             # Fuzzy find files (with preview)\nvg             # Grep file contents, jump to match\no              # Fuzzy find Obsidian notes\nr              # Recent files across all projects\n```\n\n### File Management (oil.nvim)\n\nFrom any file in neovim:\n```\n-              # Open parent directory\n<CR>           # Open file/directory\n(edit line)    # Rename file\n(delete line)  # Delete file\ng.             # Toggle hidden files\n```\n\nThis is the key insight: the filesystem IS the buffer. Vim motions work on files.\n\n### Tmux Essentials\n\n```\nC-a            # Prefix key (not C-b, easier to reach)\nC-h/j/k/l      # Move between panes (works in vim too!)\nC-a g          # Lazygit popup\nC-a S          # Scratch terminal popup\nC-a Space      # tmux-thumbs (copy any text with hints)\nC-a -          # Split pane vertically\nC-a _          # Split pane horizontally\n```\n\n### Git\n\n```bash\nC-a g          # Lazygit popup (preferred)\ngs             # git status\nga             # git add\ngc             # git commit\ngp             # git push\n```\n\nIn lazygit, press `a` for AI-generated commit messages (uses Claude).\n\n### LSP Navigation (Neovim)\n\n```\ngd             # Go to definition\ngr             # Go to references\nK              # Hover documentation\n<leader>ca     # Code actions\n<leader>rn     # Rename symbol\n```\n\n---\n\n## Key Config Decisions\n\n### Tmux: C-a prefix instead of C-b\n\n`C-b` requires moving your hand off home row. `C-a` is right there. To go to beginning of line (normally C-a in shell), use `C-a a`.\n\n### Neovim: Native LSP, not wrapped in Telescope\n\nMany configs route `gd` through fuzzy finders. This config uses `vim.lsp.buf.definition` directly. Fewer layers = faster and more reliable.\n\n### oil.nvim instead of file tree sidebar\n\nFile trees (NERDTree, neo-tree) eat screen space and encourage \"browsing.\" oil.nvim encourages \"acting\"—you're always in a buffer using vim motions.\n\n### vim-tmux-navigator\n\nSame `C-h/j/k/l` keys navigate both vim splits and tmux panes. No mental overhead about which context you're in.\n\n### Lazy loading everything\n\nNeovim starts in <100ms despite 40+ plugins. Everything loads on first use, not startup.\n\n---\n\n## LLM Integration\n\nAI is used as suggestion engine, not autopilot:\n\n- **ai-commit**: Generates 3 commit message options, you pick one\n- **morning-ritual**: Suggests pomodoros ranked by priority, you select\n- **startup oracle**: Daily I Ching-style wisdom based on your tasks\n\nAll outputs are cached to avoid slow/expensive repeated API calls.\n\n---\n\n## Customization\n\n### Adding aliases\n\nEdit `~/.dotfiles/.zshrc`, then `source ~/.zshrc`.\n\n### Adding Neovim plugins\n\nCreate a file in `~/.config/nvim/lua/plugins/your-plugin.lua`:\n\n```lua\nreturn {\n  {\n    \"author/plugin-name\",\n    event = \"VeryLazy\",  -- lazy load\n    opts = {\n      -- config here\n    },\n  },\n}\n```\n\n### Changing tmux bindings\n\nEdit `~/.dotfiles/.tmux.conf`, then `tmux source ~/.tmux.conf`.\n\n---\n\n## Secrets\n\nAPI keys go in `~/.env` (gitignored), never in dotfiles:\n\n```bash\n# ~/.env\nexport ANTHROPIC_API_KEY=\"sk-...\"\nexport OPENAI_API_KEY=\"sk-...\"\n```\n\nThe `.zshrc` sources this file automatically.\n\n---\n\n## Troubleshooting\n\n**Neovim plugins not loading**: Run `:Lazy sync`\n\n**Tmux changes not applying**: Run `tmux source ~/.tmux.conf`\n\n**LSP not working**: Check `:LspInfo` and `:Mason` for missing servers\n\n**\"Command not found\"**: Ensure `/opt/homebrew/bin` is in PATH\n\n---\n\n## File Reference\n\n| File | Purpose |\n|------|---------|\n| `.zshrc` | Shell aliases, PATH, prompt config |\n| `.tmux.conf` | Tmux keybindings, plugins, appearance |\n| `.config/nvim/` | Neovim config (LazyVim + custom plugins) |\n| `.config/ghostty/` | Terminal appearance, shaders |\n| `.startup.sh` | MOTD shown on terminal open |\n| `bin/` | Custom scripts (ai-commit, morning-ritual, etc) |\n| `tips.txt` | Cheatsheet, shown randomly on startup |\n| `CLAUDE.md` | Context for AI assistants working on this repo |\n\n---\n\n## Other Docs\n\n- `CLAUDE.md` - Detailed notes for AI pair programming\n- `tips.txt` - All keybindings and shortcuts\n- `WORKFLOWS.md` - Advanced CLI pipelines (obs, pub, llm)\n- `STARTUP_DOCS.md` - How the startup script works\n\n---\n\n*Minimal config, maximum velocity.*\n",
+    "excerpt": "Terminal-first development environment optimized for speed-of-thought computing. Everything is fuzzy-searchable, keyboard-driven, and designed to get out of you..."
+  },
+  "createdAt": "2019-04-07T22:09:55Z",
+  "updatedAt": "2026-04-09T01:58:08Z",
+  "pushedAt": "2026-04-09T01:58:01Z"
+}

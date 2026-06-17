@@ -1,8 +1,21 @@
 ---
 title: "COVIDcast"
-date: 2020-04-24T16:00:51-04:00
-modified: 2024-10-14T19:59:10-04:00
+date: 2020-04-24T00:00:00-04:00
+modified: 2025-08-26T15:53:05-04:00
 url: https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx
+tech: ["Data Visualization", "JavaScript", "COVID-19 Data", "Public Health"]
+state: deployed
+aiInvolvement: human-only
+context: client
+tags:
+  - covid
+  - dataviz
+  - javascript
+  - health
 ---
 
-During the beginning of the COVID-19 Pandemic, I worked on [Carnegie Melon University's](https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx) [COVIDcast project](https://delphi.cmu.edu/epidemic-signals/), prototyping data visualizations and user interactions to help the public better understand the a variety of data being collected across the country on trends in hospitalization, transmission, and movement.
+During the early COVID-19 pandemic, I worked with Carnegie Mellon University's [COVIDcast project](https://delphi.cmu.edu/epidemic-signals/), prototyping data visualizations and user interactions to help the public understand hospitalization, transmission, and movement trends across the country.
+
+![COVIDcast dashboard: weekly case, hospitalization, and death rates above an interactive county-level map](https://res.cloudinary.com/ejf/image/upload/v1666630395/project-images/cmu_covidcast.png)
+
+![Population density map of the United States with circles sized by population, colored white to red indicating concentration in the Midwest and Northeast.](http://res.cloudinary.com/ejf/image/upload/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png)

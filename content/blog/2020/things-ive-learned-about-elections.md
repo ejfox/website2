@@ -4,7 +4,6 @@ type: words
 hidden: false
 inprogress: true
 date: 2020-02-08T22:19:38-05:00
-hidetimestamp: false
 modified: 2024-09-23T12:13:21-04:00
 tags:
   - elections
@@ -23,7 +22,7 @@ Elections are all edge cases. Votes are cast and tallied by a wide variety of Am
 
 This great country contains lots of different people with lots of different ways of going about things.
 
-The basic rules around voting are laid out in the constitution^[Article 1 of the Constitution](article-1-of-the-constitution)](https://constitutioncenter.org/interactive-constitution/articles/article-i#elections-clause) “The House of Representatives shall be composed of Members chosen every second Year by the People of the several States…” - [Section 4](https://www.usconstitution.net/xconst_A1Sec4.html): “The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter such Regulations, except as to the Places of chusing Senators.”] but a remarkable amount of the nitty-gritty details are [left up to each state](https://www.brennancenter.org/analysis/voting-laws-roundup-2019) to figure out.
+The basic rules around voting are laid out in the constitution^[[Article 1 of the Constitution](https://constitutioncenter.org/interactive-constitution/articles/article-i#elections-clause) “The House of Representatives shall be composed of Members chosen every second Year by the People of the several States…” - [Section 4](http://web.archive.org/web/20260222103924/https://usconstitution.net/xconst_A1Sec4.html/): “The Times, Places and Manner of holding Elections for Senators and Representatives, shall be prescribed in each State by the Legislature thereof; but the Congress may at any time by Law make or alter such Regulations, except as to the Places of chusing Senators.”] but a remarkable amount of the nitty-gritty details are [left up to each state](https://www.brennancenter.org/analysis/voting-laws-roundup-2019) to figure out.
 
 On election day in America, polls open at a particular time and close at a particular time. Those times, like almost everything else, [depend on where you’re talking about](<https://ballotpedia.org/State_Poll_Opening_and_Closing_Times_(2019)>) and can vary even within a single state and could change any year.
 
@@ -79,7 +78,7 @@ The Center for Civic Design has a [great guide](https://civicdesign.org/fieldgui
 
 ### Reporting units
 
-The term “reporting unit” can refer to a boundary division of any size used to aggregate votes in an election. This can be a [town](https://en.wikipedia.org/wiki/New_England_town), [parish](https://en.wikipedia.org/wiki/List_of_parishes_in_Louisiana), [precinct](https://www.nytimes.com/interactive/2018/upshot/election-2016-voting-precinct-maps.html), county, [county sub-division](https://www.policymap.com/2015/09/county-subdivisions-the-secret-geography/) or state.
+The term “reporting unit” can refer to a boundary division of any size used to aggregate votes in an election. This can be a [town](https://en.wikipedia.org/wiki/New_England_town), [parish](https://en.wikipedia.org/wiki/List_of_parishes_in_Louisiana), [precinct](https://www.nytimes.com/interactive/2018/upshot/election-2016-voting-precinct-maps.html), county, county sub-division or state.
 
 Presidential, senate, and gubernatorial races are organized by county and state.
 
@@ -91,7 +90,7 @@ Once a vote is cast, ballots are counted and the counts are delivered to a centr
 
 The media (and by extension, the public) are given access to the vote counts at this point. Often times you can find a website run by the Secretary of State which will have the latest results for different statewide elections. Data services will pay reporters or [stringers](https://news.ycombinator.com/item?id=12912528) to go to the places where votes are counted to and send the results back to competing data services which then resell that data to news organizations (live election results are not cheap).
 
-Election day vote and [exit poll](https://ballotpedia.org/Exit_polling) [result data](https://www.pewresearch.org/fact-tank/2016/11/02/just-how-does-the-general-election-exit-poll-work-anyway/) is provided to ABC, CBS, CNN, and NBC News in a consortium called the **National Election Pool**. The data is fed by [Edison Research](https://www.edisonresearch.com/election-polling/).
+Election day vote and [exit poll](https://ballotpedia.org/Exit_polling) [result data](https://www.pewresearch.org/fact-tank/2016/11/02/just-how-does-the-general-election-exit-poll-work-anyway/) is provided to ABC, CBS, CNN, and NBC News in a consortium called the **National Election Pool**. The data is fed by [Edison Research](http://web.archive.org/web/20220914114719/https://www.edisonresearch.com/election-polling/).
 
 Alternatives for live data include [Decision Desk HQ](https://decisiondeskhq.com/) or the [AP Elections API](https://developer.ap.org/ap-elections-api/).
 
@@ -101,7 +100,7 @@ County-level presidential results 2008-2016 have been [collected in this GitHub 
 
 #### Geographic Identifiers: FIPS Codes
 
-States can be identified via their name (`New York`), [abbreviation](https://gist.github.com/mshafrir/2646763) (`NY`), or a state FIPS code ([36](https://www.mcc.co.mercer.pa.us/dps/state_fips_code_listing.htm)).
+States can be identified via their name (`New York`), [abbreviation](https://gist.github.com/mshafrir/2646763) (`NY`), or a state FIPS code (36).
 
 House districts are identified by their district code. New York’s first district is `NY-01`. Large states with smaller populations like [Montana](https://en.wikipedia.org/wiki/Montana%27s_at-large_congressional_district) have only one congressional district (“at large”), denoted like `MT-AL`.
 

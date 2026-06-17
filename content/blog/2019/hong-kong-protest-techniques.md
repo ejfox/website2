@@ -5,9 +5,8 @@ dek: >-
 type: words
 hidden: false
 inprogress: false
-date: 2019-08-14T08:00:39.000Z
-hidetimestamp: false
-modified: 2024-08-01T14:21:12.000Z
+date: 2019-08-14T04:00:39-04:00
+modified: 2025-06-30T23:40:19-04:00
 tags:
   - protest
   - activism

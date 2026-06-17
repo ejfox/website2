@@ -1,6 +1,13 @@
+/**
+ * @file utils/stats.mjs
+ * @description Processing statistics tracking for content pipeline - real-time progress, word counts, content analysis
+ * @usage import { processStats, updateRealTimeStats, printProcessingReport } from './scripts/utils/stats.mjs'
+ */
+
+/* eslint-disable no-console */
 import chalk from 'chalk'
-import path from 'path'
-import { getPostType, formatFileSize } from './helpers.mjs'
+import path from 'node:path'
+import { /* getPostType, */ formatFileSize } from './helpers.mjs'
 
 export const processStats = {
   filesProcessed: 0,
@@ -18,7 +25,7 @@ export const processStats = {
     robot: 0,
     draft: 0,
     prompt: 0,
-    studyNote: 0
+    studyNote: 0,
   },
   errors: [],
   warnings: [],
@@ -30,28 +37,28 @@ export const processStats = {
     h3: 0,
     codeBlocks: { js: 0, py: 0, other: 0 },
     tables: 0,
-    footnotes: 0
+    footnotes: 0,
   },
   fileSizes: {
     total: 0,
     average: 0,
-    largest: { size: 0, file: '' }
+    largest: { size: 0, file: '' },
   },
   resourceUsage: {
     initialMemory: process.memoryUsage().heapUsed,
-    peakMemory: 0
+    peakMemory: 0,
   },
   queue: {
     active: new Set(),
     completed: new Set(),
-    failed: new Set()
+    failed: new Set(),
   },
   keywords: new Map(),
   readingTimes: [],
   linkAnalysis: {
     internal: 0,
-    external: 0
-  }
+    external: 0,
+  },
 }
 
 export function updateRealTimeStats(result) {
@@ -107,19 +114,20 @@ export function printRealTimeStats() {
   const memoryUsage = process.memoryUsage()
 
   // Move cursor up 3 lines and clear each line
-  process.stdout.write('\x1b[3A')
-  process.stdout.write('\x1b[2K') // Clear first line
-  process.stdout.write('\x1b[1B') // Move down
-  process.stdout.write('\x1b[2K') // Clear second line
-  process.stdout.write('\x1b[1B') // Move down
-  process.stdout.write('\x1b[2K') // Clear third line
-  process.stdout.write('\x1b[2A') // Move back up
+  process.stdout.write('\x1B[3A')
+  process.stdout.write('\x1B[2K') // Clear first line
+  process.stdout.write('\x1B[1B') // Move down
+  process.stdout.write('\x1B[2K') // Clear second line
+  process.stdout.write('\x1B[1B') // Move down
+  process.stdout.write('\x1B[2K') // Clear third line
+  process.stdout.write('\x1B[2A') // Move back up
 
   console.log(
     chalk.blue(`Processing: ${filePath}`) +
       '\n' +
       chalk.green(
-        `Progress: ${processStats.filesProcessed}/${processStats.totalFiles} (${percent}%)`
+        `Progress: ${processStats.filesProcessed}/` +
+          `${processStats.totalFiles} (${percent}%)`
       ) +
       '\n' +
       chalk.yellow(`Memory: ${formatFileSize(memoryUsage.heapUsed)}`)
@@ -139,16 +147,21 @@ export function printProcessingReport() {
     '',
     'Document Analysis',
     '-----------------',
-    `Headers: H1: ${processStats.contentAnalysis.h1}, H2: ${processStats.contentAnalysis.h2}, H3: ${processStats.contentAnalysis.h3}`,
-    `Code Blocks: JS: ${processStats.contentAnalysis.codeBlocks.js}, Python: ${processStats.contentAnalysis.codeBlocks.py}, Other: ${processStats.contentAnalysis.codeBlocks.other}`,
-    `Tables: ${processStats.contentAnalysis.tables}, Footnotes: ${processStats.contentAnalysis.footnotes}`,
+    `Headers: H1: ${processStats.contentAnalysis.h1}, ` +
+      `H2: ${processStats.contentAnalysis.h2}, ` +
+      `H3: ${processStats.contentAnalysis.h3}`,
+    `Code Blocks: JS: ${processStats.contentAnalysis.codeBlocks.js}, ` +
+      `Python: ${processStats.contentAnalysis.codeBlocks.py}, ` +
+      `Other: ${processStats.contentAnalysis.codeBlocks.other}`,
+    `Tables: ${processStats.contentAnalysis.tables}, ` +
+      `Footnotes: ${processStats.contentAnalysis.footnotes}`,
     '',
     'Content Types',
-    '------------'
+    '------------',
   ]
 
   Object.entries(processStats.byType)
-    .filter(([_, count]) => count > 0)
+    .filter((entry) => entry[1] > 0)
     .forEach(([type, count]) => {
       lines.push(`${type}: ${count} files`)
     })

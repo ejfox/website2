@@ -1,0 +1,1 @@
+{"meta":{"pushedAt":"2019-07-01T09:28:52Z","generatedAt":"2026-05-20T15:17:32.868Z","nodeCount":1,"edgeCount":1},"nodes":[{"id":"test/test.js:generate","label":"generate","type":"function","lines":"[12-31]","file":"test/test.js"}],"edges":[{"source":"test/test.js:global","target":"test/test.js:generate","type":"calls"}]}

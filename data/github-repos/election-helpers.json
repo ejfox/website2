@@ -1,0 +1,397 @@
+{
+  "name": "election-helpers",
+  "description": "A collection of resources, tools, and patterns for election data analysis and viz",
+  "url": "https://github.com/ejfox/election-helpers",
+  "homepage": "https://ejfox.github.io/election-helpers/global.html",
+  "stats": {
+    "stars": 3,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 99676
+  },
+  "diskUsage": 16547,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".editorconfig",
+        "size": 370
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "size": 1110
+      },
+      {
+        "path": ".gitignore",
+        "size": 340
+      },
+      {
+        "path": ".prettierignore",
+        "size": 69
+      },
+      {
+        "path": ".prettierrc",
+        "size": 173
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 2133
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "size": 5620
+      },
+      {
+        "path": "README.md",
+        "size": 4042
+      },
+      {
+        "path": "docs.md",
+        "size": 9456
+      },
+      {
+        "path": "docs/css/baseline.css",
+        "size": 85526
+      },
+      {
+        "path": "docs/global.html",
+        "size": 33620
+      },
+      {
+        "path": "docs/index.html",
+        "size": 6761
+      },
+      {
+        "path": "docs/index.js.html",
+        "size": 23944
+      },
+      {
+        "path": "docs/scripts/jquery.min.js",
+        "size": 88145
+      },
+      {
+        "path": "docs/scripts/jsdoc-toc.js",
+        "size": 446
+      },
+      {
+        "path": "docs/scripts/lang-css.js",
+        "size": 1020
+      },
+      {
+        "path": "docs/scripts/linenumber.js",
+        "size": 260
+      },
+      {
+        "path": "docs/scripts/prettify.js",
+        "size": 15394
+      },
+      {
+        "path": "docs/scripts/scrollanchor.js",
+        "size": 355
+      },
+      {
+        "path": "docs/scripts/tree.jquery.js",
+        "size": 52283
+      },
+      {
+        "path": "eslint.config.js",
+        "size": 1516
+      },
+      {
+        "path": "index.d.ts",
+        "size": 3335
+      },
+      {
+        "path": "index.js",
+        "size": 20993
+      },
+      {
+        "path": "jsdoc.config.json",
+        "size": 529
+      },
+      {
+        "path": "package-lock.json",
+        "size": 297794
+      },
+      {
+        "path": "package.json",
+        "size": 1801
+      },
+      {
+        "path": "src/election-dates.js",
+        "size": 14758
+      },
+      {
+        "path": "src/geographic.js",
+        "size": 7297
+      },
+      {
+        "path": "src/party-normalizer.js",
+        "size": 10885
+      },
+      {
+        "path": "src/universal-helpers.js",
+        "size": 23575
+      },
+      {
+        "path": "test/index.test.js",
+        "size": 20284
+      },
+      {
+        "path": "vitest.config.js",
+        "size": 368
+      },
+      {
+        "path": "yarn.lock",
+        "size": 158632
+      }
+    ],
+    "tree": {
+      "name": "election-helpers",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "ci.yml",
+                  "size": 1110,
+                  "path": ".github/workflows/ci.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "css",
+              "children": [
+                {
+                  "name": "baseline.css",
+                  "size": 85526,
+                  "path": "docs/css/baseline.css"
+                }
+              ],
+              "path": "docs/css"
+            },
+            {
+              "name": "scripts",
+              "children": [
+                {
+                  "name": "jquery.min.js",
+                  "size": 88145,
+                  "path": "docs/scripts/jquery.min.js"
+                },
+                {
+                  "name": "jsdoc-toc.js",
+                  "size": 446,
+                  "path": "docs/scripts/jsdoc-toc.js"
+                },
+                {
+                  "name": "lang-css.js",
+                  "size": 1020,
+                  "path": "docs/scripts/lang-css.js"
+                },
+                {
+                  "name": "linenumber.js",
+                  "size": 260,
+                  "path": "docs/scripts/linenumber.js"
+                },
+                {
+                  "name": "prettify.js",
+                  "size": 15394,
+                  "path": "docs/scripts/prettify.js"
+                },
+                {
+                  "name": "scrollanchor.js",
+                  "size": 355,
+                  "path": "docs/scripts/scrollanchor.js"
+                },
+                {
+                  "name": "tree.jquery.js",
+                  "size": 52283,
+                  "path": "docs/scripts/tree.jquery.js"
+                }
+              ],
+              "path": "docs/scripts"
+            },
+            {
+              "name": "global.html",
+              "size": 33620,
+              "path": "docs/global.html"
+            },
+            {
+              "name": "index.html",
+              "size": 6761,
+              "path": "docs/index.html"
+            },
+            {
+              "name": "index.js.html",
+              "size": 23944,
+              "path": "docs/index.js.html"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "election-dates.js",
+              "size": 14758,
+              "path": "src/election-dates.js"
+            },
+            {
+              "name": "geographic.js",
+              "size": 7297,
+              "path": "src/geographic.js"
+            },
+            {
+              "name": "party-normalizer.js",
+              "size": 10885,
+              "path": "src/party-normalizer.js"
+            },
+            {
+              "name": "universal-helpers.js",
+              "size": 23575,
+              "path": "src/universal-helpers.js"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "test",
+          "children": [
+            {
+              "name": "index.test.js",
+              "size": 20284,
+              "path": "test/index.test.js"
+            }
+          ],
+          "path": "test"
+        },
+        {
+          "name": ".editorconfig",
+          "size": 370,
+          "path": ".editorconfig"
+        },
+        {
+          "name": ".gitignore",
+          "size": 340,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".prettierignore",
+          "size": 69,
+          "path": ".prettierignore"
+        },
+        {
+          "name": ".prettierrc",
+          "size": 173,
+          "path": ".prettierrc"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 2133,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "CONTRIBUTING.md",
+          "size": 5620,
+          "path": "CONTRIBUTING.md"
+        },
+        {
+          "name": "README.md",
+          "size": 4042,
+          "path": "README.md"
+        },
+        {
+          "name": "docs.md",
+          "size": 9456,
+          "path": "docs.md"
+        },
+        {
+          "name": "eslint.config.js",
+          "size": 1516,
+          "path": "eslint.config.js"
+        },
+        {
+          "name": "index.d.ts",
+          "size": 3335,
+          "path": "index.d.ts"
+        },
+        {
+          "name": "index.js",
+          "size": 20993,
+          "path": "index.js"
+        },
+        {
+          "name": "jsdoc.config.json",
+          "size": 529,
+          "path": "jsdoc.config.json"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 297794,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 1801,
+          "path": "package.json"
+        },
+        {
+          "name": "vitest.config.js",
+          "size": 368,
+          "path": "vitest.config.js"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 158632,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 34,
+    "totalSize": 893101
+  },
+  "topics": [
+    "data",
+    "elections",
+    "helpers"
+  ],
+  "readme": {
+    "html": "<h1 id=\"election-helpers\">Election Helpers</h1>\n<p><a href=\"https://www.npmjs.com/package/election-helpers\"><img src=\"https://img.shields.io/npm/v/election-helpers?color=%235B70D9\" alt=\"npm version\" /></a>\n<a href=\"https://codecov.io/gh/ejfox/election-helpers\"><img src=\"https://codecov.io/gh/ejfox/election-helpers/branch/main/graph/badge.svg\" alt=\"codecov\" /></a></p>\n<p><a href=\"https://www.npmjs.com/package/election-helpers\">View on NPM</a></p>\n<h2 id=\"overview\">Overview</h2>\n<p><code>election-helpers</code> is a lightweight JavaScript utility library that makes it easier to work with U.S. election data—FIPS codes, vote tallies, boundary checks, and more.  Each helper is fully unit-tested and documented.  If you need to turn messy election spreadsheets into clean insights, this package has your back.</p>\n<hr />\n<h2 id=\"installation\">Installation</h2>\n<pre><code class=\"language-bash\">npm install election-helpers --save\n</code></pre>\n<hr />\n<h2 id=\"usage\">Usage</h2>\n<pre><code class=\"language-js\">import {\n  getStateAbbrFromStateFips,\n  candidateVotePercentage,\n} from 'election-helpers';\n\ngetStateAbbrFromStateFips('36'); // =&gt; 'NY'\n\ncandidateVotePercentage(3490, 9876); // =&gt; 35.34 (rounded)\n</code></pre>\n<p>For full examples, check the <a href=\"https://ejfox.github.io/election-helpers/global.html\">documentation site</a>.</p>\n<hr />\n<h2 id=\"testing\">Testing</h2>\n<p>The project uses <a href=\"https://vitest.dev/\">Vitest</a> for fast, browser-like unit tests.</p>\n<pre><code class=\"language-bash\"># Run tests once\nnpm test\n\n# Watch mode\nnpm run test:watch\n\n# Coverage report\nnpm run test:coverage\n</code></pre>\n<p>Coverage is automatically published to Codecov on every push.</p>\n<hr />\n<h2 id=\"api-reference\">API Reference</h2>\n<p>Below is a quick look at the available helpers.  Each link jumps to the generated JSDoc on the docs site.</p>\n<ul>\n<li><a href=\"https://ejfox.github.io/election-helpers/global.html#getStateFipsFromStateAbbr\"><code>getStateFipsFromStateAbbr(stateAbbr)</code></a> → string</li>\n<li><a href=\"https://ejfox.github.io/election-helpers/global.html#stateAbbrToName\"><code>stateAbbrToName(stateAbbr)</code></a> → string</li>\n<li><a href=\"https://ejfox.github.io/election-helpers/global.html#getStateAbbrFromStateFips\"><code>getStateAbbrFromStateFips(stateFips)</code></a> → string</li>\n<li><a href=\"https://ejfox.github.io/election-helpers/global.html#getStateCodeFromCountyFips\"><code>getStateCodeFromCountyFips(countyFips)</code></a> → string</li>\n<li><a href=\"https://ejfox.github.io/election-helpers/global.html#candidateVotePercentage\"><code>candidateVotePercentage(candidateVote, totalVotes)</code></a> → number</li>\n<li><a href=\"https://ejfox.github.io/election-helpers/global.html#sortCandidatesByVotes\"><code>sortCandidatesByVotes(candidates, sortFn?)</code></a> → array</li>\n<li><a href=\"https://ejfox.github.io/election-helpers/global.html#stateFipsToName\"><code>stateFipsToName(stateFips)</code></a> → string</li>\n<li><a href=\"https://ejfox.github.io/election-helpers/global.html#stateAbbrToFips\"><code>stateAbbrToFips(stateAbbreviation)</code></a> → string</li>\n<li><a href=\"https://ejfox.github.io/election-helpers/global.html#stateNameToFips\"><code>stateNameToFips(stateName)</code></a> → string</li>\n<li><a href=\"https://ejfox.github.io/election-helpers/global.html#boundariesAvailableForRaceType\"><code>boundariesAvailableForRaceType(raceType)</code></a> → array</li>\n<li><a href=\"https://ejfox.github.io/election-helpers/global.html#isBoundaryAvailableForRaceType\"><code>isBoundaryAvailableForRaceType(raceType, boundaryType)</code></a></li>\n</ul>\n<hr />\n<h2 id=\"development\">Development</h2>\n<h3 id=\"quality-checks\">Quality Checks</h3>\n<p>This project uses modern tooling to ensure code quality:</p>\n<pre><code class=\"language-bash\"># Run all quality checks (format, lint, test)\nnpm run check\n\n# Individual checks\nnpm run format:check  # Check code formatting\nnpm run lint          # Run ESLint\nnpm run lint:fix      # Auto-fix linting issues\nnpm run format        # Format all code\nnpm test              # Run tests\n</code></pre>\n<h3 id=\"typescript-support\">TypeScript Support</h3>\n<p>TypeScript type definitions are included for better IDE support and autocomplete, even though the library is written in JavaScript.</p>\n<hr />\n<h2 id=\"contributing\">Contributing</h2>\n<p>We welcome contributions! Please see <a href=\"CONTRIBUTING.md\">CONTRIBUTING.md</a> for detailed guidelines.</p>\n<p><strong>Quick start:</strong></p>\n<ol>\n<li>Fork &amp; clone the repo</li>\n<li><code>npm install</code> to grab dev deps</li>\n<li>Create a branch, write code <strong>and matching tests</strong></li>\n<li><code>npm run check</code> to ensure quality standards</li>\n<li>Commit using Conventional Commits (<code>npm run cz</code>)</li>\n<li>Open a PR—CI will handle the rest</li>\n</ol>\n<blockquote>\n<p><strong>Note:</strong> In true Room 302 fashion, we jokingly skip \"security features.\"  Feel free to prove us wrong with a well-crafted PR.</p>\n</blockquote>\n<hr />\n<h2 id=\"license\">License</h2>\n<p>MIT © <a href=\"https://ejfox.com\">EJ Fox</a></p>",
+    "raw": "# Election Helpers\n\n[![npm version](https://img.shields.io/npm/v/election-helpers?color=%235B70D9)](https://www.npmjs.com/package/election-helpers)\n[![codecov](https://codecov.io/gh/ejfox/election-helpers/branch/main/graph/badge.svg)](https://codecov.io/gh/ejfox/election-helpers)\n\n[View on NPM](https://www.npmjs.com/package/election-helpers)\n\n\n## Overview\n`election-helpers` is a lightweight JavaScript utility library that makes it easier to work with U.S. election data—FIPS codes, vote tallies, boundary checks, and more.  Each helper is fully unit-tested and documented.  If you need to turn messy election spreadsheets into clean insights, this package has your back.\n\n---\n\n## Installation\n```bash\nnpm install election-helpers --save\n```\n\n---\n\n## Usage\n```js\nimport {\n  getStateAbbrFromStateFips,\n  candidateVotePercentage,\n} from 'election-helpers';\n\ngetStateAbbrFromStateFips('36'); // => 'NY'\n\ncandidateVotePercentage(3490, 9876); // => 35.34 (rounded)\n```\n\nFor full examples, check the [documentation site](https://ejfox.github.io/election-helpers/global.html).\n\n---\n\n## Testing\nThe project uses [Vitest](https://vitest.dev/) for fast, browser-like unit tests.\n\n```bash\n# Run tests once\nnpm test\n\n# Watch mode\nnpm run test:watch\n\n# Coverage report\nnpm run test:coverage\n```\n\nCoverage is automatically published to Codecov on every push.\n\n---\n\n## API Reference\nBelow is a quick look at the available helpers.  Each link jumps to the generated JSDoc on the docs site.\n\n- [`getStateFipsFromStateAbbr(stateAbbr)`](https://ejfox.github.io/election-helpers/global.html#getStateFipsFromStateAbbr) → string\n- [`stateAbbrToName(stateAbbr)`](https://ejfox.github.io/election-helpers/global.html#stateAbbrToName) → string\n- [`getStateAbbrFromStateFips(stateFips)`](https://ejfox.github.io/election-helpers/global.html#getStateAbbrFromStateFips) → string\n- [`getStateCodeFromCountyFips(countyFips)`](https://ejfox.github.io/election-helpers/global.html#getStateCodeFromCountyFips) → string\n- [`candidateVotePercentage(candidateVote, totalVotes)`](https://ejfox.github.io/election-helpers/global.html#candidateVotePercentage) → number\n- [`sortCandidatesByVotes(candidates, sortFn?)`](https://ejfox.github.io/election-helpers/global.html#sortCandidatesByVotes) → array\n- [`stateFipsToName(stateFips)`](https://ejfox.github.io/election-helpers/global.html#stateFipsToName) → string\n- [`stateAbbrToFips(stateAbbreviation)`](https://ejfox.github.io/election-helpers/global.html#stateAbbrToFips) → string\n- [`stateNameToFips(stateName)`](https://ejfox.github.io/election-helpers/global.html#stateNameToFips) → string\n- [`boundariesAvailableForRaceType(raceType)`](https://ejfox.github.io/election-helpers/global.html#boundariesAvailableForRaceType) → array\n- [`isBoundaryAvailableForRaceType(raceType, boundaryType)`](https://ejfox.github.io/election-helpers/global.html#isBoundaryAvailableForRaceType)\n\n---\n\n## Development\n\n### Quality Checks\n\nThis project uses modern tooling to ensure code quality:\n\n```bash\n# Run all quality checks (format, lint, test)\nnpm run check\n\n# Individual checks\nnpm run format:check  # Check code formatting\nnpm run lint          # Run ESLint\nnpm run lint:fix      # Auto-fix linting issues\nnpm run format        # Format all code\nnpm test              # Run tests\n```\n\n### TypeScript Support\n\nTypeScript type definitions are included for better IDE support and autocomplete, even though the library is written in JavaScript.\n\n---\n\n## Contributing\n\nWe welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for detailed guidelines.\n\n**Quick start:**\n1. Fork & clone the repo\n2. `npm install` to grab dev deps\n3. Create a branch, write code **and matching tests**\n4. `npm run check` to ensure quality standards\n5. Commit using Conventional Commits (`npm run cz`)\n6. Open a PR—CI will handle the rest\n\n> **Note:** In true Room 302 fashion, we jokingly skip \"security features.\"  Feel free to prove us wrong with a well-crafted PR.\n\n---\n\n## License\nMIT © [EJ Fox](https://ejfox.com)\n",
+    "excerpt": "![npm version](https://www.npmjs.com/package/election-helpers)\n![codecov](https://codecov.io/gh/ejfox/election-helpers)\n\nView on NPM\n\n\n\nelection-helpers is a li..."
+  },
+  "createdAt": "2022-07-04T16:01:43Z",
+  "updatedAt": "2026-03-23T15:22:53Z",
+  "pushedAt": "2026-03-23T15:22:42Z"
+}

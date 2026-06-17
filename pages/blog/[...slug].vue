@@ -1,1063 +1,1144 @@
 <script setup>
-import { format, isValid, parseISO } from 'date-fns'
-import { animate, stagger, engine } from '~/anime.esm.js'
-import { useWindowSize, useMutationObserver } from '@vueuse/core'
-import DonationSection from '~/components/blog/DonationSection.vue'
-import { useScrollAnimation } from '~/composables/useScrollAnimation'
+import { useIntersectionObserver } from '@vueuse/core'
+import striptags from 'striptags'
+import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
+import PostFooter from '~/components/blog/post/PostFooter.vue'
+import PostTOC from '~/components/blog/post/PostTOC.vue'
+import ReplyContext from '~/components/blog/ReplyContext.vue'
+import PasswordGate from '~/components/blog/PasswordGate.vue'
+import { useReadingStats } from '~/composables/useReadingStats'
+import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
+// Composables
+const { formatLongDate } = useDateFormat()
 const config = useRuntimeConfig()
-const isDark = useDark()
-const processedMarkdown = useProcessedMarkdown()
-
 const route = useRoute()
-const router = useRouter()
+const processedMarkdown = useProcessedMarkdown()
+const { tocTarget } = useTOC()
 
-// Handle redirection and post fetching
+// --- Data Fetching ---
 const { data: post, error } = await useAsyncData(
   `post-${route.params.slug.join('-')}`,
   async () => {
-    const slugParts = route.params.slug
-
     try {
-      // Fetch the post data, including potential redirection info
-      const response = await $fetch(`/api/posts/${slugParts.join('/')}`)
-
-      if (response.redirect) {
-        // Check if we're already on the correct URL
-        if (route.path !== response.redirect) {
-          return { redirect: response.redirect }
-        }
+      const response = await $fetch(`/api/posts/${route.params.slug.join('/')}`)
+      if (response.redirect && route.path !== response.redirect) {
+        return { redirect: response.redirect }
       }
-
-      if (response.error) {
-        throw new Error(response.error)
-      }
-
-      return response
-    } catch (error) {
-      throw error
+      return response.error ? null : response
+    } catch (e) {
+      console.error('Error fetching post:', e)
+      return null
     }
   }
 )
 
-// Perform redirection if necessary
-if (post.value && post.value.redirect) {
-  if (route.path !== post.value.redirect) {
-    navigateTo(post.value.redirect, { replace: true })
-  }
+// Handle redirect
+if (post.value?.redirect && route.path !== post.value.redirect) {
+  navigateTo(post.value.redirect, { replace: true })
 }
 
-const { params } = useRoute()
+// Temporal cross-reference: "around this time" context (must be after post fetch)
+const postDate = computed(() => post.value?.metadata?.date || post.value?.date)
+const { context: temporalContext, hasContext: hasTemporalContext } =
+  useTemporalContext(postDate)
+
+// Tag-matched scraps: "related research" from scrapbook
+const postTags = computed(() => {
+  const tags = post.value?.metadata?.tags || post.value?.tags || []
+  return tags.filter((t) => !t.startsWith('!')).join(',')
+})
+const { data: relatedScraps } = useFetch('/api/scraps/by-tags', {
+  query: { tags: postTags, limit: 5 },
+  watch: [postTags],
+  lazy: true,
+  server: false,
+})
+
 const { data: nextPrevPosts } = await useAsyncData(
   `next-prev-${route.params.slug.join('-')}`,
-  () => processedMarkdown.getNextPrevPosts(route.params.slug.join('/'))
+  () =>
+    processedMarkdown
+      .getNextPrevPosts(route.params.slug.join('/'))
+      .catch(() => ({ next: null, prev: null }))
 )
 
-// New refs for animation targets
-const postTitle = ref(null)
-const postMetadata = ref(null)
-const postMetadataComponent = ref(null)
-const navigationLinks = ref(null)
-const articleContent = ref(null)
-const headings = ref([])
-const activeSection = ref('')
-const titleWidth = ref(0)
-const titleFontSize = ref(24)
+const { data: allPosts } = await useAsyncData('all-posts-for-related', () =>
+  processedMarkdown.getAllPosts(false, false).catch(() => [])
+)
 
-const { width } = useWindowSize()
-const isMobile = computed(() => width.value < 768)
+// --- Computed Values ---
+const { stats: readingStats } = useReadingStats(post)
 
-// Compute font size based on viewport
-watchEffect(() => {
-  if (width.value >= 1280)
-    titleFontSize.value = 72 // xl
-  else if (width.value >= 1024)
-    titleFontSize.value = 64 // lg
-  else if (width.value >= 768)
-    titleFontSize.value = 48 // md
-  else titleFontSize.value = 24 // mobile
-})
-
-// First, let's fix the lifecycle hooks by moving them inside onMounted
-onMounted(() => {
-  if (process.server) return
-
-  // Title resize observer
-  const resizeObserver = new ResizeObserver((entries) => {
-    for (const entry of entries) {
-      titleWidth.value = entry.contentRect.width
+// Format a slug into a display title (handles date-based slugs)
+const formatTitle = (slug) => {
+  if (!slug) return ''
+  const lastPart = slug.split('/').pop()
+  const datePattern = /^(\d{4}-\d{2}-\d{2})(-.*)?$/
+  const dateMatch = lastPart.match(datePattern)
+  if (dateMatch) {
+    const datePart = dateMatch[1]
+    const suffix = dateMatch[2]
+    if (suffix) {
+      return `${datePart} ${suffix
+        .slice(1)
+        .split('-')
+        .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+        .join(' ')}`
     }
-  })
-
-  if (postTitle.value) {
-    resizeObserver.observe(postTitle.value)
-    titleWidth.value = postTitle.value.offsetWidth
+    return datePart
   }
+  return lastPart.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
+}
 
-  // Heading intersection observer
-  const headingObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          activeSection.value = entry.target.id
-        }
-      })
-    },
-    { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
-  )
+const postTitle = computed(
+  () =>
+    post.value?.metadata?.title ||
+    post.value?.title ||
+    formatTitle(route.params.slug?.join('/'))
+)
+const { renderedHtml: renderedTitle, startAnimation } =
+  useTypingAnimation(postTitle)
 
-  nextTick(() => {
-    if (!articleContent.value) return
-    headings.value = Array.from(
-      articleContent.value.querySelectorAll('h2, h3, h4')
-    )
-    headings.value.forEach((heading) => headingObserver.observe(heading))
-  })
+const relatedPosts = computed(() => {
+  if (!allPosts.value || !post.value) return []
+  const currentTags = post.value.metadata?.tags || post.value.tags || []
+  const currentSlug = route.params.slug.join('/')
+  if (!currentTags.length) return []
 
-  // Clean up
-  onUnmounted(() => {
-    resizeObserver.disconnect()
-    headingObserver.disconnect()
-  })
-})
-
-// Then update the teleport to be conditional on both the target existing and not being mobile
-const tocTarget = ref(null)
-
-onMounted(() => {
-  tocTarget.value = document.querySelector('#nav-toc-container')
-
-  // Also check if the post has TOC data
-})
-
-// Add a watcher for route changes to reinitialize the TOC
-watch(
-  () => route.path,
-  async () => {
-    // Wait for DOM updates to complete
-    await nextTick()
-    await nextTick()
-
-    // Add a small delay to ensure DOM is fully updated
-    await new Promise((resolve) => setTimeout(resolve, 100))
-
-    // Re-initialize TOC target when route changes
-    tocTarget.value = document.querySelector('#nav-toc-container')
-
-    // If not found on first try, retry with increasing delays
-    if (!tocTarget.value) {
-      const retryFindTocContainer = async (attempts = 1, maxAttempts = 5) => {
-        if (attempts > maxAttempts) return
-
-        // Exponential backoff
-        const delay = 100 * Math.pow(2, attempts - 1)
-        await new Promise((resolve) => setTimeout(resolve, delay))
-
-        tocTarget.value = document.querySelector('#nav-toc-container')
-
-        if (!tocTarget.value && attempts < maxAttempts) {
-          await retryFindTocContainer(attempts + 1, maxAttempts)
-        }
+  return allPosts.value
+    .filter((p) => {
+      const slug = p.slug || p.metadata?.slug
+      return (
+        slug !== currentSlug &&
+        !p.draft &&
+        !p.metadata?.draft &&
+        !p.hidden &&
+        !p.metadata?.hidden
+      )
+    })
+    .map((p) => {
+      const tags = p.metadata?.tags || p.tags || []
+      const overlappingTags = tags.filter((t) => currentTags.includes(t))
+      return {
+        post: p,
+        score: overlappingTags.length,
+        overlappingTags,
       }
+    })
+    .filter((item) => item.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 3)
+})
 
-      await retryFindTocContainer()
-    }
-
-    // Re-initialize headings and observers
-    if (articleContent.value) {
-      nextTick(() => {
-        headings.value = Array.from(
-          articleContent.value.querySelectorAll('h2, h3, h4')
-        )
-
-        // Re-observe headings with the intersection observer
-        const headingObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                activeSection.value = entry.target.id
-              }
-            })
-          },
-          { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
-        )
-
-        headings.value.forEach((heading) => headingObserver.observe(heading))
-      })
-    }
-  },
-  { immediate: true }
+const tocChildren = computed(
+  () =>
+    post.value?.toc?.[0]?.children ||
+    post.value?.metadata?.toc?.[0]?.children ||
+    []
 )
 
-// Remove the wrappedTitle computed property and replace with this simpler letter-based system
-const letters = computed(() => {
-  const title = post.value?.metadata?.title || post.value?.title
-  if (!title) return []
+// --- Refs & State ---
+const articleContent = ref(null)
+const activeSection = ref('')
+const scrollProgress = ref(0)
+const showDebugGrid = ref(false)
+const postLinks = ref([])
 
-  // Split the title into individual letters, preserving spaces
-  return title.split('').map((char, index) => ({
-    char,
-    id: index,
-    isSpace: char === ' '
-  }))
+// How many links to show — adapt to sidebar fullness
+const visibleLinks = computed(() => {
+  const total = postLinks.value.length
+  if (total < 3) return []
+  const sidebarBusy =
+    (temporalContext.value?.reading?.length || 0) +
+    (temporalContext.value?.predictions?.length || 0) +
+    (temporalContext.value?.scraps?.length || 0) +
+    (relatedScraps.value?.length || 0)
+  // Sparse sidebar: show more links. Busy sidebar: show fewer.
+  const max = sidebarBusy > 4 ? 4 : sidebarBusy > 0 ? 6 : 8
+  return postLinks.value.slice(0, max)
 })
 
-// Track animation state
-const animationState = reactive({
-  currentIndex: 0,
-  isAnimating: false,
-  visibleLetters: new Set(),
-  cursorPosition: 0 // Track the current cursor position
-})
-
-// Update the rendered title to wrap words properly
-const renderedTitle = computed(() => {
-  const spans = letters.value.map(({ char, id, isSpace }, index) => {
-    const isVisible = animationState.visibleLetters.has(id)
-    const isCursorHere =
-      !isSpace &&
-      index === animationState.cursorPosition &&
-      animationState.isAnimating
-
-    // Start a new word wrapper if it's a space
-    if (isSpace) {
-      return `</span><span class="word">`
-    }
-
-    return `<span class="letter ${isVisible ? 'visible' : ''}">${char}${isCursorHere ? '<span class="cursor"></span>' : ''}</span>`
-  })
-  // Wrap everything in a word span
-  return `<span class="word">${spans.join('')}</span>`
-})
-
-// Simpler typing animation
-async function typeText() {
-  if (process.server || animationState.isAnimating) return
-
-  animationState.isAnimating = true
-  animationState.visibleLetters.clear()
-  animationState.cursorPosition = 0
-
-  const LETTER_DELAY = 35
-  const PAUSE_DELAY = 150
-
-  for (let i = 0; i < letters.value.length; i++) {
-    const letter = letters.value[i]
-    const delay =
-      letter.isSpace || /[.,!?;:]/.test(letter.char)
-        ? PAUSE_DELAY
-        : LETTER_DELAY
-
-    await new Promise((resolve) => setTimeout(resolve, delay))
-    animationState.visibleLetters.add(letter.id)
-    animationState.cursorPosition = i
-  }
-
-  await new Promise((resolve) => setTimeout(resolve, 500))
-  animationState.isAnimating = false
-}
-
-// Watch for title changes
-watch(
-  letters,
-  async (newLetters) => {
-    if (newLetters?.length) {
-      await nextTick()
-      typeText()
-    }
-  },
-  { immediate: true }
-)
-
-// New computed property to trim TOC items
-const trimmedToc = computed(() => {
-  // Check both possible locations for TOC data
-  const tocData = post.value?.toc || post.value?.metadata?.toc
-  if (!tocData) return []
-
-  return tocData.flatMap(
-    (item) =>
-      item.children?.map((child) => ({
-        ...child,
-        text:
-          child.text.length > 35 ? child.text.slice(0, 32) + '...' : child.text
-      })) || []
-  )
-})
-
-// New ref for scroll position
-const tocScrollPosition = ref(0)
-
-// Update these constants
-const TOC_CONSTANTS = {
-  ITEM_WIDTH: 80,
-  VIEWPORT_WIDTH: 300
-}
-
-// Updated function to center the active TOC item
-const updateTocScroll = useDebounceFn(() => {
-  const activeIndex = trimmedToc.value.findIndex(
-    (item) => item.slug === activeSection.value
-  )
-  if (activeIndex === -1) return
-
-  const totalWidth = trimmedToc.value.length * TOC_CONSTANTS.ITEM_WIDTH
-  const halfViewport = TOC_CONSTANTS.VIEWPORT_WIDTH / 2
-  const newScrollPosition = Math.max(
-    0,
-    Math.min(
-      activeIndex * TOC_CONSTANTS.ITEM_WIDTH -
-        halfViewport +
-        TOC_CONSTANTS.ITEM_WIDTH / 2,
-      totalWidth - TOC_CONSTANTS.VIEWPORT_WIDTH
-    )
-  )
-
-  tocScrollPosition.value = newScrollPosition
-}, 100)
-
-// Watch for changes in activeSection
-watch(activeSection, updateTocScroll)
-
-// Create scroll animation instance
-const { setupAnimation, slideUp, slideLeft, fadeIn, expandLine } =
-  useScrollAnimation({
-    debug: false,
-    threshold: 0.1,
-    rootMargin: '-5% 0px -5% 0px'
-  })
-
-// Set up global animation defaults
-engine.defaults = {
-  duration: 300,
-  ease: 'spring(1, 80, 10, 0)',
-  autoplay: true
-}
-
-function formatDate(date) {
-  if (!date) return 'No date'
-  let parsedDate =
-    typeof date === 'string'
-      ? parseISO(date)
-      : date instanceof Date
-        ? date
-        : null
-  return !parsedDate || !isValid(parsedDate)
-    ? 'Invalid date'
-    : format(parsedDate, 'MMMM d, yyyy')
-}
-
-function getBaseUrl() {
-  if (config.public && config.public.baseURL) return config.public.baseURL
-  return typeof window !== 'undefined'
-    ? window.location.origin
-    : 'https://ejfox.com'
-}
-
-const baseURL = getBaseUrl()
-const shareImageUrl = computed(
-  () => new URL(`/images/share/${params.slug.join('/')}.png`, baseURL).href
-)
+// --- URL & SEO ---
+const baseURL = config.public?.baseURL || 'https://ejfox.com'
 const postUrl = computed(
-  () => new URL(`/blog/${params.slug.join('/')}`, baseURL).href
+  () => new URL(`/blog/${route.params.slug.join('/')}`, baseURL).href
 )
 
-useHead(() => ({
-  title: post.value?.metadata?.title || post.value?.title,
-  meta: [
-    {
-      name: 'description',
-      content: post.value?.metadata?.dek || post.value?.dek
-    },
-    {
-      property: 'og:title',
-      content: post.value?.metadata?.title || post.value?.title
-    },
-    {
-      property: 'og:description',
-      content: post.value?.metadata?.dek || post.value?.dek
-    },
-    { property: 'og:image', content: shareImageUrl.value },
-    { property: 'og:url', content: postUrl.value },
-    { property: 'og:type', content: 'article' },
-    { name: 'twitter:card', content: 'summary_large_image' },
-    {
-      name: 'twitter:title',
-      content: post.value?.metadata?.title || post.value?.title
-    },
-    {
-      name: 'twitter:description',
-      content: post.value?.metadata?.dek || post.value?.dek
-    },
-    { name: 'twitter:image', content: shareImageUrl.value }
-  ],
-  link: [{ rel: 'canonical', href: postUrl.value }],
-  htmlAttrs: { lang: 'en' }
+const postDescription = computed(() => {
+  const dek = post.value?.metadata?.dek || post.value?.dek
+  if (dek) return dek
+  const text = striptags(post.value?.html || '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  return text.length > 160 ? text.substring(0, 157) + '...' : text
+})
+
+const heroImage = computed(
+  () =>
+    post.value?.metadata?.image ||
+    post.value?.metadata?.ogImage ||
+    post.value?.coverImage ||
+    `${baseURL}/og-image.png`
+)
+
+const articleTags = computed(
+  () => post.value?.metadata?.tags || post.value?.tags || []
+)
+const articleSection = computed(
+  () => post.value?.metadata?.section || articleTags.value[0] || 'Writing'
+)
+
+// Visibility detection
+const isDraft = computed(() => post.value?.metadata?.draft || post.value?.draft)
+const isUnlisted = computed(
+  () => post.value?.metadata?.unlisted || post.value?.unlisted
+)
+const passwordHash = computed(
+  () => post.value?.metadata?.passwordHash || post.value?.passwordHash
+)
+const isPasswordProtected = computed(() => !!passwordHash.value)
+const shouldNoIndex = computed(
+  () => isDraft.value || isUnlisted.value || isPasswordProtected.value
+)
+
+// Password gate state
+const isUnlocked = ref(false)
+const showContent = computed(
+  () => !isPasswordProtected.value || isUnlocked.value
+)
+
+function handleUnlocked() {
+  isUnlocked.value = true
+}
+
+const publishedDateISO = computed(() => {
+  const d = post.value?.metadata?.date || post.value?.date
+  if (!d) return undefined
+  try {
+    return new Date(d).toISOString()
+  } catch {
+    return undefined
+  }
+})
+
+const modifiedDateISO = computed(() => {
+  const d =
+    post.value?.metadata?.lastUpdated ||
+    post.value?.metadata?.date ||
+    post.value?.date
+  if (!d) return undefined
+  try {
+    return new Date(d).toISOString()
+  } catch {
+    return undefined
+  }
+})
+
+const articleSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  mainEntityOfPage: postUrl.value,
+  headline: postTitle.value,
+  description: postDescription.value,
+  articleSection: articleSection.value,
+  keywords: articleTags.value,
+  datePublished: publishedDateISO.value,
+  dateModified: modifiedDateISO.value,
+  wordCount: readingStats.value.words,
+  timeRequired: `PT${Math.max(1, readingStats.value.readingTime)}M`,
+  image: heroImage.value,
+  inLanguage: 'en-US',
+  author: { '@type': 'Person', name: 'EJ Fox', url: 'https://ejfox.com' },
+  publisher: { '@type': 'Person', name: 'EJ Fox', url: 'https://ejfox.com' },
 }))
 
-// Add this new computed property
-const isBlogPost = computed(() => {
-  return route.path.startsWith('/blog/') && route.path !== '/blog/'
-})
-// Add computed property to check if donations should be shown
-const showDonations = computed(() => {
-  // Show donations by default unless explicitly disabled in frontmatter
-  // return post.value?.donation !== false
-  // actually lets hide by default
-  return false
-})
-
-const verificationStatus = ref(null)
-
-// Only verify if there's a signature in the frontmatter
-onMounted(async () => {
-  if (post.value?.signature) {
-    try {
-      const publicKey = await fetch('/pgp.txt').then((r) => r.text())
-      const openpgp = await import('openpgp')
-
-      // Create message from post content
-      const message = [
-        post.value.title,
-        post.value.date,
-        post.value.content
-      ].join('\n')
-
-      const verified = await openpgp.verify({
-        message: await openpgp.createMessage({ text: message }),
-        signature: await openpgp.readSignature({
-          armoredSignature: post.value.signature
-        }),
-        verificationKeys: await openpgp.readKey({ armoredKey: publicKey })
-      })
-
-      verificationStatus.value = verified.signatures[0].valid
-    } catch (err) {
-      console.error('Verification failed:', err)
-      verificationStatus.value = false
-    }
-  }
+usePageSeo({
+  title: postTitle,
+  description: postDescription,
+  type: 'article',
+  section: articleSection,
+  tags: articleTags,
+  image: heroImage,
+  publishedTime: publishedDateISO,
+  modifiedTime: modifiedDateISO,
+  label1: 'Reading time',
+  data1: computed(() => `${readingStats.value.readingTime} min`),
+  label2: 'Word count',
+  data2: computed(
+    () => `${readingStats.value.words?.toLocaleString() || 0} words`
+  ),
 })
 
-// Watch for content changes
+useHead(() => ({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(articleSchema.value),
+    },
+  ],
+  htmlAttrs: { lang: 'en' },
+}))
+
+// --- Smart 404 Suggestions ---
+const smartSuggestions = ref([])
+
 watch(
-  () => post.value?.content,
-  async () => {
-    if (post.value?.content) {
-      await nextTick()
-      await nextTick()
-      await new Promise((resolve) => setTimeout(resolve, 50))
-
-      // Initial fade-in animation for everything EXCEPT images
-      if (articleContent.value) {
-        const content = articleContent.value.querySelectorAll(
-          '.animate-on-scroll:not(img)'
-        )
-        if (content.length > 0) {
-          animate(content, {
-            opacity: [0, 1],
-            translateY: [20, 0],
-            duration: 300,
-            ease: 'spring(1, 80, 10, 0)',
-            delay: stagger(50)
-          })
+  error,
+  async (err) => {
+    if (!err) return
+    try {
+      const posts = await $fetch('/api/manifest')
+      const path = route.path.replace(/^\/blog\//, '').toLowerCase()
+      const distance = (a, b) => {
+        if (!a || !b) return 999
+        const [l1, l2] = [a.length, b.length]
+        if (!l1) return l2
+        if (!l2) return l1
+        let prev = Array.from({ length: l2 + 1 }, (_, i) => i)
+        for (let i = 1; i <= l1; i++) {
+          const curr = [i]
+          for (let j = 1; j <= l2; j++) {
+            curr[j] =
+              a[i - 1] === b[j - 1]
+                ? prev[j - 1]
+                : Math.min(prev[j - 1], prev[j], curr[j - 1]) + 1
+          }
+          prev = curr
         }
+        return prev[l2]
       }
-
-      // Set up scroll-triggered animations
-      setupImageAnimations()
-      if (postMetadataComponent.value?.animateItems) {
-        postMetadataComponent.value.animateItems()
-      }
+      const matches =
+        posts
+          ?.filter((p) => !p.hidden && !p.draft)
+          .map((p) => ({
+            title: p.title,
+            path: `/blog/${p.slug}`,
+            score: Math.max(
+              50 - distance(p.slug || '', path),
+              30 - distance(p.title?.toLowerCase().replace(/\s+/g, '-'), path)
+            ),
+          }))
+          .filter((p) => p.score > 10)
+          .sort((a, b) => b.score - a.score)
+          .slice(0, 3) || []
+      smartSuggestions.value = matches.length
+        ? matches
+        : [{ title: 'Blog Archive', path: '/blog' }]
+    } catch {
+      smartSuggestions.value = [{ title: 'Blog Archive', path: '/blog' }]
     }
   },
   { immediate: true }
 )
 
-// Set up mutation observer
-let stopMutationObserver = null
+// --- Lifecycle ---
+onMounted(() => {
+  startAnimation()
 
-function setupImageAnimations() {
-  if (!articleContent.value) return
+  // Scroll progress
+  const handleScroll = () => {
+    const scrollHeight =
+      document.documentElement.scrollHeight - window.innerHeight
+    if (scrollHeight <= 0 || window.scrollY <= 0) {
+      scrollProgress.value = 0
+      return
+    }
+    scrollProgress.value = Math.min((window.scrollY / scrollHeight) * 100, 100)
+  }
 
-  // Images slide up from bottom
-  const images = articleContent.value.querySelectorAll('img')
-  images.forEach((img) => slideUp(img))
-
-  // Other animations remain the same
-  const blockquotes = articleContent.value.querySelectorAll('blockquote')
-  blockquotes.forEach((quote) => slideLeft(quote))
-
-  const horizontalRules = articleContent.value.querySelectorAll('hr')
-  horizontalRules.forEach((rule) => expandLine(rule))
-
-  const headingLevels = ['h2', 'h3', 'h4']
-  for (const level of headingLevels) {
-    const headings = articleContent.value.querySelectorAll(level)
-    if (headings.length > 0) {
-      headings.forEach((heading) => slideLeft(heading))
+  // Debug grid toggle (Cmd+G)
+  const handleKeydown = (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key === 'g') {
+      e.preventDefault()
+      showDebugGrid.value = !showDebugGrid.value
     }
   }
 
-  // Update mutation observer for dynamically added content
-  const { stop } = useMutationObserver(
-    articleContent.value,
-    (mutations) => {
-      mutations.forEach((mutation) => {
-        mutation.addedNodes.forEach((node) => {
-          if (node.nodeName === 'IMG') {
-            slideUp(node)
+  window.addEventListener('scroll', handleScroll)
+  window.addEventListener('keydown', handleKeydown)
+  onUnmounted(() => {
+    window.removeEventListener('scroll', handleScroll)
+    window.removeEventListener('keydown', handleKeydown)
+  })
+
+  // TOC intersection observer + link extraction
+  nextTick(() => {
+    if (!articleContent.value) return
+    const headings = Array.from(
+      articleContent.value.querySelectorAll('h2, h3, h4')
+    )
+    headings.forEach((heading) => {
+      const { stop } = useIntersectionObserver(
+        heading,
+        ([{ isIntersecting }]) => {
+          if (isIntersecting) activeSection.value = heading.id
+        },
+        { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
+      )
+      heading._stopObserver = stop
+    })
+    onUnmounted(() => headings.forEach((h) => h._stopObserver?.()))
+
+    // Extract outbound links from post content
+    const anchors = Array.from(articleContent.value.querySelectorAll('a[href]'))
+    const seen = new Set()
+    postLinks.value = anchors
+      .map((a) => {
+        const href = a.getAttribute('href') || ''
+        const text = a.textContent?.trim() || ''
+        return { href, text }
+      })
+      .filter(({ href }) => {
+        // Only external links, skip anchors/internal/duplicate
+        if (
+          !href ||
+          href.startsWith('#') ||
+          href.startsWith('/') ||
+          href.startsWith('mailto:')
+        )
+          return false
+        try {
+          const host = new URL(href).hostname
+          if (host.endsWith('ejfox.com')) return false
+        } catch {
+          return false
+        }
+        if (seen.has(href)) return false
+        seen.add(href)
+        return true
+      })
+      .map(({ href, text }) => {
+        let hostname = ''
+        try {
+          hostname = new URL(href).hostname.replace(/^www\./, '')
+        } catch {
+          /* */
+        }
+        // Use link text only if it looks like a proper label, not a sentence fragment
+        let label = hostname
+        if (text.length > 0 && text.length <= 50) {
+          const isUrl = text.startsWith('http')
+          const isSentenceFragment = /\s/.test(text) && /^[a-z]/.test(text)
+          const endsWithPunctuation = /[.,;:!]$/.test(text)
+          if (!isUrl && !isSentenceFragment && !endsWithPunctuation) {
+            label = text
           }
-          if (node.nodeName === 'BLOCKQUOTE') {
-            slideLeft(node)
-          }
-          if (['H2', 'H3', 'H4'].includes(node.nodeName)) {
-            const settings = ANIMATION_SETTINGS[node.nodeName.toLowerCase()]
-            slideLeft(node, settings)
-          }
-          // Handle nested elements
-          const nestedImages = node.querySelectorAll?.('img') || []
-          nestedImages.forEach((img) => slideUp(img))
-          const nestedQuotes = node.querySelectorAll?.('blockquote') || []
-          nestedQuotes.forEach((quote) => slideLeft(quote))
-          headingLevels.forEach((level) => {
-            const headings = node.querySelectorAll?.(level) || []
-            if (headings.length > 0) {
-              headings.forEach((heading) => {
-                const settings = ANIMATION_SETTINGS[level]
-                slideLeft(heading, settings)
-              })
-            }
-          })
+        }
+        return { href, label, hostname }
+      })
+    // Deduplicate by label, cap at 8
+    const seenLabels = new Set()
+    postLinks.value = postLinks.value
+      .filter(({ label }) => {
+        if (seenLabels.has(label)) return false
+        seenLabels.add(label)
+        return true
+      })
+      .slice(0, 8)
+
+    // Scroll reveal for content elements (headings, images, blockquotes, code)
+    const revealTargets = Array.from(
+      articleContent.value.querySelectorAll(
+        'h2, h3, h4, figure, img, blockquote, pre'
+      )
+    )
+    if (revealTargets.length) {
+      import('animejs').then(({ animate }) => {
+        const revealSeen = new WeakSet()
+        revealTargets.forEach((el) => {
+          // Only animate elements below the fold
+          if (el.getBoundingClientRect().top < window.innerHeight) return
+          const htmlEl = el
+          htmlEl.style.opacity = '0'
+          htmlEl.style.transform = 'translateY(6px)'
+
+          const obs = new IntersectionObserver(
+            ([entry]) => {
+              if (entry.isIntersecting && !revealSeen.has(el)) {
+                revealSeen.add(el)
+                obs.disconnect()
+                animate(htmlEl, {
+                  opacity: [0, 1],
+                  translateY: [6, 0],
+                  duration: 180,
+                  ease: 'outQuad',
+                  onComplete: () => {
+                    htmlEl.style.opacity = ''
+                    htmlEl.style.transform = ''
+                  },
+                })
+              }
+            },
+            { threshold: 0.01 }
+          )
+          obs.observe(el)
         })
       })
-    },
-    { childList: true, subtree: true }
-  )
-  stopMutationObserver = stop
-}
-
-// Clean up mutation observer
-onUnmounted(() => {
-  if (stopMutationObserver) {
-    stopMutationObserver()
-  }
-})
-
-/**
- * Post Metadata Structure
- * ======================
- * All post metadata MUST be inside the metadata object:
- *
- * {
- *   content: "<article>...</article>",
- *   html: "<article>...</article>",
- *   title: "Post Title",
- *   metadata: {
- *     // Required
- *     date: "2024-01-01T00:00:00.000Z",
- *     modified: "2024-01-02T00:00:00.000Z",
- *     dek: "Post description",
- *     type: "post",
- *
- *     // Stats (auto-calculated)
- *     words: 2077,
- *     images: 3,
- *     links: 6,
- *
- *     // Optional
- *     tags: ["tag1", "tag2"],
- *     draft: false,
- *     hidden: false
- *   }
- * }
- */
-
-// Prepare metadata for PostMetadata component
-const processedMetadata = computed(() => {
-  if (!post.value) return null
-
-  const metadata = post.value.metadata
-  if (!metadata) {
-    console.warn('Post is missing metadata object:', post.value)
-    return null
-  }
-
-  return {
-    // Basic metadata
-    slug: metadata.slug || route.params.slug.join('/'),
-    title: metadata.title,
-    date: metadata.date,
-    draft: metadata.draft,
-
-    // Stats
-    readingTime: Math.ceil(metadata.words / 200),
-    wordCount: metadata.words,
-    imageCount: metadata.images,
-    linkCount: metadata.links,
-
-    // Additional metadata
-    type: metadata.type,
-    dek: metadata.dek,
-    metadata // Pass through full metadata object
-  }
+    }
+  })
 })
 </script>
 
 <template>
-  <div>
+  <div class="relative">
     <Head>
       <Meta
         name="robots"
-        :content="
-          post?.metadata?.robotsMeta || post?.robotsMeta || 'index, follow'
-        "
+        :content="shouldNoIndex ? 'noindex, nofollow' : 'index, follow'"
       />
     </Head>
+
+    <!-- Debug Grid Overlay -->
+    <div
+      v-show="showDebugGrid"
+      class="pointer-events-none fixed inset-0 z-[999] debug-grid"
+    ></div>
+
+    <!-- Top metadata bar — teleported into the layout's #layout-bar slot
+         so it lives as a sibling of the navs in the layout grid, not buried
+         inside this page. Sticky behavior is on the layout slot itself. -->
+    <Teleport v-if="post && !post.redirect" to="#layout-bar">
+      <div class="bg-zinc-900/90 backdrop-blur-sm">
+        <PostMetadataBar
+          :date="post?.metadata?.date || post?.date"
+          :stats="readingStats"
+          :slug="route.params.slug.join('/')"
+        />
+        <div v-if="isDraft" class="draft-banner">
+          <span class="draft-banner-text">DRAFT</span>
+          <span class="draft-banner-subtext">
+            Work in progress · Not for distribution
+          </span>
+        </div>
+      </div>
+    </Teleport>
+
+    <!-- Reading progress bar -->
+    <div v-if="post && !post.redirect" class="progress-bar print:hidden">
+      <div class="progress-inner" :style="`width: ${scrollProgress}%`"></div>
+    </div>
+
+    <!-- Password Gate -->
+    <PasswordGate
+      v-if="post && !post.redirect && isPasswordProtected && !isUnlocked"
+      :password-hash="passwordHash"
+      :post-title="postTitle"
+      @unlocked="handleUnlocked"
+    />
+
     <article
-      v-if="post && !post.redirect"
-      class="scroll-container pt-4 md:pt-12 pl-0 md:pl-4"
+      v-if="post && !post.redirect && showContent"
+      :class="['h-entry w-full px-4 md:px-8 xl:px-16', { 'is-draft': isDraft }]"
     >
-      <div ref="postMetadata" class="w-full">
-        <PostMetadata
-          v-if="processedMetadata"
-          :doc="processedMetadata"
-          ref="postMetadataComponent"
+      <!-- Title -->
+      <div class="pt-3 pb-2">
+        <h1
+          v-if="postTitle"
+          class="post-title-hero text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-balance print:text-4xl"
+          style="line-height: 1.1; letter-spacing: -0.03em"
+          v-html="renderedTitle"
+        ></h1>
+        <p v-if="post?.metadata?.dek || post?.dek" class="post-dek">
+          {{ post?.metadata?.dek || post?.dek }}
+        </p>
+      </div>
+
+      <!-- Microformats (hidden) -->
+      <time
+        v-if="post?.metadata?.date"
+        :datetime="post.metadata.date"
+        class="dt-published hidden"
+      >
+        {{ formatLongDate(post.metadata.date) }}
+      </time>
+      <div class="p-author h-card hidden">
+        <span class="p-name">EJ Fox</span>
+        <a class="u-url" href="https://ejfox.com">ejfox.com</a>
+      </div>
+      <a :href="postUrl" class="u-url hidden">{{ postUrl }}</a>
+
+      <!-- Reply Context -->
+      <div v-if="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']">
+        <ReplyContext
+          :reply-to="post?.metadata?.replyTo || post?.metadata?.['in-reply-to']"
         />
       </div>
 
-      <div class="lg:h-[62vh] flex items-center">
-        <h1
-          ref="postTitle"
-          v-if="post?.metadata?.title || post?.title"
-          class="post-title text-3xl lg:text-7xl xl:text-8xl font-bold w-full paddings-y pr-8 pl-4 md:pl-0 tracking-tight leading-tight"
-        >
-          <div v-html="renderedTitle" class="typing-container"></div>
-        </h1>
-      </div>
-
-      <!-- Back to Blog link - only visible on mobile -->
-      <div v-if="isBlogPost && isMobile" class="paddings mb-8">
-        <UButton
-          to="/blog/"
-          size="sm"
-          icon="i-heroicons-arrow-left"
-          :color="isDark ? 'white' : 'black'"
-        >
-          Back to Blog
-        </UButton>
-      </div>
-
-      <div ref="articleContent">
+      <!-- Article Content -->
+      <div ref="articleContent" class="pt-3 pb-6">
         <article
           v-if="post?.html"
+          class="blog-post-content e-content font-serif"
           v-html="post.html"
-          class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg prose-img:w-full prose-img:max-w-full prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words prose-code:whitespace-pre-wrap font-normal opacity-100"
         ></article>
         <div
           v-else-if="post?.content"
+          class="blog-post-content e-content font-serif"
           v-html="post.content"
-          class="blog-post-content px-2 prose-lg md:prose-xl dark:prose-invert prose-img:my-8 prose-img:rounded-lg prose-img:w-full prose-img:max-w-full prose-pre:overflow-x-auto prose-pre:whitespace-pre-wrap prose-pre:break-words prose-code:break-words prose-code:whitespace-pre-wrap font-normal opacity-100"
         ></div>
-        <div v-else class="p-4 text-center text-red-500">
-          No content available for this post
-        </div>
+        <div v-else class="text-center text-red-500">No content available</div>
       </div>
 
-      <div v-if="post.tags" class="mt-4">
-        <span
-          v-for="tag in post.tags"
-          :key="tag"
-          class="inline-block mr-2 mb-2"
-        >
-          <UBadge :color="isDark ? 'zinc-700' : 'zinc-300'" :text="tag" />
-        </span>
-      </div>
-
-      <div
-        ref="navigationLinks"
-        class="flex justify-between items-center mt-8 w-full p-4 md:p-8"
-        v-if="nextPrevPosts"
-      >
-        <div class="w-1/3 pr-2">
-          <NuxtLink
-            v-if="nextPrevPosts.prev"
-            :to="`/blog/${nextPrevPosts.prev.slug}`"
-            class="block text-left no-underline hover:underline"
+      <!-- Tags -->
+      <div v-if="post.tags || post.metadata?.tags" class="tags-container">
+        <div class="flex flex-wrap gap-3 sm:gap-2">
+          <a
+            v-for="tag in post.tags || post.metadata?.tags"
+            :key="tag"
+            :href="`/blog/tag/${tag}`"
+            class="post-tag"
           >
-            <span class="block text-sm text-gray-500">Previous</span>
-            <span class="block text-sm text-gray-400">{{
-              formatDate(nextPrevPosts.prev.date)
-            }}</span>
-            <span class="text-current truncate block">
-              {{ nextPrevPosts.prev?.title }}</span
-            >
-          </NuxtLink>
-        </div>
-
-        <div class="w-1/3"></div>
-
-        <div class="w-1/3 pl-2 text-right">
-          <NuxtLink
-            v-if="nextPrevPosts.next"
-            :to="`/blog/${nextPrevPosts.next.slug}`"
-            class="block text-right no-underline hover:underline"
-          >
-            <span class="block text-sm text-gray-500">Next</span>
-            <span class="block text-sm text-gray-400">{{
-              formatDate(nextPrevPosts.next.date)
-            }}</span>
-            <span class="text-current truncate block"
-              >{{ nextPrevPosts.next?.title }} →</span
-            >
-          </NuxtLink>
+            {{ tag }}
+          </a>
         </div>
       </div>
 
-      <!-- Add donation section only if not explicitly disabled -->
-      <DonationSection v-if="showDonations" />
+      <!-- Footer: Prev / Related / Next — three columns, gwerny -->
+      <PostFooter
+        :prev-post="nextPrevPosts?.prev"
+        :next-post="nextPrevPosts?.next"
+        :related-posts="relatedPosts"
+      />
     </article>
-    <div
-      v-else-if="error"
-      class="flex flex-col items-center justify-center min-h-[50vh] bg-gray-100 dark:bg-gray-900 px-4 rounded-lg shadow-md"
-    >
-      <h2 class="text-4xl font-bold text-gray-800 dark:text-gray-200 mb-4">
-        Blog post not found...
-      </h2>
-      <p class="text-xl text-gray-600 dark:text-gray-400 mb-6 text-center">
-        Error loading post: {{ error.message }}
+
+    <div v-else-if="error" class="p-8 text-center">
+      <p class="text-xl text-zinc-600 dark:text-zinc-400 mb-4">
+        Post not found
       </p>
-      <NuxtLink
-        to="/blog"
-        class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300"
-      >
-        Return to Blog
+      <NuxtLink to="/blog" class="text-zinc-500 hover:text-zinc-700 underline">
+        browse all posts
       </NuxtLink>
     </div>
+
     <div v-else class="p-4 text-center">
-      <p class="text-xl text-gray-600 dark:text-gray-400">Loading...</p>
+      <p class="text-xl text-zinc-600 dark:text-zinc-400">Loading...</p>
     </div>
 
-    <!-- Desktop TOC -->
-    <teleport to="#nav-toc-container" v-if="tocTarget">
-      <div
-        v-if="
-          post?.toc?.[0]?.children?.length ||
-          post?.metadata?.toc?.[0]?.children?.length
-        "
-        class="toc py-4 px-4 text-sm"
-      >
-        <h3 class="text-base font-medium mb-4 font-sans tracking-tight">
-          Table of Contents
-        </h3>
-        <ul class="space-y-4">
-          <li
-            v-for="child in post.toc?.[0]?.children ||
-            post.metadata?.toc?.[0]?.children"
-            :key="child.slug"
-            class="transition-colors duration-200 hover:bg-zinc-100/50 dark:hover:bg-zinc-800/50 rounded line-clamp-1"
-          >
-            <a
-              :href="`#${child.slug}`"
-              class="block px-1 py-0.5 rounded transition-colors font-sans text-sm tracking-tight"
-              :class="[
-                activeSection === child.slug
-                  ? 'text-zinc-900 dark:text-zinc-100 bg-zinc-200/50 dark:bg-zinc-700/50 font-medium'
-                  : 'text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-200'
-              ]"
+    <!-- Sidebar TOC + Temporal Context -->
+    <ClientOnly>
+      <teleport v-if="tocTarget" to="#nav-toc-container">
+        <PostTOC :toc-children="tocChildren" :active-section="activeSection" />
+
+        <!-- Contextual sidebar -->
+        <div
+          v-if="
+            hasTemporalContext || relatedScraps?.length || visibleLinks.length
+          "
+          class="mt-4"
+        >
+          <template v-if="hasTemporalContext">
+            <div v-if="temporalContext?.reading?.length" class="mb-3">
+              <div class="font-mono text-3xs text-zinc-600 mb-0.5">Reading</div>
+              <NuxtLink
+                v-for="book in temporalContext.reading"
+                :key="book.slug"
+                v-tooltip="book.title"
+                :to="`/reading/${book.slug}`"
+                class="block font-serif text-3xs text-zinc-600 leading-snug truncate"
+              >
+                {{ book.title?.slice(0, 40)
+                }}{{ book.title?.length > 40 ? '…' : '' }}
+              </NuxtLink>
+            </div>
+
+            <div v-if="temporalContext?.predictions?.length" class="mb-3">
+              <div class="font-mono text-3xs text-zinc-600 mb-0.5">
+                Predicting
+              </div>
+              <NuxtLink
+                v-for="pred in temporalContext.predictions"
+                :key="pred.slug"
+                v-tooltip="pred.statement"
+                :to="`/predictions/${pred.slug}`"
+                class="flex gap-1 font-mono text-3xs text-zinc-600 leading-snug"
+              >
+                <span class="tabular-nums shrink-0">
+                  {{ pred.confidence }}%
+                </span>
+                <span
+                  v-if="
+                    pred.status === 'correct' || pred.status === 'incorrect'
+                  "
+                  :class="
+                    pred.status === 'correct'
+                      ? 'text-green-700'
+                      : 'text-red-700'
+                  "
+                  class="shrink-0"
+                >
+                  {{ pred.status === 'correct' ? '✓' : '✗' }}
+                </span>
+                <span class="truncate">
+                  {{ pred.statement?.slice(0, 30) }}…
+                </span>
+              </NuxtLink>
+            </div>
+
+            <div v-if="temporalContext?.scraps?.length" class="mb-3">
+              <div class="font-mono text-3xs text-zinc-600 mb-0.5">Saving</div>
+              <a
+                v-for="(scrap, i) in temporalContext.scraps"
+                :key="i"
+                v-tooltip="scrap.title"
+                :href="scrap.url || undefined"
+                :target="scrap.url ? '_blank' : undefined"
+                rel="noopener noreferrer"
+                class="block font-serif text-3xs text-zinc-600 leading-snug truncate"
+              >
+                {{ scrap.title?.slice(0, 40)
+                }}{{ scrap.title?.length > 40 ? '…' : '' }}
+              </a>
+            </div>
+
+            <div
+              v-if="temporalContext?.commits"
+              class="mb-3 font-mono text-3xs text-zinc-700 tabular-nums"
             >
-              {{ child.text }}
-            </a>
-          </li>
-        </ul>
-      </div>
-    </teleport>
+              {{ temporalContext.commits }} commits that month
+            </div>
+          </template>
 
-    <!-- Add subtle verification badge -->
-    <div
-      v-if="verificationStatus !== null"
-      class="fixed bottom-4 right-4 flex items-center space-x-2 text-sm px-3 py-1.5 rounded-full"
-      :class="{
-        'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300':
-          verificationStatus,
-        'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300':
-          !verificationStatus
-      }"
-    >
-      <span class="font-mono">
-        {{ verificationStatus ? '✓ Verified' : '⚠ Unverified' }}
-      </span>
-      <UIcon
-        :name="
-          verificationStatus
-            ? 'i-heroicons-shield-check'
-            : 'i-heroicons-shield-exclamation'
-        "
-        class="w-4 h-4"
-      />
-    </div>
+          <div v-if="relatedScraps?.length" class="mb-3">
+            <div class="font-mono text-3xs text-zinc-600 mb-0.5">Research</div>
+            <a
+              v-for="(scrap, i) in relatedScraps"
+              :key="i"
+              :href="scrap.url || undefined"
+              :target="scrap.url ? '_blank' : undefined"
+              rel="noopener noreferrer"
+              class="block font-serif text-3xs text-zinc-600 leading-snug truncate"
+              :title="scrap.title"
+            >
+              {{ scrap.title?.slice(0, 40)
+              }}{{ scrap.title?.length > 40 ? '…' : '' }}
+            </a>
+          </div>
+
+          <div v-if="visibleLinks.length">
+            <div class="font-mono text-3xs text-zinc-600 mb-0.5">
+              Links
+              <span class="text-zinc-700 tabular-nums">
+                {{ postLinks.length }}
+              </span>
+            </div>
+            <a
+              v-for="(link, i) in visibleLinks"
+              :key="i"
+              v-tooltip="link.href"
+              :href="link.href"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block font-mono text-3xs text-zinc-700 truncate leading-snug"
+            >
+              {{ link.label }}
+            </a>
+          </div>
+        </div>
+      </teleport>
+    </ClientOnly>
   </div>
 </template>
 
 <style lang="postcss">
-.paddings {
-  @apply p-4 md:p-8 lg:px-16 xl:px-32;
+/* Progress bar - just below metadata */
+.progress-bar {
+  @apply fixed top-0 left-0 right-0 h-px z-[101];
+}
+.progress-inner {
+  @apply h-full bg-white/60;
+  transition: width 75ms ease-out;
 }
 
-.paddings-y {
-  @apply py-4 md:py-8 lg:py-16 xl:py-32;
+/* Tags */
+.tags-container {
+  @apply px-4 md:px-6 py-4 md:py-3;
+  @apply border-t border-zinc-200 dark:border-zinc-800;
 }
 
-.back-to-blog-link {
-  @apply mt-4 mb-4 md:mt-16;
+/* Debug grid */
+.debug-grid {
+  background-image:
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 7px,
+      rgba(59, 130, 246, 0.1) 7px,
+      rgba(59, 130, 246, 0.1) 8px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 31px,
+      rgba(59, 130, 246, 0.2) 31px,
+      rgba(59, 130, 246, 0.2) 32px
+    );
+  background-size:
+    100% 8px,
+    100% 32px;
 }
 
-.internal-link {
-  @apply tracking-wide text-black dark:text-white border-b-2 hover:border-b-4 border-blue-600 hover:border-blue-500 dark:border-blue-200 dark:hover:border-blue-400 transition-all duration-200;
+/* ===========================================
+   BLOG POST TYPOGRAPHY
+   Scale: 2px font increments, 8px spacing grid
+   =========================================== */
+
+.blog-post-content {
+  --body-size: 1rem;
+  --body-line: 1.5rem;
+  --body-margin: 1.5rem;
+  --h1-size: 1.75rem;
+  --h1-line: 2rem;
+  --h1-margin-top: 2rem;
+  --h2-size: 1.5rem;
+  --h2-line: 1.75rem;
+  --h2-margin-top: 2.5rem;
+  --h3-size: 1.5rem;
+  --h3-line: 2rem;
+  --h4-size: 1.25rem;
+  --h4-line: 1.5rem;
+  --code-size: 1rem;
+  --code-line: 1.5rem;
+  @apply font-serif;
+  font-variant-numeric: oldstyle-nums;
 }
 
-.header-star {
-  @apply fill-black dark:fill-white;
-}
-
-.text-balance {
-  text-wrap: balance;
-}
-
-/* Transition styles */
-/* Removed view transition styles */
-
-.fade-enter-active,
-.fade-leave-active {
-  @apply transition-opacity duration-300 ease-in-out;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  @apply opacity-0;
-}
-
-/* Hide scrollbar for mobile TOC */
-.overflow-x-auto {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    display: none;
+@media (min-width: 640px) {
+  .blog-post-content {
+    --body-size: 1.125rem;
+    --body-line: 1.75rem;
+    --body-margin: 1.25rem;
+    --h1-size: 2rem;
+    --h1-line: 2.5rem;
+    --h1-margin-top: 3rem;
+    --h2-size: 1.75rem;
+    --h2-line: 2rem;
+    --h2-margin-top: 3.5rem;
   }
 }
 
-/* Smooth scrolling for the TOC */
-.flex {
-  scroll-behavior: smooth;
+@media (min-width: 768px) {
+  .blog-post-content {
+    --h1-size: 2.5rem;
+    --h1-line: 3rem;
+    --h1-margin-top: 4rem;
+    --h2-size: 2rem;
+    --h2-line: 2.5rem;
+    --h2-margin-top: 4rem;
+  }
 }
 
-/* Hide scrollbar but keep functionality */
-.no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+.blog-post-content p,
+.blog-post-content ul,
+.blog-post-content ol {
+  @apply max-w-prose;
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  margin-bottom: var(--body-margin);
 }
 
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
+.blog-post-content li {
+  line-height: var(--body-line);
+  margin-bottom: 0.5rem;
 }
 
-/* Content handling */
-.post-content {
-  max-width: 100%;
-  overflow-x: hidden;
+.blog-post-content ul,
+.blog-post-content ol {
+  padding-left: 1.5rem;
 }
 
-.post-content blockquote {
-  max-width: 100%;
-  overflow-x: hidden;
+@media (min-width: 640px) {
+  .blog-post-content ul,
+  .blog-post-content ol {
+    padding-left: 2rem;
+  }
 }
 
-.post-content a {
+/* Hide first H1 - we have hero title */
+.blog-post-content > h1:first-child {
+  @apply hidden;
+}
+
+.blog-post-content h1 {
+  @apply font-serif font-light max-w-prose;
+  font-size: var(--h1-size);
+  line-height: var(--h1-line);
+  margin-top: var(--h1-margin-top);
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.02em;
+}
+
+.blog-post-content h2 {
+  @apply font-serif font-normal max-w-prose text-balance;
+  font-size: var(--h2-size);
+  line-height: var(--h2-line);
+  margin-top: var(--h2-margin-top);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.blog-post-content h3 {
+  @apply font-serif font-normal max-w-prose text-balance;
+  font-size: var(--h3-size);
+  line-height: var(--h3-line);
+  margin-top: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-content h4 {
+  @apply font-serif font-medium max-w-prose;
+  font-size: var(--h4-size);
+  line-height: var(--h4-line);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-content h5,
+.blog-post-content h6 {
+  @apply font-serif font-medium max-w-prose;
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.blog-post-content blockquote {
+  @apply italic border-l-4 border-zinc-300 dark:border-zinc-700 max-w-prose text-pretty;
+  font-size: var(--body-size);
+  line-height: var(--body-line);
+  margin: 1rem 0;
+  padding: 1rem 0 1rem 1.5rem;
+}
+
+.blog-post-content code {
+  @apply font-mono bg-zinc-100 dark:bg-zinc-800 px-1 rounded;
+  font-size: var(--code-size);
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.blog-post-content pre {
+  @apply font-mono overflow-x-auto bg-zinc-50 dark:bg-zinc-900 rounded-lg;
+  font-size: var(--code-size);
+  line-height: var(--code-line);
+  margin: 1.5rem 0;
+  padding: 1rem;
+}
+
+.blog-post-content pre code {
+  @apply bg-transparent p-0;
+  font-size: inherit;
+}
+
+.blog-post-content img {
+  @apply w-full rounded-lg;
+  max-width: none !important;
+  margin: 2rem 0;
+}
+
+/* Images in figures should also be full width */
+.blog-post-content figure {
+  @apply w-full;
+  max-width: none !important;
+  margin: 2rem 0;
+}
+
+.blog-post-content figure img {
+  @apply w-full rounded-lg;
+  margin: 0;
+}
+
+.blog-post-content figure figcaption {
+  @apply text-xs text-zinc-500 dark:text-zinc-500 mt-2;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.blog-post-content hr {
+  @apply border-t border-zinc-200 dark:border-zinc-800 border-solid w-full;
+  margin: 2rem 0;
+}
+
+.blog-post-content a {
+  @apply text-zinc-700 dark:text-zinc-300 underline underline-offset-2 decoration-1 decoration-zinc-400/40 dark:decoration-zinc-500/40 transition-colors duration-150;
+}
+
+.blog-post-content a:hover {
+  @apply text-zinc-900 dark:text-zinc-100 decoration-zinc-600 dark:decoration-zinc-300;
+}
+
+.blog-post-content .external-link {
+  display: inline;
+}
+
+.blog-post-content .external-link svg {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  vertical-align: super;
+  margin-left: 2px;
+  opacity: 0.5;
+}
+
+.blog-post-content a:hover .external-link svg {
+  opacity: 0.8;
+}
+
+/* Title typing animation - opacity-based, no layout shift */
+.post-title-hero {
   max-width: 100%;
   overflow-wrap: break-word;
 }
 
-/* Add styles for code blocks to prevent layout breaking */
-.blog-post-content pre,
-.blog-post-content code {
-  max-width: 100%;
-  overflow-x: auto;
-  white-space: pre-wrap;
-  word-break: break-word;
-  word-wrap: break-word;
-  box-sizing: border-box;
-}
-
-/* Ensure code blocks don't push the layout */
-.blog-post-content pre {
-  padding: 1rem;
-  border-radius: 0.375rem;
-  margin: 1.5rem 0;
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-
-/* Inline code */
-.blog-post-content :not(pre) > code {
-  padding: 0.2em 0.4em;
-  border-radius: 0.25rem;
-  font-size: 0.875em;
-  word-break: break-word;
-}
-
-.blog-post-content {
-  img {
-    @apply w-full max-w-full mx-auto;
-    /* Spacing */
-    @apply py-2 md:py-4 lg:py-6;
-  }
-}
-
-.toc {
-  @apply py-4 px-4;
-}
-
-.toc h3 {
-  @apply text-zinc-800 dark:text-zinc-200 font-medium mb-4;
-}
-
-.toc ul {
-  @apply pl-0 space-y-4;
-}
-</style>
-
-<style>
-.no-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-a {
-  word-break: break-word;
-}
-
-/* Respect user preferences */
-@media (prefers-reduced-motion: reduce) {
-  .prose img,
-  .prose blockquote {
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-    animation: none !important;
-  }
-}
-
-/* Add these new styles */
-.typing-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3em;
-  /* This replaces our space width */
-  line-height: 1.2;
-}
-
-.word {
-  display: flex;
-}
-
-.letter {
-  display: inline-block;
+/* Each character holds its space; opacity reveals it */
+.post-title-hero .typing-char {
+  display: inline;
   opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
+  transition: opacity 0.06s ease-out;
 }
 
-.letter.visible {
+.post-title-hero .typing-char.typed {
   opacity: 1;
-  transform: none;
 }
 
-.cursor {
-  position: absolute;
-  right: -3px;
-  top: 0;
-  bottom: 0;
+.post-title-hero .cursor {
+  display: inline-block;
   width: 3px;
+  height: 0.85em;
+  margin-left: 1px;
   background-color: currentColor;
-  animation: blink 1s step-end infinite;
-  height: 100%;
+  animation: blink 0.5s ease-in-out infinite;
+  vertical-align: baseline;
+  opacity: 0.85;
 }
 
 @keyframes blink {
   0%,
-  100% {
-    opacity: 0.8;
+  40% {
+    opacity: 0.85;
   }
-
-  50% {
+  50%,
+  90% {
     opacity: 0;
   }
+  100% {
+    opacity: 0.85;
+  }
 }
 
-/* Remove any conflicting styles */
-.post-title {
-  line-height: 1.1;
-  white-space: normal;
-  word-break: normal;
-  overflow-wrap: break-word;
-  max-width: 100%;
-  hyphens: auto;
-}
-
+/* Reduced motion: skip typing animation, hide cursor */
 @media (prefers-reduced-motion: reduce) {
-  .letter,
-  .space {
-    transition: none !important;
+  .post-title-hero .typing-char {
     opacity: 1 !important;
-    transform: none !important;
+    transition: none;
   }
-
-  .cursor {
-    animation: none !important;
-    opacity: 0 !important;
+  .post-title-hero .cursor {
+    display: none;
   }
 }
 
-/* Enhanced image animations */
-.blog-post-content img {
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  perspective: 1000px;
-  width: 100% !important;
-  max-width: 100% !important;
-  height: auto !important;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+/* ===========================================
+   DRAFT MODE - The Orchestra Effect
+   Banner + Watermark + Typography shift
+   =========================================== */
+
+/* High-contrast minimalist banner */
+.draft-banner {
+  @apply flex items-center justify-center gap-4 py-1.5;
+  background: #fafafa;
 }
 
-/* Additional styles for images in blog posts */
-.blog-post-content figure {
-  width: 100% !important;
-  max-width: 100% !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-.blog-post-content figure img {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .blog-post-content img {
-    transition: none !important;
-    transform: none !important;
-    opacity: 1 !important;
-    animation: none !important;
+@media (prefers-color-scheme: dark) {
+  .draft-banner {
+    background: #18181b;
+    border-bottom-color: #27272a;
   }
+}
+
+.draft-banner-text {
+  @apply font-mono text-sm font-bold tracking-[0.3em] uppercase;
+  color: #09090b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .draft-banner-text {
+    color: #fafafa;
+  }
+}
+
+.draft-banner-subtext {
+  @apply font-mono text-xs opacity-50;
+  color: #09090b;
+}
+
+@media (prefers-color-scheme: dark) {
+  .draft-banner-subtext {
+    color: #fafafa;
+  }
+}
+
+/* Draft article wrapper - watermark + shifted styles */
+article.is-draft {
+  position: relative;
+  padding-top: 3rem; /* Account for banner */
+}
+
+/* Watermark effect */
+article.is-draft::before {
+  content: 'DRAFT';
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-family:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  font-size: clamp(4rem, 15vw, 12rem);
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  color: rgba(0, 0, 0, 0.03);
+  pointer-events: none;
+  z-index: 0;
+  white-space: nowrap;
+  user-select: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  article.is-draft::before {
+    color: rgba(255, 255, 255, 0.03);
+  }
+}
+
+/* Typography shift: serif → monospace for drafts */
+article.is-draft .blog-post-content {
+  /* stylelint-disable-next-line max-line-length */
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+}
+
+article.is-draft .blog-post-content p,
+article.is-draft .blog-post-content li {
+  font-family: inherit;
+  letter-spacing: -0.01em;
+}
+
+article.is-draft .blog-post-content h1,
+article.is-draft .blog-post-content h2,
+article.is-draft .blog-post-content h3,
+article.is-draft .blog-post-content h4,
+article.is-draft .blog-post-content h5,
+article.is-draft .blog-post-content h6 {
+  font-family: inherit;
+}
+
+/* Draft title also gets monospace treatment */
+article.is-draft .post-title-hero {
+  font-family:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+}
+
+/* Subtle desaturation on draft content */
+article.is-draft .blog-post-content {
+  filter: saturate(0.85);
 }
 </style>
-

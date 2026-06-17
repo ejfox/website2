@@ -1,22 +1,105 @@
-export default defineEventHandler(async (event) => {
+/**
+ * @file lastfm.get.ts
+ * @description Fetches Last.fm scrobbling statistics including recent tracks, top artists, albums, and listening habits
+ * @endpoint GET /api/lastfm
+ * @returns Last.fm data with recent tracks, top artists/albums/tracks for the month, user info, and calculated listening statistics
+ */
+
+// Last.fm API response types
+interface LastFmImage {
+  size: string
+  '#text': string
+}
+
+interface LastFmArtistRef {
+  '#text': string
+  url?: string
+  name?: string
+}
+
+interface LastFmTrack {
+  name: string
+  url: string
+  artist: LastFmArtistRef
+  date?: { uts: string; '#text': string }
+  image?: LastFmImage[]
+  playcount?: string
+}
+
+interface LastFmArtist {
+  name: string
+  url: string
+  playcount: string
+  image?: LastFmImage[]
+}
+
+interface LastFmAlbum {
+  name: string
+  url: string
+  playcount: string
+  artist: { name: string; url: string }
+  image?: LastFmImage[]
+}
+
+interface LastFmUser {
+  name: string
+  playcount?: string
+  registered?: { unixtime: string; '#text': string }
+  url?: string
+  image?: LastFmImage[]
+}
+
+interface RecentTracksResponse {
+  recenttracks?: {
+    track?: LastFmTrack[]
+    '@attr'?: { total: string }
+  }
+}
+
+interface TopArtistsResponse {
+  topartists?: {
+    artist?: LastFmArtist[]
+    '@attr'?: { total: string }
+  }
+}
+
+interface _TopAlbumsResponse {
+  topalbums?: {
+    album?: LastFmAlbum[]
+    '@attr'?: { total: string }
+  }
+}
+
+interface TopTracksResponse {
+  toptracks?: {
+    track?: LastFmTrack[]
+    '@attr'?: { total: string }
+  }
+}
+
+interface UserInfoResponse {
+  user?: LastFmUser
+}
+
+export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
   // Use hardcoded API key as fallback if environment variables aren't available
   const apiKey =
     config.LASTFM_API_KEY ||
     process.env.LASTFM_API_KEY ||
     '3e1f9761376a48e5d6b38aa0dba8274f'
-  const sharedSecret =
+  const _sharedSecret =
     config.LASTFM_SHARED_SECRET ||
     process.env.LASTFM_SHARED_SECRET ||
     'f0ba21c7a486f694b889521ca0f26d7a'
   const username = 'pseudoplacebo' // Hardcoded username as specified
 
-  console.log('Last.fm config:', {
-    hasApiKey: !!apiKey,
-    hasSharedSecret: !!sharedSecret,
-    apiKeyLength: apiKey?.length,
-    username
-  })
+  // console.log('Last.fm config:', {
+  //   hasApiKey: !!apiKey,
+  //   hasSharedSecret: !!sharedSecret,
+  //   apiKeyLength: apiKey?.length,
+  //   username
+  // })
 
   const makeRequest = async <T>(
     method: string,
@@ -26,13 +109,7 @@ export default defineEventHandler(async (event) => {
     const timeout = 10000 // 10 seconds
     let attempt = 0
 
-    // Simple in-memory cache implementation
-    const cacheKey = `lastfm:${method}:${JSON.stringify(params)}`
-    const cachedData = await useStorage().getItem(cacheKey)
-    if (cachedData) {
-      console.log(`Using cached data for ${method}`)
-      return cachedData as T
-    }
+    // Cache disabled - use direct API calls only
 
     // Rate limiting - ensure at least 250ms between requests
     await new Promise((resolve) => setTimeout(resolve, 250))
@@ -50,11 +127,11 @@ export default defineEventHandler(async (event) => {
           url.searchParams.append(key, value)
         })
 
-        console.log(
-          `Fetching Last.fm data: ${method} (attempt ${
-            attempt + 1
-          }/${maxRetries})`
-        )
+        // console.log(
+        //   `Fetching Last.fm data: ${method} (attempt ${
+        //     attempt + 1
+        //   }/${maxRetries})`
+        // )
 
         const controller = new AbortController()
         const timeoutId = setTimeout(() => controller.abort(), timeout)
@@ -64,8 +141,8 @@ export default defineEventHandler(async (event) => {
           headers: {
             Accept: 'application/json',
             'User-Agent':
-              'EJFox-Website/2.0 (https://ejfox.com; ejfox@ejfox.com)'
-          }
+              'EJFox-Website/2.0 (https://ejfox.com; ejfox@ejfox.com)',
+          },
         })
 
         clearTimeout(timeoutId)
@@ -81,7 +158,7 @@ export default defineEventHandler(async (event) => {
           throw createError({
             statusCode: response.status,
             message: `Last.fm API error: ${response.statusText}`,
-            data: { errorText }
+            data: { errorText },
           })
         }
 
@@ -89,26 +166,26 @@ export default defineEventHandler(async (event) => {
 
         // Check for Last.fm API errors in the response
         if (data.error) {
+          const errorMsg = data.message || 'Unknown error'
           console.error(
-            `Last.fm API returned error code ${data.error} with message: ${data.message}`
+            `Last.fm API returned error code ${data.error} with ` +
+              `message: ${errorMsg}`
           )
           throw createError({
             statusCode: 500,
-            message: `Last.fm API error: ${data.message || 'Unknown error'}`,
-            data: { errorCode: data.error }
+            message: `Last.fm API error: ${errorMsg}`,
+            data: { errorCode: data.error },
           })
         }
 
-        // Cache successful responses for 5 minutes
-        await useStorage().setItem(cacheKey, data, {
-          ttl: 300 // 5 minutes
-        })
+        // Cache disabled - direct API calls only
 
         return data as T
-      } catch (error: any) {
+      } catch (error) {
         attempt++
+        const err = error as Error
 
-        if (error.name === 'AbortError') {
+        if (err.name === 'AbortError') {
           console.warn(
             `Request timeout for ${method}, attempt ${attempt}/${maxRetries}`
           )
@@ -137,123 +214,123 @@ export default defineEventHandler(async (event) => {
 
   try {
     // Log API key info (safely)
-    if (apiKey) {
-      console.log(
-        'Last.fm API key:',
-        `${apiKey.substring(0, 4)}...${apiKey.substring(apiKey.length - 4)}`
-      )
-    } else {
-      console.warn('Last.fm API key is not set')
-    }
+    // if (apiKey) {
+    //   console.log(
+    //     'Last.fm API key:',
+    //     `${apiKey.substring(0, 4)}...${apiKey.substring(apiKey.length - 4)}`
+    //   )
+    // } else {
+    //   console.warn('Last.fm API key is not set')
+    // }
 
-    if (sharedSecret) {
-      console.log(
-        'Last.fm shared secret:',
-        `${sharedSecret.substring(0, 4)}...${sharedSecret.substring(
-          sharedSecret.length - 4
-        )}`
-      )
-    }
+    // if (sharedSecret) {
+    //   console.log(
+    //     'Last.fm shared secret:',
+    //     `${sharedSecret.substring(0, 4)}...${sharedSecret.substring(
+    //       sharedSecret.length - 4
+    //     )}`
+    //   )
+    // }
 
     // Test the API connection first
     try {
-      const testResponse = await makeRequest<any>('user.getinfo')
-      console.log(
-        'Last.fm API test successful:',
-        testResponse.user?.name === username
-          ? 'Username matches'
-          : 'Username mismatch'
-      )
+      const _testResponse = await makeRequest<UserInfoResponse>('user.getinfo')
+      // console.log(
+      //   'Last.fm API test successful:',
+      //   testResponse.user?.name === username
+      //     ? 'Username matches'
+      //     : 'Username mismatch'
+      // )
     } catch (testError) {
       console.error('Last.fm API test failed:', testError)
       // Don't throw here, continue with other requests
     }
 
-    // Fetch all data in parallel
-    const [recentTracks, topArtists, topAlbums, topTracks, userInfo] =
-      await Promise.all([
-        makeRequest<any>('user.getrecenttracks', { limit: '10' }),
-        makeRequest<any>('user.gettopartists', {
-          period: '1month',
-          limit: '10'
-        }),
-        makeRequest<any>('user.gettopalbums', {
-          period: '1month',
-          limit: '10'
-        }),
-        makeRequest<any>('user.gettoptracks', {
-          period: '1month',
-          limit: '10'
-        }),
-        makeRequest<any>('user.getinfo')
-      ])
+    // Fetch all data in parallel with error recovery
+    // PERF: Limits match actual component usage (5 recent, 5 artists, 3 tracks)
+    // PERF: topAlbums removed - not used by LastFmStats component
+    const results = await Promise.allSettled([
+      makeRequest<RecentTracksResponse>('user.getrecenttracks', {
+        limit: '5',
+      }),
+      makeRequest<TopArtistsResponse>('user.gettopartists', {
+        period: '1month',
+        limit: '5',
+      }),
+      makeRequest<TopTracksResponse>('user.gettoptracks', {
+        period: '1month',
+        limit: '3',
+      }),
+      makeRequest<UserInfoResponse>('user.getinfo'),
+    ])
+
+    const recentTracks =
+      results[0].status === 'fulfilled'
+        ? results[0].value
+        : { recenttracks: { track: [] } }
+    const topArtists =
+      results[1].status === 'fulfilled'
+        ? results[1].value
+        : { topartists: { artist: [] } }
+    const topTracks =
+      results[2].status === 'fulfilled'
+        ? results[2].value
+        : { toptracks: { track: [] } }
+    const userInfo: UserInfoResponse =
+      results[3].status === 'fulfilled' ? results[3].value : { user: undefined }
 
     // Process recent tracks
     const processedRecentTracks = {
       tracks:
-        recentTracks.recenttracks?.track?.map((track: any) => ({
+        recentTracks.recenttracks?.track?.map((track: LastFmTrack) => ({
           name: track.name,
           artist: {
             name: track.artist['#text'],
-            url: track.artist.url || ''
+            url: track.artist.url || '',
           },
           url: track.url,
           date: track.date,
-          image: track.image || []
+          image: track.image || [],
         })) || [],
-      total: parseInt(recentTracks.recenttracks?.['@attr']?.total || '0')
+      total: Number.parseInt(
+        recentTracks.recenttracks?.['@attr']?.total || '0'
+      ),
     }
 
     // Process top artists
     const processedTopArtists = {
       artists:
-        topArtists.topartists?.artist?.map((artist: any) => ({
+        topArtists.topartists?.artist?.map((artist: LastFmArtist) => ({
           name: artist.name,
           playcount: artist.playcount,
           url: artist.url,
-          image: artist.image || []
+          image: artist.image || [],
         })) || [],
-      total: parseInt(topArtists.topartists?.['@attr']?.total || '0')
-    }
-
-    // Process top albums
-    const processedTopAlbums = {
-      albums:
-        topAlbums.topalbums?.album?.map((album: any) => ({
-          name: album.name,
-          playcount: album.playcount,
-          artist: {
-            name: album.artist.name,
-            url: album.artist.url
-          },
-          url: album.url,
-          image: album.image || []
-        })) || [],
-      total: parseInt(topAlbums.topalbums?.['@attr']?.total || '0')
+      total: Number.parseInt(topArtists.topartists?.['@attr']?.total || '0'),
     }
 
     // Process top tracks
     const processedTopTracks = {
       tracks:
-        topTracks.toptracks?.track?.map((track: any) => ({
+        topTracks.toptracks?.track?.map((track: LastFmTrack) => ({
           name: track.name,
           artist: {
             name: track.artist.name,
-            url: track.artist.url
+            url: track.artist.url,
           },
           url: track.url,
           playcount: track.playcount,
-          image: track.image || []
+          image: track.image || [],
         })) || [],
-      total: parseInt(topTracks.toptracks?.['@attr']?.total || '0')
+      total: Number.parseInt(topTracks.toptracks?.['@attr']?.total || '0'),
     }
 
     // Process user info
     const processedUserInfo = {
-      playcount: parseInt(userInfo.user?.playcount || '0'),
+      playcount: Number.parseInt(userInfo.user?.playcount || '0'),
       registered: userInfo.user?.registered || { unixtime: '0', '#text': '' },
       url: userInfo.user?.url || '',
-      image: userInfo.user?.image?.[1]?.['#text'] || ''
+      image: userInfo.user?.image?.[1]?.['#text'] || '',
     }
 
     // Calculate some additional stats
@@ -263,7 +340,7 @@ export default defineEventHandler(async (event) => {
 
     // Calculate average scrobbles per day
     const registeredDate = new Date(
-      parseInt(processedUserInfo.registered.unixtime) * 1000
+      Number.parseInt(processedUserInfo.registered.unixtime) * 1000
     )
     const now = new Date()
     const daysSinceRegistered = Math.floor(
@@ -275,7 +352,6 @@ export default defineEventHandler(async (event) => {
     const result = {
       recentTracks: processedRecentTracks,
       topArtists: processedTopArtists,
-      topAlbums: processedTopAlbums,
       topTracks: processedTopTracks,
       userInfo: processedUserInfo,
       stats: {
@@ -283,63 +359,60 @@ export default defineEventHandler(async (event) => {
         uniqueArtists,
         uniqueTracks,
         averagePerDay,
-        topGenres: [] // Last.fm API doesn't provide genre info directly
+        topGenres: [], // Last.fm API doesn't provide genre info directly
       },
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
 
     // Log a summary of the data we're returning
-    console.log('Last.fm API data summary:', {
-      recentTracksCount: processedRecentTracks.tracks.length,
-      topArtistsCount: processedTopArtists.artists.length,
-      topAlbumsCount: processedTopAlbums.albums.length,
-      topTracksCount: processedTopTracks.tracks.length,
-      totalScrobbles,
-      uniqueArtists,
-      uniqueTracks,
-      averagePerDay
-    })
+    // console.log('Last.fm API data summary:', {
+    //   recentTracksCount: processedRecentTracks.tracks.length,
+    //   topArtistsCount: processedTopArtists.artists.length,
+    //   topAlbumsCount: processedTopAlbums.albums.length,
+    //   topTracksCount: processedTopTracks.tracks.length,
+    //   totalScrobbles,
+    //   uniqueArtists,
+    //   uniqueTracks,
+    //   averagePerDay
+    // })
 
     return result
-  } catch (error: any) {
+  } catch (error) {
     console.error('Last.fm API error details:', error)
+    const err = error as Error & { statusCode?: number }
 
     // Instead of throwing an error, return fallback data
     return {
       recentTracks: {
         tracks: [],
-        total: 0
+        total: 0,
       },
       topArtists: {
         artists: [],
-        total: 0
-      },
-      topAlbums: {
-        albums: [],
-        total: 0
+        total: 0,
       },
       topTracks: {
         tracks: [],
-        total: 0
+        total: 0,
       },
       userInfo: {
         playcount: 0,
         registered: { unixtime: '0', '#text': '' },
         url: `https://www.last.fm/user/${username}`,
-        image: ''
+        image: '',
       },
       stats: {
         totalScrobbles: 0,
         uniqueArtists: 0,
         uniqueTracks: 0,
         averagePerDay: 0,
-        topGenres: []
+        topGenres: [],
       },
       lastUpdated: new Date().toISOString(),
       error: {
-        message: error.message || 'Failed to fetch Last.fm data',
-        statusCode: error.statusCode || 500
-      }
+        message: err.message || 'Failed to fetch Last.fm data',
+        statusCode: err.statusCode || 500,
+      },
     }
   }
 })

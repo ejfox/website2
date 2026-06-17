@@ -1,0 +1,138 @@
+{
+  "name": "flipper-generative-art",
+  "description": "🎨 Real-time generative art and animated patterns for Flipper Zero with 10 gradient types, Floyd-Steinberg dithering, and smooth 30 FPS animations",
+  "url": "https://github.com/ejfox/flipper-generative-art",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "C",
+  "languageColor": "#555555",
+  "languages": {
+    "C": 11327
+  },
+  "diskUsage": 47,
+  "fileTree": {
+    "files": [
+      {
+        "path": "LICENSE",
+        "size": 1062
+      },
+      {
+        "path": "README.md",
+        "size": 2868
+      },
+      {
+        "path": "application.fam",
+        "size": 420
+      },
+      {
+        "path": "flipper-lightweight-gen.c",
+        "size": 11327
+      },
+      {
+        "path": "flipper_generative_art.fap",
+        "size": 8556
+      },
+      {
+        "path": "gallery-1.png",
+        "size": 4224
+      },
+      {
+        "path": "gallery-2.png",
+        "size": 7179
+      },
+      {
+        "path": "gallery-3.png",
+        "size": 5701
+      },
+      {
+        "path": "gallery-4.png",
+        "size": 7565
+      },
+      {
+        "path": "gallery-5.png",
+        "size": 6833
+      },
+      {
+        "path": "icon.png",
+        "size": 96
+      }
+    ],
+    "tree": {
+      "name": "flipper-generative-art",
+      "children": [
+        {
+          "name": "LICENSE",
+          "size": 1062,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 2868,
+          "path": "README.md"
+        },
+        {
+          "name": "application.fam",
+          "size": 420,
+          "path": "application.fam"
+        },
+        {
+          "name": "flipper-lightweight-gen.c",
+          "size": 11327,
+          "path": "flipper-lightweight-gen.c"
+        },
+        {
+          "name": "flipper_generative_art.fap",
+          "size": 8556,
+          "path": "flipper_generative_art.fap"
+        },
+        {
+          "name": "gallery-1.png",
+          "size": 4224,
+          "path": "gallery-1.png"
+        },
+        {
+          "name": "gallery-2.png",
+          "size": 7179,
+          "path": "gallery-2.png"
+        },
+        {
+          "name": "gallery-3.png",
+          "size": 5701,
+          "path": "gallery-3.png"
+        },
+        {
+          "name": "gallery-4.png",
+          "size": 7565,
+          "path": "gallery-4.png"
+        },
+        {
+          "name": "gallery-5.png",
+          "size": 6833,
+          "path": "gallery-5.png"
+        },
+        {
+          "name": "icon.png",
+          "size": 96,
+          "path": "icon.png"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 11,
+    "totalSize": 55831
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"flipper-zero-generative-art\">Flipper Zero Generative Art</h1>\n<p>Real-time generative art and animated patterns for the Flipper Zero's 128x64 monochrome display. Uses Floyd-Steinberg dithering to produce smooth, evolving visuals at 30 FPS.</p>\n<h2 id=\"gallery\">Gallery</h2>\n<div>\n<p><img src=\"gallery-1.png\" alt=\"Example 1\" /> <img src=\"gallery-2.png\" alt=\"Example 2\" /></p>\n<p><img src=\"gallery-3.png\" alt=\"Example 3\" /> <img src=\"gallery-4.png\" alt=\"Example 4\" /></p>\n<p><img src=\"gallery-5.png\" alt=\"Example 5\" /></p>\n</div>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li><strong>10 pattern types</strong> -- horizontal, vertical, radial, diagonal, sine, cosine, interference, checkerboard, noise, spiral</li>\n<li><strong>Real-time animation</strong> at 30 FPS with auto-evolving parameters</li>\n<li><strong>Floyd-Steinberg dithering</strong> for high-quality 1-bit rendering</li>\n<li><strong>Interactive controls</strong> for live pattern and frequency adjustment</li>\n<li><strong>Built-in help screen</strong></li>\n</ul>\n<h2 id=\"controls\">Controls</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Button</th><th>Action</th></tr></thead><tbody><tr><td>OK</td><td>Generate new random pattern</td></tr><tr><td>Up / Down</td><td>Change gradient type</td></tr><tr><td>Left / Right</td><td>Adjust frequency / animation speed</td></tr><tr><td>Back</td><td>Show help screen</td></tr><tr><td>Back (hold)</td><td>Exit</td></tr></tbody></table>\n<h2 id=\"installation\">Installation</h2>\n<h3 id=\"pre-built-fap-easiest\">Pre-built .fap (easiest)</h3>\n<ol>\n<li>Download <code>flipper_generative_art.fap</code> from the <a href=\"https://github.com/ejfox/flipper-generative-art/releases/latest\">latest release</a>.</li>\n<li>Connect your Flipper Zero via qFlipper or mount the SD card directly.</li>\n<li>Copy the <code>.fap</code> file to <code>SD Card/apps/Graphics/</code> (create the folder if it does not exist).</li>\n<li>On the Flipper, open <strong>Apps &gt; Graphics &gt; Generative Art</strong>.</li>\n</ol>\n<h3 id=\"firmware-compatibility\">Firmware compatibility</h3>\n<p>The pre-built <code>.fap</code> in releases is compiled for <strong>Momentum firmware mntm-009</strong> (API 79.2). If you are running a different firmware or API version, you will need to build from source (see below).</p>\n<h2 id=\"building-from-source\">Building from Source</h2>\n<p>The recommended way to build Flipper Zero apps is with <a href=\"https://github.com/flipperdevices/flipperzero-ufbt\">ufbt</a> (micro Flipper Build Tool).</p>\n<h3 id=\"1-install-ufbt\">1. Install ufbt</h3>\n<pre><code class=\"language-bash\">pip install ufbt\n</code></pre>\n<h3 id=\"2-set-up-the-sdk\">2. Set up the SDK</h3>\n<p>For <strong>Momentum firmware</strong> (recommended if you use Momentum):</p>\n<pre><code class=\"language-bash\">ufbt update --index-url=https://up.momentum-fw.dev/firmware/directory.json\n</code></pre>\n<p>For <strong>stock Flipper firmware</strong>:</p>\n<pre><code class=\"language-bash\">ufbt update\n</code></pre>\n<h3 id=\"3-clone-and-build\">3. Clone and build</h3>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/flipper-generative-art.git\ncd flipper-generative-art\nufbt\n</code></pre>\n<p>The compiled <code>.fap</code> will be in the <code>dist/</code> directory.</p>\n<h3 id=\"4-deploy-directly-to-flipper-optional\">4. Deploy directly to Flipper (optional)</h3>\n<pre><code class=\"language-bash\">ufbt launch\n</code></pre>\n<p>This builds, copies the <code>.fap</code> to your connected Flipper, and runs it.</p>\n<h2 id=\"file-structure\">File Structure</h2>\n<pre><code>flipper-generative-art/\n  application.fam            # App manifest\n  flipper-lightweight-gen.c   # Main application source\n  icon.png                   # App icon (10x10)\n  README.md\n</code></pre>\n<h2 id=\"technical-details\">Technical Details</h2>\n<ul>\n<li><strong>Display</strong>: 128x64 monochrome LCD</li>\n<li><strong>Rendering</strong>: Floyd-Steinberg error-diffusion dithering</li>\n<li><strong>Frame rate</strong>: ~30 FPS real-time</li>\n<li><strong>Memory</strong>: Minimal footprint, single-file application</li>\n</ul>\n<h2 id=\"license\">License</h2>\n<p>MIT -- see <a href=\"LICENSE\">LICENSE</a>.</p>",
+    "raw": "# Flipper Zero Generative Art\n\nReal-time generative art and animated patterns for the Flipper Zero's 128x64 monochrome display. Uses Floyd-Steinberg dithering to produce smooth, evolving visuals at 30 FPS.\n\n## Gallery\n\n<div align=\"center\">\n\n![Example 1](gallery-1.png) ![Example 2](gallery-2.png)\n\n![Example 3](gallery-3.png) ![Example 4](gallery-4.png)\n\n![Example 5](gallery-5.png)\n\n</div>\n\n## Features\n\n- **10 pattern types** -- horizontal, vertical, radial, diagonal, sine, cosine, interference, checkerboard, noise, spiral\n- **Real-time animation** at 30 FPS with auto-evolving parameters\n- **Floyd-Steinberg dithering** for high-quality 1-bit rendering\n- **Interactive controls** for live pattern and frequency adjustment\n- **Built-in help screen**\n\n## Controls\n\n| Button | Action |\n|--------|--------|\n| OK | Generate new random pattern |\n| Up / Down | Change gradient type |\n| Left / Right | Adjust frequency / animation speed |\n| Back | Show help screen |\n| Back (hold) | Exit |\n\n## Installation\n\n### Pre-built .fap (easiest)\n\n1. Download `flipper_generative_art.fap` from the [latest release](https://github.com/ejfox/flipper-generative-art/releases/latest).\n2. Connect your Flipper Zero via qFlipper or mount the SD card directly.\n3. Copy the `.fap` file to `SD Card/apps/Graphics/` (create the folder if it does not exist).\n4. On the Flipper, open **Apps > Graphics > Generative Art**.\n\n### Firmware compatibility\n\nThe pre-built `.fap` in releases is compiled for **Momentum firmware mntm-009** (API 79.2). If you are running a different firmware or API version, you will need to build from source (see below).\n\n## Building from Source\n\nThe recommended way to build Flipper Zero apps is with [ufbt](https://github.com/flipperdevices/flipperzero-ufbt) (micro Flipper Build Tool).\n\n### 1. Install ufbt\n\n```bash\npip install ufbt\n```\n\n### 2. Set up the SDK\n\nFor **Momentum firmware** (recommended if you use Momentum):\n\n```bash\nufbt update --index-url=https://up.momentum-fw.dev/firmware/directory.json\n```\n\nFor **stock Flipper firmware**:\n\n```bash\nufbt update\n```\n\n### 3. Clone and build\n\n```bash\ngit clone https://github.com/ejfox/flipper-generative-art.git\ncd flipper-generative-art\nufbt\n```\n\nThe compiled `.fap` will be in the `dist/` directory.\n\n### 4. Deploy directly to Flipper (optional)\n\n```bash\nufbt launch\n```\n\nThis builds, copies the `.fap` to your connected Flipper, and runs it.\n\n## File Structure\n\n```\nflipper-generative-art/\n  application.fam            # App manifest\n  flipper-lightweight-gen.c   # Main application source\n  icon.png                   # App icon (10x10)\n  README.md\n```\n\n## Technical Details\n\n- **Display**: 128x64 monochrome LCD\n- **Rendering**: Floyd-Steinberg error-diffusion dithering\n- **Frame rate**: ~30 FPS real-time\n- **Memory**: Minimal footprint, single-file application\n\n## License\n\nMIT -- see [LICENSE](LICENSE).\n",
+    "excerpt": "Real-time generative art and animated patterns for the Flipper Zero's 128x64 monochrome display. Uses Floyd-Steinberg dithering to produce smooth, evolving visu..."
+  },
+  "createdAt": "2025-06-27T15:56:31Z",
+  "updatedAt": "2026-03-23T03:41:20Z",
+  "pushedAt": "2026-03-23T03:41:52Z"
+}

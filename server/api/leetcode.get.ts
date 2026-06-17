@@ -1,6 +1,12 @@
+/**
+ * @file leetcode.get.ts
+ * @description Fetches LeetCode user statistics including problem submissions, contest ranking, and recent activity
+ * @endpoint GET /api/leetcode
+ * @returns LeetCode data with contest stats, submission counts by difficulty (easy/medium/hard), and recent submissions
+ */
 import { defineEventHandler, createError } from 'h3'
 
-interface ContestRanking {
+interface _ContestRanking {
   attendedContestsCount: number
   rating: number
   globalRanking: number
@@ -8,7 +14,7 @@ interface ContestRanking {
   topPercentage: number
 }
 
-interface SubmissionStats {
+interface _SubmissionStats {
   difficulty: string
   count: number
   submissions: number
@@ -22,21 +28,62 @@ interface RecentSubmission {
   lang: string
 }
 
+interface SubmissionStat {
+  difficulty: string
+  count: number
+  submissions: number
+}
+
+interface LeetCodeGraphQLResponse {
+  data: {
+    userContestRanking?: {
+      attendedContestsCount: number
+      rating: number
+      globalRanking: number
+      totalParticipants: number
+      topPercentage: number
+    }
+    recentSubmissionList?: RecentSubmission[]
+    matchedUser?: {
+      submitStats?: {
+        acSubmissionNum?: SubmissionStat[]
+      }
+    }
+  }
+}
+
 interface LeetCodeResponse {
-  contestStats: ContestRanking | null
-  recentSubmissions: RecentSubmission[]
+  contestStats: {
+    attendedContestsCount: number
+    rating: number
+    globalRanking: number
+    totalParticipants: number
+    topPercentage: number
+  } | null
+  recentSubmissions: {
+    title: string
+    titleSlug: string
+    timestamp: string
+    statusDisplay: string
+    lang: string
+  }[]
   submissionStats: {
-    easy: SubmissionStats
-    medium: SubmissionStats
-    hard: SubmissionStats
+    easy: { count: number; submissions: number }
+    medium: { count: number; submissions: number }
+    hard: { count: number; submissions: number }
   }
   lastUpdated: string
 }
 
-export default defineEventHandler(async (event) => {
+// Stale-while-error cache: leetcode.com appears to throttle/block our VPS IP
+// intermittently, returning timeouts or 5xx. Serve the last good response
+// instead of failing the whole stats aggregator when that happens.
+let lastGoodResponse: LeetCodeResponse | null = null
+
+export default defineEventHandler(async (): Promise<LeetCodeResponse> => {
   const username = 'ejfox'
 
-  const makeRequest = async <T>(url: string): Promise<T> => {
+  const makeRequest = async <T>(_url: string): Promise<T> => {
     const query = `
     {
       userContestRanking(username: "${username}") {
@@ -67,20 +114,20 @@ export default defineEventHandler(async (event) => {
     const response = await fetch('https://leetcode.com/graphql', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        query: query
-      })
+        query: query,
+      }),
     })
 
     if (!response.ok) {
       const error = await response.json().catch(() => ({
-        message: 'Unknown error'
+        message: 'Unknown error',
       }))
       throw createError({
         statusCode: response.status,
-        message: error.message || `LeetCode API error: ${response.statusText}`
+        message: error.message || `LeetCode API error: ${response.statusText}`,
       })
     }
 
@@ -89,46 +136,56 @@ export default defineEventHandler(async (event) => {
   }
 
   try {
-    const data = await makeRequest<any>('https://leetcode.com/graphql')
+    const data = await makeRequest<LeetCodeGraphQLResponse>(
+      'https://leetcode.com/graphql'
+    )
 
     const response = {
       contestStats: data.data.userContestRanking || null,
       recentSubmissions:
-        data.data.recentSubmissionList?.map((submission: any) => ({
+        data.data.recentSubmissionList?.map((submission: RecentSubmission) => ({
           title: submission.title,
           titleSlug: submission.titleSlug,
           timestamp: submission.timestamp,
           statusDisplay: submission.statusDisplay,
-          lang: submission.lang
+          lang: submission.lang,
         })) || [],
       submissionStats: {
         easy: { count: 0, submissions: 0 },
         medium: { count: 0, submissions: 0 },
-        hard: { count: 0, submissions: 0 }
+        hard: { count: 0, submissions: 0 },
       },
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
 
     if (data.data.matchedUser?.submitStats?.acSubmissionNum) {
-      data.data.matchedUser.submitStats.acSubmissionNum.forEach((stat: any) => {
-        const difficulty = stat.difficulty.toLowerCase()
-        if (difficulty in response.submissionStats) {
-          response.submissionStats[
-            difficulty as keyof typeof response.submissionStats
-          ] = {
-            count: stat.count,
-            submissions: stat.submissions
+      data.data.matchedUser.submitStats.acSubmissionNum.forEach(
+        (stat: SubmissionStat) => {
+          const difficulty = stat.difficulty.toLowerCase()
+          if (difficulty in response.submissionStats) {
+            response.submissionStats[
+              difficulty as keyof typeof response.submissionStats
+            ] = {
+              count: stat.count,
+              submissions: stat.submissions,
+            }
           }
         }
-      })
+      )
     }
 
+    lastGoodResponse = response
     return response
-  } catch (error: any) {
+  } catch (error) {
     console.error('LeetCode API error:', error)
+    if (lastGoodResponse) {
+      console.warn('LeetCode serving stale response (upstream failed)')
+      return lastGoodResponse
+    }
+    const err = error as Error
     throw createError({
       statusCode: 500,
-      message: `LeetCode API error: ${error.message}`
+      message: `LeetCode API error: ${err.message}`,
     })
   }
 })

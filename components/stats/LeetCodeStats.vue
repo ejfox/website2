@@ -1,123 +1,15 @@
-<template>
-  <div class="font-mono">
-    <!-- Main Stats -->
-    <div v-if="stats.submissionStats">
-      <IndividualStat :value="totalSolved" size="large" label="PROBLEMS SOLVED"
-        :details="`${formatNumber(stats.submissionStats.easy.count)} EASY · ${formatNumber(stats.submissionStats.medium.count)} MEDIUM · ${formatNumber(stats.submissionStats.hard.count)} HARD`" />
-
-      <!-- Difficulty Distribution -->
-      <div class="mt-4">
-        <div class="difficulty-bar">
-          <div class="easy-bar" :style="{
-            width: `${difficultyPercentages.easy}%`,
-            opacity: difficultyPercentages.easy > 5 ? 1 : 0.7,
-            backgroundColor: '#a1a1aa' /* Gray-400 */
-          }"
-            :title="`Easy: ${stats.submissionStats.easy.count} problems (${Math.round(difficultyPercentages.easy)}%)`">
-          </div>
-          <div class="medium-bar" :style="{
-            width: `${difficultyPercentages.medium}%`,
-            opacity: difficultyPercentages.medium > 5 ? 1 : 0.7,
-            backgroundColor: '#71717a' /* Gray-500 */
-          }"
-            :title="`Medium: ${stats.submissionStats.medium.count} problems (${Math.round(difficultyPercentages.medium)}%)`">
-          </div>
-          <div class="hard-bar" :style="{
-            width: `${difficultyPercentages.hard}%`,
-            opacity: difficultyPercentages.hard > 5 ? 1 : 0.7,
-            backgroundColor: '#3f3f46' /* Gray-700 */
-          }"
-            :title="`Hard: ${stats.submissionStats.hard.count} problems (${Math.round(difficultyPercentages.hard)}%)`">
-          </div>
-        </div>
-        <div class="flex justify-between text-2xs text-zinc-500 mt-1">
-          <span>EASY</span>
-          <span>MEDIUM</span>
-          <span>HARD</span>
-        </div>
-      </div>
-
-      <!-- Activity Calendar (using new reusable component) -->
-      <div v-if="hasActivityData" class="mt-6">
-        <ActivityCalendar title="ACTIVITY" :active-dates="activityDates" :active-color="'#71717a'" :days="30" />
-      </div>
-    </div>
-
-    <!-- Problem Stats - Simplified Table -->
-    <div v-if="stats.submissionStats" class="mt-8">
-      <h4 class="section-subheader">DIFFICULTY BREAKDOWN</h4>
-      <div class="grid grid-cols-3 gap-x-4 gap-y-1">
-        <!-- Column Headers -->
-        <div class="text-zinc-500 text-2xs tracking-wider">EASY</div>
-        <div class="text-zinc-500 text-2xs tracking-wider">MEDIUM</div>
-        <div class="text-zinc-500 text-2xs tracking-wider">HARD</div>
-
-        <!-- Values -->
-        <div class="tabular-nums font-medium">{{ stats.submissionStats.easy.count }}</div>
-        <div class="tabular-nums font-medium">{{ stats.submissionStats.medium.count }}</div>
-        <div class="tabular-nums font-medium">{{ stats.submissionStats.hard.count }}</div>
-      </div>
-    </div>
-
-    <!-- Language Stats - Refined with bars -->
-    <div v-if="hasLanguageStats" class="mt-8">
-      <h4 class="section-subheader">LANGUAGES</h4>
-      <div class="space-y-2.5">
-        <div v-for="(item, index) in languageEntries" :key="index" class="language-item">
-          <div class="flex justify-between items-center mb-1">
-            <span class="text-zinc-700 dark:text-zinc-300 text-xs">{{ item.language }}</span>
-            <span class="text-zinc-500 text-2xs tabular-nums">
-              {{ item.count }} <span class="ml-0.5">{{ item.count > 1 ? 'SOLUTIONS' : 'SOLUTION' }}</span>
-            </span>
-          </div>
-          <div class="lang-bar-bg">
-            <div class="lang-bar-fill" :style="{
-              width: `${(item.count / totalLanguageSolutions) * 100}%`,
-              backgroundColor: item.color
-            }"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Recent Submissions -->
-    <div v-if="recentAcceptedSubmissions.length" class="mt-8">
-      <h4 class="section-subheader">RECENT SOLUTIONS</h4>
-      <div class="space-y-2">
-        <div v-for="submission in recentAcceptedSubmissions" :key="submission.titleSlug" class="submission-row">
-          <div class="flex-none">
-            <span class="text-zinc-400 text-2xs tabular-nums">{{ formatDateMinimal(submission.timestamp) }}</span>
-          </div>
-          <a :href="`https://leetcode.com/problems/${submission.titleSlug}/`" target="_blank" class="problem-title">
-            {{ truncateTitle(submission.title) }}
-          </a>
-          <div class="submission-lang text-2xs">{{ submission.lang }}</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
+<!--
+  @file LeetCodeStats.vue
+  @description LeetCode coding challenge statistics
+  @props stats: Object - LeetCode stats from API
+-->
 <script setup lang="ts">
-import { computed, h } from 'vue'
-import { format, parse } from 'date-fns'
-import IndividualStat from './IndividualStat.vue'
-import ActivityCalendar from './ActivityCalendar.vue'
+import { computed } from 'vue'
+import { format } from 'date-fns/format'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import { formatNumber } from '~/composables/useNumberFormat'
-
-// Turbo color palette for language visualization
-const turboColors = [
-  '#30123b', '#4444a4', '#337bc3', '#24aad8', '#1ac7c2',
-  '#3bdf92', '#7cf357', '#c8e020', '#fbb508', '#f57e00', '#dd2e06'
-];
-
-// Get color from the turbo palette
-const getColorForIndex = (index: number, total: number) => {
-  if (total <= 1) return turboColors[5]; // Middle color
-  const position = index / (total - 1);
-  const colorIndex = Math.floor(position * (turboColors.length - 1));
-  return turboColors[colorIndex];
-};
+import type { StatsResponse } from '~/composables/useStats'
 
 type LeetCodeStats = NonNullable<StatsResponse['leetcode']>
 
@@ -141,114 +33,192 @@ const difficultyPercentages = computed(() => {
 
   return {
     easy: (props.stats.submissionStats.easy.count / totalSolved.value) * 100,
-    medium: (props.stats.submissionStats.medium.count / totalSolved.value) * 100,
-    hard: (props.stats.submissionStats.hard.count / totalSolved.value) * 100
+    medium:
+      (props.stats.submissionStats.medium.count / totalSolved.value) * 100,
+    hard: (props.stats.submissionStats.hard.count / totalSolved.value) * 100,
   }
 })
 
-// Language statistics
-const languageEntries = computed(() => {
+// Language statistics - top 3 only
+const topLanguages = computed(() => {
   const stats: Record<string, number> = {}
 
   props.stats.recentSubmissions
-    .filter(s => s.statusDisplay === 'Accepted')
-    .forEach(submission => {
+    .filter((s) => s.statusDisplay === 'Accepted')
+    .forEach((submission) => {
       const lang = submission.lang
       stats[lang] = (stats[lang] || 0) + 1
     })
 
-  // Convert to array for easier iteration with indices
   return Object.entries(stats)
     .sort((a, b) => b[1] - a[1])
-    .slice(0, 4) // Limit to top 4 languages
-    .map(([language, count], index, array) => ({
-      language,
-      count,
-      color: getColorForIndex(index, array.length)
-    }))
+    .slice(0, 3)
+    .map(([language, count]) => ({ language, count }))
 })
 
-const totalLanguageSolutions = computed(() => {
-  return languageEntries.value.reduce((sum, item) => sum + item.count, 0)
-})
+const hasLanguageStats = computed(() => topLanguages.value.length > 0)
 
-const hasLanguageStats = computed(() => languageEntries.value.length > 0)
-
-// Recent submissions
+// Recent submissions - top 3 only
 const recentAcceptedSubmissions = computed(() => {
   return props.stats.recentSubmissions
-    .filter(s => s.statusDisplay === 'Accepted')
-    .slice(0, 5)
+    .filter((s) => s.statusDisplay === 'Accepted')
+    .slice(0, 3)
 })
 
 // Format utilities
 const formatDateMinimal = (timestamp: string): string => {
-  // Parse timestamp as epoch seconds
-  const date = new Date(parseInt(timestamp) * 1000)
+  const date = new Date(Number.parseInt(timestamp) * 1000)
   return format(date, 'MM.dd')
 }
 
-// Truncate long problem titles
 const truncateTitle = (title: string): string => {
-  return title.length > 30 ? title.substring(0, 28) + '...' : title
+  return title.length > 25 ? title.substring(0, 23) + '...' : title
 }
-
-// Activity calendar
-const hasActivityData = computed(() => {
-  return props.stats.recentSubmissions && props.stats.recentSubmissions.length > 0
-})
-
-const activityDates = computed(() => {
-  if (!props.stats.recentSubmissions) return []
-
-  // Extract active dates from submissions
-  return props.stats.recentSubmissions
-    .filter(s => s.statusDisplay === 'Accepted')
-    .map(s => {
-      const date = new Date(parseInt(s.timestamp) * 1000)
-      return format(date, 'yyyy-MM-dd')
-    })
-})
 </script>
 
+<template>
+  <div class="font-mono">
+    <!-- Main Stats -->
+    <div v-if="stats.submissionStats" class="individual-stat-large">
+      <div class="stat-value">
+        <AnimatedNumber
+          :value="totalSolved"
+          format="commas"
+          :duration="1600"
+          priority="primary"
+        />
+      </div>
+      <div class="stat-label">LEETCODE PROBLEMS SOLVED</div>
+      <div class="stat-details">
+        <AnimatedNumber
+          :value="stats.submissionStats.easy.count"
+          format="commas"
+          :duration="800"
+          priority="secondary"
+        />
+        EASY ·
+        <AnimatedNumber
+          :value="stats.submissionStats.medium.count"
+          format="commas"
+          :duration="800"
+          :delay="50"
+          priority="secondary"
+        />
+        MEDIUM ·
+        <AnimatedNumber
+          :value="stats.submissionStats.hard.count"
+          format="commas"
+          :duration="800"
+          priority="tertiary"
+        />
+        HARD
+      </div>
+
+      <!-- Difficulty Distribution Bar -->
+      <div class="mt-4">
+        <div class="difficulty-bar">
+          <div
+            v-tooltip="
+              `Easy: ${formatNumber(stats.submissionStats.easy.count)} problems`
+            "
+            class="easy-bar"
+            :style="{
+              width: `${difficultyPercentages.easy}%`,
+              backgroundColor: '#a1a1aa',
+            }"
+          ></div>
+          <div
+            v-tooltip="
+              `Medium: ${formatNumber(
+                stats.submissionStats.medium.count
+              )} problems`
+            "
+            class="medium-bar"
+            :style="{
+              width: `${difficultyPercentages.medium}%`,
+              backgroundColor: '#71717a',
+            }"
+          ></div>
+          <div
+            v-tooltip="
+              `Hard: ${formatNumber(stats.submissionStats.hard.count)} problems`
+            "
+            class="hard-bar"
+            :style="{
+              width: `${difficultyPercentages.hard}%`,
+              backgroundColor: '#3f3f46',
+            }"
+          ></div>
+        </div>
+        <div class="flex justify-between text-2xs text-zinc-500 mt-2">
+          <span>EASY</span>
+          <span>MEDIUM</span>
+          <span>HARD</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Language Stats -->
+    <div v-if="hasLanguageStats" class="mt-8">
+      <StatsSectionHeader title="LEETCODE LANGUAGES" />
+      <div class="space-y-2">
+        <div
+          v-for="(item, index) in topLanguages"
+          :key="index"
+          class="flex justify-between items-center text-xs"
+        >
+          <span class="text-zinc-700 dark:text-zinc-300">
+            {{ item.language }}
+          </span>
+          <span class="text-zinc-500 tabular-nums">
+            <AnimatedNumber
+              :value="item.count"
+              format="commas"
+              :delay="index * 80"
+              priority="tertiary"
+            />
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Submissions -->
+    <div v-if="recentAcceptedSubmissions.length" class="mt-8">
+      <StatsSectionHeader title="RECENT LEETCODE SOLUTIONS" />
+      <div class="space-y-2">
+        <div
+          v-for="submission in recentAcceptedSubmissions"
+          :key="submission.titleSlug"
+          class="submission-row"
+        >
+          <div class="flex-none">
+            <span class="text-zinc-400 text-2xs tabular-nums">
+              {{ formatDateMinimal(submission.timestamp) }}
+            </span>
+          </div>
+          <a
+            :href="`https://leetcode.com/problems/${submission.titleSlug}/`"
+            target="_blank"
+            class="problem-title"
+          >
+            {{ truncateTitle(submission.title) }}
+          </a>
+          <div class="submission-lang text-2xs">
+            {{ submission.lang }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <style scoped>
-.section-subheader {
-  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+.individual-stat-large {
+  @apply text-center;
 }
 
 .difficulty-bar {
   @apply flex h-2 w-full rounded-sm overflow-hidden;
-}
-
-.easy-bar {
-  @apply bg-green-500;
-}
-
-.medium-bar {
-  @apply bg-yellow-500;
-}
-
-.hard-bar {
-  @apply bg-red-500;
-}
-
-.difficulty-bar {
-  @apply flex h-2 w-full rounded-sm overflow-hidden;
-}
-
-.easy-bar {
-  background-color: #a1a1aa;
-  /* Gray-400 */
-}
-
-.medium-bar {
-  background-color: #71717a;
-  /* Gray-500 */
-}
-
-.hard-bar {
-  background-color: #3f3f46;
-  /* Gray-700 */
 }
 
 .submission-row {
@@ -256,55 +226,11 @@ const activityDates = computed(() => {
 }
 
 .problem-title {
-  @apply ml-2 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline truncate max-w-[16rem];
+  @apply ml-2 text-zinc-700 dark:text-zinc-300 hover:text-zinc-900
+    dark:hover:text-zinc-100 hover:underline truncate max-w-[16rem];
 }
 
 .submission-lang {
   @apply ml-auto text-zinc-500;
-}
-
-/* Language bar styles */
-.language-item {
-  @apply w-full;
-}
-
-.lang-bar-bg {
-  @apply h-1 w-full bg-zinc-800/30 rounded-sm overflow-hidden;
-}
-
-.lang-bar-fill {
-  @apply h-full bg-zinc-700 dark:bg-zinc-400;
-}
-
-/* Custom text size smaller than xs */
-.text-2xs {
-  font-size: 0.65rem;
-  line-height: 1rem;
-}
-
-/* Activity calendar */
-.activity-grid {
-  @apply grid grid-cols-30 gap-1 h-4;
-}
-
-.activity-cell {
-  @apply w-full h-full rounded-[1px];
-}
-
-/* For grid-cols-30 */
-@media (min-width: 640px) {
-  .grid-cols-30 {
-    grid-template-columns: repeat(30, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 639px) {
-  .grid-cols-30 {
-    grid-template-columns: repeat(15, minmax(0, 1fr));
-  }
-
-  .activity-grid {
-    @apply grid-rows-2;
-  }
 }
 </style>

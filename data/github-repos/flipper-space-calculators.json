@@ -1,0 +1,508 @@
+{
+  "name": "flipper-space-calculators",
+  "description": "🚀 Minimalist space and physics calculators for Flipper Zero. Interplanetary transfer planner + time dilation calculator. KSP-style orbital mechanics.",
+  "url": "https://github.com/ejfox/flipper-space-calculators",
+  "homepage": null,
+  "stats": {
+    "stars": 3,
+    "forks": 1,
+    "watchers": 1,
+    "openIssues": 1
+  },
+  "language": "C",
+  "languageColor": "#555555",
+  "languages": {
+    "C": 46449,
+    "Makefile": 746
+  },
+  "diskUsage": 103,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".github/workflows/test-core-functions.yml",
+        "size": 1142
+      },
+      {
+        "path": ".gitignore",
+        "size": 232
+      },
+      {
+        "path": "DEMO.md",
+        "size": 4586
+      },
+      {
+        "path": "DESIGN_DECISIONS.md",
+        "size": 3861
+      },
+      {
+        "path": "DEV_WORKFLOW.md",
+        "size": 4919
+      },
+      {
+        "path": "FORMULA_VERIFICATION.md",
+        "size": 3783
+      },
+      {
+        "path": "README.md",
+        "size": 3258
+      },
+      {
+        "path": "SUBAGENT_BRIEFING.md",
+        "size": 4719
+      },
+      {
+        "path": "_codeql_detected_source_root",
+        "size": 1
+      },
+      {
+        "path": "dilate/.github/workflows/build.yml",
+        "size": 1384
+      },
+      {
+        "path": "dilate/.vscode/compile_commands.json",
+        "size": 6766
+      },
+      {
+        "path": "dilate/CLAUDE.md",
+        "size": 4826
+      },
+      {
+        "path": "dilate/README.md",
+        "size": 1890
+      },
+      {
+        "path": "dilate/application.fam",
+        "size": 607
+      },
+      {
+        "path": "dilate/calculations.c",
+        "size": 920
+      },
+      {
+        "path": "dilate/calculations.h",
+        "size": 551
+      },
+      {
+        "path": "dilate/dilate.c",
+        "size": 10447
+      },
+      {
+        "path": "dilate/dilate.png",
+        "size": 220
+      },
+      {
+        "path": "dilate/dist/debug/dilate_d.elf",
+        "size": 24756
+      },
+      {
+        "path": "dilate/dist/dilate.fap",
+        "size": 9428
+      },
+      {
+        "path": "dilate/images/.gitkeep",
+        "size": 0
+      },
+      {
+        "path": "dilate/tests/Makefile",
+        "size": 373
+      },
+      {
+        "path": "dilate/tests/README.md",
+        "size": 1520
+      },
+      {
+        "path": "dilate/tests/test_calculations.c",
+        "size": 5074
+      },
+      {
+        "path": "space-travel-calculator/.clang-format",
+        "size": 6747
+      },
+      {
+        "path": "space-travel-calculator/.github/workflows/build.yml",
+        "size": 1384
+      },
+      {
+        "path": "space-travel-calculator/.vscode/compile_commands.json",
+        "size": 7106
+      },
+      {
+        "path": "space-travel-calculator/CLAUDE.md",
+        "size": 9683
+      },
+      {
+        "path": "space-travel-calculator/README.md",
+        "size": 2282
+      },
+      {
+        "path": "space-travel-calculator/application.fam",
+        "size": 632
+      },
+      {
+        "path": "space-travel-calculator/calculations.c",
+        "size": 3932
+      },
+      {
+        "path": "space-travel-calculator/calculations.h",
+        "size": 1317
+      },
+      {
+        "path": "space-travel-calculator/dist/debug/space_travel_calculator_d.elf",
+        "size": 48884
+      },
+      {
+        "path": "space-travel-calculator/dist/space_travel_calculator.fap",
+        "size": 24928
+      },
+      {
+        "path": "space-travel-calculator/images/.gitkeep",
+        "size": 0
+      },
+      {
+        "path": "space-travel-calculator/space_travel_calculator.c",
+        "size": 17561
+      },
+      {
+        "path": "space-travel-calculator/space_travel_calculator.png",
+        "size": 220
+      },
+      {
+        "path": "space-travel-calculator/tests/Makefile",
+        "size": 373
+      },
+      {
+        "path": "space-travel-calculator/tests/README.md",
+        "size": 1579
+      },
+      {
+        "path": "space-travel-calculator/tests/test_calculations.c",
+        "size": 6647
+      }
+    ],
+    "tree": {
+      "name": "flipper-space-calculators",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "test-core-functions.yml",
+                  "size": 1142,
+                  "path": ".github/workflows/test-core-functions.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "dilate",
+          "children": [
+            {
+              "name": ".github",
+              "children": [
+                {
+                  "name": "workflows",
+                  "children": [
+                    {
+                      "name": "build.yml",
+                      "size": 1384,
+                      "path": "dilate/.github/workflows/build.yml"
+                    }
+                  ],
+                  "path": "dilate/.github/workflows"
+                }
+              ],
+              "path": "dilate/.github"
+            },
+            {
+              "name": ".vscode",
+              "children": [
+                {
+                  "name": "compile_commands.json",
+                  "size": 6766,
+                  "path": "dilate/.vscode/compile_commands.json"
+                }
+              ],
+              "path": "dilate/.vscode"
+            },
+            {
+              "name": "dist",
+              "children": [
+                {
+                  "name": "debug",
+                  "children": [
+                    {
+                      "name": "dilate_d.elf",
+                      "size": 24756,
+                      "path": "dilate/dist/debug/dilate_d.elf"
+                    }
+                  ],
+                  "path": "dilate/dist/debug"
+                },
+                {
+                  "name": "dilate.fap",
+                  "size": 9428,
+                  "path": "dilate/dist/dilate.fap"
+                }
+              ],
+              "path": "dilate/dist"
+            },
+            {
+              "name": "images",
+              "children": [
+                {
+                  "name": ".gitkeep",
+                  "size": 0,
+                  "path": "dilate/images/.gitkeep"
+                }
+              ],
+              "path": "dilate/images"
+            },
+            {
+              "name": "tests",
+              "children": [
+                {
+                  "name": "Makefile",
+                  "size": 373,
+                  "path": "dilate/tests/Makefile"
+                },
+                {
+                  "name": "README.md",
+                  "size": 1520,
+                  "path": "dilate/tests/README.md"
+                },
+                {
+                  "name": "test_calculations.c",
+                  "size": 5074,
+                  "path": "dilate/tests/test_calculations.c"
+                }
+              ],
+              "path": "dilate/tests"
+            },
+            {
+              "name": "CLAUDE.md",
+              "size": 4826,
+              "path": "dilate/CLAUDE.md"
+            },
+            {
+              "name": "README.md",
+              "size": 1890,
+              "path": "dilate/README.md"
+            },
+            {
+              "name": "application.fam",
+              "size": 607,
+              "path": "dilate/application.fam"
+            },
+            {
+              "name": "calculations.c",
+              "size": 920,
+              "path": "dilate/calculations.c"
+            },
+            {
+              "name": "calculations.h",
+              "size": 551,
+              "path": "dilate/calculations.h"
+            },
+            {
+              "name": "dilate.c",
+              "size": 10447,
+              "path": "dilate/dilate.c"
+            },
+            {
+              "name": "dilate.png",
+              "size": 220,
+              "path": "dilate/dilate.png"
+            }
+          ],
+          "path": "dilate"
+        },
+        {
+          "name": "space-travel-calculator",
+          "children": [
+            {
+              "name": ".github",
+              "children": [
+                {
+                  "name": "workflows",
+                  "children": [
+                    {
+                      "name": "build.yml",
+                      "size": 1384,
+                      "path": "space-travel-calculator/.github/workflows/build.yml"
+                    }
+                  ],
+                  "path": "space-travel-calculator/.github/workflows"
+                }
+              ],
+              "path": "space-travel-calculator/.github"
+            },
+            {
+              "name": ".vscode",
+              "children": [
+                {
+                  "name": "compile_commands.json",
+                  "size": 7106,
+                  "path": "space-travel-calculator/.vscode/compile_commands.json"
+                }
+              ],
+              "path": "space-travel-calculator/.vscode"
+            },
+            {
+              "name": "dist",
+              "children": [
+                {
+                  "name": "debug",
+                  "children": [
+                    {
+                      "name": "space_travel_calculator_d.elf",
+                      "size": 48884,
+                      "path": "space-travel-calculator/dist/debug/space_travel_calculator_d.elf"
+                    }
+                  ],
+                  "path": "space-travel-calculator/dist/debug"
+                },
+                {
+                  "name": "space_travel_calculator.fap",
+                  "size": 24928,
+                  "path": "space-travel-calculator/dist/space_travel_calculator.fap"
+                }
+              ],
+              "path": "space-travel-calculator/dist"
+            },
+            {
+              "name": "images",
+              "children": [
+                {
+                  "name": ".gitkeep",
+                  "size": 0,
+                  "path": "space-travel-calculator/images/.gitkeep"
+                }
+              ],
+              "path": "space-travel-calculator/images"
+            },
+            {
+              "name": "tests",
+              "children": [
+                {
+                  "name": "Makefile",
+                  "size": 373,
+                  "path": "space-travel-calculator/tests/Makefile"
+                },
+                {
+                  "name": "README.md",
+                  "size": 1579,
+                  "path": "space-travel-calculator/tests/README.md"
+                },
+                {
+                  "name": "test_calculations.c",
+                  "size": 6647,
+                  "path": "space-travel-calculator/tests/test_calculations.c"
+                }
+              ],
+              "path": "space-travel-calculator/tests"
+            },
+            {
+              "name": ".clang-format",
+              "size": 6747,
+              "path": "space-travel-calculator/.clang-format"
+            },
+            {
+              "name": "CLAUDE.md",
+              "size": 9683,
+              "path": "space-travel-calculator/CLAUDE.md"
+            },
+            {
+              "name": "README.md",
+              "size": 2282,
+              "path": "space-travel-calculator/README.md"
+            },
+            {
+              "name": "application.fam",
+              "size": 632,
+              "path": "space-travel-calculator/application.fam"
+            },
+            {
+              "name": "calculations.c",
+              "size": 3932,
+              "path": "space-travel-calculator/calculations.c"
+            },
+            {
+              "name": "calculations.h",
+              "size": 1317,
+              "path": "space-travel-calculator/calculations.h"
+            },
+            {
+              "name": "space_travel_calculator.c",
+              "size": 17561,
+              "path": "space-travel-calculator/space_travel_calculator.c"
+            },
+            {
+              "name": "space_travel_calculator.png",
+              "size": 220,
+              "path": "space-travel-calculator/space_travel_calculator.png"
+            }
+          ],
+          "path": "space-travel-calculator"
+        },
+        {
+          "name": ".gitignore",
+          "size": 232,
+          "path": ".gitignore"
+        },
+        {
+          "name": "DEMO.md",
+          "size": 4586,
+          "path": "DEMO.md"
+        },
+        {
+          "name": "DESIGN_DECISIONS.md",
+          "size": 3861,
+          "path": "DESIGN_DECISIONS.md"
+        },
+        {
+          "name": "DEV_WORKFLOW.md",
+          "size": 4919,
+          "path": "DEV_WORKFLOW.md"
+        },
+        {
+          "name": "FORMULA_VERIFICATION.md",
+          "size": 3783,
+          "path": "FORMULA_VERIFICATION.md"
+        },
+        {
+          "name": "README.md",
+          "size": 3258,
+          "path": "README.md"
+        },
+        {
+          "name": "SUBAGENT_BRIEFING.md",
+          "size": 4719,
+          "path": "SUBAGENT_BRIEFING.md"
+        },
+        {
+          "name": "_codeql_detected_source_root",
+          "size": 1,
+          "path": "_codeql_detected_source_root"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 40,
+    "totalSize": 228538
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"flipper-space-calculators\">Flipper Space Calculators</h1>\n<p>A pair of minimalist space and physics calculators for the Flipper Zero. No games, no splash screens -- just the numbers.</p>\n<h2 id=\"applications\">Applications</h2>\n<h3 id=\"space-travel-calculator\"><a href=\"./space-travel-calculator/\">Space Travel Calculator</a></h3>\n<p>Interplanetary trajectory planner with real-time orbital visualization. Select a destination (Mars, Venus, Jupiter, Europa, Titan, and more), scroll through launch dates, and see Hohmann transfer orbits drawn on screen. Outputs delta-v requirements, flight time, and phase angles.</p>\n<h3 id=\"dilate\"><a href=\"./dilate/\">Dilate</a></h3>\n<p>Time dilation calculator for special relativity. Set a velocity (fraction of c) and a duration, and see how much time passes for you versus an observer on Earth. Auto-scales units from seconds to years.</p>\n<h2 id=\"installation\">Installation</h2>\n<h3 id=\"pre-built-fap-files-easiest\">Pre-built .fap files (easiest)</h3>\n<ol>\n<li>Download <code>space_travel_calculator.fap</code> and/or <code>dilate.fap</code> from the <a href=\"https://github.com/ejfox/flipper-space-calculators/releases/latest\">latest release</a>.</li>\n<li>Connect your Flipper Zero via qFlipper or mount the SD card directly.</li>\n<li>Copy the <code>.fap</code> files to <code>SD Card/apps/Tools/</code> on the Flipper.</li>\n<li>On the Flipper, open <strong>Apps &gt; Tools</strong> and select the calculator you want.</li>\n</ol>\n<h3 id=\"firmware-compatibility\">Firmware compatibility</h3>\n<p>The pre-built <code>.fap</code> files in releases are compiled for <strong>Momentum firmware mntm-009</strong> (API 79.2). If you are running a different firmware or API version, you will need to build from source (see below).</p>\n<h2 id=\"building-from-source\">Building from Source</h2>\n<p>The recommended way to build Flipper Zero apps is with <a href=\"https://github.com/flipperdevices/flipperzero-ufbt\">ufbt</a> (micro Flipper Build Tool).</p>\n<h3 id=\"1-install-ufbt\">1. Install ufbt</h3>\n<pre><code class=\"language-bash\">pip install ufbt\n</code></pre>\n<h3 id=\"2-set-up-the-sdk\">2. Set up the SDK</h3>\n<p>For <strong>Momentum firmware</strong> (recommended if you use Momentum):</p>\n<pre><code class=\"language-bash\">ufbt update --index-url=https://up.momentum-fw.dev/firmware/directory.json\n</code></pre>\n<p>For <strong>stock Flipper firmware</strong>:</p>\n<pre><code class=\"language-bash\">ufbt update\n</code></pre>\n<h3 id=\"3-clone-and-build\">3. Clone and build</h3>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/flipper-space-calculators.git\ncd flipper-space-calculators\n</code></pre>\n<p>Each app is built separately from its own directory:</p>\n<pre><code class=\"language-bash\"># Space Travel Calculator\ncd space-travel-calculator\nufbt\ncd ..\n\n# Dilate\ncd dilate\nufbt\ncd ..\n</code></pre>\n<p>Compiled <code>.fap</code> files will be in each app's <code>dist/</code> directory.</p>\n<h3 id=\"4-deploy-directly-to-flipper-optional\">4. Deploy directly to Flipper (optional)</h3>\n<p>From inside either app directory:</p>\n<pre><code class=\"language-bash\">ufbt launch\n</code></pre>\n<h2 id=\"testing\">Testing</h2>\n<p>Both calculators include unit tests for their core calculation functions, run via GitHub Actions on every push and PR.</p>\n<ul>\n<li>Space Travel Calculator: 14 tests (orbital mechanics, Hohmann transfers)</li>\n<li>Dilate: 15 tests (Lorentz factor, time dilation)</li>\n</ul>\n<p>Run tests locally from each app's directory:</p>\n<pre><code class=\"language-bash\">cd space-travel-calculator &amp;&amp; make -C tests &amp;&amp; cd ..\ncd dilate &amp;&amp; make -C tests &amp;&amp; cd ..\n</code></pre>\n<h2 id=\"project-structure\">Project Structure</h2>\n<pre><code>flipper-space-calculators/\n  space-travel-calculator/    # Orbital transfer calculator\n    application.fam\n    calculations.h/c          # Core physics functions\n    tests/                    # Unit tests\n    ...\n  dilate/                     # Time dilation calculator\n    application.fam\n    calculations.h/c          # Core physics functions\n    tests/                    # Unit tests\n    ...\n  .github/workflows/          # CI test runner\n</code></pre>\n<h2 id=\"license\">License</h2>\n<p>MIT where applicable. See individual app directories.</p>",
+    "raw": "# Flipper Space Calculators\n\nA pair of minimalist space and physics calculators for the Flipper Zero. No games, no splash screens -- just the numbers.\n\n## Applications\n\n### [Space Travel Calculator](./space-travel-calculator/)\n\nInterplanetary trajectory planner with real-time orbital visualization. Select a destination (Mars, Venus, Jupiter, Europa, Titan, and more), scroll through launch dates, and see Hohmann transfer orbits drawn on screen. Outputs delta-v requirements, flight time, and phase angles.\n\n### [Dilate](./dilate/)\n\nTime dilation calculator for special relativity. Set a velocity (fraction of c) and a duration, and see how much time passes for you versus an observer on Earth. Auto-scales units from seconds to years.\n\n## Installation\n\n### Pre-built .fap files (easiest)\n\n1. Download `space_travel_calculator.fap` and/or `dilate.fap` from the [latest release](https://github.com/ejfox/flipper-space-calculators/releases/latest).\n2. Connect your Flipper Zero via qFlipper or mount the SD card directly.\n3. Copy the `.fap` files to `SD Card/apps/Tools/` on the Flipper.\n4. On the Flipper, open **Apps > Tools** and select the calculator you want.\n\n### Firmware compatibility\n\nThe pre-built `.fap` files in releases are compiled for **Momentum firmware mntm-009** (API 79.2). If you are running a different firmware or API version, you will need to build from source (see below).\n\n## Building from Source\n\nThe recommended way to build Flipper Zero apps is with [ufbt](https://github.com/flipperdevices/flipperzero-ufbt) (micro Flipper Build Tool).\n\n### 1. Install ufbt\n\n```bash\npip install ufbt\n```\n\n### 2. Set up the SDK\n\nFor **Momentum firmware** (recommended if you use Momentum):\n\n```bash\nufbt update --index-url=https://up.momentum-fw.dev/firmware/directory.json\n```\n\nFor **stock Flipper firmware**:\n\n```bash\nufbt update\n```\n\n### 3. Clone and build\n\n```bash\ngit clone https://github.com/ejfox/flipper-space-calculators.git\ncd flipper-space-calculators\n```\n\nEach app is built separately from its own directory:\n\n```bash\n# Space Travel Calculator\ncd space-travel-calculator\nufbt\ncd ..\n\n# Dilate\ncd dilate\nufbt\ncd ..\n```\n\nCompiled `.fap` files will be in each app's `dist/` directory.\n\n### 4. Deploy directly to Flipper (optional)\n\nFrom inside either app directory:\n\n```bash\nufbt launch\n```\n\n## Testing\n\nBoth calculators include unit tests for their core calculation functions, run via GitHub Actions on every push and PR.\n\n- Space Travel Calculator: 14 tests (orbital mechanics, Hohmann transfers)\n- Dilate: 15 tests (Lorentz factor, time dilation)\n\nRun tests locally from each app's directory:\n\n```bash\ncd space-travel-calculator && make -C tests && cd ..\ncd dilate && make -C tests && cd ..\n```\n\n## Project Structure\n\n```\nflipper-space-calculators/\n  space-travel-calculator/    # Orbital transfer calculator\n    application.fam\n    calculations.h/c          # Core physics functions\n    tests/                    # Unit tests\n    ...\n  dilate/                     # Time dilation calculator\n    application.fam\n    calculations.h/c          # Core physics functions\n    tests/                    # Unit tests\n    ...\n  .github/workflows/          # CI test runner\n```\n\n## License\n\nMIT where applicable. See individual app directories.\n",
+    "excerpt": "A pair of minimalist space and physics calculators for the Flipper Zero. No games, no splash screens -- just the numbers.\n\n\n\n\n\nInterplanetary trajectory planner..."
+  },
+  "createdAt": "2025-07-30T20:15:59Z",
+  "updatedAt": "2026-03-23T03:41:21Z",
+  "pushedAt": "2026-03-23T03:41:58Z"
+}

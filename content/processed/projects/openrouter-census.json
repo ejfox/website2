@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->\n<p class=\"\">A complete census of the 316+ AI models on OpenRouter — scrapes them all in seconds and renders an interactive dashboard of Observable Plot charts: pricing distribution, the context-vs-price paradox, provider market share, and capability breakdowns.</p>\n<figure role=\"figure\" aria-label=\"OpenRouter Model Census — the dashboard: pricing distribution + the context-price paradox across 376 models\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/openrouter-census/dashboard.png\" alt=\"OpenRouter Model Census — the dashboard: pricing distribution + the context-price paradox across 376 models\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/openrouter-census/dashboard.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/openrouter-census/dashboard.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/openrouter-census/dashboard.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/openrouter-census/dashboard.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"OpenRouter Model Census — the dashboard: pricing distribution + the context-price paradox across 376 models\" width=\"1440\" height=\"2150\" style=\"--splay-rot:-1.29deg;\" data-dimensions=\"1440×2150\" class=\"img-full my-8 rounded-sm img-splay aspect-[3/4] w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">OpenRouter Model Census — the dashboard: pricing distribution + the context-price paradox across 376 models</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"The companion interactive CLI\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/openrouter-census/tui.png\" alt=\"The companion interactive CLI\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/openrouter-census/tui.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/openrouter-census/tui.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/openrouter-census/tui.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/openrouter-census/tui.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The companion interactive CLI\" width=\"1400\" height=\"880\" style=\"--splay-rot:1.11deg;\" data-dimensions=\"1400×880\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The companion interactive CLI</figcaption>\n</figure>",
+  "title": "Openrouter Census",
+  "metadata": {
+    "title": "Openrouter Census",
+    "date": "2025-08-21T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/openrouter-census",
+    "tech": [
+      "JavaScript"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 70,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

@@ -1,14 +1,21 @@
 ---
-title: Vulpecula Loom
-github: https://github.com/ejfox/vulpecula-loom
-date: 2025-02-22T18:13:49-05:00
-modified: 2025-04-06T12:01:29-04:00
+title: "Vulpecula Loom"
+date: 2025-06-01T00:00:00-04:00
+draft: true
+url: https://ejfox.github.io/vulpecula-loom/
+tech: ["Electron", "Vue", "OpenRouter", "Obsidian"]
+state: deployed
+aiInvolvement: ai-assisted
+tags:
+  - ai
+  - app
+  - desktop
 ---
 
-![](http://res.cloudinary.com/ejf/image/upload/v1740266227/Screenshot_2025-02-22_at_6.16.55_PM.png)
+<!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->
 
-An Electron desktop app to customize the experience of talking to different LLM models through OpenRouter. Added a bunch of power user convenience features for myself, like seeing the total token usage, cost per token, and being able to prune out large messages from the history if desired. My goal is to keep adding on to it and using it as my daily-driver interface for different models.
+A desktop AI chat app with deep Obsidian integration and OpenRouter support — bring your own models, keep your conversations woven into your vault.
 
-![](http://res.cloudinary.com/ejf/video/upload/v1743955256/VulpeculaLoom-Demo-Wide.mp4)
+![Vulpecula Loom landing page](https://res.cloudinary.com/ejf/image/upload/projects/vulpecula-loom/landing.png)
 
-![https://res.cloudinary.com/ejf/image/upload/v1733629718/Screenshot_2024-12-07_at_10.48.25_PM.png](https://res.cloudinary.com/ejf/image/upload/v1733629718/Screenshot_2024-12-07_at_10.48.25_PM.png)
+![The chat itself — bring-your-own-model via OpenRouter, with live token and cost tracking per message](https://res.cloudinary.com/ejf/image/upload/projects/vulpecula-loom/app.png)

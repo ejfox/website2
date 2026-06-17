@@ -16,11 +16,11 @@ tags:
 
 The snow is beginning to fall in upstate New York and I am gathering some fresh wood from the pile by the driveway to put next to the wood stove. All winter long, warmth has been hard to find. Lately, despite how cold it is, I have been resisting the urge to light the fire until the sunset lights up the trees. As I feel the temperature drop, I _finally_ let myself light the fire. I apply the lighter to the carefully designed structure of kindling, which is eager to burn, so I only have to hold the flame to it for a few seconds. Then I can sit back and watch the fire grow.
 
-There is a pride, an inner warmth you gain when you sit by a fire you've assembled yourself. Within that pride is gratitude to the tree that is itself burning, the nameless stewards of that tree throughout its lifetime, the person who cut it down, chopped it, and dumped it in your driveway, and gratitude to your parents for making that order in mid-July in preparation for the cold winter.
+There is a pride, an inner warmth you gain when you sit by a [[preparation-as-practice|fire you've assembled yourself]]. Within that pride is gratitude to the tree that is itself burning, the nameless stewards of that tree throughout its lifetime, the person who cut it down, chopped it, and dumped it in your driveway, and gratitude to your parents for making that order in mid-July in preparation for the cold winter.
 
 ### Preparation
 
-For the past year when I wake up in the morning and meditate for a little while on what my heart truly desires the compass often spins back to a central concept of **preparation**. *The process of assembling skills, knowledge, and tools that may or may not be useful later.* This is a dangerous art that can quickly trap a person. You can easily become over-enamored with preparation as an act in itself, something I keep falling prey to.
+For the past year when I wake up in the morning and meditate for a little while on what my heart truly desires the compass often spins back to a central concept of **[[robots/preparation-as-practice|preparation]]**. *The process of [[building-tools-for-yourself|assembling skills, knowledge, and tools]] that may or may not be useful later.* This is a dangerous art that can quickly trap a person. You can easily become over-enamored with preparation as an act in itself, something I keep falling prey to.
 
 I have been trying to find the commonalities, the patterns in the things I feel drawn to, but even within myself it is sometimes hard to figure out. It is probably easier to catalog the things and let the threads draw themselves.
 
@@ -30,15 +30,15 @@ I have finally admitted and come to love a fundamental part of myself; I love ba
 
 This could be a response to the constraints of my life; I’ve been bouncing around trying to find a semi-permanent place in Beacon, NY while trying to avoid being entangled in the insane post-COVID Hudson Valley housing market.
 
-I love traveling by motorcycle as long as the weather permits, and my setup is built around being loaded onto a bike and driven through rainstorms. This means everything needs to be in dry bags, carefully protected from the elements. The motorcycle makes you really think through the things you want to carry; space is limited, and every object needs to be useful in at least two ways and used every day to justify the space it takes up. I've documented this more on my [gear page](https://ejfox.com/gear)
+I love traveling by motorcycle as long as the weather permits, and my setup is built around being loaded onto a bike and driven through rainstorms. This means everything needs to be in dry bags, carefully protected from the elements. The [[robots/minimalism-as-technical-practice|motorcycle makes you really think through]] the things you want to carry; space is limited, and every object needs to be useful in at least two ways and used every day to justify the space it takes up. I've documented this more on my [gear page](https://ejfox.com/gear)
 
 ![https://res.cloudinary.com/ejf/image/upload/v1731960044/gear-viz.r1.png](https://res.cloudinary.com/ejf/image/upload/v1731960044/gear-viz.r1.png)
 
-I like this way of minimalist thinking about the gear I keep on my person and my bike on two levels; a practical pragmatic level as well as a philosophical and ethical plane.
+I like this way of [[robots/minimalism-as-technical-practice|minimalist thinking]] about the gear I keep on my person and my bike on two levels; a practical pragmatic level as well as a philosophical and ethical plane.
 
 #### Aesthetically Minimalist
 
-I have been a fan, if not an adherent, of a minimalist design philosophy for my entire adult life. I was raised in a generation of designers who admired Dieter Rams and Edward Tufte; as a data visualization designer I was taught early about the concept of “data-ink ratio”; that is, the ink on the page needs to justify itself with information conveyed. In this view, elements on a page (or a screen) that do not serve a justifiable utilitarian purpose need be removed in order to *grant clarity to the user*. The minimalism is in aid of understanding and truth, and through good design is the result of careful thought and iteration on the part of the designer in order to save the user precious time and frustration.
+I have been a fan, if not an adherent, of a minimalist design philosophy for my entire adult life. I was raised in a generation of designers who admired Dieter Rams and Edward Tufte ([[robots/minimalism-as-technical-practice|more on how this applies to code]]); as a data visualization designer I was taught early about the concept of "data-ink ratio"; that is, the ink on the page needs to justify itself with information conveyed. In this view, elements on a page (or a screen) that do not serve a justifiable utilitarian purpose need be removed in order to *grant clarity to the user*. The minimalism is in aid of understanding and truth, and through good design is the result of careful thought and iteration on the part of the designer in order to save the user precious time and frustration.
 
 #### Philosophically Minimalist
 
@@ -72,7 +72,7 @@ After some early studying, I began acquiring cheap radios, first the obligatory 
 
 I love knowing that hidden on radio waves that permeate this valley, there’s a group of people talking about their breakfast and practicing passing messages both for their own benefit as well as to potentially help the community more broadly in case of an emergency. These people are assuredly all different, with different ideas about what an ideal future holds, but for this thing they can come together and agree.
 
-We are living in a moment of remarkable instability and uncertainty, politically and technologically. The threatening wave of techno-fascism paired with paradigm changes promised by AI mean the future will certainly be radically different. The ways in which it will be different are still within our control, to some degree, particularly in the small hidden local networks that exist all around us if we know where to look.
+We are living in a moment of remarkable instability and uncertainty, politically and technologically. The threatening wave of techno-fascism paired with paradigm changes promised by [[coachartie-multi-interface-ai|AI]] mean the future will certainly be radically different. The ways in which it will be different are still within our control, to some degree, particularly in the small hidden local networks that exist all around us if we know where to look.
 
 ### Packing Light
 
@@ -84,4 +84,8 @@ But I am also grateful for how good it feels to finally put a skill you have pra
 
 A lot of my gear isn’t just for me; I carry extras of items that others might need, I carry a first aid kit in order to help the people I am surrounded by, I have enough extra old gear in my storage unit to outfit another person completely. The same can be said for my skills; which I have assembled in a way that will hopefully benefit myself and those around me. Wilderness first aid, the ability to fix electronics, even just being able to take a good photo. As someone who finds joy through service, this brings its own innate reward, but it also comes from knowing the responsibility I owe to my community and to the place I am lucky enough to live.
 
-Putting in the effort to gather and prepare the fire isn’t just about warming oneself, it’s about making a place of warmth for others. There is something fundamentally human in these acts; these are the moments when some see God move through us, when we are kind to each other for no gain, something beautiful that lives in the hearts of almost everyone if you have faith. These are things worth protecting, worth preparing to protect.
+Putting in the effort to gather and prepare the fire isn’t just about warming oneself, it’s about making a place of warmth for others. There is something fundamentally human in these acts; these are the moments when some see God move through us, when we are kind to each other for no gain, something beautiful that lives in the hearts of almost everyone if you have faith. These are things worth protecting, worth [[preparation-as-practice|preparing to protect]].
+
+---
+
+*Update 2025-12: The house is now under contract — the physical manifestation of these principles.*

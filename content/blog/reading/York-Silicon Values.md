@@ -1,4 +1,8 @@
 ---
+tags:
+  - tech
+  - politics
+  - book
 kindle-sync:
   bookId: '40211'
   title: 'Silicon Values: The Future of Free Speech Under Surveillance Capitalism'
@@ -7,35 +11,19 @@ kindle-sync:
   lastAnnotatedDate: '2022-12-01'
   bookImageUrl: 'https://m.media-amazon.com/images/I/616o1iZ2KFL._SY160.jpg'
   highlightsCount: 1
-date: 2022-12-26T16:46:47.000Z
-modified: 2022-12-27T20:10:11.000Z
-tags:
-  - tech
-  - culture
-  - book
-  - reference
-  - opinion
-  - politics
-  - america
 ---
 # Silicon Values
 
-#tech #culture 
-
-# Metadata
-
-* Author: [Jillian C. York](https://www.amazon.comundefined)
-
-* ASIN: B089S6JCYN
-
 * ISBN: 1788738802
 
-* Reference: <https://www.amazon.com/dp/B089S6JCYN>
-
-* [Kindle link](kindle://book?action=open&asin=B089S6JCYN)
-
-# Highlights
-
-these techno-boosters are at the same time reproducing some of the most atavistic features of American society, especially those derived from the bitter legacy of slavery. — location: [54](kindle://book?action=open&asin=B089S6JCYN&location=54) ^ref-59135
+## Highlights
+> these techno-boosters are at the same time reproducing some of the most atavistic features of American society, especially those derived from the bitter legacy of slavery. ^ref-59135
 
 ---
+
+## Metadata
+* Author: Jillian C. York
+* ASIN: B089S6JCYN
+* ISBN: 1788738802
+* Reference: https://www.amazon.com/dp/B089S6JCYN
+* [Kindle link](kindle://book?action=open&asin=B089S6JCYN)

@@ -5,7 +5,7 @@ dek: >-
   spontaneous and joyous experiences
 inprogress: true
 date: 2022-12-26T15:09:25-05:00
-modified: 2024-09-20T00:22:18-04:00
+modified: 2025-08-29T16:13:45-04:00
 tags:
   - travel
   - personal
@@ -16,7 +16,7 @@ tags:
 
 #travel #personal
 
-![](https://res.cloudinary.com/ejf/image/upload/v1679587768/3556900738_An_illustration_of_a_traveler_in_a_whimsical_landscape__carrying_a_backpack_filled_with_souvenirs_an.png)
+![Hiker with backpack walking through colorful rolling hills toward a rainbow under a bright sun.](https://res.cloudinary.com/ejf/image/upload/v1679587768/3556900738_An_illustration_of_a_traveler_in_a_whimsical_landscape__carrying_a_backpack_filled_with_souvenirs_an.png)
 
 #travel
 

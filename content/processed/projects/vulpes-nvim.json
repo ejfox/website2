@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">A cyberpunk neon colorscheme for Neovim — signature vulpes pink, teal comments, dark and light variants, and monthly color rotations. Ships with matching themes for the rest of the terminal: wezterm, kitty, ghostty, alacritty, tmux, lazygit, bat, and fzf.</p>\n<figure role=\"figure\" aria-label=\"The vulpes colorscheme rendering its own palette file in Neovim\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-nvim/editor.png\" alt=\"The vulpes colorscheme rendering its own palette file in Neovim\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpes-nvim/editor.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpes-nvim/editor.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-nvim/editor.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpes-nvim/editor.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The vulpes colorscheme rendering its own palette file in Neovim\" width=\"1300\" height=\"820\" style=\"--splay-rot:-1.07deg;\" data-dimensions=\"1300×820\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The vulpes colorscheme rendering its own palette file in Neovim</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"The vulpes palette across a full terminal — waveforms, logs, and the fox mark\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-nvim/theme1.png\" alt=\"The vulpes palette across a full terminal — waveforms, logs, and the fox mark\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpes-nvim/theme1.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpes-nvim/theme1.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-nvim/theme1.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpes-nvim/theme1.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The vulpes palette across a full terminal — waveforms, logs, and the fox mark\" width=\"3600\" height=\"2262\" style=\"--splay-rot:2.62deg;\" data-dimensions=\"3600×2262\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The vulpes palette across a full terminal — waveforms, logs, and the fox mark</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"vulpes.nvim editing its own source in Neovim\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-nvim/theme2.png\" alt=\"vulpes.nvim editing its own source in Neovim\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpes-nvim/theme2.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpes-nvim/theme2.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-nvim/theme2.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpes-nvim/theme2.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"vulpes.nvim editing its own source in Neovim\" width=\"3600\" height=\"2338\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"3600×2338\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">vulpes.nvim editing its own source in Neovim</figcaption>\n</figure>",
+  "title": "vulpes.nvim",
+  "metadata": {
+    "title": "vulpes.nvim",
+    "date": "2026-01-18T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/vulpes.nvim",
+    "tech": [
+      "Lua"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools"
+    ],
+    "words": 84,
+    "images": 3,
+    "imageDetails": {
+      "total": 3,
+      "cloudinary": 3,
+      "withDimensions": 0
+    },
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

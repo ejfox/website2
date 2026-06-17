@@ -1,0 +1,14 @@
+{
+  "blockedDomains": ["spam-site.com", "ad-network.com"],
+  "blockedUrls": [],
+  "blockedAuthors": [],
+  "trustedDomains": [
+    "twitter.com",
+    "github.com",
+    "mastodon.social",
+    "hachyderm.io",
+    "micro.blog",
+    "indieweb.org"
+  ],
+  "spamKeywords": ["viagra", "casino", "forex", "crypto giveaway", "free money"]
+}

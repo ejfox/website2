@@ -6,7 +6,6 @@ type: words
 hidden: false
 inprogress: false
 date: '2020-02-14T21:19:39-04:00'
-hidetimestamp: false
 tags:
   - activism
   - journalism

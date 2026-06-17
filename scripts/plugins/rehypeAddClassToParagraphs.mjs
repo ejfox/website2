@@ -1,8 +1,16 @@
+/**
+ * @file plugins/rehypeAddClassToParagraphs.mjs
+ * @description Rehype plugin that adds Tailwind CSS classes to HTML elements (blockquotes, code blocks, tables, footnotes)
+ * @usage .use(rehypeAddClassToParagraphs)
+ */
+
 import { visit } from 'unist-util-visit'
 
 // Define SVG for horizontal rule - using the simpler line style
-const hrSvg = `<svg class="mx-auto my-8 w-full max-w-prose" height="1">
-  <line x1="0" y1="0" x2="100%" y2="0" stroke="currentColor" stroke-width="1" stroke-dasharray="2,4" />
+const hrSvg =
+  `<svg class="mx-auto my-8 w-full max-w-prose" height="1">
+  <line x1="0" y1="0" x2="100%" y2="0" stroke="currentColor" ` +
+  `stroke-width="1" stroke-dasharray="2,4" />
 </svg>`
 
 export function rehypeAddClassToParagraphs() {
@@ -13,34 +21,11 @@ export function rehypeAddClassToParagraphs() {
 
       switch (node.tagName) {
         case 'p':
-          addClasses(node, [
-            'prose-p',
-            'prose-sm',
-            'max-w-prose',
-            'mb-4',
-            'leading-relaxed',
-            'dark:prose-invert',
-            'animate-on-scroll'
-          ])
-          node.properties.style = 'max-width: 60ch;'
+          // Let CSS handle paragraph styles
           break
 
         case 'blockquote':
-          addClasses(node, [
-            'prose-blockquote',
-            'prose-sm',
-            'max-w-prose',
-            'pl-4',
-            'border-l-4',
-            'border-zinc-300',
-            'dark:border-zinc-700',
-            'italic',
-            'my-4',
-            'text-zinc-700',
-            'dark:text-zinc-300',
-            'animate-on-scroll',
-            'slide-from-left'
-          ])
+          addClasses(node, ['md-blockquote'])
           break
 
         case 'hr':
@@ -50,170 +35,70 @@ export function rehypeAddClassToParagraphs() {
           break
 
         case 'img':
-          addClasses(node, [
-            'w-full',
-            'max-w-full',
-            'mx-auto',
-            'transition-all',
-            'duration-300',
-            'ease-in-out',
-            'pr-2 py-2',
-            'md:pr-6 md:py-4',
-            'lg:pr-12 lg:py-6',
-            'animate-on-scroll',
-            'slide-from-bottom',
-            'will-change-transform'
-          ])
+          addClasses(node, ['w-full', 'mx-auto', 'py-4'])
           break
 
         case 'h1':
-          addClasses(node, [
-            'prose-sm',
-            'text-4xl',
-            'font-bold',
-            'mb-6',
-            'mt-8',
-            'max-w-prose',
-            'lg:pr-12',
-            'animate-on-scroll',
-            'slide-from-left'
-          ])
+          // Let CSS handle heading styles
           break
 
         case 'h2':
-          addClasses(node, [
-            'prose-sm',
-            'text-3xl',
-            'font-semibold',
-            'mb-4',
-            'mt-8',
-            'max-w-prose',
-            'border-b',
-            'border-zinc-200',
-            'dark:border-zinc-800',
-            'pb-2',
-            'md:pr-12',
-            'animate-on-scroll',
-            'slide-from-left'
-          ])
+          // Let CSS handle heading styles
           break
 
         case 'h3':
-          addClasses(node, [
-            'prose-sm',
-            'text-2xl',
-            'font-medium',
-            'mb-3',
-            'mt-6',
-            'max-w-prose',
-            'md:pr-12',
-            'animate-on-scroll',
-            'slide-from-left'
-          ])
+          // Let CSS handle heading styles
+          break
+
+        case 'h4':
+        case 'h5':
+        case 'h6':
+          // Let CSS handle heading styles
           break
 
         case 'ul':
-          addClasses(node, [
-            'prose-sm',
-            'list-disc',
-            'list-outside',
-            'ml-6',
-            'mb-4',
-            'space-y-2',
-            'max-w-prose'
-          ])
+          // Let CSS handle list styles
+          addClasses(node, ['list-disc'])
           break
 
         case 'ol':
-          addClasses(node, [
-            'prose-sm',
-            'list-decimal',
-            'list-outside',
-            'ml-6',
-            'mb-4',
-            'space-y-2',
-            'max-w-prose'
-          ])
+          // Let CSS handle list styles
+          addClasses(node, ['list-decimal'])
           break
 
         case 'li':
-          addClasses(node, ['prose-sm', 'max-w-prose'])
+          // No special classes for li
           break
 
         case 'a':
-          addClasses(node, [
-            'prose-sm',
-            'text-blue-600',
-            'dark:text-blue-400',
-            'hover:underline',
-            'transition-colors',
-            'duration-200'
-          ])
+          // Minimal link styling
+          addClasses(node, ['text-blue-600', 'dark:text-blue-400'])
           break
 
         case 'code':
-          if (node.properties.className?.includes('language-')) {
-            // Code block
-            addClasses(node, [
-              'prose-sm',
-              'block',
-              'rounded-lg',
-              'bg-zinc-100',
-              'dark:bg-zinc-800',
-              'p-4',
-              'my-4',
-              'overflow-x-auto',
-              'font-mono',
-              'text-sm'
-            ])
+          if (
+            node.properties?.className?.includes('language-') ||
+            node.properties?.dataLanguage ||
+            node.properties?.['data-language']
+          ) {
+            // Code block - match body text size with proper padding
+            addClasses(node, ['md-codeblock'])
           } else {
-            // Inline code
-            addClasses(node, [
-              'prose-sm',
-              'font-mono',
-              'text-sm',
-              'bg-zinc-100',
-              'dark:bg-zinc-800',
-              'rounded',
-              'px-1.5',
-              'py-0.5'
-            ])
+            // Inline code - keep smaller
+            addClasses(node, ['md-inline-code'])
           }
           break
 
         case 'pre':
-          addClasses(node, [
-            'prose-sm',
-            'relative',
-            'rounded-lg',
-            'overflow-hidden',
-            'shadow-sm'
-          ])
+          addClasses(node, ['md-pre'])
           break
 
         case 'table':
-          addClasses(node, [
-            'prose-sm',
-            'min-w-full',
-            'border-collapse',
-            'table-auto',
-            'my-4',
-            'text-sm'
-          ])
+          addClasses(node, ['md-table'])
           break
 
         case 'th':
-          addClasses(node, [
-            'border-b',
-            'border-zinc-200',
-            'dark:border-zinc-700',
-            'bg-zinc-50',
-            'dark:bg-zinc-800',
-            'px-4',
-            'py-2',
-            'text-left',
-            'font-medium'
-          ])
+          addClasses(node, ['md-th'])
           break
 
         case 'td':
@@ -222,7 +107,7 @@ export function rehypeAddClassToParagraphs() {
             'border-zinc-200',
             'dark:border-zinc-700',
             'px-4',
-            'py-2'
+            'py-2',
           ])
           break
 
@@ -233,7 +118,7 @@ export function rehypeAddClassToParagraphs() {
               'font-medium',
               'text-blue-600',
               'dark:text-blue-400',
-              'ml-0.5'
+              'ml-0.5',
             ])
           }
           break
@@ -245,7 +130,7 @@ export function rehypeAddClassToParagraphs() {
               'pt-8',
               'border-t',
               'border-zinc-200',
-              'dark:border-zinc-800'
+              'dark:border-zinc-800',
             ])
           }
           break
@@ -255,15 +140,7 @@ export function rehypeAddClassToParagraphs() {
       if (node.tagName === 'blockquote') {
         visit(node, 'element', (child) => {
           if (child.tagName === 'p') {
-            addClasses(child, [
-              'prose-p',
-              'prose-sm',
-              'max-w-prose',
-              'mb-4',
-              'text-zinc-600',
-              'dark:text-zinc-400'
-            ])
-            child.properties.style = 'max-width: 60ch;'
+            addClasses(child, ['text-zinc-600', 'dark:text-zinc-400'])
           }
         })
       }

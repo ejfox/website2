@@ -1,8 +1,15 @@
+/**
+ * @file robots/[...slug].ts
+ * @description Dynamic router for robot notes with shareable AI-readable content, supports both list view and individual note retrieval
+ * @endpoint GET /api/robots/ - Lists all robot notes, GET /api/robots/{slug} - Gets individual robot note
+ * @params slug: string[] - Dynamic path segments for nested robot note structure
+ * @returns Robot note data with metadata and shareable content from content/processed/robots or content/blog/robots
+ */
 import { createRouter, defineEventHandler, useBase, createError } from 'h3'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
-import { readFile } from 'fs/promises'
-import { existsSync } from 'fs'
-import path from 'path'
+import { readFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
+import path from 'node:path'
 
 const router = createRouter()
 
@@ -10,7 +17,7 @@ router.get(
   '/',
   defineEventHandler(async () => {
     const { getRobotNotes } = useProcessedMarkdown()
-    return await getRobotNotes()
+    return getRobotNotes()
   })
 )
 
@@ -23,7 +30,7 @@ router.get(
     if (!fullPath) {
       throw createError({
         statusCode: 400,
-        message: 'Missing slug parameter'
+        message: 'Missing slug parameter',
       })
     }
 
@@ -54,15 +61,15 @@ router.get(
       if (!data || !data.metadata?.share) {
         throw createError({
           statusCode: 404,
-          message: 'Robot note not found'
+          message: 'Robot note not found',
         })
       }
 
       return data
-    } catch (error) {
+    } catch {
       throw createError({
         statusCode: 404,
-        message: 'Robot note not found'
+        message: 'Robot note not found',
       })
     }
   })

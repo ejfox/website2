@@ -1,0 +1,278 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove ALL default Tailwind styles to reduce size */
+@layer base {
+  /* Reset only what we need */
+  *,
+  ::before,
+  ::after {
+    box-sizing: border-box;
+  }
+
+  /* Widow/orphan control for better typography */
+  p, h1, h2, h3, h4, h5, h6, li {
+    orphans: 2;
+    widows: 2;
+  }
+
+  /* Smart quotes via CSS (works in modern browsers) */
+  :lang(en) {
+    quotes: '"' '"' ''' ''';
+  }
+
+  /* Branded text selection */
+  ::selection {
+    @apply bg-zinc-300 text-zinc-900;
+  }
+  .dark ::selection {
+    @apply bg-zinc-700 text-zinc-100;
+  }
+}
+
+@layer components {
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+
+  /* Headings */
+
+  /* Body text */
+
+  /* Labels & metadata */
+  .label-xs {
+    @apply font-mono text-xs text-zinc-500 dark:text-zinc-500 tabular-nums;
+  }
+
+  .label-uppercase {
+    @apply font-mono text-zinc-500 uppercase tracking-wider text-xs tabular-nums;
+  }
+
+  /* Mono text */
+  .mono-xs {
+    @apply font-mono text-xs;
+  }
+
+  .mono-sm {
+    @apply font-mono text-sm;
+  }
+
+  .mono-lg {
+    @apply font-mono text-lg font-bold tabular-nums tracking-tight dark:tracking-normal;
+  }
+
+  /* ========================================
+     COLORS
+     ======================================== */
+
+  .text-muted {
+    @apply text-zinc-500 dark:text-zinc-500;
+  }
+
+  .text-secondary {
+    @apply text-zinc-600 dark:text-zinc-400;
+  }
+
+  .text-primary {
+    @apply text-zinc-900 dark:text-zinc-100;
+  }
+
+  .text-success {
+    @apply text-green-600 dark:text-green-500;
+  }
+
+  .text-error {
+    @apply text-red-600 dark:text-red-500;
+  }
+
+  .text-divider {
+    @apply text-zinc-300 dark:text-zinc-700;
+  }
+
+  /* ========================================
+     STATS & DATA DISPLAYS
+     ======================================== */
+
+  .stat-value {
+    @apply font-mono text-2xl font-bold tabular-nums text-zinc-900 dark:text-zinc-100;
+  }
+
+  .stat-item {
+    @apply flex items-baseline justify-between text-xs;
+  }
+
+  .stat-card {
+    @apply space-y-1;
+  }
+
+  /* ========================================
+     LAYOUT
+     ======================================== */
+
+  .flex-gap-2 {
+    @apply flex items-center gap-2;
+  }
+
+  .grid-2col {
+    @apply grid grid-cols-2 gap-x-4 gap-y-0.5;
+  }
+
+  .grid-2col-lg {
+    @apply grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4;
+  }
+
+  /* ========================================
+     SPACING
+     ======================================== */
+
+  .section-spacing {
+    @apply mb-12;
+  }
+
+  .section-spacing-sm {
+    @apply mb-6;
+  }
+
+  .section-spacing-lg {
+    @apply mb-8;
+  }
+
+  .stack-1 {
+    @apply space-y-1;
+  }
+
+  .stack-2 {
+    @apply space-y-2;
+  }
+
+  /* ========================================
+     CARDS & CONTAINERS
+     ======================================== */
+
+  .card-hover {
+    @apply -mx-4 px-4 py-2 hover:bg-zinc-50 dark:hover:bg-zinc-900 transition-colors duration-150 motion-reduce:transition-none;
+  }
+
+  .container-main {
+    @apply px-4 sm:px-8 max-w-4xl;
+  }
+
+  /* ========================================
+     TABLES
+     ======================================== */
+
+  .table-dense {
+    @apply w-full font-mono text-xs text-zinc-500 dark:text-zinc-500;
+  }
+
+  /* ========================================
+     TRANSITIONS
+     ======================================== */
+
+  /* ========================================
+     LINKS
+     ======================================== */
+
+  .link-hover {
+    @apply hover:text-zinc-900 dark:hover:text-zinc-200 transition-colors;
+  }
+
+  /* ========================================
+     BADGES & INDICATORS
+     ======================================== */
+
+  .badge-side-yes {
+    @apply font-mono text-lg font-bold shrink-0 tabular-nums tracking-tight dark:tracking-normal text-green-600 dark:text-green-500;
+  }
+
+  .badge-side-no {
+    @apply font-mono text-lg font-bold shrink-0 tabular-nums tracking-tight dark:tracking-normal text-red-600 dark:text-red-500;
+  }
+
+  /* ========================================
+     UTILITY
+     ======================================== */
+
+  .tabular {
+    @apply tabular-nums;
+  }
+
+  .flex-fill {
+    @apply flex-1 min-w-0;
+  }
+
+  /* ========================================
+     COMPLETE PATTERNS
+     Full semantic classes for common patterns
+     ======================================== */
+
+  /* Metadata displays */
+
+  .post-metadata {
+    @apply font-mono text-3xs text-zinc-400 dark:text-zinc-600 mt-0.5 uppercase tracking-wider tabular-nums slashed-zero flex flex-wrap items-center gap-0.5;
+  }
+
+  .post-dek {
+    @apply font-serif text-lg text-zinc-600 dark:text-zinc-400 max-w-prose mt-4 text-pretty hyphens-auto;
+  }
+
+  /* Section headers */
+
+  /* Data displays */
+
+  /* Calibration/Stats specific patterns */
+
+  /* Blog post navigation patterns */
+
+  /* Now page / Activity feed patterns */
+
+  /* Form & Input patterns */
+
+  .text-hover {
+    @apply text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors;
+  }
+
+  .debug-grid-sidebar {
+    @apply hidden md:block fixed left-0 top-0 bottom-0 w-[180px] border-r border-green-400 opacity-30;
+  }
+
+  .card-title-group-hover {
+    @apply font-serif text-base font-normal text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors line-clamp-2 text-pretty;
+  }
+
+  /* LAYOUT */
+
+  /* NAV LINKS */
+
+  /* STATS & COMPONENTS */
+  .stats-section-title-hover {
+    @apply transition-colors group-hover:text-zinc-600 dark:group-hover:text-zinc-400;
+  }
+
+  /* Card patterns */
+
+  .card-title {
+    @apply font-serif text-sm text-zinc-900 dark:text-zinc-100 group-hover:text-zinc-600 dark:group-hover:text-zinc-400 transition-colors duration-150;
+  }
+
+  /* Table headers */
+
+  /* Link variants */
+
+  /* Duplicate definitions removed - see lines 643-645 (.link-underline-hover), 475-477 (.btn-secondary), 750-752 (.btn-filter) */
+
+  /* Tag styles */
+
+  /* Input variants */
+
+  /* Section headers */
+
+  /* Title variants */
+  .title-link {
+    @apply text-lg md:text-xl font-normal text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors duration-200 tracking-tight text-pretty;
+    font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
+    overflow-wrap: break-word;
+  }
+
+}

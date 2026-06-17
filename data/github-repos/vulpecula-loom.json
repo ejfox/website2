@@ -1,0 +1,1672 @@
+{
+  "name": "vulpecula-loom",
+  "description": "Desktop AI chat app with Obsidian integration, OpenRouter support, and more",
+  "url": "https://github.com/ejfox/vulpecula-loom",
+  "homepage": "https://ejfox.github.io/vulpecula-loom/",
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 8
+  },
+  "language": "Vue",
+  "languageColor": "#41b883",
+  "languages": {
+    "Vue": 324823,
+    "JavaScript": 254287,
+    "TypeScript": 201000,
+    "CSS": 3702,
+    "Shell": 1502,
+    "HTML": 484
+  },
+  "diskUsage": 4774,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".github/ISSUE_TEMPLATE/bug_report.md",
+        "size": 162
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/help_wanted.md",
+        "size": 203
+      },
+      {
+        "path": ".github/PULL_REQUEST_TEMPLATE.md",
+        "size": 321
+      },
+      {
+        "path": ".github/dependabot.yml",
+        "size": 503
+      },
+      {
+        "path": ".github/workflows/build.yml",
+        "size": 967
+      },
+      {
+        "path": ".github/workflows/ci.yml",
+        "size": 3146
+      },
+      {
+        "path": ".github/workflows/deploy.yml",
+        "size": 709
+      },
+      {
+        "path": ".gitignore",
+        "size": 273
+      },
+      {
+        "path": ".npmrc",
+        "size": 228
+      },
+      {
+        "path": ".nvmrc",
+        "size": 9
+      },
+      {
+        "path": ".vscode/.debug.script.mjs",
+        "size": 731
+      },
+      {
+        "path": ".vscode/extensions.json",
+        "size": 81
+      },
+      {
+        "path": ".vscode/launch.json",
+        "size": 1407
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 556
+      },
+      {
+        "path": ".vscode/tasks.json",
+        "size": 870
+      },
+      {
+        "path": "BETTER_AUTH_MIGRATION.md",
+        "size": 4286
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 1143
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 7424
+      },
+      {
+        "path": "LICENSE",
+        "size": 1069
+      },
+      {
+        "path": "README.md",
+        "size": 19908
+      },
+      {
+        "path": "anime.esm.js",
+        "size": 248336
+      },
+      {
+        "path": "build/icon.icns",
+        "size": 246379
+      },
+      {
+        "path": "build/icon.iconset/icon_128x128.png",
+        "size": 12340
+      },
+      {
+        "path": "build/icon.iconset/icon_128x128@2x.png",
+        "size": 27887
+      },
+      {
+        "path": "build/icon.iconset/icon_16x16.png",
+        "size": 1298
+      },
+      {
+        "path": "build/icon.iconset/icon_16x16@2x.png",
+        "size": 2251
+      },
+      {
+        "path": "build/icon.iconset/icon_256x256.png",
+        "size": 27887
+      },
+      {
+        "path": "build/icon.iconset/icon_256x256@2x.png",
+        "size": 59387
+      },
+      {
+        "path": "build/icon.iconset/icon_32x32.png",
+        "size": 2251
+      },
+      {
+        "path": "build/icon.iconset/icon_32x32@2x.png",
+        "size": 5250
+      },
+      {
+        "path": "build/icon.iconset/icon_512x512.png",
+        "size": 59387
+      },
+      {
+        "path": "build/icon.iconset/icon_512x512@2x.png",
+        "size": 59387
+      },
+      {
+        "path": "build/icons/128x128.png",
+        "size": 12340
+      },
+      {
+        "path": "build/icons/16x16.png",
+        "size": 1298
+      },
+      {
+        "path": "build/icons/256x256.png",
+        "size": 27887
+      },
+      {
+        "path": "build/icons/32x32.png",
+        "size": 2251
+      },
+      {
+        "path": "build/icons/48x48.png",
+        "size": 3618
+      },
+      {
+        "path": "build/icons/512x512.png",
+        "size": 59387
+      },
+      {
+        "path": "build/icons/64x64.png",
+        "size": 5250
+      },
+      {
+        "path": "build/icons/tray-icon-Template.png",
+        "size": 721
+      },
+      {
+        "path": "build/icons/tray-icon.png",
+        "size": 1150
+      },
+      {
+        "path": "build/logo.ico",
+        "size": 112641
+      },
+      {
+        "path": "docs/index.html",
+        "size": 5038
+      },
+      {
+        "path": "docs/index.md",
+        "size": 1545
+      },
+      {
+        "path": "electron-builder.json5",
+        "size": 960
+      },
+      {
+        "path": "electron/electron-env.d.ts",
+        "size": 575
+      },
+      {
+        "path": "electron/ipc/index.ts",
+        "size": 2767
+      },
+      {
+        "path": "electron/ipc/obsidian.ts",
+        "size": 2245
+      },
+      {
+        "path": "electron/main.ts",
+        "size": 878
+      },
+      {
+        "path": "electron/main/index.ts",
+        "size": 3101
+      },
+      {
+        "path": "electron/main/store.ts",
+        "size": 1710
+      },
+      {
+        "path": "electron/menu/index.ts",
+        "size": 7816
+      },
+      {
+        "path": "electron/menu/utils.ts",
+        "size": 81
+      },
+      {
+        "path": "electron/preload/index.ts",
+        "size": 3609
+      },
+      {
+        "path": "index.html",
+        "size": 484
+      },
+      {
+        "path": "package.json",
+        "size": 2641
+      },
+      {
+        "path": "postcss.config.js",
+        "size": 82
+      },
+      {
+        "path": "public/logo.ico",
+        "size": 121545
+      },
+      {
+        "path": "public/logo.svg",
+        "size": 2512
+      },
+      {
+        "path": "scripts/generate-icons.sh",
+        "size": 1502
+      },
+      {
+        "path": "src/App.vue",
+        "size": 36897
+      },
+      {
+        "path": "src/assets/electron.svg",
+        "size": 2440
+      },
+      {
+        "path": "src/assets/vite.svg",
+        "size": 1497
+      },
+      {
+        "path": "src/assets/vue.svg",
+        "size": 496
+      },
+      {
+        "path": "src/components/ApiKeyWarning.vue",
+        "size": 1643
+      },
+      {
+        "path": "src/components/ChatCodeblock.vue",
+        "size": 8358
+      },
+      {
+        "path": "src/components/ChatImport.vue",
+        "size": 4690
+      },
+      {
+        "path": "src/components/ChatInput.vue",
+        "size": 17511
+      },
+      {
+        "path": "src/components/ChatMessage.vue",
+        "size": 5267
+      },
+      {
+        "path": "src/components/ChatMetadata.vue",
+        "size": 5597
+      },
+      {
+        "path": "src/components/ChatSidebar.vue",
+        "size": 59307
+      },
+      {
+        "path": "src/components/ChatTitleBanner.vue",
+        "size": 3625
+      },
+      {
+        "path": "src/components/ConfirmationModal.vue",
+        "size": 1956
+      },
+      {
+        "path": "src/components/ContextAlchemyPanel.vue",
+        "size": 27621
+      },
+      {
+        "path": "src/components/ContextUsageBar.vue",
+        "size": 4514
+      },
+      {
+        "path": "src/components/DebugConsoleToggle.vue",
+        "size": 843
+      },
+      {
+        "path": "src/components/DebugOverlay.vue",
+        "size": 4526
+      },
+      {
+        "path": "src/components/HelloWorld.vue",
+        "size": 786
+      },
+      {
+        "path": "src/components/KeyboardShortcutsModal.vue",
+        "size": 4666
+      },
+      {
+        "path": "src/components/LoadingOverlay.vue",
+        "size": 485
+      },
+      {
+        "path": "src/components/LoadingState.vue",
+        "size": 2755
+      },
+      {
+        "path": "src/components/LogTicker.vue",
+        "size": 7034
+      },
+      {
+        "path": "src/components/LoginOverlay.vue",
+        "size": 14019
+      },
+      {
+        "path": "src/components/ModelMetadata.vue",
+        "size": 10876
+      },
+      {
+        "path": "src/components/ModelSettings.vue",
+        "size": 27032
+      },
+      {
+        "path": "src/components/ObsidianMentionPopup.vue",
+        "size": 4438
+      },
+      {
+        "path": "src/components/SettingsModal.vue",
+        "size": 37213
+      },
+      {
+        "path": "src/components/StatusBar.vue",
+        "size": 4665
+      },
+      {
+        "path": "src/components/TitleBar.vue",
+        "size": 11690
+      },
+      {
+        "path": "src/components/WelcomeScreen.vue",
+        "size": 13799
+      },
+      {
+        "path": "src/components/WindowControls.vue",
+        "size": 3010
+      },
+      {
+        "path": "src/composables/__tests__/useAppInit.test.ts",
+        "size": 2711
+      },
+      {
+        "path": "src/composables/__tests__/useConversation.test.ts",
+        "size": 896
+      },
+      {
+        "path": "src/composables/__tests__/useFileMentions.test.ts",
+        "size": 909
+      },
+      {
+        "path": "src/composables/__tests__/useMessageFormatting.test.ts",
+        "size": 1799
+      },
+      {
+        "path": "src/composables/__tests__/useOpenRouter.test.ts",
+        "size": 2274
+      },
+      {
+        "path": "src/composables/__tests__/usePathHandling.test.ts",
+        "size": 2464
+      },
+      {
+        "path": "src/composables/__tests__/useTokenCounting.test.ts",
+        "size": 3113
+      },
+      {
+        "path": "src/composables/useAIChat.ts",
+        "size": 18470
+      },
+      {
+        "path": "src/composables/useActiveUser-new.ts",
+        "size": 4288
+      },
+      {
+        "path": "src/composables/useActiveUser.ts",
+        "size": 3636
+      },
+      {
+        "path": "src/composables/useAnimeAnimations.ts",
+        "size": 9979
+      },
+      {
+        "path": "src/composables/useApi.ts",
+        "size": 8198
+      },
+      {
+        "path": "src/composables/useCoachArtie.ts",
+        "size": 4099
+      },
+      {
+        "path": "src/composables/useLoadingSequence.ts",
+        "size": 2012
+      },
+      {
+        "path": "src/composables/useObsidianFiles.ts",
+        "size": 11829
+      },
+      {
+        "path": "src/composables/useOpenRouter.ts",
+        "size": 22182
+      },
+      {
+        "path": "src/composables/useShortcuts.ts",
+        "size": 1118
+      },
+      {
+        "path": "src/composables/useSupabase.ts",
+        "size": 14641
+      },
+      {
+        "path": "src/composables/useTheme.ts",
+        "size": 1400
+      },
+      {
+        "path": "src/demos/ipc.ts",
+        "size": 175
+      },
+      {
+        "path": "src/demos/node.ts",
+        "size": 183
+      },
+      {
+        "path": "src/docs/AICommandsGuide.md",
+        "size": 2789
+      },
+      {
+        "path": "src/electron/ipc/obsidian.ts",
+        "size": 10234
+      },
+      {
+        "path": "src/electron/main.ts",
+        "size": 8250
+      },
+      {
+        "path": "src/electron/menu.js",
+        "size": 1829
+      },
+      {
+        "path": "src/electron/menu.ts",
+        "size": 4343
+      },
+      {
+        "path": "src/electron/preload.ts",
+        "size": 2991
+      },
+      {
+        "path": "src/electron/utils.ts",
+        "size": 52
+      },
+      {
+        "path": "src/lib/aiCommands.ts",
+        "size": 7541
+      },
+      {
+        "path": "src/lib/api-client.ts",
+        "size": 5206
+      },
+      {
+        "path": "src/lib/auth-client.ts",
+        "size": 1019
+      },
+      {
+        "path": "src/lib/fileUtils.ts",
+        "size": 1134
+      },
+      {
+        "path": "src/lib/logger.ts",
+        "size": 1614
+      },
+      {
+        "path": "src/lib/store.ts",
+        "size": 1480
+      },
+      {
+        "path": "src/lib/supabase.ts",
+        "size": 487
+      },
+      {
+        "path": "src/main.css",
+        "size": 3702
+      },
+      {
+        "path": "src/main.ts",
+        "size": 769
+      },
+      {
+        "path": "src/preload/index.ts",
+        "size": 2114
+      },
+      {
+        "path": "src/style.css",
+        "size": 0
+      },
+      {
+        "path": "src/types.d.ts",
+        "size": 11028
+      },
+      {
+        "path": "src/types.ts",
+        "size": 3672
+      },
+      {
+        "path": "src/types/electron-store.d.ts",
+        "size": 996
+      },
+      {
+        "path": "src/types/electron.d.ts",
+        "size": 2156
+      },
+      {
+        "path": "src/types/gray-matter.d.ts",
+        "size": 555
+      },
+      {
+        "path": "src/types/index.ts",
+        "size": 82
+      },
+      {
+        "path": "src/types/store.d.ts",
+        "size": 1167
+      },
+      {
+        "path": "src/vite-env.d.ts",
+        "size": 301
+      },
+      {
+        "path": "tailwind.config.js",
+        "size": 4040
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 659
+      },
+      {
+        "path": "tsconfig.node.json",
+        "size": 331
+      },
+      {
+        "path": "vite.config.flat.txt",
+        "size": 2612
+      },
+      {
+        "path": "vite.config.ts",
+        "size": 1517
+      },
+      {
+        "path": "vulpecula-auth-server/drizzle.config.ts",
+        "size": 320
+      },
+      {
+        "path": "vulpecula-auth-server/drizzle/0000_grey_excalibur.sql",
+        "size": 1320
+      },
+      {
+        "path": "vulpecula-auth-server/drizzle/meta/0000_snapshot.json",
+        "size": 5067
+      },
+      {
+        "path": "vulpecula-auth-server/drizzle/meta/_journal.json",
+        "size": 208
+      },
+      {
+        "path": "vulpecula-auth-server/package-lock.json",
+        "size": 98934
+      },
+      {
+        "path": "vulpecula-auth-server/package.json",
+        "size": 779
+      },
+      {
+        "path": "vulpecula-auth-server/src/auth/config.ts",
+        "size": 975
+      },
+      {
+        "path": "vulpecula-auth-server/src/db/connection.ts",
+        "size": 658
+      },
+      {
+        "path": "vulpecula-auth-server/src/db/schema.ts",
+        "size": 1968
+      },
+      {
+        "path": "vulpecula-auth-server/src/index.ts",
+        "size": 1399
+      },
+      {
+        "path": "vulpecula-auth-server/src/middleware/auth-handler.ts",
+        "size": 938
+      },
+      {
+        "path": "vulpecula-auth-server/src/routes/chats.ts",
+        "size": 3654
+      },
+      {
+        "path": "vulpecula-auth-server/tsconfig.json",
+        "size": 533
+      },
+      {
+        "path": "yarn.lock",
+        "size": 163239
+      }
+    ],
+    "tree": {
+      "name": "vulpecula-loom",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "ISSUE_TEMPLATE",
+              "children": [
+                {
+                  "name": "bug_report.md",
+                  "size": 162,
+                  "path": ".github/ISSUE_TEMPLATE/bug_report.md"
+                },
+                {
+                  "name": "help_wanted.md",
+                  "size": 203,
+                  "path": ".github/ISSUE_TEMPLATE/help_wanted.md"
+                }
+              ],
+              "path": ".github/ISSUE_TEMPLATE"
+            },
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "build.yml",
+                  "size": 967,
+                  "path": ".github/workflows/build.yml"
+                },
+                {
+                  "name": "ci.yml",
+                  "size": 3146,
+                  "path": ".github/workflows/ci.yml"
+                },
+                {
+                  "name": "deploy.yml",
+                  "size": 709,
+                  "path": ".github/workflows/deploy.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            },
+            {
+              "name": "PULL_REQUEST_TEMPLATE.md",
+              "size": 321,
+              "path": ".github/PULL_REQUEST_TEMPLATE.md"
+            },
+            {
+              "name": "dependabot.yml",
+              "size": 503,
+              "path": ".github/dependabot.yml"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": ".debug.script.mjs",
+              "size": 731,
+              "path": ".vscode/.debug.script.mjs"
+            },
+            {
+              "name": "extensions.json",
+              "size": 81,
+              "path": ".vscode/extensions.json"
+            },
+            {
+              "name": "launch.json",
+              "size": 1407,
+              "path": ".vscode/launch.json"
+            },
+            {
+              "name": "settings.json",
+              "size": 556,
+              "path": ".vscode/settings.json"
+            },
+            {
+              "name": "tasks.json",
+              "size": 870,
+              "path": ".vscode/tasks.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "build",
+          "children": [
+            {
+              "name": "icon.iconset",
+              "children": [
+                {
+                  "name": "icon_128x128.png",
+                  "size": 12340,
+                  "path": "build/icon.iconset/icon_128x128.png"
+                },
+                {
+                  "name": "icon_128x128@2x.png",
+                  "size": 27887,
+                  "path": "build/icon.iconset/icon_128x128@2x.png"
+                },
+                {
+                  "name": "icon_16x16.png",
+                  "size": 1298,
+                  "path": "build/icon.iconset/icon_16x16.png"
+                },
+                {
+                  "name": "icon_16x16@2x.png",
+                  "size": 2251,
+                  "path": "build/icon.iconset/icon_16x16@2x.png"
+                },
+                {
+                  "name": "icon_256x256.png",
+                  "size": 27887,
+                  "path": "build/icon.iconset/icon_256x256.png"
+                },
+                {
+                  "name": "icon_256x256@2x.png",
+                  "size": 59387,
+                  "path": "build/icon.iconset/icon_256x256@2x.png"
+                },
+                {
+                  "name": "icon_32x32.png",
+                  "size": 2251,
+                  "path": "build/icon.iconset/icon_32x32.png"
+                },
+                {
+                  "name": "icon_32x32@2x.png",
+                  "size": 5250,
+                  "path": "build/icon.iconset/icon_32x32@2x.png"
+                },
+                {
+                  "name": "icon_512x512.png",
+                  "size": 59387,
+                  "path": "build/icon.iconset/icon_512x512.png"
+                },
+                {
+                  "name": "icon_512x512@2x.png",
+                  "size": 59387,
+                  "path": "build/icon.iconset/icon_512x512@2x.png"
+                }
+              ],
+              "path": "build/icon.iconset"
+            },
+            {
+              "name": "icons",
+              "children": [
+                {
+                  "name": "128x128.png",
+                  "size": 12340,
+                  "path": "build/icons/128x128.png"
+                },
+                {
+                  "name": "16x16.png",
+                  "size": 1298,
+                  "path": "build/icons/16x16.png"
+                },
+                {
+                  "name": "256x256.png",
+                  "size": 27887,
+                  "path": "build/icons/256x256.png"
+                },
+                {
+                  "name": "32x32.png",
+                  "size": 2251,
+                  "path": "build/icons/32x32.png"
+                },
+                {
+                  "name": "48x48.png",
+                  "size": 3618,
+                  "path": "build/icons/48x48.png"
+                },
+                {
+                  "name": "512x512.png",
+                  "size": 59387,
+                  "path": "build/icons/512x512.png"
+                },
+                {
+                  "name": "64x64.png",
+                  "size": 5250,
+                  "path": "build/icons/64x64.png"
+                },
+                {
+                  "name": "tray-icon-Template.png",
+                  "size": 721,
+                  "path": "build/icons/tray-icon-Template.png"
+                },
+                {
+                  "name": "tray-icon.png",
+                  "size": 1150,
+                  "path": "build/icons/tray-icon.png"
+                }
+              ],
+              "path": "build/icons"
+            },
+            {
+              "name": "icon.icns",
+              "size": 246379,
+              "path": "build/icon.icns"
+            },
+            {
+              "name": "logo.ico",
+              "size": 112641,
+              "path": "build/logo.ico"
+            }
+          ],
+          "path": "build"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "index.html",
+              "size": 5038,
+              "path": "docs/index.html"
+            },
+            {
+              "name": "index.md",
+              "size": 1545,
+              "path": "docs/index.md"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "electron",
+          "children": [
+            {
+              "name": "ipc",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 2767,
+                  "path": "electron/ipc/index.ts"
+                },
+                {
+                  "name": "obsidian.ts",
+                  "size": 2245,
+                  "path": "electron/ipc/obsidian.ts"
+                }
+              ],
+              "path": "electron/ipc"
+            },
+            {
+              "name": "main",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 3101,
+                  "path": "electron/main/index.ts"
+                },
+                {
+                  "name": "store.ts",
+                  "size": 1710,
+                  "path": "electron/main/store.ts"
+                }
+              ],
+              "path": "electron/main"
+            },
+            {
+              "name": "menu",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 7816,
+                  "path": "electron/menu/index.ts"
+                },
+                {
+                  "name": "utils.ts",
+                  "size": 81,
+                  "path": "electron/menu/utils.ts"
+                }
+              ],
+              "path": "electron/menu"
+            },
+            {
+              "name": "preload",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 3609,
+                  "path": "electron/preload/index.ts"
+                }
+              ],
+              "path": "electron/preload"
+            },
+            {
+              "name": "electron-env.d.ts",
+              "size": 575,
+              "path": "electron/electron-env.d.ts"
+            },
+            {
+              "name": "main.ts",
+              "size": 878,
+              "path": "electron/main.ts"
+            }
+          ],
+          "path": "electron"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "logo.ico",
+              "size": 121545,
+              "path": "public/logo.ico"
+            },
+            {
+              "name": "logo.svg",
+              "size": 2512,
+              "path": "public/logo.svg"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "generate-icons.sh",
+              "size": 1502,
+              "path": "scripts/generate-icons.sh"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "assets",
+              "children": [
+                {
+                  "name": "electron.svg",
+                  "size": 2440,
+                  "path": "src/assets/electron.svg"
+                },
+                {
+                  "name": "vite.svg",
+                  "size": 1497,
+                  "path": "src/assets/vite.svg"
+                },
+                {
+                  "name": "vue.svg",
+                  "size": 496,
+                  "path": "src/assets/vue.svg"
+                }
+              ],
+              "path": "src/assets"
+            },
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "ApiKeyWarning.vue",
+                  "size": 1643,
+                  "path": "src/components/ApiKeyWarning.vue"
+                },
+                {
+                  "name": "ChatCodeblock.vue",
+                  "size": 8358,
+                  "path": "src/components/ChatCodeblock.vue"
+                },
+                {
+                  "name": "ChatImport.vue",
+                  "size": 4690,
+                  "path": "src/components/ChatImport.vue"
+                },
+                {
+                  "name": "ChatInput.vue",
+                  "size": 17511,
+                  "path": "src/components/ChatInput.vue"
+                },
+                {
+                  "name": "ChatMessage.vue",
+                  "size": 5267,
+                  "path": "src/components/ChatMessage.vue"
+                },
+                {
+                  "name": "ChatMetadata.vue",
+                  "size": 5597,
+                  "path": "src/components/ChatMetadata.vue"
+                },
+                {
+                  "name": "ChatSidebar.vue",
+                  "size": 59307,
+                  "path": "src/components/ChatSidebar.vue"
+                },
+                {
+                  "name": "ChatTitleBanner.vue",
+                  "size": 3625,
+                  "path": "src/components/ChatTitleBanner.vue"
+                },
+                {
+                  "name": "ConfirmationModal.vue",
+                  "size": 1956,
+                  "path": "src/components/ConfirmationModal.vue"
+                },
+                {
+                  "name": "ContextAlchemyPanel.vue",
+                  "size": 27621,
+                  "path": "src/components/ContextAlchemyPanel.vue"
+                },
+                {
+                  "name": "ContextUsageBar.vue",
+                  "size": 4514,
+                  "path": "src/components/ContextUsageBar.vue"
+                },
+                {
+                  "name": "DebugConsoleToggle.vue",
+                  "size": 843,
+                  "path": "src/components/DebugConsoleToggle.vue"
+                },
+                {
+                  "name": "DebugOverlay.vue",
+                  "size": 4526,
+                  "path": "src/components/DebugOverlay.vue"
+                },
+                {
+                  "name": "HelloWorld.vue",
+                  "size": 786,
+                  "path": "src/components/HelloWorld.vue"
+                },
+                {
+                  "name": "KeyboardShortcutsModal.vue",
+                  "size": 4666,
+                  "path": "src/components/KeyboardShortcutsModal.vue"
+                },
+                {
+                  "name": "LoadingOverlay.vue",
+                  "size": 485,
+                  "path": "src/components/LoadingOverlay.vue"
+                },
+                {
+                  "name": "LoadingState.vue",
+                  "size": 2755,
+                  "path": "src/components/LoadingState.vue"
+                },
+                {
+                  "name": "LogTicker.vue",
+                  "size": 7034,
+                  "path": "src/components/LogTicker.vue"
+                },
+                {
+                  "name": "LoginOverlay.vue",
+                  "size": 14019,
+                  "path": "src/components/LoginOverlay.vue"
+                },
+                {
+                  "name": "ModelMetadata.vue",
+                  "size": 10876,
+                  "path": "src/components/ModelMetadata.vue"
+                },
+                {
+                  "name": "ModelSettings.vue",
+                  "size": 27032,
+                  "path": "src/components/ModelSettings.vue"
+                },
+                {
+                  "name": "ObsidianMentionPopup.vue",
+                  "size": 4438,
+                  "path": "src/components/ObsidianMentionPopup.vue"
+                },
+                {
+                  "name": "SettingsModal.vue",
+                  "size": 37213,
+                  "path": "src/components/SettingsModal.vue"
+                },
+                {
+                  "name": "StatusBar.vue",
+                  "size": 4665,
+                  "path": "src/components/StatusBar.vue"
+                },
+                {
+                  "name": "TitleBar.vue",
+                  "size": 11690,
+                  "path": "src/components/TitleBar.vue"
+                },
+                {
+                  "name": "WelcomeScreen.vue",
+                  "size": 13799,
+                  "path": "src/components/WelcomeScreen.vue"
+                },
+                {
+                  "name": "WindowControls.vue",
+                  "size": 3010,
+                  "path": "src/components/WindowControls.vue"
+                }
+              ],
+              "path": "src/components"
+            },
+            {
+              "name": "composables",
+              "children": [
+                {
+                  "name": "__tests__",
+                  "children": [
+                    {
+                      "name": "useAppInit.test.ts",
+                      "size": 2711,
+                      "path": "src/composables/__tests__/useAppInit.test.ts"
+                    },
+                    {
+                      "name": "useConversation.test.ts",
+                      "size": 896,
+                      "path": "src/composables/__tests__/useConversation.test.ts"
+                    },
+                    {
+                      "name": "useFileMentions.test.ts",
+                      "size": 909,
+                      "path": "src/composables/__tests__/useFileMentions.test.ts"
+                    },
+                    {
+                      "name": "useMessageFormatting.test.ts",
+                      "size": 1799,
+                      "path": "src/composables/__tests__/useMessageFormatting.test.ts"
+                    },
+                    {
+                      "name": "useOpenRouter.test.ts",
+                      "size": 2274,
+                      "path": "src/composables/__tests__/useOpenRouter.test.ts"
+                    },
+                    {
+                      "name": "usePathHandling.test.ts",
+                      "size": 2464,
+                      "path": "src/composables/__tests__/usePathHandling.test.ts"
+                    },
+                    {
+                      "name": "useTokenCounting.test.ts",
+                      "size": 3113,
+                      "path": "src/composables/__tests__/useTokenCounting.test.ts"
+                    }
+                  ],
+                  "path": "src/composables/__tests__"
+                },
+                {
+                  "name": "useAIChat.ts",
+                  "size": 18470,
+                  "path": "src/composables/useAIChat.ts"
+                },
+                {
+                  "name": "useActiveUser-new.ts",
+                  "size": 4288,
+                  "path": "src/composables/useActiveUser-new.ts"
+                },
+                {
+                  "name": "useActiveUser.ts",
+                  "size": 3636,
+                  "path": "src/composables/useActiveUser.ts"
+                },
+                {
+                  "name": "useAnimeAnimations.ts",
+                  "size": 9979,
+                  "path": "src/composables/useAnimeAnimations.ts"
+                },
+                {
+                  "name": "useApi.ts",
+                  "size": 8198,
+                  "path": "src/composables/useApi.ts"
+                },
+                {
+                  "name": "useCoachArtie.ts",
+                  "size": 4099,
+                  "path": "src/composables/useCoachArtie.ts"
+                },
+                {
+                  "name": "useLoadingSequence.ts",
+                  "size": 2012,
+                  "path": "src/composables/useLoadingSequence.ts"
+                },
+                {
+                  "name": "useObsidianFiles.ts",
+                  "size": 11829,
+                  "path": "src/composables/useObsidianFiles.ts"
+                },
+                {
+                  "name": "useOpenRouter.ts",
+                  "size": 22182,
+                  "path": "src/composables/useOpenRouter.ts"
+                },
+                {
+                  "name": "useShortcuts.ts",
+                  "size": 1118,
+                  "path": "src/composables/useShortcuts.ts"
+                },
+                {
+                  "name": "useSupabase.ts",
+                  "size": 14641,
+                  "path": "src/composables/useSupabase.ts"
+                },
+                {
+                  "name": "useTheme.ts",
+                  "size": 1400,
+                  "path": "src/composables/useTheme.ts"
+                }
+              ],
+              "path": "src/composables"
+            },
+            {
+              "name": "demos",
+              "children": [
+                {
+                  "name": "ipc.ts",
+                  "size": 175,
+                  "path": "src/demos/ipc.ts"
+                },
+                {
+                  "name": "node.ts",
+                  "size": 183,
+                  "path": "src/demos/node.ts"
+                }
+              ],
+              "path": "src/demos"
+            },
+            {
+              "name": "docs",
+              "children": [
+                {
+                  "name": "AICommandsGuide.md",
+                  "size": 2789,
+                  "path": "src/docs/AICommandsGuide.md"
+                }
+              ],
+              "path": "src/docs"
+            },
+            {
+              "name": "electron",
+              "children": [
+                {
+                  "name": "ipc",
+                  "children": [
+                    {
+                      "name": "obsidian.ts",
+                      "size": 10234,
+                      "path": "src/electron/ipc/obsidian.ts"
+                    }
+                  ],
+                  "path": "src/electron/ipc"
+                },
+                {
+                  "name": "main.ts",
+                  "size": 8250,
+                  "path": "src/electron/main.ts"
+                },
+                {
+                  "name": "menu.js",
+                  "size": 1829,
+                  "path": "src/electron/menu.js"
+                },
+                {
+                  "name": "menu.ts",
+                  "size": 4343,
+                  "path": "src/electron/menu.ts"
+                },
+                {
+                  "name": "preload.ts",
+                  "size": 2991,
+                  "path": "src/electron/preload.ts"
+                },
+                {
+                  "name": "utils.ts",
+                  "size": 52,
+                  "path": "src/electron/utils.ts"
+                }
+              ],
+              "path": "src/electron"
+            },
+            {
+              "name": "lib",
+              "children": [
+                {
+                  "name": "aiCommands.ts",
+                  "size": 7541,
+                  "path": "src/lib/aiCommands.ts"
+                },
+                {
+                  "name": "api-client.ts",
+                  "size": 5206,
+                  "path": "src/lib/api-client.ts"
+                },
+                {
+                  "name": "auth-client.ts",
+                  "size": 1019,
+                  "path": "src/lib/auth-client.ts"
+                },
+                {
+                  "name": "fileUtils.ts",
+                  "size": 1134,
+                  "path": "src/lib/fileUtils.ts"
+                },
+                {
+                  "name": "logger.ts",
+                  "size": 1614,
+                  "path": "src/lib/logger.ts"
+                },
+                {
+                  "name": "store.ts",
+                  "size": 1480,
+                  "path": "src/lib/store.ts"
+                },
+                {
+                  "name": "supabase.ts",
+                  "size": 487,
+                  "path": "src/lib/supabase.ts"
+                }
+              ],
+              "path": "src/lib"
+            },
+            {
+              "name": "preload",
+              "children": [
+                {
+                  "name": "index.ts",
+                  "size": 2114,
+                  "path": "src/preload/index.ts"
+                }
+              ],
+              "path": "src/preload"
+            },
+            {
+              "name": "types",
+              "children": [
+                {
+                  "name": "electron-store.d.ts",
+                  "size": 996,
+                  "path": "src/types/electron-store.d.ts"
+                },
+                {
+                  "name": "electron.d.ts",
+                  "size": 2156,
+                  "path": "src/types/electron.d.ts"
+                },
+                {
+                  "name": "gray-matter.d.ts",
+                  "size": 555,
+                  "path": "src/types/gray-matter.d.ts"
+                },
+                {
+                  "name": "index.ts",
+                  "size": 82,
+                  "path": "src/types/index.ts"
+                },
+                {
+                  "name": "store.d.ts",
+                  "size": 1167,
+                  "path": "src/types/store.d.ts"
+                }
+              ],
+              "path": "src/types"
+            },
+            {
+              "name": "App.vue",
+              "size": 36897,
+              "path": "src/App.vue"
+            },
+            {
+              "name": "main.css",
+              "size": 3702,
+              "path": "src/main.css"
+            },
+            {
+              "name": "main.ts",
+              "size": 769,
+              "path": "src/main.ts"
+            },
+            {
+              "name": "style.css",
+              "size": 0,
+              "path": "src/style.css"
+            },
+            {
+              "name": "types.d.ts",
+              "size": 11028,
+              "path": "src/types.d.ts"
+            },
+            {
+              "name": "types.ts",
+              "size": 3672,
+              "path": "src/types.ts"
+            },
+            {
+              "name": "vite-env.d.ts",
+              "size": 301,
+              "path": "src/vite-env.d.ts"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "vulpecula-auth-server",
+          "children": [
+            {
+              "name": "drizzle",
+              "children": [
+                {
+                  "name": "meta",
+                  "children": [
+                    {
+                      "name": "0000_snapshot.json",
+                      "size": 5067,
+                      "path": "vulpecula-auth-server/drizzle/meta/0000_snapshot.json"
+                    },
+                    {
+                      "name": "_journal.json",
+                      "size": 208,
+                      "path": "vulpecula-auth-server/drizzle/meta/_journal.json"
+                    }
+                  ],
+                  "path": "vulpecula-auth-server/drizzle/meta"
+                },
+                {
+                  "name": "0000_grey_excalibur.sql",
+                  "size": 1320,
+                  "path": "vulpecula-auth-server/drizzle/0000_grey_excalibur.sql"
+                }
+              ],
+              "path": "vulpecula-auth-server/drizzle"
+            },
+            {
+              "name": "src",
+              "children": [
+                {
+                  "name": "auth",
+                  "children": [
+                    {
+                      "name": "config.ts",
+                      "size": 975,
+                      "path": "vulpecula-auth-server/src/auth/config.ts"
+                    }
+                  ],
+                  "path": "vulpecula-auth-server/src/auth"
+                },
+                {
+                  "name": "db",
+                  "children": [
+                    {
+                      "name": "connection.ts",
+                      "size": 658,
+                      "path": "vulpecula-auth-server/src/db/connection.ts"
+                    },
+                    {
+                      "name": "schema.ts",
+                      "size": 1968,
+                      "path": "vulpecula-auth-server/src/db/schema.ts"
+                    }
+                  ],
+                  "path": "vulpecula-auth-server/src/db"
+                },
+                {
+                  "name": "middleware",
+                  "children": [
+                    {
+                      "name": "auth-handler.ts",
+                      "size": 938,
+                      "path": "vulpecula-auth-server/src/middleware/auth-handler.ts"
+                    }
+                  ],
+                  "path": "vulpecula-auth-server/src/middleware"
+                },
+                {
+                  "name": "routes",
+                  "children": [
+                    {
+                      "name": "chats.ts",
+                      "size": 3654,
+                      "path": "vulpecula-auth-server/src/routes/chats.ts"
+                    }
+                  ],
+                  "path": "vulpecula-auth-server/src/routes"
+                },
+                {
+                  "name": "index.ts",
+                  "size": 1399,
+                  "path": "vulpecula-auth-server/src/index.ts"
+                }
+              ],
+              "path": "vulpecula-auth-server/src"
+            },
+            {
+              "name": "drizzle.config.ts",
+              "size": 320,
+              "path": "vulpecula-auth-server/drizzle.config.ts"
+            },
+            {
+              "name": "package-lock.json",
+              "size": 98934,
+              "path": "vulpecula-auth-server/package-lock.json"
+            },
+            {
+              "name": "package.json",
+              "size": 779,
+              "path": "vulpecula-auth-server/package.json"
+            },
+            {
+              "name": "tsconfig.json",
+              "size": 533,
+              "path": "vulpecula-auth-server/tsconfig.json"
+            }
+          ],
+          "path": "vulpecula-auth-server"
+        },
+        {
+          "name": ".gitignore",
+          "size": 273,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".npmrc",
+          "size": 228,
+          "path": ".npmrc"
+        },
+        {
+          "name": ".nvmrc",
+          "size": 9,
+          "path": ".nvmrc"
+        },
+        {
+          "name": "BETTER_AUTH_MIGRATION.md",
+          "size": 4286,
+          "path": "BETTER_AUTH_MIGRATION.md"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 1143,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 7424,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1069,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 19908,
+          "path": "README.md"
+        },
+        {
+          "name": "anime.esm.js",
+          "size": 248336,
+          "path": "anime.esm.js"
+        },
+        {
+          "name": "electron-builder.json5",
+          "size": 960,
+          "path": "electron-builder.json5"
+        },
+        {
+          "name": "index.html",
+          "size": 484,
+          "path": "index.html"
+        },
+        {
+          "name": "package.json",
+          "size": 2641,
+          "path": "package.json"
+        },
+        {
+          "name": "postcss.config.js",
+          "size": 82,
+          "path": "postcss.config.js"
+        },
+        {
+          "name": "tailwind.config.js",
+          "size": 4040,
+          "path": "tailwind.config.js"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 659,
+          "path": "tsconfig.json"
+        },
+        {
+          "name": "tsconfig.node.json",
+          "size": 331,
+          "path": "tsconfig.node.json"
+        },
+        {
+          "name": "vite.config.flat.txt",
+          "size": 2612,
+          "path": "vite.config.flat.txt"
+        },
+        {
+          "name": "vite.config.ts",
+          "size": 1517,
+          "path": "vite.config.ts"
+        },
+        {
+          "name": "yarn.lock",
+          "size": 163239,
+          "path": "yarn.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 157,
+    "totalSize": 1991964
+  },
+  "topics": [
+    "electron",
+    "llm",
+    "obsidian",
+    "openrouter-api"
+  ],
+  "readme": {
+    "html": "<h1 id=\"vulpecula-loom---ai-chat-with-obsidian-integration\">Vulpecula Loom - AI Chat with Obsidian Integration</h1>\n<img width=\"1428\" alt=\"Screenshot 2024-11-18 at 12 41 15 AM\" src=\"https://github.com/user-attachments/assets/d2d0cec6-872f-4384-82a1-af21b8672ee6\" />\n<p>Vulpecula Loom is a desktop application that combines the power of modern AI language models with seamless Obsidian vault integration. Built with Electron, Vue 3, and TypeScript, it offers a polished and efficient interface for AI-assisted writing and research.</p>\n<h2 id=\"features\">Features</h2>\n<h3 id=\"ai-chat\">AI Chat</h3>\n<ul>\n<li>Support for multiple AI models through OpenRouter\n<ul>\n<li>Claude 3 (Opus &amp; Sonnet)</li>\n<li>GPT-4</li>\n<li>GPT-3.5 Turbo</li>\n</ul>\n</li>\n<li>Real-time token counting and cost tracking</li>\n<li>Markdown rendering with syntax highlighting</li>\n<li>Chat history with persistent storage</li>\n<li>Export conversations to Markdown</li>\n</ul>\n<h3 id=\"obsidian-integration\">Obsidian Integration</h3>\n<p>Share your knowledge with AI by referencing your notes. Simply type <code>@</code> in any message to seamlessly include content from your Obsidian vault:</p>\n<ol>\n<li>\n<p><strong>Quick Note References</strong></p>\n<pre><code>Hey AI, can you help me understand @quantum-computing-basics? \nAlso, how does it relate to @quantum-entanglement?\n</code></pre>\n<ul>\n<li>Type <code>@</code> anywhere in your message</li>\n<li>Search your vault in real-time</li>\n<li>Select files from the popup</li>\n<li>Multiple files can be referenced in one message</li>\n</ul>\n</li>\n<li>\n<p><strong>How It Works</strong></p>\n<ul>\n<li>When you include a note with <code>@</code>, the entire note's content is sent to the AI</li>\n<li>The AI can then reference and analyze your notes</li>\n<li>Example:\n<pre><code>User: Can you compare the concepts in @classical-computing with @quantum-computing?\nAssistant: Looking at your notes, I can see several key differences...\n[Assistant can now reference the full content of both notes]\n</code></pre>\n</li>\n</ul>\n</li>\n<li>\n<p><strong>File Search Features</strong></p>\n<ul>\n<li>Real-time search as you type after <code>@</code></li>\n<li>Instant results (debounced 150ms)</li>\n<li>Shows file previews</li>\n<li>Matches titles and content</li>\n<li>Keyboard navigation (↑↓ to select, Enter to choose)</li>\n<li>Results sorted by relevance:\n<ol>\n<li>Title matches</li>\n<li>Content matches</li>\n<li>Recently modified</li>\n</ol>\n</li>\n</ul>\n</li>\n<li>\n<p><strong>Technical Implementation</strong></p>\n<ul>\n<li>Files included via <code>includedFiles</code> array in messages</li>\n<li>Each included file contains:\n<pre><code class=\"language-typescript\">{\n  title: string;      // File title\n  path: string;       // Full path to file\n  content: string;    // Complete file content\n}\n</code></pre>\n</li>\n<li>Content is cached for performance</li>\n<li>Files monitored for changes</li>\n<li>Vault path stored securely</li>\n</ul>\n</li>\n<li>\n<p><strong>Security &amp; Performance</strong></p>\n<ul>\n<li>Files only accessible within your vault</li>\n<li>Content sanitized before display</li>\n<li>No external file access</li>\n<li>Efficient caching system</li>\n<li>Background indexing</li>\n<li>Incremental updates</li>\n</ul>\n</li>\n<li>\n<p><strong>File Inclusion</strong></p>\n<ul>\n<li>Files can be included in messages using <code>@</code> mentions</li>\n<li>When a file is included, its entire content is added to the message</li>\n<li>Included files are tracked in the message's <code>includedFiles</code> array</li>\n<li>Each included file contains:\n<pre><code class=\"language-typescript\">{\n  title: string;      // File title\n  path: string;       // Full path to file\n  content: string;    // Complete file content\n}\n</code></pre>\n</li>\n</ul>\n</li>\n<li>\n<p><strong>File Search</strong></p>\n<ul>\n<li>Real-time search as you type <code>@</code></li>\n<li>Debounced queries (150ms)</li>\n<li>Results limited to 10 files</li>\n<li>Results sorted by relevance</li>\n<li>Cache management for performance</li>\n</ul>\n</li>\n<li>\n<p><strong>Security</strong></p>\n<ul>\n<li>Files are only accessible within the vault</li>\n<li>Content is sanitized before display</li>\n<li>No external file access allowed</li>\n<li>Vault path stored securely in electron-store</li>\n</ul>\n</li>\n<li>\n<p><strong>Performance</strong></p>\n<ul>\n<li>File content cached in memory</li>\n<li>Incremental search updates</li>\n<li>Debounced search queries</li>\n<li>Background file indexing</li>\n</ul>\n</li>\n</ol>\n<h3 id=\"user-interface\">User Interface</h3>\n<ul>\n<li>Dark/Light mode support</li>\n<li>Native system integration</li>\n<li>Custom titlebar with gradient animation</li>\n<li>Responsive design with smooth transitions</li>\n<li>Keyboard shortcuts for common actions</li>\n</ul>\n<h3 id=\"ipc-communication\">IPC Communication</h3>\n<p>All inter-process communication (IPC) is centralized in <code>electron/ipc/</code> with the following structure:</p>\n<pre><code>electron/ipc/\n├── index.ts          # Central IPC setup and system-level handlers\n├── obsidian.ts       # Obsidian integration handlers\n└── store.ts          # Electron store handlers\n</code></pre>\n<h4 id=\"type-safe-ipc-communication\">Type-Safe IPC Communication</h4>\n<p>All IPC channels are fully typed using TypeScript interfaces in <code>src/types.ts</code> under the <code>IpcChannels</code> interface.\nThis centralized type system provides:</p>\n<ul>\n<li>Auto-completion for channel names</li>\n<li>Parameter type checking</li>\n<li>Return type inference</li>\n<li>Compile-time validation</li>\n<li>Single source of truth for all IPC types</li>\n</ul>\n<p>Example:</p>\n<pre><code class=\"language-typescript\">// In src/types.ts\nexport interface IpcChannels {\n  \"open-external\": (url: string) =&gt; Promise&lt;void&gt;;\n  \"store-get\": &lt;K extends keyof StoreSchema&gt;(key: K) =&gt; Promise&lt;StoreSchema[K]&gt;;\n  // ... more channel definitions\n}\n</code></pre>\n<h4 id=\"adding-new-ipc-handlers\">Adding New IPC Handlers</h4>\n<ol>\n<li>Add the type definition to <code>src/types.ts</code> under the <code>IpcChannels</code> interface</li>\n<li>Create a new handler in the appropriate domain file in <code>electron/ipc/</code></li>\n<li>Register the handler in <code>electron/ipc/index.ts</code></li>\n<li>Update this documentation</li>\n</ol>\n<h2 id=\"getting-started\">Getting Started</h2>\n<h3 id=\"prerequisites\">Prerequisites</h3>\n<ul>\n<li>Node.js (v18 or higher)</li>\n<li>npm or yarn</li>\n<li>An OpenRouter API key</li>\n<li>Obsidian vault (optional)</li>\n</ul>\n<h3 id=\"building-the-application\">Building the Application</h3>\n<h4 id=\"for-macos\">For macOS</h4>\n<ol>\n<li><code>git clone https://github.com/yourusername/vulpecula-loom.git</code></li>\n<li><code>cd vulpecula-loom</code></li>\n<li><code>yarn install</code></li>\n<li><code>yarn build</code></li>\n</ol>\n<p>The built application will be available in the <code>release/{version}/</code> directory:</p>\n<ul>\n<li><code>electron-vue-vite.app</code> - The macOS application bundle</li>\n<li><code>electron-vue-vite-{version}-arm64.dmg</code> - The disk image installer for Apple Silicon</li>\n<li><code>electron-vue-vite-{version}-x64.dmg</code> - The disk image installer for Intel Macs</li>\n</ul>\n<p>Note: To build a signed application for distribution, you'll need an Apple Developer account and appropriate certificates. See <a href=\"https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution\">Apple's documentation</a> for more details on app notarization.</p>\n<h2 id=\"typescript-conventions\">TypeScript Conventions</h2>\n<h3 id=\"the-central-type-system\">The Central Type System</h3>\n<p>ALL types MUST live in <code>src/types.ts</code>. This is not just a convention - it's a requirement.</p>\n<h4 id=\"why-centralization\">Why Centralization?</h4>\n<ul>\n<li>Single source of truth</li>\n<li>No duplicate definitions</li>\n<li>Clear type hierarchies</li>\n<li>Easy to find and modify</li>\n<li>Better TypeScript tooling support</li>\n<li>Prevents circular dependencies</li>\n<li>Maintains type consistency</li>\n</ul>\n<h4 id=\"type-categories\">Type Categories</h4>\n<ul>\n<li>OpenRouter Types (API models, responses)</li>\n<li>Chat Types (messages, history)</li>\n<li>Store Types (electron store schema)</li>\n<li>Electron IPC Types (channel definitions)</li>\n<li>UI Types (preferences, settings)</li>\n<li>Animation Types (configuration)</li>\n</ul>\n<h4 id=\"the-rules-of-type-centralization\">The Rules of Type Centralization</h4>\n<ol>\n<li>ALL types MUST be in <code>src/types.ts</code></li>\n<li>NO <code>.d.ts</code> files allowed (except for third-party type declarations)</li>\n<li>NO interface/type definitions in component files</li>\n<li>NO scattered type definitions across the codebase</li>\n<li>ALL types MUST be properly categorized and documented</li>\n<li>ALL types MUST be exported</li>\n</ol>\n<p>❌ ILLEGAL:</p>\n<ul>\n<li>Types in component files</li>\n<li>Scattered <code>.d.ts</code> files</li>\n<li>Duplicate type definitions</li>\n<li>Undocumented types</li>\n<li>Types without proper categorization</li>\n</ul>\n<p>✅ LEGAL:</p>\n<ul>\n<li>All types in <code>src/types.ts</code></li>\n<li>Clear type categorization</li>\n<li>Proper exports</li>\n<li>Well-documented types</li>\n<li>Single source of truth</li>\n</ul>\n<h3 id=\"type-safety-vs-pragmatism\">Type Safety vs Pragmatism</h3>\n<p>While we maintain strict type centralization, we allow <code>any</code> or more permissive types when:</p>\n<ul>\n<li>Dealing with third-party libraries</li>\n<li>Prototyping features</li>\n<li>Handling complex DOM elements</li>\n<li>Working with dynamic data</li>\n</ul>\n<p>Remember: Type centralization is about organization, not restriction.</p>\n<h2 id=\"architecture\">Architecture</h2>\n<h3 id=\"composables\">Composables</h3>\n<p>The application uses a layered composable architecture:</p>\n<ul>\n<li>\n<p><code>useAIChat</code> - The main chat composable that handles all chat functionality. This is the primary interface that components should use for chat operations. It provides:</p>\n<ul>\n<li>Message handling</li>\n<li>Token tracking</li>\n<li>Cost calculation</li>\n<li>Chat persistence</li>\n<li>Streaming responses</li>\n<li>History management</li>\n</ul>\n</li>\n<li>\n<p><code>useOpenRouter</code> - Low-level OpenRouter API integration. <strong>Should not be used directly by components</strong>. Instead, use <code>useAIChat</code> which provides a higher-level interface and proper state management.</p>\n</li>\n<li>\n<p><code>useSupabase</code> - Handles chat persistence and history management</p>\n</li>\n<li>\n<p><code>useObsidianFiles</code> - Manages Obsidian vault integration</p>\n</li>\n<li>\n<p><code>useTheme</code> - Handles theme switching and persistence</p>\n</li>\n</ul>\n<h2 id=\"️-important-implementation-notes\">⚠️ Important Implementation Notes</h2>\n<h3 id=\"chat-implementation\">Chat Implementation</h3>\n<p><strong>ALWAYS use <code>useAIChat.ts</code> for chat functionality!</strong></p>\n<p>The chat system is designed around the <code>useAIChat</code> composable, which handles:</p>\n<ul>\n<li>Message sending and receiving</li>\n<li>Chat history management</li>\n<li>Token tracking</li>\n<li>Cost calculation</li>\n<li>Model selection</li>\n<li>Temperature settings</li>\n<li>Chat statistics</li>\n</ul>\n<p>❌ <strong>DO NOT</strong> try to implement chat functionality by directly using <code>useOpenRouter</code> or other lower-level composables. This will:</p>\n<ul>\n<li>Break the chat history system</li>\n<li>Cause message tracking issues</li>\n<li>Prevent proper token/cost tracking</li>\n<li>Summon dragons that will devour everyone</li>\n</ul>\n<p><code>useOpenRouter</code> should only be used for:</p>\n<ul>\n<li>API key management</li>\n<li>Model availability checking</li>\n<li>Model information</li>\n</ul>\n<h2 id=\"electron-store-setup\">Electron Store Setup</h2>\n<p>The application uses <code>electron-store</code> for persistent storage. The store is exposed to the renderer process through a secure preload script.</p>\n<h3 id=\"store-organization\">Store Organization</h3>\n<ol>\n<li>\n<p><strong>Store Schema</strong></p>\n<ul>\n<li>All store keys are defined in <code>src/types.ts</code></li>\n<li>Keys follow a consistent naming pattern (e.g., <code>api-key</code>, <code>theme</code>)</li>\n<li>Values are strongly typed</li>\n</ul>\n</li>\n<li>\n<p><strong>Access Pattern</strong></p>\n<ul>\n<li>Always use the <code>useStore</code> composable</li>\n<li>Never access <code>window.electron.store</code> directly</li>\n<li>All store operations are async</li>\n</ul>\n</li>\n<li>\n<p><strong>Key Categories</strong></p>\n<ul>\n<li>API Keys (<code>api-key</code>)</li>\n<li>UI Preferences (<code>theme</code>, <code>show-progress-bar</code>)</li>\n<li>Model Settings (<code>enabled-model-ids</code>, <code>pinned-models</code>)</li>\n<li>Application State (<code>remember-window-state</code>)</li>\n<li>Integration Settings (<code>obsidian-vault-path</code>)</li>\n</ul>\n</li>\n<li>\n<p><strong>Best Practices</strong></p>\n<ul>\n<li>Use typed keys from <code>StoreSchema</code></li>\n<li>Handle errors gracefully</li>\n<li>Provide default values</li>\n<li>Log store operations in development</li>\n<li>Clear store data responsibly</li>\n</ul>\n</li>\n</ol>\n<h2 id=\"architecture-decisions\">Architecture Decisions</h2>\n<h3 id=\"type-system\">Type System</h3>\n<p>The application follows a strict type centralization pattern:</p>\n<ol>\n<li>\n<p><strong>Central Type Repository</strong></p>\n<ul>\n<li>ALL types MUST live in <code>src/types.ts</code></li>\n<li>NO scattered <code>.d.ts</code> files (except for third-party declarations)</li>\n<li>NO interface/type definitions in component files</li>\n<li>ALL types MUST be properly categorized and documented</li>\n</ul>\n</li>\n<li>\n<p><strong>Type Categories</strong></p>\n<ul>\n<li>OpenRouter Types (API models, responses)</li>\n<li>Chat Types (messages, history)</li>\n<li>Store Types (electron store schema)</li>\n<li>Electron IPC Types (channel definitions)</li>\n<li>UI Types (preferences, settings)</li>\n<li>Animation Types (configuration)</li>\n<li>Obsidian Types (file handling, search)</li>\n</ul>\n</li>\n<li>\n<p><strong>Naming Conventions</strong></p>\n<ul>\n<li>Interface names are PascalCase and descriptive (e.g., <code>ObsidianFile</code>, <code>ChatMessage</code>)</li>\n<li>Options/Config interfaces end with respective suffix (e.g., <code>ObsidianSearchOptions</code>, <code>AnimationConfig</code>)</li>\n<li>Props interfaces end with <code>Props</code> (e.g., <code>ChatInputProps</code>)</li>\n<li>Return type interfaces end with <code>Return</code> (e.g., <code>UseSupabaseReturn</code>)</li>\n</ul>\n</li>\n</ol>\n<h3 id=\"composable-architecture\">Composable Architecture</h3>\n<p>The application uses a layered composable architecture:</p>\n<ol>\n<li>\n<p><strong>Core Composables</strong></p>\n<ul>\n<li><code>useAIChat</code> - Primary chat interface</li>\n<li><code>useOpenRouter</code> - Low-level API integration</li>\n<li><code>useSupabase</code> - Chat persistence</li>\n<li><code>useObsidianFiles</code> - Vault integration</li>\n<li><code>useTheme</code> - Theme management</li>\n</ul>\n</li>\n<li>\n<p><strong>Composable Rules</strong></p>\n<ul>\n<li>Each composable has a single responsibility</li>\n<li>Composables can depend on other composables</li>\n<li>State management handled through Vue's reactivity system</li>\n<li>Error handling at every layer</li>\n<li>Type-safe return values</li>\n</ul>\n</li>\n<li>\n<p><strong>Obsidian Integration</strong></p>\n<ul>\n<li><code>useObsidianFiles</code> manages all Obsidian interactions</li>\n<li>File search with debounced queries</li>\n<li>Cache management for performance</li>\n<li>Type-safe IPC communication</li>\n<li>Error handling and state management</li>\n</ul>\n</li>\n</ol>\n<h3 id=\"ipc-communication-1\">IPC Communication</h3>\n<ol>\n<li>\n<p><strong>Channel Organization</strong></p>\n<ul>\n<li>All channels defined in <code>IpcChannels</code> interface</li>\n<li>Strongly typed parameters and return values</li>\n<li>Channels grouped by domain:\n<ul>\n<li>Store operations (<code>store-get</code>, <code>store-set</code>)</li>\n<li>File operations (<code>search-obsidian-files</code>, <code>get-obsidian-file-content</code>)</li>\n<li>System operations (<code>open-external</code>)</li>\n</ul>\n</li>\n</ul>\n</li>\n<li>\n<p><strong>Security Model</strong></p>\n<ul>\n<li>Context isolation enabled</li>\n<li>Node integration disabled</li>\n<li>Explicit channel allowlist</li>\n<li>Type-safe preload script</li>\n</ul>\n</li>\n<li>\n<p><strong>Error Handling</strong></p>\n<ul>\n<li>All IPC calls wrapped in try/catch</li>\n<li>Errors propagated to UI</li>\n<li>Fallback values defined</li>\n<li>Error states tracked in composables</li>\n</ul>\n</li>\n</ol>\n<h3 id=\"state-management\">State Management</h3>\n<ol>\n<li>\n<p><strong>Store Organization</strong></p>\n<ul>\n<li>Electron store for persistent data</li>\n<li>Vue refs for component state</li>\n<li>Computed properties for derived state</li>\n<li>Watchers for side effects</li>\n</ul>\n</li>\n<li>\n<p><strong>Data Flow</strong></p>\n<ul>\n<li>Props down, events up</li>\n<li>State centralized in composables</li>\n<li>IPC communication abstracted</li>\n<li>Type-safe store operations</li>\n</ul>\n</li>\n</ol>\n<h3 id=\"file-structure\">File Structure</h3>\n<pre><code>src/\n├── components/        # Vue components\n├── composables/       # Vue composables\n├── electron/         # Electron main process\n│   └── ipc/         # IPC handlers\n├── lib/             # Shared utilities\n└── types.ts         # Central type definitions\n</code></pre>\n<h3 id=\"best-practices\">Best Practices</h3>\n<ol>\n<li>\n<p><strong>Type Safety</strong></p>\n<ul>\n<li>Use TypeScript's strict mode</li>\n<li>No <code>any</code> types unless absolutely necessary</li>\n<li>Proper type imports from central <code>types.ts</code></li>\n<li>Type-safe IPC communication</li>\n</ul>\n</li>\n<li>\n<p><strong>Error Handling</strong></p>\n<ul>\n<li>Graceful degradation</li>\n<li>User-friendly error messages</li>\n<li>Proper error propagation</li>\n<li>Error state management</li>\n</ul>\n</li>\n<li>\n<p><strong>Performance</strong></p>\n<ul>\n<li>Debounced search queries</li>\n<li>File caching</li>\n<li>Lazy loading where appropriate</li>\n<li>Efficient IPC communication</li>\n</ul>\n</li>\n<li>\n<p><strong>Code Style</strong></p>\n<ul>\n<li>Clear naming conventions</li>\n<li>Consistent file structure</li>\n<li>Proper documentation</li>\n<li>Single responsibility principle</li>\n</ul>\n</li>\n</ol>\n<h2 id=\"authentication--data-security\">Authentication &amp; Data Security</h2>\n<h3 id=\"overview\">Overview</h3>\n<p>The application uses Discord OAuth for authentication, managed through Supabase Auth. This ensures secure user authentication and data isolation.</p>\n<h3 id=\"setup-requirements\">Setup Requirements</h3>\n<h4 id=\"1-supabase-project-setup\">1. Supabase Project Setup</h4>\n<ol>\n<li>Create a new project at supabase.com</li>\n<li>Enable Discord OAuth provider:\n<ul>\n<li>Add Discord application credentials</li>\n<li>Configure allowed callback URLs:\n<pre><code>http://localhost:5173/auth/callback  # Development\nhttps://your-domain.com/auth/callback  # Production\n</code></pre>\n</li>\n</ul>\n</li>\n<li>Configure RLS policies (see Database Schema section)</li>\n<li>Copy project credentials for environment setup</li>\n</ol>\n<h4 id=\"2-environment-configuration\">2. Environment Configuration</h4>\n<p>Create a <code>.env</code> file in the project root:</p>\n<pre><code class=\"language-env\"># Supabase Configuration\nVITE_SUPABASE_URL=your_project_url\nVITE_SUPABASE_KEY=your_anon_key  # Public anon key, NOT service_role key\n\n# Discord OAuth\nVITE_DISCORD_CLIENT_ID=your_discord_client_id\n</code></pre>\n<h3 id=\"database-schema\">Database Schema</h3>\n<h4 id=\"table-structure\">Table Structure</h4>\n<pre><code class=\"language-sql\">-- Enable RLS\nalter table public.vulpeculachats enable row level security;\n\n-- Create table\ncreate table public.vulpeculachats (\n  id uuid not null default gen_random_uuid(),\n  title text null,\n  messages jsonb not null default '[]'::jsonb,\n  model text not null,\n  metadata jsonb null default '{}'::jsonb,\n  created_at timestamp with time zone not null default now(),\n  updated_at timestamp with time zone not null default now(),\n  user_id uuid null,\n  thread text null,\n  constraint vulpeculachats_pkey primary key (id),\n  constraint vulpeculachats_user_id_fkey foreign key (user_id) references auth.users (id)\n) tablespace pg_default;\n\n-- Create index for efficient chat history sorting\ncreate index if not exists idx_vulpeculachats_updated_at \n  on public.vulpeculachats using btree (updated_at) \n  tablespace pg_default;\n</code></pre>\n<h4 id=\"row-level-security-rls-policies\">Row Level Security (RLS) Policies</h4>\n<pre><code class=\"language-sql\">-- Allow users to read their own chats and any anonymous chats\ncreate policy \"Users can read their own chats\"\n  on public.vulpeculachats for select\n  using (\n    auth.uid() = user_id \n    or user_id is null -- Allow reading chats with no user_id\n  );\n\n-- Allow users to create chats, either owned or anonymous\ncreate policy \"Users can create chats\"\n  on public.vulpeculachats for insert\n  with check (\n    auth.uid() = user_id \n    or user_id is null -- Allow creating chats with no user_id\n  );\n\n-- Allow users to update their own chats and anonymous chats\ncreate policy \"Users can update their own chats\"\n  on public.vulpeculachats for update\n  using (\n    auth.uid() = user_id \n    or user_id is null -- Allow updating chats with no user_id\n  );\n\n-- Allow users to delete their own chats and anonymous chats\ncreate policy \"Users can delete their own chats\"\n  on public.vulpeculachats for delete\n  using (\n    auth.uid() = user_id \n    or user_id is null -- Allow deleting chats with no user_id\n  );\n</code></pre>\n<h4 id=\"table-fields\">Table Fields</h4>\n<p><strong>vulpeculachats</strong>: Stores all chat sessions</p>\n<ul>\n<li><code>id</code>: UUID primary key, auto-generated</li>\n<li><code>title</code>: Optional chat title</li>\n<li><code>messages</code>: JSONB array of messages (defaults to empty array)\n<pre><code class=\"language-typescript\">{\n  id: string;\n  role: \"user\" | \"assistant\" | \"system\";\n  content: string;\n  timestamp: string;\n  model?: string;\n  tokens?: {\n    prompt: number;\n    completion: number;\n    total: number;\n  };\n  cost?: number;\n  includedFiles?: Array&lt;{\n    path: string;\n    content: string;\n    type: string;\n  }&gt;;\n}[]\n</code></pre>\n</li>\n<li><code>model</code>: AI model identifier (e.g., \"anthropic/claude-3-opus-20240229\")</li>\n<li><code>metadata</code>: Optional JSONB object for additional data (defaults to empty object)\n<pre><code class=\"language-typescript\">{\n  lastModel?: string;\n  lastUpdated?: string;\n  messageCount?: number;\n  summary?: string;\n  autoTitle?: string;\n  summaryLastUpdated?: string;\n  stats?: {\n    promptTokens: number;\n    completionTokens: number;\n    cost: number;\n    totalMessages: number;\n  };\n}\n</code></pre>\n</li>\n<li><code>user_id</code>: Optional reference to auth.users (nullable for anonymous chats)</li>\n<li><code>thread</code>: Optional text field for thread identification</li>\n<li><code>created_at/updated_at</code>: Timestamps with timezone (auto-managed)</li>\n</ul>\n<h4 id=\"security-features\">Security Features</h4>\n<ul>\n<li>Row Level Security (RLS) enabled by default</li>\n<li>Index on updated_at for efficient chat history queries</li>\n<li>Full CRUD policies supporting:\n<ol>\n<li>User-owned chats (where user_id = auth.uid())</li>\n<li>Anonymous chats (where user_id is null)</li>\n<li>Proper data isolation between users</li>\n</ol>\n</li>\n</ul>\n<h4 id=\"implementation-notes\">Implementation Notes</h4>\n<ul>\n<li>Anonymous chats (null user_id) are accessible to all users</li>\n<li>Each user can only access their own chats plus anonymous chats</li>\n<li>The updated_at index supports efficient chat history sorting</li>\n<li>JSONB fields (messages, metadata) support flexible schema evolution</li>\n<li>Timestamps are automatically managed by Postgres</li>\n</ul>\n<h3 id=\"authentication-flow\">Authentication Flow</h3>\n<ol>\n<li>User visits app</li>\n<li><code>useActiveUser</code> composable checks auth state</li>\n<li>If not authenticated:\n<ul>\n<li>Shows Discord login option</li>\n<li>Handles OAuth redirect</li>\n<li>Manages session storage</li>\n</ul>\n</li>\n<li>On successful auth:\n<ul>\n<li>Session established</li>\n<li>User data loaded</li>\n<li>Chat history retrieved</li>\n</ul>\n</li>\n</ol>\n<h3 id=\"logging-philosophy\">Logging Philosophy</h3>\n<p>The application follows a minimalist logging approach:</p>\n<ol>\n<li>\n<p><strong>Production Logging</strong></p>\n<ul>\n<li>Critical errors only</li>\n<li>Authentication state changes</li>\n<li>Important system events</li>\n<li>No debug logs in production</li>\n</ul>\n</li>\n<li>\n<p><strong>Development Logging</strong></p>\n<ul>\n<li>Controlled through <code>logger.ts</code></li>\n<li>Debug logs only shown in development</li>\n<li>Singleton pattern for consistent logging</li>\n<li>No redundant initialization logs</li>\n</ul>\n</li>\n<li>\n<p><strong>Log Categories</strong></p>\n<pre><code class=\"language-typescript\">export type LogLevel = \"debug\" | \"info\" | \"warn\" | \"error\";\n</code></pre>\n<ul>\n<li><code>debug</code>: Development-only diagnostic information</li>\n<li><code>info</code>: Important but non-critical system events</li>\n<li><code>warn</code>: Potential issues that don't stop execution</li>\n<li><code>error</code>: Critical issues that need attention</li>\n</ul>\n</li>\n<li>\n<p><strong>Implementation</strong></p>\n<ul>\n<li>Centralized logger in <code>src/lib/logger.ts</code></li>\n<li>Singleton patterns in key composables</li>\n<li>No console.log in production code</li>\n<li>Error tracking preserved for debugging</li>\n</ul>\n</li>\n<li>\n<p><strong>Best Practices</strong></p>\n<ul>\n<li>Use <code>logger.error</code> for exceptions</li>\n<li>Keep debug logs minimal</li>\n<li>No sensitive data in logs</li>\n<li>Clear, actionable error messages</li>\n</ul>\n</li>\n</ol>",
+    "raw": "# Vulpecula Loom - AI Chat with Obsidian Integration\n\n<img width=\"1428\" alt=\"Screenshot 2024-11-18 at 12 41 15 AM\" src=\"https://github.com/user-attachments/assets/d2d0cec6-872f-4384-82a1-af21b8672ee6\">\n\n\nVulpecula Loom is a desktop application that combines the power of modern AI language models with seamless Obsidian vault integration. Built with Electron, Vue 3, and TypeScript, it offers a polished and efficient interface for AI-assisted writing and research.\n\n## Features\n\n### AI Chat\n- Support for multiple AI models through OpenRouter\n  - Claude 3 (Opus & Sonnet)\n  - GPT-4\n  - GPT-3.5 Turbo\n- Real-time token counting and cost tracking\n- Markdown rendering with syntax highlighting\n- Chat history with persistent storage\n- Export conversations to Markdown\n\n### Obsidian Integration\n\nShare your knowledge with AI by referencing your notes. Simply type `@` in any message to seamlessly include content from your Obsidian vault:\n\n1. **Quick Note References**\n   ```\n   Hey AI, can you help me understand @quantum-computing-basics? \n   Also, how does it relate to @quantum-entanglement?\n   ```\n   - Type `@` anywhere in your message\n   - Search your vault in real-time\n   - Select files from the popup\n   - Multiple files can be referenced in one message\n\n2. **How It Works**\n   - When you include a note with `@`, the entire note's content is sent to the AI\n   - The AI can then reference and analyze your notes\n   - Example:\n     ```\n     User: Can you compare the concepts in @classical-computing with @quantum-computing?\n     Assistant: Looking at your notes, I can see several key differences...\n     [Assistant can now reference the full content of both notes]\n     ```\n\n3. **File Search Features**\n   - Real-time search as you type after `@`\n   - Instant results (debounced 150ms)\n   - Shows file previews\n   - Matches titles and content\n   - Keyboard navigation (↑↓ to select, Enter to choose)\n   - Results sorted by relevance:\n     1. Title matches\n     2. Content matches\n     3. Recently modified\n\n4. **Technical Implementation**\n   - Files included via `includedFiles` array in messages\n   - Each included file contains:\n     ```typescript\n     {\n       title: string;      // File title\n       path: string;       // Full path to file\n       content: string;    // Complete file content\n     }\n     ```\n   - Content is cached for performance\n   - Files monitored for changes\n   - Vault path stored securely\n\n5. **Security & Performance**\n   - Files only accessible within your vault\n   - Content sanitized before display\n   - No external file access\n   - Efficient caching system\n   - Background indexing\n   - Incremental updates\n\n1. **File Inclusion**\n   - Files can be included in messages using `@` mentions\n   - When a file is included, its entire content is added to the message\n   - Included files are tracked in the message's `includedFiles` array\n   - Each included file contains:\n     ```typescript\n     {\n       title: string;      // File title\n       path: string;       // Full path to file\n       content: string;    // Complete file content\n     }\n     ```\n\n2. **File Search**\n   - Real-time search as you type `@`\n   - Debounced queries (150ms)\n   - Results limited to 10 files\n   - Results sorted by relevance\n   - Cache management for performance\n\n3. **Security**\n   - Files are only accessible within the vault\n   - Content is sanitized before display\n   - No external file access allowed\n   - Vault path stored securely in electron-store\n\n4. **Performance**\n   - File content cached in memory\n   - Incremental search updates\n   - Debounced search queries\n   - Background file indexing\n\n### User Interface\n- Dark/Light mode support\n- Native system integration\n- Custom titlebar with gradient animation\n- Responsive design with smooth transitions\n- Keyboard shortcuts for common actions\n\n### IPC Communication\n\nAll inter-process communication (IPC) is centralized in `electron/ipc/` with the following structure:\n\n```\nelectron/ipc/\n├── index.ts          # Central IPC setup and system-level handlers\n├── obsidian.ts       # Obsidian integration handlers\n└── store.ts          # Electron store handlers\n```\n\n#### Type-Safe IPC Communication\n\nAll IPC channels are fully typed using TypeScript interfaces in `src/types.ts` under the `IpcChannels` interface. \nThis centralized type system provides:\n- Auto-completion for channel names\n- Parameter type checking\n- Return type inference\n- Compile-time validation\n- Single source of truth for all IPC types\n\nExample:\n```typescript\n// In src/types.ts\nexport interface IpcChannels {\n  \"open-external\": (url: string) => Promise<void>;\n  \"store-get\": <K extends keyof StoreSchema>(key: K) => Promise<StoreSchema[K]>;\n  // ... more channel definitions\n}\n```\n\n#### Adding New IPC Handlers\n\n1. Add the type definition to `src/types.ts` under the `IpcChannels` interface\n2. Create a new handler in the appropriate domain file in `electron/ipc/`\n3. Register the handler in `electron/ipc/index.ts`\n4. Update this documentation\n\n## Getting Started\n\n### Prerequisites\n- Node.js (v18 or higher)\n- npm or yarn\n- An OpenRouter API key\n- Obsidian vault (optional)\n\n### Building the Application\n\n#### For macOS\n\n1. `git clone https://github.com/yourusername/vulpecula-loom.git`\n2. `cd vulpecula-loom`\n3. `yarn install`\n4. `yarn build`\n\nThe built application will be available in the `release/{version}/` directory:\n- `electron-vue-vite.app` - The macOS application bundle\n- `electron-vue-vite-{version}-arm64.dmg` - The disk image installer for Apple Silicon\n- `electron-vue-vite-{version}-x64.dmg` - The disk image installer for Intel Macs\n\nNote: To build a signed application for distribution, you'll need an Apple Developer account and appropriate certificates. See [Apple's documentation](https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution) for more details on app notarization.\n\n## TypeScript Conventions\n\n### The Central Type System\n\nALL types MUST live in `src/types.ts`. This is not just a convention - it's a requirement.\n\n#### Why Centralization?\n- Single source of truth\n- No duplicate definitions\n- Clear type hierarchies\n- Easy to find and modify\n- Better TypeScript tooling support\n- Prevents circular dependencies\n- Maintains type consistency\n\n#### Type Categories\n- OpenRouter Types (API models, responses)\n- Chat Types (messages, history)\n- Store Types (electron store schema)\n- Electron IPC Types (channel definitions)\n- UI Types (preferences, settings)\n- Animation Types (configuration)\n\n#### The Rules of Type Centralization\n\n1. ALL types MUST be in `src/types.ts`\n2. NO `.d.ts` files allowed (except for third-party type declarations)\n3. NO interface/type definitions in component files\n4. NO scattered type definitions across the codebase\n5. ALL types MUST be properly categorized and documented\n6. ALL types MUST be exported\n\n❌ ILLEGAL:\n- Types in component files\n- Scattered `.d.ts` files\n- Duplicate type definitions\n- Undocumented types\n- Types without proper categorization\n\n✅ LEGAL:\n- All types in `src/types.ts`\n- Clear type categorization\n- Proper exports\n- Well-documented types\n- Single source of truth\n\n### Type Safety vs Pragmatism\nWhile we maintain strict type centralization, we allow `any` or more permissive types when:\n- Dealing with third-party libraries\n- Prototyping features\n- Handling complex DOM elements\n- Working with dynamic data\n\nRemember: Type centralization is about organization, not restriction.\n\n## Architecture\n\n### Composables\n\nThe application uses a layered composable architecture:\n\n- `useAIChat` - The main chat composable that handles all chat functionality. This is the primary interface that components should use for chat operations. It provides:\n  - Message handling\n  - Token tracking\n  - Cost calculation\n  - Chat persistence\n  - Streaming responses\n  - History management\n\n- `useOpenRouter` - Low-level OpenRouter API integration. **Should not be used directly by components**. Instead, use `useAIChat` which provides a higher-level interface and proper state management.\n\n- `useSupabase` - Handles chat persistence and history management\n- `useObsidianFiles` - Manages Obsidian vault integration\n- `useTheme` - Handles theme switching and persistence\n\n## ⚠️ Important Implementation Notes\n\n### Chat Implementation\n\n**ALWAYS use `useAIChat.ts` for chat functionality!** \n\nThe chat system is designed around the `useAIChat` composable, which handles:\n- Message sending and receiving\n- Chat history management\n- Token tracking\n- Cost calculation\n- Model selection\n- Temperature settings\n- Chat statistics\n\n❌ **DO NOT** try to implement chat functionality by directly using `useOpenRouter` or other lower-level composables. This will:\n- Break the chat history system\n- Cause message tracking issues\n- Prevent proper token/cost tracking\n- Summon dragons that will devour everyone\n\n`useOpenRouter` should only be used for:\n- API key management\n- Model availability checking\n- Model information\n\n## Electron Store Setup\n\nThe application uses `electron-store` for persistent storage. The store is exposed to the renderer process through a secure preload script.\n\n### Store Organization\n\n1. **Store Schema**\n   - All store keys are defined in `src/types.ts`\n   - Keys follow a consistent naming pattern (e.g., `api-key`, `theme`)\n   - Values are strongly typed\n\n2. **Access Pattern**\n   - Always use the `useStore` composable\n   - Never access `window.electron.store` directly\n   - All store operations are async\n\n3. **Key Categories**\n   - API Keys (`api-key`)\n   - UI Preferences (`theme`, `show-progress-bar`)\n   - Model Settings (`enabled-model-ids`, `pinned-models`)\n   - Application State (`remember-window-state`)\n   - Integration Settings (`obsidian-vault-path`)\n\n4. **Best Practices**\n   - Use typed keys from `StoreSchema`\n   - Handle errors gracefully\n   - Provide default values\n   - Log store operations in development\n   - Clear store data responsibly\n\n## Architecture Decisions\n\n### Type System\n\nThe application follows a strict type centralization pattern:\n\n1. **Central Type Repository**\n   - ALL types MUST live in `src/types.ts`\n   - NO scattered `.d.ts` files (except for third-party declarations)\n   - NO interface/type definitions in component files\n   - ALL types MUST be properly categorized and documented\n\n2. **Type Categories**\n   - OpenRouter Types (API models, responses)\n   - Chat Types (messages, history)\n   - Store Types (electron store schema)\n   - Electron IPC Types (channel definitions)\n   - UI Types (preferences, settings)\n   - Animation Types (configuration)\n   - Obsidian Types (file handling, search)\n\n3. **Naming Conventions**\n   - Interface names are PascalCase and descriptive (e.g., `ObsidianFile`, `ChatMessage`)\n   - Options/Config interfaces end with respective suffix (e.g., `ObsidianSearchOptions`, `AnimationConfig`)\n   - Props interfaces end with `Props` (e.g., `ChatInputProps`)\n   - Return type interfaces end with `Return` (e.g., `UseSupabaseReturn`)\n\n### Composable Architecture\n\nThe application uses a layered composable architecture:\n\n1. **Core Composables**\n   - `useAIChat` - Primary chat interface\n   - `useOpenRouter` - Low-level API integration\n   - `useSupabase` - Chat persistence\n   - `useObsidianFiles` - Vault integration\n   - `useTheme` - Theme management\n\n2. **Composable Rules**\n   - Each composable has a single responsibility\n   - Composables can depend on other composables\n   - State management handled through Vue's reactivity system\n   - Error handling at every layer\n   - Type-safe return values\n\n3. **Obsidian Integration**\n   - `useObsidianFiles` manages all Obsidian interactions\n   - File search with debounced queries\n   - Cache management for performance\n   - Type-safe IPC communication\n   - Error handling and state management\n\n### IPC Communication\n\n1. **Channel Organization**\n   - All channels defined in `IpcChannels` interface\n   - Strongly typed parameters and return values\n   - Channels grouped by domain:\n     - Store operations (`store-get`, `store-set`)\n     - File operations (`search-obsidian-files`, `get-obsidian-file-content`)\n     - System operations (`open-external`)\n\n2. **Security Model**\n   - Context isolation enabled\n   - Node integration disabled\n   - Explicit channel allowlist\n   - Type-safe preload script\n\n3. **Error Handling**\n   - All IPC calls wrapped in try/catch\n   - Errors propagated to UI\n   - Fallback values defined\n   - Error states tracked in composables\n\n### State Management\n\n1. **Store Organization**\n   - Electron store for persistent data\n   - Vue refs for component state\n   - Computed properties for derived state\n   - Watchers for side effects\n\n2. **Data Flow**\n   - Props down, events up\n   - State centralized in composables\n   - IPC communication abstracted\n   - Type-safe store operations\n\n### File Structure\n\n```\nsrc/\n├── components/        # Vue components\n├── composables/       # Vue composables\n├── electron/         # Electron main process\n│   └── ipc/         # IPC handlers\n├── lib/             # Shared utilities\n└── types.ts         # Central type definitions\n```\n\n### Best Practices\n\n1. **Type Safety**\n   - Use TypeScript's strict mode\n   - No `any` types unless absolutely necessary\n   - Proper type imports from central `types.ts`\n   - Type-safe IPC communication\n\n2. **Error Handling**\n   - Graceful degradation\n   - User-friendly error messages\n   - Proper error propagation\n   - Error state management\n\n3. **Performance**\n   - Debounced search queries\n   - File caching\n   - Lazy loading where appropriate\n   - Efficient IPC communication\n\n4. **Code Style**\n   - Clear naming conventions\n   - Consistent file structure\n   - Proper documentation\n   - Single responsibility principle\n\n## Authentication & Data Security\n\n### Overview\nThe application uses Discord OAuth for authentication, managed through Supabase Auth. This ensures secure user authentication and data isolation.\n\n### Setup Requirements\n\n#### 1. Supabase Project Setup\n1. Create a new project at supabase.com\n2. Enable Discord OAuth provider:\n   - Add Discord application credentials\n   - Configure allowed callback URLs:\n     ```\n     http://localhost:5173/auth/callback  # Development\n     https://your-domain.com/auth/callback  # Production\n     ```\n3. Configure RLS policies (see Database Schema section)\n4. Copy project credentials for environment setup\n\n#### 2. Environment Configuration\nCreate a `.env` file in the project root:\n```env\n# Supabase Configuration\nVITE_SUPABASE_URL=your_project_url\nVITE_SUPABASE_KEY=your_anon_key  # Public anon key, NOT service_role key\n\n# Discord OAuth\nVITE_DISCORD_CLIENT_ID=your_discord_client_id\n```\n\n### Database Schema\n\n#### Table Structure\n```sql\n-- Enable RLS\nalter table public.vulpeculachats enable row level security;\n\n-- Create table\ncreate table public.vulpeculachats (\n  id uuid not null default gen_random_uuid(),\n  title text null,\n  messages jsonb not null default '[]'::jsonb,\n  model text not null,\n  metadata jsonb null default '{}'::jsonb,\n  created_at timestamp with time zone not null default now(),\n  updated_at timestamp with time zone not null default now(),\n  user_id uuid null,\n  thread text null,\n  constraint vulpeculachats_pkey primary key (id),\n  constraint vulpeculachats_user_id_fkey foreign key (user_id) references auth.users (id)\n) tablespace pg_default;\n\n-- Create index for efficient chat history sorting\ncreate index if not exists idx_vulpeculachats_updated_at \n  on public.vulpeculachats using btree (updated_at) \n  tablespace pg_default;\n```\n\n#### Row Level Security (RLS) Policies\n```sql\n-- Allow users to read their own chats and any anonymous chats\ncreate policy \"Users can read their own chats\"\n  on public.vulpeculachats for select\n  using (\n    auth.uid() = user_id \n    or user_id is null -- Allow reading chats with no user_id\n  );\n\n-- Allow users to create chats, either owned or anonymous\ncreate policy \"Users can create chats\"\n  on public.vulpeculachats for insert\n  with check (\n    auth.uid() = user_id \n    or user_id is null -- Allow creating chats with no user_id\n  );\n\n-- Allow users to update their own chats and anonymous chats\ncreate policy \"Users can update their own chats\"\n  on public.vulpeculachats for update\n  using (\n    auth.uid() = user_id \n    or user_id is null -- Allow updating chats with no user_id\n  );\n\n-- Allow users to delete their own chats and anonymous chats\ncreate policy \"Users can delete their own chats\"\n  on public.vulpeculachats for delete\n  using (\n    auth.uid() = user_id \n    or user_id is null -- Allow deleting chats with no user_id\n  );\n```\n\n#### Table Fields\n**vulpeculachats**: Stores all chat sessions\n- `id`: UUID primary key, auto-generated\n- `title`: Optional chat title\n- `messages`: JSONB array of messages (defaults to empty array)\n  ```typescript\n  {\n    id: string;\n    role: \"user\" | \"assistant\" | \"system\";\n    content: string;\n    timestamp: string;\n    model?: string;\n    tokens?: {\n      prompt: number;\n      completion: number;\n      total: number;\n    };\n    cost?: number;\n    includedFiles?: Array<{\n      path: string;\n      content: string;\n      type: string;\n    }>;\n  }[]\n  ```\n- `model`: AI model identifier (e.g., \"anthropic/claude-3-opus-20240229\")\n- `metadata`: Optional JSONB object for additional data (defaults to empty object)\n  ```typescript\n  {\n    lastModel?: string;\n    lastUpdated?: string;\n    messageCount?: number;\n    summary?: string;\n    autoTitle?: string;\n    summaryLastUpdated?: string;\n    stats?: {\n      promptTokens: number;\n      completionTokens: number;\n      cost: number;\n      totalMessages: number;\n    };\n  }\n  ```\n- `user_id`: Optional reference to auth.users (nullable for anonymous chats)\n- `thread`: Optional text field for thread identification\n- `created_at/updated_at`: Timestamps with timezone (auto-managed)\n\n#### Security Features\n- Row Level Security (RLS) enabled by default\n- Index on updated_at for efficient chat history queries\n- Full CRUD policies supporting:\n  1. User-owned chats (where user_id = auth.uid())\n  2. Anonymous chats (where user_id is null)\n  3. Proper data isolation between users\n\n#### Implementation Notes\n- Anonymous chats (null user_id) are accessible to all users\n- Each user can only access their own chats plus anonymous chats\n- The updated_at index supports efficient chat history sorting\n- JSONB fields (messages, metadata) support flexible schema evolution\n- Timestamps are automatically managed by Postgres\n\n### Authentication Flow\n1. User visits app\n2. `useActiveUser` composable checks auth state\n3. If not authenticated:\n   - Shows Discord login option\n   - Handles OAuth redirect\n   - Manages session storage\n4. On successful auth:\n   - Session established\n   - User data loaded\n   - Chat history retrieved\n\n### Logging Philosophy\n\nThe application follows a minimalist logging approach:\n\n1. **Production Logging**\n   - Critical errors only\n   - Authentication state changes\n   - Important system events\n   - No debug logs in production\n\n2. **Development Logging**\n   - Controlled through `logger.ts`\n   - Debug logs only shown in development\n   - Singleton pattern for consistent logging\n   - No redundant initialization logs\n\n3. **Log Categories**\n   ```typescript\n   export type LogLevel = \"debug\" | \"info\" | \"warn\" | \"error\";\n   ```\n   - `debug`: Development-only diagnostic information\n   - `info`: Important but non-critical system events\n   - `warn`: Potential issues that don't stop execution\n   - `error`: Critical issues that need attention\n\n4. **Implementation**\n   - Centralized logger in `src/lib/logger.ts`\n   - Singleton patterns in key composables\n   - No console.log in production code\n   - Error tracking preserved for debugging\n\n5. **Best Practices**\n   - Use `logger.error` for exceptions\n   - Keep debug logs minimal\n   - No sensitive data in logs\n   - Clear, actionable error messages",
+    "excerpt": "<img width=\"1428\" alt=\"Screenshot 2024-11-18 at 12 41 15 AM\" src=\"https://github.com/user-attachments/assets/d2d0cec6-872f-4384-82a1-af21b8672ee6\">\n\n\nVulpecula..."
+  },
+  "createdAt": "2024-11-18T05:45:49Z",
+  "updatedAt": "2025-09-08T02:12:27Z",
+  "pushedAt": "2025-09-08T02:12:23Z"
+}

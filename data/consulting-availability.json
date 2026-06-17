@@ -1,0 +1,54 @@
+{
+  "lastUpdated": "2025-12-29",
+  "maxClients": 3,
+  "hoursPerWeekRange": [10, 30],
+  "currentClients": [
+    {
+      "name": "Client A",
+      "hoursPerWeek": 20,
+      "startDate": "2024-10-01",
+      "endDate": "2026-02-28"
+    },
+    {
+      "name": "Client B",
+      "hoursPerWeek": 15,
+      "startDate": "2025-01-01",
+      "endDate": "2026-02-28"
+    },
+    {
+      "name": "Client C",
+      "hoursPerWeek": 10,
+      "startDate": "2025-06-01",
+      "endDate": null
+    }
+  ],
+  "nextAvailable": "2026-03-01",
+  "quarters": {
+    "Q1 2026": {
+      "status": "full",
+      "slotsAvailable": 0,
+      "notes": "Booked through February"
+    },
+    "Q2 2026": {
+      "status": "available",
+      "slotsAvailable": 2,
+      "notes": "2 spots open starting March 1"
+    },
+    "Q3 2026": {
+      "status": "available",
+      "slotsAvailable": 2,
+      "notes": "Taking on new clients"
+    },
+    "Q4 2026": {
+      "status": "unknown",
+      "slotsAvailable": null,
+      "notes": "Availability TBD"
+    }
+  },
+  "statusMessages": {
+    "available": "Open for new engagements",
+    "limited": "Limited availability",
+    "full": "Fully booked",
+    "unknown": "Check back soon"
+  }
+}

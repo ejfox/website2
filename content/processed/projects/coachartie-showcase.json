@@ -1,0 +1,32 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">A one-page editorial showcase for <a href=\"/tag/coach-artie\" class=\"internal-link text-blue-600 dark:text-blue-400\">Coach Artie</a> — big serif display type on black, walking through what the agent does: adapts to its environment, remembers what matters, stays cost-conscious, writes its own release notes. 28 capabilities, laid out like a magazine feature.</p>\n<figure role=\"figure\" aria-label=\"Meet Coach Artie — the showcase landing\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/coachartie-showcase/hero.png\" alt=\"Meet Coach Artie — the showcase landing\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/coachartie-showcase/hero.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/coachartie-showcase/hero.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/coachartie-showcase/hero.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/coachartie-showcase/hero.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Meet Coach Artie — the showcase landing\" width=\"1440\" height=\"1500\" style=\"--splay-rot:-2.09deg;\" data-dimensions=\"1440×1500\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Meet Coach Artie — the showcase landing</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Behind the showcase — anime.js camera moves and scroll-triggered section focus\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/coachartie-showcase/code.png\" alt=\"Behind the showcase — anime.js camera moves and scroll-triggered section focus\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/coachartie-showcase/code.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/coachartie-showcase/code.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/coachartie-showcase/code.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/coachartie-showcase/code.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Behind the showcase — anime.js camera moves and scroll-triggered section focus\" width=\"1400\" height=\"980\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"1400×980\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Behind the showcase — anime.js camera moves and scroll-triggered section focus</figcaption>\n</figure>",
+  "title": "Coach Artie — Showcase Site",
+  "metadata": {
+    "title": "Coach Artie — Showcase Site",
+    "date": "2025-06-01T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/coachartie_showcase",
+    "tech": [
+      "JavaScript"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "context": "collaborative",
+    "tags": [
+      "tools"
+    ],
+    "words": 73,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

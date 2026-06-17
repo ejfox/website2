@@ -14,9 +14,9 @@ export default defineNuxtPlugin((nuxtApp) => {
     const tocLinks = Array.from(tocContainer.querySelectorAll('a[href^="#"]'))
     if (tocLinks.length === 0) return
 
-    // Find the current active heading based on scroll position
+    // Find active heading based on scroll position
     let activeHeading = null
-    const scrollPosition = window.scrollY + 100 // Add offset to trigger earlier
+    const _scrollPosition = window.scrollY + 100 // Offset for earlier trigger
 
     // Find the last heading that's above the current scroll position
     for (let i = headings.length - 1; i >= 0; i--) {
@@ -46,12 +46,11 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
 
   // Set up scroll event listener when component is mounted
-  if (process.client) {
-    // Wait for the DOM to be ready
+  if (import.meta.client) {
     nuxtApp.hook('app:mounted', () => {
       window.addEventListener('scroll', updateActiveTocItem, { passive: true })
-      // Initial update
-      setTimeout(updateActiveTocItem, 500)
+      // Small delay to ensure DOM is ready
+      setTimeout(updateActiveTocItem, 100)
     })
   }
 
@@ -59,6 +58,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   return {
     provide: {
       // Empty provide object to satisfy plugin requirements
-    }
+    },
   }
 })

@@ -1,0 +1,163 @@
+{
+  "name": "journo-llm",
+  "description": "A hand-made LLM for journalists, by journalists. Truthfulness, harm reduction, accountability.",
+  "url": "https://github.com/ejfox/journo-llm",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Python",
+  "languageColor": "#3572A5",
+  "languages": {
+    "Python": 27792,
+    "Dockerfile": 810
+  },
+  "diskUsage": 326,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".env.example",
+        "size": 833
+      },
+      {
+        "path": ".gitignore",
+        "size": 619
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 3064
+      },
+      {
+        "path": "Dockerfile",
+        "size": 810
+      },
+      {
+        "path": "SETUP.md",
+        "size": 4726
+      },
+      {
+        "path": "docker-compose.yml",
+        "size": 1867
+      },
+      {
+        "path": "journo_llm/__init__.py",
+        "size": 188
+      },
+      {
+        "path": "journo_llm/cli.py",
+        "size": 9126
+      },
+      {
+        "path": "journo_llm/data.py",
+        "size": 8232
+      },
+      {
+        "path": "journo_llm/train_modal.py",
+        "size": 10246
+      },
+      {
+        "path": "pyproject.toml",
+        "size": 1092
+      },
+      {
+        "path": "readme.md",
+        "size": 9325
+      },
+      {
+        "path": "uv.lock",
+        "size": 1012149
+      }
+    ],
+    "tree": {
+      "name": "journo-llm",
+      "children": [
+        {
+          "name": "journo_llm",
+          "children": [
+            {
+              "name": "__init__.py",
+              "size": 188,
+              "path": "journo_llm/__init__.py"
+            },
+            {
+              "name": "cli.py",
+              "size": 9126,
+              "path": "journo_llm/cli.py"
+            },
+            {
+              "name": "data.py",
+              "size": 8232,
+              "path": "journo_llm/data.py"
+            },
+            {
+              "name": "train_modal.py",
+              "size": 10246,
+              "path": "journo_llm/train_modal.py"
+            }
+          ],
+          "path": "journo_llm"
+        },
+        {
+          "name": ".env.example",
+          "size": 833,
+          "path": ".env.example"
+        },
+        {
+          "name": ".gitignore",
+          "size": 619,
+          "path": ".gitignore"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 3064,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "Dockerfile",
+          "size": 810,
+          "path": "Dockerfile"
+        },
+        {
+          "name": "SETUP.md",
+          "size": 4726,
+          "path": "SETUP.md"
+        },
+        {
+          "name": "docker-compose.yml",
+          "size": 1867,
+          "path": "docker-compose.yml"
+        },
+        {
+          "name": "pyproject.toml",
+          "size": 1092,
+          "path": "pyproject.toml"
+        },
+        {
+          "name": "readme.md",
+          "size": 9325,
+          "path": "readme.md"
+        },
+        {
+          "name": "uv.lock",
+          "size": 1012149,
+          "path": "uv.lock"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 13,
+    "totalSize": 1062277
+  },
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2026-01-17T22:47:23Z",
+  "updatedAt": "2026-01-17T22:56:45Z",
+  "pushedAt": "2026-01-17T22:56:42Z"
+}

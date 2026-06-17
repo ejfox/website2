@@ -1,7 +1,7 @@
 ---
 draft: true
 dek: >-
-  In which we use data to explore the ⚡️vibes✨ in a sequence of hand-selected
+  In which we use data to explore the vibes in a sequence of hand-selected
   playlists created by the author
 inprogress: true
 date: 2022-11-02T19:59:30-04:00

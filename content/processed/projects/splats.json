@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. A short flythrough video would be a\n     better hero than this still once the page supports video. Draft. -->\n<p class=\"\">A local 3D Gaussian Splatting pipeline that turns my own FPV drone footage into explorable splat scenes — COLMAP camera solve, training, and export to <code class=\"md-inline-code\">.spz</code>, all running on an M1 laptop.</p>\n<figure role=\"figure\" aria-label=\"A Gaussian splat scene reconstructed from FPV drone footage\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/splats/scene.jpg\" alt=\"A Gaussian splat scene reconstructed from FPV drone footage\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/splats/scene.jpg 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/splats/scene.jpg 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/splats/scene.jpg 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/splats/scene.jpg 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A Gaussian splat scene reconstructed from FPV drone footage\" width=\"2560\" height=\"720\" style=\"--splay-rot:0.77deg;\" data-dimensions=\"2560×720\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">A Gaussian splat scene reconstructed from FPV drone footage</figcaption>\n</figure>",
+  "title": "Gaussian Splats",
+  "metadata": {
+    "title": "Gaussian Splats",
+    "date": "2026-04-01T04:00:00.000Z",
+    "draft": true,
+    "tech": [
+      "3D Gaussian Splatting",
+      "COLMAP",
+      "Drone",
+      "M1"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "3d",
+      "drone",
+      "machine-learning"
+    ],
+    "words": 70,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "name": "cwf-site",
+  "description": "No description provided",
+  "url": "https://github.com/ejfox/cwf-site",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 2,
+    "openIssues": 0
+  },
+  "language": "Vue",
+  "languageColor": "#41b883",
+  "languages": {
+    "Vue": 46,
+    "JavaScript": 38
+  },
+  "diskUsage": 107,
+  "fileTree": {
+    "files": [
+      {
+        "path": "nuxt.config.js",
+        "size": 38
+      },
+      {
+        "path": "package-lock.json",
+        "size": 422054
+      },
+      {
+        "path": "package.json",
+        "size": 198
+      },
+      {
+        "path": "pages/index.vue",
+        "size": 46
+      }
+    ],
+    "tree": {
+      "name": "cwf-site",
+      "children": [
+        {
+          "name": "pages",
+          "children": [
+            {
+              "name": "index.vue",
+              "size": 46,
+              "path": "pages/index.vue"
+            }
+          ],
+          "path": "pages"
+        },
+        {
+          "name": "nuxt.config.js",
+          "size": 38,
+          "path": "nuxt.config.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 422054,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 198,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 4,
+    "totalSize": 422336
+  },
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2021-01-22T18:42:39Z",
+  "updatedAt": "2021-01-22T18:54:25Z",
+  "pushedAt": "2021-01-22T18:54:20Z"
+}

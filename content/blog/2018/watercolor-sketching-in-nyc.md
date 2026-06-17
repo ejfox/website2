@@ -2,7 +2,6 @@
 type: words
 hidden: true
 date: '2018-06-10T14:58:10-04:00'
-hidetimestamp: false
 tags:
   - art
   - documentary

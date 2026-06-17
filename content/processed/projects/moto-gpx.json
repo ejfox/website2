@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — this is a factual stub, not your words. Draft until ready. -->\n<p class=\"\">Dumps a folder of GPX tracks into map-ready GeoJSON split by day, hour, or stage, and can optionally merge photos and videos via exiftool. Built for multi-day motorcycle trip maps.</p>\n<figure role=\"figure\" aria-label=\"A 56-mile Hudson Valley loop mapped from a Garmin file\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/moto-gpx/map.png\" alt=\"A 56-mile Hudson Valley loop mapped from a Garmin file\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/moto-gpx/map.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/moto-gpx/map.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/moto-gpx/map.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/moto-gpx/map.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A 56-mile Hudson Valley loop mapped from a Garmin file\" width=\"1180\" height=\"1380\" style=\"--splay-rot:2.48deg;\" data-dimensions=\"1180×1380\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">A 56-mile Hudson Valley loop mapped from a Garmin file</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Generated elevation profile with the day&#x27;s peak marked\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/moto-gpx/elevation.png\" alt=\"Generated elevation profile with the day&#x27;s peak marked\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/moto-gpx/elevation.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/moto-gpx/elevation.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/moto-gpx/elevation.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/moto-gpx/elevation.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Generated elevation profile with the day&#x27;s peak marked\" width=\"2000\" height=\"380\" style=\"--splay-rot:-1.25deg;\" data-dimensions=\"2000×380\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Generated elevation profile with the day's peak marked</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Generated speed profile with the top-speed moment marked\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/moto-gpx/speed.png\" alt=\"Generated speed profile with the top-speed moment marked\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/moto-gpx/speed.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/moto-gpx/speed.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/moto-gpx/speed.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/moto-gpx/speed.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Generated speed profile with the top-speed moment marked\" width=\"2000\" height=\"380\" style=\"--splay-rot:-2.49deg;\" data-dimensions=\"2000×380\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Generated speed profile with the top-speed moment marked</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"The CLI&#x27;s output layers — tracks, stops, speed bins, hillshade, sun position\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/moto-gpx/output.png\" alt=\"The CLI&#x27;s output layers — tracks, stops, speed bins, hillshade, sun position\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/moto-gpx/output.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/moto-gpx/output.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/moto-gpx/output.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/moto-gpx/output.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The CLI&#x27;s output layers — tracks, stops, speed bins, hillshade, sun position\" width=\"2000\" height=\"1080\" style=\"--splay-rot:1.09deg;\" data-dimensions=\"2000×1080\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The CLI's output layers — tracks, stops, speed bins, hillshade, sun position</figcaption>\n</figure>",
+  "title": "Moto GPX",
+  "metadata": {
+    "title": "Moto GPX",
+    "date": "2026-04-01T00:00:00.000Z",
+    "draft": true,
+    "url": "https://ejfox.github.io/moto-gpx/",
+    "tech": [
+      "JavaScript",
+      "GeoJSON",
+      "exiftool"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "maps",
+      "motorcycle",
+      "data"
+    ],
+    "words": 89,
+    "images": 4,
+    "imageDetails": {
+      "total": 4,
+      "cloudinary": 4,
+      "withDimensions": 0
+    },
+    "links": 4,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

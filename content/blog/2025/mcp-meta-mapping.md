@@ -17,7 +17,7 @@ Right now, all the MCP servers you add are made available to your robot at all t
 
 My first instinct, shared by many, is to load the robot up with *as many tools as possible*. You can stay up late configuring your API keys and imagining the possibilities. I went through this with Obsidian Plugins. But over time, I came to realize the extra plugins didn’t help as much as I thought. Worse, they slowed down every interaction (particularly on mobile.) I anticipate a similar arc with MCP servers.
 
-Given a completely novel territory I did what any hacker-come-cartographer might do, I tried to make a map of it, aided at every step by the robot of course.
+Given a completely novel territory I did what any hacker-come-cartographer might do, I tried to make a map of it, aided at every step by the robot of course. (This is [[../robots/quantified-self-as-archaeology|archaeology, not optimization]] - exploring data to reveal patterns, not to find the "best" MCP.)
 
 The first step was to take the MCP names and descriptions and turn them into embeddings; getting their location in hyper-dimensional space that we can use to arrange, cluster, and categorize them roughly by what they do (if we configure our parameters correctly)
 
@@ -41,9 +41,9 @@ From here we can run a number of clustering algorithms, created by people much s
 
 When I used to shoot film photos I had my own darkroom, and one of the crucial steps in printing a roll of film is first printing a contact sheet, little thumbnails of the entire roll. In many ways we are recreating this process but with a machine, a camera that humanity has yet to perfect or even understand. Thats what makes it fun.
 
-![](http://res.cloudinary.com/ejf/image/upload/v1742920150/IMG_3168.jpg)
+![Three contact sheets of black and white film negatives showing various scenes from what appears to be a documentary or artistic photo project.](http://res.cloudinary.com/ejf/image/upload/v1742920150/IMG_3168.jpg)
 
-![](http://res.cloudinary.com/ejf/image/upload/v1742920633/Screenshot_2025-03-25_at_12.37.00_PM.png)
+![Clustering algorithm comparisons showing HDBSCAN with varying minimum cluster sizes and KMeans with different cluster counts applied to UMAP-reduced data.](http://res.cloudinary.com/ejf/image/upload/v1742920633/Screenshot_2025-03-25_at_12.37.00_PM.png)
 
 Once we have picked groupings, we can begin to make some shape of them. We don’t even necessarily need the robot for this part, although doing it by hand is a chore. You can click around the points in a cluster, and as a human, after 4 or 5 you can kinda get a sense what “category” we might be in.
 
@@ -51,7 +51,7 @@ Once we have picked groupings, we can begin to make some shape of them. We don�
 
 Some traditional categories emerge; both from our manual spot-checking as well as our automated labeling techniques. We are beginning to find the true names of this unknown territory. The fog of war begins to lift, and we start to see not only the peaks but also the valleys and the space between concepts. These might be places for people who want to make *new things* to concentrate their energies.
 
-![](http://res.cloudinary.com/ejf/image/upload/v1742920843/Screenshot_2025-03-25_at_12.40.31_PM.png)
+![UMAP dimensionality reduction plot showing seven clusters of gene expression or cellular data with distinct spatial separation by cell type or condition.](http://res.cloudinary.com/ejf/image/upload/v1742920843/Screenshot_2025-03-25_at_12.40.31_PM.png)
 
 Creativity and innovation can often come from the simple interpolation of discrete ideas or technologies. Maps like these can help us perform these exercises. I am a visual thinker, so for me, it is interesting to draw lines between clusters and think what it might look like to combine them in new ways or find gaps in coverage. This is strategy, not tactics.
 

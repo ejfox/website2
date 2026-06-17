@@ -1,75 +1,108 @@
-import { defineEventHandler, readBody, getRouterParam, createError, getMethod } from 'h3'
-import { promises as fs } from 'fs'
-import { join } from 'path'
+/**
+ * @file predictions/[id].ts
+ * @description Handles prediction GET (single prediction with SSR markdown) and PATCH (resolution updates)
+ * @endpoint GET /api/predictions/{id} - Fetch single prediction with rendered markdown
+ * @endpoint PATCH /api/predictions/{id} - Update prediction resolution
+ * @params id: string - Prediction ID/slug (supports both flat and year-based structures)
+ */
+import {
+  defineEventHandler,
+  readBody,
+  getRouterParam,
+  createError,
+  getMethod,
+} from 'h3'
+import { promises as fs } from 'node:fs'
+import { join } from 'node:path'
 import matter from 'gray-matter'
+import { glob } from 'glob'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
+import remarkGfm from 'remark-gfm'
 
 const predictionsDir = join(process.cwd(), 'content/predictions')
 
 async function findPredictionFile(id: string): Promise<string | null> {
   // Handle different ID formats
   // Could be: "ai-models-2025" (flat) or "2025-ai-adoption" (year-based)
-  
+
   // Try flat structure first
   let filePath = join(predictionsDir, `${id}.md`)
   try {
     await fs.access(filePath)
     return filePath
-  } catch {}
-  
+  } catch {
+    // File doesn't exist, try next location
+  }
+
   // Try year-based structure
   if (id.includes('-')) {
     const parts = id.split('-')
     const year = parts[0]
+    if (!year) return null
     const filename = parts.slice(1).join('-') + '.md'
-    
+
     // Try year/filename
     filePath = join(predictionsDir, year, filename)
     try {
       await fs.access(filePath)
       return filePath
-    } catch {}
-    
+    } catch {
+      // File doesn't exist, try next location
+    }
+
     // Try reconstructed filename
     filePath = join(predictionsDir, year, `${id.substring(5)}.md`)
     try {
       await fs.access(filePath)
       return filePath
-    } catch {}
+    } catch {
+      // File doesn't exist, continue to return null
+    }
   }
-  
+
   return null
 }
 
 export default defineEventHandler(async (event) => {
   const id = getRouterParam(event, 'id')
   const method = getMethod(event)
-  
+
+  if (!id) {
+    throw createError({
+      statusCode: 400,
+      statusMessage: 'Prediction ID required',
+    })
+  }
+
   if (method === 'PATCH') {
     // Update a prediction (typically to resolve it)
     const body = await readBody(event)
-    
+
     try {
-      const filePath = await findPredictionFile(id!)
+      const filePath = await findPredictionFile(id)
       if (!filePath) {
         throw new Error('File not found')
       }
-      
+
       const content = await fs.readFile(filePath, 'utf-8')
       const { data, content: markdownBody } = matter(content)
-      
+
       // Update the frontmatter with the outcome
       if (body.outcome) {
         data.outcome = {
           resolved: body.outcome.resolved,
           correct: body.outcome.correct,
-          notes: body.outcome.notes
+          notes: body.outcome.notes,
         }
       }
-      
+
       // Rebuild the markdown file
       const newContent = matter.stringify(markdownBody, data)
       await fs.writeFile(filePath, newContent)
-      
+
       return {
         id,
         statement: data.statement,
@@ -77,24 +110,110 @@ export default defineEventHandler(async (event) => {
         confidence: data.confidence,
         deadline: new Date(data.deadline),
         categories: data.categories || [],
-        outcome: data.outcome ? {
-          resolved: new Date(data.outcome.resolved),
-          correct: data.outcome.correct,
-          notes: data.outcome.notes || ''
-        } : undefined,
+        outcome: data.outcome
+          ? {
+              resolved: new Date(data.outcome.resolved),
+              correct: data.outcome.correct,
+              notes: data.outcome.notes || '',
+            }
+          : undefined,
         visibility: data.visibility || 'public',
-        evidence: markdownBody.trim()
+        evidence: markdownBody.trim(),
       }
-    } catch (error) {
+    } catch {
       throw createError({
         statusCode: 404,
-        statusMessage: 'Prediction not found'
+        statusMessage: 'Prediction not found',
       })
     }
   }
-  
+
+  if (method === 'GET') {
+    // Fetch single prediction with SSR markdown
+    const filePath = await findPredictionFile(id)
+    if (!filePath) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Prediction not found',
+      })
+    }
+
+    const content = await fs.readFile(filePath, 'utf-8')
+    const { data, content: body } = matter(content)
+
+    // SSR markdown processing
+    const processor = unified()
+      .use(remarkParse)
+      .use(remarkGfm)
+      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeStringify, { allowDangerousHtml: true })
+
+    const evidenceHtml = body.trim()
+      ? String(await processor.process(body))
+      : null
+    const resolutionHtml = data.resolution
+      ? String(await processor.process(data.resolution))
+      : null
+
+    // Enrich related predictions with statements
+    let relatedPredictions: Array<{
+      id: string
+      slug: string
+      statement: string
+      confidence: number
+      status?: string
+    }> = []
+
+    if (data.related?.length) {
+      const files = await glob('**/*.md', { cwd: predictionsDir })
+      const allPredictions = await Promise.all(
+        files.map(async (file) => {
+          const fp = join(predictionsDir, file)
+          const c = await fs.readFile(fp, 'utf-8')
+          const { data: d } = matter(c)
+          const fileId = file.replace(/\.md$/, '').replace(/\//g, '-')
+          return {
+            id: d.id || fileId,
+            slug: file.replace(/\.md$/, ''),
+            statement: d.statement,
+            confidence: d.confidence,
+            status: d.status,
+          }
+        })
+      )
+
+      relatedPredictions = data.related
+        .map((relId: string) =>
+          allPredictions.find((p) => p.id === relId || p.slug === relId)
+        )
+        .filter(Boolean)
+    }
+
+    const fileId = filePath
+      .replace(predictionsDir + '/', '')
+      .replace(/\.md$/, '')
+      .replace(/\//g, '-')
+
+    return {
+      id: data.id || fileId,
+      slug: filePath.replace(predictionsDir + '/', '').replace(/\.md$/, ''),
+      statement: data.statement,
+      confidence: data.confidence,
+      deadline: data.deadline,
+      status: data.status,
+      resolved: data.resolved ?? false,
+      resolved_date: data.resolved_date,
+      evidence: body.trim(),
+      evidenceHtml,
+      resolution: data.resolution,
+      resolutionHtml,
+      updates: data.updates || [],
+      relatedPredictions,
+    }
+  }
+
   throw createError({
     statusCode: 405,
-    statusMessage: 'Method not allowed'
+    statusMessage: 'Method not allowed',
   })
 })

@@ -1,7 +1,7 @@
 {
-  "content": "<h3 class=\"prose-sm text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"room-302-studio-website-redesign\">Room 302 Studio Website Redesign</h3>\n<h2 class=\"prose-sm text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-learning--development\">📘 Learning &#x26; Development</h2>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center prose-sm text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C</a></p>",
-  "html": "<h3 class=\"prose-sm text-2xl font-medium mb-3 mt-6 max-w-prose md:pr-12 animate-on-scroll slide-from-left\" id=\"room-302-studio-website-redesign\">Room 302 Studio Website Redesign</h3>\n<h2 class=\"prose-sm text-3xl font-semibold mb-4 mt-8 max-w-prose border-b border-zinc-200 dark:border-zinc-800 pb-2 md:pr-12 animate-on-scroll slide-from-left\" id=\"-learning--development\">📘 Learning &#x26; Development</h2>\n<p class=\"prose-p prose-sm max-w-prose mb-4 leading-relaxed dark:prose-invert animate-on-scroll\" style=\"max-width: 60ch;\"><a href=\"https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center prose-sm text-blue-600 dark:text-blue-400 hover:underline transition-colors duration-200\">https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C</a></p>",
-  "title": "💻 Projects Worked On",
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<h2 class=\"\" id=\"projects-worked-on\">Projects Worked On</h2>\n<h3 class=\"\" id=\"room-302-studio-website-redesign\">Room 302 Studio Website Redesign</h3>\n<h2 class=\"\" id=\"-learning--development\">📘 Learning &#x26; Development</h2>\n<p class=\"\"><a href=\"https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C\">https://youtu.be/eo4gIihETu8?si=FeSscE6Dyt1cxI_C</a></p>",
+  "title": "Projects Worked On",
   "metadata": {
     "tags": [
       "weekly-notes",
@@ -11,11 +11,16 @@
       "project",
       "design"
     ],
-    "date": "2022-12-26T16:57:44.000Z",
+    "date": "2024-01-29T05:00:00.000Z",
     "modified": "2024-10-14T23:52:03.000Z",
     "dek": "In which the author partakes in the redesign of the Room 302 Studio website and engages in learning and development through a video lecture.",
-    "words": 19,
+    "words": 18,
     "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
     "links": 0,
     "codeBlocks": 0,
     "headers": {
@@ -23,7 +28,7 @@
     },
     "toc": [
       {
-        "text": "💻 Projects Worked On",
+        "text": "Projects Worked On",
         "slug": "projects-worked-on",
         "level": "h2",
         "children": [
@@ -37,13 +42,11 @@
       },
       {
         "text": "📘 Learning & Development",
-        "slug": "learning-development",
+        "slug": "-learning--development",
         "level": "h2",
         "children": []
       }
     ],
-    "type": "post",
-    "sourcePath": "../../../../../code/website2/content/blog/week-notes/2024-05.md",
-    "sourceDir": "/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/"
+    "type": "post"
   }
 }

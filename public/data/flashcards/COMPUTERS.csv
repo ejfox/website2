@@ -1,0 +1,394 @@
+How to quit vim?,q,w,z,esc
+How to save and quit vim?,wq
+Better alternative to wget or curl,http
+How to scroll up in tmux?,"Ctrl-a
+Fn + up/down arrow"
+How to select text in vim?,v
+How to list a directory and include dot files?,ls -a
+How do I easily make a license file for a project?,mklicense
+How do you download a file?,http --download URL
+How do you unzip a zip file?,unzip
+How to insert line below in vim (in normal mode)?,o for blank line after,O for blank line before
+Delete current line in vim,dd
+Skip to line in vim,"line number 
+shift-g"
+Expand the current tmux pane to take up the entire window,ctrl-a z
+Control spotify,spt
+Show system stats,btm
+Better alternative to cat,bat
+What tool replaces `cd` with fuzzy matching?,`zoxide`
+What is a quick alternative to `cd` a full path? ,`z [PATH]` to intelligently fuzzy-find based on recent activity
+What key opens fuzzy command search with `atuin` ?,ctrl-r
+What command line tool makes it easy to render .md files?,`glow`
+How do you create a new branch with your current changes in git?,git switch -c topic/wip -m
+What does the * key do in Neovim?,"Searches forward for the exact word under cursor. Use n to go to next match, N for previous match."
+What does the # key do in Neovim?,"Searches backward for the exact word under cursor. Use n to go to next match, N for previous match."
+How do you quickly find and open any file in your project?,Press <Space>ff to open Telescope file finder.
+How do you view and switch between all open buffers/files?,Press <Space>fb to show all open buffers in a searchable list.
+How do you jump to the definition of a function or variable?,Press gd (go to definition) with cursor on the symbol.
+How do you quickly cycle through open files without menus?,<Space>Tab  to switch between open buffers
+What key do you press to open Telescope file finder?,<Space>ff
+How to livegrep in lazyvim/neovim?,Leader (space) /
+How to fold everything down to top-level?,zM
+"If everything is folded, how do we un-fold it one level?",`zr`
+What does pressing f followed by a character do in LazyVim's Find mode?,Jumps the cursor forward to the next instance of that character.
+How do you jump to the 3rd instance of a character using Find mode?, Type 3f followed by the character.
+What’s the difference between Find (f) and “To” (t) mode?,“To” mode moves before the target character instead of on it.
+What does d2ts do in LazyVim?,Deletes text from the cursor up to before the second instance of s.
+What does Ctrl-o do in Neovim?,Jumps back to the previous location in the jump history.
+What is the opposite of Ctrl-o in Neovim?,"Ctrl-i, which jumps forward in the jump history."
+What happens visually when you enter Seek mode?,Part of the screen dims and labels appear on targets.
+What does f<char> do in Find mode?,Jumps forward to the next instance of <char>.
+"What does t<char> do in To mode?
+
+",Jumps just before the <char> (forward).
+How do you repeat a Find jump forward?,Press ;
+How do you repeat a Find jump backward?,"Press ,"
+Which mode should you use for longer-range navigation: Seek or Find?,Seek — shows labeled targets without counting.
+What keybinding opens the Snacks file picker in LazyVim?,<Space><Space> (Spacebar twice)
+How do you change directories from inside LazyVim?,Use :cd /path/to/dir and press <Enter>
+How do you change a window's working directory?,:lcd
+What key is used to add a new file or folder in the explorer?,a — Use with a trailing slash (/) to create a folder.
+How do you rename a file or folder in the explorer?,Press r while the item is selected.
+What does the y key do in the explorer?,"It ""yanks"" (copies) the selected file to the pseudo-clipboard."
+What key is used to move a file or folder in the explorer?,m
+Better than bracket jumping to find symbols?,"<space>ss - fuzzy search symbols in file (mnemonic: ""search symbols"")"
+Find any file in project fast?,"<space>ff - fuzzy find files (mnemonic: ""find file"")"
+Search for text across ALL files?,"<space>sg - live grep search (mnemonic: ""search grep"")"
+Search for word under cursor across project?,"<space>sw - search word under cursor (mnemonic: ""search word"")"
+Resume last telescope search?,"<space>sr - resume (mnemonic: ""search resume"")"
+What does * do in normal mode?,Search forward for word under cursor (exact match)
+What does # do in normal mode?,Search backward for word under cursor (exact match)
+Search word under cursor (partial match)?,"g* forward, g# backward (finds ""test"" in ""testing"")"
+Jump to next search result?,"n (mnemonic: ""next"")"
+Jump to previous search result?,N (shift-n = backwards)
+What's the jumplist?,"History of cursor positions across files (Ctrl-o = back, Ctrl-i = forward)"
+Go back to previous location?,"Ctrl-o (mnemonic: ""o"" = ""out/old"")"
+Go forward in jump history?,"Ctrl-i (mnemonic: ""i"" = ""in"")"
+See all your jumps?,:jumps or <space>sj
+What's the changelist?,"History of edit locations (g; = back, g, = forward)"
+Jump to last edit location?,g; (mnemonic: semicolon points back)
+Jump forward in changelist?,"g, (mnemonic: comma points forward)"
+Set a mark at current position?,"m{letter} - lowercase=file, uppercase=global (ma, mB, etc)"
+Jump to mark?,"'{letter} - line start, `{letter} - exact position"
+List all marks?,:marks
+What's the `` mark?,Backtick twice - jumps to last jump position
+What's the '. mark?,Last change position (line start)
+What's the '^ mark?,Last insert position
+Search within current buffer (besides /)?,<space>/ - fuzzy search current buffer lines
+Find recent files?,"<space>fr - recent files (mnemonic: ""find recent"")"
+Find buffers?,"<space>fb or <space>, - buffer list"
+Close current buffer?,<space>bd - buffer delete (safer than :bd)
+Visual select then search that text?,"y to yank, then /<Ctrl-r>"" to paste into search"
+Better: search visual selection?,"Select text, then <space>sw (if in visual mode) or * after visual select"
+Go to definition (text-based fallback)?,"gd tries LSP first, gD goes to first occurrence in file"
+Find references without LSP?,<space>sw on the symbol name
+Jump to matching bracket?,"% (works on (), [], {}, HTML tags)"
+Center screen on cursor?,"zz (mnemonic: ""zoom"" or cursor in ""middle"")"
+Scroll down half screen?,"Ctrl-d (mnemonic: ""down"")"
+Scroll up half screen?,"Ctrl-u (mnemonic: ""up"")"
+Go to top of file?,gg
+Go to bottom of file?,G (shift-g)
+Go to line number?,:42 or 42gg or 42G
+Move by paragraph?,"{ up, } down"
+Move by sentence?,"( back, ) forward"
+Jump to start of line?,0 (zero) or ^ (first non-blank)
+Jump to end of line?,$
+Find character forward in line?,"f{char} (mnemonic: ""find"") - then ; to repeat"
+Find character backward in line?,"F{char} (shift-f) - then , to repeat"
+Till character (stop before)?,"t{char} forward, T{char} backward (mnemonic: ""till"")"
+Repeat last f/F/t/T motion?,"; forward, , backward"
+Word forward?,"w (start of word), e (end of word)"
+Word backward?,b (back)
+WORD forward (ignore punctuation)?,"W, E, B (uppercase = big words)"
+What's a text object?,"Inner/around combo for structured editing (iw, aw, i"", a(, etc)"
+Change inside word?,"ciw (mnemonic: ""change inner word"")"
+Delete around paragraph?,"dap (mnemonic: ""delete around paragraph"")"
+Visual select inside brackets?,vi{ or vi[ or vi( - works on any bracket
+Change inside quotes?,"ci"" or ci' (mnemonic: ""change inner quotes"")"
+What does 'around' include that 'inner' doesn't?,"Surrounding whitespace/delimiters (aw includes spaces, a"" includes quotes)"
+Split window vertically?,<space>| or :vsp
+Split window horizontally?,<space>- or :sp
+Navigate between windows?,Ctrl-h/j/k/l (vim directions)
+Close window?,<space>wd or Ctrl-w c
+Make window full screen (toggle)?,<space>wm or Ctrl-w |
+Open file explorer?,<space>e (LazyVim default = neo-tree)
+Toggle terminal?,<space>ft or Ctrl-/ (floats a terminal)
+Search command history?,"<space>sc (mnemonic: ""search commands"")"
+Search help docs?,"<space>sh (mnemonic: ""search help"")"
+Search LazyVim keymaps?,"<space>sk (mnemonic: ""search keys"")"
+Undo?,u
+Redo?,Ctrl-r
+See undo tree?,<space>su or :UndotreeToggle (if installed)
+Repeat last command?,. (dot) - most powerful vim command
+What does . repeat?,"Last change (insert, delete, replace, etc) - NOT motions"
+Macro: start recording?,q{letter} - records to register (qa = record to 'a')
+Macro: stop recording?,q (press q again)
+Macro: replay?,@{letter} - then @@ to repeat last macro
+Better than LSP for Vue projects?,"Text search (<space>sw, *, #) + telescope symbols (<space>ss)"
+LazyVim which-key delay?,Shows menu after ~200ms on <space> - wait to see options
+Mnemonic for <space>s* commands?,"""search"" - sg=grep, ss=symbols, sw=word, sf=files"
+Mnemonic for <space>f* commands?,"""find"" - ff=files, fr=recent, fb=buffers"
+When to use marks vs jumplist?,"Marks = manual bookmarks you set, jumplist = automatic history"
+Fastest way to jump between two spots?,"Set mark ma at one, mb at other, then 'a and 'b to toggle"
+Why use f{char} over /search?,"Faster for same-line navigation, no search highlighting pollution"
+Telescope in insert mode?,Usually Ctrl-/ toggles - check which-key for mappings
+Search files by name pattern?,<space>ff then type partial name (fuzzy matches)
+Case sensitivity in search?,"/pattern\c = ignore case, /pattern\C = force case sensitive"
+Smart case search default?,"Usually enabled - lowercase=ignore case, any uppercase=case sensitive"
+Clear search highlighting?,"<space>ur or :noh (mnemonic: ""no highlight"")"
+Visual mode line select?,V (shift-v) - selects full lines
+Visual mode block select?,Ctrl-v - rectangular selection
+Reselect last visual selection?,gv
+Indent in visual mode?,"> indent right, < indent left, then . to repeat"
+Move lines up/down in visual?,"J moves down, K moves up (LazyVim remaps)"
+Join lines?,"J in normal mode (mnemonic: ""join"")"
+LazyVim lazy.nvim UI?,<space>l or :Lazy - manage plugins
+LazyVim extras installer?,<space>x or :LazyExtras - add language support
+Search TODO comments?,<space>st (if todo-comments installed)
+Diagnostic list (errors)?,<space>xx - trouble list (if installed)
+What’s the base case when recursively reversing a linked list?,"if (head === null || head.next === null) return head;
+
+This stops the recursion at the last node (which becomes the new head)."
+What does .next = recursiveCall(...) actually do?,"It rewires the .next pointer of the current node to the result of the recursive merge/reverse.
+You’re linking the current node to the rest of the solved list.
+"
+How do you detect a cycle in a linked list in O(1) space?,"Use two pointers:
+	•	slow = slow.next
+	•	fast = fast.next.next
+If fast === slow → cycle
+If fast === null || fast.next === null → no cycle"
+What’s the recursive definition of max depth in a binary tree?,"if (node === null) return 0;
+return 1 + Math.max(
+  maxDepth(node.left),
+  maxDepth(node.right)
+);
+"
+What’s the shape of a recursive tree problem?,"	•	Base case: node is null
+	•	Recurse on node.left and node.right
+	•	Combine result: sum, max, boolean, etc."
+What’s a leaf node in a binary tree?,A node where node.left === null && node.right === null
+What’s wrong with if (list1 < list2) in a merge function?,"You’re comparing object references, not values.
+You must compare list1.val < list2.val—always access .val explicitly when comparing node contents.
+"
+What’s the full recursive shape for merging two sorted linked lists?,"function merge(list1, list2) {
+  if (list1 === null) return list2;
+  if (list2 === null) return list1;
+
+  if (list1.val < list2.val) {
+    list1.next = merge(list1.next, list2);
+    return list1;
+  } else {
+    list2.next = merge(list1, list2.next);
+    return list2;
+  }
+}
+"
+What is the base case in recursion?,The condition where recursion stops and returns a final value.
+What does recursion use instead of loops?,The call stack.
+"In a merge, when do you return list2?",When list1 is null.
+How do you detect a cycle in a list using two pointers,"Move slow by 1, fast by 2 → if they ever meet, there’s a cycle."
+What’s the time complexity of recursive merge sort?,O(n log n)
+What is the Big O of a single for loop over n elements?,O(n)
+What’s the Big O of two nested loops over n?,O(n²)
+What’s the Big O of visiting all nodes and edges in a graph?,O(V + E) — vertices plus edges
+What does “log n” actually mean?,Input is divided by 2 each step — like halving in binary search
+Why is O(1) better than O(n)?,It doesn’t grow with input size—it’s constant time.
+What is a Transformer’s “attention” mechanism similar to in DS&A terms?,A weighted lookup across a list — conceptually like a soft binary search or inner-product-based traversal.
+What ML concept is like a hash map?,Embeddings — map discrete tokens to fixed-size vector lookups (like dict[token])
+Differentiate between directed and undirected graphs.,"In a directed graph, edges have a direction, indicating a one-way relationship; in an undirected graph, edges have no direction, indicating a two-way relationship."
+What is a weighted graph?,"A weighted graph assigns a numerical value (weight) to each edge, representing attributes like cost, distance, or capacity."
+Define a path in graph theory.,"A path is a sequence of vertices where each adjacent pair is connected by an edge, with no vertex repeated"
+What is the difference between a tree and a graph?,"A tree is a special case of a graph:
+	•	Acyclic
+	•	Connected
+	•	No cycles
+Every tree is a graph, but not every graph is a tree."
+What are the two main ways to traverse a graph?,"1.	Depth-First Search (DFS)
+	2.	Breadth-First Search (BFS)
+
+DFS uses a stack (often recursion).
+BFS uses a queue."
+O(1) means what?,Constant time (same speed regardless of input size)
+O(n) means what?,Linear time (doubles if input doubles)
+O(n²) common cause?,Nested loops over same data
+O(log n) common cause?,Dividing problem in half each step (binary search)
+O(n log n) common cause?,"Efficient sorting (merge sort, heap sort)"
+Two pointers pattern: where do they usually start?,Start/end OR both at start moving at different speeds
+Two pointers for palindrome check - how do they move?,"Start→← End, move toward center"
+Space complexity counts what?,Extra memory used (not including input)
+What's the space complexity of recursion?,O(depth) - call stack frames
+`while (left < right)` - when does this stop?,When pointers meet or cross
+Finding pair that sums to target in sorted array?,"If sum too small: left++, if too big: right--"
+Sliding window: what stays constant?,Window SIZE (usually)
+"Sliding window: how to ""slide""?","Add new element, remove old element"
+Fixed window size k: what's the pattern?,"Add arr[i], remove arr[i-k]"
+Variable sliding window: when to expand?,When condition not met (need more elements)
+Variable sliding window: when to shrink?,When condition exceeded (too many elements)
+Fast/slow pointers: detect cycle how?,"If they meet, there's a cycle (Floyd's algorithm)"
+Fast pointer moves how fast?,2x speed (slow.next vs fast.next.next)
+Find middle of linked list pattern?,"When fast reaches end, slow is at middle"
+Binary search: when to move left pointer?,When target > mid (search right half)
+Binary search: inclusive vs exclusive bounds?,`while (left <= right)` vs `while (left < right)`
+Finding leftmost occurrence pattern?,"When found, don't return - set `right = mid - 1`"
+Inorder traversal order?,"Left → Root → Right (mnemonic: ""In"" = LNR alphabetical)"
+Preorder traversal order?,"Root → Left → Right (mnemonic: ""Pre"" = root first)"
+Postorder traversal order?,"Left → Right → Root (mnemonic: ""Post"" = root last)"
+Level-order traversal uses what data structure?,Queue (BFS pattern)
+DFS tree traversal uses what data structure?,Stack (or recursion call stack)
+Recursion template: what two things needed?,Base case + Recursive case
+"""Bottom-up"" recursion means?","Solve smaller problems first, build up"
+"""Top-down"" recursion means?",Break big problem down into smaller ones
+Tail recursion special property?,Recursive call is LAST thing (can be optimized)
+Find all anagrams optimal?,Sliding window + frequency map compare
+Two pointers mnemonic?,"""Pinch"" (start outside, squeeze in) or ""Chase"" (one follows other)"
+Sliding window mnemonic?,"""Inchworm"" - back end follows front end"
+"In `for (let i = 0; ...)`, what does `let i = 0` do?",Declares counter variable `i` starting at 0 (happens ONCE before loop starts)
+The semicolons in `for ( ; ; )` separate what 3 things?,"init ; condition ; increment (mnemonic: ""start ; check ; step"")"
+`i++` means what?,Add 1 to i (same as `i = i + 1`) - happens AFTER each loop body runs
+When does `i < 5` get checked in a for loop?,BEFORE each iteration (including the very first one)
+What happens if you write `for (;;)`?,"Infinite loop! (no init, always true, no increment)"
+Can you declare multiple variables in a for loop init?,"Yes! `for (let i = 0, j = 10; ...)`"
+What's the scope of `let i` in `for (let i = 0; ...)`?,Block scoped - only exists inside the loop
+`for (const item of array)` - what does `of` mean?,"""of"" = get VALUES from an iterable (mnemonic: ""of"" = ""out of"")"
+Can you use `for...of` on a string?,Yes! It iterates over each character
+"`for (const [index, value] of arr.entries())` - what is `entries()`?","Method that returns [index, value] pairs"
+Why use `const` in `for (const item of array)`?,Each iteration gets a NEW variable (can't reassign within loop body)
+`for (const key in object)` - what does `in` give you?,"Property NAMES/KEYS (mnemonic: ""in"" = ""index/key"")"
+Does `for...in` loop over inherited properties?,YES! (use `hasOwnProperty()` to filter)
+Should you use `for...in` on arrays?,"NO! It's for objects (gives string indices, not guaranteed order)"
+`for...of` vs `for...in` mnemonic?,"of = VALUES of iterables, in = KEYS in objects"
+`while (condition) { }` - when is condition checked?,BEFORE each iteration (might never run!)
+What must you do inside a while loop to avoid infinite loop?,Change something that affects the condition
+Convert `for(let i=0; i<5; i++)` to while loop,`let i=0; while(i<5) { ...code...; i++; }`
+`do { } while (condition)` - when is condition checked?,AFTER each iteration (always runs at least once!)
+What punctuation ends a do...while loop?,Semicolon! `do { } while (condition);`
+while vs do...while - which guarantees at least one run?,"do...while (mnemonic: ""do"" = ""do it first"")"
+`arr.forEach((item) => {})` - what parameters can the callback receive?,"(value, index, array) - in that order!"
+Can you `break` out of a forEach?,NO! (use for...of or some() instead)
+What does forEach return?,undefined (always!)
+`this` inside forEach callback?,undefined (in arrow functions) or global object
+What's the difference between forEach and map?,"map RETURNS a new array, forEach returns undefined"
+`arr.map(x => x * 2)` - what must the callback do?,RETURN a value (becomes element in new array)
+Does map modify the original array?,NO! Creates a new array
+`arr.filter(x => x > 5)` - what should the callback return?,"true/false (truthy keeps element, falsy removes it)"
+What does filter return if nothing matches?,Empty array `[]`
+"`arr.reduce((acc, val) => {}, init)` - what is `acc`?",Accumulator - the running total/result
+What happens if you omit reduce's initial value?,First element becomes initial accumulator
+reduce callback parameters in order?,"(accumulator, currentValue, index, array)"
+What does `find()` return when nothing matches?,undefined
+What does `findIndex()` return when nothing matches?,-1
+find() vs filter() - what's the difference?,"find returns FIRST match, filter returns ALL matches"
+`arr.some(x => x > 5)` returns what?,true if ANY element passes test
+`arr.every(x => x > 5)` returns what?,true if ALL elements pass test
+What does `[].some(x => true)` return?,false (empty array = no elements match)
+What does `[].every(x => false)` return?,true (empty array = all zero elements match!)
+`Object.keys(obj)` returns what?,Array of object's own property names
+`Object.values(obj)` returns what?,Array of object's own property values
+`Object.entries(obj)` returns what?,"Array of [key, value] pairs"
+How to loop over an object's entries?,"`for (const [key, value] of Object.entries(obj))`"
+`for await (const val of asyncIterable)` - what does `await` do here?,Waits for each Promise in the iterable
+Where can you use `for await...of`?,Only inside async functions
+`break` does what in a loop?,Exits the loop completely
+`continue` does what in a loop?,Skips to next iteration
+Can you use `break` in forEach?,"NO! (forEach, map, filter, etc. don't support break)"
+How to break out of nested loops?,Use labeled break: `outer: for {...}`
+Which is faster: for loop or forEach?,for loop (less function call overhead)
+`for (var i = 0; ...)` vs `for (let i = 0; ...)` - what's the danger?,`var` leaks out of loop scope!
+Why might `arr.length` in loop condition be slow?,Recalculated each iteration (cache it: `len = arr.length`)
+What makes a function recursive?,It calls itself
+What must every recursive function have?,Base case (condition to stop recursing)
+Stack overflow happens when?,Too many recursive calls (no base case or too deep)
+"""for...of"" mnemonic?","""of"" = ""values OF array"" (rhyme: ""of gives you stuff"")"
+"""for...in"" mnemonic?","""in"" = ""keys IN object"" (rhyme: ""in gives you keys to get in"")"
+"forEach, map, filter, reduce order mnemonic?","""Every Map Filters Reduced traffic"" (Every=forEach, Map, Filter, Reduce)"
+Loop method that returns undefined?,"forEach (mnemonic: ""for Each returns nothEach"")"
+Time complexity of `arr.push()`?,O(1) - adds to end
+Time complexity of `arr.unshift()`?,O(n) - must shift all elements
+Binary search: `mid = ?`,`Math.floor((left + right) / 2)` or `left + Math.floor((right - left) / 2)`
+Backtracking pattern: three steps?,Choose → Explore → Unchoose
+When to backtrack?,When current path can't lead to solution
+Backtracking space complexity?,O(depth) for recursion stack
+DP prerequisite properties (2)?,Overlapping subproblems + Optimal substructure
+Memoization stores what?,Results of expensive function calls
+Bottom-up DP uses what instead of recursion?,Iteration with array/table
+DP time-space tradeoff?,Trade space (storing results) for time (not recomputing)
+HashMap get/set time complexity?,O(1) average case
+When does HashMap become O(n)?,Many collisions (poor hash function)
+Stack operations (2) and their complexity?,push/pop - both O(1)
+Queue operations (2) and their complexity?,enqueue/dequeue - both O(1)
+Heap insert/delete complexity?,O(log n) - bubble up/down
+Dummy node used for?,"Simplify linked list edge cases (empty, single node)"
+`n + 1` sized array for n items means?,Often using index as value (0 to n)
+XOR trick: `a ^ a = ?`,0 (number XOR itself = 0)
+XOR trick: `a ^ 0 = ?`,a (number XOR 0 = itself)
+Find single number in array of pairs?,XOR all numbers (pairs cancel out)
+Modulo for circular array?,`(index + 1) % length` wraps around
+Check if power of 2?,`n & (n-1) === 0` (and n > 0)
+Toggle between 0 and 1?,`val ^ 1` or `1 - val`
+Integer overflow check pattern?,Check BEFORE operation: `if (a > MAX_VALUE - b)`
+Graph BFS shortest path - what data structure?,"Queue + Set (visited), level by level guarantees shortest path"
+Graph DFS detect cycle pattern?,"Track visiting set (gray) + visited set (black), cycle if hit gray node"
+Topological sort requires what type of graph?,DAG (Directed Acyclic Graph) with no cycles
+Union-Find path compression?,Point node directly to root during find: parent[x] = find(parent[x])
+Array.from({length: n}) creates what?,Array of n undefined elements (useful for DP initialization)
+Why Array(n).fill().map() instead of just map()?,map() skips empty slots - fill() makes them undefined first
+Check palindrome without extra space?,Two pointers: while(left<right) if(s[left++] !== s[right--]) return false
+Trie node structure?,"{children: Map(), isEnd: false}"
+Min-heap parent formula?,Math.floor((i-1)/2)
+Min-heap children formulas?,Left: 2*i+1  Right: 2*i+2
+Set union?,new Set([...setA ...setB])
+Set intersection?,new Set([...setA].filter(x => setB.has(x)))
+Set difference A-B?,new Set([...setA].filter(x => !setB.has(x)))
+Edit distance recurrence?,"Match: dp[i-1][j-1], else: 1+min(insert delete replace)"
+Promise.all() fails when?,ANY promise rejects - whole thing rejects immediately
+Promise.allSettled() difference?,Never rejects - returns array of {status value/reason}
+Promise.race() resolves?,First promise to settle (resolve OR reject)
+await vs return await?,return await only needed in try/catch to catch promise rejection
+Parallel async operations?,await Promise.all(arr.map(async x => ...))
+Sequential async operations?,for(const x of arr) await process(x)
+Array.prototype.at(-1) does?,Access from end: at(-1)=last at(-2)=second-to-last
+String.prototype.replaceAll() vs replace?,"replaceAll replaces ALL, replace only first (unless regex /g)"
+Nullish coalescing operator ??,Returns right if left is null/undefined (not 0 or '')
+Optional chaining edge case?,obj?.prop?.() only calls function if obj and prop exist
+structuredClone() vs JSON.parse/stringify?,structuredClone handles Date Map Set circular refs
+Array.prototype.findLast()?,Find last element matching predicate (iterates backwards)
+Array.prototype.toSorted()?,Non-mutating sort - returns new sorted array
+"What is loss, in machine learning?",A number that measures how wrong the model’s predictions are.
+What is gradient descent in machine learning?,An optimization method that tweaks parameters step by step to reduce loss.
+What is back propagation in machine learning?,A way to calculate gradients by moving backward through the network.
+What is overfitting in machine learning?,When the model memorizes training data instead of learning patterns.
+What is the R in RNN?,Recurrent—because it loops to handle sequences.
+What is sequence modeling in Machine Learning?,Predicting or generating data where order matters.
+What is the most basic process of creating an embedding in a Neural Network?,Mapping high-dimensional data into a dense vector space.
+What makes variable sequence lengths special in neural networks and machine learning predictions?,The model must handle inputs that aren’t all the same size.
+What is the back propagation algorithm?,A method to update weights using gradients via the chain rule.
+Why do we need a loss function?,To measure error so the model knows what to improve.
+What is the difference between loss and cost in machine learning?,Loss = error for one example; Cost = average error across all.
+What is stochastic gradient descent?,Gradient descent using one (or a few) random samples per step.
+What is a local minimum vs global minimum in machine learning?,Local = a small dip; Global = the deepest dip in the loss landscape.
+What is convergence in Machine Learning?,When training stops improving and stabilizes.
+What is a perceptron in a neutral network?,A basic linear classifier with weights and an activation.
+What is a Neuron in a neural network?,"A tiny function that takes inputs, applies weights, and outputs a value."
+"In machine learning, explain the difference between test data, training data, and validation data?","Training = learn, Validation = tune, Test = final check."
+"In machine learning, what is a training epoch?",One full pass through the training data.
+"In python, what is a data frame?",A 2D table of data with rows and labeled columns.
+What is the difference between supervised and unsupervised learning for neural networks?,"Supervised = labeled data, Unsupervised = no labels."
+What is a hyperparameter in machine learning?,"A setting chosen before training, like learning rate."
+What is dimensionality reduction in machine learning?,Shrinking features while keeping important info.
+"In machine learning, what is “attention”?",A way for the model to focus on relevant parts of the input.
+"In neural networks, what is a “transformer”?",A model that uses attention instead of recurrence for sequences.
+How is linear algebra used to determine the similarity between two features in a neural network?,By computing dot products or cosine similarity.
+What is a “softmax” function used for in machine learning?,Turning scores into probabilities that sum to 1.
+What is a “feature” in machine learning?,An input variable that represents some property of the data.
+What is self-attention in machine learning?,Attention applied to the same sequence to relate its elements.
+What is the “chain rule”?,A rule for finding derivatives of composite functions.
+What is the difference between probability and likelihood?,Probability = chance of data given parameters; Likelihood = fit of parameters given data.
+What is a matrix multiplication?,Combining two matrices by multiplying rows by columns.
+"In machine learning, why is data split into training and testing sets?",To check if the model generalizes to unseen data.
+What is a function?,A mapping from inputs to outputs.
+What is the technical definition of the difference between correlation and causation?,Correlation = relationship; Causation = one changes because of the other.
+"In machine learning, what is the “curse of dimensionality”?",High dimensions make data sparse and models harder to train.
+What is the universal approximation theorem?,A neural net can approximate any continuous function with enough neurons.
+Explain the “no free lunch” theorem.,No single model works best for every problem.
+What is the hotkey to adjust scale?,s

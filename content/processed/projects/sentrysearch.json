@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. The README has a fuller demo video\n     that'd make a stronger hero than this overlay. Draft. -->\n<p class=\"\">Semantic search over video footage — type a query and get back the matching trimmed clip, instead of scrubbing hours of timeline.</p>\n<figure role=\"figure\" aria-label=\"A retrieved clip — semantic search pulling the matching moment out of hours of Tesla sentry footage\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/sentrysearch/sentry.png\" alt=\"A retrieved clip — semantic search pulling the matching moment out of hours of Tesla sentry footage\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/sentrysearch/sentry.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/sentrysearch/sentry.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/sentrysearch/sentry.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/sentrysearch/sentry.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A retrieved clip — semantic search pulling the matching moment out of hours of Tesla sentry footage\" width=\"1920\" height=\"1080\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"1920×1080\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">A retrieved clip — semantic search pulling the matching moment out of hours of Tesla sentry footage</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Sentry Search overlay on analyzed footage\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/sentrysearch/overlay.png\" alt=\"Sentry Search overlay on analyzed footage\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/sentrysearch/overlay.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/sentrysearch/overlay.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/sentrysearch/overlay.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/sentrysearch/overlay.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Sentry Search overlay on analyzed footage\" width=\"716\" height=\"142\" style=\"--splay-rot:-1.69deg;\" data-dimensions=\"716×142\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Sentry Search overlay on analyzed footage</figcaption>\n</figure>",
+  "title": "Sentry Search",
+  "metadata": {
+    "title": "Sentry Search",
+    "date": "2026-05-01T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/sentrysearch",
+    "tech": [
+      "Video",
+      "Embeddings",
+      "Search"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "video",
+      "ai",
+      "search"
+    ],
+    "words": 72,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

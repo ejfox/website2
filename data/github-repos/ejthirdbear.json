@@ -1,0 +1,26 @@
+{
+  "name": "ejthirdbear",
+  "description": "dedicated space for EJ and Thirdbear to work on the coal & ownership interface proof of concept. Cross tracker and geospatial queries. ",
+  "url": "https://github.com/GlobalEnergyMonitor/ejthirdbear",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Svelte",
+  "languageColor": "#ff3e00",
+  "languages": {},
+  "diskUsage": 39404,
+  "fileTree": null,
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"global-energy-monitor-visualization\">Global Energy Monitor Visualization</h1>\n<p>Cross-tracker ownership visualization and geospatial analysis.</p>\n<h2 id=\"structure\">Structure</h2>\n<ul>\n<li><code>gem-viz/</code> - SvelteKit static site generator</li>\n<li><code>data-processing/</code> - Data pipeline scripts and source data</li>\n<li><code>docs/</code> - Technical documentation</li>\n</ul>\n<h2 id=\"quick-start\">Quick Start</h2>\n<pre><code class=\"language-bash\">cd gem-viz\nnpm install\nnpm run dev\n</code></pre>\n<p>Visit <a href=\"http://localhost:3737\">http://localhost:3737</a></p>\n<h2 id=\"build\">Build</h2>\n<pre><code class=\"language-bash\">npm run build    # ~2 minutes for US assets\nnpm run preview  # Preview production build\n</code></pre>\n<h2 id=\"deploy\">Deploy</h2>\n<pre><code class=\"language-bash\">npm run deploy   # To Digital Ocean Spaces\n</code></pre>\n<p>See <code>docs/DEPLOY-CHECKLIST.md</code> for configuration.</p>\n<h2 id=\"data\">Data</h2>\n<ul>\n<li>156,004 ownership records</li>\n<li>7 tracker types (coal, gas, steel, mines, etc.)</li>\n<li>MotherDuck integration for build-time queries</li>\n</ul>\n<h2 id=\"documentation\">Documentation</h2>\n<ul>\n<li><code>docs/MOTHERDUCK_QUICKSTART.md</code> - Database setup</li>\n<li><code>docs/DEPLOY-CHECKLIST.md</code> - Deployment instructions</li>\n<li><code>docs/RELATIONSHIP-INTEGRATION.md</code> - Ownership network implementation</li>\n<li><code>docs/ASSET-PAGE-ENHANCEMENT.md</code> - Architecture details</li>\n</ul>\n<h2 id=\"current-status\">Current Status</h2>\n<p>Test deployment: <a href=\"https://ejthirdbear.sfo3.digitaloceanspaces.com/gem-viz/index.html\">https://ejthirdbear.sfo3.digitaloceanspaces.com/gem-viz/index.html</a></p>\n<p>6,303 US assets currently built (207 MB). Full global build (62K+ assets) available.</p>\n<h2 id=\"technical-notes\">Technical Notes</h2>\n<p>Static site generation with zero runtime queries. All data pre-rendered at build time from MotherDuck. MapLibre GL for interactive maps. Relationship networks pre-computed during build.</p>\n<p>Stack: SvelteKit, DuckDB/MotherDuck, MapLibre GL, Digital Ocean Spaces.</p>",
+    "raw": "# Global Energy Monitor Visualization\n\nCross-tracker ownership visualization and geospatial analysis.\n\n## Structure\n\n- `gem-viz/` - SvelteKit static site generator\n- `data-processing/` - Data pipeline scripts and source data\n- `docs/` - Technical documentation\n\n## Quick Start\n\n```bash\ncd gem-viz\nnpm install\nnpm run dev\n```\n\nVisit http://localhost:3737\n\n## Build\n\n```bash\nnpm run build    # ~2 minutes for US assets\nnpm run preview  # Preview production build\n```\n\n## Deploy\n\n```bash\nnpm run deploy   # To Digital Ocean Spaces\n```\n\nSee `docs/DEPLOY-CHECKLIST.md` for configuration.\n\n## Data\n\n- 156,004 ownership records\n- 7 tracker types (coal, gas, steel, mines, etc.)\n- MotherDuck integration for build-time queries\n\n## Documentation\n\n- `docs/MOTHERDUCK_QUICKSTART.md` - Database setup\n- `docs/DEPLOY-CHECKLIST.md` - Deployment instructions\n- `docs/RELATIONSHIP-INTEGRATION.md` - Ownership network implementation\n- `docs/ASSET-PAGE-ENHANCEMENT.md` - Architecture details\n\n## Current Status\n\nTest deployment: https://ejthirdbear.sfo3.digitaloceanspaces.com/gem-viz/index.html\n\n6,303 US assets currently built (207 MB). Full global build (62K+ assets) available.\n\n## Technical Notes\n\nStatic site generation with zero runtime queries. All data pre-rendered at build time from MotherDuck. MapLibre GL for interactive maps. Relationship networks pre-computed during build.\n\nStack: SvelteKit, DuckDB/MotherDuck, MapLibre GL, Digital Ocean Spaces.\n",
+    "excerpt": "Cross-tracker ownership visualization and geospatial analysis.\n\n\n\n- gem-viz/ - SvelteKit static site generator\n- data-processing/ - Data pipeline scripts and so..."
+  },
+  "createdAt": "2025-11-12T20:10:52Z",
+  "updatedAt": "2026-04-16T22:27:17Z",
+  "pushedAt": "2026-04-16T22:27:14Z"
+}

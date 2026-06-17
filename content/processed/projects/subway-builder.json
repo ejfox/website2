@@ -1,0 +1,37 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): clarify your role — is this a game you built, or deep mods on an\n     existing one? It's your single biggest body of screenshot work (~340 shots\n     across your history), so it clearly matters. Add your voice. Draft. -->\n<p class=\"\">Deep work on Subway Builder — a transit-simulation game: designing train types with realistic acceleration, capacity, and cost parameters; laying networks over real-world geography; and building construction and analysis tooling. (Also spun off <code class=\"md-inline-code\">subway-builder-mods</code> and a Pico-8 demake.)</p>\n<figure role=\"figure\" aria-label=\"Subway Builder construction mode — laying track in an isometric city\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780066321/projects/subway-builder/build.png\" alt=\"Subway Builder construction mode — laying track in an isometric city\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780066321/projects/subway-builder/build.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780066321/projects/subway-builder/build.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780066321/projects/subway-builder/build.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780066321/projects/subway-builder/build.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Subway Builder construction mode — laying track in an isometric city\" width=\"2560\" height=\"1440\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"2560×1440\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Subway Builder construction mode — laying track in an isometric city</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"A subway network laid over real geography\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780066322/projects/subway-builder/map.png\" alt=\"A subway network laid over real geography\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780066322/projects/subway-builder/map.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780066322/projects/subway-builder/map.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780066322/projects/subway-builder/map.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780066322/projects/subway-builder/map.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A subway network laid over real geography\" width=\"2556\" height=\"1518\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"2556×1518\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">A subway network laid over real geography</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Train-type editor with full simulation parameters\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780066323/projects/subway-builder/trains.png\" alt=\"Train-type editor with full simulation parameters\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780066323/projects/subway-builder/trains.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780066323/projects/subway-builder/trains.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780066323/projects/subway-builder/trains.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780066323/projects/subway-builder/trains.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Train-type editor with full simulation parameters\" width=\"1800\" height=\"2262\" style=\"--splay-rot:-1.9deg;\" data-dimensions=\"1800×2262\" class=\"img-full my-8 rounded-sm img-splay aspect-[3/4] w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Train-type editor with full simulation parameters</figcaption>\n</figure>",
+  "title": "Subway Builder",
+  "metadata": {
+    "title": "Subway Builder",
+    "date": "2026-05-01T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/subway-builder-mods",
+    "tech": [
+      "JavaScript",
+      "Simulation",
+      "Transit",
+      "Game Modding"
+    ],
+    "state": "evolved",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "games",
+      "simulation",
+      "transit",
+      "dataviz"
+    ],
+    "words": 106,
+    "images": 3,
+    "imageDetails": {
+      "total": 3,
+      "cloudinary": 3,
+      "withDimensions": 0
+    },
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

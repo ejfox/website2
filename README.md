@@ -1,176 +1,96 @@
 # EJ Fox's Website
 
-A personal website and blog built with **Nuxt 3**, **Vue 3**, and **D3.js**. Content is managed through **Obsidian** and processed through a custom pipeline for seamless publishing. Think of it as a digital garden, but with fewer weeds and more JSON.
+Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker
 
----
+## Quick Start
 
-## 🌱 **Getting Started**
-
-### Quick Start
-1. **Install dependencies**  
-   ```bash 
-   yarn install
-   ```
-2. **Import content from Obsidian**
-   ```bash
-   yarn blog:import  
-   ```
-3. **Process markdown to JSON**
-   ```bash
-   yarn blog:process
-   ```
-4. **Run the development server**
-   ```bash
-   yarn dev
-   ```  
-5. **Build for production**
-   ```bash 
-   yarn build
-   ```
-
-## 🔮 **Predictions**
-
-The site includes a cryptographically verifiable predictions tracking system at `/future`. 
-
-- Predictions are stored as markdown files in `/content/predictions/`
-- Each prediction is hashed with SHA-256 and timestamped via Git commits
-- Optional PGP signing for additional verification
-- Public commitment log prevents post-hoc modifications
-
-See `/content/predictions/README.md` for details on creating and verifying predictions.
-
-## 🛠️ **Content Pipeline**
-
-### Overview
-The site uses a custom content pipeline to transform Markdown files from Obsidian into processed HTML with proper styling. It's like a factory, but for words.
-
-### Processing Flow
-```mermaid
-graph TD
-    A[Markdown in Obsidian] --> B[Process Stage]
-    B --> C[JSON Output] 
-    C --> D[Vue Components]
-    
-    subgraph "Process Stage Details"
-    E[Read Markdown] --> F[Process with Unified]
-    F --> G[Add Prose Classes]
-    G --> H[Save Individual JSON]
-    H --> I[Update Manifest]  
-    end
+```bash
+yarn install && yarn blog:import && yarn blog:process && yarn dev
 ```
 
-### Critical Implementation Details
+## Commands
 
-1. **File Processing**
-   ```javascript
-   // Each file must be saved individually AND to manifest
-   const outputPath = path.join(outputDir, relativePath.replace(/\.md$/, '.json'))
-   await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
-   ```
-   - Individual JSON files: `content/processed/YYYY/post-name.json`
-   - Manifest file: `content/processed/manifest-lite.json`
+| Command                  | Description                     |
+| ------------------------ | ------------------------------- |
+| `yarn dev`               | Dev server (port 3006)          |
+| `yarn build`             | Production build                |
+| `yarn blog:import`       | Import from Obsidian            |
+| `yarn blog:process`      | Process MD → JSON               |
+| `yarn predict`           | Create cryptographic prediction |
+| `yarn webmentions`       | Send webmentions (last 7 days)  |
+| `yarn webmentions --all` | Send all webmentions            |
 
-2. **HTML Classes**
-   ```javascript
-   .use(rehypeAddClassToParagraphs) // Adds max-w-prose to <p> and <blockquote>
-   .use(wrapWithProseClasses)       // Wraps in <article class="prose dark:prose-invert max-w-none">
-   ```
+## Features
 
-3. **Common Pitfalls**
-   - ❌ Only saving to manifest without individual files
-   - ❌ Adding classes in Vue components instead of during processing
-   - ❌ Double-wrapping content with prose classes
-   - ❌ Missing rehype plugins
+### Content Pipeline
 
-### Content Organization
+Obsidian → Markdown → Unified/Rehype → JSON → Vue
 
-### Directory Structure
 ```
-content/
-├── blog/
-│   ├── YYYY/         # Published posts by year
-│   ├── drafts/       # Draft posts  
-│   ├── robots/       # AI-generated content
-│   ├── reading/      # Book notes
-│   ├── projects/     # Project docs
-│   └── week-notes/   # Weekly updates
-└── processed/        # Output JSON files
+content/blog/YYYY/*.md  →  content/processed/YYYY/*.json
 ```
 
-### Metadata Structure
-```javascript
-// Processed JSON Structure
-{
-  "content": "<article>HTML content here</article>",
-  "html": "<article>HTML content here</article>",
-  "title": "Post Title",
-  "metadata": {
-    // Required metadata
-    "date": "2024-01-01T00:00:00.000Z",
-    "modified": "2024-01-02T00:00:00.000Z",
-    "dek": "Post description",
-    "type": "post",
-    
-    // Stats (automatically calculated)
-    "words": 2077,        // Total word count
-    "images": 3,          // Number of images
-    "links": 6,           // Number of links
-    "codeBlocks": 0,      // Number of code blocks
-    
-    // Optional metadata
-    "tags": ["tag1", "tag2"],
-    "draft": false,       // If true, won't show in lists
-    "hidden": false,      // If true, won't be processed
-    "inprogress": false,  // If true, shows WIP badge
-    
-    // Table of contents (if headers exist)
-    "toc": [{
-      "depth": 2,
-      "text": "Heading"
-    }]
-  }
-}
-```
+### Frontmatter
 
-**Important Notes:**
-- All metadata MUST be inside the `metadata` object
-- Reading time is calculated as `Math.ceil(words / 200)` words per minute
-- Stats (words, images, links) are calculated automatically during processing
-- Debug logs available in console under "PostMetadata Debug"
-
-### Frontmatter Format
 ```yaml
 ---
-title: "Post Title"
+title: Post Title
 date: 2024-01-01
-dek: "A clear, one-sentence description of the post"
-tags: ["tag1", "tag2"]
-
-# Optional flags
-draft: false      # Process but don't display in lists
-hidden: false     # Don't process at all
-inprogress: true  # Show WIP badge
+dek: One-sentence description
+tags: [tag1, tag2]
+draft: false # Hide from lists
+hidden: false # Skip processing
+replyTo: https://example.com/post # IndieWeb reply (single or array)
 ---
 ```
 
-## 🧑‍💻 **Development Details**
+### IndieWeb
 
-### Tech Stack
-- **Frontend**: Nuxt 3, Vue 3 Composition API
-- **Styling**: Tailwind CSS, Prose
-- **Data**: D3.js for visualizations
-- **Content**: Unified/Rehype for Markdown processing
+| Feature          | Details                                                                         |
+| ---------------- | ------------------------------------------------------------------------------- |
+| **Reply posts**  | `replyTo:` fetches OG data, shows context, sends webmention                     |
+| **Webmentions**  | Display likes/reposts/replies, moderation via `data/webmention-moderation.json` |
+| **Microformats** | h-entry, h-card, u-in-reply-to on all posts                                     |
+| **WebSub**       | Hub at pubsubhubbub.superfeedr.com                                              |
 
-### Key Features
-- Markdown processing with code highlighting
-- Automatic image optimization via Cloudinary
-- Content visibility controls
-- Real-time stats processing
-- Type-safe API endpoints
+### Predictions System
 
-### Environment Variables
 ```bash
-# Required
+yarn predict --statement "X will happen" --confidence 75 --deadline 2025-12-31
+```
+
+- SHA-256 + Git commit + optional PGP signing
+- AI quality analysis via OpenRouter
+- See `docs/PREDICTIONS.md`
+
+### Stats Aggregation
+
+Two endpoints for personal metrics:
+
+- `/api/stats` - Full stats with arrays and nested data (~2.4KB)
+- `/api/stats-lite` - Lightweight for iOS Shortcuts (~345 bytes, 86% smaller)
+
+Aggregates: GitHub, Chess.com, LastFM, RescueTime, Letterboxd, Discogs, Kalshi
+
+See `docs/STATS-API.md` and `docs/IOS-SHORTCUTS-EXAMPLES.md` for usage
+
+### Gear Inventory
+
+CSV-based gear tracking at `/gear` with weight calculations, Tuftian visualizations
+
+### Sidenotes
+
+Footnotes auto-convert to margin notes on desktop (Tufte-style)
+
+## Deployment
+
+Push to `main` → GitHub Action SSHs to VPS → pulls, builds, restarts Docker
+
+Manual: `ssh vps "cd /data2/website2 && git pull && yarn build && docker-compose up -d --build"`
+
+## Environment
+
+```bash
 CLOUDINARY_CLOUD_NAME=
 CLOUDINARY_API_KEY=
 CLOUDINARY_API_SECRET=
@@ -237,62 +157,33 @@ YOUTUBE_CHANNEL_ID=UC... # Your channel ID from step 2
 
 That's it! The `/api/stats` endpoint will now include your YouTube stats. 🎥✨
 
-### Logging System
+## Directory Structure
 
-The site uses Grafana Loki for centralized logging through Netlify Edge Functions:
+```
+content/blog/       # Source markdown by year
+content/processed/  # Output JSON
+server/api/         # API endpoints
+components/         # Vue components
+scripts/            # Processing scripts
+data/               # Config files (moderation, gear CSV)
+```
+
+## Debug
 
 ```bash
-# Required for logging
-LOKI_URL=https://loki.tools.ejfox.com/loki/api/v1/push  # Loki endpoint
+DEBUG=true yarn blog:process
+CHECK_LINKS=true yarn blog:process  # Link health check
+AUTO_FIX_LINKS=true yarn blog:process  # Auto-fix with archive.org
 ```
 
-#### Log Types Captured
-1. **Build Logs**
-   - Build errors and warnings
-   - Plugin issues
-   - Build process messages
+## TODO
 
-2. **Runtime Logs**
-   - Console logs from server-side
-   - API endpoint errors
-   - User interaction errors
-
-#### Log Structure
-```javascript
-{
-  stream: {
-    app: 'website2',
-    environment: 'production|preview',
-    level: 'error|info',
-    source: 'build|runtime'
-  },
-  values: [
-    [timestamp, JSON.stringify({
-      message: 'Log message',
-      // Additional context...
-    })]
-  ]
-}
-```
-
-## 🐛 **Debugging and Troubleshooting**
-
-### Debugging Commands  
-```bash
-# Show processing output
-DEBUG=true yarn process
-
-# Check processed files 
-cat content/processed/YYYY/post-name.json | grep class
-
-# View manifest
-cat content/processed/manifest-lite.json | jq  
-```
-
-## 📜 **License**
-
-MIT License - See LICENSE file for details.
+- Rerun `node scripts/hydrate-cloudinary-cache.mjs` until it reports `0 missing metadata` (it resumes from cache).
+- Investigate remaining `x` failures in the hydrator output (missing assets vs permissions).
+- Document the hydrator runtime/usage and add it to the Commands table once stable.
+- Rerun the hydrator to reduce the remaining ~331 missing entries (current baseline).
+- Clean malformed Cloudinary URLs in markdown (e.g. `...png)![Screenshot`) so they can be hydrated.
 
 ---
 
-And there you have it: a README that's organized, comprehensive, and a little fun. Now go forth and build something awesome. 🌟
+MIT License

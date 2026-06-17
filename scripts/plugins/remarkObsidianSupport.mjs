@@ -1,3 +1,9 @@
+/**
+ * @file plugins/remarkObsidianSupport.mjs
+ * @description Remark plugin that converts Obsidian [[wikilinks]] to standard markdown links with proper routing
+ * @usage .use(remarkObsidianSupport)
+ */
+
 import { visit } from 'unist-util-visit'
 import { getTitleFromFrontmatter } from '../utils/helpers.mjs'
 
@@ -7,6 +13,59 @@ function generateSlug(str) {
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '')
+}
+
+function encodePath(pathValue) {
+  return pathValue
+    .split('/')
+    .filter(Boolean)
+    .map((segment) => encodeURIComponent(segment))
+    .join('/')
+}
+
+function normalizeTarget(rawTarget) {
+  if (!rawTarget) return ''
+  let target = rawTarget.trim().replace(/\\/g, '/')
+
+  if (target.startsWith('/')) target = target.slice(1)
+  if (target.endsWith('.md')) target = target.slice(0, -3)
+
+  while (target.startsWith('../')) {
+    target = target.slice(3)
+  }
+  if (target.startsWith('./')) target = target.slice(2)
+
+  target = target.replace(/\/{2,}/g, '/')
+  return target
+}
+
+function buildInternalHref(target) {
+  const normalized = normalizeTarget(target)
+  const lower = normalized.toLowerCase()
+
+  if (lower.startsWith('reading/')) {
+    return `/reading/${encodePath(normalized.slice('reading/'.length))}`
+  }
+  if (lower.startsWith('projects/')) {
+    return `/projects/${encodePath(normalized.slice('projects/'.length))}`
+  }
+  if (lower.startsWith('robots/')) {
+    return `/blog/robots/${encodePath(normalized.slice('robots/'.length))}`
+  }
+  if (lower.startsWith('week-notes/')) {
+    return `/blog/week-notes/${encodePath(normalized.slice('week-notes/'.length))}`
+  }
+  if (lower.startsWith('blog/')) {
+    return `/blog/${encodePath(normalized.slice('blog/'.length))}`
+  }
+
+  // Bare wikilinks (no folder prefix, no slash) are topic/tag references,
+  // not file paths. Route to the tag page instead of a non-existent /blog/Name.
+  if (!normalized.includes('/')) {
+    return `/tag/${generateSlug(normalized)}`
+  }
+
+  return `/blog/${encodePath(normalized)}`
 }
 
 export function remarkObsidianSupport() {
@@ -20,7 +79,7 @@ export function remarkObsidianSupport() {
       const nodes = []
 
       while ((match = wikilinkRegex.exec(value)) !== null) {
-        const [fullMatch, linkText] = match
+        const [, linkText] = match
         const start = match.index
         const end = wikilinkRegex.lastIndex
 
@@ -28,17 +87,20 @@ export function remarkObsidianSupport() {
         if (start > lastIndex) {
           nodes.push({
             type: 'text',
-            value: value.slice(lastIndex, start)
+            value: value.slice(lastIndex, start),
           })
         }
 
         const linkParts = linkText.split('|')
-        const target = linkParts[0].split('#')[0]
-        const alias = linkParts[1] || (await getTitleFromFrontmatter(target))
-        const heading = linkParts[0].split('#')[1]
+        const targetWithHeading = linkParts[0].trim()
+        const [rawTarget, rawHeading] = targetWithHeading.split('#')
+        const target = normalizeTarget(rawTarget)
+        const alias =
+          linkParts[1]?.trim() || (await getTitleFromFrontmatter(target))
+        const heading = rawHeading?.trim()
 
         // Generate the URL
-        let url = `/blog/${encodeURIComponent(target)}`
+        let url = buildInternalHref(target)
         if (heading) {
           url += `#${generateSlug(heading)}`
         }
@@ -50,9 +112,9 @@ export function remarkObsidianSupport() {
           children: [{ type: 'text', value: alias }],
           data: {
             hProperties: {
-              className: 'internal-link'
-            }
-          }
+              className: 'internal-link',
+            },
+          },
         })
 
         lastIndex = end
@@ -62,7 +124,7 @@ export function remarkObsidianSupport() {
       if (lastIndex < value.length) {
         nodes.push({
           type: 'text',
-          value: value.slice(lastIndex)
+          value: value.slice(lastIndex),
         })
       }
 

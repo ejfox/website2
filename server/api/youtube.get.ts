@@ -49,15 +49,15 @@ async function fetchChannelStats(token: string, channelId: string) {
       params: {
         part: 'statistics',
         id: channelId,
-        key: token
-      }
+        key: token,
+      },
     }
   )
 
   if (!response.items?.length) {
     throw createError({
       statusCode: 404,
-      message: 'YouTube channel not found'
+      message: 'YouTube channel not found',
     })
   }
 
@@ -72,8 +72,8 @@ async function fetchVideoComments(token: string, videoId: string) {
         part: 'snippet',
         videoId: videoId,
         key: token,
-        maxResults: 1 // We only need the total
-      }
+        maxResults: 1, // We only need the total
+      },
     }
   )
 
@@ -99,8 +99,8 @@ async function fetchChannelVideos(
       params: {
         part: 'contentDetails',
         id: channelId,
-        key: token
-      }
+        key: token,
+      },
     }
   )
 
@@ -109,7 +109,7 @@ async function fetchChannelVideos(
   if (!uploadsPlaylistId) {
     throw createError({
       statusCode: 404,
-      message: 'YouTube uploads playlist not found'
+      message: 'YouTube uploads playlist not found',
     })
   }
 
@@ -121,8 +121,8 @@ async function fetchChannelVideos(
         part: 'snippet,contentDetails',
         playlistId: uploadsPlaylistId,
         maxResults,
-        key: token
-      }
+        key: token,
+      },
     }
   )
 
@@ -136,8 +136,8 @@ async function fetchChannelVideos(
       params: {
         part: 'statistics',
         id: videoIds,
-        key: token
-      }
+        key: token,
+      },
     }
   )
 
@@ -160,14 +160,14 @@ async function fetchChannelVideos(
       thumbnails: {
         default: snippet.thumbnails.default?.url,
         medium: snippet.thumbnails.medium?.url,
-        high: snippet.thumbnails.high?.url
+        high: snippet.thumbnails.high?.url,
       },
       url: `https://www.youtube.com/watch?v=${item.contentDetails.videoId}`,
       stats: {
-        views: parseInt(stats.viewCount || '0', 10),
-        likes: parseInt(stats.likeCount || '0', 10),
-        comments: commentCounts[index] || 0
-      }
+        views: Number.parseInt(stats.viewCount || '0', 10),
+        likes: Number.parseInt(stats.likeCount || '0', 10),
+        comments: commentCounts[index] || 0,
+      },
     }
   })
 
@@ -180,7 +180,7 @@ async function fetchChannelVideos(
     (acc: any, video: any) => ({
       views: acc.views + video.stats.views,
       comments: acc.comments + video.stats.comments,
-      likes: acc.likes + video.stats.likes
+      likes: acc.likes + video.stats.likes,
     }),
     { views: 0, comments: 0, likes: 0 }
   )
@@ -188,12 +188,11 @@ async function fetchChannelVideos(
   return {
     videos,
     videosThisMonth: monthlyVideos.length,
-    monthlyStats
+    monthlyStats,
   }
 }
 
-export default defineEventHandler(async (event): Promise<YouTubeStats> => {
-  console.log('🎥 YouTube handler called')
+export default defineEventHandler(async (_event): Promise<YouTubeStats> => {
   const config = useRuntimeConfig()
   const token = config.YOUTUBE_API_KEY
   const channelId = config.YOUTUBE_CHANNEL_ID
@@ -201,26 +200,29 @@ export default defineEventHandler(async (event): Promise<YouTubeStats> => {
   if (!token || !channelId) {
     throw createError({
       statusCode: 500,
-      message: 'YouTube API key or channel ID not configured'
+      message: 'YouTube API key or channel ID not configured',
     })
   }
 
   try {
     const [channelStats, videoData] = await Promise.all([
       fetchChannelStats(token, channelId),
-      fetchChannelVideos(token, channelId)
+      fetchChannelVideos(token, channelId),
     ])
 
     const response: YouTubeStats = {
       stats: {
-        totalVideos: parseInt(channelStats.videoCount || '0', 10),
+        totalVideos: Number.parseInt(channelStats.videoCount || '0', 10),
         videosThisMonth: videoData.videosThisMonth,
-        totalViews: parseInt(channelStats.viewCount || '0', 10),
-        subscriberCount: parseInt(channelStats.subscriberCount || '0', 10),
-        monthlyStats: videoData.monthlyStats
+        totalViews: Number.parseInt(channelStats.viewCount || '0', 10),
+        subscriberCount: Number.parseInt(
+          channelStats.subscriberCount || '0',
+          10
+        ),
+        monthlyStats: videoData.monthlyStats,
       },
       latestVideos: videoData.videos,
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString(),
     }
 
     return response
@@ -251,7 +253,7 @@ export default defineEventHandler(async (event): Promise<YouTubeStats> => {
       message:
         youtubeError.response?.error?.message ||
         youtubeError.message ||
-        'Failed to fetch YouTube data'
+        'Failed to fetch YouTube data',
     })
   }
 })

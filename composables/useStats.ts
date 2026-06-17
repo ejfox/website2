@@ -1,9 +1,9 @@
-// composables/useStats.ts
-import { ref, computed, onMounted } from 'vue'
-import type { Ref } from 'vue'
-
-// Cache duration in milliseconds (5 minutes)
-const CACHE_DURATION = 5 * 60 * 1000
+/**
+ * @file useStats.ts
+ * @description Stats aggregation composable for fetching and computing personal metrics
+ * @returns Stats data, loading states, and computed time breakdowns
+ */
+import { shallowRef, computed } from 'vue'
 
 interface TimeBreakdown {
   seconds: number
@@ -14,7 +14,7 @@ interface TimeBreakdown {
 }
 
 // Define the HealthDataRecord interface
-interface HealthDataRecord {
+interface _HealthDataRecord {
   id?: string
   record_id?: number
   date: string
@@ -31,14 +31,52 @@ interface HealthDataRecord {
     quality?: number
     deepSleep?: number
     notes?: string
-    [key: string]: any
+    [key: string]: string | number | undefined
   }
   source?: string
   created_at?: string
-  [key: string]: any
+  [key: string]: string | number | Record<string, unknown> | undefined
+}
+
+export interface WeeklySummary {
+  // Time tracking
+  productiveHours: number
+  totalTrackedHours: number
+  productivityPercent: number
+  topActivity: string | null
+
+  // Coding
+  commits: number
+  topRepos: string[]
+  commitTypes: Array<{ type: string; count: number; percentage: number }>
+
+  // Health
+  stepsThisWeek: number
+  exerciseMinutesThisWeek: number
+  avgDailySteps: number
+
+  // Media consumed
+  moviesWatched: number
+  recentMovies: Array<{ title: string; rating: number | null }>
+  topArtists: Array<{ name: string; plays: number }>
+  scrobblesThisWeek: number
+
+  // Learning
+  duolingoStreak: number
+  chessGamesThisWeek: number
+  chessRating: number
+
+  // Writing
+  wordsWritten: number
+  postsPublished: number
+
+  // Books
+  currentlyReading: Array<{ title: string; author: string }>
+  booksThisMonth: number
 }
 
 export interface StatsResponse {
+  weeklySummary?: WeeklySummary
   lastfm?: {
     recentTracks: {
       tracks: Array<{
@@ -193,10 +231,18 @@ export interface StatsResponse {
       testsCompleted: number
       bestAccuracy: number
       bestConsistency: number
+      averageWpm: number
       recentTests: Array<{
         timestamp: string
         wpm: number
         accuracy: number
+        language?: string
+      }>
+      languageBreakdown?: Array<{
+        language: string
+        tests: number
+        averageWpm: number
+        bestWpm: number
       }>
     } | null
     lastUpdated: string
@@ -204,22 +250,18 @@ export interface StatsResponse {
   github?: {
     stats: {
       totalRepos: number
+      totalCommits: number
       totalContributions: number
       followers: number
       following: number
+      commitsThisPeriod?: number
     }
-    contributions: number[] // Daily contribution counts
-    dates: string[] // Corresponding dates for contributions
     detail: {
       commits: Array<{
-        // Recent commits (last 7 days)
-        repository: {
-          name: string
-          url: string
-        }
-        message: string
+        repository: { name: string; url?: string }
+        message: string // First line, truncated to 80 chars
         occurredAt: string
-        url: string
+        url?: string
         type: string
       }>
       commitTypes: Array<{
@@ -372,6 +414,8 @@ export interface StatsResponse {
       rating: number
       totalSolved: number
       bestRating: number
+      lowestRating?: number
+      lastUpdated?: number
     }
     recentGames: Array<{
       id: string
@@ -407,13 +451,218 @@ export interface StatsResponse {
     }>
     lastUpdated: string
   }
+  gear?: {
+    stats: {
+      totalItems: number
+      totalWeight: number
+      containerCount: number
+      avgTCWMScore: number
+    }
+    typeDistribution: Record<string, number>
+    lastUpdated: string
+  }
+  gists?: {
+    stats: {
+      totalGists: number
+      totalFiles: number
+      totalSize: number
+      averageFilesPerGist: number
+      topLanguages: Array<{
+        language: string
+        count: number
+      }>
+      yearStats: Record<string, number>
+    }
+    recentGists: Array<{
+      id: string
+      description: string
+      created_at: string
+      files: number
+      languages: string[]
+      html_url: string
+    }>
+    lastUpdated: string
+  }
+  website?: {
+    stats: {
+      pageviews: { value: number; prev: number }
+      visitors: { value: number; prev: number }
+      visits: { value: number; prev: number }
+      bounces: { value: number; prev: number }
+      totaltime: { value: number; prev: number }
+    }
+    websiteId: string
+    lastUpdated: string
+    shareUrl: string
+  }
+  letterboxd?: {
+    films: Array<{
+      title: string
+      slug: string
+      rating: number | null
+      letterboxdUrl: string
+      watchedDate: string | null
+    }>
+    stats: {
+      totalFilms: number
+      thisYear: number
+      thisMonth: number
+      averageRating: number
+      rewatches: number
+      topRatedFilms: Array<{
+        title: string
+        slug: string
+        rating: number | null
+        letterboxdUrl: string
+        watchedDate: string | null
+      }>
+      recentFilms: Array<{
+        title: string
+        slug: string
+        rating: number | null
+        letterboxdUrl: string
+        watchedDate: string | null
+      }>
+      filmsByMonth: Record<string, number>
+    }
+    lastUpdated: string
+    source: string
+  }
+  blog?: {
+    posts: {
+      thisMonth: number
+      total: number
+    }
+    words: {
+      thisMonth: number
+      avgPerPost: number
+    }
+    recentPosts: Array<{
+      title: string
+      slug: string
+      date: string
+      words: number
+    }>
+    month: string
+    year: number
+  }
+  discogs?: {
+    stats: {
+      totalItems: number
+      totalValue: number
+      medianValue: number
+      highestValue: number
+      averageValue: number
+    }
+    topGenres: Array<{
+      genre: string
+      count: number
+    }>
+    decadeBreakdown: Array<{
+      decade: string
+      count: number
+    }>
+    topArtists: Array<{
+      artist: string
+      count: number
+    }>
+    randomRecord: {
+      title: string
+      artist: string
+      year: number
+      genres: string[]
+      price: number
+      uri: string
+      resourceUrl: string
+      format: string
+    } | null
+    collection: Array<{
+      title: string
+      artist: string
+      year: number
+      price: number
+      uri: string
+      resourceUrl: string
+    }>
+    lastUpdated: string
+    error?: string
+  }
+  duolingo?: {
+    username: string
+    streak: number
+    totalXp: number
+    courses: Array<{
+      title: string
+      xp: number
+      level: number
+      crowns: number
+    }>
+    currentCourse?: {
+      title: string
+      xp: number
+      level: number
+    }
+    creationDate: number
+    lastUpdated: string
+  }
+  goodreads?: {
+    currentlyReading: Array<{
+      id: string
+      title: string
+      author: string
+      rating: number | null
+      averageRating: number | null
+      numPages: number | null
+      dateRead: string | null
+      dateAdded: string | null
+      shelf: string
+      imageUrl: string | null
+      goodreadsUrl: string
+    }>
+    recentlyRead: Array<{
+      id: string
+      title: string
+      author: string
+      rating: number | null
+      averageRating: number | null
+      numPages: number | null
+      dateRead: string | null
+      dateAdded: string | null
+      shelf: string
+      imageUrl: string | null
+      goodreadsUrl: string
+    }>
+    stats: {
+      totalRead: number
+      booksThisYear: number
+      booksThisMonth: number
+      averageRating: number
+      pagesReadThisYear: number
+      currentlyReading: number
+      profileUrl: string
+    }
+    lastUpdated: string
+    source: string
+    error?: string
+  }
 }
 
 export function useStats() {
-  const stats = ref<StatsResponse | null>(null)
-  const isLoading = ref(true)
-  const errors = ref<Record<string, boolean>>({})
-  const hasStaleData = ref(false)
+  // Use Nuxt's useFetch for SSR + caching + automatic error handling
+  // PERF: lazy: true prevents blocking SSR - page renders immediately, stats load after
+  const {
+    data: stats,
+    status,
+    error,
+  } = useFetch<StatsResponse>('/api/stats', {
+    lazy: true,
+    server: false, // Don't fetch during SSR - stats API calls external services
+  })
+
+  // Derived states
+  const isLoading = computed(() => status.value === 'pending')
+  const errors = computed(() => ({ fetch: !!error.value }))
+  const hasStaleData = shallowRef(false)
 
   const hasGithubData = computed(() => {
     return !!(
@@ -433,85 +682,8 @@ export function useStats() {
   const hasChessData = computed(() => !!stats.value?.chess)
   const hasRescueTimeData = computed(() => !!stats.value?.rescueTime)
   const hasLastFmData = computed(() => !!stats.value?.lastfm)
-
-  // Check if we have cached data
-  const getCachedStats = (): StatsResponse | null => {
-    if (process.server) return null
-
-    try {
-      const cachedData = localStorage.getItem('stats_cache')
-      const timestamp = localStorage.getItem('stats_cache_timestamp')
-
-      if (!cachedData || !timestamp) return null
-
-      // Check if cache is still valid
-      const cacheTime = parseInt(timestamp, 10)
-      const now = Date.now()
-
-      if (now - cacheTime > CACHE_DURATION) return null
-
-      // Set hasStaleData to true if we're using cached data
-      hasStaleData.value = true
-
-      return JSON.parse(cachedData)
-    } catch (e) {
-      return null
-    }
-  }
-
-  // Save data to cache
-  const cacheStats = (data: StatsResponse) => {
-    if (process.server) return
-
-    try {
-      localStorage.setItem('stats_cache', JSON.stringify(data))
-      localStorage.setItem('stats_cache_timestamp', Date.now().toString())
-    } catch (e) {
-      // Ignore cache errors
-    }
-  }
-
-  onMounted(async () => {
-    // Try to load from cache first
-    const cachedData = getCachedStats()
-
-    if (cachedData) {
-      stats.value = cachedData
-      isLoading.value = false
-
-      // Refresh in background after using cache
-      fetchFreshData(true)
-    } else {
-      // No cache, fetch fresh data
-      await fetchFreshData(false)
-    }
-  })
-
-  const fetchFreshData = async (isBackgroundFetch = false) => {
-    if (!isBackgroundFetch) {
-      isLoading.value = true
-    }
-
-    try {
-      const response = await fetch('/api/stats')
-      if (!response.ok) {
-        throw new Error(`Failed to fetch stats: ${response.status}`)
-      }
-      const data = await response.json()
-      stats.value = data
-
-      // Reset stale data flag when we get fresh data
-      hasStaleData.value = false
-
-      // Cache the fresh data
-      cacheStats(data)
-    } catch (error) {
-      console.error('Error fetching stats:', error)
-      errors.value.fetch = true
-    } finally {
-      isLoading.value = false
-    }
-  }
+  const hasDiscogsData = computed(() => !!stats.value?.discogs?.stats)
+  const hasGoodreadsData = computed(() => !!stats.value?.goodreads?.stats)
 
   return {
     stats,
@@ -526,6 +698,7 @@ export function useStats() {
     hasChessData,
     hasRescueTimeData,
     hasLastFmData,
-    refreshStats: () => fetchFreshData(false) // Expose refresh method
+    hasDiscogsData,
+    hasGoodreadsData,
   }
 }

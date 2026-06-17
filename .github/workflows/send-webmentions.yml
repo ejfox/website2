@@ -1,0 +1,41 @@
+name: Send Webmentions
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/processed/**/*.json'
+  workflow_dispatch:
+
+jobs:
+  webmentions:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+
+    - name: Wait for deploy
+      run: sleep 60
+
+    - name: Restore webmentions cache
+      uses: actions/cache@v4
+      with:
+        path: .webmentions-sent.json
+        key: webmentions-${{ github.sha }}
+        restore-keys: |
+          webmentions-
+
+    - name: Send webmentions
+      run: node scripts/send-webmentions.mjs
+
+    - name: Save webmentions cache
+      if: always()
+      uses: actions/cache/save@v4
+      with:
+        path: .webmentions-sent.json
+        key: webmentions-${{ github.sha }}

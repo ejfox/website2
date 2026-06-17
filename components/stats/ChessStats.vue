@@ -1,106 +1,19 @@
-<template>
-  <div v-if="stats" class="space-y-8">
-    <!-- Primary Stats -->
-    <div class="space-y-4">
-      <!-- Chess Rating -->
-      <IndividualStat :value="highestActiveRating" size="large" label="CHESS RATING"
-        :details="`${formatNumber(bestRating)} PEAK · ${winRate}% WIN RATE`" />
-
-      <!-- Rating Histogram -->
-      <div v-if="hasRatingHistory" class="mt-1">
-        <div class="histogram-container">
-          <div v-for="(game, index) in ratingHistogramData" :key="index" class="histogram-bar" :style="{
-            height: `${getBarHeight(game.rating)}px`,
-            opacity: getBarOpacity(index),
-            backgroundColor: getBarColor(game.result)
-          }" :title="`${game.rating} - ${game.result.toUpperCase()}`"></div>
-        </div>
-        <div class="histogram-labels">
-          <span class="text-zinc-400 text-2xs">RECENT GAMES</span>
-          <span class="text-zinc-400 text-2xs">{{ ratingRange }}</span>
-        </div>
-      </div>
-
-      <!-- Activity Calendar -->
-      <div v-if="hasRatingHistory" class="mt-6">
-        <ActivityCalendar title="CHESS ACTIVITY" :active-dates="chessActivityDates" :active-color="'#71717a'" />
-      </div>
-
-      <!-- Variant Ratings -->
-      <div class="grid grid-cols-3 gap-4 mt-2">
-        <div class="text-center" v-if="hasRating('bullet')">
-          <div class="text-xl tabular-nums">{{ formatNumber(getRating('bullet')) }}</div>
-          <div class="text-2xs text-zinc-500 mt-1">BULLET</div>
-        </div>
-        <div class="text-center" v-if="hasRating('blitz')">
-          <div class="text-xl tabular-nums">{{ formatNumber(getRating('blitz')) }}</div>
-          <div class="text-2xs text-zinc-500 mt-1">BLITZ</div>
-        </div>
-        <div class="text-center" v-if="hasRating('rapid')">
-          <div class="text-xl tabular-nums">{{ formatNumber(getRating('rapid')) }}</div>
-          <div class="text-2xs text-zinc-500 mt-1">RAPID</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Game Stats -->
-    <div v-if="hasGameStats">
-      <h4 class="section-subheader">METRICS</h4>
-      <div class="grid grid-cols-3 gap-3">
-        <div class="stat-summary">
-          <div class="stat-value">{{ formatNumber(gamesPlayed) }}</div>
-          <div class="stat-label">GAMES</div>
-        </div>
-
-        <div class="stat-summary">
-          <div class="stat-value">{{ Math.round(overallWinRate) }}%</div>
-          <div class="stat-label">WINS</div>
-        </div>
-
-        <div class="stat-summary">
-          <div class="stat-value">{{ formatNumber(stats.puzzleStats.rating) }}</div>
-          <div class="stat-label">PUZZLE</div>
-        </div>
-      </div>
-
-      <!-- Recent Games -->
-      <h4 class="section-subheader mt-6">MATCHES</h4>
-      <div v-if="stats.recentGames?.length" class="space-y-2">
-        <div v-for="game in recentGamesSorted" :key="game.id || game.url" class="game-row">
-          <div class="flex-none flex items-center">
-            <span class="text-zinc-400 text-2xs tabular-nums">{{ formatGameDateMinimal(game.timestamp) }}</span>
-            <span class="text-zinc-400 text-2xs ml-1">{{ formatGameTime(game.timestamp) }}</span>
-          </div>
-          <div class="game-type text-2xs ml-2">{{ formatGameTypeMinimal(game.timeControl) }}</div>
-          <div class="result-indicator" :class="resultColor(game.result)"></div>
-          <div class="ml-auto flex items-center">
-            <span class="rating-value">{{ game.rating }}</span>
-            <span v-if="game.ratingDiff && game.ratingDiff !== 0" class="text-2xs ml-1"
-              :class="ratingDiffClass(game.ratingDiff)">
-              {{ formatRatingDiff(game.ratingDiff) }}
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div v-else class="data-unavailable">
-    Chess data unavailable
-  </div>
-</template>
-
+<!--
+  @file ChessStats.vue
+  @description Chess.com statistics showing ratings, games, and performance metrics
+  @props stats: Object - Chess statistics from Chess.com API
+-->
 <script setup lang="ts">
 import { computed } from 'vue'
-import { format } from 'date-fns'
-import IndividualStat from './IndividualStat.vue'
-import ActivityCalendar from './ActivityCalendar.vue'
-import { formatNumber } from '~/composables/useNumberFormat'
-
-// Turbo color palette
-const turboColors = [
-  '#30123b', '#4444a4', '#337bc3', '#24aad8', '#1ac7c2',
-  '#3bdf92', '#7cf357', '#c8e020', '#fbb508', '#f57e00', '#dd2e06'
-];
+import StatsDataState from './StatsDataState.vue'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import {
+  formatNumber,
+  formatGameTypeMinimal,
+  formatRatingDiff,
+  getRatingDiffClass,
+} from '~/composables/useNumberFormat'
 
 interface ChessGame {
   id?: string
@@ -136,7 +49,14 @@ interface ChessStats {
     rating: number
     totalSolved: number
     bestRating: number
+    lowestRating?: number
+    lastUpdated?: number
   }
+  recentPuzzles?: Array<{
+    date: string
+    rating: number
+    solved: boolean
+  }>
   recentGames: ChessGame[]
   lastUpdated: string
 }
@@ -144,21 +64,6 @@ interface ChessStats {
 const props = defineProps<{
   stats?: ChessStats | null
 }>()
-
-// Format helpers
-const formatRatingDiff = (diff: number): string => {
-  return diff > 0 ? `+${diff}` : `${diff}`
-}
-
-const ratingDiffClass = (diff: number) => {
-  return diff > 0 ? 'text-green-500' : 'text-red-500'
-}
-
-const resultColor = (result: string) => {
-  if (result === 'win') return 'bg-green-500'
-  if (result === 'loss') return 'bg-red-500'
-  return 'bg-zinc-500' // draw
-}
 
 // Type conversion helpers
 const isNewFormat = computed(() => {
@@ -177,220 +82,266 @@ const getRating = (type: keyof NewFormatRatings) => {
   return props.stats.currentRating as number
 }
 
-// Check if a specific rating type exists
-const hasRating = (type: keyof NewFormatRatings) => {
-  return getRating(type) > 0
-}
-
-const currentRating = computed(() => {
+// Get highest active rating
+const highestActiveRating = computed(() => {
   if (!props.stats) return 0
-  return isNewFormat.value
-    ? (props.stats.currentRating as NewFormatRatings).blitz
-    : props.stats.currentRating as number
+
+  if (isNewFormat.value) {
+    const ratings = props.stats.currentRating as NewFormatRatings
+    return Math.max(ratings.bullet || 0, ratings.blitz || 0, ratings.rapid || 0)
+  }
+
+  return props.stats.currentRating as number
 })
 
 const bestRating = computed(() => {
   if (!props.stats) return 0
-  return isNewFormat.value
-    ? (props.stats.bestRating as NewFormatRatings).blitz
-    : props.stats.bestRating as number
+
+  if (isNewFormat.value) {
+    const ratings = props.stats.bestRating as NewFormatRatings
+    return Math.max(ratings.bullet || 0, ratings.blitz || 0, ratings.rapid || 0)
+  }
+
+  return props.stats.bestRating as number
 })
 
 const winRate = computed(() => {
   if (!props.stats) return 0
   return isNewFormat.value
-    ? (props.stats.winRate as NewFormatWinRate).blitz
-    : props.stats.winRate as number
+    ? (props.stats.winRate as NewFormatWinRate).overall
+    : (props.stats.winRate as number)
 })
 
 const gamesPlayed = computed(() => {
   if (!props.stats) return 0
   return isNewFormat.value
     ? (props.stats.gamesPlayed as NewFormatGamesPlayed).total
-    : props.stats.gamesPlayed as number
+    : (props.stats.gamesPlayed as number)
 })
 
 const overallWinRate = computed(() => {
   if (!props.stats) return 0
   return isNewFormat.value
     ? (props.stats.winRate as NewFormatWinRate).overall
-    : props.stats.winRate as number
+    : (props.stats.winRate as number)
 })
 
 const hasGameStats = computed(() => {
   if (!props.stats) return false
-  return gamesPlayed.value > 0
+  return gamesPlayed.value > 0 && bestRating.value > 0
 })
 
-// Minimal date format
-const formatGameDateMinimal = (timestamp: number) => {
-  return format(new Date(timestamp * 1000), 'MM.dd')
-}
-
-// Format game type in minimal style
-const formatGameTypeMinimal = (timeControl: string) => {
-  // Map time controls to shorter versions
-  const map: Record<string, string> = {
-    'bullet': 'blt',
-    'blitz': 'blz',
-    'rapid': 'rpd',
-    'daily': 'day'
-  }
-
-  return map[timeControl.toLowerCase()] || timeControl.substring(0, 3)
-}
-
-// Rating histogram data
-const hasRatingHistory = computed(() => {
-  return props.stats?.recentGames && props.stats.recentGames.length > 0
-})
-
-const ratingHistogramData = computed(() => {
+// This month's games only
+const thisMonthGames = computed(() => {
   if (!props.stats?.recentGames) return []
 
-  // Use only games with rating info, oldest to newest
-  return [...props.stats.recentGames]
-    .filter(game => !!game.rating)
-    .reverse()
-})
-
-const ratingStats = computed(() => {
-  if (ratingHistogramData.value.length === 0) return { min: 0, max: 0 }
-
-  const ratings = ratingHistogramData.value.map(game => game.rating || 0)
-  return {
-    min: Math.min(...ratings),
-    max: Math.max(...ratings)
-  }
-})
-
-const ratingRange = computed(() => {
-  const { min, max } = ratingStats.value
-  return `${min}–${max}`
-})
-
-// Histogram bar height calculation
-const getBarHeight = (rating: number = 0) => {
-  if (ratingHistogramData.value.length === 0) return 0
-
-  const { min, max } = ratingStats.value
-  const range = max - min || max || 1 // Avoid division by zero
-
-  // Calculate height
-  const minHeight = 4
-  const maxHeight = 28
-
-  if (max === min) return minHeight + (maxHeight - minHeight) / 2
-
-  const percentage = (rating - min) / range
-  return minHeight + percentage * (maxHeight - minHeight)
-}
-
-const getBarOpacity = (index: number) => {
-  const total = ratingHistogramData.value.length
-  if (total <= 1) return 0.8
-
-  const minOpacity = 0.5
-  const opacityStep = (0.8 - minOpacity) / (total - 1)
-
-  return minOpacity + (index * opacityStep)
-}
-
-const getBarColor = (result: string) => {
-  if (result === 'win') return '#a1a1aa' // Gray-400 
-  if (result === 'loss') return '#3f3f46' // Gray-700
-  return '#71717a' // Gray-500 for draw
-}
-
-// Option 2: Use highest rating
-const highestActiveRating = computed(() => {
-  if (!props.stats) return 0
-  const ratings = Object.values(props.stats.currentRating as NewFormatRatings)
-  return Math.max(...ratings)
-})
-
-// Activity calendar data
-const chessActivityDates = computed(() => {
-  if (!props.stats?.recentGames) return []
-
-  // Extract unique dates from recent games
-  const uniqueDates = new Set(
-    props.stats.recentGames.map(game =>
-      format(new Date(game.timestamp * 1000), 'yyyy-MM-dd')
-    )
-  )
-
-  return Array.from(uniqueDates)
-})
-
-// Format game time in HH:MM format
-const formatGameTime = (timestamp: number) => {
-  return format(new Date(timestamp * 1000), 'HH:mm')
-}
-
-// Sort games by timestamp (most recent first)
-const recentGamesSorted = computed(() => {
-  if (!props.stats?.recentGames) return []
+  const now = new Date()
+  const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1)
 
   return [...props.stats.recentGames]
+    .filter((game) => {
+      const gameDate = new Date(game.timestamp * 1000)
+      return gameDate >= startOfMonth
+    })
     .sort((a, b) => b.timestamp - a.timestamp)
-    .slice(0, 5)
 })
+
+// Format time ago for games
+const formatTimeAgo = (timestamp: number) => {
+  const now = Date.now()
+  const gameDate = timestamp * 1000
+  const diffMs = now - gameDate
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24))
+  const diffHours = Math.floor(diffMs / (1000 * 60 * 60))
+  const diffMinutes = Math.floor(diffMs / (1000 * 60))
+
+  if (diffMinutes < 60) return `${diffMinutes}m ago`
+  if (diffHours < 24) return `${diffHours}h ago`
+  if (diffDays === 0) return 'today'
+  if (diffDays === 1) return '1d ago'
+  if (diffDays < 30) return `${diffDays}d ago`
+  return `${Math.floor(diffDays / 30)}mo ago`
+}
+
+// Variant ratings with stats (win rate, games, delta)
+const variantStats = computed(() => {
+  if (!props.stats) return []
+
+  const variants = ['bullet', 'blitz', 'rapid'] as const
+
+  return variants
+    .map((variant) => {
+      const current = getRating(variant)
+      const best = isNewFormat.value
+        ? (props.stats!.bestRating as NewFormatRatings)[variant] || 0
+        : (props.stats!.bestRating as number)
+
+      const delta = current - best
+
+      // Get win rate for this variant
+      const variantWinRate =
+        isNewFormat.value && props.stats!.winRate
+          ? (props.stats!.winRate as NewFormatWinRate)[variant] || 0
+          : 0
+
+      return {
+        name: variant.toUpperCase(),
+        current: formatNumber(current),
+        delta: Math.round(delta),
+        winRate: variantWinRate > 0 ? `${Math.round(variantWinRate)}%` : '',
+      }
+    })
+    .filter((variant) => Number.parseInt(variant.current.replace(/,/g, '')) > 0)
+})
+
+// Small multiples with bar visualization
+const variantStatsWithBars = computed(() => {
+  const stats = variantStats.value
+  if (!stats.length) return []
+  const ratings = stats.map(
+    (s) => Number.parseInt(s.current.replace(/,/g, '')) || 0
+  )
+  const maxRating = Math.max(...ratings, 1)
+  return stats.map((s, i) => ({
+    ...s,
+    barPct: Math.round((ratings[i] / maxRating) * 100),
+  }))
+})
+
+const performanceMetrics = computed(() => [
+  { label: 'GAMES PLAYED', value: formatNumber(gamesPlayed.value) },
+  { label: 'WIN RATE', value: `${Math.round(overallWinRate.value)}%` },
+  {
+    label: 'PUZZLE RATING',
+    value: formatNumber(props.stats?.puzzleStats.rating || 0),
+  },
+])
 </script>
 
-<style scoped>
-.section-subheader {
-  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
-}
+<template>
+  <div v-if="stats" class="space-y-2 font-mono">
+    <!-- Primary Rating -->
+    <div class="text-center py-2">
+      <div class="text-2xl font-bold">
+        <HandDrawnMark ink-class="text-yellow-600">
+          <AnimatedNumber
+            :value="highestActiveRating"
+            format="commas"
+            :duration="1600"
+            priority="primary"
+          />
+        </HandDrawnMark>
+      </div>
+      <div class="text-xs text-zinc-500 uppercase tracking-wider mt-2">
+        CHESS RATING
+      </div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+        <AnimatedNumber
+          :value="bestRating"
+          format="commas"
+          priority="secondary"
+        />
+        PEAK ·
+        <AnimatedNumber
+          :value="Math.round(winRate)"
+          format="commas"
+          priority="tertiary"
+        />
+        % WIN RATE
+      </div>
+    </div>
 
-.stat-summary {
-  @apply space-y-0.5;
-}
+    <!-- Variant Ratings Small Multiples -->
+    <div class="space-y-2 mb-4">
+      <div
+        v-for="variant in variantStatsWithBars"
+        :key="variant.name"
+        class="flex items-center gap-2 text-xs"
+      >
+        <span class="text-zinc-500 uppercase tracking-wider w-12 text-xs">
+          {{ variant.name }}
+        </span>
+        <!-- Rating bar visualization -->
+        <div class="flex-1 h-2 bg-zinc-200 dark:bg-zinc-800 rounded-sm">
+          <div
+            class="h-full bg-zinc-400 dark:bg-zinc-500 rounded-sm transition-all"
+            :style="{ width: `${variant.barPct}%` }"
+          ></div>
+        </div>
+        <span
+          class="text-zinc-700 dark:text-zinc-300 tabular-nums w-12 text-right"
+        >
+          {{ variant.current }}
+        </span>
+        <span
+          v-if="variant.delta !== 0"
+          :class="
+            variant.delta > 0
+              ? 'text-green-600 dark:text-green-400'
+              : 'text-red-600 dark:text-red-400'
+          "
+          class="tabular-nums text-xs w-8"
+        >
+          {{ variant.delta > 0 ? '+' : '' }}{{ variant.delta }}
+        </span>
+        <span v-else class="w-8"></span>
+      </div>
+    </div>
 
-.stat-value {
-  @apply text-base tabular-nums;
-}
+    <!-- Performance Stats -->
+    <div v-if="hasGameStats">
+      <StatsSectionHeader title="CHESS PERFORMANCE" />
+      <div class="space-y-2">
+        <div
+          v-for="metric in performanceMetrics"
+          :key="metric.label"
+          class="flex items-center justify-between text-xs"
+        >
+          <span class="text-zinc-500 uppercase tracking-wider text-xs">
+            {{ metric.label }}
+          </span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+            {{ metric.value }}
+          </span>
+        </div>
+      </div>
+    </div>
 
-.stat-label {
-  @apply text-2xs text-zinc-500 tracking-wider;
-}
-
-.game-row {
-  @apply flex items-center text-xs;
-}
-
-.game-type {
-  @apply text-zinc-500 ml-2;
-}
-
-.result-indicator {
-  @apply w-1.5 h-1.5 rounded-full ml-2;
-}
-
-.rating-value {
-  @apply tabular-nums font-medium;
-}
-
-.data-unavailable {
-  @apply text-sm text-zinc-400;
-}
-
-/* Histogram styles */
-.histogram-container {
-  @apply flex items-end justify-between h-7 w-full space-x-px mt-1;
-}
-
-.histogram-bar {
-  @apply flex-1 bg-zinc-800 dark:bg-zinc-500 transition-all duration-300;
-}
-
-.histogram-labels {
-  @apply flex justify-between pt-1 text-zinc-400;
-}
-
-/* Custom text size smaller than xs */
-.text-2xs {
-  font-size: 0.65rem;
-  line-height: 1rem;
-}
-</style>
+    <!-- Recent Matches (This Month Only) -->
+    <div v-if="thisMonthGames.length">
+      <StatsSectionHeader title="RECENT CHESS GAMES" />
+      <div class="space-y-1">
+        <div
+          v-for="game in thisMonthGames.slice(0, 10)"
+          :key="game.id || game.url"
+          class="flex items-center justify-between text-xs"
+        >
+          <div class="flex items-center gap-2">
+            <span class="text-zinc-500 uppercase text-xs font-medium">
+              {{ formatGameTypeMinimal(game.timeControl) }}
+            </span>
+            <span class="font-bold text-zinc-600 dark:text-zinc-400 text-xs">
+              {{
+                game.result === 'win' ? 'W' : game.result === 'loss' ? 'L' : 'D'
+              }}
+            </span>
+            <span class="text-zinc-500 text-xs">
+              {{ formatTimeAgo(game.timestamp) }}
+            </span>
+          </div>
+          <div class="flex items-center gap-0.5">
+            <span class="tabular-nums font-medium">{{ game.rating }}</span>
+            <span
+              v-if="game.ratingDiff && game.ratingDiff !== 0"
+              class="tabular-nums text-xs"
+              :class="getRatingDiffClass(game.ratingDiff)"
+            >
+              {{ formatRatingDiff(game.ratingDiff) }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <StatsDataState v-else message="Chess data unavailable" />
+</template>

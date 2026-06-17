@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. Captured via headless boot; re-crop\n     if the framing's off. Draft until ready. -->\n<p class=\"\">A Steam store-page preview tool — mock up and edit a game's Steam page (capsule art, screenshots, copy) before you ever touch the real storefront.</p>\n<figure role=\"figure\" aria-label=\"Dream Store Design Lab — mocking up a Steam store page\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/steam-store-design-lab/landing.png\" alt=\"Dream Store Design Lab — mocking up a Steam store page\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/steam-store-design-lab/landing.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/steam-store-design-lab/landing.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/steam-store-design-lab/landing.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/steam-store-design-lab/landing.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Dream Store Design Lab — mocking up a Steam store page\" width=\"2880\" height=\"1900\" style=\"--splay-rot:-0.88deg;\" data-dimensions=\"2880×1900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Dream Store Design Lab — mocking up a Steam store page</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"A mocked-up Steam store page — capsule art, screenshots, and an update banner, previewed before touching the real storefront\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1746999450/Screenshot_2025-05-11_at_5.37.14_PM.png\" alt=\"A mocked-up Steam store page — capsule art, screenshots, and an update banner, previewed before touching the real storefront\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1746999450/Screenshot_2025-05-11_at_5.37.14_PM.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1746999450/Screenshot_2025-05-11_at_5.37.14_PM.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1746999450/Screenshot_2025-05-11_at_5.37.14_PM.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1746999450/Screenshot_2025-05-11_at_5.37.14_PM.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A mocked-up Steam store page — capsule art, screenshots, and an update banner, previewed before touching the real storefront\" width=\"3652\" height=\"2314\" style=\"--splay-rot:2.93deg;\" data-dimensions=\"3652×2314\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">A mocked-up Steam store page — capsule art, screenshots, and an update banner, previewed before touching the real storefront</figcaption>\n</figure>",
+  "title": "Dream Store Design Lab",
+  "metadata": {
+    "title": "Dream Store Design Lab",
+    "date": "2026-04-01T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/steam-store-design-lab",
+    "tech": [
+      "Nuxt",
+      "Vue",
+      "Design Tool"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools",
+      "design",
+      "games"
+    ],
+    "words": 79,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

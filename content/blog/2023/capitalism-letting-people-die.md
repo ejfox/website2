@@ -57,7 +57,7 @@ It's a poignant reminder that under capitalism, your worth is tied inexorably to
 
 ### What does this mean for our future?
 
-Given this history, what lessons can be learned as we approach a period of intense growth in Artificial Intelligence? [crypto-ai-colonizatio](crypto-ai-colonizatio)n]]
+Given this history, what lessons can be learned as we approach a period of intense growth in Artificial Intelligence? [[blog/2023/crypto-ai-colonization]]
 
 >Today mankind is locked into stealing ravenously from the future.
 >William R. Catton **Overshoot: The Ecological Basis of Revolutionary Change**

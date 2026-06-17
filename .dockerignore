@@ -1,6 +1,5 @@
 node_modules
 .nuxt
-.output
 .git
 .gitignore
 README.md
@@ -16,4 +15,3 @@ coverage
 cache
 analyze
 deadfile-report.json
-external_links_final.csv

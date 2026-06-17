@@ -1,3 +1,9 @@
+/**
+ * @file plugins/remarkAi2htmlEmbed.mjs
+ * @description Remark plugin that converts ::ai2html{project-name} syntax into responsive iframe embeds
+ * @usage .use(remarkAi2htmlEmbed)
+ */
+
 import { visit } from 'unist-util-visit'
 
 export function remarkAi2htmlEmbed() {
@@ -8,9 +14,11 @@ export function remarkAi2htmlEmbed() {
         if (match) {
           const projectName = match[1]
           node.type = 'html'
-          node.value = `
+          node.value =
+            `
 <div class="ai2html-responsive-embed" data-project="${projectName}">
-  <iframe src="/ai2html/${projectName}/index.html" width="100%" style="border: none;" scrolling="no"></iframe>
+  <iframe src="/ai2html/${projectName}/index.html" width="100%" ` +
+            `style="border: none;" scrolling="no"></iframe>
 </div>`
         }
       }

@@ -28,7 +28,7 @@ tags:
 
 ### Black & White Film
 
-For my film development process see: [film-developmen](film-developmen)t]]
+For my film development process see: [[blog/2023/film-development]]
 
 ---
 

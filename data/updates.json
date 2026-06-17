@@ -1,0 +1,113 @@
+[
+  {
+    "date": "2025-12",
+    "title": "Flashcard System",
+    "description": "Added spaced repetition flashcards with 3D card UI, multi-deck support, and API endpoints for learning.",
+    "link": "/flashcards"
+  },
+  {
+    "date": "2025-12",
+    "title": "Threads Visualization",
+    "description": "D3 force-directed graph showing how posts, scraps, and tags connect. Scroll through 350vh of interconnected content.",
+    "link": "/threads"
+  },
+  {
+    "date": "2025-12",
+    "title": "Scraps Browser",
+    "description": "New /scraps page for browsing the Supabase scraps collection with tag filtering and metadata.",
+    "link": "/scraps"
+  },
+  {
+    "date": "2025-11",
+    "title": "Kalshi Predictions Integration",
+    "description": "Live prediction market portfolio tracking with real-time P&L, calibration analysis, and position commentary.",
+    "link": "/predictions"
+  },
+  {
+    "date": "2025-11",
+    "title": "Gear Inventory Overhaul",
+    "description": "Smart units, favorites, weight-per-category stats, and data-dense Tuftian visualizations.",
+    "link": "/gear"
+  },
+  {
+    "date": "2025-10",
+    "title": "Tufte-Style Sidenotes",
+    "description": "Major typography overhaul. Footnotes now appear as margin notes on desktop.",
+    "link": "/blog"
+  },
+  {
+    "date": "2025-08",
+    "title": "Dynamic Tags System",
+    "description": "Tags endpoint with journalist pyramid ordering - most important and frequently used tags surface first. Plus llms.txt for AI crawlers.",
+    "link": "/tags.json"
+  },
+  {
+    "date": "2025-07",
+    "title": "Cryptographic Predictions",
+    "description": "10 PGP-signed predictions for 2025-2029 with SHA-256 hashing and git commits for verifiable forecasting.",
+    "link": "/predictions"
+  },
+  {
+    "date": "2025-06",
+    "title": "Scrapbook View",
+    "description": "Data-dense scrapbook view with tag filtering and enhanced Pinboard bookmarklet with smart tag suggestions."
+  },
+  {
+    "date": "2025-05",
+    "title": "Predictions API",
+    "description": "Predictions system with cryptographic verification - the foundation for the forecasting section."
+  },
+  {
+    "date": "2024-10",
+    "title": "Stats Dashboard",
+    "description": "Personal metrics aggregating GitHub, YouTube, LastFM, Chess.com, and other APIs.",
+    "link": "/stats"
+  },
+  {
+    "date": "2024-09",
+    "title": "website2 Launch",
+    "description": "Complete rebuild with Nuxt 3, Docker deployment, and new markdown processing pipeline. Fresh start after 6 years."
+  },
+  {
+    "date": "2024-Q2",
+    "title": "Pottery Shop & RSS",
+    "description": "Added pottery page with Stripe checkout, RSS feed, and public tags.json endpoint.",
+    "era": "website v1"
+  },
+  {
+    "date": "2024-Q2",
+    "title": "Scrap Graph View",
+    "description": "Interactive graph visualization of scraps with Supabase backend integration.",
+    "era": "website v1"
+  },
+  {
+    "date": "2023-Q4",
+    "title": "Tailwind Redesign",
+    "description": "Major overhaul: switched from Tachyons to Tailwind CSS + Nuxt UI. Added 3D canvas experiments and GitHub data integration.",
+    "era": "website v1"
+  },
+  {
+    "date": "2021",
+    "title": "Art Section",
+    "description": "Added dedicated art pages. Updated projects with NBC News and CCRB journalism pieces.",
+    "era": "website v1"
+  },
+  {
+    "date": "2020",
+    "title": "Dark Mode & Photoblog",
+    "description": "Implemented dark mode toggle and automated photoblog system.",
+    "era": "website v1"
+  },
+  {
+    "date": "2019",
+    "title": "Markdown Pipeline",
+    "description": "Rebuilt content system with markdown-it parser, table of contents, and JSON resume integration.",
+    "era": "website v1"
+  },
+  {
+    "date": "2018",
+    "title": "Original Site Launch",
+    "description": "First version with Tachyons CSS, audio player for mixes, Pinboard bookmarks, Are.na vibes section, and a shop.",
+    "era": "website v1"
+  }
+]

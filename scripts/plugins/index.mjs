@@ -1,8 +1,19 @@
+/**
+ * @file plugins/index.mjs
+ * @description Aggregates and exports all remark/rehype plugins for markdown processing
+ * @usage import { remarkEnhanceLinks, rehypeAddClassToParagraphs } from './scripts/plugins/index.mjs'
+ */
+
 // Remark plugins
 export { remarkEnhanceLinks } from './remarkEnhanceLinks.mjs'
 export { remarkObsidianSupport } from './remarkObsidianSupport.mjs'
 export { remarkExtractToc } from './remarkExtractToc.mjs'
 export { remarkAi2htmlEmbed } from './remarkAi2htmlEmbed.mjs'
+export { remarkPredictionRef } from './remarkPredictionRef.mjs'
+export { remarkEnhanceImages } from './remarkEnhanceImages.mjs'
+export { remarkGearCard } from './remarkGearCard.mjs'
+export { remarkHandDrawn } from './remarkHandDrawn.mjs'
+export { remarkMermaid } from './remarkMermaid.mjs'
 
 // Rehype plugins
 export { rehypeAddClassToParagraphs } from './rehypeAddClassToParagraphs.mjs'
@@ -13,5 +24,6 @@ export const DEFAULT_PLUGINS = [
   'remarkObsidianSupport',
   'remarkExtractToc',
   'remarkAi2htmlEmbed',
-  'rehypeAddClassToParagraphs'
+  'remarkEnhanceImages',
+  'rehypeAddClassToParagraphs',
 ]

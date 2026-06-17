@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { useFetch } from '#app'
-import { useStats } from '~/composables/useStats'
-import GitHubStats from '~/components/stats/GitHubStats.vue'
+// Nuxt 4 auto-imports all composables!
+const { formatCompactDate: formatDate } = useDateFormat()
 
 interface GistFile {
   filename: string
@@ -18,24 +17,25 @@ interface Gist {
   updated_at: string
   files: Record<string, GistFile>
   html_url: string
+  content?: string
 }
 
 // Fetch GitHub stats for the top section
-const { stats: rawStats, isLoading: statsLoading } = useStats()
+const { stats: rawStats, isLoading: _statsLoading } = useStats()
 const stats = computed(() => rawStats.value || {})
-const hasGithubData = computed(() => !!(stats.value?.github?.stats))
+const _hasGithubData = computed(() => !!stats.value?.github?.stats)
 
 const currentPage = ref(1)
 const perPage = 64
 
-const { data: gists, pending, error, refresh } = await useFetch<Gist[]>(() =>
-  `https://api.github.com/users/ejfox/gists?per_page=${perPage}&page=${currentPage.value}`
+const {
+  data: gists,
+  pending,
+  error,
+  refresh,
+} = await useFetch<Gist[]>(
+  () => `/api/gists?per_page=${perPage}&page=${currentPage.value}`
 )
-
-const formatDate = (dateString: string) => {
-  const date = new Date(dateString)
-  return date.toISOString().split('T')[0]
-}
 
 const nextPage = () => {
   if (gists.value?.length === perPage) {
@@ -55,12 +55,21 @@ const prevPage = () => {
 const totalGists = computed(() => gists.value?.length || 0)
 const totalFiles = computed(() => {
   if (!gists.value) return 0
-  return gists.value.reduce((sum, gist) => sum + Object.keys(gist.files).length, 0)
+  return gists.value.reduce(
+    (sum, gist) => sum + Object.keys(gist.files).length,
+    0
+  )
 })
 const totalSize = computed(() => {
   if (!gists.value) return 0
   return gists.value.reduce((sum, gist) => {
-    return sum + Object.values(gist.files).reduce((fileSum, file) => fileSum + (file.size || 0), 0)
+    return (
+      sum +
+      Object.values(gist.files).reduce(
+        (fileSum, file) => fileSum + (file.size || 0),
+        0
+      )
+    )
   }, 0)
 })
 
@@ -69,8 +78,8 @@ const languageCounts = computed(() => {
 
   const counts: Record<string, number> = {}
 
-  gists.value.forEach(gist => {
-    Object.values(gist.files).forEach(file => {
+  gists.value.forEach((gist) => {
+    Object.values(gist.files).forEach((file) => {
       if (file.language) {
         counts[file.language] = (counts[file.language] || 0) + 1
       }
@@ -83,40 +92,133 @@ const languageCounts = computed(() => {
 })
 
 const languageCountsFormatted = computed(() => {
-  return languageCounts.value.map(([lang, count]) => `${lang}(${count})`).join(', ')
+  return languageCounts.value
+    .map(([lang, count]) => `${lang}(${count})`)
+    .join(', ')
 })
+
+const lastUpdated = computed(() => {
+  if (!gists.value?.length) return ''
+  const dates = gists.value
+    .map((g) => new Date(g.updated_at || g.created_at || 0).getTime())
+    .filter((t) => !Number.isNaN(t))
+  if (!dates.length) return ''
+  return new Date(Math.max(...dates)).toISOString().split('T')[0]
+})
+
+// OpenGraph description with overview stats
+const gistsDescription = computed(() => {
+  const gistCount = totalGists.value || 0
+  const fileCount = totalFiles.value || 0
+  const sizeKB = Math.round(totalSize.value / 1024)
+
+  if (gistCount === 0)
+    return 'Code snippets, scripts, and experiments from GitHub Gists'
+
+  const topLangs = languageCounts.value
+    .slice(0, 4)
+    .map(([lang, count]) => `${lang} (${count})`)
+    .join(' • ')
+
+  return `${gistCount} gists • ${fileCount} files • ${sizeKB}KB • ${topLangs}`
+})
+
+usePageSeo({
+  title: 'GitHub Gists · EJ Fox',
+  description: computed(
+    () =>
+      gistsDescription.value ||
+      'Code snippets, scripts, and experiments from EJ Fox’s GitHub Gists.'
+  ),
+  type: 'website',
+  section: 'Code',
+  tags: ['GitHub', 'Gists', 'Code snippets', 'Data visualization'],
+  label1: 'Gists',
+  data1: computed(() => `${totalGists.value} live`),
+  label2: 'Top languages',
+  data2: computed(
+    () => languageCountsFormatted.value || 'Loading languages...'
+  ),
+})
+
+const gistsSchema = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'GitHub Gists',
+  numberOfItems: totalGists.value,
+  itemListElement:
+    gists.value?.slice(0, 30).map((gist, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: gist.html_url,
+      name:
+        Object.values(gist.files)[0]?.filename ||
+        gist.description ||
+        'Gist snippet',
+    })) || [],
+}))
+
+useHead(() => ({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify(gistsSchema.value),
+    },
+  ],
+}))
+
+// Expand/collapse state for gists
+const expandedGists = ref<Set<string>>(new Set())
+
+const toggleGist = (gistId: string) => {
+  if (expandedGists.value.has(gistId)) {
+    expandedGists.value.delete(gistId)
+  } else {
+    expandedGists.value.add(gistId)
+  }
+}
+
+// Removed client-side syntax highlighting - now handled server-side
+// Old highlightCode and getPreviewLines functions removed
 </script>
 
 <template>
-  <div class="py-8 px-4 font-mono text-sm">
-    <!-- GitHub Stats Section -->
-    <ClientOnly>
-      <div v-if="hasGithubData" class="mb-12 pb-8 border-b border-zinc-800/50">
-        <div class="mb-6">
-          <h2 class="text-xs tracking-[0.2em] text-zinc-500 mb-6">GITHUB_ACTIVITY</h2>
-          <GitHubStats v-if="stats.github" :stats="stats.github" />
-        </div>
-      </div>
-      <div v-else-if="statsLoading" class="mb-12 pb-8 animate-pulse">
-        <div class="h-4 w-48 bg-zinc-800/50 rounded-sm mb-8"></div>
-        <div class="h-32 bg-zinc-800/30 rounded-sm"></div>
-      </div>
-    </ClientOnly>
-    
-    <!-- Header -->
-    <div class="mb-8 border-b border-zinc-800 pb-4">
-      <h1 class="text-2xl uppercase tracking-wide mb-2">GitHub Gists</h1>
-
-      <!-- Minimal stats -->
-      <div class="grid grid-cols-1 gap-1 text-xs text-zinc-500">
-        <div>GISTS: {{ totalGists }} | FILES: {{ totalFiles }} | SIZE: {{ Math.round(totalSize / 1024) }}KB</div>
-        <div>LANGUAGES: {{ languageCountsFormatted }}</div>
-      </div>
-    </div>
+  <div class="container-main pt-8">
+    <!-- Header - Editorial style -->
+    <header class="mb-12">
+      <h1
+        class="font-serif text-4xl md:text-5xl mb-4 text-zinc-900 dark:text-zinc-100"
+      >
+        GitHub Gists
+      </h1>
+      <p class="text-zinc-600 dark:text-zinc-400 text-base mb-2 max-w-prose">
+        {{ totalGists }} gists with {{ totalFiles }} files ({{
+          Math.round(totalSize / 1024)
+        }}KB total)
+      </p>
+      <p
+        v-if="languageCountsFormatted"
+        class="text-zinc-500 dark:text-zinc-500 text-sm mb-2"
+      >
+        Languages: {{ languageCountsFormatted }}
+      </p>
+      <p class="text-zinc-500 dark:text-zinc-500 font-mono text-xs">
+        Updated {{ lastUpdated || 'live' }}
+      </p>
+    </header>
 
     <!-- Loading state -->
-    <div v-if="pending" class="py-4 text-center text-zinc-500">
-      Loading...
+    <div v-if="pending" class="stack-4">
+      <div v-for="i in 8" :key="i" class="py-4">
+        <div class="flex items-baseline gap-2">
+          <div class="skeleton w-6 h-4"></div>
+          <div class="skeleton w-64 h-4"></div>
+          <div class="skeleton w-20 h-4 ml-auto"></div>
+        </div>
+        <div class="pl-8 mt-2">
+          <div class="skeleton w-96 h-3"></div>
+        </div>
+      </div>
     </div>
 
     <!-- Error state -->
@@ -126,44 +228,86 @@ const languageCountsFormatted = computed(() => {
 
     <!-- Gist list -->
     <div v-else-if="gists" class="space-y-0">
-      <div v-for="(gist, index) in gists" :key="gist.id" class="border-t border-zinc-800/30 py-3">
-        <div class="flex items-baseline gap-2">
-          <span class="text-zinc-500 w-6 text-right">{{ index + 1 + (currentPage - 1) * perPage }}.</span>
-          <a :href="gist.html_url" target="_blank" rel="noopener" class="hover:underline hover:text-zinc-300 truncate">
+      <div
+        v-for="gist in gists"
+        :key="gist.id"
+        class="py-6 border-b border-zinc-200 dark:border-zinc-800 last:border-0"
+      >
+        <div class="flex items-start gap-3 mb-2">
+          <a
+            :href="gist.html_url"
+            target="_blank"
+            rel="noopener"
+            class="font-mono text-sm text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors flex-1"
+          >
             {{ Object.values(gist.files)[0]?.filename || 'Untitled' }}
           </a>
-          <span class="text-zinc-500 ml-auto">{{ formatDate(gist.created_at) }}</span>
+          <span
+            class="text-xs text-zinc-500 dark:text-zinc-500 font-mono whitespace-nowrap"
+          >
+            {{ formatDate(gist.created_at) }}
+          </span>
         </div>
 
-        <div v-if="gist.description" class="pl-8 text-zinc-400 text-xs mt-1">
+        <div
+          v-if="gist.description"
+          class="text-sm text-zinc-600 dark:text-zinc-400 mb-2"
+        >
           {{ gist.description }}
         </div>
 
-        <div class="pl-8 text-zinc-500 text-xs mt-1 grid grid-cols-1 gap-1">
-          <div v-for="(file, filename) in gist.files" :key="filename" class="flex items-center gap-2">
-            <span class="opacity-70">-</span>
-            <span class="truncate">{{ filename }}</span>
-            <span class="opacity-70">[{{ file.language || 'txt' }}]</span>
-            <span class="opacity-70">{{ Math.round(file.size / 1024) }}kb</span>
+        <div
+          class="flex flex-wrap gap-x-4 gap-y-1 text-xs text-zinc-500 dark:text-zinc-500"
+        >
+          <div
+            v-for="(file, filename) in gist.files"
+            :key="filename"
+            class="flex items-center gap-2 font-mono"
+          >
+            <span>{{ filename }}</span>
+            <span v-if="file.language" class="opacity-60">
+              [{{ file.language }}]
+            </span>
+            <span class="opacity-60">{{ Math.round(file.size / 1024) }}kb</span>
           </div>
+        </div>
+
+        <!-- Single file gist preview -->
+        <div
+          v-if="gist.content && Object.keys(gist.files).length === 1"
+          class="pl-8 mt-4"
+        >
+          <GistPreview
+            :gist="gist"
+            :file="Object.values(gist.files)[0]"
+            :expanded="expandedGists.has(gist.id)"
+            @toggle="toggleGist(gist.id)"
+          />
         </div>
       </div>
 
       <!-- Pagination -->
-      <div class="flex justify-between items-center pt-4 border-t border-zinc-800 mt-6 text-xs">
-        <button @click="prevPage" :disabled="currentPage === 1" class="disabled:opacity-30 disabled:cursor-not-allowed">
-          &lt;&lt; PREV
+      <div
+        class="flex justify-between items-center pt-8 mt-8 border-t border-zinc-200 dark:border-zinc-800"
+      >
+        <button
+          :disabled="currentPage === 1"
+          class="px-4 py-2 text-sm border border-zinc-200 dark:border-zinc-800 disabled:opacity-30 disabled:cursor-not-allowed hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+          @click="prevPage"
+        >
+          ← Previous
         </button>
-        <span class="text-zinc-500">PAGE {{ currentPage }}</span>
-        <button @click="nextPage" :disabled="!gists?.length || gists.length < perPage"
-          class="disabled:opacity-30 disabled:cursor-not-allowed">
-          NEXT &gt;&gt;
+        <span class="text-sm text-zinc-500 dark:text-zinc-500 font-mono">
+          Page {{ currentPage }}
+        </span>
+        <button
+          :disabled="!gists?.length || gists.length < perPage"
+          class="px-4 py-2 text-sm border border-zinc-200 dark:border-zinc-800 disabled:opacity-30 disabled:cursor-not-allowed hover:border-zinc-400 dark:hover:border-zinc-600 transition-colors"
+          @click="nextPage"
+        >
+          Next →
         </button>
       </div>
     </div>
   </div>
 </template>
-
-<style scoped>
-/* Monospace font for BBS style */
-</style>

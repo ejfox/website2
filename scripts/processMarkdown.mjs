@@ -1,251 +1,254 @@
-console.log('Script starting...')
+/**
+ * @file processMarkdown.mjs
+ * @description Main content processing pipeline - converts Markdown to HTML with smart caching, link health checking, and on-this-day index generation
+ * @usage yarn blog:process OR node scripts/processMarkdown.mjs
+ * @env OBSIDIAN_VAULT_PATH - Path to Obsidian vault (optional)
+ * @env CHECK_LINKS - Enable link health checking (optional)
+ * @env AUTO_FIX_LINKS - Auto-replace broken links with archive.org versions (optional)
+ * @env DEBUG - Enable debug output (optional)
+ */
 
-// =============================
-// Import Necessary Modules
-// =============================
-import { promises as fs } from 'fs'
-import path from 'path'
-import { fileURLToPath } from 'url'
+/* eslint-disable no-console */
+// Markdown → HTML Processing Pipeline
+import { promises as fs, existsSync, statSync } from 'node:fs'
+import { createHash } from 'node:crypto'
+import path from 'node:path'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import rehypeSlug from 'rehype-slug'
-import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import remarkGfm from 'remark-gfm'
-import remarkUnwrapImages from 'remark-unwrap-images'
-import rehypeMermaid from 'rehype-mermaid'
+import remarkDirective from 'remark-directive'
+// import rehypeMermaid from 'rehype-mermaid' // DELETED - 64MB bloat
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeRaw from 'rehype-raw'
 import matter from 'gray-matter'
-import { visit } from 'unist-util-visit'
 import { transformerCopyButton } from '@rehype-pretty/transformers'
 import dotenv from 'dotenv'
 import * as shiki from 'shiki'
 import chalk from 'chalk'
 import ora from 'ora'
-import { promisify } from 'util'
-import { stat } from 'fs/promises'
+import fetch from 'node-fetch'
 import { config } from './config.mjs'
-import util from 'util'
 
-// Import our plugins
 import {
   remarkAi2htmlEmbed,
+  remarkPredictionRef,
+  remarkGearCard,
+  remarkHandDrawn,
   remarkObsidianSupport,
   rehypeAddClassToParagraphs,
   remarkEnhanceLinks,
-  remarkExtractToc
+  remarkEnhanceImages,
+  remarkExtractToc,
+  remarkMermaid,
 } from './plugins/index.mjs'
 
-// Import utilities
-import {
-  log,
-  getPostType,
-  calculateWordCount,
-  headerStar,
-  generateRobotsMetaContent,
-  getValidDate
-} from './utils/helpers.mjs'
-
-import {
-  processStats,
-  updateRealTimeStats,
-  printRealTimeStats,
-  printProcessingReport
-} from './utils/stats.mjs'
-
+import { getPostType } from './utils/helpers.mjs'
+import { processStats } from './utils/stats.mjs'
 import { backupProcessedContent } from './utils/backup.mjs'
 
-const setTimeoutPromise = promisify(setTimeout)
-
-// =============================
-// Load Environment Variables
-// =============================
 dotenv.config()
 
-// =============================
-// Define __filename and __dirname for ES Modules
-// =============================
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
-
-console.log('Imports complete')
-console.log('Content directory:', process.cwd())
-
-// Get absolute paths
-const paths = {
-  contentDir: config.dirs.content, // content/blog - source markdown
-  draftsDir: path.join(config.dirs.content, '../drafts'), // Add drafts dir
-  outputDir: config.dirs.output,
-  backupDir: config.dirs.backup
-}
-
-// Define source directory (Obsidian vault)
 const SOURCE_DIR =
   process.env.OBSIDIAN_VAULT_PATH ||
-  '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/ejfox/'
+  '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/' +
+    'ejfox/'
 
-// =============================
-// Set Up Shiki Highlighter
-// =============================
-const highlighter = await shiki.getHighlighter({
-  theme: 'github-dark',
-  langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown']
+const CACHE_VERSION = '2026-05-13-gear-cards'
+
+// OG image mapping — populated by Dispatch OG picker, maps slug → Cloudinary URL
+let ogImageMap = {}
+try {
+  ogImageMap = JSON.parse(
+    await fs.readFile(
+      path.join(process.cwd(), 'data', 'og-images.json'),
+      'utf8'
+    )
+  )
+} catch {
+  /* no OG images yet */
+}
+
+const paths = {
+  contentDir: config.dirs.content,
+  draftsDir: path.join(config.dirs.content, '../drafts'),
+  outputDir: config.dirs.output,
+  backupDir: config.dirs.backup,
+}
+
+const highlighter = await shiki.createHighlighter({
+  themes: ['github-dark'],
+  langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown'],
 })
 
-// =============================
-// Add wrapper function for prose classes
-// =============================
-function wrapWithProseClasses() {
-  return (tree) => {
-    if (tree.type === 'root') {
-      tree.children = [
-        {
-          type: 'element',
-          tagName: 'article',
-          properties: {
-            className: [
-              'prose',
-              'dark:prose-invert',
-              'prose-zinc',
-              'dark:prose-zinc-invert',
-              'max-w-none',
-              'prose-headings:font-bold',
-              'prose-h1:text-4xl',
-              'prose-h2:text-3xl',
-              'prose-h3:text-2xl',
-              'prose-h4:text-xl',
-              'prose-p:text-base',
-              'prose-a:text-blue-600',
-              'dark:prose-a:text-blue-400',
-              'prose-strong:font-bold',
-              'prose-code:text-sm',
-              'prose-code:bg-zinc-100',
-              'dark:prose-code:bg-zinc-800',
-              'prose-code:rounded',
-              'prose-code:px-1',
-              'prose-pre:bg-zinc-900',
-              'prose-pre:text-zinc-100',
-              'prose-ol:list-decimal',
-              'prose-ul:list-disc'
-            ]
-          },
-          children: tree.children
-        }
-      ]
+const formatTitle = (filename) => {
+  const baseName = filename.split('/').pop()
+
+  // Detect date-based filenames (YYYY-MM-DD or YYYY-MM-DD-suffix)
+  // Keep dashes for these - they're intentional
+  const datePattern = /^(\d{4}-\d{2}-\d{2})(-.*)?$/
+  const dateMatch = baseName.match(datePattern)
+  if (dateMatch) {
+    // Return date as-is, with optional suffix converted to title case
+    const datePart = dateMatch[1] // e.g., "2026-01-25"
+    const suffix = dateMatch[2] // e.g., "-my-thoughts" or undefined
+    if (suffix) {
+      const suffixTitle = suffix
+        .slice(1) // remove leading dash
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+      return `${datePart} ${suffixTitle}`
     }
+    return datePart
+  }
+
+  // Standard title case for non-date filenames
+  return baseName
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}
+
+/**
+ * Hash a password using SHA-256
+ * Matches the client-side hashing in PasswordGate.vue
+ */
+const hashPassword = (password) => {
+  return createHash('sha256').update(password).digest('hex')
+}
+
+// ============================================================================
+// Helper functions to reduce nesting depth (extracted for ESLint max-depth)
+// ============================================================================
+
+/**
+ * Fix a single broken link in a source file by replacing with archived version
+ * @returns {boolean} true if file was modified
+ */
+async function fixLinkInSourceFile(link, source, contentDir) {
+  const archivedUrl = link.archived.url
+  const archivedDate = link.archived.timestamp.substring(0, 8) // YYYYMMDD
+
+  // Format date as YYYY-MM-DD
+  const year = archivedDate.substring(0, 4)
+  const month = archivedDate.substring(4, 6)
+  const day = archivedDate.substring(6, 8)
+  const formattedDate = `${year}-${month}-${day}`
+
+  const filePath = path.join(contentDir, `${source}.md`)
+
+  try {
+    let content = await fs.readFile(filePath, 'utf-8')
+    const originalContent = content
+
+    // Replace the broken link with archived version + indicator
+    const escapedUrl = link.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+    // Replace in markdown links [text](broken-url)
+    const mdLinkRegex = new RegExp(`(\\[[^\\]]+\\])\\(${escapedUrl}\\)`, 'g')
+    content = content.replace(
+      mdLinkRegex,
+      `$1(${archivedUrl}) *[archived ${formattedDate}]*`
+    )
+
+    // Replace bare URLs
+    const bareUrlRegex = new RegExp(`(?<!\\()${escapedUrl}(?!\\))`, 'g')
+    content = content.replace(
+      bareUrlRegex,
+      `${archivedUrl} *[archived ${formattedDate}]*`
+    )
+
+    // Only write if content changed
+    if (content !== originalContent) {
+      await fs.writeFile(filePath, content, 'utf-8')
+      return true
+    }
+    return false
+  } catch {
+    // Skip files we can't fix
+    return false
   }
 }
 
-// =============================
-// Helper: Extract Headers and TOC
-// =============================
-function extractHeadersAndToc(tree, maxDepth = 3) {
-  let firstHeading = null
-  let firstHeadingNode = null
-  const toc = []
-  const headingStack = []
+/**
+ * Check if a file should use cache based on modification times
+ * @returns {'cache' | 'process'} whether to use cache or process the file
+ */
+function getFileCacheStatus(filePath, outputPath) {
+  if (!existsSync(outputPath)) {
+    return 'process'
+  }
 
-  visit(tree, 'heading', (node) => {
-    if (node.depth > maxDepth) return
-
-    // Extract text content from heading, handling various node types
-    const headingText = node.children
-      .map((child) => {
-        if (child.type === 'text') {
-          return child.value
-        } else if (child.type === 'image') {
-          return child.alt || '' // Use alt text for images
-        } else if (child.type === 'link') {
-          return child.children.map((c) => c.value || '').join('')
-        }
-        return ''
-      })
-      .join('')
-      .trim()
-
-    // Skip empty headings
-    if (!headingText) return
-
-    const headingSlug = generateSlug(headingText)
-
-    const headingItem = {
-      text: headingText,
-      slug: headingSlug,
-      level: `h${node.depth}`,
-      children: []
-    }
-
-    if (!firstHeading && (node.depth === 1 || node.depth === 2)) {
-      firstHeading = headingText
-      firstHeadingNode = node
-    }
-
-    while (
-      headingStack.length > 0 &&
-      headingStack[headingStack.length - 1].level >= headingItem.level
-    ) {
-      headingStack.pop()
-    }
-
-    if (headingStack.length === 0) {
-      toc.push(headingItem)
-    } else {
-      headingStack[headingStack.length - 1].children.push(headingItem)
-    }
-
-    headingStack.push(headingItem)
-  })
-
-  return { firstHeading, toc, firstHeadingNode }
+  try {
+    const sourceStats = statSync(filePath)
+    const outputStats = statSync(outputPath)
+    return outputStats.mtime > sourceStats.mtime ? 'cache' : 'process'
+  } catch {
+    return 'process'
+  }
 }
 
-function removeFirstHeading(tree, firstHeadingNode) {
-  if (firstHeadingNode) {
-    const index = tree.children.indexOf(firstHeadingNode)
-    if (index !== -1) {
-      tree.children.splice(index, 1)
+/**
+ * Try to load a processed result from cache
+ * @returns {{ result: object, cached: boolean } | null} cached result or null if cache miss
+ */
+async function tryLoadCachedResult(outputPath, cacheVersion) {
+  try {
+    const cachedData = await fs.readFile(outputPath, 'utf-8')
+    const result = JSON.parse(cachedData)
+    if (result?.cacheVersion === cacheVersion) {
+      return { result, cached: true }
+    }
+    return null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Write processed result to output file (for non-draft content only)
+ */
+async function writeProcessedResult(result, outputPath) {
+  if (result.metadata?.draft === true) {
+    // Draft PROJECTS are written so the local dev server can preview them.
+    // (The manifest still excludes all drafts, so production never lists them.)
+    // Other draft content stays unwritten — drafts can hold private material.
+    if (!outputPath.includes('/projects/')) {
+      return
     }
   }
-  return tree
+  await fs.mkdir(path.dirname(outputPath), { recursive: true })
+  await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
 }
 
-function generateSlug(str) {
-  return str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
+const normalizeSlug = (slug) => {
+  // Strip leading 'blog/' prefix if it exists
+  return slug.startsWith('blog/') ? slug.slice(5) : slug
 }
 
-// =============================
-// Initialize Unified Processor
-// =============================
 const processor = unified()
-  // 1. Parse markdown into mdast
   .use(remarkParse)
+  .use(remarkGfm) // Process footnotes FIRST before other plugins
+  .use(remarkDirective)
   .use(remarkExtractToc)
-
-  // 2. All remark plugins (operating on markdown AST)
   .use(remarkObsidianSupport)
-  .use(remarkGfm)
-  .use(remarkUnwrapImages)
   .use(remarkEnhanceImages)
   .use(remarkEnhanceLinks)
   .use(remarkAi2htmlEmbed)
-
-  // 3. Convert to hast (HTML AST)
+  .use(remarkPredictionRef)
+  .use(remarkGearCard)
+  .use(remarkHandDrawn)
+  .use(remarkMermaid)
   .use(remarkRehype, { allowDangerousHtml: true })
-
-  // 4. All rehype plugins (operating on HTML AST)
   .use(rehypeRaw)
-  .use(rehypeAddClassToParagraphs)
   .use(rehypePrettyCode, {
     theme: JSON.parse(await fs.readFile('./themes/ayu-mirage.json', 'utf-8')),
     onVisitLine(node) {
-      if (node.children.length === 0) {
+      if (node.children.length === 0)
         node.children = [{ type: 'text', value: ' ' }]
-      }
     },
     onVisitHighlightedLine(node) {
       node.properties.className.push('highlighted')
@@ -255,119 +258,140 @@ const processor = unified()
     },
     highlighter,
     transformers: [
-      transformerCopyButton({
-        visibility: 'always',
-        feedbackDuration: 3000
-      })
-    ]
+      transformerCopyButton({ visibility: 'always', feedbackDuration: 3000 }),
+    ],
   })
-  .use(rehypeMermaid, {
-    strategy: 'inline-svg'
-  })
+  .use(rehypeAddClassToParagraphs)
+  // .use(rehypeMermaid, { strategy: 'inline-svg' }) // DELETED - 64MB bloat
   .use(rehypeSlug)
-
-  // 5. Finally, stringify to HTML
   .use(rehypeStringify, { allowDangerousHtml: true })
 
-// =============================
-// Add this helper function
-// =============================
-function debugLog(label, data, depth = 3) {
-  console.log(`\n[DEBUG] ${label}:`)
-  console.log(util.inspect(data, { depth, colors: true }))
-  console.log()
-}
-
-// =============================
-// Add near the top with other debugging functions
-// =============================
-function debugLinks(tree) {
-  const links = []
-  visit(tree, 'link', (node) => {
-    links.push({
-      text: node.children?.[0]?.value,
-      url: node.url,
-      position: node.position
-    })
-  })
-  if (links.length > 0) {
-    debugLog('Links found in document:', links)
-  }
-}
-
-// Near the top, add a DEBUG flag
-const DEBUG = process.env.DEBUG === 'true'
-
-// Replace console.log with debug function
-function debug(...args) {
-  if (DEBUG) {
-    console.log(chalk.gray('[DEBUG]'), ...args)
-  }
-}
-
-// =============================
-// Core Processing Functions
-// =============================
 async function processMarkdown(content, filePath) {
   const filename = path.basename(filePath)
   try {
     const { data: frontmatter, content: markdownContent } = matter(content)
     let ast = processor.parse(markdownContent)
 
-    // Extract headers and TOC, including the first heading node
-    const { firstHeading, toc, firstHeadingNode } = extractHeadersAndToc(ast)
+    // Create vfile to hold data from plugins
+    const vfile = { path: filename, data: {} }
 
-    // Remove the first H1 from the AST before processing
-    ast = removeFirstHeading(ast, firstHeadingNode)
+    // Process through unified pipeline
+    // (TOC extraction happens in remarkExtractToc plugin)
+    let result = await processor.run(ast, vfile)
 
-    let result = await processor.run(ast)
+    // Get TOC data from plugin
+    const toc = vfile.data?.toc || []
+    const firstHeading = vfile.data?.firstHeading
+    const firstHeadingNode = vfile.data?.firstHeadingNode
+
+    // Remove first heading if it exists
+    if (firstHeadingNode) {
+      const index = result.children.indexOf(firstHeadingNode)
+      if (index !== -1) {
+        result.children.splice(index, 1)
+      }
+    }
+
     let html = processor.stringify(result)
 
-    // Get title with proper fallbacks
+    // Clean up empty <p> tags produced by remark wrapping standalone images
+    // in paragraphs before figure-wrapping can unwrap them
+    html = html
+      .replace(/<p[^>]*>\s*<\/p>\s*(?=<figure)/g, '')
+      .replace(/(<\/figure>)\s*<p[^>]*>\s*<\/p>/g, '$1')
+
     const extractedTitle =
       frontmatter.title ||
       firstHeading ||
       formatTitle(path.basename(filePath, '.md'))
 
-    // Calculate metadata quietly
+    // Extract detailed image stats
+    const imageMatches = markdownContent.match(/!\[.*?\]\(.*?\)/g) || []
+    const imageStats = imageMatches.map((img) => {
+      const urlMatch = img.match(/\(([^)]+)\)/)
+      if (urlMatch && urlMatch[1].includes('cloudinary')) {
+        const widthMatch = urlMatch[1].match(/w_(\d+)/)
+        const heightMatch = urlMatch[1].match(/h_(\d+)/)
+        return {
+          hasCloudinary: true,
+          width: widthMatch ? Number.parseInt(widthMatch[1]) : null,
+          height: heightMatch ? Number.parseInt(heightMatch[1]) : null,
+        }
+      }
+      return { hasCloudinary: false }
+    })
+
     const stats = {
       words: markdownContent.split(/\s+/).length,
-      images: (markdownContent.match(/!\[.*?\]\(.*?\)/g) || []).length,
+      images: imageMatches.length,
+      imageDetails: {
+        total: imageMatches.length,
+        cloudinary: imageStats.filter((i) => i.hasCloudinary).length,
+        withDimensions: imageStats.filter((i) => i.width && i.height).length,
+      },
       links: (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length,
       codeBlocks: (markdownContent.match(/```[\s\S]*?```/g) || []).length,
       headers: toc.reduce((acc, h) => {
         acc[h.level] = (acc[h.level] || 0) + 1
         return acc
-      }, {})
+      }, {}),
     }
 
-    // Simple progress indicator
-    process.stdout.write(
-      `\r${chalk.gray(`Processing: ${filename.padEnd(50)}`)}${Math.round(
-        (processStats.filesProcessed / processStats.totalFiles) * 100
-      )}%`
+    const pct = Math.round(
+      (processStats.filesProcessed / processStats.totalFiles) * 100
     )
 
-    // Get source path relative to Obsidian vault (if available)
-    const sourcePath = SOURCE_DIR ? path.relative(SOURCE_DIR, filePath) : null
-    const sourceInfo = SOURCE_DIR
-      ? {
-          sourcePath,
-          sourceDir: SOURCE_DIR
+    // IndieWeb indicators (supports single URL or array)
+    const replyToRaw = frontmatter.replyTo || frontmatter['in-reply-to']
+    const replyToUrls = replyToRaw
+      ? Array.isArray(replyToRaw)
+        ? replyToRaw
+        : [replyToRaw]
+      : []
+    const indiewebBadges = []
+    if (replyToUrls.length > 0) {
+      const domains = replyToUrls.map((url) => {
+        try {
+          return new URL(url).hostname.replace('www.', '')
+        } catch {
+          return 'reply'
         }
-      : {}
+      })
+      indiewebBadges.push(chalk.cyan(`↩ ${domains.join(', ')}`))
+    }
+
+    const badges =
+      indiewebBadges.length > 0 ? ` ${indiewebBadges.join(' ')}` : ''
+    process.stdout.write(
+      `\r${chalk.gray(`Processing: ${filename.padEnd(40)}`)}${badges}${' '.repeat(Math.max(0, 20 - badges.length))}${pct}%`
+    )
+
+    // sourcePath/sourceDir stripped for privacy — no filesystem paths in output
+    const slug = normalizeSlug(
+      path
+        .relative(path.join(process.cwd(), 'content', 'blog'), filePath)
+        .replace(/\.md$/, '')
+    )
+
+    // Handle password protection - hash password, never store plaintext
+    const passwordHash = frontmatter.password
+      ? hashPassword(frontmatter.password)
+      : undefined
+    const { password: _rawPassword, ...safeFrontmatter } = frontmatter
 
     return {
-      content: html,
+      cacheVersion: CACHE_VERSION,
       html,
       title: extractedTitle,
       metadata: {
-        ...frontmatter,
+        ...safeFrontmatter,
         ...stats,
-        toc: toc,
-        type: frontmatter.type || getPostType(filePath),
-        ...sourceInfo // Only include if SOURCE_DIR exists
-      }
+        toc,
+        type: safeFrontmatter.type || getPostType(filePath),
+        ...(passwordHash && { passwordHash }),
+        // OG image from data/og-images.json (set by Dispatch OG picker)
+        ...(ogImageMap[slug] && { ogImage: ogImageMap[slug] }),
+      },
     }
   } catch (error) {
     console.error(chalk.red(`\n[ERROR] Failed processing ${filename}:`))
@@ -382,8 +406,18 @@ async function getFilesRecursively(dir) {
     entries.map(async (entry) => {
       const fullPath = path.join(dir, entry.name)
       if (entry.isDirectory()) {
+        if (
+          entry.name === 'node_modules' ||
+          entry.name === '.git' ||
+          entry.name.startsWith('.')
+        )
+          return null
         return getFilesRecursively(fullPath)
-      } else if (entry.isFile() && path.extname(entry.name) === '.md') {
+      } else if (
+        entry.isFile() &&
+        entry.name.endsWith('.md') &&
+        !entry.name.startsWith('!')
+      ) {
         return fullPath
       }
       return null
@@ -392,54 +426,58 @@ async function getFilesRecursively(dir) {
   return files.flat().filter(Boolean)
 }
 
-// =============================
-// External Links Extraction
-// =============================
-function extractExternalLinks(content) {
-  // Extract all URLs matching http/https pattern
-  const urlRegex = /https?:\/\/[^\s\)\]\"]+/g
+const extractExternalLinks = (content) => {
+  const urlRegex = /https?:\/\/[^\s)\]"<>`]+/g
   const urls = content.match(urlRegex) || []
-  
-  // Filter out internal domains
-  const externalUrls = urls.filter(url => {
-    return !url.includes('res.cloudinary.com') && 
-           !url.includes('ejfox.com')
-  })
-  
-  return [...new Set(externalUrls)] // Remove duplicates
+  const cleanedUrls = urls.map((url) => url.replace(/[.,:;!?`>]+$/, ''))
+  const externalUrls = cleanedUrls.filter(
+    (url) => !url.includes('res.cloudinary.com') && !url.includes('ejfox.com')
+  )
+  return [...new Set(externalUrls)]
 }
 
 async function generateExternalLinksCSV(allFiles) {
   const spinner = ora('Extracting external links...').start()
-  
+
   try {
-    const allExternalLinks = new Set()
-    
+    const linkToSources = new Map()
+
     for (const filePath of allFiles) {
-      // Skip reading directory files
       if (filePath.includes('content/blog/reading/')) continue
-      
       const content = await fs.readFile(filePath, 'utf8')
       const links = extractExternalLinks(content)
-      
-      links.forEach(link => {
-        // Filter out Amazon links
-        if (!link.includes('amazon.com') && !link.includes('m.media-amazon.com')) {
-          allExternalLinks.add(link)
+      const slug = normalizeSlug(
+        path.relative(paths.contentDir, filePath).replace(/\.md$/, '')
+      )
+
+      links.forEach((link) => {
+        if (
+          !link.includes('amazon.com') &&
+          !link.includes('m.media-amazon.com')
+        ) {
+          if (!linkToSources.has(link)) linkToSources.set(link, new Set())
+          linkToSources.get(link).add(slug)
         }
       })
     }
-    
-    // Convert to array and sort
-    const linksList = Array.from(allExternalLinks).sort()
-    
-    // Write to CSV file
-    const csvPath = path.join(process.cwd(), 'external_links_final.csv')
-    await fs.writeFile(csvPath, linksList.join('\n'))
-    
-    spinner.succeed(`Extracted ${linksList.length} external links to external_links_final.csv`)
-    
-    return linksList
+
+    const csvRows = ['url,sources']
+    Array.from(linkToSources.entries())
+      .sort(([a], [b]) => a.localeCompare(b))
+      .forEach(([url, sources]) => {
+        const sourcesString = Array.from(sources).join(';')
+        const escapedUrl = url.includes(',') ? `"${url}"` : url
+        csvRows.push(`${escapedUrl},"${sourcesString}"`)
+      })
+
+    const csvPath = path.join(process.cwd(), 'data/external_links_final.csv')
+    await fs.writeFile(csvPath, csvRows.join('\n'))
+
+    spinner.succeed(
+      `Extracted ${linkToSources.size} external links to ` +
+        'data/external_links_final.csv'
+    )
+    return { links: Array.from(linkToSources.keys()), linkToSources }
   } catch (error) {
     spinner.fail('Failed to extract external links')
     console.error(error)
@@ -447,93 +485,705 @@ async function generateExternalLinksCSV(allFiles) {
   }
 }
 
-// =============================
-// Main Processing Function
-// =============================
+// Check Wayback Machine for archived version
+async function findArchivedVersion(url) {
+  try {
+    const apiUrl = `https://archive.org/wayback/available?url=${encodeURIComponent(url)}`
+    const response = await fetch(apiUrl, {
+      headers: {
+        'User-Agent':
+          'Mozilla/5.0 (compatible; LinkChecker/1.0; +https://ejfox.com)',
+      },
+    })
+
+    if (!response.ok) return null
+
+    const data = await response.json()
+    const archived = data?.archived_snapshots?.closest
+
+    if (archived?.available && archived?.url) {
+      return {
+        url: archived.url,
+        timestamp: archived.timestamp,
+        status: archived.status,
+      }
+    }
+
+    return null
+  } catch {
+    return null
+  }
+}
+
+// Link health checking (behind CHECK_LINKS flag)
+async function checkLinkHealth(url, timeout = 10000) {
+  try {
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), timeout)
+
+    const response = await fetch(url, {
+      method: 'HEAD',
+      signal: controller.signal,
+      redirect: 'follow',
+      headers: {
+        'User-Agent':
+          'Mozilla/5.0 (compatible; LinkChecker/1.0; +https://ejfox.com)',
+      },
+    })
+
+    clearTimeout(timeoutId)
+
+    return {
+      url,
+      status: response.status,
+      ok: response.ok,
+      finalUrl: response.url,
+    }
+  } catch (error) {
+    return {
+      url,
+      status: 0,
+      ok: false,
+      error: error.name === 'AbortError' ? 'Timeout' : error.message,
+    }
+  }
+}
+
+async function checkAllLinks(links, linkToSources, maxConcurrent = 5) {
+  const spinner = ora(`Checking health of ${links.length} links...`).start()
+
+  try {
+    const results = []
+
+    // Check links in batches to avoid overwhelming servers
+    for (let i = 0; i < links.length; i += maxConcurrent) {
+      const batch = links.slice(i, i + maxConcurrent)
+      const batchResults = await Promise.all(
+        batch.map((link) => checkLinkHealth(link))
+      )
+      results.push(...batchResults)
+
+      // Update progress
+      spinner.text = `Checking links... ${i + batch.length}/${links.length}`
+    }
+
+    // Categorize results
+    const working = results.filter((r) => r.ok)
+    const broken = results.filter((r) => !r.ok && !r.error)
+    const errors = results.filter((r) => r.error)
+
+    spinner.succeed(`Checked ${results.length} links`)
+
+    // Check archive.org for broken links if AUTO_FIX flag is set
+    const brokenWithArchives = []
+    if (process.env.AUTO_FIX_LINKS === 'true' && broken.length > 0) {
+      const archiveSpinner = ora(
+        `Searching archive.org for ${broken.length} broken links...`
+      ).start()
+
+      for (let i = 0; i < broken.length; i++) {
+        const brokenLink = broken[i]
+        archiveSpinner.text = `Searching archives... ${i + 1}/${broken.length}`
+
+        const archived = await findArchivedVersion(brokenLink.url)
+        brokenWithArchives.push({
+          ...brokenLink,
+          archived,
+          sources: Array.from(linkToSources.get(brokenLink.url) || []),
+        })
+
+        // Be polite to archive.org API
+        await new Promise((resolve) => setTimeout(resolve, 500))
+      }
+
+      const archivedCount = brokenWithArchives.filter((b) => b.archived).length
+      archiveSpinner.succeed(`Found ${archivedCount} archived versions`)
+    }
+
+    // Generate report
+    const report = {
+      timestamp: new Date().toISOString(),
+      summary: {
+        total: results.length,
+        working: working.length,
+        broken: broken.length,
+        errors: errors.length,
+        archived: brokenWithArchives.filter((b) => b.archived).length,
+      },
+      broken:
+        brokenWithArchives.length > 0
+          ? brokenWithArchives
+          : broken.map((r) => ({
+              url: r.url,
+              status: r.status,
+              sources: Array.from(linkToSources.get(r.url) || []),
+            })),
+      errors: errors.map((r) => ({
+        url: r.url,
+        error: r.error,
+        sources: Array.from(linkToSources.get(r.url) || []),
+      })),
+    }
+
+    // Save report
+    const reportPath = path.join(process.cwd(), 'data/linkrot-report.json')
+    await fs.writeFile(reportPath, JSON.stringify(report, null, 2))
+
+    // Print summary
+    console.log(chalk.bold('\n📊 Link Health Summary'))
+    console.log(`  ${chalk.green('✓')} Working:   ${working.length}`)
+    console.log(`  ${chalk.red('✗')} Broken:    ${broken.length}`)
+    console.log(`  ${chalk.gray('⏱')} Errors:    ${errors.length}`)
+    if (brokenWithArchives.length > 0) {
+      console.log(
+        `  ${chalk.cyan('📦')} Archived:  ${brokenWithArchives.filter((b) => b.archived).length}`
+      )
+    }
+
+    if (broken.length > 0) {
+      console.log(chalk.red.bold(`\n🚨 ${broken.length} Broken Links Found`))
+      const displayLinks =
+        brokenWithArchives.length > 0 ? brokenWithArchives : broken
+      displayLinks.slice(0, 5).forEach((link) => {
+        console.log(chalk.red(`  ${link.status} - ${link.url}`))
+        if (link.archived) {
+          console.log(
+            chalk.cyan(
+              `    📦 Archived: ${link.archived.url.substring(0, 60)}...`
+            )
+          )
+        }
+        const sources = Array.from(
+          linkToSources.get(link.url) || link.sources || []
+        )
+        sources.slice(0, 2).forEach((source) => {
+          console.log(chalk.gray(`    → ${source}`))
+        })
+      })
+      if (broken.length > 5) {
+        console.log(chalk.gray(`  ... and ${broken.length - 5} more`))
+      }
+    }
+
+    console.log(chalk.gray(`\n  Full report: data/linkrot-report.json\n`))
+
+    // Auto-fix broken links if flag is set
+    if (
+      process.env.AUTO_FIX_LINKS === 'true' &&
+      brokenWithArchives.some((b) => b.archived)
+    ) {
+      await autoFixBrokenLinks(brokenWithArchives.filter((b) => b.archived))
+    }
+
+    return report
+  } catch (error) {
+    spinner.fail('Failed to check link health')
+    console.error(error)
+    throw error
+  }
+}
+
+// Auto-fix broken links by replacing with archive.org versions
+async function autoFixBrokenLinks(brokenLinks) {
+  const spinner = ora('Auto-fixing broken links...').start()
+
+  try {
+    let totalFixed = 0
+    const fixedByFile = {}
+
+    for (const link of brokenLinks) {
+      if (!link.archived) continue
+
+      for (const source of link.sources) {
+        const wasFixed = await fixLinkInSourceFile(
+          link,
+          source,
+          paths.contentDir
+        )
+        if (wasFixed) {
+          totalFixed++
+          fixedByFile[source] = (fixedByFile[source] || 0) + 1
+        }
+      }
+    }
+
+    const fixedFiles = Object.keys(fixedByFile).length
+    spinner.succeed(
+      `Auto-fixed ${totalFixed} broken links across ${fixedFiles} files`
+    )
+
+    if (Object.keys(fixedByFile).length > 0) {
+      console.log(chalk.cyan('\n📦 Files updated with archived links:'))
+      Object.entries(fixedByFile)
+        .slice(0, 10)
+        .forEach(([file, count]) => {
+          console.log(
+            chalk.gray(`  ${file} (${count} link${count > 1 ? 's' : ''})`)
+          )
+        })
+      if (Object.keys(fixedByFile).length > 10) {
+        console.log(
+          chalk.gray(`  ... and ${Object.keys(fixedByFile).length - 10} more`)
+        )
+      }
+      console.log(
+        chalk.yellow(
+          '\n  ⚠️  Review changes before committing - check git diff\n'
+        )
+      )
+    }
+
+    return fixedByFile
+  } catch (error) {
+    spinner.fail('Failed to auto-fix links')
+    console.error(error)
+    throw error
+  }
+}
+
+const printSummary = (files) => {
+  const stats = files.reduce(
+    (acc, file) => {
+      acc.totalWords += file.metadata.words || 0
+      acc.totalImages += file.metadata.images || 0
+      acc.cloudinaryImages += file.metadata.imageDetails?.cloudinary || 0
+      acc.imagesWithDimensions +=
+        file.metadata.imageDetails?.withDimensions || 0
+      acc.totalLinks += file.metadata.links || 0
+      acc.totalCodeBlocks += file.metadata.codeBlocks || 0
+      acc.h1 += file.metadata.headers?.h1 || 0
+      acc.h2 += file.metadata.headers?.h2 || 0
+      acc.h3 += file.metadata.headers?.h3 || 0
+      acc.byType[file.metadata.type] = (acc.byType[file.metadata.type] || 0) + 1
+
+      // IndieWeb stats
+      if (file.metadata?.replyTo || file.metadata?.['in-reply-to']) {
+        acc.replyPosts++
+      }
+
+      if (file.metadata?.tags && Array.isArray(file.metadata.tags)) {
+        file.metadata.tags.forEach(
+          (tag) => (acc.tags[tag] = (acc.tags[tag] || 0) + 1)
+        )
+      }
+
+      return acc
+    },
+    {
+      totalWords: 0,
+      totalImages: 0,
+      cloudinaryImages: 0,
+      imagesWithDimensions: 0,
+      totalLinks: 0,
+      totalCodeBlocks: 0,
+      h1: 0,
+      h2: 0,
+      h3: 0,
+      byType: {},
+      tags: {},
+      replyPosts: 0,
+    }
+  )
+
+  console.log('\n📊 Content Analysis')
+  console.log('=================')
+  console.log(`📝 Total Files: ${files.length}`)
+  console.log(`📚 Total Words: ${stats.totalWords.toLocaleString()}`)
+  console.log(
+    `🖼️  Total Images: ${stats.totalImages} ` +
+      `(${stats.cloudinaryImages} optimized, ` +
+      `${stats.imagesWithDimensions} with dimensions)`
+  )
+  console.log(`🔗 Total Links: ${stats.totalLinks}`)
+  console.log(`💻 Code Blocks: ${stats.totalCodeBlocks}`)
+
+  // IndieWeb stats
+  if (stats.replyPosts > 0) {
+    console.log(chalk.cyan(`↩️  Reply Posts: ${stats.replyPosts}`))
+  }
+
+  console.log('\n📑 Headers')
+  console.log(`H1: ${stats.h1}, H2: ${stats.h2}, H3: ${stats.h3}`)
+
+  console.log('\n📂 Content Types')
+  Object.entries(stats.byType)
+    .sort(([, a], [, b]) => b - a)
+    .forEach(([type, count]) => console.log(`${type.padEnd(10)} ${count}`))
+
+  console.log('\n🏷️  Top 10 Tags')
+  Object.entries(stats.tags)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 10)
+    .forEach(([tag, count]) => console.log(`${tag.padEnd(20)} ${count}`))
+}
+
+// Build on-this-day index from tweets + blog posts + scrobbles + commits
+// Outputs 366 individual JSON files for fast loading
+async function buildOnThisDayIndex(blogResults, blogFiles) {
+  const spinner = ora('Building on-this-day index...').start()
+
+  try {
+    // Key: "MM-DD", Value: { tweets, posts, scrobbles, commits }
+    const index = {}
+
+    // Load tweets
+    const tweetsPath = path.join(process.cwd(), 'data/tweets.json')
+    let tweets = []
+    try {
+      const tweetsData = await fs.readFile(tweetsPath, 'utf-8')
+      tweets = JSON.parse(tweetsData)
+    } catch {
+      // No tweets file
+    }
+
+    // Index tweets by month-day
+    let tweetCount = 0
+    for (const tweet of tweets) {
+      if (!tweet.created_month || !tweet.created_day) continue
+
+      const key = `${String(tweet.created_month).padStart(2, '0')}-${String(tweet.created_day).padStart(2, '0')}`
+      if (!index[key])
+        index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+      // Only keep essential fields to reduce file size
+      index[key].tweets.push({
+        id: tweet.id,
+        text: tweet.full_text,
+        year: tweet.created_year,
+        date: tweet.created_date,
+        favorites: tweet.favorite_count || 0,
+        retweets: tweet.retweet_count || 0,
+        replyTo: tweet.in_reply_to_screen_name || null,
+      })
+      tweetCount++
+    }
+
+    // Load and index Last.fm scrobbles
+    const scrobblesPath = path.join(process.cwd(), 'data/lastfm-scrobbles.csv')
+    let scrobbleCount = 0
+    try {
+      const scrobblesData = await fs.readFile(scrobblesPath, 'utf-8')
+      const lines = scrobblesData.split('\n').slice(1) // Skip header
+
+      // Group scrobbles by day to avoid duplicates and reduce size
+      // { "YYYY-MM-DD": { tracks: Set, artists: Set, count: number } }
+      const scrobblesByDay = {}
+
+      for (const line of lines) {
+        if (!line.trim()) continue
+
+        // Parse semicolon-separated CSV (with quoted fields)
+        const parts = line.match(/(?:[^;"]|"[^"]*")+/g)
+        if (!parts || parts.length < 5) continue
+
+        const artist = parts[0]?.replace(/^"|"$/g, '') || ''
+        const track = parts[3]?.replace(/^"|"$/g, '') || ''
+        const timestamp = Number.parseInt(
+          parts[4]?.replace(/^"|"$/g, '') || '0',
+          10
+        )
+
+        if (!timestamp) continue
+
+        const date = new Date(timestamp)
+        const year = date.getFullYear()
+        const month = String(date.getMonth() + 1).padStart(2, '0')
+        const day = String(date.getDate()).padStart(2, '0')
+        const dateKey = `${year}-${month}-${day}`
+        const indexKey = `${month}-${day}`
+
+        if (!scrobblesByDay[dateKey]) {
+          scrobblesByDay[dateKey] = {
+            tracks: new Set(),
+            artists: new Set(),
+            count: 0,
+            year,
+            indexKey,
+          }
+        }
+
+        scrobblesByDay[dateKey].tracks.add(`${artist} - ${track}`)
+        scrobblesByDay[dateKey].artists.add(artist)
+        scrobblesByDay[dateKey].count++
+        scrobbleCount++
+      }
+
+      // Add summarized scrobbles to index (top 5 unique tracks per day)
+      for (const [dateKey, dayData] of Object.entries(scrobblesByDay)) {
+        const key = dayData.indexKey
+        if (!index[key])
+          index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+        const topTracks = Array.from(dayData.tracks).slice(0, 5)
+        const topArtists = Array.from(dayData.artists).slice(0, 3)
+
+        index[key].scrobbles.push({
+          date: dateKey,
+          year: dayData.year,
+          count: dayData.count,
+          topTracks,
+          topArtists,
+        })
+      }
+    } catch {
+      // No scrobbles file
+    }
+
+    // Index blog posts by month-day
+    let postCount = 0
+    blogResults.forEach((result, idx) => {
+      const dateStr = result.metadata?.date
+      if (!dateStr) return
+
+      try {
+        const date = new Date(dateStr)
+        const month = String(date.getMonth() + 1).padStart(2, '0')
+        const day = String(date.getDate()).padStart(2, '0')
+        const key = `${month}-${day}`
+
+        if (!index[key])
+          index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+        const filePath = blogFiles[idx]
+        const slug = normalizeSlug(
+          path.relative(paths.contentDir, filePath).replace(/\.md$/, '')
+        )
+
+        index[key].posts.push({
+          slug,
+          title: result.metadata?.title || result.title,
+          year: date.getFullYear(),
+          date: dateStr,
+          dek: result.metadata?.dek || null,
+          type: result.metadata?.type || 'post',
+          tags: result.metadata?.tags || [],
+        })
+        postCount++
+      } catch {
+        // Skip invalid dates
+      }
+    })
+
+    // Load and index GitHub commits
+    const commitsPath = path.join(process.cwd(), 'data/github-commits.json')
+    let commitCount = 0
+    try {
+      const commitsData = await fs.readFile(commitsPath, 'utf-8')
+      const commits = JSON.parse(commitsData)
+
+      for (const commit of commits) {
+        if (!commit.month || !commit.day) continue
+
+        const key = `${String(commit.month).padStart(2, '0')}-${String(commit.day).padStart(2, '0')}`
+        if (!index[key])
+          index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+        index[key].commits.push({
+          sha: commit.sha,
+          message: commit.message,
+          year: commit.year,
+          date: commit.date,
+          repo: commit.repo,
+        })
+        commitCount++
+      }
+    } catch {
+      // No commits file
+    }
+
+    // Sort items within each day by year (newest first)
+    for (const key of Object.keys(index)) {
+      index[key].tweets.sort((a, b) => b.year - a.year)
+      index[key].posts.sort((a, b) => b.year - a.year)
+      index[key].scrobbles.sort((a, b) => b.year - a.year)
+      index[key].commits.sort((a, b) => b.year - a.year)
+    }
+
+    // Write 366 individual JSON files for fast loading
+    const onThisDayDir = path.join(process.cwd(), 'data/on-this-day')
+    await fs.mkdir(onThisDayDir, { recursive: true })
+
+    for (const [key, dayData] of Object.entries(index)) {
+      const filePath = path.join(onThisDayDir, `${key}.json`)
+      await fs.writeFile(filePath, JSON.stringify(dayData))
+    }
+
+    // Also write the full index for backwards compatibility
+    const indexPath = path.join(process.cwd(), 'data/on-this-day-index.json')
+    await fs.writeFile(indexPath, JSON.stringify(index, null, 2))
+
+    const daysWithContent = Object.keys(index).length
+    spinner.succeed(
+      `On-this-day: ${tweetCount} tweets, ${postCount} posts, ` +
+        `${scrobbleCount} scrobbles, ${commitCount} commits ` +
+        `across ${daysWithContent} days`
+    )
+  } catch (error) {
+    spinner.fail('Failed to build on-this-day index')
+    console.error(error)
+  }
+}
+
 async function processAllFiles() {
   const spinner = ora('Processing markdown files...').start()
 
   try {
-    // Create backup
     await backupProcessedContent(paths.outputDir, paths.backupDir)
-
-    // Create necessary directories if they don't exist
     await fs.mkdir(paths.contentDir, { recursive: true })
     await fs.mkdir(paths.draftsDir, { recursive: true })
 
     const allFiles = [
       ...(await getFilesRecursively(paths.contentDir)),
-      ...(await getFilesRecursively(paths.draftsDir))
+      ...(await getFilesRecursively(paths.draftsDir)),
     ]
     processStats.totalFiles = allFiles.length
     spinner.succeed(`Found ${allFiles.length} markdown files`)
 
-    // Generate external links CSV
-    await generateExternalLinksCSV(allFiles)
+    const { links, linkToSources } = await generateExternalLinksCSV(allFiles)
+
+    // Check link health if CHECK_LINKS flag is set
+    if (process.env.CHECK_LINKS === 'true') {
+      await checkAllLinks(links, linkToSources)
+    }
+
+    // 📊 PRE-FLIGHT CHECK: Analyze what will be cached vs processed
+    console.log('\n📊 Pre-flight cache analysis...')
+    let willCache = 0
+    let willProcess = 0
+    const filesToProcess = []
+
+    for (const filePath of allFiles) {
+      const relativePath = path.relative(paths.contentDir, filePath)
+      const normalizedPath = normalizeSlug(relativePath.replace(/\.md$/, ''))
+      const outputPath = path.join(paths.outputDir, `${normalizedPath}.json`)
+
+      const cacheStatus = getFileCacheStatus(filePath, outputPath)
+      if (cacheStatus === 'cache') {
+        willCache++
+      } else {
+        willProcess++
+        filesToProcess.push(path.basename(filePath))
+      }
+    }
+
+    console.log(`  ✓ ${willCache} files cached (unchanged)`)
+    console.log(`  → ${willProcess} files to process`)
+    if (willProcess > 0 && willProcess <= 10) {
+      console.log(`\nFiles to process:`)
+      filesToProcess.forEach((f) => console.log(`  • ${f}`))
+    }
 
     console.log('\nProcessing files...\n')
 
     const results = []
+    let cachedCount = 0
+    let fetchedCount = 0
+
     for (const filePath of allFiles) {
       try {
+        const relativePath = path.relative(paths.contentDir, filePath)
+        const normalizedPath = normalizeSlug(relativePath.replace(/\.md$/, ''))
+        const outputPath = path.join(paths.outputDir, `${normalizedPath}.json`)
+
+        // 🚀 SMART CACHING: Try cache first, then process if needed
+        const cacheStatus = getFileCacheStatus(filePath, outputPath)
+        const cacheResult =
+          cacheStatus === 'cache'
+            ? await tryLoadCachedResult(outputPath, CACHE_VERSION)
+            : null
+
+        // Handle cached file
+        if (cacheResult) {
+          cachedCount++
+          const baseName = path.basename(filePath).padEnd(40)
+          const pct2 = Math.round(
+            (processStats.filesProcessed / processStats.totalFiles) * 100
+          )
+          process.stdout.write(
+            `\r${chalk.gray(`Cached:     ${baseName}`)}${pct2}%`
+          )
+          results.push(cacheResult.result)
+          processStats.filesProcessed++
+          continue
+        }
+
+        // Process file (not cached)
         const result = await processMarkdown(
           await fs.readFile(filePath, 'utf8'),
           filePath
         )
-        const relativePath = path.relative(paths.contentDir, filePath)
+        fetchedCount++
 
-        // Just show the progress indicator, no debug info
+        const baseName = path.basename(filePath).padEnd(40)
+        const pct2 = Math.round(
+          (processStats.filesProcessed / processStats.totalFiles) * 100
+        )
         process.stdout.write(
-          `\r${chalk.gray(
-            `Processing: ${path.basename(filePath).padEnd(40)}`
-          )}${Math.round(
-            (processStats.filesProcessed / processStats.totalFiles) * 100
-          )}%`
+          `\r${chalk.gray(`Processing: ${baseName}`)}${pct2}%`
         )
 
-        // Save the processed file
-        const outputPath = path.join(
-          paths.outputDir,
-          relativePath.replace(/\.md$/, '.json')
-        )
-        await fs.mkdir(path.dirname(outputPath), { recursive: true })
-        await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
-
+        await writeProcessedResult(result, outputPath)
         results.push(result)
         processStats.filesProcessed++
       } catch (error) {
-        processStats.errors.push({
-          file: filePath,
-          error: error.message
-        })
+        processStats.errors.push({ file: filePath, error: error.message })
       }
     }
 
-    // Clear the progress line
     process.stdout.write('\r' + ' '.repeat(80) + '\r')
-
-    // Generate summary
     printSummary(results)
 
-    // Now clean up results for manifest
-    const manifestResults = results.map((entry, index) => {
-      const cleanEntry = { ...entry }
-      const originalFilePath = allFiles[index]
+    // Filter out draft posts from manifest
+    const nonDraftResults = results.filter(
+      (entry) => entry.metadata?.draft !== true
+    )
+    const nonDraftFiles = allFiles.filter(
+      (_, index) => results[index]?.metadata?.draft !== true
+    )
 
-      // Delete content/html fields
+    // Clean up orphaned processed files
+    // (files that exist in output but not in source)
+    const currentSlugs = new Set()
+    allFiles.forEach((filePath) => {
+      const slug = normalizeSlug(
+        path.relative(paths.contentDir, filePath).replace(/\.md$/, '')
+      )
+      currentSlugs.add(slug)
+    })
+
+    // Find and remove orphaned processed files
+    const outputFiles = await getFilesRecursively(paths.outputDir, '.json')
+    for (const outputFile of outputFiles) {
+      const relativePath = path.relative(paths.outputDir, outputFile)
+      const outputSlug = relativePath.replace(/\.json$/, '')
+
+      if (
+        !currentSlugs.has(outputSlug) &&
+        !relativePath.includes('manifest-lite.json')
+      ) {
+        try {
+          await fs.unlink(outputFile)
+          console.log(`🗑️  Removed orphaned: ${relativePath}`)
+        } catch (error) {
+          const warnMsg = `⚠️  Could not remove ${relativePath}:`
+          console.warn(warnMsg, error.message)
+        }
+      }
+    }
+
+    const manifestResults = nonDraftResults.map((entry, index) => {
+      const cleanEntry = { ...entry }
+      const originalFilePath = nonDraftFiles[index]
+
       delete cleanEntry.html
       delete cleanEntry.content
       delete cleanEntry.processedContent
 
-      // Get the slug
-      const slug = path
-        .relative(paths.contentDir, originalFilePath)
-        .replace(/\.md$/, '')
-
-      // Get the type
+      const slug = normalizeSlug(
+        path.relative(paths.contentDir, originalFilePath).replace(/\.md$/, '')
+      )
       const type = cleanEntry.metadata?.type || getPostType(slug)
 
-      // Keep metadata nested but ensure essential fields at top level
       return {
         slug,
         title: cleanEntry.metadata?.title || cleanEntry.title,
@@ -545,21 +1195,52 @@ async function processAllFiles() {
         modified: cleanEntry.metadata?.modified,
         tags: cleanEntry.metadata?.tags,
         toc: cleanEntry.metadata?.toc,
-        // Keep original metadata intact
-        metadata: {
-          ...cleanEntry.metadata,
-          slug,
-          type
-        }
+        metadata: { ...cleanEntry.metadata, slug, type },
       }
     })
 
-    // Write manifest with cleaned data
     const manifestPath = path.join(paths.outputDir, 'manifest-lite.json')
-    console.log('Writing manifest to:', manifestPath)
     await fs.writeFile(manifestPath, JSON.stringify(manifestResults, null, 2))
-    console.log('Manifest written successfully at:', manifestPath)
     spinner.succeed('Manifest written successfully')
+
+    // Cache performance report
+    const totalProcessed = cachedCount + fetchedCount
+    const cacheHitRate =
+      totalProcessed > 0 ? Math.round((cachedCount / totalProcessed) * 100) : 0
+    console.log(
+      `🚀 Cache: ${cachedCount} cached, ${fetchedCount} processed ` +
+        `(${cacheHitRate}% cache hit)`
+    )
+
+    // Extract tags with usage counts from content
+    // and write to public/content-tags.json
+    const tagUsage = {}
+    nonDraftResults.forEach((result) => {
+      if (result.metadata?.tags && Array.isArray(result.metadata.tags)) {
+        result.metadata.tags.forEach((tag) => {
+          if (typeof tag === 'string' && tag.trim()) {
+            const cleanTag = tag.trim()
+            tagUsage[cleanTag] = (tagUsage[cleanTag] || 0) + 1
+          }
+        })
+      }
+    })
+
+    if (Object.keys(tagUsage).length > 0) {
+      const contentTagsPath = path.join(
+        process.cwd(),
+        'public/content-tags.json'
+      )
+      await fs.writeFile(contentTagsPath, JSON.stringify(tagUsage, null, 2))
+      const tagCount = Object.keys(tagUsage).length
+      console.log(
+        `\n🏷️  Extracted ${tagCount} unique content tags ` +
+          'with usage counts to public/content-tags.json'
+      )
+    }
+
+    // Build on-this-day index from tweets + blog posts
+    await buildOnThisDayIndex(nonDraftResults, nonDraftFiles)
 
     return results
   } catch (error) {
@@ -569,142 +1250,9 @@ async function processAllFiles() {
   }
 }
 
-// =============================
-// Run the processor
-// =============================
 processAllFiles().catch((error) => {
   console.error('Fatal error:', error)
   process.exit(1)
 })
 
-// =============================
-// Exports
-// =============================
 export { processAllFiles, processMarkdown, getFilesRecursively }
-
-// Add this helper function at the top with other imports
-function formatTitle(filename) {
-  // Remove year prefix if present (e.g. "2024/my-post" -> "my-post")
-  const baseName = filename.split('/').pop()
-
-  // Convert kebab-case to Title Case
-  return baseName
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
-}
-
-// Add a nice summary function
-function printSummary(files) {
-  const stats = files.reduce(
-    (acc, file) => {
-      acc.totalWords += file.metadata.words || 0
-      acc.totalImages += file.metadata.images || 0
-      acc.totalLinks += file.metadata.links || 0
-      acc.totalCodeBlocks += file.metadata.codeBlocks || 0
-      acc.h1 += file.metadata.headers?.h1 || 0
-      acc.h2 += file.metadata.headers?.h2 || 0
-      acc.h3 += file.metadata.headers?.h3 || 0
-      acc.byType[file.metadata.type] = (acc.byType[file.metadata.type] || 0) + 1
-
-      // Add tag counting
-      if (file.metadata.tags) {
-        file.metadata.tags.forEach((tag) => {
-          acc.tags[tag] = (acc.tags[tag] || 0) + 1
-        })
-      }
-
-      return acc
-    },
-    {
-      totalWords: 0,
-      totalImages: 0,
-      totalLinks: 0,
-      totalCodeBlocks: 0,
-      h1: 0,
-      h2: 0,
-      h3: 0,
-      byType: {},
-      tags: {}
-    }
-  )
-
-  console.log('\n📊 Content Analysis')
-  console.log('=================')
-  console.log(`📝 Total Files: ${files.length}`)
-  console.log(`📚 Total Words: ${stats.totalWords.toLocaleString()}`)
-  console.log(`🖼️  Total Images: ${stats.totalImages}`)
-  console.log(`🔗 Total Links: ${stats.totalLinks}`)
-  console.log(`💻 Code Blocks: ${stats.totalCodeBlocks}`)
-
-  console.log('\n📑 Headers')
-  console.log(`H1: ${stats.h1}, H2: ${stats.h2}, H3: ${stats.h3}`)
-
-  console.log('\n📂 Content Types')
-  Object.entries(stats.byType)
-    .sort(([, a], [, b]) => b - a)
-    .forEach(([type, count]) => {
-      console.log(`${type.padEnd(10)} ${count}`)
-    })
-
-  // Add top 10 tags section
-  console.log('\n🏷️  Top 10 Tags')
-  Object.entries(stats.tags)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 10)
-    .forEach(([tag, count]) => {
-      console.log(`${tag.padEnd(20)} ${count}`)
-    })
-}
-
-// Add this helper function near the top with other helpers
-function enhanceImageUrl(url) {
-  // Only process Cloudinary URLs
-  if (!url.includes('cloudinary.com/ejf/')) return url
-
-  // Ensure URL uses HTTPS
-  url = url.replace(/^http:\/\//i, 'https://')
-
-  // Basic responsive image transformation
-  const base = url.split('/upload/')[0] + '/upload/'
-  const path = url.split('/upload/')[1]
-
-  return {
-    src: `${base}c_scale,f_auto,q_auto:good,w_800/${path}`,
-    srcset: `
-      ${base}c_scale,f_auto,q_auto:good,w_400/${path} 400w,
-      ${base}c_scale,f_auto,q_auto:good,w_800/${path} 800w,
-      ${base}c_scale,f_auto,q_auto:good,w_1200/${path} 1200w
-    `.trim(),
-    sizes: '(min-width: 768px) 80vw, 100vw'
-  }
-}
-
-// Add this function to enhance images in the AST
-function remarkEnhanceImages() {
-  return (tree) => {
-    visit(tree, 'image', (node) => {
-      if (node.url) {
-        const enhanced = enhanceImageUrl(node.url)
-        // Only modify if it's a Cloudinary URL
-        if (enhanced !== node.url) {
-          node.data = node.data || {}
-          node.data.hProperties = node.data.hProperties || {}
-          node.data.hProperties.srcset = enhanced.srcset
-          node.data.hProperties.sizes = enhanced.sizes
-          node.url = enhanced.src
-          node.data.hProperties.loading = 'lazy'
-          node.data.hProperties.decoding = 'async'
-          // Use a simpler class setup without animations that might interfere with loading
-          node.data.hProperties.className = 'w-full max-w-full mx-auto'
-
-          // Add crossorigin attribute to help with CORS issues
-          node.data.hProperties.crossorigin = 'anonymous'
-
-          // Ensure images have proper display style
-          node.data.hProperties.style = 'display: block; max-width: 100%;'
-        }
-      }
-    })
-  }
-}

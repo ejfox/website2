@@ -1,33 +1,83 @@
+/**
+ * @file posts/[...slug].ts
+ * @description Fetches blog post content from pre-processed JSON files with support for nested paths and year-based organization
+ * @endpoint GET /api/posts/{slug}
+ * @params slug: string[] - Dynamic path segments representing post location (e.g., ["2025", "post-name"])
+ * @returns Post data with HTML content, metadata, title, and table of contents
+ */
 import { defineEventHandler, createError } from 'h3'
-import { readFile } from 'fs/promises'
-import path from 'path'
-import { existsSync } from 'fs'
+import { readFile } from 'node:fs/promises'
+import path from 'node:path'
+import { existsSync } from 'node:fs'
+
+interface TocItem {
+  level: number
+  text: string
+  id: string
+}
 
 interface PostData {
   html?: string
   content?: string
   metadata?: {
     title?: string
-    toc?: any[]
+    toc?: TocItem[]
   }
   title?: string
-  toc?: any[]
+  toc?: TocItem[]
 }
 
 /**
- * Endpoint handler to fetch and return the content of a post based on the provided slug.
- * The post content is read from a pre-processed JSON file stored in the 'content/processed' directory.
+ * Validate slug to prevent malformed requests
+ * Rejects slugs with pipe characters, double dots, or other invalid patterns
+ */
+function isValidSlug(slug: string): boolean {
+  // Reject empty slugs
+  if (!slug || slug.trim() === '') return false
+  // Reject slugs with pipe characters (malformed wikilinks)
+  if (slug.includes('|')) return false
+  // Reject path traversal attempts
+  if (slug.includes('..')) return false
+  // Reject slugs with null bytes or other control characters
+  // eslint-disable-next-line no-control-regex
+  if (/[\x00-\x1F\x7F]/.test(slug)) return false
+  // Allow letters/numbers plus common punctuation seen in reading slugs
+  if (!/^[\p{L}\p{N}_\-/ .,'’&()]+$/u.test(slug)) return false
+  return true
+}
+
+/**
+ * Endpoint handler to fetch and return post content by slug.
+ * Post content is read from pre-processed JSON files
+ * in the 'content/processed' directory.
  */
 export default defineEventHandler(async (event) => {
   // console.log('API: Request received:', event.context.params)
 
   try {
-    const slug = Array.isArray(event.context.params?.slug)
+    const rawSlug = Array.isArray(event.context.params?.slug)
       ? event.context.params.slug.join('/')
       : event.context.params?.slug
 
+    const slug = (() => {
+      if (!rawSlug) return rawSlug
+      try {
+        return decodeURIComponent(rawSlug)
+      } catch {
+        return rawSlug
+      }
+    })()
+
     if (!slug) {
       throw new Error('Missing slug parameter')
+    }
+
+    // Validate slug format
+    if (!isValidSlug(slug)) {
+      throw createError({
+        statusCode: 400,
+        message: 'Invalid slug format',
+      })
     }
 
     const filePath = path.join(
@@ -40,6 +90,14 @@ export default defineEventHandler(async (event) => {
     // Parse the JSON data
     const rawData = await readFile(filePath, 'utf-8')
     const data = JSON.parse(rawData)
+
+    // Privacy guard: never serve draft/hidden/unlisted/password-protected
+    // content in production by direct slug, even when its processed JSON ships
+    // in the build (e.g. draft projects written for local preview). Dev keeps
+    // previewing works-in-progress.
+    if (!import.meta.dev && isProtectedContent(data)) {
+      throw createError({ statusCode: 404, message: 'Post not found' })
+    }
 
     // console.log('API: Post data read:', {
     //   slug,
@@ -57,12 +115,31 @@ export default defineEventHandler(async (event) => {
       statusCode: 404,
       message: `Post not found: ${
         error instanceof Error ? error.message : 'Unknown error'
-      }`
+      }`,
     })
   }
 })
 
-async function readPost(slug: string): Promise<PostData> {
+/**
+ * True if the content is flagged draft/hidden/unlisted/password-protected
+ * (checked at both the top level and inside metadata). Used to keep such
+ * content out of production responses.
+ */
+function isProtectedContent(data: unknown): boolean {
+  if (!data || typeof data !== 'object') return false
+  const top = data as Record<string, unknown>
+  const meta = (top.metadata ?? {}) as Record<string, unknown>
+  const flag = (key: string) => Boolean(top[key] ?? meta[key])
+  return (
+    flag('draft') ||
+    flag('hidden') ||
+    flag('unlisted') ||
+    flag('password') ||
+    flag('passwordHash')
+  )
+}
+
+async function _readPost(slug: string): Promise<PostData> {
   const filePath = path.join(process.cwd(), 'content/processed', `${slug}.json`)
 
   if (!existsSync(filePath)) {

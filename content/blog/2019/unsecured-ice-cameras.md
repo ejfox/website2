@@ -6,7 +6,6 @@ type: words
 hidden: false
 inprogress: false
 date: 2019-03-24T04:00:39-04:00
-hidetimestamp: false
 modified: 2024-09-23T12:13:18-04:00
 tags:
   - security
@@ -45,7 +44,7 @@ But then I started doing more research on how to use shodan, and found a great g
 
 Oh! I don’t need to use IP ranges at all. I can just feed [latitudes and longitudes](https://en.wikipedia.org/wiki/Geo-fence) directly into my searches.
 
-Now, we need a geocoded list of every ICE facility. Luckily, [I’ve already done that](https://trackingice.com/wiki/List_of_holding_facilities) based on data released in response to a FOIA from Immigrant Justice. This data is hosted on a [wikipedia-style site](https://trackingice.com) I created for open source information related to ICE.
+Now, we need a geocoded list of every ICE facility. Luckily, I’ve already done that based on data released in response to a FOIA from Immigrant Justice. This data is hosted on a [wikipedia-style site](https://trackingice.com) I created for open source information related to ICE.
 
 This [excellent resource on manipulating CSVs with the command line](https://bconnelly.net/posts/working_with_csvs_on_the_command_line/) teaches us:
 

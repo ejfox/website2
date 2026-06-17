@@ -1,0 +1,44 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<h2 class=\"\" id=\"smallbot-mcp\">Smallbot MCP</h2>\n<p class=\"\"><a href=\"https://www.smallweb.run\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://www.smallweb.run\">Smallweb</a> is a really unique tool to create a filesystem based system for rapidly-deployed deno apps, and it pairs really well with a robot companion.</p>\n<p class=\"\">Nowadays when I have an idea for a website and I just want it to exist, without spending three hours setting up a build pipeline configuring DNS. Smallbot is an incredible tool to defeat that particular form of procrastination—a robot that takes \"make me a site about <a href=\"https://youtube.com/shorts/i6IZSkmqNSo\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://youtube.com/shorts/i6IZSkmqNSo\">northeastern trees<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z\" class=\"\"></path></svg></a>\" and actually builds the thing.</p>\n<p class=\"\">I made a <a href=\"https://www.youtube.com/watch?v=thIt-JXYbco\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://www.youtube.com/watch?v=thIt-JXYbco\">video with the creator of Smallweb<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z\" class=\"\"></path></svg></a> about how easy it is to get setup, and I love how much the project embodies <a href=\"https://www.are.na/ej-fox/neo-internet-philosophy\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://www.are.na/ej-fox/neo-internet-philosophy\">indieweb philosophies</a></p>\n<p class=\"\">This is a tool built on the MCP (Model Context Protocol) so it can talk to Claude and other AI assistants and give them the tools and documentation to make little Smallweb sites easily, on-the-fly.</p>\n<figure role=\"figure\" aria-label=\"Smallbot — a helpful assistant for creating Smallweb applications\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1741706866/Screenshot_2025-03-11_at_11.27.32_AM.png\" alt=\"Smallbot — a helpful assistant for creating Smallweb applications\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1741706866/Screenshot_2025-03-11_at_11.27.32_AM.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1741706866/Screenshot_2025-03-11_at_11.27.32_AM.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1741706866/Screenshot_2025-03-11_at_11.27.32_AM.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1741706866/Screenshot_2025-03-11_at_11.27.32_AM.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Smallbot — a helpful assistant for creating Smallweb applications\" width=\"3348\" height=\"2486\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"3348×2486\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Smallbot — a helpful assistant for creating Smallweb applications</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Smallbot generating a Smallweb app\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1746294443/Screenshot_2025-05-03_at_1.47.10_PM.png\" alt=\"Smallbot generating a Smallweb app\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1746294443/Screenshot_2025-05-03_at_1.47.10_PM.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1746294443/Screenshot_2025-05-03_at_1.47.10_PM.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1746294443/Screenshot_2025-05-03_at_1.47.10_PM.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1746294443/Screenshot_2025-05-03_at_1.47.10_PM.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Smallbot generating a Smallweb app\" width=\"2620\" height=\"2486\" style=\"--splay-rot:1.59deg;\" data-dimensions=\"2620×2486\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Smallbot generating a Smallweb app</figcaption>\n</figure>",
+  "title": "Smallbot MCP",
+  "metadata": {
+    "title": "Smallbot MCP",
+    "date": "2025-08-02T04:00:00.000Z",
+    "modified": "2025-08-13T17:17:13.000Z",
+    "url": "https://github.com/ejfox/smallbot-mcp",
+    "tech": [
+      "MCP",
+      "AI",
+      "Web Generation",
+      "Node.js"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-enhanced",
+    "tags": [
+      "ai",
+      "web"
+    ],
+    "words": 159,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 6,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "Smallbot MCP",
+        "slug": "smallbot-mcp",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "type": "post"
+  }
+}

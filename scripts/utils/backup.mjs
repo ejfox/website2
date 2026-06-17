@@ -1,4 +1,11 @@
-import { promises as fs } from 'fs'
+/**
+ * @file utils/backup.mjs
+ * @description Backup utility for processed content - creates safety copies before regenerating
+ * @usage import { backupProcessedContent } from './scripts/utils/backup.mjs'
+ */
+
+/* eslint-disable no-console */
+import { promises as fs } from 'node:fs'
 import chalk from 'chalk'
 
 export async function backupProcessedContent(outputDir, backupDir) {
@@ -13,7 +20,7 @@ export async function backupProcessedContent(outputDir, backupDir) {
       await fs.cp(outputDir, backupDir, { recursive: true })
       console.log(chalk.blue('✓ Backed up current processed content'))
     }
-  } catch (error) {
+  } catch {
     console.error(chalk.yellow('No existing content to backup'))
   }
 }

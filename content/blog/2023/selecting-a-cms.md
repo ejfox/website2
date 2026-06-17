@@ -24,7 +24,7 @@ We are creative creatures navigating the complex collision of man-made machines 
 
 Many times, you don't even need a traditional CMS at all: just use your computer's existing filesystem and tools.
 
-![A digital artist working with multiple screens: Develop an image of a digital artist or content creator surrounded by multiple screens, each displaying a different CMS platform or aspect of content management (e.g., writing in Markdown, managing media assets, or monitoring website performance). This image would showcase the complexity of selecting and working with a modern CMS and emphasize the importance of considering various factors when making a choice](edited_142288951_A%20hipster%20digital%20artist%20working%20with%20multiple%20scr_xl-beta-v2-2-2.png)
+![A digital artist working with multiple screens: Develop an image of a digital artist or content creator surrounded by multiple screens, each displaying a different CMS platform or aspect of content management (e.g., writing in Markdown, managing media assets, or monitoring website performance). This image would showcase the complexity of selecting and working with a modern CMS and emphasize the importance of considering various factors when making a choice](https://res.cloudinary.com/ejf/image/upload/v1680634868/edited_142288951_A_hipster_digital_artist_working_with_multiple_scr_xl-beta-v2-2-2.png_xl-beta-v2-2-2.png)
 
 My experience with Content Management Systems has primarily been within the bustling world of news organizations and startups, where work is often birthed in familiar tools like Word or Google Docs before being shepherded into a CMS for finalization, and time is of the essence.
 
@@ -38,7 +38,7 @@ The longer you keep your content outside of the CMS, the longer you have complet
 
 The downside is that it takes time, effort, and intentionality to build everything from scratch. If you want to add features like comments or social sharing, you have to build those yourself or find a plugin that works with your system. This approach is only valuable if you want to create work that looks unlike everyone else's, and can benefit from the value of complete control.
 
-The tools and frameworks for creating websites quickly change the equation. If I can use tools like Tachyons, Nuxt, and Supabase to create complex scalable applications in hours, why would you then spend additional hours trying to get it to work within the limitations of a legacy CMS? [2022-prototyping-toolki](2022-prototyping-toolki)t]]
+The tools and frameworks for creating websites quickly change the equation. If I can use tools like Tachyons, Nuxt, and Supabase to create complex scalable applications in hours, why would you then spend additional hours trying to get it to work within the limitations of a legacy CMS? [[blog/2022/2022-prototyping-toolkit]]
 
 #### Redefine 'CMS' and bring your own
 
@@ -78,7 +78,7 @@ Nuxt Content also provides a lot of powerful features like automatic syntax high
 
 #### Markdown editing tools
 - IA Writer [Site Unreachable](https://ia.net/writer)
-- [Obsidian](http://obsidian.md) [why-i-love-obsidia](why-i-love-obsidia)n]]
+- [Obsidian](http://obsidian.md) [[blog/2023/why-i-love-obsidian]]
 
 Ultimately, the decision to implement a CMS rests on carefully assessing the available options and considering one's unique situation; but "we need a CMS" should never be the default option.
 

@@ -1,7 +1,12 @@
 ---
 date: 2025-05-03T18:17:43-04:00
-modified: 2025-05-03T18:17:43-04:00
+modified: 2025-05-23T01:29:38-04:00
 dek: In which the author steals his data back from various tools and APIs and uses them to build his own panopticon-for-one
+tags:
+  - api
+  - quantifiedself
+  - programming
+  - personal
 ---
 
 ## Building Personal APIs
@@ -16,7 +21,7 @@ My choices for what data to gobble up are based on my natural intuition and the 
 
 It's also kinda based on what's simply __available__ and what services offer data egress. Though I do always choose services that offer APIs and the ability to export my data wherever possible (fuck Facebook for slowly enshittifying all their APIs over the past 10 years).
 
-This project was deeply inspired by quantified self and the Feltron annual report and tim ferris and that sort of self-tracking and improvement movement, oh and Gwern! From them, I learned a few specific lessons:
+This project was deeply inspired by [[robots/quantified-self-as-archaeology|quantified self]] and the Feltron annual report and tim ferris and that sort of self-tracking and improvement movement, oh and Gwern! From them, I learned a few specific lessons:
 
 - Feltron taught me to focus on simple narrative metrics, where less is more
 - Ferriss taught me anything is learnable with a system and persistence
@@ -28,19 +33,19 @@ What makes this approach feel so powerful is that there is a compounding factor 
 
 Here's what I'm tracking right now:
 
-### 🏃‍♂️ Health & Fitness
+### ‍♂ Health & Fitness
 
 I pull data from Apple Health to track my daily steps, exercise minutes, stand hours, and distance. This API helps me see if I'm actually getting outside or just doom-scrolling all day. Seeing my step count drop below 5,000 for several days is a clear indicator I need to touch grass.
 
-### 🎮 Gaming & Skills
+###  Gaming & Skills
 
 **LeetCode** - This tracks my progress through coding challenges by difficulty level. Essential for keeping my algorithmic thinking sharp and reminding me I'm not as clever as I think I am.
 
 **MonkeyType** - Because typing speed actually matters when you code all day. This API tracks my WPM and accuracy, though I'm still not as fast as some of those YouTube programmers who seem to type at the speed of thought.
 
-**Chess** - I suck at chess but I want to get better. The API shows me my win rates and puzzle solving stats. I still suck but at least it's quantified now, and I am hoping that with some concentrated effort and studying I can steadily increase my numbers.
+**Chess** - I suck at chess but I want to get better. The API shows me my win rates and puzzle solving stats. I still suck but at least it's quantified now, and I am hoping that with some concentrated effort and studying I can steadily increase my numbers. (More on [[robots/quantified-self-as-archaeology|why I track instead of optimize]])
 
-### 💻 Development
+###  Development
 
 My GitHub API integration tracks contributions, repos, and commit types. It's like a digital fingerprint of my coding life. I can see when I'm in build mode vs. maintenance mode based on commit frequency and types.
 
@@ -48,7 +53,7 @@ My GitHub API integration tracks contributions, repos, and commit types. It's li
 
 I have a simple photos API that pulls stats from my personal photo platform.
 
-### 🎵 Entertainment
+###  Entertainment
 
 The Last.fm API tracks my listening habits going back at least 10 years. I can see my most-played artists, recent tracks, and even calculate my average daily listening.
 
@@ -56,7 +61,7 @@ The Last.fm API tracks my listening habits going back at least 10 years. I can s
 
 RescueTime gives me the hard truth about where my time actually goes. The API breaks down productive vs. distracting time, showing me exactly how many hours I spent in VS Code versus falling down YouTube rabbit holes.
 
-### 📝 Writing
+###  Writing
 
 I track my monthly word count and blog post frequency. Having this data helps me maintain consistency and actually ship writing instead of endlessly tinkering. Seeing that "words this month" counter is motivating.
 

@@ -1,81 +1,15 @@
-<template>
-  <div class="font-mono">
-    <!-- Main Stats -->
-    <div v-if="hasStats">
-      <div class="space-y-4">
-        <IndividualStat
-          :value="stats.typingStats.bestWPM"
-          size="large"
-          label="BEST WPM"
-          :details="statsDetails"
-        />
-      </div>
-    </div>
-    <div v-else class="text-center py-6">
-      <div class="text-xl font-mono text-zinc-700 dark:text-zinc-500">
-        NO TYPING DATA
-      </div>
-      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
-        Visit
-        <a
-          href="https://monkeytype.com"
-          target="_blank"
-          class="text-zinc-800 dark:text-zinc-300 hover:underline"
-          >MonkeyType.com</a
-        >
-        to start tracking
-      </div>
-    </div>
-
-    <!-- Recent Tests -->
-    <div v-if="hasRecentTests" class="mt-8 space-y-6">
-      <h4 class="section-subheader">RECENT TESTS</h4>
-
-      <div class="space-y-4">
-        <div v-for="test in recentTests" :key="test.timestamp" class="test-row">
-          <div class="flex-none">
-            <!-- Simplified date format -->
-            <span class="text-zinc-400 text-2xs tabular-nums">{{
-              formatDateMinimal(test.timestamp)
-            }}</span>
-          </div>
-          <div v-if="hasTestType(test)" class="test-type">
-            {{ formatTestTypeMinimal(test) }}
-          </div>
-          <div class="flex items-center gap-2 ml-auto">
-            <span class="wpm-value">{{ test.wpm }}</span>
-            <span class="accuracy-value">{{ test.accuracy }}%</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Performance Metrics -->
-    <div v-if="stats.typingStats" class="mt-8 space-y-6">
-      <h4 class="section-subheader">PERFORMANCE</h4>
-
-      <div class="grid grid-cols-2 gap-4">
-        <StatDisplay label="TESTS" :value="stats.typingStats.testsCompleted" />
-        <!-- <StatDisplay label="BEST ACC" :value="`${stats.typingStats.bestAccuracy}%`" /> -->
-        <StatDisplay
-          v-if="stats.typingStats.bestConsistency"
-          label="CONSISTENCY"
-          :value="`${stats.typingStats.bestConsistency}%`"
-        />
-        <StatDisplay
-          v-if="stats.typingStats.averageWPM"
-          label="AVG WPM"
-          :value="stats.typingStats.averageWPM"
-        />
-      </div>
-    </div>
-  </div>
-</template>
-
+<!--
+  @file MonkeyTypeStats.vue
+  @description MonkeyType typing test statistics
+  @props stats: Object - MonkeyType stats
+-->
 <script setup lang="ts">
-import { computed, h } from 'vue'
-import { format } from 'date-fns'
-import IndividualStat from './IndividualStat.vue'
+import { computed } from 'vue'
+import { format } from 'date-fns/format'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+// from '~/anime.esm.js'
+// from '~/composables/useAnimations'
 
 interface MonkeyTypeTest {
   timestamp: string
@@ -98,6 +32,12 @@ interface MonkeyTypeStats {
     averageWPM?: number
     recentTests?: Array<MonkeyTypeTest>
     testTypeDistribution?: Record<string, number>
+    languageBreakdown?: Array<{
+      language: string
+      tests: number
+      averageWpm: number
+      bestWpm: number
+    }>
   }
 }
 
@@ -121,60 +61,19 @@ const recentTests = computed(() => {
     .slice(0, 5)
 })
 
-const statsDetails = computed(() => {
-  const { testsCompleted, bestAccuracy } = props.stats.typingStats
-  return `${testsCompleted} TESTS · ${bestAccuracy}% ACC`
-})
+const languageBreakdown = computed(
+  () => props.stats.typingStats?.languageBreakdown || []
+)
 
-// Test type distribution data
-const testTypeDistribution = computed(() => {
-  // If available, use the API's test type distribution
-  if (props.stats.typingStats?.testTypeDistribution) {
-    return props.stats.typingStats.testTypeDistribution
-  }
+const hasLanguageBreakdown = computed(() => languageBreakdown.value.length > 0)
 
-  // Otherwise, calculate from recent tests as fallback
-  if (!hasRecentTests.value) return {}
-
-  const distribution: Record<string, number> = {}
-  recentTests.value.forEach((test) => {
-    const type = getTestType(test)
-    distribution[type] = (distribution[type] || 0) + 1
-  })
-
-  return distribution
-})
-
-const totalTests = computed(() => {
-  return (
-    Object.values(testTypeDistribution.value).reduce(
-      (sum, count) => sum + count,
-      0
-    ) || 1
-  )
-})
-
-const hasTestTypes = computed(() => {
-  return Object.keys(testTypeDistribution.value).length > 0
-})
-
-// Helper to determine the test type from a test object
-const getTestType = (test: MonkeyTypeTest): string => {
-  if (test.duration) return `time_${test.duration}`
-  if (test.wordCount) return `words_${test.wordCount}`
-  return 'unknown'
-}
-
-// Format test preference display
-const formatTestPref = (type: string): string => {
-  if (type.startsWith('time_')) {
-    return `${type.split('_')[1]}s TEST`
-  }
-  if (type.startsWith('words_')) {
-    return `${type.split('_')[1]} WORDS`
-  }
-  return type.toUpperCase()
-}
+const topLanguages = computed(() =>
+  [...languageBreakdown.value]
+    .sort((a, b) =>
+      b.tests === a.tests ? b.bestWpm - a.bestWpm : b.tests - a.tests
+    )
+    .slice(0, 6)
+)
 
 // Format utilities for minimal date display
 const formatDateMinimal = (timestamp: string): string => {
@@ -199,23 +98,191 @@ const formatTestTypeMinimal = (test: MonkeyTypeTest): string => {
   return ''
 }
 
+const formatLanguageLabel = (language: string): string =>
+  language.replace(/[_-]+/g, ' ').trim().toUpperCase()
+
 // Add a computed property to check if we have stats
 const hasStats = computed(() => {
   return !!props.stats.typingStats?.bestWPM
 })
 
-// Reusable stat display component
-const StatDisplay = (props: { label: string; value: string | number }) => {
-  return h('div', { class: 'stat-item' }, [
-    h('div', { class: 'stat-label' }, props.label),
-    h('div', { class: 'stat-value' }, props.value)
-  ])
-}
+// Animation refs
+const monkeyStatsRef = ref<HTMLElement | null>(null)
+const mainStatsRef = ref<HTMLElement | null>(null)
+const recentTestsRef = ref<HTMLElement | null>(null)
+const performanceRef = ref<HTMLElement | null>(null)
+
+// Epic MonkeyType stats scroll-triggered animations
+// PERFORMANCE
+// const setupScrollAnimations = () => {
+//   ALL BROKEN ANIMATION CODE DELETED
+// }
+
+onMounted(() => {})
 </script>
 
+<template>
+  <div ref="monkeyStatsRef" class="font-mono">
+    <!-- Main Stats -->
+    <div v-if="hasStats" ref="mainStatsRef">
+      <div class="space-y-2">
+        <!-- Primary WPM Stat with AnimatedNumber -->
+        <div class="individual-stat-large">
+          <div class="stat-value">
+            <HandDrawnMark ink-class="text-yellow-600">{{ Math.round(stats.typingStats.bestWPM) }}</HandDrawnMark>
+          </div>
+          <div class="stat-label">TYPING BEST WPM</div>
+          <div class="stat-details">
+            {{ stats.typingStats.testsCompleted }} TESTS COMPLETED ·
+            {{ Math.round(stats.typingStats.bestAccuracy) }}% ACC
+          </div>
+        </div>
+      </div>
+    </div>
+    <div v-else class="text-center py-8">
+      <div class="text-xl font-mono text-zinc-700 dark:text-zinc-500">
+        NO TYPING DATA
+      </div>
+      <div class="text-sm text-zinc-600 dark:text-zinc-400 mt-2">
+        Visit
+        <a
+          href="https://monkeytype.com"
+          target="_blank"
+          class="text-zinc-800 dark:text-zinc-300 hover:underline"
+        >
+          MonkeyType.com
+        </a>
+        to start tracking
+      </div>
+    </div>
+
+    <!-- Recent Tests -->
+    <div v-if="hasRecentTests" ref="recentTestsRef" class="mt-8 space-y-8">
+      <StatsSectionHeader title="RECENT TYPING TESTS" />
+
+      <div class="space-y-2">
+        <div v-for="test in recentTests" :key="test.timestamp" class="test-row">
+          <div class="flex-none">
+            <!-- Simplified date format -->
+            <span class="text-zinc-400 text-2xs tabular-nums">
+              {{ formatDateMinimal(test.timestamp) }}
+            </span>
+          </div>
+          <div v-if="hasTestType(test)" class="test-type">
+            {{ formatTestTypeMinimal(test) }}
+          </div>
+          <div class="flex items-center gap-2 ml-auto">
+            <span class="wpm-value">
+              <AnimatedNumber
+                :value="test.wpm"
+                format="default"
+                :duration="800"
+                priority="tertiary"
+              />
+            </span>
+            <span class="accuracy-value">
+              <AnimatedNumber
+                :value="test.accuracy"
+                format="decimal"
+                :decimals="1"
+                :duration="400"
+                priority="tertiary"
+              />
+              %
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Performance Metrics -->
+    <div v-if="stats.typingStats" ref="performanceRef" class="mt-8 space-y-8">
+      <StatsSectionHeader title="TYPING PERFORMANCE" />
+
+      <div class="grid grid-cols-2 gap-2">
+        <div class="stat-item">
+          <div class="stat-label">TESTS</div>
+          <div class="stat-value">
+            <AnimatedNumber
+              :value="stats.typingStats.testsCompleted"
+              format="default"
+              :duration="1600"
+              priority="secondary"
+            />
+          </div>
+        </div>
+
+        <div v-if="stats.typingStats.bestConsistency" class="stat-item">
+          <div class="stat-label">CONSISTENCY</div>
+          <div class="stat-value">
+            <AnimatedNumber
+              :value="stats.typingStats.bestConsistency"
+              format="default"
+              :duration="800"
+              priority="secondary"
+            />
+            %
+          </div>
+        </div>
+
+        <div v-if="stats.typingStats.averageWPM" class="stat-item">
+          <div class="stat-label">AVG WPM</div>
+          <div class="stat-value">
+            <AnimatedNumber
+              :value="Math.round(stats.typingStats.averageWPM)"
+              format="default"
+              :duration="800"
+              priority="secondary"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Language Breakdown -->
+    <div v-if="hasLanguageBreakdown" class="mt-8 space-y-8">
+      <StatsSectionHeader title="TYPING LANGUAGES" />
+
+      <div class="space-y-2">
+        <div
+          v-for="lang in topLanguages"
+          :key="lang.language"
+          class="language-row"
+        >
+          <div class="language-name">
+            {{ formatLanguageLabel(lang.language) }}
+          </div>
+          <div class="ml-auto flex items-center gap-2">
+            <span class="language-metric">
+              <AnimatedNumber
+                :value="lang.bestWpm"
+                format="default"
+                :duration="700"
+                priority="tertiary"
+              />
+              <span class="metric-label">BEST</span>
+            </span>
+            <span class="language-metric">
+              <AnimatedNumber
+                :value="lang.averageWpm"
+                format="default"
+                :duration="700"
+                priority="tertiary"
+              />
+              <span class="metric-label">AVG</span>
+            </span>
+            <span class="language-tests">{{ lang.tests }} TESTS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
 <style scoped>
-.section-subheader {
-  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-800/30 pb-1 mb-3;
+/* Individual stat styles - inherits global typography */
+.individual-stat-large {
+  @apply text-center;
 }
 
 .test-row {
@@ -223,7 +290,9 @@ const StatDisplay = (props: { label: string; value: string | number }) => {
 }
 
 .test-type {
-  @apply text-zinc-500 text-2xs ml-2;
+  @apply text-zinc-500 ml-2;
+  font-size: 0.65rem;
+  line-height: 1rem;
 }
 
 .wpm-value {
@@ -234,21 +303,37 @@ const StatDisplay = (props: { label: string; value: string | number }) => {
   @apply text-zinc-500 tabular-nums w-12 text-right;
 }
 
-.stat-item {
-  @apply space-y-0.5;
+.language-row {
+  @apply flex items-center text-xs;
 }
 
-.stat-label {
-  @apply text-2xs text-zinc-500 tracking-wider;
-}
-
-.stat-value {
-  @apply text-sm text-zinc-700 dark:text-zinc-300 tabular-nums;
-}
-
-/* Custom text size smaller than xs */
-.text-2xs {
-  font-size: 0.65rem;
+.language-name {
+  @apply text-zinc-500 tracking-wider;
+  font-size: 0.6rem;
   line-height: 1rem;
+}
+
+.language-metric {
+  @apply flex items-baseline gap-1 tabular-nums font-medium;
+  @apply text-zinc-700 dark:text-zinc-400;
+}
+
+.metric-label {
+  @apply text-zinc-500;
+  font-size: 0.6rem;
+}
+
+.language-tests {
+  @apply text-zinc-500;
+  font-size: 0.6rem;
+}
+
+/* Stat item styles for performance section */
+.stat-item {
+  @apply space-y-1 text-center;
+}
+
+.stat-item .stat-value {
+  @apply text-lg font-mono tabular-nums text-zinc-800 dark:text-zinc-200;
 }
 </style>

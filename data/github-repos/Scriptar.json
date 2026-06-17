@@ -1,0 +1,57 @@
+{
+  "name": "Scriptar",
+  "description": "Scriptography scripts",
+  "url": "https://github.com/ejfox/Scriptar",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 3,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 1238
+  },
+  "diskUsage": 92,
+  "fileTree": {
+    "files": [
+      {
+        "path": "hello_world.js",
+        "size": 443
+      },
+      {
+        "path": "unitchart_pure.js",
+        "size": 795
+      }
+    ],
+    "tree": {
+      "name": "Scriptar",
+      "children": [
+        {
+          "name": "hello_world.js",
+          "size": 443,
+          "path": "hello_world.js"
+        },
+        {
+          "name": "unitchart_pure.js",
+          "size": 795,
+          "path": "unitchart_pure.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 2,
+    "totalSize": 1238
+  },
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2012-03-30T20:35:08Z",
+  "updatedAt": "2014-04-07T10:16:29Z",
+  "pushedAt": "2012-04-04T16:21:30Z"
+}

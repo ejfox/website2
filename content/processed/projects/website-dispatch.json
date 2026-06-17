@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): you work on this constantly — definitely your voice here, not\n     mine. Factual stub only. Draft until ready. -->\n<p class=\"\">A Tauri desktop app for publishing Obsidian notes straight to ejfox.com — keyboard-driven, fast, and built around the exact markdown pipeline this site uses. Scans the vault for <code class=\"md-inline-code\">blog/</code> and <code class=\"md-inline-code\">drafts/</code>, tracks LIVE / MODIFIED / draft status by content diff, previews with the real website renderer, and publishes with a one-click git commit + push. Supports scheduled publishing (<code class=\"md-inline-code\">publish_at</code>) and visibility controls (public / unlisted / password-protected).</p>\n<figure role=\"figure\" aria-label=\"Dispatch — keyboard-driven Obsidian-to-website publishing app\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065760/projects/website-dispatch/1.png\" alt=\"Dispatch — keyboard-driven Obsidian-to-website publishing app\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1780065760/projects/website-dispatch/1.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1780065760/projects/website-dispatch/1.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1780065760/projects/website-dispatch/1.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1780065760/projects/website-dispatch/1.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Dispatch — keyboard-driven Obsidian-to-website publishing app\" width=\"1800\" height=\"2262\" style=\"--splay-rot:-1.55deg;\" data-dimensions=\"1800×2262\" class=\"img-full my-8 rounded-sm img-splay aspect-[3/4] w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Dispatch — keyboard-driven Obsidian-to-website publishing app</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Dispatch&#x27;s publish view — vault notes diff-tracked and ready to ship\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/website-dispatch/2.png\" alt=\"Dispatch&#x27;s publish view — vault notes diff-tracked and ready to ship\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/website-dispatch/2.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/website-dispatch/2.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/website-dispatch/2.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/website-dispatch/2.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Dispatch&#x27;s publish view — vault notes diff-tracked and ready to ship\" width=\"1800\" height=\"2262\" style=\"--splay-rot:2.46deg;\" data-dimensions=\"1800×2262\" class=\"img-full my-8 rounded-sm img-splay aspect-[3/4] w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Dispatch's publish view — vault notes diff-tracked and ready to ship</figcaption>\n</figure>",
+  "title": "Dispatch",
+  "metadata": {
+    "title": "Dispatch",
+    "date": "2026-01-15T05:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/website-dispatch",
+    "tech": [
+      "Tauri",
+      "Rust",
+      "Vue",
+      "Obsidian"
+    ],
+    "state": "evolved",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "tools",
+      "obsidian",
+      "web"
+    ],
+    "words": 109,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

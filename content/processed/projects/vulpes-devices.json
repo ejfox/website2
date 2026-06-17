@@ -1,0 +1,38 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. The boot strip is generated from the repo's frames;\n     an on-device photo of a Flipper actually running the theme would be a great\n     addition (it's on the Photo Day list). Draft until then. -->\n<p class=\"\">The hardware arm of the <strong class=\"\">Vulpes</strong> look — one palette, one glyph, generated out to seven device targets (Flipper Zero, OnionOS handhelds, and more). It takes the cyberpunk-neon Vulpes scheme from my editor and pushes it down onto the little screens, so my devices boot and theme in the same visual language as everything else I make.</p>\n<figure role=\"figure\" aria-label=\"The Vulpes fox boot animation, generated for the Flipper Zero&#x27;s 128×64 screen\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-devices/boot-animation.png\" alt=\"The Vulpes fox boot animation, generated for the Flipper Zero&#x27;s 128×64 screen\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpes-devices/boot-animation.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpes-devices/boot-animation.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-devices/boot-animation.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpes-devices/boot-animation.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The Vulpes fox boot animation, generated for the Flipper Zero&#x27;s 128×64 screen\" width=\"4224\" height=\"256\" style=\"--splay-rot:-2.06deg;\" data-dimensions=\"4224×256\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The Vulpes fox boot animation, generated for the Flipper Zero's 128×64 screen</figcaption>\n</figure>\n<p class=\"\">Everything derives from a single shared palette file — the same <code class=\"md-inline-code\">#e60067</code> magenta and <code class=\"md-inline-code\">#6eedf7</code> teal that run through the rest of the Vulpes system — so a new device target is mostly a matter of teaching the generator that platform's theme format.</p>",
+  "title": "Vulpes Devices",
+  "metadata": {
+    "title": "Vulpes Devices",
+    "date": "2026-03-15T04:00:00.000Z",
+    "draft": true,
+    "url": "https://github.com/ejfox/vulpes-devices",
+    "tech": [
+      "Flipper Zero",
+      "OnionOS",
+      "Theming",
+      "JavaScript"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "vulpes",
+      "flipper",
+      "hardware",
+      "device",
+      "design"
+    ],
+    "words": 154,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

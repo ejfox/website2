@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. Draft until ready. -->\n<p class=\"\">A minimal theme builder for the Ghostty terminal, with live previews of how the palette lands in nvim, lazygit, htop, and tmux. Tweak a base hue and a ±7° offset and watch the whole <a href=\"/tag/vulpes-nvim\" class=\"internal-link text-blue-600 dark:text-blue-400\">Vulpes Nvim</a> aesthetic recolor in real time.</p>\n<figure role=\"figure\" aria-label=\"The theme lab — palette controls on the left, live nvim / lazygit / htop / tmux previews recoloring as you tune\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-theme-lab/previews.png\" alt=\"The theme lab — palette controls on the left, live nvim / lazygit / htop / tmux previews recoloring as you tune\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpes-theme-lab/previews.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpes-theme-lab/previews.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes-theme-lab/previews.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpes-theme-lab/previews.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The theme lab — palette controls on the left, live nvim / lazygit / htop / tmux previews recoloring as you tune\" width=\"1796\" height=\"2262\" style=\"--splay-rot:-2deg;\" data-dimensions=\"1796×2262\" class=\"img-full my-8 rounded-sm img-splay aspect-[3/4] w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The theme lab — palette controls on the left, live nvim / lazygit / htop / tmux previews recoloring as you tune</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"A vulpes-themed terminal built in the lab\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes/theme-lab.png\" alt=\"A vulpes-themed terminal built in the lab\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/vulpes/theme-lab.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/vulpes/theme-lab.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/vulpes/theme-lab.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/vulpes/theme-lab.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"A vulpes-themed terminal built in the lab\" width=\"2880\" height=\"1900\" style=\"--splay-rot:1.36deg;\" data-dimensions=\"2880×1900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">A vulpes-themed terminal built in the lab</figcaption>\n</figure>",
+  "title": "Vulpes Theme Lab",
+  "metadata": {
+    "title": "Vulpes Theme Lab",
+    "date": "2025-12-28T05:00:00.000Z",
+    "draft": true,
+    "url": "https://ejfox.github.io/vulpes-theme-lab/",
+    "tech": [
+      "Vue",
+      "Nuxt",
+      "Ghostty",
+      "Design Tool"
+    ],
+    "state": "deployed",
+    "aiInvolvement": "ai-assisted",
+    "tags": [
+      "design",
+      "tools",
+      "aesthetic"
+    ],
+    "words": 83,
+    "images": 2,
+    "imageDetails": {
+      "total": 2,
+      "cloudinary": 2,
+      "withDimensions": 0
+    },
+    "links": 2,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

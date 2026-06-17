@@ -1,142 +1,411 @@
-# Docker Deployment Prep - Detailed Progress Log
+# EJ Fox's Website - AI Assistant Context
 
-## What We're Doing
-Converting this Nuxt 3 website from Netlify deployment to Docker-based deployment. The main challenge is that this project uses the `canvas` npm package for OG image generation, which requires native system dependencies that are complex to install in Docker containers.
+## Project Overview
 
-## Current Status: ✅ DOCKER BUILD SUCCESSFUL! 
-The Docker image builds successfully and the container runs with health checks working properly. The site is accessible on port 3006.
+Personal website and digital publishing system built with Nuxt 3. Primary purpose: publishing blog posts, predictions, and stats from multiple APIs. Content originates in Obsidian, gets processed to structured JSON, then served via Vue components.
 
-## Progress So Far
+## Current Status: ✅ Production Ready
 
-### ✅ COMPLETED
-1. **Docker Configuration Files Created**
-   - `Dockerfile` - Multi-stage build with Alpine Linux base
-   - `.dockerignore` - Excludes unnecessary files from build context
-   - `docker-compose.yml` - Production deployment config with health checks
-   - `server/api/healthcheck.get.ts` - Health endpoint for container monitoring
+- Runs under **pm2** on the VPS (process name `website2`, port 3006). Docker was retired 2026-05-06 — see "Deployment" section below.
+- Dynamic tags system with journalist pyramid ordering
+- Cryptographic predictions system with PGP signing
+- Multi-source API aggregation for personal stats
+- Clean root directory (delete-driven cleanup completed)
 
-2. **Nuxt Config Updated for Docker**
-   - Changed preset from `netlify` to `node-server`
-   - Added Docker-friendly host/port settings
-   - Kept dev port as 3006 (per user request)
+## Key Architectural Components
 
-3. **Netlify Cleanup**
-   - Removed `netlify.toml` file
-   - Removed `netlify/` directory
-   - Confirmed no Netlify dependencies in package.json
+### Content Pipeline
 
-4. **Canvas Dependencies Solved**
-   - Added all required Alpine packages for canvas: `cairo-dev`, `jpeg-dev`, `pango-dev`, etc.
-   - Multi-stage build separates build-time deps from runtime deps
-   - Both build and production stages have appropriate canvas libraries
+- **Input**: Markdown files in `content/blog/` with YAML frontmatter
+- **Processing**: `scripts/processMarkdown.mjs` converts MD → structured JSON
+- **Output**: Individual JSON files + `manifest-lite.json` for listings
+- **Frontend**: Vue components consume processed JSON, not raw Markdown
 
-### ✅ RESOLVED: Build Issues Fixed
-**Fixed Issues**:
-- `components/prediction/PredictionCard.vue` - Already had `lang="ts"`
-- `components/prediction/VerificationDisplay.vue` - Already had `lang="ts"`
-- `components/PostMetadata.vue` - Already had `lang="ts"`
-- `server/api/search.get.ts` - Fixed duplicate `slug` variable declaration (line 171)
+### Dynamic Systems
 
-**Note**: The TypeScript interface errors were already fixed. The actual blocker was a duplicate variable declaration in the search API.
+1. **Tags Endpoint** (`server/routes/tags.json.ts`)
+   - Serves `/tags.json` with journalist pyramid ordering
+   - Combines static vocabulary + usage-frequency content tags
+   - Structure: !special-tags first, then by usage count, then unused base tags
 
-### 🔧 Build Process Details
-1. **Dependencies**: ~380MB of Alpine packages install successfully
-2. **Yarn Install**: All npm dependencies install without errors (canvas compiles correctly)
-3. **Build Success**: Nuxt build completes successfully in ~47 seconds
-4. **Container Size**: Final image includes all runtime dependencies for canvas
-5. **Health Check**: Container starts successfully with working health endpoint
+2. **Predictions System**
+   - CLI tool `yarn predict` for personal predictions
+     - SHA-256 hashing + Git commits for verification
+     - Storage: `content/predictions/` as Markdown with YAML frontmatter
+   - Calibration tracking: `yarn calibrate` generates Brier scores + calibration curves
+   - Simple pipeline: make prediction → wait → resolve → track accuracy
 
-## Next Steps (In Order)
-1. ✅ ~~Fix duplicate variable declaration~~
-2. ✅ ~~Complete Docker build test~~
-3. ✅ ~~Test container startup and health check~~
-4. Create `.env.example` with all environment variables
-5. Deploy to VPS with proper environment variables
-6. Set up reverse proxy (nginx/caddy) for domain routing
-7. Add GitHub Actions workflow for automated deployments
+3. **Stats Aggregation**
+   - **Full Stats** (`server/api/stats.get.ts`) - Comprehensive stats with arrays and nested objects (~2.4KB)
+     - Multi-source API integration: GitHub, YouTube, LastFM, Chess.com, etc.
+     - Real-time personal metrics dashboard
+     - Includes historical data, recent items, and detailed breakdowns
+   - **Lite Stats** (`server/api/stats-lite.get.ts`) - Optimized for iOS Shortcuts (~345 bytes, 86% smaller)
+     - Single numbers only, no arrays or nested objects
+     - Top-level metrics from all services
+     - 5-minute caching for cellular optimization
+     - Perfect for iOS Shortcuts, widgets, and slow connections
 
-## Docker Best Practices Applied
-- Multi-stage build to minimize final image size
-- Non-root user for security
-- Health checks for monitoring
-- Proper caching layers for fast rebuilds
-- All canvas runtime dependencies in production stage
+4. **Gear Inventory System** (`pages/gear/index.vue`)
+   - CSV-based gear tracking with weight calculations
+   - Dynamic unit conversion (metric/imperial)
+   - Tuftian data visualizations (weight distributions, histograms)
+   - Ultra-dense data tables with 8px baseline grid
+   - Container-based organization with inline statistics
 
-## Key Commands
-```bash
-# Build Docker image
-docker build -t website2-test .
+5. **Threads Visualization** (`pages/threads.vue`)
+   - D3.js force-directed graph on canvas (350vh scrollable)
+   - Shows posts, scraps, and tags as interconnected nodes
+   - Maypole tags: top 25 tags pinned in sine wave pattern down the page
+   - anime.js staggered animations for node streaming
+   - Tag pages: `/tag/[slug]` shows all content with that tag
+   - Configurable constants at top of file:
+     - `NODE_RADIUS`, `COLLISION_RADIUS`, `NODE_COLOR` - visual tuning
+     - `NUM_MAYPOLES`, `CANVAS_HEIGHT_VH`, `BOUNDARY_FORCE_STRENGTH` - layout
+     - `BLACKLISTED_TAGS` - tags excluded from visualization
+   - Filters: toggle posts/scraps/tags visibility
+   - Click nodes to navigate to content
 
-# Run container
-docker run -p 3006:3000 website2-test
+## Important File Locations
 
-# Health check
-curl http://localhost:3006/api/healthcheck
+### Critical Scripts
+
+- `scripts/processMarkdown.mjs` - Main content processing pipeline
+- `scripts/predict.mjs` - Prediction creation CLI
+- `server/routes/tags.json.ts` - Dynamic tags endpoint
+- `server/api/gear-csv.get.ts` - Gear CSV data endpoint
+
+### Key Components
+
+- `pages/threads.vue` - D3 force-directed graph visualization
+- `pages/tag/[...slug].vue` - Tag detail pages
+- `components/gear/GearItem.vue` - Individual gear row component
+- `components/gear/GearTableRow.client.vue` - Client-side gear display
+- `composables/useWeightCalculations.ts` - Weight conversion utilities
+
+### Configuration Files
+
+- `nuxt.config.ts` - Nuxt configuration (Node server preset)
+- `.env` - Environment variables (create from examples in README)
+- `ecosystem.config.cjs` - pm2 production config (used on VPS, not in dev)
+- `Dockerfile` + `docker-compose.yml` - **deprecated**, kept for reference only
+
+### Content Structure
+
+```
+content/
+├── blog/YYYY/           # Published posts
+├── blog/drafts/         # Work in progress
+├── blog/projects/       # Project documentation
+├── predictions/         # Cryptographic predictions
+└── processed/           # Generated JSON output
 ```
 
-## Issues Encountered & Solutions
-1. **Missing git**: Added to Alpine packages for npm dependencies
-2. **Canvas compilation**: Added full suite of Alpine dev packages
-3. **TypeScript in Vue**: Components already had `lang="ts"` - false alarm
-4. **Duplicate variable**: Fixed duplicate `slug` declaration in search.get.ts
-5. **Port configuration**: Successfully mapped 3006 external → 3000 internal
+## Development Patterns
 
-## Why This Was Frustrating
-- Canvas package requires extensive native dependencies
-- Alpine Linux package names differ from Debian/Ubuntu
-- Vue TypeScript compilation is strict about interface usage
-- Multiple dependency layers (system → npm → build → runtime)
+### Delete-Driven Development Philosophy
 
-## Production Deployment Commands
+> "When system hangs, delete code until it works. No clever fixes, no complex solutions. Find the bloat, delete it. Simple beats complex. Working beats perfect."
 
-### Option 1: Direct deployment (if you have Docker registry access)
+Applied throughout codebase for:
+
+- Root folder cleanup (removed 15MB+ of lighthouse reports, build logs)
+- Animation system (deleted looping animations causing flickering)
+- Component simplification (projects page: 120+ lines → 25 lines)
+- TCWM scoring system removal from gear page (complex → simple weight sorting)
+- Typography consolidation (custom fonts → system Georgia serif)
+
+### Content Processing Flow
+
+1. **Write** in Obsidian with YAML frontmatter + tags
+2. **Process** via `yarn blog:process` → generates JSON + usage counts
+3. **Serve** via dynamic routes consuming processed JSON
+4. **Deploy** via `git push origin main` (GH Actions builds + deploys automatically)
+
+## Common Operations
+
+### Content Management
+
 ```bash
-# Build and tag production image
-docker build -t website2:latest .
-docker tag website2:latest your-registry.com/website2:latest
-docker push your-registry.com/website2:latest
+# Process new blog posts
+yarn blog:process
 
-# On VPS - pull and run
-docker pull your-registry.com/website2:latest
-docker run -d \
-  --name website2 \
-  --restart unless-stopped \
-  -p 3006:3000 \
-  --env-file .env \
-  your-registry.com/website2:latest
+# Create cryptographic prediction
+yarn predict --statement "AI will..." --confidence 80 --deadline 2025-12-31
+
+# Check processed content
+ls content/processed/2025/
+cat content/processed/manifest-lite.json | jq '.[] | select(.draft != true)'
 ```
 
-### Option 2: Direct deployment via docker-compose
-```bash
-# Copy these files to your VPS:
-# - docker-compose.yml
-# - .env (based on .env.example)
-# - Dockerfile
-# - (entire project if building on VPS)
+### Development
 
-# On VPS:
-docker-compose up -d
+```bash
+# Dev server (port 3006)
+yarn dev
+
+# Build for production
+yarn build
 ```
 
-### Option 3: Build directly on VPS
+### Deployment
+
+Production runs under **pm2** as `website2` on the VPS (`ssh vps`), listening on `localhost:3006`.
+Cloudflare Tunnel `tools-tunnel` routes `ejfox.com` → `localhost:3006`.
+
+**GitHub Actions** (`.github/workflows/deploy.yml`) handles automated deploys on push to `main`:
+1. Builds on the GH runner (not the VPS — the VPS has a Nitro build bug)
+2. Packages `.output/` as tarball
+3. Uploads via `appleboy/scp-action`
+4. SSHs in to extract, reload pm2, health check, send Discord alert
+
 ```bash
-# Clone repo on VPS
-git clone https://github.com/ejfox/website2.git
-cd website2
+# Automated deploy: just push to main
+git push origin main    # triggers GH Actions, ~3 min end-to-end
 
-# Create .env file from .env.example
-cp .env.example .env
-# Edit .env with your actual values
+# Manual deploy (build locally, scp to VPS)
+NITRO_PRESET=node-server yarn build
+tar czf /tmp/website2-output.tar.gz .output
+scp /tmp/website2-output.tar.gz vps:/tmp/
+ssh vps 'cd /data2/website2 && rm -rf .output && tar xzf /tmp/website2-output.tar.gz && pm2 reload website2'
 
-# Build and run
-docker build -t website2:latest .
-docker run -d \
-  --name website2 \
-  --restart unless-stopped \
-  -p 3006:3000 \
-  --env-file .env \
-  website2:latest
+# After .env changes only (no code change)
+ssh vps 'pm2 reload website2'
+
+# Live logs
+ssh vps 'pm2 logs website2'
 ```
+
+**IMPORTANT**: Do NOT build on the VPS directly. Nitro 2.12.x has a heisenbug where `buildProduction()` silently skips the rollup step, producing `nitro-prerender` output instead of `node-server`. Always build locally or on GH runner and transfer `.output/`.
+
+**Pm2 config**: `/data2/website2/ecosystem.config.cjs`. Loads env from `.env`, max 1G memory.
+**Pm2 state persisted**: `~/.pm2/dump.pm2` (saved via `pm2 save`).
+**SSH alias**: `ssh vps` (NOT `vps-pub`).
+
+## Troubleshooting
+
+### Nuxt Build Cache Corruption
+
+**Error**: `"#internal/nuxt/paths" is not defined`
+
+**Solution** (delete-driven development):
+
+```bash
+# Delete corrupted build artifacts
+rm -rf .nuxt .output node_modules/.cache && yarn install && yarn build
+```
+
+### Content Processing Issues
+
+```bash
+# Debug content processing
+DEBUG=true yarn blog:process
+
+# Check individual processed files
+cat content/processed/2025/post-name.json | jq .metadata
+
+# Verify manifest structure
+cat content/processed/manifest-lite.json | jq 'length'
+```
+
+### Production Issues (pm2)
+
+```bash
+# Health check (external)
+curl https://ejfox.com/api/healthcheck
+
+# Process status + memory
+ssh vps 'pm2 list | grep website2'
+
+# Live logs (Ctrl-C to exit)
+ssh vps 'pm2 logs website2'
+
+# Last 100 log lines
+ssh vps 'pm2 logs website2 --lines 100 --nostream'
+
+# Restart (kills + respawns; drops in-memory caches like monkeytype)
+ssh vps 'pm2 restart website2'
+
+# Reload (graceful; preserves in-memory caches across version cutover)
+ssh vps 'pm2 reload website2'
+```
+
+### Gear Page Issues
+
+**Problem**: Weights showing as 0 or NaN
+**Cause**: CSV column name mismatch (`Weight_oz` vs `Base Weight ()`)
+**Solution**: Update `composables/useWeightCalculations.ts` to use correct column name
+
+**Problem**: Vue template errors with inline SVGs
+**Solution**: Use simpler HTML entities or Unicode characters instead of complex SVGs in templates
+
+## Current System Status
+
+- **Build System**: Clean, zero ESLint errors after DELETE-DRIVEN cleanup
+- **Build Location**: GH Actions runner (NOT the VPS — Nitro heisenbug)
+- **Deploy Pipeline**: Push to main → GH Actions builds → scp to VPS → pm2 reload (~3 min)
+- **Content Pipeline**: Obsidian → JSON processing working smoothly
+- **Runtime**: pm2 on VPS (formerly docker; retired 2026-05-06)
+- **Dynamic Tags**: Journalist pyramid ordering operational
+- **Predictions**: Cryptographic verification system functional
+- **Root Folder**: Professional, no build artifacts or test debris
+- **Gear System**: CSV-based inventory with Weight_oz column, no TCWM scoring
+- **Typography**: Georgia serif, 8px baseline grid, micro-visualizations
+- **Data Tables**: Ultra-dense Tuftian design with inline sparklines
+- **Sidenotes**: Ultra-simple 113-line client plugin, Tufte CSS approach
+- **Layout**: Editorial left-aligned within max-w-screen-xl container
+- **Privacy**: PII stripped from processed JSON, API routes hardened, backup/drafts excluded from build
+
+## Sidenotes System (2025-09-29)
+
+### Overview
+
+Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-side plugin that converts standard Markdown footnotes to margin notes.
+
+### Implementation
+
+- **Location**: `plugins/footnotes-to-sidenotes.client.ts`
+- **Approach**: Pure client-side transformation of existing footnotes
+- **Dependencies**: None - works with standard Markdown footnote HTML
+- **Size**: 113 lines total
+
+### How It Works
+
+1. Markdown processor creates standard footnotes (`section[data-footnotes]`)
+2. Plugin runs after page load (200ms delay)
+3. Transforms footnotes into margin notes positioned absolutely
+4. Hides original footnote section
+5. Mobile fallback: Shows standard footnotes below content
+
+### Layout System
+
+```
+[Browser Window]
+    ↓
+[Site Container: max-w-screen-xl mx-auto] ← 1280px centered
+    ↓
+[Article Container: px-4 md:px-8] ← Responsive padding
+    ↓
+[Content Wrapper: max-w-4xl] ← 896px, LEFT-ALIGNED (no mx-auto!)
+    ↓
+[Text Elements: max-w-prose] ← ~65ch for readability, LEFT-ALIGNED
+```
+
+### Key CSS Rules
+
+- Sidenotes positioned at `left: calc(100% + 2rem)`
+- Width: 240px
+- Desktop only: Hidden on screens < 1280px
+- Override all margin auto to ensure left alignment
+
+### Known Issues & QA Needed
+
+1. **Layout shift on load**: 200ms delay causes visible reflow
+2. **Video embeds**: Some .mp4 files showing as blurred images
+3. **Width consistency**: Need to verify all pages use same container widths
+4. **Sidenote overlap**: Long sidenotes may overlap - needs vertical collision detection
+5. **Print styles**: Sidenotes need proper print media handling
+
+### Files Modified
+
+- `plugins/footnotes-to-sidenotes.client.ts` - New sidenote plugin
+- `components/BlogPostContent.vue` - Simplified to basic wrapper
+- `pages/blog/[...slug].vue` - Updated container widths
+- Deleted 6 complex components and 3 experimental plugins
+
+### Next Steps for QA
+
+- [ ] Test sidenote behavior with multiple footnotes
+- [ ] Verify mobile/tablet breakpoints
+- [ ] Check print stylesheet behavior
+- [ ] Test with very long sidenotes
+- [ ] Verify no layout shift on slower connections
+- [ ] Cross-browser testing (Safari, Firefox, Chrome)
+
+## Security & Privacy (2026-05-14)
+
+### Build Output Privacy
+
+The `nuxt.config.ts` `compiled` hook copies `content/` to `.output/content/` for API routes. It **excludes** `content/backup/` and `content/drafts/` via a filter to prevent private content from being served.
+
+### Content Processing Privacy
+
+`scripts/processMarkdown.mjs` does NOT emit `sourcePath` or `sourceDir` in processed JSON. These were stripped in 2026-05 to prevent filesystem path leaks. Do not re-add them.
+
+### API Route Hardening
+
+All API routes that read from `manifest-lite.json` MUST filter out:
+- `draft === true`
+- `hidden === true`
+- `unlisted === true`
+- `password` or `passwordHash` present
+
+Routes that are hardened: `/api/manifest`, `/api/agent/timeline`, `/api/photo-posts`.
+The `/api/scraps` endpoint filters by `shared === true` in Supabase.
+
+### PII Checklist (run before publishing new content)
+
+- No street addresses or house numbers in blog posts
+- No `[[home/...]]` wikilinks that leak address slugs
+- No `/Users/ejfox/` filesystem paths in code snippets (use `~/` instead)
+- No `sourcePath` or `sourceDir` in processed JSON
+- `content/backup/` and `content/drafts/` excluded from `.output/`
+- Phone number in `public/resume.json` is intentionally public
+
+## Key Design Principles
+
+1. **Delete-Driven Development**: Remove complexity, don't add it
+2. **Static Generation**: Prefer build-time processing over runtime complexity
+3. **Journalist Pyramid**: Most important/frequent data first (tags, content)
+4. **Type Safety**: Full TypeScript coverage with strict checking
+5. **Boring Infra**: pm2 + GH Actions deploys. No containers, no orchestration. The site is a single Node process — read its logs, reload it, move on.
+6. **Tuftian Data Density**: Maximum data-ink ratio, minimal chrome
+7. **8px Baseline Grid**: Consistent vertical rhythm throughout typography
+8. **Dark-First Design**: Primary dark theme with zinc color palette
 
 ---
-*Last updated: June 9, 2025 - Docker build working!*
+
+_This file provides AI assistants with architectural context for the EJ Fox website project. For human-readable documentation, see README.md_
+
+## VueUse Best Practices (2025-12-04)
+
+**Always prefer VueUse composables over manual lifecycle hooks**
+
+When working with:
+
+- **Element sizing**: Use `useElementSize()` instead of manual `onMounted` + resize listeners
+- **Window events**: Use `useEventListener()` instead of manual addEventListener
+- **Async data**: Use `useAsyncState()` for cleaner async handling
+- **Scroll**: Use `useScroll()` instead of scroll event listeners
+- **Breakpoints**: Use `useBreakpoints()` for responsive logic
+
+### Why?
+
+- Handles SSR/hydration edge cases automatically
+- Works correctly with async parent components (`await useAsyncData`)
+- Auto-cleanup on unmount
+- Type-safe and battle-tested
+
+### Example: Element Sizing
+
+```vue
+<!-- ❌ BAD: Manual lifecycle hooks -->
+<script setup>
+const container = ref(null)
+const width = ref(0)
+onMounted(() => {
+  width.value = container.value.offsetWidth
+  window.addEventListener('resize', handleResize)
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize)
+})
+</script>
+
+<!-- ✅ GOOD: VueUse composable -->
+<script setup>
+import { useElementSize } from '@vueuse/core'
+const container = ref(null)
+const { width } = useElementSize(container)
+</script>
+```

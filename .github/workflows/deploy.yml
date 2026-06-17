@@ -1,0 +1,114 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node 22
+      uses: actions/setup-node@v4
+      with:
+        node-version: 22
+        cache: yarn
+
+    - name: Install dependencies
+      run: yarn install --frozen-lockfile --ignore-engines
+
+    - name: Process markdown
+      run: yarn blog:process
+
+    - name: Build (node-server preset)
+      run: NITRO_PRESET=node-server yarn build
+      env:
+        NODE_ENV: production
+
+    - name: Verify and package build
+      run: |
+        if [ ! -f .output/server/index.mjs ]; then
+          echo "ERROR: .output/server/index.mjs not found after build!"
+          exit 1
+        fi
+        echo "Build OK: $(du -sh .output | cut -f1)"
+        tar czf website2-output.tar.gz .output
+
+    - name: Upload build to VPS
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        source: website2-output.tar.gz
+        target: /tmp/
+
+    - name: Deploy and reload
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.VPS_HOST }}
+        username: ${{ secrets.VPS_USER }}
+        key: ${{ secrets.VPS_SSH_KEY }}
+        command_timeout: 5m
+        script: |
+          set -e
+          DEPLOY_START=$(date +%s)
+          ALERT="/home/debian/scripts/alert.sh"
+
+          cd /data2/website2
+
+          # Capture before/after commits
+          PREV_COMMIT=$(git rev-parse --short HEAD)
+          git fetch origin main
+          git reset --hard origin/main
+          NEW_COMMIT=$(git rev-parse --short HEAD)
+
+          # Get commit info for alert
+          COMMIT_MSG=$(git log -1 --pretty=format:"%s" | head -c 100)
+          COMMIT_AUTHOR=$(git log -1 --pretty=format:"%an")
+          COMMIT_DATE=$(git log -1 --pretty=format:"%cr")
+          FILES_CHANGED=$(git diff --name-only ${PREV_COMMIT} ${NEW_COMMIT} 2>/dev/null | wc -l || echo "?")
+          COMPARE_URL="https://github.com/ejfox/website2/compare/${PREV_COMMIT}...${NEW_COMMIT}"
+
+          # Extract pre-built output from GH runner
+          rm -rf .output
+          tar xzf /tmp/website2-output.tar.gz
+          rm -f /tmp/website2-output.tar.gz
+
+          # Verify
+          if [ ! -f .output/server/index.mjs ]; then
+            echo "ERROR: .output/server/index.mjs not found!"
+            ALERT_FORCE=1 $ALERT website error "**❌ Deploy FAILED** — server build missing after transfer"
+            exit 1
+          fi
+
+          # Graceful reload via pm2
+          export NVM_DIR="$HOME/.nvm"
+          [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+          pm2 reload website2
+
+          # Wait for healthy
+          sleep 5
+          HEALTH="❌"
+          curl -sf http://localhost:3006/api/healthcheck > /dev/null 2>&1 && HEALTH="✅"
+
+          # Process stats
+          PROCESS_MEM=$(pm2 info website2 2>/dev/null | grep -i memory | head -1 | awk '{print $NF}' || echo "?")
+          OUTPUT_SIZE=$(du -sh .output 2>/dev/null | cut -f1 || echo "?")
+
+          DEPLOY_TIME=$(($(date +%s) - DEPLOY_START))
+
+          # Send hyper-dense Discord alert
+          ALERT_MSG="**🚀 ejfox.com deployed** ${HEALTH}
+          \`${PREV_COMMIT}\`→\`${NEW_COMMIT}\` ${COMMIT_DATE}
+          **${COMMIT_MSG}**
+          by ${COMMIT_AUTHOR} | [diff](${COMPARE_URL})
+          **Δ** ${FILES_CHANGED} files | **Output:** ${OUTPUT_SIZE} | **Mem:** ${PROCESS_MEM}
+          **Built on GH runner** | **total:${DEPLOY_TIME}s**"
+
+          ALERT_FORCE=1 $ALERT website info "$ALERT_MSG"

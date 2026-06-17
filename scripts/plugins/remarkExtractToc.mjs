@@ -1,6 +1,14 @@
+/**
+ * @file plugins/remarkExtractToc.mjs
+ * @description Remark plugin that extracts table of contents from headings and stores in vfile.data
+ * @usage .use(remarkExtractToc, { maxDepth: 3, removeFirstHeading: false })
+ */
+
 import { visit } from 'unist-util-visit'
+import GithubSlugger from 'github-slugger'
 
 export function extractHeadersAndToc(tree, maxDepth = 3) {
+  const slugger = new GithubSlugger()
   let firstHeading = null
   let firstHeadingNode = null
   const toc = []
@@ -10,30 +18,35 @@ export function extractHeadersAndToc(tree, maxDepth = 3) {
     if (node.depth > maxDepth) return
 
     // Extract text content from heading, handling various node types
-    const headingText = node.children
-      .map((child) => {
-        if (child.type === 'text') {
-          return child.value
-        } else if (child.type === 'image') {
-          return child.alt || '' // Use alt text for images
-        } else if (child.type === 'link') {
-          return child.children.map((c) => c.value || '').join('')
-        }
-        return ''
-      })
-      .join('')
-      .trim()
+    const extractText = (nodes) => {
+      return nodes
+        .map((child) => {
+          if (child.type === 'text') {
+            return child.value
+          } else if (child.type === 'image') {
+            return child.alt || '' // Use alt text for images
+          } else if (child.type === 'link') {
+            return extractText(child.children || [])
+          } else if (child.type === 'emphasis' || child.type === 'strong') {
+            return extractText(child.children || [])
+          }
+          return ''
+        })
+        .join('')
+    }
+
+    const headingText = extractText(node.children).trim()
 
     // Skip empty headings
     if (!headingText) return
 
-    const headingSlug = generateSlug(headingText)
+    const headingSlug = slugger.slug(headingText)
 
     const headingItem = {
       text: headingText,
       slug: headingSlug,
       level: `h${node.depth}`,
-      children: []
+      children: [],
     }
 
     if (!firstHeading && (node.depth === 1 || node.depth === 2)) {
@@ -70,13 +83,6 @@ export function removeFirstHeading(tree, firstHeadingNode) {
   return tree
 }
 
-function generateSlug(str) {
-  return str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-}
-
 // Export the remark plugin
 export function remarkExtractToc(options = { maxDepth: 3 }) {
   return (tree, file) => {
@@ -88,6 +94,13 @@ export function remarkExtractToc(options = { maxDepth: 3 }) {
     // Store the results in the vfile data
     file.data.toc = toc
     file.data.firstHeading = firstHeading
+    file.data.firstHeadingNode = firstHeadingNode
+
+    // Debug logging
+    if (toc.length === 0) {
+      // Silently track empty TOCs - they're valid
+      // (some posts have no h2-h3 headings)
+    }
 
     // Remove first heading if requested
     if (options.removeFirstHeading) {

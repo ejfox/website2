@@ -1,0 +1,33 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<p class=\"\">I needed to backup thousands of photos from Cloudinary, and couldn't find an easy standalone tool to do so. So I built a little desktop app with Tauri. It handles batch downloads without eating all your RAM (vs an Electron app) and lets you resume if something goes wrong.</p>\n<figure role=\"figure\" aria-label=\"Setup instructions for Cloudinary Backup tool requesting cloud name, API key, and API secret credentials to download photos.\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png\" alt=\"Setup instructions for Cloudinary Backup tool requesting cloud name, API key, and API secret credentials to download photos.\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1755100480/screenshot_2025-08-13_at_11.54.28_AM.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Setup instructions for Cloudinary Backup tool requesting cloud name, API key, and API secret credentials to download photos.\" width=\"2000\" height=\"1750\" style=\"--splay-rot:2.67deg;\" data-dimensions=\"2000×1750\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Setup instructions for Cloudinary Backup tool requesting cloud name, API key, and API secret credentials to download photos.</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"The Cloudinary Backup desktop app browsing assets before export\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1735007706/Screenshot_2024-12-23_at_9.34.52_PM.png\" alt=\"The Cloudinary Backup desktop app browsing assets before export\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1735007706/Screenshot_2024-12-23_at_9.34.52_PM.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1735007706/Screenshot_2024-12-23_at_9.34.52_PM.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1735007706/Screenshot_2024-12-23_at_9.34.52_PM.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1735007706/Screenshot_2024-12-23_at_9.34.52_PM.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The Cloudinary Backup desktop app browsing assets before export\" width=\"3600\" height=\"2338\" style=\"--splay-rot:2.5deg;\" data-dimensions=\"3600×2338\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The Cloudinary Backup desktop app browsing assets before export</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Batch download in progress in the Cloudinary Backup app\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1735007506/Screenshot_2024-12-23_at_9.31.28_PM.png\" alt=\"Batch download in progress in the Cloudinary Backup app\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1735007506/Screenshot_2024-12-23_at_9.31.28_PM.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1735007506/Screenshot_2024-12-23_at_9.31.28_PM.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1735007506/Screenshot_2024-12-23_at_9.31.28_PM.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1735007506/Screenshot_2024-12-23_at_9.31.28_PM.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Batch download in progress in the Cloudinary Backup app\" width=\"2498\" height=\"2474\" style=\"--splay-rot:-2.14deg;\" data-dimensions=\"2498×2474\" class=\"img-full my-8 rounded-sm img-splay aspect-square w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Batch download in progress in the Cloudinary Backup app</figcaption>\n</figure>",
+  "title": "Cloudinary Backup Tool",
+  "metadata": {
+    "title": "Cloudinary Backup Tool",
+    "date": "2025-01-15T05:00:00.000Z",
+    "github": "https://github.com/ejfox/cloudinary-backup-tool",
+    "tech": [
+      "Tauri",
+      "Rust",
+      "TypeScript",
+      "Vite"
+    ],
+    "modified": "2025-08-13T15:58:10.000Z",
+    "tags": [
+      "tools",
+      "photography"
+    ],
+    "words": 87,
+    "images": 3,
+    "imageDetails": {
+      "total": 3,
+      "cloudinary": 3,
+      "withDimensions": 0
+    },
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

@@ -1,315 +1,214 @@
-<template>
-  <div class="space-y-12 font-mono @container">
-    <!-- Overview Stats -->
-    <div class="space-y-4">
-      <!-- Stats Grid - Responsive with container queries -->
-      <div class="grid grid-cols-1 @[400px]:grid-cols-2 gap-4">
-        <div class="stat-block">
-          <div class="text-xl @[300px]:text-2xl @[400px]:text-3xl tabular-nums">
-            {{ (stats?.stats?.totalScrobbles ?? 0).toLocaleString() }}
-          </div>
-          <div class="text-[10px] text-zinc-500 tracking-[0.2em]">
-            TOTAL_SCROBBLES
-          </div>
-        </div>
-        <div class="stat-block">
-          <div class="text-xl @[300px]:text-2xl @[400px]:text-3xl tabular-nums">
-            {{ formatAverage(stats?.stats?.averagePerDay) }}
-          </div>
-          <div class="text-[10px] text-zinc-500 tracking-[0.2em]">
-            DAILY_AVERAGE
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Recent Tracks - Adjust spacing for mobile -->
-    <div v-if="stats.recentTracks?.tracks?.length" class="space-y-6">
-      <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">RECENT_TRACKS</h3>
-      <div class="space-y-4">
-        <div
-          v-for="(track, index) in stats.recentTracks.tracks.slice(0, 5)"
-          :key="index"
-          class="flex items-start gap-2 @[350px]:gap-3 group"
-        >
-          <!-- Track Number -->
-          <div class="w-4 pt-1 text-right text-xs text-zinc-600 tabular-nums">
-            {{ index + 1 }}
-          </div>
-
-          <!-- Track Info -->
-          <div class="min-w-0 flex-1 space-y-1">
-            <div class="text-sm truncate">
-              {{ track?.name || 'UNKNOWN_TRACK' }}
-            </div>
-            <div class="text-xs text-zinc-500 truncate">
-              {{ track?.artist?.name || 'UNKNOWN_ARTIST' }}
-            </div>
-          </div>
-
-          <!-- Timestamp - Hide on very small containers -->
-          <div class="hidden @[350px]:block text-right pt-1">
-            <div
-              v-if="track?.date"
-              class="text-xs text-zinc-500 tabular-nums whitespace-nowrap"
-            >
-              {{ formatTrackTime(track) }}
-            </div>
-            <div v-else class="text-xs text-zinc-500">
-              <span class="inline-flex items-center gap-1.5">
-                <span class="relative flex h-1.5 w-1.5">
-                  <span
-                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"
-                  ></span>
-                  <span
-                    class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"
-                  ></span>
-                </span>
-                <span class="tracking-[0.2em] text-[10px]">NOW</span>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Top Stats - Adjust layout for different container sizes -->
-    <div v-if="stats.topTracks || stats.topArtists" class="space-y-12">
-      <div class="grid grid-cols-1 @[600px]:grid-cols-2 gap-12">
-        <!-- Monthly Stats Column -->
-        <div class="space-y-12">
-          <!-- Monthly Top Artists -->
-          <div v-if="stats.topArtists?.month" class="space-y-6">
-            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">
-              TOP_ARTISTS_30D
-            </h3>
-            <div class="space-y-2">
-              <div
-                v-for="(artist, index) in stats.topArtists.month.slice(0, 5)"
-                :key="artist.name"
-                class="flex items-baseline gap-2 @[350px]:gap-3"
-              >
-                <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">
-                  {{ index + 1 }}
-                </div>
-                <div class="flex-1 text-sm truncate">{{ artist.name }}</div>
-                <div class="text-xs text-zinc-500 tabular-nums">
-                  {{ artist.playcount }}x
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Monthly Top Tracks -->
-          <div v-if="stats.topTracks?.month" class="space-y-6">
-            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">
-              TOP_TRACKS_30D
-            </h3>
-            <div class="space-y-2">
-              <div
-                v-for="(track, index) in stats.topTracks.month.slice(0, 5)"
-                :key="track.name"
-                class="flex items-baseline gap-2 @[350px]:gap-3"
-              >
-                <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">
-                  {{ index + 1 }}
-                </div>
-                <div class="min-w-0 flex-1">
-                  <div class="text-sm truncate">{{ track.name }}</div>
-                  <div class="text-xs text-zinc-500 truncate">
-                    {{ track.artist.name }}
-                  </div>
-                </div>
-                <div
-                  class="text-xs text-zinc-500 tabular-nums whitespace-nowrap"
-                >
-                  {{ track.playcount }}x
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Yearly Stats Column -->
-        <div class="space-y-12">
-          <!-- Yearly Top Artists -->
-          <div v-if="stats.topArtists?.year" class="space-y-6">
-            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">
-              TOP_ARTISTS_365D
-            </h3>
-            <div class="space-y-2">
-              <div
-                v-for="(artist, index) in stats.topArtists.year.slice(0, 5)"
-                :key="artist.name"
-                class="flex items-baseline gap-2 @[350px]:gap-3"
-              >
-                <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">
-                  {{ index + 1 }}
-                </div>
-                <div class="flex-1 text-sm truncate">{{ artist.name }}</div>
-                <div class="text-xs text-zinc-500 tabular-nums">
-                  {{ artist.playcount }}x
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Yearly Top Tracks -->
-          <div v-if="stats.topTracks?.year" class="space-y-6">
-            <h3 class="text-[10px] text-zinc-500 tracking-[0.2em]">
-              TOP_TRACKS_365D
-            </h3>
-            <div class="space-y-2">
-              <div
-                v-for="(track, index) in stats.topTracks.year.slice(0, 5)"
-                :key="track.name"
-                class="flex items-baseline gap-2 @[350px]:gap-3"
-              >
-                <div class="w-4 text-right text-xs text-zinc-600 tabular-nums">
-                  {{ index + 1 }}
-                </div>
-                <div class="min-w-0 flex-1">
-                  <div class="text-sm truncate">{{ track.name }}</div>
-                  <div class="text-xs text-zinc-500 truncate">
-                    {{ track.artist.name }}
-                  </div>
-                </div>
-                <div
-                  class="text-xs text-zinc-500 tabular-nums whitespace-nowrap"
-                >
-                  {{ track.playcount }}x
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- System Info -->
-    <div class="text-[10px] text-zinc-600 tracking-[0.2em] tabular-nums">
-      LAST_UPDATE :: {{ new Date(stats?.lastUpdated).toLocaleString() }}
-    </div>
-  </div>
-</template>
-
+<!--
+  @file LastFmStats.vue
+  @description Last.fm music listening statistics
+  @props stats: Object - Last.fm data from API
+-->
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed } from 'vue'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
+import StatsDataState from './StatsDataState.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
 
-interface LastFmImage {
-  '#text': string
-  size: string
-}
-
-interface LastFmTrack {
+interface Track {
   name: string
   artist: {
     name: string
-    url: string
   }
-  url: string
   date?: {
     uts: string
-    '#text': string
   }
-  image: LastFmImage[]
   playcount?: string
 }
 
-interface LastFmArtist {
+interface Artist {
   name: string
   playcount: string
-  url: string
-  image: LastFmImage[]
+}
+
+interface Genre {
+  name: string
+  count: number
 }
 
 interface LastFmStats {
-  stats: {
-    totalScrobbles: number
-    uniqueArtists: number
-    uniqueTracks: number
-    averagePerDay: number
+  recentTracks?: {
+    tracks?: Track[]
   }
-  recentTracks: {
-    tracks: LastFmTrack[]
-    total: number
+  topArtists?: {
+    artists?: Artist[]
+    month?: Artist[]
+    year?: Artist[]
   }
-  topTracks: {
-    tracks: LastFmTrack[]
-    total: number
+  topTracks?: {
+    tracks?: Track[]
+    month?: Track[]
+    year?: Track[]
   }
-  topArtists: {
-    artists: LastFmArtist[]
-    total: number
-  }
-  lastUpdated: string
-}
-
-const handleImageError = (event: Event) => {
-  const target = event.target as HTMLImageElement
-  if (target) {
-    target.src = '/placeholder-artist.png'
+  stats?: {
+    topGenres?: Genre[]
   }
 }
 
-const getImageUrl = (
-  images: LastFmImage[],
-  size: string = 'medium'
-): string => {
-  return (
-    images.find((img) => img.size === size)?.['#text'] ||
-    '/placeholder-artist.png'
-  )
-}
-
-defineProps<{
-  stats: LastFmStats
+const props = defineProps<{
+  stats?: LastFmStats | null
 }>()
 
-function formatAverage(avg?: number): string {
-  if (typeof avg !== 'number') return '0'
-  return avg.toFixed(1)
-}
+// Computed for easier access to nested data
+const topArtists = computed(() => {
+  return (
+    props.stats?.topArtists?.artists || props.stats?.topArtists?.month || []
+  )
+})
 
-function formatTrackTime(track: LastFmTrack): string {
-  if (!track?.date?.uts) return ''
-  try {
-    const date = new Date(Number(track.date.uts) * 1000)
-    const now = new Date()
-    const diffMinutes = Math.floor(
-      (now.getTime() - date.getTime()) / (1000 * 60)
-    )
+const topTracks = computed(() => {
+  return props.stats?.topTracks?.tracks || props.stats?.topTracks?.month || []
+})
 
-    if (diffMinutes < 60) {
-      return `${diffMinutes}m`
-    } else if (diffMinutes < 1440) {
-      const hours = Math.floor(diffMinutes / 60)
-      return `${hours}h`
-    } else {
-      return date
-        .toLocaleDateString('en-US', {
-          month: 'numeric',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        })
-        .replace(',', '')
-    }
-  } catch (error) {
-    console.warn('Error formatting track time:', error)
-    return ''
-  }
+const topGenres = computed(() => {
+  return props.stats?.stats?.topGenres || []
+})
+
+const hasData = computed(() => {
+  return !!(
+    props.stats?.recentTracks?.tracks?.length ||
+    topArtists.value?.length ||
+    topTracks.value?.length ||
+    topGenres.value?.length
+  )
+})
+
+const formatTrackTime = (track: Track): string => {
+  if (!track.date?.uts) return 'NOW'
+
+  const date = new Date(Number.parseInt(track.date.uts) * 1000)
+  const now = new Date()
+  const diffMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60))
+
+  if (diffMinutes < 1) return 'NOW'
+  if (diffMinutes < 60) return `${diffMinutes}m ago`
+  if (diffMinutes < 1440) return `${Math.floor(diffMinutes / 60)}h ago`
+  return `${Math.floor(diffMinutes / 1440)}d ago`
 }
 </script>
 
-<style scoped>
-.stat-block {
-  /* Removed background and border for a clean typographical look */
-}
+<template>
+  <div v-if="hasData" class="space-y-2 font-mono">
+    <!-- Last 5 Songs -->
+    <div v-if="stats?.recentTracks?.tracks?.length">
+      <StatsSectionHeader title="LAST.FM RECENT TRACKS" />
+      <div class="space-y-2">
+        <div
+          v-for="track in (stats?.recentTracks?.tracks || []).slice(0, 5)"
+          :key="track.name + track.date"
+          class="flex items-baseline justify-between text-xs"
+        >
+          <div class="flex items-baseline gap-2 min-w-0 flex-1">
+            <span class="text-zinc-700 dark:text-zinc-300 truncate text-xs">
+              {{ track?.name || 'UNKNOWN' }}
+            </span>
+            <span class="text-zinc-500 truncate text-xs">
+              {{ track?.artist?.name || 'UNKNOWN' }}
+            </span>
+          </div>
+          <span
+            v-if="track?.date"
+            class="text-zinc-500 flex-shrink-0 ml-2 text-xs"
+          >
+            {{ formatTrackTime(track) }}
+          </span>
+          <span
+            v-else
+            class="text-zinc-500 flex-shrink-0 ml-2 uppercase text-xs"
+          >
+            NOW
+          </span>
+        </div>
+      </div>
+    </div>
 
-/* Ensure all numbers use tabular figures */
-.tabular-nums {
-  font-feature-settings: 'tnum';
-  font-variant-numeric: tabular-nums;
-}
-</style>
+    <!-- Top Artists -->
+    <div v-if="topArtists?.length">
+      <StatsSectionHeader title="LAST.FM TOP ARTISTS" />
+      <div class="space-y-2">
+        <div
+          v-for="(artist, index) in topArtists.slice(0, 5)"
+          :key="artist.name"
+          class="flex items-baseline justify-between text-xs"
+        >
+          <span class="text-zinc-700 dark:text-zinc-300 text-xs">
+<HandDrawn :name="`circled-${index + 1}`" size="1.3em" class="align-text-bottom mr-1" />{{ artist.name }}
+          </span>
+          <span class="text-zinc-500 tabular-nums text-xs">
+            <AnimatedNumber
+              :value="parseInt(artist.playcount)"
+              format="default"
+              :duration="400"
+              priority="tertiary"
+            />
+            plays
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Genres if available -->
+    <div v-if="topGenres?.length">
+      <h4 class="section-label-tracked">LAST.FM TOP GENRES</h4>
+      <div class="space-y-2">
+        <div
+          v-for="(genre, index) in topGenres.slice(0, 3)"
+          :key="genre.name"
+          class="flex items-baseline justify-between text-xs"
+        >
+          <span class="text-zinc-700 dark:text-zinc-300 text-xs">
+<HandDrawn :name="`circled-bold-${index + 1}`" size="1.3em" class="align-text-bottom mr-1" />{{ genre.name }}
+          </span>
+          <span class="text-zinc-500 tabular-nums text-xs">
+            <AnimatedNumber
+              :value="genre.count"
+              format="default"
+              :duration="400"
+              priority="tertiary"
+            />
+            artists
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Tracks -->
+    <div v-if="topTracks?.length">
+      <h4 class="section-label-tracked">LAST.FM TOP TRACKS</h4>
+      <div class="space-y-2">
+        <div
+          v-for="(track, index) in topTracks.slice(0, 3)"
+          :key="track.name"
+          class="flex items-baseline justify-between text-xs"
+        >
+          <div class="flex items-baseline gap-2 min-w-0 flex-1">
+            <span class="text-zinc-700 dark:text-zinc-300 truncate text-xs">
+<HandDrawn :name="`num-${index + 1}`" size="1.3em" class="align-text-bottom mr-1" />{{ track.name }}
+            </span>
+            <span class="text-zinc-500 truncate text-xs">
+              {{ track.artist?.name || track.artist }}
+            </span>
+          </div>
+          <span class="text-zinc-500 tabular-nums flex-shrink-0 ml-2 text-xs">
+            <AnimatedNumber
+              :value="parseInt(track.playcount || '0')"
+              format="default"
+              :duration="400"
+              priority="tertiary"
+            />
+            plays
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <StatsDataState
+    v-else
+    state="unavailable"
+    message="LASTFM_DATA_UNAVAILABLE"
+  />
+</template>

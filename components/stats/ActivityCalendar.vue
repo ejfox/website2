@@ -1,34 +1,15 @@
-<template>
-  <div class="activity-calendar font-mono">
-    <h4 v-if="title" class="section-subheader">{{ title }}</h4>
-
-    <!-- Activity Grid -->
-    <div class="activity-grid">
-      <div v-for="(day, index) in activityData" :key="index" 
-          class="activity-cell relative"
-          :class="day.active ? 'active' : 'inactive'"
-          :style="day.active ? { backgroundColor: activeColor } : {}"
-          @mouseenter="showTooltip(index)"
-          @mouseleave="hideTooltip()">
-          <!-- Custom Tooltip -->
-          <div v-if="activeTooltipIndex === index" 
-               class="custom-tooltip absolute z-10 bg-white dark:bg-zinc-800 p-2 text-2xs rounded shadow-md">
-            {{ formatTooltip(day) }}
-          </div>
-      </div>
-    </div>
-
-    <!-- Caption -->
-    <div class="flex justify-between text-2xs text-zinc-500 mt-2">
-      <span>PAST {{ days }} DAYS</span>
-      <span>{{ activeCount }} ACTIVE DAYS</span>
-    </div>
-  </div>
-</template>
-
+<!--
+  @file ActivityCalendar.vue
+  @description Activity calendar heatmap showing daily activity over a period
+  @props title: string - Calendar title (optional)
+  @props activityData: Array - Array of daily activity data with active boolean
+  @props days: number - Number of days to display
+  @props activeColor: string - Color for active days
+-->
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { format } from 'date-fns'
+import { format } from 'date-fns/format'
+import StatsSectionHeader from './StatsSectionHeader.vue'
 
 interface ActivityDay {
   date: string
@@ -39,28 +20,28 @@ const props = defineProps({
   // Days to show (default 30)
   days: {
     type: Number,
-    default: 30
+    default: 30,
   },
   // Title above the calendar
   title: {
     type: String,
-    default: 'ACTIVITY'
+    default: 'ACTIVITY',
   },
   // Color for active days
   activeColor: {
     type: String,
-    default: '#71717a'
+    default: '#71717a',
   },
   // Array of active dates in YYYY-MM-DD format
   activeDates: {
     type: Array as () => string[],
-    default: () => []
+    default: () => [],
   },
   // Alternative: manually provide activity data
   customActivityData: {
     type: Array as () => ActivityDay[],
-    default: null
-  }
+    default: null,
+  },
 })
 
 // Tooltip state
@@ -80,9 +61,7 @@ const hideTooltip = () => {
 const formatTooltip = (day: ActivityDay) => {
   const date = new Date(day.date)
   const formattedDate = format(date, 'MMMM d, yyyy')
-  return day.active 
-    ? `${formattedDate}: Active` 
-    : formattedDate
+  return day.active ? `${formattedDate}: Active` : formattedDate
 }
 
 // Generate activity data based on props
@@ -93,18 +72,20 @@ const activityData = computed<ActivityDay[]>(() => {
   }
 
   // Create a days-long array of dates
-  const days = Array(props.days).fill(null).map((_, i) => {
-    const date = new Date()
-    date.setDate(date.getDate() - (props.days - 1 - i))
-    return {
-      date: format(date, 'yyyy-MM-dd'),
-      active: false
-    }
-  })
+  const days = Array(props.days)
+    .fill(null)
+    .map((_, i) => {
+      const date = new Date()
+      date.setDate(date.getDate() - (props.days - 1 - i))
+      return {
+        date: format(date, 'yyyy-MM-dd'),
+        active: false,
+      }
+    })
 
   // Set active days based on activeDates prop
   const activeDatesSet = new Set(props.activeDates)
-  days.forEach(day => {
+  days.forEach((day) => {
     day.active = activeDatesSet.has(day.date)
   })
 
@@ -113,22 +94,58 @@ const activityData = computed<ActivityDay[]>(() => {
 
 // Count active days
 const activeCount = computed(() => {
-  return activityData.value.filter(day => day.active).length
+  return activityData.value.filter((day) => day.active).length
 })
 </script>
 
+<template>
+  <div class="activity-calendar font-mono">
+    <StatsSectionHeader v-if="title" :title="title" />
+
+    <!-- Activity Grid -->
+    <div class="activity-grid">
+      <div
+        v-for="(day, index) in activityData"
+        :key="index"
+        class="activity-cell relative"
+        :class="day.active ? 'active' : 'inactive'"
+        :style="day.active ? { backgroundColor: activeColor } : {}"
+        @mouseenter="showTooltip(index)"
+        @mouseleave="hideTooltip()"
+      >
+        <!-- Custom Tooltip -->
+        <div v-if="activeTooltipIndex === index" class="tooltip-custom">
+          {{ formatTooltip(day) }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Caption -->
+    <div
+      class="flex justify-between text-zinc-500 mt-2 text-xs"
+      style="line-height: 10px"
+    >
+      <span>PAST {{ days }} DAYS</span>
+      <span>{{ activeCount }} ACTIVE DAYS</span>
+    </div>
+  </div>
+</template>
+
 <style scoped>
-.section-subheader {
-  @apply text-2xs tracking-[0.2em] text-zinc-500 border-b border-zinc-200 dark:border-zinc-800/30 pb-1 mb-3;
+.activity-calendar {
+  position: relative;
+  overflow: visible;
 }
 
 .activity-grid {
-  @apply grid gap-1 h-4;
+  @apply grid gap-0.5 h-4;
   grid-template-columns: repeat(30, minmax(0, 1fr));
+  overflow: visible;
 }
 
 .activity-cell {
-  @apply w-full h-full rounded-[1px] transition-colors duration-300 cursor-pointer;
+  @apply w-full h-full rounded-[1px] transition-colors duration-300;
+  @apply cursor-pointer;
 }
 
 .active {
@@ -139,20 +156,22 @@ const activeCount = computed(() => {
   @apply bg-zinc-200/30 dark:bg-zinc-800/30;
 }
 
-.custom-tooltip {
-  bottom: 18px;
+.tooltip-custom {
+  position: absolute;
+  bottom: calc(100% + 8px);
   left: 50%;
   transform: translateX(-50%);
   width: max-content;
   max-width: 150px;
-  color: var(--color-text);
   white-space: nowrap;
-}
-
-/* Custom text size smaller than xs */
-.text-2xs {
-  font-size: 0.65rem;
-  line-height: 1rem;
+  z-index: 50;
+  background: #18181b;
+  color: #fafafa;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 @media (max-width: 639px) {
@@ -161,4 +180,4 @@ const activeCount = computed(() => {
     grid-template-rows: repeat(2, 1fr);
   }
 }
-</style> 
+</style>

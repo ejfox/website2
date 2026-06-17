@@ -31,15 +31,15 @@ tags:
 
 ##### June 8, 2022: PLAYING WITH ELECTION PRIMARY DATA
 
-[🛠️ Live Coding: Vue, D3, and Data Visualization](https://www.youtube.com/watch?v=vvDMhJpYRVE&t=9020s)
+[ Live Coding: Vue, D3, and Data Visualization](https://www.youtube.com/watch?v=vvDMhJpYRVE&t=9020s)
 
 ##### June 28, 2022: EXPLORING ELECTION DATA
 
-[💻 📈 🔬 Watch me code and visualize data LIVE with The Robot's help! - YouTube](https://www.youtube.com/watch?v=7PPoDBZlM-o&t=7727s)
+[ 📈 🔬 Watch me code and visualize data LIVE with The Robot's help! - YouTube](https://www.youtube.com/watch?v=7PPoDBZlM-o&t=7727s)
 
 ##### Oct 5, 2022: trade flows
 
-[🛠️ Live Coding: How to map trade flows between countries with Sankey charts](https://www.youtube.com/watch?v=4B-onNJqzuI&t=1349s)
+[ Live Coding: How to map trade flows between countries with Sankey charts](https://www.youtube.com/watch?v=4B-onNJqzuI&t=1349s)
 
 ##### Oct 6, 2022: trade flows with cameron kruse
 
@@ -60,7 +60,7 @@ tags:
 #### 2021
 ##### Oct 26, 2021: Livecoding election maps
 
-[ 🔨💻 Livecoding Election Maps - Session 1](https://www.youtube.com/watch?v=6uBM9HAtIoQ&t=12965s)
+[ 🔨 Livecoding Election Maps - Session 1](https://www.youtube.com/watch?v=6uBM9HAtIoQ&t=12965s)
 
 #### 2020
 

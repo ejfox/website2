@@ -1,3 +1,9 @@
+/**
+ * @file plugins/remarkEnhanceLinks.mjs
+ * @description Remark plugin that adds social platform icons to external links using Iconify API with caching
+ * @usage .use(remarkEnhanceLinks)
+ */
+
 import { visit } from 'unist-util-visit'
 import fetch from 'node-fetch'
 import NodeCache from 'node-cache'
@@ -66,25 +72,51 @@ const socialPlatforms = {
   'gcp.google.com': 'simple-icons:googlecloud',
   'firebase.google.com': 'simple-icons:firebase',
   'microsoft.com': 'simple-icons:microsoft',
-  'arxiv.org': 'cib:arxiv'
+  'arxiv.org': 'cib:arxiv',
 }
 
-const fetchIcon = async (name) => {
+const fetchIcon = async (name, retries = 2) => {
   const cached = iconCache.get(name)
   if (cached) return cached
 
-  try {
-    const res = await fetch(`https://api.iconify.design/${name}.svg`)
-    const svg = await res.text()
-    const processed = svg.replace(
-      '<svg',
-      '<svg class="inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom"'
-    )
-    iconCache.set(name, processed)
-    return processed
-  } catch {
-    return null
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    try {
+      const res = await fetch(`https://api.iconify.design/${name}.svg`)
+      if (!res.ok) {
+        if (attempt < retries) {
+          await new Promise((r) => setTimeout(r, 500 * (attempt + 1)))
+          continue
+        }
+        console.warn(
+          `[remarkEnhanceLinks] Failed to fetch icon ${name}: HTTP ${res.status}`
+        )
+        return null
+      }
+      const svg = await res.text()
+      if (!svg.includes('<svg')) {
+        console.warn(`[remarkEnhanceLinks] Invalid SVG response for ${name}`)
+        return null
+      }
+      const processed = svg.replace(
+        '<svg',
+        '<svg class="inline-block w-4 h-4 ml-1 opacity-50 ' +
+          'dark:opacity-75 group-hover:opacity-100 ' +
+          'transition-opacity align-text-bottom"'
+      )
+      iconCache.set(name, processed)
+      return processed
+    } catch (err) {
+      if (attempt < retries) {
+        await new Promise((r) => setTimeout(r, 500 * (attempt + 1)))
+        continue
+      }
+      console.warn(
+        `[remarkEnhanceLinks] Error fetching icon ${name}: ${err.message}`
+      )
+      return null
+    }
   }
+  return null
 }
 
 export function remarkEnhanceLinks() {
@@ -102,6 +134,7 @@ export function remarkEnhanceLinks() {
       node.data.hProperties.rel = 'noopener noreferrer'
       node.data.hProperties.class =
         'external-link group inline-flex items-center'
+      node.data.hProperties['data-preview-url'] = node.url
 
       // Try to add social icon
       try {
@@ -113,14 +146,16 @@ export function remarkEnhanceLinks() {
             // Store the current node for later icon insertion
             const iconPromise = fetchIcon(icon).then((svg) => {
               if (svg) {
-                // Instead of adding as separate node, we'll embed the icon inside the link node
+                // Instead of adding as separate node, we'll embed
+                // the icon inside the link node
                 // Create a span wrapper to hold the icon
                 const iconSpan = {
                   type: 'html',
-                  value: svg
+                  value: svg,
                 }
 
-                // Make sure this node has children, and add the icon as the last child
+                // Make sure this node has children, and add the
+                // icon as the last child
                 node.children = node.children || []
                 node.children.push(iconSpan)
               }
@@ -130,7 +165,7 @@ export function remarkEnhanceLinks() {
             break
           }
         }
-      } catch (err) {
+      } catch {
         // Ignore URL parsing errors
       }
     })

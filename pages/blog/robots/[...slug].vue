@@ -1,40 +1,31 @@
 <script setup>
-import { format } from 'date-fns'
-import { animate, stagger } from '~/anime.esm.js'
+// Animation handled via global anime.js from CDN
 import { useWindowSize } from '@vueuse/core'
+import { formatNumber } from '~/composables/useNumberFormat'
+// DELETED: import { useAnimations } from '~/composables/useAnimations'
 
+const { formatTimestamp: formatDate } = useDateFormat()
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
 const { width } = useWindowSize()
 const isMobile = computed(() => width.value < 768)
-const activeSection = ref('')
+const _activeSection = ref('')
+// DELETED: const { timing, easing, staggers } = useAnimations()
 
-const { data: note } = await useAsyncData(`robot-${route.params.slug.join('/')}`, () =>
-  processedMarkdown.getPostBySlug(`robots/${route.params.slug.join('/')}`)
+const { data: note } = await useAsyncData(
+  `robot-${route.params.slug.join('/')}`,
+  () => processedMarkdown.getPostBySlug(`robots/${route.params.slug.join('/')}`)
 )
 
 // Redirect if note doesn't exist or isn't shared
 if (!note.value || !note.value.metadata?.share) {
   throw createError({
     statusCode: 404,
-    message: 'Robot note not found'
+    message: 'Robot note not found',
   })
 }
 
-// Update the trimmedToc computed to handle our TOC structure correctly
-const trimmedToc = computed(() => {
-  if (!note.value?.metadata?.toc) return []
-
-  return note.value.metadata.toc
-    .filter(item => item.depth === 2 || item.depth === 3)
-    .map(item => ({
-      text: item.text.length > 40 ? item.text.slice(0, 37) + '...' : item.text,
-      slug: generateSlug(item.text),
-      level: `h${item.depth}`
-    }))
-})
-
-// Add the generateSlug helper function
+// Helper function to generate slug from text
 const generateSlug = (str) => {
   return str
     .toLowerCase()
@@ -42,27 +33,10 @@ const generateSlug = (str) => {
     .replace(/^-+|-+$/g, '')
 }
 
-// Update the word count logic to work with our structure
-const sectionWordCounts = computed(() => {
-  if (process.server || !note.value?.content) return {}
-
-  const counts = {}
-  const sections = note.value.metadata?.toc || []
-
-  sections.forEach(section => {
-    if (section.depth <= 3) {
-      const slug = generateSlug(section.text)
-      counts[slug] = getSectionWordCount(note.value.content, slug)
-    }
-  })
-
-  return counts
-})
-
 // Helper function to count words in a section
 const getSectionWordCount = (content, sectionId) => {
   // Only run in client
-  if (process.server) return 0
+  if (import.meta.server) return 0
 
   const parser = new DOMParser()
   const doc = parser.parseFromString(content, 'text/html')
@@ -73,14 +47,16 @@ const getSectionWordCount = (content, sectionId) => {
   let wordCount = 0
   let currentElement = header.nextElementSibling
 
-  while (currentElement &&
+  while (
+    currentElement &&
     (!currentElement.tagName.startsWith('H') ||
-      parseInt(currentElement.tagName[1]) > parseInt(header.tagName[1]))) {
+      Number.parseInt(currentElement.tagName[1]) >
+        Number.parseInt(header.tagName[1]))
+  ) {
     wordCount += currentElement.textContent
       .trim()
       .split(/\s+/)
-      .filter(word => word.length > 0)
-      .length
+      .filter((word) => word.length > 0).length
 
     currentElement = currentElement.nextElementSibling
   }
@@ -88,11 +64,41 @@ const getSectionWordCount = (content, sectionId) => {
   return wordCount
 }
 
+// Update the trimmedToc computed to handle our TOC structure correctly
+const trimmedToc = computed(() => {
+  if (!note.value?.metadata?.toc) return []
+
+  return note.value.metadata.toc
+    .filter((item) => item.depth === 2 || item.depth === 3)
+    .map((item) => ({
+      text: item.text.length > 40 ? item.text.slice(0, 37) + '...' : item.text,
+      slug: generateSlug(item.text),
+      level: `h${item.depth}`,
+    }))
+})
+
+// Update the word count logic to work with our structure
+const sectionWordCounts = computed(() => {
+  if (import.meta.server || !note.value?.content) return {}
+
+  const counts = {}
+  const sections = note.value.metadata?.toc || []
+
+  sections.forEach((section) => {
+    if (section.depth <= 3) {
+      const slug = generateSlug(section.text)
+      counts[slug] = getSectionWordCount(note.value.content, slug)
+    }
+  })
+
+  return counts
+})
+
 // Helper to check if a string looks like a date
-const isDateString = (str) => {
+const _isDateString = (str) => {
   if (typeof str !== 'string') return false
   const date = new Date(str)
-  return date instanceof Date && !isNaN(date)
+  return date instanceof Date && !Number.isNaN(date)
 }
 
 // Computed property to get all metadata fields
@@ -102,6 +108,7 @@ const metadataFields = computed(() => {
   const fields = {
     // Only include relevant fields in a specific order
     type: note.value.metadata.type,
+    model: note.value.metadata.model, // LLM model that helped write this
     date: note.value.metadata.date,
     modified: note.value.metadata.modified,
     words: note.value.metadata.words,
@@ -109,23 +116,41 @@ const metadataFields = computed(() => {
       images: note.value.metadata.images,
       links: note.value.metadata.links,
       codeBlocks: note.value.metadata.codeBlocks,
-      headers: note.value.metadata.headers
-    }
+      headers: note.value.metadata.headers,
+    },
   }
 
   return fields
 })
 
-// Format numbers with commas
-const formatNumber = (num) => {
-  return new Intl.NumberFormat().format(num)
-}
+const noteDescription = computed(() => {
+  const html = note.value?.content || ''
+  const text = html
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+  return text.slice(0, 180) || 'Robot note from EJ Fox'
+})
 
-// Update the formatDate function to be more concise
-const formatDate = (date) => {
-  if (!date) return ''
-  return format(new Date(date), "MMM d, yyyy 'at' h:mma")
-}
+const noteTags = computed(() => note.value?.metadata?.tags || [])
+
+usePageSeo({
+  title: computed(() => note.value?.title || 'Robot note'),
+  description: noteDescription,
+  type: 'article',
+  section: 'Robots',
+  tags: computed(() =>
+    noteTags.value.length ? noteTags.value : ['Robots', 'Notes']
+  ),
+  publishedTime: computed(() => note.value?.metadata?.date),
+  modifiedTime: computed(
+    () => note.value?.metadata?.modified || note.value?.metadata?.date
+  ),
+  label1: 'Words',
+  data1: computed(() => `${note.value?.metadata?.words || 0} words`),
+  label2: 'Images',
+  data2: computed(() => `${note.value?.metadata?.images || 0} media`),
+})
 
 // Add scroll progress tracking
 const scrollProgress = ref(0)
@@ -133,17 +158,6 @@ const scrollProgress = ref(0)
 // Add these computed properties and refs for the animation
 const titleChars = computed(() => note.value?.title.split(''))
 const titleRefs = ref([])
-
-// Add the animation function
-const animateTitle = () => {
-  animate(titleRefs.value, {
-    opacity: [0, 1],
-    translateY: [20, 0],
-    duration: 800,
-    easing: 'easeOutExpo',
-    delay: stagger(50)
-  })
-}
 
 // Add this to process the content and add IDs to headings
 const processedContent = computed(() => {
@@ -162,12 +176,12 @@ const processedContent = computed(() => {
 onMounted(() => {
   // Set up intersection observers for each section
   const sections = document.querySelectorAll('h2, h3')
-  sections.forEach(section => {
-    const { stop } = useIntersectionObserver(
+  sections.forEach((section) => {
+    const { stop: _stop } = useIntersectionObserver(
       section,
       ([{ isIntersecting }]) => {
         if (isIntersecting) {
-          activeSection.value = section.id
+          _activeSection.value = section.id
         }
       },
       { threshold: 0.5 }
@@ -184,73 +198,107 @@ onMounted(() => {
   window.addEventListener('scroll', updateProgress)
   onUnmounted(() => window.removeEventListener('scroll', updateProgress))
 
-  // Add title animation
-  nextTick(() => {
-    animateTitle()
-  })
+  // Title animation removed - delete-driven development
 })
 
-// Add useHead for robot-specific styling
-useHead({
-  title: note.value?.title,
-  link: [
-    {
-      rel: 'preload',
-      href: 'https://cdn.jsdelivr.net/gh/githubnext/monaspace@v1.000/fonts/webfonts/MonaspaceRadon-Regular.woff',
-      as: 'font',
-      type: 'font/woff',
-      crossorigin: 'anonymous'
-    }
-  ],
-  style: [
-    {
-      innerHTML: `
-        @font-face {
-          font-family: 'Monaspace Radon';
-          src: url('https://cdn.jsdelivr.net/gh/githubnext/monaspace@v1.000/fonts/webfonts/MonaspaceRadon-Regular.woff') format('woff');
-          font-weight: normal;
-          font-style: normal;
-          font-display: swap;
-        }
-      `
-    }
-  ]
+// Alert description - dynamically includes model name if present
+const robotAlertDescription = computed(() => {
+  const model = note.value?.metadata?.model
+  const modelText = model ? ` (${model})` : ''
+  return (
+    `This note was written by or with the assistance of AI${modelText}. While I've ` +
+    'reviewed and edited the content, you might notice some quirks in the ' +
+    'writing style or reasoning, and it may not all be factually accurate.'
+  )
 })
+
+// Metadata box styling
+const metadataBoxClass =
+  'font-mono text-xs bg-zinc-100 dark:bg-zinc-900 p-4 ' + 'rounded-lg mb-8'
+
+// Progress bar styling
+const progressBarClass =
+  'bg-zinc-600 dark:bg-zinc-400 h-full ' + 'transition-all duration-200'
+
+// Prose styling classes
+const proseClasses =
+  'prose prose-sm font-mono dark:prose-invert ' +
+  'prose-headings:font-bold prose-headings:tracking-tight ' +
+  'prose-h2:text-3xl prose-h3:text-2xl ' +
+  'prose-p:leading-8 prose-p:py-2 ' +
+  'prose-a:text-zinc-700 hover:prose-a:text-zinc-900 ' +
+  'dark:prose-a:text-zinc-300 dark:hover:prose-a:text-zinc-100 ' +
+  'prose-a:underline transition-all duration-200 ease-in-out ' +
+  'prose-strong:font-normal ' +
+  'prose-blockquote:border-l-4 prose-blockquote:border-zinc-400 ' +
+  'dark:prose-blockquote:border-zinc-600 prose-blockquote:pl-4 ' +
+  'prose-blockquote:italic prose-blockquote:my-8 ' +
+  'prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 ' +
+  'prose-img:rounded-lg ' +
+  'prose-hr:border-zinc-300 dark:prose-hr:border-zinc-700 ' +
+  '!max-w-none'
 </script>
 
 <template>
-  <div class="container mx-auto px-4 py-12">
+  <div class="container mx-auto px-4 pt-8">
     <!-- Main Content with Adjusted Layout -->
-    <div class="lg:grid lg:grid-cols-[1fr,300px] xl:grid-cols-[1fr,350px] gap-8">
+    <div
+      class="lg:grid lg:grid-cols-[1fr,300px] xl:grid-cols-[1fr,350px] gap-8"
+    >
       <article v-if="note">
         <!-- Metadata Display -->
-        <div class="font-mono text-xs bg-zinc-100 dark:bg-zinc-900 p-4 rounded-lg mb-8">
+        <div :class="metadataBoxClass">
           <div class="grid grid-cols-[auto,1fr] gap-x-4 gap-y-2">
             <!-- Type -->
             <div class="text-zinc-500 dark:text-zinc-400">type:</div>
-            <div class="text-zinc-700 dark:text-zinc-300 capitalize">{{ metadataFields.type }}</div>
+            <div class="text-zinc-700 dark:text-zinc-300 capitalize">
+              {{ metadataFields.type }}
+            </div>
+
+            <!-- Model (LLM that helped write this) -->
+            <template v-if="metadataFields.model">
+              <div class="text-zinc-500 dark:text-zinc-400">model:</div>
+              <div class="text-zinc-700 dark:text-zinc-300">
+                {{ metadataFields.model }}
+              </div>
+            </template>
 
             <!-- Date -->
             <div class="text-zinc-500 dark:text-zinc-400">published:</div>
-            <div class="text-zinc-700 dark:text-zinc-300">{{ formatDate(metadataFields.date) }}</div>
+            <div class="text-zinc-700 dark:text-zinc-300">
+              {{ formatDate(metadataFields.date) }}
+            </div>
 
             <!-- Modified -->
             <div class="text-zinc-500 dark:text-zinc-400">updated:</div>
-            <div class="text-zinc-700 dark:text-zinc-300">{{ formatDate(metadataFields.modified) }}</div>
+            <div class="text-zinc-700 dark:text-zinc-300">
+              {{ formatDate(metadataFields.modified) }}
+            </div>
 
             <!-- Word count -->
             <div class="text-zinc-500 dark:text-zinc-400">words:</div>
-            <div class="text-zinc-700 dark:text-zinc-300">{{ formatNumber(metadataFields.words) }}</div>
+            <div class="text-zinc-700 dark:text-zinc-300">
+              {{ formatNumber(metadataFields.words) }}
+            </div>
 
             <!-- Stats -->
             <div class="text-zinc-500 dark:text-zinc-400">stats:</div>
-            <div class="text-zinc-700 dark:text-zinc-300 grid gap-1">
+            <div class="text-zinc-700 dark:text-zinc-300 grid gap-0.5">
               <template v-if="metadataFields.stats">
-                <div v-if="metadataFields.stats.images">{{ metadataFields.stats.images }} images</div>
-                <div v-if="metadataFields.stats.links">{{ metadataFields.stats.links }} links</div>
-                <div v-if="metadataFields.stats.codeBlocks">{{ metadataFields.stats.codeBlocks }} code blocks</div>
+                <div v-if="metadataFields.stats.images">
+                  {{ metadataFields.stats.images }} images
+                </div>
+                <div v-if="metadataFields.stats.links">
+                  {{ metadataFields.stats.links }} links
+                </div>
+                <div v-if="metadataFields.stats.codeBlocks">
+                  {{ metadataFields.stats.codeBlocks }} code blocks
+                </div>
                 <div v-if="metadataFields.stats.headers" class="flex gap-2">
-                  <span v-for="(count, level) in metadataFields.stats.headers" :key="level">
+                  <span
+                    v-for="(count, level) in metadataFields.stats.headers"
+                    :key="level"
+                  >
                     {{ count }} {{ level }}
                   </span>
                 </div>
@@ -259,57 +307,62 @@ useHead({
           </div>
         </div>
 
-        <UAlert icon="i-majesticons-robot" color="orange" variant="solid" title="LLM-Generated / Augmented Content"
-          description="This note was written by or with the assistance of AI. While I've reviewed and edited the content, you might notice some quirks in the writing style or reasoning, and it may not all be factually accurate."
-          class="mb-8" />
+        <UAlert
+          icon="i-majesticons-robot"
+          color="gray"
+          variant="soft"
+          title="LLM-Generated / Augmented Content"
+          :description="robotAlertDescription"
+          class="mb-8"
+        />
 
         <header class="mb-8">
           <!-- Hero title with animation -->
-          <h1 class="text-4xl md:text-6xl font-bold mb-4 flex flex-wrap">
-            <span v-for="(char, i) in titleChars" :key="i" class="inline-block opacity-0"
-              :class="{ 'mr-[0.2em]': char === ' ' }" ref="titleRefs">{{ char }}</span>
+          <h1 class="text-4xl md:text-6xl font-light mb-4 flex flex-wrap">
+            <span
+              v-for="(char, i) in titleChars"
+              :key="i"
+              ref="titleRefs"
+              class="inline-block opacity-0"
+              :class="{ 'mr-[0.2em]': char === ' ' }"
+            >
+              {{ char }}
+            </span>
           </h1>
-          <p v-if="note.description" class="text-xl text-zinc-600 dark:text-zinc-400">
+          <p
+            v-if="note.description"
+            class="text-xl text-zinc-600 dark:text-zinc-400"
+          >
             {{ note.description }}
           </p>
         </header>
 
         <!-- Content with adjusted max-width -->
-        <div class="prose prose-sm font-mono dark:prose-invert 
-             prose-headings:font-bold prose-headings:tracking-tight 
-             prose-h2:text-3xl prose-h3:text-2xl 
-             prose-p:leading-8 prose-p:py-2 
-             prose-a:text-blue-600 hover:prose-a:text-blue-500 
-             dark:prose-a:text-blue-200 dark:hover:prose-a:text-blue-400 
-             prose-a:underline transition-all duration-100 ease-in-out 
-             prose-strong:font-semibold prose-blockquote:border-l-4 
-             prose-blockquote:border-blue-500 prose-blockquote:pl-4 
-             prose-blockquote:italic prose-blockquote:my-8 
-             prose-ul:list-disc prose-ol:list-decimal prose-li:my-2 
-             prose-img:rounded-lg prose-hr:border-gray-300 
-             dark:prose-hr:border-gray-700
-             !max-w-none" v-html="processedContent" />
+        <div :class="proseClasses" v-html="processedContent" />
 
-        <footer class="mt-12 pt-8 border-t border-zinc-200 dark:border-zinc-800">
-          <NuxtLink to="/blog/robots" class="text-blue-500 dark:text-blue-400 hover:underline">
+        <footer class="mt-8 pt-8 border-t border-zinc-200 dark:border-zinc-800">
+          <NuxtLink to="/blog/robots" class="link-underline-hover">
             ← Back to Robot Notes
           </NuxtLink>
         </footer>
       </article>
 
       <!-- Right Sidebar with TOC -->
-      <aside v-if="!isMobile" class="hidden lg:block h-screen sticky top-0 pt-12">
+      <aside
+        v-if="!isMobile"
+        class="hidden lg:block h-screen sticky top-0 pt-8"
+      >
         <div class="space-y-8 max-h-[calc(100vh-6rem)] flex flex-col">
           <!-- Progress Bar -->
           <div class="dark:bg-zinc-900 p-4 rounded-lg flex-1 overflow-y-auto">
-            <div class="w-full bg-zinc-200 dark:bg-zinc-800 h-1 rounded-full overflow-hidden flex-shrink-0 mb-4">
-              <div class="bg-blue-500 h-full transition-all duration-200" :style="{ width: `${scrollProgress}%` }" />
+            <div class="progress-bar">
+              <div
+                :class="progressBarClass"
+                :style="{ width: `${scrollProgress}%` }"
+              />
             </div>
 
-            <h3
-              class="text-lg font-semibold mb-4 sticky top-0 bg-inherit pb-2 border-b border-zinc-200 dark:border-zinc-700">
-              Table of Contents
-            </h3>
+            <h3 class="sticky-section-header">Table of Contents</h3>
 
             <!-- Add a target div for the TOC -->
             <div id="toc-target"></div>
@@ -317,24 +370,34 @@ useHead({
         </div>
       </aside>
     </div>
-    <UAlert icon="i-majesticons-robot" color="orange" variant="solid" title="LLM-Generated / Augmented Content"
-      description="This note was written by or with the assistance of AI." class="mb-8" />
+    <UAlert
+      icon="i-majesticons-robot"
+      color="gray"
+      variant="soft"
+      title="LLM-Generated / Augmented Content"
+      description="This note was written by or with the assistance of AI."
+      class="mb-8"
+    />
   </div>
 
   <!-- Teleport the TOC into the sidebar -->
   <Teleport to="#toc-target">
-    <nav v-if="trimmedToc.length" class="space-y-2">
+    <nav v-if="trimmedToc.length" class="stack-2">
       <template v-for="section in trimmedToc" :key="section.slug">
-        <NuxtLink :to="`#${section.slug}`" class="block py-1.5 transition-colors duration-200 text-sm" :class="[
-          section.level === 'h3' ? 'pl-4' : '',
-          activeSection === section.slug
-            ? 'text-blue-500 dark:text-blue-400'
-            : 'text-zinc-600 dark:text-zinc-400 hover:text-blue-500 dark:hover:text-blue-400'
-        ]">
+        <NuxtLink
+          :to="`#${section.slug}`"
+          class="block py-1.5 transition-colors duration-200 text-sm"
+          :class="[
+            section.level === 'h3' ? 'pl-4' : '',
+            _activeSection === section.slug
+              ? 'text-zinc-900 dark:text-zinc-100'
+              : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 ' +
+                'dark:hover:text-zinc-100',
+          ]"
+        >
           <div class="flex justify-between items-center group">
             <span>{{ section.text }}</span>
-            <span v-if="sectionWordCounts[section.slug]"
-              class="text-xs text-zinc-400 dark:text-zinc-500 group-hover:text-blue-500 dark:group-hover:text-blue-400">
+            <span v-if="sectionWordCounts[section.slug]" class="link-metadata">
               {{ sectionWordCounts[section.slug] }} words
             </span>
           </div>
@@ -353,11 +416,6 @@ useHead({
 /* Add smooth transitions for the chip opacity */
 .group:hover .opacity-50 {
   opacity: 1;
-}
-
-/* Add some styling for the metadata display */
-.grid {
-  font-family: 'Courier New', Courier, monospace;
 }
 
 /* Make the metadata section scrollable on mobile */
@@ -401,14 +459,5 @@ useHead({
 /* Prevent column breaks inside items */
 .break-inside-avoid-column {
   break-inside: avoid-column;
-}
-
-/* Update the font-mono utility class just for robot pages */
-.font-mono {
-  font-family: 'Monaspace Radon', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
-}
-
-.font-monaspace {
-  font-family: 'Monaspace Radon', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
 }
 </style>
