@@ -42,6 +42,8 @@ export function useScrollReveal(options: ScrollRevealOptions = {}) {
 
   // Track first appearance vs re-entry
   const hasAppeared = new WeakSet<Element>()
+  // Elements dimmed because they scrolled out of view (drives re-entry only)
+  const dimmed = new WeakSet<Element>()
 
   onMounted(async () => {
     const container = revealContainer.value
@@ -52,9 +54,18 @@ export function useScrollReveal(options: ScrollRevealOptions = {}) {
     const children = Array.from(container.querySelectorAll(selector))
     if (!children.length) return
 
-    // Set initial state
+    // Set initial state. Crucially, do NOT hide content that's already on
+    // screen at load (above the fold): hiding the LCP element and fading it
+    // back in after hydration pushes LCP well past FCP. Above-fold elements
+    // stay painted and are marked as already-appeared so they never animate
+    // an entrance (they still dim/re-enter if scrolled away and back).
+    const viewportH = window.innerHeight || document.documentElement.clientHeight
     children.forEach((el) => {
       const htmlEl = el as HTMLElement
+      if (htmlEl.getBoundingClientRect().top < viewportH) {
+        hasAppeared.add(htmlEl)
+        return
+      }
       htmlEl.style.opacity = '0'
       htmlEl.style.transform = `translateY(${translateY}px)`
       htmlEl.style.willChange = 'opacity, transform'
@@ -71,12 +82,16 @@ export function useScrollReveal(options: ScrollRevealOptions = {}) {
             if (!hasAppeared.has(el)) {
               hasAppeared.add(el)
               entering.push(el)
-            } else {
+            } else if (dimmed.has(el)) {
+              // Only re-animate elements that were actually dimmed on exit —
+              // keeps above-fold content (already visible) from flashing.
+              dimmed.delete(el)
               reEntering.push(el)
             }
           } else if (hasAppeared.has(el)) {
             // Element left viewport — dim it for re-entry
             el.style.opacity = '0.85'
+            dimmed.add(el)
           }
         })
 
