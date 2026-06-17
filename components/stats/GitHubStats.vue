@@ -3,108 +3,6 @@
   @description GitHub statistics component
   @props stats: Object - GitHub statistics from API
 -->
-<template>
-  <div
-    v-if="stats"
-    class="grid gap-0.5 auto-fit-columns font-mono overflow-hidden"
-  >
-    <!-- Primary Stats -->
-    <div class="col-span-full">
-      <div class="flex justify-around items-start gap-2 py-2">
-        <div class="text-center">
-          <div class="stat-value text-2xl font-bold">
-            <AnimatedNumber
-              :value="totalCommits"
-              format="commas"
-              :duration="1600"
-              priority="primary"
-              :decimals="0"
-            />
-          </div>
-          <!-- eslint-disable max-len,vue/max-len -->
-          <div
-            class="stat-label text-xs text-zinc-500 uppercase tracking-wider mt-2"
-          >
-            GITHUB COMMITS
-          </div>
-          <!-- eslint-enable max-len,vue/max-len -->
-        </div>
-        <div class="text-center">
-          <div class="stat-value text-2xl font-bold">
-            <AnimatedNumber
-              :value="stats.stats.totalRepos"
-              format="default"
-              :duration="1600"
-              priority="secondary"
-            />
-          </div>
-          <!-- eslint-disable max-len,vue/max-len -->
-          <div
-            class="stat-label text-xs text-zinc-500 uppercase tracking-wider mt-2"
-          >
-            TOTAL REPOS
-          </div>
-          <!-- eslint-enable max-len,vue/max-len -->
-        </div>
-      </div>
-    </div>
-
-    <!-- Activity Calendar -->
-    <div v-if="hasCommits" class="col-span-full">
-      <StatsSectionHeader title="GITHUB COMMIT ACTIVITY" />
-      <div class="text-zinc-500 mb-2 text-xs leading-[10px]">
-        PAST 30 DAYS · {{ commitActivityDates.length }} ACTIVE DAYS
-      </div>
-      <ActivityCalendar
-        :active-dates="commitActivityDates"
-        :active-color="'#71717a'"
-      />
-    </div>
-
-    <!-- Recent Commits -->
-    <div v-if="hasCommits" class="break-inside-avoid overflow-hidden min-w-0">
-      <StatsSectionHeader title="RECENT GITHUB COMMITS" />
-      <div class="space-y-2">
-        <div
-          v-for="project in recentProjects.slice(0, 10)"
-          :key="project.name"
-          class="flex items-baseline justify-between text-xs"
-        >
-          <div class="flex items-baseline gap-2 min-w-0 flex-1">
-            <!-- eslint-disable max-len,vue/max-len -->
-            <a
-              :href="project.url"
-              target="_blank"
-              rel="noopener"
-              class="text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors font-medium truncate text-xs"
-            >
-              <!-- eslint-enable max-len,vue/max-len -->
-              {{ project.name }}
-            </a>
-            <span
-              class="text-zinc-600 dark:text-zinc-400 truncate flex-1 text-xs"
-            >
-              {{ project.lastMessage }}
-            </span>
-          </div>
-          <span class="text-zinc-500 flex-shrink-0 ml-2 tabular-nums text-xs">
-            {{ formatRelativeTime(project.lastCommit) }}
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Contribution Streak -->
-    <div v-if="hasCommits" class="break-inside-avoid overflow-hidden min-w-0">
-      <StatsSectionHeader title="GITHUB STREAK" />
-      <div class="text-2xl font-bold text-zinc-700 dark:text-zinc-300">
-        {{ getContributionStreak }} days
-      </div>
-    </div>
-  </div>
-  <StatsDataState v-else message="GitHub data unavailable" />
-</template>
-
 <script setup lang="ts">
 // Nuxt 4 auto-imports components!
 import { format } from 'date-fns/format'
@@ -297,3 +195,105 @@ function formatRelativeTime(dateStr: string) {
   })
 }
 </script>
+
+<template>
+  <div
+    v-if="stats"
+    class="grid gap-0.5 auto-fit-columns font-mono overflow-hidden"
+  >
+    <!-- Primary Stats -->
+    <div class="col-span-full">
+      <div class="flex justify-around items-start gap-2 py-2">
+        <div class="text-center">
+          <div class="stat-value text-2xl font-bold">
+            <AnimatedNumber
+              :value="totalCommits"
+              format="commas"
+              :duration="1600"
+              priority="primary"
+              :decimals="0"
+            />
+          </div>
+          <!-- eslint-disable max-len,vue/max-len -->
+          <div
+            class="stat-label text-xs text-zinc-500 uppercase tracking-wider mt-2"
+          >
+            GITHUB COMMITS
+          </div>
+          <!-- eslint-enable max-len,vue/max-len -->
+        </div>
+        <div class="text-center">
+          <div class="stat-value text-2xl font-bold">
+            <AnimatedNumber
+              :value="stats.stats.totalRepos"
+              format="default"
+              :duration="1600"
+              priority="secondary"
+            />
+          </div>
+          <!-- eslint-disable max-len,vue/max-len -->
+          <div
+            class="stat-label text-xs text-zinc-500 uppercase tracking-wider mt-2"
+          >
+            TOTAL REPOS
+          </div>
+          <!-- eslint-enable max-len,vue/max-len -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Calendar -->
+    <div v-if="hasCommits" class="col-span-full">
+      <StatsSectionHeader title="GITHUB COMMIT ACTIVITY" />
+      <div class="text-zinc-500 mb-2 text-xs leading-[10px]">
+        PAST 30 DAYS · {{ commitActivityDates.length }} ACTIVE DAYS
+      </div>
+      <ActivityCalendar
+        :active-dates="commitActivityDates"
+        :active-color="'#71717a'"
+      />
+    </div>
+
+    <!-- Recent Commits -->
+    <div v-if="hasCommits" class="break-inside-avoid overflow-hidden min-w-0">
+      <StatsSectionHeader title="RECENT GITHUB COMMITS" />
+      <div class="space-y-2">
+        <div
+          v-for="project in recentProjects.slice(0, 10)"
+          :key="project.name"
+          class="flex items-baseline justify-between text-xs"
+        >
+          <div class="flex items-baseline gap-2 min-w-0 flex-1">
+            <!-- eslint-disable max-len,vue/max-len -->
+            <a
+              :href="project.url"
+              target="_blank"
+              rel="noopener"
+              class="text-zinc-700 dark:text-zinc-300 hover:text-black dark:hover:text-white transition-colors font-medium truncate text-xs"
+            >
+              <!-- eslint-enable max-len,vue/max-len -->
+              {{ project.name }}
+            </a>
+            <span
+              class="text-zinc-600 dark:text-zinc-400 truncate flex-1 text-xs"
+            >
+              {{ project.lastMessage }}
+            </span>
+          </div>
+          <span class="text-zinc-500 flex-shrink-0 ml-2 tabular-nums text-xs">
+            {{ formatRelativeTime(project.lastCommit) }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contribution Streak -->
+    <div v-if="hasCommits" class="break-inside-avoid overflow-hidden min-w-0">
+      <StatsSectionHeader title="GITHUB STREAK" />
+      <div class="text-2xl font-bold text-zinc-700 dark:text-zinc-300">
+        {{ getContributionStreak }} days
+      </div>
+    </div>
+  </div>
+  <StatsDataState v-else message="GitHub data unavailable" />
+</template>

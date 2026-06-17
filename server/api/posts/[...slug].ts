@@ -91,6 +91,14 @@ export default defineEventHandler(async (event) => {
     const rawData = await readFile(filePath, 'utf-8')
     const data = JSON.parse(rawData)
 
+    // Privacy guard: never serve draft/hidden/unlisted/password-protected
+    // content in production by direct slug, even when its processed JSON ships
+    // in the build (e.g. draft projects written for local preview). Dev keeps
+    // previewing works-in-progress.
+    if (!import.meta.dev && isProtectedContent(data)) {
+      throw createError({ statusCode: 404, message: 'Post not found' })
+    }
+
     // console.log('API: Post data read:', {
     //   slug,
     //   hasToc: !!data.toc,
@@ -111,6 +119,25 @@ export default defineEventHandler(async (event) => {
     })
   }
 })
+
+/**
+ * True if the content is flagged draft/hidden/unlisted/password-protected
+ * (checked at both the top level and inside metadata). Used to keep such
+ * content out of production responses.
+ */
+function isProtectedContent(data: unknown): boolean {
+  if (!data || typeof data !== 'object') return false
+  const top = data as Record<string, unknown>
+  const meta = (top.metadata ?? {}) as Record<string, unknown>
+  const flag = (key: string) => Boolean(top[key] ?? meta[key])
+  return (
+    flag('draft') ||
+    flag('hidden') ||
+    flag('unlisted') ||
+    flag('password') ||
+    flag('passwordHash')
+  )
+}
 
 async function _readPost(slug: string): Promise<PostData> {
   const filePath = path.join(process.cwd(), 'content/processed', `${slug}.json`)

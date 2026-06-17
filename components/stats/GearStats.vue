@@ -3,222 +3,6 @@
   @description Gear inventory statistics
   @props stats: Object - Gear statistics from CSV data
 -->
-<template>
-  <div
-    ref="gearStatsRef"
-    class="space-y-2 pr-4 md:pr-8 font-mono text-2xs leading-tight"
-  >
-    <!-- Ultra-Dense Stats Grid -->
-    <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
-      <div class="flex justify-between">
-        <span class="text-zinc-500">ITEMS</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
-          {{ totalItems }}
-        </span>
-      </div>
-      <div class="flex justify-between">
-        <span class="text-zinc-500">CONTAINERS</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
-          {{ containerCount }}
-        </span>
-      </div>
-      <div class="flex justify-between">
-        <span class="text-zinc-500">WEIGHT</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
-          {{ totalWeight.toFixed(1) }}oz
-        </span>
-      </div>
-      <div class="flex justify-between">
-        <span class="text-zinc-500">TYPES</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
-          {{ Object.keys(typeDistribution).length }}
-        </span>
-      </div>
-      <div class="flex justify-between">
-        <span class="text-zinc-500">LBS</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
-          {{ ouncesToPounds.toFixed(2) }}
-        </span>
-      </div>
-      <div class="flex justify-between">
-        <span class="text-zinc-500">G/ITEM</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
-          {{ gramsPerItem.toFixed(0) }}g
-        </span>
-      </div>
-      <div class="flex justify-between">
-        <span class="text-zinc-500">OZ/ITEM</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
-          {{ (totalWeight / totalItems).toFixed(1) }}
-        </span>
-      </div>
-      <div class="flex justify-between">
-        <span class="text-zinc-500">AVG WT</span>
-        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
-          {{ (totalWeight / containerCount).toFixed(1) }}oz
-        </span>
-      </div>
-    </div>
-
-    <!-- Micro-divider -->
-    <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-
-    <!-- Containers - Ultra Dense -->
-    <div class="space-y-0.5">
-      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
-        BAGS
-      </div>
-      <div
-        v-for="container in mainContainers"
-        :key="container.name"
-        class="row-hover-gap"
-      >
-        <div class="flex items-baseline gap-1 min-w-0 flex-1">
-          <span class="text-zinc-500 text-3xs">
-            {{ container.type.substring(0, 3) }}
-          </span>
-          <span class="text-zinc-700 dark:text-zinc-300 truncate text-2xs">
-            {{ container.name }}
-          </span>
-        </div>
-        <div
-          class="flex items-baseline gap-2 tabular-nums text-3xs flex-shrink-0"
-          :class="['text-zinc-500']"
-        >
-          <span>{{ container.itemCount }}</span>
-          <span class="text-zinc-700 dark:text-zinc-300">
-            {{ formatWeight(parseFloat(container.weight)) }}
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Micro-divider -->
-    <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-
-    <!-- Weight Per Type - Ultra Dense -->
-    <div class="space-y-0.5">
-      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
-        WEIGHT BY TYPE
-      </div>
-      <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
-        <div
-          v-for="item in weightPerType.slice(0, 10)"
-          :key="item.type"
-          class="flex items-baseline justify-between gap-0.5"
-        >
-          <span class="text-zinc-500 text-3xs uppercase truncate">
-            {{ item.type }}
-          </span>
-          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-3xs">
-            {{ formatWeight(item.weight) }}
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Micro-divider -->
-    <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-
-    <!-- Type Distribution - Compressed -->
-    <div class="space-y-0.5">
-      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
-        TYPE COUNTS
-      </div>
-      <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
-        <div
-          v-for="[type, count] in sortedTypeDistribution.slice(0, 10)"
-          :key="type"
-          class="flex items-center justify-between gap-0.5"
-        >
-          <span class="text-zinc-500 text-3xs uppercase truncate">
-            {{ type }}
-          </span>
-          <div class="flex items-center gap-0.5">
-            <div
-              class="h-1 bg-zinc-400 dark:bg-zinc-600 rounded-[1px]"
-              :style="{
-                width: `${Math.max(4, (count / maxTypeCount) * 20)}px`,
-              }"
-            ></div>
-            <span
-              class="tabular-nums text-3xs w-4 text-right"
-              :class="['text-zinc-700 dark:text-zinc-300']"
-            >
-              {{ count }}
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Favorites - Pinned to Top -->
-    <div v-if="favoriteItems.length > 0" class="space-y-0.5">
-      <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
-        ⭐ ESSENTIALS
-      </div>
-      <div
-        v-for="item in favoriteItems.slice(0, 8)"
-        :key="item.Name"
-        class="flex justify-between gap-2 text-3xs"
-      >
-        <span class="text-zinc-700 dark:text-zinc-300 truncate">
-          {{ item.Name }}
-        </span>
-        <span class="text-zinc-500 tabular-nums flex-shrink-0">
-          {{ formatWeight(parseFloat(item.Weight_oz || '0')) }}
-        </span>
-      </div>
-    </div>
-
-    <!-- Recently Used -->
-    <div v-if="recentlyUsed.length > 0" class="space-y-0.5">
-      <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
-        RECENTLY USED
-      </div>
-      <div
-        v-for="item in recentlyUsed.slice(0, 8)"
-        :key="item.Name"
-        class="flex justify-between gap-2 text-3xs"
-      >
-        <span class="text-zinc-700 dark:text-zinc-300 truncate">
-          {{ item.Name }}
-        </span>
-        <div class="flex items-baseline gap-1">
-          <span class="text-zinc-500 text-3xs">{{ item.Last_Used }}</span>
-          <span class="text-zinc-500 tabular-nums flex-shrink-0">
-            {{ formatWeight(parseFloat(item.Weight_oz || '0')) }}
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Average Weight Per Type -->
-    <div v-if="weightPerType.length > 0" class="space-y-0.5">
-      <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
-      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
-        AVG WT/TYPE
-      </div>
-      <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
-        <div
-          v-for="item in weightPerType.slice(0, 8)"
-          :key="item.type + '-avg'"
-          class="flex items-baseline justify-between gap-0.5"
-        >
-          <span class="text-zinc-500 text-3xs uppercase truncate">
-            {{ item.type }}
-          </span>
-          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-3xs">
-            {{ formatWeight(item.avgWeight) }}
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 // Nuxt 4 auto-imports everything!
 import * as d3 from 'd3'
@@ -451,6 +235,222 @@ onMounted(async () => {
   // Animation setup removed following delete-driven development
 })
 </script>
+
+<template>
+  <div
+    ref="gearStatsRef"
+    class="space-y-2 pr-4 md:pr-8 font-mono text-2xs leading-tight"
+  >
+    <!-- Ultra-Dense Stats Grid -->
+    <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">
+      <div class="flex justify-between">
+        <span class="text-zinc-500">ITEMS</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ totalItems }}
+        </span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-zinc-500">CONTAINERS</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ containerCount }}
+        </span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-zinc-500">WEIGHT</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ totalWeight.toFixed(1) }}oz
+        </span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-zinc-500">TYPES</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ Object.keys(typeDistribution).length }}
+        </span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-zinc-500">LBS</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ ouncesToPounds.toFixed(2) }}
+        </span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-zinc-500">G/ITEM</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ gramsPerItem.toFixed(0) }}g
+        </span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-zinc-500">OZ/ITEM</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ (totalWeight / totalItems).toFixed(1) }}
+        </span>
+      </div>
+      <div class="flex justify-between">
+        <span class="text-zinc-500">AVG WT</span>
+        <span class="text-zinc-700 dark:text-zinc-300 tabular-nums">
+          {{ (totalWeight / containerCount).toFixed(1) }}oz
+        </span>
+      </div>
+    </div>
+
+    <!-- Micro-divider -->
+    <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+
+    <!-- Containers - Ultra Dense -->
+    <div class="space-y-0.5">
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
+        BAGS
+      </div>
+      <div
+        v-for="container in mainContainers"
+        :key="container.name"
+        class="row-hover-gap"
+      >
+        <div class="flex items-baseline gap-1 min-w-0 flex-1">
+          <span class="text-zinc-500 text-3xs">
+            {{ container.type.substring(0, 3) }}
+          </span>
+          <span class="text-zinc-700 dark:text-zinc-300 truncate text-2xs">
+            {{ container.name }}
+          </span>
+        </div>
+        <div
+          class="flex items-baseline gap-2 tabular-nums text-3xs flex-shrink-0"
+          :class="['text-zinc-500']"
+        >
+          <span>{{ container.itemCount }}</span>
+          <span class="text-zinc-700 dark:text-zinc-300">
+            {{ formatWeight(parseFloat(container.weight)) }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Micro-divider -->
+    <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+
+    <!-- Weight Per Type - Ultra Dense -->
+    <div class="space-y-0.5">
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
+        WEIGHT BY TYPE
+      </div>
+      <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
+        <div
+          v-for="item in weightPerType.slice(0, 10)"
+          :key="item.type"
+          class="flex items-baseline justify-between gap-0.5"
+        >
+          <span class="text-zinc-500 text-3xs uppercase truncate">
+            {{ item.type }}
+          </span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-3xs">
+            {{ formatWeight(item.weight) }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Micro-divider -->
+    <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+
+    <!-- Type Distribution - Compressed -->
+    <div class="space-y-0.5">
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
+        TYPE COUNTS
+      </div>
+      <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
+        <div
+          v-for="[type, count] in sortedTypeDistribution.slice(0, 10)"
+          :key="type"
+          class="flex items-center justify-between gap-0.5"
+        >
+          <span class="text-zinc-500 text-3xs uppercase truncate">
+            {{ type }}
+          </span>
+          <div class="flex items-center gap-0.5">
+            <div
+              class="h-1 bg-zinc-400 dark:bg-zinc-600 rounded-[1px]"
+              :style="{
+                width: `${Math.max(4, (count / maxTypeCount) * 20)}px`,
+              }"
+            ></div>
+            <span
+              class="tabular-nums text-3xs w-4 text-right"
+              :class="['text-zinc-700 dark:text-zinc-300']"
+            >
+              {{ count }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Favorites - Pinned to Top -->
+    <div v-if="favoriteItems.length > 0" class="space-y-0.5">
+      <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
+        ⭐ ESSENTIALS
+      </div>
+      <div
+        v-for="item in favoriteItems.slice(0, 8)"
+        :key="item.Name"
+        class="flex justify-between gap-2 text-3xs"
+      >
+        <span class="text-zinc-700 dark:text-zinc-300 truncate">
+          {{ item.Name }}
+        </span>
+        <span class="text-zinc-500 tabular-nums flex-shrink-0">
+          {{ formatWeight(parseFloat(item.Weight_oz || '0')) }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Recently Used -->
+    <div v-if="recentlyUsed.length > 0" class="space-y-0.5">
+      <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
+        RECENTLY USED
+      </div>
+      <div
+        v-for="item in recentlyUsed.slice(0, 8)"
+        :key="item.Name"
+        class="flex justify-between gap-2 text-3xs"
+      >
+        <span class="text-zinc-700 dark:text-zinc-300 truncate">
+          {{ item.Name }}
+        </span>
+        <div class="flex items-baseline gap-1">
+          <span class="text-zinc-500 text-3xs">{{ item.Last_Used }}</span>
+          <span class="text-zinc-500 tabular-nums flex-shrink-0">
+            {{ formatWeight(parseFloat(item.Weight_oz || '0')) }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Average Weight Per Type -->
+    <div v-if="weightPerType.length > 0" class="space-y-0.5">
+      <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+      <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
+        AVG WT/TYPE
+      </div>
+      <div class="grid grid-cols-2 gap-x-3 gap-y-0.5">
+        <div
+          v-for="item in weightPerType.slice(0, 8)"
+          :key="item.type + '-avg'"
+          class="flex items-baseline justify-between gap-0.5"
+        >
+          <span class="text-zinc-500 text-3xs uppercase truncate">
+            {{ item.type }}
+          </span>
+          <span class="text-zinc-700 dark:text-zinc-300 tabular-nums text-3xs">
+            {{ formatWeight(item.avgWeight) }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .text-2xl {

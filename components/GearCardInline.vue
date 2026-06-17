@@ -1,3 +1,39 @@
+<script setup lang="ts">
+const props = defineProps({
+  gearSlug: { type: String, required: true },
+})
+
+const { data: item, pending } = useFetch(`/api/gear/${props.gearSlug}`, {
+  getCachedData: (key, nuxtApp) =>
+    nuxtApp.payload.data[key] ?? nuxtApp.static.data[key],
+})
+
+const weightGrams = computed(() => {
+  const oz = Number.parseFloat(item.value?.Weight_oz ?? '')
+  if (!oz || oz <= 0) return '—'
+  const g = Math.round(oz * 28.3495)
+  return g >= 1000 ? `${(g / 1000).toFixed(1)}k` : g
+})
+
+// First sentence of Notes, capped at 120 chars
+const noteExcerpt = computed(() => {
+  const notes = item.value?.Notes?.trim()
+  if (!notes) return null
+  const first = notes.split(/\.\s+/)[0]
+  return first.length > 120 ? first.slice(0, 117) + '…' : first + '.'
+})
+
+const conditionColor = computed(() => {
+  const map: Record<string, string> = {
+    New: 'tag-bright',
+    Good: 'tag-mid',
+    Fair: 'tag-dim',
+    Poor: 'tag-faint',
+  }
+  return map[item.value?.Condition ?? ''] ?? ''
+})
+</script>
+
 <template>
   <div v-if="item" class="card">
     <div class="card-top">
@@ -36,42 +72,6 @@
     <span class="error-label">gear: {{ gearSlug }}</span>
   </div>
 </template>
-
-<script setup lang="ts">
-const props = defineProps({
-  gearSlug: { type: String, required: true },
-})
-
-const { data: item, pending } = useFetch(`/api/gear/${props.gearSlug}`, {
-  getCachedData: (key, nuxtApp) =>
-    nuxtApp.payload.data[key] ?? nuxtApp.static.data[key],
-})
-
-const weightGrams = computed(() => {
-  const oz = Number.parseFloat(item.value?.Weight_oz ?? '')
-  if (!oz || oz <= 0) return '—'
-  const g = Math.round(oz * 28.3495)
-  return g >= 1000 ? `${(g / 1000).toFixed(1)}k` : g
-})
-
-// First sentence of Notes, capped at 120 chars
-const noteExcerpt = computed(() => {
-  const notes = item.value?.Notes?.trim()
-  if (!notes) return null
-  const first = notes.split(/\.\s+/)[0]
-  return first.length > 120 ? first.slice(0, 117) + '…' : first + '.'
-})
-
-const conditionColor = computed(() => {
-  const map: Record<string, string> = {
-    New: 'tag-bright',
-    Good: 'tag-mid',
-    Fair: 'tag-dim',
-    Poor: 'tag-faint',
-  }
-  return map[item.value?.Condition ?? ''] ?? ''
-})
-</script>
 
 <style scoped>
 .card {

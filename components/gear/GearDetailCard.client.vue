@@ -3,95 +3,6 @@
   @description 3D gear detail card with mouse-tracking parallax, showing comprehensive item information
   @props gearItem: Object - Gear item with Name, Type, Weight, Tier, Parent Container, amazon, imageUrl, etc.
 -->
-<template>
-  <div ref="cardRef" class="gear-card-container" :style="cardTransform">
-    <!-- Header -->
-    <div class="text-center mb-8">
-      <div class="text-4xl mb-2">
-        {{ getTypeSymbol(gearItem.Type) }}
-      </div>
-      <h1 class="text-2xl font-light text-zinc-900 dark:text-zinc-100 mb-2">
-        {{ gearItem.Name }}
-      </h1>
-      <div :class="headerLabelClass">
-        {{ gearItem.Type }}
-      </div>
-    </div>
-
-    <!-- Photo Section -->
-    <div v-if="gearImagePath" class="mb-8 flex justify-center">
-      <div class="gear-img-square">
-        <img
-          :src="gearImagePath"
-          :alt="`Photo of ${gearItem.Name}`"
-          class="w-full h-full object-cover"
-          loading="lazy"
-          width="480"
-          height="480"
-        />
-      </div>
-    </div>
-
-    <!-- Weight - Hero stat -->
-    <div class="text-center mb-8 p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-xl">
-      <div :class="weightDisplayClass">{{ displayWeight }}g</div>
-      <div :class="weightLabelClass">Weight</div>
-    </div>
-
-    <!-- Stats Grid -->
-    <div class="grid grid-cols-2 gap-4 mb-8">
-      <div class="text-center p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
-        <div class="text-lg font-normal text-zinc-900 dark:text-zinc-100">
-          T{{ itemTier }}
-        </div>
-        <div :class="tierLabelClass">Tier</div>
-      </div>
-      <div class="text-center p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
-        <div class="text-lg font-normal text-zinc-900 dark:text-zinc-100">
-          {{ gearItem.Waterproof || '—' }}
-        </div>
-        <div :class="tierLabelClass">H₂O</div>
-      </div>
-    </div>
-
-    <!-- Container -->
-    <div class="text-center text-sm text-zinc-600 dark:text-zinc-400">
-      <span class="uppercase tracking-widest">
-        {{ gearItem['Parent Container'] || 'Unassigned' }}
-      </span>
-    </div>
-
-    <!-- Buy link if available -->
-    <div v-if="gearItem.amazon" class="text-center mt-8">
-      <a
-        :href="amazonUrl"
-        target="_blank"
-        rel="nofollow noopener"
-        class="btn-inline-flex"
-      >
-        Buy
-      </a>
-    </div>
-
-    <!-- Item Details Table -->
-    <div class="mt-8 border-t border-zinc-200 dark:border-zinc-700 pt-8">
-      <h3 class="label-tracked-md">Item Details</h3>
-      <div class="grid grid-cols-1 gap-2 text-xs">
-        <div
-          v-for="(value, key) in itemDetails"
-          :key="key"
-          class="row-bordered"
-        >
-          <span :class="fieldLabelClass">{{ formatFieldName(key) }}</span>
-          <span :class="fieldValueClass" :title="value">
-            {{ value || '—' }}
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { useMouse } from '@vueuse/core'
 
@@ -231,6 +142,95 @@ defineExpose({
   triggerExit,
 })
 </script>
+
+<template>
+  <div ref="cardRef" class="gear-card-container" :style="cardTransform">
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <div class="text-4xl mb-2">
+        {{ getTypeSymbol(gearItem.Type) }}
+      </div>
+      <h1 class="text-2xl font-light text-zinc-900 dark:text-zinc-100 mb-2">
+        {{ gearItem.Name }}
+      </h1>
+      <div :class="headerLabelClass">
+        {{ gearItem.Type }}
+      </div>
+    </div>
+
+    <!-- Photo Section -->
+    <div v-if="gearImagePath" class="mb-8 flex justify-center">
+      <div class="gear-img-square">
+        <img
+          :src="gearImagePath"
+          :alt="`Photo of ${gearItem.Name}`"
+          class="w-full h-full object-cover"
+          loading="lazy"
+          width="480"
+          height="480"
+        />
+      </div>
+    </div>
+
+    <!-- Weight - Hero stat -->
+    <div class="text-center mb-8 p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-xl">
+      <div :class="weightDisplayClass">{{ displayWeight }}g</div>
+      <div :class="weightLabelClass">Weight</div>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="grid grid-cols-2 gap-4 mb-8">
+      <div class="text-center p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
+        <div class="text-lg font-normal text-zinc-900 dark:text-zinc-100">
+          T{{ itemTier }}
+        </div>
+        <div :class="tierLabelClass">Tier</div>
+      </div>
+      <div class="text-center p-4 bg-zinc-50 dark:bg-zinc-800/50 rounded-lg">
+        <div class="text-lg font-normal text-zinc-900 dark:text-zinc-100">
+          {{ gearItem.Waterproof || '—' }}
+        </div>
+        <div :class="tierLabelClass">H₂O</div>
+      </div>
+    </div>
+
+    <!-- Container -->
+    <div class="text-center text-sm text-zinc-600 dark:text-zinc-400">
+      <span class="uppercase tracking-widest">
+        {{ gearItem['Parent Container'] || 'Unassigned' }}
+      </span>
+    </div>
+
+    <!-- Buy link if available -->
+    <div v-if="gearItem.amazon" class="text-center mt-8">
+      <a
+        :href="amazonUrl"
+        target="_blank"
+        rel="nofollow noopener"
+        class="btn-inline-flex"
+      >
+        Buy
+      </a>
+    </div>
+
+    <!-- Item Details Table -->
+    <div class="mt-8 border-t border-zinc-200 dark:border-zinc-700 pt-8">
+      <h3 class="label-tracked-md">Item Details</h3>
+      <div class="grid grid-cols-1 gap-2 text-xs">
+        <div
+          v-for="(value, key) in itemDetails"
+          :key="key"
+          class="row-bordered"
+        >
+          <span :class="fieldLabelClass">{{ formatFieldName(key) }}</span>
+          <span :class="fieldValueClass" :title="value">
+            {{ value || '—' }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .gear-card {

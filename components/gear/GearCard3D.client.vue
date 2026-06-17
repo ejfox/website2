@@ -1,90 +1,3 @@
-<template>
-  <div class="gear-card-container" :style="tilt">
-    <!-- Header -->
-    <div class="card-header">
-      <div class="text-2xl mb-2">{{ TYPE_SYMBOLS[gearItem.Type] || '—' }}</div>
-      <h1 class="text-xl font-light text-primary mb-1">{{ gearItem.Name }}</h1>
-      <div class="label-uppercase">{{ gearItem.Type }}</div>
-    </div>
-
-    <!-- Photo -->
-    <div v-if="photoUrl" class="photo-wrap">
-      <div class="gear-img-square">
-        <img
-          :src="photoUrl"
-          :alt="`Photo of ${gearItem.Name}`"
-          class="w-full h-full object-cover"
-          loading="lazy"
-          width="480"
-          height="480"
-          style="image-rendering: pixelated"
-        />
-      </div>
-    </div>
-
-    <!-- Weight hero -->
-    <div class="section text-center">
-      <div class="stat-value">{{ displayWeight }}g</div>
-      <div class="label-uppercase">Weight</div>
-    </div>
-
-    <!-- H₂O + Priority -->
-    <div class="section section-grid">
-      <div class="text-center">
-        <div class="text-sm font-mono text-primary">
-          {{ gearItem.Waterproof || '—' }}
-        </div>
-        <div class="label-uppercase">H₂O</div>
-      </div>
-      <div class="text-center">
-        <div class="text-sm font-mono text-primary tracking-tighter">
-          {{ PRIORITY_PIPS[gearItem.Priority] || '—' }}
-        </div>
-        <div class="label-uppercase">Priority</div>
-      </div>
-    </div>
-
-    <!-- Container breadcrumb -->
-    <div class="section text-center">
-      <span class="label-uppercase">
-        {{ (gearItem['Parent Container'] || 'Unassigned').toUpperCase() }} › ●
-      </span>
-    </div>
-
-    <!-- Notes callout -->
-    <div v-if="gearItem.Notes" class="callout">
-      <span class="text-3xs text-secondary italic">{{ gearItem.Notes }}</span>
-    </div>
-
-    <!-- Buy link -->
-    <div v-if="gearItem.amazon" class="text-center mt-3">
-      <a
-        :href="amazonUrl"
-        target="_blank"
-        rel="nofollow noopener"
-        class="btn-inline-flex"
-      >
-        Buy
-      </a>
-    </div>
-
-    <!-- Details table -->
-    <div class="details-section">
-      <h3 class="label-tracked-md">Item Details</h3>
-      <div class="grid grid-cols-1 gap-2 text-xs">
-        <div
-          v-for="(value, key) in itemDetails"
-          :key="key"
-          class="row-bordered"
-        >
-          <span class="detail-key">{{ humanize(key) }}</span>
-          <span class="detail-val" :title="value">{{ value || '—' }}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { useMouse, useWindowSize, useRafFn } from '@vueuse/core'
 import { ref, onMounted } from 'vue'
@@ -188,6 +101,93 @@ const humanize = (key) =>
     .replace(/^\w/, (c) => c.toUpperCase())
     .trim()
 </script>
+
+<template>
+  <div class="gear-card-container" :style="tilt">
+    <!-- Header -->
+    <div class="card-header">
+      <div class="text-2xl mb-2">{{ TYPE_SYMBOLS[gearItem.Type] || '—' }}</div>
+      <h1 class="text-xl font-light text-primary mb-1">{{ gearItem.Name }}</h1>
+      <div class="label-uppercase">{{ gearItem.Type }}</div>
+    </div>
+
+    <!-- Photo -->
+    <div v-if="photoUrl" class="photo-wrap">
+      <div class="gear-img-square">
+        <img
+          :src="photoUrl"
+          :alt="`Photo of ${gearItem.Name}`"
+          class="w-full h-full object-cover"
+          loading="lazy"
+          width="480"
+          height="480"
+          style="image-rendering: pixelated"
+        />
+      </div>
+    </div>
+
+    <!-- Weight hero -->
+    <div class="section text-center">
+      <div class="stat-value">{{ displayWeight }}g</div>
+      <div class="label-uppercase">Weight</div>
+    </div>
+
+    <!-- H₂O + Priority -->
+    <div class="section section-grid">
+      <div class="text-center">
+        <div class="text-sm font-mono text-primary">
+          {{ gearItem.Waterproof || '—' }}
+        </div>
+        <div class="label-uppercase">H₂O</div>
+      </div>
+      <div class="text-center">
+        <div class="text-sm font-mono text-primary tracking-tighter">
+          {{ PRIORITY_PIPS[gearItem.Priority] || '—' }}
+        </div>
+        <div class="label-uppercase">Priority</div>
+      </div>
+    </div>
+
+    <!-- Container breadcrumb -->
+    <div class="section text-center">
+      <span class="label-uppercase">
+        {{ (gearItem['Parent Container'] || 'Unassigned').toUpperCase() }} › ●
+      </span>
+    </div>
+
+    <!-- Notes callout -->
+    <div v-if="gearItem.Notes" class="callout">
+      <span class="text-3xs text-secondary italic">{{ gearItem.Notes }}</span>
+    </div>
+
+    <!-- Buy link -->
+    <div v-if="gearItem.amazon" class="text-center mt-3">
+      <a
+        :href="amazonUrl"
+        target="_blank"
+        rel="nofollow noopener"
+        class="btn-inline-flex"
+      >
+        Buy
+      </a>
+    </div>
+
+    <!-- Details table -->
+    <div class="details-section">
+      <h3 class="label-tracked-md">Item Details</h3>
+      <div class="grid grid-cols-1 gap-2 text-xs">
+        <div
+          v-for="(value, key) in itemDetails"
+          :key="key"
+          class="row-bordered"
+        >
+          <span class="detail-key">{{ humanize(key) }}</span>
+          <span class="detail-val" :title="value">{{ value || '—' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .gear-card-container {

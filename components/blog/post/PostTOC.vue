@@ -3,6 +3,24 @@
   @description Table of contents for blog post sidebar
   @props tocChildren - array of { slug, text }, activeSection - current section id
 -->
+<script setup lang="ts">
+const props = defineProps<{
+  tocChildren: Array<{ slug: string; text: string }>
+  activeSection: string
+}>()
+
+function isActive(slug: string): boolean {
+  return props.activeSection === slug
+}
+
+function scrollToSection(slug: string) {
+  const el = document.getElementById(slug)
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+}
+</script>
+
 <template>
   <div v-if="tocChildren.length > 0" class="toc pt-8 pb-4">
     <div class="pl-0 relative">
@@ -43,21 +61,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-const props = defineProps<{
-  tocChildren: Array<{ slug: string; text: string }>
-  activeSection: string
-}>()
-
-function isActive(slug: string): boolean {
-  return props.activeSection === slug
-}
-
-function scrollToSection(slug: string) {
-  const el = document.getElementById(slug)
-  if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-}
-</script>

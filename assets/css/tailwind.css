@@ -270,7 +270,8 @@
 
   /* Title variants */
   .title-link {
-    @apply font-serif text-lg md:text-xl font-normal text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors duration-200 tracking-tight text-pretty;
+    @apply text-lg md:text-xl font-normal text-zinc-900 dark:text-zinc-100 hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors duration-200 tracking-tight text-pretty;
+    font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
     overflow-wrap: break-word;
   }
 

@@ -180,6 +180,40 @@ export default createConfigForNuxt({
       'vue/no-v-html': 'off', // Intentional for markdown
       'vue/no-multiple-template-root': 'off', // Vue 3
 
+      // SFC structure: <script> → <template> → <style>
+      'vue/block-order': ['error', { order: ['script', 'template', 'style'] }],
+
+      // Macro ordering: defineProps → defineEmits → defineSlots
+      'vue/define-macros-order': [
+        'error',
+        {
+          order: ['defineProps', 'defineEmits', 'defineSlots'],
+          defineExposeLast: true,
+        },
+      ],
+
+      // Consistent attribute order in templates
+      'vue/attributes-order': [
+        'error',
+        {
+          order: [
+            'DEFINITION', // is, v-is
+            'LIST_RENDERING', // v-for
+            'CONDITIONALS', // v-if, v-else-if, v-else, v-show
+            'RENDER_MODIFIERS', // v-once, v-pre
+            'GLOBAL', // id
+            'UNIQUE', // ref, key
+            'SLOT', // v-slot
+            'TWO_WAY_BINDING', // v-model
+            'OTHER_DIRECTIVES',
+            'OTHER_ATTR', // custom props
+            'EVENTS', // @click, v-on
+            'CONTENT', // v-html, v-text
+          ],
+          alphabetical: false,
+        },
+      ],
+
       // Catch refactoring mistakes in templates
       'vue/no-unused-components': 'error',
       'vue/no-unused-vars': 'error',

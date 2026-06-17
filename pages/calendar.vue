@@ -1,29 +1,3 @@
-<template>
-  <div class="calendar-page">
-    <div id="cal-embed" class="cal-embed-container"></div>
-
-    <div class="api-section">
-      <h2>curl my availability</h2>
-      <p class="api-note">Super-vanilla (no deps):</p>
-      <div class="code-block">
-        <pre><code>curl -s https://ejfox.com/api/cal/available-slots</code></pre>
-      </div>
-      <p class="api-note">Pick a slot (requires `jq` + `fzf`):</p>
-      <div class="code-block">
-        <pre><code>curl -s https://ejfox.com/api/cal/available-slots \
-  | jq -r '.slots[]|"\(.naturalTime)\t\(.bookingUrl)"' \
-  | fzf | cut -f2 | xargs open</code></pre>
-      </div>
-      <p class="api-note">Linux version:</p>
-      <div class="code-block">
-        <pre><code>curl -s https://ejfox.com/api/cal/available-slots \
-  | jq -r '.slots[]|"\(.naturalTime)\t\(.bookingUrl)"' \
-  | fzf | cut -f2 | xargs xdg-open</code></pre>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { useDark } from '@vueuse/core'
 
@@ -103,6 +77,32 @@ function updateCalTheme() {
   })
 }
 </script>
+
+<template>
+  <div class="calendar-page">
+    <div id="cal-embed" class="cal-embed-container"></div>
+
+    <div class="api-section">
+      <h2>curl my availability</h2>
+      <p class="api-note">Super-vanilla (no deps):</p>
+      <div class="code-block">
+        <pre><code>curl -s https://ejfox.com/api/cal/available-slots</code></pre>
+      </div>
+      <p class="api-note">Pick a slot (requires `jq` + `fzf`):</p>
+      <div class="code-block">
+        <pre><code>curl -s https://ejfox.com/api/cal/available-slots \
+  | jq -r '.slots[]|"\(.naturalTime)\t\(.bookingUrl)"' \
+  | fzf | cut -f2 | xargs open</code></pre>
+      </div>
+      <p class="api-note">Linux version:</p>
+      <div class="code-block">
+        <pre><code>curl -s https://ejfox.com/api/cal/available-slots \
+  | jq -r '.slots[]|"\(.naturalTime)\t\(.bookingUrl)"' \
+  | fzf | cut -f2 | xargs xdg-open</code></pre>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .calendar-page {

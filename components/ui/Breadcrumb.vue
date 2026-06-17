@@ -3,6 +3,17 @@
   @description Navigation breadcrumb trail with Home link and path segments
   @props breadcrumbs: Breadcrumb[] - Array of breadcrumb objects with label and optional href
 -->
+<script setup lang="ts">
+interface Breadcrumb {
+  label: string
+  href?: string
+}
+
+defineProps<{
+  breadcrumbs: Breadcrumb[]
+}>()
+</script>
+
 <template>
   <!--  eslint-disable-next-line vue/max-len, max-len -->
   <nav
@@ -30,17 +41,6 @@
     </template>
   </nav>
 </template>
-
-<script setup lang="ts">
-interface Breadcrumb {
-  label: string
-  href?: string
-}
-
-defineProps<{
-  breadcrumbs: Breadcrumb[]
-}>()
-</script>
 
 <style scoped>
 nav {

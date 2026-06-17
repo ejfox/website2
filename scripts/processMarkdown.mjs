@@ -36,6 +36,7 @@ import {
   remarkAi2htmlEmbed,
   remarkPredictionRef,
   remarkGearCard,
+  remarkHandDrawn,
   remarkObsidianSupport,
   rehypeAddClassToParagraphs,
   remarkEnhanceLinks,
@@ -239,6 +240,7 @@ const processor = unified()
   .use(remarkAi2htmlEmbed)
   .use(remarkPredictionRef)
   .use(remarkGearCard)
+  .use(remarkHandDrawn)
   .use(remarkMermaid)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)

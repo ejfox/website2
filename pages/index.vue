@@ -1,40 +1,9 @@
 <script setup>
-// Lazy load calendar component for faster FCP
 const NextAvailableSlot = defineAsyncComponent(
   () => import('~/components/consulting/NextAvailableSlot.vue')
 )
 
-const runtimeConfig = useRuntimeConfig()
-const baseUrl = computed(
-  () => runtimeConfig.public?.baseUrl || 'https://ejfox.com'
-)
-
-const homepageTitle = 'EJ Fox | Building newsroom-ready data experiences'
-const homepageDescription =
-  'Data visualization engineer and investigative journalist crafting interactive stories, newsroom tooling, and climate dashboards through room302.studio.'
-const homepageOgImage = computed(
-  () => new URL('/og-image.png', baseUrl.value).href
-)
-
-const homepageSchema = computed(() => ({
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'EJ Fox',
-  url: baseUrl.value,
-  description: homepageDescription,
-  inLanguage: 'en-US',
-  publisher: {
-    '@type': 'Person',
-    name: 'EJ Fox',
-    url: baseUrl.value,
-  },
-  about: {
-    '@type': 'Thing',
-    name: 'Data visualization, investigative journalism, newsroom tooling',
-  },
-}))
-
-const { getPostBySlug, getAllPosts: _getAllPosts } = useProcessedMarkdown()
+const { getPostBySlug, getAllPosts } = useProcessedMarkdown()
 const { revealContainer: homeReveal } = useScrollReveal({
   selector: ':scope > *',
   staggerDelay: 40,
@@ -42,127 +11,139 @@ const { revealContainer: homeReveal } = useScrollReveal({
   duration: 250,
 })
 
-const { data: indexContent, pending: _indexPending } = await useAsyncData(
-  'index-content',
-  () => getPostBySlug('index')
+const { data: indexContent } = await useAsyncData('index-content', () =>
+  getPostBySlug('index')
 )
 
-// Mount dynamic calendar component into placeholder
-const calendarSlotMounted = ref(false)
+// Check if there's a blog post published today
+const { data: todaysPost } = await useAsyncData('todays-post', async () => {
+  const posts = await getAllPosts()
+  const today = new Date().toISOString().split('T')[0]
+  const post = posts.find((p) => p.date && p.date.startsWith(today))
+  return post || null
+})
 
+// Weekly creative pulse: words written + GitHub activity
+const { data: weeklyPulse } = await useAsyncData('weekly-pulse', async () => {
+  const now = new Date()
+  const startOfWeek = new Date(now)
+  startOfWeek.setDate(now.getDate() - now.getDay())
+  startOfWeek.setHours(0, 0, 0, 0)
+
+  // Blog words this week from manifest
+  const posts = await getAllPosts()
+  const postsThisWeek = posts.filter((p) => {
+    if (!p.date) return false
+    return new Date(p.date) >= startOfWeek
+  })
+  const wordsThisWeek = postsThisWeek.reduce(
+    (sum, p) => sum + (p.metadata?.words || 0),
+    0
+  )
+
+  // GitHub activity this week
+  let commits = 0
+  let projectNames = []
+  try {
+    const github = await $fetch('/api/github')
+    const weekCommits = (github?.detail?.commits || []).filter(
+      (c) => new Date(c.occurredAt) >= startOfWeek
+    )
+    commits = weekCommits.length
+    projectNames = [...new Set(weekCommits.map((c) => c.repository.name))]
+  } catch {
+    // GitHub API may fail, that's fine
+  }
+
+  if (wordsThisWeek === 0 && commits === 0) return null
+
+  return { wordsThisWeek, commits, projectNames }
+})
+
+// Mount dynamic calendar component into placeholder rendered by v-html
+const calendarSlotMounted = ref(false)
 onMounted(() => {
+  // Wait for v-html to render before teleporting into it
   nextTick(() => {
-    const placeholder = document.querySelector('#next-available-spot')
-    if (placeholder) {
+    if (document.querySelector('#next-available-spot')) {
       calendarSlotMounted.value = true
     }
   })
 })
 
-// SEO and performance optimization
-useSeoMeta(() => ({
-  title: homepageTitle,
-  description: homepageDescription,
-  ogTitle: homepageTitle,
-  ogDescription: homepageDescription,
-  ogUrl: baseUrl.value,
-  ogType: 'website',
-  ogImage: homepageOgImage.value,
-  ogImageWidth: '1200',
-  ogImageHeight: '630',
-  ogImageAlt: 'Data visualization and storytelling work by EJ Fox',
-  twitterCard: 'summary_large_image',
-  twitterTitle: homepageTitle,
-  twitterDescription: homepageDescription,
-  twitterImage: homepageOgImage.value,
-  twitterImageAlt: 'Data visualization and storytelling work by EJ Fox',
-}))
-useHead({
-  link: [{ key: 'canonical', rel: 'canonical', href: baseUrl.value }],
-  script: [
-    {
-      key: 'schema-homepage',
-      type: 'application/ld+json',
-      children: JSON.stringify(homepageSchema.value),
-    },
-  ],
+// SEO
+const title = 'EJ Fox | Building newsroom-ready data experiences'
+const description =
+  'Data visualization engineer and investigative journalist crafting interactive stories, newsroom tooling, and climate dashboards through room302.studio.'
+
+usePageSeo({
+  title,
+  description,
+  type: 'website',
 })
 </script>
 
 <template>
   <main class="container-main h-card pt-8">
-    <!-- Content -->
     <div ref="homeReveal" style="max-width: 65ch">
       <template v-if="indexContent">
-        <!-- Data overlay -->
         <div class="mono-xs text-secondary mb-4 tabular">
           <span>INDEX</span>
           <span class="mx-2 text-divider">·</span>
           <span>{{ new Date().toISOString().split('T')[0] }}</span>
-          <span class="mx-2 text-divider">·</span>
-          <span>
-            {{
-              indexContent?.html?.length
-                ? (indexContent.html.length / 1024).toFixed(1) + 'KB'
-                : '0KB'
-            }}
-          </span>
         </div>
         <h1
           class="font-serif text-4xl md:text-6xl font-light section-spacing-lg"
         >
           {{ indexContent.title }}
         </h1>
-        <!-- Static content rendered directly -->
         <div
           id="index-content"
-          class="font-serif prose prose-zinc dark:prose-invert max-w-none"
+          class="font-serif prose prose-zinc dark:prose-invert max-w-none text-lg leading-relaxed"
           v-html="indexContent.html"
         />
       </template>
     </div>
 
-    <!-- Teleport dynamic calendar slot into markdown placeholder -->
     <teleport v-if="calendarSlotMounted" to="#next-available-spot">
       <NextAvailableSlot />
     </teleport>
+
+    <footer
+      v-if="todaysPost || weeklyPulse"
+      class="mt-16 mb-8 mono-xs text-secondary"
+      style="max-width: 65ch"
+    >
+      <p v-if="weeklyPulse">
+        <span v-if="weeklyPulse.wordsThisWeek">
+          +{{ weeklyPulse.wordsThisWeek.toLocaleString() }} words
+        </span>
+        <span v-if="weeklyPulse.wordsThisWeek && weeklyPulse.commits">,</span>
+        <span v-if="weeklyPulse.commits">
+          {{ weeklyPulse.commits }} commits across
+          {{ weeklyPulse.projectNames.length }}
+          {{ weeklyPulse.projectNames.length === 1 ? 'project' : 'projects' }}
+        </span>
+        this week
+      </p>
+      <p v-if="todaysPost" class="mt-2">
+        <NuxtLink
+          :to="`/blog/${todaysPost.slug}`"
+          class="text-secondary hover:text-primary transition-colors"
+        >
+          wrote something today: {{ todaysPost.title }}
+        </NuxtLink>
+      </p>
+    </footer>
   </main>
 </template>
 
 <style scoped>
-#index h1 {
-  display: none;
-}
-
-:deep(#index-content) {
-  @apply text-lg leading-relaxed;
-}
-
-:deep(#index-content p) {
-  @apply mb-4;
-}
-
 :deep(#index-content h2) {
   @apply font-serif text-2xl font-normal mt-8 mb-4;
 }
 
 :deep(#index-content h3) {
   @apply font-serif text-xl font-normal mt-8 mb-4;
-}
-
-:deep(#index-content ul) {
-  @apply list-disc pl-8 my-4;
-}
-
-:deep(#index-content li) {
-  @apply mb-2;
-}
-
-:deep(#index-content strong) {
-  @apply font-medium text-zinc-900 dark:text-zinc-100;
-}
-
-:deep(#index-content code) {
-  @apply font-mono text-sm;
 }
 </style>

@@ -1,3 +1,21 @@
+<script setup>
+import { getPrimaryNav } from '~/composables/useNavigation'
+
+const route = useRoute()
+const primaryNav = getPrimaryNav()
+
+const isBlogPost = computed(() => {
+  return route.path.startsWith('/blog/') && route.path !== '/blog/'
+})
+
+const isStatsSimple = computed(() => {
+  return route.path === '/stats' && route.query?.simple !== undefined
+})
+
+const linkClasses =
+  'block px-2 py-1.5 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
+</script>
+
 <template>
   <div
     id="app-container"
@@ -32,15 +50,15 @@
       <NuxtLink to="/" class="font-bold text-zinc-800 dark:text-zinc-200">
         EJ Fox
       </NuxtLink>
-      <NuxtLink to="/blog/" class="text-zinc-500 dark:text-zinc-400">
-        Blog
-      </NuxtLink>
-      <NuxtLink to="/projects" class="text-zinc-500 dark:text-zinc-400">
-        Projects
-      </NuxtLink>
-      <NuxtLink to="/consulting" class="text-zinc-500 dark:text-zinc-400">
-        Hire Me
-      </NuxtLink>
+      <template v-for="item in primaryNav" :key="item.href">
+        <NuxtLink
+          v-if="item.href !== '/'"
+          :to="item.href"
+          class="text-zinc-500 dark:text-zinc-400"
+        >
+          {{ item.label }}
+        </NuxtLink>
+      </template>
     </nav>
 
     <!-- Desktop sidebar -->
@@ -103,25 +121,6 @@
     <UiWebVitalsReporter />
   </div>
 </template>
-
-<script setup>
-import { computed } from 'vue'
-import { getPrimaryNav } from '~/composables/useNavigation'
-
-const route = useRoute()
-const primaryNav = getPrimaryNav()
-
-const isBlogPost = computed(() => {
-  return route.path.startsWith('/blog/') && route.path !== '/blog/'
-})
-
-const isStatsSimple = computed(() => {
-  return route.path === '/stats' && route.query?.simple !== undefined
-})
-
-const linkClasses =
-  'block px-2 py-1.5 text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
-</script>
 
 <style scoped>
 /*

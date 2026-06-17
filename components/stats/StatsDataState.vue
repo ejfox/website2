@@ -4,12 +4,6 @@
   @props message: string - Custom message (default: DATA_UNAVAILABLE)
   @props type: string - State type: unavailable, loading, error
 -->
-<template>
-  <div class="data-unavailable">
-    {{ computedMessage }}
-  </div>
-</template>
-
 <script setup lang="ts">
 interface Props {
   message?: string
@@ -37,6 +31,12 @@ const computedMessage = computed(() => {
   }
 })
 </script>
+
+<template>
+  <div class="data-unavailable">
+    {{ computedMessage }}
+  </div>
+</template>
 
 <style scoped>
 .data-unavailable {

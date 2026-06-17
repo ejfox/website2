@@ -1,3 +1,56 @@
+<script setup lang="ts">
+interface Feed {
+  url: string
+  name: string
+  category: string
+  domain: string
+}
+
+interface BlogrollResponse {
+  meta: {
+    endpoint: string
+    timestamp: string
+    source: string
+    stats: {
+      total: number
+      categories: number
+      byCategoryCount: Record<string, number>
+    }
+  }
+  feeds: Feed[]
+  byCategory: Record<string, Feed[]>
+}
+
+const { data, error } = await useFetch<BlogrollResponse>('/api/blogroll')
+
+const totalFeeds = computed(() => data.value?.meta.stats.total || 0)
+const totalCategories = computed(() => data.value?.meta.stats.categories || 0)
+
+const sortedCategories = computed(() => {
+  if (!data.value?.meta.stats.byCategoryCount) return {}
+  const entries = Object.entries(data.value.meta.stats.byCategoryCount)
+  return entries
+    .sort(([, a], [, b]) => b - a)
+    .reduce<Record<string, number>>((acc, [cat, count]) => {
+      acc[cat] = count
+      return acc
+    }, {})
+})
+
+usePageSeo({
+  title: 'Following · EJ Fox',
+  description:
+    'My RSS subscriptions: feeds across data visualization, investigative journalism, photography, and weird web.',
+  type: 'article',
+  section: 'Meta',
+  tags: ['RSS', 'Blogroll', 'Data Visualization', 'Journalism'],
+  label1: 'Feeds tracked',
+  data1: computed(() => `${totalFeeds.value} feeds`),
+  label2: 'Categories',
+  data2: computed(() => `${totalCategories.value} categories`),
+})
+</script>
+
 <template>
   <div class="max-w-screen-xl mx-auto px-4 md:px-8 xl:px-16 pt-8">
     <div class="max-w-4xl">
@@ -72,56 +125,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-interface Feed {
-  url: string
-  name: string
-  category: string
-  domain: string
-}
-
-interface BlogrollResponse {
-  meta: {
-    endpoint: string
-    timestamp: string
-    source: string
-    stats: {
-      total: number
-      categories: number
-      byCategoryCount: Record<string, number>
-    }
-  }
-  feeds: Feed[]
-  byCategory: Record<string, Feed[]>
-}
-
-const { data, error } = await useFetch<BlogrollResponse>('/api/blogroll')
-
-const totalFeeds = computed(() => data.value?.meta.stats.total || 0)
-const totalCategories = computed(() => data.value?.meta.stats.categories || 0)
-
-const sortedCategories = computed(() => {
-  if (!data.value?.meta.stats.byCategoryCount) return {}
-  const entries = Object.entries(data.value.meta.stats.byCategoryCount)
-  return entries
-    .sort(([, a], [, b]) => b - a)
-    .reduce<Record<string, number>>((acc, [cat, count]) => {
-      acc[cat] = count
-      return acc
-    }, {})
-})
-
-usePageSeo({
-  title: 'Following · EJ Fox',
-  description:
-    'My RSS subscriptions: feeds across data visualization, investigative journalism, photography, and weird web.',
-  type: 'article',
-  section: 'Meta',
-  tags: ['RSS', 'Blogroll', 'Data Visualization', 'Journalism'],
-  label1: 'Feeds tracked',
-  data1: computed(() => `${totalFeeds.value} feeds`),
-  label2: 'Categories',
-  data2: computed(() => `${totalCategories.value} categories`),
-})
-</script>

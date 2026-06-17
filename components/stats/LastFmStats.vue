@@ -3,128 +3,6 @@
   @description Last.fm music listening statistics
   @props stats: Object - Last.fm data from API
 -->
-<template>
-  <div v-if="hasData" class="space-y-2 font-mono">
-    <!-- Last 5 Songs -->
-    <div v-if="stats?.recentTracks?.tracks?.length">
-      <StatsSectionHeader title="LAST.FM RECENT TRACKS" />
-      <div class="space-y-2">
-        <div
-          v-for="track in (stats?.recentTracks?.tracks || []).slice(0, 5)"
-          :key="track.name + track.date"
-          class="flex items-baseline justify-between text-xs"
-        >
-          <div class="flex items-baseline gap-2 min-w-0 flex-1">
-            <span class="text-zinc-700 dark:text-zinc-300 truncate text-xs">
-              {{ track?.name || 'UNKNOWN' }}
-            </span>
-            <span class="text-zinc-500 truncate text-xs">
-              {{ track?.artist?.name || 'UNKNOWN' }}
-            </span>
-          </div>
-          <span
-            v-if="track?.date"
-            class="text-zinc-500 flex-shrink-0 ml-2 text-xs"
-          >
-            {{ formatTrackTime(track) }}
-          </span>
-          <span
-            v-else
-            class="text-zinc-500 flex-shrink-0 ml-2 uppercase text-xs"
-          >
-            NOW
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Top Artists -->
-    <div v-if="topArtists?.length">
-      <StatsSectionHeader title="LAST.FM TOP ARTISTS" />
-      <div class="space-y-2">
-        <div
-          v-for="(artist, index) in topArtists.slice(0, 5)"
-          :key="artist.name"
-          class="flex items-baseline justify-between text-xs"
-        >
-          <span class="text-zinc-700 dark:text-zinc-300 text-xs">
-            {{ index + 1 }}. {{ artist.name }}
-          </span>
-          <span class="text-zinc-500 tabular-nums text-xs">
-            <AnimatedNumber
-              :value="parseInt(artist.playcount)"
-              format="default"
-              :duration="400"
-              priority="tertiary"
-            />
-            plays
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Top Genres if available -->
-    <div v-if="topGenres?.length">
-      <h4 class="section-label-tracked">LAST.FM TOP GENRES</h4>
-      <div class="space-y-2">
-        <div
-          v-for="(genre, index) in topGenres.slice(0, 3)"
-          :key="genre.name"
-          class="flex items-baseline justify-between text-xs"
-        >
-          <span class="text-zinc-700 dark:text-zinc-300 text-xs">
-            {{ index + 1 }}. {{ genre.name }}
-          </span>
-          <span class="text-zinc-500 tabular-nums text-xs">
-            <AnimatedNumber
-              :value="genre.count"
-              format="default"
-              :duration="400"
-              priority="tertiary"
-            />
-            artists
-          </span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Top Tracks -->
-    <div v-if="topTracks?.length">
-      <h4 class="section-label-tracked">LAST.FM TOP TRACKS</h4>
-      <div class="space-y-2">
-        <div
-          v-for="(track, index) in topTracks.slice(0, 3)"
-          :key="track.name"
-          class="flex items-baseline justify-between text-xs"
-        >
-          <div class="flex items-baseline gap-2 min-w-0 flex-1">
-            <span class="text-zinc-700 dark:text-zinc-300 truncate text-xs">
-              {{ index + 1 }}. {{ track.name }}
-            </span>
-            <span class="text-zinc-500 truncate text-xs">
-              {{ track.artist?.name || track.artist }}
-            </span>
-          </div>
-          <span class="text-zinc-500 tabular-nums flex-shrink-0 ml-2 text-xs">
-            <AnimatedNumber
-              :value="parseInt(track.playcount || '0')"
-              format="default"
-              :duration="400"
-              priority="tertiary"
-            />
-            plays
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <StatsDataState
-    v-else
-    state="unavailable"
-    message="LASTFM_DATA_UNAVAILABLE"
-  />
-</template>
-
 <script setup lang="ts">
 import { computed } from 'vue'
 import AnimatedNumber from '../ui/AnimatedNumber.vue'
@@ -212,3 +90,125 @@ const formatTrackTime = (track: Track): string => {
   return `${Math.floor(diffMinutes / 1440)}d ago`
 }
 </script>
+
+<template>
+  <div v-if="hasData" class="space-y-2 font-mono">
+    <!-- Last 5 Songs -->
+    <div v-if="stats?.recentTracks?.tracks?.length">
+      <StatsSectionHeader title="LAST.FM RECENT TRACKS" />
+      <div class="space-y-2">
+        <div
+          v-for="track in (stats?.recentTracks?.tracks || []).slice(0, 5)"
+          :key="track.name + track.date"
+          class="flex items-baseline justify-between text-xs"
+        >
+          <div class="flex items-baseline gap-2 min-w-0 flex-1">
+            <span class="text-zinc-700 dark:text-zinc-300 truncate text-xs">
+              {{ track?.name || 'UNKNOWN' }}
+            </span>
+            <span class="text-zinc-500 truncate text-xs">
+              {{ track?.artist?.name || 'UNKNOWN' }}
+            </span>
+          </div>
+          <span
+            v-if="track?.date"
+            class="text-zinc-500 flex-shrink-0 ml-2 text-xs"
+          >
+            {{ formatTrackTime(track) }}
+          </span>
+          <span
+            v-else
+            class="text-zinc-500 flex-shrink-0 ml-2 uppercase text-xs"
+          >
+            NOW
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Artists -->
+    <div v-if="topArtists?.length">
+      <StatsSectionHeader title="LAST.FM TOP ARTISTS" />
+      <div class="space-y-2">
+        <div
+          v-for="(artist, index) in topArtists.slice(0, 5)"
+          :key="artist.name"
+          class="flex items-baseline justify-between text-xs"
+        >
+          <span class="text-zinc-700 dark:text-zinc-300 text-xs">
+<HandDrawn :name="`circled-${index + 1}`" size="1.3em" class="align-text-bottom mr-1" />{{ artist.name }}
+          </span>
+          <span class="text-zinc-500 tabular-nums text-xs">
+            <AnimatedNumber
+              :value="parseInt(artist.playcount)"
+              format="default"
+              :duration="400"
+              priority="tertiary"
+            />
+            plays
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Genres if available -->
+    <div v-if="topGenres?.length">
+      <h4 class="section-label-tracked">LAST.FM TOP GENRES</h4>
+      <div class="space-y-2">
+        <div
+          v-for="(genre, index) in topGenres.slice(0, 3)"
+          :key="genre.name"
+          class="flex items-baseline justify-between text-xs"
+        >
+          <span class="text-zinc-700 dark:text-zinc-300 text-xs">
+<HandDrawn :name="`circled-bold-${index + 1}`" size="1.3em" class="align-text-bottom mr-1" />{{ genre.name }}
+          </span>
+          <span class="text-zinc-500 tabular-nums text-xs">
+            <AnimatedNumber
+              :value="genre.count"
+              format="default"
+              :duration="400"
+              priority="tertiary"
+            />
+            artists
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top Tracks -->
+    <div v-if="topTracks?.length">
+      <h4 class="section-label-tracked">LAST.FM TOP TRACKS</h4>
+      <div class="space-y-2">
+        <div
+          v-for="(track, index) in topTracks.slice(0, 3)"
+          :key="track.name"
+          class="flex items-baseline justify-between text-xs"
+        >
+          <div class="flex items-baseline gap-2 min-w-0 flex-1">
+            <span class="text-zinc-700 dark:text-zinc-300 truncate text-xs">
+<HandDrawn :name="`num-${index + 1}`" size="1.3em" class="align-text-bottom mr-1" />{{ track.name }}
+            </span>
+            <span class="text-zinc-500 truncate text-xs">
+              {{ track.artist?.name || track.artist }}
+            </span>
+          </div>
+          <span class="text-zinc-500 tabular-nums flex-shrink-0 ml-2 text-xs">
+            <AnimatedNumber
+              :value="parseInt(track.playcount || '0')"
+              format="default"
+              :duration="400"
+              priority="tertiary"
+            />
+            plays
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <StatsDataState
+    v-else
+    state="unavailable"
+    message="LASTFM_DATA_UNAVAILABLE"
+  />
+</template>

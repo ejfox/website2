@@ -3,6 +3,124 @@
   @description MonkeyType typing test statistics
   @props stats: Object - MonkeyType stats
 -->
+<script setup lang="ts">
+import { computed } from 'vue'
+import { format } from 'date-fns/format'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+// from '~/anime.esm.js'
+// from '~/composables/useAnimations'
+
+interface MonkeyTypeTest {
+  timestamp: string
+  wpm: number
+  accuracy: number
+  mode?: string
+  duration?: number
+  language?: string
+  wordCount?: number
+  difficulty?: string
+  consistency?: number
+}
+
+interface MonkeyTypeStats {
+  typingStats: {
+    bestWPM: number
+    testsCompleted: number
+    bestAccuracy: number
+    bestConsistency: number
+    averageWPM?: number
+    recentTests?: Array<MonkeyTypeTest>
+    testTypeDistribution?: Record<string, number>
+    languageBreakdown?: Array<{
+      language: string
+      tests: number
+      averageWpm: number
+      bestWpm: number
+    }>
+  }
+}
+
+const props = defineProps<{
+  stats: MonkeyTypeStats
+}>()
+
+// Computed properties for conditional rendering and data formatting
+const hasRecentTests = computed(
+  () => !!props.stats.typingStats?.recentTests?.length
+)
+
+const recentTests = computed(() => {
+  if (!props.stats.typingStats?.recentTests) return []
+
+  return [...props.stats.typingStats.recentTests]
+    .sort(
+      (a, b) =>
+        new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+    )
+    .slice(0, 5)
+})
+
+const languageBreakdown = computed(
+  () => props.stats.typingStats?.languageBreakdown || []
+)
+
+const hasLanguageBreakdown = computed(() => languageBreakdown.value.length > 0)
+
+const topLanguages = computed(() =>
+  [...languageBreakdown.value]
+    .sort((a, b) =>
+      b.tests === a.tests ? b.bestWpm - a.bestWpm : b.tests - a.tests
+    )
+    .slice(0, 6)
+)
+
+// Format utilities for minimal date display
+const formatDateMinimal = (timestamp: string): string => {
+  const date = new Date(timestamp)
+  return format(date, 'MM.dd').toLowerCase()
+}
+
+// Determine if test has meaningful type info
+const hasTestType = (test: MonkeyTypeTest): boolean => {
+  return !!(test.duration || test.wordCount || test.mode)
+}
+
+// Format test type in minimal style
+const formatTestTypeMinimal = (test: MonkeyTypeTest): string => {
+  if (test.duration) {
+    return `${test.duration}s`
+  } else if (test.wordCount) {
+    return `${test.wordCount}w`
+  } else if (test.mode && test.mode.toLowerCase() !== 'time') {
+    return test.mode.toLowerCase()
+  }
+  return ''
+}
+
+const formatLanguageLabel = (language: string): string =>
+  language.replace(/[_-]+/g, ' ').trim().toUpperCase()
+
+// Add a computed property to check if we have stats
+const hasStats = computed(() => {
+  return !!props.stats.typingStats?.bestWPM
+})
+
+// Animation refs
+const monkeyStatsRef = ref<HTMLElement | null>(null)
+const mainStatsRef = ref<HTMLElement | null>(null)
+const recentTestsRef = ref<HTMLElement | null>(null)
+const performanceRef = ref<HTMLElement | null>(null)
+
+// Epic MonkeyType stats scroll-triggered animations
+// PERFORMANCE
+// const setupScrollAnimations = () => {
+//   ALL BROKEN ANIMATION CODE DELETED
+// }
+
+onMounted(() => {})
+</script>
+
 <template>
   <div ref="monkeyStatsRef" class="font-mono">
     <!-- Main Stats -->
@@ -11,7 +129,7 @@
         <!-- Primary WPM Stat with AnimatedNumber -->
         <div class="individual-stat-large">
           <div class="stat-value">
-            {{ Math.round(stats.typingStats.bestWPM) }}
+            <HandDrawnMark ink-class="text-yellow-600">{{ Math.round(stats.typingStats.bestWPM) }}</HandDrawnMark>
           </div>
           <div class="stat-label">TYPING BEST WPM</div>
           <div class="stat-details">
@@ -160,124 +278,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-import { format } from 'date-fns/format'
-import AnimatedNumber from '../ui/AnimatedNumber.vue'
-import StatsSectionHeader from './StatsSectionHeader.vue'
-// from '~/anime.esm.js'
-// from '~/composables/useAnimations'
-
-interface MonkeyTypeTest {
-  timestamp: string
-  wpm: number
-  accuracy: number
-  mode?: string
-  duration?: number
-  language?: string
-  wordCount?: number
-  difficulty?: string
-  consistency?: number
-}
-
-interface MonkeyTypeStats {
-  typingStats: {
-    bestWPM: number
-    testsCompleted: number
-    bestAccuracy: number
-    bestConsistency: number
-    averageWPM?: number
-    recentTests?: Array<MonkeyTypeTest>
-    testTypeDistribution?: Record<string, number>
-    languageBreakdown?: Array<{
-      language: string
-      tests: number
-      averageWpm: number
-      bestWpm: number
-    }>
-  }
-}
-
-const props = defineProps<{
-  stats: MonkeyTypeStats
-}>()
-
-// Computed properties for conditional rendering and data formatting
-const hasRecentTests = computed(
-  () => !!props.stats.typingStats?.recentTests?.length
-)
-
-const recentTests = computed(() => {
-  if (!props.stats.typingStats?.recentTests) return []
-
-  return [...props.stats.typingStats.recentTests]
-    .sort(
-      (a, b) =>
-        new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
-    )
-    .slice(0, 5)
-})
-
-const languageBreakdown = computed(
-  () => props.stats.typingStats?.languageBreakdown || []
-)
-
-const hasLanguageBreakdown = computed(() => languageBreakdown.value.length > 0)
-
-const topLanguages = computed(() =>
-  [...languageBreakdown.value]
-    .sort((a, b) =>
-      b.tests === a.tests ? b.bestWpm - a.bestWpm : b.tests - a.tests
-    )
-    .slice(0, 6)
-)
-
-// Format utilities for minimal date display
-const formatDateMinimal = (timestamp: string): string => {
-  const date = new Date(timestamp)
-  return format(date, 'MM.dd').toLowerCase()
-}
-
-// Determine if test has meaningful type info
-const hasTestType = (test: MonkeyTypeTest): boolean => {
-  return !!(test.duration || test.wordCount || test.mode)
-}
-
-// Format test type in minimal style
-const formatTestTypeMinimal = (test: MonkeyTypeTest): string => {
-  if (test.duration) {
-    return `${test.duration}s`
-  } else if (test.wordCount) {
-    return `${test.wordCount}w`
-  } else if (test.mode && test.mode.toLowerCase() !== 'time') {
-    return test.mode.toLowerCase()
-  }
-  return ''
-}
-
-const formatLanguageLabel = (language: string): string =>
-  language.replace(/[_-]+/g, ' ').trim().toUpperCase()
-
-// Add a computed property to check if we have stats
-const hasStats = computed(() => {
-  return !!props.stats.typingStats?.bestWPM
-})
-
-// Animation refs
-const monkeyStatsRef = ref<HTMLElement | null>(null)
-const mainStatsRef = ref<HTMLElement | null>(null)
-const recentTestsRef = ref<HTMLElement | null>(null)
-const performanceRef = ref<HTMLElement | null>(null)
-
-// Epic MonkeyType stats scroll-triggered animations
-// PERFORMANCE
-// const setupScrollAnimations = () => {
-//   ALL BROKEN ANIMATION CODE DELETED
-// }
-
-onMounted(() => {})
-</script>
 
 <style scoped>
 /* Individual stat styles - inherits global typography */

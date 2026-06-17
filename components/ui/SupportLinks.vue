@@ -3,6 +3,25 @@
   @description Compact hire/sponsor links for sidebars - Book a call + GitHub Sponsors
   @props variant: 'sidebar' | 'inline' - display style (default: sidebar)
 -->
+<script setup>
+import { computed } from 'vue'
+
+const props = defineProps({
+  variant: {
+    type: String,
+    default: 'sidebar',
+    validator: (v) => ['sidebar', 'inline'].includes(v),
+  },
+})
+
+const containerClasses = computed(() => {
+  if (props.variant === 'sidebar') {
+    return ''
+  }
+  return ''
+})
+</script>
+
 <template>
   <div :class="containerClasses">
     <h3 v-if="variant === 'sidebar'" class="label-uppercase-mono text-2xs mb-2">
@@ -37,25 +56,6 @@
     </div>
   </div>
 </template>
-
-<script setup>
-import { computed } from 'vue'
-
-const props = defineProps({
-  variant: {
-    type: String,
-    default: 'sidebar',
-    validator: (v) => ['sidebar', 'inline'].includes(v),
-  },
-})
-
-const containerClasses = computed(() => {
-  if (props.variant === 'sidebar') {
-    return ''
-  }
-  return ''
-})
-</script>
 
 <style scoped>
 .cta-link {

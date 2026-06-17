@@ -4,6 +4,68 @@
   @props url: string - URL to fetch OpenGraph data for
   @props showLabel: boolean - Show "In reply to" label (default: false)
 -->
+<script setup lang="ts">
+import { formatDistanceToNow } from 'date-fns'
+
+interface OGData {
+  url: string
+  title?: string
+  description?: string
+  image?: string
+  siteName?: string
+  favicon?: string
+  author?: string
+  published?: string
+  type?: string
+}
+
+const props = defineProps<{
+  url: string
+  showLabel?: boolean
+}>()
+
+const showImage = ref(true)
+
+// Extract domain from URL
+const domain = computed(() => {
+  if (!props.url) return null
+  try {
+    return new URL(props.url).hostname.replace('www.', '')
+  } catch {
+    return null
+  }
+})
+
+// Fetch OG data
+const { data: ogData } = await useFetch<OGData>('/api/og', {
+  query: { url: props.url },
+  immediate: !!props.url,
+  default: () => null,
+})
+
+const handleFaviconError = (e: Event) => {
+  const img = e.target as HTMLImageElement
+  // Fallback to Google's favicon service
+  if (domain.value && !img.src.includes('google.com/s2/favicons')) {
+    img.src = `https://www.google.com/s2/favicons?domain=${domain.value}&sz=64`
+  }
+}
+
+const formatDate = (dateStr: string) => {
+  if (!dateStr) return ''
+  try {
+    return formatDistanceToNow(new Date(dateStr), { addSuffix: true })
+  } catch {
+    return ''
+  }
+}
+
+const truncate = (str: string, len: number) => {
+  if (!str || str.length <= len) return str
+  return str.slice(0, len).trim() + '…'
+}
+</script>
+
 <template>
   <div class="flex items-start gap-3">
     <!-- Favicon -->
@@ -81,68 +143,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { formatDistanceToNow } from 'date-fns'
-
-interface OGData {
-  url: string
-  title?: string
-  description?: string
-  image?: string
-  siteName?: string
-  favicon?: string
-  author?: string
-  published?: string
-  type?: string
-}
-
-const props = defineProps<{
-  url: string
-  showLabel?: boolean
-}>()
-
-const showImage = ref(true)
-
-// Extract domain from URL
-const domain = computed(() => {
-  if (!props.url) return null
-  try {
-    return new URL(props.url).hostname.replace('www.', '')
-  } catch {
-    return null
-  }
-})
-
-// Fetch OG data
-const { data: ogData } = await useFetch<OGData>('/api/og', {
-  query: { url: props.url },
-  immediate: !!props.url,
-  default: () => null,
-})
-
-const handleFaviconError = (e: Event) => {
-  const img = e.target as HTMLImageElement
-  // Fallback to Google's favicon service
-  if (domain.value && !img.src.includes('google.com/s2/favicons')) {
-    img.src = `https://www.google.com/s2/favicons?domain=${domain.value}&sz=64`
-  }
-}
-
-const formatDate = (dateStr: string) => {
-  if (!dateStr) return ''
-  try {
-    return formatDistanceToNow(new Date(dateStr), { addSuffix: true })
-  } catch {
-    return ''
-  }
-}
-
-const truncate = (str: string, len: number) => {
-  if (!str || str.length <= len) return str
-  return str.slice(0, len).trim() + '…'
-}
-</script>
 
 <style scoped>
 .line-clamp-2 {

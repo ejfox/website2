@@ -3,6 +3,60 @@
   @description Top-level statistics dashboard showing key metrics
   @props stats: Object - All statistics data from API
 -->
+<script setup lang="ts">
+import { computed } from 'vue'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
+import StatsDataState from './StatsDataState.vue'
+import type { StatsResponse } from '~/composables/useStats'
+import { useNumberFormat } from '~/composables/useNumberFormat'
+
+interface BlogStats {
+  totalPosts: number
+  totalWords: number
+  averageWords: number
+  firstPost: string | null
+  lastPost: string | null
+  postsThisMonth?: number
+}
+
+const props = defineProps<{
+  stats: StatsResponse
+  blogStats?: BlogStats
+}>()
+
+const { formatNumber: _formatNumber } = useNumberFormat()
+
+const totalLeetCodeSolved = computed(() => {
+  if (!props.stats.leetcode?.submissionStats) return 0
+  const { easy, medium, hard } = props.stats.leetcode.submissionStats
+  return easy.count + medium.count + hard.count
+})
+
+const chessRating = computed(() => {
+  if (!props.stats.chess) return 0
+  return typeof props.stats.chess.currentRating === 'object'
+    ? props.stats.chess.currentRating.blitz
+    : props.stats.chess.currentRating
+})
+
+const chessWinRate = computed(() => {
+  if (!props.stats.chess) return 0
+  return typeof props.stats.chess.winRate === 'object'
+    ? props.stats.chess.winRate.overall
+    : props.stats.chess.winRate
+})
+
+const averageWordsPerPost = computed(() => {
+  if (!props.blogStats) return 0
+  return Math.round(props.blogStats.averageWords)
+})
+
+const postsThisMonth = computed(() => {
+  // Use the actual postsThisMonth value from blogStats
+  return props.blogStats?.postsThisMonth || 0
+})
+</script>
+
 <template>
   <div class="flex flex-wrap justify-center sm:justify-between gap-2">
     <!-- GitHub Contributions -->
@@ -66,13 +120,15 @@
     <!-- Total Words -->
     <div v-if="blogStats" class="top-stat-card" :style="{ '--stat-index': 2 }">
       <div class="stat-value">
-        <AnimatedNumber
-          :value="blogStats.totalWords"
-          format="commas"
-          :duration="1600"
-          priority="primary"
-          :decimals="0"
-        />
+        <HandDrawnMark ink-class="text-yellow-600">
+          <AnimatedNumber
+            :value="blogStats.totalWords"
+            format="commas"
+            :duration="1600"
+            priority="primary"
+            :decimals="0"
+          />
+        </HandDrawnMark>
       </div>
       <div class="stat-label">WORDS</div>
       <div class="stat-details">
@@ -199,60 +255,6 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-import AnimatedNumber from '../ui/AnimatedNumber.vue'
-import StatsDataState from './StatsDataState.vue'
-import type { StatsResponse } from '~/composables/useStats'
-import { useNumberFormat } from '~/composables/useNumberFormat'
-
-interface BlogStats {
-  totalPosts: number
-  totalWords: number
-  averageWords: number
-  firstPost: string | null
-  lastPost: string | null
-  postsThisMonth?: number
-}
-
-const props = defineProps<{
-  stats: StatsResponse
-  blogStats?: BlogStats
-}>()
-
-const { formatNumber: _formatNumber } = useNumberFormat()
-
-const totalLeetCodeSolved = computed(() => {
-  if (!props.stats.leetcode?.submissionStats) return 0
-  const { easy, medium, hard } = props.stats.leetcode.submissionStats
-  return easy.count + medium.count + hard.count
-})
-
-const chessRating = computed(() => {
-  if (!props.stats.chess) return 0
-  return typeof props.stats.chess.currentRating === 'object'
-    ? props.stats.chess.currentRating.blitz
-    : props.stats.chess.currentRating
-})
-
-const chessWinRate = computed(() => {
-  if (!props.stats.chess) return 0
-  return typeof props.stats.chess.winRate === 'object'
-    ? props.stats.chess.winRate.overall
-    : props.stats.chess.winRate
-})
-
-const averageWordsPerPost = computed(() => {
-  if (!props.blogStats) return 0
-  return Math.round(props.blogStats.averageWords)
-})
-
-const postsThisMonth = computed(() => {
-  // Use the actual postsThisMonth value from blogStats
-  return props.blogStats?.postsThisMonth || 0
-})
-</script>
 
 <style scoped>
 /* Subtle top stats card styling - with anime.js custom properties */
