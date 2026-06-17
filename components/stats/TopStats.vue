@@ -120,13 +120,15 @@ const postsThisMonth = computed(() => {
     <!-- Total Words -->
     <div v-if="blogStats" class="top-stat-card" :style="{ '--stat-index': 2 }">
       <div class="stat-value">
-        <AnimatedNumber
-          :value="blogStats.totalWords"
-          format="commas"
-          :duration="1600"
-          priority="primary"
-          :decimals="0"
-        />
+        <HandDrawnMark ink-class="text-yellow-600">
+          <AnimatedNumber
+            :value="blogStats.totalWords"
+            format="commas"
+            :duration="1600"
+            priority="primary"
+            :decimals="0"
+          />
+        </HandDrawnMark>
       </div>
       <div class="stat-label">WORDS</div>
       <div class="stat-details">
