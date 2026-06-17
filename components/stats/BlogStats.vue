@@ -3,6 +3,37 @@
   @description Blog statistics showing post counts, word counts, and writing metrics
   @props stats: Object - Blog statistics data from API
 -->
+<script setup lang="ts">
+import { useNumberFormat } from '../../composables/useNumberFormat'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import StatsDataState from './StatsDataState.vue'
+
+defineProps<{
+  stats: BlogStats
+}>()
+
+const { formatNumber } = useNumberFormat()
+
+interface BlogStats {
+  posts: {
+    thisMonth: number
+    total: number
+  }
+  words: {
+    thisMonth: number
+    avgPerPost: number
+  }
+  recentPosts: Array<{
+    title: string
+    slug: string
+    date: string
+    words: number
+  }>
+  month: string
+  year: number
+}
+</script>
+
 <template>
   <div v-if="stats" class="space-y-2 font-mono">
     <!-- Writing Status -->
@@ -77,34 +108,3 @@
   </div>
   <StatsDataState v-else message="Blog data unavailable" />
 </template>
-
-<script setup lang="ts">
-import { useNumberFormat } from '../../composables/useNumberFormat'
-import StatsSectionHeader from './StatsSectionHeader.vue'
-import StatsDataState from './StatsDataState.vue'
-
-const { formatNumber } = useNumberFormat()
-
-interface BlogStats {
-  posts: {
-    thisMonth: number
-    total: number
-  }
-  words: {
-    thisMonth: number
-    avgPerPost: number
-  }
-  recentPosts: Array<{
-    title: string
-    slug: string
-    date: string
-    words: number
-  }>
-  month: string
-  year: number
-}
-
-defineProps<{
-  stats: BlogStats
-}>()
-</script>

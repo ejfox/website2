@@ -1,3 +1,54 @@
+<script setup lang="ts">
+import updatesData from '~/data/updates.json'
+
+interface Update {
+  date: string
+  title: string
+  description: string
+  link?: string
+  era?: string
+}
+
+const updates: Update[] = updatesData
+
+function formatDate(dateStr: string) {
+  // Handle year-only: "2018"
+  if (/^\d{4}$/.test(dateStr)) {
+    return dateStr
+  }
+  // Handle quarters: "2024-Q2"
+  if (dateStr.includes('Q')) {
+    const [year, quarter] = dateStr.split('-')
+    return `${quarter} ${year}`
+  }
+  // Handle month: "2025-12"
+  const [year, month] = dateStr.split('-')
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
+  return `${months[Number.parseInt(month) - 1]} ${year}`
+}
+
+usePageSeo({
+  title: "What's New · EJ Fox",
+  description: 'Notable updates, new features, and changes on ejfox.com.',
+  type: 'article',
+  section: 'Meta',
+  tags: ['Updates', 'Changelog', 'Site News', 'Features'],
+})
+</script>
+
 <template>
   <div class="max-w-screen-xl mx-auto px-4 md:px-8 xl:px-16 pt-8">
     <div class="max-w-4xl">
@@ -59,54 +110,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import updatesData from '~/data/updates.json'
-
-interface Update {
-  date: string
-  title: string
-  description: string
-  link?: string
-  era?: string
-}
-
-const updates: Update[] = updatesData
-
-function formatDate(dateStr: string) {
-  // Handle year-only: "2018"
-  if (/^\d{4}$/.test(dateStr)) {
-    return dateStr
-  }
-  // Handle quarters: "2024-Q2"
-  if (dateStr.includes('Q')) {
-    const [year, quarter] = dateStr.split('-')
-    return `${quarter} ${year}`
-  }
-  // Handle month: "2025-12"
-  const [year, month] = dateStr.split('-')
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ]
-  return `${months[Number.parseInt(month) - 1]} ${year}`
-}
-
-usePageSeo({
-  title: "What's New · EJ Fox",
-  description: 'Notable updates, new features, and changes on ejfox.com.',
-  type: 'article',
-  section: 'Meta',
-  tags: ['Updates', 'Changelog', 'Site News', 'Features'],
-})
-</script>

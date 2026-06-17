@@ -3,6 +3,80 @@
   @description Discogs vinyl collection statistics
   @props stats: Object - Discogs collection data from API
 -->
+<script setup lang="ts">
+import { computed } from 'vue'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
+import StatsDataState from './StatsDataState.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+
+interface DiscogsStats {
+  stats?: {
+    totalItems: number
+    totalValue: number
+    medianValue: number
+    highestValue: number
+    averageValue: number
+  }
+  topGenres?: Array<{
+    genre: string
+    count: number
+  }>
+  decadeBreakdown?: Array<{
+    decade: string
+    count: number
+  }>
+  topArtists?: Array<{
+    artist: string
+    count: number
+  }>
+  randomRecord?: {
+    title: string
+    artist: string
+    year: number
+    genres: string[]
+    price: number
+    uri: string
+    resourceUrl: string
+    format: string
+  } | null
+  collection?: Array<{
+    title: string
+    artist: string
+    year: number
+    price: number
+    uri: string
+    resourceUrl: string
+  }>
+  lastUpdated?: string
+}
+
+const props = defineProps<{
+  stats?: DiscogsStats | null
+}>()
+
+const topGenres = computed(() => {
+  return props.stats?.topGenres || []
+})
+
+const decadeBreakdown = computed(() => {
+  return props.stats?.decadeBreakdown || []
+})
+
+const topArtists = computed(() => {
+  return props.stats?.topArtists || []
+})
+
+const randomRecord = computed(() => {
+  return props.stats?.randomRecord || null
+})
+
+const hasData = computed(() => {
+  return !!(
+    props.stats?.stats?.totalItems && props.stats?.stats?.totalItems > 0
+  )
+})
+</script>
+
 <template>
   <div v-if="hasData" class="space-y-2 font-mono">
     <!-- Random Record of the Day -->
@@ -160,77 +234,3 @@
     message="DISCOGS_COLLECTION_EMPTY"
   />
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-import AnimatedNumber from '../ui/AnimatedNumber.vue'
-import StatsDataState from './StatsDataState.vue'
-import StatsSectionHeader from './StatsSectionHeader.vue'
-
-interface DiscogsStats {
-  stats?: {
-    totalItems: number
-    totalValue: number
-    medianValue: number
-    highestValue: number
-    averageValue: number
-  }
-  topGenres?: Array<{
-    genre: string
-    count: number
-  }>
-  decadeBreakdown?: Array<{
-    decade: string
-    count: number
-  }>
-  topArtists?: Array<{
-    artist: string
-    count: number
-  }>
-  randomRecord?: {
-    title: string
-    artist: string
-    year: number
-    genres: string[]
-    price: number
-    uri: string
-    resourceUrl: string
-    format: string
-  } | null
-  collection?: Array<{
-    title: string
-    artist: string
-    year: number
-    price: number
-    uri: string
-    resourceUrl: string
-  }>
-  lastUpdated?: string
-}
-
-const props = defineProps<{
-  stats?: DiscogsStats | null
-}>()
-
-const topGenres = computed(() => {
-  return props.stats?.topGenres || []
-})
-
-const decadeBreakdown = computed(() => {
-  return props.stats?.decadeBreakdown || []
-})
-
-const topArtists = computed(() => {
-  return props.stats?.topArtists || []
-})
-
-const randomRecord = computed(() => {
-  return props.stats?.randomRecord || null
-})
-
-const hasData = computed(() => {
-  return !!(
-    props.stats?.stats?.totalItems && props.stats?.stats?.totalItems > 0
-  )
-})
-</script>

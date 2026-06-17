@@ -1,3 +1,85 @@
+<script setup lang="ts">
+import { computed } from 'vue'
+import { format, parseISO } from 'date-fns'
+
+interface Scrap {
+  id: string
+  title: string | null
+  summary: string | null
+  summaryHtml?: string
+  url: string | null
+  content: string | null
+  created_at: string
+  updated_at: string | null
+  published_at: string | null
+  tags: string[] | null
+  concept_tags: string[] | null
+  type: string | null
+  source: string | null
+  content_type: string | null
+  location: string | null
+  latitude: number | null
+  longitude: number | null
+  screenshot_url: string | null
+  shared: boolean
+  relationships: Array<{ id: string; type?: string }> | null
+  extraction_confidence: { tags?: number; summary?: number } | null
+  financial_analysis: Record<string, unknown> | null
+  metadata: Record<string, unknown> | null
+}
+
+const {
+  data: scraps,
+  pending: isLoading,
+  error,
+} = await useFetch<Scrap[]>('/api/scraps')
+
+const { revealContainer: scrapsReveal } = useScrollReveal({
+  selector: ':scope > div',
+  staggerDelay: 8,
+  translateY: 3,
+  duration: 100,
+})
+
+const _stats = computed(() => {
+  if (!scraps.value?.length) return null
+  return {
+    total: scraps.value.length,
+  }
+})
+
+const uniqueTags = computed(() => {
+  const tags = new Set<string>()
+  scraps.value?.forEach((s) => {
+    s.tags?.forEach((t) => tags.add(t))
+  })
+  return tags.size
+})
+
+const uniqueSources = computed(() => {
+  const sources = new Set<string>()
+  scraps.value?.forEach((s) => {
+    if (s.source) sources.add(s.source)
+  })
+  return Array.from(sources).join(', ') || 'unknown'
+})
+
+const formatDate = (dateStr: string) => {
+  try {
+    return format(parseISO(dateStr), 'MMM d, yyyy')
+  } catch {
+    return 'unknown'
+  }
+}
+
+usePageSeo({
+  title: 'Scraps',
+  description: 'A collection of interesting things found around the web',
+  type: 'website',
+  section: 'Content',
+})
+</script>
+
 <template>
   <div class="max-w-screen-xl mx-auto px-4 md:px-8 font-mono text-xs space-y-2">
     <!-- Header -->
@@ -151,85 +233,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-import { format, parseISO } from 'date-fns'
-
-interface Scrap {
-  id: string
-  title: string | null
-  summary: string | null
-  summaryHtml?: string
-  url: string | null
-  content: string | null
-  created_at: string
-  updated_at: string | null
-  published_at: string | null
-  tags: string[] | null
-  concept_tags: string[] | null
-  type: string | null
-  source: string | null
-  content_type: string | null
-  location: string | null
-  latitude: number | null
-  longitude: number | null
-  screenshot_url: string | null
-  shared: boolean
-  relationships: Array<{ id: string; type?: string }> | null
-  extraction_confidence: { tags?: number; summary?: number } | null
-  financial_analysis: Record<string, unknown> | null
-  metadata: Record<string, unknown> | null
-}
-
-const {
-  data: scraps,
-  pending: isLoading,
-  error,
-} = await useFetch<Scrap[]>('/api/scraps')
-
-const { revealContainer: scrapsReveal } = useScrollReveal({
-  selector: ':scope > div',
-  staggerDelay: 8,
-  translateY: 3,
-  duration: 100,
-})
-
-const _stats = computed(() => {
-  if (!scraps.value?.length) return null
-  return {
-    total: scraps.value.length,
-  }
-})
-
-const uniqueTags = computed(() => {
-  const tags = new Set<string>()
-  scraps.value?.forEach((s) => {
-    s.tags?.forEach((t) => tags.add(t))
-  })
-  return tags.size
-})
-
-const uniqueSources = computed(() => {
-  const sources = new Set<string>()
-  scraps.value?.forEach((s) => {
-    if (s.source) sources.add(s.source)
-  })
-  return Array.from(sources).join(', ') || 'unknown'
-})
-
-const formatDate = (dateStr: string) => {
-  try {
-    return format(parseISO(dateStr), 'MMM d, yyyy')
-  } catch {
-    return 'unknown'
-  }
-}
-
-usePageSeo({
-  title: 'Scraps',
-  description: 'A collection of interesting things found around the web',
-  type: 'website',
-  section: 'Content',
-})
-</script>

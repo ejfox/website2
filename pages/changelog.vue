@@ -1,3 +1,165 @@
+<script setup lang="ts">
+import colophonData from '~/data/colophon.json'
+
+interface ColophonEntry {
+  version: string
+  date: string
+  title: string
+  body: string
+  stats?: { commits: number; filesChanged: number }
+  tags?: string[]
+  stack?: string[]
+  link?: string
+  era?: string
+}
+
+interface Commit {
+  hash: string
+  author: string
+  email: string
+  date: string
+  message: string
+  type: string
+}
+
+interface ChangelogResponse {
+  meta: { endpoint: string; timestamp: string; count: number }
+  commits: Commit[]
+  grouped: {
+    byDate: Record<string, Commit[]>
+    byType: Record<string, Commit[]>
+  }
+  stats: {
+    totalCommits: number
+    dateRange: { earliest: string; latest: string }
+    byType: Record<string, number>
+  }
+}
+
+const colophon: ColophonEntry[] = colophonData as ColophonEntry[]
+
+// Group colophon entries by year
+const groupedByYear = computed(() => {
+  const groups: Record<string, ColophonEntry[]> = {}
+  for (const entry of colophon) {
+    const year = extractYear(entry.date)
+    if (!groups[year]) {
+      groups[year] = []
+    }
+    groups[year].push(entry)
+  }
+  return groups
+})
+
+function extractYear(dateStr: string): string {
+  if (/^\d{4}$/.test(dateStr)) return dateStr
+  if (dateStr.includes('Q')) return dateStr.split('-')[0]
+  return dateStr.split('-')[0]
+}
+
+function formatDate(dateStr: string) {
+  if (/^\d{4}$/.test(dateStr)) return dateStr
+  if (dateStr.includes('Q')) {
+    const [year, quarter] = dateStr.split('-')
+    return `${quarter} ${year}`
+  }
+  const [year, month] = dateStr.split('-')
+  const months = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ]
+  return `${months[Number.parseInt(month) - 1]} ${year}`
+}
+
+// Fetch commit data and manifest in parallel
+const limit = ref(50)
+const {
+  data: commitData,
+  refresh,
+  error: commitError,
+} = await useFetch<ChangelogResponse>('/api/changelog', { query: { limit } })
+
+const { data: manifestData } = await useFetch<any[]>('/api/manifest')
+
+const canLoadMore = computed(
+  () => commitData.value && commitData.value.commits.length >= limit.value
+)
+
+function loadMore() {
+  limit.value += 50
+  refresh()
+}
+
+function formatCommitDate(dateString: string) {
+  const d = new Date(dateString)
+  const months = [
+    'JAN',
+    'FEB',
+    'MAR',
+    'APR',
+    'MAY',
+    'JUN',
+    'JUL',
+    'AUG',
+    'SEP',
+    'OCT',
+    'NOV',
+    'DEC',
+  ]
+  return `${months[d.getMonth()]} ${String(d.getDate()).padStart(2, '0')}, ${d.getFullYear()}`
+}
+
+function formatTime(dateString: string) {
+  const d = new Date(dateString)
+  return d.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    hour12: true,
+  })
+}
+
+const typeColors: Record<string, string> = {
+  feat: 'bg-green-100 dark:bg-green-950 text-green-900 dark:text-green-100',
+  fix: 'bg-red-100 dark:bg-red-950 text-red-900 dark:text-red-100',
+  docs: 'bg-blue-100 dark:bg-blue-950 text-blue-900 dark:text-blue-100',
+  style:
+    'bg-purple-100 dark:bg-purple-950 text-purple-900 dark:text-purple-100',
+  refactor:
+    'bg-yellow-100 dark:bg-yellow-950 text-yellow-900 dark:text-yellow-100',
+  test: 'bg-cyan-100 dark:bg-cyan-950 text-cyan-900 dark:text-cyan-100',
+  chore: 'bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100',
+  remove:
+    'bg-orange-100 dark:bg-orange-950 text-orange-900 dark:text-orange-100',
+}
+const defaultTypeColor =
+  'bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100'
+
+function getTypeColor(type: string) {
+  return typeColors[type] || defaultTypeColor
+}
+
+usePageSeo({
+  title: 'Changelog · EJ Fox',
+  description:
+    'Curated changelog of ejfox.com: narrative release notes, stats, and the raw git log for the curious.',
+  type: 'article',
+  section: 'Meta',
+  tags: ['Changelog', 'Site Updates', 'Releases', 'Colophon'],
+  label1: 'Releases',
+  data1: `${colophon.length} curated entries`,
+})
+</script>
+
 <template>
   <div class="max-w-screen-xl mx-auto px-4 md:px-8 xl:px-16 pt-8">
     <div class="max-w-4xl">
@@ -213,165 +375,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import colophonData from '~/data/colophon.json'
-
-interface ColophonEntry {
-  version: string
-  date: string
-  title: string
-  body: string
-  stats?: { commits: number; filesChanged: number }
-  tags?: string[]
-  stack?: string[]
-  link?: string
-  era?: string
-}
-
-interface Commit {
-  hash: string
-  author: string
-  email: string
-  date: string
-  message: string
-  type: string
-}
-
-interface ChangelogResponse {
-  meta: { endpoint: string; timestamp: string; count: number }
-  commits: Commit[]
-  grouped: {
-    byDate: Record<string, Commit[]>
-    byType: Record<string, Commit[]>
-  }
-  stats: {
-    totalCommits: number
-    dateRange: { earliest: string; latest: string }
-    byType: Record<string, number>
-  }
-}
-
-const colophon: ColophonEntry[] = colophonData as ColophonEntry[]
-
-// Group colophon entries by year
-const groupedByYear = computed(() => {
-  const groups: Record<string, ColophonEntry[]> = {}
-  for (const entry of colophon) {
-    const year = extractYear(entry.date)
-    if (!groups[year]) {
-      groups[year] = []
-    }
-    groups[year].push(entry)
-  }
-  return groups
-})
-
-function extractYear(dateStr: string): string {
-  if (/^\d{4}$/.test(dateStr)) return dateStr
-  if (dateStr.includes('Q')) return dateStr.split('-')[0]
-  return dateStr.split('-')[0]
-}
-
-function formatDate(dateStr: string) {
-  if (/^\d{4}$/.test(dateStr)) return dateStr
-  if (dateStr.includes('Q')) {
-    const [year, quarter] = dateStr.split('-')
-    return `${quarter} ${year}`
-  }
-  const [year, month] = dateStr.split('-')
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ]
-  return `${months[Number.parseInt(month) - 1]} ${year}`
-}
-
-// Fetch commit data and manifest in parallel
-const limit = ref(50)
-const {
-  data: commitData,
-  refresh,
-  error: commitError,
-} = await useFetch<ChangelogResponse>('/api/changelog', { query: { limit } })
-
-const { data: manifestData } = await useFetch<any[]>('/api/manifest')
-
-const canLoadMore = computed(
-  () => commitData.value && commitData.value.commits.length >= limit.value
-)
-
-function loadMore() {
-  limit.value += 50
-  refresh()
-}
-
-function formatCommitDate(dateString: string) {
-  const d = new Date(dateString)
-  const months = [
-    'JAN',
-    'FEB',
-    'MAR',
-    'APR',
-    'MAY',
-    'JUN',
-    'JUL',
-    'AUG',
-    'SEP',
-    'OCT',
-    'NOV',
-    'DEC',
-  ]
-  return `${months[d.getMonth()]} ${String(d.getDate()).padStart(2, '0')}, ${d.getFullYear()}`
-}
-
-function formatTime(dateString: string) {
-  const d = new Date(dateString)
-  return d.toLocaleTimeString('en-US', {
-    hour: 'numeric',
-    minute: '2-digit',
-    hour12: true,
-  })
-}
-
-const typeColors: Record<string, string> = {
-  feat: 'bg-green-100 dark:bg-green-950 text-green-900 dark:text-green-100',
-  fix: 'bg-red-100 dark:bg-red-950 text-red-900 dark:text-red-100',
-  docs: 'bg-blue-100 dark:bg-blue-950 text-blue-900 dark:text-blue-100',
-  style:
-    'bg-purple-100 dark:bg-purple-950 text-purple-900 dark:text-purple-100',
-  refactor:
-    'bg-yellow-100 dark:bg-yellow-950 text-yellow-900 dark:text-yellow-100',
-  test: 'bg-cyan-100 dark:bg-cyan-950 text-cyan-900 dark:text-cyan-100',
-  chore: 'bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100',
-  remove:
-    'bg-orange-100 dark:bg-orange-950 text-orange-900 dark:text-orange-100',
-}
-const defaultTypeColor =
-  'bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100'
-
-function getTypeColor(type: string) {
-  return typeColors[type] || defaultTypeColor
-}
-
-usePageSeo({
-  title: 'Changelog · EJ Fox',
-  description:
-    'Curated changelog of ejfox.com: narrative release notes, stats, and the raw git log for the curious.',
-  type: 'article',
-  section: 'Meta',
-  tags: ['Changelog', 'Site Updates', 'Releases', 'Colophon'],
-  label1: 'Releases',
-  data1: `${colophon.length} curated entries`,
-})
-</script>

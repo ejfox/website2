@@ -3,6 +3,27 @@
   @description Goodreads reading statistics from RSS feed
   @props goodreadsStats: Object - Goodreads data from /api/goodreads
 -->
+<script setup>
+import StatsSectionHeader from './StatsSectionHeader.vue'
+
+defineProps({
+  goodreadsStats: {
+    type: Object,
+    default: () => ({}),
+  },
+})
+
+const formatRating = (rating) => {
+  if (!rating || rating === 0) return '—'
+  return rating.toFixed(1)
+}
+
+const formatNumber = (num) => {
+  if (!num) return '0'
+  return new Intl.NumberFormat('en-US').format(num)
+}
+</script>
+
 <template>
   <div v-if="goodreadsStats?.stats" class="space-y-4 font-mono">
     <!-- Essential metrics -->
@@ -113,24 +134,3 @@
     <div class="text-sm">Loading Goodreads data...</div>
   </div>
 </template>
-
-<script setup>
-import StatsSectionHeader from './StatsSectionHeader.vue'
-
-defineProps({
-  goodreadsStats: {
-    type: Object,
-    default: () => ({}),
-  },
-})
-
-const formatRating = (rating) => {
-  if (!rating || rating === 0) return '—'
-  return rating.toFixed(1)
-}
-
-const formatNumber = (num) => {
-  if (!num) return '0'
-  return new Intl.NumberFormat('en-US').format(num)
-}
-</script>

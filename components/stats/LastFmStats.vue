@@ -3,6 +3,94 @@
   @description Last.fm music listening statistics
   @props stats: Object - Last.fm data from API
 -->
+<script setup lang="ts">
+import { computed } from 'vue'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
+import StatsDataState from './StatsDataState.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+
+interface Track {
+  name: string
+  artist: {
+    name: string
+  }
+  date?: {
+    uts: string
+  }
+  playcount?: string
+}
+
+interface Artist {
+  name: string
+  playcount: string
+}
+
+interface Genre {
+  name: string
+  count: number
+}
+
+interface LastFmStats {
+  recentTracks?: {
+    tracks?: Track[]
+  }
+  topArtists?: {
+    artists?: Artist[]
+    month?: Artist[]
+    year?: Artist[]
+  }
+  topTracks?: {
+    tracks?: Track[]
+    month?: Track[]
+    year?: Track[]
+  }
+  stats?: {
+    topGenres?: Genre[]
+  }
+}
+
+const props = defineProps<{
+  stats?: LastFmStats | null
+}>()
+
+// Computed for easier access to nested data
+const topArtists = computed(() => {
+  return (
+    props.stats?.topArtists?.artists || props.stats?.topArtists?.month || []
+  )
+})
+
+const topTracks = computed(() => {
+  return props.stats?.topTracks?.tracks || props.stats?.topTracks?.month || []
+})
+
+const topGenres = computed(() => {
+  return props.stats?.stats?.topGenres || []
+})
+
+const hasData = computed(() => {
+  return !!(
+    props.stats?.recentTracks?.tracks?.length ||
+    topArtists.value?.length ||
+    topTracks.value?.length ||
+    topGenres.value?.length
+  )
+})
+
+const formatTrackTime = (track: Track): string => {
+  if (!track.date?.uts) return 'NOW'
+
+  const date = new Date(Number.parseInt(track.date.uts) * 1000)
+  const now = new Date()
+  const diffMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60))
+
+  if (diffMinutes < 1) return 'NOW'
+  if (diffMinutes < 60) return `${diffMinutes}m ago`
+  if (diffMinutes < 1440) return `${Math.floor(diffMinutes / 60)}h ago`
+  return `${Math.floor(diffMinutes / 1440)}d ago`
+}
+</script>
+
 <template>
   <div v-if="hasData" class="space-y-2 font-mono">
     <!-- Last 5 Songs -->
@@ -124,91 +212,3 @@
     message="LASTFM_DATA_UNAVAILABLE"
   />
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-import AnimatedNumber from '../ui/AnimatedNumber.vue'
-import StatsDataState from './StatsDataState.vue'
-import StatsSectionHeader from './StatsSectionHeader.vue'
-
-interface Track {
-  name: string
-  artist: {
-    name: string
-  }
-  date?: {
-    uts: string
-  }
-  playcount?: string
-}
-
-interface Artist {
-  name: string
-  playcount: string
-}
-
-interface Genre {
-  name: string
-  count: number
-}
-
-interface LastFmStats {
-  recentTracks?: {
-    tracks?: Track[]
-  }
-  topArtists?: {
-    artists?: Artist[]
-    month?: Artist[]
-    year?: Artist[]
-  }
-  topTracks?: {
-    tracks?: Track[]
-    month?: Track[]
-    year?: Track[]
-  }
-  stats?: {
-    topGenres?: Genre[]
-  }
-}
-
-const props = defineProps<{
-  stats?: LastFmStats | null
-}>()
-
-// Computed for easier access to nested data
-const topArtists = computed(() => {
-  return (
-    props.stats?.topArtists?.artists || props.stats?.topArtists?.month || []
-  )
-})
-
-const topTracks = computed(() => {
-  return props.stats?.topTracks?.tracks || props.stats?.topTracks?.month || []
-})
-
-const topGenres = computed(() => {
-  return props.stats?.stats?.topGenres || []
-})
-
-const hasData = computed(() => {
-  return !!(
-    props.stats?.recentTracks?.tracks?.length ||
-    topArtists.value?.length ||
-    topTracks.value?.length ||
-    topGenres.value?.length
-  )
-})
-
-const formatTrackTime = (track: Track): string => {
-  if (!track.date?.uts) return 'NOW'
-
-  const date = new Date(Number.parseInt(track.date.uts) * 1000)
-  const now = new Date()
-  const diffMinutes = Math.floor((now.getTime() - date.getTime()) / (1000 * 60))
-
-  if (diffMinutes < 1) return 'NOW'
-  if (diffMinutes < 60) return `${diffMinutes}m ago`
-  if (diffMinutes < 1440) return `${Math.floor(diffMinutes / 60)}h ago`
-  return `${Math.floor(diffMinutes / 1440)}d ago`
-}
-</script>

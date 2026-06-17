@@ -6,39 +6,6 @@
   @props days: number - Number of days to display
   @props activeColor: string - Color for active days
 -->
-<template>
-  <div class="activity-calendar font-mono">
-    <StatsSectionHeader v-if="title" :title="title" />
-
-    <!-- Activity Grid -->
-    <div class="activity-grid">
-      <div
-        v-for="(day, index) in activityData"
-        :key="index"
-        class="activity-cell relative"
-        :class="day.active ? 'active' : 'inactive'"
-        :style="day.active ? { backgroundColor: activeColor } : {}"
-        @mouseenter="showTooltip(index)"
-        @mouseleave="hideTooltip()"
-      >
-        <!-- Custom Tooltip -->
-        <div v-if="activeTooltipIndex === index" class="tooltip-custom">
-          {{ formatTooltip(day) }}
-        </div>
-      </div>
-    </div>
-
-    <!-- Caption -->
-    <div
-      class="flex justify-between text-zinc-500 mt-2 text-xs"
-      style="line-height: 10px"
-    >
-      <span>PAST {{ days }} DAYS</span>
-      <span>{{ activeCount }} ACTIVE DAYS</span>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { format } from 'date-fns/format'
@@ -130,6 +97,39 @@ const activeCount = computed(() => {
   return activityData.value.filter((day) => day.active).length
 })
 </script>
+
+<template>
+  <div class="activity-calendar font-mono">
+    <StatsSectionHeader v-if="title" :title="title" />
+
+    <!-- Activity Grid -->
+    <div class="activity-grid">
+      <div
+        v-for="(day, index) in activityData"
+        :key="index"
+        class="activity-cell relative"
+        :class="day.active ? 'active' : 'inactive'"
+        :style="day.active ? { backgroundColor: activeColor } : {}"
+        @mouseenter="showTooltip(index)"
+        @mouseleave="hideTooltip()"
+      >
+        <!-- Custom Tooltip -->
+        <div v-if="activeTooltipIndex === index" class="tooltip-custom">
+          {{ formatTooltip(day) }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Caption -->
+    <div
+      class="flex justify-between text-zinc-500 mt-2 text-xs"
+      style="line-height: 10px"
+    >
+      <span>PAST {{ days }} DAYS</span>
+      <span>{{ activeCount }} ACTIVE DAYS</span>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .activity-calendar {

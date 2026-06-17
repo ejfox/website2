@@ -3,6 +3,85 @@
   @description GitHub Gist statistics
   @props stats: Object - Gist statistics from GitHub API
 -->
+<script setup lang="ts">
+import { computed } from 'vue'
+import { format } from 'date-fns/format'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+import StatsDataState from './StatsDataState.vue'
+
+interface GistStats {
+  stats: {
+    totalGists: number
+    totalFiles: number
+    totalSize: number
+    averageFilesPerGist: number
+    topLanguages: Array<{
+      language: string
+      count: number
+    }>
+    yearStats: Record<string, number>
+  }
+  recentGists: Array<{
+    id: string
+    description: string | null
+    created_at: string
+    files: number
+    firstFileName?: string
+    totalLines?: number
+    languages: string[]
+    html_url: string
+  }>
+  lastUpdated: string
+  error?: string
+}
+
+const props = defineProps<{
+  gistStats?: GistStats | null
+}>()
+
+const hasData = computed(() => {
+  return !!props.gistStats?.stats && props.gistStats.stats.totalGists > 0
+})
+
+const stats = computed(
+  () =>
+    props.gistStats?.stats || {
+      totalGists: 0,
+      totalFiles: 0,
+      totalSize: 0,
+      averageFilesPerGist: 0,
+      topLanguages: [],
+      yearStats: {},
+    }
+)
+
+const recentGists = computed(() => props.gistStats?.recentGists || [])
+
+const formatDate = (dateString: string): string => {
+  return format(new Date(dateString), 'MMM yyyy').toUpperCase()
+}
+
+const getGistTitle = (gist: GistStats['recentGists'][number]): string => {
+  // If there's a description (and it's not 'No description'), use it
+  if (
+    gist.description &&
+    gist.description.trim() &&
+    gist.description !== 'No description'
+  ) {
+    return gist.description
+  }
+
+  // Otherwise, use the first filename if available
+  if (gist.firstFileName) {
+    return gist.firstFileName
+  }
+
+  // Fallback to ID if nothing else works
+  return `gist:${gist.id.slice(0, 8)}`
+}
+</script>
+
 <template>
   <div v-if="hasData" class="space-y-8 font-mono">
     <!-- Primary Stats -->
@@ -96,82 +175,3 @@
   </div>
   <StatsDataState v-else message="Gist data unavailable" />
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-import { format } from 'date-fns/format'
-import AnimatedNumber from '../ui/AnimatedNumber.vue'
-import StatsSectionHeader from './StatsSectionHeader.vue'
-import StatsDataState from './StatsDataState.vue'
-
-interface GistStats {
-  stats: {
-    totalGists: number
-    totalFiles: number
-    totalSize: number
-    averageFilesPerGist: number
-    topLanguages: Array<{
-      language: string
-      count: number
-    }>
-    yearStats: Record<string, number>
-  }
-  recentGists: Array<{
-    id: string
-    description: string | null
-    created_at: string
-    files: number
-    firstFileName?: string
-    totalLines?: number
-    languages: string[]
-    html_url: string
-  }>
-  lastUpdated: string
-  error?: string
-}
-
-const props = defineProps<{
-  gistStats?: GistStats | null
-}>()
-
-const hasData = computed(() => {
-  return !!props.gistStats?.stats && props.gistStats.stats.totalGists > 0
-})
-
-const stats = computed(
-  () =>
-    props.gistStats?.stats || {
-      totalGists: 0,
-      totalFiles: 0,
-      totalSize: 0,
-      averageFilesPerGist: 0,
-      topLanguages: [],
-      yearStats: {},
-    }
-)
-
-const recentGists = computed(() => props.gistStats?.recentGists || [])
-
-const formatDate = (dateString: string): string => {
-  return format(new Date(dateString), 'MMM yyyy').toUpperCase()
-}
-
-const getGistTitle = (gist: GistStats['recentGists'][number]): string => {
-  // If there's a description (and it's not 'No description'), use it
-  if (
-    gist.description &&
-    gist.description.trim() &&
-    gist.description !== 'No description'
-  ) {
-    return gist.description
-  }
-
-  // Otherwise, use the first filename if available
-  if (gist.firstFileName) {
-    return gist.firstFileName
-  }
-
-  // Fallback to ID if nothing else works
-  return `gist:${gist.id.slice(0, 8)}`
-}
-</script>

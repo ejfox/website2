@@ -3,17 +3,17 @@
   @description Stats section header with consistent styling
   @props title: string - Header title
 -->
-<template>
-  <h4 class="section-subheader">
-    {{ title }}
-  </h4>
-</template>
-
 <script setup lang="ts">
 defineProps<{
   title: string
 }>()
 </script>
+
+<template>
+  <h4 class="section-subheader">
+    {{ title }}
+  </h4>
+</template>
 
 <style scoped>
 .section-subheader {

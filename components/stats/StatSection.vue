@@ -6,27 +6,6 @@
   @props show: boolean - Whether to show section (default: true)
   @props grid: boolean - Use grid layout (default: false)
 -->
-<template>
-  <div v-if="show" :id="id" :class="wrapperClass">
-    <component :is="headerTag" :class="headerClass">
-      {{ title }}
-    </component>
-    <!-- a faint hand-drawn doodle in the margin: every section gets one, each a
-         different mark (chosen from the title so it's stable + never a twin) -->
-    <HandDrawn
-      v-if="!grid"
-      :name="subtleMark"
-      size="1.05rem"
-      class="stats-section__mark text-zinc-400 dark:text-zinc-500"
-      :style="markStyle"
-      aria-hidden="true"
-    />
-    <div :class="contentClass">
-      <slot />
-    </div>
-  </div>
-</template>
-
 <script setup>
 const props = defineProps({
   title: {
@@ -50,8 +29,6 @@ const props = defineProps({
 // one quiet margin doodle per section. Picked from the section title so it's
 // deterministic (SSR-safe) and stable, and the list is long enough that no two
 // sections land on the same mark — they all look hand-drawn-different.
-// one distinct, thematically-fitting doodle per section — all different, so no two
-// sections wear the same scribble (the no-twins rule, guaranteed not just hoped)
 const SECTION_MARK = {
   GITHUB: 'arrow-down-curve',
   CODE: 'plus-minus', // a diff +/-
@@ -65,19 +42,29 @@ const SECTION_MARK = {
   FILMS: 'star-5pt', // ★ ratings
   BOOKS: 'dot-lg',
   ANALYTICS: 'arrow-hook-down',
-  GEAR: 'plus-minus-2'
+  GEAR: 'plus-minus-2',
 }
-const FALLBACK = ['mark-dash', 'dot', 'star-4pt-2', 'arrow-down-thin', 'dot-lg', 'comma']
+const FALLBACK = [
+  'mark-dash',
+  'dot',
+  'star-4pt-2',
+  'arrow-down-thin',
+  'dot-lg',
+  'comma',
+]
 const titleHash = computed(() => {
   let h = 0
-  for (let i = 0; i < props.title.length; i++) h = (h * 31 + props.title.charCodeAt(i)) % 100003
+  for (let i = 0; i < props.title.length; i++)
+    h = (h * 31 + props.title.charCodeAt(i)) % 100003
   return h
 })
 const subtleMark = computed(
-  () => SECTION_MARK[(props.title || '').toUpperCase()] || FALLBACK[titleHash.value % FALLBACK.length]
+  () =>
+    SECTION_MARK[(props.title || '').toUpperCase()] ||
+    FALLBACK[titleHash.value % FALLBACK.length]
 )
 const markStyle = computed(() => ({
-  transform: `rotate(${((titleHash.value % 5) - 2) * 4}deg)`
+  transform: `rotate(${((titleHash.value % 5) - 2) * 4}deg)`,
 }))
 
 const headerTag = computed(() => (props.grid ? 'div' : 'h2'))
@@ -89,6 +76,27 @@ const wrapperClass = computed(() =>
 )
 const contentClass = computed(() => (props.grid ? 'grid-2col' : 'div'))
 </script>
+
+<template>
+  <div v-if="show" :id="id" :class="wrapperClass">
+    <component :is="headerTag" :class="headerClass">
+      {{ title }}
+    </component>
+    <!-- a faint hand-drawn doodle in the margin: every section gets one, each a
+         different mark (chosen from the title so it's stable + never a twin) -->
+    <HandDrawn
+      v-if="!grid"
+      :name="subtleMark"
+      size="1.05rem"
+      class="stats-section__mark text-zinc-400 dark:text-zinc-500"
+      :style="markStyle"
+      aria-hidden="true"
+    />
+    <div :class="contentClass">
+      <slot />
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .stats-section {

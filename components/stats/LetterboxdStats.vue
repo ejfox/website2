@@ -3,6 +3,110 @@
   @description Letterboxd film watching statistics
   @props stats: Object - Letterboxd data
 -->
+<script setup lang="ts">
+import { computed } from 'vue'
+import { format } from 'date-fns/format'
+import AnimatedNumber from '../ui/AnimatedNumber.vue'
+import StatsSectionHeader from './StatsSectionHeader.vue'
+
+interface LetterboxdFilm {
+  title: string
+  slug: string
+  rating: number | null
+  letterboxdUrl: string
+  watchedDate: string | null
+  isRewatch?: boolean
+}
+
+interface LetterboxdStats {
+  films: LetterboxdFilm[]
+  stats: {
+    totalFilms: number
+    thisYear: number
+    thisMonth: number
+    averageRating: number
+    rewatches: number
+    topRatedFilms: LetterboxdFilm[]
+    recentFilms: LetterboxdFilm[]
+    filmsByMonth: Record<string, number>
+  }
+  lastUpdated: string
+  source: string
+  error?: string
+}
+
+const props = defineProps<{
+  letterboxdStats?: LetterboxdStats | null
+}>()
+
+const hasData = computed(() => {
+  return (
+    !!props.letterboxdStats?.stats && props.letterboxdStats.stats.totalFilms > 0
+  )
+})
+
+const stats = computed(
+  () =>
+    props.letterboxdStats?.stats || {
+      totalFilms: 0,
+      thisYear: 0,
+      thisMonth: 0,
+      averageRating: 0,
+      rewatches: 0,
+      topRatedFilms: [],
+      recentFilms: [],
+      filmsByMonth: {},
+    }
+)
+
+const recentFilms = computed(() => props.letterboxdStats?.films || [])
+
+const formatDate = (dateString: string | null): string => {
+  if (!dateString) return 'NO DATE'
+  return format(new Date(dateString), 'MMM d').toUpperCase()
+}
+
+const renderStars = (rating: number | null) => {
+  if (!rating) return []
+
+  const fullStars = Math.floor(rating)
+  const hasHalfStar = rating % 1 >= 0.5
+  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0)
+
+  const stars = []
+  let id = 0
+
+  // Full stars
+  for (let i = 0; i < fullStars; i++) {
+    stars.push({
+      id: id++,
+      char: '★',
+      class: 'text-zinc-700 dark:text-zinc-300',
+    })
+  }
+
+  // Half star
+  if (hasHalfStar) {
+    stars.push({
+      id: id++,
+      char: '½',
+      class: 'text-zinc-700 dark:text-zinc-300 text-3xs -ml-[1px]',
+    })
+  }
+
+  // Empty stars
+  for (let i = 0; i < emptyStars; i++) {
+    stars.push({
+      id: id++,
+      char: '☆',
+      class: 'text-zinc-400 dark:text-zinc-600',
+    })
+  }
+
+  return stars
+}
+</script>
+
 <template>
   <div v-if="hasData" class="space-y-8 font-mono">
     <!-- Primary Metric -->
@@ -157,107 +261,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { computed } from 'vue'
-import { format } from 'date-fns/format'
-import AnimatedNumber from '../ui/AnimatedNumber.vue'
-import StatsSectionHeader from './StatsSectionHeader.vue'
-
-interface LetterboxdFilm {
-  title: string
-  slug: string
-  rating: number | null
-  letterboxdUrl: string
-  watchedDate: string | null
-  isRewatch?: boolean
-}
-
-interface LetterboxdStats {
-  films: LetterboxdFilm[]
-  stats: {
-    totalFilms: number
-    thisYear: number
-    thisMonth: number
-    averageRating: number
-    rewatches: number
-    topRatedFilms: LetterboxdFilm[]
-    recentFilms: LetterboxdFilm[]
-    filmsByMonth: Record<string, number>
-  }
-  lastUpdated: string
-  source: string
-  error?: string
-}
-
-const props = defineProps<{
-  letterboxdStats?: LetterboxdStats | null
-}>()
-
-const hasData = computed(() => {
-  return (
-    !!props.letterboxdStats?.stats && props.letterboxdStats.stats.totalFilms > 0
-  )
-})
-
-const stats = computed(
-  () =>
-    props.letterboxdStats?.stats || {
-      totalFilms: 0,
-      thisYear: 0,
-      thisMonth: 0,
-      averageRating: 0,
-      rewatches: 0,
-      topRatedFilms: [],
-      recentFilms: [],
-      filmsByMonth: {},
-    }
-)
-
-const recentFilms = computed(() => props.letterboxdStats?.films || [])
-
-const formatDate = (dateString: string | null): string => {
-  if (!dateString) return 'NO DATE'
-  return format(new Date(dateString), 'MMM d').toUpperCase()
-}
-
-const renderStars = (rating: number | null) => {
-  if (!rating) return []
-
-  const fullStars = Math.floor(rating)
-  const hasHalfStar = rating % 1 >= 0.5
-  const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0)
-
-  const stars = []
-  let id = 0
-
-  // Full stars
-  for (let i = 0; i < fullStars; i++) {
-    stars.push({
-      id: id++,
-      char: '★',
-      class: 'text-zinc-700 dark:text-zinc-300',
-    })
-  }
-
-  // Half star
-  if (hasHalfStar) {
-    stars.push({
-      id: id++,
-      char: '½',
-      class: 'text-zinc-700 dark:text-zinc-300 text-3xs -ml-[1px]',
-    })
-  }
-
-  // Empty stars
-  for (let i = 0; i < emptyStars; i++) {
-    stars.push({
-      id: id++,
-      char: '☆',
-      class: 'text-zinc-400 dark:text-zinc-600',
-    })
-  }
-
-  return stars
-}
-</script>

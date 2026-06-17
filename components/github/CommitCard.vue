@@ -6,6 +6,30 @@
   @props repo: string - Repository name
   @props date: string - Commit timestamp (optional)
 -->
+<script setup lang="ts">
+interface Props {
+  sha: string
+  message: string
+  repo: string
+  date?: string
+}
+
+const props = defineProps<Props>()
+
+const formattedDate = computed(() => {
+  if (!props.date) return ''
+  try {
+    const d = new Date(props.date)
+    return d.toLocaleTimeString('en-US', {
+      hour: 'numeric',
+      minute: '2-digit',
+    })
+  } catch {
+    return ''
+  }
+})
+</script>
+
 <template>
   <article class="commit-card group">
     <div class="flex gap-3">
@@ -74,30 +98,6 @@
     </div>
   </article>
 </template>
-
-<script setup lang="ts">
-interface Props {
-  sha: string
-  message: string
-  repo: string
-  date?: string
-}
-
-const props = defineProps<Props>()
-
-const formattedDate = computed(() => {
-  if (!props.date) return ''
-  try {
-    const d = new Date(props.date)
-    return d.toLocaleTimeString('en-US', {
-      hour: 'numeric',
-      minute: '2-digit',
-    })
-  } catch {
-    return ''
-  }
-})
-</script>
 
 <style scoped>
 .commit-card {

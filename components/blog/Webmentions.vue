@@ -3,6 +3,87 @@
   @description Webmentions display showing likes, reposts, replies, and mentions from external sites
   @props url: string - URL to fetch webmentions for
 -->
+<script setup lang="ts">
+import { formatDistanceToNow } from 'date-fns'
+
+const props = defineProps<{
+  url: string
+}>()
+
+const showLikes = ref(false)
+const showReposts = ref(false)
+
+const { data: webmentions } = await useFetch('/api/webmentions', {
+  query: { target: props.url },
+  default: () => [],
+})
+
+interface Webmention {
+  'wm-id': number
+  'wm-property': string
+  url: string
+  author?: {
+    name?: string
+    url?: string
+    photo?: string
+  }
+  content?: {
+    html?: string
+    text?: string
+  }
+  published?: string
+}
+
+const likes = computed(() =>
+  (webmentions.value || []).filter((w: Webmention) =>
+    ['like-of', 'favorite'].includes(w['wm-property'])
+  )
+)
+
+const reposts = computed(() =>
+  (webmentions.value || []).filter((w: Webmention) =>
+    ['repost-of', 'share'].includes(w['wm-property'])
+  )
+)
+
+const replies = computed(() =>
+  (webmentions.value || []).filter((w: Webmention) =>
+    ['in-reply-to', 'reply'].includes(w['wm-property'])
+  )
+)
+
+const mentions = computed(() =>
+  (webmentions.value || []).filter((w: Webmention) =>
+    ['mention-of', 'bookmark-of'].includes(w['wm-property'])
+  )
+)
+
+const formatTime = (dateStr: string) => {
+  if (!dateStr) return ''
+  try {
+    return formatDistanceToNow(new Date(dateStr), { addSuffix: true })
+  } catch {
+    return ''
+  }
+}
+
+const getDomain = (url: string) => {
+  try {
+    return new URL(url).hostname.replace('www.', '')
+  } catch {
+    return 'source'
+  }
+}
+
+const truncateHtml = (html: string, maxLength = 280) => {
+  // Strip tags for length check
+  const text = html.replace(/<[^>]*>/g, '')
+  if (text.length <= maxLength) return html
+  // Truncate and close any open tags
+  return text.slice(0, maxLength) + '...'
+}
+</script>
+
 <template>
   <div
     v-if="webmentions && webmentions.length > 0"
@@ -153,84 +234,3 @@
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-import { formatDistanceToNow } from 'date-fns'
-
-const props = defineProps<{
-  url: string
-}>()
-
-const showLikes = ref(false)
-const showReposts = ref(false)
-
-const { data: webmentions } = await useFetch('/api/webmentions', {
-  query: { target: props.url },
-  default: () => [],
-})
-
-interface Webmention {
-  'wm-id': number
-  'wm-property': string
-  url: string
-  author?: {
-    name?: string
-    url?: string
-    photo?: string
-  }
-  content?: {
-    html?: string
-    text?: string
-  }
-  published?: string
-}
-
-const likes = computed(() =>
-  (webmentions.value || []).filter((w: Webmention) =>
-    ['like-of', 'favorite'].includes(w['wm-property'])
-  )
-)
-
-const reposts = computed(() =>
-  (webmentions.value || []).filter((w: Webmention) =>
-    ['repost-of', 'share'].includes(w['wm-property'])
-  )
-)
-
-const replies = computed(() =>
-  (webmentions.value || []).filter((w: Webmention) =>
-    ['in-reply-to', 'reply'].includes(w['wm-property'])
-  )
-)
-
-const mentions = computed(() =>
-  (webmentions.value || []).filter((w: Webmention) =>
-    ['mention-of', 'bookmark-of'].includes(w['wm-property'])
-  )
-)
-
-const formatTime = (dateStr: string) => {
-  if (!dateStr) return ''
-  try {
-    return formatDistanceToNow(new Date(dateStr), { addSuffix: true })
-  } catch {
-    return ''
-  }
-}
-
-const getDomain = (url: string) => {
-  try {
-    return new URL(url).hostname.replace('www.', '')
-  } catch {
-    return 'source'
-  }
-}
-
-const truncateHtml = (html: string, maxLength = 280) => {
-  // Strip tags for length check
-  const text = html.replace(/<[^>]*>/g, '')
-  if (text.length <= maxLength) return html
-  // Truncate and close any open tags
-  return text.slice(0, maxLength) + '...'
-}
-</script>

@@ -12,8 +12,6 @@ import { extent } from 'd3-array'
 import { line, curveBasis } from 'd3-shape'
 import { useLanguageColors } from '~/composables/useLanguageColors'
 
-const { getColor } = useLanguageColors()
-
 const props = defineProps({
   repos: {
     type: Array,
@@ -28,6 +26,8 @@ const props = defineProps({
     default: 400,
   },
 })
+
+const { getColor } = useLanguageColors()
 
 const hoveredRepo = ref(null)
 

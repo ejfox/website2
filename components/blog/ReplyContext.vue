@@ -3,18 +3,6 @@
   @description Reply context container displaying one or more URLs being replied to
   @props replyTo: string | string[] - URL or array of URLs being replied to (optional)
 -->
-<template>
-  <div v-if="urls.length > 0" class="reply-context-container space-y-3 mb-6">
-    <div
-      v-for="(url, index) in urls"
-      :key="url"
-      class="reply-context p-4 rounded-lg border bg-zinc-50 dark:bg-zinc-900/50 border-zinc-200 dark:border-zinc-800"
-    >
-      <ReplyContextItem :url="url" :show-label="index === 0" />
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 const props = defineProps<{
   replyTo?: string | string[]
@@ -29,3 +17,15 @@ const urls = computed(() => {
   return [props.replyTo]
 })
 </script>
+
+<template>
+  <div v-if="urls.length > 0" class="reply-context-container space-y-3 mb-6">
+    <div
+      v-for="(url, index) in urls"
+      :key="url"
+      class="reply-context p-4 rounded-lg border bg-zinc-50 dark:bg-zinc-900/50 border-zinc-200 dark:border-zinc-800"
+    >
+      <ReplyContextItem :url="url" :show-label="index === 0" />
+    </div>
+  </div>
+</template>

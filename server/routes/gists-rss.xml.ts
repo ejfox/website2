@@ -44,10 +44,7 @@ const siteDescription =
 const CACHE_DURATION = 3600
 // Disk-cache the last successful XML so the feed keeps serving when GitHub's
 // API is down, the token is missing, or we're rate-limited.
-const DISK_CACHE_PATH = join(
-  process.cwd(),
-  'data/cache/gists-rss.xml'
-)
+const DISK_CACHE_PATH = join(process.cwd(), 'data/cache/gists-rss.xml')
 
 function readDiskCache(): string | null {
   try {

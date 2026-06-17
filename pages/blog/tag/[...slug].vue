@@ -1,5 +1,127 @@
 <!-- Blog Tag Page -->
 
+<script setup>
+import { format, parseISO } from 'date-fns'
+
+const { formatShortDate } = useDateFormat()
+const route = useRoute()
+const processedMarkdown = useProcessedMarkdown()
+
+// Get tag from URL
+const tag = computed(() => {
+  const slugArray = route.params.slug
+  return Array.isArray(slugArray) ? slugArray.join('/') : slugArray
+})
+
+// Set page title
+const pageTitle = computed(() => `Posts tagged "${tag.value}" | EJ Fox`)
+const pageDescription = computed(
+  () => `All blog posts tagged with "${tag.value}"`
+)
+
+// Helper functions (copied from blog index)
+const formatTitle = (slug) => {
+  if (!slug) return ''
+  return slug
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}
+
+const isValidPost = (post) => {
+  const isDraft = post?.draft || post?.metadata?.draft
+  const isHidden = post?.hidden || post?.metadata?.hidden
+  return post && post.slug && !isDraft && !isHidden
+}
+
+const processPost = (post) => {
+  const title = post.title || post?.metadata?.title || formatTitle(post.slug)
+  return { ...post, title, metadata: { ...post.metadata, title } }
+}
+
+// Fetch all posts and filter by tag
+const { data: allPosts } = useAsyncData('all-posts-for-tag', async () => {
+  try {
+    const result = await processedMarkdown.getAllPosts(false, false)
+    return result.filter((post) => isValidPost(post)).map(processPost)
+  } catch (err) {
+    console.error('Error fetching posts for tag:', err)
+    return []
+  }
+})
+
+// Fetch scraps matching this tag
+const { data: tagScraps } = useFetch('/api/scraps/by-tags', {
+  query: { tags: tag, limit: 12 },
+  watch: [tag],
+  lazy: true,
+  server: false,
+})
+
+const formatScrapDate = (dateStr) => {
+  try {
+    return format(parseISO(dateStr), 'MMM d, yyyy')
+  } catch {
+    return ''
+  }
+}
+
+// Filter posts by tag
+const filteredPosts = computed(() => {
+  if (!allPosts.value || !tag.value) return []
+
+  return allPosts.value
+    .filter((post) => {
+      const postTags = post?.tags || post?.metadata?.tags || []
+      return postTags.includes(tag.value)
+    })
+    .sort((a, b) => {
+      // Sort by date, newest first
+      const dateA = new Date(a?.metadata?.date || a?.date || 0)
+      const dateB = new Date(b?.metadata?.date || b?.date || 0)
+      return dateB - dateA
+    })
+})
+
+usePageSeo({
+  title: pageTitle,
+  description: pageDescription,
+  type: 'article',
+  section: 'Writing',
+  tags: computed(() => [tag.value]),
+  label1: 'Posts',
+  data1: computed(() => `${filteredPosts.value.length} tagged`),
+  label2: 'Topic',
+  data2: computed(() => tag.value),
+})
+
+// Helper functions for display
+const calculateReadingTime = (words) => {
+  if (!words) return 0
+  return Math.max(1, Math.round(words / 200))
+}
+
+const getPostYear = (post) => {
+  const date = new Date(post?.metadata?.date || post?.date || 0)
+  return date.getFullYear()
+}
+
+const shouldShowYearHeader = (post, index) => {
+  if (index === 0) return true
+  const currentYear = getPostYear(post)
+  const previousYear = getPostYear(filteredPosts.value[index - 1])
+  return currentYear !== previousYear
+}
+
+// Tag page title styling
+const tagPageTitleClass =
+  'font-serif text-3xl font-normal text-zinc-900 dark:text-zinc-100 mb-2'
+
+// Post summary styling
+const postSummaryClass =
+  'mt-2 text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed'
+</script>
+
 <template>
   <div>
     <!-- Header with tag info -->
@@ -213,125 +335,3 @@
     </main>
   </div>
 </template>
-
-<script setup>
-import { format, parseISO } from 'date-fns'
-
-const { formatShortDate } = useDateFormat()
-const route = useRoute()
-const processedMarkdown = useProcessedMarkdown()
-
-// Get tag from URL
-const tag = computed(() => {
-  const slugArray = route.params.slug
-  return Array.isArray(slugArray) ? slugArray.join('/') : slugArray
-})
-
-// Set page title
-const pageTitle = computed(() => `Posts tagged "${tag.value}" | EJ Fox`)
-const pageDescription = computed(
-  () => `All blog posts tagged with "${tag.value}"`
-)
-
-// Helper functions (copied from blog index)
-const formatTitle = (slug) => {
-  if (!slug) return ''
-  return slug
-    .split('-')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ')
-}
-
-const isValidPost = (post) => {
-  const isDraft = post?.draft || post?.metadata?.draft
-  const isHidden = post?.hidden || post?.metadata?.hidden
-  return post && post.slug && !isDraft && !isHidden
-}
-
-const processPost = (post) => {
-  const title = post.title || post?.metadata?.title || formatTitle(post.slug)
-  return { ...post, title, metadata: { ...post.metadata, title } }
-}
-
-// Fetch all posts and filter by tag
-const { data: allPosts } = useAsyncData('all-posts-for-tag', async () => {
-  try {
-    const result = await processedMarkdown.getAllPosts(false, false)
-    return result.filter((post) => isValidPost(post)).map(processPost)
-  } catch (err) {
-    console.error('Error fetching posts for tag:', err)
-    return []
-  }
-})
-
-// Fetch scraps matching this tag
-const { data: tagScraps } = useFetch('/api/scraps/by-tags', {
-  query: { tags: tag, limit: 12 },
-  watch: [tag],
-  lazy: true,
-  server: false,
-})
-
-const formatScrapDate = (dateStr) => {
-  try {
-    return format(parseISO(dateStr), 'MMM d, yyyy')
-  } catch {
-    return ''
-  }
-}
-
-// Filter posts by tag
-const filteredPosts = computed(() => {
-  if (!allPosts.value || !tag.value) return []
-
-  return allPosts.value
-    .filter((post) => {
-      const postTags = post?.tags || post?.metadata?.tags || []
-      return postTags.includes(tag.value)
-    })
-    .sort((a, b) => {
-      // Sort by date, newest first
-      const dateA = new Date(a?.metadata?.date || a?.date || 0)
-      const dateB = new Date(b?.metadata?.date || b?.date || 0)
-      return dateB - dateA
-    })
-})
-
-usePageSeo({
-  title: pageTitle,
-  description: pageDescription,
-  type: 'article',
-  section: 'Writing',
-  tags: computed(() => [tag.value]),
-  label1: 'Posts',
-  data1: computed(() => `${filteredPosts.value.length} tagged`),
-  label2: 'Topic',
-  data2: computed(() => tag.value),
-})
-
-// Helper functions for display
-const calculateReadingTime = (words) => {
-  if (!words) return 0
-  return Math.max(1, Math.round(words / 200))
-}
-
-const getPostYear = (post) => {
-  const date = new Date(post?.metadata?.date || post?.date || 0)
-  return date.getFullYear()
-}
-
-const shouldShowYearHeader = (post, index) => {
-  if (index === 0) return true
-  const currentYear = getPostYear(post)
-  const previousYear = getPostYear(filteredPosts.value[index - 1])
-  return currentYear !== previousYear
-}
-
-// Tag page title styling
-const tagPageTitleClass =
-  'font-serif text-3xl font-normal text-zinc-900 dark:text-zinc-100 mb-2'
-
-// Post summary styling
-const postSummaryClass =
-  'mt-2 text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed'
-</script>
