@@ -115,7 +115,10 @@ const humanize = (key) =>
 </script>
 
 <template>
-  <div class="gear-card-container" :style="tilt">
+  <div
+    class="gear-card-container w-full max-w-md lg:max-w-3xl 2xl:max-w-5xl mx-auto"
+    :style="tilt"
+  >
     <!-- Header -->
     <div class="card-header">
       <div class="text-2xl mb-2">{{ TYPE_SYMBOLS[gearItem.Type] || '—' }}</div>
@@ -187,7 +190,9 @@ const humanize = (key) =>
     <!-- Details table -->
     <div class="details-section">
       <h3 class="label-tracked-md">Item Details</h3>
-      <div class="grid grid-cols-1 gap-2 text-xs">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-x-10 gap-y-2 text-xs"
+      >
         <div
           v-for="(value, key) in itemDetails"
           :key="key"
