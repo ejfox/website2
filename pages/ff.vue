@@ -9,7 +9,7 @@
 definePageMeta({ layout: false })
 
 useHead({
-  title: 'You found the hidden door · EJ Fox',
+  title: 'Friends & Family · EJ Fox',
   meta: [{ name: 'robots', content: 'noindex, nofollow' }],
 })
 
@@ -119,11 +119,6 @@ onMounted(() => {
         </div>
       </template>
     </ClientOnly>
-
-      <footer class="ff-footer">
-        // not in the nav, not in the sitemap, not indexed — you found the
-        hidden door. thanks for being on the short list
-      </footer>
     </div>
   </div>
 </template>
@@ -159,11 +154,6 @@ onMounted(() => {
 }
 .ff-meta {
   @apply mt-3 font-mono text-xs uppercase tracking-wider text-zinc-400 dark:text-zinc-600;
-}
-
-.ff-footer {
-  @apply mt-10 max-w-prose font-mono text-3xs leading-relaxed
-         text-zinc-400 dark:text-zinc-600;
 }
 
 @keyframes ff-blink {
