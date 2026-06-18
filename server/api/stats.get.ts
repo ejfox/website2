@@ -5,6 +5,7 @@
  * @returns Comprehensive StatsResponse object containing data from all integrated services with graceful error handling for individual service failures
  */
 import type { StatsResponse } from '~/composables/useStats'
+import { buildStatsHorizons, type StatsHorizons } from '../utils/statsHorizons'
 import githubHandler from './github.get'
 import monkeyTypeHandler from './monkeytype.get'
 // import photosHandler from './photos.get' // DISABLED: SSL certificate issues
@@ -226,198 +227,210 @@ function getValue<T>(result: PromiseSettledResult<T>): T | null {
   return result.status === 'fulfilled' ? result.value : null
 }
 
-export default defineEventHandler(async (event): Promise<StatsResponse> => {
-  try {
-    // console.log('🎯 Stats handler called')
+export default defineEventHandler(
+  async (event): Promise<StatsResponse & StatsHorizons> => {
+    try {
+      // console.log('🎯 Stats handler called')
 
-    const [
-      githubResult,
-      monkeyTypeResult,
-      // photosResult, // DISABLED: SSL certificate issues
-      healthResult,
-      leetcodeResult,
-      chessResult,
-      rescueTimeResult,
-      lastfmResult,
-      gearStatsResult,
-      gistStatsResult,
-      websiteStatsResult,
-      letterboxdStatsResult,
-      blogStatsResult,
-      discogsResult,
-      duolingoResult,
-      goodreadsResult,
-    ] = await Promise.allSettled([
-      githubHandler(event).catch((err) => {
-        console.error('❌ GitHub API error:', err)
-        return null
-      }),
-      monkeyTypeHandler(event).catch((err) => {
-        console.error('❌ MonkeyType API error:', err)
-        return null
-      }),
-      // photosHandler(event).catch((err) => {
-      //   console.error('❌ Photos API error:', err)
-      //   return null
-      // }),
-      healthHandler(event).catch((err) => {
-        console.error('❌ Health API error:', err)
-        return null
-      }),
-      leetcodeHandler(event).catch((err) => {
-        console.error('❌ LeetCode API error:', err)
-        return null
-      }),
-      chessHandler(event).catch((err) => {
-        console.error('❌ Chess API error:', err)
-        return null
-      }),
-      rescuetimeHandler(event).catch((err) => {
-        console.error('❌ RescueTime API error:', err)
-        return null
-      }),
-      lastfmHandler(event).catch((err) => {
-        console.error('❌ Last.fm API error:', err)
-        return null
-      }),
-      gearStatsHandler(event).catch((err) => {
-        console.error('❌ Gear stats error:', err)
-        return null
-      }),
-      gistStatsHandler(event).catch((err) => {
-        console.error('❌ Gist stats error:', err)
-        return null
-      }),
-      websiteStatsHandler(event).catch((err) => {
-        console.error('❌ Website stats error:', err)
-        return null
-      }),
-      letterboxdStatsHandler(event).catch((err) => {
-        console.error('❌ Letterboxd stats error:', err)
-        return null
-      }),
-      blogStatsHandler(event).catch((err) => {
-        console.error('❌ Blog stats error:', err)
-        return null
-      }),
-      discogsHandler(event).catch((err) => {
-        console.error('❌ Discogs API error:', err)
-        return null
-      }),
-      duolingoHandler(event).catch((err) => {
-        console.error('❌ Duolingo API error:', err)
-        return null
-      }),
-      goodreadsHandler(event).catch((err) => {
-        console.error('❌ Goodreads API error:', err)
-        return null
-      }),
-    ])
+      const [
+        githubResult,
+        monkeyTypeResult,
+        // photosResult, // DISABLED: SSL certificate issues
+        healthResult,
+        leetcodeResult,
+        chessResult,
+        rescueTimeResult,
+        lastfmResult,
+        gearStatsResult,
+        gistStatsResult,
+        websiteStatsResult,
+        letterboxdStatsResult,
+        blogStatsResult,
+        discogsResult,
+        duolingoResult,
+        goodreadsResult,
+      ] = await Promise.allSettled([
+        githubHandler(event).catch((err) => {
+          console.error('❌ GitHub API error:', err)
+          return null
+        }),
+        monkeyTypeHandler(event).catch((err) => {
+          console.error('❌ MonkeyType API error:', err)
+          return null
+        }),
+        // photosHandler(event).catch((err) => {
+        //   console.error('❌ Photos API error:', err)
+        //   return null
+        // }),
+        healthHandler(event).catch((err) => {
+          console.error('❌ Health API error:', err)
+          return null
+        }),
+        leetcodeHandler(event).catch((err) => {
+          console.error('❌ LeetCode API error:', err)
+          return null
+        }),
+        chessHandler(event).catch((err) => {
+          console.error('❌ Chess API error:', err)
+          return null
+        }),
+        rescuetimeHandler(event).catch((err) => {
+          console.error('❌ RescueTime API error:', err)
+          return null
+        }),
+        lastfmHandler(event).catch((err) => {
+          console.error('❌ Last.fm API error:', err)
+          return null
+        }),
+        gearStatsHandler(event).catch((err) => {
+          console.error('❌ Gear stats error:', err)
+          return null
+        }),
+        gistStatsHandler(event).catch((err) => {
+          console.error('❌ Gist stats error:', err)
+          return null
+        }),
+        websiteStatsHandler(event).catch((err) => {
+          console.error('❌ Website stats error:', err)
+          return null
+        }),
+        letterboxdStatsHandler(event).catch((err) => {
+          console.error('❌ Letterboxd stats error:', err)
+          return null
+        }),
+        blogStatsHandler(event).catch((err) => {
+          console.error('❌ Blog stats error:', err)
+          return null
+        }),
+        discogsHandler(event).catch((err) => {
+          console.error('❌ Discogs API error:', err)
+          return null
+        }),
+        duolingoHandler(event).catch((err) => {
+          console.error('❌ Duolingo API error:', err)
+          return null
+        }),
+        goodreadsHandler(event).catch((err) => {
+          console.error('❌ Goodreads API error:', err)
+          return null
+        }),
+      ])
 
-    // Build adapted data
-    const githubData = getValue(githubResult)
-      ? adaptGitHubStats(getValue(githubResult))
-      : undefined
-    const chessData = getValue(chessResult)
-      ? adaptChessStats(getValue(chessResult))
-      : undefined
-    const rescueTimeData = getValue(rescueTimeResult) as any
-    const healthData = getValue(healthResult) as any
-    const lastfmData = getValue(lastfmResult) as any
-    const letterboxdData = getValue(letterboxdStatsResult) as any
-    const blogData = getValue(blogStatsResult) as any
-    const duolingoData = getValue(duolingoResult) as any
-    const goodreadsData = getValue(goodreadsResult) as any
+      // Build adapted data
+      const githubData = getValue(githubResult)
+        ? adaptGitHubStats(getValue(githubResult))
+        : undefined
+      const chessData = getValue(chessResult)
+        ? adaptChessStats(getValue(chessResult))
+        : undefined
+      const rescueTimeData = getValue(rescueTimeResult) as any
+      const healthData = getValue(healthResult) as any
+      const lastfmData = getValue(lastfmResult) as any
+      const letterboxdData = getValue(letterboxdStatsResult) as any
+      const blogData = getValue(blogStatsResult) as any
+      const duolingoData = getValue(duolingoResult) as any
+      const goodreadsData = getValue(goodreadsResult) as any
 
-    // Build weekly summary - the key metrics for "what did I do this week"
-    const weeklySummary = {
-      // Time tracking
-      productiveHours:
-        rescueTimeData?.week?.summary?.productive?.time?.hoursDecimal || 0,
-      totalTrackedHours:
-        rescueTimeData?.week?.summary?.total?.hoursDecimal || 0,
-      productivityPercent:
-        rescueTimeData?.week?.summary?.productive?.percentage || 0,
-      topActivity: rescueTimeData?.week?.activities?.[0]?.name || null,
+      // Build weekly summary - the key metrics for "what did I do this week"
+      const weeklySummary = {
+        // Time tracking
+        productiveHours:
+          rescueTimeData?.week?.summary?.productive?.time?.hoursDecimal || 0,
+        totalTrackedHours:
+          rescueTimeData?.week?.summary?.total?.hoursDecimal || 0,
+        productivityPercent:
+          rescueTimeData?.week?.summary?.productive?.percentage || 0,
+        topActivity: rescueTimeData?.week?.activities?.[0]?.name || null,
 
-      // Coding
-      commits: githubData?.detail?.commits?.length || 0,
-      topRepos: [
-        ...new Set(
-          githubData?.detail?.commits?.map((c) => c.repository.name) || []
-        ),
-      ].slice(0, 5),
-      commitTypes: githubData?.detail?.commitTypes?.slice(0, 3) || [],
+        // Coding
+        commits: githubData?.detail?.commits?.length || 0,
+        topRepos: [
+          ...new Set(
+            githubData?.detail?.commits?.map((c) => c.repository.name) || []
+          ),
+        ].slice(0, 5),
+        commitTypes: githubData?.detail?.commitTypes?.slice(0, 3) || [],
 
-      // Health
-      stepsThisWeek: healthData?.thisWeek?.steps || 0,
-      exerciseMinutesThisWeek: healthData?.thisWeek?.exerciseMinutes || 0,
-      avgDailySteps: healthData?.averages?.dailySteps || 0,
+        // Health
+        stepsThisWeek: healthData?.thisWeek?.steps || 0,
+        exerciseMinutesThisWeek: healthData?.thisWeek?.exerciseMinutes || 0,
+        avgDailySteps: healthData?.averages?.dailySteps || 0,
 
-      // Media consumed
-      moviesWatched: letterboxdData?.stats?.thisMonth || 0,
-      recentMovies:
-        letterboxdData?.films
-          ?.slice(0, 3)
-          ?.map((f: { title: string; rating: number | null }) => ({
-            title: f.title,
-            rating: f.rating,
-          })) || [],
-      topArtists:
-        lastfmData?.topArtists?.artists
-          ?.slice(0, 3)
-          ?.map((a: { name: string; playcount: string }) => ({
-            name: a.name,
-            plays: Number.parseInt(a.playcount),
-          })) || [],
-      scrobblesThisWeek: lastfmData?.stats?.averagePerDay
-        ? Math.round(lastfmData.stats.averagePerDay * 7)
-        : 0,
+        // Media consumed
+        moviesWatched: letterboxdData?.stats?.thisMonth || 0,
+        recentMovies:
+          letterboxdData?.films
+            ?.slice(0, 3)
+            ?.map((f: { title: string; rating: number | null }) => ({
+              title: f.title,
+              rating: f.rating,
+            })) || [],
+        topArtists:
+          lastfmData?.topArtists?.artists
+            ?.slice(0, 3)
+            ?.map((a: { name: string; playcount: string }) => ({
+              name: a.name,
+              plays: Number.parseInt(a.playcount),
+            })) || [],
+        scrobblesThisWeek: lastfmData?.stats?.averagePerDay
+          ? Math.round(lastfmData.stats.averagePerDay * 7)
+          : 0,
 
-      // Learning
-      duolingoStreak: duolingoData?.streak || 0,
-      chessGamesThisWeek: chessData?.recentGames?.length || 0,
-      chessRating:
-        chessData?.currentRating?.blitz || chessData?.currentRating?.rapid || 0,
+        // Learning
+        duolingoStreak: duolingoData?.streak || 0,
+        chessGamesThisWeek: chessData?.recentGames?.length || 0,
+        chessRating:
+          chessData?.currentRating?.blitz ||
+          chessData?.currentRating?.rapid ||
+          0,
 
-      // Writing
-      wordsWritten: blogData?.words?.thisMonth || 0,
-      postsPublished: blogData?.posts?.thisMonth || 0,
+        // Writing
+        wordsWritten: blogData?.words?.thisMonth || 0,
+        postsPublished: blogData?.posts?.thisMonth || 0,
 
-      // Books
-      currentlyReading:
-        goodreadsData?.currentlyReading?.map(
-          (b: { title: string; author: string }) => ({
-            title: b.title,
-            author: b.author,
-          })
-        ) || [],
-      booksThisMonth: goodreadsData?.stats?.booksThisMonth || 0,
+        // Books
+        currentlyReading:
+          goodreadsData?.currentlyReading?.map(
+            (b: { title: string; author: string }) => ({
+              title: b.title,
+              author: b.author,
+            })
+          ) || [],
+        booksThisMonth: goodreadsData?.stats?.booksThisMonth || 0,
+      }
+
+      const response: StatsResponse = {
+        weeklySummary,
+        github: githubData,
+        monkeyType: getValue(monkeyTypeResult),
+        // photos: getValue(photosResult), // DISABLED: SSL certificate issues
+        health: healthData,
+        leetcode: getValue(leetcodeResult),
+        chess: chessData,
+        rescueTime: rescueTimeData,
+        lastfm: lastfmData,
+        gear: getValue(gearStatsResult),
+        gists: getValue(gistStatsResult),
+        website: getValue(websiteStatsResult),
+        letterboxd: letterboxdData,
+        blog: blogData,
+        discogs: getValue(discogsResult),
+        duolingo: duolingoData,
+        goodreads: goodreadsData,
+      }
+
+      // Compose the curated "five shutter speeds" view on top of the vendor substrate.
+      // Horizons are the headline; the raw vendor keys remain (deprecated) so existing
+      // consumers keep working until they migrate off them.
+      const horizons = buildStatsHorizons(
+        response as unknown as Record<string, any>,
+        new Date().toISOString()
+      )
+
+      return { ...horizons, ...response }
+    } catch (error) {
+      console.error('💥 Error in stats handler:', error)
+      throw error
     }
-
-    const response: StatsResponse = {
-      weeklySummary,
-      github: githubData,
-      monkeyType: getValue(monkeyTypeResult),
-      // photos: getValue(photosResult), // DISABLED: SSL certificate issues
-      health: healthData,
-      leetcode: getValue(leetcodeResult),
-      chess: chessData,
-      rescueTime: rescueTimeData,
-      lastfm: lastfmData,
-      gear: getValue(gearStatsResult),
-      gists: getValue(gistStatsResult),
-      website: getValue(websiteStatsResult),
-      letterboxd: letterboxdData,
-      blog: blogData,
-      discogs: getValue(discogsResult),
-      duolingo: duolingoData,
-      goodreads: goodreadsData,
-    }
-
-    return response
-  } catch (error) {
-    console.error('💥 Error in stats handler:', error)
-    throw error
   }
-})
+)
