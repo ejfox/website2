@@ -59,3 +59,6 @@ data/blogroll.urls
 
 # Cloned tool used by export-github-networks.mjs
 data/_tool-cache/
+
+# Gear sync transient backups
+data/gear.csv.backup.*
