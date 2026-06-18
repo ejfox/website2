@@ -294,6 +294,10 @@ export default defineNuxtConfig({
       },
     },
     routeRules: {
+      // Friends & Family booking (/ff) — hidden link, never index/follow.
+      // Header covers crawlers that ignore the in-page meta tag and the
+      // case where JS doesn't run. Not in the sitemap, not linked anywhere.
+      '/ff': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       // Only disable caching in dev mode
       ...(process.env.NODE_ENV === 'development' && {
         '/**': { headers: { 'Cache-Control': 'no-cache' } },
