@@ -176,6 +176,19 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
       return total / days.size
     }
 
+    // Mean of individual readings — for intensive quantities that DON'T add up
+    // (a decibel level, a heart rate). Summing them per day is meaningless.
+    const meanMetric = (name: string, daysBack: number): number => {
+      const cutoff = new Date()
+      cutoff.setDate(cutoff.getDate() - daysBack)
+      const vals = metrics
+        .filter(
+          (m: MetricRecord) => m.name === name && new Date(m.date) >= cutoff
+        )
+        .map(val)
+      return vals.length ? vals.reduce((a, b) => a + b, 0) / vals.length : 0
+    }
+
     // Build trends (last 7 days for daily)
     const dailyDates: string[] = []
     const dailySteps: number[] = []
@@ -343,7 +356,7 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
         bloodOxygenPct: getLatest('blood_oxygen_saturation'),
         respiratoryRate: getLatest('respiratory_rate'),
         daylightMinPerDay: avgMetric('time_in_daylight', 30),
-        ambientDb: avgMetric('environmental_audio_exposure', 30),
+        ambientDb: meanMetric('environmental_audio_exposure', 30),
         mindfulMin30d: sumMetric('mindful_minutes', 30),
       },
       sleep: {
