@@ -1,58 +1,69 @@
 /**
  * @file reach.get.ts
- * @description Site-wide reach for ejfox.com from self-hosted Umami — visitors,
- * pageviews, and the posts people actually read. A mirror of who's listening.
+ * @description Site-wide reach for ejfox.com, read straight from the co-located
+ * Umami postgres (the HTTP API creds were stale). Visitors, pageviews, and the
+ * posts people actually read — a mirror of who's listening.
  * @endpoint GET /api/reach
  */
-const BASE = 'https://umami.tools.ejfox.com'
+import { Pool } from 'pg'
+
 const EJFOX_WEBSITE_ID = '165590cb-c361-4ad8-9459-6c6390744c64' // ejfox.com
 
+let pool: Pool | null = null
+function getPool(): Pool | null {
+  if (pool) return pool
+  const connectionString = process.env.UMAMI_DATABASE_URL
+  if (!connectionString) return null
+  pool = new Pool({ connectionString, max: 2, idleTimeoutMillis: 30_000 })
+  return pool
+}
+
 export default defineEventHandler(async () => {
-  const config = useRuntimeConfig()
-  const username = config.UMAMI_USERNAME || process.env.UMAMI_USERNAME
-  const password = config.UMAMI_PASSWORD || process.env.UMAMI_PASSWORD
-  if (!username || !password) {
-    console.error('Reach: UMAMI creds missing')
+  const db = getPool()
+  if (!db) {
+    console.error('Reach: UMAMI_DATABASE_URL not set')
     return null
   }
 
   try {
-    const auth: any = await $fetch(`${BASE}/api/auth/login`, {
-      method: 'POST',
-      body: { username, password },
-    })
-    const headers = { Authorization: `Bearer ${auth.token}` }
-    const endAt = Date.now()
-    const window = (days: number) => ({ startAt: endAt - days * 864e5, endAt })
-
+    // event_type = 1 is a pageview in Umami v2 (2 is a custom event).
     const summarize = async (days: number) => {
-      const stats: any = await $fetch(
-        `${BASE}/api/websites/${EJFOX_WEBSITE_ID}/stats`,
-        { headers, query: window(days) }
+      const { rows } = await db.query(
+        `SELECT COUNT(*)::int AS pageviews,
+                COUNT(DISTINCT session_id)::int AS visitors
+           FROM website_event
+          WHERE website_id = $1 AND event_type = 1
+            AND created_at > now() - make_interval(days => $2)`,
+        [EJFOX_WEBSITE_ID, days]
       )
       return {
-        visitors: stats?.visitors?.value ?? null,
-        pageviews: stats?.pageviews?.value ?? null,
+        pageviews: rows[0]?.pageviews ?? null,
+        visitors: rows[0]?.visitors ?? null,
       }
     }
 
-    const top: any = await $fetch(
-      `${BASE}/api/websites/${EJFOX_WEBSITE_ID}/metrics`,
-      { headers, query: { type: 'url', ...window(7), limit: 5 } }
+    const { rows: top } = await db.query(
+      `SELECT url_path AS path, COUNT(*)::int AS views
+         FROM website_event
+        WHERE website_id = $1 AND event_type = 1
+          AND created_at > now() - make_interval(days => $2)
+          AND url_path <> '/'
+        GROUP BY url_path ORDER BY views DESC LIMIT 5`,
+      [EJFOX_WEBSITE_ID, 30]
     )
-    const topPosts = (Array.isArray(top) ? top : [])
-      .slice(0, 5)
-      .map((r: any) => ({ path: r.x, views: r.y }))
 
     return {
       week: await summarize(7),
       month: await summarize(30),
-      topPosts,
+      topPosts: top.map((r: { path: string; views: number }) => ({
+        path: r.path,
+        views: r.views,
+      })),
       lastUpdated: new Date().toISOString(),
     }
   } catch (err: unknown) {
     const message = err instanceof Error ? err.message : 'Unknown error'
-    console.error('Reach (umami) error:', message)
+    console.error('Reach (umami db) error:', message)
     return null
   }
 })
