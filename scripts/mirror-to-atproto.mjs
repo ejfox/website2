@@ -130,18 +130,25 @@ async function createSession() {
   return res.json()
 }
 
-async function putRecord(session, collection, rkey, record) {
-  const res = await fetch(`${PDS}/xrpc/com.atproto.repo.putRecord`, {
-    method: 'POST',
-    headers: {
-      'content-type': 'application/json',
-      authorization: `Bearer ${session.accessJwt}`,
-    },
-    body: JSON.stringify({ repo: session.did, collection, rkey, record }),
-  })
-  if (!res.ok)
-    throw new Error(`putRecord ${collection}/${rkey}: ${res.status} ${await res.text()}`)
-  return res.json()
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms))
+
+async function putRecord(session, collection, rkey, record, tries = 4) {
+  for (let attempt = 1; attempt <= tries; attempt++) {
+    const res = await fetch(`${PDS}/xrpc/com.atproto.repo.putRecord`, {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `Bearer ${session.accessJwt}`,
+      },
+      body: JSON.stringify({ repo: session.did, collection, rkey, record }),
+    })
+    if (res.ok) return res.json()
+    // retry transient upstream/rate-limit blips with backoff; fail fast otherwise
+    const transient = res.status === 502 || res.status === 503 || res.status === 429
+    if (!transient || attempt === tries)
+      throw new Error(`putRecord ${collection}/${rkey}: ${res.status} ${await res.text()}`)
+    await sleep(attempt * 1000)
+  }
 }
 
 async function main() {
