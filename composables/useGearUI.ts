@@ -8,6 +8,7 @@ export const TYPE_SYMBOLS: Record<string, string> = {
   Sleep: '☽',
   Bag: '▣',
   Safety: '◆',
+  Food: '⬢',
   Creativity: '✧',
 }
 

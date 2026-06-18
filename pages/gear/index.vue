@@ -55,6 +55,7 @@ const typeSymbols = {
   Sleep: '☽',
   Bag: '▣',
   Safety: '◆',
+  Food: '⬢',
   Creativity: '✧',
 }
 
