@@ -22,6 +22,9 @@ import blogStatsHandler from './blog-stats.get'
 import discogsHandler from './discogs.get'
 import duolingoHandler from './duolingo.get'
 import goodreadsHandler from './goodreads.get'
+import wikiHandler from './wiki.get'
+import reachHandler from './reach.get'
+import photosHandler from './photos.get'
 
 // Chess types (matching chess.get.ts)
 interface ChessGameResult {
@@ -249,6 +252,9 @@ export default defineEventHandler(
         discogsResult,
         duolingoResult,
         goodreadsResult,
+        wikiResult,
+        reachResult,
+        photosResult,
       ] = await Promise.allSettled([
         githubHandler(event).catch((err) => {
           console.error('❌ GitHub API error:', err)
@@ -312,6 +318,18 @@ export default defineEventHandler(
         }),
         goodreadsHandler(event).catch((err) => {
           console.error('❌ Goodreads API error:', err)
+          return null
+        }),
+        wikiHandler(event).catch((err) => {
+          console.error('❌ Wiki stats error:', err)
+          return null
+        }),
+        reachHandler(event).catch((err) => {
+          console.error('❌ Reach (umami) error:', err)
+          return null
+        }),
+        photosHandler(event).catch((err) => {
+          console.error('❌ Photos error:', err)
           return null
         }),
       ])
@@ -422,8 +440,15 @@ export default defineEventHandler(
       // Compose the curated "five shutter speeds" view on top of the vendor substrate.
       // Horizons are the headline; the raw vendor keys remain (deprecated) so existing
       // consumers keep working until they migrate off them.
+      // Feed extra sources into the composition without leaking them as raw
+      // vendor keys — they exist only to paint the horizons.
       const horizons = buildStatsHorizons(
-        response as unknown as Record<string, any>,
+        {
+          ...response,
+          wiki: getValue(wikiResult),
+          reach: getValue(reachResult),
+          photos: getValue(photosResult),
+        } as unknown as Record<string, any>,
         new Date().toISOString()
       )
 

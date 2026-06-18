@@ -57,6 +57,9 @@ export function buildStatsHorizons(
   const discogs = d.discogs ?? null
   const duo = d.duolingo ?? null
   const gear = d.gear ?? null
+  const wiki = d.wiki ?? null
+  const reach = d.reach ?? null
+  const photos = d.photos ?? null
   const week = d.weeklySummary ?? {}
 
   const track = lastfm?.recentTracks?.tracks?.[0] ?? null
@@ -146,6 +149,15 @@ export function buildStatsHorizons(
       ambient_db: round(sensory?.ambientDb),
       mindful_min: round(sensory?.mindfulMin30d),
     },
+    knowledge: {
+      wiki_edits: num(wiki?.edits30d),
+      wiki_new_pages: num(wiki?.newPages30d),
+    },
+    reach: {
+      visitors: num(reach?.week?.visitors),
+      pageviews: num(reach?.week?.pageviews),
+      top_post: reach?.topPosts?.[0]?.path ?? null,
+    },
   }
 
   const year = {
@@ -163,6 +175,10 @@ export function buildStatsHorizons(
       repos: num(github?.stats?.totalRepos),
     },
     body: { steps: round(health?.thisYear?.steps) },
+    photography: {
+      frames: num(photos?.total),
+      latest_frame: photos?.photos?.[0]?.date ?? null,
+    },
   }
 
   const ever = {
@@ -185,6 +201,11 @@ export function buildStatsHorizons(
       starred: (gear?.starred?.items ?? []).slice(0, 5),
     },
     records: { collection: num(discogs?.stats?.totalItems) },
+    knowledge: {
+      wiki_pages: num(wiki?.pages),
+      wiki_articles: num(wiki?.articles),
+      wiki_edits_all_time: num(wiki?.editsAllTime),
+    },
     duolingo: {
       xp: num(duo?.totalXp),
       course: duo?.currentCourse?.title ?? null,
@@ -201,6 +222,9 @@ export function buildStatsHorizons(
     quiet.push('writing')
   if (!num(duo?.streak)) quiet.push('duolingo-streak')
   if (!num(film?.stats?.thisMonth)) quiet.push('film-this-month')
+  if (!wiki) quiet.push('wiki')
+  if (!reach) quiet.push('reach')
+  if (!num(photos?.total)) quiet.push('photos')
 
   return {
     _: 'ejfox — a life in numbers · refreshed by machines, composed by hand',
