@@ -1,147 +1,182 @@
 #!/usr/bin/env node
 /**
- * mirror-to-atproto.mjs — SPIKE / proof-of-concept
+ * mirror-to-atproto.mjs
  *
  * One-way, fire-and-forget mirror of published blog posts into an AT-Proto
- * repo as `site.standard.document` records (the standard.site long-form
- * lexicon). Purely additive: reads the JSON the pipeline already produces and
- * writes a *copy* to a second place. Touches none of the HTML, microformats,
- * RSS, or webmentions.
+ * repo as standard.site records — a `site.standard.publication` for the blog
+ * itself, and one `site.standard.document` per post. Purely additive: reads
+ * the JSON the pipeline already produces and writes a *copy* to a second
+ * place. Touches none of the HTML, microformats, RSS, or webmentions.
  *
  * Dry run (default, needs no credentials) — prints what it WOULD write:
- *   node scripts/mirror-to-atproto.mjs
+ *   yarn blog:mirror-atproto
  *
  * Live (writes to your repo) — needs an AT-Proto identity + app password:
  *   ATPROTO_HANDLE=ejfox.com ATPROTO_APP_PASSWORD=xxxx-xxxx-xxxx-xxxx \
- *     node scripts/mirror-to-atproto.mjs --live
+ *     yarn blog:mirror-atproto --live
  *
- * Status: required fields map cleanly from the manifest. Known gaps (v2):
- *   - `content` union wants standard.site's richtext blocks; we send plain
- *     `textContent` + `description` for now.
- *   - `site` should be the AT-URI of a `site.standard.publication` record;
- *     we use the site URL until that record exists.
- *   - rkeys: the lexicon prefers TID keys; we derive a stable rkey from the
- *     slug so re-runs are idempotent (putRecord upserts).
+ * Note on the `content` field: standard.site's content union is still open
+ * and undefined (no block format published yet), so we send plain
+ * `textContent` + `description`. When they ship a content lexicon, add a
+ * mapper here — nothing else changes.
  */
 
 import { readFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
 import path from 'node:path'
+import striptags from 'striptags'
 
 const SITE_URL = 'https://ejfox.com'
-const COLLECTION = 'site.standard.document'
+const SITE_NAME = 'EJ Fox'
+const SITE_DESCRIPTION = "Things I'm thinking about — data, code, journalism, the web"
+const PDS = 'https://bsky.social'
+const PUB_RKEY = 'self' // one stable publication record for the whole blog
 const LIVE = process.argv.includes('--live')
+const PROCESSED = path.join(process.cwd(), 'content/processed')
 
-const stripTags = (s) => (s || '').replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+const stripTags = (s) =>
+  striptags(s || '').replace(/\s+/g, ' ').trim()
 
-// slug -> a valid, stable record key (rkeys can't contain '/')
+// slug -> a valid, stable record key (rkeys can't contain '/'), so re-runs upsert
 const rkeyFor = (slug) =>
   slug.replace(/[^a-zA-Z0-9._~-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 512)
 
-function toDocument(post) {
-  const meta = post.metadata || {}
+// First sentence-ish, cut on a whole word, no trailing period. This mirrors
+// utils/ogDescription.ts — when that helper is available as plain JS (or this
+// becomes a Nuxt task), import it instead of keeping this in sync by hand.
+const summarize = (text, max = 280) => {
+  if (!text) return undefined
+  if (text.length <= max) return text.replace(/\.$/, '')
+  const cut = text.slice(0, max)
+  const end = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf(' '))
+  return cut.slice(0, end > 40 ? end : max).replace(/[\s,;:.—–-]+$/, '') + '…'
+}
+
+// pull the full processed JSON for a post (body text + dek live here, not in the lite manifest)
+async function loadFull(slug) {
+  const file = path.join(PROCESSED, `${slug}.json`)
+  if (!existsSync(file)) return null
+  try {
+    return JSON.parse(await readFile(file, 'utf-8'))
+  } catch {
+    return null
+  }
+}
+
+async function toDocument(post, siteRef) {
+  const lite = post.metadata || {}
+  const full = (await loadFull(post.slug)) || {}
+  const meta = { ...lite, ...(full.metadata || {}) }
   const slug = post.slug
-  const title = post.title || meta.title || slug
-  const publishedAt = new Date(post.date || meta.date || Date.now()).toISOString()
-  const description = meta.dek || post.dek || undefined
+  const title = post.title || full.title || meta.title || slug
+  const text = stripTags(full.html)
+  const description = meta.dek || post.dek || summarize(text)
 
   const doc = {
-    $type: COLLECTION,
-    site: SITE_URL,
+    $type: 'site.standard.document',
+    site: siteRef,
     path: `/blog/${slug}`,
     title: String(title).slice(0, 5000),
-    publishedAt,
+    publishedAt: new Date(post.date || meta.date || Date.now()).toISOString(),
   }
-  if (meta.modified || post.modified)
-    doc.updatedAt = new Date(meta.modified || post.modified).toISOString()
+  if (meta.modified)
+    doc.updatedAt = new Date(meta.modified).toISOString()
   if (description) doc.description = String(description).slice(0, 30000)
   if (Array.isArray(meta.tags) && meta.tags.length)
     doc.tags = meta.tags.map(String).slice(0, 50)
-  // plain-text body stand-in until the richtext `content` union is wired
-  const text = stripTags(post.html)
   if (text) doc.textContent = text
 
   return { rkey: rkeyFor(slug), record: doc }
 }
 
 async function loadPublishedPosts() {
-  const manifestPath = path.join(
-    process.cwd(),
-    'content/processed/manifest-lite.json'
+  const manifest = JSON.parse(
+    await readFile(path.join(PROCESSED, 'manifest-lite.json'), 'utf-8')
   )
-  const manifest = JSON.parse(await readFile(manifestPath, 'utf-8'))
   return manifest.filter((p) => {
     const m = p.metadata || {}
     const blocked =
-      p.draft || m.draft || p.hidden || m.hidden || p.unlisted ||
-      m.unlisted || p.password || m.password || p.passwordHash || m.passwordHash
+      p.draft || m.draft || p.hidden || m.hidden || p.unlisted || m.unlisted ||
+      p.password || m.password || p.passwordHash || m.passwordHash
     // blog posts live under year dirs (YYYY/…); skips system + section files
     return p.slug && !blocked && /^\d{4}\//.test(p.slug)
   })
 }
 
+const publicationRecord = () => ({
+  $type: 'site.standard.publication',
+  url: SITE_URL,
+  name: SITE_NAME,
+  description: SITE_DESCRIPTION,
+})
+
+// ---- AT-Proto wire calls (raw XRPC, no SDK) ----
+
 async function createSession() {
-  const handle = process.env.ATPROTO_HANDLE
+  const identifier = process.env.ATPROTO_HANDLE
   const password = process.env.ATPROTO_APP_PASSWORD
-  if (!handle || !password) {
+  if (!identifier || !password) {
     throw new Error(
-      'Set ATPROTO_HANDLE and ATPROTO_APP_PASSWORD (an app password, not your login) for --live'
+      'Set ATPROTO_HANDLE and ATPROTO_APP_PASSWORD (an app password — Settings → App Passwords — not your login).'
     )
   }
-  // resolve handle -> DID -> PDS, then create a session on that PDS
-  const res = await fetch(
-    'https://bsky.social/xrpc/com.atproto.server.createSession',
-    {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ identifier: handle, password }),
-    }
-  )
-  if (!res.ok) throw new Error(`createSession failed: ${res.status} ${await res.text()}`)
-  return res.json() // { accessJwt, did, ... }
+  const res = await fetch(`${PDS}/xrpc/com.atproto.server.createSession`, {
+    method: 'POST',
+    headers: { 'content-type': 'application/json' },
+    body: JSON.stringify({ identifier, password }),
+  })
+  if (!res.ok)
+    throw new Error(`createSession failed: ${res.status} ${await res.text()}`)
+  return res.json()
 }
 
-async function putRecord(session, rkey, record) {
-  const res = await fetch(
-    'https://bsky.social/xrpc/com.atproto.repo.putRecord',
-    {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        authorization: `Bearer ${session.accessJwt}`,
-      },
-      body: JSON.stringify({
-        repo: session.did,
-        collection: COLLECTION,
-        rkey,
-        record,
-      }),
-    }
-  )
-  if (!res.ok) throw new Error(`putRecord ${rkey} failed: ${res.status} ${await res.text()}`)
+async function putRecord(session, collection, rkey, record) {
+  const res = await fetch(`${PDS}/xrpc/com.atproto.repo.putRecord`, {
+    method: 'POST',
+    headers: {
+      'content-type': 'application/json',
+      authorization: `Bearer ${session.accessJwt}`,
+    },
+    body: JSON.stringify({ repo: session.did, collection, rkey, record }),
+  })
+  if (!res.ok)
+    throw new Error(`putRecord ${collection}/${rkey}: ${res.status} ${await res.text()}`)
   return res.json()
 }
 
 async function main() {
   const posts = await loadPublishedPosts()
-  const docs = posts.map(toDocument)
-  console.log(`📦 ${docs.length} published posts → ${COLLECTION} records`)
 
   if (!LIVE) {
-    const sample = docs[0]
-    console.log('\n— DRY RUN (no credentials needed). Sample record: —\n')
-    console.log(JSON.stringify(sample?.record, null, 2))
+    // dry run: reference the eventual publication AT-URI symbolically
+    const siteRef = `at://<your-did>/site.standard.publication/${PUB_RKEY}`
+    const docs = await Promise.all(posts.map((p) => toDocument(p, siteRef)))
+    console.log(`📦 ${docs.length} published posts → site.standard.document records`)
+    console.log('   + 1 site.standard.publication record\n')
+    console.log('— DRY RUN (no credentials needed). Publication: —\n')
+    console.log(JSON.stringify(publicationRecord(), null, 2))
+    console.log('\n— Sample document: —\n')
+    console.log(JSON.stringify(docs[0]?.record, null, 2))
     console.log(
-      `\nRun with --live (and ATPROTO_HANDLE / ATPROTO_APP_PASSWORD) to write all ${docs.length}.`
+      `\nRun with --live (ATPROTO_HANDLE / ATPROTO_APP_PASSWORD set) to write all ${docs.length} + the publication.`
     )
     return
   }
 
   const session = await createSession()
   console.log(`🔑 authed as ${session.handle || session.did}`)
+
+  // 1. the publication the documents belong to
+  await putRecord(session, 'site.standard.publication', PUB_RKEY, publicationRecord())
+  const siteRef = `at://${session.did}/site.standard.publication/${PUB_RKEY}`
+  console.log(`📖 publication → ${siteRef}`)
+
+  // 2. one document per post
+  const docs = await Promise.all(posts.map((p) => toDocument(p, siteRef)))
   let ok = 0
   for (const { rkey, record } of docs) {
     try {
-      await putRecord(session, rkey, record)
+      await putRecord(session, 'site.standard.document', rkey, record)
       ok++
       if (ok % 25 === 0) console.log(`  …${ok}/${docs.length}`)
     } catch (err) {
