@@ -70,8 +70,24 @@ export function buildStatsHorizons(
       .filter((f: any) => typeof f?.rating === 'number')
       .sort((a: any, b: any) => b.rating - a.rating)[0]?.title ?? null
 
+  // The shape of the work: commit types (feat/fix/docs) and what languages get typed.
+  const commitKinds: Record<string, number> = {}
+  for (const c of (github?.detail?.commitTypes ?? []).slice(0, 6)) {
+    if (c?.type) commitKinds[c.type] = c.count
+  }
+  const typingLangs: Record<string, number> = {}
+  for (const l of monkey?.typingStats?.languageBreakdown ?? []) {
+    if (l?.language) {
+      const key = l.language.replace(/^code_/, '').replace(/_/g, ' ')
+      typingLangs[key] = l.averageWpm
+    }
+  }
+  const sensory = health?.sensory ?? null
+
   const now = {
     heartbeat_bpm: round(health?.heartRate?.current),
+    breathing_rate: round(sensory?.respiratoryRate),
+    blood_oxygen_pct: round(sensory?.bloodOxygenPct),
     listening: track
       ? {
           track: track.name ?? null,
@@ -117,12 +133,18 @@ export function buildStatsHorizons(
     code: {
       commits: num(week.commits),
       top_repos: week.topRepos ?? [],
+      kinds: commitKinds,
     },
     screen: {
       productive_hours: week.productiveHours
         ? round(week.productiveHours, 1)
         : null,
       productivity_pct: week.productivityPercent || null,
+    },
+    senses: {
+      daylight_min_per_day: round(sensory?.daylightMinPerDay),
+      ambient_db: round(sensory?.ambientDb),
+      mindful_min: round(sensory?.mindfulMin30d),
     },
   }
 
@@ -148,15 +170,19 @@ export function buildStatsHorizons(
       best_wpm: round(monkey?.typingStats?.bestWPM, 2),
       avg_wpm: round(monkey?.typingStats?.averageWpm),
       tests: num(monkey?.typingStats?.testsCompleted),
+      langs: typingLangs,
     },
     music: { scrobbles: num(lastfm?.stats?.totalScrobbles) },
     chess: {
       blitz: num(chess?.currentRating?.blitz),
       rapid: num(chess?.currentRating?.rapid),
     },
-    gear: {
+    carry: {
       items: num(gear?.stats?.totalItems),
       weight_lbs: round(gear?.stats?.totalWeight, 1),
+      containers: num(gear?.stats?.containerCount),
+      by_type: gear?.typeDistribution ?? null,
+      starred: (gear?.starred?.items ?? []).slice(0, 5),
     },
     records: { collection: num(discogs?.stats?.totalItems) },
     duolingo: {

@@ -47,6 +47,13 @@ interface HealthStats {
     monthlySteps: number
     flightsClimbed: number
   }
+  sensory: {
+    bloodOxygenPct: number
+    respiratoryRate: number
+    daylightMinPerDay: number
+    ambientDb: number
+    mindfulMin30d: number
+  }
   sleep: {
     lastNight: {
       date: string
@@ -331,6 +338,13 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
         monthlyExerciseMinutes: sumMetric('apple_exercise_time', 30),
         monthlySteps: sumMetric('step_count', 30),
         flightsClimbed: sumMetric('flights_climbed', 30),
+      },
+      sensory: {
+        bloodOxygenPct: getLatest('blood_oxygen_saturation'),
+        respiratoryRate: getLatest('respiratory_rate'),
+        daylightMinPerDay: avgMetric('time_in_daylight', 30),
+        ambientDb: avgMetric('environmental_audio_exposure', 30),
+        mindfulMin30d: sumMetric('mindful_minutes', 30),
       },
       sleep: {
         lastNight: latestSleep
