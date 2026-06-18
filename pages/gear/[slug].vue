@@ -35,11 +35,10 @@ usePageSeo({
   ),
   description: computed(() => {
     if (!data.value) return 'Loading gear item...'
-    const weight =
-      data.value['Base Weight ()'] ||
-      data.value['Loaded Weight ()'] ||
-      'Unknown weight'
-    return `${data.value.Name} - ${data.value.Type} gear (${weight}g). ${data.value.Notes || ''}`
+    const weight = data.value.Weight_oz
+      ? `${data.value.Weight_oz}oz`
+      : 'unknown weight'
+    return `${data.value.Name} - ${data.value.Type} gear (${weight}). ${data.value.Notes || ''}`
   }),
   type: 'article',
   section: 'Gear',
@@ -47,11 +46,7 @@ usePageSeo({
   label1: 'Weight',
   data1: computed(() => {
     if (!data.value) return 'Unknown'
-    return (
-      data.value['Base Weight ()'] ||
-      data.value['Loaded Weight ()'] ||
-      'Unknown'
-    )
+    return data.value.Weight_oz ? `${data.value.Weight_oz}oz` : 'Unknown'
   }),
   label2: 'Category',
   data2: computed(() => data.value?.Type || 'Gear'),
@@ -59,8 +54,9 @@ usePageSeo({
 
 const gearItemSchema = computed(() => {
   if (!data.value) return null
-  const weight =
-    data.value['Base Weight ()'] || data.value['Loaded Weight ()'] || undefined
+  const grams = data.value.Weight_oz
+    ? Math.round(Number(data.value.Weight_oz) * 28.3495)
+    : undefined
 
   return {
     '@context': 'https://schema.org',
@@ -68,10 +64,10 @@ const gearItemSchema = computed(() => {
     name: data.value.Name,
     category: data.value.Type,
     description: data.value.Notes || `${data.value.Name} (${data.value.Type})`,
-    weight: weight
+    weight: grams
       ? {
           '@type': 'QuantitativeValue',
-          value: Number(weight),
+          value: grams,
           unitCode: 'GRM',
         }
       : undefined,

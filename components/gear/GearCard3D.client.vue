@@ -68,29 +68,41 @@ useRafFn(() => {
 // Backward-compatible name for the template binding.
 const tilt = tiltStyle
 
-const photoUrl = computed(() => props.gearItem.imageUrl?.trim() || null)
+const photoUrl = computed(() => props.gearItem.Photo_URL?.trim() || null)
 
 const displayWeight = computed(() => {
-  if (!props.gearItem['Base Weight ()'] && !props.gearItem['Loaded Weight ()'])
-    return '?'
+  if (!props.gearItem.Weight_oz) return '?'
   return getItemWeightInGrams(props.gearItem) || 0
 })
 
-const amazonUrl = computed(() => {
-  if (!props.gearItem?.amazon) return '#'
+const buyUrl = computed(() => {
+  const raw = props.gearItem?.Amazon_URL
+  if (!raw) return null
   try {
-    const url = new URL(props.gearItem.amazon)
-    url.searchParams.set('tag', 'ejfox0c-20')
+    const url = new URL(raw)
+    // Only Amazon links get the affiliate tag; other retailers pass through.
+    if (url.hostname.includes('amazon.')) url.searchParams.set('tag', 'ejfox0c-20')
     return url.toString()
   } catch {
-    return props.gearItem.amazon
+    return raw
   }
 })
+
+// Internal/URL fields are surfaced via the buy button, photo, or 3D viewer —
+// don't repeat them in the raw details table.
+const HIDDEN_DETAIL_KEYS = new Set([
+  'slug',
+  'Amazon_URL',
+  'Photo_URL',
+  'Scan_3D_URL',
+])
 
 const itemDetails = computed(() => {
   if (!props.gearItem || typeof props.gearItem !== 'object') return {}
   return Object.fromEntries(
-    Object.entries(props.gearItem).filter(([, v]) => v?.toString().trim())
+    Object.entries(props.gearItem).filter(
+      ([k, v]) => v?.toString().trim() && !HIDDEN_DETAIL_KEYS.has(k)
+    )
   )
 })
 
@@ -161,9 +173,9 @@ const humanize = (key) =>
     </div>
 
     <!-- Buy link -->
-    <div v-if="gearItem.amazon" class="text-center mt-3">
+    <div v-if="buyUrl" class="text-center mt-3">
       <a
-        :href="amazonUrl"
+        :href="buyUrl"
         target="_blank"
         rel="nofollow noopener"
         class="btn-inline-flex"
