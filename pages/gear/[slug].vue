@@ -98,7 +98,7 @@ definePageMeta({
 
 <template>
   <div
-    class="min-h-screen flex flex-col items-center justify-center p-8 pb-32 gap-8"
+    class="min-h-screen flex flex-col items-center justify-center p-4 sm:p-8 pb-32 gap-8"
   >
     <!-- 3D Model Viewer (when scan available) -->
     <ClientOnly>

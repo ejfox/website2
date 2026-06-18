@@ -35,15 +35,22 @@ const { width: winW, height: winH } = useWindowSize()
 const tiltStyle = ref({})
 const tiltReady = ref(false)
 
-// Respect prefers-reduced-motion — skip the tilt entirely for users who
-// have it on.
-const prefersReducedMotion =
-  typeof window !== 'undefined' &&
-  window.matchMedia &&
-  window.matchMedia('(prefers-reduced-motion: reduce)').matches
+// The tilt is mouse-driven, so it only makes sense on devices with a real
+// hovering pointer. On touch screens there's no cursor to track, so the card
+// would freeze at whatever stale coordinate useMouse last held (a weird, fixed
+// shear) — unreadable. So enable the tilt ONLY for hover+fine-pointer devices,
+// and also respect prefers-reduced-motion. Desktop keeps the full effect; touch
+// gets a clean flat card.
+const mq = (q) =>
+  typeof window !== 'undefined' && window.matchMedia
+    ? window.matchMedia(q).matches
+    : false
+const prefersReducedMotion = mq('(prefers-reduced-motion: reduce)')
+const canHover = mq('(hover: hover) and (pointer: fine)')
+const tiltEnabled = canHover && !prefersReducedMotion
 
 onMounted(() => {
-  if (prefersReducedMotion) return
+  if (!tiltEnabled) return
   // 700ms = page-transition duration (600ms) + small easing-settle buffer.
   setTimeout(() => {
     tiltReady.value = true
@@ -51,7 +58,7 @@ onMounted(() => {
 })
 
 useRafFn(() => {
-  if (!tiltReady.value || prefersReducedMotion) return
+  if (!tiltReady.value) return
   const cx = winW.value / 2
   const cy = winH.value / 2
   if (!cx || !cy) return
@@ -237,7 +244,7 @@ const humanize = (key) =>
   @apply flex-shrink-0 uppercase tracking-widest text-zinc-600 dark:text-zinc-400;
 }
 .detail-val {
-  @apply font-mono text-right truncate ml-2 min-w-0 text-zinc-900 dark:text-zinc-100;
+  @apply font-mono text-right ml-2 min-w-0 break-words text-zinc-900 dark:text-zinc-100;
 }
 
 /* Missing utility classes used in template */
