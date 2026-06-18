@@ -1,6 +1,6 @@
 <script setup>
 import { useMouse, useWindowSize, useRafFn } from '@vueuse/core'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const props = defineProps({ gearItem: { type: Object, default: () => ({}) } })
 
@@ -35,40 +35,112 @@ const { width: winW, height: winH } = useWindowSize()
 const tiltStyle = ref({})
 const tiltReady = ref(false)
 
-// The tilt is mouse-driven, so it only makes sense on devices with a real
-// hovering pointer. On touch screens there's no cursor to track, so the card
-// would freeze at whatever stale coordinate useMouse last held (a weird, fixed
-// shear) — unreadable. So enable the tilt ONLY for hover+fine-pointer devices,
-// and also respect prefers-reduced-motion. Desktop keeps the full effect; touch
-// gets a clean flat card.
+// Two ways to drive the tilt:
+//   • Desktop (hover + fine pointer): the mouse, as before.
+//   • Touch device: the phone's accelerometer/gyroscope (DeviceOrientation),
+//     so tilting the phone tilts the card. iOS 13+ gates motion access behind
+//     a user gesture, so there we surface a small "enable tilt" tap prompt.
+// prefers-reduced-motion disables both.
 const mq = (q) =>
   typeof window !== 'undefined' && window.matchMedia
     ? window.matchMedia(q).matches
     : false
 const prefersReducedMotion = mq('(prefers-reduced-motion: reduce)')
 const canHover = mq('(hover: hover) and (pointer: fine)')
-const tiltEnabled = canHover && !prefersReducedMotion
+const mouseTilt = canHover && !prefersReducedMotion
+
+const supportsOrientation =
+  typeof window !== 'undefined' && 'DeviceOrientationEvent' in window
+const needsMotionPermission =
+  supportsOrientation &&
+  typeof window.DeviceOrientationEvent?.requestPermission === 'function'
+
+const motionActive = ref(false) // orientation listener live + tilting
+const motionPrompt = ref(false) // iOS: show the tap-to-enable affordance
+
+// Orientation target (set by events) and current (RAF-smoothed toward target).
+const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v))
+const oTarget = { rx: 0, ry: 0, tz: 0 }
+const oCurrent = { rx: 0, ry: 0, tz: 0 }
+let baseBeta = null // calibrate "flat" to however the phone is first held
+
+function handleOrientation(e) {
+  if (e.gamma == null || e.beta == null) return
+  if (baseBeta === null) baseBeta = e.beta
+  const ry = (clamp(e.gamma, -40, 40) / 40) * 18 // left-right
+  const rx = (clamp(-(e.beta - baseBeta), -40, 40) / 40) * 18 // front-back
+  oTarget.rx = rx
+  oTarget.ry = ry
+  oTarget.tz = ((Math.abs(rx) + Math.abs(ry)) / 36) * 12
+}
+
+async function enableMotion() {
+  try {
+    if (needsMotionPermission) {
+      const res = await window.DeviceOrientationEvent.requestPermission()
+      if (res !== 'granted') {
+        motionPrompt.value = false
+        return
+      }
+    }
+    window.addEventListener('deviceorientation', handleOrientation, true)
+    motionActive.value = true
+    motionPrompt.value = false
+  } catch {
+    motionPrompt.value = false
+  }
+}
 
 onMounted(() => {
-  if (!tiltEnabled) return
-  // 700ms = page-transition duration (600ms) + small easing-settle buffer.
-  setTimeout(() => {
-    tiltReady.value = true
-  }, 700)
+  if (mouseTilt) {
+    // 700ms = page-transition duration (600ms) + small easing-settle buffer.
+    setTimeout(() => {
+      tiltReady.value = true
+    }, 700)
+    return
+  }
+  // Touch device — drive the tilt from device orientation instead of going flat.
+  if (!prefersReducedMotion && supportsOrientation) {
+    if (needsMotionPermission) {
+      motionPrompt.value = true // iOS: wait for a tap to request access
+    } else {
+      enableMotion() // Android/secure-context: just start
+    }
+  }
+})
+
+onUnmounted(() => {
+  if (motionActive.value) {
+    window.removeEventListener('deviceorientation', handleOrientation, true)
+  }
 })
 
 useRafFn(() => {
-  if (!tiltReady.value) return
-  const cx = winW.value / 2
-  const cy = winH.value / 2
-  if (!cx || !cy) return
-  const rx = -((my.value - cy) / cy) * 20
-  const ry = ((mx.value - cx) / cx) * 20
-  const tz = (Math.abs(mx.value - cx) / cx + Math.abs(my.value - cy) / cy) * 15
-  tiltStyle.value = {
-    transform: `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(${tz}px)`,
-    transformOrigin: 'center center',
-    willChange: 'transform',
+  // Desktop: live mouse-driven tilt (unchanged).
+  if (tiltReady.value) {
+    const cx = winW.value / 2
+    const cy = winH.value / 2
+    if (!cx || !cy) return
+    const rx = -((my.value - cy) / cy) * 20
+    const ry = ((mx.value - cx) / cx) * 20
+    const tz = (Math.abs(mx.value - cx) / cx + Math.abs(my.value - cy) / cy) * 15
+    tiltStyle.value = {
+      transform: `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(${tz}px)`,
+      transformOrigin: 'center center',
+      willChange: 'transform',
+    }
+    return
+  }
+  // Touch: smooth toward the orientation target (accelerometer is noisy).
+  if (motionActive.value) {
+    oCurrent.rx += (oTarget.rx - oCurrent.rx) * 0.12
+    oCurrent.ry += (oTarget.ry - oCurrent.ry) * 0.12
+    oCurrent.tz += (oTarget.tz - oCurrent.tz) * 0.12
+    tiltStyle.value = {
+      transform: `perspective(1000px) rotateX(${oCurrent.rx.toFixed(2)}deg) rotateY(${oCurrent.ry.toFixed(2)}deg) translateZ(${oCurrent.tz.toFixed(2)}px)`,
+      transformOrigin: 'center center',
+      willChange: 'transform',
+    }
   }
 })
 
@@ -126,6 +198,16 @@ const humanize = (key) =>
     class="gear-card-container w-full max-w-md lg:max-w-3xl 2xl:max-w-5xl mx-auto"
     :style="tilt"
   >
+    <!-- Touch (iOS): tap to grant motion access so the card tilts with the phone -->
+    <button
+      v-if="motionPrompt"
+      type="button"
+      class="motion-prompt"
+      @click="enableMotion"
+    >
+      ↗ tilt to explore
+    </button>
+
     <!-- Header -->
     <div class="card-header">
       <div class="text-2xl mb-2">{{ TYPE_SYMBOLS[gearItem.Type] || '—' }}</div>
@@ -217,6 +299,15 @@ const humanize = (key) =>
 .gear-card-container {
   transform-style: preserve-3d;
   backface-visibility: hidden;
+}
+
+.motion-prompt {
+  @apply mx-auto mb-3 block font-mono text-xs uppercase tracking-wider
+         px-3 py-1 rounded-full
+         border border-zinc-300 dark:border-zinc-600
+         text-zinc-500 dark:text-zinc-400
+         hover:bg-zinc-100 dark:hover:bg-zinc-800
+         transition-colors duration-150;
 }
 
 .card-header {
