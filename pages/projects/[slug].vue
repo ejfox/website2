@@ -38,10 +38,12 @@ if (error.value) {
 const title = computed(
   () => project.value?.title || project.value?.metadata?.title || 'Project'
 )
-const description = computed(() => {
-  const html = project.value?.html || ''
-  return html.replace(/<[^>]*>/g, '').slice(0, 160)
-})
+const description = computed(() =>
+  ogDescription(project.value?.html, {
+    dek: project.value?.metadata?.dek || project.value?.dek,
+    title: title.value,
+  })
+)
 
 const projectTags = computed(
   () => project.value?.metadata?.tags || project.value?.metadata?.tech || []

@@ -71,7 +71,7 @@ const topHighlighted = computed(() => {
 usePageSeo({
   title: 'Reading Collection - EJ Fox',
   description:
-    'Reading log with Kindle-synced highlights, counts, and notes across my digital library.',
+    "Books I've read, and the highlights I saved from them",
   type: 'article',
   section: 'Reading',
   tags: ['Reading list', 'Books', 'Highlights', 'Notes'],

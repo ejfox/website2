@@ -72,9 +72,9 @@ onMounted(() => {
 })
 
 // SEO
-const title = 'EJ Fox | Building newsroom-ready data experiences'
+const title = 'EJ Fox — data viz, investigations & weird web experiments'
 const description =
-  'Data visualization engineer and investigative journalist crafting interactive stories, newsroom tooling, and climate dashboards through room302.studio.'
+  "I'm a data viz engineer and journalist — I build interactive stories, newsroom tools, and the occasional climate dashboard, mostly through room302.studio"
 
 usePageSeo({
   title,

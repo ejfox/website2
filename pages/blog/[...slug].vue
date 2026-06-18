@@ -1,6 +1,5 @@
 <script setup>
 import { useIntersectionObserver } from '@vueuse/core'
-import striptags from 'striptags'
 import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
 import PostFooter from '~/components/blog/post/PostFooter.vue'
 import PostTOC from '~/components/blog/post/PostTOC.vue'
@@ -165,14 +164,12 @@ const postUrl = computed(
   () => new URL(`/blog/${route.params.slug.join('/')}`, baseURL).href
 )
 
-const postDescription = computed(() => {
-  const dek = post.value?.metadata?.dek || post.value?.dek
-  if (dek) return dek
-  const text = striptags(post.value?.html || '')
-    .replace(/\s+/g, ' ')
-    .trim()
-  return text.length > 160 ? text.substring(0, 157) + '...' : text
-})
+const postDescription = computed(() =>
+  ogDescription(post.value?.html, {
+    dek: post.value?.metadata?.dek || post.value?.dek,
+    title: post.value?.title || post.value?.metadata?.title,
+  })
+)
 
 const heroImage = computed(
   () =>

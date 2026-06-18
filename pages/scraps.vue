@@ -74,7 +74,7 @@ const formatDate = (dateStr: string) => {
 
 usePageSeo({
   title: 'Scraps',
-  description: 'A collection of interesting things found around the web',
+  description: 'Bookmarks, links, and scraps from around the web',
   type: 'website',
   section: 'Content',
 })

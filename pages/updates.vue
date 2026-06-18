@@ -42,7 +42,7 @@ function formatDate(dateStr: string) {
 
 usePageSeo({
   title: "What's New · EJ Fox",
-  description: 'Notable updates, new features, and changes on ejfox.com.',
+  description: 'How this site keeps changing — a running changelog',
   type: 'article',
   section: 'Meta',
   tags: ['Updates', 'Changelog', 'Site News', 'Features'],

@@ -40,7 +40,7 @@ const sortedCategories = computed(() => {
 usePageSeo({
   title: 'Following · EJ Fox',
   description:
-    'My RSS subscriptions: feeds across data visualization, investigative journalism, photography, and weird web.',
+    'My blogroll — the corners of the web I keep up with',
   type: 'article',
   section: 'Meta',
   tags: ['RSS', 'Blogroll', 'Data Visualization', 'Journalism'],

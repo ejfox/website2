@@ -16,7 +16,7 @@ interface _CardWithDeck {
 
 useSeoMeta({
   title: 'Study Flashcards',
-  description: 'Randomized flashcard study session',
+  description: 'A random pull from my flashcard deck',
 })
 
 const route = useRoute()

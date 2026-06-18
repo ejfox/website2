@@ -132,7 +132,7 @@ const sortedYears = computed(() =>
 usePageSeo({
   title: 'Blog - EJ Fox',
   description:
-    'Thoughts, projects, and explorations in technology, design, and making.',
+    "Things I'm thinking about — data, code, journalism, the web",
   type: 'article',
   section: 'Writing',
   tags: ['Blog', 'Data visualization', 'Investigations', 'Notes'],
@@ -149,7 +149,7 @@ const blogSchema = computed(() => ({
   name: 'EJ Fox Blog',
   url: 'https://ejfox.com/blog',
   description:
-    'Thoughts, projects, and explorations in technology, design, and making.',
+    "Things I'm thinking about — data, code, journalism, the web",
   inLanguage: 'en-US',
   dateModified: postDate(posts.value?.[0]) || new Date().toISOString(),
   isPartOf: {
@@ -216,8 +216,7 @@ useHead(() => ({
         <div class="px-4 sm:px-6 pt-4 pb-3">
           <h1 class="blog-title">Blog</h1>
           <p class="blog-description">
-            Thoughts, projects, and explorations in technology, design, and
-            making.
+            Things I'm thinking about — data, code, journalism, the web
           </p>
         </div>
 

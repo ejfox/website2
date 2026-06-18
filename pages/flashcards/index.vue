@@ -10,7 +10,7 @@ interface Deck {
 
 useSeoMeta({
   title: 'Flashcards',
-  description: 'Browse and study flashcard collection',
+  description: 'My flashcard deck — study along if you want',
 })
 
 // Fetch decks
