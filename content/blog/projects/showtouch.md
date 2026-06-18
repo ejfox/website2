@@ -17,6 +17,6 @@ tags:
 
 For presentations and livestreaming: show every key you press as large ASCII art on screen, so an audience can follow along.
 
-![How it works — pynput captures keys, pyfiglet renders them as centered ASCII art](https://res.cloudinary.com/ejf/image/upload/projects/showtouch/code.png)
-
 ![showtouch displaying a keystroke as full-screen centered ASCII art](https://res.cloudinary.com/ejf/image/upload/projects/showtouch/demo.png)
+
+![How it works — pynput captures keys, pyfiglet renders them as centered ASCII art](https://res.cloudinary.com/ejf/image/upload/projects/showtouch/code.png)

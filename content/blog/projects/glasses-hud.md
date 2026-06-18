@@ -16,8 +16,6 @@ tags:
 
 A tool for quickly prototyping AR / lens visualizations and HUDs — drag data widgets onto left/right lenses to compose a heads-up display from live bio, motion, location, environment, and device signals.
 
-![The two lenses you compose a HUD across](https://res.cloudinary.com/ejf/image/upload/projects/glasses-hud/lenses.png)
-
 ![Body widgets — heart rate, HRV, blood oxygen, calories](https://res.cloudinary.com/ejf/image/upload/projects/glasses-hud/body.png)
 
 ![Environment & device widgets — air quality, light, battery, signal](https://res.cloudinary.com/ejf/image/upload/projects/glasses-hud/environment.png)
