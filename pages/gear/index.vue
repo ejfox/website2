@@ -559,6 +559,11 @@ useHead(() => ({
           <span class="uppercase tracking-[0.1em]">{{ currentDate }}</span>
         </div>
 
+        <p class="mt-2 text-[10px] leading-snug text-zinc-500 font-mono">
+          Some product links are affiliate links — as an Amazon Associate I earn from
+          qualifying purchases. It costs you nothing extra.
+        </p>
+
         <!-- Container Weight Comparison Small Multiples -->
         <div v-if="containerComparison.length" class="mt-4">
           <h3 class="gear-section-header mb-2">Weight by Container</h3>
