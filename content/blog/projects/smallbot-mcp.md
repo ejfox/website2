@@ -11,8 +11,6 @@ tags:
   - web
 ---
 
-## Smallbot MCP
-
 [Smallweb](https://www.smallweb.run) is a really unique tool to create a filesystem based system for rapidly-deployed deno apps, and it pairs really well with a robot companion.
 
 Nowadays when I have an idea for a website and I just want it to exist, without spending three hours setting up a build pipeline configuring DNS. Smallbot is an incredible tool to defeat that particular form of procrastination—a robot that takes "make me a site about [northeastern trees](https://youtube.com/shorts/i6IZSkmqNSo)" and actually builds the thing.

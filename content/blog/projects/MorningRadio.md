@@ -11,8 +11,6 @@ tags:
   - health
 ---
 
-## MorningRadio
-
 Designed to be a healthy "first screen" in the morning. News summaries, updates, and enough information about the latest events that you don't feel the need to endlessly doomscroll.
 
 The goal was to repurpose the tik-tok style endless vertical scroll but instead fill it with interesting and useful websites, tools, and news articles (populated through my Pinboard bookmarks)

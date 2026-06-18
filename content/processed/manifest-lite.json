@@ -5142,14 +5142,7 @@
       "ios",
       "health"
     ],
-    "toc": [
-      {
-        "text": "MorningRadio",
-        "slug": "morningradio",
-        "level": "h2",
-        "children": []
-      }
-    ],
+    "toc": [],
     "metadata": {
       "title": "MorningRadio",
       "date": "2025-08-10T04:00:00.000Z",
@@ -5167,7 +5160,7 @@
         "ios",
         "health"
       ],
-      "words": 125,
+      "words": 123,
       "images": 4,
       "imageDetails": {
         "total": 4,
@@ -5176,17 +5169,8 @@
       },
       "links": 4,
       "codeBlocks": 0,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "MorningRadio",
-          "slug": "morningradio",
-          "level": "h2",
-          "children": []
-        }
-      ],
+      "headers": {},
+      "toc": [],
       "type": "post",
       "slug": "projects/MorningRadio"
     }
@@ -5684,14 +5668,7 @@
       "ai",
       "web"
     ],
-    "toc": [
-      {
-        "text": "Smallbot MCP",
-        "slug": "smallbot-mcp",
-        "level": "h2",
-        "children": []
-      }
-    ],
+    "toc": [],
     "metadata": {
       "title": "Smallbot MCP",
       "date": "2025-08-02T04:00:00.000Z",
@@ -5709,7 +5686,7 @@
         "ai",
         "web"
       ],
-      "words": 159,
+      "words": 156,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -5718,17 +5695,8 @@
       },
       "links": 6,
       "codeBlocks": 0,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "Smallbot MCP",
-          "slug": "smallbot-mcp",
-          "level": "h2",
-          "children": []
-        }
-      ],
+      "headers": {},
+      "toc": [],
       "type": "post",
       "slug": "projects/smallbot-mcp"
     }
@@ -24371,107 +24339,6 @@
       ],
       "type": "post",
       "slug": "week-notes/2026-03"
-    }
-  },
-  {
-    "slug": "week-notes/2026-21",
-    "title": "2026-21",
-    "date": "2026-05-18T14:00:00.000Z",
-    "type": "post",
-    "modified": "2026-05-18T14:00:00.000Z",
-    "tags": [
-      "weekly-notes",
-      "reflections",
-      "progress"
-    ],
-    "toc": [
-      {
-        "text": "2026-21",
-        "slug": "2026-21",
-        "level": "h2",
-        "children": [
-          {
-            "text": "What happened this week",
-            "slug": "what-happened-this-week",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "What I made / shipped",
-            "slug": "what-i-made--shipped",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "What I learned",
-            "slug": "what-i-learned",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "📚 Media consumed",
-            "slug": "-media-consumed",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "tags": [
-        "weekly-notes",
-        "reflections",
-        "progress"
-      ],
-      "date": "2026-05-18T14:00:00.000Z",
-      "modified": "2026-05-18T14:00:00.000Z",
-      "words": 588,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 3,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "2026-21",
-          "slug": "2026-21",
-          "level": "h2",
-          "children": [
-            {
-              "text": "What happened this week",
-              "slug": "what-happened-this-week",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "What I made / shipped",
-              "slug": "what-i-made--shipped",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "What I learned",
-              "slug": "what-i-learned",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "📚 Media consumed",
-              "slug": "-media-consumed",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "week-notes/2026-21"
     }
   }
 ]
