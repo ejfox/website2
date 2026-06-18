@@ -47,6 +47,17 @@ interface HealthStats {
     monthlySteps: number
     flightsClimbed: number
   }
+  sleep: {
+    lastNight: {
+      date: string
+      asleepHours: number
+      inBedHours: number
+      efficiency: number | null
+      stages: { core: number; deep: number; rem: number; awake: number } | null
+    } | null
+    avgHours30d: number
+    trend: { dates: string[]; hours: number[] }
+  }
   trends: {
     daily: {
       dates: string[]
@@ -79,6 +90,10 @@ interface MetricRecord {
   avg?: number
   min?: number
   max?: number
+  // sleep_analysis rows carry duration columns + a raw JSON stage breakdown
+  asleep?: number
+  in_bed?: number
+  raw?: string
 }
 
 export default defineEventHandler(async (): Promise<HealthStats> => {
@@ -101,6 +116,18 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
 
     const data = await response.json()
     const metrics: MetricRecord[] = data.metrics || []
+
+    // The webhook returns `qty` (and `avg` for rate-style metrics). There is no
+    // `value` field — reading it silently yielded 0 across every trend. One extractor.
+    const val = (m: MetricRecord): number => m.value ?? m.qty ?? m.avg ?? 0
+    // Steps/exercise/distance are additive: sum every same-name row on a UTC day,
+    // not .find() a single hourly sample.
+    const sumOnDay = (name: string, dateStr: string): number =>
+      metrics
+        .filter(
+          (m: MetricRecord) => m.name === name && m.date.startsWith(dateStr)
+        )
+        .reduce((s: number, m: MetricRecord) => s + val(m), 0)
 
     // Helper to get latest value for a metric
     const getLatest = (name: string): number => {
@@ -127,18 +154,19 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
         )
     }
 
-    // Helper to average values for a metric
+    // Average per DAY, not per sample-row. Sum within the window, divide by the
+    // number of distinct days that actually have data — so "steps per day" reads
+    // true (the old per-row mean reported ~225 for someone walking thousands).
     const avgMetric = (name: string, daysBack: number): number => {
       const cutoff = new Date()
       cutoff.setDate(cutoff.getDate() - daysBack)
-      const values = metrics
-        .filter(
-          (m: MetricRecord) => m.name === name && new Date(m.date) >= cutoff
-        )
-        .map((m: MetricRecord) => m.value || m.qty || m.avg || 0)
-      return values.length
-        ? values.reduce((a: number, b: number) => a + b, 0) / values.length
-        : 0
+      const rows = metrics.filter(
+        (m: MetricRecord) => m.name === name && new Date(m.date) >= cutoff
+      )
+      if (!rows.length) return 0
+      const days = new Set(rows.map((m: MetricRecord) => m.date.slice(0, 10)))
+      const total = rows.reduce((s: number, m: MetricRecord) => s + val(m), 0)
+      return total / days.size
     }
 
     // Build trends (last 7 days for daily)
@@ -153,22 +181,9 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
       const dateStr = date.toISOString().split('T')[0]
       dailyDates.push(dateStr)
 
-      const dayMetrics = metrics.filter((m: MetricRecord) =>
-        m.date.startsWith(dateStr)
-      )
-      dailySteps.push(
-        dayMetrics.find((m: MetricRecord) => m.name === 'step_count')?.value ||
-          0
-      )
-      dailyExercise.push(
-        dayMetrics.find((m: MetricRecord) => m.name === 'apple_exercise_time')
-          ?.value || 0
-      )
-      dailyDistance.push(
-        dayMetrics.find(
-          (m: MetricRecord) => m.name === 'walking_running_distance'
-        )?.value || 0
-      )
+      dailySteps.push(sumOnDay('step_count', dateStr))
+      dailyExercise.push(sumOnDay('apple_exercise_time', dateStr))
+      dailyDistance.push(sumOnDay('walking_running_distance', dateStr))
     }
 
     // Build weekly trends (last 4 weeks)
@@ -194,17 +209,17 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
       weeklySteps.push(
         weekMetrics
           .filter((m: MetricRecord) => m.name === 'step_count')
-          .reduce((sum: number, m: MetricRecord) => sum + (m.value || 0), 0)
+          .reduce((sum: number, m: MetricRecord) => sum + val(m), 0)
       )
       weeklyExercise.push(
         weekMetrics
           .filter((m: MetricRecord) => m.name === 'apple_exercise_time')
-          .reduce((sum: number, m: MetricRecord) => sum + (m.value || 0), 0)
+          .reduce((sum: number, m: MetricRecord) => sum + val(m), 0)
       )
       weeklyDistance.push(
         weekMetrics
           .filter((m: MetricRecord) => m.name === 'walking_running_distance')
-          .reduce((sum: number, m: MetricRecord) => sum + (m.value || 0), 0)
+          .reduce((sum: number, m: MetricRecord) => sum + val(m), 0)
       )
     }
 
@@ -224,18 +239,57 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
     monthlySteps.push(
       monthMetrics
         .filter((m: MetricRecord) => m.name === 'step_count')
-        .reduce((sum: number, m: MetricRecord) => sum + (m.value || 0), 0)
+        .reduce((sum: number, m: MetricRecord) => sum + val(m), 0)
     )
     monthlyExercise.push(
       monthMetrics
         .filter((m: MetricRecord) => m.name === 'apple_exercise_time')
-        .reduce((sum: number, m: MetricRecord) => sum + (m.value || 0), 0)
+        .reduce((sum: number, m: MetricRecord) => sum + val(m), 0)
     )
     monthlyDistance.push(
       monthMetrics
         .filter((m: MetricRecord) => m.name === 'walking_running_distance')
-        .reduce((sum: number, m: MetricRecord) => sum + (m.value || 0), 0)
+        .reduce((sum: number, m: MetricRecord) => sum + val(m), 0)
     )
+
+    // --- Sleep: latest night, stage breakdown from raw, 30-day avg, 7-night trend ---
+    const sleepRows = metrics
+      .filter((m: MetricRecord) => m.name === 'sleep_analysis')
+      .sort(
+        (a: MetricRecord, b: MetricRecord) =>
+          new Date(b.date).getTime() - new Date(a.date).getTime()
+      )
+    const latestSleep = sleepRows[0]
+    let latestStages: {
+      core: number
+      deep: number
+      rem: number
+      awake: number
+    } | null = null
+    try {
+      if (latestSleep?.raw) {
+        const r = JSON.parse(latestSleep.raw)
+        latestStages = {
+          core: r.core ?? 0,
+          deep: r.deep ?? 0,
+          rem: r.rem ?? 0,
+          awake: r.awake ?? 0,
+        }
+      }
+    } catch {
+      latestStages = null
+    }
+
+    const sleepTrendDates: string[] = []
+    const sleepTrendHours: number[] = []
+    for (let i = 6; i >= 0; i--) {
+      const d = new Date()
+      d.setDate(d.getDate() - i)
+      const ds = d.toISOString().split('T')[0]
+      sleepTrendDates.push(ds)
+      const night = sleepRows.find((m: MetricRecord) => m.date.startsWith(ds))
+      sleepTrendHours.push(night ? (night.asleep ?? night.qty ?? 0) : 0)
+    }
 
     return {
       today: {
@@ -277,6 +331,22 @@ export default defineEventHandler(async (): Promise<HealthStats> => {
         monthlyExerciseMinutes: sumMetric('apple_exercise_time', 30),
         monthlySteps: sumMetric('step_count', 30),
         flightsClimbed: sumMetric('flights_climbed', 30),
+      },
+      sleep: {
+        lastNight: latestSleep
+          ? {
+              date: latestSleep.date.slice(0, 10),
+              asleepHours: latestSleep.asleep ?? latestSleep.qty ?? 0,
+              inBedHours: latestSleep.in_bed ?? 0,
+              efficiency:
+                latestSleep.in_bed && latestSleep.asleep
+                  ? latestSleep.asleep / latestSleep.in_bed
+                  : null,
+              stages: latestStages,
+            }
+          : null,
+        avgHours30d: avgMetric('sleep_analysis', 30),
+        trend: { dates: sleepTrendDates, hours: sleepTrendHours },
       },
       trends: {
         daily: {
