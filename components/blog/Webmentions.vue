@@ -8,15 +8,21 @@ import { formatDistanceToNow } from 'date-fns'
 
 const props = defineProps<{
   url: string
+  // Optional: inject webmentions to preview/test (e.g. the kitchen-sink) without
+  // the live fetch. Production never passes this — the component fetches normally.
+  mock?: Webmention[]
 }>()
 
 const showLikes = ref(false)
 const showReposts = ref(false)
 
-const { data: webmentions } = await useFetch('/api/webmentions', {
+const { data: fetched } = await useFetch('/api/webmentions', {
   query: { target: props.url },
   default: () => [],
 })
+const webmentions = computed<Webmention[]>(
+  () => props.mock ?? (fetched.value as Webmention[]) ?? []
+)
 
 interface Webmention {
   'wm-id': number
