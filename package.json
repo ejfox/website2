@@ -48,7 +48,8 @@
     "build:docker": "NITRO_PRESET=node-server yarn build",
     "deploy": "bash scripts/deploy.sh",
     "deploy:quick": "git push origin main && echo '⏳ Auto-deploy will run via cron'",
-    "capture": "node scripts/capture.mjs"
+    "capture": "node scripts/capture.mjs",
+    "shoot": "node scripts/shoot-queue.mjs"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.10.0",
