@@ -22,13 +22,15 @@ const linkClasses =
        content box, so while the footer was a grid child the sticky sidebar could
        travel down over it. As a sibling below the grid, the sidebar clamps at
        main's bottom and the footer always clears it. flex-1 keeps the footer
-       pinned to the viewport bottom on short pages. -->
+       pinned to the viewport bottom on short pages, and #app-container is
+       natural-height (no min-h / no flex-1) so short posts don't get a void
+       above the footer — the leftover space falls below it as background. -->
   <div
     class="w-full min-h-screen flex flex-col bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
   >
     <div
       id="app-container"
-      :class="['w-full flex-1 min-w-0', isStatsSimple ? '' : 'layout-grid']"
+      :class="['w-full min-w-0', isStatsSimple ? '' : 'layout-grid']"
     >
       <a
         href="#main-content"
