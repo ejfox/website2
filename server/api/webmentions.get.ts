@@ -8,6 +8,25 @@
 
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import sanitizeHtml from 'sanitize-html'
+
+// Webmention content is arbitrary HTML from any site on the internet that sends
+// us a webmention — fully untrusted. The client renders content.html via
+// v-html, so we sanitize HERE, at the boundary, to a tiny allowlist. Strips
+// scripts, on* handlers, iframes, styles — everything but basic inline markup.
+function sanitizeMention(m: Webmention): Webmention {
+  if (m.content?.html) {
+    m.content.html = sanitizeHtml(m.content.html, {
+      allowedTags: ['a', 'b', 'strong', 'i', 'em', 'code', 'p', 'br', 'span', 'blockquote'],
+      allowedAttributes: { a: ['href', 'title'] },
+      allowedSchemes: ['http', 'https', 'mailto'],
+      transformTags: {
+        a: sanitizeHtml.simpleTransform('a', { rel: 'noopener nofollow ugc', target: '_blank' }),
+      },
+    })
+  }
+  return m
+}
 
 interface Webmention {
   url?: string
@@ -105,7 +124,9 @@ export default defineEventHandler(async (event) => {
 
     // Load moderation config and filter
     const config = loadModeration()
-    const filtered = mentions.filter((m: Webmention) => !isBlocked(m, config))
+    const filtered = mentions
+      .filter((m: Webmention) => !isBlocked(m, config))
+      .map(sanitizeMention)
 
     return filtered
   } catch (error) {
