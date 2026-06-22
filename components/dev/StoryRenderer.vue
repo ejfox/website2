@@ -58,17 +58,25 @@ watch(
     …
   </div>
 
+  <!-- Suspense lets components with async setup (await useFetch) resolve in the
+       preview. Transparent (no DOM node), so table/list layout is preserved. -->
   <table v-else-if="wrapper === 'table'" class="w-full">
     <tbody>
-      <component :is="resolved" v-bind="componentProps" />
+      <Suspense>
+        <component :is="resolved" v-bind="componentProps" />
+      </Suspense>
     </tbody>
   </table>
 
   <ul v-else-if="wrapper === 'list'">
-    <component :is="resolved" v-bind="componentProps" />
+    <Suspense>
+      <component :is="resolved" v-bind="componentProps" />
+    </Suspense>
   </ul>
 
-  <component :is="resolved" v-else v-bind="componentProps">
-    <template v-if="slotText !== null">{{ slotText }}</template>
-  </component>
+  <Suspense v-else>
+    <component :is="resolved" v-bind="componentProps">
+      <template v-if="slotText !== null">{{ slotText }}</template>
+    </component>
+  </Suspense>
 </template>

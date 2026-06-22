@@ -363,6 +363,36 @@ The `/api/scraps` endpoint filters by `shared === true` in Supabase.
 7. **8px Baseline Grid**: Consistent vertical rhythm throughout typography
 8. **Dark-First Design**: Primary dark theme with zinc color palette
 
+## Component Kitchen Sink (`/kitchen-sink`)
+
+Private, in-house Storybook for browsing **every** reusable component live. Hidden
+like `/ff` — `layout:false`, `ssr:false`, `noindex` (in-page meta + `X-Robots-Tag`
+in `nuxt.config.ts` routeRules), not in nav or sitemap. Anyone with the link can
+view it; it's a dev tool.
+
+- **Page**: `pages/kitchen-sink.vue` — single-column list + persistent preview pane.
+- **Stories (mock props)**: `utils/kitchenSinkStories.js` — keyed by component base
+  name (filename without dir / `.client` / `.server` / `.vue`). Each entry is an
+  array of variants `{ name, props, wrapper?, slot? }`. `wrapper: 'table'` renders
+  `<tr>` components inside a table; `slot` fills the default slot.
+- **Renderer**: `components/dev/StoryRenderer.vue` — per-preview error boundary +
+  `<Suspense>` so async-setup (useFetch) components resolve. `components/dev/` is
+  excluded from the catalog.
+- **Catalog**: built from `import.meta.glob('../components/**/*.vue')`; canonical
+  names match Nuxt's auto-import (e.g. `ui/AnimatedNumber` → `UiAnimatedNumber`).
+
+**URL controls** (HMR-friendly — a reload lands back on the same component):
+`?c=<CanonicalName>` pins one, `&v=<n>` selects a variant, `&focus=1` hides the
+list, `&gallery=1` shows the contact-sheet grid (QA sweep). The `link` button
+copies the exact deep-link.
+
+**Adding/maintaining stories**: when you add a component, add a story for it. The
+header shows an amber "N missing a story" count and dev console warns about missing
+stories AND orphaned story keys (renamed/removed components). Components that fetch
+their own data (Webmentions, NextAvailableSlot) or are invisible overlays
+(DebugGrid, WebVitalsReporter, ScrollIndicator, CommandPalette) preview as
+empty by design — that's expected, not broken.
+
 ---
 
 _This file provides AI assistants with architectural context for the EJ Fox website project. For human-readable documentation, see README.md_

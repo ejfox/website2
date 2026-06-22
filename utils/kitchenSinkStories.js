@@ -12,8 +12,6 @@
 // HMR + the ?c= URL focus make iterating on a single component fast.
 
 // ── shared mock fixtures ─────────────────────────────────────────────────────
-const ISO = (s) => s // readability marker for date strings
-
 const GEAR_ITEM = {
   Name: 'WLF Enduro Pack Vest',
   Weight_oz: 14.8,
@@ -331,15 +329,8 @@ export const stories = {
     return [{ name: 'default', props: { nodes, edges } }]
   })(),
   CommitCard: [
-    {
-      name: 'default',
-      props: {
-        sha: '9b6b031',
-        message: 'feat(ff): flavor + chromeless layout for the hidden booking page',
-        repo: 'website2',
-        date: '2026-06-20T14:30:00Z',
-      },
-    },
+    { name: 'default', props: { ...COMMITS[0] } },
+    { name: 'website2', props: { ...COMMITS[2] } },
   ],
   CommitHeatmap: [
     { name: 'default', props: { years: [2025, 2026], weeks: HEATMAP_WEEKS, totalCommits: 1840, totalRepos: 42 } },
@@ -562,8 +553,8 @@ export const stories = {
           totalScrobbles: 147827,
           recentTracks: {
             tracks: [
-              { name: 'The World is Still', artist: 'Bill Callahan', playcount: 1, date: { uts: 1782069184 } },
-              { name: 'Lake Winnebago', artist: 'Bill Callahan', playcount: 1, date: { uts: 1782068397 } },
+              { name: 'The World is Still', artist: { name: 'Bill Callahan' }, playcount: 1, date: { uts: 1782069184 } },
+              { name: 'Lake Winnebago', artist: { name: 'Bill Callahan' }, playcount: 1, date: { uts: 1782068397 } },
             ],
           },
           topArtists: [
@@ -574,8 +565,8 @@ export const stories = {
             { name: 'Noname', playcount: 7 },
           ],
           topTracks: [
-            { name: 'Bis', artist: 'Arthur Verocai', playcount: 2 },
-            { name: 'Sofa', artist: 'Collard', playcount: 2 },
+            { name: 'Bis', artist: { name: 'Arthur Verocai' }, playcount: 2 },
+            { name: 'Sofa', artist: { name: 'Collard' }, playcount: 2 },
           ],
           topGenres: [
             { name: 'neo-soul', count: 38 },
