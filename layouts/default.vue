@@ -17,20 +17,25 @@ const linkClasses =
 </script>
 
 <template>
+  <!-- Flex-column shell: the grid holds bar/nav/sidebar/main; the footer lives
+       OUTSIDE #app-container on purpose. A sticky element clamps to its parent's
+       content box, so while the footer was a grid child the sticky sidebar could
+       travel down over it. As a sibling below the grid, the sidebar clamps at
+       main's bottom and the footer always clears it. flex-1 keeps the footer
+       pinned to the viewport bottom on short pages. -->
   <div
-    id="app-container"
-    :class="[
-      'w-full min-h-screen',
-      'bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100',
-      isStatsSimple ? '' : 'layout-grid',
-    ]"
+    class="w-full min-h-screen flex flex-col bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
   >
-    <a
-      href="#main-content"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-2 focus:bg-black focus:text-white"
+    <div
+      id="app-container"
+      :class="['w-full flex-1 min-w-0', isStatsSimple ? '' : 'layout-grid']"
     >
-      Skip to main content
-    </a>
+      <a
+        href="#main-content"
+        class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-2 focus:bg-black focus:text-white"
+      >
+        Skip to main content
+      </a>
     <NuxtLoadingIndicator color="#999999" :height="1" />
 
     <!-- Page-chrome bar slot. Blog posts (and any future pages) teleport
@@ -117,7 +122,10 @@ const linkClasses =
       </div>
     </article>
 
-    <UiFooter class="layout-footer" />
+    </div>
+    <!-- /#app-container — footer is a sibling so the sticky sidebar can't overlap it -->
+
+    <UiFooter />
     <UiWebVitalsReporter />
   </div>
 </template>
@@ -131,24 +139,24 @@ const linkClasses =
 .layout-grid {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto auto 1fr auto;
+  grid-template-rows: auto auto 1fr;
   grid-template-areas:
     'bar'
     'nav'
-    'main'
-    'footer';
+    'main';
 }
 
 @media (min-width: theme('screens.md')) {
   .layout-grid {
     grid-template-columns: 200px minmax(0, 1fr);
-    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto minmax(0, 1fr);
     /* Sidebar spans bar + main rows so it gets full viewport height while
-       the bar sits over only the main column. */
+       the bar sits over only the main column. The footer is NOT a grid area —
+       it's a sibling below #app-container so the sticky sidebar clamps to
+       main's bottom and can never overlap it. */
     grid-template-areas:
       'sidebar bar'
-      'sidebar main'
-      'footer  footer';
+      'sidebar main';
   }
 }
 
@@ -166,9 +174,5 @@ const linkClasses =
 
 .layout-main {
   grid-area: main;
-}
-
-.layout-footer {
-  grid-area: footer;
 }
 </style>
