@@ -250,7 +250,7 @@ ssh vps 'pm2 reload website2'
 - **Predictions**: Cryptographic verification system functional
 - **Root Folder**: Professional, no build artifacts or test debris
 - **Gear System**: CSV-based inventory with Weight_oz column, no TCWM scoring
-- **Typography**: Georgia serif, 8px baseline grid, micro-visualizations
+- **Typography**: Vault Alarm (display/headings) + Georgia serif (body) + mono (data); tokenized scale (see Typography System)
 - **Data Tables**: Ultra-dense Tuftian design with inline sparklines
 - **Sidenotes**: Ultra-simple 113-line client plugin, Tufte CSS approach
 - **Layout**: Editorial left-aligned within max-w-screen-xl container
@@ -351,6 +351,51 @@ The `/api/scraps` endpoint filters by `shared === true` in Supabase.
 - No `sourcePath` or `sourceDir` in processed JSON
 - `content/backup/` and `content/drafts/` excluded from `.output/`
 - Phone number in `public/resume.json` is intentionally public
+
+## Typography System (2026-06-22)
+
+Three font roles, one size scale. Keep it tokenized — **no arbitrary `text-[Npx]`**.
+
+### Font roles
+
+- **Vault Alarm** — display & headings. Applied to `h1`–`h6`, `.text-display`, and
+  blog-post headings (`assets/css/global.css`). The geometric display sans.
+- **Georgia serif** (`font-serif`) — body & reading. Body text, all
+  `.blog-post-content` (except headings), and editorial utilities like `.dek` /
+  `.card-title`. Has OpenType features enabled (`onum`, ligatures).
+- **mono** (`font-mono`) — data, labels, stats, code. Anything tabular or
+  metadata-flavored.
+
+Ownership is clean: **`global.css` owns element typography** (h1–h6, body,
+blog content); **`tailwind.css` owns component utilities** (`.dek`, `.card-title`
+composing `font-serif`). Don't move heading rules between them.
+
+### Size scale (2px increments, 4px line-height grid)
+
+Defined in `tailwind.config.js` `theme.extend.fontSize` (3xs → 8xl), **except the
+two micro-tokens** which live in `assets/css/tailwind.css` `@layer utilities` so
+they're HMR-reliable and usable in `@apply`:
+
+| token | px / line | use |
+|---|---|---|
+| `text-5xs` | 8 / 12 | pips, specimen micro (CSS @layer) |
+| `text-4xs` | 9 / 12 | micro stat labels (CSS @layer) |
+| `text-3xs` | 10 / 16 | dense stats |
+| `text-2xs` | 12 / 16 | small labels |
+| `text-xs` | 14 / 20 | captions |
+| `text-sm` | 16 / 24 | body small |
+| `text-base` | 18 / 28 | body |
+| `text-lg` → `text-8xl` | 20 → 96 | lead → hero |
+
+### Rules
+
+- **Never** use arbitrary `text-[Npx]` — pick the nearest token (a 2026-06 codemod
+  removed all 52). Same for line-height: prefer `leading-3` (12px) etc.
+- Scoped component `<style>` `@apply` **cannot** resolve the `@layer`-utilities
+  micro-tokens (cross-file limitation) — write the raw CSS value there instead
+  (see `pages/gear/index.vue` table headers). Templates use the token fine.
+- Adding a new `fontSize` token to `tailwind.config.js` requires a `yarn dev`
+  restart (theme additions don't hot-reload); `@layer utilities` classes do.
 
 ## Key Design Principles
 
