@@ -6,6 +6,10 @@
 <script setup>
 import { computed } from 'vue'
 
+// Optional: inject a slots payload to preview/test (kitchen-sink) without the
+// live cal.com fetch. Production never passes this.
+const props = defineProps({ mock: { type: Object, default: null } })
+
 // Fetch the first available slot with auto-refresh
 const { data, pending, refresh } = await useLazyFetch(
   '/api/cal/available-slots',
@@ -17,8 +21,9 @@ const { data, pending, refresh } = await useLazyFetch(
 
 // Get the very next available slot
 const nextSlot = computed(() => {
-  if (!data.value?.slots?.length) return null
-  return data.value.slots[0] // First slot is the earliest
+  const slots = props.mock?.slots ?? data.value?.slots
+  if (!slots?.length) return null
+  return slots[0] // First slot is the earliest
 })
 
 // Refresh on window focus (when user returns to tab)

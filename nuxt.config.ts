@@ -298,6 +298,15 @@ export default defineNuxtConfig({
       // Header covers crawlers that ignore the in-page meta tag and the
       // case where JS doesn't run. Not in the sitemap, not linked anywhere.
       '/ff': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+      // Kitchen Sink (/kitchen-sink) — private in-house component browser.
+      // Hidden like /ff: noindex header + in-page meta, not in nav or sitemap.
+      // ssr:false — it's a pure client-side dev tool that dynamically renders
+      // arbitrary components; skipping SSR avoids hydration mismatches and keeps
+      // its ?raw source bundles out of the server render path.
+      '/kitchen-sink': {
+        ssr: false,
+        headers: { 'X-Robots-Tag': 'noindex, nofollow' },
+      },
       // Only disable caching in dev mode
       ...(process.env.NODE_ENV === 'development' && {
         '/**': { headers: { 'Cache-Control': 'no-cache' } },
