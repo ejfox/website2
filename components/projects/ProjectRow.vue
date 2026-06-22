@@ -171,8 +171,21 @@ const tech = computed(() => {
 const cld = (src, transform) => {
   if (!src) return src
   const url = src.replace(/^http:/, 'https:')
-  if (!url.includes('/image/upload/')) return url
-  return url.replace('/image/upload/', `/image/upload/${transform}/`)
+  const marker = '/image/upload/'
+  const at = url.indexOf(marker)
+  if (at === -1) return url
+  const head = url.slice(0, at + marker.length)
+  // Strip any transform segments ALREADY baked into the URL (e.g. the
+  // c_scale,…,w_1280 that remarkEnhanceImages injects upstream). Otherwise our
+  // c_fill,w_900 crop gets re-scaled to 1280 — upscaling a downscale, which
+  // ships softer, heavier images. A segment is a transform iff every
+  // comma-token is a cloudinary param (`x_…`); versions (v123) and folder
+  // names (projects) are not, so they survive.
+  const segs = url.slice(at + marker.length).split('/')
+  const isTransform = (s) => s.length > 0 && s.split(',').every((t) => /^[a-z]+_/.test(t))
+  let i = 0
+  while (i < segs.length && isTransform(segs[i])) i++
+  return head + transform + '/' + segs.slice(i).join('/')
 }
 // Hero: keep full aspect, just cap size. Tile: uniform 3:2 with NO crop —
 // pad to the aspect using the page background color (zinc-900 #18181b) so the
