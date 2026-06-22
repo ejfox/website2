@@ -62,7 +62,7 @@ const formattedDate = computed(() => {
 
         <!-- Commit message -->
         <p
-          class="text-zinc-700 dark:text-zinc-300 text-[15px] leading-relaxed font-mono"
+          class="text-zinc-700 dark:text-zinc-300 text-sm leading-relaxed font-mono"
         >
           {{ message }}
         </p>

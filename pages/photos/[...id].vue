@@ -184,7 +184,7 @@ watch(photoId, () => {
       <div class="max-w-2xl mx-auto px-4 py-6 space-y-4">
         <!-- EXIF line -->
         <div
-          class="flex flex-wrap justify-center gap-x-6 gap-y-1 font-mono text-[10px] text-zinc-500 tabular-nums"
+          class="flex flex-wrap justify-center gap-x-6 gap-y-1 font-mono text-3xs text-zinc-500 tabular-nums"
         >
           <span v-if="exif?.camera">{{ shortCamera(exif.camera) }}</span>
           <span v-if="exif?.lens">{{ shortLens(exif.lens) }}</span>
@@ -196,7 +196,7 @@ watch(photoId, () => {
         </div>
 
         <!-- Nav: prev/next -->
-        <div class="flex justify-between font-mono text-[10px]">
+        <div class="flex justify-between font-mono text-3xs">
           <NuxtLink
             v-if="prevPhoto"
             :to="`/photos/${encodeURIComponent(prevPhoto.id)}`"
@@ -223,7 +223,7 @@ watch(photoId, () => {
             </NuxtLink>
           </div>
           <div
-            class="flex justify-center gap-4 font-mono text-[10px] text-zinc-600"
+            class="flex justify-center gap-4 font-mono text-3xs text-zinc-600"
           >
             <NuxtLink to="/photos" class="hover:text-zinc-400">
               All photos

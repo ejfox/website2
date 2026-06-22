@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Micro type-scale tokens (below 3xs/10px) for Tuftian-dense UI. Defined here in
+   @layer utilities rather than tailwind.config.js so they're (a) usable in @apply
+   inside component <style> blocks and (b) HMR-reliable — config theme additions
+   don't hot-reload. 4px line-height grid, matches the 3xs/2xs config tokens. */
+@layer utilities {
+  .text-5xs {
+    font-size: 0.5rem; /* 8px - pips, specimen micro */
+    line-height: 0.75rem; /* 12px */
+    letter-spacing: 0.03em;
+  }
+  .text-4xs {
+    font-size: 0.5625rem; /* 9px - micro stat labels */
+    line-height: 0.75rem; /* 12px */
+    letter-spacing: 0.03em;
+  }
+}
+
 /* Remove ALL default Tailwind styles to reduce size */
 @layer base {
   /* Reset only what we need */

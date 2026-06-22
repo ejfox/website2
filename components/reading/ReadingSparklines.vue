@@ -195,7 +195,7 @@ function getMonthIntensityClass(count) {
             :x="idx * barWidth + barWidth / 2"
             y="38"
             text-anchor="middle"
-            class="font-mono text-[8px] fill-zinc-400 dark:fill-zinc-600"
+            class="font-mono text-5xs fill-zinc-400 dark:fill-zinc-600"
           >
             {{ item.year }}
           </text>

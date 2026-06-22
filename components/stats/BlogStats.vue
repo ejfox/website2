@@ -91,7 +91,7 @@ interface BlogStats {
       >
         <div class="flex-1 min-w-0">
           <div
-            class="truncate text-xs leading-[12px]"
+            class="truncate text-xs leading-3"
             :class="['text-zinc-700 dark:text-zinc-300']"
           >
             {{ post.title }}

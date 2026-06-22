@@ -13,7 +13,8 @@ module.exports = {
     extend: {
       fontSize: {
         // Typography scale: 2px font increments, 4px line-height grid
-        // Dense sizes for data-heavy UI
+        // Dense sizes for data-heavy UI. (text-4xs 9px / text-5xs 8px live in
+        // assets/css/tailwind.css @layer utilities — see note there.)
         '3xs': ['0.625rem', { lineHeight: '1rem', letterSpacing: '0.02em' }], // 10px/16px - dense stats
         '2xs': ['0.75rem', { lineHeight: '1rem', letterSpacing: '0.01em' }], // 12px/16px - small labels
         // Standard sizes

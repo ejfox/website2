@@ -480,11 +480,11 @@ useHead(() => ({
         <!-- Title and Stats Section -->
         <div class="flex flex-col gap-2">
           <h1 class="font-mono text-sm text-zinc-100">GEAR</h1>
-          <div class="font-mono text-[10px] text-muted tabular">
+          <div class="font-mono text-3xs text-muted tabular">
             {{ totalItems }} items · {{ displayTotalWeight.value }} ·
             {{ containerCount }} bags
           </div>
-          <div class="font-mono text-[10px] text-zinc-500">
+          <div class="font-mono text-3xs text-zinc-500">
             Updated {{ lastUpdated || currentDate }} · source: gear sheet
             exports
           </div>
@@ -512,7 +512,7 @@ useHead(() => ({
             class="gear-btn flex-gap-0.5 w-full sm:w-auto"
             @click="toggleSort"
           >
-            <span class="text-[8px]">
+            <span class="text-5xs">
               {{ sortBy === 'weight' ? '↓' : '↑' }}
             </span>
             {{ sortBy === 'weight' ? 'Weight' : 'Name' }}
@@ -544,10 +544,10 @@ useHead(() => ({
                 {{ type.symbol }}
               </span>
               <div class="flex-1 min-w-0">
-                <div class="font-mono text-[10px] text-zinc-400 truncate">
+                <div class="font-mono text-3xs text-zinc-400 truncate">
                   {{ type.name }}
                 </div>
-                <div class="text-[9px] text-muted tabular">
+                <div class="text-4xs text-muted tabular">
                   {{ type.count }} · {{ type.weight }}
                 </div>
               </div>
@@ -559,7 +559,7 @@ useHead(() => ({
           <span class="uppercase tracking-[0.1em]">{{ currentDate }}</span>
         </div>
 
-        <p class="mt-2 text-[10px] leading-snug text-zinc-500 font-mono">
+        <p class="mt-2 text-3xs leading-snug text-zinc-500 font-mono">
           Some product links are affiliate links — as an Amazon Associate I earn from
           qualifying purchases. It costs you nothing extra.
         </p>
@@ -587,7 +587,7 @@ useHead(() => ({
               :key="`lbl-${c.name}`"
               class="flex-1 text-center overflow-hidden"
             >
-              <span class="text-[7px] font-mono text-zinc-500 truncate block">
+              <span class="text-5xs font-mono text-zinc-500 truncate block">
                 {{ c.short }}
               </span>
             </div>
@@ -614,10 +614,10 @@ useHead(() => ({
           class="gear-container-card group"
         >
           <div class="flex items-baseline justify-between">
-            <span class="font-mono text-[10px] text-zinc-200">
+            <span class="font-mono text-3xs text-zinc-200">
               {{ container }}
             </span>
-            <div class="text-[8px] text-zinc-600 tabular-nums">
+            <div class="text-5xs text-zinc-600 tabular-nums">
               <span>{{ items.length }}×</span>
               <span class="text-zinc-500">{{ getAvgItemWeight(items) }}</span>
             </div>
@@ -655,18 +655,18 @@ useHead(() => ({
       >
         <div class="gear-container-header">
           <div class="flex items-baseline gap-3">
-            <h2 class="text-[11px] font-mono text-zinc-200">
+            <h2 class="text-3xs font-mono text-zinc-200">
               {{ container }}
             </h2>
-            <span class="text-[8px] text-zinc-600">
+            <span class="text-5xs text-zinc-600">
               {{ items.length }}×{{ getAvgItemWeight(items) }}
             </span>
-            <span class="text-[8px] text-zinc-600">
+            <span class="text-5xs text-zinc-600">
               {{ getWeightRange(items) }}
             </span>
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-[8px] font-mono text-zinc-500 tabular-nums">
+            <span class="text-5xs font-mono text-zinc-500 tabular-nums">
               {{ formatWeight(items) }}
             </span>
             <!-- Mini histogram -->
@@ -689,7 +689,7 @@ useHead(() => ({
         />
 
         <div class="relative overflow-x-auto">
-          <table class="w-full text-[9px] font-mono">
+          <table class="w-full text-4xs font-mono">
             <thead
               class="sticky top-0 bg-white dark:bg-zinc-950 backdrop-blur-sm"
             >
@@ -790,7 +790,7 @@ useHead(() => ({
 
 /* Gear page controls */
 .gear-btn {
-  @apply px-3 py-2 text-[10px] font-mono uppercase tracking-wide;
+  @apply px-3 py-2 text-3xs font-mono uppercase tracking-wide;
   @apply text-zinc-700 dark:text-zinc-300;
   @apply bg-zinc-100 dark:bg-zinc-900;
   @apply hover:bg-zinc-200 dark:hover:bg-zinc-800;
@@ -801,7 +801,7 @@ useHead(() => ({
 }
 
 .gear-select {
-  @apply px-3 py-2 pr-8 text-[10px] font-mono uppercase tracking-wide;
+  @apply px-3 py-2 pr-8 text-3xs font-mono uppercase tracking-wide;
   @apply text-zinc-700 dark:text-zinc-300;
   @apply bg-zinc-100 dark:bg-zinc-900;
   @apply border border-zinc-300 dark:border-zinc-700;
@@ -809,26 +809,43 @@ useHead(() => ({
   @apply min-h-[44px]; /* Touch-friendly */
 }
 
+/* text-5xs (8px) applied as raw CSS — @apply can't resolve a @layer-utilities
+   class from another file inside a scoped <style>. Value matches .text-5xs. */
 .select-dropdown-arrow {
   @apply absolute right-3 top-1/2 -translate-y-1/2;
-  @apply text-[8px] text-zinc-500 dark:text-zinc-500 pointer-events-none;
+  @apply text-zinc-500 dark:text-zinc-500 pointer-events-none;
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+  letter-spacing: 0.03em;
 }
 
 /* Table styles */
 .gear-th {
-  @apply text-center px-1 py-1 font-normal text-zinc-500 text-[8px];
+  @apply text-center px-1 py-1 font-normal text-zinc-500;
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+  letter-spacing: 0.03em;
 }
 
 .gear-th-left {
-  @apply text-left px-1 py-1 font-normal text-zinc-500 text-[8px] uppercase;
+  @apply text-left px-1 py-1 font-normal text-zinc-500 uppercase;
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+  letter-spacing: 0.03em;
 }
 
 .gear-th-right {
-  @apply text-right px-1 py-1 font-normal text-zinc-500 text-[8px] pr-2;
+  @apply text-right px-1 py-1 font-normal text-zinc-500 pr-2;
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+  letter-spacing: 0.03em;
 }
 
 .gear-weight-range {
-  @apply flex justify-between mt-2 text-[7px] text-zinc-600 font-mono;
+  @apply flex justify-between mt-2 text-zinc-600 font-mono;
+  font-size: 0.5rem;
+  line-height: 0.75rem;
+  letter-spacing: 0.03em;
 }
 
 .gear-histogram {
@@ -836,7 +853,7 @@ useHead(() => ({
 }
 
 .gear-section-header {
-  @apply text-[10px] font-mono uppercase tracking-[0.05em] text-zinc-500;
+  @apply text-3xs font-mono uppercase tracking-[0.05em] text-zinc-500;
 }
 
 .gear-container-card {
@@ -844,7 +861,7 @@ useHead(() => ({
 }
 
 .gear-container-count {
-  @apply text-[10px] font-mono tabular-nums text-zinc-500;
+  @apply text-3xs font-mono tabular-nums text-zinc-500;
 }
 
 .gear-container-header {

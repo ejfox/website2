@@ -130,7 +130,7 @@ usePageSeo({
         </div>
 
         <!-- Metadata Grid -->
-        <div class="text-[8px] text-zinc-500 dark:text-zinc-500 space-y-0.5">
+        <div class="text-5xs text-zinc-500 dark:text-zinc-500 space-y-0.5">
           <!-- Row 1: Core info -->
           <div class="flex flex-wrap gap-2 opacity-70">
             <span v-if="scrap.source">{{ scrap.source }}</span>

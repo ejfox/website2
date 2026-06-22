@@ -1057,7 +1057,7 @@ usePageSeo({
 }
 
 .floating-cta-sub {
-  @apply text-zinc-400 dark:text-zinc-500 text-[10px] tracking-normal;
+  @apply text-zinc-400 dark:text-zinc-500 text-3xs tracking-normal;
 }
 
 /* Transition */

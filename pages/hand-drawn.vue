@@ -146,7 +146,7 @@
             <figcaption class="mt-6 text-base text-zinc-600 dark:text-zinc-300 max-w-prose leading-relaxed">
               <span class="text-rose-500 font-semibold">One</span> video made last year — out of the
               <span class="font-semibold">100</span> I want to make this year.
-              <span class="block text-[11px] uppercase tracking-[0.16em] text-zinc-400 mt-3">week note · 2024-01</span>
+              <span class="block text-3xs uppercase tracking-[0.16em] text-zinc-400 mt-3">week note · 2024-01</span>
             </figcaption>
           </figure>
         </Demo>
@@ -223,9 +223,9 @@ then read the logs and move on.</code></pre>
 
           <!-- stat dashboard card: real blog numbers -->
           <div>
-            <p class="text-[11px] uppercase tracking-[0.16em] text-zinc-400 mb-5">Stats dashboard</p>
+            <p class="text-3xs uppercase tracking-[0.16em] text-zinc-400 mb-5">Stats dashboard</p>
             <div class="rounded-2xl border border-zinc-200 dark:border-zinc-800 p-6 w-full max-w-xs">
-              <div class="text-[11px] uppercase tracking-[0.15em] text-zinc-400 mb-5">blog posts published</div>
+              <div class="text-3xs uppercase tracking-[0.15em] text-zinc-400 mb-5">blog posts published</div>
               <div class="flex items-center gap-4 mb-2">
                 <HandDrawnMark tone="#fde047" class="text-5xl font-semibold tracking-tight">103</HandDrawnMark>
                 <HandDrawn name="arrow-up-thick" size="1.7rem" class="text-zinc-400 dark:text-zinc-500" />
@@ -240,7 +240,7 @@ then read the logs and move on.</code></pre>
 
           <!-- analytics chart with a "what happened" annotation -->
           <div>
-            <p class="text-[11px] uppercase tracking-[0.16em] text-zinc-400 mb-5">Analytics annotation</p>
+            <p class="text-3xs uppercase tracking-[0.16em] text-zinc-400 mb-5">Analytics annotation</p>
             <div class="relative w-full text-zinc-400 dark:text-zinc-500">
               <svg :viewBox="`0 0 ${TR.w} ${TR.h}`" class="w-full">
                 <path :d="trendPath.area" fill="currentColor" opacity="0.12" />
@@ -261,12 +261,12 @@ then read the logs and move on.</code></pre>
 
           <!-- prediction card: circled number as a confidence rating -->
           <div>
-            <p class="text-[11px] uppercase tracking-[0.16em] text-zinc-400 mb-5">Prediction</p>
+            <p class="text-3xs uppercase tracking-[0.16em] text-zinc-400 mb-5">Prediction</p>
             <div class="relative px-9 py-8 w-full max-w-md">
               <HandDrawn name="box-xl" stretch
                 class="absolute inset-0 text-zinc-800 dark:text-zinc-200" />
               <div class="relative">
-                <div class="text-[11px] uppercase tracking-[0.15em] text-zinc-400 mb-3">Prediction · resolves 2026</div>
+                <div class="text-3xs uppercase tracking-[0.15em] text-zinc-400 mb-3">Prediction · resolves 2026</div>
                 <p class="text-lg font-medium leading-snug mb-5">
                   AI-generated code tops 30% of commits in the 50 biggest GitHub repos.
                 </p>
@@ -281,7 +281,7 @@ then read the logs and move on.</code></pre>
 
           <!-- changelog with circled version markers + inline "X → Y" arrows -->
           <div>
-            <p class="text-[11px] uppercase tracking-[0.16em] text-zinc-400 mb-5">Changelog</p>
+            <p class="text-3xs uppercase tracking-[0.16em] text-zinc-400 mb-5">Changelog</p>
             <ol class="space-y-6 list-none pl-0">
               <li v-for="(r, i) in releases" :key="i" class="flex items-start gap-4">
                 <HandDrawn :name="`circled-bold-${i + 1}`" size="1.9rem" class="shrink-0 mt-0.5" />
@@ -316,7 +316,7 @@ then read the logs and move on.</code></pre>
               Last year I made a grand total of one video. This year I want to make
               <span class="whitespace-nowrap"><HandDrawn name="arrow-up-thick" size="1.4rem" class="text-zinc-400 dark:text-zinc-500 mx-1" /><HandDrawnMark tone="#fde047">100</HandDrawnMark></span>.
             </p>
-            <figcaption class="mt-6 text-[11px] uppercase tracking-[0.16em] text-zinc-400">week note · 2024-01</figcaption>
+            <figcaption class="mt-6 text-3xs uppercase tracking-[0.16em] text-zinc-400">week note · 2024-01</figcaption>
           </figure>
 
           <!-- a wry line, the punchline circled -->
@@ -325,7 +325,7 @@ then read the logs and move on.</code></pre>
               Seeing my step count drop below 5,000 for days running is a clear sign I need to
               <HandDrawnMark tone="#fde047">touch grass</HandDrawnMark>.
             </p>
-            <figcaption class="mt-5 text-[11px] uppercase tracking-[0.16em] text-zinc-400">Personal APIs</figcaption>
+            <figcaption class="mt-5 text-3xs uppercase tracking-[0.16em] text-zinc-400">Personal APIs</figcaption>
           </figure>
 
           <!-- a single word, underlined -->
@@ -334,7 +334,7 @@ then read the logs and move on.</code></pre>
               If you're going to spend half your life in a terminal, it might as well feel like a
               <HandDrawnMark placement="under" tone="#fde047">cyberpunk</HandDrawnMark> movie.
             </p>
-            <figcaption class="mt-5 text-[11px] uppercase tracking-[0.16em] text-zinc-400">CLI tools</figcaption>
+            <figcaption class="mt-5 text-3xs uppercase tracking-[0.16em] text-zinc-400">CLI tools</figcaption>
           </figure>
 
           <!-- footnote markers on a real, number-dense paragraph -->
@@ -344,7 +344,7 @@ then read the logs and move on.</code></pre>
               and 159,671 relationships<HandDrawn name="circled-2" size="1.05em" class="mx-0.5 align-baseline" />
               in Neo4j, then let the clusters surface<HandDrawn name="circled-3" size="1.05em" class="mx-0.5 align-baseline" />.
             </p>
-            <figcaption class="mt-5 text-[11px] uppercase tracking-[0.16em] text-zinc-400">CCRB officer clusters</figcaption>
+            <figcaption class="mt-5 text-3xs uppercase tracking-[0.16em] text-zinc-400">CCRB officer clusters</figcaption>
           </figure>
 
           <!-- a pull-quote in a traced frame, one word underlined -->
@@ -354,7 +354,7 @@ then read the logs and move on.</code></pre>
               Instead of avoiding hard work or hard problems, we should make hard work
               <HandDrawnMark placement="under" tone="#fde047">fun</HandDrawnMark>.
             </blockquote>
-            <figcaption class="relative mt-6 text-center text-[11px] uppercase tracking-[0.16em] text-zinc-400">Joy-Driven Development</figcaption>
+            <figcaption class="relative mt-6 text-center text-3xs uppercase tracking-[0.16em] text-zinc-400">Joy-Driven Development</figcaption>
           </figure>
 
           <!-- the key concept, circled -->
@@ -364,7 +364,7 @@ then read the logs and move on.</code></pre>
               <HandDrawnMark tone="#fde047">magic words</HandDrawnMark>
               you need, you can teach yourself almost anything.
             </p>
-            <figcaption class="mt-5 text-[11px] uppercase tracking-[0.16em] text-zinc-400">Everyone Should Code</figcaption>
+            <figcaption class="mt-5 text-3xs uppercase tracking-[0.16em] text-zinc-400">Everyone Should Code</figcaption>
           </figure>
 
         </div>
@@ -395,7 +395,7 @@ then read the logs and move on.</code></pre>
             </div>
 
             <!-- vertical: a down arrow resolves top→bottom, an up arrow grows bottom→top -->
-            <div class="text-[11px] font-medium text-zinc-400 mb-5">downward · resolves to&nbsp;&nbsp;·&nbsp;&nbsp;upward · grew to</div>
+            <div class="text-3xs font-medium text-zinc-400 mb-5">downward · resolves to&nbsp;&nbsp;·&nbsp;&nbsp;upward · grew to</div>
             <div class="flex flex-wrap gap-x-9 gap-y-8 mb-12">
               <figure v-for="a in [...arrowDown, ...arrowUp]" :key="a.name" class="flex flex-col items-center text-center">
                 <span class="text-sm font-medium leading-tight">{{ a.top }}</span>
@@ -405,11 +405,11 @@ then read the logs and move on.</code></pre>
             </div>
 
             <!-- the non-linear rest, shown as themselves -->
-            <div class="text-[11px] font-medium text-zinc-400 mb-4">loops, turns &amp; sketchbook studies</div>
+            <div class="text-3xs font-medium text-zinc-400 mb-4">loops, turns &amp; sketchbook studies</div>
             <div class="flex flex-wrap items-end gap-x-8 gap-y-5">
               <figure v-for="name in arrowStudies" :key="name" class="flex flex-col items-center gap-2">
                 <span class="flex items-end justify-center h-9"><HandDrawn :name="name" size="1.9rem" class="text-zinc-700 dark:text-zinc-300" /></span>
-                <figcaption class="text-[10px] font-mono text-zinc-400">{{ name.replace('arrow-', '') }}</figcaption>
+                <figcaption class="text-3xs font-mono text-zinc-400">{{ name.replace('arrow-', '') }}</figcaption>
               </figure>
             </div>
           </div>
@@ -595,7 +595,7 @@ then read the logs and move on.</code></pre>
           </h3>
 
           <div v-for="sg in group.subs" :key="sg.sub" class="mb-7">
-            <div v-if="group.subs.length > 1" class="text-[11px] font-medium text-zinc-400 dark:text-zinc-500 mb-3 pl-1">
+            <div v-if="group.subs.length > 1" class="text-3xs font-medium text-zinc-400 dark:text-zinc-500 mb-3 pl-1">
               {{ sg.label }}
             </div>
             <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-3">
@@ -609,7 +609,7 @@ then read the logs and move on.</code></pre>
                 <div class="flex-1 flex items-center justify-center w-full min-h-0">
                   <HandDrawn :name="a.name" size="2.6rem" />
                 </div>
-                <span class="text-[10px] font-mono text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 max-w-full text-center leading-tight break-all">
+                <span class="text-3xs font-mono text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 max-w-full text-center leading-tight break-all">
                   {{ copied === a.name ? 'copied!' : a.name }}
                 </span>
               </button>

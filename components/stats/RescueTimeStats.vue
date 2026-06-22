@@ -290,7 +290,7 @@ const sortedCategories = computed(() => {
         }"
       ></div>
     </div>
-    <div class="flex justify-between text-zinc-500 mt-4 text-xs leading-[12px]">
+    <div class="flex justify-between text-zinc-500 mt-4 text-xs leading-3">
       <span>{{ uniqueActivitiesCount }} TRACKED ACTIVITIES</span>
       <span>SQUARE = 1% OF TOTAL TIME</span>
     </div>
@@ -311,14 +311,14 @@ const sortedCategories = computed(() => {
           <div class="flex justify-between items-center gap-0.5">
             <!-- eslint-disable max-len,vue/max-len -->
             <span
-              class="text-zinc-700 dark:text-zinc-300 truncate text-xs leading-[12px]"
+              class="text-zinc-700 dark:text-zinc-300 truncate text-xs leading-3"
             >
               {{ category.name }}
             </span>
             <!-- eslint-enable max-len,vue/max-len -->
             <!-- eslint-disable max-len,vue/max-len -->
             <span
-              class="text-zinc-500 tabular-nums flex-shrink-0 text-xs leading-[12px]"
+              class="text-zinc-500 tabular-nums flex-shrink-0 text-xs leading-3"
             >
               {{ category.percentageOfTotal }}%
             </span>

@@ -18,16 +18,15 @@ const { stop } = useIntersectionObserver(el, ([e]) => {
 </script>
 
 <template>
-  <div
-    ref="el"
-    class="rounded border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 overflow-hidden flex flex-col"
-  >
-    <div class="flex items-center gap-1.5 px-2 py-1 border-b border-zinc-100 dark:border-zinc-800/60">
-      <span class="font-mono text-[10px] truncate">{{ entry.name }}</span>
-      <span v-if="entry.isClient" class="ml-auto font-mono text-[9px] text-sky-500">client</span>
-      <span v-else-if="entry.isServer" class="ml-auto font-mono text-[9px] text-violet-500">server</span>
+  <div ref="el" class="bg-white dark:bg-zinc-950 overflow-hidden flex flex-col font-mono">
+    <div class="flex items-center gap-1.5 px-2 py-0.5 border-b border-zinc-200 dark:border-zinc-800 text-3xs">
+      <span class="truncate">
+        <span v-if="!entry.stories" class="text-zinc-400 dark:text-zinc-600">*</span>{{ entry.name }}
+      </span>
+      <span v-if="entry.isClient" class="ml-auto text-zinc-400 dark:text-zinc-600">client</span>
+      <span v-else-if="entry.isServer" class="ml-auto text-zinc-400 dark:text-zinc-600">server</span>
     </div>
-    <div class="h-[150px] overflow-hidden p-2 flex items-center justify-center relative">
+    <div class="h-[280px] overflow-hidden p-4 flex items-center justify-center relative">
       <DevStoryRenderer
         v-if="show && entry.stories"
         :loader="entry.loader"
@@ -35,8 +34,8 @@ const { stop } = useIntersectionObserver(el, ([e]) => {
         :wrapper="entry.stories[0].wrapper"
         :slot-text="entry.stories[0].slot || null"
       />
-      <span v-else-if="show" class="font-mono text-[10px] text-amber-500">no story</span>
-      <span v-else class="font-mono text-[10px] text-zinc-300 dark:text-zinc-700">…</span>
+      <span v-else-if="show" class="text-3xs text-zinc-400 dark:text-zinc-600">no story</span>
+      <span v-else class="text-3xs text-zinc-300 dark:text-zinc-700">…</span>
     </div>
   </div>
 </template>
