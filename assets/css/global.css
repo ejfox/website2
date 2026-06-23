@@ -275,7 +275,11 @@ p,
 }
 
 .sticky-label-header {
-  @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 sticky top-0 bg-white dark:bg-zinc-950 z-10 py-2;
+  /* Sticky year/date dividers. The bg must MATCH the content shell behind them
+     (div.min-h-screen renders zinc-900, NOT the body's #0a0a0a) so the header
+     is invisible until it actually sticks over scrolling content. The old
+     zinc-950 was darker than the shell and showed as a strange visible box. */
+  @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 sticky top-0 bg-white dark:bg-zinc-900 z-10 py-2;
 }
 
 .label-uppercase-mono {
