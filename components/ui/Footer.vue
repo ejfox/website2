@@ -6,9 +6,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+// Displayed at 40px but on 2–3× retina that needs ~120px; request 256 (with
+// DPR-aware quality) so the cutout is crisp instead of pixellated.
 const avatarUrl =
   'https://res.cloudinary.com/ejf/image/upload/' +
-  'w_128,f_webp/v1733606048/me_full.png'
+  'w_256,q_auto,f_auto,dpr_2.0/v1733606048/me_full.png'
 
 const { data: buildInfo } = await useFetch('/api/build-info')
 

@@ -150,6 +150,11 @@ body {
   }
 }
 
+/* Root + body both carry the page bg so the canvas behind everything is the
+   page color, not a stray light default. Without this, any area the content
+   shell doesn't paint — overscroll/rubber-band, short pages — flashes the
+   browser/root light background (was showing as a jarring pale block on dark). */
+html,
 body {
   background-color: var(--bg-page);
 }
