@@ -691,7 +691,7 @@ useHead(() => ({
         <div class="relative overflow-x-auto">
           <table class="w-full text-4xs font-mono">
             <thead
-              class="sticky top-0 bg-white dark:bg-zinc-950 backdrop-blur-sm"
+              class="sticky top-0 bg-white dark:bg-zinc-900 backdrop-blur-sm"
             >
               <tr class="border-b border-zinc-200/30 dark:border-zinc-700/30">
                 <th class="gear-th-left">Item</th>
