@@ -293,14 +293,12 @@ useHead(() => ({
       <p class="text-zinc-500">No projects found.</p>
     </div>
 
-    <!-- Featured Projects - image-forward rows that fill the main column. -->
-    <!-- Negative margins cancel the page-root padding (px-4 sm:px-6 xl:px-8) so
-         these rows span the full width of the content column — never under the
-         sidebar. Inner padding restores comfortable gutters. The visual jump
-         (wider than prose, bigger inset) is the "Featured" cue. -->
+    <!-- Featured Projects - image-forward rows. Sit flush in the content column
+         (same left edge as the header and the regular rows below); bigger type
+         and imagery are the "Featured" cue, no extra inset. -->
     <div
       v-if="featuredProjects.length"
-      class="mb-16 -mx-4 sm:-mx-6 xl:-mx-8 px-4 sm:px-8 xl:px-16 space-y-16"
+      class="mb-16 space-y-16"
     >
       <template
         v-for="(project, i) in featuredProjects"
