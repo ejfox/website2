@@ -397,6 +397,43 @@ they're HMR-reliable and usable in `@apply`:
 - Adding a new `fontSize` token to `tailwind.config.js` requires a `yarn dev`
   restart (theme additions don't hot-reload); `@layer utilities` classes do.
 
+## Background Layer Tokens (2026-06-23)
+
+Dark-first elevation as **four mode-aware CSS-var tokens**, so one class works in
+both light and dark — no more `bg-white dark:bg-zinc-900` pairs, and no more
+near-black mismatches (the bug that made the changelog/gear sticky headers render
+as visible boxes).
+
+| token | light | dark | use |
+|---|---|---|---|
+| `bg-page` | `#fff` | `#0a0a0a` | body / backdrop |
+| `bg-sunken` | `#fff` | `#09090b` (zinc-950) | recessed wells, code blocks |
+| `bg-surface` | `#fff` | `#18181b` (zinc-900) | **content shell, sticky headers** |
+| `bg-raised` | zinc-100 | `#27272a` (zinc-800) | cards, badges, hovers |
+
+Dark elevation by lightness: `sunken(9) < page(10) < surface(24) < raised(39)`.
+Light mode is intentionally flat (only `raised` is tinted) — the hierarchy is a
+dark-mode feature, matching the dark-first design.
+
+### Where it lives
+- **CSS vars**: `assets/css/global.css` — defined under BOTH `.dark` (the class
+  `useDark()` sets) AND `@media (prefers-color-scheme: dark)`. Both are required:
+  the `.dark` class isn't always present (e.g. pre-hydration), so the media query
+  is the fallback. The site has no manual dark toggle — `useDark()` just syncs the
+  class to OS preference.
+- **Utilities**: `tailwind.config.js` `colors` maps `page/sunken/surface/raised`
+  to the vars → `bg-surface`, `text-surface`, `border-surface`, etc. (adding/
+  changing these needs a `yarn dev` restart — theme additions don't HMR).
+
+### Rules
+- **Use the token, not raw zinc**, for any background that should switch with the
+  mode: `bg-surface` not `bg-white dark:bg-zinc-900`. A sticky/overlay element's
+  bg must match the layer it sits on (content = `bg-surface`).
+- **Do NOT tokenize**: bare `bg-zinc-900` with no `dark:` variant (inverted toasts
+  / intentionally mode-independent dark elements — a token would whiten them in
+  light), and `/opacity` variants like `dark:bg-zinc-900/50` (translucent panels;
+  CSS-var colors don't take Tailwind opacity modifiers).
+
 ## Key Design Principles
 
 1. **Delete-Driven Development**: Remove complexity, don't add it
