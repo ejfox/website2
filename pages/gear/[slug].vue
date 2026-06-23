@@ -141,7 +141,7 @@ definePageMeta({
         >
           <NuxtLink
             :to="`/blog/${post.slug}`"
-            class="font-mono text-xs text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors leading-snug"
+            class="font-mono text-xs text-zinc-700 dark:text-zinc-300 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors leading-5"
           >
             {{ post.title }}
           </NuxtLink>
@@ -154,7 +154,7 @@ definePageMeta({
             </span>
             <span
               v-if="post.dek"
-              class="font-mono text-3xs text-zinc-500 dark:text-zinc-500 leading-snug"
+              class="font-mono text-3xs text-zinc-500 dark:text-zinc-500 leading-3"
             >
               {{ post.dek }}
             </span>

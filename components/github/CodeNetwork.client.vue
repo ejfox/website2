@@ -306,7 +306,7 @@ const tooltipStyle = computed(() => {
       <!-- Floating tooltip anchored near the cursor -->
       <div
         v-if="hovered"
-        class="pointer-events-none absolute z-10 px-2 py-1 font-mono text-3xs leading-snug bg-white/95 dark:bg-zinc-900/95 border border-zinc-200 dark:border-zinc-800 shadow-sm whitespace-nowrap"
+        class="pointer-events-none absolute z-10 px-2 py-1 font-mono text-3xs leading-3 bg-white/95 dark:bg-zinc-900/95 border border-zinc-200 dark:border-zinc-800 shadow-sm whitespace-nowrap"
         :style="tooltipStyle"
       >
         <div class="text-zinc-500">{{ displayPath(hovered) }}</div>

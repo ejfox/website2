@@ -49,13 +49,13 @@
 
     <div
       v-if="tech.length"
-      class="font-mono text-xs lowercase text-zinc-500 mb-2 leading-relaxed"
+      class="font-mono text-xs lowercase text-zinc-500 mb-2 leading-6"
     >
       <span v-for="(t, i) in tech" :key="t">
         <span>{{ t }}</span>
         <span
           v-if="i < tech.length - 1"
-          class="px-1.5 text-zinc-400 dark:text-zinc-600"
+          class="px-1 text-zinc-400 dark:text-zinc-600"
         >
           ·
         </span>
@@ -64,7 +64,7 @@
 
     <p
       v-if="excerpt"
-      class="text-sm text-zinc-500 dark:text-zinc-400 max-w-prose mb-5 leading-relaxed"
+      class="text-sm text-zinc-500 dark:text-zinc-400 max-w-prose mb-5 leading-6"
     >
       {{ excerpt }}
     </p>

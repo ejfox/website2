@@ -182,11 +182,11 @@ const handleToggle = () => {
 }
 
 .code-content {
-  @apply text-xs leading-relaxed overflow-auto overflow-x-hidden;
+  @apply text-xs leading-6 overflow-auto overflow-x-hidden;
 }
 
 .code-content :deep(pre) {
-  @apply !m-0 !p-4 !bg-transparent !font-mono !text-xs !leading-relaxed;
+  @apply !m-0 !p-4 !bg-transparent !font-mono !text-xs !leading-6;
 }
 
 .code-content :deep(code) {

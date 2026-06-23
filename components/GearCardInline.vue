@@ -91,7 +91,7 @@ const conditionColor = computed(() => {
 .card-name {
   @apply text-sm font-medium text-zinc-900 dark:text-zinc-100
          no-underline hover:text-zinc-600 dark:hover:text-zinc-400
-         transition-colors duration-150 leading-tight;
+         transition-colors duration-150 leading-5;
 }
 
 .card-brand {
@@ -107,7 +107,7 @@ const conditionColor = computed(() => {
 }
 
 .card-note {
-  @apply text-2xs text-zinc-500 dark:text-zinc-400 leading-relaxed mb-2 italic;
+  @apply text-2xs text-zinc-500 dark:text-zinc-400 leading-5 mb-2 italic;
 }
 
 .card-footer {
@@ -116,7 +116,7 @@ const conditionColor = computed(() => {
 
 .card-tag {
   @apply text-3xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600
-         border border-zinc-200 dark:border-zinc-700 px-1.5 py-px rounded-sm;
+         border border-zinc-200 dark:border-zinc-700 px-1 py-px rounded-sm;
 }
 
 .tag-bright {

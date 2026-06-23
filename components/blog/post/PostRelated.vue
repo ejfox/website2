@@ -25,7 +25,7 @@ const { formatLongDate } = useDateFormat()
     <div class="space-y-4">
       <div v-for="{ post, overlappingTags } in relatedPosts" :key="post.slug">
         <NuxtLink :to="`/blog/${post.slug}`" class="block no-underline">
-          <div class="text-base text-zinc-900 dark:text-zinc-100 leading-snug">
+          <div class="text-base text-zinc-900 dark:text-zinc-100 leading-6">
             {{ post.title || post.metadata?.title }}
           </div>
           <div

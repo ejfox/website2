@@ -632,7 +632,7 @@ onMounted(() => {
                 :key="book.slug"
                 v-tooltip="book.title"
                 :to="`/reading/${book.slug}`"
-                class="block font-serif text-3xs text-zinc-600 leading-snug truncate"
+                class="block font-serif text-3xs text-zinc-600 leading-3 truncate"
               >
                 {{ book.title?.slice(0, 40)
                 }}{{ book.title?.length > 40 ? '…' : '' }}
@@ -648,7 +648,7 @@ onMounted(() => {
                 :key="pred.slug"
                 v-tooltip="pred.statement"
                 :to="`/predictions/${pred.slug}`"
-                class="flex gap-1 font-mono text-3xs text-zinc-600 leading-snug"
+                class="flex gap-1 font-mono text-3xs text-zinc-600 leading-3"
               >
                 <span class="tabular-nums shrink-0">
                   {{ pred.confidence }}%
@@ -681,7 +681,7 @@ onMounted(() => {
                 :href="scrap.url || undefined"
                 :target="scrap.url ? '_blank' : undefined"
                 rel="noopener noreferrer"
-                class="block font-serif text-3xs text-zinc-600 leading-snug truncate"
+                class="block font-serif text-3xs text-zinc-600 leading-3 truncate"
               >
                 {{ scrap.title?.slice(0, 40)
                 }}{{ scrap.title?.length > 40 ? '…' : '' }}
@@ -704,7 +704,7 @@ onMounted(() => {
               :href="scrap.url || undefined"
               :target="scrap.url ? '_blank' : undefined"
               rel="noopener noreferrer"
-              class="block font-serif text-3xs text-zinc-600 leading-snug truncate"
+              class="block font-serif text-3xs text-zinc-600 leading-3 truncate"
               :title="scrap.title"
             >
               {{ scrap.title?.slice(0, 40)
@@ -726,7 +726,7 @@ onMounted(() => {
               :href="link.href"
               target="_blank"
               rel="noopener noreferrer"
-              class="block font-mono text-3xs text-zinc-700 truncate leading-snug"
+              class="block font-mono text-3xs text-zinc-700 truncate leading-3"
             >
               {{ link.label }}
             </a>
@@ -1042,7 +1042,7 @@ onMounted(() => {
 
 /* High-contrast minimalist banner */
 .draft-banner {
-  @apply flex items-center justify-center gap-4 py-1.5;
+  @apply flex items-center justify-center gap-4 py-1;
   background: #fafafa;
 }
 

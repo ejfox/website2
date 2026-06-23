@@ -239,7 +239,7 @@ onMounted(async () => {
 <template>
   <div
     ref="gearStatsRef"
-    class="space-y-2 pr-4 md:pr-8 font-mono text-2xs leading-tight"
+    class="space-y-2 pr-4 md:pr-8 font-mono text-2xs leading-4"
   >
     <!-- Ultra-Dense Stats Grid -->
     <div class="grid grid-cols-2 gap-x-4 gap-y-0.5">

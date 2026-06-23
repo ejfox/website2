@@ -103,7 +103,7 @@ useHead({
         <div
           v-for="post in posts"
           :key="post.slug"
-          class="flex gap-3 text-sm leading-tight"
+          class="flex gap-3 text-sm leading-5"
         >
           <span class="font-mono text-xs text-zinc-600 w-20 shrink-0">
             {{ formatShortDate(post.date || post.metadata?.date) }}
@@ -140,7 +140,7 @@ useHead({
         <div
           v-for="post in weekNotes"
           :key="post.slug"
-          class="flex gap-3 text-sm leading-tight"
+          class="flex gap-3 text-sm leading-5"
         >
           <span class="font-mono text-xs text-zinc-600 w-20 shrink-0">
             {{ formatShortDate(post.date || post.metadata?.date) }}
@@ -177,7 +177,7 @@ useHead({
         <div
           v-for="post in projects"
           :key="post.slug"
-          class="flex gap-3 text-sm leading-tight"
+          class="flex gap-3 text-sm leading-5"
         >
           <span class="font-mono text-xs text-zinc-600 w-20 shrink-0">
             {{ formatShortDate(post.date || post.metadata?.date) }}
@@ -214,7 +214,7 @@ useHead({
         <div
           v-for="post in reading"
           :key="post.slug"
-          class="flex gap-3 text-sm leading-tight"
+          class="flex gap-3 text-sm leading-5"
         >
           <span class="font-mono text-xs text-zinc-600 w-20 shrink-0">
             {{ formatShortDate(post.date || post.metadata?.date) }}
@@ -251,7 +251,7 @@ useHead({
         <div
           v-for="scrap in scraps"
           :key="scrap.id"
-          class="flex gap-3 text-sm leading-tight"
+          class="flex gap-3 text-sm leading-5"
         >
           <span class="font-mono text-xs text-zinc-600 w-20 shrink-0">
             {{ formatShortDate(scrap.created_at) }}

@@ -77,7 +77,7 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
           <!-- Study all button -->
           <NuxtLink
             to="/flashcards/study"
-            class="inline-flex items-center justify-center gap-2 px-6 py-2.5 bg-zinc-100 hover:bg-white text-zinc-900 rounded-lg font-medium text-sm transition-colors"
+            class="inline-flex items-center justify-center gap-2 px-6 py-1 bg-zinc-100 hover:bg-white text-zinc-900 rounded-lg font-medium text-sm transition-colors"
           >
             <span>Study All</span>
             <span class="text-zinc-500">&rarr;</span>

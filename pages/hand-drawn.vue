@@ -12,7 +12,7 @@
           <HandDrawn name="arrow-right-long" size="0.8em" class="text-zinc-400" />
           as components
         </h1>
-        <p class="text-lg text-zinc-600 dark:text-zinc-300 leading-relaxed">
+        <p class="text-lg text-zinc-600 dark:text-zinc-300 leading-8">
           Arrows, circled numbers, magnitude badges, boxes and numerals — scanned from the
           notebook, traced, and sliced into <code class="text-sm">{{ manifest.length }}</code> named
           pieces. Each one renders inline and inherits <code class="text-sm">currentColor</code>, so it
@@ -30,7 +30,7 @@
           title="Footnote & sidenote markers"
           blurb="Swap the plain superscript ¹²³ in the sidenotes system for your own circled numbers — unmistakably yours."
         >
-          <p class="text-lg leading-loose max-w-prose">
+          <p class="text-lg leading-9 max-w-prose">
             Delete-driven development is the house style<HandDrawn name="circled-1" size="1.05em" class="mx-0.5 align-baseline" />
             and the sidenotes plugin is only 113 lines<HandDrawn name="circled-2" size="1.05em" class="mx-0.5" />
             because complexity is the enemy<HandDrawn name="circled-3" size="1.05em" class="mx-0.5" />.
@@ -47,7 +47,7 @@
           <div class="relative text-xl leading-loose max-w-2xl">
             <p>
               We moved the whole site to
-              <span class="whitespace-nowrap"><HandDrawn name="arrow-right" size="1.3rem" class="text-zinc-400 dark:text-zinc-500 mx-1.5" /><HandDrawnMark tone="#fde047">one node process</HandDrawnMark></span>
+              <span class="whitespace-nowrap"><HandDrawn name="arrow-right" size="1.3rem" class="text-zinc-400 dark:text-zinc-500 mx-1" /><HandDrawnMark tone="#fde047">one node process</HandDrawnMark></span>
               under pm2 — a <code class="text-lg">git pull</code> and a reload, no containers,
               no orchestration. It is gloriously
               <HandDrawnMark placement="under" tone="#fde047">boring</HandDrawnMark>,
@@ -62,7 +62,7 @@
           title="Inline annotation"
           blurb="Circle the thing that matters. Point at the next thing. The marks actually hug the words now."
         >
-          <div class="text-lg leading-loose max-w-prose space-y-7">
+          <div class="text-lg leading-9 max-w-prose space-y-7">
             <p>
               When it hangs, <HandDrawnMark tone="#fde047">delete code</HandDrawnMark>
               until it works — no clever fixes.
@@ -96,7 +96,7 @@
           <ol class="space-y-4 max-w-prose list-none pl-0">
             <li v-for="(step, i) in steps" :key="i" class="flex items-start gap-4">
               <HandDrawn :name="`circled-bold-${i + 1}`" size="2.1rem" class="shrink-0 mt-0.5" />
-              <span class="text-lg leading-snug pt-1">{{ step }}</span>
+              <span class="text-lg leading-7 pt-1">{{ step }}</span>
             </li>
           </ol>
         </Demo>
@@ -127,7 +127,7 @@
           <div class="relative max-w-prose px-8 py-7">
             <HandDrawn name="box-xl" stretch
               class="absolute inset-0 text-zinc-800 dark:text-zinc-200" />
-            <p class="relative text-lg italic leading-relaxed">
+            <p class="relative text-lg italic leading-8">
               “When the system hangs, delete code until it works. Simple beats complex.
               Working beats perfect.”
             </p>
@@ -143,7 +143,7 @@
         >
           <figure>
             <HandDrawnUnitChart :value="1" :total="100" :columns="10" size="0.8rem" tone="#fde047" />
-            <figcaption class="mt-6 text-base text-zinc-600 dark:text-zinc-300 max-w-prose leading-relaxed">
+            <figcaption class="mt-6 text-base text-zinc-600 dark:text-zinc-300 max-w-prose leading-7">
               <span class="text-rose-500 font-semibold">One</span> video made last year — out of the
               <span class="font-semibold">100</span> I want to make this year.
               <span class="block text-3xs uppercase tracking-[0.16em] text-zinc-400 mt-3">week note · 2024-01</span>
@@ -185,7 +185,7 @@
           <!-- automatic: footnotes + dividers, no new syntax -->
           <Demo n="B" title="Automatic — no new syntax"
                 blurb="A client plugin upgrades existing markup inside posts: footnote markers become circled numbers, <hr> becomes a hand-drawn rule. Old posts get it for free.">
-            <div class="max-w-prose text-lg leading-loose">
+            <div class="max-w-prose text-lg leading-9">
               <p>
                 Boring infra wins<a class="hd-footnote-ref text-rose-500" href="#"><HandDrawn name="circled-1" size="1.25em" /></a>
                 — pm2, a single node process, read-the-logs-and-reload<a class="hd-footnote-ref text-rose-500" href="#"><HandDrawn name="circled-2" size="1.25em" /></a>.
@@ -203,8 +203,8 @@
             <div class="space-y-5 max-w-prose">
               <pre class="text-xs bg-zinc-100 dark:bg-zinc-900 rounded-lg p-4 whitespace-pre-wrap break-words"><code>The deploy is just pm2 reload :hd{name="arrow-right-long"}
 then read the logs and move on.</code></pre>
-              <p class="text-lg leading-loose">
-                The deploy is just pm2 reload<HandDrawn name="arrow-right-long" size="1.4rem" class="text-zinc-500 mx-1.5" />then read the logs and move on.
+              <p class="text-lg leading-9">
+                The deploy is just pm2 reload<HandDrawn name="arrow-right-long" size="1.4rem" class="text-zinc-500 mx-1" />then read the logs and move on.
               </p>
             </div>
           </Demo>
@@ -232,7 +232,7 @@ then read the logs and move on.</code></pre>
               </div>
               <div class="text-sm text-zinc-500">15.6 a year — and climbing</div>
               <hr class="my-5 border-zinc-100 dark:border-zinc-800">
-              <div class="text-sm text-zinc-500 leading-relaxed">
+              <div class="text-sm text-zinc-500 leading-6">
                 65,820 words published in all.
               </div>
             </div>
@@ -267,7 +267,7 @@ then read the logs and move on.</code></pre>
                 class="absolute inset-0 text-zinc-800 dark:text-zinc-200" />
               <div class="relative">
                 <div class="text-3xs uppercase tracking-[0.15em] text-zinc-400 mb-3">Prediction · resolves 2026</div>
-                <p class="text-lg font-medium leading-snug mb-5">
+                <p class="text-lg font-medium leading-7 mb-5">
                   AI-generated code tops 30% of commits in the 50 biggest GitHub repos.
                 </p>
                 <div class="flex items-center gap-2 text-sm text-zinc-500">
@@ -287,7 +287,7 @@ then read the logs and move on.</code></pre>
                 <HandDrawn :name="`circled-bold-${i + 1}`" size="1.9rem" class="shrink-0 mt-0.5" />
                 <div class="min-w-0">
                   <div class="font-medium leading-tight">{{ r.title }}</div>
-                  <div class="text-sm text-zinc-500 mt-1 leading-snug">
+                  <div class="text-sm text-zinc-500 mt-1 leading-6">
                     {{ r.from }}
                     <HandDrawn name="arrow-right" size="0.95rem" class="text-zinc-400 mx-1" />
                     {{ r.to }}
@@ -398,9 +398,9 @@ then read the logs and move on.</code></pre>
             <div class="text-3xs font-medium text-zinc-400 mb-5">downward · resolves to&nbsp;&nbsp;·&nbsp;&nbsp;upward · grew to</div>
             <div class="flex flex-wrap gap-x-9 gap-y-8 mb-12">
               <figure v-for="a in [...arrowDown, ...arrowUp]" :key="a.name" class="flex flex-col items-center text-center">
-                <span class="text-sm font-medium leading-tight">{{ a.top }}</span>
+                <span class="text-sm font-medium leading-5">{{ a.top }}</span>
                 <HandDrawn :name="a.name" size="1.7rem" class="text-zinc-700 dark:text-zinc-300 my-1" />
-                <span class="text-sm text-zinc-500 leading-tight">{{ a.bottom }}</span>
+                <span class="text-sm text-zinc-500 leading-5">{{ a.bottom }}</span>
               </figure>
             </div>
 
@@ -462,7 +462,7 @@ then read the logs and move on.</code></pre>
               <ol class="space-y-2.5 list-none pl-0">
                 <li v-for="m in kitTimeline" :key="m.n" class="flex items-start gap-3">
                   <HandDrawn :name="`circled-bold-${m.n}`" size="1.5rem" class="shrink-0 mt-0.5" />
-                  <span class="text-zinc-600 dark:text-zinc-300 text-sm leading-snug">{{ m.t }}</span>
+                  <span class="text-zinc-600 dark:text-zinc-300 text-sm leading-6">{{ m.t }}</span>
                 </li>
               </ol>
             </div>
@@ -510,7 +510,7 @@ then read the logs and move on.</code></pre>
               <div v-for="[name, quote] in frameQuotes" :key="name"
                    class="relative px-10 py-11 flex items-center justify-center text-center min-h-[7.5rem]">
                 <HandDrawn :name="name" stretch class="absolute inset-0 text-zinc-700 dark:text-zinc-300" />
-                <span class="relative text-sm italic leading-snug">{{ quote }}</span>
+                <span class="relative text-sm italic leading-6">{{ quote }}</span>
               </div>
             </div>
             <div class="flex flex-wrap items-end gap-x-9 gap-y-5">
@@ -536,7 +536,7 @@ then read the logs and move on.</code></pre>
             </div>
 
             <!-- edit marks (! ? —) on a real line -->
-            <p class="text-lg leading-loose max-w-prose mb-9">
+            <p class="text-lg leading-9 max-w-prose mb-9">
               We moved the whole site to one node process under pm2<HandDrawn name="mark-question" size="1.1em" class="text-rose-500 mx-0.5 align-baseline" />
               — no containers<HandDrawn name="mark-exclamation" size="1.1em" class="text-rose-500 mx-0.5 align-baseline" />
               <HandDrawn name="mark-dash" size="1.3em" class="text-zinc-400 mx-1" />no orchestration.
@@ -551,7 +551,7 @@ then read the logs and move on.</code></pre>
             <!-- dot / dot-lg as real bullets -->
             <ul class="space-y-2 mb-9 max-w-prose">
               <li v-for="(req, i) in toolReqs" :key="req" class="flex items-start gap-3 text-sm">
-                <HandDrawn :name="i === 0 ? 'dot-lg' : 'dot'" size="0.55rem" class="mt-1.5 shrink-0 text-zinc-700 dark:text-zinc-300" />
+                <HandDrawn :name="i === 0 ? 'dot-lg' : 'dot'" size="0.55rem" class="mt-1 shrink-0 text-zinc-700 dark:text-zinc-300" />
                 <span class="text-zinc-600 dark:text-zinc-300">{{ req }}</span>
               </li>
             </ul>
@@ -609,7 +609,7 @@ then read the logs and move on.</code></pre>
                 <div class="flex-1 flex items-center justify-center w-full min-h-0">
                   <HandDrawn :name="a.name" size="2.6rem" />
                 </div>
-                <span class="text-3xs font-mono text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 max-w-full text-center leading-tight break-all">
+                <span class="text-3xs font-mono text-zinc-400 group-hover:text-zinc-600 dark:group-hover:text-zinc-300 max-w-full text-center leading-3 break-all">
                   {{ copied === a.name ? 'copied!' : a.name }}
                 </span>
               </button>

@@ -180,7 +180,7 @@ onMounted(() => {
     >
       <div
         v-if="state.success || state.error"
-        class="absolute left-0 right-0 mt-2.5 text-xs"
+        class="absolute left-0 right-0 mt-1 text-xs"
         :class="{
           'text-green-600 dark:text-green-400': state.success,
           'text-red-600 dark:text-red-400': state.error,

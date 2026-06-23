@@ -386,7 +386,7 @@ const proseClasses =
       <template v-for="section in trimmedToc" :key="section.slug">
         <NuxtLink
           :to="`#${section.slug}`"
-          class="block py-1.5 transition-colors duration-200 text-sm"
+          class="block py-1 transition-colors duration-200 text-sm"
           :class="[
             section.level === 'h3' ? 'pl-4' : '',
             _activeSection === section.slug

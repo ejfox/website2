@@ -235,7 +235,7 @@ usePageSeo({
                   </NuxtLink>
                 </td>
                 <td
-                  class="py-3 pr-4 align-top font-serif text-sm leading-snug text-zinc-900 dark:text-zinc-100"
+                  class="py-3 pr-4 align-top font-serif text-sm leading-6 text-zinc-900 dark:text-zinc-100"
                 >
                   {{ prediction.statement }}
                 </td>
@@ -318,7 +318,7 @@ usePageSeo({
                   </NuxtLink>
                 </td>
                 <td
-                  class="py-3 pr-4 align-top font-serif text-sm leading-snug text-zinc-900 dark:text-zinc-100"
+                  class="py-3 pr-4 align-top font-serif text-sm leading-6 text-zinc-900 dark:text-zinc-100"
                 >
                   {{ prediction.statement }}
                 </td>
@@ -531,7 +531,7 @@ usePageSeo({
           <!-- Calibration by bucket -->
           <div v-if="calibration?.calibration?.length">
             <div
-              class="font-mono text-3xs uppercase tracking-wider text-zinc-500 mb-1.5"
+              class="font-mono text-3xs uppercase tracking-wider text-zinc-500 mb-1"
             >
               By Confidence
             </div>

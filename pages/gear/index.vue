@@ -559,7 +559,7 @@ useHead(() => ({
           <span class="uppercase tracking-[0.1em]">{{ currentDate }}</span>
         </div>
 
-        <p class="mt-2 text-3xs leading-snug text-zinc-500 font-mono">
+        <p class="mt-2 text-3xs leading-3 text-zinc-500 font-mono">
           Some product links are affiliate links — as an Amazon Associate I earn from
           qualifying purchases. It costs you nothing extra.
         </p>
@@ -857,7 +857,7 @@ useHead(() => ({
 }
 
 .gear-container-card {
-  @apply flex flex-col py-1 px-1.5;
+  @apply flex flex-col py-1 px-1;
 }
 
 .gear-container-count {

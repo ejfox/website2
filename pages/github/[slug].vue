@@ -196,7 +196,7 @@ useHead(() => ({
           </h1>
           <p
             v-if="repo.description"
-            class="font-serif text-sm leading-snug text-zinc-600 dark:text-zinc-400 max-w-prose"
+            class="font-serif text-sm leading-6 text-zinc-600 dark:text-zinc-400 max-w-prose"
           >
             {{ repo.description }}
           </p>

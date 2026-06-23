@@ -202,7 +202,7 @@ usePageSeo({
             >
               <div class="flex items-center gap-2 mb-1">
                 <span
-                  class="font-mono text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-1.5 py-0.5 rounded"
+                  class="font-mono text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-1 py-0.5 rounded"
                 >
                   v{{ entry.version }}
                 </span>
@@ -231,7 +231,7 @@ usePageSeo({
                 <span v-else>{{ entry.title }}</span>
               </h3>
               <p
-                class="font-serif text-zinc-600 dark:text-zinc-300 leading-relaxed text-sm max-w-prose"
+                class="font-serif text-zinc-600 dark:text-zinc-300 leading-6 text-sm max-w-prose"
               >
                 {{ entry.body }}
               </p>

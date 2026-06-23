@@ -99,7 +99,7 @@ usePageSeo({
         </h1>
         <div
           id="index-content"
-          class="font-serif prose prose-zinc dark:prose-invert max-w-none text-lg leading-relaxed"
+          class="font-serif prose prose-zinc dark:prose-invert max-w-none text-lg leading-8"
           v-html="indexContent.html"
         />
       </template>

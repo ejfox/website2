@@ -409,7 +409,7 @@ useHead(() => ({
 
 <style scoped>
 .blog-title {
-  @apply font-light mb-2.5 tracking-tight text-balance;
+  @apply font-light mb-1 tracking-tight text-balance;
   @apply leading-[1.1];
   @apply text-3xl md:text-4xl lg:text-5xl;
   font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
@@ -425,7 +425,7 @@ useHead(() => ({
 }
 
 .post-dek {
-  @apply font-serif text-sm leading-snug mt-0.5;
+  @apply font-serif text-sm leading-6 mt-0.5;
   @apply text-zinc-600 dark:text-zinc-400;
   @apply line-clamp-2 hyphens-auto;
 }

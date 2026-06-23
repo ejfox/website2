@@ -832,7 +832,7 @@ usePageSeo({
 }
 
 .sidebar-cta {
-  @apply block w-full py-2.5 px-3 text-center font-mono text-xs
+  @apply block w-full py-1 px-3 text-center font-mono text-xs
          border border-zinc-300 dark:border-zinc-700
          hover:border-zinc-900 dark:hover:border-zinc-100
          hover:bg-zinc-50 dark:hover:bg-zinc-800 transition-all;
@@ -1041,7 +1041,7 @@ usePageSeo({
 .floating-cta {
   @apply fixed bottom-6 right-6 z-50
          flex flex-col items-end gap-0.5
-         px-4 py-2.5
+         px-4 py-1
          bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm
          border border-zinc-200 dark:border-zinc-700
          font-mono text-xs

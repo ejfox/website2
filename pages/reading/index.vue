@@ -261,7 +261,7 @@ function formatDate(dateString) {
             </div>
             <NuxtLink
               :to="`/reading/${currentlyReading.slug}`"
-              class="block font-serif text-3xs text-zinc-300 leading-snug"
+              class="block font-serif text-3xs text-zinc-300 leading-3"
             >
               {{
                 currentlyReading.metadata?.['kindle-sync']?.title ||
@@ -298,7 +298,7 @@ function formatDate(dateString) {
           <!-- Top highlighted books -->
           <div v-if="topHighlighted.length > 0">
             <div
-              class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-1.5"
+              class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-1"
             >
               Most Highlighted
             </div>

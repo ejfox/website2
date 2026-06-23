@@ -242,7 +242,7 @@ useHead(() => ({
                   re: @{{ tweet.replyTo }}
                 </template>
               </dt>
-              <dd class="text-sm leading-relaxed whitespace-pre-wrap">
+              <dd class="text-sm leading-6 whitespace-pre-wrap">
                 {{ tweet.text }}
               </dd>
               <dd
