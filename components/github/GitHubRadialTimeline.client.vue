@@ -154,6 +154,16 @@ const yearRings = computed(() => {
     year++
   }
 
+  // Every ring stays (subtle reference circles), but labels are placed on a
+  // single radial line — so only label a year when it clears the previous
+  // label by at least one line-height, otherwise 14 years collide at center.
+  const MIN_LABEL_GAP = 13
+  let lastLabelRadius = -Infinity
+  for (const ring of years) {
+    ring.showLabel = ring.radius - lastLabelRadius >= MIN_LABEL_GAP
+    if (ring.showLabel) lastLabelRadius = ring.radius
+  }
+
   return years
 })
 
@@ -193,6 +203,7 @@ const formatDate = (dateStr) => {
             stroke-width="1"
           />
           <text
+            v-if="ring.showLabel"
             :x="centerX"
             :y="centerY - ring.radius - 5"
             text-anchor="middle"

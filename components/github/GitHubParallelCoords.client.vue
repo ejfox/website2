@@ -119,11 +119,27 @@ const axisScales = computed(() => {
                 : [props.height - padding, padding]
             )
 
+    // d3 log scales ignore the count arg and emit every sub-decade tick
+    // (1,2,3…10,20,30…), which overlap on a tall axis across a wide domain.
+    // Keep decade ticks only (1MB, 10MB, 100MB…); fall back to evenly thinning.
+    let ticks = yScale.ticks(5)
+    if (axis.scale === 'log') {
+      const isDecade = (t) =>
+        t > 0 && Math.abs(Math.log10(t) - Math.round(Math.log10(t))) < 1e-6
+      const decades = ticks.filter(isDecade)
+      if (decades.length >= 2) {
+        ticks = decades
+      } else {
+        const step = Math.max(1, Math.ceil(ticks.length / 5))
+        ticks = ticks.filter((_, idx) => idx % step === 0)
+      }
+    }
+
     return {
       ...axis,
       x: padding + i * axisWidth,
       yScale,
-      ticks: yScale.ticks(5),
+      ticks,
     }
   })
 })
