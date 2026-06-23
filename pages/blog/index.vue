@@ -271,7 +271,7 @@ useHead(() => ({
                   <h3 class="p-name">
                     <NuxtLink
                       :to="`/blog/${post?.slug}`"
-                      class="u-url title-link leading-[1.2]"
+                      class="u-url title-link leading-tight"
                     >
                       {{ post.title }}
                     </NuxtLink>

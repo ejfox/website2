@@ -203,7 +203,7 @@ const renderStars = (rating: number | null) => {
             class="text-xs tabular-nums flex-shrink-0"
             :class="['text-zinc-600 dark:text-zinc-400']"
           >
-            <span class="inline-flex gap-[1px]">
+            <span class="inline-flex gap-px">
               <span
                 v-for="star in renderStars(film.rating)"
                 :key="star.id"
@@ -241,7 +241,7 @@ const renderStars = (rating: number | null) => {
           <div
             class="text-zinc-600 dark:text-zinc-400 tabular-nums flex-shrink-0"
           >
-            <span class="inline-flex gap-[1px]">
+            <span class="inline-flex gap-px">
               <span
                 v-for="star in renderStars(film.rating)"
                 :key="star.id"

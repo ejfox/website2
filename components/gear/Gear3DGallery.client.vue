@@ -39,7 +39,7 @@ const formatOz = (item) => {
 
 <style scoped>
 .showroom-label {
-  @apply font-mono text-3xs uppercase tracking-[.1em] text-cyan-500/50 py-1 px-[12px] bg-[#080808];
+  @apply font-mono text-3xs uppercase tracking-[.1em] text-cyan-500/50 py-1 px-3 bg-[#080808];
 }
 
 .gallery {
@@ -79,7 +79,7 @@ const formatOz = (item) => {
 }
 
 .card-meta {
-  @apply flex items-center gap-1 py-1 px-[12px] border-t border-cyan-500/20 text-3xs leading-none;
+  @apply flex items-center gap-1 py-1 px-3 border-t border-cyan-500/20 text-3xs leading-none;
 }
 .sym {
   @apply text-cyan-500 flex-shrink-0;
