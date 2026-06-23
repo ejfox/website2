@@ -39,7 +39,7 @@ const formatOz = (item) => {
 
 <style scoped>
 .showroom-label {
-  @apply font-mono text-3xs uppercase tracking-[.1em] text-cyan-500/50 py-1 px-2 bg-[#080808];
+  @apply font-mono text-3xs uppercase tracking-[.1em] text-cyan-500/50 py-1 px-2 bg-sunken;
 }
 
 .gallery {
@@ -58,7 +58,7 @@ const formatOz = (item) => {
 }
 
 .card {
-  @apply relative block border border-cyan-500 no-underline bg-[#0a0a0a] transition-shadow duration-200;
+  @apply relative block border border-cyan-500 no-underline bg-page transition-shadow duration-200;
   box-shadow: 0 0 8px rgba(6, 182, 212, 0.3); /* complex shadow — keep raw */
 }
 .card::before,

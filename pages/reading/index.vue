@@ -157,7 +157,7 @@ function formatDate(dateString) {
       <div v-if="pending" :class="booksGridClass">
         <div v-for="i in 6" :key="i" class="animate-pulse">
           <div
-            class="bg-zinc-100 dark:bg-zinc-900 rounded-sm aspect-[3/4]"
+            class="bg-zinc-100 dark:bg-surface rounded-sm aspect-[3/4]"
           ></div>
         </div>
       </div>

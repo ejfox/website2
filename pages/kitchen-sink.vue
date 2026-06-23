@@ -241,7 +241,7 @@ function focusStep(dir) {
 <template>
   <!-- Brutalist/utilitarian: hairline rules, monospace, text-links, no chrome. -->
   <div
-    class="ks h-screen flex flex-col bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-200 font-mono"
+    class="ks h-screen flex flex-col bg-sunken text-zinc-900 dark:text-zinc-200 font-mono"
   >
     <!-- Masthead -->
     <header class="shrink-0 border-b border-zinc-300 dark:border-zinc-700 px-3 py-2">
@@ -277,7 +277,7 @@ function focusStep(dir) {
 
     <!-- Gallery / contact-sheet mode (QA sweep) -->
     <div v-if="galleryMode" class="flex-1 overflow-y-auto p-2">
-      <div class="grid gap-px bg-zinc-200 dark:bg-zinc-800 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="grid gap-px bg-zinc-200 dark:bg-raised grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <DevGalleryCell v-for="entry in visible" :key="entry.key" :entry="entry" />
       </div>
     </div>
@@ -292,7 +292,7 @@ function focusStep(dir) {
       >
         <template v-for="group in groupedVisible" :key="group.folder">
           <div
-            class="sticky top-0 z-10 flex items-center justify-between px-3 py-0.5 bg-white dark:bg-zinc-950 border-b border-zinc-300 dark:border-zinc-700 text-3xs uppercase tracking-wider text-zinc-500"
+            class="sticky top-0 z-10 flex items-center justify-between px-3 py-0.5 bg-sunken border-b border-zinc-300 dark:border-zinc-700 text-3xs uppercase tracking-wider text-zinc-500"
           >
             <span>{{ group.folder }}</span>
             <span class="text-zinc-400 dark:text-zinc-600">{{ group.items.length }}</span>
@@ -333,7 +333,7 @@ function focusStep(dir) {
         <div v-else>
           <!-- preview masthead -->
           <div
-            class="sticky top-0 z-10 bg-white dark:bg-zinc-950 border-b border-zinc-300 dark:border-zinc-700 px-4 py-2"
+            class="sticky top-0 z-10 bg-sunken border-b border-zinc-300 dark:border-zinc-700 px-4 py-2"
           >
             <div class="flex items-baseline gap-x-3 gap-y-1 flex-wrap text-2xs text-zinc-500">
               <template v-if="focusMode">

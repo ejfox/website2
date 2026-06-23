@@ -101,7 +101,7 @@ const formattedDate = computed(() => {
 
 <style scoped>
 .commit-card {
-  @apply p-4 bg-white dark:bg-zinc-950 border rounded-xl;
+  @apply p-4 bg-sunken border rounded-xl;
   @apply border-zinc-100 dark:border-zinc-900;
 }
 </style>

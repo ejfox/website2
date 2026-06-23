@@ -96,7 +96,7 @@ const segments = computed(() => {
 
 .bar-container {
   @apply flex w-full rounded-sm overflow-hidden;
-  @apply bg-zinc-200 dark:bg-zinc-800;
+  @apply bg-zinc-200 dark:bg-raised;
 }
 
 .bar-segment {

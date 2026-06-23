@@ -70,7 +70,7 @@ usePageSeo({
         of millions of viewers. Live TV. No second takes. If the app crashes,
         you've just created a viral moment for all the wrong reasons.
       </p>
-      <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-4 my-6">
+      <div class="bg-raised rounded-lg p-4 my-6">
         <p class="font-mono text-sm text-zinc-600 dark:text-zinc-400">
           <strong class="text-zinc-900 dark:text-zinc-100">
             The constraint:
@@ -171,7 +171,7 @@ usePageSeo({
     <section class="section-spacing">
       <h2 class="heading-2 mb-4">The Results</h2>
       <div class="grid grid-cols-2 gap-4 mb-6">
-        <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-4">
+        <div class="bg-raised rounded-lg p-4">
           <p
             class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 font-bold"
           >
@@ -181,7 +181,7 @@ usePageSeo({
             viewers on election night
           </p>
         </div>
-        <div class="bg-zinc-100 dark:bg-zinc-800 rounded-lg p-4">
+        <div class="bg-raised rounded-lg p-4">
           <p
             class="font-mono text-2xl text-zinc-900 dark:text-zinc-100 font-bold"
           >

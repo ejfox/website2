@@ -18,7 +18,7 @@ const { stop } = useIntersectionObserver(el, ([e]) => {
 </script>
 
 <template>
-  <div ref="el" class="bg-white dark:bg-zinc-950 overflow-hidden flex flex-col font-mono">
+  <div ref="el" class="bg-sunken overflow-hidden flex flex-col font-mono">
     <div class="flex items-center gap-1.5 px-2 py-0.5 border-b border-zinc-200 dark:border-zinc-800 text-3xs">
       <span class="truncate">
         <span v-if="!entry.stories" class="text-zinc-400 dark:text-zinc-600">*</span>{{ entry.name }}

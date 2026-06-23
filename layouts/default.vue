@@ -26,7 +26,7 @@ const linkClasses =
        natural-height (no min-h / no flex-1) so short posts don't get a void
        above the footer — the leftover space falls below it as background. -->
   <div
-    class="w-full min-h-screen flex flex-col bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100"
+    class="w-full min-h-screen flex flex-col bg-surface text-zinc-900 dark:text-zinc-100"
   >
     <div
       id="app-container"

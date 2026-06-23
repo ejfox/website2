@@ -120,11 +120,44 @@ body {
   hanging-punctuation: first last;
 }
 
+/* ── Background layer tokens ─────────────────────────────────────────────────
+   Semantic dark-first elevation. Each layer is a CSS var that switches by mode,
+   so ONE utility (bg-page / bg-sunken / bg-surface / bg-raised) works in both
+   light and dark — collapsing the old `bg-white dark:bg-zinc-900` pairs.
+   Dark hierarchy by lightness: sunken(9) < page(10) < surface(24) < raised(39).
+   Light mode is intentionally flat (dark-first design): only `raised` is tinted.
+   Defined under BOTH .dark (the class useDark() sets) AND the media query (so it
+   still tracks OS preference pre-hydration / with JS off) — matching how the rest
+   of the site's dark styling already resolves. */
+:root {
+  --bg-page: #ffffff;
+  --bg-sunken: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-raised: #f4f4f5; /* zinc-100 */
+}
+.dark {
+  --bg-page: #0a0a0a;
+  --bg-sunken: #09090b; /* zinc-950 */
+  --bg-surface: #18181b; /* zinc-900 */
+  --bg-raised: #27272a; /* zinc-800 */
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: #0a0a0a;
+    --bg-sunken: #09090b;
+    --bg-surface: #18181b;
+    --bg-raised: #27272a;
+  }
+}
+
+body {
+  background-color: var(--bg-page);
+}
+
 /* Dark mode gets slightly warmer whites */
 @media (prefers-color-scheme: dark) {
   body {
     color: #f5f5f4; /* Warmer off-white */
-    background-color: #0a0a0a; /* Warm near-black background */
     font-weight: 375; /* Slightly lighter in dark mode for better readability */
   }
 }

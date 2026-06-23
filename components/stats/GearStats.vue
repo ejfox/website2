@@ -294,7 +294,7 @@ onMounted(async () => {
     </div>
 
     <!-- Micro-divider -->
-    <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+    <div class="h-px bg-zinc-200 dark:bg-raised my-2"></div>
 
     <!-- Containers - Ultra Dense -->
     <div class="space-y-0.5">
@@ -327,7 +327,7 @@ onMounted(async () => {
     </div>
 
     <!-- Micro-divider -->
-    <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+    <div class="h-px bg-zinc-200 dark:bg-raised my-2"></div>
 
     <!-- Weight Per Type - Ultra Dense -->
     <div class="space-y-0.5">
@@ -351,7 +351,7 @@ onMounted(async () => {
     </div>
 
     <!-- Micro-divider -->
-    <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+    <div class="h-px bg-zinc-200 dark:bg-raised my-2"></div>
 
     <!-- Type Distribution - Compressed -->
     <div class="space-y-0.5">
@@ -387,7 +387,7 @@ onMounted(async () => {
 
     <!-- Favorites - Pinned to Top -->
     <div v-if="favoriteItems.length > 0" class="space-y-0.5">
-      <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+      <div class="h-px bg-zinc-200 dark:bg-raised my-2"></div>
       <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         ⭐ ESSENTIALS
       </div>
@@ -407,7 +407,7 @@ onMounted(async () => {
 
     <!-- Recently Used -->
     <div v-if="recentlyUsed.length > 0" class="space-y-0.5">
-      <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+      <div class="h-px bg-zinc-200 dark:bg-raised my-2"></div>
       <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         RECENTLY USED
       </div>
@@ -430,7 +430,7 @@ onMounted(async () => {
 
     <!-- Average Weight Per Type -->
     <div v-if="weightPerType.length > 0" class="space-y-0.5">
-      <div class="h-px bg-zinc-200 dark:bg-zinc-800 my-2"></div>
+      <div class="h-px bg-zinc-200 dark:bg-raised my-2"></div>
       <div class="text-zinc-500 text-3xs uppercase tracking-wider mb-2">
         AVG WT/TYPE
       </div>

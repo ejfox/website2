@@ -214,7 +214,7 @@ const robotAlertDescription = computed(() => {
 
 // Metadata box styling
 const metadataBoxClass =
-  'font-mono text-xs bg-zinc-100 dark:bg-zinc-900 p-4 ' + 'rounded-lg mb-8'
+  'font-mono text-xs bg-zinc-100 dark:bg-surface p-4 ' + 'rounded-lg mb-8'
 
 // Progress bar styling
 const progressBarClass =
@@ -354,7 +354,7 @@ const proseClasses =
       >
         <div class="space-y-8 max-h-[calc(100vh-6rem)] flex flex-col">
           <!-- Progress Bar -->
-          <div class="dark:bg-zinc-900 p-4 rounded-lg flex-1 overflow-y-auto">
+          <div class="dark:bg-surface p-4 rounded-lg flex-1 overflow-y-auto">
             <div class="progress-bar">
               <div
                 :class="progressBarClass"

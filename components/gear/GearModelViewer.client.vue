@@ -124,7 +124,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .viewer {
-  @apply relative w-full overflow-hidden bg-[#0a0a0a];
+  @apply relative w-full overflow-hidden bg-page;
 }
 .overlay {
   @apply absolute inset-0 flex items-center justify-center pointer-events-none;

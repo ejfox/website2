@@ -908,14 +908,14 @@ onMounted(() => {
 }
 
 .blog-post-content code {
-  @apply font-mono bg-zinc-100 dark:bg-zinc-800 px-1 rounded;
+  @apply font-mono bg-raised px-1 rounded;
   font-size: var(--code-size);
   padding-top: 2px;
   padding-bottom: 2px;
 }
 
 .blog-post-content pre {
-  @apply font-mono overflow-x-auto bg-zinc-50 dark:bg-zinc-900 rounded-lg;
+  @apply font-mono overflow-x-auto bg-surface rounded-lg;
   font-size: var(--code-size);
   line-height: var(--code-line);
   margin: 1.5rem 0;

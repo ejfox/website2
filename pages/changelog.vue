@@ -137,12 +137,12 @@ const typeColors: Record<string, string> = {
   refactor:
     'bg-yellow-100 dark:bg-yellow-950 text-yellow-900 dark:text-yellow-100',
   test: 'bg-cyan-100 dark:bg-cyan-950 text-cyan-900 dark:text-cyan-100',
-  chore: 'bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100',
+  chore: 'bg-zinc-100 dark:bg-surface text-zinc-900 dark:text-zinc-100',
   remove:
     'bg-orange-100 dark:bg-orange-950 text-orange-900 dark:text-orange-100',
 }
 const defaultTypeColor =
-  'bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100'
+  'bg-zinc-100 dark:bg-surface text-zinc-900 dark:text-zinc-100'
 
 function getTypeColor(type: string) {
   return typeColors[type] || defaultTypeColor
@@ -202,7 +202,7 @@ usePageSeo({
             >
               <div class="flex items-center gap-2 mb-1">
                 <span
-                  class="font-mono text-xs bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 px-1 py-0.5 rounded"
+                  class="font-mono text-xs bg-raised text-zinc-700 dark:text-zinc-300 px-1 py-0.5 rounded"
                 >
                   v{{ entry.version }}
                 </span>
@@ -213,7 +213,7 @@ usePageSeo({
                 </span>
                 <span
                   v-if="entry.era"
-                  class="font-mono text-xs px-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-500"
+                  class="font-mono text-xs px-1 bg-raised text-zinc-500"
                 >
                   {{ entry.era }}
                 </span>

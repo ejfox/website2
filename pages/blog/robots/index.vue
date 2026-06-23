@@ -143,7 +143,7 @@ const getNoteSummary = (note) => {
           <span
             v-for="tag in note.tags"
             :key="tag"
-            class="text-xs px-2 py-1 bg-zinc-100 dark:bg-zinc-800 rounded"
+            class="text-xs px-2 py-1 bg-raised rounded"
           >
             {{ tag }}
           </span>

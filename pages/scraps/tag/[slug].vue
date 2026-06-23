@@ -148,7 +148,7 @@ usePageSeo({
               v-for="t in scrap.tags"
               :key="t"
               :to="`/scraps/tag/${encodeURIComponent(t)}`"
-              class="px-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300 opacity-60 hover:opacity-100 hover:underline cursor-pointer transition-opacity"
+              class="px-1 bg-raised text-zinc-700 dark:text-zinc-300 opacity-60 hover:opacity-100 hover:underline cursor-pointer transition-opacity"
             >
               {{ t }}
             </NuxtLink>

@@ -298,7 +298,7 @@ onMounted(() => {
 
 .tech-badge {
   @apply font-mono text-2xs px-1 py-0.5 rounded;
-  @apply bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300;
+  @apply bg-zinc-100 dark:bg-surface text-zinc-700 dark:text-zinc-300;
 }
 
 .github-link {

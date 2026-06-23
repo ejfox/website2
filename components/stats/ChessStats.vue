@@ -262,7 +262,7 @@ const performanceMetrics = computed(() => [
           {{ variant.name }}
         </span>
         <!-- Rating bar visualization -->
-        <div class="flex-1 h-2 bg-zinc-200 dark:bg-zinc-800 rounded-sm">
+        <div class="flex-1 h-2 bg-zinc-200 dark:bg-raised rounded-sm">
           <div
             class="h-full bg-zinc-400 dark:bg-zinc-500 rounded-sm transition-all"
             :style="{ width: `${variant.barPct}%` }"

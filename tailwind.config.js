@@ -94,6 +94,15 @@ module.exports = {
         relaxed: '1.625',
         loose: '1.75',
       },
+      // Semantic background-layer tokens (CSS vars defined in assets/css/global.css).
+      // bg-page/bg-sunken/bg-surface/bg-raised auto-switch light↔dark, replacing the
+      // old `bg-white dark:bg-zinc-9xx` pairs. Dark-first elevation hierarchy.
+      colors: {
+        page: 'var(--bg-page)',
+        sunken: 'var(--bg-sunken)',
+        surface: 'var(--bg-surface)',
+        raised: 'var(--bg-raised)',
+      },
     },
   },
 }

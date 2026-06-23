@@ -173,7 +173,7 @@ const handleToggle = () => {
 
 .code-container {
   @apply relative border border-zinc-200 dark:border-zinc-800 rounded-md;
-  @apply bg-white dark:bg-zinc-900 overflow-hidden transition-all duration-300;
+  @apply bg-surface overflow-hidden transition-all duration-300;
   max-height: 280px;
 }
 
@@ -195,7 +195,7 @@ const handleToggle = () => {
 
 .action-button {
   @apply flex items-center gap-0.5 px-2 py-1 text-xs;
-  @apply bg-white dark:bg-zinc-800 border shadow-sm;
+  @apply bg-raised border shadow-sm;
   @apply border-zinc-200 dark:border-zinc-700;
   @apply rounded text-zinc-600 dark:text-zinc-400;
   @apply font-mono cursor-pointer;
@@ -225,7 +225,7 @@ const handleToggle = () => {
 }
 
 .code-content::-webkit-scrollbar-track {
-  @apply bg-zinc-100 dark:bg-zinc-800;
+  @apply bg-raised;
 }
 
 .code-content::-webkit-scrollbar-thumb {

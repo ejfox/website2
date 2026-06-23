@@ -89,7 +89,7 @@ usePageSeo({
           v-model="passphrase"
           :type="showPassword ? 'text' : 'password'"
           placeholder="Enter your secret passphrase"
-          class="w-full px-4 py-3 font-mono text-sm bg-zinc-50 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 rounded-lg text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-zinc-300 dark:focus:ring-zinc-700 focus:border-transparent transition-all duration-200"
+          class="w-full px-4 py-3 font-mono text-sm bg-surface border border-zinc-200 dark:border-zinc-800 rounded-lg text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-2 focus:ring-zinc-300 dark:focus:ring-zinc-700 focus:border-transparent transition-all duration-200"
         />
         <button
           type="button"
@@ -138,10 +138,10 @@ usePageSeo({
       </summary>
       <div class="mt-4">
         <pre
-          class="bg-zinc-900 dark:bg-zinc-950 text-zinc-300 p-4 rounded-lg overflow-x-auto text-xs font-mono border border-zinc-800"
+          class="bg-zinc-900 dark:bg-sunken text-zinc-300 p-4 rounded-lg overflow-x-auto text-xs font-mono border border-zinc-800"
         ><code>{{ bookmarkletCode }}</code></pre>
         <button
-          class="mt-3 px-3 py-1 text-xs font-mono bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
+          class="mt-3 px-3 py-1 text-xs font-mono bg-raised text-zinc-600 dark:text-zinc-400 rounded hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors"
           @click="copyCode"
         >
           {{ copied ? 'Copied' : 'Copy code' }}

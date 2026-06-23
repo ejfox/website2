@@ -1,5 +1,5 @@
 <template>
-  <div class="hd-page min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100">
+  <div class="hd-page min-h-screen bg-sunken text-zinc-900 dark:text-zinc-100">
     <div class="max-w-screen-lg mx-auto px-4 md:px-8 py-16">
 
       <!-- header -->
@@ -201,7 +201,7 @@
           <Demo n="C" title="Intentional — the :hd directive"
                 blurb="Drop a specific mark exactly where you want it, right in the markdown. Mirrors your :prediction / ::gear directives.">
             <div class="space-y-5 max-w-prose">
-              <pre class="text-xs bg-zinc-100 dark:bg-zinc-900 rounded-lg p-4 whitespace-pre-wrap break-words"><code>The deploy is just pm2 reload :hd{name="arrow-right-long"}
+              <pre class="text-xs bg-zinc-100 dark:bg-surface rounded-lg p-4 whitespace-pre-wrap break-words"><code>The deploy is just pm2 reload :hd{name="arrow-right-long"}
 then read the logs and move on.</code></pre>
               <p class="text-lg leading-9">
                 The deploy is just pm2 reload<HandDrawn name="arrow-right-long" size="1.4rem" class="text-zinc-500 mx-1" />then read the logs and move on.

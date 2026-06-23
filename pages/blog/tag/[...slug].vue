@@ -279,7 +279,7 @@ const postSummaryClass =
                   :key="postTag"
                   :href="`/blog/tag/${postTag}`"
                   class="tag-small"
-                  :class="postTag === tag ? 'bg-zinc-100 dark:bg-zinc-800' : ''"
+                  :class="postTag === tag ? 'bg-raised' : ''"
                 >
                   {{ postTag }}
                 </a>

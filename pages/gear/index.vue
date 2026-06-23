@@ -691,7 +691,7 @@ useHead(() => ({
         <div class="relative overflow-x-auto">
           <table class="w-full text-4xs font-mono">
             <thead
-              class="sticky top-0 bg-white dark:bg-zinc-900 backdrop-blur-sm"
+              class="sticky top-0 bg-surface backdrop-blur-sm"
             >
               <tr class="border-b border-zinc-200/30 dark:border-zinc-700/30">
                 <th class="gear-th-left">Item</th>
@@ -792,7 +792,7 @@ useHead(() => ({
 .gear-btn {
   @apply px-3 py-2 text-3xs font-mono uppercase tracking-wide;
   @apply text-zinc-700 dark:text-zinc-300;
-  @apply bg-zinc-100 dark:bg-zinc-900;
+  @apply bg-zinc-100 dark:bg-surface;
   @apply hover:bg-zinc-200 dark:hover:bg-zinc-800;
   @apply border border-zinc-300 dark:border-zinc-700;
   @apply hover:border-zinc-400 dark:hover:border-zinc-600;
@@ -803,7 +803,7 @@ useHead(() => ({
 .gear-select {
   @apply px-3 py-2 pr-8 text-3xs font-mono uppercase tracking-wide;
   @apply text-zinc-700 dark:text-zinc-300;
-  @apply bg-zinc-100 dark:bg-zinc-900;
+  @apply bg-zinc-100 dark:bg-surface;
   @apply border border-zinc-300 dark:border-zinc-700;
   @apply appearance-none cursor-pointer;
   @apply min-h-[44px]; /* Touch-friendly */

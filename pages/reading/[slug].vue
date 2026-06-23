@@ -96,8 +96,8 @@ function formatDate(dateString) {
     <div class="max-w-4xl mx-auto px-4 pt-8">
       <!-- Loading State -->
       <div v-if="pending" class="animate-pulse">
-        <div class="h-8 bg-zinc-200 dark:bg-zinc-800 rounded w-3/4 mb-4"></div>
-        <div class="h-4 bg-zinc-200 dark:bg-zinc-800 rounded w-1/2 mb-8"></div>
+        <div class="h-8 bg-zinc-200 dark:bg-raised rounded w-3/4 mb-4"></div>
+        <div class="h-4 bg-zinc-200 dark:bg-raised rounded w-1/2 mb-8"></div>
       </div>
 
       <!-- Error State -->

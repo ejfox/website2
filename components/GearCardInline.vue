@@ -76,7 +76,7 @@ const conditionColor = computed(() => {
 <style scoped>
 .card {
   @apply my-4 border border-zinc-200 dark:border-zinc-700
-         bg-zinc-50 dark:bg-zinc-900
+         bg-surface
          px-4 py-3 font-mono rounded-sm;
 }
 
@@ -143,13 +143,13 @@ const conditionColor = computed(() => {
   @apply animate-pulse;
 }
 .skeleton-name {
-  @apply h-4 w-1/2 rounded bg-zinc-200 dark:bg-zinc-800 mb-2;
+  @apply h-4 w-1/2 rounded bg-zinc-200 dark:bg-raised mb-2;
 }
 .skeleton-note {
-  @apply h-3 w-full rounded bg-zinc-200 dark:bg-zinc-800 mb-1;
+  @apply h-3 w-full rounded bg-zinc-200 dark:bg-raised mb-1;
 }
 .skeleton-footer {
-  @apply h-3 w-1/3 rounded bg-zinc-200 dark:bg-zinc-800;
+  @apply h-3 w-1/3 rounded bg-zinc-200 dark:bg-raised;
 }
 
 /* Error */

@@ -236,8 +236,8 @@ usePageSeo({
     <!-- Loading State -->
     <div v-if="statsPending" class="space-y-6">
       <div v-for="i in 4" :key="i" class="animate-pulse">
-        <div class="h-4 bg-zinc-200 dark:bg-zinc-800 rounded mb-2 w-24"></div>
-        <div class="h-8 bg-zinc-100 dark:bg-zinc-900 rounded"></div>
+        <div class="h-4 bg-zinc-200 dark:bg-raised rounded mb-2 w-24"></div>
+        <div class="h-8 bg-zinc-100 dark:bg-surface rounded"></div>
       </div>
     </div>
 

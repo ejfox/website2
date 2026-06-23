@@ -307,7 +307,7 @@ const formatDate = (dateStr) => {
 
 .radial-tooltip {
   @apply absolute top-4 right-4;
-  @apply bg-white dark:bg-zinc-900;
+  @apply bg-surface;
   @apply border border-zinc-200 dark:border-zinc-800 rounded;
   @apply p-3 shadow-lg;
   @apply max-w-xs;

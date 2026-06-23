@@ -147,7 +147,7 @@ const last12MonthsTotal = computed(() => {
 })
 
 function getMonthIntensityClass(count) {
-  if (count === 0) return 'bg-zinc-100 dark:bg-zinc-900'
+  if (count === 0) return 'bg-zinc-100 dark:bg-surface'
   if (count === 1) return 'bg-zinc-300 dark:bg-zinc-700'
   if (count === 2) return 'bg-zinc-400 dark:bg-zinc-600'
   if (count <= 4) return 'bg-zinc-600 dark:bg-zinc-400'

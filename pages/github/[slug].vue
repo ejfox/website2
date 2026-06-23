@@ -358,7 +358,7 @@ useHead(() => ({
             </div>
             <!-- Stacked bar -->
             <div
-              class="flex w-full h-1 overflow-hidden bg-zinc-100 dark:bg-zinc-800"
+              class="flex w-full h-1 overflow-hidden bg-raised"
             >
               <div
                 v-for="t in repo.commits.byType"

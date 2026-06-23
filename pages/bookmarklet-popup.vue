@@ -66,7 +66,7 @@ const tagClasses = (tagObj) => {
   }
   return (
     `${base} bg-zinc-100 text-zinc-600 hover:bg-zinc-200 ` +
-    'dark:bg-zinc-800 dark:text-zinc-400 dark:hover:bg-zinc-700'
+    'dark:bg-raised dark:text-zinc-400 dark:hover:bg-zinc-700'
   )
 }
 
@@ -205,7 +205,7 @@ useHead({
 <template>
   <div
     ref="container"
-    class="min-h-screen bg-zinc-50 dark:bg-zinc-950 p-4"
+    class="min-h-screen bg-sunken p-4"
     tabindex="0"
     @keydown.meta.enter="saveToPinboard(true)"
     @keydown.ctrl.enter="saveToPinboard(true)"
@@ -338,7 +338,7 @@ useHead({
           </div>
         </div>
         <div
-          class="h-1 bg-zinc-100 dark:bg-zinc-800 rounded-full overflow-hidden"
+          class="h-1 bg-raised rounded-full overflow-hidden"
         >
           <div
             class="h-full bg-zinc-900 dark:bg-zinc-100 transition-all duration-500 ease-out"
@@ -411,7 +411,7 @@ useHead({
         <section class="space-y-2">
           <div class="flex items-center gap-2">
             <span
-              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-3xs font-mono"
+              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-200 dark:bg-raised text-zinc-600 dark:text-zinc-400 text-3xs font-mono"
             >
               2
             </span>
@@ -426,7 +426,7 @@ useHead({
               v-model="customTagInput"
               type="text"
               placeholder="type and press space..."
-              class="w-full px-3 py-2 text-sm font-mono bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-500 transition-shadow"
+              class="w-full px-3 py-2 text-sm font-mono bg-surface border border-zinc-200 dark:border-zinc-700 rounded text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-400 dark:placeholder:text-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-400 dark:focus:ring-zinc-500 transition-shadow"
               @keydown.enter.prevent="addCustomTag"
               @keydown.space.prevent="addCustomTag"
             />
@@ -466,7 +466,7 @@ useHead({
             <input
               v-model="readLater"
               type="checkbox"
-              class="w-3.5 h-3.5 rounded border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-zinc-100 focus:ring-zinc-400 dark:focus:ring-zinc-500 bg-white dark:bg-zinc-800"
+              class="w-3.5 h-3.5 rounded border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-zinc-100 focus:ring-zinc-400 dark:focus:ring-zinc-500 bg-raised"
             />
             <span
               class="text-xs font-mono text-zinc-500 group-hover:text-zinc-700 dark:group-hover:text-zinc-300 transition-colors"
@@ -482,7 +482,7 @@ useHead({
         >
           <div class="flex items-center gap-2 mb-3">
             <span
-              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-200 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 text-3xs font-mono"
+              class="flex items-center justify-center w-5 h-5 rounded-full bg-zinc-200 dark:bg-raised text-zinc-600 dark:text-zinc-400 text-3xs font-mono"
             >
               3
             </span>

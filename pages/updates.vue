@@ -71,7 +71,7 @@ usePageSeo({
             </time>
             <span
               v-if="update.era"
-              class="font-mono text-xs px-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-500"
+              class="font-mono text-xs px-1 bg-raised text-zinc-500"
             >
               {{ update.era }}
             </span>

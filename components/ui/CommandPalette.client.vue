@@ -270,7 +270,7 @@ onBeforeUnmount(() => {
           @click="closePalette"
         ></button>
         <div
-          class="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-zinc-200/80 bg-white font-sans shadow-2xl shadow-zinc-900/20 dark:border-zinc-800/80 dark:bg-zinc-900"
+          class="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-zinc-200/80 bg-white font-sans shadow-2xl shadow-zinc-900/20 dark:border-zinc-800/80 dark:bg-surface"
         >
           <div
             class="flex items-center gap-3 border-b border-zinc-100 px-4 py-3 dark:border-zinc-800"
@@ -319,7 +319,7 @@ onBeforeUnmount(() => {
                     class="flex w-full items-start gap-3 rounded-xl px-3 py-2 text-left transition-colors"
                     :class="[
                       item.id === activeItemId
-                        ? 'bg-zinc-100 text-zinc-900 dark:bg-zinc-800'
+                        ? 'bg-zinc-100 text-zinc-900 dark:bg-raised'
                         : 'text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900',
                       item.id === activeItemId
                         ? 'dark:text-zinc-100'
