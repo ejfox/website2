@@ -39,10 +39,9 @@ const containerClasses = computed(() => {
         <span>Book a call</span>
       </a>
 
-      <!-- Consulting page -->
-      <NuxtLink to="/consulting" class="cta-link group">
-        <span>Hire me</span>
-      </NuxtLink>
+      <!-- Note: "Hire me" → /consulting lives in the primary nav already
+           (composables/useNavigation.ts), so it's intentionally NOT repeated
+           here to avoid duplicating it in sidebars that show both. -->
 
       <!-- GitHub Sponsors -->
       <a

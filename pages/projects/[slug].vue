@@ -71,12 +71,6 @@ usePageSeo({
   data2: computed(() => project.value?.metadata?.status || 'Shipped'),
 })
 
-// Project year
-const projectYear = computed(() => {
-  const date = project.value?.metadata?.date || project.value?.date
-  return date ? new Date(date).getFullYear() : ''
-})
-
 // TOC target for teleport
 const { tocTarget } = useTOC()
 
@@ -127,35 +121,34 @@ onMounted(() => {
 
 <template>
   <div class="container-main max-w-4xl">
+    <!-- Slim persistent strip: only the marquee's UNIQUE value — status + the
+         live-project CTA. Year/tech/date live once, in the sidebar PROJECT INFO
+         (no longer duplicated here). Hidden entirely if there's nothing unique. -->
     <div
-      v-if="project"
+      v-if="project && (project.metadata?.state || project.metadata?.url)"
       class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
     >
       <div
         class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-zinc-800 dark:text-white uppercase tracking-wider"
       >
-        <span class="whitespace-nowrap">{{ projectYear }}</span>
-        <template v-if="project.metadata?.tech?.length">
-          <span class="text-zinc-400 dark:text-zinc-600">·</span>
-          <span class="whitespace-nowrap">
-            {{ project.metadata.tech.slice(0, 3).join(' + ') }}
-          </span>
-        </template>
-        <template v-if="project.metadata?.state">
-          <span class="text-zinc-400 dark:text-zinc-600">·</span>
-          <span class="whitespace-nowrap">{{ project.metadata.state }}</span>
-        </template>
-        <template v-if="project.metadata?.url">
-          <span class="text-zinc-400 dark:text-zinc-600">·</span>
-          <a
-            :href="project.metadata.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="whitespace-nowrap hover:text-zinc-300 transition-colors"
-          >
-            view project ↗
-          </a>
-        </template>
+        <span v-if="project.metadata?.state" class="whitespace-nowrap">
+          {{ project.metadata.state }}
+        </span>
+        <span
+          v-if="project.metadata?.state && project.metadata?.url"
+          class="text-zinc-400 dark:text-zinc-600"
+        >
+          ·
+        </span>
+        <a
+          v-if="project.metadata?.url"
+          :href="project.metadata.url"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="whitespace-nowrap hover:text-zinc-300 transition-colors"
+        >
+          view project ↗
+        </a>
       </div>
     </div>
 
