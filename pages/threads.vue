@@ -833,7 +833,7 @@ if (import.meta.client) {
   pointer-events: none;
   z-index: 100;
   max-width: 200px;
-  font-family: ui-monospace, monospace;
+  @apply font-mono;
 }
 
 .tooltip-type {
@@ -845,7 +845,7 @@ if (import.meta.client) {
 }
 
 .tooltip-title {
-  font-family: Georgia, serif;
+  @apply font-serif;
   font-size: 13px;
   color: #fafafa;
   line-height: 1.3;

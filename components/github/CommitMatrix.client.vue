@@ -224,7 +224,7 @@ watch(() => props.commits, draw)
   padding: 6px 10px;
   border-radius: 4px;
   border: 1px solid #e4e4e7;
-  font-family: monospace;
+  @apply font-mono;
   font-size: 10px;
   pointer-events: none;
   z-index: 100;

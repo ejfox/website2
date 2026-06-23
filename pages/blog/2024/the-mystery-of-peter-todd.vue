@@ -846,7 +846,7 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
 
 .floating-token {
   position: absolute;
-  font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.65rem;
   color: var(--pt-accent-faint);
   white-space: nowrap;
@@ -936,7 +936,7 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
   align-items: center;
   gap: 1rem;
   margin-bottom: 1.5rem;
-  font-family: ui-monospace, SFMono-Regular, monospace;
+  @apply font-mono;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
 }
@@ -989,7 +989,7 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
 
 .takeover-dek {
   margin-top: 1.5rem;
-  font-family: Georgia, 'Times New Roman', serif;
+  @apply font-serif;
   font-size: 1.125rem;
   line-height: 1.6;
   color: var(--pt-text-muted);
@@ -1005,7 +1005,7 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
   max-width: 700px;
 }
 .hero-token-pill {
-  font-family: ui-monospace, SFMono-Regular, monospace;
+  @apply font-mono;
   font-size: 0.6875rem;
   padding: 0.3rem 0.65rem;
   border-radius: 999px;
@@ -1225,7 +1225,7 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: ui-monospace, SFMono-Regular, monospace;
+  @apply font-mono;
   font-size: 0.55rem;
   letter-spacing: 0.3em;
   color: var(--pt-accent-dim);
@@ -1262,7 +1262,7 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
   line-height: 1.2;
   text-align: center;
   color: var(--pt-accent-dim);
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-weight: 400;
   letter-spacing: 0.05em;
   margin-bottom: 0.2em;
@@ -1289,7 +1289,7 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
 }
 
 .token-explorer-title {
-  font-family: ui-monospace, SFMono-Regular, monospace;
+  @apply font-mono;
   font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -1297,7 +1297,7 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
   margin-bottom: 0.25rem;
 }
 .token-explorer-subtitle {
-  font-family: Georgia, serif;
+  @apply font-serif;
   font-size: 0.875rem;
   color: var(--pt-text-muted);
   margin-bottom: 1.5rem;
@@ -1311,7 +1311,7 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
 }
 
 .token-cell {
-  font-family: ui-monospace, SFMono-Regular, monospace;
+  @apply font-mono;
   font-size: 0.6rem;
   padding: 0.3rem 0.6rem;
   border-radius: 4px;
@@ -1385,7 +1385,7 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
   margin-bottom: 0.5rem;
 }
 .token-detail-name {
-  font-family: ui-monospace, SFMono-Regular, monospace;
+  @apply font-mono;
   font-size: 1rem;
   color: var(--pt-text);
   background: var(--pt-surface-hi);
@@ -1394,25 +1394,25 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
   border: 1px solid var(--pt-accent-faint);
 }
 .token-detail-mood {
-  font-family: ui-monospace, monospace;
+  @apply font-mono;
   font-size: 0.7rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 .token-detail-origin {
-  font-family: ui-monospace, monospace;
+  @apply font-mono;
   font-size: 0.7rem;
   color: var(--pt-text-muted);
   margin-bottom: 0.75rem;
 }
 .token-detail-reaction {
-  font-family: Georgia, serif;
+  @apply font-serif;
   font-size: 0.9375rem;
   line-height: 1.5;
   color: var(--pt-text-dim);
 }
 .reaction-label {
-  font-family: ui-monospace, monospace;
+  @apply font-mono;
   font-size: 0.65rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -1431,7 +1431,7 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
   gap: 0.5rem;
 }
 .takeover-tag {
-  font-family: ui-monospace, SFMono-Regular, monospace;
+  @apply font-mono;
   font-size: 0.6875rem;
   padding: 0.25rem 0.75rem;
   border-radius: 999px;
@@ -1461,7 +1461,7 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
   background: var(--pt-surface-hi);
   border: 1px solid var(--pt-accent-faint);
   border-radius: 6px;
-  font-family: Georgia, serif;
+  @apply font-serif;
   font-size: 0.8125rem;
   line-height: 1.5;
   color: var(--pt-text-dim);

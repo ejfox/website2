@@ -90,7 +90,7 @@ const { formatLongDate } = useDateFormat()
 }
 
 .post-footer__label {
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.6875rem;
   font-weight: 500;
   text-transform: uppercase;
@@ -113,7 +113,7 @@ const { formatLongDate } = useDateFormat()
 }
 
 .post-footer__list a {
-  font-family: Georgia, 'Times New Roman', serif;
+  @apply font-serif;
   font-size: 0.9375rem;
   line-height: 1.35;
   color: inherit;
@@ -127,7 +127,7 @@ const { formatLongDate } = useDateFormat()
 }
 
 .post-footer__date {
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.6875rem;
   letter-spacing: 0.02em;
   font-variant-numeric: tabular-nums;
@@ -135,7 +135,7 @@ const { formatLongDate } = useDateFormat()
 }
 
 .post-footer__empty {
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.75rem;
   opacity: 0.3;
   margin: 0;

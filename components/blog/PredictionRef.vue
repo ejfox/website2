@@ -117,7 +117,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   display: inline-flex;
   align-items: baseline;
   gap: 0.375rem;
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.8em;
   line-height: 1;
   padding: 0.15em 0.5em;
@@ -158,7 +158,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
 }
 
 .prediction-ref__statement {
-  font-family: Georgia, 'Times New Roman', serif;
+  @apply font-serif;
   font-style: italic;
   font-size: 1.05em;
   opacity: 0.8;
@@ -211,7 +211,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   border: 1px solid #e4e4e7;
   border-radius: 3px;
   box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.2);
-  font-family: Georgia, 'Times New Roman', serif;
+  @apply font-serif;
   font-size: 0.875rem;
   line-height: 1.4;
   font-style: normal;
@@ -226,7 +226,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
 }
 
 .pop__label {
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -240,7 +240,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
 .pop__meta {
   display: flex;
   gap: 0.375rem;
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.7rem;
   opacity: 0.7;
 }
@@ -258,7 +258,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
 }
 
 .pop__hash {
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.65rem;
   opacity: 0.45;
   letter-spacing: 0.02em;

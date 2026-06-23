@@ -150,8 +150,7 @@ const formatNumber = (value, format) => {
               {{ column.label }}
               <span
                 v-if="column.sortable !== false"
-                class="text-zinc-400"
-                style="font-family: monospace"
+                class="text-zinc-400 font-mono"
               >
                 {{
                   sortColumn === column.key

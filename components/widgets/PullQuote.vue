@@ -67,7 +67,7 @@ async function typeOut() {
 }
 
 .pull-quote {
-  font-family: Georgia, 'Times New Roman', serif;
+  @apply font-serif;
   font-size: clamp(1.25rem, 3vw, 1.75rem);
   line-height: 1.55;
   font-style: italic;

@@ -203,13 +203,13 @@ function updateCalTheme() {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-  font-family: monospace;
+  @apply font-mono;
   font-size: 0.7rem;
   color: var(--color-text-secondary, #777);
 }
 
 .date-field input {
-  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  @apply font-mono;
   font-size: 0.8rem;
   padding: 0.4rem 0.6rem;
   background: transparent;
@@ -219,7 +219,7 @@ function updateCalTheme() {
 }
 
 .ctrl-btn {
-  font-family: monospace;
+  @apply font-mono;
   font-size: 0.7rem;
   padding: 0.45rem 0.7rem;
   background: transparent;
@@ -252,7 +252,7 @@ function updateCalTheme() {
 }
 
 .api-section h2 {
-  font-family: monospace;
+  @apply font-mono;
   font-size: 0.75rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
@@ -260,7 +260,7 @@ function updateCalTheme() {
 }
 
 .api-note {
-  font-family: monospace;
+  @apply font-mono;
   font-size: 0.7rem;
   margin: 0.75rem 0 0.4rem;
   color: var(--color-text-secondary, #777);
@@ -276,7 +276,7 @@ function updateCalTheme() {
 }
 
 .code-block code {
-  font-family: 'SF Mono', Monaco, 'Cascadia Code', monospace;
+  @apply font-mono;
   font-size: 0.7rem;
   line-height: 1.5;
   color: var(--color-text-secondary, #666);

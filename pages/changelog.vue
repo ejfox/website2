@@ -220,7 +220,6 @@ usePageSeo({
               </div>
               <h3
                 class="font-serif text-lg font-bold text-zinc-900 dark:text-zinc-100 mb-1"
-                style="font-family: Georgia, serif"
               >
                 <NuxtLink
                   v-if="entry.link"
@@ -233,7 +232,6 @@ usePageSeo({
               </h3>
               <p
                 class="font-serif text-zinc-600 dark:text-zinc-300 leading-relaxed text-sm max-w-prose"
-                style="font-family: Georgia, serif"
               >
                 {{ entry.body }}
               </p>

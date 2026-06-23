@@ -166,7 +166,7 @@ const containerStyle = computed(() => {
   position: absolute;
   top: 1.5rem;
   left: 1.5rem;
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-size: 0.625rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -177,7 +177,7 @@ const containerStyle = computed(() => {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-size: 0.625rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -187,7 +187,7 @@ const containerStyle = computed(() => {
 .card-hint {
   position: absolute;
   bottom: 1.5rem;
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-size: 0.625rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -206,7 +206,7 @@ const containerStyle = computed(() => {
 }
 
 .card-text {
-  font-family: Georgia, 'Times New Roman', serif;
+  @apply font-serif;
   font-size: clamp(1.25rem, 3vw, 1.75rem);
   line-height: 1.5;
   color: #fafafa;
@@ -228,7 +228,7 @@ const containerStyle = computed(() => {
 }
 
 .hint-text {
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-size: 0.75rem;
   color: #71717a;
   margin: 0.5rem 0 0 0;

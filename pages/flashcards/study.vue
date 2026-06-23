@@ -279,14 +279,14 @@ const handleReshuffle = () => {
 }
 
 .back-text {
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-size: 0.75rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
 
 .header-center {
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-size: 0.75rem;
   color: #52525b;
   display: flex;
@@ -322,7 +322,7 @@ const handleReshuffle = () => {
   color: #71717a;
   padding: 0.5rem 1rem;
   border-radius: 8px;
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-size: 0.6875rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -456,7 +456,7 @@ const handleReshuffle = () => {
 }
 
 .nav-label {
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-size: 0.6875rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -468,7 +468,7 @@ const handleReshuffle = () => {
   color: #18181b;
   padding: 0.875rem 2rem;
   border-radius: 10px;
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.03em;
@@ -494,7 +494,7 @@ const handleReshuffle = () => {
   justify-content: center;
   gap: 2rem;
   margin-top: 1.25rem;
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-size: 0.625rem;
   color: #3f3f46;
 }

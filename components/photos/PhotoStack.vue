@@ -249,7 +249,7 @@ function thumbUrl(src: string, w = 560) {
 }
 
 .photo-stack__title {
-  font-family: Georgia, 'Times New Roman', serif;
+  @apply font-serif;
   font-size: 0.95rem;
   line-height: 1.25;
   color: inherit;
@@ -257,7 +257,7 @@ function thumbUrl(src: string, w = 560) {
 .photo-stack__sub {
   display: flex;
   gap: 0.375rem;
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.625rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -285,13 +285,13 @@ function thumbUrl(src: string, w = 560) {
 }
 .photo-stack__loading {
   padding: 2rem 0;
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.75rem;
   opacity: 0.5;
   text-align: center;
 }
 .photo-stack__dek {
-  font-family: Georgia, 'Times New Roman', serif;
+  @apply font-serif;
   font-size: 1.125rem;
   line-height: 1.5;
   opacity: 0.8;
@@ -302,7 +302,7 @@ function thumbUrl(src: string, w = 560) {
   margin-top: 2rem;
   display: flex;
   justify-content: space-between;
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.75rem;
   opacity: 0.6;
 }

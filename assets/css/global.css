@@ -19,6 +19,24 @@
   font-display: swap;
 }
 
+/* Monaspace Neon — the mono/data font (font-mono). Was first in the mono stack
+   in tailwind.config but never loaded, so font-mono silently fell back to system
+   mono everywhere. Self-hosted here so it actually renders. */
+@font-face {
+  font-family: 'Monaspace Neon';
+  src: url('/fonts/MonaspaceNeon-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Monaspace Neon';
+  src: url('/fonts/MonaspaceNeon-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Centralized Touch-Friendly Interactions */
 .interactive-link {
   transition: transform 0.3s cubic-bezier(0.45, 0, 0.55, 1);

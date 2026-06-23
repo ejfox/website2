@@ -133,7 +133,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   padding: 1.25rem 1.5rem;
   border-left: 2px solid currentColor;
   background: color-mix(in srgb, currentColor 3%, transparent);
-  font-family: Georgia, 'Times New Roman', serif;
+  @apply font-serif;
 }
 
 .state-correct {
@@ -159,7 +159,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   display: flex;
   align-items: baseline;
   gap: 0.75rem;
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.75rem;
 }
 
@@ -218,7 +218,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   opacity: 0.8;
 }
 .card__sparkline-label {
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.625rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -243,7 +243,7 @@ const href = computed(() => `/predictions/${props.payload.id}`)
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.65rem;
   letter-spacing: 0.02em;
   opacity: 0.5;

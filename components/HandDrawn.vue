@@ -84,7 +84,7 @@ ensureHandDrawnSprite()
   clip-path: inset(0);
 }
 .hand-drawn-missing {
-  font-family: ui-monospace, monospace;
+  @apply font-mono;
   font-size: 0.8em;
   color: #f43f5e;
 }

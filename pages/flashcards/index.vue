@@ -192,7 +192,7 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
 }
 
 .deck-count {
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-size: 0.6875rem;
   color: #52525b;
   padding: 0.125rem 0.5rem;
@@ -201,7 +201,7 @@ const isExpanded = (id: string) => expandedDecks.value.has(id)
 }
 
 .study-link {
-  font-family: ui-monospace, 'SF Mono', Monaco, monospace;
+  @apply font-mono;
   font-size: 0.6875rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;

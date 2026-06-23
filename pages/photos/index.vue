@@ -182,14 +182,14 @@ useHead({ title: 'Photos — EJ Fox' })
   border-bottom: 1px solid color-mix(in srgb, currentColor 15%, transparent);
 }
 .photos-page__title {
-  font-family: Georgia, 'Times New Roman', serif;
+  @apply font-serif;
   font-size: 2rem;
   line-height: 1;
   margin: 0;
 }
 .photos-page__sub {
   margin: 0;
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -197,7 +197,7 @@ useHead({ title: 'Photos — EJ Fox' })
 }
 .photos-page__status {
   padding: 3rem 0;
-  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  @apply font-mono;
   font-size: 0.8rem;
   opacity: 0.5;
 }
@@ -251,7 +251,7 @@ useHead({ title: 'Photos — EJ Fox' })
   opacity: 1;
 }
 .photo-exif {
-  font-family: ui-monospace, monospace;
+  @apply font-mono;
   font-size: 9px;
   color: rgba(255, 255, 255, 0.8);
   letter-spacing: 0.02em;
@@ -261,7 +261,7 @@ useHead({ title: 'Photos — EJ Fox' })
   top: 0;
   right: 0;
   padding: 3px 6px;
-  font-family: ui-monospace, monospace;
+  @apply font-mono;
   font-size: 9px;
   color: rgba(255, 255, 255, 0.7);
   opacity: 0;

@@ -947,7 +947,7 @@ onMounted(() => {
 
 .blog-post-content figure figcaption {
   @apply text-xs text-zinc-500 dark:text-zinc-500 mt-2;
-  font-family: Georgia, 'Times New Roman', serif;
+  @apply font-serif;
   font-style: italic;
   line-height: 1.4;
 }
@@ -1088,8 +1088,7 @@ article.is-draft::before {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-45deg);
-  font-family:
-    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  @apply font-mono;
   font-size: clamp(4rem, 15vw, 12rem);
   font-weight: 900;
   letter-spacing: 0.2em;
@@ -1109,8 +1108,7 @@ article.is-draft::before {
 /* Typography shift: serif → monospace for drafts */
 article.is-draft .blog-post-content {
   /* stylelint-disable-next-line max-line-length */
-  font-family:
-    ui-monospace, SFMono-Regular, Menlo, Consolas, monospace !important;
+  @apply font-mono;
 }
 
 article.is-draft .blog-post-content p,
@@ -1130,8 +1128,7 @@ article.is-draft .blog-post-content h6 {
 
 /* Draft title also gets monospace treatment */
 article.is-draft .post-title-hero {
-  font-family:
-    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, monospace;
+  @apply font-mono;
 }
 
 /* Subtle desaturation on draft content */
