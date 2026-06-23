@@ -91,12 +91,12 @@ interface BlogStats {
       >
         <div class="flex-1 min-w-0">
           <div
-            class="truncate text-xs leading-3"
+            class="truncate text-xs leading-tight"
             :class="['text-zinc-700 dark:text-zinc-300']"
           >
             {{ post.title }}
           </div>
-          <div class="text-zinc-500 text-xs leading-[10px]">
+          <div class="text-zinc-500 text-2xs leading-tight mt-0.5">
             {{ new Date(post.date).toLocaleDateString() }}
           </div>
         </div>
