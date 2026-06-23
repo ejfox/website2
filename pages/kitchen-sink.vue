@@ -259,7 +259,7 @@ function focusStep(dir) {
         />
       </div>
       <!-- folder filter: plain inline text links -->
-      <div class="mt-1.5 text-2xs text-zinc-500 flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
+      <div class="mt-1 text-2xs text-zinc-500 flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
         <button class="lnk" :class="{ on: !activeFolder }" @click="activeFolder = null">all</button>
         <button
           v-for="f in folders"
@@ -277,7 +277,7 @@ function focusStep(dir) {
 
     <!-- Gallery / contact-sheet mode (QA sweep) -->
     <div v-if="galleryMode" class="flex-1 overflow-y-auto p-2">
-      <div class="grid gap-px bg-zinc-200 dark:bg-zinc-800 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+      <div class="grid gap-px bg-zinc-200 dark:bg-zinc-800 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <DevGalleryCell v-for="entry in visible" :key="entry.key" :entry="entry" />
       </div>
     </div>
@@ -324,7 +324,7 @@ function focusStep(dir) {
       <!-- Preview -->
       <section class="flex-1 min-w-0 overflow-y-auto">
         <div v-if="!active" class="h-full flex items-center justify-center px-6">
-          <p class="text-2xs text-zinc-400 dark:text-zinc-600 text-center leading-relaxed">
+          <p class="text-2xs text-zinc-400 dark:text-zinc-600 text-center leading-5">
             hover a component to preview · click to pin<br />
             deep-link with <span class="text-zinc-500">?c=Name</span> · focus mode survives HMR
           </p>
@@ -365,7 +365,7 @@ function focusStep(dir) {
               <button
                 v-for="(s, i) in active.stories"
                 :key="s.name"
-                class="lnk mr-2.5"
+                class="lnk mr-1"
                 :class="{ on: activeVariant === i }"
                 @click="activeVariant = i"
               >
@@ -392,10 +392,10 @@ function focusStep(dir) {
 
             <!-- props -->
             <div v-if="activeStory" class="mt-5">
-              <div class="text-3xs uppercase tracking-wider text-zinc-400 dark:text-zinc-600 border-b border-zinc-200 dark:border-zinc-800 pb-0.5 mb-1.5">
+              <div class="text-3xs uppercase tracking-wider text-zinc-400 dark:text-zinc-600 border-b border-zinc-200 dark:border-zinc-800 pb-0.5 mb-1">
                 props
               </div>
-              <pre class="text-2xs leading-relaxed overflow-x-auto whitespace-pre-wrap text-zinc-700 dark:text-zinc-300">{{ JSON.stringify(activeStory.props, null, 2) }}</pre>
+              <pre class="text-2xs leading-5 overflow-x-auto whitespace-pre-wrap text-zinc-700 dark:text-zinc-300">{{ JSON.stringify(activeStory.props, null, 2) }}</pre>
             </div>
 
             <!-- source -->
@@ -409,7 +409,7 @@ function focusStep(dir) {
               </button>
               <pre
                 v-if="sourceOpen"
-                class="mt-1.5 text-2xs leading-relaxed overflow-auto max-h-[55vh] text-zinc-600 dark:text-zinc-400"
+                class="mt-1 text-2xs leading-5 overflow-auto max-h-[55vh] text-zinc-600 dark:text-zinc-400"
               >{{ activeSource }}</pre>
             </div>
           </div>

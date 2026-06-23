@@ -454,7 +454,7 @@ export const stories = {
           currentRating: 1480,
           bestRating: 1602,
           gamesPlayed: 2140,
-          winRate: 0.53,
+          winRate: 53, // whole percentage — component does Math.round(winRate) + '%'
           puzzleStats: { rating: 1850, totalSolved: 4200 },
           recentGames: [
             { id: 'g1', rating: 1480, ratingDiff: 8, result: 'win', timeControl: '10+0', timestamp: 1718900000, url: 'https://chess.com' },
@@ -667,7 +667,7 @@ export const stories = {
       props: {
         blogStats: { totalPosts: 142, totalWords: 232000, averageWords: 1640 },
         stats: {
-          chess: { currentRating: { blitz: 1480 }, winRate: { overall: 0.53 } },
+          chess: { currentRating: { blitz: 1480 }, winRate: { overall: 53 } },
           github: { stats: { totalRepos: 195, totalContributions: 3432 } },
           leetcode: { submissionStats: { easy: { count: 140 }, medium: { count: 96 }, hard: { count: 21 } } },
           monkeyType: { typingStats: { averageWPM: 104, bestWPM: 138 } },
