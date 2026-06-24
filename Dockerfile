@@ -16,7 +16,6 @@ COPY .output/ ./
 COPY content ./content
 COPY data ./data
 COPY public ./public
-COPY .build-info.json ./
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \

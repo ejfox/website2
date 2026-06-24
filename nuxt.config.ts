@@ -1,3 +1,5 @@
+import { execSync } from 'node:child_process'
+
 async function _getScrapTags() {
   try {
     if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
@@ -103,6 +105,39 @@ async function getBlogRoutes(): Promise<string[]> {
   } catch (error) {
     console.error('❌ Error reading blog manifest:', error)
     return []
+  }
+}
+
+// Captured at build time (config eval runs during `nuxt build`) and baked into
+// the server bundle, so /api/healthcheck and /api/build-info report the commit
+// that was actually built + deployed — no reliance on a .build-info.json file
+// that the deploy never ships (it tars only .output/). Falls back to git, then
+// CI env vars, then 'unknown'.
+function gitOr(cmd: string, fallback: string): string {
+  try {
+    return execSync(cmd).toString().trim() || fallback
+  } catch {
+    return fallback
+  }
+}
+
+function getBuildInfo() {
+  const commitLong =
+    process.env.GITHUB_SHA || gitOr('git rev-parse HEAD', 'unknown')
+  const commit =
+    process.env.BUILD_COMMIT ||
+    (commitLong !== 'unknown'
+      ? commitLong.slice(0, 8)
+      : gitOr('git rev-parse --short HEAD', 'unknown'))
+  const branch =
+    process.env.GITHUB_REF_NAME ||
+    gitOr('git rev-parse --abbrev-ref HEAD', 'unknown')
+  return {
+    commit,
+    commitLong,
+    branch,
+    buildDate: new Date().toISOString(),
+    buildTimestamp: Date.now(),
   }
 }
 
@@ -233,6 +268,7 @@ export default defineNuxtConfig({
     HEALTH_WEBHOOK_SECRET: process.env.HEALTH_WEBHOOK_SECRET || '',
     scrapEnlightenerAuth: process.env.SCRAP_ENLIGHTENER_AUTH || '',
     calcomApiKey: process.env.CAL_COM_API_KEY || '',
+    buildInfo: getBuildInfo(),
 
     // Public client-accessible vars
     public: {

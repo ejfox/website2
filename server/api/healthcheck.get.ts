@@ -5,19 +5,13 @@
  * @returns Health status object with system metrics, version info, and service status (returns 503 if degraded, 500 if error)
  */
 import { setResponseStatus } from 'h3'
-import { readFileSync } from 'node:fs'
-
-let buildCommit = 'unknown'
-try {
-  const buildInfo = JSON.parse(readFileSync('.build-info.json', 'utf8'))
-  buildCommit = buildInfo.commit || 'unknown'
-} catch {
-  // .build-info.json may not exist in dev
-}
 
 export default defineEventHandler(async (event) => {
   try {
-    const commit = buildCommit
+    // Baked into the bundle at build time via runtimeConfig (nuxt.config.ts),
+    // so this reflects the SHA that was actually built + deployed — not a
+    // stale .build-info.json the deploy never shipped.
+    const commit = useRuntimeConfig(event).buildInfo?.commit || 'unknown'
 
     // Basic health checks
     const health = {
