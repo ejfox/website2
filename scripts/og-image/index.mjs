@@ -139,7 +139,7 @@ async function main() {
   await fs.mkdir(OUTPUT_DIR, { recursive: true })
 
   if (SLUG) {
-    const { content, variants, slug } = await generateVariants(SLUG)
+    const { variants, slug } = await generateVariants(SLUG)
 
     if (PICK !== null) {
       // User picked a specific variant

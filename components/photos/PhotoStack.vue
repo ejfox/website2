@@ -315,7 +315,8 @@ function thumbUrl(src: string, w = 560) {
 }
 
 /* ---- Transition for expanded body — delayed so it appears after
-       the thumb splay reads clearly (stagger takes ~280ms + 720ms travel). ---- */
+       the thumb splay reads clearly (stagger takes ~280ms + 720ms
+       travel). ---- */
 .splay-enter-active {
   transition:
     opacity 420ms ease 480ms,

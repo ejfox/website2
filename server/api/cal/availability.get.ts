@@ -33,8 +33,12 @@ export default defineEventHandler(async () => {
   }
 
   try {
-    // Fetch bookings for this quarter from Cal.com
-    const response = (await $fetch('https://api.cal.com/v2/bookings', {
+    // Fetch bookings for this quarter from Cal.com. The explicit generic
+    // bypasses Nitro's typed-route inference, which otherwise recurses too
+    // deeply on this external URL and triggers TS2321 (excessive stack depth).
+    const response = await $fetch<{
+      data?: Array<{ status: string; startTime: string }>
+    }>('https://api.cal.com/v2/bookings', {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${config.calcomApiKey}`,
@@ -46,7 +50,7 @@ export default defineEventHandler(async () => {
         afterStart: quarterStart.toISOString(),
         beforeEnd: quarterEnd.toISOString(),
       },
-    })) as { data?: Array<{ status: string; startTime: string }> }
+    })
 
     // Count confirmed bookings (not cancelled)
     const bookings = response.data || []

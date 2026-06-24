@@ -30,7 +30,6 @@ const REPORT_PATH = path.join(ROOT, 'data', 'content-report.json')
 const REPORT_HTML_PATH = path.join(ROOT, 'data', 'content-report.html')
 
 const args = process.argv.slice(2)
-const QUICK = args.includes('--quick')
 
 // ---------------------------------------------------------------------------
 // Junk alt patterns (shared with generate-alt-text.mjs)
@@ -260,7 +259,9 @@ async function main() {
   let cloudCache = {}
   try {
     cloudCache = JSON.parse(await fs.readFile(CACHE_PATH, 'utf8'))
-  } catch {}
+  } catch {
+    // No cloud cache yet — start fresh
+  }
 
   const reports = []
   for (const f of files) {

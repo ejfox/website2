@@ -21,22 +21,26 @@ export default defineNuxtPlugin(() => {
 
   // 1. Intentional inline marks, anywhere on the page
   const hydrateInline = () => {
-    document.querySelectorAll<HTMLElement>('span[data-hd]:not([data-hd-done])').forEach((el) => {
-      el.setAttribute('data-hd-done', '')
-      const name = el.getAttribute('data-hd')
-      if (!name) return
-      const mark = createHandDrawnEl(name, {
-        size: el.getAttribute('data-size') || '1.1em',
-        title: el.getAttribute('data-hd-title') || undefined
+    document
+      .querySelectorAll<HTMLElement>('span[data-hd]:not([data-hd-done])')
+      .forEach((el) => {
+        el.setAttribute('data-hd-done', '')
+        const name = el.getAttribute('data-hd')
+        if (!name) return
+        const mark = createHandDrawnEl(name, {
+          size: el.getAttribute('data-size') || '1.1em',
+          title: el.getAttribute('data-hd-title') || undefined,
+        })
+        if (mark) el.replaceChildren(mark)
       })
-      if (mark) el.replaceChildren(mark)
-    })
   }
 
   // 2a. <hr> → hand-drawn divider (article content only)
   const enhanceDividers = () => {
     document
-      .querySelectorAll<HTMLHRElement>('.blog-post-content hr:not([data-hd-done])')
+      .querySelectorAll<HTMLHRElement>(
+        '.blog-post-content hr:not([data-hd-done])'
+      )
       .forEach((hr) => {
         hr.setAttribute('data-hd-done', '')
         const mark = createHandDrawnEl('bead-chain', { size: '14px' })
@@ -56,9 +60,12 @@ export default defineNuxtPlugin(() => {
     )
     refs.forEach((a, i) => {
       a.setAttribute('data-hd-done', '')
-      const n = parseInt(a.textContent || '', 10) || i + 1
+      const n = Number.parseInt(a.textContent || '', 10) || i + 1
       if (n < 1 || n > 12) return
-      const mark = createHandDrawnEl(`circled-${n}`, { size: '1.25em', title: `footnote ${n}` })
+      const mark = createHandDrawnEl(`circled-${n}`, {
+        size: '1.25em',
+        title: `footnote ${n}`,
+      })
       if (!mark) return
       mark.style.margin = '0 0.1em'
       a.replaceChildren(mark)

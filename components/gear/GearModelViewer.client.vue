@@ -130,7 +130,8 @@ onBeforeUnmount(() => {
   @apply absolute inset-0 flex items-center justify-center pointer-events-none;
 }
 
-/* canvas needs !important to override Three.js inline styles — can't use @apply */
+/* canvas needs !important to override Three.js inline styles —
+   can't use @apply */
 .canvas {
   display: block;
   width: 100% !important;

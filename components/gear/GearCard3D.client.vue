@@ -65,7 +65,7 @@ const oCurrent = { rx: 0, ry: 0, tz: 0 }
 let baseBeta = null // calibrate "flat" to however the phone is first held
 
 function handleOrientation(e) {
-  if (e.gamma == null || e.beta == null) return
+  if (e.gamma === null || e.beta === null) return
   if (baseBeta === null) baseBeta = e.beta
   const ry = (clamp(e.gamma, -40, 40) / 40) * 18 // left-right
   const rx = (clamp(-(e.beta - baseBeta), -40, 40) / 40) * 18 // front-back
@@ -123,7 +123,8 @@ useRafFn(() => {
     if (!cx || !cy) return
     const rx = -((my.value - cy) / cy) * 20
     const ry = ((mx.value - cx) / cx) * 20
-    const tz = (Math.abs(mx.value - cx) / cx + Math.abs(my.value - cy) / cy) * 15
+    const tz =
+      (Math.abs(mx.value - cx) / cx + Math.abs(my.value - cy) / cy) * 15
     tiltStyle.value = {
       transform: `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(${tz}px)`,
       transformOrigin: 'center center',
@@ -160,7 +161,8 @@ const buyUrl = computed(() => {
   try {
     const url = new URL(raw)
     // Only Amazon links get the affiliate tag; other retailers pass through.
-    if (url.hostname.includes('amazon.')) url.searchParams.set('tag', 'ejfox0c-20')
+    if (url.hostname.includes('amazon.'))
+      url.searchParams.set('tag', 'ejfox0c-20')
     return url.toString()
   } catch {
     return raw
@@ -198,7 +200,8 @@ const humanize = (key) =>
     class="gear-card-container w-full max-w-md lg:max-w-3xl 2xl:max-w-5xl mx-auto"
     :style="tilt"
   >
-    <!-- Touch (iOS): tap to grant motion access so the card tilts with the phone -->
+    <!-- Touch (iOS): tap to grant motion access so the card tilts with -->
+    <!-- the phone -->
     <button
       v-if="motionPrompt"
       type="button"
@@ -332,10 +335,12 @@ const humanize = (key) =>
   @apply mt-8 border-t border-zinc-200 dark:border-zinc-700 pt-8;
 }
 .detail-key {
-  @apply flex-shrink-0 uppercase tracking-widest text-zinc-600 dark:text-zinc-400;
+  @apply flex-shrink-0 uppercase tracking-widest;
+  @apply text-zinc-600 dark:text-zinc-400;
 }
 .detail-val {
-  @apply font-mono text-right ml-2 min-w-0 break-words text-zinc-900 dark:text-zinc-100;
+  @apply font-mono text-right ml-2 min-w-0 break-words;
+  @apply text-zinc-900 dark:text-zinc-100;
 }
 
 /* Missing utility classes used in template */
@@ -343,16 +348,19 @@ const humanize = (key) =>
   @apply w-[120px] h-[120px] overflow-hidden rounded-sm;
 }
 .btn-inline-flex {
-  @apply inline-flex items-center px-3 py-1 font-mono text-xs uppercase tracking-wider
+  @apply inline-flex items-center px-3 py-1 font-mono text-xs
+         uppercase tracking-wider
          border border-zinc-300 dark:border-zinc-600
          text-zinc-700 dark:text-zinc-300
          hover:bg-zinc-100 dark:hover:bg-zinc-800
          transition-colors duration-150 no-underline;
 }
 .label-tracked-md {
-  @apply font-mono text-xs uppercase tracking-wider text-zinc-500 dark:text-zinc-400 mb-3;
+  @apply font-mono text-xs uppercase tracking-wider mb-3;
+  @apply text-zinc-500 dark:text-zinc-400;
 }
 .row-bordered {
-  @apply flex justify-between items-baseline border-b border-zinc-100 dark:border-zinc-800 py-1;
+  @apply flex justify-between items-baseline py-1;
+  @apply border-b border-zinc-100 dark:border-zinc-800;
 }
 </style>

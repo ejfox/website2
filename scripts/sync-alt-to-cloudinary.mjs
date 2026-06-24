@@ -52,7 +52,8 @@ function isCloudinaryUrl(url) {
 }
 function isVideoUrl(url) {
   return (
-    /\.(mp4|webm|mov|gif)(\?|$)/i.test(url) || url.includes('/video/upload/')
+    /\.(?:mp4|webm|mov|gif)(?:\?|$)/i.test(url) ||
+    url.includes('/video/upload/')
   )
 }
 
@@ -156,9 +157,9 @@ async function main() {
         const publicId = extractPublicId(url)
         if (!publicId) continue
 
-        if (/^(Screenshot|Screen Shot|IMG_|DSC|Pasted image)/i.test(alt))
+        if (/^(?:Screenshot|Screen Shot|IMG_|DSC|Pasted image)/i.test(alt))
           continue
-        if (/^[\w.-]+\.(png|jpe?g|gif)$/i.test(alt)) continue
+        if (/^[\w.-]+\.(?:png|jpe?g|gif)$/i.test(alt)) continue
         if (/^\d{4}-\d{2}-\d{2}/.test(alt)) continue
         if (/^https?:\/\//.test(alt)) continue
 

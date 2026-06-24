@@ -28,18 +28,24 @@ import striptags from 'striptags'
 
 const SITE_URL = 'https://ejfox.com'
 const SITE_NAME = 'EJ Fox'
-const SITE_DESCRIPTION = "Things I'm thinking about — data, code, journalism, the web"
+const SITE_DESCRIPTION =
+  "Things I'm thinking about — data, code, journalism, the web"
 const PDS = 'https://bsky.social'
 const PUB_RKEY = 'self' // one stable publication record for the whole blog
 const LIVE = process.argv.includes('--live')
 const PROCESSED = path.join(process.cwd(), 'content/processed')
 
 const stripTags = (s) =>
-  striptags(s || '').replace(/\s+/g, ' ').trim()
+  striptags(s || '')
+    .replace(/\s+/g, ' ')
+    .trim()
 
 // slug -> a valid, stable record key (rkeys can't contain '/'), so re-runs upsert
 const rkeyFor = (slug) =>
-  slug.replace(/[^a-zA-Z0-9._~-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 512)
+  slug
+    .replace(/[^\w.~-]+/g, '-')
+    .replace(/^-+|-+$/g, '')
+    .slice(0, 512)
 
 // First sentence-ish, cut on a whole word, no trailing period. This mirrors
 // utils/ogDescription.ts — when that helper is available as plain JS (or this
@@ -79,8 +85,7 @@ async function toDocument(post, siteRef) {
     title: String(title).slice(0, 5000),
     publishedAt: new Date(post.date || meta.date || Date.now()).toISOString(),
   }
-  if (meta.modified)
-    doc.updatedAt = new Date(meta.modified).toISOString()
+  if (meta.modified) doc.updatedAt = new Date(meta.modified).toISOString()
   if (description) doc.description = String(description).slice(0, 30000)
   if (Array.isArray(meta.tags) && meta.tags.length)
     doc.tags = meta.tags.map(String).slice(0, 50)
@@ -96,8 +101,16 @@ async function loadPublishedPosts() {
   return manifest.filter((p) => {
     const m = p.metadata || {}
     const blocked =
-      p.draft || m.draft || p.hidden || m.hidden || p.unlisted || m.unlisted ||
-      p.password || m.password || p.passwordHash || m.passwordHash
+      p.draft ||
+      m.draft ||
+      p.hidden ||
+      m.hidden ||
+      p.unlisted ||
+      m.unlisted ||
+      p.password ||
+      m.password ||
+      p.passwordHash ||
+      m.passwordHash
     // blog posts live under year dirs (YYYY/…); skips system + section files
     return p.slug && !blocked && /^\d{4}\//.test(p.slug)
   })
@@ -144,9 +157,12 @@ async function putRecord(session, collection, rkey, record, tries = 4) {
     })
     if (res.ok) return res.json()
     // retry transient upstream/rate-limit blips with backoff; fail fast otherwise
-    const transient = res.status === 502 || res.status === 503 || res.status === 429
+    const transient =
+      res.status === 502 || res.status === 503 || res.status === 429
     if (!transient || attempt === tries)
-      throw new Error(`putRecord ${collection}/${rkey}: ${res.status} ${await res.text()}`)
+      throw new Error(
+        `putRecord ${collection}/${rkey}: ${res.status} ${await res.text()}`
+      )
     await sleep(attempt * 1000)
   }
 }
@@ -158,7 +174,9 @@ async function main() {
     // dry run: reference the eventual publication AT-URI symbolically
     const siteRef = `at://<your-did>/site.standard.publication/${PUB_RKEY}`
     const docs = await Promise.all(posts.map((p) => toDocument(p, siteRef)))
-    console.log(`📦 ${docs.length} published posts → site.standard.document records`)
+    console.log(
+      `📦 ${docs.length} published posts → site.standard.document records`
+    )
     console.log('   + 1 site.standard.publication record\n')
     console.log('— DRY RUN (no credentials needed). Publication: —\n')
     console.log(JSON.stringify(publicationRecord(), null, 2))
@@ -174,7 +192,12 @@ async function main() {
   console.log(`🔑 authed as ${session.handle || session.did}`)
 
   // 1. the publication the documents belong to
-  await putRecord(session, 'site.standard.publication', PUB_RKEY, publicationRecord())
+  await putRecord(
+    session,
+    'site.standard.publication',
+    PUB_RKEY,
+    publicationRecord()
+  )
   const siteRef = `at://${session.did}/site.standard.publication/${PUB_RKEY}`
   console.log(`📖 publication → ${siteRef}`)
 

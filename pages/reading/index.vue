@@ -70,8 +70,7 @@ const topHighlighted = computed(() => {
 // SEO
 usePageSeo({
   title: 'Reading Collection - EJ Fox',
-  description:
-    "Books I've read, and the highlights I saved from them",
+  description: "Books I've read, and the highlights I saved from them",
   type: 'article',
   section: 'Reading',
   tags: ['Reading list', 'Books', 'Highlights', 'Notes'],

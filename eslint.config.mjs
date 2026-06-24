@@ -41,9 +41,11 @@ export default createConfigForNuxt({
         // Nuxt
         defineNuxtPlugin: 'readonly',
         defineEventHandler: 'readonly',
+        defineCachedEventHandler: 'readonly',
         definePageMeta: 'readonly',
         defineRouteRules: 'readonly',
         onNuxtReady: 'readonly',
+        resolveComponent: 'readonly',
         useRouter: 'readonly',
         useRoute: 'readonly',
         useHead: 'readonly',
@@ -67,6 +69,7 @@ export default createConfigForNuxt({
         reloadNuxtData: 'readonly',
         // Nitro Server
         getQuery: 'readonly',
+        getRouterParam: 'readonly',
         readBody: 'readonly',
         getHeader: 'readonly',
         setHeader: 'readonly',
@@ -93,6 +96,20 @@ export default createConfigForNuxt({
         useCalibration: 'readonly',
         useMouse: 'readonly',
         useFlashcards: 'readonly',
+        useScrollReveal: 'readonly',
+        useGearUI: 'readonly',
+        useTemporalContext: 'readonly',
+        useReadingStats: 'readonly',
+        useTypingAnimation: 'readonly',
+        useCrownedPost: 'readonly',
+        loadGearItems: 'readonly',
+        // Project utils (auto-imported from utils/)
+        ogDescription: 'readonly',
+        loadCalInline: 'readonly',
+        // Ambient type globals (TS / @types/node)
+        Ref: 'readonly',
+        ComputedRef: 'readonly',
+        NodeJS: 'readonly',
       },
     },
   },
@@ -266,6 +283,19 @@ export default createConfigForNuxt({
           allowNamedExports: false,
         },
       ],
+    },
+  },
+  // ============================================================
+  // CLI SCRIPTS: console output IS the product here. These run via
+  // `node scripts/…` / `yarn …`, never ship to the browser or server
+  // runtime, so `console.log` is intentional terminal output, not debug
+  // cruft. The rule stays strict everywhere else (components, pages,
+  // server/, composables) so a stray log in shipped code still fails.
+  // ============================================================
+  {
+    files: ['scripts/**/*.{js,mjs,ts}'],
+    rules: {
+      'no-console': 'off',
     },
   }
 )

@@ -1,16 +1,3 @@
-<template>
-  <div class="hd-unit" :style="gridStyle" role="img" :aria-label="ariaLabel">
-    <HandDrawn
-      v-for="cell in cells"
-      :key="cell.i"
-      :name="cell.name"
-      :size="size"
-      class="hd-unit__dot"
-      :style="cell.style"
-    />
-  </div>
-</template>
-
 <script setup>
 /**
  * Hand-drawn unit chart (isotype). Tiles EJ's real notebook stipple dots into a
@@ -30,7 +17,7 @@ const props = defineProps({
   size: { type: String, default: '0.75rem' }, // dot height
   gap: { type: String, default: '0.5rem' },
   tone: { type: String, default: '#f43f5e' }, // fill for "on" dots; ghosts use ink
-  emptyOpacity: { type: Number, default: 0.16 }
+  emptyOpacity: { type: Number, default: 0.16 },
 })
 
 // the dozen real stipple dots lifted from the notebook grid
@@ -56,8 +43,8 @@ const cells = computed(() =>
         color: on ? props.tone : 'currentColor',
         opacity: on ? 1 : props.emptyOpacity,
         // dupe → rotate → resize a touch, so the grid reads hand-stippled
-        transform: `rotate(${(r * 40 - 20).toFixed(1)}deg) scale(${(0.8 + r2 * 0.45).toFixed(2)})`
-      }
+        transform: `rotate(${(r * 40 - 20).toFixed(1)}deg) scale(${(0.8 + r2 * 0.45).toFixed(2)})`,
+      },
     }
   })
 )
@@ -68,11 +55,24 @@ const gridStyle = computed(() => ({
   gap: props.gap,
   width: 'fit-content',
   justifyItems: 'center',
-  alignItems: 'center'
+  alignItems: 'center',
 }))
 
 const ariaLabel = computed(() => `${props.value} of ${props.total}`)
 </script>
+
+<template>
+  <div class="hd-unit" :style="gridStyle" role="img" :aria-label="ariaLabel">
+    <HandDrawn
+      v-for="cell in cells"
+      :key="cell.i"
+      :name="cell.name"
+      :size="size"
+      class="hd-unit__dot"
+      :style="cell.style"
+    />
+  </div>
+</template>
 
 <style scoped>
 .hd-unit__dot {

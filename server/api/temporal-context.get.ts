@@ -21,7 +21,7 @@ function withinWindow(
   if (!candidate) return false
   try {
     const d = new Date(candidate)
-    if (isNaN(d.getTime())) return false
+    if (Number.isNaN(d.getTime())) return false
     const diff =
       Math.abs(target.getTime() - d.getTime()) / (1000 * 60 * 60 * 24)
     return diff <= days
@@ -35,7 +35,7 @@ export default defineEventHandler(async (event) => {
   if (!date) return { error: 'date parameter required' }
 
   const targetDate = new Date(date)
-  if (isNaN(targetDate.getTime())) return { error: 'invalid date' }
+  if (Number.isNaN(targetDate.getTime())) return { error: 'invalid date' }
 
   const results: {
     reading: Array<{

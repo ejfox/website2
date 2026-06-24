@@ -337,9 +337,7 @@ useHead({
             </span>
           </div>
         </div>
-        <div
-          class="h-1 bg-raised rounded-full overflow-hidden"
-        >
+        <div class="h-1 bg-raised rounded-full overflow-hidden">
           <div
             class="h-full bg-zinc-900 dark:bg-zinc-100 transition-all duration-500 ease-out"
             :style="{ width: `${(loadingStep / 3) * 100}%` }"

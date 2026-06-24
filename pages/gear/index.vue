@@ -560,8 +560,8 @@ useHead(() => ({
         </div>
 
         <p class="mt-2 text-3xs leading-3 text-zinc-500 font-mono">
-          Some product links are affiliate links — as an Amazon Associate I earn from
-          qualifying purchases. It costs you nothing extra.
+          Some product links are affiliate links — as an Amazon Associate I earn
+          from qualifying purchases. It costs you nothing extra.
         </p>
 
         <!-- Container Weight Comparison Small Multiples -->
@@ -690,9 +690,7 @@ useHead(() => ({
 
         <div class="relative overflow-x-auto">
           <table class="w-full text-4xs font-mono">
-            <thead
-              class="sticky top-0 bg-surface backdrop-blur-sm"
-            >
+            <thead class="sticky top-0 bg-surface backdrop-blur-sm">
               <tr class="border-b border-zinc-200/30 dark:border-zinc-700/30">
                 <th class="gear-th-left">Item</th>
                 <th class="gear-th"></th>
@@ -869,6 +867,7 @@ useHead(() => ({
 }
 
 .gear-footer-date {
-  @apply font-mono text-3xs uppercase tracking-[0.1em] text-zinc-400 dark:text-zinc-600 mt-2;
+  @apply font-mono text-3xs uppercase tracking-[0.1em] mt-2;
+  @apply text-zinc-400 dark:text-zinc-600;
 }
 </style>

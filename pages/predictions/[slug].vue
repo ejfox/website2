@@ -4,25 +4,6 @@ import { format } from 'date-fns'
 const { tocTarget } = useTOC()
 const { data: calibration } = useCalibration()
 
-// Find the calibration bucket that matches this prediction's confidence
-const confidenceContext = computed(() => {
-  if (!calibration.value?.calibration?.length || !prediction.value) return null
-  const conf = prediction.value.confidence
-  // Find the bucket this confidence falls into
-  const bucket = calibration.value.calibration.find(
-    (b: { expected: number }) => {
-      return Math.abs(b.expected - conf) <= 10
-    }
-  )
-  if (!bucket) return null
-  return {
-    bucket: bucket.label,
-    count: bucket.count,
-    accuracy: bucket.accuracy,
-    delta: bucket.delta,
-  }
-})
-
 interface PredictionResponse {
   id: string
   slug: string
@@ -60,6 +41,25 @@ const slug = Array.isArray(params.slug) ? params.slug[0] : params.slug || ''
 const { data: prediction, error } = await useFetch<PredictionResponse>(
   `/api/predictions/${slug}`
 )
+
+// Find the calibration bucket that matches this prediction's confidence
+const confidenceContext = computed(() => {
+  if (!calibration.value?.calibration?.length || !prediction.value) return null
+  const conf = prediction.value.confidence
+  // Find the bucket this confidence falls into
+  const bucket = calibration.value.calibration.find(
+    (b: { expected: number }) => {
+      return Math.abs(b.expected - conf) <= 10
+    }
+  )
+  if (!bucket) return null
+  return {
+    bucket: bucket.label,
+    count: bucket.count,
+    accuracy: bucket.accuracy,
+    delta: bucket.delta,
+  }
+})
 
 // Sorted updates (newest first)
 const sortedUpdates = computed(() => {

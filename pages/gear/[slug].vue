@@ -13,12 +13,12 @@ const formatPostDate = (dateStr?: string) => {
 }
 
 const route = useRoute()
-const { data, error } = await useFetch(`/api/gear/${route.params.slug}`)
+const slug = (route.params as { slug: string }).slug
+const { data, error } = await useFetch(`/api/gear/${slug}`)
 
-const { data: relatedPosts } = await useFetch(
-  `/api/gear-posts/${route.params.slug}`,
-  { default: () => [] }
-)
+const { data: relatedPosts } = await useFetch(`/api/gear-posts/${slug}`, {
+  default: () => [],
+})
 
 // Handle errors properly
 if (error.value) {
@@ -71,7 +71,7 @@ const gearItemSchema = computed(() => {
           unitCode: 'GRM',
         }
       : undefined,
-    url: `https://ejfox.com/gear/${route.params.slug}`,
+    url: `https://ejfox.com/gear/${slug}`,
   }
 })
 
@@ -168,11 +168,12 @@ definePageMeta({
 <style scoped>
 /* Primary button - used in not-found state */
 .btn-primary {
-  @apply inline-flex items-center px-4 py-2 font-mono text-xs uppercase tracking-wider
-         border border-zinc-300 dark:border-zinc-600
-         text-zinc-700 dark:text-zinc-300
-         hover:bg-zinc-100 dark:hover:bg-zinc-800
-         transition-colors duration-150 no-underline rounded-sm;
+  @apply inline-flex items-center px-4 py-2 font-mono text-xs;
+  @apply uppercase tracking-wider;
+  @apply border border-zinc-300 dark:border-zinc-600;
+  @apply text-zinc-700 dark:text-zinc-300;
+  @apply hover:bg-zinc-100 dark:hover:bg-zinc-800;
+  @apply transition-colors duration-150 no-underline rounded-sm;
 }
 
 /* BLOODHOUND FIX: Gear card now visible immediately - no animation */

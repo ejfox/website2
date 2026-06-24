@@ -10,8 +10,12 @@ const stripTags = (s: string): string => s.replace(/<[^>]*>/g, ' ')
 
 const decodeEntities = (s: string): string =>
   s
-    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
-    .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(parseInt(d, 10)))
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) =>
+      String.fromCodePoint(Number.parseInt(h, 16))
+    )
+    .replace(/&#(\d+);/g, (_, d) =>
+      String.fromCodePoint(Number.parseInt(d, 10))
+    )
     .replace(/&quot;/g, '"')
     .replace(/&apos;/g, "'")
     .replace(/&nbsp;/g, ' ')
@@ -49,7 +53,9 @@ export function ogDescription(
   const cut = text.slice(0, max)
   const lastSpace = cut.lastIndexOf(' ')
   return (
-    (lastSpace > 40 ? cut.slice(0, lastSpace) : cut).replace(/[\s,;:—–-]+$/, '') +
-    '…'
+    (lastSpace > 40 ? cut.slice(0, lastSpace) : cut).replace(
+      /[\s,;:—–-]+$/,
+      ''
+    ) + '…'
   )
 }

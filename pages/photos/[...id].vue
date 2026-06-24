@@ -62,6 +62,10 @@ const fullUrl = (p, width) => {
   return `${base}c_scale,f_auto,fl_progressive,q_auto:best,w_${width}/${path}`
 }
 
+const heroSrcSet = (p) =>
+  `${fullUrl(p, 960)} 960w, ${fullUrl(p, 1440)} 1440w, ` +
+  `${fullUrl(p, 1920)} 1920w, ${fullUrl(p, 2560)} 2560w`
+
 // ~2KB blurred placeholder for instant display
 const placeholderUrl = (p) => {
   const base = p.url.split('/upload/')[0] + '/upload/'
@@ -93,12 +97,6 @@ const shortLens = (lens) =>
     .replace('XF', 'XF ')
     .replace(/\s+/g, ' ')
     .trim() || ''
-
-const formatBytes = (bytes) => {
-  if (bytes >= 1048576) return `${(bytes / 1048576).toFixed(1)}MB`
-  if (bytes >= 1024) return `${(bytes / 1024).toFixed(0)}KB`
-  return `${bytes}B`
-}
 
 // Keyboard nav
 onMounted(() => {
@@ -166,13 +164,14 @@ watch(photoId, () => {
           <img
             ref="heroImg"
             :src="fullUrl(photo, 1920)"
-            :srcset="`${fullUrl(photo, 960)} 960w, ${fullUrl(photo, 1440)} 1440w, ${fullUrl(photo, 1920)} 1920w, ${fullUrl(photo, 2560)} 2560w`"
+            :srcset="heroSrcSet(photo)"
             :sizes="isPortrait ? '(max-width: 768px) 95vw, 60vw' : '100vw'"
             :width="photo.width"
             :height="photo.height"
             :alt="photo.description || 'Photograph'"
             :class="[
-              'relative w-full h-full object-cover transition-opacity duration-300',
+              'relative w-full h-full object-cover',
+              'transition-opacity duration-300',
               imageLoaded ? 'opacity-100' : 'opacity-0',
             ]"
             @load="onImageLoad"

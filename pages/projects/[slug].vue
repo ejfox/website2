@@ -121,9 +121,10 @@ onMounted(() => {
 
 <template>
   <div class="container-main max-w-4xl">
-    <!-- Slim persistent strip: only the marquee's UNIQUE value — status + the
-         live-project CTA. Year/tech/date live once, in the sidebar PROJECT INFO
-         (no longer duplicated here). Hidden entirely if there's nothing unique. -->
+    <!-- Slim persistent strip: only the marquee's UNIQUE value — status
+         + the live-project CTA. Year/tech/date live once, in the sidebar
+         PROJECT INFO (no longer duplicated here). Hidden entirely if
+         there's nothing unique. -->
     <div
       v-if="project && (project.metadata?.state || project.metadata?.url)"
       class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
@@ -293,7 +294,8 @@ onMounted(() => {
 }
 
 .metadata-label {
-  @apply text-zinc-500 dark:text-zinc-500 text-2xs uppercase tracking-wider mb-1;
+  @apply text-zinc-500 dark:text-zinc-500 text-2xs;
+  @apply uppercase tracking-wider mb-1;
 }
 
 .tech-badge {

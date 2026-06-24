@@ -130,7 +130,8 @@ const affiliateUrl = (url: string) => {
 
 <style scoped>
 .row {
-  @apply hover:bg-zinc-100 dark:hover:bg-zinc-900/40 cursor-pointer even:bg-zinc-50 dark:even:bg-zinc-900/20 relative;
+  @apply hover:bg-zinc-100 dark:hover:bg-zinc-900/40 cursor-pointer;
+  @apply even:bg-zinc-50 dark:even:bg-zinc-900/20 relative;
 }
 
 .cell-name {
@@ -140,7 +141,9 @@ const affiliateUrl = (url: string) => {
   @apply flex items-center gap-1;
 }
 .name-link {
-  @apply truncate flex-1 text-3xs text-zinc-800 dark:text-zinc-100 hover:text-zinc-500 dark:hover:text-zinc-400 transition-colors;
+  @apply truncate flex-1 text-3xs transition-colors;
+  @apply text-zinc-800 dark:text-zinc-100;
+  @apply hover:text-zinc-500 dark:hover:text-zinc-400;
 }
 .note-dot {
   @apply text-zinc-400 dark:text-zinc-700 text-3xs;
@@ -156,7 +159,8 @@ const affiliateUrl = (url: string) => {
   @apply px-1 py-0.5 text-center text-3xs text-zinc-500 dark:text-zinc-600;
 }
 .cell-weight {
-  @apply px-1 py-0.5 text-right text-zinc-700 dark:text-zinc-300 tabular-nums pr-2;
+  @apply px-1 py-0.5 text-right tabular-nums pr-2;
+  @apply text-zinc-700 dark:text-zinc-300;
 }
 
 .priority-pips {

@@ -19,14 +19,31 @@ const { stop } = useIntersectionObserver(el, ([e]) => {
 
 <template>
   <div ref="el" class="bg-sunken overflow-hidden flex flex-col font-mono">
-    <div class="flex items-center gap-1.5 px-2 py-0.5 border-b border-zinc-200 dark:border-zinc-800 text-3xs">
+    <div
+      class="flex items-center gap-1.5 px-2 py-0.5 border-b border-zinc-200 dark:border-zinc-800 text-3xs"
+    >
       <span class="truncate">
-        <span v-if="!entry.stories" class="text-zinc-400 dark:text-zinc-600">*</span>{{ entry.name }}
+        <span v-if="!entry.stories" class="text-zinc-400 dark:text-zinc-600">
+          *
+        </span>
+        {{ entry.name }}
       </span>
-      <span v-if="entry.isClient" class="ml-auto text-zinc-400 dark:text-zinc-600">client</span>
-      <span v-else-if="entry.isServer" class="ml-auto text-zinc-400 dark:text-zinc-600">server</span>
+      <span
+        v-if="entry.isClient"
+        class="ml-auto text-zinc-400 dark:text-zinc-600"
+      >
+        client
+      </span>
+      <span
+        v-else-if="entry.isServer"
+        class="ml-auto text-zinc-400 dark:text-zinc-600"
+      >
+        server
+      </span>
     </div>
-    <div class="h-[280px] overflow-hidden p-4 flex items-center justify-center relative">
+    <div
+      class="h-[280px] overflow-hidden p-4 flex items-center justify-center relative"
+    >
       <DevStoryRenderer
         v-if="show && entry.stories"
         :loader="entry.loader"
@@ -34,7 +51,9 @@ const { stop } = useIntersectionObserver(el, ([e]) => {
         :wrapper="entry.stories[0].wrapper"
         :slot-text="entry.stories[0].slot || null"
       />
-      <span v-else-if="show" class="text-3xs text-zinc-400 dark:text-zinc-600">no story</span>
+      <span v-else-if="show" class="text-3xs text-zinc-400 dark:text-zinc-600">
+        no story
+      </span>
       <span v-else class="text-3xs text-zinc-300 dark:text-zinc-700">…</span>
     </div>
   </div>

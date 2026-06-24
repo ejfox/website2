@@ -59,7 +59,8 @@ export function useScrollReveal(options: ScrollRevealOptions = {}) {
     // back in after hydration pushes LCP well past FCP. Above-fold elements
     // stay painted and are marked as already-appeared so they never animate
     // an entrance (they still dim/re-enter if scrolled away and back).
-    const viewportH = window.innerHeight || document.documentElement.clientHeight
+    const viewportH =
+      window.innerHeight || document.documentElement.clientHeight
     children.forEach((el) => {
       const htmlEl = el as HTMLElement
       if (htmlEl.getBoundingClientRect().top < viewportH) {

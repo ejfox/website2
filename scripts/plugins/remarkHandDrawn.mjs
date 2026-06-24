@@ -23,7 +23,7 @@ const escapeAttr = (str) =>
     .replace(/>/g, '&gt;')
 
 const isValidName = (str) => /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(str)
-const isValidSize = (str) => /^[0-9.]+(px|rem|em|%)?$/.test(str)
+const isValidSize = (str) => /^[0-9.]+(?:px|rem|em|%)?$/.test(str)
 
 // pull the bracket label text out of a directive node's children
 const labelText = (node) =>

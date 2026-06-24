@@ -249,7 +249,9 @@ export const useProcessedMarkdown = () => {
 
   const getManifestLite = async (): Promise<ManifestItem[]> => {
     try {
-      return await $fetch('/api/manifest')
+      // Cast the URL to string to bypass Nitro's typed-route inference, which
+      // recurses too deeply here and triggers TS2321 (excessive stack depth).
+      return await $fetch<ManifestItem[]>('/api/manifest' as string)
     } catch (error) {
       console.error('Error loading manifest:', error)
       return []

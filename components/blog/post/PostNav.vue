@@ -49,7 +49,8 @@ const { formatLongDate } = useDateFormat()
 }
 
 .post-nav-title {
-  @apply block font-serif text-base text-zinc-800 dark:text-zinc-200 text-pretty transition-colors duration-200;
+  @apply block font-serif text-base text-zinc-800 dark:text-zinc-200;
+  @apply text-pretty transition-colors duration-200;
 }
 
 .nav-date {

@@ -990,7 +990,8 @@ definePageMeta({
             </div>
           </template>
 
-          <!-- Stats sections (TransitionGroup removed - no CSS defined, just overhead) -->
+          <!-- Stats sections (TransitionGroup removed - no CSS defined, -->
+          <!-- just overhead) -->
           <template
             v-if="
               !isLoading &&

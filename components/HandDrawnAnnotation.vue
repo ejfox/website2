@@ -1,12 +1,3 @@
-<template>
-  <div class="hd-annotation" :style="posStyle">
-    <span v-if="label && labelFirst" class="hd-annotation__label" :style="labelStyle">{{ label }}</span>
-    <HandDrawn :name="name" :size="size" :stretch="stretch" :title="label || undefined"
-               class="hd-annotation__mark" :style="markStyle" />
-    <span v-if="label && !labelFirst" class="hd-annotation__label" :style="labelStyle">{{ label }}</span>
-  </div>
-</template>
-
 <script setup>
 import { computed } from 'vue'
 
@@ -36,13 +27,15 @@ const props = defineProps({
   flipY: { type: Boolean, default: false },
   label: { type: String, default: '' },
   // which side of the mark the label sits on: 'right' | 'left' | 'top' | 'bottom'
-  labelSide: { type: String, default: 'right' }
+  labelSide: { type: String, default: 'right' },
 })
 
 const len = (v) => (typeof v === 'number' ? `${v}px` : v)
 
 const posStyle = computed(() => {
-  const t = { center: '-50%, -50%', tip: '0, 0', tail: '-100%, -100%' }[props.anchor] || '-50%, -50%'
+  const t =
+    { center: '-50%, -50%', tip: '0, 0', tail: '-100%, -100%' }[props.anchor] ||
+    '-50%, -50%'
   return { left: len(props.x), top: len(props.y), transform: `translate(${t})` }
 })
 
@@ -54,11 +47,43 @@ const markStyle = computed(() => {
   return parts.length ? { transform: parts.join(' ') } : {}
 })
 
-const labelFirst = computed(() => props.labelSide === 'left' || props.labelSide === 'top')
+const labelFirst = computed(
+  () => props.labelSide === 'left' || props.labelSide === 'top'
+)
 const labelStyle = computed(() => ({
-  display: props.labelSide === 'top' || props.labelSide === 'bottom' ? 'block' : 'inline'
+  display:
+    props.labelSide === 'top' || props.labelSide === 'bottom'
+      ? 'block'
+      : 'inline',
 }))
 </script>
+
+<template>
+  <div class="hd-annotation" :style="posStyle">
+    <span
+      v-if="label && labelFirst"
+      class="hd-annotation__label"
+      :style="labelStyle"
+    >
+      {{ label }}
+    </span>
+    <HandDrawn
+      :name="name"
+      :size="size"
+      :stretch="stretch"
+      :title="label || undefined"
+      class="hd-annotation__mark"
+      :style="markStyle"
+    />
+    <span
+      v-if="label && !labelFirst"
+      class="hd-annotation__label"
+      :style="labelStyle"
+    >
+      {{ label }}
+    </span>
+  </div>
+</template>
 
 <style scoped>
 .hd-annotation {

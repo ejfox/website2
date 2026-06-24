@@ -8,7 +8,6 @@
  * @env DEBUG - Enable debug output (optional)
  */
 
-/* eslint-disable no-console */
 // Markdown → HTML Processing Pipeline
 import { promises as fs, existsSync, statSync } from 'node:fs'
 import { createHash } from 'node:crypto'
@@ -50,11 +49,6 @@ import { processStats } from './utils/stats.mjs'
 import { backupProcessedContent } from './utils/backup.mjs'
 
 dotenv.config()
-
-const SOURCE_DIR =
-  process.env.OBSIDIAN_VAULT_PATH ||
-  '/Users/ejfox/Library/Mobile Documents/iCloud~md~obsidian/Documents/' +
-    'ejfox/'
 
 const CACHE_VERSION = '2026-05-13-gear-cards'
 

@@ -4,7 +4,6 @@
  * @usage import { getPostType, formatFileSize, calculateWordCount } from './scripts/utils/helpers.mjs'
  */
 
-/* eslint-disable no-console */
 import { createHash } from 'node:crypto'
 import path from 'node:path'
 import chalk from 'chalk'

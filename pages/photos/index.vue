@@ -63,6 +63,10 @@ const thumbUrl = (photo, width) => {
   return `${base}c_scale,f_auto,fl_progressive,q_auto:good,w_${width}/${version}${cleanPath}`
 }
 
+const thumbSrcSet = (photo) =>
+  `${thumbUrl(photo, 640)} 640w, ${thumbUrl(photo, 1200)} 1200w, ` +
+  `${thumbUrl(photo, 1920)} 1920w`
+
 const placeholderUrl = (photo) => {
   const base = photo.url.split('/upload/')[0] + '/upload/'
   const path = photo.url.split('/upload/')[1]
@@ -126,7 +130,7 @@ useHead({ title: 'Photos — EJ Fox' })
         >
           <img
             :src="thumbUrl(item.photo, 1200)"
-            :srcset="`${thumbUrl(item.photo, 640)} 640w, ${thumbUrl(item.photo, 1200)} 1200w, ${thumbUrl(item.photo, 1920)} 1920w`"
+            :srcset="thumbSrcSet(item.photo)"
             sizes="(max-width: 768px) 95vw, 48vw"
             :width="item.photo.width"
             :height="item.photo.height"
@@ -157,7 +161,8 @@ useHead({ title: 'Photos — EJ Fox' })
           </div>
         </a>
 
-        <!-- Photo-post stack: a column-flow card that breaks out when expanded -->
+        <!-- Photo-post stack: a column-flow card that breaks out when -->
+        <!-- expanded -->
         <PhotoStack v-else :post="item.post" />
       </template>
     </div>

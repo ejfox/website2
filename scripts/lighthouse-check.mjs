@@ -6,8 +6,6 @@
  * @env None required
  */
 
-/* eslint-disable no-console */
-
 import { exec } from 'node:child_process'
 import { promisify } from 'node:util'
 import chalk from 'chalk'

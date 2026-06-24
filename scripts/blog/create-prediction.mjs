@@ -6,8 +6,6 @@
  * @env None required
  */
 
-/* eslint-disable no-console */
-
 import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
 import readline from 'node:readline'

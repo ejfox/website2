@@ -102,14 +102,6 @@ const lastUpdated = computed(() => {
 
 // === Tufte data layer ===
 
-// Helper: get a project's primary year (from metadata.date)
-const projectYear = (p) => {
-  const date = p?.metadata?.date || p?.date
-  if (!date) return null
-  const y = new Date(date).getFullYear()
-  return Number.isNaN(y) ? null : y
-}
-
 // Helper: project slug (mirrors getProjectSlug)
 const slugOf = (p) => p?.slug?.replace(/^projects\//, '') || ''
 
@@ -272,7 +264,11 @@ useHead(() => ({
       </div>
 
       <!-- Word-count stem plot: HTML/CSS bars, never stretched. -->
-      <div v-if="stemPlot.stems.length" class="hidden sm:flex mt-2 stem-plot items-end gap-px h-2 max-w-prose" aria-label="Word count per project, oldest to newest">
+      <div
+        v-if="stemPlot.stems.length"
+        class="hidden sm:flex mt-2 stem-plot items-end gap-px h-2 max-w-prose"
+        aria-label="Word count per project, oldest to newest"
+      >
         <a
           v-for="stem in stemPlot.stems"
           :key="`stem-${stem.slug}`"
@@ -282,11 +278,10 @@ useHead(() => ({
         >
           <span
             class="block absolute bottom-0 left-0 right-0 bg-zinc-400 dark:bg-zinc-600 transition-colors"
-            :style="{ height: ((stem.h / stemPlot.height) * 100) + '%' }"
+            :style="{ height: (stem.h / stemPlot.height) * 100 + '%' }"
           />
         </a>
       </div>
-
     </header>
 
     <div v-if="!projects?.length" class="text-center py-8">
@@ -296,14 +291,8 @@ useHead(() => ({
     <!-- Featured Projects - image-forward rows. Sit flush in the content column
          (same left edge as the header and the regular rows below); bigger type
          and imagery are the "Featured" cue, no extra inset. -->
-    <div
-      v-if="featuredProjects.length"
-      class="mb-16 space-y-16"
-    >
-      <template
-        v-for="(project, i) in featuredProjects"
-        :key="project.slug"
-      >
+    <div v-if="featuredProjects.length" class="mb-16 space-y-16">
+      <template v-for="(project, i) in featuredProjects" :key="project.slug">
         <ProjectRow
           :id="getProjectSlug(project)"
           :project="project"
@@ -314,15 +303,9 @@ useHead(() => ({
     </div>
 
     <!-- Everything else - compact image-forward rows, constrained. -->
-    <div
-      v-if="regularProjects.length"
-      class="space-y-14"
-    >
+    <div v-if="regularProjects.length" class="space-y-14">
       <template v-for="project in regularProjects" :key="project.slug">
-        <ProjectRow
-          :id="getProjectSlug(project)"
-          :project="project"
-        />
+        <ProjectRow :id="getProjectSlug(project)" :project="project" />
       </template>
     </div>
 
@@ -353,5 +336,4 @@ useHead(() => ({
 :global(.dark) .stem-plot a.stem:focus-visible span {
   background-color: rgb(244 244 245); /* zinc-100 */
 }
-
 </style>

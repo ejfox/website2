@@ -1,12 +1,3 @@
-<template>
-  <span ref="root" class="hd-mark" :class="`hd-mark--${placement}`" :style="markVars">
-    <span class="hd-mark__text"><slot /></span>
-    <span class="hd-mark__ink" :class="inkClass" :style="inkStyle" aria-hidden="true">
-      <HandDrawn :name="resolvedName" stretch :erode="erode" />
-    </span>
-  </span>
-</template>
-
 <script setup>
 /**
  * Lay a hand-drawn mark tightly over or under a word/phrase — the marked-up-draft
@@ -34,7 +25,7 @@ const props = defineProps({
   // ink colour: any CSS colour (defaults to highlighter yellow) ...
   tone: { type: String, default: '#fde047' },
   // ... or a Tailwind text-color token class ("text-amber-500"), which wins over tone
-  inkClass: { type: String, default: '' }
+  inkClass: { type: String, default: '' },
 })
 
 const root = ref(null)
@@ -59,7 +50,12 @@ const ringPool = (w) =>
       : ['circle-lg', 'circle-md']
 
 // how far each loop's stroke can erode before it vanishes (thinner native = less)
-const SAFE_ERODE = { 'circle-xs': 0.55, 'circle-sm': 1.0, 'circle-md': 1.1, 'circle-lg': 1.15 }
+const SAFE_ERODE = {
+  'circle-xs': 0.55,
+  'circle-sm': 1.0,
+  'circle-md': 1.1,
+  'circle-lg': 1.15,
+}
 
 // distinct (which-loop, tilt°, mirror) recipes; seq walks them so the first six marks
 // are guaranteed visually different before anything can repeat
@@ -69,7 +65,7 @@ const VARIANTS = [
   { ring: 0, rot: 3.5, flip: true },
   { ring: 1, rot: -2, flip: false },
   { ring: 0, rot: -1.5, flip: true },
-  { ring: 1, rot: 4, flip: false }
+  { ring: 1, rot: 4, flip: false },
 ]
 const recipe = computed(() => VARIANTS[seq.value % VARIANTS.length])
 
@@ -90,7 +86,7 @@ const markVars = computed(() => {
 
 // auto thinning, for rings only (scribbled underlines stay as-drawn)
 const erode = computed(() =>
-  props.placement === 'around' ? SAFE_ERODE[resolvedName.value] ?? 1.0 : 0
+  props.placement === 'around' ? (SAFE_ERODE[resolvedName.value] ?? 1.0) : 0
 )
 
 // ink colour (token class wins over tone) + the auto tilt/mirror
@@ -102,6 +98,25 @@ const inkStyle = computed(() => {
   return s
 })
 </script>
+
+<template>
+  <span
+    ref="root"
+    class="hd-mark"
+    :class="`hd-mark--${placement}`"
+    :style="markVars"
+  >
+    <span class="hd-mark__text"><slot /></span>
+    <span
+      class="hd-mark__ink"
+      :class="inkClass"
+      :style="inkStyle"
+      aria-hidden="true"
+    >
+      <HandDrawn :name="resolvedName" stretch :erode="erode" />
+    </span>
+  </span>
+</template>
 
 <style scoped>
 .hd-mark {
@@ -130,8 +145,8 @@ const inkStyle = computed(() => {
   top: -0.42em;
   bottom: -0.38em;
 }
-/* sit just below the baseline — height tracks width (via --hd-under-h) so a wide
-   stretch reads as a line, not a sprawl */
+/* sit just below the baseline — height tracks width (via --hd-under-h) so a
+   wide stretch reads as a line, not a sprawl */
 .hd-mark--under .hd-mark__ink {
   left: -0.05em;
   right: -0.05em;

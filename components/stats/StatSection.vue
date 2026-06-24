@@ -82,8 +82,9 @@ const contentClass = computed(() => (props.grid ? 'grid-2col' : 'div'))
     <component :is="headerTag" :class="headerClass">
       {{ title }}
     </component>
-    <!-- a faint hand-drawn doodle in the margin: every section gets one, each a
-         different mark (chosen from the title so it's stable + never a twin) -->
+    <!-- a faint hand-drawn doodle in the margin: every section gets one,
+         each a different mark (chosen from the title so it's stable + never
+         a twin) -->
     <HandDrawn
       v-if="!grid"
       :name="subtleMark"

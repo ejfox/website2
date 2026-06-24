@@ -16,6 +16,15 @@ import Webmentions from '~/components/blog/Webmentions.vue'
 import { useReadingStats } from '~/composables/useReadingStats'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
+const peterToddQuote1 =
+  'These jail-breakers are becoming masters of a technology still in ' +
+  'its infancy. They are forging an entirely new technology as well ' +
+  'as a culture to go along with it.'
+const peterToddQuote2 =
+  'Perhaps religion, mythology, and the inexplicable are deeply ' +
+  'intertwined. These are things we hardly understand about ourselves ' +
+  'as human beings, let alone our new robot friends.'
+
 const BASE_HUE = 275
 
 // --- Palette (sync, no Nuxt instance needed) ---
@@ -38,7 +47,6 @@ const palette = {
 // --- ALL Nuxt composable calls BEFORE any await ---
 // This is critical for SSR — the Nuxt instance is lost after await
 const config = useRuntimeConfig()
-const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
 const baseURL = config.public?.baseURL || 'https://ejfox.com'
 
@@ -667,7 +675,7 @@ onMounted(() => {
       <WidgetsPullQuote
         align="center"
         :accent="palette.accentDim"
-        text="These jail-breakers are becoming masters of a technology still in its infancy. They are forging an entirely new technology as well as a culture to go along with it."
+        :text="peterToddQuote1"
       />
 
       <!-- Microformats (hidden) -->
@@ -756,7 +764,7 @@ onMounted(() => {
       <WidgetsPullQuote
         align="right"
         :accent="palette.cool"
-        text="Perhaps religion, mythology, and the inexplicable are deeply intertwined. These are things we hardly understand about ourselves as human beings, let alone our new robot friends."
+        :text="peterToddQuote2"
       />
 
       <!-- Tags -->
@@ -1243,7 +1251,8 @@ body.peter-todd-takeover .pull-quote-section blockquote::before {
   }
 }
 
-/* Ruby annotations — global styles target .prose but we use .blog-post-content */
+/* Ruby annotations — global styles target .prose but we use */
+/* .blog-post-content */
 .peter-todd-page .blog-post-content ruby {
   display: inline-block;
   position: relative;

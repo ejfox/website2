@@ -2,7 +2,15 @@
 // Renders one component (lazily loaded via a glob importer) with a set of mock
 // props, fully isolated: an async-load failure or a render-time throw is caught
 // here so a single broken component can never take down the kitchen-sink grid.
-import { shallowRef, ref, markRaw, watch, nextTick, onErrorCaptured, onBeforeUnmount } from 'vue'
+import {
+  shallowRef,
+  ref,
+  markRaw,
+  watch,
+  nextTick,
+  onErrorCaptured,
+  onBeforeUnmount,
+} from 'vue'
 
 const props = defineProps({
   // () => import('../foo/Bar.vue') — the lazy importer from import.meta.glob
@@ -71,7 +79,11 @@ watch(resolved, (r) => {
       recompute()
       if (host.value) {
         observer = new MutationObserver(recompute)
-        observer.observe(host.value, { childList: true, subtree: true, characterData: true })
+        observer.observe(host.value, {
+          childList: true,
+          subtree: true,
+          characterData: true,
+        })
       }
     }, 400)
   })
@@ -94,8 +106,9 @@ onBeforeUnmount(teardown)
     …
   </div>
 
-  <!-- Suspense lets components with async setup (await useFetch) resolve in the
-       preview. Transparent (no DOM node), so table/list layout is preserved. -->
+  <!-- Suspense lets components with async setup (await useFetch) resolve in
+       the preview. Transparent (no DOM node), so table/list layout is
+       preserved. -->
   <table v-else-if="wrapper === 'table'" class="w-full">
     <tbody>
       <Suspense>
@@ -111,7 +124,8 @@ onBeforeUnmount(teardown)
   </ul>
 
   <template v-else>
-    <!-- display:contents so the host doesn't perturb the component's own layout -->
+    <!-- display:contents so the host doesn't perturb the component's own
+         layout -->
     <div ref="host" style="display: contents">
       <Suspense>
         <component :is="resolved" v-bind="componentProps">
@@ -123,7 +137,8 @@ onBeforeUnmount(teardown)
       v-if="empty"
       class="font-mono text-2xs text-zinc-400 dark:text-zinc-600 text-center py-6 leading-5"
     >
-      ∅ renders no visible DOM here<br />
+      ∅ renders no visible DOM here
+      <br />
       side-effect / conditionally-shown component
     </p>
   </template>

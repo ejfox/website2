@@ -21,6 +21,48 @@ interface ManifestPost {
   passwordHash?: string
 }
 
+interface ProjectWithContent {
+  slug: string
+  title?: string
+  html: string
+  metadata?: Record<string, unknown>
+  date?: string
+}
+
+// DEV ONLY: surface draft projects (which the manifest omits) by reading the
+// processed JSON files directly, so works-in-progress are previewable locally.
+// Production never calls this. Hidden/unlisted/password projects stay excluded.
+async function loadDevDraftProjects(
+  existing: ProjectWithContent[]
+): Promise<ProjectWithContent[]> {
+  const out: ProjectWithContent[] = []
+  try {
+    const { readdir } = await import('node:fs/promises')
+    const projectsDir = resolve(process.cwd(), 'content/processed/projects')
+    const seen = new Set(existing.map((p) => p.slug))
+    const files = await readdir(projectsDir)
+    for (const file of files) {
+      if (!file.endsWith('.json')) continue
+      const slug = `projects/${file.replace(/\.json$/, '')}`
+      if (seen.has(slug) || file.startsWith('!')) continue
+      const full = JSON.parse(
+        await readFile(resolve(projectsDir, file), 'utf8')
+      )
+      const m = full.metadata || {}
+      if (m.hidden || m.unlisted || m.password || m.passwordHash) continue
+      out.push({
+        slug,
+        title: full.title,
+        html: full.html,
+        metadata: full.metadata,
+      })
+    }
+  } catch (err) {
+    console.error('dev draft-project preview failed:', err)
+  }
+  return out
+}
+
 export default defineEventHandler(async () => {
   try {
     // Read the manifest first
@@ -98,36 +140,10 @@ export default defineEventHandler(async () => {
       })
     )
 
-    // DEV ONLY: also surface draft projects (which the manifest omits) by
-    // reading the processed JSON files directly, so works-in-progress are
-    // previewable locally. Production never reaches this branch.
     if (import.meta.dev) {
-      try {
-        const { readdir } = await import('node:fs/promises')
-        const projectsDir = resolve(process.cwd(), 'content/processed/projects')
-        const seen = new Set(projectPosts.map((p: ManifestPost) => p.slug))
-        const files = await readdir(projectsDir)
-        for (const file of files) {
-          if (!file.endsWith('.json')) continue
-          const slug = `projects/${file.replace(/\.json$/, '')}`
-          if (seen.has(slug) || file.startsWith('!')) continue
-          const full = JSON.parse(
-            await readFile(resolve(projectsDir, file), 'utf8')
-          )
-          // Drafts are intentionally previewable in dev, but hidden/unlisted/
-          // password-protected projects stay excluded everywhere.
-          const m = full.metadata || {}
-          if (m.hidden || m.unlisted || m.password || m.passwordHash) continue
-          projectsWithContent.push({
-            slug,
-            title: full.title,
-            html: full.html,
-            metadata: full.metadata,
-          })
-        }
-      } catch (err) {
-        console.error('dev draft-project preview failed:', err)
-      }
+      projectsWithContent.push(
+        ...(await loadDevDraftProjects(projectsWithContent))
+      )
     }
 
     // Sort by date descending

@@ -39,8 +39,7 @@ const sortedCategories = computed(() => {
 
 usePageSeo({
   title: 'Following · EJ Fox',
-  description:
-    'My blogroll — the corners of the web I keep up with',
+  description: 'My blogroll — the corners of the web I keep up with',
   type: 'article',
   section: 'Meta',
   tags: ['RSS', 'Blogroll', 'Data Visualization', 'Journalism'],

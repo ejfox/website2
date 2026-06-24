@@ -131,12 +131,12 @@ async function extractFromMarkdown(slug) {
   const { data: fm, content } = matter(raw)
 
   // Title: first H1 (## or #), else filename
-  const h1 = content.match(/^#{1,2}\s+(.+)$/m)
+  const h1 = content.match(/^#{1,2}[ \t]+(\S.*)$/m)
   const title = (fm.title || h1?.[1] || slug.split('/').pop()).trim()
 
   // Headings ## / ###, skipping the first H1/H2 used as title.
   const headings = []
-  for (const m of content.matchAll(/^#{2,4}\s+(.+)$/gm)) {
+  for (const m of content.matchAll(/^#{2,4}[ \t]+(\S.*)$/gm)) {
     const text = m[1].trim()
     if (text !== title && !headings.includes(text)) headings.push(text)
     if (headings.length >= 5) break
@@ -152,13 +152,14 @@ async function extractFromMarkdown(slug) {
 
   // Cloudinary image URLs — frontmatter first (cover/hero stays prominent),
   // then body markdown refs.
+  const cloudinaryImgRe = new RegExp(
+    String.raw`!\[[^\]]*\]\(` +
+      String.raw`(https://res\.cloudinary\.com/ejf/image/upload/[^)]+)\)`,
+    'g'
+  )
   const imageUrls = dedupe([
     ...imagesFromFrontmatter(fm),
-    ...Array.from(
-      content.matchAll(
-        /!\[[^\]]*\]\((https:\/\/res\.cloudinary\.com\/ejf\/image\/upload\/[^)]+)\)/g
-      )
-    ).map((m) => m[1]),
+    ...Array.from(content.matchAll(cloudinaryImgRe)).map((m) => m[1]),
   ]).slice(0, MAX_IMAGES)
 
   // First real paragraph (skip frontmatter, headings, blockquotes, images, lists).

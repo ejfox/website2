@@ -6,7 +6,6 @@
  * @env None required - reads from git
  */
 
-/* eslint-disable no-console */
 import { execSync } from 'node:child_process'
 import { writeFileSync } from 'node:fs'
 

@@ -7,7 +7,6 @@
  * @output data/changelog.json
  */
 
-/* eslint-disable no-console */
 import { execSync } from 'node:child_process'
 import { mkdirSync, writeFileSync } from 'node:fs'
 

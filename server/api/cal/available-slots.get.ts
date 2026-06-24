@@ -31,7 +31,10 @@ export default defineEventHandler(async (event) => {
     const eventTypeSlug = '30min' // The event type slug on Cal.com
     const durationMinutes = duration === '30min' ? 20 : 60 // Default meeting lengths
 
-    const response = (await $fetch('https://api.cal.com/v2/slots', {
+    // Explicit generic bypasses Nitro's typed-route inference (TS2321).
+    const response = await $fetch<{
+      data?: Record<string, Array<{ start: string; end?: string }>>
+    }>('https://api.cal.com/v2/slots', {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${config.calcomApiKey}`,
@@ -47,7 +50,7 @@ export default defineEventHandler(async (event) => {
         duration: durationMinutes,
         format: 'range',
       },
-    })) as { data?: Record<string, Array<{ start: string; end?: string }>> }
+    })
 
     if (!response.data) {
       return { slots: [] }

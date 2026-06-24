@@ -166,54 +166,6 @@ function pickPalette(colors) {
   return { primary, secondary }
 }
 
-function buildSvgPlaceholder(width, height, primary, secondary) {
-  const safeWidth = Number.isFinite(width) ? width : 1200
-  const safeHeight = Number.isFinite(height) ? height : 800
-  const p1 = primary || '#222222'
-  const p2 = secondary || primary || '#333333'
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${safeWidth}" height="${safeHeight}" viewBox="0 0 ${safeWidth} ${safeHeight}" preserveAspectRatio="none"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="${p1}"/><stop offset="100%" stop-color="${p2}"/></linearGradient></defs><rect width="100%" height="100%" fill="url(#g)"/></svg>`
-  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`
-}
-
-// ---------------------------------------------------------------------------
-// LQIP — fetch a 20px blurred JPEG from Cloudinary, inline as base64 so it
-// paints instantly before the real image loads. Cached per-URL.
-// ---------------------------------------------------------------------------
-
-function buildLqipUrl(url) {
-  if (!url.includes('res.cloudinary.com/')) return null
-  const base = url.split('/upload/')[0] + '/upload/'
-  const pathPart = url.split('/upload/')[1]
-  if (!pathPart) return null
-  return `${base}c_scale,e_blur:1000,f_jpg,q_20,w_20/${pathPart}`
-}
-
-async function fetchLqip(url) {
-  const lqipUrl = buildLqipUrl(url)
-  if (!lqipUrl) return null
-  try {
-    const res = await limiter(() => fetch(lqipUrl))
-    if (!res.ok) return null
-    const buf = Buffer.from(await res.arrayBuffer())
-    // Sanity cap: something went wrong if a tiny blur is >8KB
-    if (buf.length > 8 * 1024) return null
-    return `data:image/jpeg;base64,${buf.toString('base64')}`
-  } catch {
-    return null
-  }
-}
-
-function hasMeaningfulMeta(meta) {
-  if (!meta || typeof meta !== 'object') return false
-  return Boolean(
-    meta.width ||
-    meta.height ||
-    (Array.isArray(meta.colors) && meta.colors.length > 0) ||
-    meta.avgColor ||
-    meta.secondaryColor
-  )
-}
-
 // ---------------------------------------------------------------------------
 // Rate limiter
 // ---------------------------------------------------------------------------
@@ -255,6 +207,45 @@ const limiter = (() => {
 
   return schedule
 })()
+
+// ---------------------------------------------------------------------------
+// LQIP — fetch a 20px blurred JPEG from Cloudinary, inline as base64 so it
+// paints instantly before the real image loads. Cached per-URL.
+// ---------------------------------------------------------------------------
+
+function buildLqipUrl(url) {
+  if (!url.includes('res.cloudinary.com/')) return null
+  const base = url.split('/upload/')[0] + '/upload/'
+  const pathPart = url.split('/upload/')[1]
+  if (!pathPart) return null
+  return `${base}c_scale,e_blur:1000,f_jpg,q_20,w_20/${pathPart}`
+}
+
+async function fetchLqip(url) {
+  const lqipUrl = buildLqipUrl(url)
+  if (!lqipUrl) return null
+  try {
+    const res = await limiter(() => fetch(lqipUrl))
+    if (!res.ok) return null
+    const buf = Buffer.from(await res.arrayBuffer())
+    // Sanity cap: something went wrong if a tiny blur is >8KB
+    if (buf.length > 8 * 1024) return null
+    return `data:image/jpeg;base64,${buf.toString('base64')}`
+  } catch {
+    return null
+  }
+}
+
+function hasMeaningfulMeta(meta) {
+  if (!meta || typeof meta !== 'object') return false
+  return Boolean(
+    meta.width ||
+    meta.height ||
+    (Array.isArray(meta.colors) && meta.colors.length > 0) ||
+    meta.avgColor ||
+    meta.secondaryColor
+  )
+}
 
 // ---------------------------------------------------------------------------
 // Cloudinary metadata fetch (dimensions, colors, AND context alt/caption)

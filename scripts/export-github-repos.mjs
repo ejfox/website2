@@ -7,8 +7,6 @@
  * @env githubToken - Alternative env var name for GitHub token (optional)
  */
 
-/* eslint-disable no-console */
-
 import { writeFileSync, mkdirSync, existsSync, readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'

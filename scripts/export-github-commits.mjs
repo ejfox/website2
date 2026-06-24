@@ -6,8 +6,6 @@
  * @env None required - uses gh CLI which must be authenticated
  */
 
-/* eslint-disable no-console */
-
 import { execSync } from 'node:child_process'
 import { writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'

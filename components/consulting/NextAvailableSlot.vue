@@ -11,13 +11,10 @@ import { computed } from 'vue'
 const props = defineProps({ mock: { type: Object, default: null } })
 
 // Fetch the first available slot with auto-refresh
-const { data, pending, refresh } = await useLazyFetch(
-  '/api/cal/available-slots',
-  {
-    refresh: 5 * 60 * 1000, // Refresh every 5 minutes
-    default: () => ({ slots: [] }),
-  }
-)
+const { data, refresh } = await useLazyFetch('/api/cal/available-slots', {
+  refresh: 5 * 60 * 1000, // Refresh every 5 minutes
+  default: () => ({ slots: [] }),
+})
 
 // Get the very next available slot
 const nextSlot = computed(() => {
@@ -48,8 +45,9 @@ onMounted(() => {
 <template>
   <span class="next-available-slot group relative inline">
     <ClientOnly>
-      <!-- Available slot - inline magic link. Renders nothing otherwise so
-           the surrounding "grab some time on my calendar" link stands alone. -->
+      <!-- Available slot - inline magic link. Renders nothing otherwise
+           so the surrounding "grab some time on my calendar" link stands
+           alone. -->
       <a
         v-if="nextSlot"
         :href="nextSlot.bookingUrl"

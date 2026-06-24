@@ -6,7 +6,7 @@ const { getItemWeightInOunces, calculateTotalWeight } = useWeightCalculations()
 
 const toGrams = (item) => {
   const oz = getItemWeightInOunces(item)
-  if (!oz || isNaN(oz)) return 0
+  if (!oz || Number.isNaN(oz)) return 0
   return Math.round(oz * 28.3495)
 }
 
@@ -60,7 +60,8 @@ const totalLabel = computed(() =>
 
 <style scoped>
 .plate-header {
-  @apply flex justify-between items-baseline border-b border-zinc-200 dark:border-zinc-700 mb-4 pb-1;
+  @apply flex justify-between items-baseline mb-4 pb-1;
+  @apply border-b border-zinc-200 dark:border-zinc-700;
 }
 .plate-label {
   @apply font-mono text-3xs uppercase tracking-wider text-zinc-400;
@@ -97,13 +98,17 @@ const totalLabel = computed(() =>
   @apply flex flex-col items-center w-full mt-2 gap-0.5;
 }
 .specimen-name {
-  @apply font-mono text-3xs uppercase tracking-wider text-zinc-700 dark:text-zinc-300 truncate max-w-full text-center block;
+  @apply font-mono text-3xs uppercase tracking-wider;
+  @apply text-zinc-700 dark:text-zinc-300;
+  @apply truncate max-w-full text-center block;
 }
 .specimen-weight {
-  @apply font-mono text-lg font-bold tabular-nums text-zinc-900 dark:text-zinc-100 text-center;
+  @apply font-mono text-lg font-bold tabular-nums text-center;
+  @apply text-zinc-900 dark:text-zinc-100;
 }
 .specimen-type {
-  @apply font-mono text-3xs text-zinc-400 dark:text-zinc-600 uppercase text-center;
+  @apply font-mono text-3xs uppercase text-center;
+  @apply text-zinc-400 dark:text-zinc-600;
 }
 .specimen-pips {
   @apply font-mono text-3xs text-zinc-500 text-center;

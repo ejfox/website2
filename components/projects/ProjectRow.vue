@@ -7,6 +7,124 @@
   @props featured: boolean - Featured rows get bigger type + full-bleed escape
     via the parent layout.
 -->
+<script setup>
+const props = defineProps({
+  project: { type: Object, required: true },
+  featured: { type: Boolean, default: false },
+  // Eager-load + high-priority the first row's image (the LCP candidate).
+  eager: { type: Boolean, default: false },
+})
+
+const projectSlug = computed(
+  () => props.project.slug?.replace(/^projects\//, '') || ''
+)
+
+const projectTitle = computed(
+  () => props.project.title || props.project.metadata?.title || 'Untitled'
+)
+
+const client = computed(() => props.project.metadata?.client || '')
+
+// --- Context: client / collaborative / personal --------------------------------
+// Defaults to "personal" — only client & collaborative projects set `context` in
+// frontmatter. client/collaborative read slightly brighter; personal sits back.
+const contextTag = computed(() => {
+  const c = props.project.metadata?.context || 'personal'
+  const map = {
+    client: { label: 'client', class: 'text-zinc-500 dark:text-zinc-300' },
+    collaborative: {
+      label: 'collaborative',
+      class: 'text-zinc-500 dark:text-zinc-300',
+    },
+    personal: { label: 'personal', class: 'text-zinc-400 dark:text-zinc-600' },
+  }
+  return map[c] || map.personal
+})
+
+const year = computed(() => {
+  const date = props.project.metadata?.date || props.project.date
+  if (!date) return ''
+  const y = new Date(date).getFullYear()
+  return Number.isNaN(y) ? '' : y
+})
+
+// --- State chip --------------------------------------------------------------
+// --- External link ----------------------------------------------------------
+// The whole row is a NuxtLink to the detail page; the ↗ opens the project's own
+// URL in a new tab without triggering that navigation. Quieter than a state chip.
+const projectUrl = computed(() => props.project.metadata?.url || '')
+const openExternal = () => {
+  if (projectUrl.value) window.open(projectUrl.value, '_blank', 'noopener')
+}
+
+// --- Tech stack stripe -------------------------------------------------------
+const tech = computed(() => {
+  const t = props.project.metadata?.tech
+  if (!Array.isArray(t)) return []
+  return t.map((x) => String(x).toLowerCase()).filter(Boolean)
+})
+
+// --- Images & Cloudinary transforms -----------------------------------------
+// Inject the transform right after /upload/ so it works on BOTH versioned
+// (/upload/v123/…) and unversioned (/upload/projects/…) URLs.
+const cld = (src, transform) => {
+  if (!src) return src
+  const url = src.replace(/^http:/, 'https:')
+  const marker = '/image/upload/'
+  const at = url.indexOf(marker)
+  if (at === -1) return url
+  const head = url.slice(0, at + marker.length)
+  // Strip any transform segments ALREADY baked into the URL (e.g. the
+  // c_scale,…,w_1280 that remarkEnhanceImages injects upstream). Otherwise our
+  // c_fill,w_900 crop gets re-scaled to 1280 — upscaling a downscale, which
+  // ships softer, heavier images. A segment is a transform iff every
+  // comma-token is a cloudinary param (`x_…`); versions (v123) and folder
+  // names (projects) are not, so they survive.
+  const segs = url.slice(at + marker.length).split('/')
+  const isTransform = (s) =>
+    s.length > 0 && s.split(',').every((t) => /^[a-z]+_/.test(t))
+  let i = 0
+  while (i < segs.length && isTransform(segs[i])) i++
+  return head + transform + '/' + segs.slice(i).join('/')
+}
+// Hero: keep full aspect, just cap size. Tile: uniform 3:2 with NO crop —
+// pad to the aspect using the page background color (zinc-900 #18181b) so the
+// padding is invisible. Portraits float whole, landscapes fill; every tile the
+// same size and nothing gets butchered.
+const thumb = (src, width) => cld(src, `c_limit,w_${width},q_auto,f_auto`)
+const tile = (src, width) =>
+  cld(src, `c_fill,ar_3:2,g_auto,w_${width},q_auto,f_auto`)
+
+const images = computed(() => {
+  if (!props.project.html) return []
+  return [...props.project.html.matchAll(/<img[^>]+src="([^"]+)"/g)].map((m) =>
+    m[1].replace(/^http:/, 'https:')
+  )
+})
+
+const IMAGE_CAP = 6
+const visibleImages = computed(() => images.value.slice(0, IMAGE_CAP))
+const hiddenCount = computed(() => Math.max(0, images.value.length - IMAGE_CAP))
+
+// Single-image rows: one static hero, no cycling.
+const heroSrc = computed(() =>
+  images.value.length ? thumb(images.value[0], 1500) : ''
+)
+
+// --- Excerpt ----------------------------------------------------------------
+const excerpt = computed(() => {
+  if (!props.project.html) return null
+  const pMatch = props.project.html.match(/<p[^>]*>([\s\S]*?)<\/p>/)
+  const raw = pMatch ? pMatch[1] : props.project.html
+  return (
+    raw
+      .replace(/<[^>]*>/g, '')
+      .replace(/\s+/g, ' ')
+      .trim() || null
+  )
+})
+</script>
+
 <template>
   <NuxtLink
     :to="`/projects/${projectSlug}`"
@@ -110,120 +228,6 @@
     </div>
   </NuxtLink>
 </template>
-
-<script setup>
-const props = defineProps({
-  project: { type: Object, required: true },
-  featured: { type: Boolean, default: false },
-  // Eager-load + high-priority the first row's image (the LCP candidate).
-  eager: { type: Boolean, default: false },
-})
-
-const projectSlug = computed(
-  () => props.project.slug?.replace(/^projects\//, '') || ''
-)
-
-const projectTitle = computed(
-  () => props.project.title || props.project.metadata?.title || 'Untitled'
-)
-
-const client = computed(() => props.project.metadata?.client || '')
-
-// --- Context: client / collaborative / personal --------------------------------
-// Defaults to "personal" — only client & collaborative projects set `context` in
-// frontmatter. client/collaborative read slightly brighter; personal sits back.
-const contextTag = computed(() => {
-  const c = props.project.metadata?.context || 'personal'
-  const map = {
-    client: { label: 'client', class: 'text-zinc-500 dark:text-zinc-300' },
-    collaborative: { label: 'collaborative', class: 'text-zinc-500 dark:text-zinc-300' },
-    personal: { label: 'personal', class: 'text-zinc-400 dark:text-zinc-600' },
-  }
-  return map[c] || map.personal
-})
-
-const year = computed(() => {
-  const date = props.project.metadata?.date || props.project.date
-  if (!date) return ''
-  const y = new Date(date).getFullYear()
-  return Number.isNaN(y) ? '' : y
-})
-
-// --- State chip --------------------------------------------------------------
-// --- External link ----------------------------------------------------------
-// The whole row is a NuxtLink to the detail page; the ↗ opens the project's own
-// URL in a new tab without triggering that navigation. Quieter than a state chip.
-const projectUrl = computed(() => props.project.metadata?.url || '')
-const openExternal = () => {
-  if (projectUrl.value) window.open(projectUrl.value, '_blank', 'noopener')
-}
-
-// --- Tech stack stripe -------------------------------------------------------
-const tech = computed(() => {
-  const t = props.project.metadata?.tech
-  if (!Array.isArray(t)) return []
-  return t.map((x) => String(x).toLowerCase()).filter(Boolean)
-})
-
-// --- Images & Cloudinary transforms -----------------------------------------
-// Inject the transform right after /upload/ so it works on BOTH versioned
-// (/upload/v123/…) and unversioned (/upload/projects/…) URLs.
-const cld = (src, transform) => {
-  if (!src) return src
-  const url = src.replace(/^http:/, 'https:')
-  const marker = '/image/upload/'
-  const at = url.indexOf(marker)
-  if (at === -1) return url
-  const head = url.slice(0, at + marker.length)
-  // Strip any transform segments ALREADY baked into the URL (e.g. the
-  // c_scale,…,w_1280 that remarkEnhanceImages injects upstream). Otherwise our
-  // c_fill,w_900 crop gets re-scaled to 1280 — upscaling a downscale, which
-  // ships softer, heavier images. A segment is a transform iff every
-  // comma-token is a cloudinary param (`x_…`); versions (v123) and folder
-  // names (projects) are not, so they survive.
-  const segs = url.slice(at + marker.length).split('/')
-  const isTransform = (s) => s.length > 0 && s.split(',').every((t) => /^[a-z]+_/.test(t))
-  let i = 0
-  while (i < segs.length && isTransform(segs[i])) i++
-  return head + transform + '/' + segs.slice(i).join('/')
-}
-// Hero: keep full aspect, just cap size. Tile: uniform 3:2 with NO crop —
-// pad to the aspect using the page background color (zinc-900 #18181b) so the
-// padding is invisible. Portraits float whole, landscapes fill; every tile the
-// same size and nothing gets butchered.
-const thumb = (src, width) => cld(src, `c_limit,w_${width},q_auto,f_auto`)
-const tile = (src, width) =>
-  cld(src, `c_fill,ar_3:2,g_auto,w_${width},q_auto,f_auto`)
-
-const images = computed(() => {
-  if (!props.project.html) return []
-  return [...props.project.html.matchAll(/<img[^>]+src="([^"]+)"/g)].map(
-    (m) => m[1].replace(/^http:/, 'https:')
-  )
-})
-
-const IMAGE_CAP = 6
-const visibleImages = computed(() => images.value.slice(0, IMAGE_CAP))
-const hiddenCount = computed(() => Math.max(0, images.value.length - IMAGE_CAP))
-
-// Single-image rows: one static hero, no cycling.
-const heroSrc = computed(() =>
-  images.value.length ? thumb(images.value[0], 1500) : ''
-)
-
-// --- Excerpt ----------------------------------------------------------------
-const excerpt = computed(() => {
-  if (!props.project.html) return null
-  const pMatch = props.project.html.match(/<p[^>]*>([\s\S]*?)<\/p>/)
-  const raw = pMatch ? pMatch[1] : props.project.html
-  return (
-    raw
-      .replace(/<[^>]*>/g, '')
-      .replace(/\s+/g, ' ')
-      .trim() || null
-  )
-})
-</script>
 
 <style scoped>
 /* The lede sits in a calm reading measure and a quiet size so it reads as

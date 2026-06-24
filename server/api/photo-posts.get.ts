@@ -30,7 +30,7 @@ function extractImageSrcs(
   if (!html) return { srcs: [], total: 0 }
   const seen = new Set<string>()
   const srcs: string[] = []
-  const re = /<img\b[^>]*?\bsrc="([^"]+)"/gi
+  const re = /<img\b[^>]*?\ssrc="([^"]+)"/gi
   let m: RegExpExecArray | null
   while ((m = re.exec(html)) !== null) {
     const url = m[1]

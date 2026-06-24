@@ -7,8 +7,6 @@
  * @usage node scripts/export-github-networks.mjs
  */
 
-/* eslint-disable no-console */
-
 import {
   readFileSync,
   writeFileSync,

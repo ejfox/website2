@@ -6,7 +6,7 @@ const { getItemWeightInOunces } = useWeightCalculations()
 
 const formatOz = (item) => {
   const oz = getItemWeightInOunces(item)
-  if (!oz || isNaN(oz)) return '—'
+  if (!oz || Number.isNaN(oz)) return '—'
   return oz > 16 ? `${(oz / 16).toFixed(1)}lb` : `${oz.toFixed(1)}oz`
 }
 </script>
@@ -39,7 +39,8 @@ const formatOz = (item) => {
 
 <style scoped>
 .showroom-label {
-  @apply font-mono text-3xs uppercase tracking-[.1em] text-cyan-500/50 py-1 px-2 bg-sunken;
+  @apply font-mono text-3xs uppercase tracking-[.1em];
+  @apply text-cyan-500/50 py-1 px-2 bg-sunken;
 }
 
 .gallery {
@@ -48,7 +49,8 @@ const formatOz = (item) => {
     auto-fill,
     minmax(260px, 1fr)
   ); /* no Tailwind equivalent */
-  background:                                                    /* gradient can't @apply */
+  /* gradient can't @apply */
+  background:
     repeating-linear-gradient(
       0deg,
       transparent 0 2px,
@@ -58,13 +60,16 @@ const formatOz = (item) => {
 }
 
 .card {
-  @apply relative block border border-cyan-500 no-underline bg-page transition-shadow duration-200;
-  box-shadow: 0 0 8px rgba(6, 182, 212, 0.3); /* complex shadow — keep raw */
+  @apply relative block border border-cyan-500 no-underline;
+  @apply bg-page transition-shadow duration-200;
+  /* complex shadow — keep raw */
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
 }
 .card::before,
 .card::after {
   content: '';
-  @apply absolute w-[12px] h-[12px] z-[1]; /* 12px not in custom spacing scale */
+  /* 12px not in custom spacing scale */
+  @apply absolute w-[12px] h-[12px] z-[1];
 }
 .card::before {
   @apply -top-px -left-px border-t-2 border-l-2 border-cyan-500;
@@ -79,13 +84,15 @@ const formatOz = (item) => {
 }
 
 .card-meta {
-  @apply flex items-center gap-1 py-1 px-2 border-t border-cyan-500/20 text-3xs leading-none;
+  @apply flex items-center gap-1 py-1 px-2;
+  @apply border-t border-cyan-500/20 text-3xs leading-none;
 }
 .sym {
   @apply text-cyan-500 flex-shrink-0;
 }
 .name {
-  @apply text-zinc-400 tracking-[.05em] flex-1 overflow-hidden text-ellipsis whitespace-nowrap;
+  @apply text-zinc-400 tracking-[.05em] flex-1;
+  @apply overflow-hidden text-ellipsis whitespace-nowrap;
 }
 .wt {
   @apply text-cyan-500/70 flex-shrink-0;

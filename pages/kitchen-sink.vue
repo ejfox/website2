@@ -41,11 +41,16 @@ function splitByCase(str) {
     .filter(Boolean)
 }
 function canonicalName(relPath) {
-  const clean = relPath.replace(/\.(client|server)\.vue$/, '').replace(/\.vue$/, '')
+  const clean = relPath
+    .replace(/\.(client|server)\.vue$/, '')
+    .replace(/\.vue$/, '')
   const words = clean.split('/').flatMap(splitByCase)
   const deduped = []
   for (const w of words) {
-    if (!deduped.length || deduped[deduped.length - 1].toLowerCase() !== w.toLowerCase()) {
+    if (
+      !deduped.length ||
+      deduped[deduped.length - 1].toLowerCase() !== w.toLowerCase()
+    ) {
       deduped.push(w)
     }
   }
@@ -58,7 +63,9 @@ const entries = Object.keys(compModules)
   .filter((e) => !e.relPath.startsWith('dev/')) // hide our own StoryRenderer helper
   .map(({ key, relPath }) => {
     const file = relPath.split('/').pop()
-    const baseName = file.replace(/\.(client|server)\.vue$/, '').replace(/\.vue$/, '')
+    const baseName = file
+      .replace(/\.(client|server)\.vue$/, '')
+      .replace(/\.vue$/, '')
     const segs = relPath.split('/')
     const folder = segs.length > 1 ? segs[0] : 'root'
     return {
@@ -95,14 +102,12 @@ const orphanedKeys = (() => {
 })()
 if (import.meta.dev) {
   if (missingStory.value.length) {
-    // eslint-disable-next-line no-console
     console.warn(
       `[kitchen-sink] ${missingStory.value.length} component(s) missing a story:`,
       missingStory.value.map((e) => e.name)
     )
   }
   if (orphanedKeys.length) {
-    // eslint-disable-next-line no-console
     console.warn(
       '[kitchen-sink] orphaned story key(s) — no matching component (renamed/removed?):',
       orphanedKeys
@@ -118,7 +123,12 @@ const visible = computed(() => {
   const q = search.value.trim().toLowerCase()
   return entries.filter((e) => {
     if (activeFolder.value && e.folder !== activeFolder.value) return false
-    if (q && !e.name.toLowerCase().includes(q) && !e.relPath.toLowerCase().includes(q)) return false
+    if (
+      q &&
+      !e.name.toLowerCase().includes(q) &&
+      !e.relPath.toLowerCase().includes(q)
+    )
+      return false
     return true
   })
 })
@@ -133,7 +143,10 @@ const groupedVisible = computed(() => {
   }
   return [...groups.entries()]
     .map(([folder, items]) => ({ folder, items }))
-    .sort((a, b) => b.items.length - a.items.length || a.folder.localeCompare(b.folder))
+    .sort(
+      (a, b) =>
+        b.items.length - a.items.length || a.folder.localeCompare(b.folder)
+    )
 })
 
 // ── Preview pane (hover to preview, click to pin) ────────────────────────────
@@ -207,7 +220,7 @@ const entryByName = (name) => {
     const e = entryByName(cName)
     if (e) {
       pinned.value = e
-      const vi = parseInt(Array.isArray(q.v) ? q.v[0] : q.v, 10)
+      const vi = Number.parseInt(Array.isArray(q.v) ? q.v[0] : q.v, 10)
       if (!Number.isNaN(vi)) pendingVariant = vi
     }
   }
@@ -218,7 +231,8 @@ const entryByName = (name) => {
 function syncUrl() {
   const query = {}
   if (pinned.value) query.c = pinned.value.name
-  if (pinned.value && activeVariant.value > 0) query.v = String(activeVariant.value)
+  if (pinned.value && activeVariant.value > 0)
+    query.v = String(activeVariant.value)
   if (focusMode.value) query.focus = '1'
   if (galleryMode.value) query.gallery = '1'
   router.replace({ query })
@@ -233,23 +247,36 @@ function copyLink() {
 function focusStep(dir) {
   const list = visible.value
   if (!list.length) return
-  const i = pinned.value ? list.findIndex((e) => e.key === pinned.value.key) : -1
+  const i = pinned.value
+    ? list.findIndex((e) => e.key === pinned.value.key)
+    : -1
   pinned.value = list[(i + dir + list.length) % list.length]
 }
 </script>
 
 <template>
-  <!-- Brutalist/utilitarian: hairline rules, monospace, text-links, no chrome. -->
+  <!-- Brutalist/utilitarian: hairline rules, monospace, text-links, -->
+  <!-- no chrome. -->
   <div
     class="ks h-screen flex flex-col bg-sunken text-zinc-900 dark:text-zinc-200 font-mono"
   >
     <!-- Masthead -->
-    <header class="shrink-0 border-b border-zinc-300 dark:border-zinc-700 px-3 py-2">
+    <header
+      class="shrink-0 border-b border-zinc-300 dark:border-zinc-700 px-3 py-2"
+    >
       <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-        <h1 class="text-xs font-bold uppercase tracking-widest">Kitchen Sink</h1>
+        <h1 class="text-xs font-bold uppercase tracking-widest">
+          Kitchen Sink
+        </h1>
         <span class="text-2xs text-zinc-500">
-          {{ visible.length }}<template v-if="visible.length !== entries.length">/{{ entries.length }}</template>
-          components<template v-if="missingStory.length"> · {{ missingStory.length }} without a story</template>
+          {{ visible.length }}
+          <template v-if="visible.length !== entries.length">
+            /{{ entries.length }}
+          </template>
+          components
+          <template v-if="missingStory.length">
+            · {{ missingStory.length }} without a story
+          </template>
         </span>
         <input
           v-model="search"
@@ -259,8 +286,16 @@ function focusStep(dir) {
         />
       </div>
       <!-- folder filter: plain inline text links -->
-      <div class="mt-1 text-2xs text-zinc-500 flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5">
-        <button class="lnk" :class="{ on: !activeFolder }" @click="activeFolder = null">all</button>
+      <div
+        class="mt-1 text-2xs text-zinc-500 flex flex-wrap items-baseline gap-x-2.5 gap-y-0.5"
+      >
+        <button
+          class="lnk"
+          :class="{ on: !activeFolder }"
+          @click="activeFolder = null"
+        >
+          all
+        </button>
         <button
           v-for="f in folders"
           :key="f.name"
@@ -268,17 +303,30 @@ function focusStep(dir) {
           :class="{ on: activeFolder === f.name }"
           @click="activeFolder = f.name"
         >
-          {{ f.name }}<span class="text-zinc-400 dark:text-zinc-600"> {{ f.count }}</span>
+          {{ f.name }}
+          <span class="text-zinc-400 dark:text-zinc-600">{{ f.count }}</span>
         </button>
         <span class="flex-1" />
-        <button class="lnk" :class="{ on: galleryMode }" @click="galleryMode = !galleryMode">gallery</button>
+        <button
+          class="lnk"
+          :class="{ on: galleryMode }"
+          @click="galleryMode = !galleryMode"
+        >
+          gallery
+        </button>
       </div>
     </header>
 
     <!-- Gallery / contact-sheet mode (QA sweep) -->
     <div v-if="galleryMode" class="flex-1 overflow-y-auto p-2">
-      <div class="grid gap-px bg-zinc-200 dark:bg-raised grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-        <DevGalleryCell v-for="entry in visible" :key="entry.key" :entry="entry" />
+      <div
+        class="grid gap-px bg-zinc-200 dark:bg-raised grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+      >
+        <DevGalleryCell
+          v-for="entry in visible"
+          :key="entry.key"
+          :entry="entry"
+        />
       </div>
     </div>
 
@@ -295,7 +343,9 @@ function focusStep(dir) {
             class="sticky top-0 z-10 flex items-center justify-between px-3 py-0.5 bg-sunken border-b border-zinc-300 dark:border-zinc-700 text-3xs uppercase tracking-wider text-zinc-500"
           >
             <span>{{ group.folder }}</span>
-            <span class="text-zinc-400 dark:text-zinc-600">{{ group.items.length }}</span>
+            <span class="text-zinc-400 dark:text-zinc-600">
+              {{ group.items.length }}
+            </span>
           </div>
           <button
             v-for="entry in group.items"
@@ -310,23 +360,35 @@ function focusStep(dir) {
                 v-if="!entry.stories"
                 class="text-zinc-400 dark:text-zinc-600"
                 title="no story — add one in utils/kitchenSinkStories.js"
-                >*</span
-              >{{ entry.name }}
+              >
+                *
+              </span>
+              {{ entry.name }}
             </span>
             <span v-if="entry.isClient" class="meta">client</span>
             <span v-if="entry.isServer" class="meta">server</span>
           </button>
         </template>
 
-        <p v-if="!visible.length" class="text-2xs text-zinc-500 p-3">no match</p>
+        <p v-if="!visible.length" class="text-2xs text-zinc-500 p-3">
+          no match
+        </p>
       </nav>
 
       <!-- Preview -->
       <section class="flex-1 min-w-0 overflow-y-auto">
-        <div v-if="!active" class="h-full flex items-center justify-center px-6">
-          <p class="text-2xs text-zinc-400 dark:text-zinc-600 text-center leading-5">
-            hover a component to preview · click to pin<br />
-            deep-link with <span class="text-zinc-500">?c=Name</span> · focus mode survives HMR
+        <div
+          v-if="!active"
+          class="h-full flex items-center justify-center px-6"
+        >
+          <p
+            class="text-2xs text-zinc-400 dark:text-zinc-600 text-center leading-5"
+          >
+            hover a component to preview · click to pin
+            <br />
+            deep-link with
+            <span class="text-zinc-500">?c=Name</span>
+            · focus mode survives HMR
           </p>
         </div>
 
@@ -335,33 +397,66 @@ function focusStep(dir) {
           <div
             class="sticky top-0 z-10 bg-sunken border-b border-zinc-300 dark:border-zinc-700 px-4 py-2"
           >
-            <div class="flex items-baseline gap-x-3 gap-y-1 flex-wrap text-2xs text-zinc-500">
+            <div
+              class="flex items-baseline gap-x-3 gap-y-1 flex-wrap text-2xs text-zinc-500"
+            >
               <template v-if="focusMode">
                 <button class="lnk" @click="focusMode = false">← index</button>
                 <button class="lnk" @click="focusStep(-1)">prev</button>
                 <button class="lnk" @click="focusStep(1)">next</button>
               </template>
-              <h2 class="text-sm font-bold text-zinc-900 dark:text-zinc-100">{{ active.name }}</h2>
+              <h2 class="text-sm font-bold text-zinc-900 dark:text-zinc-100">
+                {{ active.name }}
+              </h2>
               <span class="flex-1" />
               <button class="lnk" @click="reloadPreview">reload</button>
-              <button class="lnk" :class="{ on: focusMode }" @click="focusMode = !focusMode">focus</button>
+              <button
+                class="lnk"
+                :class="{ on: focusMode }"
+                @click="focusMode = !focusMode"
+              >
+                focus
+              </button>
               <button class="lnk" @click="copy(`<${active.name} />`, 'tag')">
-                copy tag<span v-if="copied === 'tag'" class="text-zinc-900 dark:text-zinc-100"> ✓</span>
+                copy tag
+                <span
+                  v-if="copied === 'tag'"
+                  class="text-zinc-900 dark:text-zinc-100"
+                >
+                  ✓
+                </span>
               </button>
               <button class="lnk" @click="copyLink">
-                copy link<span v-if="copied === 'link'" class="text-zinc-900 dark:text-zinc-100"> ✓</span>
+                copy link
+                <span
+                  v-if="copied === 'link'"
+                  class="text-zinc-900 dark:text-zinc-100"
+                >
+                  ✓
+                </span>
               </button>
-              <button v-if="pinned" class="lnk" @click="pinned = null">unpin</button>
+              <button v-if="pinned" class="lnk" @click="pinned = null">
+                unpin
+              </button>
             </div>
             <div class="mt-0.5 text-2xs text-zinc-400 dark:text-zinc-600">
-              <button class="hover:underline underline-offset-2" @click="copy(`components/${active.relPath}`, 'path')">
-                components/{{ active.relPath }}<span v-if="copied === 'path'"> ✓</span>
+              <button
+                class="hover:underline underline-offset-2"
+                @click="copy(`components/${active.relPath}`, 'path')"
+              >
+                components/{{ active.relPath }}
+                <span v-if="copied === 'path'">✓</span>
               </button>
-              <span v-if="active.isClient"> · client</span>
-              <span v-if="active.isServer"> · server</span>
+              <span v-if="active.isClient">· client</span>
+              <span v-if="active.isServer">· server</span>
             </div>
-            <div v-if="active.stories && active.stories.length > 1" class="mt-1 text-2xs text-zinc-500">
-              <span class="text-zinc-400 dark:text-zinc-600">variants&nbsp;</span>
+            <div
+              v-if="active.stories && active.stories.length > 1"
+              class="mt-1 text-2xs text-zinc-500"
+            >
+              <span class="text-zinc-400 dark:text-zinc-600">
+                variants&nbsp;
+              </span>
               <button
                 v-for="(s, i) in active.stories"
                 :key="s.name"
@@ -385,17 +480,25 @@ function focusStep(dir) {
                 :wrapper="activeStory.wrapper"
                 :slot-text="activeStory.slot || null"
               />
-              <div v-else class="text-2xs text-zinc-400 dark:text-zinc-600 py-8 text-center">
+              <div
+                v-else
+                class="text-2xs text-zinc-400 dark:text-zinc-600 py-8 text-center"
+              >
                 no story yet — add it in utils/kitchenSinkStories.js
               </div>
             </div>
 
             <!-- props -->
             <div v-if="activeStory" class="mt-5">
-              <div class="text-3xs uppercase tracking-wider text-zinc-400 dark:text-zinc-600 border-b border-zinc-200 dark:border-zinc-800 pb-0.5 mb-1">
+              <div
+                class="text-3xs uppercase tracking-wider text-zinc-400 dark:text-zinc-600 border-b border-zinc-200 dark:border-zinc-800 pb-0.5 mb-1"
+              >
                 props
               </div>
-              <pre class="text-2xs leading-5 overflow-x-auto whitespace-pre-wrap text-zinc-700 dark:text-zinc-300">{{ JSON.stringify(activeStory.props, null, 2) }}</pre>
+              <pre
+                class="text-2xs leading-5 overflow-x-auto whitespace-pre-wrap text-zinc-700 dark:text-zinc-300"
+                >{{ JSON.stringify(activeStory.props, null, 2) }}</pre
+              >
             </div>
 
             <!-- source -->
@@ -410,7 +513,8 @@ function focusStep(dir) {
               <pre
                 v-if="sourceOpen"
                 class="mt-1 text-2xs leading-5 overflow-auto max-h-[55vh] text-zinc-600 dark:text-zinc-400"
-              >{{ activeSource }}</pre>
+                >{{ activeSource }}</pre
+              >
             </div>
           </div>
         </div>
@@ -420,19 +524,25 @@ function focusStep(dir) {
 </template>
 
 <style scoped>
-/* text-link: the only interactive idiom. underline on hover, bold+underline when on. */
+/* text-link: the only interactive idiom. underline on hover, */
+/* bold+underline when on. */
 .lnk {
-  @apply text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 hover:underline underline-offset-2;
+  @apply text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100;
+  @apply hover:underline underline-offset-2;
 }
 .lnk.on {
-  @apply text-zinc-900 dark:text-zinc-100 font-bold underline underline-offset-2;
+  @apply text-zinc-900 dark:text-zinc-100 font-bold;
+  @apply underline underline-offset-2;
 }
 /* index row: flat, hairline-separated; selection is a hard invert. */
 .row {
-  @apply w-full text-left pl-3 pr-3 py-1 flex items-center gap-2 border-b border-zinc-100 dark:border-zinc-900 hover:bg-zinc-100 dark:hover:bg-zinc-900;
+  @apply w-full text-left pl-3 pr-3 py-1 flex items-center gap-2;
+  @apply border-b border-zinc-100 dark:border-zinc-900;
+  @apply hover:bg-zinc-100 dark:hover:bg-zinc-900;
 }
 .row.on {
-  @apply bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-900 dark:hover:bg-zinc-100;
+  @apply bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900;
+  @apply hover:bg-zinc-900 dark:hover:bg-zinc-100;
 }
 .meta {
   @apply text-3xs lowercase text-zinc-400 dark:text-zinc-600 shrink-0;

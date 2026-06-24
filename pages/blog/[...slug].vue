@@ -900,7 +900,8 @@ onMounted(() => {
 }
 
 .blog-post-content blockquote {
-  @apply italic border-l-4 border-zinc-300 dark:border-zinc-700 max-w-prose text-pretty;
+  @apply italic border-l-4 border-zinc-300 dark:border-zinc-700;
+  @apply max-w-prose text-pretty;
   font-size: var(--body-size);
   line-height: var(--body-line);
   margin: 1rem 0;
@@ -958,11 +959,15 @@ onMounted(() => {
 }
 
 .blog-post-content a {
-  @apply text-zinc-700 dark:text-zinc-300 underline underline-offset-2 decoration-1 decoration-zinc-400/40 dark:decoration-zinc-500/40 transition-colors duration-150;
+  @apply text-zinc-700 dark:text-zinc-300;
+  @apply underline underline-offset-2 decoration-1;
+  @apply decoration-zinc-400/40 dark:decoration-zinc-500/40;
+  @apply transition-colors duration-150;
 }
 
 .blog-post-content a:hover {
-  @apply text-zinc-900 dark:text-zinc-100 decoration-zinc-600 dark:decoration-zinc-300;
+  @apply text-zinc-900 dark:text-zinc-100;
+  @apply decoration-zinc-600 dark:decoration-zinc-300;
 }
 
 .blog-post-content .external-link {

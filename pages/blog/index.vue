@@ -20,33 +20,6 @@ const scrollToYear = (year) => {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-onMounted(() => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          activeYear.value = entry.target.getAttribute('data-year') || ''
-        }
-      })
-    },
-    { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
-  )
-
-  watch(
-    sortedYears,
-    () => {
-      nextTick(() => {
-        document
-          .querySelectorAll('[data-year]')
-          .forEach((el) => observer.observe(el))
-      })
-    },
-    { immediate: true }
-  )
-
-  onBeforeUnmount(() => observer.disconnect())
-})
-
 // Post data helpers
 const postDate = (post) => post?.metadata?.date || post?.date
 const postWords = (post) => post?.metadata?.words || post?.words || 0
@@ -128,11 +101,37 @@ const sortedYears = computed(() =>
   Object.keys(blogPostsByYear.value).sort((a, b) => b - a)
 )
 
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeYear.value = entry.target.getAttribute('data-year') || ''
+        }
+      })
+    },
+    { rootMargin: '-10% 0px -80% 0px', threshold: 0 }
+  )
+
+  watch(
+    sortedYears,
+    () => {
+      nextTick(() => {
+        document
+          .querySelectorAll('[data-year]')
+          .forEach((el) => observer.observe(el))
+      })
+    },
+    { immediate: true }
+  )
+
+  onBeforeUnmount(() => observer.disconnect())
+})
+
 // SEO
 usePageSeo({
   title: 'Blog - EJ Fox',
-  description:
-    "Things I'm thinking about — data, code, journalism, the web",
+  description: "Things I'm thinking about — data, code, journalism, the web",
   type: 'article',
   section: 'Writing',
   tags: ['Blog', 'Data visualization', 'Investigations', 'Notes'],
@@ -148,8 +147,7 @@ const blogSchema = computed(() => ({
   '@type': 'Blog',
   name: 'EJ Fox Blog',
   url: 'https://ejfox.com/blog',
-  description:
-    "Things I'm thinking about — data, code, journalism, the web",
+  description: "Things I'm thinking about — data, code, journalism, the web",
   inLanguage: 'en-US',
   dateModified: postDate(posts.value?.[0]) || new Date().toISOString(),
   isPartOf: {
@@ -412,7 +410,11 @@ useHead(() => ({
   @apply font-light mb-1 tracking-tight text-balance;
   @apply leading-[1.1];
   @apply text-3xl md:text-4xl lg:text-5xl;
-  font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
+  font-family:
+    'Vault Alarm',
+    system-ui,
+    -apple-system,
+    sans-serif;
 }
 
 .blog-description {

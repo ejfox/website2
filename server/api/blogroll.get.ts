@@ -24,7 +24,7 @@ async function readBlogrollFile(): Promise<string> {
     return await fs.readFile(bundled, 'utf-8')
   } catch {
     const home = join(homedir(), '.newsboat', 'urls')
-    return await fs.readFile(home, 'utf-8')
+    return fs.readFile(home, 'utf-8')
   }
 }
 

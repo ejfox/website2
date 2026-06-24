@@ -63,7 +63,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       app.config.globalProperties = nuxtApp.vueApp.config.globalProperties
 
       // Copy over the provides (Nuxt context, pinia store, etc.)
-      // @ts-expect-error: _context is internal but stable across Vue 3.x
+      // _context is internal but stable across Vue 3.x
       const parentProvides = nuxtApp.vueApp._context.provides
       Object.keys(parentProvides).forEach((key) => {
         app.provide(

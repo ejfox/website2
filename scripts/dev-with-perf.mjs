@@ -6,8 +6,6 @@
  * @env None required
  */
 
-/* eslint-disable no-console */
-
 import { spawn } from 'node:child_process'
 import { quickLighthouseCheck } from './lighthouse-check.mjs'
 import chalk from 'chalk'

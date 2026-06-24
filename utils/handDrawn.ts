@@ -43,12 +43,15 @@ export function ensureHandDrawnSprite(): void {
       const holder = document.createElement('div')
       holder.id = 'hd-sprite-root'
       holder.setAttribute('aria-hidden', 'true')
-      holder.style.cssText = 'position:absolute;width:0;height:0;overflow:hidden'
+      holder.style.cssText =
+        'position:absolute;width:0;height:0;overflow:hidden'
       holder.innerHTML = svg
       document.body.appendChild(holder)
       spriteState = 'ready'
     })
-    .catch(() => { spriteState = 'idle' })
+    .catch(() => {
+      spriteState = 'idle'
+    })
 }
 
 const SVG_NS = 'http://www.w3.org/2000/svg'
@@ -69,7 +72,10 @@ export function createHandDrawnEl(
   const svg = document.createElementNS(SVG_NS, 'svg')
   svg.setAttribute('viewBox', handDrawnViewBox(a))
   svg.setAttribute('preserveAspectRatio', 'xMidYMid meet')
-  svg.setAttribute('class', `hand-drawn${opts.className ? ' ' + opts.className : ''}`)
+  svg.setAttribute(
+    'class',
+    `hand-drawn${opts.className ? ' ' + opts.className : ''}`
+  )
   svg.style.height = size
   svg.style.width = `calc(${size} * ${a.w / a.h})`
   svg.style.display = 'inline-block'

@@ -100,6 +100,7 @@ interface RepoData {
   pushedAt: string
   commits?: CommitMeta
   network?: NetworkPayload | null
+  fileTree?: { files?: Array<{ path: string }> }
 }
 
 // Load index once at module level for validation

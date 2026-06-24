@@ -18,6 +18,13 @@ export default defineNuxtPlugin(() => {
     }
   }
 
+  const escapeHtml = (str: string) =>
+    str
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+
   const createPopover = (data: any, anchorRect: DOMRect) => {
     removePopover()
 
@@ -131,13 +138,6 @@ export default defineNuxtPlugin(() => {
       leaveTimeout = setTimeout(removePopover, 150)
     })
   }
-
-  const escapeHtml = (str: string) =>
-    str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
 
   const fetchOg = async (url: string) => {
     if (ogCache.has(url)) return ogCache.get(url)

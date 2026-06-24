@@ -99,7 +99,8 @@ const conditionColor = computed(() => {
 }
 
 .card-weight {
-  @apply text-xl font-light tabular-nums text-zinc-700 dark:text-zinc-300 shrink-0 leading-none;
+  @apply text-xl font-light tabular-nums leading-none;
+  @apply text-zinc-700 dark:text-zinc-300 shrink-0;
 }
 
 .card-weight-unit {

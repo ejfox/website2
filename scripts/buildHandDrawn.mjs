@@ -21,9 +21,9 @@
  * Add/rename an asset: edit catalog.json, then `node scripts/buildHandDrawn.mjs`.
  * (regions.csv / element bounding boxes came from the browser via element.getBBox().)
  */
-import { readFileSync, writeFileSync, mkdirSync } from 'fs'
-import { fileURLToPath } from 'url'
-import { dirname, join } from 'path'
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
+import { fileURLToPath } from 'node:url'
+import { dirname, join } from 'node:path'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const HD = join(ROOT, 'assets/hand-drawn')
@@ -32,7 +32,7 @@ const master = readFileSync(join(HD, 'master.svg'), 'utf8')
 const catalog = JSON.parse(readFileSync(join(HD, 'catalog.json'), 'utf8'))
 
 const PAD = 4 // default breathing room around each crop; override per-entry with `pad`
-            // (e.g. the stipple dots sit ~7px apart and need pad:0 to avoid bleed)
+// (e.g. the stipple dots sit ~7px apart and need pad:0 to avoid bleed)
 const assets = catalog.map((a) => {
   const pad = a.pad ?? PAD
   return {
@@ -43,7 +43,7 @@ const assets = catalog.map((a) => {
     x: a.x - pad,
     y: a.y - pad,
     w: a.w + pad * 2,
-    h: a.h + pad * 2
+    h: a.h + pad * 2,
   }
 })
 
@@ -75,6 +75,14 @@ ${style}
 mkdirSync(join(ROOT, 'public/hand-drawn'), { recursive: true })
 writeFileSync(join(ROOT, 'public/hand-drawn/sprite.svg'), sprite)
 
-const byGroup = assets.reduce((m, a) => ((m[a.group] = (m[a.group] || 0) + 1), m), {})
+const byGroup = assets.reduce(
+  (m, a) => ((m[a.group] = (m[a.group] || 0) + 1), m),
+  {}
+)
 console.log(`✓ ${assets.length} assets → manifest.json, sprite.svg`)
-console.log('  ' + Object.entries(byGroup).map(([g, n]) => `${g}:${n}`).join('  '))
+console.log(
+  '  ' +
+    Object.entries(byGroup)
+      .map(([g, n]) => `${g}:${n}`)
+      .join('  ')
+)

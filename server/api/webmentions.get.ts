@@ -17,11 +17,25 @@ import sanitizeHtml from 'sanitize-html'
 function sanitizeMention(m: Webmention): Webmention {
   if (m.content?.html) {
     m.content.html = sanitizeHtml(m.content.html, {
-      allowedTags: ['a', 'b', 'strong', 'i', 'em', 'code', 'p', 'br', 'span', 'blockquote'],
+      allowedTags: [
+        'a',
+        'b',
+        'strong',
+        'i',
+        'em',
+        'code',
+        'p',
+        'br',
+        'span',
+        'blockquote',
+      ],
       allowedAttributes: { a: ['href', 'title'] },
       allowedSchemes: ['http', 'https', 'mailto'],
       transformTags: {
-        a: sanitizeHtml.simpleTransform('a', { rel: 'noopener nofollow ugc', target: '_blank' }),
+        a: sanitizeHtml.simpleTransform('a', {
+          rel: 'noopener nofollow ugc',
+          target: '_blank',
+        }),
       },
     })
   }

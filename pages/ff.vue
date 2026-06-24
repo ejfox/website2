@@ -60,7 +60,10 @@ onMounted(() => {
           ACCESS&nbsp;GRANTED&nbsp;·&nbsp;FRIENDS&nbsp;&amp;&nbsp;FAMILY
         </div>
 
-        <p class="ff-greeting">{{ greeting }}<span class="ff-cursor">▮</span></p>
+        <p class="ff-greeting">
+          {{ greeting }}
+          <span class="ff-cursor">▮</span>
+        </p>
 
         <h1 class="ff-title">Let’s find a time</h1>
 
@@ -86,8 +89,9 @@ onMounted(() => {
 
 /* "ACCESS GRANTED" terminal chip — leans into the hidden-link conceit */
 .ff-secret {
-  @apply inline-flex items-center gap-2 font-mono text-3xs uppercase tracking-widest
-         text-emerald-600 dark:text-emerald-400;
+  @apply inline-flex items-center gap-2 font-mono;
+  @apply text-3xs uppercase tracking-widest;
+  @apply text-emerald-600 dark:text-emerald-400;
 }
 .ff-dot {
   @apply inline-block h-1.5 w-1.5 rounded-full bg-emerald-500;
@@ -106,10 +110,12 @@ onMounted(() => {
   @apply mt-1 text-3xl font-light text-zinc-900 dark:text-zinc-100;
 }
 .ff-tagline {
-  @apply mt-2 max-w-prose font-serif text-base italic text-zinc-600 dark:text-zinc-300;
+  @apply mt-2 max-w-prose font-serif text-base italic;
+  @apply text-zinc-600 dark:text-zinc-300;
 }
 .ff-meta {
-  @apply mt-3 font-mono text-xs uppercase tracking-wider text-zinc-400 dark:text-zinc-600;
+  @apply mt-3 font-mono text-xs uppercase tracking-wider;
+  @apply text-zinc-400 dark:text-zinc-600;
 }
 
 .ff-cal {

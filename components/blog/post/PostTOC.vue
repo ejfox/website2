@@ -33,7 +33,8 @@ function scrollToSection(slug: string) {
           <a
             :href="`#${child.slug}`"
             :class="[
-              'flex items-baseline text-3xs font-mono transition-all duration-200',
+              'flex items-baseline text-3xs font-mono',
+              'transition-all duration-200',
               'no-underline py-1 gap-2',
               isActive(child.slug)
                 ? 'text-zinc-900 dark:text-zinc-100'

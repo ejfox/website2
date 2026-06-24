@@ -10,13 +10,6 @@ import {
   differenceInMinutes,
 } from 'date-fns'
 
-// Lazy-loaded d3-format to avoid pulling it into the initial bundle
-let _d3Format: typeof import('d3-format') | null = null
-async function getD3Format() {
-  if (!_d3Format) _d3Format = await import('d3-format')
-  return _d3Format
-}
-
 // Synchronous fallback formatters (no d3 dependency)
 function fallbackFormat(value: number): string {
   return value.toLocaleString('en-US')

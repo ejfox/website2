@@ -185,7 +185,8 @@ function isCloudinaryUrl(url) {
 }
 function isVideoUrl(url) {
   return (
-    /\.(mp4|webm|mov|gif)(\?|$)/i.test(url) || url.includes('/video/upload/')
+    /\.(?:mp4|webm|mov|gif)(?:\?|$)/i.test(url) ||
+    url.includes('/video/upload/')
   )
 }
 

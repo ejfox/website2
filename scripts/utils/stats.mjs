@@ -4,7 +4,6 @@
  * @usage import { processStats, updateRealTimeStats, printProcessingReport } from './scripts/utils/stats.mjs'
  */
 
-/* eslint-disable no-console */
 import chalk from 'chalk'
 import path from 'node:path'
 import { /* getPostType, */ formatFileSize } from './helpers.mjs'

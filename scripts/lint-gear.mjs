@@ -114,7 +114,10 @@ function lintGear() {
 
   // Known item names + physical anchors, for orphan-container detection.
   const names = new Set(
-    rows.slice(1).map((r) => (r[col['Name']] || '').trim()).filter(Boolean)
+    rows
+      .slice(1)
+      .map((r) => (r[col['Name']] || '').trim())
+      .filter(Boolean)
   )
 
   console.info('🔍 Checking rows...')
@@ -144,7 +147,9 @@ function lintGear() {
         const match = valid.find((v) => v.toLowerCase() === value.toLowerCase())
         if (match && FIX_MODE) {
           row[idx] = match
-          fixes.push(`Row ${rowNum} "${name}": ${field} "${value}" → "${match}"`)
+          fixes.push(
+            `Row ${rowNum} "${name}": ${field} "${value}" → "${match}"`
+          )
         } else {
           issues.push(
             `Row ${rowNum} "${name}": Invalid ${field} "${value}" (valid: ${valid.join(', ')})`
@@ -248,7 +253,8 @@ function lintGear() {
     writeFileSync(CSV_PATH, toCSV(rows))
     console.info(`\n💾 Saved changes to ${CSV_PATH}`)
   } else if (FIX_MODE) console.info('\n✨ Nothing to fix!')
-  else if (issues.length > 0) console.info('\n💡 Run with --fix to auto-fix some issues')
+  else if (issues.length > 0)
+    console.info('\n💡 Run with --fix to auto-fix some issues')
 
   // Stats.
   const data = rows.slice(1)
@@ -262,9 +268,17 @@ function lintGear() {
   }
   console.info('\n📊 Stats:')
   console.info(`  • ${data.length} items total`)
-  console.info(`  • ${n('Weight_oz')} with weight (${data.length - n('Weight_oz')} missing)`)
-  console.info(`  • by Status: ${Object.entries(byStatus).map(([k, v]) => `${k} ${v}`).join(', ')}`)
-  console.info(`  • ${yes('Star')} starred (Big 3), ${yes('Worn')} worn, ${yes('Consumable')} consumable`)
+  console.info(
+    `  • ${n('Weight_oz')} with weight (${data.length - n('Weight_oz')} missing)`
+  )
+  console.info(
+    `  • by Status: ${Object.entries(byStatus)
+      .map(([k, v]) => `${k} ${v}`)
+      .join(', ')}`
+  )
+  console.info(
+    `  • ${yes('Star')} starred (Big 3), ${yes('Worn')} worn, ${yes('Consumable')} consumable`
+  )
   console.info('')
 
   process.exit(issues.length > 0 ? 1 : 0)
