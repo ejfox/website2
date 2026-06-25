@@ -10,6 +10,38 @@ usePageSeo({
     'Schedule time with EJ Fox. curl my availability or let your agent grab a booking link.',
 })
 
+// Machine-readable booking action — the W3C-blessed way to tell an agent
+// "this person is bookable, here's the endpoint." Degrades to nothing if
+// ignored. Availability as JSON: /api/cal/available-slots
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: 'EJ Fox',
+        url: 'https://ejfox.com',
+        potentialAction: {
+          '@type': 'ReserveAction',
+          name: 'Book a meeting with EJ Fox',
+          description:
+            'Open availability as JSON at https://ejfox.com/api/cal/available-slots (query params: days, duration), then book a returned slot URL.',
+          target: {
+            '@type': 'EntryPoint',
+            urlTemplate: 'https://ejfox.com/calendar',
+            actionPlatform: [
+              'https://schema.org/DesktopWebPlatform',
+              'https://schema.org/MobileWebPlatform',
+            ],
+          },
+          result: { '@type': 'Reservation', name: 'Meeting with EJ Fox' },
+        },
+      }),
+    },
+  ],
+})
+
 // Hidden URL deep-linking. cal.com's embed is a cross-origin iframe we can
 // only DRIVE, not read — so there's no visible picker. Instead, the URL is the
 // API: someone shares /calendar?date=YYYY-MM-DD and the embed opens on that day.
