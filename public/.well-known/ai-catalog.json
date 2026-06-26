@@ -1,0 +1,23 @@
+{
+  "specVersion": "1.0",
+  "entries": [
+    {
+      "identifier": "urn:air:ejfox.com:guide:llms",
+      "displayName": "EJ Fox — site guide for LLMs",
+      "description": "Curated, machine-readable map of ejfox.com: who EJ is plus the personal APIs (stats, calendar availability, predictions) an agent can read or call.",
+      "type": "text/markdown",
+      "url": "https://ejfox.com/llms.txt",
+      "tags": ["site-map", "personal-api", "about"],
+      "updatedAt": "2026-06-26T00:00:00Z"
+    },
+    {
+      "identifier": "urn:air:ejfox.com:api:cal-availability",
+      "displayName": "Booking availability API",
+      "description": "Open availability as JSON — next free meeting slots with natural-language times and booking URLs. No auth. Query params: days (default 14), duration (30min or 1hr).",
+      "type": "application/json",
+      "url": "https://ejfox.com/api/cal/available-slots",
+      "tags": ["scheduling", "booking", "calendar"],
+      "updatedAt": "2026-06-26T00:00:00Z"
+    }
+  ]
+}
