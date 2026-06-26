@@ -7,3 +7,4 @@ Sitemap: https://ejfox.com/sitemap.xml
 
 # For AI crawlers
 # https://ejfox.com/llms.txt
+# https://ejfox.com/.well-known/ai-catalog.json
