@@ -53,9 +53,6 @@ const year = computed(() => {
 // The whole row is a NuxtLink to the detail page; the ↗ opens the project's own
 // URL in a new tab without triggering that navigation. Quieter than a state chip.
 const projectUrl = computed(() => props.project.metadata?.url || '')
-const openExternal = () => {
-  if (projectUrl.value) window.open(projectUrl.value, '_blank', 'noopener')
-}
 
 // --- Tech stack stripe -------------------------------------------------------
 const tech = computed(() => {
@@ -153,15 +150,18 @@ const excerpt = computed(() => {
           draft
         </span>
         <time v-if="year" class="text-zinc-500 tabular-nums">{{ year }}</time>
-        <span
+        <a
           v-if="projectUrl"
+          :href="projectUrl"
+          target="_blank"
+          rel="noopener noreferrer"
           class="text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
           :title="`Open ${projectUrl}`"
-          role="link"
-          @click.stop.prevent="openExternal"
+          :aria-label="`Open ${projectTitle} (opens in new tab)`"
+          @click.stop
         >
           ↗
-        </span>
+        </a>
       </span>
     </div>
 

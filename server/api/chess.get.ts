@@ -115,17 +115,26 @@ export default defineEventHandler(async () => {
   }
 
   const makeRequest = async <T>(url: string): Promise<T> => {
-    const response = await fetch(`https://api.chess.com/pub/${url}`)
-
-    if (!response.ok) {
-      throw createError({
-        statusCode: response.status,
-        message: `Chess.com API error: ${response.statusText}`,
+    // 10s timeout so a slow/hung Chess.com can't stall the /api/stats aggregator.
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 10000)
+    try {
+      const response = await fetch(`https://api.chess.com/pub/${url}`, {
+        signal: controller.signal,
       })
-    }
 
-    const data = await response.json()
-    return data as T
+      if (!response.ok) {
+        throw createError({
+          statusCode: response.status,
+          message: `Chess.com API error: ${response.statusText}`,
+        })
+      }
+
+      const data = await response.json()
+      return data as T
+    } finally {
+      clearTimeout(timeoutId)
+    }
   }
 
   try {

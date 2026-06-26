@@ -122,13 +122,21 @@ function isBlocked(mention: Webmention, config: ModerationConfig): boolean {
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const target = query.target as string
-  const token = 'mXIX5Iq-nztH8z2S2xFZag'
+  // Token comes from env only — never hardcode (this repo is public).
+  const runtimeConfig = useRuntimeConfig()
+  const token =
+    runtimeConfig.WEBMENTION_IO_TOKEN || process.env.WEBMENTION_IO_TOKEN
 
   if (!target) {
     throw createError({
       statusCode: 400,
       statusMessage: 'Missing target URL parameter',
     })
+  }
+
+  if (!token) {
+    // No token configured → no webmentions rather than a 500.
+    return []
   }
 
   try {

@@ -255,6 +255,7 @@ export default defineNuxtConfig({
     RESCUETIME_TOKEN: process.env.RESCUETIME_TOKEN || '',
     LASTFM_API_KEY: process.env.LASTFM_API_KEY || '',
     LASTFM_SHARED_SECRET: process.env.LASTFM_SHARED_SECRET || '',
+    WEBMENTION_IO_TOKEN: process.env.WEBMENTION_IO_TOKEN || '',
     MONKEYTYPE_TOKEN: process.env.MONKEYTYPE_TOKEN || '',
     OPENROUTER_API_KEY: process.env.OPENROUTER_API_KEY || '',
     EDITOR_CONTEXT_TOKEN: process.env.EDITOR_CONTEXT_TOKEN || '',

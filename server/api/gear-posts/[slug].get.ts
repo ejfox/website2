@@ -44,6 +44,29 @@ export default defineEventHandler(async (event) => {
 
     const matching: GearPost[] = posts
       .filter((post) => {
+        // Privacy filter (CLAUDE.md rule): never leak draft/hidden/unlisted/
+        // password-protected content via this endpoint.
+        const isDraft = post.draft || post.metadata?.draft
+        const isHidden = post.hidden || post.metadata?.hidden
+        const isUnlisted = post.unlisted || post.metadata?.unlisted
+        const hasPassword = !!(
+          post.password ||
+          post.passwordHash ||
+          post.metadata?.password ||
+          post.metadata?.passwordHash
+        )
+        const isDraftsFolder =
+          typeof post.slug === 'string' && post.slug.startsWith('drafts/')
+        if (
+          isDraft ||
+          isHidden ||
+          isUnlisted ||
+          hasPassword ||
+          isDraftsFolder
+        ) {
+          return false
+        }
+
         const gear = post.metadata?.gear
         if (!gear) return false
         if (Array.isArray(gear)) {

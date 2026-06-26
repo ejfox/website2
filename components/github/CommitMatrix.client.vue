@@ -156,6 +156,8 @@ watch(() => props.commits, draw)
     <div class="canvas-container">
       <canvas
         ref="canvasRef"
+        role="img"
+        aria-label="Unit chart of every GitHub commit, one cell per commit"
         @mousemove="handleMouseMove"
         @mouseleave="hideTooltip"
       ></canvas>

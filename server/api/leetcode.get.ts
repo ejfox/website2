@@ -111,28 +111,37 @@ export default defineEventHandler(async (): Promise<LeetCodeResponse> => {
       }
     }`
 
-    const response = await fetch('https://leetcode.com/graphql', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: query,
-      }),
-    })
-
-    if (!response.ok) {
-      const error = await response.json().catch(() => ({
-        message: 'Unknown error',
-      }))
-      throw createError({
-        statusCode: response.status,
-        message: error.message || `LeetCode API error: ${response.statusText}`,
+    // 10s timeout so a throttled/hung LeetCode can't stall the /api/stats aggregator.
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), 10000)
+    try {
+      const response = await fetch('https://leetcode.com/graphql', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          query: query,
+        }),
+        signal: controller.signal,
       })
-    }
 
-    const data = await response.json()
-    return data as T
+      if (!response.ok) {
+        const error = await response.json().catch(() => ({
+          message: 'Unknown error',
+        }))
+        throw createError({
+          statusCode: response.status,
+          message:
+            error.message || `LeetCode API error: ${response.statusText}`,
+        })
+      }
+
+      const data = await response.json()
+      return data as T
+    } finally {
+      clearTimeout(timeoutId)
+    }
   }
 
   try {

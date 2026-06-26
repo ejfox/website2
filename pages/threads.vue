@@ -237,6 +237,9 @@ const graphData = computed(() => {
 
 if (import.meta.client) {
   let simulation = null
+  let resizeHandler = null
+  // Halts the recursive streaming setTimeout chains once the page unmounts.
+  let isUnmounted = false
   let nodes = []
   let links = []
   let ctx = null
@@ -548,6 +551,7 @@ if (import.meta.client) {
 
     // Stream scraps (called after posts are done)
     const streamScraps = () => {
+      if (isUnmounted) return
       if (scrapIndex >= allScraps.length) {
         isStreaming.value = false
         animateHeader()
@@ -562,6 +566,7 @@ if (import.meta.client) {
 
     // Stream posts (called after maypoles are done)
     const streamPosts = () => {
+      if (isUnmounted) return
       if (postIndex >= allPosts.length) {
         setTimeout(streamScraps, POST_TO_SCRAP_PAUSE)
         return
@@ -625,11 +630,20 @@ if (import.meta.client) {
       draw()
     })
 
-    window.addEventListener('resize', () => {
+    // Named handler so it can actually be removed on unmount (an anonymous
+    // arrow function here would leak — it can never be detached).
+    resizeHandler = () => {
       if (!isStreaming.value) {
         nextTick(initGraph)
       }
-    })
+    }
+    window.addEventListener('resize', resizeHandler)
+  })
+
+  onBeforeUnmount(() => {
+    isUnmounted = true
+    simulation?.stop()
+    if (resizeHandler) window.removeEventListener('resize', resizeHandler)
   })
 }
 </script>
@@ -646,6 +660,8 @@ if (import.meta.client) {
         <canvas
           ref="canvasRef"
           class="w-full h-full"
+          role="img"
+          aria-label="Graph of posts, scraps, and tags as interconnected nodes"
           @mousemove="handleMouseMove"
           @mouseleave="hoveredNode = null"
           @click="handleClick"
