@@ -96,6 +96,7 @@ if (alreadyUnlocked.value) {
           v-model="enteredPassword"
           type="password"
           placeholder="Enter password..."
+          aria-label="Password"
           class="password-input"
           :disabled="checking"
           @keydown="handleKeydown"

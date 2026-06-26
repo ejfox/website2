@@ -285,6 +285,7 @@ onBeforeUnmount(() => {
               v-model="query"
               type="text"
               placeholder="Search posts, pages, or actions..."
+              aria-label="Search posts, pages, or actions"
               class="flex-1 bg-transparent text-base text-zinc-900 outline-none placeholder:text-zinc-400 dark:text-zinc-100"
             />
             <span

@@ -83,15 +83,11 @@ interface UserInfoResponse {
 
 export default defineEventHandler(async () => {
   const config = useRuntimeConfig()
-  // Use hardcoded API key as fallback if environment variables aren't available
-  const apiKey =
-    config.LASTFM_API_KEY ||
-    process.env.LASTFM_API_KEY ||
-    '3e1f9761376a48e5d6b38aa0dba8274f'
+  // Credentials come from env only — never hardcode (this repo is public).
+  const apiKey = config.LASTFM_API_KEY || process.env.LASTFM_API_KEY
+  // Shared secret is only needed for signed/write calls (currently unused).
   const _sharedSecret =
-    config.LASTFM_SHARED_SECRET ||
-    process.env.LASTFM_SHARED_SECRET ||
-    'f0ba21c7a486f694b889521ca0f26d7a'
+    config.LASTFM_SHARED_SECRET || process.env.LASTFM_SHARED_SECRET
   const username = 'pseudoplacebo' // Hardcoded username as specified
 
   // console.log('Last.fm config:', {
@@ -213,6 +209,15 @@ export default defineEventHandler(async () => {
   }
 
   try {
+    // No key configured → degrade to empty data via the catch fallback below
+    // instead of hammering the API with 12 retries that will all 403.
+    if (!apiKey) {
+      throw createError({
+        statusCode: 500,
+        message: 'LASTFM_API_KEY not configured',
+      })
+    }
+
     // Log API key info (safely)
     // if (apiKey) {
     //   console.log(
