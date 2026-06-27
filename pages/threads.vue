@@ -314,33 +314,42 @@ if (import.meta.client) {
     const connected = new Set()
     if (hovered) {
       ctx.strokeStyle = '#fbbf24'
-      ctx.globalAlpha = 0.55
+      ctx.globalAlpha = 0.6
       ctx.lineWidth = 1
+      ctx.shadowColor = '#fbbf24'
+      ctx.shadowBlur = 8
       links.forEach((l) => {
         if (!isNodeVisible(l.source) || !isNodeVisible(l.target)) return
         if (l.source.id !== hoveredId && l.target.id !== hoveredId) return
         drawEdge(l)
         connected.add(l.source.id === hoveredId ? l.target.id : l.source.id)
       })
+      ctx.shadowBlur = 0
     }
 
-    // Nodes. On hover, neighbours of the hovered node stay bright (and grow a
-    // touch) while everything else dims, so the connection reveal reads.
+    // Nodes. Additive emphasis only: on hover, the hovered node and its
+    // neighbours brighten, grow, and glow — nothing else is ever dimmed.
+    // Maypole signposts carry a soft always-on glow so they read as luminous;
+    // the plain post dots stay crisp (and cheap — no per-frame blur on 100s).
     nodes.forEach((n) => {
       if (!n.x || !isNodeVisible(n)) return
-      const near = n.id === hoveredId || connected.has(n.id)
-      ctx.globalAlpha = hovered ? (near ? 1 : 0.3) : 0.8
+      const near = hovered && (n.id === hoveredId || connected.has(n.id))
+      ctx.globalAlpha = near ? 1 : 0.8
       ctx.fillStyle = NODE_COLOR[n.type]
+      if (near) {
+        ctx.shadowColor = NODE_COLOR[n.type]
+        ctx.shadowBlur = 12
+      } else if (n.isMaypole) {
+        ctx.shadowColor = NODE_COLOR.tag
+        ctx.shadowBlur = 6
+      } else {
+        ctx.shadowBlur = 0
+      }
       ctx.beginPath()
-      ctx.arc(
-        n.x,
-        n.y,
-        NODE_RADIUS[n.type] + (near && hovered ? 1 : 0),
-        0,
-        Math.PI * 2
-      )
+      ctx.arc(n.x, n.y, NODE_RADIUS[n.type] + (near ? 1 : 0), 0, Math.PI * 2)
       ctx.fill()
     })
+    ctx.shadowBlur = 0
     ctx.globalAlpha = 1
 
     // Topic labels: always-on signposts on the pinned "maypole" tags, so the
@@ -379,6 +388,8 @@ if (import.meta.client) {
       ctx.globalAlpha = 0.9
       ctx.strokeStyle = NODE_COLOR[hovered.type]
       ctx.lineWidth = 1.25
+      ctx.shadowColor = NODE_COLOR[hovered.type]
+      ctx.shadowBlur = 12
       ctx.beginPath()
       ctx.arc(
         hovered.x,
