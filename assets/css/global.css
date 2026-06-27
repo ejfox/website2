@@ -133,12 +133,15 @@ body {
   /* Let native UI (scrollbars, form controls, overscroll/rubber-band) follow
      the OS scheme, matching the site's auto dark/light behavior. */
   color-scheme: light dark;
+  /* Brand native checkboxes/radios/selects to the link blue instead of OS blue. */
+  accent-color: #2563eb; /* blue-600 (matches links) */
   --bg-page: #ffffff;
   --bg-sunken: #ffffff;
   --bg-surface: #ffffff;
   --bg-raised: #f4f4f5; /* zinc-100 */
 }
 .dark {
+  accent-color: #60a5fa; /* blue-400 */
   --bg-page: #0a0a0a;
   --bg-sunken: #09090b; /* zinc-950 */
   --bg-surface: #18181b; /* zinc-900 */
@@ -146,6 +149,7 @@ body {
 }
 @media (prefers-color-scheme: dark) {
   :root {
+    accent-color: #60a5fa; /* blue-400 */
     --bg-page: #0a0a0a;
     --bg-sunken: #09090b;
     --bg-surface: #18181b;
