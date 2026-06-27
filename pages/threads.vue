@@ -30,6 +30,9 @@ const ANIM_SPEED = 1.25 // 1.0 = default, higher = slower, lower = faster
 const CANVAS_HEIGHT_VH = 350 // viewport heights
 const NUM_MAYPOLES = 25
 const BOUNDARY_FORCE_STRENGTH = 0.8
+// Edge curvature: fraction of edge length used as the bow. 0 = straight/rigid
+// (toward a 90/45° schematic feel), higher = more organic Catmull-Rom flow.
+const EDGE_CURVE = 0.14
 
 // =============================================================================
 
@@ -76,6 +79,9 @@ const showTags = ref(true)
 
 // Store nodes for hit detection
 let renderedNodes = []
+// Assigned to draw() inside the client block so the hover handlers can force a
+// repaint (e.g. to show the hover ring) once the simulation has settled.
+let requestRedraw = null
 
 // Smart tooltip positioning with edge detection (fixed position, uses viewport)
 const tooltipStyle = computed(() => {
@@ -114,20 +120,26 @@ function handleMouseMove(event) {
   const y = event.clientY - rect.top
   mousePos.value = { x, y, clientX: event.clientX, clientY: event.clientY }
 
-  // Find nearest node
+  // Find nearest node within a generous, type-aware grab radius. Bigger than
+  // the dots themselves so moving targets are easy to catch; tags reach
+  // furthest since their label sits just to the right of the dot.
   let closest = null
-  let minDist = 20
+  let minDist = Infinity
 
   for (const n of renderedNodes) {
     const dist = Math.sqrt((n.x - x) ** 2 + (n.y - y) ** 2)
-    if (dist < minDist) {
+    const reach = n.type === 'tag' ? 44 : n.type === 'post' ? 24 : 16
+    if (dist < reach && dist < minDist) {
       minDist = dist
       closest = n
     }
   }
 
+  const changed = closest?.id !== hoveredNode.value?.id
   hoveredNode.value = closest
   canvasRef.value.style.cursor = closest ? 'pointer' : 'default'
+  // Repaint so the hover ring tracks the cursor even after the sim settles.
+  if (changed) requestRedraw?.()
 }
 
 function handleClick() {
@@ -257,37 +269,132 @@ if (import.meta.client) {
     if (!ctx) return
     ctx.clearRect(0, 0, width, height)
 
-    // Links (only draw if both ends are visible)
+    const hovered = hoveredNode.value
+    // hoveredNode is a Vue ref, so .value is a reactive PROXY — never identical
+    // (===) to the raw node objects in nodes/links. Match by id instead.
+    const hoveredId = hovered?.id
+
+    // Organic edge: a quadratic "bow" gives a Catmull-Rom-ish curve instead of
+    // a straight line. Flip EDGE_CURVE to 0 for a rigid 90/45° schematic feel.
+    const drawEdge = (l) => {
+      const x1 = l.source.x
+      const y1 = l.source.y
+      const x2 = l.target.x
+      const y2 = l.target.y
+      const dx = x2 - x1
+      const dy = y2 - y1
+      const len = Math.hypot(dx, dy) || 1
+      const bow = Math.min(len * EDGE_CURVE, 28)
+      ctx.beginPath()
+      ctx.moveTo(x1, y1)
+      ctx.quadraticCurveTo(
+        (x1 + x2) / 2 + (-dy / len) * bow,
+        (y1 + y2) / 2 + (dx / len) * bow,
+        x2,
+        y2
+      )
+      ctx.stroke()
+    }
+
+    // Faint base layer — every visible edge except the hovered node's (those
+    // get redrawn bright on top).
     ctx.strokeStyle = '#52525b'
     ctx.globalAlpha = 0.08
     ctx.lineWidth = 0.5
     links.forEach((l) => {
-      if (
-        l.source.x &&
-        l.target.x &&
-        isNodeVisible(l.source) &&
-        isNodeVisible(l.target)
-      ) {
-        ctx.beginPath()
-        ctx.moveTo(l.source.x, l.source.y)
-        ctx.lineTo(l.target.x, l.target.y)
-        ctx.stroke()
-      }
+      if (!l.source.x || !l.target.x) return
+      if (!isNodeVisible(l.source) || !isNodeVisible(l.target)) return
+      if (hoveredId && (l.source.id === hoveredId || l.target.id === hoveredId))
+        return
+      drawEdge(l)
     })
 
-    // Nodes (only draw if visible)
-    ctx.globalAlpha = 0.8
+    // Reveal layer — light up the hovered node's connections to referenced
+    // notes; remember the neighbours so we can accent them below.
+    const connected = new Set()
+    if (hovered) {
+      ctx.strokeStyle = '#fbbf24'
+      ctx.globalAlpha = 0.55
+      ctx.lineWidth = 1
+      links.forEach((l) => {
+        if (!isNodeVisible(l.source) || !isNodeVisible(l.target)) return
+        if (l.source.id !== hoveredId && l.target.id !== hoveredId) return
+        drawEdge(l)
+        connected.add(l.source.id === hoveredId ? l.target.id : l.source.id)
+      })
+    }
+
+    // Nodes. On hover, neighbours of the hovered node stay bright (and grow a
+    // touch) while everything else dims, so the connection reveal reads.
     nodes.forEach((n) => {
       if (!n.x || !isNodeVisible(n)) return
-      ctx.beginPath()
+      const near = n.id === hoveredId || connected.has(n.id)
+      ctx.globalAlpha = hovered ? (near ? 1 : 0.3) : 0.8
       ctx.fillStyle = NODE_COLOR[n.type]
-      ctx.arc(n.x, n.y, NODE_RADIUS[n.type], 0, Math.PI * 2)
+      ctx.beginPath()
+      ctx.arc(
+        n.x,
+        n.y,
+        NODE_RADIUS[n.type] + (near && hovered ? 1 : 0),
+        0,
+        Math.PI * 2
+      )
       ctx.fill()
     })
+    ctx.globalAlpha = 1
+
+    // Topic labels: always-on signposts on the pinned "maypole" tags, so the
+    // graph reads as a labeled map of subjects rather than anonymous dots.
+    // Size scales gently with how often the topic is used.
+    if (showTags.value) {
+      ctx.save()
+      ctx.globalAlpha = 1
+      ctx.textBaseline = 'middle'
+      ctx.letterSpacing = '1.5px'
+      ctx.shadowColor = 'rgba(0, 0, 0, 0.9)'
+      ctx.shadowBlur = 4
+      nodes.forEach((n) => {
+        if (!n.isMaypole || !n.x) return
+        const active = n.id === hoveredId
+        const size = Math.min(17, 10 + Math.sqrt(n.count || 1))
+        ctx.font = `${active ? size + 1 : size}px "Monaspace Neon", ui-monospace, monospace`
+        const labelX = n.x + NODE_RADIUS.tag + 8
+        // Tick from the dot to the label — technical-annotation feel.
+        ctx.strokeStyle = active ? '#fde68a' : 'rgba(251, 191, 36, 0.45)'
+        ctx.lineWidth = 1
+        ctx.beginPath()
+        ctx.moveTo(n.x + NODE_RADIUS.tag + 2, n.y)
+        ctx.lineTo(labelX - 2, n.y)
+        ctx.stroke()
+        ctx.fillStyle = active ? '#fde68a' : '#fbbf24'
+        ctx.fillText((n.title || '').toUpperCase(), labelX, n.y)
+      })
+      ctx.restore()
+    }
+
+    // Hover affordance: ring the node under the cursor so it visibly reads as
+    // selectable/clickable (the tooltip handles the title).
+    if (hovered && hovered.x && isNodeVisible(hovered)) {
+      ctx.save()
+      ctx.globalAlpha = 0.9
+      ctx.strokeStyle = NODE_COLOR[hovered.type]
+      ctx.lineWidth = 1.25
+      ctx.beginPath()
+      ctx.arc(
+        hovered.x,
+        hovered.y,
+        (NODE_RADIUS[hovered.type] || 2) + 5,
+        0,
+        Math.PI * 2
+      )
+      ctx.stroke()
+      ctx.restore()
+    }
 
     // Only include visible nodes for hit detection
     renderedNodes = nodes.filter(isNodeVisible)
   }
+  requestRedraw = draw
 
   const initGraph = async () => {
     const d3 = await import('d3')
@@ -510,6 +617,7 @@ if (import.meta.client) {
             if (maypole) {
               tag.fx = maypole.targetX
               tag.fy = maypole.targetY
+              tag.isMaypole = true
             }
           })
       }
@@ -583,7 +691,7 @@ if (import.meta.client) {
       const { animate, stagger } = await import('animejs')
 
       // Add maypole nodes to graph first
-      nodes = topTags.map((t) => ({ ...t }))
+      nodes = topTags.map((t) => ({ ...t, isMaypole: true }))
       simulation.nodes(nodes)
       simulation.alpha(0).stop() // Pause simulation during anime animation
 
@@ -652,7 +760,10 @@ if (import.meta.client) {
 </script>
 
 <template>
-  <div class="relative" :style="{ height: `${CANVAS_HEIGHT_VH}vh` }">
+  <div
+    class="threads-view relative"
+    :style="{ height: `${CANVAS_HEIGHT_VH}vh` }"
+  >
     <!-- Canvas behind everything, scrollable -->
     <ClientOnly>
       <div
@@ -698,6 +809,11 @@ if (import.meta.client) {
         scraps ·
         {{ graphData.nodes.filter((n) => n.type === 'tag').length }} tags ·
         {{ graphData.links.length }} connections
+      </p>
+      <p
+        class="header-item font-mono text-3xs text-zinc-600 opacity-0 mt-1 hidden sm:block"
+      >
+        hover a node to peek · click to open · amber labels are topics
       </p>
       <div class="flex gap-4 mt-2 font-mono text-xs">
         <label
@@ -874,5 +990,14 @@ if (import.meta.client) {
   font-size: 10px;
   color: #a1a1aa;
   margin-top: 4px;
+}
+</style>
+
+<!-- Global (un-scoped): on the threads route only, collapse the layout's
+     surface elevation so the sidebar and the canvas read as one deep,
+     full-bleed field instead of a boxed panel sitting on grey. -->
+<style>
+body:has(.threads-view) .min-h-screen {
+  background-color: #08080a;
 }
 </style>
