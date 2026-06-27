@@ -13,7 +13,12 @@ export default defineEventHandler(async (event) => {
   const duration = (query.duration as string) || '1hr'
   const daysAhead = Number(query.days) || 14
 
-  if (!config.calcomApiKey) {
+  // Fall back to process.env at runtime: production builds on the GH runner
+  // without secrets, so the baked runtimeConfig value is empty and the real
+  // key only exists in the VPS .env (same pattern as lastfm/github endpoints).
+  const calcomApiKey = config.calcomApiKey || process.env.CAL_COM_API_KEY
+
+  if (!calcomApiKey) {
     console.warn('CAL_COM_API_KEY not configured')
     return { slots: [], error: 'Calendar not configured' }
   }
@@ -37,7 +42,7 @@ export default defineEventHandler(async (event) => {
     }>('https://api.cal.com/v2/slots', {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${config.calcomApiKey}`,
+        Authorization: `Bearer ${calcomApiKey}`,
         'Content-Type': 'application/json',
         'cal-api-version': '2024-09-04',
       },

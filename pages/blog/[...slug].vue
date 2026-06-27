@@ -36,6 +36,15 @@ const { data: post, error } = await useAsyncData(
 if (post.value?.redirect && route.path !== post.value.redirect) {
   navigateTo(post.value.redirect, { replace: true })
 }
+// No post found (missing slug or a swallowed fetch error) → render the 404
+// page instead of hanging forever on the "Loading…" state.
+else if (!post.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: `Post not found: ${route.params.slug.join('/')}`,
+    fatal: true,
+  })
+}
 
 // Temporal cross-reference: "around this time" context (must be after post fetch)
 const postDate = computed(() => post.value?.metadata?.date || post.value?.date)

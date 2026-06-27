@@ -618,7 +618,10 @@ if (import.meta.client) {
     watch(
       [posts, scraps],
       () => {
-        if (posts.value.length && scraps.value.length) {
+        // Render as soon as EITHER source has data. Previously this required
+        // both posts AND scraps, so an empty /api/scraps response left the
+        // entire graph blank even with hundreds of posts.
+        if (posts.value.length || scraps.value.length) {
           nextTick(initGraph)
         }
       },
