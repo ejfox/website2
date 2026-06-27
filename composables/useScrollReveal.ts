@@ -49,6 +49,10 @@ export function useScrollReveal(options: ScrollRevealOptions = {}) {
     const container = revealContainer.value
     if (!container) return
 
+    // Honor an OS-level reduce-motion request: leave everything painted and
+    // run no animation. (The CSS guard can't stop these JS-driven tweens.)
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return
+
     const { animate, stagger } = await import('animejs')
 
     const children = Array.from(container.querySelectorAll(selector))
@@ -150,6 +154,8 @@ export function useRevealOnce(
 
   onMounted(async () => {
     if (!el.value) return
+    // Honor reduce-motion: leave the element visible, skip the entrance.
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return
     const { animate } = await import('animejs')
 
     const htmlEl = el.value

@@ -130,6 +130,9 @@ body {
    still tracks OS preference pre-hydration / with JS off) — matching how the rest
    of the site's dark styling already resolves. */
 :root {
+  /* Let native UI (scrollbars, form controls, overscroll/rubber-band) follow
+     the OS scheme, matching the site's auto dark/light behavior. */
+  color-scheme: light dark;
   --bg-page: #ffffff;
   --bg-sunken: #ffffff;
   --bg-surface: #ffffff;
@@ -197,6 +200,17 @@ h3,
 .text-2xl {
   font-family: 'Vault Alarm', system-ui, -apple-system, sans-serif;
   letter-spacing: -0.015em;
+}
+
+/* Balanced headings: spread the last line so a single word never dangles
+   alone. Unsupported browsers simply ignore it. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
 }
 
 /* Normal tracking for body text */
@@ -1468,6 +1482,12 @@ img[data-loading='lazy']::before {
   margin-bottom: var(--body-margin);
 }
 
+/* Avoid widows/orphans in reading text (last line of a paragraph won't be a
+   lone word). Purely a rendering hint — ignored where unsupported. */
+.blog-post-content p {
+  text-wrap: pretty;
+}
+
 .blog-post-content li {
   line-height: var(--body-line);
   margin-bottom: 0.5rem;
@@ -1499,6 +1519,18 @@ img[data-loading='lazy']::before {
   background-clip: content-box;
 }
 @media (prefers-reduced-motion: reduce) {
+  /* Global safety net: honor an OS-level reduce-motion request site-wide.
+     0.01ms (not 0) keeps transition/animation end-events firing, so any JS
+     that awaits them still resolves. */
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
   .blog-post-content img.img-splay {
     transform: none;
   }
