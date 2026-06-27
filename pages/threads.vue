@@ -33,6 +33,10 @@ const BOUNDARY_FORCE_STRENGTH = 0.8
 // Edge curvature: fraction of edge length used as the bow. 0 = straight/rigid
 // (toward a 90/45° schematic feel), higher = more organic Catmull-Rom flow.
 const EDGE_CURVE = 0.14
+// Ambient life: posts gently breathe by this many px around their settled
+// spot (topics stay pinned as steady anchors). Purely cosmetic — the real
+// positions, and hit-testing, are untouched.
+const AMBIENT_AMP = 1.1
 
 // =============================================================================
 
@@ -250,6 +254,7 @@ const graphData = computed(() => {
 if (import.meta.client) {
   let simulation = null
   let resizeHandler = null
+  let visibilityHandler = null
   // Halts the recursive streaming setTimeout chains once the page unmounts.
   let isUnmounted = false
   let nodes = []
@@ -257,6 +262,10 @@ if (import.meta.client) {
   let ctx = null
   let width = 0
   let height = 0
+  // Shared animation clock (ms) advanced by the ambient render loop, so every
+  // draw in a frame breathes in sync. Frozen while the tab is hidden.
+  let ambientClock = 0
+  let ambientRAF = null
 
   const isNodeVisible = (n) => {
     if (n.type === 'post') return showPosts.value
@@ -274,13 +283,34 @@ if (import.meta.client) {
     // (===) to the raw node objects in nodes/links. Match by id instead.
     const hoveredId = hovered?.id
 
+    // Ambient breathing: each post drifts on a slow sine around its settled
+    // spot (topics stay pinned). ax/ay give the *drawn* position; real n.x/n.y
+    // (and hit-testing) are never touched. Also a slow glow pulse for signposts.
+    const t = ambientClock
+    const phaseOf = (n) => {
+      if (n._ph === undefined) {
+        let h = 0
+        for (let i = 0; i < n.id.length; i++)
+          h = (h * 31 + n.id.charCodeAt(i)) % 6283
+        n._ph = h / 1000
+      }
+      return n._ph
+    }
+    const ax = (n) =>
+      n.isMaypole ? n.x : n.x + Math.sin(t * 0.0005 + phaseOf(n)) * AMBIENT_AMP
+    const ay = (n) =>
+      n.isMaypole
+        ? n.y
+        : n.y + Math.cos(t * 0.0004 + phaseOf(n) * 1.3) * AMBIENT_AMP
+    const glowPulse = 5 + Math.sin(t * 0.0016) * 2.5
+
     // Organic edge: a quadratic "bow" gives a Catmull-Rom-ish curve instead of
     // a straight line. Flip EDGE_CURVE to 0 for a rigid 90/45° schematic feel.
     const drawEdge = (l) => {
-      const x1 = l.source.x
-      const y1 = l.source.y
-      const x2 = l.target.x
-      const y2 = l.target.y
+      const x1 = ax(l.source)
+      const y1 = ay(l.source)
+      const x2 = ax(l.target)
+      const y2 = ay(l.target)
       const dx = x2 - x1
       const dy = y2 - y1
       const len = Math.hypot(dx, dy) || 1
@@ -341,12 +371,18 @@ if (import.meta.client) {
         ctx.shadowBlur = 12
       } else if (n.isMaypole) {
         ctx.shadowColor = NODE_COLOR.tag
-        ctx.shadowBlur = 6
+        ctx.shadowBlur = glowPulse
       } else {
         ctx.shadowBlur = 0
       }
       ctx.beginPath()
-      ctx.arc(n.x, n.y, NODE_RADIUS[n.type] + (near ? 1 : 0), 0, Math.PI * 2)
+      ctx.arc(
+        ax(n),
+        ay(n),
+        NODE_RADIUS[n.type] + (near ? 1 : 0),
+        0,
+        Math.PI * 2
+      )
       ctx.fill()
     })
     ctx.shadowBlur = 0
@@ -360,14 +396,17 @@ if (import.meta.client) {
       ctx.globalAlpha = 1
       ctx.textBaseline = 'middle'
       ctx.letterSpacing = '1.5px'
-      ctx.shadowColor = 'rgba(0, 0, 0, 0.9)'
-      ctx.shadowBlur = 4
       nodes.forEach((n) => {
         if (!n.isMaypole || !n.x) return
-        const active = n.id === hoveredId
+        // A topic lights up when it's hovered OR linked to the hovered node —
+        // so hovering a post reveals which topics it's filed under.
+        const active = n.id === hoveredId || connected.has(n.id)
         const size = Math.min(17, 10 + Math.sqrt(n.count || 1))
         ctx.font = `${active ? size + 1 : size}px "Monaspace Neon", ui-monospace, monospace`
         const labelX = n.x + NODE_RADIUS.tag + 8
+        // Glow when active; otherwise a dark halo purely for legibility.
+        ctx.shadowColor = active ? '#fbbf24' : 'rgba(0, 0, 0, 0.9)'
+        ctx.shadowBlur = active ? 8 : 4
         // Tick from the dot to the label — technical-annotation feel.
         ctx.strokeStyle = active ? '#fde68a' : 'rgba(251, 191, 36, 0.45)'
         ctx.lineWidth = 1
@@ -375,8 +414,16 @@ if (import.meta.client) {
         ctx.moveTo(n.x + NODE_RADIUS.tag + 2, n.y)
         ctx.lineTo(labelX - 2, n.y)
         ctx.stroke()
+        // Topic name, then a dim count annotation — the label is quantitative.
+        const name = (n.title || '').toUpperCase()
         ctx.fillStyle = active ? '#fde68a' : '#fbbf24'
-        ctx.fillText((n.title || '').toUpperCase(), labelX, n.y)
+        ctx.fillText(name, labelX, n.y)
+        const nameW = ctx.measureText(name).width
+        ctx.shadowBlur = 0
+        ctx.fillStyle = active
+          ? 'rgba(253, 230, 138, 0.6)'
+          : 'rgba(251, 191, 36, 0.4)'
+        ctx.fillText(String(n.count || ''), labelX + nameW + 10, n.y)
       })
       ctx.restore()
     }
@@ -392,8 +439,8 @@ if (import.meta.client) {
       ctx.shadowBlur = 12
       ctx.beginPath()
       ctx.arc(
-        hovered.x,
-        hovered.y,
+        ax(hovered),
+        ay(hovered),
         (NODE_RADIUS[hovered.type] || 2) + 5,
         0,
         Math.PI * 2
@@ -760,12 +807,35 @@ if (import.meta.client) {
       }
     }
     window.addEventListener('resize', resizeHandler)
+
+    // Ambient render loop — keeps the whole constellation gently breathing
+    // (posts drift, signposts pulse) even after the simulation has settled.
+    // Paused while the tab is hidden so it never burns CPU in the background.
+    const renderLoop = () => {
+      ambientClock = performance.now()
+      draw()
+      ambientRAF = requestAnimationFrame(renderLoop)
+    }
+    renderLoop()
+
+    visibilityHandler = () => {
+      if (document.hidden) {
+        if (ambientRAF) cancelAnimationFrame(ambientRAF)
+        ambientRAF = null
+      } else if (!ambientRAF && !isUnmounted) {
+        renderLoop()
+      }
+    }
+    document.addEventListener('visibilitychange', visibilityHandler)
   })
 
   onBeforeUnmount(() => {
     isUnmounted = true
     simulation?.stop()
+    if (ambientRAF) cancelAnimationFrame(ambientRAF)
     if (resizeHandler) window.removeEventListener('resize', resizeHandler)
+    if (visibilityHandler)
+      document.removeEventListener('visibilitychange', visibilityHandler)
   })
 }
 </script>
