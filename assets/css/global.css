@@ -489,6 +489,10 @@ p,
 
 /* Focus States - Accessible */
 *:focus-visible {
+  /* Explicit solid style so the branded zinc ring renders consistently —
+     otherwise it falls back to the platform 'auto' ring, which ignores the
+     specified color/width. */
+  outline-style: solid;
   @apply outline-2 outline-offset-4 outline-zinc-900 dark:outline-zinc-100;
 }
 
