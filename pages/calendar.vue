@@ -88,26 +88,52 @@ onMounted(() => {
     : DEFAULT_LINK
   mountCal(requested, 'calendar')
 
-  // Self-heal stale/unknown ?type= links. A deleted or mistyped event type makes
-  // cal.com render nothing and set the embed's loading="failed" — without this it
-  // would just sit blank. Watch that signal and fall back to the default type.
+  // Self-heal stale/unknown ?type= links so they don't sit blank. A valid event
+  // type reliably reaches loading="done" within a second or two; a bad one either
+  // flips to loading="failed" OR (observed in the wild) just stays stuck null
+  // forever. So the robust rule is: if the embed hasn't reported "done" by the
+  // deadline, treat it as broken and fall back to the default type.
   // (Only when a custom type was requested; no point falling back to itself.)
   if (requested === DEFAULT_LINK) return
-  let tries = 0
-  const poll = setInterval(() => {
-    const state = document
-      .querySelector('#cal-embed cal-inline')
-      ?.getAttribute('loading')
-    if (state === 'done' || tries++ > 12) {
-      clearInterval(poll)
-    } else if (state === 'failed') {
-      clearInterval(poll)
-      const el = document.querySelector('#cal-embed')
-      if (el) el.innerHTML = ''
-      fellBackToDefault.value = true
-      mountCal(DEFAULT_LINK, 'calendar-fallback')
-    }
-  }, 500)
+
+  // NB: #cal-embed lives inside <ClientOnly>, so it may not exist yet at
+  // onMounted (cal.com resolves the selector asynchronously). So we observe a
+  // stable root and look the embed up lazily — and crucially set the deadline
+  // timer unconditionally, instead of bailing on a not-yet-rendered container.
+  const w = { settled: false, observer: null, timer: null }
+  const embed = () => document.querySelector('#cal-embed')
+  const finish = () => {
+    w.settled = true
+    w.observer?.disconnect()
+    clearTimeout(w.timer)
+  }
+  const fallback = () => {
+    if (w.settled) return
+    finish()
+    const el = embed()
+    if (el) el.innerHTML = ''
+    fellBackToDefault.value = true
+    mountCal(DEFAULT_LINK, 'calendar-fallback')
+  }
+  const check = () => {
+    if (w.settled) return
+    const state = embed()?.querySelector('cal-inline')?.getAttribute('loading')
+    if (state === 'done')
+      finish() // valid type — leave it be
+    else if (state === 'failed') fallback() // fast-path the explicit failure
+  }
+  // Watch the whole document for cal-inline's loading flips (the element is
+  // created async, and may sit outside our cached refs at setup time).
+  w.observer = new MutationObserver(check)
+  w.observer.observe(document.body, {
+    subtree: true,
+    attributes: true,
+    attributeFilter: ['loading'],
+  })
+  // Deadline: if it never reaches "done" (failed, or stuck null), fall back.
+  // 12s is generous vs. cal.com's usual ~2s load.
+  w.timer = setTimeout(fallback, 12000)
+  check() // in case it already settled
 })
 </script>
 
