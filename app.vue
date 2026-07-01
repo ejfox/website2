@@ -133,6 +133,24 @@ useHead({
     },
   ],
 })
+
+// Every page advertises its `.json` twin (server/middleware/json-twin.ts).
+// Function form so `route.path` stays correct across client-side navigation.
+const jsonTwinUrl = computed(() => {
+  const p = route.path === '/' ? '/.json' : `${route.path.replace(/\/$/, '')}.json`
+  return new URL(p, baseUrl.value).href
+})
+useHead(() => ({
+  link: [
+    {
+      key: 'alternate-json',
+      rel: 'alternate',
+      type: 'application/json',
+      href: jsonTwinUrl.value,
+      title: 'This page as JSON',
+    },
+  ],
+}))
 </script>
 
 <template>
