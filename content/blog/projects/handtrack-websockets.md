@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/handtrack-websockets
 tech: ["MediaPipe", "OpenCV", "FastAPI", "WebSockets"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - creative-coding
   - interface

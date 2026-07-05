@@ -5,7 +5,7 @@ draft: true
 url: https://radio.tools.ejfox.com
 tech: ["Nuxt", "TypeScript", "Audio", "Cloudflare"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
   - audio

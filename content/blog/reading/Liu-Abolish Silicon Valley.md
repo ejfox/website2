@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '8003'
-  title: 'Abolish Silicon Valley: How to Liberate Technology from Capitalism'
-  author: Wendy Liu
-  asin: B07V9B4MC9
-  lastAnnotatedDate: '2021-02-04'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/91q4pnxxDiL._SY160.jpg'
-  highlightsCount: 4
 tags: [book, tech, politics]
 ---
 # Abolish Silicon Valley

@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '28584'
-  title: Reality Hunger
-  author: David Shields
-  asin: B0036S49D2
-  lastAnnotatedDate: '2024-08-30'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81XahxBKE9L._SY160.jpg'
-  highlightsCount: 15
 date: 2025-08-21T14:44:34-04:00
 modified: 2025-08-24T19:53:05-04:00
 tags: [book, writing, art]

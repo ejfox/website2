@@ -1,13 +1,5 @@
 ---
 tags: [book, meditation]
-kindle-sync:
-  bookId: '56397'
-  title: The I Ching or Book of Changes (Bollingen Series 170)
-  author: 'C. G. Jung, Richard Wilhelm, Hellmut Wilhelm, and Cary F. Baynes'
-  asin: B004S6QSYO
-  lastAnnotatedDate: '2025-07-11'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/51fzxLryJTL._SY160.jpg'
-  highlightsCount: 4
 date: 2025-08-21T14:44:04-04:00
 modified: 2025-08-24T18:30:58-04:00
 ---

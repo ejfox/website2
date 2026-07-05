@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '2199'
-  title: 'Exhalation: Stories'
-  author: Ted Chiang
-  asin: B07GD46PQZ
-  lastAnnotatedDate: '2024-12-15'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71rxUxpcPgL._SY160.jpg'
-  highlightsCount: 1
 tags:
   - book
   - tech

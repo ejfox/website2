@@ -3,7 +3,6 @@ draft: true
 dek: >-
   In which we illuminate the curious history of hackerdom and its transformative
   influence on our modern technological world
-inprogress: true
 date: 2023-01-19T01:37:52-05:00
 modified: 2024-09-23T12:13:08-04:00
 tags:

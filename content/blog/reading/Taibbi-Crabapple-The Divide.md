@@ -3,14 +3,6 @@ tags:
   - politics
   - america
   - book
-kindle-sync:
-  bookId: '2923'
-  title: 'The Divide: American Injustice in the Age of the Wealth Gap'
-  author: Matt Taibbi and Molly Crabapple
-  asin: B00EBRUB02
-  lastAnnotatedDate: '2019-04-11'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/913cJQHSz+L._SY160.jpg'
-  highlightsCount: 11
 ---
 # The Divide
 

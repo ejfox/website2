@@ -38,6 +38,15 @@ const VALID_FIELDS = new Set([
   'in-reply-to',
   'slug',
   'aliases',
+  // Project metadata (content/blog/projects/*) — verified consumed by pages/projects + components/projects
+  'tech',
+  'state',
+  'url',
+  'context',
+  'featured',
+  'client',
+  'github',
+  'ai-involvement',
 ])
 
 // Common typos for visibility fields

@@ -1,13 +1,5 @@
 ---
 tags: [book, meditation]
-kindle-sync:
-  bookId: '56342'
-  title: 'Zen Mind, Beginner''s Mind'
-  author: Shunryu Suzuki and David Chadwick
-  asin: B004R9QFGS
-  lastAnnotatedDate: '2016-07-28'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71ln75kZ4wL._SY160.jpg'
-  highlightsCount: 24
 date: 2025-08-21T14:55:24-04:00
 modified: 2025-08-24T18:30:46-04:00
 ---

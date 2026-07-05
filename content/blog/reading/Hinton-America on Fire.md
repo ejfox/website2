@@ -1,14 +1,4 @@
 ---
-kindle-sync:
-  bookId: '24960'
-  title: >-
-    America on Fire: The Untold History of Police Violence and Black Rebellion
-    Since the 1960s
-  author: Elizabeth Hinton
-  asin: B08L6ZNW43
-  lastAnnotatedDate: '2021-06-22'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81s8svAo1pL._SY160.jpg'
-  highlightsCount: 4
 tags:
   - book
   - america

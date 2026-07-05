@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/sentrysearch
 tech: ["Video", "Embeddings", "Search"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - video
   - ai

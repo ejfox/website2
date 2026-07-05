@@ -1,13 +1,5 @@
 ---
 tags: [book, meditation, psychedelics]
-kindle-sync:
-  bookId: '63420'
-  title: Be Here Now (Enhanced Edition)
-  author: Ram Dass
-  asin: B005R9HK8O
-  lastAnnotatedDate: '2025-08-18'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81Dpy5FsblL._SY160.jpg'
-  highlightsCount: 2
 ---
 # Be Here Now
 

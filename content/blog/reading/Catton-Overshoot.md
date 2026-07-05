@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '22075'
-  title: 'Overshoot: The Ecological Basis of Revolutionary Change'
-  author: William R. Catton
-  asin: B00VVH4UGG
-  lastAnnotatedDate: '2023-06-22'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/51geicggF5L._SY160.jpg'
-  highlightsCount: 4
 tags:
   - book
   - ecology

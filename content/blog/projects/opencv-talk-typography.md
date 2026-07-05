@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/opencv-talk-typography
 tech: ["Vue", "p5", "MediaPipe", "d3-force"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - typography
   - creative-coding

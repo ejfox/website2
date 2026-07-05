@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/smallweb-starter
 tech: ["TypeScript", "Deno", "Smallweb"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
   - web

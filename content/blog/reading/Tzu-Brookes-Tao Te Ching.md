@@ -1,13 +1,5 @@
 ---
 tags: [book, meditation]
-kindle-sync:
-  bookId: '23914'
-  title: Tao Te Ching
-  author: Lao Tzu and Robert Brookes
-  asin: B009WA8ZKG
-  lastAnnotatedDate: '2023-06-30'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/91x+WlgMW1L._SY160.jpg'
-  highlightsCount: 6
 ---
 # Tao Te Ching
 

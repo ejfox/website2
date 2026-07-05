@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/clipgoblin
 tech: ["Swift"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
 ---

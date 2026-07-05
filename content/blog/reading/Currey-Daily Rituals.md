@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '57847'
-  title: 'Daily Rituals: How Artists Work'
-  author: Mason Currey
-  asin: B009Y4I4OM
-  lastAnnotatedDate: '2022-06-20'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81T0Ky96r+L._SY160.jpg'
-  highlightsCount: 2
 tags:
   - book
   - art

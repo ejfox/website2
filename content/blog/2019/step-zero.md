@@ -4,7 +4,6 @@ dek: >-
   preparation
 type: words
 hidden: false
-inprogress: false
 date: '2019-06-12T17:40:00-04:00'
 tags:
   - advice

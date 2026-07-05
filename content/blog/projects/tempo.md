@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/tempo-ios
 tech: ["Swift", "SwiftUI", "iOS", "watchOS"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - ios
   - app

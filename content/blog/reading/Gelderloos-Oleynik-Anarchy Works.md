@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '24436'
-  title: Anarchy Works (Annotated)
-  author: Peter Gelderloos and Vladimir Oleynik
-  asin: B018SN4HT0
-  lastAnnotatedDate: '2024-01-22'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/7165cK74S1L._SY160.jpg'
-  highlightsCount: 20
 date: 2025-08-21T14:44:50-04:00
 modified: 2025-08-24T18:30:27-04:00
 tags:

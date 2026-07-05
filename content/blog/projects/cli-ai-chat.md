@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/cli-ai-chat
 tech: ["Node.js", "CLI", "AI"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - cli
   - tool

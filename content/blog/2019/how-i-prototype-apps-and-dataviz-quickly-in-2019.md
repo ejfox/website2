@@ -1,7 +1,6 @@
 ---
 type: words
 hidden: false
-inprogress: false
 date: 2019-03-19T21:25:22-04:00
 modified: 2024-09-23T12:13:36-04:00
 tags:

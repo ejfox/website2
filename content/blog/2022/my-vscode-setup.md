@@ -1,7 +1,6 @@
 ---
 draft: true
 dek: In which we modify our tools to more precisely fit our intentions
-inprogress: true
 date: 2022-11-02T20:00:38-04:00
 modified: 2024-09-20T00:23:03-04:00
 tags:

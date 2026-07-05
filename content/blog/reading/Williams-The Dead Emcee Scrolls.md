@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '21088'
-  title: 'The Dead Emcee Scrolls: The Lost Teachings of Hip-Hop'
-  author: Saul Williams
-  asin: B000FCKROM
-  lastAnnotatedDate: '2021-08-16'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81aJ6OQP8KL._SY160.jpg'
-  highlightsCount: 9
 tags:
   - book
   - music

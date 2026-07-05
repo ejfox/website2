@@ -6,7 +6,7 @@ hidden: true
 url: https://github.com/ejfox/groundwave
 tech: ["Nuxt 3", "D3.js", "WebSockets", "Meshtastic", "SDR"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - hardware
   - dataviz

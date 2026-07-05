@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/osm-builder
 tech: ["TypeScript", "OpenStreetMap"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - maps
   - simulation

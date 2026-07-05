@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '41806'
-  title: A Potter's Workbook
-  author: Clary Illian and Charles Metzger
-  asin: B008XOF5K0
-  lastAnnotatedDate: '2023-10-12'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/715LUhvNn+L._SY160.jpg'
-  highlightsCount: 3
 tags:
   - book
   - pottery

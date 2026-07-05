@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/ascii_webcam
 tech: ["Python", "ASCII Art", "Terminal", "OpenCV"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - cli
   - terminal

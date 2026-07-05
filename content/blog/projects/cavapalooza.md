@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/cavapalooza
 tech: ["Nuxt", "Vue"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - web
   - personal

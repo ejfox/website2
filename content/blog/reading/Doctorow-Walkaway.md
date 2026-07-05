@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '45158'
-  title: 'Walkaway: A Novel'
-  author: Cory Doctorow
-  asin: B01FQQ47OC
-  lastAnnotatedDate: '2022-06-20'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71VhE105uhL._SY160.jpg'
-  highlightsCount: 8
 date: 2025-08-21T14:46:31-04:00
 modified: 2025-08-24T18:31:29-04:00
 tags: [book, tech, anarchism]

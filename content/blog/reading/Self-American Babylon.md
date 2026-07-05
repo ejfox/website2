@@ -1,14 +1,4 @@
 ---
-kindle-sync:
-  bookId: '57443'
-  title: >-
-    American Babylon: Race and the Struggle for Postwar Oakland (Politics and
-    Society in Modern America Book 37)
-  author: Robert O. Self
-  asin: B00GYW96C6
-  lastAnnotatedDate: '2014-11-01'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81R5dWlWxzL._SY160.jpg'
-  highlightsCount: 2
 tags:
   - book
   - oakland

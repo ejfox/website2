@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/vulpesvg
 tech: ["Tauri", "Rust", "Vue", "SVG"]
 state: prototype
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
   - design

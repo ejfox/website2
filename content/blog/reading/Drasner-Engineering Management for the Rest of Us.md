@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '43898'
-  title: Engineering Management for the Rest of Us
-  author: Sarah Drasner
-  asin: B0BGYVDX35
-  lastAnnotatedDate: '2024-12-15'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/910mP4Y5dSL._SY160.jpg'
-  highlightsCount: 6
 date: 2025-08-21T14:44:29-04:00
 modified: 2025-08-24T18:31:22-04:00
 tags:

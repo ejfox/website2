@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/music-cli
 tech: ["Shell"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
 ---

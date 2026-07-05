@@ -3,7 +3,6 @@ draft: true
 dek: >-
   In which the importance of mindful CMS selection is examined, the option of
   "no CMS" is considered, and the benefits of using Markdown are revealed
-inprogress: true
 date: 2023-04-04T14:50:35-04:00
 modified: 2024-09-23T12:13:32-04:00
 tags:

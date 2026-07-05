@@ -3,14 +3,6 @@ tags:
   - tech
   - politics
   - book
-kindle-sync:
-  bookId: '40211'
-  title: 'Silicon Values: The Future of Free Speech Under Surveillance Capitalism'
-  author: Jillian C. York
-  asin: B089S6JCYN
-  lastAnnotatedDate: '2022-12-01'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/616o1iZ2KFL._SY160.jpg'
-  highlightsCount: 1
 ---
 # Silicon Values
 

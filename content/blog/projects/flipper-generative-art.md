@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/flipper-generative-art
 tech: ["Flipper Zero", "C", "Floyd–Steinberg Dithering", "Embedded"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - flipper
   - hardware

@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/newswell
 tech: ["Nuxt 4", "Vue", "WordPress", "PHP", "GPT-4"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
   - journalism

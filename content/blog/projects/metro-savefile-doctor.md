@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/metro-savefile-doctor
 tech: ["TypeScript", "Ink", "Tauri", "Node.js"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
   - games

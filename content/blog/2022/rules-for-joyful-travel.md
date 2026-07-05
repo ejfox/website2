@@ -3,7 +3,6 @@ draft: true
 dek: >-
   In which the author discusses methods to travel efficiently and have
   spontaneous and joyous experiences
-inprogress: true
 date: 2022-12-26T15:09:25-05:00
 modified: 2025-08-29T16:13:45-04:00
 tags:

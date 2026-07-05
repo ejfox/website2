@@ -1,14 +1,4 @@
 ---
-kindle-sync:
-  bookId: '12810'
-  title: >-
-    How We Got Here: Melville Plus Nietzsche Divided by the Square Root of
-    (Allan) Bloom Times Žižek (Squared) Equals Bannon
-  author: David Shields
-  asin: B0DGLSSTL3
-  lastAnnotatedDate: '2025-07-12'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/61RFV9THfoL._SY160.jpg'
-  highlightsCount: 2
 tags:
   - book
   - politics

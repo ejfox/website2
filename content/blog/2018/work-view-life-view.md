@@ -2,7 +2,6 @@
 dek: In which the author explores the meaning of life and work
 type: words
 hidden: false
-inprogress: false
 date: '2018-09-30T21:58:20-04:00'
 tags:
   - advice

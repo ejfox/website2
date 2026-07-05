@@ -5,7 +5,7 @@ draft: true
 url: https://tv.tools.ejfox.com
 tech: ["TypeScript", "Deno", "Smallweb"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - web
   - experiment

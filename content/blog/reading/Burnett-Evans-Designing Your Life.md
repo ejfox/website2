@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '37778'
-  title: 'Designing Your Life: How to Build a Well-Lived, Joyful Life'
-  author: Bill Burnett and Dave Evans
-  asin: B01BJSRSEC
-  lastAnnotatedDate: '2021-01-18'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71O3fHSPe8L._SY160.jpg'
-  highlightsCount: 2
 tags:
   - book
   - design

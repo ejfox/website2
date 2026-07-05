@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '31637'
-  title: 'Theft by Finding: Diaries (1977-2002)'
-  author: David Sedaris
-  asin: B01LZD935U
-  lastAnnotatedDate: '2018-08-13'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81cRysFkH-L._SY160.jpg'
-  highlightsCount: 5
 tags:
   - book
   - writing

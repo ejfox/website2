@@ -4,7 +4,7 @@ date: 2026-04-01T00:00:00-04:00
 draft: true
 tech: ["D3.js", "Tufte CSS", "Genomics", "Data Visualization"]
 state: doing
-aiInvolvement: ai-collaborative
+ai-involvement: ai-collaborative
 tags:
   - dataviz
   - data

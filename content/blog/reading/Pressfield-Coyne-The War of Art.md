@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '62220'
-  title: The War of Art
-  author: Steven Pressfield and Shawn Coyne
-  asin: B007A4SDCG
-  lastAnnotatedDate: '2021-01-05'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71jgxi5WW2L._SY160.jpg'
-  highlightsCount: 8
 tags: [book, art, advice]
 ---
 # The War of Art

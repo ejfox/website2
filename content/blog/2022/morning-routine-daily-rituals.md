@@ -3,7 +3,6 @@ draft: true
 dek: >-
   In which we use intentional morning rituals to improve our lives and increase
   our happiness
-inprogress: true
 date: 2022-11-02T21:31:25-04:00
 modified: 2024-09-20T00:22:56-04:00
 tags:

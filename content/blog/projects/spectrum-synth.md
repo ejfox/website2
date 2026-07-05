@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/spectrum-synth
 tech: ["Flipper Zero", "ESP32-S2", "C", "WiFi"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - flipper
   - hardware

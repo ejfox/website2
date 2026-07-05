@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '57250'
-  title: 'Savage Ecology: War and Geopolitics at the End of the World'
-  author: Jairus Victor Grove
-  asin: B07V5V2P1V
-  lastAnnotatedDate: '2025-01-09'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/91lJLAMxYPL._SY160.jpg'
-  highlightsCount: 16
 tags:
   - book
   - ecology

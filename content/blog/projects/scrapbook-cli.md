@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/scrapbook-cli
 tech: ["Node.js", "CLI"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - cli
   - tool

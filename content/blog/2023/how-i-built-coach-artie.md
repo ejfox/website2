@@ -1,7 +1,6 @@
 ---
 draft: true
 dek: In which we build a robot to help around the shop
-inprogress: true
 date: 2023-03-21T15:03:11-04:00
 modified: 2024-09-23T12:13:40-04:00
 tags:

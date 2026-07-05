@@ -4,7 +4,6 @@ dek: >-
   disobedience
 type: words
 hidden: false
-inprogress: false
 date: 2019-08-14T04:00:39-04:00
 modified: 2025-06-30T23:40:19-04:00
 tags:

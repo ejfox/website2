@@ -4,7 +4,7 @@ date: 2024-07-01T00:00:00-04:00
 modified: 2025-08-13T11:46:54-04:00
 tech: ["Computer Vision", "MIDI", "WebGL", "Hand Tracking", "Generative Art", "Interactive Media"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - creativity
   - interfaces

@@ -5,7 +5,7 @@ draft: true
 url: https://ejfox.github.io/tailwind-phi/
 tech: ["Tailwind CSS", "JavaScript", "Design"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - design
   - css

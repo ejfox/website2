@@ -4,7 +4,6 @@ dek: >-
   near known ICE facilities
 type: words
 hidden: false
-inprogress: false
 date: 2019-03-24T04:00:39-04:00
 modified: 2024-09-23T12:13:18-04:00
 tags:

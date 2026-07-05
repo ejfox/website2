@@ -1,7 +1,6 @@
 ---
 draft: true
 dek: In which we create a few rules so we can fully unlock our creativity
-inprogress: true
 date: 2023-01-19T01:23:52-05:00
 modified: 2024-09-20T00:26:18-04:00
 tags:

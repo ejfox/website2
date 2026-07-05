@@ -5,7 +5,6 @@ dek: >-
   do so yourself if so inclined
 type: words
 hidden: false
-inprogress: false
 date: 2019-08-18T04:00:39-04:00
 modified: 2024-09-23T12:13:27-04:00
 tags:

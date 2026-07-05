@@ -1,7 +1,6 @@
 ---
 type: words
 hidden: true
-inprogress: true
 date: 2019-03-24T04:00:33-04:00
 tags:
   - generative

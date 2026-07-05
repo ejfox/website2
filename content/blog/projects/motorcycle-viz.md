@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/motorcycle-viz
 tech: ["FFmpeg", "Python", "Generative Art", "Data Visualization"]
 state: doing
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - motorcycle
   - dataviz

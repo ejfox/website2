@@ -4,7 +4,7 @@ date: 2026-05-01
 draft: true
 tech: ["SVG", "Nuxt", "Vue", "D3", "flubber"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - art
   - generative

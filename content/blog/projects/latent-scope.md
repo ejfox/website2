@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/latent-scope
 tech: ["JavaScript", "Embeddings", "UMAP", "Machine Learning"]
 state: deployed
-aiInvolvement: ai-collaborative
+ai-involvement: ai-collaborative
 tags:
   - dataviz
   - ai

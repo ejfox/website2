@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '41325'
-  title: How to Think Like an Anthropologist
-  author: Matthew Engelke
-  asin: B076ZYFFTX
-  lastAnnotatedDate: '2019-02-13'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81Ap3UYdbEL._SY160.jpg'
-  highlightsCount: 12
 tags:
   - book
   - culture

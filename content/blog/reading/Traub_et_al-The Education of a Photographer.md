@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '35281'
-  title: The Education of a Photographer
-  author: 'Charles H. Traub, Steven Heller, Adam B. Bell, and Charles Traub'
-  asin: B0041IXRM0
-  lastAnnotatedDate: '2022-08-19'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/61zosjjESlL._SY160.jpg'
-  highlightsCount: 2
 tags:
   - book
   - photography

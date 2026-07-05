@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '52163'
-  title: 'Thinking in Systems: International Bestseller'
-  author: Donella H. Meadows and Diana Wright
-  asin: B005VSRFEA
-  lastAnnotatedDate: '2023-08-26'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71aQ+TLBi-L._SY160.jpg'
-  highlightsCount: 5
 tags:
   - book
   - systemsthinking

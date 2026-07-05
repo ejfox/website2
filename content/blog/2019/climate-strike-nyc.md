@@ -4,7 +4,6 @@ dek: >-
   they are too young to riot
 type: photo
 hidden: false
-inprogress: false
 date: '2019-09-20T21:19:39-04:00'
 tags:
   - activism

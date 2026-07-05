@@ -4,7 +4,6 @@ dek: >-
   In which we explore the transformative potential of computer literacy,
   unearthing its capacity to elevate both individual lives and collective
   progress
-inprogress: true
 date: 2022-11-02T20:02:01-04:00
 modified: 2024-09-20T00:24:42-04:00
 tags:

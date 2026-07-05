@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/steam-store-design-lab
 tech: ["Nuxt", "Vue", "Design Tool"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
   - design

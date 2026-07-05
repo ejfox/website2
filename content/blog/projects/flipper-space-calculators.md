@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/flipper-space-calculators
 tech: ["Flipper Zero", "C", "Embedded"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - flipper
   - hardware

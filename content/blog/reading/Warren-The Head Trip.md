@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '9400'
-  title: 'The Head Trip: Adventures on the Wheel of Consciousness'
-  author: Jeff Warren
-  asin: B000W917RY
-  lastAnnotatedDate: '2023-07-02'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/41fYLnP17DL._SY160.jpg'
-  highlightsCount: 2
 tags:
   - book
   - meditation

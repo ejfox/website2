@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '2409'
-  title: 'No Place to Hide: Edward Snowden, the NSA, and the U.S. Surveillance State'
-  author: Glenn Greenwald
-  asin: B00E0CZX0G
-  lastAnnotatedDate: '2015-02-28'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/717C3YRXF9L._SY160.jpg'
-  highlightsCount: 2
 tags:
   - book
   - security

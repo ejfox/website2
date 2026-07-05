@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/website-dispatch
 tech: ["Tauri", "Rust", "Vue", "Obsidian"]
 state: evolved
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
   - obsidian

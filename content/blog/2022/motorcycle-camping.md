@@ -1,7 +1,6 @@
 ---
 draft: true
 dek: In which we drive our motorcycles into the woods
-inprogress: true
 date: 2022-12-23T11:32:14-05:00
 modified: 2024-09-20T00:22:45-04:00
 tags:

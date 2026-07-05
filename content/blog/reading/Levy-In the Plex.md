@@ -3,14 +3,6 @@ tags:
   - book
   - tech
   - internet
-kindle-sync:
-  bookId: '29818'
-  title: 'In the Plex: How Google Thinks, Works, and Shapes Our Lives'
-  author: Steven Levy
-  asin: B003UYUP6M
-  lastAnnotatedDate: '2016-02-15'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71jXlTkXDxL._SY160.jpg'
-  highlightsCount: 1
 ---
 # In the Plex
 

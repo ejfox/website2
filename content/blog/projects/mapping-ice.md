@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/mapping-ice
 tech: ["MapLibre", "Vite", "HTML"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - maps
   - osint

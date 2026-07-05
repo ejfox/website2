@@ -5,7 +5,7 @@ draft: true
 url: https://ejfox.github.io/moto-gpx/
 tech: ["JavaScript", "GeoJSON", "exiftool"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - maps
   - motorcycle

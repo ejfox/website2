@@ -4,7 +4,7 @@ date: 2025-06-01T00:00:00-04:00
 draft: true
 tech: ["Nuxt", "Vue"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - web
   - personal

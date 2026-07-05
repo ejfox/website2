@@ -4,7 +4,7 @@ date: 2023-07-02
 draft: true
 tech: ["Pico-8", "Lua"]
 state: deployed
-aiInvolvement: ai-collaborative
+ai-involvement: ai-collaborative
 context: collaborative
 tags:
   - games

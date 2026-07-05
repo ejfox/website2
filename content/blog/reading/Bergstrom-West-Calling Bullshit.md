@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '59385'
-  title: 'Calling Bullshit: The Art of Skepticism in a Data-Driven World'
-  author: Carl T. Bergstrom and Jevin D. West
-  asin: B08191DV5T
-  lastAnnotatedDate: '2021-12-03'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81Dd92++GgS._SY160.jpg'
-  highlightsCount: 1
 tags:
   - book
   - data

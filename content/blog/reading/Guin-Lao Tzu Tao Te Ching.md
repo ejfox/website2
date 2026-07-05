@@ -1,13 +1,5 @@
 ---
 tags: [book, meditation]
-kindle-sync:
-  bookId: '18161'
-  title: 'Lao Tzu: Tao Te Ching: A Book about the Way and the Power of the Way'
-  author: Ursula K. Le Guin
-  asin: B007V3FMDY
-  lastAnnotatedDate: '2023-08-30'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81BeTEE0RRL._SY160.jpg'
-  highlightsCount: 24
 ---
 # Lao Tzu: Tao Te Ching
 

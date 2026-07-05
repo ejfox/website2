@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '8124'
-  title: 'Filterworld: How Algorithms Flattened Culture'
-  author: Kyle Chayka
-  asin: B0C2PDRHZ9
-  lastAnnotatedDate: '2024-08-03'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71u+mPdn-HL._SY160.jpg'
-  highlightsCount: 4
 date: 2025-08-21T14:44:39-04:00
 modified: 2025-08-24T19:53:43-04:00
 tags:

@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/paperclip
 tech: ["Swift", "SwiftUI", "Kotlin", "Jetpack Compose", "Supabase"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - ios
   - android

@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '54477'
-  title: 'Patriotic Treason: John Brown and the Soul of America'
-  author: Evan Carton
-  asin: B000JMKS7Y
-  lastAnnotatedDate: '2025-08-10'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/91r7o60L5KL._SY160.jpg'
-  highlightsCount: 12
 tags:
   - book
   - history

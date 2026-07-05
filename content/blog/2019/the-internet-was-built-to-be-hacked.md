@@ -2,7 +2,6 @@
 dek: In which the author is grateful for the hackers who invented the internet
 type: words
 hidden: false
-inprogress: false
 date: 2019-02-01T05:00:56-05:00
 modified: 2024-10-12T19:52:51-04:00
 tags:

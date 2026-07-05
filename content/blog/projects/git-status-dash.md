@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/git-status-dash
 tech: ["Go", "CLI", "Git"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - cli
   - terminal

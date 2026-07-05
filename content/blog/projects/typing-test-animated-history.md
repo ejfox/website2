@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/typing-test-animated-history
 tech: ["Vue", "Nuxt", "Data Visualization"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
   - dataviz

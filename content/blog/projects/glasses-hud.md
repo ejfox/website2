@@ -5,7 +5,7 @@ draft: true
 url: https://ejfox.github.io/glasses-hud/
 tech: ["JavaScript"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - hardware
   - interface
