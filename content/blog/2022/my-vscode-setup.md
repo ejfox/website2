@@ -14,9 +14,6 @@ tags:
 
 
 Imagine a coding environment that not only boosts your productivity but also sparks joy with every keystroke. Recently, I've fine-tuned my Visual Studio Code (VSCode) setup to help me work most efficiently and center joy. Trying a few various themes and plugins has ultimately allowed me to craft a toolkit that's geared towards my preferred workflow.
-
-For more info about how VSCode fits into my broader prototyping toolkit see [[blog/2022/2022-prototyping-toolkit]]
-
 ### Theme
 
 For my theme, I decided to combine [Ayu](https://marketplace.visualstudio.com/items?itemName=teabyii.ayu) and [Panda Theme](https://marketplace.visualstudio.com/items?itemName=tinkertrain.theme-panda). The former is a minimal and flat theme that emphasizes ease of use, while the latter adds an extra layer of fun with its vivid colors. Together, they provide an environment that satisfies my need for both productivity and delight. I like to have my system use a light theme during the day and a dark theme at night, so I have themes to match both modes.

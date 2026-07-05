@@ -73,10 +73,6 @@ What should I have for lunch? Just have a salad. Its not that complicated.
 - Oil & Vinegar
 - Greek Yogurt
 
-### Dinner
-
-[[drafts/_stale/cooking-ramen-experiments]]
-
 ### Desserts
 #### Chocolate chip cookies
 

@@ -24,8 +24,6 @@ You can gain a lot of this through intuition. The best way to learn is to accomp
 
 It is not remembering the name of obscure tools, functions, or frameworks.
 
-[[drafts/approach-to-learning]]
-
 ### Learning to google “Magic Words”
 
 Once you know what something is called, you can usually find enough resources to understand it, and maybe even a few examples of how to use it. The difficult thing, often described as “domain expertise” is knowing what things are called in a particular industry, field, or tool.

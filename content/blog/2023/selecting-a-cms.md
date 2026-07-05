@@ -38,7 +38,7 @@ The longer you keep your content outside of the CMS, the longer you have complet
 
 The downside is that it takes time, effort, and intentionality to build everything from scratch. If you want to add features like comments or social sharing, you have to build those yourself or find a plugin that works with your system. This approach is only valuable if you want to create work that looks unlike everyone else's, and can benefit from the value of complete control.
 
-The tools and frameworks for creating websites quickly change the equation. If I can use tools like Tachyons, Nuxt, and Supabase to create complex scalable applications in hours, why would you then spend additional hours trying to get it to work within the limitations of a legacy CMS? [[blog/2022/2022-prototyping-toolkit]]
+The tools and frameworks for creating websites quickly change the equation. If I can use tools like Tachyons, Nuxt, and Supabase to create complex scalable applications in hours, why would you then spend additional hours trying to get it to work within the limitations of a legacy CMS?
 
 #### Redefine 'CMS' and bring your own
 

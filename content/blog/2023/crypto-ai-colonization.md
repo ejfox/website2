@@ -20,7 +20,7 @@ In the swirling chaos of the 21st century, we find ourselves in the throes of a 
 
 Cryptocurrency and artificial intelligence (AI) have been heralded as saviors of economic opportunity, promising to enfranchise communities across the globe. But beneath the surface lies a shadow: the same oppressive forces entrenched by colonialism are being re-calibrated for the 21st Century and let loose in increasingly complicated systems.
 
-These forces are diametrically opposed to the traditional [[blog/2023/hacker-culture|hacker-culture]] that birthed many of the technological underpinnings of these innovations- and we must return them to their roots.
+These forces are diametrically opposed to the traditional hacker-culture that birthed many of the technological underpinnings of these innovations- and we must return them to their roots.
 
 ### Hoarding knowledge and technology
 
