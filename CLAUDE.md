@@ -322,6 +322,41 @@ Replaced complex 800+ line sidenotes system with ultra-simple 113-line client-si
 - [ ] Verify no layout shift on slower connections
 - [ ] Cross-browser testing (Safari, Firefox, Chrome)
 
+## Dead Internal Link Detection (2026-06-29)
+
+Two separate link-health systems — don't confuse them:
+
+- **External links** (`http(s)`) — checked only behind the `CHECK_LINKS=true`
+  flag (network HEAD requests, slow). `yarn blog:check-links`,
+  `yarn blog:fix-links`. Report: `data/linkrot-report.json`.
+- **Internal links** (wikilinks + relative `.md` links) — checked on **every**
+  `yarn blog:process`, no flag, no network. This catches links to missing posts,
+  drafts, and `hidden`/`unlisted`/`password` posts (which 404 in production).
+  Report: `data/internal-linkrot-report.json`. Standalone: `yarn blog:dead-links`
+  (add `--strict` to exit non-zero). Each dead link carries a `source:line` and a
+  conservative "did you mean?" `suggestion` (wrong-folder exact-slug match or a
+  same-folder near-typo only — never a draft target or the post itself).
+  Covered by `scripts/utils/__tests__/internal-links.test.mjs`.
+
+### How it works
+
+- `scripts/utils/internal-links.mjs` owns BOTH the canonical wikilink→route
+  resolution (`buildInternalHref`, imported by `remarkObsidianSupport`) AND the
+  validity check. `buildValidRoutes()` builds the set of real published routes
+  from source frontmatter — mirroring `server/api/posts/[...slug].ts`
+  `isProtectedContent` (draft/hidden/unlisted/password are NOT valid targets).
+  `classifyInternalHref()` only judges the namespaces we fully enumerate
+  (`/blog`, `/reading`, `/projects`); `/tag/*` and other dynamic routes are
+  assumed valid. Bare wikilinks (`[[name]]`) route to `/tag/name`, so they're
+  never flagged dead — only prefixed/multi-segment links are.
+- **Reader UX**: dead wikilinks render as a non-clickable
+  `<span class="internal-link internal-link-dead">` (strikethrough + ⊘ marker,
+  styled in `global.css`) instead of an `<a>` that 404s. Validity is resolved at
+  HTML-build time, so this state is baked into cached JSON — a link only restyles
+  when its source post is reprocessed. The `data/internal-linkrot-report.json`
+  audit, by contrast, always scans all source files and is always accurate.
+- **Report-only by design** — never blocks the build.
+
 ## Security & Privacy (2026-05-14)
 
 ### Build Output Privacy

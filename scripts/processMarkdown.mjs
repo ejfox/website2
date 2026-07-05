@@ -45,6 +45,10 @@ import {
 } from './plugins/index.mjs'
 
 import { getPostType } from './utils/helpers.mjs'
+import {
+  buildValidRoutes,
+  auditInternalLinks,
+} from './utils/internal-links.mjs'
 import { processStats } from './utils/stats.mjs'
 import { backupProcessedContent } from './utils/backup.mjs'
 
@@ -540,6 +544,51 @@ async function checkLinkHealth(url, timeout = 10000) {
       ok: false,
       error: error.name === 'AbortError' ? 'Timeout' : error.message,
     }
+  }
+}
+
+// Audit internal links (wikilinks + relative md links) against the set of real
+// published routes. Report-only: writes data/internal-linkrot-report.json and
+// prints a summary, never blocks the build.
+async function reportDeadInternalLinks(allFiles, contentDir) {
+  const spinner = ora('Auditing internal links...').start()
+  try {
+    const report = await auditInternalLinks(allFiles, contentDir)
+    const reportPath = path.join(
+      process.cwd(),
+      'data/internal-linkrot-report.json'
+    )
+    await fs.mkdir(path.dirname(reportPath), { recursive: true })
+    await fs.writeFile(reportPath, JSON.stringify(report, null, 2))
+
+    const { dead, affectedPosts, internalLinks } = report.summary
+    if (dead === 0) {
+      spinner.succeed(`Internal links OK (${internalLinks} checked, 0 dead)`)
+      return report
+    }
+
+    spinner.warn(
+      `${dead} dead internal link${dead === 1 ? '' : 's'} across ${affectedPosts} post${affectedPosts === 1 ? '' : 's'}`
+    )
+    report.dead.slice(0, 15).forEach((d) => {
+      const fix = d.suggestion
+        ? `  ${chalk.gray('→ did you mean')} ${chalk.green(d.suggestion)}${chalk.gray('?')}`
+        : ''
+      console.log(
+        `  ${chalk.red('✗')} ${chalk.gray(d.source + ':' + d.line)}  ${chalk.yellow('[[' + d.target + ']]')} ${chalk.gray('→')} ${d.href}${fix}`
+      )
+    })
+    if (report.dead.length > 15) {
+      console.log(chalk.gray(`  ... and ${report.dead.length - 15} more`))
+    }
+    console.log(
+      chalk.gray('\n  Full report: data/internal-linkrot-report.json\n')
+    )
+    return report
+  } catch (error) {
+    spinner.fail('Failed to audit internal links')
+    console.error(error)
+    return null
   }
 }
 
@@ -1039,6 +1088,12 @@ async function processAllFiles() {
     if (process.env.CHECK_LINKS === 'true') {
       await checkAllLinks(links, linkToSources)
     }
+
+    // Build the set of valid internal routes (used to mark dead wikilinks as
+    // non-clickable during rendering) and audit every post for dead internal
+    // links. Pure local IO — no network — so it runs on every process.
+    await buildValidRoutes(allFiles, paths.contentDir)
+    await reportDeadInternalLinks(allFiles, paths.contentDir)
 
     // 📊 PRE-FLIGHT CHECK: Analyze what will be cached vs processed
     console.log('\n📊 Pre-flight cache analysis...')

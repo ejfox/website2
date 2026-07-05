@@ -6,67 +6,12 @@
 
 import { visit } from 'unist-util-visit'
 import { getTitleFromFrontmatter } from '../utils/helpers.mjs'
-
-// Helper function to generate slugs for headings
-function generateSlug(str) {
-  return str
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-}
-
-function encodePath(pathValue) {
-  return pathValue
-    .split('/')
-    .filter(Boolean)
-    .map((segment) => encodeURIComponent(segment))
-    .join('/')
-}
-
-function normalizeTarget(rawTarget) {
-  if (!rawTarget) return ''
-  let target = rawTarget.trim().replace(/\\/g, '/')
-
-  if (target.startsWith('/')) target = target.slice(1)
-  if (target.endsWith('.md')) target = target.slice(0, -3)
-
-  while (target.startsWith('../')) {
-    target = target.slice(3)
-  }
-  if (target.startsWith('./')) target = target.slice(2)
-
-  target = target.replace(/\/{2,}/g, '/')
-  return target
-}
-
-function buildInternalHref(target) {
-  const normalized = normalizeTarget(target)
-  const lower = normalized.toLowerCase()
-
-  if (lower.startsWith('reading/')) {
-    return `/reading/${encodePath(normalized.slice('reading/'.length))}`
-  }
-  if (lower.startsWith('projects/')) {
-    return `/projects/${encodePath(normalized.slice('projects/'.length))}`
-  }
-  if (lower.startsWith('robots/')) {
-    return `/blog/robots/${encodePath(normalized.slice('robots/'.length))}`
-  }
-  if (lower.startsWith('week-notes/')) {
-    return `/blog/week-notes/${encodePath(normalized.slice('week-notes/'.length))}`
-  }
-  if (lower.startsWith('blog/')) {
-    return `/blog/${encodePath(normalized.slice('blog/'.length))}`
-  }
-
-  // Bare wikilinks (no folder prefix, no slash) are topic/tag references,
-  // not file paths. Route to the tag page instead of a non-existent /blog/Name.
-  if (!normalized.includes('/')) {
-    return `/tag/${generateSlug(normalized)}`
-  }
-
-  return `/blog/${encodePath(normalized)}`
-}
+import {
+  generateSlug,
+  normalizeTarget,
+  buildInternalHref,
+  classifyInternalHref,
+} from '../utils/internal-links.mjs'
 
 export function remarkObsidianSupport() {
   return async (tree) => {
@@ -105,16 +50,31 @@ export function remarkObsidianSupport() {
           url += `#${generateSlug(heading)}`
         }
 
-        // Create link node
+        // Dead internal links (target post missing / draft / excluded) render as
+        // a non-clickable span so readers aren't sent to a 404. Validity is known
+        // only after buildValidRoutes() has run; until then everything is "valid".
+        const { internal, valid } = classifyInternalHref(url)
+        const isDead = internal && valid === false
+
         nodes.push({
           type: 'link',
           url,
           children: [{ type: 'text', value: alias }],
-          data: {
-            hProperties: {
-              className: 'internal-link',
-            },
-          },
+          data: isDead
+            ? {
+                hName: 'span',
+                hProperties: {
+                  href: null, // it's a <span> now — drop the inherited href
+                  className: 'internal-link internal-link-dead',
+                  title: 'This linked page no longer exists',
+                  'data-dead-link': url,
+                },
+              }
+            : {
+                hProperties: {
+                  className: 'internal-link',
+                },
+              },
         })
 
         lastIndex = end

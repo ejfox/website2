@@ -1,0 +1,194 @@
+{
+  "timestamp": "2026-06-29T16:44:38.141Z",
+  "summary": {
+    "filesScanned": 373,
+    "internalLinks": 83,
+    "dead": 26,
+    "affectedPosts": 18,
+    "withSuggestion": 1
+  },
+  "dead": [
+    {
+      "source": "2022/2022-prototyping-toolkit.md",
+      "line": 20,
+      "target": "blog/2022/my-vscode-setup",
+      "href": "/blog/2022/my-vscode-setup",
+      "suggestion": null
+    },
+    {
+      "source": "2022/art-setup.md",
+      "line": 50,
+      "target": "blog/2022/the-studio",
+      "href": "/blog/2022/the-studio",
+      "suggestion": null
+    },
+    {
+      "source": "2022/art-setup.md",
+      "line": 51,
+      "target": "blog/2022/2022-prototyping-toolkit",
+      "href": "/blog/2022/2022-prototyping-toolkit",
+      "suggestion": null
+    },
+    {
+      "source": "2022/art-setup.md",
+      "line": 52,
+      "target": "drafts/garment-dying-experiments",
+      "href": "/blog/drafts/garment-dying-experiments",
+      "suggestion": null
+    },
+    {
+      "source": "2022/art-setup.md",
+      "line": 54,
+      "target": "drafts/soapmaking",
+      "href": "/blog/drafts/soapmaking",
+      "suggestion": null
+    },
+    {
+      "source": "2022/everyone-should-code-data-literacy.md",
+      "line": 27,
+      "target": "drafts/approach-to-learning",
+      "href": "/blog/drafts/approach-to-learning",
+      "suggestion": null
+    },
+    {
+      "source": "2022/experiments-with-live-looping-performance.md",
+      "line": 24,
+      "target": "blog/2019/generative-music-iteration",
+      "href": "/blog/2019/generative-music-iteration",
+      "suggestion": null
+    },
+    {
+      "source": "2022/food.md",
+      "line": 78,
+      "target": "drafts/_stale/cooking-ramen-experiments",
+      "href": "/blog/drafts/_stale/cooking-ramen-experiments",
+      "suggestion": null
+    },
+    {
+      "source": "2022/my-vscode-setup.md",
+      "line": 18,
+      "target": "blog/2022/2022-prototyping-toolkit",
+      "href": "/blog/2022/2022-prototyping-toolkit",
+      "suggestion": null
+    },
+    {
+      "source": "2022/the-art-of-coding.md",
+      "line": 30,
+      "target": "blog/2023/design-philosophy",
+      "href": "/blog/2023/design-philosophy",
+      "suggestion": null
+    },
+    {
+      "source": "2022/the-art-of-coding.md",
+      "line": 32,
+      "target": "blog/2022/2022-prototyping-toolkit",
+      "href": "/blog/2022/2022-prototyping-toolkit",
+      "suggestion": null
+    },
+    {
+      "source": "2022/the-art-of-coding.md",
+      "line": 34,
+      "target": "blog/2022/my-vscode-setup",
+      "href": "/blog/2022/my-vscode-setup",
+      "suggestion": null
+    },
+    {
+      "source": "2023/camera-setup.md",
+      "line": 31,
+      "target": "blog/2023/film-development",
+      "href": "/blog/2023/film-development",
+      "suggestion": null
+    },
+    {
+      "source": "2023/crypto-ai-colonization.md",
+      "line": 23,
+      "target": "blog/2023/hacker-culture",
+      "href": "/blog/2023/hacker-culture",
+      "suggestion": null
+    },
+    {
+      "source": "2023/selecting-a-cms.md",
+      "line": 41,
+      "target": "blog/2022/2022-prototyping-toolkit",
+      "href": "/blog/2022/2022-prototyping-toolkit",
+      "suggestion": null
+    },
+    {
+      "source": "2025/hidden-networks-of-warmth.md",
+      "line": 23,
+      "target": "robots/preparation-as-practice",
+      "href": "/blog/robots/preparation-as-practice",
+      "suggestion": null
+    },
+    {
+      "source": "2025/hidden-networks-of-warmth.md",
+      "line": 33,
+      "target": "robots/minimalism-as-technical-practice",
+      "href": "/blog/robots/minimalism-as-technical-practice",
+      "suggestion": null
+    },
+    {
+      "source": "2025/mcp-meta-mapping.md",
+      "line": 20,
+      "target": "../robots/quantified-self-as-archaeology",
+      "href": "/blog/robots/quantified-self-as-archaeology",
+      "suggestion": null
+    },
+    {
+      "source": "2025/owning-my-cloudinary-photos.md",
+      "line": 20,
+      "target": "../robots/building-tools-for-yourself",
+      "href": "/blog/robots/building-tools-for-yourself",
+      "suggestion": null
+    },
+    {
+      "source": "2025/owning-my-cloudinary-photos.md",
+      "line": 47,
+      "target": "../robots/quantified-self-as-archaeology",
+      "href": "/blog/robots/quantified-self-as-archaeology",
+      "suggestion": null
+    },
+    {
+      "source": "2025/personal-apis.md",
+      "line": 24,
+      "target": "robots/quantified-self-as-archaeology",
+      "href": "/blog/robots/quantified-self-as-archaeology",
+      "suggestion": null
+    },
+    {
+      "source": "week-notes/2023-50.md",
+      "line": 43,
+      "target": "blog/2023/how-i-built-coach-artie",
+      "href": "/blog/2023/how-i-built-coach-artie",
+      "suggestion": null
+    },
+    {
+      "source": "week-notes/2024-02.md",
+      "line": 45,
+      "target": "project-notes/electology",
+      "href": "/blog/project-notes/electology",
+      "suggestion": null
+    },
+    {
+      "source": "week-notes/2024-02.md",
+      "line": 57,
+      "target": "project-notes/lil-fox",
+      "href": "/blog/project-notes/lil-fox",
+      "suggestion": null
+    },
+    {
+      "source": "week-notes/2024-38.md",
+      "line": 21,
+      "target": "project-notes/connectology",
+      "href": "/blog/project-notes/connectology",
+      "suggestion": null
+    },
+    {
+      "source": "week-notes/2024-46.md",
+      "line": 16,
+      "target": "robots/morning-radio",
+      "href": "/blog/robots/morning-radio",
+      "suggestion": "/blog/robots/someday/morning-radio"
+    }
+  ]
+}

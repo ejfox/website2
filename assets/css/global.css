@@ -317,6 +317,20 @@ p,
 /*   @apply border-none; */
 /* } */
 
+/* Dead internal links — target post is missing, a draft, or otherwise unpublished.
+   Rendered as a non-clickable <span class="internal-link internal-link-dead"> by
+   the content pipeline so readers are never sent to a 404. Strikethrough + muted,
+   with a small marker so it's legible as "this used to point somewhere". */
+.internal-link-dead {
+  @apply text-zinc-400 dark:text-zinc-600 line-through decoration-1;
+  cursor: not-allowed;
+}
+.internal-link-dead::after {
+  content: '\00A0⊘';
+  @apply text-3xs no-underline align-super;
+  text-decoration: none;
+}
+
 /* Section Headers */
 .section-header {
   @apply font-mono text-xs font-normal uppercase tracking-wider text-zinc-500 dark:text-zinc-400;
