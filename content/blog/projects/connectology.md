@@ -5,7 +5,7 @@ draft: true
 url: https://connectology.room302.studio/
 tech: ["Nuxt 3", "Vue 3", "D3", "graphology", "SQLite", "Clerk"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 context: collaborative
 tags:
   - dataviz

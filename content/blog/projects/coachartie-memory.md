@@ -4,7 +4,7 @@ date: 2026-02-01T00:00:00-05:00
 draft: true
 tech: ["Python", "t-SNE", "HDBSCAN", "Embeddings", "Data Visualization"]
 state: doing
-aiInvolvement: ai-collaborative
+ai-involvement: ai-collaborative
 context: collaborative
 tags:
   - dataviz

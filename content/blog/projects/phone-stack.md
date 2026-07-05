@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/phone-stack
 tech: ["JavaScript", "WebSockets", "Browser"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - web
   - experiment

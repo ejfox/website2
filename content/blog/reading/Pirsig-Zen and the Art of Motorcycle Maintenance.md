@@ -4,14 +4,6 @@ tags:
   - motorcycle
   - meditation
   - philosophy
-kindle-sync:
-  bookId: '54365'
-  title: 'Zen and the Art of Motorcycle Maintenance: An Inquiry Into Values'
-  author: Robert M. Pirsig
-  asin: B0026772N8
-  lastAnnotatedDate: '2021-02-03'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71VF4LAK2ZL._SY160.jpg'
-  highlightsCount: 8
 ---
 # Zen and the Art of Motorcycle Maintenance
 

@@ -1,6 +1,5 @@
 ---
 dek: In which the author tries to put good food in his body
-inprogress: true
 date: 2022-12-28T18:20:58.000Z
 modified: 2024-05-15T18:02:51.000Z
 tags:
@@ -72,10 +71,6 @@ What should I have for lunch? Just have a salad. Its not that complicated.
 - Ceasar
 - Oil & Vinegar
 - Greek Yogurt
-
-### Dinner
-
-[[drafts/_stale/cooking-ramen-experiments]]
 
 ### Desserts
 #### Chocolate chip cookies

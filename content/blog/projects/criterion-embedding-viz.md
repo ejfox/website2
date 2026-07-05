@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/criterion-embedding-viz
 tech: ["JavaScript", "Embeddings", "UMAP", "Data Visualization"]
 state: deployed
-aiInvolvement: ai-collaborative
+ai-involvement: ai-collaborative
 tags:
   - dataviz
   - data

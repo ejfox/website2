@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/room302-template
 tech: ["Nuxt", "Vue", "Template"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
   - web

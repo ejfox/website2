@@ -2,7 +2,6 @@
 date: 2021-06-11T04:00:17-04:00
 type: words
 hidden: false
-inprogress: false
 dek: >-
   In which various tools and methods are explored for analyzing data that
   describes a network of complaints against NYPD officers (or any other PD with

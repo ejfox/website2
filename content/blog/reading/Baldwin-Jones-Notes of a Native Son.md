@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '6077'
-  title: Notes of a Native Son
-  author: James Baldwin and Edward P. Jones
-  asin: B007WKEN4U
-  lastAnnotatedDate: '2022-06-20'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/517-wUXsdWL._SY160.jpg'
-  highlightsCount: 2
 tags:
   - book
   - america

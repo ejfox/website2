@@ -4,7 +4,7 @@ date: 2026-05-17T00:00:00-04:00
 draft: true
 tech: ["WebGL", "UMAP", "SigLIP", "HDBSCAN", "Python", "RescueTime", "easyOCR", "sentence-transformers"]
 state: doing
-aiInvolvement: ai-collaborative
+ai-involvement: ai-collaborative
 tags:
   - dataviz
   - data

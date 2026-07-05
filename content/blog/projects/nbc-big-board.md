@@ -5,7 +5,7 @@ modified: 2025-08-13T12:24:29-04:00
 tech: ["D3.js", "JavaScript", "Touch Interface", "Election Data"]
 featured: true
 state: deployed
-aiInvolvement: human-only
+ai-involvement: human-only
 context: client
 tags:
   - d3

@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/subway-builder-mods
 tech: ["JavaScript", "Simulation", "Transit", "Game Modding"]
 state: evolved
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - games
   - simulation

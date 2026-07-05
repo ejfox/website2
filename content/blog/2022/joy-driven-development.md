@@ -1,6 +1,5 @@
 ---
 dek: In which we use joy and curiosity as fuel to propel us forward
-inprogress: true
 date: 2022-11-02T20:06:51-04:00
 modified: 2024-10-29T14:10:00-04:00
 tags:

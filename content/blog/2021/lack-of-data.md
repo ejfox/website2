@@ -2,7 +2,6 @@
 date: 2021-05-17T04:00:10-04:00
 type: words
 hidden: false
-inprogress: true
 dek: >-
   An exploration of what we choose to track, and what we don't – and what that
   means if we want to make the world a better place

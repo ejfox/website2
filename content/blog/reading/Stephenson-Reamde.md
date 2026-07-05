@@ -3,14 +3,6 @@ tags:
   - book
   - writing
   - tech
-kindle-sync:
-  bookId: '37234'
-  title: 'Reamde: A Novel'
-  author: Neal Stephenson
-  asin: B004XVN0WW
-  lastAnnotatedDate: '2019-03-31'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71VM4oRxfFL._SY160.jpg'
-  highlightsCount: 1
 ---
 # Reamde
 

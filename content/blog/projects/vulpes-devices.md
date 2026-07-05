@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/vulpes-devices
 tech: ["Flipper Zero", "OnionOS", "Theming", "JavaScript"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - vulpes
   - flipper

@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/spacepunk-logi
 tech: ["JavaScript", "LLM", "Game", "Simulation"]
 state: deployed
-aiInvolvement: ai-collaborative
+ai-involvement: ai-collaborative
 tags:
   - games
   - ai

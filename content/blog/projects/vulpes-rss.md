@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/vulpes-rss
 tech: ["Rust", "TUI", "Kitty Graphics Protocol"]
 state: doing
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - cli
   - terminal

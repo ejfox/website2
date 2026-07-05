@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/cyberdeck-saver
 tech: ["Swift", "Metal", "macOS", "OSINT"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - macos
   - osint

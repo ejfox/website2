@@ -3,7 +3,6 @@ date: 2025-03-09T13:49:01-04:00
 modified: 2025-03-15T21:25:05-04:00
 title: Processing Telegram Leaks for Fast Web Visualization
 dek: In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization
-inprogress: true
 tags:
   - data
   - dataviz

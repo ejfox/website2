@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '6757'
-  title: 'The New York Nobody Knows: Walking 6,000 Miles in the City'
-  author: William B. Helmreich
-  asin: B00F8MIIP4
-  lastAnnotatedDate: '2019-08-25'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/918djpiWyxL._SY160.jpg'
-  highlightsCount: 8
 tags:
   - book
   - nyc

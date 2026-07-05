@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/github-sloth
 tech: ["Rust"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - cli
   - terminal

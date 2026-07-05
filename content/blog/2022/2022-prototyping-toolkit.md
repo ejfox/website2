@@ -1,7 +1,6 @@
 ---
 draft: true
 dek: 'CSV, JSON, Datasette, Observable, QGIS, Nuxt, Vue, D3, Tachyons, Supabase'
-inprogress: false
 date: 2022-11-02T19:58:19-04:00
 modified: 2024-09-20T00:26:00-04:00
 tags:
@@ -14,11 +13,6 @@ tags:
   - programming
   - tool
 ---
-
-## 2022 Toolkit for Prototyping
-
-See also [[blog/2022/my-vscode-setup]]
-
 ### Tools
 #### CSV and JSON
 

@@ -6,7 +6,7 @@ url: https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accuse
 tech: ["Neo4j", "SQLite", "Gephi", "Network Analysis", "Cypher"]
 featured: true
 state: deployed
-aiInvolvement: human-only
+ai-involvement: human-only
 context: client
 tags:
   - data

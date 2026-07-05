@@ -5,7 +5,7 @@ draft: true
 client: Logically
 tech: ["Network Analysis", "Data Visualization", "Gephi", "D3.js"]
 state: deployed
-aiInvolvement: human-only
+ai-involvement: human-only
 context: client
 tags:
   - data

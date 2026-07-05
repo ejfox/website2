@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '3551'
-  title: Why Marx Was Right
-  author: Terry Eagleton
-  asin: B004V9IFDA
-  lastAnnotatedDate: '2024-01-12'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/41MZr3P0BIL._SY160.jpg'
-  highlightsCount: 11
 tags:
   - book
   - politics

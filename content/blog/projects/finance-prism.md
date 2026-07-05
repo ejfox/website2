@@ -4,7 +4,7 @@ date: 2025-12-10T00:00:00-05:00
 draft: true
 tech: ["Observable Plot", "JavaScript", "Data Visualization", "Finance"]
 state: doing
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - dataviz
   - data

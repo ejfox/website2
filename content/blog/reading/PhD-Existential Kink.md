@@ -1,15 +1,5 @@
 ---
 tags: [book, personal]
-kindle-sync:
-  bookId: '4715'
-  title: >-
-    Existential Kink: Unmask Your Shadow and Embrace Your Power (A method for
-    getting what you want by getting off on what you don't)
-  author: Carolyn Elliott PhD
-  asin: B07XMG4BWN
-  lastAnnotatedDate: '2025-02-07'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71AFYYftsML._SY160.jpg'
-  highlightsCount: 17
 ---
 # Existential Kink
 

@@ -3,7 +3,6 @@ draft: true
 dek: >-
   In which the importance of mindful CMS selection is examined, the option of
   "no CMS" is considered, and the benefits of using Markdown are revealed
-inprogress: true
 date: 2023-04-04T14:50:35-04:00
 modified: 2024-09-23T12:13:32-04:00
 tags:
@@ -38,7 +37,7 @@ The longer you keep your content outside of the CMS, the longer you have complet
 
 The downside is that it takes time, effort, and intentionality to build everything from scratch. If you want to add features like comments or social sharing, you have to build those yourself or find a plugin that works with your system. This approach is only valuable if you want to create work that looks unlike everyone else's, and can benefit from the value of complete control.
 
-The tools and frameworks for creating websites quickly change the equation. If I can use tools like Tachyons, Nuxt, and Supabase to create complex scalable applications in hours, why would you then spend additional hours trying to get it to work within the limitations of a legacy CMS? [[blog/2022/2022-prototyping-toolkit]]
+The tools and frameworks for creating websites quickly change the equation. If I can use tools like Tachyons, Nuxt, and Supabase to create complex scalable applications in hours, why would you then spend additional hours trying to get it to work within the limitations of a legacy CMS?
 
 #### Redefine 'CMS' and bring your own
 

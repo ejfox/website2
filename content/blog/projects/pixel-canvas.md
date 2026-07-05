@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/pixel-canvas
 tech: ["ESP32-S3", "Arduino", "LovyanGFX", "Bash", "REST API"]
 state: doing
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - hardware
   - device

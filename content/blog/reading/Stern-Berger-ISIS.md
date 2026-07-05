@@ -3,14 +3,6 @@ tags:
   - military
   - politics
   - book
-kindle-sync:
-  bookId: '53840'
-  title: 'ISIS: The State of Terror'
-  author: Jessica Stern and J. M. Berger
-  asin: B00NVLS3CM
-  lastAnnotatedDate: '2016-04-11'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/91A53gquoEL._SY160.jpg'
-  highlightsCount: 1
 ---
 # ISIS
 

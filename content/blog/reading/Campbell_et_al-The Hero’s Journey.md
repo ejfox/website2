@@ -1,14 +1,4 @@
 ---
-kindle-sync:
-  bookId: '58173'
-  title: >-
-    The Hero’s Journey: Joseph Campbell on His Life and Work (The Collected
-    Works of Joseph Campbell)
-  author: 'Joseph Campbell, Phil Cousineau, David Kudler, and Stuart L. Brown'
-  asin: B07K5KBWGZ
-  lastAnnotatedDate: '2021-07-08'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81aJChDqSfL._SY160.jpg'
-  highlightsCount: 5
 date: 2025-08-28T16:10:28-04:00
 modified: 2025-08-31T18:40:04-04:00
 ---

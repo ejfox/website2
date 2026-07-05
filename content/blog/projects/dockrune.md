@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/dockrune
 tech: ["Go", "Docker", "Deployment", "DevOps"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
   - deployment

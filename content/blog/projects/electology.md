@@ -5,7 +5,7 @@ draft: true
 url: https://electology.co
 tech: ["JavaScript", "D3.js", "Observable"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - elections
   - dataviz

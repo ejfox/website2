@@ -1,14 +1,4 @@
 ---
-kindle-sync:
-  bookId: '24240'
-  title: >-
-    American Indian Myths and Legends (The Pantheon Fairy Tale and Folklore
-    Library)
-  author: Richard Erdoes and Alfonso Ortiz
-  asin: B00GEYN1CK
-  lastAnnotatedDate: '2021-10-11'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81Hq1qcjGbL._SY160.jpg'
-  highlightsCount: 13
 tags:
   - book
   - culture

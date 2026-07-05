@@ -3,14 +3,6 @@ tags:
   - book
   - tech
   - ai
-kindle-sync:
-  bookId: '16297'
-  title: 'Futureproof: 9 Rules for Surviving in the Age of AI'
-  author: Kevin Roose
-  asin: B07ZN3TDWH
-  lastAnnotatedDate: '2022-10-21'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71auiVlh-OL._SY160.jpg'
-  highlightsCount: 3
 ---
 # Futureproof
 

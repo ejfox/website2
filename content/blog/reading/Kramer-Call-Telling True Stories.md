@@ -1,14 +1,4 @@
 ---
-kindle-sync:
-  bookId: '16215'
-  title: >-
-    Telling True Stories: A Nonfiction Writers' Guide from the Nieman Foundation
-    at Harvard University
-  author: Mark Kramer and Wendy Call
-  asin: B000SEH1KK
-  lastAnnotatedDate: '2020-09-02'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/91i1oLvTQGL._SY160.jpg'
-  highlightsCount: 7
 tags:
   - book
   - journalism

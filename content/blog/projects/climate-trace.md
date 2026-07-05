@@ -4,7 +4,7 @@ date: 2024-01-01
 draft: true
 tech: ["SQLite", "Datasette", "SpatiaLite"]
 state: deployed
-aiInvolvement: human-only
+ai-involvement: human-only
 tags:
   - data
   - climate

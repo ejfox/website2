@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '38803'
-  title: 'On Trails: An Exploration'
-  author: Robert Moor
-  asin: B0176M3ZG0
-  lastAnnotatedDate: '2025-03-24'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71QTTsXaDdL._SY160.jpg'
-  highlightsCount: 25
 date: 2025-08-21T14:44:13-04:00
 modified: 2025-08-24T19:58:28-04:00
 tags:

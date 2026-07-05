@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/showtouch
 tech: ["Python", "ASCII Art", "Terminal"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - cli
   - terminal

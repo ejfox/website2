@@ -4,7 +4,6 @@ dek: >-
   always be the way they are now
 type: words
 hidden: false
-inprogress: false
 date: '2019-06-14T15:27:00-04:00'
 tags:
   - advice

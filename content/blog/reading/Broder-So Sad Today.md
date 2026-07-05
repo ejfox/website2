@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '62203'
-  title: 'So Sad Today: Personal Essays'
-  author: Melissa Broder
-  asin: B011J4H1NO
-  lastAnnotatedDate: '2023-11-09'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/61NtEkj0wIL._SY160.jpg'
-  highlightsCount: 13
 tags:
   - book
   - writing

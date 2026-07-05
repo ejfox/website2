@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/noaa-sat-cli
 tech: ["TypeScript"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - tools
 ---

@@ -2,7 +2,6 @@
 date: 2022-11-02T20:01:31-04:00
 modified: 2024-09-20T00:25:08-04:00
 dek: In which we go into detail about how to write code to accomplish a goal
-inprogress: true
 tags:
   - personal
   - process
@@ -27,11 +26,7 @@ The rough shape of the project changes depending on a few factors:
 
 For more less-technical specifics around project management in general (not just code): [[how-to-run-a-project]]
 
-For design philosophy [[blog/2023/design-philosophy]] and work philosophy [[blog/2022/joy-driven-development]]
-
-The tools I use to prototype quickly: [[blog/2022/2022-prototyping-toolkit]]
-
-My coding setup, including theme and plugins: [[blog/2022/my-vscode-setup]]
+For work philosophy [[blog/2022/joy-driven-development]]
 
 ## Establish a clear goal
 

@@ -1,14 +1,4 @@
 ---
-kindle-sync:
-  bookId: '4081'
-  title: >-
-    Congressional Procedure: A Practical Guide to the Legislative Process in the
-    U.S. Congress: The House of Representatives and Senate Explained
-  author: Richard A. Arenberg and Alan S. Frumin
-  asin: B07JYRPJ7S
-  lastAnnotatedDate: '2021-02-03'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81otOXbOIiL._SY160.jpg'
-  highlightsCount: 1
 tags:
   - politics
   - america

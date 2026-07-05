@@ -4,7 +4,6 @@ dek: >-
   In which we explore the transformative potential of computer literacy,
   unearthing its capacity to elevate both individual lives and collective
   progress
-inprogress: true
 date: 2022-11-02T20:02:01-04:00
 modified: 2024-09-20T00:24:42-04:00
 tags:
@@ -23,8 +22,6 @@ The ability to understand the ways that computers operate; if/else statements, n
 You can gain a lot of this through intuition. The best way to learn is to accomplish a task that provides a function beyond the sheer learning itself. Some of the first computer networks and mailing lists were used to trade recordings of Grateful Dead shows. In this same vein, a student who wants to track baseball scores or their anime library or create a website for their album will learn the fundamentals as their project progresses naturally.
 
 It is not remembering the name of obscure tools, functions, or frameworks.
-
-[[drafts/approach-to-learning]]
 
 ### Learning to google “Magic Words”
 

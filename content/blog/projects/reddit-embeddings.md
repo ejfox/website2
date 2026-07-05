@@ -4,7 +4,7 @@ date: 2023-04-14T00:00:00-04:00
 draft: true
 tech: ["OpenAI Embeddings", "Clustering", "D3.js", "Data Visualization"]
 state: deployed
-aiInvolvement: ai-collaborative
+ai-involvement: ai-collaborative
 tags:
   - dataviz
   - data

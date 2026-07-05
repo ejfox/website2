@@ -5,7 +5,7 @@ draft: true
 url: https://ejfox.github.io/sStory/
 tech: ["JavaScript", "Storytelling", "Library"]
 state: deployed
-aiInvolvement: human-only
+ai-involvement: human-only
 tags:
   - web
   - library

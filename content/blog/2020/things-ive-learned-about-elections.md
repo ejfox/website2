@@ -2,7 +2,6 @@
 dek: In which we explore the knotted beauty of American democracy
 type: words
 hidden: false
-inprogress: true
 date: 2020-02-08T22:19:38-05:00
 modified: 2024-09-23T12:13:21-04:00
 tags:

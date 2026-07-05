@@ -2,16 +2,6 @@
 tags:
   - dataviz
   - data
-kindle-sync:
-  bookId: '431'
-  title: >-
-    Visualize This: The FlowingData Guide to Design, Visualization, and
-    Statistics
-  author: Nathan Yau
-  asin: B005CCT19M
-  lastAnnotatedDate: '2011-07-24'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/511lwSnx7IL._SY160.jpg'
-  highlightsCount: 2
 ---
 # Visualize This
 

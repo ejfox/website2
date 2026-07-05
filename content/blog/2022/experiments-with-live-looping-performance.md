@@ -3,7 +3,6 @@ dek: >-
   In which we delve into the artistry of live looping, illuminating the core
   concepts and essential gear that enable musicians to create immersive
   soundscapes on the fly
-inprogress: true
 date: 2022-11-02T19:59:14-04:00
 modified: 2024-09-23T12:13:12-04:00
 tags:
@@ -20,9 +19,6 @@ This article aims to introduce the reader to the techniques used in live looping
 
 >To program a drumbeat is to align an external rhythmic device to an individual’s biorhythm.
 >Saul Williams [Williams-The Dead Emcee Scrolls](Williams-The%20Dead%20Emcee%20Scrolls.md)
-
-See also [[blog/2019/generative-music-iteration]]
-
 <iframe width="560" height="315" src="https://www.youtube.com/embed/trFeqgcHQ6A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ### Fundamentals of Looping

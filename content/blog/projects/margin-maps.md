@@ -5,7 +5,7 @@ draft: true
 client: The Margin
 tech: ["Mapping", "Satellite Imagery", "Scrollytelling", "Data Visualization"]
 state: deployed
-aiInvolvement: human-only
+ai-involvement: human-only
 context: client
 tags:
   - maps

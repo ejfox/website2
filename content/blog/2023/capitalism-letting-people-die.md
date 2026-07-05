@@ -3,7 +3,6 @@ draft: true
 dek: >-
   In which we dissect the merciless nature of capitalism, revealing a callous
   pattern of placing profits above human lives
-inprogress: true
 date: 2023-02-07T10:36:05-05:00
 modified: 2024-09-20T00:19:08-04:00
 tags:

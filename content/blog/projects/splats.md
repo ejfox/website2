@@ -4,7 +4,7 @@ date: 2026-04-01T00:00:00-04:00
 draft: true
 tech: ["3D Gaussian Splatting", "COLMAP", "Drone", "M1"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - 3d
   - drone

@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '5579'
-  title: 'The Origins of Political Order: From Prehuman Times to the French Revolution'
-  author: Francis Fukuyama
-  asin: B00457X7VI
-  lastAnnotatedDate: '2012-11-05'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/510bwzlQ+dL._SY160.jpg'
-  highlightsCount: 3
 tags:
   - book
   - politics

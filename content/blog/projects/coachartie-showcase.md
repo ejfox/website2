@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/coachartie_showcase
 tech: ["JavaScript"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 context: collaborative
 tags:
   - tools

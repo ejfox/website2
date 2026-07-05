@@ -4,7 +4,7 @@ date: 2026-05-01T00:00:00-04:00
 draft: true
 tech: ["D3.js", "Network Analysis", "Data Visualization"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - dataviz
   - network

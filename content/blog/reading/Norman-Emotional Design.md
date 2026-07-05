@@ -3,14 +3,6 @@ tags:
   - book
   - design
   - ux
-kindle-sync:
-  bookId: '59972'
-  title: 'Emotional Design: Why We Love (or Hate) Everyday Things'
-  author: Donald A. Norman
-  asin: B005GKIYD4
-  lastAnnotatedDate: '2012-10-16'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71lsCWwYwKL._SY160.jpg'
-  highlightsCount: 1
 ---
 # Emotional Design
 

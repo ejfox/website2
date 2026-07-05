@@ -2,14 +2,6 @@
 tags:
   - data
   - activism
-kindle-sync:
-  bookId: '47184'
-  title: Data Feminism (Strong Ideas)
-  author: Catherine D'Ignazio and Lauren F. Klein
-  asin: B08BT3SY5N
-  lastAnnotatedDate: '2021-05-25'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81vmeQxjkML._SY160.jpg'
-  highlightsCount: 5
 ---
 # Data Feminism
 

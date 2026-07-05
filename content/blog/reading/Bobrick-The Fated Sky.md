@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '32592'
-  title: 'The Fated Sky: Astrology in History'
-  author: Benson Bobrick
-  asin: B000FCKKXA
-  lastAnnotatedDate: '2022-12-23'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81VUHa-9LUL._SY160.jpg'
-  highlightsCount: 13
 tags:
   - book
   - history

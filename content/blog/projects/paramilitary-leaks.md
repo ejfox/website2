@@ -4,7 +4,7 @@ date: 2025-09-01T00:00:00-04:00
 draft: true
 tech: ["Nuxt", "Vue", "Search", "Data Visualization"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 context: collaborative
 tags:
   - journalism

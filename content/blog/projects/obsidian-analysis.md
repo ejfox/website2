@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/obsidian-analysis
 tech: ["Python", "Embeddings", "UMAP", "LM Studio"]
 state: deployed
-aiInvolvement: ai-collaborative
+ai-involvement: ai-collaborative
 tags:
   - data
   - visualization

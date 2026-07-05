@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/websdr-vcv
 tech: ["C++", "VCV Rack", "Cardinal"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - audio
   - radio

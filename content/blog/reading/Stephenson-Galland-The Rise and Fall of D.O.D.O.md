@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '4772'
-  title: 'The Rise and Fall of D.O.D.O.: A Novel'
-  author: Neal Stephenson and Nicole Galland
-  asin: B01M0HPHR6
-  lastAnnotatedDate: '2020-08-06'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/91KGdyDZWWL._SY160.jpg'
-  highlightsCount: 7
 tags:
   - book
   - writing

@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/fixcentralhudson
 tech: ["Nuxt", "Vue", "Civic Tech"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - civic
   - web

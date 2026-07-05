@@ -3,16 +3,6 @@ tags:
   - hackers
   - security
   - culture
-kindle-sync:
-  bookId: '25545'
-  title: >-
-    Cult of the Dead Cow: How the Original Hacking Supergroup Might Just Save
-    the World
-  author: Joseph Menn
-  asin: B07J54F9KR
-  lastAnnotatedDate: '2019-07-08'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/712GDD7YdOL._SY160.jpg'
-  highlightsCount: 34
 ---
 # Cult of the Dead Cow
 

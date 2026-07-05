@@ -4,7 +4,6 @@ dek: >-
   assemblage of command line tools
 type: words
 hidden: true
-inprogress: false
 date: 2020-03-03T04:00:39-05:00
 draft: true
 modified: 2024-09-23T12:13:29-04:00

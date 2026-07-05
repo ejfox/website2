@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '44304'
-  title: 'Riot. Strike. Riot: The New Era of Uprisings'
-  author: Joshua Clover
-  asin: B013NI8WB4
-  lastAnnotatedDate: '2019-04-11'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81LVOVLefKL._SY160.jpg'
-  highlightsCount: 1
 tags:
   - book
   - activism

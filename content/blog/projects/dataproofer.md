@@ -6,7 +6,7 @@ url: https://github.com/dataproofer/Dataproofer
 tech: ["JavaScript", "Electron", "Data Quality", "CSV"]
 featured: false
 state: deployed
-aiInvolvement: human-only
+ai-involvement: human-only
 context: collaborative
 tags:
   - data

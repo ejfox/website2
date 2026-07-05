@@ -3,7 +3,6 @@ draft: false
 dek: >-
   In which the author talks through his DIY art studio setup, and encourages you
   tou create your own
-inprogress: false
 date: 2022-12-23T11:12:28-05:00
 modified: 2024-09-20T00:18:41-04:00
 tags:
@@ -47,8 +46,4 @@ TODO
 
 ### Getting Started
 
-- For more info on the studio as a whole and my overall goals: [[blog/2022/the-studio]]
-- For digital art and prototyping: [[blog/2022/2022-prototyping-toolkit]]
-- For garment dying: [[drafts/garment-dying-experiments]]
 - For woodworking: [[woodworking-setup]]
-- For soapmaking [[drafts/soapmaking]]

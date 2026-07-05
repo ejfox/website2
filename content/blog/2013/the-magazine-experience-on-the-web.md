@@ -2,7 +2,6 @@
 dek: In which the author muses about 2013-era web design aesthetics
 type: words
 hidden: false
-inprogress: false
 date: 2013-01-25T05:00:00-05:00
 modified: 2026-01-03T20:37:32-05:00
 tags:

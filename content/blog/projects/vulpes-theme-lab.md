@@ -5,7 +5,7 @@ draft: true
 url: https://ejfox.github.io/vulpes-theme-lab/
 tech: ["Vue", "Nuxt", "Ghostty", "Design Tool"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - design
   - tools

@@ -5,7 +5,7 @@ draft: true
 url: https://ejfox.github.io/vulpecula-loom/
 tech: ["Electron", "Vue", "OpenRouter", "Obsidian"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - ai
   - app

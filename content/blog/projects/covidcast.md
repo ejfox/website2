@@ -5,7 +5,7 @@ modified: 2025-08-26T15:53:05-04:00
 url: https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx
 tech: ["Data Visualization", "JavaScript", "COVID-19 Data", "Public Health"]
 state: deployed
-aiInvolvement: human-only
+ai-involvement: human-only
 context: client
 tags:
   - covid

@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/hexagram-motion-graphics
 tech: ["Python", "Manim", "Motion Graphics"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - art
   - math

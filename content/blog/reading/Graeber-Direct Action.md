@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '14102'
-  title: 'Direct Action: An Ethnography'
-  author: David Graeber
-  asin: B0051QH31W
-  lastAnnotatedDate: '2025-04-07'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/51CLzpOuyHL._SY160.jpg'
-  highlightsCount: 1
 tags: [book, activism, protest]
 ---
 # Direct Action

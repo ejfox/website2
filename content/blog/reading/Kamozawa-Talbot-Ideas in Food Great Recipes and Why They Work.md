@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '61196'
-  title: 'Ideas in Food: Great Recipes and Why They Work: A Cookbook'
-  author: Aki Kamozawa and Alexander H. Talbot
-  asin: B003F3PL9E
-  lastAnnotatedDate: '2014-06-25'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/415O5V-pUQL._SY160.jpg'
-  highlightsCount: 1
 tags:
   - book
   - cooking

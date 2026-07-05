@@ -1,14 +1,4 @@
 ---
-kindle-sync:
-  bookId: '50540'
-  title: >-
-    Tools Of Titans: The Tactics, Routines, and Habits of Billionaires, Icons,
-    and World-Class Performers
-  author: Timothy Ferriss and Arnold Schwarzenegger
-  asin: B01HSMRWNU
-  lastAnnotatedDate: '2020-11-05'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81QytMrzgdL._SY160.jpg'
-  highlightsCount: 8
 tags:
   - book
   - personal

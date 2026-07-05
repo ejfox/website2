@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '40419'
-  title: Hallucinations
-  author: Oliver Sacks
-  asin: B0082XLY6G
-  lastAnnotatedDate: '2020-09-02'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/81qLTBovPpL._SY160.jpg'
-  highlightsCount: 2
 tags:
   - book
   - health

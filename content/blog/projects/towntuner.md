@@ -5,7 +5,7 @@ draft: true
 url: https://github.com/ejfox/towntuner
 tech: ["Swift", "SwiftUI", "iOS"]
 state: deployed
-aiInvolvement: ai-assisted
+ai-involvement: ai-assisted
 tags:
   - ios
   - app

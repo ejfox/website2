@@ -1,12 +1,4 @@
 ---
-kindle-sync:
-  bookId: '58932'
-  title: 'Kids These Days: Human Capital and the Making of Millennials'
-  author: Malcolm Harris
-  asin: B06XFTVQFK
-  lastAnnotatedDate: '2019-05-28'
-  bookImageUrl: 'https://m.media-amazon.com/images/I/71qu7drpPiL._SY160.jpg'
-  highlightsCount: 38
 date: 2025-08-21T14:48:47-04:00
 modified: 2025-08-24T19:53:55-04:00
 tags:

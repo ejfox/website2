@@ -1,4 +1,5 @@
 ---
+draft: true
 title: Motorcycle Gear System Optimization
 date: 2024-11-11T02:28:49-05:00
 modified: 2024-11-19T10:56:06-05:00

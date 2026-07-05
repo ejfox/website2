@@ -1,5 +1,5 @@
 ---
-inprogress: true
+draft: true
 date: 2023-01-01T20:06:48.000Z
 modified: 2024-06-21T14:13:55.000Z
 dek: In which the author itemizes the cameras he uses to make photographs
@@ -25,11 +25,6 @@ tags:
 #### 50mm Nikkor Lens
 
 ### Olympus XA 2
-
-### Black & White Film
-
-For my film development process see: [[blog/2023/film-development]]
-
 ---
 
 ### Appendix
