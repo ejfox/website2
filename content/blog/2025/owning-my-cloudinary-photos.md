@@ -1,6 +1,5 @@
 ---
 dek: In which the author rescues his most precious digital media from a server that he does not own or control
-inprogress: true
 tags:
   - data
   - photos

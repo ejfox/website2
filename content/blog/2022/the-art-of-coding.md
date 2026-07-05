@@ -2,7 +2,6 @@
 date: 2022-11-02T20:01:31-04:00
 modified: 2024-09-20T00:25:08-04:00
 dek: In which we go into detail about how to write code to accomplish a goal
-inprogress: true
 tags:
   - personal
   - process

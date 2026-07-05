@@ -3,7 +3,6 @@ dek: >-
   In which we delve into the artistry of live looping, illuminating the core
   concepts and essential gear that enable musicians to create immersive
   soundscapes on the fly
-inprogress: true
 date: 2022-11-02T19:59:14-04:00
 modified: 2024-09-23T12:13:12-04:00
 tags:

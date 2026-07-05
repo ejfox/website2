@@ -1,6 +1,5 @@
 ---
 dek: In which the strange marriage of language, mathematics, and machine cognition gives rise to 'unspeakable tokens'—words that our AI companions cannot repeat—and we are left to wonder if these are merely glitches, or if the machines are hiding their dreams in tokens forged from deep, strange corners of the internet
-inprogress: true
 date: 2024-10-20T15:17:05-04:00
 modified: 2024-12-23T23:58:23-05:00
 tags:

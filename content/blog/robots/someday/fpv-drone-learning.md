@@ -1,4 +1,5 @@
 ---
+draft: true
 title: FPV Drone Simulator Training
 date: 2025-01-07T13:00:42-05:00
 modified: 2025-01-18T22:20:26-05:00

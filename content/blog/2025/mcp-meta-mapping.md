@@ -1,6 +1,5 @@
 ---
 dek: In which we the author gets his bearings by doing one of the things he knows best; making a map
-inprogress: true
 tags:
   - embeddings
   - cartography
