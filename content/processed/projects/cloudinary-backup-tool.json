@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Cloudinary Backup Tool",
     "date": "2025-01-15T05:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "github": "https://github.com/ejfox/cloudinary-backup-tool",
     "tech": [
       "Tauri",

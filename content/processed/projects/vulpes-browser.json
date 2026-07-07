@@ -5,13 +5,15 @@
   "metadata": {
     "title": "Vulpes Browser",
     "date": "2026-01-20T05:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/vulpes-browser",
     "tech": [
       "Swift"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools"
     ],

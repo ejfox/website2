@@ -5,6 +5,7 @@
   "metadata": {
     "title": "Clusters of NYPD Misconduct",
     "date": "2021-06-15T04:00:00.000Z",
+    "category": "Client & Newsroom",
     "modified": "2025-08-26T19:52:56.000Z",
     "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
     "tech": [
@@ -16,7 +17,7 @@
     ],
     "featured": true,
     "state": "deployed",
-    "aiInvolvement": "human-only",
+    "ai-involvement": "human-only",
     "context": "client",
     "tags": [
       "data",

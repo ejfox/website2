@@ -5,13 +5,15 @@
   "metadata": {
     "title": "Openrouter Census",
     "date": "2025-08-21T05:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/openrouter-census",
     "tech": [
       "JavaScript"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools"
     ],

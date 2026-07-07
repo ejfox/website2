@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Vulpes Devices",
     "date": "2026-03-15T04:00:00.000Z",
+    "category": "Hardware & Radio",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/vulpes-devices",
     "tech": [
@@ -14,7 +16,7 @@
       "JavaScript"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "vulpes",
       "flipper",

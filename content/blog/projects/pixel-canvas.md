@@ -1,6 +1,8 @@
 ---
 title: "Pixel Canvas"
 date: 2026-05-27T00:00:00-04:00
+category: "Hardware & Radio"
+featured: true
 draft: true
 url: https://github.com/ejfox/pixel-canvas
 tech: ["ESP32-S3", "Arduino", "LovyanGFX", "Bash", "REST API"]

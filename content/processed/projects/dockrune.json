@@ -5,6 +5,8 @@
   "metadata": {
     "title": "dockrune",
     "date": "2025-03-01T05:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/dockrune",
     "tech": [
@@ -14,7 +16,7 @@
       "DevOps"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools",
       "deployment",

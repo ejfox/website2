@@ -5,13 +5,15 @@
   "metadata": {
     "title": "Motorcycle.p8",
     "date": "2023-07-02T00:00:00.000Z",
+    "category": "Creative Coding & Games",
+    "featured": false,
     "draft": true,
     "tech": [
       "Pico-8",
       "Lua"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-collaborative",
+    "ai-involvement": "ai-collaborative",
     "context": "collaborative",
     "tags": [
       "games",

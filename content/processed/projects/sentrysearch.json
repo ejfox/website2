@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Sentry Search",
     "date": "2026-05-01T04:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/sentrysearch",
     "tech": [
@@ -13,7 +15,7 @@
       "Search"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "video",
       "ai",

@@ -1,6 +1,8 @@
 ---
 title: "sStory"
 date: 2015-01-01T00:00:00-05:00
+category: "Data Visualization"
+featured: false
 draft: true
 url: https://ejfox.github.io/sStory/
 tech: ["JavaScript", "Storytelling", "Library"]

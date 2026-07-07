@@ -1,6 +1,8 @@
 ---
 title: "phone-stack"
 date: 2026-04-20T00:00:00-04:00
+category: "Creative Coding & Games"
+featured: false
 draft: true
 url: https://github.com/ejfox/phone-stack
 tech: ["JavaScript", "WebSockets", "Browser"]

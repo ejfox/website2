@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Criterion Embeddings",
     "date": "2024-06-01T04:00:00.000Z",
+    "category": "Data Visualization",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/criterion-embedding-viz",
     "tech": [
@@ -14,7 +16,7 @@
       "Data Visualization"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-collaborative",
+    "ai-involvement": "ai-collaborative",
     "tags": [
       "dataviz",
       "data",

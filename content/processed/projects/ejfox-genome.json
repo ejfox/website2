@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Genome Report",
     "date": "2026-04-01T04:00:00.000Z",
+    "category": "Data Visualization",
+    "featured": false,
     "draft": true,
     "tech": [
       "D3.js",
@@ -13,7 +15,7 @@
       "Data Visualization"
     ],
     "state": "doing",
-    "aiInvolvement": "ai-collaborative",
+    "ai-involvement": "ai-collaborative",
     "tags": [
       "dataviz",
       "data",

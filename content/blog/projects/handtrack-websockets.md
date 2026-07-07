@@ -1,6 +1,8 @@
 ---
 title: "Handtrack WebSockets"
 date: 2024-12-01
+category: "Creative Coding & Games"
+featured: false
 draft: true
 url: https://github.com/ejfox/handtrack-websockets
 tech: ["MediaPipe", "OpenCV", "FastAPI", "WebSockets"]

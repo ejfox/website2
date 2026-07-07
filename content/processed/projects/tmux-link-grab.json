@@ -5,6 +5,8 @@
   "metadata": {
     "title": "tmux-link-grab",
     "date": "2026-04-01T04:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/tmux-link-grab",
     "tech": [
@@ -13,7 +15,7 @@
       "CLI"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "cli",
       "tmux",

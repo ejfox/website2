@@ -1,6 +1,8 @@
 ---
 title: "Spectrum Synth"
 date: 2025-02-01T00:00:00-05:00
+category: "Hardware & Radio"
+featured: false
 draft: true
 url: https://github.com/ejfox/spectrum-synth
 tech: ["Flipper Zero", "ESP32-S2", "C", "WiFi"]

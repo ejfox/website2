@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Radio & Music Tools",
     "date": "2026-05-15T04:00:00.000Z",
+    "category": "Hardware & Radio",
+    "featured": false,
     "draft": true,
     "url": "https://radio.tools.ejfox.com",
     "tech": [
@@ -14,7 +16,7 @@
       "Cloudflare"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools",
       "audio",

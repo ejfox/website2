@@ -5,6 +5,8 @@
   "metadata": {
     "title": "paperclip",
     "date": "2025-11-01T05:00:00.000Z",
+    "category": "Apps & Civic",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/paperclip",
     "tech": [
@@ -15,7 +17,7 @@
       "Supabase"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "ios",
       "android",

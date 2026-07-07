@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Hand-Tracking & Generative Art",
     "date": "2024-07-01T04:00:00.000Z",
+    "category": "Creative Coding & Games",
+    "featured": false,
     "modified": "2025-08-13T15:46:54.000Z",
     "tech": [
       "Computer Vision",
@@ -15,7 +17,7 @@
       "Interactive Media"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "creativity",
       "interfaces"

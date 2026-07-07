@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Electology",
     "date": "2025-01-01T00:00:00.000Z",
+    "category": "Data Visualization",
+    "featured": false,
     "draft": true,
     "url": "https://electology.co",
     "tech": [
@@ -13,7 +15,7 @@
       "Observable"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "elections",
       "dataviz",

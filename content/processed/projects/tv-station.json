@@ -5,6 +5,8 @@
   "metadata": {
     "title": "TV Station",
     "date": "2026-05-01T04:00:00.000Z",
+    "category": "Creative Coding & Games",
+    "featured": false,
     "draft": true,
     "url": "https://tv.tools.ejfox.com",
     "tech": [
@@ -13,7 +15,7 @@
       "Smallweb"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "web",
       "experiment"

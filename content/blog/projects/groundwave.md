@@ -1,6 +1,8 @@
 ---
 title: "groundwave"
 date: 2026-05-24T00:00:00-04:00
+category: "Hardware & Radio"
+featured: false
 draft: true
 hidden: true
 url: https://github.com/ejfox/groundwave

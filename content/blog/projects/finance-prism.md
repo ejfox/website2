@@ -1,6 +1,8 @@
 ---
 title: "Finance Prism"
 date: 2025-12-10T00:00:00-05:00
+category: "Data Visualization"
+featured: false
 draft: true
 tech: ["Observable Plot", "JavaScript", "Data Visualization", "Finance"]
 state: doing

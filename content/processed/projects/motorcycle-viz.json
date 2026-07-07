@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Motorcycle Meta-Visualizations",
     "date": "2026-05-01T04:00:00.000Z",
+    "category": "Creative Coding & Games",
+    "featured": true,
     "draft": true,
     "url": "https://github.com/ejfox/motorcycle-viz",
     "tech": [
@@ -14,7 +16,7 @@
       "Data Visualization"
     ],
     "state": "doing",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "motorcycle",
       "dataviz",

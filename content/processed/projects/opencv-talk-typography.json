@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Speech Echoes",
     "date": "2026-04-01T00:00:00.000Z",
+    "category": "Creative Coding & Games",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/opencv-talk-typography",
     "tech": [
@@ -14,7 +16,7 @@
       "d3-force"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "typography",
       "creative-coding",

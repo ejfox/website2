@@ -5,13 +5,15 @@
   "metadata": {
     "title": "Outlast",
     "date": "2026-05-29T05:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/outlast",
     "tech": [
       "Vue"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools"
     ],

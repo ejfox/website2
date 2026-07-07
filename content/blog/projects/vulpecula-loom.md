@@ -1,6 +1,8 @@
 ---
 title: "Vulpecula Loom"
 date: 2025-06-01T00:00:00-04:00
+category: "Apps & Civic"
+featured: false
 draft: true
 url: https://ejfox.github.io/vulpecula-loom/
 tech: ["Electron", "Vue", "OpenRouter", "Obsidian"]

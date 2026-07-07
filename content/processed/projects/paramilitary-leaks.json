@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Paramilitary Leaks",
     "date": "2025-09-01T04:00:00.000Z",
+    "category": "Client & Newsroom",
+    "featured": true,
     "draft": true,
     "tech": [
       "Nuxt",
@@ -13,7 +15,7 @@
       "Data Visualization"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "context": "collaborative",
     "tags": [
       "journalism",

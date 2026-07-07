@@ -1,6 +1,8 @@
 ---
 title: "Fix Central Hudson"
 date: 2026-03-01T00:00:00-05:00
+category: "Apps & Civic"
+featured: false
 draft: true
 url: https://github.com/ejfox/fixcentralhudson
 tech: ["Nuxt", "Vue", "Civic Tech"]

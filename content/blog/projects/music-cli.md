@@ -1,6 +1,8 @@
 ---
 title: "Music CLI"
 date: 2026-05-18T00:00:00-05:00
+category: "Tools & Terminal"
+featured: false
 draft: true
 url: https://github.com/ejfox/music-cli
 tech: ["Shell"]

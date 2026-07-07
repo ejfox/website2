@@ -1,6 +1,8 @@
 ---
 title: "Climate TRACE Exploration"
 date: 2024-01-01
+category: "Data Visualization"
+featured: false
 draft: true
 tech: ["SQLite", "Datasette", "SpatiaLite"]
 state: deployed

@@ -5,13 +5,15 @@
   "metadata": {
     "title": "GitHub Sloth",
     "date": "2026-05-01T00:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/github-sloth",
     "tech": [
       "Rust"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "cli",
       "terminal",

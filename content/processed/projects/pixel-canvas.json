@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Pixel Canvas",
     "date": "2026-05-27T04:00:00.000Z",
+    "category": "Hardware & Radio",
+    "featured": true,
     "draft": true,
     "url": "https://github.com/ejfox/pixel-canvas",
     "tech": [
@@ -15,7 +17,7 @@
       "REST API"
     ],
     "state": "doing",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "hardware",
       "device",

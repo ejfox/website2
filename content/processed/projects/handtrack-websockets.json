@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Handtrack WebSockets",
     "date": "2024-12-01T00:00:00.000Z",
+    "category": "Creative Coding & Games",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/handtrack-websockets",
     "tech": [
@@ -14,7 +16,7 @@
       "WebSockets"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "creative-coding",
       "interface",

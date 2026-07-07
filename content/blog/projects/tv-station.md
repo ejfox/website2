@@ -1,6 +1,8 @@
 ---
 title: "TV Station"
 date: 2026-05-01T00:00:00-04:00
+category: "Creative Coding & Games"
+featured: false
 draft: true
 url: https://tv.tools.ejfox.com
 tech: ["TypeScript", "Deno", "Smallweb"]

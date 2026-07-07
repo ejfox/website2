@@ -1,6 +1,8 @@
 ---
 title: NBC News Big Board
 date: 2016-11-08T00:00:00-05:00
+client: "NBC News"
+category: "Client & Newsroom"
 modified: 2025-08-13T12:24:29-04:00
 tech: ["D3.js", "JavaScript", "Touch Interface", "Election Data"]
 featured: true

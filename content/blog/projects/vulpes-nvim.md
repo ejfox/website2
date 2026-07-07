@@ -1,6 +1,8 @@
 ---
 title: "vulpes.nvim"
 date: 2026-01-18T00:00:00-05:00
+category: "Tools & Terminal"
+featured: false
 draft: true
 url: https://github.com/ejfox/vulpes.nvim
 tech: ["Lua"]

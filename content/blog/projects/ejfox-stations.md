@@ -1,6 +1,8 @@
 ---
 title: "Radio & Music Tools"
 date: 2026-05-15T00:00:00-04:00
+category: "Hardware & Radio"
+featured: false
 draft: true
 url: https://radio.tools.ejfox.com
 tech: ["Nuxt", "TypeScript", "Audio", "Cloudflare"]

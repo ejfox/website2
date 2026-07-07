@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Butt Math",
     "date": "2026-05-01T00:00:00.000Z",
+    "category": "Creative Coding & Games",
+    "featured": false,
     "draft": true,
     "tech": [
       "SVG",
@@ -14,7 +16,7 @@
       "flubber"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "art",
       "generative",

@@ -1,6 +1,8 @@
 ---
 title: "Spacepunk"
 date: 2026-03-01T00:00:00-05:00
+category: "Creative Coding & Games"
+featured: false
 draft: true
 url: https://github.com/ejfox/spacepunk-logi
 tech: ["JavaScript", "LLM", "Game", "Simulation"]

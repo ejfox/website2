@@ -1,6 +1,8 @@
 ---
 title: "smallweb-starter"
 date: 2024-08-01T00:00:00-04:00
+category: "Tools & Terminal"
+featured: false
 draft: true
 url: https://github.com/ejfox/smallweb-starter
 tech: ["TypeScript", "Deno", "Smallweb"]

@@ -5,13 +5,15 @@
   "metadata": {
     "title": "Clipgoblin",
     "date": "2026-04-29T05:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/clipgoblin",
     "tech": [
       "Swift"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools"
     ],

@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Typing Test",
     "date": "2025-07-01T04:00:00.000Z",
+    "category": "Data Visualization",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/typing-test-animated-history",
     "tech": [
@@ -13,7 +15,7 @@
       "Data Visualization"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools",
       "dataviz",

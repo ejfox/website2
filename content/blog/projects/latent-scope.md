@@ -1,6 +1,8 @@
 ---
 title: "latent-scope"
 date: 2024-06-01T00:00:00-04:00
+category: "Data Visualization"
+featured: false
 draft: true
 url: https://github.com/ejfox/latent-scope
 tech: ["JavaScript", "Embeddings", "UMAP", "Machine Learning"]

@@ -5,6 +5,8 @@
   "metadata": {
     "title": "smallweb-starter",
     "date": "2024-08-01T04:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/smallweb-starter",
     "tech": [
@@ -13,7 +15,7 @@
       "Smallweb"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools",
       "web"

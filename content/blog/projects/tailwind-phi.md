@@ -1,6 +1,8 @@
 ---
 title: "Tailwind Φ"
 date: 2025-09-01T00:00:00-04:00
+category: "Tools & Terminal"
+featured: false
 draft: true
 url: https://ejfox.github.io/tailwind-phi/
 tech: ["Tailwind CSS", "JavaScript", "Design"]

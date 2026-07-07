@@ -1,6 +1,8 @@
 ---
 title: "Speech Echoes"
 date: 2026-04-01
+category: "Creative Coding & Games"
+featured: false
 draft: true
 url: https://github.com/ejfox/opencv-talk-typography
 tech: ["Vue", "p5", "MediaPipe", "d3-force"]

@@ -5,6 +5,8 @@
   "metadata": {
     "title": "GEM Ownership Viz",
     "date": "2026-05-01T04:00:00.000Z",
+    "category": "Data Visualization",
+    "featured": true,
     "draft": true,
     "tech": [
       "D3.js",
@@ -12,7 +14,7 @@
       "Data Visualization"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "dataviz",
       "network",

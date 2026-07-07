@@ -5,13 +5,15 @@
   "metadata": {
     "title": "Glasses HUD",
     "date": "2025-08-01T00:00:00.000Z",
+    "category": "Hardware & Radio",
+    "featured": false,
     "draft": true,
     "url": "https://ejfox.github.io/glasses-hud/",
     "tech": [
       "JavaScript"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "hardware",
       "interface",

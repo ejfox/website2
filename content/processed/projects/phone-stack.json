@@ -5,6 +5,8 @@
   "metadata": {
     "title": "phone-stack",
     "date": "2026-04-20T04:00:00.000Z",
+    "category": "Creative Coding & Games",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/phone-stack",
     "tech": [
@@ -13,7 +15,7 @@
       "Browser"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "web",
       "experiment",

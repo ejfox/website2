@@ -5,6 +5,8 @@
   "metadata": {
     "title": "VulpeSVG",
     "date": "2026-02-20T05:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/vulpesvg",
     "tech": [
@@ -14,7 +16,7 @@
       "SVG"
     ],
     "state": "prototype",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools",
       "design",

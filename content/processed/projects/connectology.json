@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Connectology",
     "date": "2026-03-01T00:00:00.000Z",
+    "category": "Data Visualization",
+    "featured": true,
     "draft": true,
     "url": "https://connectology.room302.studio/",
     "tech": [
@@ -16,7 +18,7 @@
       "Clerk"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "context": "collaborative",
     "tags": [
       "dataviz",

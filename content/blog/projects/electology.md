@@ -1,6 +1,8 @@
 ---
 title: "Electology"
 date: 2025-01-01
+category: "Data Visualization"
+featured: false
 draft: true
 url: https://electology.co
 tech: ["JavaScript", "D3.js", "Observable"]

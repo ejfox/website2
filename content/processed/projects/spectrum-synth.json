@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Spectrum Synth",
     "date": "2025-02-01T05:00:00.000Z",
+    "category": "Hardware & Radio",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/spectrum-synth",
     "tech": [
@@ -14,7 +16,7 @@
       "WiFi"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "flipper",
       "hardware",

@@ -1,6 +1,8 @@
 ---
 title: "WebSDR VCV"
 date: 2025-08-01
+category: "Hardware & Radio"
+featured: false
 draft: true
 url: https://github.com/ejfox/websdr-vcv
 tech: ["C++", "VCV Rack", "Cardinal"]

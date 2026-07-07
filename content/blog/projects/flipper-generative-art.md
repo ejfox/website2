@@ -1,6 +1,8 @@
 ---
 title: "Flipper Generative Art"
 date: 2025-01-15T00:00:00-05:00
+category: "Hardware & Radio"
+featured: true
 draft: true
 url: https://github.com/ejfox/flipper-generative-art
 tech: ["Flipper Zero", "C", "Floyd–Steinberg Dithering", "Embedded"]

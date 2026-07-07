@@ -5,6 +5,7 @@
   "metadata": {
     "title": "Dataproofer",
     "date": "2015-11-03T05:00:00.000Z",
+    "category": "Client & Newsroom",
     "modified": "2025-08-26T19:53:33.000Z",
     "url": "https://github.com/dataproofer/Dataproofer",
     "tech": [
@@ -13,9 +14,9 @@
       "Data Quality",
       "CSV"
     ],
-    "featured": false,
+    "featured": true,
     "state": "deployed",
-    "aiInvolvement": "human-only",
+    "ai-involvement": "human-only",
     "context": "collaborative",
     "tags": [
       "data",

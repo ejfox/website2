@@ -5,6 +5,8 @@
   "metadata": {
     "title": "EXIF Printer",
     "date": "2024-04-01T04:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "modified": "2025-08-13T15:20:07.000Z",
     "tech": [
       "Photography",
@@ -14,7 +16,7 @@
       "Camera Metadata"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "photography",
       "tools"

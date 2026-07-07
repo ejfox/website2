@@ -1,6 +1,8 @@
 ---
 title: "Transcript Video"
 date: 2026-04-01
+category: "Data Visualization"
+featured: false
 draft: true
 url: https://github.com/ejfox/transcript-video
 tech: ["HTML", "JavaScript", "Canvas", "Audio"]

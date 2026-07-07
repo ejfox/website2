@@ -1,6 +1,8 @@
 ---
 title: "cyberdeck-saver"
 date: 2026-04-20T00:00:00-04:00
+category: "Tools & Terminal"
+featured: false
 draft: true
 url: https://github.com/ejfox/cyberdeck-saver
 tech: ["Swift", "Metal", "macOS", "OSINT"]

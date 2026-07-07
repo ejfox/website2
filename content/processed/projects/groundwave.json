@@ -5,6 +5,8 @@
   "metadata": {
     "title": "groundwave",
     "date": "2026-05-24T04:00:00.000Z",
+    "category": "Hardware & Radio",
+    "featured": false,
     "draft": true,
     "hidden": true,
     "url": "https://github.com/ejfox/groundwave",
@@ -16,7 +18,7 @@
       "SDR"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "hardware",
       "dataviz",

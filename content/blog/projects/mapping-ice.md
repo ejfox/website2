@@ -1,6 +1,8 @@
 ---
 title: "Mapping ICE"
 date: 2026-01-01
+category: "Apps & Civic"
+featured: false
 draft: true
 url: https://github.com/ejfox/mapping-ice
 tech: ["MapLibre", "Vite", "HTML"]

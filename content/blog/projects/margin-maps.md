@@ -1,6 +1,8 @@
 ---
 title: "The Margin"
 date: 2022-06-01T00:00:00-04:00
+category: "Client & Newsroom"
+featured: false
 draft: true
 client: The Margin
 tech: ["Mapping", "Satellite Imagery", "Scrollytelling", "Data Visualization"]

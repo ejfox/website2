@@ -5,6 +5,8 @@
   "metadata": {
     "title": "COVIDcast",
     "date": "2020-04-24T04:00:00.000Z",
+    "category": "Client & Newsroom",
+    "featured": false,
     "modified": "2025-08-26T19:53:05.000Z",
     "url": "https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx",
     "tech": [
@@ -14,7 +16,7 @@
       "Public Health"
     ],
     "state": "deployed",
-    "aiInvolvement": "human-only",
+    "ai-involvement": "human-only",
     "context": "client",
     "tags": [
       "covid",

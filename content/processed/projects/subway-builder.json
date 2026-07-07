@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Subway Builder",
     "date": "2026-05-01T04:00:00.000Z",
+    "category": "Creative Coding & Games",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/subway-builder-mods",
     "tech": [
@@ -14,7 +16,7 @@
       "Game Modding"
     ],
     "state": "evolved",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "games",
       "simulation",

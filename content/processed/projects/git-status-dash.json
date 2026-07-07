@@ -5,6 +5,8 @@
   "metadata": {
     "title": "git-status-dash",
     "date": "2024-10-01T04:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/git-status-dash",
     "tech": [
@@ -13,7 +15,7 @@
       "Git"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "cli",
       "terminal",

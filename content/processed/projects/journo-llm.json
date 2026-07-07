@@ -5,13 +5,15 @@
   "metadata": {
     "title": "Journo LLM",
     "date": "2026-01-17T05:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/journo-llm",
     "tech": [
       "Python"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools"
     ],

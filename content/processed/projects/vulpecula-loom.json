@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Vulpecula Loom",
     "date": "2025-06-01T04:00:00.000Z",
+    "category": "Apps & Civic",
+    "featured": false,
     "draft": true,
     "url": "https://ejfox.github.io/vulpecula-loom/",
     "tech": [
@@ -14,7 +16,7 @@
       "Obsidian"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "ai",
       "app",

@@ -1,6 +1,8 @@
 ---
 title: "Moto GPX"
 date: 2026-04-01
+category: "Creative Coding & Games"
+featured: false
 draft: true
 url: https://ejfox.github.io/moto-gpx/
 tech: ["JavaScript", "GeoJSON", "exiftool"]

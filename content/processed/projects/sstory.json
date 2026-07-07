@@ -5,6 +5,8 @@
   "metadata": {
     "title": "sStory",
     "date": "2015-01-01T05:00:00.000Z",
+    "category": "Data Visualization",
+    "featured": false,
     "draft": true,
     "url": "https://ejfox.github.io/sStory/",
     "tech": [
@@ -13,7 +15,7 @@
       "Library"
     ],
     "state": "deployed",
-    "aiInvolvement": "human-only",
+    "ai-involvement": "human-only",
     "tags": [
       "web",
       "library",

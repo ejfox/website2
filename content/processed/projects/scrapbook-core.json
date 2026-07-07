@@ -5,13 +5,15 @@
   "metadata": {
     "title": "Scrapbook Core",
     "date": "2026-05-05T05:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": true,
     "draft": true,
     "url": "https://github.com/ejfox/scrapbook-core",
     "tech": [
       "JavaScript"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools"
     ],

@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Coach Artie — Memory Analysis",
     "date": "2026-02-01T05:00:00.000Z",
+    "category": "Data Visualization",
+    "featured": false,
     "draft": true,
     "tech": [
       "Python",
@@ -14,7 +16,7 @@
       "Data Visualization"
     ],
     "state": "doing",
-    "aiInvolvement": "ai-collaborative",
+    "ai-involvement": "ai-collaborative",
     "context": "collaborative",
     "tags": [
       "dataviz",

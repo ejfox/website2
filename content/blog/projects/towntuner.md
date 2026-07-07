@@ -1,6 +1,8 @@
 ---
 title: "towntuner"
 date: 2025-08-01T00:00:00-04:00
+category: "Apps & Civic"
+featured: false
 draft: true
 url: https://github.com/ejfox/towntuner
 tech: ["Swift", "SwiftUI", "iOS"]

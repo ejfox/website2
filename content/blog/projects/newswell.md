@@ -1,6 +1,8 @@
 ---
 title: "Newswell Studio"
 date: 2025-10-01
+category: "Tools & Terminal"
+featured: false
 draft: true
 url: https://github.com/ejfox/newswell
 tech: ["Nuxt 4", "Vue", "WordPress", "PHP", "GPT-4"]

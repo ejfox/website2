@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Climate TRACE Exploration",
     "date": "2024-01-01T00:00:00.000Z",
+    "category": "Data Visualization",
+    "featured": false,
     "draft": true,
     "tech": [
       "SQLite",
@@ -12,7 +14,7 @@
       "SpatiaLite"
     ],
     "state": "deployed",
-    "aiInvolvement": "human-only",
+    "ai-involvement": "human-only",
     "tags": [
       "data",
       "climate",

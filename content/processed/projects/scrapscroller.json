@@ -5,13 +5,15 @@
   "metadata": {
     "title": "Scrapscroller",
     "date": "2025-02-27T05:00:00.000Z",
+    "category": "Tools & Terminal",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/scrapscroller",
     "tech": [
       "JavaScript"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools"
     ],

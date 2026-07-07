@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Spacepunk",
     "date": "2026-03-01T05:00:00.000Z",
+    "category": "Creative Coding & Games",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/spacepunk-logi",
     "tech": [
@@ -14,7 +16,7 @@
       "Simulation"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-collaborative",
+    "ai-involvement": "ai-collaborative",
     "tags": [
       "games",
       "ai",
