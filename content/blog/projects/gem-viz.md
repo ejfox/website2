@@ -19,9 +19,9 @@ tags:
 
 An interactive visualizer for energy-asset ownership built on Global Energy Monitor data — trace who owns a given power station or pipeline through its corporate ownership network (down to stakes held by the likes of BlackRock and EDF), and browse the largest assets by capacity.
 
-![Every energy asset in the Global Energy Monitor database, mapped](https://res.cloudinary.com/ejf/image/upload/projects/gem-viz/worldmap.png)
-
 ![Ownership network for the Sines power station](https://res.cloudinary.com/ejf/image/upload/projects/gem-viz/sines.png)
+
+![Every energy asset in the Global Energy Monitor database, mapped](https://res.cloudinary.com/ejf/image/upload/projects/gem-viz/worldmap.png)
 
 ![Tracing a power station up to Bank of America](https://res.cloudinary.com/ejf/image/upload/projects/gem-viz/drax.png)
 

@@ -21,8 +21,4 @@ The goal was to repurpose the tik-tok style endless vertical scroll but instead 
 
 ![The morning audio briefing — a generated "Morning Radio" segment with scrubber and skip controls](https://res.cloudinary.com/ejf/image/upload/projects/morning-radio/player.png)
 
-![A single card in the vertical scroll — full article with source, tags, and summary](https://res.cloudinary.com/ejf/image/upload/projects/morning-radio/reader.png)
-
 I even experimented (unsuccessfully) with creating a home screen widget.
-
-![Home screen widget experiment](https://res.cloudinary.com/ejf/image/upload/v1749668160/Screenshot_2025-06-11_at_2.55.49_PM.png)

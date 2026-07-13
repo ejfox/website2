@@ -21,6 +21,6 @@ A pair of personal audio tools living at their own subdomains. **radio.ejfox** i
 
 ![radio.ejfox on air — the tuner with the now-playing readout ticking](https://res.cloudinary.com/ejf/video/upload/projects/ejfox-stations/demo.mp4)
 
-![radio.ejfox — a personal "on air" radio station](https://res.cloudinary.com/ejf/image/upload/projects/ejfox-stations/radio.png)
-
 ![music.tools — browsing the catalog](https://res.cloudinary.com/ejf/image/upload/projects/ejfox-stations/music.png)
+
+![radio.ejfox — a personal "on air" radio station](https://res.cloudinary.com/ejf/image/upload/projects/ejfox-stations/radio.png)

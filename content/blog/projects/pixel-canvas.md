@@ -51,10 +51,6 @@ By now there's a scene for nearly every corner of the archive — a random old t
 
 ![A random tweet from the archive](https://res.cloudinary.com/ejf/image/upload/projects/pixel-canvas/tweet.png)
 
-![A draft note pulled from Obsidian](https://res.cloudinary.com/ejf/image/upload/projects/pixel-canvas/draft.png)
-
-![This week's intelligence-summary wiki page](https://res.cloudinary.com/ejf/image/upload/projects/pixel-canvas/wiki.png)
-
 ![Today's site analytics](https://res.cloudinary.com/ejf/image/upload/projects/pixel-canvas/umami.png)
 
 ![A line of cipher text](https://res.cloudinary.com/ejf/image/upload/projects/pixel-canvas/cipher.png)

@@ -23,6 +23,4 @@ A network visualization and management app where users build graphs of nodes and
 
 ![The editor: force controls, WebGL rendering, and a network of nodes mid-layout](https://res.cloudinary.com/ejf/image/upload/projects/connectology/editor.png)
 
-![A dense ownership network built and explored in Connectology](https://res.cloudinary.com/ejf/image/upload/projects/connectology/network.png)
-
 ![Your networks — the home shelf with live previews of each graph](https://res.cloudinary.com/ejf/image/upload/projects/connectology/networks-home.png)

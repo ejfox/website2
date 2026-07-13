@@ -18,7 +18,3 @@ tags:
      that'd make a stronger hero than this overlay. Draft. -->
 
 Semantic search over video footage — type a query and get back the matching trimmed clip, instead of scrubbing hours of timeline.
-
-![A retrieved clip — semantic search pulling the matching moment out of hours of Tesla sentry footage](https://res.cloudinary.com/ejf/image/upload/projects/sentrysearch/sentry.png)
-
-![Sentry Search overlay on analyzed footage](https://res.cloudinary.com/ejf/image/upload/projects/sentrysearch/overlay.png)

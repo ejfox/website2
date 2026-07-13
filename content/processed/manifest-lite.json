@@ -5036,14 +5036,14 @@
         "ios",
         "health"
       ],
-      "words": 123,
-      "images": 4,
+      "words": 104,
+      "images": 2,
       "imageDetails": {
-        "total": 4,
-        "cloudinary": 4,
+        "total": 2,
+        "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 4,
+      "links": 2,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5130,14 +5130,14 @@
         "tools",
         "photography"
       ],
-      "words": 87,
-      "images": 3,
+      "words": 69,
+      "images": 1,
       "imageDetails": {
-        "total": 3,
-        "cloudinary": 3,
+        "total": 1,
+        "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5208,14 +5208,14 @@
         "product",
         "nodejs"
       ],
-      "words": 143,
-      "images": 4,
+      "words": 127,
+      "images": 1,
       "imageDetails": {
-        "total": 4,
-        "cloudinary": 4,
+        "total": 1,
+        "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 7,
+      "links": 4,
       "codeBlocks": 0,
       "headers": {
         "h2": 3
@@ -5339,14 +5339,14 @@
         "creativity",
         "interfaces"
       ],
-      "words": 186,
-      "images": 2,
+      "words": 170,
+      "images": 0,
       "imageDetails": {
-        "total": 2,
-        "cloudinary": 2,
+        "total": 0,
+        "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 6,
+      "links": 4,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -5398,14 +5398,14 @@
         "tool",
         "journalism"
       ],
-      "words": 157,
-      "images": 1,
+      "words": 147,
+      "images": 0,
       "imageDetails": {
-        "total": 1,
-        "cloudinary": 1,
+        "total": 0,
+        "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 2,
       "codeBlocks": 1,
       "headers": {},
       "toc": [],
@@ -5593,14 +5593,14 @@
         "dataviz",
         "quantified-self"
       ],
-      "words": 543,
-      "images": 15,
+      "words": 532,
+      "images": 13,
       "imageDetails": {
-        "total": 15,
-        "cloudinary": 15,
+        "total": 13,
+        "cloudinary": 13,
         "withDimensions": 0
       },
-      "links": 15,
+      "links": 13,
       "codeBlocks": 0,
       "headers": {
         "h2": 1

@@ -18,6 +18,8 @@ During my time at NBC News, I worked on the Foundry team, creating bespoke longf
 
 [Does America Need Another Prison? (2018)](https://www.nbcnews.com/specials/kentucky-prison-coal-country)
 
+![The introduction to the Journey of a Bullet story](http://res.cloudinary.com/ejf/image/upload/v1755100741/screenshot_2025-08-13_at_11.58.49_AM.png)
+
 ![A map comparing the location of prisons and coal mines in the southeastern United States](http://res.cloudinary.com/ejf/image/upload/v1755100778/screenshot_2025-08-13_at_11.59.26_AM.png)
 
 [Post Bail (2017)](https://www.nbcnews.com/specials/bail-reform)
@@ -25,8 +27,6 @@ During my time at NBC News, I worked on the Foundry team, creating bespoke longf
 [The Making of an Astronaut (2017)](https://www.nbcnews.com/specials/making-of-an-astronaut)
 
 [Journey of a Bullet (2017)](https://www.nbcnews.com/specials/journey-of-a-bullet/)
-
-![The introduction to the Journey of a Bullet story](http://res.cloudinary.com/ejf/image/upload/v1755100741/screenshot_2025-08-13_at_11.58.49_AM.png)
 
 [Donald Trump's First 100 Days (2017)](https://www.nbcnews.com/specials/donald-trump-first-100-days/)
 
