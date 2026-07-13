@@ -75,6 +75,29 @@ const resolvedPredictions = computed(() =>
     )
 )
 
+// Ledger pips: one mark per prediction, oldest → newest. Filled = resolved
+// correct, error-filled = resolved wrong, hollow = still open. Each links to
+// its prediction.
+const ledgerPips = computed(() =>
+  [...transformedPredictions.value]
+    .sort(
+      (a, b) =>
+        new Date(a.created || 0).getTime() - new Date(b.created || 0).getTime()
+    )
+    .map((p) => ({
+      slug: p.slug,
+      status: p.status,
+      char: p.status === 'correct' ? '●' : p.status === 'incorrect' ? '●' : '○',
+      cls:
+        p.status === 'correct'
+          ? 'text-success'
+          : p.status === 'incorrect'
+            ? 'text-error'
+            : 'text-zinc-400 dark:text-zinc-600',
+      label: `${p.confidence}% · ${p.status} · ${p.statement}`,
+    }))
+)
+
 const correctCount = computed(
   () =>
     transformedPredictions.value.filter((p) => p.status === 'correct').length
@@ -168,6 +191,23 @@ usePageSeo({
         <div
           class="font-mono text-sm text-zinc-600 dark:text-zinc-400 space-y-1"
         >
+          <!-- Ledger: one pip per prediction, oldest → newest -->
+          <div
+            v-if="ledgerPips.length"
+            class="flex items-center gap-0.5 text-2xs leading-none"
+            aria-label="Prediction ledger, one mark per prediction"
+          >
+            <NuxtLink
+              v-for="pip in ledgerPips"
+              :key="pip.slug"
+              :to="`/predictions/${pip.slug}`"
+              :class="pip.cls"
+              :title="pip.label"
+              class="hover:scale-125 transition-transform no-underline"
+            >
+              {{ pip.char }}
+            </NuxtLink>
+          </div>
           <div>
             {{ transformedPredictions.length }} predictions ·
             {{ resolvedPredictions.length }} resolved ·
