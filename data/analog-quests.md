@@ -43,11 +43,16 @@ adds a flagship to the production page.
 ## Quest 1.5 · Where do these live? (30 seconds each — just tell Claude)
 
 Bucket-B projects with NO definitive imagery and no artifacts Claude can find:
-- [ ] **butt-math** — where are the sketches/notebooks?
-- [ ] **creative-interfaces** — where do the demos live?
-- [ ] **finance-prism** — same
-- [ ] **electology** — dead domain, NO wayback snapshot; got local screenshots?
-- [ ] **cloudinary-backup-tool** — repo path? (VHS tape ready to go)
+- [ ] **butt-math** — no repo on GitHub either; where do the sketches live?
+- [ ] **creative-interfaces** — no repo on GitHub either; where do the demos live?
+- [x] **finance-prism** — FOUND (private repo) + booted; trading-terminal UI
+      captured (studio panel on triage sheet). Chart needs fresh data: run
+      `node historical-data-loader.js --hourly` in the repo once, tell Claude
+- [ ] **electology** — repo found (room302studio/electology) but it needs
+      Supabase creds to boot; drop them somewhere Claude can use, or share a
+      screenshot from your archives
+- [x] **cloudinary-backup-tool** — FOUND (ejfox/cloudinary-backup, a Tauri
+      app!) — wizard UI captured, on the triage sheet
 - [ ] **coach-artie** — pick 2-3 great Discord moments to screenshot, or Claude
       captures the coachartie2 dashboard locally — which?
 - [ ] **dataproofer flagship call** — fresh dataproofer.org captures are on the
