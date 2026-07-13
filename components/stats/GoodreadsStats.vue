@@ -70,7 +70,7 @@ const formatNumber = (num) => {
             v-if="book.imageUrl"
             :src="book.imageUrl"
             :alt="book.title"
-            class="w-10 h-14 object-cover rounded-sm flex-shrink-0"
+            class="w-10 aspect-[2/3] object-cover rounded-sm flex-shrink-0"
           />
           <div class="min-w-0 flex-1 text-xs">
             <div class="font-medium truncate group-hover:underline">
