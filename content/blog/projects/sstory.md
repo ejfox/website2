@@ -19,4 +19,6 @@ tags:
 
 An early JavaScript library for building full-browser-width, magazine-style scrollytelling mini-sites.
 
+![Scrolling an sStory — full-bleed sections advancing one beat at a time](https://res.cloudinary.com/ejf/video/upload/projects/sstory/demo.mp4)
+
 ![sStory — "Making beautiful stories easy"](https://res.cloudinary.com/ejf/image/upload/projects/sstory/hero.png)

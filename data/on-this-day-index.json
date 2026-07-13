@@ -30137,17 +30137,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "week-notes/2025-44 2",
-        "title": "2025 44 2",
-        "year": 2025,
-        "date": "2025-10-27T15:17:24.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": []
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2023-10-27",
@@ -42042,24 +42032,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "robots/someday/chess-course",
-        "title": "Chess Course",
-        "year": 2024,
-        "date": "2024-10-15T21:05:33.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "learning",
-          "games",
-          "fdc/794.1",
-          "fdc/793",
-          "fdc/153",
-          "syllabus"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2023-10-15",
@@ -44136,22 +44109,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "projects/cli-tools",
-        "title": "CLI Tools Collection",
-        "year": 2024,
-        "date": "2024-10-12T04:00:00.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "cli",
-          "programming",
-          "nodejs",
-          "tool"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2022-10-12",
@@ -57543,21 +57501,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "robots/someday/hudson-valley-maps",
-        "title": "Hudson Valley Systems & Trail Mapping Project",
-        "year": 2024,
-        "date": "2024-11-27T16:23:08.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "outdoors",
-          "data",
-          "amateurradio"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2024-11-27",
@@ -58618,21 +58562,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "robots/someday/hudson-valley-cannabis-doc",
-        "title": "Hudson Valley Cannabis: Growing a New Legacy",
-        "year": 2024,
-        "date": "2024-11-26T16:40:25.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "projects",
-          "photography",
-          "america"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2022-11-26",
@@ -70262,22 +70192,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "robots/someday/morning-radio",
-        "title": "Morning Radio - Personal Audio Brief",
-        "year": 2024,
-        "date": "2024-11-16T17:58:36.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "audio",
-          "automation",
-          "personal",
-          "meditation"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2022-11-16",
@@ -73724,21 +73639,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "robots/someday/ml-comedy-hour",
-        "title": "Machine Learning Comedy Hour",
-        "year": 2024,
-        "date": "2024-11-13T20:03:41.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "ai",
-          "creativity",
-          "humor"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2018-11-13",
@@ -75719,33 +75620,6 @@
     ],
     "posts": [
       {
-        "slug": "robots/old/gear",
-        "title": "Motorcycle Gear System Optimization",
-        "year": 2024,
-        "date": "2024-11-11T07:28:49.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "motorcycle",
-          "gear",
-          "travel",
-          "systemsthinking"
-        ]
-      },
-      {
-        "slug": "robots/someday/prep-mesh",
-        "title": "PREP-MESH COMPLETE SPECIFICATION",
-        "year": 2024,
-        "date": "2024-11-11T18:47:06.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "activism",
-          "projects",
-          "infrastructure"
-        ]
-      },
-      {
         "slug": "week-notes/2024-46",
         "title": "2024-46",
         "year": 2024,
@@ -77177,19 +77051,6 @@
         "dek": null,
         "type": "post",
         "tags": []
-      },
-      {
-        "slug": "robots/old/tenancy-in-common",
-        "title": "Co-Buyer Pre-Meeting Checklist",
-        "year": 2024,
-        "date": "2024-11-11T04:16:16.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "personal",
-          "housing",
-          "planning"
-        ]
       }
     ],
     "scrobbles": [
@@ -81153,21 +81014,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "robots/someday/quests-irl",
-        "title": "QuestsIRL (MVP Scope)",
-        "year": 2024,
-        "date": "2024-11-07T16:50:52.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "development",
-          "projects",
-          "games"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2020-11-07",
@@ -82099,20 +81946,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "robots/anytime/winter-layering-gear-system",
-        "title": "Winter Layering Gear System",
-        "year": 2024,
-        "date": "2024-11-06T20:22:53.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "gear",
-          "outdoors"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2022-11-06",
@@ -83038,21 +82872,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "robots/someday/ejfox-news",
-        "title": "ejfox.news Phase 1: Core Development Plan",
-        "year": 2024,
-        "date": "2024-11-05T17:00:28.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "development",
-          "projects",
-          "tools"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2023-11-05",
@@ -88923,20 +88743,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "projects/data-visualization-suite",
-        "title": "Data Visualization & Analysis Suite",
-        "year": 2024,
-        "date": "2024-06-01T00:00:00.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "visualization",
-          "data"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2024-05-31",
@@ -92393,6 +92200,20 @@
       }
     ],
     "posts": [
+      {
+        "slug": "projects/pixel-canvas",
+        "title": "Pixel Canvas",
+        "year": 2026,
+        "date": "2026-05-27T04:00:00.000Z",
+        "dek": null,
+        "type": "post",
+        "tags": [
+          "hardware",
+          "device",
+          "dataviz",
+          "quantified-self"
+        ]
+      },
       {
         "slug": "week-notes/2024-22",
         "title": "Overview of the Week",
@@ -121455,18 +121276,6 @@
           "development",
           "personal"
         ]
-      },
-      {
-        "slug": "projects/developer-tools",
-        "title": "Developer Tools & Deployment",
-        "year": 2024,
-        "date": "2024-05-01T04:00:00.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "tools",
-          "deployment"
-        ]
       }
     ],
     "scrobbles": [
@@ -132743,7 +132552,7 @@
     "posts": [
       {
         "slug": "projects/coach-artie",
-        "title": "Coach Artie Ecosystem",
+        "title": "Coach Artie",
         "year": 2023,
         "date": "2023-03-21T04:00:00.000Z",
         "dek": null,
@@ -191820,19 +191629,6 @@
     ],
     "posts": [
       {
-        "slug": "week-notes/2025-29",
-        "title": "2025-29",
-        "year": 2025,
-        "date": "2025-07-17T22:18:28.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "weekly-notes",
-          "reflections",
-          "progress"
-        ]
-      },
-      {
         "slug": "week-notes/2024-29",
         "title": "Overview of the Week",
         "year": 2024,
@@ -198932,19 +198728,6 @@
     ],
     "posts": [
       {
-        "slug": "week-notes/2025-28",
-        "title": "2025-28",
-        "year": 2025,
-        "date": "2025-07-08T19:37:09.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "weekly-notes",
-          "reflections",
-          "progress"
-        ]
-      },
-      {
         "slug": "week-notes/2024-28",
         "title": "Overview of the Week",
         "year": 2024,
@@ -204760,7 +204543,7 @@
     "posts": [
       {
         "slug": "projects/creative-interfaces",
-        "title": "Creative Interfaces & Digital Art",
+        "title": "Hand-Tracking & Generative Art",
         "year": 2024,
         "date": "2024-07-01T04:00:00.000Z",
         "dek": null,
@@ -207776,24 +207559,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "week-notes/2024-05",
-        "title": "Projects Worked On",
-        "year": 2024,
-        "date": "2024-01-29T05:00:00.000Z",
-        "dek": "In which the author partakes in the redesign of the Room 302 Studio website and engages in learning and development through a video lecture.",
-        "type": "post",
-        "tags": [
-          "weekly-notes",
-          "reflections",
-          "progress",
-          "webdesign",
-          "project",
-          "design"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2024-01-29",
@@ -231880,22 +231646,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "robots/someday/fpv-drone-learning",
-        "title": "FPV Drone Simulator Training",
-        "year": 2025,
-        "date": "2025-01-07T18:00:42.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "drone",
-          "fpv",
-          "education",
-          "games"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2019-01-07",
@@ -238333,18 +238084,6 @@
           "photography",
           "video",
           "health"
-        ]
-      },
-      {
-        "slug": "2023/camera-setup",
-        "title": "Camera Setup",
-        "year": 2023,
-        "date": "2023-01-01T20:06:48.000Z",
-        "dek": "In which the author itemizes the cameras he uses to make photographs",
-        "type": "post",
-        "tags": [
-          "photography",
-          "video"
         ]
       },
       {
@@ -283034,21 +282773,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "week-notes/2025-51",
-        "title": "2025-51",
-        "year": 2025,
-        "date": "2025-12-15T23:58:07.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "weekly-notes",
-          "reflections",
-          "progress"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2023-12-15",
@@ -289605,34 +289330,7 @@
         "replyTo": null
       }
     ],
-    "posts": [
-      {
-        "slug": "week-notes/2025-50",
-        "title": "2025-50",
-        "year": 2025,
-        "date": "2025-12-08T15:23:27.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "weekly-notes",
-          "reflections",
-          "progress"
-        ]
-      },
-      {
-        "slug": "robots/someday/smallweb-with-cloudflare-on-vps",
-        "title": "Setting up Smallweb with Cloudflare Tunnel and Caddy",
-        "year": 2024,
-        "date": "2024-12-08T20:13:29.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "development",
-          "infrastructure",
-          "tools"
-        ]
-      }
-    ],
+    "posts": [],
     "scrobbles": [
       {
         "date": "2023-12-08",
@@ -297420,19 +297118,6 @@
       }
     ],
     "posts": [
-      {
-        "slug": "week-notes/2025-49",
-        "title": "2025-49",
-        "year": 2025,
-        "date": "2025-12-01T20:16:57.000Z",
-        "dek": null,
-        "type": "post",
-        "tags": [
-          "weekly-notes",
-          "reflections",
-          "progress"
-        ]
-      },
       {
         "slug": "2016/video-mixes",
         "title": "Video Mixes",
@@ -354255,7 +353940,7 @@
     "posts": [
       {
         "slug": "projects/photography-tools",
-        "title": "Photography & Visual Creation",
+        "title": "EXIF Printer",
         "year": 2024,
         "date": "2024-04-01T04:00:00.000Z",
         "dek": null,

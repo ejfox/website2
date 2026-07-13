@@ -17,4 +17,6 @@ tags:
 
 A personal cable channel: every visitor sees the same YouTube video at the same second. A single-file Deno app with a stateless, deterministic playhead — live at [tv.tools.ejfox.com](https://tv.tools.ejfox.com).
 
+![The station mid-loop — everyone watching the same frame of the 224-hour broadcast](https://res.cloudinary.com/ejf/video/upload/projects/tv-station/demo.mp4)
+
 ![The channel mid-broadcast — everyone tuned to the same frame](https://res.cloudinary.com/ejf/image/upload/projects/tv-station/channel.png)

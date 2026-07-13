@@ -1,6 +1,6 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice — factual stub. This is an early library; confirm\n     the date/framing. Draft until ready. -->\n<p class=\"\">An early JavaScript library for building full-browser-width, magazine-style scrollytelling mini-sites.</p>\n<figure role=\"figure\" aria-label=\"sStory — &#x22;Making beautiful stories easy&#x22;\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/sstory/hero.png\" alt=\"sStory — &#x22;Making beautiful stories easy&#x22;\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/sstory/hero.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/sstory/hero.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/sstory/hero.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/sstory/hero.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"sStory — &#x22;Making beautiful stories easy&#x22;\" width=\"2880\" height=\"1900\" style=\"--splay-rot:-2.85deg;\" data-dimensions=\"2880×1900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">sStory — \"Making beautiful stories easy\"</figcaption>\n</figure>",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. This is an early library; confirm\n     the date/framing. Draft until ready. -->\n<p class=\"\">An early JavaScript library for building full-browser-width, magazine-style scrollytelling mini-sites.</p>\n<figure role=\"figure\" aria-label=\"Scrolling an sStory — full-bleed sections advancing one beat at a time\" class=\"\"><video class=\"img-full my-8 rounded-sm\" autoplay loop muted playsinline preload=\"metadata\" poster=\"https://res.cloudinary.com/ejf/video/upload/so_0,f_jpg,q_auto,w_1280/projects/sstory/demo.jpg\" src=\"https://res.cloudinary.com/ejf/video/upload/q_auto/projects/sstory/demo.mp4\" aria-label=\"Scrolling an sStory — full-bleed sections advancing one beat at a time\"></video><figcaption class=\"\">Scrolling an sStory — full-bleed sections advancing one beat at a time</figcaption></figure>\n<figure role=\"figure\" aria-label=\"sStory — &#x22;Making beautiful stories easy&#x22;\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/sstory/hero.png\" alt=\"sStory — &#x22;Making beautiful stories easy&#x22;\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/sstory/hero.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/sstory/hero.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/sstory/hero.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/sstory/hero.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"sStory — &#x22;Making beautiful stories easy&#x22;\" width=\"2880\" height=\"1900\" style=\"--splay-rot:-2.85deg;\" data-dimensions=\"2880×1900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">sStory — \"Making beautiful stories easy\"</figcaption>\n</figure>",
   "title": "sStory",
   "metadata": {
     "title": "sStory",
@@ -21,14 +21,14 @@
       "library",
       "storytelling"
     ],
-    "words": 39,
-    "images": 1,
+    "words": 51,
+    "images": 2,
     "imageDetails": {
-      "total": 1,
-      "cloudinary": 1,
+      "total": 2,
+      "cloudinary": 2,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

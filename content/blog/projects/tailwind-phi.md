@@ -18,4 +18,6 @@ tags:
 
 A set of Φ-powered Tailwind classes — spacing and sizing scaled by the golden ratio instead of an arbitrary step scale.
 
+![Panning the golden-ratio scale — every phi utility with live previews](https://res.cloudinary.com/ejf/video/upload/projects/tailwind-phi/demo.mp4)
+
 ![Tailwind Φ — golden-ratio utility classes with live previews](https://res.cloudinary.com/ejf/image/upload/projects/tailwind-phi/landing.png)

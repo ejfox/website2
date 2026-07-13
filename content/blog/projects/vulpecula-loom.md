@@ -18,6 +18,8 @@ tags:
 
 A desktop AI chat app with deep Obsidian integration and OpenRouter support — bring your own models, keep your conversations woven into your vault.
 
+![Scrolling the Vulpecula Loom landing into the app itself](https://res.cloudinary.com/ejf/video/upload/projects/vulpecula-loom/demo.mp4)
+
 ![Vulpecula Loom landing page](https://res.cloudinary.com/ejf/image/upload/projects/vulpecula-loom/landing.png)
 
 ![The chat itself — bring-your-own-model via OpenRouter, with live token and cost tracking per message](https://res.cloudinary.com/ejf/image/upload/projects/vulpecula-loom/app.png)
