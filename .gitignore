@@ -62,3 +62,4 @@ data/_tool-cache/
 
 # Gear sync transient backups
 data/gear.csv.backup.*
+data/capture-review/
