@@ -40,6 +40,19 @@ Per-stub sparks (react to these, don't answer them literally):
 After each rewrite: flip `draft: false`, then `yarn blog:process`. Each one
 adds a flagship to the production page.
 
+## Quest 1.5 · Where do these live? (30 seconds each — just tell Claude)
+
+Bucket-B projects with NO definitive imagery and no artifacts Claude can find:
+- [ ] **butt-math** — where are the sketches/notebooks?
+- [ ] **creative-interfaces** — where do the demos live?
+- [ ] **finance-prism** — same
+- [ ] **electology** — dead domain, NO wayback snapshot; got local screenshots?
+- [ ] **cloudinary-backup-tool** — repo path? (VHS tape ready to go)
+- [ ] **coach-artie** — pick 2-3 great Discord moments to screenshot, or Claude
+      captures the coachartie2 dashboard locally — which?
+- [ ] **dataproofer flagship call** — fresh dataproofer.org captures are on the
+      triage sheet; if none please you, demote it from flagship
+
 ## Quest 2 · Photo Day (one session, phone + good light)
 
 - [ ] **pixel-canvas hero** — the 320×240 display glowing on your desk, ambient
