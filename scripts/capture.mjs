@@ -13,6 +13,10 @@
  *
  * Commands:
  *   page   <url> <out.png> [--click "Text"] [--wait 5000] [--size 1440,900]
+ *   record <url> <out.mp4> [--secs 12] [--scroll] [--to 0.25] [--click "Text"]
+ *          # CDP screencast -> ffmpeg mp4. --scroll drifts down the page,
+ *          #   --to limits the drift to a fraction of the page. Static pages
+ *          #   emit no frames (screencast fires on repaint) — interact or skip.
  *   scroll <url> <outPrefix> [--count 6] [--wait 1300] [--size 1440,900]
  *   clip   <url> <selector> <outPrefix> [--max 6] [--min-w 320] [--min-h 220]
  *   upload <localfile> projects/<slug>/<name> [<file2> <id2> ...]
@@ -88,8 +92,29 @@ async function debugAlive() {
 
 // Launch a dedicated headless Chrome (detached) if one isn't already serving
 // the debug port. Uses its own throwaway profile so it touches nothing else.
-async function ensureChrome(size = '1440,900') {
-  if (await debugAlive()) return
+//
+// webgl mode (--webgl on record/page/etc): SwiftShader software GL so regl/
+// canvas apps render instead of blank white. It is OPT-IN because software
+// rendering tanks the compositor to ~2-15fps for everything — normal pages
+// capture far smoother on the default GPU path. Mode changes relaunch Chrome.
+const MODE_FILE = `/tmp/capture-chrome-${PORT}.mode`
+async function ensureChrome(size = '1440,900', webgl = false) {
+  const { readFileSync, rmSync } = await import('node:fs')
+  const wantMode = webgl ? 'webgl' : 'gpu'
+  if (await debugAlive()) {
+    let curMode = 'gpu'
+    try {
+      curMode = readFileSync(MODE_FILE, 'utf8').trim()
+    } catch {
+      /* no marker -> assume gpu */
+    }
+    if (curMode === wantMode) return
+    // wrong mode: kill this profile's chrome and relaunch below
+    const { spawnSync } = await import('node:child_process')
+    spawnSync('pkill', ['-f', `capture-chrome-${PORT}`])
+    await sleep(800)
+    rmSync(`/tmp/capture-chrome-${PORT}`, { recursive: true, force: true })
+  }
   const bin = findChrome()
   const child = spawn(
     bin,
@@ -98,6 +123,7 @@ async function ensureChrome(size = '1440,900') {
       `--remote-debugging-port=${PORT}`,
       `--user-data-dir=/tmp/capture-chrome-${PORT}`,
       `--window-size=${size.replace('x', ',')}`,
+      ...(webgl ? ['--use-angle=swiftshader', '--enable-unsafe-swiftshader'] : []),
       '--hide-scrollbars',
       '--no-first-run',
       '--no-default-browser-check',
@@ -108,6 +134,7 @@ async function ensureChrome(size = '1440,900') {
     { detached: true, stdio: 'ignore' }
   )
   child.unref()
+  writeFileSync(MODE_FILE, wantMode)
   for (let i = 0; i < 40; i++) {
     // up to ~12s
     await sleep(300)
@@ -135,14 +162,20 @@ async function connect() {
       pending.set(mid, resolve)
       ws.send(JSON.stringify({ id: mid, method, params }))
     })
+  const listeners = new Map() // method -> [fns], persistent (for screencast)
   ws.addEventListener('message', (e) => {
     const msg = JSON.parse(e.data)
     if (msg.id && pending.has(msg.id)) {
       pending.get(msg.id)(msg.result)
       pending.delete(msg.id)
-    } else if (msg.method && events.has(msg.method)) {
-      events.get(msg.method).forEach((fn) => fn(msg.params))
-      events.set(msg.method, [])
+    } else if (msg.method) {
+      if (listeners.has(msg.method)) {
+        listeners.get(msg.method).forEach((fn) => fn(msg.params))
+      }
+      if (events.has(msg.method)) {
+        events.get(msg.method).forEach((fn) => fn(msg.params))
+        events.set(msg.method, [])
+      }
     }
   })
   const once = (method) =>
@@ -151,10 +184,29 @@ async function connect() {
       arr.push(res)
       events.set(method, arr)
     })
+  const on = (method, fn) => {
+    const arr = listeners.get(method) || []
+    arr.push(fn)
+    listeners.set(method, arr)
+  }
   await new Promise((r) => ws.addEventListener('open', r))
   await send('Page.enable')
   await send('Runtime.enable')
-  return { send, once, close: () => ws.close() }
+  return { send, once, on, close: () => ws.close() }
+}
+
+// Force the viewport to --size even when Chrome is already running (the
+// --window-size launch arg only applies to a fresh launch).
+async function applySize(cdp, size) {
+  if (!size || typeof size !== 'string') return
+  const [w, h] = size.replace('x', ',').split(',').map(Number)
+  if (!w || !h) return
+  await cdp.send('Emulation.setDeviceMetricsOverride', {
+    width: w,
+    height: h,
+    deviceScaleFactor: 1,
+    mobile: false,
+  })
 }
 
 // Navigate and wait for load + a settle delay. Falls back to the timeout if the
@@ -170,8 +222,9 @@ async function goto(cdp, url, settleMs = 1500) {
 async function cmdPage({ pos, flags }) {
   const [url, out] = pos
   if (!url || !out) die('page <url> <out.png> [--click "Text"] [--wait ms]')
-  await ensureChrome(flags.size)
+  await ensureChrome(flags.size, Boolean(flags.webgl))
   const cdp = await connect()
+  await applySize(cdp, flags.size)
   await goto(cdp, url, Number.parseInt(flags.wait || '1500', 10))
   if (flags.click && typeof flags.click === 'string') {
     const r = await cdp.send('Runtime.evaluate', {
@@ -200,8 +253,9 @@ async function cmdScroll({ pos, flags }) {
   if (!url || !prefix) die('scroll <url> <outPrefix> [--count 6] [--wait 1300]')
   const count = Number.parseInt(flags.count || '6', 10)
   const settle = Number.parseInt(flags.wait || '1300', 10)
-  await ensureChrome(flags.size)
+  await ensureChrome(flags.size, Boolean(flags.webgl))
   const cdp = await connect()
+  await applySize(cdp, flags.size)
   await goto(cdp, url, 2500)
   const dims = (
     await cdp.send('Runtime.evaluate', {
@@ -234,8 +288,9 @@ async function cmdClip({ pos, flags }) {
   const maxN = Number.parseInt(flags.max || '6', 10)
   const minW = Number.parseInt(flags['min-w'] || '320', 10)
   const minH = Number.parseInt(flags['min-h'] || '220', 10)
-  await ensureChrome(flags.size)
+  await ensureChrome(flags.size, Boolean(flags.webgl))
   const cdp = await connect()
+  await applySize(cdp, flags.size)
   await goto(cdp, url, 2500)
   // trigger lazy renders: scroll to bottom then back up
   await cdp.send('Runtime.evaluate', {
@@ -278,28 +333,212 @@ async function cmdClip({ pos, flags }) {
 async function cmdUpload({ pos }) {
   if (pos.length < 2 || pos.length % 2 !== 0)
     die('upload <localfile> projects/<slug>/<name> [<file2> <id2> ...]')
-  const { v2: cloudinary } = await import('cloudinary')
-  await import('dotenv/config')
-  cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
-  })
+  const cloudinary = await cloudinaryClient()
   for (let i = 0; i < pos.length; i += 2) {
     const [src, publicId] = [pos[i], pos[i + 1]]
+    const isVideo = /\.(?:mp4|webm|mov|gif)$/i.test(src)
     try {
       const r = await cloudinary.uploader.upload(src, {
         public_id: publicId,
         overwrite: true,
+        resource_type: isVideo ? 'video' : 'image',
+        // gifs go up as video so Cloudinary can transcode/loop them cheaply
       })
-      console.log(`OK  ${publicId}  ${r.width}x${r.height}`)
-      console.log(
-        `    https://res.cloudinary.com/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload/${publicId}.png`
-      )
+      console.log(`OK  ${publicId}  ${r.width}x${r.height}  ${r.resource_type}`)
+      console.log(`    ${r.secure_url}`)
     } catch (e) {
       console.log('FAIL', publicId, e.message)
     }
   }
+  process.exit(0)
+}
+
+// Cloudinary config: explicit vars if present, else CLOUDINARY_URL (which the
+// SDK reads on its own — don't clobber it with undefineds).
+async function cloudinaryClient() {
+  const { v2: cloudinary } = await import('cloudinary')
+  await import('dotenv/config')
+  if (process.env.CLOUDINARY_CLOUD_NAME) {
+    cloudinary.config({
+      cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+      api_key: process.env.CLOUDINARY_API_KEY,
+      api_secret: process.env.CLOUDINARY_API_SECRET,
+    })
+  }
+  return cloudinary
+}
+
+// Stop-motion scroll take: one screenshot per output frame at an exact,
+// eased scroll position. secs of output at --fps (default 30) — a 12s take
+// is 360 screenshots, roughly 1-2 minutes of capture.
+async function recordStopMotion(cdp, out, secs, flags) {
+  const fps = Number.parseInt(flags.fps || '30', 10)
+  const { mkdtempSync, rmSync } = await import('node:fs')
+  const { tmpdir } = await import('node:os')
+  const { join } = await import('node:path')
+  const dir = mkdtempSync(join(tmpdir(), 'capture-rec-'))
+  const fullSpan = (
+    await cdp.send('Runtime.evaluate', {
+      returnByValue: true,
+      expression: 'Math.max(0, document.body.scrollHeight - innerHeight)',
+    })
+  ).result.value
+  const span = Math.round(
+    fullSpan * Math.min(1, Number.parseFloat(flags.to || '1') || 1)
+  )
+  const N = Math.max(2, Math.round(secs * fps))
+  const ease = (t) => (t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2)
+  for (let k = 0; k < N; k++) {
+    const pos = Math.round(span * ease(k / (N - 1)))
+    await cdp.send('Runtime.evaluate', {
+      expression: `window.scrollTo(0, ${pos})`,
+    })
+    const s = await cdp.send('Page.captureScreenshot', {
+      format: 'jpeg',
+      quality: 85,
+    })
+    writeFileSync(join(dir, `f${String(k).padStart(5, '0')}.jpg`), Buffer.from(s.data, 'base64'))
+    if (k > 0 && k % 90 === 0) console.log(`  frame ${k}/${N}`)
+  }
+  cdp.close()
+  const { spawnSync } = await import('node:child_process')
+  const r = spawnSync(
+    'ffmpeg',
+    [
+      '-y', '-framerate', String(fps), '-i', join(dir, 'f%05d.jpg'),
+      '-vf', 'scale=trunc(iw/2)*2:trunc(ih/2)*2',
+      '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-crf', '23',
+      '-movflags', '+faststart', '-an',
+      out,
+    ],
+    { stdio: ['ignore', 'ignore', 'inherit'] }
+  )
+  rmSync(dir, { recursive: true, force: true })
+  if (r.status !== 0 || !existsSync(out)) {
+    console.error('ffmpeg failed')
+    process.exit(1)
+  }
+  console.log(`saved ${out} (stop-motion, ${N} frames @ ${fps}fps, ${secs}s)`)
+  process.exit(0)
+}
+
+// record: CDP screencast -> ffmpeg mp4 (10-30s demo loops for project pages).
+// Optional --scroll drifts down the page during the take; --click fires first.
+async function cmdRecord({ pos, flags }) {
+  const [url, out] = pos
+  if (!url || !out)
+    die(
+      'record <url> <out.mp4> [--secs 12] [--scroll] [--click "Text"] [--wait 2500] [--size 1440,900]'
+    )
+  const secs = Number.parseFloat(flags.secs || '12')
+  await ensureChrome(flags.size, Boolean(flags.webgl))
+  const cdp = await connect()
+  await applySize(cdp, flags.size)
+  await goto(cdp, url, Number.parseInt(flags.wait || '2500', 10))
+  if (flags.click && typeof flags.click === 'string') {
+    await cdp.send('Runtime.evaluate', {
+      returnByValue: true,
+      expression: clickExpr(flags.click),
+    })
+    await sleep(1500)
+  }
+
+  // Scroll takes use STOP-MOTION: the browser only paints ~15-20 unique
+  // positions/sec during live scrolling no matter how it's driven, which reads
+  // as chop. Since scroll position is fully under our control, we instead set
+  // the exact position for every output frame and screenshot it — perfectly
+  // even motion, independent of paint timing. (Live screencast remains the
+  // path for animation/interaction takes, where real time matters.)
+  if (flags.scroll) {
+    await recordStopMotion(cdp, out, secs, flags)
+    return
+  }
+
+  const { mkdtempSync, rmSync } = await import('node:fs')
+  const { tmpdir } = await import('node:os')
+  const { join } = await import('node:path')
+  const dir = mkdtempSync(join(tmpdir(), 'capture-rec-'))
+  const frames = [] // {buf, ts} in memory — write to disk after the take.
+  cdp.on('Page.screencastFrame', (p) => {
+    // Ack FIRST: Chrome won't send the next frame until it hears back, so any
+    // work before the ack (like sync PNG writes) directly caps the frame rate.
+    cdp.send('Page.screencastFrameAck', { sessionId: p.sessionId })
+    frames.push({ buf: Buffer.from(p.data, 'base64'), ts: p.metadata.timestamp })
+  })
+  await cdp.send('Page.startScreencast', {
+    format: 'jpeg',
+    quality: 85,
+    everyNthFrame: 1,
+    maxWidth: 1440,
+    maxHeight: 900,
+  })
+
+  // --eval "<js>" runs right after recording starts — use it to trigger
+  // animations mid-take (the script can setTimeout its own later beats).
+  if (flags.eval && typeof flags.eval === 'string') {
+    await cdp.send('Runtime.evaluate', { expression: flags.eval })
+  }
+
+  await sleep(secs * 1000)
+  await cdp.send('Page.stopScreencast')
+  await sleep(300)
+  cdp.close()
+
+  if (frames.length < 2) {
+    console.error('too few frames captured:', frames.length)
+    process.exit(1)
+  }
+  // Flush buffered frames to disk, then concat demuxer with real per-frame
+  // durations from CDP timestamps
+  const concat = []
+  for (let i = 0; i < frames.length; i++) {
+    const file = join(dir, `f${String(i).padStart(5, '0')}.jpg`)
+    writeFileSync(file, frames[i].buf)
+    concat.push(`file '${file}'`)
+    const d =
+      i < frames.length - 1
+        ? Math.max(0.01, frames[i + 1].ts - frames[i].ts)
+        : 0.1
+    concat.push(`duration ${d.toFixed(4)}`)
+  }
+  concat.push(`file '${join(dir, `f${String(frames.length - 1).padStart(5, '0')}.jpg`)}'`)
+  const listPath = join(dir, 'list.txt')
+  writeFileSync(listPath, concat.join('\n'))
+  const { spawnSync } = await import('node:child_process')
+  const r = spawnSync(
+    'ffmpeg',
+    [
+      '-y',
+      '-f',
+      'concat',
+      '-safe',
+      '0',
+      '-i',
+      listPath,
+      '-vf',
+      // --speed N: record slow, play back N× faster. The screencast caps at
+      // ~15-20fps, so a half-speed pan compressed 2× doubles effective frame
+      // density — the cheap route to smooth scroll footage.
+      `setpts=PTS/${Number.parseFloat(flags.speed || '1') || 1},scale=trunc(iw/2)*2:trunc(ih/2)*2,fps=${Number.parseInt(flags.fps || '60', 10)}`,
+      '-c:v',
+      'libx264',
+      '-pix_fmt',
+      'yuv420p',
+      '-crf',
+      '23',
+      '-movflags',
+      '+faststart',
+      '-an',
+      out,
+    ],
+    { stdio: ['ignore', 'ignore', 'inherit'] }
+  )
+  rmSync(dir, { recursive: true, force: true })
+  if (r.status !== 0 || !existsSync(out)) {
+    console.error('ffmpeg failed')
+    process.exit(1)
+  }
+  console.log(`saved ${out} (${frames.length} frames, ${secs}s)`)
   process.exit(0)
 }
 
@@ -357,8 +596,9 @@ async function cmdShoot({ pos, flags }) {
 
 // page capture without exiting (used by shoot)
 async function cmdPageInline(url, out, flags) {
-  await ensureChrome(flags.size)
+  await ensureChrome(flags.size, Boolean(flags.webgl))
   const cdp = await connect()
+  await applySize(cdp, flags.size)
   await goto(cdp, url, Number.parseInt(flags.wait || '1500', 10))
   if (flags.click && typeof flags.click === 'string') {
     await cdp.send('Runtime.evaluate', {
@@ -469,6 +709,7 @@ ${typeof flags.type === 'string' ? `Type ${JSON.stringify(flags.type)}\nSleep 15
 const HELP = `capture.mjs — autonomous screenshot toolkit (see scripts/capture.README.md)
 
   page   <url> <out.png>            [--click "Text"] [--key p] [--wait 5000] [--size 1440,900]
+  record <url> <out.mp4>            [--secs 12] [--scroll] [--click "Text"] 10-30s demo clip
   scroll <url> <outPrefix>          [--count 6] [--wait 1300]
   clip   <url> <selector> <prefix>  [--max 6] [--min-w 320] [--min-h 220]
   upload <file> projects/<slug>/<name> [<file2> <id2> ...]
@@ -484,6 +725,7 @@ const [cmd, ...rest] = process.argv.slice(2)
 const parsed = parseArgs(rest)
 const table = {
   page: cmdPage,
+  record: cmdRecord,
   scroll: cmdScroll,
   clip: cmdClip,
   upload: cmdUpload,
