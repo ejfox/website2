@@ -369,7 +369,7 @@ useHead(() => ({
       class="mb-14 scroll-mt-24"
     >
       <div
-        class="flex items-baseline justify-between gap-4 border-b border-zinc-200 dark:border-zinc-800 pb-2 mb-5"
+        class="flex items-baseline justify-between gap-4 rule-dotted-b pb-2 mb-5"
       >
         <h2
           class="font-mono text-xs uppercase tracking-wider text-zinc-600 dark:text-zinc-400"

@@ -311,7 +311,7 @@ useHead(() => ({
                 <div
                   v-if="index === 0"
                   :data-year="year"
-                  class="year-marker leading-3 scroll-mt-4"
+                  class="year-marker rule-dotted-leader leading-3 scroll-mt-4"
                 >
                   {{ year }}
                 </div>
