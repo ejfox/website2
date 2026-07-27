@@ -1,6 +1,6 @@
 # EJ Fox's Website
 
-Personal website + blog: Nuxt 3 • Vue 3 • Tailwind • Docker
+Personal website + blog: Nuxt 3 • Vue 3 • Tailwind
 
 ## Quick Start
 
@@ -10,15 +10,15 @@ yarn install && yarn blog:import && yarn blog:process && yarn dev
 
 ## Commands
 
-| Command                  | Description                     |
-| ------------------------ | ------------------------------- |
-| `yarn dev`               | Dev server (port 3006)          |
-| `yarn build`             | Production build                |
-| `yarn blog:import`       | Import from Obsidian            |
-| `yarn blog:process`      | Process MD → JSON               |
-| `yarn predict`           | Create cryptographic prediction |
-| `yarn webmentions`       | Send webmentions (last 7 days)  |
-| `yarn webmentions --all` | Send all webmentions            |
+| Command               | Description                     |
+| --------------------- | ------------------------------- |
+| `yarn dev`            | Dev server (port 3006)          |
+| `yarn build`          | Production build                |
+| `yarn blog:import`    | Import from Obsidian            |
+| `yarn blog:process`   | Process MD → JSON               |
+| `yarn predict`        | Create cryptographic prediction |
+| `yarn webmention`     | Send webmentions (last 7 days)  |
+| `yarn webmention:all` | Send all webmentions            |
 
 ## Features
 
@@ -84,9 +84,9 @@ Footnotes auto-convert to margin notes on desktop (Tufte-style)
 
 ## Deployment
 
-Push to `main` → GitHub Action SSHs to VPS → pulls, builds, restarts Docker
+Push to `main` → GitHub Action builds `.output/` on the runner → scp's it to the VPS → `pm2 reload` (~3 min)
 
-Manual: `ssh vps "cd /data2/website2 && git pull && yarn build && docker-compose up -d --build"`
+Never build on the VPS (Nitro heisenbug). Manual deploy + pm2 commands are in `CLAUDE.md` → Deployment.
 
 ## Environment
 
