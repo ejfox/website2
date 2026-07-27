@@ -16,7 +16,7 @@ import {
   forceY,
 } from 'd3'
 import { useElementSize } from '@vueuse/core'
-import { useLanguageColors } from '~/composables/useLanguageColors'
+import { useLanguageColors } from '~/utils/useLanguageColors'
 
 const props = defineProps({
   nodes: { type: Array, required: true },

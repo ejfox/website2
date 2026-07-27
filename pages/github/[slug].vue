@@ -1,5 +1,5 @@
 <script setup>
-import { useLanguageColors } from '~/composables/useLanguageColors'
+import { useLanguageColors } from '~/utils/useLanguageColors'
 
 const { formatLongDate, formatRelativeTime, formatShortDate } = useDateFormat()
 const route = useRoute()

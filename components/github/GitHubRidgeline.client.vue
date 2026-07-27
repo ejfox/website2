@@ -8,7 +8,7 @@
 import { ref, computed } from 'vue'
 import { useElementSize } from '@vueuse/core'
 import * as d3 from 'd3'
-import { useLanguageColors } from '~/composables/useLanguageColors'
+import { useLanguageColors } from '~/utils/useLanguageColors'
 
 const props = defineProps({
   repos: { type: Array, required: true },

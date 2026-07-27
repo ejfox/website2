@@ -48,49 +48,6 @@ formatTimestamp(date) // "Nov 28, 2025 3:45 PM"
 
 ---
 
-## Status Formatting (`useStatusFormatting`)
-
-Centralized status labels and styling for consistent data representation.
-
-### FOIA Status
-
-```typescript
-const { formatFoiaStatus, isFoiaOpen, getFoiaStatusClass } =
-  useStatusFormatting()
-
-formatFoiaStatus('no_docs') // "NO_DOCS"
-formatFoiaStatus('payment') // "PAYMENT"
-isFoiaOpen('done') // false
-isFoiaOpen('submitted') // true
-getFoiaStatusClass('rejected') // "font-mono text-xs text-zinc-600..."
-```
-
-### Prediction Status
-
-```typescript
-const { formatPredictionStatus, getPredictionStatusClass } =
-  useStatusFormatting()
-
-formatPredictionStatus('correct') // "✓ Correct"
-formatPredictionStatus('incorrect') // "✗ Incorrect"
-formatPredictionStatus('pending') // "○ Pending"
-getPredictionStatusClass('correct') // "text-green-600 dark:text-green-500"
-```
-
-### Generic Status
-
-```typescript
-const { formatStatus } = useStatusFormatting()
-
-formatStatus('payment', 'foia') // "PAYMENT"
-formatStatus('correct', 'prediction') // "✓ Correct"
-formatStatus('active', 'generic') // "ACTIVE"
-```
-
-**Used in:** FOIA components, predictions page
-
----
-
 ## Number Formatting (`useNumberFormat`)
 
 Comprehensive number formatting utilities already in the codebase.
@@ -222,8 +179,7 @@ formatShortRelativeTime(123) // "X ago"
 
 ## Related Files
 
-- `composables/useDateFormat.ts` - All date/time logic
-- `composables/useStatusFormatting.ts` - Status badges and labels
-- `composables/useNumberFormat.ts` - Number/currency/duration formatting
+- `utils/useDateFormat.ts` - All date/time logic
+- `utils/useNumberFormat.ts` - Number/currency/duration formatting
 - `components/foia/FoiaRequestItem.vue` - Example of proper usage
 - `pages/now.vue` - Example of date-fns integration

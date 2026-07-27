@@ -5,7 +5,7 @@ import PostFooter from '~/components/blog/post/PostFooter.vue'
 import PostTOC from '~/components/blog/post/PostTOC.vue'
 import ReplyContext from '~/components/blog/ReplyContext.vue'
 import PasswordGate from '~/components/blog/PasswordGate.vue'
-import { useReadingStats } from '~/composables/useReadingStats'
+import { useReadingStats } from '~/utils/useReadingStats'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 // Composables

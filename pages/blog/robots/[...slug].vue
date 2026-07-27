@@ -1,7 +1,7 @@
 <script setup>
 // Animation handled via global anime.js from CDN
 import { useWindowSize } from '@vueuse/core'
-import { formatNumber } from '~/composables/useNumberFormat'
+import { formatNumber } from '~/utils/useNumberFormat'
 // DELETED: import { useAnimations } from '~/composables/useAnimations'
 
 const { formatTimestamp: formatDate } = useDateFormat()

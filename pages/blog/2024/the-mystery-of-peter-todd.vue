@@ -13,7 +13,7 @@ import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
 import PostNav from '~/components/blog/post/PostNav.vue'
 import PostRelated from '~/components/blog/post/PostRelated.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
-import { useReadingStats } from '~/composables/useReadingStats'
+import { useReadingStats } from '~/utils/useReadingStats'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 const peterToddQuote1 =

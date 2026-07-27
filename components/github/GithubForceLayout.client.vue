@@ -9,7 +9,7 @@ import { useElementSize } from '@vueuse/core'
 import * as d3 from 'd3-force'
 import { select } from 'd3-selection'
 import { scaleSqrt, scaleTime } from 'd3-scale'
-import { useLanguageColors } from '~/composables/useLanguageColors'
+import { useLanguageColors } from '~/utils/useLanguageColors'
 
 const props = defineProps({
   repos: {

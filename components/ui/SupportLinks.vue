@@ -40,7 +40,7 @@ const containerClasses = computed(() => {
       </a>
 
       <!-- Note: "Hire me" → /consulting lives in the primary nav already
-           (composables/useNavigation.ts), so it's intentionally NOT repeated
+           (utils/useNavigation.ts), so it's intentionally NOT repeated
            here to avoid duplicating it in sidebars that show both. -->
 
       <!-- GitHub Sponsors -->

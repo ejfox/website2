@@ -11,7 +11,7 @@ import ChessStats from '~/components/stats/ChessStats.vue'
 import MonkeyTypeStats from '~/components/stats/MonkeyTypeStats.vue'
 import DuolingoStats from '~/components/stats/DuolingoStats.vue'
 import StatsSectionSkeleton from '~/components/stats/StatsSectionSkeleton.vue'
-import { usePostFilters } from '~/composables/usePostFilters'
+import { usePostFilters } from '~/utils/usePostFilters'
 
 // Lazy-load below-fold components
 const LeetCodeStats = defineAsyncComponent(

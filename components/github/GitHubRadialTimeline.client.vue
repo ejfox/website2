@@ -9,7 +9,7 @@ import { ref, computed } from 'vue'
 import { scaleTime } from 'd3-scale'
 import { extent } from 'd3-array'
 import { arc } from 'd3-shape'
-import { useLanguageColors } from '~/composables/useLanguageColors'
+import { useLanguageColors } from '~/utils/useLanguageColors'
 
 const props = defineProps({
   repos: {

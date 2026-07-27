@@ -8,7 +8,7 @@ import { computed } from 'vue'
 import { format } from 'date-fns/format'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import AnimatedNumber from '../ui/AnimatedNumber.vue'
-import { formatNumber } from '~/composables/useNumberFormat'
+import { formatNumber } from '~/utils/useNumberFormat'
 import type { StatsResponse } from '~/composables/useStats'
 
 type LeetCodeStats = NonNullable<StatsResponse['leetcode']>

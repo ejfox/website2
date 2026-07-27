@@ -1,7 +1,7 @@
 <script setup>
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import { getAllNav } from '~/composables/useNavigation'
+import { getAllNav } from '~/utils/useNavigation'
 import { useCommandPalette } from '~/composables/useCommandPalette'
 
 const router = useRouter()

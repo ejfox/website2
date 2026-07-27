@@ -7,7 +7,7 @@
 -->
 <script setup>
 import { computed } from 'vue'
-import { useLanguageColors } from '~/composables/useLanguageColors'
+import { useLanguageColors } from '~/utils/useLanguageColors'
 
 const props = defineProps({
   languages: {

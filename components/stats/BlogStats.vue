@@ -4,7 +4,7 @@
   @props stats: Object - Blog statistics data from API
 -->
 <script setup lang="ts">
-import { useNumberFormat } from '../../composables/useNumberFormat'
+import { useNumberFormat } from '../../utils/useNumberFormat'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
 

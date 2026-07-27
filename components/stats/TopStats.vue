@@ -8,7 +8,7 @@ import { computed } from 'vue'
 import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import StatsDataState from './StatsDataState.vue'
 import type { StatsResponse } from '~/composables/useStats'
-import { useNumberFormat } from '~/composables/useNumberFormat'
+import { useNumberFormat } from '~/utils/useNumberFormat'
 
 interface BlogStats {
   totalPosts: number

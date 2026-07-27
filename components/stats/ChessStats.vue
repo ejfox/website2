@@ -13,7 +13,7 @@ import {
   formatGameTypeMinimal,
   formatRatingDiff,
   getRatingDiffClass,
-} from '~/composables/useNumberFormat'
+} from '~/utils/useNumberFormat'
 
 interface ChessGame {
   id?: string

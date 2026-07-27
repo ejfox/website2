@@ -10,7 +10,7 @@ import { ref, computed } from 'vue'
 import { scaleLinear, scaleLog } from 'd3-scale'
 import { extent } from 'd3-array'
 import { line, curveBasis } from 'd3-shape'
-import { useLanguageColors } from '~/composables/useLanguageColors'
+import { useLanguageColors } from '~/utils/useLanguageColors'
 
 const props = defineProps({
   repos: {

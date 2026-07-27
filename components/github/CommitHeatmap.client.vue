@@ -8,7 +8,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useElementSize } from '@vueuse/core'
-import { useLanguageColors } from '~/composables/useLanguageColors'
+import { useLanguageColors } from '~/utils/useLanguageColors'
 
 const props = defineProps({
   years: { type: Array, required: true },
