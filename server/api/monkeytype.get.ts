@@ -66,10 +66,9 @@ interface MonkeyTypeHistory {
 // upstream blips. lastGoodResponse never expires; freshExpiresAt gates the
 // "is the current cache fresh enough to serve without re-fetching" check.
 //
-// Persisted to disk so cold container restarts don't reset to null. The cache
-// path defaults to .cache/monkeytype-last-good.json relative to cwd; in Docker
-// this should be a mounted volume so it survives container rebuilds (see
-// docker-compose.yml volumes for the runtime-cache mount).
+// Persisted to disk so process restarts don't reset to null. The cache path
+// defaults to .cache/monkeytype-last-good.json relative to cwd (the pm2 working
+// dir on the VPS), or MONKEYTYPE_CACHE_PATH if set.
 const FRESH_TTL_MS = 5 * 60 * 1000
 const CACHE_FILE =
   process.env.MONKEYTYPE_CACHE_PATH ||

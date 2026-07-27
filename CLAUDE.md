@@ -88,7 +88,6 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 - `nuxt.config.ts` - Nuxt configuration (Node server preset)
 - `.env` - Environment variables (create from examples in README)
 - `ecosystem.config.cjs` - pm2 production config (used on VPS, not in dev)
-- `Dockerfile` + `docker-compose.yml` - **deprecated**, kept for reference only
 
 ### Content Structure
 

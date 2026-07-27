@@ -62,3 +62,6 @@ data/_tool-cache/
 
 # Gear sync transient backups
 data/gear.csv.backup.*
+
+# This is a yarn project — no npm lockfile
+package-lock.json
