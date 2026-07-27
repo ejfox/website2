@@ -243,7 +243,9 @@ const processor = unified()
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeRaw)
   .use(rehypePrettyCode, {
-    theme: JSON.parse(await fs.readFile('./themes/ayu-mirage.json', 'utf-8')),
+    theme: JSON.parse(
+      await fs.readFile('./scripts/utils/ayu-mirage.json', 'utf-8')
+    ),
     onVisitLine(node) {
       if (node.children.length === 0)
         node.children = [{ type: 'text', value: ' ' }]
