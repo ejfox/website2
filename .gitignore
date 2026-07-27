@@ -65,3 +65,6 @@ data/gear.csv.backup.*
 
 # This is a yarn project — no npm lockfile
 package-lock.json
+
+# Screenshot review scratch (capture/shoot workflow) — local only
+data/capture-review/
