@@ -21,20 +21,17 @@ useHead({
 })
 
 const query = ref('')
-const showReviewOnly = ref(false)
 
 const filtered = computed(() => {
   const q = query.value.trim().toLowerCase()
-  return apiCatalog.filter((r) => {
-    if (showReviewOnly.value && r.consumer !== 'review') return false
-    if (!q) return true
-    return (
+  if (!q) return apiCatalog
+  return apiCatalog.filter(
+    (r) =>
       r.path.toLowerCase().includes(q) ||
       r.summary.toLowerCase().includes(q) ||
       r.deps.toLowerCase().includes(q) ||
       r.consumedBy.toLowerCase().includes(q)
-    )
-  })
+  )
 })
 
 const grouped = computed(() =>
@@ -44,16 +41,6 @@ const grouped = computed(() =>
       routes: filtered.value.filter((r) => r.group === group),
     }))
     .filter((g) => g.routes.length > 0)
-)
-
-const reviewCount = computed(
-  () => apiCatalog.filter((r) => r.consumer === 'review').length
-)
-
-const reviewBtnClass = computed(() =>
-  showReviewOnly.value
-    ? 'bg-amber-600 border-amber-600 text-white'
-    : 'bg-surface border-zinc-700 text-amber-500 hover:border-amber-500'
 )
 
 const methodClass: Record<ApiMethod, string> = {
@@ -102,20 +89,13 @@ function pathFor(r: ApiRoute) {
       </header>
 
       <!-- Controls -->
-      <div class="flex flex-wrap items-center gap-3 mb-6">
+      <div class="mb-6">
         <input
           v-model="query"
           type="search"
           placeholder="filter routes, deps, callers…"
-          class="flex-1 min-w-[240px] bg-surface border border-zinc-700 rounded px-3 py-2 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-sky-500"
+          class="w-full bg-surface border border-zinc-700 rounded px-3 py-2 text-sm text-zinc-200 placeholder-zinc-500 focus:outline-none focus:border-sky-500"
         />
-        <button
-          class="px-3 py-2 text-2xs rounded border transition-colors"
-          :class="reviewBtnClass"
-          @click="showReviewOnly = !showReviewOnly"
-        >
-          ⚠ needs review ({{ reviewCount }})
-        </button>
       </div>
 
       <!-- Legend -->
@@ -128,11 +108,7 @@ function pathFor(r: ApiRoute) {
         </span>
         <span>
           <span class="text-violet-400">external</span>
-          = called from outside the app
-        </span>
-        <span>
-          <span class="text-amber-500">review</span>
-          = no caller, decide its fate
+          = public API / called from outside the app
         </span>
         <span>
           <span class="text-amber-500">empty-catch</span>

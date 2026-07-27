@@ -22,8 +22,8 @@ no caller and isn't allowlisted. **When you add a route, add a row here.**
 | `reading/[slug]` | Single book | `pages/reading`, `now` | reading JSON |
 | `scraps` | Shared scraps | `pages/threads` +5 | Supabase (`shared=true`) |
 | `scraps/by-tags` | Scraps matching tags | `pages/blog`, `scraps` | Supabase |
-| `scraps/tags` | All unique scrap tags | **none** ⚠ | Supabase |
-| `search` | BM25 full-text search | **none** ⚠ | `content/processed` |
+| `scraps/tags` | All unique scrap tags | public API | Supabase |
+| `search` | TF-IDF full-text search (`?q=&limit=`) | public API | `content/processed` |
 | `suggest` | AI tag/summary for a scrap | `bookmarklet-popup` | blog + Supabase + OpenRouter |
 | `temporal-context` | Everything around a date | `useTemporalContext` | reading + predictions + Supabase |
 | `on-this-day` | Historical context by month/day | `pages/on-this-day` | `data/on-this-day/*.json` |
@@ -94,9 +94,9 @@ have no URL caller but are very much alive.
 | `blog-stats` | Monthly writing | `stats` (import) | calls `/api/words-this-month` |
 | `reach` | Site visitors/pageviews | `stats` (import) | `UMAMI_DATABASE_URL` (Postgres) |
 | `website-stats` | Site-wide analytics | `stats-lite` (import) | `UMAMI_DATABASE_URL` (Postgres) |
-| `umami/stats` | Page analytics (HTTP API) | **none** ⚠ | `UMAMI_USERNAME/PASSWORD` |
-| `umami/auth` (POST) | Umami auth token | **none** ⚠ | `UMAMI_USERNAME/PASSWORD` |
-| `weekly-summary` | Weekly digest (9 sources) | **none** ⚠ | calls 9 other routes |
+| `umami/stats` | Per-page views (`?url=`) | public API | `UMAMI_*` → umami.tools.ejfox.com |
+| `umami/auth` (POST) | Umami access token | public API | `UMAMI_*` → umami.tools.ejfox.com |
+| `weekly-summary` | Per-week aggregate (`?week=`) | Sunday Interview skill | calls 9 other routes |
 
 ## Availability, consulting & infra
 
@@ -111,14 +111,19 @@ have no URL caller but are very much alive.
 | `healthcheck` | Uptime/health | external (monitor) | pings `/api/manifest` |
 | `build-info` | Commit hash / build date | `Footer.vue` | baked at build time |
 
-## Open questions (routes with no internal caller — decide, don't forget)
+## External API surface (works, reachable, no on-site caller by design)
 
-These are allowlisted in the orphan test as `review` so they don't fail CI, but
-they're unresolved:
+These have no page/component calling them, but they're verified working and kept
+as public API — hit directly, by a skill, or reserved for a future UI. Allowlisted
+in the orphan test with a reason so they don't read as accidental orphans.
 
-- **`search`** — a full BM25 search endpoint with no UI wired. Build search, or cut it.
-- **`scraps/tags`** — scrap tag vocabulary, currently unused by any page.
-- **`umami/auth` + `umami/stats`** — the older HTTP-API analytics path. `reach` and
-  `website-stats` now query Postgres directly; these two may be superseded.
-- **`weekly-summary`** — aggregates 9 sources into a digest but nothing calls it.
-  Intended for a cron/email digest? If not, it's dead.
+- **`search`** — `GET /api/search?q=code&limit=3` returns ranked snippets over
+  processed content. No on-site search box wired yet; the API is live.
+- **`scraps/tags`** — sorted, deduped scrap tag vocabulary (companion to
+  `scraps/by-tags`). Empty locally only because Supabase creds aren't set in dev.
+- **`umami/stats` + `umami/auth`** — the HTTP-API analytics path against the live
+  `umami.tools.ejfox.com` instance (heartbeat OK). Parallel to the Postgres
+  `reach`/`website-stats` path; both are valid, they just read the same data two
+  ways. Need `UMAMI_USERNAME/PASSWORD`.
+- **`weekly-summary`** — `GET /api/weekly-summary?week=2026-W05` aggregates a
+  week across GitHub/RescueTime/health/chess/… for the **Sunday Interview skill**.

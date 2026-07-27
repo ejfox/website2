@@ -27,16 +27,12 @@ const ALLOWLIST: Record<string, string> = {
   '/api/agent/timeline': 'external — chronological feed for AI agents',
   '/api/cal/availability':
     'kept — superseded by cal/available-slots, retained deliberately',
-  // Pending EJ review (see server/README.md "Open questions"). Allowlisted so the
-  // test guards against NEW orphans; remove the entry if the route is deleted.
-  '/api/search': 'review — BM25 search endpoint, no UI wired yet',
-  '/api/scraps/tags': 'review — scrap tag vocabulary, no current caller',
-  '/api/umami/auth':
-    'review — HTTP-API umami path, maybe superseded by reach/website-stats',
-  '/api/umami/stats':
-    'review — HTTP-API umami path, maybe superseded by reach/website-stats',
-  '/api/weekly-summary':
-    'review — aggregates 9 sources, no internal caller (external digest?)',
+  // Public API surface: works, reachable, no on-site caller by design.
+  '/api/search': 'external — public TF-IDF search API, no on-site UI yet',
+  '/api/scraps/tags': 'external — public scrap-tag vocabulary API',
+  '/api/umami/auth': 'external — HTTP-API analytics auth helper',
+  '/api/umami/stats': 'external — HTTP-API per-page analytics',
+  '/api/weekly-summary': 'external — consumed by the Sunday Interview skill',
 }
 
 // Dirs whose source counts as "using" a route.
