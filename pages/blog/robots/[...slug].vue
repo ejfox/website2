@@ -1,6 +1,6 @@
 <script setup>
 // Animation handled via global anime.js from CDN
-import { useWindowSize } from '@vueuse/core'
+import { useWindowSize, useEventListener } from '@vueuse/core'
 import { formatNumber } from '~/utils/numberFormat'
 // DELETED: import { useAnimations } from '~/composables/useAnimations'
 
@@ -194,8 +194,8 @@ onMounted(() => {
     scrollProgress.value = (winScroll / height) * 100
   }
 
-  window.addEventListener('scroll', updateProgress)
-  onUnmounted(() => window.removeEventListener('scroll', updateProgress))
+  // useEventListener auto-cleans on unmount (no manual removeEventListener)
+  useEventListener(window, 'scroll', updateProgress)
 
   // Title animation removed - delete-driven development
 })
