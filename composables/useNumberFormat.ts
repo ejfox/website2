@@ -9,59 +9,41 @@ import {
   differenceInHours,
   differenceInMinutes,
 } from 'date-fns'
+import { format, quantize, interpolateTurbo } from 'd3'
 
-// Synchronous fallback formatters (no d3 dependency)
-function fallbackFormat(value: number): string {
-  return value.toLocaleString('en-US')
-}
+// --- Number formatting (d3-format) ---
 
-// Basic number formatting with thousands separators
-export const formatNumber = (value: number): string => fallbackFormat(value)
+// Thousands separators: 1234567 → "1,234,567"
+export const formatNumber = (value: number): string => format(',')(value)
 
-// Percentage formatting with one decimal place
-export const formatPercent = (value: number) =>
-  `${((value / 100) * 100).toFixed(1)}%`
+// Percentage on an already-0–100 scale: 45.5 → "45.5%"
+export const formatPercent = (value: number): string =>
+  `${format('.1f')(value)}%`
 
-// Currency formatting
-export const formatCurrency = (value: number): string =>
-  `$${Math.round(value).toLocaleString('en-US')}`
+// Whole-dollar currency: 1234.5 → "$1,235"
+export const formatCurrency = (value: number): string => format('$,.0f')(value)
 
-// Compact number formatting (e.g., 1.2M, 450K)
-export const formatCompact = (value: number): string => {
-  if (Math.abs(value) >= 1_000_000) return (value / 1_000_000).toFixed(1) + 'M'
-  if (Math.abs(value) >= 1_000) return (value / 1_000).toFixed(1) + 'K'
-  return value.toString()
-}
+// Compact SI with uppercase K/M/B: 1234 → "1.23K", 1_500_000_000 → "1.5B"
+const si = format('.3~s')
+export const formatCompact = (value: number): string =>
+  si(value).replace(/[kG]$/, (s) => (s === 'k' ? 'K' : 'B'))
 
-// Decimal number with configurable precision
+// Kept for the old duplicate name — same behaviour as formatCompact
+export const formatNumberSimple = formatCompact
+
+// Fixed-precision decimal: formatDecimal(2)(3.14159) → "3.14"
 export const formatDecimal =
   (precision: number = 1) =>
   (value: number): string =>
-    value.toFixed(precision)
+    format(`.${precision}f`)(value)
 
-// Smart number formatting that adapts based on magnitude
+// Adapts to magnitude: big → compact, else grouped / one-decimal
 export function smartFormat(value: number): string {
-  if (Math.abs(value) >= 1_000_000) {
-    return formatCompact(value)
-  }
-  if (Math.abs(value) >= 1000) {
-    return formatNumber(value)
-  }
-  if (Number.isInteger(value)) {
+  if (Math.abs(value) >= 1_000_000) return formatCompact(value)
+  if (Math.abs(value) >= 1000 || Number.isInteger(value)) {
     return formatNumber(value)
   }
   return formatDecimal(1)(value)
-}
-
-// Common simplified formatters used throughout the codebase
-export function formatNumberSimple(num: number): string {
-  if (num >= 1000000) {
-    return (num / 1000000).toFixed(1) + 'M'
-  }
-  if (num >= 1000) {
-    return (num / 1000).toFixed(1) + 'K'
-  }
-  return num.toLocaleString()
 }
 
 export function formatBytes(bytes: number): string {
@@ -328,252 +310,8 @@ export const getRatingDiffClass = (diff: number): string => {
 // COLOR PALETTES & UTILITIES
 // =============================================================================
 
-// Turbo color palette for high-contrast data visualization
-export const turboColors = [
-  '#30123b',
-  '#311542',
-  '#321949',
-  '#341c4f',
-  '#351f56',
-  '#36235c',
-  '#372663',
-  '#382a69',
-  '#392d6f',
-  '#3a3175',
-  '#3b347b',
-  '#3c3880',
-  '#3d3b86',
-  '#3e3e8c',
-  '#3f4292',
-  '#404597',
-  '#41499d',
-  '#424ca2',
-  '#4350a8',
-  '#4453ad',
-  '#4557b3',
-  '#465ab8',
-  '#475ebe',
-  '#4861c3',
-  '#4965c9',
-  '#4a68ce',
-  '#4b6cd4',
-  '#4c6fd9',
-  '#4d73de',
-  '#4e76e4',
-  '#4f7ae9',
-  '#507dee',
-  '#5181f3',
-  '#5284f8',
-  '#5388fd',
-  '#548bff',
-  '#558fff',
-  '#5692ff',
-  '#5795ff',
-  '#5899ff',
-  '#599cff',
-  '#5a9fff',
-  '#5ba3ff',
-  '#5ca6ff',
-  '#5da9ff',
-  '#5eacff',
-  '#5fb0ff',
-  '#60b3ff',
-  '#61b6ff',
-  '#62b9ff',
-  '#63bcff',
-  '#64c0ff',
-  '#65c3ff',
-  '#66c6ff',
-  '#67c9ff',
-  '#68ccff',
-  '#69d0ff',
-  '#6ad3ff',
-  '#6bd6ff',
-  '#6cd9ff',
-  '#6ddcff',
-  '#6ee0ff',
-  '#6fe3ff',
-  '#70e6ff',
-  '#71e9ff',
-  '#72ecff',
-  '#73f0ff',
-  '#74f3ff',
-  '#75f6ff',
-  '#76f9ff',
-  '#77fcff',
-  '#78ffff',
-  '#79fffc',
-  '#7afff9',
-  '#7bfff6',
-  '#7cfff3',
-  '#7dfff0',
-  '#7effed',
-  '#7fffea',
-  '#80ffe7',
-  '#81ffe4',
-  '#82ffe1',
-  '#83ffde',
-  '#84ffdb',
-  '#85ffd8',
-  '#86ffd5',
-  '#87ffd2',
-  '#88ffcf',
-  '#89ffcc',
-  '#8affc9',
-  '#8bffc6',
-  '#8cffc3',
-  '#8dffc0',
-  '#8effbd',
-  '#8fffba',
-  '#90ffb7',
-  '#91ffb4',
-  '#92ffb1',
-  '#93ffae',
-  '#94ffab',
-  '#95ffa8',
-  '#96ffa5',
-  '#97ffa2',
-  '#98ff9f',
-  '#99ff9c',
-  '#9aff99',
-  '#9bff96',
-  '#9cff93',
-  '#9dff90',
-  '#9eff8d',
-  '#9fff8a',
-  '#a0ff87',
-  '#a1ff84',
-  '#a2ff81',
-  '#a3ff7e',
-  '#a4ff7b',
-  '#a5ff78',
-  '#a6ff75',
-  '#a7ff72',
-  '#a8ff6f',
-  '#a9ff6c',
-  '#aaff69',
-  '#abff66',
-  '#acff63',
-  '#adff60',
-  '#aeff5d',
-  '#afff5a',
-  '#b0ff57',
-  '#b1ff54',
-  '#b2ff51',
-  '#b3ff4e',
-  '#b4ff4b',
-  '#b5ff48',
-  '#b6ff45',
-  '#b7ff42',
-  '#b8ff3f',
-  '#b9ff3c',
-  '#baff39',
-  '#bbff36',
-  '#bcff33',
-  '#bdff30',
-  '#beff2d',
-  '#bfff2a',
-  '#c0ff27',
-  '#c1ff24',
-  '#c2ff21',
-  '#c3ff1e',
-  '#c4ff1b',
-  '#c5ff18',
-  '#c6ff15',
-  '#c7ff12',
-  '#c8ff0f',
-  '#c9ff0c',
-  '#caff09',
-  '#cbff06',
-  '#ccff03',
-  '#cdff00',
-  '#ceff00',
-  '#cffc00',
-  '#d0f900',
-  '#d1f600',
-  '#d2f300',
-  '#d3f000',
-  '#d4ed00',
-  '#d5ea00',
-  '#d6e700',
-  '#d7e400',
-  '#d8e100',
-  '#d9de00',
-  '#dadb00',
-  '#dbd800',
-  '#dcd500',
-  '#ddd200',
-  '#decf00',
-  '#dfcc00',
-  '#e0c900',
-  '#e1c600',
-  '#e2c300',
-  '#e3c000',
-  '#e4bd00',
-  '#e5ba00',
-  '#e6b700',
-  '#e7b400',
-  '#e8b100',
-  '#e9ae00',
-  '#eaab00',
-  '#eba800',
-  '#eca500',
-  '#eda200',
-  '#ee9f00',
-  '#ef9c00',
-  '#f09900',
-  '#f19600',
-  '#f29300',
-  '#f39000',
-  '#f48d00',
-  '#f58a00',
-  '#f68700',
-  '#f78400',
-  '#f88100',
-  '#f97e00',
-  '#fa7b00',
-  '#fb7800',
-  '#fc7500',
-  '#fd7200',
-  '#fe6f00',
-  '#ff6c00',
-  '#ff6900',
-  '#ff6600',
-  '#ff6300',
-  '#ff6000',
-  '#ff5d00',
-  '#ff5a00',
-  '#ff5700',
-  '#ff5400',
-  '#ff5100',
-  '#ff4e00',
-  '#ff4b00',
-  '#ff4800',
-  '#ff4500',
-  '#ff4200',
-  '#ff3f00',
-  '#ff3c00',
-  '#ff3900',
-  '#ff3600',
-  '#ff3300',
-  '#ff3000',
-  '#ff2d00',
-  '#ff2a00',
-  '#ff2700',
-  '#ff2400',
-  '#ff2100',
-  '#ff1e00',
-  '#ff1b00',
-  '#ff1800',
-  '#ff1500',
-  '#ff1200',
-  '#ff0f00',
-  '#ff0c00',
-  '#ff0900',
-  '#ff0600',
-  '#ff0300',
-  '#ff0000',
-]
+// Turbo colormap sampled to 256 steps (d3-scale-chromatic)
+export const turboColors: string[] = quantize(interpolateTurbo, 256)
 
 // Monochromatic zinc shades for consistent UI elements
 export const zincShades = [
