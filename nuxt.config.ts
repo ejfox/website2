@@ -235,6 +235,8 @@ export default defineNuxtConfig({
       // /kitchen-sink. Driven by utils/apiCatalog.ts; also served as /openapi.json.
       '/api-docs': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       '/openapi.json': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+      // public/README.md (asset provenance notes) serves at /README.md — noindex it.
+      '/README.md': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       // Only disable caching in dev mode
       ...(process.env.NODE_ENV === 'development' && {
         '/**': { headers: { 'Cache-Control': 'no-cache' } },
