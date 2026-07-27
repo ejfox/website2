@@ -68,3 +68,6 @@ package-lock.json
 
 # Screenshot review scratch (capture/shoot workflow) — local only
 data/capture-review/
+
+# Dead artifact — removed 2026-07 (nothing reads it; API uses on-this-day/ dir)
+data/on-this-day-index.json

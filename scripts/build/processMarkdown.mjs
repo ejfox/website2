@@ -1051,10 +1051,6 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
       await fs.writeFile(filePath, JSON.stringify(dayData))
     }
 
-    // Also write the full index for backwards compatibility
-    const indexPath = path.join(process.cwd(), 'data/on-this-day-index.json')
-    await fs.writeFile(indexPath, JSON.stringify(index, null, 2))
-
     const daysWithContent = Object.keys(index).length
     spinner.succeed(
       `On-this-day: ${tweetCount} tweets, ${postCount} posts, ` +
