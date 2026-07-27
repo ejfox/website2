@@ -37,7 +37,7 @@ import { homedir } from 'node:os'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const PROJ_DIR = join(ROOT, 'content/blog/projects')
 const DROP_ROOT = join(homedir(), 'Desktop/projectshots')
 const CLOUD = process.env.CLOUDINARY_CLOUD_NAME || 'ejf'
@@ -152,7 +152,7 @@ function seed(slug, url, drop) {
   sh(
     'node',
     [
-      'scripts/capture.mjs',
+      'scripts/author/capture.mjs',
       'scroll',
       url,
       join(drop, 'seed'),
@@ -179,7 +179,7 @@ function upload(localFile, publicId) {
     )
   const r = spawnSync(
     'node',
-    ['scripts/capture.mjs', 'upload', localFile, publicId],
+    ['scripts/author/capture.mjs', 'upload', localFile, publicId],
     { cwd: ROOT, encoding: 'utf8' }
   )
   const out = (r.stdout || '') + (r.stderr || '')

@@ -2,7 +2,7 @@
  * @file calibration.get.ts
  * @description Serves pre-generated prediction calibration analysis including Brier scores and accuracy metrics
  * @endpoint GET /api/calibration
- * @returns Calibration analysis with Brier scores, accuracy rates, category breakdown, and market comparison data (regenerate with scripts/calibration-analysis.mjs)
+ * @returns Calibration analysis with Brier scores, accuracy rates, category breakdown, and market comparison data (regenerate with scripts/meta/calibration-analysis.mjs)
  */
 
 import { readFile } from 'node:fs/promises'

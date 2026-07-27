@@ -19,25 +19,25 @@ so there is never a reason to pkill anything.
 
 ```bash
 # Full-page screenshot. --click clicks an element by visible text first.
-node scripts/capture.mjs page <url> <out.png> [--click "Generate"] [--wait 5000]
+node scripts/author/capture.mjs page <url> <out.png> [--click "Generate"] [--wait 5000]
 
 # N evenly-spaced viewport shots down a long scrolly page.
-node scripts/capture.mjs scroll <url> <outPrefix> [--count 6] [--wait 1300]
+node scripts/author/capture.mjs scroll <url> <outPrefix> [--count 6] [--wait 1300]
 
 # Tight clips of individual elements (diagrams/figures on a whitespace page).
-node scripts/capture.mjs clip <url> "svg, figure, canvas" <outPrefix> [--max 6] [--min-w 320]
+node scripts/author/capture.mjs clip <url> "svg, figure, canvas" <outPrefix> [--max 6] [--min-w 320]
 
 # Upload one or more local files to Cloudinary (cloud "ejf").
-node scripts/capture.mjs upload /tmp/hero.png projects/<slug>/landing
+node scripts/author/capture.mjs upload /tmp/hero.png projects/<slug>/landing
 
 # Contact sheet to eyeball a batch before wiring it in (verification step).
-node scripts/capture.mjs sheet /tmp/sheet.png /tmp/foo_*.png
+node scripts/author/capture.mjs sheet /tmp/sheet.png /tmp/foo_*.png
 
 # One-shot: capture a URL, upload to projects/<slug>/landing, print the md line.
-node scripts/capture.mjs shoot <slug> <url> [--click "..."] [--wait 5000]
+node scripts/author/capture.mjs shoot <slug> <url> [--click "..."] [--wait 5000]
 
 # Render a CLI / TUI to a clean, themed PNG (headless PTY via VHS).
-node scripts/capture.mjs tui "<command>" <out.png> [--wait 3] [--cd dir] [--theme "Name"] [--width 1200] [--height 800] [--font 18]
+node scripts/author/capture.mjs tui "<command>" <out.png> [--wait 3] [--cd dir] [--theme "Name"] [--width 1200] [--height 800] [--font 18]
 ```
 
 ## Screenshotting TUIs / CLIs
@@ -49,13 +49,13 @@ the wall without screen-recording your actual desktop.
 
 ```bash
 # A CLI that prints output and exits:
-node scripts/capture.mjs tui "ls -la ~/code | head -25" /tmp/out.png --wait 1
+node scripts/author/capture.mjs tui "ls -la ~/code | head -25" /tmp/out.png --wait 1
 
 # A project's own CLI, run from its dir:
-node scripts/capture.mjs tui "node src/cli.js list" /tmp/out.png --cd /tmp/myrepo --wait 4
+node scripts/author/capture.mjs tui "node src/cli.js list" /tmp/out.png --cd /tmp/myrepo --wait 4
 
 # Full-screen TUIs (git dashboards, etc.) render rich immediately:
-node scripts/capture.mjs tui "github-sloth" /tmp/out.png --cd ~/code/website2 --wait 3
+node scripts/author/capture.mjs tui "github-sloth" /tmp/out.png --cd ~/code/website2 --wait 3
 ```
 
 Notes:
@@ -69,7 +69,7 @@ Notes:
 ## The full pipeline (live deployed site)
 
 ```bash
-node scripts/capture.mjs shoot my-project https://my-project.example.com
+node scripts/author/capture.mjs shoot my-project https://my-project.example.com
 # -> prints:  ![my-project](https://res.cloudinary.com/ejf/image/upload/projects/my-project/landing.png)
 # paste that into content/blog/projects/my-project.md, then:
 yarn blog:process
@@ -84,9 +84,9 @@ server, then capture the live URL:
 ```bash
 cd ~/code/some-app && PORT=4321 yarn dev &   # or npm run dev -- --port 4321
 # wait for it to come up, then:
-node scripts/capture.mjs page http://localhost:4321 /tmp/app.png --wait 6000
-node scripts/capture.mjs sheet /tmp/sheet.png /tmp/app.png   # eyeball it
-node scripts/capture.mjs upload /tmp/app.png projects/some-app/landing
+node scripts/author/capture.mjs page http://localhost:4321 /tmp/app.png --wait 6000
+node scripts/author/capture.mjs sheet /tmp/sheet.png /tmp/app.png   # eyeball it
+node scripts/author/capture.mjs upload /tmp/app.png projects/some-app/landing
 kill %1   # kill THAT app, by job number — never `pkill -f "nuxt dev"`
 ```
 

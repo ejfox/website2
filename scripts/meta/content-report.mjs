@@ -22,7 +22,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import matter from 'gray-matter'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const __dirname = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const ROOT = path.resolve(__dirname, '..')
 const CONTENT_DIR = path.join(ROOT, 'content', 'blog')
 const CACHE_PATH = path.join(ROOT, 'data', 'cloudinary-image-cache.json')

@@ -22,7 +22,7 @@ import dotenv from 'dotenv'
 
 dotenv.config()
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
+const __dirname = join(dirname(fileURLToPath(import.meta.url)), '..')
 const OUTPUT_DIR = join(__dirname, '../data/github-repos')
 const INDEX_FILE = join(__dirname, '../data/github-repos-index.json')
 const LIST_FILE = join(__dirname, '../data/github-repos-list.json')

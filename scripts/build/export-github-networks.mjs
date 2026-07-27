@@ -20,7 +20,7 @@ import { fileURLToPath } from 'node:url'
 import { execSync, spawnSync } from 'node:child_process'
 import { tmpdir } from 'node:os'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
+const __dirname = join(dirname(fileURLToPath(import.meta.url)), '..')
 const REPOS_DIR = join(__dirname, '../data/github-repos')
 const TOOL_CACHE = join(__dirname, '../data/_tool-cache/code-network-gen')
 const TOOL_REPO = 'https://github.com/ejfox/code-network-gen.git'

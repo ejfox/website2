@@ -12,14 +12,14 @@ of the project actually doing its thing.
 
 ```bash
 # 1. capture  →  2. upload  →  3. paste md line  →  4. process
-node scripts/capture.mjs upload /tmp/SHOT.png projects/<slug>/landing
+node scripts/author/capture.mjs upload /tmp/SHOT.png projects/<slug>/landing
 #   prints: ![<slug>](https://res.cloudinary.com/ejf/.../projects/<slug>/landing.png)
 # paste that as the FIRST image in content/blog/projects/<slug>.md, then:
 yarn blog:process
 ```
 
 `capture.mjs` launches its own headless Chrome on :9333 — **never pkill nuxt.**
-Eyeball before wiring in: `node scripts/capture.mjs sheet /tmp/check.png /tmp/SHOT.png`
+Eyeball before wiring in: `node scripts/author/capture.mjs sheet /tmp/check.png /tmp/SHOT.png`
 
 > ⚠️ TUI shots need VHS: `brew install vhs` (not currently installed).
 
@@ -29,9 +29,9 @@ Eyeball before wiring in: `node scripts/capture.mjs sheet /tmp/check.png /tmp/SH
 
 These 12 have ONE image and it's a screenshot of source. Highest visual payoff.
 
-- [ ] **cli-ai-chat** · CLI — `node scripts/capture.mjs tui "node src/cli.js" /tmp/cli-ai-chat.png --cd ~/code/cli-ai-chat --wait 3`
-- [ ] **groundwave** · Nuxt web app — boot on `PORT=4321`, then `node scripts/capture.mjs page http://localhost:4321 /tmp/groundwave.png --wait 6000`
-- [ ] **journo-llm** · Python CLI — `node scripts/capture.mjs tui "python main.py --help" /tmp/journo-llm.png --cd ~/code/journo-llm --wait 2`
+- [ ] **cli-ai-chat** · CLI — `node scripts/author/capture.mjs tui "node src/cli.js" /tmp/cli-ai-chat.png --cd ~/code/cli-ai-chat --wait 3`
+- [ ] **groundwave** · Nuxt web app — boot on `PORT=4321`, then `node scripts/author/capture.mjs page http://localhost:4321 /tmp/groundwave.png --wait 6000`
+- [ ] **journo-llm** · Python CLI — `node scripts/author/capture.mjs tui "python main.py --help" /tmp/journo-llm.png --cd ~/code/journo-llm --wait 2`
 - [ ] **outlast** · Vue app — boot local, `capture.mjs page http://localhost:4321 /tmp/outlast.png --wait 5000`
 - [ ] **retroscope** · JS app — boot local, `capture.mjs page http://localhost:4321 /tmp/retroscope.png`
 - [ ] **room302-template** · Nuxt template — boot local, `capture.mjs page http://localhost:4321 /tmp/room302.png`

@@ -29,7 +29,7 @@ import * as shiki from 'shiki'
 import chalk from 'chalk'
 import ora from 'ora'
 import fetch from 'node-fetch'
-import { config } from './config.mjs'
+import { config } from '../config.mjs'
 
 import {
   remarkAi2htmlEmbed,
@@ -42,15 +42,15 @@ import {
   remarkEnhanceImages,
   remarkExtractToc,
   remarkMermaid,
-} from './plugins/index.mjs'
+} from '../plugins/index.mjs'
 
-import { getPostType } from './utils/helpers.mjs'
+import { getPostType } from '../utils/helpers.mjs'
 import {
   buildValidRoutes,
   auditInternalLinks,
-} from './utils/internal-links.mjs'
-import { processStats } from './utils/stats.mjs'
-import { backupProcessedContent } from './utils/backup.mjs'
+} from '../utils/internal-links.mjs'
+import { processStats } from '../utils/stats.mjs'
+import { backupProcessedContent } from '../utils/backup.mjs'
 
 dotenv.config()
 

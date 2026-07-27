@@ -18,7 +18,7 @@ import { readFile, writeFile } from 'node:fs/promises'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
+const __dirname = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const CSV = resolve(__dirname, '../data/gear.csv')
 const OUT =
   process.env.GEAR_ANNEX_OUT ||

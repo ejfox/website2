@@ -28,12 +28,12 @@ import {
   remarkEnhanceImages,
   remarkExtractToc,
   remarkMermaid,
-} from './plugins/index.mjs'
+} from '../plugins/index.mjs'
 
 // Load theme once - use absolute path for compatibility with eval scripts
 const themePath = path.join(
   path.dirname(new URL(import.meta.url).pathname),
-  '../themes/ayu-mirage.json'
+  '../../themes/ayu-mirage.json'
 )
 const theme = JSON.parse(await fs.readFile(themePath, 'utf-8'))
 

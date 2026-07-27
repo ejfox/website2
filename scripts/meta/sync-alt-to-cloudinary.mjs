@@ -15,7 +15,7 @@ import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const __dirname = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const CONTENT_DIR = path.resolve(__dirname, '..', 'content', 'blog')
 
 const CLOUD_NAME = process.env.CLOUDINARY_CLOUD_NAME

@@ -17,7 +17,7 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 ### Content Pipeline
 
 - **Input**: Markdown files in `content/blog/` with YAML frontmatter
-- **Processing**: `scripts/processMarkdown.mjs` converts MD → structured JSON
+- **Processing**: `scripts/build/processMarkdown.mjs` converts MD → structured JSON
 - **Output**: Individual JSON files + `manifest-lite.json` for listings
 - **Frontend**: Vue components consume processed JSON, not raw Markdown
 
@@ -70,8 +70,8 @@ Personal website and digital publishing system built with Nuxt 3. Primary purpos
 
 ### Critical Scripts
 
-- `scripts/processMarkdown.mjs` - Main content processing pipeline
-- `scripts/predict.mjs` - Prediction creation CLI
+- `scripts/build/processMarkdown.mjs` - Main content processing pipeline
+- `scripts/author/predict-pro.mjs` - Prediction creation CLI
 - `server/routes/tags.json.ts` - Dynamic tags endpoint
 - `server/api/gear-csv.get.ts` - Gear CSV data endpoint
 
@@ -365,7 +365,7 @@ The `nuxt.config.ts` `compiled` hook copies `content/` to `.output/content/` for
 
 ### Content Processing Privacy
 
-`scripts/processMarkdown.mjs` does NOT emit `sourcePath` or `sourceDir` in processed JSON. These were stripped in 2026-05 to prevent filesystem path leaks. Do not re-add them.
+`scripts/build/processMarkdown.mjs` does NOT emit `sourcePath` or `sourceDir` in processed JSON. These were stripped in 2026-05 to prevent filesystem path leaks. Do not re-add them.
 
 ### API Route Hardening
 

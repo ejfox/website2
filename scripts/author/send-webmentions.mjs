@@ -15,7 +15,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+const __dirname = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const SITE_URL = 'https://ejfox.com'
 const PROCESSED_DIR = path.join(__dirname, '../content/processed')
 const SENT_FILE = path.join(__dirname, '../.webmentions-sent.json')

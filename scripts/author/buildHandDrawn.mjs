@@ -25,7 +25,7 @@ import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
 const HD = join(ROOT, 'assets/hand-drawn')
 
 const master = readFileSync(join(HD, 'master.svg'), 'utf8')

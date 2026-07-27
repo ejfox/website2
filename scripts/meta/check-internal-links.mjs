@@ -14,11 +14,11 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import chalk from 'chalk'
-import { config } from './config.mjs'
+import { config } from '../config.mjs'
 import {
   buildValidRoutes,
   auditInternalLinks,
-} from './utils/internal-links.mjs'
+} from '../utils/internal-links.mjs'
 
 const STRICT = process.argv.includes('--strict')
 const contentDir = config.dirs.content

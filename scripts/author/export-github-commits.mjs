@@ -11,7 +11,7 @@ import { writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const __dirname = dirname(fileURLToPath(import.meta.url))
+const __dirname = join(dirname(fileURLToPath(import.meta.url)), '..')
 const OUTPUT_FILE = join(__dirname, '../data/github-commits.json')
 const USERNAME = 'ejfox'
 

@@ -17,7 +17,7 @@ import { dirname, join } from 'node:path'
 import matter from 'gray-matter'
 
 const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+const __dirname = join(dirname(__filename), '..')
 
 const predictionsDir = join(__dirname, '..', 'content', 'predictions')
 

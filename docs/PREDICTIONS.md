@@ -215,7 +215,7 @@ This is completely normal! The system works great without AI:
 
 ```bash
 # If the script isn't executable
-chmod +x scripts/predict-pro.mjs
+chmod +x scripts/author/predict-pro.mjs
 ```
 
 ## Examples

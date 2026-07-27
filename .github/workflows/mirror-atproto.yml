@@ -31,4 +31,4 @@ jobs:
           echo "No ATPROTO_APP_PASSWORD secret set — skipping AT-Proto mirror."
           exit 0
         fi
-        node scripts/mirror-to-atproto.mjs --live
+        node scripts/author/mirror-to-atproto.mjs --live
