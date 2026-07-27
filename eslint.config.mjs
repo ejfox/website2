@@ -71,6 +71,7 @@ export default createConfigForNuxt({
         getQuery: 'readonly',
         getRouterParam: 'readonly',
         readBody: 'readonly',
+        readRawBody: 'readonly',
         getHeader: 'readonly',
         setHeader: 'readonly',
         getCookie: 'readonly',

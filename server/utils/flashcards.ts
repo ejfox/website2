@@ -166,23 +166,3 @@ export function cardToFlashcard(
     course: deck.course,
   }
 }
-
-// Get all cards as Flashcard objects
-export async function getAllCards(): Promise<Flashcard[]> {
-  const decks = await loadAllDecks()
-  const cards: Flashcard[] = []
-
-  for (const deck of decks) {
-    deck.cards.forEach((card, i) => {
-      cards.push(cardToFlashcard(card, i, deck))
-    })
-  }
-
-  return cards
-}
-
-// Get random item from array
-export function randomItem<T>(arr: T[]): T | null {
-  if (arr.length === 0) return null
-  return arr[Math.floor(Math.random() * arr.length)]
-}
