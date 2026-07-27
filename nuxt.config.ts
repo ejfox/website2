@@ -231,6 +231,10 @@ export default defineNuxtConfig({
         ssr: false,
         headers: { 'X-Robots-Tag': 'noindex, nofollow' },
       },
+      // API Docs (/api-docs) — private OpenAPI-style route browser, like
+      // /kitchen-sink. Driven by utils/apiCatalog.ts; also served as /openapi.json.
+      '/api-docs': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+      '/openapi.json': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       // Only disable caching in dev mode
       ...(process.env.NODE_ENV === 'development' && {
         '/**': { headers: { 'Cache-Control': 'no-cache' } },
