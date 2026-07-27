@@ -1,6 +1,6 @@
 <script setup>
 import * as d3 from 'd3'
-import ProjectRow from '~/components/projects/ProjectRow.vue'
+import ProjectRow from '~/components/ProjectRow.vue'
 
 const { data: projects } = await useAsyncData(
   'projects-page-data',
