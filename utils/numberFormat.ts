@@ -3,12 +3,6 @@
  * @description Centralized number formatting utilities using d3-format
  * @exports formatNumber, formatPercent, formatCurrency, formatCompact, smartFormat, etc.
  */
-import {
-  format as formatDate,
-  differenceInDays,
-  differenceInHours,
-  differenceInMinutes,
-} from 'date-fns'
 import { format, quantize, interpolateTurbo } from 'd3'
 
 // --- Number formatting (d3-format) ---
@@ -65,105 +59,6 @@ export function formatDuration(ms: number): string {
     return `${minutes}m ${seconds % 60}s`
   }
   return `${seconds}s`
-}
-
-// =============================================================================
-// DATE & TIME FORMATTING UTILITIES
-// =============================================================================
-
-// Date formatting utilities used across stats components
-export const formatDateMinimal = (timestamp: string | number): string => {
-  try {
-    let date: Date
-
-    // Handle epoch timestamps (both string and number)
-    if (typeof timestamp === 'string' && /^\d+$/.test(timestamp)) {
-      // String of digits - treat as epoch seconds
-      date = new Date(Number.parseInt(timestamp) * 1000)
-    } else if (typeof timestamp === 'number') {
-      // Number - treat as epoch seconds
-      date = new Date(timestamp * 1000)
-    } else {
-      // String date
-      date = new Date(timestamp)
-    }
-
-    return formatDate(date, 'MM.dd')
-  } catch {
-    return '—'
-  }
-}
-
-// Game date formatting (specific to chess/gaming components)
-export const formatGameDateMinimal = (timestamp: string | number): string => {
-  try {
-    let date: Date
-
-    if (typeof timestamp === 'string' && /^\d+$/.test(timestamp)) {
-      date = new Date(Number.parseInt(timestamp) * 1000)
-    } else if (typeof timestamp === 'number') {
-      date = new Date(timestamp * 1000)
-    } else {
-      date = new Date(timestamp)
-    }
-
-    return formatDate(date, 'MM.dd')
-  } catch {
-    return '—'
-  }
-}
-
-// Game time formatting (specific to chess/gaming components)
-export const formatGameTime = (timestamp: string | number): string => {
-  try {
-    let date: Date
-
-    if (typeof timestamp === 'string' && /^\d+$/.test(timestamp)) {
-      date = new Date(Number.parseInt(timestamp) * 1000)
-    } else if (typeof timestamp === 'number') {
-      date = new Date(timestamp * 1000)
-    } else {
-      date = new Date(timestamp)
-    }
-
-    return formatDate(date, 'HH:mm')
-  } catch {
-    return '—'
-  }
-}
-
-// Game type formatting (specific to chess components)
-export const formatGameTypeMinimal = (timeControl: string): string => {
-  if (!timeControl) return '—'
-
-  // Extract the main time from formats like "600+0" or "180+2"
-  const match = timeControl.match(/^(\d+)/)
-  if (!match) return timeControl.toUpperCase()
-
-  const seconds = Number.parseInt(match[1])
-  const minutes = Math.floor(seconds / 60)
-
-  if (minutes < 3) return 'BULLET'
-  if (minutes < 10) return 'BLITZ'
-  if (minutes < 30) return 'RAPID'
-  return 'CLASSICAL'
-}
-
-// Time ago formatting
-export const formatTimeAgo = (date: Date | string): string => {
-  const now = new Date()
-  const targetDate = typeof date === 'string' ? new Date(date) : date
-
-  if (Number.isNaN(targetDate.getTime())) return '—'
-
-  const days = differenceInDays(now, targetDate)
-  const hours = differenceInHours(now, targetDate)
-  const minutes = differenceInMinutes(now, targetDate)
-
-  if (days > 0) return `${days}d ago`
-  if (hours > 0) return `${hours}h ago`
-  if (minutes > 0) return `${minutes}m ago`
-  return 'just now'
 }
 
 // Percentage formatting
@@ -250,24 +145,6 @@ export const tabularClasses = 'tabular-nums font-mono'
  */
 export const valueClasses =
   'text-xl md:text-2xl font-mono tabular-nums font-bold'
-
-// Week range formatting (for health/activity stats)
-export const formatWeekRange = (startDate: string, endDate: string): string => {
-  try {
-    const start = new Date(startDate)
-    const end = new Date(endDate)
-
-    // If same month, show "Jan 1-7"
-    if (start.getMonth() === end.getMonth()) {
-      return `${formatDate(start, 'MMM d')}-${formatDate(end, 'd')}`
-    }
-
-    // If different months, show "Jan 28-Feb 3"
-    return `${formatDate(start, 'MMM d')}-${formatDate(end, 'MMM d')}`
-  } catch {
-    return '—'
-  }
-}
 
 // Rating difference formatting (for chess/gaming)
 export const formatRatingDiff = (diff: number): string => {
@@ -357,14 +234,7 @@ export function numberFormat() {
     formatBytes,
     formatDuration,
 
-    // Date/time formatting
-    formatDateMinimal,
-    formatGameDateMinimal,
-    formatGameTime,
-    formatGameTypeMinimal,
-    formatTimeAgo,
     formatPercentage,
-    formatWeekRange,
     formatRatingDiff,
 
     // Mobile-optimized formatting

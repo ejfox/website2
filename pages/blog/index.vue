@@ -2,7 +2,6 @@
 import { formatNumber } from '~/utils/numberFormat'
 import { isValidPost } from '~/utils/postFilters'
 
-const { formatShortDate } = useDateFormat()
 const processedMarkdown = useProcessedMarkdown()
 const { tocTarget } = useTOC()
 const { revealContainer: postsReveal } = useScrollReveal({

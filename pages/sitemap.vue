@@ -1,6 +1,4 @@
 <script setup>
-const { formatShortDate: formatDate } = useDateFormat()
-
 // Fetch blog posts from manifest
 const { data: manifest, error: manifestError } = await useFetch('/api/manifest')
 
@@ -236,7 +234,7 @@ usePageSeo({
                   {{ post.title }}
                 </div>
                 <div class="text-xs text-zinc-500 mt-2">
-                  {{ formatDate(post.date) }}
+                  {{ formatShortDate(post.date) }}
                   <span v-if="post.tags?.length" class="ml-2">
                     · {{ post.tags[0] }}
                   </span>

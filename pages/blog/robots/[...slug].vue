@@ -4,7 +4,6 @@ import { useWindowSize } from '@vueuse/core'
 import { formatNumber } from '~/utils/numberFormat'
 // DELETED: import { useAnimations } from '~/composables/useAnimations'
 
-const { formatTimestamp: formatDate } = useDateFormat()
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
 const { width } = useWindowSize()
@@ -266,13 +265,13 @@ const proseClasses =
             <!-- Date -->
             <div class="text-zinc-500 dark:text-zinc-400">published:</div>
             <div class="text-zinc-700 dark:text-zinc-300">
-              {{ formatDate(metadataFields.date) }}
+              {{ formatTimestamp(metadataFields.date) }}
             </div>
 
             <!-- Modified -->
             <div class="text-zinc-500 dark:text-zinc-400">updated:</div>
             <div class="text-zinc-700 dark:text-zinc-300">
-              {{ formatDate(metadataFields.modified) }}
+              {{ formatTimestamp(metadataFields.modified) }}
             </div>
 
             <!-- Word count -->

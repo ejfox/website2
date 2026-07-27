@@ -15,8 +15,6 @@ const props = defineProps<{
   slug?: string
 }>()
 
-const { formatShortDate } = useDateFormat()
-
 const sourceUrl = computed(() => {
   if (!props.slug) return null
   return `https://github.com/ejfox/website2/blob/main/content/blog/${props.slug}.md`

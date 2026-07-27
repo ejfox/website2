@@ -9,7 +9,6 @@ import { readingStats } from '~/utils/readingStats'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 // Composables
-const { formatLongDate } = useDateFormat()
 const config = useRuntimeConfig()
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()

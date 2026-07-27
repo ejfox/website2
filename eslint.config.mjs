@@ -106,6 +106,22 @@ export default createConfigForNuxt({
         // Project utils (auto-imported from utils/)
         ogDescription: 'readonly',
         loadCalInline: 'readonly',
+        // Date formatters (auto-imported from utils/date.ts)
+        formatDate: 'readonly',
+        formatShortDate: 'readonly',
+        formatLongDate: 'readonly',
+        formatCompactDate: 'readonly',
+        formatYearOnly: 'readonly',
+        formatTime: 'readonly',
+        formatDateTime: 'readonly',
+        formatTimestamp: 'readonly',
+        formatRelative: 'readonly',
+        formatRelativeTime: 'readonly',
+        formatDateMinimal: 'readonly',
+        formatTimeAgo: 'readonly',
+        formatGameTypeMinimal: 'readonly',
+        isValidDate: 'readonly',
+        safeParseDate: 'readonly',
         // Ambient type globals (TS / @types/node)
         Ref: 'readonly',
         ComputedRef: 'readonly',

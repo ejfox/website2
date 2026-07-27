@@ -1,7 +1,6 @@
 <script setup>
 import { languageColors } from '~/utils/languageColors'
 
-const { formatLongDate, formatRelativeTime, formatShortDate } = useDateFormat()
 const route = useRoute()
 const slug = route.params.slug
 
