@@ -1,5 +1,5 @@
 /**
- * @file useNumberFormat.ts
+ * @file numberFormat.ts
  * @description Centralized number formatting utilities using d3-format
  * @exports formatNumber, formatPercent, formatCurrency, formatCompact, smartFormat, etc.
  */
@@ -344,7 +344,7 @@ export const getColorForIndex = (
 }
 
 // Composable for use in components
-export function useNumberFormat() {
+export function numberFormat() {
   return {
     // Number formatting
     formatNumber,

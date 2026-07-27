@@ -1,5 +1,5 @@
 /**
- * @file useLanguageColors.ts
+ * @file languageColors.ts
  * @description Maps programming languages to consistent colors using d3 turbo scale
  * @returns { getColor, LANGUAGE_ORDER } - Color function and language ordering
  */
@@ -47,7 +47,7 @@ const LANGUAGE_COLORS: Record<string, string> = {
   Unknown: '#a11018',
 }
 
-export function useLanguageColors() {
+export function languageColors() {
   const getColor = (language: string): string => {
     const lang = language || 'Unknown'
     if (LANGUAGE_COLORS[lang]) return LANGUAGE_COLORS[lang]

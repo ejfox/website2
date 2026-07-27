@@ -1,5 +1,5 @@
 /**
- * @file useReadingStats.ts
+ * @file readingStats.ts
  * @description Computes reading statistics from post HTML content
  */
 
@@ -17,7 +17,7 @@ interface ReadingStats {
   fileSize: string
 }
 
-export function useReadingStats(post: Ref<any> | ComputedRef<any>) {
+export function readingStats(post: Ref<any> | ComputedRef<any>) {
   const stats = computed<ReadingStats>(() => {
     const p = unref(post)
     if (!p) {

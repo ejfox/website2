@@ -8,7 +8,7 @@ export interface GearItem {
   [key: string]: string | number | boolean | undefined
 }
 
-export const useWeightCalculations = () => {
+export const weightCalculations = () => {
   // Conversion constants
   const OZ_TO_GRAMS = 28.3495
   const OZ_TO_POUNDS = 16

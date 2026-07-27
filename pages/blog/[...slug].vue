@@ -5,7 +5,7 @@ import PostFooter from '~/components/blog/post/PostFooter.vue'
 import PostTOC from '~/components/blog/post/PostTOC.vue'
 import ReplyContext from '~/components/blog/ReplyContext.vue'
 import PasswordGate from '~/components/blog/PasswordGate.vue'
-import { useReadingStats } from '~/utils/useReadingStats'
+import { readingStats } from '~/utils/readingStats'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 // Composables
@@ -76,7 +76,7 @@ const { data: allPosts } = await useAsyncData('all-posts-for-related', () =>
 )
 
 // --- Computed Values ---
-const { stats: readingStats } = useReadingStats(post)
+const { stats: readingStatsData } = readingStats(post)
 
 // Format a slug into a display title (handles date-based slugs)
 const formatTitle = (slug) => {
@@ -251,8 +251,8 @@ const articleSchema = computed(() => ({
   keywords: articleTags.value,
   datePublished: publishedDateISO.value,
   dateModified: modifiedDateISO.value,
-  wordCount: readingStats.value.words,
-  timeRequired: `PT${Math.max(1, readingStats.value.readingTime)}M`,
+  wordCount: readingStatsData.value.words,
+  timeRequired: `PT${Math.max(1, readingStatsData.value.readingTime)}M`,
   image: heroImage.value,
   inLanguage: 'en-US',
   author: { '@type': 'Person', name: 'EJ Fox', url: 'https://ejfox.com' },
@@ -269,10 +269,10 @@ usePageSeo({
   publishedTime: publishedDateISO,
   modifiedTime: modifiedDateISO,
   label1: 'Reading time',
-  data1: computed(() => `${readingStats.value.readingTime} min`),
+  data1: computed(() => `${readingStatsData.value.readingTime} min`),
   label2: 'Word count',
   data2: computed(
-    () => `${readingStats.value.words?.toLocaleString() || 0} words`
+    () => `${readingStatsData.value.words?.toLocaleString() || 0} words`
   ),
 })
 
@@ -508,7 +508,7 @@ onMounted(() => {
       <div class="bg-zinc-900/90 backdrop-blur-sm">
         <PostMetadataBar
           :date="post?.metadata?.date || post?.date"
-          :stats="readingStats"
+          :stats="readingStatsData"
           :slug="route.params.slug.join('/')"
         />
         <div v-if="isDraft" class="draft-banner">

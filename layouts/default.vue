@@ -1,5 +1,5 @@
 <script setup>
-import { getPrimaryNav } from '~/utils/useNavigation'
+import { getPrimaryNav } from '~/utils/navigation'
 
 const route = useRoute()
 const primaryNav = getPrimaryNav()

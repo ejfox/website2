@@ -48,7 +48,7 @@ formatTimestamp(date) // "Nov 28, 2025 3:45 PM"
 
 ---
 
-## Number Formatting (`useNumberFormat`)
+## Number Formatting (`numberFormat`)
 
 Comprehensive number formatting utilities already in the codebase.
 
@@ -62,7 +62,7 @@ const {
   formatBytes, // "2.5 MB"
   formatDuration, // "2h 30m"
   getColorForValue, // Get color for normalized value (0-1)
-} = useNumberFormat()
+} = numberFormat()
 ```
 
 **Used in:** Stats page, predictions page, gear page
@@ -180,6 +180,6 @@ formatShortRelativeTime(123) // "X ago"
 ## Related Files
 
 - `utils/useDateFormat.ts` - All date/time logic
-- `utils/useNumberFormat.ts` - Number/currency/duration formatting
+- `utils/numberFormat.ts` - Number/currency/duration formatting
 - `components/foia/FoiaRequestItem.vue` - Example of proper usage
 - `pages/now.vue` - Example of date-fns integration

@@ -87,7 +87,7 @@ function deriveChannel(data: AttributionData): string {
   return 'other'
 }
 
-export function useAttribution() {
+export function attribution() {
   /**
    * Parse UTM parameters from URL
    */

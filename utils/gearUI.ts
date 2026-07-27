@@ -24,6 +24,6 @@ export const slugifyGear = (name: string) =>
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '')
 
-export function useGearUI() {
+export function gearUI() {
   return { TYPE_SYMBOLS, PRIORITY_PIPS, slugifyGear }
 }

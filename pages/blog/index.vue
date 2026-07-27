@@ -1,6 +1,6 @@
 <script setup>
-import { formatNumber } from '~/utils/useNumberFormat'
-import { isValidPost } from '~/utils/usePostFilters'
+import { formatNumber } from '~/utils/numberFormat'
+import { isValidPost } from '~/utils/postFilters'
 
 const { formatShortDate } = useDateFormat()
 const processedMarkdown = useProcessedMarkdown()
