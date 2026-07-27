@@ -3,7 +3,7 @@
  * @description Centralized number formatting utilities using d3-format
  * @exports formatNumber, formatPercent, formatCurrency, formatCompact, smartFormat, etc.
  */
-import { format, quantize, interpolateTurbo } from 'd3'
+import { format } from 'd3'
 
 // --- Number formatting (d3-format) ---
 
@@ -146,81 +146,7 @@ export const tabularClasses = 'tabular-nums font-mono'
 export const valueClasses =
   'text-xl md:text-2xl font-mono tabular-nums font-bold'
 
-// Rating difference formatting (for chess/gaming)
-export const formatRatingDiff = (diff: number): string => {
-  if (diff === 0) return '±0'
-  return diff > 0 ? `+${diff}` : `${diff}`
-}
-
-// Chess-specific color utilities
-export const getChessResultColor = (result: string): string => {
-  switch (result) {
-    case 'win':
-      return 'bg-zinc-400 dark:bg-zinc-500'
-    case 'loss':
-      return 'bg-red-500'
-    case 'draw':
-      return 'bg-zinc-500'
-    default:
-      return 'bg-zinc-500'
-  }
-}
-
-export const getChessBarColor = (result: string): string => {
-  switch (result) {
-    case 'win':
-      return '#a1a1aa' // Gray-400
-    case 'loss':
-      return '#3f3f46' // Gray-700
-    case 'draw':
-      return '#71717a' // Gray-500
-    default:
-      return '#71717a' // Gray-500
-  }
-}
-
-export const getRatingDiffClass = (diff: number): string => {
-  return diff > 0 ? 'text-zinc-600 dark:text-zinc-400' : 'text-red-500'
-}
-
-// =============================================================================
-// COLOR PALETTES & UTILITIES
-// =============================================================================
-
-// Turbo colormap sampled to 256 steps (d3-scale-chromatic)
-export const turboColors: string[] = quantize(interpolateTurbo, 256)
-
-// Monochromatic zinc shades for consistent UI elements
-export const zincShades = [
-  'rgb(161, 161, 170)', // zinc-400
-  'rgb(113, 113, 122)', // zinc-500
-  'rgb(82, 82, 91)', // zinc-600
-  'rgb(63, 63, 70)', // zinc-700
-  'rgb(39, 39, 42)', // zinc-800
-  'rgb(24, 24, 27)', // zinc-900
-]
-
-// Get color for a normalized value (0-1)
-export const getColorForValue = (
-  value: number,
-  palette: string[] = turboColors
-): string => {
-  if (value <= 0) return palette[0]
-  if (value >= 1) return palette[palette.length - 1]
-
-  const index = Math.floor(value * (palette.length - 1))
-  return palette[index]
-}
-
-// Get color for an index (cycling through palette)
-export const getColorForIndex = (
-  index: number,
-  palette: string[] = zincShades
-): string => {
-  return palette[index % palette.length]
-}
-
-// Composable for use in components
+// Bundle of number formatters for components that prefer a single call.
 export function numberFormat() {
   return {
     // Number formatting
@@ -235,7 +161,6 @@ export function numberFormat() {
     formatDuration,
 
     formatPercentage,
-    formatRatingDiff,
 
     // Mobile-optimized formatting
     formatCurrencyWithSign,
@@ -244,14 +169,5 @@ export function numberFormat() {
     formatConfidence,
     tabularClasses,
     valueClasses,
-
-    // Color utilities
-    turboColors,
-    zincShades,
-    getColorForValue,
-    getColorForIndex,
-    getChessResultColor,
-    getChessBarColor,
-    getRatingDiffClass,
   }
 }
