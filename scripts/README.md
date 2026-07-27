@@ -32,7 +32,7 @@ yarn calibrate             # Brier score + calibration curve              [meta/
 
 # Make / ship content (author/)
 yarn capture               # screenshot toolkit for /projects (own headless Chrome)
-yarn shoot                 # screenshot forcing-function queue (see SCREENSHOT_TODO.md)
+yarn shoot                 # screenshot forcing-function queue
 yarn crown <slug>          # scaffold a Vue page-takeover for a post
 yarn webmention            # send webmentions (--dry, --all variants)
 yarn blog:mirror-atproto   # mirror posts to the AT Protocol (Bluesky)

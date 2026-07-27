@@ -15,17 +15,17 @@ bring the site back to human-scale. Everything below is committed + verified
 - **root**: deleted dead Docker files (Dockerfile, docker-compose.yml, .dockerignore — retired 2026-05-06), `unlighthouse.config.ts` (orphan), `package-lock.json` (yarn project). Fixed stale doc paths.
 - **scripts/**: taxonomized 33 loose scripts → `build/` (runs every deploy) / `meta/` (run by hand) / `author/` (make+ship content). Deleted 7 dead scripts. Moved non-scripts out (SCREENSHOT_TODO→docs/, nginx-preview→.github/, capture.README→author/).
 
-## ⚠️ CRITICAL — the dead-component sweep is UNFINISHED and its list is NOT trustworthy
-We were hunting unused Vue components. **Do not act on any earlier "22 dead" list.**
-The detection was buggy:
-- **Nuxt folder-prefixes nested component auto-import names.** `components/github/CodeNetwork.client.vue` is used as `<GithubCodeNetwork>`, `components/ui/CommandPalette.client.vue` as `<UiCommandPalette>`, `components/stats/StatRow.vue` as `<StatsStatRow>`. A grep for the bare filename MISSES all folder-prefixed usages → false "dead."
-- Confirmed false positives already: the entire `github/*` cluster is ALIVE (github pages render them via `Github*` names); also PredictionCard/PredictionRef/GearCardInline/DataTable are used via plugins/dynamic mounts.
-- To redo correctly: compute each component's real Nuxt name = `PascalCase(subdir) + Filename` (strip `.client`/`.server`), then grep for that name AND kebab AND explicit path imports, across `pages components layouts plugins app.vue error.vue`, EXCLUDING the kitchen-sink catalog (`pages/kitchen-sink.vue`, `components/dev/StoryRenderer.vue`, `utils/kitchenSinkStories.js` — its `import.meta.glob` references every component and masks real orphans).
-- **Only genuinely-suspicious survivor so far:** `components/ui/CommandPalette.client.vue` (`UiCommandPalette`) — the string "CommandPalette" appears nowhere in the repo. Looks like a built-but-never-wired ⌘K palette. **Hand-verify before deleting.**
-- Do this in SMALL batches (5 at a time), show EJ what each is, get approval per cut.
+## Dead-component sweep — DONE (the method, in case you sweep more)
+Removed 15 unused components (~2,600 lines) + `useCommandPalette` (orphaned by
+the CommandPalette deletion). `components/` 83→68. All verified, `nuxi prepare` passes.
+**The detection method that works** (a naive grep does NOT — it cost this session hours):
+- Component's real Nuxt auto-import name = `PascalCase(subdir chain) + Filename` (strip `.client`/`.server`). e.g. `components/github/CodeNetwork.client.vue` → `<GithubCodeNetwork>`, `components/ui/CommandPalette.client.vue` → `<UiCommandPalette>`. A bare-filename grep misses all folder-prefixed usages → false "dead."
+- Grep for that name + kebab + explicit path imports across `pages components layouts plugins server middleware app.vue error.vue`, EXCLUDING the kitchen-sink catalog (`pages/kitchen-sink.vue`, `components/dev/StoryRenderer.vue`, `utils/kitchenSinkStories.js` — its `import.meta.glob` refs every component and masks real orphans).
+- `components/dev/GalleryCell.vue` + `components/dev/StoryRenderer.vue` are kitchen-sink infra — look "dead" only because we exclude kitchen-sink. KEEP.
+- Same method works for composables/utils (swept — all clean except the crown one below).
 
 ## Open threads (not started / EJ's call)
-- **`composables/useCrownedPost.ts`** — dormant. Zero pages use it; it's the runtime half of the `crown` feature (`scripts/author/crown.mjs` scaffolds pages that call it). No crowned pages exist. EJ hasn't decided: kill the whole crown feature, or keep (it's a creative page-takeover tool he may want).
+- **`composables/useCrownedPost.ts`** — KEPT (dead code but the runtime dep of the live `yarn crown` tool; deleting breaks the tool). If EJ ever retires the `crown` feature, delete `useCrownedPost` + `scripts/author/crown.mjs` + the `crown` npm script + eslint global together.
 - **`eslint.config.mjs`** — ~100-line hand-maintained globals list (lines 15–113). `@nuxt/eslint` (in devDeps, `^1.10.0`) is built to auto-generate these but **is not enabled** (not in nuxt.config modules). Proper fix: enable it, delete the list, run full-repo lint to verify. Real win, needs verification.
 - **Types-into-files**: did useStats. Server `api/*.get.ts` files have 5–11 small interfaces each but they're colocated with their one endpoint — left alone on purpose (not bloat). Don't mass-extract.
 

@@ -61,7 +61,7 @@ yarn predict --statement "X will happen" --confidence 75 --deadline 2025-12-31
 
 - SHA-256 + Git commit + optional PGP signing
 - AI quality analysis via OpenRouter
-- See `docs/PREDICTIONS.md`
+- See `docs/predictions.md`
 
 ### Stats Aggregation
 
@@ -72,7 +72,7 @@ Two endpoints for personal metrics:
 
 Aggregates: GitHub, Chess.com, LastFM, RescueTime, Letterboxd, Discogs, Kalshi
 
-See `docs/STATS-API.md` and `docs/IOS-SHORTCUTS-EXAMPLES.md` for usage
+See `docs/stats-api.md` and `docs/ios-shortcuts.md` for usage
 
 ### Gear Inventory
 
