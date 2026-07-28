@@ -2,7 +2,6 @@
 import BlogPostContent from '~/components/blog/BlogPostContent.vue'
 import { useIntersectionObserver } from '@vueuse/core'
 
-const { formatLongDate } = useDateFormat()
 const route = useRoute()
 const slug = route.params.slug
 

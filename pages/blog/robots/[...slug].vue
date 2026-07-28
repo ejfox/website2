@@ -1,10 +1,9 @@
 <script setup>
 // Animation handled via global anime.js from CDN
-import { useWindowSize } from '@vueuse/core'
-import { formatNumber } from '~/composables/useNumberFormat'
+import { useWindowSize, useEventListener } from '@vueuse/core'
+import { formatNumber } from '~/utils/numberFormat'
 // DELETED: import { useAnimations } from '~/composables/useAnimations'
 
-const { formatTimestamp: formatDate } = useDateFormat()
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
 const { width } = useWindowSize()
@@ -195,8 +194,8 @@ onMounted(() => {
     scrollProgress.value = (winScroll / height) * 100
   }
 
-  window.addEventListener('scroll', updateProgress)
-  onUnmounted(() => window.removeEventListener('scroll', updateProgress))
+  // useEventListener auto-cleans on unmount (no manual removeEventListener)
+  useEventListener(window, 'scroll', updateProgress)
 
   // Title animation removed - delete-driven development
 })
@@ -266,13 +265,13 @@ const proseClasses =
             <!-- Date -->
             <div class="text-zinc-500 dark:text-zinc-400">published:</div>
             <div class="text-zinc-700 dark:text-zinc-300">
-              {{ formatDate(metadataFields.date) }}
+              {{ formatTimestamp(metadataFields.date) }}
             </div>
 
             <!-- Modified -->
             <div class="text-zinc-500 dark:text-zinc-400">updated:</div>
             <div class="text-zinc-700 dark:text-zinc-300">
-              {{ formatDate(metadataFields.modified) }}
+              {{ formatTimestamp(metadataFields.modified) }}
             </div>
 
             <!-- Word count -->

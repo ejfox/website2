@@ -13,7 +13,7 @@ import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
 import PostNav from '~/components/blog/post/PostNav.vue'
 import PostRelated from '~/components/blog/post/PostRelated.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
-import { useReadingStats } from '~/composables/useReadingStats'
+import { readingStats } from '~/utils/readingStats'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 const peterToddQuote1 =
@@ -103,7 +103,7 @@ const relatedPosts = computed(() => {
     .sort((a, b) => b.score - a.score)
     .slice(0, 3)
 })
-const { stats: readingStats } = useReadingStats(post)
+const { stats: readingStatsData } = readingStats(post)
 const { renderedHtml: renderedTitle, startAnimation } =
   useTypingAnimation(postTitle)
 
@@ -638,7 +638,7 @@ onMounted(() => {
     >
       <PostMetadataBar
         :date="post?.metadata?.date || post?.date"
-        :stats="readingStats"
+        :stats="readingStatsData"
       />
     </div>
 

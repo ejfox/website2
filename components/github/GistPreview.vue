@@ -7,7 +7,7 @@
   @emits toggle - When expand/collapse button is clicked
 -->
 <script setup lang="ts">
-import { formatNumber } from '~/composables/useNumberFormat'
+import { formatNumber } from '~/utils/numberFormat'
 
 interface GistFile {
   filename: string

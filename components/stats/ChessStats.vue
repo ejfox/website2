@@ -8,12 +8,9 @@ import { computed } from 'vue'
 import StatsDataState from './StatsDataState.vue'
 import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import StatsSectionHeader from './StatsSectionHeader.vue'
-import {
-  formatNumber,
-  formatGameTypeMinimal,
-  formatRatingDiff,
-  getRatingDiffClass,
-} from '~/composables/useNumberFormat'
+import { formatNumber } from '~/utils/numberFormat'
+import { formatGameTypeMinimal } from '~/utils/date'
+import { formatRatingDiff, getRatingDiffClass } from '~/utils/chess'
 
 interface ChessGame {
   id?: string

@@ -8,8 +8,6 @@ defineProps<{
   prevPost?: { slug: string; title: string; date: string } | null
   nextPost?: { slug: string; title: string; date: string } | null
 }>()
-
-const { formatLongDate } = useDateFormat()
 </script>
 
 <template>

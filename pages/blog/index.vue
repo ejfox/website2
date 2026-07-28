@@ -1,8 +1,7 @@
 <script setup>
-import { formatNumber } from '~/composables/useNumberFormat'
-import { isValidPost } from '~/composables/usePostFilters'
+import { formatNumber } from '~/utils/numberFormat'
+import { isValidPost } from '~/utils/postFilters'
 
-const { formatShortDate } = useDateFormat()
 const processedMarkdown = useProcessedMarkdown()
 const { tocTarget } = useTOC()
 const { revealContainer: postsReveal } = useScrollReveal({

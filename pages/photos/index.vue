@@ -1,5 +1,5 @@
 <script setup>
-import PhotoStack from '~/components/photos/PhotoStack.vue'
+import PhotoStack from '~/components/PhotoStack.vue'
 
 // Both feeds in parallel
 const { data: photosData, pending: photosPending } = await useFetch(

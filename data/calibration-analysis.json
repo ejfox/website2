@@ -1,15 +1,45 @@
 {
-  "generated_at": "2026-02-26T04:24:46.746Z",
+  "generated_at": "2026-07-27T13:39:53.234Z",
   "summary": {
-    "total_predictions": 10,
-    "resolved": 1,
-    "pending": 9,
-    "correct": 1,
-    "incorrect": 0,
-    "accuracy": 100
+    "total_predictions": 15,
+    "resolved": 4,
+    "pending": 11,
+    "correct": 3,
+    "incorrect": 1,
+    "accuracy": 75
   },
-  "brier_score": 0.04,
+  "brier_score": 0.182,
   "calibration": [
+    {
+      "min": 50,
+      "max": 59,
+      "label": "50-59%",
+      "count": 1,
+      "correct": 1,
+      "accuracy": 100,
+      "expected": 55,
+      "delta": 45
+    },
+    {
+      "min": 60,
+      "max": 69,
+      "label": "60-69%",
+      "count": 1,
+      "correct": 0,
+      "accuracy": 0,
+      "expected": 65,
+      "delta": -64
+    },
+    {
+      "min": 70,
+      "max": 79,
+      "label": "70-79%",
+      "count": 1,
+      "correct": 1,
+      "accuracy": 100,
+      "expected": 75,
+      "delta": 26
+    },
     {
       "min": 80,
       "max": 89,
@@ -22,6 +52,72 @@
     }
   ],
   "by_category": [
+    {
+      "category": "ai",
+      "total": 2,
+      "correct": 1,
+      "accuracy": 50
+    },
+    {
+      "category": "regulation",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "policy",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "government",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "anthropic",
+      "total": 1,
+      "correct": 0,
+      "accuracy": 0
+    },
+    {
+      "category": "openai",
+      "total": 1,
+      "correct": 0,
+      "accuracy": 0
+    },
+    {
+      "category": "benchmarks",
+      "total": 1,
+      "correct": 0,
+      "accuracy": 0
+    },
+    {
+      "category": "cryptocurrency",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "bitcoin",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "finance",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
+    {
+      "category": "markets",
+      "total": 1,
+      "correct": 1,
+      "accuracy": 100
+    },
     {
       "category": "politics",
       "total": 1,

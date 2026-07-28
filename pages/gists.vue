@@ -1,6 +1,5 @@
 <script setup lang="ts">
 // Nuxt 4 auto-imports all composables!
-const { formatCompactDate: formatDate } = useDateFormat()
 
 interface GistFile {
   filename: string
@@ -245,7 +244,7 @@ const toggleGist = (gistId: string) => {
           <span
             class="text-xs text-zinc-500 dark:text-zinc-500 font-mono whitespace-nowrap"
           >
-            {{ formatDate(gist.created_at) }}
+            {{ formatCompactDate(gist.created_at) }}
           </span>
         </div>
 

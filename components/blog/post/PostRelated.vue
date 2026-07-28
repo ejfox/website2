@@ -10,8 +10,6 @@ defineProps<{
     overlappingTags: string[]
   }>
 }>()
-
-const { formatLongDate } = useDateFormat()
 </script>
 
 <template>

@@ -1,0 +1,1305 @@
+/**
+ * @file processMarkdown.mjs
+ * @description Main content processing pipeline - converts Markdown to HTML with smart caching, link health checking, and on-this-day index generation
+ * @usage yarn blog:process OR node scripts/processMarkdown.mjs
+ * @env OBSIDIAN_VAULT_PATH - Path to Obsidian vault (optional)
+ * @env CHECK_LINKS - Enable link health checking (optional)
+ * @env AUTO_FIX_LINKS - Auto-replace broken links with archive.org versions (optional)
+ * @env DEBUG - Enable debug output (optional)
+ */
+
+// Markdown → HTML Processing Pipeline
+import { promises as fs, existsSync, statSync } from 'node:fs'
+import { createHash } from 'node:crypto'
+import path from 'node:path'
+import { unified } from 'unified'
+import remarkParse from 'remark-parse'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
+import rehypeSlug from 'rehype-slug'
+import remarkGfm from 'remark-gfm'
+import remarkDirective from 'remark-directive'
+// import rehypeMermaid from 'rehype-mermaid' // DELETED - 64MB bloat
+import rehypePrettyCode from 'rehype-pretty-code'
+import rehypeRaw from 'rehype-raw'
+import matter from 'gray-matter'
+import { transformerCopyButton } from '@rehype-pretty/transformers'
+import dotenv from 'dotenv'
+import * as shiki from 'shiki'
+import chalk from 'chalk'
+import ora from 'ora'
+import fetch from 'node-fetch'
+import { config } from '../config.mjs'
+
+import {
+  remarkAi2htmlEmbed,
+  remarkPredictionRef,
+  remarkGearCard,
+  remarkHandDrawn,
+  remarkObsidianSupport,
+  rehypeAddClassToParagraphs,
+  remarkEnhanceLinks,
+  remarkEnhanceImages,
+  remarkExtractToc,
+  remarkMermaid,
+} from '../plugins/index.mjs'
+
+import { getPostType } from '../utils/helpers.mjs'
+import {
+  buildValidRoutes,
+  auditInternalLinks,
+} from '../utils/internal-links.mjs'
+import { processStats } from '../utils/stats.mjs'
+import { backupProcessedContent } from '../utils/backup.mjs'
+
+dotenv.config()
+
+const CACHE_VERSION = '2026-05-13-gear-cards'
+
+// OG image mapping — populated by Dispatch OG picker, maps slug → Cloudinary URL
+let ogImageMap = {}
+try {
+  ogImageMap = JSON.parse(
+    await fs.readFile(
+      path.join(process.cwd(), 'data', 'og-images.json'),
+      'utf8'
+    )
+  )
+} catch {
+  /* no OG images yet */
+}
+
+const paths = {
+  contentDir: config.dirs.content,
+  draftsDir: path.join(config.dirs.content, '../drafts'),
+  outputDir: config.dirs.output,
+  backupDir: config.dirs.backup,
+}
+
+const highlighter = await shiki.createHighlighter({
+  themes: ['github-dark'],
+  langs: ['javascript', 'typescript', 'json', 'html', 'css', 'markdown'],
+})
+
+const formatTitle = (filename) => {
+  const baseName = filename.split('/').pop()
+
+  // Detect date-based filenames (YYYY-MM-DD or YYYY-MM-DD-suffix)
+  // Keep dashes for these - they're intentional
+  const datePattern = /^(\d{4}-\d{2}-\d{2})(-.*)?$/
+  const dateMatch = baseName.match(datePattern)
+  if (dateMatch) {
+    // Return date as-is, with optional suffix converted to title case
+    const datePart = dateMatch[1] // e.g., "2026-01-25"
+    const suffix = dateMatch[2] // e.g., "-my-thoughts" or undefined
+    if (suffix) {
+      const suffixTitle = suffix
+        .slice(1) // remove leading dash
+        .split('-')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+      return `${datePart} ${suffixTitle}`
+    }
+    return datePart
+  }
+
+  // Standard title case for non-date filenames
+  return baseName
+    .split('-')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}
+
+/**
+ * Hash a password using SHA-256
+ * Matches the client-side hashing in PasswordGate.vue
+ */
+const hashPassword = (password) => {
+  return createHash('sha256').update(password).digest('hex')
+}
+
+// ============================================================================
+// Helper functions to reduce nesting depth (extracted for ESLint max-depth)
+// ============================================================================
+
+/**
+ * Fix a single broken link in a source file by replacing with archived version
+ * @returns {boolean} true if file was modified
+ */
+async function fixLinkInSourceFile(link, source, contentDir) {
+  const archivedUrl = link.archived.url
+  const archivedDate = link.archived.timestamp.substring(0, 8) // YYYYMMDD
+
+  // Format date as YYYY-MM-DD
+  const year = archivedDate.substring(0, 4)
+  const month = archivedDate.substring(4, 6)
+  const day = archivedDate.substring(6, 8)
+  const formattedDate = `${year}-${month}-${day}`
+
+  const filePath = path.join(contentDir, `${source}.md`)
+
+  try {
+    let content = await fs.readFile(filePath, 'utf-8')
+    const originalContent = content
+
+    // Replace the broken link with archived version + indicator
+    const escapedUrl = link.url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+    // Replace in markdown links [text](broken-url)
+    const mdLinkRegex = new RegExp(`(\\[[^\\]]+\\])\\(${escapedUrl}\\)`, 'g')
+    content = content.replace(
+      mdLinkRegex,
+      `$1(${archivedUrl}) *[archived ${formattedDate}]*`
+    )
+
+    // Replace bare URLs
+    const bareUrlRegex = new RegExp(`(?<!\\()${escapedUrl}(?!\\))`, 'g')
+    content = content.replace(
+      bareUrlRegex,
+      `${archivedUrl} *[archived ${formattedDate}]*`
+    )
+
+    // Only write if content changed
+    if (content !== originalContent) {
+      await fs.writeFile(filePath, content, 'utf-8')
+      return true
+    }
+    return false
+  } catch {
+    // Skip files we can't fix
+    return false
+  }
+}
+
+/**
+ * Check if a file should use cache based on modification times
+ * @returns {'cache' | 'process'} whether to use cache or process the file
+ */
+function getFileCacheStatus(filePath, outputPath) {
+  if (!existsSync(outputPath)) {
+    return 'process'
+  }
+
+  try {
+    const sourceStats = statSync(filePath)
+    const outputStats = statSync(outputPath)
+    return outputStats.mtime > sourceStats.mtime ? 'cache' : 'process'
+  } catch {
+    return 'process'
+  }
+}
+
+/**
+ * Try to load a processed result from cache
+ * @returns {{ result: object, cached: boolean } | null} cached result or null if cache miss
+ */
+async function tryLoadCachedResult(outputPath, cacheVersion) {
+  try {
+    const cachedData = await fs.readFile(outputPath, 'utf-8')
+    const result = JSON.parse(cachedData)
+    if (result?.cacheVersion === cacheVersion) {
+      return { result, cached: true }
+    }
+    return null
+  } catch {
+    return null
+  }
+}
+
+/**
+ * Write processed result to output file (for non-draft content only)
+ */
+async function writeProcessedResult(result, outputPath) {
+  if (result.metadata?.draft === true) {
+    // Draft PROJECTS are written so the local dev server can preview them.
+    // (The manifest still excludes all drafts, so production never lists them.)
+    // Other draft content stays unwritten — drafts can hold private material.
+    if (!outputPath.includes('/projects/')) {
+      return
+    }
+  }
+  await fs.mkdir(path.dirname(outputPath), { recursive: true })
+  await fs.writeFile(outputPath, JSON.stringify(result, null, 2))
+}
+
+const normalizeSlug = (slug) => {
+  // Strip leading 'blog/' prefix if it exists
+  return slug.startsWith('blog/') ? slug.slice(5) : slug
+}
+
+const processor = unified()
+  .use(remarkParse)
+  .use(remarkGfm) // Process footnotes FIRST before other plugins
+  .use(remarkDirective)
+  .use(remarkExtractToc)
+  .use(remarkObsidianSupport)
+  .use(remarkEnhanceImages)
+  .use(remarkEnhanceLinks)
+  .use(remarkAi2htmlEmbed)
+  .use(remarkPredictionRef)
+  .use(remarkGearCard)
+  .use(remarkHandDrawn)
+  .use(remarkMermaid)
+  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(rehypeRaw)
+  .use(rehypePrettyCode, {
+    theme: JSON.parse(
+      await fs.readFile('./scripts/utils/ayu-mirage.json', 'utf-8')
+    ),
+    onVisitLine(node) {
+      if (node.children.length === 0)
+        node.children = [{ type: 'text', value: ' ' }]
+    },
+    onVisitHighlightedLine(node) {
+      node.properties.className.push('highlighted')
+    },
+    onVisitHighlightedWord(node) {
+      node.properties.className = ['word']
+    },
+    highlighter,
+    transformers: [
+      transformerCopyButton({ visibility: 'always', feedbackDuration: 3000 }),
+    ],
+  })
+  .use(rehypeAddClassToParagraphs)
+  // .use(rehypeMermaid, { strategy: 'inline-svg' }) // DELETED - 64MB bloat
+  .use(rehypeSlug)
+  .use(rehypeStringify, { allowDangerousHtml: true })
+
+async function processMarkdown(content, filePath) {
+  const filename = path.basename(filePath)
+  try {
+    const { data: frontmatter, content: markdownContent } = matter(content)
+    let ast = processor.parse(markdownContent)
+
+    // Create vfile to hold data from plugins
+    const vfile = { path: filename, data: {} }
+
+    // Process through unified pipeline
+    // (TOC extraction happens in remarkExtractToc plugin)
+    let result = await processor.run(ast, vfile)
+
+    // Get TOC data from plugin
+    const toc = vfile.data?.toc || []
+    const firstHeading = vfile.data?.firstHeading
+    const firstHeadingNode = vfile.data?.firstHeadingNode
+
+    // Remove first heading if it exists
+    if (firstHeadingNode) {
+      const index = result.children.indexOf(firstHeadingNode)
+      if (index !== -1) {
+        result.children.splice(index, 1)
+      }
+    }
+
+    let html = processor.stringify(result)
+
+    // Clean up empty <p> tags produced by remark wrapping standalone images
+    // in paragraphs before figure-wrapping can unwrap them
+    html = html
+      .replace(/<p[^>]*>\s*<\/p>\s*(?=<figure)/g, '')
+      .replace(/(<\/figure>)\s*<p[^>]*>\s*<\/p>/g, '$1')
+
+    const extractedTitle =
+      frontmatter.title ||
+      firstHeading ||
+      formatTitle(path.basename(filePath, '.md'))
+
+    // Extract detailed image stats
+    const imageMatches = markdownContent.match(/!\[.*?\]\(.*?\)/g) || []
+    const imageStats = imageMatches.map((img) => {
+      const urlMatch = img.match(/\(([^)]+)\)/)
+      if (urlMatch && urlMatch[1].includes('cloudinary')) {
+        const widthMatch = urlMatch[1].match(/w_(\d+)/)
+        const heightMatch = urlMatch[1].match(/h_(\d+)/)
+        return {
+          hasCloudinary: true,
+          width: widthMatch ? Number.parseInt(widthMatch[1]) : null,
+          height: heightMatch ? Number.parseInt(heightMatch[1]) : null,
+        }
+      }
+      return { hasCloudinary: false }
+    })
+
+    const stats = {
+      words: markdownContent.split(/\s+/).length,
+      images: imageMatches.length,
+      imageDetails: {
+        total: imageMatches.length,
+        cloudinary: imageStats.filter((i) => i.hasCloudinary).length,
+        withDimensions: imageStats.filter((i) => i.width && i.height).length,
+      },
+      links: (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length,
+      codeBlocks: (markdownContent.match(/```[\s\S]*?```/g) || []).length,
+      headers: toc.reduce((acc, h) => {
+        acc[h.level] = (acc[h.level] || 0) + 1
+        return acc
+      }, {}),
+    }
+
+    const pct = Math.round(
+      (processStats.filesProcessed / processStats.totalFiles) * 100
+    )
+
+    // IndieWeb indicators (supports single URL or array)
+    const replyToRaw = frontmatter.replyTo || frontmatter['in-reply-to']
+    const replyToUrls = replyToRaw
+      ? Array.isArray(replyToRaw)
+        ? replyToRaw
+        : [replyToRaw]
+      : []
+    const indiewebBadges = []
+    if (replyToUrls.length > 0) {
+      const domains = replyToUrls.map((url) => {
+        try {
+          return new URL(url).hostname.replace('www.', '')
+        } catch {
+          return 'reply'
+        }
+      })
+      indiewebBadges.push(chalk.cyan(`↩ ${domains.join(', ')}`))
+    }
+
+    const badges =
+      indiewebBadges.length > 0 ? ` ${indiewebBadges.join(' ')}` : ''
+    process.stdout.write(
+      `\r${chalk.gray(`Processing: ${filename.padEnd(40)}`)}${badges}${' '.repeat(Math.max(0, 20 - badges.length))}${pct}%`
+    )
+
+    // sourcePath/sourceDir stripped for privacy — no filesystem paths in output
+    const slug = normalizeSlug(
+      path
+        .relative(path.join(process.cwd(), 'content', 'blog'), filePath)
+        .replace(/\.md$/, '')
+    )
+
+    // Handle password protection - hash password, never store plaintext
+    const passwordHash = frontmatter.password
+      ? hashPassword(frontmatter.password)
+      : undefined
+    const { password: _rawPassword, ...safeFrontmatter } = frontmatter
+
+    return {
+      cacheVersion: CACHE_VERSION,
+      html,
+      title: extractedTitle,
+      metadata: {
+        ...safeFrontmatter,
+        ...stats,
+        toc,
+        type: safeFrontmatter.type || getPostType(filePath),
+        ...(passwordHash && { passwordHash }),
+        // OG image from data/og-images.json (set by Dispatch OG picker)
+        ...(ogImageMap[slug] && { ogImage: ogImageMap[slug] }),
+      },
+    }
+  } catch (error) {
+    console.error(chalk.red(`\n[ERROR] Failed processing ${filename}:`))
+    console.error(chalk.red(error.message))
+    throw error
+  }
+}
+
+async function getFilesRecursively(dir) {
+  const entries = await fs.readdir(dir, { withFileTypes: true })
+  const files = await Promise.all(
+    entries.map(async (entry) => {
+      const fullPath = path.join(dir, entry.name)
+      if (entry.isDirectory()) {
+        if (
+          entry.name === 'node_modules' ||
+          entry.name === '.git' ||
+          entry.name.startsWith('.')
+        )
+          return null
+        return getFilesRecursively(fullPath)
+      } else if (
+        entry.isFile() &&
+        entry.name.endsWith('.md') &&
+        !entry.name.startsWith('!')
+      ) {
+        return fullPath
+      }
+      return null
+    })
+  )
+  return files.flat().filter(Boolean)
+}
+
+const extractExternalLinks = (content) => {
+  const urlRegex = /https?:\/\/[^\s)\]"<>`]+/g
+  const urls = content.match(urlRegex) || []
+  const cleanedUrls = urls.map((url) => url.replace(/[.,:;!?`>]+$/, ''))
+  const externalUrls = cleanedUrls.filter(
+    (url) => !url.includes('res.cloudinary.com') && !url.includes('ejfox.com')
+  )
+  return [...new Set(externalUrls)]
+}
+
+async function generateExternalLinksCSV(allFiles) {
+  const spinner = ora('Extracting external links...').start()
+
+  try {
+    const linkToSources = new Map()
+
+    for (const filePath of allFiles) {
+      if (filePath.includes('content/blog/reading/')) continue
+      const content = await fs.readFile(filePath, 'utf8')
+      const links = extractExternalLinks(content)
+      const slug = normalizeSlug(
+        path.relative(paths.contentDir, filePath).replace(/\.md$/, '')
+      )
+
+      links.forEach((link) => {
+        if (
+          !link.includes('amazon.com') &&
+          !link.includes('m.media-amazon.com')
+        ) {
+          if (!linkToSources.has(link)) linkToSources.set(link, new Set())
+          linkToSources.get(link).add(slug)
+        }
+      })
+    }
+
+    const csvRows = ['url,sources']
+    Array.from(linkToSources.entries())
+      .sort(([a], [b]) => a.localeCompare(b))
+      .forEach(([url, sources]) => {
+        const sourcesString = Array.from(sources).join(';')
+        const escapedUrl = url.includes(',') ? `"${url}"` : url
+        csvRows.push(`${escapedUrl},"${sourcesString}"`)
+      })
+
+    const csvPath = path.join(process.cwd(), 'data/external_links_final.csv')
+    await fs.writeFile(csvPath, csvRows.join('\n'))
+
+    spinner.succeed(
+      `Extracted ${linkToSources.size} external links to ` +
+        'data/external_links_final.csv'
+    )
+    return { links: Array.from(linkToSources.keys()), linkToSources }
+  } catch (error) {
+    spinner.fail('Failed to extract external links')
+    console.error(error)
+    throw error
+  }
+}
+
+// Check Wayback Machine for archived version
+async function findArchivedVersion(url) {
+  try {
+    const apiUrl = `https://archive.org/wayback/available?url=${encodeURIComponent(url)}`
+    const response = await fetch(apiUrl, {
+      headers: {
+        'User-Agent':
+          'Mozilla/5.0 (compatible; LinkChecker/1.0; +https://ejfox.com)',
+      },
+    })
+
+    if (!response.ok) return null
+
+    const data = await response.json()
+    const archived = data?.archived_snapshots?.closest
+
+    if (archived?.available && archived?.url) {
+      return {
+        url: archived.url,
+        timestamp: archived.timestamp,
+        status: archived.status,
+      }
+    }
+
+    return null
+  } catch {
+    return null
+  }
+}
+
+// Link health checking (behind CHECK_LINKS flag)
+async function checkLinkHealth(url, timeout = 10000) {
+  try {
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), timeout)
+
+    const response = await fetch(url, {
+      method: 'HEAD',
+      signal: controller.signal,
+      redirect: 'follow',
+      headers: {
+        'User-Agent':
+          'Mozilla/5.0 (compatible; LinkChecker/1.0; +https://ejfox.com)',
+      },
+    })
+
+    clearTimeout(timeoutId)
+
+    return {
+      url,
+      status: response.status,
+      ok: response.ok,
+      finalUrl: response.url,
+    }
+  } catch (error) {
+    return {
+      url,
+      status: 0,
+      ok: false,
+      error: error.name === 'AbortError' ? 'Timeout' : error.message,
+    }
+  }
+}
+
+// Audit internal links (wikilinks + relative md links) against the set of real
+// published routes. Report-only: writes data/internal-linkrot-report.json and
+// prints a summary, never blocks the build.
+async function reportDeadInternalLinks(allFiles, contentDir) {
+  const spinner = ora('Auditing internal links...').start()
+  try {
+    const report = await auditInternalLinks(allFiles, contentDir)
+    const reportPath = path.join(
+      process.cwd(),
+      'data/internal-linkrot-report.json'
+    )
+    await fs.mkdir(path.dirname(reportPath), { recursive: true })
+    await fs.writeFile(reportPath, JSON.stringify(report, null, 2))
+
+    const { dead, affectedPosts, internalLinks } = report.summary
+    if (dead === 0) {
+      spinner.succeed(`Internal links OK (${internalLinks} checked, 0 dead)`)
+      return report
+    }
+
+    spinner.warn(
+      `${dead} dead internal link${dead === 1 ? '' : 's'} across ${affectedPosts} post${affectedPosts === 1 ? '' : 's'}`
+    )
+    report.dead.slice(0, 15).forEach((d) => {
+      const fix = d.suggestion
+        ? `  ${chalk.gray('→ did you mean')} ${chalk.green(d.suggestion)}${chalk.gray('?')}`
+        : ''
+      console.log(
+        `  ${chalk.red('✗')} ${chalk.gray(d.source + ':' + d.line)}  ${chalk.yellow('[[' + d.target + ']]')} ${chalk.gray('→')} ${d.href}${fix}`
+      )
+    })
+    if (report.dead.length > 15) {
+      console.log(chalk.gray(`  ... and ${report.dead.length - 15} more`))
+    }
+    console.log(
+      chalk.gray('\n  Full report: data/internal-linkrot-report.json\n')
+    )
+    return report
+  } catch (error) {
+    spinner.fail('Failed to audit internal links')
+    console.error(error)
+    return null
+  }
+}
+
+async function checkAllLinks(links, linkToSources, maxConcurrent = 5) {
+  const spinner = ora(`Checking health of ${links.length} links...`).start()
+
+  try {
+    const results = []
+
+    // Check links in batches to avoid overwhelming servers
+    for (let i = 0; i < links.length; i += maxConcurrent) {
+      const batch = links.slice(i, i + maxConcurrent)
+      const batchResults = await Promise.all(
+        batch.map((link) => checkLinkHealth(link))
+      )
+      results.push(...batchResults)
+
+      // Update progress
+      spinner.text = `Checking links... ${i + batch.length}/${links.length}`
+    }
+
+    // Categorize results
+    const working = results.filter((r) => r.ok)
+    const broken = results.filter((r) => !r.ok && !r.error)
+    const errors = results.filter((r) => r.error)
+
+    spinner.succeed(`Checked ${results.length} links`)
+
+    // Check archive.org for broken links if AUTO_FIX flag is set
+    const brokenWithArchives = []
+    if (process.env.AUTO_FIX_LINKS === 'true' && broken.length > 0) {
+      const archiveSpinner = ora(
+        `Searching archive.org for ${broken.length} broken links...`
+      ).start()
+
+      for (let i = 0; i < broken.length; i++) {
+        const brokenLink = broken[i]
+        archiveSpinner.text = `Searching archives... ${i + 1}/${broken.length}`
+
+        const archived = await findArchivedVersion(brokenLink.url)
+        brokenWithArchives.push({
+          ...brokenLink,
+          archived,
+          sources: Array.from(linkToSources.get(brokenLink.url) || []),
+        })
+
+        // Be polite to archive.org API
+        await new Promise((resolve) => setTimeout(resolve, 500))
+      }
+
+      const archivedCount = brokenWithArchives.filter((b) => b.archived).length
+      archiveSpinner.succeed(`Found ${archivedCount} archived versions`)
+    }
+
+    // Generate report
+    const report = {
+      timestamp: new Date().toISOString(),
+      summary: {
+        total: results.length,
+        working: working.length,
+        broken: broken.length,
+        errors: errors.length,
+        archived: brokenWithArchives.filter((b) => b.archived).length,
+      },
+      broken:
+        brokenWithArchives.length > 0
+          ? brokenWithArchives
+          : broken.map((r) => ({
+              url: r.url,
+              status: r.status,
+              sources: Array.from(linkToSources.get(r.url) || []),
+            })),
+      errors: errors.map((r) => ({
+        url: r.url,
+        error: r.error,
+        sources: Array.from(linkToSources.get(r.url) || []),
+      })),
+    }
+
+    // Save report
+    const reportPath = path.join(process.cwd(), 'data/linkrot-report.json')
+    await fs.writeFile(reportPath, JSON.stringify(report, null, 2))
+
+    // Print summary
+    console.log(chalk.bold('\n📊 Link Health Summary'))
+    console.log(`  ${chalk.green('✓')} Working:   ${working.length}`)
+    console.log(`  ${chalk.red('✗')} Broken:    ${broken.length}`)
+    console.log(`  ${chalk.gray('⏱')} Errors:    ${errors.length}`)
+    if (brokenWithArchives.length > 0) {
+      console.log(
+        `  ${chalk.cyan('📦')} Archived:  ${brokenWithArchives.filter((b) => b.archived).length}`
+      )
+    }
+
+    if (broken.length > 0) {
+      console.log(chalk.red.bold(`\n🚨 ${broken.length} Broken Links Found`))
+      const displayLinks =
+        brokenWithArchives.length > 0 ? brokenWithArchives : broken
+      displayLinks.slice(0, 5).forEach((link) => {
+        console.log(chalk.red(`  ${link.status} - ${link.url}`))
+        if (link.archived) {
+          console.log(
+            chalk.cyan(
+              `    📦 Archived: ${link.archived.url.substring(0, 60)}...`
+            )
+          )
+        }
+        const sources = Array.from(
+          linkToSources.get(link.url) || link.sources || []
+        )
+        sources.slice(0, 2).forEach((source) => {
+          console.log(chalk.gray(`    → ${source}`))
+        })
+      })
+      if (broken.length > 5) {
+        console.log(chalk.gray(`  ... and ${broken.length - 5} more`))
+      }
+    }
+
+    console.log(chalk.gray(`\n  Full report: data/linkrot-report.json\n`))
+
+    // Auto-fix broken links if flag is set
+    if (
+      process.env.AUTO_FIX_LINKS === 'true' &&
+      brokenWithArchives.some((b) => b.archived)
+    ) {
+      await autoFixBrokenLinks(brokenWithArchives.filter((b) => b.archived))
+    }
+
+    return report
+  } catch (error) {
+    spinner.fail('Failed to check link health')
+    console.error(error)
+    throw error
+  }
+}
+
+// Auto-fix broken links by replacing with archive.org versions
+async function autoFixBrokenLinks(brokenLinks) {
+  const spinner = ora('Auto-fixing broken links...').start()
+
+  try {
+    let totalFixed = 0
+    const fixedByFile = {}
+
+    for (const link of brokenLinks) {
+      if (!link.archived) continue
+
+      for (const source of link.sources) {
+        const wasFixed = await fixLinkInSourceFile(
+          link,
+          source,
+          paths.contentDir
+        )
+        if (wasFixed) {
+          totalFixed++
+          fixedByFile[source] = (fixedByFile[source] || 0) + 1
+        }
+      }
+    }
+
+    const fixedFiles = Object.keys(fixedByFile).length
+    spinner.succeed(
+      `Auto-fixed ${totalFixed} broken links across ${fixedFiles} files`
+    )
+
+    if (Object.keys(fixedByFile).length > 0) {
+      console.log(chalk.cyan('\n📦 Files updated with archived links:'))
+      Object.entries(fixedByFile)
+        .slice(0, 10)
+        .forEach(([file, count]) => {
+          console.log(
+            chalk.gray(`  ${file} (${count} link${count > 1 ? 's' : ''})`)
+          )
+        })
+      if (Object.keys(fixedByFile).length > 10) {
+        console.log(
+          chalk.gray(`  ... and ${Object.keys(fixedByFile).length - 10} more`)
+        )
+      }
+      console.log(
+        chalk.yellow(
+          '\n  ⚠️  Review changes before committing - check git diff\n'
+        )
+      )
+    }
+
+    return fixedByFile
+  } catch (error) {
+    spinner.fail('Failed to auto-fix links')
+    console.error(error)
+    throw error
+  }
+}
+
+const printSummary = (files) => {
+  const stats = files.reduce(
+    (acc, file) => {
+      acc.totalWords += file.metadata.words || 0
+      acc.totalImages += file.metadata.images || 0
+      acc.cloudinaryImages += file.metadata.imageDetails?.cloudinary || 0
+      acc.imagesWithDimensions +=
+        file.metadata.imageDetails?.withDimensions || 0
+      acc.totalLinks += file.metadata.links || 0
+      acc.totalCodeBlocks += file.metadata.codeBlocks || 0
+      acc.h1 += file.metadata.headers?.h1 || 0
+      acc.h2 += file.metadata.headers?.h2 || 0
+      acc.h3 += file.metadata.headers?.h3 || 0
+      acc.byType[file.metadata.type] = (acc.byType[file.metadata.type] || 0) + 1
+
+      // IndieWeb stats
+      if (file.metadata?.replyTo || file.metadata?.['in-reply-to']) {
+        acc.replyPosts++
+      }
+
+      if (file.metadata?.tags && Array.isArray(file.metadata.tags)) {
+        file.metadata.tags.forEach(
+          (tag) => (acc.tags[tag] = (acc.tags[tag] || 0) + 1)
+        )
+      }
+
+      return acc
+    },
+    {
+      totalWords: 0,
+      totalImages: 0,
+      cloudinaryImages: 0,
+      imagesWithDimensions: 0,
+      totalLinks: 0,
+      totalCodeBlocks: 0,
+      h1: 0,
+      h2: 0,
+      h3: 0,
+      byType: {},
+      tags: {},
+      replyPosts: 0,
+    }
+  )
+
+  console.log('\n📊 Content Analysis')
+  console.log('=================')
+  console.log(`📝 Total Files: ${files.length}`)
+  console.log(`📚 Total Words: ${stats.totalWords.toLocaleString()}`)
+  console.log(
+    `🖼️  Total Images: ${stats.totalImages} ` +
+      `(${stats.cloudinaryImages} optimized, ` +
+      `${stats.imagesWithDimensions} with dimensions)`
+  )
+  console.log(`🔗 Total Links: ${stats.totalLinks}`)
+  console.log(`💻 Code Blocks: ${stats.totalCodeBlocks}`)
+
+  // IndieWeb stats
+  if (stats.replyPosts > 0) {
+    console.log(chalk.cyan(`↩️  Reply Posts: ${stats.replyPosts}`))
+  }
+
+  console.log('\n📑 Headers')
+  console.log(`H1: ${stats.h1}, H2: ${stats.h2}, H3: ${stats.h3}`)
+
+  console.log('\n📂 Content Types')
+  Object.entries(stats.byType)
+    .sort(([, a], [, b]) => b - a)
+    .forEach(([type, count]) => console.log(`${type.padEnd(10)} ${count}`))
+
+  console.log('\n🏷️  Top 10 Tags')
+  Object.entries(stats.tags)
+    .sort(([, a], [, b]) => b - a)
+    .slice(0, 10)
+    .forEach(([tag, count]) => console.log(`${tag.padEnd(20)} ${count}`))
+}
+
+// Build on-this-day index from tweets + blog posts + scrobbles + commits
+// Outputs 366 individual JSON files for fast loading
+async function buildOnThisDayIndex(blogResults, blogFiles) {
+  const spinner = ora('Building on-this-day index...').start()
+
+  try {
+    // Key: "MM-DD", Value: { tweets, posts, scrobbles, commits }
+    const index = {}
+
+    // Load tweets
+    const tweetsPath = path.join(process.cwd(), 'data/tweets.json')
+    let tweets = []
+    try {
+      const tweetsData = await fs.readFile(tweetsPath, 'utf-8')
+      tweets = JSON.parse(tweetsData)
+    } catch {
+      // No tweets file
+    }
+
+    // Index tweets by month-day
+    let tweetCount = 0
+    for (const tweet of tweets) {
+      if (!tweet.created_month || !tweet.created_day) continue
+
+      const key = `${String(tweet.created_month).padStart(2, '0')}-${String(tweet.created_day).padStart(2, '0')}`
+      if (!index[key])
+        index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+      // Only keep essential fields to reduce file size
+      index[key].tweets.push({
+        id: tweet.id,
+        text: tweet.full_text,
+        year: tweet.created_year,
+        date: tweet.created_date,
+        favorites: tweet.favorite_count || 0,
+        retweets: tweet.retweet_count || 0,
+        replyTo: tweet.in_reply_to_screen_name || null,
+      })
+      tweetCount++
+    }
+
+    // Load and index Last.fm scrobbles
+    const scrobblesPath = path.join(process.cwd(), 'data/lastfm-scrobbles.csv')
+    let scrobbleCount = 0
+    try {
+      const scrobblesData = await fs.readFile(scrobblesPath, 'utf-8')
+      const lines = scrobblesData.split('\n').slice(1) // Skip header
+
+      // Group scrobbles by day to avoid duplicates and reduce size
+      // { "YYYY-MM-DD": { tracks: Set, artists: Set, count: number } }
+      const scrobblesByDay = {}
+
+      for (const line of lines) {
+        if (!line.trim()) continue
+
+        // Parse semicolon-separated CSV (with quoted fields)
+        const parts = line.match(/(?:[^;"]|"[^"]*")+/g)
+        if (!parts || parts.length < 5) continue
+
+        const artist = parts[0]?.replace(/^"|"$/g, '') || ''
+        const track = parts[3]?.replace(/^"|"$/g, '') || ''
+        const timestamp = Number.parseInt(
+          parts[4]?.replace(/^"|"$/g, '') || '0',
+          10
+        )
+
+        if (!timestamp) continue
+
+        const date = new Date(timestamp)
+        const year = date.getFullYear()
+        const month = String(date.getMonth() + 1).padStart(2, '0')
+        const day = String(date.getDate()).padStart(2, '0')
+        const dateKey = `${year}-${month}-${day}`
+        const indexKey = `${month}-${day}`
+
+        if (!scrobblesByDay[dateKey]) {
+          scrobblesByDay[dateKey] = {
+            tracks: new Set(),
+            artists: new Set(),
+            count: 0,
+            year,
+            indexKey,
+          }
+        }
+
+        scrobblesByDay[dateKey].tracks.add(`${artist} - ${track}`)
+        scrobblesByDay[dateKey].artists.add(artist)
+        scrobblesByDay[dateKey].count++
+        scrobbleCount++
+      }
+
+      // Add summarized scrobbles to index (top 5 unique tracks per day)
+      for (const [dateKey, dayData] of Object.entries(scrobblesByDay)) {
+        const key = dayData.indexKey
+        if (!index[key])
+          index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+        const topTracks = Array.from(dayData.tracks).slice(0, 5)
+        const topArtists = Array.from(dayData.artists).slice(0, 3)
+
+        index[key].scrobbles.push({
+          date: dateKey,
+          year: dayData.year,
+          count: dayData.count,
+          topTracks,
+          topArtists,
+        })
+      }
+    } catch {
+      // No scrobbles file
+    }
+
+    // Index blog posts by month-day
+    let postCount = 0
+    blogResults.forEach((result, idx) => {
+      const dateStr = result.metadata?.date
+      if (!dateStr) return
+
+      try {
+        const date = new Date(dateStr)
+        const month = String(date.getMonth() + 1).padStart(2, '0')
+        const day = String(date.getDate()).padStart(2, '0')
+        const key = `${month}-${day}`
+
+        if (!index[key])
+          index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+        const filePath = blogFiles[idx]
+        const slug = normalizeSlug(
+          path.relative(paths.contentDir, filePath).replace(/\.md$/, '')
+        )
+
+        index[key].posts.push({
+          slug,
+          title: result.metadata?.title || result.title,
+          year: date.getFullYear(),
+          date: dateStr,
+          dek: result.metadata?.dek || null,
+          type: result.metadata?.type || 'post',
+          tags: result.metadata?.tags || [],
+        })
+        postCount++
+      } catch {
+        // Skip invalid dates
+      }
+    })
+
+    // Load and index GitHub commits
+    const commitsPath = path.join(process.cwd(), 'data/github-commits.json')
+    let commitCount = 0
+    try {
+      const commitsData = await fs.readFile(commitsPath, 'utf-8')
+      const commits = JSON.parse(commitsData)
+
+      for (const commit of commits) {
+        if (!commit.month || !commit.day) continue
+
+        const key = `${String(commit.month).padStart(2, '0')}-${String(commit.day).padStart(2, '0')}`
+        if (!index[key])
+          index[key] = { tweets: [], posts: [], scrobbles: [], commits: [] }
+
+        index[key].commits.push({
+          sha: commit.sha,
+          message: commit.message,
+          year: commit.year,
+          date: commit.date,
+          repo: commit.repo,
+        })
+        commitCount++
+      }
+    } catch {
+      // No commits file
+    }
+
+    // Sort items within each day by year (newest first)
+    for (const key of Object.keys(index)) {
+      index[key].tweets.sort((a, b) => b.year - a.year)
+      index[key].posts.sort((a, b) => b.year - a.year)
+      index[key].scrobbles.sort((a, b) => b.year - a.year)
+      index[key].commits.sort((a, b) => b.year - a.year)
+    }
+
+    // Write 366 individual JSON files for fast loading
+    const onThisDayDir = path.join(process.cwd(), 'data/on-this-day')
+    await fs.mkdir(onThisDayDir, { recursive: true })
+
+    for (const [key, dayData] of Object.entries(index)) {
+      const filePath = path.join(onThisDayDir, `${key}.json`)
+      await fs.writeFile(filePath, JSON.stringify(dayData))
+    }
+
+    const daysWithContent = Object.keys(index).length
+    spinner.succeed(
+      `On-this-day: ${tweetCount} tweets, ${postCount} posts, ` +
+        `${scrobbleCount} scrobbles, ${commitCount} commits ` +
+        `across ${daysWithContent} days`
+    )
+  } catch (error) {
+    spinner.fail('Failed to build on-this-day index')
+    console.error(error)
+  }
+}
+
+async function processAllFiles() {
+  const spinner = ora('Processing markdown files...').start()
+
+  try {
+    await backupProcessedContent(paths.outputDir, paths.backupDir)
+    await fs.mkdir(paths.contentDir, { recursive: true })
+    await fs.mkdir(paths.draftsDir, { recursive: true })
+
+    const allFiles = [
+      ...(await getFilesRecursively(paths.contentDir)),
+      ...(await getFilesRecursively(paths.draftsDir)),
+    ]
+    processStats.totalFiles = allFiles.length
+    spinner.succeed(`Found ${allFiles.length} markdown files`)
+
+    const { links, linkToSources } = await generateExternalLinksCSV(allFiles)
+
+    // Check link health if CHECK_LINKS flag is set
+    if (process.env.CHECK_LINKS === 'true') {
+      await checkAllLinks(links, linkToSources)
+    }
+
+    // Build the set of valid internal routes (used to mark dead wikilinks as
+    // non-clickable during rendering) and audit every post for dead internal
+    // links. Pure local IO — no network — so it runs on every process.
+    await buildValidRoutes(allFiles, paths.contentDir)
+    await reportDeadInternalLinks(allFiles, paths.contentDir)
+
+    // 📊 PRE-FLIGHT CHECK: Analyze what will be cached vs processed
+    console.log('\n📊 Pre-flight cache analysis...')
+    let willCache = 0
+    let willProcess = 0
+    const filesToProcess = []
+
+    for (const filePath of allFiles) {
+      const relativePath = path.relative(paths.contentDir, filePath)
+      const normalizedPath = normalizeSlug(relativePath.replace(/\.md$/, ''))
+      const outputPath = path.join(paths.outputDir, `${normalizedPath}.json`)
+
+      const cacheStatus = getFileCacheStatus(filePath, outputPath)
+      if (cacheStatus === 'cache') {
+        willCache++
+      } else {
+        willProcess++
+        filesToProcess.push(path.basename(filePath))
+      }
+    }
+
+    console.log(`  ✓ ${willCache} files cached (unchanged)`)
+    console.log(`  → ${willProcess} files to process`)
+    if (willProcess > 0 && willProcess <= 10) {
+      console.log(`\nFiles to process:`)
+      filesToProcess.forEach((f) => console.log(`  • ${f}`))
+    }
+
+    console.log('\nProcessing files...\n')
+
+    const results = []
+    let cachedCount = 0
+    let fetchedCount = 0
+
+    for (const filePath of allFiles) {
+      try {
+        const relativePath = path.relative(paths.contentDir, filePath)
+        const normalizedPath = normalizeSlug(relativePath.replace(/\.md$/, ''))
+        const outputPath = path.join(paths.outputDir, `${normalizedPath}.json`)
+
+        // 🚀 SMART CACHING: Try cache first, then process if needed
+        const cacheStatus = getFileCacheStatus(filePath, outputPath)
+        const cacheResult =
+          cacheStatus === 'cache'
+            ? await tryLoadCachedResult(outputPath, CACHE_VERSION)
+            : null
+
+        // Handle cached file
+        if (cacheResult) {
+          cachedCount++
+          const baseName = path.basename(filePath).padEnd(40)
+          const pct2 = Math.round(
+            (processStats.filesProcessed / processStats.totalFiles) * 100
+          )
+          process.stdout.write(
+            `\r${chalk.gray(`Cached:     ${baseName}`)}${pct2}%`
+          )
+          results.push(cacheResult.result)
+          processStats.filesProcessed++
+          continue
+        }
+
+        // Process file (not cached)
+        const result = await processMarkdown(
+          await fs.readFile(filePath, 'utf8'),
+          filePath
+        )
+        fetchedCount++
+
+        const baseName = path.basename(filePath).padEnd(40)
+        const pct2 = Math.round(
+          (processStats.filesProcessed / processStats.totalFiles) * 100
+        )
+        process.stdout.write(
+          `\r${chalk.gray(`Processing: ${baseName}`)}${pct2}%`
+        )
+
+        await writeProcessedResult(result, outputPath)
+        results.push(result)
+        processStats.filesProcessed++
+      } catch (error) {
+        processStats.errors.push({ file: filePath, error: error.message })
+      }
+    }
+
+    process.stdout.write('\r' + ' '.repeat(80) + '\r')
+    printSummary(results)
+
+    // Filter out draft posts from manifest
+    const nonDraftResults = results.filter(
+      (entry) => entry.metadata?.draft !== true
+    )
+    const nonDraftFiles = allFiles.filter(
+      (_, index) => results[index]?.metadata?.draft !== true
+    )
+
+    // Clean up orphaned processed files
+    // (files that exist in output but not in source)
+    const currentSlugs = new Set()
+    allFiles.forEach((filePath) => {
+      const slug = normalizeSlug(
+        path.relative(paths.contentDir, filePath).replace(/\.md$/, '')
+      )
+      currentSlugs.add(slug)
+    })
+
+    // Find and remove orphaned processed files
+    const outputFiles = await getFilesRecursively(paths.outputDir, '.json')
+    for (const outputFile of outputFiles) {
+      const relativePath = path.relative(paths.outputDir, outputFile)
+      const outputSlug = relativePath.replace(/\.json$/, '')
+
+      if (
+        !currentSlugs.has(outputSlug) &&
+        !relativePath.includes('manifest-lite.json')
+      ) {
+        try {
+          await fs.unlink(outputFile)
+          console.log(`🗑️  Removed orphaned: ${relativePath}`)
+        } catch (error) {
+          const warnMsg = `⚠️  Could not remove ${relativePath}:`
+          console.warn(warnMsg, error.message)
+        }
+      }
+    }
+
+    const manifestResults = nonDraftResults.map((entry, index) => {
+      const cleanEntry = { ...entry }
+      const originalFilePath = nonDraftFiles[index]
+
+      delete cleanEntry.html
+      delete cleanEntry.content
+      delete cleanEntry.processedContent
+
+      const slug = normalizeSlug(
+        path.relative(paths.contentDir, originalFilePath).replace(/\.md$/, '')
+      )
+      const type = cleanEntry.metadata?.type || getPostType(slug)
+
+      return {
+        slug,
+        title: cleanEntry.metadata?.title || cleanEntry.title,
+        date: cleanEntry.metadata?.date,
+        type,
+        hidden: cleanEntry.metadata?.hidden,
+        draft: cleanEntry.metadata?.draft,
+        dek: cleanEntry.metadata?.dek,
+        modified: cleanEntry.metadata?.modified,
+        tags: cleanEntry.metadata?.tags,
+        toc: cleanEntry.metadata?.toc,
+        metadata: { ...cleanEntry.metadata, slug, type },
+      }
+    })
+
+    const manifestPath = path.join(paths.outputDir, 'manifest-lite.json')
+    await fs.writeFile(manifestPath, JSON.stringify(manifestResults, null, 2))
+    spinner.succeed('Manifest written successfully')
+
+    // Cache performance report
+    const totalProcessed = cachedCount + fetchedCount
+    const cacheHitRate =
+      totalProcessed > 0 ? Math.round((cachedCount / totalProcessed) * 100) : 0
+    console.log(
+      `🚀 Cache: ${cachedCount} cached, ${fetchedCount} processed ` +
+        `(${cacheHitRate}% cache hit)`
+    )
+
+    // Extract tags with usage counts from content
+    // and write to public/content-tags.json
+    const tagUsage = {}
+    nonDraftResults.forEach((result) => {
+      if (result.metadata?.tags && Array.isArray(result.metadata.tags)) {
+        result.metadata.tags.forEach((tag) => {
+          if (typeof tag === 'string' && tag.trim()) {
+            const cleanTag = tag.trim()
+            tagUsage[cleanTag] = (tagUsage[cleanTag] || 0) + 1
+          }
+        })
+      }
+    })
+
+    if (Object.keys(tagUsage).length > 0) {
+      const contentTagsPath = path.join(
+        process.cwd(),
+        'public/content-tags.json'
+      )
+      await fs.writeFile(contentTagsPath, JSON.stringify(tagUsage, null, 2))
+      const tagCount = Object.keys(tagUsage).length
+      console.log(
+        `\n🏷️  Extracted ${tagCount} unique content tags ` +
+          'with usage counts to public/content-tags.json'
+      )
+    }
+
+    // Build on-this-day index from tweets + blog posts
+    await buildOnThisDayIndex(nonDraftResults, nonDraftFiles)
+
+    return results
+  } catch (error) {
+    spinner.fail('Processing failed')
+    console.error(error)
+    throw error
+  }
+}
+
+processAllFiles().catch((error) => {
+  console.error('Fatal error:', error)
+  process.exit(1)
+})
+
+export { processAllFiles, processMarkdown, getFilesRecursively }

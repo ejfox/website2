@@ -1,11 +1,10 @@
 <script setup>
-import { useLanguageColors } from '~/composables/useLanguageColors'
+import { languageColors } from '~/utils/languageColors'
 
-const { formatLongDate, formatRelativeTime, formatShortDate } = useDateFormat()
 const route = useRoute()
 const slug = route.params.slug
 
-const { getColor: getLanguageColor } = useLanguageColors()
+const { getColor: getLanguageColor } = languageColors()
 
 // Conventional-commit palette — deliberately curated, not the language ramp
 const TYPE_COLORS = {

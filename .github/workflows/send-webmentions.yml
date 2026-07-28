@@ -31,7 +31,7 @@ jobs:
           webmentions-
 
     - name: Send webmentions
-      run: node scripts/send-webmentions.mjs
+      run: node scripts/author/send-webmentions.mjs
 
     - name: Save webmentions cache
       if: always()

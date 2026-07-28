@@ -1,8 +1,8 @@
 <script setup>
 defineProps({ items: { type: Array, required: true } })
 
-const { TYPE_SYMBOLS, slugifyGear } = useGearUI()
-const { getItemWeightInOunces } = useWeightCalculations()
+const { TYPE_SYMBOLS, slugifyGear } = gearUI()
+const { getItemWeightInOunces } = weightCalculations()
 
 const formatOz = (item) => {
   const oz = getItemWeightInOunces(item)

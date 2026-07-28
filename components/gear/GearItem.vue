@@ -4,7 +4,7 @@ const props = defineProps({
   weightUnit: { type: String, default: 'metric' },
 })
 
-const { TYPE_SYMBOLS, PRIORITY_PIPS, slugifyGear } = useGearUI()
+const { TYPE_SYMBOLS, PRIORITY_PIPS, slugifyGear } = gearUI()
 
 // ── Weight ──────────────────────────────────────────────
 const formatWeight = (weightOz) => {
