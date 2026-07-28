@@ -40,24 +40,22 @@ interface CalcomBookingPayload {
 
 const EVENTS_FILE = join(process.cwd(), 'data', 'calcom-events.jsonl')
 
+type VerifyResult = 'valid' | 'mismatch' | 'no-signature' | 'no-secret'
+
 // Cal.com signs the raw request body with HMAC-SHA256 and sends it in this
-// header. Returns true when no secret is configured (dev) so local testing works.
+// header. `no-secret` means the endpoint is fail-OPEN (dev/misconfig) — the
+// caller must log loudly, since it accepts unverified payloads.
 function verifySignature(
   rawBody: string,
   signature: string | undefined
-): boolean {
+): VerifyResult {
   const secret = process.env.CALCOM_WEBHOOK_SECRET
-  if (!secret) {
-    console.warn(
-      '[Cal.com Webhook] CALCOM_WEBHOOK_SECRET not set — accepting unverified payload'
-    )
-    return true
-  }
-  if (!signature) return false
+  if (!secret) return 'no-secret'
+  if (!signature) return 'no-signature'
   const expected = createHmac('sha256', secret).update(rawBody).digest('hex')
   const a = Buffer.from(expected)
   const b = Buffer.from(signature)
-  return a.length === b.length && timingSafeEqual(a, b)
+  return a.length === b.length && timingSafeEqual(a, b) ? 'valid' : 'mismatch'
 }
 
 export default defineEventHandler(async (event) => {
@@ -65,7 +63,26 @@ export default defineEventHandler(async (event) => {
   const rawBody = (await readRawBody(event)) || ''
   const signature = getHeader(event, 'x-cal-signature-256')
 
-  if (!verifySignature(rawBody, signature)) {
+  // Best-effort client identity for security logging (behind Cloudflare tunnel).
+  const clientIp =
+    getHeader(event, 'cf-connecting-ip') ||
+    getHeader(event, 'x-forwarded-for') ||
+    event.node.req.socket?.remoteAddress ||
+    'unknown'
+
+  const verdict = verifySignature(rawBody, signature)
+
+  if (verdict === 'no-secret') {
+    // Fail-open: the scary path. Log every accepted-unverified request so it's
+    // visible in `pm2 logs website2` and alertable — set CALCOM_WEBHOOK_SECRET.
+    console.error(
+      `[Cal.com Webhook] SECURITY: CALCOM_WEBHOOK_SECRET not set — accepting UNVERIFIED webhook from ${clientIp} (bytes=${rawBody.length})`
+    )
+  } else if (verdict !== 'valid') {
+    // Rejected: surface bad/missing signatures so spoof attempts are observable.
+    console.warn(
+      `[Cal.com Webhook] Rejected ${verdict} signature from ${clientIp} (bytes=${rawBody.length})`
+    )
     throw createError({ statusCode: 401, statusMessage: 'Invalid signature' })
   }
 
