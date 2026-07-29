@@ -17,7 +17,7 @@ jobs:
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
-        node-version: '20'
+        node-version: '22'
 
     - name: Wait for deploy
       run: sleep 60
@@ -30,8 +30,13 @@ jobs:
         restore-keys: |
           webmentions-
 
-    - name: Send webmentions
-      run: node scripts/send-webmentions.mjs
+    # Gated to --dry (logs what it WOULD send, pings nothing) until inbound
+    # webmentions are actually set up: register ejfox.com at webmention.io AND
+    # set WEBMENTION_IO_TOKEN in the VPS .env. To go live and start notifying
+    # the external sites you link to, delete the ` --dry` below. --dry does not
+    # touch the sent-cache, so nothing is silently skipped when you flip it on.
+    - name: Send webmentions (dry-run — not pinging external yet)
+      run: node scripts/author/send-webmentions.mjs --dry
 
     - name: Save webmentions cache
       if: always()

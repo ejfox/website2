@@ -1,6 +1,6 @@
 <script setup>
 const NextAvailableSlot = defineAsyncComponent(
-  () => import('~/components/consulting/NextAvailableSlot.vue')
+  () => import('~/components/NextAvailableSlot.vue')
 )
 
 const { getPostBySlug, getAllPosts } = useProcessedMarkdown()

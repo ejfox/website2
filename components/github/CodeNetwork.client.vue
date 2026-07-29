@@ -16,7 +16,7 @@ import {
   forceY,
 } from 'd3'
 import { useElementSize } from '@vueuse/core'
-import { useLanguageColors } from '~/composables/useLanguageColors'
+import { languageColors } from '~/utils/languageColors'
 
 const props = defineProps({
   nodes: { type: Array, required: true },
@@ -29,7 +29,7 @@ const { width } = useElementSize(container)
 const height = 480
 const hovered = ref(null)
 const tooltipPos = ref({ x: 0, y: 0 })
-const { getColor } = useLanguageColors()
+const { getColor } = languageColors()
 
 const fileColor = (file) => getColor(file || 'Unknown')
 

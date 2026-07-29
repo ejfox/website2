@@ -28,7 +28,7 @@ const props = defineProps({
   },
 })
 
-const { formatNumber, formatDecimal, formatPercentage } = useNumberFormat()
+const { formatNumber, formatDecimal, formatPercentage } = numberFormat()
 
 const formattedValue = computed(() => {
   if (props.value === null || props.value === undefined) return ''

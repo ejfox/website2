@@ -1,145 +1,32 @@
-import { execSync } from 'node:child_process'
+import { getBlogRoutes, getBuildInfo } from './nuxt.helpers'
 
-async function _getScrapTags() {
-  try {
-    if (!process.env.SUPABASE_URL || !process.env.SUPABASE_KEY) {
-      console.warn('❌ Supabase not configured, skipping tag discovery')
-      return []
-    }
+// Shared Cache-Control values (referenced in nitro.routeRules below)
+const CACHE_PRERENDER = 'public, max-age=3600, s-maxage=86400'
+const CACHE_DYNAMIC =
+  'public, max-age=60, s-maxage=300, stale-while-revalidate=600'
+const CACHE_IMMUTABLE = 'public, max-age=31536000, immutable'
 
-    const { createClient } = await import('@supabase/supabase-js')
-    const supabase = createClient(
-      process.env.SUPABASE_URL,
-      process.env.SUPABASE_KEY
-    )
-
-    // console.log('🔍 Discovering unique tags for prerendering...')
-    // Only select tags field for faster query, not all data
-    const { data, error } = await supabase
-      .from('scraps')
-      .select('tags')
-      .limit(5000) // Reasonable limit to avoid timeout
-
-    if (error) {
-      console.error('❌ Tag discovery error:', error)
-      return []
-    }
-
-    const tagSet = new Set<string>()
-    data?.forEach((scrap) => {
-      if (scrap.tags && Array.isArray(scrap.tags)) {
-        scrap.tags.forEach((tag) => tagSet.add(tag))
-      }
-    })
-
-    const tags = Array.from(tagSet).sort()
-    // console.log(`✅ Discovered ${tags.length} unique tags for prerendering`)
-
-    return tags
-  } catch (error) {
-    console.error('❌ Error discovering tags:', error)
-    return []
-  }
-}
-
-// Generate blog routes from manifest for prerendering
-async function getBlogRoutes(): Promise<string[]> {
-  try {
-    const { promises: fs } = await import('node:fs')
-    const path = await import('node:path')
-
-    const manifestPath = path.join(
-      process.cwd(),
-      'content/processed/manifest-lite.json'
-    )
-    const manifestData = await fs.readFile(manifestPath, 'utf-8')
-    const manifest = JSON.parse(manifestData)
-
-    // Filter out draft, unlisted, and password-protected posts from prerendering
-    interface ManifestPost {
-      slug?: string
-      draft?: boolean
-      hidden?: boolean
-      unlisted?: boolean
-      password?: string
-      passwordHash?: string
-      metadata?: {
-        draft?: boolean
-        hidden?: boolean
-        unlisted?: boolean
-        password?: string
-        passwordHash?: string
-      }
-    }
-    const routes = manifest
-      .filter((post: ManifestPost) => {
-        // Skip posts without slugs or that are drafts
-        if (!post.slug) return false
-        if (post.draft === true || post.metadata?.draft === true) return false
-        // Skip hidden posts
-        if (post.hidden === true || post.metadata?.hidden === true) return false
-        // Skip unlisted posts - they shouldn't be in pre-rendered routes
-        if (post.unlisted === true || post.metadata?.unlisted === true)
-          return false
-        // Skip password-protected posts - they need dynamic handling
-        const hasPassword = !!(
-          post.password ||
-          post.passwordHash ||
-          post.metadata?.password ||
-          post.metadata?.passwordHash
-        )
-        if (hasPassword) return false
-        // Skip system files like CLAUDE.md, WIKILINK-OPPORTUNITIES.md
-        if (post.slug === post.slug.toUpperCase()) return false
-        // Week-notes are fine now that DOMPurify is fixed
-        // Skip robots (have separate page structure)
-        if (post.slug.startsWith('robots/')) return false
-        // Skip drafts - shouldn't be public
-        if (post.slug.includes('drafts/')) return false
-        return true
-      })
-      .map((post: ManifestPost) => `/blog/${post.slug}`)
-
-    // console.log(`📝 Found ${routes.length} blog posts to prerender`)
-    return routes
-  } catch (error) {
-    console.error('❌ Error reading blog manifest:', error)
-    return []
-  }
-}
-
-// Captured at build time (config eval runs during `nuxt build`) and baked into
-// the server bundle, so /api/healthcheck and /api/build-info report the commit
-// that was actually built + deployed — no reliance on a .build-info.json file
-// that the deploy never ships (it tars only .output/). Falls back to git, then
-// CI env vars, then 'unknown'.
-function gitOr(cmd: string, fallback: string): string {
-  try {
-    return execSync(cmd).toString().trim() || fallback
-  } catch {
-    return fallback
-  }
-}
-
-function getBuildInfo() {
-  const commitLong =
-    process.env.GITHUB_SHA || gitOr('git rev-parse HEAD', 'unknown')
-  const commit =
-    process.env.BUILD_COMMIT ||
-    (commitLong !== 'unknown'
-      ? commitLong.slice(0, 8)
-      : gitOr('git rev-parse --short HEAD', 'unknown'))
-  const branch =
-    process.env.GITHUB_REF_NAME ||
-    gitOr('git rev-parse --abbrev-ref HEAD', 'unknown')
-  return {
-    commit,
-    commitLong,
-    branch,
-    buildDate: new Date().toISOString(),
-    buildTimestamp: Date.now(),
-  }
-}
+// Routes prerendered at build time — all share the same long cache.
+const PRERENDERED_ROUTES = [
+  '/',
+  '/blog',
+  '/blog/**',
+  '/projects',
+  '/gear',
+  '/now',
+  '/sitemap',
+  '/gists',
+  '/changelog',
+  '/on-this-day',
+  '/predictions',
+  '/predictions/**',
+]
+const prerenderRules = Object.fromEntries(
+  PRERENDERED_ROUTES.map((route) => [
+    route,
+    { prerender: true, headers: { 'Cache-Control': CACHE_PRERENDER } },
+  ])
+)
 
 export default defineNuxtConfig({
   // Lock in current Nitro behavior (silences warning)
@@ -344,106 +231,25 @@ export default defineNuxtConfig({
         ssr: false,
         headers: { 'X-Robots-Tag': 'noindex, nofollow' },
       },
+      // API Docs (/api-docs) — private OpenAPI-style route browser, like
+      // /kitchen-sink. Driven by utils/apiCatalog.ts; also served as /openapi.json.
+      '/api-docs': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+      '/openapi.json': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
+      // public/README.md (asset provenance notes) serves at /README.md — noindex it.
+      '/README.md': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       // Only disable caching in dev mode
       ...(process.env.NODE_ENV === 'development' && {
         '/**': { headers: { 'Cache-Control': 'no-cache' } },
       }),
-      // Production caching rules for sub-1s LCP
+      // Production caching for sub-1s LCP
       ...(process.env.NODE_ENV === 'production' && {
-        // STATIC PRERENDERED PAGES - fastest possible LCP
-        '/': {
-          prerender: true,
-          headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-          },
-        },
-        '/blog': {
-          prerender: true,
-          headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-          },
-        },
-        '/projects': {
-          prerender: true,
-          headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-          },
-        },
-        '/gear': {
-          prerender: true,
-          headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-          },
-        },
-        '/now': {
-          prerender: true,
-          headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-          },
-        },
-        '/sitemap': {
-          prerender: true,
-          headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-          },
-        },
-        '/gists': {
-          prerender: true,
-          headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-          },
-        },
-        '/changelog': {
-          prerender: true,
-          headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-          },
-        },
-        '/on-this-day': {
-          prerender: true,
-          headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-          },
-        },
-        // Blog posts - prerender all
-        '/blog/**': {
-          prerender: true,
-          headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-          },
-        },
-        // Predictions - prerender
-        '/predictions': {
-          prerender: true,
-          headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-          },
-        },
-        '/predictions/**': {
-          prerender: true,
-          headers: {
-            'Cache-Control': 'public, max-age=3600, s-maxage=86400',
-          },
-        },
-        // DYNAMIC PAGES - SSR with edge caching
-        '/calendar': {
-          headers: {
-            'Cache-Control':
-              'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
-          },
-        },
-        '/stats': {
-          headers: {
-            'Cache-Control':
-              'public, max-age=60, s-maxage=300, stale-while-revalidate=600',
-          },
-        },
-        // Static assets - aggressive caching
-        '/_nuxt/**': {
-          headers: {
-            'Cache-Control': 'public, max-age=31536000, immutable',
-          },
-        },
+        // Prerendered pages (see PRERENDERED_ROUTES) — long cache
+        ...prerenderRules,
+        // Dynamic pages — SSR with edge caching
+        '/calendar': { headers: { 'Cache-Control': CACHE_DYNAMIC } },
+        '/stats': { headers: { 'Cache-Control': CACHE_DYNAMIC } },
+        // Static assets — cache forever
+        '/_nuxt/**': { headers: { 'Cache-Control': CACHE_IMMUTABLE } },
         // API routes
         '/api/**': {
           cors: true,
@@ -452,7 +258,7 @@ export default defineNuxtConfig({
             'CDN-Cache-Control': 'max-age=3600, stale-if-error=86400',
           },
         },
-        // Pre-rendered tag pages - cache aggressively
+        // Pre-rendered tag pages — cache aggressively
         '/scraps/**': {
           headers: {
             'Cache-Control': 'public, max-age=86400, s-maxage=604800',

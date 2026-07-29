@@ -4,8 +4,8 @@ import { ref, onMounted, onUnmounted } from 'vue'
 
 const props = defineProps({ gearItem: { type: Object, default: () => ({}) } })
 
-const { getItemWeightInGrams } = useWeightCalculations()
-const { TYPE_SYMBOLS, PRIORITY_PIPS } = useGearUI()
+const { getItemWeightInGrams } = weightCalculations()
+const { TYPE_SYMBOLS, PRIORITY_PIPS } = gearUI()
 
 // Mouse-tracking 3D tilt.
 //

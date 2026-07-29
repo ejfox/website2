@@ -32,7 +32,11 @@ export default defineCachedEventHandler(
         aperture: meta.FNumber || null,
         iso: meta.ISO || null,
         shutter: meta.ExposureTime || null,
-        focalLength: meta.FocalLength || null,
+        // EXIF FocalLength often arrives as "23.0 mm" — strip the unit so the
+        // templates (which append "mm") don't render "23.0 mmmm".
+        focalLength: meta.FocalLength
+          ? String(meta.FocalLength).replace(/\s*mm$/i, '').trim()
+          : null,
         dateTaken: meta.DateTimeOriginal || null,
         colors: detail.colors || [],
       }

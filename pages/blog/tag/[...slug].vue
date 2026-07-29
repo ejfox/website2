@@ -3,7 +3,6 @@
 <script setup>
 import { format, parseISO } from 'date-fns'
 
-const { formatShortDate } = useDateFormat()
 const route = useRoute()
 const processedMarkdown = useProcessedMarkdown()
 

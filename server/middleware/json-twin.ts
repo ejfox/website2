@@ -20,6 +20,7 @@ const RESERVED = new Set([
   '/tags.json',
   '/manifest.json',
   '/site.webmanifest',
+  '/openapi.json',
 ])
 
 // Path prefixes that are never page routes (assets, api, build output, etc).
@@ -46,7 +47,8 @@ export default defineEventHandler(async (event) => {
 
   const config = useRuntimeConfig()
   const siteUrl =
-    (config.public?.siteUrl as string)?.replace(/\/$/, '') || 'https://ejfox.com'
+    (config.public?.siteUrl as string)?.replace(/\/$/, '') ||
+    'https://ejfox.com'
 
   let twin: Twin | null = null
   try {
@@ -215,13 +217,19 @@ async function resolveTwin(pagePath: string): Promise<Twin | null> {
         return { kind: 'reading_index', data: reading }
       }
       const book = await $fetch(`/api/reading/${restPath}`)
-      return { kind: 'reading_item', data: book, links: { index: '/reading.json' } }
+      return {
+        kind: 'reading_item',
+        data: book,
+        links: { index: '/reading.json' },
+      }
     }
 
     // ── Gear ──────────────────────────────────────────────────────────────────
     case 'gear': {
       if (rest.length === 0) {
-        const gear = await $fetch('/api/gear-csv').catch(() => $fetch('/api/gear'))
+        const gear = await $fetch('/api/gear-csv').catch(() =>
+          $fetch('/api/gear')
+        )
         return { kind: 'gear_index', data: gear }
       }
       const item = await $fetch(`/api/gear/${restPath}`)
@@ -259,7 +267,9 @@ async function resolveTwin(pagePath: string): Promise<Twin | null> {
       const id = restPath
       const [posts, exif] = await Promise.all([
         $fetch('/api/photo-posts').catch(() => []),
-        $fetch(`/api/photo-exif?id=${encodeURIComponent(id)}`).catch(() => null),
+        $fetch(`/api/photo-exif?id=${encodeURIComponent(id)}`).catch(
+          () => null
+        ),
       ])
       const photo = Array.isArray(posts)
         ? posts.find((p: any) => String(p.id) === id || p.slug === id)
@@ -278,7 +288,11 @@ async function resolveTwin(pagePath: string): Promise<Twin | null> {
     }
     case 'gists': {
       const gists = await $fetch('/api/gists')
-      return { kind: 'gist_index', data: gists, links: { github: '/github.json' } }
+      return {
+        kind: 'gist_index',
+        data: gists,
+        links: { github: '/github.json' },
+      }
     }
 
     // ── Changelog (site commit history) ───────────────────────────────────────

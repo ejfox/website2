@@ -7,7 +7,7 @@
 -->
 <script setup>
 import { computed } from 'vue'
-import { useLanguageColors } from '~/composables/useLanguageColors'
+import { languageColors } from '~/utils/languageColors'
 
 const props = defineProps({
   languages: {
@@ -24,7 +24,7 @@ const props = defineProps({
   },
 })
 
-const { getColor } = useLanguageColors()
+const { getColor } = languageColors()
 
 const segments = computed(() => {
   const total = Object.values(props.languages).reduce(

@@ -92,7 +92,7 @@ export async function useCrownedPost(options: CrownedPostOptions) {
   )
 
   // --- Computed metadata (after data is available) ---
-  const { stats: readingStats } = useReadingStats(post)
+  const { stats: readingStatsData } = readingStats(post)
 
   const postTitle = computed(
     () =>
@@ -169,7 +169,7 @@ export async function useCrownedPost(options: CrownedPostOptions) {
     post,
     nextPrevPosts,
     relatedPosts,
-    readingStats,
+    readingStats: readingStatsData,
     postTitle,
     postUrl,
     postDescription,

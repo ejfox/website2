@@ -1,4 +1,6 @@
 <script setup>
+import { useEventListener } from '@vueuse/core'
+
 definePageMeta({ layout: false })
 
 const route = useRoute()
@@ -98,19 +100,15 @@ const shortLens = (lens) =>
     .replace(/\s+/g, ' ')
     .trim() || ''
 
-// Keyboard nav
-onMounted(() => {
-  const handler = (e) => {
-    if (e.key === 'ArrowLeft' && prevPhoto.value) {
-      navigateTo(`/photos/${encodeURIComponent(prevPhoto.value.id)}`)
-    } else if (e.key === 'ArrowRight' && nextPhoto.value) {
-      navigateTo(`/photos/${encodeURIComponent(nextPhoto.value.id)}`)
-    } else if (e.key === 'Escape') {
-      navigateTo('/photos')
-    }
+// Keyboard nav — useEventListener auto-cleans on unmount
+useEventListener(window, 'keydown', (e) => {
+  if (e.key === 'ArrowLeft' && prevPhoto.value) {
+    navigateTo(`/photos/${encodeURIComponent(prevPhoto.value.id)}`)
+  } else if (e.key === 'ArrowRight' && nextPhoto.value) {
+    navigateTo(`/photos/${encodeURIComponent(nextPhoto.value.id)}`)
+  } else if (e.key === 'Escape') {
+    navigateTo('/photos')
   }
-  window.addEventListener('keydown', handler)
-  onBeforeUnmount(() => window.removeEventListener('keydown', handler))
 })
 
 useHead({

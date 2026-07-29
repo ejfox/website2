@@ -29,7 +29,7 @@ const scrollToContainer = (container) => {
 }
 
 const { calculateTotalWeight, calculateAverageWeight, getItemWeightInOunces } =
-  useWeightCalculations()
+  weightCalculations()
 const gearItems = ref([])
 const weightUnit = ref('imperial')
 const sortBy = ref('weight')

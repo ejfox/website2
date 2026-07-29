@@ -5,7 +5,7 @@
  * Stores first-touch and last-touch attribution in localStorage
  */
 export default defineNuxtPlugin(() => {
-  const { initAttribution } = useAttribution()
+  const { initAttribution } = attribution()
 
   // Initialize on first load
   initAttribution()

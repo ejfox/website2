@@ -2,7 +2,6 @@
 // Animation handled via global anime.js from CDN
 import { useWindowSize } from '@vueuse/core'
 
-const { formatCompactDate: formatDate } = useDateFormat()
 const processedMarkdown = useProcessedMarkdown()
 const { data: robotNotes } = await useAsyncData('robot-notes', () =>
   processedMarkdown.getRobotNotesWithContent()
@@ -89,7 +88,7 @@ const getNoteSummary = (note) => {
         <!-- Metadata row -->
         <div class="flex items-center justify-between mb-2">
           <div :class="metadataClass">
-            {{ formatDate(note.date) }}
+            {{ formatCompactDate(note.date) }}
           </div>
           <div
             v-if="getNoteSummary(note).wordCount"

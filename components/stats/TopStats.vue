@@ -8,7 +8,7 @@ import { computed } from 'vue'
 import AnimatedNumber from '../ui/AnimatedNumber.vue'
 import StatsDataState from './StatsDataState.vue'
 import type { StatsResponse } from '~/composables/useStats'
-import { useNumberFormat } from '~/composables/useNumberFormat'
+import { numberFormat } from '~/utils/numberFormat'
 
 interface BlogStats {
   totalPosts: number
@@ -24,7 +24,7 @@ const props = defineProps<{
   blogStats?: BlogStats
 }>()
 
-const { formatNumber: _formatNumber } = useNumberFormat()
+const { formatNumber: _formatNumber } = numberFormat()
 
 const totalLeetCodeSolved = computed(() => {
   if (!props.stats.leetcode?.submissionStats) return 0

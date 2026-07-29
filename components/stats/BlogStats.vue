@@ -4,7 +4,7 @@
   @props stats: Object - Blog statistics data from API
 -->
 <script setup lang="ts">
-import { useNumberFormat } from '../../composables/useNumberFormat'
+import { numberFormat } from '../../utils/numberFormat'
 import StatsSectionHeader from './StatsSectionHeader.vue'
 import StatsDataState from './StatsDataState.vue'
 
@@ -12,7 +12,7 @@ defineProps<{
   stats: BlogStats
 }>()
 
-const { formatNumber } = useNumberFormat()
+const { formatNumber } = numberFormat()
 
 interface BlogStats {
   posts: {

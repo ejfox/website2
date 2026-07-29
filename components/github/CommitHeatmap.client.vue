@@ -8,7 +8,7 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useElementSize } from '@vueuse/core'
-import { useLanguageColors } from '~/composables/useLanguageColors'
+import { languageColors } from '~/utils/languageColors'
 
 const props = defineProps({
   years: { type: Array, required: true },
@@ -19,7 +19,7 @@ const props = defineProps({
 
 const emit = defineEmits(['hover', 'select'])
 
-const { getColor } = useLanguageColors()
+const { getColor } = languageColors()
 const container = ref(null)
 const { width } = useElementSize(container)
 const hoveredCell = ref(null)

@@ -1,8 +1,8 @@
 <script setup>
 const props = defineProps({ items: { type: Array, required: true } })
 
-const { TYPE_SYMBOLS, PRIORITY_PIPS } = useGearUI()
-const { getItemWeightInOunces, calculateTotalWeight } = useWeightCalculations()
+const { TYPE_SYMBOLS, PRIORITY_PIPS } = gearUI()
+const { getItemWeightInOunces, calculateTotalWeight } = weightCalculations()
 
 const toGrams = (item) => {
   const oz = getItemWeightInOunces(item)

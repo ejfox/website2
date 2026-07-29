@@ -11,7 +11,7 @@ import ChessStats from '~/components/stats/ChessStats.vue'
 import MonkeyTypeStats from '~/components/stats/MonkeyTypeStats.vue'
 import DuolingoStats from '~/components/stats/DuolingoStats.vue'
 import StatsSectionSkeleton from '~/components/stats/StatsSectionSkeleton.vue'
-import { usePostFilters } from '~/composables/usePostFilters'
+import { postFilters } from '~/utils/postFilters'
 
 // Lazy-load below-fold components
 const LeetCodeStats = defineAsyncComponent(
@@ -172,8 +172,8 @@ usePageSeo({
 const route = useRoute()
 
 const { getAllPosts } = useProcessedMarkdown()
-const { formatNumber } = useNumberFormat()
-const { isValidPost } = usePostFilters()
+const { formatNumber } = numberFormat()
+const { isValidPost } = postFilters()
 
 // Load all commits for the matrix visualization (lazy: below-the-fold, 868KB)
 const { data: allCommitsData } = useFetch('/api/github-commits', {

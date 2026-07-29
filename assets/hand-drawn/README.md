@@ -71,7 +71,7 @@ To add or rename an asset: find its region in `element-bboxes.csv` (or eyeball x
 against `master.svg`), add/edit a line in `catalog.json`, then:
 
 ```bash
-node scripts/buildHandDrawn.mjs   # rewrites manifest.json + sprite.svg
+node scripts/author/buildHandDrawn.mjs   # rewrites manifest.json + sprite.svg
 ```
 
 Groups (and their subgroups):

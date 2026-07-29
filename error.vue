@@ -11,34 +11,11 @@ const cleanPath = computed(() => {
   return route.path?.replace(/^\//, '').replace(/\/$/, '') || 'unknown'
 })
 
-// Simple Levenshtein distance for fuzzy matching
-const levenshtein = (a: string, b: string): number => {
-  const matrix: number[][] = []
-  for (let i = 0; i <= b.length; i++) matrix[i] = [i]
-  for (let j = 0; j <= a.length; j++) matrix[0][j] = j
-  for (let i = 1; i <= b.length; i++) {
-    for (let j = 1; j <= a.length; j++) {
-      matrix[i][j] =
-        b.charAt(i - 1) === a.charAt(j - 1)
-          ? matrix[i - 1][j - 1]
-          : Math.min(matrix[i - 1][j - 1], matrix[i][j - 1], matrix[i - 1][j]) +
-            1
-    }
-  }
-  return matrix[b.length][a.length]
-}
-
 interface ManifestItem {
   title: string
   slug: string
   hidden?: boolean
   draft?: boolean
-}
-
-interface ScoredMatch {
-  title: string
-  path: string
-  score: number
 }
 
 onMounted(async () => {
@@ -49,17 +26,20 @@ onMounted(async () => {
     const search = cleanPath.value.toLowerCase()
     if (!search || search.length > 80) return
 
-    const matches: ScoredMatch[] = items
-      .map((item) => ({
-        title: item.title,
-        path: `/blog/${item.slug}`,
-        score: -levenshtein(item.slug || '', search),
-      }))
-      .filter((m) => m.score > -20)
-      .sort((a, b) => b.score - a.score)
-      .slice(0, 3)
+    // Suggest posts whose slug shares words with the mistyped path
+    const words = search.split(/[/-]/).filter((w) => w.length > 2)
+    if (!words.length) return
 
-    suggestions.value = matches
+    suggestions.value = items
+      .map((item) => {
+        const slug = (item.slug || '').toLowerCase()
+        const hits = words.filter((w) => slug.includes(w)).length
+        return { title: item.title, path: `/blog/${item.slug}`, hits }
+      })
+      .filter((m) => m.hits > 0)
+      .sort((a, b) => b.hits - a.hits)
+      .slice(0, 3)
+      .map(({ title, path }) => ({ title, path }))
   } catch {
     // Silently fail
   }

@@ -1,5 +1,5 @@
 <script setup>
-import { loadCalInline } from '~/utils/cal.js'
+import { loadCalInline } from '~/utils/calEmbed'
 
 // Full-bleed booking page — no site chrome. The default layout's 200px desktop
 // sidebar was squeezing cal.com's month_view into ~739px (needs ~950px), cutting
