@@ -574,19 +574,16 @@ async function cmdShoot({ pos, flags }) {
   if (!slug || !url) die('shoot <slug> <url> [--click "Text"] [--wait ms]')
   const tmp = `/tmp/shoot_${slug}.png`
   await cmdPageInline(url, tmp, flags)
-  const { v2: cloudinary } = await import('cloudinary')
-  await import('dotenv/config')
-  cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET,
-  })
+  // Use the shared client so this works with either explicit vars OR a bare
+  // CLOUDINARY_URL (the SDK reads it). Reading the resolved cloud_name back
+  // out avoids building a res.cloudinary.com/undefined/... URL.
+  const cloudinary = await cloudinaryClient()
   const publicId = `projects/${slug}/landing`
   const r = await cloudinary.uploader.upload(tmp, {
     public_id: publicId,
     overwrite: true,
   })
-  const cloud = process.env.CLOUDINARY_CLOUD_NAME
+  const cloud = cloudinary.config().cloud_name
   const md = `![${slug}](https://res.cloudinary.com/${cloud}/image/upload/${publicId}.png)`
   console.log(`\nuploaded ${publicId} (${r.width}x${r.height})`)
   console.log('\npaste into content/blog/projects/' + slug + '.md:\n')
