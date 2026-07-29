@@ -25,7 +25,12 @@ const { data: post, error } = await useAsyncData(
       }
       return response.error ? null : response
     } catch (e) {
-      console.error('Error fetching post:', e)
+      // A 404 is expected — crawlers and stale links hit nonexistent posts
+      // (often image paths resolved as blog routes). Only surface the
+      // unexpected failures; the missing-post case is handled below.
+      if (e?.statusCode !== 404 && e?.response?.status !== 404) {
+        console.error('Error fetching post:', e)
+      }
       return null
     }
   }

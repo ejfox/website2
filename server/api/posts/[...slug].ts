@@ -110,12 +110,25 @@ export default defineEventHandler(async (event) => {
 
     return data
   } catch (error) {
-    console.error('API Error:', error)
+    // Already an intentional HTTP error (400 invalid slug, 404 protected
+    // content) — rethrow untouched, don't relabel or log it.
+    if (error && typeof error === 'object' && 'statusCode' in error) {
+      throw error
+    }
+    // A missing file is an ordinary 404: crawlers and stale links hammer
+    // nonexistent paths (e.g. image URLs resolved as blog routes) constantly.
+    // Don't spam the error log with a stack trace for the expected case.
+    const isMissing =
+      error instanceof Error &&
+      (error as NodeJS.ErrnoException).code === 'ENOENT'
+    if (!isMissing) {
+      console.error('API Error reading post:', error)
+    }
+    // Keep the message generic — the raw error can contain the absolute
+    // filesystem path, which must not leak into responses.
     throw createError({
       statusCode: 404,
-      message: `Post not found: ${
-        error instanceof Error ? error.message : 'Unknown error'
-      }`,
+      message: 'Post not found',
     })
   }
 })
