@@ -16,7 +16,10 @@ import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import { resolve, join } from 'node:path'
 import { XMLParser } from 'fast-xml-parser'
-import { buildBasemap } from './ride-basemap.mjs'
+import { buildBasemap, fetchFuelStations } from './ride-basemap.mjs'
+import bboxClip from '@turf/bbox-clip'
+import simplify from '@turf/simplify'
+import { lineString } from '@turf/helpers'
 
 const ROOT = resolve(process.cwd())
 const RIDES_DIR = join(ROOT, 'content/rides')
@@ -366,6 +369,40 @@ function nearestIndexByKm(enriched, km) {
   return best
 }
 
+/**
+ * Refuel detection: a stop (≥180s dwelling within ~50m of path distance)
+ * within 120m of an OSM fuel station resets the tank. Needs timestamps —
+ * recovered tracks without clocks get none (the page wraps the gauge).
+ */
+function detectRefuels(enriched, fuelNodes) {
+  if (!fuelNodes?.length) return []
+  const refuels = []
+  let a = 0
+  for (let i = 1; i < enriched.length; i++) {
+    const moved = enriched[i].dist - enriched[a].dist
+    if (moved < 50) continue
+    const t0 = enriched[a].time
+    const t1 = enriched[i - 1].time
+    if (t0 && t1 && t1 - t0 >= 180000) {
+      const stop = enriched[a]
+      let best = null
+      for (const fnode of fuelNodes) {
+        const d = haversine(stop, fnode)
+        if (d <= 120 && (!best || d < best.d)) best = { d, fnode }
+      }
+      if (best) {
+        refuels.push({
+          dist: Math.round(stop.dist),
+          lon: +stop.lon.toFixed(5),
+          lat: +stop.lat.toFixed(5),
+        })
+      }
+    }
+    a = i
+  }
+  return refuels
+}
+
 function resolveMoments(moments, track) {
   const { _enriched: enriched, _t0: t0 } = track
   return moments.map((m, i) => {
@@ -393,7 +430,7 @@ function resolveMoments(moments, track) {
 
 // ---------------------------------------------------------------- main
 
-async function processRide(slug) {
+async function processRide(slug, states) {
   const dir = join(RIDES_DIR, slug)
   const gpxPath = join(dir, 'track.gpx')
   const mdPath = join(dir, 'ride.md')
@@ -417,6 +454,16 @@ async function processRide(slug) {
     } catch (err) {
       console.warn(`  ⚠ basemap skipped for ${slug}: ${err.message}`)
     }
+    try {
+      const fuelNodes = await fetchFuelStations(
+        padBounds(track.bounds, 0.02),
+        join(ROOT, 'data/cache'),
+        slug
+      )
+      track.refuels = detectRefuels(track._enriched, fuelNodes)
+    } catch (err) {
+      console.warn(`  ⚠ fuel stations skipped for ${slug}: ${err.message}`)
+    }
   }
 
   const moments = Array.isArray(data.moments)
@@ -438,6 +485,10 @@ async function processRide(slug) {
     startTime: track?.startTime ?? null,
     points: track?.points ?? [],
     basemap,
+    // state boundary segments, clipped to the plate — drawn as a distinct
+    // cartographic layer on the ride page
+    states: track ? clipStates(track.bounds, states, 0.15, 900) : null,
+    refuels: track?.refuels ?? [],
     moments,
   }
 
@@ -462,12 +513,24 @@ async function main() {
     return
   }
   await mkdir(OUT_DIR, { recursive: true })
+  let states = null
+  try {
+    states = await loadStates(join(ROOT, 'data/cache'))
+  } catch (err) {
+    console.warn(`⚠ state boundaries unavailable: ${err.message}`)
+  }
   const entries = await readdir(RIDES_DIR, { withFileTypes: true })
   const slugs = entries.filter((e) => e.isDirectory()).map((e) => e.name)
 
   const index = []
+  const allBounds = []
+  let totalMeters = 0
   for (const slug of slugs) {
-    const ride = await processRide(slug)
+    const ride = await processRide(slug, states)
+    if (!ride.draft && ride.bounds) {
+      allBounds.push(ride.bounds)
+      totalMeters += ride.stats?.distanceMeters ?? 0
+    }
     const km = ride.stats ? (ride.stats.distanceMeters / 1000).toFixed(1) : '?'
     console.log(
       `✓ ${slug} — ${km}km, ${ride.points.length} pts, ${ride.moments.length} moments${ride.draft ? ' (draft)' : ''}`
@@ -491,32 +554,46 @@ async function main() {
       // speed histogram: 16 bins 0→max, heights normalized 0–1
       spdHist: speedHistogram(ride),
       startTime: ride.startTime,
+      // coarse lon/lat trace for ghost overlays on other rides' maps
+      ghost: ghostTrace(ride),
+      // state boundary segments in thumb space — geographic grounding
+      outlines: stateOutlines(ride, states),
     })
   }
   index.sort((a, b) => String(b.date).localeCompare(String(a.date)))
+
+  // the atlas: every ride on one plate — total-trip distillation
+  if (allBounds.length) {
+    const combined = {
+      minLon: Math.min(...allBounds.map((b) => b.minLon)),
+      maxLon: Math.max(...allBounds.map((b) => b.maxLon)),
+      minLat: Math.min(...allBounds.map((b) => b.minLat)),
+      maxLat: Math.max(...allBounds.map((b) => b.maxLat)),
+    }
+    const atlas = {
+      bounds: combined,
+      totalMeters: Math.round(totalMeters),
+      rideCount: index.length,
+      states: clipStates(combined, states, 0.06, 1800),
+      rides: index.map((r) => ({
+        slug: r.slug,
+        title: r.title,
+        ghost: r.ghost,
+      })),
+    }
+    await writeFile(join(OUT_DIR, 'atlas.json'), JSON.stringify(atlas))
+  }
   await writeFile(join(OUT_DIR, 'index.json'), JSON.stringify(index))
   console.log(`Wrote ${index.length} ride(s) to content/processed/rides/`)
 }
 
 function thumbPolyline(ride) {
   if (!ride.points.length || !ride.bounds) return null
-  const { minLon, maxLon, minLat, maxLat } = ride.bounds
-  // work in meter-ish space so aspect is true (lon degrees shrink with cos φ)
-  const cosLat = Math.cos((((minLat + maxLat) / 2) * Math.PI) / 180)
-  const w = (maxLon - minLon) * cosLat || 1e-9
-  const h = maxLat - minLat || 1e-9
-  const scale = 1 / Math.max(w, h)
-  // center the shorter axis inside the unit box
-  const xPad = (1 - w * scale) / 2
-  const yPad = (1 - h * scale) / 2
+  const xf = thumbTransform(ride)
   const step = Math.max(1, Math.floor(ride.points.length / 80))
   const pts = []
   for (let i = 0; i < ride.points.length; i += step) {
-    const [lon, lat] = ride.points[i]
-    pts.push([
-      +(xPad + (lon - minLon) * cosLat * scale).toFixed(3),
-      +(1 - yPad - (lat - minLat) * scale).toFixed(3),
-    ])
+    pts.push(xf(ride.points[i]))
   }
   return pts
 }
@@ -535,6 +612,108 @@ function extentMeters(ride) {
     { lat: b.maxLat, lon: b.minLon }
   )
   return Math.round(Math.max(wM, hM))
+}
+
+// ------------------------------------------------------- state outlines
+
+const STATES_URL =
+  'https://cdn.jsdelivr.net/gh/PublicaMundi/MappingAPI@master/data/geojson/us-states.json'
+let statesCache = null
+
+/** US state boundaries (Census, public domain) — fetched once, cached. */
+async function loadStates(cacheDir) {
+  if (statesCache) return statesCache
+  const cachePath = join(cacheDir, 'us-states.json')
+  if (existsSync(cachePath)) {
+    statesCache = JSON.parse(await readFile(cachePath, 'utf8'))
+    return statesCache
+  }
+  const res = await fetch(STATES_URL)
+  if (!res.ok) throw new Error(`states fetch ${res.status}`)
+  statesCache = await res.json()
+  await mkdir(cacheDir, { recursive: true })
+  await writeFile(cachePath, JSON.stringify(statesCache))
+  return statesCache
+}
+
+/**
+ * State-boundary segments crossing the ride's (padded) bbox, transformed
+ * into the same normalized thumb space — vague geographic grounding for
+ * the small multiples.
+ */
+function clipStates(bounds, states, padFrac, maxPts) {
+  if (!bounds || !states) return null
+  const b = padBounds(bounds, padFrac)
+  const bbox = [b.minLon, b.minLat, b.maxLon, b.maxLat]
+  // simplify tolerance scales with plate size; keep boundaries recognizable
+  const tol = Math.max(b.maxLon - b.minLon, b.maxLat - b.minLat) / 600
+  const segs = []
+  let budget = maxPts
+  const pushLine = (coords) => {
+    if (coords.length < 2 || budget <= 0) return
+    const slim = simplify(lineString(coords), {
+      tolerance: tol,
+      highQuality: false,
+    }).geometry.coordinates.map((c) => [+c[0].toFixed(4), +c[1].toFixed(4)])
+    if (slim.length < 2) return
+    budget -= slim.length
+    segs.push(slim)
+  }
+  for (const feat of states.features ?? []) {
+    const geom = feat.geometry
+    const polys =
+      geom.type === 'Polygon'
+        ? [geom.coordinates]
+        : geom.type === 'MultiPolygon'
+          ? geom.coordinates
+          : []
+    for (const poly of polys) {
+      for (const ring of poly) {
+        // true bbox clipping: boundaries run to the plate edge, no gaps
+        const clipped = bboxClip(lineString(ring), bbox).geometry
+        if (clipped.type === 'LineString') {
+          pushLine(clipped.coordinates)
+        } else {
+          clipped.coordinates.forEach(pushLine)
+        }
+      }
+    }
+  }
+  return segs.length ? segs : null
+}
+
+function stateOutlines(ride, states) {
+  const segs = clipStates(ride.bounds, states, 0.35, 500)
+  if (!segs) return null
+  const xf = thumbTransform(ride)
+  return segs.map((seg) => seg.map(xf))
+}
+
+/** lon/lat → normalized 0–1 thumb space (aspect-true, y flipped). */
+function thumbTransform(ride) {
+  const { minLon, maxLon, minLat, maxLat } = ride.bounds
+  const cosLat = Math.cos((((minLat + maxLat) / 2) * Math.PI) / 180)
+  const w = (maxLon - minLon) * cosLat || 1e-9
+  const h = maxLat - minLat || 1e-9
+  const scale = 1 / Math.max(w, h)
+  const xPad = (1 - w * scale) / 2
+  const yPad = (1 - h * scale) / 2
+  return (c) => [
+    +(xPad + (c[0] - minLon) * cosLat * scale).toFixed(3),
+    +(1 - yPad - (c[1] - minLat) * scale).toFixed(3),
+  ]
+}
+
+/** Coarse trace (~150 pts, 4dp) for "where else I've been" ghost overlays. */
+function ghostTrace(ride) {
+  const pts = ride.points
+  if (pts.length < 2) return null
+  const step = Math.max(1, Math.floor(pts.length / 150))
+  const out = []
+  for (let i = 0; i < pts.length; i += step) {
+    out.push([+pts[i][0].toFixed(4), +pts[i][1].toFixed(4)])
+  }
+  return out
 }
 
 /** 16-bin speed histogram (m/s bins to max), heights normalized 0–1. */

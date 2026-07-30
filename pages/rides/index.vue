@@ -1,4 +1,15 @@
 <script setup lang="ts">
+import { geoMercator } from 'd3-geo'
+import { useElementSize } from '@vueuse/core'
+
+interface Atlas {
+  bounds: { minLon: number; maxLon: number; minLat: number; maxLat: number }
+  totalMeters: number
+  rideCount: number
+  states: [number, number][][] | null
+  rides: { slug: string; title: string; ghost: [number, number][] | null }[]
+}
+
 interface RideIndexEntry {
   slug: string
   title: string
@@ -17,10 +28,53 @@ interface RideIndexEntry {
   extentMeters: number | null
   elev: number[] | null
   spdHist: number[] | null
+  outlines: [number, number][][] | null
 }
 
 const { data } = await useFetch<RideIndexEntry[]>('/api/rides')
 const rides = computed(() => data.value ?? [])
+const { data: atlas } = await useFetch<Atlas | null>('/api/rides-atlas')
+
+// ---- the atlas: every ride on one quiet plate ----------------------------
+const atlasEl = ref<HTMLElement | null>(null)
+const { width: atlasW } = useElementSize(atlasEl)
+const atlasH = computed(() => {
+  const b = atlas.value?.bounds
+  if (!b || !atlasW.value) return 0
+  const cosLat = Math.cos((((b.minLat + b.maxLat) / 2) * Math.PI) / 180)
+  const aspect = (b.maxLat - b.minLat) / ((b.maxLon - b.minLon) * cosLat || 1)
+  return Math.round(Math.min(atlasW.value * aspect, atlasW.value * 1.1))
+})
+const atlasProj = computed(() => {
+  const b = atlas.value?.bounds
+  if (!b || !atlasW.value || !atlasH.value) return null
+  return geoMercator().fitExtent(
+    [
+      [16, 16],
+      [atlasW.value - 16, atlasH.value - 16],
+    ],
+    {
+      type: 'LineString',
+      coordinates: [
+        [b.minLon, b.minLat],
+        [b.maxLon, b.maxLat],
+      ],
+    }
+  )
+})
+const atlasLine = (coords: [number, number][] | null) => {
+  const proj = atlasProj.value
+  if (!proj || !coords?.length) return ''
+  return coords
+    .map((c, i) => {
+      const p = proj(c) as [number, number]
+      return `${i === 0 ? 'M' : 'L'}${p[0].toFixed(1)},${p[1].toFixed(1)}`
+    })
+    .join('')
+}
+const atlasStates = computed(() =>
+  (atlas.value?.states ?? []).map(atlasLine).join('')
+)
 
 const trackPoints = (r: RideIndexEntry) =>
   (r.thumb ?? []).map((p) => `${p[0]},${p[1]}`).join(' ')
@@ -60,7 +114,7 @@ useHead({ title: 'Rides — EJ Fox' })
 </script>
 
 <template>
-  <div class="px-4 md:px-8 py-16 max-w-screen-xl">
+  <div class="px-4 md:px-8 pt-8 pb-16 max-w-screen-xl">
     <header class="mb-12 max-w-prose">
       <h1 class="text-3xl md:text-4xl font-light tracking-tight mb-3">Rides</h1>
       <p class="font-serif text-zinc-600 dark:text-zinc-400">
@@ -85,6 +139,16 @@ useHead({ title: 'Rides — EJ Fox' })
           viewBox="-0.05 -0.05 1.1 1.1"
           class="w-full aspect-square"
         >
+          <polyline
+            v-for="(seg, i) in ride.outlines ?? []"
+            :key="'st' + i"
+            :points="seg.map((p) => p.join(',')).join(' ')"
+            fill="none"
+            stroke="currentColor"
+            class="text-zinc-300 dark:text-zinc-700"
+            stroke-width="0.006"
+            stroke-dasharray="0.02 0.01"
+          />
           <polyline
             :points="trackPoints(ride)"
             fill="none"
@@ -130,10 +194,11 @@ useHead({ title: 'Rides — EJ Fox' })
           </svg>
         </div>
         <div
+          v-if="ride.elev?.length || ride.spdHist?.length"
           class="flex justify-between font-mono text-4xs uppercase tracking-wider text-zinc-300 dark:text-zinc-700"
         >
-          <span>elev</span>
-          <span>speed</span>
+          <span>{{ ride.elev?.length ? 'elev' : '' }}</span>
+          <span>{{ ride.spdHist?.length ? 'speed' : '' }}</span>
         </div>
 
         <!-- metadata -->
@@ -154,18 +219,22 @@ useHead({ title: 'Rides — EJ Fox' })
           v-if="ride.stats"
           class="mt-0.5 font-mono text-3xs tabular-nums text-zinc-400 dark:text-zinc-600"
         >
-          {{ mi(ride.stats.distanceMeters) }} mi · ↗{{
-            ft(ride.stats.elevationGainMeters)
-          }}
-          ft ·
-          {{ duration(ride.stats.movingSeconds) }}
+          {{ mi(ride.stats.distanceMeters) }} mi
+          <template v-if="ride.stats.elevationGainMeters">
+            · ↗{{ ft(ride.stats.elevationGainMeters) }} ft
+          </template>
+          <template v-if="ride.stats.movingSeconds">
+            · {{ duration(ride.stats.movingSeconds) }}
+          </template>
         </p>
         <p
-          v-if="ride.stats"
+          v-if="ride.stats?.avgMovingSpeedMps || ride.momentCount"
           class="mt-0.5 font-mono text-3xs tabular-nums text-zinc-400 dark:text-zinc-600"
         >
-          {{ mph(ride.stats.avgMovingSpeedMps) }} avg /
-          {{ mph(ride.stats.maxSpeedMps) }} max mph
+          <template v-if="ride.stats?.avgMovingSpeedMps">
+            {{ mph(ride.stats.avgMovingSpeedMps) }} avg /
+            {{ mph(ride.stats.maxSpeedMps) }} max mph
+          </template>
           <template v-if="ride.momentCount">
             · {{ ride.momentCount }} moments
           </template>
@@ -175,5 +244,39 @@ useHead({ title: 'Rides — EJ Fox' })
     <p v-else class="font-mono text-sm text-zinc-500">
       No rides processed yet.
     </p>
+
+    <!-- the atlas: everywhere so far, one quiet plate -->
+    <section v-if="atlas" ref="atlasEl" class="mt-24">
+      <svg v-if="atlasProj" :width="atlasW" :height="atlasH" class="block">
+        <path
+          v-if="atlasStates"
+          :d="atlasStates"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="0.75"
+          stroke-dasharray="5 3"
+          class="text-zinc-200 dark:text-zinc-800"
+        />
+        <path
+          v-for="r in atlas.rides"
+          :key="r.slug"
+          :d="atlasLine(r.ghost)"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+          stroke-linecap="round"
+          class="text-zinc-400 dark:text-zinc-600 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+          @click="navigateTo(`/rides/${r.slug}`)"
+        >
+          <title>{{ r.title }}</title>
+        </path>
+      </svg>
+      <p
+        class="mt-2 font-mono text-3xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600"
+      >
+        everywhere so far · {{ atlas.rideCount }} rides ·
+        {{ Math.round(atlas.totalMeters / 1609.34).toLocaleString() }} miles
+      </p>
+    </section>
   </div>
 </template>

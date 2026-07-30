@@ -45,6 +45,8 @@ interface Ride {
     rail: [number, number][][]
     places: { name: string; kind: string; lon: number; lat: number }[]
   } | null
+  states: [number, number][][] | null
+  refuels: { dist: number; lon: number; lat: number }[]
   moments: Moment[]
 }
 
@@ -56,6 +58,11 @@ const { data: ride } = await useFetch<Ride>(`/api/rides/${slug}`)
 if (!ride.value) {
   throw createError({ statusCode: 404, message: 'Ride not found' })
 }
+// the rest of the atlas, for ghost overlays
+const { data: rideIndex } =
+  await useFetch<{ slug: string; ghost: [number, number][] | null }[]>(
+    '/api/rides'
+  )
 
 const accent = computed(() => `hsl(${ride.value?.hue ?? 25} 75% 55%)`)
 
@@ -108,14 +115,57 @@ const projected = computed(() => {
   return ride.value.points.map((p) => proj([p[0], p[1]]) as [number, number])
 })
 
+/**
+ * Catmull-Rom → cubic Bézier: GPS pages arrive as sparse chunks and plain
+ * polylines read choppy; splining through neighbors smooths the chain while
+ * passing exactly through every recorded point.
+ */
+type Pt = [number, number]
+function crControl(p0: Pt, p1: Pt, p2: Pt, p3: Pt): [Pt, Pt] {
+  return [
+    [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6],
+    [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6],
+  ]
+}
+const f = (n: number) => n.toFixed(1)
+function crSegmentD(pts: Pt[], i: number): string {
+  // curve from pts[i-1] to pts[i], neighbors as tangent guides
+  const p0 = pts[Math.max(0, i - 2)]
+  const p1 = pts[i - 1]
+  const p2 = pts[i]
+  const p3 = pts[Math.min(pts.length - 1, i + 1)]
+  const [c1, c2] = crControl(p0, p1, p2, p3)
+  return `M${f(p1[0])},${f(p1[1])}C${f(c1[0])},${f(c1[1])} ${f(c2[0])},${f(c2[1])} ${f(p2[0])},${f(p2[1])}`
+}
+
 const trackPath = computed(() => {
-  if (!projected.value.length) return ''
-  return (
-    'M' +
-    projected.value
-      .map((p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`)
-      .join('L')
-  )
+  const pts = projected.value
+  if (pts.length < 2) return ''
+  let d = `M${f(pts[0][0])},${f(pts[0][1])}`
+  for (let i = 1; i < pts.length; i++) {
+    const p0 = pts[Math.max(0, i - 2)]
+    const p3 = pts[Math.min(pts.length - 1, i + 1)]
+    const [c1, c2] = crControl(p0, pts[i - 1], pts[i], p3)
+    d += `C${f(c1[0])},${f(c1[1])} ${f(c2[0])},${f(c2[1])} ${f(pts[i][0])},${f(pts[i][1])}`
+  }
+  return d
+})
+
+/** Ghosts of every other ride — where else I've been, dotted and faint. */
+const ghostPath = computed(() => {
+  const proj = projection.value
+  if (!proj || !rideIndex.value) return ''
+  let d = ''
+  for (const r of rideIndex.value) {
+    if (r.slug === slug || !r.ghost?.length) continue
+    d += r.ghost
+      .map((c, i) => {
+        const p = proj(c) as [number, number]
+        return `${i === 0 ? 'M' : 'L'}${p[0].toFixed(1)},${p[1].toFixed(1)}`
+      })
+      .join('')
+  }
+  return d
 })
 
 // ---- scroll → ride progress ---------------------------------------------
@@ -178,6 +228,8 @@ const segmentData = computed<{ segs: Seg[]; maxMph: number }>(() => {
   // flatten everything; the readout still reports true point speed
   const sorted = [...speeds].sort((a, b) => a - b)
   const vMax = sorted[Math.floor(sorted.length * 0.95)] || 1
+  // recovered tracks may carry no timestamps at all — flat accent, no ramp
+  const hasSpeeds = sorted[sorted.length - 1] > 0.5
 
   const eles = pts.map((p) => p[2]).filter((e): e is number => e !== null)
   const minE = eles.length ? Math.min(...eles) : 0
@@ -188,15 +240,14 @@ const segmentData = computed<{ segs: Seg[]; maxMph: number }>(() => {
   for (let i = 1; i < pts.length; i++) {
     const t = Math.min(1, speeds[i - 1] / vMax)
     const ele = pts[i][2] ?? minE
-    const [a, b] = [proj[i - 1], proj[i]]
     segs.push({
-      d: `M${a[0].toFixed(1)},${a[1].toFixed(1)}L${b[0].toFixed(1)},${b[1].toFixed(1)}`,
-      color: speedColor(t),
+      d: crSegmentD(proj, i),
+      color: hasSpeeds ? speedColor(t) : 'var(--ride-accent)',
       w: +(1.25 + ((ele - minE) / eSpan) * 2.75).toFixed(2),
       mph: Math.round(speeds[i - 1] * 2.237),
     })
   }
-  return { segs, maxMph: Math.round(vMax * 2.237) }
+  return { segs, maxMph: hasSpeeds ? Math.round(vMax * 2.237) : 0 }
 })
 
 /** Perceptual speed ramp: inferno, clamped off the near-black tail. */
@@ -215,9 +266,10 @@ const speedLegendGradient = computed(() => {
 const riddenSegments = computed(() =>
   segmentData.value.segs.slice(0, riderIndex.value)
 )
-const riderMph = computed(
-  () => segmentData.value.segs[Math.max(0, riderIndex.value - 1)]?.mph ?? null
-)
+const riderMph = computed(() => {
+  if (!segmentData.value.maxMph) return null
+  return segmentData.value.segs[Math.max(0, riderIndex.value - 1)]?.mph ?? null
+})
 
 const headerStats = computed(() => {
   const s = ride.value?.stats
@@ -256,22 +308,76 @@ const headerStats = computed(() => {
   return out
 })
 
-// Inferred fuel state: full tank at ride start, burned by distance.
+// Inferred fuel: full tank at start, burned by distance, reset at detected
+// gas-station stops (OSM amenity=fuel + dwell). If the tank would run dry
+// with no recorded stop, wrap — an unrecorded fill happened somewhere.
 // Versys-X 300: 4.5 gal tank, ~56 mpg real-world. Estimate, and says so.
 const TANK_GAL = 4.5
 const MPG = 56
+const RANGE_M = TANK_GAL * MPG * 1609.34
 const fuel = computed(() => {
-  const used = progressDist.value / 1609.34 / MPG
-  const frac = Math.max(0, 1 - used / TANK_GAL)
+  const d = progressDist.value
+  let lastFill = 0
+  let recordedFills = 0
+  for (const r of ride.value?.refuels ?? []) {
+    if (r.dist <= d && r.dist > lastFill) {
+      lastFill = r.dist
+      recordedFills++
+    }
+  }
+  const sinceRaw = d - lastFill
+  const impliedFills = Math.floor(sinceRaw / RANGE_M)
+  const since = sinceRaw - impliedFills * RANGE_M
+  const gal = TANK_GAL - since / 1609.34 / MPG
+  const frac = Math.max(0, gal / TANK_GAL)
   const blocks = 10
   const filled = Math.round(frac * blocks)
   return {
     bar: '▮'.repeat(filled) + '▯'.repeat(blocks - filled),
-    gal: (TANK_GAL - used).toFixed(1),
+    gal: gal.toFixed(1),
+    fills: recordedFills + impliedFills,
   }
 })
 
+const refuelMarkers = computed(() => {
+  const proj = projection.value
+  if (!proj || !ride.value) return []
+  return ride.value.refuels.map((r) => {
+    const [x, y] = proj([r.lon, r.lat]) as [number, number]
+    return { ...r, x, y, passed: r.dist <= progressDist.value }
+  })
+})
+
 const riderPoint = computed(() => projected.value[riderIndex.value] ?? null)
+
+// ---- camera: zoom in and follow the rider through the middle of the ride
+const followZoom = computed(() => {
+  const b = ride.value?.bounds
+  if (!b) return 1
+  const ext = Math.max(
+    haversineMeters([b.minLon, b.minLat], [b.maxLon, b.minLat]),
+    haversineMeters([b.minLon, b.minLat], [b.minLon, b.maxLat])
+  )
+  return Math.min(6, Math.max(1.5, ext / 15000))
+})
+const smoothstep = (t: number) => t * t * (3 - 2 * t)
+const zoom = computed(() => {
+  const p = progress.value
+  const Z = followZoom.value
+  if (p < 0.12) return 1 + (Z - 1) * smoothstep(p / 0.12)
+  if (p > 0.88) return 1 + (Z - 1) * smoothstep((1 - p) / 0.12)
+  return Z
+})
+const cameraTransform = computed(() => {
+  const z = zoom.value
+  const w = width.value
+  const h = height.value
+  const r = riderPoint.value ?? [w / 2, h / 2]
+  // clamp the camera inside the plate so margins never show
+  const cx = Math.min(Math.max(r[0], w / (2 * z)), w - w / (2 * z))
+  const cy = Math.min(Math.max(r[1], h / (2 * z)), h - h / (2 * z))
+  return `translate(${(w / 2 - z * cx).toFixed(1)}px, ${(h / 2 - z * cy).toFixed(1)}px) scale(${z.toFixed(3)})`
+})
 const riderEle = computed(
   () => ride.value?.points[riderIndex.value]?.[2] ?? null
 )
@@ -314,13 +420,41 @@ const roadsMinorPath = computed(() =>
   layerPath(ride.value?.basemap?.roadsMinor)
 )
 const railPath = computed(() => layerPath(ride.value?.basemap?.rail))
+const statesPath = computed(() => layerPath(ride.value?.states ?? undefined))
+
+/** Fog of war: only places the route actually came near get named. */
+const nearTrack = computed(() => {
+  const pts = ride.value?.points
+  const b = ride.value?.bounds
+  if (!pts?.length || !b) return () => true
+  const cosLat = Math.cos((((b.minLat + b.maxLat) / 2) * Math.PI) / 180)
+  const extent = Math.max((b.maxLon - b.minLon) * cosLat, b.maxLat - b.minLat)
+  // ~3km floor, widening on big plates so labels don't vanish entirely
+  const thresh = Math.max(0.03, extent * 0.035)
+  const t2 = thresh * thresh
+  const sample: [number, number][] = []
+  const step = Math.max(1, Math.floor(pts.length / 300))
+  for (let i = 0; i < pts.length; i += step) {
+    sample.push([pts[i][0], pts[i][1]])
+  }
+  return (lon: number, lat: number) => {
+    for (const s of sample) {
+      const dx = (s[0] - lon) * cosLat
+      const dy = s[1] - lat
+      if (dx * dx + dy * dy < t2) return true
+    }
+    return false
+  }
+})
 
 const placeLabels = computed(() => {
   const proj = projection.value
   const places = ride.value?.basemap?.places
   if (!proj || !places) return []
-  return places
-    .filter((p) => p.kind !== 'hamlet')
+  const rank: Record<string, number> = { city: 0, town: 1, village: 2 }
+  const near = nearTrack.value
+  const candidates = places
+    .filter((p) => p.kind !== 'hamlet' && near(p.lon, p.lat))
     .map((p) => {
       const [x, y] = proj([p.lon, p.lat]) as [number, number]
       return { ...p, x, y, major: p.kind === 'city' || p.kind === 'town' }
@@ -332,10 +466,35 @@ const placeLabels = computed(() => {
         p.y > 16 &&
         p.y < height.value - 96
     )
+    .sort((a, b) => (rank[a.kind] ?? 3) - (rank[b.kind] ?? 3))
+  // greedy declutter: bigger places claim space first, overlaps get hidden
+  const PAD = 6
+  const placed: { x1: number; y1: number; x2: number; y2: number }[] = []
+  const out: typeof candidates = []
+  for (const p of candidates) {
+    const w = 10 + p.name.length * (p.major ? 6.8 : 5.6)
+    const h = 14
+    const box = {
+      x1: p.x - PAD,
+      y1: p.y - h / 2 - PAD,
+      x2: p.x + w + PAD,
+      y2: p.y + h / 2 + PAD,
+    }
+    const collides = placed.some(
+      (b) => box.x1 < b.x2 && box.x2 > b.x1 && box.y1 < b.y2 && box.y2 > b.y1
+    )
+    if (!collides) {
+      placed.push(box)
+      out.push(p)
+    }
+  }
+  return out
 })
 
-/** Graticule ticks along the frame edges, labeled in degrees + minutes. */
-const GRAT_STEP = 0.05
+/** Graticule ticks: adaptive step so a frame gets ~5 per axis, not 60. */
+const GRAT_STEPS = [0.05, 0.1, 0.25, 0.5, 1, 2]
+const pickStep = (span: number, target: number) =>
+  GRAT_STEPS.find((s) => span / s <= target) ?? 2
 const graticule = computed(() => {
   const proj = projection.value
   if (!proj || width.value === 0) return { lonTicks: [], latTicks: [] }
@@ -346,11 +505,13 @@ const graticule = computed(() => {
   const [lonR] = inv(w, h / 2)
   const [, latT] = inv(w / 2, 0)
   const [, latB] = inv(w / 2, h)
+  const lonStep = pickStep(lonR - lonL, 8)
+  const latStep = pickStep(latT - latB, 6)
   const lonTicks = []
   for (
-    let lon = Math.ceil(lonL / GRAT_STEP) * GRAT_STEP;
+    let lon = Math.ceil(lonL / lonStep) * lonStep;
     lon < lonR;
-    lon += GRAT_STEP
+    lon += lonStep
   ) {
     lonTicks.push({
       x: (proj([lon, latB]) as [number, number])[0],
@@ -359,9 +520,9 @@ const graticule = computed(() => {
   }
   const latTicks = []
   for (
-    let lat = Math.ceil(latB / GRAT_STEP) * GRAT_STEP;
+    let lat = Math.ceil(latB / latStep) * latStep;
     lat < latT;
-    lat += GRAT_STEP
+    lat += latStep
   ) {
     latTicks.push({
       y: (proj([lonL, lat]) as [number, number])[1],
@@ -386,7 +547,7 @@ const scaleBar = computed(() => {
   const y = height.value / 2
   const a = proj.invert([width.value / 2, y]) as [number, number]
   const b = proj.invert([width.value / 2 + 100, y]) as [number, number]
-  const metersPer100px = haversineMeters(a, b)
+  const metersPer100px = haversineMeters(a, b) / zoom.value
   if (!metersPer100px) return null
   const MILE = 1609.34
   const targetM = metersPer100px * 1.4 // aim for a ~140px bar
@@ -466,7 +627,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
 <template>
   <div v-if="ride" class="ride-page" :style="{ '--ride-accent': accent }">
     <!-- ridehead -->
-    <header class="px-4 md:px-8 pt-16 pb-12 max-w-screen-xl">
+    <header class="px-4 md:px-8 pt-8 pb-12 max-w-screen-xl">
       <NuxtLink
         to="/rides"
         class="font-mono text-3xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
@@ -522,71 +683,118 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
       <div class="sticky top-0 h-screen overflow-hidden">
         <div ref="mapContainer" class="absolute inset-0">
           <svg v-if="width > 0" :width="width" :height="height" class="block">
-            <!-- basemap: water, rail, roads — quiet layers under the ride -->
-            <path
-              v-if="waterPath"
-              :d="waterPath"
-              fill="currentColor"
-              fill-rule="evenodd"
-              class="text-sky-100 dark:text-sky-950/60"
-            />
-            <path
-              v-if="riverPath"
-              :d="riverPath"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1"
-              stroke-linecap="round"
-              class="text-sky-200 dark:text-sky-900/70"
-            />
-            <path
-              v-if="railPath"
-              :d="railPath"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="0.75"
-              stroke-dasharray="1 4"
-              class="text-zinc-400/70 dark:text-zinc-600/70"
-            />
-            <path
-              v-if="roadsMinorPath"
-              :d="roadsMinorPath"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="0.5"
-              class="text-zinc-300/80 dark:text-zinc-800"
-            />
-            <path
-              v-if="roadsMajorPath"
-              :d="roadsMajorPath"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1"
-              class="text-zinc-300 dark:text-zinc-700/80"
-            />
-            <!-- place labels -->
+            <!-- camera group: zooms in and follows the rider mid-ride -->
             <g
-              v-for="p in placeLabels"
-              :key="p.name"
-              class="text-zinc-400 dark:text-zinc-600"
+              :style="{
+                transform: cameraTransform,
+                transformOrigin: '0 0',
+                transition: 'transform 200ms cubic-bezier(0.25, 0.1, 0.25, 1)',
+              }"
             >
-              <circle :cx="p.x" :cy="p.y" r="1.5" fill="currentColor" />
-              <text
-                :x="p.x + 5"
-                :y="p.y + 3"
+              <!-- basemap: water, rail, roads — quiet layers under the ride -->
+              <path
+                v-if="waterPath"
+                :d="waterPath"
                 fill="currentColor"
-                class="font-mono uppercase"
-                :style="{
-                  fontSize: p.major ? '10px' : '8px',
-                  letterSpacing: p.major ? '0.14em' : '0.1em',
-                  opacity: p.major ? 1 : 0.75,
-                }"
+                fill-rule="evenodd"
+                class="text-sky-100 dark:text-sky-950/60"
+              />
+              <path
+                v-if="riverPath"
+                :d="riverPath"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-linecap="round"
+                vector-effect="non-scaling-stroke"
+                class="text-sky-200 dark:text-sky-900/70"
+              />
+              <path
+                v-if="railPath"
+                :d="railPath"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="0.75"
+                stroke-dasharray="1 4"
+                vector-effect="non-scaling-stroke"
+                class="text-zinc-400/70 dark:text-zinc-600/70"
+              />
+              <path
+                v-if="roadsMinorPath"
+                :d="roadsMinorPath"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="0.5"
+                vector-effect="non-scaling-stroke"
+                class="text-zinc-300/80 dark:text-zinc-800"
+              />
+              <path
+                v-if="roadsMajorPath"
+                :d="roadsMajorPath"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                vector-effect="non-scaling-stroke"
+                class="text-zinc-300 dark:text-zinc-700/80"
+              />
+              <!-- state boundaries -->
+              <path
+                v-if="statesPath"
+                :d="statesPath"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-dasharray="7 3 2 3"
+                class="text-zinc-400 dark:text-zinc-500"
+                vector-effect="non-scaling-stroke"
+              />
+              <!-- ghosts of other rides: where else I've been -->
+              <path
+                v-if="ghostPath"
+                :d="ghostPath"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1"
+                stroke-dasharray="1 5"
+                stroke-linecap="round"
+                class="text-zinc-400/50 dark:text-zinc-600/40"
+                vector-effect="non-scaling-stroke"
+              />
+              <!-- place labels: sizes divided by zoom stay constant -->
+              <g
+                v-for="p in placeLabels"
+                :key="p.name"
+                class="text-zinc-400 dark:text-zinc-600"
               >
-                {{ p.name }}
-              </text>
+                <circle
+                  :cx="p.x"
+                  :cy="p.y"
+                  :r="1.5 / zoom"
+                  fill="currentColor"
+                />
+                <text
+                  :x="p.x + 5 / zoom"
+                  :y="p.y + 3 / zoom"
+                  fill="currentColor"
+                  class="font-mono uppercase"
+                  :style="{
+                    fontSize: `${(p.major ? 10 : 8) / zoom}px`,
+                    letterSpacing: p.major ? '0.14em' : '0.1em',
+                    opacity: p.major ? 1 : 0.75,
+                  }"
+                >
+                  {{ p.name }}
+                </text>
+              </g>
             </g>
-            <!-- graticule ticks -->
-            <g class="text-zinc-400/80 dark:text-zinc-600/80 font-mono">
+            <!-- graticule: frame furniture, fades while zoomed -->
+            <g
+              class="text-zinc-400/80 dark:text-zinc-600/80 font-mono"
+              :style="{
+                opacity: zoom > 1.05 ? 0 : 1,
+                transition: 'opacity 300ms',
+              }"
+            >
               <g v-for="t in graticule.lonTicks" :key="'lon' + t.label">
                 <line :x1="t.x" :x2="t.x" y1="0" y2="6" stroke="currentColor" />
                 <text
@@ -610,47 +818,83 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
                 </text>
               </g>
             </g>
-            <!-- full route, faint -->
-            <path
-              :d="trackPath"
-              fill="none"
-              stroke="currentColor"
-              class="text-zinc-300 dark:text-zinc-700"
-              stroke-width="1.5"
-              stroke-linejoin="round"
-              stroke-linecap="round"
-            />
-            <!-- traversed route, accent -->
-            <path
-              v-for="(s, i) in riddenSegments"
-              :key="i"
-              :d="s.d"
-              fill="none"
-              :stroke="s.color"
-              :stroke-width="s.w"
-              stroke-linecap="round"
-            />
-            <!-- moment markers -->
-            <circle
-              v-for="m in placedMoments"
-              :key="m.id"
-              :cx="m.x"
-              :cy="m.y"
-              :r="m.active ? 5 : 3"
-              :fill="m.active ? 'var(--ride-accent)' : 'currentColor'"
-              class="text-zinc-400 dark:text-zinc-600 transition-all duration-300"
-            />
-            <!-- rider -->
-            <circle
-              v-if="riderPoint"
-              :cx="riderPoint[0]"
-              :cy="riderPoint[1]"
-              r="6"
-              fill="var(--ride-accent)"
-              stroke="currentColor"
-              class="text-zinc-50 dark:text-zinc-950"
-              stroke-width="2"
-            />
+            <g
+              :style="{
+                transform: cameraTransform,
+                transformOrigin: '0 0',
+                transition: 'transform 200ms cubic-bezier(0.25, 0.1, 0.25, 1)',
+              }"
+            >
+              <!-- full route, faint -->
+              <path
+                :d="trackPath"
+                fill="none"
+                stroke="currentColor"
+                class="text-zinc-300 dark:text-zinc-700"
+                stroke-width="1.5"
+                stroke-linejoin="round"
+                stroke-linecap="round"
+                vector-effect="non-scaling-stroke"
+              />
+              <!-- traversed route, accent -->
+              <path
+                v-for="(s, i) in riddenSegments"
+                :key="i"
+                :d="s.d"
+                fill="none"
+                :stroke="s.color"
+                :stroke-width="s.w"
+                stroke-linecap="round"
+                vector-effect="non-scaling-stroke"
+              />
+              <!-- refuel stops -->
+              <g
+                v-for="(r, i) in refuelMarkers"
+                :key="'fuel' + i"
+                class="text-zinc-400 dark:text-zinc-600"
+                :opacity="r.passed ? 1 : 0.4"
+              >
+                <rect
+                  :x="r.x - 3 / zoom"
+                  :y="r.y - 3 / zoom"
+                  :width="6 / zoom"
+                  :height="6 / zoom"
+                  fill="none"
+                  stroke="currentColor"
+                  :stroke-width="1 / zoom"
+                />
+                <text
+                  :x="r.x + 6 / zoom"
+                  :y="r.y + 2.5 / zoom"
+                  fill="currentColor"
+                  class="font-mono uppercase"
+                  :style="{ fontSize: `${7 / zoom}px`, letterSpacing: '0.1em' }"
+                >
+                  fuel
+                </text>
+              </g>
+              <!-- moment markers -->
+              <circle
+                v-for="m in placedMoments"
+                :key="m.id"
+                :cx="m.x"
+                :cy="m.y"
+                :r="(m.active ? 5 : 3) / zoom"
+                :fill="m.active ? 'var(--ride-accent)' : 'currentColor'"
+                class="text-zinc-400 dark:text-zinc-600 transition-all duration-300"
+              />
+              <!-- rider -->
+              <circle
+                v-if="riderPoint"
+                :cx="riderPoint[0]"
+                :cy="riderPoint[1]"
+                :r="6 / zoom"
+                fill="var(--ride-accent)"
+                stroke="currentColor"
+                class="text-zinc-50 dark:text-zinc-950"
+                :stroke-width="2 / zoom"
+              />
+            </g>
           </svg>
 
           <!-- live readout: the instrument chip -->
@@ -690,6 +934,9 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
                 {{ fuel.bar }}
               </span>
               <span>~{{ fuel.gal }} gal est</span>
+              <span v-if="fuel.fills">
+                · {{ fuel.fills }} fill{{ fuel.fills > 1 ? 's' : '' }}
+              </span>
             </div>
           </div>
 

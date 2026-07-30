@@ -328,6 +328,16 @@ export const apiCatalog: ApiRoute[] = [
   },
   {
     method: 'GET',
+    path: '/api/rides-atlas',
+    group: 'Photos & gear',
+    summary: 'All-rides atlas plate (ghost traces + state lines)',
+    consumer: 'frontend',
+    consumedBy: 'pages/rides',
+    deps: 'content/processed/rides',
+    health: 'ok',
+  },
+  {
+    method: 'GET',
     path: '/api/rides/{slug}',
     group: 'Photos & gear',
     summary: 'One ride: track points, moments, stats',

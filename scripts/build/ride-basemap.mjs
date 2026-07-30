@@ -74,6 +74,41 @@ async function fetchOverpass(bbox, cacheDir, slug, coarse) {
   throw lastErr
 }
 
+/** Fuel stations in the bbox — tiny node-only query, cached separately. */
+export async function fetchFuelStations(bbox, cacheDir, slug) {
+  const cachePath = join(cacheDir, `overpass-fuel-${slug}.json`)
+  if (existsSync(cachePath)) {
+    return JSON.parse(await readFile(cachePath, 'utf8'))
+  }
+  const bb = `${bbox.minLat},${bbox.minLon},${bbox.maxLat},${bbox.maxLon}`
+  const q = `[out:json][timeout:60];node["amenity"="fuel"](${bb});out;`
+  let lastErr = null
+  for (const url of OVERPASS_URLS) {
+    try {
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'User-Agent': 'ejfox.com ride basemap builder (ejfox@ejfox.com)',
+        },
+        body: 'data=' + encodeURIComponent(q),
+      })
+      if (!res.ok) throw new Error(`Overpass ${res.status} (${url})`)
+      const json = await res.json()
+      const nodes = (json.elements ?? [])
+        .filter((e) => e.type === 'node')
+        .map((e) => ({ lat: e.lat, lon: e.lon }))
+      await mkdir(cacheDir, { recursive: true })
+      await writeFile(cachePath, JSON.stringify(nodes))
+      return nodes
+    } catch (err) {
+      lastErr = err
+      console.warn(`  ⚠ fuel: ${err.message}; trying next mirror`)
+    }
+  }
+  throw lastErr
+}
+
 // ---------------------------------------------------------------- geometry
 
 function perpDist(p, a, b) {
