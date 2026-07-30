@@ -674,8 +674,35 @@ async function cmdTui({ pos, flags }) {
     H = flags.height || '800',
     F = flags.font || '18',
     wait = flags.wait || '3'
+  // "vulpes" = EJ's vulpes.nvim dark palette (VULPES/vulpes.nvim lua/vulpes/palette.lua)
+  const VULPES_THEME = {
+    name: 'vulpes',
+    background: '#000000',
+    foreground: '#f2cfdf',
+    cursor: '#e60067',
+    selection: '#6b1a3d',
+    black: '#0d0d0d',
+    red: '#ff001e',
+    green: '#b4d455',  // git_add chartreuse — success reads green, not white
+    yellow: '#ffaa00',
+    blue: '#00d5b4',   // VFD teal (palette `type`) — real contrast for CLI output
+    magenta: '#ff24ab',
+    cyan: '#6eedf7',
+    white: '#f2cfdf',
+    brightBlack: '#735865',
+    brightRed: '#ff2e2e',
+    brightGreen: '#ffffff',
+    brightYellow: '#ffcc00',
+    brightBlue: '#a0f7fc',
+    brightMagenta: '#ff40c7',
+    brightCyan: '#a0f7fc',
+    brightWhite: '#ffffff'
+  }
+  const themeName = typeof flags.theme === 'string' ? flags.theme : 'vulpes'
   const theme =
-    typeof flags.theme === 'string' ? `Set Theme "${flags.theme}"\n` : ''
+    themeName === 'vulpes'
+      ? `Set Theme ${JSON.stringify(VULPES_THEME)}\n`
+      : `Set Theme "${themeName}"\n`
   const setup =
     typeof flags.cd === 'string'
       ? `Hide\nType ${JSON.stringify('cd ' + flags.cd + ' && clear')}\nEnter\nSleep 700ms\nShow\n`

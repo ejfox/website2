@@ -18,3 +18,6 @@ tags:
      that'd make a stronger hero than this overlay. Draft. -->
 
 Semantic search over video footage — type a query and get back the matching trimmed clip, instead of scrubbing hours of timeline.
+
+
+![sentrysearch CLI help output listing the index, search, img, highlights, shell, and stats commands](https://res.cloudinary.com/ejf/image/upload/v1785421788/projects/sentrysearch/cli-help.png)
