@@ -5729,6 +5729,49 @@
     }
   },
   {
+    "slug": "projects/motorcycle-pico8",
+    "title": "Motorcycle.p8",
+    "date": "2023-07-02T00:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "games",
+      "art",
+      "motorcycle"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Motorcycle.p8",
+      "date": "2023-07-02T00:00:00.000Z",
+      "category": "Creative Coding & Games",
+      "featured": false,
+      "tech": [
+        "Pico-8",
+        "Lua"
+      ],
+      "state": "deployed",
+      "ai-involvement": "human-only",
+      "context": "collaborative",
+      "tags": [
+        "games",
+        "art",
+        "motorcycle"
+      ],
+      "words": 166,
+      "images": 1,
+      "imageDetails": {
+        "total": 1,
+        "cloudinary": 1,
+        "withDimensions": 0
+      },
+      "links": 1,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/motorcycle-pico8"
+    }
+  },
+  {
     "slug": "projects/nbc-big-board",
     "title": "NBC News Big Board",
     "date": "2016-11-08T05:00:00.000Z",

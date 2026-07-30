@@ -1,26 +1,25 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice. Factual stub. The image is the actual Pico-8\n     source; a gameplay GIF would be even better when you can grab one. Draft. -->\n<p class=\"\">A Pico-8 \"video game poem\" about the feeling of riding a motorcycle, with speed-reactive perlin-wave road sway and a music engine that escalates through five patterns as speed climbs, then collapses on a crash. EJ's brother made the sprites and tracker music; Coach Artie, EJ's AI assistant, did most of the coding.</p>\n<figure role=\"figure\" aria-label=\"The motorcycle.p8 source in the Pico-8 editor — perlin road sway and the speed-driven music-pattern engine\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/motorcycle-pico8/source.png\" alt=\"The motorcycle.p8 source in the Pico-8 editor — perlin road sway and the speed-driven music-pattern engine\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/motorcycle-pico8/source.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/motorcycle-pico8/source.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/motorcycle-pico8/source.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/motorcycle-pico8/source.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The motorcycle.p8 source in the Pico-8 editor — perlin road sway and the speed-driven music-pattern engine\" width=\"1152\" height=\"636\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"1152×636\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The motorcycle.p8 source in the Pico-8 editor — perlin road sway and the speed-driven music-pattern engine</figcaption>\n</figure>",
+  "html": "<!-- TODO (EJ): a gameplay GIF would be even better when you can grab one. -->\n<p class=\"\">This was my first experiment in coding a PICO-8 game, so I wanted it to tie into something that sparks joy for me — motorcycle rides — and try to capture its essence in a minimalist video game sketch. That's the exact transmutation that I think makes PICO-8 magical. I hand-coded the whole thing, referencing the docs — this was pre-robot, June 2023. My brother made the sprites and the music (a tracker engine that escalates through five patterns as speed climbs, then collapses on a crash).</p>\n<p class=\"\">I love how it feels once you get to a high speed and the road is coming at you fast — it does, in fact, remind me of the feeling of riding a motorcycle. Which I think is, like, an artistic achievement of some kind.</p>\n<figure role=\"figure\" aria-label=\"The motorcycle.p8 source in the Pico-8 editor — perlin road sway and the speed-driven music-pattern engine\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/motorcycle-pico8/source.png\" alt=\"The motorcycle.p8 source in the Pico-8 editor — perlin road sway and the speed-driven music-pattern engine\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/motorcycle-pico8/source.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/motorcycle-pico8/source.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/motorcycle-pico8/source.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/motorcycle-pico8/source.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The motorcycle.p8 source in the Pico-8 editor — perlin road sway and the speed-driven music-pattern engine\" width=\"1152\" height=\"636\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"1152×636\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The motorcycle.p8 source in the Pico-8 editor — perlin road sway and the speed-driven music-pattern engine</figcaption>\n</figure>",
   "title": "Motorcycle.p8",
   "metadata": {
     "title": "Motorcycle.p8",
     "date": "2023-07-02T00:00:00.000Z",
     "category": "Creative Coding & Games",
     "featured": false,
-    "draft": true,
     "tech": [
       "Pico-8",
       "Lua"
     ],
     "state": "deployed",
-    "ai-involvement": "ai-collaborative",
+    "ai-involvement": "human-only",
     "context": "collaborative",
     "tags": [
       "games",
       "art",
       "motorcycle"
     ],
-    "words": 99,
+    "words": 166,
     "images": 1,
     "imageDetails": {
       "total": 1,
