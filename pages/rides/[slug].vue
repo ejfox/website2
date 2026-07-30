@@ -467,7 +467,13 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
   <div v-if="ride" class="ride-page" :style="{ '--ride-accent': accent }">
     <!-- ridehead -->
     <header class="px-4 md:px-8 pt-16 pb-12 max-w-screen-xl">
-      <p class="post-metadata">
+      <NuxtLink
+        to="/rides"
+        class="font-mono text-3xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600 hover:text-zinc-700 dark:hover:text-zinc-300 transition-colors"
+      >
+        ← rides
+      </NuxtLink>
+      <p class="post-metadata mt-4">
         <span>{{ formatDate(ride.date) }}</span>
         <span v-if="ride.region">·</span>
         <span v-if="ride.region">{{ ride.region }}</span>
