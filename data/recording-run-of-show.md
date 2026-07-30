@@ -103,7 +103,9 @@ From Quest 2. One session, dark-ish room so the palette carries:
 - [ ] **pixel-canvas hero** — the 320×240 display glowing on the desk, ambient
       scene visible. Joins the scene-rotation video as the post opener.
 - [ ] **flipper-generative-art on-device** — patterns running live on the
-      Flipper screen; 15–30s phone video is plenty.
+      Flipper screen; 15–30s phone video is plenty. EJ wants REAL camera for
+      this one, not just phone. Same session: **flipper-space-calculators**
+      (the time-dilation app) — shoot both while the device is out.
 - [ ] Bonus: any gear-closet glamour shot the gear page could use.
 
 Hand me the files: `node scripts/capture.mjs upload <file> projects/<slug>/<name>`
