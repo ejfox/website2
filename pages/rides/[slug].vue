@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useElementSize, useElementBounding, useWindowSize } from '@vueuse/core'
 import { geoMercator } from 'd3-geo'
+import { interpolateInferno } from 'd3-scale-chromatic'
 
 interface Moment {
   id: number
@@ -134,16 +135,90 @@ const riderIndex = computed(() => {
   return lo
 })
 
-/** The ridden-so-far path, built from real points — no dash-length tricks. */
-const progressPath = computed(() => {
-  const pts = projected.value
-  if (!pts.length) return ''
-  const upto = pts.slice(0, riderIndex.value + 1)
-  if (upto.length < 2) return ''
-  return (
-    'M' + upto.map((p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join('L')
-  )
+/**
+ * The ridden path as per-segment strokes: color encodes smoothed speed
+ * (muted → full accent within the ride's hue), width encodes elevation.
+ */
+interface Seg {
+  d: string
+  color: string
+  w: number
+  mph: number
+}
+
+const segmentData = computed<{ segs: Seg[]; maxMph: number }>(() => {
+  const pts = ride.value?.points
+  const proj = projected.value
+  if (!pts || pts.length < 2 || proj.length !== pts.length) {
+    return { segs: [], maxMph: 0 }
+  }
+
+  // raw per-segment speed (m/s) from wire-format time + distance deltas
+  const raw: number[] = []
+  for (let i = 1; i < pts.length; i++) {
+    const dt = (pts[i][3] ?? 0) - (pts[i - 1][3] ?? 0)
+    const dd = pts[i][4] - pts[i - 1][4]
+    raw.push(dt > 0 ? dd / dt : -1)
+  }
+  // smooth over a 5-segment window; missing values borrow neighbors
+  const speeds = raw.map((_, i) => {
+    let sum = 0
+    let n = 0
+    for (
+      let j = Math.max(0, i - 2);
+      j <= Math.min(raw.length - 1, i + 2);
+      j++
+    ) {
+      if (raw[j] >= 0) {
+        sum += raw[j]
+        n++
+      }
+    }
+    return n ? sum / n : 0
+  })
+  // scale to the 95th percentile so one hot straight doesn't flatten the ramp
+  const sorted = [...speeds].sort((a, b) => a - b)
+  const vMax = sorted[Math.floor(sorted.length * 0.95)] || 1
+
+  const eles = pts.map((p) => p[2]).filter((e): e is number => e !== null)
+  const minE = eles.length ? Math.min(...eles) : 0
+  const maxE = eles.length ? Math.max(...eles) : 1
+  const eSpan = maxE - minE || 1
+
+  const segs: Seg[] = []
+  for (let i = 1; i < pts.length; i++) {
+    const t = Math.min(1, speeds[i - 1] / vMax)
+    const ele = pts[i][2] ?? minE
+    const [a, b] = [proj[i - 1], proj[i]]
+    segs.push({
+      d: `M${a[0].toFixed(1)},${a[1].toFixed(1)}L${b[0].toFixed(1)},${b[1].toFixed(1)}`,
+      color: speedColor(t),
+      w: +(1.25 + ((ele - minE) / eSpan) * 2.75).toFixed(2),
+      mph: Math.round(speeds[i - 1] * 2.237),
+    })
+  }
+  return { segs, maxMph: Math.round(vMax * 2.237) }
 })
+
+/** Perceptual speed ramp: inferno, clamped off the near-black tail. */
+function speedColor(t: number) {
+  return interpolateInferno(0.2 + Math.min(1, Math.max(0, t)) * 0.72)
+}
+
+const speedLegendGradient = computed(() => {
+  const stops = Array.from(
+    { length: 7 },
+    (_, i) => `${speedColor(i / 6)} ${Math.round((i / 6) * 100)}%`
+  )
+  return `linear-gradient(to right, ${stops.join(', ')})`
+})
+
+const riddenSegments = computed(() =>
+  segmentData.value.segs.slice(0, riderIndex.value)
+)
+const riderMph = computed(
+  () => segmentData.value.segs[Math.max(0, riderIndex.value - 1)]?.mph ?? null
+)
 
 const riderPoint = computed(() => projected.value[riderIndex.value] ?? null)
 const riderEle = computed(
@@ -515,12 +590,12 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
             />
             <!-- traversed route, accent -->
             <path
-              v-if="progressPath"
-              :d="progressPath"
+              v-for="(s, i) in riddenSegments"
+              :key="i"
+              :d="s.d"
               fill="none"
-              stroke="var(--ride-accent)"
-              stroke-width="2.5"
-              stroke-linejoin="round"
+              :stroke="s.color"
+              :stroke-width="s.w"
               stroke-linecap="round"
             />
             <!-- moment markers -->
@@ -558,6 +633,13 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
               {{ riderEle }}m ele
             </span>
             <span v-if="riderClock" class="ml-3">{{ riderClock }}</span>
+            <span
+              v-if="riderMph !== null"
+              class="ml-3"
+              :style="{ color: 'var(--ride-accent)' }"
+            >
+              {{ riderMph }}mph
+            </span>
           </div>
 
           <!-- map furniture: scale bar, north arrow, attribution -->
@@ -576,6 +658,15 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
             <span style="font-size: 9px; letter-spacing: 0.1em">
               {{ scaleBar.label }}
             </span>
+            <div v-if="segmentData.maxMph" class="mt-2">
+              <div
+                class="h-1 mb-1"
+                :style="{ width: '72px', background: speedLegendGradient }"
+              />
+              <span style="font-size: 8px; letter-spacing: 0.1em">
+                0–{{ segmentData.maxMph }} mph · thick = high ground
+              </span>
+            </div>
           </div>
           <div
             class="absolute top-4 right-4 md:top-8 md:right-8 font-mono text-zinc-400 dark:text-zinc-600 text-center select-none"
