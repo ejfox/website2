@@ -6061,6 +6061,50 @@
     }
   },
   {
+    "slug": "projects/showtouch",
+    "title": "showtouch",
+    "date": "2024-10-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "cli",
+      "terminal",
+      "programming"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "showtouch",
+      "date": "2024-10-01T04:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/showtouch",
+      "tech": [
+        "Python",
+        "ASCII Art",
+        "Terminal"
+      ],
+      "state": "prototype",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "cli",
+        "terminal",
+        "programming"
+      ],
+      "words": 108,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/showtouch"
+    }
+  },
+  {
     "slug": "projects/smallbot-mcp",
     "title": "Smallbot MCP",
     "date": "2025-08-02T04:00:00.000Z",
