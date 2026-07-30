@@ -6105,6 +6105,50 @@
     }
   },
   {
+    "slug": "projects/websdr-vcv",
+    "title": "WebSDR VCV",
+    "date": "2025-08-01T00:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "audio",
+      "radio",
+      "hardware"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "WebSDR VCV",
+      "date": "2025-08-01T00:00:00.000Z",
+      "category": "Hardware & Radio",
+      "featured": false,
+      "url": "https://github.com/ejfox/websdr-vcv",
+      "tech": [
+        "C++",
+        "VCV Rack",
+        "Cardinal"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "audio",
+        "radio",
+        "hardware"
+      ],
+      "words": 120,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/websdr-vcv"
+    }
+  },
+  {
     "slug": "reading/Arenberg-Frumin-Congressional Procedure A Practical Guide to the Legislative Process in the U.S. Congress",
     "title": "Congressional Procedure: A Practical Guide to the Legislative Process in the U.S. Congress",
     "type": "post",
