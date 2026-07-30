@@ -472,7 +472,11 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
         <span v-if="ride.region">·</span>
         <span v-if="ride.region">{{ ride.region }}</span>
       </p>
-      <h1 class="text-display mt-2">{{ ride.title }}</h1>
+      <h1
+        class="mt-2 text-3xl md:text-4xl font-light tracking-tight text-zinc-900 dark:text-zinc-100"
+      >
+        {{ ride.title }}
+      </h1>
       <p v-if="ride.intro" class="post-dek">
         {{ ride.intro }}
       </p>
@@ -491,10 +495,10 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
             {{ stat.label }}
           </dt>
           <dd
-            class="order-1 text-xl tabular-nums text-zinc-900 dark:text-zinc-100"
+            class="order-1 text-base tabular-nums text-zinc-700 dark:text-zinc-300"
           >
             {{ stat.value }}
-            <span class="text-sm text-zinc-400 dark:text-zinc-600">
+            <span class="text-xs text-zinc-400 dark:text-zinc-600">
               {{ stat.unit }}
             </span>
           </dd>
@@ -658,7 +662,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
               </span>
               <span
                 v-if="riderMph !== null"
-                :style="{ color: 'var(--ride-accent)' }"
+                class="text-zinc-700 dark:text-zinc-300"
               >
                 {{ riderMph }} mph
               </span>
