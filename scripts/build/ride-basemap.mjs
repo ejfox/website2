@@ -23,22 +23,29 @@ const OVERPASS_URLS = [
 const TOL_ROAD = 0.0002
 const TOL_WATER = 0.0001
 
-function query(bbox) {
+function query(bbox, coarse) {
   const bb = `${bbox.minLat},${bbox.minLon},${bbox.maxLat},${bbox.maxLon}`
-  return `[out:json][timeout:90];
+  // big rides get a coarser plate: no tertiary roads, no hamlets — otherwise
+  // a 150-mile bbox drowns both Overpass and the page
+  const roads = coarse
+    ? `way["highway"~"^(motorway|trunk|primary)$"](${bb});
+  way["highway"="secondary"](${bb});`
+    : `way["highway"~"^(motorway|trunk|primary)$"](${bb});
+  way["highway"~"^(secondary|tertiary)$"](${bb});`
+  const places = coarse ? 'city|town|village' : 'city|town|village|hamlet'
+  return `[out:json][timeout:120];
 (
-  way["highway"~"^(motorway|trunk|primary)$"](${bb});
-  way["highway"~"^(secondary|tertiary)$"](${bb});
+  ${roads}
   way["railway"="rail"]["service"!~"."](${bb});
   way["waterway"="river"](${bb});
   way["natural"="water"](${bb});
   relation["natural"="water"](${bb});
-  node["place"~"^(city|town|village|hamlet)$"](${bb});
+  node["place"~"^(${places})$"](${bb});
 );
 out geom;`
 }
 
-async function fetchOverpass(bbox, cacheDir, slug) {
+async function fetchOverpass(bbox, cacheDir, slug, coarse) {
   const cachePath = join(cacheDir, `overpass-${slug}.json`)
   if (existsSync(cachePath)) {
     return JSON.parse(await readFile(cachePath, 'utf8'))
@@ -52,7 +59,7 @@ async function fetchOverpass(bbox, cacheDir, slug) {
           'Content-Type': 'application/x-www-form-urlencoded',
           'User-Agent': 'ejfox.com ride basemap builder (ejfox@ejfox.com)',
         },
-        body: 'data=' + encodeURIComponent(query(bbox)),
+        body: 'data=' + encodeURIComponent(query(bbox, coarse)),
       })
       if (!res.ok) throw new Error(`Overpass ${res.status} (${url})`)
       const json = await res.json()
@@ -104,7 +111,8 @@ function simplify(coords, tol) {
   return coords.filter((_, i) => keep[i])
 }
 
-const rnd = (coords) => coords.map((c) => [+c[0].toFixed(5), +c[1].toFixed(5)])
+const rndTo = (coords, dp) =>
+  coords.map((c) => [+c[0].toFixed(dp), +c[1].toFixed(dp)])
 const wayCoords = (el) => (el.geometry ?? []).map((g) => [g.lon, g.lat])
 
 /** Stitch relation member ways into closed outer rings by matching endpoints. */
@@ -142,7 +150,13 @@ function stitchRings(members) {
 // ---------------------------------------------------------------- build
 
 export async function buildBasemap(bbox, cacheDir, slug) {
-  const raw = await fetchOverpass(bbox, cacheDir, slug)
+  // > ~0.8° of extent (~55mi) → coarse plate + heavier simplification
+  const coarse =
+    Math.max(bbox.maxLat - bbox.minLat, bbox.maxLon - bbox.minLon) > 0.8
+  const tolRoad = coarse ? TOL_ROAD * 4 : TOL_ROAD
+  const tolWater = coarse ? TOL_WATER * 4 : TOL_WATER
+  const dp = coarse ? 4 : 5 // ~11m precision is invisible at 100mi scale
+  const raw = await fetchOverpass(bbox, cacheDir, slug, coarse)
   const layers = {
     waterPolys: [],
     rivers: [],
@@ -164,7 +178,7 @@ export async function buildBasemap(bbox, cacheDir, slug) {
     }
     if (el.type === 'relation' && el.tags?.natural === 'water') {
       for (const ring of stitchRings(el.members ?? [])) {
-        layers.waterPolys.push(rnd(simplify(ring, TOL_WATER)))
+        layers.waterPolys.push(rndTo(simplify(ring, tolWater), dp))
       }
       continue
     }
@@ -173,20 +187,39 @@ export async function buildBasemap(bbox, cacheDir, slug) {
     if (coords.length < 2) continue
     const t = el.tags ?? {}
     if (t.natural === 'water') {
-      layers.waterPolys.push(rnd(simplify(coords, TOL_WATER)))
+      layers.waterPolys.push(rndTo(simplify(coords, tolWater), dp))
     } else if (t.waterway === 'river') {
-      layers.rivers.push(rnd(simplify(coords, TOL_WATER)))
+      layers.rivers.push(rndTo(simplify(coords, tolWater), dp))
     } else if (/^(?:motorway|trunk|primary)$/.test(t.highway ?? '')) {
-      layers.roadsMajor.push(rnd(simplify(coords, TOL_ROAD)))
+      layers.roadsMajor.push(rndTo(simplify(coords, tolRoad), dp))
     } else if (/^(?:secondary|tertiary)$/.test(t.highway ?? '')) {
-      layers.roadsMinor.push(rnd(simplify(coords, TOL_ROAD)))
+      layers.roadsMinor.push(rndTo(simplify(coords, tolRoad), dp))
     } else if (t.railway === 'rail') {
-      layers.rail.push(rnd(simplify(coords, TOL_ROAD)))
+      layers.rail.push(rndTo(simplify(coords, tolRoad), dp))
     }
   }
 
   // drop tiny ponds — they read as noise at ride scale
-  layers.waterPolys = layers.waterPolys.filter((ring) => ring.length >= 12)
+  layers.waterPolys = layers.waterPolys.filter(
+    (ring) => ring.length >= (coarse ? 16 : 12)
+  )
+  if (coarse) {
+    // at 100+ mile extents: primary roads only, big towns only, no junction
+    // stubs (ways shorter than ~300m read as dust)
+    const roughLen = (seg) => {
+      let l = 0
+      for (let i = 1; i < seg.length; i++) {
+        l += Math.hypot(seg[i][0] - seg[i - 1][0], seg[i][1] - seg[i - 1][1])
+      }
+      return l
+    }
+    layers.roadsMinor = []
+    layers.roadsMajor = layers.roadsMajor.filter((s) => roughLen(s) > 0.003)
+    layers.rail = layers.rail.filter((s) => roughLen(s) > 0.003)
+    layers.places = layers.places.filter(
+      (p) => p.kind === 'city' || p.kind === 'town'
+    )
+  }
   // dedupe place names (OSM sometimes doubles hamlets), keep the bigger kind
   const rank = { city: 0, town: 1, village: 2, hamlet: 3 }
   const seen = new Map()

@@ -109,14 +109,28 @@ async function parseGpx(gpxPath) {
   return points
 }
 
-/** Drop the first/last `meters` of the ride so endpoints stay private. */
-function privacyTrim(points, meters) {
-  if (meters <= 0 || points.length < 3) return points
+/**
+ * Deterministic 0–1 jitter from slug+salt (FNV-1a). The trim distance must be
+ * unguessable per ride — a fixed radius lets anyone walk the route back to
+ * the real endpoint — but reproducible so builds don't churn.
+ */
+function seededJitter(slug, salt) {
+  let h = 2166136261
+  for (const c of `${slug}:${salt}`) {
+    h ^= c.charCodeAt(0)
+    h = Math.imul(h, 16777619)
+  }
+  return (h >>> 0) / 4294967296
+}
+
+/** Drop fuzzy start/end stretches so endpoints never dox anyone. */
+function privacyTrim(points, startMeters, endMeters) {
+  if ((startMeters <= 0 && endMeters <= 0) || points.length < 3) return points
   let startIdx = 0
   let acc = 0
   for (let i = 1; i < points.length; i++) {
     acc += haversine(points[i - 1], points[i])
-    if (acc >= meters) {
+    if (acc >= startMeters) {
       startIdx = i
       break
     }
@@ -125,7 +139,7 @@ function privacyTrim(points, meters) {
   acc = 0
   for (let i = points.length - 1; i > 0; i--) {
     acc += haversine(points[i - 1], points[i])
-    if (acc >= meters) {
+    if (acc >= endMeters) {
       endIdx = i - 1
       break
     }
@@ -134,8 +148,13 @@ function privacyTrim(points, meters) {
   return points.slice(startIdx, endIdx + 1)
 }
 
-function computeTrack(rawPoints, trimMeters) {
-  const trimmed = privacyTrim(rawPoints, trimMeters)
+function computeTrack(rawPoints, trimMeters, slug) {
+  // each end gets an independent, unguessable trim in [base, 2×base]
+  const trimmed = privacyTrim(
+    rawPoints,
+    trimMeters * (1 + seededJitter(slug, 'start')),
+    trimMeters * (1 + seededJitter(slug, 'end'))
+  )
 
   // cumulative distance + speed on the full-resolution trimmed track
   let cum = 0
@@ -388,7 +407,7 @@ async function processRide(slug) {
   if (existsSync(gpxPath)) {
     const rawPoints = await parseGpx(gpxPath)
     const trim = data.privacyTrimMeters ?? DEFAULT_PRIVACY_TRIM_METERS
-    track = computeTrack(rawPoints, trim)
+    track = computeTrack(rawPoints, trim, slug)
     try {
       basemap = await buildBasemap(
         padBounds(track.bounds, 0.12),
