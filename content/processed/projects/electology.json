@@ -1,6 +1,6 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice — factual stub, not your words. Draft until ready. -->\n<p class=\"\">A year-round election-analysis platform built on atomic data units (candidates, races, precincts), spun out of EJ's NBC Big Board work. It shipped alongside two open-source helpers: <code class=\"md-inline-code\">election-helpers</code> (npm) and an election-data-generator (Observable).</p>",
+  "html": "<!-- TODO (EJ): add your voice — factual stub, not your words. Draft until ready.\n     2026-07-30: electology.co domain expired, site dead — EJ: \"lets come back to\n     that\". Dropped dead url from frontmatter; state deployed→evolved (least-wrong\n     of the existing vocab: deployed/doing/evolved/prototype). -->\n<p class=\"\">A year-round election-analysis platform built on atomic data units (candidates, races, precincts), spun out of EJ's NBC Big Board work. It shipped alongside two open-source helpers: <code class=\"md-inline-code\">election-helpers</code> (npm) and an election-data-generator (Observable).</p>",
   "title": "Electology",
   "metadata": {
     "title": "Electology",
@@ -8,13 +8,12 @@
     "category": "Data Visualization",
     "featured": false,
     "draft": true,
-    "url": "https://electology.co",
     "tech": [
       "JavaScript",
       "D3.js",
       "Observable"
     ],
-    "state": "deployed",
+    "state": "evolved",
     "ai-involvement": "ai-assisted",
     "tags": [
       "elections",
@@ -22,7 +21,7 @@
       "data",
       "product"
     ],
-    "words": 50,
+    "words": 76,
     "images": 0,
     "imageDetails": {
       "total": 0,

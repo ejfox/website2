@@ -1,6 +1,6 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice. Factual stub. The README has a fuller demo video\n     that'd make a stronger hero than this overlay. Draft. -->\n<p class=\"\">Semantic search over video footage — type a query and get back the matching trimmed clip, instead of scrubbing hours of timeline.</p>",
+  "html": "<!-- TODO (EJ): add your voice. Factual stub. The README has a fuller demo video\n     that'd make a stronger hero than this overlay. Draft. -->\n<p class=\"\">Semantic search over video footage — type a query and get back the matching trimmed clip, instead of scrubbing hours of timeline.</p>\n<figure role=\"figure\" aria-label=\"sentrysearch CLI help output listing the index, search, img, highlights, shell, and stats commands\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1785421788/projects/sentrysearch/cli-help.png\" alt=\"sentrysearch CLI help output listing the index, search, img, highlights, shell, and stats commands\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1785421788/projects/sentrysearch/cli-help.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1785421788/projects/sentrysearch/cli-help.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1785421788/projects/sentrysearch/cli-help.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1785421788/projects/sentrysearch/cli-help.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"sentrysearch CLI help output listing the index, search, img, highlights, shell, and stats commands\" width=\"1200\" height=\"800\" style=\"--splay-rot:1.96deg;\" data-dimensions=\"1200×800\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">sentrysearch CLI help output listing the index, search, img, highlights, shell, and stats commands</figcaption>\n</figure>",
   "title": "Sentry Search",
   "metadata": {
     "title": "Sentry Search",
@@ -21,14 +21,14 @@
       "ai",
       "search"
     ],
-    "words": 49,
-    "images": 0,
+    "words": 63,
+    "images": 1,
     "imageDetails": {
-      "total": 0,
-      "cloudinary": 0,
+      "total": 1,
+      "cloudinary": 1,
       "withDimensions": 0
     },
-    "links": 0,
+    "links": 1,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],
