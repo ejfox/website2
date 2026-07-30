@@ -153,29 +153,39 @@ const segmentData = computed<{ segs: Seg[]; maxMph: number }>(() => {
     return { segs: [], maxMph: 0 }
   }
 
-  // raw per-segment speed (m/s) from wire-format time + distance deltas
-  const raw: number[] = []
-  for (let i = 1; i < pts.length; i++) {
-    const dt = (pts[i][3] ?? 0) - (pts[i - 1][3] ?? 0)
-    const dd = pts[i][4] - pts[i - 1][4]
-    raw.push(dt > 0 ? dd / dt : -1)
-  }
-  // smooth over a 5-segment window; missing values borrow neighbors
-  const speeds = raw.map((_, i) => {
-    let sum = 0
-    let n = 0
-    for (
-      let j = Math.max(0, i - 2);
-      j <= Math.min(raw.length - 1, i + 2);
-      j++
+  // speed at each point: true distance over a ~16s time window around it —
+  // per-segment deltas on the simplified track smear stops into the average
+  const times = pts.map((p) => p[3])
+  const dists = pts.map((p) => p[4])
+  const n = pts.length
+  const HALF_WINDOW_S = 8
+  const speedAt = (i: number): number => {
+    const ti = times[i]
+    if (ti === null) return 0
+    let j = i
+    let k = i
+    // walk until each side is at least HALF_WINDOW_S away (or the track ends),
+    // so sparse straightaway points still yield a real interval
+    while (
+      j > 0 &&
+      times[j] !== null &&
+      ti - (times[j] as number) < HALF_WINDOW_S
     ) {
-      if (raw[j] >= 0) {
-        sum += raw[j]
-        n++
-      }
+      j--
     }
-    return n ? sum / n : 0
-  })
+    while (
+      k < n - 1 &&
+      times[k] !== null &&
+      (times[k] as number) - ti < HALF_WINDOW_S
+    ) {
+      k++
+    }
+    const dt = (times[k] as number) - (times[j] as number)
+    return dt > 0 ? (dists[k] - dists[j]) / dt : 0
+  }
+  // one speed per segment, sampled at its leading point
+  const speeds: number[] = []
+  for (let i = 1; i < n; i++) speeds.push(speedAt(i))
   // scale to the 95th percentile so one hot straight doesn't flatten the ramp
   const sorted = [...speeds].sort((a, b) => a - b)
   const vMax = sorted[Math.floor(sorted.length * 0.95)] || 1
