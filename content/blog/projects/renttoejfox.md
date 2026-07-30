@@ -1,7 +1,7 @@
 ---
 title: "Rent to EJ Fox"
 date: 2025-06-01T00:00:00-04:00
-category: "Apps & Civic"
+category: "Creative Coding & Games"
 featured: false
 draft: true
 tech: ["Nuxt", "Vue"]

@@ -55,7 +55,8 @@ const CATEGORY_ORDER = [
   'Data Visualization',
   'Creative Coding & Games',
   'Hardware & Radio',
-  'Apps & Civic',
+  'Activism',
+  'Apps',
   'Tools & Terminal',
 ]
 const categorySlug = (c) =>

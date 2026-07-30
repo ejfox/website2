@@ -1,7 +1,7 @@
 ---
 title: "Mapping ICE"
 date: 2026-01-01
-category: "Apps & Civic"
+category: "Activism"
 featured: false
 draft: true
 url: https://github.com/ejfox/mapping-ice
