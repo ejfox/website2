@@ -88,13 +88,13 @@ useHead({ title: 'Rides — EJ Fox' })
 
     <div
       v-if="rides.length"
-      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-px bg-zinc-200 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-800"
+      class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 pt-px pl-px"
     >
       <NuxtLink
         v-for="ride in rides"
         :key="ride.slug"
         :to="`/rides/${ride.slug}`"
-        class="group block bg-white dark:bg-zinc-950 p-4"
+        class="group block bg-white dark:bg-zinc-950 p-4 border border-zinc-200 dark:border-zinc-800 -mt-px -ml-px"
       >
         <!-- track shape, common scale -->
         <svg
