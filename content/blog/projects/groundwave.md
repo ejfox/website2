@@ -15,7 +15,8 @@ tags:
   - radio
 ---
 
-<!-- TODO (EJ): add your voice. NEEDS A HERO — a screenshot of the dashboard
+<!-- NOTE (2026-07-30): checked "Getting Started In Amateur Radio" video for voice material — zero groundwave/HackRF content, it is radio-life story only. Voice needs the recording session.
+     TODO (EJ): add your voice. NEEDS A HERO — a screenshot of the dashboard
      running (spectrum + map). Draft until captured. -->
 
 A realtime dashboard for a Meshtastic mesh network and HackRF SDR — a spectrum waterfall, a geographic node map with RSSI, and mesh chat, all in dense Tufte-academic styling. Nuxt 3 + D3 over a Nitro WebSocket.

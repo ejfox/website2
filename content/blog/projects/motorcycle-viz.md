@@ -20,6 +20,8 @@ tags:
 
 What does 3.5 years of riding *look like* if you average it all together? This takes the helmet-cam footage from years of motorcycle trips and runs it through a battery of meta-visualization techniques — pulling images out of the footage that no single frame contains.
 
+![Every frame from 3.5 years of riding — 294 clips, 78 rides — averaged into a single image](https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/salavon-overall.png)
+
 **Frame averaging** (after Jason Salavon) stacks thousands of frames into one — the constants of riding (road below, sky above, the fairing) resolve into a soft ghost while everything transient blurs away. Run it per year and you can watch the ghost shift as the routes and seasons change:
 
 ![The average of every 2024 frame](https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/salavon-2024.png)

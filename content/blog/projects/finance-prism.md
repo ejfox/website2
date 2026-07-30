@@ -18,3 +18,6 @@ tags:
      symbols (SPY), no personal positions. Draft until ready. -->
 
 A live quantitative-analysis notebook built on Observable Plot — a four-panel workspace (cumulative returns with drawdown, rolling volatility, price action, and a custom-strategy slot) where each panel is an editable code cell you can re-run against any symbol. It's a personal research instrument for market data, vim-mode and all.
+
+
+![Finance Prism dashboard: market overview cards, BTC-USD candlestick chart, and trading terminal with a pending signal awaiting approval](https://res.cloudinary.com/ejf/image/upload/v1785421789/projects/finance-prism/dashboard.png)

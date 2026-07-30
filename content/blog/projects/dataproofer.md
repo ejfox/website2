@@ -18,6 +18,8 @@ tags:
 
 Along with Gerald Rich and the Vocativ data team, I received a [Knight Prototype Fund](https://knightfoundation.org/articles/20-ideas-receive-support-knight-prototype-fund-media-and-information-projects/) grant to create [Dataproofer](https://github.com/dataproofer/Dataproofer) - an open source tool to check data for reliability, missing data, and outliers. Built as an Electron desktop app for journalists.
 
+![The Dataproofer site — a spellchecker, for your data](https://res.cloudinary.com/ejf/image/upload/projects/dataproofer/landing.png)
+
 ```bash
 ❯ dataproofer Criterion\ Channel\ videos\ v1.2.0-20190621\ -\ v1.2.0-20190621.csv
 

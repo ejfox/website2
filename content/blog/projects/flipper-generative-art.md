@@ -16,7 +16,14 @@ tags:
   - art
 ---
 
-<!-- TODO (EJ): add your voice. These are the app's own gallery captures from the
+<!-- TODO (EJ): Photo Day — real camera, patterns running on-device, shoot
+     flipper-space-calculators in the same session. His words 2026-07-30:
+     "its cool but hard to express" — the footage IS the expression.
+     VOICE PLAN (2026-07-30): EJ narrates a video while playing with the device;
+     Claude transcribes → drafts verbatim-first (hexagram treatment). Prompts to
+     riff on during recording: what the gradient families are doing (dither? flow
+     fields?), the first "oh hell yes" pattern, what 1-bit/128×64 forced.
+     TODO (EJ): add your voice. These are the app's own gallery captures from the
      128×64 screen; an on-device shot of it running live would be even better
      (it's on the Photo Day list). Draft until then. -->
 
