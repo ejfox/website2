@@ -6148,6 +6148,44 @@
     }
   },
   {
+    "slug": "projects/vulpes-nvim",
+    "title": "vulpes.nvim",
+    "date": "2026-01-18T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "vulpes.nvim",
+      "date": "2026-01-18T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/vulpes.nvim",
+      "tech": [
+        "Lua"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 148,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/vulpes-nvim"
+    }
+  },
+  {
     "slug": "projects/websdr-vcv",
     "title": "WebSDR VCV",
     "date": "2025-08-01T00:00:00.000Z",
