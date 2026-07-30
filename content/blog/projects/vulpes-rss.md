@@ -1,7 +1,7 @@
 ---
 title: "Vulpes RSS"
 date: 2026-02-15T00:00:00-05:00
-category: "Tools & Terminal"
+category: "Tools"
 featured: false
 draft: true
 url: https://github.com/ejfox/vulpes-rss

@@ -1,7 +1,7 @@
 ---
 title: "Docgrind"
 date: 2025-08-02T00:00:00-05:00
-category: "Tools & Terminal"
+category: "Tools"
 featured: false
 draft: true
 url: https://github.com/ejfox/docgrind

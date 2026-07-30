@@ -1,7 +1,7 @@
 ---
 title: "Subway Builder"
 date: 2026-05-01T00:00:00-04:00
-category: "Creative Coding & Games"
+category: "Art"
 featured: false
 draft: true
 url: https://github.com/ejfox/subway-builder-mods

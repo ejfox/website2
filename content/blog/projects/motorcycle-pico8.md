@@ -1,7 +1,7 @@
 ---
 title: "Motorcycle.p8"
 date: 2023-07-02
-category: "Creative Coding & Games"
+category: "Art"
 featured: false
 tech: ["Pico-8", "Lua"]
 state: deployed

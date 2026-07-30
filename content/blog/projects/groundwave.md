@@ -1,7 +1,7 @@
 ---
 title: "groundwave"
 date: 2026-05-24T00:00:00-04:00
-category: "Hardware & Radio"
+category: "Hardware"
 featured: false
 draft: true
 hidden: true

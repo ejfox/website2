@@ -1,7 +1,7 @@
 ---
 title: "r/dataisbeautiful, Embedded"
 date: 2023-04-14T00:00:00-04:00
-category: "Data Visualization"
+category: "Dataviz"
 featured: false
 draft: true
 tech: ["OpenAI Embeddings", "Clustering", "D3.js", "Data Visualization"]

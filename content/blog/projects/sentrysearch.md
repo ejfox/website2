@@ -1,7 +1,7 @@
 ---
 title: "Sentry Search"
 date: 2026-05-01T00:00:00-04:00
-category: "Tools & Terminal"
+category: "Tools"
 featured: false
 draft: true
 url: https://github.com/ejfox/sentrysearch

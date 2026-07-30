@@ -1,7 +1,7 @@
 ---
 title: "Genome Report"
 date: 2026-04-01T00:00:00-04:00
-category: "Data Visualization"
+category: "Dataviz"
 featured: false
 draft: true
 tech: ["D3.js", "Tufte CSS", "Genomics", "Data Visualization"]

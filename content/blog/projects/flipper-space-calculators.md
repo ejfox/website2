@@ -1,7 +1,7 @@
 ---
 title: "Flipper Space Calculators"
 date: 2025-01-20T00:00:00-05:00
-category: "Hardware & Radio"
+category: "Hardware"
 featured: false
 url: https://github.com/ejfox/flipper-space-calculators
 tech: ["Flipper Zero", "C", "Embedded"]

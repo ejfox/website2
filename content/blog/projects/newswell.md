@@ -1,7 +1,7 @@
 ---
 title: "Newswell Studio"
 date: 2025-10-01
-category: "Tools & Terminal"
+category: "Tools"
 featured: false
 draft: true
 url: https://github.com/ejfox/newswell

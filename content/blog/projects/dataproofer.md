@@ -1,7 +1,7 @@
 ---
 title: Dataproofer
 date: 2015-11-03T00:00:00-05:00
-category: "Client & Newsroom"
+category: "Journalism"
 modified: 2025-08-26T15:53:33-04:00
 url: https://github.com/dataproofer/Dataproofer
 tech: ["JavaScript", "Electron", "Data Quality", "CSV"]

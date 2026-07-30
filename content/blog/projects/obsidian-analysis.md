@@ -1,7 +1,7 @@
 ---
 title: "Obsidian Analysis"
 date: 2024-06-01T00:00:00-04:00
-category: "Data Visualization"
+category: "Dataviz"
 featured: false
 draft: true
 url: https://github.com/ejfox/obsidian-analysis

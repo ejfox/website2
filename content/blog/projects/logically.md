@@ -1,7 +1,7 @@
 ---
 title: "Logically: Mapping Disinformation Networks"
 date: 2022-06-01T00:00:00-04:00
-category: "Client & Newsroom"
+category: "Journalism"
 featured: false
 draft: true
 client: Logically

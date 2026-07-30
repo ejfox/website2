@@ -1,7 +1,7 @@
 ---
 title: "Cavapalooza"
 date: 2025-05-01T00:00:00-04:00
-category: "Creative Coding & Games"
+category: "Art"
 featured: false
 draft: true
 url: https://github.com/ejfox/cavapalooza

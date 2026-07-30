@@ -1,7 +1,7 @@
 ---
 title: "Butt Math"
 date: 2026-05-01
-category: "Creative Coding & Games"
+category: "Art"
 featured: false
 draft: true
 tech: ["SVG", "Nuxt", "Vue", "D3", "flubber"]

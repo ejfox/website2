@@ -1,7 +1,7 @@
 ---
 title: "Connectology"
 date: 2026-03-01
-category: "Data Visualization"
+category: "Dataviz"
 featured: true
 url: https://connectology.room302.studio/
 tech: ["Nuxt 3", "Vue 3", "D3", "graphology", "SQLite", "Clerk"]

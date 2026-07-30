@@ -1,7 +1,7 @@
 ---
 title: "Speech Echoes"
 date: 2026-04-01
-category: "Creative Coding & Games"
+category: "Art"
 featured: false
 draft: true
 url: https://github.com/ejfox/opencv-talk-typography

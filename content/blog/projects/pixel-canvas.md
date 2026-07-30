@@ -1,7 +1,7 @@
 ---
 title: "Pixel Canvas"
 date: 2026-05-27T00:00:00-04:00
-category: "Hardware & Radio"
+category: "Hardware"
 featured: true
 draft: false
 url: https://github.com/ejfox/pixel-canvas

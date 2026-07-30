@@ -1,7 +1,7 @@
 ---
 title: "EXIF Printer"
 date: 2024-04-01T00:00:00-04:00
-category: "Tools & Terminal"
+category: "Tools"
 featured: false
 modified: 2025-08-13T11:20:07-04:00
 tech: ["Photography", "EXIF", "Print Design", "Web Design", "Camera Metadata"]

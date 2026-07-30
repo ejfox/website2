@@ -1,7 +1,7 @@
 ---
 title: "Coach Artie — Showcase Site"
 date: 2025-06-01T00:00:00-05:00
-category: "Tools & Terminal"
+category: "Tools"
 featured: false
 draft: true
 url: https://github.com/ejfox/coachartie_showcase

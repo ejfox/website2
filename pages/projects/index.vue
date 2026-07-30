@@ -51,13 +51,13 @@ const regularProjects = computed(
 // Client & Newsroom makes the professional/journalism range legible up front;
 // Tools & Terminal (the biggest bucket) sits last so it doesn't drown the rest.
 const CATEGORY_ORDER = [
-  'Client & Newsroom',
-  'Data Visualization',
-  'Creative Coding & Games',
-  'Hardware & Radio',
+  'Journalism',
+  'Dataviz',
+  'Art',
+  'Hardware',
   'Activism',
   'Apps',
-  'Tools & Terminal',
+  'Tools',
 ]
 const categorySlug = (c) =>
   'cat-' +

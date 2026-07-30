@@ -1,7 +1,7 @@
 ---
 title: "Handtrack WebSockets"
 date: 2024-12-01
-category: "Creative Coding & Games"
+category: "Art"
 featured: false
 draft: true
 url: https://github.com/ejfox/handtrack-websockets

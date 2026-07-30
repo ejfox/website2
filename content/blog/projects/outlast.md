@@ -1,7 +1,7 @@
 ---
 title: "Outlast"
 date: 2026-05-29T00:00:00-05:00
-category: "Tools & Terminal"
+category: "Tools"
 featured: false
 draft: true
 url: https://github.com/ejfox/outlast

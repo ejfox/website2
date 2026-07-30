@@ -1,7 +1,7 @@
 ---
 title: "sStory"
 date: 2015-01-01T00:00:00-05:00
-category: "Data Visualization"
+category: "Dataviz"
 featured: false
 draft: true
 url: https://ejfox.github.io/sStory/

@@ -1,7 +1,7 @@
 ---
 title: "Vulpes Devices"
 date: 2026-03-15T00:00:00-04:00
-category: "Hardware & Radio"
+category: "Hardware"
 featured: false
 draft: true
 url: https://github.com/ejfox/vulpes-devices

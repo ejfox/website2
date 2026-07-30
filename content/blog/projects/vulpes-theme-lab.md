@@ -1,7 +1,7 @@
 ---
 title: "Vulpes Theme Lab"
 date: 2025-12-28T00:00:00-05:00
-category: "Tools & Terminal"
+category: "Tools"
 featured: false
 draft: true
 url: https://ejfox.github.io/vulpes-theme-lab/

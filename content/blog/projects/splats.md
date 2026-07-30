@@ -1,7 +1,7 @@
 ---
 title: "Gaussian Splats"
 date: 2026-04-01T00:00:00-04:00
-category: "Hardware & Radio"
+category: "Hardware"
 featured: false
 draft: true
 tech: ["3D Gaussian Splatting", "COLMAP", "Drone", "M1"]

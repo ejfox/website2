@@ -5193,7 +5193,7 @@
     "metadata": {
       "title": "Clusters of NYPD Misconduct",
       "date": "2021-06-15T04:00:00.000Z",
-      "category": "Client & Newsroom",
+      "category": "Journalism",
       "modified": "2025-08-26T19:52:56.000Z",
       "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
       "tech": [
@@ -5242,7 +5242,7 @@
     "metadata": {
       "title": "Cloudinary Backup Tool",
       "date": "2025-01-15T05:00:00.000Z",
-      "category": "Tools & Terminal",
+      "category": "Tools",
       "featured": false,
       "github": "https://github.com/ejfox/cloudinary-backup-tool",
       "tech": [
@@ -5313,7 +5313,7 @@
     "metadata": {
       "title": "Coach Artie",
       "date": "2023-03-21T04:00:00.000Z",
-      "category": "Tools & Terminal",
+      "category": "Tools",
       "featured": false,
       "modified": "2025-08-26T19:52:50.000Z",
       "url": "https://github.com/room302studio/coachartie",
@@ -5391,7 +5391,7 @@
     "metadata": {
       "title": "Connectology",
       "date": "2026-03-01T00:00:00.000Z",
-      "category": "Data Visualization",
+      "category": "Dataviz",
       "featured": true,
       "url": "https://connectology.room302.studio/",
       "tech": [
@@ -5441,7 +5441,7 @@
     "metadata": {
       "title": "COVIDcast",
       "date": "2020-04-24T04:00:00.000Z",
-      "category": "Client & Newsroom",
+      "category": "Journalism",
       "featured": false,
       "modified": "2025-08-26T19:53:05.000Z",
       "url": "https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx",
@@ -5496,7 +5496,7 @@
     "metadata": {
       "title": "Hand-Tracking & Generative Art",
       "date": "2024-07-01T04:00:00.000Z",
-      "category": "Creative Coding & Games",
+      "category": "Art",
       "featured": false,
       "modified": "2025-08-13T15:46:54.000Z",
       "tech": [
@@ -5553,7 +5553,7 @@
     "metadata": {
       "title": "Dataproofer",
       "date": "2015-11-03T05:00:00.000Z",
-      "category": "Client & Newsroom",
+      "category": "Journalism",
       "modified": "2025-08-26T19:53:33.000Z",
       "url": "https://github.com/dataproofer/Dataproofer",
       "tech": [
@@ -5603,7 +5603,7 @@
     "metadata": {
       "title": "Flipper Generative Art",
       "date": "2025-01-15T05:00:00.000Z",
-      "category": "Hardware & Radio",
+      "category": "Hardware",
       "featured": true,
       "url": "https://github.com/ejfox/flipper-generative-art",
       "tech": [
@@ -5651,7 +5651,7 @@
     "metadata": {
       "title": "Flipper Space Calculators",
       "date": "2025-01-20T05:00:00.000Z",
-      "category": "Hardware & Radio",
+      "category": "Hardware",
       "featured": false,
       "url": "https://github.com/ejfox/flipper-space-calculators",
       "tech": [
@@ -5697,7 +5697,7 @@
     "metadata": {
       "title": "I Ching Motion Graphics",
       "date": "2026-05-01T04:00:00.000Z",
-      "category": "Creative Coding & Games",
+      "category": "Art",
       "featured": true,
       "url": "https://github.com/ejfox/hexagram-motion-graphics",
       "tech": [
@@ -5742,7 +5742,7 @@
     "metadata": {
       "title": "Motorcycle.p8",
       "date": "2023-07-02T00:00:00.000Z",
-      "category": "Creative Coding & Games",
+      "category": "Art",
       "featured": false,
       "tech": [
         "Pico-8",
@@ -5788,7 +5788,7 @@
       "title": "NBC News Big Board",
       "date": "2016-11-08T05:00:00.000Z",
       "client": "NBC News",
-      "category": "Client & Newsroom",
+      "category": "Journalism",
       "modified": "2025-08-13T16:24:29.000Z",
       "tech": [
         "D3.js",
@@ -5838,7 +5838,7 @@
       "title": "NBC News Specials",
       "date": "2016-12-14T20:01:50.000Z",
       "client": "NBC News",
-      "category": "Client & Newsroom",
+      "category": "Journalism",
       "featured": false,
       "modified": "2025-08-13T16:01:12.000Z",
       "url": "https://nbcnews.com/specials",
@@ -5879,7 +5879,7 @@
     "metadata": {
       "title": "Paramilitary Leaks",
       "date": "2025-09-01T04:00:00.000Z",
-      "category": "Client & Newsroom",
+      "category": "Journalism",
       "featured": true,
       "tech": [
         "Nuxt",
@@ -5925,7 +5925,7 @@
     "metadata": {
       "title": "EXIF Printer",
       "date": "2024-04-01T04:00:00.000Z",
-      "category": "Tools & Terminal",
+      "category": "Tools",
       "featured": false,
       "modified": "2025-08-13T15:20:07.000Z",
       "tech": [
@@ -5979,7 +5979,7 @@
     "metadata": {
       "title": "Pixel Canvas",
       "date": "2026-05-27T04:00:00.000Z",
-      "category": "Hardware & Radio",
+      "category": "Hardware",
       "featured": true,
       "draft": false,
       "url": "https://github.com/ejfox/pixel-canvas",
@@ -6034,7 +6034,7 @@
     "metadata": {
       "title": "Scrapbook Core",
       "date": "2026-05-05T05:00:00.000Z",
-      "category": "Tools & Terminal",
+      "category": "Tools",
       "featured": true,
       "url": "https://github.com/ejfox/scrapbook-core",
       "tech": [
@@ -6074,7 +6074,7 @@
     "metadata": {
       "title": "Smallbot MCP",
       "date": "2025-08-02T04:00:00.000Z",
-      "category": "Tools & Terminal",
+      "category": "Tools",
       "featured": false,
       "modified": "2025-08-13T17:17:13.000Z",
       "url": "https://github.com/ejfox/smallbot-mcp",
@@ -6118,7 +6118,7 @@
     "metadata": {
       "title": "smallweb-starter",
       "date": "2024-08-01T04:00:00.000Z",
-      "category": "Tools & Terminal",
+      "category": "Tools",
       "featured": false,
       "url": "https://github.com/ejfox/smallweb-starter",
       "tech": [
@@ -6161,7 +6161,7 @@
     "metadata": {
       "title": "WebSDR VCV",
       "date": "2025-08-01T00:00:00.000Z",
-      "category": "Hardware & Radio",
+      "category": "Hardware",
       "featured": false,
       "url": "https://github.com/ejfox/websdr-vcv",
       "tech": [

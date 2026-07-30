@@ -2,7 +2,7 @@
 title: NBC News Specials
 date: 2016-12-14T15:01:50-05:00
 client: "NBC News"
-category: "Client & Newsroom"
+category: "Journalism"
 featured: false
 modified: 2025-08-13T12:01:12-04:00
 url: https://nbcnews.com/specials

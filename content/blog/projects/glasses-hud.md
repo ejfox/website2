@@ -1,7 +1,7 @@
 ---
 title: "Glasses HUD"
 date: 2025-08-01
-category: "Hardware & Radio"
+category: "Hardware"
 featured: false
 draft: true
 url: https://ejfox.github.io/glasses-hud/

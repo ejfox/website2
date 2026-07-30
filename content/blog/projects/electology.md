@@ -1,7 +1,7 @@
 ---
 title: "Electology"
 date: 2025-01-01
-category: "Data Visualization"
+category: "Dataviz"
 featured: false
 draft: true
 tech: ["JavaScript", "D3.js", "Observable"]

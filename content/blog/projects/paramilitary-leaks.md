@@ -1,7 +1,7 @@
 ---
 title: "Paramilitary Leaks"
 date: 2025-09-01T00:00:00-04:00
-category: "Client & Newsroom"
+category: "Journalism"
 featured: true
 tech: ["Nuxt", "Vue", "Search", "Data Visualization"]
 state: deployed
