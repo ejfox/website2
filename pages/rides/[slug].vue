@@ -59,6 +59,23 @@ if (!ride.value) {
 
 const accent = computed(() => `hsl(${ride.value?.hue ?? 25} 75% 55%)`)
 
+// ---- formatting ----------------------------------------------------------
+const km = (m: number) => (m / 1000).toFixed(1)
+const mi = (m: number) => (m / 1609.34).toFixed(1)
+const ft = (m: number) => Math.round(m * 3.28084)
+const mph = (mps: number) => Math.round(mps * 2.237)
+const duration = (s: number) =>
+  `${Math.floor(s / 3600)}h${String(Math.floor((s % 3600) / 60)).padStart(2, '0')}m`
+const formatDate = (d: string | null) =>
+  d
+    ? new Date(d).toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC',
+      })
+    : ''
+
 // ---- map projection ------------------------------------------------------
 const ELEV_H = 80
 const mapContainer = ref<HTMLElement | null>(null)
@@ -202,6 +219,58 @@ const riderMph = computed(
   () => segmentData.value.segs[Math.max(0, riderIndex.value - 1)]?.mph ?? null
 )
 
+const headerStats = computed(() => {
+  const s = ride.value?.stats
+  if (!s) return []
+  const out = [
+    {
+      label: `distance · ${km(s.distanceMeters)} km`,
+      value: mi(s.distanceMeters),
+      unit: ' mi',
+    },
+  ]
+  if (s.movingSeconds) {
+    out.push({ label: 'moving', value: duration(s.movingSeconds), unit: '' })
+  }
+  if (s.elevationGainMeters) {
+    out.push({
+      label: 'climb',
+      value: String(ft(s.elevationGainMeters)),
+      unit: ' ft',
+    })
+  }
+  if (s.avgMovingSpeedMps) {
+    out.push({
+      label: 'avg speed',
+      value: String(mph(s.avgMovingSpeedMps)),
+      unit: ' mph',
+    })
+  }
+  if (s.maxSpeedMps) {
+    out.push({
+      label: 'max speed',
+      value: String(mph(s.maxSpeedMps)),
+      unit: ' mph',
+    })
+  }
+  return out
+})
+
+// Inferred fuel state: full tank at ride start, burned by distance.
+// Versys-X 300: 4.5 gal tank, ~56 mpg real-world. Estimate, and says so.
+const TANK_GAL = 4.5
+const MPG = 56
+const fuel = computed(() => {
+  const used = progressDist.value / 1609.34 / MPG
+  const frac = Math.max(0, 1 - used / TANK_GAL)
+  const blocks = 10
+  const filled = Math.round(frac * blocks)
+  return {
+    bar: '▮'.repeat(filled) + '▯'.repeat(blocks - filled),
+    gal: (TANK_GAL - used).toFixed(1),
+  }
+})
+
 const riderPoint = computed(() => projected.value[riderIndex.value] ?? null)
 const riderEle = computed(
   () => ride.value?.points[riderIndex.value]?.[2] ?? null
@@ -319,11 +388,12 @@ const scaleBar = computed(() => {
   const b = proj.invert([width.value / 2 + 100, y]) as [number, number]
   const metersPer100px = haversineMeters(a, b)
   if (!metersPer100px) return null
+  const MILE = 1609.34
   const targetM = metersPer100px * 1.4 // aim for a ~140px bar
-  const nice = [1000, 2000, 5000, 10000, 20000].reduce((best, n) =>
-    Math.abs(n - targetM) < Math.abs(best - targetM) ? n : best
+  const nice = [1, 2, 5, 10].reduce((best, n) =>
+    Math.abs(n * MILE - targetM) < Math.abs(best * MILE - targetM) ? n : best
   )
-  return { px: (nice / metersPer100px) * 100, label: `${nice / 1000} km` }
+  return { px: ((nice * MILE) / metersPer100px) * 100, label: `${nice} mi` }
 })
 
 function haversineMeters(a: [number, number], b: [number, number]) {
@@ -385,21 +455,6 @@ const elevationPath = computed(() => {
   return d
 })
 
-// ---- formatting ----------------------------------------------------------
-const km = (m: number) => (m / 1000).toFixed(1)
-const mi = (m: number) => (m / 1609.34).toFixed(1)
-const mph = (mps: number) => Math.round(mps * 2.237)
-const duration = (s: number) =>
-  `${Math.floor(s / 3600)}h${String(Math.floor((s % 3600) / 60)).padStart(2, '0')}m`
-const formatDate = (d: string | null) =>
-  d
-    ? new Date(d).toLocaleDateString('en-US', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        timeZone: 'UTC',
-      })
-    : ''
 const photoUrl = (id: string) =>
   id.startsWith('http')
     ? id
@@ -411,52 +466,37 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
 <template>
   <div v-if="ride" class="ride-page" :style="{ '--ride-accent': accent }">
     <!-- ridehead -->
-    <header class="px-4 md:px-8 pt-16 pb-8 max-w-screen-xl">
-      <div class="max-w-prose">
-        <p
-          class="font-mono text-xs text-zinc-500 mb-2 uppercase tracking-wider"
-        >
-          {{ formatDate(ride.date) }}
-          <span v-if="ride.region">· {{ ride.region }}</span>
-        </p>
-        <h1 class="mb-4">{{ ride.title }}</h1>
-        <p v-if="ride.intro" class="font-serif text-zinc-300 mb-6">
-          {{ ride.intro }}
-        </p>
-      </div>
+    <header class="px-4 md:px-8 pt-16 pb-12 max-w-screen-xl">
+      <p class="post-metadata">
+        <span>{{ formatDate(ride.date) }}</span>
+        <span v-if="ride.region">·</span>
+        <span v-if="ride.region">{{ ride.region }}</span>
+      </p>
+      <h1 class="text-display mt-2">{{ ride.title }}</h1>
+      <p v-if="ride.intro" class="post-dek">
+        {{ ride.intro }}
+      </p>
       <dl
         v-if="ride.stats"
-        class="flex flex-wrap gap-x-8 gap-y-2 font-mono text-sm text-zinc-400"
+        class="mt-8 flex flex-wrap gap-x-10 gap-y-6 font-mono"
       >
-        <div>
-          <dt class="inline text-zinc-500 dark:text-zinc-600 mr-1">dist</dt>
-          <dd class="inline tabular-nums">
-            {{ km(ride.stats.distanceMeters) }}km /
-            {{ mi(ride.stats.distanceMeters) }}mi
-          </dd>
-        </div>
-        <div v-if="ride.stats.movingSeconds">
-          <dt class="inline text-zinc-500 dark:text-zinc-600 mr-1">moving</dt>
-          <dd class="inline tabular-nums">
-            {{ duration(ride.stats.movingSeconds) }}
-          </dd>
-        </div>
-        <div v-if="ride.stats.elevationGainMeters">
-          <dt class="inline text-zinc-500 dark:text-zinc-600 mr-1">climb</dt>
-          <dd class="inline tabular-nums">
-            {{ ride.stats.elevationGainMeters }}m
-          </dd>
-        </div>
-        <div v-if="ride.stats.avgMovingSpeedMps">
-          <dt class="inline text-zinc-500 dark:text-zinc-600 mr-1">avg</dt>
-          <dd class="inline tabular-nums">
-            {{ mph(ride.stats.avgMovingSpeedMps) }}mph
-          </dd>
-        </div>
-        <div v-if="ride.stats.maxSpeedMps">
-          <dt class="inline text-zinc-500 dark:text-zinc-600 mr-1">max</dt>
-          <dd class="inline tabular-nums">
-            {{ mph(ride.stats.maxSpeedMps) }}mph
+        <div
+          v-for="stat in headerStats"
+          :key="stat.label"
+          class="flex flex-col"
+        >
+          <dt
+            class="order-2 mt-1 text-3xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600"
+          >
+            {{ stat.label }}
+          </dt>
+          <dd
+            class="order-1 text-xl tabular-nums text-zinc-900 dark:text-zinc-100"
+          >
+            {{ stat.value }}
+            <span class="text-sm text-zinc-400 dark:text-zinc-600">
+              {{ stat.unit }}
+            </span>
           </dd>
         </div>
       </dl>
@@ -603,25 +643,44 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
             />
           </svg>
 
-          <!-- live readout -->
+          <!-- live readout: the instrument chip -->
           <div
-            class="absolute top-4 left-4 md:top-8 md:left-8 font-mono text-xs text-zinc-500 tabular-nums"
+            class="absolute top-4 left-4 md:top-8 md:left-8 font-mono tabular-nums bg-white/80 dark:bg-zinc-950/80 backdrop-blur border border-zinc-200 dark:border-zinc-800 px-3 py-2"
           >
-            <span class="text-zinc-800 dark:text-zinc-200">
-              {{ km(progressDist) }}
-            </span>
-            / {{ km(totalDist) }}km
-            <span v-if="riderEle != null" class="ml-3">
-              {{ riderEle }}m ele
-            </span>
-            <span v-if="riderClock" class="ml-3">{{ riderClock }}</span>
-            <span
-              v-if="riderMph !== null"
-              class="ml-3"
-              :style="{ color: 'var(--ride-accent)' }"
+            <div class="flex items-baseline gap-x-4 text-2xs">
+              <span>
+                <span class="text-zinc-900 dark:text-zinc-100">
+                  {{ mi(progressDist) }}
+                </span>
+                <span class="text-zinc-400 dark:text-zinc-600">
+                  / {{ mi(totalDist) }} mi
+                </span>
+              </span>
+              <span
+                v-if="riderMph !== null"
+                :style="{ color: 'var(--ride-accent)' }"
+              >
+                {{ riderMph }} mph
+              </span>
+              <span
+                v-if="riderEle !== null"
+                class="text-zinc-500 dark:text-zinc-500"
+              >
+                {{ ft(riderEle) }} ft
+              </span>
+              <span v-if="riderClock" class="text-zinc-500 dark:text-zinc-500">
+                {{ riderClock }}
+              </span>
+            </div>
+            <div
+              class="mt-1.5 flex items-baseline gap-x-2 text-3xs text-zinc-400 dark:text-zinc-600"
             >
-              {{ riderMph }}mph
-            </span>
+              <span class="uppercase tracking-widest">fuel</span>
+              <span class="tracking-tight text-zinc-600 dark:text-zinc-400">
+                {{ fuel.bar }}
+              </span>
+              <span>~{{ fuel.gal }} gal est</span>
+            </div>
           </div>
 
           <!-- map furniture: scale bar, north arrow, attribution -->
@@ -717,7 +776,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
               {{ currentMoment.text }}
             </p>
             <p class="font-mono text-3xs text-zinc-500 mt-2 tabular-nums">
-              {{ km(currentMoment.distMeters ?? 0) }}km in
+              {{ mi(currentMoment.distMeters ?? 0) }} mi in
             </p>
           </article>
         </transition>

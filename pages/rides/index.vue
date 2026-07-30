@@ -11,7 +11,8 @@ interface RideIndexEntry {
 const { data } = await useFetch<RideIndexEntry[]>('/api/rides')
 const rides = computed(() => data.value ?? [])
 
-const km = (m: number) => (m / 1000).toFixed(1)
+const mi = (m: number) => (m / 1609.34).toFixed(1)
+const ft = (m: number) => Math.round(m * 3.28084)
 const formatDate = (d: string | null) =>
   d
     ? new Date(d).toLocaleDateString('en-US', {
@@ -63,9 +64,9 @@ useHead({ title: 'Rides — EJ Fox' })
         <h2 class="text-lg mb-1">{{ ride.title }}</h2>
         <div class="font-mono text-xs text-zinc-500 space-x-3">
           <span>{{ formatDate(ride.date) }}</span>
-          <span v-if="ride.stats">{{ km(ride.stats.distanceMeters) }} km</span>
+          <span v-if="ride.stats">{{ mi(ride.stats.distanceMeters) }} mi</span>
           <span v-if="ride.stats?.elevationGainMeters">
-            ↗ {{ ride.stats.elevationGainMeters }}m
+            ↗ {{ ft(ride.stats.elevationGainMeters) }}ft
           </span>
         </div>
       </NuxtLink>
