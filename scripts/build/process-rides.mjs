@@ -464,6 +464,14 @@ async function main() {
       momentCount: ride.moments.length,
       // thumbnail polyline: ~80 pts normalized to a 0–1 box (y flipped for SVG)
       thumb: thumbPolyline(ride),
+      // true footprint size in meters — lets the index draw every ride at the
+      // same geographic scale (honest small multiples)
+      extentMeters: extentMeters(ride),
+      // elevation strip: 48 samples normalized 0–1 over the ride's own range
+      elev: elevStrip(ride),
+      // speed histogram: 16 bins 0→max, heights normalized 0–1
+      spdHist: speedHistogram(ride),
+      startTime: ride.startTime,
     })
   }
   index.sort((a, b) => String(b.date).localeCompare(String(a.date)))
@@ -474,20 +482,72 @@ async function main() {
 function thumbPolyline(ride) {
   if (!ride.points.length || !ride.bounds) return null
   const { minLon, maxLon, minLat, maxLat } = ride.bounds
-  const w = maxLon - minLon || 1
-  const h = maxLat - minLat || 1
-  // preserve aspect ratio within the unit box (approx; fine for thumbnails)
+  // work in meter-ish space so aspect is true (lon degrees shrink with cos φ)
+  const cosLat = Math.cos((((minLat + maxLat) / 2) * Math.PI) / 180)
+  const w = (maxLon - minLon) * cosLat || 1e-9
+  const h = maxLat - minLat || 1e-9
   const scale = 1 / Math.max(w, h)
+  // center the shorter axis inside the unit box
+  const xPad = (1 - w * scale) / 2
+  const yPad = (1 - h * scale) / 2
   const step = Math.max(1, Math.floor(ride.points.length / 80))
   const pts = []
   for (let i = 0; i < ride.points.length; i += step) {
     const [lon, lat] = ride.points[i]
     pts.push([
-      +((lon - minLon) * scale).toFixed(3),
-      +(1 - (lat - minLat) * scale).toFixed(3),
+      +(xPad + (lon - minLon) * cosLat * scale).toFixed(3),
+      +(1 - yPad - (lat - minLat) * scale).toFixed(3),
     ])
   }
   return pts
+}
+
+/** Longest side of the ride's bounding box, in meters. */
+function extentMeters(ride) {
+  const b = ride.bounds
+  if (!b) return null
+  const midLat = (b.minLat + b.maxLat) / 2
+  const wM = haversine(
+    { lat: midLat, lon: b.minLon },
+    { lat: midLat, lon: b.maxLon }
+  )
+  const hM = haversine(
+    { lat: b.minLat, lon: b.minLon },
+    { lat: b.maxLat, lon: b.minLon }
+  )
+  return Math.round(Math.max(wM, hM))
+}
+
+/** 16-bin speed histogram (m/s bins to max), heights normalized 0–1. */
+function speedHistogram(ride) {
+  const spds = ride.points.map((p) => p[5] ?? 0).filter((s) => s > 0.5)
+  if (spds.length < 8) return null
+  const max = Math.max(...spds)
+  const bins = Array.from({ length: 16 }).fill(0)
+  for (const s of spds) {
+    bins[Math.min(15, Math.floor((s / max) * 16))]++
+  }
+  const peak = Math.max(...bins) || 1
+  return bins.map((b) => +(b / peak).toFixed(2))
+}
+
+/** 48 elevation samples by distance, normalized 0–1 over the ride's range. */
+function elevStrip(ride) {
+  const pts = ride.points
+  if (!pts.length) return null
+  const eles = pts.map((p) => p[2]).filter((e) => e !== null)
+  if (!eles.length) return null
+  const minE = Math.min(...eles)
+  const span = Math.max(...eles) - minE || 1
+  const total = pts[pts.length - 1][4] || 1
+  const out = []
+  let j = 0
+  for (let i = 0; i < 48; i++) {
+    const target = (i / 47) * total
+    while (j < pts.length - 1 && pts[j][4] < target) j++
+    out.push(+(((pts[j][2] ?? minE) - minE) / span).toFixed(2))
+  }
+  return out
 }
 
 main().catch((err) => {
