@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Tempo",
     "date": "2026-04-01T04:00:00.000Z",
+    "category": "Apps",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/tempo-ios",
     "tech": [
@@ -14,7 +16,7 @@
       "watchOS"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "ios",
       "app",

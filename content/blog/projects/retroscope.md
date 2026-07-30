@@ -1,6 +1,8 @@
 ---
 title: "Retroscope"
 date: 2025-08-02T00:00:00-05:00
+category: "Tools"
+featured: false
 draft: true
 url: https://github.com/ejfox/retroscope
 tech: ["JavaScript"]

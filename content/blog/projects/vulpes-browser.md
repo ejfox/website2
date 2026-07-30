@@ -1,6 +1,8 @@
 ---
 title: "Vulpes Browser"
 date: 2026-01-20T00:00:00-05:00
+category: "Tools"
+featured: false
 draft: true
 url: https://github.com/ejfox/vulpes-browser
 tech: ["Swift"]

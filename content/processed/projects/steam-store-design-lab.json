@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Dream Store Design Lab",
     "date": "2026-04-01T04:00:00.000Z",
+    "category": "Art",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/steam-store-design-lab",
     "tech": [
@@ -13,7 +15,7 @@
       "Design Tool"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools",
       "design",

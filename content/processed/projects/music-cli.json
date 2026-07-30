@@ -5,13 +5,15 @@
   "metadata": {
     "title": "Music CLI",
     "date": "2026-05-18T05:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/music-cli",
     "tech": [
       "Shell"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools"
     ],

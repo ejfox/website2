@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Fix Central Hudson",
     "date": "2026-03-01T05:00:00.000Z",
+    "category": "Activism",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/fixcentralhudson",
     "tech": [
@@ -13,7 +15,7 @@
       "Civic Tech"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "civic",
       "web",

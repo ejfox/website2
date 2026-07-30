@@ -5,6 +5,8 @@
   "metadata": {
     "title": "ascii_webcam",
     "date": "2024-10-01T04:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/ascii_webcam",
     "tech": [
@@ -14,7 +16,7 @@
       "OpenCV"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "cli",
       "terminal",

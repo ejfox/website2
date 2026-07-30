@@ -1,30 +1,32 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice — this is a factual stub, not your words. Draft until ready. -->\n<p class=\"\">A tool for quickly prototyping AR / lens visualizations and HUDs — drag data widgets onto left/right lenses to compose a heads-up display from live bio, motion, location, environment, and device signals.</p>\n<figure role=\"figure\" aria-label=\"Body widgets — heart rate, HRV, blood oxygen, calories\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/glasses-hud/body.png\" alt=\"Body widgets — heart rate, HRV, blood oxygen, calories\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/glasses-hud/body.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/glasses-hud/body.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/glasses-hud/body.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/glasses-hud/body.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Body widgets — heart rate, HRV, blood oxygen, calories\" width=\"1960\" height=\"800\" style=\"--splay-rot:2.62deg;\" data-dimensions=\"1960×800\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Body widgets — heart rate, HRV, blood oxygen, calories</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Environment &#x26; device widgets — air quality, light, battery, signal\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/glasses-hud/environment.png\" alt=\"Environment &#x26; device widgets — air quality, light, battery, signal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/glasses-hud/environment.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/glasses-hud/environment.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/glasses-hud/environment.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/glasses-hud/environment.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Environment &#x26; device widgets — air quality, light, battery, signal\" width=\"1960\" height=\"600\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1960×600\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Environment &#x26; device widgets — air quality, light, battery, signal</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Messages, productivity, and media widgets\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/glasses-hud/messages.png\" alt=\"Messages, productivity, and media widgets\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/glasses-hud/messages.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/glasses-hud/messages.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/glasses-hud/messages.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/glasses-hud/messages.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Messages, productivity, and media widgets\" width=\"1960\" height=\"820\" style=\"--splay-rot:2.64deg;\" data-dimensions=\"1960×820\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Messages, productivity, and media widgets</figcaption>\n</figure>",
+  "html": "<!-- TODO (EJ): add your voice — this is a factual stub, not your words. Draft until ready. -->\n<p class=\"\">A tool for quickly prototyping AR / lens visualizations and HUDs — drag data widgets onto left/right lenses to compose a heads-up display from live bio, motion, location, environment, and device signals.</p>\n<figure role=\"figure\" aria-label=\"Scrolling the HUD — lenses up top, then the full widget drawer\" class=\"\"><video class=\"img-full my-8 rounded-sm\" autoplay loop muted playsinline preload=\"metadata\" poster=\"https://res.cloudinary.com/ejf/video/upload/so_0,f_jpg,q_auto,w_1280/projects/glasses-hud/demo.jpg\" src=\"https://res.cloudinary.com/ejf/video/upload/q_auto/projects/glasses-hud/demo.mp4\" aria-label=\"Scrolling the HUD — lenses up top, then the full widget drawer\"></video><figcaption class=\"\">Scrolling the HUD — lenses up top, then the full widget drawer</figcaption></figure>\n<figure role=\"figure\" aria-label=\"Body widgets — heart rate, HRV, blood oxygen, calories\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/glasses-hud/body.png\" alt=\"Body widgets — heart rate, HRV, blood oxygen, calories\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/glasses-hud/body.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/glasses-hud/body.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/glasses-hud/body.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/glasses-hud/body.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Body widgets — heart rate, HRV, blood oxygen, calories\" width=\"1960\" height=\"800\" style=\"--splay-rot:2.62deg;\" data-dimensions=\"1960×800\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Body widgets — heart rate, HRV, blood oxygen, calories</figcaption>\n</figure>",
   "title": "Glasses HUD",
   "metadata": {
     "title": "Glasses HUD",
     "date": "2025-08-01T00:00:00.000Z",
+    "category": "Hardware",
+    "featured": false,
     "draft": true,
     "url": "https://ejfox.github.io/glasses-hud/",
     "tech": [
       "JavaScript"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "hardware",
       "interface",
       "experiment"
     ],
-    "words": 77,
-    "images": 3,
+    "words": 74,
+    "images": 2,
     "imageDetails": {
-      "total": 3,
-      "cloudinary": 3,
+      "total": 2,
+      "cloudinary": 2,
       "withDimensions": 0
     },
-    "links": 3,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

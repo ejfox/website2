@@ -1,10 +1,12 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->\n<p class=\"\">A set of Φ-powered Tailwind classes — spacing and sizing scaled by the golden ratio instead of an arbitrary step scale.</p>\n<figure role=\"figure\" aria-label=\"Tailwind Φ — golden-ratio utility classes with live previews\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/tailwind-phi/landing.png\" alt=\"Tailwind Φ — golden-ratio utility classes with live previews\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/tailwind-phi/landing.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/tailwind-phi/landing.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/tailwind-phi/landing.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/tailwind-phi/landing.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Tailwind Φ — golden-ratio utility classes with live previews\" width=\"2880\" height=\"1900\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"2880×1900\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Tailwind Φ — golden-ratio utility classes with live previews</figcaption>\n</figure>",
+  "html": "<!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->\n<p class=\"\">A set of Φ-powered Tailwind classes — spacing and sizing scaled by the golden ratio instead of an arbitrary step scale.</p>\n<figure role=\"figure\" aria-label=\"Panning the golden-ratio scale — every phi utility with live previews\" class=\"\"><video class=\"img-full my-8 rounded-sm\" autoplay loop muted playsinline preload=\"metadata\" poster=\"https://res.cloudinary.com/ejf/video/upload/so_0,f_jpg,q_auto,w_1280/projects/tailwind-phi/demo.jpg\" src=\"https://res.cloudinary.com/ejf/video/upload/q_auto/projects/tailwind-phi/demo.mp4\" aria-label=\"Panning the golden-ratio scale — every phi utility with live previews\"></video><figcaption class=\"\">Panning the golden-ratio scale — every phi utility with live previews</figcaption></figure>",
   "title": "Tailwind Φ",
   "metadata": {
     "title": "Tailwind Φ",
     "date": "2025-09-01T04:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
     "draft": true,
     "url": "https://ejfox.github.io/tailwind-phi/",
     "tech": [
@@ -13,13 +15,13 @@
       "Design"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "design",
       "css",
       "tool"
     ],
-    "words": 45,
+    "words": 47,
     "images": 1,
     "imageDetails": {
       "total": 1,

@@ -1,6 +1,8 @@
 ---
 title: "Sentry Search"
 date: 2026-05-01T00:00:00-04:00
+category: "Tools"
+featured: false
 draft: true
 url: https://github.com/ejfox/sentrysearch
 tech: ["Video", "Embeddings", "Search"]
@@ -17,6 +19,5 @@ tags:
 
 Semantic search over video footage — type a query and get back the matching trimmed clip, instead of scrubbing hours of timeline.
 
-![A retrieved clip — semantic search pulling the matching moment out of hours of Tesla sentry footage](https://res.cloudinary.com/ejf/image/upload/projects/sentrysearch/sentry.png)
 
-![Sentry Search overlay on analyzed footage](https://res.cloudinary.com/ejf/image/upload/projects/sentrysearch/overlay.png)
+![sentrysearch CLI help output listing the index, search, img, highlights, shell, and stats commands](https://res.cloudinary.com/ejf/image/upload/v1785421788/projects/sentrysearch/cli-help.png)

@@ -37,22 +37,68 @@ const GithubCommitMatrix = defineAsyncComponent(
 )
 
 // Define stats first - used by computed properties below
-const { stats: rawStats, isLoading, errors } = useStats()
+const { stats: rawStats, liteStats, isLoading, errors } = useStats()
 
-const loadingSections = [
-  { title: 'GITHUB', rows: 4 },
+// Skeleton sections. liteKey/liteLabel pull a real top-line number from
+// /api/stats-lite (lands in tens of ms) into the skeleton while the full
+// aggregate loads — partial data over gray boxes.
+const loadingSectionDefs = [
+  {
+    title: 'GITHUB',
+    rows: 4,
+    liteKey: 'githubContributionsAllTime',
+    liteLabel: 'contributions',
+  },
   { title: 'CODE', rows: 3 },
   { title: 'LEETCODE', rows: 3 },
   { title: 'TYPING', rows: 4 },
-  { title: 'CHESS', rows: 3 },
-  { title: 'WRITING', rows: 4 },
-  { title: 'PRODUCTIVITY', rows: 4 },
+  {
+    title: 'CHESS',
+    rows: 3,
+    liteKey: 'chessRatingBlitz',
+    liteLabel: 'blitz rating',
+  },
+  {
+    title: 'WRITING',
+    rows: 4,
+    liteKey: 'blogPostsAllTime',
+    liteLabel: 'posts all time',
+  },
+  {
+    title: 'PRODUCTIVITY',
+    rows: 4,
+    liteKey: 'rescueTimeLast7dHours',
+    liteLabel: 'hours tracked · 7d',
+  },
   { title: 'LANGUAGES', rows: 3 },
-  { title: 'MUSIC', rows: 4 },
-  { title: 'FILMS', rows: 3 },
+  {
+    title: 'MUSIC',
+    rows: 4,
+    liteKey: 'musicScrobblesAllTime',
+    liteLabel: 'scrobbles all time',
+  },
+  {
+    title: 'FILMS',
+    rows: 3,
+    liteKey: 'letterboxdFilmsAllTime',
+    liteLabel: 'films logged',
+  },
   { title: 'BOOKS', rows: 4 },
-  { title: 'ANALYTICS', rows: 3 },
+  {
+    title: 'ANALYTICS',
+    rows: 3,
+    liteKey: 'websitePageviewsCalMonth',
+    liteLabel: 'pageviews this month',
+  },
 ]
+const loadingSections = computed(() =>
+  loadingSectionDefs.map((s) => ({
+    ...s,
+    // Falsy lite values (0 = the upstream service had no token/data) fall
+    // back to the plain skeleton — an untrue zero is worse than a shimmer.
+    liteValue: s.liteKey ? liteStats.value?.[s.liteKey] || null : null,
+  }))
+)
 const stats = computed(() => rawStats.value)
 
 const statsDescription = computed(() => {
@@ -986,6 +1032,8 @@ definePageMeta({
               <StatsSectionSkeleton
                 :title="section.title"
                 :rows="section.rows"
+                :value="section.liteValue"
+                :label="section.liteLabel"
               />
             </div>
           </template>

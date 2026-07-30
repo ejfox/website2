@@ -443,6 +443,44 @@ p,
   @apply bg-zinc-100 dark:bg-zinc-900;
 }
 
+/* Shimmer sweep for skeletons — a moving gradient so loading reads as alive,
+   not stalled. Static under prefers-reduced-motion. */
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.skeleton-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(161, 161, 170, 0.14),
+    transparent
+  );
+  animation: skeleton-sweep 1.6s ease-in-out infinite;
+}
+.dark .skeleton-shimmer::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(244, 244, 245, 0.05),
+    transparent
+  );
+}
+@keyframes skeleton-sweep {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer::after {
+    animation: none;
+  }
+}
+
 .skeleton-text {
   @apply h-4 w-full bg-zinc-100 dark:bg-zinc-900 rounded;
 }

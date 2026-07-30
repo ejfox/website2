@@ -1,6 +1,7 @@
 ---
 title: "Clusters of NYPD Misconduct"
 date: 2021-06-15T00:00:00-04:00
+category: "Journalism"
 modified: 2025-08-26T15:52:56-04:00
 url: https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct
 tech: ["Neo4j", "SQLite", "Gephi", "Network Analysis", "Cypher"]
@@ -17,7 +18,9 @@ tags:
 
 ![Force-directed network graph of NYPD civilian complaint clusters showing officers connected by shared misconduct patterns](https://res.cloudinary.com/ejf/image/upload/fl_progressive:semi,c_scale,dpr_auto,w_1280/v1624505769/Screen_Shot_2021-06-21_at_8.58.50_PM.jpg)
 
-![The published Gothamist/WNYC investigation built on this network analysis](https://res.cloudinary.com/ejf/image/upload/v1666630398/project-images/gothamist_ccrb.png)
+![Scrolling the published Gothamist investigation — the officer-cluster network as readers met it](https://res.cloudinary.com/ejf/video/upload/projects/ccrb-clusters/published-piece-scroll.mp4)
+
+![The network visualization in the published piece](https://res.cloudinary.com/ejf/image/upload/projects/ccrb-clusters/article-viz.png)
 
 In 2021, I got my hands on a massive NYPD complaint dataset from Gothamist/WNYC and immediately went down a data rabbit hole. Built a network of 29,915 officer nodes with 159,671 relationships using Neo4j and Gephi (love-hate relationship with Gephi, but unrivaled for networks).
 

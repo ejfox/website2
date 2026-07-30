@@ -5,6 +5,8 @@
   "metadata": {
     "title": "cyberdeck-saver",
     "date": "2026-04-20T04:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/cyberdeck-saver",
     "tech": [
@@ -14,7 +16,7 @@
       "OSINT"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "macos",
       "osint",

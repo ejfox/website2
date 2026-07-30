@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Transcript Video",
     "date": "2026-04-01T00:00:00.000Z",
+    "category": "Dataviz",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/transcript-video",
     "tech": [
@@ -14,7 +16,7 @@
       "Audio"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "video",
       "dataviz",

@@ -1,6 +1,7 @@
 <script setup>
 import * as d3 from 'd3'
-import ProjectRow from '~/components/ProjectRow.vue'
+import ProjectRow from '~/components/projects/ProjectRow.vue'
+import ProjectArchiveCard from '~/components/projects/ProjectArchiveCard.vue'
 
 const { data: projects } = await useAsyncData(
   'projects-page-data',
@@ -14,13 +15,71 @@ const { data: projects } = await useAsyncData(
   }
 )
 
-const featuredProjects = computed(
-  () => projects.value?.filter((p) => p.metadata?.featured) || []
+// Flagships open the page. A deliberate order (not date) so the FIRST screen
+// spans the range — investigative journalism, a marquee client, data viz, a
+// signature tool, a creative-coding piece — instead of just "newest first".
+const FLAGSHIP_ORDER = [
+  'ccrb-clusters',
+  'nbc-big-board',
+  'gem-viz',
+  'scrapbook-core',
+  'motorcycle-viz',
+  'connectology',
+  'paramilitary-leaks',
+  'pixel-canvas',
+  'dataproofer',
+  'flipper-generative-art',
+  'hexagram-motion-graphics',
+]
+const flagshipRank = (p) => {
+  const s = p.slug?.replace(/^projects\//, '') || ''
+  const i = FLAGSHIP_ORDER.indexOf(s)
+  return i === -1 ? 999 : i
+}
+
+const featuredProjects = computed(() =>
+  (projects.value?.filter((p) => p.metadata?.featured) || [])
+    .slice()
+    .sort((a, b) => flagshipRank(a) - flagshipRank(b))
 )
 
 const regularProjects = computed(
   () => projects.value?.filter((p) => !p.metadata?.featured) || []
 )
+
+// The archive: everything not a flagship, grouped into categories. Leading with
+// Client & Newsroom makes the professional/journalism range legible up front;
+// Tools & Terminal (the biggest bucket) sits last so it doesn't drown the rest.
+const CATEGORY_ORDER = [
+  'Journalism',
+  'Dataviz',
+  'Art',
+  'Hardware',
+  'Activism',
+  'Apps',
+  'Tools',
+]
+const categorySlug = (c) =>
+  'cat-' +
+  c
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')
+
+const archiveGroups = computed(() => {
+  const groups = {}
+  for (const p of regularProjects.value) {
+    const c = p.metadata?.category || 'Other'
+    ;(groups[c] ||= []).push(p)
+  }
+  // Within a group: newest first (regularProjects already arrives date-desc).
+  const ordered = [...CATEGORY_ORDER, 'Other'].filter((c) => groups[c]?.length)
+  return ordered.map((c) => ({
+    category: c,
+    slug: categorySlug(c),
+    projects: groups[c],
+  }))
+})
 
 const { tocTarget } = useTOC()
 
@@ -288,10 +347,9 @@ useHead(() => ({
       <p class="text-zinc-500">No projects found.</p>
     </div>
 
-    <!-- Featured Projects - image-forward rows. Sit flush in the content column
-         (same left edge as the header and the regular rows below); bigger type
-         and imagery are the "Featured" cue, no extra inset. -->
-    <div v-if="featuredProjects.length" class="mb-16 space-y-16">
+    <!-- Flagships - image-forward rows, deliberately ordered to span the range
+         on the first screen. Bigger type + imagery are the "flagship" cue. -->
+    <div v-if="featuredProjects.length" class="mb-20 space-y-16">
       <template v-for="(project, i) in featuredProjects" :key="project.slug">
         <ProjectRow
           :id="getProjectSlug(project)"
@@ -302,21 +360,73 @@ useHead(() => ({
       </template>
     </div>
 
-    <!-- Everything else - compact image-forward rows, constrained. -->
-    <div v-if="regularProjects.length" class="space-y-14">
-      <template v-for="project in regularProjects" :key="project.slug">
-        <ProjectRow :id="getProjectSlug(project)" :project="project" />
-      </template>
-    </div>
+    <!-- Archive - the other ~90, grouped by category into a compact grid.
+         Still image-first (a thumbnail each), just dense: browse the whole
+         body of work without a firehose of full-bleed rows. -->
+    <section
+      v-for="group in archiveGroups"
+      :id="group.slug"
+      :key="group.category"
+      class="mb-14 scroll-mt-24"
+    >
+      <div
+        class="flex items-baseline justify-between gap-4 rule-dotted-b pb-2 mb-5"
+      >
+        <h2
+          class="font-mono text-xs uppercase tracking-wider text-zinc-600 dark:text-zinc-400"
+        >
+          {{ group.category }}
+        </h2>
+        <span
+          class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
+        >
+          {{ group.projects.length }}
+        </span>
+      </div>
 
-    <!-- TOC -->
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-8"
+      >
+        <ProjectArchiveCard
+          v-for="project in group.projects"
+          :key="project.slug"
+          :project="project"
+        />
+      </div>
+    </section>
+
+    <!-- TOC - flagships, then category jump-links. Mirrors the page structure
+         instead of listing all 100 projects flat. -->
     <ClientOnly>
       <teleport v-if="tocTarget" to="#nav-toc-container">
-        <div>
-          <ul class="space-y-0.5 font-mono text-3xs list-none pl-0">
-            <li v-for="project in projects" :key="project.slug">
+        <div class="font-mono text-3xs">
+          <div
+            class="uppercase tracking-wider text-zinc-400 dark:text-zinc-600 mb-1"
+          >
+            Flagships
+          </div>
+          <ul class="space-y-0.5 list-none pl-0 mb-4">
+            <li v-for="project in featuredProjects" :key="project.slug">
               <a :href="`#${getProjectSlug(project)}`" :class="tocLinkClass">
                 {{ project.title || project.metadata?.title }}
+              </a>
+            </li>
+          </ul>
+          <div
+            class="uppercase tracking-wider text-zinc-400 dark:text-zinc-600 mb-1"
+          >
+            Archive
+          </div>
+          <ul class="space-y-0.5 list-none pl-0">
+            <li v-for="group in archiveGroups" :key="group.slug">
+              <a
+                :href="`#${group.slug}`"
+                class="flex items-baseline justify-between gap-2 text-zinc-600 dark:text-zinc-400"
+              >
+                <span class="truncate">{{ group.category }}</span>
+                <span class="text-zinc-400 dark:text-zinc-600 tabular-nums">
+                  {{ group.projects.length }}
+                </span>
               </a>
             </li>
           </ul>

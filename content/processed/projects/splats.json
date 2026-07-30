@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Gaussian Splats",
     "date": "2026-04-01T04:00:00.000Z",
+    "category": "Hardware",
+    "featured": false,
     "draft": true,
     "tech": [
       "3D Gaussian Splatting",
@@ -13,7 +15,7 @@
       "M1"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "3d",
       "drone",

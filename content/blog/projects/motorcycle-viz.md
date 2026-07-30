@@ -1,6 +1,8 @@
 ---
 title: "Motorcycle Meta-Visualizations"
 date: 2026-05-01T00:00:00-04:00
+category: "Art"
+featured: true
 draft: true
 url: https://github.com/ejfox/motorcycle-viz
 tech: ["FFmpeg", "Python", "Generative Art", "Data Visualization"]
@@ -18,17 +20,11 @@ tags:
 
 What does 3.5 years of riding *look like* if you average it all together? This takes the helmet-cam footage from years of motorcycle trips and runs it through a battery of meta-visualization techniques — pulling images out of the footage that no single frame contains.
 
-![Salavon-style average of thousands of frames — the road, horizon, and the dark wedge of the bike emerging as a ghost](https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/salavon-average.png)
+![Every frame from 3.5 years of riding — 294 clips, 78 rides — averaged into a single image](https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/salavon-overall.png)
 
 **Frame averaging** (after Jason Salavon) stacks thousands of frames into one — the constants of riding (road below, sky above, the fairing) resolve into a soft ghost while everything transient blurs away. Run it per year and you can watch the ghost shift as the routes and seasons change:
 
-![The average of every 2021 frame](https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/salavon-2021.png)
-
-![The average of every 2022 frame](https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/salavon-2022.png)
-
 ![The average of every 2024 frame](https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/salavon-2024.png)
-
-![The years side by side, as one composite strip](https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/salavon-years.png)
 
 **Slit-scan** takes a single column from every frame and lays them side by side, turning a whole ride into a striated band of color and light — both horizontally and vertically.
 

@@ -17,6 +17,66 @@
     line-height: 0.75rem; /* 12px */
     letter-spacing: 0.03em;
   }
+
+  /* Dotted rules — repeating-linear-gradient on a pseudo-element (the Stripe →
+     Vercel technique: finer dot control than border-style dotted). Use ONLY on
+     real data boundaries (year epochs, category sections), never as texture.
+     Colors match border-zinc-200 / dark:border-zinc-800. */
+  .rule-dotted-b {
+    position: relative;
+  }
+  .rule-dotted-b::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background-image: repeating-linear-gradient(
+      to right,
+      #e4e4e7 0,
+      #e4e4e7 1px,
+      transparent 1px,
+      transparent 5px
+    );
+  }
+  .dark .rule-dotted-b::after {
+    background-image: repeating-linear-gradient(
+      to right,
+      #27272a 0,
+      #27272a 1px,
+      transparent 1px,
+      transparent 5px
+    );
+  }
+
+  /* Leader variant: label · · · · · (fills remaining row width) */
+  .rule-dotted-leader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .rule-dotted-leader::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-image: repeating-linear-gradient(
+      to right,
+      #e4e4e7 0,
+      #e4e4e7 1px,
+      transparent 1px,
+      transparent 5px
+    );
+  }
+  .dark .rule-dotted-leader::after {
+    background-image: repeating-linear-gradient(
+      to right,
+      #27272a 0,
+      #27272a 1px,
+      transparent 1px,
+      transparent 5px
+    );
+  }
 }
 
 /* Remove ALL default Tailwind styles to reduce size */

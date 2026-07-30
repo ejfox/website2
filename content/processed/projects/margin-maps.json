@@ -5,6 +5,8 @@
   "metadata": {
     "title": "The Margin",
     "date": "2022-06-01T04:00:00.000Z",
+    "category": "Journalism",
+    "featured": false,
     "draft": true,
     "client": "The Margin",
     "tech": [
@@ -14,7 +16,7 @@
       "Data Visualization"
     ],
     "state": "deployed",
-    "aiInvolvement": "human-only",
+    "ai-involvement": "human-only",
     "context": "client",
     "tags": [
       "maps",

@@ -1,6 +1,8 @@
 ---
 title: "room302-template"
 date: 2023-09-01T00:00:00-04:00
+category: "Tools"
+featured: false
 draft: true
 url: https://github.com/ejfox/room302-template
 tech: ["Nuxt", "Vue", "Template"]

@@ -1,6 +1,8 @@
 ---
 title: "Dream Store Design Lab"
 date: 2026-04-01T00:00:00-04:00
+category: "Art"
+featured: false
 draft: true
 url: https://github.com/ejfox/steam-store-design-lab
 tech: ["Nuxt", "Vue", "Design Tool"]

@@ -99,9 +99,43 @@ const images = computed(() => {
   )
 })
 
+// --- Demo video --------------------------------------------------------------
+// First <video> in the post becomes a living tile at the head of the grid.
+// Playback is viewport-driven (plugins/video-viewport.client.ts): it only
+// plays while on screen.
+const heroVideo = computed(() => {
+  if (!props.project.html) return ''
+  const m = props.project.html.match(/<video[^>]*\ssrc="([^"]+)"/)
+  return m ? m[1].replace(/^http:/, 'https:') : ''
+})
+
+// Cloudinary video transform injection — same strip-then-inject as cld(), but
+// on the /video/upload/ marker.
+const cldVideo = (src, transform) => {
+  const marker = '/video/upload/'
+  const at = src.indexOf(marker)
+  if (at === -1) return src
+  const head = src.slice(0, at + marker.length)
+  const segs = src.slice(at + marker.length).split('/')
+  const isTransform = (s) =>
+    s.length > 0 && s.split(',').every((t) => /^[a-z]+_/.test(t))
+  let i = 0
+  while (i < segs.length && isTransform(segs[i])) i++
+  return head + transform + '/' + segs.slice(i).join('/')
+}
+const videoTile = (src) => cldVideo(src, 'c_fill,ar_3:2,w_900,q_auto')
+const videoPoster = (src) =>
+  cldVideo(src, 'so_0,c_fill,ar_3:2,w_900,q_auto,f_jpg').replace(
+    /\.\w+$/,
+    '.jpg'
+  )
+
 const IMAGE_CAP = 6
-const visibleImages = computed(() => images.value.slice(0, IMAGE_CAP))
-const hiddenCount = computed(() => Math.max(0, images.value.length - IMAGE_CAP))
+const imageCap = computed(() => IMAGE_CAP - (heroVideo.value ? 1 : 0))
+const visibleImages = computed(() => images.value.slice(0, imageCap.value))
+const hiddenCount = computed(() =>
+  Math.max(0, images.value.length - imageCap.value)
+)
 
 // Single-image rows: one static hero, no cycling.
 const heroSrc = computed(() =>
@@ -189,9 +223,9 @@ const excerpt = computed(() => {
 
     <!-- One image: a generous hero.
          Several: a masonry wall, capped at 6 with an overflow link. -->
-    <!-- Single hero: natural aspect, no crop, no bars. -->
+    <!-- Single hero: natural aspect, no crop, no bars (no video). -->
     <img
-      v-if="images.length === 1"
+      v-if="!heroVideo && images.length === 1"
       :src="heroSrc"
       :srcset="`${thumb(images[0], 900)} 900w, ${thumb(images[0], 1500)} 1500w`"
       sizes="(min-width: 768px) 75vw, 100vw"
@@ -201,12 +235,31 @@ const excerpt = computed(() => {
       decoding="async"
       class="w-auto max-w-full h-auto max-h-[60vh] rounded"
     />
-    <!-- Uniform tile grid: every image the same size (3:2), padded to fill,
-         so rows read evenly and reserve their space (no layout shift). -->
+    <!-- Uniform tile grid: every tile the same size (3:2), so rows read evenly
+         and reserve their space (no layout shift). If the project has a demo
+         video it leads the grid as a living tile — playback is viewport-driven
+         so only visible rows animate. -->
     <div
-      v-else-if="images.length > 1"
+      v-else-if="heroVideo || images.length > 1"
       class="grid grid-cols-2 lg:grid-cols-3 gap-3"
     >
+      <!-- data-autoplay (not native autoplay): playback starts only when the
+           viewport plugin sees it, so the index never eagerly loads a dozen
+           videos. No-JS fallback is the poster frame. -->
+      <video
+        v-if="heroVideo"
+        :src="videoTile(heroVideo)"
+        :poster="videoPoster(heroVideo)"
+        data-autoplay
+        loop
+        muted
+        playsinline
+        preload="none"
+        width="900"
+        height="600"
+        class="w-full aspect-[3/2] object-cover rounded"
+        :aria-label="`${projectTitle} demo video`"
+      />
       <img
         v-for="(src, i) in visibleImages"
         :key="i"
@@ -216,8 +269,8 @@ const excerpt = computed(() => {
         :alt="`${projectTitle} screenshot ${i + 1}`"
         width="900"
         height="600"
-        :loading="eager && i === 0 ? 'eager' : 'lazy'"
-        :fetchpriority="eager && i === 0 ? 'high' : undefined"
+        :loading="eager && i === 0 && !heroVideo ? 'eager' : 'lazy'"
+        :fetchpriority="eager && i === 0 && !heroVideo ? 'high' : undefined"
         decoding="async"
         class="w-full aspect-[3/2] object-cover rounded"
       />

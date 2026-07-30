@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Newswell Studio",
     "date": "2025-10-01T00:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/newswell",
     "tech": [
@@ -15,7 +17,7 @@
       "GPT-4"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools",
       "journalism",

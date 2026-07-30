@@ -1,6 +1,8 @@
 ---
 title: "phone-stack"
 date: 2026-04-20T00:00:00-04:00
+category: "Art"
+featured: false
 draft: true
 url: https://github.com/ejfox/phone-stack
 tech: ["JavaScript", "WebSockets", "Browser"]
@@ -12,7 +14,10 @@ tags:
   - multiplayer
 ---
 
-<!-- TODO (EJ): add your voice. These shots are captured from the running app; the
+<!-- EJ 2026-07-30: "I thought it would be a cool utility to convey an art video
+     I make later or something, to have ready." — infrastructure awaiting its
+     artwork; revisit when a piece exists.
+     TODO (EJ): add your voice. These shots are captured from the running app; the
      DREAM hero is still a real photo of phones laid in a row playing one piece —
      grab that whenever you can and drop it on top. Draft until then. -->
 

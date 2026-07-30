@@ -5,6 +5,8 @@
   "metadata": {
     "title": "room302-template",
     "date": "2023-09-01T04:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/room302-template",
     "tech": [
@@ -13,7 +15,7 @@
       "Template"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools",
       "web",

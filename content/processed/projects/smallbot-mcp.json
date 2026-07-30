@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Smallbot MCP",
     "date": "2025-08-02T04:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
     "modified": "2025-08-13T17:17:13.000Z",
     "url": "https://github.com/ejfox/smallbot-mcp",
     "tech": [
@@ -14,7 +16,7 @@
       "Node.js"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-enhanced",
+    "ai-involvement": "ai-enhanced",
     "tags": [
       "ai",
       "web"

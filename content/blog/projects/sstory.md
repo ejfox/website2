@@ -1,6 +1,8 @@
 ---
 title: "sStory"
 date: 2015-01-01T00:00:00-05:00
+category: "Dataviz"
+featured: false
 draft: true
 url: https://ejfox.github.io/sStory/
 tech: ["JavaScript", "Storytelling", "Library"]
@@ -17,4 +19,8 @@ tags:
 
 An early JavaScript library for building full-browser-width, magazine-style scrollytelling mini-sites.
 
+![Scrolling an sStory — full-bleed sections advancing one beat at a time](https://res.cloudinary.com/ejf/video/upload/projects/sstory/demo.mp4)
+
 ![sStory — "Making beautiful stories easy"](https://res.cloudinary.com/ejf/image/upload/projects/sstory/hero.png)
+
+![Scrolling an sStory — full-bleed story sections mid-flow](https://res.cloudinary.com/ejf/image/upload/projects/sstory/web-1.png)

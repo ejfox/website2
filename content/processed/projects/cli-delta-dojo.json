@@ -5,6 +5,8 @@
   "metadata": {
     "title": "CLI Delta Dojo",
     "date": "2024-10-12T04:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/cli-delta-dojo",
     "tech": [
@@ -12,7 +14,7 @@
       "CLI"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "cli",
       "tool",

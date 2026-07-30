@@ -1,6 +1,8 @@
 ---
 title: "Scrapbook CLI"
 date: 2024-10-12T00:00:00-04:00
+category: "Tools"
+featured: false
 draft: true
 url: https://github.com/ejfox/scrapbook-cli
 tech: ["Node.js", "CLI"]

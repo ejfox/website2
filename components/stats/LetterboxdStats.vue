@@ -66,6 +66,27 @@ const formatDate = (dateString: string | null): string => {
   return format(new Date(dateString), 'MMM d').toUpperCase()
 }
 
+// Rating strip: one bar per film, oldest → newest, height = rating out of 5.
+// Unrated films render as a baseline tick rather than being dropped.
+const ratingStrip = computed(() =>
+  [...(props.letterboxdStats?.films || [])]
+    .filter((f) => f.watchedDate)
+    .sort(
+      (a, b) =>
+        new Date(a.watchedDate!).getTime() - new Date(b.watchedDate!).getTime()
+    )
+    .map((f) => ({
+      slug: f.slug,
+      url: f.letterboxdUrl,
+      pct: f.rating ? Math.round((f.rating / 5) * 100) : 0,
+      label: [
+        f.title,
+        f.rating ? `${f.rating}★` : 'unrated',
+        formatDate(f.watchedDate),
+      ].join(' · '),
+    }))
+)
+
 const renderStars = (rating: number | null) => {
   if (!rating) return []
 
@@ -133,6 +154,30 @@ const renderStars = (rating: number | null) => {
           />
           ★ AVG
         </div>
+        <!-- Rating strip: one bar per film, height = rating / 5 -->
+        <div
+          v-if="ratingStrip.length"
+          class="flex items-end justify-center gap-px h-4 pt-1"
+          aria-label="Films watched, one bar per film, height is the rating"
+        >
+          <a
+            v-for="film in ratingStrip"
+            :key="film.slug"
+            :href="film.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-1 h-full flex items-end"
+            :title="film.label"
+          >
+            <span
+              v-if="film.pct"
+              class="w-full bg-zinc-400 dark:bg-zinc-600 hover:bg-zinc-600 dark:hover:bg-zinc-400 transition-colors"
+              :style="{ height: film.pct + '%' }"
+            />
+            <span v-else class="w-full h-px bg-zinc-300 dark:bg-zinc-800" />
+          </a>
+        </div>
+
         <div class="text-xs space-x-3">
           <span>
             <AnimatedNumber

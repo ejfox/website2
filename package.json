@@ -46,7 +46,7 @@
     "clean:all": "rm -rf .nuxt dist .output node_modules/.cache content/processed/*",
     "build:prod": "NITRO_PRESET=node-server yarn build",
     "deploy": "git push origin main && echo '🚀 GH Actions builds + deploys on push to main (~3 min)'",
-    "capture": "node scripts/author/capture.mjs",
+    "capture": "node scripts/capture.mjs",
     "shoot": "node scripts/author/shoot-queue.mjs"
   },
   "devDependencies": {

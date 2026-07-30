@@ -1,10 +1,11 @@
 ---
 title: Dataproofer
 date: 2015-11-03T00:00:00-05:00
+category: "Journalism"
 modified: 2025-08-26T15:53:33-04:00
 url: https://github.com/dataproofer/Dataproofer
 tech: ["JavaScript", "Electron", "Data Quality", "CSV"]
-featured: false
+featured: true
 state: deployed
 ai-involvement: human-only
 context: collaborative
@@ -17,7 +18,7 @@ tags:
 
 Along with Gerald Rich and the Vocativ data team, I received a [Knight Prototype Fund](https://knightfoundation.org/articles/20-ideas-receive-support-knight-prototype-fund-media-and-information-projects/) grant to create [Dataproofer](https://github.com/dataproofer/Dataproofer) - an open source tool to check data for reliability, missing data, and outliers. Built as an Electron desktop app for journalists.
 
-![Dataproofer running its suite of data-quality tests against a CSV](https://res.cloudinary.com/ejf/image/upload/v1780060617/projects/dataproofer/gh-4.png)
+![The Dataproofer site — a spellchecker, for your data](https://res.cloudinary.com/ejf/image/upload/projects/dataproofer/landing.png)
 
 ```bash
 ❯ dataproofer Criterion\ Channel\ videos\ v1.2.0-20190621\ -\ v1.2.0-20190621.csv

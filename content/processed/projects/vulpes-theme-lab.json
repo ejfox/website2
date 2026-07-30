@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Vulpes Theme Lab",
     "date": "2025-12-28T05:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
     "draft": true,
     "url": "https://ejfox.github.io/vulpes-theme-lab/",
     "tech": [
@@ -14,7 +16,7 @@
       "Design Tool"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "design",
       "tools",
