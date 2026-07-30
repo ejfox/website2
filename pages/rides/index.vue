@@ -22,19 +22,8 @@ interface RideIndexEntry {
 const { data } = await useFetch<RideIndexEntry[]>('/api/rides')
 const rides = computed(() => data.value ?? [])
 
-// Every ride renders at the same geographic scale: a cell's unit box equals
-// the largest ride's footprint; smaller rides shrink toward their center.
-const maxExtent = computed(() =>
-  Math.max(1, ...rides.value.map((r) => r.extentMeters ?? 1))
-)
-
-const trackPoints = (r: RideIndexEntry) => {
-  const s = (r.extentMeters ?? maxExtent.value) / maxExtent.value
-  const off = (1 - s) / 2
-  return (r.thumb ?? [])
-    .map((p) => `${(off + p[0] * s).toFixed(3)},${(off + p[1] * s).toFixed(3)}`)
-    .join(' ')
-}
+const trackPoints = (r: RideIndexEntry) =>
+  (r.thumb ?? []).map((p) => `${p[0]},${p[1]}`).join(' ')
 
 const elevPoints = (r: RideIndexEntry) => {
   const e = r.elev
@@ -77,12 +66,6 @@ useHead({ title: 'Rides — EJ Fox' })
       <p class="font-serif text-zinc-600 dark:text-zinc-400">
         Motorcycle rides as recorded — GPS traces, photographs, field
         recordings, and the short notes I managed to write down.
-      </p>
-      <p
-        v-if="rides.length > 1"
-        class="mt-2 font-mono text-3xs uppercase tracking-widest text-zinc-400 dark:text-zinc-600"
-      >
-        all rides drawn at the same scale
       </p>
     </header>
 
