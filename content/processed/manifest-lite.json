@@ -6192,6 +6192,53 @@
     }
   },
   {
+    "slug": "projects/subway-builder",
+    "title": "Subway Builder",
+    "date": "2026-05-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "games",
+      "simulation",
+      "transit",
+      "dataviz"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Subway Builder",
+      "date": "2026-05-01T04:00:00.000Z",
+      "category": "Art",
+      "featured": false,
+      "url": "https://github.com/ejfox/subway-builder-mods",
+      "tech": [
+        "JavaScript",
+        "Simulation",
+        "Transit",
+        "Game Modding"
+      ],
+      "state": "evolved",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "games",
+        "simulation",
+        "transit",
+        "dataviz"
+      ],
+      "words": 263,
+      "images": 10,
+      "imageDetails": {
+        "total": 10,
+        "cloudinary": 10,
+        "withDimensions": 0
+      },
+      "links": 11,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/subway-builder"
+    }
+  },
+  {
     "slug": "projects/vulpes-nvim",
     "title": "vulpes.nvim",
     "date": "2026-01-18T05:00:00.000Z",

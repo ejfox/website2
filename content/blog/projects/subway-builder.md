@@ -3,7 +3,6 @@ title: "Subway Builder"
 date: 2026-05-01T00:00:00-04:00
 category: "Art"
 featured: false
-draft: true
 url: https://github.com/ejfox/subway-builder-mods
 tech: ["JavaScript", "Simulation", "Transit", "Game Modding"]
 state: evolved
@@ -15,12 +14,13 @@ tags:
   - dataviz
 ---
 
-<!-- TODO (EJ): still clarify your role — built vs deep mods? (~340 screenshots
-     across your history, biggest single body of work.) -->
+<!-- Role clarified 2026-07-30: Colin's project, EJ is a dev on it. -->
 
-The mission: hyperstitioning public transit into every American city. It's like Ender's Game for transit — using realistic data to let train-people SHOW their elected leaders what is and is not possible, via realistic simulations.
+Subway Builder is Colin's game — I'm one of the devs on it. The mission, as I see it: hyperstitioning public transit into every American city. It's like Ender's Game for transit — using realistic data to let train-people SHOW their elected leaders what is and is not possible, via realistic simulations.
 
-The work: a transit-simulation game (an Electron build) — designing train types with realistic acceleration, capacity, and cost parameters; laying networks over real-world geography; and building construction and analysis tooling. (Also spun off `subway-builder-mods` and a Pico-8 demake.)
+The game itself: a transit simulation (an Electron build) — design train types with realistic acceleration, capacity, and cost parameters, lay networks over real-world geography, and analyze the demand you create. It launched on Steam in July 2026. My corner of it: code contributions, Steam release infrastructure, and spin-offs like `subway-builder-mods` and a Pico-8 demake.
+
+It's also a success story for [Room 302 Studio](https://room302.studio) — Colin grew from a studio member to having the studio support his effort, and I wanna do that for more people and their dream apps and games.
 
 ![Subway Builder construction mode — laying track in an isometric city](https://res.cloudinary.com/ejf/image/upload/v1780066321/projects/subway-builder/build.png)
 
