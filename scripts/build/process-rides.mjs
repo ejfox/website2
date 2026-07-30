@@ -16,6 +16,7 @@ import { readFile, writeFile, mkdir, readdir } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import { resolve, join } from 'node:path'
 import { XMLParser } from 'fast-xml-parser'
+import { buildBasemap } from './ride-basemap.mjs'
 
 const ROOT = resolve(process.cwd())
 const RIDES_DIR = join(ROOT, 'content/rides')
@@ -341,10 +342,20 @@ async function processRide(slug) {
     : { data: {}, body: '' }
 
   let track = null
+  let basemap = null
   if (existsSync(gpxPath)) {
     const rawPoints = await parseGpx(gpxPath)
     const trim = data.privacyTrimMeters ?? DEFAULT_PRIVACY_TRIM_METERS
     track = computeTrack(rawPoints, trim)
+    try {
+      basemap = await buildBasemap(
+        padBounds(track.bounds, 0.12),
+        join(ROOT, 'data/cache'),
+        slug
+      )
+    } catch (err) {
+      console.warn(`  ⚠ basemap skipped for ${slug}: ${err.message}`)
+    }
   }
 
   const moments = Array.isArray(data.moments)
@@ -365,11 +376,23 @@ async function processRide(slug) {
     bounds: track?.bounds ?? null,
     startTime: track?.startTime ?? null,
     points: track?.points ?? [],
+    basemap,
     moments,
   }
 
   await writeFile(join(OUT_DIR, `${slug}.json`), JSON.stringify(ride))
   return ride
+}
+
+function padBounds(b, frac) {
+  const dLon = (b.maxLon - b.minLon) * frac
+  const dLat = (b.maxLat - b.minLat) * frac
+  return {
+    minLon: b.minLon - dLon,
+    maxLon: b.maxLon + dLon,
+    minLat: b.minLat - dLat,
+    maxLat: b.maxLat + dLat,
+  }
 }
 
 async function main() {

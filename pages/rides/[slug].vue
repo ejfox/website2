@@ -36,6 +36,14 @@ interface Ride {
   } | null
   // [lon, lat, ele, tSeconds, distMeters]
   points: [number, number, number | null, number | null, number][]
+  basemap: {
+    waterPolys: [number, number][][]
+    rivers: [number, number][][]
+    roadsMajor: [number, number][][]
+    roadsMinor: [number, number][][]
+    rail: [number, number][][]
+    places: { name: string; kind: string; lon: number; lat: number }[]
+  } | null
   moments: Moment[]
 }
 
@@ -92,14 +100,6 @@ const trackPath = computed(() => {
   )
 })
 
-const progressPathEl = ref<SVGPathElement | null>(null)
-const pathLength = ref(0)
-watchEffect(() => {
-  if (trackPath.value && progressPathEl.value) {
-    pathLength.value = progressPathEl.value.getTotalLength()
-  }
-})
-
 // ---- scroll → ride progress ---------------------------------------------
 const scrollSection = ref<HTMLElement | null>(null)
 const { top, height: sectionPx } = useElementBounding(scrollSection)
@@ -134,6 +134,17 @@ const riderIndex = computed(() => {
   return lo
 })
 
+/** The ridden-so-far path, built from real points — no dash-length tricks. */
+const progressPath = computed(() => {
+  const pts = projected.value
+  if (!pts.length) return ''
+  const upto = pts.slice(0, riderIndex.value + 1)
+  if (upto.length < 2) return ''
+  return (
+    'M' + upto.map((p) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`).join('L')
+  )
+})
+
 const riderPoint = computed(() => projected.value[riderIndex.value] ?? null)
 const riderEle = computed(
   () => ride.value?.points[riderIndex.value]?.[2] ?? null
@@ -147,6 +158,126 @@ const riderClock = computed(() => {
     minute: '2-digit',
   })
 })
+
+// ---- basemap -------------------------------------------------------------
+/** One `d` string per layer: all segments concatenated into a single path. */
+function layerPath(segments: [number, number][][] | undefined, close = false) {
+  const proj = projection.value
+  if (!proj || !segments?.length) return ''
+  let d = ''
+  for (const seg of segments) {
+    d += seg
+      .map((c, i) => {
+        const p = proj(c) as [number, number]
+        return `${i === 0 ? 'M' : 'L'}${p[0].toFixed(1)},${p[1].toFixed(1)}`
+      })
+      .join('')
+    if (close) d += 'Z'
+  }
+  return d
+}
+
+const waterPath = computed(() =>
+  layerPath(ride.value?.basemap?.waterPolys, true)
+)
+const riverPath = computed(() => layerPath(ride.value?.basemap?.rivers))
+const roadsMajorPath = computed(() =>
+  layerPath(ride.value?.basemap?.roadsMajor)
+)
+const roadsMinorPath = computed(() =>
+  layerPath(ride.value?.basemap?.roadsMinor)
+)
+const railPath = computed(() => layerPath(ride.value?.basemap?.rail))
+
+const placeLabels = computed(() => {
+  const proj = projection.value
+  const places = ride.value?.basemap?.places
+  if (!proj || !places) return []
+  return places
+    .filter((p) => p.kind !== 'hamlet')
+    .map((p) => {
+      const [x, y] = proj([p.lon, p.lat]) as [number, number]
+      return { ...p, x, y, major: p.kind === 'city' || p.kind === 'town' }
+    })
+    .filter(
+      (p) =>
+        p.x > 16 &&
+        p.x < width.value - 72 &&
+        p.y > 16 &&
+        p.y < height.value - 96
+    )
+})
+
+/** Graticule ticks along the frame edges, labeled in degrees + minutes. */
+const GRAT_STEP = 0.05
+const graticule = computed(() => {
+  const proj = projection.value
+  if (!proj || width.value === 0) return { lonTicks: [], latTicks: [] }
+  const inv = (x: number, y: number) =>
+    proj.invert?.([x, y]) as [number, number]
+  const [w, h] = [width.value, height.value]
+  const [lonL] = inv(0, h / 2)
+  const [lonR] = inv(w, h / 2)
+  const [, latT] = inv(w / 2, 0)
+  const [, latB] = inv(w / 2, h)
+  const lonTicks = []
+  for (
+    let lon = Math.ceil(lonL / GRAT_STEP) * GRAT_STEP;
+    lon < lonR;
+    lon += GRAT_STEP
+  ) {
+    lonTicks.push({
+      x: (proj([lon, latB]) as [number, number])[0],
+      label: dms(lon, 'lon'),
+    })
+  }
+  const latTicks = []
+  for (
+    let lat = Math.ceil(latB / GRAT_STEP) * GRAT_STEP;
+    lat < latT;
+    lat += GRAT_STEP
+  ) {
+    latTicks.push({
+      y: (proj([lonL, lat]) as [number, number])[1],
+      label: dms(lat, 'lat'),
+    })
+  }
+  return { lonTicks, latTicks }
+})
+
+function dms(deg: number, axis: 'lon' | 'lat') {
+  const hemi = axis === 'lon' ? (deg < 0 ? 'W' : 'E') : deg < 0 ? 'S' : 'N'
+  const a = Math.abs(deg)
+  const d = Math.floor(a)
+  const m = Math.round((a - d) * 60)
+  return `${d}°${String(m).padStart(2, '0')}′${hemi}`
+}
+
+/** A clean scale bar: nice round km sized off the projection's real scale. */
+const scaleBar = computed(() => {
+  const proj = projection.value
+  if (!proj?.invert || width.value === 0) return null
+  const y = height.value / 2
+  const a = proj.invert([width.value / 2, y]) as [number, number]
+  const b = proj.invert([width.value / 2 + 100, y]) as [number, number]
+  const metersPer100px = haversineMeters(a, b)
+  if (!metersPer100px) return null
+  const targetM = metersPer100px * 1.4 // aim for a ~140px bar
+  const nice = [1000, 2000, 5000, 10000, 20000].reduce((best, n) =>
+    Math.abs(n - targetM) < Math.abs(best - targetM) ? n : best
+  )
+  return { px: (nice / metersPer100px) * 100, label: `${nice / 1000} km` }
+})
+
+function haversineMeters(a: [number, number], b: [number, number]) {
+  const toRad = (d: number) => (d * Math.PI) / 180
+  const dLat = toRad(b[1] - a[1])
+  const dLon = toRad(b[0] - a[0])
+  const h =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos(toRad(a[1])) * Math.cos(toRad(b[1])) * Math.sin(dLon / 2) ** 2
+  return 2 * 6371000 * Math.asin(Math.sqrt(h))
+}
 
 // ---- moments -------------------------------------------------------------
 const placedMoments = computed(() => {
@@ -279,11 +410,99 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
       v-if="ride.points.length"
       ref="scrollSection"
       class="relative"
-      :style="{ height: sectionHeight }"
+      :style="{ height: sectionHeight, overflowAnchor: 'none' }"
     >
       <div class="sticky top-0 h-screen overflow-hidden">
         <div ref="mapContainer" class="absolute inset-0">
           <svg v-if="width > 0" :width="width" :height="height" class="block">
+            <!-- basemap: water, rail, roads — quiet layers under the ride -->
+            <path
+              v-if="waterPath"
+              :d="waterPath"
+              fill="currentColor"
+              fill-rule="evenodd"
+              class="text-sky-100 dark:text-sky-950/60"
+            />
+            <path
+              v-if="riverPath"
+              :d="riverPath"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"
+              stroke-linecap="round"
+              class="text-sky-200 dark:text-sky-900/70"
+            />
+            <path
+              v-if="railPath"
+              :d="railPath"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="0.75"
+              stroke-dasharray="1 4"
+              class="text-zinc-400/70 dark:text-zinc-600/70"
+            />
+            <path
+              v-if="roadsMinorPath"
+              :d="roadsMinorPath"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="0.5"
+              class="text-zinc-300/80 dark:text-zinc-800"
+            />
+            <path
+              v-if="roadsMajorPath"
+              :d="roadsMajorPath"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1"
+              class="text-zinc-300 dark:text-zinc-700/80"
+            />
+            <!-- place labels -->
+            <g
+              v-for="p in placeLabels"
+              :key="p.name"
+              class="text-zinc-400 dark:text-zinc-600"
+            >
+              <circle :cx="p.x" :cy="p.y" r="1.5" fill="currentColor" />
+              <text
+                :x="p.x + 5"
+                :y="p.y + 3"
+                fill="currentColor"
+                class="font-mono uppercase"
+                :style="{
+                  fontSize: p.major ? '10px' : '8px',
+                  letterSpacing: p.major ? '0.14em' : '0.1em',
+                  opacity: p.major ? 1 : 0.75,
+                }"
+              >
+                {{ p.name }}
+              </text>
+            </g>
+            <!-- graticule ticks -->
+            <g class="text-zinc-400/80 dark:text-zinc-600/80 font-mono">
+              <g v-for="t in graticule.lonTicks" :key="'lon' + t.label">
+                <line :x1="t.x" :x2="t.x" y1="0" y2="6" stroke="currentColor" />
+                <text
+                  :x="t.x + 4"
+                  y="14"
+                  fill="currentColor"
+                  style="font-size: 8px; letter-spacing: 0.08em"
+                >
+                  {{ t.label }}
+                </text>
+              </g>
+              <g v-for="t in graticule.latTicks" :key="'lat' + t.label">
+                <line x1="0" x2="6" :y1="t.y" :y2="t.y" stroke="currentColor" />
+                <text
+                  x="9"
+                  :y="t.y + 3"
+                  fill="currentColor"
+                  style="font-size: 8px; letter-spacing: 0.08em"
+                >
+                  {{ t.label }}
+                </text>
+              </g>
+            </g>
             <!-- full route, faint -->
             <path
               :d="trackPath"
@@ -296,15 +515,13 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
             />
             <!-- traversed route, accent -->
             <path
-              ref="progressPathEl"
-              :d="trackPath"
+              v-if="progressPath"
+              :d="progressPath"
               fill="none"
               stroke="var(--ride-accent)"
               stroke-width="2.5"
               stroke-linejoin="round"
               stroke-linecap="round"
-              :stroke-dasharray="pathLength"
-              :stroke-dashoffset="pathLength * (1 - progress)"
             />
             <!-- moment markers -->
             <circle
@@ -341,6 +558,40 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
               {{ riderEle }}m ele
             </span>
             <span v-if="riderClock" class="ml-3">{{ riderClock }}</span>
+          </div>
+
+          <!-- map furniture: scale bar, north arrow, attribution -->
+          <div
+            v-if="scaleBar"
+            class="absolute left-4 md:left-8 font-mono text-zinc-500 dark:text-zinc-500"
+            :style="{ bottom: ELEV_H + 16 + 'px' }"
+          >
+            <div
+              class="h-px bg-current mb-1 relative"
+              :style="{ width: scaleBar.px + 'px' }"
+            >
+              <span class="absolute left-0 -top-1 w-px h-2 bg-current" />
+              <span class="absolute right-0 -top-1 w-px h-2 bg-current" />
+            </div>
+            <span style="font-size: 9px; letter-spacing: 0.1em">
+              {{ scaleBar.label }}
+            </span>
+          </div>
+          <div
+            class="absolute top-4 right-4 md:top-8 md:right-8 font-mono text-zinc-400 dark:text-zinc-600 text-center select-none"
+          >
+            <div style="font-size: 12px">↑</div>
+            <div style="font-size: 9px; letter-spacing: 0.2em">N</div>
+          </div>
+          <div
+            class="absolute right-4 md:right-8 font-mono text-zinc-400/70 dark:text-zinc-700"
+            :style="{
+              bottom: ELEV_H + 16 + 'px',
+              fontSize: '8px',
+              letterSpacing: '0.06em',
+            }"
+          >
+            map data © openstreetmap
           </div>
 
           <!-- elevation profile -->
