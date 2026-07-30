@@ -74,3 +74,6 @@ data/on-this-day-index.json
 
 # Cal.com webhook funnel log (runtime data)
 data/calcom-events.jsonl
+
+# raw GPX tracks stay local — only privacy-trimmed processed JSON is committed
+content/rides/**/*.gpx

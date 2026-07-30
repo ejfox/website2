@@ -47,7 +47,8 @@
     "build:prod": "NITRO_PRESET=node-server yarn build",
     "deploy": "git push origin main && echo '🚀 GH Actions builds + deploys on push to main (~3 min)'",
     "capture": "node scripts/author/capture.mjs",
-    "shoot": "node scripts/author/shoot-queue.mjs"
+    "shoot": "node scripts/author/shoot-queue.mjs",
+    "rides:process": "node scripts/build/process-rides.mjs"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.10.0",
