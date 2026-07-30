@@ -3,7 +3,6 @@ title: "Flipper Generative Art"
 date: 2025-01-15T00:00:00-05:00
 category: "Hardware & Radio"
 featured: true
-draft: true
 url: https://github.com/ejfox/flipper-generative-art
 tech: ["Flipper Zero", "C", "Floyd–Steinberg Dithering", "Embedded"]
 state: deployed
@@ -16,18 +15,13 @@ tags:
   - art
 ---
 
-<!-- TODO (EJ): Photo Day — real camera, patterns running on-device, shoot
-     flipper-space-calculators in the same session. His words 2026-07-30:
-     "its cool but hard to express" — the footage IS the expression.
-     VOICE PLAN (2026-07-30): EJ narrates a video while playing with the device;
-     Claude transcribes → drafts verbatim-first (hexagram treatment). Prompts to
-     riff on during recording: what the gradient families are doing (dither? flow
-     fields?), the first "oh hell yes" pattern, what 1-bit/128×64 forced.
-     TODO (EJ): add your voice. These are the app's own gallery captures from the
-     128×64 screen; an on-device shot of it running live would be even better
-     (it's on the Photo Day list). Draft until then. -->
+<!-- TODO (EJ): tonight's desk take — footage of patterns running on-device
+     (real camera or phone), shoot flipper-space-calculators in the same
+     session. -->
 
-A Flipper Zero app that generates animated patterns in real time on the device's **128×64 monochrome screen**. It runs ten gradient families — horizontal, vertical, radial, diagonal, sine waves, interference, checkerboard, noise, spiral — and converts each to crisp 1-bit graphics with **Floyd–Steinberg dithering**, evolving the parameters every second at ~30fps.
+I often just leave the Flipper on my desk below my monitor, and my feeling was: why not have it show me little evolving art pieces instead of just the time? What would that look and feel like? Is generative art even possible within the constraints of the Flipper's screen and processor? What does 1-bit generative art *feel* like? How can it evolve over the course of a day?
+
+This is the answer: a Flipper Zero app that generates animated patterns in real time on the device's **128×64 monochrome screen**. It runs ten gradient families — horizontal, vertical, radial, diagonal, sine waves, interference, checkerboard, noise, spiral — and converts each to crisp 1-bit graphics with **Floyd–Steinberg dithering**, evolving the parameters every second at ~30fps.
 
 ![More real-time generative patterns](https://res.cloudinary.com/ejf/image/upload/projects/flipper-generative-art/gallery-5.png)
 

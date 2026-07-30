@@ -5588,6 +5588,55 @@
     }
   },
   {
+    "slug": "projects/flipper-generative-art",
+    "title": "Flipper Generative Art",
+    "date": "2025-01-15T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "flipper",
+      "hardware",
+      "device",
+      "generative",
+      "art"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Flipper Generative Art",
+      "date": "2025-01-15T05:00:00.000Z",
+      "category": "Hardware & Radio",
+      "featured": true,
+      "url": "https://github.com/ejfox/flipper-generative-art",
+      "tech": [
+        "Flipper Zero",
+        "C",
+        "Floyd–Steinberg Dithering",
+        "Embedded"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "flipper",
+        "hardware",
+        "device",
+        "generative",
+        "art"
+      ],
+      "words": 213,
+      "images": 5,
+      "imageDetails": {
+        "total": 5,
+        "cloudinary": 5,
+        "withDimensions": 0
+      },
+      "links": 5,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/flipper-generative-art"
+    }
+  },
+  {
     "slug": "projects/flipper-space-calculators",
     "title": "Flipper Space Calculators",
     "date": "2025-01-20T05:00:00.000Z",
