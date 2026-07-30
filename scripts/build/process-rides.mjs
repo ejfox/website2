@@ -181,7 +181,48 @@ function computeTrack(rawPoints, trimMeters) {
     }
   }
 
+  // per-point speed over a centered ~8s window on the FULL-resolution track,
+  // attached before simplification so the page never re-derives speed from
+  // decimated points (which dilutes peaks)
+  {
+    let j = 0
+    let k = 0
+    for (let i = 0; i < enriched.length; i++) {
+      const ti = enriched[i].time
+      if (!ti) continue
+      while (j < i && (!enriched[j].time || ti - enriched[j].time > 4000)) j++
+      if (k < i) k = i
+      while (
+        k < enriched.length - 1 &&
+        enriched[k + 1].time &&
+        enriched[k + 1].time - ti <= 4000
+      ) {
+        k++
+      }
+      const dt = enriched[k].time - enriched[j].time
+      if (dt > 0) {
+        enriched[i].spd = (enriched[k].dist - enriched[j].dist) / (dt / 1000)
+      }
+    }
+  }
+
   let simplified = douglasPeucker(enriched, SIMPLIFY_TOLERANCE_DEG)
+  // DP deletes straightaways — exactly where speed peaks live. Re-add the
+  // fastest points so the wire data preserves honest maxima.
+  {
+    const kept = new Set(simplified)
+    const peaks = [...enriched]
+      .sort((a, b) => (b.spd ?? 0) - (a.spd ?? 0))
+      .slice(0, 25)
+    let added = false
+    for (const p of peaks) {
+      if (!kept.has(p)) {
+        kept.add(p)
+        added = true
+      }
+    }
+    if (added) simplified = enriched.filter((p) => kept.has(p))
+  }
   if (simplified.length > MAX_POINTS) {
     const step = simplified.length / MAX_POINTS
     simplified = Array.from(
@@ -196,13 +237,14 @@ function computeTrack(rawPoints, trimMeters) {
   const lons = enriched.map((p) => p.lon)
 
   return {
-    // compact wire format: [lon, lat, ele(m), tSeconds(rel), dist(m)]
+    // compact wire format: [lon, lat, ele(m), tSeconds(rel), dist(m), mps]
     points: simplified.map((p) => [
       +p.lon.toFixed(5),
       +p.lat.toFixed(5),
       p.ele === null ? null : Math.round(p.ele),
       p.time && t0 ? Math.round((p.time - t0) / 1000) : null,
       Math.round(p.dist),
+      +(p.spd ?? 0).toFixed(1),
     ]),
     bounds: {
       minLon: Math.min(...lons),

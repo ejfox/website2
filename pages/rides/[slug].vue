@@ -35,8 +35,8 @@ interface Ride {
     minLat: number
     maxLat: number
   } | null
-  // [lon, lat, ele, tSeconds, distMeters]
-  points: [number, number, number | null, number | null, number][]
+  // [lon, lat, ele, tSeconds, distMeters, speedMps]
+  points: [number, number, number | null, number | null, number, number][]
   basemap: {
     waterPolys: [number, number][][]
     rivers: [number, number][][]
@@ -153,40 +153,12 @@ const segmentData = computed<{ segs: Seg[]; maxMph: number }>(() => {
     return { segs: [], maxMph: 0 }
   }
 
-  // speed at each point: true distance over a ~16s time window around it —
-  // per-segment deltas on the simplified track smear stops into the average
-  const times = pts.map((p) => p[3])
-  const dists = pts.map((p) => p[4])
-  const n = pts.length
-  const HALF_WINDOW_S = 8
-  const speedAt = (i: number): number => {
-    const ti = times[i]
-    if (ti === null) return 0
-    let j = i
-    let k = i
-    // walk until each side is at least HALF_WINDOW_S away (or the track ends),
-    // so sparse straightaway points still yield a real interval
-    while (
-      j > 0 &&
-      times[j] !== null &&
-      ti - (times[j] as number) < HALF_WINDOW_S
-    ) {
-      j--
-    }
-    while (
-      k < n - 1 &&
-      times[k] !== null &&
-      (times[k] as number) - ti < HALF_WINDOW_S
-    ) {
-      k++
-    }
-    const dt = (times[k] as number) - (times[j] as number)
-    return dt > 0 ? (dists[k] - dists[j]) / dt : 0
-  }
-  // one speed per segment, sampled at its leading point
+  // speeds are precomputed in the pipeline on the full-res track (8s window)
+  // and shipped per point — never re-derived from simplified geometry
   const speeds: number[] = []
-  for (let i = 1; i < n; i++) speeds.push(speedAt(i))
-  // scale to the 95th percentile so one hot straight doesn't flatten the ramp
+  for (let i = 1; i < pts.length; i++) speeds.push(pts[i][5] ?? 0)
+  // color ramp saturates at the 95th percentile so one hot straight doesn't
+  // flatten everything; the readout still reports true point speed
   const sorted = [...speeds].sort((a, b) => a - b)
   const vMax = sorted[Math.floor(sorted.length * 0.95)] || 1
 
@@ -674,7 +646,7 @@ useHead({ title: `${ride.value.title} — Rides — EJ Fox` })
                 :style="{ width: '72px', background: speedLegendGradient }"
               />
               <span style="font-size: 8px; letter-spacing: 0.1em">
-                0–{{ segmentData.maxMph }} mph · thick = high ground
+                0–{{ segmentData.maxMph }}+ mph · thick = high ground
               </span>
             </div>
           </div>
