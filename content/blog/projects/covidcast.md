@@ -18,6 +18,8 @@ tags:
 
 During the early COVID-19 pandemic, I worked with Carnegie Mellon University's [COVIDcast project](https://delphi.cmu.edu/epidemic-signals/), prototyping data visualizations and user interactions to help the public understand hospitalization, transmission, and movement trends across the country.
 
+![Scrolling the COVIDcast dashboard as it runs today — indicator tiles, the county-level map, and the signals table](https://res.cloudinary.com/ejf/video/upload/projects/covidcast/dashboard-scroll.mp4)
+
 ![COVIDcast dashboard: weekly case, hospitalization, and death rates above an interactive county-level map](https://res.cloudinary.com/ejf/image/upload/v1666630395/project-images/cmu_covidcast.png)
 
 ![Population density map of the United States with circles sized by population, colored white to red indicating concentration in the Midwest and Northeast.](http://res.cloudinary.com/ejf/image/upload/v1755099710/screenshot_2025-08-13_at_11.41.38_AM.png)

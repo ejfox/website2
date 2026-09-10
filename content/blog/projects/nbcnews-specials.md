@@ -16,6 +16,8 @@ tags:
 
 During my time at NBC News, I worked on the Foundry team, creating bespoke longform articles in collaboration with journalists across the organization. These [specials](https://www.nbcnews.com/specials) focused on unique approaches to video, data visualiation, and storytelling on the web.
 
+![Scrolling Journey of a Bullet — the bullet-path diagram, documentary stills, and longform text as readers met it](https://res.cloudinary.com/ejf/video/upload/projects/nbcnews-specials/journey-scroll.mp4)
+
 [Does America Need Another Prison? (2018)](https://www.nbcnews.com/specials/kentucky-prison-coal-country)
 
 ![The introduction to the Journey of a Bullet story](http://res.cloudinary.com/ejf/image/upload/v1755100741/screenshot_2025-08-13_at_11.58.49_AM.png)

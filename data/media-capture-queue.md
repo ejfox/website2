@@ -10,20 +10,20 @@ Terminal tools: skip "booting" — write a VHS tape (`brew install vhs`) and get
 - [ ] **nbc-big-board** (4 img, 1 vid) — needs: polish only
 - [ ] **gem-viz** (5 img, 0 vid) — needs: 1 short video/gif
 - [ ] **scrapbook-core** (1 img, 0 vid) — needs: 2 more screenshots, 1 short video/gif — BLOCKED-ish 2026-07-12: local DB only has 7 scraps (looks bad); needs real Supabase env for `yarn doctor:status` / scrapbook-cli to shine. VHS is installed and ready — https://github.com/ejfox/scrapbook-core
-- [ ] **motorcycle-viz** (12 img, 0 vid) — needs: 1 short video/gif — https://github.com/ejfox/motorcycle-viz
+- [x] **motorcycle-viz** (12 img, 1 vid) — DONE 2026-09-10: corpus-scroll.mp4 (stop-motion scroll of ejfox.github.io/motorcycle-viz — corpus stats, frame contact sheet, GPS maps)
 - [x] **connectology** (3 img, 1 vid) — DONE 2026-07-12: force-demo.mp4 (shuffle re-layouts) + editor + networks-home, captured from local dev with `NUXT_DISABLE_AUTH=true yarn dev`. The `.env` publishable key is fixed (was Clerk's docs placeholder = the hello.world.dev redirect). PROD IS STILL 502 — the flagship's live URL needs the host kicked
 - [ ] **paramilitary-leaks** (1 img, 0 vid) — needs: 2 more screenshots, 1 short video/gif
 - [x] **pixel-canvas** (14 img, 1 vid) — DONE 2026-07-12: scene-rotation.mp4 (all 14 scenes cycling, built from the renders). Real photo of the glowing device still on the Photo Day list
-- [ ] **dataproofer** (1 img, 0 vid) — needs: 2 more screenshots, 1 short video/gif — https://github.com/dataproofer/Dataproofer
+- [x] **dataproofer** (1 img, 1 vid) — DONE 2026-09-10: site-scroll.mp4 (stop-motion scroll of dataproofer.org, Vimeo embed surgically removed — it errors in headless). Could still use 1-2 stills of the actual app
 - [ ] **flipper-generative-art** (5 img, 0 vid) — needs: 1 short video/gif — https://github.com/ejfox/flipper-generative-art
 - [x] **hexagram-motion-graphics** (3 img, 1 vid) — DONE 2026-07-12: possibility-tree.mp4 (18s Manim render). 55 more finished clips in ~/code/hexagram-motion-graphics/media/videos to pull from
 
 ## Client & Newsroom (4)
 
-- [ ] **covidcast** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx
+- [x] **covidcast** (2 img, 1 vid) — DONE 2026-09-10: dashboard-scroll.mp4 (stop-motion scroll of the live delphi.cmu.edu/covidcast dashboard — honest alt: "as it runs today"). Could still use 1 more still
 - [ ] **logically** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif
 - [ ] **margin-maps** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif
-- [ ] **nbcnews-specials** (3 img, 0 vid) — needs: 1 short video/gif — https://nbcnews.com/specials
+- [x] **nbcnews-specials** (3 img, 1 vid) — DONE 2026-09-10: journey-scroll.mp4 (stop-motion scroll of Journey of a Bullet — title art, bullet-path diagram, doc stills)
 
 ## Data Visualization (14)
 
@@ -51,11 +51,11 @@ Terminal tools: skip "booting" — write a VHS tape (`brew install vhs`) and get
 - [ ] **opencv-talk-typography** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/opencv-talk-typography
 - [ ] **osm-builder** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/osm-builder
 - [ ] **phone-stack** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/phone-stack
-- [ ] **steam-store-design-lab** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/steam-store-design-lab
+- [ ] **steam-store-design-lab** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/steam-store-design-lab — NOTE 2026-09-10: gh-pages is live but renders an empty "Untitled Game / No media yet" placeholder; needs a real design loaded locally before it's worth capturing
 - [ ] **metro-savefile-doctor** (3 img, 0 vid) — needs: 1 short video/gif — https://github.com/ejfox/metro-savefile-doctor
 - [ ] **subway-builder** (3 img, 0 vid) — needs: 1 short video/gif — https://github.com/ejfox/subway-builder-mods
 - [x] **moto-gpx** (4 img, 0 vid) — DONE 2026-07-12: demo.mp4 shipped (stop-motion pan of the full report)
-- [ ] **butt-math** (5 img, 0 vid) — needs: 1 short video/gif
+- [x] **butt-math** (5 img, 1 vid) — DONE 2026-09-10: explainer-scroll.mp4 (22s primed stop-motion of the local gluteal-index Nuxt app — reveals need a priming scroll pass first, page is 29k px)
 - [ ] **spacepunk-logi** (6 img, 0 vid) — needs: 1 short video/gif — https://github.com/ejfox/spacepunk-logi
 
 ## Hardware & Radio (8)
@@ -73,9 +73,9 @@ Terminal tools: skip "booting" — write a VHS tape (`brew install vhs`) and get
 
 - [ ] **renttoejfox** (1 img, 0 vid) — needs: 2 more screenshots, 1 short video/gif
 - [ ] **cavapalooza** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/cavapalooza
-- [ ] **coachartie-showcase** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/coachartie_showcase
+- [x] **coachartie-showcase** (2 img, 1 vid) — DONE 2026-09-10: showcase-scroll.mp4 (stop-motion scroll of coachartiebot.com — 3D desk scene into big-serif capability sections)
 - [ ] **fixcentralhudson** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/fixcentralhudson
-- [ ] **mapping-ice** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/mapping-ice
+- [x] **mapping-ice** (2 img, 1 vid) — DONE 2026-09-10: site-scroll.mp4 (stop-motion scroll of ejfox.github.io/mapping-ice — stat tiles, facility records, charts, sources ledger)
 - [ ] **tempo** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/tempo-ios
 - [ ] **towntuner** (2 img, 0 vid) — needs: 1 more screenshot, 1 short video/gif — https://github.com/ejfox/towntuner
 - [x] **vulpecula-loom** (2 img, 0 vid) — DONE 2026-07-12: demo.mp4 shipped; landing.png also on Cloudinary, unembedded
