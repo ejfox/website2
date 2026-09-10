@@ -217,11 +217,16 @@ const GH_EVENTS = [
   },
 ]
 
+// Slim card shape from /api/projects?slim=1 — the project cards no longer
+// receive html; images/heroVideo/excerpt arrive precomputed server-side.
 const PROJECT = {
   title: 'Threads',
   slug: 'threads',
   date: '2025-11-02',
-  html: '<p>A force-directed graph of every post, scrap, and tag on the site, rendered on canvas across a 350vh scroll.</p>',
+  images: [],
+  heroVideo: '',
+  excerpt:
+    'A force-directed graph of every post, scrap, and tag on the site, rendered on canvas across a 350vh scroll.',
   metadata: {
     tags: ['d3', 'canvas', 'visualization'],
     tech: ['D3.js', 'Canvas', 'Vue'],

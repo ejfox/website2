@@ -54,6 +54,9 @@ export default defineNuxtPlugin((nuxtApp) => {
       (entries) => {
         for (const entry of entries) {
           const video = entry.target as HTMLVideoElement
+          // A reader's explicit pause (data-user-paused, set by the tile's
+          // pause toggle) outranks viewport-driven playback.
+          if (video.dataset.userPaused) continue
           if (entry.isIntersecting) {
             // Autoplay policy requires muted; Vue renders muted as an
             // attribute which doesn't always set the property.

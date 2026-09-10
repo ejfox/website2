@@ -3,7 +3,8 @@
   @description Compact, image-first archive card used below the flagships. One
     small 3:2 thumbnail + title + a quiet metadata line. Dense enough to browse
     dozens at a glance, visual enough to still show the work. Click → detail.
-  @props project: Object - Project with title, html, metadata
+  @props project: Object - slim card shape from /api/projects?slim=1
+    (title, metadata, images)
 -->
 <script setup>
 const props = defineProps({
@@ -44,6 +45,10 @@ const tech = computed(() => {
     .filter(Boolean)
     .slice(0, 3)
 })
+
+// Leading '· ' is nbsp-glued into the text so the separator wraps WITH
+// the tech list instead of orphaning at a line end.
+const techLine = computed(() => '· ' + tech.value.join(' · '))
 
 // Verbatim ai-involvement disclosure — see ProjectRow.vue for the why.
 const aiInvolvement = computed(
@@ -136,12 +141,9 @@ const firstImage = computed(() => props.project.images?.[0] || '')
       <span v-if="aiInvolvement" class="text-zinc-400 dark:text-zinc-600">
         {{ aiInvolvement }}
       </span>
-      <!-- separator lives inside the tech span so they wrap as one unit —
-           a standalone '·' span orphans at line-end under flex-wrap -->
-      <span v-if="tech.length" class="lowercase"
-        ><span class="text-zinc-300 dark:text-zinc-700">·&nbsp;</span
-        >{{ tech.join(' · ') }}</span
-      >
+      <!-- separator is part of the tech text node (nbsp-glued) so it can
+           never orphan at a line end under flex-wrap -->
+      <span v-if="tech.length" class="lowercase">{{ techLine }}</span>
     </div>
   </div>
 </template>

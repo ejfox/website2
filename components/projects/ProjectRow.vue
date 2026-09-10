@@ -3,7 +3,8 @@
   @description Image-FIRST project row. A compact title + lede sits above a
     masonry grid showing screenshots at natural aspect (no bars, no crop),
     wrapping to fill the full width. Click → project detail.
-  @props project: Object - Project with title, html, metadata
+  @props project: Object - slim card shape from /api/projects?slim=1
+    (title, metadata, images, heroVideo, excerpt)
   @props featured: boolean - Featured rows get bigger type + full-bleed escape
     via the parent layout.
 -->
@@ -56,10 +57,9 @@ const aiInvolvement = computed(
   () => props.project.metadata?.['ai-involvement'] || ''
 )
 
-// --- State chip --------------------------------------------------------------
 // --- External link ----------------------------------------------------------
-// The whole row is a NuxtLink to the detail page; the ↗ opens the project's own
-// URL in a new tab without triggering that navigation. Quieter than a state chip.
+// The row navigates via the title's stretched link; the ↗ is a sibling anchor
+// (z-10, above the overlay) opening the project's own URL in a new tab.
 const projectUrl = computed(() => props.project.metadata?.url || '')
 
 // --- Tech stack stripe -------------------------------------------------------
@@ -149,6 +149,27 @@ const heroSrc = computed(() =>
 
 // --- Excerpt (precomputed server-side) --------------------------------------
 const excerpt = computed(() => props.project.excerpt || null)
+
+// --- Living-tile pause toggle ------------------------------------------------
+// WCAG 2.2.2: the looping tile needs an in-page pause. data-user-paused is the
+// contract with plugins/video-viewport.client.ts — a video the reader paused
+// stays paused when it re-enters the viewport.
+const heroVideoEl = ref(null)
+const heroPaused = ref(false)
+const toggleHeroVideo = () => {
+  const v = heroVideoEl.value
+  if (!v) return
+  if (v.paused) {
+    delete v.dataset.userPaused
+    v.muted = true
+    v.play().catch(() => {})
+    heroPaused.value = false
+  } else {
+    v.dataset.userPaused = '1'
+    v.pause()
+    heroPaused.value = true
+  }
+}
 </script>
 
 <template>
@@ -213,15 +234,9 @@ const excerpt = computed(() => props.project.excerpt || null)
       v-if="tech.length"
       class="font-mono text-xs lowercase text-zinc-500 mb-2 leading-6"
     >
-      <span v-for="(t, i) in tech" :key="t">
-        <span>{{ t }}</span>
-        <span
-          v-if="i < tech.length - 1"
-          class="px-1 text-zinc-400 dark:text-zinc-600"
-        >
-          ·
-        </span>
-      </span>
+      <!-- one text node, separators nbsp-glued to the following word so a
+           wrap never strands a '·' at a line end -->
+      {{ tech.join(' · ') }}
     </div>
 
     <p
@@ -255,21 +270,34 @@ const excerpt = computed(() => props.project.excerpt || null)
     >
       <!-- data-autoplay (not native autoplay): playback starts only when the
            viewport plugin sees it, so the index never eagerly loads a dozen
-           videos. No-JS fallback is the poster frame. -->
-      <video
-        v-if="heroVideo"
-        :src="videoTile(heroVideo)"
-        :poster="videoPoster(heroVideo)"
-        data-autoplay
-        loop
-        muted
-        playsinline
-        preload="none"
-        width="900"
-        height="600"
-        class="w-full aspect-[3/2] object-cover rounded"
-        :aria-label="`${projectTitle} demo video`"
-      />
+           videos. No-JS fallback is the poster frame. The pause toggle sits
+           above the stretched card link (z-10) — WCAG 2.2.2's "mechanism to
+           pause" for the looping tile; data-user-paused tells the viewport
+           plugin to keep hands off a video the reader stopped. -->
+      <div v-if="heroVideo" class="relative">
+        <video
+          ref="heroVideoEl"
+          :src="videoTile(heroVideo)"
+          :poster="videoPoster(heroVideo)"
+          data-autoplay
+          loop
+          muted
+          playsinline
+          preload="none"
+          width="900"
+          height="600"
+          class="w-full aspect-[3/2] object-cover rounded"
+          :aria-label="`${projectTitle} demo video`"
+        />
+        <button
+          type="button"
+          class="absolute bottom-2 right-2 z-10 grid h-8 w-8 place-items-center rounded bg-zinc-900/70 font-mono text-2xs text-zinc-100 opacity-60 backdrop-blur-sm transition-opacity hover:opacity-100 focus-visible:opacity-100"
+          :aria-label="heroPaused ? 'Play demo video' : 'Pause demo video'"
+          @click.stop.prevent="toggleHeroVideo"
+        >
+          {{ heroPaused ? '▶' : '❚❚' }}
+        </button>
+      </div>
       <img
         v-for="(src, i) in visibleImages"
         :key="i"
