@@ -1,13 +1,16 @@
 <script setup>
-import * as d3 from 'd3'
+import { scaleSqrt } from 'd3-scale'
 import ProjectRow from '~/components/projects/ProjectRow.vue'
 import ProjectArchiveCard from '~/components/projects/ProjectArchiveCard.vue'
 
+// slim=1: card fields only (images/heroVideo/excerpt/counts precomputed
+// server-side) — the full-html array was ~470KB of payload this page never
+// rendered. Agents wanting full html use /projects.json (json-twin).
 const { data: projects } = await useAsyncData(
-  'projects-page-data',
+  'projects-page-data-slim',
   async () => {
     try {
-      return await $fetch('/api/projects')
+      return await $fetch('/api/projects?slim=1')
     } catch (error) {
       console.error('Failed to fetch projects:', error)
       return []
@@ -88,32 +91,19 @@ const getProjectSlug = (project) =>
 
 const tocLinkClass = 'block text-zinc-600 dark:text-zinc-400 truncate'
 
-// Aggregate metadata for brutalist header display
-const totalWords = computed(() => {
-  if (!projects.value) return 0
-  return projects.value.reduce((sum, p) => {
-    if (!p.html) return sum
-    const text = p.html.replace(/<[^>]*>/g, '').trim()
-    const words = text.split(/\s+/).filter((w) => w.length > 0).length
-    return sum + words
-  }, 0)
-})
+// Aggregate metadata for brutalist header display (counts precomputed by
+// /api/projects?slim=1)
+const totalWords = computed(
+  () => projects.value?.reduce((sum, p) => sum + (p.wordCount || 0), 0) || 0
+)
 
-const totalImages = computed(() => {
-  if (!projects.value) return 0
-  return projects.value.reduce((sum, p) => {
-    if (!p.html) return sum
-    return sum + (p.html.match(/<img/g) || []).length
-  }, 0)
-})
+const totalImages = computed(
+  () => projects.value?.reduce((sum, p) => sum + (p.imgCount || 0), 0) || 0
+)
 
-const totalLinks = computed(() => {
-  if (!projects.value) return 0
-  return projects.value.reduce((sum, p) => {
-    if (!p.html) return sum
-    return sum + (p.html.match(/<a /g) || []).length
-  }, 0)
-})
+const totalLinks = computed(
+  () => projects.value?.reduce((sum, p) => sum + (p.linkCount || 0), 0) || 0
+)
 
 const totalTech = computed(() => {
   if (!projects.value) return 0
@@ -164,13 +154,8 @@ const lastUpdated = computed(() => {
 // Helper: project slug (mirrors getProjectSlug)
 const slugOf = (p) => p?.slug?.replace(/^projects\//, '') || ''
 
-// Helper: word count from html
-const wordCountOf = (p) => {
-  if (!p?.html) return 0
-  const text = p.html.replace(/<[^>]*>/g, '').trim()
-  if (!text) return 0
-  return text.split(/\s+/).filter((w) => w.length > 0).length
-}
+// Helper: word count (precomputed server-side)
+const wordCountOf = (p) => p?.wordCount || 0
 
 // Most-recently-updated project (uses lastUpdated || date)
 const mostRecentProject = computed(() => {
@@ -219,7 +204,7 @@ const stemPlot = computed(() => {
     .sort((a, b) => a.ts - b.ts)
 
   const maxWords = Math.max(1, ...items.map((s) => s.words))
-  const y = d3.scaleSqrt().domain([0, maxWords]).range([0, height])
+  const y = scaleSqrt().domain([0, maxWords]).range([0, height])
 
   const stems = items.map((s, i) => {
     const h = Math.max(0.5, y(s.words))
@@ -322,9 +307,12 @@ useHead(() => ({
         <span>{{ Math.ceil(totalWords / 200) }}min read</span>
       </div>
 
-      <!-- Word-count stem plot: HTML/CSS bars, never stretched. -->
+      <!-- Word-count stem plot: HTML/CSS bars, never stretched. Exposed to AT
+           as one summarized image; the 1px stems stay mouse-hoverable but are
+           out of the tab order (100 one-pixel tab stops helped no one). -->
       <div
         v-if="stemPlot.stems.length"
+        role="img"
         class="hidden sm:flex mt-2 stem-plot items-end gap-px h-2 max-w-prose"
         aria-label="Word count per project, oldest to newest"
       >
@@ -332,6 +320,8 @@ useHead(() => ({
           v-for="stem in stemPlot.stems"
           :key="`stem-${stem.slug}`"
           :href="`#${stem.slug}`"
+          tabindex="-1"
+          aria-hidden="true"
           class="stem block w-px relative h-full"
           :title="`${stem.title} · ${stem.words.toLocaleString()} words`"
         >
@@ -384,9 +374,7 @@ useHead(() => ({
         </span>
       </div>
 
-      <div
-        class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10"
-      >
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10">
         <ProjectArchiveCard
           v-for="project in group.projects"
           :key="project.slug"

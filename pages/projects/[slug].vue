@@ -124,6 +124,10 @@ onMounted(() => {
          + the live-project CTA. Year/tech/date live once, in the sidebar
          PROJECT INFO (no longer duplicated here). Hidden entirely if
          there's nothing unique. -->
+    <!-- sticky (not fixed): starts in-flow below the site nav so it never
+         covers the nav's tap targets, then pins to the top on scroll. The bar
+         is dark in BOTH modes, so the text is always light — the old
+         text-zinc-800 light-mode value was ~1.1:1 against zinc-900. -->
     <div
       v-if="
         project &&
@@ -131,10 +135,10 @@ onMounted(() => {
           project.metadata?.url ||
           project.metadata?.['ai-involvement'])
       "
-      class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
+      class="sticky top-0 z-40 bg-zinc-900/90 backdrop-blur-sm rounded-b print:hidden"
     >
       <div
-        class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-zinc-800 dark:text-white uppercase tracking-wider"
+        class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-zinc-100 uppercase tracking-wider"
       >
         <span v-if="project.metadata?.state" class="whitespace-nowrap">
           {{ project.metadata.state }}
@@ -142,13 +146,8 @@ onMounted(() => {
         <!-- ai-involvement disclosure, verbatim from frontmatter. Readers
              can smell robot work — say it plainly, don't let them wonder. -->
         <template v-if="project.metadata?.['ai-involvement']">
-          <span
-            v-if="project.metadata?.state"
-            class="text-zinc-400 dark:text-zinc-600"
-          >
-            ·
-          </span>
-          <span class="whitespace-nowrap text-zinc-500 dark:text-zinc-400">
+          <span v-if="project.metadata?.state" class="text-zinc-500">·</span>
+          <span class="whitespace-nowrap text-zinc-400">
             {{ project.metadata['ai-involvement'] }}
           </span>
         </template>
@@ -157,7 +156,7 @@ onMounted(() => {
             (project.metadata?.state || project.metadata?.['ai-involvement']) &&
             project.metadata?.url
           "
-          class="text-zinc-400 dark:text-zinc-600"
+          class="text-zinc-500"
         >
           ·
         </span>

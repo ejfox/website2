@@ -4,10 +4,40 @@
  * @endpoint GET /api/projects
  * @returns Array of project posts with slug, title, HTML content, and metadata, sorted by date descending
  */
-import { defineEventHandler } from 'h3'
+import { defineEventHandler, getQuery } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { existsSync } from 'node:fs'
+
+// ?slim=1 card shape for the /projects index: everything the cards and header
+// stats need, WITHOUT the full html (which was ~470KB across ~100 projects and
+// got re-serialized into the Nuxt payload only to be regex-mined client-side).
+// json-twin and any agent consumers keep the full-html default response.
+function toCardShape(p: ProjectWithContent) {
+  const html = p.html || ''
+  const images = [...html.matchAll(/<img[^>]+src="([^"]+)"/g)]
+    .slice(0, 7)
+    .map((m) => m[1].replace(/^http:/, 'https:'))
+  const videoMatch = html.match(/<video[^>]*\ssrc="([^"]+)"/)
+  const pMatch = html.match(/<p[^>]*>([\s\S]*?)<\/p>/)
+  const excerpt = (pMatch ? pMatch[1] : '')
+    .replace(/<[^>]*>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+  const text = html.replace(/<[^>]*>/g, ' ').trim()
+  return {
+    slug: p.slug,
+    title: p.title,
+    date: p.date,
+    metadata: p.metadata,
+    images,
+    heroVideo: videoMatch ? videoMatch[1].replace(/^http:/, 'https:') : '',
+    excerpt: excerpt || null,
+    wordCount: text ? text.split(/\s+/).filter(Boolean).length : 0,
+    imgCount: (html.match(/<img/g) || []).length,
+    linkCount: (html.match(/<a /g) || []).length,
+  }
+}
 
 interface ManifestPost {
   slug: string
@@ -63,7 +93,8 @@ async function loadDevDraftProjects(
   return out
 }
 
-export default defineEventHandler(async () => {
+export default defineEventHandler(async (event) => {
+  const slim = 'slim' in getQuery(event)
   try {
     // Read the manifest first
     const manifestPath = resolve(
@@ -153,7 +184,7 @@ export default defineEventHandler(async () => {
       return dateB.getTime() - dateA.getTime()
     })
 
-    return sorted
+    return slim ? sorted.map(toCardShape) : sorted
   } catch (error) {
     console.error('Error in projects API:', error)
     return []

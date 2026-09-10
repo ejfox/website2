@@ -100,22 +100,15 @@ const thumb = (src, width) => cld(src, `c_limit,w_${width},q_auto,f_auto`)
 const tile = (src, width) =>
   cld(src, `c_fill,ar_3:2,g_auto,w_${width},q_auto,f_auto`)
 
-const images = computed(() => {
-  if (!props.project.html) return []
-  return [...props.project.html.matchAll(/<img[^>]+src="([^"]+)"/g)].map((m) =>
-    m[1].replace(/^http:/, 'https:')
-  )
-})
+// Precomputed server-side by /api/projects?slim=1 — the index no longer ships
+// full post html just to regex thumbnails out of it.
+const images = computed(() => props.project.images || [])
 
 // --- Demo video --------------------------------------------------------------
 // First <video> in the post becomes a living tile at the head of the grid.
 // Playback is viewport-driven (plugins/video-viewport.client.ts): it only
 // plays while on screen.
-const heroVideo = computed(() => {
-  if (!props.project.html) return ''
-  const m = props.project.html.match(/<video[^>]*\ssrc="([^"]+)"/)
-  return m ? m[1].replace(/^http:/, 'https:') : ''
-})
+const heroVideo = computed(() => props.project.heroVideo || '')
 
 // Cloudinary video transform injection — same strip-then-inject as cld(), but
 // on the /video/upload/ marker.
@@ -131,7 +124,11 @@ const cldVideo = (src, transform) => {
   while (i < segs.length && isTransform(segs[i])) i++
   return head + transform + '/' + segs.slice(i).join('/')
 }
-const videoTile = (src) => cldVideo(src, 'c_fill,ar_3:2,w_900,q_auto')
+// Normalize the delivery extension to .mp4 the same way videoPoster forces
+// .jpg — Cloudinary transcodes, and a raw .gif src inside <video> is
+// undecodable (MEDIA_ERR_SRC_NOT_SUPPORTED; killed the scrapbook-core tile).
+const videoTile = (src) =>
+  cldVideo(src, 'c_fill,ar_3:2,w_900,q_auto').replace(/\.\w+$/, '.mp4')
 const videoPoster = (src) =>
   cldVideo(src, 'so_0,c_fill,ar_3:2,w_900,q_auto,f_jpg').replace(
     /\.\w+$/,
@@ -150,30 +147,30 @@ const heroSrc = computed(() =>
   images.value.length ? thumb(images.value[0], 1500) : ''
 )
 
-// --- Excerpt ----------------------------------------------------------------
-const excerpt = computed(() => {
-  if (!props.project.html) return null
-  const pMatch = props.project.html.match(/<p[^>]*>([\s\S]*?)<\/p>/)
-  const raw = pMatch ? pMatch[1] : props.project.html
-  return (
-    raw
-      .replace(/<[^>]*>/g, '')
-      .replace(/\s+/g, ' ')
-      .trim() || null
-  )
-})
+// --- Excerpt (precomputed server-side) --------------------------------------
+const excerpt = computed(() => props.project.excerpt || null)
 </script>
 
 <template>
-  <NuxtLink
-    :to="`/projects/${projectSlug}`"
-    class="project-row block no-underline group text-zinc-900 dark:text-zinc-100"
+  <!-- Stretched-link card: the whole row is clickable via the title link's
+       ::after overlay, so the external ↗ can be a real sibling anchor instead
+       of an <a> nested in an <a> — nested anchors are invalid HTML, and the
+       parser splitting them caused hydration mismatches on every row. -->
+  <div
+    class="project-row relative block group text-zinc-900 dark:text-zinc-100"
   >
-    <div class="flex items-baseline justify-between gap-4 mb-2">
+    <div
+      class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-2"
+    >
       <h3
-        class="font-serif font-light tracking-tight leading-tight group-hover:underline decoration-1 underline-offset-4 text-2xl md:text-3xl"
+        class="font-serif font-light tracking-tight leading-tight text-2xl md:text-3xl"
       >
-        {{ projectTitle }}
+        <NuxtLink
+          :to="`/projects/${projectSlug}`"
+          class="no-underline text-inherit group-hover:underline decoration-1 underline-offset-4 after:absolute after:inset-0 after:content-['']"
+        >
+          {{ projectTitle }}
+        </NuxtLink>
         <span
           v-if="client"
           class="font-mono text-xs text-zinc-500 uppercase tracking-wider align-middle ml-2"
@@ -181,7 +178,7 @@ const excerpt = computed(() => {
           {{ client }}
         </span>
       </h3>
-      <span class="shrink-0 flex items-baseline gap-2 font-mono text-xs">
+      <span class="flex items-baseline gap-2 font-mono text-xs">
         <span class="uppercase tracking-wider" :class="contextTag.class">
           {{ contextTag.label }}
         </span>
@@ -203,10 +200,9 @@ const excerpt = computed(() => {
           :href="projectUrl"
           target="_blank"
           rel="noopener noreferrer"
-          class="text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+          class="relative z-10 p-1 -m-1 text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
           :title="`Open ${projectUrl}`"
           :aria-label="`Open ${projectTitle} (opens in new tab)`"
-          @click.stop
         >
           ↗
         </a>
@@ -278,7 +274,7 @@ const excerpt = computed(() => {
         v-for="(src, i) in visibleImages"
         :key="i"
         :src="tile(src, 900)"
-        :srcset="`${tile(src, 500)} 500w, ${tile(src, 900)} 900w`"
+        :srcset="`${tile(src, 700)} 700w, ${tile(src, 1400)} 1400w`"
         sizes="50vw"
         :alt="`${projectTitle} screenshot ${i + 1}`"
         width="900"
@@ -293,7 +289,7 @@ const excerpt = computed(() => {
     <div v-if="hiddenCount > 0" class="mt-2 font-mono text-xs text-zinc-500">
       + {{ hiddenCount }} more →
     </div>
-  </NuxtLink>
+  </div>
 </template>
 
 <style scoped>

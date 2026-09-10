@@ -70,24 +70,22 @@ const cld = (src, transform) => {
 const tile = (src, width) =>
   cld(src, `c_fill,ar_3:2,g_auto,w_${width},q_auto,f_auto`)
 
-const firstImage = computed(() => {
-  if (!props.project.html) return ''
-  const m = props.project.html.match(/<img[^>]+src="([^"]+)"/)
-  return m ? m[1].replace(/^http:/, 'https:') : ''
-})
+// Precomputed server-side by /api/projects?slim=1.
+const firstImage = computed(() => props.project.images?.[0] || '')
 </script>
 
 <template>
-  <NuxtLink
+  <!-- Stretched-link card (see ProjectRow.vue): title link's ::after overlay
+       makes the card clickable without nesting the ↗ anchor inside it. -->
+  <div
     :id="projectSlug"
-    :to="`/projects/${projectSlug}`"
-    class="archive-card group block no-underline text-zinc-900 dark:text-zinc-100 scroll-mt-24"
+    class="archive-card group relative block text-zinc-900 dark:text-zinc-100 scroll-mt-24"
   >
     <div class="relative overflow-hidden rounded bg-raised mb-2 aspect-[3/2]">
       <img
         v-if="firstImage"
         :src="tile(firstImage, 600)"
-        :srcset="`${tile(firstImage, 400)} 400w, ${tile(firstImage, 600)} 600w`"
+        :srcset="`${tile(firstImage, 400)} 400w, ${tile(firstImage, 800)} 800w`"
         sizes="(min-width: 640px) 33vw, 50vw"
         :alt="`${projectTitle} screenshot`"
         width="600"
@@ -106,18 +104,22 @@ const firstImage = computed(() => {
 
     <div class="flex items-baseline justify-between gap-2">
       <h3
-        class="font-serif font-light tracking-tight leading-snug text-base group-hover:underline decoration-1 underline-offset-2 truncate"
+        class="min-w-0 font-serif font-light tracking-tight leading-snug text-base truncate"
       >
-        {{ projectTitle }}
+        <NuxtLink
+          :to="`/projects/${projectSlug}`"
+          class="no-underline text-inherit group-hover:underline decoration-1 underline-offset-2 after:absolute after:inset-0 after:content-['']"
+        >
+          {{ projectTitle }}
+        </NuxtLink>
       </h3>
       <a
         v-if="projectUrl"
         :href="projectUrl"
         target="_blank"
         rel="noopener noreferrer"
-        class="shrink-0 font-mono text-2xs text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
+        class="relative z-10 shrink-0 p-1 -m-1 font-mono text-2xs text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100"
         :aria-label="`Open ${projectTitle} (opens in new tab)`"
-        @click.stop
       >
         ↗
       </a>
@@ -134,10 +136,12 @@ const firstImage = computed(() => {
       <span v-if="aiInvolvement" class="text-zinc-400 dark:text-zinc-600">
         {{ aiInvolvement }}
       </span>
-      <template v-if="tech.length">
-        <span class="text-zinc-300 dark:text-zinc-700">·</span>
-        <span class="lowercase truncate">{{ tech.join(' · ') }}</span>
-      </template>
+      <!-- separator lives inside the tech span so they wrap as one unit —
+           a standalone '·' span orphans at line-end under flex-wrap -->
+      <span v-if="tech.length" class="lowercase"
+        ><span class="text-zinc-300 dark:text-zinc-700">·&nbsp;</span
+        >{{ tech.join(' · ') }}</span
+      >
     </div>
-  </NuxtLink>
+  </div>
 </template>

@@ -1,11 +1,11 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice — this is a factual stub, not your words. Draft until ready. -->\n<p class=\"\">A parametric anatomical-buttocks SVG diagram system grounded in real academic shape research — the Gielis superformula, Elliptic Fourier Descriptors, and SMPL blend shapes. It includes a Nuxt explainer app.</p>\n<figure role=\"figure\" aria-label=\"Scrolling the explainer — eye-tracking ballet footage, posture-analysis overlays, and the lordosis stats\" class=\"\"><video class=\"img-full my-8 rounded-sm\" autoplay loop muted playsinline preload=\"metadata\" poster=\"https://res.cloudinary.com/ejf/video/upload/so_0,f_jpg,q_auto,w_1280/projects/butt-math/explainer-scroll.jpg\" src=\"https://res.cloudinary.com/ejf/video/upload/q_auto/projects/butt-math/explainer-scroll.mp4\" aria-label=\"Scrolling the explainer — eye-tracking ballet footage, posture-analysis overlays, and the lordosis stats\"></video><figcaption class=\"\">Scrolling the explainer — eye-tracking ballet footage, posture-analysis overlays, and the lordosis stats</figcaption></figure>",
+  "html": "<!-- TODO (EJ): add your voice — this is a factual stub, not your words. Draft until ready. -->\n<p class=\"\">A parametric anatomical-buttocks SVG diagram system grounded in real academic shape research — the Gielis superformula, Elliptic Fourier Descriptors, and SMPL blend shapes. It includes a Nuxt explainer app.</p>\n<figure role=\"figure\" aria-label=\"Scrolling the explainer — eye-tracking ballet footage, posture-analysis overlays, and the lordosis stats\" class=\"\"><video class=\"img-full my-8 rounded-sm\" autoplay loop muted playsinline preload=\"metadata\" poster=\"https://res.cloudinary.com/ejf/video/upload/so_0,f_jpg,q_auto,w_1280/projects/butt-math/explainer-scroll.jpg\" src=\"https://res.cloudinary.com/ejf/video/upload/q_auto/projects/butt-math/explainer-scroll.mp4\" aria-label=\"Scrolling the explainer — eye-tracking ballet footage, posture-analysis overlays, and the lordosis stats\"></video><figcaption class=\"\">Scrolling the explainer — eye-tracking ballet footage, posture-analysis overlays, and the lordosis stats</figcaption></figure>\n<figure role=\"figure\" aria-label=\"Explainer section: sagittal spine diagram with vertebrae, sacrum outline, and a 22.0-degree lumbar lordosis angle readout\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1785421532/projects/butt-math/lordosis-explainer.png\" alt=\"Explainer section: sagittal spine diagram with vertebrae, sacrum outline, and a 22.0-degree lumbar lordosis angle readout\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1785421532/projects/butt-math/lordosis-explainer.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1785421532/projects/butt-math/lordosis-explainer.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1785421532/projects/butt-math/lordosis-explainer.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1785421532/projects/butt-math/lordosis-explainer.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Explainer section: sagittal spine diagram with vertebrae, sacrum outline, and a 22.0-degree lumbar lordosis angle readout\" width=\"1440\" height=\"813\" style=\"--splay-rot:1.63deg;\" data-dimensions=\"1440×813\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Explainer section: sagittal spine diagram with vertebrae, sacrum outline, and a 22.0-degree lumbar lordosis angle readout</figcaption>\n</figure>\n<figure role=\"figure\" aria-label=\"Waist-hip ratio section: interactive measurements against the NHANES 2017-2020 WHR distribution chart\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1785421532/projects/butt-math/whr-explainer.png\" alt=\"Waist-hip ratio section: interactive measurements against the NHANES 2017-2020 WHR distribution chart\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/v1785421532/projects/butt-math/whr-explainer.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/v1785421532/projects/butt-math/whr-explainer.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/v1785421532/projects/butt-math/whr-explainer.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/v1785421532/projects/butt-math/whr-explainer.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Waist-hip ratio section: interactive measurements against the NHANES 2017-2020 WHR distribution chart\" width=\"1440\" height=\"813\" style=\"--splay-rot:0.74deg;\" data-dimensions=\"1440×813\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">Waist-hip ratio section: interactive measurements against the NHANES 2017-2020 WHR distribution chart</figcaption>\n</figure>",
   "title": "Butt Math",
   "metadata": {
     "title": "Butt Math",
     "date": "2026-05-01T00:00:00.000Z",
-    "category": "Creative Coding & Games",
+    "category": "Art",
     "featured": false,
     "draft": true,
     "tech": [
@@ -22,14 +22,14 @@
       "generative",
       "web"
     ],
-    "words": 63,
-    "images": 1,
+    "words": 91,
+    "images": 3,
     "imageDetails": {
-      "total": 1,
-      "cloudinary": 1,
+      "total": 3,
+      "cloudinary": 3,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 3,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

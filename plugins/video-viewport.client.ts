@@ -5,8 +5,14 @@
  *   Videos play only while ≥20% visible and pause offscreen — a page with a
  *   dozen demo loops decodes only the ones actually being looked at.
  *
- *   Respects prefers-reduced-motion: reduce → autoplay is stripped and nothing
- *   plays automatically (videos remain playable via their own controls if any).
+ *   Respects prefers-reduced-motion: reduce → autoplay is stripped, nothing
+ *   plays automatically, and native controls are added so the demos stay
+ *   watchable on demand (reduced motion, not removed content).
+ *
+ *   WCAG 2.2.2 (Pause, Stop, Hide): article demo videos (native [autoplay])
+ *   get native controls so readers can pause the loop. Index living tiles
+ *   ([data-autoplay]) stay chrome-free — they're navigation cards; clicking
+ *   navigates, and offscreen they pause via the observer.
  *
  *   Progressive enhancement: the markup keeps the native autoplay attribute,
  *   so with JS disabled videos simply autoplay as before.
@@ -23,10 +29,23 @@ export default defineNuxtPlugin((nuxtApp) => {
     )
     if (!videos.length) return
 
+    // Article demo videos get a pause affordance (WCAG 2.2.2). Living tiles
+    // on the index ([data-autoplay]) are excluded — controls inside a
+    // navigation card fight the card's click.
+    document
+      .querySelectorAll<HTMLVideoElement>(
+        'video[autoplay]:not([data-autoplay])'
+      )
+      .forEach((v) => {
+        v.controls = true
+      })
+
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
       videos.forEach((v) => {
         v.removeAttribute('autoplay')
         v.pause()
+        // reduced ≠ removed: leave the demo playable on demand
+        v.controls = true
       })
       return
     }
