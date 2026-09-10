@@ -88,7 +88,7 @@ const firstImage = computed(() => {
         v-if="firstImage"
         :src="tile(firstImage, 600)"
         :srcset="`${tile(firstImage, 400)} 400w, ${tile(firstImage, 600)} 600w`"
-        sizes="(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 50vw"
+        sizes="(min-width: 640px) 33vw, 50vw"
         :alt="`${projectTitle} screenshot`"
         width="600"
         height="400"

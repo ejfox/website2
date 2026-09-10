@@ -247,7 +247,7 @@ const excerpt = computed(() => {
       :loading="eager ? 'eager' : 'lazy'"
       :fetchpriority="eager ? 'high' : undefined"
       decoding="async"
-      class="w-auto max-w-full h-auto max-h-[60vh] rounded"
+      class="w-auto max-w-full h-auto max-h-[75vh] rounded"
     />
     <!-- Uniform tile grid: every tile the same size (3:2), so rows read evenly
          and reserve their space (no layout shift). If the project has a demo
@@ -255,7 +255,7 @@ const excerpt = computed(() => {
          so only visible rows animate. -->
     <div
       v-else-if="heroVideo || images.length > 1"
-      class="grid grid-cols-2 lg:grid-cols-3 gap-3"
+      class="grid grid-cols-2 gap-4"
     >
       <!-- data-autoplay (not native autoplay): playback starts only when the
            viewport plugin sees it, so the index never eagerly loads a dozen
@@ -279,7 +279,7 @@ const excerpt = computed(() => {
         :key="i"
         :src="tile(src, 900)"
         :srcset="`${tile(src, 500)} 500w, ${tile(src, 900)} 900w`"
-        sizes="(min-width: 1024px) 33vw, 50vw"
+        sizes="50vw"
         :alt="`${projectTitle} screenshot ${i + 1}`"
         width="900"
         height="600"
