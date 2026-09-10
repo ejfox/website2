@@ -33,7 +33,7 @@ const buildTitle = computed(() => {
 </script>
 
 <template>
-  <footer class="py-8 mt-8">
+  <footer class="py-8 mt-8 print:hidden">
     <div class="max-w-4xl mx-auto px-4 space-y-8 text-center">
       <!-- Avatar with h-card microformat -->
       <div class="h-card">

@@ -150,6 +150,22 @@ const heroSrc = computed(() =>
 // --- Excerpt (precomputed server-side) --------------------------------------
 const excerpt = computed(() => props.project.excerpt || null)
 
+// The first row's video poster IS the page's LCP element, but the poster
+// attribute can't take fetchpriority — preload it explicitly so it stops
+// loading at Medium priority behind other resources.
+if (props.eager && props.project.heroVideo) {
+  useHead({
+    link: [
+      {
+        rel: 'preload',
+        as: 'image',
+        href: videoPoster(props.project.heroVideo),
+        fetchpriority: 'high',
+      },
+    ],
+  })
+}
+
 // --- Living-tile pause toggle ------------------------------------------------
 // WCAG 2.2.2: the looping tile needs an in-page pause. data-user-paused is the
 // contract with plugins/video-viewport.client.ts — a video the reader paused
@@ -183,7 +199,9 @@ const toggleHeroVideo = () => {
     <div
       class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-2"
     >
-      <h3
+      <!-- h2 (not h3): flagship rows precede the archive's h2 category
+           headings, and an h3-before-any-h2 breaks the heading outline -->
+      <h2
         class="font-serif font-light tracking-tight leading-tight text-2xl md:text-3xl"
       >
         <NuxtLink
@@ -198,7 +216,7 @@ const toggleHeroVideo = () => {
         >
           {{ client }}
         </span>
-      </h3>
+      </h2>
       <span class="flex items-baseline gap-2 font-mono text-xs">
         <span class="uppercase tracking-wider" :class="contextTag.class">
           {{ contextTag.label }}
@@ -236,7 +254,7 @@ const toggleHeroVideo = () => {
     >
       <!-- one text node, separators nbsp-glued to the following word so a
            wrap never strands a '·' at a line end -->
-      {{ tech.join(' · ') }}
+      {{ tech.join(' ·\u00A0') }}
     </div>
 
     <p
@@ -274,11 +292,17 @@ const toggleHeroVideo = () => {
            above the stretched card link (z-10) — WCAG 2.2.2's "mechanism to
            pause" for the looping tile; data-user-paused tells the viewport
            plugin to keep hands off a video the reader stopped. -->
+      <!-- Poster is eager ONLY for the first row (it IS the page's LCP);
+           below-fold tiles carry data-poster and the viewport plugin swaps it
+           in as the tile approaches — the poster attribute is fetched by the
+           preload scanner immediately and can't be natively lazy-loaded
+           (~196KB of below-fold JPEGs were contending with the LCP). -->
       <div v-if="heroVideo" class="relative">
         <video
           ref="heroVideoEl"
           :src="videoTile(heroVideo)"
-          :poster="videoPoster(heroVideo)"
+          :poster="eager ? videoPoster(heroVideo) : undefined"
+          :data-poster="eager ? undefined : videoPoster(heroVideo)"
           data-autoplay
           loop
           muted
@@ -286,24 +310,28 @@ const toggleHeroVideo = () => {
           preload="none"
           width="900"
           height="600"
-          class="w-full aspect-[3/2] object-cover rounded"
+          class="w-full aspect-[3/2] object-cover rounded bg-raised"
           :aria-label="`${projectTitle} demo video`"
         />
         <button
           type="button"
-          class="absolute bottom-2 right-2 z-10 grid h-8 w-8 place-items-center rounded bg-zinc-900/70 font-mono text-2xs text-zinc-100 opacity-60 backdrop-blur-sm transition-opacity hover:opacity-100 focus-visible:opacity-100"
+          class="absolute bottom-2 right-2 z-10 grid h-8 w-8 place-items-center rounded bg-zinc-900/70 font-mono text-2xs text-zinc-100 opacity-60 backdrop-blur-sm transition-opacity hover:opacity-100 focus-visible:opacity-100 print:hidden"
           :aria-label="heroPaused ? 'Play demo video' : 'Pause demo video'"
           @click.stop.prevent="toggleHeroVideo"
         >
           {{ heroPaused ? '▶' : '❚❚' }}
         </button>
       </div>
+      <!-- sizes reflects the real max-width-constrained layout (~540px cells),
+           not the naive 50vw: at 1440px 50vw=720 made the 700w candidate
+           unreachable, so every tile shipped w_1400 (~4x the needed bytes).
+           DPR 2 still correctly picks 1400w. -->
       <img
         v-for="(src, i) in visibleImages"
         :key="i"
         :src="tile(src, 900)"
         :srcset="`${tile(src, 700)} 700w, ${tile(src, 1400)} 1400w`"
-        sizes="50vw"
+        sizes="(min-width: 1152px) 540px, 50vw"
         :alt="`${projectTitle} screenshot ${i + 1}`"
         width="900"
         height="600"

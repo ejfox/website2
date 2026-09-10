@@ -50,6 +50,30 @@ export default defineNuxtPlugin((nuxtApp) => {
       return
     }
 
+    // Below-fold tiles carry data-poster instead of poster (the poster
+    // attribute is fetched immediately by the preload scanner and can't be
+    // lazy-loaded — ~196KB of below-fold JPEGs contended with the LCP).
+    // Swap it in one viewport ahead of arrival.
+    const posterVideos =
+      document.querySelectorAll<HTMLVideoElement>('video[data-poster]')
+    if (posterVideos.length) {
+      const posterObserver = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (!entry.isIntersecting) continue
+            const v = entry.target as HTMLVideoElement
+            if (v.dataset.poster) {
+              v.poster = v.dataset.poster
+              delete v.dataset.poster
+            }
+            posterObserver.unobserve(v)
+          }
+        },
+        { rootMargin: '100% 0px' }
+      )
+      posterVideos.forEach((v) => posterObserver.observe(v))
+    }
+
     observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {

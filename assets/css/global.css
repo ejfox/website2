@@ -1631,3 +1631,43 @@ img[data-loading='lazy']::before {
   display: inline-flex;
   align-items: center;
 }
+
+/* ── Print ─────────────────────────────────────────────────────────────────
+   The site is dark-first and nothing removes the .dark class or the
+   prefers-color-scheme overrides in print context — without these rules a
+   dark-OS reader printing a page gets either a solid near-black sheet (with
+   background graphics on) or zinc-100 text rescued only by Chromium's
+   invisible-text heuristic (other engines: pale text on white paper).
+   Force the light tokens and honest ink. */
+@media print {
+  html,
+  html.dark,
+  :root {
+    color-scheme: light;
+    --bg-page: #ffffff;
+    --bg-sunken: #ffffff;
+    --bg-surface: #ffffff;
+    --bg-raised: #f4f4f5;
+  }
+  body,
+  .dark body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+  /* dark-mode text utilities inherit sane ink instead of near-white */
+  .dark [class*='dark:text-'],
+  .dark [class*='text-zinc-1'],
+  .dark [class*='text-zinc-2'],
+  .dark [class*='text-zinc-3'] {
+    color: #111111 !important;
+  }
+  /* a printout without URLs is a dead end — surface external links' hrefs
+     in article bodies (project pages, blog posts) */
+  .project-content a[href^='http']::after,
+  .blog-post-content a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.75em;
+    color: #52525b;
+    word-break: break-all;
+  }
+}

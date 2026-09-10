@@ -220,25 +220,32 @@ const stemPlot = computed(() => {
   return { stems, width, height }
 })
 
-const projectsSchema = computed(() => ({
-  '@context': 'https://schema.org',
-  '@type': 'ItemList',
-  name: 'Projects',
-  numberOfItems: projects.value?.length || 0,
-  itemListElement:
-    projects.value?.slice(0, 20).map((p, index) => ({
+// numberOfItems must match the emitted elements (parsers flag the mismatch),
+// and the list follows page order: flagships first, then the rest.
+const projectsSchema = computed(() => {
+  const listed = [...featuredProjects.value, ...regularProjects.value].slice(
+    0,
+    20
+  )
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Projects',
+    numberOfItems: listed.length,
+    itemListElement: listed.map((p, index) => ({
       '@type': 'ListItem',
       position: index + 1,
       url: `https://ejfox.com/projects/${getProjectSlug(p)}`,
       name: p.metadata?.title || p.title,
-    })) || [],
-}))
+    })),
+  }
+})
 
 usePageSeo({
   title: 'Projects · EJ Fox',
   description:
     'Selected work: data visualizations, newsroom tooling, and investigative dashboards shipped via room302.studio and EJ Fox.',
-  type: 'article',
+  type: 'website',
   section: 'Projects',
   tags: [
     'Data visualization',
@@ -256,7 +263,10 @@ useHead(() => ({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify(projectsSchema.value),
+      // innerHTML, NOT children: unhead serializes `children` into a literal
+      // HTML attribute, leaving the script element EMPTY — parsers read text
+      // content, so the schema was invisible to Google.
+      innerHTML: JSON.stringify(projectsSchema.value),
     },
   ],
 }))
@@ -313,7 +323,7 @@ useHead(() => ({
       <div
         v-if="stemPlot.stems.length"
         role="img"
-        class="hidden sm:flex mt-2 stem-plot items-end gap-px h-2 max-w-prose"
+        class="hidden sm:flex print:hidden mt-2 stem-plot items-end gap-px h-2 max-w-prose"
         aria-label="Word count per project, oldest to newest"
       >
         <a

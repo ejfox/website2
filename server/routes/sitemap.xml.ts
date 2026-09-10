@@ -125,8 +125,14 @@ export default defineEventHandler(async (event: H3Event) => {
             ? await getPostImages(post.slug, fs, path)
             : []
 
+        // Projects' canonical home is /projects/<slug>; the /blog/projects/*
+        // twins 301 there (server/middleware/blog-projects-redirect.ts) —
+        // listing the redirecting URL in the sitemap splits the pages' equity.
+        const loc = post.slug?.startsWith('projects/')
+          ? `${baseUrl}/${post.slug}`
+          : `${baseUrl}/blog/${post.slug}`
         sitemap += `  <url>
-    <loc>${escapeXml(`${baseUrl}/blog/${post.slug}`)}</loc>
+    <loc>${escapeXml(loc)}</loc>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>

@@ -48,9 +48,18 @@ const projectTags = computed(
   () => project.value?.metadata?.tags || project.value?.metadata?.tech || []
 )
 
+// Share cards should show the WORK, not the generic site og-image — these are
+// portfolio pages whose whole point is visuals. First image in the post wins.
+const firstProjectImage = computed(() => {
+  const m = project.value?.html?.match(/<img[^>]+src="([^"]+)"/)
+  return m ? m[1].replace(/^http:/, 'https:') : ''
+})
+
 usePageSeo({
   title: computed(() => `${title.value} - EJ Fox`),
   description: computed(() => description.value),
+  image: computed(() => firstProjectImage.value || undefined),
+  imageAlt: computed(() => `${title.value} — project imagery`),
   type: 'article',
   section: 'Projects',
   tags: projectTags,

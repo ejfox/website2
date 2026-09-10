@@ -46,9 +46,9 @@ const tech = computed(() => {
     .slice(0, 3)
 })
 
-// Leading '· ' is nbsp-glued into the text so the separator wraps WITH
+// Leading '·\u00A0' is nbsp-glued into the text so the separator wraps WITH
 // the tech list instead of orphaning at a line end.
-const techLine = computed(() => '· ' + tech.value.join(' · '))
+const techLine = computed(() => '·\u00A0' + tech.value.join(' ·\u00A0'))
 
 // Verbatim ai-involvement disclosure — see ProjectRow.vue for the why.
 const aiInvolvement = computed(
@@ -91,7 +91,7 @@ const firstImage = computed(() => props.project.images?.[0] || '')
         v-if="firstImage"
         :src="tile(firstImage, 600)"
         :srcset="`${tile(firstImage, 400)} 400w, ${tile(firstImage, 800)} 800w`"
-        sizes="(min-width: 640px) 33vw, 50vw"
+        sizes="(min-width: 1280px) 400px, (min-width: 640px) 33vw, 50vw"
         :alt="`${projectTitle} screenshot`"
         width="600"
         height="400"
