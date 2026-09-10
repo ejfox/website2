@@ -1,19 +1,19 @@
 // Auto-enhance markdown tables with DataTable component
-export default defineNuxtPlugin(() => {
+export default defineNuxtPlugin((nuxtApp) => {
   if (!import.meta.client) return
 
-  // Watch for markdown content and enhance tables
-  onMounted(() => {
-    enhanceMarkdownTables()
-
-    // Re-enhance after route changes
-    const router = useRouter()
-    router.afterEach(() => {
-      nextTick(() => {
-        enhanceMarkdownTables()
-      })
+  // Plugins run outside any component instance, so component lifecycle hooks
+  // (onMounted) never fire here — the old onMounted wrapper meant this whole
+  // plugin was silently dead. Hook the app lifecycle instead, same pattern as
+  // plugins/video-viewport.client.ts: run after each page renders.
+  nuxtApp.hook('page:finish', () => nextTick(enhanceMarkdownTables))
+  if (document.readyState === 'complete') {
+    nextTick(enhanceMarkdownTables)
+  } else {
+    window.addEventListener('load', () => nextTick(enhanceMarkdownTables), {
+      once: true,
     })
-  })
+  }
 
   function enhanceMarkdownTables() {
     // Find all tables in .prose content

@@ -45,6 +45,13 @@ export function useScrollReveal(options: ScrollRevealOptions = {}) {
   // Elements dimmed because they scrolled out of view (drives re-entry only)
   const dimmed = new WeakSet<Element>()
 
+  // Register the cleanup hook SYNCHRONOUSLY (before any await): inside the
+  // async onMounted body there is no active component instance anymore, so a
+  // late onUnmounted() silently never runs — the observers leaked across
+  // route changes and Vue warned on every page.
+  let disconnect: (() => void) | null = null
+  onUnmounted(() => disconnect?.())
+
   onMounted(async () => {
     const container = revealContainer.value
     if (!container) return
@@ -133,10 +140,7 @@ export function useScrollReveal(options: ScrollRevealOptions = {}) {
     )
 
     children.forEach((el) => observer.observe(el))
-
-    onUnmounted(() => {
-      observer.disconnect()
-    })
+    disconnect = () => observer.disconnect()
   })
 
   return { revealContainer }
@@ -151,6 +155,10 @@ export function useRevealOnce(
 ) {
   const { duration = 200, translateY = 6 } = options
   const el: Ref<HTMLElement | null> = ref(null)
+
+  // Same sync-registration rule as useScrollReveal above.
+  let disconnect: (() => void) | null = null
+  onUnmounted(() => disconnect?.())
 
   onMounted(async () => {
     if (!el.value) return
@@ -178,7 +186,7 @@ export function useRevealOnce(
     )
 
     observer.observe(htmlEl)
-    onUnmounted(() => observer.disconnect())
+    disconnect = () => observer.disconnect()
   })
 
   return { el }
