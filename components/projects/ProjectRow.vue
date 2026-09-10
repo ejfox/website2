@@ -48,6 +48,14 @@ const year = computed(() => {
   return Number.isNaN(y) ? '' : y
 })
 
+// --- AI involvement ----------------------------------------------------------
+// Surfaced verbatim from frontmatter (ai-assisted / ai-collaborative /
+// ai-enhanced / human-only). Readers can smell robot work — say it plainly
+// instead of letting them wonder.
+const aiInvolvement = computed(
+  () => props.project.metadata?.['ai-involvement'] || ''
+)
+
 // --- State chip --------------------------------------------------------------
 // --- External link ----------------------------------------------------------
 // The whole row is a NuxtLink to the detail page; the ↗ opens the project's own
@@ -176,6 +184,12 @@ const excerpt = computed(() => {
       <span class="shrink-0 flex items-baseline gap-2 font-mono text-xs">
         <span class="uppercase tracking-wider" :class="contextTag.class">
           {{ contextTag.label }}
+        </span>
+        <span
+          v-if="aiInvolvement"
+          class="uppercase tracking-wider text-zinc-400 dark:text-zinc-600"
+        >
+          {{ aiInvolvement }}
         </span>
         <span
           v-if="project.metadata?.draft"

@@ -45,6 +45,11 @@ const tech = computed(() => {
     .slice(0, 3)
 })
 
+// Verbatim ai-involvement disclosure — see ProjectRow.vue for the why.
+const aiInvolvement = computed(
+  () => props.project.metadata?.['ai-involvement'] || ''
+)
+
 // Cloudinary transform injector — mirrors ProjectRow's cld()/tile(). Inserts the
 // transform right after /image/upload/ and strips any transform already baked in
 // upstream so we don't re-scale a downscale.
@@ -126,6 +131,9 @@ const firstImage = computed(() => {
         {{ client }}
       </span>
       <span v-else-if="contextTag !== 'personal'">{{ contextTag }}</span>
+      <span v-if="aiInvolvement" class="text-zinc-400 dark:text-zinc-600">
+        {{ aiInvolvement }}
+      </span>
       <template v-if="tech.length">
         <span class="text-zinc-300 dark:text-zinc-700">·</span>
         <span class="lowercase truncate">{{ tech.join(' · ') }}</span>

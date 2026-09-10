@@ -125,7 +125,12 @@ onMounted(() => {
          PROJECT INFO (no longer duplicated here). Hidden entirely if
          there's nothing unique. -->
     <div
-      v-if="project && (project.metadata?.state || project.metadata?.url)"
+      v-if="
+        project &&
+        (project.metadata?.state ||
+          project.metadata?.url ||
+          project.metadata?.['ai-involvement'])
+      "
       class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
     >
       <div
@@ -134,8 +139,24 @@ onMounted(() => {
         <span v-if="project.metadata?.state" class="whitespace-nowrap">
           {{ project.metadata.state }}
         </span>
+        <!-- ai-involvement disclosure, verbatim from frontmatter. Readers
+             can smell robot work — say it plainly, don't let them wonder. -->
+        <template v-if="project.metadata?.['ai-involvement']">
+          <span
+            v-if="project.metadata?.state"
+            class="text-zinc-400 dark:text-zinc-600"
+          >
+            ·
+          </span>
+          <span class="whitespace-nowrap text-zinc-500 dark:text-zinc-400">
+            {{ project.metadata['ai-involvement'] }}
+          </span>
+        </template>
         <span
-          v-if="project.metadata?.state && project.metadata?.url"
+          v-if="
+            (project.metadata?.state || project.metadata?.['ai-involvement']) &&
+            project.metadata?.url
+          "
           class="text-zinc-400 dark:text-zinc-600"
         >
           ·
