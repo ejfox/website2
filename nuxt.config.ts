@@ -270,7 +270,31 @@ export default defineNuxtConfig({
   },
 
   // Ultra-optimized Vite config for sub-1s FCP
+  // Keep the dev watcher off data/content churn. Watching these burned 10k+
+  // fds, and macOS posix_spawn EBADFs once pipe fds land above ~10240 — which
+  // broke nitro's esbuild service mid-startup. None of these need HMR.
+  ignore: [
+    '.claude/**',
+    'data/**',
+    'content/processed/**',
+    'content/backup/**',
+    'content/rides/**',
+    'public/images/**',
+  ],
+
   vite: {
+    server: {
+      watch: {
+        ignored: [
+          '**/.claude/**',
+          '**/data/**',
+          '**/content/processed/**',
+          '**/content/backup/**',
+          '**/content/rides/**',
+          '**/public/images/**',
+        ],
+      },
+    },
     build: {
       cssCodeSplit: true, // Split CSS for faster parallel loading
       cssMinify: 'esbuild',

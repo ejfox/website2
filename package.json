@@ -47,12 +47,16 @@
     "build:prod": "NITRO_PRESET=node-server yarn build",
     "deploy": "git push origin main && echo '🚀 GH Actions builds + deploys on push to main (~3 min)'",
     "capture": "node scripts/author/capture.mjs",
-    "shoot": "node scripts/author/shoot-queue.mjs"
+    "shoot": "node scripts/author/shoot-queue.mjs",
+    "rides:process": "node scripts/build/process-rides.mjs"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.10.0",
     "@rehype-pretty/transformers": "^0.13.2",
     "@tailwindcss/typography": "^0.5.16",
+    "@turf/bbox-clip": "^7.3.5",
+    "@turf/helpers": "^7.3.5",
+    "@turf/simplify": "^7.3.5",
     "@types/d3": "^7.4.3",
     "@types/d3-scale-chromatic": "^3.1.0",
     "@types/node": "^24.0.10",

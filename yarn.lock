@@ -2187,6 +2187,84 @@
   dependencies:
     postcss-selector-parser "6.0.10"
 
+"@turf/bbox-clip@^7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@turf/bbox-clip/-/bbox-clip-7.3.5.tgz#f92086247d4ba5182e8c3a47cbdad1483e106119"
+  integrity sha512-FuADTCBfRwdzJb2gFawDGnD1jKlUOfsWcu5Uv8iyEgu9JLuLAIYtI/l9xVF76BAoAvSkLgMfUvrPQ4SXCSUrVA==
+  dependencies:
+    "@turf/helpers" "7.3.5"
+    "@turf/invariant" "7.3.5"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
+"@turf/boolean-point-on-line@7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@turf/boolean-point-on-line/-/boolean-point-on-line-7.3.5.tgz#9ae059b836240c5e4619c5632682db8acbe511b6"
+  integrity sha512-TuWfrAT63W43BDzgYc94UzQ5/PjF1aTnh4AIzmQwez1YnimShYcOTwo8OIHzDaB6gbbvFsfxYMuOA5JOp942Kg==
+  dependencies:
+    "@turf/helpers" "7.3.5"
+    "@turf/invariant" "7.3.5"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
+"@turf/clean-coords@7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@turf/clean-coords/-/clean-coords-7.3.5.tgz#6af0d585f7279f6ab17109b95096f98d855fb49a"
+  integrity sha512-e0ZTqVWiQaCI/b8EFb+HAS8lCDomWafAKxQuIv0IYks0GwOlVTDWTwsY2RX2685j2Y+QssqOsyHsPZCtAjc3YQ==
+  dependencies:
+    "@turf/boolean-point-on-line" "7.3.5"
+    "@turf/helpers" "7.3.5"
+    "@turf/invariant" "7.3.5"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
+"@turf/clone@7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@turf/clone/-/clone-7.3.5.tgz#87906386ebf7e17b528eba79e766d945ffa88a5e"
+  integrity sha512-qfIaHj3410QEcTpiCRnTzhq8YrUp2gWrUIPLBAEFykopNxJkq1du1VrRzvuAo36ap2UV7KppkS6wGNypbcxswQ==
+  dependencies:
+    "@turf/helpers" "7.3.5"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
+"@turf/helpers@7.3.5", "@turf/helpers@^7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@turf/helpers/-/helpers-7.3.5.tgz#051928c03cdf9ffcc7ae36581c317afc49bfd999"
+  integrity sha512-E/NMGV5MwbjjP7AJXBtsanC3yY8N2MQ87IGdIgkB2ji5AtBpwnH4L3gEqpYN4RlCJJWbLbzO91BbKv2waUd0eg==
+  dependencies:
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
+"@turf/invariant@7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@turf/invariant/-/invariant-7.3.5.tgz#5619d0e0ef3755e2be69855bad47e10158a1820b"
+  integrity sha512-ZVIvsBvjr8lO7WxC5zYNjRsjSDvyGvWkJMjuWaJjTU8x+1tmfNnw3gDX/TI2Sit83gcRYLYkNo23lB/udqx/Hg==
+  dependencies:
+    "@turf/helpers" "7.3.5"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
+"@turf/meta@7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@turf/meta/-/meta-7.3.5.tgz#c498a6f1e8603e014e8bfbc9a4b2760b6219edb9"
+  integrity sha512-r+ohqxoyqeigFB0oFrQx/YEHIkOKqcKpCjvZkvZs7Tkv+IFco5MezAd2zd4rzK+0DfFgDP3KpJc7HqrYjvEjhg==
+  dependencies:
+    "@turf/helpers" "7.3.5"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
+"@turf/simplify@^7.3.5":
+  version "7.3.5"
+  resolved "https://registry.yarnpkg.com/@turf/simplify/-/simplify-7.3.5.tgz#24e0f59204532847a878c3e14593b3a227994e32"
+  integrity sha512-9wzxlRA+0yNALeqyXNHFgj+8ebsg2aKdMrWRiSMS+ZqbiknZ/mCARiDYqM2Qz8TgTqdrNt53ze4o1vS6WeJrJw==
+  dependencies:
+    "@turf/clean-coords" "7.3.5"
+    "@turf/clone" "7.3.5"
+    "@turf/helpers" "7.3.5"
+    "@turf/meta" "7.3.5"
+    "@types/geojson" "^7946.0.10"
+    tslib "^2.8.1"
+
 "@tweenjs/tween.js@~23.1.3":
   version "23.1.3"
   resolved "https://registry.yarnpkg.com/@tweenjs/tween.js/-/tween.js-23.1.3.tgz#eff0245735c04a928bb19c026b58c2a56460539d"
@@ -2434,7 +2512,7 @@
   resolved "https://registry.npmjs.org/@types/estree/-/estree-1.0.8.tgz"
   integrity sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==
 
-"@types/geojson@*":
+"@types/geojson@*", "@types/geojson@^7946.0.10":
   version "7946.0.16"
   resolved "https://registry.npmjs.org/@types/geojson/-/geojson-7946.0.16.tgz"
   integrity sha512-6C8nqWur3j98U6+lXDfTUWIfgvZU+EumvpHKcYjujKH7woYyLj2sUmff0tRhrqM7BohUw7Pz3ZB1jj2gW9Fvmg==
@@ -9318,7 +9396,7 @@ ts-interface-checker@^0.1.9:
   resolved "https://registry.npmjs.org/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz"
   integrity sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==
 
-tslib@2.8.1, tslib@^2.4.0:
+tslib@2.8.1, tslib@^2.4.0, tslib@^2.8.1:
   version "2.8.1"
   resolved "https://registry.npmjs.org/tslib/-/tslib-2.8.1.tgz"
   integrity sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==
