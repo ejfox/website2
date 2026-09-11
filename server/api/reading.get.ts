@@ -7,6 +7,7 @@
 import { defineEventHandler } from 'h3'
 import { readdir, readFile } from 'node:fs/promises'
 import path from 'node:path'
+import { isScheduled } from '~/utils/postFilters'
 
 // Helper function to extract random highlight from book content
 function extractRandomHighlight(htmlContent) {
@@ -65,10 +66,13 @@ export default defineEventHandler(async (_event) => {
       })
     )
 
-    // Filter to fulfilled results only
+    // Filter to fulfilled results only, and drop anything still embargoed —
+    // this reads content/processed/reading directly, so it never passes
+    // through the manifest's schedule filter.
     const books = results
       .filter((r) => r.status === 'fulfilled')
       .map((r) => r.value)
+      .filter((book) => !isScheduled(book))
 
     // Sort by last annotated date (most recent first), then by date added
     books.sort((a, b) => {

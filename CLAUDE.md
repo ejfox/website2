@@ -377,6 +377,43 @@ All API routes that read from `manifest-lite.json` MUST filter out:
 Routes that are hardened: `/api/manifest`, `/api/agent/timeline`, `/api/photo-posts`.
 The `/api/scraps` endpoint filters by `shared === true` in Supabase.
 
+### Scheduled Posts (2026-09-11)
+
+A post goes public at `publishAt` (frontmatter), falling back to its `date`. So
+a future `date` alone schedules a post — and `publishAt` lets the displayed date
+differ from the moment it goes live.
+
+**The post URL goes live on its own; listings need a rebuild.** Unlike a `draft`
+(whose JSON is never written), a scheduled post *is* processed into
+`content/processed/` at build time and gated at **request** time — so
+`/blog/<slug>` starts serving the moment `publishAt` passes, with no cron and no
+deploy. But `/`, `/blog` and `/projects` are in `PRERENDERED_ROUTES`
+(`nuxt.config.ts`), so those listings keep serving their build-time HTML until
+the next deploy. Plan on a rebuild (or just push something) around the publish
+time if you want the post *discoverable* immediately, not merely reachable.
+
+Two more delays worth knowing: `/api/photo-posts` and `/api/suggest` cache for
+an hour, and `/blog/**` carries `max-age=3600, s-maxage=86400` — so a visitor who
+hits the URL *before* publish time can cache that 404 for up to an hour, and the
+edge up to a day. Purge the CDN if that matters.
+
+**Timezone:** `publishAt: 2026-10-01` is parsed as **UTC midnight** — 8pm Sep 30
+Eastern, i.e. the previous evening. Unquoted date-likes are coerced to UTC by the
+YAML parser, while a *quoted* non-ISO value like `"2026-10-01 09:00"` is parsed in
+the server's local zone instead. Avoid the ambiguity: always write an explicit
+offset, e.g. `publishAt: "2026-10-01T09:00:00-04:00"`.
+
+The single source of truth is `isScheduled()` in `utils/postFilters.ts`; every
+gate imports it:
+
+- `server/api/manifest.ts` — keeps it out of listings
+- `server/api/posts/[...slug].ts` — 404s direct slug access (prod only; dev previews)
+- `composables/useProcessedMarkdown.ts` — `isExcludedFromListings`, which also covers the RSS/JSON feeds
+- `server/routes/sitemap.xml.ts` — don't advertise it to crawlers
+- `nuxt.helpers.ts` — excluded from prerender, so no static HTML ignores the embargo
+
+When adding a new route that lists posts, add the `isScheduled()` check too.
+
 ### PII Checklist (run before publishing new content)
 
 - No street addresses or house numbers in blog posts

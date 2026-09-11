@@ -26,6 +26,7 @@ import {
   startOfWeek as _startOfWeek,
   format as _format,
 } from 'date-fns'
+import { isScheduled } from '~/utils/postFilters'
 
 // Type definitions
 interface PostMetadata {
@@ -181,7 +182,12 @@ function isPasswordProtected(post: Post): boolean {
 
 // Check if post should be excluded from public listings
 function isExcludedFromListings(post: Post): boolean {
-  return isHidden(post) || isUnlisted(post) || isPasswordProtected(post)
+  return (
+    isHidden(post) ||
+    isUnlisted(post) ||
+    isPasswordProtected(post) ||
+    isScheduled(post)
+  )
 }
 
 function isRegularBlogPost(post: Post): boolean {
@@ -411,15 +417,13 @@ export const useProcessedMarkdown = () => {
 
   const getNextPrevPosts = async (currentSlug: string) => {
     const manifest = await getManifestLite()
-    const now = Date.now()
     const filteredPosts = manifest
       .filter(isRegularBlogPost)
-      .filter((post: Post) => {
-        const dateValue = post.metadata?.date || post.date
-        if (!dateValue) return true
-        const timestamp = new Date(dateValue).getTime()
-        return Number.isNaN(timestamp) || timestamp <= now
-      })
+      // This used to hand-roll its own future-date check that consulted `date`
+      // only, so a post with a past `date` but a future `publishAt` rendered as
+      // a "Next →" link — leaking an embargoed post's title next to a URL that
+      // 404s. Use the shared helper so nav agrees with every other surface.
+      .filter((post: Post) => !isScheduled(post))
       .sort((a: Post, b: Post) => compareDates(b.date, a.date))
 
     if (filteredPosts.length === 0) {

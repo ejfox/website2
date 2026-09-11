@@ -11,6 +11,7 @@ export interface Post {
   unlisted?: boolean
   password?: string
   date?: string
+  publishAt?: string
   metadata?: {
     type?: string
     hidden?: boolean
@@ -18,7 +19,37 @@ export interface Post {
     unlisted?: boolean
     password?: string
     date?: string
+    publishAt?: string
   }
+}
+
+/**
+ * When a post becomes public, as a timestamp. `publishAt` wins if set, so a
+ * post can display one date and go live at another; otherwise the post's own
+ * `date` is the publish time. Null when neither parses.
+ */
+export function publishTime(post: Post): number | null {
+  // `||` not `??`: an empty-string or otherwise falsy `publishAt` must fall
+  // through to `date` rather than short-circuiting to "not scheduled", which
+  // would fail open and publish an embargoed post immediately.
+  const when =
+    post?.publishAt ||
+    post?.metadata?.publishAt ||
+    post?.date ||
+    post?.metadata?.date
+  if (!when) return null
+  const t = new Date(when).getTime()
+  return Number.isFinite(t) ? t : null
+}
+
+/**
+ * True while a post is still embargoed. Its JSON ships in the build (unlike a
+ * draft, which is never written), so the gate is evaluated per request and
+ * flips on its own once the time passes — no rebuild needed.
+ */
+export function isScheduled(post: Post, now: number = Date.now()): boolean {
+  const t = publishTime(post)
+  return t !== null && t > now
 }
 
 /**
@@ -56,8 +87,7 @@ export function isValidPost(
   const isUnlisted =
     post?.unlisted === true || post?.metadata?.unlisted === true
   const hasPassword = !!(post?.password || post?.metadata?.password)
-  const postDate = post?.date || post?.metadata?.date
-  const isFuturePost = postDate && new Date(postDate) > currentDate
+  const isFuturePost = isScheduled(post, currentDate.getTime())
   const weekNote = isWeekNote(post)
 
   // Unlisted and password-protected posts should not appear in listings
