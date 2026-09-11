@@ -133,20 +133,26 @@ onMounted(() => {
 // Availability line is data-driven — flip data/availability.json when the
 // slot fills so the blurb never claims an opening EJ doesn't have.
 const { data: availability } = await useAsyncData('availability', () =>
-  $fetch('/api/availability').catch(() => ({ open: true, bookedUntil: '' }))
+  $fetch('/api/availability').catch(() => ({
+    capacity: 3,
+    openSlots: 3,
+    bookedUntil: '',
+  }))
 )
 const availabilityLine = computed(() => {
-  const a = availability.value || { open: true, bookedUntil: '' }
-  if (a.open) {
+  const a = availability.value || { capacity: 3, openSlots: 3, bookedUntil: '' }
+  if (a.openSlots > 0) {
+    const slots =
+      a.openSlots === 1 ? '1 slot is open' : `${a.openSlots} slots are open`
     return {
-      text: 'I take one project at a time, and there’s an opening',
+      text: `I take on ${a.capacity} projects at a time, and ${slots}`,
       cta: '→ grab a slot',
     }
   }
   return {
     text: a.bookedUntil
-      ? `I take one project at a time — booked through ${a.bookedUntil}`
-      : 'I take one project at a time, and I’m booked up right now',
+      ? `I take on ${a.capacity} projects at a time — full through ${a.bookedUntil}`
+      : `I take on ${a.capacity} projects at a time, and I’m full right now`,
     cta: '→ say hi for the next one',
   }
 })

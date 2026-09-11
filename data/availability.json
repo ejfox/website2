@@ -1,5 +1,6 @@
 {
-  "open": true,
+  "capacity": 3,
+  "openSlots": 2,
   "bookedUntil": "",
-  "_help": "THE ONE KNOB: set open=false when you're slammed, true when you have room. Optional: bookedUntil like \"November\" shows on the full state. Edit this file, push (live in ~3 min), or edit it on the VPS and `pm2 reload website2` for instant."
+  "_help": "THE KNOB: openSlots = how many of your `capacity` project slots are open right now. Set openSlots to 0 when you're full (optionally set bookedUntil like \"November\"). Edit + push (live ~3 min), or edit on the VPS + `pm2 reload website2` for instant."
 }
