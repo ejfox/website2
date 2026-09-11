@@ -9,6 +9,7 @@ import { defineEventHandler, getQuery } from 'h3'
 import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import { stripHtml, tokenize } from '~/server/utils/text-processing'
+import { isScheduled } from '~/utils/postFilters'
 
 /**
  * Format a slug into a display title
@@ -258,6 +259,8 @@ export default defineEventHandler(async (event) => {
             // Skip unlisted and password-protected posts
             if (data.metadata?.unlisted === true) continue
             if (data.metadata?.password || data.metadata?.passwordHash) continue
+            // Skip posts still under embargo — their JSON ships in the build
+            if (isScheduled(data)) continue
 
             // Additional content filtering
             const slug = relativePath.replace('.json', '').replace(/\\/g, '/')
