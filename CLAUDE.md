@@ -468,6 +468,26 @@ dark-mode feature, matching the dark-first design.
   light), and `/opacity` variants like `dark:bg-zinc-900/50` (translucent panels;
   CSS-var colors don't take Tailwind opacity modifiers).
 
+## YouTube → Umami Attribution (2026-09-11)
+
+Put `https://ejfox.com/from-youtube/<videoId>?to=/blog/some-post` in a YouTube
+card or description. The route 302s to `to` with
+`utm_source=youtube&utm_medium=video&utm_campaign=<videoId>` appended — Umami
+captures UTM params client-side already, so there's no server-side event and no
+Umami credentials involved. `utm_campaign` carries the video id, so traffic
+breaks down **per video** rather than lumping under one "youtube" source.
+
+Filter the Umami dashboard on `utm_source=youtube`. Omitting `to` sends the
+visitor to the homepage, still tagged.
+
+**This route must never become an open redirect.** `to` is validated twice: the
+input is rejected unless it's a single-leading-slash path, and — the part that
+matters — the *emitted* Location is re-checked. Input validation alone is not
+enough, because `new URL()` normalizes `.`/`..` segments afterwards and can
+synthesize a leading `//` that was never in the input: `/..//evil.com` collapses
+to `//evil.com`, which a browser resolves off-site. If you touch this route, keep
+the output check.
+
 ## Key Design Principles
 
 1. **Delete-Driven Development**: Remove complexity, don't add it
