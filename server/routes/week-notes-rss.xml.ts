@@ -1,7 +1,7 @@
 import RSS from 'rss'
 import sanitizeHtml from 'sanitize-html'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
-import { parseISO, isValid, compareDesc, formatISO } from 'date-fns'
+import { parseISO, isValid, formatISO } from 'date-fns'
 
 interface RSSCustomElement {
   [key: string]: string | { _cdata: string }
@@ -24,9 +24,9 @@ function createExcerpt(html: string, length = 280): string {
 }
 
 export default defineEventHandler(async (event) => {
-  const { getPostsWithContent } = useProcessedMarkdown()
+  const { getWeekNotes, getPostBySlug } = useProcessedMarkdown()
   const config = useRuntimeConfig()
-  const siteUrl = (config.public.siteUrl as string) || 'https://ejfox.com'
+  const siteUrl = (config.public.baseUrl as string) || 'https://ejfox.com'
 
   const feed = new RSS({
     title: 'EJ Fox - Week Notes',
@@ -42,15 +42,24 @@ export default defineEventHandler(async (event) => {
     ttl: 60,
   })
 
-  // Pull week-notes specifically — the default getPostsWithContent excludes them
-  const posts = await getPostsWithContent(50, 0, false, true)
-  const sortedPosts = posts.sort((a, b) => {
-    const dateA = parseISO(a.metadata?.date || a.date || '')
-    const dateB = parseISO(b.metadata?.date || b.date || '')
-    if (!isValid(dateA)) return 1
-    if (!isValid(dateB)) return -1
-    return compareDesc(dateA, dateB)
-  })
+  // getWeekNotes already narrows to week-notes and drops hidden/unlisted/
+  // password-protected posts, so take the newest 50 of those and only then
+  // pay for the full HTML. Filtering a mixed batch after the fact truncated
+  // this feed to whatever week notes happened to fall in the window.
+  const weekNotes = (await getWeekNotes()).slice(0, 50)
+  const sortedPosts = await Promise.all(
+    weekNotes.map(async (post) => {
+      try {
+        return { ...post, ...(await getPostBySlug(post.slug)) }
+      } catch (error) {
+        console.error(
+          `Error fetching content for week note ${post.slug}:`,
+          error
+        )
+        return post
+      }
+    })
+  )
 
   interface PostMetadata {
     title?: string
@@ -65,11 +74,6 @@ export default defineEventHandler(async (event) => {
 
   for (const post of sortedPosts) {
     const metadata = (post.metadata || {}) as PostMetadata
-
-    // ONLY include week-notes
-    const isWeekNote =
-      metadata.type === 'week-note' || post.slug?.includes('week-notes/')
-    if (!isWeekNote) continue
 
     // Skip drafts
     if (post.draft || metadata.draft) continue

@@ -30,7 +30,7 @@ function createExcerpt(html: string, length = 280): string {
 export default defineEventHandler(async (event) => {
   const { getPostsWithContent } = useProcessedMarkdown()
   const config = useRuntimeConfig()
-  const siteUrl = (config.public.siteUrl as string) || 'https://ejfox.com'
+  const siteUrl = (config.public.baseUrl as string) || 'https://ejfox.com'
 
   // Initialize RSS feed with enhanced metadata
   const feed = new RSS({

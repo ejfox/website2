@@ -37,11 +37,66 @@ interface GistsGraphQLResponse {
   }
 }
 
+// Some gists hold binary blobs. XML 1.0 forbids most control characters and
+// lone surrogates outright — they are illegal even inside CDATA, and a single
+// one makes the whole feed unparseable. Drop them before emitting.
+// Valid XML 1.0 chars are #x9 | #xA | #xD | #x20-#xD7FF | #xE000-#xFFFD |
+// #x10000-#x10FFFF. Iterating by code point also drops lone surrogates, which
+// surface as bare #xD800-#xDFFF and are just as fatal.
+function stripInvalidXmlChars(text: string): string {
+  let out = ''
+  for (const ch of text) {
+    const c = ch.codePointAt(0) as number
+    const valid =
+      c === 0x9 ||
+      c === 0xa ||
+      c === 0xd ||
+      (c >= 0x20 && c <= 0xd7ff) ||
+      (c >= 0xe000 && c <= 0xfffd) ||
+      c >= 0x10000
+    if (valid) out += ch
+  }
+  return out
+}
+
+// Escape text destined for an XML text node or attribute.
+function escapeXml(unsafe: string): string {
+  return stripInvalidXmlChars(unsafe).replace(/[<>&'"]/g, (c) => {
+    switch (c) {
+      case '<':
+        return '&lt;'
+      case '>':
+        return '&gt;'
+      case '&':
+        return '&amp;'
+      case "'":
+        return '&apos;'
+      case '"':
+        return '&quot;'
+      default:
+        return c
+    }
+  })
+}
+
+// Wrap text in CDATA. A literal `]]>` inside the payload would otherwise close
+// the section early, so split it across two CDATA sections. Gist source very
+// plausibly contains one.
+function cdata(text: string): string {
+  const safe = stripInvalidXmlChars(text).replace(/\]\]>/g, ']]]]><![CDATA[>')
+  return `<![CDATA[${safe}]]>`
+}
+
 const siteURL = 'https://ejfox.com'
 const siteName = 'EJ Fox - Code Snippets & Gists'
 const siteDescription =
   'A collection of useful code snippets, experiments, and tools.'
 const CACHE_DURATION = 3600
+
+// Gists include data files that run to megabytes. Embedding every byte of all
+// 100 gists produced a ~26MB feed, which readers time out on. Cap the source
+// we inline; the item still links to the full gist.
+const MAX_FILE_TEXT_BYTES = 16_000
 // Disk-cache the last successful XML so the feed keeps serving when GitHub's
 // API is down, the token is missing, or we're rate-limited.
 const DISK_CACHE_PATH = join(process.cwd(), 'data/cache/gists-rss.xml')
@@ -164,8 +219,8 @@ export default defineEventHandler(async (event): Promise<string> => {
   xmlns:media="http://search.yahoo.com/mrss/"
   xmlns:code="http://ejfox.com/ns/code/">
 <channel>
-  <title>${siteName}</title>
-  <description>${siteDescription}</description>
+  <title>${escapeXml(siteName)}</title>
+  <description>${escapeXml(siteDescription)}</description>
   <link>${siteURL}/gists</link>
   <atom:link
     href="${siteURL}/gists-rss.xml"
@@ -181,35 +236,48 @@ export default defineEventHandler(async (event): Promise<string> => {
       const pubDate = new Date(gist.createdAt).toUTCString()
       const updateDate = new Date(gist.updatedAt).toUTCString()
 
-      const filesContent = gist.files
+      // Structured per-file metadata, in our own `code:` namespace. These are
+      // real child elements of <item> — they must NOT be nested inside
+      // content:encoded's CDATA, which is what previously broke the XML.
+      const fileElements = gist.files
         .map(
           (file: GistFile) => `
-          <code:file>
-            <code:filename>${file.name}</code:filename>
-            <code:language>${file.language?.name || 'Unknown'}</code:language>
-            <code:size>${file.size}</code:size>
-            ${
-              file.text
-                ? `<content:encoded><![CDATA[${file.text}]]></content:encoded>`
-                : ''
-            }
-          </code:file>
-        `
+      <code:file>
+        <code:filename>${escapeXml(file.name)}</code:filename>
+        <code:language>${escapeXml(file.language?.name || 'Unknown')}</code:language>
+        <code:size>${file.size}</code:size>
+      </code:file>`
         )
+        .join('')
+
+      // content:encoded is what a reader actually renders, so give it HTML.
+      const filesHtml = gist.files
+        .map((file: GistFile) => {
+          const heading = `<h3>${escapeXml(file.name)}</h3>`
+          if (!file.text) return heading
+          const truncated = file.text.length > MAX_FILE_TEXT_BYTES
+          const text = truncated
+            ? file.text.slice(0, MAX_FILE_TEXT_BYTES)
+            : file.text
+          const lang = file.language?.name?.toLowerCase() || ''
+          const cls = lang ? ` class="language-${escapeXml(lang)}"` : ''
+          const note = truncated
+            ? `<p><em>Truncated — <a href="${escapeXml(gist.url)}">view the full gist</a>.</em></p>`
+            : ''
+          return `${heading}<pre><code${cls}>${escapeXml(text)}</code></pre>${note}`
+        })
         .join('\n')
 
       return `<item>
-      <title><![CDATA[${title}]]></title>
-      <link>${gist.url}</link>
-      <guid isPermaLink="true">${gist.url}</guid>
+      <title>${cdata(title)}</title>
+      <link>${escapeXml(gist.url)}</link>
+      <guid isPermaLink="true">${escapeXml(gist.url)}</guid>
       <pubDate>${pubDate}</pubDate>
       <dc:creator>EJ Fox</dc:creator>
       <dc:modified>${updateDate}</dc:modified>
-      <code:stargazers>${gist.stargazerCount}</code:stargazers>
-      <description><![CDATA[${gist.description || ''}]]></description>
-      <content:encoded><![CDATA[
-        ${filesContent}
-      ]]></content:encoded>
+      <code:stargazers>${gist.stargazerCount}</code:stargazers>${fileElements}
+      <description>${cdata(gist.description || '')}</description>
+      <content:encoded>${cdata(filesHtml)}</content:encoded>
     </item>`
     })
     .join('\n')}

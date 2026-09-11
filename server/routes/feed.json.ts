@@ -12,7 +12,7 @@ function createExcerpt(html: string, length = 280): string {
 export default defineEventHandler(async (event) => {
   const { getPostsWithContent } = useProcessedMarkdown()
   const config = useRuntimeConfig()
-  const siteUrl = (config.public.siteUrl as string) || 'https://ejfox.com'
+  const siteUrl = (config.public.baseUrl as string) || 'https://ejfox.com'
 
   const posts = await getPostsWithContent(50, 0, false, false)
   const sortedPosts = posts.sort((a, b) => {

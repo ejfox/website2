@@ -72,7 +72,9 @@ export default defineEventHandler(async (event) => {
               'processed',
               `${post.slug}.json`
             )
-            const { content: htmlContent } = JSON.parse(
+            // Processed post JSON stores the rendered body under `html`.
+            // Reading `content` here emitted CDATA[undefined] for every item.
+            const { html: htmlContent } = JSON.parse(
               await readFile(postPath, 'utf-8')
             )
             return `<item>
@@ -81,7 +83,7 @@ export default defineEventHandler(async (event) => {
         <guid isPermaLink="true">${siteURL}/blog/${post.slug}</guid>
         <description>${escapeXml(post.description || '')}</description>
         <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-        <content:encoded><![CDATA[${htmlContent}]]></content:encoded>
+        <content:encoded>${cdata(htmlContent || '')}</content:encoded>
       </item>`
           } catch (error) {
             console.error(`Error processing post ${post.slug}:`, error)
@@ -113,6 +115,11 @@ export default defineEventHandler(async (event) => {
     return errorXml
   }
 })
+
+// A literal `]]>` in post HTML would close the CDATA section early.
+function cdata(text: string): string {
+  return `<![CDATA[${text.replace(/\]\]>/g, ']]]]><![CDATA[>')}]]>`
+}
 
 function escapeXml(unsafe: string): string {
   return unsafe.replace(/[<>&'"]/g, (c) => {
