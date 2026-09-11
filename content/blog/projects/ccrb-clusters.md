@@ -22,6 +22,14 @@ tags:
 
 ![The network visualization in the published piece](https://res.cloudinary.com/ejf/image/upload/projects/ccrb-clusters/article-viz.png)
 
-In 2021, I got my hands on a massive NYPD complaint dataset from Gothamist/WNYC and immediately went down a data rabbit hole. Built a network of 29,915 officer nodes with 159,671 relationships using Neo4j and Gephi (love-hate relationship with Gephi, but unrivaled for networks).
+In 2021, WNYC/Gothamist got the NYPD's full civilian-complaint dataset through a FOIL request and handed it to me — every complaint and every officer since 2000, including officers named only as witnesses and complaints the CCRB never substantiated. Noisier than the data ProPublica had published a year earlier, but for mapping a network that noise is the signal: being named on a complaint alongside another officer, even an unfounded one, means the two of them interacted in a way the public noticed.
 
-When Gothamist reporter George Joseph interviewed victims, they confirmed what the network showed - certain officers were "catalysts" who other officers "followed" into misconduct. Math and reality matched up! I documented everything in excruciating detail so others could replicate it for their own police departments.
+Complaints are often the first and only warning that an officer is on a course of escalating violence. Derek Chauvin had at least 22 complaints across 19 years before he killed George Floyd; the officer who choked Eric Garner had 7. Nothing disrupted either pattern.
+
+So I built the network — 29,915 officer nodes, 159,671 relationships, in Neo4j (with a lot of Cypher help from David Allen at Neo4j) and laid out in Gephi (love-hate relationship, but unrivaled for networks). Two officers get a link — a `CO_OCCURANCE` — when they appear on the same complaint, weighted by how many they share: three complaints together, weight 3. I filtered out everything the CCRB marked *exonerated* or *unfounded* first, and only labeled an officer by name if they'd had a complaint *substantiated* — a caution I was told lawyers would appreciate. Everyone else stays an anonymous ID.
+
+One sign it was working: when I ran community detection, the clusters mirrored real NYPD precincts — officers appear on complaints with the officers they actually work beside.
+
+Then the big nodes surfaced — Martinez, Radoncic, Grieco — officers co-appearing on complaint after complaint. When Gothamist reporter George Joseph took those names to the street and interviewed victims, the graph held up: the central nodes were acting as catalysts in real life. One man described a big node, Adnan Radoncic, sparking a group assault — _"As soon as he grabbed me, all the officers was hands on. It's like they just followed his lead."_ Math and reality matched up.
+
+I documented every query and every decision so anyone could rebuild this for their own police department: **[the full methodology write-up →](/blog/2021/nypd-ccrb-complaint-clusters)**

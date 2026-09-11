@@ -19,8 +19,8 @@ Status key: `todo` · `interviewing` · `drafted` (awaiting EJ voice pass) · `d
 
 | status | project | why it's first | note |
 |---|---|---|---|
-| todo | **annotator** | MISSING · newsroom AI tooling, real run (Beach & Bay Press, 16pp/60 blocks) — answers "works NOW + thinks about AI seriously" | needs new page |
-| todo | **ccrb-clusters** | best credential, only 124w, no link to the Gothamist story | questions drafted (prior turn) |
+| interviewing | **annotator** | MISSING · **ASU grant project** · newsroom AI tooling, real run (Beach & Bay Press, 16pp/60 blocks) | EJ remembered it. 3 screenshots up (projects/annotator/editor·page-vsplit·keyboard). Voice spine = repo RESEARCH.md ("Does a newspaper have a grammar?"). HOOK: the withdrawn headline finding. NEED from EJ: what ASU grant / NewsWell is + who for |
+| drafted | **ccrb-clusters** | 124w → 359w case study, assembled ENTIRELY from EJ's own 2021 process post (blog/2021/nypd-ccrb-complaint-clusters) + linked to it as the methodology doc | ⏳ EJ voice-pass |
 | todo | **election-helpers** | MISSING · npm package + codecov + live demo, EJ's literal beat | needs new page |
 | todo | **nbc-big-board** | national-broadcast credibility, only 94w, zero external links | thin |
 | todo | **weddings** | MISSING · client work, real conversion story ($1.5k→$8.5k) | needs new page |
@@ -67,6 +67,22 @@ typing-test-animated-history · vulpes-rss · vulpesvg
 
 ---
 
+## ⚡ Reframe (2026-09) — surface before you interview
+
+CCRB proved it: EJ's best writing often ALREADY EXISTS, orphaned in a blog
+post the project page doesn't link. The stub claimed "documented in
+excruciating detail" and linked none of it — meanwhile a 3,643-word process
+post sat at blog/2021/nypd-ccrb-complaint-clusters. So the campaign's first
+pass on each project is **not** "interview from scratch" — it's:
+1. grep content/blog + week-notes for the project's topic
+2. if real writing exists → assemble the case study from EJ's own words + link the deep-dive
+3. only interview for the genuine gaps
+This is faster AND more earnest (archival real voice, not fresh prose).
+
 ## Interview log
 
 (entries appended as we go — question set + EJ's raw answers + final status)
+
+### ccrb-clusters (2026-09) — surfaced, not interviewed
+Found blog/2021/nypd-ccrb-complaint-clusters (3,643w, hidden:false, unlinked).
+Rebuilt the project page from it (draft, pending EJ voice-pass) and linked it.
