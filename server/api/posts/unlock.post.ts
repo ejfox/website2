@@ -42,7 +42,25 @@ function isEmbargoed(data: Record<string, unknown>): boolean {
 // Node process under pm2, and a restart clearing counters is an acceptable trade.
 const MAX_ATTEMPTS = 10
 const WINDOW_SECONDS = 10 * 60
-const attempts = new NodeCache({ stdTTL: WINDOW_SECONDS, checkperiod: 120 })
+// maxKeys bounds memory: the key is derived from the caller's address, and an
+// attacker with an IPv6 allocation controls a lot of those.
+const attempts = new NodeCache({
+  stdTTL: WINDOW_SECONDS,
+  checkperiod: 120,
+  maxKeys: 10_000,
+})
+
+/**
+ * Rate-limit key for a caller.
+ *
+ * IPv6 is collapsed to its /64 prefix: a $5 VPS ships a whole /64, so keying on
+ * the full address would hand an attacker 2^64 free buckets. IPv4 is used whole.
+ */
+function rateLimitKey(ip: string): string {
+  if (!ip.includes(':')) return ip
+  const hextets = ip.split('%')[0].split(':')
+  return hextets.slice(0, 4).join(':') + '::/64'
+}
 
 function hashPassword(password: string): string {
   return createHash('sha256').update(password).digest('hex')
@@ -74,12 +92,29 @@ export default defineEventHandler(async (event) => {
   // Tunnel) and cannot be set by the client. Otherwise fall back to the raw
   // socket address. If neither identifies a caller, everyone shares one
   // bucket — strict rather than open, which is the right way to fail here.
-  const ip =
+  const ip = rateLimitKey(
     getHeader(event, 'cf-connecting-ip') ||
-    event.node.req.socket.remoteAddress ||
-    'unknown'
+      event.node.req.socket.remoteAddress ||
+      'unknown'
+  )
   const tries = (attempts.get<number>(ip) ?? 0) + 1
-  attempts.set(ip, tries)
+  // Fixed window, not sliding: re-setting the TTL on every request meant a
+  // throttled client's own retries pushed their expiry out forever, so anyone
+  // sharing a NAT with a noisy neighbour could never wait out the block.
+  const remaining = attempts.getTtl(ip)
+  const ttl =
+    remaining && remaining > Date.now()
+      ? Math.ceil((remaining - Date.now()) / 1000)
+      : WINDOW_SECONDS
+  try {
+    attempts.set(ip, tries, ttl)
+  } catch {
+    // maxKeys reached — fail closed rather than stop counting.
+    throw createError({
+      statusCode: 429,
+      message: 'Too many attempts. Try again later.',
+    })
+  }
   if (tries > MAX_ATTEMPTS) {
     const expiresAt = attempts.getTtl(ip) || Date.now()
     const retryAfter = Math.max(1, Math.ceil((expiresAt - Date.now()) / 1000))
@@ -126,9 +161,11 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 401, message: 'Incorrect password' })
   }
 
-  // Correct password — hand over the body. Clear the bucket so a legitimate
-  // reader who fumbled a few times isn't left throttled.
-  attempts.del(ip)
+  // Deliberately do NOT clear the bucket on success. Clearing it let anyone
+  // holding one valid password — i.e. anyone a post was legitimately shared
+  // with — loop "9 wrong guesses at post B, one correct unlock of post A" for
+  // unlimited guessing. Ten wrong attempts costing you a wait is the intended
+  // behaviour, not a bug.
 
   const meta = (data.metadata ?? {}) as Record<string, unknown>
   const { passwordHash: _omit, ...safeMetadata } = meta
