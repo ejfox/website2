@@ -8,7 +8,6 @@
     "category": "Hardware",
     "featured": false,
     "draft": true,
-    "url": "https://github.com/ejfox/spectrum-synth",
     "tech": [
       "Flipper Zero",
       "ESP32-S2",

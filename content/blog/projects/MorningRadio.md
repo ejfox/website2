@@ -4,7 +4,6 @@ date: 2025-08-10T00:00:00-04:00
 category: "Apps"
 featured: false
 modified: 2025-08-13T11:26:19-04:00
-url: https://github.com/ejfox/MorningRadio
 tech: ["Swift", "iOS", "Audio Streaming", "Mobile UX"]
 state: doing
 ai-involvement: ai-assisted

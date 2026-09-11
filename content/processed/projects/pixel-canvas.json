@@ -8,7 +8,6 @@
     "category": "Hardware",
     "featured": true,
     "draft": false,
-    "url": "https://github.com/ejfox/pixel-canvas",
     "tech": [
       "ESP32-S3",
       "Arduino",

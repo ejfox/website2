@@ -4,7 +4,6 @@ date: 2026-04-20T00:00:00-04:00
 category: "Art"
 featured: false
 draft: true
-url: https://github.com/ejfox/phone-stack
 tech: ["JavaScript", "WebSockets", "Browser"]
 state: deployed
 ai-involvement: ai-assisted

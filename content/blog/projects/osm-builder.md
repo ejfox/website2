@@ -4,7 +4,6 @@ date: 2026-03-01
 category: "Art"
 featured: false
 draft: true
-url: https://github.com/ejfox/osm-builder
 tech: ["TypeScript", "OpenStreetMap"]
 state: deployed
 ai-involvement: ai-assisted

@@ -4,7 +4,6 @@ date: 2026-03-01T00:00:00-05:00
 category: "Activism"
 featured: false
 draft: true
-url: https://github.com/ejfox/fixcentralhudson
 tech: ["Nuxt", "Vue", "Civic Tech"]
 state: deployed
 ai-involvement: ai-assisted

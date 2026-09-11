@@ -8,7 +8,6 @@
     "category": "Activism",
     "featured": false,
     "draft": true,
-    "url": "https://github.com/ejfox/mapping-ice",
     "tech": [
       "MapLibre",
       "Vite",

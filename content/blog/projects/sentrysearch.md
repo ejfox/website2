@@ -4,7 +4,6 @@ date: 2026-05-01T00:00:00-04:00
 category: "Tools"
 featured: false
 draft: true
-url: https://github.com/ejfox/sentrysearch
 tech: ["Video", "Embeddings", "Search"]
 state: deployed
 ai-involvement: ai-assisted

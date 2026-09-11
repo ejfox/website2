@@ -4,7 +4,6 @@ date: 2026-07-30T00:00:00-04:00
 category: "Art"
 featured: false
 draft: true
-url: https://github.com/ejfox/scrapworld
 tech: ["Unity", "C#", "Spatial Interfaces"]
 state: doing
 ai-involvement: ai-assisted

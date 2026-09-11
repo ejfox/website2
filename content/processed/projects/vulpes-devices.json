@@ -8,7 +8,6 @@
     "category": "Hardware",
     "featured": false,
     "draft": true,
-    "url": "https://github.com/ejfox/vulpes-devices",
     "tech": [
       "Flipper Zero",
       "OnionOS",

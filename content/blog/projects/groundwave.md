@@ -5,7 +5,6 @@ category: "Hardware"
 featured: false
 draft: true
 hidden: true
-url: https://github.com/ejfox/groundwave
 tech: ["Nuxt 3", "D3.js", "WebSockets", "Meshtastic", "SDR"]
 state: deployed
 ai-involvement: ai-assisted

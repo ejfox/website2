@@ -4,7 +4,6 @@ date: 2026-01-01
 category: "Activism"
 featured: false
 draft: true
-url: https://github.com/ejfox/mapping-ice
 tech: ["MapLibre", "Vite", "HTML"]
 state: deployed
 ai-involvement: ai-assisted

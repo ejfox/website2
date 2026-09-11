@@ -4,7 +4,6 @@ date: 2025-10-01
 category: "Tools"
 featured: false
 draft: true
-url: https://github.com/ejfox/newswell
 tech: ["Nuxt 4", "Vue", "WordPress", "PHP", "GPT-4"]
 state: deployed
 ai-involvement: ai-assisted

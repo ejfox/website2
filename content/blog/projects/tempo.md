@@ -4,7 +4,6 @@ date: 2026-04-01T00:00:00-04:00
 category: "Apps"
 featured: false
 draft: true
-url: https://github.com/ejfox/tempo-ios
 tech: ["Swift", "SwiftUI", "iOS", "watchOS"]
 state: deployed
 ai-involvement: ai-assisted
