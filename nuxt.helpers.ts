@@ -9,12 +9,16 @@ interface ManifestPost {
   unlisted?: boolean
   password?: string
   passwordHash?: string
+  date?: string
+  publishAt?: string
   metadata?: {
     draft?: boolean
     hidden?: boolean
     unlisted?: boolean
     password?: string
     passwordHash?: string
+    date?: string
+    publishAt?: string
   }
 }
 
@@ -45,6 +49,13 @@ export async function getBlogRoutes(): Promise<string[]> {
           post.metadata?.passwordHash
         )
         if (hasPassword) return false
+        // Scheduled posts must not be baked into the build as static HTML —
+        // a prerendered page would ignore the runtime embargo. Left out here,
+        // they render on demand once their publish time passes.
+        const publishAt =
+          post.publishAt ?? post.metadata?.publishAt ?? post.date
+        if (publishAt && new Date(publishAt).getTime() > Date.now())
+          return false
         // Skip SHOUTING system files (CLAUDE.md, WIKILINK-OPPORTUNITIES.md)
         if (post.slug === post.slug.toUpperCase()) return false
         if (post.slug.startsWith('robots/')) return false

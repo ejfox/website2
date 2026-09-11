@@ -26,6 +26,7 @@ import {
   startOfWeek as _startOfWeek,
   format as _format,
 } from 'date-fns'
+import { isScheduled } from '~/utils/postFilters'
 
 // Type definitions
 interface PostMetadata {
@@ -181,7 +182,12 @@ function isPasswordProtected(post: Post): boolean {
 
 // Check if post should be excluded from public listings
 function isExcludedFromListings(post: Post): boolean {
-  return isHidden(post) || isUnlisted(post) || isPasswordProtected(post)
+  return (
+    isHidden(post) ||
+    isUnlisted(post) ||
+    isPasswordProtected(post) ||
+    isScheduled(post)
+  )
 }
 
 function isRegularBlogPost(post: Post): boolean {

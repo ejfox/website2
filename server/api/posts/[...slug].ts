@@ -9,6 +9,7 @@ import { defineEventHandler, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { existsSync } from 'node:fs'
+import { isScheduled } from '~/utils/postFilters'
 
 interface TocItem {
   level: number
@@ -96,6 +97,13 @@ export default defineEventHandler(async (event) => {
     // in the build (e.g. draft projects written for local preview). Dev keeps
     // previewing works-in-progress.
     if (!import.meta.dev && isProtectedContent(data)) {
+      throw createError({ statusCode: 404, message: 'Post not found' })
+    }
+
+    // A scheduled post's JSON ships in the build, so the embargo has to hold
+    // here too — otherwise anyone guessing the slug reads it early. Dev still
+    // previews it.
+    if (!import.meta.dev && isScheduled(data)) {
       throw createError({ statusCode: 404, message: 'Post not found' })
     }
 

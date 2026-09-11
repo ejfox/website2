@@ -377,6 +377,26 @@ All API routes that read from `manifest-lite.json` MUST filter out:
 Routes that are hardened: `/api/manifest`, `/api/agent/timeline`, `/api/photo-posts`.
 The `/api/scraps` endpoint filters by `shared === true` in Supabase.
 
+### Scheduled Posts (2026-09-11)
+
+A post goes public at `publishAt` (frontmatter), falling back to its `date`. So
+a future `date` alone schedules a post — and `publishAt` lets the displayed date
+differ from the moment it goes live.
+
+**No rebuild or cron is needed.** Unlike a `draft` (whose JSON is never
+written), a scheduled post *is* processed into `content/processed/` at build
+time and gated at **request** time, so the embargo lifts on its own when the
+clock passes. The single source of truth is `isScheduled()` in
+`utils/postFilters.ts`; every gate imports it:
+
+- `server/api/manifest.ts` — keeps it out of listings
+- `server/api/posts/[...slug].ts` — 404s direct slug access (prod only; dev previews)
+- `composables/useProcessedMarkdown.ts` — `isExcludedFromListings`, which also covers the RSS/JSON feeds
+- `server/routes/sitemap.xml.ts` — don't advertise it to crawlers
+- `nuxt.helpers.ts` — excluded from prerender, so no static HTML ignores the embargo
+
+When adding a new route that lists posts, add the `isScheduled()` check too.
+
 ### PII Checklist (run before publishing new content)
 
 - No street addresses or house numbers in blog posts
