@@ -204,10 +204,11 @@ const isDraft = computed(() => post.value?.metadata?.draft || post.value?.draft)
 const isUnlisted = computed(
   () => post.value?.metadata?.unlisted || post.value?.unlisted
 )
-const passwordHash = computed(
-  () => post.value?.metadata?.passwordHash || post.value?.passwordHash
+// The API serves protected posts as a `locked` stub with no body. The hash is
+// never sent to the client, so protection can't be undone in the browser.
+const isPasswordProtected = computed(
+  () => !!(post.value?.locked || post.value?.metadata?.locked)
 )
-const isPasswordProtected = computed(() => !!passwordHash.value)
 const shouldNoIndex = computed(
   () => isDraft.value || isUnlisted.value || isPasswordProtected.value
 )
@@ -218,7 +219,17 @@ const showContent = computed(
   () => !isPasswordProtected.value || isUnlocked.value
 )
 
-function handleUnlocked() {
+// The unlock response carries the body the stub withheld — merge it in so the
+// article renders from the same `post` the rest of the page reads.
+function handleUnlocked(unlockedPost) {
+  if (unlockedPost?.html) {
+    post.value = {
+      ...post.value,
+      html: unlockedPost.html,
+      toc: unlockedPost.toc ?? post.value?.toc,
+      metadata: { ...post.value?.metadata, ...unlockedPost.metadata },
+    }
+  }
   isUnlocked.value = true
 }
 
@@ -532,7 +543,7 @@ onMounted(() => {
     <!-- Password Gate -->
     <PasswordGate
       v-if="post && !post.redirect && isPasswordProtected && !isUnlocked"
-      :password-hash="passwordHash"
+      :slug="route.params.slug.join('/')"
       :post-title="postTitle"
       @unlocked="handleUnlocked"
     />

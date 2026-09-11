@@ -377,6 +377,23 @@ All API routes that read from `manifest-lite.json` MUST filter out:
 Routes that are hardened: `/api/manifest`, `/api/agent/timeline`, `/api/photo-posts`.
 The `/api/scraps` endpoint filters by `shared === true` in Supabase.
 
+### Password-Protected Posts (2026-09-11)
+
+Add `password: <plaintext>` to a post's frontmatter. `processMarkdown.mjs` stores
+only the SHA-256 as `metadata.passwordHash` — plaintext never reaches the build.
+
+**The gate is server-side.** `GET /api/posts/{slug}` returns a *locked stub* for
+a protected post: title and date, no body, and **not the hash** (shipping the
+hash would let anyone brute-force it offline). `POST /api/posts/unlock`
+(`{slug, password}`) verifies server-side with a constant-time compare and is
+the only path to the content — rate-limited to 10 attempts per IP per 10 min via
+`node-cache`. `PasswordGate.vue` stores the *password* in sessionStorage, not the
+content, so a reload re-fetches and stale bodies can't outlive the post.
+
+Protected posts stay excluded from every listing (see above) and render
+`noindex`. Unlike `draft`/`hidden`/`unlisted`, they are deliberately NOT 404'd by
+the single-post route — they must be reachable to be unlockable.
+
 ### PII Checklist (run before publishing new content)
 
 - No street addresses or house numbers in blog posts
