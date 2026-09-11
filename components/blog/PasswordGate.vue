@@ -1,31 +1,42 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ref, onMounted } from 'vue'
+
+export interface UnlockedPost {
+  html: string
+  toc?: unknown[]
+  metadata?: Record<string, unknown>
+}
 
 const props = defineProps<{
-  passwordHash: string
+  slug: string
   postTitle?: string
 }>()
 
 const emit = defineEmits<{
-  unlocked: []
+  unlocked: [post: UnlockedPost]
 }>()
 
 const enteredPassword = ref('')
 const error = ref('')
 const checking = ref(false)
 
-// Simple client-side hash comparison
-// Not cryptographically secure, but sufficient for keeping casual visitors out
-async function hashPassword(password: string): Promise<string> {
-  const encoder = new TextEncoder()
-  const data = encoder.encode(password)
-  const hashBuffer = await crypto.subtle.digest('SHA-256', data)
-  const hashArray = Array.from(new Uint8Array(hashBuffer))
-  return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
+// The password is verified server-side and the post body only exists in the
+// response to a correct one — the content is never in the page for a visitor
+// who hasn't unlocked it, so there is nothing to bypass client-side.
+function unlock(password: string): Promise<UnlockedPost> {
+  return $fetch<UnlockedPost>('/api/posts/unlock', {
+    method: 'POST',
+    body: { slug: props.slug, password },
+  })
+}
+
+function sessionKey() {
+  return `unlocked-post:${props.slug}`
 }
 
 async function checkPassword() {
-  if (!enteredPassword.value.trim()) {
+  const password = enteredPassword.value.trim()
+  if (!password) {
     error.value = 'Please enter a password'
     return
   }
@@ -34,17 +45,25 @@ async function checkPassword() {
   error.value = ''
 
   try {
-    const hash = await hashPassword(enteredPassword.value.trim())
-    if (hash === props.passwordHash) {
-      // Store unlock in session storage
-      sessionStorage.setItem(`unlocked-${props.passwordHash}`, 'true')
-      emit('unlocked')
-    } else {
+    const post = await unlock(password)
+    // Remember the password, not the content: a reload re-fetches from the
+    // server, so a stale body can't outlive the post itself.
+    try {
+      sessionStorage.setItem(sessionKey(), password)
+    } catch {
+      /* private browsing — unlock still works for this view */
+    }
+    emit('unlocked', post)
+  } catch (e: unknown) {
+    const status = (e as { statusCode?: number })?.statusCode
+    if (status === 429) {
+      error.value = 'Too many attempts. Try again in a few minutes.'
+    } else if (status === 401) {
       error.value = 'Incorrect password'
       enteredPassword.value = ''
+    } else {
+      error.value = 'Could not check the password. Try again.'
     }
-  } catch {
-    error.value = 'Error checking password'
   }
 
   checking.value = false
@@ -56,20 +75,30 @@ function handleKeydown(e: KeyboardEvent) {
   }
 }
 
-// Check if already unlocked in this session
-const alreadyUnlocked = computed(() => {
-  if (typeof window === 'undefined') return false
-  return sessionStorage.getItem(`unlocked-${props.passwordHash}`) === 'true'
+// Re-unlock silently if this session already got in.
+onMounted(async () => {
+  let saved: string | null = null
+  try {
+    saved = sessionStorage.getItem(sessionKey())
+  } catch {
+    return
+  }
+  if (!saved) return
+  try {
+    emit('unlocked', await unlock(saved))
+  } catch {
+    // Password changed or post no longer protected — fall through to the form.
+    try {
+      sessionStorage.removeItem(sessionKey())
+    } catch {
+      /* ignore */
+    }
+  }
 })
-
-// Auto-emit if already unlocked
-if (alreadyUnlocked.value) {
-  emit('unlocked')
-}
 </script>
 
 <template>
-  <div v-if="!alreadyUnlocked" class="password-gate">
+  <div class="password-gate">
     <div class="gate-content">
       <div class="lock-icon">
         <svg

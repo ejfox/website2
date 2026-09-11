@@ -91,12 +91,22 @@ export default defineEventHandler(async (event) => {
     const rawData = await readFile(filePath, 'utf-8')
     const data = JSON.parse(rawData)
 
-    // Privacy guard: never serve draft/hidden/unlisted/password-protected
-    // content in production by direct slug, even when its processed JSON ships
-    // in the build (e.g. draft projects written for local preview). Dev keeps
-    // previewing works-in-progress.
-    if (!import.meta.dev && isProtectedContent(data)) {
+    // Privacy guard: never serve draft/hidden/unlisted content in production by
+    // direct slug, even when its processed JSON ships in the build (e.g. draft
+    // projects written for local preview). Dev keeps previewing
+    // works-in-progress.
+    if (!import.meta.dev && isPrivateContent(data)) {
       throw createError({ statusCode: 404, message: 'Post not found' })
+    }
+
+    // Password-protected posts are meant to be *reachable* — just not readable
+    // until unlocked. Serve a stub carrying enough metadata to render the gate
+    // and the page chrome, and nothing else. Both the body and the hash are
+    // withheld: shipping the hash would let anyone brute-force it offline, and
+    // shipping the body made the old client-side `v-if` gate bypassable with
+    // View Source. POST /api/posts/unlock exchanges the password for content.
+    if (getPasswordHash(data)) {
+      return toLockedStub(data, slug)
     }
 
     // console.log('API: Post data read:', {
@@ -134,22 +144,47 @@ export default defineEventHandler(async (event) => {
 })
 
 /**
- * True if the content is flagged draft/hidden/unlisted/password-protected
- * (checked at both the top level and inside metadata). Used to keep such
- * content out of production responses.
+ * True if the content is flagged draft/hidden/unlisted (checked at both the top
+ * level and inside metadata). Used to keep such content out of production
+ * responses entirely. Password-protected posts are deliberately NOT included —
+ * they are served as a locked stub instead, see toLockedStub.
  */
-function isProtectedContent(data: unknown): boolean {
+export function isPrivateContent(data: unknown): boolean {
   if (!data || typeof data !== 'object') return false
   const top = data as Record<string, unknown>
   const meta = (top.metadata ?? {}) as Record<string, unknown>
   const flag = (key: string) => Boolean(top[key] ?? meta[key])
-  return (
-    flag('draft') ||
-    flag('hidden') ||
-    flag('unlisted') ||
-    flag('password') ||
-    flag('passwordHash')
-  )
+  return flag('draft') || flag('hidden') || flag('unlisted')
+}
+
+/**
+ * The stored SHA-256 hash for a password-protected post, or undefined.
+ */
+export function getPasswordHash(data: unknown): string | undefined {
+  if (!data || typeof data !== 'object') return undefined
+  const top = data as Record<string, unknown>
+  const meta = (top.metadata ?? {}) as Record<string, unknown>
+  const hash = top.passwordHash ?? meta.passwordHash
+  return typeof hash === 'string' && hash ? hash : undefined
+}
+
+/**
+ * Strip a password-protected post down to what may safely be public: enough to
+ * title the tab and render the gate. No body, no TOC, no hash.
+ */
+function toLockedStub(data: unknown, slug: string) {
+  const top = (data ?? {}) as Record<string, unknown>
+  const meta = (top.metadata ?? {}) as Record<string, unknown>
+  return {
+    locked: true,
+    slug,
+    title: meta.title ?? top.title ?? 'Password-protected post',
+    metadata: {
+      title: meta.title ?? top.title ?? 'Password-protected post',
+      date: meta.date ?? top.date,
+      locked: true,
+    },
+  }
 }
 
 async function _readPost(slug: string): Promise<PostData> {

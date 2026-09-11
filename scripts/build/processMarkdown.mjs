@@ -11,6 +11,7 @@
 // Markdown → HTML Processing Pipeline
 import { promises as fs, existsSync, statSync } from 'node:fs'
 import { createHash } from 'node:crypto'
+import { execFileSync } from 'node:child_process'
 import path from 'node:path'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -116,6 +117,63 @@ const formatTitle = (filename) => {
  */
 const hashPassword = (password) => {
   return createHash('sha256').update(password).digest('hex')
+}
+
+/**
+ * Refuse to build a password-protected post whose source is tracked by git.
+ *
+ * This repo is PUBLIC. Committing a protected post publishes three things at
+ * once: the plaintext `password:` in the source markdown, the full rendered
+ * `html` in content/processed/<slug>.json, and the SHA-256 in
+ * manifest-lite.json — an unsalted hash of a short human password, which is
+ * seconds of offline work. Git history is permanent, so rotating the password
+ * afterwards does not undo it.
+ *
+ * Failing the build is the only reliable guard: the leak is silent, happens on
+ * the first `git push`, and leaves no trace in the server logs.
+ */
+const assertNotTrackedByGit = (filePath, slug) => {
+  const tracked = (p) => {
+    try {
+      execFileSync('git', ['ls-files', '--error-unmatch', p], {
+        stdio: 'ignore',
+      })
+      return true
+    } catch {
+      return false
+    }
+  }
+
+  const processedPath = path.join(
+    process.cwd(),
+    'content',
+    'processed',
+    `${slug}.json`
+  )
+  const offenders = [filePath, processedPath].filter(tracked)
+  if (offenders.length === 0) return
+
+  const err = new Error(
+    [
+      '',
+      `REFUSING TO BUILD: password-protected post is tracked by git.`,
+      `  post: ${slug}`,
+      offenders.map((f) => `  tracked: ${path.relative(process.cwd(), f)}`),
+      '',
+      'This repository is public. Committing this post publishes the plaintext',
+      'password (source frontmatter), the full post body (processed JSON), and',
+      'the password hash (manifest-lite.json). Git history is permanent, so',
+      'changing the password later does not undo the disclosure.',
+      '',
+      'Either keep the post and its processed JSON out of git and deliver the',
+      'JSON to the server out-of-band, or do not password-protect it.',
+      '',
+    ]
+      .flat()
+      .join('\n')
+  )
+  err.isFatalContentError = true
+  throw err
 }
 
 // ============================================================================
@@ -374,6 +432,7 @@ async function processMarkdown(content, filePath) {
     )
 
     // Handle password protection - hash password, never store plaintext
+    if (frontmatter.password) assertNotTrackedByGit(filePath, slug)
     const passwordHash = frontmatter.password
       ? hashPassword(frontmatter.password)
       : undefined
@@ -1173,6 +1232,10 @@ async function processAllFiles() {
         results.push(result)
         processStats.filesProcessed++
       } catch (error) {
+        // A tracked password-protected post is a disclosure, not a bad post —
+        // swallowing it into the error summary would publish the plaintext
+        // password and body on the next push. Abort the whole build.
+        if (error?.isFatalContentError) throw error
         processStats.errors.push({ file: filePath, error: error.message })
       }
     }

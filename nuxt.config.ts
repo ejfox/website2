@@ -258,6 +258,18 @@ export default defineNuxtConfig({
             'CDN-Cache-Control': 'max-age=3600, stale-if-error=86400',
           },
         },
+        // The blanket rule above sends Access-Control-Allow-Origin: *, which on
+        // the unlock endpoint would let any site brute-force passwords from its
+        // visitors' browsers AND read the response — one fresh rate-limit bucket
+        // per victim IP, scaling horizontally past our per-IP counter. Deny
+        // cross-origin here, and never cache an unlocked post body.
+        '/api/posts/unlock': {
+          cors: false,
+          headers: {
+            'Cache-Control': 'no-store',
+            'CDN-Cache-Control': 'no-store',
+          },
+        },
         // Pre-rendered tag pages — cache aggressively
         '/scraps/**': {
           headers: {
