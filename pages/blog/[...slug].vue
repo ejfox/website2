@@ -5,6 +5,7 @@ import PostFooter from '~/components/blog/post/PostFooter.vue'
 import PostTOC from '~/components/blog/post/PostTOC.vue'
 import ReplyContext from '~/components/blog/ReplyContext.vue'
 import PasswordGate from '~/components/blog/PasswordGate.vue'
+import Webmentions from '~/components/blog/Webmentions.vue'
 import { readingStats } from '~/utils/readingStats'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
@@ -543,9 +544,11 @@ onMounted(() => {
     >
       <!-- Title -->
       <div class="pt-3 pb-2">
+        <!-- p-name: without it the only p-name in the h-entry is the author's
+             h-card, so parsers report the entry's name as "EJ Fox" -->
         <h1
           v-if="postTitle"
-          class="post-title-hero text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-balance print:text-4xl"
+          class="p-name post-title-hero text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-balance print:text-4xl"
           style="line-height: 1.1; letter-spacing: -0.03em"
           v-html="renderedTitle"
         ></h1>
@@ -610,6 +613,9 @@ onMounted(() => {
         :next-post="nextPrevPosts?.next"
         :related-posts="relatedPosts"
       />
+
+      <!-- Renders nothing when a post has no webmentions -->
+      <Webmentions class="print:hidden" :url="postUrl" />
     </article>
 
     <div v-else-if="error" class="p-8 text-center">

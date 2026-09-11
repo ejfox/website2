@@ -108,6 +108,16 @@ function isBlocked(mention: Webmention, config: ModerationConfig): boolean {
     return true
   }
 
+  // Trusted sources skip the keyword filter. The keywords are deliberately
+  // blunt ("crypto giveaway", "casino"), so someone on mastodon writing *about*
+  // a scam would otherwise be dropped as spam. Blocklists still apply above —
+  // trust only buys an exemption from the fuzzy check, never from an explicit
+  // block. (This list was loaded but never read before.)
+  const isTrusted = (config.trustedDomains ?? []).some(
+    (domain) => sourceUrl.includes(domain) || authorUrl.includes(domain)
+  )
+  if (isTrusted) return false
+
   // Check spam keywords
   const lowerContent = content.toLowerCase()
   for (const keyword of config.spamKeywords) {
