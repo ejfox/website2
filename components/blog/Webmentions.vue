@@ -16,9 +16,15 @@ const props = defineProps<{
 const showLikes = ref(false)
 const showReposts = ref(false)
 
+// Client-side and non-blocking on purpose. This endpoint proxies webmention.io,
+// so a blocking SSR fetch would put a third party on the critical path of every
+// post render — a slow or down webmention.io would slow the whole archive.
+// Mentions are supplementary; they can arrive a beat after the article.
 const { data: fetched } = await useFetch('/api/webmentions', {
   query: { target: props.url },
   default: () => [],
+  lazy: true,
+  server: false,
 })
 const webmentions = computed<Webmention[]>(
   () => props.mock ?? (fetched.value as Webmention[]) ?? []
