@@ -8,6 +8,7 @@ import { defineEventHandler } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { existsSync } from 'node:fs'
+import { isScheduled } from '~/utils/postFilters'
 
 interface ManifestPost {
   slug: string
@@ -50,6 +51,7 @@ async function loadDevDraftProjects(
       )
       const m = full.metadata || {}
       if (m.hidden || m.unlisted || m.password || m.passwordHash) continue
+      if (isScheduled(full)) continue
       out.push({
         slug,
         title: full.title,

@@ -1,6 +1,7 @@
 import { defineEventHandler } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import { isScheduled } from '~/utils/postFilters'
 
 const siteURL = 'https://ejfox.com'
 const siteName = 'EJ Fox - Robot Posts'
@@ -25,6 +26,14 @@ export default defineEventHandler(async (event) => {
       .filter(
         (post: { unlisted?: boolean; metadata?: { unlisted?: boolean } }) =>
           !post.unlisted && !post.metadata?.unlisted
+      )
+      // Filter out posts still under embargo
+      .filter(
+        (post: {
+          date?: string
+          publishAt?: string
+          metadata?: { date?: string; publishAt?: string }
+        }) => !isScheduled(post)
       )
       // Filter out password-protected posts
       .filter(
