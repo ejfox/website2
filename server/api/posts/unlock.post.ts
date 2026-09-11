@@ -14,7 +14,27 @@ import { readFile } from 'node:fs/promises'
 import { createHash, timingSafeEqual } from 'node:crypto'
 import path from 'node:path'
 import NodeCache from 'node-cache'
-import { getPasswordHash } from './[...slug]'
+import { getPasswordHash, isPrivateContent } from './[...slug]'
+
+/**
+ * True while a post is still embargoed by a `publishAt` (or a future `date`).
+ *
+ * Deliberately local rather than imported: this endpoint must hold the embargo
+ * on its own. It reads the processed JSON directly, so it is a SECOND path to
+ * the body that does not pass through GET /api/posts/{slug}'s guards — without
+ * this, a post that is both scheduled and password-protected would 404 on GET
+ * but hand over its full text here to anyone with the password, before the
+ * publish date. (The scheduled-posts branch adds an `isScheduled` helper with
+ * the same semantics; these can be unified once both have landed.)
+ */
+function isEmbargoed(data: Record<string, unknown>): boolean {
+  const meta = (data.metadata ?? {}) as Record<string, unknown>
+  const when =
+    data.publishAt ?? meta.publishAt ?? data.date ?? meta.date ?? null
+  if (typeof when !== 'string' && !(when instanceof Date)) return false
+  const t = new Date(when).getTime()
+  return Number.isFinite(t) && t > Date.now()
+}
 
 // Guessing is the only attack left once the hash stays server-side, so make it
 // slow. node-cache's TTL both expires the window and evicts the key, so the
@@ -87,6 +107,12 @@ export default defineEventHandler(async (event) => {
     )
     data = JSON.parse(await readFile(filePath, 'utf-8'))
   } catch {
+    throw createError({ statusCode: 404, message: 'Post not found' })
+  }
+
+  // Check before the hash lookup so the 404 doesn't disclose which guard fired.
+  // Dev still previews, matching GET /api/posts/{slug}.
+  if (!import.meta.dev && (isPrivateContent(data) || isEmbargoed(data))) {
     throw createError({ statusCode: 404, message: 'Post not found' })
   }
 

@@ -149,7 +149,7 @@ export default defineEventHandler(async (event) => {
  * responses entirely. Password-protected posts are deliberately NOT included —
  * they are served as a locked stub instead, see toLockedStub.
  */
-function isPrivateContent(data: unknown): boolean {
+export function isPrivateContent(data: unknown): boolean {
   if (!data || typeof data !== 'object') return false
   const top = data as Record<string, unknown>
   const meta = (top.metadata ?? {}) as Record<string, unknown>
