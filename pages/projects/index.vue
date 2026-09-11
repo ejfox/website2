@@ -50,6 +50,9 @@ const regularProjects = computed(
   () => projects.value?.filter((p) => !p.metadata?.featured) || []
 )
 
+const getProjectSlug = (project) =>
+  project.slug?.replace(/^projects\//, '') || ''
+
 // The archive: everything not a flagship, grouped into categories. Leading with
 // Client & Newsroom makes the professional/journalism range legible up front;
 // Tools & Terminal (the biggest bucket) sits last so it doesn't drown the rest.
@@ -84,26 +87,71 @@ const archiveGroups = computed(() => {
   }))
 })
 
+// Oversized archive groups (the 40-item Tools wall) collapse to a few rows
+// with an in-place expander — the volume is a real velocity signal, so keep
+// it a click away rather than deleting it, but stop it from burying the
+// journalism. VISIBLE fills exactly three sm:grid-cols-3 rows.
+const COLLAPSE_THRESHOLD = 12
+const VISIBLE_WHEN_COLLAPSED = 9
+const expandedGroups = ref(new Set())
+
+const isCollapsible = (group) => group.projects.length > COLLAPSE_THRESHOLD
+const isExpanded = (group) => expandedGroups.value.has(group.slug)
+const visibleProjects = (group) =>
+  !isCollapsible(group) || isExpanded(group)
+    ? group.projects
+    : group.projects.slice(0, VISIBLE_WHEN_COLLAPSED)
+const hiddenInGroup = (group) =>
+  isCollapsible(group) && !isExpanded(group)
+    ? group.projects.length - VISIBLE_WHEN_COLLAPSED
+    : 0
+const toggleGroup = (slug) => {
+  const next = new Set(expandedGroups.value)
+  if (next.has(slug)) next.delete(slug)
+  else next.add(slug)
+  expandedGroups.value = next
+}
+
+// A deep link (#some-tool-slug) into a collapsed group must still resolve —
+// expand the group that owns the hash target, then let the browser scroll.
+onMounted(() => {
+  const hash = decodeURIComponent(window.location.hash.slice(1))
+  if (!hash) return
+  const owner = archiveGroups.value.find(
+    (g) =>
+      isCollapsible(g) && g.projects.some((p) => getProjectSlug(p) === hash)
+  )
+  if (
+    owner &&
+    !visibleProjects(owner).some((p) => getProjectSlug(p) === hash)
+  ) {
+    expandedGroups.value = new Set(expandedGroups.value).add(owner.slug)
+    nextTick(() => document.getElementById(hash)?.scrollIntoView())
+  }
+})
+
 const { tocTarget } = useTOC()
 
-const getProjectSlug = (project) =>
-  project.slug?.replace(/^projects\//, '') || ''
+// Buyer-facing proof for the header bar. Names buyers scan for beat
+// word-counts — these are the checkable credentials, kept as plain facts.
+const CREDENTIALS = [
+  'NBC News',
+  'Gothamist / WNYC',
+  'Knight Foundation',
+  'Global Energy Monitor',
+]
+
+// Velocity signal that also earns the tool archive its keep: how many
+// projects shipped in the current era (2024+).
+const recentCount = computed(
+  () =>
+    projects.value?.filter((p) => {
+      const d = p.metadata?.date || p.date
+      return d && new Date(d).getFullYear() >= 2024
+    }).length || 0
+)
 
 const tocLinkClass = 'block text-zinc-600 dark:text-zinc-400 truncate'
-
-// Aggregate metadata for brutalist header display (counts precomputed by
-// /api/projects?slim=1)
-const totalWords = computed(
-  () => projects.value?.reduce((sum, p) => sum + (p.wordCount || 0), 0) || 0
-)
-
-const totalImages = computed(
-  () => projects.value?.reduce((sum, p) => sum + (p.imgCount || 0), 0) || 0
-)
-
-const totalLinks = computed(
-  () => projects.value?.reduce((sum, p) => sum + (p.linkCount || 0), 0) || 0
-)
 
 const totalTech = computed(() => {
   if (!projects.value) return 0
@@ -287,6 +335,26 @@ useHead(() => ({
         Selected Work
       </h1>
 
+      <!-- Buyer-facing pitch: /projects is the conversion surface, so say what
+           I do and that I'm available before the work scrolls. Kept to the
+           editorial serif so it reads as a lede, not a banner ad. -->
+      <p
+        class="font-serif text-lg md:text-xl text-zinc-700 dark:text-zinc-300 max-w-2xl leading-snug mb-3"
+      >
+        I build data visualization and investigative data tools for newsrooms
+        and startups — from broadcast election graphics to 200&nbsp;GB leak
+        explorers.
+        <span class="text-zinc-500 dark:text-zinc-400">
+          Currently taking one client.
+        </span>
+        <NuxtLink
+          to="/calendar"
+          class="whitespace-nowrap underline decoration-1 underline-offset-2 hover:text-zinc-900 dark:hover:text-zinc-100"
+        >
+          Book a call →
+        </NuxtLink>
+      </p>
+
       <!-- Real diff: most recently updated project, with anchor -->
       <div class="font-mono text-3xs text-zinc-500 dark:text-zinc-500 mb-2">
         <template v-if="lastUpdated && mostRecentProject">
@@ -303,18 +371,26 @@ useHead(() => ({
         </template>
       </div>
 
+      <!-- Buyer facts, not self-measurement: credentials buyers can check
+           lead, then range + velocity. (Was words/images/read-time — the
+           page counting itself told busy buyers to leave.) -->
       <div
         class="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-zinc-500 tabular-nums"
       >
-        <span class="text-zinc-900 dark:text-zinc-100">
-          {{ projects?.length || 0 }} projects
+        <span
+          v-for="cred in CREDENTIALS"
+          :key="cred"
+          class="text-zinc-900 dark:text-zinc-100"
+        >
+          {{ cred }}
         </span>
-        <span>{{ featuredProjects.length }} featured</span>
-        <span>{{ totalWords.toLocaleString() }} words</span>
-        <span>{{ totalImages }} images</span>
-        <span>{{ totalLinks }} links</span>
+        <span>
+          {{ projects?.length || 0 }} projects · {{ earliestYear }}–{{
+            latestYear
+          }}
+        </span>
+        <span>{{ recentCount }} shipped since 2024</span>
         <span>{{ totalTech }} technologies</span>
-        <span>{{ Math.ceil(totalWords / 200) }}min read</span>
       </div>
 
       <!-- Word-count stem plot: HTML/CSS bars, never stretched. Exposed to AT
@@ -386,11 +462,32 @@ useHead(() => ({
 
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10">
         <ProjectArchiveCard
-          v-for="project in group.projects"
+          v-for="project in visibleProjects(group)"
           :key="project.slug"
           :project="project"
         />
       </div>
+
+      <!-- Collapse expander for oversized groups: velocity signal preserved,
+           one click away, without a separate page to maintain. -->
+      <button
+        v-if="hiddenInGroup(group) > 0"
+        type="button"
+        class="mt-5 font-mono text-2xs uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+        :aria-expanded="isExpanded(group)"
+        @click="toggleGroup(group.slug)"
+      >
+        + {{ hiddenInGroup(group) }} more experiments →
+      </button>
+      <button
+        v-else-if="isCollapsible(group) && isExpanded(group)"
+        type="button"
+        class="mt-5 font-mono text-2xs uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
+        :aria-expanded="true"
+        @click="toggleGroup(group.slug)"
+      >
+        − collapse
+      </button>
     </section>
 
     <!-- TOC - flagships, then category jump-links. Mirrors the page structure
