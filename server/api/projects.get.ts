@@ -96,7 +96,8 @@ export default defineEventHandler(async () => {
         (allowDrafts || !isDraft) &&
         !isHidden &&
         !isUnlisted &&
-        !hasPassword
+        !hasPassword &&
+        !isScheduled(post)
       )
     })
 

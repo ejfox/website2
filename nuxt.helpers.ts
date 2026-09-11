@@ -52,8 +52,14 @@ export async function getBlogRoutes(): Promise<string[]> {
         // Scheduled posts must not be baked into the build as static HTML —
         // a prerendered page would ignore the runtime embargo. Left out here,
         // they render on demand once their publish time passes.
+        // Mirrors isScheduled() in utils/postFilters.ts. Duplicated because
+        // this runs at Nuxt config time, before ~ aliases resolve. Keep the
+        // fallback chain identical to the helper's.
         const publishAt =
-          post.publishAt ?? post.metadata?.publishAt ?? post.date
+          post.publishAt ||
+          post.metadata?.publishAt ||
+          post.date ||
+          post.metadata?.date
         if (publishAt && new Date(publishAt).getTime() > Date.now())
           return false
         // Skip SHOUTING system files (CLAUDE.md, WIKILINK-OPPORTUNITIES.md)

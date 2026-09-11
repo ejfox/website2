@@ -29,10 +29,13 @@ export interface Post {
  * `date` is the publish time. Null when neither parses.
  */
 export function publishTime(post: Post): number | null {
+  // `||` not `??`: an empty-string or otherwise falsy `publishAt` must fall
+  // through to `date` rather than short-circuiting to "not scheduled", which
+  // would fail open and publish an embargoed post immediately.
   const when =
-    post?.publishAt ??
-    post?.metadata?.publishAt ??
-    post?.date ??
+    post?.publishAt ||
+    post?.metadata?.publishAt ||
+    post?.date ||
     post?.metadata?.date
   if (!when) return null
   const t = new Date(when).getTime()
