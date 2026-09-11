@@ -1,0 +1,5 @@
+{
+  "open": true,
+  "bookedUntil": "",
+  "_help": "THE ONE KNOB: set open=false when you're slammed, true when you have room. Optional: bookedUntil like \"November\" shows on the full state. Edit this file, push (live in ~3 min), or edit it on the VPS and `pm2 reload website2` for instant."
+}

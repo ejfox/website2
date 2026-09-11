@@ -130,6 +130,27 @@ onMounted(() => {
   }
 })
 
+// Availability line is data-driven — flip data/availability.json when the
+// slot fills so the blurb never claims an opening EJ doesn't have.
+const { data: availability } = await useAsyncData('availability', () =>
+  $fetch('/api/availability').catch(() => ({ open: true, bookedUntil: '' }))
+)
+const availabilityLine = computed(() => {
+  const a = availability.value || { open: true, bookedUntil: '' }
+  if (a.open) {
+    return {
+      text: 'I take one project at a time, and there’s an opening',
+      cta: '→ grab a slot',
+    }
+  }
+  return {
+    text: a.bookedUntil
+      ? `I take one project at a time — booked through ${a.bookedUntil}`
+      : 'I take one project at a time, and I’m booked up right now',
+    cta: '→ say hi for the next one',
+  }
+})
+
 const { tocTarget } = useTOC()
 
 // Buyer-facing proof for the header bar. Names buyers scan for beat
@@ -335,23 +356,22 @@ useHead(() => ({
         Selected Work
       </h1>
 
-      <!-- Buyer-facing pitch: /projects is the conversion surface, so say what
-           I do and that I'm available before the work scrolls. Kept to the
-           editorial serif so it reads as a lede, not a banner ad. -->
+      <!-- Buyer-facing pitch, in EJ's own words (interview 2026-09). The
+           conversion surface leads with the person, not a feature list. -->
       <p
         class="font-serif text-lg md:text-xl text-zinc-700 dark:text-zinc-300 max-w-2xl leading-snug mb-3"
       >
-        I build data visualization and investigative data tools for newsrooms
-        and startups — from broadcast election graphics to 200&nbsp;GB leak
-        explorers.
+        I convince computers to do what people imagine — for people I think are
+        trying to make the world a better place. My freelance work pays for my
+        journalism habit.
         <span class="text-zinc-500 dark:text-zinc-400">
-          Currently taking one client.
+          {{ availabilityLine.text }}
         </span>
         <NuxtLink
           to="/calendar"
           class="whitespace-nowrap underline decoration-1 underline-offset-2 hover:text-zinc-900 dark:hover:text-zinc-100"
         >
-          Book a call →
+          {{ availabilityLine.cta }}
         </NuxtLink>
       </p>
 
