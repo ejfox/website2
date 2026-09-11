@@ -9,7 +9,7 @@
  * password arrives here. GET /api/posts/{slug} returns only a locked stub, so
  * this is the single path to the body.
  */
-import { defineEventHandler, createError, readBody, getRequestIP } from 'h3'
+import { defineEventHandler, createError, readBody, getHeader } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { createHash, timingSafeEqual } from 'node:crypto'
 import path from 'node:path'
@@ -45,7 +45,19 @@ function isValidSlug(slug: string): boolean {
 }
 
 export default defineEventHandler(async (event) => {
-  const ip = getRequestIP(event, { xForwardedFor: true }) ?? 'unknown'
+  // Deliberately NOT h3's getRequestIP: it returns event.context.clientAddress
+  // first, which Nitro derives from X-Forwarded-For — a client-supplied header.
+  // An attacker rotating a fake XFF per request would get a fresh bucket each
+  // time and thus unlimited guesses, defeating the whole limiter.
+  //
+  // CF-Connecting-IP is written by Cloudflare (we sit behind a Cloudflare
+  // Tunnel) and cannot be set by the client. Otherwise fall back to the raw
+  // socket address. If neither identifies a caller, everyone shares one
+  // bucket — strict rather than open, which is the right way to fail here.
+  const ip =
+    getHeader(event, 'cf-connecting-ip') ||
+    event.node.req.socket.remoteAddress ||
+    'unknown'
   const tries = (attempts.get<number>(ip) ?? 0) + 1
   attempts.set(ip, tries)
   if (tries > MAX_ATTEMPTS) {
