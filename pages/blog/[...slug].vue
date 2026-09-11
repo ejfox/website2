@@ -544,8 +544,9 @@ onMounted(() => {
     >
       <!-- Title -->
       <div class="pt-3 pb-2">
-        <!-- p-name: without it the only p-name in the h-entry is the author's
-             h-card, so parsers report the entry's name as "EJ Fox" -->
+        <!-- p-name: without it the h-entry had NO name at all. The author's
+             p-name belongs to the nested h-card, and mf2's implied-name rule
+             doesn't fire once the entry has e-content/dt-published/u-url. -->
         <h1
           v-if="postTitle"
           class="p-name post-title-hero text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-balance print:text-4xl"
