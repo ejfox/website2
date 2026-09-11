@@ -1,6 +1,7 @@
 import { defineEventHandler } from 'h3'
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
+import { escapeXml, cdata } from '~/server/utils/xml'
 
 // GraphQL response types
 interface GistFile {
@@ -37,69 +38,32 @@ interface GistsGraphQLResponse {
   }
 }
 
-// Some gists hold binary blobs. XML 1.0 forbids most control characters and
-// lone surrogates outright — they are illegal even inside CDATA, and a single
-// one makes the whole feed unparseable. Drop them before emitting.
-// Valid XML 1.0 chars are #x9 | #xA | #xD | #x20-#xD7FF | #xE000-#xFFFD |
-// #x10000-#x10FFFF. Iterating by code point also drops lone surrogates, which
-// surface as bare #xD800-#xDFFF and are just as fatal.
-function stripInvalidXmlChars(text: string): string {
-  let out = ''
-  for (const ch of text) {
-    const c = ch.codePointAt(0) as number
-    const valid =
-      c === 0x9 ||
-      c === 0xa ||
-      c === 0xd ||
-      (c >= 0x20 && c <= 0xd7ff) ||
-      (c >= 0xe000 && c <= 0xfffd) ||
-      c >= 0x10000
-    if (valid) out += ch
-  }
-  return out
-}
-
-// Escape text destined for an XML text node or attribute.
-function escapeXml(unsafe: string): string {
-  return stripInvalidXmlChars(unsafe).replace(/[<>&'"]/g, (c) => {
-    switch (c) {
-      case '<':
-        return '&lt;'
-      case '>':
-        return '&gt;'
-      case '&':
-        return '&amp;'
-      case "'":
-        return '&apos;'
-      case '"':
-        return '&quot;'
-      default:
-        return c
-    }
-  })
-}
-
-// Wrap text in CDATA. A literal `]]>` inside the payload would otherwise close
-// the section early, so split it across two CDATA sections. Gist source very
-// plausibly contains one.
-function cdata(text: string): string {
-  const safe = stripInvalidXmlChars(text).replace(/\]\]>/g, ']]]]><![CDATA[>')
-  return `<![CDATA[${safe}]]>`
-}
-
 const siteURL = 'https://ejfox.com'
 const siteName = 'EJ Fox - Code Snippets & Gists'
 const siteDescription =
   'A collection of useful code snippets, experiments, and tools.'
 const CACHE_DURATION = 3600
 
-// Gists include data files that run to megabytes. Embedding every byte of all
-// 100 gists produced a ~26MB feed, which readers time out on. Cap the source
-// we inline; the item still links to the full gist.
-const MAX_FILE_TEXT_BYTES = 16_000
+// Gists include data files that run to megabytes. Inlining all of them produced
+// a ~21MB feed that readers time out on, so cap the source we embed; the item
+// still links to the full gist. Counted in UTF-16 code units, not bytes — a
+// CJK- or emoji-heavy file yields more bytes than this number suggests.
+const MAX_FILE_TEXT_CHARS = 16_000
+
+// Bump whenever the emitted XML shape changes. This invalidates BOTH stale-serve
+// paths at once — the disk-cache filename and the ETag — so a cache or a
+// conditional request left over from an older serializer can never resurrect it.
+const FEED_FORMAT_VERSION = 'v2'
+
 // Disk-cache the last successful XML so the feed keeps serving when GitHub's
-// API is down, the token is missing, or we're rate-limited.
-const DISK_CACHE_PATH = join(process.cwd(), 'data/cache/gists-rss.xml')
+// API is down, the token is missing, or we're rate-limited. The stale-on-error
+// path returns this file verbatim with a 200, so the version in the name is
+// load-bearing: unversioned, the old serializer's invalid 20MB output would be
+// re-served indefinitely the first time GitHub was unreachable after a deploy.
+const DISK_CACHE_PATH = join(
+  process.cwd(),
+  `data/cache/gists-rss.${FEED_FORMAT_VERSION}.xml`
+)
 
 function readDiskCache(): string | null {
   try {
@@ -204,7 +168,11 @@ export default defineEventHandler(async (event): Promise<string> => {
     }, new Date(0))
 
     // ETag handling
-    const etag = `"${lastBuildDate.getTime()}"`
+    // Include the format version: the ETag is derived from gist timestamps,
+    // which don't change when the serializer does. Without this, a reader or
+    // CDN holding an ETag from the old broken output gets a 304 and keeps
+    // serving that body even though the feed has been fixed.
+    const etag = `"${FEED_FORMAT_VERSION}-${lastBuildDate.getTime()}"`
     event.node.res.setHeader('ETag', etag)
     if (event.node.req.headers['if-none-match'] === etag) {
       event.node.res.statusCode = 304
@@ -255,9 +223,9 @@ export default defineEventHandler(async (event): Promise<string> => {
         .map((file: GistFile) => {
           const heading = `<h3>${escapeXml(file.name)}</h3>`
           if (!file.text) return heading
-          const truncated = file.text.length > MAX_FILE_TEXT_BYTES
+          const truncated = file.text.length > MAX_FILE_TEXT_CHARS
           const text = truncated
-            ? file.text.slice(0, MAX_FILE_TEXT_BYTES)
+            ? file.text.slice(0, MAX_FILE_TEXT_CHARS)
             : file.text
           const lang = file.language?.name?.toLowerCase() || ''
           const cls = lang ? ` class="language-${escapeXml(lang)}"` : ''

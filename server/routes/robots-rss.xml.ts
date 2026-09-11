@@ -1,6 +1,7 @@
 import { defineEventHandler } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import { escapeXml, cdata } from '~/server/utils/xml'
 
 const siteURL = 'https://ejfox.com'
 const siteName = 'EJ Fox - Robot Posts'
@@ -62,7 +63,8 @@ export default defineEventHandler(async (event) => {
         async (post: {
           slug: string
           title: string
-          description?: string
+          dek?: string
+          metadata?: { dek?: string }
           date: string
         }) => {
           try {
@@ -81,7 +83,7 @@ export default defineEventHandler(async (event) => {
         <title>${escapeXml(post.title)}</title>
         <link>${siteURL}/blog/${post.slug}</link>
         <guid isPermaLink="true">${siteURL}/blog/${post.slug}</guid>
-        <description>${escapeXml(post.description || '')}</description>
+        <description>${escapeXml(post.dek || post.metadata?.dek || '')}</description>
         <pubDate>${new Date(post.date).toUTCString()}</pubDate>
         <content:encoded>${cdata(htmlContent || '')}</content:encoded>
       </item>`
@@ -115,27 +117,3 @@ export default defineEventHandler(async (event) => {
     return errorXml
   }
 })
-
-// A literal `]]>` in post HTML would close the CDATA section early.
-function cdata(text: string): string {
-  return `<![CDATA[${text.replace(/\]\]>/g, ']]]]><![CDATA[>')}]]>`
-}
-
-function escapeXml(unsafe: string): string {
-  return unsafe.replace(/[<>&'"]/g, (c) => {
-    switch (c) {
-      case '<':
-        return '&lt;'
-      case '>':
-        return '&gt;'
-      case '&':
-        return '&amp;'
-      case "'":
-        return '&apos;'
-      case '"':
-        return '&quot;'
-      default:
-        return c
-    }
-  })
-}
