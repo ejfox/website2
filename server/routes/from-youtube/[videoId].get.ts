@@ -17,6 +17,8 @@ import { defineEventHandler, getQuery, sendRedirect, createError } from 'h3'
 
 // Video ids are YouTube's own format: 11 chars of [A-Za-z0-9_-]. Keeping this
 // strict stops the id being used to smuggle anything into the UTM values.
+const ORIGIN = 'https://ejfox.com'
+
 const VIDEO_ID = /^[\w-]{6,20}$/
 
 /**
@@ -47,12 +49,29 @@ export default defineEventHandler(async (event) => {
   const destination = safePath(query.to)
 
   // Preserve any query the destination already carries.
-  const url = new URL(destination, 'https://ejfox.com')
+  const url = new URL(destination, ORIGIN)
   url.searchParams.set('utm_source', 'youtube')
   url.searchParams.set('utm_medium', 'video')
   url.searchParams.set('utm_campaign', videoId)
 
+  const location = `${url.pathname}${url.search}${url.hash}`
+
+  // Validate what we are about to EMIT, not just what we accepted.
+  //
+  // safePath() checks the input string, but `new URL()` then applies WHATWG
+  // path normalization — collapsing `.` and `..` segments, including their
+  // percent-encoded forms — and that can synthesize a leading `//` that was
+  // never in the input. `/..//evil.com` passes every input check honestly
+  // (single leading slash, no backslash), then normalizes to `//evil.com`, a
+  // network-path reference the browser resolves to https://evil.com. That was
+  // a working open redirect.
+  //
+  // The invariant: the emitted string must start with exactly one slash.
+  if (url.origin !== ORIGIN || !/^\/(?!\/)/.test(location)) {
+    return sendRedirect(event, '/', 302)
+  }
+
   // 302, not 301: the destination for a given video may change, and a cached
   // permanent redirect would be near-impossible to walk back.
-  return sendRedirect(event, `${url.pathname}${url.search}${url.hash}`, 302)
+  return sendRedirect(event, location, 302)
 })

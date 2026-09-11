@@ -477,10 +477,16 @@ captures UTM params client-side already, so there's no server-side event and no
 Umami credentials involved. `utm_campaign` carries the video id, so traffic
 breaks down **per video** rather than lumping under one "youtube" source.
 
-Filter the Umami dashboard on `utm_source=youtube`. `to` is validated to a
-same-origin path (absolute URLs, `//evil.com`, and backslashes all fall back to
-`/`) — this route must never become an open redirect. Omitting `to` sends the
+Filter the Umami dashboard on `utm_source=youtube`. Omitting `to` sends the
 visitor to the homepage, still tagged.
+
+**This route must never become an open redirect.** `to` is validated twice: the
+input is rejected unless it's a single-leading-slash path, and — the part that
+matters — the *emitted* Location is re-checked. Input validation alone is not
+enough, because `new URL()` normalizes `.`/`..` segments afterwards and can
+synthesize a leading `//` that was never in the input: `/..//evil.com` collapses
+to `//evil.com`, which a browser resolves off-site. If you touch this route, keep
+the output check.
 
 ## Key Design Principles
 
