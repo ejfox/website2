@@ -114,6 +114,20 @@ const formatTitle = (filename) => {
  * Hash a password using SHA-256
  * Matches the client-side hashing in PasswordGate.vue
  */
+/**
+ * Mirrors isScheduled() in utils/postFilters.ts — duplicated because this is a
+ * plain .mjs build script that can't import the TS helper. Build artifacts
+ * (the tag cloud, the on-this-day index) are baked into static files the
+ * runtime gate can never reach, so an embargoed post must be excluded HERE.
+ */
+const isScheduledEntry = (entry) => {
+  const m = entry?.metadata || {}
+  const when = m.publishAt || entry?.publishAt || m.date || entry?.date
+  if (!when) return false
+  const t = new Date(when).getTime()
+  return Number.isFinite(t) && t > Date.now()
+}
+
 const hashPassword = (password) => {
   return createHash('sha256').update(password).digest('hex')
 }
@@ -1187,6 +1201,12 @@ async function processAllFiles() {
     const nonDraftFiles = allFiles.filter(
       (_, index) => results[index]?.metadata?.draft !== true
     )
+    // Index-aligned pair excluding embargoed posts, for build artifacts only.
+    // The manifest itself still carries them — they're gated at request time.
+    const publishedResults = nonDraftResults.filter((e) => !isScheduledEntry(e))
+    const publishedFiles = nonDraftFiles.filter(
+      (_, index) => !isScheduledEntry(nonDraftResults[index])
+    )
 
     // Clean up orphaned processed files
     // (files that exist in output but not in source)
@@ -1261,8 +1281,12 @@ async function processAllFiles() {
 
     // Extract tags with usage counts from content
     // and write to public/content-tags.json
+    // Same reasoning as the on-this-day index: public/content-tags.json is a
+    // static asset (served at /content-tags.json, and rendered into the
+    // prerendered /sitemap tag cloud), so an embargoed post's tags must not
+    // reach it. A distinctive tag is a strong signal about unannounced work.
     const tagUsage = {}
-    nonDraftResults.forEach((result) => {
+    publishedResults.forEach((result) => {
       if (result.metadata?.tags && Array.isArray(result.metadata.tags)) {
         result.metadata.tags.forEach((tag) => {
           if (typeof tag === 'string' && tag.trim()) {
@@ -1286,8 +1310,11 @@ async function processAllFiles() {
       )
     }
 
-    // Build on-this-day index from tweets + blog posts
-    await buildOnThisDayIndex(nonDraftResults, nonDraftFiles)
+    // Build on-this-day index from tweets + blog posts. Scheduled posts are
+    // excluded: this index is a static build artifact, so the runtime embargo
+    // cannot filter it and an embargoed slug/title/dek would be served by
+    // /api/on-this-day and baked into the prerendered /on-this-day page.
+    await buildOnThisDayIndex(publishedResults, publishedFiles)
 
     return results
   } catch (error) {
