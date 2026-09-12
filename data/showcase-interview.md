@@ -22,7 +22,7 @@ Status key: `todo` · `interviewing` · `drafted` (awaiting EJ voice pass) · `d
 | interviewing | **annotator** | MISSING · **ASU grant project** · newsroom AI tooling, real run (Beach & Bay Press, 16pp/60 blocks) | EJ remembered it. 3 screenshots up (projects/annotator/editor·page-vsplit·keyboard). Voice spine = repo RESEARCH.md ("Does a newspaper have a grammar?"). HOOK: the withdrawn headline finding. NEED from EJ: what ASU grant / NewsWell is + who for |
 | drafted | **ccrb-clusters** | 124w → 359w case study, assembled ENTIRELY from EJ's own 2021 process post (blog/2021/nypd-ccrb-complaint-clusters) + linked to it as the methodology doc | ⏳ EJ voice-pass |
 | todo | **election-helpers** | MISSING · npm package + codecov + live demo, EJ's literal beat | needs new page |
-| todo | **nbc-big-board** | national-broadcast credibility, only 94w, zero external links | thin |
+| drafted | **nbc-big-board** | 94w → 343w, assembled from EJ's essay blog/2022/election-night-2018 (+ things-ive-learned-about-elections 2367w still unused) + linked it | ⏳ EJ voice-pass |
 | todo | **weddings** | MISSING · client work, real conversion story ($1.5k→$8.5k) | needs new page |
 | todo | **paramilitary-leaks** | best hire-me artifact, recent editorial, could go deeper | thin-ish |
 
