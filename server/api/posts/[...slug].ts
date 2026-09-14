@@ -102,10 +102,11 @@ export default defineEventHandler(async (event) => {
       throw createError({ statusCode: 404, message: 'Post not found' })
     }
 
-    // Privacy guard: never serve draft/hidden/unlisted/password-protected
-    // content in production by direct slug, even when its processed JSON ships
-    // in the build (e.g. draft projects written for local preview). Dev keeps
-    // previewing works-in-progress.
+    // Privacy guard: never serve draft/hidden/password-protected content in
+    // production by direct slug, even when its processed JSON ships in the
+    // build (e.g. draft projects written for local preview). Dev keeps
+    // previewing works-in-progress. `unlisted` is deliberately NOT in that set
+    // — see isProtectedContent.
     if (!import.meta.dev && isProtectedContent(data)) {
       throw createError({ statusCode: 404, message: 'Post not found' })
     }
@@ -152,11 +153,6 @@ export default defineEventHandler(async (event) => {
 })
 
 /**
- * True if the content is flagged draft/hidden/unlisted/password-protected
- * (checked at both the top level and inside metadata). Used to keep such
- * content out of production responses.
- */
-/**
  * True only for JSON that is actually a post: a plain object carrying rendered
  * body content. Arrays and bare data files (manifest-lite, ride indexes,
  * goodreads-stats) are not posts and must never be served by this route — the
@@ -168,17 +164,28 @@ function isPostShaped(data: unknown): boolean {
   return typeof d.html === 'string' || typeof d.content === 'string'
 }
 
+/**
+ * True if the content must 404 at its own URL in production (checked at both
+ * the top level and inside metadata).
+ *
+ * `unlisted` is deliberately absent. It means "visible at its URL, but not in
+ * listings" — that is the entire distinction between it and `hidden`, and it is
+ * what `composables/useProcessedMarkdown.ts` documents it as. A privacy sweep
+ * had swept it into this 404 set, which made it an exact synonym for `hidden`
+ * and left the site with no secret-URL flag at all. Discovery is already
+ * blocked on the listing side by `isHiddenFromListings`, which every feed,
+ * sitemap and search surface uses; this function is only about direct access.
+ *
+ * Note this is NOT the gate for sealed posts — those are served deliberately,
+ * as an opaque envelope with no plaintext in it. See isSealedPost.
+ */
 function isProtectedContent(data: unknown): boolean {
   if (!data || typeof data !== 'object') return false
   const top = data as Record<string, unknown>
   const meta = (top.metadata ?? {}) as Record<string, unknown>
   const flag = (key: string) => Boolean(top[key] ?? meta[key])
   return (
-    flag('draft') ||
-    flag('hidden') ||
-    flag('unlisted') ||
-    flag('password') ||
-    flag('passwordHash')
+    flag('draft') || flag('hidden') || flag('password') || flag('passwordHash')
   )
 }
 

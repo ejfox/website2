@@ -57,6 +57,34 @@ export function isScheduled(post: Post, now: number = Date.now()): boolean {
 }
 
 /**
+ * True if a post must never appear in a public listing, feed, sitemap or
+ * search index — for any reason other than an embargo (use `isScheduled` for
+ * that; it flips on its own with time, this doesn't).
+ *
+ * Every flag is read at BOTH the top level and inside `metadata`, and that is
+ * the whole point of this function existing. `manifest-lite.json` hoists only
+ * `slug, title, date, type, hidden, tags, toc, metadata` — so `unlisted`,
+ * `password`, `passwordHash` and `sealed` live ONLY under `metadata`, and a
+ * filter written as `!p.unlisted` against a manifest entry is a permanent
+ * no-op on `undefined`. `/api/agent/timeline` shipped exactly that bug.
+ */
+export function isHiddenFromListings(post: Post): boolean {
+  const both = (key: string) =>
+    Boolean(
+      (post as Record<string, unknown>)?.[key] ??
+      (post?.metadata as Record<string, unknown> | undefined)?.[key]
+    )
+  return (
+    both('draft') ||
+    both('hidden') ||
+    both('unlisted') ||
+    both('password') ||
+    both('passwordHash') ||
+    both('sealed')
+  )
+}
+
+/**
  * Check if a post is a week note
  * @param post - Post object to check
  * @returns true if post is a week note
@@ -86,36 +114,18 @@ export function isValidPost(
   includeWeekNotes = false,
   currentDate = new Date()
 ): boolean {
-  const isHidden = post?.hidden === true || post?.metadata?.hidden === true
-  const isDraft = post?.draft === true || post?.metadata?.draft === true
-  const isUnlisted =
-    post?.unlisted === true || post?.metadata?.unlisted === true
-  const hasPassword = !!(post?.password || post?.metadata?.password)
-  const isFuturePost = isScheduled(post, currentDate.getTime())
+  // One predicate for every visibility flag, rather than five locals that have
+  // to be kept in sync here and at a dozen other call sites — the `sealed` and
+  // `passwordHash` flags were missing from this list, and the next flag added
+  // would have been missing too.
+  const excluded =
+    isHiddenFromListings(post) || isScheduled(post, currentDate.getTime())
   const weekNote = isWeekNote(post)
 
-  // Unlisted and password-protected posts should not appear in listings
-  // (password implies unlisted)
-  if (includeWeekNotes)
-    return (
-      weekNote &&
-      !isHidden &&
-      !isDraft &&
-      !isUnlisted &&
-      !hasPassword &&
-      !isFuturePost
-    )
+  if (includeWeekNotes) return weekNote && !excluded
 
   const isRegularBlogPost = /^(?:blog\/)?\d{4}\/[^/]+$/.test(post?.slug || '')
-  return (
-    !weekNote &&
-    isRegularBlogPost &&
-    !isHidden &&
-    !isDraft &&
-    !isUnlisted &&
-    !hasPassword &&
-    !isFuturePost
-  )
+  return !weekNote && isRegularBlogPost && !excluded
 }
 
 /**
