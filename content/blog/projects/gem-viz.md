@@ -16,9 +16,11 @@ tags:
   - climate
 ---
 
-<!-- TODO (EJ): add your voice. Facts + credits confirmed via Stephen Osserman's launch post. Draft. -->
+[Global Energy Monitor's Ownership Tracker](https://globalenergymonitor.org/projects/global-energy-ownership-tracker) is a giant network: thousands of owners — governments, corporations, private equity firms, and the intermediaries between them — connected to tens of thousands of energy-related assets around the world. It's a rich dataset that had been genuinely hard to explore, so we built a set of tools to open it up. You can trace the full ownership chain behind a single project (down to the stakes held by the likes of BlackRock and EDF), see the whole energy-asset portfolio connected to one owner, and screen owners by what they actually own — coal-based steel plants, proposed mines in BRICS countries, captive gas plants for data centers.
 
-[Global Energy Monitor's Ownership Tracker](https://globalenergymonitor.org/projects/global-energy-ownership-tracker): a giant network of thousands of owners — governments, corporations, private equity firms — and their connections to tens of thousands of energy-related assets around the world. Explore the full ownership chain behind an individual project (down to stakes held by the likes of BlackRock and EDF), see the energy-asset portfolio connected to a particular owner, and screen owners by the types of projects they own. I collaborated on viz prototyping and front-end development, working with Stephen Osserman and Anna Mowat at GEM, with vis design insights from Nadieh Bremer.
+It's built for the digging: investigating a corporation's clean-energy claims, following investment patterns, or tracing who ultimately owns a piece of the world's energy infrastructure. The ownership chain is where a lot of the truth is.
+
+I collaborated on viz prototyping and front-end development, working with Stephen Osserman and Anna Mowat at Global Energy Monitor, Third Bear Solutions on the underlying data pipeline, and Nadieh Bremer on vis design.
 
 ![Ownership network for the Sines power station](https://res.cloudinary.com/ejf/image/upload/projects/gem-viz/sines.png)
 
