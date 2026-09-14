@@ -162,11 +162,21 @@ Cloudflare Tunnel `tools-tunnel` routes `ejfox.com` → `localhost:3006`.
 # Automated deploy: just push to main
 git push origin main    # triggers GH Actions, ~3 min end-to-end
 
-# Manual deploy (build locally, scp to VPS)
+# Manual deploy (build locally, scp to VPS) — ATOMIC extract-verify-swap.
+# NEVER `rm -rf .output && tar xzf` in one step: a truncated tarball leaves the
+# box with no .output/server/index.mjs → 502 on the next pm2 restart (this caused
+# the 2026-09-14 outage). Stage, verify, then swap; keep .output.old for rollback.
 NITRO_PRESET=node-server yarn build
 tar czf /tmp/website2-output.tar.gz .output
 scp /tmp/website2-output.tar.gz vps:/tmp/
-ssh vps 'cd /data2/website2 && rm -rf .output && tar xzf /tmp/website2-output.tar.gz && pm2 reload website2'
+ssh vps 'cd /data2/website2 && \
+  rm -rf .output.staging && mkdir .output.staging && \
+  tar xzf /tmp/website2-output.tar.gz -C .output.staging --strip-components=1 && \
+  test -f .output.staging/server/index.mjs && \
+  rm -rf .output.old && { [ -d .output ] && mv .output .output.old; true; } && \
+  mv .output.staging .output && \
+  pm2 reload website2'
+# Rollback if a deploy goes bad:  ssh vps 'cd /data2/website2 && rm -rf .output && mv .output.old .output && pm2 reload website2'
 
 # After .env changes only (no code change)
 ssh vps 'pm2 reload website2'
