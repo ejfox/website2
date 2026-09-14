@@ -20,6 +20,10 @@ export interface Post {
     password?: string
     date?: string
     publishAt?: string
+    // Callers pass several shapes at this boundary — manifest entries, full
+    // processed JSON, route-local interfaces — all of which carry extra keys.
+    // Without this the guards fail to typecheck at those call sites.
+    [key: string]: unknown
   }
 }
 
