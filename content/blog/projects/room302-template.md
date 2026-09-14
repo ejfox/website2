@@ -18,4 +18,4 @@ tags:
 
 A from-idea-to-publishable-project setup wizard for room302.studio projects. Checks your toolchain (Node, Supabase CLI, GitHub CLI, Docker), then prompts through the choices — OpenAI, @nuxt/ui, Nuxt Content, Tailwind, Supabase — and scaffolds the repo, wires git, creates the GitHub repo, commits, and opens your editor. Character even in the boilerplate.
 
-![The setup wizard — toolchain checks and the project-scaffolding steps](https://res.cloudinary.com/ejf/image/upload/projects/room302-template/code.png)
+![The setup wizard running — toolchain checks and the first project-scaffolding prompt](https://res.cloudinary.com/ejf/image/upload/v1789191306/projects/room302-template/landing.png)

@@ -18,4 +18,4 @@ One thing I've been really enjoying is being able to use Claude on my phone. I'l
 
 I set the whole thing up with Smallweb's creator, Achille, on camera: [Self-Hosted Micro-App Ecosystem: Smallweb VPS Setup](https://www.youtube.com/watch?v=thIt-JXYbco).
 
-![The starter's entry point — Hono with rate limiting, Loki logging, and Supabase](https://res.cloudinary.com/ejf/image/upload/projects/smallweb-starter/code.png)
+![The starter running locally — a live HTTP request returning JSON, with rate-limiting and cache-control headers from the Hono middleware](https://res.cloudinary.com/ejf/image/upload/v1789191272/projects/smallweb-starter/landing.png)

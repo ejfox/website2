@@ -16,4 +16,4 @@ tags:
 
 Use an AI to generate text descriptions of all your screenshots in Cloudinary.
 
-![The pipeline — Cloudinary images through Gemini Vision, descriptions written back into metadata](https://res.cloudinary.com/ejf/image/upload/projects/retroscope/code.png)
+![Retroscope running — config verification: Cloudinary initialized, all checks green, health server up](https://res.cloudinary.com/ejf/image/upload/v1789191374/projects/retroscope/landing.png)

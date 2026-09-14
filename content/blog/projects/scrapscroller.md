@@ -15,4 +15,4 @@ tags:
 
 Doomscrolling, but, for good.
 
-![The scrap card component — hover transforms and source/date detailing](https://res.cloudinary.com/ejf/image/upload/projects/scrapscroller/code.png)
+![scrapscroller running: the SCRAP_ZONE feed with source/tag sidebar and stats](https://res.cloudinary.com/ejf/image/upload/v1789191930/projects/scrapscroller/landing.png)
