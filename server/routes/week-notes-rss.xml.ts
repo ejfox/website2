@@ -1,7 +1,7 @@
 import RSS from 'rss'
 import sanitizeHtml from 'sanitize-html'
 import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
-import { parseISO, isValid, compareDesc, formatISO } from 'date-fns'
+import { parseISO, isValid, compareDesc, formatISO, parse } from 'date-fns'
 
 interface RSSCustomElement {
   [key: string]: string | { _cdata: string }
@@ -23,10 +23,48 @@ function createExcerpt(html: string, length = 280): string {
   return text.length > length ? `${text.slice(0, length)}...` : text
 }
 
+/**
+ * The date a week note covers, derived from its `YYYY-WW` slug.
+ *
+ * Seven of the 86 week notes carry no date in frontmatter, and the composable's
+ * getValidDate() substitutes *now* for a missing one — so they sorted to the top
+ * of the feed as if published today and were stamped with today's pubDate. For a
+ * week note the slug is the authoritative chronology, so fall back to it.
+ */
+function weekNoteDate(slug: string | undefined): Date | null {
+  const match = slug?.match(/(\d{4})-(\d{2})$/)
+  if (!match) return null
+  const parsed = parse(`${match[1]}-${match[2]}`, 'RRRR-II', new Date())
+  return isValid(parsed) ? parsed : null
+}
+
+/**
+ * The date to sort and stamp a week note with.
+ *
+ * Prefers the slug's week over the frontmatter date, because by the time a post
+ * reaches here getValidDate() has already replaced any missing date with `now` —
+ * indistinguishable from a real one. For dated notes the two agree anyway
+ * (2026-03 carries 2026-01-12, which is exactly the Monday of ISO week 3).
+ */
+function resolveDate(post: {
+  slug?: string
+  date?: string
+  metadata?: { date?: string }
+}): Date | null {
+  const fromSlug = weekNoteDate(post.slug)
+  if (fromSlug) return fromSlug
+  const raw = post.metadata?.date || post.date
+  if (raw) {
+    const parsed = parseISO(raw)
+    if (isValid(parsed)) return parsed
+  }
+  return null
+}
+
 export default defineEventHandler(async (event) => {
-  const { getPostsWithContent } = useProcessedMarkdown()
+  const { getWeekNotes, getPostBySlug } = useProcessedMarkdown()
   const config = useRuntimeConfig()
-  const siteUrl = (config.public.siteUrl as string) || 'https://ejfox.com'
+  const siteUrl = (config.public.baseUrl as string) || 'https://ejfox.com'
 
   const feed = new RSS({
     title: 'EJ Fox - Week Notes',
@@ -42,15 +80,35 @@ export default defineEventHandler(async (event) => {
     ttl: 60,
   })
 
-  // Pull week-notes specifically — the default getPostsWithContent excludes them
-  const posts = await getPostsWithContent(50, 0, false, true)
-  const sortedPosts = posts.sort((a, b) => {
-    const dateA = parseISO(a.metadata?.date || a.date || '')
-    const dateB = parseISO(b.metadata?.date || b.date || '')
-    if (!isValid(dateA)) return 1
-    if (!isValid(dateB)) return -1
-    return compareDesc(dateA, dateB)
-  })
+  // getWeekNotes already narrows to week-notes and drops hidden/unlisted/
+  // password-protected posts, so take the newest 50 of those and only then
+  // pay for the full HTML. Filtering a mixed batch after the fact truncated
+  // this feed to whatever week notes happened to fall in the window.
+  // Sort explicitly on resolveDate rather than trusting the composable's order,
+  // which puts undated notes first (see resolveDate). Ordering decides the
+  // .slice(0, 50), so getting it wrong drops genuinely recent notes.
+  const weekNotes = (await getWeekNotes())
+    .sort((a, b) => {
+      const dateA = resolveDate(a)
+      const dateB = resolveDate(b)
+      if (!dateA) return 1
+      if (!dateB) return -1
+      return compareDesc(dateA, dateB)
+    })
+    .slice(0, 50)
+  const sortedPosts = await Promise.all(
+    weekNotes.map(async (post) => {
+      try {
+        return { ...post, ...(await getPostBySlug(post.slug)) }
+      } catch (error) {
+        console.error(
+          `Error fetching content for week note ${post.slug}:`,
+          error
+        )
+        return post
+      }
+    })
+  )
 
   interface PostMetadata {
     title?: string
@@ -66,11 +124,6 @@ export default defineEventHandler(async (event) => {
   for (const post of sortedPosts) {
     const metadata = (post.metadata || {}) as PostMetadata
 
-    // ONLY include week-notes
-    const isWeekNote =
-      metadata.type === 'week-note' || post.slug?.includes('week-notes/')
-    if (!isWeekNote) continue
-
     // Skip drafts
     if (post.draft || metadata.draft) continue
 
@@ -85,13 +138,13 @@ export default defineEventHandler(async (event) => {
 
     const title = post.title || metadata.title || 'No title'
     const slug = post.slug || metadata.slug
-    const date = post.date || metadata.date || ''
+    const resolved = resolveDate(post)
     const description = post.dek || metadata.dek || metadata.description || ''
     const tags = post.tags || metadata.tags || []
 
     if (!slug) continue
 
-    const postDate = parseISO(date)
+    const postDate = resolved ?? new Date()
     const postUrl = `${siteUrl}/blog/${slug}`
 
     const feedItem: RSSItemOptions = {
@@ -101,11 +154,11 @@ export default defineEventHandler(async (event) => {
       guid: postUrl,
       categories: tags,
       author: 'EJ Fox',
-      date: isValid(postDate) ? postDate : new Date(),
+      date: postDate,
       custom_elements: [
         { 'content:encoded': { _cdata: html } },
         {
-          'atom:updated': formatISO(isValid(postDate) ? postDate : new Date()),
+          'atom:updated': formatISO(postDate),
         },
       ],
     }

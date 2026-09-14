@@ -77,3 +77,6 @@ data/calcom-events.jsonl
 
 # raw GPX tracks stay local — only privacy-trimmed processed JSON is committed
 content/rides/**/*.gpx
+
+# Feed/API disk caches — regenerated at runtime, can be large
+data/cache/
