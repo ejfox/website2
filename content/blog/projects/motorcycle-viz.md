@@ -16,9 +16,7 @@ tags:
   - video
 ---
 
-<!-- TODO (EJ): add your voice — factual stub from the rendered outputs. Draft. -->
-
-What does 3.5 years of riding *look like* if you average it all together? This takes the helmet-cam footage from years of motorcycle trips and runs it through a battery of meta-visualization techniques — pulling images out of the footage that no single frame contains.
+I had gigabytes and gigabytes of helmet-cam footage from my first few years of riding, and I got curious what it all looked like in aggregate — what it might add up to. So I ran it through a battery of meta-visualization techniques, pulling images out of the footage that no single frame holds.
 
 ![Scrolling the helmet-cam corpus explorer — 294 rides, the frame contact sheet, and GPS route maps](https://res.cloudinary.com/ejf/video/upload/projects/motorcycle-viz/corpus-scroll.mp4)
 
