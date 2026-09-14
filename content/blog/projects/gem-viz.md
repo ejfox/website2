@@ -22,6 +22,12 @@ It's built for the digging: investigating a corporation's clean-energy claims, f
 
 I collaborated on viz prototyping and front-end development, working with Stephen Osserman and Anna Mowat at Global Energy Monitor, Third Bear Solutions on the underlying data pipeline, and Nadieh Bremer on vis design.
 
+![The live tool — the whole Global Energy Monitor database, 50,223 assets across 194 countries](https://res.cloudinary.com/ejf/image/upload/projects/gem-viz/live-map.png)
+
+![Owners of the Sines power station, traced live: the coal plant up through EDP to China Three Gorges (22.2%), BlackRock (8.4%), and the Vanguard Group — pie-nodes colored by headquarters country](https://res.cloudinary.com/ejf/image/upload/projects/gem-viz/owners-live.png)
+
+![The screener — pick an asset class (coal plants, captive gas plants for data centers, proposed mines in BRICS countries) and find exactly who owns it](https://res.cloudinary.com/ejf/image/upload/projects/gem-viz/screener.png)
+
 ![Ownership network for the Sines power station](https://res.cloudinary.com/ejf/image/upload/projects/gem-viz/sines.png)
 
 ![Every energy asset in the Global Energy Monitor database, mapped](https://res.cloudinary.com/ejf/image/upload/projects/gem-viz/worldmap.png)
