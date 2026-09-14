@@ -44,3 +44,5 @@ I had gigabytes and gigabytes of helmet-cam footage from my first few years of r
 ![A contact-grid of frames pulled from the rides](https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/frame-grid.png)
 
 ![Dusk anthology — a tall contact sheet of golden-hour frames](https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/dusk-contact.png)
+
+So what did it add up to? Honestly, not much — a ghost of a motorcycle and some green, roughly the same shape as the world the footage came from. The fun turned out to be elsewhere: the meta-cuts that surface between rides across different years.
