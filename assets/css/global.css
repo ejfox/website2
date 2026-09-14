@@ -1365,6 +1365,19 @@ img[data-loading='lazy']::before {
     margin-right: 240px;
   }
 
+  /* Bigger blog images: the 240px right margin above reserves the sidenote
+     gutter but also shrinks the whole content block, so images were barely
+     wider than the text measure. Let figures + standalone images reclaim that
+     gutter and run full-width. The <img> inside a figure stays w-full, so it
+     fills the widened figure without double-counting. clear:right keeps a
+     full-width figure from colliding with a floated sidenote above it. */
+  .blog-post-content figure,
+  .blog-post-content > img {
+    width: calc(100% + 240px) !important;
+    max-width: none !important;
+    clear: right;
+  }
+
   .sidenote {
     float: right;
     clear: right;
