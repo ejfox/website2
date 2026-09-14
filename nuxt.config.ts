@@ -233,6 +233,14 @@ export default defineNuxtConfig({
       },
       // API Docs (/api-docs) — private OpenAPI-style route browser, like
       // /kitchen-sink. Driven by utils/apiCatalog.ts; also served as /openapi.json.
+      // Redirector for YouTube cards. Never cache (the destination varies by
+      // `to` and is meant to be changeable) and keep it out of search results.
+      '/from-youtube/**': {
+        headers: {
+          'X-Robots-Tag': 'noindex, nofollow',
+          'Cache-Control': 'no-store',
+        },
+      },
       '/api-docs': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       '/openapi.json': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       // public/README.md (asset provenance notes) serves at /README.md — noindex it.
