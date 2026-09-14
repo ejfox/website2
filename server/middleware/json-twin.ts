@@ -21,6 +21,11 @@ const RESERVED = new Set([
   '/manifest.json',
   '/site.webmanifest',
   '/openapi.json',
+  // Not a page — the twin's `default:` branch proxied it to /api/posts/, which
+  // served the complete unfiltered manifest (hidden posts, deks, tags and any
+  // passwordHash) at /manifest-lite.json. The posts route rejects it now too;
+  // this is the belt to that braces.
+  '/manifest-lite.json',
 ])
 
 // Path prefixes that are never page routes (assets, api, build output, etc).

@@ -377,6 +377,43 @@ All API routes that read from `manifest-lite.json` MUST filter out:
 Routes that are hardened: `/api/manifest`, `/api/agent/timeline`, `/api/photo-posts`.
 The `/api/scraps` endpoint filters by `shared === true` in Supabase.
 
+### Scheduled Posts (2026-09-11)
+
+A post goes public at `publishAt` (frontmatter), falling back to its `date`. So
+a future `date` alone schedules a post — and `publishAt` lets the displayed date
+differ from the moment it goes live.
+
+**The post URL goes live on its own; listings need a rebuild.** Unlike a `draft`
+(whose JSON is never written), a scheduled post *is* processed into
+`content/processed/` at build time and gated at **request** time — so
+`/blog/<slug>` starts serving the moment `publishAt` passes, with no cron and no
+deploy. But `/`, `/blog` and `/projects` are in `PRERENDERED_ROUTES`
+(`nuxt.config.ts`), so those listings keep serving their build-time HTML until
+the next deploy. Plan on a rebuild (or just push something) around the publish
+time if you want the post *discoverable* immediately, not merely reachable.
+
+Two more delays worth knowing: `/api/photo-posts` and `/api/suggest` cache for
+an hour, and `/blog/**` carries `max-age=3600, s-maxage=86400` — so a visitor who
+hits the URL *before* publish time can cache that 404 for up to an hour, and the
+edge up to a day. Purge the CDN if that matters.
+
+**Timezone:** `publishAt: 2026-10-01` is parsed as **UTC midnight** — 8pm Sep 30
+Eastern, i.e. the previous evening. Unquoted date-likes are coerced to UTC by the
+YAML parser, while a *quoted* non-ISO value like `"2026-10-01 09:00"` is parsed in
+the server's local zone instead. Avoid the ambiguity: always write an explicit
+offset, e.g. `publishAt: "2026-10-01T09:00:00-04:00"`.
+
+The single source of truth is `isScheduled()` in `utils/postFilters.ts`; every
+gate imports it:
+
+- `server/api/manifest.ts` — keeps it out of listings
+- `server/api/posts/[...slug].ts` — 404s direct slug access (prod only; dev previews)
+- `composables/useProcessedMarkdown.ts` — `isExcludedFromListings`, which also covers the RSS/JSON feeds
+- `server/routes/sitemap.xml.ts` — don't advertise it to crawlers
+- `nuxt.helpers.ts` — excluded from prerender, so no static HTML ignores the embargo
+
+When adding a new route that lists posts, add the `isScheduled()` check too.
+
 ### PII Checklist (run before publishing new content)
 
 - No street addresses or house numbers in blog posts
@@ -467,6 +504,26 @@ dark-mode feature, matching the dark-first design.
   / intentionally mode-independent dark elements — a token would whiten them in
   light), and `/opacity` variants like `dark:bg-zinc-900/50` (translucent panels;
   CSS-var colors don't take Tailwind opacity modifiers).
+
+## YouTube → Umami Attribution (2026-09-11)
+
+Put `https://ejfox.com/from-youtube/<videoId>?to=/blog/some-post` in a YouTube
+card or description. The route 302s to `to` with
+`utm_source=youtube&utm_medium=video&utm_campaign=<videoId>` appended — Umami
+captures UTM params client-side already, so there's no server-side event and no
+Umami credentials involved. `utm_campaign` carries the video id, so traffic
+breaks down **per video** rather than lumping under one "youtube" source.
+
+Filter the Umami dashboard on `utm_source=youtube`. Omitting `to` sends the
+visitor to the homepage, still tagged.
+
+**This route must never become an open redirect.** `to` is validated twice: the
+input is rejected unless it's a single-leading-slash path, and — the part that
+matters — the *emitted* Location is re-checked. Input validation alone is not
+enough, because `new URL()` normalizes `.`/`..` segments afterwards and can
+synthesize a leading `//` that was never in the input: `/..//evil.com` collapses
+to `//evil.com`, which a browser resolves off-site. If you touch this route, keep
+the output check.
 
 ## Key Design Principles
 

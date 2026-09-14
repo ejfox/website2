@@ -120,7 +120,11 @@ onMounted(() => {
 
 .ff-cal {
   @apply w-full overflow-auto;
-  min-height: 70vh;
+  /* Sized to the loaded widget (not a viewport fraction) + scheme-matched to
+     cal.com's light iframe so Chrome doesn't back it with an opaque white
+     canvas in dark mode — see pages/calendar.vue .cal-embed-container. */
+  min-height: 36rem;
+  color-scheme: light;
 }
 .ff-loading {
   @apply py-24 text-center font-mono text-xs text-zinc-500;

@@ -9,6 +9,17 @@
 //     config: { layout: 'month_view', theme: 'auto' },
 //   })
 export function loadCalInline({ namespace, calLink, selector, config = {} }) {
+  // Resolve theme:'auto' to an explicit 'dark'/'light' before handing it to
+  // cal.com. With 'auto', the embed themes the booker but leaves the iframe
+  // body + branding row light — which paints a white band under the widget in
+  // dark mode. An explicit theme themes the whole iframe. Client-only code, so
+  // matchMedia is safe; the site follows the OS scheme (useDark), so this
+  // matches the page.
+  if (!config.theme || config.theme === 'auto') {
+    config.theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light'
+  }
   // Cal.com's official embed bootstrap (vendor snippet): queues calls until
   // embed.js loads, then replays them. Left structurally intact on purpose.
   ;(function (C, A, L) {

@@ -5,6 +5,7 @@ import PostFooter from '~/components/blog/post/PostFooter.vue'
 import PostTOC from '~/components/blog/post/PostTOC.vue'
 import ReplyContext from '~/components/blog/ReplyContext.vue'
 import PasswordGate from '~/components/blog/PasswordGate.vue'
+import Webmentions from '~/components/blog/Webmentions.vue'
 import { readingStats } from '~/utils/readingStats'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
@@ -25,7 +26,12 @@ const { data: post, error } = await useAsyncData(
       }
       return response.error ? null : response
     } catch (e) {
-      console.error('Error fetching post:', e)
+      // A 404 is expected — crawlers and stale links hit nonexistent posts
+      // (often image paths resolved as blog routes). Only surface the
+      // unexpected failures; the missing-post case is handled below.
+      if (e?.statusCode !== 404 && e?.response?.status !== 404) {
+        console.error('Error fetching post:', e)
+      }
       return null
     }
   }
@@ -544,9 +550,12 @@ onMounted(() => {
     >
       <!-- Title -->
       <div class="pt-3 pb-2">
+        <!-- p-name: without it the h-entry had NO name at all. The author's
+             p-name belongs to the nested h-card, and mf2's implied-name rule
+             doesn't fire once the entry has e-content/dt-published/u-url. -->
         <h1
           v-if="postTitle"
-          class="post-title-hero text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-balance print:text-4xl"
+          class="p-name post-title-hero text-3xl sm:text-5xl lg:text-7xl xl:text-8xl font-black text-balance print:text-4xl"
           style="line-height: 1.1; letter-spacing: -0.03em"
           v-html="renderedTitle"
         ></h1>
@@ -611,6 +620,9 @@ onMounted(() => {
         :next-post="nextPrevPosts?.next"
         :related-posts="relatedPosts"
       />
+
+      <!-- Renders nothing when a post has no webmentions -->
+      <Webmentions class="print:hidden" :url="postUrl" />
     </article>
 
     <div v-else-if="error" class="p-8 text-center">

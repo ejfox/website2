@@ -10,7 +10,10 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-const __dirname = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+const __dirname = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '..'
+)
 const outputDir = path.join(__dirname, '../content/processed')
 const outputFile = path.join(outputDir, 'goodreads-stats.json')
 

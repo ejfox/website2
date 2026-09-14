@@ -9,6 +9,7 @@ import { defineEventHandler, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { existsSync } from 'node:fs'
+import { isScheduled } from '~/utils/postFilters'
 
 interface TocItem {
   level: number
@@ -91,11 +92,28 @@ export default defineEventHandler(async (event) => {
     const rawData = await readFile(filePath, 'utf-8')
     const data = JSON.parse(rawData)
 
+    // This route resolves ANY .json under content/processed, which includes
+    // files that are not posts — manifest-lite.json, rides indexes,
+    // goodreads-stats.json. The privacy guards below read `data.draft` etc, and
+    // on an array those are silently `undefined`, so every guard passed and the
+    // whole file was returned: /api/posts/manifest-lite served the complete
+    // unfiltered manifest, hidden posts and all. Require a post shape first.
+    if (!isPostShaped(data)) {
+      throw createError({ statusCode: 404, message: 'Post not found' })
+    }
+
     // Privacy guard: never serve draft/hidden/unlisted/password-protected
     // content in production by direct slug, even when its processed JSON ships
     // in the build (e.g. draft projects written for local preview). Dev keeps
     // previewing works-in-progress.
     if (!import.meta.dev && isProtectedContent(data)) {
+      throw createError({ statusCode: 404, message: 'Post not found' })
+    }
+
+    // A scheduled post's JSON ships in the build, so the embargo has to hold
+    // here too — otherwise anyone guessing the slug reads it early. Dev still
+    // previews it.
+    if (!import.meta.dev && isScheduled(data)) {
       throw createError({ statusCode: 404, message: 'Post not found' })
     }
 
@@ -110,12 +128,25 @@ export default defineEventHandler(async (event) => {
 
     return data
   } catch (error) {
-    console.error('API Error:', error)
+    // Already an intentional HTTP error (400 invalid slug, 404 protected
+    // content) — rethrow untouched, don't relabel or log it.
+    if (error && typeof error === 'object' && 'statusCode' in error) {
+      throw error
+    }
+    // A missing file is an ordinary 404: crawlers and stale links hammer
+    // nonexistent paths (e.g. image URLs resolved as blog routes) constantly.
+    // Don't spam the error log with a stack trace for the expected case.
+    const isMissing =
+      error instanceof Error &&
+      (error as NodeJS.ErrnoException).code === 'ENOENT'
+    if (!isMissing) {
+      console.error('API Error reading post:', error)
+    }
+    // Keep the message generic — the raw error can contain the absolute
+    // filesystem path, which must not leak into responses.
     throw createError({
       statusCode: 404,
-      message: `Post not found: ${
-        error instanceof Error ? error.message : 'Unknown error'
-      }`,
+      message: 'Post not found',
     })
   }
 })
@@ -125,6 +156,18 @@ export default defineEventHandler(async (event) => {
  * (checked at both the top level and inside metadata). Used to keep such
  * content out of production responses.
  */
+/**
+ * True only for JSON that is actually a post: a plain object carrying rendered
+ * body content. Arrays and bare data files (manifest-lite, ride indexes,
+ * goodreads-stats) are not posts and must never be served by this route — the
+ * privacy guards below can't see flags on them.
+ */
+function isPostShaped(data: unknown): boolean {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) return false
+  const d = data as Record<string, unknown>
+  return typeof d.html === 'string' || typeof d.content === 'string'
+}
+
 function isProtectedContent(data: unknown): boolean {
   if (!data || typeof data !== 'object') return false
   const top = data as Record<string, unknown>

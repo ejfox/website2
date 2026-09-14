@@ -233,6 +233,14 @@ export default defineNuxtConfig({
       },
       // API Docs (/api-docs) — private OpenAPI-style route browser, like
       // /kitchen-sink. Driven by utils/apiCatalog.ts; also served as /openapi.json.
+      // Redirector for YouTube cards. Never cache (the destination varies by
+      // `to` and is meant to be changeable) and keep it out of search results.
+      '/from-youtube/**': {
+        headers: {
+          'X-Robots-Tag': 'noindex, nofollow',
+          'Cache-Control': 'no-store',
+        },
+      },
       '/api-docs': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       '/openapi.json': { headers: { 'X-Robots-Tag': 'noindex, nofollow' } },
       // public/README.md (asset provenance notes) serves at /README.md — noindex it.
@@ -270,7 +278,31 @@ export default defineNuxtConfig({
   },
 
   // Ultra-optimized Vite config for sub-1s FCP
+  // Keep the dev watcher off data/content churn. Watching these burned 10k+
+  // fds, and macOS posix_spawn EBADFs once pipe fds land above ~10240 — which
+  // broke nitro's esbuild service mid-startup. None of these need HMR.
+  ignore: [
+    '.claude/**',
+    'data/**',
+    'content/processed/**',
+    'content/backup/**',
+    'content/rides/**',
+    'public/images/**',
+  ],
+
   vite: {
+    server: {
+      watch: {
+        ignored: [
+          '**/.claude/**',
+          '**/data/**',
+          '**/content/processed/**',
+          '**/content/backup/**',
+          '**/content/rides/**',
+          '**/public/images/**',
+        ],
+      },
+    },
     build: {
       cssCodeSplit: true, // Split CSS for faster parallel loading
       cssMinify: 'esbuild',

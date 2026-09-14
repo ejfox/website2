@@ -52,8 +52,8 @@ useHead({
 // someone shares /calendar?date=YYYY-MM-DD and the embed opens on that day.
 // Supported params: ?date=YYYY-MM-DD ?month=YYYY-MM ?duration=30 ?type=30min
 function buildConfig() {
-  // theme:'auto' lets cal.com follow the OS color scheme — same as the site,
-  // which has no manual toggle (useDark just syncs to OS).
+  // theme:'auto' is resolved to an explicit dark/light inside loadCalInline
+  // (cal.com's 'auto' leaves the iframe body white in dark mode).
   const config = { layout: 'month_view', theme: 'auto' }
   const date = typeof route.query.date === 'string' ? route.query.date : ''
   if (date) {
@@ -62,7 +62,9 @@ function buildConfig() {
   } else if (route.query.month) {
     config.month = route.query.month
   }
-  if (route.query.duration) config.duration = route.query.duration
+  // The event type offers 20m/45m/1h and cal.com defaults to 45m — most calls
+  // are quick, so preselect 20m unless the URL asks for something else.
+  config.duration = route.query.duration || '20'
   if (route.query.name) config.name = route.query.name
   if (route.query.email) config.email = route.query.email
   return config
@@ -150,7 +152,7 @@ onMounted(() => {
 
       <p v-if="fellBackToDefault" class="cal-fallback-note">
         That meeting type isn’t available right now — showing my default
-        30-minute slot instead.
+        calendar instead.
       </p>
 
       <ClientOnly>
@@ -200,7 +202,18 @@ onMounted(() => {
 
 .cal-embed-container {
   @apply w-full overflow-auto;
-  min-height: 70vh;
+  /* Sized to the loaded desktop widget (~570px), NOT a viewport fraction:
+     cal.com content-sizes its iframe and centers it in whatever height we
+     force, so anything taller than the widget becomes dead space above it.
+     This just reserves room for the loading spinner; taller layouts (mobile
+     column view) grow the container naturally. */
+  min-height: 36rem;
+  /* The site root declares `color-scheme: light dark`, so in dark mode Chrome
+     sees a scheme mismatch with cal.com's (light) iframe document and backs it
+     with an opaque white canvas — the white band under the widget. Matching
+     the iframe's scheme here keeps its transparency, so the page bg shows
+     through instead. */
+  color-scheme: light;
 }
 .cal-loading {
   @apply py-24 text-center font-mono text-xs text-zinc-500;

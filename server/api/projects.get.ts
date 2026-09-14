@@ -8,6 +8,7 @@ import { defineEventHandler, getQuery } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { existsSync } from 'node:fs'
+import { isScheduled } from '~/utils/postFilters'
 
 // ?slim=1 card shape for the /projects index: everything the cards and header
 // stats need, WITHOUT the full html (which was ~470KB across ~100 projects and
@@ -80,6 +81,7 @@ async function loadDevDraftProjects(
       )
       const m = full.metadata || {}
       if (m.hidden || m.unlisted || m.password || m.passwordHash) continue
+      if (isScheduled(full)) continue
       out.push({
         slug,
         title: full.title,
@@ -125,7 +127,8 @@ export default defineEventHandler(async (event) => {
         (allowDrafts || !isDraft) &&
         !isHidden &&
         !isUnlisted &&
-        !hasPassword
+        !hasPassword &&
+        !isScheduled(post)
       )
     })
 

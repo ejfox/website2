@@ -8,6 +8,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { createError } from 'h3'
+import { isScheduled } from '~/utils/postFilters'
 
 interface PhotoPost {
   slug: string
@@ -54,7 +55,8 @@ export default defineCachedEventHandler(
           !p.hidden &&
           !p.unlisted &&
           !p.password &&
-          !p.passwordHash
+          !p.passwordHash &&
+          !isScheduled(p)
       )
 
       const results: PhotoPost[] = []
