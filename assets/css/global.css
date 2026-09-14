@@ -1302,8 +1302,18 @@ figure {
   @apply my-8; /* 8-unit vertical rhythm */
 }
 
-figure img {
-  @apply mb-2; /* 2-unit gap to caption */
+/* The <figure> owns the vertical rhythm (my-8). The image inside must NOT also
+   carry the my-8 utility (which the image pipeline adds for un-wrapped images)
+   or every screenshot stacks a double 2rem margin and the caption floats 2rem
+   below the image. This selector (specificity 0,1,2) outranks both the .my-8
+   and .py-4 utilities on the <img>, so figure spacing stays clean and the
+   caption sits tight beneath its image. */
+.blog-post-content figure img,
+.project-content figure img {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 figcaption {
