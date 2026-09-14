@@ -46,7 +46,9 @@ export async function getBlogRoutes(): Promise<string[]> {
           post.password ||
           post.passwordHash ||
           post.metadata?.password ||
-          post.metadata?.passwordHash
+          post.metadata?.passwordHash ||
+          post.protected ||
+          post.metadata?.protected
         )
         if (hasPassword) return false
         // Scheduled posts must not be baked into the build as static HTML —

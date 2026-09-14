@@ -259,6 +259,7 @@ export default defineEventHandler(async (event) => {
             // Skip unlisted and password-protected posts
             if (data.metadata?.unlisted === true) continue
             if (data.metadata?.password || data.metadata?.passwordHash) continue
+            if (data.metadata?.protected) continue
             // Skip posts still under embargo — their JSON ships in the build
             if (isScheduled(data)) continue
 

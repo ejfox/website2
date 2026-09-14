@@ -377,22 +377,48 @@ All API routes that read from `manifest-lite.json` MUST filter out:
 Routes that are hardened: `/api/manifest`, `/api/agent/timeline`, `/api/photo-posts`.
 The `/api/scraps` endpoint filters by `shared === true` in Supabase.
 
-### Password-Protected Posts (2026-09-11)
+### Password-Protected Posts (2026-09-14)
 
-Add `password: <plaintext>` to a post's frontmatter. `processMarkdown.mjs` stores
-only the SHA-256 as `metadata.passwordHash` — plaintext never reaches the build.
+**The body is encrypted at rest, and no secret is ever committed.** This repo is
+public, so the earlier design — plaintext body + SHA-256 hash in the processed
+JSON — published the very thing it gated.
 
-**The gate is server-side.** `GET /api/posts/{slug}` returns a *locked stub* for
-a protected post: title and date, no body, and **not the hash** (shipping the
-hash would let anyone brute-force it offline). `POST /api/posts/unlock`
-(`{slug, password}`) verifies server-side with a constant-time compare and is
-the only path to the content — rate-limited to 10 attempts per IP per 10 min via
-`node-cache`. `PasswordGate.vue` stores the *password* in sessionStorage, not the
-content, so a reload re-fetches and stale bodies can't outlive the post.
+```yaml
+---
+title: My Post
+passwordEnv: POST_PW_MY_POST   # the NAME of an env var, never the secret
+---
+```
 
-Protected posts stay excluded from every listing (see above) and render
-`noindex`. Unlike `draft`/`hidden`/`unlisted`, they are deliberately NOT 404'd by
-the single-post route — they must be reachable to be unlockable.
+Set `POST_PW_MY_POST` in `.env` locally and as a GitHub Actions secret, then pass
+it to the `yarn blog:process` step in `.github/workflows/deploy.yml`. The build
+**hard-fails** if the variable is missing, shorter than 12 characters, or if a
+literal `password:` appears in a git-tracked file — all fatal, never collected
+into the error summary, because a swallowed error here ships a disclosure.
+
+**How it works.** `utils/postCrypto.mjs` is the single implementation, imported
+by both the build (`encryptPostSync`) and the server (`decryptPost`) so the two
+can't drift. The body is encrypted with AES-256-GCM under a key derived by
+scrypt (N=2^15, r=8, ~64MB). The processed JSON carries **only** the envelope —
+no `html`, no hash — plus `protected: true` for listings to filter on. The
+manifest projection strips the envelope entirely; listings need the flag, not
+the ciphertext.
+
+`GET /api/posts/{slug}` returns a locked stub (title + date, no envelope).
+`POST /api/posts/unlock` derives the key and decrypts — **GCM's auth tag is the
+password check**, so there is no stored hash to steal and no comparison whose
+timing could leak. Rate-limited 10/10min per caller.
+
+**What the threat model is now.** The ciphertext is public (it's in git), so the
+remaining attack is offline brute force. Nothing prevents that — scrypt only
+makes it cost ~112ms per guess instead of nanoseconds, roughly a 10^9 slowdown,
+memory-hard against GPUs. **Password strength is therefore load-bearing**, which
+is why 12 characters is the enforced floor; use a passphrase. Treat this as
+"not indexed, not casually readable", never as confidentiality for something you
+would mind seeing on the front page.
+
+Adding a new route that lists posts? Filter on `protected` (and `draft`,
+`hidden`, `unlisted`, `publishAt`) — see the sweep in `server/api/manifest.ts`.
 
 ### Scheduled Posts (2026-09-11)
 

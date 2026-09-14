@@ -107,7 +107,9 @@ export default defineEventHandler(async (event) => {
       post.password ||
       post.passwordHash ||
       metadata.password ||
-      metadata.passwordHash
+      metadata.passwordHash ||
+      post.protected ||
+      metadata.protected
     )
     const isSystemFile =
       slug.startsWith('!') || slug.startsWith('_') || slug === 'index'

@@ -177,6 +177,7 @@ async function processJsonFile(
       data.metadata?.unlisted === true ||
       data.metadata?.password ||
       data.metadata?.passwordHash ||
+      data.metadata?.protected ||
       isScheduled(data)
 
     if (isHiddenOrDraft) return null

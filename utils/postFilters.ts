@@ -12,6 +12,7 @@ export interface Post {
   password?: string
   date?: string
   publishAt?: string
+  protected?: boolean
   metadata?: {
     type?: string
     hidden?: boolean

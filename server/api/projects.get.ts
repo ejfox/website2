@@ -85,7 +85,9 @@ export default defineEventHandler(async () => {
         post.password ||
         post.passwordHash ||
         metadata?.password ||
-        metadata?.passwordHash
+        metadata?.passwordHash ||
+        post.protected ||
+        metadata?.protected
       )
       // Show drafts on the local dev server so works-in-progress are
       // previewable; production still hides them.

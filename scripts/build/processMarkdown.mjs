@@ -10,8 +10,11 @@
 
 // Markdown → HTML Processing Pipeline
 import { promises as fs, existsSync, statSync } from 'node:fs'
-import { createHash } from 'node:crypto'
 import { execFileSync } from 'node:child_process'
+import {
+  encryptPostSync,
+  MIN_PASSWORD_LENGTH,
+} from '../../utils/postCrypto.mjs'
 import path from 'node:path'
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
@@ -112,10 +115,6 @@ const formatTitle = (filename) => {
 }
 
 /**
- * Hash a password using SHA-256
- * Matches the client-side hashing in PasswordGate.vue
- */
-/**
  * Mirrors isScheduled() in utils/postFilters.ts — duplicated because this is a
  * plain .mjs build script that can't import the TS helper. Build artifacts
  * (the tag cloud, the on-this-day index) are baked into static files the
@@ -129,22 +128,21 @@ const isScheduledEntry = (entry) => {
   return Number.isFinite(t) && t > Date.now()
 }
 
-const hashPassword = (password) => {
-  return createHash('sha256').update(password).digest('hex')
+/** An error that must abort the whole build rather than be collected. */
+const fatalContentError = (message) => {
+  const err = new Error(`\n${message}\n`)
+  err.isFatalContentError = true
+  return err
 }
 
 /**
- * Refuse to build a password-protected post whose source is tracked by git.
+ * Refuse to build a post whose source carries a LITERAL password and is tracked
+ * by git.
  *
- * This repo is PUBLIC. Committing a protected post publishes three things at
- * once: the plaintext `password:` in the source markdown, the full rendered
- * `html` in content/processed/<slug>.json, and the SHA-256 in
- * manifest-lite.json — an unsalted hash of a short human password, which is
- * seconds of offline work. Git history is permanent, so rotating the password
- * afterwards does not undo it.
- *
- * Failing the build is the only reliable guard: the leak is silent, happens on
- * the first `git push`, and leaves no trace in the server logs.
+ * This repo is PUBLIC, and committing such a post publishes the plaintext
+ * password in the source frontmatter. Git history is permanent, so rotating the
+ * password afterwards does not undo it. Use `passwordEnv:` instead — then the
+ * file is safe to commit and this never fires.
  */
 const assertNotTrackedByGit = (filePath, slug) => {
   const tracked = (p) => {
@@ -158,36 +156,89 @@ const assertNotTrackedByGit = (filePath, slug) => {
     }
   }
 
-  const processedPath = path.join(
-    process.cwd(),
-    'content',
-    'processed',
-    `${slug}.json`
-  )
-  const offenders = [filePath, processedPath].filter(tracked)
-  if (offenders.length === 0) return
+  if (!tracked(filePath)) return
 
-  const err = new Error(
+  throw fatalContentError(
     [
-      '',
-      `REFUSING TO BUILD: password-protected post is tracked by git.`,
+      'REFUSING TO BUILD: a literal `password:` is in a git-tracked file.',
       `  post: ${slug}`,
-      offenders.map((f) => `  tracked: ${path.relative(process.cwd(), f)}`),
+      `  file: ${path.relative(process.cwd(), filePath)}`,
       '',
-      'This repository is public. Committing this post publishes the plaintext',
-      'password (source frontmatter), the full post body (processed JSON), and',
-      'the password hash (manifest-lite.json). Git history is permanent, so',
-      'changing the password later does not undo the disclosure.',
+      'This repository is public, so committing this publishes the password in',
+      'the source frontmatter — permanently, via git history.',
       '',
-      'Either keep the post and its processed JSON out of git and deliver the',
-      'JSON to the server out-of-band, or do not password-protect it.',
+      'Use the environment form instead, which is safe to commit:',
       '',
-    ]
-      .flat()
-      .join('\n')
+      '  ---',
+      '  title: My Post',
+      '  passwordEnv: POST_PW_MY_POST',
+      '  ---',
+      '',
+      'then set POST_PW_MY_POST in .env locally and as a GitHub Actions secret.',
+      'The body is encrypted at rest, so the processed JSON discloses nothing.',
+    ].join('\n')
   )
-  err.isFatalContentError = true
-  throw err
+}
+
+/**
+ * Resolve the password for a protected post, and refuse the unsafe form.
+ *
+ * `passwordEnv: NAME` — the password comes from process.env[NAME]. This is the
+ * form to use: the committed markdown names an environment variable, never a
+ * secret, so the post can live in a public repo and deploy normally.
+ *
+ * `password: <plaintext>` — legacy. Allowed only while the file is untracked,
+ * because committing it publishes the password in the source frontmatter AND
+ * git history keeps it forever.
+ *
+ * @returns {string|undefined} the password, or undefined if the post isn't protected
+ */
+const resolvePostPassword = (frontmatter, filePath, slug) => {
+  const envName = frontmatter.passwordEnv
+
+  if (envName) {
+    if (typeof envName !== 'string' || !/^[A-Z][A-Z0-9_]*$/.test(envName)) {
+      throw fatalContentError(
+        `passwordEnv must be an environment variable NAME (e.g. POST_PW_FOO), got: ${envName}\n` +
+          `  post: ${slug}`
+      )
+    }
+    const secret = process.env[envName]
+    if (!secret) {
+      throw fatalContentError(
+        [
+          `Post "${slug}" declares passwordEnv: ${envName}, but that environment`,
+          'variable is empty or unset, so the body cannot be encrypted.',
+          '',
+          `  local:  add ${envName}=... to .env`,
+          `  CI:     add ${envName} as a GitHub Actions secret and pass it to`,
+          '          the "yarn blog:process" step in .github/workflows/deploy.yml',
+          '',
+          'Failing rather than publishing the post unencrypted.',
+        ].join('\n')
+      )
+    }
+    if (secret.length < MIN_PASSWORD_LENGTH) {
+      throw fatalContentError(
+        `${envName} is shorter than ${MIN_PASSWORD_LENGTH} characters.\n` +
+          '  The encrypted body ships in a public repo, so a short password can\n' +
+          '  be brute-forced offline regardless of how slow the KDF is.'
+      )
+    }
+    return secret
+  }
+
+  if (frontmatter.password) {
+    assertNotTrackedByGit(filePath, slug)
+    if (String(frontmatter.password).length < MIN_PASSWORD_LENGTH) {
+      throw fatalContentError(
+        `Password for "${slug}" is shorter than ${MIN_PASSWORD_LENGTH} characters.`
+      )
+    }
+    return String(frontmatter.password)
+  }
+
+  return undefined
 }
 
 // ============================================================================
@@ -445,23 +496,41 @@ async function processMarkdown(content, filePath) {
         .replace(/\.md$/, '')
     )
 
-    // Handle password protection - hash password, never store plaintext
-    if (frontmatter.password) assertNotTrackedByGit(filePath, slug)
-    const passwordHash = frontmatter.password
-      ? hashPassword(frontmatter.password)
+    // Password protection. Two forms:
+    //   passwordEnv: MY_SECRET   -> password read from process.env at build
+    //   password: <plaintext>    -> legacy; refused if the file is tracked
+    // The env form is the one that works in a public repo: nothing secret ever
+    // lands in a committed file, so the post can be committed and deployed
+    // through the normal pipeline.
+    const postPassword = resolvePostPassword(frontmatter, filePath, slug)
+    const {
+      password: _rawPassword,
+      passwordEnv: _rawPasswordEnv,
+      ...safeFrontmatter
+    } = frontmatter
+
+    // Encrypt the body rather than storing it beside a hash. The processed JSON
+    // is committed to a public repo, so a plaintext body there is simply
+    // published — the old design leaked the very thing it gated.
+    const encrypted = postPassword
+      ? encryptPostSync(html, postPassword)
       : undefined
-    const { password: _rawPassword, ...safeFrontmatter } = frontmatter
 
     return {
       cacheVersion: CACHE_VERSION,
-      html,
+      // An encrypted post ships NO plaintext body. Emitting both would defeat
+      // the encryption entirely.
+      ...(encrypted ? {} : { html }),
       title: extractedTitle,
       metadata: {
         ...safeFrontmatter,
         ...stats,
         toc,
         type: safeFrontmatter.type || getPostType(filePath),
-        ...(passwordHash && { passwordHash }),
+        // `protected` is the flag listings filter on; `encrypted` is the
+        // envelope itself. Both are safe to commit — the envelope is
+        // ciphertext and the flag is a boolean.
+        ...(encrypted && { encrypted, protected: true }),
         // OG image from data/og-images.json (set by Dispatch OG picker)
         ...(ogImageMap[slug] && { ogImage: ogImageMap[slug] }),
       },
@@ -1325,7 +1394,14 @@ async function processAllFiles() {
         modified: cleanEntry.metadata?.modified,
         tags: cleanEntry.metadata?.tags,
         toc: cleanEntry.metadata?.toc,
-        metadata: { ...cleanEntry.metadata, slug, type },
+        // Strip the ciphertext envelope from the manifest: listings only need
+        // the `protected` flag, and there's no reason to hand an attacker a
+        // second copy to grind on (or to bloat manifest-lite with it).
+        metadata: (({ encrypted: _drop, ...rest }) => ({
+          ...rest,
+          slug,
+          type,
+        }))(cleanEntry.metadata || {}),
       }
     })
 

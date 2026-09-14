@@ -62,7 +62,9 @@ export default defineEventHandler(async () => {
         post.password ||
         post.passwordHash ||
         post.metadata?.password ||
-        post.metadata?.passwordHash
+        post.metadata?.passwordHash ||
+        post.protected ||
+        post.metadata?.protected
       )
       if (hasPassword) return false
       if (post.slug.startsWith('drafts/')) return false

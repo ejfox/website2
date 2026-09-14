@@ -11,10 +11,12 @@
  */
 import { defineEventHandler, createError, readBody, getHeader } from 'h3'
 import { readFile } from 'node:fs/promises'
-import { createHash, timingSafeEqual } from 'node:crypto'
+
 import path from 'node:path'
 import NodeCache from 'node-cache'
-import { getPasswordHash, isPrivateContent } from './[...slug]'
+import { isPrivateContent } from './[...slug]'
+// @ts-expect-error — shared .mjs so the build and the server can't drift
+import { decryptPost, getEnvelope } from '~/utils/postCrypto.mjs'
 
 /**
  * True while a post is still embargoed by a `publishAt` (or a future `date`).
@@ -60,18 +62,6 @@ function rateLimitKey(ip: string): string {
   if (!ip.includes(':')) return ip
   const hextets = ip.split('%')[0].split(':')
   return hextets.slice(0, 4).join(':') + '::/64'
-}
-
-function hashPassword(password: string): string {
-  return createHash('sha256').update(password).digest('hex')
-}
-
-/** Constant-time hex comparison, so timing can't leak the hash. */
-function hashesMatch(a: string, b: string): boolean {
-  const bufA = Buffer.from(a, 'hex')
-  const bufB = Buffer.from(b, 'hex')
-  if (bufA.length !== bufB.length || bufA.length === 0) return false
-  return timingSafeEqual(bufA, bufB)
 }
 
 function isValidSlug(slug: string): boolean {
@@ -151,13 +141,20 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 404, message: 'Post not found' })
   }
 
-  const storedHash = getPasswordHash(data)
-  if (!storedHash) {
+  const envelope = getEnvelope(data)
+  if (!envelope) {
     // Not a protected post — nothing to unlock. Don't confirm it exists.
     throw createError({ statusCode: 404, message: 'Post not found' })
   }
 
-  if (!hashesMatch(hashPassword(password), storedHash)) {
+  // The body only exists as ciphertext until this succeeds. AES-GCM's auth tag
+  // IS the password check — a wrong key fails it — so there is no stored hash
+  // to steal, and no comparison whose timing could leak anything.
+  //
+  // scrypt here costs ~100ms, which is the point: it is the same cost an
+  // offline attacker pays per guess against the committed ciphertext.
+  const html = await decryptPost(envelope, password)
+  if (html === null) {
     throw createError({ statusCode: 401, message: 'Incorrect password' })
   }
 
@@ -168,9 +165,11 @@ export default defineEventHandler(async (event) => {
   // behaviour, not a bug.
 
   const meta = (data.metadata ?? {}) as Record<string, unknown>
-  const { passwordHash: _omit, ...safeMetadata } = meta
+  // Never echo the envelope back — the client has no use for it and it is the
+  // one thing an attacker would want to grind on.
+  const { encrypted: _omitEnvelope, ...safeMetadata } = meta
   return {
-    html: data.html ?? data.content ?? '',
+    html,
     toc: data.toc ?? meta.toc ?? [],
     metadata: safeMetadata,
   }

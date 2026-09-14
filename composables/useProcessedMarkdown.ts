@@ -176,7 +176,9 @@ function isPasswordProtected(post: Post): boolean {
     post?.password ||
     post?.passwordHash ||
     post?.metadata?.password ||
-    post?.metadata?.passwordHash
+    post?.metadata?.passwordHash ||
+    post?.protected ||
+    post?.metadata?.protected
   )
 }
 

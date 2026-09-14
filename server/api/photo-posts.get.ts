@@ -56,6 +56,8 @@ export default defineCachedEventHandler(
           !p.unlisted &&
           !p.password &&
           !p.passwordHash &&
+          !p.protected &&
+          !p.metadata?.protected &&
           !isScheduled(p)
       )
 

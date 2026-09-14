@@ -43,7 +43,9 @@ export default defineEventHandler(async () => {
         p.password ||
         p.passwordHash ||
         p.metadata?.password ||
-        p.metadata?.passwordHash
+        p.metadata?.passwordHash ||
+        p.protected ||
+        p.metadata?.protected
       )
       const isDraftsFolder = p.slug?.startsWith('drafts/')
       // Scheduled posts ship in the build but stay out of listings until their

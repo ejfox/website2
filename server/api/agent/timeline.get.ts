@@ -78,6 +78,7 @@ export default defineEventHandler(async (event) => {
           !p.unlisted &&
           !p.password &&
           !p.passwordHash &&
+          !(p as { protected?: boolean }).protected &&
           !isScheduled(p) &&
           p.date
       )

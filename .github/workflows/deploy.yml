@@ -24,6 +24,11 @@ jobs:
 
     - name: Process markdown
       run: yarn blog:process
+      # Password-protected posts (frontmatter `passwordEnv: NAME`) are
+      # encrypted at build time, so the secret must be available HERE or the
+      # build fails loudly. Add each one as a repo secret and map it:
+      # env:
+      #   POST_PW_MY_POST: ${{ secrets.POST_PW_MY_POST }}
 
     - name: Build (node-server preset)
       run: NITRO_PRESET=node-server yarn build

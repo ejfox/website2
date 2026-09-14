@@ -99,7 +99,9 @@ export default defineEventHandler(async (event: H3Event) => {
         post.password ||
         post.passwordHash ||
         post.metadata?.password ||
-        post.metadata?.passwordHash
+        post.metadata?.passwordHash ||
+        post.protected ||
+        post.metadata?.protected
       )
       const isSpecialSection =
         post.slug?.startsWith('drafts/') || post.slug?.startsWith('robots/')

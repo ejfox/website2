@@ -10,6 +10,8 @@ import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { existsSync } from 'node:fs'
 import { isScheduled } from '~/utils/postFilters'
+// @ts-expect-error — shared .mjs so the build and the server can't drift
+import { isEncryptedPost } from '~/utils/postCrypto.mjs'
 
 interface TocItem {
   level: number
@@ -120,7 +122,7 @@ export default defineEventHandler(async (event) => {
     // Password-protected posts are meant to be *reachable* — just not readable
     // until unlocked. Serve a stub carrying enough metadata to render the gate
     // and nothing else: no body, no TOC, and NOT the hash.
-    if (getPasswordHash(data)) {
+    if (isEncryptedPost(data)) {
       return toLockedStub(data, slug)
     }
 
@@ -172,6 +174,10 @@ export default defineEventHandler(async (event) => {
 function isPostShaped(data: unknown): boolean {
   if (!data || typeof data !== 'object' || Array.isArray(data)) return false
   const d = data as Record<string, unknown>
+  // An encrypted post deliberately carries NO html or content — only an
+  // envelope — so it must be recognised here or it would 404 before the gate
+  // ever renders.
+  if (isEncryptedPost(d)) return true
   return typeof d.html === 'string' || typeof d.content === 'string'
 }
 
@@ -183,17 +189,6 @@ export function isPrivateContent(data: unknown): boolean {
   // Password-protected is deliberately NOT here — such posts must stay
   // reachable so they can be unlocked; they get a locked stub instead.
   return flag('draft') || flag('hidden') || flag('unlisted')
-}
-
-/**
- * The stored SHA-256 hash for a password-protected post, or undefined.
- */
-export function getPasswordHash(data: unknown): string | undefined {
-  if (!data || typeof data !== 'object') return undefined
-  const top = data as Record<string, unknown>
-  const meta = (top.metadata ?? {}) as Record<string, unknown>
-  const hash = top.passwordHash ?? meta.passwordHash
-  return typeof hash === 'string' && hash ? hash : undefined
 }
 
 /**
