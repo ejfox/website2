@@ -5,6 +5,8 @@
   "metadata": {
     "title": "latent-scope",
     "date": "2024-06-01T04:00:00.000Z",
+    "category": "Dataviz",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/latent-scope",
     "tech": [
@@ -14,7 +16,7 @@
       "Machine Learning"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-collaborative",
+    "ai-involvement": "ai-collaborative",
     "tags": [
       "dataviz",
       "ai",

@@ -1,6 +1,8 @@
 ---
 title: "Vulpecula Loom"
 date: 2025-06-01T00:00:00-04:00
+category: "Apps"
+featured: false
 draft: true
 url: https://ejfox.github.io/vulpecula-loom/
 tech: ["Electron", "Vue", "OpenRouter", "Obsidian"]
@@ -15,6 +17,8 @@ tags:
 <!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->
 
 A desktop AI chat app with deep Obsidian integration and OpenRouter support — bring your own models, keep your conversations woven into your vault.
+
+![Scrolling the Vulpecula Loom landing into the app itself](https://res.cloudinary.com/ejf/video/upload/projects/vulpecula-loom/demo.mp4)
 
 ![Vulpecula Loom landing page](https://res.cloudinary.com/ejf/image/upload/projects/vulpecula-loom/landing.png)
 

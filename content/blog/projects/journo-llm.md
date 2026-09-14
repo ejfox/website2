@@ -1,6 +1,8 @@
 ---
 title: "Journo LLM"
 date: 2026-01-17T00:00:00-05:00
+category: "Tools"
+featured: false
 draft: true
 url: https://github.com/ejfox/journo-llm
 tech: ["Python"]
@@ -14,4 +16,4 @@ tags:
 
 A hand-made LLM for journalists, by journalists. Truthfulness, harm reduction, accountability.
 
-![The Modal training rig — fine-tuning gpt-oss-20b on serverless A100s](https://res.cloudinary.com/ejf/image/upload/projects/journo-llm/code.png)
+![journo-llm](https://res.cloudinary.com/ejf/image/upload/v1789191258/projects/journo-llm/landing.png)

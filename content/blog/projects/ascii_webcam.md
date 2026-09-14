@@ -1,6 +1,8 @@
 ---
 title: "ascii_webcam"
 date: 2024-10-01T00:00:00-04:00
+category: "Tools"
+featured: false
 draft: true
 url: https://github.com/ejfox/ascii_webcam
 tech: ["Python", "ASCII Art", "Terminal", "OpenCV"]

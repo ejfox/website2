@@ -335,7 +335,7 @@ usePageSeo({
             v-if="now.reading.cover"
             :src="now.reading.cover"
             :alt="`Book cover for ${now.reading.title}`"
-            class="w-12 h-16 rounded-sm flex-shrink-0 object-cover"
+            class="w-12 aspect-[2/3] rounded-sm flex-shrink-0 object-cover"
           />
           <div class="flex-1 min-w-0">
             <div class="activity-title-lg line-clamp-2">
@@ -372,7 +372,7 @@ usePageSeo({
             v-if="now.goodreads.cover"
             :src="now.goodreads.cover"
             :alt="`Book cover for ${now.goodreads.title}`"
-            class="w-12 h-16 rounded-sm flex-shrink-0 object-cover"
+            class="w-12 aspect-[2/3] rounded-sm flex-shrink-0 object-cover"
           />
           <div class="flex-1 min-w-0">
             <div class="activity-title-lg line-clamp-2 group-hover:underline">

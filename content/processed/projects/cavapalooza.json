@@ -5,14 +5,15 @@
   "metadata": {
     "title": "Cavapalooza",
     "date": "2025-05-01T04:00:00.000Z",
+    "category": "Art",
+    "featured": false,
     "draft": true,
-    "url": "https://github.com/ejfox/cavapalooza",
     "tech": [
       "Nuxt",
       "Vue"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "web",
       "personal",

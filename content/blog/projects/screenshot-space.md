@@ -1,6 +1,8 @@
 ---
 title: "Screenshot Space"
 date: 2026-05-17T00:00:00-04:00
+category: "Dataviz"
+featured: false
 draft: true
 tech: ["WebGL", "UMAP", "SigLIP", "HDBSCAN", "Python", "RescueTime", "easyOCR", "sentence-transformers"]
 state: doing

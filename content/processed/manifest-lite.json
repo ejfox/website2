@@ -2718,6 +2718,201 @@
     }
   },
   {
+    "slug": "2022/how-i-use-gpt3",
+    "title": "How I Use GPT",
+    "date": "2022-11-02T23:57:21.000Z",
+    "type": "post",
+    "draft": false,
+    "dek": "In which we learn to perform the magic of conversing with a super-intelligent computer",
+    "modified": "2023-09-09T18:50:05.000Z",
+    "tags": [
+      "machinelearning",
+      "howto",
+      "process"
+    ],
+    "toc": [
+      {
+        "text": "How I Use GPT",
+        "slug": "how-i-use-gpt",
+        "level": "h1",
+        "children": [
+          {
+            "text": "Who is OpenAI? Who are their investors?",
+            "slug": "who-is-openai-who-are-their-investors",
+            "level": "h2",
+            "children": [
+              {
+                "text": "Differences between GPT-3 and ChatGPT",
+                "slug": "differences-between-gpt-3-and-chatgpt",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "How I design prompts",
+            "slug": "how-i-design-prompts",
+            "level": "h2",
+            "children": [
+              {
+                "text": "World context",
+                "slug": "world-context",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "A Quick Primer of Good and Bad",
+                "slug": "a-quick-primer-of-good-and-bad",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Immediate Context",
+                "slug": "immediate-context",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Prompt Templates",
+            "slug": "prompt-templates",
+            "level": "h2",
+            "children": [
+              {
+                "text": "Blog post improver",
+                "slug": "blog-post-improver",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Writing javascript as Observable cells",
+                "slug": "writing-javascript-as-observable-cells",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Documentary shot list generator",
+                "slug": "documentary-shot-list-generator",
+                "level": "h3",
+                "children": []
+              },
+              {
+                "text": "Rubber ducky chatbot",
+                "slug": "rubber-ducky-chatbot",
+                "level": "h3",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "draft": false,
+      "dek": "In which we learn to perform the magic of conversing with a super-intelligent computer",
+      "date": "2022-11-02T23:57:21.000Z",
+      "modified": "2023-09-09T18:50:05.000Z",
+      "tags": [
+        "machinelearning",
+        "howto",
+        "process"
+      ],
+      "words": 1996,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 15,
+      "codeBlocks": 4,
+      "headers": {
+        "h1": 1
+      },
+      "toc": [
+        {
+          "text": "How I Use GPT",
+          "slug": "how-i-use-gpt",
+          "level": "h1",
+          "children": [
+            {
+              "text": "Who is OpenAI? Who are their investors?",
+              "slug": "who-is-openai-who-are-their-investors",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "Differences between GPT-3 and ChatGPT",
+                  "slug": "differences-between-gpt-3-and-chatgpt",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "How I design prompts",
+              "slug": "how-i-design-prompts",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "World context",
+                  "slug": "world-context",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "A Quick Primer of Good and Bad",
+                  "slug": "a-quick-primer-of-good-and-bad",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Immediate Context",
+                  "slug": "immediate-context",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            },
+            {
+              "text": "Prompt Templates",
+              "slug": "prompt-templates",
+              "level": "h2",
+              "children": [
+                {
+                  "text": "Blog post improver",
+                  "slug": "blog-post-improver",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Writing javascript as Observable cells",
+                  "slug": "writing-javascript-as-observable-cells",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Documentary shot list generator",
+                  "slug": "documentary-shot-list-generator",
+                  "level": "h3",
+                  "children": []
+                },
+                {
+                  "text": "Rubber ducky chatbot",
+                  "slug": "rubber-ducky-chatbot",
+                  "level": "h3",
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "slug": "2022/how-i-use-gpt3"
+    }
+  },
+  {
     "slug": "2022/joy-driven-development",
     "title": "Embracing Joy-Driven Development: A New Philosophy for Better Work",
     "date": "2022-11-03T00:06:51.000Z",
@@ -5020,8 +5215,9 @@
     "metadata": {
       "title": "MorningRadio",
       "date": "2025-08-10T04:00:00.000Z",
+      "category": "Apps",
+      "featured": false,
       "modified": "2025-08-13T15:26:19.000Z",
-      "url": "https://github.com/ejfox/MorningRadio",
       "tech": [
         "Swift",
         "iOS",
@@ -5029,19 +5225,19 @@
         "Mobile UX"
       ],
       "state": "doing",
-      "aiInvolvement": "ai-assisted",
+      "ai-involvement": "ai-assisted",
       "tags": [
         "ios",
         "health"
       ],
-      "words": 123,
-      "images": 4,
+      "words": 104,
+      "images": 2,
       "imageDetails": {
-        "total": 4,
-        "cloudinary": 4,
+        "total": 2,
+        "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 4,
+      "links": 2,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5065,6 +5261,7 @@
     "metadata": {
       "title": "Clusters of NYPD Misconduct",
       "date": "2021-06-15T04:00:00.000Z",
+      "category": "Journalism",
       "modified": "2025-08-26T19:52:56.000Z",
       "url": "https://gothamist.com/news/mapping-clusters-nypd-officers-repeatedly-accused-misconduct",
       "tech": [
@@ -5076,7 +5273,7 @@
       ],
       "featured": true,
       "state": "deployed",
-      "aiInvolvement": "human-only",
+      "ai-involvement": "human-only",
       "context": "client",
       "tags": [
         "data",
@@ -5084,14 +5281,14 @@
         "journalism",
         "database"
       ],
-      "words": 114,
-      "images": 2,
+      "words": 395,
+      "images": 3,
       "imageDetails": {
-        "total": 2,
-        "cloudinary": 2,
+        "total": 3,
+        "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 4,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5113,6 +5310,8 @@
     "metadata": {
       "title": "Cloudinary Backup Tool",
       "date": "2025-01-15T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
       "github": "https://github.com/ejfox/cloudinary-backup-tool",
       "tech": [
         "Tauri",
@@ -5125,14 +5324,14 @@
         "tools",
         "photography"
       ],
-      "words": 87,
-      "images": 3,
+      "words": 69,
+      "images": 1,
       "imageDetails": {
-        "total": 3,
-        "cloudinary": 3,
+        "total": 1,
+        "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5182,6 +5381,8 @@
     "metadata": {
       "title": "Coach Artie",
       "date": "2023-03-21T04:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
       "modified": "2025-08-26T19:52:50.000Z",
       "url": "https://github.com/room302studio/coachartie",
       "tech": [
@@ -5193,7 +5394,7 @@
         "AI Consciousness Research"
       ],
       "state": "evolved",
-      "aiInvolvement": "ai-enhanced",
+      "ai-involvement": "ai-enhanced",
       "context": "collaborative",
       "tags": [
         "programming",
@@ -5201,14 +5402,14 @@
         "product",
         "nodejs"
       ],
-      "words": 143,
-      "images": 4,
+      "words": 127,
+      "images": 1,
       "imageDetails": {
-        "total": 4,
-        "cloudinary": 4,
+        "total": 1,
+        "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 7,
+      "links": 4,
       "codeBlocks": 0,
       "headers": {
         "h2": 3
@@ -5245,6 +5446,54 @@
     }
   },
   {
+    "slug": "projects/connectology",
+    "title": "Connectology",
+    "date": "2026-03-01T00:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "dataviz",
+      "network",
+      "web"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Connectology",
+      "date": "2026-03-01T00:00:00.000Z",
+      "category": "Dataviz",
+      "featured": true,
+      "url": "https://connectology.room302.studio/",
+      "tech": [
+        "Nuxt 3",
+        "Vue 3",
+        "D3",
+        "graphology",
+        "SQLite",
+        "Clerk"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "context": "collaborative",
+      "tags": [
+        "dataviz",
+        "network",
+        "web"
+      ],
+      "words": 336,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 4,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/connectology"
+    }
+  },
+  {
     "slug": "projects/covidcast",
     "title": "COVIDcast",
     "date": "2020-04-24T04:00:00.000Z",
@@ -5260,6 +5509,8 @@
     "metadata": {
       "title": "COVIDcast",
       "date": "2020-04-24T04:00:00.000Z",
+      "category": "Journalism",
+      "featured": false,
       "modified": "2025-08-26T19:53:05.000Z",
       "url": "https://campustechnology.com/articles/2020/04/24/carnegie-mellon-maps-offer-more-data-for-covid-19-forecasting.aspx",
       "tech": [
@@ -5269,7 +5520,7 @@
         "Public Health"
       ],
       "state": "deployed",
-      "aiInvolvement": "human-only",
+      "ai-involvement": "human-only",
       "context": "client",
       "tags": [
         "covid",
@@ -5277,14 +5528,14 @@
         "javascript",
         "health"
       ],
-      "words": 69,
-      "images": 2,
+      "words": 87,
+      "images": 3,
       "imageDetails": {
-        "total": 2,
-        "cloudinary": 2,
+        "total": 3,
+        "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 3,
+      "links": 4,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5313,6 +5564,8 @@
     "metadata": {
       "title": "Hand-Tracking & Generative Art",
       "date": "2024-07-01T04:00:00.000Z",
+      "category": "Art",
+      "featured": false,
       "modified": "2025-08-13T15:46:54.000Z",
       "tech": [
         "Computer Vision",
@@ -5323,19 +5576,19 @@
         "Interactive Media"
       ],
       "state": "deployed",
-      "aiInvolvement": "ai-assisted",
+      "ai-involvement": "ai-assisted",
       "tags": [
         "creativity",
         "interfaces"
       ],
-      "words": 186,
+      "words": 503,
       "images": 2,
       "imageDetails": {
         "total": 2,
         "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 6,
+      "links": 8,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -5368,6 +5621,7 @@
     "metadata": {
       "title": "Dataproofer",
       "date": "2015-11-03T05:00:00.000Z",
+      "category": "Journalism",
       "modified": "2025-08-26T19:53:33.000Z",
       "url": "https://github.com/dataproofer/Dataproofer",
       "tech": [
@@ -5376,9 +5630,9 @@
         "Data Quality",
         "CSV"
       ],
-      "featured": false,
+      "featured": true,
       "state": "deployed",
-      "aiInvolvement": "human-only",
+      "ai-involvement": "human-only",
       "context": "collaborative",
       "tags": [
         "data",
@@ -5386,19 +5640,202 @@
         "tool",
         "journalism"
       ],
-      "words": 157,
+      "words": 172,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 4,
+      "codeBlocks": 1,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/dataproofer"
+    }
+  },
+  {
+    "slug": "projects/flipper-generative-art",
+    "title": "Flipper Generative Art",
+    "date": "2025-01-15T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "flipper",
+      "hardware",
+      "device",
+      "generative",
+      "art"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Flipper Generative Art",
+      "date": "2025-01-15T05:00:00.000Z",
+      "category": "Hardware",
+      "featured": true,
+      "url": "https://github.com/ejfox/flipper-generative-art",
+      "tech": [
+        "Flipper Zero",
+        "C",
+        "Floyd–Steinberg Dithering",
+        "Embedded"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "flipper",
+        "hardware",
+        "device",
+        "generative",
+        "art"
+      ],
+      "words": 213,
+      "images": 5,
+      "imageDetails": {
+        "total": 5,
+        "cloudinary": 5,
+        "withDimensions": 0
+      },
+      "links": 5,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/flipper-generative-art"
+    }
+  },
+  {
+    "slug": "projects/flipper-space-calculators",
+    "title": "Flipper Space Calculators",
+    "date": "2025-01-20T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "flipper",
+      "hardware",
+      "device",
+      "science"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Flipper Space Calculators",
+      "date": "2025-01-20T05:00:00.000Z",
+      "category": "Hardware",
+      "featured": false,
+      "url": "https://github.com/ejfox/flipper-space-calculators",
+      "tech": [
+        "Flipper Zero",
+        "C",
+        "Embedded"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "flipper",
+        "hardware",
+        "device",
+        "science"
+      ],
+      "words": 147,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/flipper-space-calculators"
+    }
+  },
+  {
+    "slug": "projects/hexagram-motion-graphics",
+    "title": "I Ching Motion Graphics",
+    "date": "2026-05-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "art",
+      "math",
+      "motion-graphics",
+      "generative"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "I Ching Motion Graphics",
+      "date": "2026-05-01T04:00:00.000Z",
+      "category": "Art",
+      "featured": true,
+      "tech": [
+        "Python",
+        "Manim",
+        "Motion Graphics"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "art",
+        "math",
+        "motion-graphics",
+        "generative"
+      ],
+      "words": 346,
+      "images": 4,
+      "imageDetails": {
+        "total": 4,
+        "cloudinary": 4,
+        "withDimensions": 0
+      },
+      "links": 5,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/hexagram-motion-graphics"
+    }
+  },
+  {
+    "slug": "projects/motorcycle-pico8",
+    "title": "Motorcycle.p8",
+    "date": "2023-07-02T00:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "games",
+      "art",
+      "motorcycle"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Motorcycle.p8",
+      "date": "2023-07-02T00:00:00.000Z",
+      "category": "Art",
+      "featured": false,
+      "tech": [
+        "Pico-8",
+        "Lua"
+      ],
+      "state": "deployed",
+      "ai-involvement": "human-only",
+      "context": "collaborative",
+      "tags": [
+        "games",
+        "art",
+        "motorcycle"
+      ],
+      "words": 166,
       "images": 1,
       "imageDetails": {
         "total": 1,
         "cloudinary": 1,
         "withDimensions": 0
       },
-      "links": 3,
-      "codeBlocks": 1,
+      "links": 1,
+      "codeBlocks": 0,
       "headers": {},
       "toc": [],
       "type": "post",
-      "slug": "projects/dataproofer"
+      "slug": "projects/motorcycle-pico8"
     }
   },
   {
@@ -5417,6 +5854,8 @@
     "metadata": {
       "title": "NBC News Big Board",
       "date": "2016-11-08T05:00:00.000Z",
+      "client": "NBC News",
+      "category": "Journalism",
       "modified": "2025-08-13T16:24:29.000Z",
       "tech": [
         "D3.js",
@@ -5426,7 +5865,7 @@
       ],
       "featured": true,
       "state": "deployed",
-      "aiInvolvement": "human-only",
+      "ai-involvement": "human-only",
       "context": "client",
       "tags": [
         "d3",
@@ -5434,14 +5873,14 @@
         "javascript",
         "elections"
       ],
-      "words": 95,
+      "words": 395,
       "images": 4,
       "imageDetails": {
         "total": 4,
         "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 6,
+      "links": 7,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5465,8 +5904,18 @@
     "metadata": {
       "title": "NBC News Specials",
       "date": "2016-12-14T20:01:50.000Z",
+      "client": "NBC News",
+      "category": "Journalism",
+      "featured": false,
       "modified": "2025-08-13T16:01:12.000Z",
       "url": "https://nbcnews.com/specials",
+      "state": "deployed",
+      "ai-involvement": "human-only",
+      "tech": [
+        "JavaScript",
+        "D3",
+        "Longform Design"
+      ],
       "context": "client",
       "tags": [
         "dataviz",
@@ -5474,19 +5923,66 @@
         "webdesign",
         "elections"
       ],
-      "words": 104,
-      "images": 3,
+      "words": 124,
+      "images": 4,
       "imageDetails": {
-        "total": 3,
-        "cloudinary": 3,
+        "total": 4,
+        "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 10,
+      "links": 11,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
       "type": "post",
       "slug": "projects/nbcnews-specials"
+    }
+  },
+  {
+    "slug": "projects/paramilitary-leaks",
+    "title": "Paramilitary Leaks",
+    "date": "2025-09-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "journalism",
+      "data",
+      "osint",
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Paramilitary Leaks",
+      "date": "2025-09-01T04:00:00.000Z",
+      "category": "Journalism",
+      "featured": true,
+      "tech": [
+        "Nuxt",
+        "Vue",
+        "Search",
+        "Data Visualization"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "context": "collaborative",
+      "tags": [
+        "journalism",
+        "data",
+        "osint",
+        "tools"
+      ],
+      "words": 180,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 8,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/paramilitary-leaks"
     }
   },
   {
@@ -5503,6 +5999,8 @@
     "metadata": {
       "title": "EXIF Printer",
       "date": "2024-04-01T04:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
       "modified": "2025-08-13T15:20:07.000Z",
       "tech": [
         "Photography",
@@ -5512,7 +6010,7 @@
         "Camera Metadata"
       ],
       "state": "deployed",
-      "aiInvolvement": "ai-assisted",
+      "ai-involvement": "ai-assisted",
       "tags": [
         "photography",
         "tools"
@@ -5533,6 +6031,153 @@
     }
   },
   {
+    "slug": "projects/pixel-canvas",
+    "title": "Pixel Canvas",
+    "date": "2026-05-27T04:00:00.000Z",
+    "type": "post",
+    "draft": false,
+    "tags": [
+      "hardware",
+      "device",
+      "dataviz",
+      "quantified-self"
+    ],
+    "toc": [
+      {
+        "text": "How it works",
+        "slug": "how-it-works",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "title": "Pixel Canvas",
+      "date": "2026-05-27T04:00:00.000Z",
+      "category": "Hardware",
+      "featured": true,
+      "draft": false,
+      "tech": [
+        "ESP32-S3",
+        "Arduino",
+        "LovyanGFX",
+        "Bash",
+        "REST API"
+      ],
+      "state": "doing",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "hardware",
+        "device",
+        "dataviz",
+        "quantified-self"
+      ],
+      "words": 532,
+      "images": 13,
+      "imageDetails": {
+        "total": 13,
+        "cloudinary": 13,
+        "withDimensions": 0
+      },
+      "links": 13,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "How it works",
+          "slug": "how-it-works",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "slug": "projects/pixel-canvas"
+    }
+  },
+  {
+    "slug": "projects/scrapbook-core",
+    "title": "Scrapbook Core",
+    "date": "2026-05-05T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Scrapbook Core",
+      "date": "2026-05-05T05:00:00.000Z",
+      "category": "Tools",
+      "featured": true,
+      "url": "https://github.com/ejfox/scrapbook-core",
+      "tech": [
+        "JavaScript"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 376,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 5,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/scrapbook-core"
+    }
+  },
+  {
+    "slug": "projects/showtouch",
+    "title": "showtouch",
+    "date": "2024-10-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "cli",
+      "terminal",
+      "programming"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "showtouch",
+      "date": "2024-10-01T04:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/showtouch",
+      "tech": [
+        "Python",
+        "ASCII Art",
+        "Terminal"
+      ],
+      "state": "prototype",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "cli",
+        "terminal",
+        "programming"
+      ],
+      "words": 108,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/showtouch"
+    }
+  },
+  {
     "slug": "projects/smallbot-mcp",
     "title": "Smallbot MCP",
     "date": "2025-08-02T04:00:00.000Z",
@@ -5546,6 +6191,8 @@
     "metadata": {
       "title": "Smallbot MCP",
       "date": "2025-08-02T04:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
       "modified": "2025-08-13T17:17:13.000Z",
       "url": "https://github.com/ejfox/smallbot-mcp",
       "tech": [
@@ -5555,7 +6202,7 @@
         "Node.js"
       ],
       "state": "deployed",
-      "aiInvolvement": "ai-enhanced",
+      "ai-involvement": "ai-enhanced",
       "tags": [
         "ai",
         "web"
@@ -5573,6 +6220,177 @@
       "toc": [],
       "type": "post",
       "slug": "projects/smallbot-mcp"
+    }
+  },
+  {
+    "slug": "projects/smallweb-starter",
+    "title": "smallweb-starter",
+    "date": "2024-08-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools",
+      "web"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "smallweb-starter",
+      "date": "2024-08-01T04:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/smallweb-starter",
+      "tech": [
+        "TypeScript",
+        "Deno",
+        "Smallweb"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools",
+        "web"
+      ],
+      "words": 219,
+      "images": 1,
+      "imageDetails": {
+        "total": 1,
+        "cloudinary": 1,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/smallweb-starter"
+    }
+  },
+  {
+    "slug": "projects/subway-builder",
+    "title": "Subway Builder",
+    "date": "2026-05-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "games",
+      "simulation",
+      "transit",
+      "dataviz"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Subway Builder",
+      "date": "2026-05-01T04:00:00.000Z",
+      "category": "Art",
+      "featured": false,
+      "url": "https://github.com/ejfox/subway-builder-mods",
+      "tech": [
+        "JavaScript",
+        "Simulation",
+        "Transit",
+        "Game Modding"
+      ],
+      "state": "evolved",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "games",
+        "simulation",
+        "transit",
+        "dataviz"
+      ],
+      "words": 263,
+      "images": 10,
+      "imageDetails": {
+        "total": 10,
+        "cloudinary": 10,
+        "withDimensions": 0
+      },
+      "links": 11,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/subway-builder"
+    }
+  },
+  {
+    "slug": "projects/vulpes-nvim",
+    "title": "vulpes.nvim",
+    "date": "2026-01-18T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "vulpes.nvim",
+      "date": "2026-01-18T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/vulpes.nvim",
+      "tech": [
+        "Lua"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 148,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/vulpes-nvim"
+    }
+  },
+  {
+    "slug": "projects/websdr-vcv",
+    "title": "WebSDR VCV",
+    "date": "2025-08-01T00:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "audio",
+      "radio",
+      "hardware"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "WebSDR VCV",
+      "date": "2025-08-01T00:00:00.000Z",
+      "category": "Hardware",
+      "featured": false,
+      "url": "https://github.com/ejfox/websdr-vcv",
+      "tech": [
+        "C++",
+        "VCV Rack",
+        "Cardinal"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "audio",
+        "radio",
+        "hardware"
+      ],
+      "words": 120,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/websdr-vcv"
     }
   },
   {

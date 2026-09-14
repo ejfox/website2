@@ -1,6 +1,8 @@
 ---
 title: "Photos"
 date: 2025-08-27T00:00:00-05:00
+category: "Tools"
+featured: false
 draft: true
 url: https://github.com/ejfox/photos
 tech: ["JavaScript"]

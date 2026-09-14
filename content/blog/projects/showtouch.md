@@ -1,10 +1,11 @@
 ---
 title: "showtouch"
 date: 2024-10-01T00:00:00-04:00
-draft: true
+category: "Tools"
+featured: false
 url: https://github.com/ejfox/showtouch
 tech: ["Python", "ASCII Art", "Terminal"]
-state: deployed
+state: prototype
 ai-involvement: ai-assisted
 tags:
   - cli
@@ -12,10 +13,9 @@ tags:
   - programming
 ---
 
-<!-- TODO (EJ): split from "Terminal Tools" — add your voice + a still image.
-     README only has a .mov demo, which the filmstrip can't show yet. Draft. -->
-
 For presentations and livestreaming: show every key you press as large ASCII art on screen, so an audience can follow along.
+
+This was a fun "can robots make TUIs?" experiment. Answer: they can, and it's fun. The idea was to have it open in a tmux pane while I work — especially vim stuff, where people wanna know your shortcuts — but I clearly don't use it; I have like 250 GitHub repos now. The question got answered, and that was the point.
 
 ![showtouch displaying a keystroke as full-screen centered ASCII art](https://res.cloudinary.com/ejf/image/upload/projects/showtouch/demo.png)
 

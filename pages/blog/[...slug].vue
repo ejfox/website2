@@ -344,6 +344,12 @@ watch(
 )
 
 // --- Lifecycle ---
+// Registered synchronously at setup scope: inside nextTick there is no active
+// component instance, so an onUnmounted() there never runs (the TOC heading
+// observers leaked, and Vue warned on every blog page).
+let stopHeadingObservers = null
+onUnmounted(() => stopHeadingObservers?.())
+
 onMounted(() => {
   startAnimation()
 
@@ -389,7 +395,7 @@ onMounted(() => {
       )
       heading._stopObserver = stop
     })
-    onUnmounted(() => headings.forEach((h) => h._stopObserver?.()))
+    stopHeadingObservers = () => headings.forEach((h) => h._stopObserver?.())
 
     // Extract outbound links from post content
     const anchors = Array.from(articleContent.value.querySelectorAll('a[href]'))

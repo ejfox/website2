@@ -5,6 +5,8 @@
   "metadata": {
     "title": "towntuner",
     "date": "2025-08-01T04:00:00.000Z",
+    "category": "Apps",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/towntuner",
     "tech": [
@@ -13,7 +15,7 @@
       "iOS"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "ios",
       "app",

@@ -5,13 +5,15 @@
   "metadata": {
     "title": "Vulpino",
     "date": "2026-01-10T05:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/vulpino",
     "tech": [
       "Swift"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "tools"
     ],

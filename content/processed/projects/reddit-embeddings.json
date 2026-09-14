@@ -5,6 +5,8 @@
   "metadata": {
     "title": "r/dataisbeautiful, Embedded",
     "date": "2023-04-14T04:00:00.000Z",
+    "category": "Dataviz",
+    "featured": false,
     "draft": true,
     "tech": [
       "OpenAI Embeddings",
@@ -13,7 +15,7 @@
       "Data Visualization"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-collaborative",
+    "ai-involvement": "ai-collaborative",
     "tags": [
       "dataviz",
       "data",

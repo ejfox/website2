@@ -1,6 +1,8 @@
 ---
 title: "tmux-link-grab"
 date: 2026-04-01T00:00:00-04:00
+category: "Tools"
+featured: false
 draft: true
 url: https://github.com/ejfox/tmux-link-grab
 tech: ["Shell", "tmux", "CLI"]

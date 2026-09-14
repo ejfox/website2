@@ -1,8 +1,9 @@
 ---
 title: "VulpeSVG"
 date: 2026-02-20T00:00:00-05:00
+category: "Tools"
+featured: false
 draft: true
-url: https://github.com/ejfox/vulpesvg
 tech: ["Tauri", "Rust", "Vue", "SVG"]
 state: prototype
 ai-involvement: ai-assisted

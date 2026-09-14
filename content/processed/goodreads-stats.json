@@ -2,6 +2,19 @@
   "books": {
     "currentlyReading": [
       {
+        "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
+        "author": "Yuval Noah Harari",
+        "rating": null,
+        "shelf": "currently-reading",
+        "link": "https://www.goodreads.com/review/show/7755658751?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1709986452l/204927599._SY475_.jpg",
+        "dateAdded": "2026-07-08T20:16:14.000Z",
+        "dateRead": "2025-07-20T18:24:08.000Z",
+        "bookId": "204927599",
+        "numPages": 528,
+        "pubYear": 2024
+      },
+      {
         "title": "Muskism: A Guide for the Perplexed",
         "author": "Quinn Slobodian",
         "rating": null,
@@ -13,47 +26,47 @@
         "bookId": "234802898",
         "numPages": 256,
         "pubYear": 2026
-      },
-      {
-        "title": "Nexus: A Brief History of Information Networks from the Stone Age to AI",
-        "author": "Yuval Noah Harari",
-        "rating": null,
-        "shelf": "currently-reading",
-        "link": "https://www.goodreads.com/review/show/7755658751?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1709986452l/204927599._SY475_.jpg",
-        "dateAdded": "2026-04-17T03:18:13.000Z",
-        "dateRead": "2025-07-20T18:24:08.000Z",
-        "bookId": "204927599",
-        "numPages": 528,
-        "pubYear": 2024
-      },
-      {
-        "title": "Tracers in the Dark: The Global Hunt for the Crime Lords of Cryptocurrency",
-        "author": "Andy Greenberg",
-        "rating": null,
-        "shelf": "currently-reading",
-        "link": "https://www.goodreads.com/review/show/7781935443?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1649886294l/60808316._SY475_.jpg",
-        "dateAdded": "2025-07-29T14:12:47.000Z",
-        "dateRead": "2025-07-29T14:12:47.000Z",
-        "bookId": "60808316",
-        "numPages": 512,
-        "pubYear": null
       }
     ],
     "read": [
       {
+        "title": "Natural Magic: Emily Dickinson, Charles Darwin, and the Dawn of Modern Science",
+        "author": "Renée Bergland",
+        "rating": 5,
+        "shelf": "read",
+        "link": "https://www.goodreads.com/review/show/8752641371?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718484816l/201528754._SY475_.jpg",
+        "dateAdded": "2026-07-08T14:34:36.000Z",
+        "dateRead": "2026-07-08T14:34:36.000Z",
+        "bookId": "201528754",
+        "numPages": 441,
+        "pubYear": 2024
+      },
+      {
         "title": "Leibniz and China: A Commerce of Light",
         "author": "Franklin Perkins",
-        "rating": null,
+        "rating": 3,
         "shelf": "read",
         "link": "https://www.goodreads.com/review/show/8633220305?utm_medium=api&utm_source=rss",
         "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1415582752l/2274623.jpg",
-        "dateAdded": "2026-05-26T15:26:06.000Z",
+        "dateAdded": "2026-06-24T16:34:04.000Z",
         "dateRead": "2026-05-26T15:26:06.000Z",
         "bookId": "2274623",
         "numPages": 244,
         "pubYear": 2004
+      },
+      {
+        "title": "The People’s Republic of Walmart: How the World’s Biggest Corporations are Laying the Foundation for Socialism",
+        "author": "Leigh Phillips",
+        "rating": 4,
+        "shelf": "read",
+        "link": "https://www.goodreads.com/review/show/8713039483?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1520055691l/38914131._SY475_.jpg",
+        "dateAdded": "2026-06-24T16:13:34.000Z",
+        "dateRead": "2026-06-24T16:13:30.000Z",
+        "bookId": "38914131",
+        "numPages": 257,
+        "pubYear": 2019
       },
       {
         "title": "The Eye of the Master: A Social History of Artificial Intelligence",
@@ -210,35 +223,22 @@
         "bookId": "134119018",
         "numPages": 290,
         "pubYear": 2024
-      },
-      {
-        "title": "Mountaineering: The Freedom of the Hills, 10th Edition",
-        "author": "The Mountaineers Club",
-        "rating": 4,
-        "shelf": "read",
-        "link": "https://www.goodreads.com/review/show/7781934409?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718899999l/209078955._SX318_.jpg",
-        "dateAdded": "2025-07-29T14:12:40.000Z",
-        "dateRead": "2025-07-29T14:12:21.000Z",
-        "bookId": "209078955",
-        "numPages": 624,
-        "pubYear": 1960
-      },
-      {
-        "title": "The Xenofeminist Manifesto: A Politics for Alienation",
-        "author": "Laboria Cuboniks",
-        "rating": 4,
-        "shelf": "read",
-        "link": "https://www.goodreads.com/review/show/7781933570?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1532902465l/40982211._SY475_.jpg",
-        "dateAdded": "2025-07-29T14:11:59.000Z",
-        "dateRead": "2025-07-29T14:11:59.000Z",
-        "bookId": "40982211",
-        "numPages": 96,
-        "pubYear": 2015
       }
     ],
     "toRead": [
+      {
+        "title": "Tracers in the Dark: The Global Hunt for the Crime Lords of Cryptocurrency",
+        "author": "Andy Greenberg",
+        "rating": null,
+        "shelf": "to-read",
+        "link": "https://www.goodreads.com/review/show/7781935443?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1649886294l/60808316._SY475_.jpg",
+        "dateAdded": "2026-07-08T20:15:56.000Z",
+        "dateRead": "2025-07-29T14:12:47.000Z",
+        "bookId": "60808316",
+        "numPages": 512,
+        "pubYear": null
+      },
       {
         "title": "1491: New Revelations of the Americas Before Columbus",
         "author": "Charles C. Mann",
@@ -615,38 +615,25 @@
         "bookId": "8701960",
         "numPages": 527,
         "pubYear": 2011
-      },
-      {
-        "title": "The Road to Reality: A Complete Guide to the Laws of the Universe (Vintage)",
-        "author": "Roger Penrose",
-        "rating": null,
-        "shelf": "to-read",
-        "link": "https://www.goodreads.com/review/show/7813573288?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1386924912l/10638.jpg",
-        "dateAdded": "2025-08-09T03:39:09.000Z",
-        "dateRead": "2025-08-09T03:39:09.000Z",
-        "bookId": "10638",
-        "numPages": 1099,
-        "pubYear": 2004
       }
     ]
   },
   "stats": {
-    "totalRead": 79,
-    "currentlyReading": 3,
-    "toRead": 118,
-    "thisYear": 5,
+    "totalRead": 81,
+    "currentlyReading": 2,
+    "toRead": 119,
+    "thisYear": 7,
     "thisMonth": 0,
     "averageRating": 3.7,
     "ratingDistribution": {
       "1": 0,
       "2": 11,
-      "3": 20,
-      "4": 27,
-      "5": 17
+      "3": 21,
+      "4": 28,
+      "5": 18
     },
-    "totalPagesRead": 24696,
-    "avgPagesPerBook": 313,
+    "totalPagesRead": 25397,
+    "avgPagesPerBook": 314,
     "topAuthors": [
       {
         "author": "Orson Scott Card",
@@ -673,24 +660,26 @@
         "count": 2
       },
       {
+        "author": "Renée Bergland",
+        "count": 1
+      },
+      {
         "author": "Franklin Perkins",
+        "count": 1
+      },
+      {
+        "author": "Leigh Phillips",
         "count": 1
       },
       {
         "author": "Matteo Pasquinelli",
         "count": 1
-      },
-      {
-        "author": "Nick Srnicek",
-        "count": 1
-      },
-      {
-        "author": "Peter Frase",
-        "count": 1
       }
     ],
     "readingByMonth": {
-      "2026-05": 2,
+      "2026-07": 1,
+      "2026-06": 2,
+      "2026-05": 1,
       "2026-03": 3,
       "2025-10": 1,
       "2025-09": 1,
@@ -731,9 +720,22 @@
       "2023": 1,
       "2024": 1,
       "2025": 14,
-      "2026": 5
+      "2026": 7
     },
     "topRatedBooks": [
+      {
+        "title": "Natural Magic: Emily Dickinson, Charles Darwin, and the Dawn of Modern Science",
+        "author": "Renée Bergland",
+        "rating": 5,
+        "shelf": "read",
+        "link": "https://www.goodreads.com/review/show/8752641371?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718484816l/201528754._SY475_.jpg",
+        "dateAdded": "2026-07-08T14:34:36.000Z",
+        "dateRead": "2026-07-08T14:34:36.000Z",
+        "bookId": "201528754",
+        "numPages": 441,
+        "pubYear": 2024
+      },
       {
         "title": "The Eye of the Master: A Social History of Artificial Intelligence",
         "author": "Matteo Pasquinelli",
@@ -915,34 +917,47 @@
         "bookId": "2178285",
         "numPages": 504,
         "pubYear": null
-      },
-      {
-        "title": "Someone Comes to Town, Someone Leaves Town",
-        "author": "Cory Doctorow",
-        "rating": 5,
-        "shelf": "read",
-        "link": "https://www.goodreads.com/review/show/323889106?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1388305317l/29588.jpg",
-        "dateAdded": "2012-05-04T21:03:59.000Z",
-        "dateRead": "2012-05-04T21:03:59.000Z",
-        "bookId": "29588",
-        "numPages": 315,
-        "pubYear": 2005
       }
     ],
     "recentReads": [
       {
+        "title": "Natural Magic: Emily Dickinson, Charles Darwin, and the Dawn of Modern Science",
+        "author": "Renée Bergland",
+        "rating": 5,
+        "shelf": "read",
+        "link": "https://www.goodreads.com/review/show/8752641371?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718484816l/201528754._SY475_.jpg",
+        "dateAdded": "2026-07-08T14:34:36.000Z",
+        "dateRead": "2026-07-08T14:34:36.000Z",
+        "bookId": "201528754",
+        "numPages": 441,
+        "pubYear": 2024
+      },
+      {
         "title": "Leibniz and China: A Commerce of Light",
         "author": "Franklin Perkins",
-        "rating": null,
+        "rating": 3,
         "shelf": "read",
         "link": "https://www.goodreads.com/review/show/8633220305?utm_medium=api&utm_source=rss",
         "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1415582752l/2274623.jpg",
-        "dateAdded": "2026-05-26T15:26:06.000Z",
+        "dateAdded": "2026-06-24T16:34:04.000Z",
         "dateRead": "2026-05-26T15:26:06.000Z",
         "bookId": "2274623",
         "numPages": 244,
         "pubYear": 2004
+      },
+      {
+        "title": "The People’s Republic of Walmart: How the World’s Biggest Corporations are Laying the Foundation for Socialism",
+        "author": "Leigh Phillips",
+        "rating": 4,
+        "shelf": "read",
+        "link": "https://www.goodreads.com/review/show/8713039483?utm_medium=api&utm_source=rss",
+        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1520055691l/38914131._SY475_.jpg",
+        "dateAdded": "2026-06-24T16:13:34.000Z",
+        "dateRead": "2026-06-24T16:13:30.000Z",
+        "bookId": "38914131",
+        "numPages": 257,
+        "pubYear": 2019
       },
       {
         "title": "The Eye of the Master: A Social History of Artificial Intelligence",
@@ -1099,35 +1114,9 @@
         "bookId": "134119018",
         "numPages": 290,
         "pubYear": 2024
-      },
-      {
-        "title": "Mountaineering: The Freedom of the Hills, 10th Edition",
-        "author": "The Mountaineers Club",
-        "rating": 4,
-        "shelf": "read",
-        "link": "https://www.goodreads.com/review/show/7781934409?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1718899999l/209078955._SX318_.jpg",
-        "dateAdded": "2025-07-29T14:12:40.000Z",
-        "dateRead": "2025-07-29T14:12:21.000Z",
-        "bookId": "209078955",
-        "numPages": 624,
-        "pubYear": 1960
-      },
-      {
-        "title": "The Xenofeminist Manifesto: A Politics for Alienation",
-        "author": "Laboria Cuboniks",
-        "rating": 4,
-        "shelf": "read",
-        "link": "https://www.goodreads.com/review/show/7781933570?utm_medium=api&utm_source=rss",
-        "cover": "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1532902465l/40982211._SY475_.jpg",
-        "dateAdded": "2025-07-29T14:11:59.000Z",
-        "dateRead": "2025-07-29T14:11:59.000Z",
-        "bookId": "40982211",
-        "numPages": 96,
-        "pubYear": 2015
       }
     ],
     "profileUrl": "https://www.goodreads.com/user/show/9273959"
   },
-  "lastUpdated": "2026-06-24T13:34:13.796Z"
+  "lastUpdated": "2026-09-14T15:16:05.693Z"
 }

@@ -1,11 +1,12 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice — factual stub. Public investigative work; the shot\n     is the explorer UI, no source/subject data exposed. Draft until ready. -->\n<p class=\"\">A frontend for searching and exploring a large leaked-document set — an investigative-journalism tool that makes a sprawling dump navigable: full-text search, filters, and a dense visual index of what's in the corpus. A collaborative effort led by Micah Lee.</p>\n<figure role=\"figure\" aria-label=\"The leak explorer — search + a dense visual index of the document set\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/paramilitary-leaks/explorer.png\" alt=\"The leak explorer — search + a dense visual index of the document set\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/paramilitary-leaks/explorer.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/paramilitary-leaks/explorer.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/paramilitary-leaks/explorer.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/paramilitary-leaks/explorer.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The leak explorer — search + a dense visual index of the document set\" width=\"1440\" height=\"1209\" style=\"--splay-rot:1.5deg;\" data-dimensions=\"1440×1209\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The leak explorer — search + a dense visual index of the document set</figcaption>\n</figure>",
+  "html": "<p class=\"\">I was perusing Mastodon, as one does, and noticed a post from journalist <a href=\"https://micahflee.com/exploring-the-paramilitary-leaks/\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://micahflee.com/exploring-the-paramilitary-leaks/\">Micah Lee</a> saying he was exploring a 200GB dump from <a href=\"https://www.propublica.org/article/ap3-oath-keepers-militia-mole\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://www.propublica.org/article/ap3-oath-keepers-militia-mole\">American paramilitary groups</a> — a leak made possible through the incredible bravery of John Williams, who infiltrated these groups and exfiltrated the data. I hadn't heard of the dump before, and immediately sent Micah an email offering to help with any dataviz.</p>\n<figure role=\"figure\" aria-label=\"The leak explorer — search + a dense visual index of the document set\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/paramilitary-leaks/explorer.png\" alt=\"The leak explorer — search + a dense visual index of the document set\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/paramilitary-leaks/explorer.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/paramilitary-leaks/explorer.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/paramilitary-leaks/explorer.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/paramilitary-leaks/explorer.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"The leak explorer — search + a dense visual index of the document set\" width=\"1440\" height=\"1209\" style=\"--splay-rot:1.5deg;\" data-dimensions=\"1440×1209\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">The leak explorer — search + a dense visual index of the document set</figcaption>\n</figure>\n<p class=\"\">The pipeline chops and screws the data from Telegram HTML exports into SQLite, then Parquet hosted on Cloudflare R2 — a columnar format that's super-fast in the browser. On top of that sits a Nuxt + <a href=\"https://github.com/flekschas/regl-scatterplot\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://github.com/flekschas/regl-scatterplot\">regl-scatterplot<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12\" class=\"\"></path></svg></a> frontend with full-text search, filters, and a dense visual index of the corpus. We took a 200GB leak and turned it into something a reporter can explore in the browser.</p>\n<figure role=\"figure\" aria-label=\"Full-text search across the corpus\" class=\"\"><video class=\"img-full my-8 rounded-sm\" autoplay loop muted playsinline preload=\"metadata\" poster=\"https://res.cloudinary.com/ejf/video/upload/so_0,f_jpg,q_auto,w_1280/v1741568702/text-search.jpg\" src=\"https://res.cloudinary.com/ejf/video/upload/q_auto/v1741568702/text-search.mp4\" aria-label=\"Full-text search across the corpus\"></video><figcaption class=\"\">Full-text search across the corpus</figcaption></figure>\n<p class=\"\">Explore it at <a href=\"https://para-leaks.ejfox.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://para-leaks.ejfox.com\">para-leaks.ejfox.com</a>, read the full write-up — <a href=\"/blog/2025/paramilitary-telegram-leaks-001\" class=\"text-blue-600 dark:text-blue-400\">Processing Telegram Leaks for Fast Web Visualization</a> — or watch the walkthrough: <a href=\"https://www.youtube.com/watch?v=x-OSFUtCdK0\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://www.youtube.com/watch?v=x-OSFUtCdK0\">Visualizing 200GB Of Leaked Telegram Chats<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z\" class=\"\"></path></svg></a>.</p>",
   "title": "Paramilitary Leaks",
   "metadata": {
     "title": "Paramilitary Leaks",
     "date": "2025-09-01T04:00:00.000Z",
-    "draft": true,
+    "category": "Journalism",
+    "featured": true,
     "tech": [
       "Nuxt",
       "Vue",
@@ -13,7 +14,7 @@
       "Data Visualization"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "context": "collaborative",
     "tags": [
       "journalism",
@@ -21,14 +22,14 @@
       "osint",
       "tools"
     ],
-    "words": 82,
-    "images": 1,
+    "words": 180,
+    "images": 2,
     "imageDetails": {
-      "total": 1,
-      "cloudinary": 1,
+      "total": 2,
+      "cloudinary": 2,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 8,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],
