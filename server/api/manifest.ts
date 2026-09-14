@@ -7,6 +7,7 @@
 import { defineEventHandler, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import { isScheduled } from '~/utils/postFilters'
 
 interface Post {
   slug?: string
@@ -45,9 +46,17 @@ export default defineEventHandler(async () => {
         p.metadata?.passwordHash
       )
       const isDraftsFolder = p.slug?.startsWith('drafts/')
+      // Scheduled posts ship in the build but stay out of listings until their
+      // publish time. This is a runtime check, so they appear on their own.
+      const isEmbargoed = isScheduled(p)
 
       return (
-        !isDraft && !isHidden && !isUnlisted && !hasPassword && !isDraftsFolder
+        !isDraft &&
+        !isHidden &&
+        !isUnlisted &&
+        !hasPassword &&
+        !isDraftsFolder &&
+        !isEmbargoed
       )
     })
 

@@ -1,4 +1,5 @@
 import { defineEventHandler, setHeader, type H3Event } from 'h3'
+import { isScheduled } from '~/utils/postFilters'
 
 // Nuxt auto-imports $fetch at runtime
 declare const $fetch: typeof globalThis.fetch
@@ -102,12 +103,15 @@ export default defineEventHandler(async (event: H3Event) => {
       )
       const isSpecialSection =
         post.slug?.startsWith('drafts/') || post.slug?.startsWith('robots/')
+      // Don't advertise a post to crawlers before it publishes.
+      const isEmbargoed = isScheduled(post)
       if (
         !isDraft &&
         !isHidden &&
         !isUnlisted &&
         !hasPassword &&
         !isSpecialSection &&
+        !isEmbargoed &&
         post.date
       ) {
         const priority = post.type === 'essay' ? '0.8' : '0.7'

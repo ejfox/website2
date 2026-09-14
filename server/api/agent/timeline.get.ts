@@ -10,6 +10,7 @@ import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
 import matter from 'gray-matter'
 import { glob } from 'glob'
+import { isScheduled } from '~/utils/postFilters'
 
 // Timeline event types
 interface TimelineEvent {
@@ -77,6 +78,7 @@ export default defineEventHandler(async (event) => {
           !p.unlisted &&
           !p.password &&
           !p.passwordHash &&
+          !isScheduled(p) &&
           p.date
       )
       .forEach((post: ManifestPost) => {
