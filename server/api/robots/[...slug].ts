@@ -10,6 +10,7 @@ import { useProcessedMarkdown } from '~/composables/useProcessedMarkdown'
 import { readFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import path from 'node:path'
+import { isScheduled } from '~/utils/postFilters'
 
 const router = createRouter()
 
@@ -58,7 +59,7 @@ router.get(
 
       const data = JSON.parse(rawData)
 
-      if (!data || !data.metadata?.share) {
+      if (!data || !data.metadata?.share || isScheduled(data)) {
         throw createError({
           statusCode: 404,
           message: 'Robot note not found',

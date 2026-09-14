@@ -7,6 +7,7 @@
 import { defineEventHandler } from 'h3'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
+import { isScheduled } from '~/utils/postFilters'
 
 interface BlogPost {
   slug: string
@@ -54,6 +55,8 @@ export default defineEventHandler(async () => {
       if (post.draft || post.metadata?.draft) return false
       // Exclude unlisted posts
       if (post.unlisted || post.metadata?.unlisted) return false
+      // Exclude posts still under embargo
+      if (isScheduled(post)) return false
       // Exclude password-protected posts
       const hasPassword = !!(
         post.password ||

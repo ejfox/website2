@@ -10,6 +10,7 @@ import { readFile, readdir } from 'node:fs/promises'
 import path from 'node:path'
 import NodeCache from 'node-cache'
 import { stripHtml, tokenize } from '~/server/utils/text-processing'
+import { isScheduled } from '~/utils/postFilters'
 
 // ⚡ BLAZINGLY FAST cache for EJ's enlightener! *WHOOSH*
 const cache = new NodeCache({
@@ -175,7 +176,8 @@ async function processJsonFile(
       data.metadata?.type === 'draft' ||
       data.metadata?.unlisted === true ||
       data.metadata?.password ||
-      data.metadata?.passwordHash
+      data.metadata?.passwordHash ||
+      isScheduled(data)
 
     if (isHiddenOrDraft) return null
 

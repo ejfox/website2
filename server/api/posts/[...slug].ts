@@ -9,6 +9,7 @@ import { defineEventHandler, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { existsSync } from 'node:fs'
+import { isScheduled } from '~/utils/postFilters'
 
 interface TocItem {
   level: number
@@ -91,20 +92,34 @@ export default defineEventHandler(async (event) => {
     const rawData = await readFile(filePath, 'utf-8')
     const data = JSON.parse(rawData)
 
-    // Privacy guard: never serve draft/hidden/unlisted content in production by
-    // direct slug, even when its processed JSON ships in the build (e.g. draft
-    // projects written for local preview). Dev keeps previewing
-    // works-in-progress.
+    // This route resolves ANY .json under content/processed, which includes
+    // files that are not posts — manifest-lite.json, rides indexes,
+    // goodreads-stats.json. The privacy guards below read `data.draft` etc, and
+    // on an array those are silently `undefined`, so every guard passed and the
+    // whole file was returned: /api/posts/manifest-lite served the complete
+    // unfiltered manifest, hidden posts and all. Require a post shape first.
+    if (!isPostShaped(data)) {
+      throw createError({ statusCode: 404, message: 'Post not found' })
+    }
+
+    // Privacy guard: never serve draft/hidden/unlisted/password-protected
+    // content in production by direct slug, even when its processed JSON ships
+    // in the build (e.g. draft projects written for local preview). Dev keeps
+    // previewing works-in-progress.
     if (!import.meta.dev && isPrivateContent(data)) {
+      throw createError({ statusCode: 404, message: 'Post not found' })
+    }
+
+    // A scheduled post's JSON ships in the build, so the embargo has to hold
+    // here too — otherwise anyone guessing the slug reads it early. Dev still
+    // previews it.
+    if (!import.meta.dev && isScheduled(data)) {
       throw createError({ statusCode: 404, message: 'Post not found' })
     }
 
     // Password-protected posts are meant to be *reachable* — just not readable
     // until unlocked. Serve a stub carrying enough metadata to render the gate
-    // and the page chrome, and nothing else. Both the body and the hash are
-    // withheld: shipping the hash would let anyone brute-force it offline, and
-    // shipping the body made the old client-side `v-if` gate bypassable with
-    // View Source. POST /api/posts/unlock exchanges the password for content.
+    // and nothing else: no body, no TOC, and NOT the hash.
     if (getPasswordHash(data)) {
       return toLockedStub(data, slug)
     }
@@ -144,16 +159,29 @@ export default defineEventHandler(async (event) => {
 })
 
 /**
- * True if the content is flagged draft/hidden/unlisted (checked at both the top
- * level and inside metadata). Used to keep such content out of production
- * responses entirely. Password-protected posts are deliberately NOT included —
- * they are served as a locked stub instead, see toLockedStub.
+ * True if the content is flagged draft/hidden/unlisted/password-protected
+ * (checked at both the top level and inside metadata). Used to keep such
+ * content out of production responses.
  */
+/**
+ * True only for JSON that is actually a post: a plain object carrying rendered
+ * body content. Arrays and bare data files (manifest-lite, ride indexes,
+ * goodreads-stats) are not posts and must never be served by this route — the
+ * privacy guards below can't see flags on them.
+ */
+function isPostShaped(data: unknown): boolean {
+  if (!data || typeof data !== 'object' || Array.isArray(data)) return false
+  const d = data as Record<string, unknown>
+  return typeof d.html === 'string' || typeof d.content === 'string'
+}
+
 export function isPrivateContent(data: unknown): boolean {
   if (!data || typeof data !== 'object') return false
   const top = data as Record<string, unknown>
   const meta = (top.metadata ?? {}) as Record<string, unknown>
   const flag = (key: string) => Boolean(top[key] ?? meta[key])
+  // Password-protected is deliberately NOT here — such posts must stay
+  // reachable so they can be unlocked; they get a locked stub instead.
   return flag('draft') || flag('hidden') || flag('unlisted')
 }
 

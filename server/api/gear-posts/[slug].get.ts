@@ -6,6 +6,7 @@
  */
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
+import { isScheduled } from '~/utils/postFilters'
 
 interface ManifestPost {
   slug: string
@@ -62,7 +63,8 @@ export default defineEventHandler(async (event) => {
           isHidden ||
           isUnlisted ||
           hasPassword ||
-          isDraftsFolder
+          isDraftsFolder ||
+          isScheduled(post)
         ) {
           return false
         }
