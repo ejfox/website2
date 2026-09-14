@@ -24,7 +24,13 @@ const containerClasses = computed(() => {
 
 <template>
   <div :class="containerClasses">
-    <h3 v-if="variant === 'sidebar'" class="label-uppercase-mono text-2xs mb-2">
+    <!-- Not uppercased (the caps read as shouty for no reason); slightly
+         bolder and white in dark mode. Kept dark-in-light so it doesn't
+         vanish against the light sidebar. -->
+    <h3
+      v-if="variant === 'sidebar'"
+      class="font-mono text-2xs font-medium tracking-wide text-zinc-900 dark:text-white mb-2"
+    >
       Work with me
     </h3>
 

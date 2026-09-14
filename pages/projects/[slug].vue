@@ -128,7 +128,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container-main max-w-4xl">
+  <div class="container-main max-w-5xl">
     <!-- Slim persistent strip: only the marquee's UNIQUE value — status
          + the live-project CTA. Year/tech/date live once, in the sidebar
          PROJECT INFO (no longer duplicated here). Hidden entirely if
@@ -291,27 +291,32 @@ onMounted(() => {
 </template>
 
 <style>
-/* Project page: wide images, prose-width text */
-.project-content :deep(p),
-.project-content :deep(ul),
-.project-content :deep(ol),
-.project-content :deep(blockquote),
-.project-content :deep(h2),
-.project-content :deep(h3),
-.project-content :deep(h4) {
+/* Project page: wide images, prose-width text.
+   NOTE: this is an UNSCOPED <style> block, so Vue does NOT process :deep() —
+   using it here silently voided the text-measure rule and let paragraphs run
+   the full container width. Plain descendant selectors are correct: the
+   content is global v-html, and BlogPostContent merges `project-content` onto
+   its <article> root, so `.project-content p` targets the real paragraphs. */
+.project-content p,
+.project-content ul,
+.project-content ol,
+.project-content blockquote,
+.project-content h2,
+.project-content h3,
+.project-content h4 {
   @apply max-w-prose;
 }
 
-.project-content :deep(figure) {
+.project-content figure {
   @apply max-w-none w-full mb-8;
 }
 
-.project-content :deep(img) {
+.project-content img {
   @apply max-w-none w-full rounded;
   transform: none !important;
 }
 
-.project-content :deep(figcaption) {
+.project-content figcaption {
   @apply text-xs text-zinc-500 dark:text-zinc-400 mt-2 font-mono;
 }
 </style>
