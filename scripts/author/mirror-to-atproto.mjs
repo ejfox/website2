@@ -94,6 +94,25 @@ async function toDocument(post, siteRef) {
   return { rkey: rkeyFor(slug), record: doc }
 }
 
+/**
+ * True while a post is still embargoed by `publishAt` (or a future `date`).
+ *
+ * Mirrors isScheduled() in utils/postFilters.ts — duplicated because this is a
+ * plain .mjs author script that can't import the TS helper.
+ *
+ * This runs `--live` on every push to main, so without it a scheduled post's
+ * title and date would be published to a PUBLIC AT-Proto network the moment it
+ * was committed — days or months before its embargo lifts, and permanently,
+ * since the mirror writes records we don't retract.
+ */
+function isEmbargoed(post) {
+  const m = post?.metadata || {}
+  const when = m.publishAt || post?.publishAt || m.date || post?.date
+  if (!when) return false
+  const t = new Date(when).getTime()
+  return Number.isFinite(t) && t > Date.now()
+}
+
 async function loadPublishedPosts() {
   const manifest = JSON.parse(
     await readFile(path.join(PROCESSED, 'manifest-lite.json'), 'utf-8')
@@ -110,7 +129,8 @@ async function loadPublishedPosts() {
       p.password ||
       m.password ||
       p.passwordHash ||
-      m.passwordHash
+      m.passwordHash ||
+      isEmbargoed(p)
     // blog posts live under year dirs (YYYY/…); skips system + section files
     return p.slug && !blocked && /^\d{4}\//.test(p.slug)
   })
