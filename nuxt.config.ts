@@ -197,12 +197,24 @@ export default defineNuxtConfig({
 
         // Recursively copy content directory (exclude private dirs)
         const excludeDirs = ['backup', 'drafts']
+        // Sealed posts' PLAINTEXT markdown lives here. It is gitignored, so it
+        // exists only on EJ's laptop — but `yarn build` there (the manual
+        // deploy path in CLAUDE.md) would otherwise copy it into .output and
+        // scp it to the VPS, which is precisely the "the door is locked and
+        // the wall is missing" failure this whole design exists to avoid.
+        //
+        // Matched as `content/blog/private`, NOT as the substring `/private/`:
+        // the loose match would also drop content/processed/private/**, which
+        // is the committed envelope the server actually serves, and the post
+        // would 404 with no error anywhere.
+        const sealedSource = path.join(source, 'blog', 'private')
         try {
           await fs.cp(source, dest, {
             recursive: true,
             errorOnExist: false,
             force: true,
             filter: (src: string) =>
+              !src.startsWith(sealedSource) &&
               !excludeDirs.some(
                 (d) => src.includes(`/${d}/`) || src.endsWith(`/${d}`)
               ),

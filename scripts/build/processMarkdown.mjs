@@ -51,6 +51,8 @@ import {
 } from '../utils/internal-links.mjs'
 import { processStats } from '../utils/stats.mjs'
 import { backupProcessedContent } from '../utils/backup.mjs'
+import { isSealedSlug, capabilityLink } from '../../utils/postSeal.mjs'
+import { sealResult } from './sealKeyring.mjs'
 
 dotenv.config()
 
@@ -240,6 +242,14 @@ const normalizeSlug = (slug) => {
   // Strip leading 'blog/' prefix if it exists
   return slug.startsWith('blog/') ? slug.slice(5) : slug
 }
+
+/**
+ * The canonical slug for a source file — the same derivation that names its
+ * processed JSON and its URL. Written out by hand in six places before this,
+ * which is six chances for one of them to disagree about what a post is called.
+ */
+const slugForFile = (filePath) =>
+  normalizeSlug(path.relative(paths.contentDir, filePath).replace(/\.md$/, ''))
 
 const processor = unified()
   .use(remarkParse)
@@ -801,48 +811,54 @@ async function autoFixBrokenLinks(brokenLinks) {
 }
 
 const printSummary = (files) => {
-  const stats = files.reduce(
-    (acc, file) => {
-      acc.totalWords += file.metadata.words || 0
-      acc.totalImages += file.metadata.images || 0
-      acc.cloudinaryImages += file.metadata.imageDetails?.cloudinary || 0
-      acc.imagesWithDimensions +=
-        file.metadata.imageDetails?.withDimensions || 0
-      acc.totalLinks += file.metadata.links || 0
-      acc.totalCodeBlocks += file.metadata.codeBlocks || 0
-      acc.h1 += file.metadata.headers?.h1 || 0
-      acc.h2 += file.metadata.headers?.h2 || 0
-      acc.h3 += file.metadata.headers?.h3 || 0
-      acc.byType[file.metadata.type] = (acc.byType[file.metadata.type] || 0) + 1
+  // Sealed entries carry no metadata at all — word counts, tags and headings
+  // are inside the envelope, which is the whole point. They're reported
+  // separately by printSealedReport.
+  const stats = files
+    .filter((file) => file?.metadata && file.sealed !== true)
+    .reduce(
+      (acc, file) => {
+        acc.totalWords += file.metadata.words || 0
+        acc.totalImages += file.metadata.images || 0
+        acc.cloudinaryImages += file.metadata.imageDetails?.cloudinary || 0
+        acc.imagesWithDimensions +=
+          file.metadata.imageDetails?.withDimensions || 0
+        acc.totalLinks += file.metadata.links || 0
+        acc.totalCodeBlocks += file.metadata.codeBlocks || 0
+        acc.h1 += file.metadata.headers?.h1 || 0
+        acc.h2 += file.metadata.headers?.h2 || 0
+        acc.h3 += file.metadata.headers?.h3 || 0
+        acc.byType[file.metadata.type] =
+          (acc.byType[file.metadata.type] || 0) + 1
 
-      // IndieWeb stats
-      if (file.metadata?.replyTo || file.metadata?.['in-reply-to']) {
-        acc.replyPosts++
+        // IndieWeb stats
+        if (file.metadata?.replyTo || file.metadata?.['in-reply-to']) {
+          acc.replyPosts++
+        }
+
+        if (file.metadata?.tags && Array.isArray(file.metadata.tags)) {
+          file.metadata.tags.forEach(
+            (tag) => (acc.tags[tag] = (acc.tags[tag] || 0) + 1)
+          )
+        }
+
+        return acc
+      },
+      {
+        totalWords: 0,
+        totalImages: 0,
+        cloudinaryImages: 0,
+        imagesWithDimensions: 0,
+        totalLinks: 0,
+        totalCodeBlocks: 0,
+        h1: 0,
+        h2: 0,
+        h3: 0,
+        byType: {},
+        tags: {},
+        replyPosts: 0,
       }
-
-      if (file.metadata?.tags && Array.isArray(file.metadata.tags)) {
-        file.metadata.tags.forEach(
-          (tag) => (acc.tags[tag] = (acc.tags[tag] || 0) + 1)
-        )
-      }
-
-      return acc
-    },
-    {
-      totalWords: 0,
-      totalImages: 0,
-      cloudinaryImages: 0,
-      imagesWithDimensions: 0,
-      totalLinks: 0,
-      totalCodeBlocks: 0,
-      h1: 0,
-      h2: 0,
-      h3: 0,
-      byType: {},
-      tags: {},
-      replyPosts: 0,
-    }
-  )
+    )
 
   console.log('\n📊 Content Analysis')
   console.log('=================')
@@ -1079,6 +1095,103 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
   }
 }
 
+/** True if a processed JSON on disk is a sealed envelope. */
+async function isSealedOutput(outputFile) {
+  try {
+    const parsed = JSON.parse(await fs.readFile(outputFile, 'utf8'))
+    return parsed?.sealed === true && !!parsed?.envelope?.ct
+  } catch {
+    return false
+  }
+}
+
+/**
+ * Print the capability link for every post sealed this run.
+ *
+ * This is the only moment the key is ever shown. It is not written to any log
+ * file, not committed, and not recoverable from the site — `.postkeys.json`
+ * and the links already sent are the only copies.
+ */
+function printSealedReport(sealedReport) {
+  if (!sealedReport.length) return
+
+  const origin = process.env.SITE_ORIGIN || 'https://ejfox.com'
+  console.log(chalk.bold(`\n🔐 ${sealedReport.length} sealed post(s)\n`))
+
+  for (const { slug, key, minted, resealed } of sealedReport) {
+    const state = minted
+      ? chalk.green('new key')
+      : resealed
+        ? chalk.blue('re-sealed, same key — existing links still work')
+        : chalk.gray('unchanged')
+    console.log(`  ${chalk.bold(slug)}  ${state}`)
+    console.log(`  ${chalk.cyan(capabilityLink(origin, slug, key))}\n`)
+  }
+
+  console.log(
+    chalk.yellow(
+      'Anyone with the link can read the post — it is a bearer token, and\n' +
+        'sharing it cannot be undone. Send it over a channel you trust.\n' +
+        'Back up .postkeys.json; it is gitignored and is the only copy.\n'
+    )
+  )
+}
+
+/**
+ * Frontmatter that *looks* like it was meant to protect a post, on a post
+ * that is not in the sealed namespace, is a fatal build error.
+ *
+ * This is the inversion that makes the whole design safe. The previous attempt
+ * keyed protection on an exact frontmatter key — `passwordEnv:` — whose
+ * ABSENCE meant "public", so typing `passwordenv:` published the post with a
+ * green build and no warning. Any scheme with that shape has the same footgun.
+ *
+ * Here the folder is the only switch, and frontmatter runs the other way: a
+ * fuzzy match on anything resembling protection means "you intended this to be
+ * private and it is not", and the build stops. There is no spelling of
+ * `password` that publishes a post, because no spelling of it protects one.
+ */
+async function assertNoStraySecretFrontmatter(allFiles) {
+  const SECRET_KEY = /protect|passw|secret|encrypt|seal|private/i
+  const offenders = []
+
+  for (const filePath of allFiles) {
+    const slug = normalizeSlug(
+      path.relative(paths.contentDir, filePath).replace(/\.md$/, '')
+    )
+    if (isSealedSlug(slug)) continue
+
+    let data
+    try {
+      data = matter(await fs.readFile(filePath, 'utf8')).data || {}
+    } catch {
+      continue // malformed frontmatter is the safety linter's problem
+    }
+
+    const keys = Object.keys(data).filter((k) => SECRET_KEY.test(k))
+    if (keys.length) offenders.push({ slug, keys })
+  }
+
+  if (!offenders.length) return
+
+  console.error(
+    chalk.red.bold('\n🚨 Secret-looking frontmatter on a PUBLIC post\n')
+  )
+  for (const { slug, keys } of offenders) {
+    console.error(chalk.red(`  ${slug}`))
+    console.error(chalk.red(`    → ${keys.map((k) => `${k}:`).join(', ')}`))
+  }
+  console.error(
+    chalk.yellow(
+      '\nThese posts render in the clear and their source is committed to a\n' +
+        'PUBLIC repo. If they are meant to be private, move them into the\n' +
+        "vault's private/ folder and re-import — that folder is the only\n" +
+        'switch, and it is gitignored. If the field is innocent, rename it.\n'
+    )
+  )
+  process.exit(1)
+}
+
 async function processAllFiles() {
   const spinner = ora('Processing markdown files...').start()
 
@@ -1094,7 +1207,28 @@ async function processAllFiles() {
     processStats.totalFiles = allFiles.length
     spinner.succeed(`Found ${allFiles.length} markdown files`)
 
-    const { links, linkToSources } = await generateExternalLinksCSV(allFiles)
+    // Tripwire, deliberately the FIRST thing that touches the file list.
+    //
+    // It must live here rather than inside processMarkdown() because of the
+    // mtime cache: on a fresh clone every processed JSON is newer than its
+    // source, so `getFileCacheStatus` returns 'cache' for essentially every
+    // file and the per-file path may never execute in CI at all. A guard that
+    // can be skipped is not a guard — that exact bypass is how the previous
+    // attempt shipped a post with no protection and a green build.
+    await assertNoStraySecretFrontmatter(allFiles)
+
+    // Everything downstream of here that writes a TRACKED build artifact gets
+    // the public files only. Enumerating readers rather than writing filters is
+    // the lesson from the last attempt: three of its four real leaks were in
+    // code no `grep password` would ever have found. These three write
+    // data/external_links_final.csv, data/internal-linkrot-report.json and the
+    // valid-route set — all committed, all of which would otherwise record a
+    // sealed post's filename, its link text and its outbound URLs in the clear.
+    const publicFiles = allFiles.filter(
+      (filePath) => !isSealedSlug(slugForFile(filePath))
+    )
+
+    const { links, linkToSources } = await generateExternalLinksCSV(publicFiles)
 
     // Check link health if CHECK_LINKS flag is set
     if (process.env.CHECK_LINKS === 'true') {
@@ -1104,8 +1238,8 @@ async function processAllFiles() {
     // Build the set of valid internal routes (used to mark dead wikilinks as
     // non-clickable during rendering) and audit every post for dead internal
     // links. Pure local IO — no network — so it runs on every process.
-    await buildValidRoutes(allFiles, paths.contentDir)
-    await reportDeadInternalLinks(allFiles, paths.contentDir)
+    await buildValidRoutes(publicFiles, paths.contentDir)
+    await reportDeadInternalLinks(publicFiles, paths.contentDir)
 
     // 📊 PRE-FLIGHT CHECK: Analyze what will be cached vs processed
     console.log('\n📊 Pre-flight cache analysis...')
@@ -1137,6 +1271,7 @@ async function processAllFiles() {
     console.log('\nProcessing files...\n')
 
     const results = []
+    const sealedReport = []
     let cachedCount = 0
     let fetchedCount = 0
 
@@ -1183,23 +1318,57 @@ async function processAllFiles() {
           `\r${chalk.gray(`Processing: ${baseName}`)}${pct2}%`
         )
 
+        if (isSealedSlug(normalizedPath)) {
+          // The rendered post never reaches disk in this branch — only the
+          // envelope does. `sealResult` refuses to write if the envelope still
+          // contains any recognisable fragment of the body, title, dek, tags
+          // or headings.
+          const sealed = await sealResult(result, normalizedPath, outputPath)
+          await fs.mkdir(path.dirname(outputPath), { recursive: true })
+          await fs.writeFile(
+            outputPath,
+            JSON.stringify(sealed.json, null, 2) + '\n'
+          )
+          sealedReport.push({ slug: normalizedPath, ...sealed })
+          // Push the ENVELOPE, not the result, so `results` stays index-aligned
+          // with `allFiles` while carrying nothing a downstream consumer could
+          // leak. Everything after this point sees `{slug, sealed, envelope}`.
+          results.push(sealed.json)
+          processStats.filesProcessed++
+          continue
+        }
+
         await writeProcessedResult(result, outputPath)
         results.push(result)
         processStats.filesProcessed++
       } catch (error) {
+        // A content error is per-file and recoverable: note it, keep going.
+        // A sealing failure is neither. It means a post that is supposed to be
+        // private is about to ship in the clear, and the only safe response to
+        // that is to stop the build — not to add a line to a summary.
+        if (error?.fatalContentError) throw error
         processStats.errors.push({ file: filePath, error: error.message })
       }
     }
 
     process.stdout.write('\r' + ' '.repeat(80) + '\r')
     printSummary(results)
+    printSealedReport(sealedReport)
 
-    // Filter out draft posts from manifest
-    const nonDraftResults = results.filter(
-      (entry) => entry.metadata?.draft !== true
-    )
-    const nonDraftFiles = allFiles.filter(
-      (_, index) => results[index]?.metadata?.draft !== true
+    // Filter out draft and sealed posts from manifest.
+    //
+    // Sealed posts are omitted at WRITE time, not filtered at serve time, and
+    // the difference matters: `manifest-lite.json` is a tracked file in a
+    // public repo, so a serve-time filter would still have published the
+    // post's title, dek, tags and table of contents to GitHub. Omitting it
+    // here also sanitises everything downstream of the manifest for free —
+    // /tags.json, the sitemap, both feeds, search, suggest, and the prerender
+    // route list — rather than needing a filter in each.
+    const isListable = (entry) =>
+      entry?.metadata?.draft !== true && entry?.sealed !== true
+    const nonDraftResults = results.filter(isListable)
+    const nonDraftFiles = allFiles.filter((_, index) =>
+      isListable(results[index])
     )
     // Index-aligned pair excluding embargoed posts, for build artifacts only.
     // The manifest itself still carries them — they're gated at request time.
@@ -1223,6 +1392,14 @@ async function processAllFiles() {
     for (const outputFile of outputFiles) {
       const relativePath = path.relative(paths.outputDir, outputFile)
       const outputSlug = relativePath.replace(/\.json$/, '')
+
+      // A sealed post's SOURCE is gitignored, so on CI (and on any clone that
+      // isn't EJ's laptop) it does not exist — but its committed envelope JSON
+      // does. Without this exemption orphan cleanup would delete that envelope
+      // on every CI run, the build would ship without it, and the post would
+      // 404 forever. Checked by reading the file rather than by slug, so a
+      // genuinely stale envelope still has to be deleted by hand knowingly.
+      if (await isSealedOutput(outputFile)) continue
 
       if (
         !currentSlugs.has(outputSlug) &&

@@ -4,7 +4,7 @@ import PostMetadataBar from '~/components/blog/post/PostMetadataBar.vue'
 import PostFooter from '~/components/blog/post/PostFooter.vue'
 import PostTOC from '~/components/blog/post/PostTOC.vue'
 import ReplyContext from '~/components/blog/ReplyContext.vue'
-import PasswordGate from '~/components/blog/PasswordGate.vue'
+import SealedPost from '~/components/blog/SealedPost.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
 import { readingStats } from '~/utils/readingStats'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
@@ -205,23 +205,30 @@ const isDraft = computed(() => post.value?.metadata?.draft || post.value?.draft)
 const isUnlisted = computed(
   () => post.value?.metadata?.unlisted || post.value?.unlisted
 )
-const passwordHash = computed(
-  () => post.value?.metadata?.passwordHash || post.value?.passwordHash
-)
-const isPasswordProtected = computed(() => !!passwordHash.value)
+// --- Sealed posts ---
+// The API serves `{slug, sealed, envelope}` and nothing else: no title, no
+// dek, no date, no tags, no headings. SealedPost opens the envelope in the
+// browser with the key from the URL fragment and hands back the real payload,
+// which is merged into `post` so that every component below renders exactly as
+// it would for a public post. Nothing downstream needs to know about any of
+// this — which is the point, since "one more place that has to remember the
+// flag" is how the last four leaks happened.
+const isSealed = computed(() => post.value?.sealed === true)
+
 const shouldNoIndex = computed(
-  () => isDraft.value || isUnlisted.value || isPasswordProtected.value
+  () => isDraft.value || isUnlisted.value || isSealed.value
+)
+const isUnsealed = ref(false)
+const sealedSlug = computed(
+  () => post.value?.slug || route.params.slug.join('/')
 )
 
-// Password gate state
-const isUnlocked = ref(false)
-const showContent = computed(
-  () => !isPasswordProtected.value || isUnlocked.value
-)
-
-function handleUnlocked() {
-  isUnlocked.value = true
+function handleUnsealed(payload) {
+  post.value = { ...payload, slug: sealedSlug.value }
+  isUnsealed.value = true
 }
+
+const showContent = computed(() => !isSealed.value || isUnsealed.value)
 
 const publishedDateISO = computed(() => {
   const d = post.value?.metadata?.date || post.value?.date
@@ -530,12 +537,13 @@ onMounted(() => {
       <div class="progress-inner" :style="`width: ${scrollProgress}%`"></div>
     </div>
 
-    <!-- Password Gate -->
-    <PasswordGate
-      v-if="post && !post.redirect && isPasswordProtected && !isUnlocked"
-      :password-hash="passwordHash"
-      :post-title="postTitle"
-      @unlocked="handleUnlocked"
+    <!-- Sealed post: nothing below this has anything to render until the key
+         from the link's fragment opens the envelope, client-side. -->
+    <SealedPost
+      v-if="post && !post.redirect && isSealed && !isUnsealed"
+      :envelope="post.envelope"
+      :slug="sealedSlug"
+      @unsealed="handleUnsealed"
     />
 
     <article
@@ -628,7 +636,10 @@ onMounted(() => {
       </NuxtLink>
     </div>
 
-    <div v-else class="p-4 text-center">
+    <!-- `!isSealed`: a sealed post is not loading, it is waiting for a key, and
+         SealedPost above owns that state. Without this the locked page renders
+         the lock message AND a "Loading..." that never resolves. -->
+    <div v-else-if="!isSealed" class="p-4 text-center">
       <p class="text-xl text-zinc-600 dark:text-zinc-400">Loading...</p>
     </div>
 

@@ -205,7 +205,20 @@ async function searchDirectory(dir: string, posts: BlogPost[], basePath = '') {
 
       if (item.isDirectory()) {
         // Skip certain directories - keep it clean! *swoosh*
-        const skipDirs = ['backup', '_stale', 'week-notes', 'robots', 'prompts']
+        // `private` holds sealed posts. Their JSON carries no title, body or
+        // tags — only an opaque envelope — so nothing useful could reach a
+        // suggestion anyway, but this endpoint walks the WHOLE processed tree
+        // rather than reading the manifest, which means it does not inherit
+        // the manifest's omission of sealed posts. Name the directory here so
+        // the safety does not rest on "the envelope happens to be unreadable."
+        const skipDirs = [
+          'backup',
+          '_stale',
+          'week-notes',
+          'robots',
+          'prompts',
+          'private',
+        ]
         if (skipDirs.includes(item.name)) continue
         await searchDirectory(fullPath, posts, relativePath)
         continue

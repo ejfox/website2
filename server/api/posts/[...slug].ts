@@ -10,6 +10,7 @@ import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { existsSync } from 'node:fs'
 import { isScheduled } from '~/utils/postFilters'
+import { isSealedPost } from '~/utils/postSeal.mjs'
 
 interface TocItem {
   level: number
@@ -161,6 +162,12 @@ export default defineEventHandler(async (event) => {
 function isPostShaped(data: unknown): boolean {
   if (!data || typeof data !== 'object' || Array.isArray(data)) return false
   const d = data as Record<string, unknown>
+  // A sealed post has no `html` — that is the entire point of it. It is served
+  // deliberately, as `{slug, sealed, envelope}` and nothing else; the reader's
+  // browser opens it with the key from the link's fragment, which never
+  // reaches this server. There is nothing here to gate, because there is
+  // nothing here in the clear.
+  if (isSealedPost(d)) return true
   return typeof d.html === 'string' || typeof d.content === 'string'
 }
 
