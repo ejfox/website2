@@ -63,14 +63,27 @@ format doesn't change.
 
 ### Author time
 
-Write the post in the Obsidian vault under `private/`. Then the normal flow:
+Write the post in the Obsidian vault under `private/`. Then:
 
 ```
-yarn blog                 # import → safety lint → process → sealed guard
+yarn seal                 # vault → seal → guard
 git add -A && git commit && git push
 ```
 
-`yarn blog:process` prints the capability link:
+**Not `yarn blog`.** That chain starts with `blog:import`, which `rm -rf`s
+`content/blog/` and rebuilds it from the vault — and the two have drifted
+badly. The vault keeps posts under `blog/<year>/`, so the importer writes
+`content/blog/blog/2022/…`, one level deeper than the 366 files actually
+committed. Running it today deletes every `reading/` note and most years, then
+rebuilds ~169 files in the wrong shape. That is a pre-existing bug, unrelated
+to sealing, and publishing a sealed post shouldn't require fixing it first.
+
+`yarn seal:import` therefore touches exactly one gitignored directory
+(`content/blog/private/`) and nothing else. It copies the vault's `private/`
+folder in, prunes copies of posts you've deleted from the vault, and stops.
+`yarn seal` is that plus `blog:process` plus the guard.
+
+It prints the capability link:
 
 ```
 🔐 1 sealed post(s)

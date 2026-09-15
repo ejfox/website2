@@ -42,6 +42,16 @@ const WHITELISTED_FOLDERS = [
   '2018',
 ]
 
+/**
+ * True if a vault-relative directory path is inside a whitelisted folder.
+ * Compares path segments, so `private` matches `private/` and `private/sub/`
+ * but never `private-drafts/` or `privateer/`.
+ */
+const isWhitelisted = (relPath) => {
+  const segments = relPath.split(path.sep)
+  return WHITELISTED_FOLDERS.includes(segments[0])
+}
+
 const stats = {
   filesProcessed: 0,
   filesAdded: [],
@@ -146,8 +156,15 @@ async function findMarkdownFiles() {
         if (entry.name.startsWith('.') || entry.name === 'node_modules')
           continue
         const relPath = path.relative(SOURCE_DIR, fullPath)
-        if (WHITELISTED_FOLDERS.some((folder) => relPath.startsWith(folder)))
-          await scan(fullPath)
+        // Whole path SEGMENTS, not a string prefix. `startsWith` let any
+        // folder whose name merely begins with a whitelisted one through, so a
+        // vault folder called `private-drafts/` would be imported to
+        // `content/blog/private-drafts/` — which is neither gitignored nor
+        // sealed (both key on exactly `private/`), i.e. published in full. Same
+        // class of bug for `blogroll/` vs `blog/`. The whitelist is the only
+        // thing standing between the vault and a public repo; it should mean
+        // what it says.
+        if (isWhitelisted(relPath)) await scan(fullPath)
       } else if (
         entry.name.endsWith('.md') &&
         !entry.name.includes('.canvas.md')
