@@ -426,9 +426,12 @@ Link-protected posts on a public repo. Full design + threat model:
 - `content/blog/private/` is **gitignored**, so the plaintext cannot be staged.
   What gets committed is `content/processed/private/*.json` — three keys
   (`slug`, `sealed`, `envelope`) and nothing else. No title, dek, tags or TOC.
-- `yarn blog:process` prints the capability link:
+- Publish with **`yarn seal`** (vault → seal → guard), then commit and push.
+  It prints the capability link:
   `https://ejfox.com/blog/private/<slug>#k=<43 chars>`. The key is in the
   **fragment**, so it never reaches the VPS. `yarn seal:links` reprints them.
+- **Do NOT use `yarn blog` / `yarn blog:import` for this** — see the warning
+  below; `yarn seal:import` touches only the one gitignored directory.
 - Keys live in `.postkeys.json` (gitignored, 0600). **Back it up to 1Password
   — it is the only copy.** Per-post, and stable across edits so already-shared
   links keep working.
@@ -443,6 +446,29 @@ Link-protected posts on a public repo. Full design + threat model:
   be deleted on every run.
 - **A post must be born sealed.** Moving an already-committed post into
   `private/` leaves its plaintext in a public repo's history forever.
+
+### ⚠️ `yarn blog:import` is currently destructive (found 2026-09-15)
+
+**Do not run `yarn blog` or `yarn blog:import` until this is fixed.** It does
+`fs.rm(content/blog, {recursive:true})` and rebuilds from the vault, but the two
+have drifted:
+
+- The vault stores posts under **`blog/<year>/`**. `import.mjs` writes to
+  `path.join('content/blog', relativePath)`, so `blog/2022/x.md` lands at
+  **`content/blog/blog/2022/x.md`** — one level deeper than the 366 files
+  actually committed at `content/blog/2022/x.md`.
+- The vault has no top-level `reading/`, so **all ~100 `content/blog/reading/`
+  book notes are deleted** and never rebuilt. Same for most year folders.
+- Top-level vault files (`inbox.md`, `CLAUDE.md`, `Pamara-list.md`) get imported
+  as posts, because the whitelist is only checked on directories, not files.
+
+Net effect of one run: 366 tracked posts deleted, ~169 recreated in the wrong
+shape. Recoverable with `git checkout -- content/blog/` (and `content/backup/`
+holds a copy), but it will wipe any **untracked** WIP in `content/blog/`.
+
+Not yet fixed because the right fix depends on intent — whether the vault's
+`blog/` prefix should be stripped on import, or the repo should move to the
+nested layout. Sealed posts sidestep it entirely via `yarn seal:import`.
 
 ### PII Checklist (run before publishing new content)
 
