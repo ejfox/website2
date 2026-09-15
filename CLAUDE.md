@@ -414,6 +414,36 @@ gate imports it:
 
 When adding a new route that lists posts, add the `isScheduled()` check too.
 
+### Sealed Posts (2026-09-14)
+
+Link-protected posts on a public repo. Full design + threat model:
+`docs/SEALED-POSTS.md`. The short version:
+
+- Write it in the vault under `private/`. **The folder is the only switch** —
+  no frontmatter key protects a post, so no typo in one can publish a post.
+  The reverse *is* enforced: any `/protect|passw|secret|encrypt|seal|private/i`
+  key on a post OUTSIDE `private/` is a fatal build error.
+- `content/blog/private/` is **gitignored**, so the plaintext cannot be staged.
+  What gets committed is `content/processed/private/*.json` — three keys
+  (`slug`, `sealed`, `envelope`) and nothing else. No title, dek, tags or TOC.
+- `yarn blog:process` prints the capability link:
+  `https://ejfox.com/blog/private/<slug>#k=<43 chars>`. The key is in the
+  **fragment**, so it never reaches the VPS. `yarn seal:links` reprints them.
+- Keys live in `.postkeys.json` (gitignored, 0600). **Back it up to 1Password
+  — it is the only copy.** Per-post, and stable across edits so already-shared
+  links keep working.
+- Neither GitHub Actions nor the VPS ever holds a key or sees plaintext.
+  Decryption happens in the reader's browser (WebCrypto), which means sealed
+  posts **require JS and are not server-rendered** — a deliberate trade, see
+  the design doc.
+- Sealed posts are omitted from `manifest-lite.json` at write time, so every
+  manifest-derived surface (feeds, sitemap, search, tags, prerender) is clean
+  without a per-surface filter. Orphan cleanup is exempted for sealed JSON —
+  the source doesn't exist on CI, and without the exemption the envelope would
+  be deleted on every run.
+- **A post must be born sealed.** Moving an already-committed post into
+  `private/` leaves its plaintext in a public repo's history forever.
+
 ### PII Checklist (run before publishing new content)
 
 - No street addresses or house numbers in blog posts

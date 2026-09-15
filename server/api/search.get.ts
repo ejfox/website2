@@ -253,6 +253,12 @@ export default defineEventHandler(async (event) => {
 
             const contentSource = data.content || data.html || ''
 
+            // Sealed posts have no `contentSource` at all, so they'd fall out
+            // of the next check anyway — say it explicitly rather than relying
+            // on that, because "it happens to be empty" is not a guarantee
+            // anyone reviewing a future change would notice breaking.
+            if (data.sealed === true) continue
+
             // Skip if no content, hidden, unlisted, password-protected, or private content types
             if (!contentSource || data.metadata?.hidden) continue
 

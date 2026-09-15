@@ -80,3 +80,16 @@ content/rides/**/*.gpx
 
 # Feed/API disk caches — regenerated at runtime, can be large
 data/cache/
+
+# ── Sealed posts ──────────────────────────────────────────────────────────
+# Plaintext source for password/link-protected posts. This repo is PUBLIC, so
+# this is the wall: `git add -A` cannot stage an ignored file, which makes
+# "the source never enters the repo" true by construction rather than by
+# remembering. The vault is the real source of truth; what gets committed is
+# content/processed/private/*.json, which is an opaque AES-256-GCM envelope.
+content/blog/private/
+
+# The 256-bit key for every sealed post, one per slug. The ONLY copy besides
+# the links already shared — not in GitHub Actions, not on the VPS, not here.
+# Back it up to 1Password. See scripts/build/sealKeyring.mjs.
+.postkeys.json

@@ -20,6 +20,12 @@ const SOURCE_DIR =
 // drafts/ is INTENTIONALLY EXCLUDED - it's private thinking space
 const WHITELISTED_FOLDERS = [
   'blog',
+  // Sealed posts. Imported to content/blog/private/, which is GITIGNORED —
+  // the plaintext reaches the renderer and stops there. Only the AES envelope
+  // in content/processed/private/ is ever committed. This folder is the ONLY
+  // switch that makes a post private: no frontmatter key does, so no typo in
+  // one can publish a post. See utils/postSeal.mjs.
+  'private',
   // 'week-notes', // DISABLED: Caused chilling effect - enable explicitly if needed
   'robots',
   'reading',
