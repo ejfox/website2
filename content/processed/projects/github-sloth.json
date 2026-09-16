@@ -11,7 +11,7 @@
       "Rust"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "cli",
       "terminal",

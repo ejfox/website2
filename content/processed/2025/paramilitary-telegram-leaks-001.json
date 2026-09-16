@@ -7,14 +7,13 @@
     "modified": "2025-03-16T01:25:05.000Z",
     "title": "Processing Telegram Leaks for Fast Web Visualization",
     "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
-    "inprogress": true,
     "tags": [
       "data",
       "dataviz",
       "journalism",
       "politics"
     ],
-    "words": 782,
+    "words": 725,
     "images": 6,
     "imageDetails": {
       "total": 6,

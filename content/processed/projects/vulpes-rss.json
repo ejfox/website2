@@ -13,7 +13,7 @@
       "Kitty Graphics Protocol"
     ],
     "state": "doing",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "cli",
       "terminal",

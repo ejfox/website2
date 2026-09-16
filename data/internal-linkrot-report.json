@@ -1,18 +1,130 @@
 {
-  "timestamp": "2026-07-27T13:39:54.451Z",
+  "timestamp": "2026-09-16T17:27:47.147Z",
   "summary": {
-    "filesScanned": 365,
-    "internalLinks": 55,
-    "dead": 2,
-    "affectedPosts": 2,
+    "filesScanned": 366,
+    "internalLinks": 81,
+    "dead": 18,
+    "affectedPosts": 13,
     "withSuggestion": 0
   },
   "dead": [
+    {
+      "source": "2022/2022-prototyping-toolkit.md",
+      "line": 18,
+      "target": "blog/2022/my-vscode-setup",
+      "href": "/blog/2022/my-vscode-setup",
+      "suggestion": null
+    },
+    {
+      "source": "2022/art-setup.md",
+      "line": 49,
+      "target": "blog/2022/the-studio",
+      "href": "/blog/2022/the-studio",
+      "suggestion": null
+    },
+    {
+      "source": "2022/art-setup.md",
+      "line": 50,
+      "target": "blog/2022/2022-prototyping-toolkit",
+      "href": "/blog/2022/2022-prototyping-toolkit",
+      "suggestion": null
+    },
+    {
+      "source": "2022/art-setup.md",
+      "line": 51,
+      "target": "drafts/garment-dying-experiments",
+      "href": "/blog/drafts/garment-dying-experiments",
+      "suggestion": null
+    },
+    {
+      "source": "2022/art-setup.md",
+      "line": 53,
+      "target": "drafts/soapmaking",
+      "href": "/blog/drafts/soapmaking",
+      "suggestion": null
+    },
+    {
+      "source": "2022/everyone-should-code-data-literacy.md",
+      "line": 26,
+      "target": "drafts/approach-to-learning",
+      "href": "/blog/drafts/approach-to-learning",
+      "suggestion": null
+    },
+    {
+      "source": "2022/experiments-with-live-looping-performance.md",
+      "line": 23,
+      "target": "blog/2019/generative-music-iteration",
+      "href": "/blog/2019/generative-music-iteration",
+      "suggestion": null
+    },
+    {
+      "source": "2022/food.md",
+      "line": 77,
+      "target": "drafts/_stale/cooking-ramen-experiments",
+      "href": "/blog/drafts/_stale/cooking-ramen-experiments",
+      "suggestion": null
+    },
+    {
+      "source": "2022/my-vscode-setup.md",
+      "line": 17,
+      "target": "blog/2022/2022-prototyping-toolkit",
+      "href": "/blog/2022/2022-prototyping-toolkit",
+      "suggestion": null
+    },
+    {
+      "source": "2022/the-art-of-coding.md",
+      "line": 29,
+      "target": "blog/2023/design-philosophy",
+      "href": "/blog/2023/design-philosophy",
+      "suggestion": null
+    },
+    {
+      "source": "2022/the-art-of-coding.md",
+      "line": 31,
+      "target": "blog/2022/2022-prototyping-toolkit",
+      "href": "/blog/2022/2022-prototyping-toolkit",
+      "suggestion": null
+    },
+    {
+      "source": "2022/the-art-of-coding.md",
+      "line": 33,
+      "target": "blog/2022/my-vscode-setup",
+      "href": "/blog/2022/my-vscode-setup",
+      "suggestion": null
+    },
+    {
+      "source": "2023/camera-setup.md",
+      "line": 31,
+      "target": "blog/2023/film-development",
+      "href": "/blog/2023/film-development",
+      "suggestion": null
+    },
+    {
+      "source": "2023/crypto-ai-colonization.md",
+      "line": 23,
+      "target": "blog/2023/hacker-culture",
+      "href": "/blog/2023/hacker-culture",
+      "suggestion": null
+    },
     {
       "source": "2023/film-development.md",
       "line": 17,
       "target": "blog/2023/camera-setup",
       "href": "/blog/2023/camera-setup",
+      "suggestion": null
+    },
+    {
+      "source": "2023/selecting-a-cms.md",
+      "line": 40,
+      "target": "blog/2022/2022-prototyping-toolkit",
+      "href": "/blog/2022/2022-prototyping-toolkit",
+      "suggestion": null
+    },
+    {
+      "source": "2025/hidden-networks-of-warmth.md",
+      "line": 90,
+      "target": "home/14pinest",
+      "href": "/blog/home/14pinest",
       "suggestion": null
     },
     {

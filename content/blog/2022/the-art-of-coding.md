@@ -13,7 +13,7 @@ tags:
 
 #programming #personal #process
 
-![Architect surrounded by architectural floor plans and material samples, reviewing design layouts and building specifications.](https://res.cloudinary.com/ejf/image/upload/v1679587770/610144184_A_curious_man_in_a_flatbrim_baseball_cap_and_a_short_cropped_brown_beard__flying_over_a_sea_of_blog_.png)
+![](https://res.cloudinary.com/ejf/image/upload/v1679587770/610144184_A_curious_man_in_a_flatbrim_baseball_cap_and_a_short_cropped_brown_beard__flying_over_a_sea_of_blog_.png)
 
 From personal projects to collaborations, paid work to passion projects, lets explore how I write code to achieve specific goals. We'll discuss the importance of clear goals, user stories, acceptance criteria, deadlines, and our core guiding principles.
 
@@ -26,7 +26,11 @@ The rough shape of the project changes depending on a few factors:
 
 For more less-technical specifics around project management in general (not just code): [[how-to-run-a-project]]
 
-For work philosophy [[blog/2022/joy-driven-development]]
+For design philosophy [[blog/2023/design-philosophy]] and work philosophy [[blog/2022/joy-driven-development]]
+
+The tools I use to prototype quickly: [[blog/2022/2022-prototyping-toolkit]]
+
+My coding setup, including theme and plugins: [[blog/2022/my-vscode-setup]]
 
 ## Establish a clear goal
 

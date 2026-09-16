@@ -12,12 +12,13 @@
       "SpatiaLite"
     ],
     "state": "deployed",
-    "aiInvolvement": "human-only",
+    "ai-involvement": "human-only",
     "tags": [
       "data",
       "climate",
       "dataviz"
     ],
+    "about": "[[2022-climate-trace-exploration]]",
     "words": 61,
     "images": 1,
     "imageDetails": {

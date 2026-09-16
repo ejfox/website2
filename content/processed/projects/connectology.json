@@ -16,13 +16,14 @@
       "Clerk"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "context": "collaborative",
     "tags": [
       "dataviz",
       "network",
       "web"
     ],
+    "about": "[[project-notes/connectology]]",
     "words": 67,
     "images": 1,
     "imageDetails": {

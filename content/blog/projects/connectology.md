@@ -11,6 +11,7 @@ tags:
   - dataviz
   - network
   - web
+about: "[[project-notes/connectology]]"
 ---
 
 <!-- TODO (EJ): add your voice — factual stub. (You confirmed this can be shared.) Draft. -->

@@ -12,6 +12,7 @@ tags:
   - ai
   - product
   - nodejs
+about: "[[project-notes/coach-artie]]"
 ---
 
 ![Coach Artie landing page — "Why Coach Artie?"](https://res.cloudinary.com/ejf/image/upload/v1743818370/Screenshot_2025-04-04_at_9.59.08_PM.png)

@@ -8,6 +8,7 @@ tags:
   - photography
   - watercolor
   - inspiration
+unlisted: true
 ---
 
 # Watercolor Sketching in NYC

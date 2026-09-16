@@ -14,7 +14,7 @@
       "Public Health"
     ],
     "state": "deployed",
-    "aiInvolvement": "human-only",
+    "ai-involvement": "human-only",
     "context": "client",
     "tags": [
       "covid",

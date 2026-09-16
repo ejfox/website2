@@ -14,7 +14,7 @@
       "OSINT"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "macos",
       "osint",

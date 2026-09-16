@@ -1,5 +1,4 @@
 ---
-hidden: false
 type: photos
 date: 2016-01-01T10:00:00.000Z
 modified: 2024-08-01T14:21:50.000Z

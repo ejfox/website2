@@ -9,6 +9,7 @@ tags:
   - data
   - climate
   - dataviz
+about: "[[2022-climate-trace-exploration]]"
 ---
 
 <!-- TODO (EJ): add your voice — factual stub, not your words. Draft until ready. -->
