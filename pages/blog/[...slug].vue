@@ -144,12 +144,20 @@ const relatedPosts = computed(() => {
     .slice(0, 3)
 })
 
-const tocChildren = computed(
-  () =>
-    post.value?.toc?.[0]?.children ||
-    post.value?.metadata?.toc?.[0]?.children ||
-    []
-)
+// Flatten the TOC tree: top-level headings numbered, their children indented.
+// Legacy posts wrap everything in a single h1 (the title) — unwrap it so the
+// h2s stay top-level.
+const tocChildren = computed(() => {
+  const toc = post.value?.toc || post.value?.metadata?.toc || []
+  const roots =
+    toc.length === 1 && toc[0]?.level === 'h1' ? toc[0].children || [] : toc
+
+  let number = 0
+  return roots.flatMap((item) => [
+    { ...item, depth: 0, number: String(++number).padStart(2, '0') },
+    ...(item.children || []).map((child) => ({ ...child, depth: 1 })),
+  ])
+})
 
 // --- Refs & State ---
 const articleContent = ref(null)

@@ -66,21 +66,20 @@ The three destructive bugs are fixed (see CLAUDE.md for the detail): the
 vault-root files. It now removes only the destinations it rebuilds, so nothing
 unrecoverable happens.
 
-**What's left is a content reconciliation, and it is EJ's call, not a code fix.**
-A real import against today's vault produces:
+**`blog:import` now aborts rather than publishing drafts.** `processFile`
+writes the vault file's raw bytes and never re-serialises frontmatter, so an
+import reverts every repo-side edit — including `draft: true` on 15 posts that
+are undrafted in the vault. `assertNoDraftWouldBePublished` stops the run and
+names them. That was a silent catastrophic failure; it is now a loud refusal.
 
-- **~163 frontmatter reversions** — a repo-side hygiene pass (`33b0879a`)
-  stripped dead fields and fixed casing; the vault never received it, so
-  importing reverts it (`type: words` → `type: post`, `hidden: false` returns).
-- **14 deletions** — `2026/the-knife.md` and 13 `robots/**` notes that are
-  committed but carry `share: false`, so the importer skips them and now
-  leaves them deleted rather than silently restoring them.
-- **2 new posts** waiting in the vault: `2026/asu-devblog.md`,
-  `2026/vibe-coding-ps5-controller.md`.
+The remaining reconciliation (all 163 matched files differ in frontmatter; 39
+differ in body, every one a repo-side improvement) is **per-key normalisation
+inside `import.mjs`** — not a vault rewrite. Rules and evidence are in
+CLAUDE.md; live numbers from `node scripts/meta/frontmatter-sync-report.mjs`.
 
-Either push the hygiene pass back into the vault so the two agree, or accept
-the reversion and re-run the hygiene pass afterwards. Until that's decided, the
-rule is: import, then **read `git status` before committing**.
+Two vault-ahead items exist, both images, worth porting by hand:
+`projects/glasses-hud.md`, `projects/openrouter-census.md`. Two new posts wait
+in the vault: `2026/asu-devblog.md`, `2026/vibe-coding-ps5-controller.md`.
 
 Sealed posts sidestep all of it via `yarn seal:import`, which touches one
 gitignored directory and nothing else.
