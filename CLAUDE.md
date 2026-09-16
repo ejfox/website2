@@ -467,24 +467,36 @@ Link-protected posts on a public repo. Full design + threat model:
   `CLAUDE.md` and `Pamara-list.md` were imported as blog posts. Now gated by
   `WHITELISTED_ROOT_FILES`.
 
-**It is still not safe to run blind.** A real import against today's vault
-leaves the tree needing review:
+**`blog:import` now REFUSES to run** — and that is correct, not a bug.
 
-- **~163 frontmatter reversions.** A repo-side hygiene pass
-  (`33b0879a`) stripped dead fields and fixed casing; the vault never got it,
-  so re-importing reverts it (e.g. `type: words` → `type: post`,
-  `hidden: false` reappears).
-- **14 deletions.** `2026/the-knife.md` plus 13 `robots/**` notes that are
-  committed but carry `share: false`, so the importer skips them — and, now
-  that it only manages what it rebuilds, leaves them deleted rather than
-  restored.
-- **2 genuinely new posts** waiting in the vault (`2026/asu-devblog.md`,
-  `2026/vibe-coding-ps5-controller.md`).
+`processFile` writes the vault file's **raw bytes**; it never re-serialises the
+frontmatter it parsed. An import is therefore a wholesale revert of every
+repo-side edit. Measured against today's vault, all 163 matched files differ:
 
-Reconciling those is a **content decision, not a code fix** — either bring the
-hygiene pass back into the vault, or accept the reversion. Until then: run
-`yarn blog:import`, then **review `git status` before committing**. It will no
-longer destroy anything unrecoverable.
+- **15 posts are `draft: true` in the repo and undrafted in the vault.** An
+  import publishes all 15. A guard (`assertNoDraftWouldBePublished`) now aborts
+  before writing a byte and names them. Fix by adding `draft: true` to those
+  vault notes, or reconcile properly.
+- **98 files** have `aiInvolvement` (vault) vs `ai-involvement` (repo, the
+  corrected key); **29** have a dead `hidden: false` the repo stripped; **27**
+  revert `type: photos` → `post`; **70** lose repo tag-typo normalisation.
+- **39 bodies differ, and every difference is a repo-side improvement**:
+  generated alt text, Cloudinary rehosting, dead-wikilink removal, a PII
+  removal (`[[home/14pinest]]`). Only two vault-ahead items exist, both images
+  (`projects/glasses-hud.md`, `projects/openrouter-census.md`).
+
+So "vault wins" is wrong — the vault is *behind* on content, not ahead. But
+"repo wins, push to vault" is also wrong: the vault's `[[drafts/…]]` wikilinks
+are *working links in Obsidian*, dead only in the repo's rendering context, and
+its PII is intentional in a private note.
+
+**The fix is per-key normalisation inside `import.mjs`**, vault stays
+read-only, bodies never overwritten wholesale. Rules: repo wins for
+`ai-involvement` rename, `hidden: false` drop, `type` (already derived),
+`draft`, `gear`, normalised `tags`/`dek`; vault wins for `unlisted` and
+`about`. Not yet implemented.
+
+Run `node scripts/meta/frontmatter-sync-report.mjs` for the current numbers.
 
 Sealed posts sidestep all of this via `yarn seal:import`, which touches one
 gitignored directory.

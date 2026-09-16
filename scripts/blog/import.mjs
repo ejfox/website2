@@ -74,27 +74,6 @@ const isWhitelisted = (relPath) => {
 const contentRelativePath = (relPath) =>
   relPath.startsWith(`blog${path.sep}`) ? relPath.slice(5) : relPath
 
-/**
- * The top-level entries under `content/blog/` that this import is responsible
- * for — derived from what it is actually about to write.
- *
- * This is the difference between "rebuild the tree" and "destroy the tree".
- * The importer used to `rm -rf content/blog` wholesale, on the assumption that
- * the vault is the complete source of truth. That stopped being true: the 97
- * `reading/` notes were moved to the vault's `.trash` in June 2026 and now
- * exist ONLY in the repo, and `week-notes/` is deliberately un-whitelisted
- * while 91 of them are committed. Wiping everything deleted all 188 and
- * rebuilt none of them.
- */
-const managedDestinations = (files) => {
-  const managed = new Set()
-  for (const file of files) {
-    const rel = contentRelativePath(path.relative(SOURCE_DIR, file))
-    managed.add(rel.split(path.sep)[0])
-  }
-  return managed
-}
-
 const stats = {
   filesProcessed: 0,
   filesAdded: [],
@@ -232,16 +211,79 @@ async function findMarkdownFiles() {
   return allFiles
 }
 
+/**
+ * Refuse to import if doing so would strip `draft: true` off a post that is
+ * currently a draft in the repo.
+ *
+ * `processFile` writes the vault file's raw bytes — it never re-serialises the
+ * frontmatter it parsed — so an import is a wholesale revert of every
+ * repo-side edit, frontmatter included. 15 posts are `draft: true` in the repo
+ * and carry no draft flag in the vault, which means one `yarn blog:import`
+ * silently publishes all 15. Nothing downstream catches it: `blog:process`
+ * happily renders them, the manifest lists them, and the only evidence is 15
+ * lines in a `git status` that also shows ~160 other modified files.
+ *
+ * "Review the diff before committing" is not a control when the diff is that
+ * noisy and the failure is that quiet. This is the repo's fail-closed-and-loud
+ * rule applied to the one difference that publishes private writing.
+ *
+ * Deliberately NOT auto-fixed here: merging frontmatter per key is a real
+ * design change with judgement calls about which side wins. This just stops
+ * the bleeding, and it runs in DRY_RUN too so you can see the problem without
+ * risking the tree.
+ */
+async function assertNoDraftWouldBePublished(files, spinner) {
+  const isDraft = (raw) => {
+    try {
+      return matter(raw).data?.draft === true
+    } catch {
+      return false
+    }
+  }
+
+  const offenders = []
+  for (const filePath of files) {
+    const contentPath = contentRelativePath(path.relative(SOURCE_DIR, filePath))
+    const repoPath = path.join(dirs.content, contentPath)
+
+    const repoRaw = await fs.readFile(repoPath, 'utf8').catch(() => null)
+    if (repoRaw === null || !isDraft(repoRaw)) continue
+
+    const vaultRaw = await fs.readFile(filePath, 'utf8').catch(() => null)
+    if (vaultRaw !== null && !isDraft(vaultRaw)) offenders.push(contentPath)
+  }
+
+  if (!offenders.length) return
+
+  spinner.fail('Import aborted — would publish drafts')
+  console.error(
+    chalk.red.bold(
+      `\n🚨 ${offenders.length} post(s) are drafts in the repo but not in the vault\n`
+    )
+  )
+  for (const slug of offenders) console.error(chalk.red(`  ${slug}`))
+  console.error(
+    chalk.yellow(
+      '\nImporting overwrites each file with the vault copy verbatim, so every\n' +
+        'one of these would lose `draft: true` and publish on the next deploy.\n\n' +
+        'Fix by making the vault agree — add `draft: true` to those notes — or\n' +
+        'reconcile the two properly (see the frontmatter divergence section in\n' +
+        'CLAUDE.md). Re-run when they match.\n'
+    )
+  )
+  process.exit(1)
+}
+
 async function main() {
   const isDryRun = process.env.DRY_RUN === 'true'
   const spinner = ora('Starting import...').start()
 
   try {
-    // Find the files FIRST, so the clean step can be scoped to what this run
-    // actually manages. Order matters: wiping before knowing what you're about
-    // to write is how 188 posts that live only in the repo got deleted.
     const files = await findMarkdownFiles()
     if (!files.length) throw new Error('No markdown files found')
+
+    // Before writing a single byte.
+    await assertNoDraftWouldBePublished(files, spinner)
 
     if (!isDryRun) {
       const contentExists = await fs
@@ -253,18 +295,22 @@ async function main() {
         await fs.cp(dirs.content, dirs.backup, { recursive: true })
       }
 
-      // Remove only the destinations this import rebuilds, so a post that
-      // exists solely in the repo — every `reading/` note, every committed
-      // week-note — is left alone instead of deleted and never restored.
-      const managed = managedDestinations(files)
-      for (const entry of managed) {
-        await fs.rm(path.join(dirs.content, entry), {
-          recursive: true,
-          force: true,
-        })
-      }
+      // This import deletes NOTHING. It only overwrites what it writes.
+      //
+      // The tempting middle ground — wipe just the top-level destinations this
+      // run rebuilds — is still wrong, because a managed destination is not the
+      // same thing as a vault-owned one. `robots/` is imported, but all 13 of
+      // its vault files are `share: false`, so the 13 files actually living in
+      // `content/blog/robots/{anytime,old,someday}/` came from nowhere the
+      // import can see; `2026/the-knife.md` isn't in the vault at all. Scoped
+      // or unscoped, a wipe can't tell "deleted in the vault" from "only ever
+      // existed in the repo" — and guessing wrong destroys posts (202 of them,
+      // counting the un-whitelisted `week-notes/` and the trashed `reading/`).
+      //
+      // The cost of deleting nothing is a stale copy left behind when a post is
+      // renamed or deleted in the vault. That shows up in `git status` and is
+      // one `git rm` away from fixed. Prefer the failure mode you can see.
       await fs.mkdir(dirs.content, { recursive: true })
-      debug(`Managed destinations: ${[...managed].sort().join(', ')}`)
     }
 
     spinner.text = `Processing ${files.length} files...`

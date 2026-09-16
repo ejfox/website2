@@ -74,12 +74,19 @@ usePageSeo({
 const { tocTarget } = useTOC()
 
 // Extract TOC from project data
+// Flatten the TOC tree: top-level headings numbered, their children indented.
+// Legacy content wraps everything in a single h1 (the title) — unwrap it so the
+// h2s stay top-level.
 const tocChildren = computed(() => {
-  return (
-    project.value?.toc?.[0]?.children ||
-    project.value?.metadata?.toc?.[0]?.children ||
-    []
-  )
+  const toc = project.value?.toc || project.value?.metadata?.toc || []
+  const roots =
+    toc.length === 1 && toc[0]?.level === 'h1' ? toc[0].children || [] : toc
+
+  let number = 0
+  return roots.flatMap((item) => [
+    { ...item, depth: 0, number: String(++number).padStart(2, '0') },
+    ...(item.children || []).map((child) => ({ ...child, depth: 1 })),
+  ])
 })
 
 // Track active section for scroll highlighting
@@ -218,9 +225,9 @@ onMounted(() => {
             <div class="pl-0 relative">
               <ul class="space-y-0">
                 <li
-                  v-for="(child, index) in tocChildren"
+                  v-for="child in tocChildren"
                   :key="child.slug"
-                  class="group relative"
+                  :class="['group relative', child.depth ? 'pl-6' : '']"
                 >
                   <a
                     :href="`#${child.slug}`"
@@ -236,7 +243,7 @@ onMounted(() => {
                           : 'opacity-40'
                       "
                     >
-                      {{ String(index + 1).padStart(2, '0') }}
+                      {{ child.number || '' }}
                     </span>
 
                     <!-- Section title -->
@@ -248,7 +255,7 @@ onMounted(() => {
                           : 'font-normal'
                       "
                     >
-                      {{ child.title }}
+                      {{ child.text }}
                     </span>
                   </a>
                 </li>
