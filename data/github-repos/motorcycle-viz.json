@@ -1,0 +1,2118 @@
+{
+  "name": "motorcycle-viz",
+  "description": "Meta-video visualizations from 3.5 years of motorcycle helmet-cam footage (294 clips, 78 rides, Hudson Valley 2021-2024)",
+  "url": "https://github.com/ejfox/motorcycle-viz",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "HTML",
+  "languageColor": "#e34c26",
+  "languages": {
+    "HTML": 109694
+  },
+  "diskUsage": 43035,
+  "fileTree": {
+    "files": [
+      {
+        "path": "campbell_lowres.png",
+        "size": 114898
+      },
+      {
+        "path": "cinema_redux.png",
+        "size": 150790
+      },
+      {
+        "path": "cinema_redux_frames.png",
+        "size": 10224176
+      },
+      {
+        "path": "dusk_anthology_contact.png",
+        "size": 12231339
+      },
+      {
+        "path": "dusk_gradient.png",
+        "size": 854018
+      },
+      {
+        "path": "index.html",
+        "size": 109694
+      },
+      {
+        "path": "salavon_2021.png",
+        "size": 188188
+      },
+      {
+        "path": "salavon_2022.png",
+        "size": 186532
+      },
+      {
+        "path": "salavon_2024.png",
+        "size": 234779
+      },
+      {
+        "path": "salavon_composite.png",
+        "size": 219773
+      },
+      {
+        "path": "salavon_overall.png",
+        "size": 163246
+      },
+      {
+        "path": "slit_scan.png",
+        "size": 209441
+      },
+      {
+        "path": "slit_scan_horizontal.png",
+        "size": 200310
+      },
+      {
+        "path": "thumbs/210417000__095445NA.MP4.jpg",
+        "size": 147294
+      },
+      {
+        "path": "thumbs/210417000__142952NA.MP4.jpg",
+        "size": 114369
+      },
+      {
+        "path": "thumbs/210417000__145605NA.MP4.jpg",
+        "size": 112100
+      },
+      {
+        "path": "thumbs/210417000__152011NA.MP4.jpg",
+        "size": 125219
+      },
+      {
+        "path": "thumbs/210420000__090700NA.MP4.jpg",
+        "size": 128582
+      },
+      {
+        "path": "thumbs/210423000__171833NA.MP4.jpg",
+        "size": 138860
+      },
+      {
+        "path": "thumbs/210423000__172909NA.MP4.jpg",
+        "size": 109581
+      },
+      {
+        "path": "thumbs/210423000__173916NA.MP4.jpg",
+        "size": 123494
+      },
+      {
+        "path": "thumbs/210423000__184758NA.MP4.jpg",
+        "size": 114551
+      },
+      {
+        "path": "thumbs/210424000__132812NA.MP4.jpg",
+        "size": 138145
+      },
+      {
+        "path": "thumbs/210424000__135425NA.MP4.jpg",
+        "size": 123905
+      },
+      {
+        "path": "thumbs/210428000__171016NA.MP4.jpg",
+        "size": 125489
+      },
+      {
+        "path": "thumbs/210522000__153422NA.MP4.jpg",
+        "size": 107633
+      },
+      {
+        "path": "thumbs/210522000__155350NA.MP4.jpg",
+        "size": 107917
+      },
+      {
+        "path": "thumbs/210523000__153056NA.MP4.jpg",
+        "size": 108660
+      },
+      {
+        "path": "thumbs/210523000__160909NA.MP4.jpg",
+        "size": 100718
+      },
+      {
+        "path": "thumbs/210523000__165706NA.MP4.jpg",
+        "size": 55248
+      },
+      {
+        "path": "thumbs/210523000__173132NA.MP4.jpg",
+        "size": 94936
+      },
+      {
+        "path": "thumbs/210602000__201302NA.MP4.jpg",
+        "size": 72449
+      },
+      {
+        "path": "thumbs/210602000__203913NA.MP4.jpg",
+        "size": 28923
+      },
+      {
+        "path": "thumbs/210602000__205915NA.MP4.jpg",
+        "size": 9951
+      },
+      {
+        "path": "thumbs/210605000__201433NA.MP4.jpg",
+        "size": 70989
+      },
+      {
+        "path": "thumbs/210606000__151429NA.MP4.jpg",
+        "size": 123422
+      },
+      {
+        "path": "thumbs/210606000__153007NA.MP4.jpg",
+        "size": 112511
+      },
+      {
+        "path": "thumbs/210606000__153058NA.MP4.jpg",
+        "size": 106471
+      },
+      {
+        "path": "thumbs/210606000__155905NA.MP4.jpg",
+        "size": 95247
+      },
+      {
+        "path": "thumbs/210606000__193205NA.MP4.jpg",
+        "size": 91670
+      },
+      {
+        "path": "thumbs/210606000__195823NA.MP4.jpg",
+        "size": 81214
+      },
+      {
+        "path": "thumbs/210606000__202435NA.MP4.jpg",
+        "size": 63813
+      },
+      {
+        "path": "thumbs/210606000__204722NA.MP4.jpg",
+        "size": 28400
+      },
+      {
+        "path": "thumbs/210609000__200414NA.MP4.jpg",
+        "size": 75913
+      },
+      {
+        "path": "thumbs/210609000__203209NA.MP4.jpg",
+        "size": 4050
+      },
+      {
+        "path": "thumbs/210612000__194431NA.MP4.jpg",
+        "size": 91691
+      },
+      {
+        "path": "thumbs/210612000__201423NA.MP4.jpg",
+        "size": 51037
+      },
+      {
+        "path": "thumbs/210612000__204037NA.MP4.jpg",
+        "size": 45837
+      },
+      {
+        "path": "thumbs/210612000__210126NA.MP4.jpg",
+        "size": 10851
+      },
+      {
+        "path": "thumbs/210619000__162014NA.MP4.jpg",
+        "size": 117375
+      },
+      {
+        "path": "thumbs/210619000__164627NA.MP4.jpg",
+        "size": 85877
+      },
+      {
+        "path": "thumbs/210625000__172038NA.MP4.jpg",
+        "size": 119747
+      },
+      {
+        "path": "thumbs/210625000__174650NA.MP4.jpg",
+        "size": 102763
+      },
+      {
+        "path": "thumbs/210625000__181259NA.MP4.jpg",
+        "size": 61934
+      },
+      {
+        "path": "thumbs/210625000__184305NA.MP4.jpg",
+        "size": 81208
+      },
+      {
+        "path": "thumbs/210715000__205414NA.MP4.jpg",
+        "size": 7625
+      },
+      {
+        "path": "thumbs/210716000__134029NA.MP4.jpg",
+        "size": 59675
+      },
+      {
+        "path": "thumbs/210730000__111404NA.MP4.jpg",
+        "size": 102351
+      },
+      {
+        "path": "thumbs/210730000__114016NA.MP4.jpg",
+        "size": 135701
+      },
+      {
+        "path": "thumbs/210807000__142004NA.MP4.jpg",
+        "size": 108801
+      },
+      {
+        "path": "thumbs/210807000__153141NA.MP4.jpg",
+        "size": 85676
+      },
+      {
+        "path": "thumbs/210807000__155912NA.MP4.jpg",
+        "size": 111057
+      },
+      {
+        "path": "thumbs/210812000__092952NA.MP4.jpg",
+        "size": 125622
+      },
+      {
+        "path": "thumbs/210814000__130744NA.MP4.jpg",
+        "size": 99088
+      },
+      {
+        "path": "thumbs/210814000__133357NA.MP4.jpg",
+        "size": 114276
+      },
+      {
+        "path": "thumbs/210814000__140354NA.MP4.jpg",
+        "size": 123023
+      },
+      {
+        "path": "thumbs/210815000__224428NA.MP4.jpg",
+        "size": 20532
+      },
+      {
+        "path": "thumbs/210815000__231631NA.MP4.jpg",
+        "size": 8920
+      },
+      {
+        "path": "thumbs/210825000__094542NA.MP4.jpg",
+        "size": 29338
+      },
+      {
+        "path": "thumbs/210825000__100825NA.MP4.jpg",
+        "size": 117920
+      },
+      {
+        "path": "thumbs/210902000__193826NA.MP4.jpg",
+        "size": 9669
+      },
+      {
+        "path": "thumbs/210902000__200739NA.MP4.jpg",
+        "size": 39361
+      },
+      {
+        "path": "thumbs/210906000__160513NA.MP4.jpg",
+        "size": 89299
+      },
+      {
+        "path": "thumbs/210906000__164257NA.MP4.jpg",
+        "size": 87399
+      },
+      {
+        "path": "thumbs/210906000__203049NA.MP4.jpg",
+        "size": 11452
+      },
+      {
+        "path": "thumbs/210911000__131659NA.MP4.jpg",
+        "size": 99183
+      },
+      {
+        "path": "thumbs/210916000__192853NA.MP4.jpg",
+        "size": 9694
+      },
+      {
+        "path": "thumbs/210918000__193755NA.MP4.jpg",
+        "size": 11998
+      },
+      {
+        "path": "thumbs/210923000__093729NA.MP4.jpg",
+        "size": 113095
+      },
+      {
+        "path": "thumbs/210923000__120614NA.MP4.jpg",
+        "size": 84227
+      },
+      {
+        "path": "thumbs/210924000__132018NA.MP4.jpg",
+        "size": 97623
+      },
+      {
+        "path": "thumbs/210924000__134632NA.MP4.jpg",
+        "size": 135698
+      },
+      {
+        "path": "thumbs/210925000__124025NA.MP4.jpg",
+        "size": 99277
+      },
+      {
+        "path": "thumbs/210925000__130640NA.MP4.jpg",
+        "size": 106236
+      },
+      {
+        "path": "thumbs/210925000__134958NA.MP4.jpg",
+        "size": 138956
+      },
+      {
+        "path": "thumbs/210926000__185812NA.MP4.jpg",
+        "size": 43246
+      },
+      {
+        "path": "thumbs/211009000__120508NA.MP4.jpg",
+        "size": 115654
+      },
+      {
+        "path": "thumbs/211009000__123121NA.MP4.jpg",
+        "size": 114844
+      },
+      {
+        "path": "thumbs/211009000__124157NA.MP4.jpg",
+        "size": 111237
+      },
+      {
+        "path": "thumbs/211009000__140401NA.MP4.jpg",
+        "size": 119874
+      },
+      {
+        "path": "thumbs/211015000__144646NA.MP4.jpg",
+        "size": 126655
+      },
+      {
+        "path": "thumbs/211015000__150422NA.MP4.jpg",
+        "size": 119398
+      },
+      {
+        "path": "thumbs/211015000__154157NA.MP4.jpg",
+        "size": 169251
+      },
+      {
+        "path": "thumbs/211015000__154441NA.MP4.jpg",
+        "size": 104494
+      },
+      {
+        "path": "thumbs/211015000__161603NA.MP4.jpg",
+        "size": 127160
+      },
+      {
+        "path": "thumbs/211021000__105614NA.MP4.jpg",
+        "size": 113485
+      },
+      {
+        "path": "thumbs/211021000__112228NA.MP4.jpg",
+        "size": 85727
+      },
+      {
+        "path": "thumbs/211106000__172045NA.MP4.jpg",
+        "size": 71082
+      },
+      {
+        "path": "thumbs/211108000__102517NA.MP4.jpg",
+        "size": 114427
+      },
+      {
+        "path": "thumbs/211108000__105129NA.MP4.jpg",
+        "size": 78936
+      },
+      {
+        "path": "thumbs/211109000__154913NA.MP4.jpg",
+        "size": 70273
+      },
+      {
+        "path": "thumbs/211109000__161601NA.MP4.jpg",
+        "size": 63794
+      },
+      {
+        "path": "thumbs/211115000__110942NA.MP4.jpg",
+        "size": 93785
+      },
+      {
+        "path": "thumbs/211115000__113557NA.MP4.jpg",
+        "size": 112634
+      },
+      {
+        "path": "thumbs/211115000__152738NA.MP4.jpg",
+        "size": 101892
+      },
+      {
+        "path": "thumbs/211115000__155404NA.MP4.jpg",
+        "size": 93691
+      },
+      {
+        "path": "thumbs/211213000__144829LA.MP4.jpg",
+        "size": 73781
+      },
+      {
+        "path": "thumbs/211213000__145130LA.MP4.jpg",
+        "size": 89541
+      },
+      {
+        "path": "thumbs/211213000__145430LA.MP4.jpg",
+        "size": 87786
+      },
+      {
+        "path": "thumbs/211213000__145731LA.MP4.jpg",
+        "size": 105454
+      },
+      {
+        "path": "thumbs/211213000__150031LA.MP4.jpg",
+        "size": 82838
+      },
+      {
+        "path": "thumbs/211213000__150332LA.MP4.jpg",
+        "size": 91506
+      },
+      {
+        "path": "thumbs/211213000__150632LA.MP4.jpg",
+        "size": 98218
+      },
+      {
+        "path": "thumbs/211213000__150933LA.MP4.jpg",
+        "size": 57909
+      },
+      {
+        "path": "thumbs/211213000__151233LA.MP4.jpg",
+        "size": 83535
+      },
+      {
+        "path": "thumbs/220217000__104611LA.MP4.jpg",
+        "size": 88646
+      },
+      {
+        "path": "thumbs/220217000__105533LA.MP4.jpg",
+        "size": 88767
+      },
+      {
+        "path": "thumbs/220217000__105834LA.MP4.jpg",
+        "size": 84683
+      },
+      {
+        "path": "thumbs/220217000__110135LA.MP4.jpg",
+        "size": 93232
+      },
+      {
+        "path": "thumbs/220217000__110435LA.MP4.jpg",
+        "size": 94450
+      },
+      {
+        "path": "thumbs/220217000__110736LA.MP4.jpg",
+        "size": 90860
+      },
+      {
+        "path": "thumbs/220217000__111036LA.MP4.jpg",
+        "size": 87080
+      },
+      {
+        "path": "thumbs/220217000__111337LA.MP4.jpg",
+        "size": 91787
+      },
+      {
+        "path": "thumbs/220217000__111637LA.MP4.jpg",
+        "size": 97545
+      },
+      {
+        "path": "thumbs/220217000__111937LA.MP4.jpg",
+        "size": 97275
+      },
+      {
+        "path": "thumbs/220217000__112238LA.MP4.jpg",
+        "size": 85699
+      },
+      {
+        "path": "thumbs/220217000__112538LA.MP4.jpg",
+        "size": 97022
+      },
+      {
+        "path": "thumbs/220217000__112839LA.MP4.jpg",
+        "size": 92135
+      },
+      {
+        "path": "thumbs/220217000__113139LA.MP4.jpg",
+        "size": 103292
+      },
+      {
+        "path": "thumbs/220217000__113440LA.MP4.jpg",
+        "size": 87146
+      },
+      {
+        "path": "thumbs/220217000__113740LA.MP4.jpg",
+        "size": 94882
+      },
+      {
+        "path": "thumbs/220217000__114041LA.MP4.jpg",
+        "size": 65404
+      },
+      {
+        "path": "thumbs/220315000__164747NA.MP4.jpg",
+        "size": 82450
+      },
+      {
+        "path": "thumbs/220315000__165715NA.MP4.jpg",
+        "size": 93373
+      },
+      {
+        "path": "thumbs/220315000__170643NA.MP4.jpg",
+        "size": 80006
+      },
+      {
+        "path": "thumbs/220315000__171652NA.MP4.jpg",
+        "size": 78287
+      },
+      {
+        "path": "thumbs/220315000__172620NA.MP4.jpg",
+        "size": 79628
+      },
+      {
+        "path": "thumbs/220315000__173547NA.MP4.jpg",
+        "size": 86057
+      },
+      {
+        "path": "thumbs/220315000__174513NA.MP4.jpg",
+        "size": 64120
+      },
+      {
+        "path": "thumbs/220318000__164442NA.MP4.jpg",
+        "size": 88794
+      },
+      {
+        "path": "thumbs/220318000__165409NA.MP4.jpg",
+        "size": 92430
+      },
+      {
+        "path": "thumbs/220318000__170336NA.MP4.jpg",
+        "size": 82034
+      },
+      {
+        "path": "thumbs/220318000__171304NA.MP4.jpg",
+        "size": 63295
+      },
+      {
+        "path": "thumbs/220318000__172232NA.MP4.jpg",
+        "size": 86324
+      },
+      {
+        "path": "thumbs/220318000__181409NA.MP4.jpg",
+        "size": 62100
+      },
+      {
+        "path": "thumbs/220318000__182337NA.MP4.jpg",
+        "size": 60847
+      },
+      {
+        "path": "thumbs/220318000__183304NA.MP4.jpg",
+        "size": 60445
+      },
+      {
+        "path": "thumbs/220413000__180708NA.MP4.jpg",
+        "size": 68247
+      },
+      {
+        "path": "thumbs/220413000__184319NA.MP4.jpg",
+        "size": 71656
+      },
+      {
+        "path": "thumbs/220415000__185458NA.MP4.jpg",
+        "size": 74860
+      },
+      {
+        "path": "thumbs/220424000__112756NA.MP4.jpg",
+        "size": 79110
+      },
+      {
+        "path": "thumbs/220424000__113725NA.MP4.jpg",
+        "size": 77027
+      },
+      {
+        "path": "thumbs/220424000__114845NA.MP4.jpg",
+        "size": 87273
+      },
+      {
+        "path": "thumbs/220424000__124533NA.MP4.jpg",
+        "size": 88068
+      },
+      {
+        "path": "thumbs/220424000__125501NA.MP4.jpg",
+        "size": 79131
+      },
+      {
+        "path": "thumbs/220424000__130428NA.MP4.jpg",
+        "size": 69925
+      },
+      {
+        "path": "thumbs/220424000__163554NA.MP4.jpg",
+        "size": 108199
+      },
+      {
+        "path": "thumbs/220430000__141401NA.MP4.jpg",
+        "size": 107614
+      },
+      {
+        "path": "thumbs/220430000__142328NA.MP4.jpg",
+        "size": 95280
+      },
+      {
+        "path": "thumbs/220430000__143255NA.MP4.jpg",
+        "size": 109740
+      },
+      {
+        "path": "thumbs/220430000__144223NA.MP4.jpg",
+        "size": 124870
+      },
+      {
+        "path": "thumbs/220430000__145150NA.MP4.jpg",
+        "size": 96677
+      },
+      {
+        "path": "thumbs/220504000__162423NA.MP4.jpg",
+        "size": 36829
+      },
+      {
+        "path": "thumbs/220504000__175428NA.MP4.jpg",
+        "size": 109923
+      },
+      {
+        "path": "thumbs/220505000__182935NA.MP4.jpg",
+        "size": 85488
+      },
+      {
+        "path": "thumbs/220509000__193949NA.MP4.jpg",
+        "size": 50223
+      },
+      {
+        "path": "thumbs/220509000__194918NA.MP4.jpg",
+        "size": 61788
+      },
+      {
+        "path": "thumbs/220509000__195845NA.MP4.jpg",
+        "size": 61992
+      },
+      {
+        "path": "thumbs/220512000__132852NA.MP4.jpg",
+        "size": 74230
+      },
+      {
+        "path": "thumbs/220512000__171118NA.MP4.jpg",
+        "size": 88910
+      },
+      {
+        "path": "thumbs/220513000__151715NA.MP4.jpg",
+        "size": 77439
+      },
+      {
+        "path": "thumbs/220525000__163218NA.MP4.jpg",
+        "size": 120576
+      },
+      {
+        "path": "thumbs/220525000__164457NA.MP4.jpg",
+        "size": 97297
+      },
+      {
+        "path": "thumbs/220525000__182911NA.MP4.jpg",
+        "size": 93497
+      },
+      {
+        "path": "thumbs/220530000__182612NA.MP4.jpg",
+        "size": 102579
+      },
+      {
+        "path": "thumbs/220530000__210733NA.MP4.jpg",
+        "size": 51407
+      },
+      {
+        "path": "thumbs/220604000__172448NA.MP4.jpg",
+        "size": 94881
+      },
+      {
+        "path": "thumbs/220604000__173129NA.MP4.jpg",
+        "size": 100591
+      },
+      {
+        "path": "thumbs/220604000__183006NA.MP4.jpg",
+        "size": 90179
+      },
+      {
+        "path": "thumbs/220604000__185008NA.MP4.jpg",
+        "size": 75383
+      },
+      {
+        "path": "thumbs/220617000__153957NA.MP4.jpg",
+        "size": 114336
+      },
+      {
+        "path": "thumbs/220617000__172531NA.MP4.jpg",
+        "size": 74665
+      },
+      {
+        "path": "thumbs/220617000__174518NA.MP4.jpg",
+        "size": 98026
+      },
+      {
+        "path": "thumbs/220617000__180512NA.MP4.jpg",
+        "size": 100674
+      },
+      {
+        "path": "thumbs/220618000__145759NA.MP4.jpg",
+        "size": 120451
+      },
+      {
+        "path": "thumbs/220622000__114337NA.MP4.jpg",
+        "size": 113910
+      },
+      {
+        "path": "thumbs/220702000__144115NA.MP4.jpg",
+        "size": 92882
+      },
+      {
+        "path": "thumbs/220703000__163142NA.MP4.jpg",
+        "size": 81999
+      },
+      {
+        "path": "thumbs/220703000__182100NA.MP4.jpg",
+        "size": 102926
+      },
+      {
+        "path": "thumbs/220703000__184050NA.MP4.jpg",
+        "size": 66052
+      },
+      {
+        "path": "thumbs/220715000__100923NA.MP4.jpg",
+        "size": 110923
+      },
+      {
+        "path": "thumbs/220909000__184805NA.MP4.jpg",
+        "size": 69468
+      },
+      {
+        "path": "thumbs/220909000__191002NA.MP4.jpg",
+        "size": 55277
+      },
+      {
+        "path": "thumbs/220910000__102242NA.MP4.jpg",
+        "size": 104840
+      },
+      {
+        "path": "thumbs/220910000__123939NA.MP4.jpg",
+        "size": 117488
+      },
+      {
+        "path": "thumbs/220911000__083331NA.MP4.jpg",
+        "size": 65030
+      },
+      {
+        "path": "thumbs/220911000__092336NA.MP4.jpg",
+        "size": 96301
+      },
+      {
+        "path": "thumbs/220911000__094415NA.MP4.jpg",
+        "size": 93957
+      },
+      {
+        "path": "thumbs/220911000__100427NA.MP4.jpg",
+        "size": 84352
+      },
+      {
+        "path": "thumbs/221015000__080542NA.MP4.jpg",
+        "size": 117057
+      },
+      {
+        "path": "thumbs/221015000__082556NA.MP4.jpg",
+        "size": 79853
+      },
+      {
+        "path": "thumbs/221015000__083837NA.MP4.jpg",
+        "size": 105135
+      },
+      {
+        "path": "thumbs/240518000__142255NA.MP4.jpg",
+        "size": 88087
+      },
+      {
+        "path": "thumbs/240518000__144314NA.MP4.jpg",
+        "size": 104255
+      },
+      {
+        "path": "thumbs/240524000__183916NA.MP4.jpg",
+        "size": 161376
+      },
+      {
+        "path": "thumbs/240524000__184936NA.MP4.jpg",
+        "size": 82542
+      },
+      {
+        "path": "thumbs/240602000__174034NA.MP4.jpg",
+        "size": 124757
+      },
+      {
+        "path": "thumbs/240602000__175429NA.MP4.jpg",
+        "size": 85678
+      },
+      {
+        "path": "thumbs/240602000__181731NA.MP4.jpg",
+        "size": 86555
+      },
+      {
+        "path": "thumbs/240602000__183817NA.MP4.jpg",
+        "size": 74277
+      },
+      {
+        "path": "thumbs/240602000__191428NA.MP4.jpg",
+        "size": 82583
+      },
+      {
+        "path": "thumbs/240616000__123851NA.MP4.jpg",
+        "size": 115777
+      },
+      {
+        "path": "thumbs/240616000__194227NA.MP4.jpg",
+        "size": 90028
+      },
+      {
+        "path": "thumbs/240616000__194305NA.MP4.jpg",
+        "size": 87207
+      },
+      {
+        "path": "thumbs/240616000__200348NA.MP4.jpg",
+        "size": 60448
+      },
+      {
+        "path": "thumbs/240616000__202435NA.MP4.jpg",
+        "size": 77396
+      },
+      {
+        "path": "thumbs/240625000__123531NA.MP4.jpg",
+        "size": 115428
+      },
+      {
+        "path": "thumbs/240625000__145613NA.MP4.jpg",
+        "size": 105637
+      },
+      {
+        "path": "thumbs/240628000__183009NA.MP4.jpg",
+        "size": 93831
+      },
+      {
+        "path": "thumbs/240628000__185008NA.MP4.jpg",
+        "size": 109109
+      },
+      {
+        "path": "thumbs/240819000__120258NA.MP4.jpg",
+        "size": 43971
+      },
+      {
+        "path": "thumbs/240819000__122725NA.MP4.jpg",
+        "size": 95782
+      },
+      {
+        "path": "thumbs/240819000__124826NA.MP4.jpg",
+        "size": 78823
+      },
+      {
+        "path": "thumbs/240819000__130817NA.MP4.jpg",
+        "size": 90152
+      },
+      {
+        "path": "thumbs/240819000__132637NA.MP4.jpg",
+        "size": 40255
+      },
+      {
+        "path": "thumbs/240916000__102107NA.MP4.jpg",
+        "size": 106787
+      },
+      {
+        "path": "thumbs/240920000__183858NA.MP4.jpg",
+        "size": 79631
+      },
+      {
+        "path": "thumbs/240920000__190032NA.MP4.jpg",
+        "size": 36478
+      },
+      {
+        "path": "thumbs/241006000__135108NA.MP4.jpg",
+        "size": 115944
+      },
+      {
+        "path": "thumbs/241006000__141320NA.MP4.jpg",
+        "size": 99878
+      }
+    ],
+    "tree": {
+      "name": "motorcycle-viz",
+      "children": [
+        {
+          "name": "thumbs",
+          "children": [
+            {
+              "name": "210417000__095445NA.MP4.jpg",
+              "size": 147294,
+              "path": "thumbs/210417000__095445NA.MP4.jpg"
+            },
+            {
+              "name": "210417000__142952NA.MP4.jpg",
+              "size": 114369,
+              "path": "thumbs/210417000__142952NA.MP4.jpg"
+            },
+            {
+              "name": "210417000__145605NA.MP4.jpg",
+              "size": 112100,
+              "path": "thumbs/210417000__145605NA.MP4.jpg"
+            },
+            {
+              "name": "210417000__152011NA.MP4.jpg",
+              "size": 125219,
+              "path": "thumbs/210417000__152011NA.MP4.jpg"
+            },
+            {
+              "name": "210420000__090700NA.MP4.jpg",
+              "size": 128582,
+              "path": "thumbs/210420000__090700NA.MP4.jpg"
+            },
+            {
+              "name": "210423000__171833NA.MP4.jpg",
+              "size": 138860,
+              "path": "thumbs/210423000__171833NA.MP4.jpg"
+            },
+            {
+              "name": "210423000__172909NA.MP4.jpg",
+              "size": 109581,
+              "path": "thumbs/210423000__172909NA.MP4.jpg"
+            },
+            {
+              "name": "210423000__173916NA.MP4.jpg",
+              "size": 123494,
+              "path": "thumbs/210423000__173916NA.MP4.jpg"
+            },
+            {
+              "name": "210423000__184758NA.MP4.jpg",
+              "size": 114551,
+              "path": "thumbs/210423000__184758NA.MP4.jpg"
+            },
+            {
+              "name": "210424000__132812NA.MP4.jpg",
+              "size": 138145,
+              "path": "thumbs/210424000__132812NA.MP4.jpg"
+            },
+            {
+              "name": "210424000__135425NA.MP4.jpg",
+              "size": 123905,
+              "path": "thumbs/210424000__135425NA.MP4.jpg"
+            },
+            {
+              "name": "210428000__171016NA.MP4.jpg",
+              "size": 125489,
+              "path": "thumbs/210428000__171016NA.MP4.jpg"
+            },
+            {
+              "name": "210522000__153422NA.MP4.jpg",
+              "size": 107633,
+              "path": "thumbs/210522000__153422NA.MP4.jpg"
+            },
+            {
+              "name": "210522000__155350NA.MP4.jpg",
+              "size": 107917,
+              "path": "thumbs/210522000__155350NA.MP4.jpg"
+            },
+            {
+              "name": "210523000__153056NA.MP4.jpg",
+              "size": 108660,
+              "path": "thumbs/210523000__153056NA.MP4.jpg"
+            },
+            {
+              "name": "210523000__160909NA.MP4.jpg",
+              "size": 100718,
+              "path": "thumbs/210523000__160909NA.MP4.jpg"
+            },
+            {
+              "name": "210523000__165706NA.MP4.jpg",
+              "size": 55248,
+              "path": "thumbs/210523000__165706NA.MP4.jpg"
+            },
+            {
+              "name": "210523000__173132NA.MP4.jpg",
+              "size": 94936,
+              "path": "thumbs/210523000__173132NA.MP4.jpg"
+            },
+            {
+              "name": "210602000__201302NA.MP4.jpg",
+              "size": 72449,
+              "path": "thumbs/210602000__201302NA.MP4.jpg"
+            },
+            {
+              "name": "210602000__203913NA.MP4.jpg",
+              "size": 28923,
+              "path": "thumbs/210602000__203913NA.MP4.jpg"
+            },
+            {
+              "name": "210602000__205915NA.MP4.jpg",
+              "size": 9951,
+              "path": "thumbs/210602000__205915NA.MP4.jpg"
+            },
+            {
+              "name": "210605000__201433NA.MP4.jpg",
+              "size": 70989,
+              "path": "thumbs/210605000__201433NA.MP4.jpg"
+            },
+            {
+              "name": "210606000__151429NA.MP4.jpg",
+              "size": 123422,
+              "path": "thumbs/210606000__151429NA.MP4.jpg"
+            },
+            {
+              "name": "210606000__153007NA.MP4.jpg",
+              "size": 112511,
+              "path": "thumbs/210606000__153007NA.MP4.jpg"
+            },
+            {
+              "name": "210606000__153058NA.MP4.jpg",
+              "size": 106471,
+              "path": "thumbs/210606000__153058NA.MP4.jpg"
+            },
+            {
+              "name": "210606000__155905NA.MP4.jpg",
+              "size": 95247,
+              "path": "thumbs/210606000__155905NA.MP4.jpg"
+            },
+            {
+              "name": "210606000__193205NA.MP4.jpg",
+              "size": 91670,
+              "path": "thumbs/210606000__193205NA.MP4.jpg"
+            },
+            {
+              "name": "210606000__195823NA.MP4.jpg",
+              "size": 81214,
+              "path": "thumbs/210606000__195823NA.MP4.jpg"
+            },
+            {
+              "name": "210606000__202435NA.MP4.jpg",
+              "size": 63813,
+              "path": "thumbs/210606000__202435NA.MP4.jpg"
+            },
+            {
+              "name": "210606000__204722NA.MP4.jpg",
+              "size": 28400,
+              "path": "thumbs/210606000__204722NA.MP4.jpg"
+            },
+            {
+              "name": "210609000__200414NA.MP4.jpg",
+              "size": 75913,
+              "path": "thumbs/210609000__200414NA.MP4.jpg"
+            },
+            {
+              "name": "210609000__203209NA.MP4.jpg",
+              "size": 4050,
+              "path": "thumbs/210609000__203209NA.MP4.jpg"
+            },
+            {
+              "name": "210612000__194431NA.MP4.jpg",
+              "size": 91691,
+              "path": "thumbs/210612000__194431NA.MP4.jpg"
+            },
+            {
+              "name": "210612000__201423NA.MP4.jpg",
+              "size": 51037,
+              "path": "thumbs/210612000__201423NA.MP4.jpg"
+            },
+            {
+              "name": "210612000__204037NA.MP4.jpg",
+              "size": 45837,
+              "path": "thumbs/210612000__204037NA.MP4.jpg"
+            },
+            {
+              "name": "210612000__210126NA.MP4.jpg",
+              "size": 10851,
+              "path": "thumbs/210612000__210126NA.MP4.jpg"
+            },
+            {
+              "name": "210619000__162014NA.MP4.jpg",
+              "size": 117375,
+              "path": "thumbs/210619000__162014NA.MP4.jpg"
+            },
+            {
+              "name": "210619000__164627NA.MP4.jpg",
+              "size": 85877,
+              "path": "thumbs/210619000__164627NA.MP4.jpg"
+            },
+            {
+              "name": "210625000__172038NA.MP4.jpg",
+              "size": 119747,
+              "path": "thumbs/210625000__172038NA.MP4.jpg"
+            },
+            {
+              "name": "210625000__174650NA.MP4.jpg",
+              "size": 102763,
+              "path": "thumbs/210625000__174650NA.MP4.jpg"
+            },
+            {
+              "name": "210625000__181259NA.MP4.jpg",
+              "size": 61934,
+              "path": "thumbs/210625000__181259NA.MP4.jpg"
+            },
+            {
+              "name": "210625000__184305NA.MP4.jpg",
+              "size": 81208,
+              "path": "thumbs/210625000__184305NA.MP4.jpg"
+            },
+            {
+              "name": "210715000__205414NA.MP4.jpg",
+              "size": 7625,
+              "path": "thumbs/210715000__205414NA.MP4.jpg"
+            },
+            {
+              "name": "210716000__134029NA.MP4.jpg",
+              "size": 59675,
+              "path": "thumbs/210716000__134029NA.MP4.jpg"
+            },
+            {
+              "name": "210730000__111404NA.MP4.jpg",
+              "size": 102351,
+              "path": "thumbs/210730000__111404NA.MP4.jpg"
+            },
+            {
+              "name": "210730000__114016NA.MP4.jpg",
+              "size": 135701,
+              "path": "thumbs/210730000__114016NA.MP4.jpg"
+            },
+            {
+              "name": "210807000__142004NA.MP4.jpg",
+              "size": 108801,
+              "path": "thumbs/210807000__142004NA.MP4.jpg"
+            },
+            {
+              "name": "210807000__153141NA.MP4.jpg",
+              "size": 85676,
+              "path": "thumbs/210807000__153141NA.MP4.jpg"
+            },
+            {
+              "name": "210807000__155912NA.MP4.jpg",
+              "size": 111057,
+              "path": "thumbs/210807000__155912NA.MP4.jpg"
+            },
+            {
+              "name": "210812000__092952NA.MP4.jpg",
+              "size": 125622,
+              "path": "thumbs/210812000__092952NA.MP4.jpg"
+            },
+            {
+              "name": "210814000__130744NA.MP4.jpg",
+              "size": 99088,
+              "path": "thumbs/210814000__130744NA.MP4.jpg"
+            },
+            {
+              "name": "210814000__133357NA.MP4.jpg",
+              "size": 114276,
+              "path": "thumbs/210814000__133357NA.MP4.jpg"
+            },
+            {
+              "name": "210814000__140354NA.MP4.jpg",
+              "size": 123023,
+              "path": "thumbs/210814000__140354NA.MP4.jpg"
+            },
+            {
+              "name": "210815000__224428NA.MP4.jpg",
+              "size": 20532,
+              "path": "thumbs/210815000__224428NA.MP4.jpg"
+            },
+            {
+              "name": "210815000__231631NA.MP4.jpg",
+              "size": 8920,
+              "path": "thumbs/210815000__231631NA.MP4.jpg"
+            },
+            {
+              "name": "210825000__094542NA.MP4.jpg",
+              "size": 29338,
+              "path": "thumbs/210825000__094542NA.MP4.jpg"
+            },
+            {
+              "name": "210825000__100825NA.MP4.jpg",
+              "size": 117920,
+              "path": "thumbs/210825000__100825NA.MP4.jpg"
+            },
+            {
+              "name": "210902000__193826NA.MP4.jpg",
+              "size": 9669,
+              "path": "thumbs/210902000__193826NA.MP4.jpg"
+            },
+            {
+              "name": "210902000__200739NA.MP4.jpg",
+              "size": 39361,
+              "path": "thumbs/210902000__200739NA.MP4.jpg"
+            },
+            {
+              "name": "210906000__160513NA.MP4.jpg",
+              "size": 89299,
+              "path": "thumbs/210906000__160513NA.MP4.jpg"
+            },
+            {
+              "name": "210906000__164257NA.MP4.jpg",
+              "size": 87399,
+              "path": "thumbs/210906000__164257NA.MP4.jpg"
+            },
+            {
+              "name": "210906000__203049NA.MP4.jpg",
+              "size": 11452,
+              "path": "thumbs/210906000__203049NA.MP4.jpg"
+            },
+            {
+              "name": "210911000__131659NA.MP4.jpg",
+              "size": 99183,
+              "path": "thumbs/210911000__131659NA.MP4.jpg"
+            },
+            {
+              "name": "210916000__192853NA.MP4.jpg",
+              "size": 9694,
+              "path": "thumbs/210916000__192853NA.MP4.jpg"
+            },
+            {
+              "name": "210918000__193755NA.MP4.jpg",
+              "size": 11998,
+              "path": "thumbs/210918000__193755NA.MP4.jpg"
+            },
+            {
+              "name": "210923000__093729NA.MP4.jpg",
+              "size": 113095,
+              "path": "thumbs/210923000__093729NA.MP4.jpg"
+            },
+            {
+              "name": "210923000__120614NA.MP4.jpg",
+              "size": 84227,
+              "path": "thumbs/210923000__120614NA.MP4.jpg"
+            },
+            {
+              "name": "210924000__132018NA.MP4.jpg",
+              "size": 97623,
+              "path": "thumbs/210924000__132018NA.MP4.jpg"
+            },
+            {
+              "name": "210924000__134632NA.MP4.jpg",
+              "size": 135698,
+              "path": "thumbs/210924000__134632NA.MP4.jpg"
+            },
+            {
+              "name": "210925000__124025NA.MP4.jpg",
+              "size": 99277,
+              "path": "thumbs/210925000__124025NA.MP4.jpg"
+            },
+            {
+              "name": "210925000__130640NA.MP4.jpg",
+              "size": 106236,
+              "path": "thumbs/210925000__130640NA.MP4.jpg"
+            },
+            {
+              "name": "210925000__134958NA.MP4.jpg",
+              "size": 138956,
+              "path": "thumbs/210925000__134958NA.MP4.jpg"
+            },
+            {
+              "name": "210926000__185812NA.MP4.jpg",
+              "size": 43246,
+              "path": "thumbs/210926000__185812NA.MP4.jpg"
+            },
+            {
+              "name": "211009000__120508NA.MP4.jpg",
+              "size": 115654,
+              "path": "thumbs/211009000__120508NA.MP4.jpg"
+            },
+            {
+              "name": "211009000__123121NA.MP4.jpg",
+              "size": 114844,
+              "path": "thumbs/211009000__123121NA.MP4.jpg"
+            },
+            {
+              "name": "211009000__124157NA.MP4.jpg",
+              "size": 111237,
+              "path": "thumbs/211009000__124157NA.MP4.jpg"
+            },
+            {
+              "name": "211009000__140401NA.MP4.jpg",
+              "size": 119874,
+              "path": "thumbs/211009000__140401NA.MP4.jpg"
+            },
+            {
+              "name": "211015000__144646NA.MP4.jpg",
+              "size": 126655,
+              "path": "thumbs/211015000__144646NA.MP4.jpg"
+            },
+            {
+              "name": "211015000__150422NA.MP4.jpg",
+              "size": 119398,
+              "path": "thumbs/211015000__150422NA.MP4.jpg"
+            },
+            {
+              "name": "211015000__154157NA.MP4.jpg",
+              "size": 169251,
+              "path": "thumbs/211015000__154157NA.MP4.jpg"
+            },
+            {
+              "name": "211015000__154441NA.MP4.jpg",
+              "size": 104494,
+              "path": "thumbs/211015000__154441NA.MP4.jpg"
+            },
+            {
+              "name": "211015000__161603NA.MP4.jpg",
+              "size": 127160,
+              "path": "thumbs/211015000__161603NA.MP4.jpg"
+            },
+            {
+              "name": "211021000__105614NA.MP4.jpg",
+              "size": 113485,
+              "path": "thumbs/211021000__105614NA.MP4.jpg"
+            },
+            {
+              "name": "211021000__112228NA.MP4.jpg",
+              "size": 85727,
+              "path": "thumbs/211021000__112228NA.MP4.jpg"
+            },
+            {
+              "name": "211106000__172045NA.MP4.jpg",
+              "size": 71082,
+              "path": "thumbs/211106000__172045NA.MP4.jpg"
+            },
+            {
+              "name": "211108000__102517NA.MP4.jpg",
+              "size": 114427,
+              "path": "thumbs/211108000__102517NA.MP4.jpg"
+            },
+            {
+              "name": "211108000__105129NA.MP4.jpg",
+              "size": 78936,
+              "path": "thumbs/211108000__105129NA.MP4.jpg"
+            },
+            {
+              "name": "211109000__154913NA.MP4.jpg",
+              "size": 70273,
+              "path": "thumbs/211109000__154913NA.MP4.jpg"
+            },
+            {
+              "name": "211109000__161601NA.MP4.jpg",
+              "size": 63794,
+              "path": "thumbs/211109000__161601NA.MP4.jpg"
+            },
+            {
+              "name": "211115000__110942NA.MP4.jpg",
+              "size": 93785,
+              "path": "thumbs/211115000__110942NA.MP4.jpg"
+            },
+            {
+              "name": "211115000__113557NA.MP4.jpg",
+              "size": 112634,
+              "path": "thumbs/211115000__113557NA.MP4.jpg"
+            },
+            {
+              "name": "211115000__152738NA.MP4.jpg",
+              "size": 101892,
+              "path": "thumbs/211115000__152738NA.MP4.jpg"
+            },
+            {
+              "name": "211115000__155404NA.MP4.jpg",
+              "size": 93691,
+              "path": "thumbs/211115000__155404NA.MP4.jpg"
+            },
+            {
+              "name": "211213000__144829LA.MP4.jpg",
+              "size": 73781,
+              "path": "thumbs/211213000__144829LA.MP4.jpg"
+            },
+            {
+              "name": "211213000__145130LA.MP4.jpg",
+              "size": 89541,
+              "path": "thumbs/211213000__145130LA.MP4.jpg"
+            },
+            {
+              "name": "211213000__145430LA.MP4.jpg",
+              "size": 87786,
+              "path": "thumbs/211213000__145430LA.MP4.jpg"
+            },
+            {
+              "name": "211213000__145731LA.MP4.jpg",
+              "size": 105454,
+              "path": "thumbs/211213000__145731LA.MP4.jpg"
+            },
+            {
+              "name": "211213000__150031LA.MP4.jpg",
+              "size": 82838,
+              "path": "thumbs/211213000__150031LA.MP4.jpg"
+            },
+            {
+              "name": "211213000__150332LA.MP4.jpg",
+              "size": 91506,
+              "path": "thumbs/211213000__150332LA.MP4.jpg"
+            },
+            {
+              "name": "211213000__150632LA.MP4.jpg",
+              "size": 98218,
+              "path": "thumbs/211213000__150632LA.MP4.jpg"
+            },
+            {
+              "name": "211213000__150933LA.MP4.jpg",
+              "size": 57909,
+              "path": "thumbs/211213000__150933LA.MP4.jpg"
+            },
+            {
+              "name": "211213000__151233LA.MP4.jpg",
+              "size": 83535,
+              "path": "thumbs/211213000__151233LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__104611LA.MP4.jpg",
+              "size": 88646,
+              "path": "thumbs/220217000__104611LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__105533LA.MP4.jpg",
+              "size": 88767,
+              "path": "thumbs/220217000__105533LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__105834LA.MP4.jpg",
+              "size": 84683,
+              "path": "thumbs/220217000__105834LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__110135LA.MP4.jpg",
+              "size": 93232,
+              "path": "thumbs/220217000__110135LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__110435LA.MP4.jpg",
+              "size": 94450,
+              "path": "thumbs/220217000__110435LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__110736LA.MP4.jpg",
+              "size": 90860,
+              "path": "thumbs/220217000__110736LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__111036LA.MP4.jpg",
+              "size": 87080,
+              "path": "thumbs/220217000__111036LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__111337LA.MP4.jpg",
+              "size": 91787,
+              "path": "thumbs/220217000__111337LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__111637LA.MP4.jpg",
+              "size": 97545,
+              "path": "thumbs/220217000__111637LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__111937LA.MP4.jpg",
+              "size": 97275,
+              "path": "thumbs/220217000__111937LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__112238LA.MP4.jpg",
+              "size": 85699,
+              "path": "thumbs/220217000__112238LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__112538LA.MP4.jpg",
+              "size": 97022,
+              "path": "thumbs/220217000__112538LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__112839LA.MP4.jpg",
+              "size": 92135,
+              "path": "thumbs/220217000__112839LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__113139LA.MP4.jpg",
+              "size": 103292,
+              "path": "thumbs/220217000__113139LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__113440LA.MP4.jpg",
+              "size": 87146,
+              "path": "thumbs/220217000__113440LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__113740LA.MP4.jpg",
+              "size": 94882,
+              "path": "thumbs/220217000__113740LA.MP4.jpg"
+            },
+            {
+              "name": "220217000__114041LA.MP4.jpg",
+              "size": 65404,
+              "path": "thumbs/220217000__114041LA.MP4.jpg"
+            },
+            {
+              "name": "220315000__164747NA.MP4.jpg",
+              "size": 82450,
+              "path": "thumbs/220315000__164747NA.MP4.jpg"
+            },
+            {
+              "name": "220315000__165715NA.MP4.jpg",
+              "size": 93373,
+              "path": "thumbs/220315000__165715NA.MP4.jpg"
+            },
+            {
+              "name": "220315000__170643NA.MP4.jpg",
+              "size": 80006,
+              "path": "thumbs/220315000__170643NA.MP4.jpg"
+            },
+            {
+              "name": "220315000__171652NA.MP4.jpg",
+              "size": 78287,
+              "path": "thumbs/220315000__171652NA.MP4.jpg"
+            },
+            {
+              "name": "220315000__172620NA.MP4.jpg",
+              "size": 79628,
+              "path": "thumbs/220315000__172620NA.MP4.jpg"
+            },
+            {
+              "name": "220315000__173547NA.MP4.jpg",
+              "size": 86057,
+              "path": "thumbs/220315000__173547NA.MP4.jpg"
+            },
+            {
+              "name": "220315000__174513NA.MP4.jpg",
+              "size": 64120,
+              "path": "thumbs/220315000__174513NA.MP4.jpg"
+            },
+            {
+              "name": "220318000__164442NA.MP4.jpg",
+              "size": 88794,
+              "path": "thumbs/220318000__164442NA.MP4.jpg"
+            },
+            {
+              "name": "220318000__165409NA.MP4.jpg",
+              "size": 92430,
+              "path": "thumbs/220318000__165409NA.MP4.jpg"
+            },
+            {
+              "name": "220318000__170336NA.MP4.jpg",
+              "size": 82034,
+              "path": "thumbs/220318000__170336NA.MP4.jpg"
+            },
+            {
+              "name": "220318000__171304NA.MP4.jpg",
+              "size": 63295,
+              "path": "thumbs/220318000__171304NA.MP4.jpg"
+            },
+            {
+              "name": "220318000__172232NA.MP4.jpg",
+              "size": 86324,
+              "path": "thumbs/220318000__172232NA.MP4.jpg"
+            },
+            {
+              "name": "220318000__181409NA.MP4.jpg",
+              "size": 62100,
+              "path": "thumbs/220318000__181409NA.MP4.jpg"
+            },
+            {
+              "name": "220318000__182337NA.MP4.jpg",
+              "size": 60847,
+              "path": "thumbs/220318000__182337NA.MP4.jpg"
+            },
+            {
+              "name": "220318000__183304NA.MP4.jpg",
+              "size": 60445,
+              "path": "thumbs/220318000__183304NA.MP4.jpg"
+            },
+            {
+              "name": "220413000__180708NA.MP4.jpg",
+              "size": 68247,
+              "path": "thumbs/220413000__180708NA.MP4.jpg"
+            },
+            {
+              "name": "220413000__184319NA.MP4.jpg",
+              "size": 71656,
+              "path": "thumbs/220413000__184319NA.MP4.jpg"
+            },
+            {
+              "name": "220415000__185458NA.MP4.jpg",
+              "size": 74860,
+              "path": "thumbs/220415000__185458NA.MP4.jpg"
+            },
+            {
+              "name": "220424000__112756NA.MP4.jpg",
+              "size": 79110,
+              "path": "thumbs/220424000__112756NA.MP4.jpg"
+            },
+            {
+              "name": "220424000__113725NA.MP4.jpg",
+              "size": 77027,
+              "path": "thumbs/220424000__113725NA.MP4.jpg"
+            },
+            {
+              "name": "220424000__114845NA.MP4.jpg",
+              "size": 87273,
+              "path": "thumbs/220424000__114845NA.MP4.jpg"
+            },
+            {
+              "name": "220424000__124533NA.MP4.jpg",
+              "size": 88068,
+              "path": "thumbs/220424000__124533NA.MP4.jpg"
+            },
+            {
+              "name": "220424000__125501NA.MP4.jpg",
+              "size": 79131,
+              "path": "thumbs/220424000__125501NA.MP4.jpg"
+            },
+            {
+              "name": "220424000__130428NA.MP4.jpg",
+              "size": 69925,
+              "path": "thumbs/220424000__130428NA.MP4.jpg"
+            },
+            {
+              "name": "220424000__163554NA.MP4.jpg",
+              "size": 108199,
+              "path": "thumbs/220424000__163554NA.MP4.jpg"
+            },
+            {
+              "name": "220430000__141401NA.MP4.jpg",
+              "size": 107614,
+              "path": "thumbs/220430000__141401NA.MP4.jpg"
+            },
+            {
+              "name": "220430000__142328NA.MP4.jpg",
+              "size": 95280,
+              "path": "thumbs/220430000__142328NA.MP4.jpg"
+            },
+            {
+              "name": "220430000__143255NA.MP4.jpg",
+              "size": 109740,
+              "path": "thumbs/220430000__143255NA.MP4.jpg"
+            },
+            {
+              "name": "220430000__144223NA.MP4.jpg",
+              "size": 124870,
+              "path": "thumbs/220430000__144223NA.MP4.jpg"
+            },
+            {
+              "name": "220430000__145150NA.MP4.jpg",
+              "size": 96677,
+              "path": "thumbs/220430000__145150NA.MP4.jpg"
+            },
+            {
+              "name": "220504000__162423NA.MP4.jpg",
+              "size": 36829,
+              "path": "thumbs/220504000__162423NA.MP4.jpg"
+            },
+            {
+              "name": "220504000__175428NA.MP4.jpg",
+              "size": 109923,
+              "path": "thumbs/220504000__175428NA.MP4.jpg"
+            },
+            {
+              "name": "220505000__182935NA.MP4.jpg",
+              "size": 85488,
+              "path": "thumbs/220505000__182935NA.MP4.jpg"
+            },
+            {
+              "name": "220509000__193949NA.MP4.jpg",
+              "size": 50223,
+              "path": "thumbs/220509000__193949NA.MP4.jpg"
+            },
+            {
+              "name": "220509000__194918NA.MP4.jpg",
+              "size": 61788,
+              "path": "thumbs/220509000__194918NA.MP4.jpg"
+            },
+            {
+              "name": "220509000__195845NA.MP4.jpg",
+              "size": 61992,
+              "path": "thumbs/220509000__195845NA.MP4.jpg"
+            },
+            {
+              "name": "220512000__132852NA.MP4.jpg",
+              "size": 74230,
+              "path": "thumbs/220512000__132852NA.MP4.jpg"
+            },
+            {
+              "name": "220512000__171118NA.MP4.jpg",
+              "size": 88910,
+              "path": "thumbs/220512000__171118NA.MP4.jpg"
+            },
+            {
+              "name": "220513000__151715NA.MP4.jpg",
+              "size": 77439,
+              "path": "thumbs/220513000__151715NA.MP4.jpg"
+            },
+            {
+              "name": "220525000__163218NA.MP4.jpg",
+              "size": 120576,
+              "path": "thumbs/220525000__163218NA.MP4.jpg"
+            },
+            {
+              "name": "220525000__164457NA.MP4.jpg",
+              "size": 97297,
+              "path": "thumbs/220525000__164457NA.MP4.jpg"
+            },
+            {
+              "name": "220525000__182911NA.MP4.jpg",
+              "size": 93497,
+              "path": "thumbs/220525000__182911NA.MP4.jpg"
+            },
+            {
+              "name": "220530000__182612NA.MP4.jpg",
+              "size": 102579,
+              "path": "thumbs/220530000__182612NA.MP4.jpg"
+            },
+            {
+              "name": "220530000__210733NA.MP4.jpg",
+              "size": 51407,
+              "path": "thumbs/220530000__210733NA.MP4.jpg"
+            },
+            {
+              "name": "220604000__172448NA.MP4.jpg",
+              "size": 94881,
+              "path": "thumbs/220604000__172448NA.MP4.jpg"
+            },
+            {
+              "name": "220604000__173129NA.MP4.jpg",
+              "size": 100591,
+              "path": "thumbs/220604000__173129NA.MP4.jpg"
+            },
+            {
+              "name": "220604000__183006NA.MP4.jpg",
+              "size": 90179,
+              "path": "thumbs/220604000__183006NA.MP4.jpg"
+            },
+            {
+              "name": "220604000__185008NA.MP4.jpg",
+              "size": 75383,
+              "path": "thumbs/220604000__185008NA.MP4.jpg"
+            },
+            {
+              "name": "220617000__153957NA.MP4.jpg",
+              "size": 114336,
+              "path": "thumbs/220617000__153957NA.MP4.jpg"
+            },
+            {
+              "name": "220617000__172531NA.MP4.jpg",
+              "size": 74665,
+              "path": "thumbs/220617000__172531NA.MP4.jpg"
+            },
+            {
+              "name": "220617000__174518NA.MP4.jpg",
+              "size": 98026,
+              "path": "thumbs/220617000__174518NA.MP4.jpg"
+            },
+            {
+              "name": "220617000__180512NA.MP4.jpg",
+              "size": 100674,
+              "path": "thumbs/220617000__180512NA.MP4.jpg"
+            },
+            {
+              "name": "220618000__145759NA.MP4.jpg",
+              "size": 120451,
+              "path": "thumbs/220618000__145759NA.MP4.jpg"
+            },
+            {
+              "name": "220622000__114337NA.MP4.jpg",
+              "size": 113910,
+              "path": "thumbs/220622000__114337NA.MP4.jpg"
+            },
+            {
+              "name": "220702000__144115NA.MP4.jpg",
+              "size": 92882,
+              "path": "thumbs/220702000__144115NA.MP4.jpg"
+            },
+            {
+              "name": "220703000__163142NA.MP4.jpg",
+              "size": 81999,
+              "path": "thumbs/220703000__163142NA.MP4.jpg"
+            },
+            {
+              "name": "220703000__182100NA.MP4.jpg",
+              "size": 102926,
+              "path": "thumbs/220703000__182100NA.MP4.jpg"
+            },
+            {
+              "name": "220703000__184050NA.MP4.jpg",
+              "size": 66052,
+              "path": "thumbs/220703000__184050NA.MP4.jpg"
+            },
+            {
+              "name": "220715000__100923NA.MP4.jpg",
+              "size": 110923,
+              "path": "thumbs/220715000__100923NA.MP4.jpg"
+            },
+            {
+              "name": "220909000__184805NA.MP4.jpg",
+              "size": 69468,
+              "path": "thumbs/220909000__184805NA.MP4.jpg"
+            },
+            {
+              "name": "220909000__191002NA.MP4.jpg",
+              "size": 55277,
+              "path": "thumbs/220909000__191002NA.MP4.jpg"
+            },
+            {
+              "name": "220910000__102242NA.MP4.jpg",
+              "size": 104840,
+              "path": "thumbs/220910000__102242NA.MP4.jpg"
+            },
+            {
+              "name": "220910000__123939NA.MP4.jpg",
+              "size": 117488,
+              "path": "thumbs/220910000__123939NA.MP4.jpg"
+            },
+            {
+              "name": "220911000__083331NA.MP4.jpg",
+              "size": 65030,
+              "path": "thumbs/220911000__083331NA.MP4.jpg"
+            },
+            {
+              "name": "220911000__092336NA.MP4.jpg",
+              "size": 96301,
+              "path": "thumbs/220911000__092336NA.MP4.jpg"
+            },
+            {
+              "name": "220911000__094415NA.MP4.jpg",
+              "size": 93957,
+              "path": "thumbs/220911000__094415NA.MP4.jpg"
+            },
+            {
+              "name": "220911000__100427NA.MP4.jpg",
+              "size": 84352,
+              "path": "thumbs/220911000__100427NA.MP4.jpg"
+            },
+            {
+              "name": "221015000__080542NA.MP4.jpg",
+              "size": 117057,
+              "path": "thumbs/221015000__080542NA.MP4.jpg"
+            },
+            {
+              "name": "221015000__082556NA.MP4.jpg",
+              "size": 79853,
+              "path": "thumbs/221015000__082556NA.MP4.jpg"
+            },
+            {
+              "name": "221015000__083837NA.MP4.jpg",
+              "size": 105135,
+              "path": "thumbs/221015000__083837NA.MP4.jpg"
+            },
+            {
+              "name": "240518000__142255NA.MP4.jpg",
+              "size": 88087,
+              "path": "thumbs/240518000__142255NA.MP4.jpg"
+            },
+            {
+              "name": "240518000__144314NA.MP4.jpg",
+              "size": 104255,
+              "path": "thumbs/240518000__144314NA.MP4.jpg"
+            },
+            {
+              "name": "240524000__183916NA.MP4.jpg",
+              "size": 161376,
+              "path": "thumbs/240524000__183916NA.MP4.jpg"
+            },
+            {
+              "name": "240524000__184936NA.MP4.jpg",
+              "size": 82542,
+              "path": "thumbs/240524000__184936NA.MP4.jpg"
+            },
+            {
+              "name": "240602000__174034NA.MP4.jpg",
+              "size": 124757,
+              "path": "thumbs/240602000__174034NA.MP4.jpg"
+            },
+            {
+              "name": "240602000__175429NA.MP4.jpg",
+              "size": 85678,
+              "path": "thumbs/240602000__175429NA.MP4.jpg"
+            },
+            {
+              "name": "240602000__181731NA.MP4.jpg",
+              "size": 86555,
+              "path": "thumbs/240602000__181731NA.MP4.jpg"
+            },
+            {
+              "name": "240602000__183817NA.MP4.jpg",
+              "size": 74277,
+              "path": "thumbs/240602000__183817NA.MP4.jpg"
+            },
+            {
+              "name": "240602000__191428NA.MP4.jpg",
+              "size": 82583,
+              "path": "thumbs/240602000__191428NA.MP4.jpg"
+            },
+            {
+              "name": "240616000__123851NA.MP4.jpg",
+              "size": 115777,
+              "path": "thumbs/240616000__123851NA.MP4.jpg"
+            },
+            {
+              "name": "240616000__194227NA.MP4.jpg",
+              "size": 90028,
+              "path": "thumbs/240616000__194227NA.MP4.jpg"
+            },
+            {
+              "name": "240616000__194305NA.MP4.jpg",
+              "size": 87207,
+              "path": "thumbs/240616000__194305NA.MP4.jpg"
+            },
+            {
+              "name": "240616000__200348NA.MP4.jpg",
+              "size": 60448,
+              "path": "thumbs/240616000__200348NA.MP4.jpg"
+            },
+            {
+              "name": "240616000__202435NA.MP4.jpg",
+              "size": 77396,
+              "path": "thumbs/240616000__202435NA.MP4.jpg"
+            },
+            {
+              "name": "240625000__123531NA.MP4.jpg",
+              "size": 115428,
+              "path": "thumbs/240625000__123531NA.MP4.jpg"
+            },
+            {
+              "name": "240625000__145613NA.MP4.jpg",
+              "size": 105637,
+              "path": "thumbs/240625000__145613NA.MP4.jpg"
+            },
+            {
+              "name": "240628000__183009NA.MP4.jpg",
+              "size": 93831,
+              "path": "thumbs/240628000__183009NA.MP4.jpg"
+            },
+            {
+              "name": "240628000__185008NA.MP4.jpg",
+              "size": 109109,
+              "path": "thumbs/240628000__185008NA.MP4.jpg"
+            },
+            {
+              "name": "240819000__120258NA.MP4.jpg",
+              "size": 43971,
+              "path": "thumbs/240819000__120258NA.MP4.jpg"
+            },
+            {
+              "name": "240819000__122725NA.MP4.jpg",
+              "size": 95782,
+              "path": "thumbs/240819000__122725NA.MP4.jpg"
+            },
+            {
+              "name": "240819000__124826NA.MP4.jpg",
+              "size": 78823,
+              "path": "thumbs/240819000__124826NA.MP4.jpg"
+            },
+            {
+              "name": "240819000__130817NA.MP4.jpg",
+              "size": 90152,
+              "path": "thumbs/240819000__130817NA.MP4.jpg"
+            },
+            {
+              "name": "240819000__132637NA.MP4.jpg",
+              "size": 40255,
+              "path": "thumbs/240819000__132637NA.MP4.jpg"
+            },
+            {
+              "name": "240916000__102107NA.MP4.jpg",
+              "size": 106787,
+              "path": "thumbs/240916000__102107NA.MP4.jpg"
+            },
+            {
+              "name": "240920000__183858NA.MP4.jpg",
+              "size": 79631,
+              "path": "thumbs/240920000__183858NA.MP4.jpg"
+            },
+            {
+              "name": "240920000__190032NA.MP4.jpg",
+              "size": 36478,
+              "path": "thumbs/240920000__190032NA.MP4.jpg"
+            },
+            {
+              "name": "241006000__135108NA.MP4.jpg",
+              "size": 115944,
+              "path": "thumbs/241006000__135108NA.MP4.jpg"
+            },
+            {
+              "name": "241006000__141320NA.MP4.jpg",
+              "size": 99878,
+              "path": "thumbs/241006000__141320NA.MP4.jpg"
+            }
+          ],
+          "path": "thumbs"
+        },
+        {
+          "name": "campbell_lowres.png",
+          "size": 114898,
+          "path": "campbell_lowres.png"
+        },
+        {
+          "name": "cinema_redux.png",
+          "size": 150790,
+          "path": "cinema_redux.png"
+        },
+        {
+          "name": "cinema_redux_frames.png",
+          "size": 10224176,
+          "path": "cinema_redux_frames.png"
+        },
+        {
+          "name": "dusk_anthology_contact.png",
+          "size": 12231339,
+          "path": "dusk_anthology_contact.png"
+        },
+        {
+          "name": "dusk_gradient.png",
+          "size": 854018,
+          "path": "dusk_gradient.png"
+        },
+        {
+          "name": "index.html",
+          "size": 109694,
+          "path": "index.html"
+        },
+        {
+          "name": "salavon_2021.png",
+          "size": 188188,
+          "path": "salavon_2021.png"
+        },
+        {
+          "name": "salavon_2022.png",
+          "size": 186532,
+          "path": "salavon_2022.png"
+        },
+        {
+          "name": "salavon_2024.png",
+          "size": 234779,
+          "path": "salavon_2024.png"
+        },
+        {
+          "name": "salavon_composite.png",
+          "size": 219773,
+          "path": "salavon_composite.png"
+        },
+        {
+          "name": "salavon_overall.png",
+          "size": 163246,
+          "path": "salavon_overall.png"
+        },
+        {
+          "name": "slit_scan.png",
+          "size": 209441,
+          "path": "slit_scan.png"
+        },
+        {
+          "name": "slit_scan_horizontal.png",
+          "size": 200310,
+          "path": "slit_scan_horizontal.png"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 230,
+    "totalSize": 44311365
+  },
+  "defaultBranch": "main",
+  "license": null,
+  "latestRelease": null,
+  "topics": [],
+  "readme": {
+    "html": "<p><em>No README available</em></p>",
+    "raw": "",
+    "excerpt": "No description available"
+  },
+  "createdAt": "2026-05-31T14:39:17Z",
+  "updatedAt": "2026-05-31T15:15:08Z",
+  "pushedAt": "2026-05-31T15:15:04Z"
+}

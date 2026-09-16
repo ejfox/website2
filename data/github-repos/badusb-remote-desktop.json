@@ -1,0 +1,150 @@
+{
+  "name": "badusb-remote-desktop",
+  "description": "Flipper Zero BadUSB payloads that make a fresh, keyboard-less machine reachable on the LAN for remote desktop — macOS Screen Sharing (VNC), Windows RDP, Linux VNC.",
+  "url": "https://github.com/ejfox/badusb-remote-desktop",
+  "homepage": null,
+  "stats": {
+    "stars": 1,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Shell",
+  "languageColor": "#89e051",
+  "languages": {
+    "Shell": 1744
+  },
+  "diskUsage": 15,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 80
+      },
+      {
+        "path": "LICENSE",
+        "size": 1063
+      },
+      {
+        "path": "README.md",
+        "size": 6396
+      },
+      {
+        "path": "payloads/linux-gnome-enable-vnc.txt",
+        "size": 1501
+      },
+      {
+        "path": "payloads/macos-enable-vnc.txt",
+        "size": 1902
+      },
+      {
+        "path": "payloads/windows-enable-rdp.txt",
+        "size": 1959
+      },
+      {
+        "path": "payloads/windows-enable-ssh.txt",
+        "size": 2117
+      },
+      {
+        "path": "payloads/windows-push-ssh-key.txt",
+        "size": 1705
+      },
+      {
+        "path": "scripts/linux-x11vnc-fallback.sh",
+        "size": 1744
+      }
+    ],
+    "tree": {
+      "name": "badusb-remote-desktop",
+      "children": [
+        {
+          "name": "payloads",
+          "children": [
+            {
+              "name": "linux-gnome-enable-vnc.txt",
+              "size": 1501,
+              "path": "payloads/linux-gnome-enable-vnc.txt"
+            },
+            {
+              "name": "macos-enable-vnc.txt",
+              "size": 1902,
+              "path": "payloads/macos-enable-vnc.txt"
+            },
+            {
+              "name": "windows-enable-rdp.txt",
+              "size": 1959,
+              "path": "payloads/windows-enable-rdp.txt"
+            },
+            {
+              "name": "windows-enable-ssh.txt",
+              "size": 2117,
+              "path": "payloads/windows-enable-ssh.txt"
+            },
+            {
+              "name": "windows-push-ssh-key.txt",
+              "size": 1705,
+              "path": "payloads/windows-push-ssh-key.txt"
+            }
+          ],
+          "path": "payloads"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "linux-x11vnc-fallback.sh",
+              "size": 1744,
+              "path": "scripts/linux-x11vnc-fallback.sh"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": ".gitignore",
+          "size": 80,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1063,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 6396,
+          "path": "README.md"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 9,
+    "totalSize": 18467
+  },
+  "defaultBranch": "main",
+  "license": {
+    "spdxId": "MIT",
+    "name": "MIT License",
+    "url": "http://choosealicense.com/licenses/mit/"
+  },
+  "latestRelease": null,
+  "topics": [
+    "badusb",
+    "duckyscript",
+    "flipper-zero",
+    "headless",
+    "linux",
+    "macos",
+    "provisioning",
+    "rdp",
+    "remote-desktop",
+    "vnc"
+  ],
+  "readme": {
+    "html": "<h1 id=\"badusb-remote-desktop\">badusb-remote-desktop</h1>\n<p><img src=\"https://img.shields.io/badge/Flipper%20Zero-BadUSB-FF6900?logo=flipper&amp;logoColor=white\" alt=\"Flipper Zero\" />\n<img src=\"https://img.shields.io/badge/payloads-DuckyScript-1f6feb\" alt=\"Payloads\" />\n<img src=\"https://img.shields.io/badge/targets-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-555\" alt=\"Targets\" />\n<img src=\"https://img.shields.io/badge/license-MIT-green\" alt=\"License\" /></p>\n<p><strong>Plug a Flipper Zero into a brand-new computer and it sets itself up for remote\ndesktop — no keyboard or mouse needed. The machine even says its own IP out loud\nwhen it's done.</strong></p>\n<pre><code>  ┌─────────────┐   USB    ┌──────────────┐   \"my address    ┌──────────┐\n  │ Flipper Zero │ ───────▶ │ new computer │ ──── is ... \" ──▶│ your eyes │\n  │  (BadUSB)    │  types   │  (no kb/ms)  │   spoken aloud   │  + laptop │\n  └─────────────┘ commands └──────────────┘                  └──────────┘\n                                  │\n                                  ▼  reachable on the LAN\n                          vnc://&lt;ip&gt;:5900  ·  rdp://&lt;ip&gt;\n</code></pre>\n<hr />\n<h2 id=\"when-to-use-this\">When to use this</h2>\n<p>You just got a new machine and want to drive it from your laptop — but you don't\nwant to dig out a spare keyboard, mouse, and monitor just to switch on remote\naccess.</p>\n<ul>\n<li>✅ <strong>Use it for:</strong> setting up <em>your own</em> Macs, PCs, and Linux boxes as you get them.</li>\n<li>🚫 <strong>Don't use it for:</strong> hardware that isn't yours, or air-gapped machines (these need a network).</li>\n</ul>\n<h2 id=\"why-a-badusb\">Why a BadUSB?</h2>\n<p>A fresh machine has no remote access yet — that's the chicken-and-egg problem.\nThe Flipper pretends to be a keyboard and types the setup for you, so you need\n<strong>zero peripherals</strong> and the <strong>same payload works on every new box</strong>.</p>\n<h2 id=\"how\">How</h2>\n<ol>\n<li><strong>Edit the password(s)</strong> in your OS's payload — replace each <code>CHANGE_ME_*</code>. Save it as <code>*.local.txt</code> (gitignored) so secrets stay out of git.</li>\n<li><strong>Copy</strong> the payload to the Flipper SD card → <code>badusb/</code> folder.</li>\n<li><strong>Boot</strong> the target to its desktop, signed in as admin, on a network.</li>\n<li><strong>Run it:</strong> plug in the Flipper → BadUSB app → pick the payload → <strong>Run</strong>.</li>\n<li><strong>Listen</strong> — it announces its IP. Connect from your laptop. ⬇️</li>\n</ol>\n<h3 id=\"pick-your-payload\">Pick your payload</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Target</th><th>Payload</th><th>Turns on</th><th>Connect with</th></tr></thead><tbody><tr><td><strong>macOS</strong></td><td><code>payloads/macos-enable-vnc.txt</code></td><td>Screen Sharing (VNC) + SSH</td><td>VNC client <code>:5900</code></td></tr><tr><td><strong>Windows</strong></td><td><code>payloads/windows-enable-rdp.txt</code></td><td>Remote Desktop (RDP)</td><td>RDP client</td></tr><tr><td><strong>Windows</strong></td><td><code>payloads/windows-enable-ssh.txt</code></td><td>OpenSSH Server (sshd) port 22</td><td><code>ssh &lt;user&gt;@&lt;ip&gt;</code></td></tr><tr><td><strong>Windows</strong> (passwordless)</td><td><code>payloads/windows-push-ssh-key.txt</code></td><td>installs your SSH public key</td><td><code>ssh &lt;user&gt;@&lt;ip&gt;</code></td></tr><tr><td><strong>Debian/Ubuntu</strong> (GNOME)</td><td><code>payloads/linux-gnome-enable-vnc.txt</code></td><td>gnome-remote-desktop (VNC)</td><td>VNC client <code>:5900</code></td></tr><tr><td><strong>Debian/Ubuntu</strong> (X11)</td><td><code>scripts/linux-x11vnc-fallback.sh</code></td><td>x11vnc + systemd service</td><td>VNC client <code>:5900</code></td></tr></tbody></table>\n<h3 id=\"connect-in\">Connect in</h3>\n<p><strong>VNC</strong> (macOS + Linux) → port <code>5900</code>:</p>\n<pre><code class=\"language-sh\">open vnc://&lt;ip&gt;:5900     # macOS Screen Sharing.app — or RealVNC / TigerVNC / Remmina\n</code></pre>\n<p><strong>RDP</strong> (Windows):</p>\n<ul>\n<li><strong>macOS:</strong> free <strong>Windows App</strong> → <em>Add PC</em> → <code>&lt;ip&gt;</code></li>\n<li><strong>Linux:</strong> <code>xfreerdp /v:&lt;ip&gt; /u:&lt;user&gt;</code> — or Remmina</li>\n</ul>\n<hr />\n<h2 id=\"️-before-you-run-one\">⚠️ Before you run one</h2>\n<ul>\n<li><strong>Needs a network.</strong> Payloads type the commands inline (no <code>curl|bash</code>), but the target still has to be online — that's the whole point.</li>\n<li><strong>Passwords get baked in.</strong> A keyboardless box can't have you type at the prompt, so the payload types the password for you. It lives in plaintext on the SD card while it's there → save edited copies as <code>*.local.txt</code> and wipe the card after if you care.</li>\n<li><strong>VNC passwords max out at 8 characters</strong> (a VNC-protocol limit). Longer = silently truncated.</li>\n<li><strong>Set the Flipper keyboard layout to US</strong> — the payloads assume US-layout symbols.</li>\n</ul>\n<h2 id=\"gotchas-by-os\">Gotchas by OS</h2>\n<p><strong>macOS</strong> — uses <code>kickstart</code> to enable legacy VNC + SSH; answers one sudo prompt.\nIf a VNC client won't authenticate on Sonoma/Sequoia, set the password once via\n<em>System Settings → General → Sharing → Screen Sharing</em> (everything else stays put).</p>\n<p><strong>Windows</strong> — gets <strong>RDP, not VNC</strong> (Windows has no built-in VNC server; adding\none needs an installer = a future stager payload). RDP only works for accounts\n<strong>with a password</strong>. The UAC \"Yes\" step uses the US <code>Alt+Y</code> accelerator.</p>\n<p><strong>Windows (SSH)</strong> — <code>windows-enable-ssh.txt</code> installs the OpenSSH Server\ncapability (needs the box <strong>online</strong> — it pulls from Windows Update; bump the\n<code>DELAY</code> after the install step on a slow link) and opens port 22. For\npasswordless login, <code>windows-push-ssh-key.txt</code> writes your key to\n<code>C:\\ProgramData\\ssh\\administrators_authorized_keys</code> — admin accounts use <em>that</em>\nfile, not <code>~/.ssh/authorized_keys</code>, and sshd rejects it unless the ACL is locked\nto <code>SYSTEM</code> + <code>Administrators</code> (the payload does this with <code>icacls</code>). Edit in your\npublic key and save as <code>windows-push-ssh-key.local.txt</code> first.</p>\n<p><strong>Linux</strong> — primary payload uses <code>grdctl</code>, which works under <strong>Wayland</strong> (where\nx11vnc doesn't). Needs a logged-in GNOME session. On GNOME 46+ the <code>grdctl vnc</code>\ncommands may differ — if it errors, run <code>scripts/linux-x11vnc-fallback.sh</code> on the\nbox instead.</p>\n<p><strong>Timing</strong> — every payload front-loads <code>DELAY</code>s for app launches. On a slow/cold\nboot, bump the <code>DELAY</code> after whichever step ran too early.</p>\n<h2 id=\"roadmap\">Roadmap</h2>\n<ul class=\"contains-task-list\">\n<li class=\"task-list-item\"> VNC-on-Windows via a stager (silent TightVNC/TigerVNC install)</li>\n<li class=\"task-list-item\"> Fedora (<code>dnf</code>) and Arch (<code>pacman</code>) variants</li>\n<li class=\"task-list-item\"> Optional Tailscale enrollment → reachable off-LAN too</li>\n<li class=\"task-list-item\"> <code>DEFINE</code>-based password templating instead of <code>CHANGE_ME</code> hand-edits</li>\n</ul>\n<h2 id=\"security--scope\">Security &amp; scope</h2>\n<p>Provisioning automation for <strong>machines you own and physically control</strong>. It\nenables remote-desktop services and types credentials you supply — don't point\nit at hardware that isn't yours, and treat the SD card like it holds your\npasswords (while a <code>*.local.txt</code> is on it, it does).</p>\n<h2 id=\"license\">License</h2>\n<p>MIT © EJ Fox — see <a href=\"LICENSE\">LICENSE</a>.</p>",
+    "raw": "# badusb-remote-desktop\n\n![Flipper Zero](https://img.shields.io/badge/Flipper%20Zero-BadUSB-FF6900?logo=flipper&logoColor=white)\n![Payloads](https://img.shields.io/badge/payloads-DuckyScript-1f6feb)\n![Targets](https://img.shields.io/badge/targets-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-555)\n![License](https://img.shields.io/badge/license-MIT-green)\n\n**Plug a Flipper Zero into a brand-new computer and it sets itself up for remote\ndesktop — no keyboard or mouse needed. The machine even says its own IP out loud\nwhen it's done.**\n\n```\n  ┌─────────────┐   USB    ┌──────────────┐   \"my address    ┌──────────┐\n  │ Flipper Zero │ ───────▶ │ new computer │ ──── is ... \" ──▶│ your eyes │\n  │  (BadUSB)    │  types   │  (no kb/ms)  │   spoken aloud   │  + laptop │\n  └─────────────┘ commands └──────────────┘                  └──────────┘\n                                  │\n                                  ▼  reachable on the LAN\n                          vnc://<ip>:5900  ·  rdp://<ip>\n```\n\n---\n\n## When to use this\n\nYou just got a new machine and want to drive it from your laptop — but you don't\nwant to dig out a spare keyboard, mouse, and monitor just to switch on remote\naccess.\n\n- ✅ **Use it for:** setting up *your own* Macs, PCs, and Linux boxes as you get them.\n- 🚫 **Don't use it for:** hardware that isn't yours, or air-gapped machines (these need a network).\n\n## Why a BadUSB?\n\nA fresh machine has no remote access yet — that's the chicken-and-egg problem.\nThe Flipper pretends to be a keyboard and types the setup for you, so you need\n**zero peripherals** and the **same payload works on every new box**.\n\n## How\n\n1. **Edit the password(s)** in your OS's payload — replace each `CHANGE_ME_*`. Save it as `*.local.txt` (gitignored) so secrets stay out of git.\n2. **Copy** the payload to the Flipper SD card → `badusb/` folder.\n3. **Boot** the target to its desktop, signed in as admin, on a network.\n4. **Run it:** plug in the Flipper → BadUSB app → pick the payload → **Run**.\n5. **Listen** — it announces its IP. Connect from your laptop. ⬇️\n\n### Pick your payload\n\n| Target                     | Payload                              | Turns on                       | Connect with        |\n|----------------------------|--------------------------------------|--------------------------------|---------------------|\n| **macOS**                  | `payloads/macos-enable-vnc.txt`      | Screen Sharing (VNC) + SSH     | VNC client `:5900`  |\n| **Windows**                | `payloads/windows-enable-rdp.txt`    | Remote Desktop (RDP)           | RDP client          |\n| **Windows**                | `payloads/windows-enable-ssh.txt`    | OpenSSH Server (sshd) port 22  | `ssh <user>@<ip>`   |\n| **Windows** (passwordless) | `payloads/windows-push-ssh-key.txt`  | installs your SSH public key   | `ssh <user>@<ip>`   |\n| **Debian/Ubuntu** (GNOME)  | `payloads/linux-gnome-enable-vnc.txt`| gnome-remote-desktop (VNC)     | VNC client `:5900`  |\n| **Debian/Ubuntu** (X11)    | `scripts/linux-x11vnc-fallback.sh`   | x11vnc + systemd service       | VNC client `:5900`  |\n\n### Connect in\n\n**VNC** (macOS + Linux) → port `5900`:\n\n```sh\nopen vnc://<ip>:5900     # macOS Screen Sharing.app — or RealVNC / TigerVNC / Remmina\n```\n\n**RDP** (Windows):\n\n- **macOS:** free **Windows App** → *Add PC* → `<ip>`\n- **Linux:** `xfreerdp /v:<ip> /u:<user>` — or Remmina\n\n---\n\n## ⚠️ Before you run one\n\n- **Needs a network.** Payloads type the commands inline (no `curl|bash`), but the target still has to be online — that's the whole point.\n- **Passwords get baked in.** A keyboardless box can't have you type at the prompt, so the payload types the password for you. It lives in plaintext on the SD card while it's there → save edited copies as `*.local.txt` and wipe the card after if you care.\n- **VNC passwords max out at 8 characters** (a VNC-protocol limit). Longer = silently truncated.\n- **Set the Flipper keyboard layout to US** — the payloads assume US-layout symbols.\n\n## Gotchas by OS\n\n**macOS** — uses `kickstart` to enable legacy VNC + SSH; answers one sudo prompt.\nIf a VNC client won't authenticate on Sonoma/Sequoia, set the password once via\n*System Settings → General → Sharing → Screen Sharing* (everything else stays put).\n\n**Windows** — gets **RDP, not VNC** (Windows has no built-in VNC server; adding\none needs an installer = a future stager payload). RDP only works for accounts\n**with a password**. The UAC \"Yes\" step uses the US `Alt+Y` accelerator.\n\n**Windows (SSH)** — `windows-enable-ssh.txt` installs the OpenSSH Server\ncapability (needs the box **online** — it pulls from Windows Update; bump the\n`DELAY` after the install step on a slow link) and opens port 22. For\npasswordless login, `windows-push-ssh-key.txt` writes your key to\n`C:\\ProgramData\\ssh\\administrators_authorized_keys` — admin accounts use *that*\nfile, not `~/.ssh/authorized_keys`, and sshd rejects it unless the ACL is locked\nto `SYSTEM` + `Administrators` (the payload does this with `icacls`). Edit in your\npublic key and save as `windows-push-ssh-key.local.txt` first.\n\n**Linux** — primary payload uses `grdctl`, which works under **Wayland** (where\nx11vnc doesn't). Needs a logged-in GNOME session. On GNOME 46+ the `grdctl vnc`\ncommands may differ — if it errors, run `scripts/linux-x11vnc-fallback.sh` on the\nbox instead.\n\n**Timing** — every payload front-loads `DELAY`s for app launches. On a slow/cold\nboot, bump the `DELAY` after whichever step ran too early.\n\n## Roadmap\n\n- [ ] VNC-on-Windows via a stager (silent TightVNC/TigerVNC install)\n- [ ] Fedora (`dnf`) and Arch (`pacman`) variants\n- [ ] Optional Tailscale enrollment → reachable off-LAN too\n- [ ] `DEFINE`-based password templating instead of `CHANGE_ME` hand-edits\n\n## Security & scope\n\nProvisioning automation for **machines you own and physically control**. It\nenables remote-desktop services and types credentials you supply — don't point\nit at hardware that isn't yours, and treat the SD card like it holds your\npasswords (while a `*.local.txt` is on it, it does).\n\n## License\n\nMIT © EJ Fox — see [LICENSE](LICENSE).\n",
+    "excerpt": "!Flipper Zero\n!Payloads\n!Targets\n!License\n\nPlug a Flipper Zero into a brand-new computer and it sets itself up for remote\ndesktop — no keyboard or mouse needed...."
+  },
+  "createdAt": "2026-06-09T15:17:53Z",
+  "updatedAt": "2026-08-27T08:30:32Z",
+  "pushedAt": "2026-07-14T02:14:10Z"
+}

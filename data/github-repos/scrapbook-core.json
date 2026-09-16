@@ -1,0 +1,1998 @@
+{
+  "name": "scrapbook-core",
+  "description": "Gets scraps from various sources, normalizes and analyzes them, and puts them in a DB",
+  "url": "https://github.com/ejfox/scrapbook-core",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 1,
+    "openIssues": 3
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 962159,
+    "Vue": 26753,
+    "HTML": 24335,
+    "CSS": 15536,
+    "Shell": 7412,
+    "PLpgSQL": 7241,
+    "Makefile": 2574,
+    "Dockerfile": 2087
+  },
+  "diskUsage": 6489,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".claude/settings.local.json",
+        "size": 129
+      },
+      {
+        "path": ".dockerignore",
+        "size": 396
+      },
+      {
+        "path": ".env-example",
+        "size": 388
+      },
+      {
+        "path": ".env.production.example",
+        "size": 1347
+      },
+      {
+        "path": ".gitattributes",
+        "size": 66
+      },
+      {
+        "path": ".gitignore",
+        "size": 783
+      },
+      {
+        "path": ".nvmrc",
+        "size": 9
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 2951
+      },
+      {
+        "path": "CLAUDE.md",
+        "size": 2537
+      },
+      {
+        "path": "DEPLOYMENT.md",
+        "size": 6291
+      },
+      {
+        "path": "Dockerfile",
+        "size": 2087
+      },
+      {
+        "path": "IMPLEMENTATION_SUMMARY.md",
+        "size": 8340
+      },
+      {
+        "path": "Makefile",
+        "size": 2574
+      },
+      {
+        "path": "PACKAGE_VALIDATION.md",
+        "size": 6223
+      },
+      {
+        "path": "README.md",
+        "size": 23783
+      },
+      {
+        "path": "config.json",
+        "size": 3661
+      },
+      {
+        "path": "config/ontology/entities.mjs",
+        "size": 1203
+      },
+      {
+        "path": "config/ontology/predicates.mjs",
+        "size": 6928
+      },
+      {
+        "path": "crontab",
+        "size": 380
+      },
+      {
+        "path": "dashboard.html",
+        "size": 10778
+      },
+      {
+        "path": "dashboard/.env.example",
+        "size": 180
+      },
+      {
+        "path": "dashboard/App.vue",
+        "size": 7112
+      },
+      {
+        "path": "dashboard/QUICK_START.md",
+        "size": 4301
+      },
+      {
+        "path": "dashboard/README.md",
+        "size": 12126
+      },
+      {
+        "path": "dashboard/REALTIME_SETUP.md",
+        "size": 11942
+      },
+      {
+        "path": "dashboard/app.js",
+        "size": 11577
+      },
+      {
+        "path": "dashboard/components/CurrentScrap.vue",
+        "size": 11322
+      },
+      {
+        "path": "dashboard/components/ScrapsFeed.vue",
+        "size": 8319
+      },
+      {
+        "path": "dashboard/composables/useRealtimeScraps.js",
+        "size": 8661
+      },
+      {
+        "path": "dashboard/dashboard.css",
+        "size": 15171
+      },
+      {
+        "path": "dashboard/demo.html",
+        "size": 13285
+      },
+      {
+        "path": "dashboard/eslint.config.js",
+        "size": 1185
+      },
+      {
+        "path": "dashboard/index.html",
+        "size": 272
+      },
+      {
+        "path": "dashboard/main.js",
+        "size": 111
+      },
+      {
+        "path": "dashboard/package-lock.json",
+        "size": 116744
+      },
+      {
+        "path": "dashboard/package.json",
+        "size": 802
+      },
+      {
+        "path": "dashboard/postcss.config.js",
+        "size": 91
+      },
+      {
+        "path": "dashboard/style.css",
+        "size": 365
+      },
+      {
+        "path": "dashboard/tailwind.config.js",
+        "size": 330
+      },
+      {
+        "path": "dashboard/vite.config.js",
+        "size": 355
+      },
+      {
+        "path": "deploy.sh",
+        "size": 4419
+      },
+      {
+        "path": "docker-compose.yml",
+        "size": 2324
+      },
+      {
+        "path": "docs/ARCHITECTURE_DIAGRAM.md",
+        "size": 27112
+      },
+      {
+        "path": "docs/COST_ANALYSIS.md",
+        "size": 4392
+      },
+      {
+        "path": "docs/DESIGN_THREAD_AWARE_SUMMARIZATION.md",
+        "size": 13334
+      },
+      {
+        "path": "docs/ENTITY_GRAPH_AUDIT.md",
+        "size": 6143
+      },
+      {
+        "path": "docs/FINANCIAL_ANALYSIS.md",
+        "size": 4775
+      },
+      {
+        "path": "docs/GRAPH_SCHEMA_V1.md",
+        "size": 5395
+      },
+      {
+        "path": "docs/INTEGRATION_GUIDE.md",
+        "size": 11251
+      },
+      {
+        "path": "docs/META_SUMMARY.md",
+        "size": 3758
+      },
+      {
+        "path": "docs/ONTOLOGY_PRODUCTION_HANDOFF.md",
+        "size": 5295
+      },
+      {
+        "path": "docs/ONTOLOGY_PROJECT.md",
+        "size": 51323
+      },
+      {
+        "path": "docs/PREDICATE_REGISTRY_DRAFT.md",
+        "size": 7472
+      },
+      {
+        "path": "docs/QUICK_REFERENCE.md",
+        "size": 7838
+      },
+      {
+        "path": "docs/RELATIONSHIP_EXTRACTION_AUDIT_PHASE1.md",
+        "size": 21611
+      },
+      {
+        "path": "docs/RELATIONSHIP_JUDGE_COUNCIL.md",
+        "size": 3826
+      },
+      {
+        "path": "docs/SAFETY_CONFIG.md",
+        "size": 4186
+      },
+      {
+        "path": "docs/SAFETY_PROTOCOL.md",
+        "size": 6927
+      },
+      {
+        "path": "eslint.config.js",
+        "size": 1199
+      },
+      {
+        "path": "examples/thread_aware_demo.mjs",
+        "size": 6365
+      },
+      {
+        "path": "helpers.js",
+        "size": 9395
+      },
+      {
+        "path": "helpers/instanceName.mjs",
+        "size": 621
+      },
+      {
+        "path": "lib/config.mjs",
+        "size": 3652
+      },
+      {
+        "path": "lib/graphProjection.mjs",
+        "size": 11718
+      },
+      {
+        "path": "lib/promptTemplates.mjs",
+        "size": 6530
+      },
+      {
+        "path": "lib/relationshipExtraction.mjs",
+        "size": 21658
+      },
+      {
+        "path": "lib/relationshipJudgeCouncil.mjs",
+        "size": 13606
+      },
+      {
+        "path": "lib/scrap-schema.js",
+        "size": 5449
+      },
+      {
+        "path": "lib/threadContext.mjs",
+        "size": 18735
+      },
+      {
+        "path": "lib/validateEnvironment.mjs",
+        "size": 2484
+      },
+      {
+        "path": "lib/wikidataResolver.mjs",
+        "size": 15649
+      },
+      {
+        "path": "migrations/00_init_scraps_recovery.sql",
+        "size": 6108
+      },
+      {
+        "path": "migrations/add_graph_tables_v1.sql",
+        "size": 7039
+      },
+      {
+        "path": "migrations/add_meta_summary.sql",
+        "size": 551
+      },
+      {
+        "path": "migrations/add_reasoning_fields.sql",
+        "size": 1254
+      },
+      {
+        "path": "migrations/add_thread_discovery_functions.sql",
+        "size": 7241
+      },
+      {
+        "path": "migrations/add_type_field.sql",
+        "size": 781
+      },
+      {
+        "path": "migrations/add_wikidata_columns.sql",
+        "size": 1786
+      },
+      {
+        "path": "migrations/normalize_ids.sql",
+        "size": 371
+      },
+      {
+        "path": "migrations/schema_v2.sql",
+        "size": 1099
+      },
+      {
+        "path": "migrations/update_schema_v2.sql",
+        "size": 1689
+      },
+      {
+        "path": "package-lock.json",
+        "size": 395184
+      },
+      {
+        "path": "package.json",
+        "size": 4719
+      },
+      {
+        "path": "packages/README.md",
+        "size": 4331
+      },
+      {
+        "path": "packages/content-geolocation/README.md",
+        "size": 2154
+      },
+      {
+        "path": "packages/content-geolocation/USAGE.md",
+        "size": 9870
+      },
+      {
+        "path": "packages/content-geolocation/index.mjs",
+        "size": 1454
+      },
+      {
+        "path": "packages/content-geolocation/package.json",
+        "size": 654
+      },
+      {
+        "path": "packages/content-summarization/README.md",
+        "size": 8159
+      },
+      {
+        "path": "packages/content-summarization/USAGE.md",
+        "size": 12988
+      },
+      {
+        "path": "packages/content-summarization/index.mjs",
+        "size": 12946
+      },
+      {
+        "path": "packages/content-summarization/package.json",
+        "size": 641
+      },
+      {
+        "path": "packages/entity-extraction/README.md",
+        "size": 7555
+      },
+      {
+        "path": "packages/entity-extraction/USAGE.md",
+        "size": 10180
+      },
+      {
+        "path": "packages/entity-extraction/example.mjs",
+        "size": 3996
+      },
+      {
+        "path": "packages/entity-extraction/index.mjs",
+        "size": 24836
+      },
+      {
+        "path": "packages/entity-extraction/package.json",
+        "size": 767
+      },
+      {
+        "path": "packages/financial-analysis/README.md",
+        "size": 3126
+      },
+      {
+        "path": "packages/financial-analysis/USAGE.md",
+        "size": 13084
+      },
+      {
+        "path": "packages/financial-analysis/index.mjs",
+        "size": 2657
+      },
+      {
+        "path": "packages/financial-analysis/package.json",
+        "size": 616
+      },
+      {
+        "path": "public/data/scrapbook/arena.json",
+        "size": 4900032
+      },
+      {
+        "path": "public/data/scrapbook/bookmarks.json",
+        "size": 3941188
+      },
+      {
+        "path": "public/data/scrapbook/github.json",
+        "size": 536457
+      },
+      {
+        "path": "public/data/scrapbook/manifest.json",
+        "size": 365
+      },
+      {
+        "path": "scripts/aiFinancialAnalysis.mjs",
+        "size": 16179
+      },
+      {
+        "path": "scripts/aiGeolocation.mjs",
+        "size": 18750
+      },
+      {
+        "path": "scripts/aiGithubSummarization.mjs",
+        "size": 4515
+      },
+      {
+        "path": "scripts/aiMastodonSummarization.mjs",
+        "size": 3886
+      },
+      {
+        "path": "scripts/aiNewsworthiness.mjs",
+        "size": 6765
+      },
+      {
+        "path": "scripts/aiRelationshipExtraction.mjs",
+        "size": 36566
+      },
+      {
+        "path": "scripts/aiSummarization.mjs",
+        "size": 17828
+      },
+      {
+        "path": "scripts/api-server.mjs",
+        "size": 4266
+      },
+      {
+        "path": "scripts/audit_backlog.mjs",
+        "size": 2287
+      },
+      {
+        "path": "scripts/audit_fields.mjs",
+        "size": 3281
+      },
+      {
+        "path": "scripts/backfill_graph_v1.mjs",
+        "size": 8351
+      },
+      {
+        "path": "scripts/backfill_titles.mjs",
+        "size": 3116
+      },
+      {
+        "path": "scripts/bakeoff_relationship_models.mjs",
+        "size": 7862
+      },
+      {
+        "path": "scripts/browser_extract.mjs",
+        "size": 5623
+      },
+      {
+        "path": "scripts/build_relationship_review_batch.mjs",
+        "size": 5774
+      },
+      {
+        "path": "scripts/cdnHelpers.mjs",
+        "size": 1528
+      },
+      {
+        "path": "scripts/check_backlog.mjs",
+        "size": 2408
+      },
+      {
+        "path": "scripts/circuit_breaker.mjs",
+        "size": 5427
+      },
+      {
+        "path": "scripts/comprehensive_quality_audit.mjs",
+        "size": 20004
+      },
+      {
+        "path": "scripts/contentExtractor.mjs",
+        "size": 12392
+      },
+      {
+        "path": "scripts/costTracking.mjs",
+        "size": 17032
+      },
+      {
+        "path": "scripts/cyberpunkUI.mjs",
+        "size": 12995
+      },
+      {
+        "path": "scripts/distributedLock.mjs",
+        "size": 2553
+      },
+      {
+        "path": "scripts/dl_arena.mjs",
+        "size": 13335
+      },
+      {
+        "path": "scripts/dl_github.mjs",
+        "size": 10756
+      },
+      {
+        "path": "scripts/dl_mastodon.mjs",
+        "size": 8290
+      },
+      {
+        "path": "scripts/dl_pinboard.mjs",
+        "size": 19647
+      },
+      {
+        "path": "scripts/export_entity_graph.mjs",
+        "size": 7988
+      },
+      {
+        "path": "scripts/extract_cookies.mjs",
+        "size": 5616
+      },
+      {
+        "path": "scripts/generateScreenshot.mjs",
+        "size": 14685
+      },
+      {
+        "path": "scripts/health_check.mjs",
+        "size": 14900
+      },
+      {
+        "path": "scripts/imageDescriptions.mjs",
+        "size": 6339
+      },
+      {
+        "path": "scripts/index.mjs",
+        "size": 96280
+      },
+      {
+        "path": "scripts/llmService.mjs",
+        "size": 36059
+      },
+      {
+        "path": "scripts/migrations/fix_location_json.mjs",
+        "size": 2205
+      },
+      {
+        "path": "scripts/migrations/fix_type_from_source.mjs",
+        "size": 1760
+      },
+      {
+        "path": "scripts/openrouter-leaderboard.mjs",
+        "size": 6406
+      },
+      {
+        "path": "scripts/openrouter-metrics.sh",
+        "size": 2993
+      },
+      {
+        "path": "scripts/preview_graph_projection.mjs",
+        "size": 2658
+      },
+      {
+        "path": "scripts/prioritize_backlog.mjs",
+        "size": 4468
+      },
+      {
+        "path": "scripts/prompts.mjs",
+        "size": 2167
+      },
+      {
+        "path": "scripts/public/.vscode/settings.json",
+        "size": 267
+      },
+      {
+        "path": "scripts/quality_bakeoff.mjs",
+        "size": 3227
+      },
+      {
+        "path": "scripts/reasoningFields.mjs",
+        "size": 7953
+      },
+      {
+        "path": "scripts/reextract_relationships_v2.mjs",
+        "size": 6420
+      },
+      {
+        "path": "scripts/rejudge_relationship_bakeoff.mjs",
+        "size": 5674
+      },
+      {
+        "path": "scripts/render_relationship_bakeoff_report.mjs",
+        "size": 17171
+      },
+      {
+        "path": "scripts/resolve_wikidata.mjs",
+        "size": 9665
+      },
+      {
+        "path": "scripts/safetyManager.mjs",
+        "size": 16606
+      },
+      {
+        "path": "scripts/scrap_doctor.mjs",
+        "size": 17538
+      },
+      {
+        "path": "scripts/scrap_doctor_ai.mjs",
+        "size": 43658
+      },
+      {
+        "path": "scripts/search_sqlite_scraps.js",
+        "size": 4916
+      },
+      {
+        "path": "scripts/shared/rateLimiters.mjs",
+        "size": 888
+      },
+      {
+        "path": "scripts/shared/smartRateLimiter.mjs",
+        "size": 6520
+      },
+      {
+        "path": "scripts/summarize_relationship_review_batch.mjs",
+        "size": 2641
+      },
+      {
+        "path": "scripts/sync_tags_to_pinboard.mjs",
+        "size": 17433
+      },
+      {
+        "path": "scripts/utils.mjs",
+        "size": 493
+      },
+      {
+        "path": "scripts/validate_env.mjs",
+        "size": 1289
+      },
+      {
+        "path": "scripts/youtubeTranscript.mjs",
+        "size": 4126
+      },
+      {
+        "path": "supabase/.temp/cli-latest",
+        "size": 0
+      },
+      {
+        "path": "supabase/.temp/gotrue-version",
+        "size": 8
+      },
+      {
+        "path": "supabase/.temp/pooler-url",
+        "size": 92
+      },
+      {
+        "path": "supabase/.temp/postgres-version",
+        "size": 10
+      },
+      {
+        "path": "supabase/.temp/project-ref",
+        "size": 20
+      },
+      {
+        "path": "supabase/.temp/rest-version",
+        "size": 7
+      },
+      {
+        "path": "supabase/.temp/storage-migration",
+        "size": 29
+      },
+      {
+        "path": "supabase/.temp/storage-version",
+        "size": 7
+      },
+      {
+        "path": "supabase/migrations/20260325_add_wikidata_columns.sql",
+        "size": 1786
+      },
+      {
+        "path": "test-packages.mjs",
+        "size": 2035
+      },
+      {
+        "path": "tests/test-cleanup.mjs",
+        "size": 3986
+      },
+      {
+        "path": "tests/test-smart-rate-limiter.mjs",
+        "size": 3638
+      },
+      {
+        "path": "tests/test_financial_analysis.mjs",
+        "size": 6380
+      },
+      {
+        "path": "tests/test_gemini.mjs",
+        "size": 3606
+      },
+      {
+        "path": "tests/test_gemini_api.mjs",
+        "size": 2914
+      },
+      {
+        "path": "tests/test_health_endpoint.mjs",
+        "size": 5438
+      },
+      {
+        "path": "tests/test_model_comparison.mjs",
+        "size": 5334
+      },
+      {
+        "path": "tests/test_paid_gemini.mjs",
+        "size": 5699
+      },
+      {
+        "path": "tests/test_safety.mjs",
+        "size": 9981
+      },
+      {
+        "path": "tests/test_smart_tagging.mjs",
+        "size": 1485
+      },
+      {
+        "path": "tests/test_summarization.mjs",
+        "size": 4643
+      },
+      {
+        "path": "tests/test_validateEnvironment.mjs",
+        "size": 6096
+      },
+      {
+        "path": "tests/test_weak_sync.mjs",
+        "size": 1660
+      },
+      {
+        "path": "tests/validate_ai.mjs",
+        "size": 10997
+      },
+      {
+        "path": "tests/validate_db_integrity.mjs",
+        "size": 27578
+      },
+      {
+        "path": "tests/validate_embeddings.mjs",
+        "size": 5287
+      },
+      {
+        "path": "tests/validate_processing.mjs",
+        "size": 6987
+      },
+      {
+        "path": "tests/validate_scraps.mjs",
+        "size": 17931
+      },
+      {
+        "path": "tests/validate_secrets.mjs",
+        "size": 1136
+      },
+      {
+        "path": "tools/Local Scrap Search.1.1.alfredworkflow.zip",
+        "size": 3525
+      },
+      {
+        "path": "verify-packages.mjs",
+        "size": 3157
+      }
+    ],
+    "tree": {
+      "name": "scrapbook-core",
+      "children": [
+        {
+          "name": ".claude",
+          "children": [
+            {
+              "name": "settings.local.json",
+              "size": 129,
+              "path": ".claude/settings.local.json"
+            }
+          ],
+          "path": ".claude"
+        },
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "settings.json",
+              "size": 267,
+              "path": ".vscode/settings.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "config",
+          "children": [
+            {
+              "name": "ontology",
+              "children": [
+                {
+                  "name": "entities.mjs",
+                  "size": 1203,
+                  "path": "config/ontology/entities.mjs"
+                },
+                {
+                  "name": "predicates.mjs",
+                  "size": 6928,
+                  "path": "config/ontology/predicates.mjs"
+                }
+              ],
+              "path": "config/ontology"
+            }
+          ],
+          "path": "config"
+        },
+        {
+          "name": "dashboard",
+          "children": [
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "CurrentScrap.vue",
+                  "size": 11322,
+                  "path": "dashboard/components/CurrentScrap.vue"
+                },
+                {
+                  "name": "ScrapsFeed.vue",
+                  "size": 8319,
+                  "path": "dashboard/components/ScrapsFeed.vue"
+                }
+              ],
+              "path": "dashboard/components"
+            },
+            {
+              "name": "composables",
+              "children": [
+                {
+                  "name": "useRealtimeScraps.js",
+                  "size": 8661,
+                  "path": "dashboard/composables/useRealtimeScraps.js"
+                }
+              ],
+              "path": "dashboard/composables"
+            },
+            {
+              "name": ".env.example",
+              "size": 180,
+              "path": "dashboard/.env.example"
+            },
+            {
+              "name": "App.vue",
+              "size": 7112,
+              "path": "dashboard/App.vue"
+            },
+            {
+              "name": "QUICK_START.md",
+              "size": 4301,
+              "path": "dashboard/QUICK_START.md"
+            },
+            {
+              "name": "README.md",
+              "size": 12126,
+              "path": "dashboard/README.md"
+            },
+            {
+              "name": "REALTIME_SETUP.md",
+              "size": 11942,
+              "path": "dashboard/REALTIME_SETUP.md"
+            },
+            {
+              "name": "app.js",
+              "size": 11577,
+              "path": "dashboard/app.js"
+            },
+            {
+              "name": "dashboard.css",
+              "size": 15171,
+              "path": "dashboard/dashboard.css"
+            },
+            {
+              "name": "demo.html",
+              "size": 13285,
+              "path": "dashboard/demo.html"
+            },
+            {
+              "name": "eslint.config.js",
+              "size": 1185,
+              "path": "dashboard/eslint.config.js"
+            },
+            {
+              "name": "index.html",
+              "size": 272,
+              "path": "dashboard/index.html"
+            },
+            {
+              "name": "main.js",
+              "size": 111,
+              "path": "dashboard/main.js"
+            },
+            {
+              "name": "package-lock.json",
+              "size": 116744,
+              "path": "dashboard/package-lock.json"
+            },
+            {
+              "name": "package.json",
+              "size": 802,
+              "path": "dashboard/package.json"
+            },
+            {
+              "name": "postcss.config.js",
+              "size": 91,
+              "path": "dashboard/postcss.config.js"
+            },
+            {
+              "name": "style.css",
+              "size": 365,
+              "path": "dashboard/style.css"
+            },
+            {
+              "name": "tailwind.config.js",
+              "size": 330,
+              "path": "dashboard/tailwind.config.js"
+            },
+            {
+              "name": "vite.config.js",
+              "size": 355,
+              "path": "dashboard/vite.config.js"
+            }
+          ],
+          "path": "dashboard"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": "ARCHITECTURE_DIAGRAM.md",
+              "size": 27112,
+              "path": "docs/ARCHITECTURE_DIAGRAM.md"
+            },
+            {
+              "name": "COST_ANALYSIS.md",
+              "size": 4392,
+              "path": "docs/COST_ANALYSIS.md"
+            },
+            {
+              "name": "DESIGN_THREAD_AWARE_SUMMARIZATION.md",
+              "size": 13334,
+              "path": "docs/DESIGN_THREAD_AWARE_SUMMARIZATION.md"
+            },
+            {
+              "name": "ENTITY_GRAPH_AUDIT.md",
+              "size": 6143,
+              "path": "docs/ENTITY_GRAPH_AUDIT.md"
+            },
+            {
+              "name": "FINANCIAL_ANALYSIS.md",
+              "size": 4775,
+              "path": "docs/FINANCIAL_ANALYSIS.md"
+            },
+            {
+              "name": "GRAPH_SCHEMA_V1.md",
+              "size": 5395,
+              "path": "docs/GRAPH_SCHEMA_V1.md"
+            },
+            {
+              "name": "INTEGRATION_GUIDE.md",
+              "size": 11251,
+              "path": "docs/INTEGRATION_GUIDE.md"
+            },
+            {
+              "name": "META_SUMMARY.md",
+              "size": 3758,
+              "path": "docs/META_SUMMARY.md"
+            },
+            {
+              "name": "ONTOLOGY_PRODUCTION_HANDOFF.md",
+              "size": 5295,
+              "path": "docs/ONTOLOGY_PRODUCTION_HANDOFF.md"
+            },
+            {
+              "name": "ONTOLOGY_PROJECT.md",
+              "size": 51323,
+              "path": "docs/ONTOLOGY_PROJECT.md"
+            },
+            {
+              "name": "PREDICATE_REGISTRY_DRAFT.md",
+              "size": 7472,
+              "path": "docs/PREDICATE_REGISTRY_DRAFT.md"
+            },
+            {
+              "name": "QUICK_REFERENCE.md",
+              "size": 7838,
+              "path": "docs/QUICK_REFERENCE.md"
+            },
+            {
+              "name": "RELATIONSHIP_EXTRACTION_AUDIT_PHASE1.md",
+              "size": 21611,
+              "path": "docs/RELATIONSHIP_EXTRACTION_AUDIT_PHASE1.md"
+            },
+            {
+              "name": "RELATIONSHIP_JUDGE_COUNCIL.md",
+              "size": 3826,
+              "path": "docs/RELATIONSHIP_JUDGE_COUNCIL.md"
+            },
+            {
+              "name": "SAFETY_CONFIG.md",
+              "size": 4186,
+              "path": "docs/SAFETY_CONFIG.md"
+            },
+            {
+              "name": "SAFETY_PROTOCOL.md",
+              "size": 6927,
+              "path": "docs/SAFETY_PROTOCOL.md"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "examples",
+          "children": [
+            {
+              "name": "thread_aware_demo.mjs",
+              "size": 6365,
+              "path": "examples/thread_aware_demo.mjs"
+            }
+          ],
+          "path": "examples"
+        },
+        {
+          "name": "helpers",
+          "children": [
+            {
+              "name": "instanceName.mjs",
+              "size": 621,
+              "path": "helpers/instanceName.mjs"
+            }
+          ],
+          "path": "helpers"
+        },
+        {
+          "name": "lib",
+          "children": [
+            {
+              "name": "config.mjs",
+              "size": 3652,
+              "path": "lib/config.mjs"
+            },
+            {
+              "name": "graphProjection.mjs",
+              "size": 11718,
+              "path": "lib/graphProjection.mjs"
+            },
+            {
+              "name": "promptTemplates.mjs",
+              "size": 6530,
+              "path": "lib/promptTemplates.mjs"
+            },
+            {
+              "name": "relationshipExtraction.mjs",
+              "size": 21658,
+              "path": "lib/relationshipExtraction.mjs"
+            },
+            {
+              "name": "relationshipJudgeCouncil.mjs",
+              "size": 13606,
+              "path": "lib/relationshipJudgeCouncil.mjs"
+            },
+            {
+              "name": "scrap-schema.js",
+              "size": 5449,
+              "path": "lib/scrap-schema.js"
+            },
+            {
+              "name": "threadContext.mjs",
+              "size": 18735,
+              "path": "lib/threadContext.mjs"
+            },
+            {
+              "name": "validateEnvironment.mjs",
+              "size": 2484,
+              "path": "lib/validateEnvironment.mjs"
+            },
+            {
+              "name": "wikidataResolver.mjs",
+              "size": 15649,
+              "path": "lib/wikidataResolver.mjs"
+            }
+          ],
+          "path": "lib"
+        },
+        {
+          "name": "migrations",
+          "children": [
+            {
+              "name": "00_init_scraps_recovery.sql",
+              "size": 6108,
+              "path": "migrations/00_init_scraps_recovery.sql"
+            },
+            {
+              "name": "add_graph_tables_v1.sql",
+              "size": 7039,
+              "path": "migrations/add_graph_tables_v1.sql"
+            },
+            {
+              "name": "add_meta_summary.sql",
+              "size": 551,
+              "path": "migrations/add_meta_summary.sql"
+            },
+            {
+              "name": "add_reasoning_fields.sql",
+              "size": 1254,
+              "path": "migrations/add_reasoning_fields.sql"
+            },
+            {
+              "name": "add_thread_discovery_functions.sql",
+              "size": 7241,
+              "path": "migrations/add_thread_discovery_functions.sql"
+            },
+            {
+              "name": "add_type_field.sql",
+              "size": 781,
+              "path": "migrations/add_type_field.sql"
+            },
+            {
+              "name": "add_wikidata_columns.sql",
+              "size": 1786,
+              "path": "migrations/add_wikidata_columns.sql"
+            },
+            {
+              "name": "normalize_ids.sql",
+              "size": 371,
+              "path": "migrations/normalize_ids.sql"
+            },
+            {
+              "name": "schema_v2.sql",
+              "size": 1099,
+              "path": "migrations/schema_v2.sql"
+            },
+            {
+              "name": "update_schema_v2.sql",
+              "size": 1689,
+              "path": "migrations/update_schema_v2.sql"
+            }
+          ],
+          "path": "migrations"
+        },
+        {
+          "name": "packages",
+          "children": [
+            {
+              "name": "content-geolocation",
+              "children": [
+                {
+                  "name": "README.md",
+                  "size": 2154,
+                  "path": "packages/content-geolocation/README.md"
+                },
+                {
+                  "name": "USAGE.md",
+                  "size": 9870,
+                  "path": "packages/content-geolocation/USAGE.md"
+                },
+                {
+                  "name": "index.mjs",
+                  "size": 1454,
+                  "path": "packages/content-geolocation/index.mjs"
+                },
+                {
+                  "name": "package.json",
+                  "size": 654,
+                  "path": "packages/content-geolocation/package.json"
+                }
+              ],
+              "path": "packages/content-geolocation"
+            },
+            {
+              "name": "content-summarization",
+              "children": [
+                {
+                  "name": "README.md",
+                  "size": 8159,
+                  "path": "packages/content-summarization/README.md"
+                },
+                {
+                  "name": "USAGE.md",
+                  "size": 12988,
+                  "path": "packages/content-summarization/USAGE.md"
+                },
+                {
+                  "name": "index.mjs",
+                  "size": 12946,
+                  "path": "packages/content-summarization/index.mjs"
+                },
+                {
+                  "name": "package.json",
+                  "size": 641,
+                  "path": "packages/content-summarization/package.json"
+                }
+              ],
+              "path": "packages/content-summarization"
+            },
+            {
+              "name": "entity-extraction",
+              "children": [
+                {
+                  "name": "README.md",
+                  "size": 7555,
+                  "path": "packages/entity-extraction/README.md"
+                },
+                {
+                  "name": "USAGE.md",
+                  "size": 10180,
+                  "path": "packages/entity-extraction/USAGE.md"
+                },
+                {
+                  "name": "example.mjs",
+                  "size": 3996,
+                  "path": "packages/entity-extraction/example.mjs"
+                },
+                {
+                  "name": "index.mjs",
+                  "size": 24836,
+                  "path": "packages/entity-extraction/index.mjs"
+                },
+                {
+                  "name": "package.json",
+                  "size": 767,
+                  "path": "packages/entity-extraction/package.json"
+                }
+              ],
+              "path": "packages/entity-extraction"
+            },
+            {
+              "name": "financial-analysis",
+              "children": [
+                {
+                  "name": "README.md",
+                  "size": 3126,
+                  "path": "packages/financial-analysis/README.md"
+                },
+                {
+                  "name": "USAGE.md",
+                  "size": 13084,
+                  "path": "packages/financial-analysis/USAGE.md"
+                },
+                {
+                  "name": "index.mjs",
+                  "size": 2657,
+                  "path": "packages/financial-analysis/index.mjs"
+                },
+                {
+                  "name": "package.json",
+                  "size": 616,
+                  "path": "packages/financial-analysis/package.json"
+                }
+              ],
+              "path": "packages/financial-analysis"
+            },
+            {
+              "name": "README.md",
+              "size": 4331,
+              "path": "packages/README.md"
+            }
+          ],
+          "path": "packages"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "data",
+              "children": [
+                {
+                  "name": "scrapbook",
+                  "children": [
+                    {
+                      "name": "arena.json",
+                      "size": 4900032,
+                      "path": "public/data/scrapbook/arena.json"
+                    },
+                    {
+                      "name": "bookmarks.json",
+                      "size": 3941188,
+                      "path": "public/data/scrapbook/bookmarks.json"
+                    },
+                    {
+                      "name": "github.json",
+                      "size": 536457,
+                      "path": "public/data/scrapbook/github.json"
+                    },
+                    {
+                      "name": "manifest.json",
+                      "size": 365,
+                      "path": "public/data/scrapbook/manifest.json"
+                    }
+                  ],
+                  "path": "public/data/scrapbook"
+                }
+              ],
+              "path": "public/data"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "scripts",
+          "children": [
+            {
+              "name": "migrations",
+              "children": [
+                {
+                  "name": "fix_location_json.mjs",
+                  "size": 2205,
+                  "path": "scripts/migrations/fix_location_json.mjs"
+                },
+                {
+                  "name": "fix_type_from_source.mjs",
+                  "size": 1760,
+                  "path": "scripts/migrations/fix_type_from_source.mjs"
+                }
+              ],
+              "path": "scripts/migrations"
+            },
+            {
+              "name": "public",
+              "children": [
+                {
+                  "name": ".vscode",
+                  "children": [
+                    {
+                      "name": "settings.json",
+                      "size": 267,
+                      "path": "scripts/public/.vscode/settings.json"
+                    }
+                  ],
+                  "path": "scripts/public/.vscode"
+                }
+              ],
+              "path": "scripts/public"
+            },
+            {
+              "name": "shared",
+              "children": [
+                {
+                  "name": "rateLimiters.mjs",
+                  "size": 888,
+                  "path": "scripts/shared/rateLimiters.mjs"
+                },
+                {
+                  "name": "smartRateLimiter.mjs",
+                  "size": 6520,
+                  "path": "scripts/shared/smartRateLimiter.mjs"
+                }
+              ],
+              "path": "scripts/shared"
+            },
+            {
+              "name": "aiFinancialAnalysis.mjs",
+              "size": 16179,
+              "path": "scripts/aiFinancialAnalysis.mjs"
+            },
+            {
+              "name": "aiGeolocation.mjs",
+              "size": 18750,
+              "path": "scripts/aiGeolocation.mjs"
+            },
+            {
+              "name": "aiGithubSummarization.mjs",
+              "size": 4515,
+              "path": "scripts/aiGithubSummarization.mjs"
+            },
+            {
+              "name": "aiMastodonSummarization.mjs",
+              "size": 3886,
+              "path": "scripts/aiMastodonSummarization.mjs"
+            },
+            {
+              "name": "aiNewsworthiness.mjs",
+              "size": 6765,
+              "path": "scripts/aiNewsworthiness.mjs"
+            },
+            {
+              "name": "aiRelationshipExtraction.mjs",
+              "size": 36566,
+              "path": "scripts/aiRelationshipExtraction.mjs"
+            },
+            {
+              "name": "aiSummarization.mjs",
+              "size": 17828,
+              "path": "scripts/aiSummarization.mjs"
+            },
+            {
+              "name": "api-server.mjs",
+              "size": 4266,
+              "path": "scripts/api-server.mjs"
+            },
+            {
+              "name": "audit_backlog.mjs",
+              "size": 2287,
+              "path": "scripts/audit_backlog.mjs"
+            },
+            {
+              "name": "audit_fields.mjs",
+              "size": 3281,
+              "path": "scripts/audit_fields.mjs"
+            },
+            {
+              "name": "backfill_graph_v1.mjs",
+              "size": 8351,
+              "path": "scripts/backfill_graph_v1.mjs"
+            },
+            {
+              "name": "backfill_titles.mjs",
+              "size": 3116,
+              "path": "scripts/backfill_titles.mjs"
+            },
+            {
+              "name": "bakeoff_relationship_models.mjs",
+              "size": 7862,
+              "path": "scripts/bakeoff_relationship_models.mjs"
+            },
+            {
+              "name": "browser_extract.mjs",
+              "size": 5623,
+              "path": "scripts/browser_extract.mjs"
+            },
+            {
+              "name": "build_relationship_review_batch.mjs",
+              "size": 5774,
+              "path": "scripts/build_relationship_review_batch.mjs"
+            },
+            {
+              "name": "cdnHelpers.mjs",
+              "size": 1528,
+              "path": "scripts/cdnHelpers.mjs"
+            },
+            {
+              "name": "check_backlog.mjs",
+              "size": 2408,
+              "path": "scripts/check_backlog.mjs"
+            },
+            {
+              "name": "circuit_breaker.mjs",
+              "size": 5427,
+              "path": "scripts/circuit_breaker.mjs"
+            },
+            {
+              "name": "comprehensive_quality_audit.mjs",
+              "size": 20004,
+              "path": "scripts/comprehensive_quality_audit.mjs"
+            },
+            {
+              "name": "contentExtractor.mjs",
+              "size": 12392,
+              "path": "scripts/contentExtractor.mjs"
+            },
+            {
+              "name": "costTracking.mjs",
+              "size": 17032,
+              "path": "scripts/costTracking.mjs"
+            },
+            {
+              "name": "cyberpunkUI.mjs",
+              "size": 12995,
+              "path": "scripts/cyberpunkUI.mjs"
+            },
+            {
+              "name": "distributedLock.mjs",
+              "size": 2553,
+              "path": "scripts/distributedLock.mjs"
+            },
+            {
+              "name": "dl_arena.mjs",
+              "size": 13335,
+              "path": "scripts/dl_arena.mjs"
+            },
+            {
+              "name": "dl_github.mjs",
+              "size": 10756,
+              "path": "scripts/dl_github.mjs"
+            },
+            {
+              "name": "dl_mastodon.mjs",
+              "size": 8290,
+              "path": "scripts/dl_mastodon.mjs"
+            },
+            {
+              "name": "dl_pinboard.mjs",
+              "size": 19647,
+              "path": "scripts/dl_pinboard.mjs"
+            },
+            {
+              "name": "export_entity_graph.mjs",
+              "size": 7988,
+              "path": "scripts/export_entity_graph.mjs"
+            },
+            {
+              "name": "extract_cookies.mjs",
+              "size": 5616,
+              "path": "scripts/extract_cookies.mjs"
+            },
+            {
+              "name": "generateScreenshot.mjs",
+              "size": 14685,
+              "path": "scripts/generateScreenshot.mjs"
+            },
+            {
+              "name": "health_check.mjs",
+              "size": 14900,
+              "path": "scripts/health_check.mjs"
+            },
+            {
+              "name": "imageDescriptions.mjs",
+              "size": 6339,
+              "path": "scripts/imageDescriptions.mjs"
+            },
+            {
+              "name": "index.mjs",
+              "size": 96280,
+              "path": "scripts/index.mjs"
+            },
+            {
+              "name": "llmService.mjs",
+              "size": 36059,
+              "path": "scripts/llmService.mjs"
+            },
+            {
+              "name": "openrouter-leaderboard.mjs",
+              "size": 6406,
+              "path": "scripts/openrouter-leaderboard.mjs"
+            },
+            {
+              "name": "openrouter-metrics.sh",
+              "size": 2993,
+              "path": "scripts/openrouter-metrics.sh"
+            },
+            {
+              "name": "preview_graph_projection.mjs",
+              "size": 2658,
+              "path": "scripts/preview_graph_projection.mjs"
+            },
+            {
+              "name": "prioritize_backlog.mjs",
+              "size": 4468,
+              "path": "scripts/prioritize_backlog.mjs"
+            },
+            {
+              "name": "prompts.mjs",
+              "size": 2167,
+              "path": "scripts/prompts.mjs"
+            },
+            {
+              "name": "quality_bakeoff.mjs",
+              "size": 3227,
+              "path": "scripts/quality_bakeoff.mjs"
+            },
+            {
+              "name": "reasoningFields.mjs",
+              "size": 7953,
+              "path": "scripts/reasoningFields.mjs"
+            },
+            {
+              "name": "reextract_relationships_v2.mjs",
+              "size": 6420,
+              "path": "scripts/reextract_relationships_v2.mjs"
+            },
+            {
+              "name": "rejudge_relationship_bakeoff.mjs",
+              "size": 5674,
+              "path": "scripts/rejudge_relationship_bakeoff.mjs"
+            },
+            {
+              "name": "render_relationship_bakeoff_report.mjs",
+              "size": 17171,
+              "path": "scripts/render_relationship_bakeoff_report.mjs"
+            },
+            {
+              "name": "resolve_wikidata.mjs",
+              "size": 9665,
+              "path": "scripts/resolve_wikidata.mjs"
+            },
+            {
+              "name": "safetyManager.mjs",
+              "size": 16606,
+              "path": "scripts/safetyManager.mjs"
+            },
+            {
+              "name": "scrap_doctor.mjs",
+              "size": 17538,
+              "path": "scripts/scrap_doctor.mjs"
+            },
+            {
+              "name": "scrap_doctor_ai.mjs",
+              "size": 43658,
+              "path": "scripts/scrap_doctor_ai.mjs"
+            },
+            {
+              "name": "search_sqlite_scraps.js",
+              "size": 4916,
+              "path": "scripts/search_sqlite_scraps.js"
+            },
+            {
+              "name": "summarize_relationship_review_batch.mjs",
+              "size": 2641,
+              "path": "scripts/summarize_relationship_review_batch.mjs"
+            },
+            {
+              "name": "sync_tags_to_pinboard.mjs",
+              "size": 17433,
+              "path": "scripts/sync_tags_to_pinboard.mjs"
+            },
+            {
+              "name": "utils.mjs",
+              "size": 493,
+              "path": "scripts/utils.mjs"
+            },
+            {
+              "name": "validate_env.mjs",
+              "size": 1289,
+              "path": "scripts/validate_env.mjs"
+            },
+            {
+              "name": "youtubeTranscript.mjs",
+              "size": 4126,
+              "path": "scripts/youtubeTranscript.mjs"
+            }
+          ],
+          "path": "scripts"
+        },
+        {
+          "name": "supabase",
+          "children": [
+            {
+              "name": ".temp",
+              "children": [
+                {
+                  "name": "cli-latest",
+                  "size": 0,
+                  "path": "supabase/.temp/cli-latest"
+                },
+                {
+                  "name": "gotrue-version",
+                  "size": 8,
+                  "path": "supabase/.temp/gotrue-version"
+                },
+                {
+                  "name": "pooler-url",
+                  "size": 92,
+                  "path": "supabase/.temp/pooler-url"
+                },
+                {
+                  "name": "postgres-version",
+                  "size": 10,
+                  "path": "supabase/.temp/postgres-version"
+                },
+                {
+                  "name": "project-ref",
+                  "size": 20,
+                  "path": "supabase/.temp/project-ref"
+                },
+                {
+                  "name": "rest-version",
+                  "size": 7,
+                  "path": "supabase/.temp/rest-version"
+                },
+                {
+                  "name": "storage-migration",
+                  "size": 29,
+                  "path": "supabase/.temp/storage-migration"
+                },
+                {
+                  "name": "storage-version",
+                  "size": 7,
+                  "path": "supabase/.temp/storage-version"
+                }
+              ],
+              "path": "supabase/.temp"
+            },
+            {
+              "name": "migrations",
+              "children": [
+                {
+                  "name": "20260325_add_wikidata_columns.sql",
+                  "size": 1786,
+                  "path": "supabase/migrations/20260325_add_wikidata_columns.sql"
+                }
+              ],
+              "path": "supabase/migrations"
+            }
+          ],
+          "path": "supabase"
+        },
+        {
+          "name": "tests",
+          "children": [
+            {
+              "name": "test-cleanup.mjs",
+              "size": 3986,
+              "path": "tests/test-cleanup.mjs"
+            },
+            {
+              "name": "test-smart-rate-limiter.mjs",
+              "size": 3638,
+              "path": "tests/test-smart-rate-limiter.mjs"
+            },
+            {
+              "name": "test_financial_analysis.mjs",
+              "size": 6380,
+              "path": "tests/test_financial_analysis.mjs"
+            },
+            {
+              "name": "test_gemini.mjs",
+              "size": 3606,
+              "path": "tests/test_gemini.mjs"
+            },
+            {
+              "name": "test_gemini_api.mjs",
+              "size": 2914,
+              "path": "tests/test_gemini_api.mjs"
+            },
+            {
+              "name": "test_health_endpoint.mjs",
+              "size": 5438,
+              "path": "tests/test_health_endpoint.mjs"
+            },
+            {
+              "name": "test_model_comparison.mjs",
+              "size": 5334,
+              "path": "tests/test_model_comparison.mjs"
+            },
+            {
+              "name": "test_paid_gemini.mjs",
+              "size": 5699,
+              "path": "tests/test_paid_gemini.mjs"
+            },
+            {
+              "name": "test_safety.mjs",
+              "size": 9981,
+              "path": "tests/test_safety.mjs"
+            },
+            {
+              "name": "test_smart_tagging.mjs",
+              "size": 1485,
+              "path": "tests/test_smart_tagging.mjs"
+            },
+            {
+              "name": "test_summarization.mjs",
+              "size": 4643,
+              "path": "tests/test_summarization.mjs"
+            },
+            {
+              "name": "test_validateEnvironment.mjs",
+              "size": 6096,
+              "path": "tests/test_validateEnvironment.mjs"
+            },
+            {
+              "name": "test_weak_sync.mjs",
+              "size": 1660,
+              "path": "tests/test_weak_sync.mjs"
+            },
+            {
+              "name": "validate_ai.mjs",
+              "size": 10997,
+              "path": "tests/validate_ai.mjs"
+            },
+            {
+              "name": "validate_db_integrity.mjs",
+              "size": 27578,
+              "path": "tests/validate_db_integrity.mjs"
+            },
+            {
+              "name": "validate_embeddings.mjs",
+              "size": 5287,
+              "path": "tests/validate_embeddings.mjs"
+            },
+            {
+              "name": "validate_processing.mjs",
+              "size": 6987,
+              "path": "tests/validate_processing.mjs"
+            },
+            {
+              "name": "validate_scraps.mjs",
+              "size": 17931,
+              "path": "tests/validate_scraps.mjs"
+            },
+            {
+              "name": "validate_secrets.mjs",
+              "size": 1136,
+              "path": "tests/validate_secrets.mjs"
+            }
+          ],
+          "path": "tests"
+        },
+        {
+          "name": "tools",
+          "children": [
+            {
+              "name": "Local Scrap Search.1.1.alfredworkflow.zip",
+              "size": 3525,
+              "path": "tools/Local Scrap Search.1.1.alfredworkflow.zip"
+            }
+          ],
+          "path": "tools"
+        },
+        {
+          "name": ".dockerignore",
+          "size": 396,
+          "path": ".dockerignore"
+        },
+        {
+          "name": ".env-example",
+          "size": 388,
+          "path": ".env-example"
+        },
+        {
+          "name": ".env.production.example",
+          "size": 1347,
+          "path": ".env.production.example"
+        },
+        {
+          "name": ".gitattributes",
+          "size": 66,
+          "path": ".gitattributes"
+        },
+        {
+          "name": ".gitignore",
+          "size": 783,
+          "path": ".gitignore"
+        },
+        {
+          "name": ".nvmrc",
+          "size": 9,
+          "path": ".nvmrc"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 2951,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "CLAUDE.md",
+          "size": 2537,
+          "path": "CLAUDE.md"
+        },
+        {
+          "name": "DEPLOYMENT.md",
+          "size": 6291,
+          "path": "DEPLOYMENT.md"
+        },
+        {
+          "name": "Dockerfile",
+          "size": 2087,
+          "path": "Dockerfile"
+        },
+        {
+          "name": "IMPLEMENTATION_SUMMARY.md",
+          "size": 8340,
+          "path": "IMPLEMENTATION_SUMMARY.md"
+        },
+        {
+          "name": "Makefile",
+          "size": 2574,
+          "path": "Makefile"
+        },
+        {
+          "name": "PACKAGE_VALIDATION.md",
+          "size": 6223,
+          "path": "PACKAGE_VALIDATION.md"
+        },
+        {
+          "name": "README.md",
+          "size": 23783,
+          "path": "README.md"
+        },
+        {
+          "name": "config.json",
+          "size": 3661,
+          "path": "config.json"
+        },
+        {
+          "name": "crontab",
+          "size": 380,
+          "path": "crontab"
+        },
+        {
+          "name": "dashboard.html",
+          "size": 10778,
+          "path": "dashboard.html"
+        },
+        {
+          "name": "deploy.sh",
+          "size": 4419,
+          "path": "deploy.sh"
+        },
+        {
+          "name": "docker-compose.yml",
+          "size": 2324,
+          "path": "docker-compose.yml"
+        },
+        {
+          "name": "eslint.config.js",
+          "size": 1199,
+          "path": "eslint.config.js"
+        },
+        {
+          "name": "helpers.js",
+          "size": 9395,
+          "path": "helpers.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 395184,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 4719,
+          "path": "package.json"
+        },
+        {
+          "name": "test-packages.mjs",
+          "size": 2035,
+          "path": "test-packages.mjs"
+        },
+        {
+          "name": "verify-packages.mjs",
+          "size": 3157,
+          "path": "verify-packages.mjs"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 196,
+    "totalSize": 11323569
+  },
+  "defaultBranch": "main",
+  "license": null,
+  "latestRelease": {
+    "name": "v1.2.1: Thread Discovery AI Relevance Filter",
+    "tagName": "v1.2.1",
+    "publishedAt": "2025-12-03T20:09:36Z",
+    "url": "https://github.com/ejfox/scrapbook-core/releases/tag/v1.2.1"
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"scrapbook-core\">Scrapbook Core</h1>\n<p><strong>Scrapbook Core</strong> is an automated personal knowledge management system that turns your digital life into a searchable archive. It continuously collects your activities from platforms like GitHub, Mastodon, Pinboard, and Are.na, then uses AI to generate summaries, extract relationships, and create searchable \"scraps\" of knowledge.</p>\n<h2 id=\"what-it-does-in-simple-terms\">What it does in simple terms:</h2>\n<ul>\n<li><strong>Collects</strong>: Automatically pulls your bookmarks, social posts, code activity, and saved content</li>\n<li><strong>Processes</strong>: Uses AI to summarize content, extract key information, and find connections</li>\n<li><strong>Organizes</strong>: Stores everything in a searchable database with tags, summaries, and relationships</li>\n<li><strong>Accesses</strong>: Provides instant search via Alfred workflow and web interface</li>\n</ul>\n<p>Think of it as an automated digital memory that captures what you read, create, and share online, then makes it easily findable later.</p>\n<img width=\"1912\" alt=\"Screenshot 2024-07-07 at 10 02 54 PM\" src=\"https://github.com/ejfox/scrapbook-core/assets/530073/614513b9-c85c-4815-8a24-e2c43cf5dad4\" />\n<h2 id=\"modular-packages-\">Modular Packages 📦</h2>\n<p>Scrapbook Core's AI analysis tools are available as <strong>standalone packages</strong> that you can use in your own projects:</p>\n<ul>\n<li><strong><a href=\"./packages/entity-extraction\">@scrapbook/entity-extraction</a></strong> - Extract entities and relationships from text</li>\n<li><strong><a href=\"./packages/content-summarization\">@scrapbook/content-summarization</a></strong> - AI-powered content summarization</li>\n<li><strong><a href=\"./packages/content-geolocation\">@scrapbook/content-geolocation</a></strong> - Extract and geocode locations</li>\n<li><strong><a href=\"./packages/financial-analysis\">@scrapbook/financial-analysis</a></strong> - Financial entity and sentiment extraction</li>\n</ul>\n<p>Each package is LLM-agnostic and can work with OpenAI, Anthropic, OpenRouter, or any other provider. See the <a href=\"./packages\">packages directory</a> for detailed documentation.</p>\n<h2 id=\"features\">Features</h2>\n<ul>\n<li>Fetches data from multiple sources:\n<ul>\n<li>Pinboard bookmarks</li>\n<li>Mastodon posts</li>\n<li>GitHub activities (stars, issues, pull requests, gists)</li>\n<li>Are.na blocks and channels</li>\n</ul>\n</li>\n<li>Processes and stores data as \"scraps\" with unique IDs</li>\n<li>Generates summaries and extracts entities for easy retrieval</li>\n<li>Uploads screenshots to Supabase or Cloudinary and stores URLs</li>\n<li>Stores canonical data in Supabase and supports local SQLite search workflows</li>\n<li>Includes an Alfred Workflow for quick local database searches</li>\n<li><strong>Realtime dashboard</strong> with live activity feed and auto-advance</li>\n<li><strong>Smart rate limiting</strong> with automatic free model fallbacks</li>\n<li><strong>Cost safety systems</strong> with circuit breakers and spending limits</li>\n<li><strong>Enhanced AI extraction</strong> with OpenAI fallback and improved reliability</li>\n</ul>\n<h2 id=\"recent-improvements\">Recent Improvements</h2>\n<h3 id=\"realtime-dashboard-v120\">Realtime Dashboard (v1.2.0)</h3>\n<ul>\n<li><strong>Live Activity Ticker</strong>: See updates as they happen with a scrolling news ticker</li>\n<li><strong>Auto-advance</strong>: Automatically shows newly processed scraps</li>\n<li><strong>Connection Status</strong>: Visual indicator for Supabase realtime connection</li>\n<li><strong>Pulse Animations</strong>: Recently updated scraps pulse for 3 seconds</li>\n<li>Enable realtime in Supabase: Database → Replication → <code>scraps</code> table</li>\n</ul>\n<h3 id=\"ai-service-reliability\">AI Service Reliability</h3>\n<ul>\n<li><strong>Multi-provider Fallback</strong>: Automatically falls back to OpenAI when OpenRouter fails</li>\n<li><strong>Smart Rate Limiting</strong>: Progressive backoff (6 levels) with automatic recovery</li>\n<li><strong>Better JSON Extraction</strong>: Handles markdown code blocks and truncated responses</li>\n<li><strong>Content Validation</strong>: Skips AI processing for insufficient content (&lt; 50 chars)</li>\n</ul>\n<h3 id=\"enhanced-data-extraction\">Enhanced Data Extraction</h3>\n<ul>\n<li><strong>Location with Coordinates</strong>: OpenCage geocoding provides lat/lon for all locations</li>\n<li><strong>Relationship Quality</strong>: 50+ entity type patterns for better relationship extraction</li>\n<li><strong>Financial Analysis</strong>: Tracks 40+ assets with sentiment analysis</li>\n<li><strong>Gemini Vision</strong>: Transforms image embeddings into rich visual descriptions</li>\n</ul>\n<h3 id=\"process-reliability\">Process Reliability</h3>\n<ul>\n<li><strong>No More Zombies</strong>: Scripts properly exit after completion (10-minute timeout)</li>\n<li><strong>Fail-Fast</strong>: Errors in critical extractions (summary/tags) stop processing immediately</li>\n<li><strong>Comprehensive Logging</strong>: Detailed error tracking and debugging information</li>\n</ul>\n<h3 id=\"testing--quality\">Testing &amp; Quality</h3>\n<ul>\n<li><strong>Test Suite</strong>: Comprehensive validation for AI services, data integrity, and embeddings</li>\n<li><strong>Quality Auditing</strong>: Field completeness checks and data validation tools</li>\n<li><strong>Webhook Alerting</strong>: Smart degradation detection for production monitoring</li>\n</ul>\n<h2 id=\"quick-vps-deployment\">Quick VPS Deployment</h2>\n<p>Deploy Scrapbook Core on any VPS in just a few commands using Docker.</p>\n<h3 id=\"option-1-automated-deployment-script\">Option 1: Automated Deployment Script</h3>\n<pre><code class=\"language-bash\"># Clone and deploy\ngit clone https://github.com/ejfox/scrapbook-core.git\ncd scrapbook-core\n\n# Copy environment template\ncp .env.production.example .env\nnano .env  # Add your API keys\n\n# Deploy with one command\n./deploy.sh\n</code></pre>\n<h3 id=\"option-2-using-make\">Option 2: Using Make</h3>\n<pre><code class=\"language-bash\"># Quick setup and deployment\nmake setup\nmake deploy\n\n# View logs and status\nmake logs\nmake status\n</code></pre>\n<h3 id=\"option-3-manual-docker-compose\">Option 3: Manual Docker Compose</h3>\n<pre><code class=\"language-bash\"># Set up environment\ncp .env.production.example .env\nnano .env\n\n# Deploy\ndocker-compose up -d\ndocker-compose logs -f\n</code></pre>\n<h2 id=\"scheduling-options\">Scheduling Options</h2>\n<h3 id=\"built-in-docker-scheduling\">Built-in Docker Scheduling</h3>\n<p>The container runs the scraper by default. For scheduled runs:</p>\n<pre><code class=\"language-bash\"># Run every 4 hours via cron\n0 */4 * * * cd /path/to/scrapbook-core &amp;&amp; docker-compose run --rm scrapbook-core\n\n# Or use the deployment script\n0 */4 * * * cd /path/to/scrapbook-core &amp;&amp; ./deploy.sh --update\n</code></pre>\n<h3 id=\"manual-execution\">Manual Execution</h3>\n<pre><code class=\"language-bash\"># Run specific sources\ndocker-compose exec scrapbook-core node scripts/index.mjs --pinboard --new-only\n\n# Run all sources\ndocker-compose exec scrapbook-core node scripts/index.mjs --all\n</code></pre>\n<h2 id=\"deployment-features\">Deployment Features</h2>\n<ul>\n<li><strong>Zero-downtime updates</strong>: <code>./deploy.sh --update</code></li>\n<li><strong>Health monitoring</strong>: Built-in Docker health checks</li>\n<li><strong>Log rotation</strong>: Automatic log management</li>\n<li><strong>Resource limits</strong>: Configurable memory and CPU limits</li>\n<li><strong>Persistent data</strong>: Volumes for data, logs, and screenshots</li>\n</ul>\n<p>📖 <strong>For detailed deployment instructions, troubleshooting, and advanced configuration, see <a href=\"DEPLOYMENT.md\">DEPLOYMENT.md</a></strong></p>\n<p><strong>Maintenance Commands:</strong></p>\n<ul>\n<li>Update: <code>git pull &amp;&amp; docker-compose up -d --build</code></li>\n<li>Stop: <code>docker-compose down</code></li>\n<li>View logs: <code>docker-compose logs -f</code></li>\n<li>Check status: <code>docker-compose ps</code></li>\n</ul>\n<h2 id=\"system-requirements\">System Requirements</h2>\n<p>Based on Docker testing with 10 concurrent instances:</p>\n<ul>\n<li><strong>RAM</strong>: 1GB minimum (single instance uses ~5MB active, ~520KB idle)</li>\n<li><strong>CPU</strong>: 1 vCPU (brief spikes during processing and screenshot generation)</li>\n<li><strong>Storage</strong>: 2GB+ for Docker image and data</li>\n<li><strong>Network</strong>: Stable internet connection</li>\n</ul>\n<p>Memory usage scales linearly (~520KB per additional idle instance).</p>\n<h2 id=\"environment-setup\">Environment Setup</h2>\n<ol>\n<li>Copy the example environment file:</li>\n</ol>\n<pre><code class=\"language-bash\">cp .env.example .env\n</code></pre>\n<ol>\n<li>Fill in your credentials in <code>.env</code>:</li>\n</ol>\n<pre><code class=\"language-bash\"># Required API Keys\nGITHUB_TOKEN=your_github_token\nPINBOARD_TOKEN=your_pinboard_token\nARENA_ACCESS_TOKEN=your_arena_token\nMASTODON_ACCESS_TOKEN=your_mastodon_token\n\n# Database Configuration\nSUPABASE_URL=your_supabase_url\nSUPABASE_KEY=your_supabase_key\nSUPABASE_SERVICE_ROLE_KEY=your_service_role_key\n\n# Image Storage (Cloudinary)\nCLOUDINARY_CLOUD_NAME=your_cloud_name\nCLOUDINARY_API_KEY=your_api_key\nCLOUDINARY_API_SECRET=your_api_secret\n\n# AI Services\nOPENROUTER_API_KEY=your_openrouter_key\nNOMIC_API_KEY=your_nomic_key\n\n# Optional Configuration\nDEBUG=false\nINSTANCE_NAME=local-dev\n</code></pre>\n<ol>\n<li>Test your configuration:</li>\n</ol>\n<pre><code class=\"language-bash\">npm run validate:env\n</code></pre>\n<h2 id=\"local-development\">Local Development</h2>\n<ol>\n<li>Clone the repository:</li>\n</ol>\n<pre><code class=\"language-bash\">git clone https://github.com/yourusername/scrapbook-core.git\ncd scrapbook-core\n</code></pre>\n<ol>\n<li>Install dependencies:</li>\n</ol>\n<pre><code class=\"language-bash\">npm install\n</code></pre>\n<ol>\n<li>\n<p>Set up environment variables (see Environment Setup above)</p>\n</li>\n<li>\n<p>Run the processor locally:</p>\n</li>\n</ol>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<ol>\n<li>Run package smoke tests:</li>\n</ol>\n<pre><code class=\"language-bash\">npm test\n</code></pre>\n<ol>\n<li>Run the dashboard UI:</li>\n</ol>\n<pre><code class=\"language-bash\">npm run dashboard:dev\n</code></pre>\n<h2 id=\"usage\">Usage</h2>\n<h3 id=\"data-collection\">Data Collection</h3>\n<ul>\n<li>Fetch all data: <code>npm run fetch:all</code></li>\n<li>Fetch specific sources: <code>npm run fetch:pinboard</code>, <code>npm run fetch:github</code>, etc.</li>\n<li>Local SQLite search helper: <code>node scripts/search_sqlite_scraps.js \"query\"</code></li>\n</ul>\n<h3 id=\"data-quality--maintenance\">Data Quality &amp; Maintenance</h3>\n<ul>\n<li>Check scrapbook health: <code>npm run doctor:status</code></li>\n<li>Detailed analysis: <code>npm run doctor:diagnose</code></li>\n<li>Repair missing fields: <code>npm run doctor:repair</code></li>\n</ul>\n<h3 id=\"interfaces\">Interfaces</h3>\n<ul>\n<li><strong>Realtime Dashboard</strong>: <code>cd dashboard &amp;&amp; npm run dev</code> (opens <a href=\"http://localhost:3002\">http://localhost:3002</a>)\n<ul>\n<li>Live activity ticker showing INSERT/UPDATE events</li>\n<li>Auto-advances to newly processed scraps</li>\n<li>Connection status indicator (requires Supabase Realtime enabled)</li>\n<li>Keyboard navigation (← / →)</li>\n</ul>\n</li>\n<li><strong>Alfred Workflow</strong>: Quick search with keyword <code>sc</code></li>\n<li><strong>TUI Interface</strong>: Use <a href=\"https://github.com/ejfox/scrapbook-cli\">scrapbook-cli</a> for terminal interface</li>\n</ul>\n<p>Can be accessed through the command-line <a href=\"https://github.com/ejfox/scrapbook-cli\">scrapbook-cli</a> tool.</p>\n<p>Also visible on <a href=\"https://ejfox.com/scrapbook/\">my website's scrapbook</a></p>\n<p>I also use it in combination with an Alfred Workflow and a local SQLite database for quick searching:</p>\n<ul>\n<li><code>scripts/search_sqlite_scraps.js</code></li>\n<li><code>Local Scrap Search.1.1.alfredworkflow.zip</code></li>\n</ul>\n<p>SQLite sync tooling is not currently bundled in this checkout.</p>\n<h3 id=\"maintenance-commands\">Maintenance Commands</h3>\n<p>The following commands help maintain the database by fixing or removing problematic scraps:</p>\n<h4 id=\"cleaning-commands\">Cleaning Commands</h4>\n<ul>\n<li>Delete scraps with missing data: <code>node scripts/index.mjs --clean</code></li>\n<li>Delete only completely empty scraps: <code>node scripts/index.mjs --clean-empty</code></li>\n<li>Delete scraps missing some fields: <code>node scripts/index.mjs --clean-partial</code></li>\n<li>Preview what would be deleted: <code>node scripts/index.mjs --clean-dry-run</code></li>\n</ul>\n<h4 id=\"fixing-commands\">Fixing Commands</h4>\n<ul>\n<li>Fix missing data in scraps: <code>node scripts/index.mjs --fix</code></li>\n<li>Preview what would be fixed: <code>node scripts/index.mjs --fix-dry-run</code></li>\n<li>Fix specific issues:\n<ul>\n<li>Missing images: <code>node scripts/index.mjs --fix-images</code></li>\n<li>Missing embeddings: <code>node scripts/index.mjs --fix-embeddings</code></li>\n<li>Missing AI data: <code>node scripts/index.mjs --fix-ai</code></li>\n</ul>\n</li>\n<li>Fix specific sources:\n<ul>\n<li>Pinboard: <code>node scripts/index.mjs --fix-pinboard</code></li>\n<li>Are.na: <code>node scripts/index.mjs --fix-arena</code></li>\n<li>Mastodon: <code>node scripts/index.mjs --fix-mastodon</code></li>\n</ul>\n</li>\n</ul>\n<p>All cleaning and fixing commands will:</p>\n<ol>\n<li>Show you what will be affected before making changes</li>\n<li>Display a breakdown by source</li>\n<li>Show example scraps that will be modified</li>\n<li>Ask for confirmation before proceeding</li>\n</ol>\n<h2 id=\"system-architecture\">System Architecture</h2>\n<pre><code class=\"language-mermaid\">graph TD\n    A[Data Sources] --&gt; B[Fetchers]\n    B --&gt; C[Processors]\n    C --&gt; D[Storage]\n    D --&gt; E[Supabase]\n    D --&gt; F[SQLite]\n    G[AI Services] --&gt; C\n    H[Screenshot Service] --&gt; C\n    F --&gt; I[Alfred Workflow]\n</code></pre>\n<h2 id=\"key-components\">Key Components</h2>\n<ol>\n<li><strong>Data Fetchers</strong>: Modules for each data source (e.g., <code>dl_pinboard.mjs</code>, <code>dl_mastodon.mjs</code>). These modules handle the retrieval of data from external APIs.</li>\n<li><strong>Processors</strong>: Modules that process the raw data from the fetchers. This includes:\n<ul>\n<li><code>aiSummarization.js</code>: Generates summaries and tags using AI.</li>\n<li><code>aiGeolocation.mjs</code>: Extracts location data from text content.</li>\n<li><code>aiRelationshipExtraction.mjs</code>: Identifies relationships between different scraps.</li>\n</ul>\n</li>\n<li><strong>Storage</strong>: Handles persistence of processed data.\n<ul>\n<li><code>index.mjs</code>: The main script orchestrating data fetching, processing, and storage in Supabase.</li>\n<li>Local SQLite search is supported, but sync tooling is currently maintained separately from this checkout.</li>\n</ul>\n</li>\n<li><strong>Utilities</strong>: Helper functions and modules.\n<ul>\n<li><code>helpers.js</code>: Common utility functions.</li>\n<li><code>manifestHelpers.mjs</code>: Manages a manifest file for tracking data fetch operations.</li>\n</ul>\n</li>\n<li><strong>Alfred Workflow</strong>: Enables quick searching of the local SQLite database.</li>\n</ol>\n<h2 id=\"database-schema\">Database Schema</h2>\n<h3 id=\"scraps-table\">Scraps table</h3>\n<pre><code class=\"language-sql\">CREATE TABLE public.scraps (\n    id UUID NOT NULL DEFAULT gen_random_uuid(),\n    source TEXT NOT NULL,\n    content TEXT NOT NULL,\n    summary TEXT NULL,\n    created_at TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP,\n    tags TEXT[],\n    relationships JSONB NULL,\n    metadata JSONB NULL,\n    scrap_id TEXT NULL,\n    embedding VECTOR NULL,\n    title TEXT NULL,\n    graph_imported BOOLEAN NULL DEFAULT FALSE,\n    url TEXT NULL,\n    screenshot_url TEXT NULL,\n    location TEXT NULL,\n    latitude FLOAT NULL,\n    longitude FLOAT NULL,\n    published_at TIMESTAMP NULL,\n    shared BOOLEAN DEFAULT FALSE,\n    CONSTRAINT scraps_pkey PRIMARY KEY (id),\n    CONSTRAINT scraps_id_key UNIQUE (id),\n    CONSTRAINT scraps_scrap_id_key UNIQUE (scrap_id)\n);\n</code></pre>\n<h2 id=\"complete-scrap-data-structure-for-unitygame-development\">Complete Scrap Data Structure (For Unity/Game Development)</h2>\n<p>Each scrap contains the following properties accessible via API:</p>\n<h3 id=\"core-identifiers\">Core Identifiers</h3>\n<pre><code class=\"language-json\">{\n  \"id\": \"uuid-v4\",                    // Database UUID\n  \"scrap_id\": \"source-hash\",          // Unique ID format: \"pinboard-abc123\"\n  \"source\": \"pinboard|github|mastodon|arena\"  // Data source\n}\n</code></pre>\n<h3 id=\"content--metadata\">Content &amp; Metadata</h3>\n<pre><code class=\"language-json\">{\n  \"title\": \"Page/item title\",\n  \"content\": \"Full text content\",      // Raw content from source\n  \"summary\": \"AI-generated summary\",  // 2-3 sentence summary\n  \"url\": \"https://...\",              // Original URL\n  \"screenshot_url\": \"https://...\",   // Screenshot image URL\n}\n</code></pre>\n<h3 id=\"timestamps\">Timestamps</h3>\n<pre><code class=\"language-json\">{\n  \"created_at\": \"2025-01-01T12:00:00Z\",   // When scraped\n  \"updated_at\": \"2025-01-01T12:00:00Z\",   // Last updated\n  \"published_at\": \"2024-12-31T10:00:00Z\"  // Original publish date\n}\n</code></pre>\n<h3 id=\"ai-extracted-data\">AI-Extracted Data</h3>\n<pre><code class=\"language-json\">{\n  \"tags\": [\"tag1\", \"tag2\", \"tag3\"],          // AI-generated topical tags\n  \"relationships\": {                          // Connections to other scraps\n    \"mentions\": [\"scrap_id_1\", \"scrap_id_2\"],\n    \"topics\": [\"topic1\", \"topic2\"],\n    \"people\": [\"person1\", \"person2\"]\n  },\n  \"embedding\": [0.1, 0.2, -0.3, ...],       // 1536-dim vector for similarity\n}\n</code></pre>\n<h3 id=\"location-data\">Location Data</h3>\n<pre><code class=\"language-json\">{\n  \"location\": \"City, Country\",        // Human-readable location\n  \"latitude\": 40.7128,               // GPS coordinates\n  \"longitude\": -74.0060,\n}\n</code></pre>\n<h3 id=\"source-specific-metadata\">Source-Specific Metadata</h3>\n<p>The <code>metadata</code> field contains source-specific information:</p>\n<h4 id=\"pinboard-bookmarks\">Pinboard Bookmarks</h4>\n<pre><code class=\"language-json\">{\n  \"metadata\": {\n    \"description\": \"Original bookmark description\",\n    \"tags\": [\"original\", \"pinboard\", \"tags\"],\n    \"private\": false,\n    \"toread\": false\n  }\n}\n</code></pre>\n<h4 id=\"github-items\">GitHub Items</h4>\n<pre><code class=\"language-json\">{\n  \"metadata\": {\n    \"stargazers_count\": 1234,\n    \"forks_count\": 56,\n    \"language\": \"JavaScript\", \n    \"topics\": [\"web\", \"frontend\"],\n    \"is_fork\": false,\n    \"default_branch\": \"main\"\n  }\n}\n</code></pre>\n<h4 id=\"mastodon-posts\">Mastodon Posts</h4>\n<pre><code class=\"language-json\">{\n  \"metadata\": {\n    \"replies_count\": 5,\n    \"reblogs_count\": 12,\n    \"favourites_count\": 34,\n    \"visibility\": \"public\",\n    \"language\": \"en\"\n  }\n}\n</code></pre>\n<h4 id=\"arena-blocks\">Are.na Blocks</h4>\n<pre><code class=\"language-json\">{\n  \"metadata\": {\n    \"block_type\": \"text|image|link\",\n    \"connections\": 5,\n    \"channels\": [\"channel-name-1\", \"channel-name-2\"]\n  }\n}\n</code></pre>\n<h3 id=\"financial-data-extraction\">Financial Data Extraction</h3>\n<p>When financial information is detected, additional fields may be present:</p>\n<pre><code class=\"language-json\">{\n  \"metadata\": {\n    \"financial_assets\": [\n      {\n        \"type\": \"stock\",\n        \"symbol\": \"AAPL\", \n        \"mentioned_price\": \"$150.00\",\n        \"context\": \"Apple stock hit $150\"\n      }\n    ],\n    \"financial_amounts\": [\n      {\n        \"amount\": 1000000,\n        \"currency\": \"USD\",\n        \"context\": \"$1M funding round\"\n      }\n    ]\n  }\n}\n</code></pre>\n<h3 id=\"api-access-patterns\">API Access Patterns</h3>\n<h4 id=\"get-all-scraps\">Get All Scraps</h4>\n<pre><code class=\"language-http\">GET /api/scraps?limit=100&amp;offset=0\nGET /api/scraps?source=pinboard\nGET /api/scraps?tags=contains(technology)\n</code></pre>\n<h4 id=\"search-by-content\">Search by Content</h4>\n<pre><code class=\"language-http\">GET /api/scraps?search=machine learning\nPOST /api/scraps/semantic_search\n{\n  \"query\": \"AI and robotics\",\n  \"limit\": 10,\n  \"similarity_threshold\": 0.8\n}\n</code></pre>\n<h4 id=\"get-by-location\">Get by Location</h4>\n<pre><code class=\"language-http\">GET /api/scraps?has_location=true\nGET /api/scraps?near_lat=40.7128&amp;near_lng=-74.0060&amp;radius_km=10\n</code></pre>\n<h4 id=\"filter-by-date-range\">Filter by Date Range</h4>\n<pre><code class=\"language-http\">GET /api/scraps?created_after=2024-01-01&amp;created_before=2024-12-31\nGET /api/scraps?published_after=2024-06-01\n</code></pre>\n<h2 id=\"data-flow\">Data Flow</h2>\n<pre><code class=\"language-mermaid\">graph LR\n  A[Data Sources] --&gt; B(Fetchers);\n  B --&gt; C(Processors);\n  C --&gt; D(Enrichment);\n  D --&gt; E(Supabase);\n  E --&gt; F(SQLite Sync);\n  F --&gt; G(Alfred Workflow);\n  subgraph \"Error Handling\"\n    B -.-&gt; I[Handle Errors];\n    C -.-&gt; I;\n    D -.-&gt; I;\n    E -.-&gt; I;\n    F -.-&gt; I;\n  end\n  subgraph \"Caching\"\n    B -.-&gt; J[Cache];\n    J --&gt; B;\n  end\n</code></pre>\n<ol>\n<li>Data is fetched from various sources.</li>\n<li>Each item is processed: summaries are generated, locations and relationships are extracted, and screenshots are created (where applicable).</li>\n<li>Processed data is upserted into Supabase.</li>\n<li>Data is synced to a local SQLite database for offline access.</li>\n<li>The local SQLite database can be searched quickly using the Alfred Workflow.</li>\n</ol>\n<h2 id=\"claiming-and-processing-flow\">Claiming and Processing Flow</h2>\n<pre><code class=\"language-mermaid\">graph LR\n  A[Data Source] --&gt; B{Check Existing Scrap};\n  B -- Exists --&gt; C[Merge with Existing];\n  B -- Does Not Exist --&gt; D[Claim Scrap];\n  D --&gt; E[Process Scrap];\n  E --&gt; F[Upsert to Database];\n  C --&gt; F;\n  F --&gt; G[Release Claim];\n  subgraph \"Error Handling\"\n    E -.-&gt; H[Handle Error];\n    H --&gt; G;\n  end\n</code></pre>\n<h2 id=\"alfred-workflow\">Alfred Workflow</h2>\n<p>The Alfred Workflow enables quick searching of the local SQLite database. It displays title, summary, and age, with quick actions to open URLs, view full content, or copy formatted scraps.</p>\n<h2 id=\"setting-up-credentials\">Setting Up Credentials</h2>\n<p>This project requires several API keys and secrets. Store these securely in a <code>.env</code> file <em>in your local repository only</em>. <strong>Do not commit your <code>.env</code> file to version control.</strong> Use the <code>.env-example</code> file as a template.</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Environment Variable</th><th>Description</th><th>Source</th></tr></thead><tbody><tr><td><code>GITHUB_TOKEN</code></td><td>GitHub Personal Access Token (repo, read:user, gist scopes)</td><td><a href=\"https://github.com/settings/tokens\">GitHub Personal Access Tokens</a></td></tr><tr><td><code>GITHUB_USERNAME</code></td><td>Your GitHub username</td><td></td></tr><tr><td><code>PINBOARD_TOKEN</code></td><td>Your Pinboard API token</td><td><a href=\"https://pinboard.in/settings/password\">Pinboard Settings</a></td></tr><tr><td><code>ARENA_ACCESS_TOKEN</code></td><td>Your Are.na API token</td><td><a href=\"https://dev.are.na/oauth/applications\">Are.na Developer Settings</a></td></tr><tr><td><code>USER_SLUG</code></td><td>Your Are.na username</td><td></td></tr><tr><td><code>MASTODON_ACCESS_TOKEN</code></td><td>Your Mastodon API token</td><td>Your Mastodon instance's developer settings</td></tr><tr><td><code>MASTODON_API_URL</code></td><td>Your Mastodon instance URL (e.g., <code>https://mastodon.social</code>)</td><td>Your Mastodon instance's developer settings</td></tr><tr><td><code>SUPABASE_URL</code></td><td>Your Supabase project URL</td><td>Your Supabase project settings</td></tr><tr><td><code>SUPABASE_KEY</code></td><td>Your Supabase anon key</td><td>Your Supabase project settings</td></tr><tr><td><code>SUPABASE_SERVICE_ROLE_KEY</code></td><td>Your Supabase service role key (required for database operations)</td><td>Your Supabase project settings</td></tr><tr><td><code>CLOUDINARY_CLOUD_NAME</code></td><td>Your Cloudinary cloud name</td><td>Your Cloudinary account settings</td></tr><tr><td><code>CLOUDINARY_API_KEY</code></td><td>Your Cloudinary API key</td><td>Your Cloudinary account settings</td></tr><tr><td><code>CLOUDINARY_API_SECRET</code></td><td>Your Cloudinary API secret</td><td>Your Cloudinary account settings</td></tr><tr><td><code>OPENROUTER_API_KEY</code></td><td>OpenRouter API key (for AI summarization)</td><td>OpenRouter account settings</td></tr><tr><td><code>OPENCAGE_API_KEY</code></td><td>OpenCage Geocoding API key (for location extraction)</td><td><a href=\"https://opencagedata.com/\">OpenCage Data</a></td></tr></tbody></table>\n<h2 id=\"validation-tools\">Validation Tools</h2>\n<p>The project includes validation utilities:</p>\n<h3 id=\"scrap-validation-validate_scrapsmjs\">Scrap Validation (<code>validate_scraps.mjs</code>)</h3>\n<p>This script validates the structure and content of scraped data, checking for missing fields, incorrect data types, and invalid formats. Run it with <code>node tests/validate_scraps.mjs [source]</code>.</p>\n<h3 id=\"ai-service-validation-validate_aimjs\">AI Service Validation (<code>validate_ai.mjs</code>)</h3>\n<p>This script tests the AI-powered features (summarization, geolocation, relationship extraction) using sample data. Run it with <code>node tests/validate_ai.mjs [test_name]</code>.</p>\n<h3 id=\"database-maintenance\">Database Maintenance</h3>\n<p>Regularly run <code>node tests/validate_db_integrity.mjs</code> to check for and clean up any orphaned or stuck processing records.</p>\n<h2 id=\"smart-rate-limiting-and-caching\">Smart Rate Limiting and Caching</h2>\n<h3 id=\"intelligent-429-handling\">Intelligent 429 Handling</h3>\n<p>The application features <strong>SmartRateLimiter</strong> that automatically handles API rate limit errors (429 responses):</p>\n<p><strong>Progressive Backoff Levels:</strong></p>\n<ol>\n<li><strong>Normal</strong>: Default API rate limits</li>\n<li><strong>Cautious</strong>: 2x slower, reduced concurrency</li>\n<li><strong>Conservative</strong>: 4x slower, single requests only</li>\n<li><strong>Free Model</strong>: Falls back to free model rate limits (3+ second delays)</li>\n<li><strong>Super Polite</strong>: Double free model delays</li>\n<li><strong>Glacial</strong>: 10+ second delays for extreme cases</li>\n</ol>\n<p><strong>Automatic Recovery:</strong></p>\n<ul>\n<li>Escalates to more conservative levels after 3 consecutive 429s</li>\n<li>Automatically recovers to faster levels after 10 consecutive successes</li>\n<li>Maintains separate limiters for OpenRouter, OpenAI, and Nomic APIs</li>\n</ul>\n<p><strong>Usage Example:</strong></p>\n<pre><code class=\"language-bash\"># Test the smart rate limiter\nnode tests/test-smart-rate-limiter.mjs\n\n# Monitor rate limiter status in logs\nDEBUG=true node scripts/index.mjs --pinboard\n</code></pre>\n<h3 id=\"caching\">Caching</h3>\n<p>Caching is used to reduce API calls and improve performance. The cache is stored locally in the <code>./data</code> directory.</p>\n<h2 id=\"ai-services\">AI Services</h2>\n<p>The application utilizes AI services for summarization and embedding generation. Currently, OpenAI's <code>text-embedding-ada-002</code> model is used for embeddings. The <code>OPENROUTER_API_KEY</code> is required for AI summarization.</p>\n<h2 id=\"error-handling-and-logging\">Error Handling and Logging</h2>\n<p>The application includes comprehensive error handling and logging using <code>winston</code>. Errors are logged to the console with detailed error messages for troubleshooting.</p>\n<h2 id=\"troubleshooting\">Troubleshooting</h2>\n<h3 id=\"common-issues\">Common Issues</h3>\n<ol>\n<li>\n<p><strong>Rate Limiting</strong>: If you hit API rate limits, the app will back off automatically. You can adjust rate limits in <code>scripts/shared/rateLimiters.mjs</code>.</p>\n</li>\n<li>\n<p><strong>Database Connection</strong>: If you can't connect to Supabase:</p>\n<ul>\n<li>Check your environment variables</li>\n<li>Ensure your IP is whitelisted</li>\n<li>Verify database permissions</li>\n</ul>\n</li>\n<li>\n<p><strong>Memory Issues</strong>: If you see out-of-memory errors:</p>\n<ul>\n<li>Consider reducing batch sizes in the fetchers</li>\n<li>Check Docker resource limits</li>\n</ul>\n</li>\n</ol>\n<h3 id=\"getting-help\">Getting Help</h3>\n<ul>\n<li>Check the logs in <code>logs/</code> directory</li>\n<li>Run with DEBUG=true for verbose logging</li>\n<li>Open an issue on GitHub</li>\n</ul>\n<h2 id=\"contributing\">Contributing</h2>\n<ol>\n<li>Fork the repository</li>\n<li>Create a feature branch</li>\n<li>Make your changes</li>\n<li>Run tests</li>\n<li>Submit a pull request</li>\n</ol>\n<p>Please follow the existing code style and include tests for new features.</p>\n<h2 id=\"license\">License</h2>\n<p>MIT License - see LICENSE file for details</p>",
+    "raw": "# Scrapbook Core\n\n**Scrapbook Core** is an automated personal knowledge management system that turns your digital life into a searchable archive. It continuously collects your activities from platforms like GitHub, Mastodon, Pinboard, and Are.na, then uses AI to generate summaries, extract relationships, and create searchable \"scraps\" of knowledge.\n\n## What it does in simple terms:\n- **Collects**: Automatically pulls your bookmarks, social posts, code activity, and saved content\n- **Processes**: Uses AI to summarize content, extract key information, and find connections  \n- **Organizes**: Stores everything in a searchable database with tags, summaries, and relationships\n- **Accesses**: Provides instant search via Alfred workflow and web interface\n\nThink of it as an automated digital memory that captures what you read, create, and share online, then makes it easily findable later.\n\n<img width=\"1912\" alt=\"Screenshot 2024-07-07 at 10 02 54 PM\" src=\"https://github.com/ejfox/scrapbook-core/assets/530073/614513b9-c85c-4815-8a24-e2c43cf5dad4\">\n\n## Modular Packages 📦\n\nScrapbook Core's AI analysis tools are available as **standalone packages** that you can use in your own projects:\n\n- **[@scrapbook/entity-extraction](./packages/entity-extraction)** - Extract entities and relationships from text\n- **[@scrapbook/content-summarization](./packages/content-summarization)** - AI-powered content summarization\n- **[@scrapbook/content-geolocation](./packages/content-geolocation)** - Extract and geocode locations\n- **[@scrapbook/financial-analysis](./packages/financial-analysis)** - Financial entity and sentiment extraction\n\nEach package is LLM-agnostic and can work with OpenAI, Anthropic, OpenRouter, or any other provider. See the [packages directory](./packages) for detailed documentation.\n\n## Features\n\n- Fetches data from multiple sources:\n  - Pinboard bookmarks\n  - Mastodon posts\n  - GitHub activities (stars, issues, pull requests, gists)\n  - Are.na blocks and channels\n- Processes and stores data as \"scraps\" with unique IDs\n- Generates summaries and extracts entities for easy retrieval\n- Uploads screenshots to Supabase or Cloudinary and stores URLs\n- Stores canonical data in Supabase and supports local SQLite search workflows\n- Includes an Alfred Workflow for quick local database searches\n- **Realtime dashboard** with live activity feed and auto-advance\n- **Smart rate limiting** with automatic free model fallbacks\n- **Cost safety systems** with circuit breakers and spending limits\n- **Enhanced AI extraction** with OpenAI fallback and improved reliability\n\n## Recent Improvements\n\n### Realtime Dashboard (v1.2.0)\n- **Live Activity Ticker**: See updates as they happen with a scrolling news ticker\n- **Auto-advance**: Automatically shows newly processed scraps\n- **Connection Status**: Visual indicator for Supabase realtime connection\n- **Pulse Animations**: Recently updated scraps pulse for 3 seconds\n- Enable realtime in Supabase: Database → Replication → `scraps` table\n\n### AI Service Reliability\n- **Multi-provider Fallback**: Automatically falls back to OpenAI when OpenRouter fails\n- **Smart Rate Limiting**: Progressive backoff (6 levels) with automatic recovery\n- **Better JSON Extraction**: Handles markdown code blocks and truncated responses\n- **Content Validation**: Skips AI processing for insufficient content (< 50 chars)\n\n### Enhanced Data Extraction\n- **Location with Coordinates**: OpenCage geocoding provides lat/lon for all locations\n- **Relationship Quality**: 50+ entity type patterns for better relationship extraction\n- **Financial Analysis**: Tracks 40+ assets with sentiment analysis\n- **Gemini Vision**: Transforms image embeddings into rich visual descriptions\n\n### Process Reliability\n- **No More Zombies**: Scripts properly exit after completion (10-minute timeout)\n- **Fail-Fast**: Errors in critical extractions (summary/tags) stop processing immediately\n- **Comprehensive Logging**: Detailed error tracking and debugging information\n\n### Testing & Quality\n- **Test Suite**: Comprehensive validation for AI services, data integrity, and embeddings\n- **Quality Auditing**: Field completeness checks and data validation tools\n- **Webhook Alerting**: Smart degradation detection for production monitoring\n\n## Quick VPS Deployment\n\nDeploy Scrapbook Core on any VPS in just a few commands using Docker.\n\n### Option 1: Automated Deployment Script\n\n```bash\n# Clone and deploy\ngit clone https://github.com/ejfox/scrapbook-core.git\ncd scrapbook-core\n\n# Copy environment template\ncp .env.production.example .env\nnano .env  # Add your API keys\n\n# Deploy with one command\n./deploy.sh\n```\n\n### Option 2: Using Make\n\n```bash\n# Quick setup and deployment\nmake setup\nmake deploy\n\n# View logs and status\nmake logs\nmake status\n```\n\n### Option 3: Manual Docker Compose\n\n```bash\n# Set up environment\ncp .env.production.example .env\nnano .env\n\n# Deploy\ndocker-compose up -d\ndocker-compose logs -f\n```\n\n## Scheduling Options\n\n### Built-in Docker Scheduling\nThe container runs the scraper by default. For scheduled runs:\n\n```bash\n# Run every 4 hours via cron\n0 */4 * * * cd /path/to/scrapbook-core && docker-compose run --rm scrapbook-core\n\n# Or use the deployment script\n0 */4 * * * cd /path/to/scrapbook-core && ./deploy.sh --update\n```\n\n### Manual Execution\n```bash\n# Run specific sources\ndocker-compose exec scrapbook-core node scripts/index.mjs --pinboard --new-only\n\n# Run all sources\ndocker-compose exec scrapbook-core node scripts/index.mjs --all\n```\n\n## Deployment Features\n\n- **Zero-downtime updates**: `./deploy.sh --update`\n- **Health monitoring**: Built-in Docker health checks\n- **Log rotation**: Automatic log management\n- **Resource limits**: Configurable memory and CPU limits\n- **Persistent data**: Volumes for data, logs, and screenshots\n\n📖 **For detailed deployment instructions, troubleshooting, and advanced configuration, see [DEPLOYMENT.md](DEPLOYMENT.md)**\n\n**Maintenance Commands:**\n- Update: `git pull && docker-compose up -d --build`\n- Stop: `docker-compose down`\n- View logs: `docker-compose logs -f`\n- Check status: `docker-compose ps`\n\n## System Requirements\n\nBased on Docker testing with 10 concurrent instances:\n\n- **RAM**: 1GB minimum (single instance uses ~5MB active, ~520KB idle)\n- **CPU**: 1 vCPU (brief spikes during processing and screenshot generation)  \n- **Storage**: 2GB+ for Docker image and data\n- **Network**: Stable internet connection\n\nMemory usage scales linearly (~520KB per additional idle instance).\n\n## Environment Setup\n\n1. Copy the example environment file:\n```bash\ncp .env.example .env\n```\n\n2. Fill in your credentials in `.env`:\n```bash\n# Required API Keys\nGITHUB_TOKEN=your_github_token\nPINBOARD_TOKEN=your_pinboard_token\nARENA_ACCESS_TOKEN=your_arena_token\nMASTODON_ACCESS_TOKEN=your_mastodon_token\n\n# Database Configuration\nSUPABASE_URL=your_supabase_url\nSUPABASE_KEY=your_supabase_key\nSUPABASE_SERVICE_ROLE_KEY=your_service_role_key\n\n# Image Storage (Cloudinary)\nCLOUDINARY_CLOUD_NAME=your_cloud_name\nCLOUDINARY_API_KEY=your_api_key\nCLOUDINARY_API_SECRET=your_api_secret\n\n# AI Services\nOPENROUTER_API_KEY=your_openrouter_key\nNOMIC_API_KEY=your_nomic_key\n\n# Optional Configuration\nDEBUG=false\nINSTANCE_NAME=local-dev\n```\n\n3. Test your configuration:\n```bash\nnpm run validate:env\n```\n\n## Local Development\n\n1. Clone the repository:\n```bash\ngit clone https://github.com/yourusername/scrapbook-core.git\ncd scrapbook-core\n```\n\n2. Install dependencies:\n```bash\nnpm install\n```\n\n3. Set up environment variables (see Environment Setup above)\n\n4. Run the processor locally:\n```bash\nnpm run dev\n```\n\n5. Run package smoke tests:\n```bash\nnpm test\n```\n\n6. Run the dashboard UI:\n```bash\nnpm run dashboard:dev\n```\n\n## Usage\n\n### Data Collection\n- Fetch all data: `npm run fetch:all`\n- Fetch specific sources: `npm run fetch:pinboard`, `npm run fetch:github`, etc.\n- Local SQLite search helper: `node scripts/search_sqlite_scraps.js \"query\"`\n\n### Data Quality & Maintenance\n- Check scrapbook health: `npm run doctor:status`\n- Detailed analysis: `npm run doctor:diagnose`\n- Repair missing fields: `npm run doctor:repair`\n\n### Interfaces\n- **Realtime Dashboard**: `cd dashboard && npm run dev` (opens http://localhost:3002)\n  - Live activity ticker showing INSERT/UPDATE events\n  - Auto-advances to newly processed scraps\n  - Connection status indicator (requires Supabase Realtime enabled)\n  - Keyboard navigation (← / →)\n- **Alfred Workflow**: Quick search with keyword `sc`\n- **TUI Interface**: Use [scrapbook-cli](https://github.com/ejfox/scrapbook-cli) for terminal interface\n\nCan be accessed through the command-line [scrapbook-cli](https://github.com/ejfox/scrapbook-cli) tool.\n\nAlso visible on [my website's scrapbook](https://ejfox.com/scrapbook/)\n\nI also use it in combination with an Alfred Workflow and a local SQLite database for quick searching:\n- `scripts/search_sqlite_scraps.js`\n- `Local Scrap Search.1.1.alfredworkflow.zip`\n\nSQLite sync tooling is not currently bundled in this checkout.\n\n### Maintenance Commands\n\nThe following commands help maintain the database by fixing or removing problematic scraps:\n\n#### Cleaning Commands\n- Delete scraps with missing data: `node scripts/index.mjs --clean`\n- Delete only completely empty scraps: `node scripts/index.mjs --clean-empty`\n- Delete scraps missing some fields: `node scripts/index.mjs --clean-partial`\n- Preview what would be deleted: `node scripts/index.mjs --clean-dry-run`\n\n#### Fixing Commands\n- Fix missing data in scraps: `node scripts/index.mjs --fix`\n- Preview what would be fixed: `node scripts/index.mjs --fix-dry-run`\n- Fix specific issues:\n  - Missing images: `node scripts/index.mjs --fix-images`\n  - Missing embeddings: `node scripts/index.mjs --fix-embeddings`\n  - Missing AI data: `node scripts/index.mjs --fix-ai`\n- Fix specific sources:\n  - Pinboard: `node scripts/index.mjs --fix-pinboard`\n  - Are.na: `node scripts/index.mjs --fix-arena`\n  - Mastodon: `node scripts/index.mjs --fix-mastodon`\n\nAll cleaning and fixing commands will:\n1. Show you what will be affected before making changes\n2. Display a breakdown by source\n3. Show example scraps that will be modified\n4. Ask for confirmation before proceeding\n\n## System Architecture\n\n```mermaid\ngraph TD\n    A[Data Sources] --> B[Fetchers]\n    B --> C[Processors]\n    C --> D[Storage]\n    D --> E[Supabase]\n    D --> F[SQLite]\n    G[AI Services] --> C\n    H[Screenshot Service] --> C\n    F --> I[Alfred Workflow]\n```\n\n## Key Components\n\n1. **Data Fetchers**: Modules for each data source (e.g., `dl_pinboard.mjs`, `dl_mastodon.mjs`). These modules handle the retrieval of data from external APIs.\n2. **Processors**: Modules that process the raw data from the fetchers. This includes:\n   - `aiSummarization.js`: Generates summaries and tags using AI.\n   - `aiGeolocation.mjs`: Extracts location data from text content.\n   - `aiRelationshipExtraction.mjs`: Identifies relationships between different scraps.\n3. **Storage**: Handles persistence of processed data.\n   - `index.mjs`: The main script orchestrating data fetching, processing, and storage in Supabase.\n   - Local SQLite search is supported, but sync tooling is currently maintained separately from this checkout.\n4. **Utilities**: Helper functions and modules.\n   - `helpers.js`: Common utility functions.\n   - `manifestHelpers.mjs`: Manages a manifest file for tracking data fetch operations.\n5. **Alfred Workflow**: Enables quick searching of the local SQLite database.\n\n## Database Schema\n\n### Scraps table\n```sql\nCREATE TABLE public.scraps (\n    id UUID NOT NULL DEFAULT gen_random_uuid(),\n    source TEXT NOT NULL,\n    content TEXT NOT NULL,\n    summary TEXT NULL,\n    created_at TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP,\n    updated_at TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP,\n    tags TEXT[],\n    relationships JSONB NULL,\n    metadata JSONB NULL,\n    scrap_id TEXT NULL,\n    embedding VECTOR NULL,\n    title TEXT NULL,\n    graph_imported BOOLEAN NULL DEFAULT FALSE,\n    url TEXT NULL,\n    screenshot_url TEXT NULL,\n    location TEXT NULL,\n    latitude FLOAT NULL,\n    longitude FLOAT NULL,\n    published_at TIMESTAMP NULL,\n    shared BOOLEAN DEFAULT FALSE,\n    CONSTRAINT scraps_pkey PRIMARY KEY (id),\n    CONSTRAINT scraps_id_key UNIQUE (id),\n    CONSTRAINT scraps_scrap_id_key UNIQUE (scrap_id)\n);\n```\n\n## Complete Scrap Data Structure (For Unity/Game Development)\n\nEach scrap contains the following properties accessible via API:\n\n### Core Identifiers\n```json\n{\n  \"id\": \"uuid-v4\",                    // Database UUID\n  \"scrap_id\": \"source-hash\",          // Unique ID format: \"pinboard-abc123\"\n  \"source\": \"pinboard|github|mastodon|arena\"  // Data source\n}\n```\n\n### Content & Metadata\n```json\n{\n  \"title\": \"Page/item title\",\n  \"content\": \"Full text content\",      // Raw content from source\n  \"summary\": \"AI-generated summary\",  // 2-3 sentence summary\n  \"url\": \"https://...\",              // Original URL\n  \"screenshot_url\": \"https://...\",   // Screenshot image URL\n}\n```\n\n### Timestamps\n```json\n{\n  \"created_at\": \"2025-01-01T12:00:00Z\",   // When scraped\n  \"updated_at\": \"2025-01-01T12:00:00Z\",   // Last updated\n  \"published_at\": \"2024-12-31T10:00:00Z\"  // Original publish date\n}\n```\n\n### AI-Extracted Data\n```json\n{\n  \"tags\": [\"tag1\", \"tag2\", \"tag3\"],          // AI-generated topical tags\n  \"relationships\": {                          // Connections to other scraps\n    \"mentions\": [\"scrap_id_1\", \"scrap_id_2\"],\n    \"topics\": [\"topic1\", \"topic2\"],\n    \"people\": [\"person1\", \"person2\"]\n  },\n  \"embedding\": [0.1, 0.2, -0.3, ...],       // 1536-dim vector for similarity\n}\n```\n\n### Location Data\n```json\n{\n  \"location\": \"City, Country\",        // Human-readable location\n  \"latitude\": 40.7128,               // GPS coordinates\n  \"longitude\": -74.0060,\n}\n```\n\n### Source-Specific Metadata\nThe `metadata` field contains source-specific information:\n\n#### Pinboard Bookmarks\n```json\n{\n  \"metadata\": {\n    \"description\": \"Original bookmark description\",\n    \"tags\": [\"original\", \"pinboard\", \"tags\"],\n    \"private\": false,\n    \"toread\": false\n  }\n}\n```\n\n#### GitHub Items\n```json\n{\n  \"metadata\": {\n    \"stargazers_count\": 1234,\n    \"forks_count\": 56,\n    \"language\": \"JavaScript\", \n    \"topics\": [\"web\", \"frontend\"],\n    \"is_fork\": false,\n    \"default_branch\": \"main\"\n  }\n}\n```\n\n#### Mastodon Posts\n```json\n{\n  \"metadata\": {\n    \"replies_count\": 5,\n    \"reblogs_count\": 12,\n    \"favourites_count\": 34,\n    \"visibility\": \"public\",\n    \"language\": \"en\"\n  }\n}\n```\n\n#### Are.na Blocks\n```json\n{\n  \"metadata\": {\n    \"block_type\": \"text|image|link\",\n    \"connections\": 5,\n    \"channels\": [\"channel-name-1\", \"channel-name-2\"]\n  }\n}\n```\n\n### Financial Data Extraction\nWhen financial information is detected, additional fields may be present:\n```json\n{\n  \"metadata\": {\n    \"financial_assets\": [\n      {\n        \"type\": \"stock\",\n        \"symbol\": \"AAPL\", \n        \"mentioned_price\": \"$150.00\",\n        \"context\": \"Apple stock hit $150\"\n      }\n    ],\n    \"financial_amounts\": [\n      {\n        \"amount\": 1000000,\n        \"currency\": \"USD\",\n        \"context\": \"$1M funding round\"\n      }\n    ]\n  }\n}\n```\n\n### API Access Patterns\n\n#### Get All Scraps\n```http\nGET /api/scraps?limit=100&offset=0\nGET /api/scraps?source=pinboard\nGET /api/scraps?tags=contains(technology)\n```\n\n#### Search by Content  \n```http\nGET /api/scraps?search=machine learning\nPOST /api/scraps/semantic_search\n{\n  \"query\": \"AI and robotics\",\n  \"limit\": 10,\n  \"similarity_threshold\": 0.8\n}\n```\n\n#### Get by Location\n```http\nGET /api/scraps?has_location=true\nGET /api/scraps?near_lat=40.7128&near_lng=-74.0060&radius_km=10\n```\n\n#### Filter by Date Range\n```http\nGET /api/scraps?created_after=2024-01-01&created_before=2024-12-31\nGET /api/scraps?published_after=2024-06-01\n```\n\n## Data Flow\n\n```mermaid\ngraph LR\n  A[Data Sources] --> B(Fetchers);\n  B --> C(Processors);\n  C --> D(Enrichment);\n  D --> E(Supabase);\n  E --> F(SQLite Sync);\n  F --> G(Alfred Workflow);\n  subgraph \"Error Handling\"\n    B -.-> I[Handle Errors];\n    C -.-> I;\n    D -.-> I;\n    E -.-> I;\n    F -.-> I;\n  end\n  subgraph \"Caching\"\n    B -.-> J[Cache];\n    J --> B;\n  end\n```\n\n1. Data is fetched from various sources.\n2. Each item is processed: summaries are generated, locations and relationships are extracted, and screenshots are created (where applicable).\n3. Processed data is upserted into Supabase.\n4. Data is synced to a local SQLite database for offline access.\n5. The local SQLite database can be searched quickly using the Alfred Workflow.\n\n## Claiming and Processing Flow\n\n```mermaid\ngraph LR\n  A[Data Source] --> B{Check Existing Scrap};\n  B -- Exists --> C[Merge with Existing];\n  B -- Does Not Exist --> D[Claim Scrap];\n  D --> E[Process Scrap];\n  E --> F[Upsert to Database];\n  C --> F;\n  F --> G[Release Claim];\n  subgraph \"Error Handling\"\n    E -.-> H[Handle Error];\n    H --> G;\n  end\n```\n\n## Alfred Workflow\n\nThe Alfred Workflow enables quick searching of the local SQLite database. It displays title, summary, and age, with quick actions to open URLs, view full content, or copy formatted scraps.\n\n## Setting Up Credentials\n\nThis project requires several API keys and secrets. Store these securely in a `.env` file *in your local repository only*. **Do not commit your `.env` file to version control.** Use the `.env-example` file as a template.\n\n| Environment Variable        | Description                                                                     | Source                                                                          |\n|-----------------------------|---------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|\n| `GITHUB_TOKEN`              | GitHub Personal Access Token (repo, read:user, gist scopes)                     | [GitHub Personal Access Tokens](https://github.com/settings/tokens)                 |\n| `GITHUB_USERNAME`           | Your GitHub username                                                              |                                                                                   |\n| `PINBOARD_TOKEN`            | Your Pinboard API token                                                            | [Pinboard Settings](https://pinboard.in/settings/password)                         |\n| `ARENA_ACCESS_TOKEN`        | Your Are.na API token                                                             | [Are.na Developer Settings](https://dev.are.na/oauth/applications)                 |\n| `USER_SLUG`                 | Your Are.na username                                                              |                                                                                   |\n| `MASTODON_ACCESS_TOKEN`     | Your Mastodon API token                                                            | Your Mastodon instance's developer settings                                        |\n| `MASTODON_API_URL`          | Your Mastodon instance URL (e.g., `https://mastodon.social`)                     | Your Mastodon instance's developer settings                                        |\n| `SUPABASE_URL`              | Your Supabase project URL                                                         | Your Supabase project settings                                                    |\n| `SUPABASE_KEY`              | Your Supabase anon key                                                            | Your Supabase project settings                                                    |\n| `SUPABASE_SERVICE_ROLE_KEY` | Your Supabase service role key (required for database operations)               | Your Supabase project settings                                                    |\n| `CLOUDINARY_CLOUD_NAME`     | Your Cloudinary cloud name                                                        | Your Cloudinary account settings                                                  |\n| `CLOUDINARY_API_KEY`        | Your Cloudinary API key                                                           | Your Cloudinary account settings                                                  |\n| `CLOUDINARY_API_SECRET`     | Your Cloudinary API secret                                                       | Your Cloudinary account settings                                                  |\n| `OPENROUTER_API_KEY`        | OpenRouter API key (for AI summarization)                                      | OpenRouter account settings                                                       |\n| `OPENCAGE_API_KEY`          | OpenCage Geocoding API key (for location extraction)                             | [OpenCage Data](https://opencagedata.com/)                                      |\n\n## Validation Tools\n\nThe project includes validation utilities:\n\n### Scrap Validation (`validate_scraps.mjs`)\nThis script validates the structure and content of scraped data, checking for missing fields, incorrect data types, and invalid formats. Run it with `node tests/validate_scraps.mjs [source]`.\n\n### AI Service Validation (`validate_ai.mjs`)\nThis script tests the AI-powered features (summarization, geolocation, relationship extraction) using sample data. Run it with `node tests/validate_ai.mjs [test_name]`.\n\n### Database Maintenance\nRegularly run `node tests/validate_db_integrity.mjs` to check for and clean up any orphaned or stuck processing records.\n\n## Smart Rate Limiting and Caching\n\n### Intelligent 429 Handling\nThe application features **SmartRateLimiter** that automatically handles API rate limit errors (429 responses):\n\n**Progressive Backoff Levels:**\n1. **Normal**: Default API rate limits\n2. **Cautious**: 2x slower, reduced concurrency  \n3. **Conservative**: 4x slower, single requests only\n4. **Free Model**: Falls back to free model rate limits (3+ second delays)\n5. **Super Polite**: Double free model delays\n6. **Glacial**: 10+ second delays for extreme cases\n\n**Automatic Recovery:**\n- Escalates to more conservative levels after 3 consecutive 429s\n- Automatically recovers to faster levels after 10 consecutive successes\n- Maintains separate limiters for OpenRouter, OpenAI, and Nomic APIs\n\n**Usage Example:**\n```bash\n# Test the smart rate limiter\nnode tests/test-smart-rate-limiter.mjs\n\n# Monitor rate limiter status in logs\nDEBUG=true node scripts/index.mjs --pinboard\n```\n\n### Caching\nCaching is used to reduce API calls and improve performance. The cache is stored locally in the `./data` directory.\n\n## AI Services\n\nThe application utilizes AI services for summarization and embedding generation. Currently, OpenAI's `text-embedding-ada-002` model is used for embeddings. The `OPENROUTER_API_KEY` is required for AI summarization.\n\n## Error Handling and Logging\n\nThe application includes comprehensive error handling and logging using `winston`. Errors are logged to the console with detailed error messages for troubleshooting.\n\n## Troubleshooting\n\n### Common Issues\n\n1. **Rate Limiting**: If you hit API rate limits, the app will back off automatically. You can adjust rate limits in `scripts/shared/rateLimiters.mjs`.\n\n2. **Database Connection**: If you can't connect to Supabase:\n   - Check your environment variables\n   - Ensure your IP is whitelisted\n   - Verify database permissions\n\n3. **Memory Issues**: If you see out-of-memory errors:\n   - Consider reducing batch sizes in the fetchers\n   - Check Docker resource limits\n\n### Getting Help\n\n- Check the logs in `logs/` directory\n- Run with DEBUG=true for verbose logging\n- Open an issue on GitHub\n\n## Contributing\n\n1. Fork the repository\n2. Create a feature branch\n3. Make your changes\n4. Run tests\n5. Submit a pull request\n\nPlease follow the existing code style and include tests for new features.\n\n## License\n\nMIT License - see LICENSE file for details\n",
+    "excerpt": "Scrapbook Core is an automated personal knowledge management system that turns your digital life into a searchable archive. It continuously collects your activi..."
+  },
+  "createdAt": "2024-05-26T16:54:39Z",
+  "updatedAt": "2026-06-27T22:46:57Z",
+  "pushedAt": "2026-07-29T16:55:09Z"
+}

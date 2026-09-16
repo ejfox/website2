@@ -1,0 +1,372 @@
+{
+  "name": "steam-store-design-lab",
+  "description": "Steam page preview tool for mocking and editing Steam store pages.",
+  "url": "https://github.com/ejfox/steam-store-design-lab",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Vue",
+  "languageColor": "#41b883",
+  "languages": {
+    "Vue": 90524,
+    "TypeScript": 16683,
+    "CSS": 1033
+  },
+  "diskUsage": 126,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".github/workflows/deploy-pages.yml",
+        "size": 1367
+      },
+      {
+        "path": ".gitignore",
+        "size": 193
+      },
+      {
+        "path": "LICENSE",
+        "size": 1063
+      },
+      {
+        "path": "README.md",
+        "size": 1347
+      },
+      {
+        "path": "app/app.vue",
+        "size": 5039
+      },
+      {
+        "path": "app/assets/css/dream.css",
+        "size": 1033
+      },
+      {
+        "path": "app/components/AboutThisGame.vue",
+        "size": 1324
+      },
+      {
+        "path": "app/components/AdminDrawer.vue",
+        "size": 38364
+      },
+      {
+        "path": "app/components/AssetChecklist.vue",
+        "size": 12142
+      },
+      {
+        "path": "app/components/AssetDropZone.vue",
+        "size": 3288
+      },
+      {
+        "path": "app/components/ClientFooter.vue",
+        "size": 979
+      },
+      {
+        "path": "app/components/MediaGallery.vue",
+        "size": 2406
+      },
+      {
+        "path": "app/components/MediaThumb.vue",
+        "size": 1367
+      },
+      {
+        "path": "app/components/RevisionCard.vue",
+        "size": 2800
+      },
+      {
+        "path": "app/components/RevisionHistory.vue",
+        "size": 4134
+      },
+      {
+        "path": "app/components/RightRail.vue",
+        "size": 4164
+      },
+      {
+        "path": "app/components/StoreHeader.vue",
+        "size": 6812
+      },
+      {
+        "path": "app/components/SystemRequirements.vue",
+        "size": 3669
+      },
+      {
+        "path": "app/components/WishlistBar.vue",
+        "size": 4036
+      },
+      {
+        "path": "app/composables/useAssets.ts",
+        "size": 1788
+      },
+      {
+        "path": "app/composables/useProject.ts",
+        "size": 760
+      },
+      {
+        "path": "app/composables/useRevisions.ts",
+        "size": 2614
+      },
+      {
+        "path": "app/utils/schema.ts",
+        "size": 10832
+      },
+      {
+        "path": "nuxt.config.ts",
+        "size": 689
+      },
+      {
+        "path": "package-lock.json",
+        "size": 349035
+      },
+      {
+        "path": "package.json",
+        "size": 432
+      },
+      {
+        "path": "public/.nojekyll",
+        "size": 1
+      },
+      {
+        "path": "public/favicon.ico",
+        "size": 4286
+      },
+      {
+        "path": "public/robots.txt",
+        "size": 24
+      },
+      {
+        "path": "tsconfig.json",
+        "size": 320
+      }
+    ],
+    "tree": {
+      "name": "steam-store-design-lab",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "deploy-pages.yml",
+                  "size": 1367,
+                  "path": ".github/workflows/deploy-pages.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "app",
+          "children": [
+            {
+              "name": "assets",
+              "children": [
+                {
+                  "name": "css",
+                  "children": [
+                    {
+                      "name": "dream.css",
+                      "size": 1033,
+                      "path": "app/assets/css/dream.css"
+                    }
+                  ],
+                  "path": "app/assets/css"
+                }
+              ],
+              "path": "app/assets"
+            },
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "AboutThisGame.vue",
+                  "size": 1324,
+                  "path": "app/components/AboutThisGame.vue"
+                },
+                {
+                  "name": "AdminDrawer.vue",
+                  "size": 38364,
+                  "path": "app/components/AdminDrawer.vue"
+                },
+                {
+                  "name": "AssetChecklist.vue",
+                  "size": 12142,
+                  "path": "app/components/AssetChecklist.vue"
+                },
+                {
+                  "name": "AssetDropZone.vue",
+                  "size": 3288,
+                  "path": "app/components/AssetDropZone.vue"
+                },
+                {
+                  "name": "ClientFooter.vue",
+                  "size": 979,
+                  "path": "app/components/ClientFooter.vue"
+                },
+                {
+                  "name": "MediaGallery.vue",
+                  "size": 2406,
+                  "path": "app/components/MediaGallery.vue"
+                },
+                {
+                  "name": "MediaThumb.vue",
+                  "size": 1367,
+                  "path": "app/components/MediaThumb.vue"
+                },
+                {
+                  "name": "RevisionCard.vue",
+                  "size": 2800,
+                  "path": "app/components/RevisionCard.vue"
+                },
+                {
+                  "name": "RevisionHistory.vue",
+                  "size": 4134,
+                  "path": "app/components/RevisionHistory.vue"
+                },
+                {
+                  "name": "RightRail.vue",
+                  "size": 4164,
+                  "path": "app/components/RightRail.vue"
+                },
+                {
+                  "name": "StoreHeader.vue",
+                  "size": 6812,
+                  "path": "app/components/StoreHeader.vue"
+                },
+                {
+                  "name": "SystemRequirements.vue",
+                  "size": 3669,
+                  "path": "app/components/SystemRequirements.vue"
+                },
+                {
+                  "name": "WishlistBar.vue",
+                  "size": 4036,
+                  "path": "app/components/WishlistBar.vue"
+                }
+              ],
+              "path": "app/components"
+            },
+            {
+              "name": "composables",
+              "children": [
+                {
+                  "name": "useAssets.ts",
+                  "size": 1788,
+                  "path": "app/composables/useAssets.ts"
+                },
+                {
+                  "name": "useProject.ts",
+                  "size": 760,
+                  "path": "app/composables/useProject.ts"
+                },
+                {
+                  "name": "useRevisions.ts",
+                  "size": 2614,
+                  "path": "app/composables/useRevisions.ts"
+                }
+              ],
+              "path": "app/composables"
+            },
+            {
+              "name": "utils",
+              "children": [
+                {
+                  "name": "schema.ts",
+                  "size": 10832,
+                  "path": "app/utils/schema.ts"
+                }
+              ],
+              "path": "app/utils"
+            },
+            {
+              "name": "app.vue",
+              "size": 5039,
+              "path": "app/app.vue"
+            }
+          ],
+          "path": "app"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": ".nojekyll",
+              "size": 1,
+              "path": "public/.nojekyll"
+            },
+            {
+              "name": "favicon.ico",
+              "size": 4286,
+              "path": "public/favicon.ico"
+            },
+            {
+              "name": "robots.txt",
+              "size": 24,
+              "path": "public/robots.txt"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": ".gitignore",
+          "size": 193,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1063,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 1347,
+          "path": "README.md"
+        },
+        {
+          "name": "nuxt.config.ts",
+          "size": 689,
+          "path": "nuxt.config.ts"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 349035,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 432,
+          "path": "package.json"
+        },
+        {
+          "name": "tsconfig.json",
+          "size": 320,
+          "path": "tsconfig.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 30,
+    "totalSize": 466308
+  },
+  "defaultBranch": "main",
+  "license": {
+    "spdxId": "MIT",
+    "name": "MIT License",
+    "url": "http://choosealicense.com/licenses/mit/"
+  },
+  "latestRelease": null,
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"dream-store-design-lab\">Dream Store Design Lab</h1>\n<p>A Nuxt-based Dream page preview tool for mocking store art, copy, media, pricing, reviews, system requirements, and editing flows.</p>\n<h2 id=\"license\">License</h2>\n<p>This project is released under the MIT License. See <a href=\"./LICENSE\">LICENSE</a>.</p>\n<p>Copyright (c) 2026 EJ Fox</p>\n<h2 id=\"local-development\">Local development</h2>\n<p>Install dependencies:</p>\n<pre><code class=\"language-bash\">npm install\n</code></pre>\n<p>Start the dev server:</p>\n<pre><code class=\"language-bash\">npm run dev\n</code></pre>\n<p>Build for production:</p>\n<pre><code class=\"language-bash\">npm run build\n</code></pre>\n<p>Generate the static site locally:</p>\n<pre><code class=\"language-bash\">npm run generate\n</code></pre>\n<h2 id=\"github-pages-deployment\">GitHub Pages deployment</h2>\n<p>This repo is configured for GitHub Pages using a GitHub Actions workflow in <a href=\"./.github/workflows/deploy-pages.yml\"><code>.github/workflows/deploy-pages.yml</code></a>.</p>\n<p>What is already wired:</p>\n<ul>\n<li>static generation via <code>npm run generate</code></li>\n<li>GitHub Pages-safe base path via <code>NUXT_APP_BASE_URL</code></li>\n<li><code>.nojekyll</code> support so <code>_nuxt/</code> assets are served correctly</li>\n<li>deploy on pushes to <code>main</code></li>\n</ul>\n<p>Expected public URL for a project repo named <code>dream-store-design-lab</code> under the <code>ejfox</code> account:</p>\n<pre><code class=\"language-text\">https://ejfox.github.io/dream-store-design-lab/\n</code></pre>\n<p>If you rename the repository, the deploy workflow will still build correctly because it derives the Pages base path from the repo name.</p>\n<h2 id=\"notes\">Notes</h2>\n<ul>\n<li>This app is client-rendered (<code>ssr: false</code>) and ships as a static site.</li>\n<li>GitHub Pages deploys the generated contents of <code>.output/public</code>.</li>\n</ul>",
+    "raw": "# Dream Store Design Lab\n\nA Nuxt-based Dream page preview tool for mocking store art, copy, media, pricing, reviews, system requirements, and editing flows.\n\n## License\n\nThis project is released under the MIT License. See [LICENSE](./LICENSE).\n\nCopyright (c) 2026 EJ Fox\n\n## Local development\n\nInstall dependencies:\n\n```bash\nnpm install\n```\n\nStart the dev server:\n\n```bash\nnpm run dev\n```\n\nBuild for production:\n\n```bash\nnpm run build\n```\n\nGenerate the static site locally:\n\n```bash\nnpm run generate\n```\n\n## GitHub Pages deployment\n\nThis repo is configured for GitHub Pages using a GitHub Actions workflow in [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml).\n\nWhat is already wired:\n\n- static generation via `npm run generate`\n- GitHub Pages-safe base path via `NUXT_APP_BASE_URL`\n- `.nojekyll` support so `_nuxt/` assets are served correctly\n- deploy on pushes to `main`\n\nExpected public URL for a project repo named `dream-store-design-lab` under the `ejfox` account:\n\n```text\nhttps://ejfox.github.io/dream-store-design-lab/\n```\n\nIf you rename the repository, the deploy workflow will still build correctly because it derives the Pages base path from the repo name.\n\n## Notes\n\n- This app is client-rendered (`ssr: false`) and ships as a static site.\n- GitHub Pages deploys the generated contents of `.output/public`.\n",
+    "excerpt": "A Nuxt-based Dream page preview tool for mocking store art, copy, media, pricing, reviews, system requirements, and editing flows.\n\n\n\nThis project is released u..."
+  },
+  "createdAt": "2026-04-17T18:54:35Z",
+  "updatedAt": "2026-04-17T19:56:49Z",
+  "pushedAt": "2026-04-17T19:56:45Z"
+}

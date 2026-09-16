@@ -1,0 +1,106 @@
+{
+  "name": "github-sloth",
+  "description": "Minimalist terminal UI for GitHub PRs/reviews/checks. Complementary to lazygit.",
+  "url": "https://github.com/ejfox/github-sloth",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Rust",
+  "languageColor": "#dea584",
+  "languages": {
+    "Rust": 19017
+  },
+  "diskUsage": 13,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 8
+      },
+      {
+        "path": "Cargo.lock",
+        "size": 24010
+      },
+      {
+        "path": "Cargo.toml",
+        "size": 688
+      },
+      {
+        "path": "LICENSE",
+        "size": 1063
+      },
+      {
+        "path": "README.md",
+        "size": 2068
+      },
+      {
+        "path": "src/main.rs",
+        "size": 19017
+      }
+    ],
+    "tree": {
+      "name": "github-sloth",
+      "children": [
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "main.rs",
+              "size": 19017,
+              "path": "src/main.rs"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".gitignore",
+          "size": 8,
+          "path": ".gitignore"
+        },
+        {
+          "name": "Cargo.lock",
+          "size": 24010,
+          "path": "Cargo.lock"
+        },
+        {
+          "name": "Cargo.toml",
+          "size": 688,
+          "path": "Cargo.toml"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1063,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 2068,
+          "path": "README.md"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 6,
+    "totalSize": 46854
+  },
+  "defaultBranch": "main",
+  "license": {
+    "spdxId": "MIT",
+    "name": "MIT License",
+    "url": "http://choosealicense.com/licenses/mit/"
+  },
+  "latestRelease": null,
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"sloth\">sloth</h1>\n<p>A minimalist terminal UI for the GitHub side of your repo: PRs, reviews, status checks, CI. Auto-detects the repo from your cwd. Amber-on-black, no chrome.</p>\n<p>Designed to be fully complementary with <a href=\"https://github.com/jesseduffield/lazygit\">lazygit</a> — sloth handles GitHub data, lazygit handles local git ops.</p>\n<pre><code>ejfox/coachartie  ·  4 open\n\n▌ #138  +  fix prompt cache layer            ejfox     +203 -9   3h\n  #135  ·  bump deps                         renovate   +12 -12  1d\n  #131  x  add tracing to ingest             sara       +84 -2   3d\n  #128  +  ~ refactor auth flow              jchen      +14 -3   1w\n\n  #138 — fix prompt cache layer\n  by ejfox  ·  updated 3h ago\n  labels  perf · cache\n\n  checks   + test  + lint  x deploy-preview\n  review   + jchen  ? sara\n  files    7 changed    comments  3    merge  mergeable\n\n  Refactor the cache layer to use the new opus-4.7 cache control format.\n  Should reduce cache miss rate by ~40% based on local testing.\n\n  j/k move  enter diff  o open  / filter  r refresh  ? help  q quit\n</code></pre>\n<h2 id=\"install\">install</h2>\n<p>Requires <code>gh</code> (authed) and <code>git</code>.</p>\n<pre><code class=\"language-sh\">git clone https://github.com/ejfox/github-sloth ~/code/github-sloth\ncd ~/code/github-sloth &amp;&amp; cargo install --path .\n</code></pre>\n<p>Or symlink the release binary:</p>\n<pre><code class=\"language-sh\">cargo build --release\nln -s \"$PWD/target/release/sloth\" ~/.local/bin/sloth\n</code></pre>\n<h2 id=\"use\">use</h2>\n<pre><code class=\"language-sh\">cd any/github/repo\nsloth\n</code></pre>\n<h2 id=\"keys\">keys</h2>\n<pre><code>j/k        move\ng/G        top / bottom\nctrl-d/u   page down / up\nenter / d  view diff in $PAGER\no          open PR in browser\n/          filter (title, author, #, label)\nr          refresh\n?          help\nq / esc    quit\n</code></pre>\n<h2 id=\"why\">why</h2>\n<p><code>gh dash</code> is a workspace tool — it shows your PRs across every repo. Most TUIs in the space (<code>gh-lazy</code>, <code>ghui</code>, <code>blippy</code>) have too much chrome and don't auto-scope to cwd. lazygit nailed cwd-context for git, nothing did the same for GitHub. So: this.</p>\n<h2 id=\"scope\">scope</h2>\n<p>In: PRs, review comments, status checks, CI runs, issues (eventually).\nOut: anything operating on your local working tree — that's lazygit.</p>\n<h2 id=\"license\">license</h2>\n<p>MIT</p>",
+    "raw": "# sloth\n\nA minimalist terminal UI for the GitHub side of your repo: PRs, reviews, status checks, CI. Auto-detects the repo from your cwd. Amber-on-black, no chrome.\n\nDesigned to be fully complementary with [lazygit](https://github.com/jesseduffield/lazygit) — sloth handles GitHub data, lazygit handles local git ops.\n\n```\nejfox/coachartie  ·  4 open\n\n▌ #138  +  fix prompt cache layer            ejfox     +203 -9   3h\n  #135  ·  bump deps                         renovate   +12 -12  1d\n  #131  x  add tracing to ingest             sara       +84 -2   3d\n  #128  +  ~ refactor auth flow              jchen      +14 -3   1w\n\n  #138 — fix prompt cache layer\n  by ejfox  ·  updated 3h ago\n  labels  perf · cache\n\n  checks   + test  + lint  x deploy-preview\n  review   + jchen  ? sara\n  files    7 changed    comments  3    merge  mergeable\n\n  Refactor the cache layer to use the new opus-4.7 cache control format.\n  Should reduce cache miss rate by ~40% based on local testing.\n\n  j/k move  enter diff  o open  / filter  r refresh  ? help  q quit\n```\n\n## install\n\nRequires `gh` (authed) and `git`.\n\n```sh\ngit clone https://github.com/ejfox/github-sloth ~/code/github-sloth\ncd ~/code/github-sloth && cargo install --path .\n```\n\nOr symlink the release binary:\n\n```sh\ncargo build --release\nln -s \"$PWD/target/release/sloth\" ~/.local/bin/sloth\n```\n\n## use\n\n```sh\ncd any/github/repo\nsloth\n```\n\n## keys\n\n```\nj/k        move\ng/G        top / bottom\nctrl-d/u   page down / up\nenter / d  view diff in $PAGER\no          open PR in browser\n/          filter (title, author, #, label)\nr          refresh\n?          help\nq / esc    quit\n```\n\n## why\n\n`gh dash` is a workspace tool — it shows your PRs across every repo. Most TUIs in the space (`gh-lazy`, `ghui`, `blippy`) have too much chrome and don't auto-scope to cwd. lazygit nailed cwd-context for git, nothing did the same for GitHub. So: this.\n\n## scope\n\nIn: PRs, review comments, status checks, CI runs, issues (eventually).\nOut: anything operating on your local working tree — that's lazygit.\n\n## license\n\nMIT\n",
+    "excerpt": "A minimalist terminal UI for the GitHub side of your repo: PRs, reviews, status checks, CI. Auto-detects the repo from your cwd. Amber-on-black, no chrome.\n\nDes..."
+  },
+  "createdAt": "2026-05-04T14:10:31Z",
+  "updatedAt": "2026-05-04T14:11:14Z",
+  "pushedAt": "2026-05-04T14:10:34Z"
+}
