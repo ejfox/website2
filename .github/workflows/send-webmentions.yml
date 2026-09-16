@@ -30,13 +30,13 @@ jobs:
         restore-keys: |
           webmentions-
 
-    # Gated to --dry (logs what it WOULD send, pings nothing) until inbound
-    # webmentions are actually set up: register ejfox.com at webmention.io AND
-    # set WEBMENTION_IO_TOKEN in the VPS .env. To go live and start notifying
-    # the external sites you link to, delete the ` --dry` below. --dry does not
-    # touch the sent-cache, so nothing is silently skipped when you flip it on.
-    - name: Send webmentions (dry-run — not pinging external yet)
-      run: node scripts/author/send-webmentions.mjs --dry
+    # LIVE: ejfox.com is registered at webmention.io and WEBMENTION_IO_TOKEN is
+    # set in the VPS .env (both done 2026-09-16), so outbound sending is enabled.
+    # This now pings the external sites you link to. To pause it again, re-add
+    # ` --dry` — that logs what it WOULD send and does not touch the sent-cache,
+    # so nothing is silently skipped when you flip it back on.
+    - name: Send webmentions
+      run: node scripts/author/send-webmentions.mjs
 
     - name: Save webmentions cache
       if: always()
