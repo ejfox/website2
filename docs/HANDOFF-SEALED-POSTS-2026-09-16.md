@@ -59,32 +59,28 @@ Both are written up at length in `SEALED-POSTS.md`; the short form:
 
 ## 4. Open items — read before touching anything
 
-### 4.1 ⚠️ `yarn blog:import` is destructive. Unfixed. Needs a decision.
+### 4.1 `yarn blog:import` — destructive bugs fixed; content divergence remains
 
-The highest-value thing in this file.
+The three destructive bugs are fixed (see CLAUDE.md for the detail): the
+`blog/` path prefix, the blanket `rm -rf content/blog`, and the unguarded
+vault-root files. It now removes only the destinations it rebuilds, so nothing
+unrecoverable happens.
 
-The vault stores posts under `blog/<year>/`. `import.mjs` writes to
-`path.join('content/blog', relativePath)`, so `blog/2022/x.md` lands at
-`content/blog/blog/2022/x.md` — one level deeper than the 366 files actually
-committed at `content/blog/2022/x.md`. The vault has no top-level `reading/`,
-so all ~100 book notes get deleted and never rebuilt.
+**What's left is a content reconciliation, and it is EJ's call, not a code fix.**
+A real import against today's vault produces:
 
-**One run deletes 366 tracked posts and recreates ~169 in the wrong shape.** I
-triggered this during setup; recovered with `git checkout -- content/blog/`
-(and `content/backup/` holds a copy), but it also wipes **untracked** WIP under
-`content/blog/` — there is currently one such file, `week-notes/2026-21.md`.
+- **~163 frontmatter reversions** — a repo-side hygiene pass (`33b0879a`)
+  stripped dead fields and fixed casing; the vault never received it, so
+  importing reverts it (`type: words` → `type: post`, `hidden: false` returns).
+- **14 deletions** — `2026/the-knife.md` and 13 `robots/**` notes that are
+  committed but carry `share: false`, so the importer skips them and now
+  leaves them deleted rather than silently restoring them.
+- **2 new posts** waiting in the vault: `2026/asu-devblog.md`,
+  `2026/vibe-coding-ps5-controller.md`.
 
-Deliberately not fixed, because the fix is a content-routing decision that is
-EJ's to make:
-- **(a)** strip the vault's leading `blog/` on import, so the importer
-  reproduces the committed layout; or
-- **(b)** move the repo to the nested layout the importer produces, and accept
-  a one-time 366-file churn commit.
-
-(a) is almost certainly right, but it is a one-line change with a 366-file blast
-radius, so it wants an explicit yes. Separately, the whitelist is only checked
-on **directories**, so top-level vault files (`inbox.md`, `CLAUDE.md`,
-`Pamara-list.md`) get imported as posts regardless — fix that in the same pass.
+Either push the hygiene pass back into the vault so the two agree, or accept
+the reversion and re-run the hygiene pass afterwards. Until that's decided, the
+rule is: import, then **read `git status` before committing**.
 
 Sealed posts sidestep all of it via `yarn seal:import`, which touches one
 gitignored directory and nothing else.

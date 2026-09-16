@@ -43,6 +43,14 @@ const WHITELISTED_FOLDERS = [
 ]
 
 /**
+ * Top-level vault FILES that may be imported. The folder whitelist only ever
+ * gated directories, so every loose .md at the vault root — `inbox.md`,
+ * `CLAUDE.md`, `Pamara-list.md` — was imported as a blog post regardless of
+ * what the whitelist said.
+ */
+const WHITELISTED_ROOT_FILES = ['index.md']
+
+/**
  * True if a vault-relative directory path is inside a whitelisted folder.
  * Compares path segments, so `private` matches `private/` and `private/sub/`
  * but never `private-drafts/` or `privateer/`.
@@ -50,6 +58,41 @@ const WHITELISTED_FOLDERS = [
 const isWhitelisted = (relPath) => {
   const segments = relPath.split(path.sep)
   return WHITELISTED_FOLDERS.includes(segments[0])
+}
+
+/**
+ * Where a vault file lands under `content/blog/`.
+ *
+ * The vault keeps posts in `blog/<year>/` and `blog/projects/`, but the repo
+ * serves them from `content/blog/<year>/`. Joining the vault-relative path
+ * straight onto `content/blog` therefore produced `content/blog/blog/2022/…`
+ * — one level too deep, matching nothing that was ever committed, and
+ * silently giving every such post the wrong `type` as well, since
+ * `getPostType` matches on a `projects/` prefix that `blog/projects/` doesn't
+ * have.
+ */
+const contentRelativePath = (relPath) =>
+  relPath.startsWith(`blog${path.sep}`) ? relPath.slice(5) : relPath
+
+/**
+ * The top-level entries under `content/blog/` that this import is responsible
+ * for — derived from what it is actually about to write.
+ *
+ * This is the difference between "rebuild the tree" and "destroy the tree".
+ * The importer used to `rm -rf content/blog` wholesale, on the assumption that
+ * the vault is the complete source of truth. That stopped being true: the 97
+ * `reading/` notes were moved to the vault's `.trash` in June 2026 and now
+ * exist ONLY in the repo, and `week-notes/` is deliberately un-whitelisted
+ * while 91 of them are committed. Wiping everything deleted all 188 and
+ * rebuilt none of them.
+ */
+const managedDestinations = (files) => {
+  const managed = new Set()
+  for (const file of files) {
+    const rel = contentRelativePath(path.relative(SOURCE_DIR, file))
+    managed.add(rel.split(path.sep)[0])
+  }
+  return managed
 }
 
 const stats = {
@@ -99,11 +142,15 @@ async function processFile(filePath, isDryRun = false) {
   const content = await fs.readFile(filePath, 'utf8')
   const { data: frontmatter, content: markdown } = matter(content)
 
+  // Everything downstream — the destination path, the post type, the slug —
+  // keys off where the file lands in the repo, not where it sits in the vault.
+  const contentPath = contentRelativePath(relativePath)
+
   const words = markdown.split(/\s+/).length
-  const postType = getPostType(relativePath)
+  const postType = getPostType(contentPath)
   const metadata = {
     ...frontmatter,
-    slug: relativePath.replace(/\.md$/, ''),
+    slug: contentPath.replace(/\.md$/, ''),
     type: postType,
     date: frontmatter.date || getWeekNoteDate(relativePath),
     wordCount: words,
@@ -121,7 +168,7 @@ async function processFile(filePath, isDryRun = false) {
   }
 
   if (!isDryRun) {
-    const outputPath = path.join(dirs.content, relativePath)
+    const outputPath = path.join(dirs.content, contentPath)
     const isNew = !(await fs
       .access(outputPath)
       .then(() => true)
@@ -169,6 +216,13 @@ async function findMarkdownFiles() {
         entry.name.endsWith('.md') &&
         !entry.name.includes('.canvas.md')
       ) {
+        // A file at the vault ROOT is only imported if it's explicitly listed.
+        // Files inside a directory are already covered: scan() only descends
+        // into whitelisted ones.
+        const atVaultRoot = path.relative(SOURCE_DIR, dir) === ''
+        if (atVaultRoot && !WHITELISTED_ROOT_FILES.includes(entry.name)) {
+          continue
+        }
         allFiles.push(fullPath)
       }
     }
@@ -183,6 +237,12 @@ async function main() {
   const spinner = ora('Starting import...').start()
 
   try {
+    // Find the files FIRST, so the clean step can be scoped to what this run
+    // actually manages. Order matters: wiping before knowing what you're about
+    // to write is how 188 posts that live only in the repo got deleted.
+    const files = await findMarkdownFiles()
+    if (!files.length) throw new Error('No markdown files found')
+
     if (!isDryRun) {
       const contentExists = await fs
         .access(dirs.content)
@@ -192,12 +252,20 @@ async function main() {
         await fs.rm(dirs.backup, { recursive: true, force: true })
         await fs.cp(dirs.content, dirs.backup, { recursive: true })
       }
-      await fs.rm(dirs.content, { recursive: true, force: true })
-      await fs.mkdir(dirs.content, { recursive: true })
-    }
 
-    const files = await findMarkdownFiles()
-    if (!files.length) throw new Error('No markdown files found')
+      // Remove only the destinations this import rebuilds, so a post that
+      // exists solely in the repo — every `reading/` note, every committed
+      // week-note — is left alone instead of deleted and never restored.
+      const managed = managedDestinations(files)
+      for (const entry of managed) {
+        await fs.rm(path.join(dirs.content, entry), {
+          recursive: true,
+          force: true,
+        })
+      }
+      await fs.mkdir(dirs.content, { recursive: true })
+      debug(`Managed destinations: ${[...managed].sort().join(', ')}`)
+    }
 
     spinner.text = `Processing ${files.length} files...`
 
