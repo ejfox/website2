@@ -1,5 +1,4 @@
 ---
-hidden: false
 type: photos
 date: '2010-01-01T18:44:00-05:00'
 tags:

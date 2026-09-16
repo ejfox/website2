@@ -14,7 +14,7 @@
     ],
     "featured": true,
     "state": "deployed",
-    "aiInvolvement": "human-only",
+    "ai-involvement": "human-only",
     "context": "client",
     "tags": [
       "d3",

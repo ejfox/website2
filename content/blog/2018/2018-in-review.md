@@ -1,6 +1,5 @@
 ---
 type: photos
-hidden: false
 date: 2018-12-14T10:00:16.000Z
 modified: 2024-08-01T14:21:46.000Z
 tags:

@@ -13,6 +13,7 @@ tags:
   - technique
   - tool
   - visualization
+unlisted: true
 ---
 
 ## Fox Studio (Beacon)

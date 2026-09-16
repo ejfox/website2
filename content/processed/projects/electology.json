@@ -13,13 +13,14 @@
       "Observable"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "elections",
       "dataviz",
       "data",
       "product"
     ],
+    "about": "[[project-notes/electology]]",
     "words": 63,
     "images": 2,
     "imageDetails": {

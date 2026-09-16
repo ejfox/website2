@@ -12,7 +12,7 @@
       "OpenStreetMap"
     ],
     "state": "deployed",
-    "aiInvolvement": "ai-assisted",
+    "ai-involvement": "ai-assisted",
     "tags": [
       "maps",
       "simulation",

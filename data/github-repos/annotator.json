@@ -1,0 +1,530 @@
+{
+  "name": "annotator",
+  "description": "Keyboard-driven block annotator for NewsWell print layouts — hand-annotate one page, a vision model predicts the rest, your edits teach it.",
+  "url": "https://github.com/ejfox/annotator",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 54843,
+    "Vue": 42556,
+    "CSS": 19182,
+    "Python": 5437,
+    "HTML": 400
+  },
+  "diskUsage": 300,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".github/workflows/deploy.yml",
+        "size": 1183
+      },
+      {
+        "path": ".gitignore",
+        "size": 222
+      },
+      {
+        "path": "LICENSE",
+        "size": 1081
+      },
+      {
+        "path": "README.md",
+        "size": 8103
+      },
+      {
+        "path": "RESEARCH.md",
+        "size": 22220
+      },
+      {
+        "path": "index.html",
+        "size": 400
+      },
+      {
+        "path": "learning/beacon-annotations.json",
+        "size": 1865
+      },
+      {
+        "path": "learning/lessons.md",
+        "size": 6681
+      },
+      {
+        "path": "learning/memo-to-newswell-2-write-path.md",
+        "size": 5864
+      },
+      {
+        "path": "learning/memo-to-newswell.md",
+        "size": 8119
+      },
+      {
+        "path": "learning/page-02-auto-v1.json",
+        "size": 1912
+      },
+      {
+        "path": "learning/reader-annotations.json",
+        "size": 846
+      },
+      {
+        "path": "learning/template-provenance.md",
+        "size": 8828
+      },
+      {
+        "path": "learning/templates-analysis.json",
+        "size": 3319
+      },
+      {
+        "path": "package-lock.json",
+        "size": 55881
+      },
+      {
+        "path": "package.json",
+        "size": 529
+      },
+      {
+        "path": "public/CNAME",
+        "size": 29
+      },
+      {
+        "path": "public/issues.json",
+        "size": 1240
+      },
+      {
+        "path": "public/newskick-templates-from-bbpress.json",
+        "size": 10550
+      },
+      {
+        "path": "public/papers.json",
+        "size": 874
+      },
+      {
+        "path": "public/predictions.json",
+        "size": 21917
+      },
+      {
+        "path": "public/samples/README.md",
+        "size": 1315
+      },
+      {
+        "path": "public/samples/beach-and-bay-press-2026-05-08/annotations.seed.json",
+        "size": 1098
+      },
+      {
+        "path": "public/samples/beach-and-bay-press-2026-05-08/project.json",
+        "size": 517
+      },
+      {
+        "path": "public/types.json",
+        "size": 1526
+      },
+      {
+        "path": "src/App.vue",
+        "size": 12578
+      },
+      {
+        "path": "src/components/LeftRail.vue",
+        "size": 3816
+      },
+      {
+        "path": "src/components/Minimap.vue",
+        "size": 1764
+      },
+      {
+        "path": "src/components/PageCanvas.vue",
+        "size": 13309
+      },
+      {
+        "path": "src/components/RightPanel.vue",
+        "size": 6007
+      },
+      {
+        "path": "src/components/StatusBar.vue",
+        "size": 1055
+      },
+      {
+        "path": "src/components/TemplatePanel.vue",
+        "size": 4027
+      },
+      {
+        "path": "src/lib/edges.js",
+        "size": 2823
+      },
+      {
+        "path": "src/lib/geometry.js",
+        "size": 2189
+      },
+      {
+        "path": "src/lib/minimap.js",
+        "size": 1727
+      },
+      {
+        "path": "src/lib/newswell.js",
+        "size": 2358
+      },
+      {
+        "path": "src/lib/templateMatch.js",
+        "size": 4144
+      },
+      {
+        "path": "src/lib/templates.js",
+        "size": 3562
+      },
+      {
+        "path": "src/main.js",
+        "size": 111
+      },
+      {
+        "path": "src/store.js",
+        "size": 23111
+      },
+      {
+        "path": "src/style.css",
+        "size": 19182
+      },
+      {
+        "path": "tests/coverage.spec.js",
+        "size": 2476
+      },
+      {
+        "path": "tests/templateMatch.spec.js",
+        "size": 9107
+      },
+      {
+        "path": "tools/README.md",
+        "size": 1509
+      },
+      {
+        "path": "tools/xycut.py",
+        "size": 5437
+      },
+      {
+        "path": "vite.config.js",
+        "size": 3235
+      }
+    ],
+    "tree": {
+      "name": "annotator",
+      "children": [
+        {
+          "name": ".github",
+          "children": [
+            {
+              "name": "workflows",
+              "children": [
+                {
+                  "name": "deploy.yml",
+                  "size": 1183,
+                  "path": ".github/workflows/deploy.yml"
+                }
+              ],
+              "path": ".github/workflows"
+            }
+          ],
+          "path": ".github"
+        },
+        {
+          "name": "learning",
+          "children": [
+            {
+              "name": "beacon-annotations.json",
+              "size": 1865,
+              "path": "learning/beacon-annotations.json"
+            },
+            {
+              "name": "lessons.md",
+              "size": 6681,
+              "path": "learning/lessons.md"
+            },
+            {
+              "name": "memo-to-newswell-2-write-path.md",
+              "size": 5864,
+              "path": "learning/memo-to-newswell-2-write-path.md"
+            },
+            {
+              "name": "memo-to-newswell.md",
+              "size": 8119,
+              "path": "learning/memo-to-newswell.md"
+            },
+            {
+              "name": "page-02-auto-v1.json",
+              "size": 1912,
+              "path": "learning/page-02-auto-v1.json"
+            },
+            {
+              "name": "reader-annotations.json",
+              "size": 846,
+              "path": "learning/reader-annotations.json"
+            },
+            {
+              "name": "template-provenance.md",
+              "size": 8828,
+              "path": "learning/template-provenance.md"
+            },
+            {
+              "name": "templates-analysis.json",
+              "size": 3319,
+              "path": "learning/templates-analysis.json"
+            }
+          ],
+          "path": "learning"
+        },
+        {
+          "name": "public",
+          "children": [
+            {
+              "name": "samples",
+              "children": [
+                {
+                  "name": "beach-and-bay-press-2026-05-08",
+                  "children": [
+                    {
+                      "name": "annotations.seed.json",
+                      "size": 1098,
+                      "path": "public/samples/beach-and-bay-press-2026-05-08/annotations.seed.json"
+                    },
+                    {
+                      "name": "project.json",
+                      "size": 517,
+                      "path": "public/samples/beach-and-bay-press-2026-05-08/project.json"
+                    }
+                  ],
+                  "path": "public/samples/beach-and-bay-press-2026-05-08"
+                },
+                {
+                  "name": "README.md",
+                  "size": 1315,
+                  "path": "public/samples/README.md"
+                }
+              ],
+              "path": "public/samples"
+            },
+            {
+              "name": "CNAME",
+              "size": 29,
+              "path": "public/CNAME"
+            },
+            {
+              "name": "issues.json",
+              "size": 1240,
+              "path": "public/issues.json"
+            },
+            {
+              "name": "newskick-templates-from-bbpress.json",
+              "size": 10550,
+              "path": "public/newskick-templates-from-bbpress.json"
+            },
+            {
+              "name": "papers.json",
+              "size": 874,
+              "path": "public/papers.json"
+            },
+            {
+              "name": "predictions.json",
+              "size": 21917,
+              "path": "public/predictions.json"
+            },
+            {
+              "name": "types.json",
+              "size": 1526,
+              "path": "public/types.json"
+            }
+          ],
+          "path": "public"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "components",
+              "children": [
+                {
+                  "name": "LeftRail.vue",
+                  "size": 3816,
+                  "path": "src/components/LeftRail.vue"
+                },
+                {
+                  "name": "Minimap.vue",
+                  "size": 1764,
+                  "path": "src/components/Minimap.vue"
+                },
+                {
+                  "name": "PageCanvas.vue",
+                  "size": 13309,
+                  "path": "src/components/PageCanvas.vue"
+                },
+                {
+                  "name": "RightPanel.vue",
+                  "size": 6007,
+                  "path": "src/components/RightPanel.vue"
+                },
+                {
+                  "name": "StatusBar.vue",
+                  "size": 1055,
+                  "path": "src/components/StatusBar.vue"
+                },
+                {
+                  "name": "TemplatePanel.vue",
+                  "size": 4027,
+                  "path": "src/components/TemplatePanel.vue"
+                }
+              ],
+              "path": "src/components"
+            },
+            {
+              "name": "lib",
+              "children": [
+                {
+                  "name": "edges.js",
+                  "size": 2823,
+                  "path": "src/lib/edges.js"
+                },
+                {
+                  "name": "geometry.js",
+                  "size": 2189,
+                  "path": "src/lib/geometry.js"
+                },
+                {
+                  "name": "minimap.js",
+                  "size": 1727,
+                  "path": "src/lib/minimap.js"
+                },
+                {
+                  "name": "newswell.js",
+                  "size": 2358,
+                  "path": "src/lib/newswell.js"
+                },
+                {
+                  "name": "templateMatch.js",
+                  "size": 4144,
+                  "path": "src/lib/templateMatch.js"
+                },
+                {
+                  "name": "templates.js",
+                  "size": 3562,
+                  "path": "src/lib/templates.js"
+                }
+              ],
+              "path": "src/lib"
+            },
+            {
+              "name": "App.vue",
+              "size": 12578,
+              "path": "src/App.vue"
+            },
+            {
+              "name": "main.js",
+              "size": 111,
+              "path": "src/main.js"
+            },
+            {
+              "name": "store.js",
+              "size": 23111,
+              "path": "src/store.js"
+            },
+            {
+              "name": "style.css",
+              "size": 19182,
+              "path": "src/style.css"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "tests",
+          "children": [
+            {
+              "name": "coverage.spec.js",
+              "size": 2476,
+              "path": "tests/coverage.spec.js"
+            },
+            {
+              "name": "templateMatch.spec.js",
+              "size": 9107,
+              "path": "tests/templateMatch.spec.js"
+            }
+          ],
+          "path": "tests"
+        },
+        {
+          "name": "tools",
+          "children": [
+            {
+              "name": "README.md",
+              "size": 1509,
+              "path": "tools/README.md"
+            },
+            {
+              "name": "xycut.py",
+              "size": 5437,
+              "path": "tools/xycut.py"
+            }
+          ],
+          "path": "tools"
+        },
+        {
+          "name": ".gitignore",
+          "size": 222,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1081,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 8103,
+          "path": "README.md"
+        },
+        {
+          "name": "RESEARCH.md",
+          "size": 22220,
+          "path": "RESEARCH.md"
+        },
+        {
+          "name": "index.html",
+          "size": 400,
+          "path": "index.html"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 55881,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 529,
+          "path": "package.json"
+        },
+        {
+          "name": "vite.config.js",
+          "size": 3235,
+          "path": "vite.config.js"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 46,
+    "totalSize": 289646
+  },
+  "defaultBranch": "main",
+  "license": {
+    "spdxId": "MIT",
+    "name": "MIT License",
+    "url": "http://choosealicense.com/licenses/mit/"
+  },
+  "latestRelease": null,
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"newswell-annotator\">NewsWell Annotator</h1>\n<p>A keyboard-driven tool for marking up <strong>NewsWell page-template blocks</strong> — editorial, ad, filler — over print-edition pages, and a human-in-the-loop loop that learns your eye and pre-annotates the rest of the issue.</p>\n<p>Static, no backend. Runs in the browser; deploys to any static host.</p>\n<hr />\n<h2 id=\"the-loop\">The loop</h2>\n<p>The point isn't drawing rectangles. It's this:</p>\n<pre><code>hand-annotate one page  →  model predicts the next  →  you tune it\n        ↑                                                   │\n        └────────── it learns from your delta ──────────────┘\n</code></pre>\n<p>On the Beach &amp; Bay Press issue of May 8 2026, that ran: <strong>page 1</strong> hand-drawn → <strong>page 2</strong> predicted and hand-corrected (two fixes that became house rules) → <strong>page 3</strong> predicted and <strong>accepted with zero edits</strong> → <strong>page 4</strong> predicted, alignment-only fix → <strong>pages 5–16</strong> predicted in one pass. 16 pages, 60 blocks.</p>\n<p>The rules it learned are in <a href=\"learning/lessons.md\"><code>learning/lessons.md</code></a>; the page-by-page record is in <a href=\"learning/template-provenance.md\"><code>learning/template-provenance.md</code></a>.</p>\n<p><strong>📄 <a href=\"RESEARCH.md\">RESEARCH.md</a> — the findings written up properly</strong>: six archetypes tested across three issues and two papers, the matcher and its validation, six pre-registered predictions scored (3 held, 1 narrowly, 1 failed, 1 half-failed), and one headline finding <strong>withdrawn</strong> after it turned out to measure this editor's snap setting rather than the newspaper.</p>\n<h2 id=\"what-it-does\">What it does</h2>\n<ul>\n<li><strong>Draw / move / resize / delete</strong> blocks, snapped to the NewsWell grid, page margins, pixel-detected content edges, and neighbouring frames. Hold <code>Shift</code> to bypass snapping.</li>\n<li><strong>Real editor</strong>: layers panel, numeric inspector (points), multi-select (shift-click, <code>Alt</code>-marquee, <code>⌘A</code>), align &amp; distribute, copy/paste incl. paste-in-place across pages, undo/redo, zoom &amp; pan.</li>\n<li><strong>AI first pass</strong>: pages with a prediction in <code>predictions.json</code> auto-fill on load; the ✨ button re-applies one on demand.</li>\n<li><strong>Template matching</strong>: ranks the page against the NewsWell template library and shows the best fit with a confidence score. Reads the live Studio library when it can, falls back to a bundled snapshot and says which it used. <strong>Apply</strong> stamps a template's slots onto the page.</li>\n<li><strong>Page → template</strong>: turns the current page into a valid <code>PageTemplate</code> (infers <code>cover</code>/<code>ad</code>/<code>ad-editorial</code>, carries <code>role</code> + photo hints) for import into Studio.</li>\n<li><strong>Live reload</strong>: publish a prediction and it appears in the open tab within a second; change the app code and the tab reloads itself.</li>\n<li>Live <strong>coverage %</strong> and <strong>overlap detection</strong> per page.</li>\n<li><strong>Exports NewsWell block JSON</strong> — <code>kind</code> + geometry in points, content-relative, matching the studio's template format.</li>\n</ul>\n<p>Press <strong>?</strong> in the app for the full keyboard reference.</p>\n<h2 id=\"coordinate-model\">Coordinate model</h2>\n<p>Geometry comes from <strong>paper presets</strong> (<code>papers.json</code>), sourced from <code>newswell-studio/app/composables/usePaperSizes.ts</code>:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th></th><th>pt</th></tr></thead><tbody><tr><td>Page</td><td>819 × 792</td></tr><tr><td>Margins</td><td>L/R 36, top 43, bottom 36</td></tr><tr><td>Content</td><td>747 × 713</td></tr><tr><td>Grid</td><td>4 col × 177.75 + 12pt gutters (also 10-col × 63.9)</td></tr></tbody></table>\n<p>Exported blocks are <code>{ id, kind, x, y, width, height }</code> in points relative to the content area. <code>what-inside</code> carries <code>whatsInside.showPageNumbers</code>; editorial blocks carry <code>role</code>.</p>\n<h2 id=\"storage\">Storage</h2>\n<p>Two tiers, so your work is never trapped in one browser profile:</p>\n<ul>\n<li><strong>Dev server running</strong> → edits autosave to <code>annotations.local.json</code> on disk (via a small Vite plugin in <code>vite.config.js</code>), and the app loads from it. One source of truth across every tab and profile.</li>\n<li><strong>Deployed static</strong> → those routes don't exist, and it falls back to <code>localStorage</code>.</li>\n</ul>\n<h2 id=\"usage\">Usage</h2>\n<p>A bundled sample project — <em>Beach &amp; Bay Press, May 8 2026</em> — loads on first run. Its <strong>page scans aren't committed</strong> (copyrighted publication content, and heavy binaries don't belong in git), so you'll see blank pages at the correct dimensions until you supply them — see <a href=\"samples/README.md\"><code>samples/README.md</code></a>. Everything else works regardless: grid, snapping, blocks, predictions, export.</p>\n<ul>\n<li><strong>Draw</strong> — drag empty page space. <strong>Select</strong> — click a frame. Move/resize via body or handles.</li>\n<li><strong>New project</strong> — <em>New…</em> / <em>Add pages…</em> to load your own page images (PNG/JPG, named in page order).</li>\n<li><strong>Export JSON</strong> — download the NewsWell block file.</li>\n</ul>\n<h2 id=\"develop\">Develop</h2>\n<p>Vue 3 + Vite. One command:</p>\n<pre><code class=\"language-bash\">npm install\nnpm run dev                 # → http://localhost:8000\nnpm test                    # guards the matcher + the point math\n</code></pre>\n<p>Edit <code>public/papers.json</code> (paper presets) and <code>public/types.json</code> (block taxonomy + colors) to add titles or adjust vocabulary — the app reads them at load. Edit <code>public/predictions.json</code> and open tabs hot-apply it (Vite's HMR covers modules; predictions are runtime data, so a small poll handles those).</p>\n<p>The dev server also provides <code>/api/load</code>, <code>/api/save</code> and <code>/api/version</code> via a plugin in <code>vite.config.js</code> — that's what puts your annotations in a file instead of one browser profile's localStorage. Production has none of it.</p>\n<h2 id=\"deploy\">Deploy</h2>\n<pre><code class=\"language-bash\">npm run build               # → dist/  (~160KB, no scans)\n</code></pre>\n<p><code>.github/workflows/deploy.yml</code> installs, builds and uploads <code>dist/</code> to GitHub Pages. It's <strong>manual-dispatch only</strong> — it can't work until Pages is enabled (Settings → Pages → source: <em>GitHub Actions</em>) and DNS for the domain in <code>public/CNAME</code> points at Pages, and a <code>push</code> trigger would otherwise fail on every commit. Once both are set up, run it from the Actions tab or add the trigger back.</p>\n<p>Note the hosted app has no sample scans (they aren't committed), so it opens as bring-your-own-pages via <strong>Add pages…</strong>.</p>\n<h2 id=\"layout\">Layout</h2>\n<pre><code>index.html        Vite entry\nvite.config.js    build + dev-only persistence API + page-scan strip guard\nsrc/\n  main.js         mount\n  App.vue         shell, keyboard, overlays, prediction hot-apply\n  store.js        reactive state + every action\n  style.css\n  lib/            pure, framework-free — the part that must stay correct\n    geometry.js     paper presets, px &lt;-&gt; content-point conversion, grid\n    edges.js        pixel-contrast content edges\n    newswell.js     block JSON in/out — the contract with newswell-studio\n    minimap.js      black-and-white page schematic\n    templateMatch.js  which template describes this page (area-weighted IoU)\n    templates.js    template library source + page → PageTemplate\n  components/     LeftRail · PageCanvas · RightPanel · Minimap · StatusBar · TemplatePanel\ntests/            vitest — the pure lib/ modules, incl. the 13/13 matcher guard\npublic/\n  papers.json     NewsWell paper geometry presets\n  types.json      block taxonomy (kind, color, key, roles)\n  predictions.json  model first-pass blocks per page — auto-applied to empty pages\n  samples/        sample issue manifest + seed annotation (page scans NOT committed)\nlearning/         what the model learned, and where the templates came from\npublic/newskick-templates-from-bbpress.json   the distilled page templates, NewsWell-native\n</code></pre>\n<h2 id=\"templates\">Templates</h2>\n<p>Annotating a whole issue surfaced six archetypes that cover all 16 pages — the two split forms, lead-over-ad-row, the news and classifieds ad grids, stacked features, and the masthead rail. They transfer: they cover a second issue of the same paper, and 75% of a <em>different</em> paper's pages.</p>\n<blockquote>\n<p>This section used to claim a <strong>quarter grid</strong> with the <em>50% fold dominant on both axes</em>. <strong>That was withdrawn</strong> — the horizontal half measured the editor's own snap-to-grid setting, and the vertical half restated the definition of a 4-column preset. See <a href=\"RESEARCH.md\">RESEARCH.md §4</a>. The archetypes below survived the same scrutiny; the grid did not.</p>\n</blockquote>\n<p>Those are distilled into <code>public/newskick-templates-from-bbpress.json</code> in NewsWell's <code>PageTemplate</code> schema (importable into Studio's template library), and shipped upstream in <a href=\"https://github.com/ejfox/newswell/pull/142\">ejfox/newswell#142</a>. Each names the exact pages it came from.</p>\n<h2 id=\"license\">License</h2>\n<p>MIT © EJ Fox / NewsKick Studio</p>",
+    "raw": "# NewsWell Annotator\n\nA keyboard-driven tool for marking up **NewsWell page-template blocks** — editorial, ad, filler — over print-edition pages, and a human-in-the-loop loop that learns your eye and pre-annotates the rest of the issue.\n\nStatic, no backend. Runs in the browser; deploys to any static host.\n\n---\n\n## The loop\n\nThe point isn't drawing rectangles. It's this:\n\n```\nhand-annotate one page  →  model predicts the next  →  you tune it\n        ↑                                                   │\n        └────────── it learns from your delta ──────────────┘\n```\n\nOn the Beach & Bay Press issue of May 8 2026, that ran: **page 1** hand-drawn → **page 2** predicted and hand-corrected (two fixes that became house rules) → **page 3** predicted and **accepted with zero edits** → **page 4** predicted, alignment-only fix → **pages 5–16** predicted in one pass. 16 pages, 60 blocks.\n\nThe rules it learned are in [`learning/lessons.md`](learning/lessons.md); the page-by-page record is in [`learning/template-provenance.md`](learning/template-provenance.md).\n\n**📄 [RESEARCH.md](RESEARCH.md) — the findings written up properly**: six archetypes tested across three issues and two papers, the matcher and its validation, six pre-registered predictions scored (3 held, 1 narrowly, 1 failed, 1 half-failed), and one headline finding **withdrawn** after it turned out to measure this editor's snap setting rather than the newspaper.\n\n## What it does\n\n- **Draw / move / resize / delete** blocks, snapped to the NewsWell grid, page margins, pixel-detected content edges, and neighbouring frames. Hold `Shift` to bypass snapping.\n- **Real editor**: layers panel, numeric inspector (points), multi-select (shift-click, `Alt`-marquee, `⌘A`), align & distribute, copy/paste incl. paste-in-place across pages, undo/redo, zoom & pan.\n- **AI first pass**: pages with a prediction in `predictions.json` auto-fill on load; the ✨ button re-applies one on demand.\n- **Template matching**: ranks the page against the NewsWell template library and shows the best fit with a confidence score. Reads the live Studio library when it can, falls back to a bundled snapshot and says which it used. **Apply** stamps a template's slots onto the page.\n- **Page → template**: turns the current page into a valid `PageTemplate` (infers `cover`/`ad`/`ad-editorial`, carries `role` + photo hints) for import into Studio.\n- **Live reload**: publish a prediction and it appears in the open tab within a second; change the app code and the tab reloads itself.\n- Live **coverage %** and **overlap detection** per page.\n- **Exports NewsWell block JSON** — `kind` + geometry in points, content-relative, matching the studio's template format.\n\nPress **?** in the app for the full keyboard reference.\n\n## Coordinate model\n\nGeometry comes from **paper presets** (`papers.json`), sourced from `newswell-studio/app/composables/usePaperSizes.ts`:\n\n| | pt |\n|---|---|\n| Page | 819 × 792 |\n| Margins | L/R 36, top 43, bottom 36 |\n| Content | 747 × 713 |\n| Grid | 4 col × 177.75 + 12pt gutters (also 10-col × 63.9) |\n\nExported blocks are `{ id, kind, x, y, width, height }` in points relative to the content area. `what-inside` carries `whatsInside.showPageNumbers`; editorial blocks carry `role`.\n\n## Storage\n\nTwo tiers, so your work is never trapped in one browser profile:\n\n- **Dev server running** → edits autosave to `annotations.local.json` on disk (via a small Vite plugin in `vite.config.js`), and the app loads from it. One source of truth across every tab and profile.\n- **Deployed static** → those routes don't exist, and it falls back to `localStorage`.\n\n## Usage\n\nA bundled sample project — *Beach & Bay Press, May 8 2026* — loads on first run. Its **page scans aren't committed** (copyrighted publication content, and heavy binaries don't belong in git), so you'll see blank pages at the correct dimensions until you supply them — see [`samples/README.md`](samples/README.md). Everything else works regardless: grid, snapping, blocks, predictions, export.\n\n- **Draw** — drag empty page space. **Select** — click a frame. Move/resize via body or handles.\n- **New project** — *New…* / *Add pages…* to load your own page images (PNG/JPG, named in page order).\n- **Export JSON** — download the NewsWell block file.\n\n## Develop\n\nVue 3 + Vite. One command:\n\n```bash\nnpm install\nnpm run dev                 # → http://localhost:8000\nnpm test                    # guards the matcher + the point math\n```\n\nEdit `public/papers.json` (paper presets) and `public/types.json` (block taxonomy + colors) to add titles or adjust vocabulary — the app reads them at load. Edit `public/predictions.json` and open tabs hot-apply it (Vite's HMR covers modules; predictions are runtime data, so a small poll handles those).\n\nThe dev server also provides `/api/load`, `/api/save` and `/api/version` via a plugin in `vite.config.js` — that's what puts your annotations in a file instead of one browser profile's localStorage. Production has none of it.\n\n## Deploy\n\n```bash\nnpm run build               # → dist/  (~160KB, no scans)\n```\n\n`.github/workflows/deploy.yml` installs, builds and uploads `dist/` to GitHub Pages. It's **manual-dispatch only** — it can't work until Pages is enabled (Settings → Pages → source: *GitHub Actions*) and DNS for the domain in `public/CNAME` points at Pages, and a `push` trigger would otherwise fail on every commit. Once both are set up, run it from the Actions tab or add the trigger back.\n\nNote the hosted app has no sample scans (they aren't committed), so it opens as bring-your-own-pages via **Add pages…**.\n\n## Layout\n\n```\nindex.html        Vite entry\nvite.config.js    build + dev-only persistence API + page-scan strip guard\nsrc/\n  main.js         mount\n  App.vue         shell, keyboard, overlays, prediction hot-apply\n  store.js        reactive state + every action\n  style.css\n  lib/            pure, framework-free — the part that must stay correct\n    geometry.js     paper presets, px <-> content-point conversion, grid\n    edges.js        pixel-contrast content edges\n    newswell.js     block JSON in/out — the contract with newswell-studio\n    minimap.js      black-and-white page schematic\n    templateMatch.js  which template describes this page (area-weighted IoU)\n    templates.js    template library source + page → PageTemplate\n  components/     LeftRail · PageCanvas · RightPanel · Minimap · StatusBar · TemplatePanel\ntests/            vitest — the pure lib/ modules, incl. the 13/13 matcher guard\npublic/\n  papers.json     NewsWell paper geometry presets\n  types.json      block taxonomy (kind, color, key, roles)\n  predictions.json  model first-pass blocks per page — auto-applied to empty pages\n  samples/        sample issue manifest + seed annotation (page scans NOT committed)\nlearning/         what the model learned, and where the templates came from\npublic/newskick-templates-from-bbpress.json   the distilled page templates, NewsWell-native\n```\n\n## Templates\n\nAnnotating a whole issue surfaced six archetypes that cover all 16 pages — the two split forms, lead-over-ad-row, the news and classifieds ad grids, stacked features, and the masthead rail. They transfer: they cover a second issue of the same paper, and 75% of a *different* paper's pages.\n\n> This section used to claim a **quarter grid** with the *50% fold dominant on both axes*. **That was withdrawn** — the horizontal half measured the editor's own snap-to-grid setting, and the vertical half restated the definition of a 4-column preset. See [RESEARCH.md §4](RESEARCH.md). The archetypes below survived the same scrutiny; the grid did not.\n\nThose are distilled into `public/newskick-templates-from-bbpress.json` in NewsWell's `PageTemplate` schema (importable into Studio's template library), and shipped upstream in [ejfox/newswell#142](https://github.com/ejfox/newswell/pull/142). Each names the exact pages it came from.\n\n## License\n\nMIT © EJ Fox / NewsKick Studio\n",
+    "excerpt": "A keyboard-driven tool for marking up NewsWell page-template blocks — editorial, ad, filler — over print-edition pages, and a human-in-the-loop loop that learns..."
+  },
+  "createdAt": "2026-07-15T08:35:07Z",
+  "updatedAt": "2026-07-15T20:19:08Z",
+  "pushedAt": "2026-07-15T20:19:03Z"
+}

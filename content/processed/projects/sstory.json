@@ -13,7 +13,7 @@
       "Library"
     ],
     "state": "deployed",
-    "aiInvolvement": "human-only",
+    "ai-involvement": "human-only",
     "tags": [
       "web",
       "library",

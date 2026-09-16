@@ -1,0 +1,161 @@
+{
+  "name": "talon-sketchybar",
+  "description": "Event-driven Talon Voice → sketchybar bridge. Zero polling. Includes Karabiner double-shift integration.",
+  "url": "https://github.com/ejfox/talon-sketchybar",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Python",
+  "languageColor": "#3572A5",
+  "languages": {
+    "Python": 3607,
+    "Shell": 1779
+  },
+  "diskUsage": 11,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 29
+      },
+      {
+        "path": "LICENSE",
+        "size": 1063
+      },
+      {
+        "path": "README.md",
+        "size": 8473
+      },
+      {
+        "path": "karabiner/mic-toggle.sh",
+        "size": 770
+      },
+      {
+        "path": "karabiner/right-shift-toggle.json",
+        "size": 1017
+      },
+      {
+        "path": "sketchybar/plugins/talon.sh",
+        "size": 1009
+      },
+      {
+        "path": "sketchybar/sketchybarrc.example",
+        "size": 634
+      },
+      {
+        "path": "talon/mic_toggle.py",
+        "size": 1382
+      },
+      {
+        "path": "talon/sketchybar_bridge.py",
+        "size": 2225
+      }
+    ],
+    "tree": {
+      "name": "talon-sketchybar",
+      "children": [
+        {
+          "name": "karabiner",
+          "children": [
+            {
+              "name": "mic-toggle.sh",
+              "size": 770,
+              "path": "karabiner/mic-toggle.sh"
+            },
+            {
+              "name": "right-shift-toggle.json",
+              "size": 1017,
+              "path": "karabiner/right-shift-toggle.json"
+            }
+          ],
+          "path": "karabiner"
+        },
+        {
+          "name": "sketchybar",
+          "children": [
+            {
+              "name": "plugins",
+              "children": [
+                {
+                  "name": "talon.sh",
+                  "size": 1009,
+                  "path": "sketchybar/plugins/talon.sh"
+                }
+              ],
+              "path": "sketchybar/plugins"
+            },
+            {
+              "name": "sketchybarrc.example",
+              "size": 634,
+              "path": "sketchybar/sketchybarrc.example"
+            }
+          ],
+          "path": "sketchybar"
+        },
+        {
+          "name": "talon",
+          "children": [
+            {
+              "name": "mic_toggle.py",
+              "size": 1382,
+              "path": "talon/mic_toggle.py"
+            },
+            {
+              "name": "sketchybar_bridge.py",
+              "size": 2225,
+              "path": "talon/sketchybar_bridge.py"
+            }
+          ],
+          "path": "talon"
+        },
+        {
+          "name": ".gitignore",
+          "size": 29,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1063,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 8473,
+          "path": "README.md"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 9,
+    "totalSize": 16602
+  },
+  "defaultBranch": "main",
+  "license": {
+    "spdxId": "MIT",
+    "name": "MIT License",
+    "url": "http://choosealicense.com/licenses/mit/"
+  },
+  "latestRelease": null,
+  "topics": [
+    "accessibility",
+    "dotfiles",
+    "karabiner-elements",
+    "macos",
+    "sketchybar",
+    "talon-voice",
+    "talonvoice",
+    "voice-control"
+  ],
+  "readme": {
+    "html": "<h1 id=\"talon-sketchybar\">talon-sketchybar</h1>\n<p>Push <a href=\"https://talonvoice.com\">Talon Voice</a> state into <a href=\"https://github.com/FelixKratz/SketchyBar\">sketchybar</a> — event-driven, zero-polling, ~60 lines of Python.</p>\n<p>When Talon's mode changes (sleep, command, dictation, mixed), a sketchybar item updates instantly on the same hook Talon uses to repaint its own mode indicators. No <code>osascript</code> polling, no signal files, no daemons.</p>\n<h2 id=\"why\">Why</h2>\n<p>The common \"mic on\" sketchybar recipe polls <code>osascript -e 'input volume of (get volume settings)'</code> every few seconds. It's coarse, laggy, and measures the wrong thing — macOS input volume ≠ Talon listening state. This bridge fixes that:</p>\n<ul>\n<li><strong>Zero latency.</strong> Fires the instant Talon's context graph updates.</li>\n<li><strong>Zero polling.</strong> Pure event-driven; sketchybar sleeps until Talon speaks.</li>\n<li><strong>Accurate.</strong> Reflects Talon modes (<code>sleep</code>, <code>command</code>, <code>dictation</code>, <code>mixed</code>), not raw mic volume.</li>\n<li><strong>Arbitrary payload.</strong> Ship any scope data (current app, active <code>.talon</code> files, mic gain) via env vars if you want.</li>\n</ul>\n<h2 id=\"requirements\">Requirements</h2>\n<ul>\n<li><strong>macOS.</strong> Sketchybar is macOS-only, so this bridge is too.</li>\n<li><strong>Talon Voice</strong> (any current version — uses the stable <code>registry.register(\"update_contexts\", ...)</code> API).</li>\n<li><strong>sketchybar</strong> (tested on 2.x; uses <code>--add event</code> / <code>--subscribe</code> / <code>--trigger</code>).</li>\n<li><strong>Karabiner-Elements</strong> — optional, only for the double-tap-shift gesture.</li>\n</ul>\n<h2 id=\"install\">Install</h2>\n<p>Clone once, then symlink the pieces into each ecosystem's expected location. Symlinks let you pull updates with a single <code>git pull</code>.</p>\n<pre><code class=\"language-bash\">git clone https://github.com/ejfox/talon-sketchybar ~/code/talon-sketchybar\ncd ~/code/talon-sketchybar\n</code></pre>\n<h3 id=\"1-talon-side\">1. Talon side</h3>\n<p>Talon walks <code>~/.talon/user/</code> recursively and loads any <code>.py</code> / <code>.talon</code> file it finds. Symlink the <code>talon/</code> directory so its contents are visible:</p>\n<pre><code class=\"language-bash\">ln -s ~/code/talon-sketchybar/talon ~/.talon/user/sketchybar-bridge\n</code></pre>\n<p>Talon auto-reloads on symlink-create — no restart needed. Confirm in <code>~/.talon/talon.log</code>:</p>\n<pre><code>DEBUG [+] /Users/you/.talon/user/sketchybar-bridge/sketchybar_bridge.py\n</code></pre>\n<h3 id=\"2-sketchybar-side\">2. Sketchybar side</h3>\n<p>Symlink the plugin into your sketchybar plugins directory, then paste the config block.</p>\n<pre><code class=\"language-bash\">ln -s ~/code/talon-sketchybar/sketchybar/plugins/talon.sh \\\n      ~/.config/sketchybar/plugins/talon.sh\n</code></pre>\n<p>Append the contents of <a href=\"sketchybar/sketchybarrc.example\"><code>sketchybar/sketchybarrc.example</code></a> to your <code>~/.config/sketchybar/sketchybarrc</code> (it registers the custom event, adds the item, subscribes it to <code>talon_state</code>, and points at the plugin). Then reload:</p>\n<pre><code class=\"language-bash\">brew services restart sketchybar\n</code></pre>\n<h3 id=\"3-test-it\">3. Test it</h3>\n<pre><code class=\"language-bash\"># Manually fire a state change from the shell:\nsketchybar --trigger talon_state MODE=command   # pink \"TALON\" appears\nsketchybar --trigger talon_state MODE=sleep     # item hides\n</code></pre>\n<p>If that works, Talon is already driving the bar — try saying <code>talon sleep</code> and <code>talon wake</code> and watch the bar react.</p>\n<h3 id=\"updating\">Updating</h3>\n<pre><code class=\"language-bash\">cd ~/code/talon-sketchybar &amp;&amp; git pull\n</code></pre>\n<p>Symlinks point at the repo checkout, so Talon picks up updated Python files on save and sketchybar re-runs the updated plugin on next trigger. No re-install, no restart (except if you change <code>sketchybarrc</code>).</p>\n<h2 id=\"bonus-double-tap-right-shift-to-toggle-talon-karabiner-elements\">Bonus: double-tap right-shift to toggle Talon (Karabiner-Elements)</h2>\n<p>A hands-free gesture: double-tap <strong>right shift</strong> to mute the mic (which also puts Talon to sleep) and double-tap again to unmute (which wakes Talon). The sketchybar item updates automatically because the bridge catches Talon's mode change — no extra plumbing.</p>\n<p>The flow has four pieces:</p>\n<pre><code>Karabiner (double-tap right_shift)\n    │\n    ▼  shell_command\nmic-toggle.sh  (flips input volume 0↔100, touches /tmp/talon-mic-toggle)\n    │\n    ▼  fs.watch\nTalon mic_toggle.py  (reads new volume, calls speech.enable/.disable)\n    │\n    ▼  mode change → update_contexts\nsketchybar_bridge.py  (already installed from the main section above)\n    │\n    ▼  sketchybar --trigger\nbar updates\n</code></pre>\n<h3 id=\"1-symlink-the-mic-toggle-script\">1. Symlink the mic-toggle script</h3>\n<pre><code class=\"language-bash\">mkdir -p ~/bin\nln -s ~/code/talon-sketchybar/karabiner/mic-toggle.sh ~/bin/mic-toggle\n</code></pre>\n<p>Quick check it works:</p>\n<pre><code class=\"language-bash\">~/bin/mic-toggle    # mic flips; run twice to confirm both directions\n</code></pre>\n<h3 id=\"2-the-talon-watcher-comes-along-for-the-ride\">2. The Talon watcher comes along for the ride</h3>\n<p>Because step 1 of the main install symlinked the entire <code>talon/</code> directory into <code>~/.talon/user/sketchybar-bridge/</code>, <code>mic_toggle.py</code> is already loaded. Nothing extra to do — it reacts to any touch of <code>/tmp/talon-mic-toggle</code>.</p>\n<h3 id=\"3-install-the-karabiner-rule\">3. Install the Karabiner rule</h3>\n<p>Karabiner doesn't have an \"import from file\" button — local rules live in <code>~/.config/karabiner/assets/complex_modifications/</code>. Symlink the JSON in:</p>\n<pre><code class=\"language-bash\">mkdir -p ~/.config/karabiner/assets/complex_modifications\nln -s ~/code/talon-sketchybar/karabiner/right-shift-toggle.json \\\n      ~/.config/karabiner/assets/complex_modifications/talon-sketchybar.json\n</code></pre>\n<p>Then in the Karabiner-Elements app: <strong>Complex Modifications → Add predefined rule → Enable</strong> the \"Double-tap right shift → toggle mic\" rule.</p>\n<p>(The rule's <code>shell_command</code> is <code>$HOME/bin/mic-toggle</code> — adjust if you installed the script elsewhere.)</p>\n<h3 id=\"verify\">Verify</h3>\n<ol>\n<li>Double-tap right shift. Mic should mute (input volume → 0) and Talon should stop responding to voice.</li>\n<li>The bar item should hide (Talon's speech is disabled, so no command mode).</li>\n<li>Double-tap again. Mic unmutes, Talon resumes, bar pill reappears.</li>\n<li>If nothing fires, open Karabiner EventViewer and confirm two right-shift presses within ~300ms trigger the rule.</li>\n</ol>\n<h2 id=\"customizing\">Customizing</h2>\n<p>Everything interesting is in two places:</p>\n<ul>\n<li><strong><code>talon/sketchybar_bridge.py</code></strong> — <code>current_mode()</code> maps Talon scope to labels. Add anything <code>scope.get(...)</code> returns (current app, <code>.talon</code> tags, mic gain) and pass it as additional env vars in <code>push()</code>.</li>\n<li><strong><code>sketchybar/plugins/talon.sh</code></strong> — pure <code>case</code> statement on <code>$MODE</code>. Change the icon, color, glyph, or add conditions on other env vars. Uses <a href=\"https://felixkratz.github.io/SketchyBar/config/items\">sketchybar's standard item API</a>.</li>\n</ul>\n<h2 id=\"how-it-works\">How it works</h2>\n<pre><code>┌──────────────┐       update_contexts        ┌──────────────────────┐\n│    Talon     │──────────────────────────────▶│ sketchybar_bridge.py │\n└──────────────┘                                └──────────┬───────────┘\n                                                           │ subprocess.Popen\n                                                           │ sketchybar --trigger\n                                                           ▼\n                                              ┌────────────────────────┐\n                                              │  sketchybar talon_state │\n                                              └──────────┬──────────────┘\n                                                         │ MODE=command\n                                                         ▼\n                                                ┌────────────────┐\n                                                │   talon.sh     │ ──▶ bar updates\n                                                └────────────────┘\n</code></pre>\n<p>The bridge hooks Talon's <code>registry.register(\"update_contexts\", ...)</code> — the same synchronous callback that Talon itself uses to repaint its mode canvases. When the mode changes, it shells out to <code>sketchybar --trigger talon_state MODE=&lt;mode&gt;</code> with <code>Popen(start_new_session=True)</code> so a slow sketchybar never stalls Talon's speech loop.</p>\n<p>On the sketchybar side, the item is subscribed to the custom <code>talon_state</code> event. When triggered, sketchybar runs <code>talon.sh</code> with <code>$MODE</code> in its environment. The plugin does a simple <code>case</code> match and styles the item.</p>\n<h2 id=\"license\">License</h2>\n<p>MIT. See <code>LICENSE</code>.</p>\n<h2 id=\"credits\">Credits</h2>\n<p>Prior art referenced while designing this:</p>\n<ul>\n<li><a href=\"https://github.com/chaosparrot/talon_hud\">chaosparrot/talon_hud</a> — in-Talon HUD, same scope primitives</li>\n<li><a href=\"https://github.com/talonhub/community\">talonhub/community</a> — canonical mode definitions</li>\n<li><a href=\"https://github.com/FelixKratz/SketchyBar/discussions/12\">SketchyBar discussion #12</a> — the yabai-signal custom event pattern this borrows</li>\n</ul>",
+    "raw": "# talon-sketchybar\n\nPush [Talon Voice](https://talonvoice.com) state into [sketchybar](https://github.com/FelixKratz/SketchyBar) — event-driven, zero-polling, ~60 lines of Python.\n\nWhen Talon's mode changes (sleep, command, dictation, mixed), a sketchybar item updates instantly on the same hook Talon uses to repaint its own mode indicators. No `osascript` polling, no signal files, no daemons.\n\n## Why\n\nThe common \"mic on\" sketchybar recipe polls `osascript -e 'input volume of (get volume settings)'` every few seconds. It's coarse, laggy, and measures the wrong thing — macOS input volume ≠ Talon listening state. This bridge fixes that:\n\n- **Zero latency.** Fires the instant Talon's context graph updates.\n- **Zero polling.** Pure event-driven; sketchybar sleeps until Talon speaks.\n- **Accurate.** Reflects Talon modes (`sleep`, `command`, `dictation`, `mixed`), not raw mic volume.\n- **Arbitrary payload.** Ship any scope data (current app, active `.talon` files, mic gain) via env vars if you want.\n\n## Requirements\n\n- **macOS.** Sketchybar is macOS-only, so this bridge is too.\n- **Talon Voice** (any current version — uses the stable `registry.register(\"update_contexts\", ...)` API).\n- **sketchybar** (tested on 2.x; uses `--add event` / `--subscribe` / `--trigger`).\n- **Karabiner-Elements** — optional, only for the double-tap-shift gesture.\n\n## Install\n\nClone once, then symlink the pieces into each ecosystem's expected location. Symlinks let you pull updates with a single `git pull`.\n\n```bash\ngit clone https://github.com/ejfox/talon-sketchybar ~/code/talon-sketchybar\ncd ~/code/talon-sketchybar\n```\n\n### 1. Talon side\n\nTalon walks `~/.talon/user/` recursively and loads any `.py` / `.talon` file it finds. Symlink the `talon/` directory so its contents are visible:\n\n```bash\nln -s ~/code/talon-sketchybar/talon ~/.talon/user/sketchybar-bridge\n```\n\nTalon auto-reloads on symlink-create — no restart needed. Confirm in `~/.talon/talon.log`:\n\n```\nDEBUG [+] /Users/you/.talon/user/sketchybar-bridge/sketchybar_bridge.py\n```\n\n### 2. Sketchybar side\n\nSymlink the plugin into your sketchybar plugins directory, then paste the config block.\n\n```bash\nln -s ~/code/talon-sketchybar/sketchybar/plugins/talon.sh \\\n      ~/.config/sketchybar/plugins/talon.sh\n```\n\nAppend the contents of [`sketchybar/sketchybarrc.example`](sketchybar/sketchybarrc.example) to your `~/.config/sketchybar/sketchybarrc` (it registers the custom event, adds the item, subscribes it to `talon_state`, and points at the plugin). Then reload:\n\n```bash\nbrew services restart sketchybar\n```\n\n### 3. Test it\n\n```bash\n# Manually fire a state change from the shell:\nsketchybar --trigger talon_state MODE=command   # pink \"TALON\" appears\nsketchybar --trigger talon_state MODE=sleep     # item hides\n```\n\nIf that works, Talon is already driving the bar — try saying `talon sleep` and `talon wake` and watch the bar react.\n\n### Updating\n\n```bash\ncd ~/code/talon-sketchybar && git pull\n```\n\nSymlinks point at the repo checkout, so Talon picks up updated Python files on save and sketchybar re-runs the updated plugin on next trigger. No re-install, no restart (except if you change `sketchybarrc`).\n\n## Bonus: double-tap right-shift to toggle Talon (Karabiner-Elements)\n\nA hands-free gesture: double-tap **right shift** to mute the mic (which also puts Talon to sleep) and double-tap again to unmute (which wakes Talon). The sketchybar item updates automatically because the bridge catches Talon's mode change — no extra plumbing.\n\nThe flow has four pieces:\n\n```\nKarabiner (double-tap right_shift)\n    │\n    ▼  shell_command\nmic-toggle.sh  (flips input volume 0↔100, touches /tmp/talon-mic-toggle)\n    │\n    ▼  fs.watch\nTalon mic_toggle.py  (reads new volume, calls speech.enable/.disable)\n    │\n    ▼  mode change → update_contexts\nsketchybar_bridge.py  (already installed from the main section above)\n    │\n    ▼  sketchybar --trigger\nbar updates\n```\n\n### 1. Symlink the mic-toggle script\n\n```bash\nmkdir -p ~/bin\nln -s ~/code/talon-sketchybar/karabiner/mic-toggle.sh ~/bin/mic-toggle\n```\n\nQuick check it works:\n\n```bash\n~/bin/mic-toggle    # mic flips; run twice to confirm both directions\n```\n\n### 2. The Talon watcher comes along for the ride\n\nBecause step 1 of the main install symlinked the entire `talon/` directory into `~/.talon/user/sketchybar-bridge/`, `mic_toggle.py` is already loaded. Nothing extra to do — it reacts to any touch of `/tmp/talon-mic-toggle`.\n\n### 3. Install the Karabiner rule\n\nKarabiner doesn't have an \"import from file\" button — local rules live in `~/.config/karabiner/assets/complex_modifications/`. Symlink the JSON in:\n\n```bash\nmkdir -p ~/.config/karabiner/assets/complex_modifications\nln -s ~/code/talon-sketchybar/karabiner/right-shift-toggle.json \\\n      ~/.config/karabiner/assets/complex_modifications/talon-sketchybar.json\n```\n\nThen in the Karabiner-Elements app: **Complex Modifications → Add predefined rule → Enable** the \"Double-tap right shift → toggle mic\" rule.\n\n(The rule's `shell_command` is `$HOME/bin/mic-toggle` — adjust if you installed the script elsewhere.)\n\n### Verify\n\n1. Double-tap right shift. Mic should mute (input volume → 0) and Talon should stop responding to voice.\n2. The bar item should hide (Talon's speech is disabled, so no command mode).\n3. Double-tap again. Mic unmutes, Talon resumes, bar pill reappears.\n4. If nothing fires, open Karabiner EventViewer and confirm two right-shift presses within ~300ms trigger the rule.\n\n## Customizing\n\nEverything interesting is in two places:\n\n- **`talon/sketchybar_bridge.py`** — `current_mode()` maps Talon scope to labels. Add anything `scope.get(...)` returns (current app, `.talon` tags, mic gain) and pass it as additional env vars in `push()`.\n- **`sketchybar/plugins/talon.sh`** — pure `case` statement on `$MODE`. Change the icon, color, glyph, or add conditions on other env vars. Uses [sketchybar's standard item API](https://felixkratz.github.io/SketchyBar/config/items).\n\n## How it works\n\n```\n┌──────────────┐       update_contexts        ┌──────────────────────┐\n│    Talon     │──────────────────────────────▶│ sketchybar_bridge.py │\n└──────────────┘                                └──────────┬───────────┘\n                                                           │ subprocess.Popen\n                                                           │ sketchybar --trigger\n                                                           ▼\n                                              ┌────────────────────────┐\n                                              │  sketchybar talon_state │\n                                              └──────────┬──────────────┘\n                                                         │ MODE=command\n                                                         ▼\n                                                ┌────────────────┐\n                                                │   talon.sh     │ ──▶ bar updates\n                                                └────────────────┘\n```\n\nThe bridge hooks Talon's `registry.register(\"update_contexts\", ...)` — the same synchronous callback that Talon itself uses to repaint its mode canvases. When the mode changes, it shells out to `sketchybar --trigger talon_state MODE=<mode>` with `Popen(start_new_session=True)` so a slow sketchybar never stalls Talon's speech loop.\n\nOn the sketchybar side, the item is subscribed to the custom `talon_state` event. When triggered, sketchybar runs `talon.sh` with `$MODE` in its environment. The plugin does a simple `case` match and styles the item.\n\n## License\n\nMIT. See `LICENSE`.\n\n## Credits\n\nPrior art referenced while designing this:\n\n- [chaosparrot/talon_hud](https://github.com/chaosparrot/talon_hud) — in-Talon HUD, same scope primitives\n- [talonhub/community](https://github.com/talonhub/community) — canonical mode definitions\n- [SketchyBar discussion #12](https://github.com/FelixKratz/SketchyBar/discussions/12) — the yabai-signal custom event pattern this borrows\n",
+    "excerpt": "Push Talon Voice state into sketchybar — event-driven, zero-polling, ~60 lines of Python.\n\nWhen Talon's mode changes (sleep, command, dictation, mixed), a sketc..."
+  },
+  "createdAt": "2026-04-20T14:29:33Z",
+  "updatedAt": "2026-04-20T14:59:01Z",
+  "pushedAt": "2026-04-20T14:58:57Z"
+}

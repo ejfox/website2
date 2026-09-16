@@ -13,6 +13,10 @@ tags:
   - programming
   - tool
 ---
+## 2022 Toolkit for Prototyping
+
+See also [[blog/2022/my-vscode-setup]]
+
 ### Tools
 #### CSV and JSON
 

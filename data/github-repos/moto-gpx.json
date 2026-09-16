@@ -1,0 +1,372 @@
+{
+  "name": "moto-gpx",
+  "description": "Dump a folder of GPX tracks, get map-ready GeoJSON split by day/hour/stage. Optionally merge photos/videos via exiftool. Built for multi-day motorcycle trip maps.",
+  "url": "https://github.com/ejfox/moto-gpx",
+  "homepage": "https://ejfox.github.io/moto-gpx/",
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "JavaScript",
+  "languageColor": "#f1e05a",
+  "languages": {
+    "JavaScript": 193502
+  },
+  "diskUsage": 429,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 94
+      },
+      {
+        "path": "CHANGELOG.md",
+        "size": 9711
+      },
+      {
+        "path": "LICENSE",
+        "size": 1063
+      },
+      {
+        "path": "README.md",
+        "size": 10486
+      },
+      {
+        "path": "data/states.geojson",
+        "size": 306036
+      },
+      {
+        "path": "docs/.nojekyll",
+        "size": 0
+      },
+      {
+        "path": "docs/ARCHITECTURE.md",
+        "size": 9686
+      },
+      {
+        "path": "docs/LAYERS.md",
+        "size": 15890
+      },
+      {
+        "path": "docs/QGIS.md",
+        "size": 8371
+      },
+      {
+        "path": "docs/TROUBLESHOOTING.md",
+        "size": 5858
+      },
+      {
+        "path": "docs/example-elevation-dark.svg",
+        "size": 44053
+      },
+      {
+        "path": "docs/example-elevation.svg",
+        "size": 44035
+      },
+      {
+        "path": "docs/example-map-dark.svg",
+        "size": 17303
+      },
+      {
+        "path": "docs/example-map.svg",
+        "size": 17285
+      },
+      {
+        "path": "docs/example-speed-dark.svg",
+        "size": 44176
+      },
+      {
+        "path": "docs/example-speed.svg",
+        "size": 44158
+      },
+      {
+        "path": "docs/index.html",
+        "size": 14245
+      },
+      {
+        "path": "moto-gpx.js",
+        "size": 25161
+      },
+      {
+        "path": "package-lock.json",
+        "size": 16229
+      },
+      {
+        "path": "package.json",
+        "size": 853
+      },
+      {
+        "path": "src/dem.js",
+        "size": 13100
+      },
+      {
+        "path": "src/enrich/crossings.js",
+        "size": 5117
+      },
+      {
+        "path": "src/enrich/mastodon.js",
+        "size": 7177
+      },
+      {
+        "path": "src/enrich/osm.js",
+        "size": 10448
+      },
+      {
+        "path": "src/enrich/routes.js",
+        "size": 5417
+      },
+      {
+        "path": "src/enrich/sun.js",
+        "size": 2870
+      },
+      {
+        "path": "src/enrich/weather.js",
+        "size": 8747
+      },
+      {
+        "path": "src/gpx.js",
+        "size": 16287
+      },
+      {
+        "path": "src/layers.js",
+        "size": 12434
+      },
+      {
+        "path": "src/media.js",
+        "size": 10217
+      },
+      {
+        "path": "src/qml.js",
+        "size": 14630
+      },
+      {
+        "path": "src/superlatives.js",
+        "size": 40619
+      },
+      {
+        "path": "src/svg.js",
+        "size": 21278
+      }
+    ],
+    "tree": {
+      "name": "moto-gpx",
+      "children": [
+        {
+          "name": "data",
+          "children": [
+            {
+              "name": "states.geojson",
+              "size": 306036,
+              "path": "data/states.geojson"
+            }
+          ],
+          "path": "data"
+        },
+        {
+          "name": "docs",
+          "children": [
+            {
+              "name": ".nojekyll",
+              "size": 0,
+              "path": "docs/.nojekyll"
+            },
+            {
+              "name": "ARCHITECTURE.md",
+              "size": 9686,
+              "path": "docs/ARCHITECTURE.md"
+            },
+            {
+              "name": "LAYERS.md",
+              "size": 15890,
+              "path": "docs/LAYERS.md"
+            },
+            {
+              "name": "QGIS.md",
+              "size": 8371,
+              "path": "docs/QGIS.md"
+            },
+            {
+              "name": "TROUBLESHOOTING.md",
+              "size": 5858,
+              "path": "docs/TROUBLESHOOTING.md"
+            },
+            {
+              "name": "example-elevation-dark.svg",
+              "size": 44053,
+              "path": "docs/example-elevation-dark.svg"
+            },
+            {
+              "name": "example-elevation.svg",
+              "size": 44035,
+              "path": "docs/example-elevation.svg"
+            },
+            {
+              "name": "example-map-dark.svg",
+              "size": 17303,
+              "path": "docs/example-map-dark.svg"
+            },
+            {
+              "name": "example-map.svg",
+              "size": 17285,
+              "path": "docs/example-map.svg"
+            },
+            {
+              "name": "example-speed-dark.svg",
+              "size": 44176,
+              "path": "docs/example-speed-dark.svg"
+            },
+            {
+              "name": "example-speed.svg",
+              "size": 44158,
+              "path": "docs/example-speed.svg"
+            },
+            {
+              "name": "index.html",
+              "size": 14245,
+              "path": "docs/index.html"
+            }
+          ],
+          "path": "docs"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "enrich",
+              "children": [
+                {
+                  "name": "crossings.js",
+                  "size": 5117,
+                  "path": "src/enrich/crossings.js"
+                },
+                {
+                  "name": "mastodon.js",
+                  "size": 7177,
+                  "path": "src/enrich/mastodon.js"
+                },
+                {
+                  "name": "osm.js",
+                  "size": 10448,
+                  "path": "src/enrich/osm.js"
+                },
+                {
+                  "name": "routes.js",
+                  "size": 5417,
+                  "path": "src/enrich/routes.js"
+                },
+                {
+                  "name": "sun.js",
+                  "size": 2870,
+                  "path": "src/enrich/sun.js"
+                },
+                {
+                  "name": "weather.js",
+                  "size": 8747,
+                  "path": "src/enrich/weather.js"
+                }
+              ],
+              "path": "src/enrich"
+            },
+            {
+              "name": "dem.js",
+              "size": 13100,
+              "path": "src/dem.js"
+            },
+            {
+              "name": "gpx.js",
+              "size": 16287,
+              "path": "src/gpx.js"
+            },
+            {
+              "name": "layers.js",
+              "size": 12434,
+              "path": "src/layers.js"
+            },
+            {
+              "name": "media.js",
+              "size": 10217,
+              "path": "src/media.js"
+            },
+            {
+              "name": "qml.js",
+              "size": 14630,
+              "path": "src/qml.js"
+            },
+            {
+              "name": "superlatives.js",
+              "size": 40619,
+              "path": "src/superlatives.js"
+            },
+            {
+              "name": "svg.js",
+              "size": 21278,
+              "path": "src/svg.js"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": ".gitignore",
+          "size": 94,
+          "path": ".gitignore"
+        },
+        {
+          "name": "CHANGELOG.md",
+          "size": 9711,
+          "path": "CHANGELOG.md"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1063,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 10486,
+          "path": "README.md"
+        },
+        {
+          "name": "moto-gpx.js",
+          "size": 25161,
+          "path": "moto-gpx.js"
+        },
+        {
+          "name": "package-lock.json",
+          "size": 16229,
+          "path": "package-lock.json"
+        },
+        {
+          "name": "package.json",
+          "size": 853,
+          "path": "package.json"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 33,
+    "totalSize": 803034
+  },
+  "defaultBranch": "main",
+  "license": {
+    "spdxId": "MIT",
+    "name": "MIT License",
+    "url": "http://choosealicense.com/licenses/mit/"
+  },
+  "latestRelease": {
+    "name": "v0.5.0 — built-for-decades docs pass",
+    "tagName": "v0.5.0",
+    "publishedAt": "2026-04-21T19:28:39Z",
+    "url": "https://github.com/ejfox/moto-gpx/releases/tag/v0.5.0"
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"moto-gpx\">moto-gpx</h1>\n<p><strong>A zero-dependency Node.js CLI that turns a folder of GPX files into a stack\nof map-ready GeoJSON layers for hand-making dope QGIS maps of multi-day\nmotorcycle trips.</strong></p>\n<pre><code>moto-gpx ~/trips/big-sur --media ~/trips/big-sur --enrich all --dem --out ./out\n</code></pre>\n<p>Does all the data prep for you — tracks, rest stops, speed-binned segments,\nphoto markers, weather per stage, OSM road names, state crossings, SRTM\nhillshade — so when you open QGIS, everything you need is already a layer\nwith pre-loaded symbology. You just style.</p>\n<hr />\n<h2 id=\"table-of-contents\">Table of contents</h2>\n<ul>\n<li><a href=\"#quick-start\">Quick start</a></li>\n<li><a href=\"#install\">Install</a></li>\n<li><a href=\"#what-it-does\">What it does</a></li>\n<li><a href=\"#cli-reference\">CLI reference</a></li>\n<li><a href=\"#output-structure\">Output structure</a></li>\n<li><a href=\"#docs\">Docs</a></li>\n<li><a href=\"#design\">Design</a></li>\n<li><a href=\"#license\">License</a></li>\n</ul>\n<hr />\n<h2 id=\"quick-start\">Quick start</h2>\n<pre><code class=\"language-sh\"># Install (one-time)\ngit clone https://github.com/ejfox/moto-gpx.git\ncd moto-gpx &amp;&amp; npm link\n\n# Run on a trip folder\nmoto-gpx ~/trips/bigsur --media ~/trips/bigsur --out ./bigsur-out\n\n# Everything on, DEM included\nmoto-gpx ~/trips/bigsur --media ~/trips/bigsur --enrich all --dem --dem-contour 100 --out ./bigsur-out\n</code></pre>\n<p>Then open QGIS and drag <code>bigsur-out/</code> onto the canvas. Styles auto-load from\nthe sibling <code>.qml</code> files. See <a href=\"./docs/QGIS.md\">docs/QGIS.md</a> for the full\nhand-cartography workflow.</p>\n<hr />\n<h2 id=\"install\">Install</h2>\n<p>Needs <strong>Node 18+</strong>. Nothing to npm-install — the tool is zero-runtime-dep.</p>\n<pre><code class=\"language-sh\">git clone https://github.com/ejfox/moto-gpx.git\ncd moto-gpx\nnpm link\n</code></pre>\n<p>Optional external binaries, each only used when you opt in to its feature:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Binary</th><th>When you need it</th><th>Install</th></tr></thead><tbody><tr><td><code>exiftool</code></td><td><code>--media</code> flag</td><td><code>brew install exiftool</code></td></tr><tr><td>GDAL (<code>gdalbuildvrt</code>, <code>gdaldem</code>, <code>gdal_contour</code>)</td><td><code>--dem</code> flag</td><td><code>brew install gdal</code></td></tr></tbody></table>\n<p>See <a href=\"./docs/TROUBLESHOOTING.md\">docs/TROUBLESHOOTING.md</a> if GDAL gives you a\n<code>libpoppler</code> error (common Homebrew issue).</p>\n<hr />\n<h2 id=\"what-it-does\">What it does</h2>\n<p>Given a folder of <code>.gpx</code> files (with optional sibling photos/videos):</p>\n<ol>\n<li><strong>Walks</strong> the folder recursively for <code>.gpx</code> files</li>\n<li><strong>Parses</strong> every <code>&lt;trkpt&gt;</code>, merges them into one sorted timeline</li>\n<li><strong>Dedupes</strong> identical <code>(time, lat, lon)</code> triples — you can have overlapping logs from phone + Garmin and it Just Works</li>\n<li><strong>Splits into stages</strong> wherever there's a time gap bigger than <code>--break</code> minutes (default 20) — this is how morning / lunch / afternoon become separate features, no dotted lines across rest stops</li>\n<li><strong>Buckets</strong> into days, hours, and per-stage views</li>\n<li><strong>Emits QGIS-prep layers:</strong> stops (labeled by duration class), speed-binned line chunks, stage + day start/end markers with pre-written labels, one-line-per-day merged view</li>\n<li><strong>Optionally ingests</strong> photos/videos via <code>exiftool</code>, placing each on the map by GPS when present or interpolated from the track by timestamp when not</li>\n<li><strong>Optionally enriches</strong> with weather, OSM road/place/POI data, state-border crossings, sun position per photo, and OSRM \"what you should've done\" route comparisons</li>\n<li><strong>Optionally fetches</strong> SRTM elevation tiles from AWS and stitches them into a seamless QGIS-ready VRT + hillshade + contour lines</li>\n<li><strong>Drops QGIS <code>.qml</code> style files</strong> next to every layer so symbology auto-loads on drag-drop</li>\n</ol>\n<p>Everything is opt-in except the core track layers. Nothing calls out to the\nnetwork unless you pass <code>--enrich</code>.</p>\n<hr />\n<h2 id=\"cli-reference\">CLI reference</h2>\n<h3 id=\"core-flags\">Core flags</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Flag</th><th>Default</th><th>Meaning</th></tr></thead><tbody><tr><td><code>&lt;folder&gt;</code></td><td><em>required</em></td><td>Folder containing <code>.gpx</code> files (recursively walked)</td></tr><tr><td><code>--out &lt;dir&gt;</code></td><td><code>./moto-out</code></td><td>Output directory</td></tr><tr><td><code>--split &lt;mode&gt;</code></td><td><code>all</code></td><td><code>day</code> | <code>hour</code> | <code>stage</code> | <code>all</code></td></tr><tr><td><code>--break &lt;minutes&gt;</code></td><td><code>20</code></td><td>Gap threshold to start a new stage</td></tr><tr><td><code>--min-points &lt;n&gt;</code></td><td><code>10</code></td><td>Drop stages with fewer points (kills GPS noise)</td></tr><tr><td><code>--simplify &lt;meters&gt;</code></td><td><code>0</code></td><td>Douglas-Peucker tolerance, 0 = off</td></tr><tr><td><code>--tz &lt;offset&gt;</code></td><td>local</td><td>Hours from UTC for day/hour bucketing</td></tr><tr><td><code>--name &lt;string&gt;</code></td><td>folder basename</td><td>Trip name, stamped into every feature</td></tr><tr><td><code>-h</code>, <code>--help</code></td><td>—</td><td>Show help</td></tr></tbody></table>\n<h3 id=\"qgis-prep-layers-on-by-default---no-name-to-skip\">QGIS prep layers (on by default, <code>--no-&lt;name&gt;</code> to skip)</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Flag</th><th>What you get</th></tr></thead><tbody><tr><td><code>--stops</code></td><td><code>stops.geojson</code> — rest-stop + overnight Points</td></tr><tr><td><code>--speedbins</code></td><td><code>speedbins.geojson</code> — line chunks tagged <code>slow/moderate/fast/highway</code></td></tr><tr><td><code>--markers</code></td><td><code>markers.geojson</code> — stage + day start/end Points with pre-written labels</td></tr><tr><td><code>--days-merged</code></td><td><code>days-merged/*.geojson</code> — one unbroken LineString per day</td></tr><tr><td><code>--styles</code></td><td><code>&lt;layer&gt;.qml</code> next to each GeoJSON for auto-styling in QGIS</td></tr></tbody></table>\n<h3 id=\"media\">Media</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Flag</th><th>Default</th><th>Meaning</th></tr></thead><tbody><tr><td><code>--media &lt;dir&gt;</code></td><td>off</td><td>Ingest JPG/HEIC/MP4/MOV via <code>exiftool</code></td></tr><tr><td><code>--media-tz &lt;offset&gt;</code></td><td>same as <code>--tz</code></td><td>For naive EXIF timestamps without embedded offset</td></tr></tbody></table>\n<h3 id=\"dem-requires-gdal\">DEM (requires GDAL)</h3>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Flag</th><th>Default</th><th>Meaning</th></tr></thead><tbody><tr><td><code>--dem</code></td><td>off</td><td>Fetch AWS Terrain Tiles, stitch into seamless <code>trip.vrt</code></td></tr><tr><td><code>--dem-buffer &lt;pct&gt;</code></td><td><code>20</code></td><td>Bbox padding percent</td></tr><tr><td><code>--dem-hillshade</code></td><td>on with <code>--dem</code></td><td>Pre-render shaded relief GeoTIFF</td></tr><tr><td><code>--no-dem-hillshade</code></td><td>—</td><td>Skip the hillshade step</td></tr><tr><td><code>--dem-contour &lt;m&gt;</code></td><td><code>0</code> (off)</td><td>Emit contour lines every N meters as GeoJSON</td></tr></tbody></table>\n<h3 id=\"enrichments-opt-in-network\">Enrichments (opt-in, network)</h3>\n<pre><code>--enrich &lt;comma-list&gt;\n</code></pre>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Token</th><th>What lands</th><th>API</th></tr></thead><tbody><tr><td><code>weather</code></td><td>per-stage weather on <code>stage.stats</code> + <code>weather_timeline.json</code></td><td>Open-Meteo historical</td></tr><tr><td><code>osm</code></td><td><code>roads.geojson</code>, <code>places.geojson</code>, <code>pois.geojson</code> + per-stage road summary</td><td>Overpass</td></tr><tr><td><code>routes</code></td><td><code>optimal_routes.geojson</code> with <code>extra_distance_pct</code> per stage</td><td>OSRM public</td></tr><tr><td><code>crossings</code></td><td><code>crossings.geojson</code> — state/province transitions</td><td>local (Natural Earth data bundled)</td></tr><tr><td><code>sun</code></td><td>mutates <code>media.geojson</code> with altitude/azimuth/is_golden_hour</td><td>local math</td></tr><tr><td><code>all</code></td><td>shorthand for all of the above</td><td>—</td></tr></tbody></table>\n<p>All enrichments retry once on rate-limit and degrade to \"skip\" on persistent\nfailure — the run never aborts because one API is down.</p>\n<h3 id=\"mastodon-timeline\">Mastodon timeline</h3>\n<pre><code class=\"language-sh\">--mastodon @you@instance.social\n# or set once in your shell:\nexport MOTO_GPX_MASTODON=@you@instance.social\n</code></pre>\n<p>Fetches your public toots from the trip's time window ±1hr and places each\none on the map at the interpolated GPS position you were at when you posted.\nWrites <code>toots.geojson</code>, adds numbered circles to <code>preview-map.svg</code>, lists\nthem chronologically in the superlatives banner.</p>\n<h3 id=\"recipes\">Recipes</h3>\n<p><strong>Multi-day trip, everything on:</strong></p>\n<pre><code class=\"language-sh\">moto-gpx ~/trips/big-sur --media ~/trips/big-sur --enrich all --dem --dem-contour 100 \\\n  --mastodon @ejfox@mastodon.social --out ./out\n</code></pre>\n<p><strong>Just the tracks, no network — quick QGIS glance:</strong></p>\n<pre><code class=\"language-sh\">moto-gpx ./trip --out ./out\n</code></pre>\n<p><strong>City riding, tighter break detection:</strong></p>\n<pre><code class=\"language-sh\">moto-gpx ./trip --break 10 --min-points 30 --enrich osm,weather\n</code></pre>\n<p><strong>Smaller files for the web:</strong></p>\n<pre><code class=\"language-sh\">moto-gpx ./trip --simplify 2 --no-days-merged --no-hours\n</code></pre>\n<p><strong>Custom timezone (e.g. logs in UTC but you want PT day boundaries):</strong></p>\n<pre><code class=\"language-sh\">moto-gpx ./trip --tz -7\n</code></pre>\n<hr />\n<h2 id=\"output-structure\">Output structure</h2>\n<pre><code>out/\n├── all.geojson              every stage as a LineString (summary layer)\n├── stats.json               trip totals + per-stage breakdown + enrichments\n├── stages/                  one LineString per stage (break-delimited)\n├── days/                    one file per day, all stages within\n├── days-merged/             ONE unbroken LineString per day (overview view)\n├── hours/                   per-hour slices (rarely needed; skip with --no-hours)\n├── stops.geojson            rest / long-rest / overnight Points at each break\n├── speedbins.geojson        ~60s LineString chunks, tagged by speed bucket\n├── markers.geojson          stage + day start/end Points, pre-labeled\n├── media.geojson            photos + videos placed on the map\n├── crossings.geojson        state/province transition Points       (--enrich crossings)\n├── places.geojson           towns along the route                  (--enrich osm)\n├── roads.geojson            OSM ways you rode, by highway class    (--enrich osm)\n├── pois.geojson             viewpoints, peaks, fuel, historic      (--enrich osm)\n├── optimal_routes.geojson   OSRM \"what you should've done\"         (--enrich routes)\n├── weather_timeline.json    hourly weather per stage region        (--enrich weather)\n├── dem/\n│   ├── tiles/               cached SRTM .hgt (reused across runs)  (--dem)\n│   ├── trip.vrt             seamless virtual raster — drag into QGIS\n│   ├── trip-hillshade.tif   pre-rendered shaded relief\n│   └── trip-contours.geojson  (with --dem-contour)\n└── styles/                  full QGIS .qml templates + a README\n</code></pre>\n<p>Every <code>.geojson</code> also gets a sibling <code>.qml</code> — drag onto QGIS and the\nsymbology auto-loads. CRS is plain <strong>WGS 84 (EPSG:4326)</strong> throughout, no\nreprojection needed.</p>\n<p>Every run also ends with a <strong>superlatives</strong> banner — fastest mile, biggest\nclimb, peak cornering G, time above 60 mph, towns you passed, how many\nEmpire State Buildings worth of climbing. Also stashed in\n<code>stats.json.superlatives</code> for later. Pass <code>--no-superlatives</code> to skip.</p>\n<p>See <a href=\"./docs/LAYERS.md\">docs/LAYERS.md</a> for the exact property schema of every\nlayer and what each field means.</p>\n<hr />\n<h2 id=\"docs\">Docs</h2>\n<p>Deeper references in <a href=\"./docs\"><code>docs/</code></a>:</p>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>File</th><th>Contents</th></tr></thead><tbody><tr><td><a href=\"./docs/LAYERS.md\">LAYERS.md</a></td><td>Every layer, every property, with example feature JSON</td></tr><tr><td><a href=\"./docs/QGIS.md\">QGIS.md</a></td><td>Step-by-step workflow for hand-making a trip map</td></tr><tr><td><a href=\"./docs/TROUBLESHOOTING.md\">TROUBLESHOOTING.md</a></td><td>Common issues (GDAL, exiftool, rate limits) and fixes</td></tr><tr><td><a href=\"./docs/ARCHITECTURE.md\">ARCHITECTURE.md</a></td><td>How the modules fit together; how to extend</td></tr><tr><td><a href=\"./CHANGELOG.md\">CHANGELOG.md</a></td><td>Version history</td></tr></tbody></table>\n<hr />\n<h2 id=\"design\">Design</h2>\n<ul>\n<li><strong>Zero runtime dependencies.</strong> Everything is Node stdlib + global <code>fetch</code>. <code>exiftool</code> and GDAL are the only external binaries, and only when you opt in to the features that need them. No <code>npm install</code> needed to run.</li>\n<li><strong>Modular.</strong> Each subsystem under <code>src/</code> is independent and swappable. If you don't like the Open-Meteo wiring, swap <code>src/enrich/weather.js</code>.</li>\n<li><strong>WGS 84 throughout.</strong> No reprojection required on either end.</li>\n<li><strong>Fail soft.</strong> Network enrichments retry once and then degrade to \"skip this stage.\" Missing GDAL degrades to \"keep the raw tiles, skip the VRT.\" Missing exiftool is caught early with a friendly <code>brew install</code> hint.</li>\n</ul>\n<hr />\n<h2 id=\"license\">License</h2>\n<p>MIT — see <a href=\"./LICENSE\">LICENSE</a>.</p>",
+    "raw": "# moto-gpx\n\n**A zero-dependency Node.js CLI that turns a folder of GPX files into a stack\nof map-ready GeoJSON layers for hand-making dope QGIS maps of multi-day\nmotorcycle trips.**\n\n```\nmoto-gpx ~/trips/big-sur --media ~/trips/big-sur --enrich all --dem --out ./out\n```\n\nDoes all the data prep for you — tracks, rest stops, speed-binned segments,\nphoto markers, weather per stage, OSM road names, state crossings, SRTM\nhillshade — so when you open QGIS, everything you need is already a layer\nwith pre-loaded symbology. You just style.\n\n---\n\n## Table of contents\n\n- [Quick start](#quick-start)\n- [Install](#install)\n- [What it does](#what-it-does)\n- [CLI reference](#cli-reference)\n- [Output structure](#output-structure)\n- [Docs](#docs)\n- [Design](#design)\n- [License](#license)\n\n---\n\n## Quick start\n\n```sh\n# Install (one-time)\ngit clone https://github.com/ejfox/moto-gpx.git\ncd moto-gpx && npm link\n\n# Run on a trip folder\nmoto-gpx ~/trips/bigsur --media ~/trips/bigsur --out ./bigsur-out\n\n# Everything on, DEM included\nmoto-gpx ~/trips/bigsur --media ~/trips/bigsur --enrich all --dem --dem-contour 100 --out ./bigsur-out\n```\n\nThen open QGIS and drag `bigsur-out/` onto the canvas. Styles auto-load from\nthe sibling `.qml` files. See [docs/QGIS.md](./docs/QGIS.md) for the full\nhand-cartography workflow.\n\n---\n\n## Install\n\nNeeds **Node 18+**. Nothing to npm-install — the tool is zero-runtime-dep.\n\n```sh\ngit clone https://github.com/ejfox/moto-gpx.git\ncd moto-gpx\nnpm link\n```\n\nOptional external binaries, each only used when you opt in to its feature:\n\n| Binary | When you need it | Install |\n|---|---|---|\n| `exiftool` | `--media` flag | `brew install exiftool` |\n| GDAL (`gdalbuildvrt`, `gdaldem`, `gdal_contour`) | `--dem` flag | `brew install gdal` |\n\nSee [docs/TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md) if GDAL gives you a\n`libpoppler` error (common Homebrew issue).\n\n---\n\n## What it does\n\nGiven a folder of `.gpx` files (with optional sibling photos/videos):\n\n1. **Walks** the folder recursively for `.gpx` files\n2. **Parses** every `<trkpt>`, merges them into one sorted timeline\n3. **Dedupes** identical `(time, lat, lon)` triples — you can have overlapping logs from phone + Garmin and it Just Works\n4. **Splits into stages** wherever there's a time gap bigger than `--break` minutes (default 20) — this is how morning / lunch / afternoon become separate features, no dotted lines across rest stops\n5. **Buckets** into days, hours, and per-stage views\n6. **Emits QGIS-prep layers:** stops (labeled by duration class), speed-binned line chunks, stage + day start/end markers with pre-written labels, one-line-per-day merged view\n7. **Optionally ingests** photos/videos via `exiftool`, placing each on the map by GPS when present or interpolated from the track by timestamp when not\n8. **Optionally enriches** with weather, OSM road/place/POI data, state-border crossings, sun position per photo, and OSRM \"what you should've done\" route comparisons\n9. **Optionally fetches** SRTM elevation tiles from AWS and stitches them into a seamless QGIS-ready VRT + hillshade + contour lines\n10. **Drops QGIS `.qml` style files** next to every layer so symbology auto-loads on drag-drop\n\nEverything is opt-in except the core track layers. Nothing calls out to the\nnetwork unless you pass `--enrich`.\n\n---\n\n## CLI reference\n\n### Core flags\n\n| Flag | Default | Meaning |\n|---|---|---|\n| `<folder>` | *required* | Folder containing `.gpx` files (recursively walked) |\n| `--out <dir>` | `./moto-out` | Output directory |\n| `--split <mode>` | `all` | `day` \\| `hour` \\| `stage` \\| `all` |\n| `--break <minutes>` | `20` | Gap threshold to start a new stage |\n| `--min-points <n>` | `10` | Drop stages with fewer points (kills GPS noise) |\n| `--simplify <meters>` | `0` | Douglas-Peucker tolerance, 0 = off |\n| `--tz <offset>` | local | Hours from UTC for day/hour bucketing |\n| `--name <string>` | folder basename | Trip name, stamped into every feature |\n| `-h`, `--help` | — | Show help |\n\n### QGIS prep layers (on by default, `--no-<name>` to skip)\n\n| Flag | What you get |\n|---|---|\n| `--stops` | `stops.geojson` — rest-stop + overnight Points |\n| `--speedbins` | `speedbins.geojson` — line chunks tagged `slow/moderate/fast/highway` |\n| `--markers` | `markers.geojson` — stage + day start/end Points with pre-written labels |\n| `--days-merged` | `days-merged/*.geojson` — one unbroken LineString per day |\n| `--styles` | `<layer>.qml` next to each GeoJSON for auto-styling in QGIS |\n\n### Media\n\n| Flag | Default | Meaning |\n|---|---|---|\n| `--media <dir>` | off | Ingest JPG/HEIC/MP4/MOV via `exiftool` |\n| `--media-tz <offset>` | same as `--tz` | For naive EXIF timestamps without embedded offset |\n\n### DEM (requires GDAL)\n\n| Flag | Default | Meaning |\n|---|---|---|\n| `--dem` | off | Fetch AWS Terrain Tiles, stitch into seamless `trip.vrt` |\n| `--dem-buffer <pct>` | `20` | Bbox padding percent |\n| `--dem-hillshade` | on with `--dem` | Pre-render shaded relief GeoTIFF |\n| `--no-dem-hillshade` | — | Skip the hillshade step |\n| `--dem-contour <m>` | `0` (off) | Emit contour lines every N meters as GeoJSON |\n\n### Enrichments (opt-in, network)\n\n```\n--enrich <comma-list>\n```\n\n| Token | What lands | API |\n|---|---|---|\n| `weather` | per-stage weather on `stage.stats` + `weather_timeline.json` | Open-Meteo historical |\n| `osm` | `roads.geojson`, `places.geojson`, `pois.geojson` + per-stage road summary | Overpass |\n| `routes` | `optimal_routes.geojson` with `extra_distance_pct` per stage | OSRM public |\n| `crossings` | `crossings.geojson` — state/province transitions | local (Natural Earth data bundled) |\n| `sun` | mutates `media.geojson` with altitude/azimuth/is_golden_hour | local math |\n| `all` | shorthand for all of the above | — |\n\nAll enrichments retry once on rate-limit and degrade to \"skip\" on persistent\nfailure — the run never aborts because one API is down.\n\n### Mastodon timeline\n\n```sh\n--mastodon @you@instance.social\n# or set once in your shell:\nexport MOTO_GPX_MASTODON=@you@instance.social\n```\n\nFetches your public toots from the trip's time window ±1hr and places each\none on the map at the interpolated GPS position you were at when you posted.\nWrites `toots.geojson`, adds numbered circles to `preview-map.svg`, lists\nthem chronologically in the superlatives banner.\n\n### Recipes\n\n**Multi-day trip, everything on:**\n```sh\nmoto-gpx ~/trips/big-sur --media ~/trips/big-sur --enrich all --dem --dem-contour 100 \\\n  --mastodon @ejfox@mastodon.social --out ./out\n```\n\n**Just the tracks, no network — quick QGIS glance:**\n```sh\nmoto-gpx ./trip --out ./out\n```\n\n**City riding, tighter break detection:**\n```sh\nmoto-gpx ./trip --break 10 --min-points 30 --enrich osm,weather\n```\n\n**Smaller files for the web:**\n```sh\nmoto-gpx ./trip --simplify 2 --no-days-merged --no-hours\n```\n\n**Custom timezone (e.g. logs in UTC but you want PT day boundaries):**\n```sh\nmoto-gpx ./trip --tz -7\n```\n\n---\n\n## Output structure\n\n```\nout/\n├── all.geojson              every stage as a LineString (summary layer)\n├── stats.json               trip totals + per-stage breakdown + enrichments\n├── stages/                  one LineString per stage (break-delimited)\n├── days/                    one file per day, all stages within\n├── days-merged/             ONE unbroken LineString per day (overview view)\n├── hours/                   per-hour slices (rarely needed; skip with --no-hours)\n├── stops.geojson            rest / long-rest / overnight Points at each break\n├── speedbins.geojson        ~60s LineString chunks, tagged by speed bucket\n├── markers.geojson          stage + day start/end Points, pre-labeled\n├── media.geojson            photos + videos placed on the map\n├── crossings.geojson        state/province transition Points       (--enrich crossings)\n├── places.geojson           towns along the route                  (--enrich osm)\n├── roads.geojson            OSM ways you rode, by highway class    (--enrich osm)\n├── pois.geojson             viewpoints, peaks, fuel, historic      (--enrich osm)\n├── optimal_routes.geojson   OSRM \"what you should've done\"         (--enrich routes)\n├── weather_timeline.json    hourly weather per stage region        (--enrich weather)\n├── dem/\n│   ├── tiles/               cached SRTM .hgt (reused across runs)  (--dem)\n│   ├── trip.vrt             seamless virtual raster — drag into QGIS\n│   ├── trip-hillshade.tif   pre-rendered shaded relief\n│   └── trip-contours.geojson  (with --dem-contour)\n└── styles/                  full QGIS .qml templates + a README\n```\n\nEvery `.geojson` also gets a sibling `.qml` — drag onto QGIS and the\nsymbology auto-loads. CRS is plain **WGS 84 (EPSG:4326)** throughout, no\nreprojection needed.\n\nEvery run also ends with a **superlatives** banner — fastest mile, biggest\nclimb, peak cornering G, time above 60 mph, towns you passed, how many\nEmpire State Buildings worth of climbing. Also stashed in\n`stats.json.superlatives` for later. Pass `--no-superlatives` to skip.\n\nSee [docs/LAYERS.md](./docs/LAYERS.md) for the exact property schema of every\nlayer and what each field means.\n\n---\n\n## Docs\n\nDeeper references in [`docs/`](./docs):\n\n| File | Contents |\n|---|---|\n| [LAYERS.md](./docs/LAYERS.md) | Every layer, every property, with example feature JSON |\n| [QGIS.md](./docs/QGIS.md) | Step-by-step workflow for hand-making a trip map |\n| [TROUBLESHOOTING.md](./docs/TROUBLESHOOTING.md) | Common issues (GDAL, exiftool, rate limits) and fixes |\n| [ARCHITECTURE.md](./docs/ARCHITECTURE.md) | How the modules fit together; how to extend |\n| [CHANGELOG.md](./CHANGELOG.md) | Version history |\n\n---\n\n## Design\n\n- **Zero runtime dependencies.** Everything is Node stdlib + global `fetch`. `exiftool` and GDAL are the only external binaries, and only when you opt in to the features that need them. No `npm install` needed to run.\n- **Modular.** Each subsystem under `src/` is independent and swappable. If you don't like the Open-Meteo wiring, swap `src/enrich/weather.js`.\n- **WGS 84 throughout.** No reprojection required on either end.\n- **Fail soft.** Network enrichments retry once and then degrade to \"skip this stage.\" Missing GDAL degrades to \"keep the raw tiles, skip the VRT.\" Missing exiftool is caught early with a friendly `brew install` hint.\n\n---\n\n## License\n\nMIT — see [LICENSE](./LICENSE).\n",
+    "excerpt": "A zero-dependency Node.js CLI that turns a folder of GPX files into a stack\nof map-ready GeoJSON layers for hand-making dope QGIS maps of multi-day\nmotorcycle t..."
+  },
+  "createdAt": "2026-04-21T04:15:07Z",
+  "updatedAt": "2026-04-21T19:28:43Z",
+  "pushedAt": "2026-04-21T19:28:39Z"
+}

@@ -15,7 +15,7 @@
     ],
     "featured": false,
     "state": "deployed",
-    "aiInvolvement": "human-only",
+    "ai-involvement": "human-only",
     "context": "collaborative",
     "tags": [
       "data",

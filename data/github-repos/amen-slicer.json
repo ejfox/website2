@@ -1,0 +1,381 @@
+{
+  "name": "amen-slicer",
+  "description": "A breakbeat slicer / performance instrument for the Game Boy Advance — 13 amen flavors, sync-locked clock, live stutters/FX/crush, and a reactive generative visualizer. Butano/C++.",
+  "url": "https://github.com/ejfox/amen-slicer",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "C++",
+  "languageColor": "#f34b7d",
+  "languages": {
+    "C++": 33329,
+    "Python": 20379,
+    "Shell": 5021,
+    "Makefile": 3793
+  },
+  "diskUsage": 86,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".clangd",
+        "size": 1679
+      },
+      {
+        "path": ".gitignore",
+        "size": 213
+      },
+      {
+        "path": ".vscode/extensions.json",
+        "size": 136
+      },
+      {
+        "path": ".vscode/settings.json",
+        "size": 571
+      },
+      {
+        "path": ".vscode/tasks.json",
+        "size": 871
+      },
+      {
+        "path": "LICENSE",
+        "size": 1388
+      },
+      {
+        "path": "Makefile",
+        "size": 3793
+      },
+      {
+        "path": "README.md",
+        "size": 5228
+      },
+      {
+        "path": "art/circle.png",
+        "size": 897
+      },
+      {
+        "path": "art/plus.png",
+        "size": 688
+      },
+      {
+        "path": "audio/.gitignore",
+        "size": 0
+      },
+      {
+        "path": "dmg_audio/.gitignore",
+        "size": 0
+      },
+      {
+        "path": "graphics/.gitignore",
+        "size": 0
+      },
+      {
+        "path": "graphics/circle.bmp",
+        "size": 17462
+      },
+      {
+        "path": "graphics/circle.json",
+        "size": 43
+      },
+      {
+        "path": "graphics/plus.bmp",
+        "size": 17462
+      },
+      {
+        "path": "graphics/plus.json",
+        "size": 43
+      },
+      {
+        "path": "graphics/square.bmp",
+        "size": 1142
+      },
+      {
+        "path": "graphics/square.json",
+        "size": 25
+      },
+      {
+        "path": "graphics/waves.json",
+        "size": 43
+      },
+      {
+        "path": "include/.gitignore",
+        "size": 0
+      },
+      {
+        "path": "include/pk.h",
+        "size": 17716
+      },
+      {
+        "path": "src/main.cpp",
+        "size": 15613
+      },
+      {
+        "path": "tools/deploy.sh",
+        "size": 3745
+      },
+      {
+        "path": "tools/dev.sh",
+        "size": 1276
+      },
+      {
+        "path": "tools/make_banks.py",
+        "size": 7024
+      },
+      {
+        "path": "tools/mkbreak.py",
+        "size": 2935
+      },
+      {
+        "path": "tools/mkmod.py",
+        "size": 3127
+      },
+      {
+        "path": "tools/mksfx.py",
+        "size": 1898
+      },
+      {
+        "path": "tools/png2bmp.py",
+        "size": 3099
+      },
+      {
+        "path": "tools/slice_sample.py",
+        "size": 2296
+      }
+    ],
+    "tree": {
+      "name": "amen-slicer",
+      "children": [
+        {
+          "name": ".vscode",
+          "children": [
+            {
+              "name": "extensions.json",
+              "size": 136,
+              "path": ".vscode/extensions.json"
+            },
+            {
+              "name": "settings.json",
+              "size": 571,
+              "path": ".vscode/settings.json"
+            },
+            {
+              "name": "tasks.json",
+              "size": 871,
+              "path": ".vscode/tasks.json"
+            }
+          ],
+          "path": ".vscode"
+        },
+        {
+          "name": "art",
+          "children": [
+            {
+              "name": "circle.png",
+              "size": 897,
+              "path": "art/circle.png"
+            },
+            {
+              "name": "plus.png",
+              "size": 688,
+              "path": "art/plus.png"
+            }
+          ],
+          "path": "art"
+        },
+        {
+          "name": "audio",
+          "children": [
+            {
+              "name": ".gitignore",
+              "size": 0,
+              "path": "audio/.gitignore"
+            }
+          ],
+          "path": "audio"
+        },
+        {
+          "name": "dmg_audio",
+          "children": [
+            {
+              "name": ".gitignore",
+              "size": 0,
+              "path": "dmg_audio/.gitignore"
+            }
+          ],
+          "path": "dmg_audio"
+        },
+        {
+          "name": "graphics",
+          "children": [
+            {
+              "name": ".gitignore",
+              "size": 0,
+              "path": "graphics/.gitignore"
+            },
+            {
+              "name": "circle.bmp",
+              "size": 17462,
+              "path": "graphics/circle.bmp"
+            },
+            {
+              "name": "circle.json",
+              "size": 43,
+              "path": "graphics/circle.json"
+            },
+            {
+              "name": "plus.bmp",
+              "size": 17462,
+              "path": "graphics/plus.bmp"
+            },
+            {
+              "name": "plus.json",
+              "size": 43,
+              "path": "graphics/plus.json"
+            },
+            {
+              "name": "square.bmp",
+              "size": 1142,
+              "path": "graphics/square.bmp"
+            },
+            {
+              "name": "square.json",
+              "size": 25,
+              "path": "graphics/square.json"
+            },
+            {
+              "name": "waves.json",
+              "size": 43,
+              "path": "graphics/waves.json"
+            }
+          ],
+          "path": "graphics"
+        },
+        {
+          "name": "include",
+          "children": [
+            {
+              "name": ".gitignore",
+              "size": 0,
+              "path": "include/.gitignore"
+            },
+            {
+              "name": "pk.h",
+              "size": 17716,
+              "path": "include/pk.h"
+            }
+          ],
+          "path": "include"
+        },
+        {
+          "name": "src",
+          "children": [
+            {
+              "name": "main.cpp",
+              "size": 15613,
+              "path": "src/main.cpp"
+            }
+          ],
+          "path": "src"
+        },
+        {
+          "name": "tools",
+          "children": [
+            {
+              "name": "deploy.sh",
+              "size": 3745,
+              "path": "tools/deploy.sh"
+            },
+            {
+              "name": "dev.sh",
+              "size": 1276,
+              "path": "tools/dev.sh"
+            },
+            {
+              "name": "make_banks.py",
+              "size": 7024,
+              "path": "tools/make_banks.py"
+            },
+            {
+              "name": "mkbreak.py",
+              "size": 2935,
+              "path": "tools/mkbreak.py"
+            },
+            {
+              "name": "mkmod.py",
+              "size": 3127,
+              "path": "tools/mkmod.py"
+            },
+            {
+              "name": "mksfx.py",
+              "size": 1898,
+              "path": "tools/mksfx.py"
+            },
+            {
+              "name": "png2bmp.py",
+              "size": 3099,
+              "path": "tools/png2bmp.py"
+            },
+            {
+              "name": "slice_sample.py",
+              "size": 2296,
+              "path": "tools/slice_sample.py"
+            }
+          ],
+          "path": "tools"
+        },
+        {
+          "name": ".clangd",
+          "size": 1679,
+          "path": ".clangd"
+        },
+        {
+          "name": ".gitignore",
+          "size": 213,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1388,
+          "path": "LICENSE"
+        },
+        {
+          "name": "Makefile",
+          "size": 3793,
+          "path": "Makefile"
+        },
+        {
+          "name": "README.md",
+          "size": 5228,
+          "path": "README.md"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 31,
+    "totalSize": 110413
+  },
+  "defaultBranch": "main",
+  "license": {
+    "spdxId": "NOASSERTION",
+    "name": "Other",
+    "url": "http://choosealicense.com/licenses/other/"
+  },
+  "latestRelease": {
+    "name": "AMEN SLICER v1.0",
+    "tagName": "v1.0",
+    "publishedAt": "2026-07-28T16:44:29Z",
+    "url": "https://github.com/ejfox/amen-slicer/releases/tag/v1.0"
+  },
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"amen-slicer\">AMEN SLICER</h1>\n<p>A breakbeat slicer / performance instrument for the <strong>Game Boy Advance</strong>. Thirteen\nreal amen breaks, each chopped into 16 sixteenth-notes, on a sync-locked clock —\nwith live repitch, beat-repeat stutters, breakdown FX, a downsample/bitcrush, and\na reactive generative visualizer. Atomic-purple on OLED black.</p>\n<p>Built in C++ with the <a href=\"https://github.com/GValiente/butano\">Butano</a> engine and a\nsmall p5.js-flavored layer (<code>include/pk.h</code>). Runs on real hardware and the Miyoo Mini.</p>\n<h2 id=\"controls\">Controls</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>Button</th><th>Action</th></tr></thead><tbody><tr><td><strong>Up / Down</strong></td><td>tempo <strong>±1 BPM</strong> per tap (hold to scroll); repitches the break to hit it</td></tr><tr><td><strong>Left / Right</strong></td><td>previous / next flavor — <strong>tempo stays locked</strong> across flavors</td></tr><tr><td><strong>A / B / L / R</strong></td><td>stutter <strong>1/16 · 1/32 · 1/8 · 1/64</strong> (hold)</td></tr><tr><td><strong>hold stutter + arrow</strong></td><td>breakdown FX — <strong>Up</strong> = build, <strong>Down</strong> = tape-stop, <strong>L/R</strong> = pitch</td></tr><tr><td><strong>START</strong></td><td>tap the loop back to the <strong>1</strong> (align to an external downbeat)</td></tr><tr><td><strong>SELECT</strong></td><td>toggle <strong>EXPLAIN ⇄ ZEN</strong> view</td></tr><tr><td><strong>SELECT + START</strong></td><td>toggle <strong>CRUSH</strong> (downsample / bitcrush)</td></tr></tbody></table>\n<p><strong>Zen combos:</strong> A+B → glyphs become <strong>+ signs</strong>, L+R → mandala turns <strong>inside-out</strong>,\nA+B+L+R → <strong>chaos</strong>. Downbeats and drops fire shockwaves; a tape-stop freezes the\nwhole visual with the audio.</p>\n<h2 id=\"flavors\">Flavors</h2>\n<p><code>clean · winston · 45rpm · 33rpm · cleaned · vinyl · tape · 2000xl · crush · soft · freak (170) · skull (165) · toptape (150)</code> — original vinyl/cassette/CD rips plus\nretempo'd remixes, each at its own native BPM.</p>\n<h2 id=\"sync--how-the-clock-actually-works\">Sync — how the clock actually works</h2>\n<p>BPM is the <strong>canonical value</strong>, not a side-effect. Tap Up/Down to set an integer\nBPM; the engine derives the sample repitch from it (<code>speed = bpm × step / BPM_K</code>),\nso the master interval is <code>BPM_K / bpm</code> frames per slice — <strong>independent of which\nbreak is loaded</strong>. That's why switching flavors holds tempo instead of jumping.</p>\n<p>The <strong>master phase advances at a constant rate</strong>, gated to nothing. FX (tape-stop,\nbeat-repeat, build) drive only the <em>visuals</em> — the musical grid keeps true time\nunderneath them. So when you release an FX, playback <strong>snaps back onto the current\nbeat</strong> instead of drifting. This is the whole point for live use: it stays on the\ngrid no matter what you throw at it.</p>\n<p>Workflow with other gear: dial the same BPM with Up/Down, then tap <strong>START</strong> on\ntheir downbeat to align the \"1\". (It's a free-running clock — like a drum machine\nwith no MIDI-in. True external clock lock would need link-cable MIDI, not\nimplemented.)</p>\n<blockquote>\n<p><strong>History:</strong> until Aug 2026 the clock advanced by a <code>vmotion</code> factor that FX\nramped to zero, so the grid itself froze during FX and <em>permanently</em> lost time —\n\"the FX falls out of time.\" Fixed by locking the clock to a constant rate and\nmaking <code>vmotion</code> visual-only. See commit <code>b754b32</code>.</p>\n</blockquote>\n<h2 id=\"build--run\">Build &amp; run</h2>\n<pre><code class=\"language-bash\">make -j8 &amp;&amp; open -a mGBA amen.gba     # or: tools/dev.sh for a save-&gt;reload hot loop\n</code></pre>\n<p>Deploy to the Miyoo Mini: <code>tools/deploy.sh</code> — builds, <strong>boot-tests in mGBA</strong>,\ncopies to the SD card as <code>Amen Slicer.gba</code>, <strong>wipes the stale gpSP save-state</strong>\n(see Troubleshooting), and ejects. One command, no black screens.</p>\n<p>Requires devkitPro <code>gba-dev</code> + the Butano repo at <code>../butano</code>. Release builds use\nLTO (<code>-flto</code>, set in the Makefile).</p>\n<h2 id=\"troubleshooting\">Troubleshooting</h2>\n<p><strong>Black screen with audio ticking after a rebuild (\"crashes, doesn't draw\").</strong>\nNot a code bug — the Miyoo's <strong>gpSP</strong> core auto-saves a resume state on exit and\nauto-loads it on launch. After you rebuild, that state is from the <em>old</em> binary and\npoisons the new one. Fix: delete it (or just don't \"resume\" on the device):</p>\n<pre><code>/Volumes/&lt;CARD&gt;/Saves/CurrentProfile/states/gpSP/Amen Slicer.state*\n</code></pre>\n<p><code>tools/deploy.sh</code> does this automatically. If you copy the ROM by hand, wipe the\nstate yourself. Verify the ROM is actually fine first with <code>open -a mGBA amen.gba</code> —\nmGBA boots fresh (no auto-state), so if it runs there, it's the state, not the code.</p>\n<p><strong>Game not showing in the GBA list after adding it.</strong> The launcher reads\n<code>Roms/GBA/miyoogamelist.xml</code> (authoritative) — a loose ROM not listed there is\ninvisible, and rebuilding the cache won't help. Add a <code>&lt;game&gt;</code> entry, or delete the\nXML to fall back to a raw folder scan.</p>\n<h2 id=\"tools-tools\">Tools (<code>tools/</code>)</h2>\n<ul>\n<li><strong><code>make_banks.py</code></strong> — slices the amen sources into 13 banks × 16 slices (clean +\ncrushed), bakes each bank's tempo, amplitude envelope, and waveform sprite, and\ngenerates <code>include/banks.h</code>. Edit the <code>BANKS</code> list to swap sources.</li>\n<li><code>slice_sample.py</code> · <code>png2bmp.py</code> · <code>mksfx.py</code> · <code>mkmod.py</code> — supporting asset tools.</li>\n<li><code>dev.sh</code> (hot loop) · <code>deploy.sh</code> (to Miyoo).</li>\n</ul>\n<h2 id=\"credits--license\">Credits &amp; license</h2>\n<ul>\n<li><strong>Code</strong> (<code>src/</code>, <code>include/pk.h</code>, <code>tools/</code>): © EJ Fox — MIT (see <code>LICENSE</code>).</li>\n<li><strong>Engine:</strong> <a href=\"https://github.com/GValiente/butano\">Butano</a> by Gustavo Valiente (zlib).</li>\n<li><strong>Amen break samples:</strong> from <em>Rhythm Lab — The Ultimate Amen Breaks Pack</em>,\noriginally <strong>\"Amen, Brother\" by The Winstons (1969)</strong>. These are <strong>not</strong> included\nin this repo (git-ignored) — they're sliced locally from the owner's copy via\n<code>make_banks.py</code>. A built ROM contains this copyrighted audio, so <strong>it's for\npersonal / educational use</strong> and not for redistribution without clearance.</li>\n</ul>",
+    "raw": "# AMEN SLICER\n\nA breakbeat slicer / performance instrument for the **Game Boy Advance**. Thirteen\nreal amen breaks, each chopped into 16 sixteenth-notes, on a sync-locked clock —\nwith live repitch, beat-repeat stutters, breakdown FX, a downsample/bitcrush, and\na reactive generative visualizer. Atomic-purple on OLED black.\n\nBuilt in C++ with the [Butano](https://github.com/GValiente/butano) engine and a\nsmall p5.js-flavored layer (`include/pk.h`). Runs on real hardware and the Miyoo Mini.\n\n## Controls\n\n| Button | Action |\n|---|---|\n| **Up / Down** | tempo **±1 BPM** per tap (hold to scroll); repitches the break to hit it |\n| **Left / Right** | previous / next flavor — **tempo stays locked** across flavors |\n| **A / B / L / R** | stutter **1/16 · 1/32 · 1/8 · 1/64** (hold) |\n| **hold stutter + arrow** | breakdown FX — **Up** = build, **Down** = tape-stop, **L/R** = pitch |\n| **START** | tap the loop back to the **1** (align to an external downbeat) |\n| **SELECT** | toggle **EXPLAIN ⇄ ZEN** view |\n| **SELECT + START** | toggle **CRUSH** (downsample / bitcrush) |\n\n**Zen combos:** A+B → glyphs become **+ signs**, L+R → mandala turns **inside-out**,\nA+B+L+R → **chaos**. Downbeats and drops fire shockwaves; a tape-stop freezes the\nwhole visual with the audio.\n\n## Flavors\n\n`clean · winston · 45rpm · 33rpm · cleaned · vinyl · tape · 2000xl · crush · soft ·\nfreak (170) · skull (165) · toptape (150)` — original vinyl/cassette/CD rips plus\nretempo'd remixes, each at its own native BPM.\n\n## Sync — how the clock actually works\n\nBPM is the **canonical value**, not a side-effect. Tap Up/Down to set an integer\nBPM; the engine derives the sample repitch from it (`speed = bpm × step / BPM_K`),\nso the master interval is `BPM_K / bpm` frames per slice — **independent of which\nbreak is loaded**. That's why switching flavors holds tempo instead of jumping.\n\nThe **master phase advances at a constant rate**, gated to nothing. FX (tape-stop,\nbeat-repeat, build) drive only the *visuals* — the musical grid keeps true time\nunderneath them. So when you release an FX, playback **snaps back onto the current\nbeat** instead of drifting. This is the whole point for live use: it stays on the\ngrid no matter what you throw at it.\n\nWorkflow with other gear: dial the same BPM with Up/Down, then tap **START** on\ntheir downbeat to align the \"1\". (It's a free-running clock — like a drum machine\nwith no MIDI-in. True external clock lock would need link-cable MIDI, not\nimplemented.)\n\n> **History:** until Aug 2026 the clock advanced by a `vmotion` factor that FX\n> ramped to zero, so the grid itself froze during FX and *permanently* lost time —\n> \"the FX falls out of time.\" Fixed by locking the clock to a constant rate and\n> making `vmotion` visual-only. See commit `b754b32`.\n\n## Build & run\n\n```bash\nmake -j8 && open -a mGBA amen.gba     # or: tools/dev.sh for a save->reload hot loop\n```\nDeploy to the Miyoo Mini: `tools/deploy.sh` — builds, **boot-tests in mGBA**,\ncopies to the SD card as `Amen Slicer.gba`, **wipes the stale gpSP save-state**\n(see Troubleshooting), and ejects. One command, no black screens.\n\nRequires devkitPro `gba-dev` + the Butano repo at `../butano`. Release builds use\nLTO (`-flto`, set in the Makefile).\n\n## Troubleshooting\n\n**Black screen with audio ticking after a rebuild (\"crashes, doesn't draw\").**\nNot a code bug — the Miyoo's **gpSP** core auto-saves a resume state on exit and\nauto-loads it on launch. After you rebuild, that state is from the *old* binary and\npoisons the new one. Fix: delete it (or just don't \"resume\" on the device):\n\n```\n/Volumes/<CARD>/Saves/CurrentProfile/states/gpSP/Amen Slicer.state*\n```\n\n`tools/deploy.sh` does this automatically. If you copy the ROM by hand, wipe the\nstate yourself. Verify the ROM is actually fine first with `open -a mGBA amen.gba` —\nmGBA boots fresh (no auto-state), so if it runs there, it's the state, not the code.\n\n**Game not showing in the GBA list after adding it.** The launcher reads\n`Roms/GBA/miyoogamelist.xml` (authoritative) — a loose ROM not listed there is\ninvisible, and rebuilding the cache won't help. Add a `<game>` entry, or delete the\nXML to fall back to a raw folder scan.\n\n## Tools (`tools/`)\n\n- **`make_banks.py`** — slices the amen sources into 13 banks × 16 slices (clean +\n  crushed), bakes each bank's tempo, amplitude envelope, and waveform sprite, and\n  generates `include/banks.h`. Edit the `BANKS` list to swap sources.\n- `slice_sample.py` · `png2bmp.py` · `mksfx.py` · `mkmod.py` — supporting asset tools.\n- `dev.sh` (hot loop) · `deploy.sh` (to Miyoo).\n\n## Credits & license\n\n- **Code** (`src/`, `include/pk.h`, `tools/`): © EJ Fox — MIT (see `LICENSE`).\n- **Engine:** [Butano](https://github.com/GValiente/butano) by Gustavo Valiente (zlib).\n- **Amen break samples:** from *Rhythm Lab — The Ultimate Amen Breaks Pack*,\n  originally **\"Amen, Brother\" by The Winstons (1969)**. These are **not** included\n  in this repo (git-ignored) — they're sliced locally from the owner's copy via\n  `make_banks.py`. A built ROM contains this copyrighted audio, so **it's for\n  personal / educational use** and not for redistribution without clearance.\n",
+    "excerpt": "A breakbeat slicer / performance instrument for the Game Boy Advance. Thirteen\nreal amen breaks, each chopped into 16 sixteenth-notes, on a sync-locked clock —..."
+  },
+  "createdAt": "2026-07-28T16:44:12Z",
+  "updatedAt": "2026-08-02T13:17:51Z",
+  "pushedAt": "2026-08-02T13:17:39Z"
+}

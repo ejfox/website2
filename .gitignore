@@ -93,3 +93,6 @@ content/blog/private/
 # the links already shared — not in GitHub Actions, not on the VPS, not here.
 # Back it up to 1Password. See scripts/build/sealKeyring.mjs.
 .postkeys.json
+
+# Timestamped vault backups written by scripts/meta/vault-repo-merge.mjs --apply
+.vault-backup-*/

@@ -1,7 +1,6 @@
 ---
 date: 2020-10-08T04:00:52-04:00
 type: words
-hidden: false
 dek: >-
   In which the skill of broadcasting yourself writing code to the entire
   internet is explored
