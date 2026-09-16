@@ -447,28 +447,47 @@ Link-protected posts on a public repo. Full design + threat model:
 - **A post must be born sealed.** Moving an already-committed post into
   `private/` leaves its plaintext in a public repo's history forever.
 
-### ⚠️ `yarn blog:import` is currently destructive (found 2026-09-15)
+### ⚠️ `yarn blog:import` — fixed, but the vault and repo have diverged
 
-**Do not run `yarn blog` or `yarn blog:import` until this is fixed.** It does
-`fs.rm(content/blog, {recursive:true})` and rebuilds from the vault, but the two
-have drifted:
+**Three destructive bugs were fixed 2026-09-16** (`scripts/blog/import.mjs`):
 
-- The vault stores posts under **`blog/<year>/`**. `import.mjs` writes to
-  `path.join('content/blog', relativePath)`, so `blog/2022/x.md` lands at
-  **`content/blog/blog/2022/x.md`** — one level deeper than the 366 files
-  actually committed at `content/blog/2022/x.md`.
-- The vault has no top-level `reading/`, so **all ~100 `content/blog/reading/`
-  book notes are deleted** and never rebuilt. Same for most year folders.
-- Top-level vault files (`inbox.md`, `CLAUDE.md`, `Pamara-list.md`) get imported
-  as posts, because the whitelist is only checked on directories, not files.
+- **Path shape.** The vault stores posts under `blog/<year>/`, but the importer
+  joined the vault-relative path straight onto `content/blog`, producing
+  `content/blog/blog/2022/x.md` — one level too deep, matching nothing ever
+  committed, and silently giving every such post the wrong `type` (since
+  `getPostType` matches a `projects/` prefix that `blog/projects/` lacks).
+  Now strips the leading `blog/`.
+- **Blanket wipe.** It `rm -rf`'d all of `content/blog` on the assumption that
+  the vault is the complete source of truth. It isn't: the 97 `reading/` notes
+  were moved to the vault's `.trash` in June 2026 and now live ONLY in the
+  repo, and `week-notes/` is deliberately un-whitelisted while 91 are
+  committed. One run deleted all 188 and rebuilt none. Now removes only the
+  destinations it is about to rebuild.
+- **Root files.** The whitelist only ever gated directories, so `inbox.md`,
+  `CLAUDE.md` and `Pamara-list.md` were imported as blog posts. Now gated by
+  `WHITELISTED_ROOT_FILES`.
 
-Net effect of one run: 366 tracked posts deleted, ~169 recreated in the wrong
-shape. Recoverable with `git checkout -- content/blog/` (and `content/backup/`
-holds a copy), but it will wipe any **untracked** WIP in `content/blog/`.
+**It is still not safe to run blind.** A real import against today's vault
+leaves the tree needing review:
 
-Not yet fixed because the right fix depends on intent — whether the vault's
-`blog/` prefix should be stripped on import, or the repo should move to the
-nested layout. Sealed posts sidestep it entirely via `yarn seal:import`.
+- **~163 frontmatter reversions.** A repo-side hygiene pass
+  (`33b0879a`) stripped dead fields and fixed casing; the vault never got it,
+  so re-importing reverts it (e.g. `type: words` → `type: post`,
+  `hidden: false` reappears).
+- **14 deletions.** `2026/the-knife.md` plus 13 `robots/**` notes that are
+  committed but carry `share: false`, so the importer skips them — and, now
+  that it only manages what it rebuilds, leaves them deleted rather than
+  restored.
+- **2 genuinely new posts** waiting in the vault (`2026/asu-devblog.md`,
+  `2026/vibe-coding-ps5-controller.md`).
+
+Reconciling those is a **content decision, not a code fix** — either bring the
+hygiene pass back into the vault, or accept the reversion. Until then: run
+`yarn blog:import`, then **review `git status` before committing**. It will no
+longer destroy anything unrecoverable.
+
+Sealed posts sidestep all of this via `yarn seal:import`, which touches one
+gitignored directory.
 
 ### PII Checklist (run before publishing new content)
 

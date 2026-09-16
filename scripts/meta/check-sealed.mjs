@@ -55,7 +55,18 @@ const failures = []
 // 1. No sealed SOURCE may be tracked, ever. This is the fatal one: the
 //    markdown is the whole post in the clear, and a public repo keeps it
 //    forever — a later `git rm` does not un-publish anything.
-for (const file of trackedPaths('content/blog/private')) {
+//
+//    `content/backup/private` is checked alongside it because `blog:import`
+//    copies `content/blog/` to `content/backup/` before rebuilding, which
+//    quietly produces a second plaintext copy of every sealed post. Both
+//    directories are gitignored today and `content/backup/**` has never had a
+//    tracked file — but the plaintext is only one careless .gitignore edit
+//    away from being committable, and the backup copy is the one nobody would
+//    think to look for.
+for (const file of [
+  ...trackedPaths('content/blog/private'),
+  ...trackedPaths('content/backup/private'),
+]) {
   failures.push(
     `PLAINTEXT SOURCE TRACKED: ${file}\n` +
       `    This is the unencrypted post. It must never be committed to a\n` +
