@@ -1,5 +1,6 @@
 ---
 title: "Global Energy Ownership Tracker"
+draft: true
 date: 2026-05-01T00:00:00-04:00
 category: "Dataviz"
 featured: true

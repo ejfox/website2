@@ -1,5 +1,6 @@
 ---
 title: "Butt Math"
+draft: true
 date: 2026-05-01
 category: "Art"
 featured: false

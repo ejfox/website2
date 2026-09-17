@@ -1,5 +1,6 @@
 ---
 title: "Obsidian Analysis"
+draft: true
 date: 2024-06-01T00:00:00-04:00
 category: "Dataviz"
 featured: false
