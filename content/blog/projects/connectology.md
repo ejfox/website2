@@ -12,6 +12,7 @@ tags:
   - dataviz
   - network
   - web
+about: "[[project-notes/connectology]]"
 ---
 
 Connectology is for me — a custom front-end replacement for Gephi or a raw D3 force layout: build graphs of nodes and links, then analyze the resulting structure with force-directed layout and graph metrics. The v2 rebuild adds AI-powered node generation and multiple import formats (Obsidian, Mermaid, CSV).

@@ -25,6 +25,11 @@ tags:
 #### 50mm Nikkor Lens
 
 ### Olympus XA 2
+
+### Black & White Film
+
+For my film development process see: [[blog/2023/film-development]]
+
 ---
 
 ### Appendix

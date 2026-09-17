@@ -1,11 +1,16 @@
 <!--
   @file PostTOC.vue
   @description Table of contents for blog post sidebar
-  @props tocChildren - array of { slug, text }, activeSection - current section id
+  @props tocChildren - array of { slug, text, depth?, number? }, activeSection - current section id
 -->
 <script setup lang="ts">
 const props = defineProps<{
-  tocChildren: Array<{ slug: string; text: string }>
+  tocChildren: Array<{
+    slug: string
+    text: string
+    depth?: number
+    number?: string
+  }>
   activeSection: string
 }>()
 
@@ -26,9 +31,9 @@ function scrollToSection(slug: string) {
     <div class="pl-0 relative">
       <ul class="space-y-0">
         <li
-          v-for="(child, index) in tocChildren"
+          v-for="child in tocChildren"
           :key="child.slug"
-          class="group relative"
+          :class="['group relative', child.depth ? 'pl-6' : '']"
         >
           <a
             :href="`#${child.slug}`"
@@ -51,7 +56,7 @@ function scrollToSection(slug: string) {
                 isActive(child.slug) ? 'opacity-70' : 'opacity-30',
               ]"
             >
-              {{ String(index + 1).padStart(2, '0') }}
+              {{ child.number || '' }}
             </span>
             <span class="leading-snug">
               {{ child.text }}

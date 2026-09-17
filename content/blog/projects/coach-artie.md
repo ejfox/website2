@@ -14,6 +14,7 @@ tags:
   - ai
   - product
   - nodejs
+about: "[[project-notes/coach-artie]]"
 ---
 
 ![Coach Artie interface](https://res.cloudinary.com/ejf/image/upload/v1743818354/Screenshot_2025-04-04_at_9.59.00_PM.png)

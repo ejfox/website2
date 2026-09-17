@@ -414,6 +414,93 @@ gate imports it:
 
 When adding a new route that lists posts, add the `isScheduled()` check too.
 
+### Sealed Posts (2026-09-14)
+
+Link-protected posts on a public repo. Full design + threat model:
+`docs/SEALED-POSTS.md`. The short version:
+
+- Write it in the vault under `private/`. **The folder is the only switch** —
+  no frontmatter key protects a post, so no typo in one can publish a post.
+  The reverse *is* enforced: any `/protect|passw|secret|encrypt|seal|private/i`
+  key on a post OUTSIDE `private/` is a fatal build error.
+- `content/blog/private/` is **gitignored**, so the plaintext cannot be staged.
+  What gets committed is `content/processed/private/*.json` — three keys
+  (`slug`, `sealed`, `envelope`) and nothing else. No title, dek, tags or TOC.
+- Publish with **`yarn seal`** (vault → seal → guard), then commit and push.
+  It prints the capability link:
+  `https://ejfox.com/blog/private/<slug>#k=<43 chars>`. The key is in the
+  **fragment**, so it never reaches the VPS. `yarn seal:links` reprints them.
+- **Do NOT use `yarn blog` / `yarn blog:import` for this** — see the warning
+  below; `yarn seal:import` touches only the one gitignored directory.
+- Keys live in `.postkeys.json` (gitignored, 0600). **Back it up to 1Password
+  — it is the only copy.** Per-post, and stable across edits so already-shared
+  links keep working.
+- Neither GitHub Actions nor the VPS ever holds a key or sees plaintext.
+  Decryption happens in the reader's browser (WebCrypto), which means sealed
+  posts **require JS and are not server-rendered** — a deliberate trade, see
+  the design doc.
+- Sealed posts are omitted from `manifest-lite.json` at write time, so every
+  manifest-derived surface (feeds, sitemap, search, tags, prerender) is clean
+  without a per-surface filter. Orphan cleanup is exempted for sealed JSON —
+  the source doesn't exist on CI, and without the exemption the envelope would
+  be deleted on every run.
+- **A post must be born sealed.** Moving an already-committed post into
+  `private/` leaves its plaintext in a public repo's history forever.
+
+### ⚠️ `yarn blog:import` — fixed, but the vault and repo have diverged
+
+**Three destructive bugs were fixed 2026-09-16** (`scripts/blog/import.mjs`):
+
+- **Path shape.** The vault stores posts under `blog/<year>/`, but the importer
+  joined the vault-relative path straight onto `content/blog`, producing
+  `content/blog/blog/2022/x.md` — one level too deep, matching nothing ever
+  committed, and silently giving every such post the wrong `type` (since
+  `getPostType` matches a `projects/` prefix that `blog/projects/` lacks).
+  Now strips the leading `blog/`.
+- **Blanket wipe.** It `rm -rf`'d all of `content/blog` on the assumption that
+  the vault is the complete source of truth. It isn't: the 97 `reading/` notes
+  were moved to the vault's `.trash` in June 2026 and now live ONLY in the
+  repo, and `week-notes/` is deliberately un-whitelisted while 91 are
+  committed. One run deleted all 188 and rebuilt none. Now removes only the
+  destinations it is about to rebuild.
+- **Root files.** The whitelist only ever gated directories, so `inbox.md`,
+  `CLAUDE.md` and `Pamara-list.md` were imported as blog posts. Now gated by
+  `WHITELISTED_ROOT_FILES`.
+
+**`blog:import` now REFUSES to run** — and that is correct, not a bug.
+
+`processFile` writes the vault file's **raw bytes**; it never re-serialises the
+frontmatter it parsed. An import is therefore a wholesale revert of every
+repo-side edit. Measured against today's vault, all 163 matched files differ:
+
+- **15 posts are `draft: true` in the repo and undrafted in the vault.** An
+  import publishes all 15. A guard (`assertNoDraftWouldBePublished`) now aborts
+  before writing a byte and names them. Fix by adding `draft: true` to those
+  vault notes, or reconcile properly.
+- **98 files** have `aiInvolvement` (vault) vs `ai-involvement` (repo, the
+  corrected key); **29** have a dead `hidden: false` the repo stripped; **27**
+  revert `type: photos` → `post`; **70** lose repo tag-typo normalisation.
+- **39 bodies differ, and every difference is a repo-side improvement**:
+  generated alt text, Cloudinary rehosting, dead-wikilink removal, a PII
+  removal (`[[home/14pinest]]`). Only two vault-ahead items exist, both images
+  (`projects/glasses-hud.md`, `projects/openrouter-census.md`).
+
+So "vault wins" is wrong — the vault is *behind* on content, not ahead. But
+"repo wins, push to vault" is also wrong: the vault's `[[drafts/…]]` wikilinks
+are *working links in Obsidian*, dead only in the repo's rendering context, and
+its PII is intentional in a private note.
+
+**The fix is per-key normalisation inside `import.mjs`**, vault stays
+read-only, bodies never overwritten wholesale. Rules: repo wins for
+`ai-involvement` rename, `hidden: false` drop, `type` (already derived),
+`draft`, `gear`, normalised `tags`/`dek`; vault wins for `unlisted` and
+`about`. Not yet implemented.
+
+Run `node scripts/meta/frontmatter-sync-report.mjs` for the current numbers.
+
+Sealed posts sidestep all of this via `yarn seal:import`, which touches one
+gitignored directory.
+
 ### PII Checklist (run before publishing new content)
 
 - No street addresses or house numbers in blog posts

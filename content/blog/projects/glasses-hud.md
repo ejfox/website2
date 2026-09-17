@@ -20,4 +20,6 @@ A tool for quickly prototyping AR / lens visualizations and HUDs — drag data w
 
 ![Scrolling the HUD — lenses up top, then the full widget drawer](https://res.cloudinary.com/ejf/video/upload/projects/glasses-hud/demo.mp4)
 
+![The two lenses you compose a HUD across](https://res.cloudinary.com/ejf/image/upload/projects/glasses-hud/lenses.png)
+
 ![Body widgets — heart rate, HRV, blood oxygen, calories](https://res.cloudinary.com/ejf/image/upload/projects/glasses-hud/body.png)

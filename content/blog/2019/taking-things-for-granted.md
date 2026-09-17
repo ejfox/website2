@@ -3,7 +3,6 @@ dek: >-
   In which the author attempts to dissuade you from the belief things will
   always be the way they are now
 type: words
-hidden: false
 date: '2019-06-14T15:27:00-04:00'
 tags:
   - advice

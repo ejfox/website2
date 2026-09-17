@@ -1,7 +1,6 @@
 ---
 date: 2021-02-10T05:00:45-05:00
 type: words
-hidden: false
 dek: >-
   In which a computer is used as divination tool for random numbers (for the
   purposes of beauty, art, and poetry)

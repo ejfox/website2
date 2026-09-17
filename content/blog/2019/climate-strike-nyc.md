@@ -3,7 +3,6 @@ dek: >-
   In which the youths march through the street with extremely clever signs since
   they are too young to riot
 type: photo
-hidden: false
 date: '2019-09-20T21:19:39-04:00'
 tags:
   - activism

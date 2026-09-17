@@ -4,7 +4,6 @@
     "title": "Photography 2008-2010",
     "date": "2010-01-01T18:44:00-05:00",
     "type": "photos",
-    "hidden": false,
     "tags": [
       "photography",
       "inspiration"
@@ -18,7 +17,6 @@
       }
     ],
     "metadata": {
-      "hidden": false,
       "type": "photos",
       "date": "2010-01-01T18:44:00-05:00",
       "tags": [
@@ -53,7 +51,6 @@
     "title": "The Magazine Experience on the Web",
     "date": "2013-01-25T10:00:00.000Z",
     "type": "words",
-    "hidden": false,
     "dek": "In which the author muses about 2013-era web design aesthetics",
     "modified": "2026-01-04T01:37:32.000Z",
     "tags": [
@@ -115,8 +112,6 @@
     "metadata": {
       "dek": "In which the author muses about 2013-era web design aesthetics",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "date": "2013-01-25T10:00:00.000Z",
       "modified": "2026-01-04T01:37:32.000Z",
       "tags": [
@@ -131,7 +126,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 31,
+      "links": 32,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -195,7 +190,6 @@
     "title": "2015 In Review",
     "date": "2015-01-01T10:00:00.000Z",
     "type": "photos",
-    "hidden": false,
     "modified": "2024-08-01T14:21:44.000Z",
     "tags": [
       "photography",
@@ -210,7 +204,6 @@
       }
     ],
     "metadata": {
-      "hidden": false,
       "type": "photos",
       "date": "2015-01-01T10:00:00.000Z",
       "modified": "2024-08-01T14:21:44.000Z",
@@ -246,7 +239,6 @@
     "title": "2016 In Review",
     "date": "2016-01-01T10:00:00.000Z",
     "type": "photos",
-    "hidden": false,
     "modified": "2024-08-01T14:21:50.000Z",
     "tags": [
       "photography",
@@ -264,7 +256,6 @@
       }
     ],
     "metadata": {
-      "hidden": false,
       "type": "photos",
       "date": "2016-01-01T10:00:00.000Z",
       "modified": "2024-08-01T14:21:50.000Z",
@@ -303,7 +294,6 @@
     "title": "Video Mixes",
     "date": "2016-12-01T19:55:00-05:00",
     "type": "video",
-    "hidden": false,
     "tags": [
       "video",
       "visuals",
@@ -413,7 +403,6 @@
       }
     ],
     "metadata": {
-      "hidden": false,
       "type": "video",
       "date": "2016-12-01T19:55:00-05:00",
       "tags": [
@@ -431,7 +420,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 4,
+      "links": 5,
       "codeBlocks": 0,
       "headers": {
         "h1": 1
@@ -544,7 +533,6 @@
     "title": "2017 In Review",
     "date": "2017-01-01T10:00:21.000Z",
     "type": "photos",
-    "hidden": false,
     "modified": "2024-08-01T14:21:46.000Z",
     "tags": [
       "politics",
@@ -561,7 +549,6 @@
       }
     ],
     "metadata": {
-      "hidden": false,
       "type": "photos",
       "date": "2017-01-01T10:00:21.000Z",
       "modified": "2024-08-01T14:21:46.000Z",
@@ -599,7 +586,6 @@
     "title": "2018 In Review",
     "date": "2018-12-14T10:00:16.000Z",
     "type": "photos",
-    "hidden": false,
     "modified": "2024-08-01T14:21:46.000Z",
     "tags": [
       "photography",
@@ -617,7 +603,6 @@
     ],
     "metadata": {
       "type": "photos",
-      "hidden": false,
       "date": "2018-12-14T10:00:16.000Z",
       "modified": "2024-08-01T14:21:46.000Z",
       "tags": [
@@ -688,6 +673,7 @@
         "watercolor",
         "inspiration"
       ],
+      "unlisted": true,
       "words": 539,
       "images": 0,
       "imageDetails": {
@@ -723,7 +709,6 @@
     "title": "Work View / Life View",
     "date": "2018-09-30T21:58:20-04:00",
     "type": "words",
-    "hidden": false,
     "dek": "In which the author explores the meaning of life and work",
     "tags": [
       "advice",
@@ -781,8 +766,6 @@
     "metadata": {
       "dek": "In which the author explores the meaning of life and work",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "date": "2018-09-30T21:58:20-04:00",
       "tags": [
         "advice",
@@ -799,7 +782,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 1,
+      "links": 2,
       "codeBlocks": 0,
       "headers": {
         "h1": 1
@@ -857,7 +840,6 @@
     "title": "NYC’s Climate March",
     "date": "2019-09-20T21:19:39-04:00",
     "type": "photo",
-    "hidden": false,
     "dek": "In which the youths march through the street with extremely clever signs since they are too young to riot",
     "tags": [
       "activism",
@@ -875,8 +857,6 @@
     "metadata": {
       "dek": "In which the youths march through the street with extremely clever signs since they are too young to riot",
       "type": "photo",
-      "hidden": false,
-      "inprogress": false,
       "date": "2019-09-20T21:19:39-04:00",
       "tags": [
         "activism",
@@ -952,7 +932,6 @@
     "metadata": {
       "type": "words",
       "hidden": true,
-      "inprogress": true,
       "date": "2019-03-24T08:00:33.000Z",
       "tags": [
         "generative",
@@ -964,6 +943,7 @@
         "coding"
       ],
       "modified": "2024-09-23T16:13:04.000Z",
+      "unlisted": true,
       "words": 302,
       "images": 0,
       "imageDetails": {
@@ -1011,7 +991,6 @@
     "title": "Hong Kong Protest Techniques",
     "date": "2019-08-14T08:00:39.000Z",
     "type": "words",
-    "hidden": false,
     "dek": "In which the citizens of Hong Kong find new creative ways to improve on public disobedience",
     "modified": "2025-07-01T03:40:19.000Z",
     "tags": [
@@ -1031,8 +1010,6 @@
     "metadata": {
       "dek": "In which the citizens of Hong Kong find new creative ways to improve on public disobedience",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "date": "2019-08-14T08:00:39.000Z",
       "modified": "2025-07-01T03:40:19.000Z",
       "tags": [
@@ -1069,7 +1046,6 @@
     "title": "How I prototype apps and dataviz quickly",
     "date": "2019-03-20T01:25:22.000Z",
     "type": "words",
-    "hidden": false,
     "modified": "2024-09-23T16:13:36.000Z",
     "tags": [
       "vue",
@@ -1113,8 +1089,6 @@
     ],
     "metadata": {
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "date": "2019-03-20T01:25:22.000Z",
       "modified": "2024-09-23T16:13:36.000Z",
       "tags": [
@@ -1131,7 +1105,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 13,
+      "links": 15,
       "codeBlocks": 3,
       "headers": {
         "h2": 1
@@ -1177,7 +1151,6 @@
     "title": "Linocut printing for a bright future",
     "date": "2019-08-18T08:00:39.000Z",
     "type": "words",
-    "hidden": false,
     "dek": "In which the author explains his reasoning for exploring analog methods of distributing information with ink and linoleum, and provides a guide on how to do so yourself if so inclined",
     "modified": "2024-09-23T16:13:27.000Z",
     "tags": [
@@ -1205,8 +1178,6 @@
     "metadata": {
       "dek": "In which the author explains his reasoning for exploring analog methods of distributing information with ink and linoleum, and provides a guide on how to do so yourself if so inclined",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "date": "2019-08-18T08:00:39.000Z",
       "modified": "2024-09-23T16:13:27.000Z",
       "tags": [
@@ -1251,7 +1222,6 @@
     "title": "Movies to Watch",
     "date": "2019-06-13T08:00:39.000Z",
     "type": "words",
-    "hidden": false,
     "dek": "In which the author divulges a shameful secret",
     "modified": "2024-06-21T14:12:52.000Z",
     "tags": [
@@ -1270,8 +1240,6 @@
     "metadata": {
       "dek": "In which the author divulges a shameful secret",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "date": "2019-06-13T08:00:39.000Z",
       "modified": "2024-06-21T14:12:52.000Z",
       "tags": [
@@ -1307,7 +1275,6 @@
     "title": "Step Zero",
     "date": "2019-06-12T17:40:00-04:00",
     "type": "words",
-    "hidden": false,
     "dek": "In which the author makes the case for the merits of a certain approach to preparation",
     "tags": [
       "advice",
@@ -1325,8 +1292,6 @@
     "metadata": {
       "dek": "In which the author makes the case for the merits of a certain approach to preparation",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "date": "2019-06-12T17:40:00-04:00",
       "tags": [
         "advice",
@@ -1361,7 +1326,6 @@
     "title": "Taking things for granted",
     "date": "2019-06-14T15:27:00-04:00",
     "type": "words",
-    "hidden": false,
     "dek": "In which the author attempts to dissuade you from the belief things will always be the way they are now",
     "tags": [
       "advice",
@@ -1378,8 +1342,6 @@
     "metadata": {
       "dek": "In which the author attempts to dissuade you from the belief things will always be the way they are now",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "date": "2019-06-14T15:27:00-04:00",
       "tags": [
         "advice",
@@ -1413,7 +1375,6 @@
     "title": "The Internet Was Built To Be Hacked",
     "date": "2019-02-01T10:00:56.000Z",
     "type": "words",
-    "hidden": false,
     "dek": "In which the author is grateful for the hackers who invented the internet",
     "modified": "2024-10-12T23:52:51.000Z",
     "tags": [
@@ -1433,8 +1394,6 @@
     "metadata": {
       "dek": "In which the author is grateful for the hackers who invented the internet",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "date": "2019-02-01T10:00:56.000Z",
       "modified": "2024-10-12T23:52:51.000Z",
       "tags": [
@@ -1471,7 +1430,6 @@
     "title": "Always Have Two Reasons for Something",
     "date": "2019-08-05T08:00:00.000Z",
     "type": "words",
-    "hidden": false,
     "dek": "In which the author discloses a peculiar and  dysfunctional part of his mind.",
     "modified": "2023-12-02T01:04:54.000Z",
     "tags": [
@@ -1490,8 +1448,6 @@
     "metadata": {
       "dek": "In which the author discloses a peculiar and  dysfunctional part of his mind.",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "date": "2019-08-05T08:00:00.000Z",
       "modified": "2023-12-02T01:04:54.000Z",
       "tags": [
@@ -1527,7 +1483,6 @@
     "title": "Attempting to find unsecured ICE cameras",
     "date": "2019-03-24T08:00:39.000Z",
     "type": "words",
-    "hidden": false,
     "dek": "In which the author attempts and fails to find interesting unsecured webcams near known ICE facilities",
     "modified": "2024-09-23T16:13:18.000Z",
     "tags": [
@@ -1571,8 +1526,6 @@
     "metadata": {
       "dek": "In which the author attempts and fails to find interesting unsecured webcams near known ICE facilities",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "date": "2019-03-24T08:00:39.000Z",
       "modified": "2024-09-23T16:13:18.000Z",
       "tags": [
@@ -1587,7 +1540,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 12,
+      "links": 13,
       "codeBlocks": 0,
       "headers": {
         "h2": 3
@@ -1633,7 +1586,6 @@
     "title": "A summer of live streamed coding",
     "date": "2020-10-08T08:00:52.000Z",
     "type": "words",
-    "hidden": false,
     "dek": "In which the skill of broadcasting yourself writing code to the entire internet is explored",
     "modified": "2024-09-23T16:12:59.000Z",
     "tags": [
@@ -1686,8 +1638,6 @@
     "metadata": {
       "date": "2020-10-08T08:00:52.000Z",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "dek": "In which the skill of broadcasting yourself writing code to the entire internet is explored",
       "tags": [
         "livestream",
@@ -1757,7 +1707,6 @@
     "title": "Online Nazis Have Figured Out How To Game Twitter",
     "date": "2020-02-14T21:19:39-04:00",
     "type": "words",
-    "hidden": false,
     "dek": "The newest weapon in the arsenal of internet nazis is mass-brigading Twitter reports, and it’s working",
     "tags": [
       "activism",
@@ -1776,8 +1725,6 @@
     "metadata": {
       "dek": "The newest weapon in the arsenal of internet nazis is mass-brigading Twitter reports, and it’s working",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "date": "2020-02-14T21:19:39-04:00",
       "tags": [
         "activism",
@@ -1813,7 +1760,6 @@
     "title": "Things I've learned about elections",
     "date": "2020-02-09T03:19:38.000Z",
     "type": "words",
-    "hidden": false,
     "dek": "In which we explore the knotted beauty of American democracy",
     "modified": "2024-09-23T16:13:21.000Z",
     "tags": [
@@ -1896,8 +1842,6 @@
     "metadata": {
       "dek": "In which we explore the knotted beauty of American democracy",
       "type": "words",
-      "hidden": false,
-      "inprogress": true,
       "date": "2020-02-09T03:19:38.000Z",
       "modified": "2024-09-23T16:13:21.000Z",
       "tags": [
@@ -1915,7 +1859,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 71,
+      "links": 73,
       "codeBlocks": 0,
       "headers": {
         "h2": 1
@@ -1997,7 +1941,6 @@
     "title": "Generative Art",
     "date": "2021-02-10T10:00:45.000Z",
     "type": "words",
-    "hidden": false,
     "dek": "In which a computer is used as divination tool for random numbers (for the purposes of beauty, art, and poetry)",
     "modified": "2024-09-23T16:13:15.000Z",
     "tags": [
@@ -2036,8 +1979,6 @@
     "metadata": {
       "date": "2021-02-10T10:00:45.000Z",
       "type": "words",
-      "hidden": false,
-      "inprogress": true,
       "dek": "In which a computer is used as divination tool for random numbers (for the purposes of beauty, art, and poetry)",
       "modified": "2024-09-23T16:13:15.000Z",
       "tags": [
@@ -2093,7 +2034,6 @@
     "title": "The Lack of Data",
     "date": "2021-05-17T08:00:10.000Z",
     "type": "words",
-    "hidden": false,
     "dek": "An exploration of what we choose to track, and what we don't – and what that means if we want to make the world a better place",
     "modified": "2024-09-27T17:44:44.000Z",
     "tags": [
@@ -2115,8 +2055,6 @@
     "metadata": {
       "date": "2021-05-17T08:00:10.000Z",
       "type": "words",
-      "hidden": false,
-      "inprogress": true,
       "dek": "An exploration of what we choose to track, and what we don't – and what that means if we want to make the world a better place",
       "modified": "2024-09-27T17:44:44.000Z",
       "tags": [
@@ -2155,7 +2093,6 @@
     "title": "Finding Clusters of NYPD Officers In CCRB Complaint Data",
     "date": "2021-06-11T08:00:17.000Z",
     "type": "words",
-    "hidden": false,
     "dek": "In which various tools and methods are explored for analyzing data that describes a network of complaints against NYPD officers (or any other PD with similar public data)",
     "modified": "2024-09-23T16:13:24.000Z",
     "tags": [
@@ -2230,8 +2167,6 @@
     "metadata": {
       "date": "2021-06-11T08:00:17.000Z",
       "type": "words",
-      "hidden": false,
-      "inprogress": false,
       "dek": "In which various tools and methods are explored for analyzing data that describes a network of complaints against NYPD officers (or any other PD with similar public data)",
       "modified": "2024-09-23T16:13:24.000Z",
       "tags": [
@@ -2247,7 +2182,7 @@
         "cloudinary": 0,
         "withDimensions": 0
       },
-      "links": 16,
+      "links": 17,
       "codeBlocks": 24,
       "headers": {
         "h2": 1
@@ -2376,7 +2311,6 @@
     "metadata": {
       "draft": false,
       "dek": "In which the author talks through his DIY art studio setup, and encourages you tou create your own",
-      "inprogress": false,
       "date": "2022-12-23T16:12:28.000Z",
       "modified": "2024-09-20T04:18:41.000Z",
       "tags": [
@@ -2469,7 +2403,7 @@
         "coding",
         "media"
       ],
-      "words": 1595,
+      "words": 1582,
       "images": 5,
       "imageDetails": {
         "total": 5,
@@ -2547,7 +2481,6 @@
     ],
     "metadata": {
       "dek": "In which we delve into the artistry of live looping, illuminating the core concepts and essential gear that enable musicians to create immersive soundscapes on the fly",
-      "inprogress": true,
       "date": "2022-11-02T23:59:14.000Z",
       "modified": "2024-09-23T16:13:12.000Z",
       "tags": [
@@ -2659,7 +2592,6 @@
     ],
     "metadata": {
       "dek": "In which the author tries to put good food in his body",
-      "inprogress": true,
       "date": "2022-12-28T18:20:58.000Z",
       "modified": "2024-05-15T18:02:51.000Z",
       "tags": [
@@ -2951,7 +2883,6 @@
     ],
     "metadata": {
       "dek": "In which we use joy and curiosity as fuel to propel us forward",
-      "inprogress": true,
       "date": "2022-11-03T00:06:51.000Z",
       "modified": "2024-10-29T18:10:00.000Z",
       "tags": [
@@ -3105,7 +3036,6 @@
       "date": "2022-11-03T00:01:31.000Z",
       "modified": "2024-09-20T04:25:08.000Z",
       "dek": "In which we go into detail about how to write code to accomplish a goal",
-      "inprogress": true,
       "tags": [
         "personal",
         "process",
@@ -3113,7 +3043,7 @@
         "project",
         "coding"
       ],
-      "words": 2457,
+      "words": 2443,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -3274,6 +3204,7 @@
         "tool",
         "visualization"
       ],
+      "unlisted": true,
       "words": 1361,
       "images": 0,
       "imageDetails": {
@@ -3651,7 +3582,6 @@
     ],
     "metadata": {
       "dek": "In which the author's adoration for Obsidian is revealed, celebrating its versatility, customizability, and ingenuity in organizing the written word",
-      "inprogress": true,
       "date": "2023-04-04T18:48:13.000Z",
       "modified": "2024-09-20T04:20:58.000Z",
       "tags": [
@@ -3929,6 +3859,7 @@
       "date": "2024-01-01T05:00:00.000Z",
       "modified": "2024-09-23T16:12:56.000Z",
       "hidden": true,
+      "unlisted": true,
       "words": 4721,
       "images": 0,
       "imageDetails": {
@@ -4201,14 +4132,14 @@
         "howto",
         "politics"
       ],
-      "words": 2227,
+      "words": 2131,
       "images": 12,
       "imageDetails": {
         "total": 12,
         "cloudinary": 12,
         "withDimensions": 0
       },
-      "links": 31,
+      "links": 44,
       "codeBlocks": 1,
       "headers": {
         "h2": 8
@@ -4348,7 +4279,6 @@
     ],
     "metadata": {
       "dek": "In which the strange marriage of language, mathematics, and machine cognition gives rise to 'unspeakable tokens'—words that our AI companions cannot repeat—and we are left to wonder if these are merely glitches, or if the machines are hiding their dreams in tokens forged from deep, strange corners of the internet",
-      "inprogress": true,
       "date": "2024-10-20T19:17:05.000Z",
       "modified": "2024-12-24T04:58:23.000Z",
       "tags": [
@@ -4364,7 +4294,7 @@
         "cloudinary": 4,
         "withDimensions": 0
       },
-      "links": 47,
+      "links": 48,
       "codeBlocks": 0,
       "headers": {
         "h2": 3
@@ -4484,7 +4414,6 @@
       "date": "2025-01-18T20:39:48.000Z",
       "modified": "2025-01-24T15:28:19.000Z",
       "dek": "In which our Narrator contemplates the Art of Preparation whilst tending to his Wood-stove, discovers Hidden Networks of Motorcyclists and Radio Operators in the Hudson Valley, and arrives at certain Conclusions regarding the Nature of Community and Service",
-      "inprogress": true,
       "tags": [
         "personal",
         "motorcycle",
@@ -4493,7 +4422,7 @@
         "process",
         "nature"
       ],
-      "words": 2100,
+      "words": 2104,
       "images": 3,
       "imageDetails": {
         "total": 3,
@@ -4564,7 +4493,6 @@
     ],
     "metadata": {
       "dek": "In which we the author gets his bearings by doing one of the things he knows best; making a map",
-      "inprogress": true,
       "tags": [
         "embeddings",
         "cartography",
@@ -4572,7 +4500,7 @@
       ],
       "date": "2025-03-25T04:12:41.000Z",
       "modified": "2025-03-27T20:12:50.000Z",
-      "words": 825,
+      "words": 763,
       "images": 8,
       "imageDetails": {
         "total": 8,
@@ -4645,7 +4573,6 @@
     ],
     "metadata": {
       "dek": "In which the author rescues his most precious digital media from a server that he does not own or control",
-      "inprogress": true,
       "tags": [
         "data",
         "photos",
@@ -4767,14 +4694,13 @@
       "modified": "2025-03-16T01:25:05.000Z",
       "title": "Processing Telegram Leaks for Fast Web Visualization",
       "dek": "In which I describe my workflow for transforming a Telegram database dump into a web-friendly format for analysis and visualization",
-      "inprogress": true,
       "tags": [
         "data",
         "dataviz",
         "journalism",
         "politics"
       ],
-      "words": 782,
+      "words": 725,
       "images": 6,
       "imageDetails": {
         "total": 6,
@@ -5211,7 +5137,14 @@
       "ios",
       "health"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "MorningRadio",
+        "slug": "morningradio",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "title": "MorningRadio",
       "date": "2025-08-10T04:00:00.000Z",
@@ -5230,7 +5163,7 @@
         "ios",
         "health"
       ],
-      "words": 104,
+      "words": 106,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -5239,8 +5172,17 @@
       },
       "links": 2,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "MorningRadio",
+          "slug": "morningradio",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "slug": "projects/MorningRadio"
     }
@@ -5402,6 +5344,7 @@
         "product",
         "nodejs"
       ],
+      "about": "[[project-notes/coach-artie]]",
       "words": 127,
       "images": 1,
       "imageDetails": {
@@ -5478,6 +5421,7 @@
         "network",
         "web"
       ],
+      "about": "[[project-notes/connectology]]",
       "words": 336,
       "images": 3,
       "imageDetails": {
@@ -6187,7 +6131,14 @@
       "ai",
       "web"
     ],
-    "toc": [],
+    "toc": [
+      {
+        "text": "Smallbot MCP",
+        "slug": "smallbot-mcp",
+        "level": "h2",
+        "children": []
+      }
+    ],
     "metadata": {
       "title": "Smallbot MCP",
       "date": "2025-08-02T04:00:00.000Z",
@@ -6207,7 +6158,7 @@
         "ai",
         "web"
       ],
-      "words": 156,
+      "words": 159,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -6216,8 +6167,17 @@
       },
       "links": 6,
       "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "Smallbot MCP",
+          "slug": "smallbot-mcp",
+          "level": "h2",
+          "children": []
+        }
+      ],
       "type": "post",
       "slug": "projects/smallbot-mcp"
     }
@@ -21401,6 +21361,107 @@
       ],
       "type": "post",
       "slug": "week-notes/2026-03"
+    }
+  },
+  {
+    "slug": "week-notes/2026-21",
+    "title": "2026-21",
+    "date": "2026-05-18T14:00:00.000Z",
+    "type": "post",
+    "modified": "2026-05-18T14:00:00.000Z",
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "toc": [
+      {
+        "text": "2026-21",
+        "slug": "2026-21",
+        "level": "h2",
+        "children": [
+          {
+            "text": "What happened this week",
+            "slug": "what-happened-this-week",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What I made / shipped",
+            "slug": "what-i-made--shipped",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What I learned",
+            "slug": "what-i-learned",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Media consumed",
+            "slug": "-media-consumed",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "tags": [
+        "weekly-notes",
+        "reflections",
+        "progress"
+      ],
+      "date": "2026-05-18T14:00:00.000Z",
+      "modified": "2026-05-18T14:00:00.000Z",
+      "words": 588,
+      "images": 0,
+      "imageDetails": {
+        "total": 0,
+        "cloudinary": 0,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 1
+      },
+      "toc": [
+        {
+          "text": "2026-21",
+          "slug": "2026-21",
+          "level": "h2",
+          "children": [
+            {
+              "text": "What happened this week",
+              "slug": "what-happened-this-week",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "What I made / shipped",
+              "slug": "what-i-made--shipped",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "What I learned",
+              "slug": "what-i-learned",
+              "level": "h3",
+              "children": []
+            },
+            {
+              "text": "📚 Media consumed",
+              "slug": "-media-consumed",
+              "level": "h3",
+              "children": []
+            }
+          ]
+        }
+      ],
+      "type": "post",
+      "slug": "week-notes/2026-21"
     }
   }
 ]

@@ -1,0 +1,36 @@
+name: Sealed-post guard
+
+# Every branch and every PR, NOT just main. A plaintext push to a feature
+# branch of a public repo is already public — waiting until it reaches main is
+# waiting until after the leak.
+#
+# Needs no secrets and no key: it only inspects what is tracked. That is the
+# design working as intended — the GitHub Actions runner is never trusted with
+# a sealed post's plaintext and never holds a key, so a fork PR, a compromised
+# action, or a leaked repo secret cannot open one.
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # chalk only; a full `yarn install` would be a minute of CI for a check
+      # that has to be fast enough that nobody is tempted to skip it.
+      - run: npm install --no-save chalk@5
+
+      - name: No sealed plaintext, no keyring, envelope-only JSON
+        run: node scripts/meta/check-sealed.mjs
+
+      - name: Frontmatter safety
+        run: |
+          npm install --no-save gray-matter@4
+          node scripts/meta/lint-frontmatter-safety.mjs

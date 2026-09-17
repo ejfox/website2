@@ -21,7 +21,7 @@
     "blog:check-links": "CHECK_LINKS=true DEBUG=true node scripts/build/processMarkdown.mjs",
     "blog:dead-links": "node scripts/meta/check-internal-links.mjs",
     "blog:fix-links": "CHECK_LINKS=true AUTO_FIX_LINKS=true DEBUG=true node scripts/build/processMarkdown.mjs",
-    "blog": "npm run blog:import && npm run lint:safety && npm run blog:process",
+    "blog": "npm run blog:import && npm run lint:safety && npm run blog:process && npm run check:sealed",
     "blog:preview": "DRY_RUN=true node scripts/blog/import.mjs",
     "blog:watch": "bash scripts/blog/watch.sh",
     "publish": "bash scripts/blog/publish.sh",
@@ -38,7 +38,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare",
+    "postinstall": "nuxt prepare && (git config core.hooksPath .githooks || true)",
     "test": "vitest run",
     "test:watch": "vitest",
     "start": "node .output/server/index.mjs",
@@ -48,7 +48,12 @@
     "deploy": "git push origin main && echo '🚀 GH Actions builds + deploys on push to main (~3 min)'",
     "capture": "node scripts/capture.mjs",
     "shoot": "node scripts/author/shoot-queue.mjs",
-    "rides:process": "node scripts/build/process-rides.mjs"
+    "rides:process": "node scripts/build/process-rides.mjs",
+    "check:sealed": "node scripts/meta/check-sealed.mjs",
+    "seal:links": "node scripts/author/seal-links.mjs",
+    "seal:import": "node scripts/blog/import-sealed.mjs",
+    "seal": "npm run seal:import && npm run blog:process && npm run check:sealed",
+    "meta:frontmatter-sync": "node scripts/meta/frontmatter-sync-report.mjs"
   },
   "devDependencies": {
     "@nuxt/eslint": "^1.10.0",

@@ -1,0 +1,120 @@
+{
+  "name": "music-cli",
+  "description": "Terminal CLI for managing audio in Cloudflare R2 + TP-7 import workflow",
+  "url": "https://github.com/ejfox/music-cli",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "Shell",
+  "languageColor": "#89e051",
+  "languages": {
+    "Shell": 36308,
+    "TypeScript": 3188,
+    "Liquidsoap": 1285
+  },
+  "diskUsage": 20,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".gitignore",
+        "size": 28
+      },
+      {
+        "path": "LICENSE",
+        "size": 1063
+      },
+      {
+        "path": "README.md",
+        "size": 3642
+      },
+      {
+        "path": "bin/music",
+        "size": 36308
+      },
+      {
+        "path": "server/radio/landing-main.ts",
+        "size": 3188
+      },
+      {
+        "path": "server/radio/radio.liq",
+        "size": 1285
+      }
+    ],
+    "tree": {
+      "name": "music-cli",
+      "children": [
+        {
+          "name": "bin",
+          "children": [
+            {
+              "name": "music",
+              "size": 36308,
+              "path": "bin/music"
+            }
+          ],
+          "path": "bin"
+        },
+        {
+          "name": "server",
+          "children": [
+            {
+              "name": "radio",
+              "children": [
+                {
+                  "name": "landing-main.ts",
+                  "size": 3188,
+                  "path": "server/radio/landing-main.ts"
+                },
+                {
+                  "name": "radio.liq",
+                  "size": 1285,
+                  "path": "server/radio/radio.liq"
+                }
+              ],
+              "path": "server/radio"
+            }
+          ],
+          "path": "server"
+        },
+        {
+          "name": ".gitignore",
+          "size": 28,
+          "path": ".gitignore"
+        },
+        {
+          "name": "LICENSE",
+          "size": 1063,
+          "path": "LICENSE"
+        },
+        {
+          "name": "README.md",
+          "size": 3642,
+          "path": "README.md"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 6,
+    "totalSize": 45514
+  },
+  "defaultBranch": "main",
+  "license": {
+    "spdxId": "MIT",
+    "name": "MIT License",
+    "url": "http://choosealicense.com/licenses/mit/"
+  },
+  "latestRelease": null,
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"music\">music</h1>\n<p>Terminal CLI for managing audio in a Cloudflare R2 bucket, with a TP-7 import workflow.</p>\n<p>Reads R2 directly for instant truth; writes go through wrangler. Powers <a href=\"https://music.tools.ejfox.com\">music.tools.ejfox.com</a>.</p>\n<h2 id=\"install\">Install</h2>\n<pre><code class=\"language-bash\">mkdir -p ~/bin\ncurl -fsSL https://raw.githubusercontent.com/ejfox/music-cli/main/bin/music -o ~/bin/music\nchmod +x ~/bin/music\n~/bin/music setup\n</code></pre>\n<p>(Last line uses the absolute path so it works even if <code>~/bin</code> isn't on your <code>$PATH</code> yet.)</p>\n<p><code>music setup</code> will:</p>\n<ul>\n<li>Install missing deps via Homebrew (<code>ffmpeg</code>, <code>jq</code>, <code>awscli</code>, <code>node</code>)</li>\n<li><code>npm install -g wrangler</code> and run <code>wrangler login</code> if needed</li>\n<li>Prompt for R2 credentials (pulls from 1Password automatically if <code>op</code> is signed in)</li>\n<li>Offer to install a LaunchAgent that auto-runs <code>music import</code> when a TP-7 mounts</li>\n</ul>\n<p>Requires macOS + Homebrew. zsh.</p>\n<h2 id=\"quick-reference\">Quick reference</h2>\n<pre><code>music                          list all tracks, grouped by album\nmusic ls [filter]              list (optionally filter by substring)\nmusic homeless                 tracks not in an album folder\nmusic albums                   list album names only\nmusic mv &lt;track&gt; [album]       move a track (fuzzy matched)\nmusic rm &lt;track&gt;               delete (strong confirm: type filename)\nmusic put &lt;local&gt; [album]      upload a local .mp3/.wav\nmusic get &lt;track&gt; [out]        download a track\nmusic convert &lt;local.wav&gt;      local WAV → MP3 (next to source, no R2)\nmusic info &lt;track&gt;             ffprobe metadata for an R2 track\nmusic import &lt;dir&gt;             walk a folder, ask category per file, tag + upload\nmusic new-album &lt;name&gt;         create a new album folder\n\nmusic setup                    install deps + LaunchAgent\nmusic login                    store R2 credentials\nmusic install-watcher          install just the TP-7 mount LaunchAgent\nmusic uninstall-watcher        remove the LaunchAgent\nmusic help                     this help\n</code></pre>\n<p>Flags: <code>-y/--yes</code> (skip confirms), <code>--json</code> (machine-readable output), <code>--mp3</code> (force convert on put), <code>--bitrate &lt;rate&gt;</code> (default 192k).</p>\n<h2 id=\"tp-7-workflow\">TP-7 workflow</h2>\n<p>Plug in your TP-7. The LaunchAgent fires when a volume named <code>TP-7</code> (or similar) mounts under <code>/Volumes/</code>, sends a macOS notification, and opens Terminal with <code>music import /Volumes/TP-7/</code> running.</p>\n<p>For each audio file the importer asks:</p>\n<pre><code>[1/12] REC_001.wav (2:34, 24.5 MB, 2026-05-17)\n  [m]usic  [f]ield  [s]peech-archive  [k]eep-and-skip  (default m): m\n  album [music/2026-spring-modular]:                                 ← enter to reuse, type new to switch\n  plan: convert → tag → upload\n    source: /Volumes/TP-7/REC_001.wav\n    dest:   music/2026-spring-modular/REC_001.mp3\n    tags:   title=\"REC 001\" album=\"2026-spring-modular\" date=2026-05-17 artist=ejfox\n  go? [y/N]\n</code></pre>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>category</th><th>destination</th></tr></thead><tbody><tr><td><strong>music</strong></td><td><code>music/&lt;album&gt;/&lt;name&gt;.mp3</code> (album default = last used, persisted in <code>~/.config/music/state.json</code>)</td></tr><tr><td><strong>field</strong></td><td><code>field-recordings/&lt;name&gt;.mp3</code></td></tr><tr><td><strong>speech-archive</strong></td><td>local <code>mv</code> to <code>~/Music/voicememos/&lt;date&gt;-&lt;original&gt;.wav</code> (no R2 touch)</td></tr><tr><td><strong>keep-and-skip</strong></td><td>source file untouched, no upload</td></tr></tbody></table>\n<p>Music + field files are converted WAV→MP3 with ID3 tags (title, album, date, artist) before upload.</p>\n<h2 id=\"files\">Files</h2>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<table><thead><tr><th>path</th><th>what</th></tr></thead><tbody><tr><td><code>~/bin/music</code></td><td>the script</td></tr><tr><td><code>~/.config/music/.env</code></td><td>R2 credentials (chmod 600)</td></tr><tr><td><code>~/.config/music/state.json</code></td><td>last-used album, per-machine</td></tr><tr><td><code>~/.local/share/music-cli/tp7-mount-handler.sh</code></td><td>LaunchAgent payload</td></tr><tr><td><code>~/Library/LaunchAgents/com.ejfox.music-tp7-watch.plist</code></td><td>LaunchAgent plist</td></tr><tr><td><code>~/Music/voicememos/</code></td><td>local archive for speech-classified files</td></tr></tbody></table>\n<h2 id=\"license\">License</h2>\n<p>MIT.</p>",
+    "raw": "# music\n\nTerminal CLI for managing audio in a Cloudflare R2 bucket, with a TP-7 import workflow.\n\nReads R2 directly for instant truth; writes go through wrangler. Powers [music.tools.ejfox.com](https://music.tools.ejfox.com).\n\n## Install\n\n```bash\nmkdir -p ~/bin\ncurl -fsSL https://raw.githubusercontent.com/ejfox/music-cli/main/bin/music -o ~/bin/music\nchmod +x ~/bin/music\n~/bin/music setup\n```\n\n(Last line uses the absolute path so it works even if `~/bin` isn't on your `$PATH` yet.)\n\n`music setup` will:\n- Install missing deps via Homebrew (`ffmpeg`, `jq`, `awscli`, `node`)\n- `npm install -g wrangler` and run `wrangler login` if needed\n- Prompt for R2 credentials (pulls from 1Password automatically if `op` is signed in)\n- Offer to install a LaunchAgent that auto-runs `music import` when a TP-7 mounts\n\nRequires macOS + Homebrew. zsh.\n\n## Quick reference\n\n```\nmusic                          list all tracks, grouped by album\nmusic ls [filter]              list (optionally filter by substring)\nmusic homeless                 tracks not in an album folder\nmusic albums                   list album names only\nmusic mv <track> [album]       move a track (fuzzy matched)\nmusic rm <track>               delete (strong confirm: type filename)\nmusic put <local> [album]      upload a local .mp3/.wav\nmusic get <track> [out]        download a track\nmusic convert <local.wav>      local WAV → MP3 (next to source, no R2)\nmusic info <track>             ffprobe metadata for an R2 track\nmusic import <dir>             walk a folder, ask category per file, tag + upload\nmusic new-album <name>         create a new album folder\n\nmusic setup                    install deps + LaunchAgent\nmusic login                    store R2 credentials\nmusic install-watcher          install just the TP-7 mount LaunchAgent\nmusic uninstall-watcher        remove the LaunchAgent\nmusic help                     this help\n```\n\nFlags: `-y/--yes` (skip confirms), `--json` (machine-readable output), `--mp3` (force convert on put), `--bitrate <rate>` (default 192k).\n\n## TP-7 workflow\n\nPlug in your TP-7. The LaunchAgent fires when a volume named `TP-7` (or similar) mounts under `/Volumes/`, sends a macOS notification, and opens Terminal with `music import /Volumes/TP-7/` running.\n\nFor each audio file the importer asks:\n\n```\n[1/12] REC_001.wav (2:34, 24.5 MB, 2026-05-17)\n  [m]usic  [f]ield  [s]peech-archive  [k]eep-and-skip  (default m): m\n  album [music/2026-spring-modular]:                                 ← enter to reuse, type new to switch\n  plan: convert → tag → upload\n    source: /Volumes/TP-7/REC_001.wav\n    dest:   music/2026-spring-modular/REC_001.mp3\n    tags:   title=\"REC 001\" album=\"2026-spring-modular\" date=2026-05-17 artist=ejfox\n  go? [y/N]\n```\n\n| category | destination |\n|---|---|\n| **music** | `music/<album>/<name>.mp3` (album default = last used, persisted in `~/.config/music/state.json`) |\n| **field** | `field-recordings/<name>.mp3` |\n| **speech-archive** | local `mv` to `~/Music/voicememos/<date>-<original>.wav` (no R2 touch) |\n| **keep-and-skip** | source file untouched, no upload |\n\nMusic + field files are converted WAV→MP3 with ID3 tags (title, album, date, artist) before upload.\n\n## Files\n\n| path | what |\n|---|---|\n| `~/bin/music` | the script |\n| `~/.config/music/.env` | R2 credentials (chmod 600) |\n| `~/.config/music/state.json` | last-used album, per-machine |\n| `~/.local/share/music-cli/tp7-mount-handler.sh` | LaunchAgent payload |\n| `~/Library/LaunchAgents/com.ejfox.music-tp7-watch.plist` | LaunchAgent plist |\n| `~/Music/voicememos/` | local archive for speech-classified files |\n\n## License\n\nMIT.\n",
+    "excerpt": "Terminal CLI for managing audio in a Cloudflare R2 bucket, with a TP-7 import workflow.\n\nReads R2 directly for instant truth; writes go through wrangler. Powers..."
+  },
+  "createdAt": "2026-05-17T22:13:51Z",
+  "updatedAt": "2026-05-18T01:19:52Z",
+  "pushedAt": "2026-05-18T01:19:49Z"
+}
