@@ -5239,6 +5239,43 @@
     }
   },
   {
+    "slug": "projects/clipgoblin",
+    "title": "Clipgoblin",
+    "date": "2026-04-29T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Clipgoblin",
+      "date": "2026-04-29T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "tech": [
+        "Swift"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 163,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/clipgoblin"
+    }
+  },
+  {
     "slug": "projects/cloudinary-backup-tool",
     "title": "Cloudinary Backup Tool",
     "date": "2025-01-15T05:00:00.000Z",
@@ -5550,6 +5587,51 @@
     }
   },
   {
+    "slug": "projects/cyberdeck-saver",
+    "title": "cyberdeck-saver",
+    "date": "2026-04-20T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "macos",
+      "osint",
+      "design"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "cyberdeck-saver",
+      "date": "2026-04-20T04:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/cyberdeck-saver",
+      "tech": [
+        "Swift",
+        "Metal",
+        "macOS",
+        "OSINT"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "macos",
+        "osint",
+        "design"
+      ],
+      "words": 269,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/cyberdeck-saver"
+    }
+  },
+  {
     "slug": "projects/dataproofer",
     "title": "Dataproofer",
     "date": "2015-11-03T05:00:00.000Z",
@@ -5695,6 +5777,53 @@
     }
   },
   {
+    "slug": "projects/gem-viz",
+    "title": "Global Energy Ownership Tracker",
+    "date": "2026-05-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "dataviz",
+      "network",
+      "energy",
+      "climate"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Global Energy Ownership Tracker",
+      "date": "2026-05-01T04:00:00.000Z",
+      "category": "Dataviz",
+      "featured": true,
+      "tech": [
+        "D3.js",
+        "Network Analysis",
+        "Data Visualization"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "context": "client",
+      "url": "https://globalenergymonitor.org/projects/global-energy-ownership-tracker",
+      "tags": [
+        "dataviz",
+        "network",
+        "energy",
+        "climate"
+      ],
+      "words": 358,
+      "images": 8,
+      "imageDetails": {
+        "total": 8,
+        "cloudinary": 6,
+        "withDimensions": 0
+      },
+      "links": 9,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/gem-viz"
+    }
+  },
+  {
     "slug": "projects/hexagram-motion-graphics",
     "title": "I Ching Motion Graphics",
     "date": "2026-05-01T04:00:00.000Z",
@@ -5780,6 +5909,55 @@
       "toc": [],
       "type": "post",
       "slug": "projects/motorcycle-pico8"
+    }
+  },
+  {
+    "slug": "projects/motorcycle-viz",
+    "title": "Motorcycle Meta-Visualizations",
+    "date": "2026-05-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "motorcycle",
+      "dataviz",
+      "generative",
+      "art",
+      "video"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Motorcycle Meta-Visualizations",
+      "date": "2026-05-01T04:00:00.000Z",
+      "category": "Art",
+      "featured": true,
+      "url": "https://github.com/ejfox/motorcycle-viz",
+      "tech": [
+        "FFmpeg",
+        "Python",
+        "Generative Art",
+        "Data Visualization"
+      ],
+      "state": "doing",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "motorcycle",
+        "dataviz",
+        "generative",
+        "art",
+        "video"
+      ],
+      "words": 472,
+      "images": 10,
+      "imageDetails": {
+        "total": 10,
+        "cloudinary": 10,
+        "withDimensions": 0
+      },
+      "links": 10,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/motorcycle-viz"
     }
   },
   {
@@ -6269,6 +6447,48 @@
       "toc": [],
       "type": "post",
       "slug": "projects/subway-builder"
+    }
+  },
+  {
+    "slug": "projects/tv-station",
+    "title": "TV Station",
+    "date": "2026-05-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "web",
+      "experiment"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "TV Station",
+      "date": "2026-05-01T04:00:00.000Z",
+      "category": "Art",
+      "featured": false,
+      "url": "https://tv.tools.ejfox.com",
+      "tech": [
+        "TypeScript",
+        "Deno",
+        "Smallweb"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "web",
+        "experiment"
+      ],
+      "words": 250,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 4,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/tv-station"
     }
   },
   {

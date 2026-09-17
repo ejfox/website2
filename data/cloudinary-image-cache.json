@@ -388,5 +388,155 @@
     "alt": "Gear System",
     "caption": "Gear System",
     "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDYUAAAf//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/salavon-overall.png": {
+    "width": 640,
+    "height": 360,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Every frame from 3.5 years of riding — 294 clips, 78 rides — averaged into a single image",
+    "caption": "Every frame from 3.5 years of riding — 294 clips, 78 rides — averaged into a single image",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwAC/8QAFxABAQEBAAAAAAAAAAAAAAAAAAECMf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AO0W63R6EFepXqFf/2Q=="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/salavon-2024.png": {
+    "width": 640,
+    "height": 360,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "The average of every 2024 frame",
+    "caption": "The average of every 2024 frame",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwAC/8QAFxABAQEBAAAAAAAAAAAAAAAAAAECMf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AO0Wm6PQgr1K9Qr//2Q=="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/slit-scan-vertical.png": {
+    "width": 640,
+    "height": 1085,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Vertical slit-scan variant",
+    "caption": "Vertical slit-scan variant",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAiABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAMEAQL/xAAXEAEBAQEAAAAAAAAAAAAAAAAAAgEx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDzSNrUjYiG9Hd6CttI2rSNiI70N6CtdI2AiO9AFf/Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/slit-scan.png": {
+    "width": 2387,
+    "height": 360,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Slit-scan: one column per frame, a whole ride compressed into a band",
+    "caption": "Slit-scan: one column per frame, a whole ride compressed into a band",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAADABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAED/8QAFRABAQAAAAAAAAAAAAAAAAAAABH/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AMqtARaAo//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/dusk-gradient.png": {
+    "width": 2400,
+    "height": 804,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Dusk gradient — the color of the light, averaged across the golden-hour rides",
+    "caption": "Dusk gradient — the color of the light, averaged across the golden-hour rides",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAHABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAECBf/EABYQAQEBAAAAAAAAAAAAAAAAAAABEf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDOxFgArgAP/9k="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/cinema-redux.png": {
+    "width": 3000,
+    "height": 2510,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Cinema redux — every frame as a tile, the whole archive in one mosaic",
+    "caption": "Cinema redux — every frame as a tile, the whole archive in one mosaic",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAARABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABYQAQEBAAAAAAAAAAAAAAAAAAABEf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDnSGLCgyFAWLQBkAH/2Q=="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/cinema-redux-frames.png": {
+    "width": 4000,
+    "height": 3434,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Cinema redux, frame variant — a denser grid",
+    "caption": "Cinema redux, frame variant — a denser grid",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAARABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABUQAQEAAAAAAAAAAAAAAAAAAAAB/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AOfAigwKAsUAZAB//9k="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/frame-grid.png": {
+    "width": 4506,
+    "height": 3870,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "A contact-grid of frames pulled from the rides",
+    "caption": "A contact-grid of frames pulled from the rides",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAARABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIDAf/EABgQAQEBAQEAAAAAAAAAAAAAAAABAhES/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDKotdtRaI70R6Aa6ZaAEACv//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/motorcycle-viz/dusk-contact.png": {
+    "width": 1940,
+    "height": 5684,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Dusk anthology — a tall contact sheet of golden-hour frames",
+    "caption": "Dusk anthology — a tall contact sheet of golden-hour frames",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAA7ABQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAECAwQF/8QAGRABAQEBAQEAAAAAAAAAAAAAAAECERIx/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDy+Fxr5K5BlwL4AdFymxtYiwRjYFWAV0VGl2o1QRfoKgGl0i6K1FA7QgA//9k="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/tv-station/landing.png": {
+    "width": 1440,
+    "height": 900,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "The TV station landing — tuned to the channel",
+    "caption": "The TV station landing — tuned to the channel",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBP/EABYQAQEBAAAAAAAAAAAAAAAAAAABEf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8A4qzVStKJgCLH/9k="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/tv-station/web-0.png": {
+    "width": 1440,
+    "height": 900,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "tv.tools.ejfox.com live",
+    "caption": "tv.tools.ejfox.com live",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgAE/8QAFRABAQAAAAAAAAAAAAAAAAAAAAH/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwDDYFh0aVCAkkJ//9k="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/cyberdeck-saver/streams.png": {
+    "width": 1400,
+    "height": 900,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "The data streams — each terminal panel fetches and parses its own feed; here, haversine math for scrapbook distances",
+    "caption": "The data streams — each terminal panel fetches and parses its own feed; here, haversine math for scrapbook distances",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDIFQAAH//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/cyberdeck-saver/code.png": {
+    "width": 1400,
+    "height": 900,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "The Metal fragment shader behind the screensaver's CRT look",
+    "caption": "The Metal fragment shader behind the screensaver's CRT look",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDJRUAAB//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/clipgoblin/code2.png": {
+    "width": 1400,
+    "height": 900,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "The CLI — generating concept-tagged FCPXML markers from a words.json transcript",
+    "caption": "The CLI — generating concept-tagged FCPXML markers from a words.json transcript",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJAAAAP/2Q=="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/clipgoblin/code.png": {
+    "width": 1400,
+    "height": 900,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Resolving and shelling out to whisper for word-level transcription",
+    "caption": "Resolving and shelling out to whisper for word-level transcription",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJAAAAP/2Q=="
   }
 }

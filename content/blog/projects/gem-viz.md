@@ -3,7 +3,6 @@ title: "Global Energy Ownership Tracker"
 date: 2026-05-01T00:00:00-04:00
 category: "Dataviz"
 featured: true
-draft: true
 tech: ["D3.js", "Network Analysis", "Data Visualization"]
 state: deployed
 ai-involvement: ai-assisted
@@ -20,7 +19,9 @@ tags:
 
 It's built for the digging: investigating a corporation's clean-energy claims, following investment patterns, or tracing who ultimately owns a piece of the world's energy infrastructure. The ownership chain is where a lot of the truth is.
 
-I collaborated on viz prototyping and front-end development, working with Stephen Osserman and Anna Mowat at Global Energy Monitor, Third Bear Solutions on the underlying data pipeline, and Nadieh Bremer on vis design.
+My favorite part was working with Stephen and Nadieh, finding new visual ways to explore ownership patterns this complicated and intricate. It started as an ownership chart — Stephen prototyped the forms in Observable, I turned them into Svelte components, and Nadieh brought really cool interactions and visual forms on top. That's how you get things like the ownership "flowers" that open an owner's whole portfolio at once, instead of another org chart.
+
+Built with Stephen Osserman and Anna Mowat at Global Energy Monitor, Third Bear Solutions on the data pipeline, and Nadieh Bremer on vis design.
 
 ![The live tool — the whole Global Energy Monitor database, 50,223 assets across 194 countries](https://res.cloudinary.com/ejf/image/upload/projects/gem-viz/live-map.png)
 
