@@ -1,0 +1,60 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<h2 class=\"\" id=\"2026-21\">2026-21</h2>\n<blockquote class=\"md-blockquote\">\n<p class=\"text-zinc-600 dark:text-zinc-400\">Screenshots auto-append to <a href=\"/tag/2026-21-raw\" class=\"internal-link text-blue-600 dark:text-blue-400\">2026 21 Raw</a> — review those for memory jogs, write here for publishing.</p>\n</blockquote>\n<h3 class=\"\" id=\"what-happened-this-week\">What happened this week</h3>\n<p class=\"\">Spun up a personal cable channel at <a href=\"https://tv.tools.ejfox.com\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://tv.tools.ejfox.com\">tv.tools.ejfox.com</a> — every visitor sees the same YouTube video at the same second, computed deterministically from a fixed epoch and the sum of video durations. No database, no per-client state, just a small Deno app on smallweb. Enriched 507 Watch Later URLs to 475 alive videos for ~224 hours of looping runtime. Same week I rescued the radio station (Restart=on-failure quietly let liquidsoap stay dead overnight), wired live \"N other viewers/listeners\" counters on both, and documented a Pi 5 kiosk recipe for the wall TV. Burned $19 of RunPod on a forgotten pod — same exact failure mode as the dead radio service, twice in one quarter. Note to future me: <code class=\"md-inline-code\">Restart=always</code> everywhere.</p>\n<h3 class=\"\" id=\"what-i-made--shipped\">What I made / shipped</h3>\n<ul class=\"list-disc\">\n<li class=\"\"><strong class=\"\">tv-station</strong> — public repo, MIT, at <a href=\"https://github.com/ejfox/tv-station\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://github.com/ejfox/tv-station\">github.com/ejfox/tv-station<svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12\" class=\"\"></path></svg></a>. README is a recipe book — anyone with a Debian VPS can run their own public-access channel from a Watch Later export.</li>\n<li class=\"\"><strong class=\"\">Live viewer/listener counters</strong> on tv + radio. Polling-based, sessionStorage UUID, 30s TTL, no websockets. Elegant pulsing teal pip top-left, says \"just you\" when you're alone.</li>\n<li class=\"\"><strong class=\"\">Screenshot embeddings WebGL atlas</strong> — 1554 screenshots, SigLIP visual + MiniLM OCR embeddings, force-atlas layout seeded from UMAP, fisheye cursor lens, LOD swap to hi-res at deep zoom, rogue's gallery contact sheets per cluster. Parquet backed up to R2.</li>\n<li class=\"\"><strong class=\"\">TP-7 transcription pipeline</strong> — whisper-cpp + ggml-tiny + ffmpeg pre-conversion, wrapper at <code class=\"md-inline-code\">~/bin/transcribe-recordings.sh</code> that drops <code class=\"md-inline-code\">.txt</code> next to each recording.</li>\n<li class=\"\"><strong class=\"\">Uptime Kuma audit</strong> — added 12 missing monitors, hardened tv-station with per-IP token bucket (60/min, burst 30), ETag on <code class=\"md-inline-code\">/playlist.json</code>, 5s cache on <code class=\"md-inline-code\">/now</code>.</li>\n</ul>\n<h3 class=\"\" id=\"what-i-learned\">What I learned</h3>\n<ul class=\"list-disc\">\n<li class=\"\"><strong class=\"\">\"Quantity is quality\"</strong> — biggest take from Wilson Lin's solo 3B-embedding search writeup. Crawl completeness beat embedding sophistication for him; for me that means an automated daily embedding pass on new screenshots matters more than swapping SigLIP variants.</li>\n<li class=\"\"><strong class=\"\">HNSW is immutable</strong>, requires full-RAM rebuild on inserts. Wilson sharded across 64 nodes to work around it. At 1.5k items I'm staying brute-force forever — the lesson is to <em class=\"\">plan for incremental updates from day one</em> if I ever scale up.</li>\n<li class=\"\"><strong class=\"\">Self-hosted GPU compute for embeddings is a pricing error</strong> — OpenAI batch API would've been ~100× cheaper than Wilson's RunPod fleet. My $19 incident agrees. The text half of any future embedding pipeline goes to a hosted API.</li>\n<li class=\"\"><strong class=\"\">Semble</strong> (BM25 + CPU embeddings, MCP server) saves ~70% of the tokens grep+read would burn for code search. Two queries in tv-station found the rate-limit middleware and the viewer-counter block on the first hit with full context.</li>\n<li class=\"\"><strong class=\"\">term.everything is beautiful and not for me</strong> — it's a Linux-only Wayland compositor that renders GUI apps into a terminal. The dream was Firefox in a tmux pane, but my whole stack is the opposite direction — I replaced GUI apps with TUIs on purpose. Save the demo, skip the install.</li>\n<li class=\"\"><strong class=\"\"><code class=\"md-inline-code\">Restart=on-failure</code> is a trap</strong> for services that exit cleanly when they fail. Use <code class=\"md-inline-code\">Restart=always</code> for anything that should never be down.</li>\n</ul>\n<h3 class=\"\" id=\"-media-consumed\">📚 Media consumed</h3>\n<!-- Books, articles, movies, TV shows, podcasts -->\n<ul class=\"list-disc\">\n<li class=\"\">Wilson Lin's solo-built embedding search engine writeup (<a href=\"https://blog.wilsonl.in/search-engine\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://blog.wilsonl.in/search-engine\">blog.wilsonl.in/search-engine</a>) — single best technical post I read this week</li>\n<li class=\"\">A nicer voltmeter clock (lcamtuf) — analog voltmeter needles for hour/minute, CRT-era hardware-hack porn</li>\n<li class=\"\">Skimmed the 2B2T 1M-block-world archive release — Minecraft anarchy server archaeology is its own genre now</li>\n</ul>",
+  "title": "2026-21",
+  "metadata": {
+    "tags": [
+      "weekly-notes",
+      "reflections",
+      "progress"
+    ],
+    "date": "2026-05-18T14:00:00.000Z",
+    "modified": "2026-05-18T14:00:00.000Z",
+    "words": 588,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {
+      "h2": 1
+    },
+    "toc": [
+      {
+        "text": "2026-21",
+        "slug": "2026-21",
+        "level": "h2",
+        "children": [
+          {
+            "text": "What happened this week",
+            "slug": "what-happened-this-week",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What I made / shipped",
+            "slug": "what-i-made--shipped",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "What I learned",
+            "slug": "what-i-learned",
+            "level": "h3",
+            "children": []
+          },
+          {
+            "text": "📚 Media consumed",
+            "slug": "-media-consumed",
+            "level": "h3",
+            "children": []
+          }
+        ]
+      }
+    ],
+    "type": "post"
+  }
+}

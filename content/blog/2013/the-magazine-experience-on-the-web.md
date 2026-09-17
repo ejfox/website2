@@ -1,7 +1,6 @@
 ---
 dek: In which the author muses about 2013-era web design aesthetics
 type: words
-hidden: false
 date: 2013-01-25T05:00:00-05:00
 modified: 2026-01-03T20:37:32-05:00
 tags:
@@ -24,14 +23,14 @@ But I fear that golden age [has](http://flowingdata.com/2012/04/10/how-businesse
 
 ### A hint of what's to come
 
-Recently, The New York Times- ever the pioneer of online storytelling- released [Snow Fall: The Avalanche at Tunnel Creek](http://www.nytimes.com/projects/2012/snow-fall/#/?part=tunnel-creek) which was received with [high praise](http://web.archive.org/web/20141025193616/http://www.poynter.org:80/latest-news/top-stories/198970/how-the-new-york-times-snow-fall-project-unifies-text-multimedia/) in journalist-nerd circles and beyond. There are a couple of unique points about the snow fall piece:
+Recently, The New York Times- ever the pioneer of online storytelling- released [Snow Fall: The Avalanche at Tunnel Creek](http://www.nytimes.com/projects/2012/snow-fall/#/?part=tunnel-creek) which was received with [high praise](http://www.poynter.org/latest-news/top-stories/198970/how-the-new-york-times-snow-fall-project-unifies-text-multimedia/) in journalist-nerd circles and beyond. There are a couple of unique points about the snow fall piece:
 
 - _It's graphics and videos stretch to fill the entire browser window_, an emerging design trend that is the true successor of the magazine’s full-bleed photos. The Times shows that when you elevate beautiful art that’s telling the story in a seamless way, it becomes greater than the sum of it’s parts. Compare to a [similar NYT story](http://www.nytimes.com/2012/10/14/magazine/californias-central-valley-land-of-a-billion-vegetables.html) where pictures are included with the story, but certainly not featured with any love.
 - It’s not confined to the style of the rest of the NYT site, which is for the most part a static 975px width. Some of the impact of full-bleed pieces like Snow Fall comes from the contrast between those special features and the whitespace of the primary site. It’s a clue to the user to dig in, and that something special is going to happen.
 
 Some critics said that [this kind of storytelling indulgence isn’t a sustainable future of journalism](http://www.theatlantic.com/business/archive/2012/12/snow-fall-isnt-the-future-of-journalism/266555/) because of the **16-person team** required to create the piece. I think that this view forgets a time when computers filled entire rooms with as much processing power as your iPod. _I think one day (soon!) journalists will be able to do this with as little as one person_, but probably in teams of 2 or 3.
 
-That sort of criticism gets me going too, because I know that [there](http://d3js.org/) [are](http://raphaeljs.com/) [technologies](http://web.archive.org/web/20250720010611/https://developer.nytimes.com/docs) [out](http://vis.stanford.edu/wrangler/) [there](http://www.quora.com/GitHub/What-are-some-interesting-repositories-on-Github-that-can-be-used-for-journalistic-purposes) [that](https://github.com/datawrapper/datawrapper) [are](http://web.archive.org/web/20260127084655/https://nvd3.org/) [just](https://timeline.knightlab.com/) [within](http://leafletjs.com/) [reach](https://github.com/jsoma/tabletop) of every modern journalist willing to [try](http://web.archive.org/web/20130407190335/http://www.symboliamag.com/post/40203443720/editors-note-people-frequently-ask-us-how) new ways of [telling their stories](http://web.archive.org/web/20130130004947/http://source.mozillaopennews.org:80/en-US/articles/mother-jones-voter-suppression-map/). [I want to help make those tools.](https://ejfox.github.io/sStory/) I want, like others, to bring that wonderful magazine experience to the web like we haven’t seen before. But there are a handful of problems to solve and gaps to bridge before we can reach our potential.
+That sort of criticism gets me going too, because I know that [there](http://d3js.org/) [are](http://raphaeljs.com/) [technologies](http://developer.nytimes.com/docs) [out](http://vis.stanford.edu/wrangler/) [there](http://www.quora.com/GitHub/What-are-some-interesting-repositories-on-Github-that-can-be-used-for-journalistic-purposes) [that](https://github.com/datawrapper/datawrapper) [are](http://nvd3.org/) [just](http://timeline.verite.co/) [within](http://leafletjs.com/) [reach](https://github.com/jsoma/tabletop) of every modern journalist willing to [try](http://web.archive.org/web/20130407190335/http://www.symboliamag.com/post/40203443720/editors-note-people-frequently-ask-us-how) [new ways](http://www.wired.com/wiredenterprise/2012/02/github-revisited/) of [telling their stories](http://source.mozillaopennews.org/en-US/articles/mother-jones-voter-suppression-map/). [I want to help make those tools.](http://ejfox.github.com/sStory/) I want, like others, to bring that wonderful magazine experience to the web like we haven’t seen before. But there are a handful of problems to solve and gaps to bridge before we can reach our potential.
 
 ### Full Bleed Photos
 
@@ -39,7 +38,7 @@ One of the greatest experiences of reading a magazine is the beauty of the first
 
 The Snow Fall piece echoes this aesthetic perfectly. [Others come close](http://www.theverge.com/2013/1/8/3850056/qualcomms-insane-ces-2013-keynote-pictures-tweets).
 
-_Why aren't we seeing more of this?_ Perhaps it is due to a old-school desire of having a fixed-width site that accomodates the lowest-common-denominator screen size. But with our industry embracing responsive design I think we can do better. New(ish) CSS properties like `background-size: cover;`(<http://css-tricks.com/perfect-full-page-background-image/>) allow us to have full-screen photos that are responsive too. There’s no reason not to make your images big and bold. This is the technique I employ in my [sStory project](https://ejfox.github.io/sStory/).
+_Why aren't we seeing more of this?_ Perhaps it is due to a old-school desire of having a fixed-width site that accomodates the lowest-common-denominator screen size. But with our industry embracing responsive design I think we can do better. New(ish) CSS properties like `background-size: cover;`(<http://css-tricks.com/perfect-full-page-background-image/>) allow us to have full-screen photos that are responsive too. There’s no reason not to make your images big and bold. This is the technique I employ in my [sStory project](http://ejfox.github.com/sStory/).
 
 Combine that with [easy access to good typography](http://designshack.net/articles/css/10-great-google-font-combinations-you-can-copy/) and you can create some beautiful things.
 

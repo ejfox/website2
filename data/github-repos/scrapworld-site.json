@@ -1,0 +1,102 @@
+{
+  "name": "scrapworld-site",
+  "description": "Landing page for scrapworld",
+  "url": "https://github.com/ejfox/scrapworld-site",
+  "homepage": null,
+  "stats": {
+    "stars": 0,
+    "forks": 0,
+    "watchers": 0,
+    "openIssues": 0
+  },
+  "language": "HTML",
+  "languageColor": "#e34c26",
+  "languages": {
+    "HTML": 6907
+  },
+  "diskUsage": 12,
+  "fileTree": {
+    "files": [
+      {
+        "path": ".nojekyll",
+        "size": 0
+      },
+      {
+        "path": "README.md",
+        "size": 602
+      },
+      {
+        "path": "content/features.md",
+        "size": 1759
+      },
+      {
+        "path": "content/guide.md",
+        "size": 1419
+      },
+      {
+        "path": "content/hotkeys.md",
+        "size": 1453
+      },
+      {
+        "path": "index.html",
+        "size": 6907
+      }
+    ],
+    "tree": {
+      "name": "scrapworld-site",
+      "children": [
+        {
+          "name": "content",
+          "children": [
+            {
+              "name": "features.md",
+              "size": 1759,
+              "path": "content/features.md"
+            },
+            {
+              "name": "guide.md",
+              "size": 1419,
+              "path": "content/guide.md"
+            },
+            {
+              "name": "hotkeys.md",
+              "size": 1453,
+              "path": "content/hotkeys.md"
+            }
+          ],
+          "path": "content"
+        },
+        {
+          "name": ".nojekyll",
+          "size": 0,
+          "path": ".nojekyll"
+        },
+        {
+          "name": "README.md",
+          "size": 602,
+          "path": "README.md"
+        },
+        {
+          "name": "index.html",
+          "size": 6907,
+          "path": "index.html"
+        }
+      ],
+      "path": ""
+    },
+    "totalFiles": 6,
+    "totalSize": 12140
+  },
+  "defaultBranch": "main",
+  "license": null,
+  "latestRelease": null,
+  "topics": [],
+  "readme": {
+    "html": "<h1 id=\"scrapworld-site\">scrapworld-site</h1>\n<p>Landing page for <a href=\"https://github.com/ejfox/scrapworld\">scrapworld</a>, served at\n<a href=\"https://ejfox.github.io/scrapworld-site/\">https://ejfox.github.io/scrapworld-site/</a></p>\n<p><strong>Don't edit here.</strong> The source of truth is <code>docs/</code> in the (private) scrapworld\nrepo — edit the markdown in <code>docs/content/</code> there and run <code>docs/deploy.ps1</code>,\nwhich copies the site into this repo and pushes.</p>\n<ul>\n<li><code>index.html</code> — single-file page, no build step; fetches and renders the markdown</li>\n<li><code>content/features.md</code> — feature list</li>\n<li><code>content/hotkeys.md</code> — keymap (mirrors <code>PauseMenuManager.Keymap</code> in-game)</li>\n<li><code>content/guide.md</code> — getting started / guides</li>\n</ul>",
+    "raw": "# scrapworld-site\n\nLanding page for [scrapworld](https://github.com/ejfox/scrapworld), served at\nhttps://ejfox.github.io/scrapworld-site/\n\n**Don't edit here.** The source of truth is `docs/` in the (private) scrapworld\nrepo — edit the markdown in `docs/content/` there and run `docs/deploy.ps1`,\nwhich copies the site into this repo and pushes.\n\n- `index.html` — single-file page, no build step; fetches and renders the markdown\n- `content/features.md` — feature list\n- `content/hotkeys.md` — keymap (mirrors `PauseMenuManager.Keymap` in-game)\n- `content/guide.md` — getting started / guides\n",
+    "excerpt": "Landing page for scrapworld, served at\nhttps://ejfox.github.io/scrapworld-site/\n\nDon't edit here. The source of truth is docs/ in the (private) scrapworld\nrepo..."
+  },
+  "createdAt": "2026-07-27T15:46:09Z",
+  "updatedAt": "2026-07-27T23:39:15Z",
+  "pushedAt": "2026-07-27T23:39:11Z"
+}

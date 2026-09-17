@@ -76,7 +76,7 @@ My setup:
 
 It’s just as important to your gear up your motorcycle as it is to gear up yourself. You’ll need a variety of bags, depending on the length of your trips. Having an excuse to have a variety of bags may be one of my favorite reasons to travel.
 
-With a system like the Mosko Moto Reckless 80L Motorcycle Luggage System you have a main bag, two 25L side bags and two 4L auxiliary bags for maximum organization. Look for bags with durable material, waterproof construction and straps to keep your things secure.
+With a system like the [Mosko Moto Reckless 80L Motorcycle Luggage System](https://moskomoto.com/products/reckless-80l) you have a main bag, two 25L side bags and two 4L auxiliary bags for maximum organization. Look for bags with durable material, waterproof construction and straps to keep your things secure.
 
 You should be prepared to ride in the rain. It will happen at the most inopportune time, so all of your gear should be able to get wet along with you. Your main bag should include a dry bags for at least clothing and a first aid kit, while your side dry bags and auxiliary bags should house your camping gear such as a tent, hammock, sleeping bag, liner and pillow.
 
@@ -95,7 +95,7 @@ I also carry an art kit and a Jetboil with fuel for coffee in the morning.
 
 *exploded bags diagram*
 
-Mosko Moto Reckless 80L Motorcycle Luggage System
+[Mosko Moto Reckless 80L Motorcycle Luggage System](https://moskomoto.com/products/reckless-80l)
 
 #### How to find anything (what bag is it in?)
 

@@ -12,6 +12,7 @@ tags:
   - dataviz
   - data
   - product
+about: "[[project-notes/electology]]"
 ---
 
 <!-- TODO (EJ): add your voice — factual stub, not your words. Draft until ready.

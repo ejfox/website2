@@ -1,7 +1,6 @@
 ---
 dek: In which the author divulges a shameful secret
 type: words
-hidden: false
 date: 2019-06-13T08:00:39.000Z
 modified: 2024-06-21T14:12:52.000Z
 tags:

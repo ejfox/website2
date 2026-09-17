@@ -10,7 +10,7 @@ import { promises as fs } from 'node:fs'
 import { join } from 'node:path'
 import matter from 'gray-matter'
 import { glob } from 'glob'
-import { isScheduled } from '~/utils/postFilters'
+import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 
 // Timeline event types
 interface TimelineEvent {
@@ -63,23 +63,15 @@ export default defineEventHandler(async (event) => {
     const manifestContent = await fs.readFile(manifestPath, 'utf-8')
     const posts = JSON.parse(manifestContent)
 
+    // These flags were previously checked as `!p.unlisted` etc. against a
+    // manifest entry, which only hoists `hidden` — the rest exist solely under
+    // `metadata`, so those checks were permanently `undefined` and this public
+    // endpoint would have published the title, URL and tags of any unlisted or
+    // protected post. `isHiddenFromListings` reads both levels.
     posts
       .filter(
-        (
-          p: ManifestPost & {
-            hidden?: boolean
-            unlisted?: boolean
-            password?: string
-            passwordHash?: string
-          }
-        ) =>
-          !p.draft &&
-          !p.hidden &&
-          !p.unlisted &&
-          !p.password &&
-          !p.passwordHash &&
-          !isScheduled(p) &&
-          p.date
+        (p: ManifestPost) =>
+          !isHiddenFromListings(p) && !isScheduled(p) && p.date
       )
       .forEach((post: ManifestPost) => {
         events.push({

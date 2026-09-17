@@ -1,0 +1,13 @@
+#!/bin/sh
+# Sealed-post guard. Checks the STAGED tree, not the working tree — the working
+# tree legitimately holds plaintext (that is where posts get written); only what
+# git is about to record has to be clean.
+#
+# Wired up by `yarn postinstall` (git config core.hooksPath .githooks), so a
+# fresh clone gets it as soon as anyone runs `yarn install`, which is
+# unavoidable before the first build.
+#
+# Bypassable with --no-verify, deliberately — a hook is a seatbelt, not a lock.
+# .github/workflows/guard-sealed.yml re-runs the same check server-side on every
+# branch, which is the layer that cannot be skipped.
+exec node scripts/meta/check-sealed.mjs --staged

@@ -1,7 +1,6 @@
 ---
 dek: In which the author explores the meaning of life and work
 type: words
-hidden: false
 date: '2018-09-30T21:58:20-04:00'
 tags:
   - advice
@@ -56,7 +55,7 @@ I think the goal is to make as much money possible while maintaining a good, ple
 
 I think we are one united disparate organism. (I couldn’t nail down the details for you).
 
-As Melissa Broder said: _”My god is a horizontal god who works sideways on earth rather than vertically from heaven down.”_
+As [Melissa Broder said](https://ejfox.com/books/#so-sad-today-personal-essays-0): _”My god is a horizontal god who works sideways on earth rather than vertically from heaven down.”_
 
 I think the point of life is to serve those most close to you, spiraling outwards.
 

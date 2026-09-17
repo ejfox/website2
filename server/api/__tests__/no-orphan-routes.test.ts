@@ -33,6 +33,13 @@ const ALLOWLIST: Record<string, string> = {
   '/api/umami/auth': 'external — HTTP-API analytics auth helper',
   '/api/umami/stats': 'external — HTTP-API per-page analytics',
   '/api/weekly-summary': 'external — consumed by the Sunday Interview skill',
+  // Not "external by design" like the rest — this one is genuinely WIP and the
+  // route file is still untracked. Its only consumer lives outside this repo
+  // (the Obsidian `published-url` plugin, bearer-token auth), so it will never
+  // gain an on-site caller; promote the reason to plain "external" once the
+  // route is committed, or drop this line if the route is abandoned.
+  '/api/editor/context':
+    'WIP (untracked) — Obsidian published-url plugin fetches it with EDITOR_CONTEXT_TOKEN',
 }
 
 // Dirs whose source counts as "using" a route.
