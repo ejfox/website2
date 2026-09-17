@@ -368,6 +368,16 @@ export const apiCatalog: ApiRoute[] = [
   },
   {
     method: 'GET',
+    path: '/api/availability',
+    group: 'Site',
+    summary: 'Freelance capacity + open project slots for the /projects blurb',
+    consumer: 'frontend',
+    consumedBy: 'pages/projects',
+    deps: 'data/availability.json',
+    health: 'ok',
+  },
+  {
+    method: 'GET',
     path: '/api/gear-csv',
     group: 'Photos & gear',
     summary: 'Raw gear CSV export',
