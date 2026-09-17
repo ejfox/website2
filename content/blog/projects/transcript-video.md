@@ -1,6 +1,8 @@
 ---
 title: "Transcript Video"
 date: 2026-04-01
+category: "Dataviz"
+featured: false
 draft: true
 url: https://github.com/ejfox/transcript-video
 tech: ["HTML", "JavaScript", "Canvas", "Audio"]
@@ -16,4 +18,4 @@ tags:
 
 Generates 1080p synced transcript videos from audio with word-level timing and concept color-tagging. Includes audio-reactive data visualizations: a spectrogram, oscilloscopes, and a Lissajous phase scope.
 
-![The canvas render — bordered instrument panels with section IDs, scale info, and Monaspace labels](https://res.cloudinary.com/ejf/image/upload/projects/transcript-video/code.png)
+![Synced transcript with concept color-tagging — a word appears in Archivo Black timed to speech, with tagged terms highlighted and a QR provenance code](https://res.cloudinary.com/ejf/image/upload/v1789191612/projects/transcript-video/landing.png)

@@ -69,6 +69,49 @@ function splayTransform(src) {
 }
 
 // ---------------------------------------------------------------------------
+// Video embeds — markdown image syntax pointing at a video file becomes a
+// muted looping <video> (gif-replacement, not a player). Without this, the
+// pipeline emits <img src="….mp4"> which browsers render as a broken/blurred
+// image.
+// ---------------------------------------------------------------------------
+
+const VIDEO_URL_RE = /\.(?:mp4|webm|mov)(?:\?.*)?$/i
+
+function isVideoUrl(url) {
+  return VIDEO_URL_RE.test(url) || url.includes('/video/upload/')
+}
+
+function escapeAttr(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/"/g, '&quot;')
+    .replace(/</g, '&lt;')
+}
+
+function buildVideoHtml(url, alt, { withFigure = true } = {}) {
+  let src = url.replace(/^http:\/\//i, 'https://')
+  let poster = null
+  if (src.includes('res.cloudinary.com/') && src.includes('/video/upload/')) {
+    const [base, tail] = src.split('/video/upload/')
+    // Strip any existing transform segments off the tail before re-adding ours
+    const parts = tail.split('/')
+    while (parts.length > 1 && isTransformSegment(parts[0])) parts.shift()
+    const publicPath = parts.join('/')
+    src = `${base}/video/upload/q_auto/${publicPath}`
+    poster = `${base}/video/upload/so_0,f_jpg,q_auto,w_1280/${publicPath.replace(/\.\w+$/, '.jpg')}`
+  }
+  const caption = alt && !isJunkAlt(alt) ? alt : null
+  const videoTag =
+    `<video class="img-full my-8 rounded-sm" autoplay loop muted playsinline preload="metadata"` +
+    (poster ? ` poster="${escapeAttr(poster)}"` : '') +
+    ` src="${escapeAttr(src)}"` +
+    (caption ? ` aria-label="${escapeAttr(caption)}"` : '') +
+    `></video>`
+  if (!caption || !withFigure) return videoTag
+  return `<figure role="figure" aria-label="${escapeAttr(caption)}">${videoTag}<figcaption>${caption}</figcaption></figure>`
+}
+
+// ---------------------------------------------------------------------------
 // Cloudinary URL helpers
 // ---------------------------------------------------------------------------
 
@@ -314,11 +357,40 @@ export function remarkEnhanceImages() {
       }
     })
 
+    const videoNodes = []
     visit(tree, 'image', (node, index, parent) => {
-      if (node.url) {
+      if (!node.url) return
+      if (isVideoUrl(node.url)) {
+        videoNodes.push({ node, index, parent })
+      } else {
         nodes.push({ node, index, parent })
       }
     })
+
+    // Videos: swap the image node for a raw <video> html node. If the image
+    // was the sole child of a paragraph, replace the paragraph itself (same
+    // reasoning as the <figure> unwrap below).
+    for (const { node, index, parent } of videoNodes) {
+      const grandparent = parentMap.get(parent)
+      const standsAlone =
+        grandparent &&
+        parent.type === 'paragraph' &&
+        parent.children.length === 1
+      const html = {
+        type: 'html',
+        value: buildVideoHtml(node.url, node.alt, { withFigure: standsAlone }),
+      }
+      if (standsAlone) {
+        const parentIndex = grandparent.children.indexOf(parent)
+        if (parentIndex !== -1) {
+          grandparent.children.splice(parentIndex, 1, html)
+          continue
+        }
+      }
+      if (parent && index !== undefined) {
+        parent.children.splice(index, 1, html)
+      }
+    }
 
     await Promise.all(
       nodes.map(async ({ node, index, parent }) => {

@@ -53,7 +53,7 @@ const linkClasses =
       <!-- Mobile nav -->
       <nav
         v-if="!isStatsSimple"
-        class="layout-mobile-nav md:hidden px-4 py-3 font-mono text-sm flex flex-wrap gap-x-3 gap-y-1 items-baseline"
+        class="layout-mobile-nav md:hidden print:hidden px-4 py-3 font-mono text-sm flex flex-wrap gap-x-3 gap-y-1 items-baseline"
       >
         <NuxtLink to="/" class="font-bold text-zinc-800 dark:text-zinc-200">
           EJ Fox

@@ -217,11 +217,16 @@ const GH_EVENTS = [
   },
 ]
 
+// Slim card shape from /api/projects?slim=1 — the project cards no longer
+// receive html; images/heroVideo/excerpt arrive precomputed server-side.
 const PROJECT = {
   title: 'Threads',
   slug: 'threads',
   date: '2025-11-02',
-  html: '<p>A force-directed graph of every post, scrap, and tag on the site, rendered on canvas across a 350vh scroll.</p>',
+  images: [],
+  heroVideo: '',
+  excerpt:
+    'A force-directed graph of every post, scrap, and tag on the site, rendered on canvas across a 350vh scroll.',
   metadata: {
     tags: ['d3', 'canvas', 'visualization'],
     tech: ['D3.js', 'Canvas', 'Vue'],
@@ -1298,6 +1303,20 @@ export const stories = {
       name: 'default',
       props: {
         letterboxdStats: {
+          films: [
+            // prettier-ignore
+            { title: 'SLC Punk', slug: 'slc-punk', rating: 4, watchedDate: '2026-02-26', letterboxdUrl: 'https://letterboxd.com/ejfox/film/slc-punk/' },
+            // prettier-ignore
+            { title: 'Death Proof', slug: 'death-proof', rating: 4, watchedDate: '2026-03-02', letterboxdUrl: 'https://letterboxd.com/ejfox/film/death-proof/' },
+            // prettier-ignore
+            { title: 'The Fall Guy', slug: 'the-fall-guy-2024', rating: 4, watchedDate: '2026-03-21', letterboxdUrl: 'https://letterboxd.com/ejfox/film/the-fall-guy-2024/' },
+            // prettier-ignore
+            { title: 'Inside the Manosphere', slug: 'inside-the-manosphere', rating: 4, watchedDate: '2026-03-22', letterboxdUrl: 'https://letterboxd.com/ejfox/film/louis-theroux-inside-the-manosphere/' },
+            // prettier-ignore
+            { title: 'Poor Things', slug: 'poor-things-2023', rating: 4.5, watchedDate: '2026-03-30', letterboxdUrl: 'https://letterboxd.com/ejfox/film/poor-things-2023/' },
+            // prettier-ignore
+            { title: 'Unrated Doc', slug: 'unrated-doc', rating: null, watchedDate: '2026-04-04', letterboxdUrl: 'https://letterboxd.com/ejfox/film/unrated-doc/' },
+          ],
           stats: {
             totalFilms: 8,
             averageRating: 3.7,

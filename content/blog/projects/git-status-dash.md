@@ -1,6 +1,8 @@
 ---
 title: "git-status-dash"
 date: 2024-10-01T00:00:00-04:00
+category: "Tools"
+featured: false
 draft: true
 url: https://github.com/ejfox/git-status-dash
 tech: ["Go", "CLI", "Git"]

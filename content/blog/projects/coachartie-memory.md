@@ -1,6 +1,8 @@
 ---
 title: "Coach Artie — Memory Analysis"
 date: 2026-02-01T00:00:00-05:00
+category: "Dataviz"
+featured: false
 draft: true
 tech: ["Python", "t-SNE", "HDBSCAN", "Embeddings", "Data Visualization"]
 state: doing

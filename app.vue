@@ -108,7 +108,10 @@ useHead({
     {
       key: 'schema-person',
       type: 'application/ld+json',
-      children: JSON.stringify(structuredPerson.value),
+      // innerHTML, NOT children — unhead renders `children` as an HTML
+      // attribute, leaving the script body empty (schema invisible to
+      // parsers). Same bug class as the projects ItemList.
+      innerHTML: JSON.stringify(structuredPerson.value),
     },
   ],
   style: [
@@ -137,7 +140,8 @@ useHead({
 // Every page advertises its `.json` twin (server/middleware/json-twin.ts).
 // Function form so `route.path` stays correct across client-side navigation.
 const jsonTwinUrl = computed(() => {
-  const p = route.path === '/' ? '/.json' : `${route.path.replace(/\/$/, '')}.json`
+  const p =
+    route.path === '/' ? '/.json' : `${route.path.replace(/\/$/, '')}.json`
   return new URL(p, baseUrl.value).href
 })
 useHead(() => ({

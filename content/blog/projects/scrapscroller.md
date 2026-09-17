@@ -1,8 +1,9 @@
 ---
 title: "Scrapscroller"
 date: 2025-02-27T00:00:00-05:00
+category: "Tools"
+featured: false
 draft: true
-url: https://github.com/ejfox/scrapscroller
 tech: ["JavaScript"]
 state: deployed
 ai-involvement: ai-assisted
@@ -14,4 +15,4 @@ tags:
 
 Doomscrolling, but, for good.
 
-![The scrap card component — hover transforms and source/date detailing](https://res.cloudinary.com/ejf/image/upload/projects/scrapscroller/code.png)
+![scrapscroller running: the SCRAP_ZONE feed with source/tag sidebar and stats](https://res.cloudinary.com/ejf/image/upload/v1789191930/projects/scrapscroller/landing.png)

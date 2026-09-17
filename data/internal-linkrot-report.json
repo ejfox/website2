@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-09-16T17:40:17.590Z",
+  "timestamp": "2026-09-17T23:42:50.185Z",
   "summary": {
-    "filesScanned": 366,
-    "internalLinks": 81,
-    "dead": 18,
-    "affectedPosts": 13,
+    "filesScanned": 368,
+    "internalLinks": 89,
+    "dead": 20,
+    "affectedPosts": 14,
     "withSuggestion": 0
   },
   "dead": [
@@ -125,6 +125,20 @@
       "line": 90,
       "target": "home/14pinest",
       "href": "/blog/home/14pinest",
+      "suggestion": null
+    },
+    {
+      "source": "projects/scrapbook-core.md",
+      "line": 18,
+      "target": "/projects/scrapbook-cli",
+      "href": "/projects/scrapbook-cli",
+      "suggestion": null
+    },
+    {
+      "source": "projects/scrapbook-core.md",
+      "line": 18,
+      "target": "/projects/scrapscroller",
+      "href": "/projects/scrapscroller",
       "suggestion": null
     },
     {

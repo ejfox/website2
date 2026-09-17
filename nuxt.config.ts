@@ -230,6 +230,13 @@ export default defineNuxtConfig({
       },
     },
     routeRules: {
+      // Legacy URL from the pre-website2 site: "How I Use GPT" was published at
+      // the year-less /blog/how-i-use-gpt3. website2 organizes posts by year, so
+      // its canonical URL is now /blog/2022/how-i-use-gpt3 — redirect the old one
+      // so bookmarks and inbound links keep working.
+      '/blog/how-i-use-gpt3': {
+        redirect: { to: '/blog/2022/how-i-use-gpt3', statusCode: 301 },
+      },
       // Friends & Family booking (/ff) — hidden link, never index/follow.
       // Header covers crawlers that ignore the in-page meta tag and the
       // case where JS doesn't run. Not in the sitemap, not linked anywhere.

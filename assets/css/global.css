@@ -443,6 +443,44 @@ p,
   @apply bg-zinc-100 dark:bg-zinc-900;
 }
 
+/* Shimmer sweep for skeletons — a moving gradient so loading reads as alive,
+   not stalled. Static under prefers-reduced-motion. */
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.skeleton-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(161, 161, 170, 0.14),
+    transparent
+  );
+  animation: skeleton-sweep 1.6s ease-in-out infinite;
+}
+.dark .skeleton-shimmer::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(244, 244, 245, 0.05),
+    transparent
+  );
+}
+@keyframes skeleton-sweep {
+  100% {
+    transform: translateX(100%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-shimmer::after {
+    animation: none;
+  }
+}
+
 .skeleton-text {
   @apply h-4 w-full bg-zinc-100 dark:bg-zinc-900 rounded;
 }
@@ -1264,8 +1302,18 @@ figure {
   @apply my-8; /* 8-unit vertical rhythm */
 }
 
-figure img {
-  @apply mb-2; /* 2-unit gap to caption */
+/* The <figure> owns the vertical rhythm (my-8). The image inside must NOT also
+   carry the my-8 utility (which the image pipeline adds for un-wrapped images)
+   or every screenshot stacks a double 2rem margin and the caption floats 2rem
+   below the image. This selector (specificity 0,1,2) outranks both the .my-8
+   and .py-4 utilities on the <img>, so figure spacing stays clean and the
+   caption sits tight beneath its image. */
+.blog-post-content figure img,
+.project-content figure img {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  padding-top: 0;
+  padding-bottom: 0;
 }
 
 figcaption {
@@ -1315,6 +1363,19 @@ img[data-loading='lazy']::before {
   .blog-post-content {
     position: relative;
     margin-right: 240px;
+  }
+
+  /* Bigger blog images: the 240px right margin above reserves the sidenote
+     gutter but also shrinks the whole content block, so images were barely
+     wider than the text measure. Let figures + standalone images reclaim that
+     gutter and run full-width. The <img> inside a figure stays w-full, so it
+     fills the widened figure without double-counting. clear:right keeps a
+     full-width figure from colliding with a floated sidenote above it. */
+  .blog-post-content figure,
+  .blog-post-content > img {
+    width: calc(100% + 240px) !important;
+    max-width: none !important;
+    clear: right;
   }
 
   .sidenote {
@@ -1592,4 +1653,44 @@ img[data-loading='lazy']::before {
 .hd-inline {
   display: inline-flex;
   align-items: center;
+}
+
+/* ── Print ─────────────────────────────────────────────────────────────────
+   The site is dark-first and nothing removes the .dark class or the
+   prefers-color-scheme overrides in print context — without these rules a
+   dark-OS reader printing a page gets either a solid near-black sheet (with
+   background graphics on) or zinc-100 text rescued only by Chromium's
+   invisible-text heuristic (other engines: pale text on white paper).
+   Force the light tokens and honest ink. */
+@media print {
+  html,
+  html.dark,
+  :root {
+    color-scheme: light;
+    --bg-page: #ffffff;
+    --bg-sunken: #ffffff;
+    --bg-surface: #ffffff;
+    --bg-raised: #f4f4f5;
+  }
+  body,
+  .dark body {
+    background: #ffffff !important;
+    color: #111111 !important;
+  }
+  /* dark-mode text utilities inherit sane ink instead of near-white */
+  .dark [class*='dark:text-'],
+  .dark [class*='text-zinc-1'],
+  .dark [class*='text-zinc-2'],
+  .dark [class*='text-zinc-3'] {
+    color: #111111 !important;
+  }
+  /* a printout without URLs is a dead end — surface external links' hrefs
+     in article bodies (project pages, blog posts) */
+  .project-content a[href^='http']::after,
+  .blog-post-content a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 0.75em;
+    color: #52525b;
+    word-break: break-all;
+  }
 }

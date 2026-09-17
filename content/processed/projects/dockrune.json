@@ -5,6 +5,8 @@
   "metadata": {
     "title": "dockrune",
     "date": "2025-03-01T05:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/dockrune",
     "tech": [

@@ -5,8 +5,9 @@
   "metadata": {
     "title": "OSM Builder",
     "date": "2026-03-01T00:00:00.000Z",
+    "category": "Art",
+    "featured": false,
     "draft": true,
-    "url": "https://github.com/ejfox/osm-builder",
     "tech": [
       "TypeScript",
       "OpenStreetMap"

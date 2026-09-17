@@ -1,6 +1,8 @@
 ---
 title: "GitHub Sloth"
 date: 2026-05-01
+category: "Tools"
+featured: false
 draft: true
 url: https://github.com/ejfox/github-sloth
 tech: ["Rust"]

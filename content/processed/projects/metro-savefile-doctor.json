@@ -5,6 +5,8 @@
   "metadata": {
     "title": "Metro Savefile Doctor",
     "date": "2025-12-01T00:00:00.000Z",
+    "category": "Art",
+    "featured": false,
     "draft": true,
     "url": "https://github.com/ejfox/metro-savefile-doctor",
     "tech": [

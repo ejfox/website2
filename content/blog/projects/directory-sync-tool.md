@@ -1,6 +1,8 @@
 ---
 title: "Directory Sync Tool"
 date: 2024-10-12T00:00:00-04:00
+category: "Tools"
+featured: false
 draft: true
 url: https://github.com/ejfox/directory-sync-tool
 tech: ["Node.js", "CLI"]

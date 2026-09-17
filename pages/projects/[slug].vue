@@ -48,9 +48,18 @@ const projectTags = computed(
   () => project.value?.metadata?.tags || project.value?.metadata?.tech || []
 )
 
+// Share cards should show the WORK, not the generic site og-image — these are
+// portfolio pages whose whole point is visuals. First image in the post wins.
+const firstProjectImage = computed(() => {
+  const m = project.value?.html?.match(/<img[^>]+src="([^"]+)"/)
+  return m ? m[1].replace(/^http:/, 'https:') : ''
+})
+
 usePageSeo({
   title: computed(() => `${title.value} - EJ Fox`),
   description: computed(() => description.value),
+  image: computed(() => firstProjectImage.value || undefined),
+  imageAlt: computed(() => `${title.value} — project imagery`),
   type: 'article',
   section: 'Projects',
   tags: projectTags,
@@ -126,24 +135,44 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="container-main max-w-4xl">
+  <div class="container-main max-w-5xl">
     <!-- Slim persistent strip: only the marquee's UNIQUE value — status
          + the live-project CTA. Year/tech/date live once, in the sidebar
          PROJECT INFO (no longer duplicated here). Hidden entirely if
          there's nothing unique. -->
+    <!-- sticky (not fixed): starts in-flow below the site nav so it never
+         covers the nav's tap targets, then pins to the top on scroll. The bar
+         is dark in BOTH modes, so the text is always light — the old
+         text-zinc-800 light-mode value was ~1.1:1 against zinc-900. -->
     <div
-      v-if="project && (project.metadata?.state || project.metadata?.url)"
-      class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
+      v-if="
+        project &&
+        (project.metadata?.state ||
+          project.metadata?.url ||
+          project.metadata?.['ai-involvement'])
+      "
+      class="sticky top-0 z-40 bg-zinc-900/90 backdrop-blur-sm rounded-b print:hidden"
     >
       <div
-        class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-zinc-800 dark:text-white uppercase tracking-wider"
+        class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 px-4 py-2 font-mono text-3xs sm:text-2xs text-zinc-100 uppercase tracking-wider"
       >
         <span v-if="project.metadata?.state" class="whitespace-nowrap">
           {{ project.metadata.state }}
         </span>
+        <!-- ai-involvement disclosure, verbatim from frontmatter. Readers
+             can smell robot work — say it plainly, don't let them wonder. -->
+        <template v-if="project.metadata?.['ai-involvement']">
+          <span v-if="project.metadata?.state" class="text-zinc-500">·</span>
+          <span class="whitespace-nowrap text-zinc-400">
+            {{ project.metadata['ai-involvement'] }}
+          </span>
+        </template>
         <span
-          v-if="project.metadata?.state && project.metadata?.url"
-          class="text-zinc-400 dark:text-zinc-600"
+          v-if="
+            (project.metadata?.state || project.metadata?.['ai-involvement']) &&
+            project.metadata?.url
+          "
+          class="text-zinc-500"
         >
           ·
         </span>
@@ -269,27 +298,32 @@ onMounted(() => {
 </template>
 
 <style>
-/* Project page: wide images, prose-width text */
-.project-content :deep(p),
-.project-content :deep(ul),
-.project-content :deep(ol),
-.project-content :deep(blockquote),
-.project-content :deep(h2),
-.project-content :deep(h3),
-.project-content :deep(h4) {
+/* Project page: wide images, prose-width text.
+   NOTE: this is an UNSCOPED <style> block, so Vue does NOT process :deep() —
+   using it here silently voided the text-measure rule and let paragraphs run
+   the full container width. Plain descendant selectors are correct: the
+   content is global v-html, and BlogPostContent merges `project-content` onto
+   its <article> root, so `.project-content p` targets the real paragraphs. */
+.project-content p,
+.project-content ul,
+.project-content ol,
+.project-content blockquote,
+.project-content h2,
+.project-content h3,
+.project-content h4 {
   @apply max-w-prose;
 }
 
-.project-content :deep(figure) {
+.project-content figure {
   @apply max-w-none w-full mb-8;
 }
 
-.project-content :deep(img) {
+.project-content img {
   @apply max-w-none w-full rounded;
   transform: none !important;
 }
 
-.project-content :deep(figcaption) {
+.project-content figcaption {
   @apply text-xs text-zinc-500 dark:text-zinc-400 mt-2 font-mono;
 }
 </style>

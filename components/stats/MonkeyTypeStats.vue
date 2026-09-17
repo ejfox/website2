@@ -81,6 +81,33 @@ const formatDateMinimal = (timestamp: string): string => {
   return format(date, 'MM.dd').toLowerCase()
 }
 
+// WPM form strip: recent tests as word-sized bars, oldest → newest, scaled
+// against all-time best. The API spells the average field both ways.
+const averageWpm = computed(() => {
+  const t = props.stats.typingStats as {
+    averageWPM?: number
+    averageWpm?: number
+  }
+  return Math.round(t?.averageWPM ?? t?.averageWpm ?? 0)
+})
+
+const wpmStrip = computed(() => {
+  const tests = props.stats.typingStats?.recentTests
+  const best = props.stats.typingStats?.bestWPM
+  if (!tests?.length || !best) return []
+  return [...tests]
+    .sort(
+      (a, b) =>
+        new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime()
+    )
+    .map((t) => ({
+      ts: t.timestamp,
+      wpm: Math.round(t.wpm),
+      pct: Math.max(4, Math.round((t.wpm / best) * 100)),
+      label: `${Math.round(t.wpm)} wpm · ${Math.round(t.accuracy)}% · ${formatDateMinimal(t.timestamp)}`,
+    }))
+})
+
 // Determine if test has meaningful type info
 const hasTestType = (test: MonkeyTypeTest): boolean => {
   return !!(test.duration || test.wordCount || test.mode)
@@ -161,6 +188,27 @@ onMounted(() => {})
     <!-- Recent Tests -->
     <div v-if="hasRecentTests" ref="recentTestsRef" class="mt-8 space-y-8">
       <StatsSectionHeader title="RECENT TYPING TESTS" />
+
+      <!-- WPM form strip: each bar one test, height vs all-time best -->
+      <div v-if="wpmStrip.length" class="space-y-1">
+        <div
+          class="flex items-end gap-px h-4"
+          aria-label="Recent typing tests, words per minute relative to best"
+        >
+          <div
+            v-for="bar in wpmStrip"
+            :key="bar.ts"
+            class="w-1 bg-zinc-400 dark:bg-zinc-600"
+            :style="{ height: bar.pct + '%' }"
+            :title="bar.label"
+          />
+        </div>
+        <div class="text-4xs text-zinc-500 tabular-nums uppercase">
+          {{ wpmStrip.length }} tests · best
+          {{ Math.round(stats.typingStats.bestWPM) }}
+          <template v-if="averageWpm">· avg {{ averageWpm }}</template>
+        </div>
+      </div>
 
       <div class="space-y-2">
         <div v-for="test in recentTests" :key="test.timestamp" class="test-row">
