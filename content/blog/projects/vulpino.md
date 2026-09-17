@@ -3,7 +3,6 @@ title: "Vulpino"
 date: 2026-01-10T00:00:00-05:00
 category: "Tools"
 featured: false
-draft: true
 url: https://github.com/ejfox/vulpino
 tech: ["Swift"]
 state: deployed
@@ -12,9 +11,13 @@ tags:
   - tools
 ---
 
-<!-- TODO (EJ): add your voice + an image. Capture: iOS simulator / device screenshot. Draft until imaged. -->
+Any JSON endpoint into a home-screen iOS widget, no code, in about a minute
 
-JSON → Beautiful iOS Widget in 60 Seconds. Paste a URL, pick your data, choose a template.
+I have data scattered across a dozen endpoints — analytics, servers, side projects, my own life. Vulpino is the fox that eats all of it and puts one clean number on my home screen. You paste a URL, it fetches the JSON and shows you the whole tree, you tap the values you care about, you pick a template, and you're done. Five taps: URL, data, template, customize, deploy. The whole thing is native SwiftUI and it works at all three widget sizes.
+
+The part I care most about is what it *doesn't* let you do. There's no font picker, no color wheel, no padding slider. You get seven typographic templates — Mono Stat for a single hero number, Dual Stat to compare two, Stat Stack for a little dashboard, plus Headline, List, Grid, and Timestamp — and every one of them is already designed. That's the whole idea behind the vulpes family: the constraint is the product. Vulpino dice no to customization theater, and the widgets look good because I made the decisions instead of pushing them onto you at 11pm when you just want to see your visitor count.
+
+It's real infrastructure too, not a toy. API keys and auth headers live in the Keychain, not in some plist. Data is cached offline so the widget still shows the last good value with a stale indicator when the network's down, and tapping a widget deep-links straight into whatever URL you set or back into the app to edit it. Built with a lot of AI pairing — I was the one saying no to features, the model helped me build the ones that survived.
 
 ![The widget editor — a SwiftUI step flow from URL to data to template to customize](https://res.cloudinary.com/ejf/image/upload/projects/vulpino/code.png)
 

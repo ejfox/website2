@@ -5188,6 +5188,51 @@
     }
   },
   {
+    "slug": "projects/butt-math",
+    "title": "Butt Math",
+    "date": "2026-05-01T00:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "art",
+      "generative",
+      "web"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Butt Math",
+      "date": "2026-05-01T00:00:00.000Z",
+      "category": "Art",
+      "featured": false,
+      "tech": [
+        "SVG",
+        "Nuxt",
+        "Vue",
+        "D3",
+        "flubber"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "art",
+        "generative",
+        "web"
+      ],
+      "words": 569,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/butt-math"
+    }
+  },
+  {
     "slug": "projects/ccrb-clusters",
     "title": "Clusters of NYPD Misconduct",
     "date": "2021-06-15T04:00:00.000Z",
@@ -6061,6 +6106,174 @@
     }
   },
   {
+    "slug": "projects/noaa-sat-cli",
+    "title": "NOAA Satellite CLI",
+    "date": "2025-06-09T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "NOAA Satellite CLI",
+      "date": "2025-06-09T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/noaa-sat-cli",
+      "tech": [
+        "TypeScript"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 250,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/noaa-sat-cli"
+    }
+  },
+  {
+    "slug": "projects/obsidian-analysis",
+    "title": "Obsidian Analysis",
+    "date": "2024-06-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "data",
+      "visualization",
+      "ai"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Obsidian Analysis",
+      "date": "2024-06-01T04:00:00.000Z",
+      "category": "Dataviz",
+      "featured": false,
+      "url": "https://github.com/ejfox/obsidian-analysis",
+      "tech": [
+        "Python",
+        "Embeddings",
+        "UMAP",
+        "LM Studio"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-collaborative",
+      "tags": [
+        "data",
+        "visualization",
+        "ai"
+      ],
+      "words": 200,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/obsidian-analysis"
+    }
+  },
+  {
+    "slug": "projects/openrouter-census",
+    "title": "Openrouter Census",
+    "date": "2025-08-21T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Openrouter Census",
+      "date": "2025-08-21T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/openrouter-census",
+      "tech": [
+        "JavaScript"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 290,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/openrouter-census"
+    }
+  },
+  {
+    "slug": "projects/paperclip",
+    "title": "paperclip",
+    "date": "2025-11-01T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "ios",
+      "android",
+      "app",
+      "social"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "paperclip",
+      "date": "2025-11-01T05:00:00.000Z",
+      "category": "Apps",
+      "featured": false,
+      "tech": [
+        "Swift",
+        "SwiftUI",
+        "Kotlin",
+        "Jetpack Compose",
+        "Supabase"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "ios",
+        "android",
+        "app",
+        "social"
+      ],
+      "words": 303,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/paperclip"
+    }
+  },
+  {
     "slug": "projects/paramilitary-leaks",
     "title": "Paramilitary Leaks",
     "date": "2025-09-01T04:00:00.000Z",
@@ -6527,6 +6740,44 @@
       "toc": [],
       "type": "post",
       "slug": "projects/vulpes-nvim"
+    }
+  },
+  {
+    "slug": "projects/vulpino",
+    "title": "Vulpino",
+    "date": "2026-01-10T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Vulpino",
+      "date": "2026-01-10T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/vulpino",
+      "tech": [
+        "Swift"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 319,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/vulpino"
     }
   },
   {
