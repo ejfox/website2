@@ -130,17 +130,20 @@ onMounted(() => {
   }
 })
 
-// Availability line is data-driven — flip data/availability.json when the
-// slot fills so the blurb never claims an opening EJ doesn't have.
+// Availability is data-driven — flip data/availability.json when a slot fills
+// so the blurb never claims an opening EJ doesn't have.
+//
+// Every fallback here is `known: false`, NOT a guess. There were three
+// separate fail-open defaults on this path (the endpoint's catch, this fetch's
+// catch, and the computed's `||`), and all three claimed a fully-open calendar
+// when something went wrong. When we don't know, we say nothing — `null` here
+// makes the template drop the sentence and the CTA entirely.
 const { data: availability } = await useAsyncData('availability', () =>
-  $fetch('/api/availability').catch(() => ({
-    capacity: 3,
-    openSlots: 3,
-    bookedUntil: '',
-  }))
+  $fetch('/api/availability').catch(() => ({ known: false }))
 )
 const availabilityLine = computed(() => {
-  const a = availability.value || { capacity: 3, openSlots: 3, bookedUntil: '' }
+  const a = availability.value
+  if (!a?.known) return null
   if (a.openSlots > 0) {
     const slots =
       a.openSlots === 1 ? '1 slot is open' : `${a.openSlots} slots are open`
@@ -159,8 +162,9 @@ const availabilityLine = computed(() => {
 
 const { tocTarget } = useTOC()
 
-// Buyer-facing proof for the header bar. Names buyers scan for beat
-// word-counts — these are the checkable credentials, kept as plain facts.
+// Places the work actually ran, for the header bar. Each one is corroborated
+// by a project write-up in content/blog/projects — they're checkable facts,
+// not a pitch, and they should stay that way.
 const CREDENTIALS = [
   'NBC News',
   'Gothamist / WNYC',
@@ -362,23 +366,25 @@ useHead(() => ({
         Selected Work
       </h1>
 
-      <!-- Buyer-facing pitch, in EJ's own words (interview 2026-09). The
-           conversion surface leads with the person, not a feature list. -->
+      <!-- The opening line is EJ's, verbatim, and is also the hero on
+           /consulting. Don't reword it. -->
       <p
         class="font-serif text-lg md:text-xl text-zinc-700 dark:text-zinc-300 max-w-2xl leading-snug mb-3"
       >
-        I convince computers to do what people imagine — for people I think are
-        trying to make the world a better place. My freelance work pays for my
-        journalism habit.
-        <span class="text-zinc-500 dark:text-zinc-400">
-          {{ availabilityLine.text }}
-        </span>
-        <NuxtLink
-          to="/calendar"
-          class="whitespace-nowrap underline decoration-1 underline-offset-2 hover:text-zinc-900 dark:hover:text-zinc-100"
-        >
-          {{ availabilityLine.cta }}
-        </NuxtLink>
+        I love making computers do things no one's seen before. For people I
+        think are trying to make the world a better place. My freelance work
+        pays for my journalism habit.
+        <template v-if="availabilityLine">
+          <span class="text-zinc-500 dark:text-zinc-400">
+            {{ availabilityLine.text }}
+          </span>
+          <NuxtLink
+            to="/calendar"
+            class="whitespace-nowrap underline decoration-1 underline-offset-2 hover:text-zinc-900 dark:hover:text-zinc-100"
+          >
+            {{ availabilityLine.cta }}
+          </NuxtLink>
+        </template>
       </p>
 
       <!-- Real diff: most recently updated project, with anchor -->
@@ -397,9 +403,9 @@ useHead(() => ({
         </template>
       </div>
 
-      <!-- Buyer facts, not self-measurement: credentials buyers can check
-           lead, then range + velocity. (Was words/images/read-time — the
-           page counting itself told busy buyers to leave.) -->
+      <!-- Where the work ran, then its range and pace. Replaced a
+           words/images/read-time row, which measured the page rather than
+           the work. -->
       <div
         class="flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs text-zinc-500 tabular-nums"
       >
