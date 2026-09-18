@@ -6616,6 +6616,50 @@
     }
   },
   {
+    "slug": "projects/spacepunk-logi",
+    "title": "Spacepunk",
+    "date": "2026-03-01T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "games",
+      "ai",
+      "simulation"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Spacepunk",
+      "date": "2026-03-01T05:00:00.000Z",
+      "category": "Art",
+      "featured": false,
+      "tech": [
+        "JavaScript",
+        "LLM",
+        "Game",
+        "Simulation"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-collaborative",
+      "tags": [
+        "games",
+        "ai",
+        "simulation"
+      ],
+      "words": 188,
+      "images": 1,
+      "imageDetails": {
+        "total": 1,
+        "cloudinary": 1,
+        "withDimensions": 0
+      },
+      "links": 1,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/spacepunk-logi"
+    }
+  },
+  {
     "slug": "projects/subway-builder",
     "title": "Subway Builder",
     "date": "2026-05-01T04:00:00.000Z",
