@@ -493,7 +493,9 @@ useHead(() => ({
         </span>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10">
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-6 gap-y-10"
+      >
         <ProjectArchiveCard
           v-for="project in visibleProjects(group)"
           :key="project.slug"

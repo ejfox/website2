@@ -196,6 +196,11 @@ const toggleHeroVideo = () => {
   <div
     class="project-row relative block group text-zinc-900 dark:text-zinc-100"
   >
+    <!-- Wide screens: text and media share a row (text ~2/5, media ~3/5) so the
+         freed horizontal space gets used instead of stacking a narrow lede over
+         full-bleed images. Below xl it collapses back to one column. -->
+    <div class="xl:grid xl:grid-cols-5 xl:gap-x-10 xl:items-start">
+      <div class="xl:col-span-2 min-w-0">
     <div
       class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-2"
     >
@@ -263,7 +268,9 @@ const toggleHeroVideo = () => {
     >
       {{ excerpt }}
     </p>
+      </div>
 
+      <div class="xl:col-span-3 mt-4 xl:mt-0 min-w-0">
     <!-- One image: a generous hero.
          Several: a masonry wall, capped at 6 with an overflow link. -->
     <!-- Single hero: natural aspect, no crop, no bars (no video). -->
@@ -344,6 +351,8 @@ const toggleHeroVideo = () => {
 
     <div v-if="hiddenCount > 0" class="mt-2 font-mono text-xs text-zinc-500">
       + {{ hiddenCount }} more →
+    </div>
+      </div>
     </div>
   </div>
 </template>
