@@ -60,6 +60,7 @@ const CATEGORY_ORDER = [
   'Journalism',
   'Dataviz',
   'Art',
+  'Games',
   'Hardware',
   'Activism',
   'Apps',
