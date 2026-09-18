@@ -88,48 +88,9 @@ const archiveGroups = computed(() => {
   }))
 })
 
-// Oversized archive groups (the 40-item Tools wall) collapse to a few rows
-// with an in-place expander — the volume is a real velocity signal, so keep
-// it a click away rather than deleting it, but stop it from burying the
-// journalism. VISIBLE fills exactly three sm:grid-cols-3 rows.
-const COLLAPSE_THRESHOLD = 12
-const VISIBLE_WHEN_COLLAPSED = 9
-const expandedGroups = ref(new Set())
-
-const isCollapsible = (group) => group.projects.length > COLLAPSE_THRESHOLD
-const isExpanded = (group) => expandedGroups.value.has(group.slug)
-const visibleProjects = (group) =>
-  !isCollapsible(group) || isExpanded(group)
-    ? group.projects
-    : group.projects.slice(0, VISIBLE_WHEN_COLLAPSED)
-const hiddenInGroup = (group) =>
-  isCollapsible(group) && !isExpanded(group)
-    ? group.projects.length - VISIBLE_WHEN_COLLAPSED
-    : 0
-const toggleGroup = (slug) => {
-  const next = new Set(expandedGroups.value)
-  if (next.has(slug)) next.delete(slug)
-  else next.add(slug)
-  expandedGroups.value = next
-}
-
-// A deep link (#some-tool-slug) into a collapsed group must still resolve —
-// expand the group that owns the hash target, then let the browser scroll.
-onMounted(() => {
-  const hash = decodeURIComponent(window.location.hash.slice(1))
-  if (!hash) return
-  const owner = archiveGroups.value.find(
-    (g) =>
-      isCollapsible(g) && g.projects.some((p) => getProjectSlug(p) === hash)
-  )
-  if (
-    owner &&
-    !visibleProjects(owner).some((p) => getProjectSlug(p) === hash)
-  ) {
-    expandedGroups.value = new Set(expandedGroups.value).add(owner.slug)
-    nextTick(() => document.getElementById(hash)?.scrollIntoView())
-  }
-})
+// Archive shows every project — no collapse, no "+ N more" gate. Deep links
+// (#slug) resolve natively since every card is always in the DOM.
+const visibleProjects = (group) => group.projects
 
 // Availability is data-driven — flip data/availability.json when a slot fills
 // so the blurb never claims an opening EJ doesn't have.
@@ -502,27 +463,6 @@ useHead(() => ({
           :project="project"
         />
       </div>
-
-      <!-- Collapse expander for oversized groups: velocity signal preserved,
-           one click away, without a separate page to maintain. -->
-      <button
-        v-if="hiddenInGroup(group) > 0"
-        type="button"
-        class="mt-5 font-mono text-2xs uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-        :aria-expanded="isExpanded(group)"
-        @click="toggleGroup(group.slug)"
-      >
-        + {{ hiddenInGroup(group) }} more experiments →
-      </button>
-      <button
-        v-else-if="isCollapsible(group) && isExpanded(group)"
-        type="button"
-        class="mt-5 font-mono text-2xs uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-        :aria-expanded="true"
-        @click="toggleGroup(group.slug)"
-      >
-        − collapse
-      </button>
     </section>
 
     <!-- TOC - flagships, then category jump-links. Mirrors the page structure
