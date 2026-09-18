@@ -1,5 +1,6 @@
 ---
 title: "NOAA Satellite CLI"
+draft: true
 date: 2025-06-09T00:00:00-05:00
 category: "Tools"
 featured: false
