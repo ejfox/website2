@@ -147,6 +147,15 @@ const heroSrc = computed(() =>
   images.value.length ? thumb(images.value[0], 1500) : ''
 )
 
+// Built here rather than inline in the template: as a template expression the
+// two thumb() calls exceed the 80-col limit, and prettier keeps collapsing any
+// hand-wrapping back onto one line — the two rules fight and neither wins.
+const heroSrcset = computed(() => {
+  if (!images.value.length) return ''
+  const src = images.value[0]
+  return `${thumb(src, 900)} 900w, ${thumb(src, 1500)} 1500w`
+})
+
 // --- Excerpt (precomputed server-side) --------------------------------------
 const excerpt = computed(() => props.project.excerpt || null)
 
@@ -201,157 +210,165 @@ const toggleHeroVideo = () => {
          full-bleed images. Below xl it collapses back to one column. -->
     <div class="xl:grid xl:grid-cols-5 xl:gap-x-10 xl:items-start">
       <div class="xl:col-span-2 min-w-0">
-    <div
-      class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-2"
-    >
-      <!-- h2 (not h3): flagship rows precede the archive's h2 category
+        <div
+          class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 mb-2"
+        >
+          <!-- h2 (not h3): flagship rows precede the archive's h2 category
            headings, and an h3-before-any-h2 breaks the heading outline -->
-      <h2
-        class="font-serif font-light tracking-tight leading-tight text-2xl md:text-3xl"
-      >
-        <NuxtLink
-          :to="`/projects/${projectSlug}`"
-          class="no-underline text-inherit group-hover:underline decoration-1 underline-offset-4 after:absolute after:inset-0 after:content-['']"
-        >
-          {{ projectTitle }}
-        </NuxtLink>
-        <span
-          v-if="client"
-          class="font-mono text-xs text-zinc-500 uppercase tracking-wider align-middle ml-2"
-        >
-          {{ client }}
-        </span>
-      </h2>
-      <span class="flex items-baseline gap-2 font-mono text-xs">
-        <span class="uppercase tracking-wider" :class="contextTag.class">
-          {{ contextTag.label }}
-        </span>
-        <span
-          v-if="aiInvolvement"
-          class="uppercase tracking-wider text-zinc-400 dark:text-zinc-600"
-        >
-          {{ aiInvolvement }}
-        </span>
-        <span
-          v-if="project.metadata?.draft"
-          class="uppercase tracking-wider text-zinc-400 dark:text-zinc-600"
-        >
-          draft
-        </span>
-        <time v-if="year" class="text-zinc-500 tabular-nums">{{ year }}</time>
-        <a
-          v-if="projectUrl"
-          :href="projectUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="relative z-10 p-1 -m-1 text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
-          :title="`Open ${projectUrl}`"
-          :aria-label="`Open ${projectTitle} (opens in new tab)`"
-        >
-          ↗
-        </a>
-      </span>
-    </div>
+          <h2
+            class="font-serif font-light tracking-tight leading-tight text-2xl md:text-3xl"
+          >
+            <NuxtLink
+              :to="`/projects/${projectSlug}`"
+              class="no-underline text-inherit group-hover:underline decoration-1 underline-offset-4 after:absolute after:inset-0 after:content-['']"
+            >
+              {{ projectTitle }}
+            </NuxtLink>
+            <span
+              v-if="client"
+              class="font-mono text-xs text-zinc-500 uppercase tracking-wider align-middle ml-2"
+            >
+              {{ client }}
+            </span>
+          </h2>
+          <span class="flex items-baseline gap-2 font-mono text-xs">
+            <span class="uppercase tracking-wider" :class="contextTag.class">
+              {{ contextTag.label }}
+            </span>
+            <span
+              v-if="aiInvolvement"
+              class="uppercase tracking-wider text-zinc-400 dark:text-zinc-600"
+            >
+              {{ aiInvolvement }}
+            </span>
+            <span
+              v-if="project.metadata?.draft"
+              class="uppercase tracking-wider text-zinc-400 dark:text-zinc-600"
+            >
+              draft
+            </span>
+            <time v-if="year" class="text-zinc-500 tabular-nums">
+              {{ year }}
+            </time>
+            <a
+              v-if="projectUrl"
+              :href="projectUrl"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="relative z-10 p-1 -m-1 text-zinc-400 dark:text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors cursor-pointer"
+              :title="`Open ${projectUrl}`"
+              :aria-label="`Open ${projectTitle} (opens in new tab)`"
+            >
+              ↗
+            </a>
+          </span>
+        </div>
 
-    <div
-      v-if="tech.length"
-      class="font-mono text-xs lowercase text-zinc-500 mb-2 leading-6"
-    >
-      <!-- one text node, separators nbsp-glued to the following word so a
+        <div
+          v-if="tech.length"
+          class="font-mono text-xs lowercase text-zinc-500 mb-2 leading-6"
+        >
+          <!-- one text node, separators nbsp-glued to the following word so a
            wrap never strands a '·' at a line end -->
-      {{ tech.join(' ·\u00A0') }}
-    </div>
+          {{ tech.join(' ·\u00A0') }}
+        </div>
 
-    <p
-      v-if="excerpt"
-      class="text-sm text-zinc-500 dark:text-zinc-400 max-w-prose mb-5 leading-6"
-    >
-      {{ excerpt }}
-    </p>
+        <p
+          v-if="excerpt"
+          class="text-sm text-zinc-500 dark:text-zinc-400 max-w-prose mb-5 leading-6"
+        >
+          {{ excerpt }}
+        </p>
       </div>
 
       <div class="xl:col-span-3 mt-4 xl:mt-0 min-w-0">
-    <!-- One image: a generous hero.
+        <!-- One image: a generous hero.
          Several: a masonry wall, capped at 6 with an overflow link. -->
-    <!-- Single hero: natural aspect, no crop, no bars (no video). -->
-    <img
-      v-if="!heroVideo && images.length === 1"
-      :src="heroSrc"
-      :srcset="`${thumb(images[0], 900)} 900w, ${thumb(images[0], 1500)} 1500w`"
-      sizes="(min-width: 768px) 75vw, 100vw"
-      :alt="`${projectTitle} screenshot`"
-      :loading="eager ? 'eager' : 'lazy'"
-      :fetchpriority="eager ? 'high' : undefined"
-      decoding="async"
-      class="w-auto max-w-full h-auto max-h-[75vh] rounded"
-    />
-    <!-- Uniform tile grid: every tile the same size (3:2), so rows read evenly
+        <!-- Single hero: natural aspect, no crop, no bars (no video). -->
+        <img
+          v-if="!heroVideo && images.length === 1"
+          :src="heroSrc"
+          :srcset="heroSrcset"
+          sizes="(min-width: 768px) 75vw, 100vw"
+          :alt="`${projectTitle} screenshot`"
+          :loading="eager ? 'eager' : 'lazy'"
+          :fetchpriority="eager ? 'high' : undefined"
+          decoding="async"
+          class="w-auto max-w-full h-auto max-h-[75vh] rounded"
+        />
+        <!-- Uniform tile grid: every tile the same size (3:2), so rows read
+         evenly
          and reserve their space (no layout shift). If the project has a demo
          video it leads the grid as a living tile — playback is viewport-driven
          so only visible rows animate. -->
-    <div
-      v-else-if="heroVideo || images.length > 1"
-      class="grid grid-cols-2 gap-4"
-    >
-      <!-- data-autoplay (not native autoplay): playback starts only when the
+        <div
+          v-else-if="heroVideo || images.length > 1"
+          class="grid grid-cols-2 gap-4"
+        >
+          <!-- data-autoplay (not native autoplay): playback starts only when
+           the
            viewport plugin sees it, so the index never eagerly loads a dozen
            videos. No-JS fallback is the poster frame. The pause toggle sits
            above the stretched card link (z-10) — WCAG 2.2.2's "mechanism to
            pause" for the looping tile; data-user-paused tells the viewport
            plugin to keep hands off a video the reader stopped. -->
-      <!-- Poster is eager ONLY for the first row (it IS the page's LCP);
+          <!-- Poster is eager ONLY for the first row (it IS the page's LCP);
            below-fold tiles carry data-poster and the viewport plugin swaps it
            in as the tile approaches — the poster attribute is fetched by the
            preload scanner immediately and can't be natively lazy-loaded
            (~196KB of below-fold JPEGs were contending with the LCP). -->
-      <div v-if="heroVideo" class="relative">
-        <video
-          ref="heroVideoEl"
-          :src="videoTile(heroVideo)"
-          :poster="eager ? videoPoster(heroVideo) : undefined"
-          :data-poster="eager ? undefined : videoPoster(heroVideo)"
-          data-autoplay
-          loop
-          muted
-          playsinline
-          preload="none"
-          width="900"
-          height="600"
-          class="w-full aspect-[3/2] object-cover rounded bg-raised"
-          :aria-label="`${projectTitle} demo video`"
-        />
-        <button
-          type="button"
-          class="absolute bottom-2 right-2 z-10 grid h-8 w-8 place-items-center rounded bg-zinc-900/70 font-mono text-2xs text-zinc-100 opacity-60 backdrop-blur-sm transition-opacity hover:opacity-100 focus-visible:opacity-100 print:hidden"
-          :aria-label="heroPaused ? 'Play demo video' : 'Pause demo video'"
-          @click.stop.prevent="toggleHeroVideo"
-        >
-          {{ heroPaused ? '▶' : '❚❚' }}
-        </button>
-      </div>
-      <!-- sizes reflects the real max-width-constrained layout (~540px cells),
+          <div v-if="heroVideo" class="relative">
+            <video
+              ref="heroVideoEl"
+              :src="videoTile(heroVideo)"
+              :poster="eager ? videoPoster(heroVideo) : undefined"
+              :data-poster="eager ? undefined : videoPoster(heroVideo)"
+              data-autoplay
+              loop
+              muted
+              playsinline
+              preload="none"
+              width="900"
+              height="600"
+              class="w-full aspect-[3/2] object-cover rounded bg-raised"
+              :aria-label="`${projectTitle} demo video`"
+            />
+            <button
+              type="button"
+              class="absolute bottom-2 right-2 z-10 grid h-8 w-8 place-items-center rounded bg-zinc-900/70 font-mono text-2xs text-zinc-100 opacity-60 backdrop-blur-sm transition-opacity hover:opacity-100 focus-visible:opacity-100 print:hidden"
+              :aria-label="heroPaused ? 'Play demo video' : 'Pause demo video'"
+              @click.stop.prevent="toggleHeroVideo"
+            >
+              {{ heroPaused ? '▶' : '❚❚' }}
+            </button>
+          </div>
+          <!-- sizes reflects the real max-width-constrained layout (~540px
+           cells),
            not the naive 50vw: at 1440px 50vw=720 made the 700w candidate
            unreachable, so every tile shipped w_1400 (~4x the needed bytes).
            DPR 2 still correctly picks 1400w. -->
-      <img
-        v-for="(src, i) in visibleImages"
-        :key="i"
-        :src="tile(src, 900)"
-        :srcset="`${tile(src, 700)} 700w, ${tile(src, 1400)} 1400w`"
-        sizes="(min-width: 1152px) 540px, 50vw"
-        :alt="`${projectTitle} screenshot ${i + 1}`"
-        width="900"
-        height="600"
-        :loading="eager && i === 0 && !heroVideo ? 'eager' : 'lazy'"
-        :fetchpriority="eager && i === 0 && !heroVideo ? 'high' : undefined"
-        decoding="async"
-        class="w-full aspect-[3/2] object-cover rounded"
-      />
-    </div>
+          <img
+            v-for="(src, i) in visibleImages"
+            :key="i"
+            :src="tile(src, 900)"
+            :srcset="`${tile(src, 700)} 700w, ${tile(src, 1400)} 1400w`"
+            sizes="(min-width: 1152px) 540px, 50vw"
+            :alt="`${projectTitle} screenshot ${i + 1}`"
+            width="900"
+            height="600"
+            :loading="eager && i === 0 && !heroVideo ? 'eager' : 'lazy'"
+            :fetchpriority="eager && i === 0 && !heroVideo ? 'high' : undefined"
+            decoding="async"
+            class="w-full aspect-[3/2] object-cover rounded"
+          />
+        </div>
 
-    <div v-if="hiddenCount > 0" class="mt-2 font-mono text-xs text-zinc-500">
-      + {{ hiddenCount }} more →
-    </div>
+        <div
+          v-if="hiddenCount > 0"
+          class="mt-2 font-mono text-xs text-zinc-500"
+        >
+          + {{ hiddenCount }} more →
+        </div>
       </div>
     </div>
   </div>
