@@ -60,8 +60,11 @@ data/blogroll.urls
 # Cloned tool used by export-github-networks.mjs
 data/_tool-cache/
 
-# Gear sync transient backups
+# Gear sync transient backups. Two naming conventions in the wild —
+# `gear.csv.backup.<ts>` and `gear.csv.bak-<tag>` — and only the first was
+# ignored, so seven of the latter got committed by a too-broad `git add data/`.
 data/gear.csv.backup.*
+data/gear.csv.bak-*
 
 # This is a yarn project — no npm lockfile
 package-lock.json
