@@ -22,17 +22,21 @@ const { data: projects } = await useAsyncData(
 // spans the range — investigative journalism, a marquee client, data viz, a
 // signature tool, a creative-coding piece — instead of just "newest first".
 const FLAGSHIP_ORDER = [
+  'subway-builder',
+  'paperclip',
+  // art run — creative-coding / generative up top
+  'hexagram-motion-graphics',
+  'flipper-generative-art',
+  'pixel-canvas',
+  'gem-viz',
+  // then journalism / client / tools
   'ccrb-clusters',
   'nbc-big-board',
-  'gem-viz',
-  'scrapbook-core',
-  'motorcycle-viz',
   'connectology',
   'paramilitary-leaks',
-  'pixel-canvas',
+  'scrapbook-core',
+  'coach-artie',
   'dataproofer',
-  'flipper-generative-art',
-  'hexagram-motion-graphics',
 ]
 const flagshipRank = (p) => {
   const s = p.slug?.replace(/^projects\//, '') || ''
@@ -53,9 +57,10 @@ const regularProjects = computed(
 const getProjectSlug = (project) =>
   project.slug?.replace(/^projects\//, '') || ''
 
-// The archive: everything not a flagship, grouped into categories. Leading with
-// Client & Newsroom makes the professional/journalism range legible up front;
-// Tools & Terminal (the biggest bucket) sits last so it doesn't drown the rest.
+// The archive: everything not a flagship, grouped by YEAR (the spine) and then
+// by theme within each year. Time is the primary axis — it tells the story of
+// what got made when — with category as the secondary sort so each year still
+// reads by kind of work. Category order below is that within-year importance.
 const CATEGORY_ORDER = [
   'Journalism',
   'Dataviz',
@@ -66,31 +71,64 @@ const CATEGORY_ORDER = [
   'Apps',
   'Tools',
 ]
-const categorySlug = (c) =>
-  'cat-' +
-  c
+const slugify = (s) =>
+  s
+    .toString()
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/(^-|-$)/g, '')
 
-const archiveGroups = computed(() => {
-  const groups = {}
-  for (const p of regularProjects.value) {
-    const c = p.metadata?.category || 'Other'
-    ;(groups[c] ||= []).push(p)
-  }
-  // Within a group: newest first (regularProjects already arrives date-desc).
-  const ordered = [...CATEGORY_ORDER, 'Other'].filter((c) => groups[c]?.length)
-  return ordered.map((c) => ({
-    category: c,
-    slug: categorySlug(c),
-    projects: groups[c],
-  }))
-})
+const projectYear = (p) => {
+  const raw = p.metadata?.date || p.date
+  const y = raw ? new Date(raw).getFullYear() : NaN
+  return Number.isNaN(y) ? null : y
+}
 
-// Archive shows every project — no collapse, no "+ N more" gate. Deep links
-// (#slug) resolve natively since every card is always in the DOM.
-const visibleProjects = (group) => group.projects
+// Recent years stand alone as the spine; the thin early years (1–2 projects
+// each) collapse into one "Earlier" bucket so the page isn't a wall of tiny
+// single-item year headers. The window rolls forward on its own.
+const EARLIER_BEFORE = new Date().getFullYear() - 2
+const yearBucketLabel = (p) => {
+  const y = projectYear(p)
+  if (!y) return 'Earlier'
+  return y >= EARLIER_BEFORE ? String(y) : 'Earlier'
+}
+
+const archiveGroups = computed(() => {
+  // First split into year buckets, then theme-within-year.
+  const byYear = {}
+  for (const p of regularProjects.value) {
+    const yb = yearBucketLabel(p)
+    ;(byYear[yb] ||= []).push(p)
+  }
+  const yearKeys = Object.keys(byYear).sort((a, b) => {
+    if (a === 'Earlier') return 1
+    if (b === 'Earlier') return -1
+    return Number(b) - Number(a)
+  })
+  return yearKeys.map((yk) => {
+    const cats = {}
+    for (const p of byYear[yk]) {
+      const c = p.metadata?.category || 'Other'
+      ;(cats[c] ||= []).push(p)
+    }
+    // Within a category: newest first (regularProjects arrives date-desc).
+    const orderedCats = [...CATEGORY_ORDER, 'Other'].filter(
+      (c) => cats[c]?.length
+    )
+    const yearSlug = 'yr-' + slugify(yk)
+    return {
+      year: yk,
+      slug: yearSlug,
+      count: byYear[yk].length,
+      categories: orderedCats.map((c) => ({
+        category: c,
+        slug: `${yearSlug}-${slugify(c)}`,
+        projects: cats[c],
+      })),
+    }
+  })
+})
 
 // Availability is data-driven — flip data/availability.json when a slot fills
 // so the blurb never claims an opening EJ doesn't have.
@@ -430,38 +468,60 @@ useHead(() => ({
       </template>
     </div>
 
-    <!-- Archive - the other ~90, grouped by category into a compact grid.
+    <!-- Archive - the other ~90, organized by YEAR (the spine) then theme.
          Still image-first (a thumbnail each), just dense: browse the whole
-         body of work without a firehose of full-bleed rows. -->
+         body of work as a timeline without a firehose of full-bleed rows. -->
     <section
-      v-for="group in archiveGroups"
-      :id="group.slug"
-      :key="group.category"
-      class="mb-14 scroll-mt-24"
+      v-for="yr in archiveGroups"
+      :id="yr.slug"
+      :key="yr.year"
+      class="mb-16 scroll-mt-24"
     >
+      <!-- Year: the spine header -->
       <div
-        class="flex items-baseline justify-between gap-4 rule-dotted-b pb-2 mb-5"
+        class="flex items-baseline justify-between gap-4 border-b border-zinc-300 dark:border-zinc-700 pb-2 mb-6"
       >
         <h2
-          class="font-mono text-xs uppercase tracking-wider text-zinc-600 dark:text-zinc-400"
+          class="font-mono text-lg tracking-tight text-zinc-800 dark:text-zinc-200 tabular-nums"
         >
-          {{ group.category }}
+          {{ yr.year }}
         </h2>
         <span
           class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
         >
-          {{ group.projects.length }}
+          {{ yr.count }} project{{ yr.count === 1 ? '' : 's' }}
         </span>
       </div>
 
+      <!-- Theme within the year -->
       <div
-        class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-6 gap-y-10"
+        v-for="cat in yr.categories"
+        :id="cat.slug"
+        :key="cat.slug"
+        class="mb-8 scroll-mt-24"
       >
-        <ProjectArchiveCard
-          v-for="project in visibleProjects(group)"
-          :key="project.slug"
-          :project="project"
-        />
+        <div class="flex items-baseline gap-2 mb-4">
+          <h3
+            class="font-mono text-2xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500"
+          >
+            {{ cat.category }}
+          </h3>
+          <span
+            class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
+          >
+            {{ cat.projects.length }}
+          </span>
+        </div>
+
+        <div
+          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-6 gap-y-10"
+        >
+          <ProjectArchiveCard
+            v-for="project in cat.projects"
+            :key="project.slug"
+            :project="project"
+          />
+        </div>
       </div>
     </section>
 
@@ -488,14 +548,14 @@ useHead(() => ({
             Archive
           </div>
           <ul class="space-y-0.5 list-none pl-0">
-            <li v-for="group in archiveGroups" :key="group.slug">
+            <li v-for="yr in archiveGroups" :key="yr.slug">
               <a
-                :href="`#${group.slug}`"
+                :href="`#${yr.slug}`"
                 class="flex items-baseline justify-between gap-2 text-zinc-600 dark:text-zinc-400"
               >
-                <span class="truncate">{{ group.category }}</span>
+                <span class="truncate tabular-nums">{{ yr.year }}</span>
                 <span class="text-zinc-400 dark:text-zinc-600 tabular-nums">
-                  {{ group.projects.length }}
+                  {{ yr.count }}
                 </span>
               </a>
             </li>

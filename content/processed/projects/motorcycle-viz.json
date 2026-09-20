@@ -4,10 +4,8 @@
   "title": "Motorcycle Meta-Visualizations",
   "metadata": {
     "title": "Motorcycle Meta-Visualizations",
-    "draft": true,
     "date": "2026-05-01T04:00:00.000Z",
     "category": "Art",
-    "featured": true,
     "url": "https://github.com/ejfox/motorcycle-viz",
     "tech": [
       "FFmpeg",

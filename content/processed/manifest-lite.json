@@ -5324,7 +5324,7 @@
       "title": "Coach Artie",
       "date": "2023-03-21T04:00:00.000Z",
       "category": "Tools",
-      "featured": false,
+      "featured": true,
       "modified": "2025-08-26T19:52:50.000Z",
       "url": "https://github.com/room302studio/coachartie",
       "tech": [
@@ -5695,6 +5695,53 @@
     }
   },
   {
+    "slug": "projects/gem-viz",
+    "title": "Global Energy Ownership Tracker",
+    "date": "2026-05-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "dataviz",
+      "network",
+      "energy",
+      "climate"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Global Energy Ownership Tracker",
+      "date": "2026-05-01T04:00:00.000Z",
+      "category": "Dataviz",
+      "featured": true,
+      "tech": [
+        "D3.js",
+        "Network Analysis",
+        "Data Visualization"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "context": "client",
+      "url": "https://globalenergymonitor.org/projects/global-energy-ownership-tracker",
+      "tags": [
+        "dataviz",
+        "network",
+        "energy",
+        "climate"
+      ],
+      "words": 358,
+      "images": 8,
+      "imageDetails": {
+        "total": 8,
+        "cloudinary": 6,
+        "withDimensions": 0
+      },
+      "links": 9,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/gem-viz"
+    }
+  },
+  {
     "slug": "projects/hexagram-motion-graphics",
     "title": "I Ching Motion Graphics",
     "date": "2026-05-01T04:00:00.000Z",
@@ -5780,6 +5827,54 @@
       "toc": [],
       "type": "post",
       "slug": "projects/motorcycle-pico8"
+    }
+  },
+  {
+    "slug": "projects/motorcycle-viz",
+    "title": "Motorcycle Meta-Visualizations",
+    "date": "2026-05-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "motorcycle",
+      "dataviz",
+      "generative",
+      "art",
+      "video"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Motorcycle Meta-Visualizations",
+      "date": "2026-05-01T04:00:00.000Z",
+      "category": "Art",
+      "url": "https://github.com/ejfox/motorcycle-viz",
+      "tech": [
+        "FFmpeg",
+        "Python",
+        "Generative Art",
+        "Data Visualization"
+      ],
+      "state": "doing",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "motorcycle",
+        "dataviz",
+        "generative",
+        "art",
+        "video"
+      ],
+      "words": 472,
+      "images": 10,
+      "imageDetails": {
+        "total": 10,
+        "cloudinary": 10,
+        "withDimensions": 0
+      },
+      "links": 10,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/motorcycle-viz"
     }
   },
   {
@@ -5880,6 +5975,53 @@
       "toc": [],
       "type": "post",
       "slug": "projects/nbcnews-specials"
+    }
+  },
+  {
+    "slug": "projects/paperclip",
+    "title": "paperclip",
+    "date": "2025-11-01T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "ios",
+      "android",
+      "app",
+      "social"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "paperclip",
+      "date": "2025-11-01T05:00:00.000Z",
+      "category": "Apps",
+      "featured": true,
+      "tech": [
+        "Swift",
+        "SwiftUI",
+        "Kotlin",
+        "Jetpack Compose",
+        "Supabase"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "ios",
+        "android",
+        "app",
+        "social"
+      ],
+      "words": 303,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/paperclip"
     }
   },
   {
@@ -6240,7 +6382,7 @@
       "title": "Subway Builder",
       "date": "2026-05-01T04:00:00.000Z",
       "category": "Games",
-      "featured": false,
+      "featured": true,
       "url": "https://github.com/ejfox/subway-builder-mods",
       "tech": [
         "JavaScript",

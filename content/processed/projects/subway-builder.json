@@ -6,7 +6,7 @@
     "title": "Subway Builder",
     "date": "2026-05-01T04:00:00.000Z",
     "category": "Games",
-    "featured": false,
+    "featured": true,
     "url": "https://github.com/ejfox/subway-builder-mods",
     "tech": [
       "JavaScript",
