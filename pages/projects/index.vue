@@ -117,10 +117,18 @@ const archiveGroups = computed(() => {
       (c) => cats[c]?.length
     )
     const yearSlug = 'yr-' + slugify(yk)
+    // Adaptive density: only break a year into theme sub-headers when it holds
+    // enough work to warrant it. A thin year (a handful of cards) reads far
+    // better as one clean grid than as three one-card sections with headers.
+    const count = byYear[yk].length
+    const dense = count >= 8 && orderedCats.length >= 3
     return {
       year: yk,
       slug: yearSlug,
-      count: byYear[yk].length,
+      count,
+      dense,
+      // one flat, category-ordered grid for the sparse case
+      flat: orderedCats.flatMap((c) => cats[c]),
       categories: orderedCats.map((c) => ({
         category: c,
         slug: `${yearSlug}-${slugify(c)}`,
@@ -459,9 +467,26 @@ useHead(() => ({
       </template>
     </div>
 
-    <!-- Archive - the other ~90, organized by YEAR (the spine) then theme.
-         Still image-first (a thumbnail each), just dense: browse the whole
-         body of work as a timeline without a firehose of full-bleed rows. -->
+    <!-- Archive - everything past the flagships, on a YEAR spine. Image-first
+         (a thumbnail each), dense: the whole body of work as a timeline without
+         a firehose of full-bleed rows. Thin years render as one clean grid;
+         full years break into themes (see `dense`). -->
+    <div
+      v-if="archiveGroups.length"
+      class="rule-dotted-b pb-2 mb-8 flex items-baseline justify-between gap-4"
+    >
+      <h2
+        class="font-mono text-2xs uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-600"
+      >
+        Archive · by year
+      </h2>
+      <span
+        class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
+      >
+        {{ regularProjects.length }}
+      </span>
+    </div>
+
     <section
       v-for="yr in archiveGroups"
       :id="yr.slug"
@@ -484,35 +509,49 @@ useHead(() => ({
         </span>
       </div>
 
-      <!-- Theme within the year -->
-      <div
-        v-for="cat in yr.categories"
-        :id="cat.slug"
-        :key="cat.slug"
-        class="mb-8 scroll-mt-24"
-      >
-        <div class="flex items-baseline gap-2 mb-4">
-          <h3
-            class="font-mono text-2xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500"
-          >
-            {{ cat.category }}
-          </h3>
-          <span
-            class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
-          >
-            {{ cat.projects.length }}
-          </span>
-        </div>
-
+      <!-- Full year → theme sub-headers -->
+      <template v-if="yr.dense">
         <div
-          class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-6 gap-y-10"
+          v-for="cat in yr.categories"
+          :id="cat.slug"
+          :key="cat.slug"
+          class="mb-8 scroll-mt-24"
         >
-          <ProjectArchiveCard
-            v-for="project in cat.projects"
-            :key="project.slug"
-            :project="project"
-          />
+          <div class="flex items-baseline gap-2 mb-4">
+            <h3
+              class="font-mono text-2xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500"
+            >
+              {{ cat.category }}
+            </h3>
+            <span
+              class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
+            >
+              {{ cat.projects.length }}
+            </span>
+          </div>
+
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-6 gap-y-10"
+          >
+            <ProjectArchiveCard
+              v-for="project in cat.projects"
+              :key="project.slug"
+              :project="project"
+            />
+          </div>
         </div>
+      </template>
+
+      <!-- Thin year → one clean grid, category-ordered, no sub-headers -->
+      <div
+        v-else
+        class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-6 gap-y-10"
+      >
+        <ProjectArchiveCard
+          v-for="project in yr.flat"
+          :key="project.slug"
+          :project="project"
+        />
       </div>
     </section>
 
