@@ -19,11 +19,10 @@ const pageText = route.query.text || ''
 const selectedText = route.query.description || ''
 const auth = route.query.auth || ''
 
-// Get favicon from URL
+// The bookmarked site's own icon. Never a third-party favicon service.
 if (pageUrl) {
   try {
-    const domain = new URL(pageUrl).hostname
-    favicon.value = `https://www.google.com/s2/favicons?domain=${domain}&sz=32`
+    favicon.value = `${new URL(pageUrl).origin}/favicon.ico`
   } catch {
     // Invalid URL - skip favicon
   }

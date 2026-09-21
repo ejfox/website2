@@ -314,5 +314,15 @@ export default createConfigForNuxt({
     rules: {
       'no-console': 'off',
     },
+  },
+  // ============================================================
+  // Git worktrees live INSIDE the repo at .claude/worktrees/<branch>/, so
+  // `eslint .` walks a second, complete copy of the codebase. That copy is a
+  // different branch: its lint result says nothing about this one, it doubles
+  // the runtime, and it makes `yarn lint` fail for reasons no diff explains.
+  // Measured before this was added: 36 of 47 flagged files were the worktree.
+  // ============================================================
+  {
+    ignores: ['.claude/**'],
   }
 )

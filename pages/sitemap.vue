@@ -167,6 +167,18 @@ usePageSeo({
               external
             />
             <SitemapLink
+              to="/archive.epub"
+              title="Blog Archive (EPUB)"
+              description="Every post as one e-book — sideload and read offline"
+              external
+            />
+            <SitemapLink
+              to="/photos.epub"
+              title="Photos (EPUB)"
+              description="The photo blog as an e-book, images included"
+              external
+            />
+            <SitemapLink
               to="/sitemap.xml"
               title="Sitemap"
               description="XML sitemap for search engines"

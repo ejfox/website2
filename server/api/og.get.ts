@@ -22,6 +22,37 @@ interface OGData {
 const cache = new Map<string, { data: OGData; expires: number }>()
 const CACHE_TTL = 5 * 60 * 1000
 
+/**
+ * The linked site's OWN favicon, never a third party's.
+ *
+ * This used to return `https://www.google.com/s2/favicons?domain=…`, which the
+ * reader's browser then loaded — handing Google the domain of every link
+ * previewed on the site, plus the reader's IP and UA, on a page that has no
+ * other reason to talk to Google. The server has already fetched this HTML to
+ * scrape OG tags, so the real icon is right there.
+ *
+ * Resolves relative hrefs against the page URL; falls back to the site's
+ * conventional /favicon.ico. Either way the request goes to the domain the
+ * reader is already being shown a link to, not to an aggregator.
+ */
+function extractFavicon(html: string, parsedUrl: URL): string {
+  const patterns = [
+    /<link[^>]+rel="(?:shortcut )?icon"[^>]+href="([^"]+)"/i,
+    /<link[^>]+href="([^"]+)"[^>]+rel="(?:shortcut )?icon"/i,
+    /<link[^>]+rel="apple-touch-icon"[^>]+href="([^"]+)"/i,
+  ]
+  for (const re of patterns) {
+    const href = html.match(re)?.[1]
+    if (!href) continue
+    try {
+      return new URL(href, parsedUrl.href).href
+    } catch {
+      // Malformed href — keep looking rather than emitting a broken URL.
+    }
+  }
+  return `${parsedUrl.origin}/favicon.ico`
+}
+
 export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const url = query.url as string
@@ -70,7 +101,7 @@ export default defineEventHandler(async (event) => {
     // Parse OG data from HTML
     const ogData: OGData = {
       url,
-      favicon: `https://www.google.com/s2/favicons?domain=${parsedUrl.hostname}&sz=64`,
+      favicon: extractFavicon(html, parsedUrl),
     }
 
     // Extract meta tags
@@ -192,7 +223,9 @@ export default defineEventHandler(async (event) => {
     const fallback: OGData = {
       url,
       siteName: parsedUrl.hostname.replace('www.', ''),
-      favicon: `https://www.google.com/s2/favicons?domain=${parsedUrl.hostname}&sz=64`,
+      // No HTML to scrape on this path — the conventional location is the only
+      // guess available, and it is still the linked site rather than Google.
+      favicon: `${parsedUrl.origin}/favicon.ico`,
     }
 
     // Cache even failures briefly (1 minute)

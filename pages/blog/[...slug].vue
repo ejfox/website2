@@ -213,14 +213,9 @@ const isDraft = computed(() => post.value?.metadata?.draft || post.value?.draft)
 const isUnlisted = computed(
   () => post.value?.metadata?.unlisted || post.value?.unlisted
 )
-// --- Sealed posts ---
-// The API serves `{slug, sealed, envelope}` and nothing else: no title, no
-// dek, no date, no tags, no headings. SealedPost opens the envelope in the
-// browser with the key from the URL fragment and hands back the real payload,
-// which is merged into `post` so that every component below renders exactly as
-// it would for a public post. Nothing downstream needs to know about any of
-// this — which is the point, since "one more place that has to remember the
-// flag" is how the last four leaks happened.
+// Sealed posts: the API returns only {slug, sealed, envelope}. SealedPost
+// decrypts and merges the payload into `post`, so everything below renders
+// normally. See docs/SEALED-POSTS.md
 const isSealed = computed(() => post.value?.sealed === true)
 
 const shouldNoIndex = computed(
