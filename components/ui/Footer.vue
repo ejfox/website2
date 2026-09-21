@@ -68,6 +68,12 @@ const buildTitle = computed(() => {
         <NuxtLink to="/sitemap" :class="navLinkClasses">/sitemap</NuxtLink>
         <NuxtLink to="/threads" :class="navLinkClasses">/threads</NuxtLink>
         <a href="https://ejfox.com/rss.xml" :class="navLinkClasses">/rss</a>
+        <!-- The whole blog as one e-book. Sits next to /rss because it's the
+             same promise — take the writing with you — for people who read on
+             e-ink rather than in a feed reader. -->
+        <a href="https://ejfox.com/archive.epub" :class="navLinkClasses">
+          /epub
+        </a>
         <a
           href="https://github.com/ejfox"
           rel="me authn"
