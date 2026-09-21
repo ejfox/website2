@@ -568,5 +568,35 @@
     "alt": "Vulpino fetches the JSON and lays the whole response out as a tree — tap the values you care about",
     "caption": "Vulpino fetches the JSON and lays the whole response out as a tree — tap the values you care about",
     "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAArABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABUQAQEAAAAAAAAAAAAAAAAAAAAR/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AOnCNwgMQbgDQAAAIIoAgD//2Q=="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/tv-station/landing.png": {
+    "width": 1440,
+    "height": 900,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "The TV station landing — tuned to the channel",
+    "caption": "The TV station landing — tuned to the channel",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBP/EABYQAQEBAAAAAAAAAAAAAAAAAAABEf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/EABYRAQEBAAAAAAAAAAAAAAAAAAABEf/aAAwDAQACEQMRAD8A4qzVStKJgCLH/9k="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/tv-station/web-0.png": {
+    "width": 1440,
+    "height": 900,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "tv.tools.ejfox.com live",
+    "caption": "tv.tools.ejfox.com live",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgAE/8QAFRABAQAAAAAAAAAAAAAAAAAAAAH/xAAVAQEBAAAAAAAAAAAAAAAAAAACAf/EABURAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIRAxEAPwDDYFh0aVCAkkJ//9k="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/vulpes-devices/devices.png": {
+    "width": 1524,
+    "height": 656,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "One look, many targets — the Vulpes glyph and palette generated across Flipper, OnionOS, TD-H3, Meshtastic, PortaPack, and the desktop",
+    "caption": "One look, many targets — the Vulpes glyph and palette generated across Flipper, OnionOS, TD-H3, Meshtastic, PortaPack, and the desktop",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAJABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDGFQAAH//Z"
   }
 }
