@@ -9,7 +9,7 @@ export default defineNuxtPlugin(() => {
     script.defer = true
     script.setAttribute(
       'data-website-id',
-      '165590cb-c361-4ad8-9459-6c6390744c64'
+      '357e74b7-fbdc-4e57-b17c-927df9b76830'
     )
     document.head.appendChild(script)
   }

@@ -150,7 +150,7 @@ export default defineNuxtConfig({
     UMAMI_USERNAME: process.env.UMAMI_USERNAME || 'admin',
     UMAMI_PASSWORD: process.env.UMAMI_PASSWORD || '',
     UMAMI_WEBSITE_ID:
-      process.env.UMAMI_WEBSITE_ID || '165590cb-c361-4ad8-9459-6c6390744c64',
+      process.env.UMAMI_WEBSITE_ID || '357e74b7-fbdc-4e57-b17c-927df9b76830',
     SUPABASE_URL: process.env.SUPABASE_URL || '',
     SUPABASE_KEY: process.env.SUPABASE_KEY || '',
     HEALTH_WEBHOOK_SECRET: process.env.HEALTH_WEBHOOK_SECRET || '',
