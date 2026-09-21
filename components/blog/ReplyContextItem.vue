@@ -43,12 +43,12 @@ const { data: ogData } = await useFetch<OGData>('/api/og', {
   default: () => null,
 })
 
+// A favicon that won't load just gets hidden. The previous fallback pointed at
+// Google's favicon service, so a site with a broken icon quietly handed Google
+// the linked domain and the reader's IP — a tracking beacon as the failure
+// mode of a decorative 16px image. No icon is a better outcome than that.
 const handleFaviconError = (e: Event) => {
-  const img = e.target as HTMLImageElement
-  // Fallback to Google's favicon service
-  if (domain.value && !img.src.includes('google.com/s2/favicons')) {
-    img.src = `https://www.google.com/s2/favicons?domain=${domain.value}&sz=64`
-  }
+  ;(e.target as HTMLImageElement).style.display = 'none'
 }
 
 const formatDate = (dateStr: string) => {
