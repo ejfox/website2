@@ -1,6 +1,6 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">Keyboard-driven block annotator for NewsWell print layouts — hand-annotate one page, a vision model predicts the rest, your edits teach it.</p>\n<p class=\"\">A keyboard-driven tool for marking up NewsWell page-template blocks — editorial, ad, filler — over print-edition pages, and a human-in-the-loop loop that learns your eye and pre-annotates the rest of the issue.</p>",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"Annotator — the live block annotator\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/annotator/live.png\" alt=\"Annotator — the live block annotator\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/annotator/live.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/annotator/live.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/annotator/live.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/annotator/live.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Annotator — the live block annotator\" width=\"2880\" height=\"1800\" style=\"--splay-rot:-2.46deg;\" data-dimensions=\"2880×1800\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">Annotator — the live block annotator</figcaption></figure>\nKeyboard-driven block annotator for NewsWell print layouts — hand-annotate one page, a vision model predicts the rest, your edits teach it.<p class=\"\"></p>\n<p class=\"\">A keyboard-driven tool for marking up NewsWell page-template blocks — editorial, ad, filler — over print-edition pages, and a human-in-the-loop loop that learns your eye and pre-annotates the rest of the issue.</p>",
   "title": "Annotator",
   "metadata": {
     "title": "Annotator",
@@ -17,14 +17,14 @@
     "tags": [
       "tools"
     ],
-    "words": 78,
-    "images": 0,
+    "words": 84,
+    "images": 1,
     "imageDetails": {
-      "total": 0,
-      "cloudinary": 0,
+      "total": 1,
+      "cloudinary": 1,
       "withDimensions": 0
     },
-    "links": 0,
+    "links": 1,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

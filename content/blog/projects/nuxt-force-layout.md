@@ -13,6 +13,8 @@ tags:
 <!-- TODO (EJ): factual stub auto-seeded from the repo README + description.
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
+
+![Nuxt Force Layout — a d3 force layout it produces](https://res.cloudinary.com/ejf/image/upload/projects/nuxt-force-layout/force.png)
 Easy D3-powered force layouts with all the trimmings.
 
 Before diving into your Nuxt app, you may need to prepare your data into node/edge CSVs with our Node.js-based importers.
