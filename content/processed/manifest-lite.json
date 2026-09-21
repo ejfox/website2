@@ -6452,6 +6452,44 @@
     }
   },
   {
+    "slug": "projects/vulpino",
+    "title": "Vulpino",
+    "date": "2026-01-10T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Vulpino",
+      "date": "2026-01-10T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/vulpino",
+      "tech": [
+        "Swift"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 392,
+      "images": 5,
+      "imageDetails": {
+        "total": 5,
+        "cloudinary": 5,
+        "withDimensions": 0
+      },
+      "links": 5,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/vulpino"
+    }
+  },
+  {
     "slug": "projects/websdr-vcv",
     "title": "WebSDR VCV",
     "date": "2025-08-01T00:00:00.000Z",
