@@ -14,7 +14,7 @@ tags:
 
 I love being able to reference the technical details when editing photography—aperture, shutter speed, ISO, all the little choices that go into making a photograph. But most photo prints completely ignore this data, treating it like metadata to be hidden away in EXIF tags that nobody ever sees. So I made a little app to add the EXIF data to the margins of prints you might get from CVS, Walgreens, or Wal-Mart (don't use them for photo prints, I learned the hard way.)
 
-![EXIF Photo Printer application displaying five family photos with options to regenerate layouts or save prints at 4x6 size.](http://res.cloudinary.com/ejf/image/upload/v1755098311/screenshot_2025-08-13_at_11.18.12_AM.png)
+![EXIF Photo Printer application displaying five family photos with options to regenerate layouts or save prints at 4x6 size.](https://res.cloudinary.com/ejf/image/upload/v1755098311/screenshot_2025-08-13_at_11.18.12_AM.png)
 
 ![The EXIF Photo Printer marketing site](https://res.cloudinary.com/ejf/image/upload/projects/photography-tools/exifprinter.png)
 

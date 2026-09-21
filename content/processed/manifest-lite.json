@@ -5254,7 +5254,7 @@
       "date": "2025-01-15T05:00:00.000Z",
       "category": "Tools",
       "featured": false,
-      "github": "https://github.com/ejfox/cloudinary-backup-tool",
+      "url": "https://github.com/ejfox/cloudinary-backup",
       "tech": [
         "Tauri",
         "Rust",
@@ -5633,7 +5633,7 @@
         "generative",
         "art"
       ],
-      "words": 213,
+      "words": 190,
       "images": 5,
       "imageDetails": {
         "total": 5,
@@ -5679,7 +5679,7 @@
         "device",
         "science"
       ],
-      "words": 147,
+      "words": 136,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -5814,7 +5814,7 @@
         "art",
         "motorcycle"
       ],
-      "words": 166,
+      "words": 150,
       "images": 1,
       "imageDetails": {
         "total": 1,
