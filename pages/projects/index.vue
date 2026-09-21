@@ -6,6 +6,10 @@ import ProjectArchiveCard from '~/components/projects/ProjectArchiveCard.vue'
 // slim=1: card fields only (images/heroVideo/excerpt/counts precomputed
 // server-side) — the full-html array was ~470KB of payload this page never
 // rendered. Agents wanting full html use /projects.json (json-twin).
+// Called before the await below: composables that need the component
+// instance must run while it still exists.
+const { tocTarget } = useTOC()
+
 const { data: projects } = await useAsyncData(
   'projects-page-data-slim',
   async () => {
@@ -132,7 +136,12 @@ onMounted(() => {
 
 // Flip data/availability.json when a slot fills. Fails CLOSED: if we don't
 // know, render nothing rather than claiming an opening.
-const { data: availability } = await useAsyncData('availability', () =>
+// NOT awaited. Nothing here reads it synchronously — the template consumes it
+// through availabilityLine — and every `await` in <script setup> drops the
+// component instance for the code after it. Two awaits plus a reactive useHead
+// was enough to white-screen the page in dev with
+// `currentRenderingInstance.ce` null.
+const { data: availability } = useAsyncData('availability', () =>
   $fetch('/api/availability').catch(() => ({ known: false }))
 )
 const availabilityLine = computed(() => {
@@ -153,8 +162,6 @@ const availabilityLine = computed(() => {
     cta: '→ say hi for the next one',
   }
 })
-
-const { tocTarget } = useTOC()
 
 // Checkable facts — each is corroborated by a write-up in content/blog/projects.
 const CREDENTIALS = [
