@@ -117,9 +117,6 @@ export default defineNuxtConfig({
           title: 'EJ Fox · JSON Feed',
           href: 'https://ejfox.com/feed.json',
         },
-        // Announced as alternates so the e-books are discoverable the same way
-        // the feeds are — a reader or a script can find them from any page
-        // without being told the URLs.
         {
           rel: 'alternate',
           type: 'application/epub+zip',

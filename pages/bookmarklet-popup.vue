@@ -19,9 +19,7 @@ const pageText = route.query.text || ''
 const selectedText = route.query.description || ''
 const auth = route.query.auth || ''
 
-// The bookmarked site's own icon, at its conventional location. This used to
-// call Google's favicon service, which meant saving a bookmark told Google
-// what you were bookmarking. The <img> hides itself if the icon 404s.
+// The bookmarked site's own icon. Never a third-party favicon service.
 if (pageUrl) {
   try {
     favicon.value = `${new URL(pageUrl).origin}/favicon.ico`

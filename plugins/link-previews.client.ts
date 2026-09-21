@@ -70,11 +70,8 @@ export default defineNuxtPlugin(() => {
     const parts: string[] = []
 
     // Header row: favicon + site name
-    // /api/og always returns the linked site's OWN icon now (scraped from its
-    // <link rel=icon>, falling back to its /favicon.ico), so there is nothing
-    // left to fall back TO. The old fallback was Google's favicon service,
-    // which turned every hover on every post into a request telling Google
-    // which link the reader was hovering.
+    // /api/og always returns the site's own icon, so there's nothing to fall
+    // back to. Don't reintroduce a third-party favicon service here.
     const faviconSrc = data.favicon || ''
     const siteName =
       data.siteName ||

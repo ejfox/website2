@@ -130,14 +130,8 @@ onMounted(() => {
   }
 })
 
-// Availability is data-driven — flip data/availability.json when a slot fills
-// so the blurb never claims an opening EJ doesn't have.
-//
-// Every fallback here is `known: false`, NOT a guess. There were three
-// separate fail-open defaults on this path (the endpoint's catch, this fetch's
-// catch, and the computed's `||`), and all three claimed a fully-open calendar
-// when something went wrong. When we don't know, we say nothing — `null` here
-// makes the template drop the sentence and the CTA entirely.
+// Flip data/availability.json when a slot fills. Fails CLOSED: if we don't
+// know, render nothing rather than claiming an opening.
 const { data: availability } = await useAsyncData('availability', () =>
   $fetch('/api/availability').catch(() => ({ known: false }))
 )
@@ -162,9 +156,7 @@ const availabilityLine = computed(() => {
 
 const { tocTarget } = useTOC()
 
-// Places the work actually ran, for the header bar. Each one is corroborated
-// by a project write-up in content/blog/projects — they're checkable facts,
-// not a pitch, and they should stay that way.
+// Checkable facts — each is corroborated by a write-up in content/blog/projects.
 const CREDENTIALS = [
   'NBC News',
   'Gothamist / WNYC',
@@ -366,8 +358,7 @@ useHead(() => ({
         Selected Work
       </h1>
 
-      <!-- The opening line is EJ's, verbatim, and is also the hero on
-           /consulting. Don't reword it. -->
+      <!-- EJ's line, verbatim. Also the /consulting hero. Don't reword. -->
       <p
         class="font-serif text-lg md:text-xl text-zinc-700 dark:text-zinc-300 max-w-2xl leading-snug mb-3"
       >
