@@ -117,6 +117,18 @@ export default defineNuxtConfig({
           title: 'EJ Fox · JSON Feed',
           href: 'https://ejfox.com/feed.json',
         },
+        {
+          rel: 'alternate',
+          type: 'application/epub+zip',
+          title: 'EJ Fox · Blog Archive (EPUB)',
+          href: 'https://ejfox.com/archive.epub',
+        },
+        {
+          rel: 'alternate',
+          type: 'application/epub+zip',
+          title: 'EJ Fox · Photos (EPUB)',
+          href: 'https://ejfox.com/photos.epub',
+        },
       ],
     },
   },

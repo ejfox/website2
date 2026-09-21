@@ -1,24 +1,10 @@
 <script setup>
 /**
- * The reader's half of a sealed post.
+ * Opens a sealed post using the key in the URL fragment (`#k=…`). Fragments are
+ * never sent to a server, so the key stays in this tab.
  *
- * The key arrives in the URL **fragment** (`…/blog/private/foo#k=<43 chars>`).
- * Browsers never send a fragment to a server, so the key does not appear in
- * the request line, in nginx or pm2 logs, in a Referer header sent to some
- * other site, or in a CDN cache key. It exists in this tab and nowhere else.
- *
- * Which is why there is no unlock endpoint. The previous design POSTed a
- * password to the server, which meant a rate limiter (whose key table could be
- * exhausted into a global lockout), a KDF on the request path (~100ms of CPU
- * per guess, ~400 concurrent unlocks to blow the 1GB pm2 ceiling), and a
- * server that briefly held the plaintext. None of that exists here: the server
- * stores an opaque envelope, hands it over, and is finished.
- *
- * The trade-off, stated plainly because it is real: this needs JavaScript, and
- * a sealed post is therefore not server-rendered. EJ's answer to "may the VPS
- * hold plaintext?" was yes — but that was permission, not a requirement, and
- * not taking the permission is strictly stronger. A listing filter that
- * regresses tomorrow leaks an envelope instead of a post.
+ * Needs JS; sealed posts are not server-rendered. Design + threat model:
+ * docs/SEALED-POSTS.md
  */
 import { unsealPost } from '~/utils/postSeal.mjs'
 

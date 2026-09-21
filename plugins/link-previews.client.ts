@@ -70,9 +70,9 @@ export default defineNuxtPlugin(() => {
     const parts: string[] = []
 
     // Header row: favicon + site name
-    const faviconSrc =
-      data.favicon ||
-      `https://www.google.com/s2/favicons?domain=${new URL(data.url || '').hostname}&sz=32`
+    // /api/og always returns the site's own icon, so there's nothing to fall
+    // back to. Don't reintroduce a third-party favicon service here.
+    const faviconSrc = data.favicon || ''
     const siteName =
       data.siteName ||
       (() => {
@@ -85,7 +85,7 @@ export default defineNuxtPlugin(() => {
     if (siteName) {
       parts.push(`
         <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
-          <img src="${faviconSrc}" width="16" height="16" style="border-radius:2px;flex-shrink:0;" onerror="this.style.display='none'" />
+          ${faviconSrc ? `<img src="${faviconSrc}" width="16" height="16" style="border-radius:2px;flex-shrink:0;" onerror="this.style.display='none'" />` : ''}
           <span style="font-family:ui-monospace,monospace;font-size:11px;color:rgb(161 161 170);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${siteName}</span>
         </div>
       `)

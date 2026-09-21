@@ -43,12 +43,9 @@ const { data: ogData } = await useFetch<OGData>('/api/og', {
   default: () => null,
 })
 
+// Hide a favicon that won't load. Don't add a third-party fallback here.
 const handleFaviconError = (e: Event) => {
-  const img = e.target as HTMLImageElement
-  // Fallback to Google's favicon service
-  if (domain.value && !img.src.includes('google.com/s2/favicons')) {
-    img.src = `https://www.google.com/s2/favicons?domain=${domain.value}&sz=64`
-  }
+  ;(e.target as HTMLImageElement).style.display = 'none'
 }
 
 const formatDate = (dateStr: string) => {
