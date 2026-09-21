@@ -48,12 +48,27 @@ sheet by route. Unused-on-homepage bytes, by source:
 
 - `other utilities` — 61KB. Tailwind utilities used elsewhere. Hardest: one
   global sheet is inherent to how Tailwind is set up here.
-- `prose-*` — 43.5KB, from `@tailwindcss/typography`. Bounded fix: drop the
-  plugin from the global config and import typography CSS only in the pages
-  that render prose (blog, reading, projects), letting Vite route-split it.
-- `.project-*` — 19KB, custom rules in `assets/css/global.css` (lines ~360-434,
-  1312, 1689). Move them into the projects pages. **Collides with active work
-  on PR #47 — coordinate before touching.**
+- `prose-*` — **66KB measured** (43.5KB of it unused on the homepage, but the
+  whole typography output is what has to leave the global sheet). Priced with
+  the harness: stripping every typography rule from the homepage document takes
+  it **69 → 73** (FCP 4.88→4.50s, LCP 4.96→4.50s, base steady at 69 across all
+  5 runs). That is the single largest available win.
+
+  **The obvious version of this fix is a no-op.** "Import typography only in
+  pages that render prose" includes `pages/index.vue`, which uses
+  `prose prose-zinc dark:prose-invert` on its `#index-content` block — so the
+  homepage would still pull the chunk, and relocating bytes scores zero (see
+  the table). The homepage must _also_ drop the `prose` class. That part is
+  cheap: `content/blog/index.md` is two paragraphs, some links, a `<br>` and a
+  `<span>`, so a handful of scoped rules on `#index-content` replaces it.
+
+  The expensive part is getting typography out of the global sheet at all.
+  Removing the plugin also removes its **variant utilities** (`prose-a:`,
+  `prose-headings:`, `prose-blockquote:` … ~25 usages across the site), which
+  would all need rewriting, and a build-time extraction of the compiled rules
+  into a `prose.css` is a _snapshot_ — a newly-used modifier needs a regen.
+  That's a maintenance tax on a delete-driven codebase, and the regression
+  surface is every long-form page on the site.
 
 Rough scaling: removing 133KB bought 7 points, so the bounded prose+project
 work (62KB) is worth maybe 3 — enough, if it holds, but local scores (69) and
