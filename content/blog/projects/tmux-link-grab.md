@@ -17,6 +17,8 @@ tags:
 <!-- TODO (EJ): add your voice + confirm the description against the README.
      Factual stub. Draft. -->
 
+
+![Tmux Link Grab running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/tmux-link-grab/terminal.png)
 A tmux utility for grabbing and opening the links scattered across your terminal panes — no mouse, no scrollback hunting.
 
 ![tmux-link-grab in action](https://res.cloudinary.com/ejf/image/upload/projects/tmux-link-grab/demo.gif)

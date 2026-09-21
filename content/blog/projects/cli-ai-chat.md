@@ -16,6 +16,8 @@ tags:
 
 <!-- TODO (EJ): add your voice — factual stub, not your words. Draft until ready. -->
 
+
+![CLI AI Chat running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/cli-ai-chat/terminal.png)
 An IRC-style terminal interface for LLM conversations — talk to models in the same channel-and-buffer idiom you already live in, with vim-style modes and keybindings for navigating threads.
 
 ![The vim-mode controller — mode changes, command handling, and thread navigation](https://res.cloudinary.com/ejf/image/upload/projects/cli-ai-chat/code.png)

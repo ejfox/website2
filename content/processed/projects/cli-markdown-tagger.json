@@ -1,6 +1,6 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">Use an LLM to add tags to your markdown's frontmatter.</p>\n<p class=\"\">This CLI tool automatically updates tags in the frontmatter of markdown files using AI-powered suggestions. It fetches a list of allowed tags from a specified URL and uses the OpenRouter API to suggest relevant tags based on the content of the markdown file.</p>\n<figure role=\"figure\" aria-label=\"CLI Markdown Tagger screenshot 1\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-markdown-tagger/shot-1.png\" alt=\"CLI Markdown Tagger screenshot 1\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/cli-markdown-tagger/shot-1.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/cli-markdown-tagger/shot-1.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-markdown-tagger/shot-1.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/cli-markdown-tagger/shot-1.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"CLI Markdown Tagger screenshot 1\" width=\"1684\" height=\"2474\" style=\"--splay-rot:-1.02deg;\" data-dimensions=\"1684×2474\" class=\"img-full my-8 rounded-sm img-splay aspect-[3/4] w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">CLI Markdown Tagger screenshot 1</figcaption>\n</figure>",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"CLI Markdown Tagger running in a vulpes-themed terminal\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-markdown-tagger/terminal.png\" alt=\"CLI Markdown Tagger running in a vulpes-themed terminal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/cli-markdown-tagger/terminal.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/cli-markdown-tagger/terminal.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-markdown-tagger/terminal.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/cli-markdown-tagger/terminal.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"CLI Markdown Tagger running in a vulpes-themed terminal\" width=\"1668\" height=\"440\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"1668×440\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">CLI Markdown Tagger running in a vulpes-themed terminal</figcaption></figure>\nUse an LLM to add tags to your markdown's frontmatter.<p class=\"\"></p>\n<p class=\"\">This CLI tool automatically updates tags in the frontmatter of markdown files using AI-powered suggestions. It fetches a list of allowed tags from a specified URL and uses the OpenRouter API to suggest relevant tags based on the content of the markdown file.</p>\n<figure role=\"figure\" aria-label=\"CLI Markdown Tagger screenshot 1\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-markdown-tagger/shot-1.png\" alt=\"CLI Markdown Tagger screenshot 1\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/cli-markdown-tagger/shot-1.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/cli-markdown-tagger/shot-1.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/cli-markdown-tagger/shot-1.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/cli-markdown-tagger/shot-1.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"CLI Markdown Tagger screenshot 1\" width=\"1684\" height=\"2474\" style=\"--splay-rot:-1.02deg;\" data-dimensions=\"1684×2474\" class=\"img-full my-8 rounded-sm img-splay aspect-[3/4] w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">CLI Markdown Tagger screenshot 1</figcaption>\n</figure>",
   "title": "CLI Markdown Tagger",
   "metadata": {
     "title": "CLI Markdown Tagger",
@@ -18,14 +18,14 @@
       "llm",
       "markdown"
     ],
-    "words": 83,
-    "images": 1,
+    "words": 91,
+    "images": 2,
     "imageDetails": {
-      "total": 1,
-      "cloudinary": 1,
+      "total": 2,
+      "cloudinary": 2,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

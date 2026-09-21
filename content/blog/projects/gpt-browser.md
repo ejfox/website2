@@ -13,6 +13,8 @@ tags:
 <!-- TODO (EJ): factual stub auto-seeded from the repo README + description.
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
+
+![GPT Browser running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/gpt-browser/terminal.png)
 A Node.js script utilizing OpenAI's GPT to fetch, parse, and succinctly summarize web pages. .
 
 A powerful Node.js package that fetches a webpage, breaks it into chunks, analyzes its content, and generates a summary using OpenAI's Chat API.

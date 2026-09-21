@@ -1,6 +1,6 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">A Node.js script utilizing OpenAI's GPT to fetch, parse, and succinctly summarize web pages. .</p>\n<p class=\"\">A powerful Node.js package that fetches a webpage, breaks it into chunks, analyzes its content, and generates a summary using OpenAI's Chat API.</p>",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"GPT Browser running in a vulpes-themed terminal\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/gpt-browser/terminal.png\" alt=\"GPT Browser running in a vulpes-themed terminal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/gpt-browser/terminal.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/gpt-browser/terminal.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/gpt-browser/terminal.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/gpt-browser/terminal.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"GPT Browser running in a vulpes-themed terminal\" width=\"1668\" height=\"599\" style=\"--splay-rot:1.27deg;\" data-dimensions=\"1668×599\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">GPT Browser running in a vulpes-themed terminal</figcaption></figure>\nA Node.js script utilizing OpenAI's GPT to fetch, parse, and succinctly summarize web pages. .<p class=\"\"></p>\n<p class=\"\">A powerful Node.js package that fetches a webpage, breaks it into chunks, analyzes its content, and generates a summary using OpenAI's Chat API.</p>",
   "title": "GPT Browser",
   "metadata": {
     "title": "GPT Browser",
@@ -15,14 +15,14 @@
     "tags": [
       "tools"
     ],
-    "words": 63,
-    "images": 0,
+    "words": 70,
+    "images": 1,
     "imageDetails": {
-      "total": 0,
-      "cloudinary": 0,
+      "total": 1,
+      "cloudinary": 1,
       "withDimensions": 0
     },
-    "links": 0,
+    "links": 1,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],
