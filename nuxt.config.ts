@@ -51,7 +51,10 @@ export default defineNuxtConfig({
     componentIslands: true, // Enable Nuxt Islands for partial hydration
   },
 
-  // Inline critical CSS to eliminate render-blocking
+  // Keep inlining. Measured A/B (3 runs each, identical local prod builds):
+  // turning it off shrinks the document 227KB → 17KB but scores 70 vs 69 —
+  // noise. Gzip already handles the bytes, and the off state adds 3
+  // render-blocking stylesheets that eat the parse saving.
   features: {
     inlineStyles: true,
   },
@@ -193,6 +196,21 @@ export default defineNuxtConfig({
       asyncContext: true, // Enable async context support (Nuxt 4 feature)
     },
     compressPublicAssets: false, // Let reverse proxy handle compression
+    // Fonts need their Cache-Control set HERE, not via routeRules. Files under
+    // public/ are served by Nitro's static-asset handler, which applies its own
+    // maxAge before routeRules middleware runs — so the `/fonts/**` routeRule
+    // was silently ignored and Cloudflare's 4h default stood. (/_nuxt/** works
+    // because Nuxt sets those headers itself.)
+    //
+    // These filenames are NOT content-hashed: replacing a font needs a new
+    // filename, or clients keep the old one for a year.
+    publicAssets: [
+      {
+        dir: 'public/fonts',
+        baseURL: '/fonts',
+        maxAge: 31536000,
+      },
+    ],
     prerender: {
       concurrency: 12, // Faster prerendering
       crawlLinks: false, // Causes issues with broken links
