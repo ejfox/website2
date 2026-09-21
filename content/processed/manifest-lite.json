@@ -5188,6 +5188,51 @@
     }
   },
   {
+    "slug": "projects/butt-math",
+    "title": "Butt Math",
+    "date": "2026-05-01T00:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "art",
+      "generative",
+      "web"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Butt Math",
+      "date": "2026-05-01T00:00:00.000Z",
+      "category": "Art",
+      "featured": false,
+      "tech": [
+        "SVG",
+        "Nuxt",
+        "Vue",
+        "D3",
+        "flubber"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "art",
+        "generative",
+        "web"
+      ],
+      "words": 569,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/butt-math"
+    }
+  },
+  {
     "slug": "projects/ccrb-clusters",
     "title": "Clusters of NYPD Misconduct",
     "date": "2021-06-15T04:00:00.000Z",
@@ -5236,6 +5281,43 @@
       "toc": [],
       "type": "post",
       "slug": "projects/ccrb-clusters"
+    }
+  },
+  {
+    "slug": "projects/clipgoblin",
+    "title": "Clipgoblin",
+    "date": "2026-04-29T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Clipgoblin",
+      "date": "2026-04-29T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "tech": [
+        "Swift"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 169,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/clipgoblin"
     }
   },
   {
@@ -5324,7 +5406,7 @@
       "title": "Coach Artie",
       "date": "2023-03-21T04:00:00.000Z",
       "category": "Tools",
-      "featured": true,
+      "featured": false,
       "modified": "2025-08-26T19:52:50.000Z",
       "url": "https://github.com/room302studio/coachartie",
       "tech": [
@@ -5550,6 +5632,51 @@
     }
   },
   {
+    "slug": "projects/cyberdeck-saver",
+    "title": "cyberdeck-saver",
+    "date": "2026-04-20T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "macos",
+      "osint",
+      "design"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "cyberdeck-saver",
+      "date": "2026-04-20T04:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/cyberdeck-saver",
+      "tech": [
+        "Swift",
+        "Metal",
+        "macOS",
+        "OSINT"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "macos",
+        "osint",
+        "design"
+      ],
+      "words": 269,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/cyberdeck-saver"
+    }
+  },
+  {
     "slug": "projects/dataproofer",
     "title": "Dataproofer",
     "date": "2015-11-03T05:00:00.000Z",
@@ -5574,7 +5701,7 @@
         "Data Quality",
         "CSV"
       ],
-      "featured": true,
+      "featured": false,
       "state": "deployed",
       "ai-involvement": "human-only",
       "context": "collaborative",
@@ -5616,7 +5743,7 @@
       "title": "Flipper Generative Art",
       "date": "2025-01-15T05:00:00.000Z",
       "category": "Hardware",
-      "featured": true,
+      "featured": false,
       "url": "https://github.com/ejfox/flipper-generative-art",
       "tech": [
         "Flipper Zero",
@@ -5757,7 +5884,7 @@
       "title": "I Ching Motion Graphics",
       "date": "2026-05-01T04:00:00.000Z",
       "category": "Art",
-      "featured": true,
+      "featured": false,
       "tech": [
         "Python",
         "Manim",
@@ -5978,6 +6105,127 @@
     }
   },
   {
+    "slug": "projects/noaa-sat-cli",
+    "title": "NOAA Satellite CLI",
+    "date": "2025-06-09T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "NOAA Satellite CLI",
+      "date": "2025-06-09T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/noaa-sat-cli",
+      "tech": [
+        "TypeScript"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 258,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/noaa-sat-cli"
+    }
+  },
+  {
+    "slug": "projects/obsidian-analysis",
+    "title": "Obsidian Analysis",
+    "date": "2024-06-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "data",
+      "visualization",
+      "ai"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Obsidian Analysis",
+      "date": "2024-06-01T04:00:00.000Z",
+      "category": "Dataviz",
+      "featured": false,
+      "url": "https://github.com/ejfox/obsidian-analysis",
+      "tech": [
+        "Python",
+        "Embeddings",
+        "UMAP",
+        "LM Studio"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-collaborative",
+      "tags": [
+        "data",
+        "visualization",
+        "ai"
+      ],
+      "words": 200,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/obsidian-analysis"
+    }
+  },
+  {
+    "slug": "projects/openrouter-census",
+    "title": "Openrouter Census",
+    "date": "2025-08-21T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Openrouter Census",
+      "date": "2025-08-21T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/openrouter-census",
+      "tech": [
+        "JavaScript"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 290,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/openrouter-census"
+    }
+  },
+  {
     "slug": "projects/paperclip",
     "title": "paperclip",
     "date": "2025-11-01T05:00:00.000Z",
@@ -6194,7 +6442,7 @@
       "title": "Scrapbook Core",
       "date": "2026-05-05T05:00:00.000Z",
       "category": "Tools",
-      "featured": true,
+      "featured": false,
       "url": "https://github.com/ejfox/scrapbook-core",
       "tech": [
         "JavaScript"
@@ -6411,6 +6659,96 @@
       "toc": [],
       "type": "post",
       "slug": "projects/subway-builder"
+    }
+  },
+  {
+    "slug": "projects/tv-station",
+    "title": "TV Station",
+    "date": "2026-05-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "web",
+      "experiment"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "TV Station",
+      "date": "2026-05-01T04:00:00.000Z",
+      "category": "Art",
+      "featured": false,
+      "url": "https://tv.tools.ejfox.com",
+      "tech": [
+        "TypeScript",
+        "Deno",
+        "Smallweb"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "web",
+        "experiment"
+      ],
+      "words": 329,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 5,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/tv-station"
+    }
+  },
+  {
+    "slug": "projects/vulpes-devices",
+    "title": "Vulpes Devices",
+    "date": "2026-03-15T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "vulpes",
+      "flipper",
+      "hardware",
+      "device",
+      "design"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Vulpes Devices",
+      "date": "2026-03-15T04:00:00.000Z",
+      "category": "Hardware",
+      "featured": false,
+      "tech": [
+        "Flipper Zero",
+        "OnionOS",
+        "Theming",
+        "JavaScript"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "vulpes",
+        "flipper",
+        "hardware",
+        "device",
+        "design"
+      ],
+      "words": 172,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 4,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/vulpes-devices"
     }
   },
   {

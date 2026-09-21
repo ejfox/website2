@@ -1,6 +1,5 @@
 ---
 title: "Clipgoblin"
-draft: true
 date: 2026-04-29T00:00:00-05:00
 category: "Tools"
 featured: false

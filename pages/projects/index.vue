@@ -24,19 +24,12 @@ const { data: projects } = await useAsyncData(
 const FLAGSHIP_ORDER = [
   'subway-builder',
   'paperclip',
-  // art run — creative-coding / generative up top
-  'hexagram-motion-graphics',
-  'flipper-generative-art',
-  'pixel-canvas',
   'gem-viz',
-  // then journalism / client / tools
+  'pixel-canvas',
   'ccrb-clusters',
   'nbc-big-board',
   'connectology',
   'paramilitary-leaks',
-  'scrapbook-core',
-  'coach-artie',
-  'dataproofer',
 ]
 const flagshipRank = (p) => {
   const s = p.slug?.replace(/^projects\//, '') || ''
@@ -233,9 +226,6 @@ const lastUpdated = computed(() => {
 // Helper: project slug (mirrors getProjectSlug)
 const slugOf = (p) => p?.slug?.replace(/^projects\//, '') || ''
 
-// Helper: word count (precomputed server-side)
-const wordCountOf = (p) => p?.wordCount || 0
-
 // Most-recently-updated project (uses lastUpdated || date)
 const mostRecentProject = computed(() => {
   if (!projects.value?.length) return null
@@ -263,9 +253,10 @@ const mostRecentTitle = computed(
 
 const mostRecentSlug = computed(() => slugOf(mostRecentProject.value))
 
-// --- Stem plot data ---
-// Each project = one stem. Height = sqrt(wordCount) for outlier control.
-// Stems are ordered chronologically (oldest → newest, left → right).
+// --- Projects-per-year activity sparkline ---
+// One stem per calendar year, height ∝ number of projects shipped that year.
+// Ordered oldest → newest (left → right). sqrt scaling so a big year doesn't
+// dwarf the thin ones.
 const stemPlot = computed(() => {
   if (!projects.value?.length) {
     return { stems: [], width: 0, height: 8 }
@@ -273,29 +264,33 @@ const stemPlot = computed(() => {
   const stemWidth = 1
   const gap = 1
   const height = 8 // 8px baseline
-  const items = projects.value
-    .map((p) => ({
-      slug: slugOf(p),
-      title: p.title || p.metadata?.title || 'Untitled',
-      words: wordCountOf(p),
-      ts: new Date(p.metadata?.date || p.date || 0).getTime() || 0,
-    }))
-    .sort((a, b) => a.ts - b.ts)
 
-  const maxWords = Math.max(1, ...items.map((s) => s.words))
-  const y = scaleSqrt().domain([0, maxWords]).range([0, height])
+  // Count projects per year (metadata.date || date → getFullYear).
+  const counts = new Map()
+  for (const p of projects.value) {
+    const raw = p.metadata?.date || p.date
+    const y = raw ? new Date(raw).getFullYear() : Number.NaN
+    if (Number.isNaN(y)) continue
+    counts.set(y, (counts.get(y) || 0) + 1)
+  }
+  const years = [...counts.keys()].sort((a, b) => a - b)
 
-  const stems = items.map((s, i) => {
-    const h = Math.max(0.5, y(s.words))
+  const maxCount = Math.max(1, ...counts.values())
+  const y = scaleSqrt().domain([0, maxCount]).range([0, height])
+
+  const stems = years.map((year, i) => {
+    const count = counts.get(year)
+    const h = Math.max(0.5, y(count))
     return {
-      ...s,
+      year,
+      count,
       x: i * (stemWidth + gap),
       width: stemWidth,
       h,
       yTop: height - h,
     }
   })
-  const width = items.length * (stemWidth + gap) - gap
+  const width = years.length * (stemWidth + gap) - gap
   return { stems, width, height }
 })
 
@@ -424,29 +419,30 @@ useHead(() => ({
         <span>{{ totalTech }} technologies</span>
       </div>
 
-      <!-- Word-count stem plot: HTML/CSS bars, never stretched. Exposed to AT
-           as one summarized image; the 1px stems stay mouse-hoverable but are
-           out of the tab order (100 one-pixel tab stops helped no one). -->
+      <!-- Projects-per-year sparkline: HTML/CSS bars, never stretched. Exposed
+           to AT as one summarized image; the 1px stems stay mouse-hoverable but
+           are out of the tab order (one-pixel tab stops helped no one). -->
       <div
         v-if="stemPlot.stems.length"
         role="img"
         class="hidden sm:flex print:hidden mt-2 stem-plot items-end gap-px h-2 max-w-prose"
-        aria-label="Word count per project, oldest to newest"
+        aria-label="Projects shipped per year"
       >
-        <a
+        <span
           v-for="stem in stemPlot.stems"
-          :key="`stem-${stem.slug}`"
-          :href="`#${stem.slug}`"
+          :key="`stem-${stem.year}`"
           tabindex="-1"
           aria-hidden="true"
           class="stem block w-px relative h-full"
-          :title="`${stem.title} · ${stem.words.toLocaleString()} words`"
+          :title="`${stem.year} · ${stem.count} project${
+            stem.count === 1 ? '' : 's'
+          }`"
         >
           <span
             class="block absolute bottom-0 left-0 right-0 bg-zinc-400 dark:bg-zinc-600 transition-colors"
             :style="{ height: (stem.h / stemPlot.height) * 100 + '%' }"
           />
-        </a>
+        </span>
       </div>
     </header>
 
@@ -598,12 +594,12 @@ useHead(() => ({
 
 <style scoped>
 /* Stem plot: darken stem on hover */
-.stem-plot a.stem:hover span,
-.stem-plot a.stem:focus-visible span {
+.stem-plot .stem:hover span,
+.stem-plot .stem:focus-visible span {
   background-color: rgb(24 24 27); /* zinc-900 */
 }
-:global(.dark) .stem-plot a.stem:hover span,
-:global(.dark) .stem-plot a.stem:focus-visible span {
+:global(.dark) .stem-plot .stem:hover span,
+:global(.dark) .stem-plot .stem:focus-visible span {
   background-color: rgb(244 244 245); /* zinc-100 */
 }
 </style>

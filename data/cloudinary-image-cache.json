@@ -1298,5 +1298,135 @@
     "alt": "tldraw Livestream — a live collaborative tldraw canvas",
     "caption": "tldraw Livestream — a live collaborative tldraw canvas",
     "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJAAAAP/2Q=="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/v1785421532/projects/butt-math/lordosis-explainer.png": {
+    "width": 1440,
+    "height": 813,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Explainer section: sagittal spine diagram with vertebrae, sacrum outline, and a 22.0-degree lumbar lordosis angle readout",
+    "caption": "Explainer section: sagittal spine diagram with vertebrae, sacrum outline, and a 22.0-degree lumbar lordosis angle readout",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A1lRUUAB//9k="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/v1785421532/projects/butt-math/whr-explainer.png": {
+    "width": 1440,
+    "height": 813,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Waist-hip ratio section: interactive measurements against the NHANES 2017-2020 WHR distribution chart",
+    "caption": "Waist-hip ratio section: interactive measurements against the NHANES 2017-2020 WHR distribution chart",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAALABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCuAigAP//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/cyberdeck-saver/streams.png": {
+    "width": 1400,
+    "height": 900,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "The data streams — each terminal panel fetches and parses its own feed; here, haversine math for scrapbook distances",
+    "caption": "The data streams — each terminal panel fetches and parses its own feed; here, haversine math for scrapbook distances",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDIFQAAH//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/cyberdeck-saver/code.png": {
+    "width": 1400,
+    "height": 900,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "The Metal fragment shader behind the screensaver's CRT look",
+    "caption": "The Metal fragment shader behind the screensaver's CRT look",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDJRUAAB//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/dataproofer/landing.png": {
+    "width": 1440,
+    "height": 1651,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "The Dataproofer site — a spellchecker, for your data",
+    "caption": "The Dataproofer site — a spellchecker, for your data",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAXABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAECBf/EABYQAQEBAAAAAAAAAAAAAAAAAAABEf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDqWppUBvRIAtiYANYAD//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/hexagram/grid.jpg": {
+    "width": 854,
+    "height": 480,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "The full grid of 64 hexagrams",
+    "caption": "The full grid of 64 hexagrams",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD//gAPTGF2YzYyLjExLjEwMP/bAEMAKBweIx4ZKCMhIy0rKDA8ZEE8Nzc8e1hdSWSRgJmWj4CMiqC05sOgqtqtiozI/8va7vX///+bwf////r/5v3/+P/bAEMBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAAsAFAMBIgACEQEDEQH/xAAVAAEBAAAAAAAAAAAAAAAAAAAABf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AjAAAA//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/hexagram/loom.jpg": {
+    "width": 854,
+    "height": 480,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "A hexagram built line by line — the loom",
+    "caption": "A hexagram built line by line — the loom",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD//gAPTGF2YzYyLjExLjEwMP/bAEMAKBweIx4ZKCMhIy0rKDA8ZEE8Nzc8e1hdSWSRgJmWj4CMiqC05sOgqtqtiozI/8va7vX///+bwf////r/5v3/+P/bAEMBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAAsAFAMBIgACEQEDEQH/xAAVAAEBAAAAAAAAAAAAAAAAAAAABf/EABQQAQAAAAAAAAAAAAAAAAAAAAD/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AjAAAA//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/hexagram/coins.jpg": {
+    "width": 854,
+    "height": 480,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Coin-toss probabilities behind a changing line",
+    "caption": "Coin-toss probabilities behind a changing line",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD//gAPTGF2YzYyLjExLjEwMP/bAEMAKBweIx4ZKCMhIy0rKDA8ZEE8Nzc8e1hdSWSRgJmWj4CMiqC05sOgqtqtiozI/8va7vX///+bwf////r/5v3/+P/bAEMBKy0tPDU8dkFBdviljKX4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+P/AABEIAAsAFAMBIgACEQEDEQH/xAAWAAEBAQAAAAAAAAAAAAAAAAABAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AMUggEkD/9k="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/obsidian-analysis/map.png": {
+    "width": 1440,
+    "height": 813,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "~2,000 notes embedded into a single semantic map — search and filter by SEMANTIC / TEMPORAL / SIZE / LINKS",
+    "caption": "~2,000 notes embedded into a single semantic map — search and filter by SEMANTIC / TEMPORAL / SIZE / LINKS",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDIABBQH//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/obsidian-analysis/grid.png": {
+    "width": 1440,
+    "height": 813,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "A 64-combination UMAP parameter grid — the same vault laid out 64 different ways",
+    "caption": "A 64-combination UMAP parameter grid — the same vault laid out 64 different ways",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAALABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJAAAAP/2Q=="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/openrouter-census/dashboard.png": {
+    "width": 1440,
+    "height": 2150,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "OpenRouter Model Census — the dashboard: pricing distribution + the context-price paradox",
+    "caption": "OpenRouter Model Census — the dashboard: pricing distribution + the context-price paradox",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAeABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDYBAUAEQAUQB//2Q=="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/openrouter-census/tui.png": {
+    "width": 1400,
+    "height": 880,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "The companion interactive CLI",
+    "caption": "The companion interactive CLI",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAAQABAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJQAAAP/2Q=="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/scrapbook-core/phyllotaxis.png": {
+    "width": 1600,
+    "height": 1600,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "A phyllotaxis of the scrap corpus — every screenshot placed by the golden angle, the way a sunflower packs its seeds",
+    "caption": "A phyllotaxis of the scrap corpus — every screenshot placed by the golden angle, the way a sunflower packs its seeds",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAUABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFhABAQEAAAAAAAAAAAAAAAAAAAER/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AMuRcIAmAAQAEAB//9k="
   }
 }

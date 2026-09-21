@@ -2,7 +2,7 @@
 title: "Coach Artie"
 date: 2023-03-21T00:00:00-04:00
 category: "Tools"
-featured: true
+featured: false
 modified: 2025-08-26T15:52:50-04:00
 url: https://github.com/room302studio/coachartie
 tech: ["Node.js", "Discord.js", "OpenAI API", "PostgreSQL", "MCP", "AI Consciousness Research"]

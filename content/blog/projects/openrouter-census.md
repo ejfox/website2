@@ -1,6 +1,5 @@
 ---
 title: "Openrouter Census"
-draft: true
 date: 2025-08-21T00:00:00-05:00
 category: "Tools"
 featured: false

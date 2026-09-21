@@ -14,7 +14,7 @@
       "Data Quality",
       "CSV"
     ],
-    "featured": true,
+    "featured": false,
     "state": "deployed",
     "ai-involvement": "human-only",
     "context": "collaborative",
