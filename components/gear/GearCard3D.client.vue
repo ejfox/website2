@@ -301,9 +301,9 @@ const formatDetailValue = (key, value) => {
       >
         <div v-for="(value, key) in itemDetails" :key="key" class="detail-row">
           <span class="detail-key">{{ humanize(key) }}</span>
-          <span class="detail-val" :title="value">{{
-            formatDetailValue(key, value) || '—'
-          }}</span>
+          <span class="detail-val" :title="value">
+            {{ formatDetailValue(key, value) || '—' }}
+          </span>
         </div>
       </div>
     </div>

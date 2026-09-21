@@ -80,7 +80,7 @@ const slugify = (s) =>
 
 const projectYear = (p) => {
   const raw = p.metadata?.date || p.date
-  const y = raw ? new Date(raw).getFullYear() : NaN
+  const y = raw ? new Date(raw).getFullYear() : Number.NaN
   return Number.isNaN(y) ? null : y
 }
 
