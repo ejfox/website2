@@ -1218,5 +1218,85 @@
     "alt": "Badusb Remote Desktop — a real DuckyScript payload in a vulpes terminal",
     "caption": "Badusb Remote Desktop — a real DuckyScript payload in a vulpes terminal",
     "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAMABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDHABAAf//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/arena-cards/cards.png": {
+    "width": 2389,
+    "height": 1593,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Arena Cards — a real are.na channel laid out as draggable spatial cards",
+    "caption": "Arena Cards — a real are.na channel laid out as draggable spatial cards",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDKABAAf//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/climate-trace/proto.png": {
+    "width": 2880,
+    "height": 1800,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Climate Trace — the Climate TRACE emissions prototypes, live",
+    "caption": "Climate Trace — the Climate TRACE emissions prototypes, live",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCSAqAAP//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/dispatch-obsidian/terminal.png": {
+    "width": 1495,
+    "height": 441,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Dispatch Obsidian — publishing a note from Obsidian to Dispatch",
+    "caption": "Dispatch Obsidian — publishing a note from Obsidian to Dispatch",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAGABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AIwAAAP/2Q=="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/hand-midi-controller/diagram.png": {
+    "width": 1956,
+    "height": 1306,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Hand MIDI Controller — MediaPipe hand landmarks mapped to MIDI CC",
+    "caption": "Hand MIDI Controller — MediaPipe hand landmarks mapped to MIDI CC",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDIEAAAf//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/llm-honeypot/terminal.png": {
+    "width": 1794,
+    "height": 547,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "LLM Honeypot — the honeypot trapping crawlers, logged in a vulpes terminal",
+    "caption": "LLM Honeypot — the honeypot trapping crawlers, logged in a vulpes terminal",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAGABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDHQAAAf//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/opencv-midi-controller/diagram.png": {
+    "width": 2082,
+    "height": 1293,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "OpenCV MIDI Controller — OpenCV object tracking driving MIDI CC",
+    "caption": "OpenCV MIDI Controller — OpenCV object tracking driving MIDI CC",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAMABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDIABAAf//Z"
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/scrapworld/video.jpg": {
+    "width": 1280,
+    "height": 720,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Scrapworld — a frame from the Browser-Tabs-to-VR session",
+    "caption": "Scrapworld — a frame from the Browser-Tabs-to-VR session",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAALABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAABA//EABkQAQEBAAMAAAAAAAAAAAAAAAABAwIhMf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AVpRNaToLoqOFvaZy9QP/2Q=="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/tldraw-livestream/canvas.png": {
+    "width": 2480,
+    "height": 1600,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "tldraw Livestream — a live collaborative tldraw canvas",
+    "caption": "tldraw Livestream — a live collaborative tldraw canvas",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAANABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAX/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AJAAAAP/2Q=="
   }
 }

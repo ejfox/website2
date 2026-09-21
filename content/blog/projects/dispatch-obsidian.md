@@ -13,6 +13,8 @@ tags:
 <!-- TODO (EJ): factual stub auto-seeded from the repo README + description.
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
+
+![Dispatch Obsidian — publishing a note from Obsidian to Dispatch](https://res.cloudinary.com/ejf/image/upload/projects/dispatch-obsidian/terminal.png)
 Obsidian companion plugin for Dispatch publishing app.
 
 ��,j���h�w]�˦z{Z�'��a��l��hr�"��r����-�����ܢ{^�� z֫z�,��+ʷ�vg���n��8

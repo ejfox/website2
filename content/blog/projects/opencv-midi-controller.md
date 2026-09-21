@@ -13,4 +13,6 @@ tags:
 <!-- TODO (EJ): factual stub auto-seeded from the repo README + description.
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
+
+![OpenCV MIDI Controller — OpenCV object tracking driving MIDI CC](https://res.cloudinary.com/ejf/image/upload/projects/opencv-midi-controller/diagram.png)
 An experiment in sending midi signals based on OpenCV object detection.
