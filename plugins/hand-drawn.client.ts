@@ -14,10 +14,20 @@ import { createHandDrawnEl, ensureHandDrawnSprite } from '~/utils/handDrawn'
 export default defineNuxtPlugin(() => {
   if (import.meta.server) return
 
-  // Kick the sprite download the instant the client boots — not at onNuxtReady,
-  // which is after hydration. Until #hd-ink is in the DOM every <use> is empty,
-  // so the sooner this starts the sooner marks paint.
-  ensureHandDrawnSprite()
+  // The three selectors below are exactly what run() acts on. If none match,
+  // this page has no marks and the 500KB sprite would be dead weight.
+  const HD_SELECTORS = [
+    'span[data-hd]',
+    '.blog-post-content hr',
+    '.blog-post-content sup a[data-footnote-ref]',
+  ].join(',')
+  const pageUsesHandDrawn = () => !!document.querySelector(HD_SELECTORS)
+
+  // Start the download before hydration ONLY where the marks exist. Fetching
+  // unconditionally put a 500KB (116KB gzipped) High-priority request 200ms
+  // into every page load — including the homepage, which has no marks at all.
+  // The SSR'd HTML already contains these selectors, so checking now is safe.
+  if (pageUsesHandDrawn()) ensureHandDrawnSprite()
 
   // 1. Intentional inline marks, anywhere on the page
   const hydrateInline = () => {
@@ -74,6 +84,9 @@ export default defineNuxtPlugin(() => {
   }
 
   const run = () => {
+    // Still unconditional here: a client-side navigation can land on a page
+    // that does have marks, and by then the early check has long passed.
+    if (!pageUsesHandDrawn()) return
     ensureHandDrawnSprite()
     hydrateInline()
     enhanceDividers()

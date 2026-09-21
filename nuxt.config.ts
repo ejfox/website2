@@ -289,6 +289,11 @@ export default defineNuxtConfig({
         '/stats': { headers: { 'Cache-Control': CACHE_DYNAMIC } },
         // Static assets — cache forever
         '/_nuxt/**': { headers: { 'Cache-Control': CACHE_IMMUTABLE } },
+        // Fonts fell through to Cloudflare's 4h default, so repeat visitors
+        // re-validated ~70KB of woff2 that has never changed. NOTE: unlike
+        // /_nuxt/** these filenames aren't content-hashed, so replacing a font
+        // needs a NEW filename — rename, don't overwrite.
+        '/fonts/**': { headers: { 'Cache-Control': CACHE_IMMUTABLE } },
         // API routes
         '/api/**': {
           cors: true,
