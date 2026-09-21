@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">a command-line tool for smart manipulation of JavaScript methods in files.</p>\n<p class=\"\">spaste-cli is a command-line tool for smart manipulation of JavaScript methods in files. It allows you to easily replace, delete, or echo specific methods in your JavaScript code using the power of Abstract Syntax Trees (AST).</p>",
+  "title": "Spaste CLI",
+  "metadata": {
+    "title": "Spaste CLI",
+    "date": "2024-08-11T05:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/spaste-cli",
+    "tech": [
+      "JavaScript"
+    ],
+    "tags": [
+      "tools"
+    ],
+    "words": 72,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">Turn an are.na channel into draggable cards for spatial thinking.</p>\n<p class=\"\">This code was originally created as part of a YouTube video exploring the are.na API and taking control of your own data</p>",
+  "title": "Arena Cards",
+  "metadata": {
+    "title": "Arena Cards",
+    "date": "2024-06-14T05:00:00.000Z",
+    "category": "Art",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/arena-cards",
+    "tech": [
+      "JavaScript",
+      "TypeScript",
+      "Vue"
+    ],
+    "tags": [
+      "art"
+    ],
+    "words": 57,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

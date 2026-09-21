@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">tldraw plugin for collaborative livestream canvases with moderation — let your audience draw with you.</p>\n<p class=\"\">A plugin for tldraw that adds collaborative livestream canvas features with moderation — let your audience draw together with you.</p>",
+  "title": "tldraw Livestream",
+  "metadata": {
+    "title": "tldraw Livestream",
+    "date": "2026-03-24T05:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/tldraw-livestream",
+    "tech": [
+      "TypeScript"
+    ],
+    "tags": [
+      "tools"
+    ],
+    "words": 60,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

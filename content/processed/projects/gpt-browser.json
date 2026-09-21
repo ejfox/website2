@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<p class=\"\">A Node.js script utilizing OpenAI's GPT to fetch, parse, and succinctly summarize web pages. .</p>\n<p class=\"\">A powerful Node.js package that fetches a webpage, breaks it into chunks, analyzes its content, and generates a summary using OpenAI's Chat API.</p>",
+  "title": "GPT Browser",
+  "metadata": {
+    "title": "GPT Browser",
+    "date": "2023-07-14T05:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/gpt-browser",
+    "tech": [
+      "JavaScript"
+    ],
+    "tags": [
+      "tools"
+    ],
+    "words": 63,
+    "images": 0,
+    "imageDetails": {
+      "total": 0,
+      "cloudinary": 0,
+      "withDimensions": 0
+    },
+    "links": 0,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}
