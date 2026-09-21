@@ -15,6 +15,8 @@ tags:
 <!-- TODO (EJ): factual stub auto-seeded from the repo README + description.
      Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->
 
+
+![Election Helpers — the live site](https://res.cloudinary.com/ejf/image/upload/projects/election-helpers/live.png)
 A collection of resources, tools, and patterns for election data analysis and viz.
 
 [](https://www.npmjs.com/package/election-helpers)
