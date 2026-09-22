@@ -6,6 +6,11 @@ on:
     paths:
       - 'content/processed/**/*.json'
   workflow_dispatch:
+    inputs:
+      prune:
+        description: 'Also delete orphaned pre-TID records (one-off cleanup)'
+        type: boolean
+        default: false
 
 jobs:
   mirror:
@@ -32,3 +37,16 @@ jobs:
           exit 0
         fi
         node scripts/author/mirror-to-atproto.mjs --live
+
+    # Opt-in, manual only. Deletes records whose rkey isn't a valid TID, i.e.
+    # the pre-migration set. Runs after the mirror so the live records exist
+    # before their duplicates are removed.
+    - name: Prune orphaned pre-TID records
+      if: github.event_name == 'workflow_dispatch' && inputs.prune
+      env:
+        ATPROTO_HANDLE: ${{ secrets.ATPROTO_HANDLE }}
+        ATPROTO_APP_PASSWORD: ${{ secrets.ATPROTO_APP_PASSWORD }}
+      run: |
+        # Dry run first so the log shows exactly what is about to go, then do it.
+        node scripts/author/prune-atproto-orphans.mjs
+        node scripts/author/prune-atproto-orphans.mjs --live
