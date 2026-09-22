@@ -54,12 +54,42 @@ const stripTags = (s) =>
     .replace(/\s+/g, ' ')
     .trim()
 
-// slug -> a valid, stable record key (rkeys can't contain '/'), so re-runs upsert
-const rkeyFor = (slug) =>
-  slug
-    .replace(/[^\w.~-]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 512)
+// site.standard.document declares a `tid` record key, so a slug can't be used
+// directly — the PDS rejects it ("Invalid TID string"). But an rkey still has
+// to be STABLE per post, or every run mints a duplicate instead of upserting.
+//
+// So: derive the TID deterministically from the post itself. A TID is a 64-bit
+// value — top bit 0, then 53 bits of microseconds, then a 10-bit clock id —
+// rendered in 13 chars of base32-sortable. We feed it the post's publish time
+// (which is what a TID is *meant* to encode) and stuff a hash of the slug into
+// the clock id, so two posts sharing a timestamp still land on different keys.
+const TID_ALPHABET = '234567abcdefghijklmnopqrstuvwxyz'
+
+const hash10 = (s) => {
+  let h = 0x811c9dc5
+  for (let i = 0; i < s.length; i++) {
+    h = ((h ^ s.charCodeAt(i)) * 0x01000193) >>> 0
+  }
+  return h & 0x3ff // 10 bits, the clock-id field
+}
+
+const encodeTid = (micros, clockId) => {
+  let n = (BigInt(micros) << 10n) | BigInt(clockId) // bit 63 stays 0
+  const out = []
+  for (let i = 0; i < 13; i++) {
+    out.push(TID_ALPHABET[Number((n >> BigInt(60 - 5 * i)) & 31n)])
+  }
+  return out.join('')
+}
+
+// Stable for a given (slug, publishedAt). Changing a post's date changes its
+// rkey and therefore orphans the old record — acceptable for a mirror, but
+// worth knowing before you bulk-rewrite dates.
+const rkeyFor = (slug, publishedAt) => {
+  const ms = Date.parse(publishedAt)
+  const micros = (Number.isFinite(ms) ? ms : 0) * 1000
+  return encodeTid(micros, hash10(slug))
+}
 
 // First sentence-ish, cut on a whole word, no trailing period. This mirrors
 // utils/ogDescription.ts — when that helper is available as plain JS (or this
@@ -105,7 +135,7 @@ async function toDocument(post, siteRef) {
     doc.tags = meta.tags.map(String).slice(0, 50)
   if (text) doc.textContent = text
 
-  return { rkey: rkeyFor(slug), record: doc }
+  return { rkey: rkeyFor(slug, doc.publishedAt), record: doc }
 }
 
 /**
@@ -246,6 +276,15 @@ async function main() {
     } catch (err) {
       console.error(`  ✗ ${rkey}: ${err.message}`)
     }
+  }
+  const failed = docs.length - ok
+  if (failed) {
+    // Don't exit 0 on a pile of caught write errors. The per-document catch
+    // above used to swallow every failure, so a run that mirrored 0/44 still
+    // went green in CI — a silent break is worse than a loud one.
+    throw new Error(
+      `${failed}/${docs.length} documents failed to write (see ✗ lines above)`
+    )
   }
   console.log(`✅ mirrored ${ok}/${docs.length} posts into your AT-Proto repo`)
 }
