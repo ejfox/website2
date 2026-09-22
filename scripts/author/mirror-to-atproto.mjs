@@ -25,6 +25,11 @@ import { readFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import path from 'node:path'
 import striptags from 'striptags'
+import {
+  isMirrorEligible,
+  publishedAtFor,
+  rkeyFor,
+} from '../../utils/atprotoRkey.mjs'
 
 const SITE_URL = 'https://ejfox.com'
 const SITE_NAME = 'EJ Fox'
@@ -53,43 +58,6 @@ const stripTags = (s) =>
   striptags(s || '')
     .replace(/\s+/g, ' ')
     .trim()
-
-// site.standard.document declares a `tid` record key, so a slug can't be used
-// directly — the PDS rejects it ("Invalid TID string"). But an rkey still has
-// to be STABLE per post, or every run mints a duplicate instead of upserting.
-//
-// So: derive the TID deterministically from the post itself. A TID is a 64-bit
-// value — top bit 0, then 53 bits of microseconds, then a 10-bit clock id —
-// rendered in 13 chars of base32-sortable. We feed it the post's publish time
-// (which is what a TID is *meant* to encode) and stuff a hash of the slug into
-// the clock id, so two posts sharing a timestamp still land on different keys.
-const TID_ALPHABET = '234567abcdefghijklmnopqrstuvwxyz'
-
-const hash10 = (s) => {
-  let h = 0x811c9dc5
-  for (let i = 0; i < s.length; i++) {
-    h = ((h ^ s.charCodeAt(i)) * 0x01000193) >>> 0
-  }
-  return h & 0x3ff // 10 bits, the clock-id field
-}
-
-const encodeTid = (micros, clockId) => {
-  let n = (BigInt(micros) << 10n) | BigInt(clockId) // bit 63 stays 0
-  const out = []
-  for (let i = 0; i < 13; i++) {
-    out.push(TID_ALPHABET[Number((n >> BigInt(60 - 5 * i)) & 31n)])
-  }
-  return out.join('')
-}
-
-// Stable for a given (slug, publishedAt). Changing a post's date changes its
-// rkey and therefore orphans the old record — acceptable for a mirror, but
-// worth knowing before you bulk-rewrite dates.
-const rkeyFor = (slug, publishedAt) => {
-  const ms = Date.parse(publishedAt)
-  const micros = (Number.isFinite(ms) ? ms : 0) * 1000
-  return encodeTid(micros, hash10(slug))
-}
 
 // First sentence-ish, cut on a whole word, no trailing period. This mirrors
 // utils/ogDescription.ts — when that helper is available as plain JS (or this
@@ -122,12 +90,21 @@ async function toDocument(post, siteRef) {
   const text = stripTags(full.html)
   const description = meta.dek || post.dek || summarize(text)
 
+  // No Date.now() fallback here: the record key is derived from publishedAt,
+  // so a dateless post would get a brand-new key on every run — a duplicate
+  // record each time, forever. Skip it instead.
+  const publishedAt = publishedAtFor({ ...post, metadata: meta })
+  if (!publishedAt) {
+    console.error(`  ✗ ${slug}: no usable date, skipping`)
+    return null
+  }
+
   const doc = {
     $type: 'site.standard.document',
     site: siteRef,
     path: `/blog/${slug}`,
     title: String(title).slice(0, 5000),
-    publishedAt: new Date(post.date || meta.date || Date.now()).toISOString(),
+    publishedAt,
   }
   if (meta.modified) doc.updatedAt = new Date(meta.modified).toISOString()
   if (description) doc.description = String(description).slice(0, 30000)
@@ -138,46 +115,11 @@ async function toDocument(post, siteRef) {
   return { rkey: rkeyFor(slug, doc.publishedAt), record: doc }
 }
 
-/**
- * True while a post is still embargoed by `publishAt` (or a future `date`).
- *
- * Mirrors isScheduled() in utils/postFilters.ts — duplicated because this is a
- * plain .mjs author script that can't import the TS helper.
- *
- * This runs `--live` on every push to main, so without it a scheduled post's
- * title and date would be published to a PUBLIC AT-Proto network the moment it
- * was committed — days or months before its embargo lifts, and permanently,
- * since the mirror writes records we don't retract.
- */
-function isEmbargoed(post) {
-  const m = post?.metadata || {}
-  const when = m.publishAt || post?.publishAt || m.date || post?.date
-  if (!when) return false
-  const t = new Date(when).getTime()
-  return Number.isFinite(t) && t > Date.now()
-}
-
 async function loadPublishedPosts() {
   const manifest = JSON.parse(
     await readFile(path.join(PROCESSED, 'manifest-lite.json'), 'utf-8')
   )
-  return manifest.filter((p) => {
-    const m = p.metadata || {}
-    const blocked =
-      p.draft ||
-      m.draft ||
-      p.hidden ||
-      m.hidden ||
-      p.unlisted ||
-      m.unlisted ||
-      p.password ||
-      m.password ||
-      p.passwordHash ||
-      m.passwordHash ||
-      isEmbargoed(p)
-    // blog posts live under year dirs (YYYY/…); skips system + section files
-    return p.slug && !blocked && /^\d{4}\//.test(p.slug)
-  })
+  return manifest.filter(isMirrorEligible)
 }
 
 const publicationRecord = () => ({
@@ -237,7 +179,9 @@ async function main() {
   if (!LIVE) {
     // dry run: reference the eventual publication AT-URI symbolically
     const siteRef = `at://<your-did>/site.standard.publication/${PUB_RKEY}`
-    const docs = await Promise.all(posts.map((p) => toDocument(p, siteRef)))
+    const docs = (
+      await Promise.all(posts.map((p) => toDocument(p, siteRef)))
+    ).filter(Boolean)
     console.log(
       `📦 ${docs.length} published posts → site.standard.document records`
     )
@@ -266,7 +210,9 @@ async function main() {
   console.log(`📖 publication → ${siteRef}`)
 
   // 2. one document per post
-  const docs = await Promise.all(posts.map((p) => toDocument(p, siteRef)))
+  const docs = (
+    await Promise.all(posts.map((p) => toDocument(p, siteRef)))
+  ).filter(Boolean)
   let ok = 0
   for (const { rkey, record } of docs) {
     try {

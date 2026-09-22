@@ -7,6 +7,7 @@ import ReplyContext from '~/components/blog/ReplyContext.vue'
 import SealedPost from '~/components/blog/SealedPost.vue'
 import Webmentions from '~/components/blog/Webmentions.vue'
 import { readingStats } from '~/utils/readingStats'
+import { atprotoDocUrl } from '~/utils/atprotoRkey.mjs'
 import { useTypingAnimation } from '~/composables/useTypingAnimation'
 
 // Composables
@@ -55,6 +56,18 @@ else if (!post.value) {
 const postDate = computed(() => post.value?.metadata?.date || post.value?.date)
 const { context: temporalContext, hasContext: hasTemporalContext } =
   useTemporalContext(postDate)
+
+// Link to this post's AT-Proto record, when there is one. The key is derived
+// from the post itself (see utils/atprotoRkey.mjs), so no lookup is needed —
+// and the gate is the mirror's own predicate, so a draft/hidden/unlisted/
+// scheduled post never links to a record that was never written.
+const atprotoUrl = computed(() =>
+  atprotoDocUrl({
+    slug: route.params.slug.join('/'),
+    date: post.value?.date,
+    metadata: post.value?.metadata,
+  })
+)
 
 // Tag-matched scraps: "related research" from scrapbook
 const postTags = computed(() => {
@@ -531,6 +544,7 @@ onMounted(() => {
           :date="post?.metadata?.date || post?.date"
           :stats="readingStatsData"
           :slug="route.params.slug.join('/')"
+          :atproto-url="atprotoUrl"
         />
         <div v-if="isDraft" class="draft-banner">
           <span class="draft-banner-text">DRAFT</span>

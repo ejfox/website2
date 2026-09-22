@@ -542,6 +542,16 @@ export const stories = {
         stats: { readingTime: 12, words: 2400, images: 6, links: 18 },
       },
     },
+    {
+      name: 'with atproto record',
+      props: {
+        date: '2025-11-02',
+        slug: 'the-kitchen-sink',
+        stats: { readingTime: 12, words: 2400, images: 6, links: 18 },
+        atprotoUrl:
+          'https://pdsls.dev/at://did:plc:5qysguz3v267ggtfitebl5nc/site.standard.document/3m55g45dcg2k4',
+      },
+    },
   ],
   PostNav: [
     {
