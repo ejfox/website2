@@ -85,17 +85,29 @@ jobs:
           FILES_CHANGED=$(git diff --name-only ${PREV_COMMIT} ${NEW_COMMIT} 2>/dev/null | wc -l || echo "?")
           COMPARE_URL="https://github.com/ejfox/website2/compare/${PREV_COMMIT}...${NEW_COMMIT}"
 
-          # Extract pre-built output from GH runner
-          rm -rf .output
-          tar xzf /tmp/website2-output.tar.gz
+          # Atomic extract-verify-swap. NEVER destroy the live .output before the
+          # new one is proven complete — a truncated tarball or interrupted extract
+          # must leave the running site untouched, not headless. (Root cause of the
+          # 2026-09-14 outage: rm -rf .output ran before a failed extract → the box
+          # had no .output/server/index.mjs at the next pm2 restart → 502.)
+          rm -rf .output.staging
+          mkdir .output.staging
+          # tarball contains a top-level ".output/" dir; strip it into staging
+          tar xzf /tmp/website2-output.tar.gz -C .output.staging --strip-components=1
           rm -f /tmp/website2-output.tar.gz
 
-          # Verify
-          if [ ! -f .output/server/index.mjs ]; then
-            echo "ERROR: .output/server/index.mjs not found!"
-            ALERT_FORCE=1 $ALERT website error "**❌ Deploy FAILED** — server build missing after transfer"
+          # Verify the STAGED build before touching the live one
+          if [ ! -f .output.staging/server/index.mjs ]; then
+            echo "ERROR: staged .output/server/index.mjs not found — keeping live build!"
+            rm -rf .output.staging
+            ALERT_FORCE=1 $ALERT website error "**❌ Deploy FAILED** — bad transfer, live site untouched"
             exit 1
           fi
+
+          # Swap: keep the previous build as .output.old for one-command rollback
+          rm -rf .output.old
+          [ -d .output ] && mv .output .output.old
+          mv .output.staging .output
 
           # Graceful reload via pm2
           export NVM_DIR="$HOME/.nvm"

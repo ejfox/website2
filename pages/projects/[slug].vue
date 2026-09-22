@@ -6,6 +6,10 @@ const route = useRoute()
 const slug = route.params.slug
 
 // Fetch the project (stored as blog post with projects/ prefix)
+// Before the await: composables needing the component instance must run
+// while it still exists. Every other page using useTOC does the same.
+const { tocTarget } = useTOC()
+
 const { data: project, error } = await useAsyncData(
   `project-${slug}`,
   async () => {
@@ -80,7 +84,6 @@ usePageSeo({
 })
 
 // TOC target for teleport
-const { tocTarget } = useTOC()
 
 // Extract TOC from project data
 // Flatten the TOC tree: top-level headings numbered, their children indented.

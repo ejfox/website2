@@ -25,13 +25,32 @@ import { readFile } from 'node:fs/promises'
 import { existsSync } from 'node:fs'
 import path from 'node:path'
 import striptags from 'striptags'
+import {
+  isMirrorEligible,
+  publishedAtFor,
+  rkeyFor,
+} from '../../utils/atprotoRkey.mjs'
 
 const SITE_URL = 'https://ejfox.com'
 const SITE_NAME = 'EJ Fox'
 const SITE_DESCRIPTION =
   "Things I'm thinking about — data, code, journalism, the web"
 const PDS = 'https://bsky.social'
-const PUB_RKEY = 'self' // one stable publication record for the whole blog
+// One stable publication record for the whole blog. This MUST be a literal
+// constant and MUST NEVER change: every site.standard.document we write points
+// at `at://<did>/site.standard.publication/<PUB_RKEY>`, so editing it orphans
+// the publication and silently re-parents all of them on the next run.
+//
+// It is a TID, not 'self'. site.standard.publication declares a `tid` record
+// key, and bsky.social enforces it:
+//   putRecord site.standard.publication/self: 400 InvalidRequest
+//   Invalid record key for site.standard.publication:
+//   Invalid TID string (got "self")
+// The publication is written before any document, so 'self' failed the whole
+// mirror on its first write — nothing was mirrored between 2026-09-10 and the
+// fix. Generating a fresh TID per run would instead create a new publication
+// every time, so this one is frozen: it decodes to 2026-09-22T00:00:00Z.
+const PUB_RKEY = '3mw2wa5qk2222'
 const LIVE = process.argv.includes('--live')
 const PROCESSED = path.join(process.cwd(), 'content/processed')
 
@@ -39,13 +58,6 @@ const stripTags = (s) =>
   striptags(s || '')
     .replace(/\s+/g, ' ')
     .trim()
-
-// slug -> a valid, stable record key (rkeys can't contain '/'), so re-runs upsert
-const rkeyFor = (slug) =>
-  slug
-    .replace(/[^\w.~-]+/g, '-')
-    .replace(/^-+|-+$/g, '')
-    .slice(0, 512)
 
 // First sentence-ish, cut on a whole word, no trailing period. This mirrors
 // utils/ogDescription.ts — when that helper is available as plain JS (or this
@@ -78,12 +90,21 @@ async function toDocument(post, siteRef) {
   const text = stripTags(full.html)
   const description = meta.dek || post.dek || summarize(text)
 
+  // No Date.now() fallback here: the record key is derived from publishedAt,
+  // so a dateless post would get a brand-new key on every run — a duplicate
+  // record each time, forever. Skip it instead.
+  const publishedAt = publishedAtFor({ ...post, metadata: meta })
+  if (!publishedAt) {
+    console.error(`  ✗ ${slug}: no usable date, skipping`)
+    return null
+  }
+
   const doc = {
     $type: 'site.standard.document',
     site: siteRef,
     path: `/blog/${slug}`,
     title: String(title).slice(0, 5000),
-    publishedAt: new Date(post.date || meta.date || Date.now()).toISOString(),
+    publishedAt,
   }
   if (meta.modified) doc.updatedAt = new Date(meta.modified).toISOString()
   if (description) doc.description = String(description).slice(0, 30000)
@@ -91,49 +112,14 @@ async function toDocument(post, siteRef) {
     doc.tags = meta.tags.map(String).slice(0, 50)
   if (text) doc.textContent = text
 
-  return { rkey: rkeyFor(slug), record: doc }
-}
-
-/**
- * True while a post is still embargoed by `publishAt` (or a future `date`).
- *
- * Mirrors isScheduled() in utils/postFilters.ts — duplicated because this is a
- * plain .mjs author script that can't import the TS helper.
- *
- * This runs `--live` on every push to main, so without it a scheduled post's
- * title and date would be published to a PUBLIC AT-Proto network the moment it
- * was committed — days or months before its embargo lifts, and permanently,
- * since the mirror writes records we don't retract.
- */
-function isEmbargoed(post) {
-  const m = post?.metadata || {}
-  const when = m.publishAt || post?.publishAt || m.date || post?.date
-  if (!when) return false
-  const t = new Date(when).getTime()
-  return Number.isFinite(t) && t > Date.now()
+  return { rkey: rkeyFor(slug, doc.publishedAt), record: doc }
 }
 
 async function loadPublishedPosts() {
   const manifest = JSON.parse(
     await readFile(path.join(PROCESSED, 'manifest-lite.json'), 'utf-8')
   )
-  return manifest.filter((p) => {
-    const m = p.metadata || {}
-    const blocked =
-      p.draft ||
-      m.draft ||
-      p.hidden ||
-      m.hidden ||
-      p.unlisted ||
-      m.unlisted ||
-      p.password ||
-      m.password ||
-      p.passwordHash ||
-      m.passwordHash ||
-      isEmbargoed(p)
-    // blog posts live under year dirs (YYYY/…); skips system + section files
-    return p.slug && !blocked && /^\d{4}\//.test(p.slug)
-  })
+  return manifest.filter(isMirrorEligible)
 }
 
 const publicationRecord = () => ({
@@ -193,7 +179,9 @@ async function main() {
   if (!LIVE) {
     // dry run: reference the eventual publication AT-URI symbolically
     const siteRef = `at://<your-did>/site.standard.publication/${PUB_RKEY}`
-    const docs = await Promise.all(posts.map((p) => toDocument(p, siteRef)))
+    const docs = (
+      await Promise.all(posts.map((p) => toDocument(p, siteRef)))
+    ).filter(Boolean)
     console.log(
       `📦 ${docs.length} published posts → site.standard.document records`
     )
@@ -222,7 +210,9 @@ async function main() {
   console.log(`📖 publication → ${siteRef}`)
 
   // 2. one document per post
-  const docs = await Promise.all(posts.map((p) => toDocument(p, siteRef)))
+  const docs = (
+    await Promise.all(posts.map((p) => toDocument(p, siteRef)))
+  ).filter(Boolean)
   let ok = 0
   for (const { rkey, record } of docs) {
     try {
@@ -232,6 +222,15 @@ async function main() {
     } catch (err) {
       console.error(`  ✗ ${rkey}: ${err.message}`)
     }
+  }
+  const failed = docs.length - ok
+  if (failed) {
+    // Don't exit 0 on a pile of caught write errors. The per-document catch
+    // above used to swallow every failure, so a run that mirrored 0/44 still
+    // went green in CI — a silent break is worse than a loud one.
+    throw new Error(
+      `${failed}/${docs.length} documents failed to write (see ✗ lines above)`
+    )
   }
   console.log(`✅ mirrored ${ok}/${docs.length} posts into your AT-Proto repo`)
 }

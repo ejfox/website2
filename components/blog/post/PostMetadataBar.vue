@@ -13,6 +13,8 @@ const props = defineProps<{
     links: number
   }
   slug?: string
+  /** Link to this post's AT-Proto record, or null when it has none. */
+  atprotoUrl?: string | null
 }>()
 
 const sourceUrl = computed(() => {
@@ -65,6 +67,18 @@ function formatCompact(num: number): string {
         class="whitespace-nowrap hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors hidden sm:inline"
       >
         view source
+      </a>
+    </template>
+    <template v-if="atprotoUrl">
+      <span class="text-zinc-400 dark:text-zinc-600">·</span>
+      <a
+        :href="atprotoUrl"
+        target="_blank"
+        rel="noopener noreferrer"
+        title="This post mirrored as an AT-Proto record"
+        class="whitespace-nowrap hover:text-zinc-600 dark:hover:text-zinc-300 transition-colors hidden sm:inline"
+      >
+        atproto
       </a>
     </template>
   </div>
