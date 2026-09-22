@@ -31,7 +31,21 @@ const SITE_NAME = 'EJ Fox'
 const SITE_DESCRIPTION =
   "Things I'm thinking about — data, code, journalism, the web"
 const PDS = 'https://bsky.social'
-const PUB_RKEY = 'self' // one stable publication record for the whole blog
+// One stable publication record for the whole blog. This MUST be a literal
+// constant and MUST NEVER change: every site.standard.document we write points
+// at `at://<did>/site.standard.publication/<PUB_RKEY>`, so editing it orphans
+// the publication and silently re-parents all of them on the next run.
+//
+// It is a TID, not 'self'. site.standard.publication declares a `tid` record
+// key, and bsky.social enforces it:
+//   putRecord site.standard.publication/self: 400 InvalidRequest
+//   Invalid record key for site.standard.publication:
+//   Invalid TID string (got "self")
+// The publication is written before any document, so 'self' failed the whole
+// mirror on its first write — nothing was mirrored between 2026-09-10 and the
+// fix. Generating a fresh TID per run would instead create a new publication
+// every time, so this one is frozen: it decodes to 2026-09-22T00:00:00Z.
+const PUB_RKEY = '3mw2wa5qk2222'
 const LIVE = process.argv.includes('--live')
 const PROCESSED = path.join(process.cwd(), 'content/processed')
 
