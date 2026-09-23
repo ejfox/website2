@@ -93,8 +93,17 @@ const fetchIcon = async (name, retries = 2) => {
         return null
       }
       const svg = await res.text()
-      if (!svg.includes('<svg')) {
-        console.warn(`[remarkEnhanceLinks] Invalid SVG response for ${name}`)
+      // Sanity-gate the third-party markup before it's baked verbatim into
+      // cached post JSON (rendered with allowDangerousHtml). Must be a bare
+      // <svg> document with no scripts or inline event handlers — guards
+      // against an unexpected Iconify response shape injecting live markup.
+      const trimmed = svg.trim()
+      if (
+        !trimmed.startsWith('<svg') ||
+        !trimmed.endsWith('</svg>') ||
+        /<script|\son\w+\s*=/i.test(trimmed)
+      ) {
+        console.warn(`[remarkEnhanceLinks] Rejected non-SVG/unsafe response for ${name}`)
         return null
       }
       const processed = svg.replace(
@@ -127,6 +136,10 @@ export function remarkEnhanceLinks() {
       // ONLY handle external http(s) links
       if (!node?.url?.startsWith('http')) return
 
+      // Idempotency: if this link was already enhanced (re-run on already-
+      // processed content), don't re-add target/class or push a second icon.
+      if (node.data?.hProperties?.class?.includes?.('external-link')) return
+
       // Add target="_blank" and class
       node.data = node.data || {}
       node.data.hProperties = node.data.hProperties || {}
@@ -142,7 +155,13 @@ export function remarkEnhanceLinks() {
         const domain = url.hostname.toLowerCase()
 
         for (const [key, icon] of Object.entries(socialPlatforms)) {
-          if (domain === key || domain.endsWith(`.${key}`)) {
+          // TLD-style keys (".gov") match as a suffix; domain keys match
+          // exactly or as a subdomain. The old code did `endsWith('.'+key)`
+          // for every key, so ".gov" became `endsWith('..gov')` — dead.
+          const matched = key.startsWith('.')
+            ? domain.endsWith(key)
+            : domain === key || domain.endsWith(`.${key}`)
+          if (matched) {
             // Store the current node for later icon insertion
             const iconPromise = fetchIcon(icon).then((svg) => {
               if (svg) {
