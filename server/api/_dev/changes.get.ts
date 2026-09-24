@@ -45,22 +45,28 @@ function gitAllowFail(args: string[]): string {
 // content/blog/drafts/foo.md   -> /blog/drafts/foo (dev-visible)
 // pages/gear/index.vue         -> /gear   (best-effort)
 // pages/threads.vue            -> /threads
+function stripSuffix(s: string, suffix: string): string {
+  return s.endsWith(suffix) ? s.slice(0, -suffix.length) : s
+}
+
 function fileToRoute(file: string): string | null {
-  const proj = file.match(/^content\/blog\/projects\/([^/]+)\.md$/)
-  if (proj) return `/projects/${proj[1]}`
+  if (file.startsWith('content/blog/projects/') && file.endsWith('.md')) {
+    const slug = stripSuffix(file.slice('content/blog/projects/'.length), '.md')
+    if (!slug.includes('/')) return `/projects/${slug}`
+  }
 
-  const blog = file.match(/^content\/blog\/(.+)\.md$/)
-  if (blog) return `/blog/${blog[1]}`
+  if (file.startsWith('content/blog/') && file.endsWith('.md')) {
+    return `/blog/${stripSuffix(file.slice('content/blog/'.length), '.md')}`
+  }
 
-  const page = file.match(/^pages\/(.+)\.vue$/)
-  if (page) {
-    let r = page[1]
-      .replace(/\/index$/, '')
-      .replace(/\/\[\.\.\.slug\]$/, '')
-      .replace(/\/\[slug\]$/, '')
+  if (file.startsWith('pages/') && file.endsWith('.vue')) {
+    let r = stripSuffix(file.slice('pages/'.length), '.vue')
+    r = stripSuffix(r, '/index')
+    r = stripSuffix(r, '/[...slug]')
+    r = stripSuffix(r, '/[slug]')
     if (r === 'index') r = ''
     // dynamic-only routes ([slug]) can't be linked without a param
-    if (/\[/.test(r)) return null
+    if (r.includes('[')) return null
     return `/${r}`
   }
   return null
@@ -71,13 +77,15 @@ function titleFor(file: string): string | null {
   if (!file.endsWith('.md')) return null
   try {
     const head = git(['show', `:${file}`]).slice(0, 800)
-    const m = head.match(/^title:(.*)$/m)
-    if (!m) return null
-    const title = m[1]
-      .trim()
-      .replace(/^["']|["']$/g, '')
-      .trim()
-    return title || null
+    const line = head.split('\n').find((l) => l.startsWith('title:'))
+    if (!line) return null
+    let title = line.slice('title:'.length).trim()
+    // strip one layer of matching surrounding quotes
+    const first = title[0]
+    if ((first === '"' || first === "'") && title.endsWith(first)) {
+      title = title.slice(1, -1)
+    }
+    return title.trim() || null
   } catch {
     // untracked / deleted — fall back to filename
     return null

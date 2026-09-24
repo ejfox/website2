@@ -60,14 +60,13 @@ function isCurrent(f) {
   return f.route && f.route === route.path
 }
 
+function stripExt(name) {
+  const dot = name.lastIndexOf('.')
+  return dot > 0 ? name.slice(0, dot) : name
+}
+
 function label(f) {
-  return (
-    f.title ||
-    f.file
-      .split('/')
-      .pop()
-      .replace(/\.\w+$/, '')
-  )
+  return f.title || stripExt(f.file.split('/').pop())
 }
 
 function toggleExpand(file) {
@@ -101,8 +100,13 @@ function highlightCurrent() {
   const container = document.querySelector('.blog-post-content, main')
   if (!container) return
 
+  // markdown punctuation to drop before matching against rendered text
+  const mdChars = new Set(['#', '*', '_', '>', '`', '[', ']'])
   for (const snippet of f.addedSnippets) {
-    const needle = snippet.replace(/[#*_>`[\]]/g, '').trim()
+    const needle = [...snippet]
+      .filter((c) => !mdChars.has(c))
+      .join('')
+      .trim()
     if (needle.length < 8) continue
     const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT)
     let node
