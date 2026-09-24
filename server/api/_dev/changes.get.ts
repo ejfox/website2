@@ -71,8 +71,13 @@ function titleFor(file: string): string | null {
   if (!file.endsWith('.md')) return null
   try {
     const head = git(['show', `:${file}`]).slice(0, 800)
-    const m = head.match(/^title:\s*["']?(.+?)["']?\s*$/m)
-    return m ? m[1] : null
+    const m = head.match(/^title:(.*)$/m)
+    if (!m) return null
+    const title = m[1]
+      .trim()
+      .replace(/^["']|["']$/g, '')
+      .trim()
+    return title || null
   } catch {
     // untracked / deleted — fall back to filename
     return null
@@ -85,7 +90,8 @@ export default defineEventHandler((event) => {
     return { error: 'not found' }
   }
 
-  const base = (getQuery(event).base as string) === 'branch' ? 'branch' : 'session'
+  const base =
+    (getQuery(event).base as string) === 'branch' ? 'branch' : 'session'
 
   // name-status + numstat give us status and line counts in two cheap calls.
   const diffArgs =
@@ -121,8 +127,8 @@ export default defineEventHandler((event) => {
   for (const line of numStat.split('\n').filter(Boolean)) {
     const [add, del, file] = line.split('\t')
     counts.set(file, {
-      add: add === '-' ? 0 : parseInt(add, 10),
-      del: del === '-' ? 0 : parseInt(del, 10),
+      add: add === '-' ? 0 : Number.parseInt(add, 10),
+      del: del === '-' ? 0 : Number.parseInt(del, 10),
     })
   }
 

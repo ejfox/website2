@@ -27,7 +27,9 @@ async function refresh() {
   loading.value = true
   error.value = null
   try {
-    const data = await $fetch('/api/_dev/changes', { query: { base: base.value } })
+    const data = await $fetch('/api/_dev/changes', {
+      query: { base: base.value },
+    })
     files.value = data.files || []
     routableCount.value = data.routableCount || 0
   } catch (e) {
@@ -59,19 +61,30 @@ function isCurrent(f) {
 }
 
 function label(f) {
-  return f.title || f.file.split('/').pop().replace(/\.\w+$/, '')
+  return (
+    f.title ||
+    f.file
+      .split('/')
+      .pop()
+      .replace(/\.\w+$/, '')
+  )
 }
 
 function toggleExpand(file) {
   const next = new Set(expanded.value)
-  next.has(file) ? next.delete(file) : next.add(file)
+  if (next.has(file)) next.delete(file)
+  else next.add(file)
   expanded.value = next
 }
 
 useEventListener(window, 'keydown', (e) => {
   // ignore while typing in a field
   const t = e.target
-  if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return
+  if (
+    t &&
+    (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)
+  )
+    return
   if (e.key === '`') {
     e.preventDefault()
     open.value = !open.value
@@ -89,7 +102,7 @@ function highlightCurrent() {
   if (!container) return
 
   for (const snippet of f.addedSnippets) {
-    const needle = snippet.replace(/[#*_>`\[\]]/g, '').trim()
+    const needle = snippet.replace(/[#*_>`[\]]/g, '').trim()
     if (needle.length < 8) continue
     const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT)
     let node
@@ -122,10 +135,19 @@ function highlightCurrent() {
       <header class="dev-hud__head">
         <span class="dev-hud__title">CHANGED</span>
         <div class="dev-hud__modes">
-          <button :class="{ on: base === 'session' }" @click="base = 'session'">session</button>
-          <button :class="{ on: base === 'branch' }" @click="base = 'branch'">vs main</button>
+          <button :class="{ on: base === 'session' }" @click="base = 'session'">
+            session
+          </button>
+          <button :class="{ on: base === 'branch' }" @click="base = 'branch'">
+            vs main
+          </button>
         </div>
-        <button class="dev-hud__refresh" :disabled="loading" title="Refresh" @click="refresh">
+        <button
+          class="dev-hud__refresh"
+          :disabled="loading"
+          title="Refresh"
+          @click="refresh"
+        >
           {{ loading ? '…' : '↻' }}
         </button>
       </header>
@@ -136,10 +158,18 @@ function highlightCurrent() {
       </p>
 
       <ul class="dev-hud__list">
-        <li v-for="f in routableFiles" :key="f.file" :class="{ current: isCurrent(f) }">
+        <li
+          v-for="f in routableFiles"
+          :key="f.file"
+          :class="{ current: isCurrent(f) }"
+        >
           <div class="dev-hud__row">
-            <span class="dev-hud__badge" :data-s="f.status">{{ f.status }}</span>
-            <NuxtLink :to="f.route" class="dev-hud__link">{{ label(f) }}</NuxtLink>
+            <span class="dev-hud__badge" :data-s="f.status">
+              {{ f.status }}
+            </span>
+            <NuxtLink :to="f.route" class="dev-hud__link">
+              {{ label(f) }}
+            </NuxtLink>
             <span class="dev-hud__stat">
               <span v-if="f.additions" class="add">+{{ f.additions }}</span>
               <span v-if="f.deletions" class="del">−{{ f.deletions }}</span>
@@ -166,7 +196,9 @@ function highlightCurrent() {
         <ul class="dev-hud__list dev-hud__list--muted">
           <li v-for="f in otherFiles" :key="f.file">
             <div class="dev-hud__row">
-              <span class="dev-hud__badge" :data-s="f.status">{{ f.status }}</span>
+              <span class="dev-hud__badge" :data-s="f.status">
+                {{ f.status }}
+              </span>
               <span class="dev-hud__link" :title="f.file">{{ f.file }}</span>
               <span class="dev-hud__stat">
                 <span v-if="f.additions" class="add">+{{ f.additions }}</span>
@@ -198,7 +230,11 @@ function highlightCurrent() {
   line-height: 1.4;
   color: #d4d4d8;
 }
-@media print { .dev-hud { display: none; } }
+@media print {
+  .dev-hud {
+    display: none;
+  }
+}
 .dev-hud__tab {
   position: absolute;
   top: 0;
@@ -211,7 +247,9 @@ function highlightCurrent() {
   cursor: pointer;
   border-radius: 3px 0 0 3px;
 }
-.dev-hud__tab:hover { color: #fafafa; }
+.dev-hud__tab:hover {
+  color: #fafafa;
+}
 .dev-hud__panel {
   width: 280px;
   max-height: calc(100vh - 96px);
@@ -232,8 +270,16 @@ function highlightCurrent() {
   top: 0;
   background: #0a0a0a;
 }
-.dev-hud__title { color: #71717a; letter-spacing: 0.08em; font-size: 10px; }
-.dev-hud__modes { display: flex; gap: 2px; margin-left: auto; }
+.dev-hud__title {
+  color: #71717a;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+}
+.dev-hud__modes {
+  display: flex;
+  gap: 2px;
+  margin-left: auto;
+}
 .dev-hud__modes button {
   padding: 2px 5px;
   background: transparent;
@@ -242,7 +288,11 @@ function highlightCurrent() {
   cursor: pointer;
   font-size: 10px;
 }
-.dev-hud__modes button.on { color: #fafafa; border-color: #52525b; background: #27272a; }
+.dev-hud__modes button.on {
+  color: #fafafa;
+  border-color: #52525b;
+  background: #27272a;
+}
 .dev-hud__refresh {
   background: transparent;
   border: none;
@@ -250,16 +300,34 @@ function highlightCurrent() {
   cursor: pointer;
   font-size: 13px;
 }
-.dev-hud__refresh:hover { color: #fafafa; }
-.dev-hud__error { padding: 8px; color: #f87171; }
-.dev-hud__empty { padding: 8px; color: #52525b; }
-.dev-hud__list { list-style: none; margin: 0; padding: 2px 0; }
-.dev-hud__list li { padding: 1px 4px; }
+.dev-hud__refresh:hover {
+  color: #fafafa;
+}
+.dev-hud__error {
+  padding: 8px;
+  color: #f87171;
+}
+.dev-hud__empty {
+  padding: 8px;
+  color: #52525b;
+}
+.dev-hud__list {
+  list-style: none;
+  margin: 0;
+  padding: 2px 0;
+}
+.dev-hud__list li {
+  padding: 1px 4px;
+}
 .dev-hud__list li.current {
   background: #1e3a5f33;
   border-left: 2px solid #3b82f6;
 }
-.dev-hud__row { display: flex; align-items: center; gap: 5px; }
+.dev-hud__row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
 .dev-hud__badge {
   width: 12px;
   text-align: center;
@@ -268,11 +336,21 @@ function highlightCurrent() {
   color: #18181b;
   flex: none;
 }
-.dev-hud__badge[data-s='M'] { background: #eab308; }
-.dev-hud__badge[data-s='A'] { background: #22c55e; }
-.dev-hud__badge[data-s='?'] { background: #22c55e; }
-.dev-hud__badge[data-s='D'] { background: #ef4444; }
-.dev-hud__badge[data-s='R'] { background: #06b6d4; }
+.dev-hud__badge[data-s='M'] {
+  background: #eab308;
+}
+.dev-hud__badge[data-s='A'] {
+  background: #22c55e;
+}
+.dev-hud__badge[data-s='?'] {
+  background: #22c55e;
+}
+.dev-hud__badge[data-s='D'] {
+  background: #ef4444;
+}
+.dev-hud__badge[data-s='R'] {
+  background: #06b6d4;
+}
 .dev-hud__link {
   flex: 1;
   overflow: hidden;
@@ -281,10 +359,21 @@ function highlightCurrent() {
   color: #d4d4d8;
   text-decoration: none;
 }
-a.dev-hud__link:hover { color: #fafafa; text-decoration: underline; }
-.dev-hud__stat { flex: none; font-size: 10px; }
-.dev-hud__stat .add { color: #22c55e; margin-right: 3px; }
-.dev-hud__stat .del { color: #ef4444; }
+a.dev-hud__link:hover {
+  color: #fafafa;
+  text-decoration: underline;
+}
+.dev-hud__stat {
+  flex: none;
+  font-size: 10px;
+}
+.dev-hud__stat .add {
+  color: #22c55e;
+  margin-right: 3px;
+}
+.dev-hud__stat .del {
+  color: #ef4444;
+}
 .dev-hud__caret {
   background: transparent;
   border: none;
@@ -303,7 +392,9 @@ a.dev-hud__link:hover { color: #fafafa; text-decoration: underline; }
   font-size: 10px;
   color: #a1a1aa;
 }
-.dev-hud__diff .add { color: #4ade80; }
+.dev-hud__diff .add {
+  color: #4ade80;
+}
 .dev-hud__section {
   padding: 6px 8px 2px;
   color: #52525b;
@@ -311,7 +402,10 @@ a.dev-hud__link:hover { color: #fafafa; text-decoration: underline; }
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.dev-hud__list--muted .dev-hud__link { color: #71717a; font-size: 10px; }
+.dev-hud__list--muted .dev-hud__link {
+  color: #71717a;
+  font-size: 10px;
+}
 .dev-hud__foot {
   display: flex;
   justify-content: space-between;
@@ -321,7 +415,12 @@ a.dev-hud__link:hover { color: #fafafa; text-decoration: underline; }
   color: #52525b;
   font-size: 10px;
 }
-.dev-hud__foot label { display: flex; align-items: center; gap: 4px; cursor: pointer; }
+.dev-hud__foot label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
 </style>
 
 <style>
@@ -331,7 +430,13 @@ a.dev-hud__link:hover { color: #fafafa; text-decoration: underline; }
   border-radius: 2px;
 }
 @keyframes dev-changed-flash {
-  0% { background: #fde04766; box-shadow: 0 0 0 4px #fde04733; }
-  100% { background: transparent; box-shadow: 0 0 0 4px transparent; }
+  0% {
+    background: #fde04766;
+    box-shadow: 0 0 0 4px #fde04733;
+  }
+  100% {
+    background: transparent;
+    box-shadow: 0 0 0 4px transparent;
+  }
 }
 </style>

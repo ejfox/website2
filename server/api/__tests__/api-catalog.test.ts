@@ -50,13 +50,18 @@ function fileToUrl(file: string): string {
 // Delete the entry and catalog the route for real once it ships.
 const WIP_ROUTES = new Set(['/api/editor/context'])
 
+// Dev-only routes under /api/_dev/* 404 in production (guarded by import.meta.dev)
+// and by design leak source paths — they are tooling, never public API surface,
+// so they must not appear in the catalog published at /api-docs and /openapi.json.
+const isDevOnly = (r: string) => r.startsWith('/api/_dev/')
+
 describe('apiCatalog matches the filesystem', () => {
   const fsRoutes = new Set(walk(API_DIR).map(fileToUrl))
   const catalogRoutes = new Set(apiCatalog.map((r) => normalize(r.path)))
 
   it('every route file has a catalog entry', () => {
     const missing = [...fsRoutes].filter(
-      (r) => !catalogRoutes.has(r) && !WIP_ROUTES.has(r)
+      (r) => !catalogRoutes.has(r) && !WIP_ROUTES.has(r) && !isDevOnly(r)
     )
     expect(
       missing,

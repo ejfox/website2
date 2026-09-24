@@ -103,7 +103,9 @@ const fetchIcon = async (name, retries = 2) => {
         !trimmed.endsWith('</svg>') ||
         /<script|\son\w+\s*=/i.test(trimmed)
       ) {
-        console.warn(`[remarkEnhanceLinks] Rejected non-SVG/unsafe response for ${name}`)
+        console.warn(
+          `[remarkEnhanceLinks] Rejected non-SVG/unsafe response for ${name}`
+        )
         return null
       }
       const processed = svg.replace(

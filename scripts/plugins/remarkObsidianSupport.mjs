@@ -40,12 +40,12 @@ export function remarkObsidianSupport() {
     await Promise.all(
       [...targetsNeedingTitle].map(async (t) => {
         titleMap.set(t, await getTitleFromFrontmatter(t))
-      }),
+      })
     )
 
     // ── Pass 2: rewrite text nodes containing wikilinks (synchronous) ───────
     visit(tree, 'text', (node, index, parent) => {
-      if (parent == null || index == null) return
+      if (!parent || index === null || index === undefined) return
       const value = node.value
       if (!value.includes('[[')) return
 

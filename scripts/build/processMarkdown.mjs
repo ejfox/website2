@@ -1457,7 +1457,9 @@ async function processAllFiles() {
 
       return {
         slug,
-        title: isProtected ? undefined : cleanEntry.metadata?.title || cleanEntry.title,
+        title: isProtected
+          ? undefined
+          : cleanEntry.metadata?.title || cleanEntry.title,
         date: cleanEntry.metadata?.date,
         type,
         hidden: cleanEntry.metadata?.hidden,

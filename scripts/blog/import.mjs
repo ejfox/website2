@@ -182,7 +182,11 @@ async function findMarkdownFiles() {
       // could import content from OUTSIDE the vault/whitelist into a public
       // repo; a symlinked dir would be silently skipped. Refuse both.
       if (entry.isSymbolicLink()) {
-        console.warn(chalk.yellow(`  ↳ skipping symlink: ${path.relative(SOURCE_DIR, fullPath)}`))
+        console.warn(
+          chalk.yellow(
+            `  ↳ skipping symlink: ${path.relative(SOURCE_DIR, fullPath)}`
+          )
+        )
         continue
       }
 
@@ -393,10 +397,14 @@ async function main() {
       if (hasBackup) {
         try {
           await fs.cp(dirs.backup, dirs.content, { recursive: true })
-          console.error(chalk.yellow('Restored content/ from the pre-import backup.'))
+          console.error(
+            chalk.yellow('Restored content/ from the pre-import backup.')
+          )
         } catch (e) {
           console.error(
-            chalk.red(`Restore failed — recover manually from ${dirs.backup}: ${e.message}`)
+            chalk.red(
+              `Restore failed — recover manually from ${dirs.backup}: ${e.message}`
+            )
           )
         }
       }
