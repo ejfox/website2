@@ -5293,51 +5293,6 @@
     }
   },
   {
-    "slug": "projects/hexagram-motion-graphics",
-    "title": "I Ching Motion Graphics",
-    "date": "2026-05-01T04:00:00.000Z",
-    "type": "post",
-    "tags": [
-      "art",
-      "math",
-      "motion-graphics",
-      "generative"
-    ],
-    "toc": [],
-    "metadata": {
-      "title": "I Ching Motion Graphics",
-      "date": "2026-05-01T04:00:00.000Z",
-      "category": "Art",
-      "featured": false,
-      "tech": [
-        "Python",
-        "Manim",
-        "Motion Graphics"
-      ],
-      "state": "deployed",
-      "ai-involvement": "ai-assisted",
-      "tags": [
-        "art",
-        "math",
-        "motion-graphics",
-        "generative"
-      ],
-      "words": 346,
-      "images": 4,
-      "imageDetails": {
-        "total": 4,
-        "cloudinary": 4,
-        "withDimensions": 0
-      },
-      "links": 5,
-      "codeBlocks": 0,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "slug": "projects/hexagram-motion-graphics"
-    }
-  },
-  {
     "slug": "projects/motorcycle-pico8",
     "title": "Motorcycle.p8",
     "date": "2023-07-02T00:00:00.000Z",
