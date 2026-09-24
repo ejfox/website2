@@ -428,6 +428,7 @@ export interface StatsResponse {
   gear?: {
     stats: {
       totalItems: number
+      /** OUNCES, not pounds — gear-stats sums Weight_oz. Divide by 16 for lbs (see utils/weight.ts). */
       totalWeight: number
       containerCount: number
       avgTCWMScore: number
