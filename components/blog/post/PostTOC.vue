@@ -33,7 +33,7 @@ function scrollToSection(slug: string) {
         <li
           v-for="child in tocChildren"
           :key="child.slug"
-          :class="['group relative', child.depth ? 'pl-6' : '']"
+          class="group relative"
         >
           <a
             :href="`#${child.slug}`"

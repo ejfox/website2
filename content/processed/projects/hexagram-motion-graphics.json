@@ -13,6 +13,7 @@
       "Motion Graphics"
     ],
     "state": "deployed",
+    "draft": true,
     "ai-involvement": "ai-assisted",
     "tags": [
       "art",
@@ -20,14 +21,14 @@
       "motion-graphics",
       "generative"
     ],
-    "words": 346,
+    "words": 344,
     "images": 4,
     "imageDetails": {
       "total": 4,
       "cloudinary": 4,
       "withDimensions": 0
     },
-    "links": 5,
+    "links": 1,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

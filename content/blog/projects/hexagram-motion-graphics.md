@@ -5,6 +5,7 @@ category: "Art"
 featured: false
 tech: ["Python", "Manim", "Motion Graphics"]
 state: deployed
+draft: true
 ai-involvement: ai-assisted
 tags:
   - art

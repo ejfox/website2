@@ -13,42 +13,75 @@ import {
   classifyInternalHref,
 } from '../utils/internal-links.mjs'
 
+const WIKILINK_RE = /\[\[([^\]]+)\]\]/g
+
 export function remarkObsidianSupport() {
   return async (tree) => {
-    // Handle [[wikilinks]]
-    await visit(tree, 'text', async (node, index, parent) => {
+    // `unist-util-visit` is SYNCHRONOUS — it does not await an async visitor, so
+    // the alias frontmatter-title lookups (async) have to be resolved BEFORE we
+    // mutate the tree. Pass 1 collects every target that needs a title; pass 2
+    // rewrites the nodes synchronously using the resolved map.
+
+    // ── Pass 1: collect targets needing a title lookup ──────────────────────
+    const targetsNeedingTitle = new Set()
+    visit(tree, 'text', (node) => {
+      if (!node.value.includes('[[')) return
+      let m
+      WIKILINK_RE.lastIndex = 0
+      while ((m = WIKILINK_RE.exec(node.value)) !== null) {
+        const parts = m[1].split('|')
+        if (parts[1]?.trim()) continue // explicit |alias — no lookup needed
+        const target = normalizeTarget(parts[0].trim().split('#')[0])
+        if (target) targetsNeedingTitle.add(target)
+      }
+    })
+
+    const titleMap = new Map()
+    await Promise.all(
+      [...targetsNeedingTitle].map(async (t) => {
+        titleMap.set(t, await getTitleFromFrontmatter(t))
+      })
+    )
+
+    // ── Pass 2: rewrite text nodes containing wikilinks (synchronous) ───────
+    visit(tree, 'text', (node, index, parent) => {
+      if (!parent || index === null || index === undefined) return
       const value = node.value
-      const wikilinkRegex = /\[\[([^\]]+)\]\]/g
+      if (!value.includes('[[')) return
+
       let match
       let lastIndex = 0
       const nodes = []
+      WIKILINK_RE.lastIndex = 0
 
-      while ((match = wikilinkRegex.exec(value)) !== null) {
+      while ((match = WIKILINK_RE.exec(value)) !== null) {
         const [, linkText] = match
         const start = match.index
-        const end = wikilinkRegex.lastIndex
+        const end = WIKILINK_RE.lastIndex
 
-        // Add text before the wikilink
+        // Text before the wikilink
         if (start > lastIndex) {
-          nodes.push({
-            type: 'text',
-            value: value.slice(lastIndex, start),
-          })
+          nodes.push({ type: 'text', value: value.slice(lastIndex, start) })
         }
 
         const linkParts = linkText.split('|')
         const targetWithHeading = linkParts[0].trim()
         const [rawTarget, rawHeading] = targetWithHeading.split('#')
         const target = normalizeTarget(rawTarget)
-        const alias =
-          linkParts[1]?.trim() || (await getTitleFromFrontmatter(target))
         const heading = rawHeading?.trim()
 
-        // Generate the URL
-        let url = buildInternalHref(target)
-        if (heading) {
-          url += `#${generateSlug(heading)}`
+        // Degenerate wikilink ([[|alias]], [[ | ]], [[#heading]]): no real
+        // target. Leave the raw text rather than emit a bogus /tag/ link.
+        if (!target) {
+          nodes.push({ type: 'text', value: value.slice(start, end) })
+          lastIndex = end
+          continue
         }
+
+        const alias = linkParts[1]?.trim() || titleMap.get(target) || target
+
+        let url = buildInternalHref(target)
+        if (heading) url += `#${generateSlug(heading)}`
 
         // Dead internal links (target post missing / draft / excluded) render as
         // a non-clickable span so readers aren't sent to a 404. Validity is known
@@ -80,18 +113,17 @@ export function remarkObsidianSupport() {
         lastIndex = end
       }
 
-      // Add remaining text after the last wikilink
+      // Remaining text after the last wikilink
       if (lastIndex < value.length) {
-        nodes.push({
-          type: 'text',
-          value: value.slice(lastIndex),
-        })
+        nodes.push({ type: 'text', value: value.slice(lastIndex) })
       }
 
-      // Replace the original text node with the new nodes
       if (nodes.length > 0) {
         parent.children.splice(index, 1, ...nodes)
-        return [visit.SKIP, index + nodes.length]
+        // Continue after the inserted nodes. The inserted text slices never
+        // contain a wikilink (the regex consumed them all), so re-scanning is
+        // unnecessary and skipping avoids reprocessing link children.
+        return index + nodes.length
       }
     })
   }

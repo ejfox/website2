@@ -20,14 +20,14 @@
       "osint",
       "civic"
     ],
-    "words": 95,
+    "words": 93,
     "images": 3,
     "imageDetails": {
       "total": 3,
       "cloudinary": 3,
       "withDimensions": 0
     },
-    "links": 3,
+    "links": 0,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

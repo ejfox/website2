@@ -27,9 +27,8 @@ export function loadCalInline({ namespace, calLink, selector, config = {} }) {
     const d = C.document
     C.Cal =
       C.Cal ||
-      function () {
+      function (...ar) {
         const cal = C.Cal
-        const ar = arguments
         if (!cal.loaded) {
           cal.ns = {}
           cal.q = cal.q || []
@@ -37,8 +36,8 @@ export function loadCalInline({ namespace, calLink, selector, config = {} }) {
           cal.loaded = true
         }
         if (ar[0] === L) {
-          const api = function () {
-            p(api, arguments)
+          const api = function (...args) {
+            p(api, args)
           }
           const ns = ar[1]
           api.q = api.q || []

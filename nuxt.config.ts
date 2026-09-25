@@ -1,4 +1,7 @@
+import { fileURLToPath } from 'node:url'
 import { getBlogRoutes, getBuildInfo } from './nuxt.helpers'
+
+const isDev = process.env.NODE_ENV !== 'production'
 
 // Shared Cache-Control values (referenced in nitro.routeRules below)
 const CACHE_PRERENDER = 'public, max-age=3600, s-maxage=86400'
@@ -204,13 +207,22 @@ export default defineNuxtConfig({
     //
     // These filenames are NOT content-hashed: replacing a font needs a new
     // filename, or clients keep the old one for a year.
-    publicAssets: [
-      {
-        dir: 'public/fonts',
-        baseURL: '/fonts',
-        maxAge: 31536000,
-      },
-    ],
+    // Prod-only: a custom publicAssets entry for /fonts sets the 1-year
+    // immutable Cache-Control the fonts need (Nitro's static handler applies its
+    // own maxAge before routeRules run, so the /fonts/** routeRule alone is
+    // ignored). It must NOT be added in dev: Nuxt's dev server doesn't serve
+    // custom publicAssets dirs, but the entry still shadows the auto public/
+    // mount for /fonts → every font 404'd and headings fell back to system-ui.
+    // In dev the default public/ handler serves the same files fine.
+    publicAssets: isDev
+      ? []
+      : [
+          {
+            dir: fileURLToPath(new URL('./public/fonts', import.meta.url)),
+            baseURL: '/fonts',
+            maxAge: 31536000,
+          },
+        ],
     prerender: {
       concurrency: 12, // Faster prerendering
       crawlLinks: false, // Causes issues with broken links

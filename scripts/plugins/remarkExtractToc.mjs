@@ -23,11 +23,19 @@ export function extractHeadersAndToc(tree, maxDepth = 3) {
         .map((child) => {
           if (child.type === 'text') {
             return child.value
+          } else if (child.type === 'inlineCode') {
+            // Include code spans — rehype-slug slugs the rendered heading
+            // (which contains the code text), so dropping it here would make
+            // the TOC anchor (#slug) not match the heading id.
+            return child.value
           } else if (child.type === 'image') {
             return child.alt || '' // Use alt text for images
-          } else if (child.type === 'link') {
-            return extractText(child.children || [])
-          } else if (child.type === 'emphasis' || child.type === 'strong') {
+          } else if (
+            child.type === 'link' ||
+            child.type === 'emphasis' ||
+            child.type === 'strong' ||
+            child.type === 'delete'
+          ) {
             return extractText(child.children || [])
           }
           return ''

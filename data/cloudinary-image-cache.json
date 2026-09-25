@@ -1428,5 +1428,25 @@
     "alt": "A phyllotaxis of the scrap corpus — every screenshot placed by the golden angle, the way a sunflower packs its seeds",
     "caption": "A phyllotaxis of the scrap corpus — every screenshot placed by the golden angle, the way a sunflower packs its seeds",
     "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAUABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFhABAQEAAAAAAAAAAAAAAAAAAAER/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/AMuRcIAmAAQAEAB//9k="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/mapping-ice/overview.png": {
+    "width": 3200,
+    "height": 1600,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Detention Infrastructure overview — custody counts, spend, and new facilities",
+    "caption": "Detention Infrastructure overview — custody counts, spend, and new facilities",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAKABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQC/8QAFRABAQAAAAAAAAAAAAAAAAAAABP/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A1UqmAU1EwD//2Q=="
+  },
+  "https://res.cloudinary.com/ejf/image/upload/projects/mapping-ice/facilities.png": {
+    "width": 3200,
+    "height": 1600,
+    "colors": null,
+    "avgColor": null,
+    "secondaryColor": null,
+    "alt": "Facility records under development, with status tags",
+    "caption": "Facility records under development, with status tags",
+    "lqip": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAlgCWAAD/2wBDACgcHiMeGSgjISMtKygwPGRBPDc3PHtYXUlkkYCZlo+AjIqgtObDoKrarYqMyP/L2u71////m8H////6/+b9//j/2wBDASstLTw1PHZBQXb4pYyl+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj4+Pj/wAARCAAKABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/EABQBAQAAAAAAAAAAAAAAAAAAAAD/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwDMAAEAf//Z"
   }
 }
