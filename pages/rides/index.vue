@@ -133,7 +133,6 @@ useHead({ title: 'Rides — EJ Fox' })
         :to="`/rides/${ride.slug}`"
         class="group block bg-white dark:bg-zinc-950 p-4 border border-zinc-200 dark:border-zinc-800 -mt-px -ml-px"
       >
-        <!-- track shape, common scale -->
         <svg
           v-if="ride.thumb"
           viewBox="-0.05 -0.05 1.1 1.1"
@@ -160,7 +159,6 @@ useHead({ title: 'Rides — EJ Fox' })
           />
         </svg>
 
-        <!-- micrographics: elevation strip + speed histogram -->
         <div class="mt-2 flex items-end gap-2">
           <svg
             v-if="ride.elev?.length"
@@ -201,7 +199,6 @@ useHead({ title: 'Rides — EJ Fox' })
           <span>{{ ride.spdHist?.length ? 'speed' : '' }}</span>
         </div>
 
-        <!-- metadata -->
         <h2
           class="mt-3 font-mono text-2xs uppercase tracking-wider text-zinc-700 dark:text-zinc-300 truncate"
         >

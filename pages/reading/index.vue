@@ -7,17 +7,14 @@ const { revealContainer: booksReveal } = useScrollReveal({
   duration: 150,
 })
 
-// Fetch reading list
 const { data: books, pending, error } = await useFetch('/api/reading')
 
-// CSS Classes
 const booksGridClass = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'
 const bookCardClass = 'interactive-card group block'
 const bookCoverClass =
   'max-h-full max-w-full object-contain rounded-sm shadow-sm'
 const bookTitleClass = 'card-title-group-hover'
 
-// Computed properties for stats
 const totalHighlights = computed(() => {
   if (!books.value) return 0
   return books.value.reduce((total, book) => {
@@ -67,7 +64,6 @@ const topHighlighted = computed(() => {
     .slice(0, 5)
 })
 
-// SEO
 usePageSeo({
   title: 'Reading Collection - EJ Fox',
   description: "Books I've read, and the highlights I saved from them",
@@ -106,7 +102,6 @@ useHead(() => ({
   ],
 }))
 
-// Helper function
 function formatDate(dateString) {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -119,9 +114,7 @@ function formatDate(dateString) {
 <template>
   <div class="min-h-screen pt-8">
     <div class="px-4 md:px-8 xl:px-16" style="max-width: 65ch">
-      <!-- Header with data overlay -->
       <header class="section-spacing-lg">
-        <!-- Data stream indicator -->
         <div class="mono-xs text-secondary mb-2 tabular">
           <span>READING</span>
           <span class="mx-2 text-divider">·</span>
@@ -139,20 +132,17 @@ function formatDate(dateString) {
           Books, highlights, and notes from my digital library.
         </p>
 
-        <!-- Stats -->
         <div v-if="books" class="mt-4 mono-xs text-muted tabular">
           <span>UPDATED: {{ lastUpdated }}</span>
           <span class="mx-2 text-divider">·</span>
           <span>SOURCES: Kindle sync metadata</span>
         </div>
 
-        <!-- Sparklines visualization -->
         <div v-if="books?.length" class="mt-8">
           <ReadingSparklines :books="books" />
         </div>
       </header>
 
-      <!-- Loading State -->
       <div v-if="pending" :class="booksGridClass">
         <div v-for="i in 6" :key="i" class="animate-pulse">
           <div
@@ -161,7 +151,6 @@ function formatDate(dateString) {
         </div>
       </div>
 
-      <!-- Error State -->
       <div v-else-if="error" class="text-center py-8">
         <h2 class="font-serif text-xl text-red-600 dark:text-red-400 mb-4">
           Error Loading Books
@@ -171,7 +160,6 @@ function formatDate(dateString) {
         </p>
       </div>
 
-      <!-- Books Grid -->
       <div v-else-if="books?.length" ref="booksReveal" :class="booksGridClass">
         <NuxtLink
           v-for="book in books"
@@ -179,7 +167,6 @@ function formatDate(dateString) {
           :to="`/reading/${book.slug}`"
           :class="bookCardClass"
         >
-          <!-- Book Cover -->
           <div class="aspect-[3/4] mb-4 flex items-center justify-center">
             <img
               v-if="book.metadata?.['kindle-sync']?.bookImageUrl"
@@ -198,7 +185,6 @@ function formatDate(dateString) {
             </div>
           </div>
 
-          <!-- Book Info -->
           <div class="stack-2">
             <h3 :class="bookTitleClass" style="letter-spacing: -0.01em">
               {{ book.metadata?.['kindle-sync']?.title || book.title }}
@@ -207,7 +193,6 @@ function formatDate(dateString) {
               {{ book.metadata?.['kindle-sync']?.author }}
             </p>
 
-            <!-- Random highlight preview -->
             <div
               v-if="book.randomHighlight"
               class="font-serif text-xs text-muted italic line-clamp-3"
@@ -215,7 +200,6 @@ function formatDate(dateString) {
               "{{ book.randomHighlight }}"
             </div>
 
-            <!-- Highlights count -->
             <div class="flex-between mono-xs text-secondary tabular">
               <span v-if="book.metadata?.['kindle-sync']?.highlightsCount">
                 {{ book.metadata['kindle-sync'].highlightsCount }}
@@ -229,7 +213,6 @@ function formatDate(dateString) {
         </NuxtLink>
       </div>
 
-      <!-- Empty State -->
       <div v-else class="center-empty">
         <div class="mono-xs text-secondary section-spacing-lg">NO_DATA</div>
         <h2 class="font-serif text-xl text-primary section-spacing-sm">
@@ -241,7 +224,6 @@ function formatDate(dateString) {
       </div>
     </div>
 
-    <!-- Sidebar teleport -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="space-y-4">
@@ -272,7 +254,6 @@ function formatDate(dateString) {
             </div>
           </div>
 
-          <!-- Stats -->
           <div
             class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums"
           >
@@ -294,7 +275,6 @@ function formatDate(dateString) {
             </div>
           </div>
 
-          <!-- Top highlighted books -->
           <div v-if="topHighlighted.length > 0">
             <div
               class="font-mono text-3xs text-zinc-600 uppercase tracking-wider mb-1"

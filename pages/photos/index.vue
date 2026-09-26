@@ -1,7 +1,6 @@
 <script setup>
 import PhotoStack from '~/components/PhotoStack.vue'
 
-// Both feeds in parallel
 const { data: photosData, pending: photosPending } = await useFetch(
   '/api/photos',
   { lazy: true }
@@ -117,7 +116,6 @@ useHead({ title: 'Photos — EJ Fox' })
         v-for="item in feed"
         :key="item.kind + (item.photo?.id || item.post?.slug)"
       >
-        <!-- Individual photo -->
         <a
           v-if="item.kind === 'photo'"
           :href="`/photos/${encodeURIComponent(item.photo.id)}`"
@@ -207,7 +205,6 @@ useHead({ title: 'Photos — EJ Fox' })
   opacity: 0.5;
 }
 
-/* ---- Masonry columns for individual photos ---- */
 .photo-grid {
   columns: 1;
   column-gap: 12px;
