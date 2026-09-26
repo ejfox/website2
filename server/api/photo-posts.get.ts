@@ -8,7 +8,7 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 import { createError } from 'h3'
-import { isScheduled } from '~/utils/postFilters'
+import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 
 interface PhotoPost {
   slug: string
@@ -51,11 +51,7 @@ export default defineCachedEventHandler(
       const photoPosts = manifest.filter(
         (p: any) =>
           (p.type === 'photos' || p.type === 'photo') &&
-          !p.draft &&
-          !p.hidden &&
-          !p.unlisted &&
-          !p.password &&
-          !p.passwordHash &&
+          !isHiddenFromListings(p) &&
           !isScheduled(p)
       )
 

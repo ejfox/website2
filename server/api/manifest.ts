@@ -7,7 +7,7 @@
 import { defineEventHandler, createError } from 'h3'
 import { readFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
-import { isScheduled } from '~/utils/postFilters'
+import { isHiddenFromListings, isScheduled } from '~/utils/postFilters'
 
 interface Post {
   slug?: string
@@ -33,31 +33,11 @@ export default defineEventHandler(async () => {
   try {
     const manifest = await readManifest()
 
-    // Filter out drafts, hidden, unlisted, and password-protected posts
-    // These posts exist at their URLs but don't appear in listings
+    // Filter out drafts, hidden, unlisted, password-protected, and scheduled
+    // posts. These posts exist at their URLs but don't appear in listings.
     const publicPosts = manifest.filter((p: Post) => {
-      const isDraft = p.draft || p.metadata?.draft
-      const isHidden = p.hidden || p.metadata?.hidden
-      const isUnlisted = p.unlisted || p.metadata?.unlisted
-      const hasPassword = !!(
-        p.password ||
-        p.passwordHash ||
-        p.metadata?.password ||
-        p.metadata?.passwordHash
-      )
       const isDraftsFolder = p.slug?.startsWith('drafts/')
-      // Scheduled posts ship in the build but stay out of listings until their
-      // publish time. This is a runtime check, so they appear on their own.
-      const isEmbargoed = isScheduled(p)
-
-      return (
-        !isDraft &&
-        !isHidden &&
-        !isUnlisted &&
-        !hasPassword &&
-        !isDraftsFolder &&
-        !isEmbargoed
-      )
+      return !isHiddenFromListings(p) && !isDraftsFolder && !isScheduled(p)
     })
 
     return publicPosts

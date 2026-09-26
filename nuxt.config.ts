@@ -1,5 +1,6 @@
 import { fileURLToPath } from 'node:url'
 import { getBlogRoutes, getBuildInfo } from './nuxt.helpers'
+import { watchContentAndReload } from './scripts/dev/content-watch.mjs'
 
 const isDev = process.env.NODE_ENV !== 'production'
 
@@ -149,6 +150,14 @@ export default defineNuxtConfig({
     async 'prerender:routes'(ctx) {
       const blogRoutes = await getBlogRoutes()
       blogRoutes.forEach((route) => ctx.routes.add(route))
+    },
+
+    // Dev only: watch content/blog for .md edits, reprocess, then force a
+    // full browser reload via Vite's HMR websocket. Editing a project/blog
+    // source file in nvim now updates the open tab with no manual steps.
+    'vite:serverCreated'(viteServer, env) {
+      if (!isDev || !env.isClient) return
+      watchContentAndReload(viteServer)
     },
   },
 
