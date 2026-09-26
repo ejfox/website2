@@ -54,7 +54,10 @@ export {
 type DateInput = string | Date | null | undefined
 
 // Base formatter: parse (ISO strings) then format; empty string on bad input.
-export const formatDate = (date: DateInput, pattern = 'MMM d, yyyy'): string => {
+export const formatDate = (
+  date: DateInput,
+  pattern = 'MMM d, yyyy'
+): string => {
   if (!date) return ''
   try {
     const d = typeof date === 'string' ? parseISO(date) : date
@@ -64,9 +67,12 @@ export const formatDate = (date: DateInput, pattern = 'MMM d, yyyy'): string => 
   }
 }
 
-export const formatShortDate = (date: DateInput) => formatDate(date, 'MMM d, yyyy')
-export const formatLongDate = (date: DateInput) => formatDate(date, 'MMMM do, yyyy')
-export const formatCompactDate = (date: DateInput) => formatDate(date, 'yyyy-MM-dd')
+export const formatShortDate = (date: DateInput) =>
+  formatDate(date, 'MMM d, yyyy')
+export const formatLongDate = (date: DateInput) =>
+  formatDate(date, 'MMMM do, yyyy')
+export const formatCompactDate = (date: DateInput) =>
+  formatDate(date, 'yyyy-MM-dd')
 export const formatYearOnly = (date: DateInput) => formatDate(date, 'yyyy')
 export const formatTime = (date: DateInput) => formatDate(date, 'h:mm a')
 export const formatDateTime = (date: DateInput) =>
@@ -87,7 +93,9 @@ export const formatRelative = (date: DateInput): string => {
 // Alias kept for former useDateFormat().formatRelativeTime callers
 export const formatRelativeTime = formatRelative
 
-export const isValidDate = (date: string | number | Date | null | undefined): boolean => {
+export const isValidDate = (
+  date: string | number | Date | null | undefined
+): boolean => {
   if (!date) return false
   const parsed = typeof date === 'string' ? parseISO(date) : new Date(date)
   return isValid(parsed)

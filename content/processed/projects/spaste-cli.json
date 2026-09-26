@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"Spaste CLI running in a vulpes-themed terminal\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/spaste-cli/terminal.png\" alt=\"Spaste CLI running in a vulpes-themed terminal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/spaste-cli/terminal.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/spaste-cli/terminal.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/spaste-cli/terminal.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/spaste-cli/terminal.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Spaste CLI running in a vulpes-themed terminal\" width=\"1372\" height=\"494\" style=\"--splay-rot:0.7deg;\" data-dimensions=\"1372×494\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">Spaste CLI running in a vulpes-themed terminal</figcaption></figure>\na command-line tool for smart manipulation of JavaScript methods in files.<p class=\"\"></p>\n<p class=\"\">spaste-cli is a command-line tool for smart manipulation of JavaScript methods in files. It allows you to easily replace, delete, or echo specific methods in your JavaScript code using the power of Abstract Syntax Trees (AST).</p>",
+  "title": "Spaste CLI",
+  "metadata": {
+    "title": "Spaste CLI",
+    "date": "2024-08-11T05:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/spaste-cli",
+    "tech": [
+      "JavaScript"
+    ],
+    "tags": [
+      "tools"
+    ],
+    "words": 79,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

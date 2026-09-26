@@ -1,7 +1,7 @@
 ---
 title: "Motorcycle.p8"
 date: 2023-07-02
-category: "Art"
+category: "Games"
 featured: false
 tech: ["Pico-8", "Lua"]
 state: deployed
@@ -12,8 +12,6 @@ tags:
   - art
   - motorcycle
 ---
-
-<!-- TODO (EJ): a gameplay GIF would be even better when you can grab one. -->
 
 This was my first experiment in coding a PICO-8 game, so I wanted it to tie into something that sparks joy for me — motorcycle rides — and try to capture its essence in a minimalist video game sketch. That's the exact transmutation that I think makes PICO-8 magical. I hand-coded the whole thing, referencing the docs — this was pre-robot, June 2023. My brother made the sprites and the music (a tracker engine that escalates through five patterns as speed climbs, then collapses on a crash).
 

@@ -1,0 +1,33 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"Arena Cards — a real are.na channel laid out as draggable spatial cards\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/arena-cards/cards.png\" alt=\"Arena Cards — a real are.na channel laid out as draggable spatial cards\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/arena-cards/cards.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/arena-cards/cards.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/arena-cards/cards.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/arena-cards/cards.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Arena Cards — a real are.na channel laid out as draggable spatial cards\" width=\"2389\" height=\"1593\" style=\"--splay-rot:2.04deg;\" data-dimensions=\"2389×1593\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">Arena Cards — a real are.na channel laid out as draggable spatial cards</figcaption></figure>\nTurn an are.na channel into draggable cards for spatial thinking.<p class=\"\"></p>\n<p class=\"\">This code was originally created as part of a YouTube video exploring the are.na API and taking control of your own data</p>",
+  "title": "Arena Cards",
+  "metadata": {
+    "title": "Arena Cards",
+    "date": "2024-06-14T05:00:00.000Z",
+    "category": "Art",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/arena-cards",
+    "tech": [
+      "JavaScript",
+      "TypeScript",
+      "Vue"
+    ],
+    "tags": [
+      "art"
+    ],
+    "words": 70,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

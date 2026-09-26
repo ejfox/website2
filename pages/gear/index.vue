@@ -1,7 +1,6 @@
 <script setup>
 import { csvParse } from 'd3-dsv' // Only used CSV parser (~2KB)
 
-// HTML escaping function for attributes
 const _escapeHtml = (text) => {
   if (!text) return ''
   const map = {
@@ -41,7 +40,6 @@ onMounted(() => {
   }
 })
 
-// Watch for changes and persist to localStorage
 watch(weightUnit, (newValue) => {
   if (import.meta.client) {
     localStorage.setItem('gear-weight-unit', newValue)
@@ -114,7 +112,6 @@ const groupedGear = computed(() => {
 const _calculateTotalWeightInGrams = (items) =>
   calculateTotalWeight(items).formatted
 
-// Helper function to format weight for any set of items
 const formatWeight = (items) => {
   const weightData = calculateTotalWeight(items)
   if (weightUnit.value === 'imperial') {
@@ -128,7 +125,6 @@ const formatWeight = (items) => {
   }
 }
 
-// Container comparison small multiples data
 const containerComparison = computed(() => {
   if (!groupedGear.value.size) return []
   const data = Array.from(groupedGear.value.entries()).map(([name, items]) => {
@@ -160,10 +156,8 @@ const processGearItem = (item) => {
   return item
 }
 
-// Fetch gear data using Nuxt's data fetching
 const { data: csvText, error: csvError } = await useFetch('/api/gear-csv')
 
-// Process CSV data when available
 watchEffect(() => {
   if (csvText.value) {
     try {
@@ -203,7 +197,6 @@ const _avgWeightInGrams = computed(() => {
   return avg.grams || 0
 })
 
-// Weight display computeds based on selected unit
 const displayTotalWeight = computed(() => {
   const totalWeightData = calculateTotalWeight(gearItems.value || [])
   if (weightUnit.value === 'imperial') {
@@ -464,7 +457,6 @@ useHead(() => ({
 
 <template>
   <main class="px-4 md:px-6 lg:px-8 max-w-full min-h-screen pt-8">
-    <!-- Error State -->
     <div
       v-if="csvError"
       class="text-center py-8 text-red-600 dark:text-red-400"
@@ -477,7 +469,6 @@ useHead(() => ({
       <div
         class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 py-3 section-spacing-sm"
       >
-        <!-- Title and Stats Section -->
         <div class="flex flex-col gap-2">
           <h1 class="font-mono text-sm text-zinc-100">GEAR</h1>
           <div class="font-mono text-3xs text-muted tabular">
@@ -490,11 +481,9 @@ useHead(() => ({
           </div>
         </div>
 
-        <!-- Controls Section -->
         <div
           class="flex flex-col sm:flex-row sm:flex-wrap gap-2 sm:gap-3 w-full sm:w-auto"
         >
-          <!-- Weight Unit Selector -->
           <label for="weight-unit" class="sr-only">Weight unit</label>
           <div class="relative w-full sm:w-auto">
             <select
@@ -564,7 +553,6 @@ useHead(() => ({
           from qualifying purchases. It costs you nothing extra.
         </p>
 
-        <!-- Container Weight Comparison Small Multiples -->
         <div v-if="containerComparison.length" class="mt-4">
           <h3 class="gear-section-header mb-2">Weight by Container</h3>
           <div class="flex items-end gap-1 h-12">
@@ -596,7 +584,6 @@ useHead(() => ({
       </div>
     </header>
 
-    <!-- 3D Scan Gallery -->
     <ClientOnly>
       <div v-if="scannedItems.length > 0" class="mb-8">
         <h2 class="gear-section-header mb-4">3D Scans</h2>
@@ -623,7 +610,6 @@ useHead(() => ({
             </div>
           </div>
           <div class="mt-2">
-            <!-- Weight distribution bar -->
             <div class="flex items-end h-4 bg-zinc-900/30 rounded-sm">
               <div
                 v-for="item in items.slice(0, 20)"
@@ -669,7 +655,6 @@ useHead(() => ({
             <span class="text-5xs font-mono text-zinc-500 tabular-nums">
               {{ formatWeight(items) }}
             </span>
-            <!-- Mini histogram -->
             <div class="flex items-end gap-px h-3">
               <div
                 v-for="(bucket, i) in getWeightHistogram(items)"
@@ -715,7 +700,6 @@ useHead(() => ({
         </div>
       </section>
     </div>
-    <!-- Sidebar teleport -->
     <ClientOnly>
       <Teleport v-if="tocTarget" to="#nav-toc-container">
         <div class="space-y-4">
@@ -725,7 +709,6 @@ useHead(() => ({
             Containers
           </div>
 
-          <!-- Container list as TOC -->
           <div class="space-y-0.5">
             <a
               v-for="[container, items] in groupedGear"
@@ -741,7 +724,6 @@ useHead(() => ({
             </a>
           </div>
 
-          <!-- Totals -->
           <div
             class="space-y-1 pt-2 border-t border-zinc-800 font-mono text-3xs tabular-nums"
           >
@@ -765,7 +747,6 @@ useHead(() => ({
 </template>
 
 <style>
-/* Missing utility classes */
 .flex-between {
   @apply flex items-center justify-between;
 }
@@ -786,7 +767,6 @@ useHead(() => ({
   @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2;
 }
 
-/* Gear page controls */
 .gear-btn {
   @apply px-3 py-2 text-3xs font-mono uppercase tracking-wide;
   @apply text-zinc-700 dark:text-zinc-300;
@@ -817,7 +797,6 @@ useHead(() => ({
   letter-spacing: 0.03em;
 }
 
-/* Table styles */
 .gear-th {
   @apply text-center px-1 py-1 font-normal text-zinc-500;
   font-size: 0.5rem;

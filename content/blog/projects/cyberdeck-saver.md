@@ -1,6 +1,5 @@
 ---
 title: "cyberdeck-saver"
-draft: true
 date: 2026-04-20T00:00:00-04:00
 category: "Tools"
 featured: false

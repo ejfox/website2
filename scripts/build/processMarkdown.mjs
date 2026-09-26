@@ -32,7 +32,6 @@ import fetch from 'node-fetch'
 import { config } from '../config.mjs'
 
 import {
-  remarkAi2htmlEmbed,
   remarkPredictionRef,
   remarkGearCard,
   remarkHandDrawn,
@@ -73,7 +72,6 @@ try {
 
 const paths = {
   contentDir: config.dirs.content,
-  draftsDir: path.join(config.dirs.content, '../drafts'),
   outputDir: config.dirs.output,
   backupDir: config.dirs.backup,
 }
@@ -255,11 +253,13 @@ const processor = unified()
   .use(remarkParse)
   .use(remarkGfm) // Process footnotes FIRST before other plugins
   .use(remarkDirective)
-  .use(remarkExtractToc)
+  // ObsidianSupport before ExtractToc so headings containing wikilinks are
+  // resolved to their final text before the TOC slugs them — otherwise the TOC
+  // slug (built from raw `[[...]]`) wouldn't match the rehype-slug heading id.
   .use(remarkObsidianSupport)
+  .use(remarkExtractToc)
   .use(remarkEnhanceImages)
   .use(remarkEnhanceLinks)
-  .use(remarkAi2htmlEmbed)
   .use(remarkPredictionRef)
   .use(remarkGearCard)
   .use(remarkHandDrawn)
@@ -346,14 +346,16 @@ async function processMarkdown(content, filePath) {
     })
 
     const stats = {
-      words: markdownContent.split(/\s+/).length,
+      words: markdownContent.trim().split(/\s+/).filter(Boolean).length,
       images: imageMatches.length,
       imageDetails: {
         total: imageMatches.length,
         cloudinary: imageStats.filter((i) => i.hasCloudinary).length,
         withDimensions: imageStats.filter((i) => i.width && i.height).length,
       },
-      links: (markdownContent.match(/\[.*?\]\(.*?\)/g) || []).length,
+      // Negative lookbehind excludes image syntax `![](...)` so links aren't
+      // inflated by the image count.
+      links: (markdownContent.match(/(?<!!)\[.*?\]\(.*?\)/g) || []).length,
       codeBlocks: (markdownContent.match(/```[\s\S]*?```/g) || []).length,
       headers: toc.reduce((acc, h) => {
         acc[h.level] = (acc[h.level] || 0) + 1
@@ -960,10 +962,13 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
 
         if (!timestamp) continue
 
+        // Read in UTC: frontmatter dates are coerced to UTC-midnight by the
+        // YAML parser, so local getMonth/getDate would bucket a post one day
+        // early west of UTC (e.g. Oct 1 → 09-30 in US Eastern).
         const date = new Date(timestamp)
-        const year = date.getFullYear()
-        const month = String(date.getMonth() + 1).padStart(2, '0')
-        const day = String(date.getDate()).padStart(2, '0')
+        const year = date.getUTCFullYear()
+        const month = String(date.getUTCMonth() + 1).padStart(2, '0')
+        const day = String(date.getUTCDate()).padStart(2, '0')
         const dateKey = `${year}-${month}-${day}`
         const indexKey = `${month}-${day}`
 
@@ -1011,9 +1016,10 @@ async function buildOnThisDayIndex(blogResults, blogFiles) {
       if (!dateStr) return
 
       try {
+        // UTC (see note above) — dates are UTC-midnight-coerced.
         const date = new Date(dateStr)
-        const month = String(date.getMonth() + 1).padStart(2, '0')
-        const day = String(date.getDate()).padStart(2, '0')
+        const month = String(date.getUTCMonth() + 1).padStart(2, '0')
+        const day = String(date.getUTCDate()).padStart(2, '0')
         const key = `${month}-${day}`
 
         if (!index[key])
@@ -1198,12 +1204,13 @@ async function processAllFiles() {
   try {
     await backupProcessedContent(paths.outputDir, paths.backupDir)
     await fs.mkdir(paths.contentDir, { recursive: true })
-    await fs.mkdir(paths.draftsDir, { recursive: true })
 
-    const allFiles = [
-      ...(await getFilesRecursively(paths.contentDir)),
-      ...(await getFilesRecursively(paths.draftsDir)),
-    ]
+    // Only scan under contentDir (content/blog). The legacy sibling
+    // content/drafts/ was merged here too, but every slug/output-path routine
+    // assumes files live under contentDir — a file in content/drafts/ produced
+    // a corrupt `../drafts/…` slug and wrote its JSON back into the source
+    // folder. Real drafts live at content/blog/drafts/ (under contentDir).
+    const allFiles = await getFilesRecursively(paths.contentDir)
     processStats.totalFiles = allFiles.length
     spinner.succeed(`Found ${allFiles.length} markdown files`)
 
@@ -1428,18 +1435,41 @@ async function processAllFiles() {
       )
       const type = cleanEntry.metadata?.type || getPostType(slug)
 
+      // manifest-lite.json is committed to a PUBLIC repo. Hidden/unlisted/
+      // password-protected posts are kept here for request-time gating, but
+      // their descriptive content (title, dek, tags, toc) shouldn't be
+      // published to GitHub — and passwordHash must NEVER be. Strip both:
+      // request-time gating only needs the slug + flags.
+      const md = { ...cleanEntry.metadata, slug, type }
+      const isProtected =
+        md.hidden === true ||
+        md.unlisted === true ||
+        !!md.password ||
+        !!md.passwordHash
+      delete md.password
+      delete md.passwordHash
+      if (isProtected) {
+        delete md.title
+        delete md.dek
+        delete md.tags
+        delete md.toc
+      }
+
       return {
         slug,
-        title: cleanEntry.metadata?.title || cleanEntry.title,
+        title: isProtected
+          ? undefined
+          : cleanEntry.metadata?.title || cleanEntry.title,
         date: cleanEntry.metadata?.date,
         type,
         hidden: cleanEntry.metadata?.hidden,
+        unlisted: cleanEntry.metadata?.unlisted,
         draft: cleanEntry.metadata?.draft,
-        dek: cleanEntry.metadata?.dek,
+        dek: isProtected ? undefined : cleanEntry.metadata?.dek,
         modified: cleanEntry.metadata?.modified,
-        tags: cleanEntry.metadata?.tags,
-        toc: cleanEntry.metadata?.toc,
-        metadata: { ...cleanEntry.metadata, slug, type },
+        tags: isProtected ? undefined : cleanEntry.metadata?.tags,
+        toc: isProtected ? undefined : cleanEntry.metadata?.toc,
+        metadata: md,
       }
     })
 

@@ -1,0 +1,35 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"Badusb Remote Desktop — a real DuckyScript payload in a vulpes terminal\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/badusb-remote-desktop/terminal.png\" alt=\"Badusb Remote Desktop — a real DuckyScript payload in a vulpes terminal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/badusb-remote-desktop/terminal.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/badusb-remote-desktop/terminal.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/badusb-remote-desktop/terminal.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/badusb-remote-desktop/terminal.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Badusb Remote Desktop — a real DuckyScript payload in a vulpes terminal\" width=\"1583\" height=\"918\" style=\"--splay-rot:0.6deg;\" data-dimensions=\"1583×918\" class=\"img-full my-8 rounded-sm img-splay aspect-video w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">Badusb Remote Desktop — a real DuckyScript payload in a vulpes terminal</figcaption></figure>\nFlipper Zero BadUSB payloads that make a fresh, keyboard-less machine reachable on the LAN for remote desktop — macOS Screen Sharing (VNC), Windows RDP, Linux VNC.<p class=\"\"></p>\n<p class=\"\">You just got a new machine and want to drive it from your laptop — but you don't\nwant to dig out a spare keyboard, mouse, and monitor just to switch on remote\naccess.</p>",
+  "title": "BadUSB Remote Desktop",
+  "metadata": {
+    "title": "BadUSB Remote Desktop",
+    "date": "2026-06-09T05:00:00.000Z",
+    "category": "Hardware",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/badusb-remote-desktop",
+    "tech": [
+      "Shell"
+    ],
+    "tags": [
+      "badusb",
+      "duckyscript",
+      "flipper-zero",
+      "headless",
+      "linux"
+    ],
+    "words": 97,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

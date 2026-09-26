@@ -3,11 +3,6 @@ import { scaleSqrt } from 'd3-scale'
 import ProjectRow from '~/components/projects/ProjectRow.vue'
 import ProjectArchiveCard from '~/components/projects/ProjectArchiveCard.vue'
 
-// slim=1: card fields only (images/heroVideo/excerpt/counts precomputed
-// server-side) — the full-html array was ~470KB of payload this page never
-// rendered. Agents wanting full html use /projects.json (json-twin).
-// Called before the await below: composables that need the component
-// instance must run while it still exists.
 const { tocTarget } = useTOC()
 
 const { data: projects } = await useAsyncData(
@@ -26,21 +21,42 @@ const { data: projects } = await useAsyncData(
 // spans the range — investigative journalism, a marquee client, data viz, a
 // signature tool, a creative-coding piece — instead of just "newest first".
 const FLAGSHIP_ORDER = [
+  'subway-builder',
+  'paperclip',
+  'gem-viz',
+  'pixel-canvas',
   'ccrb-clusters',
   'nbc-big-board',
-  'gem-viz',
-  'scrapbook-core',
-  'motorcycle-viz',
   'connectology',
   'paramilitary-leaks',
-  'pixel-canvas',
-  'dataproofer',
-  'flipper-generative-art',
-  'hexagram-motion-graphics',
 ]
+// A project's bare slug — the collection prefix stripped off. Used for
+// anchors (#slug) and /projects/<slug> URLs. It's a fixed, known prefix, so
+// this is plain string work, no regex.
+const COLLECTION_PREFIX = 'projects/'
+const projectSlug = (p) => {
+  const slug = p?.slug || ''
+  return slug.startsWith(COLLECTION_PREFIX)
+    ? slug.slice(COLLECTION_PREFIX.length)
+    : slug
+}
+
+// Date fields, in the order we trust them. `projectDate` is when it shipped;
+// `projectUpdatedDate` prefers an explicit lastUpdated for "most recent".
+const projectDate = (p) => p?.metadata?.date || p?.date || null
+const projectUpdatedDate = (p) =>
+  p?.metadata?.lastUpdated || p?.metadata?.date || p?.date || null
+
+// Calendar year from a date string, or null when it won't parse.
+const yearOf = (raw) => {
+  if (!raw) return null
+  const y = new Date(raw).getFullYear()
+  return Number.isNaN(y) ? null : y
+}
+const projectYear = (p) => yearOf(projectDate(p))
+
 const flagshipRank = (p) => {
-  const s = p.slug?.replace(/^projects\//, '') || ''
-  const i = FLAGSHIP_ORDER.indexOf(s)
+  const i = FLAGSHIP_ORDER.indexOf(projectSlug(p))
   return i === -1 ? 999 : i
 }
 
@@ -54,84 +70,82 @@ const regularProjects = computed(
   () => projects.value?.filter((p) => !p.metadata?.featured) || []
 )
 
-const getProjectSlug = (project) =>
-  project.slug?.replace(/^projects\//, '') || ''
-
-// The archive: everything not a flagship, grouped into categories. Leading with
-// Client & Newsroom makes the professional/journalism range legible up front;
-// Tools & Terminal (the biggest bucket) sits last so it doesn't drown the rest.
+// The archive: everything not a flagship, grouped by YEAR (the spine) and then
+// by theme within each year. Time is the primary axis — it tells the story of
+// what got made when — with category as the secondary sort so each year still
+// reads by kind of work. Category order below is that within-year importance.
 const CATEGORY_ORDER = [
   'Journalism',
   'Dataviz',
   'Art',
+  'Games',
   'Hardware',
   'Activism',
   'Apps',
   'Tools',
 ]
-const categorySlug = (c) =>
-  'cat-' +
-  c
+// Make an anchor-safe id from a label (a year like "2026" or a category like
+// "Dataviz"): lowercase, collapse any run of non-alphanumerics to one dash,
+// and trim dashes off the ends. This is the one place regex earns its keep —
+// the input is arbitrary display text, not a fixed string.
+const slugify = (s) =>
+  String(s)
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '')
+    .replace(/[^a-z0-9]+/g, '-') // any non-alphanumeric run → single dash
+    .replace(/^-|-$/g, '') // no leading or trailing dash
 
-const archiveGroups = computed(() => {
-  const groups = {}
-  for (const p of regularProjects.value) {
-    const c = p.metadata?.category || 'Other'
-    ;(groups[c] ||= []).push(p)
-  }
-  // Within a group: newest first (regularProjects already arrives date-desc).
-  const ordered = [...CATEGORY_ORDER, 'Other'].filter((c) => groups[c]?.length)
-  return ordered.map((c) => ({
-    category: c,
-    slug: categorySlug(c),
-    projects: groups[c],
-  }))
-})
-
-// Oversized archive groups (the 40-item Tools wall) collapse to a few rows
-// with an in-place expander — the volume is a real velocity signal, so keep
-// it a click away rather than deleting it, but stop it from burying the
-// journalism. VISIBLE fills exactly three sm:grid-cols-3 rows.
-const COLLAPSE_THRESHOLD = 12
-const VISIBLE_WHEN_COLLAPSED = 9
-const expandedGroups = ref(new Set())
-
-const isCollapsible = (group) => group.projects.length > COLLAPSE_THRESHOLD
-const isExpanded = (group) => expandedGroups.value.has(group.slug)
-const visibleProjects = (group) =>
-  !isCollapsible(group) || isExpanded(group)
-    ? group.projects
-    : group.projects.slice(0, VISIBLE_WHEN_COLLAPSED)
-const hiddenInGroup = (group) =>
-  isCollapsible(group) && !isExpanded(group)
-    ? group.projects.length - VISIBLE_WHEN_COLLAPSED
-    : 0
-const toggleGroup = (slug) => {
-  const next = new Set(expandedGroups.value)
-  if (next.has(slug)) next.delete(slug)
-  else next.add(slug)
-  expandedGroups.value = next
+// Recent years stand alone as the spine; the thin early years (1–2 projects
+// each) collapse into one "Earlier" bucket so the page isn't a wall of tiny
+// single-item year headers. The window rolls forward on its own.
+const EARLIER_BEFORE = new Date().getFullYear() - 2
+const yearBucketLabel = (p) => {
+  const y = projectYear(p)
+  if (!y) return 'Earlier'
+  return y >= EARLIER_BEFORE ? String(y) : 'Earlier'
 }
 
-// A deep link (#some-tool-slug) into a collapsed group must still resolve —
-// expand the group that owns the hash target, then let the browser scroll.
-onMounted(() => {
-  const hash = decodeURIComponent(window.location.hash.slice(1))
-  if (!hash) return
-  const owner = archiveGroups.value.find(
-    (g) =>
-      isCollapsible(g) && g.projects.some((p) => getProjectSlug(p) === hash)
-  )
-  if (
-    owner &&
-    !visibleProjects(owner).some((p) => getProjectSlug(p) === hash)
-  ) {
-    expandedGroups.value = new Set(expandedGroups.value).add(owner.slug)
-    nextTick(() => document.getElementById(hash)?.scrollIntoView())
+const archiveGroups = computed(() => {
+  // First split into year buckets, then theme-within-year.
+  const byYear = {}
+  for (const p of regularProjects.value) {
+    const yb = yearBucketLabel(p)
+    ;(byYear[yb] ||= []).push(p)
   }
+  const yearKeys = Object.keys(byYear).sort((a, b) => {
+    if (a === 'Earlier') return 1
+    if (b === 'Earlier') return -1
+    return Number(b) - Number(a)
+  })
+  return yearKeys.map((yk) => {
+    const cats = {}
+    for (const p of byYear[yk]) {
+      const c = p.metadata?.category || 'Other'
+      ;(cats[c] ||= []).push(p)
+    }
+    // Within a category: newest first (regularProjects arrives date-desc).
+    const orderedCats = [...CATEGORY_ORDER, 'Other'].filter(
+      (c) => cats[c]?.length
+    )
+    const yearSlug = 'yr-' + slugify(yk)
+    // Adaptive density: only break a year into theme sub-headers when it holds
+    // enough work to warrant it. A thin year (a handful of cards) reads far
+    // better as one clean grid than as three one-card sections with headers.
+    const count = byYear[yk].length
+    const dense = count >= 8 && orderedCats.length >= 3
+    return {
+      year: yk,
+      slug: yearSlug,
+      count,
+      dense,
+      // one flat, category-ordered grid for the sparse case
+      flat: orderedCats.flatMap((c) => cats[c]),
+      categories: orderedCats.map((c) => ({
+        category: c,
+        slug: `${yearSlug}-${slugify(c)}`,
+        projects: cats[c],
+      })),
+    }
+  })
 })
 
 // Flip data/availability.json when a slot fills. Fails CLOSED: if we don't
@@ -171,14 +185,15 @@ const CREDENTIALS = [
   'Global Energy Monitor',
 ]
 
+// Every parseable ship-year across all projects (dateless ones dropped).
+const projectYears = computed(() =>
+  (projects.value || []).map(projectYear).filter((y) => y !== null)
+)
+
 // Velocity signal that also earns the tool archive its keep: how many
 // projects shipped in the current era (2024+).
 const recentCount = computed(
-  () =>
-    projects.value?.filter((p) => {
-      const d = p.metadata?.date || p.date
-      return d && new Date(d).getFullYear() >= 2024
-    }).length || 0
+  () => projectYears.value.filter((y) => y >= 2024).length
 )
 
 const tocLinkClass = 'block text-zinc-600 dark:text-zinc-400 truncate'
@@ -194,63 +209,36 @@ const totalTech = computed(() => {
   return techSet.size
 })
 
-const earliestYear = computed(() => {
-  if (!projects.value?.length) return new Date().getFullYear()
-  const years = projects.value
-    .map((p) => {
-      const date = p.metadata?.date || p.date
-      return date ? new Date(date).getFullYear() : new Date().getFullYear()
-    })
-    .filter((y) => !Number.isNaN(y))
-  return Math.min(...years)
-})
-
-const latestYear = computed(() => {
-  if (!projects.value?.length) return new Date().getFullYear()
-  const years = projects.value
-    .map((p) => {
-      const date = p.metadata?.date || p.date
-      return date ? new Date(date).getFullYear() : new Date().getFullYear()
-    })
-    .filter((y) => !Number.isNaN(y))
-  return Math.max(...years)
-})
-
-const lastUpdated = computed(() => {
-  if (!projects.value?.length) return ''
-  const dates = projects.value
-    .map((p) => p.metadata?.lastUpdated || p.metadata?.date || p.date)
-    .filter(Boolean)
-    .map((d) => new Date(d).getTime())
-    .filter((t) => !Number.isNaN(t))
-  if (!dates.length) return ''
-  return new Date(Math.max(...dates)).toISOString().split('T')[0]
-})
+const thisYear = new Date().getFullYear()
+const earliestYear = computed(() =>
+  projectYears.value.length ? Math.min(...projectYears.value) : thisYear
+)
+const latestYear = computed(() =>
+  projectYears.value.length ? Math.max(...projectYears.value) : thisYear
+)
 
 // === Tufte data layer ===
 
-// Helper: project slug (mirrors getProjectSlug)
-const slugOf = (p) => p?.slug?.replace(/^projects\//, '') || ''
-
-// Helper: word count (precomputed server-side)
-const wordCountOf = (p) => p?.wordCount || 0
-
-// Most-recently-updated project (uses lastUpdated || date)
+// Most-recently-updated project (by lastUpdated, falling back to date).
 const mostRecentProject = computed(() => {
-  if (!projects.value?.length) return null
   let best = null
   let bestTs = -Infinity
-  for (const p of projects.value) {
-    const raw = p.metadata?.lastUpdated || p.metadata?.date || p.date
-    if (!raw) continue
-    const ts = new Date(raw).getTime()
-    if (Number.isNaN(ts)) continue
-    if (ts > bestTs) {
+  for (const p of projects.value || []) {
+    const raw = projectUpdatedDate(p)
+    const ts = raw ? new Date(raw).getTime() : Number.NaN
+    if (!Number.isNaN(ts) && ts > bestTs) {
       bestTs = ts
       best = p
     }
   }
   return best
+})
+
+// The "Last updated" date shown in the header is just that project's date.
+const lastUpdated = computed(() => {
+  const p = mostRecentProject.value
+  const raw = p && projectUpdatedDate(p)
+  return raw ? new Date(raw).toISOString().split('T')[0] : ''
 })
 
 const mostRecentTitle = computed(
@@ -260,11 +248,12 @@ const mostRecentTitle = computed(
     ''
 )
 
-const mostRecentSlug = computed(() => slugOf(mostRecentProject.value))
+const mostRecentSlug = computed(() => projectSlug(mostRecentProject.value))
 
-// --- Stem plot data ---
-// Each project = one stem. Height = sqrt(wordCount) for outlier control.
-// Stems are ordered chronologically (oldest → newest, left → right).
+// --- Projects-per-year activity sparkline ---
+// One stem per calendar year, height ∝ number of projects shipped that year.
+// Ordered oldest → newest (left → right). sqrt scaling so a big year doesn't
+// dwarf the thin ones.
 const stemPlot = computed(() => {
   if (!projects.value?.length) {
     return { stems: [], width: 0, height: 8 }
@@ -272,29 +261,32 @@ const stemPlot = computed(() => {
   const stemWidth = 1
   const gap = 1
   const height = 8 // 8px baseline
-  const items = projects.value
-    .map((p) => ({
-      slug: slugOf(p),
-      title: p.title || p.metadata?.title || 'Untitled',
-      words: wordCountOf(p),
-      ts: new Date(p.metadata?.date || p.date || 0).getTime() || 0,
-    }))
-    .sort((a, b) => a.ts - b.ts)
 
-  const maxWords = Math.max(1, ...items.map((s) => s.words))
-  const y = scaleSqrt().domain([0, maxWords]).range([0, height])
+  // Count projects per year (metadata.date || date → getFullYear).
+  const counts = new Map()
+  for (const p of projects.value) {
+    const y = projectYear(p)
+    if (y === null) continue
+    counts.set(y, (counts.get(y) || 0) + 1)
+  }
+  const years = [...counts.keys()].sort((a, b) => a - b)
 
-  const stems = items.map((s, i) => {
-    const h = Math.max(0.5, y(s.words))
+  const maxCount = Math.max(1, ...counts.values())
+  const y = scaleSqrt().domain([0, maxCount]).range([0, height])
+
+  const stems = years.map((year, i) => {
+    const count = counts.get(year)
+    const h = Math.max(0.5, y(count))
     return {
-      ...s,
+      year,
+      count,
       x: i * (stemWidth + gap),
       width: stemWidth,
       h,
       yTop: height - h,
     }
   })
-  const width = items.length * (stemWidth + gap) - gap
+  const width = years.length * (stemWidth + gap) - gap
   return { stems, width, height }
 })
 
@@ -313,7 +305,7 @@ const projectsSchema = computed(() => {
     itemListElement: listed.map((p, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      url: `https://ejfox.com/projects/${getProjectSlug(p)}`,
+      url: `https://ejfox.com/projects/${projectSlug(p)}`,
       name: p.metadata?.title || p.title,
     })),
   }
@@ -423,29 +415,30 @@ useHead(() => ({
         <span>{{ totalTech }} technologies</span>
       </div>
 
-      <!-- Word-count stem plot: HTML/CSS bars, never stretched. Exposed to AT
-           as one summarized image; the 1px stems stay mouse-hoverable but are
-           out of the tab order (100 one-pixel tab stops helped no one). -->
+      <!-- Projects-per-year sparkline: HTML/CSS bars, never stretched. Exposed
+           to AT as one summarized image; the 1px stems stay mouse-hoverable but
+           are out of the tab order (one-pixel tab stops helped no one). -->
       <div
         v-if="stemPlot.stems.length"
         role="img"
         class="hidden sm:flex print:hidden mt-2 stem-plot items-end gap-px h-2 max-w-prose"
-        aria-label="Word count per project, oldest to newest"
+        aria-label="Projects shipped per year"
       >
-        <a
+        <span
           v-for="stem in stemPlot.stems"
-          :key="`stem-${stem.slug}`"
-          :href="`#${stem.slug}`"
+          :key="`stem-${stem.year}`"
           tabindex="-1"
           aria-hidden="true"
           class="stem block w-px relative h-full"
-          :title="`${stem.title} · ${stem.words.toLocaleString()} words`"
+          :title="`${stem.year} · ${stem.count} project${
+            stem.count === 1 ? '' : 's'
+          }`"
         >
           <span
             class="block absolute bottom-0 left-0 right-0 bg-zinc-400 dark:bg-zinc-600 transition-colors"
             :style="{ height: (stem.h / stemPlot.height) * 100 + '%' }"
           />
-        </a>
+        </span>
       </div>
     </header>
 
@@ -458,7 +451,7 @@ useHead(() => ({
     <div v-if="featuredProjects.length" class="mb-20 space-y-16">
       <template v-for="(project, i) in featuredProjects" :key="project.slug">
         <ProjectRow
-          :id="getProjectSlug(project)"
+          :id="projectSlug(project)"
           :project="project"
           featured
           :eager="i === 0"
@@ -466,58 +459,92 @@ useHead(() => ({
       </template>
     </div>
 
-    <!-- Archive - the other ~90, grouped by category into a compact grid.
-         Still image-first (a thumbnail each), just dense: browse the whole
-         body of work without a firehose of full-bleed rows. -->
-    <section
-      v-for="group in archiveGroups"
-      :id="group.slug"
-      :key="group.category"
-      class="mb-14 scroll-mt-24"
+    <!-- Archive - everything past the flagships, on a YEAR spine. Image-first
+         (a thumbnail each), dense: the whole body of work as a timeline without
+         a firehose of full-bleed rows. Thin years render as one clean grid;
+         full years break into themes (see `dense`). -->
+    <div
+      v-if="archiveGroups.length"
+      class="rule-dotted-b pb-2 mb-8 flex items-baseline justify-between gap-4"
     >
+      <h2
+        class="font-mono text-2xs uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-600"
+      >
+        Archive · by year
+      </h2>
+      <span
+        class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
+      >
+        {{ regularProjects.length }}
+      </span>
+    </div>
+
+    <section
+      v-for="yr in archiveGroups"
+      :id="yr.slug"
+      :key="yr.year"
+      class="mb-16 scroll-mt-24"
+    >
+      <!-- Year: the spine header -->
       <div
-        class="flex items-baseline justify-between gap-4 rule-dotted-b pb-2 mb-5"
+        class="flex items-baseline justify-between gap-4 border-b border-zinc-300 dark:border-zinc-700 pb-2 mb-6"
       >
         <h2
-          class="font-mono text-xs uppercase tracking-wider text-zinc-600 dark:text-zinc-400"
+          class="font-mono text-lg tracking-tight text-zinc-800 dark:text-zinc-200 tabular-nums"
         >
-          {{ group.category }}
+          {{ yr.year }}
         </h2>
         <span
           class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
         >
-          {{ group.projects.length }}
+          {{ yr.count }} project{{ yr.count === 1 ? '' : 's' }}
         </span>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-10">
+      <!-- Full year → theme sub-headers -->
+      <template v-if="yr.dense">
+        <div
+          v-for="cat in yr.categories"
+          :id="cat.slug"
+          :key="cat.slug"
+          class="mb-8 scroll-mt-24"
+        >
+          <div class="flex items-baseline gap-2 mb-4">
+            <h3
+              class="font-mono text-2xs uppercase tracking-wider text-zinc-500 dark:text-zinc-500"
+            >
+              {{ cat.category }}
+            </h3>
+            <span
+              class="font-mono text-3xs text-zinc-400 dark:text-zinc-600 tabular-nums"
+            >
+              {{ cat.projects.length }}
+            </span>
+          </div>
+
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-6 gap-y-10"
+          >
+            <ProjectArchiveCard
+              v-for="project in cat.projects"
+              :key="project.slug"
+              :project="project"
+            />
+          </div>
+        </div>
+      </template>
+
+      <!-- Thin year → one clean grid, category-ordered, no sub-headers -->
+      <div
+        v-else
+        class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5 gap-x-6 gap-y-10"
+      >
         <ProjectArchiveCard
-          v-for="project in visibleProjects(group)"
+          v-for="project in yr.flat"
           :key="project.slug"
           :project="project"
         />
       </div>
-
-      <!-- Collapse expander for oversized groups: velocity signal preserved,
-           one click away, without a separate page to maintain. -->
-      <button
-        v-if="hiddenInGroup(group) > 0"
-        type="button"
-        class="mt-5 font-mono text-2xs uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-        :aria-expanded="isExpanded(group)"
-        @click="toggleGroup(group.slug)"
-      >
-        + {{ hiddenInGroup(group) }} more experiments →
-      </button>
-      <button
-        v-else-if="isCollapsible(group) && isExpanded(group)"
-        type="button"
-        class="mt-5 font-mono text-2xs uppercase tracking-wider text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
-        :aria-expanded="true"
-        @click="toggleGroup(group.slug)"
-      >
-        − collapse
-      </button>
     </section>
 
     <!-- TOC - flagships, then category jump-links. Mirrors the page structure
@@ -532,7 +559,7 @@ useHead(() => ({
           </div>
           <ul class="space-y-0.5 list-none pl-0 mb-4">
             <li v-for="project in featuredProjects" :key="project.slug">
-              <a :href="`#${getProjectSlug(project)}`" :class="tocLinkClass">
+              <a :href="`#${projectSlug(project)}`" :class="tocLinkClass">
                 {{ project.title || project.metadata?.title }}
               </a>
             </li>
@@ -543,14 +570,14 @@ useHead(() => ({
             Archive
           </div>
           <ul class="space-y-0.5 list-none pl-0">
-            <li v-for="group in archiveGroups" :key="group.slug">
+            <li v-for="yr in archiveGroups" :key="yr.slug">
               <a
-                :href="`#${group.slug}`"
+                :href="`#${yr.slug}`"
                 class="flex items-baseline justify-between gap-2 text-zinc-600 dark:text-zinc-400"
               >
-                <span class="truncate">{{ group.category }}</span>
+                <span class="truncate tabular-nums">{{ yr.year }}</span>
                 <span class="text-zinc-400 dark:text-zinc-600 tabular-nums">
-                  {{ group.projects.length }}
+                  {{ yr.count }}
                 </span>
               </a>
             </li>
@@ -563,12 +590,12 @@ useHead(() => ({
 
 <style scoped>
 /* Stem plot: darken stem on hover */
-.stem-plot a.stem:hover span,
-.stem-plot a.stem:focus-visible span {
+.stem-plot .stem:hover span,
+.stem-plot .stem:focus-visible span {
   background-color: rgb(24 24 27); /* zinc-900 */
 }
-:global(.dark) .stem-plot a.stem:hover span,
-:global(.dark) .stem-plot a.stem:focus-visible span {
+:global(.dark) .stem-plot .stem:hover span,
+:global(.dark) .stem-plot .stem:focus-visible span {
   background-color: rgb(244 244 245); /* zinc-100 */
 }
 </style>

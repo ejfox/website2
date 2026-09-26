@@ -178,6 +178,18 @@ async function findMarkdownFiles() {
     for (const entry of entries) {
       const fullPath = path.join(dir, entry.name)
 
+      // Never follow symlinks. readFile/cp follow them, so a symlinked .md
+      // could import content from OUTSIDE the vault/whitelist into a public
+      // repo; a symlinked dir would be silently skipped. Refuse both.
+      if (entry.isSymbolicLink()) {
+        console.warn(
+          chalk.yellow(
+            `  ↳ skipping symlink: ${path.relative(SOURCE_DIR, fullPath)}`
+          )
+        )
+        continue
+      }
+
       if (entry.isDirectory()) {
         if (entry.name.startsWith('.') || entry.name === 'node_modules')
           continue
@@ -233,11 +245,22 @@ async function findMarkdownFiles() {
  * risking the tree.
  */
 async function assertNoDraftWouldBePublished(files, spinner) {
-  const isDraft = (raw) => {
+  // Returns true (protected) / false (not) / null (unparseable). Because the
+  // importer writes vault bytes verbatim, ANY protection flag the repo added
+  // that the vault lacks would be silently stripped and published — not just
+  // `draft`. Mirror server/api's isProtectedContent set.
+  const protectionState = (raw) => {
     try {
-      return matter(raw).data?.draft === true
+      const d = matter(raw).data || {}
+      return (
+        d.draft === true ||
+        d.hidden === true ||
+        d.unlisted === true ||
+        !!d.password ||
+        !!d.passwordHash
+      )
     } catch {
-      return false
+      return null // malformed frontmatter — can't assess
     }
   }
 
@@ -247,28 +270,33 @@ async function assertNoDraftWouldBePublished(files, spinner) {
     const repoPath = path.join(dirs.content, contentPath)
 
     const repoRaw = await fs.readFile(repoPath, 'utf8').catch(() => null)
-    if (repoRaw === null || !isDraft(repoRaw)) continue
+    if (repoRaw === null) continue // not in the repo — nothing to overwrite
+    const repoState = protectionState(repoRaw)
+    if (repoState === false) continue // repo isn't protected → import can't strip protection
 
+    // repo is protected (or unparseable). Flag unless the vault DEFINITELY keeps
+    // it protected — an unparseable vault file counts as "can't confirm" → flag.
     const vaultRaw = await fs.readFile(filePath, 'utf8').catch(() => null)
-    if (vaultRaw !== null && !isDraft(vaultRaw)) offenders.push(contentPath)
+    const vaultState = vaultRaw === null ? false : protectionState(vaultRaw)
+    if (vaultState !== true) offenders.push(contentPath)
   }
 
   if (!offenders.length) return
 
-  spinner.fail('Import aborted — would publish drafts')
+  spinner.fail('Import aborted — would publish protected posts')
   console.error(
     chalk.red.bold(
-      `\n🚨 ${offenders.length} post(s) are drafts in the repo but not in the vault\n`
+      `\n🚨 ${offenders.length} post(s) are protected (draft/hidden/unlisted/password) in the repo but not in the vault\n`
     )
   )
   for (const slug of offenders) console.error(chalk.red(`  ${slug}`))
   console.error(
     chalk.yellow(
       '\nImporting overwrites each file with the vault copy verbatim, so every\n' +
-        'one of these would lose `draft: true` and publish on the next deploy.\n\n' +
-        'Fix by making the vault agree — add `draft: true` to those notes — or\n' +
-        'reconcile the two properly (see the frontmatter divergence section in\n' +
-        'CLAUDE.md). Re-run when they match.\n'
+        'one of these would lose its protection flag and publish on the next deploy.\n\n' +
+        'Fix by making the vault agree — add the missing flag (draft/hidden/\n' +
+        'unlisted/password) to those notes — or reconcile the two properly (see\n' +
+        'the frontmatter divergence section in CLAUDE.md). Re-run when they match.\n'
     )
   )
   process.exit(1)
@@ -291,8 +319,16 @@ async function main() {
         .then(() => true)
         .catch(() => false)
       if (contentExists) {
+        // Snapshot content BEFORE touching it, WITHOUT destroying the previous
+        // snapshot first. The old code rm'd the backup, then re-created it — so
+        // a crash mid-backup (or simply re-running after a failed import) wiped
+        // the only good copy. Build into a temp dir and swap it in atomically.
+        // Manual restore if ever needed: rm -rf content/blog && mv content/backup content/blog
+        const tmpBackup = `${dirs.backup}.tmp`
+        await fs.rm(tmpBackup, { recursive: true, force: true })
+        await fs.cp(dirs.content, tmpBackup, { recursive: true })
         await fs.rm(dirs.backup, { recursive: true, force: true })
-        await fs.cp(dirs.content, dirs.backup, { recursive: true })
+        await fs.rename(tmpBackup, dirs.backup)
       }
 
       // This import deletes NOTHING. It only overwrites what it writes.
@@ -349,6 +385,30 @@ async function main() {
   } catch (error) {
     spinner.fail('Import failed')
     console.error(chalk.red('Error:'), error.message)
+    // Best-effort restore from the pre-import snapshot. The import only
+    // overwrites (never deletes), so copying the backup back over content/
+    // reverts any partial writes. (A kill -9 mid-loop won't reach this — the
+    // backup is preserved for the manual restore documented above.)
+    if (!isDryRun) {
+      const hasBackup = await fs
+        .access(dirs.backup)
+        .then(() => true)
+        .catch(() => false)
+      if (hasBackup) {
+        try {
+          await fs.cp(dirs.backup, dirs.content, { recursive: true })
+          console.error(
+            chalk.yellow('Restored content/ from the pre-import backup.')
+          )
+        } catch (e) {
+          console.error(
+            chalk.red(
+              `Restore failed — recover manually from ${dirs.backup}: ${e.message}`
+            )
+          )
+        }
+      }
+    }
     throw error
   }
 }

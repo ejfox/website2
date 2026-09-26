@@ -1,6 +1,6 @@
 {
   "cacheVersion": "2026-05-13-gear-cards",
-  "html": "<!-- TODO (EJ): add your voice + confirm the description against the README.\n     Factual stub. Draft. -->\n<p class=\"\">A tmux utility for grabbing and opening the links scattered across your terminal panes — no mouse, no scrollback hunting.</p>\n<figure role=\"figure\" aria-label=\"tmux-link-grab in action\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/tmux-link-grab/demo.gif\" alt=\"tmux-link-grab in action\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/tmux-link-grab/demo.gif 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/tmux-link-grab/demo.gif 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/tmux-link-grab/demo.gif 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/tmux-link-grab/demo.gif 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"tmux-link-grab in action\" style=\"--splay-rot:-0.6deg;\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">tmux-link-grab in action</figcaption>\n</figure>",
+  "html": "<!-- TODO (EJ): add your voice + confirm the description against the README.\n     Factual stub. Draft. -->\n<figure role=\"figure\" aria-label=\"Tmux Link Grab running in a vulpes-themed terminal\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/tmux-link-grab/terminal.png\" alt=\"Tmux Link Grab running in a vulpes-themed terminal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/tmux-link-grab/terminal.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/tmux-link-grab/terminal.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/tmux-link-grab/terminal.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/tmux-link-grab/terminal.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Tmux Link Grab running in a vulpes-themed terminal\" width=\"1267\" height=\"547\" style=\"--splay-rot:-1.52deg;\" data-dimensions=\"1267×547\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">Tmux Link Grab running in a vulpes-themed terminal</figcaption></figure>\nA tmux utility for grabbing and opening the links scattered across your terminal panes — no mouse, no scrollback hunting.<figure role=\"figure\" aria-label=\"tmux-link-grab in action\" class=\"\">\n<img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/tmux-link-grab/demo.gif\" alt=\"tmux-link-grab in action\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/tmux-link-grab/demo.gif 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/tmux-link-grab/demo.gif 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/tmux-link-grab/demo.gif 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/tmux-link-grab/demo.gif 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"tmux-link-grab in action\" style=\"--splay-rot:-0.6deg;\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\">\n<figcaption class=\"\">tmux-link-grab in action</figcaption>\n</figure>",
   "title": "tmux-link-grab",
   "metadata": {
     "title": "tmux-link-grab",
@@ -21,14 +21,14 @@
       "tmux",
       "terminal"
     ],
-    "words": 42,
-    "images": 1,
+    "words": 50,
+    "images": 2,
     "imageDetails": {
-      "total": 1,
-      "cloudinary": 1,
+      "total": 2,
+      "cloudinary": 2,
       "withDimensions": 0
     },
-    "links": 1,
+    "links": 2,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

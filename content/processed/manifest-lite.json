@@ -636,43 +636,14 @@
   },
   {
     "slug": "2018/watercolor-sketching-in-nyc",
-    "title": "Watercolor Sketching in NYC",
     "date": "2018-06-10T14:58:10-04:00",
     "type": "words",
     "hidden": true,
-    "tags": [
-      "art",
-      "documentary",
-      "photography",
-      "watercolor",
-      "inspiration"
-    ],
-    "toc": [
-      {
-        "text": "Watercolor Sketching in NYC",
-        "slug": "watercolor-sketching-in-nyc",
-        "level": "h1",
-        "children": [
-          {
-            "text": "Resources",
-            "slug": "resources",
-            "level": "h2",
-            "children": []
-          }
-        ]
-      }
-    ],
+    "unlisted": true,
     "metadata": {
       "type": "words",
       "hidden": true,
       "date": "2018-06-10T14:58:10-04:00",
-      "tags": [
-        "art",
-        "documentary",
-        "photography",
-        "watercolor",
-        "inspiration"
-      ],
       "unlisted": true,
       "words": 539,
       "images": 0,
@@ -686,21 +657,6 @@
       "headers": {
         "h1": 1
       },
-      "toc": [
-        {
-          "text": "Watercolor Sketching in NYC",
-          "slug": "watercolor-sketching-in-nyc",
-          "level": "h1",
-          "children": [
-            {
-              "text": "Resources",
-              "slug": "resources",
-              "level": "h2",
-              "children": []
-            }
-          ]
-        }
-      ],
       "slug": "2018/watercolor-sketching-in-nyc"
     }
   },
@@ -888,60 +844,15 @@
   },
   {
     "slug": "2019/generative-music-iteration",
-    "title": "Generative Music Iteration",
     "date": "2019-03-24T08:00:33.000Z",
     "type": "words",
     "hidden": true,
+    "unlisted": true,
     "modified": "2024-09-23T16:13:04.000Z",
-    "tags": [
-      "generative",
-      "music",
-      "art",
-      "research",
-      "systemsthinking",
-      "visualization",
-      "coding"
-    ],
-    "toc": [
-      {
-        "text": "Generative Music Iteration",
-        "slug": "generative-music-iteration",
-        "level": "h2",
-        "children": [
-          {
-            "text": "What do I want to create?",
-            "slug": "what-do-i-want-to-create",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Mise-en-place",
-            "slug": "mise-en-place",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "What are the building blocks of the system we are working in?",
-            "slug": "what-are-the-building-blocks-of-the-system-we-are-working-in",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
     "metadata": {
       "type": "words",
       "hidden": true,
       "date": "2019-03-24T08:00:33.000Z",
-      "tags": [
-        "generative",
-        "music",
-        "art",
-        "research",
-        "systemsthinking",
-        "visualization",
-        "coding"
-      ],
       "modified": "2024-09-23T16:13:04.000Z",
       "unlisted": true,
       "words": 302,
@@ -956,33 +867,6 @@
       "headers": {
         "h2": 1
       },
-      "toc": [
-        {
-          "text": "Generative Music Iteration",
-          "slug": "generative-music-iteration",
-          "level": "h2",
-          "children": [
-            {
-              "text": "What do I want to create?",
-              "slug": "what-do-i-want-to-create",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Mise-en-place",
-              "slug": "mise-en-place",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "What are the building blocks of the system we are working in?",
-              "slug": "what-are-the-building-blocks-of-the-system-we-are-working-in",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
       "slug": "2019/generative-music-iteration"
     }
   },
@@ -3148,62 +3032,15 @@
   },
   {
     "slug": "2022/the-studio",
-    "title": "Fox Studio (Beacon)",
     "date": "2022-12-27T20:04:55.000Z",
     "type": "post",
     "hidden": true,
-    "dek": "In which we state our values upfront such that we might collaborate more effectively",
+    "unlisted": true,
     "modified": "2024-06-21T14:13:59.000Z",
-    "tags": [
-      "art",
-      "design",
-      "inspiration",
-      "process",
-      "technique",
-      "tool",
-      "visualization"
-    ],
-    "toc": [
-      {
-        "text": "Fox Studio (Beacon)",
-        "slug": "fox-studio-beacon",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Studio goals",
-            "slug": "studio-goals",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Studio Agreements",
-            "slug": "studio-agreements",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Appendix, brass tacks, etcetera",
-            "slug": "appendix-brass-tacks-etcetera",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
     "metadata": {
-      "dek": "In which we state our values upfront such that we might collaborate more effectively",
       "date": "2022-12-27T20:04:55.000Z",
       "modified": "2024-06-21T14:13:59.000Z",
       "hidden": true,
-      "tags": [
-        "art",
-        "design",
-        "inspiration",
-        "process",
-        "technique",
-        "tool",
-        "visualization"
-      ],
       "unlisted": true,
       "words": 1361,
       "images": 0,
@@ -3217,33 +3054,6 @@
       "headers": {
         "h2": 1
       },
-      "toc": [
-        {
-          "text": "Fox Studio (Beacon)",
-          "slug": "fox-studio-beacon",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Studio goals",
-              "slug": "studio-goals",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Studio Agreements",
-              "slug": "studio-agreements",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Appendix, brass tacks, etcetera",
-              "slug": "appendix-brass-tacks-etcetera",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
       "type": "post",
       "slug": "2022/the-studio"
     }
@@ -3658,204 +3468,12 @@
   },
   {
     "slug": "2024/2024",
-    "title": "🕰 Reflections on the Past Year",
     "date": "2024-01-01T05:00:00.000Z",
     "type": "post",
     "hidden": true,
+    "unlisted": true,
     "modified": "2024-09-23T16:12:56.000Z",
-    "tags": [
-      "yearly-goals",
-      "vision",
-      "strategy",
-      "reflections",
-      "art",
-      "meditation",
-      "health"
-    ],
-    "toc": [
-      {
-        "text": "🕰 Reflections on the Past Year",
-        "slug": "-reflections-on-the-past-year",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "🔑 Key Themes",
-        "slug": "-key-themes",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Interconnectedness of all things",
-            "slug": "interconnectedness-of-all-things",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "The World is Editable",
-            "slug": "the-world-is-editable",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Vision for the Year",
-        "slug": "vision-for-the-year",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Personal Goals",
-            "slug": "personal-goals",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Professional Goals",
-            "slug": "professional-goals",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Coach Artie",
-            "slug": "coach-artie",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "LatentScope",
-            "slug": "latentscope",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "ContextAlchemy",
-            "slug": "contextalchemy",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "IssueBuilder",
-            "slug": "issuebuilder",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Weekly Livestreams",
-            "slug": "weekly-livestreams",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Daily Dashboard + Personal AI Assistant",
-            "slug": "daily-dashboard--personal-ai-assistant",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Creative Ventures",
-        "slug": "creative-ventures",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Pottery",
-            "slug": "pottery",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Generative Art",
-            "slug": "generative-art",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Hardware Hacking / Physical Installations",
-            "slug": "hardware-hacking--physical-installations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Beat-making Goals",
-            "slug": "beat-making-goals",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Watercolors",
-            "slug": "watercolors",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Personal Documentation + YouTube",
-            "slug": "personal-documentation--youtube",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Wellness & Personal Development",
-        "slug": "wellness--personal-development",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Focusing on Discipline",
-            "slug": "focusing-on-discipline",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "More Hudson Valley Hikes",
-            "slug": "more-hudson-valley-hikes",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Get set up for international travel",
-            "slug": "get-set-up-for-international-travel",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Reduce Nicotine intake",
-            "slug": "reduce-nicotine-intake",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "More Intentional Cannabis Use",
-            "slug": "more-intentional-cannabis-use",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Goals for Global & Societal Impact",
-        "slug": "goals-for-global--societal-impact",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Goals For Next Year",
-        "slug": "goals-for-next-year",
-        "level": "h2",
-        "children": []
-      }
-    ],
     "metadata": {
-      "tags": [
-        "yearly-goals",
-        "vision",
-        "strategy",
-        "reflections",
-        "art",
-        "meditation",
-        "health"
-      ],
       "date": "2024-01-01T05:00:00.000Z",
       "modified": "2024-09-23T16:12:56.000Z",
       "hidden": true,
@@ -3872,180 +3490,6 @@
       "headers": {
         "h2": 7
       },
-      "toc": [
-        {
-          "text": "🕰 Reflections on the Past Year",
-          "slug": "-reflections-on-the-past-year",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "🔑 Key Themes",
-          "slug": "-key-themes",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Interconnectedness of all things",
-              "slug": "interconnectedness-of-all-things",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "The World is Editable",
-              "slug": "the-world-is-editable",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Vision for the Year",
-          "slug": "vision-for-the-year",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Personal Goals",
-              "slug": "personal-goals",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Professional Goals",
-              "slug": "professional-goals",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Coach Artie",
-              "slug": "coach-artie",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "LatentScope",
-              "slug": "latentscope",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "ContextAlchemy",
-              "slug": "contextalchemy",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "IssueBuilder",
-              "slug": "issuebuilder",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Weekly Livestreams",
-              "slug": "weekly-livestreams",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Daily Dashboard + Personal AI Assistant",
-              "slug": "daily-dashboard--personal-ai-assistant",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Creative Ventures",
-          "slug": "creative-ventures",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Pottery",
-              "slug": "pottery",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Generative Art",
-              "slug": "generative-art",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Hardware Hacking / Physical Installations",
-              "slug": "hardware-hacking--physical-installations",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Beat-making Goals",
-              "slug": "beat-making-goals",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Watercolors",
-              "slug": "watercolors",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Personal Documentation + YouTube",
-              "slug": "personal-documentation--youtube",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Wellness & Personal Development",
-          "slug": "wellness--personal-development",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Focusing on Discipline",
-              "slug": "focusing-on-discipline",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "More Hudson Valley Hikes",
-              "slug": "more-hudson-valley-hikes",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Get set up for international travel",
-              "slug": "get-set-up-for-international-travel",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Reduce Nicotine intake",
-              "slug": "reduce-nicotine-intake",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "More Intentional Cannabis Use",
-              "slug": "more-intentional-cannabis-use",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Goals for Global & Societal Impact",
-          "slug": "goals-for-global--societal-impact",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Goals For Next Year",
-          "slug": "goals-for-next-year",
-          "level": "h2",
-          "children": []
-        }
-      ],
       "type": "post",
       "slug": "2024/2024"
     }
@@ -5053,30 +4497,11 @@
   },
   {
     "slug": "2026/the-knife",
-    "title": "The Knife",
     "date": "2026-05-13T05:00:00.000Z",
     "type": "post",
     "hidden": true,
-    "dek": "On carrying a small perfect thing",
-    "tags": [
-      "objects",
-      "edc",
-      "craft",
-      "italy",
-      "gear"
-    ],
-    "toc": [],
     "metadata": {
-      "title": "The Knife",
-      "dek": "On carrying a small perfect thing",
       "date": "2026-05-13T05:00:00.000Z",
-      "tags": [
-        "objects",
-        "edc",
-        "craft",
-        "italy",
-        "gear"
-      ],
       "gear": [
         "moletta-lionsteel-folding-black-knife"
       ],
@@ -5091,7 +4516,6 @@
       "links": 0,
       "codeBlocks": 0,
       "headers": {},
-      "toc": [],
       "type": "post",
       "slug": "2026/the-knife"
     }
@@ -5188,6 +4612,51 @@
     }
   },
   {
+    "slug": "projects/butt-math",
+    "title": "Butt Math",
+    "date": "2026-05-01T00:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "art",
+      "generative",
+      "web"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Butt Math",
+      "date": "2026-05-01T00:00:00.000Z",
+      "category": "Art",
+      "featured": false,
+      "tech": [
+        "SVG",
+        "Nuxt",
+        "Vue",
+        "D3",
+        "flubber"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "art",
+        "generative",
+        "web"
+      ],
+      "words": 569,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/butt-math"
+    }
+  },
+  {
     "slug": "projects/ccrb-clusters",
     "title": "Clusters of NYPD Misconduct",
     "date": "2021-06-15T04:00:00.000Z",
@@ -5239,6 +4708,43 @@
     }
   },
   {
+    "slug": "projects/clipgoblin",
+    "title": "Clipgoblin",
+    "date": "2026-04-29T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Clipgoblin",
+      "date": "2026-04-29T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "tech": [
+        "Swift"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 169,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/clipgoblin"
+    }
+  },
+  {
     "slug": "projects/cloudinary-backup-tool",
     "title": "Cloudinary Backup Tool",
     "date": "2025-01-15T05:00:00.000Z",
@@ -5254,7 +4760,7 @@
       "date": "2025-01-15T05:00:00.000Z",
       "category": "Tools",
       "featured": false,
-      "github": "https://github.com/ejfox/cloudinary-backup-tool",
+      "url": "https://github.com/ejfox/cloudinary-backup",
       "tech": [
         "Tauri",
         "Rust",
@@ -5550,6 +5056,51 @@
     }
   },
   {
+    "slug": "projects/cyberdeck-saver",
+    "title": "cyberdeck-saver",
+    "date": "2026-04-20T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "macos",
+      "osint",
+      "design"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "cyberdeck-saver",
+      "date": "2026-04-20T04:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/cyberdeck-saver",
+      "tech": [
+        "Swift",
+        "Metal",
+        "macOS",
+        "OSINT"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "macos",
+        "osint",
+        "design"
+      ],
+      "words": 269,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/cyberdeck-saver"
+    }
+  },
+  {
     "slug": "projects/dataproofer",
     "title": "Dataproofer",
     "date": "2015-11-03T05:00:00.000Z",
@@ -5574,7 +5125,7 @@
         "Data Quality",
         "CSV"
       ],
-      "featured": true,
+      "featured": false,
       "state": "deployed",
       "ai-involvement": "human-only",
       "context": "collaborative",
@@ -5616,7 +5167,7 @@
       "title": "Flipper Generative Art",
       "date": "2025-01-15T05:00:00.000Z",
       "category": "Hardware",
-      "featured": true,
+      "featured": false,
       "url": "https://github.com/ejfox/flipper-generative-art",
       "tech": [
         "Flipper Zero",
@@ -5633,7 +5184,7 @@
         "generative",
         "art"
       ],
-      "words": 213,
+      "words": 190,
       "images": 5,
       "imageDetails": {
         "total": 5,
@@ -5679,7 +5230,7 @@
         "device",
         "science"
       ],
-      "words": 147,
+      "words": 136,
       "images": 2,
       "imageDetails": {
         "total": 2,
@@ -5695,48 +5246,50 @@
     }
   },
   {
-    "slug": "projects/hexagram-motion-graphics",
-    "title": "I Ching Motion Graphics",
+    "slug": "projects/gem-viz",
+    "title": "Global Energy Ownership Tracker",
     "date": "2026-05-01T04:00:00.000Z",
     "type": "post",
     "tags": [
-      "art",
-      "math",
-      "motion-graphics",
-      "generative"
+      "dataviz",
+      "network",
+      "energy",
+      "climate"
     ],
     "toc": [],
     "metadata": {
-      "title": "I Ching Motion Graphics",
+      "title": "Global Energy Ownership Tracker",
       "date": "2026-05-01T04:00:00.000Z",
-      "category": "Art",
+      "category": "Dataviz",
       "featured": true,
       "tech": [
-        "Python",
-        "Manim",
-        "Motion Graphics"
+        "D3.js",
+        "Network Analysis",
+        "Data Visualization"
       ],
       "state": "deployed",
       "ai-involvement": "ai-assisted",
+      "context": "client",
+      "url": "https://globalenergymonitor.org/projects/global-energy-ownership-tracker",
       "tags": [
-        "art",
-        "math",
-        "motion-graphics",
-        "generative"
+        "dataviz",
+        "network",
+        "energy",
+        "climate"
       ],
-      "words": 346,
-      "images": 4,
+      "words": 358,
+      "images": 8,
       "imageDetails": {
-        "total": 4,
-        "cloudinary": 4,
+        "total": 8,
+        "cloudinary": 6,
         "withDimensions": 0
       },
-      "links": 5,
+      "links": 9,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
       "type": "post",
-      "slug": "projects/hexagram-motion-graphics"
+      "slug": "projects/gem-viz"
     }
   },
   {
@@ -5753,7 +5306,7 @@
     "metadata": {
       "title": "Motorcycle.p8",
       "date": "2023-07-02T00:00:00.000Z",
-      "category": "Art",
+      "category": "Games",
       "featured": false,
       "tech": [
         "Pico-8",
@@ -5767,7 +5320,7 @@
         "art",
         "motorcycle"
       ],
-      "words": 166,
+      "words": 150,
       "images": 1,
       "imageDetails": {
         "total": 1,
@@ -5780,6 +5333,54 @@
       "toc": [],
       "type": "post",
       "slug": "projects/motorcycle-pico8"
+    }
+  },
+  {
+    "slug": "projects/motorcycle-viz",
+    "title": "Motorcycle Meta-Visualizations",
+    "date": "2026-05-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "motorcycle",
+      "dataviz",
+      "generative",
+      "art",
+      "video"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Motorcycle Meta-Visualizations",
+      "date": "2026-05-01T04:00:00.000Z",
+      "category": "Art",
+      "url": "https://github.com/ejfox/motorcycle-viz",
+      "tech": [
+        "FFmpeg",
+        "Python",
+        "Generative Art",
+        "Data Visualization"
+      ],
+      "state": "doing",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "motorcycle",
+        "dataviz",
+        "generative",
+        "art",
+        "video"
+      ],
+      "words": 472,
+      "images": 10,
+      "imageDetails": {
+        "total": 10,
+        "cloudinary": 10,
+        "withDimensions": 0
+      },
+      "links": 10,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/motorcycle-viz"
     }
   },
   {
@@ -5880,6 +5481,174 @@
       "toc": [],
       "type": "post",
       "slug": "projects/nbcnews-specials"
+    }
+  },
+  {
+    "slug": "projects/noaa-sat-cli",
+    "title": "NOAA Satellite CLI",
+    "date": "2025-06-09T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "NOAA Satellite CLI",
+      "date": "2025-06-09T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/noaa-sat-cli",
+      "tech": [
+        "TypeScript"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 258,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 3,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/noaa-sat-cli"
+    }
+  },
+  {
+    "slug": "projects/obsidian-analysis",
+    "title": "Obsidian Analysis",
+    "date": "2024-06-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "data",
+      "visualization",
+      "ai"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Obsidian Analysis",
+      "date": "2024-06-01T04:00:00.000Z",
+      "category": "Dataviz",
+      "featured": false,
+      "url": "https://github.com/ejfox/obsidian-analysis",
+      "tech": [
+        "Python",
+        "Embeddings",
+        "UMAP",
+        "LM Studio"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-collaborative",
+      "tags": [
+        "data",
+        "visualization",
+        "ai"
+      ],
+      "words": 200,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/obsidian-analysis"
+    }
+  },
+  {
+    "slug": "projects/openrouter-census",
+    "title": "Openrouter Census",
+    "date": "2025-08-21T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Openrouter Census",
+      "date": "2025-08-21T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/openrouter-census",
+      "tech": [
+        "JavaScript"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 290,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/openrouter-census"
+    }
+  },
+  {
+    "slug": "projects/paperclip",
+    "title": "paperclip",
+    "date": "2025-11-01T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "ios",
+      "android",
+      "app",
+      "social"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "paperclip",
+      "date": "2025-11-01T05:00:00.000Z",
+      "category": "Apps",
+      "featured": true,
+      "tech": [
+        "Swift",
+        "SwiftUI",
+        "Kotlin",
+        "Jetpack Compose",
+        "Supabase"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "ios",
+        "android",
+        "app",
+        "social"
+      ],
+      "words": 303,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 2,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/paperclip"
     }
   },
   {
@@ -6052,7 +5821,7 @@
       "title": "Scrapbook Core",
       "date": "2026-05-05T05:00:00.000Z",
       "category": "Tools",
-      "featured": true,
+      "featured": false,
       "url": "https://github.com/ejfox/scrapbook-core",
       "tech": [
         "JavaScript"
@@ -6239,8 +6008,8 @@
     "metadata": {
       "title": "Subway Builder",
       "date": "2026-05-01T04:00:00.000Z",
-      "category": "Art",
-      "featured": false,
+      "category": "Games",
+      "featured": true,
       "url": "https://github.com/ejfox/subway-builder-mods",
       "tech": [
         "JavaScript",
@@ -6269,6 +6038,96 @@
       "toc": [],
       "type": "post",
       "slug": "projects/subway-builder"
+    }
+  },
+  {
+    "slug": "projects/tv-station",
+    "title": "TV Station",
+    "date": "2026-05-01T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "web",
+      "experiment"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "TV Station",
+      "date": "2026-05-01T04:00:00.000Z",
+      "category": "Art",
+      "featured": false,
+      "url": "https://tv.tools.ejfox.com",
+      "tech": [
+        "TypeScript",
+        "Deno",
+        "Smallweb"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "web",
+        "experiment"
+      ],
+      "words": 329,
+      "images": 3,
+      "imageDetails": {
+        "total": 3,
+        "cloudinary": 3,
+        "withDimensions": 0
+      },
+      "links": 5,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/tv-station"
+    }
+  },
+  {
+    "slug": "projects/vulpes-devices",
+    "title": "Vulpes Devices",
+    "date": "2026-03-15T04:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "vulpes",
+      "flipper",
+      "hardware",
+      "device",
+      "design"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Vulpes Devices",
+      "date": "2026-03-15T04:00:00.000Z",
+      "category": "Hardware",
+      "featured": false,
+      "tech": [
+        "Flipper Zero",
+        "OnionOS",
+        "Theming",
+        "JavaScript"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "vulpes",
+        "flipper",
+        "hardware",
+        "device",
+        "design"
+      ],
+      "words": 172,
+      "images": 2,
+      "imageDetails": {
+        "total": 2,
+        "cloudinary": 2,
+        "withDimensions": 0
+      },
+      "links": 4,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/vulpes-devices"
     }
   },
   {
@@ -6307,6 +6166,44 @@
       "toc": [],
       "type": "post",
       "slug": "projects/vulpes-nvim"
+    }
+  },
+  {
+    "slug": "projects/vulpino",
+    "title": "Vulpino",
+    "date": "2026-01-10T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "tools"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Vulpino",
+      "date": "2026-01-10T05:00:00.000Z",
+      "category": "Tools",
+      "featured": false,
+      "url": "https://github.com/ejfox/vulpino",
+      "tech": [
+        "Swift"
+      ],
+      "state": "deployed",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "tools"
+      ],
+      "words": 392,
+      "images": 5,
+      "imageDetails": {
+        "total": 5,
+        "cloudinary": 5,
+        "withDimensions": 0
+      },
+      "links": 5,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/vulpino"
     }
   },
   {
@@ -14367,3141 +14264,6 @@
       ],
       "type": "post",
       "slug": "reading/York-Silicon Values"
-    }
-  },
-  {
-    "slug": "robots/anytime/winter-layering-gear-system",
-    "title": "Winter Layering Gear System",
-    "date": "2024-11-06T20:22:53.000Z",
-    "type": "post",
-    "modified": "2024-11-08T18:33:01.000Z",
-    "tags": [
-      "gear",
-      "outdoors"
-    ],
-    "toc": [],
-    "metadata": {
-      "date": "2024-11-06T20:22:53.000Z",
-      "modified": "2024-11-08T18:33:01.000Z",
-      "share": true,
-      "tags": [
-        "gear",
-        "outdoors"
-      ],
-      "words": 968,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 24,
-      "headers": {},
-      "toc": [],
-      "type": "post",
-      "slug": "robots/anytime/winter-layering-gear-system"
-    }
-  },
-  {
-    "slug": "robots/old/gear",
-    "title": "Motorcycle Gear System Optimization",
-    "date": "2024-11-11T07:28:49.000Z",
-    "type": "post",
-    "modified": "2024-11-19T15:56:06.000Z",
-    "tags": [
-      "motorcycle",
-      "gear",
-      "travel",
-      "systemsthinking"
-    ],
-    "toc": [
-      {
-        "text": "Primary Systems",
-        "slug": "primary-systems",
-        "level": "h2",
-        "children": [
-          {
-            "text": "CONTAINER HIERARCHY",
-            "slug": "container-hierarchy",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "CAPABILITY CLUSTERS",
-            "slug": "capability-clusters",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Fox's Circle of Accessibility",
-        "slug": "foxs-circle-of-accessibility",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Core Principles",
-            "slug": "core-principles",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Scoring System",
-            "slug": "scoring-system",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Tier Classification Formula",
-            "slug": "tier-classification-formula",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Tier Definitions",
-            "slug": "tier-definitions",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Modifiers and Special Considerations",
-            "slug": "modifiers-and-special-considerations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Application Process",
-            "slug": "application-process",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Version Notes",
-            "slug": "version-notes",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "title": "Motorcycle Gear System Optimization",
-      "date": "2024-11-11T07:28:49.000Z",
-      "modified": "2024-11-19T15:56:06.000Z",
-      "share": true,
-      "tags": [
-        "motorcycle",
-        "gear",
-        "travel",
-        "systemsthinking"
-      ],
-      "words": 1415,
-      "images": 1,
-      "imageDetails": {
-        "total": 1,
-        "cloudinary": 1,
-        "withDimensions": 0
-      },
-      "links": 1,
-      "codeBlocks": 1,
-      "headers": {
-        "h2": 2
-      },
-      "toc": [
-        {
-          "text": "Primary Systems",
-          "slug": "primary-systems",
-          "level": "h2",
-          "children": [
-            {
-              "text": "CONTAINER HIERARCHY",
-              "slug": "container-hierarchy",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "CAPABILITY CLUSTERS",
-              "slug": "capability-clusters",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Fox's Circle of Accessibility",
-          "slug": "foxs-circle-of-accessibility",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Core Principles",
-              "slug": "core-principles",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Scoring System",
-              "slug": "scoring-system",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Tier Classification Formula",
-              "slug": "tier-classification-formula",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Tier Definitions",
-              "slug": "tier-definitions",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Modifiers and Special Considerations",
-              "slug": "modifiers-and-special-considerations",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Application Process",
-              "slug": "application-process",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Version Notes",
-              "slug": "version-notes",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "robots/old/gear"
-    }
-  },
-  {
-    "slug": "robots/old/tenancy-in-common",
-    "title": "Co-Buyer Pre-Meeting Checklist",
-    "date": "2024-11-11T04:16:16.000Z",
-    "type": "post",
-    "modified": "2024-11-12T17:27:05.000Z",
-    "tags": [
-      "personal",
-      "housing",
-      "planning"
-    ],
-    "toc": [
-      {
-        "text": "Co-Buyer Pre-Meeting Checklist",
-        "slug": "co-buyer-pre-meeting-checklist",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Personal Information & Documentation Checklist",
-            "slug": "personal-information--documentation-checklist",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "date": "2024-11-11T04:16:16.000Z",
-      "modified": "2024-11-12T17:27:05.000Z",
-      "share": true,
-      "tags": [
-        "personal",
-        "housing",
-        "planning"
-      ],
-      "words": 660,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "Co-Buyer Pre-Meeting Checklist",
-          "slug": "co-buyer-pre-meeting-checklist",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Personal Information & Documentation Checklist",
-              "slug": "personal-information--documentation-checklist",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "robots/old/tenancy-in-common"
-    }
-  },
-  {
-    "slug": "robots/someday/chess-course",
-    "title": "Chess Course",
-    "date": "2024-10-15T21:05:33.000Z",
-    "type": "post",
-    "modified": "2024-11-24T22:19:45.000Z",
-    "tags": [
-      "learning",
-      "games",
-      "fdc/794.1",
-      "fdc/793",
-      "fdc/153",
-      "syllabus"
-    ],
-    "toc": [
-      {
-        "text": "Week 1: Chess Fundamentals and Effective Study Techniques",
-        "slug": "week-1-chess-fundamentals-and-effective-study-techniques",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Topics Covered",
-            "slug": "topics-covered",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "YouTube Lectures",
-            "slug": "youtube-lectures",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Recommended Resources",
-            "slug": "recommended-resources",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Practice Recommendations",
-            "slug": "practice-recommendations",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Week 2: Opening Fundamentals with a Focus on the Réti Opening",
-        "slug": "week-2-opening-fundamentals-with-a-focus-on-the-réti-opening",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Topics Covered",
-            "slug": "topics-covered-1",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "YouTube Lectures",
-            "slug": "youtube-lectures-1",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Recommended Resources",
-            "slug": "recommended-resources-1",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Practice Recommendations",
-            "slug": "practice-recommendations-1",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Week 3: Time Management, Quick Decision-Making, and the Nimzowitsch Defense",
-        "slug": "week-3-time-management-quick-decision-making-and-the-nimzowitsch-defense",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Topics Covered",
-            "slug": "topics-covered-2",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "YouTube Lectures",
-            "slug": "youtube-lectures-2",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Recommended Resources",
-            "slug": "recommended-resources-2",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Practice Recommendations",
-            "slug": "practice-recommendations-2",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Week 4: Tactical Patterns and Sharp Play",
-        "slug": "week-4-tactical-patterns-and-sharp-play",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Topics Covered",
-            "slug": "topics-covered-3",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "YouTube Lectures",
-            "slug": "youtube-lectures-3",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Recommended Resources",
-            "slug": "recommended-resources-3",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Practice Recommendations",
-            "slug": "practice-recommendations-3",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Week 5: Middlegame Planning and Positional Play",
-        "slug": "week-5-middlegame-planning-and-positional-play",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Topics Covered",
-            "slug": "topics-covered-4",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "YouTube Lectures",
-            "slug": "youtube-lectures-4",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Recommended Resources",
-            "slug": "recommended-resources-4",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Practice Recommendations",
-            "slug": "practice-recommendations-4",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Week 6: Endgame Fundamentals for Blitz",
-        "slug": "week-6-endgame-fundamentals-for-blitz",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Topics Covered",
-            "slug": "topics-covered-5",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "YouTube Lectures",
-            "slug": "youtube-lectures-5",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Recommended Resources",
-            "slug": "recommended-resources-5",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Practice Recommendations",
-            "slug": "practice-recommendations-5",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Week 7: Analysis and Continuous Improvement",
-        "slug": "week-7-analysis-and-continuous-improvement",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Topics Covered",
-            "slug": "topics-covered-6",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "YouTube Lectures",
-            "slug": "youtube-lectures-6",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Recommended Resources",
-            "slug": "recommended-resources-6",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Practice Recommendations",
-            "slug": "practice-recommendations-6",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "title": "Chess Course",
-      "date": "2024-10-15T21:05:33.000Z",
-      "modified": "2024-11-24T22:19:45.000Z",
-      "share": true,
-      "tags": [
-        "learning",
-        "games",
-        "fdc/794.1",
-        "fdc/793",
-        "fdc/153",
-        "syllabus"
-      ],
-      "words": 2914,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 7
-      },
-      "toc": [
-        {
-          "text": "Week 1: Chess Fundamentals and Effective Study Techniques",
-          "slug": "week-1-chess-fundamentals-and-effective-study-techniques",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Topics Covered",
-              "slug": "topics-covered",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "YouTube Lectures",
-              "slug": "youtube-lectures",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Recommended Resources",
-              "slug": "recommended-resources",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Practice Recommendations",
-              "slug": "practice-recommendations",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Week 2: Opening Fundamentals with a Focus on the Réti Opening",
-          "slug": "week-2-opening-fundamentals-with-a-focus-on-the-réti-opening",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Topics Covered",
-              "slug": "topics-covered-1",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "YouTube Lectures",
-              "slug": "youtube-lectures-1",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Recommended Resources",
-              "slug": "recommended-resources-1",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Practice Recommendations",
-              "slug": "practice-recommendations-1",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Week 3: Time Management, Quick Decision-Making, and the Nimzowitsch Defense",
-          "slug": "week-3-time-management-quick-decision-making-and-the-nimzowitsch-defense",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Topics Covered",
-              "slug": "topics-covered-2",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "YouTube Lectures",
-              "slug": "youtube-lectures-2",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Recommended Resources",
-              "slug": "recommended-resources-2",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Practice Recommendations",
-              "slug": "practice-recommendations-2",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Week 4: Tactical Patterns and Sharp Play",
-          "slug": "week-4-tactical-patterns-and-sharp-play",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Topics Covered",
-              "slug": "topics-covered-3",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "YouTube Lectures",
-              "slug": "youtube-lectures-3",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Recommended Resources",
-              "slug": "recommended-resources-3",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Practice Recommendations",
-              "slug": "practice-recommendations-3",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Week 5: Middlegame Planning and Positional Play",
-          "slug": "week-5-middlegame-planning-and-positional-play",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Topics Covered",
-              "slug": "topics-covered-4",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "YouTube Lectures",
-              "slug": "youtube-lectures-4",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Recommended Resources",
-              "slug": "recommended-resources-4",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Practice Recommendations",
-              "slug": "practice-recommendations-4",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Week 6: Endgame Fundamentals for Blitz",
-          "slug": "week-6-endgame-fundamentals-for-blitz",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Topics Covered",
-              "slug": "topics-covered-5",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "YouTube Lectures",
-              "slug": "youtube-lectures-5",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Recommended Resources",
-              "slug": "recommended-resources-5",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Practice Recommendations",
-              "slug": "practice-recommendations-5",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Week 7: Analysis and Continuous Improvement",
-          "slug": "week-7-analysis-and-continuous-improvement",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Topics Covered",
-              "slug": "topics-covered-6",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "YouTube Lectures",
-              "slug": "youtube-lectures-6",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Recommended Resources",
-              "slug": "recommended-resources-6",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Practice Recommendations",
-              "slug": "practice-recommendations-6",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "robots/someday/chess-course"
-    }
-  },
-  {
-    "slug": "robots/someday/ejfox-news",
-    "title": "ejfox.news Phase 1: Core Development Plan",
-    "date": "2024-11-05T17:00:28.000Z",
-    "type": "post",
-    "modified": "2024-11-08T21:19:49.000Z",
-    "tags": [
-      "development",
-      "projects",
-      "tools"
-    ],
-    "toc": [
-      {
-        "text": "ejfox.news Phase 1: Core Development Plan",
-        "slug": "ejfoxnews-phase-1-core-development-plan",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Overview",
-            "slug": "overview",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Technical Stack",
-            "slug": "technical-stack",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Development Phases",
-            "slug": "development-phases",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Success Criteria",
-            "slug": "success-criteria",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Won't Do (MVP)",
-            "slug": "wont-do-mvp",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Next Steps After MVP",
-            "slug": "next-steps-after-mvp",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Emergency Contacts",
-            "slug": "emergency-contacts",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Deployment URLs",
-            "slug": "deployment-urls",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "ejfox.news Phase 2: Social Layer & Enhanced Reading",
-        "slug": "ejfoxnews-phase-2-social-layer--enhanced-reading",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Overview",
-            "slug": "overview-1",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "New Technical Components",
-            "slug": "new-technical-components",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Development Phases",
-            "slug": "development-phases-1",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Success Criteria",
-            "slug": "success-criteria-1",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Won't Do (Phase 2)",
-            "slug": "wont-do-phase-2",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Migration Notes",
-            "slug": "migration-notes",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Monitoring",
-            "slug": "monitoring",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Rollout Strategy",
-            "slug": "rollout-strategy",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Emergency Procedures",
-            "slug": "emergency-procedures",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "ejfox.news Launch Burndown List",
-        "slug": "ejfoxnews-launch-burndown-list",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Technical Readiness",
-            "slug": "technical-readiness",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Content Readiness",
-            "slug": "content-readiness",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Launch Infrastructure",
-            "slug": "launch-infrastructure",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Friend Launch Prep",
-            "slug": "friend-launch-prep",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Documentation",
-            "slug": "documentation",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Pre-Launch Final Check",
-            "slug": "pre-launch-final-check",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Launch Day Schedule",
-            "slug": "launch-day-schedule",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Success Metrics",
-            "slug": "success-metrics",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Emergency Contacts",
-            "slug": "emergency-contacts-1",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Recovery Procedures",
-            "slug": "recovery-procedures",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "date": "2024-11-05T17:00:28.000Z",
-      "modified": "2024-11-08T21:19:49.000Z",
-      "share": true,
-      "tags": [
-        "development",
-        "projects",
-        "tools"
-      ],
-      "words": 2106,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 3
-      },
-      "toc": [
-        {
-          "text": "ejfox.news Phase 1: Core Development Plan",
-          "slug": "ejfoxnews-phase-1-core-development-plan",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Overview",
-              "slug": "overview",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Technical Stack",
-              "slug": "technical-stack",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Development Phases",
-              "slug": "development-phases",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Success Criteria",
-              "slug": "success-criteria",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Won't Do (MVP)",
-              "slug": "wont-do-mvp",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Next Steps After MVP",
-              "slug": "next-steps-after-mvp",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Emergency Contacts",
-              "slug": "emergency-contacts",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Deployment URLs",
-              "slug": "deployment-urls",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "ejfox.news Phase 2: Social Layer & Enhanced Reading",
-          "slug": "ejfoxnews-phase-2-social-layer--enhanced-reading",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Overview",
-              "slug": "overview-1",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "New Technical Components",
-              "slug": "new-technical-components",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Development Phases",
-              "slug": "development-phases-1",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Success Criteria",
-              "slug": "success-criteria-1",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Won't Do (Phase 2)",
-              "slug": "wont-do-phase-2",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Migration Notes",
-              "slug": "migration-notes",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Monitoring",
-              "slug": "monitoring",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Rollout Strategy",
-              "slug": "rollout-strategy",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Emergency Procedures",
-              "slug": "emergency-procedures",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "ejfox.news Launch Burndown List",
-          "slug": "ejfoxnews-launch-burndown-list",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Technical Readiness",
-              "slug": "technical-readiness",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Content Readiness",
-              "slug": "content-readiness",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Launch Infrastructure",
-              "slug": "launch-infrastructure",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Friend Launch Prep",
-              "slug": "friend-launch-prep",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Documentation",
-              "slug": "documentation",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Pre-Launch Final Check",
-              "slug": "pre-launch-final-check",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Launch Day Schedule",
-              "slug": "launch-day-schedule",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Success Metrics",
-              "slug": "success-metrics",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Emergency Contacts",
-              "slug": "emergency-contacts-1",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Recovery Procedures",
-              "slug": "recovery-procedures",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "robots/someday/ejfox-news"
-    }
-  },
-  {
-    "slug": "robots/someday/fpv-drone-learning",
-    "title": "FPV Drone Simulator Training",
-    "date": "2025-01-07T18:00:42.000Z",
-    "type": "post",
-    "modified": "2025-01-19T03:20:26.000Z",
-    "tags": [
-      "drone",
-      "fpv",
-      "education",
-      "games"
-    ],
-    "toc": [
-      {
-        "text": "FPV Simulator Training Program",
-        "slug": "fpv-simulator-training-program",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Setting Up for Uncrashed",
-            "slug": "setting-up-for-uncrashed",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Core Philosophy",
-            "slug": "core-philosophy",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Week 0: Foundation Building",
-            "slug": "week-0-foundation-building",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Week 1-2: Basic Control Development",
-            "slug": "week-1-2-basic-control-development",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Week 3-4: Orientation and Movement",
-            "slug": "week-3-4-orientation-and-movement",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Week 5-6: Advanced Control Development",
-            "slug": "week-5-6-advanced-control-development",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Week 7-8: Racing and Technical Skills",
-            "slug": "week-7-8-racing-and-technical-skills",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Documentation System",
-            "slug": "documentation-system",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Progress Assessment",
-            "slug": "progress-assessment",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Essential Concept Flashcards",
-            "slug": "essential-concept-flashcards",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Uncrashed Basic Benchmark Course",
-        "slug": "uncrashed-basic-benchmark-course",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Course Design Instructions",
-            "slug": "course-design-instructions",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Training Protocol",
-            "slug": "training-protocol",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Progress Tracking",
-            "slug": "progress-tracking",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Progression Metrics",
-            "slug": "progression-metrics",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Using Built-in Metrics",
-            "slug": "using-built-in-metrics",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Training Integration",
-            "slug": "training-integration",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Building on Success",
-            "slug": "building-on-success",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "title": "FPV Drone Simulator Training",
-      "date": "2025-01-07T18:00:42.000Z",
-      "modified": "2025-01-19T03:20:26.000Z",
-      "share": true,
-      "tags": [
-        "drone",
-        "fpv",
-        "education",
-        "games"
-      ],
-      "words": 2112,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 2,
-      "headers": {
-        "h2": 2
-      },
-      "toc": [
-        {
-          "text": "FPV Simulator Training Program",
-          "slug": "fpv-simulator-training-program",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Setting Up for Uncrashed",
-              "slug": "setting-up-for-uncrashed",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Core Philosophy",
-              "slug": "core-philosophy",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Week 0: Foundation Building",
-              "slug": "week-0-foundation-building",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Week 1-2: Basic Control Development",
-              "slug": "week-1-2-basic-control-development",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Week 3-4: Orientation and Movement",
-              "slug": "week-3-4-orientation-and-movement",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Week 5-6: Advanced Control Development",
-              "slug": "week-5-6-advanced-control-development",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Week 7-8: Racing and Technical Skills",
-              "slug": "week-7-8-racing-and-technical-skills",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Documentation System",
-              "slug": "documentation-system",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Progress Assessment",
-              "slug": "progress-assessment",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Essential Concept Flashcards",
-              "slug": "essential-concept-flashcards",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Uncrashed Basic Benchmark Course",
-          "slug": "uncrashed-basic-benchmark-course",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Course Design Instructions",
-              "slug": "course-design-instructions",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Training Protocol",
-              "slug": "training-protocol",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Progress Tracking",
-              "slug": "progress-tracking",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Progression Metrics",
-              "slug": "progression-metrics",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Using Built-in Metrics",
-              "slug": "using-built-in-metrics",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Training Integration",
-              "slug": "training-integration",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Building on Success",
-              "slug": "building-on-success",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "robots/someday/fpv-drone-learning"
-    }
-  },
-  {
-    "slug": "robots/someday/hudson-valley-cannabis-doc",
-    "title": "Hudson Valley Cannabis: Growing a New Legacy",
-    "date": "2024-11-26T16:40:25.000Z",
-    "type": "post",
-    "modified": "2025-01-28T14:58:21.000Z",
-    "tags": [
-      "projects",
-      "photography",
-      "america"
-    ],
-    "toc": [
-      {
-        "text": "Hudson Valley Cannabis: Growing a New Legacy",
-        "slug": "hudson-valley-cannabis-growing-a-new-legacy",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Documentary Series Proposal for Hudsy.tv",
-            "slug": "documentary-series-proposal-for-hudsytv",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Pre Production Phase",
-            "slug": "pre-production-phase",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "date": "2024-11-26T16:40:25.000Z",
-      "modified": "2025-01-28T14:58:21.000Z",
-      "share": true,
-      "tags": [
-        "projects",
-        "photography",
-        "america"
-      ],
-      "words": 1379,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 1,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "Hudson Valley Cannabis: Growing a New Legacy",
-          "slug": "hudson-valley-cannabis-growing-a-new-legacy",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Documentary Series Proposal for Hudsy.tv",
-              "slug": "documentary-series-proposal-for-hudsytv",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Pre Production Phase",
-              "slug": "pre-production-phase",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "robots/someday/hudson-valley-cannabis-doc"
-    }
-  },
-  {
-    "slug": "robots/someday/hudson-valley-maps",
-    "title": "Hudson Valley Systems & Trail Mapping Project",
-    "date": "2024-11-27T16:23:08.000Z",
-    "type": "post",
-    "modified": "2024-12-31T00:44:34.000Z",
-    "tags": [
-      "outdoors",
-      "data",
-      "amateurradio"
-    ],
-    "toc": [
-      {
-        "text": "Hudson Valley Systems & Trail Mapping Project",
-        "slug": "hudson-valley-systems--trail-mapping-project",
-        "level": "h2",
-        "children": [
-          {
-            "text": "1. Scoping & Requirements Gathering",
-            "slug": "1-scoping--requirements-gathering",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "2. Data Acquisition & Processing",
-            "slug": "2-data-acquisition--processing",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "3. Cartographic Design & Layout",
-            "slug": "3-cartographic-design--layout",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "4. Review & Refinement",
-            "slug": "4-review--refinement",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "5. Production & Distribution",
-            "slug": "5-production--distribution",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Hudson Valley Radio & Trail Mapping Project",
-            "slug": "hudson-valley-radio--trail-mapping-project",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Forestpunk OSM Contribution: Mapping for Mutual Aid",
-            "slug": "forestpunk-osm-contribution-mapping-for-mutual-aid",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "The Forestpunk Approach to OSM",
-            "slug": "the-forestpunk-approach-to-osm",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "How To Start Contributing",
-            "slug": "how-to-start-contributing",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Contributing With Purpose",
-            "slug": "contributing-with-purpose",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "date": "2024-11-27T16:23:08.000Z",
-      "modified": "2024-12-31T00:44:34.000Z",
-      "share": true,
-      "tags": [
-        "outdoors",
-        "data",
-        "amateurradio"
-      ],
-      "words": 2103,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 1,
-      "codeBlocks": 4,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "Hudson Valley Systems & Trail Mapping Project",
-          "slug": "hudson-valley-systems--trail-mapping-project",
-          "level": "h2",
-          "children": [
-            {
-              "text": "1. Scoping & Requirements Gathering",
-              "slug": "1-scoping--requirements-gathering",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "2. Data Acquisition & Processing",
-              "slug": "2-data-acquisition--processing",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "3. Cartographic Design & Layout",
-              "slug": "3-cartographic-design--layout",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "4. Review & Refinement",
-              "slug": "4-review--refinement",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "5. Production & Distribution",
-              "slug": "5-production--distribution",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Hudson Valley Radio & Trail Mapping Project",
-              "slug": "hudson-valley-radio--trail-mapping-project",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Forestpunk OSM Contribution: Mapping for Mutual Aid",
-              "slug": "forestpunk-osm-contribution-mapping-for-mutual-aid",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "The Forestpunk Approach to OSM",
-              "slug": "the-forestpunk-approach-to-osm",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "How To Start Contributing",
-              "slug": "how-to-start-contributing",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Contributing With Purpose",
-              "slug": "contributing-with-purpose",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "robots/someday/hudson-valley-maps"
-    }
-  },
-  {
-    "slug": "robots/someday/ml-comedy-hour",
-    "title": "Machine Learning Comedy Hour",
-    "date": "2024-11-13T20:03:41.000Z",
-    "type": "post",
-    "modified": "2024-11-13T20:29:38.000Z",
-    "tags": [
-      "ai",
-      "creativity",
-      "humor"
-    ],
-    "toc": [
-      {
-        "text": "Machine Learning Comedy Hour",
-        "slug": "machine-learning-comedy-hour",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Audio Version",
-            "slug": "audio-version",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "ML Caveman",
-        "slug": "ml-caveman",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Advanced Nodding Topics",
-        "slug": "advanced-nodding-topics",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Comedy Hour: Things We All Pretend To Understand",
-        "slug": "comedy-hour-things-we-all-pretend-to-understand",
-        "level": "h2",
-        "children": [
-          {
-            "text": "\"Attention Mechanisms\"",
-            "slug": "attention-mechanisms",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "\"Hyperparameter Tuning\"",
-            "slug": "hyperparameter-tuning",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "\"Architecture Ablation Studies\"",
-            "slug": "architecture-ablation-studies",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "\"Reproducibility Crisis\"",
-            "slug": "reproducibility-crisis",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "\"State Of the Art Results\"",
-            "slug": "state-of-the-art-results",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "date": "2024-11-13T20:03:41.000Z",
-      "modified": "2024-11-13T20:29:38.000Z",
-      "share": true,
-      "model": "claude-sonnet-3.5",
-      "tags": [
-        "ai",
-        "creativity",
-        "humor"
-      ],
-      "words": 2090,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 1,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 4
-      },
-      "toc": [
-        {
-          "text": "Machine Learning Comedy Hour",
-          "slug": "machine-learning-comedy-hour",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Audio Version",
-              "slug": "audio-version",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "ML Caveman",
-          "slug": "ml-caveman",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Advanced Nodding Topics",
-          "slug": "advanced-nodding-topics",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Comedy Hour: Things We All Pretend To Understand",
-          "slug": "comedy-hour-things-we-all-pretend-to-understand",
-          "level": "h2",
-          "children": [
-            {
-              "text": "\"Attention Mechanisms\"",
-              "slug": "attention-mechanisms",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "\"Hyperparameter Tuning\"",
-              "slug": "hyperparameter-tuning",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "\"Architecture Ablation Studies\"",
-              "slug": "architecture-ablation-studies",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "\"Reproducibility Crisis\"",
-              "slug": "reproducibility-crisis",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "\"State Of the Art Results\"",
-              "slug": "state-of-the-art-results",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "robots/someday/ml-comedy-hour"
-    }
-  },
-  {
-    "slug": "robots/someday/morning-radio",
-    "title": "Morning Radio - Personal Audio Brief",
-    "date": "2024-11-16T17:58:36.000Z",
-    "type": "post",
-    "modified": "2024-11-18T16:51:40.000Z",
-    "tags": [
-      "audio",
-      "automation",
-      "personal",
-      "meditation"
-    ],
-    "toc": [
-      {
-        "text": "MORNING RADIO 📻",
-        "slug": "morning-radio-",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Core User Context (Direct Quotes)",
-            "slug": "core-user-context-direct-quotes",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Technical Foundations",
-            "slug": "technical-foundations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Existing Systems Integration",
-            "slug": "existing-systems-integration",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Documentation & Publishing Flow",
-            "slug": "documentation--publishing-flow",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Current Pain Points",
-            "slug": "current-pain-points",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Interaction Pattern Considerations",
-            "slug": "interaction-pattern-considerations",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "System Requirements",
-            "slug": "system-requirements",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Future Expansion Potential",
-            "slug": "future-expansion-potential",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Core Experience 🌅",
-            "slug": "core-experience-",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Interaction Patterns 🎛",
-            "slug": "interaction-patterns-",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Content \"Channels\" 📡",
-            "slug": "content-channels-",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Documentation Flow",
-            "slug": "documentation-flow",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Success Metrics",
-            "slug": "success-metrics",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "V0.0.1 (1 week) - \"The First Song\"",
-            "slug": "v001-1-week---the-first-song",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "V0.0.5 (3 months) - \"Finding the Rhythm\"",
-            "slug": "v005-3-months---finding-the-rhythm",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "V0.1.0 (1 year) - \"Full Morning Show\"",
-            "slug": "v010-1-year---full-morning-show",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "title": "Morning Radio - Personal Audio Brief",
-      "date": "2024-11-16T17:58:36.000Z",
-      "modified": "2024-11-18T16:51:40.000Z",
-      "share": true,
-      "tags": [
-        "audio",
-        "automation",
-        "personal",
-        "meditation"
-      ],
-      "words": 1325,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 0,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "MORNING RADIO 📻",
-          "slug": "morning-radio-",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Core User Context (Direct Quotes)",
-              "slug": "core-user-context-direct-quotes",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Technical Foundations",
-              "slug": "technical-foundations",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Existing Systems Integration",
-              "slug": "existing-systems-integration",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Documentation & Publishing Flow",
-              "slug": "documentation--publishing-flow",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Current Pain Points",
-              "slug": "current-pain-points",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Interaction Pattern Considerations",
-              "slug": "interaction-pattern-considerations",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "System Requirements",
-              "slug": "system-requirements",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Future Expansion Potential",
-              "slug": "future-expansion-potential",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Core Experience 🌅",
-              "slug": "core-experience-",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Interaction Patterns 🎛",
-              "slug": "interaction-patterns-",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Content \"Channels\" 📡",
-              "slug": "content-channels-",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Documentation Flow",
-              "slug": "documentation-flow",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Success Metrics",
-              "slug": "success-metrics",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "V0.0.1 (1 week) - \"The First Song\"",
-              "slug": "v001-1-week---the-first-song",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "V0.0.5 (3 months) - \"Finding the Rhythm\"",
-              "slug": "v005-3-months---finding-the-rhythm",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "V0.1.0 (1 year) - \"Full Morning Show\"",
-              "slug": "v010-1-year---full-morning-show",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "robots/someday/morning-radio"
-    }
-  },
-  {
-    "slug": "robots/someday/prep-mesh",
-    "title": "PREP-MESH COMPLETE SPECIFICATION",
-    "date": "2024-11-11T18:47:06.000Z",
-    "type": "post",
-    "modified": "2025-02-03T01:41:52.000Z",
-    "tags": [
-      "activism",
-      "projects",
-      "infrastructure"
-    ],
-    "toc": [
-      {
-        "text": "PREP-MESH COMPLETE SPECIFICATION",
-        "slug": "prep-mesh-complete-specification",
-        "level": "h2",
-        "children": [
-          {
-            "text": "CORE CONCEPT",
-            "slug": "core-concept",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "USER STORIES & ACCEPTANCE CRITERIA",
-            "slug": "user-stories--acceptance-criteria",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "FEATURES",
-            "slug": "features",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "WON'T DO",
-            "slug": "wont-do",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "PREP-MESH EVALUATION SYSTEMS",
-        "slug": "prep-mesh-evaluation-systems",
-        "level": "h2",
-        "children": [
-          {
-            "text": "MEDICAL & TRAUMA",
-            "slug": "medical--trauma",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "POWER & COMMS",
-            "slug": "power--comms",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "SHELTER & CLOTHING",
-            "slug": "shelter--clothing",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "WATER & HYDRATION",
-            "slug": "water--hydration",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "FOOD & COOKING",
-            "slug": "food--cooking",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "TOOLS & REPAIR",
-            "slug": "tools--repair",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "INFO & NAVIGATION",
-            "slug": "info--navigation",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "LOAD CARRYING",
-            "slug": "load-carrying",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Introduction",
-        "slug": "introduction",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Project Goals",
-        "slug": "project-goals",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Development Phases and Key Features",
-        "slug": "development-phases-and-key-features",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Phase 1: Foundation Setup",
-            "slug": "phase-1-foundation-setup",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 2: Supply Hub and Skill-Based Kits",
-            "slug": "phase-2-supply-hub-and-skill-based-kits",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 3: Group Formation and Management",
-            "slug": "phase-3-group-formation-and-management",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 4: Dashboard and Progress Tracking",
-            "slug": "phase-4-dashboard-and-progress-tracking",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 5: User Interface and Experience",
-            "slug": "phase-5-user-interface-and-experience",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 6: Data Synchronization and Offline Functionality",
-            "slug": "phase-6-data-synchronization-and-offline-functionality",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 7: Data Privacy and Control",
-            "slug": "phase-7-data-privacy-and-control",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 8: Testing and Deployment",
-            "slug": "phase-8-testing-and-deployment",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Future Features and Directions",
-        "slug": "future-features-and-directions",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Conclusion",
-        "slug": "conclusion",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Introduction",
-        "slug": "introduction-1",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Project Goals",
-        "slug": "project-goals-1",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Development Phases and Key Features",
-        "slug": "development-phases-and-key-features-1",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Phase 1: PGP Key Generation and Onboarding",
-            "slug": "phase-1-pgp-key-generation-and-onboarding",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 2: Client-Side Key Management",
-            "slug": "phase-2-client-side-key-management",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 3: In-App Verification and Web of Trust",
-            "slug": "phase-3-in-app-verification-and-web-of-trust",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 4: Shared Group Key Management",
-            "slug": "phase-4-shared-group-key-management",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 5: Supply Cycle Integration",
-            "slug": "phase-5-supply-cycle-integration",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 6: Story-Driven Prompts and Scenario-Based Rewards",
-            "slug": "phase-6-story-driven-prompts-and-scenario-based-rewards",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 7: Notifications and Reminders",
-            "slug": "phase-7-notifications-and-reminders",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Phase 8: Collective Progress Tracking and Rewards",
-            "slug": "phase-8-collective-progress-tracking-and-rewards",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "Future Features and Directions",
-        "slug": "future-features-and-directions-1",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Conclusion",
-        "slug": "conclusion-1",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "Development Plan: PGP Encryption Scrollytelling Site",
-        "slug": "development-plan-pgp-encryption-scrollytelling-site",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Project Overview",
-            "slug": "project-overview",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Technology Stack",
-            "slug": "technology-stack",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "User Stories and Feature Evolution",
-            "slug": "user-stories-and-feature-evolution",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Development Roadmap",
-            "slug": "development-roadmap",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Next Steps",
-            "slug": "next-steps",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "SurvivalHub Landing Page Design",
-        "slug": "survivalhub-landing-page-design",
-        "level": "h2",
-        "children": [
-          {
-            "text": "1. Header",
-            "slug": "1-header",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "2. Hero Section",
-            "slug": "2-hero-section",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "3. What is SurvivalHub?",
-            "slug": "3-what-is-survivalhub",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "4. Why SurvivalHub?",
-            "slug": "4-why-survivalhub",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "5. Features",
-            "slug": "5-features",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "6. How It Works",
-            "slug": "6-how-it-works",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "7. Testimonials",
-            "slug": "7-testimonials",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "8. Call to Action",
-            "slug": "8-call-to-action",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "9. Footer",
-            "slug": "9-footer",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "date": "2024-11-11T18:47:06.000Z",
-      "modified": "2025-02-03T01:41:52.000Z",
-      "share": true,
-      "tags": [
-        "activism",
-        "projects",
-        "infrastructure"
-      ],
-      "words": 6799,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 11,
-      "headers": {
-        "h2": 14
-      },
-      "toc": [
-        {
-          "text": "PREP-MESH COMPLETE SPECIFICATION",
-          "slug": "prep-mesh-complete-specification",
-          "level": "h2",
-          "children": [
-            {
-              "text": "CORE CONCEPT",
-              "slug": "core-concept",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "USER STORIES & ACCEPTANCE CRITERIA",
-              "slug": "user-stories--acceptance-criteria",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "FEATURES",
-              "slug": "features",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "WON'T DO",
-              "slug": "wont-do",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "PREP-MESH EVALUATION SYSTEMS",
-          "slug": "prep-mesh-evaluation-systems",
-          "level": "h2",
-          "children": [
-            {
-              "text": "MEDICAL & TRAUMA",
-              "slug": "medical--trauma",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "POWER & COMMS",
-              "slug": "power--comms",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "SHELTER & CLOTHING",
-              "slug": "shelter--clothing",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "WATER & HYDRATION",
-              "slug": "water--hydration",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "FOOD & COOKING",
-              "slug": "food--cooking",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "TOOLS & REPAIR",
-              "slug": "tools--repair",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "INFO & NAVIGATION",
-              "slug": "info--navigation",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "LOAD CARRYING",
-              "slug": "load-carrying",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Introduction",
-          "slug": "introduction",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Project Goals",
-          "slug": "project-goals",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Development Phases and Key Features",
-          "slug": "development-phases-and-key-features",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Phase 1: Foundation Setup",
-              "slug": "phase-1-foundation-setup",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 2: Supply Hub and Skill-Based Kits",
-              "slug": "phase-2-supply-hub-and-skill-based-kits",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 3: Group Formation and Management",
-              "slug": "phase-3-group-formation-and-management",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 4: Dashboard and Progress Tracking",
-              "slug": "phase-4-dashboard-and-progress-tracking",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 5: User Interface and Experience",
-              "slug": "phase-5-user-interface-and-experience",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 6: Data Synchronization and Offline Functionality",
-              "slug": "phase-6-data-synchronization-and-offline-functionality",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 7: Data Privacy and Control",
-              "slug": "phase-7-data-privacy-and-control",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 8: Testing and Deployment",
-              "slug": "phase-8-testing-and-deployment",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Future Features and Directions",
-          "slug": "future-features-and-directions",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Conclusion",
-          "slug": "conclusion",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Introduction",
-          "slug": "introduction-1",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Project Goals",
-          "slug": "project-goals-1",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Development Phases and Key Features",
-          "slug": "development-phases-and-key-features-1",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Phase 1: PGP Key Generation and Onboarding",
-              "slug": "phase-1-pgp-key-generation-and-onboarding",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 2: Client-Side Key Management",
-              "slug": "phase-2-client-side-key-management",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 3: In-App Verification and Web of Trust",
-              "slug": "phase-3-in-app-verification-and-web-of-trust",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 4: Shared Group Key Management",
-              "slug": "phase-4-shared-group-key-management",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 5: Supply Cycle Integration",
-              "slug": "phase-5-supply-cycle-integration",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 6: Story-Driven Prompts and Scenario-Based Rewards",
-              "slug": "phase-6-story-driven-prompts-and-scenario-based-rewards",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 7: Notifications and Reminders",
-              "slug": "phase-7-notifications-and-reminders",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Phase 8: Collective Progress Tracking and Rewards",
-              "slug": "phase-8-collective-progress-tracking-and-rewards",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "Future Features and Directions",
-          "slug": "future-features-and-directions-1",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Conclusion",
-          "slug": "conclusion-1",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "Development Plan: PGP Encryption Scrollytelling Site",
-          "slug": "development-plan-pgp-encryption-scrollytelling-site",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Project Overview",
-              "slug": "project-overview",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Technology Stack",
-              "slug": "technology-stack",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "User Stories and Feature Evolution",
-              "slug": "user-stories-and-feature-evolution",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Development Roadmap",
-              "slug": "development-roadmap",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Next Steps",
-              "slug": "next-steps",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "SurvivalHub Landing Page Design",
-          "slug": "survivalhub-landing-page-design",
-          "level": "h2",
-          "children": [
-            {
-              "text": "1. Header",
-              "slug": "1-header",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "2. Hero Section",
-              "slug": "2-hero-section",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "3. What is SurvivalHub?",
-              "slug": "3-what-is-survivalhub",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "4. Why SurvivalHub?",
-              "slug": "4-why-survivalhub",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "5. Features",
-              "slug": "5-features",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "6. How It Works",
-              "slug": "6-how-it-works",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "7. Testimonials",
-              "slug": "7-testimonials",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "8. Call to Action",
-              "slug": "8-call-to-action",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "9. Footer",
-              "slug": "9-footer",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "robots/someday/prep-mesh"
-    }
-  },
-  {
-    "slug": "robots/someday/quests-irl",
-    "title": "QuestsIRL (MVP Scope)",
-    "date": "2024-11-07T16:50:52.000Z",
-    "type": "post",
-    "modified": "2024-11-08T21:43:10.000Z",
-    "tags": [
-      "development",
-      "projects",
-      "games"
-    ],
-    "toc": [
-      {
-        "text": "QuestsIRL (MVP Scope)",
-        "slug": "questsirl-mvp-scope",
-        "level": "h2",
-        "children": [
-          {
-            "text": "OVERVIEW:",
-            "slug": "overview",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "CYBERPUNK SKILL DISCOVERY",
-        "slug": "cyberpunk-skill-discovery",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "QUESTSIRL ONBOARDING FLOW",
-        "slug": "questsirl-onboarding-flow",
-        "level": "h2",
-        "children": []
-      },
-      {
-        "text": "NEURAL INTERFACE",
-        "slug": "neural-interface",
-        "level": "h2",
-        "children": [
-          {
-            "text": "QUESTSIRL MVP STRUCTURE",
-            "slug": "questsirl-mvp-structure",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      },
-      {
-        "text": "QuestsIRL Development Plan",
-        "slug": "questsirl-development-plan",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Overview",
-            "slug": "overview-1",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Architecture Components",
-            "slug": "architecture-components",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Integration Steps",
-            "slug": "integration-steps",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Detailed Cloudflare Integration Guide",
-            "slug": "detailed-cloudflare-integration-guide",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Next Steps",
-            "slug": "next-steps",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "date": "2024-11-07T16:50:52.000Z",
-      "modified": "2024-11-08T21:43:10.000Z",
-      "share": true,
-      "tags": [
-        "development",
-        "projects",
-        "games"
-      ],
-      "words": 3343,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 3,
-      "headers": {
-        "h2": 5
-      },
-      "toc": [
-        {
-          "text": "QuestsIRL (MVP Scope)",
-          "slug": "questsirl-mvp-scope",
-          "level": "h2",
-          "children": [
-            {
-              "text": "OVERVIEW:",
-              "slug": "overview",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "CYBERPUNK SKILL DISCOVERY",
-          "slug": "cyberpunk-skill-discovery",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "QUESTSIRL ONBOARDING FLOW",
-          "slug": "questsirl-onboarding-flow",
-          "level": "h2",
-          "children": []
-        },
-        {
-          "text": "NEURAL INTERFACE",
-          "slug": "neural-interface",
-          "level": "h2",
-          "children": [
-            {
-              "text": "QUESTSIRL MVP STRUCTURE",
-              "slug": "questsirl-mvp-structure",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        },
-        {
-          "text": "QuestsIRL Development Plan",
-          "slug": "questsirl-development-plan",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Overview",
-              "slug": "overview-1",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Architecture Components",
-              "slug": "architecture-components",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Integration Steps",
-              "slug": "integration-steps",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Detailed Cloudflare Integration Guide",
-              "slug": "detailed-cloudflare-integration-guide",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Next Steps",
-              "slug": "next-steps",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "robots/someday/quests-irl"
-    }
-  },
-  {
-    "slug": "robots/someday/smallweb-with-cloudflare-on-vps",
-    "title": "Setting up Smallweb with Cloudflare Tunnel and Caddy",
-    "date": "2024-12-08T20:13:29.000Z",
-    "type": "post",
-    "modified": "2024-12-08T22:46:33.000Z",
-    "tags": [
-      "development",
-      "infrastructure",
-      "tools"
-    ],
-    "toc": [
-      {
-        "text": "Setting up Smallweb with Cloudflare Tunnel and Caddy",
-        "slug": "setting-up-smallweb-with-cloudflare-tunnel-and-caddy",
-        "level": "h2",
-        "children": [
-          {
-            "text": "Stack Overview",
-            "slug": "stack-overview",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Configuration Steps",
-            "slug": "configuration-steps",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Key Learnings & Notes",
-            "slug": "key-learnings--notes",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Verification",
-            "slug": "verification",
-            "level": "h3",
-            "children": []
-          },
-          {
-            "text": "Final Result",
-            "slug": "final-result",
-            "level": "h3",
-            "children": []
-          }
-        ]
-      }
-    ],
-    "metadata": {
-      "date": "2024-12-08T20:13:29.000Z",
-      "modified": "2024-12-08T22:46:33.000Z",
-      "share": true,
-      "tags": [
-        "development",
-        "infrastructure",
-        "tools"
-      ],
-      "words": 393,
-      "images": 0,
-      "imageDetails": {
-        "total": 0,
-        "cloudinary": 0,
-        "withDimensions": 0
-      },
-      "links": 0,
-      "codeBlocks": 6,
-      "headers": {
-        "h2": 1
-      },
-      "toc": [
-        {
-          "text": "Setting up Smallweb with Cloudflare Tunnel and Caddy",
-          "slug": "setting-up-smallweb-with-cloudflare-tunnel-and-caddy",
-          "level": "h2",
-          "children": [
-            {
-              "text": "Stack Overview",
-              "slug": "stack-overview",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Configuration Steps",
-              "slug": "configuration-steps",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Key Learnings & Notes",
-              "slug": "key-learnings--notes",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Verification",
-              "slug": "verification",
-              "level": "h3",
-              "children": []
-            },
-            {
-              "text": "Final Result",
-              "slug": "final-result",
-              "level": "h3",
-              "children": []
-            }
-          ]
-        }
-      ],
-      "type": "post",
-      "slug": "robots/someday/smallweb-with-cloudflare-on-vps"
     }
   },
   {

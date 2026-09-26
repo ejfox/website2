@@ -16,6 +16,8 @@ tags:
 
 <!-- TODO (EJ): add your voice — factual stub, not your words. Draft until ready. -->
 
+
+![Scrapbook CLI running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/scrapbook-cli/terminal.png)
 A command-line interface for exploring personal knowledge graphs — navigate your scraps and their connections without leaving the terminal.
 
 ![The scrapbook CLI in action — browse bookmarks, full-text search, and an AI summary of each scrap](https://res.cloudinary.com/ejf/image/upload/projects/scrapbook-cli/app.png)

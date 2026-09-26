@@ -1,0 +1,36 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"Talon Sketchybar running in a vulpes-themed terminal\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/talon-sketchybar/terminal.png\" alt=\"Talon Sketchybar running in a vulpes-themed terminal\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/talon-sketchybar/terminal.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/talon-sketchybar/terminal.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/talon-sketchybar/terminal.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/talon-sketchybar/terminal.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Talon Sketchybar running in a vulpes-themed terminal\" width=\"1330\" height=\"547\" style=\"--splay-rot:-1.24deg;\" data-dimensions=\"1330×547\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">Talon Sketchybar running in a vulpes-themed terminal</figcaption></figure>\nEvent-driven Talon Voice → sketchybar bridge. Zero polling. Includes Karabiner double-shift integration.<p class=\"\"></p>\n<p class=\"\">Push Talon Voice state into sketchybar — event-driven, zero-polling, ~60 lines of Python.</p>",
+  "title": "Talon Sketchybar",
+  "metadata": {
+    "title": "Talon Sketchybar",
+    "date": "2026-04-20T05:00:00.000Z",
+    "category": "Tools",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/talon-sketchybar",
+    "tech": [
+      "Python",
+      "Shell"
+    ],
+    "tags": [
+      "accessibility",
+      "dotfiles",
+      "karabiner-elements",
+      "macos",
+      "sketchybar"
+    ],
+    "words": 57,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

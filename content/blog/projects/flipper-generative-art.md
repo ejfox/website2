@@ -2,7 +2,7 @@
 title: "Flipper Generative Art"
 date: 2025-01-15T00:00:00-05:00
 category: "Hardware"
-featured: true
+featured: false
 url: https://github.com/ejfox/flipper-generative-art
 tech: ["Flipper Zero", "C", "Floyd–Steinberg Dithering", "Embedded"]
 state: deployed
@@ -14,10 +14,6 @@ tags:
   - generative
   - art
 ---
-
-<!-- TODO (EJ): tonight's desk take — footage of patterns running on-device
-     (real camera or phone), shoot flipper-space-calculators in the same
-     session. -->
 
 I often just leave the Flipper on my desk below my monitor, and my feeling was: why not have it show me little evolving art pieces instead of just the time? What would that look and feel like? Is generative art even possible within the constraints of the Flipper's screen and processor? What does 1-bit generative art *feel* like? How can it evolve over the course of a day?
 

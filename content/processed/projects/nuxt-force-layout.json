@@ -1,0 +1,32 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"Nuxt Force Layout — a d3 force layout it produces\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/nuxt-force-layout/force.png\" alt=\"Nuxt Force Layout — a d3 force layout it produces\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/nuxt-force-layout/force.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/nuxt-force-layout/force.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/nuxt-force-layout/force.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/nuxt-force-layout/force.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Nuxt Force Layout — a d3 force layout it produces\" width=\"2400\" height=\"1640\" style=\"--splay-rot:1.04deg;\" data-dimensions=\"2400×1640\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">Nuxt Force Layout — a d3 force layout it produces</figcaption></figure>\nEasy D3-powered force layouts with all the trimmings.<p class=\"\"></p>\n<p class=\"\">Before diving into your Nuxt app, you may need to prepare your data into node/edge CSVs with our Node.js-based importers.</p>",
+  "title": "Nuxt Force Layout",
+  "metadata": {
+    "title": "Nuxt Force Layout",
+    "date": "2023-11-02T05:00:00.000Z",
+    "category": "Dataviz",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/nuxt-force-layout",
+    "tech": [
+      "TypeScript",
+      "Vue"
+    ],
+    "tags": [
+      "dataviz"
+    ],
+    "words": 63,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

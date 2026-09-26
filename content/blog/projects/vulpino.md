@@ -1,6 +1,5 @@
 ---
 title: "Vulpino"
-draft: true
 date: 2026-01-10T00:00:00-05:00
 category: "Tools"
 featured: false
@@ -23,3 +22,11 @@ It's real infrastructure too, not a toy. API keys and auth headers live in the K
 ![The widget editor — a SwiftUI step flow from URL to data to template to customize](https://res.cloudinary.com/ejf/image/upload/projects/vulpino/code.png)
 
 ![The typographic design system behind the widgets — opinionated, minimal, restrained](https://res.cloudinary.com/ejf/image/upload/projects/vulpino/code2.png)
+
+Running on device: the widget list, pasting a live JSON endpoint, and the tree Vulpino builds from the response so you can tap the values you want.
+
+![The app's home — your widgets live here; a new one is sixty seconds away](https://res.cloudinary.com/ejf/image/upload/projects/vulpino/app-home.png)
+
+![Paste any endpoint and Vulpino validates it live before it fetches](https://res.cloudinary.com/ejf/image/upload/projects/vulpino/app-fetch.png)
+
+![Vulpino fetches the JSON and lays the whole response out as a tree — tap the values you care about](https://res.cloudinary.com/ejf/image/upload/projects/vulpino/app-tree.png)

@@ -1,0 +1,33 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"Election Helpers — the live site\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/election-helpers/live.png\" alt=\"Election Helpers — the live site\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/election-helpers/live.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/election-helpers/live.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/election-helpers/live.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/election-helpers/live.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"Election Helpers — the live site\" width=\"2880\" height=\"1800\" style=\"--splay-rot:-0.6deg;\" data-dimensions=\"2880×1800\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">Election Helpers — the live site</figcaption></figure>\nA collection of resources, tools, and patterns for election data analysis and viz.<p class=\"\"></p>\n<p class=\"\"><a href=\"https://www.npmjs.com/package/election-helpers\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://www.npmjs.com/package/election-helpers\"><svg class=\"inline-block w-4 h-4 ml-1 opacity-50 dark:opacity-75 group-hover:opacity-100 transition-opacity align-text-bottom\" xmlns=\"http://www.w3.org/2000/svg\" width=\"1em\" height=\"1em\" viewBox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M1.763 0C.786 0 0 .786 0 1.763v20.474C0 23.214.786 24 1.763 24h20.474c.977 0 1.763-.786 1.763-1.763V1.763C24 .786 23.214 0 22.237 0zM5.13 5.323l13.837.019l-.009 13.836h-3.464l.01-10.382h-3.456L12.04 19.17H5.113z\" class=\"\"></path></svg></a>\n<a href=\"https://codecov.io/gh/ejfox/election-helpers\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"external-link group inline-flex items-center text-blue-600 dark:text-blue-400\" data-preview-url=\"https://codecov.io/gh/ejfox/election-helpers\"></a></p>",
+  "title": "Election Helpers",
+  "metadata": {
+    "title": "Election Helpers",
+    "date": "2022-07-04T05:00:00.000Z",
+    "category": "Journalism",
+    "featured": false,
+    "draft": true,
+    "url": "https://ejfox.github.io/election-helpers/global.html",
+    "tech": [
+      "JavaScript"
+    ],
+    "tags": [
+      "data",
+      "elections",
+      "helpers"
+    ],
+    "words": 46,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 3,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

@@ -14,6 +14,8 @@ tags:
 
 <!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->
 
+
+![Docgrind running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/docgrind/terminal.png)
 grind through javascript documentation. build muscle memory. ship better code. A reading app that turns MDN's JavaScript docs into timed sessions, exercises, and a streak you can grind — DuoLingo energy for the standard library.
 
 ![docgrind — session/chapters/exercises/progress, with reading stats](https://res.cloudinary.com/ejf/image/upload/projects/docgrind/landing.png)

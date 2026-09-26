@@ -11,7 +11,6 @@ const { revealContainer: postsReveal } = useScrollReveal({
   duration: 180,
 })
 
-// Year-based scroll tracking
 const activeYear = ref('')
 
 const scrollToYear = (year) => {
@@ -19,7 +18,6 @@ const scrollToYear = (year) => {
   if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
 }
 
-// Post data helpers
 const postDate = (post) => post?.metadata?.date || post?.date
 const postWords = (post) => post?.metadata?.words || post?.words || 0
 const postImages = (post) => post?.metadata?.images || post?.images || 0
@@ -46,7 +44,6 @@ const formatTitle = (slug) => {
   return lastPart.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())
 }
 
-// Fetch posts
 const { data: posts, error: postsError } = useAsyncData(
   'blog-posts',
   async () => {
@@ -60,7 +57,6 @@ const { data: posts, error: postsError } = useAsyncData(
   }
 )
 
-// Aggregate stats
 const blogStats = computed(() => {
   const all = posts.value || []
   const totalWords = all.reduce((sum, p) => sum + postWords(p), 0)
@@ -98,7 +94,6 @@ const cadenceStrip = computed(() => {
   }))
 })
 
-// Group and sort by year
 const blogPostsByYear = computed(() => {
   if (!posts.value?.length) return {}
 
@@ -151,7 +146,6 @@ onMounted(() => {
   onBeforeUnmount(() => observer.disconnect())
 })
 
-// SEO
 usePageSeo({
   title: 'Blog - EJ Fox',
   description: "Things I'm thinking about — data, code, journalism, the web",
@@ -198,7 +192,6 @@ useHead(() => ({
 
 <template>
   <div>
-    <!-- Top metadata bar -->
     <div
       class="fixed top-0 left-0 right-0 z-[100] bg-zinc-900/90 backdrop-blur-sm print:hidden"
     >
@@ -231,7 +224,6 @@ useHead(() => ({
       </div>
     </div>
 
-    <!-- Header -->
     <header class="mb-6 relative pt-2">
       <div class="max-w-screen-xl mx-auto px-4 sm:px-8 xl:px-16">
         <div class="px-4 sm:px-6 pt-4 pb-3">
@@ -278,7 +270,6 @@ useHead(() => ({
           </span>
 
           <section ref="postsReveal" class="max-w-3xl">
-            <!-- Error state -->
             <div v-if="postsError" class="error-box">
               <h2 class="font-bold">Failed to Load Blog Posts</h2>
               <p class="text-sm">
@@ -301,7 +292,6 @@ useHead(() => ({
               </p>
             </div>
 
-            <!-- Posts grouped by year -->
             <div v-for="year in sortedYears" :key="`blog-${year}`">
               <template
                 v-for="(post, index) in blogPostsByYear[year]"

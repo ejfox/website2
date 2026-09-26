@@ -4,10 +4,9 @@
   "title": "paperclip",
   "metadata": {
     "title": "paperclip",
-    "draft": true,
     "date": "2025-11-01T05:00:00.000Z",
     "category": "Apps",
-    "featured": false,
+    "featured": true,
     "tech": [
       "Swift",
       "SwiftUI",

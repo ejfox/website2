@@ -16,4 +16,6 @@ about: "[[2022-climate-trace-exploration]]"
 
 <!-- TODO (EJ): add your voice — factual stub, not your words. Draft until ready. -->
 
+
+![Climate Trace — the Climate TRACE emissions prototypes, live](https://res.cloudinary.com/ejf/image/upload/projects/climate-trace/proto.png)
 Loaded every Climate TRACE industry emissions CSV into a single SQLite/Datasette instance with SpatiaLite. This enables arbitrary geospatial SQL, including bounding-box polygon queries across all emission assets, that the public API can't do.

@@ -1,6 +1,5 @@
 ---
 title: "NOAA Satellite CLI"
-draft: true
 date: 2025-06-09T00:00:00-05:00
 category: "Tools"
 featured: false
@@ -11,6 +10,8 @@ ai-involvement: ai-assisted
 tags:
   - tools
 ---
+
+![NOAA Sat CLI running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/noaa-sat-cli/terminal.png)
 
 The whole planet, from a satellite, on your hard drive, in one command
 

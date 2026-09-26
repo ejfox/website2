@@ -14,6 +14,8 @@ tags:
 
 <!-- TODO (EJ): add your voice — factual stub. Draft until ready. -->
 
+
+![CLI Ching running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/cli-ching/terminal.png)
 A CLI tool to guide and interpret I Ching throws — it walks you through six coin tosses, builds your hexagram, and interprets the reading, keeping a history of past throws.
 
 ![cli-ching — the I Ching oracle in the terminal, with throw history and the coin-toss prompt](https://res.cloudinary.com/ejf/image/upload/projects/cli-ching/reading.png)

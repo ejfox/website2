@@ -1,0 +1,31 @@
+{
+  "cacheVersion": "2026-05-13-gear-cards",
+  "html": "<!-- TODO (EJ): factual stub auto-seeded from the repo README + description.\n     Add your voice, set ai-involvement, verify category/tech/date. Draft until ready. -->\n<figure role=\"figure\" aria-label=\"OpenCV MIDI Controller — OpenCV object tracking driving MIDI CC\" class=\"\"><img src=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/opencv-midi-controller/diagram.png\" alt=\"OpenCV MIDI Controller — OpenCV object tracking driving MIDI CC\" loading=\"lazy\" decoding=\"async\" srcset=\"https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_640/projects/opencv-midi-controller/diagram.png 640w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_960/projects/opencv-midi-controller/diagram.png 960w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1280/projects/opencv-midi-controller/diagram.png 1280w, https://res.cloudinary.com/ejf/image/upload/c_scale,f_auto,q_auto:good,w_1920/projects/opencv-midi-controller/diagram.png 1920w\" sizes=\"(max-width: 430px) 92vw, (max-width: 768px) 85vw, 900px\" title=\"OpenCV MIDI Controller — OpenCV object tracking driving MIDI CC\" width=\"2082\" height=\"1293\" style=\"--splay-rot:1.05deg;\" data-dimensions=\"2082×1293\" class=\"img-full my-8 rounded-sm img-splay w-full mx-auto py-4\" crossorigin=\"anonymous\"><figcaption class=\"\">OpenCV MIDI Controller — OpenCV object tracking driving MIDI CC</figcaption></figure>\nAn experiment in sending midi signals based on OpenCV object detection.<p class=\"\"></p>",
+  "title": "OpenCV MIDI Controller",
+  "metadata": {
+    "title": "OpenCV MIDI Controller",
+    "date": "2023-10-17T05:00:00.000Z",
+    "category": "Hardware",
+    "featured": false,
+    "draft": true,
+    "url": "https://github.com/ejfox/opencv-midi-controller",
+    "tech": [
+      "Python"
+    ],
+    "tags": [
+      "hardware"
+    ],
+    "words": 46,
+    "images": 1,
+    "imageDetails": {
+      "total": 1,
+      "cloudinary": 1,
+      "withDimensions": 0
+    },
+    "links": 1,
+    "codeBlocks": 0,
+    "headers": {},
+    "toc": [],
+    "type": "post"
+  }
+}

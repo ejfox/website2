@@ -1,6 +1,5 @@
 ---
 title: "Clipgoblin"
-draft: true
 date: 2026-04-29T00:00:00-05:00
 category: "Tools"
 featured: false
@@ -10,6 +9,8 @@ ai-involvement: ai-assisted
 tags:
   - tools
 ---
+
+![Clipgoblin running in a vulpes-themed terminal](https://res.cloudinary.com/ejf/image/upload/projects/clipgoblin/terminal.png)
 
 clipgoblin came out of a real editing problem. I was buried in a corpus of long recorded talks and lectures — hours of it — that I needed to actually navigate for a research project, and scrubbing Final Cut timelines to find the one moment someone said the thing was breaking me. So I built a tool that reads the transcript and drops a marker at every concept-relevant moment straight into the Final Cut timeline. Now I move through hours of footage by hitting `Ctrl+'` instead of scrubbing.
 
