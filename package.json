@@ -24,6 +24,7 @@
     "blog": "npm run blog:import && npm run lint:safety && npm run blog:process && npm run check:sealed",
     "blog:preview": "DRY_RUN=true node scripts/blog/import.mjs",
     "blog:watch": "bash scripts/blog/watch.sh",
+    "content:watch": "node scripts/dev/watch-content.mjs",
     "publish": "bash scripts/blog/publish.sh",
     "create-prediction": "node scripts/blog/create-prediction.mjs",
     "predict": "node scripts/author/predict-pro.mjs",
