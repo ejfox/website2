@@ -3,11 +3,6 @@ import { scaleSqrt } from 'd3-scale'
 import ProjectRow from '~/components/projects/ProjectRow.vue'
 import ProjectArchiveCard from '~/components/projects/ProjectArchiveCard.vue'
 
-// slim=1: card fields only (images/heroVideo/excerpt/counts precomputed
-// server-side) — the full-html array was ~470KB of payload this page never
-// rendered. Agents wanting full html use /projects.json (json-twin).
-// Called before the await below: composables that need the component
-// instance must run while it still exists.
 const { tocTarget } = useTOC()
 
 const { data: projects } = await useAsyncData(
@@ -35,9 +30,33 @@ const FLAGSHIP_ORDER = [
   'connectology',
   'paramilitary-leaks',
 ]
+// A project's bare slug — the collection prefix stripped off. Used for
+// anchors (#slug) and /projects/<slug> URLs. It's a fixed, known prefix, so
+// this is plain string work, no regex.
+const COLLECTION_PREFIX = 'projects/'
+const projectSlug = (p) => {
+  const slug = p?.slug || ''
+  return slug.startsWith(COLLECTION_PREFIX)
+    ? slug.slice(COLLECTION_PREFIX.length)
+    : slug
+}
+
+// Date fields, in the order we trust them. `projectDate` is when it shipped;
+// `projectUpdatedDate` prefers an explicit lastUpdated for "most recent".
+const projectDate = (p) => p?.metadata?.date || p?.date || null
+const projectUpdatedDate = (p) =>
+  p?.metadata?.lastUpdated || p?.metadata?.date || p?.date || null
+
+// Calendar year from a date string, or null when it won't parse.
+const yearOf = (raw) => {
+  if (!raw) return null
+  const y = new Date(raw).getFullYear()
+  return Number.isNaN(y) ? null : y
+}
+const projectYear = (p) => yearOf(projectDate(p))
+
 const flagshipRank = (p) => {
-  const s = p.slug?.replace(/^projects\//, '') || ''
-  const i = FLAGSHIP_ORDER.indexOf(s)
+  const i = FLAGSHIP_ORDER.indexOf(projectSlug(p))
   return i === -1 ? 999 : i
 }
 
@@ -50,9 +69,6 @@ const featuredProjects = computed(() =>
 const regularProjects = computed(
   () => projects.value?.filter((p) => !p.metadata?.featured) || []
 )
-
-const getProjectSlug = (project) =>
-  project.slug?.replace(/^projects\//, '') || ''
 
 // The archive: everything not a flagship, grouped by YEAR (the spine) and then
 // by theme within each year. Time is the primary axis — it tells the story of
@@ -68,18 +84,15 @@ const CATEGORY_ORDER = [
   'Apps',
   'Tools',
 ]
+// Make an anchor-safe id from a label (a year like "2026" or a category like
+// "Dataviz"): lowercase, collapse any run of non-alphanumerics to one dash,
+// and trim dashes off the ends. This is the one place regex earns its keep —
+// the input is arbitrary display text, not a fixed string.
 const slugify = (s) =>
-  s
-    .toString()
+  String(s)
     .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)/g, '')
-
-const projectYear = (p) => {
-  const raw = p.metadata?.date || p.date
-  const y = raw ? new Date(raw).getFullYear() : Number.NaN
-  return Number.isNaN(y) ? null : y
-}
+    .replace(/[^a-z0-9]+/g, '-') // any non-alphanumeric run → single dash
+    .replace(/^-|-$/g, '') // no leading or trailing dash
 
 // Recent years stand alone as the spine; the thin early years (1–2 projects
 // each) collapse into one "Earlier" bucket so the page isn't a wall of tiny
@@ -172,14 +185,15 @@ const CREDENTIALS = [
   'Global Energy Monitor',
 ]
 
+// Every parseable ship-year across all projects (dateless ones dropped).
+const projectYears = computed(() =>
+  (projects.value || []).map(projectYear).filter((y) => y !== null)
+)
+
 // Velocity signal that also earns the tool archive its keep: how many
 // projects shipped in the current era (2024+).
 const recentCount = computed(
-  () =>
-    projects.value?.filter((p) => {
-      const d = p.metadata?.date || p.date
-      return d && new Date(d).getFullYear() >= 2024
-    }).length || 0
+  () => projectYears.value.filter((y) => y >= 2024).length
 )
 
 const tocLinkClass = 'block text-zinc-600 dark:text-zinc-400 truncate'
@@ -195,60 +209,36 @@ const totalTech = computed(() => {
   return techSet.size
 })
 
-const earliestYear = computed(() => {
-  if (!projects.value?.length) return new Date().getFullYear()
-  const years = projects.value
-    .map((p) => {
-      const date = p.metadata?.date || p.date
-      return date ? new Date(date).getFullYear() : new Date().getFullYear()
-    })
-    .filter((y) => !Number.isNaN(y))
-  return Math.min(...years)
-})
-
-const latestYear = computed(() => {
-  if (!projects.value?.length) return new Date().getFullYear()
-  const years = projects.value
-    .map((p) => {
-      const date = p.metadata?.date || p.date
-      return date ? new Date(date).getFullYear() : new Date().getFullYear()
-    })
-    .filter((y) => !Number.isNaN(y))
-  return Math.max(...years)
-})
-
-const lastUpdated = computed(() => {
-  if (!projects.value?.length) return ''
-  const dates = projects.value
-    .map((p) => p.metadata?.lastUpdated || p.metadata?.date || p.date)
-    .filter(Boolean)
-    .map((d) => new Date(d).getTime())
-    .filter((t) => !Number.isNaN(t))
-  if (!dates.length) return ''
-  return new Date(Math.max(...dates)).toISOString().split('T')[0]
-})
+const thisYear = new Date().getFullYear()
+const earliestYear = computed(() =>
+  projectYears.value.length ? Math.min(...projectYears.value) : thisYear
+)
+const latestYear = computed(() =>
+  projectYears.value.length ? Math.max(...projectYears.value) : thisYear
+)
 
 // === Tufte data layer ===
 
-// Helper: project slug (mirrors getProjectSlug)
-const slugOf = (p) => p?.slug?.replace(/^projects\//, '') || ''
-
-// Most-recently-updated project (uses lastUpdated || date)
+// Most-recently-updated project (by lastUpdated, falling back to date).
 const mostRecentProject = computed(() => {
-  if (!projects.value?.length) return null
   let best = null
   let bestTs = -Infinity
-  for (const p of projects.value) {
-    const raw = p.metadata?.lastUpdated || p.metadata?.date || p.date
-    if (!raw) continue
-    const ts = new Date(raw).getTime()
-    if (Number.isNaN(ts)) continue
-    if (ts > bestTs) {
+  for (const p of projects.value || []) {
+    const raw = projectUpdatedDate(p)
+    const ts = raw ? new Date(raw).getTime() : Number.NaN
+    if (!Number.isNaN(ts) && ts > bestTs) {
       bestTs = ts
       best = p
     }
   }
   return best
+})
+
+// The "Last updated" date shown in the header is just that project's date.
+const lastUpdated = computed(() => {
+  const p = mostRecentProject.value
+  const raw = p && projectUpdatedDate(p)
+  return raw ? new Date(raw).toISOString().split('T')[0] : ''
 })
 
 const mostRecentTitle = computed(
@@ -258,7 +248,7 @@ const mostRecentTitle = computed(
     ''
 )
 
-const mostRecentSlug = computed(() => slugOf(mostRecentProject.value))
+const mostRecentSlug = computed(() => projectSlug(mostRecentProject.value))
 
 // --- Projects-per-year activity sparkline ---
 // One stem per calendar year, height ∝ number of projects shipped that year.
@@ -275,9 +265,8 @@ const stemPlot = computed(() => {
   // Count projects per year (metadata.date || date → getFullYear).
   const counts = new Map()
   for (const p of projects.value) {
-    const raw = p.metadata?.date || p.date
-    const y = raw ? new Date(raw).getFullYear() : Number.NaN
-    if (Number.isNaN(y)) continue
+    const y = projectYear(p)
+    if (y === null) continue
     counts.set(y, (counts.get(y) || 0) + 1)
   }
   const years = [...counts.keys()].sort((a, b) => a - b)
@@ -316,7 +305,7 @@ const projectsSchema = computed(() => {
     itemListElement: listed.map((p, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      url: `https://ejfox.com/projects/${getProjectSlug(p)}`,
+      url: `https://ejfox.com/projects/${projectSlug(p)}`,
       name: p.metadata?.title || p.title,
     })),
   }
@@ -462,7 +451,7 @@ useHead(() => ({
     <div v-if="featuredProjects.length" class="mb-20 space-y-16">
       <template v-for="(project, i) in featuredProjects" :key="project.slug">
         <ProjectRow
-          :id="getProjectSlug(project)"
+          :id="projectSlug(project)"
           :project="project"
           featured
           :eager="i === 0"
@@ -570,7 +559,7 @@ useHead(() => ({
           </div>
           <ul class="space-y-0.5 list-none pl-0 mb-4">
             <li v-for="project in featuredProjects" :key="project.slug">
-              <a :href="`#${getProjectSlug(project)}`" :class="tocLinkClass">
+              <a :href="`#${projectSlug(project)}`" :class="tocLinkClass">
                 {{ project.title || project.metadata?.title }}
               </a>
             </li>
