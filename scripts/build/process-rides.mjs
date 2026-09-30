@@ -26,6 +26,12 @@ const RIDES_DIR = join(ROOT, 'content/rides')
 const OUT_DIR = join(ROOT, 'content/processed/rides')
 
 const DEFAULT_PRIVACY_TRIM_METERS = 800
+// Extra trim applied once to rides whose GPX isn't on this machine, so
+// already-published endpoints move by an amount only the salt knows.
+const RETRIM_MIN_METERS = 300
+const RETRIM_SPAN_METERS = 600
+const PRIVACY_VERSION = 2
+const PRIVACY_SALT = process.env.RIDE_PRIVACY_SALT || ''
 const SIMPLIFY_TOLERANCE_DEG = 0.00008 // ~9m; keeps curves, drops jitter
 const MAX_POINTS = 2000
 
@@ -119,7 +125,10 @@ async function parseGpx(gpxPath) {
  */
 function seededJitter(slug, salt) {
   let h = 2166136261
-  for (const c of `${slug}:${salt}`) {
+  // RIDE_PRIVACY_SALT (1Password, never committed) keeps the jitter out of
+  // reach of anyone reading this public repo: slug-only seeding let them
+  // recompute each ride's exact trim distance.
+  for (const c of `${PRIVACY_SALT}:${slug}:${salt}`) {
     h ^= c.charCodeAt(0)
     h = Math.imul(h, 16777619)
   }
@@ -441,6 +450,15 @@ async function processRide(slug, states) {
 
   let track = null
   let basemap = null
+  const outPath = join(OUT_DIR, `${slug}.json`)
+  if (!existsSync(gpxPath) && existsSync(outPath)) {
+    // No raw GPX on this machine: keep the published ride rather than
+    // overwriting it with an empty track, re-trimming it once if needed.
+    const prev = JSON.parse(await readFile(outPath, 'utf8'))
+    const ride = prev.privacyVersion >= PRIVACY_VERSION ? prev : retrimProcessed(prev, states)
+    await writeFile(outPath, JSON.stringify(ride))
+    return ride
+  }
   if (existsSync(gpxPath)) {
     const rawPoints = await parseGpx(gpxPath)
     const trim = data.privacyTrimMeters ?? DEFAULT_PRIVACY_TRIM_METERS
@@ -490,10 +508,69 @@ async function processRide(slug, states) {
     states: track ? clipStates(track.bounds, states, 0.15, 900) : null,
     refuels: track?.refuels ?? [],
     moments,
+    privacyVersion: PRIVACY_VERSION,
   }
 
   await writeFile(join(OUT_DIR, `${slug}.json`), JSON.stringify(ride))
   return ride
+}
+
+/**
+ * Trim a secret-random 300–900m more off each end of an already-processed
+ * ride. Points are [lon, lat, ele, tSeconds, dist, mps]; distances and times
+ * are rebased so the new first point reads 0.
+ */
+function retrimProcessed(prev, states) {
+  const pts = prev.points ?? []
+  if (pts.length < 3) return { ...prev, privacyVersion: PRIVACY_VERSION }
+  const total = pts[pts.length - 1][4]
+  const cutStart = RETRIM_MIN_METERS + RETRIM_SPAN_METERS * seededJitter(prev.slug, 'retrim-start')
+  const cutEnd = RETRIM_MIN_METERS + RETRIM_SPAN_METERS * seededJitter(prev.slug, 'retrim-end')
+  const kept = pts.filter((p) => p[4] >= cutStart && p[4] <= total - cutEnd)
+  if (kept.length < 3) return { ...prev, privacyVersion: PRIVACY_VERSION }
+  const d0 = kept[0][4]
+  const t0 = kept[0][3]
+  const dEnd = kept[kept.length - 1][4]
+  const points = kept.map((p) => [p[0], p[1], p[2], p[3] === null || t0 === null ? p[3] : p[3] - t0, p[4] - d0, p[5]])
+  const inRange = (d) => d === null || d === undefined || (d >= d0 && d <= dEnd)
+  const moments = (prev.moments ?? [])
+    .filter((m) => inRange(m.distMeters))
+    .map((m) => ({
+      ...m,
+      distMeters: m.distMeters == null ? m.distMeters : m.distMeters - d0,
+      tSeconds: m.tSeconds == null || t0 === null ? m.tSeconds : m.tSeconds - t0,
+    }))
+  const refuels = (prev.refuels ?? [])
+    .filter((r) => inRange(r.dist))
+    .map((r) => ({ ...r, dist: r.dist - d0 }))
+  const lons = points.map((p) => p[0])
+  const lats = points.map((p) => p[1])
+  const bounds = {
+    minLon: Math.min(...lons),
+    maxLon: Math.max(...lons),
+    minLat: Math.min(...lats),
+    maxLat: Math.max(...lats),
+  }
+  const stats = prev.stats
+    ? { ...prev.stats, distanceMeters: Math.round(dEnd - d0), pointCount: points.length }
+    : prev.stats
+  return {
+    ...prev,
+    points,
+    bounds,
+    stats,
+    moments,
+    refuels,
+    states: reclipStates(prev.states, bounds, states),
+    privacyVersion: PRIVACY_VERSION,
+  }
+}
+
+/** A short ride can re-clip to nothing; keep the old layer rather than lose it. */
+function reclipStates(prevStates, bounds, states) {
+  if (!prevStates || !states) return prevStates
+  const clipped = clipStates(bounds, states, 0.15, 900)
+  return clipped?.length ? clipped : prevStates
 }
 
 function padBounds(b, frac) {
@@ -511,6 +588,13 @@ async function main() {
   if (!existsSync(RIDES_DIR)) {
     console.log('No content/rides directory; nothing to do.')
     return
+  }
+  if (!PRIVACY_SALT) {
+    console.error(
+      '✗ RIDE_PRIVACY_SALT is not set. Run via 1Password:\n' +
+        '  op run --env-file .env.rides.op -- yarn rides:process'
+    )
+    process.exit(1)
   }
   await mkdir(OUT_DIR, { recursive: true })
   let states = null

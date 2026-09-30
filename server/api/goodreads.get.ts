@@ -94,6 +94,27 @@ function parseRssFeed(xml: string, shelf: string): GoodreadsBook[] {
   return books
 }
 
+// The read-shelf RSS caps at 100 items per page, so a single fetch undercounts
+// totalRead once the shelf passes 100. Walk pages until one comes back short.
+async function fetchAllReadPages(userId: string): Promise<GoodreadsBook[]> {
+  const books: GoodreadsBook[] = []
+  for (let page = 1; page <= 20; page++) {
+    const xml = await $fetch<string>(
+      `https://www.goodreads.com/review/list_rss/${userId}?shelf=read&page=${page}`,
+      {
+        responseType: 'text',
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; EJFox Website Bot)',
+        },
+      }
+    )
+    const batch = parseRssFeed(xml, 'read')
+    books.push(...batch)
+    if (batch.length < 100) break
+  }
+  return books
+}
+
 export default defineEventHandler(async (_event) => {
   const userId = '9273959' // EJ Fox's Goodreads ID
   const profileUrl = `https://www.goodreads.com/user/show/${userId}`
@@ -110,22 +131,14 @@ export default defineEventHandler(async (_event) => {
           },
         }
       ),
-      $fetch<string>(
-        `https://www.goodreads.com/review/list_rss/${userId}?shelf=read`,
-        {
-          responseType: 'text',
-          headers: {
-            'User-Agent': 'Mozilla/5.0 (compatible; EJFox Website Bot)',
-          },
-        }
-      ),
+      fetchAllReadPages(userId),
     ])
 
     const currentlyReading = parseRssFeed(
       currentlyReadingResponse,
       'currently-reading'
     )
-    const readBooks = parseRssFeed(readResponse, 'read')
+    const readBooks = readResponse
 
     // Calculate stats
     const now = new Date()

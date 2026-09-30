@@ -45,6 +45,7 @@ content/backup/drafts/_stale/*
 
 .cursor/*
 .claude/settings.local.json
+.claude/worktrees/
 .build-info.json
 
 # Local-only content report viewer
