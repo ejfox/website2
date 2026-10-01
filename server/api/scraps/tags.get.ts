@@ -6,17 +6,19 @@
  */
 import { defineEventHandler } from 'h3'
 import { createClient } from '@supabase/supabase-js'
+import { serverEnv } from '~/server/utils/serverEnv'
 
 export default defineEventHandler(async (): Promise<string[]> => {
   try {
-    const config = useRuntimeConfig()
+    const supabaseUrl = serverEnv('SUPABASE_URL')
+    const supabaseKey = serverEnv('SUPABASE_KEY')
 
-    if (!config.SUPABASE_URL || !config.SUPABASE_KEY) {
+    if (!supabaseUrl || !supabaseKey) {
       console.warn('❌ Supabase credentials not configured')
       return []
     }
 
-    const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY)
+    const supabase = createClient(supabaseUrl, supabaseKey)
 
     // Fetch all scraps to extract unique tags
     const { data, error } = await supabase.from('scraps').select('tags')
