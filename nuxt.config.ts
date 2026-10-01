@@ -183,6 +183,9 @@ export default defineNuxtConfig({
       debug: process.env.DEBUG === 'true',
       debugContent: process.env.DEBUG_CONTENT === 'true',
       nodeEnv: process.env.NODE_ENV || 'development',
+      // MapTiler key for /atlas basemap + terrain. A browser key by design —
+      // restrict it to ejfox.com/localhost in the MapTiler dashboard.
+      maptilerKey: process.env.NUXT_PUBLIC_MAPTILER_KEY || '',
       clarityId: process.env.NUXT_PUBLIC_CLARITY_ID || '',
     },
   },
@@ -276,6 +279,11 @@ export default defineNuxtConfig({
       // ssr:false — it's a pure client-side dev tool that dynamically renders
       // arbitrary components; skipping SSR avoids hydration mismatches and keeps
       // its ?raw source bundles out of the server render path.
+      // Valley Atlas (/atlas) — hidden v0 until EJ signs off. Client-only (MapLibre).
+      '/atlas': {
+        ssr: false,
+        headers: { 'X-Robots-Tag': 'noindex, nofollow' },
+      },
       '/kitchen-sink': {
         ssr: false,
         headers: { 'X-Robots-Tag': 'noindex, nofollow' },
@@ -392,6 +400,9 @@ export default defineNuxtConfig({
         'd3-scale',
         'd3-array',
         'd3-shape',
+        // maplibre-gl v6 loads its worker via a relative import.meta.url;
+        // pre-bundling moves the module and breaks that path
+        'maplibre-gl',
       ], // Lazy load heavy libs
       // force: true // DISABLED FOR DEV - was forcing aggressive dep caching
     },
