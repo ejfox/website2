@@ -350,6 +350,8 @@ export default defineNuxtConfig({
   ],
 
   vite: {
+    // ES-module workers (MapLibre v6's worker imports a shared chunk)
+    worker: { format: 'es' },
     server: {
       watch: {
         ignored: [

@@ -3,6 +3,9 @@
 // built: terrain, the published rides, OSM water/shelter/emergency points, and
 // the repeater list. Hidden like /kitchen-sink until EJ signs off.
 import * as maplibregl from 'maplibre-gl'
+// MapLibre v6 finds its worker by a relative URL that bundlers don't emit,
+// so let Vite bundle the worker (with its shared chunk) and pass the URL in
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
 import mlcontour from 'maplibre-contour'
 import { Protocol } from 'pmtiles'
 import { layers as basemapLayers, namedFlavor } from '@protomaps/basemaps'
@@ -162,6 +165,7 @@ const vulpesFlavor = {
 }
 
 onMounted(async () => {
+  maplibregl.setWorkerUrl(maplibreWorkerUrl)
   const pmtiles = new Protocol()
   maplibregl.addProtocol('pmtiles', pmtiles.tile)
   const dem = new mlcontour.DemSource({
