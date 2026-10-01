@@ -1,6 +1,7 @@
 ---
 title: "Motorcycle Meta-Visualizations"
 date: 2026-05-01T00:00:00-04:00
+featured: true
 category: "Art"
 url: https://github.com/ejfox/motorcycle-viz
 tech: ["FFmpeg", "Python", "Generative Art", "Data Visualization"]

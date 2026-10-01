@@ -4895,6 +4895,54 @@
     }
   },
   {
+    "slug": "projects/coachartie-memory",
+    "title": "Coach Artie — Memory Analysis",
+    "date": "2026-02-01T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "dataviz",
+      "data",
+      "ai",
+      "embeddings"
+    ],
+    "toc": [],
+    "metadata": {
+      "title": "Coach Artie — Memory Analysis",
+      "date": "2026-02-01T05:00:00.000Z",
+      "category": "Dataviz",
+      "featured": false,
+      "tech": [
+        "Python",
+        "t-SNE",
+        "HDBSCAN",
+        "Embeddings",
+        "Data Visualization"
+      ],
+      "state": "doing",
+      "ai-involvement": "ai-collaborative",
+      "context": "collaborative",
+      "tags": [
+        "dataviz",
+        "data",
+        "ai",
+        "embeddings"
+      ],
+      "words": 178,
+      "images": 6,
+      "imageDetails": {
+        "total": 6,
+        "cloudinary": 6,
+        "withDimensions": 0
+      },
+      "links": 0,
+      "codeBlocks": 0,
+      "headers": {},
+      "toc": [],
+      "type": "post",
+      "slug": "projects/coachartie-memory"
+    }
+  },
+  {
     "slug": "projects/connectology",
     "title": "Connectology",
     "date": "2026-03-01T00:00:00.000Z",
@@ -4909,7 +4957,7 @@
       "title": "Connectology",
       "date": "2026-03-01T00:00:00.000Z",
       "category": "Dataviz",
-      "featured": true,
+      "featured": false,
       "url": "https://connectology.room302.studio/",
       "tech": [
         "Nuxt 3",
@@ -4928,14 +4976,14 @@
         "web"
       ],
       "about": "[[project-notes/connectology]]",
-      "words": 336,
+      "words": 334,
       "images": 3,
       "imageDetails": {
         "total": 3,
         "cloudinary": 3,
         "withDimensions": 0
       },
-      "links": 4,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5277,14 +5325,14 @@
         "energy",
         "climate"
       ],
-      "words": 358,
+      "words": 356,
       "images": 8,
       "imageDetails": {
         "total": 8,
         "cloudinary": 6,
         "withDimensions": 0
       },
-      "links": 9,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5351,6 +5399,7 @@
     "metadata": {
       "title": "Motorcycle Meta-Visualizations",
       "date": "2026-05-01T04:00:00.000Z",
+      "featured": true,
       "category": "Art",
       "url": "https://github.com/ejfox/motorcycle-viz",
       "tech": [
@@ -5368,14 +5417,14 @@
         "art",
         "video"
       ],
-      "words": 472,
+      "words": 470,
       "images": 10,
       "imageDetails": {
         "total": 10,
         "cloudinary": 10,
         "withDimensions": 0
       },
-      "links": 10,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -5620,7 +5669,7 @@
       "title": "paperclip",
       "date": "2025-11-01T05:00:00.000Z",
       "category": "Apps",
-      "featured": true,
+      "featured": false,
       "tech": [
         "Swift",
         "SwiftUI",
@@ -5636,14 +5685,14 @@
         "app",
         "social"
       ],
-      "words": 303,
+      "words": 301,
       "images": 2,
       "imageDetails": {
         "total": 2,
         "cloudinary": 2,
         "withDimensions": 0
       },
-      "links": 2,
+      "links": 0,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -6025,14 +6074,14 @@
         "transit",
         "dataviz"
       ],
-      "words": 263,
+      "words": 255,
       "images": 10,
       "imageDetails": {
         "total": 10,
         "cloudinary": 10,
         "withDimensions": 0
       },
-      "links": 11,
+      "links": 1,
       "codeBlocks": 0,
       "headers": {},
       "toc": [],
@@ -6166,6 +6215,110 @@
       "toc": [],
       "type": "post",
       "slug": "projects/vulpes-nvim"
+    }
+  },
+  {
+    "slug": "projects/vulpes-system",
+    "title": "Vulpes",
+    "date": "2026-01-18T05:00:00.000Z",
+    "type": "post",
+    "tags": [
+      "vulpes",
+      "design",
+      "aesthetic",
+      "tools",
+      "hardware"
+    ],
+    "toc": [
+      {
+        "text": "The editor",
+        "slug": "the-editor",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "The devices",
+        "slug": "the-devices",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "The screen when I walk away",
+        "slug": "the-screen-when-i-walk-away",
+        "level": "h2",
+        "children": []
+      },
+      {
+        "text": "The rest of the kit",
+        "slug": "the-rest-of-the-kit",
+        "level": "h2",
+        "children": []
+      }
+    ],
+    "metadata": {
+      "title": "Vulpes",
+      "date": "2026-01-18T05:00:00.000Z",
+      "category": "Art",
+      "featured": true,
+      "url": "https://github.com/ejfox/vulpes.nvim",
+      "tech": [
+        "Lua",
+        "Swift",
+        "Metal",
+        "Rust",
+        "Zig",
+        "Tauri",
+        "Flipper Zero"
+      ],
+      "state": "doing",
+      "ai-involvement": "ai-assisted",
+      "tags": [
+        "vulpes",
+        "design",
+        "aesthetic",
+        "tools",
+        "hardware"
+      ],
+      "words": 489,
+      "images": 7,
+      "imageDetails": {
+        "total": 7,
+        "cloudinary": 7,
+        "withDimensions": 0
+      },
+      "links": 5,
+      "codeBlocks": 0,
+      "headers": {
+        "h2": 4
+      },
+      "toc": [
+        {
+          "text": "The editor",
+          "slug": "the-editor",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "The devices",
+          "slug": "the-devices",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "The screen when I walk away",
+          "slug": "the-screen-when-i-walk-away",
+          "level": "h2",
+          "children": []
+        },
+        {
+          "text": "The rest of the kit",
+          "slug": "the-rest-of-the-kit",
+          "level": "h2",
+          "children": []
+        }
+      ],
+      "type": "post",
+      "slug": "projects/vulpes-system"
     }
   },
   {

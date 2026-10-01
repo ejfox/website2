@@ -6,7 +6,7 @@
     "title": "paperclip",
     "date": "2025-11-01T05:00:00.000Z",
     "category": "Apps",
-    "featured": true,
+    "featured": false,
     "tech": [
       "Swift",
       "SwiftUI",
@@ -22,14 +22,14 @@
       "app",
       "social"
     ],
-    "words": 303,
+    "words": 301,
     "images": 2,
     "imageDetails": {
       "total": 2,
       "cloudinary": 2,
       "withDimensions": 0
     },
-    "links": 2,
+    "links": 0,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

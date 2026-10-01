@@ -22,13 +22,13 @@ const { data: projects } = await useAsyncData(
 // signature tool, a creative-coding piece — instead of just "newest first".
 const FLAGSHIP_ORDER = [
   'subway-builder',
-  'paperclip',
-  'gem-viz',
-  'pixel-canvas',
+  'vulpes-system',
   'ccrb-clusters',
-  'nbc-big-board',
-  'connectology',
+  'pixel-canvas',
+  'gem-viz',
   'paramilitary-leaks',
+  'nbc-big-board',
+  'motorcycle-viz',
 ]
 // A project's bare slug — the collection prefix stripped off. Used for
 // anchors (#slug) and /projects/<slug> URLs. It's a fixed, known prefix, so

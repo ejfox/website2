@@ -5,6 +5,7 @@
   "metadata": {
     "title": "Motorcycle Meta-Visualizations",
     "date": "2026-05-01T04:00:00.000Z",
+    "featured": true,
     "category": "Art",
     "url": "https://github.com/ejfox/motorcycle-viz",
     "tech": [
@@ -22,14 +23,14 @@
       "art",
       "video"
     ],
-    "words": 472,
+    "words": 470,
     "images": 10,
     "imageDetails": {
       "total": 10,
       "cloudinary": 10,
       "withDimensions": 0
     },
-    "links": 10,
+    "links": 0,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],

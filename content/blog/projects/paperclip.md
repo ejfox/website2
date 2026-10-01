@@ -2,7 +2,7 @@
 title: "paperclip"
 date: 2025-11-01T00:00:00-05:00
 category: "Apps"
-featured: true
+featured: false
 tech: ["Swift", "SwiftUI", "Kotlin", "Jetpack Compose", "Supabase"]
 state: deployed
 ai-involvement: ai-assisted

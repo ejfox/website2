@@ -22,14 +22,14 @@
       "energy",
       "climate"
     ],
-    "words": 358,
+    "words": 356,
     "images": 8,
     "imageDetails": {
       "total": 8,
       "cloudinary": 6,
       "withDimensions": 0
     },
-    "links": 9,
+    "links": 1,
     "codeBlocks": 0,
     "headers": {},
     "toc": [],
