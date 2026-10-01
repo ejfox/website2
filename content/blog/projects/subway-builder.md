@@ -1,10 +1,10 @@
 ---
-title: "Subway Builder"
+title: 'Subway Builder'
 date: 2026-05-01T00:00:00-04:00
-category: "Games"
+category: 'Games'
 featured: true
 url: https://github.com/ejfox/subway-builder-mods
-tech: ["JavaScript", "Simulation", "Transit", "Game Modding"]
+tech: ['JavaScript', 'Simulation', 'Transit', 'Game Modding']
 state: evolved
 ai-involvement: ai-assisted
 tags:
@@ -14,9 +14,7 @@ tags:
   - dataviz
 ---
 
-<!-- Role clarified 2026-07-30: Colin's project, EJ is a dev on it. -->
-
-Subway Builder is Colin's game — I'm one of the devs on it. The mission, as I see it: hyperstitioning public transit into every American city. It's like Ender's Game for transit — using realistic data to let train-people SHOW their elected leaders what is and is not possible, via realistic simulations.
+Subway Builder is a game created by Colin Miller, a member of Room 302 studio, in 2025. The mission, as I see it: hyperstitioning public transit into every American city. It's like a sort of Ender's Game for transit — using realistic data to let train-people SHOW their elected leaders what is and is not possible, via realistic simulations.
 
 The game itself: a transit simulation (an Electron build) — design train types with realistic acceleration, capacity, and cost parameters, lay networks over real-world geography, and analyze the demand you create. It launched on Steam in July 2026. My corner of it: code contributions, Steam release infrastructure, and spin-offs like `subway-builder-mods` and a Pico-8 demake.
 
