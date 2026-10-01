@@ -161,7 +161,10 @@ onMounted(async () => {
       customAttribution: '© OpenStreetMap contributors',
     },
   })
-  if (import.meta.dev) (window as unknown as { __atlas: maplibregl.Map }).__atlas = map
+  // Dev only: lets a console or headless test query the live map
+  if (import.meta.dev) {
+    ;(window as unknown as { __atlas: maplibregl.Map }).__atlas = map
+  }
   map.addControl(
     new maplibregl.NavigationControl({ visualizePitch: false }),
     'top-right'
