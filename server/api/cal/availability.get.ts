@@ -1,3 +1,4 @@
+import { serverEnv } from '~/server/utils/serverEnv'
 /**
  * @file cal/availability.get.ts
  * @description Returns quarterly availability status from Cal.com
@@ -5,8 +6,6 @@
  * @returns Current quarter, available slots count, and booking status
  */
 export default defineEventHandler(async () => {
-  const config = useRuntimeConfig()
-
   // Quarterly capacity - adjust based on your actual capacity
   const SLOTS_PER_QUARTER = 3 // Max clients per quarter
 
@@ -19,7 +18,8 @@ export default defineEventHandler(async () => {
   const quarterStart = new Date(year, (quarter - 1) * 3, 1)
   const quarterEnd = new Date(year, quarter * 3, 0)
 
-  if (!config.calcomApiKey) {
+  const calcomApiKey = serverEnv('calcomApiKey', 'CAL_COM_API_KEY')
+  if (!calcomApiKey) {
     // Fallback when API key not configured
     return {
       quarter: quarterName,
@@ -41,7 +41,7 @@ export default defineEventHandler(async () => {
     }>('https://api.cal.com/v2/bookings', {
       method: 'GET',
       headers: {
-        Authorization: `Bearer ${config.calcomApiKey}`,
+        Authorization: `Bearer ${calcomApiKey}`,
         'Content-Type': 'application/json',
         'cal-api-version': '2024-09-04',
       },

@@ -6,6 +6,7 @@
  */
 import { defineEventHandler } from 'h3'
 import { createClient } from '@supabase/supabase-js'
+import { serverEnv } from '~/server/utils/serverEnv'
 
 interface Scrap {
   id: string
@@ -34,15 +35,16 @@ interface Scrap {
 
 export default defineEventHandler(async (): Promise<Scrap[]> => {
   try {
-    const config = useRuntimeConfig()
+    const supabaseUrl = serverEnv('SUPABASE_URL')
+    const supabaseKey = serverEnv('SUPABASE_KEY')
 
     // Check if Supabase credentials are configured
-    if (!config.SUPABASE_URL || !config.SUPABASE_KEY) {
+    if (!supabaseUrl || !supabaseKey) {
       console.warn('❌ Supabase credentials not configured')
       return []
     }
 
-    const supabase = createClient(config.SUPABASE_URL, config.SUPABASE_KEY)
+    const supabase = createClient(supabaseUrl, supabaseKey)
 
     // Fetch recent shared scraps with a limit to prevent timeout
     const { data, error } = await supabase

@@ -7,6 +7,7 @@
 import { defineEventHandler, createError } from 'h3'
 import { readFile, writeFile, mkdir } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
+import { serverEnv } from '~/server/utils/serverEnv'
 
 interface MonkeyTypeTest {
   wpm: number
@@ -131,8 +132,7 @@ export default defineEventHandler(async () => {
     return lastGoodResponse
   }
 
-  const config = useRuntimeConfig()
-  const token = config.MONKEYTYPE_TOKEN
+  const token = serverEnv('MONKEYTYPE_TOKEN')
 
   if (!token?.trim()) {
     console.warn('MonkeyType token not configured')
