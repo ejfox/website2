@@ -4,6 +4,8 @@
 // the repeater list. Hidden like /kitchen-sink until EJ signs off.
 import * as maplibregl from 'maplibre-gl'
 import mlcontour from 'maplibre-contour'
+import { Protocol } from 'pmtiles'
+import { layers as basemapLayers, namedFlavor } from '@protomaps/basemaps'
 import 'maplibre-gl/dist/maplibre-gl.css'
 
 definePageMeta({ layout: false })
@@ -12,7 +14,14 @@ useHead({
   meta: [{ name: 'robots', content: 'noindex, nofollow' }],
 })
 
-const { maptilerKey } = useRuntimeConfig().public
+// No API keys anywhere. Basemap: a Hudson Valley extract of the Protomaps
+// planet build (zoom 0–14, overzoomed past that), served from R2 with HTTP
+// range requests. Terrain: the open AWS Terrarium elevation tiles.
+const BASEMAP_URL =
+  'https://pub-d198c0af42af471bb2e755ad4a268050.r2.dev/basemap/hudson-valley-20260930.pmtiles'
+const TERRAIN_URL =
+  'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'
+const ASSETS = 'https://protomaps.github.io/basemaps-assets'
 
 const VULPES = {
   ground: '#0c0a0d',
@@ -120,27 +129,24 @@ const applyVisibility = () => {
 }
 watch(() => LAYERS.map((l) => l.on), applyVisibility)
 
-// Pull the basemap toward the vulpes palette without rebuilding the style
-const recolor = (m: maplibregl.Map) => {
-  const set = (id: string, prop: string, value: unknown) => {
-    if (m.getLayer(id)) m.setPaintProperty(id, prop, value)
-  }
-  set('Background', 'background-color', VULPES.ground)
-  set('Water', 'fill-color', '#0f2a30')
-  set('River', 'line-color', '#1b4a52')
-  set('Forest', 'fill-color', '#121512')
-  set('Residential', 'fill-color', '#151216')
+// The Protomaps dark flavor, pulled toward the vulpes palette
+const vulpesFlavor = {
+  ...namedFlavor('dark'),
+  background: VULPES.ground,
+  earth: '#110e12',
+  water: '#0f2a30',
+  wood_a: '#121512',
+  wood_b: '#121512',
+  park_a: '#131613',
+  park_b: '#131613',
 }
 
 onMounted(async () => {
-  if (!maptilerKey) {
-    error.value = 'Missing NUXT_PUBLIC_MAPTILER_KEY'
-    return
-  }
-  const terrainUrl = `https://api.maptiler.com/tiles/terrain-rgb-v2/{z}/{x}/{y}.webp?key=${maptilerKey}`
+  const pmtiles = new Protocol()
+  maplibregl.addProtocol('pmtiles', pmtiles.tile)
   const dem = new mlcontour.DemSource({
-    url: terrainUrl,
-    encoding: 'mapbox',
+    url: TERRAIN_URL,
+    encoding: 'terrarium',
     maxzoom: 13,
     worker: true,
   })
@@ -148,7 +154,21 @@ onMounted(async () => {
 
   map = new maplibregl.Map({
     container: mapEl.value!,
-    style: `https://api.maptiler.com/maps/dataviz-dark/style.json?key=${maptilerKey}`,
+    style: {
+      version: 8,
+      glyphs: `${ASSETS}/fonts/{fontstack}/{range}.pbf`,
+      sprite: `${ASSETS}/sprites/v4/dark`,
+      sources: {
+        protomaps: {
+          type: 'vector',
+          url: `pmtiles://${BASEMAP_URL}`,
+          attribution:
+            '<a href="https://protomaps.com">Protomaps</a> © <a href="https://openstreetmap.org">OpenStreetMap</a>',
+        },
+      },
+      layers: basemapLayers('protomaps', vulpesFlavor, { lang: 'en' }),
+    },
+    maxZoom: 17,
     center: [-73.97, 41.6],
     zoom: 9.2,
     hash: true, // position lives in the URL, so a view can be shared
@@ -158,7 +178,7 @@ onMounted(async () => {
     ],
     attributionControl: {
       compact: true,
-      customAttribution: '© OpenStreetMap contributors',
+      customAttribution: 'Terrain: Mapzen/AWS Terrarium',
     },
   })
   // Dev only: lets a console or headless test query the live map
@@ -178,17 +198,16 @@ onMounted(async () => {
 
   map.on('load', () => {
     const m = map!
-    recolor(m)
     const beforeLabels = m
       .getStyle()
       .layers.find((l) => l.type === 'symbol')?.id
 
     m.addSource('dem', {
       type: 'raster-dem',
-      tiles: [terrainUrl],
-      tileSize: 512,
-      maxzoom: 14,
-      encoding: 'mapbox',
+      tiles: [TERRAIN_URL],
+      tileSize: 256,
+      maxzoom: 15,
+      encoding: 'terrarium',
     })
     m.addLayer(
       {
@@ -248,7 +267,7 @@ onMounted(async () => {
         'symbol-placement': 'line',
         'text-size': 10,
         'text-field': ['concat', ['number-format', ['get', 'ele'], {}], ' ft'],
-        'text-font': ['Noto Sans Bold'],
+        'text-font': ['Noto Sans Medium'],
       },
       paint: {
         'text-color': VULPES.teal,
@@ -330,7 +349,7 @@ onMounted(async () => {
           'text-field': ['concat', ['get', 'name'], '\n', ['get', 'freq']],
           'text-size': 11,
           'text-offset': [0, 1.6],
-          'text-font': ['Noto Sans Bold'],
+          'text-font': ['Noto Sans Medium'],
         },
         paint: {
           'text-color': VULPES.magenta,

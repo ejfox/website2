@@ -183,9 +183,6 @@ export default defineNuxtConfig({
       debug: process.env.DEBUG === 'true',
       debugContent: process.env.DEBUG_CONTENT === 'true',
       nodeEnv: process.env.NODE_ENV || 'development',
-      // MapTiler key for /atlas basemap + terrain. A browser key by design —
-      // restrict it to ejfox.com/localhost in the MapTiler dashboard.
-      maptilerKey: process.env.NUXT_PUBLIC_MAPTILER_KEY || '',
       clarityId: process.env.NUXT_PUBLIC_CLARITY_ID || '',
     },
   },
