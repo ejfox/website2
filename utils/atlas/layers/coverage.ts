@@ -33,7 +33,8 @@ const addOverlay = (
       type: 'raster',
       source: id,
       layout: { visibility: 'none' },
-      paint: { 'raster-opacity': 0.55, 'raster-fade-duration': 0 },
+      // Light enough that roads and labels still read through the wash
+      paint: { 'raster-opacity': 0.32, 'raster-fade-duration': 0 },
     },
     beforeId
   )

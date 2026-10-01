@@ -32,6 +32,9 @@ export interface AtlasContext {
 }
 
 export interface AtlasLayerModule {
+  /** Private layers only load when the atlas is unlocked for EJ, and must
+   *  fetch from /api/atlas/private/* routes (which 404 otherwise) */
+  private?: boolean
   toggles: AtlasToggle[]
   /** Add sources/layers/handlers. Resolve with counts keyed by toggle key. */
   add: (map: MaplibreMap, ctx: AtlasContext) => Promise<Record<string, number>>

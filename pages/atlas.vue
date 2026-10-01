@@ -14,6 +14,15 @@ import type { AtlasLayerModule } from '~/utils/atlas/types'
 import { recordsLayer } from '~/utils/atlas/layers/records'
 import { coverageLayer } from '~/utils/atlas/layers/coverage'
 import { liveLayer, stopLive } from '~/utils/atlas/layers/live'
+import { newsLayer } from '~/utils/atlas/layers/news'
+import { revolutionLayer } from '~/utils/atlas/layers/revolution'
+import { shipsLayer } from '~/utils/atlas/layers/ships'
+import { camerasLayer } from '~/utils/atlas/layers/cameras'
+import { remediationLayer } from '~/utils/atlas/layers/remediation'
+import { privateLayer } from '~/utils/atlas/layers/private'
+import { notesLayer } from '~/utils/atlas/layers/notes'
+import story from '~/data/atlas/story.json'
+import { useEventListener, usePreferredReducedMotion } from '@vueuse/core'
 
 definePageMeta({ layout: false })
 useHead({
@@ -120,13 +129,29 @@ const LAYERS = reactive([
 // Layer modules (utils/atlas/layers/*): each adds its own sources, layers
 // and popups, and contributes legend rows below the built-in ones
 const MODULES: AtlasLayerModule[] = [
+  notesLayer,
   recordsLayer,
   { ...liveLayer, dispose: stopLive },
   coverageLayer,
+  shipsLayer,
+  newsLayer,
+  camerasLayer,
+  remediationLayer,
+  revolutionLayer,
+  privateLayer,
 ]
 
 const mapEl = ref<HTMLDivElement | null>(null)
 const is3d = ref(false)
+const privateMode = ref(false)
+
+// Story mode: chapters from data/atlas/story.json fly the camera place to place
+const chapters = story.chapters
+const storyIdx = ref<number | null>(null)
+const chapter = computed(() =>
+  storyIdx.value === null ? null : chapters[storyIdx.value]
+)
+const reducedMotion = usePreferredReducedMotion()
 let map: maplibregl.Map | null = null
 const error = ref('')
 
@@ -178,7 +203,7 @@ const vulpesFlavor = {
 }
 
 // 3D: drape the map over real terrain and tilt the camera
-const set3d = (on: boolean) => {
+const set3d = (on: boolean, animate = true) => {
   if (!map) return
   is3d.value = on
   map.setTerrain(on ? { source: 'dem3d', exaggeration: 2.2 } : null)
@@ -190,9 +215,35 @@ const set3d = (on: boolean) => {
     'horizon-fog-blend': 0.5,
     'fog-ground-blend': on ? 0.4 : 1,
   })
+  if (!animate) return
   if (on && map.getPitch() < 30) map.easeTo({ pitch: 62, duration: 900 })
   if (!on) map.easeTo({ pitch: 0, bearing: 0, duration: 700 })
 }
+
+const goChapter = (i: number) => {
+  if (!map || i < 0 || i >= chapters.length) return
+  storyIdx.value = i
+  const c = chapters[i]
+  for (const l of LAYERS) if (c.layers?.includes(l.key)) l.on = true
+  const tilt = (c.camera.pitch ?? 0) > 0
+  if (tilt !== is3d.value) set3d(tilt, false)
+  const camera = {
+    center: c.camera.center as [number, number],
+    zoom: c.camera.zoom,
+    pitch: c.camera.pitch ?? 0,
+    bearing: c.camera.bearing ?? 0,
+  }
+  if (reducedMotion.value === 'reduce') map.jumpTo(camera)
+  else map.flyTo({ ...camera, duration: 4500, essential: true })
+}
+const closeStory = () => (storyIdx.value = null)
+
+useEventListener('keydown', (e: KeyboardEvent) => {
+  if (storyIdx.value === null) return
+  if (e.key === 'ArrowRight') goChapter(storyIdx.value + 1)
+  else if (e.key === 'ArrowLeft') goChapter(storyIdx.value - 1)
+  else if (e.key === 'Escape') closeStory()
+})
 
 onMounted(async () => {
   maplibregl.setWorkerUrl(maplibreWorkerUrl)
@@ -468,7 +519,13 @@ onMounted(async () => {
           .setHTML(html)
           .addTo(m),
     }
-    for (const mod of MODULES) {
+    privateMode.value = await $fetch<{ private: boolean }>(
+      '/api/atlas/private/status'
+    )
+      .then((r) => r.private)
+      .catch(() => false)
+    const modules = MODULES.filter((mod) => !mod.private || privateMode.value)
+    for (const mod of modules) {
       for (const t of mod.toggles) LAYERS.push({ ...t, count: null })
       try {
         const counts = await mod.add(m, ctx)
@@ -499,6 +556,14 @@ onBeforeUnmount(() => {
       <p class="dek">
         Terrain, rides, records, radio, the river and the trains on one map
       </p>
+      <button
+        id="story-start"
+        type="button"
+        class="story-start"
+        @click="goChapter(0)"
+      >
+        ▶ Story · {{ story.title }}
+      </button>
       <div class="modes" role="group" aria-label="View">
         <button
           id="view-2d"
@@ -527,6 +592,10 @@ onBeforeUnmount(() => {
           </label>
         </li>
       </ul>
+      <p v-if="privateMode" class="private">
+        Private mode ·
+        <a href="/api/atlas/lock">lock</a>
+      </p>
       <p v-if="error" class="error">{{ error }}</p>
       <p class="fine">
         Points: OpenStreetMap (snapshot). Rides: published only,
@@ -534,6 +603,39 @@ onBeforeUnmount(() => {
         sites, so verify before you key up
       </p>
     </aside>
+
+    <section v-if="chapter" class="story" aria-live="polite">
+      <p class="story-meta">
+        {{ storyIdx! + 1 }} / {{ chapters.length }} · {{ chapter.place }}
+      </p>
+      <h2>{{ chapter.title }}</h2>
+      <p class="story-body">{{ chapter.body }}</p>
+      <p v-if="chapter.quote" class="story-quote">
+        “{{ chapter.quote }}”
+        <a v-if="chapter.url" :href="chapter.url">EJ, on ejfox.com ↗</a>
+      </p>
+      <nav class="story-nav">
+        <button
+          id="story-prev"
+          type="button"
+          :disabled="storyIdx === 0"
+          @click="goChapter(storyIdx! - 1)"
+        >
+          ← Back
+        </button>
+        <button id="story-close" type="button" @click="closeStory">
+          Close
+        </button>
+        <button
+          id="story-next"
+          type="button"
+          :disabled="storyIdx === chapters.length - 1"
+          @click="goChapter(storyIdx! + 1)"
+        >
+          Next →
+        </button>
+      </nav>
+    </section>
   </div>
 </template>
 
@@ -579,6 +681,113 @@ h1 {
   font-size: 13px;
   color: #b9b0b6;
   margin-bottom: 12px;
+}
+.story-start {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 9px 10px;
+  text-align: left;
+  font:
+    12px/1.3 ui-monospace,
+    'SF Mono',
+    Menlo,
+    monospace;
+  color: #0c0a0d;
+  background: #e60067;
+  border: 0;
+  cursor: pointer;
+}
+.story-start:focus-visible {
+  outline: 2px solid #6eedf7;
+  outline-offset: 2px;
+}
+.story {
+  position: absolute;
+  left: 50%;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 28px);
+  transform: translateX(-50%);
+  width: min(560px, calc(100vw - 32px));
+  max-height: 46vh;
+  overflow-y: auto;
+  padding: 18px 20px 14px;
+  background: rgb(12 10 13 / 0.92);
+  border: 1px solid #2a2228;
+  border-top: 2px solid #e60067;
+  backdrop-filter: blur(6px);
+}
+.story-meta {
+  font:
+    10px/1 ui-monospace,
+    'SF Mono',
+    Menlo,
+    monospace;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #6eedf7;
+}
+.story h2 {
+  font-family: 'Vault Alarm', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 26px;
+  line-height: 1.05;
+  margin: 8px 0 8px;
+}
+.story-body {
+  font:
+    15px/1.55 Georgia,
+    serif;
+  color: #d8d1d6;
+}
+.story-quote {
+  margin: 12px 0 0;
+  padding-left: 12px;
+  border-left: 2px solid #e60067;
+  font:
+    italic 15px/1.5 Georgia,
+    serif;
+  color: #fff;
+}
+.story-quote a {
+  display: block;
+  margin-top: 6px;
+  font:
+    normal 11px ui-monospace,
+    'SF Mono',
+    Menlo,
+    monospace;
+  color: #6eedf7;
+}
+.story-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 14px;
+}
+.story-nav button {
+  font:
+    11px/1 ui-monospace,
+    'SF Mono',
+    Menlo,
+    monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  color: #e9e4e7;
+  background: transparent;
+  border: 1px solid #2a2228;
+  cursor: pointer;
+}
+.story-nav button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.story-nav button:focus-visible {
+  outline: 2px solid #e60067;
+  outline-offset: 2px;
+}
+@media (max-width: 640px) {
+  .panel {
+    max-height: 40vh;
+  }
 }
 .modes {
   display: flex;
@@ -633,6 +842,16 @@ h1 {
 .count {
   color: #80767d;
   font-variant-numeric: tabular-nums;
+}
+.private {
+  margin-top: 10px;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #e60067;
+}
+.private a {
+  color: inherit;
 }
 .error {
   margin-top: 10px;
