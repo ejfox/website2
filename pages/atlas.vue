@@ -10,6 +10,8 @@ import mlcontour from 'maplibre-contour'
 import { Protocol } from 'pmtiles'
 import { layers as basemapLayers, namedFlavor } from '@protomaps/basemaps'
 import 'maplibre-gl/dist/maplibre-gl.css'
+import type { AtlasLayerModule } from '~/utils/atlas/types'
+import { recordsLayer } from '~/utils/atlas/layers/records'
 
 definePageMeta({ layout: false })
 useHead({
@@ -113,7 +115,12 @@ const LAYERS = reactive([
   },
 ])
 
+// Layer modules (utils/atlas/layers/*): each adds its own sources, layers
+// and popups, and contributes legend rows below the built-in ones
+const MODULES: AtlasLayerModule[] = [recordsLayer]
+
 const mapEl = ref<HTMLDivElement | null>(null)
+const is3d = ref(false)
 let map: maplibregl.Map | null = null
 const error = ref('')
 
@@ -164,6 +171,23 @@ const vulpesFlavor = {
   park_b: '#131613',
 }
 
+// 3D: drape the map over real terrain and tilt the camera
+const set3d = (on: boolean) => {
+  if (!map) return
+  is3d.value = on
+  map.setTerrain(on ? { source: 'dem3d', exaggeration: 2.2 } : null)
+  map.setSky({
+    'sky-color': VULPES.ground,
+    'horizon-color': '#24121c',
+    'fog-color': VULPES.ground,
+    'sky-horizon-blend': 0.6,
+    'horizon-fog-blend': 0.5,
+    'fog-ground-blend': on ? 0.4 : 1,
+  })
+  if (on && map.getPitch() < 30) map.easeTo({ pitch: 62, duration: 900 })
+  if (!on) map.easeTo({ pitch: 0, bearing: 0, duration: 700 })
+}
+
 onMounted(async () => {
   maplibregl.setWorkerUrl(maplibreWorkerUrl)
   const pmtiles = new Protocol()
@@ -193,6 +217,7 @@ onMounted(async () => {
       layers: basemapLayers('protomaps', vulpesFlavor, { lang: 'en' }),
     },
     maxZoom: 17,
+    maxPitch: 75, // the default 60 rejects tilted share links
     center: [-73.97, 41.6],
     zoom: 9.2,
     hash: true, // position lives in the URL, so a view can be shared
@@ -210,7 +235,7 @@ onMounted(async () => {
     ;(window as unknown as { __atlas: maplibregl.Map }).__atlas = map
   }
   map.addControl(
-    new maplibregl.NavigationControl({ visualizePitch: false }),
+    new maplibregl.NavigationControl({ visualizePitch: true }),
     'top-right'
   )
   map.addControl(
@@ -220,7 +245,7 @@ onMounted(async () => {
 
   const data = await $fetch<any>('/api/atlas').catch(() => null)
 
-  map.on('load', () => {
+  map.on('load', async () => {
     const m = map!
     const beforeLabels = m
       .getStyle()
@@ -231,6 +256,14 @@ onMounted(async () => {
       tiles: [TERRAIN_URL],
       tileSize: 256,
       maxzoom: 15,
+      encoding: 'terrarium',
+    })
+    // A separate DEM source for 3D terrain, as MapLibre recommends
+    m.addSource('dem3d', {
+      type: 'raster-dem',
+      tiles: [TERRAIN_URL],
+      tileSize: 256,
+      maxzoom: 14,
       encoding: 'terrarium',
     })
     m.addLayer(
@@ -419,11 +452,36 @@ onMounted(async () => {
     } else {
       error.value = 'Overlay data failed to load'
     }
+
+    const ctx = {
+      beforeLabels,
+      escapeHtml,
+      popup: (lngLat: maplibregl.LngLatLike, html: string) =>
+        new maplibregl.Popup({ closeButton: false, className: 'atlas-popup' })
+          .setLngLat(lngLat)
+          .setHTML(html)
+          .addTo(m),
+    }
+    for (const mod of MODULES) {
+      for (const t of mod.toggles) LAYERS.push({ ...t, count: null })
+      try {
+        const counts = await mod.add(m, ctx)
+        for (const l of LAYERS) if (l.key in counts) l.count = counts[l.key]
+      } catch (err) {
+        console.error('[atlas] layer module failed', mod.toggles[0]?.key, err)
+      }
+    }
     applyVisibility()
+
+    // A shared link with a tilt opens in 3D
+    if (m.getPitch() > 0) set3d(true)
   })
 })
 
-onBeforeUnmount(() => map?.remove())
+onBeforeUnmount(() => {
+  for (const mod of MODULES) mod.dispose?.()
+  map?.remove()
+})
 </script>
 
 <template>
@@ -435,6 +493,24 @@ onBeforeUnmount(() => map?.remove())
       <p class="dek">
         Terrain, rides, water, shelter, help and radio on one map
       </p>
+      <div class="modes" role="group" aria-label="View">
+        <button
+          id="view-2d"
+          type="button"
+          :aria-pressed="!is3d"
+          @click="set3d(false)"
+        >
+          2D
+        </button>
+        <button
+          id="view-3d"
+          type="button"
+          :aria-pressed="is3d"
+          @click="set3d(true)"
+        >
+          3D terrain
+        </button>
+      </div>
       <ul class="layers">
         <li v-for="l in LAYERS" :key="l.key">
           <label>
@@ -497,6 +573,35 @@ h1 {
   font-size: 13px;
   color: #b9b0b6;
   margin-bottom: 12px;
+}
+.modes {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+.modes button {
+  flex: 1;
+  font:
+    11px/1 ui-monospace,
+    'SF Mono',
+    Menlo,
+    monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 7px 8px;
+  color: #b9b0b6;
+  background: transparent;
+  border: 1px solid #2a2228;
+  cursor: pointer;
+}
+.modes button[aria-pressed='true'] {
+  color: #0c0a0d;
+  background: #6eedf7;
+  border-color: #6eedf7;
+}
+.modes button:focus-visible {
+  outline: 2px solid #e60067;
+  outline-offset: 2px;
 }
 .layers {
   display: grid;
