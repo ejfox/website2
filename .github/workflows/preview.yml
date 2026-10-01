@@ -1,9 +1,16 @@
 name: PR Preview
 
-# Static preview per PR at http://pr-<number>.preview.ejfox.com
-# Build -> tar -> scp to VPS -> extract into /var/www/previews/pr-<number>/,
-# which Caddy serves via its `@preview host *.preview.ejfox.com` block.
-# (No rsync — it isn't installed on the VPS; we use tar+scp like deploy.yml.)
+# A real, running preview per PR at https://pr-<number>.preview.ejfox.com:
+# the same node-server build production runs, so /api/* routes work.
+#
+# Build on the runner (never on the VPS — see CLAUDE.md), ship .output plus
+# the branch's content/processed and data/ (server routes read them relative
+# to cwd), and run it under pm2 as `preview-pr-<n>` on 127.0.0.1:41<n>.
+# Caddy maps pr-<n>.preview.ejfox.com → 127.0.0.1:41<n>; when no preview
+# server is running it falls back to an old static snapshot, if one exists.
+#
+# The preview loads production's .env (read-only API keys), so only PRs whose
+# workflow can read VPS_SSH_KEY deploy — fork PRs never get repository secrets.
 
 on:
   pull_request:
@@ -13,6 +20,10 @@ on:
 concurrency:
   group: preview-${{ github.event.number }}
   cancel-in-progress: true
+
+env:
+  PR: pr-${{ github.event.number }}
+  PORT: 41${{ github.event.number }}
 
 jobs:
   deploy-preview:
@@ -33,21 +44,16 @@ jobs:
       - name: Process content
         run: yarn blog:process || echo 'blog:process failed — using committed processed content'
 
-      - name: Build static preview
-        run: yarn generate
+      - name: Build (node-server preset)
+        run: NITRO_PRESET=node-server yarn build
         env:
-          NUXT_PUBLIC_BASE_URL: http://pr-${{ github.event.number }}.preview.ejfox.com
-          # Enrich the static snapshot with what secrets we have. Missing ones
-          # (e.g. GitHub) just render empty in the preview — non-fatal.
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
-          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
-          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          NODE_ENV: production
 
-      - name: Package static output
-        run: tar czf preview.tar.gz -C .output/public .
+      - name: Package
+        run: |
+          test -f .output/server/index.mjs
+          tar czf preview.tar.gz .output content/processed data
+          echo "Package: $(du -h preview.tar.gz | cut -f1)"
 
       - name: Copy to VPS
         uses: appleboy/scp-action@v0.1.7
@@ -56,35 +62,73 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           source: preview.tar.gz
-          target: /tmp/pr-${{ github.event.number }}/
+          target: /tmp/${{ env.PR }}/
 
-      - name: Extract on VPS
+      - name: Start preview server on VPS
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
+          envs: PR,PORT
           script: |
-            set -e
-            PR="pr-${{ github.event.number }}"
-            DIR="/var/www/previews/$PR"
+            set -euo pipefail
+            BASE="/data2/previews/$PR"
             TARBALL="/tmp/$PR/preview.tar.gz"
-            rm -rf "$DIR" && mkdir -p "$DIR"
-            tar xzf "$TARBALL" -C "$DIR"
-            rm -rf "/tmp/$PR"
-            echo "Deployed $PR ($(find "$DIR" -type f | wc -l) files)"
+
+            # Extract, verify, then swap — never leave a half-extracted preview
+            rm -rf "$BASE.staging" && mkdir -p "$BASE.staging"
+            tar xzf "$TARBALL" -C "$BASE.staging"
+            test -f "$BASE.staging/.output/server/index.mjs"
+            rm -rf "$BASE.old"
+            if [ -d "$BASE" ]; then mv "$BASE" "$BASE.old"; fi
+            mv "$BASE.staging" "$BASE"
+            rm -rf "$BASE.old" "/tmp/$PR"
+
+            # A running server replaces the old static snapshot
+            rm -rf "/var/www/previews/$PR"
+
+            cat > "$BASE/ecosystem.config.cjs" <<EOF
+            module.exports = {
+              apps: [{
+                name: "preview-$PR",
+                script: ".output/server/index.mjs",
+                cwd: "$BASE",
+                node_args: "--env-file=/data2/website2/.env",
+                max_memory_restart: "350M",
+                env: {
+                  NODE_ENV: "production",
+                  NITRO_HOST: "127.0.0.1",
+                  NITRO_PORT: "$PORT",
+                  PORT: "$PORT",
+                  NUXT_PUBLIC_BASE_URL: "https://$PR.preview.ejfox.com",
+                },
+              }],
+            };
+            EOF
+            pm2 startOrReload "$BASE/ecosystem.config.cjs" --update-env
+            pm2 save
+
+            for i in $(seq 1 30); do
+              code=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:$PORT/api/healthcheck" || true)
+              if [ "$code" = "200" ]; then echo "preview-$PR healthy on :$PORT"; exit 0; fi
+              sleep 2
+            done
+            echo "preview-$PR failed its health check"
+            pm2 logs "preview-$PR" --lines 40 --nostream || true
+            exit 1
 
       - name: Comment preview URL on PR
         uses: actions/github-script@v7
         with:
           script: |
-            const url = `http://pr-${{ github.event.number }}.preview.ejfox.com`
+            const url = `https://pr-${{ github.event.number }}.preview.ejfox.com`
             const marker = '<!-- preview-url -->'
             const body = [
               marker,
               `🚀 **Preview:** ${url}`,
               '',
-              '_Static build — API-driven sections show build-time data. Refreshed on every push._'
+              `_A running server for \`${context.payload.pull_request.head.sha.slice(0, 7)}\` with live API routes. Refreshed on every push, removed when the PR closes._`
             ].join('\n')
             const { data: comments } = await github.rest.issues.listComments({
               ...context.repo,
@@ -109,10 +153,14 @@ jobs:
     if: github.event.action == 'closed'
     runs-on: ubuntu-latest
     steps:
-      - name: Remove preview from VPS
+      - name: Stop and remove the preview
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
-          script: rm -rf "/var/www/previews/pr-${{ github.event.number }}"
+          envs: PR
+          script: |
+            pm2 delete "preview-$PR" 2>/dev/null || true
+            pm2 save
+            rm -rf "/data2/previews/$PR" "/var/www/previews/$PR"
