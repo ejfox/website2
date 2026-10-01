@@ -13,6 +13,7 @@ import 'maplibre-gl/dist/maplibre-gl.css'
 import type { AtlasLayerModule } from '~/utils/atlas/types'
 import { recordsLayer } from '~/utils/atlas/layers/records'
 import { coverageLayer } from '~/utils/atlas/layers/coverage'
+import { liveLayer, stopLive } from '~/utils/atlas/layers/live'
 
 definePageMeta({ layout: false })
 useHead({
@@ -118,7 +119,11 @@ const LAYERS = reactive([
 
 // Layer modules (utils/atlas/layers/*): each adds its own sources, layers
 // and popups, and contributes legend rows below the built-in ones
-const MODULES: AtlasLayerModule[] = [recordsLayer, coverageLayer]
+const MODULES: AtlasLayerModule[] = [
+  recordsLayer,
+  { ...liveLayer, dispose: stopLive },
+  coverageLayer,
+]
 
 const mapEl = ref<HTMLDivElement | null>(null)
 const is3d = ref(false)
@@ -492,7 +497,7 @@ onBeforeUnmount(() => {
       <p class="eyebrow">Hudson Valley · v0</p>
       <h1>Valley Atlas</h1>
       <p class="dek">
-        Terrain, rides, water, shelter, help and radio on one map
+        Terrain, rides, records, radio, the river and the trains on one map
       </p>
       <div class="modes" role="group" aria-label="View">
         <button
