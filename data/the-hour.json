@@ -1,0 +1,31 @@
+{
+  "_": "The Hour: one weekly live show. Times carry an explicit UTC offset (EDT is -04:00 until Nov 1, then EST is -05:00). Add an episode by appending to `episodes`; the page shows the first one that hasn't ended.",
+  "slot": "Sundays, 11am to noon Eastern",
+  "watch": "https://www.youtube.com/@ejfox/live",
+  "episodes": [
+    {
+      "n": 1,
+      "start": "2026-10-04T11:00:00-04:00",
+      "title": "The projects, narrated",
+      "goal": "Drive the flagship projects on screen and tell how each one came to be"
+    },
+    {
+      "n": 2,
+      "start": "2026-10-11T11:00:00-04:00",
+      "title": "The Valley Atlas, live",
+      "goal": "Open the atlas and add repeaters with chat: frequencies, tones, sites"
+    },
+    {
+      "n": 3,
+      "start": "2026-10-18T11:00:00-04:00",
+      "title": "File one live",
+      "goal": "Walk the FOIL Runbook and answer an open records request on screen"
+    },
+    {
+      "n": 4,
+      "start": "2026-10-25T11:00:00-04:00",
+      "title": "Connectology, year one",
+      "goal": "The five-year promise for Connectology, and a first outside user onboarded live"
+    }
+  ]
+}
