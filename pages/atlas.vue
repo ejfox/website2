@@ -12,6 +12,7 @@ import { layers as basemapLayers, namedFlavor } from '@protomaps/basemaps'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import type { AtlasLayerModule } from '~/utils/atlas/types'
 import { recordsLayer } from '~/utils/atlas/layers/records'
+import { coverageLayer } from '~/utils/atlas/layers/coverage'
 
 definePageMeta({ layout: false })
 useHead({
@@ -117,7 +118,7 @@ const LAYERS = reactive([
 
 // Layer modules (utils/atlas/layers/*): each adds its own sources, layers
 // and popups, and contributes legend rows below the built-in ones
-const MODULES: AtlasLayerModule[] = [recordsLayer]
+const MODULES: AtlasLayerModule[] = [recordsLayer, coverageLayer]
 
 const mapEl = ref<HTMLDivElement | null>(null)
 const is3d = ref(false)
