@@ -276,6 +276,11 @@ export default defineNuxtConfig({
       // ssr:false — it's a pure client-side dev tool that dynamically renders
       // arbitrary components; skipping SSR avoids hydration mismatches and keeps
       // its ?raw source bundles out of the server render path.
+      // Valley Atlas (/atlas) — hidden v0 until EJ signs off. Client-only (MapLibre).
+      '/atlas': {
+        ssr: false,
+        headers: { 'X-Robots-Tag': 'noindex, nofollow' },
+      },
       '/kitchen-sink': {
         ssr: false,
         headers: { 'X-Robots-Tag': 'noindex, nofollow' },
@@ -345,6 +350,8 @@ export default defineNuxtConfig({
   ],
 
   vite: {
+    // ES-module workers (MapLibre v6's worker imports a shared chunk)
+    worker: { format: 'es' },
     server: {
       watch: {
         ignored: [
@@ -392,6 +399,9 @@ export default defineNuxtConfig({
         'd3-scale',
         'd3-array',
         'd3-shape',
+        // maplibre-gl v6 loads its worker via a relative import.meta.url;
+        // pre-bundling moves the module and breaks that path
+        'maplibre-gl',
       ], // Lazy load heavy libs
       // force: true // DISABLED FOR DEV - was forcing aggressive dep caching
     },

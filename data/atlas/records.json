@@ -1,0 +1,317 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.36062,
+          41.4042
+        ]
+      },
+      "properties": {
+        "name": "Orange County Correctional Facility",
+        "kind": "detention",
+        "summary": "The Orange County jail in Goshen, run by the Sheriff's Office, has held ICE detainees under an intergovernmental service agreement since 2008",
+        "wiki": "https://archive.ejfox.com/wiki/Orange_County_Correctional_Facility",
+        "foil": [
+          "FOIL: DHS + Orange County Jail",
+          "FOIL: DHS + Orange County Jail (Department of Homeland Security)",
+          "FOIL: Meta OCNY ICE FOIL re: Redactions"
+        ],
+        "precision": "address"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.28948,
+          41.34743
+        ]
+      },
+      "properties": {
+        "name": "29 Elizabeth Drive (Chester ICE Facility)",
+        "kind": "site",
+        "summary": "A vacant former Pep Boys warehouse that DHS proposed converting into an ICE processing facility in January 2026, then dropped on February 20",
+        "wiki": "https://archive.ejfox.com/wiki/Chester_ICE_Facility",
+        "foil": [
+          "FOIL: Chester Warehouse Records",
+          "FOIL: Chester Warehouse Records (District Attorney)"
+        ],
+        "precision": "address"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.078,
+          41.4892
+        ]
+      },
+      "properties": {
+        "name": "New Windsor ICE Office",
+        "kind": "agency",
+        "summary": "Office space at 843 Union Avenue near Stewart International Airport that the General Services Administration leases for ICE",
+        "wiki": "https://archive.ejfox.com/wiki/New_Windsor_ICE_Office",
+        "foil": [
+          "FOIL: Chester Warehouse Records"
+        ],
+        "precision": "address"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.31808,
+          41.40679
+        ]
+      },
+      "properties": {
+        "name": "Orange County Government Center",
+        "kind": "agency",
+        "summary": "Orange County released 172 pages of records showing how it prepared to resist the proposed Chester ICE facility",
+        "wiki": "https://archive.ejfox.com/wiki/FOIL%3A_Chester_Warehouse_Records",
+        "foil": [
+          "FOIL: Chester Warehouse Records",
+          "FOIL: ICE Meta-FOIL"
+        ],
+        "precision": "facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.33616,
+          41.39807
+        ]
+      },
+      "properties": {
+        "name": "Orange County District Attorney",
+        "kind": "agency",
+        "summary": "A request for county communications mentioning the Chester warehouse, filed with the District Attorney in March 2026, awaits a response",
+        "wiki": "https://archive.ejfox.com/wiki/FOIL%3A_Chester_Warehouse_Records_(District_Attorney)",
+        "foil": [
+          "FOIL: Chester Warehouse Records (District Attorney)"
+        ],
+        "precision": "address"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.35502,
+          41.40862
+        ]
+      },
+      "properties": {
+        "name": "Hudson Valley Crime Analysis Center",
+        "kind": "police",
+        "summary": "One of the eleven state-supported crime analysis centers, housed at Orange County Emergency Services and covering six Hudson Valley counties",
+        "wiki": "https://archive.ejfox.com/wiki/FOIL%3A_NY_Crime_Analysis_Centers",
+        "foil": [
+          "FOIL: NY Crime Analysis Centers"
+        ],
+        "precision": "facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.58886,
+          41.44834
+        ]
+      },
+      "properties": {
+        "name": "Dragon Springs",
+        "kind": "site",
+        "summary": "A 423-acre property in Cuddebackville operated as a place of worship with temple buildings and two religious schools",
+        "wiki": "https://archive.ejfox.com/wiki/Dragon_Springs_construction_and_regulatory_timeline",
+        "foil": [
+          "FOIL: Dragon Springs Buddhist Inc. — Building Permits, Violations & Fines 2016–2025",
+          "FOIL: Dragon Springs inspections (Town of Deerpark)",
+          "FOIL: NYSDEC + Dragon Springs Wetlands"
+        ],
+        "precision": "address"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.63024,
+          41.41798
+        ]
+      },
+      "properties": {
+        "name": "Deerpark Town Hall",
+        "kind": "agency",
+        "summary": "The Town of Deerpark released 1,906 pages of building permit, violation and fine records on the Dragon Springs property",
+        "wiki": "https://archive.ejfox.com/wiki/Town_Of_Deerpark",
+        "foil": [
+          "FOIL: Dragon Springs Buddhist Inc. — Building Permits, Violations & Fines 2016–2025",
+          "FOIL: Dragon Springs inspections (Town of Deerpark)"
+        ],
+        "precision": "facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.16792,
+          41.34204
+        ]
+      },
+      "properties": {
+        "name": "Kiryas Joel annexation",
+        "kind": "site",
+        "summary": "Two 2015 petitions sought to annex about 507 and 165 acres of the Town of Monroe into the Village of Kiryas Joel",
+        "wiki": "https://archive.ejfox.com/wiki/Kiryas_Joel_annexation",
+        "foil": [],
+        "precision": "town"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -74.36344,
+          41.44737
+        ]
+      },
+      "properties": {
+        "name": "NYSP Troop F",
+        "kind": "police",
+        "summary": "Crash reports involving State Police Troop F vehicles since 2023 were requested in November 2025; the request awaits a fix",
+        "wiki": "https://archive.ejfox.com/wiki/FOIL%3A_Troop_F_Officer-Involved_Vehicle_Crashes_2023%E2%80%932025",
+        "foil": [
+          "FOIL: Troop F Officer-Involved Vehicle Crashes 2023–2025"
+        ],
+        "precision": "facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.75431,
+          41.78329
+        ]
+      },
+      "properties": {
+        "name": "NYSP Troop K",
+        "kind": "police",
+        "summary": "Crash reports involving State Police Troop K vehicles since 2023 were requested in November 2025; the request awaits payment",
+        "wiki": "https://archive.ejfox.com/wiki/FOIL%3A_Troop_K_Officer-Involved_Vehicle_Crashes_2023%E2%80%932025",
+        "foil": [
+          "FOIL: Troop K Officer-Involved Vehicle Crashes 2023–2025"
+        ],
+        "precision": "facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.79544,
+          41.5533
+        ]
+      },
+      "properties": {
+        "name": "East Fishkill Police Department",
+        "kind": "police",
+        "summary": "State Police records of a December 2023 fatal crash involving an East Fishkill officer have been requested twice and not released",
+        "wiki": "https://archive.ejfox.com/wiki/FOIL%3A_Fatal_Crash_Involving_East_Fishkill_Police_Officer_%E2%80%94_December_2023",
+        "foil": [
+          "FOIL: Fatal Crash Involving East Fishkill Police Officer — December 2023"
+        ],
+        "precision": "facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.98548,
+          41.92099
+        ]
+      },
+      "properties": {
+        "name": "Kingston Police Department",
+        "kind": "police",
+        "summary": "The municipal police department for the City of Kingston, which released correspondence on a request about one of its officers",
+        "wiki": "https://archive.ejfox.com/wiki/Kingston_Police_Department",
+        "foil": [
+          "FOIL: Kingston PD: Anthony Simon"
+        ],
+        "precision": "facility"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.93424,
+          41.68881
+        ]
+      },
+      "properties": {
+        "name": "Central Hudson Gas & Electric",
+        "kind": "utility",
+        "summary": "The state utility regulator answered requests on Central Hudson's enforcement record by pointing to 13 public docket numbers",
+        "wiki": "https://archive.ejfox.com/wiki/FOIL%3A_PSC_Enforcement_Actions",
+        "foil": [
+          "FOIL: PSC Enforcement Actions",
+          "FOIL: Central Hudson Metadata",
+          "FOIL: State Government Central Hudson Expenditures"
+        ],
+        "precision": "address"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.81867,
+          42.68322
+        ]
+      },
+      "properties": {
+        "name": "New York State Police headquarters",
+        "kind": "police",
+        "summary": "The State Police released a log of 9,376 drone flights flown in 2025 and rejected a request for its agreements with ICE",
+        "wiki": "https://archive.ejfox.com/wiki/FOIL%3A_NYSP_Drone_Flights_2025",
+        "foil": [
+          "FOIL: NYSP Drone Flights 2025",
+          "FOIL: NYSP + ICE Coordination",
+          "FOIL: NYSP + ICE (v2) — Visitor Logs",
+          "FOIL: NYSP — Memoranda Agreements",
+          "FOIL: NYSP Databases",
+          "FOIL: NYSP Meta-FOIA"
+        ],
+        "precision": "facility"
+      }
+    }
+  ]
+}
