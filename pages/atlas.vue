@@ -21,7 +21,10 @@ const BASEMAP_URL =
   'https://pub-d198c0af42af471bb2e755ad4a268050.r2.dev/basemap/hudson-valley-20260930.pmtiles'
 const TERRAIN_URL =
   'https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png'
-const ASSETS = 'https://protomaps.github.io/basemaps-assets'
+// Fonts + sprites mirrored from protomaps/basemaps-assets into the same
+// bucket. Only the Latin glyph ranges are mirrored (labels are English),
+// so a rare non-Latin glyph renders blank rather than breaking the map.
+const ASSETS = 'https://pub-d198c0af42af471bb2e755ad4a268050.r2.dev/assets'
 
 const VULPES = {
   ground: '#0c0a0d',
@@ -249,6 +252,8 @@ onMounted(async () => {
         type: 'line',
         source: 'contours',
         'source-layer': 'contours',
+        // Terrarium includes river bathymetry; skip sea level and below
+        filter: ['>', ['get', 'ele'], 0],
         paint: {
           'line-color': VULPES.teal,
           'line-opacity': ['case', ['==', ['get', 'level'], 1], 0.42, 0.16],
@@ -262,7 +267,7 @@ onMounted(async () => {
       type: 'symbol',
       source: 'contours',
       'source-layer': 'contours',
-      filter: ['>', ['get', 'level'], 0],
+      filter: ['all', ['>', ['get', 'level'], 0], ['>', ['get', 'ele'], 0]],
       layout: {
         'symbol-placement': 'line',
         'text-size': 10,
